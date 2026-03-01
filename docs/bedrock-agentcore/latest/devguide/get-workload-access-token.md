@@ -7,18 +7,12 @@ need to know.
 
 ###### Topics
 
-- [What is a workload access
-  token?](#workload-access-token-overview "#workload-access-token-overview")
-- [How Runtime and Gateway
-  automatically obtain tokens](#how-runtime-gateway-obtain-tokens "#how-runtime-gateway-obtain-tokens")
-- [How to manually retrieve
-  workload access tokens](#manual-token-retrieval-patterns "#manual-token-retrieval-patterns")
-- [Security controls for
-  GetWorkloadAccessTokenForUserId API](#security-controls-getuserid-api "#security-controls-getuserid-api")
+- [What is a workload access token?](#workload-access-token-overview "#workload-access-token-overview")
+- [How Runtime and Gateway automatically obtain tokens](#how-runtime-gateway-obtain-tokens "#how-runtime-gateway-obtain-tokens")
+- [How to manually retrieve workload access tokens](#manual-token-retrieval-patterns "#manual-token-retrieval-patterns")
+- [Security controls for GetWorkloadAccessTokenForUserId API](#security-controls-getuserid-api "#security-controls-getuserid-api")
 
-## What is a workload access
-
-token?
+## What is a workload access token?
 
 A workload access token is an AWS-signed opaque access token that enables
 agents to access first-party AgentCore services, such as outbound credential
@@ -41,9 +35,7 @@ management in most scenarios.
   – Tokens contain both user identity and agent identity
   information for secure credential access
 
-## How Runtime and Gateway
-
-automatically obtain tokens
+## How Runtime and Gateway automatically obtain tokens
 
 When an agent is invoked through AgentCore Runtime or Gateway with inbound
 authentication, the service automatically handles workload access token
@@ -62,9 +54,7 @@ generation:
 This automatic process ensures agents receive properly scoped tokens without
 manual intervention.
 
-## How to manually retrieve
-
-workload access tokens
+## How to manually retrieve workload access tokens
 
 There are two patterns to use to retrieve the workload access token depending
 on how you are able to identify the end user of the agent:
@@ -94,9 +84,7 @@ workload_access_token= identity_client.get_workload_access_token(workload_name= 
 workload_access_token= identity_client.get_workload_access_token(workload_name= "my-demo-agent", user_id= "insert-user-name-or-identifier")
 ```
 
-## Security controls for
-
-`GetWorkloadAccessTokenForUserId` API
+## Security controls for `GetWorkloadAccessTokenForUserId` API
 
 The `GetWorkloadAccessTokenForUserId` API implements several
 security controls to prevent unauthorized access:
@@ -133,5 +121,4 @@ access.
 
 For additional security controls, you can implement fine-grained access
 policies to restrict which workload identities can access specific credential
-providers. For more information, see [Scope down access to credential
-providers by workload identity](scope-credential-provider-access.md "scope-credential-provider-access.md").
+providers. For more information, see [Scope down access to credential providers by workload identity](scope-credential-provider-access.md "scope-credential-provider-access.md").

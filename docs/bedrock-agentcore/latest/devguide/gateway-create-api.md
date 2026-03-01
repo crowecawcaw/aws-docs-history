@@ -16,8 +16,7 @@ Minimally, you must specify the following fields:
 
 - `clientToken` – A client token value to ensure that a request completes no more than once. If you don't include this token, one is randomly generated for you. If you don't include a value, one is randomly generated for you. For more information, see [Ensuring idempotency](../../../ec2/latest/devguide/ec2-api-idempotency.md "../../../ec2/latest/devguide/ec2-api-idempotency.md").
 - `authorizerConfiguration` – If your authorizer type is `CUSTOM_JWT`, you must include this field to specify the gateway authorization and authentication parameters. For more information, see [The authorizer configuration](#gateway-create-api-authorizer-config "#gateway-create-api-authorizer-config").
-- `kmsKeyArn` – To encrypt your gateway with a KMS key include the ARN of the key in this field. For more information, see [Encrypt your AgentCore gateway with a customer-managed
-  KMS key](gateway-encryption.md "gateway-encryption.md").
+- `kmsKeyArn` – To encrypt your gateway with a KMS key include the ARN of the key in this field. For more information, see [Encrypt your AgentCore gateway with a customer-managed KMS key](gateway-encryption.md "gateway-encryption.md").
 - `exceptionLevel` – To turn on debugging messages when invoking the gateway, set this value to `DEBUG`. For more information, see [Turn on debugging messages](gateway-debug-messages.md "gateway-debug-messages.md"). For examples of creating a gateway with this setting, see [Create a gateway with debugging messages](#gateway-create-ex-debug "#gateway-create-ex-debug").
 - `interceptorConfigurations` – To turn on custom code that is run when invoking your gateway, include this field. For more information, see [Using interceptors with Gateway](gateway-interceptors.md "gateway-interceptors.md"). For examples of creating a gateway with interceptors, see [Create a gateway with interceptor configurations](#gateway-create-ex-basic-interceptors "#gateway-create-ex-basic-interceptors").
 - `protocolConfiguration` – To include customizations for the gateway protocol, configure the settings in this field. For options in this configuration, see [GatewayProtocolConfiguration](../../../bedrock-agentcore-control/latest/APIReference/API_GatewayProtocolConfiguration.md "../../../bedrock-agentcore-control/latest/APIReference/API_GatewayProtocolConfiguration.md").
@@ -107,19 +106,15 @@ To see examples of how to create a gateway, expand the section that corresponds 
 
 ###### Topics
 
-- [Create a gateway: basic example (Custom JWT
-  authorization)](#gateway-create-ex-basic-jwt "#gateway-create-ex-basic-jwt")
-- [Create a gateway: basic example (IAM
-  authorization)](#gateway-create-ex-basic-iam "#gateway-create-ex-basic-iam")
+- [Create a gateway: basic example (Custom JWT authorization)](#gateway-create-ex-basic-jwt "#gateway-create-ex-basic-jwt")
+- [Create a gateway: basic example (IAM authorization)](#gateway-create-ex-basic-iam "#gateway-create-ex-basic-iam")
 - [Create a gateway: basic example (NONE authorizer)](#gateway-create-ex-basic-none-auth "#gateway-create-ex-basic-none-auth")
 - [Create a gateway with semantic search](#gateway-create-ex-semantic "#gateway-create-ex-semantic")
 - [Create a gateway with debugging messages](#gateway-create-ex-debug "#gateway-create-ex-debug")
 - [Create a gateway with interceptor configurations](#gateway-create-ex-basic-interceptors "#gateway-create-ex-basic-interceptors")
 - [Create a gateway with a policy engine configuration](#gateway-create-ex-policy-engine "#gateway-create-ex-policy-engine")
 
-## Create a gateway: basic example (Custom JWT
-
-authorization)
+## Create a gateway: basic example (Custom JWT authorization)
 
 This section provides basic examples of creating a gateway.
 
@@ -291,9 +286,7 @@ gateway = client.create_gateway(
 print(f"MCP Endpoint: {gateway['gatewayUrl']}")
 ```
 
-## Create a gateway: basic example (IAM
-
-authorization)
+## Create a gateway: basic example (IAM authorization)
 
 This section provides basic examples of creating a gateway using IAM authorization. With IAM authorization, you don't need an authorizer configuration.
 

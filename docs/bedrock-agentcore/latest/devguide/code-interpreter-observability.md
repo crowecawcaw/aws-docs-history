@@ -24,5 +24,4 @@ You can view the following metrics in Amazon CloudWatch:
 These metrics can be used to monitor the usage and performance of your code interpreter sessions,
 set up alarms for abnormal behavior, and optimize your resource allocation.
 
-For more information, see [AgentCore generated built-in tools
-observability data](observability-tool-metrics.md "observability-tool-metrics.md").
+For more information, see [AgentCore generated built-in tools observability data](observability-tool-metrics.md "observability-tool-metrics.md").

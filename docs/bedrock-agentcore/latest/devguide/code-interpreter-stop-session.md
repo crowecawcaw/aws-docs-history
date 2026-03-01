@@ -1,6 +1,4 @@
-# Stopping a AgentCore Code Interpreter
-
-session
+# Stopping a AgentCore Code Interpreter session
 
 When you are finished using a Code Interpreter session, you should stop it to release
 resources and avoid unnecessary charges.

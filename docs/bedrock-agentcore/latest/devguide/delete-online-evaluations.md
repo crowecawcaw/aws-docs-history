@@ -9,9 +9,7 @@ An online evaluation can only be deleted when the configuration is in Active,
 UpdateFailed, or Disabled status. Configurations currently being created or updated must
 complete their operations before deletion is allowed.
 
-## Code samples for Starter
-
-Toolkit, AgentCore SDK, and AWS SDK
+## Code samples for Starter Toolkit, AgentCore SDK, and AWS SDK
 
 The following code samples demonstrate how to delete online evaluation
 configurations using different development approaches. Choose the method that best

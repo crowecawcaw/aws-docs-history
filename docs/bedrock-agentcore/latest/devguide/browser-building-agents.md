@@ -1,6 +1,4 @@
-# Using AgentCore Browser with other Browser libraries and
-
-tools
+# Using AgentCore Browser with other Browser libraries and tools
 
 You can build browser agents using various frameworks and libraries to automate web
 interactions. This section demonstrates how to build browser agents using different

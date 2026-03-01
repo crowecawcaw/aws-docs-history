@@ -1,6 +1,4 @@
-# Example: Authorization for the default
-
-gateway and target created by the AgentCore starter toolkit
+# Example: Authorization for the default gateway and target created by the AgentCore starter toolkit
 
 If you used the AgentCore starter toolkit to create a gateway and a Lambda target,
 you'll authorize with the following:

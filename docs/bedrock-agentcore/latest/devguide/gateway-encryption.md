@@ -1,6 +1,4 @@
-# Encrypt your AgentCore gateway with a customer-managed
-
-KMS key
+# Encrypt your AgentCore gateway with a customer-managed KMS key
 
 By default, Gateway encrypts your data at rest using a service-managed AWS Key Management Service
 key. However, you can optionally provide your own customer managed KMS key for encrypting
@@ -23,9 +21,7 @@ If you choose to use a customer managed key, you are responsible for managing th
 and its permissions. If the key is disabled or deleted, or if Gateway loses
 permission to use the key, you will lose access to the encrypted data.
 
-## Prerequisites for encrypting your AgentCore
-
-gateway
+## Prerequisites for encrypting your AgentCore gateway
 
 Before encrypting your gateway, ensure that you have fulfilled the following
 prerequsites:
@@ -179,8 +175,7 @@ Console
 
 ###### Note
 
-If you don't see your KMS key, go over the [Prerequisites for encrypting your AgentCore
-gateway](#gateway-encryption-prereqs "#gateway-encryption-prereqs") and check that the permissions are properly configured. 4. Continue through the remaining console steps.
+If you don't see your KMS key, go over the [Prerequisites for encrypting your AgentCore gateway](#gateway-encryption-prereqs "#gateway-encryption-prereqs") and check that the permissions are properly configured. 4. Continue through the remaining console steps.
 
 CLI
 To encrypt your gateway using the AWS CLI, include the `kms-key-arn`

@@ -70,9 +70,7 @@ Before using browser profiles, ensure you have:
 }
 ```
 
-## Getting started with browser
-
-profiles
+## Getting started with browser profiles
 
 This section walks you through creating a browser profile, saving session data to it,
 and reusing the profile in subsequent sessions.
@@ -125,9 +123,7 @@ awscurl -X PUT \
   }'
 ```
 
-### Step 2: Start a browser session and perform
-
-actions
+### Step 2: Start a browser session and perform actions
 
 Start a browser session and perform actions such as login a website. The
 session state, including cookies and local storage, will be captured.
@@ -235,9 +231,7 @@ awscurl -X PUT \
   }'
 ```
 
-### Step 4: Start a new session with the
-
-profile
+### Step 4: Start a new session with the profile
 
 Start a new browser session using the saved profile. The session will be initialized
 with the saved state, including authentication cookies and local storage.

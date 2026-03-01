@@ -12,8 +12,7 @@ it with your existing monitoring and observability stack.
 
 By default, AgentCore outputs a set of key built-in metrics for agents, gateway resources, and memory resources. For memory resources, AgentCore
 also outputs spans and log data if you enable it. You can also instrument your agent
-code to provide additional span and trace data and custom metrics and logs. See [Add observability to your Amazon Bedrock AgentCore
-resources](observability-configure.md "observability-configure.md") to learn more.
+code to provide additional span and trace data and custom metrics and logs. See [Add observability to your Amazon Bedrock AgentCore resources](observability-configure.md "observability-configure.md") to learn more.
 
 All of the metrics, spans, and logs output by AgentCore are stored in Amazon CloudWatch, and can be viewed in the CloudWatch console
 or downloaded from CloudWatch using the AWS CLI or one of the AWS SDKs.
@@ -24,9 +23,7 @@ custom span metrics, error breakdowns, and more. To learn more about viewing you
 ###### Topics
 
 - [Get started with AgentCore Observability](observability-get-started.md "observability-get-started.md")
-- [Add observability to your Amazon Bedrock AgentCore
-  resources](observability-configure.md "observability-configure.md")
+- [Add observability to your Amazon Bedrock AgentCore resources](observability-configure.md "observability-configure.md")
 - [Understand observability for agentic resources in AgentCore](observability-telemetry.md "observability-telemetry.md")
-- [Amazon Bedrock AgentCore generated observability
-  data](observability-service-provided.md "observability-service-provided.md")
+- [Amazon Bedrock AgentCore generated observability data](observability-service-provided.md "observability-service-provided.md")
 - [View observability data for your Amazon Bedrock AgentCore agents](observability-view.md "observability-view.md")

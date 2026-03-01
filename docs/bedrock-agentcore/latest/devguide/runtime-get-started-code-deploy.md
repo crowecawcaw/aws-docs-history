@@ -1,6 +1,4 @@
-# Get started with Amazon Bedrock AgentCore Runtime direct
-
-code deployment
+# Get started with Amazon Bedrock AgentCore Runtime direct code deployment
 
 Direct code deployment enables you to bring your Python-based agent to Amazon Bedrock AgentCore Runtime
 simply by packaging agent code and its dependencies in a .zip file archive. Your agent still
@@ -25,8 +23,7 @@ file archive.
 - [Step 1: Set up project and install dependencies](#step-1-setup "#step-1-setup")
 - [Step 2: Create your agent project](#step-2-create-agent "#step-2-create-agent")
 - [Step 3: Test locally](#step-3-test-locally "#step-3-test-locally")
-- [Step 4: Enable observability for your
-  agent](#step-4-enable-observability "#step-4-enable-observability")
+- [Step 4: Enable observability for your agent](#step-4-enable-observability "#step-4-enable-observability")
 - [Step 5: Deploy to AgentCore Runtime and invoke](#step-5-deploy "#step-5-deploy")
 - [Step 6: Update or cleanup](#step-6-update-cleanup "#step-6-update-cleanup")
 - [Direct code deployment concepts](#runtime-code-deploy-concepts "#runtime-code-deploy-concepts")
@@ -130,9 +127,7 @@ curl -X POST http://localhost:8080/invocations \
 `{"result": "Hello! I'm here to help..."}`. In the terminal window that's
 running the agent, enter `Ctrl+C` to stop the agent.
 
-## Step 4: Enable observability for your
-
-agent
+## Step 4: Enable observability for your agent
 
 [Amazon Bedrock AgentCore Observability](observability.md "observability.md") helps you trace, debug, and monitor agents
 that you host in AgentCore Runtime. First enable CloudWatch Transaction Search by following the
@@ -487,9 +482,7 @@ purposes and are subject to change.
 | 3                  | Python 3.11 | `PYTHON_3_11` | Amazon Linux 2023 | 6/30/2026        | 8/31/2026        |
 | 4                  | Python 3.10 | `PYTHON_3_10` | Amazon Linux 2023 | 6/30/2026        | 8/31/2026        |
 
-#### Language environment deprecation
-
-policy
+#### Language environment deprecation policy
 
 AgentCore Runtime direct code deploy for .zip file archives are built around a
 combination of operating system, programming language, and software libraries
@@ -620,9 +613,7 @@ Guide_.
 Common issues and solutions when getting started with the Amazon Bedrock AgentCore starter
 toolkit. For more troubleshooting information, see [Troubleshoot Amazon Bedrock AgentCore AgentCore Runtime](runtime-troubleshooting.md "runtime-troubleshooting.md").
 
-### Permission Issues - Insufficient S3
-
-permissions
+### Permission Issues - Insufficient S3 permissions
 
 **When this occurs:** During agent creation or update
 with zipped artifact in S3 via console, SDK, or CLI
@@ -647,9 +638,7 @@ used to call the Agentcore Runtime create/update API.
 }
 ```
 
-### Permission Issues - CMK Encrypted S3 Object
-
-Access
+### Permission Issues - CMK Encrypted S3 Object Access
 
 **When this occurs:** During agent creation with
 CMK-encrypted S3 objects when the execution role lacks KMS decrypt
@@ -681,9 +670,7 @@ for the specific CMK:
 }
 ```
 
-### Code Package Compatibility
-
-Issues
+### Code Package Compatibility Issues
 
 **When this occurs:** During agent creation or update
 with incompatible code packages (wrong architecture, Python version, or package

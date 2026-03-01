@@ -1,6 +1,6 @@
 # Core concepts
 
-Before using Amazon Bedrock AgentCore Policy, it's important to understand the key concepts and components that
+Before using Policy in Amazon Bedrock AgentCore, it's important to understand the key concepts and components that
 work together to provide policy-based governance for your AI agents.
 
 ###### Topics
@@ -38,7 +38,7 @@ using Cognito.
 
 [Cedar](https://docs.cedarpolicy.com "https://docs.cedarpolicy.com") is an open-source policy language
 developed by AWS for writing and enforcing authorization policies. Cedar policies are
-human-readable, analyzable, and can be validated against a schema. Amazon Bedrock AgentCore Policy uses Cedar to
+human-readable, analyzable, and can be validated against a schema. Policy in AgentCore uses Cedar to
 provide precise, verifiable access control for gateway tools.
 
 ## Cedar Policy
@@ -49,7 +49,7 @@ Each policy specifies who (principal) can perform what action (tool invocation) 
 
 ## Policy engine
 
-The policy engine is the component of Amazon Bedrock AgentCore Policy that stores and evaluates Cedar
+The policy engine is the core component of Policy in AgentCore that stores and evaluates Cedar
 policies. When you create policies, they apply to every gateway which is associated with the
 engine, as long as the policy scope matches the request. For every tool invocation, the policy
 engine evaluates all applicable policies against the request to determine whether to allow or
@@ -73,7 +73,7 @@ runtime authorization failures.
 ## Cedar analysis
 
 Cedar analysis uses automated reasoning to examine policies and detect potential issues.
-Amazon Bedrock AgentCore Policy uses automated reasoning to identify policies that always allow (no conditions
+Policy in AgentCore uses automated reasoning to identify policies that always allow (no conditions
 restrict access) or always deny (forbid policies with no exceptions), helping ensure policies
 implement intended access control rather than being overly permissive or unnecessarily
 restrictive.

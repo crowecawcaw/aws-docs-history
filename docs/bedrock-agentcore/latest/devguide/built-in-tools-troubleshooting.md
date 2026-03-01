@@ -200,8 +200,7 @@ documentation.
 
 ## Code Interpreter issues
 
-For general Code Interpreter troubleshooting, see the specific documentation for [Execute code and analyze data using
-Amazon Bedrock AgentCore Code Interpreter](code-interpreter-tool.md "code-interpreter-tool.md").
+For general Code Interpreter troubleshooting, see the specific documentation for [Execute code and analyze data using Amazon Bedrock AgentCore Code Interpreter](code-interpreter-tool.md "code-interpreter-tool.md").
 
 Common issues with Code Interpreter typically relate to:
 

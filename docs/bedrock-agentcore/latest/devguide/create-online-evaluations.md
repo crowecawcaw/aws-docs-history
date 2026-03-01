@@ -17,8 +17,7 @@ enabled (`executionStatus` = false).
 
 - [Execution status control](#execution-status-control "#execution-status-control")
 - [Evaluator protection](#evaluator-protection "#evaluator-protection")
-- [Code samples for Starter
-  Toolkit, AgentCore SDK, and AWS SDK](#create-online-evaluation-code-samples "#create-online-evaluation-code-samples")
+- [Code samples for Starter Toolkit, AgentCore SDK, and AWS SDK](#create-online-evaluation-code-samples "#create-online-evaluation-code-samples")
 - [Console](#create-online-evaluation-console "#create-online-evaluation-console")
 
 ## Execution status control
@@ -44,9 +43,7 @@ selected. Once locked:
 - **No deletion allowed** – You cannot delete
   the evaluator while any evaluation job is using it (running).
 
-## Code samples for Starter
-
-Toolkit, AgentCore SDK, and AWS SDK
+## Code samples for Starter Toolkit, AgentCore SDK, and AWS SDK
 
 The following code samples demonstrate how to create online evaluation
 configurations using different development approaches. Choose the method that best

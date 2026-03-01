@@ -1,6 +1,4 @@
-# Configure built-in
-
-strategies
+# Configure built-in strategies
 
 AgentCore Memory provides pre-configured, [built-in memory strategies](built-in-strategies.md "built-in-strategies.md") for common use cases.
 

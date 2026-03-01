@@ -12,13 +12,10 @@ toolkit](https://github.com/aws/bedrock-agentcore-starter-toolkit "https://githu
 ###### Topics
 
 - [Enable long-term memory](long-term-enabling-long-term-memory.md "long-term-enabling-long-term-memory.md")
-- [Specify long-term memory
-  organization with namespaces](specify-long-term-memory-organization.md "specify-long-term-memory-organization.md")
-- [Configure built-in
-  strategies](long-term-configuring-built-in-strategies.md "long-term-configuring-built-in-strategies.md")
+- [Specify long-term memory organization with namespaces](specify-long-term-memory-organization.md "specify-long-term-memory-organization.md")
+- [Configure built-in strategies](long-term-configuring-built-in-strategies.md "long-term-configuring-built-in-strategies.md")
 - [Configure a custom strategy](long-term-configuring-custom-strategies.md "long-term-configuring-custom-strategies.md")
-- [Save and retrieve
-  insights](long-term-saving-and-retrieving-insights.md "long-term-saving-and-retrieving-insights.md")
+- [Save and retrieve insights](long-term-saving-and-retrieving-insights.md "long-term-saving-and-retrieving-insights.md")
 - [Retrieve memory records](long-term-retrieve-records.md "long-term-retrieve-records.md")
 - [List memory records](long-term-list-memory-records.md "long-term-list-memory-records.md")
 - [Delete memory records](long-term-delete-memory-records.md "long-term-delete-memory-records.md")

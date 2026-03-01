@@ -1,6 +1,4 @@
-# Core concepts for Amazon Bedrock AgentCore
-
-Gateway
+# Core concepts for Amazon Bedrock AgentCore Gateway
 
 Amazon Bedrock AgentCore Gateway provides a standardized way for AI agents to discover and
 interact with tools. Understanding the core concepts of Gateway will help you design and

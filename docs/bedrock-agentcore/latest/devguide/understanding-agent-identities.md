@@ -1,6 +1,4 @@
-# Understanding workload
-
-identities
+# Understanding workload identities
 
 Workload identities represent the digital identity of your agents within the AWS
 environment. They serve as a stable anchor point that persists across different
@@ -14,17 +12,13 @@ Workload identities integrate seamlessly with the broader AgentCore Identity fra
 including the token vault for secure credential storage (see [Secure credential storage](key-features-and-benefits.md#secure-credential-storage "key-features-and-benefits.md#secure-credential-storage")),
 Resource credential providers for external service access (see [Configure credential provider](resource-providers.md "resource-providers.md")), and the
 AgentCore Identity directory for centralized management. For more information about the
-directory, see [Understanding the agent identity
-directory](agent-identity-directory.md "agent-identity-directory.md").
+directory, see [Understanding the agent identity directory](agent-identity-directory.md "agent-identity-directory.md").
 
 ###### Topics
 
-- [How workload identities are
-  created](#workload-identity-creation "#workload-identity-creation")
+- [How workload identities are created](#workload-identity-creation "#workload-identity-creation")
 
-## How workload identities are
-
-created
+## How workload identities are created
 
 Workload identities are created automatically in several scenarios and can also be
 created manually when needed. These identities are used to obtain workload access
@@ -68,5 +62,4 @@ authentication flow, see [Get workload access token](get-workload-access-token.m
 
 Once you have created workload identities, you can use them to control access to
 credential providers. For information about implementing fine-grained access
-control, see [Scope down access to credential
-providers by workload identity](scope-credential-provider-access.md "scope-credential-provider-access.md").
+control, see [Scope down access to credential providers by workload identity](scope-credential-provider-access.md "scope-credential-provider-access.md").

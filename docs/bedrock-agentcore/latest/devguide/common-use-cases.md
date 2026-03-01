@@ -9,16 +9,11 @@ types, see [Example use cases](identity-use-cases.md "identity-use-cases.md").
 
 ###### Topics
 
-- [User-delegated access (OAuth 2.0
-  authorization code grant)](#user-delegated-access "#user-delegated-access")
-- [Machine-to-machine authentication (OAuth
-  2.0 client credentials grant)](#machine-to-machine-auth "#machine-to-machine-auth")
-- [Choosing the right authentication
-  pattern](#choosing-auth-pattern "#choosing-auth-pattern")
+- [User-delegated access (OAuth 2.0 authorization code grant)](#user-delegated-access "#user-delegated-access")
+- [Machine-to-machine authentication (OAuth 2.0 client credentials grant)](#machine-to-machine-auth "#machine-to-machine-auth")
+- [Choosing the right authentication pattern](#choosing-auth-pattern "#choosing-auth-pattern")
 
-## User-delegated access (OAuth 2.0
-
-authorization code grant)
+## User-delegated access (OAuth 2.0 authorization code grant)
 
 The OAuth 2.0 authorization code grant flow enables agents to access user-specific
 data with explicit user consent. This pattern is essential when agents need to
@@ -48,9 +43,7 @@ any scenario where agents need access to user-specific data across multiple
 services. For detailed industry-specific examples, see [Personal assistant agents](identity-use-cases.md#personal-assistant-agents "identity-use-cases.md#personal-assistant-agents")
 and [Customer service agents](identity-use-cases.md#customer-service-agents "identity-use-cases.md#customer-service-agents").
 
-## Machine-to-machine authentication (OAuth
-
-2.0 client credentials grant)
+## Machine-to-machine authentication (OAuth 2.0 client credentials grant)
 
 The OAuth 2.0 client credentials grant flow enables direct authentication between
 systems without user interaction. This pattern is appropriate when agents need to
@@ -75,12 +68,9 @@ operate when agents act themselves with pre-authorized user consent on scheduled
 intervals.
 
 This pattern is ideal for enterprise automation agents, data processing workflows,
-and DevOps automation. For detailed industry-specific examples, see [Enterprise automation agents](identity-use-cases.md#enterprise-automation-agents "identity-use-cases.md#enterprise-automation-agents"), [Data processing and analytics
-agents](identity-use-cases.md#data-processing-and-analytics-agents "identity-use-cases.md#data-processing-and-analytics-agents"), and [Development and DevOps agents](identity-use-cases.md#development-and-devops-agents "identity-use-cases.md#development-and-devops-agents").
+and DevOps automation. For detailed industry-specific examples, see [Enterprise automation agents](identity-use-cases.md#enterprise-automation-agents "identity-use-cases.md#enterprise-automation-agents"), [Data processing and analytics agents](identity-use-cases.md#data-processing-and-analytics-agents "identity-use-cases.md#data-processing-and-analytics-agents"), and [Development and DevOps agents](identity-use-cases.md#development-and-devops-agents "identity-use-cases.md#development-and-devops-agents").
 
-## Choosing the right authentication
-
-pattern
+## Choosing the right authentication pattern
 
 When designing your agent authentication strategy, consider these factors to
 determine which pattern is most appropriate:

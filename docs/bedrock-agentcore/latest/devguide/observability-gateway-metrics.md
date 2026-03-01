@@ -1,6 +1,4 @@
-# AgentCore generated gateway observability
-
-data
+# AgentCore generated gateway observability data
 
 The following sections describe the gateway metrics, logs, and spans output by
 AgentCore to Amazon CloudWatch. These metrics aren't available on the CloudWatch generative AI
@@ -10,9 +8,7 @@ viewing gateway metrics, see [View observability data for your Amazon Bedrock Ag
 ###### Note
 
 To enable service-provided logs for AgentCore gateways, you need to configure the
-necessary CloudWatch resources. See [Enabling observability for
-AgentCore runtime, memory, gateway, built-in tools, and identity
-resources](observability-configure.md#observability-configure-cloudwatch "observability-configure.md#observability-configure-cloudwatch") to
+necessary CloudWatch resources. See [Enabling observability for AgentCore runtime, memory, gateway, built-in tools, and identity resources](observability-configure.md#observability-configure-cloudwatch "observability-configure.md#observability-configure-cloudwatch") to
 learn more.
 
 ###### Topics
@@ -108,9 +104,7 @@ destination.
 AgentCore can output logs to CloudWatch Logs, Amazon S3, or Firehose stream. If you use a CloudWatch Logs
 destination, these logs are stored under the default log group
 `/aws/vendedlogs/bedrock-agentcore/gateway/APPLICATION_LOGS/{gateway_id}`
-or under a custom log group starting with `/aws/vendedlogs/`. See [Enabling observability for
-AgentCore runtime, memory, gateway, built-in tools, and identity
-resources](observability-configure.md#observability-configure-cloudwatch "observability-configure.md#observability-configure-cloudwatch") to learn more.
+or under a custom log group starting with `/aws/vendedlogs/`. See [Enabling observability for AgentCore runtime, memory, gateway, built-in tools, and identity resources](observability-configure.md#observability-configure-cloudwatch "observability-configure.md#observability-configure-cloudwatch") to learn more.
 
 AgentCore logs the following information for gateway resources:
 
@@ -122,8 +116,7 @@ AgentCore logs the following information for gateway resources:
 You can also see request and
 response bodies as part of your Vended Logs integration when any of the MCP Operations
 are performed on the Gateway. They can do further analysis on these logs, using the
-`span_id` and `trace_id` fields to connect the vended spans and logs being emitted. For more information about encrypting your gateways with customer-managed KMS keys, see [Advanced features and topics for Amazon Bedrock AgentCore
-Gateway](gateway-advanced.md "gateway-advanced.md").
+`span_id` and `trace_id` fields to connect the vended spans and logs being emitted. For more information about encrypting your gateways with customer-managed KMS keys, see [Advanced features and topics for Amazon Bedrock AgentCore Gateway](gateway-advanced.md "gateway-advanced.md").
 
 Sample log:
 

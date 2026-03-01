@@ -8,7 +8,8 @@ interact with your enterprise tools and data through Amazon Bedrock AgentCore Ga
 Use the policy engine ID from the previous step. The validation mode determines
 how policy validation findings are handled: `FAIL_ON_ANY_FINDINGS` will
 reject policies with validation issues, while `IGNORE_ALL_FINDINGS` will
-accept them.
+accept them. For more information about validation and the types of findings, see
+[Validate and test policies](policy-validate-policies.md "policy-validate-policies.md").
 
 Select one of the following methods:
 

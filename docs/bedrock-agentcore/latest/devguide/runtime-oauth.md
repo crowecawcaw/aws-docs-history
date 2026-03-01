@@ -153,8 +153,7 @@ The generated agent code will serve as the foundation for implementing OAuth aut
 To set up a Cognito user pool and create a user, you'll use a shell script that
 automates the process.
 
-For more information, see [Step 2: Import Identity and Auth
-modules](identity-getting-started-google.md#identity-getting-started-step2 "identity-getting-started-google.md#identity-getting-started-step2").
+For more information, see [Step 2: Import Identity and Auth modules](identity-getting-started-google.md#identity-getting-started-step2 "identity-getting-started-google.md#identity-getting-started-step2").
 
 ###### To set up Cognito user pool and create a user
 

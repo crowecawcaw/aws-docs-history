@@ -4,16 +4,12 @@ Amazon Bedrock AgentCore Identity supports comprehensive tagging capabilities ac
 to enable better resource management, cost allocation, access control, and operational
 visibility. For general information about tags, including syntax and usage, see [Tagging AgentCore resources](tagging.md "tagging.md").
 
-## Benefits of tagging AgentCore Identity
-
-resources
+## Benefits of tagging AgentCore Identity resources
 
 Tags help you accomplish the following key objectives with your AgentCore Identity
 resources:
 
-### Identify and organize AWS
-
-resources
+### Identify and organize AWS resources
 
 Many AWS services support tagging, allowing you to assign the same tag to
 resources from different services. This helps indicate which resources are related.
@@ -63,9 +59,7 @@ agents project, as shown in the following sample code.
 }
 ```
 
-### Control access based on
-
-tags
+### Control access based on tags
 
 You can control access by specifying tag keys and values in the conditions for
 IAM policies. This enables attribute-based access control (ABAC) where permissions

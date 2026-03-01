@@ -5,20 +5,14 @@ workload identity management and credential security:
 
 ###### Topics
 
-- [Centralized agent
-  identity management](#centralized-agent-identity-management "#centralized-agent-identity-management")
+- [Centralized agent identity management](#centralized-agent-identity-management "#centralized-agent-identity-management")
 - [Secure credential storage](#secure-credential-storage "#secure-credential-storage")
 - [OAuth 2.0 flow support](#oauth2-flow-support "#oauth2-flow-support")
-- [Agent identity and access
-  controls](#token-exchange-and-delegation "#token-exchange-and-delegation")
-- [AgentCore SDK
-  Integration](#bedrock-agentcore-integration "#bedrock-agentcore-integration")
-- [Request verification
-  security](#request-verification-security "#request-verification-security")
+- [Agent identity and access controls](#token-exchange-and-delegation "#token-exchange-and-delegation")
+- [AgentCore SDK Integration](#bedrock-agentcore-integration "#bedrock-agentcore-integration")
+- [Request verification security](#request-verification-security "#request-verification-security")
 
-## Centralized agent
-
-identity management
+## Centralized agent identity management
 
 Create, manage, and organize agent and workload identities through a unified
 directory service that acts as the single source of truth for all agent
@@ -29,8 +23,7 @@ identity directory functions similarly to [Cognito User Pools](../../../cognito/
 administrators to configure policies across a common set of agent identities.
 Agent identities are managed as specialized workload identities with
 agent-specific attributes and capabilities. For detailed procedures on creating
-and managing agent identities, see [Manage workload identities with
-AgentCore Identity](identity-manage-agent-ids.md "identity-manage-agent-ids.md").
+and managing agent identities, see [Manage workload identities with AgentCore Identity](identity-manage-agent-ids.md "identity-manage-agent-ids.md").
 
 The centralized approach eliminates the complexity of managing agent
 identities across different environments and systems. Whether your agents run on
@@ -88,9 +81,7 @@ authorization flows and reduces the risk of security vulnerabilities in custom
 implementations. For comprehensive information about configuring these
 providers, see [Configure credential provider](resource-providers.md "resource-providers.md").
 
-## Agent identity and access
-
-controls
+## Agent identity and access controls
 
 AgentCore Identity supports impersonation flow where agents can access resources using
 credentials provided to them. This approach enables agents to perform actions on
@@ -98,9 +89,7 @@ behalf of users while maintaining audit trails and access controls. The
 impersonation process allows agents to use provided credentials to access
 resources, with authorization decisions based on those credentials.
 
-## AgentCore SDK
-
-Integration
+## AgentCore SDK Integration
 
 Seamless integration with the AgentCore SDK through declarative annotations
 like @requires_access_token and @requires_api_key automatically handles
@@ -119,9 +108,7 @@ significantly reduces development time and the likelihood of security
 vulnerabilities while ensuring that all credential operations follow security
 best practices.
 
-## Request verification
-
-security
+## Request verification security
 
 The service implements validation of all requests, including token signature
 verification, expiration checks, and scope validation.

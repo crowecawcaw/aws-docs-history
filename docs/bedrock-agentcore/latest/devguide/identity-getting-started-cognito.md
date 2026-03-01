@@ -1,6 +1,4 @@
-# Build your first authenticated
-
-agent
+# Build your first authenticated agent
 
 This getting started tutorial walks you through building a complete authenticated agent
 from the ground up using Amazon Bedrock AgentCore Identity and will help you get started with implementing
@@ -17,15 +15,11 @@ the integration capabilities.
 ###### Topics
 
 - [Prerequisites](#identity-quick-start-prerequisites "#identity-quick-start-prerequisites")
-- [Step 1: Create a Cognito user pool
-  (Optional)](#identity-quick-start-cognito "#identity-quick-start-cognito")
-- [Step 2: Create a credential
-  provider](#identity-quick-start-credential-provider "#identity-quick-start-credential-provider")
+- [Step 1: Create a Cognito user pool (Optional)](#identity-quick-start-cognito "#identity-quick-start-cognito")
+- [Step 2: Create a credential provider](#identity-quick-start-credential-provider "#identity-quick-start-credential-provider")
 - [Step 2.5: Add the callback URL to your OAuth 2.0 authorization server](#identity-update-credential-provider "#identity-update-credential-provider")
-- [Step 3: Create a sample agent that
-  initiates an OAuth 2.0 flow](#identity-quick-start-agent "#identity-quick-start-agent")
-- [Step 4: Deploy the agent to AgentCore
-  Runtime](#identity-quick-start-deploy "#identity-quick-start-deploy")
+- [Step 3: Create a sample agent that initiates an OAuth 2.0 flow](#identity-quick-start-agent "#identity-quick-start-agent")
+- [Step 4: Deploy the agent to AgentCore Runtime](#identity-quick-start-deploy "#identity-quick-start-deploy")
 - [Step 5: Invoke the agent](#identity-quick-start-invoke "#identity-quick-start-invoke")
 - [Clean up](#identity-quick-start-cleanup "#identity-quick-start-cleanup")
 - [Security best practices](#identity-quick-start-security "#identity-quick-start-security")
@@ -46,9 +40,7 @@ proceed to step 2. This authorization server will act as a resource credential p
 representing the authority that grants the agent an outbound OAuth 2.0 access
 token.
 
-### Install the SDK and
-
-dependencies
+### Install the SDK and dependencies
 
 Make a folder for this guide, create a Python virtual environment, and install the
 AgentCore SDK and the AWS Python SDK (boto3).
@@ -72,9 +64,7 @@ strands-agents
 bedrock-agentcore-starter-toolkit
 ```
 
-## Step 1: Create a Cognito user pool
-
-(Optional)
+## Step 1: Create a Cognito user pool (Optional)
 
 This tutorial requires an OAuth 2.0 authorization server. If you do not have one
 available for testing, or if you want to keep your test separate from your authorization
@@ -167,9 +157,7 @@ echo "export COGNITO_USERNAME='$USERNAME'"
 echo "export COGNITO_PASSWORD='$PASSWORD'"
 ```
 
-## Step 2: Create a credential
-
-provider
+## Step 2: Create a credential provider
 
 Credential providers are how your agent accesses external services. Create a
 credential provider and configure it with an OAuth 2.0 client for your authorization
@@ -226,9 +214,7 @@ aws cognito-idp update-user-pool-client \
     --callback-urls "$OAUTH2_CALLBACK_URL"
 ```
 
-## Step 3: Create a sample agent that
-
-initiates an OAuth 2.0 flow
+## Step 3: Create a sample agent that initiates an OAuth 2.0 flow
 
 In this step, we will create an agent that initiates an OAuth 2.0 authorization flow
 to get tokens to act on behalf of the user. For simplicity, the agent will not make
@@ -334,9 +320,7 @@ if __name__ == "__main__":
 
 For a sample local callback server implementation to handle [session binding](oauth2-authorization-url-session-binding.md "oauth2-authorization-url-session-binding.md"), refer to [https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/03-AgentCore-identity/05-Outbound_Auth_3lo/oauth2_callback_server.py](https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/03-AgentCore-identity/05-Outbound_Auth_3lo/oauth2_callback_server.py "https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/03-AgentCore-identity/05-Outbound_Auth_3lo/oauth2_callback_server.py")
 
-## Step 4: Deploy the agent to AgentCore
-
-Runtime
+## Step 4: Deploy the agent to AgentCore Runtime
 
 We will host this agent on AgentCore Runtime. We can do this easily with the
 AgentCore SDK we installed earlier.
@@ -347,9 +331,7 @@ deployment will work with the defaults set by `agentcore configure`, but you
 may customize them. Ensure that you select "No" for the `Configure OAuth authorizer
  instead` step. We want to use IAM authorization for this guide.
 
-### Update the IAM policy of the
-
-agent to be able to access the token vault, and client secret
+### Update the IAM policy of the agent to be able to access the token vault, and client secret
 
 You will need to update the IAM policy of your agent that was created by or used
 with `agentcore configure`. This script will read your agent's

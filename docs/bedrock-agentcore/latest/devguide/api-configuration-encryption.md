@@ -1,6 +1,4 @@
-# Configure with API operations or an AWS
-
-SDK
+# Configure with API operations or an AWS SDK
 
 Set your key configuration in a `SetTokenVaultCMK` API request. The
 following partial example request body sets the token vault to use the provided customer

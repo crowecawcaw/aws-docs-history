@@ -7,8 +7,7 @@ between the user or application to the downstream authorization server, and it w
 retrieve and store the resulting token. Once the token is available in the
 AgentCore Identity vault, authorized agents can retrieve it and use it to authorize calls to
 resource servers. For example, the sample code below will retrieve a token to
-interact with Google Drive on behalf of an end user. For more information, see [Integrate with Google Drive using
-OAuth2](identity-getting-started-google.md "identity-getting-started-google.md") for the complete example.
+interact with Google Drive on behalf of an end user. For more information, see [Integrate with Google Drive using OAuth2](identity-getting-started-google.md "identity-getting-started-google.md") for the complete example.
 
 ```
 # Injects Google Access Token
@@ -49,16 +48,11 @@ async def need_token_2LO_async(*, access_token: str):
 
 ###### Topics
 
-- [Automatic refresh token
-  storage and usage](#automatic-refresh-token-storage "#automatic-refresh-token-storage")
-- [Streaming authorization URLs to
-  application callers](#authorization-url-streaming "#authorization-url-streaming")
-- [Resource indicators in AgentCore
-  OAuth2 flows](#resource-indicators-cognito "#resource-indicators-cognito")
+- [Automatic refresh token storage and usage](#automatic-refresh-token-storage "#automatic-refresh-token-storage")
+- [Streaming authorization URLs to application callers](#authorization-url-streaming "#authorization-url-streaming")
+- [Resource indicators in AgentCore OAuth2 flows](#resource-indicators-cognito "#resource-indicators-cognito")
 
-## Automatic refresh token
-
-storage and usage
+## Automatic refresh token storage and usage
 
 AgentCore automatically stores and uses refresh tokens when available from
 OAuth2 providers, reducing the frequency of user reauthorization prompts. When
@@ -110,9 +104,7 @@ To clear stored refresh tokens and force users to reauthenticate, set
 This clears the refresh token and forces a complete federation flow. For
 information about configuring OAuth2 providers, see [Provider setup and configuration](identity-idps.md "identity-idps.md").
 
-## Streaming authorization URLs to
-
-application callers
+## Streaming authorization URLs to application callers
 
 For three-legged OAuth (3LO) flows, your agent needs to provide the
 authorization URL to the calling application so users can complete the consent
@@ -225,9 +217,7 @@ responses provide the best user experience for real-time applications, while
 callback and polling patterns work well for asynchronous or batch processing
 scenarios.
 
-## Resource indicators in AgentCore
-
-OAuth2 flows
+## Resource indicators in AgentCore OAuth2 flows
 
 Resource indicators provide a standardized way to specify which resource
 server should accept an OAuth2 access token. AgentCore uses Cognito as its

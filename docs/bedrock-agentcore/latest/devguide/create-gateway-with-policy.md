@@ -1,4 +1,4 @@
-# Create gateway with AgentCore Policy Engine
+# Create gateway with Policy Engine
 
 This section provides examples of creating a gateway with a policy engine associated
 for policy enforcement.

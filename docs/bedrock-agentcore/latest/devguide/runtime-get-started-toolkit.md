@@ -1,6 +1,4 @@
-# Get started with the Amazon Bedrock AgentCore starter
-
-toolkit in Python
+# Get started with the Amazon Bedrock AgentCore starter toolkit in Python
 
 This tutorial shows you how to use the Amazon Bedrock AgentCore [starter toolkit](https://github.com/aws/bedrock-agentcore-starter-toolkit "https://github.com/aws/bedrock-agentcore-starter-toolkit")
 to deploy a Python agent to an Amazon Bedrock AgentCore Runtime.
@@ -18,12 +16,10 @@ For information about the HTTP protocol that the agent uses, see [HTTP protocol 
 - [Step 1: Set up project and install dependencies](#setup-project "#setup-project")
 - [Step 2: Create your agent project](#create-agent "#create-agent")
 - [Step 3: Test your agent locally](#configure-agent "#configure-agent")
-- [Step 4: Enable observability for your
-  agent](#enable-observability "#enable-observability")
+- [Step 4: Enable observability for your agent](#enable-observability "#enable-observability")
 - [Step 5: Deploy to Amazon Bedrock AgentCore Runtime](#deploy-runtime "#deploy-runtime")
 - [Step 6: Test your deployed agent](#test-deployed-agent "#test-deployed-agent")
-- [Step 7: Invoke your agent
-  programmatically](#invoke-programmatically "#invoke-programmatically")
+- [Step 7: Invoke your agent programmatically](#invoke-programmatically "#invoke-programmatically")
 - [Step 8: Clean up](#clean-up "#clean-up")
 - [Find your resources](#find-resources "#find-resources")
 - [Common issues and solutions](#common-issues "#common-issues")
@@ -128,9 +124,7 @@ agentcore invoke --dev "Hello!"
 
 The `--dev` flag tells the CLI to invoke your local development server instead of a deployed agent.
 
-## Step 4: Enable observability for your
-
-agent
+## Step 4: Enable observability for your agent
 
 [Amazon Bedrock AgentCore Observability](observability.md "observability.md") helps you trace, debug, and monitor agents
 that you host in Amazon Bedrock AgentCore Runtime. First enable CloudWatch Transaction Search
@@ -173,9 +167,7 @@ agentcore invoke '{"prompt": "tell me a joke"}'
 If you see a joke in the response, your agent is now running in an Amazon Bedrock AgentCore
 Runtime and can be invoked. If not, check for [common issues](#common-issues "#common-issues").
 
-## Step 7: Invoke your agent
-
-programmatically
+## Step 7: Invoke your agent programmatically
 
 You can invoke the agent using the AWS SDK [InvokeAgentRuntime](../APIReference/API_InvokeAgentRuntime.md "../APIReference/API_InvokeAgentRuntime.md")
 operation. To call `InvokeAgentRuntime`, you need the ARN of the agent that

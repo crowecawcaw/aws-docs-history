@@ -1,6 +1,4 @@
-# Configure Amazon Bedrock AgentCore lifecycle
-
-settings
+# Configure Amazon Bedrock AgentCore lifecycle settings
 
 The `LifecycleConfiguration` input parameter to
 [CreateAgentRuntime](../../../bedrock-agentcore-control/latest/APIReference/API_CreateAgentRuntime.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateAgentRuntime.md") lets you manage the lifecycle of runtime sessions
@@ -15,8 +13,7 @@ You can also configure lifecycle settings for an existing AgentCore Runtime with
 
 - [Configuration attributes](#configuration-attributes "#configuration-attributes")
 - [Default behavior](#default-behavior "#default-behavior")
-- [Create an AgentCore Runtime with
-  lifecycle configuration](#create-agent-runtime-with-lifecycle "#create-agent-runtime-with-lifecycle")
+- [Create an AgentCore Runtime with lifecycle configuration](#create-agent-runtime-with-lifecycle "#create-agent-runtime-with-lifecycle")
 - [Update the lifecycle configuration for an AgentCore Runtime](#update-lifecycle-configuration "#update-lifecycle-configuration")
 - [Get the lifecycle configuration for an AgentCore Runtime](#update-lifecycle-configuration "#update-lifecycle-configuration")
 - [Validation and constraints](#validation-and-constraints "#validation-and-constraints")
@@ -56,9 +53,7 @@ platform applies the following logic:
 - `maxLifetime`: **28800 seconds**
   (8 hours)
 
-## Create an AgentCore Runtime with
-
-lifecycle configuration
+## Create an AgentCore Runtime with lifecycle configuration
 
 You can specify a lifecycle configuration when you create an AgentCore Runtime.
 

@@ -1,6 +1,6 @@
 # Understanding Cedar policies
 
-AgentCore Policy uses Cedar policies to control access to AgentCore Gateway tools. This section explains
+Policy in AgentCore uses Cedar policies to control access to AgentCore Gateway tools. This section explains
 Cedar policy structure, evaluation semantics, and key concepts.
 
 ###### Topics

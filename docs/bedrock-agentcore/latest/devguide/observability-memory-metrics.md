@@ -1,12 +1,8 @@
-# AgentCore generate memory observability
-
-data
+# AgentCore generate memory observability data
 
 For the AgentCore memory resource type, AgentCore outputs metrics to Amazon CloudWatch by
 default. AgentCore also outputs a default set of spans and logs, if you enable these. See
-[Enabling observability for
-AgentCore runtime, memory, gateway, built-in tools, and identity
-resources](observability-configure.md#observability-configure-cloudwatch "observability-configure.md#observability-configure-cloudwatch") to learn more about enabling spans
+[Enabling observability for AgentCore runtime, memory, gateway, built-in tools, and identity resources](observability-configure.md#observability-configure-cloudwatch "observability-configure.md#observability-configure-cloudwatch") to learn more about enabling spans
 and logs.
 
 Refer to the following sections to learn more about the provided observability data for
@@ -54,8 +50,7 @@ Counts the number of created memory events and memory records.
 
 To enhance observability, AgentCore provides structured spans that trace the
 relationship between events and the memories they generate or access. To enable this
-span data, you need to instrument your agent code. See [Add observability to your Amazon Bedrock AgentCore
-resources](observability-configure.md "observability-configure.md") to learn more.
+span data, you need to instrument your agent code. See [Add observability to your Amazon Bedrock AgentCore resources](observability-configure.md "observability-configure.md") to learn more.
 
 This span data is available in full in CloudWatch Logs and CloudWatch Application Signals. To learn
 more about viewing observability data, see [View observability data for your Amazon Bedrock AgentCore agents](observability-view.md "observability-view.md").
@@ -76,15 +71,12 @@ attributes for each captured span.
 
 AgentCore provides structured logs that help you monitor and troubleshoot key
 AgentCore Memory resource processes. To enable this log data, you need to instrument your
-agent code. See [Add observability to your Amazon Bedrock AgentCore
-resources](observability-configure.md "observability-configure.md") to learn more.
+agent code. See [Add observability to your Amazon Bedrock AgentCore resources](observability-configure.md "observability-configure.md") to learn more.
 
 AgentCore can output logs to CloudWatch Logs, Amazon S3, or Firehose stream. If you use a CloudWatch Logs destination,
 these logs are stored under the default log group
 `/aws/vendedlogs/bedrock-agentcore/memory/APPLICATION_LOGS/{memory_id}` or
-under a custom log group starting with `/aws/vendedlogs/`. See [Enabling observability for
-AgentCore runtime, memory, gateway, built-in tools, and identity
-resources](observability-configure.md#observability-configure-cloudwatch "observability-configure.md#observability-configure-cloudwatch") to learn more.
+under a custom log group starting with `/aws/vendedlogs/`. See [Enabling observability for AgentCore runtime, memory, gateway, built-in tools, and identity resources](observability-configure.md#observability-configure-cloudwatch "observability-configure.md#observability-configure-cloudwatch") to learn more.
 
 When the `DeleteMemory` operation is called, logs are generated for the start
 and completion of the deletion process. Any corresponding deletion error logs will be

@@ -26,5 +26,4 @@ _of_ the cloud and security _in_ the cloud:
 - [Resource-based policies for Amazon Bedrock AgentCore](resource-based-policies.md "resource-based-policies.md")
 - [Compliance validation for Amazon Bedrock AgentCore](compliance-validation.md "compliance-validation.md")
 - [Resilience in Amazon Bedrock AgentCore](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Cross-service confused deputy
-  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")

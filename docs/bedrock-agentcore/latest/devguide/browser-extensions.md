@@ -69,9 +69,7 @@ Upload the ZIP file to your Amazon S3 bucket:
 aws s3 cp my-extension.zip s3://my-extensions-bucket/extensions/my-extension.zip
 ```
 
-## Creating a browser session with
-
-extensions
+## Creating a browser session with extensions
 
 You can create a browser session with extensions using the AWS CLI, SDK, or API.
 

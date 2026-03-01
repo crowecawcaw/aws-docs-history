@@ -1,6 +1,4 @@
-# Manage credential providers with
-
-AgentCore Identity
+# Manage credential providers with AgentCore Identity
 
 Credential management is a core feature of Amazon Bedrock AgentCore Identity that addresses the complex
 challenge of securely storing, retrieving, and managing credentials across multiple trust

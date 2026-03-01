@@ -110,9 +110,7 @@ dp_client = boto3.client(
 )
 ```
 
-## Creating a Browser Tool and starting a
-
-session
+## Creating a Browser Tool and starting a session
 
 1. ###### Create a Browser Tool
 

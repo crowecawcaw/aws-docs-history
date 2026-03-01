@@ -284,5 +284,4 @@ If your custom domain doesn't connect to your gateway:
 
 Setting up a custom domain name for your Gateway endpoint enhances the professional appearance of your application and provides flexibility in managing your API endpoints. By following the steps outlined in this guide, you can create a secure and reliable custom domain configuration using CloudFront as a reverse proxy.
 
-For more information about Gateway features and capabilities, see [Amazon Bedrock AgentCore Gateway: Securely connect tools and other resources to your
-Gateway](gateway.md "gateway.md").
+For more information about Gateway features and capabilities, see [Amazon Bedrock AgentCore Gateway: Securely connect tools and other resources to your Gateway](gateway.md "gateway.md").

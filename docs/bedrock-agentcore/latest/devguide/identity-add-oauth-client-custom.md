@@ -1,6 +1,4 @@
-# Add OAuth client using custom
-
-provider
+# Add OAuth client using custom provider
 
 Custom providers enable you to connect to any OAuth2-compatible resource server
 beyond the built-in provider options. You can configure custom providers by having

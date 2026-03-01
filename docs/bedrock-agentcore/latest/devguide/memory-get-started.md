@@ -169,9 +169,7 @@ for turn in turns:
 
 In this case, you can see the last three events for the actor and session.
 
-## Step 3: Retrieve records from long term
-
-memory
+## Step 3: Retrieve records from long term memory
 
 After the events were written to the memory resource, they were analyzed and useful
 information was sent to long term memory. Since the memory contains a semantic long term

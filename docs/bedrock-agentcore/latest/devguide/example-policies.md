@@ -273,9 +273,7 @@ matching with the `like` operator. The wildcard \* matches any characters, so
 "auto", "auto-liability", "comprehensive-auto", or "auto-collision" would all match. This is
 useful when you want to match a category of values rather than exact strings.
 
-### Policy 8: Combined conditions with
-
-AND
+### Policy 8: Combined conditions with AND
 
 This policy shows how to combine multiple conditions to create complex authorization
 rules.

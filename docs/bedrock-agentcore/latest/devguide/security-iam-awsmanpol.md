@@ -17,19 +17,13 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [AWS managed policy:
-  BedrockAgentCoreFullAccess](#security-iam-awsmanpol-BedrockAgentCoreFullAccess "#security-iam-awsmanpol-BedrockAgentCoreFullAccess")
-- [AWS
-  managed policy: BedrockAgentCoreNetworkServiceRolePolicy](#security-iam-awsmanpol-BedrockAgentCoreNetworkServiceRolePolicy "#security-iam-awsmanpol-BedrockAgentCoreNetworkServiceRolePolicy")
-- [AWS managed policy:
-  AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy](#security-iam-awsmanpol-AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy "#security-iam-awsmanpol-AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy")
+- [AWS managed policy: BedrockAgentCoreFullAccess](#security-iam-awsmanpol-BedrockAgentCoreFullAccess "#security-iam-awsmanpol-BedrockAgentCoreFullAccess")
+- [AWS managed policy: BedrockAgentCoreNetworkServiceRolePolicy](#security-iam-awsmanpol-BedrockAgentCoreNetworkServiceRolePolicy "#security-iam-awsmanpol-BedrockAgentCoreNetworkServiceRolePolicy")
+- [AWS managed policy: AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy](#security-iam-awsmanpol-AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy "#security-iam-awsmanpol-AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy")
 - [AWS managed policy: BedrockAgentCoreRuntimeIdentityServiceRolePolicy](#security-iam-awsmanpol-BedrockAgentCoreRuntimeIdentityServiceRolePolicy "#security-iam-awsmanpol-BedrockAgentCoreRuntimeIdentityServiceRolePolicy")
-- [AgentCore updates to AWS managed
-  policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
+- [AgentCore updates to AWS managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
 
-## AWS managed policy:
-
-BedrockAgentCoreFullAccess
+## AWS managed policy: BedrockAgentCoreFullAccess
 
 You can attach [BedrockAgentCoreFullAccess](../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md "../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md") to your users, groups, and roles.
 
@@ -82,9 +76,7 @@ This policy includes the following permissions:
 - `bedrock` (Amazon Bedrock) – Allows principals to invoke foundation
   models and inference profiles for evaluation purposes.
 
-## AWS
-
-managed policy: BedrockAgentCoreNetworkServiceRolePolicy
+## AWS managed policy: BedrockAgentCoreNetworkServiceRolePolicy
 
 This policy is attached to a service-linked role that allows the service to perform
 actions on your behalf. You cannot attach this policy to your users, groups, or
@@ -108,9 +100,7 @@ You can view this policy at [BedrockAgentCoreNetworkServiceRolePolicy](../../../
 For more information about the service-linked role that uses this policy, see [Using service-linked roles for
 Amazon Bedrock AgentCore](service-linked-roles.md "service-linked-roles.md").
 
-## AWS managed policy:
-
-AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy
+## AWS managed policy: AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy
 
 You can attach [AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy](../../../aws-managed-policy/latest/reference/AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy.md "../../../aws-managed-policy/latest/reference/AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy.md") to your
 users, groups, and roles.
@@ -153,9 +143,7 @@ You can view the complete policy at [BedrockAgentCoreRuntimeIdentityServiceRoleP
 For more information about the service-linked role that uses this policy, see [Using service-linked roles for
 Amazon Bedrock AgentCore](service-linked-roles.md "service-linked-roles.md").
 
-## AgentCore updates to AWS managed
-
-policies
+## AgentCore updates to AWS managed policies
 
 View details about updates to AWS managed policies for AgentCore since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

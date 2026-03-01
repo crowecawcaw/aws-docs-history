@@ -3,9 +3,7 @@
 You can enable long-term memory in two ways: by adding strategies when you first [create an AgentCore Memory](memory-create-a-memory-store.md "memory-create-a-memory-store.md"), or by
 updating an existing resource to include them.
 
-## Creating a new
-
-memory with long-term strategies
+## Creating a new memory with long-term strategies
 
 The most direct method is to include strategies when you create a new
 AgentCore Memory. After calling `get_or_create_memory`, you must wait for
@@ -50,9 +48,7 @@ print(f"Memory resource is now ACTIVE with ID: {memory_id}")
 
 ```
 
-## Adding long-term
-
-strategies to an existing AgentCore Memory
+## Adding long-term strategies to an existing AgentCore Memory
 
 To add long-term capabilities to an existing AgentCore Memory, you use the
 `update_memory_strategies` operation. You can add, modify or delete

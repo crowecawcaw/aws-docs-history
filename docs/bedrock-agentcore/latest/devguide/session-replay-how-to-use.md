@@ -28,9 +28,7 @@ Before you perform these steps, make sure that you've configured the IAM Role fo
 recording. You must set up permissions for Amazon Bedrock AgentCore to write recording data to
 Amazon S3 and log activity to CloudWatch. For more information, see [Configure IAM role for recording](browser-session-replay.md#session-replay-permissions "browser-session-replay.md#session-replay-permissions").
 
-## Step 1: Create a browser tool with
-
-recording
+## Step 1: Create a browser tool with recording
 
 Create a custom browser tool with recording enabled. For detailed instructions on
 creating browser tools, see [Creating an AgentCore Browser](browser-create.md "browser-create.md").
@@ -100,9 +98,7 @@ print(response.message["content"][0]["text"])
 All interactions during this session will be automatically recorded and uploaded to
 your Amazon S3 bucket when the session ends.
 
-## Step 3: Monitor live sessions and replay
-
-recordings
+## Step 3: Monitor live sessions and replay recordings
 
 The AWS Console provides comprehensive tools for both real-time monitoring and
 recorded session analysis.
@@ -173,9 +169,7 @@ Use these methods to navigate through recordings:
 - Choose **View recording** links in action tables to jump to
   specific interactions
 
-## Step 4: Access recordings
-
-programmatically
+## Step 4: Access recordings programmatically
 
 Access live view and recording insights programmatically using the Amazon Bedrock AgentCore
 SDK and APIs for custom integration and automated analysis.

@@ -1,6 +1,4 @@
-# Integrate with Google Drive using
-
-OAuth2
+# Integrate with Google Drive using OAuth2
 
 This getting started tutorial walks you through the essential steps to start using
 Amazon Bedrock AgentCore Identity for your AI agents. You'll learn how to set up your development environment,
@@ -9,20 +7,15 @@ external resources securely.
 
 By the end of this tutorial, you'll have a working agent that can retrieve access tokens
 from Google with AgentCore Identity OAuth2 Credential Provider, and read files from Google Drive
-using access tokens. For detailed information about OAuth2 flows, see [Manage credential providers with
-AgentCore Identity](identity-outbound-credential-provider.md "identity-outbound-credential-provider.md").
+using access tokens. For detailed information about OAuth2 flows, see [Manage credential providers with AgentCore Identity](identity-outbound-credential-provider.md "identity-outbound-credential-provider.md").
 
 ###### Topics
 
 - [Prerequisites](#identity-getting-started-prerequisites "#identity-getting-started-prerequisites")
-- [Step 1: Set up an OAuth 2.0 Credential
-  Provider](#identity-getting-started-step1 "#identity-getting-started-step1")
-- [Step 2: Import Identity and Auth
-  modules](#identity-getting-started-step2 "#identity-getting-started-step2")
-- [Step 3: Obtain an OAuth 2.0 access
-  token](#identity-getting-started-step3 "#identity-getting-started-step3")
-- [Step 4: Use OAuth2 Access Token to
-  Invoke External Resource](#identity-getting-started-step4 "#identity-getting-started-step4")
+- [Step 1: Set up an OAuth 2.0 Credential Provider](#identity-getting-started-step1 "#identity-getting-started-step1")
+- [Step 2: Import Identity and Auth modules](#identity-getting-started-step2 "#identity-getting-started-step2")
+- [Step 3: Obtain an OAuth 2.0 access token](#identity-getting-started-step3 "#identity-getting-started-step3")
+- [Step 4: Use OAuth2 Access Token to Invoke External Resource](#identity-getting-started-step4 "#identity-getting-started-step4")
 - [What's Next?](#identity-getting-started-whats-next "#identity-getting-started-whats-next")
 
 ## Prerequisites
@@ -44,9 +37,7 @@ To get started, install the `bedrock-agentcore` package:
 pip install bedrock-agentcore
 ```
 
-### Obtain Google Client
-
-ID and Client Secret
+### Obtain Google Client ID and Client Secret
 
 To allow your agent to access Google Drive, you need to obtain a Google client ID
 and client secret for your agent. Go to the [Google Developer
@@ -62,9 +53,7 @@ Console](https://console.developers.google.com/project "https://console.develope
 6. Create OAuth 2.0 Credentials for the new web application, and save the
    generated Google client ID and client secret
 
-## Step 1: Set up an OAuth 2.0 Credential
-
-Provider
+## Step 1: Set up an OAuth 2.0 Credential Provider
 
 Create a new OAuth 2.0 Credential Provider with the Google client ID and client secret
 obtained earlier using the following AWS CLI command:
@@ -91,9 +80,7 @@ echo "OAuth2 Callback URL: $OAUTH2_CALLBACK_URL"
 
 Obtain the `callbackUrl` from the [CreateOauth2CredentialProvider](../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md") response above and add the URI to your Google application's redirect URI list. The callback URL should look like: `https://bedrock-agentcore.us-east-1.amazonaws.com/identities/oauth2/callback/********-****-****-****-************`
 
-## Step 2: Import Identity and Auth
-
-modules
+## Step 2: Import Identity and Auth modules
 
 Add this import statement to your Python file:
 
@@ -102,9 +89,7 @@ from bedrock_agentcore.services.identity import IdentityClient
 from bedrock_agentcore.identity.auth import requires_access_token, requires_api_key
 ```
 
-## Step 3: Obtain an OAuth 2.0 access
-
-token
+## Step 3: Obtain an OAuth 2.0 access token
 
 Once you have the Google Credential Provider created in the previous step, add the
 `@requires_access_token` decorator to your agent code that requires a
@@ -162,9 +147,7 @@ following sequence:
    user identity, and the Google access token.
 6. The [session binding flow](oauth2-authorization-url-session-binding.md "oauth2-authorization-url-session-binding.md") must be completed before the Google access token is returned to the caller by AgentCore Identity.
 
-## Step 4: Use OAuth2 Access Token to
-
-Invoke External Resource
+## Step 4: Use OAuth2 Access Token to Invoke External Resource
 
 Once the agent obtains a Google access token with the steps above, it can use the
 access token to access Google Drive. Here is a full example that lists the names and IDs

@@ -17,13 +17,10 @@ becomes unavailable for use once deletion completes.
 
 ###### Topics
 
-- [Code samples for Starter Toolkit,
-  AgentCore SDK, and AWS SDK](#delete-evaluators-code-samples "#delete-evaluators-code-samples")
+- [Code samples for Starter Toolkit, AgentCore SDK, and AWS SDK](#delete-evaluators-code-samples "#delete-evaluators-code-samples")
 - [Console](#delete-evaluator-console "#delete-evaluator-console")
 
-## Code samples for Starter Toolkit,
-
-AgentCore SDK, and AWS SDK
+## Code samples for Starter Toolkit, AgentCore SDK, and AWS SDK
 
 The following code samples demonstrate how to delete evaluators using different
 development approaches. Choose the method that best fits your development

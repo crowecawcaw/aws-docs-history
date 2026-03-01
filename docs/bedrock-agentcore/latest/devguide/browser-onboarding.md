@@ -212,8 +212,7 @@ Now that you have AgentCore Browser working, explore these advanced features:
 
 - [Browser session recording and replay](browser-session-replay.md "browser-session-replay.md") -
   Record and replay sessions for debugging
-- [Using AgentCore Browser with other Browser libraries and
-  tools](browser-building-agents.md "browser-building-agents.md") -
+- [Using AgentCore Browser with other Browser libraries and tools](browser-building-agents.md "browser-building-agents.md") -
   Use other frameworks like Nova Act or Playwright
 - [Resource and session management](browser-resource-session-management.md "browser-resource-session-management.md") - Learn about API operations and
   custom browsers

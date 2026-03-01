@@ -1,12 +1,8 @@
-# System prompt for semantic memory
-
-strategy
+# System prompt for semantic memory strategy
 
 The semantic strategy includes instructions and output schemas in the default prompts for the extraction and consolidation steps.
 
-## Extraction
-
-instructions
+## Extraction instructions
 
 ```
 You are a long-term memory extraction agent supporting a lifelong learning system. Your task is to identify and extract meaningful information about the users from a given list of messages.
@@ -22,9 +18,7 @@ Analyze the conversation and extract structured information about the user accor
 IMPORTANT: Maintain the original language of the user's conversation. If the user communicates in a specific language, extract and format the extracted information in that same language.
 ```
 
-## Extraction output
-
-schema
+## Extraction output schema
 
 ```
 Your output must be a single JSON object, which is a list of JSON dicts following the schema. Do not provide any preamble or any explanatory text.
@@ -108,9 +102,7 @@ Use when information already exists in sufficient detail or when new information
 - Coherent Integration: Lets enhanced memories read naturally and logically
 ```
 
-## Consolidation output
-
-schema
+## Consolidation output schema
 
 ````
 ## Response Format

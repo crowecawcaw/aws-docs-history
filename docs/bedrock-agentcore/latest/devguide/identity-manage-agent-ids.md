@@ -1,6 +1,4 @@
-# Manage workload identities with
-
-AgentCore Identity
+# Manage workload identities with AgentCore Identity
 
 Agent identities in AgentCore Identity are implemented as workload identities with specialized
 attributes that enable agent-specific capabilities. This approach follows established
@@ -12,9 +10,6 @@ registry and management system for all agent identities. For information about w
 
 ###### Topics
 
-- [Understanding workload
-  identities](understanding-agent-identities.md "understanding-agent-identities.md")
-- [Understanding the agent identity
-  directory](agent-identity-directory.md "agent-identity-directory.md")
-- [Create and manage workload
-  identities](creating-agent-identities.md "creating-agent-identities.md")
+- [Understanding workload identities](understanding-agent-identities.md "understanding-agent-identities.md")
+- [Understanding the agent identity directory](agent-identity-directory.md "agent-identity-directory.md")
+- [Create and manage workload identities](creating-agent-identities.md "creating-agent-identities.md")

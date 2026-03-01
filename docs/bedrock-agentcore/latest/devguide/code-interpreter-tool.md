@@ -1,6 +1,4 @@
-# Execute code and analyze data using
-
-Amazon Bedrock AgentCore Code Interpreter
+# Execute code and analyze data using Amazon Bedrock AgentCore Code Interpreter
 
 The Amazon Bedrock AgentCore Code Interpreter enables AI agents to write and execute code securely in sandbox
 environments, enhancing their accuracy and expanding their ability to solve complex end-to-end
@@ -29,9 +27,7 @@ ensuring that code execution remains isolated and secure.
 
 ![Architecture showing the built-in tools offering and Browser and CI tools.](images/code-interpreter.png)
 
-## Why use Code Interpreter in agent
-
-development
+## Why use Code Interpreter in agent development
 
 The AgentCore Code Interpreter enhances agent development in the following ways:
 

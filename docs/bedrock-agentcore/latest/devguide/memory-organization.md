@@ -23,8 +23,7 @@ When you create a short term memory event with [CreateEvent](../APIReference/API
 (`actorId`) that uniquely identify the session and actor for the event.
 Later, you can retrieve events for a user or session by using [short-term memory operations](using-memory-short-term.md "using-memory-short-term.md").
 
-For example code, see [Step 3: Capture the conversation
-history](memory-customer-scenario.md#capture-conversation "memory-customer-scenario.md#capture-conversation").
+For example code, see [Step 3: Capture the conversation history](memory-customer-scenario.md#capture-conversation "memory-customer-scenario.md#capture-conversation").
 
 ## Long-term memory organization
 

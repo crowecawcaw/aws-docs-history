@@ -1,6 +1,4 @@
-# Using Terminal Commands with an execution
-
-role
+# Using Terminal Commands with an execution role
 
 You can create a custom Code Interpreter tool with an execution role to upload/download
 files from Amazon S3. This allows your code to interact with S3 buckets for storing and

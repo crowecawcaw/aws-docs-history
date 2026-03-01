@@ -1,6 +1,4 @@
-# AgentCore generated runtime
-
-observability data
+# AgentCore generated runtime observability data
 
 The runtime metrics provided by AgentCore give you visibility into your agent
 execution activity levels, processing latency, resource utilization, and error rates.
@@ -8,18 +6,13 @@ AgentCore also provides aggregated metrics for total invocations and sessions.
 
 ###### Topics
 
-- [Observability runtime
-  metrics](#observability-runtime-metrics-one "#observability-runtime-metrics-one")
-- [Resource usage
-  metrics and logs](#observability-runtime-resource-usage-metrics-logs "#observability-runtime-resource-usage-metrics-logs")
+- [Observability runtime metrics](#observability-runtime-metrics-one "#observability-runtime-metrics-one")
+- [Resource usage metrics and logs](#observability-runtime-resource-usage-metrics-logs "#observability-runtime-resource-usage-metrics-logs")
 - [Provided span data](#observability-runtime-span-data "#observability-runtime-span-data")
-- [Application log
-  data](#observability-runtime-application-log-data "#observability-runtime-application-log-data")
+- [Application log data](#observability-runtime-application-log-data "#observability-runtime-application-log-data")
 - [Error types](#observability-runtime-metrics-errors "#observability-runtime-metrics-errors")
 
-## Observability runtime
-
-metrics
+## Observability runtime metrics
 
 The following list describes the runtime metrics provided by AgentCore. Runtime
 metrics are batched at one minute intervals. To learn more about viewing runtime
@@ -92,9 +85,7 @@ OutboundStreamingBytesProcessed
 
 **(WebSocket only)** Shows the total number of bytes successfully processed in WebSocket frames sent from agent containers to clients. Monitor this metric to understand agent response patterns and ensure successful data transmission.
 
-## Resource usage
-
-metrics and logs
+## Resource usage metrics and logs
 
 Amazon Bedrock AgentCore runtime provides comprehensive resource usage telemetry,
 including CPU and memory consumption metrics for your runtime resources.
@@ -156,8 +147,7 @@ Each log record will have following schema:
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------- |
 | USAGE_LOGS | event_timestamp, resource_arn, service.name, cloud.provider,<br>cloud.region, account.id, region, resource.id, session.id, agent.name,<br>elapsed_time_seconds, agent.runtime.vcpu.hours.used,<br>agent.runtime.memory.gb_hours.used | Resource Usage Logs for session-level resource tracking. |
 
-To enable USAGE_LOG log type for your agents, see [Add observability to your Amazon Bedrock AgentCore
-resources](observability-configure.md "observability-configure.md"). The
+To enable USAGE_LOG log type for your agents, see [Add observability to your Amazon Bedrock AgentCore resources](observability-configure.md "observability-configure.md"). The
 logs are then displayed in the configured destination (AWS LogGroup, Amazon S3 or
 Amazon Kinesis Firehose) as configured.
 
@@ -177,8 +167,7 @@ billing statement for authoritative charges.
 
 To enhance observability, AgentCore provides structured spans that provide visibility
 into agent runtime invocations. To enable this span data, you need to enable
-observability on your agent resource. See [Add observability to your Amazon Bedrock AgentCore
-resources](observability-configure.md "observability-configure.md") for steps and details. This span data is
+observability on your agent resource. See [Add observability to your Amazon Bedrock AgentCore resources](observability-configure.md "observability-configure.md") for steps and details. This span data is
 available in AWS CloudWatch Logs aws/spans log group. The following table defines the
 operation for which spans are created and the attributes for each captured span.
 
@@ -201,14 +190,11 @@ operation for which spans are created and the attributes for each captured span.
   service
 - aws.region - the region the customer resource exists in
 
-## Application log
-
-data
+## Application log data
 
 AgentCore provides structured Application logs that help you gain visibility into your
 agent runtime invocations and session-level resource consumption. This log data is
-provided when enabling observability on your agent resource. See [Add observability to your Amazon Bedrock AgentCore
-resources](observability-configure.md "observability-configure.md") for
+provided when enabling observability on your agent resource. See [Add observability to your Amazon Bedrock AgentCore resources](observability-configure.md "observability-configure.md") for
 steps and details. AgentCore can output logs to CloudWatch Logs, Amazon S3, or Firehose
 stream. If you use a CloudWatch Logs destination, these logs are stored under your
 agent’s application logs or under your own custom log group.

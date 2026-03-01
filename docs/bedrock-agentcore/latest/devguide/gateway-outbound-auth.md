@@ -55,10 +55,8 @@ To set up outbound authorization with an OAuth client, you use the AgentCore Ide
 1. Register your client application with a supported third-party provider.
 2. You'll receive a client ID, client secret, and possibly other values that you'll reference when you set up the outbound authorization.
 3. Follow one of the steps below, depending on your requirements:
-   - To configure outbound authorization in the console using a built-in identity provider, follow the steps at [Add OAuth client using included
-     provider](identity-add-oauth-client-included.md "identity-add-oauth-client-included.md").
-   - To configure outbound authorization in the console using a custom identity provider, follow the steps at [Add OAuth client using custom
-     provider](identity-add-oauth-client-custom.md "identity-add-oauth-client-custom.md").
+   - To configure outbound authorization in the console using a built-in identity provider, follow the steps at [Add OAuth client using included provider](identity-add-oauth-client-included.md "identity-add-oauth-client-included.md").
+   - To configure outbound authorization in the console using a custom identity provider, follow the steps at [Add OAuth client using custom provider](identity-add-oauth-client-custom.md "identity-add-oauth-client-custom.md").
    - To configure outbound authorization using the API, send a [CreateOauth2CredentialProvider](../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md") with one of the [AgentCore control plane endpoints](../../../general/latest/gr/bedrock_agentcore.md#bedrock_agentcore_cp "../../../general/latest/gr/bedrock_agentcore.md#bedrock_agentcore_cp"). For examples, see [Examples for setting OAuth client authorization](#gateway-outbound-auth-oauth-examples "#gateway-outbound-auth-oauth-examples").
 
    ###### Note

@@ -7,9 +7,7 @@ authentication.
 
 ###### Topics
 
-- [Add OAuth client using included
-  provider](identity-add-oauth-client-included.md "identity-add-oauth-client-included.md")
-- [Add OAuth client using custom
-  provider](identity-add-oauth-client-custom.md "identity-add-oauth-client-custom.md")
+- [Add OAuth client using included provider](identity-add-oauth-client-included.md "identity-add-oauth-client-included.md")
+- [Add OAuth client using custom provider](identity-add-oauth-client-custom.md "identity-add-oauth-client-custom.md")
 - [Update OAuth client](identity-update-oauth-client.md "identity-update-oauth-client.md")
 - [Delete OAuth client](identity-delete-oauth-client.md "identity-delete-oauth-client.md")

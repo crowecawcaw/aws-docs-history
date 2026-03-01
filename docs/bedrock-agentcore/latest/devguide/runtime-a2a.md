@@ -17,14 +17,11 @@ In this section, you learn:
 
 ###### Topics
 
-- [How
-  Amazon Bedrock AgentCore supports A2A](#runtime-a2a-how-agentcore-supports "#runtime-a2a-how-agentcore-supports")
+- [How Amazon Bedrock AgentCore supports A2A](#runtime-a2a-how-agentcore-supports "#runtime-a2a-how-agentcore-supports")
 - [Using A2A with AgentCore Runtime](#runtime-a2a-steps "#runtime-a2a-steps")
 - [Appendix](#runtime-a2a-appendix "#runtime-a2a-appendix")
 
-## How
-
-Amazon Bedrock AgentCore supports A2A
+## How Amazon Bedrock AgentCore supports A2A
 
 Amazon Bedrock AgentCore's A2A protocol support enables seamless integration with
 A2A servers by acting as a transparent proxy layer. When configured for A2A,
@@ -81,8 +78,7 @@ In this tutorial you create, test, and deploy an A2A server.
 - [Prerequisites](#runtime-a2a-prerequisites "#runtime-a2a-prerequisites")
 - [Step 1: Create your A2A server](#runtime-a2a-create-server "#runtime-a2a-create-server")
 - [Step 2: Test your A2A server locally](#runtime-a2a-test-locally "#runtime-a2a-test-locally")
-- [Step 3: Deploy your A2A server to Bedrock
-  AgentCore Runtime](#runtime-a2a-deploy "#runtime-a2a-deploy")
+- [Step 3: Deploy your A2A server to Bedrock AgentCore Runtime](#runtime-a2a-deploy "#runtime-a2a-deploy")
 - [Step 4: Get the agent card](#runtime-a2a-step-4 "#runtime-a2a-step-4")
 - [Step 5: Invoke your deployed A2A server](#runtime-a2a-step-5 "#runtime-a2a-step-5")
 
@@ -109,9 +105,7 @@ pip install bedrock-agentcore
 pip install strands-agents-tools
 ```
 
-#### Create your first A2A
-
-server
+#### Create your first A2A server
 
 Create a new file called `my_a2a_server.py`:
 
@@ -231,15 +225,11 @@ curl http://localhost:9000/.well-known/agent-card.json | jq .
 You can also test your deployed server using the A2A Inspector as described in
 [Remote testing with A2A inspector](https://github.com/a2aproject/a2a-inspector "https://github.com/a2aproject/a2a-inspector").
 
-### Step 3: Deploy your A2A server to Bedrock
-
-AgentCore Runtime
+### Step 3: Deploy your A2A server to Bedrock AgentCore Runtime
 
 Deploy your A2A server to AWS using the Amazon Bedrock AgentCore starter toolkit.
 
-#### Install deployment
-
-tools
+#### Install deployment tools
 
 Install the Amazon Bedrock AgentCore starter toolkit:
 
@@ -265,18 +255,14 @@ bedrock-agentcore
 strands-agents-tools
 ```
 
-#### Set up Cognito user pool for
-
-authentication
+#### Set up Cognito user pool for authentication
 
 Configure authentication for secure access to your deployed
 server. For detailed Cognito setup instructions, see [Set up Cognito user
 pool for authentication](runtime-mcp.md#runtime-mcp-appendix-a "runtime-mcp.md#runtime-mcp-appendix-a"). This provides the OAuth tokens required for
 secure access to your deployed server.
 
-#### Configure your A2A server for
-
-deployment
+#### Configure your A2A server for deployment
 
 After setting up authentication, create the deployment configuration:
 
@@ -474,23 +460,17 @@ asyncio.run(send_sync_message("what is 101 * 11"))
 
 ###### Topics
 
-- [Set up Cognito user pool for
-  authentication](#runtime-a2a-setup-cognito-appendix "#runtime-a2a-setup-cognito-appendix")
-- [Remote testing with A2A
-  inspector](#runtime-a2a-remote-testing "#runtime-a2a-remote-testing")
+- [Set up Cognito user pool for authentication](#runtime-a2a-setup-cognito-appendix "#runtime-a2a-setup-cognito-appendix")
+- [Remote testing with A2A inspector](#runtime-a2a-remote-testing "#runtime-a2a-remote-testing")
 - [Troubleshooting](#runtime-a2a-troubleshooting "#runtime-a2a-troubleshooting")
 
-### Set up Cognito user pool for
-
-authentication
+### Set up Cognito user pool for authentication
 
 For detailed Cognito setup instructions, see Set up
 [Cognito user pool for authentication](runtime-mcp.md#set-up-cognito-user-pool-for-authentication "runtime-mcp.md#set-up-cognito-user-pool-for-authentication")
 in the MCP documentation.
 
-### Remote testing with A2A
-
-inspector
+### Remote testing with A2A inspector
 
 See [https://github.com/a2aproject/a2a-inspector](https://github.com/a2aproject/a2a-inspector "https://github.com/a2aproject/a2a-inspector").
 

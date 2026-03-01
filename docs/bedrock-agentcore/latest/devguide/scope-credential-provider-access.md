@@ -1,6 +1,4 @@
-# Scope down access to credential
-
-providers by workload identity
+# Scope down access to credential providers by workload identity
 
 You can use IAM policies to control which workload identities have access to
 specific credential providers. This enables fine-grained access control, ensuring
@@ -106,8 +104,7 @@ providers:
    – Use `aws bedrock-agentcore-control
 list-workload-identities` to list all workload identities in
    your account. For information about creating and managing workload
-   identities, see [Manage workload identities with
-   AgentCore Identity](identity-manage-agent-ids.md "identity-manage-agent-ids.md").
+   identities, see [Manage workload identities with AgentCore Identity](identity-manage-agent-ids.md "identity-manage-agent-ids.md").
 2. **Determine credential provider ARNs**
    – Identify the specific credential providers you want to control
    access to

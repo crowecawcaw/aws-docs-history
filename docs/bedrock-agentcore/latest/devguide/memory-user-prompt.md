@@ -1,12 +1,8 @@
-# System prompt for user preference memory
-
-strategy
+# System prompt for user preference memory strategy
 
 The user preference strategy includes instructions and output schemas in the default prompts for the extraction and consolidation steps.
 
-## Extraction
-
-instructions
+## Extraction instructions
 
 ```
 
@@ -64,9 +60,7 @@ Analyze thoroughly and include detected preferences in your response. Return ONL
 
 ```
 
-## Consolidation
-
-instructions
+## Consolidation instructions
 
 ```
 

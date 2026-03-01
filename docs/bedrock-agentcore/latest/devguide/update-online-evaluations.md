@@ -23,9 +23,7 @@ manage evaluation costs and performance.
   ENABLED to DISABLED, the system stops processing new traces while preserving
   your configuration for future use.
 
-## Code samples for Starter
-
-Toolkit, AgentCore SDK, and AWS SDK
+## Code samples for Starter Toolkit, AgentCore SDK, and AWS SDK
 
 The following code samples demonstrate how to update online evaluation
 configurations using different development approaches. Choose the method that best

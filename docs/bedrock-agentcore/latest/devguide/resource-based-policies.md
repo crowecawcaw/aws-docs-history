@@ -73,7 +73,7 @@ To provide cross-account access to a principal, you must create resource-based p
 Example: Granting cross-account access requires policies on both resources:
 
 ```
-// Policy for Agent Runtime
+// Policy for Agent Runtime (attached to arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/AGENTID)
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -83,12 +83,12 @@ Example: Granting cross-account access requires policies on both resources:
         "AWS": "arn:aws:iam::123456789012:role/CrossAccountRole"
       },
       "Action": "bedrock-agentcore:InvokeAgentRuntime",
-      "Resource": "*"
+      "Resource": "arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/AGENTID"
     }
   ]
 }
 
-// Policy for Agent Endpoint (for the endpoint that points to this runtime)
+// Policy for Agent Endpoint (attached to arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/AGENTID/endpoint/ENDPOINTID)
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -98,7 +98,7 @@ Example: Granting cross-account access requires policies on both resources:
         "AWS": "arn:aws:iam::123456789012:role/CrossAccountRole"
       },
       "Action": "bedrock-agentcore:InvokeAgentRuntime",
-      "Resource": "*"
+      "Resource": "arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/AGENTID/endpoint/ENDPOINTID"
     }
   ]
 }
@@ -135,7 +135,7 @@ A resource-based policy is a JSON document with the following structure:
         "AWS": "arn:aws:iam::account-id:role/role-name"
       },
       "Action": "bedrock-agentcore:ActionName",
-      "Resource": "*",
+      "Resource": "arn:aws:bedrock-agentcore:region:account-id:resource-type/resource-id",
       "Condition": {
         "ConditionOperator": {
           "ConditionKey": "ConditionValue"
@@ -145,6 +145,10 @@ A resource-based policy is a JSON document with the following structure:
   ]
 }
 ```
+
+###### Important
+
+The `Resource` field in the policy document must contain the exact ARN of the resource to which the policy is attached. Using `"Resource": "*"` is not supported and will result in a validation error.
 
 ## Supported actions
 
@@ -167,13 +171,14 @@ You can use condition keys to further refine access control in your policies. Fo
 
 ## Common use cases and examples
 
-This section provides practical examples of resource-based policies for common scenarios. These examples use simplified syntax where `"Resource": "*"` represents the resource to which the policy is attached.
+This section provides practical examples of resource-based policies for common scenarios. The `Resource` field in each example must contain the exact ARN of the resource to which the policy is attached. Replace the example ARNs with your actual resource ARNs.
 
 ### Allow roles in another AWS account
 
 Grant API access to specific roles in a different AWS account:
 
 ```
+// Policy attached to arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/AGENTID
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -186,7 +191,7 @@ Grant API access to specific roles in a different AWS account:
         ]
       },
       "Action": "bedrock-agentcore:InvokeAgentRuntime",
-      "Resource": "*"
+      "Resource": "arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/AGENTID"
     }
   ]
 }
@@ -197,6 +202,7 @@ Grant API access to specific roles in a different AWS account:
 Block incoming traffic from specific IP address ranges:
 
 ```
+// Policy attached to arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/AGENTID
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -206,7 +212,7 @@ Block incoming traffic from specific IP address ranges:
         "AWS": "arn:aws:iam::123456789012:role/ApplicationRole"
       },
       "Action": "bedrock-agentcore:InvokeAgentRuntime",
-      "Resource": "*"
+      "Resource": "arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/AGENTID"
     },
     {
       "Effect": "Deny",
@@ -214,7 +220,7 @@ Block incoming traffic from specific IP address ranges:
         "AWS": "arn:aws:iam::123456789012:role/ApplicationRole"
       },
       "Action": "bedrock-agentcore:InvokeAgentRuntime",
-      "Resource": "*",
+      "Resource": "arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/AGENTID",
       "Condition": {
         "IpAddress": {
           "aws:SourceIp": [
@@ -233,6 +239,7 @@ Block incoming traffic from specific IP address ranges:
 Restrict access to requests from a specific VPC:
 
 ```
+// Policy attached to arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/AGENTID
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -242,7 +249,7 @@ Restrict access to requests from a specific VPC:
         "AWS": "arn:aws:iam::123456789012:role/ApplicationRole"
       },
       "Action": "bedrock-agentcore:InvokeAgentRuntime",
-      "Resource": "*"
+      "Resource": "arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/AGENTID"
     },
     {
       "Effect": "Deny",
@@ -250,7 +257,7 @@ Restrict access to requests from a specific VPC:
         "AWS": "arn:aws:iam::123456789012:role/ApplicationRole"
       },
       "Action": "bedrock-agentcore:InvokeAgentRuntime",
-      "Resource": "*",
+      "Resource": "arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/AGENTID",
       "Condition": {
         "StringNotEquals": {
           "aws:SourceVpc": "vpc-1a2b3c4d"
@@ -266,6 +273,7 @@ Restrict access to requests from a specific VPC:
 When your Agent Runtime or Gateway is configured with OAuth authentication, you must use a wildcard principal. This example restricts OAuth-authenticated requests to a specific VPC:
 
 ```
+// Policy attached to arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/AGENTID
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -274,7 +282,7 @@ When your Agent Runtime or Gateway is configured with OAuth authentication, you 
       "Effect": "Allow",
       "Principal": "*",
       "Action": "bedrock-agentcore:InvokeAgentRuntime",
-      "Resource": "*",
+      "Resource": "arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/AGENTID",
       "Condition": {
         "StringEquals": {
           "aws:SourceVpc": "vpc-1a2b3c4d"
@@ -336,7 +344,11 @@ import json
 
 client = boto3.client('bedrock-agentcore-control', region_name='us-west-2')
 
+# Define the resource ARN
+resource_arn = 'arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/AGENTID'
+
 # Put resource policy
+# Note: The Resource field must match the resource ARN to which the policy is attached
 policy = {
     "Version": "2012-10-17",
     "Statement": [
@@ -344,13 +356,13 @@ policy = {
             "Effect": "Allow",
             "Principal": {"AWS": "arn:aws:iam::123456789012:role/MyRole"},
             "Action": "bedrock-agentcore:InvokeAgentRuntime",
-            "Resource": "*"
+            "Resource": resource_arn
         }
     ]
 }
 
 response = client.put_resource_policy(
-    resourceArn='arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/AGENTID',
+    resourceArn=resource_arn,
     policy=json.dumps(policy)
 )
 
@@ -373,6 +385,7 @@ response = client.delete_resource_policy(
 Grant only the minimum permissions necessary for your use case:
 
 ```
+// Policy attached to arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/AGENTID
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -382,7 +395,7 @@ Grant only the minimum permissions necessary for your use case:
         "AWS": "arn:aws:iam::111122223333:role/ApplicationRole"
       },
       "Action": "bedrock-agentcore:InvokeAgentRuntime",
-      "Resource": "*"
+      "Resource": "arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/AGENTID"
     }
   ]
 }
@@ -393,6 +406,7 @@ Grant only the minimum permissions necessary for your use case:
 Always use condition keys when granting access to AWS services:
 
 ```
+// Policy attached to arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/GATEWAYID
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -402,7 +416,7 @@ Always use condition keys when granting access to AWS services:
         "Service": "lambda.amazonaws.com"
       },
       "Action": "bedrock-agentcore:InvokeGateway",
-      "Resource": "*",
+      "Resource": "arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/GATEWAYID",
       "Condition": {
         "StringEquals": {
           "aws:SourceAccount": "111122223333"
@@ -421,6 +435,7 @@ Always use condition keys when granting access to AWS services:
 Use explicit deny statements for security-critical restrictions:
 
 ```
+// Policy attached to arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/AGENTID
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -429,7 +444,7 @@ Use explicit deny statements for security-critical restrictions:
       "Effect": "Deny",
       "Principal": "*",
       "Action": "bedrock-agentcore:InvokeAgentRuntime",
-      "Resource": "*",
+      "Resource": "arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/AGENTID",
       "Condition": {
         "StringNotEquals": {
           "aws:SourceVpc": "vpc-12345678"

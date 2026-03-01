@@ -8,10 +8,8 @@ your evaluation results in JSON format.
 
 - [Log group structure](#log-group-structure "#log-group-structure")
 - [Result format](#result-format "#result-format")
-- [Viewing results in CloudWatch Observability
-  Console](#viewing-results-console "#viewing-results-console")
-- [Viewing evaluation scores in CloudWatch
-  Metrics](#viewing-scores-metrics "#viewing-scores-metrics")
+- [Viewing results in CloudWatch Observability Console](#viewing-results-console "#viewing-results-console")
+- [Viewing evaluation scores in CloudWatch Metrics](#viewing-scores-metrics "#viewing-scores-metrics")
 
 ## Log group structure
 
@@ -33,9 +31,7 @@ contain references the original trace ID and session ID.
 You can use CloudWatch Logs Insights to query and analyze your evaluation results, and
 CloudWatch Metrics to monitor evaluation trends over time.
 
-## Viewing results in CloudWatch Observability
-
-Console
+## Viewing results in CloudWatch Observability Console
 
 You can view and analyze your evaluation results using the CloudWatch Observability
 Console. The console provides visualizations, metrics, and detailed logs of your
@@ -53,9 +49,7 @@ agent evaluations.
 
 For more details, see [AWS CloudWatch session trace evaluations documentation](../../../AmazonCloudWatch/latest/monitoring/session-traces-evaluations.md "../../../AmazonCloudWatch/latest/monitoring/session-traces-evaluations.md").
 
-## Viewing evaluation scores in CloudWatch
-
-Metrics
+## Viewing evaluation scores in CloudWatch Metrics
 
 Evaluation scores are published as CloudWatch metrics. You can view them directly in the
 CloudWatch Metrics console.

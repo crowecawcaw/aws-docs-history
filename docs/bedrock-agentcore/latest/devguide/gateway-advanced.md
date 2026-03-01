@@ -1,14 +1,11 @@
-# Advanced features and topics for Amazon Bedrock AgentCore
-
-Gateway
+# Advanced features and topics for Amazon Bedrock AgentCore Gateway
 
 This chapter covers some advanced topics and additional information that can help supplement
 your knowledge of gateways and how you can use them effectively in your applications.
 
 ###### Topics
 
-- [Encrypt your AgentCore gateway with a customer-managed
-  KMS key](gateway-encryption.md "gateway-encryption.md")
+- [Encrypt your AgentCore gateway with a customer-managed KMS key](gateway-encryption.md "gateway-encryption.md")
 - [Setting up custom domain names for Gateway endpoints](gateway-custom-domains.md "gateway-custom-domains.md")
 - [Using interceptors with Gateway](gateway-interceptors.md "gateway-interceptors.md")
 - [Header propagation with Gateway](gateway-headers.md "gateway-headers.md")

@@ -1,6 +1,4 @@
-# Code Interpreter API Reference
-
-Examples
+# Code Interpreter API Reference Examples
 
 This section provides reference examples for common Code Interpreter operations using
 different approaches. Each example shows how to perform the same operation using AWS CLI, Boto3

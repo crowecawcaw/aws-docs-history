@@ -1,6 +1,4 @@
-# Rendering live view using AWS DCV Web
-
-Client
+# Rendering live view using AWS DCV Web Client
 
 Amazon Bedrock AgentCore's live view is powered by **AWS DCV**.
 Each browser session launches a dedicated DCV server that streams the browser interface and
@@ -20,9 +18,7 @@ applications, they can embed the **DCV Web Client** and generate
 the signed connection URL using the SDK's helper methods. This allows full customization of
 the UI while leveraging Amazon Bedrock AgentCore's Browser Tool capabilities.
 
-## Using Callbacks to Customize URL
-
-Parameters
+## Using Callbacks to Customize URL Parameters
 
 The DCV Web SDK supports custom callbacks that you can use to modify the URLs used
 during authentication and session establishment. This feature enables advanced integration
@@ -30,9 +26,7 @@ scenarios, including the ability to append custom query parameters and add AWS S
 Version 4 (SigV4) signed values to secure and authorize connections through external
 systems.
 
-### Customizing Authentication and connection
-
-URL:`httpExtraSearchParamsCallback`
+### Customizing Authentication and connection URL:`httpExtraSearchParamsCallback`
 
 The `authenticate` method supports a callback parameter,
 `httpExtraSearchParamsCallback`. Before initiating the request, you can use

@@ -32,6 +32,5 @@ following ways:
 
 - [Data encryption](identity-data-encryption.md "identity-data-encryption.md")
 - [Set customer managed key policy](kms-key-policy-configuration.md "kms-key-policy-configuration.md")
-- [Configure with API operations or an AWS
-  SDK](api-configuration-encryption.md "api-configuration-encryption.md")
+- [Configure with API operations or an AWS SDK](api-configuration-encryption.md "api-configuration-encryption.md")
 - [Configure KMS key for Token Vault on Console](console-configuration-encryption.md "console-configuration-encryption.md")

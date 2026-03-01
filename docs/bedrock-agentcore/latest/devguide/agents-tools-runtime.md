@@ -89,8 +89,7 @@ infrastructure from disparate components.
 ###### Topics
 
 - [How it works](runtime-how-it-works.md "runtime-how-it-works.md")
-- [Understand the AgentCore Runtime service
-  contract](runtime-service-contract.md "runtime-service-contract.md")
+- [Understand the AgentCore Runtime service contract](runtime-service-contract.md "runtime-service-contract.md")
 - [IAM Permissions for AgentCore Runtime](runtime-permissions.md "runtime-permissions.md")
 - [Get started with AgentCore Runtime](runtime-getting-started.md "runtime-getting-started.md")
 - [Use any agent framework](using-any-agent-framework.md "using-any-agent-framework.md")
@@ -98,8 +97,7 @@ infrastructure from disparate components.
 - [Deploy MCP servers in AgentCore Runtime](runtime-mcp.md "runtime-mcp.md")
 - [Deploy A2A servers in AgentCore Runtime](runtime-a2a.md "runtime-a2a.md")
 - [Use isolated sessions for agents](runtime-sessions.md "runtime-sessions.md")
-- [Handle asynchronous and long running agents with
-  Amazon Bedrock AgentCore Runtime](runtime-long-run.md "runtime-long-run.md")
+- [Handle asynchronous and long running agents with Amazon Bedrock AgentCore Runtime](runtime-long-run.md "runtime-long-run.md")
 - [Stream agent responses](response-streaming.md "response-streaming.md")
 - [Pass custom headers to Amazon Bedrock AgentCore Runtime](runtime-header-allowlist.md "runtime-header-allowlist.md")
 - [Authenticate and authorize with Inbound Auth and Outbound Auth](runtime-oauth.md "runtime-oauth.md")

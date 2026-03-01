@@ -10,8 +10,7 @@ For information about using resource-based policies to control access to your Ag
 - [Use Amazon Bedrock AgentCore](#runtime-permissions-use-agentcore "#runtime-permissions-use-agentcore")
 - [Use the starter toolkit](#runtime-permissions-starter-toolkit "#runtime-permissions-starter-toolkit")
 - [User permissions for Amazon Bedrock AgentCore Console](#runtime-permissions-console "#runtime-permissions-console")
-- [Execution role for running an agent in
-  AgentCore Runtime](#runtime-permissions-execution "#runtime-permissions-execution")
+- [Execution role for running an agent in AgentCore Runtime](#runtime-permissions-execution "#runtime-permissions-execution")
 
 ## Use Amazon Bedrock AgentCore
 
@@ -184,9 +183,7 @@ Attach the [BedrockAgentCoreFullAccess](../../../aws-managed-policy/latest/refer
 }
 ```
 
-## Execution role for running an agent in
-
-AgentCore Runtime
+## Execution role for running an agent in AgentCore Runtime
 
 To run agent or tool in AgentCore Runtime you need an AWS Identity and Access Management execution role. For information
 about creating an IAM role, see [IAM role creation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md").

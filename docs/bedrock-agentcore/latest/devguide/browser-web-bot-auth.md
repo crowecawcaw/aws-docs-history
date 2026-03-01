@@ -144,9 +144,7 @@ JSON
 
 ```
 
-## Supported Bot Control
-
-Vendors
+## Supported Bot Control Vendors
 
 Amazon Bedrock AgentCore currently supports Web Bot Auth with the following bot
 control vendors:

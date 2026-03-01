@@ -1,6 +1,4 @@
-# Save and retrieve
-
-insights
+# Save and retrieve insights
 
 Once you have configured an AgentCore Memory with at least one long-term memory strategy
 and the strategy is ACTIVE, the service will automatically begin processing
@@ -8,9 +6,7 @@ conversational data to extract and store insights. This process involves two dis
 steps: saving the raw conversation and then retrieving the structured insights after
 they have been processed.
 
-## Step 1: Save
-
-conversational events to trigger extraction
+## Step 1: Save conversational events to trigger extraction
 
 The entire long-term memory process is triggered when you save conversational data
 to short-term memory using the `create_event` operation. Each time you
@@ -68,9 +64,7 @@ print("Conversation turns added successfully!")
 
 ```
 
-## Step 2: Retrieve
-
-extracted insights
+## Step 2: Retrieve extracted insights
 
 The extraction and consolidation of long-term memories is an **asynchronous process** that runs in the background. It may take a
 minute or more for insights from a new conversation to become available for

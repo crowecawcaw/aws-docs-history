@@ -1,6 +1,4 @@
-# Amazon Bedrock AgentCore generated observability
-
-data
+# Amazon Bedrock AgentCore generated observability data
 
 For agents running in the AgentCore runtime, AgentCore automatically generates a
 set of session metrics which you can view in the Amazon CloudWatch Logs generative AI observability page.
@@ -20,8 +18,7 @@ the data is available.
 | Tools         | Metrics                  | No                                           | Yes                                       |
 | Policy        | Metrics, Spans\*\*       | Yes                                          | Yes                                       |
 
-\* memory spans and logs require enablement. See [Add observability to your Amazon Bedrock AgentCore
-resources](observability-configure.md "observability-configure.md")
+\* memory spans and logs require enablement. See [Add observability to your Amazon Bedrock AgentCore resources](observability-configure.md "observability-configure.md")
 to learn more.
 
 \*\* Policy related observability is displayed under the AgentCore Gateway tab in CloudWatch gen AI
@@ -30,27 +27,19 @@ observability.
 ###### Note
 
 To view metrics, spans, and traces for AgentCore, you need to perform a one-time
-setup process to enable CloudWatch Transaction Search. To learn more see [Enabling AgentCore
-observability](observability-configure.md#observability-configure-builtin "observability-configure.md#observability-configure-builtin").
+setup process to enable CloudWatch Transaction Search. To learn more see [Enabling AgentCore observability](observability-configure.md#observability-configure-builtin "observability-configure.md#observability-configure-builtin").
 
 Refer to the following topics to learn about the default service-provided observability
 metrics for AgentCore runtime, memory, and gateway resources.
 
 ###### Topics
 
-- [AgentCore generated runtime
-  observability data](observability-runtime-metrics.md "observability-runtime-metrics.md")
-- [AgentCore generate memory observability
-  data](observability-memory-metrics.md "observability-memory-metrics.md")
-- [AgentCore generated gateway observability
-  data](observability-gateway-metrics.md "observability-gateway-metrics.md")
-- [AgentCore generated built-in tools
-  observability data](observability-tool-metrics.md "observability-tool-metrics.md")
-- [AgentCore generated identity
-  observability data](observability-identity-metrics.md "observability-identity-metrics.md")
-- [AgentCore generated AgentCore Policy observability
-  data](observability-policy-metrics.md "observability-policy-metrics.md")
+- [AgentCore generated runtime observability data](observability-runtime-metrics.md "observability-runtime-metrics.md")
+- [AgentCore generate memory observability data](observability-memory-metrics.md "observability-memory-metrics.md")
+- [AgentCore generated gateway observability data](observability-gateway-metrics.md "observability-gateway-metrics.md")
+- [AgentCore generated built-in tools observability data](observability-tool-metrics.md "observability-tool-metrics.md")
+- [AgentCore generated identity observability data](observability-identity-metrics.md "observability-identity-metrics.md")
+- [AgentCore generated Policy in AgentCore observability data](observability-policy-metrics.md "observability-policy-metrics.md")
   By instrumenting your agent code, you can also gather more detailed trace and span data as
-  well as custom metrics. See [Enabling observability in agent code
-  for AgentCore-hosted agents](observability-configure.md#observability-configure-custom "observability-configure.md#observability-configure-custom") to learn
+  well as custom metrics. See [Enabling observability in agent code for AgentCore-hosted agents](observability-configure.md#observability-configure-custom "observability-configure.md#observability-configure-custom") to learn
   more.

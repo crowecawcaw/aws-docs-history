@@ -25,8 +25,7 @@ This operation is useful for:
 - Storing user interactions and behaviors
 - Capturing system events and state changes
 - Building a chronological record of activities within a session
-  For example code, see [Scenario: A customer support AI agent using
-  AgentCore Memory](memory-customer-scenario.md "memory-customer-scenario.md").
+  For example code, see [Scenario: A customer support AI agent using AgentCore Memory](memory-customer-scenario.md "memory-customer-scenario.md").
 
 ## Event payload types
 

@@ -385,9 +385,7 @@ The following is an example of an API resource policy that grants AgentCore Gate
 To set up outbound authorization with an API key, you use the AgentCore Identity service to create a
 credential provider and with an API key that you have configured for through API Gateway.
 
-######
-
-To set up API key outbound authorization
+###### To set up API key outbound authorization
 
 1. Create an API Key in API Gateway according to [Set up API keys for REST APIs in
    API Gateway](../../../apigateway/latest/developerguide/api-gateway-setup-api-keys.md "../../../apigateway/latest/developerguide/api-gateway-setup-api-keys.md").

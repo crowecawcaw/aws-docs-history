@@ -11,8 +11,7 @@ patterns.
 - [Personal assistant agents](#personal-assistant-agents "#personal-assistant-agents")
 - [Enterprise automation agents](#enterprise-automation-agents "#enterprise-automation-agents")
 - [Customer service agents](#customer-service-agents "#customer-service-agents")
-- [Data processing and analytics
-  agents](#data-processing-and-analytics-agents "#data-processing-and-analytics-agents")
+- [Data processing and analytics agents](#data-processing-and-analytics-agents "#data-processing-and-analytics-agents")
 - [Development and DevOps agents](#development-and-devops-agents "#development-and-devops-agents")
 
 ## Personal assistant agents
@@ -92,9 +91,7 @@ access controls that can be configured to have agents only access customer data 
 relevant to the specific interaction, supporting privacy requirements and regulatory
 compliance.
 
-## Data processing and analytics
-
-agents
+## Data processing and analytics agents
 
 Agents that collect, process, and analyze data from multiple sources, including cloud
 storage services, databases, and APIs, often require long-running access to data

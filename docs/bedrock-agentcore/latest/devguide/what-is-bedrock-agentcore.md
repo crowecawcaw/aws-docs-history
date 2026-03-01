@@ -48,5 +48,4 @@ If you are a first-time user of Amazon Bedrock AgentCore, we recommend that you 
 following sections:
 
 - [Get started with Amazon Bedrock AgentCore](agentcore-get-started-toolkit.md "agentcore-get-started-toolkit.md")
-- [Understand the available interfaces for using
-  Amazon Bedrock AgentCore](develop-agents.md "develop-agents.md")
+- [Understand the available interfaces for using Amazon Bedrock AgentCore](develop-agents.md "develop-agents.md")

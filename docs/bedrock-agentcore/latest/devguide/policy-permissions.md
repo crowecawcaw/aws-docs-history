@@ -1,32 +1,32 @@
-# AgentCore Gateway and AgentCore Policy IAM Permissions
+# AgentCore Gateway and Policy in AgentCore IAM Permissions
 
-This guide provides the required IAM permissions for using Amazon Bedrock AgentCore Gateway with Amazon Bedrock AgentCore Policy for fine-grained authorization control using Cedar policies.
+This guide provides the required IAM permissions for using Amazon Bedrock AgentCore Gateway with Policy in AgentCore for fine-grained authorization control using Cedar policies.
 
 ## Overview
 
-When integrating Amazon Bedrock AgentCore Gateway with Amazon Bedrock AgentCore Policy, two distinct IAM roles are required:
+When integrating Amazon Bedrock AgentCore Gateway with Policy in AgentCore, two distinct IAM roles are required:
 
 1. **Gateway Execution Role** - The IAM role that Amazon Bedrock AgentCore Gateway assumes at runtime to invoke targets and evaluate Cedar policies
-2. **Resource Management Role** - The IAM role that administrators use to create and manage Amazon Bedrock AgentCore Gateway and Amazon Bedrock AgentCore Policy resources
+2. **Resource Management Role** - The IAM role that administrators use to create and manage Amazon Bedrock AgentCore Gateway and Policy in AgentCore resources
 
-Both roles serve different purposes and require specific permissions. The Gateway Execution Role needs permissions to run Amazon Bedrock AgentCore Gateway operations, while the Resource Management Role needs permissions to configure and manage Amazon Bedrock AgentCore Gateway and Amazon Bedrock AgentCore Policy resources.
+Both roles serve different purposes and require specific permissions. The Gateway Execution Role needs permissions to run Amazon Bedrock AgentCore Gateway operations, while the Resource Management Role needs permissions to configure and manage Amazon Bedrock AgentCore Gateway and Policy in AgentCore resources.
 
 ## Gateway Execution Role
 
 The Gateway Execution Role is assumed by the Amazon Bedrock AgentCore Gateway service when processing requests. This role requires permissions to:
 
-- Evaluate Cedar policies through the Amazon Bedrock AgentCore Policy
+- Evaluate Cedar policies through Policy in AgentCore
 - Invoke targets such as Lambda functions and API Gateway endpoints
 - Write logs and traces to CloudWatch and X-Ray
 - Access secrets for authentication configurations
 
-###### Critical Permissions for Amazon Bedrock AgentCore Policy Integration
+###### Critical Permissions for Policy in AgentCore Integration
 
-The execution role must include these three permissions to use Amazon Bedrock AgentCore Gateway with Amazon Bedrock AgentCore Policy:
+The execution role must include these three permissions to use Amazon Bedrock AgentCore Gateway with Policy in AgentCore:
 
 1. `bedrock-agentcore:AuthorizeAction` - Evaluates Cedar policies for authorization decisions
 2. `bedrock-agentcore:PartiallyAuthorizeActions` - Lists tools the caller is authorized to invoke
-3. `bedrock-agentcore:GetPolicyEngine` - Retrieves Amazon Bedrock AgentCore Policy configuration
+3. `bedrock-agentcore:GetPolicyEngine` - Retrieves the policy engine configuration
    Without these permissions, the Gateway cannot perform policy authorization. This manifests in two ways: attaching a Policy Engine to an existing Gateway will result in an InternalServerException, and all tool invocations will be denied by default even if you have permit policies configured.
 
 ### Trust Policy
@@ -66,7 +66,7 @@ Replace the following placeholders:
 
 ### Permission Policy
 
-This policy grants the Amazon Bedrock AgentCore Gateway the necessary permissions to evaluate Cedar policies through the Amazon Bedrock AgentCore Policy. The permissions are split into two statements following least-privilege principles.
+This policy grants the Amazon Bedrock AgentCore Gateway the necessary permissions to evaluate Cedar policies through Policy in AgentCore. The permissions are split into two statements following least-privilege principles.
 
 ###### Important
 
@@ -75,7 +75,7 @@ Replace these placeholders:
 - `us-east-1` with the AWS Region
 - `123456789012` with the AWS account ID
 - `<gateway-id>` with the Gateway ID (or use `*` for all gateways)
-- `<policy-engine-id>` with the Amazon Bedrock AgentCore Policy ID (or use `*` for all policy engines)
+- `<policy-engine-id>` with the policy engine ID (or use `*` for all policy engines)
 
 ```
 {
@@ -114,7 +114,7 @@ Replace these placeholders:
 
 ## Resource Management Role
 
-The Resource Management Role is used by administrators to create and manage Amazon Bedrock AgentCore Gateway and Amazon Bedrock AgentCore Policy resources. This role requires permissions to:
+The Resource Management Role is used by administrators to create and manage Amazon Bedrock AgentCore Gateway and Policy in AgentCore resources. This role requires permissions to:
 
 - Create, update, and delete Gateways and Gateway targets
 - Create, update, and delete Policy Engines and Cedar policies
@@ -122,7 +122,7 @@ The Resource Management Role is used by administrators to create and manage Amaz
 - Tag resources for organization and management
 - Read IAM role information to validate execution role configurations
 
-This role is separate from the Gateway Execution Role and is only needed when setting up or modifying Amazon Bedrock AgentCore Gateway and Amazon Bedrock AgentCore Policy configurations.
+This role is separate from the Gateway Execution Role and is only needed when setting up or modifying Amazon Bedrock AgentCore Gateway and Policy in AgentCore configurations.
 
 ### Permission Policy
 
@@ -254,19 +254,19 @@ While the Resource field is included for consistency, these permission-only acti
 
 ## When Are Role Updates Required?
 
-Determine whether Amazon Bedrock AgentCore Policy permissions need to be added to the Amazon Bedrock AgentCore Gateway execution role based on how the Amazon Bedrock AgentCore Gateway was created.
+Determine whether Policy in AgentCore permissions need to be added to the Amazon Bedrock AgentCore Gateway execution role based on how the Amazon Bedrock AgentCore Gateway was created.
 
 **Scenario 1: Gateway Created with Starter Toolkit**
 
 **Status:** No action needed
 
-The starter toolkit automatically creates an execution role with `bedrock-agentcore:*` wildcard permissions that include all Amazon Bedrock AgentCore Policy actions. The role is fully configured and ready to use.
+The starter toolkit automatically creates an execution role with `bedrock-agentcore:*` wildcard permissions that include all Policy in AgentCore actions. The role is fully configured and ready to use.
 
 **Scenario 2: Custom Execution Role**
 
 **Status:** Action required
 
-Custom IAM roles require the Amazon Bedrock AgentCore Policy permissions documented in this guide to be added manually. Follow the permission policies in the sections above.
+Custom IAM roles require the Policy in AgentCore permissions documented in this guide to be added manually. Follow the permission policies in the sections above.
 
 **Scenario 3: Production Least-Privilege Configuration**
 
@@ -276,13 +276,13 @@ Even when using the starter toolkit, production environments may require replaci
 
 ## Troubleshooting
 
-This section covers common issues when configuring IAM permissions for Amazon Bedrock AgentCore Gateway with Amazon Bedrock AgentCore Policy.
+This section covers common issues when configuring IAM permissions for Amazon Bedrock AgentCore Gateway with Policy in AgentCore.
 
 ### InternalServerException During Policy Evaluation
 
 **Symptom:** Gateway returns `InternalServerException - Policy evaluation failed` when attaching a Policy Engine to an existing Gateway, and all tool invocations are denied by default even with permit policies configured.
 
-**Root Cause:** The Gateway Execution Role is missing the required Amazon Bedrock AgentCore Policy permissions. Without these permissions, the Gateway cannot perform policy authorization.
+**Root Cause:** The Gateway Execution Role is missing the required Policy in AgentCore permissions. Without these permissions, the Gateway cannot perform policy authorization.
 
 **Solution:** Ensure the Gateway Execution Role includes these three permissions:
 
@@ -307,7 +307,7 @@ If you attach a Policy Engine to an existing Gateway using the Policy Engine con
 
 ### Silent Failures in LOG_ONLY Mode
 
-**Symptom:** Amazon Bedrock AgentCore Policy appears to work in LOG_ONLY mode but fails silently without proper error messages.
+**Symptom:** Policy engine appears to work in LOG_ONLY mode but fails silently without proper error messages.
 
 **Root Cause:** Missing `bedrock-agentcore:GetPolicyEngine` permission causes silent failures that only surface when switching to ENFORCED mode.
 
@@ -315,7 +315,7 @@ If you attach a Policy Engine to an existing Gateway using the Policy Engine con
 
 ### Policy Engine Not Found Error
 
-**Symptom:** Amazon Bedrock AgentCore Gateway returns errors indicating it cannot find or access the Amazon Bedrock AgentCore Policy.
+**Symptom:** Amazon Bedrock AgentCore Gateway returns errors indicating it cannot find or access the policy engine.
 
 **Root Cause:** The Gateway Execution Role's policy uses incorrect ARN patterns or is missing the policy-engine resource.
 
@@ -420,11 +420,11 @@ aws iam put-role-policy \
 
 ###### Note
 
-This example shows only the Amazon Bedrock AgentCore Policy permissions. Additional permissions for Amazon Bedrock AgentCore Gateway targets (Lambda, API Gateway, etc.) should be added based on your specific integration requirements.
+This example shows only the Policy in AgentCore permissions. Additional permissions for Amazon Bedrock AgentCore Gateway targets (Lambda, API Gateway, etc.) should be added based on your specific integration requirements.
 
 ### Step 3: Next Steps
 
-After configuring the execution role with the required Amazon Bedrock AgentCore Policy permissions, proceed to create and configure Amazon Bedrock AgentCore Policy resources. For detailed guidance, refer to:
+After configuring the execution role with the required Policy in AgentCore permissions, proceed to create and configure Policy resources. For detailed guidance, refer to:
 
 - Creating a Policy Engine - See the [Create a policy engine](policy-create-engine.md "policy-create-engine.md")
 - Writing Cedar Policies - See the [Cedar Policy Language Reference](https://docs.cedarpolicy.com "https://docs.cedarpolicy.com")
@@ -433,8 +433,8 @@ After configuring the execution role with the required Amazon Bedrock AgentCore 
 
 1. **Use Separate Roles** - Maintain distinct roles for Amazon Bedrock AgentCore Gateway execution and resource management
 2. **Apply Least Privilege** - Start with specific resource ARNs rather than wildcards in production
-3. **Test with LOG_ONLY Mode** - Always test Amazon Bedrock AgentCore Policy integration in LOG_ONLY mode before enforcing policies
+3. **Test with LOG_ONLY Mode** - Always test policy engine integration in LOG_ONLY mode before enforcing policies
 4. **Enable Monitoring** - Configure CloudWatch Logs and X-Ray tracing for troubleshooting and observability
 5. **Version Control Policies** - Store Cedar policies in version control alongside infrastructure code
-6. **Use Resource Tags** - Apply tags to organize and manage Amazon Bedrock AgentCore Gateway and Amazon Bedrock AgentCore Policy resources
+6. **Use Resource Tags** - Apply tags to organize and manage Amazon Bedrock AgentCore Gateway and Policy in AgentCore resources
 7. **Regular Security Audits** - Periodically review IAM policies to ensure they follow least privilege principles

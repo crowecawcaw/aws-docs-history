@@ -19,8 +19,7 @@ With self-managed strategies, you can:
 
 ###### Topics
 
-- [Create and use a self-managed
-  strategy](#use-self-managed-strategy "#use-self-managed-strategy")
+- [Create and use a self-managed strategy](#use-self-managed-strategy "#use-self-managed-strategy")
 - [Prerequisites](#prerequisites "#prerequisites")
 - [Set up the infrastructure](#setting-up-infrastructure "#setting-up-infrastructure")
 - [Create a self-managed strategy](#creating-self-managed-strategy "#creating-self-managed-strategy")
@@ -29,9 +28,7 @@ With self-managed strategies, you can:
 - [Test your implementation](#testing-implementation "#testing-implementation")
 - [Best practices](#best-practices "#best-practices")
 
-## Create and use a self-managed
-
-strategy
+## Create and use a self-managed strategy
 
 Self-managed strategies follow a five-step process from trigger configuration to
 memory record storage.
@@ -163,9 +160,7 @@ Your IAM user or role needs:
 - `bedrock-agentcore:*` permissions
 - `iam:PassRole` permission for the execution role
 
-### Create an AgentCore Memory with a
-
-self-managed strategy
+### Create an AgentCore Memory with a self-managed strategy
 
 Use the AWS SDK `CreateMemory` operation to create AgentCore Memory
 that has a self-managed strategy.
@@ -328,9 +323,7 @@ aws bedrock-agentcore create-event \
   }]'
 ```
 
-### Example: Retrieving memory
-
-records
+### Example: Retrieving memory records
 
 ```
 # List records by namespace

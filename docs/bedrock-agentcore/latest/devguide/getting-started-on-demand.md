@@ -1,6 +1,4 @@
-# Getting started with on-demand
-
-evaluation
+# Getting started with on-demand evaluation
 
 Follow these steps to set up and run your first on-demand evaluation.
 
@@ -8,8 +6,7 @@ Follow these steps to set up and run your first on-demand evaluation.
 
 - [Prerequisites](#prerequisites-on-demand "#prerequisites-on-demand")
 - [Supported frameworks](#supported-frameworks-on-demand "#supported-frameworks-on-demand")
-- [Step 1: Create and deploy your
-  agent](#create-deploy-agent-on-demand "#create-deploy-agent-on-demand")
+- [Step 1: Create and deploy your agent](#create-deploy-agent-on-demand "#create-deploy-agent-on-demand")
 - [Step 2: Invoke your agent](#invoke-agent-on-demand "#invoke-agent-on-demand")
 - [Step 3: Evaluate agent](#evaluate-agent-on-demand "#evaluate-agent-on-demand")
 - [Step 4: Evaluation results](#evaluation-results-on-demand "#evaluation-results-on-demand")
@@ -40,9 +37,7 @@ instrumentation libraries:
   - `opentelemetry-instrumentation-langchain`
   - `openinference-instrumentation-langchain`
 
-## Step 1: Create and deploy your
-
-agent
+## Step 1: Create and deploy your agent
 
 ###### Note
 
@@ -116,13 +111,10 @@ For evaluations we require:
 
 ###### Topics
 
-- [Code samples for Starter Toolkit,
-  AgentCore SDK, and AWS SDK](#starter-toolkit-evaluation "#starter-toolkit-evaluation")
+- [Code samples for Starter Toolkit, AgentCore SDK, and AWS SDK](#starter-toolkit-evaluation "#starter-toolkit-evaluation")
 - [AWS SDK](#aws-sdk-evaluation "#aws-sdk-evaluation")
 
-### Code samples for Starter Toolkit,
-
-AgentCore SDK, and AWS SDK
+### Code samples for Starter Toolkit, AgentCore SDK, and AWS SDK
 
 The following code samples demonstrate how to run on-demand evaluations using
 different development approaches. Choose the method that best fits your
@@ -317,18 +309,14 @@ request.
 
 ###### Topics
 
-- [Session-level
-  evaluator](#session-level-evaluator "#session-level-evaluator")
+- [Session-level evaluator](#session-level-evaluator "#session-level-evaluator")
 - [Trace-level evaluator](#trace-level-evaluator "#trace-level-evaluator")
-- [Tool call level
-  evaluator](#tool-call-level-evaluator "#tool-call-level-evaluator")
+- [Tool call level evaluator](#tool-call-level-evaluator "#tool-call-level-evaluator")
 
 The `evaluationTarget` parameter you specify depends on the
 evaluator level:
 
-##### Session-level
-
-evaluator
+##### Session-level evaluator
 
 Since the service supports only one session per evaluation, you do not
 need to explicitly set the evaluation target.
@@ -347,9 +335,7 @@ response = ace_dp_client.evaluate(
 )
 ```
 
-##### Tool call level
-
-evaluator
+##### Tool call level evaluator
 
 For span-level evaluators (such as
 `Builtin.ToolSelectionAccuracy`), set the span IDs in the
@@ -381,8 +367,7 @@ call may return multiple evaluation results.
 - [Result limit](#result-limit "#result-limit")
 - [Partial failures](#partial-failures "#partial-failures")
 - [Span context](#span-context "#span-context")
-- [Example successful result
-  entry](#example-successful-result "#example-successful-result")
+- [Example successful result entry](#example-successful-result "#example-successful-result")
 - [Example failed result entry](#example-failed-result "#example-failed-result")
 
 ### Result limit
@@ -419,9 +404,7 @@ entity evaluated:
 - For tool-level evaluators, `sessionId`,
   `traceId`, and `spanId` are present.
 
-### Example successful result
-
-entry
+### Example successful result entry
 
 This is just one entry. If a session has multiple traces, you will see
 multiple such entries, one for each trace. Similarly for tool-level evaluators,

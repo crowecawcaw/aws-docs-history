@@ -7,12 +7,9 @@ features in your agent applications.
 ###### Topics
 
 - [Prerequisites](#prerequisites "#prerequisites")
-- [Step 1: Enable transaction search on
-  CloudWatch](#enabling-transaction-search "#enabling-transaction-search")
-- [Step 2: Enable observability for
-  Amazon Bedrock AgentCore Runtime hosted agents](#enabling-observability-runtime-hosted "#enabling-observability-runtime-hosted")
-- [Step 3: Enable observability for
-  non-Amazon Bedrock AgentCore-hosted agents](#enabling-observability-non-runtime-hosted "#enabling-observability-non-runtime-hosted")
+- [Step 1: Enable transaction search on CloudWatch](#enabling-transaction-search "#enabling-transaction-search")
+- [Step 2: Enable observability for Amazon Bedrock AgentCore Runtime hosted agents](#enabling-observability-runtime-hosted "#enabling-observability-runtime-hosted")
+- [Step 3: Enable observability for non-Amazon Bedrock AgentCore-hosted agents](#enabling-observability-non-runtime-hosted "#enabling-observability-non-runtime-hosted")
 - [Step 4: Observe your agent with GenAI observability on Amazon CloudWatch](#agentcore-observability-genai-cloudwatch "#agentcore-observability-genai-cloudwatch")
 - [Best practices](#best-practices "#best-practices")
 
@@ -44,16 +41,12 @@ As a one time setup per AWS account, first time users
 need to enable Transaction Search on Amazon CloudWatch. There are two ways to do
 this, via the API and via the CloudWatch Console.
 
-## Step 1: Enable transaction search on
-
-CloudWatch
+## Step 1: Enable transaction search on CloudWatch
 
 After you enable Transaction Search, it can take ten minutes for spans to become
 available for search and analysis. Choose one of the options below:
 
-### Option 1: Enable transaction search
-
-using an API
+### Option 1: Enable transaction search using an API
 
 ###### To enable transaction search using the API
 
@@ -86,9 +79,7 @@ Configure your desired sampling percentage with
 aws xray update-indexing-rule --name "Default" --rule '{"Probabilistic": {"DesiredSamplingPercentage": number}}'
 ```
 
-### Option 2: Enable transaction
-
-search in the CloudWatch console
+### Option 2: Enable transaction search in the CloudWatch console
 
 ###### To enable transaction search in the CloudWatch console
 
@@ -103,9 +94,7 @@ search in the CloudWatch console
 
 Let's now proceed to exploring the two ways to configure observability.
 
-## Step 2: Enable observability for
-
-Amazon Bedrock AgentCore Runtime hosted agents
+## Step 2: Enable observability for Amazon Bedrock AgentCore Runtime hosted agents
 
 Amazon Bedrock AgentCore Runtime-hosted agents are deployed and executed directly within the
 Amazon Bedrock AgentCore environment, providing automatic instrumentation with minimal
@@ -114,9 +103,7 @@ rapid development and testing.
 
 For a complete example, refer to this [notebook](https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/06-AgentCore-observability/01-Agentcore-runtime-hosted/Strands%20Agents/runtime_with_strands_and_bedrock_models.ipynb "https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/06-AgentCore-observability/01-Agentcore-runtime-hosted/Strands%20Agents/runtime_with_strands_and_bedrock_models.ipynb")
 
-### Set up folder and virtual
-
-environment
+### Set up folder and virtual environment
 
 Create a new folder for your agent. Then create and initialize a new python
 virtual environment.
@@ -183,9 +170,7 @@ if __name__ == "__main__":
     app.run()
 ```
 
-### Deploy and invoke your agent on
-
-Amazon Bedrock AgentCore Runtime
+### Deploy and invoke your agent on Amazon Bedrock AgentCore Runtime
 
 Use the following code to deploy the agent to AgentCore Runtime by using the
 `bedrock_agentcore_starter_toolkit` package.
@@ -222,9 +207,7 @@ invoke_response = agentcore_runtime.invoke({"prompt": "How is the weather now?"}
 invoke_response
 ```
 
-## Step 3: Enable observability for
-
-non-Amazon Bedrock AgentCore-hosted agents
+## Step 3: Enable observability for non-Amazon Bedrock AgentCore-hosted agents
 
 For agents running outside of the Amazon Bedrock AgentCore runtime, you can deliver the same
 monitoring capabilities for agents deployed on your own infrastructure. This allows
@@ -234,9 +217,7 @@ your agents.
 
 For a complete example, refer to this [notebook](https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/06-AgentCore-observability/02-Agent-not-hosted-on-runtime/Strands/Strands_Observability.ipynb "https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/06-AgentCore-observability/02-Agent-not-hosted-on-runtime/Strands/Strands_Observability.ipynb")
 
-### Configure AWS
-
-environment variables
+### Configure AWS environment variables
 
 ```
 export AWS_ACCOUNT_ID=<account id>
@@ -246,16 +227,12 @@ export AWS_ACCESS_KEY_ID=<access key id>
 export AWS_SECRET_ACCESS_KEY=<secret key>
 ```
 
-### Configure CloudWatch
-
-logging
+### Configure CloudWatch logging
 
 Create a log group and log stream for your agent in Amazon CloudWatch which you
 can use to configure below environment variables.
 
-### Configure
-
-OpenTelemetry environment variables
+### Configure OpenTelemetry environment variables
 
 ```
 export AGENT_OBSERVABILITY_ENABLED=true # Activates the ADOT pipeline
@@ -307,9 +284,7 @@ response = weather_agent("What's the weather like in Seattle?")
 print(response)
 ```
 
-### Run your agent with
-
-automatic instrumentation command
+### Run your agent with automatic instrumentation command
 
 With aws-opentelemetry-distro in your requirements.txt, the
 `opentelemetry-instrument` command will:

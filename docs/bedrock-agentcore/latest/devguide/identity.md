@@ -8,19 +8,16 @@ controls and audit trails. Agent identities are implemented as workload identiti
 specialized attributes that enable agent-specific capabilities while helping to maintain
 compatibility with industry-standard workload identity patterns. The service integrates
 natively with Amazon Bedrock AgentCore to provide identity and credential management for agent
-applications, including [Host agent or tools with Amazon Bedrock AgentCore Runtime](agents-tools-runtime.md "agents-tools-runtime.md") and [Amazon Bedrock AgentCore Gateway: Securely connect tools and other resources to your
-Gateway](gateway.md "gateway.md").
+applications, including [Host agent or tools with Amazon Bedrock AgentCore Runtime](agents-tools-runtime.md "agents-tools-runtime.md") and [Amazon Bedrock AgentCore Gateway: Securely connect tools and other resources to your Gateway](gateway.md "gateway.md").
 
 ###### Topics
 
 - [Overview of Amazon Bedrock AgentCore Identity](identity-overview.md "identity-overview.md")
 - [Get started with AgentCore Identity](identity-getting-started.md "identity-getting-started.md")
 - [Using the AgentCore Identity console](identity-how-to.md "identity-how-to.md")
-- [Manage workload identities with
-  AgentCore Identity](identity-manage-agent-ids.md "identity-manage-agent-ids.md")
+- [Manage workload identities with AgentCore Identity](identity-manage-agent-ids.md "identity-manage-agent-ids.md")
 - [Configure inbound JWT authorizer](inbound-jwt-authorizer.md "inbound-jwt-authorizer.md")
-- [Manage credential providers with
-  AgentCore Identity](identity-outbound-credential-provider.md "identity-outbound-credential-provider.md")
+- [Manage credential providers with AgentCore Identity](identity-outbound-credential-provider.md "identity-outbound-credential-provider.md")
 - [Provider setup and configuration](identity-idps.md "identity-idps.md")
 - [Data protection in Amazon Bedrock AgentCore Identity](identity-data-protection.md "identity-data-protection.md")
 - [Tagging AgentCore Identity resources](identity-tagging.md "identity-tagging.md")

@@ -11,6 +11,5 @@ on other systems can retrieve their agent token using the AgentCore SDK.
 - [Get workload access token](get-workload-access-token.md "get-workload-access-token.md")
 - [Obtain OAuth 2.0 access token](identity-authentication.md "identity-authentication.md")
 - [OAuth 2.0 authorization URL session binding](oauth2-authorization-url-session-binding.md "oauth2-authorization-url-session-binding.md")
-- [Scope down access to credential
-  providers by workload identity](scope-credential-provider-access.md "scope-credential-provider-access.md")
+- [Scope down access to credential providers by workload identity](scope-credential-provider-access.md "scope-credential-provider-access.md")
 - [Obtain API key](obtain-api-key.md "obtain-api-key.md")

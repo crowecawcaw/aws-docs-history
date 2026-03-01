@@ -9,13 +9,10 @@ Review the key considerations and limitations, including feature support, to hel
 
 ###### Topics
 
-- [Key considerations and
-  limitations](#gateway-schema-openapi-considerations "#gateway-schema-openapi-considerations")
+- [Key considerations and limitations](#gateway-schema-openapi-considerations "#gateway-schema-openapi-considerations")
 - [OpenAPI schema specification](#gateway-openapi-schema "#gateway-openapi-schema")
 
-## Key considerations and
-
-limitations
+## Key considerations and limitations
 
 ###### Important
 

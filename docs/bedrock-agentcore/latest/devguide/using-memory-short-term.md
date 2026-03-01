@@ -5,8 +5,7 @@ short-term memory. They form the foundation for structured information
 extraction into long-term memory.
 
 The following section discusses short-term memory with the AWS SDK. For examples
-that use the [Amazon Bedrock AgentCore starter toolkit](https://github.com/aws/bedrock-agentcore-starter-toolkit "https://github.com/aws/bedrock-agentcore-starter-toolkit") and the AWS SDK, see [Scenario: A customer support AI agent using
-AgentCore Memory](memory-customer-scenario.md "memory-customer-scenario.md"). For
+that use the [Amazon Bedrock AgentCore starter toolkit](https://github.com/aws/bedrock-agentcore-starter-toolkit "https://github.com/aws/bedrock-agentcore-starter-toolkit") and the AWS SDK, see [Scenario: A customer support AI agent using AgentCore Memory](memory-customer-scenario.md "memory-customer-scenario.md"). For
 other SDKs see [Amazon Bedrock AgentCore Memory examples](memory-examples.md "memory-examples.md").
 
 ###### Topics

@@ -59,9 +59,7 @@ On a separate terminal, run the below command to test your agent response.
 agentcore invoke --dev "Hello!"
 ```
 
-## Step 2: Deploy your
-
-agent
+## Step 2: Deploy your agent
 
 Now, host your simple agent in Amazon Bedrock AgentCore Runtime using the below command. If
 you don’t already have permissions, refer to [IAM Permissions for AgentCore.](runtime-permissions.md "runtime-permissions.md")

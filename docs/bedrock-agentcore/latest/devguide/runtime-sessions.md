@@ -48,9 +48,7 @@ AgentCore Memory. This service provides purpose-built persistent storage designe
 specifically for agent workloads, with both short-term and long-term memory
 capabilities.
 
-## Extended conversations and multi-step
-
-workflows
+## Extended conversations and multi-step workflows
 
 Unlike traditional serverless functions that terminate after each request,
 AgentCore supports ephemeral, isolated compute sessions lasting up to 8 hours.

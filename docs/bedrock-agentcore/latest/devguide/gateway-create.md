@@ -22,8 +22,7 @@ When you create a gateway, a [workload identity](identity-manage-agent-ids.md "i
 You can activate the following features of the gateway during creation:
 
 - **Protocol configuration** – Configure how the gateway implements the protocol.
-- **Custom encryption of the gateway** – Specify the Amazon Resource Name (ARN) of a customer-managed AWS KMS key for greater control over the encryption process of your resource. If you don't include one, AWS encrypts the resource with an AWS-managed key. For more information, see [Encrypt your AgentCore gateway with a customer-managed
-  KMS key](gateway-encryption.md "gateway-encryption.md").
+- **Custom encryption of the gateway** – Specify the Amazon Resource Name (ARN) of a customer-managed AWS KMS key for greater control over the encryption process of your resource. If you don't include one, AWS encrypts the resource with an AWS-managed key. For more information, see [Encrypt your AgentCore gateway with a customer-managed KMS key](gateway-encryption.md "gateway-encryption.md").
 - **Debug mode** – Allow the return of specific error messages during gateway invocation to help you with debugging. For more information, see [Turn on debugging messages](gateway-debug-messages.md "gateway-debug-messages.md").
 - **Semantic search** – Add the `x_amz_bedrock_agentcore_search` to the gateway so that the target can deliver tools that are relevant to the search query. For more information, see [Search for tools in your AgentCore gateway with a natural language query](gateway-using-mcp-semantic-search.md "gateway-using-mcp-semantic-search.md").
 

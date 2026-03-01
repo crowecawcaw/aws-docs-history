@@ -11,8 +11,7 @@ patterns with Google Drive to understand the core authentication flows.
 
 Start here for a complete end-to-end walkthrough of AgentCore Identity features:
 
-[Build your first authenticated
-agent](identity-getting-started-cognito.md "identity-getting-started-cognito.md")
+[Build your first authenticated agent](identity-getting-started-cognito.md "identity-getting-started-cognito.md")
 
 **Recommended starting point** for new
 users
@@ -32,8 +31,7 @@ authenticate users and obtain access tokens
 After completing the primary tutorial, explore OAuth2 patterns with external
 services:
 
-[Integrate with Google Drive using
-OAuth2](identity-getting-started-google.md "identity-getting-started-google.md")
+[Integrate with Google Drive using OAuth2](identity-getting-started-google.md "identity-getting-started-google.md")
 
 **Focus:** OAuth2 flows and Google Drive
 integration
@@ -58,7 +56,5 @@ needed.
 
 ###### Topics
 
-- [Build your first authenticated
-  agent](identity-getting-started-cognito.md "identity-getting-started-cognito.md")
-- [Integrate with Google Drive using
-  OAuth2](identity-getting-started-google.md "identity-getting-started-google.md")
+- [Build your first authenticated agent](identity-getting-started-cognito.md "identity-getting-started-cognito.md")
+- [Integrate with Google Drive using OAuth2](identity-getting-started-google.md "identity-getting-started-google.md")

@@ -11,5 +11,4 @@ retained over time.
 - [Memory types](memory-types.md "memory-types.md")
 - [Memory strategies](memory-strategies.md "memory-strategies.md")
 - [Memory organization in AgentCore Memory](memory-organization.md "memory-organization.md")
-- [Compare long-term memory with Retrieval-Augmented
-  Generation](memory-ltm-rag.md "memory-ltm-rag.md")
+- [Compare long-term memory with Retrieval-Augmented Generation](memory-ltm-rag.md "memory-ltm-rag.md")

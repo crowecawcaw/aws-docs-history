@@ -22,8 +22,7 @@ You can configure these as part of configuration of Gateway and Runtime inbound
 configuration.
 
 Before configuring Microsoft Entra ID as your identity provider, we recommend
-completing the basic setup steps outlined in [Integrate with Google Drive using
-OAuth2](identity-getting-started-google.md "identity-getting-started-google.md"). This ensures your development
+completing the basic setup steps outlined in [Integrate with Google Drive using OAuth2](identity-getting-started-google.md "identity-getting-started-google.md"). This ensures your development
 environment and SDK are properly configured before adding identity provider
 integration.
 
@@ -44,9 +43,7 @@ For all token types, in your custom authorizer:
 - **Allowed audiences**: `aud`
   should be the Application Id.
 
-### Configurations
-
-specific for v1.0 Access Tokens
+### Configurations specific for v1.0 Access Tokens
 
 When fetching the token from Microsoft Entra:
 
@@ -57,9 +54,7 @@ When fetching the token from Microsoft Entra:
   resources other than Microsoft's Graph API and will result in a token
   that can be validated by AgentCore Identity.
 
-### Configurations
-
-Specific for v2.0 AccessTokens
+### Configurations Specific for v2.0 AccessTokens
 
 On Microsoft Entra:
 
@@ -70,9 +65,7 @@ On Microsoft Entra:
   be included in the authorization URL when retrieving the access
   token.
 
-### Configurations Specific for
-
-v1.0 and v2.0 Id Tokens
+### Configurations Specific for v1.0 and v2.0 Id Tokens
 
 On Microsoft Entra:
 

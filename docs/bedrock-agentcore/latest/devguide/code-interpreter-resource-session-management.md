@@ -1,6 +1,4 @@
-# Resource and session
-
-management
+# Resource and session management
 
 The following topics show how the Amazon Bedrock AgentCore Code Interpreter works and how you can create the
 resources and manage sessions.
@@ -79,9 +77,7 @@ results in real-time. 3. ###### Assess performance using observability
 Monitor key metrics for each tool in CloudWatch to get real-time performance
 insights.
 
-## Creating a Code Interpreter and starting a
-
-session
+## Creating a Code Interpreter and starting a session
 
 1. ###### Create a Code Interpreter
 

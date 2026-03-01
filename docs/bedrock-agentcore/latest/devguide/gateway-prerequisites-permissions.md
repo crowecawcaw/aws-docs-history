@@ -19,8 +19,7 @@ If you prefer not to set up custom permissions, you can use the following option
 
 - [Gateway builder and user permissions](#gateway-user-permissions "#gateway-user-permissions")
 - [AgentCore Gateway service role permissions](#gateway-service-role-permissions "#gateway-service-role-permissions")
-- [Best practices for Gateway
-  permissions](#gateway-prerequisites-best-practices "#gateway-prerequisites-best-practices")
+- [Best practices for Gateway permissions](#gateway-prerequisites-best-practices "#gateway-prerequisites-best-practices")
 
 ## Gateway builder and user permissions
 
@@ -257,9 +256,7 @@ JSON
 
 ```
 
-## Best practices for Gateway
-
-permissions
+## Best practices for Gateway permissions
 
 **Follow the principle of least privilege**
 

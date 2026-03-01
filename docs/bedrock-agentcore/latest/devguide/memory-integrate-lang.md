@@ -1,6 +1,4 @@
-# Integrate AgentCore Memory with LangChain or
-
-LangGraph
+# Integrate AgentCore Memory with LangChain or LangGraph
 
 [LangChain and LangGraph](https://www.langchain.com/langgraph "https://www.langchain.com/langgraph") are
 powerful open-source frameworks for developing agents through a graph-based
@@ -27,10 +25,8 @@ the checkpointing workflow and the store workflow:
 ###### Topics
 
 - [Prerequisites](#prerequisites "#prerequisites")
-- [Configuration for short term memory
-  persistence](#memory-short-term-memory "#memory-short-term-memory")
-- [Configuration for intelligent long term memory
-  search](#long-term-memory "#long-term-memory")
+- [Configuration for short term memory persistence](#memory-short-term-memory "#memory-short-term-memory")
+- [Configuration for intelligent long term memory search](#long-term-memory "#long-term-memory")
 - [Create the agent with configurations](#create-agent "#create-agent")
 - [Invoke the agent](#memory-gs-invoke-agent "#memory-gs-invoke-agent")
 - [Resources](#resources "#resources")
@@ -48,9 +44,7 @@ LangGraph.
    - `bedrock-agentcore:ListEvents`
    - `bedrock-agentcore:RetrieveMemories`
 
-## Configuration for short term memory
-
-persistence
+## Configuration for short term memory persistence
 
 The `AgentCoreMemorySaver` in LangGraph handles all the saving and
 loading of conversational state, execution context, and state variables under the
@@ -80,9 +74,7 @@ checkpointer = AgentCoreMemorySaver(MEMORY_ID, region_name=REGION)
 
 ```
 
-## Configuration for intelligent long term memory
-
-search
+## Configuration for intelligent long term memory search
 
 For long term memory stores in LangGraph, you have more flexibility on how
 messages are processed. For instance, if the application is only concerned with user

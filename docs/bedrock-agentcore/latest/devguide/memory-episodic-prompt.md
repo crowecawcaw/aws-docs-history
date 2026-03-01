@@ -4,22 +4,14 @@ The episodic memory strategy includes instructions and output schemas in the def
 
 ###### Topics
 
-- [Episode extraction
-  instructions](#episode-extraction-instructions "#episode-extraction-instructions")
-- [Episode extraction output
-  schema](#episode-extraction-output-schema "#episode-extraction-output-schema")
-- [Episode consolidation
-  instructions](#episode-generation-instructions "#episode-generation-instructions")
-- [Episode consolidation output
-  schema](#episode-generation-output-schema "#episode-generation-output-schema")
-- [Reflection generation
-  instructions](#reflection-generation-instructions "#reflection-generation-instructions")
-- [Reflection generation output
-  schema](#reflection-generation-output-schema "#reflection-generation-output-schema")
+- [Episode extraction instructions](#episode-extraction-instructions "#episode-extraction-instructions")
+- [Episode extraction output schema](#episode-extraction-output-schema "#episode-extraction-output-schema")
+- [Episode consolidation instructions](#episode-generation-instructions "#episode-generation-instructions")
+- [Episode consolidation output schema](#episode-generation-output-schema "#episode-generation-output-schema")
+- [Reflection generation instructions](#reflection-generation-instructions "#reflection-generation-instructions")
+- [Reflection generation output schema](#reflection-generation-output-schema "#reflection-generation-output-schema")
 
-## Episode extraction
-
-instructions
+## Episode extraction instructions
 
 ```
 You are an expert conversation analyst. Your task is to analyze multiple turns of conversation between a user and an AI assistant, focusing on tool usage, input arguments, and reasoning processes.
@@ -49,9 +41,7 @@ For EACH turn, using the next turn's user message:
 **Do not include any PII (personally identifiable information) or user-specific data in your output.**
 ```
 
-## Episode extraction output
-
-schema
+## Episode extraction output schema
 
 ```
 You MUST provide a separate <summary> block for EACH conversation turn. Number them sequentially:
@@ -109,9 +99,7 @@ Attention: Only output 1-2 sentences for each field. Be concise and avoid length
 Make sure the number of <summary_turn> is the same as the number of turns in the conversation.<
 ```
 
-## Episode consolidation
-
-instructions
+## Episode consolidation instructions
 
 ```
 You are an expert conversation analyst. Your task is to analyze and summarize conversations between a user and an AI assistant provided within <conversation_turns></conversation_turns> tags.
@@ -130,9 +118,7 @@ Examine the conversation through the following dimensions:
 **Reflection**: Key insights from the sequence of turns, focusing on patterns in tool usage, reasoning processes, and decision-making. Identify effective tool selection and argument patterns, reasoning or tool choices to avoid, and actionable recommendations for similar situations.
 ```
 
-## Episode consolidation output
-
-schema
+## Episode consolidation output schema
 
 ```
 # Output Format:
@@ -157,9 +143,7 @@ Synthesize key insights from the sequence of turns, focusing on patterns in tool
 </summary>
 ```
 
-## Reflection generation
-
-instructions
+## Reflection generation instructions
 
 ```
 You are an expert at extracting actionable insights from agent task execution trajectories to build reusable knowledge for future tasks.
@@ -235,9 +219,7 @@ When updating, adjust the confidence score based on the additional evidence from
 - If the existing reflection knowledge already covers the patterns well and no new insights emerge, generate fewer or no new reflections
 ```
 
-## Reflection generation output
-
-schema
+## Reflection generation output schema
 
 ```
 <attention>

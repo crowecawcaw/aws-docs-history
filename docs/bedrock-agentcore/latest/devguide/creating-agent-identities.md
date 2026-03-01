@@ -1,6 +1,4 @@
-# Create and manage workload
-
-identities
+# Create and manage workload identities
 
 You can create agent identities using several methods, including the AWS CLI and the
 AgentCore SDK, depending on your workflow and integration requirements. AgentCore Identity

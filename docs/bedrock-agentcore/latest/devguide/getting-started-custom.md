@@ -21,8 +21,7 @@ AgentCore Python SDK.
 
 [Amazon Bedrock AgentCore Observability](observability.md "observability.md") helps you trace, debug, and
 monitor agents that you host in AgentCore Runtime. To observe an agent, first enable CloudWatch
-Transaction Search by following the instructions at [Enabling AgentCore
-observability](observability-configure.md#observability-configure-builtin "observability-configure.md#observability-configure-builtin").
+Transaction Search by following the instructions at [Enabling AgentCore observability](observability-configure.md#observability-configure-builtin "observability-configure.md#observability-configure-builtin").
 
 ### Install uv
 

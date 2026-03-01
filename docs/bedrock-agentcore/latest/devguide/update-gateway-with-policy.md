@@ -1,6 +1,4 @@
-# Update existing gateway with AgentCore Policy
-
-Engine
+# Update existing gateway with Policy Engine
 
 Associate a policy engine with an existing gateway:
 

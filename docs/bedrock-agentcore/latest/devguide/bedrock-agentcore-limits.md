@@ -13,8 +13,7 @@ To request a quota increase, contact AWS support.
 - [AgentCore Identity Service Quotas](#identity-service-limits "#identity-service-limits")
 - [AgentCore Gateway Service Quotas](#gateway-endpoints-quotas "#gateway-endpoints-quotas")
 - [AgentCore Browser Service Quotas](#browser-service-limits "#browser-service-limits")
-- [AgentCore Code Interpreter Service
-  Quotas](#code-interpreter-service-limits "#code-interpreter-service-limits")
+- [AgentCore Code Interpreter Service Quotas](#code-interpreter-service-limits "#code-interpreter-service-limits")
 - [AgentCore Evaluations Service Quotas](#evaluation-service-limits "#evaluation-service-limits")
 - [AgentCore Resource Based Policies](#resource-based-policies-quotas "#resource-based-policies-quotas")
 
@@ -257,9 +256,31 @@ The following table describes the limits for browser proxies:
 | Server hostname length            | 253 characters | No    | Standard DNS limit                           |
 | Domain pattern length             | 253 characters | No    | Standard DNS limit                           |
 
-## AgentCore Code Interpreter Service
+### Browser Throttling Limits
 
-Quotas
+The following table describes the rate limits for the Browser tool APIs after
+which you will be throttled:
+
+| Browser throttling limits               | Limit  | Value | Adjustable                          | Notes |
+| --------------------------------------- | ------ | ----- | ----------------------------------- | ----- |
+| CreateBrowser API rate                  | 5 TPS  | Yes   | Transactions per second per account |
+| GetBrowser API rate                     | 30 TPS | Yes   | Transactions per second per account |
+| ListBrowsers API rate                   | 30 TPS | Yes   | Transactions per second per account |
+| DeleteBrowser API rate                  | 5 TPS  | Yes   | Transactions per second per account |
+| StartBrowserSession API rate            | 30 TPS | Yes   | Transactions per second per account |
+| GetBrowserSession API rate              | 30 TPS | Yes   | Transactions per second per account |
+| ListBrowserSessions API rate            | 30 TPS | Yes   | Transactions per second per account |
+| StopBrowserSession API rate             | 30 TPS | Yes   | Transactions per second per account |
+| UpdateBrowserStream API rate            | 30 TPS | Yes   | Transactions per second per account |
+| ConnectBrowserAutomationStream API rate | 30 TPS | Yes   | Transactions per second per account |
+| ConnectBrowserLiveViewStream API rate   | 30 TPS | Yes   | Transactions per second per account |
+| SaveBrowserSessionProfile API rate      | 10 TPS | Yes   | Transactions per second per account |
+| CreateBrowserProfile API rate           | 5 TPS  | Yes   | Transactions per second per account |
+| GetBrowserProfile API rate              | 30 TPS | Yes   | Transactions per second per account |
+| ListBrowserProfiles API rate            | 30 TPS | Yes   | Transactions per second per account |
+| DeleteBrowserProfile API rate           | 5 TPS  | Yes   | Transactions per second per account |
+
+## AgentCore Code Interpreter Service Quotas
 
 The Code Interpreter tool has the following service quotas and considerations that
 apply to your account.
@@ -282,6 +303,23 @@ tool:
 | Invocations per second             | 3       | No    | Rate limit for API calls per session             |
 | Asynchronous command max duration  | 8 hrs   | No    | Maximum execution time for asynchronous commands |
 | Disk size                          | 10 GB   | No    | Maximum disk space available per session         |
+
+### Code Interpreter Throttling Limits
+
+The following table describes the rate limits for the Code Interpreter tool APIs
+after which you will be throttled:
+
+| Code Interpreter throttling limits   | Limit  | Value | Adjustable                          | Notes |
+| ------------------------------------ | ------ | ----- | ----------------------------------- | ----- |
+| CreateCodeInterpreter API rate       | 5 TPS  | Yes   | Transactions per second per account |
+| GetCodeInterpreter API rate          | 30 TPS | Yes   | Transactions per second per account |
+| ListCodeInterpreters API rate        | 30 TPS | Yes   | Transactions per second per account |
+| DeleteCodeInterpreter API rate       | 5 TPS  | Yes   | Transactions per second per account |
+| StartCodeInterpreterSession API rate | 30 TPS | Yes   | Transactions per second per account |
+| GetCodeInterpreterSession API rate   | 30 TPS | Yes   | Transactions per second per account |
+| ListCodeInterpreterSessions API rate | 30 TPS | Yes   | Transactions per second per account |
+| StopCodeInterpreterSession API rate  | 30 TPS | Yes   | Transactions per second per account |
+| InvokeCodeInterpreter API rate       | 30 TPS | Yes   | Transactions per second per account |
 
 ## AgentCore Evaluations Service Quotas
 

@@ -1,6 +1,4 @@
-# AgentCore generated identity
-
-observability data
+# AgentCore generated identity observability data
 
 This document described observability data emitted by the Bedrock AgentCore Identity
 Service. This data provides visibility into the performance, usage, and operational
@@ -55,9 +53,7 @@ AWS account level.
 | CallCount     | Service, Type, Class, Resource | Tracks the number of calls made to Identity Service operations. This<br>can be used for service quotas. |
 | ThrottleCount | Service, Type, Class, Resource | Tracks the number of throttled calls for Identity Service<br>operations.                                |
 
-### Authorization
-
-metrics
+### Authorization metrics
 
 These metrics are emitted in the AWS/Bedrock-AgentCore namespace and provide
 insights into authentication and authorization operations.
@@ -68,9 +64,7 @@ insights into authentication and authorization operations.
 | WorkloadAccessTokenFetchFailures  | WorkloadIdentity, WorkloadIdentityDirectory, Operation,<br>ExceptionType | Tracks failed workload access token fetch operations by exception<br>type. |
 | WorkloadAccessTokenFetchThrottles | WorkloadIdentity, WorkloadIdentityDirectory, Operation                   | Tracks throttled workload access token fetch operations.                   |
 
-### Resource access
-
-metrics
+### Resource access metrics
 
 These metrics track credential provider operations for accessing external
 resources.

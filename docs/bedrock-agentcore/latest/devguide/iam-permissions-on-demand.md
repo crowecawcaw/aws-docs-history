@@ -1,13 +1,9 @@
-# IAM permissions for on-demand
-
-evaluation
+# IAM permissions for on-demand evaluation
 
 Your IAM user or role needs the following permissions to run on-demand
 evaluations:
 
-## Console and API
-
-operations
+## Console and API operations
 
 ```
 {

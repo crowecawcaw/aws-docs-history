@@ -207,8 +207,7 @@ AgentCore Runtime supports long-running workloads through:
 - Automatic status tracking via the `/ping` endpoint
 - Support for operations up to 8 hours in duration
 
-For more information, see [Handle asynchronous and long running agents with
-Amazon Bedrock AgentCore Runtime](runtime-long-run.md "runtime-long-run.md").
+For more information, see [Handle asynchronous and long running agents with Amazon Bedrock AgentCore Runtime](runtime-long-run.md "runtime-long-run.md").
 
 ### Streaming responses
 
@@ -230,8 +229,7 @@ AgentCore Runtime supports multiple communication protocols:
 
 - [HTTP](runtime-http-protocol-contract.md "runtime-http-protocol-contract.md"): Direct REST
   API endpoints for traditional request/response patterns. For more information,
-  see [Get started with the Amazon Bedrock AgentCore starter
-  toolkit in Python](runtime-get-started-toolkit.md "runtime-get-started-toolkit.md").
+  see [Get started with the Amazon Bedrock AgentCore starter toolkit in Python](runtime-get-started-toolkit.md "runtime-get-started-toolkit.md").
 - [MCP](runtime-mcp-protocol-contract.md "runtime-mcp-protocol-contract.md"): Model Context
   Protocol for tools and agent servers. For more information, see [Deploy MCP servers in AgentCore Runtime](runtime-mcp.md "runtime-mcp.md").
 - [A2A](runtime-a2a-protocol-contract.md "runtime-a2a-protocol-contract.md"): Agent-to-Agent
@@ -240,8 +238,7 @@ AgentCore Runtime supports multiple communication protocols:
 
 ## Implementation overview
 
-Here's how to get started with the AgentCore Runtime. For the complete example, see [Get started with the Amazon Bedrock AgentCore starter
-toolkit in Python](runtime-get-started-toolkit.md "runtime-get-started-toolkit.md").
+Here's how to get started with the AgentCore Runtime. For the complete example, see [Get started with the Amazon Bedrock AgentCore starter toolkit in Python](runtime-get-started-toolkit.md "runtime-get-started-toolkit.md").
 
 ### Prepare your agent or tool code
 
@@ -265,9 +262,7 @@ toolkit in Python](runtime-get-started-toolkit.md "runtime-get-started-toolkit.m
   ID
 - Pass user input in the request payload
 
-### Manage and observe sessions, and make
-
-updates
+### Manage and observe sessions, and make updates
 
 - Use the same session ID for follow-up interactions to maintain
   context

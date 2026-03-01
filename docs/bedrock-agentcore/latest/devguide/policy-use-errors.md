@@ -1,6 +1,6 @@
 # Errors
 
-AgentCore Policy operations can return the following types of errors:
+Policy in AgentCore operations can return the following types of errors:
 
 AuthorizationError
 

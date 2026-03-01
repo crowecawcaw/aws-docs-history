@@ -17,8 +17,7 @@ more information, see [AWS owned keys](kms/latest/developerguide/concepts.md#aws
   - Gateway CloudWatch logs
 
 - Customers can encrypt the following resources with a customer-managed KMS key:
-  - Gateways – For more information, see [Encrypt your AgentCore gateway with a customer-managed
-    KMS key](gateway-encryption.md "gateway-encryption.md").
+  - Gateways – For more information, see [Encrypt your AgentCore gateway with a customer-managed KMS key](gateway-encryption.md "gateway-encryption.md").
 
 ## Encryption in transit
 
@@ -41,8 +40,7 @@ You can use AWS KMS customer managed keys for the following Amazon Bedrock Agent
 ###### Resources that support AWS KMS customer managed keys
 
 - Memories. For more information, see [Create an AgentCore Memory](memory-create-a-memory-store.md "memory-create-a-memory-store.md").
-- Gateways. For more information, see [Encrypt your AgentCore gateway with a customer-managed
-  KMS key](gateway-encryption.md "gateway-encryption.md"). Note the following:
+- Gateways. For more information, see [Encrypt your AgentCore gateway with a customer-managed KMS key](gateway-encryption.md "gateway-encryption.md"). Note the following:
   - For AgentCore Gateway resources, AWS managed keys are single-tenant use and different for each region.
   - If a key encrypting your gateway is compromised, you should rotate the key or delete the gateway and create a new one with a new key.
   - AgentCore Gateway integrates with AWS Certificate Manager. For more information, see [AWS Certificate Manager User Guide](../../../acm/latest/userguide.md "../../../acm/latest/userguide.md")

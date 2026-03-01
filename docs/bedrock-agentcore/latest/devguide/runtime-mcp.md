@@ -56,9 +56,7 @@ First, install the MCP package:
 pip install mcp
 ```
 
-### Create your first MCP
-
-server
+### Create your first MCP server
 
 Create a new file called `my_mcp_server.py`:
 
@@ -145,9 +143,7 @@ You can also test your server using the MCP Inspector as described in [Local tes
 
 ## Step 3: Deploy your MCP server to AWS
 
-### Install deployment
-
-tools
+### Install deployment tools
 
 Install the AgentCore starter toolkit:
 
@@ -177,13 +173,10 @@ mcp
 
 `requirements.txt` specifies the requirements that the agent needs for deployment to AgentCore Runtime.
 
-### Configure your MCP server for
-
-deployment
+### Configure your MCP server for deployment
 
 Before configuring your deployment, you need to set up a Cognito user pool for
-authentication as described in [Set up Cognito user pool for
-authentication](#runtime-mcp-appendix-a "#runtime-mcp-appendix-a"). This
+authentication as described in [Set up Cognito user pool for authentication](#runtime-mcp-appendix-a "#runtime-mcp-appendix-a"). This
 provides the OAuth tokens required for secure access to your deployed server.
 
 ###### Service-Linked Role for Authentication
@@ -877,9 +870,7 @@ The client will automatically:
 
 ## Appendix
 
-### Set up Cognito user pool for
-
-authentication
+### Set up Cognito user pool for authentication
 
 Create a new file `setup_cognito.sh` and add the following
 content.

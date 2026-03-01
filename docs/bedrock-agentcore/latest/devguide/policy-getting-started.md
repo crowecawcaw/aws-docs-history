@@ -1,6 +1,6 @@
-# Getting started with AgentCore Policy
+# Getting started with Policy in AgentCore
 
-In this tutorial, you'll learn how to set up a Amazon Bedrock AgentCore Policy and integrate it with a
+In this tutorial, you'll learn how to set up Policy in AgentCore and integrate it with a
 Amazon Bedrock AgentCore Gateway using the AgentCore starter toolkit. You'll create a refund processing tool
 with Cedar policies that enforce business rules for refund amounts.
 
@@ -8,8 +8,7 @@ with Cedar policies that enforce business rules for refund amounts.
 
 - [Prerequisites](#policy-getting-started-prerequisites "#policy-getting-started-prerequisites")
 - [Step 1: Setup and install](#policy-getting-started-setup "#policy-getting-started-setup")
-- [Step 2: Create policy setup
-  script](#policy-getting-started-create-script "#policy-getting-started-create-script")
+- [Step 2: Create policy setup script](#policy-getting-started-create-script "#policy-getting-started-create-script")
 - [Step 3: Run the setup](#policy-getting-started-run-setup "#policy-getting-started-run-setup")
 - [Step 4: Test the policy](#policy-getting-started-test "#policy-getting-started-test")
 - [What you've built](#policy-getting-started-results "#policy-getting-started-results")
@@ -49,9 +48,7 @@ pip install requests
 
 ```
 
-## Step 2: Create policy setup
-
-script
+## Step 2: Create policy setup script
 
 Create a new file called `setup_policy.py` and insert the following
 code:
@@ -232,9 +229,7 @@ if __name__ == "__main__":
 
 ```
 
-### Understanding the setup
-
-script
+### Understanding the setup script
 
 The setup script performs several key operations to create a complete
 policy-enabled gateway. Here's a detailed explanation of each component.
@@ -243,8 +238,7 @@ policy-enabled gateway. Here's a detailed explanation of each component.
 
 - [Import required libraries](#policy-import-libraries "#policy-import-libraries")
 - [Initialize clients](#policy-initialize-clients "#policy-initialize-clients")
-- [Create an OAuth Authorization
-  Server](#policy-oauth-server "#policy-oauth-server")
+- [Create an OAuth Authorization Server](#policy-oauth-server "#policy-oauth-server")
 - [Create a Gateway](#policy-create-gateway "#policy-create-gateway")
 - [Add Lambda Target](#policy-add-lambda-target "#policy-add-lambda-target")
 - [Create a Policy Engine](#policy-create-policy-engine "#policy-create-policy-engine")
@@ -274,9 +268,7 @@ policy_client = PolicyClient(region_name=region)
 
 ```
 
-#### Create an OAuth Authorization
-
-Server
+#### Create an OAuth Authorization Server
 
 Gateways are secured by OAuth authorization servers. This creates an Amazon Cognito
 user pool with OAuth 2.0 configured.

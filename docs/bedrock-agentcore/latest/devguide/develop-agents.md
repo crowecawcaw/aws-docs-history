@@ -1,6 +1,4 @@
-# Understand the available interfaces for using
-
-Amazon Bedrock AgentCore
+# Understand the available interfaces for using Amazon Bedrock AgentCore
 
 Amazon Bedrock AgentCore supports various interfaces for developing and deploying your agent
 code. The simplest approach is to use the AgentCore Python SDK to create your agent code and use
@@ -12,19 +10,14 @@ operation, use the AWS SDK.
 
 ###### Topics
 
-- [Amazon Bedrock AgentCore
-  starter toolkit](#bedrock-agentcore-configure-deploy-starter-toolkit "#bedrock-agentcore-configure-deploy-starter-toolkit")
+- [Amazon Bedrock AgentCore starter toolkit](#bedrock-agentcore-configure-deploy-starter-toolkit "#bedrock-agentcore-configure-deploy-starter-toolkit")
 - [AgentCore Python SDK](#develop-agents-bedroock-agentcore-sdk "#develop-agents-bedroock-agentcore-sdk")
-- [Amazon Bedrock AgentCore MCP
-  server](#develop-agents-bedroock-agentcore-mcp-server "#develop-agents-bedroock-agentcore-mcp-server")
+- [Amazon Bedrock AgentCore MCP server](#develop-agents-bedroock-agentcore-mcp-server "#develop-agents-bedroock-agentcore-mcp-server")
 - [AWS SDK](#develop-agents-bedrock-agentcore-aws-sdk "#develop-agents-bedrock-agentcore-aws-sdk")
-- [Amazon Bedrock AgentCore
-  console](#develop-agents-console "#develop-agents-console")
+- [Amazon Bedrock AgentCore console](#develop-agents-console "#develop-agents-console")
 - [AWS Command Line Interface](#bedrock-agentcore-configure-deploy-cli "#bedrock-agentcore-configure-deploy-cli")
 
-## Amazon Bedrock AgentCore
-
-starter toolkit
+## Amazon Bedrock AgentCore starter toolkit
 
 The [AgentCore starter toolkit](https://github.com/aws/bedrock-agentcore-starter-toolkit "https://github.com/aws/bedrock-agentcore-starter-toolkit") provides CLI tools and higher-level
 abstractions for:
@@ -68,9 +61,7 @@ LangGraph. If you are using other AWS services, you'll need to use
 the AWS SDK to integrate those services into your agent, alongside your AgentCore Python SDK
 code.
 
-## Amazon Bedrock AgentCore MCP
-
-server
+## Amazon Bedrock AgentCore MCP server
 
 The AgentCore Model Context Protocol (MCP) server helps you transform, deploy,
 and test AgentCore-compatible agents directly from your preferred development
@@ -100,9 +91,7 @@ API](../APIReference/Welcome.md "../APIReference/Welcome.md") for tasks such as 
 code that calls your agent uses the `InvokeAgentRuntime` data plane operation
 to invoke an agent that you have hosted in an AgentCore Runtime.
 
-## Amazon Bedrock AgentCore
-
-console
+## Amazon Bedrock AgentCore console
 
 You can use the AgentCore console to create and manage the AgentCore
 services that your agent code uses. You can get code snippets that show to call an agent

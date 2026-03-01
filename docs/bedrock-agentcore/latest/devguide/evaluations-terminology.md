@@ -12,8 +12,7 @@ agent evaluation.
 - [Session](#session "#session")
 - [Trace](#trace "#trace")
 - [Tool Call](#tool-call "#tool-call")
-- [Reference Free Large Language Models (LLMs) as
-  judges](#llms-as-judges "#llms-as-judges")
+- [Reference Free Large Language Models (LLMs) as judges](#llms-as-judges "#llms-as-judges")
 
 ## Agent Framework
 
@@ -74,9 +73,7 @@ the tool name, input parameters, execution time, and output. Tool call details a
 used to evaluate whether the agent selected and used tools correctly and
 efficiently.
 
-## Reference Free Large Language Models (LLMs) as
-
-judges
+## Reference Free Large Language Models (LLMs) as judges
 
 Large Language Models (LLMs) as judges refers to an evaluation method that uses a
 large language model (LLM) to automatically assess the quality, correctness, or

@@ -388,7 +388,7 @@ def run_agent():
 
     # Setup Bedrock model
     bedrockmodel = BedrockModel(
-        inference_profile_id=model_id,
+        model_id=model_id,
         streaming=True,
     )
 

@@ -21,9 +21,7 @@ To get a high-level view of how AgentCore and other AWS services work with most 
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for AgentCore
+## Identity-based policies for AgentCore
 
 **Supports identity-based policies:**
 
@@ -40,16 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for AgentCore
 
-Identity-based policy examples for AgentCore
+To view examples of AgentCore identity-based policies, see [Identity-based policy examples for Amazon Bedrock AgentCore](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of AgentCore identity-based policies, see [Identity-based policy
-examples for Amazon Bedrock AgentCore](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within AgentCore
+## Resource-based policies within AgentCore
 
 **Supports resource-based policies:**
 
@@ -73,9 +66,7 @@ To learn how to create and manage resource-based policies for Amazon Bedrock Age
 
 To view examples of AgentCore resource-based policies, see [Common use cases and examples](resource-based-policies.md#resource-based-policies-examples "resource-based-policies.md#resource-based-policies-examples").
 
-## Policy actions
-
-for AgentCore
+## Policy actions for AgentCore
 
 **Supports policy actions:**
 
@@ -105,12 +96,9 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-To view examples of AgentCore identity-based policies, see [Identity-based policy
-examples for Amazon Bedrock AgentCore](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AgentCore identity-based policies, see [Identity-based policy examples for Amazon Bedrock AgentCore](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for AgentCore
+## Policy resources for AgentCore
 
 **Supports policy resources:**
 
@@ -130,12 +118,9 @@ To see a list of AgentCore resource types and their ARNs, see
 which actions you can specify the ARN of each resource, see
 [Actions Defined by Amazon Bedrock AgentCore](../../../IAM/latest/UserGuide/list_amazonbedrockagentcore.md#amazonbedrockagentcore-actions-as-permissions "../../../IAM/latest/UserGuide/list_amazonbedrockagentcore.md#amazonbedrockagentcore-actions-as-permissions") .
 
-To view examples of AgentCore identity-based policies, see [Identity-based policy
-examples for Amazon Bedrock AgentCore](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AgentCore identity-based policies, see [Identity-based policy examples for Amazon Bedrock AgentCore](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for AgentCore
+## Policy condition keys for AgentCore
 
 **Supports service-specific policy condition keys:**
 
@@ -163,8 +148,7 @@ The following condition keys are especially useful when working with Amazon Bedr
 - `bedrock-agentcore:InboundJwtClaim/scope` - You can use this condition key to restrict access based on the scope claim in the JWT passed in the request.
 - `bedrock-agentcore:InboundJwtClaim/client_id` - You can use this condition key to restrict access to APIs that accept a JWT to work with specific `client_id` claim values present in the JWT passed in the request. This key is only available when the JWT has the `client_id` claim exactly and is not available when the information is communicated in other similar claims. You can apply this condition key to the `GetWorkloadAccessTokenForJwt` and `CompleteResourceTokenAuth` operations.
 
-To view examples of AgentCore identity-based policies, see [Identity-based policy
-examples for Amazon Bedrock AgentCore](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AgentCore identity-based policies, see [Identity-based policy examples for Amazon Bedrock AgentCore](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in AgentCore
 
@@ -192,9 +176,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with AgentCore
+## Using temporary credentials with AgentCore
 
 **Supports temporary credentials:**
 
@@ -206,9 +188,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for AgentCore
+## Cross-service principal permissions for AgentCore
 
 **Supports forward access sessions (FAS):**
 
@@ -217,9 +197,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-AgentCore
+## Service roles for AgentCore
 
 **Supports service roles:**
 
@@ -234,9 +212,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break AgentCore functionality.
 Edit service roles only when AgentCore provides guidance to do so.
 
-## Service-linked
-
-roles for AgentCore
+## Service-linked roles for AgentCore
 
 **Supports service-linked roles:**
 

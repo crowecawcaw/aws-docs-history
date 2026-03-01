@@ -7,18 +7,13 @@ with your agent runtimes.
 ###### Topics
 
 - [My agent invocations fail with 504 Gateway Timeout errors](#troubleshoot-runtime-timeout "#troubleshoot-runtime-timeout")
-- [My Docker build fails with "403 Forbidden" when pulling Python base
-  images](#troubleshoot-runtime-docker-403 "#troubleshoot-runtime-docker-403")
-- [I get "Unknown service: 'bedrock-agent-core-runtime'" error when using
-  boto3](#troubleshoot-runtime-boto3 "#troubleshoot-runtime-boto3")
-- [I get "AccessDeniedException" when trying to create an Amazon Bedrock AgentCore
-  Runtime](#troubleshoot-runtime-access-denied "#troubleshoot-runtime-access-denied")
+- [My Docker build fails with "403 Forbidden" when pulling Python base images](#troubleshoot-runtime-docker-403 "#troubleshoot-runtime-docker-403")
+- [I get "Unknown service: 'bedrock-agent-core-runtime'" error when using boto3](#troubleshoot-runtime-boto3 "#troubleshoot-runtime-boto3")
+- [I get "AccessDeniedException" when trying to create an Amazon Bedrock AgentCore Runtime](#troubleshoot-runtime-access-denied "#troubleshoot-runtime-access-denied")
 - [My Docker build fails with "exec /bin/sh: exec format error"](#troubleshoot-runtime-exec-format "#troubleshoot-runtime-exec-format")
-- [What are the requirements for Docker containers used with Amazon Bedrock AgentCore
-  Runtime?](#troubleshoot-runtime-requirements "#troubleshoot-runtime-requirements")
+- [What are the requirements for Docker containers used with Amazon Bedrock AgentCore Runtime?](#troubleshoot-runtime-requirements "#troubleshoot-runtime-requirements")
 - [My long-running tool gets interrupted after 15 minutes](#troubleshoot-runtime-long-running "#troubleshoot-runtime-long-running")
-- [How do I access the runtimeSessionId in my agent code for tagging or grouping
-  resources?](#troubleshoot-runtime-session-id "#troubleshoot-runtime-session-id")
+- [How do I access the runtimeSessionId in my agent code for tagging or grouping resources?](#troubleshoot-runtime-session-id "#troubleshoot-runtime-session-id")
 - [I have RuntimeClientError (403) issues](#runtime-client-error "#runtime-client-error")
 - [I have missing or empty CloudWatch Logs](#missing-cloudwatch-logs "#missing-cloudwatch-logs")
 - [I have payload format issues](#payload-format-issues "#payload-format-issues")
@@ -28,8 +23,7 @@ with your agent runtimes.
 - [I need help troubleshooting MCP protocol agents](#troubleshooting-mcp-protocol "#troubleshooting-mcp-protocol")
 - [I need help troubleshooting bidirectional streaming using WebSocket](#troubleshooting-websocket-protocol "#troubleshooting-websocket-protocol")
 - [My code changes aren't reflected in existing sessions](#troubleshoot-code-updates "#troubleshoot-code-updates")
-- [Spans are missing when
-  my runtime is invoked from a Lambda function](#troubleshoot-runtime-lambda-missing-spans "#troubleshoot-runtime-lambda-missing-spans")
+- [Spans are missing when my runtime is invoked from a Lambda function](#troubleshoot-runtime-lambda-missing-spans "#troubleshoot-runtime-lambda-missing-spans")
 - [Best practices](#best-practices "#best-practices")
 
 ## My agent invocations fail with 504 Gateway Timeout errors
@@ -49,9 +43,7 @@ Several factors can cause this:
 - **Retry Logic:** Review retry mechanisms for
   handling transient issues
 
-## My Docker build fails with "403 Forbidden" when pulling Python base
-
-images
+## My Docker build fails with "403 Forbidden" when pulling Python base images
 
 **When this occurs:** During `docker
  build` or `docker run` when using `public.ecr.aws`
@@ -77,9 +69,7 @@ FROM python:3.10-slim
 
 ```
 
-## I get "Unknown service: 'bedrock-agent-core-runtime'" error when using
-
-boto3
+## I get "Unknown service: 'bedrock-agent-core-runtime'" error when using boto3
 
 **When this occurs:** When invoking Amazon Bedrock AgentCore
 APIs using boto3 SDK
@@ -98,9 +88,7 @@ pip install --upgrade boto3 botocore
 
 ```
 
-## I get "AccessDeniedException" when trying to create an Amazon Bedrock AgentCore
-
-Runtime
+## I get "AccessDeniedException" when trying to create an Amazon Bedrock AgentCore Runtime
 
 **When this occurs:** During agent creation via
 console, SDK, or CLI
@@ -132,9 +120,7 @@ consider using [buildx](https://github.com/docker/buildx "https://github.com/doc
 cross-platform builds. Alternatively, you can use CodeBuild. For example code, see the
 [Amazon Bedrock AgentCore Samples](https://github.com/awslabs/amazon-bedrock-agentcore-samples/ "https://github.com/awslabs/amazon-bedrock-agentcore-samples/").
 
-## What are the requirements for Docker containers used with Amazon Bedrock AgentCore
-
-Runtime?
+## What are the requirements for Docker containers used with Amazon Bedrock AgentCore Runtime?
 
 Review [Amazon Bedrock AgentCore Runtime requirements](runtime-service-contract.md "runtime-service-contract.md") for full details.
 
@@ -163,9 +149,7 @@ terminates sessions after 15 minutes of inactivity
 **Example solution:** Implement ping handlers with
 HEALTHY_BUSY status for async tasks:
 
-## How do I access the runtimeSessionId in my agent code for tagging or grouping
-
-resources?
+## How do I access the runtimeSessionId in my agent code for tagging or grouping resources?
 
 **When this applies:** You want to group, tag, or
 trace resources (e.g., S3 objects, logs) by the current agent runtime
@@ -313,6 +297,14 @@ Follow these steps to resolve payload format issues:
 ###### Problem
 
 Your agent returns HTTP error codes that are difficult to interpret.
+
+###### Example error message
+
+You may see an error like:
+
+```
+An error occurred (RuntimeClientError) when calling the InvokeAgentRuntime operation: Received error (<HTTP Status Code>) from runtime. Please check your CloudWatch logs for more information
+```
 
 ###### Resolution
 
@@ -464,9 +456,7 @@ Each microVM session is created with the code assets (`agentRuntimeArtifact`) th
 
 To access your updated code, use a new session ID.
 
-## Spans are missing when
-
-my runtime is invoked from a Lambda function
+## Spans are missing when my runtime is invoked from a Lambda function
 
 **When this occurs:** When invoking AgentCore Runtime
 from a Lambda function

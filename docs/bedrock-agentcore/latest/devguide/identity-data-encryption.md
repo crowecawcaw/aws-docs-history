@@ -23,9 +23,7 @@ Amazon Bedrock AgentCore Identity encrypts the data in your token vault with a c
 managed key. You own the administration of customer managed key
 policies, rotation, and scheduled deletion.
 
-### Things to know about
-
-token vault encryption with customer managed keys
+### Things to know about token vault encryption with customer managed keys
 
 - Data in your token vault (access tokens) are encrypted at rest with
   the customer managed key you configure. The token vault ARN is captured

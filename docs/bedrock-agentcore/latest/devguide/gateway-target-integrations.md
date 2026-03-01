@@ -54,26 +54,19 @@ Select a topic to learn about which APIs are supported for each template:
 - [Amazon DynamoDB](#gateway-target-integrations-supported-apis-amazon-dynamodb "#gateway-target-integrations-supported-apis-amazon-dynamodb")
 - [Asana](#gateway-target-integrations-supported-apis-asana "#gateway-target-integrations-supported-apis-asana")
 - [BambooHR](#gateway-target-integrations-supported-apis-bamboohr "#gateway-target-integrations-supported-apis-bamboohr")
-- [Brave
-  Search](#gateway-target-integrations-supported-apis-brave-search "#gateway-target-integrations-supported-apis-brave-search")
-- [The
-  Confluence Cloud REST API v2](#gateway-target-integrations-supported-apis-confluence "#gateway-target-integrations-supported-apis-confluence")
-- [The Jira Cloud
-  platform](#gateway-target-integrations-supported-apis-jira "#gateway-target-integrations-supported-apis-jira")
+- [Brave Search](#gateway-target-integrations-supported-apis-brave-search "#gateway-target-integrations-supported-apis-brave-search")
+- [The Confluence Cloud REST API v2](#gateway-target-integrations-supported-apis-confluence "#gateway-target-integrations-supported-apis-confluence")
+- [The Jira Cloud platform](#gateway-target-integrations-supported-apis-jira "#gateway-target-integrations-supported-apis-jira")
 - [Microsoft Exchange](#gateway-target-integrations-supported-apis-microsoft-exchange "#gateway-target-integrations-supported-apis-microsoft-exchange")
-- [Microsoft
-  OneDrive](#gateway-target-integrations-supported-apis-onedrive "#gateway-target-integrations-supported-apis-onedrive")
-- [Microsoft
-  SharePoint](#gateway-target-integrations-supported-apis-sharepoint "#gateway-target-integrations-supported-apis-sharepoint")
+- [Microsoft OneDrive](#gateway-target-integrations-supported-apis-onedrive "#gateway-target-integrations-supported-apis-onedrive")
+- [Microsoft SharePoint](#gateway-target-integrations-supported-apis-sharepoint "#gateway-target-integrations-supported-apis-sharepoint")
 - [Microsoft Teams](#gateway-target-integrations-supported-apis-microsoft-teams "#gateway-target-integrations-supported-apis-microsoft-teams")
 - [PagerDuty Advance](#gateway-target-integrations-supported-apis-pagerduty "#gateway-target-integrations-supported-apis-pagerduty")
-- [Salesforce
-  Lightning Platform](#gateway-target-integrations-supported-apis-salesforce "#gateway-target-integrations-supported-apis-salesforce")
+- [Salesforce Lightning Platform](#gateway-target-integrations-supported-apis-salesforce "#gateway-target-integrations-supported-apis-salesforce")
 - [ServiceNow](#gateway-target-integrations-supported-apis-servicenow "#gateway-target-integrations-supported-apis-servicenow")
 - [Slack Web](#gateway-target-integrations-supported-apis-slack "#gateway-target-integrations-supported-apis-slack")
 - [Smartsheet](#gateway-target-integrations-supported-apis-smartsheet "#gateway-target-integrations-supported-apis-smartsheet")
-- [Tavily
-  Search](#gateway-target-integrations-supported-apis-tavily "#gateway-target-integrations-supported-apis-tavily")
+- [Tavily Search](#gateway-target-integrations-supported-apis-tavily "#gateway-target-integrations-supported-apis-tavily")
 - [Zendesk Suite](#gateway-target-integrations-supported-apis-zendesk "#gateway-target-integrations-supported-apis-zendesk")
 - [Zoom](#gateway-target-integrations-supported-apis-zoom "#gateway-target-integrations-supported-apis-zoom")
 
@@ -260,9 +253,7 @@ The following table shows the APIs that you can call if you add this target type
 | POST          | uploadEmployeeFile            | /v1/employees/`{employeeId}`/files                       | Upload Employee File                |
 | GET           | getEmployeeTableRow           | /v1/employees/`{employeeId}`/tables/`{table}`            | Get employee table data             |
 
-### Brave
-
-Search
+### Brave Search
 
 The following list provides key information for this template
 
@@ -276,9 +267,7 @@ The following table shows the APIs that you can call if you add this target type
 | ------------- | -------------- | ------------- | --------------------------- |
 | GET           | BraveWebSearch | /web/search   | Performs a web search query |
 
-### The
-
-Confluence Cloud REST API v2
+### The Confluence Cloud REST API v2
 
 The following list provides key information for this template
 
@@ -297,9 +286,7 @@ The following table shows the APIs that you can call if you add this target type
 | GET           | searchByCQL    | /wiki/rest/api/search     | Search content |
 | GET           | getSpaces      | /wiki/api/v2/spaces       | Get spaces     |
 
-### The Jira Cloud
-
-platform
+### The Jira Cloud platform
 
 The following list provides key information for this template
 
@@ -380,9 +367,7 @@ The following table shows the APIs that you can call if you add this target type
 | GET           | getMailboxSettings  | /users/`{userId}`/mailboxSettings                                     | Get current mailbox settings of the user.          |
 | GET           | listPlaces          | /places/microsoft.graph.room                                          | List places                                        |
 
-### Microsoft
-
-OneDrive
+### Microsoft OneDrive
 
 The following list provides key information for this template
 
@@ -418,9 +403,7 @@ The following table shows the APIs that you can call if you add this target type
 | GET           | readUsedRange  | /users/`{userId}`/drives/`{driveId}`/items/`{driveItemId}`/workbook/worksheets/`{worksheetIdOrName}`/usedRange                           | Read used range of a sheet                        |
 | POST          | clearRange     | /users/`{userId}`/drives/`{driveId}`/items/`{driveItemId}`/workbook/worksheets/`{worksheetIdOrName}`/range(address='`{address}`')/clear  | Clear range within a sheet                        |
 
-### Microsoft
-
-SharePoint
+### Microsoft SharePoint
 
 The following list provides key information for this template
 
@@ -508,9 +491,7 @@ The following table shows the APIs that you can call if you add this target type
 | PUT           | updateIncident | /incidents/`{id}` | Update an incident           |
 | GET           | listUsers      | /users            | View user list               |
 
-### Salesforce
-
-Lightning Platform
+### Salesforce Lightning Platform
 
 The following list provides key information for this template
 
@@ -658,9 +639,7 @@ The following table shows the APIs that you can call if you add this target type
 | GET           | listReports    | /reports              | View all reports        |
 | GET           | getReport      | /reports/`{reportId}` | View report information |
 
-### Tavily
-
-Search
+### Tavily Search
 
 The following list provides key information for this template
 

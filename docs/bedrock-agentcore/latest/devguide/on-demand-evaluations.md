@@ -19,8 +19,6 @@ issue investigation.
 
 ###### Topics
 
-- [IAM permissions for on-demand
-  evaluation](iam-permissions-on-demand.md "iam-permissions-on-demand.md")
-- [Getting started with on-demand
-  evaluation](getting-started-on-demand.md "getting-started-on-demand.md")
+- [IAM permissions for on-demand evaluation](iam-permissions-on-demand.md "iam-permissions-on-demand.md")
+- [Getting started with on-demand evaluation](getting-started-on-demand.md "getting-started-on-demand.md")
 - [Understanding input spans](understanding-input-spans.md "understanding-input-spans.md")

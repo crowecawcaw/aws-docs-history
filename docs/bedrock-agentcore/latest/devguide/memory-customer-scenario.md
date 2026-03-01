@@ -1,6 +1,4 @@
-# Scenario: A customer support AI agent using
-
-AgentCore Memory
+# Scenario: A customer support AI agent using AgentCore Memory
 
 In this section you learn how to build a customer support AI agent that uses
 AgentCore Memory to provide personalized assistance by maintaining conversation history
@@ -17,13 +15,10 @@ would look like this:
 
 - [Step 1: Create an AgentCore Memory](#create-memory-resource "#create-memory-resource")
 - [Step 2: Start the session](#start-session "#start-session")
-- [Step 3: Capture the conversation
-  history](#capture-conversation "#capture-conversation")
+- [Step 3: Capture the conversation history](#capture-conversation "#capture-conversation")
 - [Step 4: Generate long-term memory](#generate-longterm-memory "#generate-longterm-memory")
-- [Step 5: Retrieve past interactions from
-  short-term memory](#retrieve-shortterm-memory "#retrieve-shortterm-memory")
-- [Step 6: Use long-term memories for
-  personalized assistance](#use-longterm-memory "#use-longterm-memory")
+- [Step 5: Retrieve past interactions from short-term memory](#retrieve-shortterm-memory "#retrieve-shortterm-memory")
+- [Step 6: Use long-term memories for personalized assistance](#use-longterm-memory "#use-longterm-memory")
 
 ## Step 1: Create an AgentCore Memory
 
@@ -177,9 +172,7 @@ print(f"Session started for Actor ID: {sarah_actor_id}, Session ID: {support_ses
 
 ```
 
-## Step 3: Capture the conversation
-
-history
+## Step 3: Capture the conversation history
 
 As Sarah explains her issue, the agent captures each turn of the conversation
 (both her questions and the agent's responses). This populates the full
@@ -254,9 +247,7 @@ the recent raw events using your configured memory strategies to extract long-te
 memories such as summaries, semantic facts, or user preferences, which are then
 stored for future use.
 
-## Step 5: Retrieve past interactions from
-
-short-term memory
+## Step 5: Retrieve past interactions from short-term memory
 
 To provide context-aware assistance, the agent loads the current conversation
 history. This helps the agent understand what issues Sarah has raised in the ongoing
@@ -291,9 +282,7 @@ event_list = reversed(response.get('events', []))
 for event in event_list: print(event)
 ```
 
-## Step 6: Use long-term memories for
-
-personalized assistance
+## Step 6: Use long-term memories for personalized assistance
 
 The agent performs a semantic search across extracted long-term memories to find
 relevant insights about Sarah's preferences, order history, or past concerns. This

@@ -29,26 +29,20 @@ Details on the placeholder values used by our current evaluators:
 
 ###### Topics
 
-- [Goal success rate (Session-level
-  evaluator)](#goal-success-rate "#goal-success-rate")
+- [Goal success rate (Session-level evaluator)](#goal-success-rate "#goal-success-rate")
 - [Coherence (Trace-level evaluator)](#coherence "#coherence")
 - [Conciseness (Trace-level evaluator)](#conciseness "#conciseness")
-- [Context relevance (Trace-level
-  evaluator)](#context-relevance "#context-relevance")
+- [Context relevance (Trace-level evaluator)](#context-relevance "#context-relevance")
 - [Correctness (Trace-level evaluator)](#correctness "#correctness")
 - [Faithfulness (Trace-level evaluator)](#faithfulness "#faithfulness")
 - [Harmfulness (Trace-level evaluator)](#harmfulness "#harmfulness")
 - [Helpfulness (Trace-level evaluator)](#helpfulness "#helpfulness")
-- [Instruction following (Trace-level
-  evaluator)](#instruction-following "#instruction-following")
+- [Instruction following (Trace-level evaluator)](#instruction-following "#instruction-following")
 - [Refusal (Trace-level evaluator)](#refusal "#refusal")
-- [Response relevance (Trace-level
-  evaluator)](#response-relevance "#response-relevance")
+- [Response relevance (Trace-level evaluator)](#response-relevance "#response-relevance")
 - [Stereotyping (Trace-level evaluator)](#stereotyping "#stereotyping")
-- [Tool parameter accuracy (Tool-level
-  evaluator)](#tool-parameter-accuracy "#tool-parameter-accuracy")
-- [Tool selection accuracy (Tool-level
-  evaluator)](#tool-selection-accuracy "#tool-selection-accuracy")
+- [Tool parameter accuracy (Tool-level evaluator)](#tool-parameter-accuracy "#tool-parameter-accuracy")
+- [Tool selection accuracy (Tool-level evaluator)](#tool-selection-accuracy "#tool-selection-accuracy")
   The Goal success rate evaluator assesses whether an AI assistant successfully
   completed all user goals within a conversation session. This session-level
   evaluator analyzes the entire conversation to determine if the user's objectives

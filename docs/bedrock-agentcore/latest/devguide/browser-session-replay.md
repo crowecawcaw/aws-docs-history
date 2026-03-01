@@ -72,5 +72,4 @@ examples.
 ###### Topics
 
 - [How to use session replay](session-replay-how-to-use.md "session-replay-how-to-use.md")
-- [Session replay programmatic
-  examples](session-replay-programmatic-usage.md "session-replay-programmatic-usage.md")
+- [Session replay programmatic examples](session-replay-programmatic-usage.md "session-replay-programmatic-usage.md")

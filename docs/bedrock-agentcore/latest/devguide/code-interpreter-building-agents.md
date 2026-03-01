@@ -1,6 +1,4 @@
-# Run code in Code Interpreter from
-
-Agents
+# Run code in Code Interpreter from Agents
 
 You can build agents that use the Code Interpreter tool to execute code and analyze data.
 This section demonstrates how to build agents using different frameworks.

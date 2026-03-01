@@ -12,13 +12,10 @@ availability for modification or deletion.
 
 ###### Topics
 
-- [Code samples for Starter Toolkit,
-  AgentCore SDK, and AWS SDK](#get-evaluators-code-samples "#get-evaluators-code-samples")
+- [Code samples for Starter Toolkit, AgentCore SDK, and AWS SDK](#get-evaluators-code-samples "#get-evaluators-code-samples")
 - [Console](#get-evaluator-console "#get-evaluator-console")
 
-## Code samples for Starter Toolkit,
-
-AgentCore SDK, and AWS SDK
+## Code samples for Starter Toolkit, AgentCore SDK, and AWS SDK
 
 The following code samples demonstrate how to get evaluator details using
 different development approaches. Choose the method that best fits your development

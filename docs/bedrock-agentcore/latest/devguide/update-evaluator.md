@@ -12,13 +12,10 @@ confirm changes are applied successfully using the `GetEvaluator` API.
 
 ###### Topics
 
-- [Code samples for Starter Toolkit,
-  AgentCore SDK, and AWS SDK](#update-evaluators-code-samples "#update-evaluators-code-samples")
+- [Code samples for Starter Toolkit, AgentCore SDK, and AWS SDK](#update-evaluators-code-samples "#update-evaluators-code-samples")
 - [Console](#update-evaluator-console "#update-evaluator-console")
 
-## Code samples for Starter Toolkit,
-
-AgentCore SDK, and AWS SDK
+## Code samples for Starter Toolkit, AgentCore SDK, and AWS SDK
 
 The following code samples demonstrate how to update evaluators using different
 development approaches. Choose the method that best fits your development

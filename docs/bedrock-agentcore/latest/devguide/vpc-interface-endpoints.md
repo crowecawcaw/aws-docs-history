@@ -1,6 +1,4 @@
-# Use interface VPC endpoints (AWS PrivateLink) to
-
-create a private connection between your VPC and your Amazon Bedrock AgentCore resources
+# Use interface VPC endpoints (AWS PrivateLink) to create a private connection between your VPC and your Amazon Bedrock AgentCore resources
 
 You can use AWS PrivateLink to create a private connection between your VPC and
 Amazon Bedrock AgentCore. You can access AgentCore as if it were in your VPC, without the use of an
@@ -70,9 +68,7 @@ If you enable private DNS for the interface endpoint, you can make API requests 
 AgentCore using its default Regional DNS name. For example,
 `bedrock-agentcore.us-east-1.amazonaws.com`.
 
-## Create an endpoint policy for your interface
-
-endpoint
+## Create an endpoint policy for your interface endpoint
 
 An endpoint policy is an IAM resource that you can attach to an interface endpoint.
 The default endpoint policy allows full access to AgentCore through the interface

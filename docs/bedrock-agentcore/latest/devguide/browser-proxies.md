@@ -61,9 +61,7 @@ Before configuring browser proxies, ensure you have:
 This section shows the simplest configuration to route browser traffic through a
 proxy.
 
-### Step 1: Create a credentials secret (if using
-
-authentication)
+### Step 1: Create a credentials secret (if using authentication)
 
 If your proxy requires authentication, create a secret in AWS Secrets
 Manager:
@@ -100,9 +98,7 @@ Add this policy to the IAM identity that will create browser sessions:
 }
 ```
 
-### Step 3: Create a browser session with
-
-proxy
+### Step 3: Create a browser session with proxy
 
 You can create a browser session with proxy configuration using the AWS CLI, SDK, or
 API.
@@ -480,17 +476,13 @@ Authorization: AWS4-HMAC-SHA256 ...
 
 ## Use cases
 
-### IP stability for session-based
-
-portals
+### IP stability for session-based portals
 
 Healthcare and financial portals often validate sessions based on source IP address.
 Rotating AWS IP addresses cause frequent re-authentication. Route traffic through a
 proxy with stable egress IPs to maintain session continuity.
 
-### Corporate infrastructure
-
-integration
+### Corporate infrastructure integration
 
 Organizations that route traffic through corporate proxies can extend this practice
 to AgentCore Browser sessions, enabling access to internal webpages and resources that require
@@ -627,8 +619,7 @@ meets your requirements:
 - `Proxy credentials secret must be a JSON object with username and password fields` – Update the secret value to a valid JSON object: `{"username": "...", "password": "..."}`.
 - `Failed to parse proxy credentials from secret` – The secret value could not be read as proxy credentials. Verify the secret contains a plain JSON string (not binary) with `username` and `password` fields.
 - `Field 'username' is missing or empty in secret` or `Field 'password' is missing or empty in secret` – Ensure both `username` and `password` are present and non-empty in the secret.
-- `Field 'username' contains invalid characters` or `Field 'password' contains invalid characters` – Use only the characters listed in the error message. See [Step 1: Create a credentials secret (if using
-  authentication)](#browser-proxies-step1 "#browser-proxies-step1") for allowed characters.
+- `Field 'username' contains invalid characters` or `Field 'password' contains invalid characters` – Use only the characters listed in the error message. See [Step 1: Create a credentials secret (if using authentication)](#browser-proxies-step1 "#browser-proxies-step1") for allowed characters.
 - `Field 'username' exceeds maximum length of 256 characters` or `Field 'password' exceeds maximum length of 256 characters` – Shorten the credential to 256 characters or fewer.
 
 ### Proxy connection errors in browser

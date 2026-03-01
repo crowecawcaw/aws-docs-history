@@ -6,9 +6,7 @@ overrides strategies let you override the default behavior of the built-in strat
 providing your own instructions and selecting a specific foundation model for the extraction
 and consolidation steps.
 
-## When to use a built-in with overrides
-
-strategy
+## When to use a built-in with overrides strategy
 
 Choose a built-in with overrides strategy when you need to tailor the memory logic to
 your specific requirements. Common use cases include:
@@ -29,8 +27,7 @@ your specific requirements. Common use cases include:
 To override a built-in strategy with a custom configuration, you specify the configuration when you use the [CreateMemory](../../../bedrock-agentcore-control/latest/APIReference/API_CreateMemory.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateMemory.md") operation or the [UpdateMemory](../../../bedrock-agentcore-control/latest/APIReference/API_UpdateMemory.md "../../../bedrock-agentcore-control/latest/APIReference/API_UpdateMemory.md") operation. You can override the following:
 
 - The instructions in the system prompt (however, the output schema remains the same). To create an effective custom prompt, you should first understand the default prompts. For more information, see the system prompt section for each [built-in strategy](built-in-strategies.md "built-in-strategies.md").
-- The Amazon Bedrock model with which to invoke the prompt. For more information, see [Add or remove access to Amazon Bedrock foundation models](../../../bedrock/latest/userguide/model-access-modify.md "../../../bedrock/latest/userguide/model-access-modify.md"). For more information about obtaining sufficient Amazon Bedrock capacity, see [Amazon Bedrock capacity for built-in
-  with overrides strategies](bedrock-capacity.md "bedrock-capacity.md").
+- The Amazon Bedrock model with which to invoke the prompt. For more information, see [Add or remove access to Amazon Bedrock foundation models](../../../bedrock/latest/userguide/model-access-modify.md "../../../bedrock/latest/userguide/model-access-modify.md"). For more information about obtaining sufficient Amazon Bedrock capacity, see [Amazon Bedrock capacity for built-in with overrides strategies](bedrock-capacity.md "bedrock-capacity.md").
 
 The following table shows the steps you can override for each memory strategy:
 
@@ -129,10 +126,8 @@ guidelines:
   system prompt for the built-in with overrides strategy will be same as the
   built-in strategies. For information about the output schemas, see the
   following:
-  - [System prompt for semantic memory
-    strategy](memory-system-prompt.md "memory-system-prompt.md")
-  - [System prompt for user preference memory
-    strategy](memory-user-prompt.md "memory-user-prompt.md")
+  - [System prompt for semantic memory strategy](memory-system-prompt.md "memory-system-prompt.md")
+  - [System prompt for user preference memory strategy](memory-user-prompt.md "memory-user-prompt.md")
   - [System prompt for summary strategy](memory-summary-prompt.md "memory-summary-prompt.md")
 
 For full control over the end-to-end memory process, including the output schema, see

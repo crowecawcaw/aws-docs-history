@@ -1,6 +1,4 @@
-# Compare long-term memory with Retrieval-Augmented
-
-Generation
+# Compare long-term memory with Retrieval-Augmented Generation
 
 [Long-term memory](memory-types.md#memory-long-term-memory "memory-types.md#memory-long-term-memory") in Amazon Bedrock AgentCore Memory
 serves as persistent storage for session-specific context, enabling agents to maintain

@@ -54,8 +54,7 @@ From an observability perspective, traces provide deep insights into the interna
 and understand behavior patterns. By analyzing trace data, you can identify bottlenecks, detect anomalies, and verify that your agent is functioning as expected across
 different scenarios and inputs.
 
-To gather trace data, you need to instrument your agent code using the AWS Distro for Open Telemetry (ADOT). See [Enabling observability in agent code
-for AgentCore-hosted agents](observability-configure.md#observability-configure-custom "observability-configure.md#observability-configure-custom") and [Enabling observability for agents hosted outside of AgentCore](observability-configure.md#observability-configure-3p "observability-configure.md#observability-configure-3p") to learn more.
+To gather trace data, you need to instrument your agent code using the AWS Distro for Open Telemetry (ADOT). See [Enabling observability in agent code for AgentCore-hosted agents](observability-configure.md#observability-configure-custom "observability-configure.md#observability-configure-custom") and [Enabling observability for agents hosted outside of AgentCore](observability-configure.md#observability-configure-3p "observability-configure.md#observability-configure-3p") to learn more.
 
 ## Spans
 
@@ -87,8 +86,7 @@ creates a detailed execution tree that reveals the complete flow of operations
 within the agent.
 
 By default, AgentCore outputs a set of span data for memory resources only. This data can be viewed in CloudWatch Logs and CloudWatch Application signals. To record span data for your agents or gateway resources, you need to instrument your agent.
-See [Enabling observability in agent code
-for AgentCore-hosted agents](observability-configure.md#observability-configure-custom "observability-configure.md#observability-configure-custom") and [Enabling observability for agents hosted outside of AgentCore](observability-configure.md#observability-configure-3p "observability-configure.md#observability-configure-3p") to learn more.
+See [Enabling observability in agent code for AgentCore-hosted agents](observability-configure.md#observability-configure-custom "observability-configure.md#observability-configure-custom") and [Enabling observability for agents hosted outside of AgentCore](observability-configure.md#observability-configure-3p "observability-configure.md#observability-configure-3p") to learn more.
 
 ## Relationship Between Sessions, Traces, and Spans
 

@@ -15,9 +15,7 @@ seamless credential lifecycle management. When an agent requests access to a res
 the provider handles the authentication flow, stores the resulting credentials in the
 token vault, and provides the agent with the necessary access tokens.
 
-## Creating an OAuth 2.0 credential
-
-provider
+## Creating an OAuth 2.0 credential provider
 
 Provider configurations in AgentCore Identity define the basic parameters needed for
 credential management with different resources and authentication systems. The

@@ -13,24 +13,18 @@ your own prompts and selecting a specific foundation model.
 ###### Topics
 
 - [Prerequisites](#long-term-creating-memory-prerequisites "#long-term-creating-memory-prerequisites")
-- [Creating the memory
-  execution role](#long-term-creating-memory-execution-role "#long-term-creating-memory-execution-role")
+- [Creating the memory execution role](#long-term-creating-memory-execution-role "#long-term-creating-memory-execution-role")
 - [Override a built-in strategy with the API](#long-term-custom-strategy-configuration-api "#long-term-custom-strategy-configuration-api")
-- [Configuration
-  example](#long-term-custom-strategy-configuration-example "#long-term-custom-strategy-configuration-example")
+- [Configuration example](#long-term-custom-strategy-configuration-example "#long-term-custom-strategy-configuration-example")
 
 ## Prerequisites
 
 To override a built-in memory strategy, you must fulfill the following prerequisites:
 
-- Have an AgentCore Memory service role. For more information, see [Creating the memory
-  execution role](#long-term-creating-memory-execution-role "#long-term-creating-memory-execution-role").
-- If you plan to override the model for the prompt, you must have access to the model you choose to override with. For more information, see [Access Amazon Bedrock foundation models](../../../bedrock/latest/userguide/model-access.md "../../../bedrock/latest/userguide/model-access.md") and [Amazon Bedrock capacity for built-in
-  with overrides strategies](bedrock-capacity.md "bedrock-capacity.md").
+- Have an AgentCore Memory service role. For more information, see [Creating the memory execution role](#long-term-creating-memory-execution-role "#long-term-creating-memory-execution-role").
+- If you plan to override the model for the prompt, you must have access to the model you choose to override with. For more information, see [Access Amazon Bedrock foundation models](../../../bedrock/latest/userguide/model-access.md "../../../bedrock/latest/userguide/model-access.md") and [Amazon Bedrock capacity for built-in with overrides strategies](bedrock-capacity.md "bedrock-capacity.md").
 
-## Creating the memory
-
-execution role
+## Creating the memory execution role
 
 When you use a built-in with overrides strategy, AgentCore Memory invokes an Amazon
 Bedrock model in your account on your behalf. To grant the service permission to do
@@ -142,12 +136,9 @@ For example, you can send the following request body to override the user prefer
 }
 ```
 
-For example custom prompts, see [Configuration
-example](#long-term-custom-strategy-configuration-example "#long-term-custom-strategy-configuration-example").
+For example custom prompts, see [Configuration example](#long-term-custom-strategy-configuration-example "#long-term-custom-strategy-configuration-example").
 
-## Configuration
-
-example
+## Configuration example
 
 This example demonstrates how to override both the extraction and consolidation
 steps for user preferences.

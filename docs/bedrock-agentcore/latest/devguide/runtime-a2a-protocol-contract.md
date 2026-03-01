@@ -8,17 +8,14 @@ For example code, see [Deploy A2A servers in AgentCore Runtime](runtime-a2a.md "
 
 ###### Topics
 
-- [Protocol implementation
-  requirements](#protocol-implementation-requirements "#protocol-implementation-requirements")
+- [Protocol implementation requirements](#protocol-implementation-requirements "#protocol-implementation-requirements")
 - [Container requirements](#container-requirements "#container-requirements")
 - [Path requirements](#path-requirements "#path-requirements")
 - [Authentication requirements](#authentication-requirements "#authentication-requirements")
 - [Error handling](#error-handling "#error-handling")
 - [OAuth Authentication Responses](#a2a-oauth-authentication-responses "#a2a-oauth-authentication-responses")
 
-## Protocol implementation
-
-requirements
+## Protocol implementation requirements
 
 Your A2A server must implement these specific protocol requirements:
 

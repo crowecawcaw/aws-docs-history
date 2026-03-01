@@ -23,9 +23,7 @@ for user authentication with AgentCore Runtime. The following steps will create
 a Cognito user pool, a user pool client, add a user, and generate a bearer token for
 the user. The token is valid for 60 minutes by default.
 
-###### To create a Cognito user pool as an inbound identity provider for Runtime
-
-authentication
+###### To create a Cognito user pool as an inbound identity provider for Runtime authentication
 
 1. Create a file named `setup_cognito.sh` with the following
    content:
@@ -107,9 +105,7 @@ steps will create a user pool, resource server, client credentials, and discover
 URL configuration. This setup enables M2M authentication flows for Gateway
 access.
 
-###### To create a Cognito user pool as an inbound identity provider for Gateway
-
-authentication
+###### To create a Cognito user pool as an inbound identity provider for Gateway authentication
 
 1. Create a user pool:
 

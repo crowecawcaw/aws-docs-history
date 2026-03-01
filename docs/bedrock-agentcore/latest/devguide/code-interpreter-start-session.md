@@ -1,6 +1,4 @@
-# Starting a AgentCore Code Interpreter
-
-session
+# Starting a AgentCore Code Interpreter session
 
 After creating a Code Interpreter, you can start a session to execute code.
 

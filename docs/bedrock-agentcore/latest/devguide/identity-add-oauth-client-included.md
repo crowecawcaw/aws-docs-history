@@ -1,6 +1,4 @@
-# Add OAuth client using included
-
-provider
+# Add OAuth client using included provider
 
 Built-in providers offer streamlined setup for popular services including Google,
 GitHub, Slack, and Salesforce. These providers have pre-configured authorization

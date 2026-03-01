@@ -1,6 +1,4 @@
-# Amazon Bedrock capacity for built-in
-
-with overrides strategies
+# Amazon Bedrock capacity for built-in with overrides strategies
 
 When configuring [built-in with overrides](memory-custom-strategy.md "memory-custom-strategy.md") strategies with [CreateMemory](../../../bedrock-agentcore-control/latest/APIReference/API_CreateMemory.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateMemory.md") or [UpdateMemory](../../../bedrock-agentcore-control/latest/APIReference/API_UpdateMemory.md "../../../bedrock-agentcore-control/latest/APIReference/API_UpdateMemory.md"), you must provide an IAM execution role
 (`memoryExecutionRoleArn`). The AgentCore Memory service assumes this role

@@ -1,23 +1,17 @@
-# Understanding the agent identity
-
-directory
+# Understanding the agent identity directory
 
 The agent identity directory is a centralized collection of all workload identities
 within your AWS account. It serves as the authoritative registry for managing and
 organizing agent identities, providing a unified view of all identities whether they
 were created automatically by AgentCore Runtime and Gateway or manually through the
-AWS CLI and SDK. For information about creating workload identities, see [Create and manage workload
-identities](creating-agent-identities.md "creating-agent-identities.md").
+AWS CLI and SDK. For information about creating workload identities, see [Create and manage workload identities](creating-agent-identities.md "creating-agent-identities.md").
 
 ###### Topics
 
 - [Directory concepts and structure](#directory-concepts "#directory-concepts")
-- [Directory management best
-  practices](#directory-management-best-practices "#directory-management-best-practices")
-- [Listing and viewing directory
-  contents](#listing-directory-contents "#listing-directory-contents")
-- [Directory access control and
-  permissions](#directory-access-control "#directory-access-control")
+- [Directory management best practices](#directory-management-best-practices "#directory-management-best-practices")
+- [Listing and viewing directory contents](#listing-directory-contents "#listing-directory-contents")
+- [Directory access control and permissions](#directory-access-control "#directory-access-control")
 
 ## Directory concepts and structure
 
@@ -49,9 +43,7 @@ arn:aws:bedrock-agentcore:region:account-id:workload-identity-directory/default
 └── workload-identity/manually-created-agent-2
 ```
 
-## Directory management best
-
-practices
+## Directory management best practices
 
 Following established best practices for directory management helps maintain
 organization, security, and operational efficiency as your workload identity usage
@@ -83,9 +75,7 @@ grows.
 - Monitor directory access through AWS CloudTrail logs
 - Implement automated alerts for unauthorized directory modifications
 
-## Listing and viewing directory
-
-contents
+## Listing and viewing directory contents
 
 You can view all workload identities in your directory using the AWS CLI:
 
@@ -132,14 +122,11 @@ aws bedrock-agentcore-control get-workload-identity \
     --workload-identity-name my-agent-name
 ```
 
-## Directory access control and
-
-permissions
+## Directory access control and permissions
 
 The agent identity directory integrates with IAM to provide fine-grained access
 control over workload identities and their associated resources. For information
-about using workload identities to control access to credential providers, see [Scope down access to credential
-providers by workload identity](scope-credential-provider-access.md "scope-credential-provider-access.md").
+about using workload identities to control access to credential providers, see [Scope down access to credential providers by workload identity](scope-credential-provider-access.md "scope-credential-provider-access.md").
 
 **Directory-level permissions**
 

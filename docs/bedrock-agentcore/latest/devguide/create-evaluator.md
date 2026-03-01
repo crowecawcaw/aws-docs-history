@@ -46,22 +46,17 @@ values:
 
 ###### Topics
 
-- [Code samples for Starter Toolkit,
-  AgentCore SDK, and AWS SDK](#custom-evaluator-code-samples "#custom-evaluator-code-samples")
+- [Code samples for Starter Toolkit, AgentCore SDK, and AWS SDK](#custom-evaluator-code-samples "#custom-evaluator-code-samples")
 - [Console](#create-evaluator-console "#create-evaluator-console")
 - [Custom evaluator best practices](#custom-evaluator-best-practices "#custom-evaluator-best-practices")
 
-## Code samples for Starter Toolkit,
-
-AgentCore SDK, and AWS SDK
+## Code samples for Starter Toolkit, AgentCore SDK, and AWS SDK
 
 The following code samples demonstrate how to create custom evaluators using
 different development approaches. Choose the method that best fits your development
 environment and preferences.
 
-### Custom evaluator config sample
-
-JSON - custom_evaluator_config.json
+### Custom evaluator config sample JSON - custom_evaluator_config.json
 
 ```
 {

@@ -1,6 +1,4 @@
-# Specify long-term memory
-
-organization with namespaces
+# Specify long-term memory organization with namespaces
 
 When you [create](memory-create-a-memory-store.md "memory-create-a-memory-store.md") an AgentCore Memory,
 use a namespace to specify where the [long-term

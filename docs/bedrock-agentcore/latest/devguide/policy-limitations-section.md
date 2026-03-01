@@ -17,8 +17,6 @@ The following limitations are inherent to the Cedar policy language:
 The following limitations are specific to the current Amazon Bedrock AgentCore Gateway
 implementation:
 
-- **No date/time support** - Date and time comparisons are not
-  currently supported in policies
 - **Custom claims in NL2Cedar** - to use custom claims with
   NL2Cedar, provide the custom claims in the prompt
 - **Limited decimal precision** - Decimal values are limited
@@ -29,3 +27,22 @@ implementation:
 - **Max Policy Engines per account** - 1000
 
 These implementation limitations may be addressed in future releases.
+
+## Fine-grained authorization on IAM principals
+
+When using an IAM-authenticated Gateway, fine-grained authorization on IAM principals is
+not currently supported in Cedar policies.
+
+For Gateways configured with IAM authentication:
+
+- The `principal` in Cedar policies must remain unconstrained
+  (wildcard).
+- You cannot use `==`, `in`, or `is` constraints to
+  restrict specific IAM principals within Cedar.
+- Policies such as `permit(principal, action, resource);` express a wildcard
+  principal by leaving the `principal` variable unconstrained.
+
+To implement fine-grained authorization on the calling IAM principal, use IAM policies.
+IAM policies are evaluated before Cedar policies during request processing. After IAM
+authorization succeeds, Cedar policies can be used to enforce fine-grained constraints on
+actions, resources, tool inputs, and contextual attributes.

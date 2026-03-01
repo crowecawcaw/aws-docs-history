@@ -6,8 +6,7 @@ applications.
 ###### Topics
 
 - [Encrypting your memory](#encrypting-your-memory "#encrypting-your-memory")
-- [Memory poisoning or prompt
-  injection](#memory-poisoning-prevention "#memory-poisoning-prevention")
+- [Memory poisoning or prompt injection](#memory-poisoning-prevention "#memory-poisoning-prevention")
 - [Least-privilege principle](#least-privilege-principle "#least-privilege-principle")
 
 ## Encrypting your memory
@@ -18,9 +17,7 @@ optionally configure a customer-managed KMS key from your own AWS account for
 additional control over encryption by specifying `encryptionKeyArn` when
 creating memory.
 
-## Memory poisoning or prompt
-
-injection
+## Memory poisoning or prompt injection
 
 When processing conversational data through the CreateEvent API and extracting
 long-term memory via LLM, it is important to protect against memory poisoning and

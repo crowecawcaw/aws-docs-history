@@ -9,9 +9,7 @@ configuration ARN, ID, name, description, lifecycle status (Creating, Active, Up
 or Deleting), execution status (ENABLED or DISABLED), creation and update timestamps,
 and any failure reasons.
 
-## Code samples for Starter
-
-Toolkit, AgentCore SDK, and AWS SDK
+## Code samples for Starter Toolkit, AgentCore SDK, and AWS SDK
 
 The following code samples demonstrate how to list online evaluation
 configurations using different development approaches. Choose the method that best

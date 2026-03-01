@@ -32,8 +32,7 @@
       - To create a service role with the necessary permissions to access your gateway, choose **Create and use a new service role** and optionally change the generated **Service role name**.
       - To use an existing service role, choose **Use an existing service role** and then select a role from the **Service role name** dropdown menu. Make sure that the service role that you choose has the necessary permissions. For more information, see [AgentCore Gateway service role permissions](gateway-prerequisites-permissions.md#gateway-service-role-permissions "gateway-prerequisites-permissions.md#gateway-service-role-permissions").
 
-7. (Optional) By default, your gateway is encrypted with an AWS managed key. To encrypt your gateway with a custom KMS key, expand the **KMS key** section, select **Customize encryption settings (advanced)**, and choose a customer managed key. For more information, see [Encrypt your AgentCore gateway with a customer-managed
-   KMS key](gateway-encryption.md "gateway-encryption.md").
+7. (Optional) By default, your gateway is encrypted with an AWS managed key. To encrypt your gateway with a custom KMS key, expand the **KMS key** section, select **Customize encryption settings (advanced)**, and choose a customer managed key. For more information, see [Encrypt your AgentCore gateway with a customer-managed KMS key](gateway-encryption.md "gateway-encryption.md").
 8. In the **Target: `${target-name}`** section, do the following:
    1. (Optional) Change the generated **Target name**.
    2. (Optional) Provide a **Target description**.

@@ -1,15 +1,15 @@
-# Use a AgentCore Gateway with AgentCore Policy
+# Use a AgentCore Gateway with Policy in AgentCore
 
 Follow the gateway authorization and authentication guide to obtain the credentials
 needed for gateway access.
 
 ###### Topics
 
-- [List AgentCore Gateway Tools with AgentCore Policy](#list-gateway-tools "#list-gateway-tools")
+- [List AgentCore Gateway Tools with Policy in AgentCore](#list-gateway-tools "#list-gateway-tools")
 - [Call gateway tools with policy](#call-gateway-tools "#call-gateway-tools")
 - [Policy responses](#policy-responses "#policy-responses")
 
-## List AgentCore Gateway Tools with AgentCore Policy
+## List AgentCore Gateway Tools with Policy in AgentCore
 
 Tool listing is treated as a **meta action**. When a
 principal lists available tools, the policy engine does not evaluate the full context

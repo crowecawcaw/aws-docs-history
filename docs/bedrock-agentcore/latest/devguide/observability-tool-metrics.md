@@ -1,12 +1,9 @@
-# AgentCore generated built-in tools
-
-observability data
+# AgentCore generated built-in tools observability data
 
 ###### Topics
 
 - [Observability tools metrics](#observability-tools-metrics-one "#observability-tools-metrics-one")
-- [Resource usage metrics
-  and logs](#observability-tools-resource-usage-metrics-logs "#observability-tools-resource-usage-metrics-logs")
+- [Resource usage metrics and logs](#observability-tools-resource-usage-metrics-logs "#observability-tools-resource-usage-metrics-logs")
 - [Provided span data](#observability-tools-span-data "#observability-tools-span-data")
 - [Application log data](#observability-tools-application-log-data "#observability-tools-application-log-data")
 
@@ -95,9 +92,7 @@ TakerOverDuration
 
 The duration of user taking over
 
-## Resource usage metrics
-
-and logs
+## Resource usage metrics and logs
 
 Amazon Bedrock AgentCore Built-in Tools provides comprehensive resource usage
 telemetry, including CPU and memory consumption metrics for your runtime
@@ -168,8 +163,7 @@ Each resource usage datum will use the following schema in the log record.
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------- |
 | USAGE_LOGS | event_timestamp, resource_arn, service.name, cloud.provider,<br>cloud.region, account.id, region, resource.id, session.id,<br>elapsed_time_seconds, browser.vcpu.hours.used,<br>browser.memory.gb_hours.used | Resource Usage Logs for session-level resource tracking. |
 
-For more information about enabling logs, see [Add observability to your Amazon Bedrock AgentCore
-resources](observability-configure.md "observability-configure.md"). These logs are theyn displayed in the
+For more information about enabling logs, see [Add observability to your Amazon Bedrock AgentCore resources](observability-configure.md "observability-configure.md"). These logs are theyn displayed in the
 destination as configured (AWS LogGroup, Amazon S3, or Amazon Kinesis Firehose.
 
 In the Built-in Tools Session page of the Amazon CloudWatch Bedrock AgentCore
@@ -188,8 +182,7 @@ billing statement for authoritative charges.
 
 To enhance observability, AgentCore provides structured spans that provide visibility
 into built-in tools APIs. To enable this span data, you need to enable observability on
-your built-in tool resource. See [Add observability to your Amazon Bedrock AgentCore
-resources](observability-configure.md "observability-configure.md") for steps and details. This span data is
+your built-in tool resource. See [Add observability to your Amazon Bedrock AgentCore resources](observability-configure.md "observability-configure.md") for steps and details. This span data is
 available in full in AWS CloudWatch Logs in the aws/spans log group. The following
 table defines the operation for which spans are created and the attributes for each
 captured span.
@@ -219,8 +212,7 @@ captured span.
 
 AgentCore provides structured Application logs that help you gain visibility into your
 agent runtime invocations and session-level resource consumption. This log data is
-provided when enabling observability on your agent resource. See [Add observability to your Amazon Bedrock AgentCore
-resources](observability-configure.md "observability-configure.md") for
+provided when enabling observability on your agent resource. See [Add observability to your Amazon Bedrock AgentCore resources](observability-configure.md "observability-configure.md") for
 steps and details. AgentCore can output logs to CloudWatch Logs, Amazon S3, or Firehose
 stream. If you use a CloudWatch Logs destination, these logs are stored under your
 agent’s application logs or under your own custom log group.
