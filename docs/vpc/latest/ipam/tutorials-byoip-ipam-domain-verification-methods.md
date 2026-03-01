@@ -1,6 +1,4 @@
-# Verify domain
-
-control
+# Verify domain control
 
 Before you bring an IP address range to AWS, you have to use one of the options
 described in this section to verify that you control the IP address space. Later, when

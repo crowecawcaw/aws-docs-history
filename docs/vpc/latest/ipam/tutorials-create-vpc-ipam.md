@@ -25,11 +25,9 @@ already delegated an IPAM account and created an IPAM, you can skip steps 1 and 
 - [Step 2: Create an IPAM](#cli-tut-create-ipam "#cli-tut-create-ipam")
 - [Step 3: Create an IPv4 address pool](#cli-tut-create-top-ipam "#cli-tut-create-top-ipam")
 - [Step 4: Provision a CIDR to the top-level pool](#cli-tut-provision-cidr-ipam "#cli-tut-provision-cidr-ipam")
-- [Step 5. Create a Regional pool with CIDR sourced from the
-  top-level pool](#cli-tut-create-reg-ipam "#cli-tut-create-reg-ipam")
+- [Step 5. Create a Regional pool with CIDR sourced from the top-level pool](#cli-tut-create-reg-ipam "#cli-tut-create-reg-ipam")
 - [Step 6: Provision a CIDR to the Regional pool](#cli-tut-assign-cidr-reg-pool "#cli-tut-assign-cidr-reg-pool")
-- [Step 7. Create a RAM share for enabling IP assignments across
-  accounts](#cli-tut-create-ram-share-ipam "#cli-tut-create-ram-share-ipam")
+- [Step 7. Create a RAM share for enabling IP assignments across accounts](#cli-tut-create-ram-share-ipam "#cli-tut-create-ram-share-ipam")
 - [Step 8. Create a VPC](#cli-tut-create-vpc-ipam "#cli-tut-create-vpc-ipam")
 - [Step 9. Cleanup](#cli-tut-cleanup-ipam "#cli-tut-cleanup-ipam")
 
@@ -154,9 +152,7 @@ Follow the steps in this section to create an IPv4 address pool.
 
 You won't use the `--locale` option on this top-level pool. You will set the locale option later on the Regional pool. The locale is the AWS Region where you want a pool to be available for CIDR allocations. As a result of not setting the locale on the top-level pool, the locale will default to `None`. If a pool has a locale of `None`, the pool won't be available to VPC resources in any AWS Region. You can only manually allocate IP address space in the pool to reserve space.
 
-###### To create an IPv4 address pool for all of your AWS resources using the
-
-AWS CLI
+###### To create an IPv4 address pool for all of your AWS resources using the AWS CLI
 
 1. Run the following command to create an IPv4 address pool. Use the ID of the
    private scope of the IPAM that you created in the previous step.
@@ -262,9 +258,7 @@ The following example output shows the correct state.
 }
 ```
 
-## Step 5. Create a Regional pool with CIDR sourced from the
-
-top-level pool
+## Step 5. Create a Regional pool with CIDR sourced from the top-level pool
 
 When you create an IPAM pool, the pool belongs to the AWS Region of the IPAM by
 default. When you create a VPC, the pool that the VPC draws from must be in the same
@@ -272,9 +266,7 @@ Region as the VPC. You can use the `--locale` option when you create a pool
 to make the pool available to services in a Region other than the Region of the IPAM.
 Follow the steps in this section to create a Regional pool in another locale.
 
-###### To create a pool with a CIDR sourced from the previous pool using the
-
-AWS CLI
+###### To create a pool with a CIDR sourced from the previous pool using the AWS CLI
 
 1. Run the following command to create the pool and insert space with a known
    available CIDR from the previous pool.
@@ -422,9 +414,7 @@ pool.
 }
 ```
 
-## Step 7. Create a RAM share for enabling IP assignments across
-
-accounts
+## Step 7. Create a RAM share for enabling IP assignments across accounts
 
 This step is optional. You can complete this step only if you completed [Integrate IPAM with accounts in an AWS Organization](enable-integ-ipam.md "enable-integ-ipam.md").
 

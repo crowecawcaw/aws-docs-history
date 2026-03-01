@@ -16,7 +16,5 @@ Once you bring an IPv4 address range to AWS, you can use all of the IP addresses
 
 ###### Contents
 
-- [Bring your own IPv4 CIDR to IPAM using both the AWS
-  Management Console and the AWS CLI](tutorials-byoip-ipam-console-ipv4.md "tutorials-byoip-ipam-console-ipv4.md")
-- [Bring your own IPv6 CIDR to IPAM using the AWS
-  Management Console](tutorials-byoip-ipam-console-ipv6.md "tutorials-byoip-ipam-console-ipv6.md")
+- [Bring your own IPv4 CIDR to IPAM using both the AWS Management Console and the AWS CLI](tutorials-byoip-ipam-console-ipv4.md "tutorials-byoip-ipam-console-ipv4.md")
+- [Bring your own IPv6 CIDR to IPAM using the AWS Management Console](tutorials-byoip-ipam-console-ipv6.md "tutorials-byoip-ipam-console-ipv6.md")

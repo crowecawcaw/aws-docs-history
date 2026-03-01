@@ -19,15 +19,12 @@ Follow these steps to bring an IPv4 CIDR to IPAM and allocate an Elastic IP addr
 - [Step 2: Create an IPAM](#tutorials-byoip-ipam-ipv4-2 "#tutorials-byoip-ipam-ipv4-2")
 - [Step 3: Create a top-level IPAM pool](#tutorials-byoip-ipam-ipv4-3 "#tutorials-byoip-ipam-ipv4-3")
 - [Step 4: Provision a CIDR to the top-level pool](#tutorials-byoip-ipam-ipv4-4 "#tutorials-byoip-ipam-ipv4-4")
-- [Step 5: Create a Regional pool within the
-  top-level pool](#tutorials-byoip-ipam-ipv4-5 "#tutorials-byoip-ipam-ipv4-5")
+- [Step 5: Create a Regional pool within the top-level pool](#tutorials-byoip-ipam-ipv4-5 "#tutorials-byoip-ipam-ipv4-5")
 - [Step 6: Provision a CIDR to the Regional pool](#tutorials-byoip-ipam-ipv4-6 "#tutorials-byoip-ipam-ipv4-6")
 - [Step 7: Advertise the CIDR](#tutorials-byoip-ipam-ipv4-11 "#tutorials-byoip-ipam-ipv4-11")
 - [Step 8: Share the Regional pool](#tutorials-byoip-ipam-ipv4-console-4-deux "#tutorials-byoip-ipam-ipv4-console-4-deux")
-- [Step 9: Allocate an Elastic IP address
-  from the pool](#tutorials-byoip-ipam-ipv4-console-cli-all-eip "#tutorials-byoip-ipam-ipv4-console-cli-all-eip")
-- [Step 10: Associate the Elastic IP address with
-  an EC2 instance](#tutorials-byoip-ipam-ipv4-console-cli-assoc-eip "#tutorials-byoip-ipam-ipv4-console-cli-assoc-eip")
+- [Step 9: Allocate an Elastic IP address from the pool](#tutorials-byoip-ipam-ipv4-console-cli-all-eip "#tutorials-byoip-ipam-ipv4-console-cli-all-eip")
+- [Step 10: Associate the Elastic IP address with an EC2 instance](#tutorials-byoip-ipam-ipv4-console-cli-assoc-eip "#tutorials-byoip-ipam-ipv4-console-cli-assoc-eip")
 - [Step 11: Cleanup](#tutorials-byoip-ipam-ipv4-cli-cleanup "#tutorials-byoip-ipam-ipv4-cli-cleanup")
 - [Alternative to Step 9](#tutorials-byoip-ipam-ipv4-cli-alt "#tutorials-byoip-ipam-ipv4-cli-alt")
 
@@ -101,9 +98,7 @@ Complete the steps in this section to create a top-level IPAM pool.
 
 This step must be done by the IPAM account.
 
-###### To create an IPv4 address pool for all of your AWS resources using the
-
-AWS CLI
+###### To create an IPv4 address pool for all of your AWS resources using the AWS CLI
 
 1. Run the following command to create an IPAM pool. Use the ID of the public
    scope of the IPAM that you created in the previous step.
@@ -259,9 +254,7 @@ The following example output shows the state.
 }
 ```
 
-## Step 5: Create a Regional pool within the
-
-top-level pool
+## Step 5: Create a Regional pool within the top-level pool
 
 Create a Regional pool within the top-level pool.
 
@@ -294,9 +287,7 @@ locale for the Regional pool.
 
 When you create the pool, you must include `--aws-service ec2`. The service you select determines the AWS service where the CIDR will be advertisable. Currently, the only option is `ec2`, which means that the CIDRs allocated from this pool will be advertisable for the Amazon EC2 service (for Elastic IP addresses) and the Amazon VPC service (for CIDRs associated with VPCs).
 
-###### To create a Regional pool using the
-
-AWS CLI
+###### To create a Regional pool using the AWS CLI
 
 1. Run the following command to create the pool.
 
@@ -436,9 +427,7 @@ In the output, you'll see the CIDR is advertised.
 
 Follow the steps in this section to share the IPAM pool using AWS Resource Access Manager (RAM).
 
-### Enable resource sharing in
-
-AWS RAM
+### Enable resource sharing in AWS RAM
 
 After you create your IPAM, you’ll want to share the regional pool with other
 accounts in your organization. Before you share an IPAM pool, complete the steps in
@@ -492,9 +481,7 @@ the required IAM permissions, see [Share an IPAM pool using AWS RAM](share-pool-
     `--principals` is the account ID of the `member-account`. The value for `--permission-arns` is the ARN of the
     `AWSRAMDefaultPermissionsIpamPool` permission.
 
-## Step 9: Allocate an Elastic IP address
-
-from the pool
+## Step 9: Allocate an Elastic IP address from the pool
 
 Complete the steps in this section to allocate an Elastic IP address from the pool. Note that if
 you are using public IPv4 pools to allocate Elastic IP addresses, you can use the
@@ -547,9 +534,7 @@ Example response:
 For more information, see [Allocate an Elastic IP address](../../../AWSEC2/latest/UserGuide/working-with-eips.md#using-instance-addressing-eips-allocating "../../../AWSEC2/latest/UserGuide/working-with-eips.md#using-instance-addressing-eips-allocating") in the
 _Amazon EC2 User Guide_.
 
-## Step 10: Associate the Elastic IP address with
-
-an EC2 instance
+## Step 10: Associate the Elastic IP address with an EC2 instance
 
 Complete the steps in this section to associate the Elastic IP address with an EC2
 instance.
@@ -860,15 +845,13 @@ In the output, you'll see the IPAM response. This means that the IPAM was delete
 ## Alternative to Step 9
 
 If you are using public IPv4 pools to allocate Elastic IP addresses, you can use the
-steps in this section rather than the steps in [Step 9: Allocate an Elastic IP address
-from the pool](#tutorials-byoip-ipam-ipv4-console-cli-all-eip "#tutorials-byoip-ipam-ipv4-console-cli-all-eip").
+steps in this section rather than the steps in [Step 9: Allocate an Elastic IP address from the pool](#tutorials-byoip-ipam-ipv4-console-cli-all-eip "#tutorials-byoip-ipam-ipv4-console-cli-all-eip").
 
 ###### Contents
 
 - [Step 1: Create a public IPv4 pool](#tutorials-byoip-ipam-ipv4-9 "#tutorials-byoip-ipam-ipv4-9")
 - [Step 2: Provision the public IPv4 CIDR to your public IPv4 pool](#tutorials-byoip-ipam-ipv4-9 "#tutorials-byoip-ipam-ipv4-9")
-- [Step 3: Create an Elastic IP address from the public
-  IPv4 pool](#tutorials-byoip-ipam-ipv4-10 "#tutorials-byoip-ipam-ipv4-10")
+- [Step 3: Create an Elastic IP address from the public IPv4 pool](#tutorials-byoip-ipam-ipv4-10 "#tutorials-byoip-ipam-ipv4-10")
 - [Alternative to Step 9 cleanup](#tutorials-byoip-ipam-ipv4-cli-alt-cleanup "#tutorials-byoip-ipam-ipv4-cli-alt-cleanup")
 
 ### Step 1: Create a public IPv4 pool
@@ -956,9 +939,7 @@ this tutorial.
 }
 ```
 
-### Step 3: Create an Elastic IP address from the public
-
-IPv4 pool
+### Step 3: Create an Elastic IP address from the public IPv4 pool
 
 Create an Elastic IP address (EIP) from the public IPv4 pool. When you run the
 commands in this section, the value for `--region` must match the

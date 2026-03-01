@@ -28,11 +28,9 @@ create a new IPAM and configure it differently.
 - [Step 2: Create an IPAM](#2-create-an-ipam "#2-create-an-ipam")
 - [Step 3: Create a top-level IPAM pool](#3-create-a-toplevel-ipam-pool "#3-create-a-toplevel-ipam-pool")
 - [Step 4: Create Regional IPAM pools](#4-create-regional-ipam-pools "#4-create-regional-ipam-pools")
-- [Step 5: Create a pre-production
-  development pool](#5-create-a-preproduction-development-pool "#5-create-a-preproduction-development-pool")
+- [Step 5: Create a pre-production development pool](#5-create-a-preproduction-development-pool "#5-create-a-preproduction-development-pool")
 - [Step 6: Share the IPAM pool](#6-share-the-ipam-pool "#6-share-the-ipam-pool")
-- [Step 7: Create a VPC with
-  a CIDR allocated from an IPAM pool](#7-create-a-vpc-with-a-cidr-allocated-from-an-ipam-pool "#7-create-a-vpc-with-a-cidr-allocated-from-an-ipam-pool")
+- [Step 7: Create a VPC with a CIDR allocated from an IPAM pool](#7-create-a-vpc-with-a-cidr-allocated-from-an-ipam-pool "#7-create-a-vpc-with-a-cidr-allocated-from-an-ipam-pool")
 - [Step 8: Cleanup](#8-cleanup "#8-cleanup")
 
 ## Prerequisites
@@ -211,9 +209,7 @@ three pools in a hierarchy similar to this one:
 
 ![Pools view with three pools in the IPAM console.](images/tutorials-get-started-console-5_update.png)
 
-## Step 5: Create a pre-production
-
-development pool
+## Step 5: Create a pre-production development pool
 
 Follow the steps in this section to create a development pool for pre-production resources
 within one of your Regional pools.
@@ -255,15 +251,12 @@ Follow the steps in this section to share the pre-production IPAM pool using AWS
 
 This section consists of two subsections:
 
-- [Step 6.1. Enable resource sharing in
-  AWS RAM](#61-enable-resource-sharing-in-aws-ram "#61-enable-resource-sharing-in-aws-ram"): This step must be done by the
+- [Step 6.1. Enable resource sharing in AWS RAM](#61-enable-resource-sharing-in-aws-ram "#61-enable-resource-sharing-in-aws-ram"): This step must be done by the
   AWS Organizations management account.
 - [Step 6.2. Share an IPAM pool using AWS RAM](#62-share-an-ipam-pool-using-aws-ram "#62-share-an-ipam-pool-using-aws-ram"): This step must be done by the
   IPAM admin.
 
-### Step 6.1. Enable resource sharing in
-
-AWS RAM
+### Step 6.1. Enable resource sharing in AWS RAM
 
 After you create your IPAM, you’ll want to share IP address pools with other accounts in
 your organization. Before you share an IPAM pool, complete the steps in this section to
@@ -315,9 +308,7 @@ and then choose **Create**.
 Now that the pool has been shared, go to the next step to create a VPC with a CIDR
 allocated from an IPAM pool.
 
-## Step 7: Create a VPC with
-
-a CIDR allocated from an IPAM pool
+## Step 7: Create a VPC with a CIDR allocated from an IPAM pool
 
 Follow the steps in this section to create a VPC with a CIDR allocated from the
 pre-production pool. This step should be completed by the member account in the OU that the
@@ -337,22 +328,19 @@ _Amazon VPC User Guide_.
    3. Under **IPv4 IPAM pool**, choose the ID of the
       pre-production pool.
    4. Choose a **Netmask** length. Because you limited
-      the available netmask length for this pool to /24 (in [Step 5: Create a pre-production
-      development pool](#5-create-a-preproduction-development-pool "#5-create-a-preproduction-development-pool")), the only netmask option available
+      the available netmask length for this pool to /24 (in [Step 5: Create a pre-production development pool](#5-create-a-preproduction-development-pool "#5-create-a-preproduction-development-pool")), the only netmask option available
       is /24.
 
    ![Creating a VPC in the Amazon VPC console.](images/tutorials-get-started-console-jP9gQ6vF0cRtH2b-7CGNAA.png)
 
 4. For demonstration purposes, under **Tags**, do not add
-   any additional tags at this time. When you created the pre-prod pool (in [Step 5: Create a pre-production
-   development pool](#5-create-a-preproduction-development-pool "#5-create-a-preproduction-development-pool")), you added an allocation rule that
+   any additional tags at this time. When you created the pre-prod pool (in [Step 5: Create a pre-production development pool](#5-create-a-preproduction-development-pool "#5-create-a-preproduction-development-pool")), you added an allocation rule that
    required any VPCs that are created with CIDRs from this pool to have an
    environment/pre-prod tag. Leave the environment/pre-prod tag off for now so that you can
    see that an error appears telling you that a required tag was not added.
 5. Choose **Create VPC**.
 6. An error appears telling you that a required tag was not added. The error appears because you
-   set an allocation rule when you created the pre-prod pool (in [Step 5: Create a pre-production
-   development pool](#5-create-a-preproduction-development-pool "#5-create-a-preproduction-development-pool")). The allocation rule
+   set an allocation rule when you created the pre-prod pool (in [Step 5: Create a pre-production development pool](#5-create-a-preproduction-development-pool "#5-create-a-preproduction-development-pool")). The allocation rule
    required any VPCs that are created with CIDRs from this pool to have an environment/pre-prod tag.
 
 ![Creating a VPC error in the Amazon VPC console.](images/tutorials-get-started-console-wxP7WfFbl-2ThufLus_Usw.png) 7. Now, under **Tags**, add the tag **environment/pre-prod** and choose **Create
@@ -383,8 +371,7 @@ Follow the steps in this section to clean up the resources that you created in t
    For detailed instructions, see [Deleting
    a resource share in AWSAWS RAM](../../../ram/latest/userguide/working-with-sharing-delete.md "../../../ram/latest/userguide/working-with-sharing-delete.md") in the _AWS Resource Access Manager User Guide_.
 3. Using the IPAM admin account, log into the RAM console and disable sharing with
-   AWS Organizations that you enable in [Step 6.1. Enable resource sharing in
-   AWS RAM](#61-enable-resource-sharing-in-aws-ram "#61-enable-resource-sharing-in-aws-ram").
+   AWS Organizations that you enable in [Step 6.1. Enable resource sharing in AWS RAM](#61-enable-resource-sharing-in-aws-ram "#61-enable-resource-sharing-in-aws-ram").
 4. Using the IPAM admin account, delete the example IPAM by selecting the IPAM in the
    IPAM console and then choosing **Actions** > **Delete**. For detailed instructions, see [Delete an IPAM](delete-ipam.md "delete-ipam.md").
 5. When you’re prompted to delete the IPAM, choose **Cascade

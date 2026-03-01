@@ -51,11 +51,9 @@ the following ways:
 ###### Contents
 
 - [Step 1: Create an IPAM](#tutorials-eip-pool-1 "#tutorials-eip-pool-1")
-- [Step 2: Create an IPAM pool and provision a
-  CIDR](#tutorials-eip-pool-2 "#tutorials-eip-pool-2")
+- [Step 2: Create an IPAM pool and provision a CIDR](#tutorials-eip-pool-2 "#tutorials-eip-pool-2")
 - [Step 3: Allocate an Elastic IP address from the pool](#tutorials-eip-pool-3 "#tutorials-eip-pool-3")
-- [Step 4: Associate the Elastic IP address with an EC2
-  instance](#tutorials-eip-pool-4 "#tutorials-eip-pool-4")
+- [Step 4: Associate the Elastic IP address with an EC2 instance](#tutorials-eip-pool-4 "#tutorials-eip-pool-4")
 - [Step 5: Track and monitor pool usage](#track-monitor-eips-ipam "#track-monitor-eips-ipam")
 - [Cleanup](#tutorials-eip-pool-cleanup "#tutorials-eip-pool-cleanup")
 
@@ -147,9 +145,7 @@ Example response:
 
 You'll need the PublicDefaultScopeId in the next step. For more information about scopes, see [How IPAM works](how-it-works-ipam.md "how-it-works-ipam.md").
 
-## Step 2: Create an IPAM pool and provision a
-
-CIDR
+## Step 2: Create an IPAM pool and provision a CIDR
 
 Complete the steps in this section to create an IPAM pool from which you'll allocate
 the Elastic IP addresses.
@@ -368,9 +364,7 @@ Example response:
 For more information, see [Allocate an Elastic IP address](../../../AWSEC2/latest/UserGuide/working-with-eips.md#using-instance-addressing-eips-allocating "../../../AWSEC2/latest/UserGuide/working-with-eips.md#using-instance-addressing-eips-allocating") in the
 _Amazon EC2 User Guide_.
 
-## Step 4: Associate the Elastic IP address with an EC2
-
-instance
+## Step 4: Associate the Elastic IP address with an EC2 instance
 
 Complete the steps in this section to associate the Elastic IP address with an EC2
 instance.

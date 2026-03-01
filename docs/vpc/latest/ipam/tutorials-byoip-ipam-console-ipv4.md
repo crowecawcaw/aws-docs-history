@@ -1,6 +1,4 @@
-# Bring your own IPv4 CIDR to IPAM using both the AWS
-
-Management Console and the AWS CLI
+# Bring your own IPv4 CIDR to IPAM using both the AWS Management Console and the AWS CLI
 
 Follow these steps to bring an IPv4 CIDR to IPAM and allocate an Elastic IP address (EIP) using both the AWS
 Management Console and the AWS CLI.
@@ -22,12 +20,9 @@ Management Console and the AWS CLI.
 - [Step 2: Create a top-level IPAM pool](#tutorials-byoip-ipam-ipv4-console-create-top "#tutorials-byoip-ipam-ipv4-console-create-top")
 - [Step 3. Create a Regional pool within the top-level pool](#tutorials-byoip-ipam-ipv4-console-create-reg "#tutorials-byoip-ipam-ipv4-console-create-reg")
 - [Step 4: Advertise the CIDR](#tutorials-byoip-ipam-ipv4-console-adv "#tutorials-byoip-ipam-ipv4-console-adv")
-- [Step 5. Share the Regional
-  pool](#tutorials-byoip-ipam-ipv4-console-share-reg "#tutorials-byoip-ipam-ipv4-console-share-reg")
-- [Step 6: Allocate an Elastic IP address
-  from the pool](#tutorials-byoip-ipam-ipv4-console-all-eip "#tutorials-byoip-ipam-ipv4-console-all-eip")
-- [Step 7: Associate the Elastic IP address with
-  an EC2 instance](#tutorials-byoip-ipam-ipv4-console-assoc-eip "#tutorials-byoip-ipam-ipv4-console-assoc-eip")
+- [Step 5. Share the Regional pool](#tutorials-byoip-ipam-ipv4-console-share-reg "#tutorials-byoip-ipam-ipv4-console-share-reg")
+- [Step 6: Allocate an Elastic IP address from the pool](#tutorials-byoip-ipam-ipv4-console-all-eip "#tutorials-byoip-ipam-ipv4-console-all-eip")
+- [Step 7: Associate the Elastic IP address with an EC2 instance](#tutorials-byoip-ipam-ipv4-console-assoc-eip "#tutorials-byoip-ipam-ipv4-console-assoc-eip")
 - [Step 8: Cleanup](#tutorials-byoip-ipam-ipv4-console-cleanup "#tutorials-byoip-ipam-ipv4-console-cleanup")
 - [Alternative to Step 6](#tutorials-byoip-ipam-ipv4-alt "#tutorials-byoip-ipam-ipv4-alt")
 
@@ -203,15 +198,11 @@ As a result, the BYOIP CIDR is advertised and the value in the
 **Advertising** column changes from **Withdrawn**
 to **Advertised**.
 
-## Step 5. Share the Regional
-
-pool
+## Step 5. Share the Regional pool
 
 Follow the steps in this section to share the IPAM pool using AWS Resource Access Manager (RAM).
 
-### Enable resource sharing in
-
-AWS RAM
+### Enable resource sharing in AWS RAM
 
 After you create your IPAM, you’ll want to share the regional pool with other
 accounts in your organization. Before you share an IPAM pool, complete the steps in
@@ -265,9 +256,7 @@ the required IAM permissions, see [Share an IPAM pool using AWS RAM](share-pool-
     `--principals` is the account ID of the `member-account`. The value for `--permission-arns` is the ARN of the
     `AWSRAMDefaultPermissionsIpamPool` permission.
 
-## Step 6: Allocate an Elastic IP address
-
-from the pool
+## Step 6: Allocate an Elastic IP address from the pool
 
 Complete the steps in this section to allocate an Elastic IP address from the pool. Note that if
 you are using public IPv4 pools to allocate Elastic IP addresses, you can use the
@@ -320,9 +309,7 @@ Example response:
 For more information, see [Allocate an Elastic IP address](../../../AWSEC2/latest/UserGuide/working-with-eips.md#using-instance-addressing-eips-allocating "../../../AWSEC2/latest/UserGuide/working-with-eips.md#using-instance-addressing-eips-allocating") in the
 _Amazon EC2 User Guide_.
 
-## Step 7: Associate the Elastic IP address with
-
-an EC2 instance
+## Step 7: Associate the Elastic IP address with an EC2 instance
 
 Complete the steps in this section to associate the Elastic IP address with an EC2
 instance.
@@ -404,9 +391,7 @@ This step must be done by the member account. If you are using the AWS CLI, use 
   option you chose when you created the pool that will be used for the BYOIP
   CIDR.
 
-###### Step 4: Delete any RAM shares and disable RAM integration with AWS
-
-Organizations
+###### Step 4: Delete any RAM shares and disable RAM integration with AWS Organizations
 
 This step must be done by the IPAM account and management account
 respectively. If you are using the AWS CLI to delete the RAM shares and disable RAM
@@ -419,9 +404,7 @@ options.
   resource sharing with AWS Organizations](../../../ram/latest/userguide/security-disable-sharing-with-orgs.md "../../../ram/latest/userguide/security-disable-sharing-with-orgs.md") in the _AWS RAM User Guide_, in that order, to delete the
   RAM shares and disable RAM integration with AWS Organizations.
 
-###### Step 5: Deprovision the CIDRs from the Regional pool and top-level
-
-pool
+###### Step 5: Deprovision the CIDRs from the Regional pool and top-level pool
 
 This step must be done by the IPAM account. If you are using the AWS CLI to share the pool, use the `--profile `ipam-account`` option.
 
@@ -436,17 +419,14 @@ This step must be done by the IPAM account. If you are using the AWS CLI to shar
 ## Alternative to Step 6
 
 If you are using public IPv4 pools to allocate Elastic IP addresses, you can use the
-steps in this section rather than the steps in [Step 6: Allocate an Elastic IP address
-from the pool](#tutorials-byoip-ipam-ipv4-console-all-eip "#tutorials-byoip-ipam-ipv4-console-all-eip").
+steps in this section rather than the steps in [Step 6: Allocate an Elastic IP address from the pool](#tutorials-byoip-ipam-ipv4-console-all-eip "#tutorials-byoip-ipam-ipv4-console-all-eip").
 
 ###### Contents
 
 - [Step 1: Create a public IPv4 pool](#tutorials-byoip-ipam-ipv4-console-alt-pool "#tutorials-byoip-ipam-ipv4-console-alt-pool")
 - [Step 2: Provision the public IPv4 CIDR to your public IPv4 pool](#tutorials-byoip-ipam-ipv4-console-alt-cidr "#tutorials-byoip-ipam-ipv4-console-alt-cidr")
-- [Step 3: Allocate an Elastic IP address from
-  the public IPv4 pool](#tutorials-byoip-ipam-ipv4-console-alt-eip "#tutorials-byoip-ipam-ipv4-console-alt-eip")
-- [Alternative to Step 6
-  cleanup](#tutorials-byoip-ipam-ipv4-console-alt-cleanup "#tutorials-byoip-ipam-ipv4-console-alt-cleanup")
+- [Step 3: Allocate an Elastic IP address from the public IPv4 pool](#tutorials-byoip-ipam-ipv4-console-alt-eip "#tutorials-byoip-ipam-ipv4-console-alt-eip")
+- [Alternative to Step 6 cleanup](#tutorials-byoip-ipam-ipv4-console-alt-cleanup "#tutorials-byoip-ipam-ipv4-console-alt-cleanup")
 
 ### Step 1: Create a public IPv4 pool
 
@@ -557,9 +537,7 @@ Once you create the public IPv4 pool, to view the public IPv4 pool allocated in 
 IPAM Regional pool, open the IPAM console and view the allocation in the Regional pool
 under **Allocations** or **Resources**.
 
-### Step 3: Allocate an Elastic IP address from
-
-the public IPv4 pool
+### Step 3: Allocate an Elastic IP address from the public IPv4 pool
 
 Complete the steps in [Allocate an Elastic IP address](../../../AWSEC2/latest/UserGuide/working-with-eips.md#using-instance-addressing-eips-allocating "../../../AWSEC2/latest/UserGuide/working-with-eips.md#using-instance-addressing-eips-allocating") in the _Amazon EC2 User Guide_
 to allocate an EIP from the public IPv4 pool. When you open EC2 in
@@ -569,12 +547,9 @@ the BYOIP CIDR.
 
 This step must be done by the member account. If you are using the AWS CLI, use the `--profile `member-account`` option.
 
-Once you've completed these three steps, return to [Step 7: Associate the Elastic IP address with
-an EC2 instance](#tutorials-byoip-ipam-ipv4-console-assoc-eip "#tutorials-byoip-ipam-ipv4-console-assoc-eip") and continue until you complete the tutorial.
+Once you've completed these three steps, return to [Step 7: Associate the Elastic IP address with an EC2 instance](#tutorials-byoip-ipam-ipv4-console-assoc-eip "#tutorials-byoip-ipam-ipv4-console-assoc-eip") and continue until you complete the tutorial.
 
-### Alternative to Step 6
-
-cleanup
+### Alternative to Step 6 cleanup
 
 Complete these steps to clean up public IPv4 pools created with the alternative to Step 9. You should complete these steps after you release the Elastic IP address during the standard cleanup process in [Step 8: Cleanup](#tutorials-byoip-ipam-ipv4-console-cleanup "#tutorials-byoip-ipam-ipv4-console-cleanup").
 

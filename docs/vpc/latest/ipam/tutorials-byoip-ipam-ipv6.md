@@ -21,8 +21,7 @@ If you do not need to advertise your IPv6 addresses over the Internet, you can p
 - [Step 2: Create an IPAM](#tutorials-byoip-ipam-ipv6-2 "#tutorials-byoip-ipam-ipv6-2")
 - [Step 3: Create an IPAM pool](#tutorials-byoip-ipam-ipv6-3 "#tutorials-byoip-ipam-ipv6-3")
 - [Step 4: Provision a CIDR to the top-level pool](#tutorials-byoip-ipam-ipv6-4 "#tutorials-byoip-ipam-ipv6-4")
-- [Step 5: Create a Regional pool within the
-  top-level pool](#tutorials-byoip-ipam-ipv6-5 "#tutorials-byoip-ipam-ipv6-5")
+- [Step 5: Create a Regional pool within the top-level pool](#tutorials-byoip-ipam-ipv6-5 "#tutorials-byoip-ipam-ipv6-5")
 - [Step 6: Provision a CIDR to the Regional pool](#tutorials-byoip-ipam-ipv6-6 "#tutorials-byoip-ipam-ipv6-6")
 - [Step 7. Share the Regional pool](#tutorials-byoip-ipam-ipv4-console-4-deux "#tutorials-byoip-ipam-ipv4-console-4-deux")
 - [Step 8: Create a VPC using the IPv6 CIDR](#tutorials-byoip-ipam-ipv6-8 "#tutorials-byoip-ipam-ipv6-8")
@@ -107,9 +106,7 @@ Choose if you want this IPAM pool CIDR to be advertisable by AWS over the public
 
 Note that the scope ID must be the ID for the public scope and the address family must be `ipv6`.
 
-###### To create an IPv6 address pool for all of your AWS resources using the
-
-AWS CLI
+###### To create an IPv6 address pool for all of your AWS resources using the AWS CLI
 
 1. Run the following command to create an IPAM pool. Use the ID of the public
    scope of the IPAM that you created in the previous step.
@@ -257,9 +254,7 @@ The following example output shows the state.
 }
 ```
 
-## Step 5: Create a Regional pool within the
-
-top-level pool
+## Step 5: Create a Regional pool within the top-level pool
 
 Create a Regional pool within the top-level pool. `--locale` is required on
 the pool and it must be one of the operating Regions you configured when you created the
@@ -271,9 +266,7 @@ This step must be done by the IPAM account.
 
 When you create the pool, you must include `--aws-service ec2`. The service you select determines the AWS service where the CIDR will be advertisable. Currently, the only option is `ec2`, which means that the CIDRs allocated from this pool will be advertisable for the Amazon EC2 service and the Amazon VPC service (for CIDRs associated with VPCs).
 
-###### To create a Regional pool using the
-
-AWS CLI
+###### To create a Regional pool using the AWS CLI
 
 1. Run the following command to create the pool.
 
@@ -368,9 +361,7 @@ The following example output shows the correct state.
 
 Follow the steps in this section to share the IPAM pool using AWS Resource Access Manager (RAM).
 
-### Enable resource sharing in
-
-AWS RAM
+### Enable resource sharing in AWS RAM
 
 After you create your IPAM, you’ll want to share the regional pool with other
 accounts in your organization. Before you share an IPAM pool, complete the steps in

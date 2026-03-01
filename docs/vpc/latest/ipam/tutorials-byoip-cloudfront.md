@@ -33,8 +33,7 @@ Requires /24 IPv4 CIDR blocks. Currently available for CloudFront only.
 Complete these steps before starting:
 
 - **IPAM setup** – [Integrate IPAM with accounts in an AWS Organization](enable-integ-ipam.md "enable-integ-ipam.md") and [Create an IPAM](create-ipam.md "create-ipam.md")
-- **Domain verification** – [Verify domain
-  control](tutorials-byoip-ipam-domain-verification-methods.md "tutorials-byoip-ipam-domain-verification-methods.md")
+- **Domain verification** – [Verify domain control](tutorials-byoip-ipam-domain-verification-methods.md "tutorials-byoip-ipam-domain-verification-methods.md")
 - **Create top-level pool** – Follow steps 1-2 in [Bring your own IPv4 CIDR to IPAM](tutorials-byoip-ipam-console-ipv4.md "tutorials-byoip-ipam-console-ipv4.md")
 
 ## Global service configuration steps

@@ -77,9 +77,7 @@ JSON
    and [Detach policies](../../../organizations/latest/userguide/orgs_policies_detach.md "../../../organizations/latest/userguide/orgs_policies_detach.md")
    in the _AWS Organizations User Guide_.
 
-## Enforce IPAM for all but a given list of
-
-OUs
+## Enforce IPAM for all but a given list of OUs
 
 Follow the steps in this section to enforce IPAM for all but a given list of
 Organizational Units (OUs). The policy described in this section requires OUs in the

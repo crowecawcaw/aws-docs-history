@@ -36,9 +36,7 @@ instance and network interface CIDRs.
 The scenarios in this section show you how to analyze and audit IP address usage using the AWS CLI. For more information about the values mentioned in this tutorial like sampled end
 time and start time, see [View IP address history](view-history-cidr-ipam.md "view-history-cidr-ipam.md").
 
-###### Scenario 1: Which resources were associated with `10.2.1.155/32`
-
-between 1:00 AM and 9:00 PM on December 27, 2021 (UTC)?
+###### Scenario 1: Which resources were associated with `10.2.1.155/32` between 1:00 AM and 9:00 PM on December 27, 2021 (UTC)?
 
 1. Run the following command:
 
@@ -107,9 +105,7 @@ the record for a CIDR associated with a NAT gateway:
 }
 ```
 
-###### Scenario 2: Which resources were associated with `10.2.1.0/24` from
-
-December 1, 2021 to December 27, 2021 (UTC)?
+###### Scenario 2: Which resources were associated with `10.2.1.0/24` from December 1, 2021 to December 27, 2021 (UTC)?
 
 1. Run the following command:
 
@@ -149,9 +145,7 @@ aws ec2 get-ipam-address-history --region `us-east-1` --cidr `10.2.1.0/24` --ipa
 }
 ```
 
-###### Scenario 3: Which resources were associated with `2605:9cc0:409::/56`
-
-from December 1, 2021 to December 27, 2021 (UTC)?
+###### Scenario 3: Which resources were associated with `2605:9cc0:409::/56` from December 1, 2021 to December 27, 2021 (UTC)?
 
 1. Run the following command, where --region is the IPAM home Region:
 
@@ -197,10 +191,7 @@ aws ec2 get-ipam-address-history --region `us-east-1` --cidr `2605:9cc0:409::/56
 }
 ```
 
-###### Scenario 4: Which resources were associated with `10.0.0.0/24` in the
-
-last 24 hours (assuming the current time is midnight on December 27, 2021
-(UTC))?
+###### Scenario 4: Which resources were associated with `10.0.0.0/24` in the last 24 hours (assuming the current time is midnight on December 27, 2021 (UTC))?
 
 1. Run the following command:
 

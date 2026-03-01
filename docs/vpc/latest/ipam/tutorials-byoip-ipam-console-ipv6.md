@@ -1,6 +1,4 @@
-# Bring your own IPv6 CIDR to IPAM using the AWS
-
-Management Console
+# Bring your own IPv6 CIDR to IPAM using the AWS Management Console
 
 Follow the steps in this tutorial to bring an IPv6 CIDR to IPAM and allocate a VPC
 with the CIDR using both the AWS Management Console and the AWS CLI.
@@ -21,8 +19,7 @@ If you do not need to advertise your IPv6 addresses over the Internet, you can p
 ###### Contents
 
 - [Step 1: Create a top-level IPAM pool](#tutorials-byoip-ipam-ipv6-console-1 "#tutorials-byoip-ipam-ipv6-console-1")
-- [Step 2. Create a Regional pool within the
-  top-level pool](#tutorials-byoip-ipam-ipv6-console-2 "#tutorials-byoip-ipam-ipv6-console-2")
+- [Step 2. Create a Regional pool within the top-level pool](#tutorials-byoip-ipam-ipv6-console-2 "#tutorials-byoip-ipam-ipv6-console-2")
 - [Step 3. Share the Regional pool](#tutorials-byoip-ipam-ipv4-console-4-deux "#tutorials-byoip-ipam-ipv4-console-4-deux")
 - [Step 4: Create a VPC](#tutorials-byoip-ipam-ipv6-console-4 "#tutorials-byoip-ipam-ipv6-console-4")
 - [Step 5: Advertise the CIDR](#tutorials-byoip-ipam-ipv6-console-5 "#tutorials-byoip-ipam-ipv6-console-5")
@@ -88,9 +85,7 @@ unselected. 13. (Optional) Choose **Tags** for the pool. 14. Choose **Create poo
 Ensure that this CIDR has been provisioned before you continue. You can see the state
 of provisioning in the **CIDRs** tab in the pool details page.
 
-## Step 2. Create a Regional pool within the
-
-top-level pool
+## Step 2. Create a Regional pool within the top-level pool
 
 Create a Regional pool within the top-level pool. A Locale is required on
 the pool and it must be one of the operating Regions you configured when you created the
@@ -173,9 +168,7 @@ Ensure that this CIDR has been provisioned before you continue. You can see the 
 
 Follow the steps in this section to share the IPAM pool using AWS Resource Access Manager (RAM).
 
-### Enable resource sharing in
-
-AWS RAM
+### Enable resource sharing in AWS RAM
 
 After you create your IPAM, you’ll want to share the regional pool with other
 accounts in your organization. Before you share an IPAM pool, complete the steps in
