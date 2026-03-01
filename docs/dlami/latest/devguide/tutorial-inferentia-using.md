@@ -13,5 +13,4 @@ The following sections describe how to use the DLAMI with Inferentia.
 - [Using AWS Neuron TensorFlow Serving](tutorial-inferentia-tf-neuron-serving.md "tutorial-inferentia-tf-neuron-serving.md")
 - [Using MXNet-Neuron and the AWS Neuron Compiler](tutorial-inferentia-mxnet-neuron.md "tutorial-inferentia-mxnet-neuron.md")
 - [Using MXNet-Neuron Model Serving](tutorial-inferentia-mxnet-neuron-serving.md "tutorial-inferentia-mxnet-neuron-serving.md")
-- [Using PyTorch-Neuron and the AWS Neuron
-  Compiler](tutorial-inferentia-pytorch-neuron.md "tutorial-inferentia-pytorch-neuron.md")
+- [Using PyTorch-Neuron and the AWS Neuron Compiler](tutorial-inferentia-pytorch-neuron.md "tutorial-inferentia-pytorch-neuron.md")

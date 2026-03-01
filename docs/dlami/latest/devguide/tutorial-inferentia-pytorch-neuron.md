@@ -1,6 +1,4 @@
-# Using PyTorch-Neuron and the AWS Neuron
-
-Compiler
+# Using PyTorch-Neuron and the AWS Neuron Compiler
 
 The PyTorch-Neuron compilation API provides a method to compile a model graph that you can
 run on an AWS Inferentia device.
@@ -17,21 +15,16 @@ information, see the [AWS Neuron PyTorch SDK Documentation](https://awsdocs-neur
 ###### Contents
 
 - [Prerequisites](#tutorial-inferentia-pytorch-neuron-prerequisites "#tutorial-inferentia-pytorch-neuron-prerequisites")
-- [Activate the Conda
-  Environment](#tutorial-inferentia-pytorch-neuron-activate "#tutorial-inferentia-pytorch-neuron-activate")
-- [Resnet50
-  Compilation](#tutorial-inferentia-pytorch-neuron-compilation "#tutorial-inferentia-pytorch-neuron-compilation")
-- [ResNet50
-  Inference](#tutorial-inferentia-pytorch-neuron-inference "#tutorial-inferentia-pytorch-neuron-inference")
+- [Activate the Conda Environment](#tutorial-inferentia-pytorch-neuron-activate "#tutorial-inferentia-pytorch-neuron-activate")
+- [Resnet50 Compilation](#tutorial-inferentia-pytorch-neuron-compilation "#tutorial-inferentia-pytorch-neuron-compilation")
+- [ResNet50 Inference](#tutorial-inferentia-pytorch-neuron-inference "#tutorial-inferentia-pytorch-neuron-inference")
 
 ## Prerequisites
 
 Before using this tutorial, you should have completed the set up steps in [Launching a DLAMI Instance with AWS Neuron](tutorial-inferentia-launching.md "tutorial-inferentia-launching.md"). You should also have a familiarity
 with deep learning and using the DLAMI.
 
-## Activate the Conda
-
-Environment
+## Activate the Conda Environment
 
 Activate the PyTorch-Neuron conda environment using the following command:
 
@@ -47,9 +40,7 @@ source deactivate
 
 ```
 
-## Resnet50
-
-Compilation
+## Resnet50 Compilation
 
 Create a Python script called `pytorch_trace_resnet50.py` with
 the following content. This script uses the PyTorch-Neuron compilation Python API to
@@ -93,9 +84,7 @@ python pytorch_trace_resnet50.py
 Compilation will take a few minutes. When compilation has finished, the compiled model
 is saved as `resnet50_neuron.pt` in the local directory.
 
-## ResNet50
-
-Inference
+## ResNet50 Inference
 
 Create a Python script called `pytorch_infer_resnet50.py` with
 the following content. This script downloads a sample image and uses it to run inference

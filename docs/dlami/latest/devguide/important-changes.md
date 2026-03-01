@@ -8,12 +8,9 @@ your usage of DLAMIs, see [DLAMI NVIDIA driver change FAQs](#important-changes-f
 
 - [What changed?](#important-changes-faq-changing "#important-changes-faq-changing")
 - [Why was this change required?](#important-changes-faq-why "#important-changes-faq-why")
-- [Which DLAMIs did this change
-  affect?](#important-changes-faq-impact "#important-changes-faq-impact")
-- [What does this mean for
-  you?](#important-changes-faq-customer "#important-changes-faq-customer")
-- [Is there any loss of functionality
-  with the newer DLAMIs?](#important-changes-faq-function "#important-changes-faq-function")
+- [Which DLAMIs did this change affect?](#important-changes-faq-impact "#important-changes-faq-impact")
+- [What does this mean for you?](#important-changes-faq-customer "#important-changes-faq-customer")
+- [Is there any loss of functionality with the newer DLAMIs?](#important-changes-faq-function "#important-changes-faq-function")
 - [Did this change affect Deep Learning Containers?](#important-changes-faq-dlc "#important-changes-faq-dlc")
 
 ### What changed?
@@ -46,15 +43,11 @@ DLAMIs that support both instance types, we split DLAMIs into two groups: one wi
 the OpenRM driver (that supports G4dn, G5, P4, and P5), and one with the older
 proprietary driver (that supports P3, P3dn, and G3).
 
-### Which DLAMIs did this change
-
-affect?
+### Which DLAMIs did this change affect?
 
 This change affected all DLAMIs.
 
-### What does this mean for
-
-you?
+### What does this mean for you?
 
 All DLAMIs will continue to provide functionality, performance, and security as
 long as you run them on a supported Amazon Elastic Compute Cloud (Amazon EC2) instance type. To determine
@@ -82,9 +75,7 @@ aws ec2 describe-images --region us-east-1 --owners amazon \
 --query 'reverse(sort_by(Images, &CreationDate))[:1].ImageId' --output text
 ```
 
-### Is there any loss of functionality
-
-with the newer DLAMIs?
+### Is there any loss of functionality with the newer DLAMIs?
 
 No, there is no loss of functionality. The current DLAMIs provide all the
 functionality, performance, and security of the previous DLAMIs, provided you run

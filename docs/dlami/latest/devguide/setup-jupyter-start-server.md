@@ -19,5 +19,4 @@ Jupyter web interface. For more information, see [Switching Environments with Ju
 
 ###### Next step
 
-[Connecting a client to the Jupyter Notebook server on a DLAMI
-instance](setup-jupyter-connect.md "setup-jupyter-connect.md")
+[Connecting a client to the Jupyter Notebook server on a DLAMI instance](setup-jupyter-connect.md "setup-jupyter-connect.md")

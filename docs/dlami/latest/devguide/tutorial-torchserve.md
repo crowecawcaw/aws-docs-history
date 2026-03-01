@@ -8,19 +8,14 @@ Documentation](https://github.com/pytorch/serve/blob/master/docs/README.md "http
 
 **Topics**
 
-##
-
-Serve an Image Classification Model on
-TorchServe
+## Serve an Image Classification Model on TorchServe
 
 This tutorial shows how to serve an image classification model with TorchServe. It uses a
 DenseNet-161 model provided by PyTorch. Once the server is running, it listens for prediction
 requests. When you upload an image, in this case, an image of a kitten, the server returns a
 prediction of the top 5 matching classes out of the classes that the model was trained on.
 
-###### To serve an example image classification model
-
-on TorchServe
+###### To serve an example image classification model on TorchServe
 
 1. Connect to an Amazon Elastic Compute Cloud (Amazon EC2) instance with Deep Learning AMI with Conda v34 or later.
 2. Activate the `pytorch_p310` environment.

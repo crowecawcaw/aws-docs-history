@@ -17,8 +17,7 @@ Policy](dlami-support-policy-table.md "dlami-support-policy-table.md") page. The
 - [What framework versions get security patches?](#framework-support-policy-faq-security "#framework-support-policy-faq-security")
 - [Which operating system get security patches?](#operating-system-support-policy-faq-security "#operating-system-support-policy-faq-security")
 - [What images does AWS publish when new framework versions are released?](#support-policy-faq-publishing "#support-policy-faq-publishing")
-- [What images get new SageMaker AI/AWS
-  features?](#support-policy-faq-features "#support-policy-faq-features")
+- [What images get new SageMaker AI/AWS features?](#support-policy-faq-features "#support-policy-faq-features")
 - [How is current version defined in the Supported Frameworks table?](#support-policy-faq-current-version "#support-policy-faq-current-version")
 - [What if I am running a version that is not in the Supported table?](#support-policy-faq-older-version "#support-policy-faq-older-version")
 - [Do DLAMIs support previous patch versions of a Framework Version?](#support-policy-faq-previous-version-support "#support-policy-faq-previous-version-support")
@@ -51,9 +50,7 @@ major-minor-patch versions of frameworks. We also update images when new version
 drivers and libraries become available. For more information on image maintenance,
 see [When does active support for my framework version end?](#support-policy-faq-end-of-support "#support-policy-faq-end-of-support")
 
-### What images get new SageMaker AI/AWS
-
-features?
+### What images get new SageMaker AI/AWS features?
 
 New features typically release in the latest version of DLAMIs for
 PyTorch and TensorFlow. Refer to the release notes for a specific image for details

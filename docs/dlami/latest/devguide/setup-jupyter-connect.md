@@ -1,6 +1,4 @@
-# Connecting a client to the Jupyter Notebook server on a DLAMI
-
-instance
+# Connecting a client to the Jupyter Notebook server on a DLAMI instance
 
 After you [start the Jupyter Notebook server on your DLAMI
 instance](setup-jupyter-start-server.md "setup-jupyter-start-server.md"), configure your Windows, macOS, or Linux client to connect to the
@@ -17,9 +15,7 @@ Be sure you have the following, which you need to set up an SSH tunnel:
   pair, see [Amazon EC2
   key pairs and Amazon EC2 instances](../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md "../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md") in the _Amazon EC2 User Guide_.
 
-## Connect from a Windows, macOS, or Linux
-
-client
+## Connect from a Windows, macOS, or Linux client
 
 To connect to your DLAMI instance from a Windows, macOS, or Linux client, follow the
 instructions for your client's operating system.

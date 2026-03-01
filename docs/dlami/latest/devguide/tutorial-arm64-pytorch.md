@@ -7,16 +7,11 @@ inference use cases.
 
 ###### Contents
 
-- [Verify PyTorch Python
-  Environment](#tutorial-arm64-pytorch-environment "#tutorial-arm64-pytorch-environment")
-- [Run Training Sample with
-  PyTorch](#tutorial-arm64-pytorch-training "#tutorial-arm64-pytorch-training")
-- [Run Inference Sample with
-  PyTorch](#tutorial-arm64-pytorch-inference "#tutorial-arm64-pytorch-inference")
+- [Verify PyTorch Python Environment](#tutorial-arm64-pytorch-environment "#tutorial-arm64-pytorch-environment")
+- [Run Training Sample with PyTorch](#tutorial-arm64-pytorch-training "#tutorial-arm64-pytorch-training")
+- [Run Inference Sample with PyTorch](#tutorial-arm64-pytorch-inference "#tutorial-arm64-pytorch-inference")
 
-## Verify PyTorch Python
-
-Environment
+## Verify PyTorch Python Environment
 
 Connect to your G5g instance and activate the base Conda environment with the following command:
 
@@ -46,9 +41,7 @@ Verify the default tool paths of the PyTorch environment:
 >>> assert isinstance(v, torch.Tensor)
 ```
 
-## Run Training Sample with
-
-PyTorch
+## Run Training Sample with PyTorch
 
 Run a sample MNIST training job:
 
@@ -71,9 +64,7 @@ Train Epoch: 14 [59520/60000 (99%)]    Loss: 0.001729
 Test set: Average loss: 0.0275, Accuracy: 9916/10000 (99%)
 ```
 
-## Run Inference Sample with
-
-PyTorch
+## Run Inference Sample with PyTorch
 
 Use the following commands to download a pre-trained densenet161 model and run
 inference using TorchServe:

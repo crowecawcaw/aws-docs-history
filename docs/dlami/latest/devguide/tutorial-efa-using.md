@@ -78,9 +78,7 @@ Listed below are a subset of NCCL Tests provided by Nvidia to test both function
 
 **Supported Instances: P3dn, P4, P5, P5e, P5en**
 
-##### Multi-node NCCL Performance
-
-Test on P4d.24xlarge
+##### Multi-node NCCL Performance Test on P4d.24xlarge
 
 To check NCCL Performance with EFA, run the standard NCCL Performance test that is
 available on the official [NCCL-Tests Repo](https://github.com/NVIDIA/nccl-tests.git "https://github.com/NVIDIA/nccl-tests.git"). The DLAMI comes with this test already built for CUDA
