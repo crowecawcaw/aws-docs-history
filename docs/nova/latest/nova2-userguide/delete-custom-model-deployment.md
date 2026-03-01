@@ -1,6 +1,4 @@
-# Delete a custom model
-
-deployment
+# Delete a custom model deployment
 
 After you are finished using your model for on-demand inference, you can delete the
 deployment. After you delete the deployment, you can't use it for on-demand inference
@@ -17,16 +15,11 @@ model for on-demand inference again, you must create a new deployment.
 
 ###### Topics
 
-- [Delete a custom model deployment
-  (console)](#delete-deployment-console "#delete-deployment-console")
-- [Delete a custom model deployment
-  (AWS Command Line Interface)](#delete-deployment-cli "#delete-deployment-cli")
-- [Delete a custom model deployment (AWS
-  SDKs)](#delete-deployment-sdk "#delete-deployment-sdk")
+- [Delete a custom model deployment (console)](#delete-deployment-console "#delete-deployment-console")
+- [Delete a custom model deployment (AWS Command Line Interface)](#delete-deployment-cli "#delete-deployment-cli")
+- [Delete a custom model deployment (AWS SDKs)](#delete-deployment-sdk "#delete-deployment-sdk")
 
-## Delete a custom model deployment
-
-(console)
+## Delete a custom model deployment (console)
 
 ###### To delete a custom model deployment
 
@@ -42,9 +35,7 @@ model for on-demand inference again, you must create a new deployment.
 The deployment status will change to `Deleting` while the deletion is
 in progress. Once completed, the deployment will be removed from the list.
 
-## Delete a custom model deployment
-
-(AWS Command Line Interface)
+## Delete a custom model deployment (AWS Command Line Interface)
 
 To delete a custom model deployment using the AWS Command Line Interface, use the
 `delete-custom-model-deployment` command with your deployment
@@ -56,9 +47,7 @@ aws bedrock delete-custom-model-deployment \
 --region `region`
 ```
 
-## Delete a custom model deployment (AWS
-
-SDKs)
+## Delete a custom model deployment (AWS SDKs)
 
 To delete a custom model deployment programmatically, use the [DeleteCustomModelDeployment](../../../bedrock/latest/APIReference/API_DeleteCustomModelDeployment.md "../../../bedrock/latest/APIReference/API_DeleteCustomModelDeployment.md") API operation with the deployment's Amazon
 Resource Name (ARN) or name. The following code shows how to use the SDK for Python (Boto3) to

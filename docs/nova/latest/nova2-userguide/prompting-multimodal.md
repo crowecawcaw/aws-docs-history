@@ -97,9 +97,7 @@ def strip_outer_code_fences(text):
     return "\n".join(lines).strip()
 ````
 
-### Extracting structured information from images or
-
-text
+### Extracting structured information from images or text
 
 The Amazon Nova models can extract information from images into machine-parsable JSON format, a
 process referred to as Key Information Extraction (KIE). To perform KIE, provide the
@@ -176,9 +174,7 @@ values:
 - **temperature:** 0
 - Do not enable reasoning
 
-##### Prompt templates: general object
-
-detection
+##### Prompt templates: general object detection
 
 We recommend the following user prompt templates.
 
@@ -238,9 +234,7 @@ def remap_bbox_to_image(bounding_box, image_width, image_height):
     ]
 ```
 
-##### Prompt templates: detecting multiple
-
-object classes with positions
+##### Prompt templates: detecting multiple object classes with positions
 
 When you want to identify multiple classes of items in an image, you can include a class
 list in your prompt using one of the following formatting approaches.

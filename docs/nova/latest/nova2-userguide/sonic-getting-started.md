@@ -42,9 +42,7 @@ FORMAT = pyaudio.paInt16
 CHUNK_SIZE = 1024
 ```
 
-## Define the `SimpleNovaSonic`
-
-class
+## Define the `SimpleNovaSonic` class
 
 The `SimpleNovaSonic` class is the main class that handles the Amazon
 Nova Sonic interaction:

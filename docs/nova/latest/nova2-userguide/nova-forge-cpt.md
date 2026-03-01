@@ -9,9 +9,7 @@ intermediate checkpoints and data mixing with Nova's pre-training corpus. These 
 enable more efficient domain adaptation and better preservation of the model's general
 capabilities.
 
-## What are intermediate checkpoints and
-
-why are they needed?
+## What are intermediate checkpoints and why are they needed?
 
 Intermediate checkpoints are snapshots of the Amazon Nova model saved at different
 stages of the pre-training, before the model reaches its final production-ready

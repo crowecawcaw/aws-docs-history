@@ -178,9 +178,7 @@ Specific Tool:
 
 ```
 
-## Receiving and processing tool use
-
-events
+## Receiving and processing tool use events
 
 When Amazon Nova 2 Sonic determines that a tool is needed, it sends a
 `toolUse` event containing:

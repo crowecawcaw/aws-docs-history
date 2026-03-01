@@ -1,10 +1,6 @@
-# Responsible AI Toolkit and content
+# Responsible AI Toolkit and content moderation
 
-moderation
-
-## Responsible AI
-
-toolkit
+## Responsible AI toolkit
 
 Nova Forge provides a Responsible AI Toolkit that includes training and evaluation
 data to align models to Amazon Nova's responsible AI guidelines during the training

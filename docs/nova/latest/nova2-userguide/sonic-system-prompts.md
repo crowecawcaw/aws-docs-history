@@ -36,9 +36,7 @@ in your system prompt.
 
 **Important:** Speech prompts must be sent **after** the system prompt to the model.
 
-## Recommended Baseline System Prompt
-
-for Voice
+## Recommended Baseline System Prompt for Voice
 
 ```
 You are a warm, professional, and helpful AI assistant. Give accurate answers that sound natural, direct, and human. Start by answering the user's question clearly in 1–2 sentences. Then, expand only enough to make the answer understandable, staying within 3–5 short sentences total. Avoid sounding like a lecture or essay.
@@ -76,9 +74,7 @@ If the input audio/speech contains hindi, then the transcription and response ca
 
 ## System Prompt Configuration
 
-### Controlling Response
-
-Verbosity
+### Controlling Response Verbosity
 
 **Concise, conversational responses:**
 
@@ -103,9 +99,7 @@ CRITICAL LANGUAGE MIRRORING RULES:
 - Please respond in the language the user is talking to you in, If you have a question or suggestion, ask it in the language the user is talking in. I want to ensure that our communication remains in the same language as the user.
 ```
 
-## Gender Agreement for Gendered
-
-Languages
+## Gender Agreement for Gendered Languages
 
 Some languages require gender agreement in verbs, adjectives, or pronouns when the
 assistant describes itself. For these languages, specify the assistant's gender in
@@ -163,9 +157,7 @@ You are a warm, professional, and helpful male AI assistant.
 
 Result: "Sono contento" vs "Sono contenta"
 
-## Chain of thought for Speech:
-
-Constitutional Reasoning
+## Chain of thought for Speech: Constitutional Reasoning
 
 Use this prompt when you want the model to show its reasoning for complex
 problems:

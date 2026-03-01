@@ -18,9 +18,7 @@ arrives.
 
 ![](images/Asynchronous-Tool-Calling_6.png)
 
-## Handling user
-
-interruptions
+## Handling user interruptions
 
 If a user changes their request while a tool is executing, Nova 2 Sonic
 handles it intelligently without canceling pending tools calls.

@@ -1,6 +1,4 @@
-# Evaluation recipe
-
-examples
+# Evaluation recipe examples
 
 Amazon Nova provides four types of evaluation recipes, which are available in the
 SageMaker HyperPod recipes GitHub repository.

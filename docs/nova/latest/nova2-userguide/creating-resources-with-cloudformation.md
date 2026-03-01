@@ -1,6 +1,4 @@
-# Create Amazon Nova resources with
-
-AWS CloudFormation
+# Create Amazon Nova resources with AWS CloudFormation
 
 When deploying Amazon Nova models through Amazon Bedrock with CloudFormation, follow all CloudFormation guidance at [Create Amazon Bedrock resources with CloudFormation](../../../bedrock/latest/userguide/creating-resources-with-cloudformation.md "../../../bedrock/latest/userguide/creating-resources-with-cloudformation.md").
 

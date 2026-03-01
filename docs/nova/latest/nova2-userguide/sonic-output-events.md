@@ -1,6 +1,4 @@
-# Handling output events with the bidirectional
-
-API
+# Handling output events with the bidirectional API
 
 When the Amazon Nova Sonic model responds, it follows a structured event sequence.
 The flow begins with a `completionStart` event that contains unique

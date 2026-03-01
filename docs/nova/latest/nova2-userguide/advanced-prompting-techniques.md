@@ -389,9 +389,7 @@ response = client.invoke_model(
 model_response = json.loads(response["body"].read())
 ````
 
-### Specify a tool to use for complex
-
-schemas
+### Specify a tool to use for complex schemas
 
 Another approach is to use tools to force a specific schema for the model's response
 by including the _pydantic JSON schema_ in the tool use schema
@@ -660,8 +658,7 @@ Amazon Nova 2 models have been trained on more than 200 languages and optimized 
 ###### Topics
 
 * [Prompt for accurate translations](#accurate-translations "#accurate-translations")
-* [Enforce consistent writing
- conventions](#consistent-writing-conventions "#consistent-writing-conventions")
+* [Enforce consistent writing conventions](#consistent-writing-conventions "#consistent-writing-conventions")
 
 ### Prompt for accurate translations
 
@@ -691,8 +688,7 @@ Translate the following sentence from {source_language} to {target language}: {t
 
 ```
 
-### Enforce consistent writing
- conventions
+### Enforce consistent writing conventions
 
 
 In character-based languages, the Amazon Nova 2 models may utilize the character set from
@@ -717,8 +713,7 @@ When translating, ensure to use the correct orthography / script / writing conve
 
 * [Set the right inference parameters](#set-inference-parameters "#set-inference-parameters")
 * [Consider latency requirements](#consider-latency-requirements "#consider-latency-requirements")
-* [Use intentional wording for tool
- calling instructions](#intentional-wording-tool-calling "#intentional-wording-tool-calling")
+* [Use intentional wording for tool calling instructions](#intentional-wording-tool-calling "#intentional-wording-tool-calling")
 * [Leverage "thinking" commands](#leverage-thinking-commands "#leverage-thinking-commands")
 * [Tool call ordering](#tool-call-ordering "#tool-call-ordering")
 * [Create quality tool schemas](#designing-tool-schema "#designing-tool-schema")
@@ -754,8 +749,7 @@ For latency sensitive applications, you should optimize for reasoning off mode a
  parameters.
 
 
-#### Use intentional wording for tool
- calling instructions
+#### Use intentional wording for tool calling instructions
 
 
 **Tool names:** Referencing tools in the system

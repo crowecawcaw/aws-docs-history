@@ -81,9 +81,7 @@ tool_config = {
 - Validate your JSON schema using a standard validator before submitting
 - Place long string arguments last in the schema and avoid nesting them
 
-### Structured output with constrained
-
-decoding
+### Structured output with constrained decoding
 
 Amazon Nova models leverage constrained decoding to ensure high reliability in
 generated outputs. This technique uses grammar to constrain possible tokens at each

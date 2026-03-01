@@ -21,9 +21,7 @@ capability**. You have complete control:
 
 The following shows different levels of reasoning effort.
 
-#### Low Effort
-
-(maxReasoningeffort:"low")
+#### Low Effort (maxReasoningeffort:"low")
 
 **Best for:** Tasks with added complexity
 requiring structured thinking. For example, you can use this for code review and
@@ -33,9 +31,7 @@ factors, or problem-solving scenarios that benefit from a methodical approach.
 Low effort is ideal for compound tasks where basic reasoning improves accuracy
 without requiring deep multi-step planning.
 
-#### Medium effort (maxReasoningEffort:
-
-"medium")
+#### Medium effort (maxReasoningEffort: "medium")
 
 **Best for:** Multi-step tasks and coding
 workflows. For example, you can use this for software development and debugging
@@ -46,9 +42,7 @@ with multiple constraints. Medium effort is optimal for agentic workflows that
 coordinate multiple tools and require the model to maintain context across
 several sequential operations.
 
-#### High Effort
-
-(maxReasoningeffort:"high")
+#### High Effort (maxReasoningeffort:"high")
 
 **Best for:** STEM reasoning and advanced
 problem-solving. For example, you can use this for advanced mathematical
@@ -59,9 +53,7 @@ decision-making scenarios with significant implications. High effort delivers
 maximum accuracy for tasks requiring sophisticated reasoning, careful evaluation
 of alternatives, and thorough validation of conclusions.
 
-### Quick start: Enabling Extended
-
-Thinking
+### Quick start: Enabling Extended Thinking
 
 Extended thinking is controlled through the `reasoningConfig`
 parameter.
@@ -207,9 +199,7 @@ Extended thinking is currently available in: Amazon Nova 2 Lite
 Extended thinking works seamlessly with tool calling, allowing Amazon Nova to reason about
 which tools to use and how to interpret their results.
 
-## Understanding Reasoning Tokens and
-
-Pricing
+## Understanding Reasoning Tokens and Pricing
 
 ### Token types
 

@@ -24,11 +24,9 @@ For more information on which container images, or example recipes to use go to 
 
 ###### Topics
 
-- [Reasoning Mode Selection (Nova 2.0
-  Only)](#nova-sft-2-reasoning-mode "#nova-sft-2-reasoning-mode")
+- [Reasoning Mode Selection (Nova 2.0 Only)](#nova-sft-2-reasoning-mode "#nova-sft-2-reasoning-mode")
 - [Tool calling data format](#nova-sft-2-tool-calling "#nova-sft-2-tool-calling")
-- [Document understanding data
-  format](#nova-sft-2-document-understanding "#nova-sft-2-document-understanding")
+- [Document understanding data format](#nova-sft-2-document-understanding "#nova-sft-2-document-understanding")
 - [Video Understanding for SFT](#nova-sft-2-video-understanding "#nova-sft-2-video-understanding")
 - [Data Upload Instructions](#nova-sft-2-data-upload "#nova-sft-2-data-upload")
 - [Creating a Fine-Tuning Job](#nova-sft-2-creating-job "#nova-sft-2-creating-job")
@@ -70,9 +68,7 @@ training_config:
     peft_scheme: "null"             # Disable LoRA for PEFT
 ```
 
-## Reasoning Mode Selection (Nova 2.0
-
-Only)
+## Reasoning Mode Selection (Nova 2.0 Only)
 
 Amazon Nova 2.0 supports reasoning mode for enhanced analytical capabilities:
 
@@ -260,9 +256,7 @@ Important considerations for tool calling data:
 
 For more information on which container images, or example recipes to use go to [Amazon Nova recipes](nova-model-recipes.md "nova-model-recipes.md").
 
-## Document understanding data
-
-format
+## Document understanding data format
 
 SFT supports training models on document understanding tasks. Below is a sample input
 format:

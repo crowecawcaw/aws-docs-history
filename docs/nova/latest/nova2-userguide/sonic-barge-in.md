@@ -11,9 +11,7 @@ The following diagram illustrates the complete barge-in conversation flow:
 
 ![](images/Barge-In-Flow_8.png)
 
-## How Amazon Nova 2 Sonic handles
-
-barge-in
+## How Amazon Nova 2 Sonic handles barge-in
 
 Amazon Nova 2 Sonic is designed to handle interruptions gracefully. When the user
 starts speaking during a response, the system immediately stops generating the
@@ -25,9 +23,7 @@ Nova Sonic remembers what was said before the interruption, the topic being
 discussed, the conversation history and any relevant context from previous
 turns. This ensures the conversation remains coherent and natural.
 
-## Client-side implementation
-
-requirements
+## Client-side implementation requirements
 
 While Amazon Nova 2 Sonic handles barge-in on the server side, you need to implement
 client-side logic for a complete experience.

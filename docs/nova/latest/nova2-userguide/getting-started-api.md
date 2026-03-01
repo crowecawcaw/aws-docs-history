@@ -2,8 +2,7 @@
 
 Before you get started with APIs, follow these procedures if you are new to AWS or
 need to install the AWS CLI or an AWS SDK. If neither of these apply to you, move to
-[Get credentials to grant programmatic
-access](#grant-program-access "#grant-program-access").
+[Get credentials to grant programmatic access](#grant-program-access "#grant-program-access").
 
 If you do not have an AWS account, complete the following steps to create
 one. Alternatively, you can start building for free with Amazon Nova at [nova.amazon.com/dev](https://nova.amazon.com/dev "https://nova.amazon.com/dev").
@@ -53,9 +52,7 @@ as:
 - Retry requests
 - Handle error responses
 
-## Get credentials to grant programmatic
-
-access
+## Get credentials to grant programmatic access
 
 Users need programmatic access if they want to interact with AWS outside of the
 AWS Management Console. The way to grant programmatic access depends on the type
@@ -69,9 +66,7 @@ To grant users programmatic access, choose one of the following options.
 | IAM roles                                  | Use temporary credentials to sign programmatic requests to the<br>AWS CLI, AWS SDKs, or AWS APIs.                   | Follow the instructions in [Using temporary credentials with AWS resources](../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md "../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md") in the<br>_IAM User Guide_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | Users managed in IAM Identity Center       | Use temporary credentials to sign programmatic requests to the<br>AWS CLI, AWS SDKs, or AWS APIs.                   | Following the instructions for the interface that you want to<br>use.<br>• For the AWS CLI, see [Configuring the AWS CLI to use IAM Identity<br>Center](../../../cli/latest/userguide/cli-configure-sso.md "../../../cli/latest/userguide/cli-configure-sso.md") in the _AWS Command Line<br>Interface User Guide_.<br>• For AWS SDKs, tools and AWS APIs, see [IAM Identity Center authentication](../../../sdkref/latest/guide/access-sso.md "../../../sdkref/latest/guide/access-sso.md") in the<br>_AWS SDKs and Tools Reference<br>Guide_.                                                                                                                                                                                                                               |
 
-## Attach Amazon Bedrock permissions to a user or
-
-role
+## Attach Amazon Bedrock permissions to a user or role
 
 After setting up credentials for programmatic access, you need to configure
 permissions for a user or IAM role to have access to Amazon Bedrock-related actions. To set
@@ -106,16 +101,13 @@ up these permissions, do the following:
 }
 ```
 
-## Generate a response for a text prompt using an
-
-Amazon Nova model
+## Generate a response for a text prompt using an Amazon Nova model
 
 After you've fulfilled all the prerequisites, you can test making model invocation
 requests to Amazon Nova models with a [Converse](../../../bedrock/latest/APIReference/API_runtime_Converse.md "../../../bedrock/latest/APIReference/API_runtime_Converse.md") request.
 
 To install the AWS CLI, follow the steps at [Install or update to the latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md"). Verify that
-you've set up your credentials to use Boto3 by following the steps at [Get credentials to grant programmatic
-access](#grant-program-access "#grant-program-access").
+you've set up your credentials to use Boto3 by following the steps at [Get credentials to grant programmatic access](#grant-program-access "#grant-program-access").
 
 To generate a response for a text prompt in Nova 2 Lite by using the
 AWS CLI, run the following command in a terminal:

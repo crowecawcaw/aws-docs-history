@@ -1,6 +1,4 @@
-# Language support and multilingual
-
-capabilities
+# Language support and multilingual capabilities
 
 Amazon Nova 2 Sonic provides a diverse selection of voices across multiple languages,
 enabling you to create conversational AI applications that feel natural and
@@ -23,9 +21,7 @@ locales:
 | Portuguese          | pt-BR  | carolina                   | leo                         |
 | Hindi               | hi-IN  | kiara                      | arjun                       |
 
-## Event structure using voices in your
-
-application
+## Event structure using voices in your application
 
 You can specify the voice ID in the `audioOutputConfiguration` when
 starting a prompt in the `promptStart` event:

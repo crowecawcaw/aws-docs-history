@@ -1,6 +1,4 @@
-# Getting started with Amazon Nova in the Amazon Bedrock
-
-console
+# Getting started with Amazon Nova in the Amazon Bedrock console
 
 This section describes how to use the playgrounds in the AWS console to submit a
 text prompt to Amazon Nova 2 models and generate a text or image response. Before you run the

@@ -1,6 +1,4 @@
-# Handling input events with the bidirectional
-
-API
+# Handling input events with the bidirectional API
 
 The bidirectional Stream API uses an event-driven architecture with structured
 input and output events. Understanding the correct event ordering is crucial for

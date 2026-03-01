@@ -6,14 +6,11 @@ on-demand inference](../../../bedrock/latest/userguide/use-custom-model-on-deman
 
 ###### Topics
 
-- [Deploy a custom model
-  (console)](#deploy-custom-model-console "#deploy-custom-model-console")
+- [Deploy a custom model (console)](#deploy-custom-model-console "#deploy-custom-model-console")
 - [Deploy a custom model (AWS Command Line Interface)](#deploy-custom-model-cli "#deploy-custom-model-cli")
 - [Deploy a custom model (AWS SDKs)](#deploy-custom-model-sdk "#deploy-custom-model-sdk")
 
-## Deploy a custom model
-
-(console)
+## Deploy a custom model (console)
 
 You deploy a custom model from the **Custom models** page as
 follows. You can also deploy a model from the **Custom model

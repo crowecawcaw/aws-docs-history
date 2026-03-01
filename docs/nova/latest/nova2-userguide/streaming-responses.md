@@ -30,9 +30,7 @@ for event in response['stream']:
             print(delta['text'], end='', flush=True)
 ```
 
-## Streaming with
-
-InvokeModelWithResponseStream
+## Streaming with InvokeModelWithResponseStream
 
 Use `InvokeModelWithResponseStream` for streaming with the Invoke
 API:

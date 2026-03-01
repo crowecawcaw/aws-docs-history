@@ -18,14 +18,10 @@ test the model after it has been deployed to Amazon Bedrock by calling [Amazon B
 
 - [Prerequisites](#nova-model-evaluation-prerequisites "#nova-model-evaluation-prerequisites")
 - [Available benchmark tasks](#nova-model-evaluation-benchmark "#nova-model-evaluation-benchmark")
-- [Evaluation specific
-  configurations](#nova-model-evaluation-config "#nova-model-evaluation-config")
-- [Running evaluation training
-  jobs](#nova-model-evaluation-notebook "#nova-model-evaluation-notebook")
-- [Assessing and analyzing evaluation
-  results](#nova-model-evaluation-assess "#nova-model-evaluation-assess")
-- [Evaluation best practices and
-  troubleshooting](#nova-model-evaluation-best-practices "#nova-model-evaluation-best-practices")
+- [Evaluation specific configurations](#nova-model-evaluation-config "#nova-model-evaluation-config")
+- [Running evaluation training jobs](#nova-model-evaluation-notebook "#nova-model-evaluation-notebook")
+- [Assessing and analyzing evaluation results](#nova-model-evaluation-assess "#nova-model-evaluation-assess")
+- [Evaluation best practices and troubleshooting](#nova-model-evaluation-best-practices "#nova-model-evaluation-best-practices")
 - [Available subtasks](#nova-model-evaluation-subtasks "#nova-model-evaluation-subtasks")
 - [Reasoning model evaluation](nova-reasoning-model-evaluation.md "nova-reasoning-model-evaluation.md")
 - [RFT evaluation](nova-rft-evaluation.md "nova-rft-evaluation.md")
@@ -68,16 +64,12 @@ specify the following benchmarks in the `eval_task` parameter.
 | calendar_scheduling | Text                | Natural Plan<br>• Calendar Scheduling task testing planning<br>abilities for scheduling meetings across multiple days and<br>people                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | exact_match | fs       | No                |
 | humaneval           | Text                | HumanEval<br>• A benchmark dataset designed to evaluate the code<br>generation capabilities of large language models                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | pass@1      | zs       | No                |
 
-## Evaluation specific
-
-configurations
+## Evaluation specific configurations
 
 Below is a breakdown of the key components in the recipe and guidance on how to
 modify them for your use cases.
 
-### Understanding and
-
-modifying your recipes
+### Understanding and modifying your recipes
 
 **General run configuration**
 
@@ -316,9 +308,7 @@ Each token entry contains:
 
 The raw tokenizer token is used as the dictionary key to ensure uniqueness, while `decoded_value` provides a readable interpretation.
 
-### Evaluation recipe
-
-examples
+### Evaluation recipe examples
 
 Amazon Nova provides four different types of evaluation recipes. All recipes are
 available in [SageMaker HyperPod recipes GitHub repository](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection "https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection").
@@ -416,9 +406,7 @@ evaluation:
   evaluation.
 - The file must strictly follow the defined schema.
 
-##### Bring your own
-
-metrics
+##### Bring your own metrics
 
 You can bring your own metrics to fully customize your model
 evaluation workflow with custom preprocessing, postprocessing, and
@@ -660,9 +648,7 @@ evaluation:
   specifications.
 - Custom judge models are not currently supported.
 
-##### Nova LLM as a
-
-Judge for multi-modal (image) benchmark recipes
+##### Nova LLM as a Judge for multi-modal (image) benchmark recipes
 
 Nova LLM Judge for multi-modal (image), short for Nova MM_LLM
 Judge, is a model evaluation feature that enables you to compare the
@@ -874,9 +860,7 @@ CPT models typically have not been trained yet on generating special "stop" or "
 - **strategy**: Must be `gen_qa`
 - **max_new_tokens**: Recommended to keep low (1-5) since CPT models perform completion, not generation
 
-## Running evaluation training
-
-jobs
+## Running evaluation training jobs
 
 Start a training job using the following sample notebook. Please refer to
 below notebook as example to run the evaluation training job. For more information,
@@ -958,9 +942,7 @@ estimator.fit()
 # estimator.fit(inputs={"train": evalInput})
 ```
 
-## Assessing and analyzing evaluation
-
-results
+## Assessing and analyzing evaluation results
 
 After your evaluation job completes successfully, you can assess and analyze the
 results using the following steps.
@@ -1059,9 +1041,7 @@ contains the following fields for each JSON object:
     * metadata - The metadata string from the input dataset if
      provided
 
-## Evaluation best practices and
-
-troubleshooting
+## Evaluation best practices and troubleshooting
 
 ### Best practices
 

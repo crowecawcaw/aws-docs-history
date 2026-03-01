@@ -163,9 +163,7 @@ utilization per video length for Amazon Nova 2 Lite:
 | 30 minutes   | 1800             | 1               | 518,400            |
 | 45 minutes   | 2700             | 1               | 777,600            |
 
-#### Video understanding
-
-examples
+#### Video understanding examples
 
 For an example of how to embed video data directly in the request, refer to the Multimodal input using embedded asset - Converse API (non-streaming) example in the [Code library](code-library.md "code-library.md").
 

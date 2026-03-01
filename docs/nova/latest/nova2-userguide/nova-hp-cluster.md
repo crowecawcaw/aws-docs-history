@@ -1,6 +1,4 @@
-# Creating a SageMaker HyperPod EKS cluster with restricted
-
-instance group (RIG)
+# Creating a SageMaker HyperPod EKS cluster with restricted instance group (RIG)
 
 To customize a model on Hyperpod, the necessary infrastructure must be set up. For
 details on setting up a SageMaker HyperPod EKS cluster with a restricted instance group (RIG), visit
