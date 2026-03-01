@@ -1,14 +1,11 @@
-# Learn how to use AWS Cloud Map service discovery with
-
-custom attributes using the AWS CLI
+# Learn how to use AWS Cloud Map service discovery with custom attributes using the AWS CLI
 
 This tutorial demonstrates how you can use AWS Cloud Map service discovery with custom
 attributes. You'll create a microservices application that uses AWS Cloud Map to discover resources
 dynamically using custom attributes. The application consists of two Lambda functions that
 write data to and read from a DynamoDB table, with all resources registered in AWS Cloud Map.
 
-For an AWS Management Console version of the tutorial, see [Learn how to use AWS Cloud Map service discovery with custom
-attributes](tutorial-microservices.md "tutorial-microservices.md").
+For an AWS Management Console version of the tutorial, see [Learn how to use AWS Cloud Map service discovery with custom attributes](tutorial-microservices.md "tutorial-microservices.md").
 
 ## Prerequisites
 
@@ -109,9 +106,7 @@ aws servicediscovery register-instance \
 The custom attribute `tablename=cloudmap` allows other services to discover
 the DynamoDB table name dynamically.
 
-## Create an IAM role for
-
-Lambda functions
+## Create an IAM role for Lambda functions
 
 Create an IAM role that the Lambda functions will use to access AWS
 resources:
@@ -201,9 +196,7 @@ aws iam attach-role-policy \
   --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
 ```
 
-## Create the Lambda function to
-
-write data
+## Create the Lambda function to write data
 
 To create a Lambda function that writes data to the DynamoDB
 table, follow these steps:
@@ -324,9 +317,7 @@ The custom attributes `action=write` and
 `functionname=writefunction` allow clients to discover this function
 based on its purpose.
 
-## Create the Lambda function to
-
-read data
+## Create the Lambda function to read data
 
 To create a Lambda function that reads data from the DynamoDB
 table, follow these steps:
@@ -414,9 +405,7 @@ aws lambda update-function-configuration \
   --timeout 5
 ```
 
-## Register the
-
-Lambda read function as a service instance
+## Register the Lambda read function as a service instance
 
 To register the Lambda read function as another service instance in the app
 service, follow this step:
@@ -432,9 +421,7 @@ The custom attributes `action=read` and
 `functionname=readfunction` allow clients to discover this function based
 on its purpose.
 
-## Create and run client
-
-applications
+## Create and run client applications
 
 To create a Python client application that uses AWS Cloud Map to discover and invoke the write
 function, follow these steps:

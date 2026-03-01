@@ -16,9 +16,7 @@ To specify an action, use the `servicediscovery` prefix followed by the API
 action name, for example, `servicediscovery:CreatePublicDnsNamespace` and
 `route53:CreateHostedZone`.
 
-## Required permissions for AWS Cloud Map
-
-actions
+## Required permissions for AWS Cloud Map actions
 
 [CreateHttpNamespace](../api/API_CreateHttpNamespace.md "../api/API_CreateHttpNamespace.md")
 

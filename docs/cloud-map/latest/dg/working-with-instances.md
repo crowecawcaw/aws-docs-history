@@ -19,8 +19,7 @@ service, edit certain instance parameters, and deregister an instance.
 
 ###### Topics
 
-- [Registering a resource as an AWS Cloud Map service
-  instance](registering-instances.md "registering-instances.md")
+- [Registering a resource as an AWS Cloud Map service instance](registering-instances.md "registering-instances.md")
 - [Listing AWS Cloud Map service instances](listing-instances.md "listing-instances.md")
 - [Updating an AWS Cloud Map service instance](updating-instances.md "updating-instances.md")
 - [Deregistering an AWS Cloud Map service instance](deregistering-instances.md "deregistering-instances.md")

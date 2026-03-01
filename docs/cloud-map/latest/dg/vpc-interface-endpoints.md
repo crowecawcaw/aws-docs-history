@@ -1,6 +1,4 @@
-# Access AWS Cloud Map using an interface endpoint
-
-(AWS PrivateLink)
+# Access AWS Cloud Map using an interface endpoint (AWS PrivateLink)
 
 You can use AWS PrivateLink to create a private connection between your VPC and AWS Cloud Map.
 You can access AWS Cloud Map as if it were in your VPC, without the use of an internet gateway, NAT

@@ -28,11 +28,9 @@ instructions for creating, listing, updating, and deleting a service.
 
 ###### Topics
 
-- [AWS Cloud Map service health check
-  configuration](services-health-checks.md "services-health-checks.md")
+- [AWS Cloud Map service health check configuration](services-health-checks.md "services-health-checks.md")
 - [AWS Cloud Map service DNS configuration](services-route53.md "services-route53.md")
-- [Creating an AWS Cloud Map service for an application
-  component](creating-services.md "creating-services.md")
+- [Creating an AWS Cloud Map service for an application component](creating-services.md "creating-services.md")
 - [Updating an AWS Cloud Map service](editing-services.md "editing-services.md")
 - [Listing AWS Cloud Map services in a namespace](listing-services.md "listing-services.md")
 - [Deleting an AWS Cloud Map service](deleting-services.md "deleting-services.md")

@@ -15,9 +15,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS managed
-
-policy: AWSCloudMapDiscoverInstanceAccess
+## AWS managed policy: AWSCloudMapDiscoverInstanceAccess
 
 You can attach `AWSCloudMapDiscoverInstanceAccess` to your IAM entities.
 Provides access to AWS Cloud Map Discovery API.
@@ -25,9 +23,7 @@ Provides access to AWS Cloud Map Discovery API.
 To view the permissions for this policy, see [AWSCloudMapDiscoverInstanceAccess](../../../aws-managed-policy/latest/reference/AWSCloudMapDiscoverInstanceAccess.md "../../../aws-managed-policy/latest/reference/AWSCloudMapDiscoverInstanceAccess.md") in the _AWS
 Managed Policy Reference_.
 
-## AWS managed policy:
-
-AWSCloudMapReadOnlyAccess
+## AWS managed policy: AWSCloudMapReadOnlyAccess
 
 You can attach `AWSCloudMapReadOnlyAccess` to your IAM entities. Grants
 read-only access to all AWS Cloud Map actions.
@@ -35,9 +31,7 @@ read-only access to all AWS Cloud Map actions.
 To view the permissions for this policy, see [AWSCloudMapReadOnlyAccess](../../../aws-managed-policy/latest/reference/AWSCloudMapReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AWSCloudMapReadOnlyAccess.md") in the _AWS Managed
 Policy Reference_.
 
-## AWS managed
-
-policy: AWSCloudMapRegisterInstanceAccess
+## AWS managed policy: AWSCloudMapRegisterInstanceAccess
 
 You can attach `AWSCloudMapRegisterInstanceAccess` to your IAM entities.
 Grants read-only access to namespaces and services and grants permission to register and
@@ -46,9 +40,7 @@ deregister service instances.
 To view the permissions for this policy, see [AWSCloudMapRegisterInstanceAccess](../../../aws-managed-policy/latest/reference/AWSCloudMapRegisterInstanceAccess.md "../../../aws-managed-policy/latest/reference/AWSCloudMapRegisterInstanceAccess.md") in the _AWS
 Managed Policy Reference_.
 
-## AWS managed policy:
-
-AWSCloudMapFullAccess
+## AWS managed policy: AWSCloudMapFullAccess
 
 You can attach `AWSCloudMapFullAccess` to your IAM entities. Provides
 full access to all AWS Cloud Map actions
@@ -56,9 +48,7 @@ full access to all AWS Cloud Map actions
 To view the permissions for this policy, see [AWSCloudMapFullAccess](../../../aws-managed-policy/latest/reference/AWSCloudMapFullAccess.md "../../../aws-managed-policy/latest/reference/AWSCloudMapFullAccess.md") in the _AWS Managed Policy
 Reference_.
 
-## AWS Cloud Map updates to AWS managed
-
-policies
+## AWS Cloud Map updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS Cloud Map since this service
 began tracking these changes. For automatic alerts about changes, subscribe

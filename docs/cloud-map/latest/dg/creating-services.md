@@ -1,6 +1,4 @@
-# Creating an AWS Cloud Map service for an application
-
-component
+# Creating an AWS Cloud Map service for an application component
 
 After creating a namespace, you can create services to represent different components of
 your application that serve particular purposes. For example, you can create a service for
@@ -99,8 +97,7 @@ to configure DNS records. You can add or remove DNS records.
    health check applicable for service instances. You can choose not to
    configure any health checks, or you can choose between a Route 53
    health check or an external health check for your instances. For
-   more information, see [AWS Cloud Map service health check
-   configuration](services-health-checks.md "services-health-checks.md").
+   more information, see [AWS Cloud Map service health check configuration](services-health-checks.md "services-health-checks.md").
 
 ###### Note
 
@@ -240,8 +237,7 @@ Example response output
 
 After creating a service, you can register your application resources as service
 instances that contain information about how your application can locate the resource.
-For more information about registering AWS Cloud Map service instances, see [Registering a resource as an AWS Cloud Map service
-instance](registering-instances.md "registering-instances.md").
+For more information about registering AWS Cloud Map service instances, see [Registering a resource as an AWS Cloud Map service instance](registering-instances.md "registering-instances.md").
 
 You can also specify custom metadata such as endpoint weights, API timeouts, and retry policies as service attributes after creating a service. For more information, see [ServiceAttributes](../api/API_ServiceAttributes.md "../api/API_ServiceAttributes.md") and
 [`UpdateServiceAttributes`](../api/API_UpdateServiceAttributes.md "../api/API_UpdateServiceAttributes.md") in the _AWS Cloud Map API Reference_.

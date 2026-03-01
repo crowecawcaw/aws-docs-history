@@ -1,6 +1,4 @@
-# How AWS Cloud Map works with
-
-IAM
+# How AWS Cloud Map works with IAM
 
 Before you use IAM to manage access to AWS Cloud Map, learn what IAM features are
 available to use with AWS Cloud Map.
@@ -23,9 +21,7 @@ To get a high-level view of how AWS Cloud Map and other AWS services work with m
 IAM features, see [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Identity-based
-
-policies for AWS Cloud Map
+## Identity-based policies for AWS Cloud Map
 
 **Supports identity-based policies:**
 
@@ -42,12 +38,9 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for AWS Cloud Map
 
-Identity-based policy examples for AWS Cloud Map
-
-To view examples of AWS Cloud Map identity-based policies, see [Identity-based policy examples
-for AWS Cloud Map](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS Cloud Map identity-based policies, see [Identity-based policy examples for AWS Cloud Map](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Resource-based policies within AWS Cloud Map
 
@@ -69,9 +62,7 @@ _IAM User Guide_.
 
 You can use AWS Resource Access Manager (AWS RAM) to securely share a AWS Cloud Map namespace. A resource-based policy is applied to your namespace by the AWS RAM service. For more information, see [Shared AWS Cloud Map namespaces](sharing-namespaces.md "sharing-namespaces.md").
 
-## Policy
-
-actions for AWS Cloud Map
+## Policy actions for AWS Cloud Map
 
 **Supports policy actions:**
 
@@ -102,12 +93,9 @@ commas.
          ]
 ```
 
-To view examples of AWS Cloud Map identity-based policies, see [Identity-based policy examples
-for AWS Cloud Map](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS Cloud Map identity-based policies, see [Identity-based policy examples for AWS Cloud Map](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for AWS Cloud Map
+## Policy resources for AWS Cloud Map
 
 **Supports policy resources:**
 
@@ -127,8 +115,7 @@ To see a list of AWS Cloud Map resource types and their ARNs, see
 which actions you can specify the ARN of each resource, see
 [Actions defined by AWS Cloud Map](../../../service-authorization/latest/reference/list_awscloudmap.md#awscloudmap-actions-as-permissions "../../../service-authorization/latest/reference/list_awscloudmap.md#awscloudmap-actions-as-permissions").
 
-To view examples of AWS Cloud Map identity-based policies, see [Identity-based policy examples
-for AWS Cloud Map](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS Cloud Map identity-based policies, see [Identity-based policy examples for AWS Cloud Map](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Policy condition keys for AWS Cloud Map
 
@@ -175,8 +162,7 @@ related service.
 **`servicediscovery:ServiceCreatedByAccount`**
 A filter that lets you get objects by specifying the ID of the AWS account that created the service.
 
-To view examples of AWS Cloud Map identity-based policies, see [Identity-based policy examples
-for AWS Cloud Map](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS Cloud Map identity-based policies, see [Identity-based policy examples for AWS Cloud Map](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in AWS Cloud Map
 
@@ -204,9 +190,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with AWS Cloud Map
+## Using temporary credentials with AWS Cloud Map
 
 **Supports temporary credentials:**
 
@@ -218,9 +202,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Forward access
-
-sessions for AWS Cloud Map
+## Forward access sessions for AWS Cloud Map
 
 **Supports forward access sessions (FAS):**
 
@@ -229,9 +211,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-AWS Cloud Map
+## Service roles for AWS Cloud Map
 
 **Supports service roles:**
 
@@ -247,9 +227,7 @@ Changing the permissions for a service role might break AWS Cloud Map
 functionality. Edit service roles only when AWS Cloud Map provides guidance to do
 so.
 
-## Service-linked
-
-roles for AWS Cloud Map
+## Service-linked roles for AWS Cloud Map
 
 **Supports service-linked roles:**
 

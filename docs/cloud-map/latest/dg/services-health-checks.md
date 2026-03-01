@@ -1,6 +1,4 @@
-# AWS Cloud Map service health check
-
-configuration
+# AWS Cloud Map service health check configuration
 
 Health checks help determine whether service instances are healthy or not. If you
 don't configure a health check during service creation, traffic will be routed to

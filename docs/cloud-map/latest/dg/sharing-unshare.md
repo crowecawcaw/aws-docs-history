@@ -10,9 +10,7 @@ You can do this using the AWS RAM console or the AWS CLI.
 
 AWS RAM console
 
-###### To stop sharing a namespace that you own using the AWS RAM
-
-console
+###### To stop sharing a namespace that you own using the AWS RAM console
 
 See [Updating
 a Resource Share](../../../ram/latest/userguide/working-with-sharing-update.md "../../../ram/latest/userguide/working-with-sharing-update.md") in the _AWS RAM User Guide_.

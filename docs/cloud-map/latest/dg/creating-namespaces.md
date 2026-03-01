@@ -1,6 +1,4 @@
-# Creating an AWS Cloud Map namespace to group application
-
-services
+# Creating an AWS Cloud Map namespace to group application services
 
 You can create a namespace to group services for your application under a friendly name that
 allows for the discovery of application resources through API calls or DNS queries.
@@ -169,5 +167,4 @@ client = boto3.client('servicediscovery')
 After creating a namespace, you can create services in the namespace to group together
 application resources that collectively serve a particular purpose in your application. A service
 acts as a template for registering application resources as instances. For more information about
-creating AWS Cloud Map services, see [Creating an AWS Cloud Map service for an application
-component](creating-services.md "creating-services.md").
+creating AWS Cloud Map services, see [Creating an AWS Cloud Map service for an application component](creating-services.md "creating-services.md").

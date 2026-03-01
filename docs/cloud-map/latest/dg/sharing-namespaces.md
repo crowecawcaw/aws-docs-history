@@ -25,10 +25,8 @@ shared with you.
 - [Sharing an AWS Cloud Map namespace](sharing-share.md "sharing-share.md")
 - [Stop sharing a AWS Cloud Map namespace](sharing-unshare.md "sharing-unshare.md")
 - [Identifying a shared AWS Cloud Map namespace](sharing-identify.md "sharing-identify.md")
-- [Granting permissions to share a
-  namespace](#granting-perms-to-share "#granting-perms-to-share")
-- [Responsibilities and permissions for shared
-  namespaces](#sharing-perms "#sharing-perms")
+- [Granting permissions to share a namespace](#granting-perms-to-share "#granting-perms-to-share")
+- [Responsibilities and permissions for shared namespaces](#sharing-perms "#sharing-perms")
 - [Billing and metering](#sharing-billing "#sharing-billing")
 - [Quotas](#sharing-quotas "#sharing-quotas")
 
@@ -71,9 +69,7 @@ different AWS accounts](../../../Route53/latest/DeveloperGuide/hosted-zone-priva
   namespaces that are performed by other accounts.
 - Tagging isn't supported for shared namespaces.
 
-## Granting permissions to share a
-
-namespace
+## Granting permissions to share a namespace
 
 A minimum set of permissions is required for an IAM principal to share a namespace.
 We recommend using the `AWSCloudMapFullAccess` and
@@ -91,9 +87,7 @@ using AWS RAM.
 For more information about how AWS RAM uses IAM, see [How AWS RAM uses IAM](../../../ram/latest/userguide/security-iam-policies.md "../../../ram/latest/userguide/security-iam-policies.md")
 in the _AWS RAM User Guide_.
 
-## Responsibilities and permissions for shared
-
-namespaces
+## Responsibilities and permissions for shared namespaces
 
 The namespace owner and consumer can perform different actions on a shared
 namespace.

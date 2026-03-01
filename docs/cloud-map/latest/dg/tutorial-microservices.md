@@ -1,6 +1,4 @@
-# Learn how to use AWS Cloud Map service discovery with custom
-
-attributes
+# Learn how to use AWS Cloud Map service discovery with custom attributes
 
 The following tutorial demonstrates how you can use AWS Cloud Map service discovery with custom attributes
 that are discoverable using the AWS Cloud Map API. The tutorial walks you through creating and running
@@ -9,8 +7,7 @@ DynamoDB table and then read from the table. The Lambda functions and DynamoDB t
 AWS Cloud Map as service instances. The code in the client applications and Lambda functions uses AWS Cloud Map
 custom attributes to discover the resources needed to perform the job.
 
-For an AWS CLI-based version of this tutorial, see [Learn how to use AWS Cloud Map service discovery with
-custom attributes using the AWS CLI](tutorial-microservices-cli.md "tutorial-microservices-cli.md").
+For an AWS CLI-based version of this tutorial, see [Learn how to use AWS Cloud Map service discovery with custom attributes using the AWS CLI](tutorial-microservices-cli.md "tutorial-microservices-cli.md").
 
 ###### Important
 
@@ -54,9 +51,7 @@ following table to determine what options to specify.
 
 Keep the default values for the rest of the settings and create the table.
 
-## Step 3: Create an AWS Cloud Map data service and
-
-register DynamoDB table as an instance
+## Step 3: Create an AWS Cloud Map data service and register DynamoDB table as an instance
 
 In this step, you create a AWS Cloud Map service and then register the DynamoDB table created in the
 last step as a service instance.
@@ -82,9 +77,7 @@ last step as a service instance.
       pair: **key** = `tablename`, **value** =
       `cloudmap`.
 
-## Step 4: Create an AWS Lambda execution
-
-role
+## Step 4: Create an AWS Lambda execution role
 
 In this step, you create an IAM role that the AWS Lambda function in the next
 step uses. You can name the IAM role `cloudmap-tutorial-role` and omit the permissions
@@ -104,9 +97,7 @@ afterwards.
 8. For **Role name**, specify `cloudmap-tutorial-role`.
 9. Review the role, and then choose **Create role**.
 
-## Step 5: Create the Lambda function to write
-
-data
+## Step 5: Create the Lambda function to write data
 
 In this step, you create a Lambda function authored from scratch that writes data to the
 DynamoDB table by using the AWS Cloud Map API to query the AWS Cloud Map service you created.
@@ -162,9 +153,7 @@ After deploying the function, to avoid timeout errors, update the function timeo
 seconds. For more information, see [Configure Lambda function timeout](../../../lambda/latest/dg/configuration-timeout.md "../../../lambda/latest/dg/configuration-timeout.md") in
 the _AWS Lambda Developer Guide_.
 
-## Step 6: Create an AWS Cloud Map app service and
-
-register the Lambda write function as an instance
+## Step 6: Create an AWS Cloud Map app service and register the Lambda write function as an instance
 
 In this step, you create an AWS Cloud Map service and then register the Lambda write function as a
 service instance.
@@ -195,9 +184,7 @@ service instance.
       - **key** = `functionname`, **value** =
         `writefunction`
 
-## Step 7: Create the Lambda function to read
-
-data
+## Step 7: Create the Lambda function to read data
 
 In this step, you create a Lambda function authored from scratch that writes data to the
 DynamoDB table you created.
@@ -245,9 +232,7 @@ After deploying the function, to avoid timeout errors, update the function timeo
 seconds. For more information, see [Configure Lambda function timeout](../../../lambda/latest/dg/configuration-timeout.md "../../../lambda/latest/dg/configuration-timeout.md") in
 the _AWS Lambda Developer Guide_.
 
-## Step 8: Register the Lambda read function as an
-
-AWS Cloud Map service instance
+## Step 8: Register the Lambda read function as an AWS Cloud Map service instance
 
 In this step, you register the Lambda read function as a service instance in the
 `app-service` service you previously created.
@@ -271,9 +256,7 @@ In this step, you register the Lambda read function as a service instance in the
       - **key** = `functionname`, **value** =
         `readfunction`
 
-## Step 9: Create and run read and write clients
-
-on AWS CloudShell
+## Step 9: Create and run read and write clients on AWS CloudShell
 
 You can create and run client applications in AWS CloudShell that use code to discover the
 services you configured in AWS Cloud Map and make calls to these services.

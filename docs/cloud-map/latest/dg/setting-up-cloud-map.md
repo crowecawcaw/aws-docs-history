@@ -6,8 +6,7 @@ AWS and prepare you to start using AWS Cloud Map.
 ###### Topics
 
 - [Sign Up for AWS](#setting-up-sign-up-for-aws "#setting-up-sign-up-for-aws")
-- [Access the API, AWS CLI, AWS Tools for Windows PowerShell, or the
-  AWS SDKs](#setting-up-access-account-api-cli "#setting-up-access-account-api-cli")
+- [Access the API, AWS CLI, AWS Tools for Windows PowerShell, or the AWS SDKs](#setting-up-access-account-api-cli "#setting-up-access-account-api-cli")
 - [Set Up the AWS Command Line Interface or AWS Tools for Windows PowerShell](#setting-up-aws-cli "#setting-up-aws-cli")
 - [Download an AWS SDK](#setting-up-sdk "#setting-up-sdk")
 
@@ -71,9 +70,7 @@ For instructions, see [Create a permission set](../../../singlesignon/latest/use
 
 For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md") in the _AWS IAM Identity Center User Guide_.
 
-## Access the API, AWS CLI, AWS Tools for Windows PowerShell, or the
-
-AWS SDKs
+## Access the API, AWS CLI, AWS Tools for Windows PowerShell, or the AWS SDKs
 
 To use the API, the AWS CLI, AWS Tools for Windows PowerShell, or the AWS SDKs, you must create _access
 keys_. These keys consist of an access key ID and secret access key, which are used

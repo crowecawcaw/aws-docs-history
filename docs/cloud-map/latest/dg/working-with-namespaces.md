@@ -19,8 +19,7 @@ following:
 
 ###### Topics
 
-- [Creating an AWS Cloud Map namespace to group application
-  services](creating-namespaces.md "creating-namespaces.md")
+- [Creating an AWS Cloud Map namespace to group application services](creating-namespaces.md "creating-namespaces.md")
 - [Listing AWS Cloud Map namespaces](listing-namespaces.md "listing-namespaces.md")
 - [Deleting an AWS Cloud Map namespace](deleting-namespaces.md "deleting-namespaces.md")
 - [Shared AWS Cloud Map namespaces](sharing-namespaces.md "sharing-namespaces.md")

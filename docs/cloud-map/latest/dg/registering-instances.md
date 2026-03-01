@@ -1,6 +1,4 @@
-# Registering a resource as an AWS Cloud Map service
-
-instance
+# Registering a resource as an AWS Cloud Map service instance
 
 You can register your application's resources as instances in a AWS Cloud Map service. For example,
 assume you've created a service called `users` for all application resources that

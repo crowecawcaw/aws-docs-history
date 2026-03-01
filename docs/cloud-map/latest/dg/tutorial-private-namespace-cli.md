@@ -2,8 +2,7 @@
 
 This tutorial demonstrates how to use AWS Cloud Map service discovery using the AWS Command Line Interface (CLI). You'll create a microservice architecture with two backend services – one discoverable using DNS queries and another discoverable using the AWS Cloud Map API only.
 
-For a tutorial that includes AWS Cloud Map console steps, see [Learn how to use AWS Cloud Map service discovery with DNS
-queries and API calls](tutorial-private-namespace.md "tutorial-private-namespace.md").
+For a tutorial that includes AWS Cloud Map console steps, see [Learn how to use AWS Cloud Map service discovery with DNS queries and API calls](tutorial-private-namespace.md "tutorial-private-namespace.md").
 
 ## Prerequisites
 

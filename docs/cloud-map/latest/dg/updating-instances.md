@@ -5,8 +5,7 @@ update:
 
 - **Update any values**: If you want to update any of the values
   that you specified for a service instance when you registered it, including custom attributes,
-  you need to reregister the service instance and respecify all values. Follow the steps in [Registering a resource as an AWS Cloud Map service
-  instance](registering-instances.md "registering-instances.md"), specifying the
+  you need to reregister the service instance and respecify all values. Follow the steps in [Registering a resource as an AWS Cloud Map service instance](registering-instances.md "registering-instances.md"), specifying the
   instance ID of the existing service instance for **Service instance
   ID**.
 
@@ -16,12 +15,9 @@ and `ServiceId` parameters and respecify other values.
 
 - **Update only custom attributes**: If you want to update only
   the custom attributes for a service instance, you don't need to reregister the instance. You can
-  update only those values. See [Updating the custom attributes for a
-  service instance](#updating-instance-attributes-procedure "#updating-instance-attributes-procedure").
+  update only those values. See [Updating the custom attributes for a service instance](#updating-instance-attributes-procedure "#updating-instance-attributes-procedure").
 
-## Updating the custom attributes for a
-
-service instance
+## Updating the custom attributes for a service instance
 
 ###### To update only custom attributes for a service instance
 

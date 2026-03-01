@@ -1,6 +1,4 @@
-# Learn how to use AWS Cloud Map service discovery with DNS
-
-queries and API calls
+# Learn how to use AWS Cloud Map service discovery with DNS queries and API calls
 
 The following tutorial simulates a microservice architecture with two backend services. The first
 service will be discoverable using a DNS query. The second service will be discoverable using the
@@ -89,9 +87,7 @@ DNS and API calls. The second service will be discoverable using API calls only.
    3. Leave the rest of the default values and choose **Create
       service**.
 
-## Step 3: Register the AWS Cloud Map service
-
-instances
+## Step 3: Register the AWS Cloud Map service instances
 
 In this step, you create two service instances, one for each service in our
 namespace.
@@ -124,9 +120,7 @@ namespace.
       `service-name` as the key and `backend` as the value.
    4. Choose **Register service instance**.
 
-## Step 4: Discover the AWS Cloud Map service
-
-instances
+## Step 4: Discover the AWS Cloud Map service instances
 
 Now that the AWS Cloud Map namespace, services, and service instances are created, you can verify
 everything is working by discovering the instances. Use the `dig` command to verify
