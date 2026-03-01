@@ -36,5 +36,4 @@ following:
 - [Adding users](adding-new-users.md "adding-new-users.md")
 - [Updating user permissions](permission-roles.md "permission-roles.md")
 - [Deleting users](deleting-users.md "deleting-users.md")
-- [Creating custom user permission
-  roles](create-new-permission-roles.md "create-new-permission-roles.md")
+- [Creating custom user permission roles](create-new-permission-roles.md "create-new-permission-roles.md")

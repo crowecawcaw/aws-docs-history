@@ -19,9 +19,7 @@ To get a high-level view of how AWS Supply Chain and other AWS services work wit
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for AWS Supply Chain
+## Identity-based policies for AWS Supply Chain
 
 **Supports identity-based policies:**
 
@@ -38,16 +36,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for AWS Supply Chain
 
-Identity-based policy examples for AWS Supply Chain
+To view examples of AWS Supply Chain identity-based policies, see [Identity-based policy examples for AWS Supply Chain](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of AWS Supply Chain identity-based policies, see [Identity-based policy examples for
-AWS Supply Chain](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within AWS Supply Chain
+## Resource-based policies within AWS Supply Chain
 
 **Supports resource-based policies:**
 
@@ -63,9 +56,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for AWS Supply Chain
+## Policy actions for AWS Supply Chain
 
 **Supports policy actions:**
 
@@ -92,12 +83,9 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-To view examples of AWS Supply Chain identity-based policies, see [Identity-based policy examples for
-AWS Supply Chain](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS Supply Chain identity-based policies, see [Identity-based policy examples for AWS Supply Chain](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for AWS Supply Chain
+## Policy resources for AWS Supply Chain
 
 **Supports policy resources:**
 
@@ -112,12 +100,9 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 "Resource": "*"
 ```
 
-To view examples of AWS Supply Chain identity-based policies, see [Identity-based policy examples for
-AWS Supply Chain](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS Supply Chain identity-based policies, see [Identity-based policy examples for AWS Supply Chain](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for AWS Supply Chain
+## Policy condition keys for AWS Supply Chain
 
 **Supports service-specific policy condition keys:**
 
@@ -132,12 +117,9 @@ policy with values in the request. To see all AWS global
 condition keys, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the
 _IAM User Guide_.
 
-To view examples of AWS Supply Chain identity-based policies, see [Identity-based policy examples for
-AWS Supply Chain](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS Supply Chain identity-based policies, see [Identity-based policy examples for AWS Supply Chain](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Using temporary
-
-credentials with AWS Supply Chain
+## Using temporary credentials with AWS Supply Chain
 
 **Supports temporary credentials:**
 
@@ -149,9 +131,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Forward access
-
-sessions for AWS Supply Chain
+## Forward access sessions for AWS Supply Chain
 
 **Supports forward access sessions (FAS):**
 
@@ -160,9 +140,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-AWS Supply Chain
+## Service roles for AWS Supply Chain
 
 **Supports service roles:**
 
@@ -177,9 +155,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break AWS Supply Chain functionality.
 Edit service roles only when AWS Supply Chain provides guidance to do so.
 
-## Service-linked
-
-roles for AWS Supply Chain
+## Service-linked roles for AWS Supply Chain
 
 **Supports service-linked roles:**
 

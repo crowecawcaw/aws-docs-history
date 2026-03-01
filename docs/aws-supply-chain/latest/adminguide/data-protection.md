@@ -29,9 +29,7 @@ credentials and set up individual users with AWS IAM Identity Center or AWS Iden
   provide a URL to an external server, we strongly recommend that you do not include credentials
   information in the URL to validate your request to that server.
 
-## Data handled by
-
-AWS Supply Chain
+## Data handled by AWS Supply Chain
 
 To limit the data that can be accessed by authorized users of a specific AWS Supply
 Chain instance, data held within AWS Supply Chain is segregated by your AWS account ID and

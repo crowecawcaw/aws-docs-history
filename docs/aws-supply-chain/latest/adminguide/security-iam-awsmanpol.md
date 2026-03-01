@@ -53,9 +53,7 @@ The permissions (_kms:ListKeys_, _kms:ListAliases_, _kms:GenerateDataKey_, and _
 
 To view the permissions of this policy, see [AWSSupplyChainFederationAdminAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSSupplyChainFederationAdminAccess "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSSupplyChainFederationAdminAccess") in the AWS Management Console.
 
-## AWS Supply Chain updates to AWS managed
-
-policies
+## AWS Supply Chain updates to AWS managed policies
 
 The following table lists details about updates to AWS managed policies for AWS Supply Chain
 since this service began to track these changes. For automatic alerts about changes to this

@@ -15,5 +15,4 @@ permission roles.
 ###### Note
 
 Depending on the role permissions you assign, the AWS Supply Chain
-dashboard is customized. For more information, see [Creating custom user permission
-roles](create-new-permission-roles.md "create-new-permission-roles.md"). 4. Choose **Save**.
+dashboard is customized. For more information, see [Creating custom user permission roles](create-new-permission-roles.md "create-new-permission-roles.md"). 4. Choose **Save**.

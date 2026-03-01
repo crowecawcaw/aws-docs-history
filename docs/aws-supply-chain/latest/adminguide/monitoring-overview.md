@@ -67,9 +67,7 @@ You can log data events for the AWS Supply Chain resource types by using the Clo
 `readOnly`, and `resources.ARN` fields to log only those events that
 are important to you. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md").
 
-## AWS Supply Chain management events in
-
-CloudTrail
+## AWS Supply Chain management events in CloudTrail
 
 [Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are
 performed on resources in your AWS account. These are also known as control plane

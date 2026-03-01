@@ -23,5 +23,4 @@ A confirmation will appear.
 
     ![Welcome message for new AWS Supply Chain user with login information and application URL.](images/confirmation-email.png)
 
-3. Once you receive the invite email, log on to AWS Supply Chain. See [Log on to AWS Supply Chain web
-   application](viewing-homepage.md "viewing-homepage.md") .
+3. Once you receive the invite email, log on to AWS Supply Chain. See [Log on to AWS Supply Chain web application](viewing-homepage.md "viewing-homepage.md") .

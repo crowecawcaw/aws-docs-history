@@ -1,6 +1,4 @@
-# Identity-based policy examples for
-
-AWS Supply Chain
+# Identity-based policy examples for AWS Supply Chain
 
 By default, users and roles don't have permission to create or modify AWS Supply Chain resources. They also can't perform tasks by using the AWS Management Console,
 AWS Command Line Interface (AWS CLI), or AWS API. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies. The administrator can then add the IAM policies to roles, and users can assume the roles.
@@ -9,12 +7,9 @@ To learn how to create an IAM identity-based policy by using these example JSON 
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete AWS Supply Chain resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and

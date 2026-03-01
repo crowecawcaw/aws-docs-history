@@ -12,9 +12,7 @@ To update your account profile, follow these steps.
 
 The **Account Profile** page appears. 3. Update the account information, and choose **Save**.
 
-## Updating your organization
-
-profile
+## Updating your organization profile
 
 To update the organization profile, follow these steps.
 
