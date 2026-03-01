@@ -23,9 +23,7 @@ To get a high-level view of how Refactor Spaces and other AWS services work with
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for Refactor Spaces
+## Identity-based policies for Refactor Spaces
 
 **Supports identity-based policies:**
 
@@ -42,16 +40,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for Refactor Spaces
 
-Identity-based policy examples for Refactor Spaces
+To view examples of Refactor Spaces identity-based policies, see [Identity-based policy examples for AWS Migration Hub Refactor Spaces](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of Refactor Spaces identity-based policies, see [Identity-based policy
-examples for AWS Migration Hub Refactor Spaces](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within Refactor Spaces
+## Resource-based policies within Refactor Spaces
 
 **Supports resource-based policies:**
 
@@ -67,9 +60,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for Refactor Spaces
+## Policy actions for Refactor Spaces
 
 **Supports policy actions:**
 
@@ -99,12 +90,9 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-To view examples of Refactor Spaces identity-based policies, see [Identity-based policy
-examples for AWS Migration Hub Refactor Spaces](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Refactor Spaces identity-based policies, see [Identity-based policy examples for AWS Migration Hub Refactor Spaces](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for Refactor Spaces
+## Policy resources for Refactor Spaces
 
 **Supports policy resources:**
 
@@ -124,12 +112,9 @@ To see a list of Refactor Spaces resource types and their ARNs, see
 which actions you can specify the ARN of each resource, see
 [Actions defined by AWS Migration Hub Refactor Spaces](../../../service-authorization/latest/reference/list_awsmigrationhubrefactorspaces.md#awsmigrationhubrefactorspaces-actions-as-permissions "../../../service-authorization/latest/reference/list_awsmigrationhubrefactorspaces.md#awsmigrationhubrefactorspaces-actions-as-permissions").
 
-To view examples of Refactor Spaces identity-based policies, see [Identity-based policy
-examples for AWS Migration Hub Refactor Spaces](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Refactor Spaces identity-based policies, see [Identity-based policy examples for AWS Migration Hub Refactor Spaces](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for Refactor Spaces
+## Policy condition keys for Refactor Spaces
 
 **Supports service-specific policy condition keys:**
 
@@ -148,12 +133,9 @@ To see a list of Refactor Spaces condition keys, see [Condition keys for AWS Mig
 _Service Authorization Reference_. To learn with which actions and resources you
 can use a condition key, see [Actions defined by AWS Migration Hub Refactor Spaces](../../../service-authorization/latest/reference/list_awsmigrationhubrefactorspaces.md#awsmigrationhubrefactorspaces-actions-as-permissions "../../../service-authorization/latest/reference/list_awsmigrationhubrefactorspaces.md#awsmigrationhubrefactorspaces-actions-as-permissions").
 
-To view examples of Refactor Spaces identity-based policies, see [Identity-based policy
-examples for AWS Migration Hub Refactor Spaces](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Refactor Spaces identity-based policies, see [Identity-based policy examples for AWS Migration Hub Refactor Spaces](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Access control lists (ACLs) in
-
-Refactor Spaces
+## Access control lists (ACLs) in Refactor Spaces
 
 **Supports ACLs:**
 
@@ -162,9 +144,7 @@ No
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
 
-## Attribute-based access control
-
-(ABAC) with Refactor Spaces
+## Attribute-based access control (ABAC) with Refactor Spaces
 
 **Supports ABAC (tags in policies):**
 
@@ -181,9 +161,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using Temporary
-
-credentials with Refactor Spaces
+## Using Temporary credentials with Refactor Spaces
 
 **Supports temporary credentials:**
 
@@ -195,9 +173,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for Refactor Spaces
+## Cross-service principal permissions for Refactor Spaces
 
 **Supports forward access sessions (FAS):**
 
@@ -206,9 +182,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Refactor Spaces
+## Service roles for Refactor Spaces
 
 **Supports service roles:**
 
@@ -223,9 +197,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break Refactor Spaces functionality.
 Edit service roles only when Refactor Spaces provides guidance to do so.
 
-## Service-linked
-
-roles for Refactor Spaces
+## Service-linked roles for Refactor Spaces
 
 **Supports service-linked roles:**
 

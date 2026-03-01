@@ -39,7 +39,6 @@ create applications, services, and routes within the environment, unless you use
    communication across accounts, don't select the check box.
 9. Refactor Spaces uses a service-linked role to connect to AWS services to orchestrate them on
    your behalf. When you use Refactor Spaces for the first time, the service-linked role is created for
-   you with the correct permissions. For more information about the service-linked role, see [Using service-linked roles for
-   Refactor Spaces](using-service-linked-roles.md "using-service-linked-roles.md").
+   you with the correct permissions. For more information about the service-linked role, see [Using service-linked roles for Refactor Spaces](using-service-linked-roles.md "using-service-linked-roles.md").
 10. Choose **Next** to move to the **Create application**
     page.

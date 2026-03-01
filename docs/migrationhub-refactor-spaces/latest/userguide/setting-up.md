@@ -75,8 +75,7 @@ policies:
 
 - The `AWSMigrationHubRefactorSpacesFullAccess`
   managed policy.
-- A policy created for using extra required permissions that is described in [Extra required
-  permissions for Refactor Spaces](security-iam-awsmanpol.md#security-iam-awsmanpol-extra-permissions "security-iam-awsmanpol.md#security-iam-awsmanpol-extra-permissions").
+- A policy created for using extra required permissions that is described in [Extra required permissions for Refactor Spaces](security-iam-awsmanpol.md#security-iam-awsmanpol-extra-permissions "security-iam-awsmanpol.md#security-iam-awsmanpol-extra-permissions").
 
 To provide access, add permissions to your users, groups, or roles:
 

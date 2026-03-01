@@ -1,8 +1,6 @@
 AWS Migration Hub Refactor Spaces is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub Refactor Spaces, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
 
-# Tutorial: Using Refactor Spaces with AWS Application Migration
-
-Service
+# Tutorial: Using Refactor Spaces with AWS Application Migration Service
 
 This tutorial shows how to automatically create a refactor environment and route traffic
 to your application after migrating an application using AWS Application Migration Service
@@ -82,9 +80,7 @@ following section: [Extra required permissions for Refactor Spaces](security-iam
 `RefactorSpacesExtraRequiredPermissions`. 18. Choose **Create policy**. 19. Copy the ARN that you see in the summary section of the role and save it
 because you need it to configure the post-launch action.
 
-## Step 3: Configure the launch and post-launch
-
-templates
+## Step 3: Configure the launch and post-launch templates
 
 In this step, you enable post-launch actions (if you haven't used them in this Region
 before) and you configure the Refactor Spaces post-launch action.
@@ -142,9 +138,7 @@ image.
 
 5. Choose **Save action**.
 
-## Step 4: Create an EC2 instance to use as a source
-
-server
+## Step 4: Create an EC2 instance to use as a source server
 
 1. Open the EC2 console at [https://console.aws.amazon.com/ec2](https://console.aws.amazon.com/ec2 "https://console.aws.amazon.com/ec2").
 2. Choose **Launch instance**.
@@ -159,9 +153,7 @@ server
    Instances.
 6. Create an IAM role and attach to it the [AWSApplicationMigrationAgentInstallationPolicy](../../../mgn/latest/ug/security-iam-awsmanpol-AWSApplicationMigrationAgentInstallationPolicy.md "../../../mgn/latest/ug/security-iam-awsmanpol-AWSApplicationMigrationAgentInstallationPolicy.md") policy.
 
-## Step 5: Add a source server and
-
-launch a test instance
+## Step 5: Add a source server and launch a test instance
 
 1. Open the AWS MGN console at [https://console.aws.amazon.com/mgn/home](https://console.aws.amazon.com/mgn/home "https://console.aws.amazon.com/mgn/home").
 2. Follow the instructions in [Linux](../../../mgn/latest/ug/linux-agent.md "../../../mgn/latest/ug/linux-agent.md") in the AWS MGN User

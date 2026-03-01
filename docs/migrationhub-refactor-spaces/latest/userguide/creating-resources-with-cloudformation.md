@@ -1,8 +1,6 @@
 AWS Migration Hub Refactor Spaces is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub Refactor Spaces, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
 
-# Creating Refactor Spaces resources with
-
-CloudFormation
+# Creating Refactor Spaces resources with CloudFormation
 
 AWS Migration Hub Refactor Spaces is integrated with AWS CloudFormation, a service that helps you to model and set up
 your AWS resources so that you can spend less time creating and managing your resources

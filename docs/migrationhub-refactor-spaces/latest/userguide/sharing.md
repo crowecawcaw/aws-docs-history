@@ -13,4 +13,4 @@ and the consumers with whom to share them. Consumers can include:
 - Its entire organization in AWS Organizations
   For more information about AWS RAM, see the _[AWS RAM User Guide](../../../ram/latest/userguide.md "../../../ram/latest/userguide.md")_.
 
-For more information about sharing Refactor Spaces environments, see [Step 3: Share your environment](getting-started-share-environment.md "getting-started-share-environment.md") .
+For more information about sharing Refactor Spaces environments, see [Step 3: Share your environment](getting-started-share-environment.md "getting-started-share-environment.md").

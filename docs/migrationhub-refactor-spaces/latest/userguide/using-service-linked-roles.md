@@ -1,8 +1,6 @@
 AWS Migration Hub Refactor Spaces is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub Refactor Spaces, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
 
-# Using service-linked roles for
-
-Refactor Spaces
+# Using service-linked roles for Refactor Spaces
 
 AWS Migration Hub Refactor Spaces uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role
 that is linked directly to Refactor Spaces. Service-linked roles are predefined by
@@ -24,9 +22,7 @@ That Work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-wo
 **Yes** with a link to view the service-linked role
 documentation for that service.
 
-## Service-linked role permissions for
-
-Refactor Spaces
+## Service-linked role permissions for Refactor Spaces
 
 Refactor Spaces uses the service-linked role named **AWSServiceRoleForMigrationHubRefactorSpaces** and
 associates it with the **MigrationHubRefactorSpacesServiceRolePolicy** IAM policy –
@@ -82,8 +78,7 @@ calling account. The `AWSMigrationHubRefactorSpacesFullAccess` managed
 policy, together with a policy that grants the extra required permissions, defines all
 of the necessary permissions to create Refactor Spaces resources. The service-linked role is a
 subset of these permissions that is used for specific cross-account calls. For more
-information about `AWSMigrationHubRefactorSpacesFullAccess`, see [AWS
-managed policy: AWSMigrationHubRefactorSpacesFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSMigrationHubRefactorSpacesFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSMigrationHubRefactorSpacesFullAccess").
+information about `AWSMigrationHubRefactorSpacesFullAccess`, see [AWS managed policy: AWSMigrationHubRefactorSpacesFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSMigrationHubRefactorSpacesFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSMigrationHubRefactorSpacesFullAccess").
 
 ### Tags
 
@@ -347,8 +342,7 @@ _IAM User Guide_.
 You don't need to manually create a service-linked role. When you
 create Refactor Spaces environment, application, service, or route resources in the AWS Management Console, the AWS CLI, or the AWS API, Refactor Spaces
 creates the service-linked role for you. For more information about creating a
-service-linked role for Refactor Spaces, see [Service-linked role permissions for
-Refactor Spaces](#slr-permissions "#slr-permissions").
+service-linked role for Refactor Spaces, see [Service-linked role permissions for Refactor Spaces](#slr-permissions "#slr-permissions").
 
 If you delete this service-linked role, and then need to create it again, you can use
 the same process to recreate the role in your account. When you
@@ -387,9 +381,7 @@ Use the IAM console, the AWS CLI, or the AWS API to delete the AWSServiceRoleFor
 service-linked role. For more information, see [Deleting a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
 _IAM User Guide_.
 
-## Supported Regions for Refactor Spaces service-linked
-
-roles
+## Supported Regions for Refactor Spaces service-linked roles
 
 Refactor Spaces supports using service-linked roles in all of the Regions where the
 service is available. For more information, see [AWS Regions and Endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md").

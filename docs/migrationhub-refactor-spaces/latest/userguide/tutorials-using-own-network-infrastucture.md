@@ -1,8 +1,6 @@
 AWS Migration Hub Refactor Spaces is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub Refactor Spaces, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
 
-# Tutorials for using Refactor Spaces
-
-with your own network infrastructure
+# Tutorials for using Refactor Spaces with your own network infrastructure
 
 When you use a Refactor Spaces environment without a network bridge, you must configure [VPC to VPC connectivity](../../../whitepapers/latest/aws-vpc-connectivity-options/amazon-vpc-to-amazon-vpc-connectivity-options.md "../../../whitepapers/latest/aws-vpc-connectivity-options/amazon-vpc-to-amazon-vpc-connectivity-options.md") between services with private URL endpoints and an
 application proxy VPC. The following tutorials show two common scenarios: connecting through

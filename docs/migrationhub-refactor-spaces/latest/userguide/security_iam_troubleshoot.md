@@ -1,24 +1,17 @@
 AWS Migration Hub Refactor Spaces is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub Refactor Spaces, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
 
-# Troubleshooting AWS Migration Hub Refactor Spaces identity and
-
-access
+# Troubleshooting AWS Migration Hub Refactor Spaces identity and access
 
 Use the following information to help you diagnose and fix common issues that you might
 encounter when working with Refactor Spaces and IAM.
 
 ###### Topics
 
-- [I am not authorized to
-  perform an action in Refactor Spaces](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
-- [I am not authorized to perform
-  iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
-- [I want to allow people
-  outside of my AWS account to access my Refactor Spaces resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
+- [I am not authorized to perform an action in Refactor Spaces](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
+- [I am not authorized to perform iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
+- [I want to allow people outside of my AWS account to access my Refactor Spaces resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
 
-## I am not authorized to
-
-perform an action in Refactor Spaces
+## I am not authorized to perform an action in Refactor Spaces
 
 If the AWS Management Console tells you that you're not authorized to perform an action, then you
 must contact your administrator for assistance. Your administrator is the person that
@@ -38,9 +31,7 @@ In this case, Mateo asks his administrator to update his policies to allow him t
 access the `my-example-widget` resource using the
 `refactor-spaces:`GetWidget`` action.
 
-## I am not authorized to perform
-
-iam:PassRole
+## I am not authorized to perform iam:PassRole
 
 If you receive an error that you're not authorized to perform the `iam:PassRole` action, your policies must be updated to allow you to pass a role to Refactor Spaces.
 
@@ -59,9 +50,7 @@ In this case, Mary's policies must be updated to allow her to perform the `iam:P
 
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
 
-## I want to allow people
-
-outside of my AWS account to access my Refactor Spaces resources
+## I want to allow people outside of my AWS account to access my Refactor Spaces resources
 
 You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who
 is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant

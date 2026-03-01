@@ -1,8 +1,6 @@
 AWS Migration Hub Refactor Spaces is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub Refactor Spaces, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
 
-# Tutorial: Using your own
-
-AWS Transit Gateway
+# Tutorial: Using your own AWS Transit Gateway
 
 The following tutorial presents an example of how to use your own AWS Transit Gateway with
 Refactor Spaces.
@@ -14,9 +12,7 @@ environment, application, service, and route. Traffic flows to the private URL e
 of a web server through your transit gateway. For more information, see [VPC with public
 and private subnets (NAT)](../../../vpc/latest/userguide/VPC_Scenario2.md "../../../vpc/latest/userguide/VPC_Scenario2.md").
 
-## Step 1: Set up
-
-a VPC in the environment owner account
+## Step 1: Set up a VPC in the environment owner account
 
 ###### To set up a VPC in the environment owner account
 
@@ -29,9 +25,7 @@ a VPC in the environment owner account
 4. Create a route table entry for the [private subnet to route to the NAT gateway](../../../vpc/latest/userguide/route-table-options.md#route-tables-nat "../../../vpc/latest/userguide/route-table-options.md#route-tables-nat"). Use destination
    0.0.0.0/0 and the target of the NAT gateway.
 
-## Step 2: Set
-
-up a VPC in the service account
+## Step 2: Set up a VPC in the service account
 
 ###### To set up a VPC in the service account
 
@@ -43,9 +37,7 @@ up a VPC in the service account
 4. Create a route table entry for the private subnet to route to the NAT
    gateway. Use destination 0.0.0.0/0 and the target of the NAT gateway.
 
-## Step 3: Set up
-
-a web server in the service account VPC.
+## Step 3: Set up a web server in the service account VPC.
 
 ###### To set up the web server in the service account VPC
 
@@ -57,9 +49,7 @@ a web server in the service account VPC.
    10.1.0.0/16.
 4. [Add the security group](../../../AWSEC2/latest/UserGuide/working-with-security-groups.md#assigning-security-group "../../../AWSEC2/latest/UserGuide/working-with-security-groups.md#assigning-security-group") to the Amazon EC2 instance.
 
-## Step 4: Set up
-
-Transit Gateway in the environment owner account
+## Step 4: Set up Transit Gateway in the environment owner account
 
 ###### To set up Transit Gateway in the environment owner account
 
@@ -75,9 +65,7 @@ Transit Gateway in the environment owner account
 4. [Associate the subnet route table of the VPC](../../../vpc/latest/userguide/WorkWithRouteTables.md#AssociateSubnet "../../../vpc/latest/userguide/WorkWithRouteTables.md#AssociateSubnet") with the [main
    route table](../../../vpc/latest/userguide/VPC_Route_Tables.md#main-route-table "../../../vpc/latest/userguide/VPC_Route_Tables.md#main-route-table").
 
-## Step 5: Set up
-
-Transit Gateway in the service account
+## Step 5: Set up Transit Gateway in the service account
 
 ###### To set up Transit Gateway in the service account
 
@@ -94,17 +82,11 @@ Transit Gateway in the service account
 
 Now you should have two VPCs with Transit Gateway routing set up.
 
-## Step 6:
+## Step 6: Set up a Refactor Spaces environment and application in the environment owner account
 
-Set up a Refactor Spaces environment and application in the environment owner account
+Before you begin this step, make sure that you are using the [AWS managed policy: AWSMigrationHubRefactorSpaces-EnvironmentsWithoutBridgesFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSMigrationHubRefactorSpaces-EnvironmentsWithoutBridgesFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSMigrationHubRefactorSpaces-EnvironmentsWithoutBridgesFullAccess") managed policy and the [Extra required permissions policy for environments without a network bridge](security-iam-awsmanpol.md#security-iam-awsmanpol-policies-no-network-bridge-extra-permissions "security-iam-awsmanpol.md#security-iam-awsmanpol-policies-no-network-bridge-extra-permissions") policy.
 
-Before you begin this step, make sure that you are using the [AWS managed policy:
-AWSMigrationHubRefactorSpaces-EnvironmentsWithoutBridgesFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSMigrationHubRefactorSpaces-EnvironmentsWithoutBridgesFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSMigrationHubRefactorSpaces-EnvironmentsWithoutBridgesFullAccess") managed policy and the [Extra required permissions policy for environments without a network
-bridge](security-iam-awsmanpol.md#security-iam-awsmanpol-policies-no-network-bridge-extra-permissions "security-iam-awsmanpol.md#security-iam-awsmanpol-policies-no-network-bridge-extra-permissions") policy.
-
-###### To set up a Refactor Spaces environment and application in the environment owner
-
-account
+###### To set up a Refactor Spaces environment and application in the environment owner account
 
 1. In the environment owner account, create a Refactor Spaces environment with
    network fabric type NONE. Make sure to share the environment with the
@@ -113,9 +95,7 @@ account
    the 10.1.0.0/16 CIDR range in **Environment owner
    account**.
 
-## Step 7: Set up a
-
-Refactor Spaces service in the service account
+## Step 7: Set up a Refactor Spaces service in the service account
 
 ###### To set up a Refactor Spaces service in the service account
 
