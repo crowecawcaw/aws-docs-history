@@ -1,6 +1,4 @@
-# Notification
-
-templating
+# Notification templating
 
 This documentation topic is designed
 for Grafana workspaces that support **Grafana version

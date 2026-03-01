@@ -87,9 +87,7 @@ option overrides.
       3. Choose the **Apply field
        configuration** toggle button.
 
-### Download raw query results
-
-as a CSV file
+### Download raw query results as a CSV file
 
 Amazon Managed Grafana generates a CSV file in your default browser download location. You
 can open it in the viewer of your choice.
@@ -136,9 +134,7 @@ Explore and export panel, panel data, and data frame JSON models.
    can choose **Copy to clipboard** and paste the JSON in
    another application.
 
-### View raw request
-
-and response to data source
+### View raw request and response to data source
 
 1. Open the panel inspector, and then choose the
    **Query** tab. Or, in the panel menu, choose

@@ -1,6 +1,4 @@
-# Connect to an AppDynamics data
-
-source
+# Connect to an AppDynamics data source
 
 The AppDynamics data source for Amazon Managed Grafana enables you to query metrics from
 AppDynamics using its Metrics API and visualize them in Grafana dashboards.
@@ -13,9 +11,7 @@ see [Manage access to Enterprise plugins](upgrade-to-enterprise-plugins.md "upgr
 Additionally, in workspaces that support version 9 or newer, this data source might
 require you to install the appropriate plugin. For more information, see [Extend your workspace with plugins](grafana-plugins.md "grafana-plugins.md").
 
-## Note on the Data source
-
-configuration
+## Note on the Data source configuration
 
 Use Server (proxy) access (to avoid CORS and users looking up your password)
 and basic authentication. Remember that the username should be
@@ -88,16 +84,12 @@ legend key, then choose the Show Metadata option to see what the legend key
 The Legend dropdown list has three options: `Full Path`,
 `Segments` and `Custom`.
 
-### Legend option – full
-
-path
+### Legend option – full path
 
 The legend key is the full metric path; for example, `Overall
  Application Performance|Average Response Time (ms)`.
 
-### Legend option –
-
-segments
+### Legend option – segments
 
 The metric name is made up of segments. You can choose which segments to
 show.
@@ -111,9 +103,7 @@ entering the following `2,4` in the Segments field returns
 
 The indexing starts with 1 so `1` returns `Errors`.
 
-### Legend option –
-
-custom
+### Legend option – custom
 
 Create a custom legend by combining text with the following aliasing
 patterns to be able to mix in metric metadata.

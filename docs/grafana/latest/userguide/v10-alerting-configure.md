@@ -16,11 +16,7 @@ alerts.
 ###### Topics
 
 - [Configure Grafana managed alert rules](v10-alerting-configure-grafanamanaged.md "v10-alerting-configure-grafanamanaged.md")
-- [Configure data source
-  managed alert rules](v10-alerting-configure-datasourcemanaged.md "v10-alerting-configure-datasourcemanaged.md")
-- [Configure recording
-  rules](v10-alerting-configure-recordingrules.md "v10-alerting-configure-recordingrules.md")
-- [Configure contact
-  points](v10-alerting-configure-contactpoints.md "v10-alerting-configure-contactpoints.md")
-- [Configure
-  notification policies](v10-alerting-configure-notification-policies.md "v10-alerting-configure-notification-policies.md")
+- [Configure data source managed alert rules](v10-alerting-configure-datasourcemanaged.md "v10-alerting-configure-datasourcemanaged.md")
+- [Configure recording rules](v10-alerting-configure-recordingrules.md "v10-alerting-configure-recordingrules.md")
+- [Configure contact points](v10-alerting-configure-contactpoints.md "v10-alerting-configure-contactpoints.md")
+- [Configure notification policies](v10-alerting-configure-notification-policies.md "v10-alerting-configure-notification-policies.md")

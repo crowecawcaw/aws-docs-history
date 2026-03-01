@@ -95,9 +95,7 @@ If the contact point is in use by a notification policy, you must delete the
 notification policy or edit it to use a different contact point before deleting
 the contact point.
 
-## List of
-
-supported notifiers
+## List of supported notifiers
 
 | Name       | Type        |
 | ---------- | ----------- |

@@ -1,6 +1,4 @@
-# Share query results with another
-
-panel
+# Share query results with another panel
 
 This documentation topic is designed
 for Grafana workspaces that support **Grafana version

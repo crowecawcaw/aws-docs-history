@@ -1,6 +1,4 @@
-# Connect to an OpenSearch data
-
-source
+# Connect to an OpenSearch data source
 
 ###### Note
 
@@ -12,9 +10,7 @@ perform many types of simple or complex OpenSearch queries to visualize logs or
 metrics stored in OpenSearch. You can also annotate your graphs with log events
 stored in OpenSearch.
 
-## Add OpenSearch as a data
-
-source
+## Add OpenSearch as a data source
 
 ###### Note
 
@@ -45,18 +41,14 @@ side menu, it means that your current user does not have the
 Access mode controls how requests to the data source will be handled. Server
 should be the preferred way if nothing else is stated.
 
-### Server access mode
-
-(default)
+### Server access mode (default)
 
 All requests are made from the browser to Grafana backend or server,
 which forwards the requests to the data source, circumventing possible
 Cross-Origin Resource Sharing (CORS) requirements. If you select this access
 mode, the URL must be accessible from the Grafana backend or server.
 
-### Browser (direct)
-
-access
+### Browser (direct) access
 
 Amazon Managed Grafana does not support browser direct access for the OpenSearch
 data source.
@@ -67,9 +59,7 @@ Here you can specify a default for the `time field` and
 specify the name of your OpenSearch index. You can use a time pattern for
 the index name or a wildcard character.
 
-### OpenSearch/Elasticsearch
-
-version
+### OpenSearch/Elasticsearch version
 
 Specify your OpenSearch or legacy Elasticsearch version in the version
 dropdown menu. The version is important because there are differences in how
@@ -133,9 +123,7 @@ Each data link configuration consists of the following:
   source selector allows you to select the target data source. Only
   tracing data sources are supported.
 
-## Using the OpenSearch data
-
-source
+## Using the OpenSearch data source
 
 ### Metric query editor
 
@@ -145,9 +133,7 @@ right to add/remove metrics or group by clauses. Some metrics and group by
 clauses have options. Choose the option text to expand the row to view and
 edit metric or group by options.
 
-### Series naming
-
-and alias patterns
+### Series naming and alias patterns
 
 You can control the name for time series via the `Alias` input
 field.
@@ -226,9 +212,7 @@ re-sort them.
 
 ```
 
-#### Using variables
-
-in queries
+#### Using variables in queries
 
 There are two syntaxes:
 
@@ -274,9 +258,7 @@ After the result is returned, the log panel shows a list of log rows
 and a bar chart where the x-axis shows the time and the y-axis shows the
 frequency or count.
 
-#### Filtering log
-
-messages
+#### Filtering log messages
 
 Optionally, enter a Lucene query into the query field to filter the
 log messages. For example, using a default Filebeat setup, you should be

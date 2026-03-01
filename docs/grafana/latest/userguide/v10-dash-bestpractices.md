@@ -25,9 +25,7 @@ dashboard maintenance. You know your systems best, and should use this
 section to guide your understanding. Ultimately, it is your responsibility
 to create the best strategy for your system.
 
-## Common
-
-observability strategies
+## Common observability strategies
 
 When you have a lot to monitor, like a server farm, you need a strategy to decide
 what is important enough to monitor. This page describes several common methods for
@@ -96,9 +94,7 @@ This method is similar to the RED method, but it includes saturation.
 - **Saturation** – How
   "full" your system is,
 
-## Dashboard management
-
-maturity model
+## Dashboard management maturity model
 
 _Dashboard management maturity_ refers to how well-designed and
 efficient your dashboard ecosystem is. We recommend periodically reviewing your
@@ -199,9 +195,7 @@ are worth it.
   dashboard in the test environment is proven useful, then add that
   dashboard to your main Grafana instance.
 
-## Best
-
-practices for creating dashboards
+## Best practices for creating dashboards
 
 This section outlines some best practices to follow when creating Grafana
 dashboards.
@@ -293,9 +287,7 @@ maintain consistency over time.
   misleading, and hide important data. We recommend turning it off in most
   cases.
 
-## Best
-
-practices for managing dashboards
+## Best practices for managing dashboards
 
 This page outlines some best practices to follow when managing Grafana
 dashboards.

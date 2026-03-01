@@ -19,10 +19,8 @@ self-managed Grafana server.
 
 ###### Topics
 
-- [Use AWS data source configuration to
-  add X-Ray as a data source](xray-adding-AWS-config.md "xray-adding-AWS-config.md")
-- [Manually adding the X-Ray data
-  source](xray-add-the-data-source.md "xray-add-the-data-source.md")
+- [Use AWS data source configuration to add X-Ray as a data source](xray-adding-AWS-config.md "xray-adding-AWS-config.md")
+- [Manually adding the X-Ray data source](xray-add-the-data-source.md "xray-add-the-data-source.md")
 - [X-Ray settings](#xray-settings "#xray-settings")
 - [Using the X-Ray data source](xray-using.md "xray-using.md")
 
@@ -85,8 +83,6 @@ JSON
 
 ```
 
-#### Example AWS
-
-credentials
+#### Example AWS credentials
 
 You can't use the credentials file method in Amazon Managed Grafana.

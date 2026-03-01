@@ -142,4 +142,4 @@ A [state timeline](v10-panels-state-timeline.md "v10-panels-state-timeline.md") 
 changes over time. When used with time series, thresholds are used to turn numerical
 values into discrete state regions.
 
-![An image showing an example of a state timeline visualization in Grafana.](images/viz/state_timeline_example.png)
+![An image showing an example of a state timeline visualization in Grafana.](/images/grafana/latest/userguide/images/viz/state_timeline_example.png)

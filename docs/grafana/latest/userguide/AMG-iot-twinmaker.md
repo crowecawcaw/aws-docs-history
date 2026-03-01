@@ -13,22 +13,15 @@ helping more customers realize the potential of digital twins to optimize operat
 AWS IoT TwinMaker for Grafana provides custom panels, dashboard templates, and a data source to
 connect to your digital twin data.
 
-## Adding the permission for AWS IoT TwinMaker to your
+## Adding the permission for AWS IoT TwinMaker to your workspace user role
 
-workspace user role
-
-###### To add permissions for AWS IoT TwinMaker to your workspace user role, assume role
-
-permission between Amazon Managed Grafana workspace and TwinMaker dashboard roles.
+###### To add permissions for AWS IoT TwinMaker to your workspace user role, assume role permission between Amazon Managed Grafana workspace and TwinMaker dashboard roles.
 
 1. Go to [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. Manually create a dashboard role. For more information about creating a
-   dashboard role, see [To manually create a Grafana AWS IoT TwinMaker
-   dashboard role](#iot-twinmaker-dashboard-role "#iot-twinmaker-dashboard-role").
+   dashboard role, see [To manually create a Grafana AWS IoT TwinMaker dashboard role](#iot-twinmaker-dashboard-role "#iot-twinmaker-dashboard-role").
 
-## AWS IoT TwinMaker connection details
-
-settings
+## AWS IoT TwinMaker connection details settings
 
 ###### Configure connection details settings
 
@@ -38,9 +31,7 @@ settings
 3. In the **TwinMaker settings**, enter the AWS IoT TwinMaker
    workspace name.
 
-## To manually create a Grafana AWS IoT TwinMaker
-
-dashboard role
+## To manually create a Grafana AWS IoT TwinMaker dashboard role
 
 ###### To manually create a Grafana AWS IoT TwinMaker dashboard role
 

@@ -63,8 +63,7 @@ Panel titles and metric queries can see variables by using two different syntaxe
 - `${var_name}` Use this syntax when you want to interpolate a variable
   in the middle of an expression.
 - `${var_name:<format>}` This format gives you more control over
-  how Grafana interpolates values. For more information, see [Advanced variable format
-  options](#advanced-variable-format-options "#advanced-variable-format-options").
+  how Grafana interpolates values. For more information, see [Advanced variable format options](#advanced-variable-format-options "#advanced-variable-format-options").
 
 Before queries are sent to your data source, the query is
 _interpolated_, meaning that the variable is replaced with its
@@ -75,16 +74,13 @@ Prometheus query will be regex-escaped. Read the data source–specific
 documentation topic for details on value escaping during interpolation.
 
 For information about advanced syntax to override data source default formatting, see
-[Advanced variable format
-options](#advanced-variable-format-options "#advanced-variable-format-options").
+[Advanced variable format options](#advanced-variable-format-options "#advanced-variable-format-options").
 
 ## Other variable options
 
 This section explains the other variable options that are available.
 
-### Entering variable selection
-
-options
+### Entering variable selection options
 
 You can use **Selection Options** to manage variable
 option selections. All selection options are optional, and they are off by default.
@@ -92,8 +88,7 @@ option selections. All selection options are optional, and they are off by defau
 #### Multi-value
 
 If you turn this option on, the variable dropdown list supports the selection
-of multiple options at the same time. For more information, see [Formatting multi-value
-variables](#formatting-multi-value-variables "#formatting-multi-value-variables").
+of multiple options at the same time. For more information, see [Formatting multi-value variables](#formatting-multi-value-variables "#formatting-multi-value-variables").
 
 #### Include All option
 
@@ -116,9 +111,7 @@ regex.
 When you use custom regex, glob, or Lucene syntax in the **Custom all value** option, it is never escaped, so you must
 consider what is a valid value for your data source.
 
-### Advanced variable format
-
-options
+### Advanced variable format options
 
 The formatting of the variable interpolation depends on the data source, but
 there are some situations where you might want to change the default formatting.
@@ -302,9 +295,7 @@ Interpolation result: "test1 + test2"
 
 ```
 
-### Formatting multi-value
-
-variables
+### Formatting multi-value variables
 
 Interpolating a variable with multiple values selected is tricky as it is not
 straight forward how to format the multiple values into a string that is valid in
@@ -321,9 +312,7 @@ query. Something like `value1,value2,value3`. If a custom
 `all` value is used, then instead the value will be something
 like `*` or `all`.
 
-#### Multi-value
-
-variables with a Graphite data source
+#### Multi-value variables with a Graphite data source
 
 Graphite uses glob expressions. A variable with multiple values would, in
 this case, be interpolated as `{host1,host2,host3}` if the current
@@ -337,9 +326,7 @@ interpolated as `(host1|host2|host3)`. Every value would also be
 regex escaped. If not, a value with a regex control character would break the
 regex expression.
 
-#### Multi-value
-
-variables with an Elastic data source
+#### Multi-value variables with an Elastic data source
 
 Amazon OpenSearch uses Lucene query syntax, so the same variable would be
 formatted as `("host1" OR "host2" OR
@@ -384,9 +371,7 @@ backend_04
 
 ```
 
-#### Filtering so that only the options that end with `01` or
-
-`02` are returned
+#### Filtering so that only the options that end with `01` or `02` are returned
 
 Regex:
 
@@ -405,9 +390,7 @@ backend_02
 
 ```
 
-#### Filtering and modifying the options using a regex capture group to return
-
-part of the text
+#### Filtering and modifying the options using a regex capture group to return part of the text
 
 Regex:
 
@@ -426,9 +409,7 @@ Result:
 
 ```
 
-#### Filtering and modifying
-
-- Prometheus Example
+#### Filtering and modifying - Prometheus Example
 
 List of options:
 

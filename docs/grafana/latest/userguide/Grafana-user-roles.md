@@ -39,8 +39,7 @@ console.
   use IAM Identity Center or SAML for authentication:
 
 - If your workspace uses IAM Identity Center for authentication, you can use Amazon Managed Grafana
-  console or APIs to assign roles. For more information, see [Manage user and group access to
-  Amazon Managed Grafana workspaces](AMG-manage-users-and-groups-AMG.md "AMG-manage-users-and-groups-AMG.md").
+  console or APIs to assign roles. For more information, see [Manage user and group access to Amazon Managed Grafana workspaces](AMG-manage-users-and-groups-AMG.md "AMG-manage-users-and-groups-AMG.md").
 - If your workspace uses SAML for authentication, user roles are defined only
   by assertion attributes. For more information, see
   [Assertion mapping](authentication-in-AMG-SAML.md#AMG-SAML-Assertion-Mapping "authentication-in-AMG-SAML.md#AMG-SAML-Assertion-Mapping").

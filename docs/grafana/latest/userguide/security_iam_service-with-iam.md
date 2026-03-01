@@ -1,6 +1,4 @@
-# How Amazon Managed Grafana works with
-
-IAM
+# How Amazon Managed Grafana works with IAM
 
 Before you use IAM to manage access to Amazon Managed Grafana, learn what IAM features are
 available to use with Amazon Managed Grafana.
@@ -23,9 +21,7 @@ To get a high-level view of how Amazon Managed Grafana and other AWS services wo
 IAM features, see [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Identity-based
-
-policies for Amazon Managed Grafana
+## Identity-based policies for Amazon Managed Grafana
 
 **Supports identity-based policies:**
 
@@ -42,12 +38,9 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for Amazon Managed Grafana
 
-Identity-based policy examples for Amazon Managed Grafana
-
-To view examples of Amazon Managed Grafana identity-based policies, see [Identity-based policy examples
-for Amazon Managed Grafana](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Managed Grafana identity-based policies, see [Identity-based policy examples for Amazon Managed Grafana](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Resource-based policies within Amazon Managed Grafana
 
@@ -65,9 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy
-
-actions for Amazon Managed Grafana
+## Policy actions for Amazon Managed Grafana
 
 **Supports policy actions:**
 
@@ -98,12 +89,9 @@ commas.
          ]
 ```
 
-To view examples of Amazon Managed Grafana identity-based policies, see [Identity-based policy examples
-for Amazon Managed Grafana](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Managed Grafana identity-based policies, see [Identity-based policy examples for Amazon Managed Grafana](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for Amazon Managed Grafana
+## Policy resources for Amazon Managed Grafana
 
 **Supports policy resources:**
 
@@ -123,8 +111,7 @@ To see a list of Amazon Managed Grafana resource types and their ARNs, see
 which actions you can specify the ARN of each resource, see
 [Actions defined by Amazon Managed Grafana](../../../service-authorization/latest/reference/list_amazonmanagedgrafana.md#amazonmanagedgrafana-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonmanagedgrafana.md#amazonmanagedgrafana-actions-as-permissions").
 
-To view examples of Amazon Managed Grafana identity-based policies, see [Identity-based policy examples
-for Amazon Managed Grafana](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Managed Grafana identity-based policies, see [Identity-based policy examples for Amazon Managed Grafana](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Policy condition keys for Amazon Managed Grafana
 
@@ -141,9 +128,7 @@ policy with values in the request. To see all AWS global
 condition keys, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the
 _IAM User Guide_.
 
-## Access control lists (ACLs) in
-
-Amazon Managed Grafana
+## Access control lists (ACLs) in Amazon Managed Grafana
 
 **Supports ACLs:**
 
@@ -152,9 +137,7 @@ No
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
 
-## Attribute-based access control
-
-(ABAC) with Amazon Managed Grafana
+## Attribute-based access control (ABAC) with Amazon Managed Grafana
 
 **Supports ABAC (tags in policies):**
 
@@ -178,9 +161,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using Temporary
-
-credentials with Amazon Managed Grafana
+## Using Temporary credentials with Amazon Managed Grafana
 
 **Supports temporary credentials:**
 
@@ -192,9 +173,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Forward
-
-access sessions for Amazon Managed Grafana
+## Forward access sessions for Amazon Managed Grafana
 
 **Supports forward access sessions (FAS):**
 
@@ -203,9 +182,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Amazon Managed Grafana
+## Service roles for Amazon Managed Grafana
 
 **Supports service roles:**
 
@@ -221,9 +198,7 @@ Changing the permissions for a service role might break Amazon Managed Grafana
 functionality. Edit service roles only when Amazon Managed Grafana provides guidance to do
 so.
 
-## Service-linked
-
-roles for Amazon Managed Grafana
+## Service-linked roles for Amazon Managed Grafana
 
 **Supports service-linked roles:**
 
@@ -233,5 +208,4 @@ A service-linked role is a type of service role that is linked to an AWS service
 Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view,
 but not edit the permissions for service-linked roles.
 
-For details about creating or managing Amazon Managed Grafana service-linked roles, see [Using service-linked roles for
-Amazon Managed Grafana](using-service-linked-roles.md "using-service-linked-roles.md").
+For details about creating or managing Amazon Managed Grafana service-linked roles, see [Using service-linked roles for Amazon Managed Grafana](using-service-linked-roles.md "using-service-linked-roles.md").

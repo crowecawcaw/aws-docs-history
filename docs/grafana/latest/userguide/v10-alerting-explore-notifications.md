@@ -36,9 +36,7 @@ notification should be sent; and whether alerts should all be sent in the same
 notification, sent in grouped notifications based on a set of labels, or as
 separate notifications.
 
-## Notification
-
-policies
+## Notification policies
 
 Notification policies control when and where notifications are sent. A
 notification policy can choose to send all alerts together in the same
@@ -72,12 +70,9 @@ match the alert then the policy itself is the matching policy. If
 there are no nested policies, or no nested policies match
 the alert, then the default policy is the matching policy.
 
-For more detailed information about notification policies, see [Notification
-policies](v10-alerting-explore-notifications-policies-details.md "v10-alerting-explore-notifications-policies-details.md").
+For more detailed information about notification policies, see [Notification policies](v10-alerting-explore-notifications-policies-details.md "v10-alerting-explore-notifications-policies-details.md").
 
-## Notification
-
-templates
+## Notification templates
 
 You can customize notifications with templates. For example, templates can be
 used to change the title and message of notifications sent to Slack.

@@ -48,9 +48,7 @@ source.
 To query a particular trace, select the TraceID query type, and then put the
 ID into the Trace ID field.
 
-## Linking to the trace ID from
-
-logs
+## Linking to the trace ID from logs
 
 You can link to Tempo trace from logs in Loki or Elastic by configuring an
 internal link. For more information, see [Derived fields](using-loki-in-AMG.md#loki-derived-fields "using-loki-in-AMG.md#loki-derived-fields").

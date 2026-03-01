@@ -73,9 +73,7 @@ Map a range of values when you want to format multiple, continuous values.
 6. (Optional) Set the color.
 7. Click **Update** to save the value mapping.
 
-## Map a regular
-
-expression
+## Map a regular expression
 
 Map a regular expression when you want to format the text and color of a regular
 expression value.
@@ -91,9 +89,7 @@ expression value.
 6. (Optional) Set the color.
 7. Click **Update** to save the value mapping.
 
-## Map a special
-
-value
+## Map a special value
 
 Map a special value when you want to format uncommon, boolean, or empty values.
 

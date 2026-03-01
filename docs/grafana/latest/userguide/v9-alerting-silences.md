@@ -1,6 +1,4 @@
-# Silencing alert notifications for
-
-Prometheus data sources
+# Silencing alert notifications for Prometheus data sources
 
 This documentation topic is designed
 for Grafana workspaces that support **Grafana version

@@ -1,6 +1,4 @@
-# External Group
-
-Synchronization API
+# External Group Synchronization API
 
 ###### Note
 
@@ -9,9 +7,7 @@ API token. You include this in the `Authorization` field in the API
 request. For information about how to create a token to authenticate your API calls,
 see [Authenticate with tokens](authenticating-grafana-apis.md "authenticating-grafana-apis.md").
 
-## Get external
-
-groups
+## Get external groups
 
 ```
 GET /api/teams/:teamId/groups
@@ -47,9 +43,7 @@ Status Codes:
 - **401**— Unauthorized
 - **403**— Access denied
 
-## Add external
-
-group
+## Add external group
 
 ```
 POST /api/teams/:teamId/groups
@@ -86,9 +80,7 @@ Status Codes:
 - **403**— Permission denied
 - **404**— Team not found
 
-## Remove external
-
-group
+## Remove external group
 
 ```
 DELETE /api/teams/:teamId/groups/:groupId

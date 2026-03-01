@@ -46,9 +46,7 @@ Content-Type: application/json
 {"theme":"","homeDashboardId":0,"timezone":""}
 ```
 
-## Update current user
-
-preferences
+## Update current user preferences
 
 ```
 PUT /api/user/preferences
@@ -78,9 +76,7 @@ Content-Type: text/plain; charset=utf-8
 {"message":"Preferences updated"}
 ```
 
-## Get current org
-
-preferences
+## Get current org preferences
 
 ```
 GET /api/org/preferences
@@ -104,9 +100,7 @@ Content-Type: application/json
 {"theme":"","homeDashboardId":0,"timezone":""}
 ```
 
-## Update current org
-
-preferences
+## Update current org preferences
 
 ```
 PUT /api/org/preferences

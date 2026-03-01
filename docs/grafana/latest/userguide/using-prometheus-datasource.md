@@ -1,6 +1,4 @@
-# Using the Prometheus data
-
-source
+# Using the Prometheus data source
 
 ## Prometheus settings
 
@@ -22,9 +20,7 @@ source
 The following sections provide information and options for Prometheus
 query editor in the dashboard and in Explore.
 
-### Query editor in
-
-dashboards
+### Query editor in dashboards
 
 Open a graph in edit mode by choosing the title and then choosing
 **Edit** (or by pressing **e** key while pausing on the panel).
@@ -47,9 +43,7 @@ with the dynamically calculated step. This ensures consistent
 display of metrics data, but it can result in a small gap of data at
 the right edge of a graph.
 
-#### Instant
-
-queries in dashboards
+#### Instant queries in dashboards
 
 The Prometheus data source allows you to run instant queries,
 which query only the latest value. You can visualize the results in
@@ -63,9 +57,7 @@ horizontal line across the whole graph, add a series override and
 select `Transform > constant` For more information
 about series overrides, see [Series overrides](graph-panel.md#graph-panel-series-overrides "graph-panel.md#graph-panel-series-overrides").
 
-### Query editor in
-
-Explore
+### Query editor in Explore
 
 | Name               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -141,9 +133,7 @@ For information about what _metric names_,
 _label names_ and _label
 values_ are, see the [Prometheus documentation](https://prometheus.io/docs/concepts/data_model/#metric-names-and-labels "https://prometheus.io/docs/concepts/data_model/#metric-names-and-labels").
 
-#### Using
-
-interval and range variables
+#### Using interval and range variables
 
 ###### Note
 
@@ -185,9 +175,7 @@ Regex:
 
 ```
 
-### Using
-
-`$__rate_interval` variable
+### Using `$__rate_interval` variable
 
 The `$__rate_interval` variable is meant to be used in the
 rate function. It is defined as max( `$__interval` +
@@ -198,9 +186,7 @@ any is set, and otherwise the _Scrape interval_ as
 set in the Prometheus data source (but ignoring any Min interval setting
 in the panel, because the latter is modified by the resolution setting).
 
-### Using variables in
-
-queries
+### Using variables in queries
 
 There are two syntaxes:
 

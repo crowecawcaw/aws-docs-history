@@ -1,6 +1,4 @@
-# Managing your access to Amazon Managed Grafana
-
-Enterprise plugins
+# Managing your access to Amazon Managed Grafana Enterprise plugins
 
 ###### To manage your access to Enterprise plugins
 
@@ -36,8 +34,7 @@ can choose between two options. The active option is marked with
 
     The first time that you choose this option, you must link
      your AWS account with a token from Grafana Labs, and are prompted
-     to do so. For more information, see the next section, [Link your account with
-     Grafana Labs](AMG-workspace-register-enterprise.md "AMG-workspace-register-enterprise.md").
+     to do so. For more information, see the next section, [Link your account with Grafana Labs](AMG-workspace-register-enterprise.md "AMG-workspace-register-enterprise.md").
 
 
     Amazon Managed Grafana Enterprise plugin access includes user fees that are in

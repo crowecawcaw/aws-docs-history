@@ -1,6 +1,4 @@
-# Working with notification
-
-policies
+# Working with notification policies
 
 This documentation topic is designed
 for Grafana workspaces that support **Grafana version
@@ -57,9 +55,7 @@ _all_ alerts together into a single group. You can also use a
 special label named `...` to group alerts by all labels, effectively
 disabling grouping, and sending each alert into its own group.
 
-## Working with
-
-notifications
+## Working with notifications
 
 The following procedures show you how to create and manage notification
 policies.

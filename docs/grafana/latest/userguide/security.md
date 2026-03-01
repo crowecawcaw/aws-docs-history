@@ -29,14 +29,11 @@ cloud and security _in_ the cloud:
 
 - [Data protection in AWS](data-protection.md "data-protection.md")
 - [Identity and Access Management for Amazon Managed Grafana](security-iam.md "security-iam.md")
-- [Amazon Managed Grafana permissions and policies for AWS data
-  sources](AMG-manage-permissions.md "AMG-manage-permissions.md")
+- [Amazon Managed Grafana permissions and policies for AWS data sources](AMG-manage-permissions.md "AMG-manage-permissions.md")
 - [IAM permissions](AMG-and-IAM.md "AMG-and-IAM.md")
 - [Compliance Validation for Amazon Managed Grafana](AMG-compliance.md "AMG-compliance.md")
 - [Resilience in Amazon Managed Grafana](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Infrastructure Security in
-  Amazon Managed Grafana](infrastructure-security.md "infrastructure-security.md")
-- [Logging Amazon Managed Grafana API calls using
-  AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
+- [Infrastructure Security in Amazon Managed Grafana](infrastructure-security.md "infrastructure-security.md")
+- [Logging Amazon Managed Grafana API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
 - [Security best practices](AMG-Security-Best-Practices.md "AMG-Security-Best-Practices.md")
 - [Interface VPC endpoints](VPC-endpoints.md "VPC-endpoints.md")

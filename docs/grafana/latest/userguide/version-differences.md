@@ -24,16 +24,14 @@ The following features were added in Grafana version 10.
   shown data. For more details, see [Correlations in Grafana version 10](v10-correlations.md "v10-correlations.md").
 - **Subfolders** – When organizing your
   dashboards, you can now use subfolders to create a nested hierarchy. For
-  more details, see [Creating dashboard
-  folders](v10-dash-managing-dashboards.md#v10-dash-create-dashboard-folder "v10-dash-managing-dashboards.md#v10-dash-create-dashboard-folder").
+  more details, see [Creating dashboard folders](v10-dash-managing-dashboards.md#v10-dash-create-dashboard-folder "v10-dash-managing-dashboards.md#v10-dash-create-dashboard-folder").
 - **Alerts** – Grafana alerting now
   supports silencing alerts. Additionally, Grafana alerting no longer sends
   notifications 3 times.
 - **Alerting upgrade preview** – Before
   upgrading from classic dashboard alerts to Grafana alerts, you can see what
   your alerts will look like, and even make changes that are applied when
-  migrating. For more details, see [Migrating classic dashboard alerts to Grafana
-  alerting](v10-alerting-use-grafana-alerts.md "v10-alerting-use-grafana-alerts.md"). Grafana Labs has
+  migrating. For more details, see [Migrating classic dashboard alerts to Grafana alerting](v10-alerting-use-grafana-alerts.md "v10-alerting-use-grafana-alerts.md"). Grafana Labs has
   announced that Grafana version 11 and beyond will no longer support classic
   dashboard alerts.
 - **Support bundles** – Support bundles

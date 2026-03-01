@@ -1,14 +1,10 @@
-# Configure Amazon Managed Grafana to use Ping
-
-Identity
+# Configure Amazon Managed Grafana to use Ping Identity
 
 Use the following steps to configure Amazon Managed Grafana to use Ping Identity as an identity
 provider. These steps assume that you have already created your Amazon Managed Grafana workspace
 and you have made a note of the workspace's ID, URLs, and Region.
 
-## Step 1: Steps to complete in
-
-Ping Identity
+## Step 1: Steps to complete in Ping Identity
 
 Complete the following steps in Ping Identity.
 
@@ -63,15 +59,11 @@ Complete the following steps in Ping Identity.
     use this later in the configuration.
 12. Choose **Finish**.
 
-## Step 2: Steps to complete in
-
-Amazon Managed Grafana
+## Step 2: Steps to complete in Amazon Managed Grafana
 
 Complete the following steps in the Amazon Managed Grafana console.
 
-###### To finish setting up Ping Identity as an identity provider for
-
-Amazon Managed Grafana
+###### To finish setting up Ping Identity as an identity provider for Amazon Managed Grafana
 
 1. Open the Amazon Managed Grafana console at [https://console.aws.amazon.com/grafana/](https://console.aws.amazon.com/grafana/home/ "https://console.aws.amazon.com/grafana/home/").
 2. In the navigation pane, choose the menu icon.

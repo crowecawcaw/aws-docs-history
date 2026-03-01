@@ -36,9 +36,7 @@ information about dashboard permissions, see [Dashboard permissions](Grafana-adm
 When you save a dashboard, you can either select a folder for the dashboard to
 be saved in or create a new folder.
 
-## Managing dashboards and
-
-folders
+## Managing dashboards and folders
 
 On the **Manage dashboards and folders** page, you
 can:
@@ -72,9 +70,7 @@ permissions.
 
 See [permissions](Grafana-permissions.md "Grafana-permissions.md") for more information.
 
-## Exporting and importing
-
-dashboards
+## Exporting and importing dashboards
 
 You can use the Grafana UI or the HTTP API to export and import dashboards.
 

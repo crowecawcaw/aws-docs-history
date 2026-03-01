@@ -1,6 +1,4 @@
-# Templating
-
-labels and annotations
+# Templating labels and annotations
 
 This documentation topic is designed
 for Grafana workspaces that support **Grafana version
@@ -20,9 +18,7 @@ if the alert does not use a Prometheus datasource. If you haven’t used
 Prometheus before then don’t worry as each of these variables, and how to
 template them, will be explained as you follow the rest of this page.
 
-## Go’s
-
-templating language
+## Go’s templating language
 
 Templates for labels and annotations are written in Go’s templating
 language, [text/template](https://pkg.go.dev/text/template "https://pkg.go.dev/text/template").
@@ -71,9 +67,7 @@ label. For example, if your query returned a label
 {{ end }}
 ```
 
-## The
-
-labels, value and values variables
+## The labels, value and values variables
 
 **The labels variable**
 

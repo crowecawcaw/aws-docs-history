@@ -1,6 +1,4 @@
-# Connect to a Honeycomb data
-
-source
+# Connect to a Honeycomb data source
 
 The Honeycomb data source allows you to query and visualize Honeycomb metrics and
 link to Honeycomb traces from within Amazon Managed Grafana.
@@ -21,9 +19,7 @@ require you to install the appropriate plugin. For more information, see [Extend
 - Because of API limitations, the data source can query only the last 7
   days of data.
 
-## Adding the data
-
-source
+## Adding the data source
 
 1. Open the Grafana console in the Amazon Managed Grafana workspace and make sure you
    are logged in.

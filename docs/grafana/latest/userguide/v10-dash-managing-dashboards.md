@@ -26,12 +26,9 @@ and dashboards. This includes options to:
 - Delete multiple dashboards and folders.
 - Navigate to a folder.
 - Manage folder permissions. For more information, see
-  [Dashboard and folder
-  permissions](dashboard-and-folder-permissions.md "dashboard-and-folder-permissions.md").
+  [Dashboard and folder permissions](dashboard-and-folder-permissions.md "dashboard-and-folder-permissions.md").
 
-## Creating dashboard
-
-folders
+## Creating dashboard folders
 
 Folders help you organize and group dashboards, which is useful when you have many
 dashboards or multiple teams using the same Grafana instance. Subfolders allow you
@@ -40,8 +37,7 @@ to create a nested hierarchy in your dashboard organization.
 **Prerequisites**
 
 Ensure that you have Grafana Admin permissions. For more information about
-dashboard permissions, see [Dashboard and folder
-permissions](dashboard-and-folder-permissions.md "dashboard-and-folder-permissions.md").
+dashboard permissions, see [Dashboard and folder permissions](dashboard-and-folder-permissions.md "dashboard-and-folder-permissions.md").
 
 ###### To create a dashboard folder
 

@@ -1,6 +1,4 @@
-# Amazon Managed Grafana permissions and policies for AWS data
-
-sources
+# Amazon Managed Grafana permissions and policies for AWS data sources
 
 Amazon Managed Grafana offers three permission modes:
 
@@ -14,9 +12,7 @@ In either of the service-managed permission modes, Amazon Managed Grafana create
 that are needed to access and discover AWS data sources in your account or organization.
 You can then edit these policies in the IAM console if you choose.
 
-## Service-managed permissions for a single
-
-account
+## Service-managed permissions for a single account
 
 In this mode, Amazon Managed Grafana creates a role called
 **AmazonGrafanaServiceRole-`random-id`**.
@@ -157,9 +153,7 @@ Amazon Managed Grafana attaches the AWS managed policy
 Amazon Managed Grafana attaches the AWS managed policy
 **AWSXrayReadOnlyAccess**.
 
-## Service-managed permissions for an
-
-organization
+## Service-managed permissions for an organization
 
 This mode is supported only for workspaces created in management accounts or
 delegated administrator accounts in an organization. Delegated administrator accounts
@@ -178,8 +172,7 @@ Organizational Units that you select, Amazon Managed Grafana creates a role call
 This role creation is performed through an integration with AWS CloudFormation StackSets.
 
 This role has a policy attached for each AWS data source that you select to
-use in the workspace. For the contents of these data policies, see [Service-managed permissions for a single
-account](#AMG-service-managed-account "#AMG-service-managed-account") .
+use in the workspace. For the contents of these data policies, see [Service-managed permissions for a single account](#AMG-service-managed-account "#AMG-service-managed-account").
 
 Amazon Managed Grafana also creates a role called
 **AmazonGrafanaOrgAdminRole-`random-id`**
@@ -435,12 +428,10 @@ JSON
 For that role to access AWS data sources or notification channels in that account,
 it must have the permissions in the policies listed earlier in this section. For
 example, to use the CloudWatch data source, it must have the permissions in the CloudWatch policy
-listed in [Service-managed permissions for a single
-account](#AMG-service-managed-account "#AMG-service-managed-account") .
+listed in [Service-managed permissions for a single account](#AMG-service-managed-account "#AMG-service-managed-account").
 
 The `List` and `Describe` permissions in the policies for Amazon
-OpenSearch Service and Amazon Managed Service for Prometheus shown in [Service-managed permissions for a single
-account](#AMG-service-managed-account "#AMG-service-managed-account") are only needed for the data source
+OpenSearch Service and Amazon Managed Service for Prometheus shown in [Service-managed permissions for a single account](#AMG-service-managed-account "#AMG-service-managed-account") are only needed for the data source
 discovery and provisioning to work correctly. They aren’t needed if you just want to set
 up these data sources manually.
 

@@ -1,6 +1,4 @@
-# View and filter by alert
-
-groups
+# View and filter by alert groups
 
 This documentation topic is designed
 for Grafana workspaces that support **Grafana version

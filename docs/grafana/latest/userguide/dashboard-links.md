@@ -52,9 +52,7 @@ Add links to other dashboards at the top of your current dashboard.
 
 5. Choose **Add**.
 
-## Adding a URL link to a
-
-dashboard
+## Adding a URL link to a dashboard
 
 Add a link to a URL at the top of your current dashboard. You can link to any
 available URL, including dashboards, panels, or external sites. You can even control

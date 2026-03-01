@@ -20,9 +20,7 @@ API token. You include this in the `Authorization` field in the API
 request. For information about how to create a token to authenticate your API calls,
 see [Authenticate with tokens](authenticating-grafana-apis.md "authenticating-grafana-apis.md").
 
-## Get permissions for a
-
-folder
+## Get permissions for a folder
 
 ```
 GET /api/folders/:uid/permissions
@@ -96,9 +94,7 @@ Status Codes:
 - **403**— Access denied
 - **404**— Folder not found
 
-## Update permissions for a
-
-folder
+## Update permissions for a folder
 
 ```
 POST /api/folders/:uid/permissions

@@ -273,9 +273,7 @@ lines. You can choose from different deduplication algorithms:
   deduping, this strips all letters and numbers. Matches are done on the
   remaining whitespace and punctuation.
 
-#### Flip results
-
-order
+#### Flip results order
 
 You can change the order of received logs from the default descending order
 (newest first) to ascending order (oldest first).
@@ -350,9 +348,7 @@ The span details include the following items:
 - Logs: List of logs logged by this span and associated key values. In case
   of Zipkin logs section shows Zipkin annotations.
 
-## Navigating between Explore
-
-and a dashboard
+## Navigating between Explore and a dashboard
 
 To help accelerate workflows that involve regularly switching from Explore to a
 dashboard and vice-versa, we’ve added the ability to return to the origin dashboard
@@ -371,5 +367,4 @@ To help with debugging queries, Explore allows you to investigate query requests
 responses, as well as query statistics, via the Query inspector. This functionality is
 similar to the panel inspector **Stats** tab and
 **Query** tab. For more information, see [Inspect query performance](inspect-a-panel.md#inspect-query-performance "inspect-a-panel.md#inspect-query-performance") and
-[View raw request
-and response to data source](inspect-a-panel.md#view-raw-request-and-response-to-data-source "inspect-a-panel.md#view-raw-request-and-response-to-data-source").
+[View raw request and response to data source](inspect-a-panel.md#view-raw-request-and-response-to-data-source "inspect-a-panel.md#view-raw-request-and-response-to-data-source").

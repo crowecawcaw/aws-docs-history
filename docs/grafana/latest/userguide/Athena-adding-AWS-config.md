@@ -1,6 +1,4 @@
-# Use AWS data source configuration
-
-to add Amazon Athena as a data source
+# Use AWS data source configuration to add Amazon Athena as a data source
 
 ## Prerequisites
 
@@ -14,9 +12,7 @@ necessary to read the Athena resources in your account or in your entire
 organizational units. Then you use the Amazon Managed Grafana workspace console to add Athena
 as a data source.
 
-# To use AWS data source configuration to add Athena as a data
-
-source
+# To use AWS data source configuration to add Athena as a data source
 
 1. Ensure that your user role is admin or editor.
 2. Select the workspace that you want to work on from the Amazon Managed Grafana
@@ -29,8 +25,7 @@ source
    console. To do so, choose the edit icon by **IAM
    role** and then choose **Service
    managed**, **Save changes**. For more
-   information, see [Amazon Managed Grafana permissions and policies for AWS data
-   sources](AMG-manage-permissions.md "AMG-manage-permissions.md").
+   information, see [Amazon Managed Grafana permissions and policies for AWS data sources](AMG-manage-permissions.md "AMG-manage-permissions.md").
 4. Choose the **Data sources** tab. Then select the
    check box for **Amazon Athena**, and choose
    **Actions**, **Enable service-managed
@@ -40,8 +35,7 @@ source
    **Amazon Athena** row.
 6. Sign into the Grafana workspace console using IAM Identity Center if necessary.
    The user should have Athena access policy attached to the user/role
-   in order to have access to Athena data source. See [AWS managed policy:
-   AmazonGrafanaAthenaAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonGrafanaAthenaAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonGrafanaAthenaAccess") for more info.
+   in order to have access to Athena data source. See [AWS managed policy: AmazonGrafanaAthenaAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonGrafanaAthenaAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonGrafanaAthenaAccess") for more info.
 7. In the left navigation bar in the Grafana workspace console,
    choose the lower AWS icon (there are two) and then choose
    **Athena** from **Data sources**
@@ -50,14 +44,11 @@ source
    query from, and then select the accounts that you want, and then
    choose **Add data source**.
 9. Follow the steps to configure **Athena Details**
-   in [Athena Details
-   settings](#Athena-settings "#Athena-settings")
+   in [Athena Details settings](#Athena-settings "#Athena-settings")
 
-## **Athena Details**
+## **Athena Details** settings
 
-settings
-
-###### Configure **Athena Details** settings
+###### Configure **Athena Details**settings
 
 1. In **Connection Details** menu, select the
    authentication provider (recommended: **Workspace IAM

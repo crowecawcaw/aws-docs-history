@@ -1,6 +1,4 @@
-# View notification
-
-errors
+# View notification errors
 
 This documentation topic is designed
 for Grafana workspaces that support **Grafana version

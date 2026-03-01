@@ -1,6 +1,4 @@
-# How Amazon Managed Grafana works with AWS Organizations for AWS data
-
-source access
+# How Amazon Managed Grafana works with AWS Organizations for AWS data source access
 
 With AWS Organizations, you can centrally manage data source configuration and permission
 settings for multiple AWS accounts. In an AWS account with an Amazon Managed Grafana workspace,
@@ -25,15 +23,12 @@ organization, you must enable AWS CloudFormation StackSets in the management acc
 organization. Amazon Managed Grafana automatically enables this the first time that it's
 needed.
 
-## Deployment scenarios for
-
-integration with AWS IAM Identity Center and Organizations
+## Deployment scenarios for integration with AWS IAM Identity Center and Organizations
 
 If you are using Amazon Managed Grafana with both AWS IAM Identity Center and Organizations, we recommend that you
 create an Amazon Managed Grafana workspace in your organization using one of the following three
 scenarios. For each scenario, you need to be signed in to an account with sufficient
-permissions. For more information, see [Sample policies for
-Amazon Managed Grafana](security_iam_id-based-policy-examples.md#security_iam_AMG-id-based-policy-examples "security_iam_id-based-policy-examples.md#security_iam_AMG-id-based-policy-examples").
+permissions. For more information, see [Sample policies for Amazon Managed Grafana](security_iam_id-based-policy-examples.md#security_iam_AMG-id-based-policy-examples "security_iam_id-based-policy-examples.md#security_iam_AMG-id-based-policy-examples").
 
 **Standalone account**
 
@@ -46,8 +41,7 @@ signed in to an account that has the
 **AWSGrafanaAccountAdministrator**,
 **AWSSSOMemberAccountAdministrator**, and
 **AWSSSODirectoryAdministrator** policies. For more
-information, see [Create and manage Amazon Managed Grafana workspaces and users in a single standalone
-account using IAM Identity Center](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-create-workspace-standalone "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-create-workspace-standalone").
+information, see [Create and manage Amazon Managed Grafana workspaces and users in a single standalone account using IAM Identity Center](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-create-workspace-standalone "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-create-workspace-standalone").
 
 **Member account of an existing organization in which IAM Identity Center is
 already configured**
@@ -56,8 +50,7 @@ To create a workspace in a member account, you must be signed in to an account
 that has the **AWSGrafanaAccountAdministrator**,
 **AWSSSOMemberAccountAdministrator**, and
 **AWSSSODirectoryAdministrator** policies. For more
-information, see [Grafana
-administrator in a member account using IAM Identity Center](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-admin-member "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-admin-member").
+information, see [Grafana administrator in a member account using IAM Identity Center](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-admin-member "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-admin-member").
 
 If you create a workspace in a member account and you want that workspace to
 access resources from other AWS accounts in your organization, you must use
@@ -100,5 +93,4 @@ To create a workspace in a member account, you must be signed in to an account
 that has the **AWSGrafanaAccountAdministrator**,
 **AWSSSOMemberAccountAdministrator**, and
 **AWSSSODirectoryAdministrator** policies. For more
-information, see [Grafana
-administrator in a member account using IAM Identity Center](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-admin-member "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-admin-member").
+information, see [Grafana administrator in a member account using IAM Identity Center](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-admin-member "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-admin-member").

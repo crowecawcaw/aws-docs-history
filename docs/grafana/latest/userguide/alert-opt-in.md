@@ -1,6 +1,4 @@
-# Migrating classic dashboard alerts to Grafana
-
-alerting
+# Migrating classic dashboard alerts to Grafana alerting
 
 This documentation topic is designed
 for Grafana workspaces that support **Grafana version
@@ -33,9 +31,7 @@ Alertmanager.
 This limitation is removed in Amazon Managed Grafana workspaces that support Grafana v10.4
 and later.
 
-## Migrating to Grafana alerting
-
-system
+## Migrating to Grafana alerting system
 
 When Grafana alerting is turned on, existing classic dashboard alerts migrate in a
 format compatible with the Grafana alerting. In the Alerting page of your Grafana

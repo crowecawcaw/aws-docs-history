@@ -21,9 +21,7 @@ By default, a Stat displays one of the following:
   You can use the **Text mode** to control whether the text is
   displayed or not.
 
-## Automatic layout
-
-adjustment
+## Automatic layout adjustment
 
 The panel automatically adjusts the layout depending on available width and height
 in the dashboard. It automatically hides the graph (sparkline) if the panel becomes

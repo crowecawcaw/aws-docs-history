@@ -27,8 +27,7 @@ variables in their place.
 - [Modifying dashboard settings](v10-dash-modify-settings.md "v10-dash-modify-settings.md")
 - [Dashboard URL variables](v10-dash-dashboard-url-variables.md "v10-dash-dashboard-url-variables.md")
 - [Managing library panels](v10-dash-manage-library-panels.md "v10-dash-manage-library-panels.md")
-- [Managing dashboard version
-  history](v10-dash-manage-version-history.md "v10-dash-manage-version-history.md")
+- [Managing dashboard version history](v10-dash-manage-version-history.md "v10-dash-manage-version-history.md")
 - [Managing dashboard links](v10-dash-manage-dashboard-links.md "v10-dash-manage-dashboard-links.md")
 - [Annotate visualizations](v10-dash-annotations.md "v10-dash-annotations.md")
 - [Dashboard JSON model](v10-dash-dashboard-json-model.md "v10-dash-dashboard-json-model.md")

@@ -61,9 +61,7 @@ Amazon Managed Grafana adds a threshold with suggested numerical and color value
 5. Choose **Save** to save the changes in the
    dashboard.
 
-## Adding a threshold to a graph
-
-panel
+## Adding a threshold to a graph panel
 
 In the graph panel visualization, you can use thresholds to add arbitrary lines
 or sections to the graph to make it easier to see when the graph crosses a

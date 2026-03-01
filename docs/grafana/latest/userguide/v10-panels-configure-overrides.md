@@ -19,9 +19,7 @@ For example, you set the unit for all fields that include the text
 matching regex** matcher and then add the Unit option to the override
 rule.
 
-## Example 1: Format
-
-temperature
+## Example 1: Format temperature
 
 Let’s assume that our result set is a data frame that consists of two fields:
 `time` and `temperature`.
@@ -52,9 +50,7 @@ change the Decimals from **auto** to zero
 | 2020-01-02 03:05:00 | 47 °C       |
 | 2020-01-02 03:06:00 | 48 °C       |
 
-## Example 2: Format temperature and
-
-humidity
+## Example 2: Format temperature and humidity
 
 Let’s assume that our result set is a data frame that consists of four fields:
 `time`, `high temp`, `low temp`, and

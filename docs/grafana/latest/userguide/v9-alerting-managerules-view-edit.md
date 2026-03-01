@@ -53,8 +53,7 @@ Using Grafana alerts, you can view all of your alerts in one page.
 ###### Note
 
 For more information about understanding the details of your alerts, see
-[State and health of alerting
-rules](v9-alerting-explore-state.md "v9-alerting-explore-state.md").
+[State and health of alerting rules](v9-alerting-explore-state.md "v9-alerting-explore-state.md").
 
 **Group view**
 
@@ -102,9 +101,7 @@ or Admin roles.
    **Delete**.
 2. Choose **Edit** to open the create rule page. Make
    updates in the same way that you create a rule. For details, see the
-   instructions in [Creating Grafana managed
-   alert rules](v9-alerting-managerules-grafana.md "v9-alerting-managerules-grafana.md") or [Creating Grafana Mimir
-   or Loki managed alert rules](v9-alerting-managerules-mimir-loki.md "v9-alerting-managerules-mimir-loki.md").
+   instructions in [Creating Grafana managed alert rules](v9-alerting-managerules-grafana.md "v9-alerting-managerules-grafana.md") or [Creating Grafana Mimir or Loki managed alert rules](v9-alerting-managerules-mimir-loki.md "v9-alerting-managerules-mimir-loki.md").
 3. Optionally, choose **Delete** to delete a
    rule.
 

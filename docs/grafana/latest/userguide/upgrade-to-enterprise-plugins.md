@@ -45,8 +45,6 @@ previously used AWS Marketplace, you may be interested in the [FAQ for AWS Marke
 
 ###### Topics
 
-- [Managing your access to Amazon Managed Grafana
-  Enterprise plugins](AMG-workspace-manage-enterprise.md "AMG-workspace-manage-enterprise.md")
-- [Link your account with
-  Grafana Labs](AMG-workspace-register-enterprise.md "AMG-workspace-register-enterprise.md")
+- [Managing your access to Amazon Managed Grafana Enterprise plugins](AMG-workspace-manage-enterprise.md "AMG-workspace-manage-enterprise.md")
+- [Link your account with Grafana Labs](AMG-workspace-register-enterprise.md "AMG-workspace-register-enterprise.md")
 - [FAQ for AWS Marketplace Enterprise users](AMG-ws-mp-license-faq.md "AMG-ws-mp-license-faq.md")

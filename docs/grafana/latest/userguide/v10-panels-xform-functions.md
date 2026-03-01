@@ -712,9 +712,7 @@ query results. The matrix output reflects the relationships between the unique
 values in these fields. This helps you present complex relationships in a clear
 and structured matrix format.
 
-## Group to nested
-
-table
+## Group to nested table
 
 Use this transformation to group the data by a specified field (column)
 value and process calculation on each group. Records are generated that
@@ -1545,9 +1543,7 @@ This transformation allows you to manipulate and analyze geospatial data,
 enabling operations such as creating lines between points, calculating spatial
 properties, and more.
 
-## Time series to table
-
-transform
+## Time series to table transform
 
 Use this transformation to convert time series results into a table,
 transforming a time series data frame into a **Trend**
@@ -1563,9 +1559,7 @@ calculation function can be selected. The default is **Last
 non-null value**. This value is displayed next to the
 sparkline and used for sorting table rows.
 
-## Regression
-
-analysis
+## Regression analysis
 
 Use this transformation to create a new data frame containing values
 predicted by a statistical model. This is useful for finding a trend in chaotic

@@ -18,7 +18,5 @@ caller of the API. There are two ways to create tokens.
 
 ###### Topics
 
-- [Use service accounts to authenticate with the
-  Grafana HTTP APIs](service-accounts.md "service-accounts.md")
-- [Use API keys to authenticate with Grafana HTTP
-  APIs](using-api-keys.md "using-api-keys.md")
+- [Use service accounts to authenticate with the Grafana HTTP APIs](service-accounts.md "service-accounts.md")
+- [Use API keys to authenticate with Grafana HTTP APIs](using-api-keys.md "using-api-keys.md")

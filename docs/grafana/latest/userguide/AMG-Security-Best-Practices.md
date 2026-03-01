@@ -24,10 +24,8 @@ teams and potentially organization roles to manage access. In Amazon Managed Gra
 managed outside of Amazon Managed Grafana, using IAM Identity Center or directly from your identity provider (IdP) via SAML 2.0 integration.
 With Amazon Managed Grafana, you can assign certain permissions
 as necessary for carrying out a task— for example viewing dashboards. For more information about user management
-in Amazon Managed Grafana, see [Manage workspaces, users, and policies in
-Amazon Managed Grafana](AMG-manage-workspaces-users.md "AMG-manage-workspaces-users.md").
+in Amazon Managed Grafana, see [Manage workspaces, users, and policies in Amazon Managed Grafana](AMG-manage-workspaces-users.md "AMG-manage-workspaces-users.md").
 
 Additionally, when you run on-premises Grafana you’re using long-lived keys or secret credentials
 to access data sources. We strongly recommend that when you migrate to Amazon Managed Grafana, you replace these
-IAM users with IAM roles. For an example, see [Manually add CloudWatch as a data
-source](adding--CloudWatch-manual.md "adding--CloudWatch-manual.md").
+IAM users with IAM roles. For an example, see [Manually add CloudWatch as a data source](adding--CloudWatch-manual.md "adding--CloudWatch-manual.md").

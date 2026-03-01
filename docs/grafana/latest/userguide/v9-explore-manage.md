@@ -100,9 +100,7 @@ in the table below.
 Query history settings are global,
 and applied to both panels in split mode.
 
-## Prometheus-specific
-
-Features
+## Prometheus-specific Features
 
 Explore features a custom querying experience for Prometheus.
 When a query is run, it actually runs two queries, a normal Prometheus

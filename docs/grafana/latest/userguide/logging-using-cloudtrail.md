@@ -1,6 +1,4 @@
-# Logging Amazon Managed Grafana API calls using
-
-AWS CloudTrail
+# Logging Amazon Managed Grafana API calls using AWS CloudTrail
 
 Amazon Managed Grafana is integrated with [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md"), a
 service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail
@@ -46,9 +44,7 @@ _CloudTrail Lake_ lets you run SQL-based queries on your events. CloudTrail Lake
 
 CloudTrail Lake event data stores and queries incur costs. When you create an event data store, you choose the [pricing option](../../../awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.md#cloudtrail-lake-manage-costs-pricing-option "../../../awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.md#cloudtrail-lake-manage-costs-pricing-option") you want to use for the event data store. The pricing option determines the cost for ingesting and storing events, and the default and maximum retention period for the event data store. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
 
-## Amazon Managed Grafana management events in
-
-CloudTrail
+## Amazon Managed Grafana management events in CloudTrail
 
 [Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events.
 
@@ -224,9 +220,7 @@ action.
 
 For information about CloudTrail record contents, see [CloudTrail record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _AWS CloudTrail User Guide_.
 
-## Grafana API event
-
-examples
+## Grafana API event examples
 
 Amazon Managed Grafana also logs some Grafana API calls in CloudTrail. The calls captured are those that
 change data, such as calls that create, update, or delete resources. For more

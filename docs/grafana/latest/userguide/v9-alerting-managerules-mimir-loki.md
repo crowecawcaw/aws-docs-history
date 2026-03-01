@@ -1,6 +1,4 @@
-# Creating Grafana Mimir
-
-or Loki managed alert rules
+# Creating Grafana Mimir or Loki managed alert rules
 
 This documentation topic is designed
 for Grafana workspaces that support **Grafana version
@@ -63,8 +61,7 @@ alerts via Alerting UI** checkbox.
      existing rule namespace. Otherwise, choose **Add
      new** and enter a name to create one. Namespaces can
      contain one or more rule groups and only have an organizational
-     purpose. For more information, see [Cortex or Loki rule groups and
-     namespaces](alert-rules.md#alert-rule-groups "alert-rules.md#alert-rule-groups").
+     purpose. For more information, see [Cortex or Loki rule groups and namespaces](alert-rules.md#alert-rule-groups "alert-rules.md#alert-rule-groups").
    - From the **Group** dropdown, select an existing
      group within the selected namespace. Otherwise, choose **Add
      new** and enter a name to create one. Newly created
@@ -103,5 +100,4 @@ the rule.
    exit** to save the rule and go back to the
    **Alerting** page.
    After you have created your rule, you can create a notification for your rule.
-   For more information about notifications, see [Manage your alert
-   notifications](v9-alerting-managenotifications.md "v9-alerting-managenotifications.md").
+   For more information about notifications, see [Manage your alert notifications](v9-alerting-managenotifications.md "v9-alerting-managenotifications.md").

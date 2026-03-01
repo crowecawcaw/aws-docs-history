@@ -1,6 +1,4 @@
-# Connect to a ServiceNow
-
-data source
+# Connect to a ServiceNow data source
 
 This is the ServiceNow data source that is used to connect to ServiceNow
 instances.
@@ -147,9 +145,7 @@ from the Service Now API.
 For additional date values, see:
 https://developer.servicenow.com/app.do#!/api\_doc?v=newyork&id=r\_SGSYS-dateGenerate\_S\_S
 
-##### Operators (general,
-
-string-based)
+##### Operators (general, string-based)
 
 - Starts With
 - Ends With
@@ -159,9 +155,7 @@ string-based)
 - Not Equals
 - Is Empty
 
-##### Operators
-
-(time-based)
+##### Operators (time-based)
 
 - Today
 - Not Today
@@ -205,9 +199,7 @@ A special value "Ignore Time" is provided to allow
 results "up until now" and also to enable the filters to
 control what data is displayed.
 
-### AggregateAPI queries
-
-(Stats)
+### AggregateAPI queries (Stats)
 
 The AggregateAPI will always return metrics, with the following
 aggregations: avg, min, max, sum. Filtering is also available to narrow
@@ -291,9 +283,7 @@ Dashboard dropdown list.
 Import the **Incidents By Category**
 dashboard to see an example.
 
-#### Using variables in
-
-queries
+#### Using variables in queries
 
 There are two syntaxes:
 
@@ -327,9 +317,7 @@ red.
 In the graph view, the red vertical line will appear and the heart icon at
 the top will turn red.
 
-### Writing incidents for
-
-alerts
+### Writing incidents for alerts
 
 **Beta feature**
 
@@ -356,9 +344,7 @@ with a few minor differences:
 
 ## FAQ
 
-### What if we
-
-don’t have the ITSM Roles Plugin?
+### What if we don’t have the ITSM Roles Plugin?
 
 **Administrator access is required to perform the
 following actions**

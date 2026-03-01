@@ -18,9 +18,7 @@ available by choosing **Dashboard settings** and then selecting
 The dashboard version history feature lets you compare and restore to previously
 saved dashboard versions.
 
-## Comparing two dashboard
-
-versions
+## Comparing two dashboard versions
 
 To compare two dashboard versions, select the two versions from the list that you
 want to compare. After you select two versions, choose **Compare
@@ -33,9 +31,7 @@ To view the diff of the raw JSON that represents your dashboard, choose
 To restore to the earlier version that you are comparing against, choose
 **Restore to version <x>**.
 
-## Restoring to a
-
-previously saved dashboard version
+## Restoring to a previously saved dashboard version
 
 If you need to restore to a previously saved dashboard version, you can do so
 either by choosing the "Restore" button on the right of a row in the

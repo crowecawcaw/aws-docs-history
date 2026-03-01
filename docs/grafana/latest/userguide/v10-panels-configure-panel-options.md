@@ -41,9 +41,7 @@ press `e`.
 
 The panel opens in edit mode.
 
-## Add a title and description to a
-
-panel
+## Add a title and description to a panel
 
 Add a title and description to a panel to share with users any important
 information about the visualization. For example, use the description to document
@@ -89,9 +87,7 @@ Explore and export panel, panel data, and data frame JSON models.
 5. To explore the JSON, choose **>** to expand or collapse
    portions of the JSON model.
 
-## Configuring repeating
-
-panels
+## Configuring repeating panels
 
 You can configure Grafana to dynamically add panels or rows to a dashboard. A
 dynamic panel is a panel that the system creates based on the value of a variable.

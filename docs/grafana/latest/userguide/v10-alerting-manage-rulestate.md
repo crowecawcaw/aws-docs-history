@@ -1,6 +1,4 @@
-# View the state and health of
-
-alert rules
+# View the state and health of alert rules
 
 This documentation topic is designed
 for Grafana workspaces that support **Grafana version
@@ -77,9 +75,7 @@ An alert rule can have one of the following health statuses.
 | **NoData**             | The absence of data in at least one time series returned<br>during a rule evaluation.                        |
 | **{status}, KeepLast** | The rule would have received another status, but was<br>configured to keep the last state of the alert rule. |
 
-## Special alerts for
-
-NoData and Error
+## Special alerts for NoData and Error
 
 When evaluation of an alert rule produces the state `NoData` or
 `Error`, Grafana alerting will generate alert instances that have

@@ -58,9 +58,7 @@ Content-Type: application/json
 ]
 ```
 
-## Get a single data source by
-
-Id
+## Get a single data source by Id
 
 ```
 GET /api/datasources/:datasourceId
@@ -108,9 +106,7 @@ Content-Type: application/json
 }
 ```
 
-## Get a single data source by
-
-UID
+## Get a single data source by UID
 
 ```
 GET /api/datasources/uid/:uid
@@ -158,9 +154,7 @@ Content-Type: application/json
 }
 ```
 
-## Get a single data source by
-
-name
+## Get a single data source by name
 
 ```
 GET /api/datasources/name/:name
@@ -208,9 +202,7 @@ Content-Type: application/json
 }
 ```
 
-## Get data source Id by
-
-name
+## Get data source Id by name
 
 ```
 GET /api/datasources/id/:name
@@ -382,9 +374,7 @@ Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
 }
 ```
 
-## Update an existing data
-
-source
+## Update an existing data source
 
 ```
 PUT /api/datasources/:datasourceId
@@ -485,9 +475,7 @@ Content-Type: application/json
 {"message":"Data source deleted"}
 ```
 
-## Delete data source by
-
-UID
+## Delete data source by UID
 
 ```
 DELETE /api/datasources/uid/:uid
@@ -511,9 +499,7 @@ Content-Type: application/json
 {"message":"Data source deleted"}
 ```
 
-## Delete data source by
-
-name
+## Delete data source by name
 
 ```
 DELETE /api/datasources/name/:datasourceName

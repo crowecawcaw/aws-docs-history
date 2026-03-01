@@ -1,6 +1,4 @@
-# Connect to a Wavefront data source
-
-(VMware Tanzu Observability by Wavefront)
+# Connect to a Wavefront data source (VMware Tanzu Observability by Wavefront)
 
 The Wavefront (VMware Tanzu Observability by Wavefront) data source enables
 Amazon Managed Grafana users to query and visualize the data they’re collecting directly from
@@ -25,9 +23,7 @@ Ruby’s logger, AWS, or other tools. With Wavefront, users can perform
 mathematical operations on those series, render charts to see anomalies, track
 KPIs, and create alerts.
 
-## Maximizing
-
-your tech stack with Wavefront and Grafana
+## Maximizing your tech stack with Wavefront and Grafana
 
 While on the surface, Grafana and Wavefront sound similar, many organizations
 use both Wavefront and Grafana as critical parts of their observability
@@ -103,9 +99,7 @@ The finalized configuration page should look similar to this:
 
 ### Usage
 
-#### Using the query
-
-editor
+#### Using the query editor
 
 The Wavefront query editor has two modes: **Query
 Builder** and **Raw Query**. To toggle
@@ -150,9 +144,7 @@ group by field or applying thresholds. Users are able to chain multiple
 functions together to perform advanced calculations or data
 manipulations.
 
-#### Adding a
-
-query template variable
+#### Adding a query template variable
 
 1. To create a new Wavefront template variable for a dashboard,
    choose the settings cog on the top right portion of the
@@ -185,9 +177,7 @@ query template variable
     choose **Save dashboard** on the left hand
     navigation panel to save your changes.
 
-#### Template variable
-
-query structure
+#### Template variable query structure
 
 metric lists: metrics: ts(…)
 
@@ -213,9 +203,7 @@ tag value lists: tagValues(<tag>): ts(…)
 `Multi-value` and `Include All option` are
 currently not supported by the Wavefront plugin.
 
-#### Using template
-
-variables
+#### Using template variables
 
 After completing the steps to [add a new
 template variable](#wavefront-adding-a-query-template-variable-1 "#wavefront-adding-a-query-template-variable-1"), you’re now ready to use the template
@@ -234,9 +222,7 @@ variable within your dashboard panels to create dynamic visualizations.
 You should now be able to cycle through different values of your
 template variable and have your panel dynamically update!
 
-#### Using Ad-Hoc
-
-filters
+#### Using Ad-Hoc filters
 
 To use ad-hoc filters, we must create two template variables. The
 first one is a helper variable that will be used to select a metric so
@@ -259,9 +245,7 @@ Query Template Variable](#wavefront-adding-a-query-template-variable-1 "#wavefro
 select **Ad Hoc Filters** as the
 **Type** and no inputs are required for a query.
 
-#### Adding
-
-annotations
+#### Adding annotations
 
 1. To create a new Wavefront annotation for a dashboard, choose
    the settings cog on the top right portion of the dashboard.
@@ -286,9 +270,7 @@ If you pause on the bottom of an annotated section of a
 visualization, a pop-up window will be displayed that shows the alert
 name and provides a direct link to the alert in Wavefront.
 
-#### Using the Display Name
-
-field
+#### Using the Display Name field
 
 This data source uses the Display Name field in the Field tab of the
 Options panel to shorten or alter a legend key based on its name,

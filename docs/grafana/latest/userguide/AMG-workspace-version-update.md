@@ -66,5 +66,4 @@ and try again.
 
 You can also update the version using the [UpdateWorkspaceConfiguration](../APIReference/API_UpdateWorkspaceConfiguration.md "../APIReference/API_UpdateWorkspaceConfiguration.md") operation in the Amazon Managed Grafana API.
 
-If you run into issues with your updated workspace, see [Troubleshooting issues
-with updated workspaces](AMG-workspace-version-update-troubleshoot.md "AMG-workspace-version-update-troubleshoot.md").
+If you run into issues with your updated workspace, see [Troubleshooting issues with updated workspaces](AMG-workspace-version-update-troubleshoot.md "AMG-workspace-version-update-troubleshoot.md").

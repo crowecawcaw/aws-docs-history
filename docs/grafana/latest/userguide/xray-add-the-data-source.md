@@ -1,6 +1,4 @@
-# Manually adding the X-Ray data
-
-source
+# Manually adding the X-Ray data source
 
 ###### To manually add the X-Ray data source
 

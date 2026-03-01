@@ -1,6 +1,4 @@
-# Using JSON
-
-format template variables
+# Using JSON format template variables
 
 Some queries accept filters in JSON format and Grafana supports the
 conversion of template variables to JSON.

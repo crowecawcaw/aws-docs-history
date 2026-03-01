@@ -99,8 +99,7 @@ see the documentation for your data source at [Connect to data sources](AMG-data
    option, **Disabled**, means that the order
    of options returned by your data source query will be used.
 6. (Optional) Enter **Selection Options**. For more
-   information, see [Entering variable selection
-   options](templates-and-variables.md#enter-variable-selection-options "templates-and-variables.md#enter-variable-selection-options").
+   information, see [Entering variable selection options](templates-and-variables.md#enter-variable-selection-options "templates-and-variables.md#enter-variable-selection-options").
 7. In **Preview of values**, the Grafana workspace
    displays a list of the current variable values. Review them to ensure
    they match what you expect.
@@ -117,9 +116,7 @@ change, you might use them in chained variables rather than other query variable
 That would reduce the number of queries Grafana must send when chained variables are
 updated. For more information about chained variables, see [Chained variables](#chained-variables "#chained-variables").
 
-### Entering general
-
-options
+### Entering general options
 
 ###### To enter query options for a custom variable
 
@@ -152,8 +149,7 @@ options
    can include numbers, strings, other variables, or key-value pairs
    separated by a colon.
 2. (Optional) Enter **Selection Options**. For more
-   information, see [Entering variable selection
-   options](templates-and-variables.md#enter-variable-selection-options "templates-and-variables.md#enter-variable-selection-options").
+   information, see [Entering variable selection options](templates-and-variables.md#enter-variable-selection-options "templates-and-variables.md#enter-variable-selection-options").
 3. In **Preview of values**, the Grafana
    workspace displays a list of the current variable values. Review them to
    ensure they match what you expect.
@@ -167,9 +163,7 @@ default value. This is the most flexible variable, because you can enter any val
 Use this type of variable if you have metrics with high cardinality or if you want
 to update multiple panels in a dashboard at the same time.
 
-### Entering general
-
-options
+### Entering general options
 
 ###### To enter general options for a text box variable
 
@@ -219,9 +213,7 @@ in queries but don’t want to retype in every single query. For example, if you
 server path called `i-0b6a61efe2ab843gg`, you could replace it with a
 variable called `$path_gg`.
 
-### Entering general
-
-options
+### Entering general options
 
 ###### To enter general options for a constant variable
 
@@ -251,8 +243,7 @@ options
 1. In the **Value** field, enter the
    variable value. You can enter letters, numbers, and symbols. If you use
    advanced variable format options, you can even use wild cards. For more
-   information, see [Advanced variable format
-   options](templates-and-variables.md#advanced-variable-format-options "templates-and-variables.md#advanced-variable-format-options").
+   information, see [Advanced variable format options](templates-and-variables.md#advanced-variable-format-options "templates-and-variables.md#advanced-variable-format-options").
 2. In **Preview of values**, the Grafana
    workspace displays the current variable value. Review it to ensure it
    matches what you expect.
@@ -265,9 +256,7 @@ To change the data source for an entire dashboard quickly, you can use
 _data source_ variables. They are useful if you have multiple
 instances of a data source, perhaps in different environments.
 
-### Entering general
-
-options
+### Entering general options
 
 ###### To enter general options for a data source variable
 
@@ -301,8 +290,7 @@ options
    the variable value drop-down list. Keep this field empty to display all
    instances.
 3. (Optional) Enter **Selection Options**. For more
-   information, see [Entering variable selection
-   options](templates-and-variables.md#enter-variable-selection-options "templates-and-variables.md#enter-variable-selection-options").
+   information, see [Entering variable selection options](templates-and-variables.md#enter-variable-selection-options "templates-and-variables.md#enter-variable-selection-options").
 4. In **Preview of values**, Grafana
    displays a list of the current variable values. Review them to ensure
    they match what you expect.
@@ -321,9 +309,7 @@ You can use an interval variable as a parameter to group by time (for InfluxDB),
 date histogram interval (for OpenSearch), or as a summarize function parameter (for
 Graphite).
 
-### Entering general
-
-options
+### Entering general options
 
 ###### To enter general options for an interval variable
 
@@ -411,9 +397,7 @@ Instead, you use them to write filters for existing queries.
 **Note:** One-time, or ad hoc, filter variables
 work only with InfluxDB, Prometheus, and OpenSearch data sources.
 
-### Entering general
-
-options
+### Entering general options
 
 ###### To enter general options for an ad hoc filter
 
@@ -467,15 +451,11 @@ You can build complex linked, templated dashboards, 5 or 10 levels deep.
 Technically, there is no limit to how deep or complex you can go, but the more links
 you have, the greater the query load.
 
-### Best practices and
-
-tips
+### Best practices and tips
 
 The following practices will make your dashboards and variables easier to use.
 
-#### Creating new chained
-
-variables
+#### Creating new chained variables
 
 - Chaining variables creates parent-child dependencies. You can
   envision them as a ladder or a tree.
@@ -604,9 +584,7 @@ variable represents the range for the current dashboard. It is calculated by
 `to - from`. It has millisecond and second representations called
 `$__range_ms` and `$__range_s`.
 
-### $timeFilter or
-
-$\_\_timeFilter
+### $timeFilter or $\_\_timeFilter
 
 The `$timeFilter` variable returns the currently selected time
 range as an expression. For example, the time range interval `Last 7

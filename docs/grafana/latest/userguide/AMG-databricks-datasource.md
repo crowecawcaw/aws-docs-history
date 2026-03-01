@@ -1,6 +1,4 @@
-# Connect to a Databricks data
-
-source
+# Connect to a Databricks data source
 
 The Databricks data source enables you to query and visualize Databricks data
 within Amazon Managed Grafana. It includes a SQL editor to format and color code your
@@ -14,9 +12,7 @@ see [Manage access to Enterprise plugins](upgrade-to-enterprise-plugins.md "upgr
 Additionally, in workspaces that support version 9 or newer, this data source might
 require you to install the appropriate plugin. For more information, see [Extend your workspace with plugins](grafana-plugins.md "grafana-plugins.md").
 
-## Adding a Databricks data
-
-source
+## Adding a Databricks data source
 
 Follow these steps to add a Databricks data source in the Grafana
 console.
@@ -40,9 +36,7 @@ header. 4. Select **Databricks** from the
 If you don't see the Databricks option, and need it, you must
 upgrade to Grafana Enterprise. 5. Choose the options to connect to and edit your data.
 
-## Notes when using the Databricks data
-
-source
+## Notes when using the Databricks data source
 
 **Time series**
 

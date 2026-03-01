@@ -1,6 +1,4 @@
-# Using the metric
-
-search option
+# Using the metric search option
 
 To create a valid query in **Metric Search**, you
 must specify the namespace, metric name and at least one statistic. If
@@ -12,9 +10,7 @@ If **Match Exact** is turned off, you can specify any
 number of dimensions by which you want to filter. Up to 100 metrics
 matching your filter criteria are returned.
 
-## Dynamic
-
-queries using dimension wildcard characters
+## Dynamic queries using dimension wildcard characters
 
 You can monitor a dynamic list of metrics by using the asterisk
 (`*`) wildcard character for one or more dimension
@@ -60,9 +56,7 @@ dimension values. Using multi-valued template variables for
 `Region`, `Namespace`, or `Metric
  Name` is not supported.
 
-## Metric math
-
-expressions
+## Metric math expressions
 
 You can create new time series metrics by operating on top of
 CloudWatch metrics using mathematical functions. Arithmetic operators,

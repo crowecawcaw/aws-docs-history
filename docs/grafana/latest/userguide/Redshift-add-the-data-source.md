@@ -1,6 +1,4 @@
-# Manually adding the Amazon Redshift data
-
-source
+# Manually adding the Amazon Redshift data source
 
 ## Prerequisites
 
@@ -17,5 +15,4 @@ source
    can start typing `Redshift` in the search box to help you
    find it.
 7. This opens the **Connection Details** page. Follow the steps
-   in configuring the [Connection
-   details settings](Redshift-config.md#Redshift-connection-details "Redshift-config.md#Redshift-connection-details").
+   in configuring the [Connection details settings](Redshift-config.md#Redshift-connection-details "Redshift-config.md#Redshift-connection-details").

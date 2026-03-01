@@ -1,6 +1,4 @@
-# Manually add Amazon OpenSearch Service as a data
-
-source
+# Manually add Amazon OpenSearch Service as a data source
 
 ###### To manually add the Amazon OpenSearch Service data source
 

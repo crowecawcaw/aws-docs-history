@@ -26,7 +26,7 @@ ways.
 | **4. Adding a new<br>panel**                 | Use this option to add a panel, dashboard row, or library<br>panel to the current dashboard.                                                                                                                                                                                                                                                        |
 | **5. Dashboard<br>settings**                 | Use this option to change dashboard name, folder, and tags<br>and manage variables and annotation queries. For more<br>information about dashboard settings, see [Modifying dashboard settings](v9-dash-modify-settings.md "v9-dash-modify-settings.md").                                                                                           |
 | **6. Time picker<br>dropdown**               | Click to select relative time range options and set custom<br>absolute time ranges.<br>• You can change the **Timezone** and **fiscal year** settings from the time range<br>controls by clicking the \*_Change<br>time settings_<br>• button.<br>• Time settings are saved on a per-dashboard<br>basis.                                            |
-| **7. Zooming out time<br>range**             | Click to zoom out the time range. For more information<br>about how to use time range controls, see [Setting dashboard time<br>range](#v9-dash-setting-dashboard-time-range "#v9-dash-setting-dashboard-time-range").                                                                                                                               |
+| **7. Zooming out time<br>range**             | Click to zoom out the time range. For more information<br>about how to use time range controls, see [Setting dashboard time range](#v9-dash-setting-dashboard-time-range "#v9-dash-setting-dashboard-time-range").                                                                                                                                  |
 | **8. Refreshing<br>dashboard**               | Click to immediately trigger queries and refresh dashboard<br>data.                                                                                                                                                                                                                                                                                 |
 | **9. Refreshing dashboard time<br>interval** | Click to select a dashboard auto refresh time<br>interval.                                                                                                                                                                                                                                                                                          |
 | **10. View<br>mode**                         | Click to display the dashboard on a large screen such as a<br>TV or a kiosk. View mode hides irrelevant information such as<br>navigation menus.                                                                                                                                                                                                    |
@@ -61,9 +61,7 @@ pointer.
 - `pr` removes panel
 - `pl` toggles panel legend
 
-## Setting dashboard time
-
-range
+## Setting dashboard time range
 
 Grafana provides several ways to manage the time ranges of the data being
 visualized, for dashboard, panels and also for alerting.

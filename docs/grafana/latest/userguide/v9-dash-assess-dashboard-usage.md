@@ -70,9 +70,7 @@ When there are more active users on a dashboard than can fit within the presence
 indicator, click the **+X** icon. Doing this will open
 dashboard insights, which contain more details about recent user activity.
 
-## Sorting dashboards by using insights
-
-data
+## Sorting dashboards by using insights data
 
 In the search view, you can use insights data to help you find most-used, broken,
 and unused dashboards.

@@ -26,9 +26,7 @@ mode_.
   **Edit**. The panel opens in edit mode.
 - Choose anywhere on an existing panel, and then press **e** on your keyboard. The panel opens in edit mode.
 
-## Resizing panel editor
-
-sections
+## Resizing panel editor sections
 
 Drag to resize sections of the panel editor. If the side pane becomes too narrow,
 the **Panel**, **Field**, and
@@ -88,9 +86,7 @@ and create alert rules (if applicable).
 - Alert tab – Write alert rules. For
   more information, see [Grafana alerting](alerts-overview.md "alerts-overview.md").
 
-### Panel and field options
-
-(side pane)
+### Panel and field options (side pane)
 
 This section contains tabs where you control almost every aspect of how your
 data is visualized. Not all tabs are available for each visualization.

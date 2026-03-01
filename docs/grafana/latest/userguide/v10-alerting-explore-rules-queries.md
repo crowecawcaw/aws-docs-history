@@ -15,8 +15,7 @@ supported data sources, which include databases like MySQL and PostgreSQL, time 
 databases like Prometheus, InfluxDB and Graphite, and services like OpenSearch, Amazon CloudWatch,
 Azure Monitor and Google Cloud Monitoring.
 
-For more information on supported data sources, see [Data sources and Grafana
-alerting](v10-alerting-overview-datasources.md "v10-alerting-overview-datasources.md").
+For more information on supported data sources, see [Data sources and Grafana alerting](v10-alerting-overview-datasources.md "v10-alerting-overview-datasources.md").
 
 The process of executing a query involves defining the data source, specifying the
 desired data to retrieve, and applying relevant filters or transformations. Query
@@ -31,9 +30,7 @@ you want to measure.
 
 For more information on queries and expressions, see [Query and transform data](v10-panels-query-xform.md "v10-panels-query-xform.md").
 
-## Data
-
-source queries
+## Data source queries
 
 Queries in Grafana can be applied in various ways, depending on the data source
 and query language being used. Each data source’s query editor provides a customized
@@ -69,9 +66,7 @@ or tags to create aggregated views or breakdowns.
 Grafana does not support alert queries with template variables. More information
 is available [here](https://community.grafana.com/t/template-variables-are-not-supported-in-alert-queries-while-setting-up-alert/2514 "https://community.grafana.com/t/template-variables-are-not-supported-in-alert-queries-while-setting-up-alert/2514") in the Grafana Labs forums.
 
-## Expression
-
-queries
+## Expression queries
 
 In Grafana, an expression is used to perform calculations, transformations, or
 aggregations on the data source queried data. It allows you to create custom metrics
@@ -159,9 +154,7 @@ These functions are available for **Reduce** and
 | percent_diff_abs | Classic          | Displays the absolute value of percent_diff                                        |
 | count_non_null   | Classic          | Displays a count of values in the result set that aren’t<br>`null`                 |
 
-## Alert
-
-condition
+## Alert condition
 
 An alert condition is the query or expression that determines whether the alert
 will fire or not depending on the value it yields. There can be only one condition
@@ -178,9 +171,7 @@ underlying issue.
 
 By default, the last expression added is used as the alert condition.
 
-## Recovery
-
-threshold
+## Recovery threshold
 
 To reduce the noise of flapping alerts, you can set a recovery threshold
 different to the alert threshold.

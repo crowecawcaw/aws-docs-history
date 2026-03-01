@@ -44,5 +44,4 @@ The following table lists the contact point types supported by Grafana.
 | Slack      | `slack`     |
 | VictorOps  | `victorops` |
 
-For more information about contact points, see [Configure contact
-points](v10-alerting-configure-contactpoints.md "v10-alerting-configure-contactpoints.md") and [Customize notifications](v10-alerting-manage-notifications.md "v10-alerting-manage-notifications.md").
+For more information about contact points, see [Configure contact points](v10-alerting-configure-contactpoints.md "v10-alerting-configure-contactpoints.md") and [Customize notifications](v10-alerting-manage-notifications.md "v10-alerting-manage-notifications.md").

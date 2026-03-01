@@ -1,6 +1,4 @@
-# Using the Timestream data
-
-source
+# Using the Timestream data source
 
 ## Query editor
 

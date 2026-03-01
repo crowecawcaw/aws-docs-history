@@ -18,16 +18,12 @@ You can create correlations in the Explore correlations editor, or using the Gra
 You must have permission to add new correlations. Only users with write
 permissions to data sources can define new correlations.
 
-## Creating a correlation in Explore’s
-
-correlations editor
+## Creating a correlation in Explore’s correlations editor
 
 You can create a correlation in the Explore correlation editor. For more details,
 see [Creating a correlation](v10-explore-correlations.md#v10-explore-corr-create-a-correlation "v10-explore-correlations.md#v10-explore-corr-create-a-correlation").
 
-## Creating a correlation in
-
-the Administration page
+## Creating a correlation in the Administration page
 
 You can use the Grafana console **Administration** page to create a
 correlation.

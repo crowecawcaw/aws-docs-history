@@ -131,9 +131,7 @@ Content-Type: application/json
 ]
 ```
 
-## Get playlist
-
-dashboards
+## Get playlist dashboards
 
 ```
 GET /api/playlists/:id/dashboards

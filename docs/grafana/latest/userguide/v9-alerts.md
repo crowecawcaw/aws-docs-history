@@ -55,8 +55,6 @@ support Grafana v10.4 and later.
 - [Overview](v9-alerting-overview.md "v9-alerting-overview.md")
 - [Exploring alerting](v9-alerting-explore.md "v9-alerting-explore.md")
 - [Set up Alerting](v9-alerting-setup.md "v9-alerting-setup.md")
-- [Migrating classic dashboard alerts to Grafana
-  alerting](v9-alerting-use-grafana-alerts.md "v9-alerting-use-grafana-alerts.md")
+- [Migrating classic dashboard alerts to Grafana alerting](v9-alerting-use-grafana-alerts.md "v9-alerting-use-grafana-alerts.md")
 - [Manage your alert rules](v9-alerting-managerules.md "v9-alerting-managerules.md")
-- [Manage your alert
-  notifications](v9-alerting-managenotifications.md "v9-alerting-managenotifications.md")
+- [Manage your alert notifications](v9-alerting-managenotifications.md "v9-alerting-managenotifications.md")

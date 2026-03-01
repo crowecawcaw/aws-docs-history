@@ -1,27 +1,21 @@
-# Connect to an Azure Monitor data
-
-source
+# Connect to an Azure Monitor data source
 
 The Azure Monitor data source supports multiple services in the Azure cloud:
 
 - **Azure Monitor service** is the platform
   service that provides a single source for monitoring Azure resources. For
-  more information, see [Querying the Azure Monitor
-  service](#query-the-azure-monitor-service "#query-the-azure-monitor-service").
+  more information, see [Querying the Azure Monitor service](#query-the-azure-monitor-service "#query-the-azure-monitor-service").
 - **Application Insights server** is an
   extensible Application Performance Management (APM) service for web
   developers on multiple platforms and can be used to monitor your live web
   application - it will automatically detect performance anomalies. For more
-  information, see [Querying the
-  Application Insights Analytics service](#query-the-application-insights-analytics-service "#query-the-application-insights-analytics-service").
+  information, see [Querying the Application Insights Analytics service](#query-the-application-insights-analytics-service "#query-the-application-insights-analytics-service").
 - **Azure Log Analytics** (or Azure Logs) gives
   you access to log data collected by Azure Monitor. For more information, see
-  [Querying the Azure
-  Log Analytics service](#querying-the-azure-log-analytics-service "#querying-the-azure-log-analytics-service").
+  [Querying the Azure Log Analytics service](#querying-the-azure-log-analytics-service "#querying-the-azure-log-analytics-service").
 - Use the **Application Insights Analytics
   service** to query [Application Insights data](https://docs.microsoft.com/en-us/azure/azure-monitor/app/analytics "https://docs.microsoft.com/en-us/azure/azure-monitor/app/analytics") using the same query language used
-  for Azure Log Analytics. For more information, see [Querying the
-  Application Insights Analytics service](#query-the-application-insights-analytics-service "#query-the-application-insights-analytics-service").
+  for Azure Log Analytics. For more information, see [Querying the Application Insights Analytics service](#query-the-application-insights-analytics-service "#query-the-application-insights-analytics-service").
 
 ## Adding the data source
 
@@ -97,9 +91,7 @@ source, the first step is to select a service. There are four options:
 The query editor changes depending on which option you select. Azure Monitor
 is the default.
 
-## Querying the Azure Monitor
-
-service
+## Querying the Azure Monitor service
 
 The Azure Monitor service provides metrics for all the Azure services that
 you have running. It helps you understand how your applications on Azure are
@@ -134,9 +126,7 @@ Azure Monitor examples:
 - `Blob Type: {{ blobtype }}`
 - `{{ resourcegroup }} - {{ resourcename }}`
 
-### Alias patterns for Azure
-
-Monitor
+### Alias patterns for Azure Monitor
 
 - `{{ resourcegroup }}` = replaced with the value of the
   Resource Group
@@ -159,9 +149,7 @@ Monitor
   dimension. (for example, `{{ blobtype }}` becomes
   BlockBlob)
 
-### Creating
-
-template variables for Azure Monitor
+### Creating template variables for Azure Monitor
 
 Instead of hardcoding things such as server, application and sensor name
 in your metric queries you can use variables in their place. Variables are
@@ -201,9 +189,7 @@ Microsoft.Network/publicIPAddresses, grafanaIP)`
 
 For more information about templating and template variables, see [Templates](templates-and-variables.md#templates "templates-and-variables.md#templates").
 
-### List of supported
-
-Azure Monitor metrics
+### List of supported Azure Monitor metrics
 
 Not all metrics returned by the Azure Monitor API have values. To make
 building a query easier, the Grafana data source has a list of supported
@@ -216,9 +202,7 @@ Azure cloud.
 Grafana alerting is supported for the Azure Monitor service. This is not
 Azure Alerts support. For more information about Grafana alerting, see [Grafana alerting](alerts-overview.md "alerts-overview.md").
 
-## Querying the
-
-Application Insights service
+## Querying the Application Insights service
 
 ### Formatting legend keys with aliases for Application Insights
 
@@ -235,9 +219,7 @@ Application Insights examples:
 - `{{ metric }} [Location: {{ client/countryOrRegion }}, {{
 client/city }}]`
 
-### Alias patterns for
-
-Application Insights
+### Alias patterns for Application Insights
 
 - `{{ groupbyvalue }}` = _Legacy as of Grafana
   7.1+ (for backwards compatibility)_ replaced with the
@@ -253,9 +235,7 @@ Application Insights
   dimension. (for example, `{{ client/city }}` becomes
   Chicago)
 
-### Filter
-
-expressions for Application Insights
+### Filter expressions for Application Insights
 
 The filter field takes an OData filter expression.
 
@@ -286,16 +266,12 @@ Examples:
 - Chaining template variables:
   `AppInsightsGroupBys($metricnames)`
 
-### Application Insights
-
-alerting
+### Application Insights alerting
 
 Grafana alerting is supported for Application Insights. This is not Azure
 Alerts support. For more information about Grafana alerting, see [Grafana alerting](alerts-overview.md "alerts-overview.md").
 
-## Querying the Azure
-
-Log Analytics service
+## Querying the Azure Log Analytics service
 
 Queries are written in the new [Azure Log Analytics (or KustoDB) Query Language](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/query-language "https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/query-language"). A Log Analytics
 query can be formatted as time series data or as table data.
@@ -375,9 +351,7 @@ AzureActivity
 
 ```
 
-### Formatting the
-
-display name for Log Analytics
+### Formatting the display name for Log Analytics
 
 The default display name format is:
 
@@ -385,9 +359,7 @@ The default display name format is:
 
 This can be customized by using the display name field option.
 
-### Azure Log Analytics
-
-macros
+### Azure Log Analytics macros
 
 To make writing queries easier, Grafana provides several macros that you
 can use in the where clause of a query:
@@ -429,9 +401,7 @@ value `all`, the macro will instead expand to `1 ==
 increases the query performance by not building a large
 "where..in" clause.
 
-### Azure Log Analytics
-
-built-in variables
+### Azure Log Analytics built-in variables
 
 There are also some Grafana variables that can be used in Azure Log
 Analytics queries:
@@ -484,9 +454,7 @@ Perf
 
 ```
 
-### Deep linking from Grafana panels to the Log Analytics query editor in
-
-Azure Portal
+### Deep linking from Grafana panels to the Log Analytics query editor in Azure Portal
 
 Choose a time series in the panel to see a context menu with a link to
 **View in Azure Portal**. Choosing that link opens the
@@ -498,21 +466,16 @@ opens the login page. The provided link is valid for any account, but it
 only displays the query if your account has access to the Azure Log
 Analytics workspace specified in the query.
 
-### Azure Log Analytics
-
-alerting
+### Azure Log Analytics alerting
 
 Grafana alerting is supported for Application Insights. This is not Azure
 Alerts support. For more information about alerting in Grafana workspaces,
 see [Grafana alerting](alerts-overview.md "alerts-overview.md").
 
-## Querying the
-
-Application Insights Analytics service
+## Querying the Application Insights Analytics service
 
 If you change the service type to **Insights
 Analytics**, then a similar editor to the Log Analytics service is
 available. This service also uses the Kusto language, so the instructions for
-querying data are identical to [Querying the Azure
-Log Analytics service](#querying-the-azure-log-analytics-service "#querying-the-azure-log-analytics-service"), except that you query
+querying data are identical to [Querying the Azure Log Analytics service](#querying-the-azure-log-analytics-service "#querying-the-azure-log-analytics-service"), except that you query
 Application Insights Analytics data instead.

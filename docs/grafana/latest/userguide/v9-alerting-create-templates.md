@@ -1,6 +1,4 @@
-# Create notification
-
-templates
+# Create notification templates
 
 This documentation topic is designed
 for Grafana workspaces that support **Grafana version
@@ -28,9 +26,7 @@ templates, such as: `__subject`,
 In the Contact points tab, you can see a list of your notification
 templates.
 
-## Creating notification
-
-templates
+## Creating notification templates
 
 ###### To create a notification template
 
@@ -74,9 +70,7 @@ and end of the content.
 The following sections show detailed examples for templates you
 might create. 4. Click Save.
 
-## Creating a template
-
-for the subject of an email
+## Creating a template for the subject of an email
 
 Create a template for the subject of an email that contains the number
 of firing and resolved alerts, as in this example:
@@ -106,9 +100,7 @@ of firing and resolved alerts, as in this example:
 {{ template "email.subject" . }}
 ```
 
-## Creating a template
-
-for the message of an email
+## Creating a template for the message of an email
 
 Create a template for the message of an email that contains a summary
 of all firing and resolved alerts, as in this example:
@@ -175,9 +167,7 @@ Resolved alerts:
 {{ template "email.message" . }}
 ```
 
-## Creating a
-
-template for the title of a Slack message
+## Creating a template for the title of a Slack message
 
 Create a template for the title of a Slack message that contains the
 number of firing and resolved alerts, as in the following example:
@@ -206,9 +196,7 @@ number of firing and resolved alerts, as in the following example:
 {{ template "slack.title" . }}
 ```
 
-## Creating a
-
-template for the content of a Slack message
+## Creating a template for the content of a Slack message
 
 Create a template for the content of a Slack message that contains
 a description of all firing and resolved alerts, including their labels,
@@ -292,9 +280,7 @@ Annotations:
 {{ template "slack.message" . }}
 ```
 
-## Template both
-
-email and Slack with shared templates
+## Template both email and Slack with shared templates
 
 Instead of creating separate notification templates for each contact
 point, such as email and Slack, you can share the same template.
@@ -329,9 +315,7 @@ message with this title `1 firing alerts, 0 resolved
 {{ template "common.subject_title" . }}
 ```
 
-## Using notification
-
-templates
+## Using notification templates
 
 Use templates in contact points to customize your notifications.
 

@@ -1,6 +1,4 @@
-# Creating Grafana
-
-Mimir or Loki managed recording rules
+# Creating Grafana Mimir or Loki managed recording rules
 
 This documentation topic is designed
 for Grafana workspaces that support **Grafana version
@@ -60,8 +58,7 @@ via Alerting UI** check box.
      existing rule namespace. Otherwise, choose **Add
      new** and enter a name to create one. Namespaces can
      contain one or more rule groups and only have an organizational
-     purpose. For more information, see [Cortex or Loki rule groups and
-     namespaces](alert-rules.md#alert-rule-groups "alert-rules.md#alert-rule-groups").
+     purpose. For more information, see [Cortex or Loki rule groups and namespaces](alert-rules.md#alert-rule-groups "alert-rules.md#alert-rule-groups").
    - From the **Group** dropdown, select an existing
      group within the selected namespace. Otherwise, choose **Add
      new** and enter a name to create one. Newly created
@@ -77,8 +74,7 @@ greater than 0. An alert is created for each series. 5. In **Step 3**, add addit
 the rule.
 
     * Add a description and summary to customize alert messages. Use the
-     guidelines in [Annotations and labels for alerting
-     rules](alert-rules.md#alert-rule-labels "alert-rules.md#alert-rule-labels").
+     guidelines in [Annotations and labels for alerting rules](alert-rules.md#alert-rule-labels "alert-rules.md#alert-rule-labels").
     * Add Runbook URL, panel, dashboard, and alert IDs.
     * Add custom labels.
 

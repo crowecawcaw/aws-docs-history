@@ -1,6 +1,4 @@
-# Manually add CloudWatch as a data
-
-source
+# Manually add CloudWatch as a data source
 
 ###### To manually add the CloudWatch data source
 
@@ -35,15 +33,12 @@ some of the same methods that you would on a self-managed Grafana
 server.
 
 To use Amazon Managed Grafana data source configuration to quickly set up the
-policies, follow the steps in [Use AWS data source
-configuration to add CloudWatch as a data source](adding-CloudWatch-AWS-config.md "adding-CloudWatch-AWS-config.md").
+policies, follow the steps in [Use AWS data source configuration to add CloudWatch as a data source](adding-CloudWatch-AWS-config.md "adding-CloudWatch-AWS-config.md").
 
 To set up the permissions manually, use one of the methods in the
 following section.
 
-#### AWS
-
-credentials
+#### AWS credentials
 
 There are three different authentication methods available.
 
@@ -57,9 +52,7 @@ There are three different authentication methods available.
   any fallbacks, and will fail if the provided key pair
   doesn’t work.
 
-#### IAM
-
-roles
+#### IAM roles
 
 Currently, all access to CloudWatch is done server-side by the Grafana
 backend using the official AWS SDK. If you choose the
@@ -70,9 +63,7 @@ to handle authentication automatically.
 For more information, see [IAM
 roles](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md").
 
-#### IAM
-
-policies
+#### IAM policies
 
 Grafana needs permissions granted through IAM to be able to read
 CloudWatch metrics and EC2 tags, instances, and Regions. You can attach

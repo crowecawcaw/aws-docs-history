@@ -1,6 +1,4 @@
-# Use SAML with your Amazon Managed Grafana
-
-workspace
+# Use SAML with your Amazon Managed Grafana workspace
 
 ###### Note
 
@@ -99,9 +97,7 @@ to values in Amazon Managed Grafana:
   your IdP who should all be granted the `Editor` role in the
   Amazon Managed Grafana workspace.
 
-## Connecting to your identity
-
-provider
+## Connecting to your identity provider
 
 The following external identity providers have been tested with Amazon Managed Grafana and
 provide applications directly in their app directories or galleries to help you
@@ -109,12 +105,8 @@ configure Amazon Managed Grafana with SAML.
 
 ###### Topics
 
-- [Configure Amazon Managed Grafana to use Azure
-  AD](AMG-SAML-providers-Azure.md "AMG-SAML-providers-Azure.md")
-- [Configure Amazon Managed Grafana to use
-  CyberArk](AMG-SAML-providers-CyberArk.md "AMG-SAML-providers-CyberArk.md")
+- [Configure Amazon Managed Grafana to use Azure AD](AMG-SAML-providers-Azure.md "AMG-SAML-providers-Azure.md")
+- [Configure Amazon Managed Grafana to use CyberArk](AMG-SAML-providers-CyberArk.md "AMG-SAML-providers-CyberArk.md")
 - [Configure Amazon Managed Grafana to use Okta](AMG-SAML-providers-okta.md "AMG-SAML-providers-okta.md")
-- [Configure Amazon Managed Grafana to use
-  OneLogin](AMG-SAML-providers-onelogin.md "AMG-SAML-providers-onelogin.md")
-- [Configure Amazon Managed Grafana to use Ping
-  Identity](AMG-SAML-providers-pingone.md "AMG-SAML-providers-pingone.md")
+- [Configure Amazon Managed Grafana to use OneLogin](AMG-SAML-providers-onelogin.md "AMG-SAML-providers-onelogin.md")
+- [Configure Amazon Managed Grafana to use Ping Identity](AMG-SAML-providers-pingone.md "AMG-SAML-providers-pingone.md")

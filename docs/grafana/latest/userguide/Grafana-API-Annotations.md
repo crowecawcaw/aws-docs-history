@@ -147,9 +147,7 @@ Content-Type: application/json
 }
 ```
 
-## Create annotation in
-
-graphite format
+## Create annotation in graphite format
 
 ```
 POST /api/annotations/graphite

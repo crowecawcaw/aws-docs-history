@@ -25,9 +25,7 @@ fields. The following is an example of data formats:
 
 If you have more than one numerical field, the panel shows grouped bars.
 
-### Visualizing time series or
-
-multiple result sets
+### Visualizing time series or multiple result sets
 
 If you have multiple time series or tables, you first need to join them using
 a join, or reduce transform. For example, if you have multiple time series and

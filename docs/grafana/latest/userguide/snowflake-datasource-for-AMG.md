@@ -1,6 +1,4 @@
-# Connect to a Snowflake data
-
-source
+# Connect to a Snowflake data source
 
 With the Snowflake Enterprise data source, you can visualize your Snowflake data
 alongside all of your other data sources in Grafana as well as log and metric data
@@ -31,9 +29,7 @@ Snowflake as their primary database to store application and business data
 such as transaction counts, active user sessions, and even time series and
 metric data.
 
-### Making the most of
-
-Snowflake and Amazon Managed Grafana
+### Making the most of Snowflake and Amazon Managed Grafana
 
 **Visualize Snowflake data without moving it**:
 Grafana’s unique architecture queries data directly where it lives rather
@@ -73,16 +69,12 @@ Snowflake queries to make interactive dashboards.
 **Multi-metric queries:** Write a single query
 that returns multiple metrics, each in its own column
 
-## Get started with the
-
-Snowflake plugin
+## Get started with the Snowflake plugin
 
 Here are five quick steps to get started with the Snowflake plugin in
 Grafana:
 
-### Step 1: Set up the
-
-Snowflake Data Source
+### Step 1: Set up the Snowflake Data Source
 
 To configure the data source, choose **Configuration**,
 **Data Sources**, **Add data source**,
@@ -102,9 +94,7 @@ The following configuration fields are available.
 | Database (optional)  | Sets a default database for queries.  |
 | Role (optional)      | Assumes a role for queries.           |
 
-### Step 2: Write
-
-queries for your Snowflake data
+### Step 2: Write queries for your Snowflake data
 
 Create a panel in a dashboard, and select a Snowflake Data Source to
 start using the query editor.
@@ -117,9 +107,7 @@ start using the query editor.
   data series, if your time series data is formatted for different
   metrics.
 
-#### Layout of a Snowflake
-
-query
+#### Layout of a Snowflake query
 
 ```
 
@@ -137,9 +125,7 @@ where
 
 ```
 
-#### SQL
-
-query format for time series group by interval
+#### SQL query format for time series group by interval
 
 ```
 
@@ -157,9 +143,7 @@ group by <time_column>
 
 ```
 
-#### SQL query format for
-
-tables
+#### SQL query format for tables
 
 ```
 
@@ -176,13 +160,9 @@ where
 
 ```
 
-### Step 3: Create
+### Step 3: Create and use Template Variables
 
-and use Template Variables
-
-#### Using template
-
-variables
+#### Using template variables
 
 You can include template variables in queries, as shown in the
 following example.
@@ -244,9 +224,7 @@ created.
 
 Choose the alert tab button within the query editor, and choose **Create Alert**.
 
-### Step 5. Create an
-
-annotation
+### Step 5. Create an annotation
 
 Annotations allow you to overlay events on a graph.
 
@@ -283,9 +261,7 @@ dashboard panels.
 
 ## Additional functionality
 
-### Using the Display Name
-
-field
+### Using the Display Name field
 
 This plugin uses the Display Name field in the Field tab of the Options
 panel to shorten or alter a legend key based on its name, labels, or values.
@@ -293,9 +269,7 @@ Other data sources use custom `alias` functionality to modify
 legend keys, but the Display Name function is a more consistent way to do
 so.
 
-### Data source
-
-permissions
+### Data source permissions
 
 Limit access to Snowflake by choosing the **Permissions** tab in the data source configuration page to
 enable data source permissions. On the permission page, Admins can enable

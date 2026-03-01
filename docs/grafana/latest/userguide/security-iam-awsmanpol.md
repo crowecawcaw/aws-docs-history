@@ -15,9 +15,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS managed
-
-policy: AWSGrafanaAccountAdministrator
+## AWS managed policy: AWSGrafanaAccountAdministrator
 
 AWSGrafanaAccountAdministrator policy provides access within Amazon Managed Grafana to create and
 manage accounts and workspaces for the entire organization.
@@ -78,9 +76,7 @@ JSON
 
 ```
 
-## AWS
-
-managed policy: AWSGrafanaWorkspacePermissionManagement (obsolete)
+## AWS managed policy: AWSGrafanaWorkspacePermissionManagement (obsolete)
 
 This policy is obsolete. This policy should not be attached to any new users,
 groups, or roles.
@@ -90,9 +86,7 @@ Amazon Managed Grafana added a new policy,
 to replace this policy. This new managed policy improves security for your workspace
 by providing a more restrictive set of permissions.
 
-## AWS
-
-managed policy: AWSGrafanaWorkspacePermissionManagementV2
+## AWS managed policy: AWSGrafanaWorkspacePermissionManagementV2
 
 AWSGrafanaWorkspacePermissionManagementV2 policy provides only the ability to update
 user and group permissions for Amazon Managed Grafana workspaces.
@@ -176,9 +170,7 @@ For information about how to create and apply policy to your roles or users, see
 [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") in the
 _AWS Identity and Access Management User Guide_.
 
-## AWS managed
-
-policy: AWSGrafanaConsoleReadOnlyAccess
+## AWS managed policy: AWSGrafanaConsoleReadOnlyAccess
 
 AWSGrafanaConsoleReadOnlyAccess policy grants access to read-only operations in
 Amazon Managed Grafana.
@@ -209,9 +201,7 @@ JSON
 
 ```
 
-## AWS managed
-
-policy: AmazonGrafanaRedshiftAccess
+## AWS managed policy: AmazonGrafanaRedshiftAccess
 
 This policy grants scoped access to Amazon Redshift and the dependencies needed to use the Amazon Redshift
 plugin in Amazon Managed Grafana. AmazonGrafanaRedshiftAccess policy allows a user or an IAM role
@@ -294,9 +284,7 @@ JSON
 
 ```
 
-## AWS managed policy:
-
-AmazonGrafanaAthenaAccess
+## AWS managed policy: AmazonGrafanaAthenaAccess
 
 This policy grants access to Athena and the dependencies needed to enable querying and
 writing results to Amazon S3 from the Athena plugin in Amazon Managed Grafana. AmazonGrafanaAthenaAccess
@@ -398,9 +386,7 @@ JSON
 
 ```
 
-## AWS managed
-
-policy: AmazonGrafanaCloudWatchAccess
+## AWS managed policy: AmazonGrafanaCloudWatchAccess
 
 This policy grants access to Amazon CloudWatch and the dependencies needed to use CloudWatch as a
 datasource within Amazon Managed Grafana.
@@ -479,9 +465,7 @@ JSON
 
 ```
 
-## Amazon Managed Grafana updates to AWS managed
-
-policies
+## Amazon Managed Grafana updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amazon Managed Grafana since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe

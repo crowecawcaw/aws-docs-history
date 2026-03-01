@@ -164,9 +164,7 @@ weather,location=us-midwest temperature=82 1465839830100400200
 +-----------+--------+-+---------+-+---------+
 ```
 
-##### Collecting time series
-
-data
+##### Collecting time series data
 
 Now that you have a place to store your time series, how do you actually
 gather the measurements? To collect time series data, you’d typically
@@ -227,9 +225,7 @@ _tags_ is used instead.
 In table databases such SQL, these dimensions are generally the `GROUP
  BY` parameters of a query.
 
-#### Multiple dimensions in
-
-table format
+#### Multiple dimensions in table format
 
 In SQL or SQL-like databases that return table responses, additional
 dimensions usually are columns in the query response table.
@@ -310,9 +306,7 @@ dimensions; for example, `AVG(Temperature) AS AvgTemp, MAX(Temperature)
 result in numerous series. Selecting multiple values is currently designed
 to be used only with visualization.
 
-### Introduction to histograms
-
-and heatmaps
+### Introduction to histograms and heatmaps
 
 A histogram is a graphical representation of the distribution of numerical data.
 It groups values into buckets (sometimes also called bins). Then it counts how many

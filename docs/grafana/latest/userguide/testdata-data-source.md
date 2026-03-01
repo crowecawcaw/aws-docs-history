@@ -1,6 +1,4 @@
-# Configure a TestData data source for
-
-testing
+# Configure a TestData data source for testing
 
 Grafana ships with a TestData data source, which creates simulated time series
 data for any panel. You can use it to build your own fake and random time series

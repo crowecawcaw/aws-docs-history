@@ -1,6 +1,4 @@
-# Authenticate users in Amazon Managed Grafana
-
-workspaces
+# Authenticate users in Amazon Managed Grafana workspaces
 
 Individual users sign into your workspaces, to edit and view your dashboards. You
 can assign users to your workspaces and [give them user, editor, or administrator permissions](AMG-manage-users-and-groups-AMG.md "AMG-manage-users-and-groups-AMG.md"). To get started, you
@@ -19,12 +17,9 @@ workspace can use one or both of the following authentication methods:
 
 You must give your users (or groups that they belong to) permissions to the workspace
 before they can access functionality within the workspace. For more information about
-giving permissions to your users, see [Manage user and group access to
-Amazon Managed Grafana workspaces](AMG-manage-users-and-groups-AMG.md "AMG-manage-users-and-groups-AMG.md").
+giving permissions to your users, see [Manage user and group access to Amazon Managed Grafana workspaces](AMG-manage-users-and-groups-AMG.md "AMG-manage-users-and-groups-AMG.md").
 
 ###### Topics
 
-- [Use SAML with your Amazon Managed Grafana
-  workspace](authentication-in-AMG-SAML.md "authentication-in-AMG-SAML.md")
-- [Use AWS IAM Identity Center with your Amazon Managed Grafana
-  workspace](authentication-in-AMG-SSO.md "authentication-in-AMG-SSO.md")
+- [Use SAML with your Amazon Managed Grafana workspace](authentication-in-AMG-SAML.md "authentication-in-AMG-SAML.md")
+- [Use AWS IAM Identity Center with your Amazon Managed Grafana workspace](authentication-in-AMG-SSO.md "authentication-in-AMG-SSO.md")

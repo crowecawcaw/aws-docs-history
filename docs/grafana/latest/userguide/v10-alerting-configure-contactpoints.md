@@ -1,6 +1,4 @@
-# Configure contact
-
-points
+# Configure contact points
 
 This documentation topic is designed
 for Grafana workspaces that support **Grafana version
@@ -95,9 +93,7 @@ that it is configured properly.
 6. Choose **Send test notification** to test the alert with
    the given contact points.
 
-## Configure
-
-contact point integrations
+## Configure contact point integrations
 
 Configure contact point integrations in Grafana to select your preferred
 communication channel for receiving notifications when your alert rules are

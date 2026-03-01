@@ -19,8 +19,7 @@ within your workspace.
 ###### Note
 
 To help you discover AWS resources in your account and setup data sources to query
-them, Amazon Managed Grafana provides the [Use the AWS Data Sources plugin to find
-AWS data](aws-datasources-plugin.md "aws-datasources-plugin.md").
+them, Amazon Managed Grafana provides the [Use the AWS Data Sources plugin to find AWS data](aws-datasources-plugin.md "aws-datasources-plugin.md").
 
 ## Special data sources
 
@@ -49,7 +48,6 @@ quotas](../../../general/latest/gr/grafana-service.md#grafana-quotas "../../../g
 
 ###### Topics
 
-- [How Amazon Managed Grafana works with AWS Organizations for AWS data
-  source access](AMG-and-Organizations.md "AMG-and-Organizations.md")
+- [How Amazon Managed Grafana works with AWS Organizations for AWS data source access](AMG-and-Organizations.md "AMG-and-Organizations.md")
 - [Connect to built-in data sources](AMG-data-sources-builtin.md "AMG-data-sources-builtin.md")
 - [Connect to Enterprise data sources](AMG-data-sources-enterprise.md "AMG-data-sources-enterprise.md")

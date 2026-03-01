@@ -1,6 +1,4 @@
-# Use your Grafana
-
-workspace
+# Use your Grafana workspace
 
 Your Grafana workspace is where you work on projects to create visualizations and explore
 your metrics. Set up and query

@@ -30,20 +30,15 @@ The following table lists the types of variables in Grafana.
 - [Adding a query variable](#v10-dash-variable-add-query "#v10-dash-variable-add-query")
 - [Adding a custom variable](#v10-dash-variable-add-custom "#v10-dash-variable-add-custom")
 - [Adding a text box variable](#v10-dash-variable-add-text "#v10-dash-variable-add-text")
-- [Adding a constant
-  variable](#v10-dash-variable-add-constant "#v10-dash-variable-add-constant")
-- [Adding a data source
-  variable](#v10-dash-variable-add-datasource "#v10-dash-variable-add-datasource")
-- [Adding an interval
-  variable](#v10-dash-variable-add-internal "#v10-dash-variable-add-internal")
+- [Adding a constant variable](#v10-dash-variable-add-constant "#v10-dash-variable-add-constant")
+- [Adding a data source variable](#v10-dash-variable-add-datasource "#v10-dash-variable-add-datasource")
+- [Adding an interval variable](#v10-dash-variable-add-internal "#v10-dash-variable-add-internal")
 - [Adding ad hoc filters](#v10-dash-variable-add-adhoc "#v10-dash-variable-add-adhoc")
-- [Configure variable selection
-  options](#v10-dash-variable-add-selection "#v10-dash-variable-add-selection")
+- [Configure variable selection options](#v10-dash-variable-add-selection "#v10-dash-variable-add-selection")
 - [Global variables](#v10-dash-variable-add-global "#v10-dash-variable-add-global")
 - [Chained variables](#v10-dash-variable-add-chained "#v10-dash-variable-add-chained")
 - [Manage variables](#v10-dash-variable-add-manage "#v10-dash-variable-add-manage")
-- [Filter variables with
-  regex](#v10-dash-variable-add-filter "#v10-dash-variable-add-filter")
+- [Filter variables with regex](#v10-dash-variable-add-filter "#v10-dash-variable-add-filter")
 
 ## Entering General options
 
@@ -184,9 +179,7 @@ time.
 4. Select **Add** to add the variable to the
    dashboard.
 
-## Adding a constant
-
-variable
+## Adding a constant variable
 
 _Constant_ variables enable you to define a hidden
 constant. This is useful for metric path prefixes for dashboards you want to
@@ -214,9 +207,7 @@ replace it with a variable called `$path_gg`.
 4. Select **Add** to add the variable to the
    dashboard.
 
-## Adding a data source
-
-variable
+## Adding a data source variable
 
 _Data source_ variables enable you to quickly change the
 data source for an entire dashboard. They are useful if you have multiple
@@ -238,9 +229,7 @@ the current variable values. Review them to ensure they match what you
 expect. 6. Select **Add** to add the variable to the
 dashboard.
 
-## Adding an interval
-
-variable
+## Adding an interval variable
 
 Use an _interval_ variable to represents time spans such as
 `1m`,`1h`, or `1d`. You can think of them
@@ -323,17 +312,13 @@ available. Instead of a regular list of variable options, this variable allows
 you to build a dashboard-wide ad hoc query. Filters you apply in this manner are
 applied to all panels on the dashboard.
 
-## Configure variable selection
-
-options
+## Configure variable selection options
 
 _Selection Options_ are a feature you can use
 to manage variable option selections. All selection options are optional, and
 they are off by default.
 
-### Multi-value
-
-variables
+### Multi-value variables
 
 Interpolating a variable with multiple values selected is tricky as it is
 not straight forward how to format the multiple values into a string that is
@@ -393,9 +378,7 @@ formatting, then you must do one of the following:
 Grafana adds an `All` option to the variable dropdown list. If
 a user selects this option, then all variable options are selected.
 
-### Custom all
-
-value
+### Custom all value
 
 This option is only visible if the **Include All option**
 is selected.
@@ -601,9 +584,7 @@ with the name of the original variable prefixed with
 **Delete** – To delete a variable, click the trash
 icon from the set of icons on the right.
 
-## Filter variables with
-
-regex
+## Filter variables with regex
 
 Using the Regex Query option, you filter the list of options returned by the
 variable query or modify the options returned.

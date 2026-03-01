@@ -32,7 +32,5 @@ absence of data.
 - [Alert instances](v10-alerting-rules-instances.md "v10-alerting-rules-instances.md")
 - [Namespaces, folders and groups](v10-alerting-rules-grouping.md "v10-alerting-rules-grouping.md")
 - [Alert rule evaluation](v10-alerting-rules-evaluation.md "v10-alerting-rules-evaluation.md")
-- [State and health of alerting
-  rules](v10-alerting-explore-state.md "v10-alerting-explore-state.md")
-- [Notification
-  templating](v10-alerting-rules-notification-templates.md "v10-alerting-rules-notification-templates.md")
+- [State and health of alerting rules](v10-alerting-explore-state.md "v10-alerting-explore-state.md")
+- [Notification templating](v10-alerting-rules-notification-templates.md "v10-alerting-rules-notification-templates.md")

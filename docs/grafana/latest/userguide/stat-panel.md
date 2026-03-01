@@ -28,9 +28,7 @@ Stat visualizations allow you to apply the following options:
 - [Field options and overrides](field-options-overrides.md "field-options-overrides.md").
 - [Thresholds](thresholds.md "thresholds.md").
 
-## Automatic layout
-
-adjustment
+## Automatic layout adjustment
 
 The panel automatically adjusts the layout depending on available width and
 height in the dashboard. It automatically hides the graph (sparkline) if the panel

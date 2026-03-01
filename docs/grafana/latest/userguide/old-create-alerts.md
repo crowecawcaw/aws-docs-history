@@ -25,9 +25,7 @@ change state and initiate its notifications.
 
 Currently, only the graph panel supports alert rules.
 
-## Adding or editing an alert
-
-rule
+## Adding or editing an alert rule
 
 1. Navigate to the panel where add or edit an alert rule, choose the title,
    and then choose **Edit**.
@@ -86,9 +84,7 @@ Currently, the only existing condition type is a `Query` condition
 that allows you to specify a query letter, a time range, and an aggregation
 function.
 
-#### Query condition
-
-example
+#### Query condition example
 
 ```
 
@@ -160,9 +156,7 @@ evaluation engine handles queries that return no data or only null values.
 | Keep Last State | Keep the current alert rule state, whatever it is. |
 | Ok              | Supported, but usually not useful.                 |
 
-### Execution errors or
-
-timeouts
+### Execution errors or timeouts
 
 The following options tell Amazon Managed Grafana how to handle execution or timeout
 errors.
@@ -194,9 +188,7 @@ information on how to configure and set up notifications, see [Alert notificatio
   (key-value) to be included in the notification. It is supported by only some
   notifiers.
 
-## Alert state history and
-
-annotations
+## Alert state history and annotations
 
 Alert state changes are recorded in the internal annotation table in the
 Amazon Managed Grafana database. The state changes are visualized as annotations in the graph

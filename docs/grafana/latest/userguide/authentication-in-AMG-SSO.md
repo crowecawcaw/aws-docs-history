@@ -1,6 +1,4 @@
-# Use AWS IAM Identity Center with your Amazon Managed Grafana
-
-workspace
+# Use AWS IAM Identity Center with your Amazon Managed Grafana workspace
 
 Amazon Managed Grafana integrates with AWS IAM Identity Center to provide identity federation for your workforce.
 Using Amazon Managed Grafana and IAM Identity Center, users are redirected to their existing company directory
@@ -22,17 +20,13 @@ To use IAM Identity Center, you must also have AWS Organizations activated for t
 Amazon Managed Grafana can activate Organizations for you when you create your first workspace that is
 configured to use IAM Identity Center.
 
-## Required permissions for scenarios using
-
-IAM Identity Center
+## Required permissions for scenarios using IAM Identity Center
 
 This section explains the policies that are required for using Amazon Managed Grafana with
 IAM Identity Center. The policies needed to administer Amazon Managed Grafana differ based on whether your
 AWS account is part of an organization or not.
 
-### Create a Grafana administrator in AWS Organizations
-
-accounts
+### Create a Grafana administrator in AWS Organizations accounts
 
 To grant permissions to create and manage Amazon Managed Grafana workspaces in an
 organization, and to allow dependencies such as AWS IAM Identity Center, assign the following
@@ -71,12 +65,9 @@ has full permissions for all resources, and attach that policy to any role.
 Be very careful about who you grant these permissions to.
 
 To see the permissions granted to
-**AWSGrafanaAccountAdministrator**, see [AWS managed
-policy: AWSGrafanaAccountAdministrator](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaAccountAdministrator "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaAccountAdministrator")
+**AWSGrafanaAccountAdministrator**, see [AWS managed policy: AWSGrafanaAccountAdministrator](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaAccountAdministrator "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaAccountAdministrator")
 
-### Create and manage Amazon Managed Grafana workspaces
-
-and users in a single standalone account
+### Create and manage Amazon Managed Grafana workspaces and users in a single standalone account
 
 A standalone AWS account is an account that is not a member of an
 organization. For more information about AWS Organizations, see [What is
@@ -97,5 +88,4 @@ gives that role full administrative access to your AWS account. Be very
 careful about who you grant these permissions to.
 
 To see the permissions granted to
-**AWSGrafanaAccountAdministrator**, see [AWS managed
-policy: AWSGrafanaAccountAdministrator](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaAccountAdministrator "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaAccountAdministrator")
+**AWSGrafanaAccountAdministrator**, see [AWS managed policy: AWSGrafanaAccountAdministrator](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaAccountAdministrator "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaAccountAdministrator")

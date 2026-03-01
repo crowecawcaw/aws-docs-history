@@ -10,9 +10,7 @@ API token. You include this in the `Authorization` field in the API
 request. For information about how to create a token to authenticate your API calls,
 see [Authenticate with tokens](authenticating-grafana-apis.md "authenticating-grafana-apis.md").
 
-## Get all dashboard
-
-versions
+## Get all dashboard versions
 
 ```
 GET /api/dashboards/id/:dashboardId/versions
@@ -267,9 +265,7 @@ JSON response body schema:
 - **message**— A message explaining the
   reason for the failure.
 
-## Compare dashboard
-
-versions
+## Compare dashboard versions
 
 ```
 POST /api/dashboards/calculate-diff

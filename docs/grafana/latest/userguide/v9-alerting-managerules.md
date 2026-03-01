@@ -31,12 +31,8 @@ deleted by users with Editor or Admin roles.
 
 ###### Topics
 
-- [Creating Grafana managed
-  alert rules](v9-alerting-managerules-grafana.md "v9-alerting-managerules-grafana.md")
-- [Creating Grafana Mimir
-  or Loki managed alert rules](v9-alerting-managerules-mimir-loki.md "v9-alerting-managerules-mimir-loki.md")
-- [Creating Grafana
-  Mimir or Loki managed recording rules](v9-alerting-managerules-mimir-loki-recording.md "v9-alerting-managerules-mimir-loki-recording.md")
-- [Grafana Mimir or
-  Loki rule groups and namespaces](v9-alerting-managerules-mimir-loki-groups.md "v9-alerting-managerules-mimir-loki-groups.md")
+- [Creating Grafana managed alert rules](v9-alerting-managerules-grafana.md "v9-alerting-managerules-grafana.md")
+- [Creating Grafana Mimir or Loki managed alert rules](v9-alerting-managerules-mimir-loki.md "v9-alerting-managerules-mimir-loki.md")
+- [Creating Grafana Mimir or Loki managed recording rules](v9-alerting-managerules-mimir-loki-recording.md "v9-alerting-managerules-mimir-loki-recording.md")
+- [Grafana Mimir or Loki rule groups and namespaces](v9-alerting-managerules-mimir-loki-groups.md "v9-alerting-managerules-mimir-loki-groups.md")
 - [View and edit alerting rules](v9-alerting-managerules-view-edit.md "v9-alerting-managerules-view-edit.md")

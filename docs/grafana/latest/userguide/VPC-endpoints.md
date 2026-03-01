@@ -8,9 +8,7 @@ Amazon Managed Grafana supports two different kinds of VPC endpoints. You can co
 service, providing access to the Amazon Managed Grafana APIs to manage workspaces. Or you can create a
 VPC endpoint to a specific workspace.
 
-## Using Amazon Managed Grafana with interface VPC
-
-endpoints
+## Using Amazon Managed Grafana with interface VPC endpoints
 
 There are two ways to use interface VPC endpoints with Amazon Managed Grafana. You can use a VPC
 endpoint to allow AWS resources such as Amazon EC2 instances to access the Amazon Managed Grafana
@@ -44,9 +42,7 @@ information, see [New – AWS PrivateLink for AWS Services](https://aws.amazon.c
 For information about how to get started with Amazon VPC, see [Get started](../../../vpc/latest/userguide/vpc-getting-started.md "../../../vpc/latest/userguide/vpc-getting-started.md") in the
 _Amazon VPC User Guide_.
 
-## Creating a VPC endpoint to make an
-
-AWS PrivateLink connection to Amazon Managed Grafana
+## Creating a VPC endpoint to make an AWS PrivateLink connection to Amazon Managed Grafana
 
 Create an interface VPC endpoint to Amazon Managed Grafana with one of the following
 service name endpoints:
@@ -68,9 +64,7 @@ For calling Grafana APIs, you must also enable private DNS for your VPC endpoint
 by following the instructions in the [Amazon VPC User Guide](../../../vpc/latest/privatelink/interface-endpoints.md#enable-private-dns-names "../../../vpc/latest/privatelink/interface-endpoints.md#enable-private-dns-names"). This enables local resolution of URLs in the form
 `*.grafana-workspace.`region`.amazonaws.com`
 
-## Using network access control to limit access
-
-to your Grafana workspace
+## Using network access control to limit access to your Grafana workspace
 
 If you want to limit what IP addresses or VPC endpoints can be used to access a
 specific Grafana workspace, you can [configure
@@ -80,9 +74,7 @@ For VPC endpoints that you give access to your workspace, you can further limit 
 access by configuring security groups for the endpoints. To learn more, see [Associate security groups](../../../vpc/latest/privatelink/interface-endpoints.md#associate-security-groups "../../../vpc/latest/privatelink/interface-endpoints.md#associate-security-groups") and [Security group
 rules](../../../vpc/latest/userguide/VPC_SecurityGroups.md#SecurityGroupRules "../../../vpc/latest/userguide/VPC_SecurityGroups.md#SecurityGroupRules") in the _Amazon VPC documentation_.
 
-## Controlling access to your Amazon Managed Grafana API VPC endpoint with an
-
-endpoint policy
+## Controlling access to your Amazon Managed Grafana API VPC endpoint with an endpoint policy
 
 For VPC endpoints that are connected the Amazon Managed Grafana API (using
 `com.amazonaws.`region`.grafana`), you can add a VPC

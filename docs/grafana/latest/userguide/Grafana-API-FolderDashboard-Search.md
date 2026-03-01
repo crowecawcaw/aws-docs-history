@@ -10,9 +10,7 @@ API token. You include this in the `Authorization` field in the API
 request. For information about how to create a token to authenticate your API calls,
 see [Authenticate with tokens](authenticating-grafana-apis.md "authenticating-grafana-apis.md").
 
-## Search folders and
-
-dashboards
+## Search folders and dashboards
 
 ```
 GET /api/search/

@@ -1,6 +1,4 @@
-# Configure network access to your Amazon Managed Grafana
-
-workspace
+# Configure network access to your Amazon Managed Grafana workspace
 
 You can control how users and hosts access your Grafana workspaces.
 

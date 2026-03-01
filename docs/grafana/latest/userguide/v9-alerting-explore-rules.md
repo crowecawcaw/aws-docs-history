@@ -27,5 +27,4 @@ define alerting behavior in the absence of data.
 - [Alert rule types](v9-alerting-explore-rules-types.md "v9-alerting-explore-rules-types.md")
 - [Alert instances](v9-alerting-rules-instances.md "v9-alerting-rules-instances.md")
 - [Namespaces and groups](v9-alerting-rules-grouping.md "v9-alerting-rules-grouping.md")
-- [Notification
-  templating](v9-alerting-rules-notification-templates.md "v9-alerting-rules-notification-templates.md")
+- [Notification templating](v9-alerting-rules-notification-templates.md "v9-alerting-rules-notification-templates.md")

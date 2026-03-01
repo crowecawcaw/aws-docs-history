@@ -29,9 +29,7 @@ To access Graphite settings, pause on the **Configuration** (gear) icon, then ch
 Access mode controls how requests to the data source will be handled. Server
 should be the preferred way if nothing else is stated.
 
-### Server access mode
-
-(default)
+### Server access mode (default)
 
 All requests are made from the browser to Amazon Managed Grafana, which forwards the
 requests to the data source, circumventing possible Cross-Origin Resource
@@ -51,9 +49,7 @@ queries.
 To see the raw text of the query that is sent to Graphite, choose the
 **Toggle text edit mode** (pencil) icon.
 
-### Choosing metrics to
-
-query
+### Choosing metrics to query
 
 Choose **Select metric** to navigate the
 metric space. After you start, you can continue using the pointer or
@@ -86,9 +82,7 @@ they’re on (similar to Microsoft Excel). If you add a second query to a
 graph, you can reference the first query by typing in #A. This provides a
 convenient way to build compounded queries.
 
-### Avoiding many
-
-queries by using wildcard characters
+### Avoiding many queries by using wildcard characters
 
 Occasionally, you might want to see multiple time series plotted on the
 same graph. For example, you might want to see how the CPU is being used on
@@ -102,9 +96,7 @@ To be more efficient one can use wildcard characters in your search,
 returning all the time series in one query. For example,
 `cpu.percent.*.g`.
 
-### Modifying
-
-the metric name in tables or charts
+### Modifying the metric name in tables or charts
 
 Use `alias` functions to change metric names on Grafana tables
 or graphs; for example, `aliasByNode()` or
@@ -180,9 +172,7 @@ You can also create nested variables that use other variables in their
 definition. For example `apps.$app.servers.*` uses the variable
 `$app` in its query definition.
 
-#### Using `__searchFilter` to filter query variable
-
-results
+#### Using `__searchFilter` to filter query variable results
 
 Using `__searchFilter` in the query field will filter the
 query result based on what you enter in the dropdown select box. When
@@ -225,9 +215,7 @@ Why two ways? The first syntax is easier to read and write but does not
 allow you to use a variable in the middle of a word. Use the second syntax
 in expressions such as `my.server${serverNumber}.count`.
 
-### Variable usage in tag
-
-queries
+### Variable usage in tag queries
 
 Multi-value variables in tag queries use the advanced formatting syntax
 introduced in Grafana 5.0 for variables: `{var:regex}`. Non-tag
@@ -242,8 +230,7 @@ server=~${servers:regex}
 
 ```
 
-For more information, see [Advanced variable format
-options](templates-and-variables.md#advanced-variable-format-options "templates-and-variables.md#advanced-variable-format-options").
+For more information, see [Advanced variable format options](templates-and-variables.md#advanced-variable-format-options "templates-and-variables.md#advanced-variable-format-options").
 
 ## Annotations
 

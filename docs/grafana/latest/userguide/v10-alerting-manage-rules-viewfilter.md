@@ -54,9 +54,7 @@ You can export rules to YAML or JSON in the Grafana workspace.
   next to each individual alert rule within a group to edit provisioned
   alert rules and export a modified version.
 
-## View query definitions
-
-for provisioned alerts
+## View query definitions for provisioned alerts
 
 View read-only query definitions for provisioned alerts. Check quickly if
 your alert rule queries are correct, without diving into your "as-code"

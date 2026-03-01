@@ -1,6 +1,4 @@
-# Labels in Grafana
-
-Alerting
+# Labels in Grafana Alerting
 
 This documentation topic is designed
 for Grafana workspaces that support **Grafana version

@@ -35,9 +35,7 @@ external websites, they work in different contexts.
   link.
 - To drill down into a specific series, or even a single measurement, use [Data links](data-links.md "data-links.md").
 
-## Controlling time range using the
-
-URL
+## Controlling time range using the URL
 
 You can control the time range of a panel or dashboard by providing the following
 query parameters in the dashboard URL:

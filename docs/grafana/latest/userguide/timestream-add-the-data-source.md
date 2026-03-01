@@ -1,6 +1,4 @@
-# Manually adding the Timestream
-
-data source
+# Manually adding the Timestream data source
 
 ###### To manually add the Timestream data source
 

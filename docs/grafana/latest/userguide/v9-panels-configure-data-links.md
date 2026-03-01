@@ -28,9 +28,7 @@ use the version picker to select docs for an older version of Grafana.
 
 You can also use template variables in your data links URLs, see [Adding and managing dashboard variables](v9-dash-variables.md "v9-dash-variables.md").
 
-## Time range panel
-
-variables
+## Time range panel variables
 
 These variables allow you to include the current time range in the data link URL.
 

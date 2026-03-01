@@ -11,18 +11,13 @@ Amazon Managed Grafana uses three types of permissions:
   You can be granted permissions based on your admin status, dashboard or folder
   permissions assigned to your user, and data source permissions.
 
-## Dashboard and folder
-
-permissions overview
+## Dashboard and folder permissions overview
 
 By using dashboard and folder permissions, you can remove the default role-based
 permissions for editors and viewers. You can then assign permissions to specific
-users and teams. For more information, see [Dashboard and folder
-permissions](dashboard-and-folder-permissions.md "dashboard-and-folder-permissions.md").
+users and teams. For more information, see [Dashboard and folder permissions](dashboard-and-folder-permissions.md "dashboard-and-folder-permissions.md").
 
-## Data source permissions
-
-overview
+## Data source permissions overview
 
 By default, a data source can be queried by any user. For example, a user with
 the `Viewer` role can issue any possible query to a data source, not

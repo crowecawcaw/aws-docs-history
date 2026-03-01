@@ -1,6 +1,4 @@
-# Connect to a Datadog data
-
-source
+# Connect to a Datadog data source
 
 The Datadog data source enables you to visualize metrics from the Datadog
 monitoring service in Amazon Managed Grafana.

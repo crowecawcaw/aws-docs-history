@@ -36,9 +36,7 @@ either all or some of these field options.
 4. To preview your change, click outside of the field option box you are editing or
    press **Enter**.
 
-## Standard options
-
-definitions
+## Standard options definitions
 
 This section explains all available standard options.
 

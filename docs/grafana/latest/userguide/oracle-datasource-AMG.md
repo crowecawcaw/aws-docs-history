@@ -1,6 +1,4 @@
-# Connect to an Oracle Database data
-
-source
+# Connect to an Oracle Database data source
 
 ###### Note
 
@@ -108,9 +106,7 @@ ORDER BY time
 
 ```
 
-### More queries
-
-– using oracle-fake-data-gen
+### More queries – using oracle-fake-data-gen
 
 ```
 
@@ -238,9 +234,7 @@ SELECT "hostname" FROM host WHERE region IN('$region')
 
 ```
 
-#### Using variables in
-
-queries
+#### Using variables in queries
 
 Template variable values are only quoted when the template variable
 is a `multi-value`.

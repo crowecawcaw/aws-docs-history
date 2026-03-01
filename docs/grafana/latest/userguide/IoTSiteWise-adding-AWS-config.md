@@ -1,6 +1,4 @@
-# Use AWS data source
-
-configuration to add AWS IoT SiteWise as a data source
+# Use AWS data source configuration to add AWS IoT SiteWise as a data source
 
 To use AWS data source configuration, first you use the Amazon Managed Grafana console to
 enable service-managed IAM roles that grant the workspace the IAM policies
@@ -8,9 +6,7 @@ necessary to read the AWS IoT SiteWise resources in your account or in your enti
 organizational units. Then you use the Amazon Managed Grafana workspace console to add AWS IoT SiteWise
 as a data source.
 
-###### To use AWS data source configuration to add AWS IoT SiteWise as a data
-
-source
+###### To use AWS data source configuration to add AWS IoT SiteWise as a data source
 
 1. Open the Amazon Managed Grafana console at [https://console.aws.amazon.com/grafana/](https://console.aws.amazon.com/grafana/home/ "https://console.aws.amazon.com/grafana/home/").
 2. In the upper left corner of the page, choose the menu icon and then
@@ -23,8 +19,7 @@ source
    configuration option in the Grafana workspace console. To do so, choose
    the edit icon by **IAM role** and then choose
    **Service managed**, **Save
-   changes**. For more information, see [Amazon Managed Grafana permissions and policies for AWS data
-   sources](AMG-manage-permissions.md "AMG-manage-permissions.md").
+   changes**. For more information, see [Amazon Managed Grafana permissions and policies for AWS data sources](AMG-manage-permissions.md "AMG-manage-permissions.md").
 5. Choose the **Data sources** tab. Then select the
    check box for **AWS IoT SiteWise**, and choose
    **Actions**, **Enable service-managed

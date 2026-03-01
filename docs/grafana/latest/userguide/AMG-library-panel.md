@@ -138,9 +138,7 @@ and create alert rules (if applicable).
 - Alert tab – Write alert rules. For
   more information, see [Grafana alerting](alerts-overview.md "alerts-overview.md").
 
-### Panel and field options
-
-(side pane)
+### Panel and field options (side pane)
 
 This section contains tabs where you control almost every aspect of how your
 data is visualized. Not all tabs are available for each visualization.

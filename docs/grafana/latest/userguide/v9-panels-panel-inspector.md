@@ -70,9 +70,7 @@ unexpectedly high or low.
 
 Statistics are displayed in read-only format.
 
-## Inspect query request and
-
-response
+## Inspect query request and response
 
 Inspect query request and response data when you want to troubleshoot a query that
 returns unexpected results, or fails to return expected results.

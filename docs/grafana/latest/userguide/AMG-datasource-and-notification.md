@@ -1,6 +1,4 @@
-# Manage permissions for data sources
-
-and notification channels
+# Manage permissions for data sources and notification channels
 
 Your Amazon Managed Grafana workspace must have permission to access AWS data sources for your
 metrics and notification channels for your alerts. You can use the Amazon Managed Grafana console to
@@ -8,9 +6,7 @@ have Amazon Managed Grafana automatically create AWS Identity and Access Managem
 AWS data sources and notification channels that you want to use in the Amazon Managed Grafana
 workspace.
 
-###### To manage permissions and policies for data sources and notification
-
-channels
+###### To manage permissions and policies for data sources and notification channels
 
 1. Open the Amazon Managed Grafana console at [https://console.aws.amazon.com/grafana/](https://console.aws.amazon.com/grafana/home/ "https://console.aws.amazon.com/grafana/home/").
 2. In the left navigation pane, choose the menu icon.
@@ -19,8 +15,7 @@ channels
 5. To switch between using **Service managed** and
    **Customer managed** permissions, choose the edit icon for
    **IAM role** and then make your selection. For more
-   information, see [Amazon Managed Grafana permissions and policies for AWS data
-   sources](AMG-manage-permissions.md "AMG-manage-permissions.md").
+   information, see [Amazon Managed Grafana permissions and policies for AWS data sources](AMG-manage-permissions.md "AMG-manage-permissions.md").
 
 If you change from **Service managed** permissions to
 **Customer managed** permissions, the roles and policies
@@ -30,8 +25,7 @@ the roles and policies in other accounts in the organization are deleted. 6. Cho
 choose **Edit** next to **IAM permission access
 settings** to change whether your **Service
 managed** permissions apply to only the current account or to an
-entire organization. For more information, see [Amazon Managed Grafana permissions and policies for AWS data
-sources](AMG-manage-permissions.md "AMG-manage-permissions.md").
+entire organization. For more information, see [Amazon Managed Grafana permissions and policies for AWS data sources](AMG-manage-permissions.md "AMG-manage-permissions.md").
 
 Under **Data sources**, select the AWS data sources that
 you want to query in this workspace. Selecting data sources enables Amazon Managed Grafana to
@@ -49,5 +43,4 @@ notification channels in the Grafana workspace console.
 
 ###### Note
 
-For more information about using notifications, see [Manage your alert
-notifications](v9-alerting-managenotifications.md "v9-alerting-managenotifications.md").
+For more information about using notifications, see [Manage your alert notifications](v9-alerting-managenotifications.md "v9-alerting-managenotifications.md").

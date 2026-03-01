@@ -12,8 +12,7 @@ information about the AWS APIs, see the [Amazon Managed Grafana API Reference](.
 
 - [Authenticate with tokens](authenticating-grafana-apis.md "authenticating-grafana-apis.md")
 - [Alerting API](Grafana-API-Alerting.md "Grafana-API-Alerting.md")
-- [Alerting Notification
-  Channels API](Grafana-API-AlertingNotificationChannels.md "Grafana-API-AlertingNotificationChannels.md")
+- [Alerting Notification Channels API](Grafana-API-AlertingNotificationChannels.md "Grafana-API-AlertingNotificationChannels.md")
 - [Annotations API](Grafana-API-Annotations.md "Grafana-API-Annotations.md")
 - [Authentication API](Grafana-API-Authentication.md "Grafana-API-Authentication.md")
 - [Dashboard API](Grafana-API-Dashboard.md "Grafana-API-Dashboard.md")
@@ -21,8 +20,7 @@ information about the AWS APIs, see the [Amazon Managed Grafana API Reference](.
 - [Dashboard Versions API](Grafana-API-DashboardVersions.md "Grafana-API-DashboardVersions.md")
 - [Data Source API](Grafana-API-Datasource.md "Grafana-API-Datasource.md")
 - [Data Source Permissions API](Grafana-API-DatasourcePermissions.md "Grafana-API-DatasourcePermissions.md")
-- [External Group
-  Synchronization API](Grafana-API-ExternalGroupSynchronization.md "Grafana-API-ExternalGroupSynchronization.md")
+- [External Group Synchronization API](Grafana-API-ExternalGroupSynchronization.md "Grafana-API-ExternalGroupSynchronization.md")
 - [Folder API](Grafana-API-Folder.md "Grafana-API-Folder.md")
 - [Folder/Dashboard Search API](Grafana-API-FolderDashboard-Search.md "Grafana-API-FolderDashboard-Search.md")
 - [Folder Permissions API](Grafana-API-FolderPermissions.md "Grafana-API-FolderPermissions.md")

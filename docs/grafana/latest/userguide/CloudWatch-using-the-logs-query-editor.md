@@ -1,6 +1,4 @@
-# Using the Amazon CloudWatch Logs
-
-query editor
+# Using the Amazon CloudWatch Logs query editor
 
 To query CloudWatch Logs, select the Region and up to 20 log groups that you want
 to query. Use the main input area to write your query. For more information,
@@ -16,9 +14,7 @@ To the right of the query input field is a CloudWatch Logs Insights link that op
 the CloudWatch Logs Insights console with your query. You can continue exploration
 there if necessary.
 
-## Using template
-
-variables
+## Using template variables
 
 As with several other data sources, the CloudWatch data source supports the
 use of template variables in queries. For more information, see [Templates and variables](templates-and-variables.md "templates-and-variables.md").

@@ -1,6 +1,4 @@
-# Connect to a Salesforce data
-
-source
+# Connect to a Salesforce data source
 
 ###### Note
 
@@ -38,9 +36,7 @@ to any valid URL.
 | `Selected OAuth Scopes (minimum requirements)` | Access and Manage your data (api).                         |
 | `Require Secret for Refresh Token Flow`        | You can either enable or disable this.                     |
 
-## Adding the data
-
-source
+## Adding the data source
 
 1. Open the Grafana console in the Amazon Managed Grafana workspace and make sure you
    are logged in.
@@ -75,9 +71,7 @@ your side menu, it means that your current user does not have the
 The query editor supports the modes Query Builder and SOQL Editor. SOQL stands
 for [Salesforce Object Query Language](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm "https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm").
 
-### Query Builder (SOQL
-
-Builder)
+### Query Builder (SOQL Builder)
 
 Query Builder is a user friendly interface for building SOQL queries. If
 you are not familiar with writing SOQL queries, you can use this mode to

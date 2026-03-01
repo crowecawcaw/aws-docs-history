@@ -48,8 +48,6 @@ Before you set up alerting, you must do the following.
 
 ###### Topics
 
-- [Migrating classic dashboard alerts to Grafana
-  alerting](v10-alerting-use-grafana-alerts.md "v10-alerting-use-grafana-alerts.md")
+- [Migrating classic dashboard alerts to Grafana alerting](v10-alerting-use-grafana-alerts.md "v10-alerting-use-grafana-alerts.md")
 - [Adding an external Alertmanager](v10-alerting-setup-alertmanager.md "v10-alerting-setup-alertmanager.md")
-- [Provisioning Grafana Alerting
-  resources](v10-alerting-setup-provision.md "v10-alerting-setup-provision.md")
+- [Provisioning Grafana Alerting resources](v10-alerting-setup-provision.md "v10-alerting-setup-provision.md")

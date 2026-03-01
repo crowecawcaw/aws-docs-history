@@ -1,6 +1,4 @@
-# Viewing provisioned
-
-alerting resources in Grafana
+# Viewing provisioned alerting resources in Grafana
 
 This documentation topic is designed
 for Grafana workspaces that support **Grafana version

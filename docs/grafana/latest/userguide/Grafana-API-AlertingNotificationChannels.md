@@ -1,6 +1,4 @@
-# Alerting Notification
-
-Channels API
+# Alerting Notification Channels API
 
 Use the Alerting Notification Channels API to create, update, delete, and retrieve
 notification channels.
@@ -19,9 +17,7 @@ API token. You include this in the `Authorization` field in the API
 request. For information about how to create a token to authenticate your API calls,
 see [Authenticate with tokens](authenticating-grafana-apis.md "authenticating-grafana-apis.md").
 
-## Get all notification
-
-channels
+## Get all notification channels
 
 Returns all notification channels that the authenticated user has permission to
 view.
@@ -71,9 +67,7 @@ Content-Type: application/json
 ]
 ```
 
-## Get all
-
-notification channels (lookup)
+## Get all notification channels (lookup)
 
 Returns all notification channels, but with less detailed information. Accessible
 by any authenticated user and is mainly used to provide alert notification channels
@@ -116,9 +110,7 @@ Content-Type: application/json
 ]
 ```
 
-## Get all
-
-notification channels by UID
+## Get all notification channels by UID
 
 ```
 GET /api/alert-notifications/uid/:uid
@@ -163,9 +155,7 @@ Content-Type: application/json
 }
 ```
 
-## Get all notification
-
-channels by Id
+## Get all notification channels by Id
 
 ```
 GET /api/alert-notifications/:id
@@ -210,9 +200,7 @@ Content-Type: application/json
 }
 ```
 
-## Create notification
-
-channel
+## Create notification channel
 
 To see what notification channels are supported by Amazon Managed Grafana, see the list of
 supported notifiers in [Working with contact points](alert-contact-points.md "alert-contact-points.md").
@@ -274,9 +262,7 @@ Content-Type: application/json
 }
 ```
 
-## Update
-
-notification channel by UID
+## Update notification channel by UID
 
 ```
 PUT /api/alert-notifications/uid/:uid
@@ -337,9 +323,7 @@ Content-Type: application/json
 }
 ```
 
-## Update
-
-notification channel by Id
+## Update notification channel by Id
 
 ```
 PUT /api/alert-notifications/:id
@@ -401,9 +385,7 @@ Content-Type: application/json
 }
 ```
 
-## Delete
-
-notification channel by UID
+## Delete notification channel by UID
 
 ```
 DELETE /api/alert-notifications/uid/:uid
@@ -429,9 +411,7 @@ Content-Type: application/json
 }
 ```
 
-## Delete
-
-notification channel by Id
+## Delete notification channel by Id
 
 ```
 DELETE /api/alert-notifications/:id
@@ -457,9 +437,7 @@ Content-Type: application/json
 }
 ```
 
-## Test notification
-
-channel
+## Test notification channel
 
 Sends a test notification message for the given notification channel type and
 settings.

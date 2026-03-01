@@ -1,6 +1,4 @@
-# Notification
-
-policies
+# Notification policies
 
 This documentation topic is designed
 for Grafana workspaces that support **Grafana version
@@ -30,8 +28,7 @@ called the **Default notification policy**.
 Each policy consists of a set of label matchers (0 or more) that specify
 which labels they are or aren’t interested in handling.
 
-For more information about label matching, see [How label matching
-works](v10-alerting-overview-labels-matching.md "v10-alerting-overview-labels-matching.md").
+For more information about label matching, see [How label matching works](v10-alerting-overview-labels-matching.md "v10-alerting-overview-labels-matching.md").
 
 ###### Note
 

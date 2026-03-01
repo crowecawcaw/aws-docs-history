@@ -178,9 +178,7 @@ For more information about the panel inspector, see [Inspect a panel](inspect-a-
 In the UI, queries are organized in collapsible query rows. Each query row
 contains a query editor and is identified with a letter (A, B, C, and so on).
 
-## Sharing query results between
-
-panels
+## Sharing query results between panels
 
 With Amazon Managed Grafana, you can use the query result from one panel for any other panel
 in the dashboard. Sharing query results across panels reduces the number of queries

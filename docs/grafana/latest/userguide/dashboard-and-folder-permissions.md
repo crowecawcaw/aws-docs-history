@@ -1,6 +1,4 @@
-# Dashboard and folder
-
-permissions
+# Dashboard and folder permissions
 
 For dashboards and dashboard folders, you can use the
 **Permissions** page to remove the default role based
@@ -51,9 +49,7 @@ on the version of Grafana the workspace supports.
 6. In the third box, select the permission that you want to add.
 7. Choose **Save**.
 
-## Granting dashboard
-
-permissions
+## Granting dashboard permissions
 
 ###### To grant dashboard permissions
 
@@ -83,15 +79,11 @@ The highest permission always wins.
   level. You need to remove or lower the permission level of the more
   general rule.
 
-## How
-
-Amazon Managed Grafana resolves multiple permissions – examples
+## How Amazon Managed Grafana resolves multiple permissions – examples
 
 The following examples show how multiple permissions are resolved.
 
-### Example 1:
-
-`user1` has the `Editor` role
+### Example 1: `user1` has the `Editor` role
 
 Permissions for a dashboard:
 
@@ -101,9 +93,7 @@ Permissions for a dashboard:
 Result: `user1` has Edit permission because the highest
 permission always wins.
 
-### Example 2: `user1` has the Viewer role and is a member
-
-of `team1`
+### Example 2: `user1` has the Viewer role and is a member of `team1`
 
 Permissions for a dashboard:
 
@@ -115,9 +105,7 @@ Permissions for a dashboard:
 Result: `user1` has Admin permission because the highest
 permission always wins.
 
-### Example 3: `user1` has multiple
-
-permissions at different levels
+### Example 3: `user1` has multiple permissions at different levels
 
 Permissions for a dashboard:
 

@@ -31,16 +31,12 @@ nesting: 1. The service you are interested in. 1. Particular operation is part
 of the selected service 1. Specific trace in which the selected operation
 occurred, represented by the root operation name and trace duration.
 
-## Data mapping in the trace
-
-UI
+## Data mapping in the trace UI
 
 Zipkin annotations are shown in the trace view as logs with annotation value
 shown under annotation key.
 
-## Linking to the trace ID from
-
-logs
+## Linking to the trace ID from logs
 
 You can link to Zipkin trace from logs in Loki by configuring a derived field
 with internal link. For more information, see [Derived fields](using-loki-in-AMG.md#loki-derived-fields "using-loki-in-AMG.md#loki-derived-fields").

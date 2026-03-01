@@ -26,8 +26,7 @@ another for `server2`. In such an example, we might have a label called
 `server="server2"`. However, we might also want to add a description
 to each alert such as `"The CPU usage for server1 is above 75%."`, where
 `server1` and `75%` are replaced with the name and CPU
-usage of the server (please refer to the documentation on [Templating
-labels and annotations](v10-alerting-overview-labels-templating.md "v10-alerting-overview-labels-templating.md") for how to do this).
+usage of the server (please refer to the documentation on [Templating labels and annotations](v10-alerting-overview-labels-templating.md "v10-alerting-overview-labels-templating.md") for how to do this).
 This kind of description would be more suitable as an annotation.
 
 ## Labels
@@ -87,9 +86,6 @@ annotations can be found [here](v10-alerting-overview-labels-templating.md "v10-
 
 ###### Topics
 
-- [How label matching
-  works](v10-alerting-overview-labels-matching.md "v10-alerting-overview-labels-matching.md")
-- [Labels in Grafana
-  Alerting](v10-alerting-overview-labels-alerting.md "v10-alerting-overview-labels-alerting.md")
-- [Templating
-  labels and annotations](v10-alerting-overview-labels-templating.md "v10-alerting-overview-labels-templating.md")
+- [How label matching works](v10-alerting-overview-labels-matching.md "v10-alerting-overview-labels-matching.md")
+- [Labels in Grafana Alerting](v10-alerting-overview-labels-alerting.md "v10-alerting-overview-labels-alerting.md")
+- [Templating labels and annotations](v10-alerting-overview-labels-templating.md "v10-alerting-overview-labels-templating.md")

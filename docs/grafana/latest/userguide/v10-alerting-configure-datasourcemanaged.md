@@ -1,6 +1,4 @@
-# Configure data source
-
-managed alert rules
+# Configure data source managed alert rules
 
 This documentation topic is designed
 for Grafana workspaces that support **Grafana version

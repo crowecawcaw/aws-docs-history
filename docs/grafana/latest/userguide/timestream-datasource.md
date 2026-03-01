@@ -30,9 +30,7 @@ self-managed Grafana server.
 This section covers the different types of authentication that you can
 use for the Amazon Timestream data source.
 
-#### Example AWS
-
-credentials
+#### Example AWS credentials
 
 You can't use the credentials file method of authentication in
 Amazon Managed Grafana.

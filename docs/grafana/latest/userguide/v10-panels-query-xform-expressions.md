@@ -1,6 +1,4 @@
-# Write expression
-
-queries
+# Write expression queries
 
 This documentation topic is designed
 for Grafana workspaces that support **Grafana version

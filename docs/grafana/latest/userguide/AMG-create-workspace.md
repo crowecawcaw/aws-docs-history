@@ -13,8 +13,7 @@ must also have these additional policies (or equivalent permissions) attached:
 
 - **AWSSSOMemberAccountAdministrator**
 - **AWSSSODirectoryAdministrator**
-  For more information, see [Create and manage Amazon Managed Grafana workspaces and users in a single standalone
-  account using IAM Identity Center](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-create-workspace-standalone "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-create-workspace-standalone").
+  For more information, see [Create and manage Amazon Managed Grafana workspaces and users in a single standalone account using IAM Identity Center](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-create-workspace-standalone "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-create-workspace-standalone").
 
 ## Creating a workspace
 
@@ -42,8 +41,7 @@ Guide.
 ![Workspace details form with name field and optional tags section highlighted.](images/tagworkspace.png) 4. Choose a **Grafana version** for the workspace. You can
 choose version 8, 9, or 10. To understand the differences between the
 versions, see [Differences between Grafana versions](version-differences.md "version-differences.md"). 5. Choose **Next**. 6. For **Authentication access**, select **AWS IAM Identity Center** , **Security Assertion Markup Language (SAML)**,
-or both. For more information, see [Authenticate users in Amazon Managed Grafana
-workspaces](authentication-in-AMG.md "authentication-in-AMG.md").
+or both. For more information, see [Authenticate users in Amazon Managed Grafana workspaces](authentication-in-AMG.md "authentication-in-AMG.md").
 
     * **IAM Identity Center** — If you select
      IAM Identity Center and you have not already enabled AWS IAM Identity Center in your account,
@@ -84,8 +82,7 @@ be able to choose **Service managed** the member account
 must be a delegated administrator account in an organization. For more
 information about delegated administrator accounts, see [Register a delegated administrator](../../../AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.md"). 8. (Optional) You can choose to connect to an Amazon virtual private cloud
 (VPC) on this page, or you can connect to a VPC later. To learn more, see
-[Connect to data sources or notification channels in
-Amazon VPC from Amazon Managed Grafana](AMG-configure-vpc.md "AMG-configure-vpc.md"). 9. (Optional) You can choose other workspace configuration options on this
+[Connect to data sources or notification channels in Amazon VPC from Amazon Managed Grafana](AMG-configure-vpc.md "AMG-configure-vpc.md"). 9. (Optional) You can choose other workspace configuration options on this
 page, including the following:
 
     * Enable [Grafana alerting](alerts-overview.md "alerts-overview.md").
@@ -111,8 +108,7 @@ control** for your workspace. To add network access control,
 choose **Restricted access**. You can also enable network
 access control after you have created your workspace.
 
-For more information about network access control, see [Configure network access to your Amazon Managed Grafana
-workspace](AMG-configure-nac.md "AMG-configure-nac.md"). 11. (Optional) By default, Amazon Managed Grafana automatically provides you with encryption at rest and does this using AWS-owned encryption keys. But you have the option to use a customer managed key that you create, own, and manage as an alternative. For more information, see [Encryption at rest](AMG-encryption-at-rest.md "AMG-encryption-at-rest.md"). 12. Choose **Next**. 13. If you chose **Service managed**, choose
+For more information about network access control, see [Configure network access to your Amazon Managed Grafana workspace](AMG-configure-nac.md "AMG-configure-nac.md"). 11. (Optional) By default, Amazon Managed Grafana automatically provides you with encryption at rest and does this using AWS-owned encryption keys. But you have the option to use a customer managed key that you create, own, and manage as an alternative. For more information, see [Encryption at rest](AMG-encryption-at-rest.md "AMG-encryption-at-rest.md"). 12. Choose **Next**. 13. If you chose **Service managed**, choose
 **Current account** to have Amazon Managed Grafana automatically
 create policies and permissions that allow it to read AWS data only in the
 current account.
@@ -263,13 +259,11 @@ status. 18. If you are using IAM Identity Center, do the following:
 
     You are now in your Grafana workspace, or logical Grafana server.
     You can start adding data sources to query, visualize, and analyze
-    data. For more information, see [Use your Grafana
-    workspace](AMG-working-with-Grafana-workspace.md "AMG-working-with-Grafana-workspace.md").
+    data. For more information, see [Use your Grafana workspace](AMG-working-with-Grafana-workspace.md "AMG-working-with-Grafana-workspace.md").
 
 For more information on
 
 ###### Tip
 
 You can automate the creation of Amazon Managed Grafana workspaces by using CloudFormation. For more
-detailed information see [Creating Amazon Managed Grafana resources
-with AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md").
+detailed information see [Creating Amazon Managed Grafana resources with AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md").

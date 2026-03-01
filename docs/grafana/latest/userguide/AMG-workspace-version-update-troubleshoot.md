@@ -1,6 +1,4 @@
-# Troubleshooting issues
-
-with updated workspaces
+# Troubleshooting issues with updated workspaces
 
 Your updated workspace should continue to work after updating. This section can
 help you track down possible issues after you update.

@@ -14,9 +14,7 @@ Grafana supports several alert rule types. Learn more about each of the alert
 rule types, how they work, and decide which one is best for your use
 case.
 
-## Grafana managed
-
-rules
+## Grafana managed rules
 
 Grafana managed rules are the most flexible alert rule type. They allow
 you to create alerts that can act on data from any of your existing data
@@ -40,9 +38,7 @@ Alertmanager, or use both internal and external Alertmanagers. For more
 information, see [Add an
 external alertmanager](v10-alerting-setup-alertmanager.md "v10-alerting-setup-alertmanager.md").
 
-## Data source
-
-managed rules
+## Data source managed rules
 
 To create data source managed alert rules you must have a compatible
 Prometheus or Loki data source. You can check if your data source supports
@@ -57,9 +53,7 @@ In data source managed alerting:
 - Alert rule evaluation and delivery is distributed across multiple
   nodes for high-availability and fault tolerance.
 
-## Choose an alert
-
-rule type
+## Choose an alert rule type
 
 When choosing which alert rule type to use, consider the following
 comparison between Grafana managed alert rules and data source managed

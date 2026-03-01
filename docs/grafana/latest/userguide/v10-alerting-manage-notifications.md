@@ -31,17 +31,12 @@ You can use notification templates to:
 
 ###### Topics
 
-- [Using Go’s
-  templating language](v10-alerting-notifications-go-templating.md "v10-alerting-notifications-go-templating.md")
-- [Create notification
-  templates](v10-alerting-create-templates.md "v10-alerting-create-templates.md")
-- [Using notification
-  templates](#v10-alerting-use-notification-templates "#v10-alerting-use-notification-templates")
+- [Using Go’s templating language](v10-alerting-notifications-go-templating.md "v10-alerting-notifications-go-templating.md")
+- [Create notification templates](v10-alerting-create-templates.md "v10-alerting-create-templates.md")
+- [Using notification templates](#v10-alerting-use-notification-templates "#v10-alerting-use-notification-templates")
 - [Template reference](v10-alerting-template-reference.md "v10-alerting-template-reference.md")
 
-## Using notification
-
-templates
+## Using notification templates
 
 Use templates in contact points to customize your notifications.
 

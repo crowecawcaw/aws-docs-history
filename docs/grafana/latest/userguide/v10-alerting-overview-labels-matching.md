@@ -1,6 +1,4 @@
-# How label matching
-
-works
+# How label matching works
 
 This documentation topic is designed
 for Grafana workspaces that support **Grafana version
@@ -60,9 +58,7 @@ then:
 - Two label matchers defined as `foo=bar` and
   `id=~[0-9]+` match this alert rule.
 
-## Exclude
-
-labels
+## Exclude labels
 
 You can also write label matchers to exclude labels.
 

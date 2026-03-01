@@ -1,6 +1,4 @@
-# Creating Grafana managed
-
-alert rules
+# Creating Grafana managed alert rules
 
 This documentation topic is designed
 for Grafana workspaces that support **Grafana version
@@ -86,8 +84,7 @@ point.
    exit** to save the rule and go back to the
    **Alerting** page.
    After you have created your rule, you can create a notification for your rule.
-   For more information about notifications, see [Manage your alert
-   notifications](v9-alerting-managenotifications.md "v9-alerting-managenotifications.md").
+   For more information about notifications, see [Manage your alert notifications](v9-alerting-managenotifications.md "v9-alerting-managenotifications.md").
 
 ## Single and multidimensional rules
 

@@ -1,34 +1,26 @@
-# Manage user and group access to
-
-Amazon Managed Grafana workspaces
+# Manage user and group access to Amazon Managed Grafana workspaces
 
 You access Amazon Managed Grafana workspaces with users that are set up in your Identity provider
 (IdP) or AWS IAM Identity Center. You must give those users (or groups that they belong to)
 permissions to the workspace. You can give them `User`, `Editor`,
 or `Admin` permissions.
 
-## Grant permissions to a user or
-
-group
+## Grant permissions to a user or group
 
 **Prerequisites**
 
 - To grant a user or a user group access to Amazon Managed Grafana workspaces, the user
   or group must first be provisioned in an Identity provider (IdP) or in
-  AWS IAM Identity Center. For more information, see [Authenticate users in Amazon Managed Grafana
-  workspaces](authentication-in-AMG.md "authentication-in-AMG.md").
+  AWS IAM Identity Center. For more information, see [Authenticate users in Amazon Managed Grafana workspaces](authentication-in-AMG.md "authentication-in-AMG.md").
 - To manage user and group access, you must be signed in as a user that has
   the AWS Identity and Access Management (IAM) policy
   **AWSGrafanaWorkspacePermissionManagementV2**, or
   equivalent permissions. If you are managing users with IAM Identity Center, you must also
   have the **AWSSSOMemberAccountAdministrator** and
   **AWSSSODirectoryReadOnly** IAM policies, or
-  equivalent permissions. For more information, see [Assign
-  and unassign users access to Amazon Managed Grafana](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-assign-users "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-assign-users").
+  equivalent permissions. For more information, see [Assign and unassign users access to Amazon Managed Grafana](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-assign-users "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-assign-users").
 
-###### To manage user access to a Grafana workspace using the Amazon Managed Grafana
-
-console
+###### To manage user access to a Grafana workspace using the Amazon Managed Grafana console
 
 1. Open the Amazon Managed Grafana console at [https://console.aws.amazon.com/grafana/](https://console.aws.amazon.com/grafana/home/ "https://console.aws.amazon.com/grafana/home/").
 2. In the left navigation pane, choose the menu icon.
@@ -64,8 +56,7 @@ give or remove access to your Grafana workspaces.
 
 If IAM Identity Center and Amazon Managed Grafana get out of sync, you are presented with an
 option to **Resolve** any conflicts. For more
-information, see [Permission mismatch errors
-when configuring users and groups](#AMG-manage-users-and-groups-mismatch "#AMG-manage-users-and-groups-mismatch"),
+information, see [Permission mismatch errors when configuring users and groups](#AMG-manage-users-and-groups-mismatch "#AMG-manage-users-and-groups-mismatch"),
 below. 7. If you are using SAML in this workspace, choose **SAML
 configuration** and do one or more of the following:
 
@@ -146,9 +137,7 @@ configuration** and do one or more of the following:
    - To remove workspace access for all members of a group, choose
      **Unassign group**.
 
-## Permission mismatch errors
-
-when configuring users and groups
+## Permission mismatch errors when configuring users and groups
 
 You might run into mismatch errors when configuring users and groups in the
 Amazon Managed Grafana console. This indicates that Amazon Managed Grafana and IAM Identity Center are out of sync. In this
@@ -166,14 +155,9 @@ rights that they previously had, show up with their user name in the
 use the **Resolve** dialog to remove or reduce their access, or you
 can give them access by following the instructions in the previous section.
 
-## Frequently asked
+## Frequently asked questions about permissions mismatches
 
-questions about permissions mismatches
-
-###### Why am I seeing an error stating mismatch in permissions in the
-
-**Configure Users and Groups** section of the Amazon Managed Grafana
-console?
+###### Why am I seeing an error stating mismatch in permissions in the **Configure Users and Groups** section of the Amazon Managed Grafana console?
 
 You are seeing this message because a mismatch has been identified in users
 and group associations in IAM Identity Center and permissions in Amazon Managed Grafana for your workspace.
@@ -201,11 +185,7 @@ Mismatched records can result from:
 To avoid these mismatches, use the Amazon Managed Grafana console or Amazon Managed Grafana APIs to manage
 user and group permissions for your workspace.
 
-###### I have previously updated the access levels for some of my team members from
-
-the Grafana workspace. Now I see that their access levels are reverted back to
-their older access level. Why am I seeing this and how do I resolve
-this?
+###### I have previously updated the access levels for some of my team members from the Grafana workspace. Now I see that their access levels are reverted back to their older access level. Why am I seeing this and how do I resolve this?
 
 This is most likely due to a mismatch that was identified between the user and
 group association in IAM Identity Center and the permission records Amazon Managed Grafana for your
@@ -220,9 +200,7 @@ permissions.
 User access management is not supported from the Grafana workspace. Use the
 Amazon Managed Grafana console or APIs to assign user or group permissions.
 
-###### Why am I noticing changes in my access levels? For example, I previously had
-
-admin access, but now only have editor permissions.
+###### Why am I noticing changes in my access levels? For example, I previously had admin access, but now only have editor permissions.
 
 An admin for your workspace might have changed your permissions. This can
 happen inadvertently in the case of a mismatch between your user and group

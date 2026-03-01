@@ -63,9 +63,7 @@ For example:
 
 ```
 
-### Templates and
-
-variables
+### Templates and variables
 
 1. Create a template variable for your dashboard. For more
    information, see [Templates and variables](templates-and-variables.md "templates-and-variables.md").

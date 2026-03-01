@@ -1,6 +1,4 @@
-# State and health of alerting
-
-rules
+# State and health of alerting rules
 
 This documentation topic is designed
 for Grafana workspaces that support **Grafana version

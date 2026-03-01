@@ -1,6 +1,4 @@
-# Labels in Grafana
-
-Alerting
+# Labels in Grafana Alerting
 
 This documentation topic is designed
 for Grafana workspaces that support **Grafana version
@@ -29,9 +27,7 @@ This topic explains why labels are a fundamental component of alerting.
   precedence in the event of a collision between labels (except in the
   case of Grafana reserved labels, see below for more information).
 
-## External
-
-Alertmanager compatibility
+## External Alertmanager compatibility
 
 Grafana’s built-in Alertmanager supports both Unicode label keys and values.
 If you are using an external Prometheus Alertmanager, label keys must be
@@ -55,9 +51,7 @@ If multiple label keys are sanitized to
 the same value, the duplicates will have a short hash of the original label
 appended as a suffix.
 
-## Grafana
-
-reserved labels
+## Grafana reserved labels
 
 ###### Note
 

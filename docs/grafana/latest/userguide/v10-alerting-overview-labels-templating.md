@@ -1,6 +1,4 @@
-# Templating
-
-labels and annotations
+# Templating labels and annotations
 
 This documentation topic is designed
 for Grafana workspaces that support **Grafana version
@@ -279,9 +277,7 @@ B3: 95.6789
 The following variables are available to you when templating labels and
 annotations:
 
-### The
-
-labels variable
+### The labels variable
 
 The `$labels` variable contains all labels from the query. For
 example, suppose you have a query that returns CPU usage for all of your
@@ -304,9 +300,7 @@ rule). If you want to use labels from the query in your template then
 follow the previous _Print all labels from a classic
 condition_ example.
 
-### The
-
-value variable
+### The value variable
 
 The `$value` variable is a string containing the labels and values
 of all instant queries; threshold, reduce and math expressions, and classic
@@ -338,9 +332,7 @@ use the `$values` variable. It contains the same information as
 `$value`, but in a structured table, and is much easier to use
 then writing a regular expression to match just the text you want.
 
-### The
-
-values variable
+### The values variable
 
 The `$values` variable is a table containing the labels and
 floating point values of all instant queries and expressions, indexed by their

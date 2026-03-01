@@ -144,8 +144,7 @@ where:
 ###### Note
 
 The `from` and `to` fields also accept relative
-ranges as described in the [Setting dashboard time
-range](v10-dash-using-dashboards.md#v10-dash-setting-dashboard-time-range "v10-dash-using-dashboards.md#v10-dash-setting-dashboard-time-range") topic.
+ranges as described in the [Setting dashboard time range](v10-dash-using-dashboards.md#v10-dash-setting-dashboard-time-range "v10-dash-using-dashboards.md#v10-dash-setting-dashboard-time-range") topic.
 
 ## Share shortened link
 

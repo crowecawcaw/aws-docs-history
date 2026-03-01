@@ -21,9 +21,7 @@ prevent notifications from being created.
 You can configure Grafana managed mute timings as well as mute timings for an
 external Alertmanager data source.
 
-## Mute timings vs
-
-Silences
+## Mute timings vs Silences
 
 The following table highlights the differences between mute timings and
 silences.
@@ -50,9 +48,7 @@ You can create mute timings in your Grafana workspace.
    match against for your mute timing.
 6. Save your mute timing.
 
-## Adding a mute timing to
-
-a notification policy
+## Adding a mute timing to a notification policy
 
 Once you have a mute timing, you use it by adding it to notification policy
 that you want to mute at regular intervals.

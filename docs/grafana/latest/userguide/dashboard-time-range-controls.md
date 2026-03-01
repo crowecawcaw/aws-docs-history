@@ -22,9 +22,7 @@ To have time controls, your data must include a time column. See the
 documentation for your specific [data source](AMG-data-sources.md "AMG-data-sources.md")
 for more information about including a time column.
 
-## Time units and relative
-
-ranges
+## Time units and relative ranges
 
 The following time units are supported:
 
@@ -107,9 +105,7 @@ Amazon Managed Grafana also displays recently used absolute ranges.
 To view a larger time range in the dashboard or panel visualization, choose
 the **Time range zoom out** icon.
 
-### Zoom in (for
-
-graph visualizations only)
+### Zoom in (for graph visualizations only)
 
 In the graph visuaization, drag to select the time range that you want to
 view.
@@ -158,18 +154,14 @@ tab.
 - Hide time picker – Option for not
   displaying the time picker.
 
-## Panel time overrides and time
-
-shift
+## Panel time overrides and time shift
 
 In [Query options](panel-queries.md#query-options "panel-queries.md#query-options"), you can
 override the relative time range for individual panels, causing them to be different
 from what is selected in the dashboard time picker in the top navigation bar. You
 can show metrics from different time periods or days at the same time.
 
-## Controlling the time range
-
-using a URL
+## Controlling the time range using a URL
 
 You can control the time range of a dashboard by providing the following query
 parameters in the dashboard URL:

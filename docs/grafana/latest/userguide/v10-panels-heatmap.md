@@ -11,8 +11,7 @@ For Grafana workspaces that support Grafana version 8.x, see
 [Working in Grafana version 8](using-grafana-v8.md "using-grafana-v8.md").
 
 The Heatmap panel visualization allows you to view histograms over time. For more
-information about histograms, refer to [Introduction to histograms
-and heatmaps](getting-started-grafanaui.md#introduction-to-histograms-and-heatmaps "getting-started-grafanaui.md#introduction-to-histograms-and-heatmaps").
+information about histograms, refer to [Introduction to histograms and heatmaps](getting-started-grafanaui.md#introduction-to-histograms-and-heatmaps "getting-started-grafanaui.md#introduction-to-histograms-and-heatmaps").
 
 ![An image showing an example of a heatmap visualization in Grafana.](images/viz/heatmap_example.jpg)
 

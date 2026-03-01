@@ -31,8 +31,6 @@ You can use notification templates to:
 
 ###### Topics
 
-- [Using Go’s
-  templating language](v9-alerting-notifications-go-templating.md "v9-alerting-notifications-go-templating.md")
-- [Create notification
-  templates](v9-alerting-create-templates.md "v9-alerting-create-templates.md")
+- [Using Go’s templating language](v9-alerting-notifications-go-templating.md "v9-alerting-notifications-go-templating.md")
+- [Create notification templates](v9-alerting-create-templates.md "v9-alerting-create-templates.md")
 - [Template reference](v9-alerting-template-reference.md "v9-alerting-template-reference.md")

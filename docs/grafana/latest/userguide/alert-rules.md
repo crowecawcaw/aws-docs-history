@@ -26,21 +26,14 @@ rules.
 
 ###### Topics
 
-- [Creating Cortex or Loki managed alert
-  rules](#create-alert-rule "#create-alert-rule")
-- [Creating Cortex or Loki managed
-  recording rules](#create-alert-recording-rule "#create-alert-recording-rule")
-- [Creating Grafana managed alert
-  rules](#create-grafana-alert-rule "#create-grafana-alert-rule")
-- [Annotations and labels for alerting
-  rules](#alert-rule-labels "#alert-rule-labels")
+- [Creating Cortex or Loki managed alert rules](#create-alert-rule "#create-alert-rule")
+- [Creating Cortex or Loki managed recording rules](#create-alert-recording-rule "#create-alert-recording-rule")
+- [Creating Grafana managed alert rules](#create-grafana-alert-rule "#create-grafana-alert-rule")
+- [Annotations and labels for alerting rules](#alert-rule-labels "#alert-rule-labels")
 - [Managing alerting rules](#manage-alert-rules "#manage-alert-rules")
-- [Cortex or Loki rule groups and
-  namespaces](#alert-rule-groups "#alert-rule-groups")
+- [Cortex or Loki rule groups and namespaces](#alert-rule-groups "#alert-rule-groups")
 
-## Creating Cortex or Loki managed alert
-
-rules
+## Creating Cortex or Loki managed alert rules
 
 Using Grafana, you can create alerting rules for an external Cortex or Loki
 instance.
@@ -94,8 +87,7 @@ via Alerting UI** checkbox.
      existing rule namespace. Otherwise, choose **Add
      new** and enter a name to create one. Namespaces can
      contain one or more rule groups and only have an organizational
-     purpose. For more information, see [Cortex or Loki rule groups and
-     namespaces](#alert-rule-groups "#alert-rule-groups").
+     purpose. For more information, see [Cortex or Loki rule groups and namespaces](#alert-rule-groups "#alert-rule-groups").
    - From the **Group** dropdown, select an existing
      group within the selected namespace. Otherwise, choose **Add
      new** and enter a name to create one. Newly created
@@ -123,8 +115,7 @@ met, it reverts to the `Normal` state. 6. In **Step 4**, add additional metadata
 the rule.
 
     * Add a description and summary to customize alert messages. Use the
-     guidelines in [Annotations and labels for alerting
-     rules](#alert-rule-labels "#alert-rule-labels").
+     guidelines in [Annotations and labels for alerting rules](#alert-rule-labels "#alert-rule-labels").
     * Add Runbook URL, panel, dashboard, and alert IDs.
     * Add custom labels.
 
@@ -135,9 +126,7 @@ the rule.
    exit** to save the rule and go back to the
    **Alerting** page.
 
-## Creating Cortex or Loki managed
-
-recording rules
+## Creating Cortex or Loki managed recording rules
 
 You can create and manage recording rules for an external Cortex or Loki instance.
 Recording rules calculate frequently needed expressions or computationally expensive
@@ -186,8 +175,7 @@ via Alerting UI** check box.
      existing rule namespace. Otherwise, choose **Add
      new** and enter a name to create one. Namespaces can
      contain one or more rule groups and only have an organizational
-     purpose. For more information, see [Cortex or Loki rule groups and
-     namespaces](#alert-rule-groups "#alert-rule-groups").
+     purpose. For more information, see [Cortex or Loki rule groups and namespaces](#alert-rule-groups "#alert-rule-groups").
    - From the **Group** dropdown, select an existing
      group within the selected namespace. Otherwise, choose **Add
      new** and enter a name to create one. Newly created
@@ -203,8 +191,7 @@ greater than 0. An alert is created for each series. 5. In **Step 3**, add addit
 the rule.
 
     * Add a description and summary to customize alert messages. Use the
-     guidelines in [Annotations and labels for alerting
-     rules](#alert-rule-labels "#alert-rule-labels").
+     guidelines in [Annotations and labels for alerting rules](#alert-rule-labels "#alert-rule-labels").
     * Add Runbook URL, panel, dashboard, and alert IDs.
     * Add custom labels.
 
@@ -212,9 +199,7 @@ the rule.
    exit** to save the rule and go back to the
    **Alerting** page.
 
-## Creating Grafana managed alert
-
-rules
+## Creating Grafana managed alert rules
 
 Grafana allows you to create alerting rules that query one or more data sources,
 reduce or transform the results and compare them to each other or to fix thresholds.
@@ -289,8 +274,7 @@ notifications.
 6. In **Step 4**, add additional metadata associated with
    the rule.
    - Add a description and summary to customize alert messages. Use the
-     guidelines in [Annotations and labels for alerting
-     rules](#alert-rule-labels "#alert-rule-labels").
+     guidelines in [Annotations and labels for alerting rules](#alert-rule-labels "#alert-rule-labels").
    - Add Runbook URL, panel, dashboard, and alert IDs.
    - Add custom labels.
 
@@ -469,9 +453,7 @@ The options for handling error cases are listed in the following table.
 | OK                      | Set alert rule state to `Normal`                                                                                                             |
 | Error                   | Create an alert `DatasourceError` with the name<br>and UID of the alert rule, and UID of the data source that<br>returned no data as labels. |
 
-## Annotations and labels for alerting
-
-rules
+## Annotations and labels for alerting rules
 
 Annotations and labels are key-value pairs associated with alerts originating from
 the alerting rule, datasource response, and as a result of alerting rule evaluation.
@@ -588,15 +570,11 @@ or Admin roles.
    **Delete**.
 2. Choose **Edit** to open the create rule page. Make
    updates in the same way that you create a rule. For details, see the
-   instructions in [Creating Grafana managed alert
-   rules](#create-grafana-alert-rule "#create-grafana-alert-rule") or [Creating Cortex or Loki managed alert
-   rules](#create-alert-rule "#create-alert-rule").
+   instructions in [Creating Grafana managed alert rules](#create-grafana-alert-rule "#create-grafana-alert-rule") or [Creating Cortex or Loki managed alert rules](#create-alert-rule "#create-alert-rule").
 3. Optionally, choose **Delete** to delete a
    rule.
 
-## Cortex or Loki rule groups and
-
-namespaces
+## Cortex or Loki rule groups and namespaces
 
 You can organize your rules. Rules are created within rule groups, and rule groups
 are organized into namespaces. The rules within a rule group are run sequentially at

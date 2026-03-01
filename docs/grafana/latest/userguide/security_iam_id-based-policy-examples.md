@@ -1,6 +1,4 @@
-# Identity-based policy examples
-
-for Amazon Managed Grafana
+# Identity-based policy examples for Amazon Managed Grafana
 
 By default, users and roles don't have permission to create or modify Amazon Managed Grafana
 resources. To grant users permission to perform actions on the
@@ -14,16 +12,11 @@ For details about actions and resource types defined by Amazon Managed Grafana, 
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the Amazon Managed Grafana
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Sample policies for
-  Amazon Managed Grafana](#security_iam_AMG-id-based-policy-examples "#security_iam_AMG-id-based-policy-examples")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the Amazon Managed Grafana console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Sample policies for Amazon Managed Grafana](#security_iam_AMG-id-based-policy-examples "#security_iam_AMG-id-based-policy-examples")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Amazon Managed Grafana resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -56,9 +49,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the Amazon Managed Grafana
-
-console
+## Using the Amazon Managed Grafana console
 
 To access the console, you must have a minimum set of permissions. These
 permissions must allow you to list and view details about the resources in your
@@ -66,16 +57,12 @@ AWS account. If you create an identity-based policy that is more restrictive tha
 the minimum required permissions, the console won't function as intended for
 entities (users or roles) with that policy.
 
-## Sample policies for
-
-Amazon Managed Grafana
+## Sample policies for Amazon Managed Grafana
 
 This section contains identity-based policies that are useful for several
 Amazon Managed Grafana scenarios.
 
-### Grafana
-
-administrator using SAML
+### Grafana administrator using SAML
 
 If you use SAML for your user authentication, the administrator who creates
 and manages Amazon Managed Grafana needs the following policies:
@@ -86,9 +73,7 @@ and manages Amazon Managed Grafana needs the following policies:
   equivalent permissions, if you want to upgrade an Amazon Managed Grafana workspace to
   Grafana Enterprise.
 
-#### Grafana
-
-administrator in a management account using IAM Identity Center
+#### Grafana administrator in a management account using IAM Identity Center
 
 To grant permissions to create and manage Amazon Managed Grafana workspaces across an
 entire organization, and to enable dependencies such as IAM Identity Center, assign the
@@ -116,12 +101,9 @@ that has full permissions for all resources, and attach that policy to
 any role. Be very careful about who you grant these permissions to.
 
 To see the permissions granted to
-**AWSGrafanaAccountAdministrator**, see [AWS managed
-policy: AWSGrafanaAccountAdministrator](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaAccountAdministrator "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaAccountAdministrator")
+**AWSGrafanaAccountAdministrator**, see [AWS managed policy: AWSGrafanaAccountAdministrator](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaAccountAdministrator "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaAccountAdministrator")
 
-#### Grafana
-
-administrator in a member account using IAM Identity Center
+#### Grafana administrator in a member account using IAM Identity Center
 
 To grant permissions to create and manage Amazon Managed Grafana workspaces in the
 member account of an organization, assign the
@@ -148,12 +130,9 @@ that has full permissions for all resources, and attach that policy to
 any role. Be very careful about who you grant these permissions to.
 
 To see the permissions granted to
-**AWSGrafanaAccountAdministrator**, see [AWS managed
-policy: AWSGrafanaAccountAdministrator](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaAccountAdministrator "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaAccountAdministrator")
+**AWSGrafanaAccountAdministrator**, see [AWS managed policy: AWSGrafanaAccountAdministrator](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaAccountAdministrator "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaAccountAdministrator")
 
-#### Create and manage Amazon Managed Grafana workspaces and users in a single standalone
-
-account using IAM Identity Center
+#### Create and manage Amazon Managed Grafana workspaces and users in a single standalone account using IAM Identity Center
 
 A standalone AWS account is an account that is not yet a member of an
 organization. For more information about organizations, see [What is
@@ -179,12 +158,9 @@ that has full permissions for all resources, and attach that policy to
 any role. Be very careful about who you grant these permissions to.
 
 To see the permissions granted to
-**AWSGrafanaAccountAdministrator**, see [AWS managed
-policy: AWSGrafanaAccountAdministrator](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaAccountAdministrator "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaAccountAdministrator")
+**AWSGrafanaAccountAdministrator**, see [AWS managed policy: AWSGrafanaAccountAdministrator](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaAccountAdministrator "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaAccountAdministrator")
 
-#### Assign
-
-and unassign users access to Amazon Managed Grafana
+#### Assign and unassign users access to Amazon Managed Grafana
 
 To grant permissions to manage other
 users' access to Amazon Managed Grafana workspaces in the account, including granting
@@ -195,8 +171,7 @@ user also needs the **AWSSSOReadOnly** and
 **AWSSSODirectoryReadOnly** policies.
 
 To see the permissions granted to
-**AWSGrafanaWorkspacePermissionManagementV2**, see [AWS
-managed policy: AWSGrafanaWorkspacePermissionManagementV2](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaWorkspacePermissionManagementV2 "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaWorkspacePermissionManagementV2")
+**AWSGrafanaWorkspacePermissionManagementV2**, see [AWS managed policy: AWSGrafanaWorkspacePermissionManagementV2](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaWorkspacePermissionManagementV2 "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaWorkspacePermissionManagementV2")
 
 #### Amazon Managed Grafana read-only permissions
 
@@ -208,5 +183,4 @@ console, assign the **AWSGrafanaConsoleReadOnlyAccess**,
 or IAM role.
 
 To see the permissions granted to
-**AWSGrafanaConsoleReadOnlyAccess**, see [AWS managed
-policy: AWSGrafanaConsoleReadOnlyAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaConsoleReadOnlyAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaConsoleReadOnlyAccess") .
+**AWSGrafanaConsoleReadOnlyAccess**, see [AWS managed policy: AWSGrafanaConsoleReadOnlyAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaConsoleReadOnlyAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaConsoleReadOnlyAccess").

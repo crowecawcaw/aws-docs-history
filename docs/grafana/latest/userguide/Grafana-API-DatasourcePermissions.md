@@ -17,9 +17,7 @@ API token. You include this in the `Authorization` field in the API
 request. For information about how to create a token to authenticate your API calls,
 see [Authenticate with tokens](authenticating-grafana-apis.md "authenticating-grafana-apis.md").
 
-## Enable permissions for a
-
-data source
+## Enable permissions for a data source
 
 ```
 POST /api/datasources/:id/enable-permissions
@@ -58,9 +56,7 @@ Status Codes:
 - **403**— Access denied
 - **404**— Data source not found
 
-## Disable permissions for
-
-a data source
+## Disable permissions for a data source
 
 ```
 POST /api/datasources/:id/disable-permissions
@@ -99,9 +95,7 @@ Status Codes:
 - **403**— Access denied
 - **404**— Data source not found
 
-## Get permissions for a data
-
-source
+## Get permissions for a data source
 
 ```
 GET /api/datasources/:id/permissions
@@ -165,9 +159,7 @@ Status Codes:
 - **403**— Access denied
 - **404**— Data source not found
 
-## Add permission for a data
-
-source
+## Add permission for a data source
 
 ```
 POST /api/datasources/:id/permissions
@@ -234,9 +226,7 @@ Status Codes:
 - **403**— Access denied
 - **404**— Data source not found
 
-## Remove permission for a
-
-data source
+## Remove permission for a data source
 
 ```
 DELETE /api/datasources/:id/permissions/:permissionId

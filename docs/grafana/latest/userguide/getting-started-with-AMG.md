@@ -1,6 +1,4 @@
-# Learn how to create and use Amazon Managed Grafana
-
-resources
+# Learn how to create and use Amazon Managed Grafana resources
 
 This tutorial helps you get started with Amazon Managed Grafana. Create your first
 workspace, and then connect to the Grafana console in that workspace.
@@ -16,17 +14,12 @@ Amazon Managed Grafana](Amazon-Managed-Grafana-setting-up.md "Amazon-Managed-Gra
 
 ###### Topics
 
-- [User
-  authentication](#AMG-getting-started-workspace-authentication "#AMG-getting-started-workspace-authentication")
-- [Necessary
-  permissions](#AMG-getting-started-workspace-permissions "#AMG-getting-started-workspace-permissions")
-- [Create your first
-  workspace](#AMG-getting-started-workspace-create "#AMG-getting-started-workspace-create")
+- [User authentication](#AMG-getting-started-workspace-authentication "#AMG-getting-started-workspace-authentication")
+- [Necessary permissions](#AMG-getting-started-workspace-permissions "#AMG-getting-started-workspace-permissions")
+- [Create your first workspace](#AMG-getting-started-workspace-create "#AMG-getting-started-workspace-create")
 - [Set up AWS to use Amazon Managed Grafana](Amazon-Managed-Grafana-setting-up.md "Amazon-Managed-Grafana-setting-up.md")
 
-## User
-
-authentication
+## User authentication
 
 For user authentication within your workspaces, Amazon Managed Grafana supports the following
 options:
@@ -38,8 +31,7 @@ options:
 **SAML**
 
 If you use SAML, your users must already be created in an identity provider. Amazon Managed Grafana
-supports identity providers that support SAML 2.0. For more information, see [Use SAML with your Amazon Managed Grafana
-workspace](authentication-in-AMG-SAML.md "authentication-in-AMG-SAML.md").
+supports identity providers that support SAML 2.0. For more information, see [Use SAML with your Amazon Managed Grafana workspace](authentication-in-AMG-SAML.md "authentication-in-AMG-SAML.md").
 
 **AWS IAM Identity Center**
 
@@ -62,9 +54,7 @@ also enable IAM Identity Center-integrated applications in the management accoun
 information, see [IAM Identity Center-integrated
 applications](../../../singlesignon/latest/userguide/awsapps.md "../../../singlesignon/latest/userguide/awsapps.md").
 
-## Necessary
-
-permissions
+## Necessary permissions
 
 To create a workspace that uses an IdP and SAML for authorization, you must be signed
 on to an IAM principal that has the
@@ -78,12 +68,9 @@ attached:
 - **AWSSSOMemberAccountAdministrator**
 - **AWSSSODirectoryAdministrator**
 
-For more information, see [Create and manage Amazon Managed Grafana workspaces and users in a single standalone
-account using IAM Identity Center](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-create-workspace-standalone "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-create-workspace-standalone").
+For more information, see [Create and manage Amazon Managed Grafana workspaces and users in a single standalone account using IAM Identity Center](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-create-workspace-standalone "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-create-workspace-standalone").
 
-## Create your first
-
-workspace
+## Create your first workspace
 
 Use the following steps to create your first workspace.
 
@@ -249,5 +236,4 @@ of the following:
 
     You are now in your Grafana workspace, or logical Grafana server. You
     can start adding data sources to query, visualize, and analyze data. For
-    more information, see [Use your Grafana
-    workspace](AMG-working-with-Grafana-workspace.md "AMG-working-with-Grafana-workspace.md").
+    more information, see [Use your Grafana workspace](AMG-working-with-Grafana-workspace.md "AMG-working-with-Grafana-workspace.md").

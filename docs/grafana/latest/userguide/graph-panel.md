@@ -219,8 +219,7 @@ Options are identical for both y-axes.
     bar chart that groups numbers into ranges, often called buckets
     or bins. Taller bars show that more data falls in that range.
 
-  For more information about histograms, see [Introduction to histograms
-  and heatmaps](getting-started-grafanaui.md#introduction-to-histograms-and-heatmaps "getting-started-grafanaui.md#introduction-to-histograms-and-heatmaps").
+  For more information about histograms, see [Introduction to histograms and heatmaps](getting-started-grafanaui.md#introduction-to-histograms-and-heatmaps "getting-started-grafanaui.md#introduction-to-histograms-and-heatmaps").
 
       - Buckets – Sets the
        number of buckets to group the values by. If left empty,

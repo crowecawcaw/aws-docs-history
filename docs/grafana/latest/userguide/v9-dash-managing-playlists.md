@@ -17,9 +17,7 @@ resolution, which makes them perfect for large screens. You can access the playl
 feature from Grafana’s side menu in the **Dashboards**
 submenu.
 
-## Accessing, sharing, and
-
-controlling a playlist
+## Accessing, sharing, and controlling a playlist
 
 Use the information in this section to access existing playlists. Start and
 control the display of a playlist using one of the five available modes.
@@ -121,9 +119,7 @@ when creating or editing the playlist before saving it.
    **Interval**, and at least one **Dashboard** added to it.
 6. Click **Save** to save your changes.
 
-## Editing or deleting a
-
-playlist
+## Editing or deleting a playlist
 
 You can edit a playlist by updating its name, interval time, and by adding,
 removing, and rearranging the order of dashboards.
@@ -153,9 +149,7 @@ removing, and rearranging the order of dashboards.
    the playlist.
 2. Click **Save** to save your changes.
 
-## Sharing a playlist in view
-
-mode
+## Sharing a playlist in view mode
 
 You can share a playlist by copying the link address on the view mode you prefer,
 and pasting the URL to your destination.

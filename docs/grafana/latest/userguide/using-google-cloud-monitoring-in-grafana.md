@@ -1,6 +1,4 @@
-# Connect to a Google Cloud
-
-Monitoring data source
+# Connect to a Google Cloud Monitoring data source
 
 ###### Note
 
@@ -43,9 +41,7 @@ There are two ways to authenticate the Google Cloud Monitoring plugin
 The latter option is only available when running Grafana on GCE virtual
 machine.
 
-### Using a Google
-
-service account key file
+### Using a Google service account key file
 
 To authenticate with the Google Cloud Monitoring API, you must create a
 Google Cloud Platform (GCP) Service Account for the Project that you want to
@@ -63,9 +59,7 @@ The following APIs must be enabled first:
 Choose the links listed, and then choose the
 **Enable** button.
 
-#### Creating a
-
-GCP service account for a Project
+#### Creating a GCP service account for a Project
 
 1. Navigate to the [APIs
    and Services Credentials page](https://console.cloud.google.com/apis/credentials "https://console.cloud.google.com/apis/credentials").
@@ -151,9 +145,7 @@ and enter a filter value. For example, enter `instance_name =
  grafana-1`. You can remove the filter by choosing the filter
 name and selecting `--remove filter--`.
 
-##### Simple wildcard
-
-characters
+##### Simple wildcard characters
 
 When the operator is set to or ,`=``!=` it
 is possible to add wildcard characters to the filter value field.
@@ -164,9 +156,7 @@ values that end with "central-a".
 substring of `central-`. Simple wildcard characters are
 less expensive than regular expressions.
 
-##### Regular
-
-expressions
+##### Regular expressions
 
 When the operator is set to or ,`=~``!=~`
 it is possible to add regular expressions to the filter value field.
@@ -185,9 +175,7 @@ The `Aligner` field allows you to align multiple time
 series after the same group by time interval. For more information about
 aligner, refer to [alignment metric selector](https://cloud.google.com/monitoring/charts/metrics-selector#alignment "https://cloud.google.com/monitoring/charts/metrics-selector#alignment").
 
-##### Alignment Period and
-
-grouping by time
+##### Alignment Period and grouping by time
 
 The `Alignment Period` groups a metric by time if an
 aggregation is chosen. The default is to use the GCP Google Cloud
@@ -289,9 +277,7 @@ the basic concepts in service monitoring, refer to the Google Cloud
 Monitoring [official
 documentation](https://cloud.google.com/monitoring/service-monitoring "https://cloud.google.com/monitoring/service-monitoring").
 
-#### Creating an SLO
-
-query
+#### Creating an SLO query
 
 To create an SLO query, follow these steps:
 
@@ -314,9 +300,7 @@ documentation.
 | SLO Compliance               | select_slo_compliance                   |
 | SLO Error Budget Remaining   | select_slo_budget_fraction              |
 
-#### Alias patterns for SLO
-
-queries
+#### Alias patterns for SLO queries
 
 You can use the Alias By field to control the format of the legend
 keys for SLO queries.
@@ -362,9 +346,7 @@ Monitoring data source plugin provides the following `Query
 | `SLO Services`                   | Returns a list of Service Monitoring services that can<br>be used in SLO queries.                                    |
 | `Service Level Objectives (SLO)` | Returns a list of SLO’s for the specified SLO service.                                                               |
 
-### Using variables in
-
-queries
+### Using variables in queries
 
 There are two syntaxes:
 
@@ -401,9 +383,7 @@ field could have the following text:
 Example Result: `monitoring.googleapis.com/uptime_check/http_status has
  this value: 502`
 
-### Patterns for the
-
-annotation query editor
+### Patterns for the annotation query editor
 
 | Alias pattern format     | Description                       | Alias pattern example            | Example result                                    |
 | ------------------------ | --------------------------------- | -------------------------------- | ------------------------------------------------- |
@@ -414,9 +394,7 @@ annotation query editor
 | `{{metric.label.xxx}}`   | Returns the metric label value.   | `{{metric.label.instance_name}}` | `grafana-1-prod`                                  |
 | `{{resource.label.xxx}}` | Returns the resource label value. | `{{resource.label.zone}}`        | `us-east1-b`                                      |
 
-## Deep linking from Grafana panels to the Metrics Explorer in Google Cloud
-
-Console
+## Deep linking from Grafana panels to the Metrics Explorer in Google Cloud Console
 
 ###### Note
 

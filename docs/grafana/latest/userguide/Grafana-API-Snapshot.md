@@ -224,9 +224,7 @@ Content-Type: application/json
 {"message":"Snapshot deleted. It might take an hour before it's cleared from any CDN caches.", "id": 1}
 ```
 
-## Delete snapshot by
-
-deleteKey
+## Delete snapshot by deleteKey
 
 This API call can be used without authentication by using the secret delete key
 for the snapshot.

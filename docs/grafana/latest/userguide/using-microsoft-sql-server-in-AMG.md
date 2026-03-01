@@ -1,6 +1,4 @@
-# Connect to a Microsoft SQL
-
-Server data source
+# Connect to a Microsoft SQL Server data source
 
 Use the Microsoft SQL Server (MSSQL) data source to query and visualize data from
 any Microsoft SQL Server 2005 or newer, including Microsoft Azure SQL Database.
@@ -63,9 +61,7 @@ The following time identifiers are supported.
 | `s`        | Second      |
 | `ms`       | Millisecond |
 
-### Database user
-
-permissions
+### Database user permissions
 
 ###### Important
 
@@ -398,9 +394,7 @@ SELECT hostname FROM host WHERE region IN ($region)
 
 ```
 
-### Using variables in
-
-queries
+### Using variables in queries
 
 ###### Note
 

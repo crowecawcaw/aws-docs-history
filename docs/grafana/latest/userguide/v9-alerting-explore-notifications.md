@@ -20,9 +20,7 @@ notification should be sent; and whether alerts should all be sent in the same
 notification, sent in grouped notifications based on a set of labels, or as separate
 notifications.
 
-## Notification
-
-policies
+## Notification policies
 
 Notification policies control when and where notifications are sent. A
 notification policy can choose to send all alerts together in the same
@@ -56,9 +54,7 @@ match the alert then the specific routing policy is the matching policy. If
 there are no specific routing policies, or no specific routing policies match
 the alert, then the root policy is the matching policy.
 
-## Contact
-
-points
+## Contact points
 
 Contact points contain the configuration for sending notifications. A contact
 point is a list of integrations, each of which sends a notification to a
@@ -81,9 +77,7 @@ to each integration in its configuration.
 For information about supported integrations for contact points, see
 [Contact points](v9-alerting-explore-contacts.md "v9-alerting-explore-contacts.md").
 
-## Templating
-
-notifications
+## Templating notifications
 
 You can customize notifications with templates. For example, templates can be
 used to change the title and message of notifications sent to Slack.

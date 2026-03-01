@@ -1,6 +1,4 @@
-# Migrating classic dashboard alerts to Grafana
-
-alerting
+# Migrating classic dashboard alerts to Grafana alerting
 
 This documentation topic is designed
 for Grafana workspaces that support **Grafana version
@@ -14,17 +12,14 @@ For Grafana workspaces that support Grafana version 8.x, see
 
 Workspaces that choose not to use Grafana alerting use the [Classic dashboard alerts](old-alerts-overview.md "old-alerts-overview.md"). To switch to
 the new Grafana alerting, you must opt in to the feature. To see details about the
-differences between classic dashboard alerting and Grafana alerting, see [Grafana alerting vs legacy dashboard
-alerting](#v10-alerting-diff-old-new "#v10-alerting-diff-old-new"). GrafanaLabs has announced that
+differences between classic dashboard alerting and Grafana alerting, see [Grafana alerting vs legacy dashboard alerting](#v10-alerting-diff-old-new "#v10-alerting-diff-old-new"). GrafanaLabs has announced that
 classic dashboard alerts will be removed in version 11.
 
 When you are using classic dashboard alerting, Amazon Managed Grafana shows you a preview of
 Grafana alerting where you can review and modify your upgraded alerts before
 finalizing the upgrade.
 
-## Previewing Grafana
-
-alerts
+## Previewing Grafana alerts
 
 You can preview your alerts in Grafana alerts before migrating. In the preview,
 you can make changes to the alerts that will change the migration.
@@ -48,9 +43,7 @@ upgrade** at the top right of the upgrade page.
 
 When you are ready to upgrade your alerts, see the next section.
 
-## Migrating to Grafana
-
-alerting system
+## Migrating to Grafana alerting system
 
 You can configure your Amazon Managed Grafana instance to use Grafana alerting using the AWS Management Console,
 the AWS CLI, or the Amazon Managed Grafana API. For details about how to configure Amazon Managed Grafana, including
@@ -106,16 +99,12 @@ all changes made to alerting configuration made while you had
 Grafana alerting enabled, including any new alert rules that were
 created.
 
-## Grafana alerting vs legacy dashboard
-
-alerting
+## Grafana alerting vs legacy dashboard alerting
 
 Introduced in Grafana 8, Grafana alerting has several enhancements over
 legacy dashboard alerting.
 
-### Multi-dimensional
-
-alerting
+### Multi-dimensional alerting
 
 You can now create alerts that give you system-wide visibility
 with a single alerting rule. Generate multiple alert instances
@@ -124,9 +113,7 @@ monitor the disk usage of multiple mount points on a single
 host. The evaluation engine returns multiple time series from a
 single query, with each time series identified by its label set.
 
-### Create alerts
-
-outside of Dashboards
+### Create alerts outside of Dashboards
 
 Unlike legacy dashboard alerts, Grafana alerts allow you to
 create queries and expressions that combine data from multiple

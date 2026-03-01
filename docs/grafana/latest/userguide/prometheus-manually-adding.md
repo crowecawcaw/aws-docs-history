@@ -1,6 +1,4 @@
-# Manually adding the Prometheus data
-
-source
+# Manually adding the Prometheus data source
 
 ###### To manually add the Prometheus data source
 

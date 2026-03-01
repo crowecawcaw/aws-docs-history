@@ -1,6 +1,4 @@
-# Grafana Mimir or
-
-Loki rule groups and namespaces
+# Grafana Mimir or Loki rule groups and namespaces
 
 This documentation topic is designed
 for Grafana workspaces that support **Grafana version

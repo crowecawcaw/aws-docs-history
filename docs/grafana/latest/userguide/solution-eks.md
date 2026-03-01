@@ -1,6 +1,4 @@
-# Solution for Monitoring Amazon EKS infrastructure with
-
-Amazon Managed Grafana
+# Solution for Monitoring Amazon EKS infrastructure with Amazon Managed Grafana
 
 Monitoring Amazon Elastic Kubernetes Service infrastructure is one of the most common scenarios for which
 Amazon Managed Grafana are used. This page describes a template that provides you with a solution
@@ -199,8 +197,7 @@ Amazon Managed Grafana workspace.
 
 Additionally, Amazon Managed Grafana must have the following permissions for
 your Prometheus resources. You must add them to either the service-managed or
-customer-managed policies described in [Amazon Managed Grafana permissions and policies for AWS data
-sources](AMG-manage-permissions.md "AMG-manage-permissions.md").
+customer-managed policies described in [Amazon Managed Grafana permissions and policies for AWS data sources](AMG-manage-permissions.md "AMG-manage-permissions.md").
 
     * `aps:ListRules`
     * `aps:ListAlertManagerSilences`
@@ -214,8 +211,7 @@ sources](AMG-manage-permissions.md "AMG-manage-permissions.md").
 
 While not strictly required to set up the solution, you must set up user
 authentication in your Amazon Managed Grafana workspace before users can access the dashboards
-created. For more information, see [Authenticate users in Amazon Managed Grafana
-workspaces](authentication-in-AMG.md "authentication-in-AMG.md").
+created. For more information, see [Authenticate users in Amazon Managed Grafana workspaces](authentication-in-AMG.md "authentication-in-AMG.md").
 
 ## Using this solution
 
@@ -266,8 +262,7 @@ export AMP_WS_ARN=`AMP_ARN`
 ```
 
 4. You must create a service account token with ADMIN access for calling
-   Grafana HTTP APIs. For details, see [Use service accounts to authenticate with the
-   Grafana HTTP APIs](service-accounts.md "service-accounts.md"). You can use the AWS CLI with the following
+   Grafana HTTP APIs. For details, see [Use service accounts to authenticate with the Grafana HTTP APIs](service-accounts.md "service-accounts.md"). You can use the AWS CLI with the following
    commands to create the token. You will need to replace the
    `GRAFANA_ID` with the ID of your Grafana workspace (it
    will be in the form `g-123example`). This key will expire after
@@ -369,8 +364,7 @@ export TF_VAR_s3_bucket_id=`S3_ID`
 ```
 
 4. You must create a service account token with ADMIN access for calling
-   Grafana HTTP APIs. For details, see [Use service accounts to authenticate with the
-   Grafana HTTP APIs](service-accounts.md "service-accounts.md"). You can use the AWS CLI with the following
+   Grafana HTTP APIs. For details, see [Use service accounts to authenticate with the Grafana HTTP APIs](service-accounts.md "service-accounts.md"). You can use the AWS CLI with the following
    commands to create the token. You will need to replace the
    `GRAFANA_ID` with the ID of your Grafana workspace (it
    will be in the form `g-123example`). This key will expire after

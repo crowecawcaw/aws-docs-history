@@ -1,6 +1,4 @@
-# Use service accounts to authenticate with the
-
-Grafana HTTP APIs
+# Use service accounts to authenticate with the Grafana HTTP APIs
 
 You can use a service account to run automated workloads in Grafana, such as
 dashboard provisioning, configuration, or report generation. Create service accounts
@@ -101,9 +99,7 @@ You can also create service accounts using the Amazon Managed Grafana AWS APIs. 
 the [CreateWorkspaceServiceAccount](../APIReference/API_CreateWorkspaceServiceAccount.md "../APIReference/API_CreateWorkspaceServiceAccount.md") to create a service account
 programmatically.
 
-## Adding a token to a service
-
-account
+## Adding a token to a service account
 
 A service account token is a generated random string that acts as an
 alternative to a password when authenticating with Grafana’s HTTP API.

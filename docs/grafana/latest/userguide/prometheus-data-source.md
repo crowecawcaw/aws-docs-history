@@ -1,6 +1,4 @@
-# Connect to Amazon Managed Service for Prometheus and open-source Prometheus
-
-data sources
+# Connect to Amazon Managed Service for Prometheus and open-source Prometheus data sources
 
 In Amazon Managed Grafana, the Prometheus data source supports using both self-managed
 Prometheus servers and Amazon Managed Service for Prometheus workspaces as data sources. For more information about
@@ -15,16 +13,12 @@ required to access Amazon Managed Service for Prometheus.
 ###### Note
 
 You can view your Prometheus alerts in the unified Grafana alerting interface,
-by [Configuring an Alertmanager
-data source](data-source-alertmanager.md#data-source-alertmanager-create "data-source-alertmanager.md#data-source-alertmanager-create").
+by [Configuring an Alertmanager data source](data-source-alertmanager.md#data-source-alertmanager-create "data-source-alertmanager.md#data-source-alertmanager-create").
 
 ###### Topics
 
-- [Use AWS data source configuration to
-  add Amazon Managed Service for Prometheus as a data source](AMP-adding-AWS-config.md "AMP-adding-AWS-config.md")
-- [Manually adding the Prometheus data
-  source](prometheus-manually-adding.md "prometheus-manually-adding.md")
-- [Using the Prometheus data
-  source](using-prometheus-datasource.md "using-prometheus-datasource.md")
+- [Use AWS data source configuration to add Amazon Managed Service for Prometheus as a data source](AMP-adding-AWS-config.md "AMP-adding-AWS-config.md")
+- [Manually adding the Prometheus data source](prometheus-manually-adding.md "prometheus-manually-adding.md")
+- [Using the Prometheus data source](using-prometheus-datasource.md "using-prometheus-datasource.md")
 - [Visualize alerts from Amazon Managed Service for Prometheus](amp-configure-alerts.md "amp-configure-alerts.md")
 - [Configure exemplars](amp-configure-exemplars.md "amp-configure-exemplars.md")

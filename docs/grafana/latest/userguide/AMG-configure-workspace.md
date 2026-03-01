@@ -7,10 +7,8 @@ includes information regarding configuration of your Grafana workspace.
 For more information about configuring Amazon Managed Grafana authentication and permissions, see
 the following topics.
 
-- [Authenticate users in Amazon Managed Grafana
-  workspaces](authentication-in-AMG.md "authentication-in-AMG.md")
-- [Manage user and group access to
-  Amazon Managed Grafana workspaces](AMG-manage-users-and-groups-AMG.md "AMG-manage-users-and-groups-AMG.md")
+- [Authenticate users in Amazon Managed Grafana workspaces](authentication-in-AMG.md "authentication-in-AMG.md")
+- [Manage user and group access to Amazon Managed Grafana workspaces](AMG-manage-users-and-groups-AMG.md "AMG-manage-users-and-groups-AMG.md")
 - [Users, teams, and permissions](Grafana-administration-authorization.md "Grafana-administration-authorization.md")
   You can modify the configuration of your Grafana workspace within Amazon Managed Grafana on the
   **Workspace configuration options** tab when viewing the properties
@@ -24,9 +22,7 @@ might need to refresh any browser pages that show the Grafana workspace.
 
 The same options are available to you when you first create your workspace.
 
-###### To change the configuration of a Grafana workspace using the Amazon Managed Grafana
-
-console
+###### To change the configuration of a Grafana workspace using the Amazon Managed Grafana console
 
 1. Open the Amazon Managed Grafana console at [https://console.aws.amazon.com/grafana/](https://console.aws.amazon.com/grafana/home/ "https://console.aws.amazon.com/grafana/home/").
 2. In the left navigation pane, choose the menu icon.
@@ -56,8 +52,7 @@ console
 
    Classic dashboard alerts will be removed in version 11. In Grafana
    version 10 workspaces, you can preview the Grafana alerting feature.
-   For more information, see [Migrating classic dashboard alerts to Grafana
-   alerting](v10-alerting-use-grafana-alerts.md "v10-alerting-use-grafana-alerts.md").
+   For more information, see [Migrating classic dashboard alerts to Grafana alerting](v10-alerting-use-grafana-alerts.md "v10-alerting-use-grafana-alerts.md").
    - **Plugin management**
 
    To turn on plugin management, select the check box to **Turn
@@ -78,9 +73,7 @@ on or off, see [Alerts in Grafana version 10](v10-alerts.md "v10-alerts.md").
 The next section shows how to make changes to the Grafana instance configuration using
 the Amazon Managed Grafana API or the AWS CLI.
 
-## Setting configuration with API or
-
-AWS CLI
+## Setting configuration with API or AWS CLI
 
 You can set the Grafana workspace configuration using the Amazon Managed Grafana API or the
 AWS CLI.
@@ -92,9 +85,7 @@ configuration settings which made be added later.
 
 AWS CLI
 
-###### To update Amazon Managed Grafana instance configuration using the
-
-AWS CLI
+###### To update Amazon Managed Grafana instance configuration using the AWS CLI
 
 Run the following command to turn on the Grafana alerting and
 plugin management features for an instance. Replace the

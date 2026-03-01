@@ -1,6 +1,4 @@
-# Provisioning Grafana Alerting
-
-resources
+# Provisioning Grafana Alerting resources
 
 This documentation topic is designed
 for Grafana workspaces that support **Grafana version
@@ -50,7 +48,5 @@ Grafana.
 
 ###### Topics
 
-- [Create and manage
-  alerting resources using Terraform](v9-alerting-setup-provision-terraform.md "v9-alerting-setup-provision-terraform.md")
-- [Viewing provisioned
-  alerting resources in Grafana](v9-alerting-setup-provision-view.md "v9-alerting-setup-provision-view.md")
+- [Create and manage alerting resources using Terraform](v9-alerting-setup-provision-terraform.md "v9-alerting-setup-provision-terraform.md")
+- [Viewing provisioned alerting resources in Grafana](v9-alerting-setup-provision-view.md "v9-alerting-setup-provision-view.md")

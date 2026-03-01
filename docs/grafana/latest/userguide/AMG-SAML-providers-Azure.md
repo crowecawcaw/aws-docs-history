@@ -1,21 +1,15 @@
-# Configure Amazon Managed Grafana to use Azure
-
-AD
+# Configure Amazon Managed Grafana to use Azure AD
 
 Use the following steps to configure Amazon Managed Grafana to use Azure Active Directory as an
 identity provider. These steps assume that you have already created your Amazon Managed Grafana
 workspace and you have made a note of the workspace _ID_,
 _URLs_, and _AWS Region_.
 
-## Step 1: Steps to complete in
-
-Azure Active Directory
+## Step 1: Steps to complete in Azure Active Directory
 
 Complete the following steps in Azure Active Directory.
 
-###### To set up Azure Active Directory as an identity provider for
-
-Amazon Managed Grafana
+###### To set up Azure Active Directory as an identity provider for Amazon Managed Grafana
 
 1. Sign in to the Azure console as an admin.
 2. Choose **Azure Active Directory**.
@@ -55,15 +49,11 @@ Amazon Managed Grafana
 12. Copy the **SAML Metadata URL** for use in the
     Amazon Managed Grafana workspace configuration.
 
-## Step 2: Steps to complete in
-
-Amazon Managed Grafana
+## Step 2: Steps to complete in Amazon Managed Grafana
 
 Complete the following steps in the Amazon Managed Grafana console.
 
-###### To finish setting up Azure Active Directory as an identity provider for
-
-Amazon Managed Grafana
+###### To finish setting up Azure Active Directory as an identity provider for Amazon Managed Grafana
 
 1. Open the Amazon Managed Grafana console at [https://console.aws.amazon.com/grafana/](https://console.aws.amazon.com/grafana/home/ "https://console.aws.amazon.com/grafana/home/").
 2. In the navigation pane, choose the menu icon.

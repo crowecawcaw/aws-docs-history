@@ -33,9 +33,7 @@ Annotations are supported for the following visualization types:
 - State timeline
 - Candlestick
 
-## Create annotations in
-
-panels
+## Create annotations in panels
 
 Grafana comes with the ability to add annotation events directly from a panel
 using the [built-in annotations query](#v10-dash-built-in-query "#v10-dash-built-in-query") that
@@ -87,9 +85,7 @@ a visualization.
 2. Select the **Delete** (trash) icon in the
    annotation tooltip.
 
-## Fetch annotations through
-
-dashboard settings
+## Fetch annotations through dashboard settings
 
 In the dashboard settings, under **Annotations**,
 you can add new queries to fetch annotations using any data source,

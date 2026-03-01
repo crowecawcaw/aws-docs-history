@@ -18,8 +18,7 @@ following pre-requisites complete:
   source](prometheus-data-source.md "prometheus-data-source.md").
 - Amazon Managed Grafana must have the following permissions for your Prometheus
   resources. You must add them to either the service-managed or
-  customer-managed policies described in [Amazon Managed Grafana permissions and policies for AWS data
-  sources](AMG-manage-permissions.md "AMG-manage-permissions.md").
+  customer-managed policies described in [Amazon Managed Grafana permissions and policies for AWS data sources](AMG-manage-permissions.md "AMG-manage-permissions.md").
   - `aps:ListRules`
   - `aps:ListAlertManagerSilences`
   - `aps:ListAlertManagerAlerts`
@@ -58,9 +57,7 @@ following pre-requisites complete:
 If your data source is set up correctly, you will see a message saying
 **Health check passed**.
 
-###### To connect your new Alertmanager data source to the Prometheus data
-
-source
+###### To connect your new Alertmanager data source to the Prometheus data source
 
 1. From your Grafana console, in the Grafana menu, choose the
    **Data source** page under

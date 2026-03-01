@@ -35,8 +35,7 @@ The available plugins fall broadly into the following categories:
 - **AWS Data Sources** – This is an
   application plugin, provided by Amazon Managed Grafana, to easily discover AWS
   resources in your account. This is installed by default. For more information,
-  see [Use the AWS Data Sources plugin to find
-  AWS data](aws-datasources-plugin.md "aws-datasources-plugin.md").
+  see [Use the AWS Data Sources plugin to find AWS data](aws-datasources-plugin.md "aws-datasources-plugin.md").
 - **Core plugins** – These plugins
   are provided by default in Grafana. They include popular data sources
   and panel visualizations. They are tagged as
@@ -47,8 +46,7 @@ The available plugins fall broadly into the following categories:
   These are not installed by default. They are tagged as
   **Enterprise** in the plugin catalog. They can only be
   installed if you have a valid enterprise license. For details about how to
-  upgrade a workspace to an Enterprise license, see [Managing your access to Amazon Managed Grafana
-  Enterprise plugins](AMG-workspace-manage-enterprise.md "AMG-workspace-manage-enterprise.md").
+  upgrade a workspace to an Enterprise license, see [Managing your access to Amazon Managed Grafana Enterprise plugins](AMG-workspace-manage-enterprise.md "AMG-workspace-manage-enterprise.md").
 - **Community plugins** – These plugins
   are provided for Grafana workspaces from various sources,
   including Grafana Labs, AWS, and others. In

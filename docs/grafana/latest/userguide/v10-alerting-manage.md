@@ -16,14 +16,10 @@ can use Grafana alerting to manage your alerts in practice.
 ###### Topics
 
 - [Customize notifications](v10-alerting-manage-notifications.md "v10-alerting-manage-notifications.md")
-- [Manage contact
-  points](v10-alerting-manage-contactpoints.md "v10-alerting-manage-contactpoints.md")
+- [Manage contact points](v10-alerting-manage-contactpoints.md "v10-alerting-manage-contactpoints.md")
 - [Silencing alert notifications](v10-alerting-silences.md "v10-alerting-silences.md")
 - [View and filter alert rules](v10-alerting-manage-rules-viewfilter.md "v10-alerting-manage-rules-viewfilter.md")
 - [Mute timings](v10-alerting-manage-muting.md "v10-alerting-manage-muting.md")
-- [View the state and health of
-  alert rules](v10-alerting-manage-rulestate.md "v10-alerting-manage-rulestate.md")
-- [View and filter by alert
-  groups](v10-alerting-manage-viewfiltergroups.md "v10-alerting-manage-viewfiltergroups.md")
-- [View notification
-  errors](v10-alerting-manage-viewnotificationerrors.md "v10-alerting-manage-viewnotificationerrors.md")
+- [View the state and health of alert rules](v10-alerting-manage-rulestate.md "v10-alerting-manage-rulestate.md")
+- [View and filter by alert groups](v10-alerting-manage-viewfiltergroups.md "v10-alerting-manage-viewfiltergroups.md")
+- [View notification errors](v10-alerting-manage-viewnotificationerrors.md "v10-alerting-manage-viewnotificationerrors.md")

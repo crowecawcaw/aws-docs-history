@@ -156,9 +156,7 @@ abbreviation and expressions:**
 | trace     | light blue | trace                                    |
 | unknown   | grey       | \*                                       |
 
-## Highlight searched
-
-words
+## Highlight searched words
 
 When your query includes specific words or expressions to search for, Explore
 will highlight these in the log lines for better visibility. This highlighting

@@ -26,8 +26,7 @@ It includes the following features:
 - Create multiple alert instances from a single alert rule. For more
   information, see [Single and multidimensional rules](v9-alerting-managerules-grafana.md#v9-alerting-single-multi-rule "v9-alerting-managerules-grafana.md#v9-alerting-single-multi-rule").
 - Manage your alerting resources with terraform or provisioning APIs. For
-  more information, see [Provisioning Grafana Alerting
-  resources](v9-alerting-setup-provision.md "v9-alerting-setup-provision.md").
+  more information, see [Provisioning Grafana Alerting resources](v9-alerting-setup-provision.md "v9-alerting-setup-provision.md").
   For existing Amazon Managed Grafana workspace, the default is the [Classic dashboard alerts](old-alerts-overview.md "old-alerts-overview.md"). To migrate to
   Grafana alerting, you must [migrate to Grafana
   alerting](alert-opt-in.md "alert-opt-in.md").
@@ -83,13 +82,11 @@ support Grafana v10.4 and later.
 ###### Topics
 
 - [What's new in Grafana alerting](alerts-whats-new.md "alerts-whats-new.md")
-- [Migrating classic dashboard alerts to Grafana
-  alerting](alert-opt-in.md "alert-opt-in.md")
+- [Migrating classic dashboard alerts to Grafana alerting](alert-opt-in.md "alert-opt-in.md")
 - [Alerting fundamentals](alert-fundamentals.md "alert-fundamentals.md")
 - [Create and manage Grafana alerting rules](alert-rules.md "alert-rules.md")
 - [Alert groups](alert-groups.md "alert-groups.md")
-- [Silencing alert notifications for Prometheus data
-  sources](alert-silences.md "alert-silences.md")
+- [Silencing alert notifications for Prometheus data sources](alert-silences.md "alert-silences.md")
 - [Working with contact points](alert-contact-points.md "alert-contact-points.md")
 - [Using messaging templates](alert-message-templates.md "alert-message-templates.md")
 - [Working with notification policies](alert-notifications.md "alert-notifications.md")

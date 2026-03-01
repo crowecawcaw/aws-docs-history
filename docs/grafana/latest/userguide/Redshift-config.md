@@ -7,9 +7,7 @@ following:
 
 - You have access to **Amazon Redshift** from your account.
 
-## \*\*Connection
-
-details\*\* settings
+## **Connection details** settings
 
 ###### Configure Connection details settings
 
@@ -18,17 +16,14 @@ details\*\* settings
    Role**).
 2. Choose the **Default Region** you want to query.
 
-## **Authentication**
-
-settings
+## **Authentication** settings
 
 ###### Configure **Authentication** settings
 
 1. In the **Authentication** menu, choose either the
    **Temporary Credentials** or **AWS Secrets
    Manager** tab as your access credentials provider. For details
-   on Temporary Credentials and AWS Secrets Manager, refer to [AWS managed
-   policy: AmazonGrafanaRedshiftAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonGrafanaRedshiftAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonGrafanaRedshiftAccess")
+   on Temporary Credentials and AWS Secrets Manager, refer to [AWS managed policy: AmazonGrafanaRedshiftAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonGrafanaRedshiftAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonGrafanaRedshiftAccess")
 2. If you choose **Temporary credentials** which is by
    default, follow the steps below. If you choose **AWS Secrets
    Manager**, enter your **AWS Secrets

@@ -4,9 +4,7 @@ Use the following steps to configure Amazon Managed Grafana to use Okta as an id
 provider. These steps assume that you have already created your Amazon Managed Grafana workspace
 and you have made a note of the workspace's ID, URLs, and Region.
 
-## Step 1: Steps to complete in
-
-Okta
+## Step 1: Steps to complete in Okta
 
 Complete the following steps in Okta.
 
@@ -36,9 +34,7 @@ Complete the following steps in Okta.
     **People** and **Groups** that you
     want to be able to use Amazon Managed Grafana.
 
-## Step 2: Steps to complete in
-
-Amazon Managed Grafana
+## Step 2: Steps to complete in Amazon Managed Grafana
 
 Complete the following steps in the Amazon Managed Grafana console.
 

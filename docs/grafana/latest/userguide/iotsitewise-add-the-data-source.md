@@ -1,6 +1,4 @@
-# Manually adding the AWS IoT SiteWise
-
-data source
+# Manually adding the AWS IoT SiteWise data source
 
 ###### To manually add the AWS IoT SiteWise data source
 

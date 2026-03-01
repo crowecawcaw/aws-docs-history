@@ -8,8 +8,7 @@ Grafana's built-in support for assuming roles. Note that you will need to
 [Configure the required policy](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") for your role before adding the
 data source to Grafana. You will need an admin or an editor role for adding
 a data source. The built-in Amazon Grafana Athena access policy is defined
-in the [AWS managed policy:
-AmazonGrafanaAthenaAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonGrafanaAthenaAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonGrafanaAthenaAccess")
+in the [AWS managed policy: AmazonGrafanaAthenaAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonGrafanaAthenaAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonGrafanaAthenaAccess")
 section.
 
 ## Query Athena data
@@ -59,9 +58,7 @@ interpolated query, which works directly in Athena, click the
 **Query Inspector** button. The full query is displayed
 under the **Query** tab.
 
-## Templates and
-
-variables
+## Templates and variables
 
 For more information about adding a Athena query variable, see [Adding a query variable](variables-types.md#add-a-query-variable "variables-types.md#add-a-query-variable").
 Use your Athena data source as your data source for the available

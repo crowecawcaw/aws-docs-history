@@ -1,6 +1,4 @@
-# Using
-
-ec2_instance_attribute examples
+# Using ec2_instance_attribute examples
 
 ## JSON filters
 
@@ -22,9 +20,7 @@ query.
 ec2_instance_attribute(us - east - 1, InstanceId, { 'tag:Environment': ['production'] });
 ```
 
-## Selecting
-
-attributes
+## Selecting attributes
 
 Only one attribute per instance can be returned. Any flat attribute can
 be selected (that is, if the attribute has a single value and isn’t an

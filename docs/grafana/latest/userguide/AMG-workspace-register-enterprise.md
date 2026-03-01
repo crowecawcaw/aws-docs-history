@@ -1,6 +1,4 @@
-# Link your account with
-
-Grafana Labs
+# Link your account with Grafana Labs
 
 Workspaces upgraded to Amazon Managed Grafana Enterprise plugins get access to support
 and consulting from Grafana Labs. To access this feature, the AWS account must be
@@ -24,8 +22,7 @@ location for future use.
 
 ###### To link your Grafana Labs account
 
-1. Follow the instructions in [Managing your access to Amazon Managed Grafana
-   Enterprise plugins](AMG-workspace-manage-enterprise.md "AMG-workspace-manage-enterprise.md") to upgrade your account
+1. Follow the instructions in [Managing your access to Amazon Managed Grafana Enterprise plugins](AMG-workspace-manage-enterprise.md "AMG-workspace-manage-enterprise.md") to upgrade your account
    with access Enterprise plugins. You are prompted to link your account
    by adding a token during the upgrade process.
 2. If you already have a token, you can enter it directly. If you do not

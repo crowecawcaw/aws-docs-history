@@ -120,8 +120,7 @@ regularly scheduled maintenance windows.
 
 ###### Topics
 
-- [Data sources and Grafana
-  alerting](v10-alerting-overview-datasources.md "v10-alerting-overview-datasources.md")
+- [Data sources and Grafana alerting](v10-alerting-overview-datasources.md "v10-alerting-overview-datasources.md")
 - [Alerting on numeric data](v10-alerting-overview-numeric.md "v10-alerting-overview-numeric.md")
 - [Labels and annotations](v10-alerting-overview-labels.md "v10-alerting-overview-labels.md")
 - [About alert rules](v10-alerting-explore-rules.md "v10-alerting-explore-rules.md")

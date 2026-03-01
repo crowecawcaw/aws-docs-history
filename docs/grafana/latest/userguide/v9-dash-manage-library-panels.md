@@ -1,6 +1,4 @@
-# Adding a library panel to your
-
-dashboard
+# Adding a library panel to your dashboard
 
 This documentation topic is designed
 for Grafana workspaces that support **Grafana version

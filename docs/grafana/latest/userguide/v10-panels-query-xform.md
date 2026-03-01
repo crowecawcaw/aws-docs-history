@@ -23,10 +23,8 @@ a query editor.
 - [Adding a query](#v10-panels-query-xform-add "#v10-panels-query-xform-add")
 - [Manage queries](#v10-panels-query-xform-manage "#v10-panels-query-xform-manage")
 - [Query options](#v10-panels-query-xform-options "#v10-panels-query-xform-options")
-- [Write expression
-  queries](v10-panels-query-xform-expressions.md "v10-panels-query-xform-expressions.md")
-- [Share query results with another
-  panel](v10-panels-query-share.md "v10-panels-query-share.md")
+- [Write expression queries](v10-panels-query-xform-expressions.md "v10-panels-query-xform-expressions.md")
+- [Share query results with another panel](v10-panels-query-share.md "v10-panels-query-share.md")
 - [Transform data](v10-panels-xform.md "v10-panels-xform.md")
 - [Troubleshoot queries](v10-panels-query-troubleshoot.md "v10-panels-query-troubleshoot.md")
 - [Calculation types](v10-panels-calculation-types.md "v10-panels-calculation-types.md")
@@ -96,8 +94,7 @@ elements:
 - **Query editor list** – Lists the queries you’ve
   written.
 - **Expressions** – Uses the expression builder to
-  create alert expressions. For more information about expressions, see [Write expression
-  queries](v10-panels-query-xform-expressions.md "v10-panels-query-xform-expressions.md").
+  create alert expressions. For more information about expressions, see [Write expression queries](v10-panels-query-xform-expressions.md "v10-panels-query-xform-expressions.md").
 
 ## Adding a query
 

@@ -1,15 +1,11 @@
-# Using the metric
-
-query editor
+# Using the metric query editor
 
 The metric query editor allows you to build two types of queries -
 **Metric Search** and **Metric
 Query**. The **Metric Query** option queries data
 using CloudWatch Metrics Insights.
 
-## Common query editor
-
-fields
+## Common query editor fields
 
 There are three fields that are common to both **Metric
 Search** and **Metric Query**

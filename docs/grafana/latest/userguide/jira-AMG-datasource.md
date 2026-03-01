@@ -103,9 +103,7 @@ create a Query type variable. Query type variables use JQL to query issues and
 return Projects, Epics, Assignees, or anything related to issues. The following
 is an example:
 
-###### Create an Assignee variable to get the status of issues by
-
-Assignee
+###### Create an Assignee variable to get the status of issues by Assignee
 
 1. Add a variable of type **Query** named
    `assignee`.
@@ -125,9 +123,7 @@ Multi-value variables allow selecting multiple options and can be used as part
 of the IN clause. For example, **assignee IN
 ($assignee)**.
 
-## Using transformations from Grafana to answer
-
-common questions
+## Using transformations from Grafana to answer common questions
 
 Macros are variables that reference the Dashboard time window so you can
 filter issues only within the range of the Dashboard window. There are 2 macros:
@@ -144,9 +140,7 @@ time window: `createdDate >= $__timeFrom AND createdDate <=
 Using Grafana's transformations and other built-in features can help you
 meaningly view your Jira data.
 
-### Using transformations to
-
-augment JQL
+### Using transformations to augment JQL
 
 While there are many Transformations in Grafana to choose from, the
 following provide a powerful augmentation to give JQL some of the
@@ -170,9 +164,7 @@ can be from a single query or from queries you've joined together. You can
 also chain together calculations and perform calculations from calculated
 fields.
 
-### Using transformations from
-
-Grafana to answer common questions
+### Using transformations from Grafana to answer common questions
 
 You can use Transformations to visualize, aggregate, group, and join
 datasets, along with many other types of transformations to transform simple

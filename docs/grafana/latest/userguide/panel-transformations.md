@@ -71,9 +71,7 @@ If you have trouble, choose the bug icon to [debug your transformations](#debug-
 
 To remove a transformation, choose the trash can icon.
 
-## Transformation types and
-
-options
+## Transformation types and options
 
 Grafana workspaces include the following transformations.
 

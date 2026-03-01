@@ -76,9 +76,7 @@ include the threshold.
 2. To delete a threshold, navigate to the panel that contains the threshold and
    click the trash icon next to the threshold you want to remove.
 
-## Add a threshold to a legacy graph
-
-panel
+## Add a threshold to a legacy graph panel
 
 In the Graph panel visualization, thresholds enable you to add lines or sections to a
 graph to make it easier to recognize when the graph crosses a threshold.

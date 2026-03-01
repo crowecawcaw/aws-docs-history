@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-Amazon Managed Grafana
+# Using service-linked roles for Amazon Managed Grafana
 
 Amazon Managed Grafana uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that
 is linked directly to Amazon Managed Grafana. Service-linked roles are predefined by Amazon Managed Grafana
@@ -22,9 +20,7 @@ That Work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-wo
 **Yes** with a link to view the service-linked role
 documentation for that service.
 
-## Service-linked role permissions for
-
-Amazon Managed Grafana
+## Service-linked role permissions for Amazon Managed Grafana
 
 Amazon Managed Grafana uses the service-linked role named **AmazonManagedGrafana**
 – Amazon Managed Grafana uses this role to create and configure resources, such as ENIs or Secrets Manager secrets, within customer accounts. The AmazonManagedGrafana service-linked role trusts the following
@@ -33,8 +29,7 @@ services to assume the role:
 - `grafana.amazonaws.com`
 
 The AmazonManagedGrafana service-linked role is attached to the `AmazonGrafanaServiceLinkedRolePolicy`
-policy. For updates to this policy, see [Amazon Managed Grafana updates to AWS managed
-policies](security-iam-awsmanpol.md#iam-awsmanpol-updates "security-iam-awsmanpol.md#iam-awsmanpol-updates").
+policy. For updates to this policy, see [Amazon Managed Grafana updates to AWS managed policies](security-iam-awsmanpol.md#iam-awsmanpol-updates "security-iam-awsmanpol.md#iam-awsmanpol-updates").
 
 The role permissions policy allows Amazon Managed Grafana to complete the following actions
 on the specified resources.
@@ -170,9 +165,7 @@ Use the IAM console, the AWS CLI, or the AWS API to delete the AmazonManagedGraf
 service-linked role. For more information, see [Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
 _IAM User Guide_.
 
-## Supported regions for Amazon Managed Grafana service-linked
-
-roles
+## Supported regions for Amazon Managed Grafana service-linked roles
 
 Amazon Managed Grafana supports using service-linked roles in all of the regions where the
 service is available. For more information, see [AWS regions and endpoints](../../../general/latest/gr/grafana-service.md "../../../general/latest/gr/grafana-service.md").

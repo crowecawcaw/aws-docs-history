@@ -33,9 +33,7 @@ use the default Region configured in the data source for the query.
 
 For details about the metrics that CloudWatch provides, see [AWS services that publish CloudWatch metrics](../../../AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.md "../../../AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.md").
 
-### Examples of
-
-templated queries
+### Examples of templated queries
 
 The following table shows example dimension queries that return a
 list of resources for individual AWS services.

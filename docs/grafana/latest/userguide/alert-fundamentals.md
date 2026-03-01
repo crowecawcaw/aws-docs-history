@@ -131,8 +131,7 @@ Grafana alerting UI by selecting the Grafana option from the Alertmanager
 dropdown.
 
 Grafana alerting has support for external Alertmanager configuration (for more
-information on Alertmanager as an external datasource, see [Connect to an Alertmanager data
-source](data-source-alertmanager.md "data-source-alertmanager.md")).
+information on Alertmanager as an external datasource, see [Connect to an Alertmanager data source](data-source-alertmanager.md "data-source-alertmanager.md")).
 When you add an external Alertmanager, the Alertmanager dropdown shows a list of
 available external Alertmanager data sources. Select a data source to create and
 manage alerting for standalone Cortex or Loki data sources.

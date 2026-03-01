@@ -43,33 +43,25 @@ You can edit playlists while creating them or after saving them.
 2. Choose **Playlists**.
 3. Choose the playlist that you want to edit.
 
-### Editing the name of a
-
-playlist
+### Editing the name of a playlist
 
 1. Choose the **Name** text box.
 2. Edit the name.
 3. Choose **Save** to save your changes.
 
-### Editing the interval of a
-
-playlist
+### Editing the interval of a playlist
 
 1. Choose the **Interval** text box.
 2. Edit the interval.
 3. Choose **Save** to save your changes.
 
-### Adding a dashboard to a
-
-playlist
+### Adding a dashboard to a playlist
 
 1. Next to the dashboard that you want to add, choose **Add to
    playlist**.
 2. Choose **Save** to save your changes.
 
-### Searching for a dashboard to
-
-add
+### Searching for a dashboard to add
 
 1. Under **Add dashboards**, choose the **Search
    dashboards by name** text box.
@@ -181,9 +173,7 @@ navigation bar at the top of your screen.
 
 To stop the playlist from your keyboard, press **Esc**.
 
-## Sharing a playlist in a view
-
-mode
+## Sharing a playlist in a view mode
 
 You can share a playlist by copying the URL in the view mode that you want and
 pasting the URL to your destination.

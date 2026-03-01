@@ -1,6 +1,4 @@
-# Connect to a Dynatrace data
-
-source
+# Connect to a Dynatrace data source
 
 Data source for [https://www.dynatrace.com/](https://www.dynatrace.com "https://www.dynatrace.com"). To use this data source, you must have a
 Dynatrace account.
@@ -43,9 +41,7 @@ Only v2 metric APIs are supported.
 - Alerting
   - Full alerting support
 
-### Dynatrace specific
-
-features
+### Dynatrace specific features
 
 Supports both built-in and custom metrics using the Dynatrace metrics v2
 API. For more information, see the Dynatrace documentation: [Metrics API v2](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/metric-v2/ "https://www.dynatrace.com/support/help/dynatrace-api/environment-api/metric-v2/") and [Metric ingestion](https://www.dynatrace.com/support/help/how-to-use-dynatrace/metrics/metric-ingestion/ "https://www.dynatrace.com/support/help/how-to-use-dynatrace/metrics/metric-ingestion/").
@@ -163,9 +159,7 @@ type can be `metric` or `problem`.
 - `Expand Details`— Include related events to the
   response, if set..
 
-#### Using template
-
-variables
+#### Using template variables
 
 To add a new Dynatrace query variable, see [add a new template variable](variables-types.md#add-a-query-variable "variables-types.md#add-a-query-variable").
 Use your Dynatrace data source as your data source for the following
@@ -195,9 +189,7 @@ currently not supported by the Dynatrace data source.
 After creating a variable, you can find it in the
 **Metric** drop-down menu.
 
-##### Import a dashboard for
-
-Dynatrace
+##### Import a dashboard for Dynatrace
 
 To import a dashboard, see [Importing a dashboard](dashboard-export-and-import.md#importing-a-dashboard "dashboard-export-and-import.md#importing-a-dashboard"). Imported dashboards can
 be found in **Configuration** > **Data

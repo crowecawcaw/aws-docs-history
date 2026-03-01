@@ -5,8 +5,7 @@
 Grafana needs permissions granted using IAM to be able to read Redshift
 metrics. You can attach these permissions to IAM roles and utilize Grafana's
 built-in support for assuming roles. The built-in Amazon Grafana Redshift access
-policy is defined in the [AWS managed
-policy: AmazonGrafanaRedshiftAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonGrafanaRedshiftAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonGrafanaRedshiftAccess") section.
+policy is defined in the [AWS managed policy: AmazonGrafanaRedshiftAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonGrafanaRedshiftAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonGrafanaRedshiftAccess") section.
 
 ## Query Amazon Redshift data
 

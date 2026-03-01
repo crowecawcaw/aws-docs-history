@@ -1,6 +1,4 @@
-# Manage your alert
-
-notifications
+# Manage your alert notifications
 
 This documentation topic is designed
 for Grafana workspaces that support **Grafana version
@@ -41,12 +39,9 @@ policy.
 
 - [Alertmanager](v9-alerting-managenotifications-alertmanager.md "v9-alerting-managenotifications-alertmanager.md")
 - [Working with contact points](v9-alerting-contact-points.md "v9-alerting-contact-points.md")
-- [Working with notification
-  policies](v9-alerting-notification-policies.md "v9-alerting-notification-policies.md")
+- [Working with notification policies](v9-alerting-notification-policies.md "v9-alerting-notification-policies.md")
 - [Customize notifications](v9-alerting-notifications.md "v9-alerting-notifications.md")
-- [Silencing alert notifications for
-  Prometheus data sources](v9-alerting-silences.md "v9-alerting-silences.md")
+- [Silencing alert notifications for Prometheus data sources](v9-alerting-silences.md "v9-alerting-silences.md")
 - [Mute timings](v9-alerting-notification-muting.md "v9-alerting-notification-muting.md")
-- [View and filter by alert
-  groups](v9-alerting-viewfiltergroups.md "v9-alerting-viewfiltergroups.md")
+- [View and filter by alert groups](v9-alerting-viewfiltergroups.md "v9-alerting-viewfiltergroups.md")
 - [View notification errors](v9-alerting-viewnotificationerrors.md "v9-alerting-viewnotificationerrors.md")

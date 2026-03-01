@@ -61,9 +61,7 @@ The following time identifiers are supported.
 | `s`        | Second      |
 | `ms`       | Millisecond |
 
-### Database user
-
-permissions
+### Database user permissions
 
 ###### Important
 
@@ -98,9 +96,7 @@ The query editor has a **Generated SQL** link that shows up
 after a query has been run, while in panel edit mode. Choose it, and it will
 expand and show the raw interpolated SQL string that was run.
 
-### Select
-
-table, time column, and metric column (FROM)
+### Select table, time column, and metric column (FROM)
 
 When you enter edit mode for the first time or add a new query, Grafana
 will try to prefill the query builder with the first table that has a
@@ -123,9 +119,7 @@ also enter arbitrary SQL expressions in the metric column field that
 evaluate to a text data type such as `CONCAT(column1, " ",
  CAST(numericColumn as CHAR))`.
 
-### Columns and
-
-aggregation functions (SELECT)
+### Columns and aggregation functions (SELECT)
 
 In the `SELECT` row, you can specify what columns and
 functions you want to use. In the column field, you can write arbitrary
@@ -370,9 +364,7 @@ SELECT hostname FROM my_host  WHERE region IN($region)
 
 ```
 
-#### Using `__searchFilter` to filter results in Query
-
-Variable
+#### Using `__searchFilter` to filter results in Query Variable
 
 Using `__searchFilter` in the query field will filter the
 query result based on what the user types in the dropdown select box.
@@ -394,9 +386,7 @@ SELECT hostname FROM my_host  WHERE hostname LIKE '$__searchFilter'
 
 ```
 
-### Using variables in
-
-queries
+### Using variables in queries
 
 From Grafana 4.3.0 to 4.6.0, template variables are always quoted
 automatically so if it is a string value do not wrap them in quotes in where
@@ -441,9 +431,7 @@ ORDER BY atimestamp ASC
 
 ```
 
-#### Turning
-
-off quoting for multi-value variables
+#### Turning off quoting for multi-value variables
 
 Grafana automatically creates a quoted, comma-separated string for
 multi-value variables. For example: if `server01` and
@@ -453,8 +441,7 @@ csv formatting option for variables.
 
 `${servers:csv}`
 
-For more information about variable formatting options, see [Advanced variable format
-options](templates-and-variables.md#advanced-variable-format-options "templates-and-variables.md#advanced-variable-format-options").
+For more information about variable formatting options, see [Advanced variable format options](templates-and-variables.md#advanced-variable-format-options "templates-and-variables.md#advanced-variable-format-options").
 
 ## Annotations
 

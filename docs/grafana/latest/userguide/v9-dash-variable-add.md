@@ -157,9 +157,7 @@ time.
 4. Select **Add** to add the variable to the
    dashboard.
 
-## Adding a constant
-
-variable
+## Adding a constant variable
 
 _Constant_ variables enable you to define a hidden
 constant. This is useful for metric path prefixes for dashboards you want to
@@ -187,9 +185,7 @@ replace it with a variable called `$path_gg`.
 4. Select **Add** to add the variable to the
    dashboard.
 
-## Adding a data source
-
-variable
+## Adding a data source variable
 
 _Data source_ variables enable you to quickly change the
 data source for an entire dashboard. They are useful if you have multiple
@@ -211,9 +207,7 @@ instances of a data source, perhaps in different environments.
 6. Select **Add** to add the variable to the
    dashboard.
 
-## Adding an interval
-
-variable
+## Adding an interval variable
 
 Use an _interval_ variable to represents time spans such as
 `1m`,`1h`, or `1d`. You can think of them
@@ -293,17 +287,13 @@ available. Instead of a regular list of variable options, this variable allows
 you to build a dashboard-wide ad hoc query. Filters you apply in this manner are
 applied to all panels on the dashboard.
 
-## Configure variable selection
-
-options
+## Configure variable selection options
 
 **Selection Options** are a feature you can use
 to manage variable option selections. All selection options are optional, and
 they are off by default.
 
-### Multi-value
-
-variables
+### Multi-value variables
 
 Interpolating a variable with multiple values selected is tricky as it is
 not straight forward how to format the multiple values into a string that is
@@ -561,9 +551,7 @@ with the name of the original variable prefixed with
 **Delete:** To delete a variable, click the trash
 icon from the set of icons on the right.
 
-## Filter variables with
-
-regex
+## Filter variables with regex
 
 Using the Regex Query option, you filter the list of options returned by the
 variable query or modify the options returned.

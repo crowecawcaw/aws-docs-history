@@ -64,8 +64,7 @@ query:
 Transformations allow you to extract values that exist in a field with other
 data. For example, using a transformation, you can extract one portion of a log line
 to use in a correlation. For more details on transformations in correlations, see
-[Correlation
-Transformations](v10-correlations-config.md#v10-correlations-config-transformations "v10-correlations-config.md#v10-correlations-config-transformations").
+[Correlation Transformations](v10-correlations-config.md#v10-correlations-config-transformations "v10-correlations-config.md#v10-correlations-config-transformations").
 
 After choosing one of the generated links in the editor mode, you can add
 transformations by selecting **Add transformation** in
@@ -77,8 +76,7 @@ the **Transformations** dropdown menu.
    field that you want to use for the transformation. For example, a log line.
    Once selected, the value of this field will be used to assist you in
    building the transformation.
-2. Select the type of the transformation. See [Correlation
-   Transformations](v10-correlations-config.md#v10-correlations-config-transformations "v10-correlations-config.md#v10-correlations-config-transformations") for the options
+2. Select the type of the transformation. See [Correlation Transformations](v10-correlations-config.md#v10-correlations-config-transformations "v10-correlations-config.md#v10-correlations-config-transformations") for the options
    and relevant settings.
 3. Based on your selection, you might see one or more variables populate,
    or you might need to provide more specifications in options that are
@@ -102,9 +100,7 @@ The following examples show how to create correlations using the Correlations
 Editor in Explore. If you’d like to follow these examples, make sure to set up a
 [test data source](testdata-data-source.md "testdata-data-source.md").
 
-### Creating a text to graph
-
-correlation
+### Creating a text to graph correlation
 
 This example shows how to create a correlation using Correlations Editor in
 Explore.
@@ -161,9 +157,7 @@ generating different visualization using the same data source. However, you can
 create correlations between any data sources to create custom exploration
 flows.
 
-### Creating a logs to table
-
-correlation
+### Creating a logs to table correlation
 
 In this example, you will create a correlation to demonstrate how to use
 transformations to extract values from the log line and another field.

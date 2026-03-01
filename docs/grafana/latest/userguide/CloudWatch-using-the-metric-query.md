@@ -1,6 +1,4 @@
-# Using the metric
-
-query option to query CloudWatch Metrics Insights data
+# Using the metric query option to query CloudWatch Metrics Insights data
 
 ###### Note
 
@@ -14,12 +12,9 @@ CloudWatch Metrics Insights is a powerful high-performance SQL query engine that
 can use to query your metrics at scale. It is a fast, flexible,
 SQL-based query engine that you can use to identify trends and patterns
 within all of your CloudWatch metrics in real time. It uses a dialect of SQL.
-For more information about the Metrics Insights query syntax, see [Query syntax and
-keywords](#metrics-insights-syntax-keywords "#metrics-insights-syntax-keywords").
+For more information about the Metrics Insights query syntax, see [Query syntax and keywords](#metrics-insights-syntax-keywords "#metrics-insights-syntax-keywords").
 
-## Query syntax and
-
-keywords
+## Query syntax and keywords
 
 CloudWatch Metrics Insights uses a dialect of SQL. The following example
 shows the query syntax.
@@ -115,9 +110,7 @@ quotation marks. For example, if you have a metric named
 namespace, metric name, or label in double quotation marks even
 if it does not include a reserved keyword.
 
-## Builder mode and code
-
-mode
+## Builder mode and code mode
 
 You can create a query in `Builder` mode or
 `Code` mode.
@@ -255,9 +248,7 @@ FROM "AWS/Lambda"
 
 ```
 
-### Application Load Balancer
-
-examples
+### Application Load Balancer examples
 
 View metrics that have the dimensions **LoadBalancer** and
 **AvailabilityZone**
@@ -323,9 +314,7 @@ FROM "AWS/EBS"
 
 ```
 
-### Amazon Simple Storage Service
-
-examples
+### Amazon Simple Storage Service examples
 
 View average latency group by bucket name
 
@@ -347,9 +336,7 @@ GROUP BY BucketName
 
 ```
 
-### Amazon Simple
-
-Notification Service examples
+### Amazon Simple Notification Service examples
 
 Amazon-simple-notificaation-service-examples
 

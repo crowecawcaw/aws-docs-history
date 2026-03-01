@@ -41,9 +41,7 @@ While using the OpenTSDB 2.2 data source, make sure you use either
 Filters or Tags as they are mutually exclusive. If used together, might give
 you weird results.
 
-### Using autocomplete
-
-suggestions
+### Using autocomplete suggestions
 
 As soon as you start typing metric names, tag names and tag values , you
 should see highlighted auto complete suggestions for them. The autocomplete

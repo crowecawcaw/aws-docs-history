@@ -1,6 +1,4 @@
-# Connect to data sources or notification channels in
-
-Amazon VPC from Amazon Managed Grafana
+# Connect to data sources or notification channels in Amazon VPC from Amazon Managed Grafana
 
 By default, traffic from your Amazon Managed Grafana workspace to data sources or notification
 channels flows via the public Internet. This limits the connectivity from your Amazon Managed Grafana
@@ -113,9 +111,7 @@ following issues:
   information, see [Route 53
   Resolver](../../../Route53/latest/DeveloperGuide/resolver.md "../../../Route53/latest/DeveloperGuide/resolver.md").
 
-### Connecting to a VPC from an existing Amazon Managed Grafana
-
-workspace
+### Connecting to a VPC from an existing Amazon Managed Grafana workspace
 
 The following procedure describes adding an Amazon VPC data source connection to an
 existing Amazon Managed Grafana workspace.
@@ -126,8 +122,7 @@ When you configure the connection to Amazon VPC, it creates an IAM role. With
 this role, Amazon Managed Grafana can create connections to the VPC. The IAM role uses
 the service-linked role policy,
 `AmazonGrafanaServiceLinkedRolePolicy`. To learn more about
-service-linked roles, see [Service-linked role permissions for
-Amazon Managed Grafana](using-service-linked-roles.md#slr-permissions "using-service-linked-roles.md#slr-permissions").
+service-linked roles, see [Service-linked role permissions for Amazon Managed Grafana](using-service-linked-roles.md#slr-permissions "using-service-linked-roles.md#slr-permissions").
 
 ###### To connect to a VPC from an existing Amazon Managed Grafana workspace
 

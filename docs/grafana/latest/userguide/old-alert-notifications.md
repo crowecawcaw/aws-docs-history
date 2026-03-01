@@ -21,9 +21,7 @@ configure a `notification` channel.
 
 This is done from the Notification channels page.
 
-## Adding a notification
-
-channel
+## Adding a notification channel
 
 1. In the side bar, pause on the **Alerting**
    (bell) icon, and then choose **Notification
@@ -32,20 +30,15 @@ channel
 3. Fill out the fields or select options described in the following
    sections.
 
-## New notification channel
+## New notification channel fields
 
-fields
-
-### Default (send on all
-
-alerts)
+### Default (send on all alerts)
 
 - **Name** – Enter a name for this
   channel. It will be displayed when users add notifications to alert
   rules.
 - **Type** – Select the channel type.
-  For more information, see [List of supported
-  notifiers](#old-list-of-supported-notifiers "#old-list-of-supported-notifiers").
+  For more information, see [List of supported notifiers](#old-list-of-supported-notifiers "#old-list-of-supported-notifiers").
 - **Default (send on all alerts)** –
   When selected, this option sends a notification on this channel for all
   alert rules.
@@ -77,9 +70,7 @@ triggered alert.
 | `1h`                           | `15m`                | ~1 hour                                             |
 | `1h`                           | `2h`                 | ~2 hours                                            |
 
-## List of supported
-
-notifiers
+## List of supported notifiers
 
 | Name                                                                    | Type        | Supports images | Supports alert rule tags |
 | ----------------------------------------------------------------------- | ----------- | --------------- | ------------------------ |

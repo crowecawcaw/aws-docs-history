@@ -31,9 +31,7 @@ nesting: 1. The service you are interested in. 1. Particular operation is part
 of the selected service. 1. Specific trace in which the selected operation
 occurred, represented by the root operation name and trace duration.
 
-## Linking to the trace ID from
-
-logs
+## Linking to the trace ID from logs
 
 You can link to Jaeger trace from logs in Loki by configuring a derived field
 with internal link. For more information, see [Derived fields](using-loki-in-AMG.md#loki-derived-fields "using-loki-in-AMG.md#loki-derived-fields").

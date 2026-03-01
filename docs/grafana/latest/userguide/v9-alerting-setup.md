@@ -16,5 +16,4 @@ alerts.
 ###### Topics
 
 - [Add an external Alertmanager](v9-alerting-setup-alertmanager.md "v9-alerting-setup-alertmanager.md")
-- [Provisioning Grafana Alerting
-  resources](v9-alerting-setup-provision.md "v9-alerting-setup-provision.md")
+- [Provisioning Grafana Alerting resources](v9-alerting-setup-provision.md "v9-alerting-setup-provision.md")

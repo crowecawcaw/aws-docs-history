@@ -1,6 +1,4 @@
-# Connect to a Splunk Infrastructure
-
-Monitoring data source
+# Connect to a Splunk Infrastructure Monitoring data source
 
 Provides support for Splunk Infrastructure Monitoring (formerly SignalFx).
 

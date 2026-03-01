@@ -10,9 +10,7 @@ require you to install the appropriate plugin. For more information, see [Extend
 
 ## Configuration
 
-### Data source
-
-configuration
+### Data source configuration
 
 When configuring the Data Source, ensure that the URL field utilizes
 `https` and points to the your configured Splunk port. The
@@ -20,9 +18,7 @@ default Splunk API point is 8089, not 8000 (this is default web UI port).
 Enable _Basic Auth_ and specify Splunk username and
 password.
 
-#### Browser
-
-(direct) access mode and CORS
+#### Browser (direct) access mode and CORS
 
 Amazon Managed Grafana does not support browser direct access for the Splunk data
 source.
@@ -47,9 +43,7 @@ queries. By default this option is disabled and Grafana sets
 returning search result in the same API call. See more about
 `search/jobs` API endpoint in [Splunk docs](https://docs.splunk.com/Documentation/Splunk/latest/RESTREF/RESTsearch#search.2Fjobs "https://docs.splunk.com/Documentation/Splunk/latest/RESTREF/RESTsearch#search.2Fjobs").
 
-#### Search polling
-
-interval
+#### Search polling interval
 
 This option allow to adjust how often Amazon Managed Grafana will poll splunk for
 search results. Time for next poll choosing randomly from [min, max)
@@ -85,9 +79,7 @@ which can slow down Splunk. The syntax is an integer and a time unit
 `[+|-]<time_integer><time_unit>`. For example
 `-1w`. [Time unit](https://docs.splunk.com/Documentation/Splunk/latest/Search/Specifytimemodifiersinyoursearch "https://docs.splunk.com/Documentation/Splunk/latest/Search/Specifytimemodifiersinyoursearch") can be `s, m, h, d, w, mon, q, y`.
 
-#### Variables search
-
-mode
+#### Variables search mode
 
 Search mode for template variable queries. Possible values:
 
@@ -131,9 +123,7 @@ and your search should return time series data (timestamp and value) or
 single value. You can read about [timechart](https://docs.splunk.com/Documentation/Splunk/latest/SearchReference/Timechart "https://docs.splunk.com/Documentation/Splunk/latest/SearchReference/Timechart") command and find more search examples in official
 [Splunk Search Reference](https://docs.splunk.com/Documentation/Splunk/latest/SearchReference/WhatsInThisManual "https://docs.splunk.com/Documentation/Splunk/latest/SearchReference/WhatsInThisManual")
 
-#### Splunk Metrics and
-
-`mstats`
+#### Splunk Metrics and `mstats`
 
 Splunk 7.x provides `mstats` command for analyzing
 metrics. To get charts working properly with `mstats`, it
@@ -287,9 +277,7 @@ source=docker_inspect | stats count latest(Name) as Name by Id | table Name, Id 
 
 ```
 
-#### Multi-value
-
-variables
+#### Multi-value variables
 
 It’s possible to use multi-value variables in queries. An
 interpolated search will be depending on variable usage context. There
@@ -332,9 +320,7 @@ source=docker_stats | where container_name in(foo, bar)
 
 ```
 
-#### Multi-value variables
-
-and quotes
+#### Multi-value variables and quotes
 
 If variable wrapped in quotes (both double or single), its values
 also will be quoted, as in the following example.

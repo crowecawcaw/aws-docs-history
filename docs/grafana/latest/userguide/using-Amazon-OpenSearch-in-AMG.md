@@ -1,6 +1,4 @@
-# Connect to an Amazon OpenSearch Service data
-
-source
+# Connect to an Amazon OpenSearch Service data source
 
 ###### Note
 
@@ -29,10 +27,8 @@ You can also annotate your graphs with log events stored in OpenSearch.
 
 ###### Topics
 
-- [Use AWS data source configuration to
-  add OpenSearch Service as a data source](ES-adding-AWS-config.md "ES-adding-AWS-config.md")
-- [Manually add Amazon OpenSearch Service as a data
-  source](ES-adding-the-data-source.md "ES-adding-the-data-source.md")
+- [Use AWS data source configuration to add OpenSearch Service as a data source](ES-adding-AWS-config.md "ES-adding-AWS-config.md")
+- [Manually add Amazon OpenSearch Service as a data source](ES-adding-the-data-source.md "ES-adding-the-data-source.md")
 - [OpenSearch Service settings](#ES-settings "#ES-settings")
 - [Using the Amazon OpenSearch Service data source](ES-use-datasource.md "ES-use-datasource.md")
 - [Amazon OpenSearch Service Serverless](datasources-opensearch-serverless.md "datasources-opensearch-serverless.md")
@@ -50,9 +46,7 @@ You can also annotate your graphs with log events stored in OpenSearch.
 Access mode controls how requests to the data source will be handled. Server
 should be the preferred way if nothing else is stated.
 
-### Server access mode
-
-(default)
+### Server access mode (default)
 
 All requests are made from the browser to Grafana backend or server,
 which forwards the requests to the data source, circumventing possible
@@ -69,9 +63,7 @@ Here you can specify a default for the `time field` and
 specify the name of your OpenSearch index. You can use a time pattern for
 the index name or a wildcard character.
 
-### OpenSearch/Elasticsearch
-
-version
+### OpenSearch/Elasticsearch version
 
 Specify your OpenSearch or legacy Elasticsearch version in the version
 dropdown menu. The version is important because there are differences in how

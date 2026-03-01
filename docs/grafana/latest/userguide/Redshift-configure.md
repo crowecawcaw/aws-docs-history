@@ -1,6 +1,4 @@
-# Use AWS data source configuration to add Amazon Redshift as
-
-a data source
+# Use AWS data source configuration to add Amazon Redshift as a data source
 
 # To use AWS data source configuration to add Amazon Redshift as a data source
 
@@ -13,8 +11,7 @@ a data source
    enabled for using the AWS data source configuration option in the Grafana
    workspace console. To do so, choose the edit icon by **IAM
    role** and then choose **Service managed**,
-   **Save changes**. For more information, see [Amazon Managed Grafana permissions and policies for AWS data
-   sources](AMG-manage-permissions.md "AMG-manage-permissions.md").
+   **Save changes**. For more information, see [Amazon Managed Grafana permissions and policies for AWS data sources](AMG-manage-permissions.md "AMG-manage-permissions.md").
 4. Choose the **Data sources** tab. Then select the check box
    for **Amazon Redshift**, and choose
    **Actions**, **Enable service-managed
@@ -29,5 +26,4 @@ a data source
    and then select the accounts that you want, and then choose **Add data
    source**.
 9. Follow the steps to configure **Connection Details** in
-   [Connection
-   details settings](Redshift-config.md#Redshift-connection-details "Redshift-config.md#Redshift-connection-details").
+   [Connection details settings](Redshift-config.md#Redshift-connection-details "Redshift-config.md#Redshift-connection-details").

@@ -1,6 +1,4 @@
-# Use API keys to authenticate with Grafana HTTP
-
-APIs
+# Use API keys to authenticate with Grafana HTTP APIs
 
 One way to access Grafana APIs is to use an _API key_, which
 is also called an _API token_. To create an API key, use one
@@ -9,10 +7,8 @@ you specify when you create it, up to 30 days.
 
 ###### Topics
 
-- [Creating a Grafana API key to use with Grafana APIs in
-  the workspace (Console)](#API_key_console "#API_key_console")
-- [Creating an Amazon Managed Grafana workspace API key using
-  AWS CLI](#API_key_CLI "#API_key_CLI")
+- [Creating a Grafana API key to use with Grafana APIs in the workspace (Console)](#API_key_console "#API_key_console")
+- [Creating an Amazon Managed Grafana workspace API key using AWS CLI](#API_key_CLI "#API_key_CLI")
 
 ###### Note
 
@@ -57,9 +53,7 @@ organizational **Editor** role and then assign that user only the
 **Edit** access because of their **Editor**
 role.
 
-## Creating a Grafana API key to use with Grafana APIs in
-
-the workspace (Console)
+## Creating a Grafana API key to use with Grafana APIs in the workspace (Console)
 
 ###### Note
 
@@ -71,9 +65,7 @@ AWS CLI or API.
 API keys removal has been announced by Grafana Labs for a future
 release. It is recommended that you use service accounts instead.
 
-###### To create a Grafana API key to use with Grafana APIs in the workspace
-
-console
+###### To create a Grafana API key to use with Grafana APIs in the workspace console
 
 1. Open the Amazon Managed Grafana console at [https://console.aws.amazon.com/grafana/](https://console.aws.amazon.com/grafana/home/ "https://console.aws.amazon.com/grafana/home/").
 2. In the upper left corner of the page, choose the menu icon and then choose
@@ -105,9 +97,7 @@ that are valid for a long time. 10. Choose **Add**. 11. (Optional) You can autom
 Terraform. For more information on automating API
 key creation using Terraform, see [Creating Grafana API Key using Terraform](https://aws-observability.github.io/observability-best-practices/recipes/recipes/amg-automation-tf/ "https://aws-observability.github.io/observability-best-practices/recipes/recipes/amg-automation-tf/").
 
-## Creating an Amazon Managed Grafana workspace API key using
-
-AWS CLI
+## Creating an Amazon Managed Grafana workspace API key using AWS CLI
 
 **To create an Amazon Managed Grafana workspace API key using
 AWS CLI**

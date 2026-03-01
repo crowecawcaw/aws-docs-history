@@ -52,9 +52,7 @@ To see a list of available variables, type `$` in the data link
 
 You can also use template variables in your data links URLs, see [Variables](v10-dash-variables.md "v10-dash-variables.md").
 
-### Time range panel
-
-variables
+### Time range panel variables
 
 These variables allow you to include the current time range in the data link URL.
 

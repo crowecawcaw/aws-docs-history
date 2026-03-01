@@ -9,9 +9,7 @@ API token. You include this in the `Authorization` field in the API
 request. For information about how to create a token to authenticate your API calls,
 see [Authenticate with tokens](authenticating-grafana-apis.md "authenticating-grafana-apis.md").
 
-## Get current
-
-organization
+## Get current organization
 
 ```
 GET /api/org/
@@ -38,9 +36,7 @@ Content-Type: application/json
 }
 ```
 
-## Get all users within the current
-
-organization
+## Get all users within the current organization
 
 ```
 GET /api/org/users
@@ -78,9 +74,7 @@ Content-Type: application/json
 ]
 ```
 
-## Get all users within the
-
-current organization (lookup)
+## Get all users within the current organization (lookup)
 
 ```
 GET /api/org/users/lookup
@@ -146,9 +140,7 @@ Content-Type: application/json
 {"message":"Organization user updated"}
 ```
 
-## Deletes user in current
-
-organization
+## Deletes user in current organization
 
 ```
 DELETE /api/org/users/:userId
@@ -175,9 +167,7 @@ Content-Type: application/json
 {"message":"User removed from organization"}
 ```
 
-## Update the current
-
-organization
+## Update the current organization
 
 ```
 PUT /api/org
@@ -207,9 +197,7 @@ Content-Type: application/json
 
 ```
 
-## Add user to the current
-
-organization
+## Add user to the current organization
 
 ```
 POST /api/org/users

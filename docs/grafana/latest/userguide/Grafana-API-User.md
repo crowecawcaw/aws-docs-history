@@ -9,9 +9,7 @@ API token. You include this in the `Authorization` field in the API
 request. For information about how to create a token to authenticate your API calls,
 see [Authenticate with tokens](authenticating-grafana-apis.md "authenticating-grafana-apis.md").
 
-## Get teams that the user is a member
-
-of
+## Get teams that the user is a member of
 
 ```
 GET /api/user/teams
@@ -96,9 +94,7 @@ Content-Type: application/json
 {"message":"Dashboard unstarred"}
 ```
 
-## Get auth tokens of the actual
-
-user
+## Get auth tokens of the actual user
 
 ```
 GET /api/user/auth-tokens
@@ -147,9 +143,7 @@ Content-Type: application/json
 ]
 ```
 
-## Revoke an auth token of the
-
-actual user
+## Revoke an auth token of the actual user
 
 ```
 POST /api/user/revoke-auth-token

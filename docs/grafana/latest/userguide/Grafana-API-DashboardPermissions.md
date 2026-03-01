@@ -21,9 +21,7 @@ API token. You include this in the `Authorization` field in the API
 request. For information about how to create a token to authenticate your API calls,
 see [Authenticate with tokens](authenticating-grafana-apis.md "authenticating-grafana-apis.md").
 
-## Get permissions for a
-
-dashboard
+## Get permissions for a dashboard
 
 ```
 GET /api/dashboards/id/:dashboardId/permissions
@@ -97,9 +95,7 @@ Status Codes:
 - **403**— Access denied
 - **404**— Dashboard not found
 
-## Update permissions for a
-
-dashboard
+## Update permissions for a dashboard
 
 ```
 POST /api/dashboards/id/:dashboardId/permissions

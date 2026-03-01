@@ -33,9 +33,7 @@ source = opensearch_sample_data_logs | where response='404' or response='503' | 
 For more information about PPL, see [Querying
 Amazon OpenSearch Service data using Piped Processing Language](../../../opensearch-service/latest/developerguide/ppl-support.md "../../../opensearch-service/latest/developerguide/ppl-support.md").
 
-## Series naming and
-
-alias patterns
+## Series naming and alias patterns
 
 You can control the name for time series using the `Alias`
 input field.
@@ -114,9 +112,7 @@ re-sort them.
 
 ```
 
-### Using variables in
-
-queries
+### Using variables in queries
 
 There are two syntaxes:
 

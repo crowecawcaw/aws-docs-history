@@ -39,9 +39,7 @@ query.
 
 For details about creating a correlation, see [Create a correlation](v10-correlations-create.md "v10-correlations-create.md").
 
-## Source data source and
-
-result field
+## Source data source and result field
 
 Links are shown in Explore visualizations for the results from the correlation’s
 source data source. A link is assigned to one of the fields from the result provided
@@ -83,9 +81,7 @@ variables](v10-dash-variable-add.md#v10-dash-variable-add-global "v10-dash-varia
 filled in from the returned data. These variables are interpolated
 automatically by data sources.
 
-### Correlation
-
-Transformations
+### Correlation Transformations
 
 Transformations provide a way to extract more variables out of field values. The
 output of transformations is a set of new variables that can be accessed as any
@@ -97,9 +93,7 @@ Each transformation uses a selected field value as the input. The output of a
 transformation is a set of new variables based on the type and options of the
 transformation.
 
-### Logfmt
-
-transformation
+### Logfmt transformation
 
 The logfmt transformation deconstructs a field value containing text
 formatted with [logfmt key/value

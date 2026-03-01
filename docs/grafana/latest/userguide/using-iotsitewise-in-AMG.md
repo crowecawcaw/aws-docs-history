@@ -1,6 +1,4 @@
-# Connect to an AWS IoT SiteWise data
-
-source
+# Connect to an AWS IoT SiteWise data source
 
 ###### Note
 
@@ -18,10 +16,8 @@ self-managed Grafana server.
 
 ###### Topics
 
-- [Use AWS data source
-  configuration to add AWS IoT SiteWise as a data source](IoTSiteWise-adding-AWS-config.md "IoTSiteWise-adding-AWS-config.md")
-- [Manually adding the AWS IoT SiteWise
-  data source](iotsitewise-add-the-data-source.md "iotsitewise-add-the-data-source.md")
+- [Use AWS data source configuration to add AWS IoT SiteWise as a data source](IoTSiteWise-adding-AWS-config.md "IoTSiteWise-adding-AWS-config.md")
+- [Manually adding the AWS IoT SiteWise data source](iotsitewise-add-the-data-source.md "iotsitewise-add-the-data-source.md")
 - [AWS IoT SiteWise settings](#iotsitewise-settings "#iotsitewise-settings")
 - [Using the AWS IoT SiteWise data source](IoTSiteWise-using.md "IoTSiteWise-using.md")
 

@@ -37,9 +37,7 @@ _Field overrides_ can be added on the
 same options as you find on the **Field** tab, but they are applied
 only to specific fields. Learn how to apply an override in [Configure specific fields](#configure-specific-fields "#configure-specific-fields").
 
-## Available field options and
-
-overrides
+## Available field options and overrides
 
 Field option types are common to both field options and field overrides. The only
 difference is whether the change will apply to all fields (applied on the

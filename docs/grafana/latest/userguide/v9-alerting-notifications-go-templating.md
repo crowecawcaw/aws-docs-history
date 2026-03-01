@@ -1,6 +1,4 @@
-# Using Go’s
-
-templating language
+# Using Go’s templating language
 
 This documentation topic is designed
 for Grafana workspaces that support **Grafana version
@@ -33,8 +31,7 @@ object, which contains a number of fields including
 `ExternalURL`. However, dot might refer to
 something else when used in a `range` over a list, when used inside a
 `with`, or when writing feature templates to
-be used in other templates. You can see examples of this in [Create notification
-templates](v9-alerting-create-templates.md "v9-alerting-create-templates.md"), and all data and
+be used in other templates. You can see examples of this in [Create notification templates](v9-alerting-create-templates.md "v9-alerting-create-templates.md"), and all data and
 functions in the [Template reference](v9-alerting-template-reference.md "v9-alerting-template-reference.md").
 
 ## Opening and closing tags
@@ -93,9 +90,7 @@ example is `ExtendedData`:
 {{ .Status }}
 ```
 
-## Iterate over annotations and
-
-labels
+## Iterate over annotations and labels
 
 Let’s write a template to print the labels of each alert in the format
 `The name of the label is $name, and the

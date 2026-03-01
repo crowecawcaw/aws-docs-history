@@ -116,9 +116,7 @@ variable to parameterize your queries
 Now, when choosing from the dropdown, you get the results that belong
 to that project.
 
-## Using transformations from Grafana to
-
-answer common questions
+## Using transformations from Grafana to answer common questions
 
 Now that you can perform basic GitLab queries to find commits, issues, etc,
 you can use Transformations to visualize, aggregate, group, and join datasets,

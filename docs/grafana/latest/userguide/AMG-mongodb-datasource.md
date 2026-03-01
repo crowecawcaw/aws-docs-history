@@ -138,9 +138,7 @@ the variables up by using underscores (must start with underscore):
 `_var1_var2` When querying, the response must be in the
 format: `val1-val2`
 
-###### Example: I want to filter results on both movie name and
-
-year.
+###### Example: I want to filter results on both movie name and year.
 
 1. Create a variable of type Query:
    `_movie_year`

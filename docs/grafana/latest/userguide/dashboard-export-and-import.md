@@ -22,9 +22,7 @@ dashboard at a later time.
 The export feature is accessed in the share window, which you open by choosing
 the share button in the dashboard menu.
 
-### Making a dashboard
-
-portable
+### Making a dashboard portable
 
 When you export a dashboard for others to use, it's good to add template
 variables for values such as a metric prefix (use a constant variable) and a
@@ -47,8 +45,6 @@ In step 2 of the import process, you can change the name of the dashboard,
 specify the data source that you want the dashboard to use, and specify any metric
 prefixes (if the dashboard uses any).
 
-## Discover dashboards on
-
-Grafana.com
+## Discover dashboards on Grafana.com
 
 Find dashboards for common server applications at [Grafana.com/dashboards](https://grafana.com/dashboards "https://grafana.com/dashboards").

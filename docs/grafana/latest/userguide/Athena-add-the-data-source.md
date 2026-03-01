@@ -1,6 +1,4 @@
-# Manually adding the Athena data
-
-source
+# Manually adding the Athena data source
 
 ## Prerequisites
 

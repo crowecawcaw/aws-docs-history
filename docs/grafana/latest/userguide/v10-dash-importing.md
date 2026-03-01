@@ -31,9 +31,7 @@ You can import preconfigured dashboards into your Amazon Managed Grafana workspa
    - Choose **Import**.
    - Save the dashboard.
 
-## Finding dashboards on
-
-grafana.com
+## Finding dashboards on grafana.com
 
 The [Dashboards](https://grafana.com/grafana/dashboards/ "https://grafana.com/grafana/dashboards/")
 page on grafana.com provides you with dashboards for common server

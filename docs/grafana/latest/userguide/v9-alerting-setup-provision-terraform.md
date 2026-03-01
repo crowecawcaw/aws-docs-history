@@ -1,6 +1,4 @@
-# Create and manage
-
-alerting resources using Terraform
+# Create and manage alerting resources using Terraform
 
 This documentation topic is designed
 for Grafana workspaces that support **Grafana version
@@ -36,9 +34,7 @@ using Terraform.
   your Amazon Managed Grafana instance with Grafana version 9, this will be
   true.
 
-## Create an API
-
-key for provisioning
+## Create an API key for provisioning
 
 You can [create a normal Grafana
 API key](Using-Grafana-APIs.md "Using-Grafana-APIs.md") to authenticate Terraform with
@@ -57,9 +53,7 @@ keys for use with Terraform, see [Using Terraform for Amazon Managed Grafana aut
 Alternatively, you can use basic authentication. To view all the supported
 authentication formats, see [Grafana authentication](https://registry.terraform.io/providers/grafana/grafana/latest/docs#authentication "https://registry.terraform.io/providers/grafana/grafana/latest/docs#authentication") in the Terraform documentation.
 
-## Configure
-
-the Terraform provider
+## Configure the Terraform provider
 
 Grafana Alerting support is included as part of the [Grafana Terraform provider](https://registry.terraform.io/providers/grafana/grafana/latest/docs "https://registry.terraform.io/providers/grafana/grafana/latest/docs").
 
@@ -82,9 +76,7 @@ provider "grafana" {
 }
 ```
 
-## Provision
-
-contact points and templates
+## Provision contact points and templates
 
 Contact points connect an alerting stack to the outside world. They tell
 Grafana how to connect to your external systems and where to deliver
@@ -152,9 +144,7 @@ EOT
 }
 ```
 
-## Provision
-
-notification policies and routing
+## Provision notification policies and routing
 
 Notification policies tell Grafana how to route alert instances, as
 opposed to where. They connect firing alerts to your previously defined
@@ -220,9 +210,7 @@ the UI. This ensures that your alerting stack always stays
 in sync with your code. 5. Click **Test** to verify that the notification
 point is working correctly.
 
-## Provision
-
-mute timings
+## Provision mute timings
 
 Mute timings provide the ability to mute alert notifications for defined
 time periods.
@@ -265,9 +253,7 @@ the UI. This ensures that your alerting stack always stays
 in sync with your code. 5. Click **Test** to verify that the mute timing
 is working correctly.
 
-## Provision alert
-
-rules
+## Provision alert rules
 
 [Alert rules](v9-alerting-managerules.md "v9-alerting-managerules.md") enable you to alert against any Grafana data
 source. This can be a data source that you already have configured, or you
@@ -279,8 +265,7 @@ rules.
 1. Create a data source to query and a folder to store your rules
    in.
 
-In this example, the [Configure a TestData data source for
-testing](testdata-data-source.md "testdata-data-source.md") data source is used.
+In this example, the [Configure a TestData data source for testing](testdata-data-source.md "testdata-data-source.md") data source is used.
 
 Alerts can be defined against any backend datasource in Grafana.
 

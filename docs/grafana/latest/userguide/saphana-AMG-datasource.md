@@ -389,9 +389,7 @@ ORDER BY SERIES_ROUND("timestamp", 'INTERVAL 1 MINUTE') ASC
 5. Specify the alert recipients, message, and error handling.
 6. Save the dashboard.
 
-#### Alerting on
-
-non-timeseries data
+#### Alerting on non-timeseries data
 
 To alert on non-timeseries data, use the
 `TO_TIMESTAMP('${__to:date}')` macro to make

@@ -1,6 +1,4 @@
-# Connect to a PostgreSQL data
-
-source
+# Connect to a PostgreSQL data source
 
 You can use the PostgreSQL data source to query and visualize data from your
 Amazon Aurora PostgreSQL databases.
@@ -19,13 +17,10 @@ column](https://github.com/grafana/grafana/issues/35534 "https://github.com/graf
 In _Grafana version 9_, the PostgreSQL data source sets up
 the root certificate for connecting to your database differently than in
 previous versions. If you update your workspace from version 8 to 9, you might
-need to change how you connect. See [Troubleshooting issues
-with updated workspaces](AMG-workspace-version-update-troubleshoot.md "AMG-workspace-version-update-troubleshoot.md") for more
+need to change how you connect. See [Troubleshooting issues with updated workspaces](AMG-workspace-version-update-troubleshoot.md "AMG-workspace-version-update-troubleshoot.md") for more
 information.
 
-## Adding the data
-
-source
+## Adding the data source
 
 1. Open the side menu by choosing the Grafana icon in the top header.
 2. In the side menu under the **Configuration** icon,
@@ -74,9 +69,7 @@ The following time identifiers are supported.
 | `s`        | Second      |
 | `ms`       | Millisecond |
 
-### Database
-
-user permissions
+### Database user permissions
 
 ###### Important
 
@@ -134,9 +127,7 @@ metric column, you can enter the column name with a cast:
 the metric column field that evaluate to a text data type such as
 `hostname || ' ' || container_name`.
 
-### Columns,
-
-window, and aggregation functions (SELECT)
+### Columns, window, and aggregation functions (SELECT)
 
 In the `SELECT` row, you can specify what columns and
 functions you want to use. In the column field, you can write arbitrary
@@ -154,9 +145,7 @@ You can add further value columns by choosing the plus button and
 selecting **Column** from the menu. Multiple value columns
 will be plotted as separate series in the graph panel.
 
-### Filtering data
-
-(WHERE)
+### Filtering data (WHERE)
 
 To add a filter, choose the plus icon to the right of the
 `WHERE` condition. You can remove filters by choosing the
@@ -182,9 +171,7 @@ function accepts two arguments. The first argument is the time window
 that you want to group by, and the second argument is the value you want
 Grafana to fill missing items with.
 
-### Text editor mode
-
-(RAW)
+### Text editor mode (RAW)
 
 You can switch to the raw query editor mode by choosing the hamburger
 icon and selecting **Switch editor mode** or by choosing
@@ -362,9 +349,7 @@ SELECT hostname FROM host  WHERE region IN($region)
 
 ```
 
-#### Using `__searchFilter` to filter results in Query
-
-Variable
+#### Using `__searchFilter` to filter results in Query Variable
 
 Using `__searchFilter` in the query field will filter the
 query result based on what the user types in the dropdown select box.
@@ -386,9 +371,7 @@ SELECT hostname FROM my_host  WHERE hostname LIKE '$__searchFilter'
 
 ```
 
-### Using variables in
-
-queries
+### Using variables in queries
 
 Template variable values are only quoted when the template variable is a
 `multi-value`.
