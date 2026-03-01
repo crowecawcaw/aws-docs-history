@@ -1,6 +1,4 @@
-# Allow traffic that originates from your Verified Access
-
-endpoint
+# Allow traffic that originates from your Verified Access endpoint
 
 You can configure the security groups for your applications so that they allow traffic that
 originates from your Verified Access endpoint. You do this by adding an inbound rule that specifies the

@@ -1,6 +1,4 @@
-# OCSF version 1.0.0-rc.2 log examples for
-
-Verified Access
+# OCSF version 1.0.0-rc.2 log examples for Verified Access
 
 The following are sample logs using OCSF version 1.0.0-rc.2.
 

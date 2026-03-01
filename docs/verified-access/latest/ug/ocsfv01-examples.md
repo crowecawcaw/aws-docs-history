@@ -5,12 +5,9 @@ The following are sample logs using OCSF version 0.1.
 ###### Examples
 
 - [Access granted with OIDC](#access-granted-oidc "#access-granted-oidc")
-- [Access granted with OIDC and
-  JAMF](#access-granted-oidc-jamf "#access-granted-oidc-jamf")
-- [Access granted with OIDC and
-  CrowdStrike](#access-granted-oidc-crowdstrike "#access-granted-oidc-crowdstrike")
-- [Access denied due to a missing
-  cookie](#access-denied-cookie "#access-denied-cookie")
+- [Access granted with OIDC and JAMF](#access-granted-oidc-jamf "#access-granted-oidc-jamf")
+- [Access granted with OIDC and CrowdStrike](#access-granted-oidc-crowdstrike "#access-granted-oidc-crowdstrike")
+- [Access denied due to a missing cookie](#access-denied-cookie "#access-denied-cookie")
 - [Access denied by policy](#access-denied-policy "#access-denied-policy")
 - [Unknown log entry](#unknown-access "#unknown-access")
 
@@ -104,9 +101,7 @@ user trust provider.
 }
 ```
 
-## Access granted with OIDC and
-
-JAMF
+## Access granted with OIDC and JAMF
 
 In this example log entry, Verified Access allows access to an endpoint with both OIDC
 and JAMF device trust providers.
@@ -197,9 +192,7 @@ and JAMF device trust providers.
 }
 ```
 
-## Access granted with OIDC and
-
-CrowdStrike
+## Access granted with OIDC and CrowdStrike
 
 In this example log entry, Verified Access allows access to an endpoint with both OIDC
 and CrowdStrike device trust providers.
@@ -298,9 +291,7 @@ and CrowdStrike device trust providers.
 }
 ```
 
-## Access denied due to a missing
-
-cookie
+## Access denied due to a missing cookie
 
 In this example log entry, Verified Access denies access due to a missing authentication
 cookie.

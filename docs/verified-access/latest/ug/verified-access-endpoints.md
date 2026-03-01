@@ -12,8 +12,7 @@ endpoint policy to each endpoint.
 - [Create a network interface endpoint for Verified Access](create-network-interface-endpoint.md "create-network-interface-endpoint.md")
 - [Create a network CIDR endpoint for Verified Access](create-network-cidr-endpoint.md "create-network-cidr-endpoint.md")
 - [Create an Amazon Relational Database Service endpoint for Verified Access](create-rds-endpoint.md "create-rds-endpoint.md")
-- [Allow traffic that originates from your Verified Access
-  endpoint](configure-endpoint-security-group.md "configure-endpoint-security-group.md")
+- [Allow traffic that originates from your Verified Access endpoint](configure-endpoint-security-group.md "configure-endpoint-security-group.md")
 - [Modify a Verified Access endpoint](modify-endpoint.md "modify-endpoint.md")
 - [Modify a Verified Access endpoint policy](modify-endpoint-policy.md "modify-endpoint-policy.md")
 - [Delete a Verified Access endpoint](delete-endpoint.md "delete-endpoint.md")

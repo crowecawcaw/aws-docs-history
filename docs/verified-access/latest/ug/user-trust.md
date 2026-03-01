@@ -98,15 +98,12 @@ session duration. If there is no refresh token, the default session duration is 
 
 ###### Contents
 
-- [Prerequisites for creating an OIDC trust
-  provider](#create-oidc-prereq "#create-oidc-prereq")
+- [Prerequisites for creating an OIDC trust provider](#create-oidc-prereq "#create-oidc-prereq")
 - [Create an OIDC trust provider](#create-oidc-provider "#create-oidc-provider")
 - [Modify an OIDC trust provider](#modify-oidc-provider "#modify-oidc-provider")
 - [Delete an OIDC trust provider](#delete-oidc-provider "#delete-oidc-provider")
 
-### Prerequisites for creating an OIDC trust
-
-provider
+### Prerequisites for creating an OIDC trust provider
 
 You will need to gather the following information from your trust provider service
 directly:

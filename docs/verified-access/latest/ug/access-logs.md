@@ -22,5 +22,4 @@ destinations for publishing access logs:
 - [Enable or disable Verified Access logs](access-logs-enable.md "access-logs-enable.md")
 - [Enable or disable Verified Access trust context](include-trust-context.md "include-trust-context.md")
 - [OCSF version 0.1 log examples for Verified Access](ocsfv01-examples.md "ocsfv01-examples.md")
-- [OCSF version 1.0.0-rc.2 log examples for
-  Verified Access](ocsfv1-examples.md "ocsfv1-examples.md")
+- [OCSF version 1.0.0-rc.2 log examples for Verified Access](ocsfv1-examples.md "ocsfv1-examples.md")

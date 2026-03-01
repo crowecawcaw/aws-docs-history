@@ -15,9 +15,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS managed policy:
-
-AWSVPCVerifiedAccessServiceRolePolicy
+## AWS managed policy: AWSVPCVerifiedAccessServiceRolePolicy
 
 This policy is attached to a service-linked role that allows Verified Access to perform actions on
 your behalf. For more information, see [Use service-linked roles](using-service-linked-roles.md "using-service-linked-roles.md"). To view the permissions for this

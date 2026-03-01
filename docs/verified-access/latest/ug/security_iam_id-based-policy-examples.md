@@ -1,6 +1,4 @@
-# Identity-based policy examples for
-
-Verified Access
+# Identity-based policy examples for Verified Access
 
 By default, users and roles don't have permission to create or modify Verified Access
 resources. To grant users permission to perform actions on the
@@ -14,16 +12,11 @@ For details about actions and resource types defined by Verified Access, includi
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Policy for
-  creating Verified Access instances](#security_iam_id-based-policy-examples-create-instance "#security_iam_id-based-policy-examples-create-instance")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Policy for creating Verified Access instances](#security_iam_id-based-policy-examples-create-instance "#security_iam_id-based-policy-examples-create-instance")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Verified Access resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -56,9 +49,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Policy for
-
-creating Verified Access instances
+## Policy for creating Verified Access instances
 
 To create a Verified Access instance, IAM principals need to add this additional statement to their IAM policy.
 
@@ -97,9 +88,7 @@ JSON
 
 ```
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.

@@ -13,8 +13,7 @@ encryption at rest.
 - [Personally identifiable information](#types-of-pii "#types-of-pii")
 - [How AWS Verified Access uses grants in AWS KMS](#encryption-grant "#encryption-grant")
 - [Using customer managed keys with Verified Access](#using-cmk "#using-cmk")
-- [Specifying a customer managed key for Verified Access
-  resources](#enable-additional-encryption "#enable-additional-encryption")
+- [Specifying a customer managed key for Verified Access resources](#enable-additional-encryption "#enable-additional-encryption")
 - [AWS Verified Access encryption context](#encryption-context "#encryption-context")
 - [Monitoring your encryption keys for AWS Verified Access](#monitor-key-use "#monitor-key-use")
 
@@ -181,9 +180,7 @@ The following is an example key policy you can use for Verified Access.
 For more information, see [Creating a key policy](../../../kms/latest/developerguide/key-policy-overview.md "../../../kms/latest/developerguide/key-policy-overview.md") and [troubleshooting key access](../../../kms/latest/developerguide/policy-evaluation.md "../../../kms/latest/developerguide/policy-evaluation.md")
 in the _AWS Key Management Service Developer Guide_.
 
-## Specifying a customer managed key for Verified Access
-
-resources
+## Specifying a customer managed key for Verified Access resources
 
 You can specify a customer managed key to provide a second layer encryption for the following
 resources:

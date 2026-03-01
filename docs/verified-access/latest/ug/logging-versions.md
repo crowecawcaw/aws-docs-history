@@ -5,8 +5,7 @@ version 0.1. For sample logs that use version 0.1 see [OCSF version 0.1 log exam
 
 The latest logging version is compatible with OCSF version 1.0.0-rc.2. For more
 information about the schema, see [OCSF Schema](https://schema.ocsf.io/1.0.0-rc.2/classes/access_activity "https://schema.ocsf.io/1.0.0-rc.2/classes/access_activity"). For sample logs that use version 1.0.0-rc.2, see
-[OCSF version 1.0.0-rc.2 log examples for
-Verified Access](ocsfv1-examples.md "ocsfv1-examples.md").
+[OCSF version 1.0.0-rc.2 log examples for Verified Access](ocsfv1-examples.md "ocsfv1-examples.md").
 
 Note that you can't use OCSF version 0.1 if the Verified Access endpoint uses the
 TCP protocol.

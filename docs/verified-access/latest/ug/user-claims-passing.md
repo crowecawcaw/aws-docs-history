@@ -1,6 +1,4 @@
-# User claims passing and signature verification in
-
-Verified Access
+# User claims passing and signature verification in Verified Access
 
 After an AWS Verified Access instance authenticates a user successfully, it sends the user claims
 received from the IdP to the Verified Access endpoint. The user claims are signed so that applications

@@ -35,8 +35,7 @@ The following are the prerequisites for completing this tutorial:
   1,024 or 2,048.
 - A public hosted domain and the permissions required to update DNS records for the domain.
 - An IAM policy with the permissions required to create an AWS Verified Access instance. For
-  more information, see [Policy for
-  creating Verified Access instances](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-create-instance "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-create-instance").
+  more information, see [Policy for creating Verified Access instances](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-create-instance "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-create-instance").
 
 ## Step 1: Create a Verified Access trust provider
 
