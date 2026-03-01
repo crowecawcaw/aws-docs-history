@@ -12,9 +12,7 @@ To take advantage of low latency and high throughput, use Amazon EBS.
 - Amazon EBS replicates data within a single Availability Zone and doesn't support the
   [ActiveMQ active/standby](amazon-mq-broker-architecture.md#active-standby-broker-deployment "amazon-mq-broker-architecture.md#active-standby-broker-deployment") deployment mode.
 
-## Differences between Storage
-
-Types
+## Differences between Storage Types
 
 The following table provides a brief overview of the differences between
 in-memory, Amazon EFS, and Amazon EBS storage types for ActiveMQ brokers.

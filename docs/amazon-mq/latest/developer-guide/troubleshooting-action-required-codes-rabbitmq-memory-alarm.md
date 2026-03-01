@@ -1,6 +1,4 @@
-#
-
-Amazon MQ for RabbitMQ: High memory alarm
+# Amazon MQ for RabbitMQ: High memory alarm
 
 Amazon MQ for RabbitMQ will raise a high memory alarm when the broker's memory usage, identified by CloudWatch metric
 `RabbitMQMemUsed`, exceeds the memory limit, identified by `RabbitMQMemLimit`.
@@ -20,16 +18,12 @@ To diagnose and resolve high memory alarm, first follow all [best practices](bes
   [`RebootBroker`](../api-reference/brokers-broker-id-reboot.md "../api-reference/brokers-broker-id-reboot.md") API
   operations as long as the broker continues to raise the alarm.
 
-##
-
-Step 1: Diagnose high memory alarm
+## Step 1: Diagnose high memory alarm
 
 There are two ways to diagnose high memory alarms on your Amazon MQ for RabbitMQ broker.
 We recommend that you check both the RabbitMQ web console and Amazon MQ metrics in CloudWatch.
 
-###
-
-Diagnose high memory alarm using the RabbitMQ web console
+### Diagnose high memory alarm using the RabbitMQ web console
 
 The RabbitMQ web console can generate and display detailed memory usage information for each
 node. You can find this information by doing the following:
@@ -57,9 +51,7 @@ high memory alarm.
 | `ConsumerCount`             | For every consumer connected to the broker, a set number of messages are loaded from storage into memory before they are delivered to the consumer.<br>A large number of consumer connections might cause high memory usage and lead to a high memory alarm.  |
 | `PublishRate`               | Publishing messages utilizes the broker' memory. If the rate at which messages are published to the broker is too high and<br>significantly outpaces the rate at which the broker delivers messages to consumers, the broker might raise a high memory alarm. |
 
-##
-
-Step 2: Address and prevent high memory alarm
+## Step 2: Address and prevent high memory alarm
 
 ###### Note
 

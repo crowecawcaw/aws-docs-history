@@ -1,6 +1,4 @@
-# Accessing CloudWatch metrics for
-
-Amazon MQ
+# Accessing CloudWatch metrics for Amazon MQ
 
 You can access CloudWatch metrics using the AWS Management Console, AWS CLI, and API.
 

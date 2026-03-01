@@ -13,9 +13,7 @@ For more information,
 see [Configurations](../api-reference/configurations-configuration-id.md "../api-reference/configurations-configuration-id.md")
 in the _Amazon MQ API Reference_.
 
-## Create a New
-
-Configuration
+## Create a New Configuration
 
 To create a new broker configuration, first create the new configuration.
 
@@ -34,9 +32,7 @@ engine** version.
 
 To learn more about ActiveMQ engine versions supported by Amazon MQ for ActiveMQ, see [Managing Amazon MQ for ActiveMQ engine versions](activemq-version-management.md "activemq-version-management.md"). 5. Choose **Create configuration**.
 
-## Create a New
-
-Configuration Revision
+## Create a New Configuration Revision
 
 After you create a broker configuration, you will need to edit the configuration
 using a configuration revision.
@@ -59,7 +55,7 @@ revision number, description, and broker configuration in XML format are display
 
 Editing the current configuration creates a new configuration revision.
 
-![XML configuration snippet for ActiveMQ broker with explanatory comment.](images/amazon-mq-tutorials-edit-configuration.png) 3. Choose **Edit configuration** and make changes to the XML configuration. 4. Choose **Save**.
+![XML configuration snippet for ActiveMQ broker with explanatory comment.](/images/amazon-mq/latest/developer-guide/images/amazon-mq-tutorials-edit-configuration.png) 3. Choose **Edit configuration** and make changes to the XML configuration. 4. Choose **Save**.
 
 The **Save revision** dialog box is displayed. 5. (Optional) Type `A description of the changes in this revision`. 6. Choose **Save**.
 
@@ -70,9 +66,7 @@ The new revision of the configuration is saved.
 The Amazon MQ console automatically sanitizes invalid and prohibited configuration parameters according to a schema.
 For more information and a full list of permitted XML parameters, see [Amazon MQ Broker Configuration Parameters](amazon-mq-broker-configuration-parameters.md "amazon-mq-broker-configuration-parameters.md").
 
-## Apply a
-
-Configuration Revision to Your Broker
+## Apply a Configuration Revision to Your Broker
 
 After revising the configuration, you can apply the configuration
 revision to your broker.

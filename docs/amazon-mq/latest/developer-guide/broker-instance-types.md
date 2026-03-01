@@ -23,5 +23,4 @@ after March 17, 2025.
 | `mq.m5.2xlarge` | 8    | 32           | Production      | EFS or EBS |                             |
 | `mq.m5.4xlarge` | 16   | 64           | Production      | EFS or EBS |                             |
 
-For more information about throughput considerations, see [Choose the Correct Broker Instance
-Type for the Best Throughput](best-practices-activemq.md#broker-instance-types-choosing "best-practices-activemq.md#broker-instance-types-choosing").
+For more information about throughput considerations, see [Choose the Correct Broker Instance Type for the Best Throughput](best-practices-activemq.md#broker-instance-types-choosing "best-practices-activemq.md#broker-instance-types-choosing").

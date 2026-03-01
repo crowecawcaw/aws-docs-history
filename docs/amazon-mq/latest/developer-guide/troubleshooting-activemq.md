@@ -6,11 +6,9 @@ with ActiveMQ on Amazon MQ brokers.
 ###### Contents
 
 - [I can't see general or audit logs for my broker in CloudWatch Logs even though I’ve activated logging.](troubleshooting-activemq.md#issues-cw-logging-activemq "troubleshooting-activemq.md#issues-cw-logging-activemq")
-- [After broker restart or maintenance window,
-  I can't connect to my broker even though the status is RUNNING. Why?](troubleshooting-activemq.md#issues-connection-after-restart "troubleshooting-activemq.md#issues-connection-after-restart")
+- [After broker restart or maintenance window, I can't connect to my broker even though the status is RUNNING. Why?](troubleshooting-activemq.md#issues-connection-after-restart "troubleshooting-activemq.md#issues-connection-after-restart")
 - [I see some of my clients connecting to the broker, while others are unable to connect.](troubleshooting-activemq.md#issues-connection-limit "troubleshooting-activemq.md#issues-connection-limit")
-- [I'm seeing exception org.apache.jasper.JasperException: An exception occurred processing JSP page
-  on the ActiveMQ console when performing operations.](troubleshooting-activemq.md#issues-jsp-exception "troubleshooting-activemq.md#issues-jsp-exception")
+- [I'm seeing exception org.apache.jasper.JasperException: An exception occurred processing JSP page on the ActiveMQ console when performing operations.](troubleshooting-activemq.md#issues-jsp-exception "troubleshooting-activemq.md#issues-jsp-exception")
 
 ## I can't see general or audit logs for my broker in CloudWatch Logs even though I’ve activated logging.
 
@@ -29,9 +27,7 @@ If you’re unable to view logs for your broker in CloudWatch Logs, do the follo
 For more information on configuring ActiveMQ on Amazon MQ to publish logs to CloudWatch Logs, see
 [Configuring logging](configure-logging-monitoring-activemq.md "configure-logging-monitoring-activemq.md").
 
-## After broker restart or maintenance window,
-
-I can't connect to my broker even though the status is `RUNNING`. Why?
+## After broker restart or maintenance window, I can't connect to my broker even though the status is `RUNNING`. Why?
 
 You might be encountering connection issues after a broker restart you initiated, after a scheduled maintenance window is completed, or in
 a failure event, where the standby instance is activated. In either case, connection issues following a broker restart are most likely caused
@@ -72,9 +68,7 @@ Network Load Balancer (NLB) with clients that frequently disconnect and reconnec
 
 Check your client-side logs for further details. The broker will clean up inactive TCP connections after 600000 ms, and free up the connection socket.
 
-## I'm seeing exception `org.apache.jasper.JasperException: An exception occurred processing JSP page`
-
-on the ActiveMQ console when performing operations.
+## I'm seeing exception `org.apache.jasper.JasperException: An exception occurred processing JSP page` on the ActiveMQ console when performing operations.
 
 If you are using simple authentication and configuring `AuthorizationPlugin` for queue and topic authorization,
 make sure to use the `AuthorizationEntries` element in your XML configuration file, and allow the `activemq-webconsole`

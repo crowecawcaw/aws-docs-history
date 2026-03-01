@@ -1,6 +1,4 @@
-# Creating
-
-and configuring an Amazon MQ network of brokers
+# Creating and configuring an Amazon MQ network of brokers
 
 A _network of brokers_ is comprised of multiple simultaneously
 active [single-instance brokers](amazon-mq-broker-architecture.md#single-broker-deployment "amazon-mq-broker-architecture.md#single-broker-deployment") or [active/standby brokers](amazon-mq-broker-architecture.md#active-standby-broker-deployment "amazon-mq-broker-architecture.md#active-standby-broker-deployment"). In this tutorial, you learn how to create a two-broker
@@ -10,8 +8,7 @@ For a conceptual overview and detailed configuration information, see the
 following:
 
 - [Amazon MQ network of brokers](network-of-brokers.md "network-of-brokers.md")
-- [Configure Your Network of
-  Brokers Correctly](best-practices-activemq.md#network-of-brokers-configure-correctly "best-practices-activemq.md#network-of-brokers-configure-correctly")
+- [Configure Your Network of Brokers Correctly](best-practices-activemq.md#network-of-brokers-configure-correctly "best-practices-activemq.md#network-of-brokers-configure-correctly")
 - `networkConnector`
 - `networkConnectionStartAsync`
 - [Networks of
@@ -23,8 +20,7 @@ following:
 ###### Topics
 
 - [Prerequisites](#creating-configuring-network-of-brokers-create-brokers "#creating-configuring-network-of-brokers-create-brokers")
-- [Step 1:
-  Allow Traffic between Brokers](#creating-configuring-network-of-brokers-allow-traffic "#creating-configuring-network-of-brokers-allow-traffic")
+- [Step 1: Allow Traffic between Brokers](#creating-configuring-network-of-brokers-allow-traffic "#creating-configuring-network-of-brokers-allow-traffic")
 - [Step 2: Configure Network Connectors for Your Broker](#creating-configuring-network-of-brokers-configure-network-connectors "#creating-configuring-network-of-brokers-configure-network-connectors")
 - [Next Steps](#creating-configuring-network-of-brokers-test "#creating-configuring-network-of-brokers-test")
 
@@ -51,8 +47,7 @@ _Amazon VPC User Guide_:
     + [Creating a Security Group](../../../vpc/latest/userguide/VPC_SecurityGroups.md#CreatingSecurityGroups "../../../vpc/latest/userguide/VPC_SecurityGroups.md#CreatingSecurityGroups")
 
 - Two users with identical sign-in credentials for both brokers. For
-  more information about creating users, see [Creating an ActiveMQ
-  broker user](amazon-mq-listing-managing-users.md "amazon-mq-listing-managing-users.md").
+  more information about creating users, see [Creating an ActiveMQ broker user](amazon-mq-listing-managing-users.md "amazon-mq-listing-managing-users.md").
 
 ###### Note
 
@@ -62,9 +57,7 @@ The following example uses two [single-instance brokers](amazon-mq-broker-archit
 using [active/standby brokers](amazon-mq-broker-architecture.md#active-standby-broker-deployment "amazon-mq-broker-architecture.md#active-standby-broker-deployment")
 or a combination of broker deployment modes.
 
-## Step 1:
-
-Allow Traffic between Brokers
+## Step 1: Allow Traffic between Brokers
 
 After you create your brokers, you must allow traffic between them.
 

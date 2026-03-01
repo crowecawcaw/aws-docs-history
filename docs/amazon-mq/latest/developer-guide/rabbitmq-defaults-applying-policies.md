@@ -41,9 +41,7 @@ patterns.
 For more information about creating RabbitMQ users and managing user tags and permissions,
 see [Amazon MQ for RabbitMQ broker users](rabbitmq-simple-auth-broker-users.md#rabbitmq-basic-elements-user "rabbitmq-simple-auth-broker-users.md#rabbitmq-basic-elements-user").
 
-###### To apply default policies and virtual host limits using the RabbitMQ web
-
-console
+###### To apply default policies and virtual host limits using the RabbitMQ web console
 
 1.  Sign in to the [Amazon MQ console](https://console.aws.amazon.com/amazon-mq/ "https://console.aws.amazon.com/amazon-mq/").
 2.  In the left navigation pane, choose **Brokers**.

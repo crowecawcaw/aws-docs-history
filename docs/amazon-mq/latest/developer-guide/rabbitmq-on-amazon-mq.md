@@ -68,9 +68,7 @@ add a rule for every URL or endpoint that you want to be publicly accessible
 
     Your broker can now accept inbound connections.
 
-#### Add Java
-
-dependencies
+#### Add Java dependencies
 
 If you are using Apache Maven for automating builds, add the following dependency to your `pom.xml` file.
 For more information on Project Object Model files in Apache Maven,

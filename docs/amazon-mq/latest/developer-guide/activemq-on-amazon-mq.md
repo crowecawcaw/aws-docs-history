@@ -6,18 +6,14 @@ changes to the code
 
 ###### Topics
 
-- [Creating
-  and configuring an Amazon MQ network of brokers](amazon-mq-creating-configuring-network-of-brokers.md "amazon-mq-creating-configuring-network-of-brokers.md")
-- [Connecting a Java
-  application to your Amazon MQ broker](amazon-mq-connecting-application.md "amazon-mq-connecting-application.md")
+- [Creating and configuring an Amazon MQ network of brokers](amazon-mq-creating-configuring-network-of-brokers.md "amazon-mq-creating-configuring-network-of-brokers.md")
+- [Connecting a Java application to your Amazon MQ broker](amazon-mq-connecting-application.md "amazon-mq-connecting-application.md")
 - [Integrating ActiveMQ brokers with LDAP](security-authentication-authorization.md "security-authentication-authorization.md")
 - [Step 3: (Optional) Connect to an AWS Lambda function](#activemq-connect-to-lambda "#activemq-connect-to-lambda")
-- [Creating an ActiveMQ
-  broker user](amazon-mq-listing-managing-users.md "amazon-mq-listing-managing-users.md")
+- [Creating an ActiveMQ broker user](amazon-mq-listing-managing-users.md "amazon-mq-listing-managing-users.md")
 - [Edit an ActiveMQ broker user](edit-existing-user-console.md "edit-existing-user-console.md")
 - [Delete an ActiveMQ broker user](delete-existing-user-console.md "delete-existing-user-console.md")
-- [Working examples of using Java Message
-  Service (JMS) with ActiveMQ](amazon-mq-working-java-example.md "amazon-mq-working-java-example.md")
+- [Working examples of using Java Message Service (JMS) with ActiveMQ](amazon-mq-working-java-example.md "amazon-mq-working-java-example.md")
 
 ## Step 3: (Optional) Connect to an AWS Lambda function
 

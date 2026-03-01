@@ -1,6 +1,4 @@
-# How Amazon MQ works with
-
-IAM
+# How Amazon MQ works with IAM
 
 Before you use IAM to manage access to Amazon MQ, you should understand what
 IAM features are available to use with Amazon MQ. To get a high-level view of how
@@ -12,18 +10,12 @@ For more information, see [Integrating ActiveMQ brokers with LDAP](security-auth
 
 ###### Topics
 
-- [Amazon MQ
-  identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [Amazon MQ
-  Resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
-- [Authorization based on
-  Amazon MQ tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
-- [Amazon MQ IAM
-  roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
+- [Amazon MQ identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [Amazon MQ Resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
+- [Authorization based on Amazon MQ tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [Amazon MQ IAM roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
 
-## Amazon MQ
-
-identity-based policies
+## Amazon MQ identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources as well as the conditions under which actions are allowed or denied.
@@ -147,18 +139,13 @@ To learn with which actions and resources you can use a condition key, see [Acti
 
 ### Examples
 
-To view examples of Amazon MQ identity-based policies, see [Amazon MQ Identity-based
-policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon MQ identity-based policies, see [Amazon MQ Identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Amazon MQ
-
-Resource-based policies
+## Amazon MQ Resource-based policies
 
 Currently, Amazon MQ doesn't support IAM authentication using resource-based permissions or resource-based policies.
 
-## Authorization based on
-
-Amazon MQ tags
+## Authorization based on Amazon MQ tags
 
 You can attach tags to Amazon MQ resources or pass tags in a request to
 Amazon MQ. To control access based on tags, you provide tag information in the
@@ -206,16 +193,12 @@ For more information on tagging, see:
 - [Controlling Access Using IAM
   Tags](../../../IAM/latest/UserGuide/access_iam-tags.md "../../../IAM/latest/UserGuide/access_iam-tags.md")
 
-## Amazon MQ IAM
-
-roles
+## Amazon MQ IAM roles
 
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within
 your AWS account that has specific permissions.
 
-### Using Temporary
-
-Credentials with Amazon MQ
+### Using Temporary Credentials with Amazon MQ
 
 You can use temporary credentials to sign in with federation, assume an IAM
 role, or to assume a cross-account role. You obtain temporary security credentials by

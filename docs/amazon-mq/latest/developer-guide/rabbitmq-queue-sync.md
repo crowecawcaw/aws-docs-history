@@ -45,8 +45,7 @@ sync.
 ###### Topics
 
 - [Prerequisites](#rabbitmq-queue-sync-prerequisites "#rabbitmq-queue-sync-prerequisites")
-- [Step 1: Apply an ha-sync-batch-size
-  policy](#rabbitmq-queue-sync-step-1 "#rabbitmq-queue-sync-step-1")
+- [Step 1: Apply an ha-sync-batch-size policy](#rabbitmq-queue-sync-step-1 "#rabbitmq-queue-sync-step-1")
 - [Step 2: Restart the queue sync](#rabbitmq-queue-sync-step-2 "#rabbitmq-queue-sync-step-2")
 - [Next steps](#rabbitmq-queue-sync-next-steps "#rabbitmq-queue-sync-next-steps")
 - [Related resources](#rabbitmq-queue-sync-related-resources "#rabbitmq-queue-sync-related-resources")
@@ -66,18 +65,14 @@ patterns.
 For more information about creating RabbitMQ users and managing user tags and permissions,
 see [Amazon MQ for RabbitMQ broker users](rabbitmq-simple-auth-broker-users.md#rabbitmq-basic-elements-user "rabbitmq-simple-auth-broker-users.md#rabbitmq-basic-elements-user").
 
-## Step 1: Apply an `ha-sync-batch-size`
-
-policy
+## Step 1: Apply an `ha-sync-batch-size` policy
 
 The following procedures demonstrate adding a policy that applies to all queues created on
 the broker. You can use the RabbitMQ web console or the RabbitMQ management API. For more
 information, see [Management
 Plugin](https://www.rabbitmq.com/management.html "https://www.rabbitmq.com/management.html") on the RabbitMQ website.
 
-###### To apply an `ha-sync-batch-size` policy using the RabbitMQ web
-
-console
+###### To apply an `ha-sync-batch-size` policy using the RabbitMQ web console
 
 1. Sign in to the [Amazon MQ console](https://console.aws.amazon.com/amazon-mq/ "https://console.aws.amazon.com/amazon-mq/").
 2. In the left navigation pane, choose **Brokers**.
@@ -149,9 +144,7 @@ the following:
 10. Confirm that the new policy appears in the list of **User
     policies**.
 
-###### To apply an `ha-sync-batch-size` policy using the RabbitMQ management
-
-API
+###### To apply an `ha-sync-batch-size` policy using the RabbitMQ management API
 
 1. Sign in to the [Amazon MQ console](https://console.aws.amazon.com/amazon-mq/ "https://console.aws.amazon.com/amazon-mq/").
 2. In the left navigation pane, choose **Brokers**.
@@ -217,8 +210,7 @@ If synchronization pauses and doesn't finish successfully, try reducing the
 - Once your queue synchronizes successfully, you can monitor the amount of memory that
   your RabbitMQ nodes use by viewing the Amazon CloudWatch metric `RabbitMQMemUsed`. You
   can also view the `RabbitMQMemLimit` metric to monitor a node's memory limit.
-  For more information, see [Accessing CloudWatch metrics for
-  Amazon MQ](amazon-mq-accessing-metrics.md "amazon-mq-accessing-metrics.md") and [Available CloudWatch metrics for Amazon MQ for RabbitMQ brokers](rabbitmq-logging-monitoring.md "rabbitmq-logging-monitoring.md").
+  For more information, see [Accessing CloudWatch metrics for Amazon MQ](amazon-mq-accessing-metrics.md "amazon-mq-accessing-metrics.md") and [Available CloudWatch metrics for Amazon MQ for RabbitMQ brokers](rabbitmq-logging-monitoring.md "rabbitmq-logging-monitoring.md").
 - To prevent paused queue synchronization, we recommend keeping queues short and
   processing messages. For workloads with larger message sizes, we also recommend upgrading
   your broker instance type to a larger instance size with more memory. For more information

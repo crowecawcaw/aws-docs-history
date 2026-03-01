@@ -1,6 +1,4 @@
-# Connecting a Java
-
-application to your Amazon MQ broker
+# Connecting a Java application to your Amazon MQ broker
 
 After you create an Amazon MQ ActiveMQ broker, you can
 connect your application to it. The following examples show how you can use the Java Message Service (JMS)
@@ -13,23 +11,17 @@ We recommend using the [ActiveMQ Client](https://mvnrepository.com/artifact/org.
 ###### Topics
 
 - [Prerequisites](#connect-application-prerequisites-tutorial "#connect-application-prerequisites-tutorial")
-- [To Create a Message Producer
-  and Send a Message](#create-producer-send-message-tutorial "#create-producer-send-message-tutorial")
-- [To Create a Message
-  Consumer and Receive the Message](#create-consumer-receive-message-tutorial "#create-consumer-receive-message-tutorial")
+- [To Create a Message Producer and Send a Message](#create-producer-send-message-tutorial "#create-producer-send-message-tutorial")
+- [To Create a Message Consumer and Receive the Message](#create-consumer-receive-message-tutorial "#create-consumer-receive-message-tutorial")
 
 ## Prerequisites
 
-### Enable VPC
-
-Attributes
+### Enable VPC Attributes
 
 To ensure that your broker is accessible within your VPC, you must enable the `enableDnsHostnames` and `enableDnsSupport`
 VPC attributes. For more information, see [DNS Support in your VPC](../../../vpc/latest/userguide/vpc-dns.md#vpc-dns-support "../../../vpc/latest/userguide/vpc-dns.md#vpc-dns-support") in the _Amazon VPC User Guide_.
 
-### Enable
-
-Inbound Connections
+### Enable Inbound Connections
 
 Next, enable inbound connections for your application.
 
@@ -62,9 +54,7 @@ add a rule for every URL or endpoint that you want to be publicly accessible
 
     Your broker can now accept inbound connections.
 
-### Add Java
-
-Dependencies
+### Add Java Dependencies
 
 Add the `activemq-client.jar` and `activemq-pool.jar` packages to
 your Java class path. The following example shows these dependencies in a Maven project `pom.xml` file.
@@ -92,9 +82,7 @@ Configuration](http://activemq.apache.org/initial-configuration.html "http://act
 In the following example code, producers and consumers run in a single thread.
 For production systems (or to test broker instance failover), make sure that your producers and consumers run on separate hosts or threads.
 
-## To Create a Message Producer
-
-and Send a Message
+## To Create a Message Producer and Send a Message
 
 Use the following instruction to create a message producer and recieve a message.
 
@@ -136,8 +124,7 @@ pooledConnectionFactory.clear();
 ###### Note
 
 Message producers should always use the `PooledConnectionFactory` class. For more
-information, see [Always Use Connection
-Pooling](best-practices-activemq.md#always-use-connection-pooling "best-practices-activemq.md#always-use-connection-pooling"). 2. Create a session, a queue named `MyQueue`, and a message
+information, see [Always Use Connection Pooling](best-practices-activemq.md#always-use-connection-pooling "best-practices-activemq.md#always-use-connection-pooling"). 2. Create a session, a queue named `MyQueue`, and a message
 producer.
 
 ```
@@ -173,9 +160,7 @@ producerSession.close();
 producerConnection.close();
 ```
 
-## To Create a Message
-
-Consumer and Receive the Message
+## To Create a Message Consumer and Receive the Message
 
 Use the following instruction to create a message producer and recieve a message.
 
@@ -200,8 +185,7 @@ consumerConnection.start();
 
 Message consumers should _never_ use the
 `PooledConnectionFactory` class. For more information,
-see [Always Use Connection
-Pooling](best-practices-activemq.md#always-use-connection-pooling "best-practices-activemq.md#always-use-connection-pooling"). 2. Create a session, a queue named `MyQueue`, and a message consumer.
+see [Always Use Connection Pooling](best-practices-activemq.md#always-use-connection-pooling "best-practices-activemq.md#always-use-connection-pooling"). 2. Create a session, a queue named `MyQueue`, and a message consumer.
 
 ```
 // Create a session.

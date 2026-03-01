@@ -1,6 +1,4 @@
-# Amazon MQ for ActiveMQ broker
-
-configurations
+# Amazon MQ for ActiveMQ broker configurations
 
 A configuration contains all of the settings for your ActiveMQ broker in XML format
 (similar to ActiveMQ's `activemq.xml` file). You can create a configuration
@@ -44,9 +42,7 @@ following:
 - [REST
   Operation ID: Configuration Revisions](../api-reference/rest-api-configuration-revisions.md "../api-reference/rest-api-configuration-revisions.md")
 
-## Using Spring
-
-XML configuration files
+## Using Spring XML configuration files
 
 ActiveMQ brokers are configured using [Spring XML](https://docs.spring.io/spring/docs/current/spring-framework-reference/ "https://docs.spring.io/spring/docs/current/spring-framework-reference/") files. You can configure many aspects of your ActiveMQ
 broker, such as predefined destinations, destination policies, authorization

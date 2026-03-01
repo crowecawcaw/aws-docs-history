@@ -1,6 +1,4 @@
-# Working examples of using Java Message
-
-Service (JMS) with ActiveMQ
+# Working examples of using Java Message Service (JMS) with ActiveMQ
 
 The following examples show how you can work with ActiveMQ programmatically:
 
@@ -17,9 +15,7 @@ The following examples show how you can work with ActiveMQ programmatically:
 To ensure that your broker is accessible within your VPC, you must enable the `enableDnsHostnames` and `enableDnsSupport`
 VPC attributes. For more information, see [DNS Support in your VPC](../../../vpc/latest/userguide/vpc-dns.md#vpc-dns-support "../../../vpc/latest/userguide/vpc-dns.md#vpc-dns-support") in the _Amazon VPC User Guide_.
 
-### Enable inbound
-
-Connections
+### Enable inbound Connections
 
 To work with Amazon MQ programmatically, you must use inbound connections.
 

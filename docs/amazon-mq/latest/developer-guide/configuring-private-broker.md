@@ -52,9 +52,7 @@ Amazon MQ for ActiveMQ does not use VPC endpoints. When you first create an Acti
 Amazon MQ provisions an elastic network interface (ENI) in the VPC.
 Security groups are placed in the ENI and can be used for both public and private brokers.
 
-## Accessing the Amazon MQ broker web console without public
-
-accessibility
+## Accessing the Amazon MQ broker web console without public accessibility
 
 When you turn off public accessibility for your broker,
 the AWS account ID that created the broker can access the private broker.

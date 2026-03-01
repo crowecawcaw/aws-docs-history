@@ -1,6 +1,4 @@
-# Logging Amazon MQ API calls using
-
-AWS CloudTrail
+# Logging Amazon MQ API calls using AWS CloudTrail
 
 Amazon MQ is integrated with AWS CloudTrail, a service that provides a record of the Amazon MQ calls
 that a user, role, or AWS service makes. CloudTrail captures API calls related to Amazon MQ
@@ -21,9 +19,7 @@ continuous delivery of CloudTrail events to an Amazon S3 bucket. If you don't co
 you can view the most recent events in the event history in the CloudTrail console. For more
 information, see [Overview for Creating a Trail](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md") in the _[AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md")_.
 
-## Amazon MQ Information in
-
-CloudTrail
+## Amazon MQ Information in CloudTrail
 
 When you create your AWS account, CloudTrail is enabled. When a supported Amazon MQ event
 activity occurs, it is recorded in a CloudTrail event with other AWS service events in
@@ -92,9 +88,7 @@ information helps you determine the following:
 For more information, see [CloudTrail
 userIdentity Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md") in the _AWS CloudTrail User Guide_.
 
-## Example Amazon MQ
-
-Log File Entry
+## Example Amazon MQ Log File Entry
 
 A _trail_ is a configuration that allows the delivery of events
 as log files to the specified Amazon S3 bucket. CloudTrail log files contain one or more log

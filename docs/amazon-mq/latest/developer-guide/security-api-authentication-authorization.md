@@ -1,6 +1,4 @@
-# API authentication and
-
-authorization for Amazon MQ
+# API authentication and authorization for Amazon MQ
 
 Amazon MQ uses standard AWS request signing for API authentication. For more
 information, see [Signing AWS
@@ -16,17 +14,12 @@ edit your IAM policy permissions.
 
 ###### Topics
 
-- [IAM Permissions
-  Required to Create an Amazon MQ Broker](#security-permissions-required-to-create-broker "#security-permissions-required-to-create-broker")
-- [Amazon MQ REST API permissions
-  reference](#security-api-permissions-reference "#security-api-permissions-reference")
+- [IAM Permissions Required to Create an Amazon MQ Broker](#security-permissions-required-to-create-broker "#security-permissions-required-to-create-broker")
+- [Amazon MQ REST API permissions reference](#security-api-permissions-reference "#security-api-permissions-reference")
 - [Amazon MQ additional permissions reference](#security-amq-additional-permissions "#security-amq-additional-permissions")
-- [Resource-level permissions for
-  Amazon MQ API actions](#security-supported-iam-actions-resources "#security-supported-iam-actions-resources")
+- [Resource-level permissions for Amazon MQ API actions](#security-supported-iam-actions-resources "#security-supported-iam-actions-resources")
 
-## IAM Permissions
-
-Required to Create an Amazon MQ Broker
+## IAM Permissions Required to Create an Amazon MQ Broker
 
 To create a broker, you must either use the `AmazonMQFullAccess` IAM
 policy or include the following EC2 permissions in your IAM policy.
@@ -83,12 +76,9 @@ JSON
 
 ```
 
-For more information, see [Step 2: create a user and get your AWS credentials](amazon-mq-setting-up.md#create-iam-user "amazon-mq-setting-up.md#create-iam-user") and [Never Modify or
-Delete the Amazon MQ Elastic Network Interface](best-practices-activemq.md#never-modify-delete-elastic-network-interface "best-practices-activemq.md#never-modify-delete-elastic-network-interface").
+For more information, see [Step 2: create a user and get your AWS credentials](amazon-mq-setting-up.md#create-iam-user "amazon-mq-setting-up.md#create-iam-user") and [Never Modify or Delete the Amazon MQ Elastic Network Interface](best-practices-activemq.md#never-modify-delete-elastic-network-interface "best-practices-activemq.md#never-modify-delete-elastic-network-interface").
 
-## Amazon MQ REST API permissions
-
-reference
+## Amazon MQ REST API permissions reference
 
 The following table lists Amazon MQ REST APIs and the corresponding IAM
 permissions.
@@ -123,9 +113,7 @@ The following table lists the Amazon MQ API and the additional IAM permission re
 | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [UpdateBroker](../api-reference/brokers-broker-id.md#UpdateBroker "../api-reference/brokers-broker-id.md#UpdateBroker") | `mq:UpdateBrokerAccessConfiguration` | You need this permission to update authentication and authorization options in the associated broker configuration. For more information, see [OAuth 2.0 authentication and authorization for Amazon MQ for RabbitMQ](oauth-for-amq-for-rabbitmq.md "oauth-for-amq-for-rabbitmq.md"). |
 
-## Resource-level permissions for
-
-Amazon MQ API actions
+## Resource-level permissions for Amazon MQ API actions
 
 The term _resource-level permissions_ refers to the ability to
 specify the resources on which users are allowed to perform actions. Amazon MQ has

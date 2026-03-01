@@ -109,8 +109,7 @@ documentation:
 For information about creating, editing, and deleting ActiveMQ users, see the
 following:
 
-- [Creating an ActiveMQ
-  broker user](amazon-mq-listing-managing-users.md "amazon-mq-listing-managing-users.md")
+- [Creating an ActiveMQ broker user](amazon-mq-listing-managing-users.md "amazon-mq-listing-managing-users.md")
 - [Users](amazon-mq-limits.md#activemq-user-limits "amazon-mq-limits.md#activemq-user-limits")
 
 ### User attributes

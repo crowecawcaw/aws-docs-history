@@ -13,8 +13,7 @@ The following describes the steps to configure CloudWatch logs for your ActiveMQ
 ###### Topics
 
 - [Understanding the structure of logging in CloudWatch Logs](#security-logging-monitoring-configure-cloudwatch-structure "#security-logging-monitoring-configure-cloudwatch-structure")
-- [Add
-  the CreateLogGroup permission to your Amazon MQ user](#security-logging-monitoring-configure-cloudwatch-permissions "#security-logging-monitoring-configure-cloudwatch-permissions")
+- [Add the CreateLogGroup permission to your Amazon MQ user](#security-logging-monitoring-configure-cloudwatch-permissions "#security-logging-monitoring-configure-cloudwatch-permissions")
 - [Configure a resource-based policy for Amazon MQ](#security-logging-monitoring-configure-cloudwatch-resource-permissions "#security-logging-monitoring-configure-cloudwatch-resource-permissions")
 - [Cross-service confused deputy prevention](#security-logging-monitoring-configure-cloudwatch-confused-deputy "#security-logging-monitoring-configure-cloudwatch-confused-deputy")
 
@@ -55,9 +54,7 @@ The `-1` and `-2` suffixes denote individual broker
 instances. For more information, see [Working with Log
 Groups and Log Streams](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md") in the _[Amazon CloudWatch Logs User Guide](../../../AmazonCloudWatch/latest/logs.md "../../../AmazonCloudWatch/latest/logs.md")_.
 
-## Add
-
-the `CreateLogGroup` permission to your Amazon MQ user
+## Add the `CreateLogGroup` permission to your Amazon MQ user
 
 To allow Amazon MQ to create a CloudWatch Logs log group, you must ensure that the user who
 creates or reboots the broker has the `logs:CreateLogGroup`

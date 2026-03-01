@@ -33,9 +33,7 @@ Amazon MQ does not support changing Amazon VPC configuration after your broker i
 need to create a new broker with the new Amazon VPC configuration and update the client connection URL with the new
 broker connection URL.
 
-##
-
-Cluster deployments have paused my queue synchronizations.
+## Cluster deployments have paused my queue synchronizations.
 
 While addressing RabbitMQ's high memory alarms, you may find that messages on one or
 multiple queues cannot be consumed. These queues may be in the process of synchronizing
@@ -44,9 +42,7 @@ and consuming. Queue synchronizations might become paused due to the high memory
 
 For information about stopping and retrying paused queue syncs, see [Resolving RabbitMQ paused queue synchronization](rabbitmq-queue-sync.md "rabbitmq-queue-sync.md").
 
-##
-
-My Amazon MQ for RabbitMQ single-instance broker is in a restart loop.
+## My Amazon MQ for RabbitMQ single-instance broker is in a restart loop.
 
 An Amazon MQ for RabbitMQ single-instance broker that raises a high memory alarm is at
 risk of becoming unavailable if it restarts and doesn't have enough memory to start up.

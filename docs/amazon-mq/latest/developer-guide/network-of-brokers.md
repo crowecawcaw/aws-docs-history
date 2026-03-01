@@ -26,9 +26,7 @@ or to avoid a limit increase.
 Duplex connections are also useful for partial migration
 from on-premises to Amazon MQ managed brokers.
 
-## How Does a Network of Brokers Handle
-
-Credentials?
+## How Does a Network of Brokers Handle Credentials?
 
 For broker A to connect to broker B in a network, broker A must use valid credentials,
 like any other producer or consumer. Instead of providing a password in broker A's

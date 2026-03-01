@@ -22,8 +22,7 @@ Configuration](http://activemq.apache.org/xml-configuration.html "http://activem
 
 The permissions granted to a group of users.
 For more information, see
-[Always configure an
-authorization map](using-amazon-mq-securely.md#always-configure-authorization-map "using-amazon-mq-securely.md#always-configure-authorization-map").
+[Always configure an authorization map](using-amazon-mq-securely.md#always-configure-authorization-map "using-amazon-mq-securely.md#always-configure-authorization-map").
 
 If you specify an authorization map which doesn't include the
 `activemq-webconsole` group, you can't use the ActiveMQ Web Console because the group isn't authorized to send
@@ -126,9 +125,7 @@ The username common to the brokers in a network of brokers.
 When using a `networkConnector` to define a network of brokers,
 don't include the password for the user common to your brokers.
 
-#### A Network of
-
-Brokers with Two Brokers
+#### A Network of Brokers with Two Brokers
 
 In this configuration, two brokers are connected in a network of brokers.
 The name of the network connector is `connector_1_to_2`, the
@@ -146,9 +143,7 @@ brokers.
 
 For more information, see [Configure Network Connectors for Your Broker](amazon-mq-creating-configuring-network-of-brokers.md#creating-configuring-network-of-brokers-configure-network-connectors "amazon-mq-creating-configuring-network-of-brokers.md#creating-configuring-network-of-brokers-configure-network-connectors").
 
-#### A Network of
-
-Brokers with Multiple Brokers
+#### A Network of Brokers with Multiple Brokers
 
 In this configuration, multiple brokers are connected in a network of
 brokers. The name of the network connector is `connector_1_to_2`,

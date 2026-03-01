@@ -1,8 +1,6 @@
 # Available CloudWatch metrics for Amazon MQ for RabbitMQ brokers
 
-## RabbitMQ broker
-
-metrics
+## RabbitMQ broker metrics
 
 | Metric                       | Unit    | Description                                                                                                                                                                                                                                                                          |
 | ---------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -50,9 +48,7 @@ metrics
 | `Node`    | The name of the node.<br>NoteA node name consists of two parts: a prefix (usuallly `rabbit`)<br>and a hostname. For example, `rabbit@ip-10-0-0-230.us-west-2.compute.internal` is a node name with<br>the prefix `rabbit` and the hostname `ip-10-0-0-230.us-west-2.compute.internal`. |
 | `Broker`  | The name of the broker.                                                                                                                                                                                                                                                                |
 
-## RabbitMQ queue
-
-metrics
+## RabbitMQ queue metrics
 
 | Metric                       | Unit  | Description                                                                                              |
 | ---------------------------- | ----- | -------------------------------------------------------------------------------------------------------- |
@@ -76,9 +72,7 @@ For more information about dimension names, see
 | `VirtualHost` | The name of the virtual host. |
 | `Broker`      | The name of the broker.       |
 
-## RabbitMQ network
-
-metrics
+## RabbitMQ network metrics
 
 | Metric       | Unit  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | ------------ | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -100,5 +94,4 @@ RabbitMQ brokers will use the same service-linked role to publish logs to CloudW
 For more information about service-linked roles,
 see [Using service-linked roles](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md")
 in the _AWS Identity and Access Management User Guide_.
-For more information about how Amazon MQ uses service-linked roles, see [Using service-linked roles for
-Amazon MQ](using-service-linked-roles.md "using-service-linked-roles.md").
+For more information about how Amazon MQ uses service-linked roles, see [Using service-linked roles for Amazon MQ](using-service-linked-roles.md "using-service-linked-roles.md").

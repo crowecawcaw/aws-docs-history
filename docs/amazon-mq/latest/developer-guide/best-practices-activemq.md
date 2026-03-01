@@ -3,9 +3,7 @@
 Use this as a reference to quickly find recommendations for maximizing performance and minimizing throughput costs when working with
 ActiveMQ brokers on Amazon MQ.
 
-## Never Modify or
-
-Delete the Amazon MQ Elastic Network Interface
+## Never Modify or Delete the Amazon MQ Elastic Network Interface
 
 When you first [create an
 Amazon MQ broker](getting-started-activemq.md "getting-started-activemq.md"), Amazon MQ provisions an [elastic network
@@ -24,9 +22,7 @@ and your broker.
 
 ![Diagram showing Client, Elastic Network Interface, and Amazon MQ Broker within a Customer VPC and service scope.](images/amazon-mq-network-configuration-architecture-vpc-elastic-network-interface.png)
 
-## Always Use Connection
-
-Pooling
+## Always Use Connection Pooling
 
 In a scenario with a single producer and single consumer (such as the [Getting started: Creating and connecting to an ActiveMQ broker](getting-started-activemq.md "getting-started-activemq.md")
 tutorial), you can use a single [`ActiveMQConnectionFactory`](http://activemq.apache.org/maven/apidocs/org/apache/activemq/ActiveMQConnectionFactory.html "http://activemq.apache.org/maven/apidocs/org/apache/activemq/ActiveMQConnectionFactory.html") class for every producer and
@@ -73,9 +69,7 @@ final Connection producerConnection = pooledConnectionFactory.createConnection()
 producerConnection.start();
 ```
 
-## Always Use the Failover Transport to Connect to Multiple Broker
-
-Endpoints
+## Always Use the Failover Transport to Connect to Multiple Broker Endpoints
 
 If you need your application to connect to multiple broker endpoints—for example,
 when you use an [active/standby](amazon-mq-broker-architecture.md#active-standby-broker-deployment "amazon-mq-broker-architecture.md#active-standby-broker-deployment") deployment mode or when you [migrate from an on-premises message broker to
@@ -91,9 +85,7 @@ failover:(ssl://b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9-1.mq.us-east-2.amazonaws.
 
 Multi-availability zone brokers can experience failovers during maintenance windows and broker restarts. Use the Failover Transport to ensure your broker availability.
 
-## Avoid Using Message
-
-Selectors
+## Avoid Using Message Selectors
 
 It is possible to use [JMS
 selectors](https://docs.oracle.com/cd/E19798-01/821-1841/bncer/index.html "https://docs.oracle.com/cd/E19798-01/821-1841/bncer/index.html") to attach filters to topic subscriptions (to route messages to
@@ -104,9 +96,7 @@ In general, avoid letting consumers route messages because, for optimal decoupli
 of consumers and producers, both the consumer and the producer should be
 ephemeral.
 
-## Prefer
-
-Virtual Destinations to Durable Subscriptions
+## Prefer Virtual Destinations to Durable Subscriptions
 
 A [durable subscription](http://activemq.apache.org/how-do-durable-queues-and-topics-work.html "http://activemq.apache.org/how-do-durable-queues-and-topics-work.html") can help ensure that the consumer receives all
 messages published to a topic, for example, after a lost connection is restored.
@@ -132,9 +122,7 @@ To instruct Amazon MQ to optimize for queues with slow consumers, set the
 `concurrentStoreAndDispatchQueues` attribute to `false`.
 For an example configuration, see [concurrentStoreAndDispatchQueues](child-element-details.md#concurrentStoreAndDispatchQueues "child-element-details.md#concurrentStoreAndDispatchQueues").
 
-## Choose the Correct Broker Instance
-
-Type for the Best Throughput
+## Choose the Correct Broker Instance Type for the Best Throughput
 
 The message throughput of a [broker instance
 type](broker-instance-types.md "broker-instance-types.md") depends on your application's use case and the following
@@ -145,9 +133,7 @@ factors:
 - The number of producers and consumers
 - The number of destinations
 
-### Understanding the relationship between message size, latency, and
-
-throughput
+### Understanding the relationship between message size, latency, and throughput
 
 Depending on your use case, a larger broker instance type might not
 necessarily improve system throughput. When ActiveMQ writes messages to durable
@@ -168,9 +154,7 @@ To determine the best broker instance type for your application, we recommend
 testing different broker instance types. For more information, see [Broker instance types](broker-instance-types.md "broker-instance-types.md") and
 also [Measuring the Throughput for Amazon MQ using the JMS Benchmark](https://aws.amazon.com/blogs/compute/measuring-the-throughput-for-amazon-mq-using-the-jms-benchmark/ "https://aws.amazon.com/blogs/compute/measuring-the-throughput-for-amazon-mq-using-the-jms-benchmark/").
 
-### Use cases for larger
-
-broker instance types
+### Use cases for larger broker instance types
 
 There are three common use cases when larger broker instance types improve
 throughput:
@@ -198,16 +182,12 @@ throughput:
   instance types. For more information, see [Should I Use Transactions?](http://activemq.apache.org/should-i-use-transactions.html "http://activemq.apache.org/should-i-use-transactions.html") in the ActiveMQ
   documentation.
 
-## Choose the correct broker storage
-
-type for the best throughput
+## Choose the correct broker storage type for the best throughput
 
 To take advantage of high durability and replication across multiple Availability Zones, use Amazon EFS.
 To take advantage of low latency and high throughput, use Amazon EBS. For more information, see [Storage](broker-storage.md "broker-storage.md").
 
-## Configure Your Network of
-
-Brokers Correctly
+## Configure Your Network of Brokers Correctly
 
 When you create a [network of brokers](network-of-brokers.md "network-of-brokers.md"),
 configure it correctly for your application:
@@ -234,9 +214,7 @@ delivery?](http://activemq.apache.org/what-is-the-difference-between-persistent-
   is the difference between discovery, multicast, and zeroconf?](http://activemq.apache.org/multicast-transport-reference.html "http://activemq.apache.org/multicast-transport-reference.html") in
   the Apache ActiveMQ documentation.
 
-## Avoid slow restarts by recovering prepared XA
-
-transactions
+## Avoid slow restarts by recovering prepared XA transactions
 
 ActiveMQ supports distributed (XA) transactions. Knowing how ActiveMQ processes XA
 transactions can help avoid slow recovery times for broker restarts and failovers in

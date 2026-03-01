@@ -15,8 +15,7 @@ You can edit your broker preferences, such as enabling or disabling CloudWatch l
 ###### Note
 
     * For RabbitMQ brokers, Amazon MQ automatically uses a Service-Linked Role (SLR) to publish general logs to CloudWatch. For more information, see
-     [Using service-linked roles for
-     Amazon MQ](using-service-linked-roles.md "using-service-linked-roles.md")
+     [Using service-linked roles for Amazon MQ](using-service-linked-roles.md "using-service-linked-roles.md")
     * Amazon MQ does not support audit logging for RabbitMQ brokers.
 
 5. In the **Maintenance** section, configure your

@@ -18,8 +18,7 @@ You can access your ActiveMQ brokers using the following protocols with TLS enab
 
 To authorize ActiveMQ users and groups to works with queues and topics, you must [edit your broker's
 configuration](amazon-mq-creating-applying-configurations.md "amazon-mq-creating-applying-configurations.md"). Amazon MQ uses ActiveMQ's [Simple Authentication Plugin](http://activemq.apache.org/security.html#Security-SimpleAuthenticationPlugin "http://activemq.apache.org/security.html#Security-SimpleAuthenticationPlugin") to restrict reading and writing to destinations.
-For more information and examples, see [Always configure an
-authorization map](using-amazon-mq-securely.md#always-configure-authorization-map "using-amazon-mq-securely.md#always-configure-authorization-map") and `authorizationEntry`.
+For more information and examples, see [Always configure an authorization map](using-amazon-mq-securely.md#always-configure-authorization-map "using-amazon-mq-securely.md#always-configure-authorization-map") and `authorizationEntry`.
 
 ###### Note
 

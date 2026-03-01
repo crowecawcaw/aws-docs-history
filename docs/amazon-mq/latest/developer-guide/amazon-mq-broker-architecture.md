@@ -22,9 +22,7 @@ replicated across multiple servers within a single AZ.
 
 ![Diagram showing client, Amazon MQ broker, and EBS volume within AWS Cloud availability zone.](images/amazon-mq-activemq-broker-architecture-single-broker-ebs.png)
 
-## Option 2: Amazon MQ active/standby brokers for
-
-high availability
+## Option 2: Amazon MQ active/standby brokers for high availability
 
 An _active/standby broker_
 is comprised of two brokers in two different Availability Zones,

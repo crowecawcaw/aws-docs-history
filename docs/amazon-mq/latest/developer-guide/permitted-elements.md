@@ -1,6 +1,4 @@
-# Elements permitted in Amazon MQ
-
-configurations
+# Elements permitted in Amazon MQ configurations
 
 The following is a detailed listing of the elements permitted in Amazon MQ
 configurations. For more information, see [XML

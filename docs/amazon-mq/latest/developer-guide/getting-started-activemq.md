@@ -20,8 +20,7 @@ The first and most common Amazon MQ task is creating a broker. The following exa
        - An **Active/standby broker for high availability**
          is comprised of two brokers in two different Availability Zones,
          configured in a _redundant pair_. These brokers communicate synchronously with your application, and with Amazon EFS. For more information, see
-         [Option 2: Amazon MQ active/standby brokers for
-         high availability](amazon-mq-broker-architecture.md#active-standby-broker-deployment "amazon-mq-broker-architecture.md#active-standby-broker-deployment").
+         [Option 2: Amazon MQ active/standby brokers for high availability](amazon-mq-broker-architecture.md#active-standby-broker-deployment "amazon-mq-broker-architecture.md#active-standby-broker-deployment").
 
     2. Choose the **Storage type** (for example, **EBS**). For more information, see
        [Storage](broker-storage.md "broker-storage.md").

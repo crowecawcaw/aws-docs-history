@@ -1,6 +1,4 @@
-# Creating an ActiveMQ
-
-broker user
+# Creating an ActiveMQ broker user
 
 An ActiveMQ _user_ is a person or an application that can access the queues and topics of an ActiveMQ broker.
 You can configure users to have specific permissions. For example, you can allow some users to access the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html "http://activemq.apache.org/web-console.html").

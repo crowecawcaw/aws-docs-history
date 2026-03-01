@@ -1,7 +1,4 @@
-# Edit an Amazon MQ for ActiveMQ
-
-configuration
-revision
+# Edit an Amazon MQ for ActiveMQ configuration revision
 
 You may want to edit a configuration revision after applying it
 to your broker. Use the following instructions to edit a configuration

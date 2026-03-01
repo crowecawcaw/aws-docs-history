@@ -31,9 +31,7 @@
 | `VolumeWriteOps`                       | Count                  | The number of write operations performed on the Amazon EBS<br>volume.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | `WsMaximumConnections`                 | Count                  | The maximum number of clients you can connect to your broker using WebSocket. For more information on connection quotas, see [Quotas in Amazon MQ](amazon-mq-limits.md "amazon-mq-limits.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
-### Dimensions
-
-for ActiveMQ broker metrics
+### Dimensions for ActiveMQ broker metrics
 
 | Dimension | Description                                                                                                                                                                 |
 | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-Amazon MQ
+# Using service-linked roles for Amazon MQ
 
 Amazon MQ uses AWS Identity and Access Management (IAM)[service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to Amazon MQ. Service-linked roles are predefined by Amazon MQ and
@@ -22,9 +20,7 @@ IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md 
 **Service-Linked Role** column. Choose a **Yes** with a link to view the service-linked role documentation for that
 service.
 
-## Service-linked role permissions for
-
-Amazon MQ
+## Service-linked role permissions for Amazon MQ
 
 Amazon MQ uses the service-linked role named **AWSServiceRoleForAmazonMQ** –
 Amazon MQ uses this service-linked role to call AWS services on your behalf.
@@ -151,9 +147,7 @@ JSON
 You must configure permissions to allow an IAM entity (such as a user, group, or role)
 to create, edit, or delete a service-linked role. For more information, see [Service-Linked Role Permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the _IAM User Guide_.
 
-## Creating a service-linked role for
-
-Amazon MQ
+## Creating a service-linked role for Amazon MQ
 
 You don't need to manually create a service-linked role. When you
 first create a broker, Amazon MQ creates a service-linked role to call AWS services on your behalf. All subsequent brokers that you create
@@ -179,17 +173,13 @@ service-linked role, you can use this same process to create the role again.
 
 Service Linked Roles are only created for Amazon MQ for RabbitMQ.
 
-## Editing a service-linked role for
-
-Amazon MQ
+## Editing a service-linked role for Amazon MQ
 
 Amazon MQ does not allow you to edit the AWSServiceRoleForAmazonMQ service-linked role. However, you can edit the description of the role using IAM. For
 more information, see [Editing a
 service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the _IAM User Guide_.
 
-## Deleting a service-linked role for
-
-Amazon MQ
+## Deleting a service-linked role for Amazon MQ
 
 If you no longer need to use a feature or service that requires a service-linked role, we
 recommend that you delete that role. That way you don’t have an unused entity that is not
@@ -214,9 +204,7 @@ Use the IAM console, the AWS CLI, or the AWS API to delete the AWSServiceRoleFor
 service-linked role. For more information, see [Deleting a
 Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the _IAM User Guide_.
 
-## Supported regions for
-
-Amazon MQ service-linked roles
+## Supported regions for Amazon MQ service-linked roles
 
 Amazon MQ supports using service-linked roles in all of the regions where the service is available. For more information, see [AWS Regions and Endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md").
 

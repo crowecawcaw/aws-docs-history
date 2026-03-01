@@ -1,6 +1,4 @@
-# Edit a
-
-Amazon MQ for RabbitMQ Configuration Revision
+# Edit a Amazon MQ for RabbitMQ Configuration Revision
 
 The following instructions describe how to edit a configuration revision for your broker.
 

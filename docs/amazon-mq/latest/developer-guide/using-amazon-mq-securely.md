@@ -4,19 +4,14 @@ The following design patterns can improve the security of your Amazon MQ broker.
 
 ###### Topics
 
-- [Prefer brokers without
-  public accessibility](#prefer-brokers-without-public-accessibility "#prefer-brokers-without-public-accessibility")
-- [Always configure an
-  authorization map](#always-configure-authorization-map "#always-configure-authorization-map")
-- [Block unnecessary protocols with VPC
-  security groups](#amazon-mq-vpc-security-groups "#amazon-mq-vpc-security-groups")
+- [Prefer brokers without public accessibility](#prefer-brokers-without-public-accessibility "#prefer-brokers-without-public-accessibility")
+- [Always configure an authorization map](#always-configure-authorization-map "#always-configure-authorization-map")
+- [Block unnecessary protocols with VPC security groups](#amazon-mq-vpc-security-groups "#amazon-mq-vpc-security-groups")
 
 For more information about how Amazon MQ encrypts your data, as well as a list of supported protocols, see
 [Data Protection](data-protection.md "data-protection.md").
 
-## Prefer brokers without
-
-public accessibility
+## Prefer brokers without public accessibility
 
 Brokers created without public accessibility can't be accessed from outside of
 your [VPC](../../../vpc/latest/userguide/VPC_Introduction.md "../../../vpc/latest/userguide/VPC_Introduction.md"). This greatly
@@ -24,9 +19,7 @@ reduces your broker's susceptibility to Distributed Denial of Service (DDoS) att
 from the public internet. For more information, see [How to Help Prepare for DDoS Attacks by Reducing Your Attack Surface](https://aws.amazon.com/blogs/security/how-to-help-prepare-for-ddos-attacks-by-reducing-your-attack-surface/ "https://aws.amazon.com/blogs/security/how-to-help-prepare-for-ddos-attacks-by-reducing-your-attack-surface/") on
 the AWS Security Blog.
 
-## Always configure an
-
-authorization map
+## Always configure an authorization map
 
 Because ActiveMQ has no authorization map configured by default, any authenticated
 user can perform any action on the broker. Thus, it is a best practice to restrict
@@ -38,9 +31,7 @@ If you specify an authorization map which doesn't include the
 `activemq-webconsole` group, you can't use the ActiveMQ Web Console because the group isn't authorized to send
 messages to, or receive messages from, the Amazon MQ broker.
 
-## Block unnecessary protocols with VPC
-
-security groups
+## Block unnecessary protocols with VPC security groups
 
 To improve security for private brokers, you should restrict the connections of unnecessary protocols
 and ports by properly configuring your Amazon VPC Security Group. For instance, to

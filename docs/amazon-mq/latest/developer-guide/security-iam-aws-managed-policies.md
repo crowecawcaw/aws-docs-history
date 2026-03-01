@@ -23,19 +23,14 @@ Amazon MQ supports the following AWS managed policies:
 - [AmazonMQReadOnlyAccess](../../../aws-managed-policy/latest/reference/AmazonMQReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AmazonMQReadOnlyAccess.md")
 - [AmazonMQServiceRolePolicy](../../../aws-managed-policy/latest/reference/AmazonMQServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AmazonMQServiceRolePolicy.md")
 
-## AWS managed
-
-policy: AmazonMQServiceRolePolicy
+## AWS managed policy: AmazonMQServiceRolePolicy
 
 You can't attach `AmazonMQServiceRolePolicy` to your IAM entities. This
 policy is attached to a service-linked role that allows Amazon MQ to perform actions on your
 behalf. For more information about this permission policy and the actions it allows Amazon MQ
-to perform, see [Service-linked role permissions for
-Amazon MQ](using-service-linked-roles.md#slr-permissions "using-service-linked-roles.md#slr-permissions").
+to perform, see [Service-linked role permissions for Amazon MQ](using-service-linked-roles.md#slr-permissions "using-service-linked-roles.md#slr-permissions").
 
-## Amazon MQ updates to AWS managed
-
-policies
+## Amazon MQ updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amazon MQ since this service began
 tracking these changes. For automatic alerts about changes to this page, subscribe to the
