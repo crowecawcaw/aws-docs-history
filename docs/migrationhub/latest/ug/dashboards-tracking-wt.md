@@ -16,9 +16,7 @@ progress over time.
 To reach the **Dashboard**, choose **Dashboard**
 from the Migration Hub console navigation pane.
 
-## Navigating from the dashboard and the
-
-navigation pane
+## Navigating from the dashboard and the navigation pane
 
 After viewing dashboard data summaries, you might want to retrieve more detail without
 interrupting your workﬂow. You do this by navigating directly from the relevant status

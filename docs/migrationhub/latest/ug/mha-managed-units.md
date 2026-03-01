@@ -16,16 +16,12 @@ This topic describes the automation units that AWS Migration Hub provides. These
 to as managed automation units. This topic also describes the prerequisites for running a
 managed automation unit.
 
-## Prerequisites for running managed automation
-
-units
+## Prerequisites for running managed automation units
 
 - Ensure that you have created an IAM role that has the trust policy that Migration Hub needs
   to be able to run the unit and the permissions policy that the unit needs. For information
-  about the required trust policy and permissions policy, see [IAM roles and permissions for AWS Migration Hub automation
-  units](mha-iam-roles.md "mha-iam-roles.md"). After you create the required role, associate it with the automation unit. For
-  instructions, see [Associating an IAM role with an AWS Migration Hub
-  automation unit](associate-role-with-unit.md "associate-role-with-unit.md").
+  about the required trust policy and permissions policy, see [IAM roles and permissions for AWS Migration Hub automation units](mha-iam-roles.md "mha-iam-roles.md"). After you create the required role, associate it with the automation unit. For
+  instructions, see [Associating an IAM role with an AWS Migration Hub automation unit](associate-role-with-unit.md "associate-role-with-unit.md").
 - The following automation units all use AWS Application Migration Service. Ensure that AWS Application Migration Service is initialized
   in the AWS Region where you plan to run one or more of these units. For instructions,
   see [Initializing Application Migration Service with the console](../../../mgn/latest/ug/mgn-initialize-console.md "../../../mgn/latest/ug/mgn-initialize-console.md") or [Initializing AWS

@@ -1,8 +1,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
 
-# Migration progress is stored in the AWS Migration Hub home
-
-Region
+# Migration progress is stored in the AWS Migration Hub home Region
 
 When you’re ready to migrate, use the migration tools that best fit your needs.
 Options include AWS Application Migration Service (Application Migration Service), AWS Database Migration Service (AWS DMS), or one of many

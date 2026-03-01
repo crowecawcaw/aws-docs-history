@@ -32,8 +32,6 @@ The network diagram provides the following capabilities:
 
 ###### Topics
 
-- [Prerequisites for using the network diagram in
-  AWS Migration Hub](network-diagram-prerequisites.md "network-diagram-prerequisites.md")
+- [Prerequisites for using the network diagram in AWS Migration Hub](network-diagram-prerequisites.md "network-diagram-prerequisites.md")
 - [How to use the network diagram in AWS Migration Hub](network-diagram-how-to.md "network-diagram-how-to.md")
-- [Troubleshooting the AWS Migration Hub network
-  diagram](network-diagram-troubleshooting.md "network-diagram-troubleshooting.md")
+- [Troubleshooting the AWS Migration Hub network diagram](network-diagram-troubleshooting.md "network-diagram-troubleshooting.md")

@@ -1,8 +1,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
 
-# Discover on-premises resources using AWS Migration Hub
-
-discovery tools
+# Discover on-premises resources using AWS Migration Hub discovery tools
 
 AWS Migration Hub (Migration Hub) provides a single place to discover your existing servers, plan
 migrations, and track the status of each application migration. Before migrating you can
@@ -48,10 +46,8 @@ the following discovery tools.
 ###### Topics
 
 - [Step 1: Choose an AWS discovery tool](#gs-discovery-tools "#gs-discovery-tools")
-- [Step 2: View server details and
-  dependencies](#gs-discovery-view-servers "#gs-discovery-view-servers")
-- [Step 3: Group servers as
-  applications](#gs-discovery-group-as-applications "#gs-discovery-group-as-applications")
+- [Step 2: View server details and dependencies](#gs-discovery-view-servers "#gs-discovery-view-servers")
+- [Step 3: Group servers as applications](#gs-discovery-group-as-applications "#gs-discovery-group-as-applications")
 
 ## Step 1: Choose an AWS discovery tool
 
@@ -70,15 +66,12 @@ To help you decide which tool to use, choose **Compare AWS discovery
 tools**. The following topics provide information about how to use each of
 the discovery tools:
 
-- [Discovery using
-  Agentless Collector](#gs-agentless-collector "#gs-agentless-collector")
+- [Discovery using Agentless Collector](#gs-agentless-collector "#gs-agentless-collector")
 - [Discovery using the AWS Application Discovery Agent](#gs-discovery-agent "#gs-discovery-agent")
 - [Discovery using Migration Evaluator Collector](#gs-me-collector "#gs-me-collector")
 - [Using Migration Hub import](#gs-import "#gs-import")
 
-### Discovery using
-
-Agentless Collector
+### Discovery using Agentless Collector
 
 The following procedure describes the discovery process using
 Agentless Collector for collecting data about your on-premises
@@ -153,9 +146,7 @@ Database (CMDB) or IT Asset Management System (ITAM), you can use Migration Hub 
 upload this data. For more information, see [Migration Hub
 Import](../../../application-discovery/latest/userguide/discovery-import.md "../../../application-discovery/latest/userguide/discovery-import.md") in the _Application Discovery Service User Guide_.
 
-## Step 2: View server details and
-
-dependencies
+## Step 2: View server details and dependencies
 
 The following procedures describe how to view detailed information about servers
 discovered with AWS discovery tools.
@@ -174,9 +165,7 @@ discovered by using any of the AWS discovery tools.
    displays information about the server, such as hostname, IP address,
    performance metrics, and so on.
 
-### Exploring server network
-
-connections
+### Exploring server network connections
 
 If you use AWS Application Discovery Agent or Migration Evaluator Collector for discovery, you can explore server
 network connections by using the network diagram in AWS Migration Hub.
@@ -210,17 +199,13 @@ migration planning.
 3. You can modify the network diagram for the servers you chose. For
    information on how to work with the network diagram, see [Viewing network connections in AWS Migration Hub](network-diagram.md "network-diagram.md").
 
-## Step 3: Group servers as
-
-applications
+## Step 3: Group servers as applications
 
 The following procedures describe how to group servers as applications. Because
 applications can have multiple servers, it can help simplify migration tracking to group
 them into logical units.
 
-### Grouping servers as
-
-applications from the servers list
+### Grouping servers as applications from the servers list
 
 The following procedure shows you how to select the servers you want to group for
 your application, how to create your application and name it, and how to add
@@ -232,9 +217,7 @@ You can import application groups in bulk using the AWS CLI for Application Disc
 calling the `CreateApplication` API. For more information, see [CreateApplication](../../../application-discovery/latest/APIReference/API_CreateApplication.md "../../../application-discovery/latest/APIReference/API_CreateApplication.md") in the
 _Application Discovery Service API Reference_.
 
-###### To group servers into a new or existing application from the servers
-
-list
+###### To group servers into a new or existing application from the servers list
 
 1. In the navigation pane, choose **Servers**.
 2. In the servers list, select the check box for each of the servers that you
@@ -264,9 +247,7 @@ list
 
 5. Choose **Group**.
 
-### Grouping servers as
-
-applications from the network diagram
+### Grouping servers as applications from the network diagram
 
 You must select the servers in the network diagram that you want to group into a
 new or existing application.
@@ -275,12 +256,9 @@ The following procedure shows you how to select the servers you want to group fo
 your application from the network diagram, how to create your application and name
 it, and how to add identifying tags.
 
-###### To group servers into a new or existing application from the network
+###### To group servers into a new or existing application from the network diagram
 
-diagram
-
-1.  Set up a network diagram following one of the procedures in the [Exploring server network
-    connections](#gs-discovery-view-servers-network "#gs-discovery-view-servers-network") section.
+1.  Set up a network diagram following one of the procedures in the [Exploring server network connections](#gs-discovery-view-servers-network "#gs-discovery-view-servers-network") section.
 2.  You can use the following options to select servers from the network
     diagram:
 

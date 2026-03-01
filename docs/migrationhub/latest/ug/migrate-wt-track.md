@@ -16,8 +16,7 @@ tool at key points during the migration.
    1. If you do not see all of your application's servers listed in the
       application's details page, it could be because you have not grouped those
       servers into this application yet.
-      See [Updates about my migrations don't appear
-      inside an application](troubleshooting.md#migs-do-not-appear-in-app "troubleshooting.md#migs-do-not-appear-in-app").
+      See [Updates about my migrations don't appear inside an application](troubleshooting.md#migs-do-not-appear-in-app "troubleshooting.md#migs-do-not-appear-in-app").
 
 3. The first time a migration task is started for a server associated with the
    application, applications with this server will change to the **In progress** status, automatically. After verifying the in-progress

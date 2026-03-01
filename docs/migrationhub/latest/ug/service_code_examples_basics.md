@@ -1,8 +1,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
 
-# Basic examples for
-
-Migration Hub using AWS SDKs
+# Basic examples for Migration Hub using AWS SDKs
 
 The following code examples show how to use the basics of AWS Migration Hub with AWS
 SDKs.

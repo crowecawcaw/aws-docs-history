@@ -123,5 +123,4 @@ After you select one or more servers, you can create an application, or add to a
 one, by choosing **Group as application**. You can add a descriptive tag to the
 selected servers by choosing **Add tag** from the **Actions**
 menu. Doing so shows a dialog box where you can type a value for **Key**, and
-optionally a value for **Value**. For more information, see [Step 3: Group servers as
-applications](gs-new-user-discovery.md#gs-discovery-group-as-applications "gs-new-user-discovery.md#gs-discovery-group-as-applications").
+optionally a value for **Value**. For more information, see [Step 3: Group servers as applications](gs-new-user-discovery.md#gs-discovery-group-as-applications "gs-new-user-discovery.md#gs-discovery-group-as-applications").

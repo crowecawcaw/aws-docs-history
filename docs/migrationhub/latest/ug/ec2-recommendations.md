@@ -16,13 +16,8 @@ costs.
 
 ###### Topics
 
-- [Prerequisites for getting Amazon EC2
-  instance recommendations in AWS Migration Hub](ec2-recommendation-prerequisites.md "ec2-recommendation-prerequisites.md")
-- [How Amazon EC2 instance recommendations work
-  in AWS Migration Hub](how-ec2-recommendations-work.md "how-ec2-recommendations-work.md")
-- [Generating Amazon EC2 recommendations in
-  AWS Migration Hub](generating-ec2-recommendations.md "generating-ec2-recommendations.md")
-- [Understanding your Amazon EC2
-  recommendations in AWS Migration Hub](understanding-ec2-recommendations.md "understanding-ec2-recommendations.md")
-- [Additional considerations for Amazon EC2 instance
-  recommendations in AWS Migration Hub](ec2-rec-considerations.md "ec2-rec-considerations.md")
+- [Prerequisites for getting Amazon EC2 instance recommendations in AWS Migration Hub](ec2-recommendation-prerequisites.md "ec2-recommendation-prerequisites.md")
+- [How Amazon EC2 instance recommendations work in AWS Migration Hub](how-ec2-recommendations-work.md "how-ec2-recommendations-work.md")
+- [Generating Amazon EC2 recommendations in AWS Migration Hub](generating-ec2-recommendations.md "generating-ec2-recommendations.md")
+- [Understanding your Amazon EC2 recommendations in AWS Migration Hub](understanding-ec2-recommendations.md "understanding-ec2-recommendations.md")
+- [Additional considerations for Amazon EC2 instance recommendations in AWS Migration Hub](ec2-rec-considerations.md "ec2-rec-considerations.md")

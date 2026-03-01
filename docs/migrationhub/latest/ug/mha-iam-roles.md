@@ -1,8 +1,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
 
-# IAM roles and permissions for AWS Migration Hub automation
-
-units
+# IAM roles and permissions for AWS Migration Hub automation units
 
 ###### Note
 
@@ -36,14 +34,10 @@ in your AWS account.
 
 ###### Topics
 
-- [IAM role and policies for managed automation
-  units](#mha-mgn-rehost-role "#mha-mgn-rehost-role")
-- [IAM role and policies for custom
-  automation units](#iam-custom-automation-units "#iam-custom-automation-units")
+- [IAM role and policies for managed automation units](#mha-mgn-rehost-role "#mha-mgn-rehost-role")
+- [IAM role and policies for custom automation units](#iam-custom-automation-units "#iam-custom-automation-units")
 
-## IAM role and policies for managed automation
-
-units
+## IAM role and policies for managed automation units
 
 For managed automation units, create an IAM role and give the role any name that you
 want. Attach the following trust policy to the role. For information about how to create
@@ -75,9 +69,7 @@ JSON
 
 Attach the following permissions policy to the role.
 
-## IAM role and policies for custom
-
-automation units
+## IAM role and policies for custom automation units
 
 For custom automation units, create an IAM role and give the role any name that you
 want. The trust policy and permissions policy that you must attach to the IAM role
@@ -88,14 +80,10 @@ custom trust policies](../../../IAM/latest/UserGuide/id_roles_create_for-custom.
 
 ###### Topics
 
-- [IAM policies for custom automation units
-  that use an AWS Systems Manager document as their target](#iam-custom-units-ssm "#iam-custom-units-ssm")
-- [IAM policies for custom automation units
-  that use an AWS Lambda as their target](#iam-custom-units-lambda "#iam-custom-units-lambda")
+- [IAM policies for custom automation units that use an AWS Systems Manager document as their target](#iam-custom-units-ssm "#iam-custom-units-ssm")
+- [IAM policies for custom automation units that use an AWS Lambda as their target](#iam-custom-units-lambda "#iam-custom-units-lambda")
 
-### IAM policies for custom automation units
-
-that use an AWS Systems Manager document as their target
+### IAM policies for custom automation units that use an AWS Systems Manager document as their target
 
 If your custom unit uses an AWS Systems Manager document as its target, then the IAM role
 that you attach to the unit must have the following trust policy.
@@ -127,9 +115,7 @@ You must also attach to the IAM role a permissions policy that has at least the
 permissions that are in the following policy. Add to this policy any permissions
 that the custom unit needs in order to perform its actions.
 
-### IAM policies for custom automation units
-
-that use an AWS Lambda as their target
+### IAM policies for custom automation units that use an AWS Lambda as their target
 
 For a custom automation unit that uses an AWS Lambda function as its target, you
 must attach the following trust policy.

@@ -68,7 +68,5 @@ the AWS Application Discovery Service, and to use AWS migration tools.
 The following sections describe how to manage permissions for AWS Migration Hub.
 
 - [AWS Migration Hub roles and policies](policy-templates.md "policy-templates.md")
-- [AWS Migration Hub API Permissions: Actions
-  and Resources Reference](migrationhub-api-permissions-ref.md "migrationhub-api-permissions-ref.md")
-- [AWS Migration Hub Authentication and Access
-  Control Explained](auth-and-access-explained.md "auth-and-access-explained.md")
+- [AWS Migration Hub API Permissions: Actions and Resources Reference](migrationhub-api-permissions-ref.md "migrationhub-api-permissions-ref.md")
+- [AWS Migration Hub Authentication and Access Control Explained](auth-and-access-explained.md "auth-and-access-explained.md")

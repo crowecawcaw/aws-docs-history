@@ -1,8 +1,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
 
-# Tracking when you use AWS Application Migration Service to perform discovery
-
-first and then migrate
+# Tracking when you use AWS Application Migration Service to perform discovery first and then migrate
 
 If you started performing discovery using AWS discovery tools, the servers list will
 likely be populated before you start migrating. Migration Hub attempts to automatically map
@@ -20,9 +18,7 @@ See Step 2.a in _To determine if a migration update must be manually mapped
 to a discovered server_ procedures below. If you have to frequently
 correct mappings after performing discovery, contact [AWS Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-###### To determine if a migration update must be manually mapped to a discovered
-
-server
+###### To determine if a migration update must be manually mapped to a discovered server
 
 1. In the navigation pane, under **Migrate**, select
    **Updates**.

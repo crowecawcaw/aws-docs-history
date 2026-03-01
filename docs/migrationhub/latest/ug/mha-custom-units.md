@@ -49,7 +49,6 @@ run an automation unit, see [Automation runs in AWS Migration Hub](mha-runs.md "
 10. In the **IAM role - _optional_**
     section, specify an IAM role that has the trust policy that Migration Hub needs to run the unit,
     and the permissions policy that your custom unit needs to perform its actions. To learn how
-    to create such a role, see [IAM role and policies for custom
-    automation units](mha-iam-roles.md#iam-custom-automation-units "mha-iam-roles.md#iam-custom-automation-units").
+    to create such a role, see [IAM role and policies for custom automation units](mha-iam-roles.md#iam-custom-automation-units "mha-iam-roles.md#iam-custom-automation-units").
 11. Review the details that you entered for the unit, and then choose **Create
     automation unit**.

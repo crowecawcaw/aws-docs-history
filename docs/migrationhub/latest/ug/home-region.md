@@ -34,14 +34,10 @@ Region for your AWS account.
 - [Choose an AWS Migration Hub home Region](select-home-region.md "select-home-region.md")
 - [Changing your AWS Migration Hub home Region](change-home-region.md "change-home-region.md")
 - [Discovery with AWS Migration Hub requires the home Region](home-region-with-discovery.md "home-region-with-discovery.md")
-- [Migration progress is stored in the AWS Migration Hub home
-  Region](migration-reporting.md "migration-reporting.md")
-- [Working with the AWS Migration Hub home Region
-  APIs](#using-migration-hub-apis "#using-migration-hub-apis")
+- [Migration progress is stored in the AWS Migration Hub home Region](migration-reporting.md "migration-reporting.md")
+- [Working with the AWS Migration Hub home Region APIs](#using-migration-hub-apis "#using-migration-hub-apis")
 
-## Working with the AWS Migration Hub home Region
-
-APIs
+## Working with the AWS Migration Hub home Region APIs
 
 You can call the AWS Migration Hub, AWS Application Discovery Service, and AWS Migration Hub home Region APIs from within
 your home Region _only_. API calls for write actions

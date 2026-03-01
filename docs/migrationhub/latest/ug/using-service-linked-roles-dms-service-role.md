@@ -6,9 +6,7 @@ Migration Hub uses the service-linked role named **AWSServiceRoleForMigrationHub
 – Allows AWS Database Migration Service (AWS DMS) to send migration tracking information from any
 supported AWS Region to Migration Hub in US West (Oregon).
 
-## Service-Linked Role
-
-Permissions for Migration Hub
+## Service-Linked Role Permissions for Migration Hub
 
 The AWSServiceRoleForMigrationHubDMSAccess service-linked role trusts the following services to assume the
 role:
@@ -63,9 +61,7 @@ a service-linked role, configure permissions to allow this. For more information
 see [Service-Linked Role Permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the
 _IAM User Guide_.
 
-## Creating a Service-Linked
-
-Role for Migration Hub
+## Creating a Service-Linked Role for Migration Hub
 
 You're not required to manually create a service-linked role. When you
 connect to AWS DMS in the Migration Hub console, Migration Hub creates the service-linked role for
@@ -98,9 +94,7 @@ If you delete this service-linked role, and want need to create it again, use th
 same process. When you connect to AWS DMS in the Migration Hub console, Migration Hub creates the
 service-linked role for you again.
 
-## Editing a Service-Linked
-
-Role for Migration Hub
+## Editing a Service-Linked Role for Migration Hub
 
 Migration Hub does not allow you to edit the AWSServiceRoleForMigrationHubDMSAccess service-linked role.
 After you create a service-linked role, you cannot change the name of the role
@@ -108,21 +102,15 @@ because various entities might reference the role. However, you can edit the
 description of the role using IAM. For more information, see [Editing a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the
 _IAM User Guide_.
 
-## Deleting a Service-Linked
+## Deleting a Service-Linked Role for Migration Hub
 
-Role for Migration Hub
-
-### Manually Delete the
-
-Service-Linked Role
+### Manually Delete the Service-Linked Role
 
 Use the IAM console, the AWS CLI, or the AWS API to delete the
 AWSServiceRoleForMigrationHubDMSAccess service-linked role. For more information, see [Deleting a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
 _IAM User Guide_.
 
-## Supported Regions for Migration Hub
-
-Service-Linked Roles
+## Supported Regions for Migration Hub Service-Linked Roles
 
 Migration Hub supports using service-linked roles in the US West (Oregon) AWS
 Region, where the service is available.

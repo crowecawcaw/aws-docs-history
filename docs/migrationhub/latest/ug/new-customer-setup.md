@@ -26,21 +26,16 @@ Migration Hub:
   permission for Migration Hub to receive notifications from the AWS Database Migration Service
   migration tool.
 
-If you want to grant Migration Hub rights to non-admin IAM users, see [Migration Hub Service API and Console
-Managed Access](#api-console-access-managed "#api-console-access-managed").
+If you want to grant Migration Hub rights to non-admin IAM users, see [Migration Hub Service API and Console Managed Access](#api-console-access-managed "#api-console-access-managed").
 
 If you want to authorize (that is, connect) AWS migration tools, see [AWS Database Migration Service (AWS DMS)](#dms-managed "#dms-managed").
 
-### Migration Hub Service API and Console
-
-Managed Access
+### Migration Hub Service API and Console Managed Access
 
 An administrator can create users and grant them permission to access the
 Migration Hub console using managed policies.
 
-###### To grant permissions to an IAM user to access the Migration Hub
-
-console
+###### To grant permissions to an IAM user to access the Migration Hub console
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. Create an IAM user. For information about creating an IAM
@@ -115,9 +110,7 @@ the resource resides to the policy, which are shown in
 `123456789012` is an example of an account ID and
 `us-east-2` is an example of a Region. 5. Choose **Update Policy**.
 
-### Migration tools managed
-
-policies
+### Migration tools managed policies
 
 This section describes AWS managed policies that are used with migration tools.
 

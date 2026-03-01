@@ -1,8 +1,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
 
-# Migrate to AWS by using AWS Migration Hub migration
-
-tools and tracking
+# Migrate to AWS by using AWS Migration Hub migration tools and tracking
 
 You can start migrating with or without first using the AWS Migration Hub discovery tools.
 Directly migrating servers is efficient because your servers are migrating while you
@@ -27,16 +25,11 @@ application resources to AWS.
 
 ###### Topics
 
-- [Step 1: Connect migration tools to
-  Migration Hub](#migrate-wt-auth-migrate-tools "#migrate-wt-auth-migrate-tools")
-- [Step 2: Migrate using the connected
-  migration tools](#migrate-wt-migrate-using-tools "#migrate-wt-migrate-using-tools")
-- [Step 3: Group servers as
-  applications](#migrate-wt-group-as-applications "#migrate-wt-group-as-applications")
+- [Step 1: Connect migration tools to Migration Hub](#migrate-wt-auth-migrate-tools "#migrate-wt-auth-migrate-tools")
+- [Step 2: Migrate using the connected migration tools](#migrate-wt-migrate-using-tools "#migrate-wt-migrate-using-tools")
+- [Step 3: Group servers as applications](#migrate-wt-group-as-applications "#migrate-wt-group-as-applications")
 
-## Step 1: Connect migration tools to
-
-Migration Hub
+## Step 1: Connect migration tools to Migration Hub
 
 Migration happens outside AWS Migration Hub using AWS migration tools. To access these tools,
 in the Migration Hub console navigation pane under **Migrate**, choose
@@ -72,9 +65,7 @@ choose **Connect**.
 Note that if you are using API's or do not want to authorize through Migration Hub's
 console, you can learn about manual role creation in [New user IAM setup for AWS Migration Hub](new-customer-setup.md "new-customer-setup.md").
 
-## Step 2: Migrate using the connected
-
-migration tools
+## Step 2: Migrate using the connected migration tools
 
 The following steps walk you through the migration of a previously defined
 application.
@@ -89,14 +80,11 @@ application.
    of Migration Hub.
 4. After your application's migration has started, return to the Migration Hub console.
 
-## Step 3: Group servers as
-
-applications
+## Step 3: Group servers as applications
 
 The following steps walk you through the process of grouping servers as applications
 when directly migrating with a migration tool without performing discovery first. (You
-already did this, if you first performed discovery as described in [Discover on-premises resources using AWS Migration Hub
-discovery tools](gs-new-user-discovery.md "gs-new-user-discovery.md") before
+already did this, if you first performed discovery as described in [Discover on-premises resources using AWS Migration Hub discovery tools](gs-new-user-discovery.md "gs-new-user-discovery.md") before
 migrating.)
 
 After the migration tool has started, you'll see the servers listed in Migration Hub from

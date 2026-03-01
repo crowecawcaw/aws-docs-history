@@ -19,9 +19,6 @@ of up to five minutes for the initial update to appear in the updates page.
 
 ###### Topics
 
-- [Tracking when you use AWS Application Migration Service to perform discovery
-  first and then migrate](updates-tracking-wt-disco-first.md "updates-tracking-wt-disco-first.md")
-- [Tracking when you use AWS Application Migration Service to migrate without
-  performing discovery](updates-tracking-wt-no-disco.md "updates-tracking-wt-no-disco.md")
-- [Troubleshooting and manually
-  mapping migration updates in AWS Migration Hub](updates-tracking-wt-troubleshooting.md "updates-tracking-wt-troubleshooting.md")
+- [Tracking when you use AWS Application Migration Service to perform discovery first and then migrate](updates-tracking-wt-disco-first.md "updates-tracking-wt-disco-first.md")
+- [Tracking when you use AWS Application Migration Service to migrate without performing discovery](updates-tracking-wt-no-disco.md "updates-tracking-wt-no-disco.md")
+- [Troubleshooting and manually mapping migration updates in AWS Migration Hub](updates-tracking-wt-troubleshooting.md "updates-tracking-wt-troubleshooting.md")

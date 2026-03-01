@@ -8,21 +8,15 @@ Evaluator.
 
 ###### Topics
 
-- [My migrations do not appear in
-  Migration Hub](#migs-do-not-appear-in-hub "#migs-do-not-appear-in-hub")
-- [Updates about my migrations don't appear
-  inside an application](#migs-do-not-appear-in-app "#migs-do-not-appear-in-app")
+- [My migrations do not appear in Migration Hub](#migs-do-not-appear-in-hub "#migs-do-not-appear-in-hub")
+- [Updates about my migrations don't appear inside an application](#migs-do-not-appear-in-app "#migs-do-not-appear-in-app")
 - [My API call failed](#api-call-failed-status "#api-call-failed-status")
 - [Errors enabling data collection](#data-collection-errors "#data-collection-errors")
 - [Troubleshooting AWS Application Discovery Service issues](#app-discovery-issues "#app-discovery-issues")
-- [Troubleshooting Agentless Collector
-  issues](#agentless-collector-issues "#agentless-collector-issues")
-- [Troubleshooting Migration Evaluator
-  issues](#migration-evaluator-issues "#migration-evaluator-issues")
+- [Troubleshooting Agentless Collector issues](#agentless-collector-issues "#agentless-collector-issues")
+- [Troubleshooting Migration Evaluator issues](#migration-evaluator-issues "#migration-evaluator-issues")
 
-## My migrations do not appear in
-
-Migration Hub
+## My migrations do not appear in Migration Hub
 
 If you are not seeing your applications' migration status updates on the
 **Updates** page in Migration Hub, it could be due to one of the
@@ -45,16 +39,12 @@ To make sure authentication is occurring correctly:
   page](http://console.aws.amazon.com/migrationhub/migrate/tools "http://console.aws.amazon.com/migrationhub/migrate/tools") to see the status of connected tools. Learn more about
   setting up necessary policies and roles in [Managed policies and roles](new-customer-setup.md#required-managed-policies "new-customer-setup.md#required-managed-policies").
 
-### Migration status matching when using AWS discovery
-
-tools
+### Migration status matching when using AWS discovery tools
 
 - Check whether a migration update must be manually mapped or was
   incorrectly mapped to a discovered server, see [Tracking migration updates in AWS Migration Hub](updates-tracking-wt.md "updates-tracking-wt.md").
 
-## Updates about my migrations don't appear
-
-inside an application
+## Updates about my migrations don't appear inside an application
 
 If you are not seeing your migration updates associated with an application, it could
 be due to one of the following reasons:
@@ -110,15 +100,11 @@ outside the home Region.
 
 See [Troubleshooting AWS Application Discovery Service](../../../application-discovery/latest/userguide/troubleshooting.md "../../../application-discovery/latest/userguide/troubleshooting.md").
 
-## Troubleshooting Agentless Collector
-
-issues
+## Troubleshooting Agentless Collector issues
 
 See [Troubleshooting Agentless Collector](../../../application-discovery/latest/userguide/agentless-collector-troubleshooting.md "../../../application-discovery/latest/userguide/agentless-collector-troubleshooting.md").
 
-## Troubleshooting Migration Evaluator
-
-issues
+## Troubleshooting Migration Evaluator issues
 
 See the [Collector Installation Guide](https://d1.awsstatic.com/migration-evaluator-resources/ME_TSOLogic_Agentless-Collector-Install-Guide_English.pdf "https://d1.awsstatic.com/migration-evaluator-resources/ME_TSOLogic_Agentless-Collector-Install-Guide_English.pdf") on the [Migration Evaluator
 Resources](https://aws.amazon.com/migration-evaluator/resources/ "https://aws.amazon.com/migration-evaluator/resources/") page.

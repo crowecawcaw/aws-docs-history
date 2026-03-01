@@ -1,8 +1,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
 
-# Associating an IAM role with an AWS Migration Hub
-
-automation unit
+# Associating an IAM role with an AWS Migration Hub automation unit
 
 ###### Note
 
@@ -15,8 +13,7 @@ This is pre-release documentation. Both the AWS Migration Hub Automation feature
 documentation are subject to change.
 
 To run an automation unit, you must associate with it one of the IAM roles that are
-described in [IAM roles and permissions for AWS Migration Hub automation
-units](mha-iam-roles.md "mha-iam-roles.md"). This topic describes how to associate a role
+described in [IAM roles and permissions for AWS Migration Hub automation units](mha-iam-roles.md "mha-iam-roles.md"). This topic describes how to associate a role
 with a unit.
 
 ###### To associate a role with one or more managed units

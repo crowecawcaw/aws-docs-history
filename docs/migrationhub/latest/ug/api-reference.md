@@ -20,9 +20,7 @@ Migration Hub.
 
 ## Reporting migration status updates
 
-### Creating a
-
-`ProgressUpdateStream` for your migration tool
+### Creating a `ProgressUpdateStream` for your migration tool
 
 To send status to Migration Hub, you must first create a
 `ProgressUpdateStream` corresponding to your migration tool using
@@ -41,9 +39,7 @@ migration tasks from your migration tool by calling `ImportMigrationTask`. It is
 recommended to call `ImportMigrationTask` as early as possible to inform the
 Migration Hub user about the existence of the task, even if the task has yet to be started.
 
-### Associating a migration task with a
-
-previously discovered server
+### Associating a migration task with a previously discovered server
 
 To add migration task detail to the console, the task must be associated with a
 resource. The resource represents the existing or source server for the migration. This

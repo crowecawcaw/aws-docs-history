@@ -24,7 +24,5 @@ custom units, and how to run any kind of automation unit.
 - [Managed AWS Migration Hub automation units](mha-managed-units.md "mha-managed-units.md")
 - [Custom AWS Migration Hub automation units](mha-custom-units.md "mha-custom-units.md")
 - [Automation runs in AWS Migration Hub](mha-runs.md "mha-runs.md")
-- [IAM roles and permissions for AWS Migration Hub automation
-  units](mha-iam-roles.md "mha-iam-roles.md")
-- [Associating an IAM role with an AWS Migration Hub
-  automation unit](associate-role-with-unit.md "associate-role-with-unit.md")
+- [IAM roles and permissions for AWS Migration Hub automation units](mha-iam-roles.md "mha-iam-roles.md")
+- [Associating an IAM role with an AWS Migration Hub automation unit](associate-role-with-unit.md "associate-role-with-unit.md")

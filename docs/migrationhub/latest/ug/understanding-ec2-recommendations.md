@@ -1,8 +1,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
 
-# Understanding your Amazon EC2
-
-recommendations in AWS Migration Hub
+# Understanding your Amazon EC2 recommendations in AWS Migration Hub
 
 The downloaded `EC2InstanceRecommendations-{type}-{date}.csv` file
 contains the following information.

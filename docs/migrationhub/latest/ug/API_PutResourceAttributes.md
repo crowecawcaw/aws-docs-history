@@ -185,9 +185,7 @@ HTTP Status Code: 400
 
 ## Examples
 
-### Put migration resource attributes to associate with resource in
-
-repository
+### Put migration resource attributes to associate with resource in repository
 
 The following example sends identifying details of the resource being migrated so
 that it can be associated with a resource in the Application Discovery Service's

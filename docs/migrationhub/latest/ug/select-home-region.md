@@ -10,8 +10,7 @@ The Region that you choose to set as the home Region must be one of the AWS Regi
 supported by AWS Migration Hub. For a list of the supported Regions, see [AWS Migration Hub Service endpoints](../../../general/latest/gr/migrationhubn.md#migrationhub-region#migrationhub-region "../../../general/latest/gr/migrationhubn.md#migrationhub-region#migrationhub-region") in the _AWS General Reference_.
 
 You can choose the home Region from the Migration Hub console or by using the Home Region API.
-For information about using the API, see [Working with the AWS Migration Hub home Region
-APIs](home-region.md#using-migration-hub-apis "home-region.md#using-migration-hub-apis"). The following procedure describes how to
+For information about using the API, see [Working with the AWS Migration Hub home Region APIs](home-region.md#using-migration-hub-apis "home-region.md#using-migration-hub-apis"). The following procedure describes how to
 choose the home region by using the console.
 
 ###### To choose your home Region using the console

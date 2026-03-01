@@ -1,12 +1,8 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
 
-# AWS Migration Hub Authentication and Access
+# AWS Migration Hub Authentication and Access Control Explained
 
-Control Explained
-
-## Overview of Managing Access Permissions to
-
-Your Resources
+## Overview of Managing Access Permissions to Your Resources
 
 Every AWS resource is owned by an AWS account, and permissions to create or
 access a resource are governed by permissions policies. An account administrator can
@@ -25,20 +21,13 @@ on those resources.
 
 ###### Topics
 
-- [AWS Migration Hub Resources and
-  Operations](#access-control-resources "#access-control-resources")
-- [Understanding Resource
-  Ownership](#access-control-resource-ownership "#access-control-resource-ownership")
-- [Managing Access to
-  Resources](#access-control-manage-access-intro "#access-control-manage-access-intro")
-- [Specifying Policy Elements: Actions,
-  Effects, and Principals](#specify-policy-elements "#specify-policy-elements")
-- [Specifying Conditions in a
-  Policy](#specifying-conditions "#specifying-conditions")
+- [AWS Migration Hub Resources and Operations](#access-control-resources "#access-control-resources")
+- [Understanding Resource Ownership](#access-control-resource-ownership "#access-control-resource-ownership")
+- [Managing Access to Resources](#access-control-manage-access-intro "#access-control-manage-access-intro")
+- [Specifying Policy Elements: Actions, Effects, and Principals](#specify-policy-elements "#specify-policy-elements")
+- [Specifying Conditions in a Policy](#specifying-conditions "#specifying-conditions")
 
-### AWS Migration Hub Resources and
-
-Operations
+### AWS Migration Hub Resources and Operations
 
 In AWS Migration Hub, the primary resource is a Migration Hub
 _ProgressUpdateStream_. This resource has
@@ -52,9 +41,7 @@ following table.
 AWS Migration Hub provides a set of operations to work with the Migration Hub resources.
 For a list of available operations, see [Actions](API_Operations.md "API_Operations.md").
 
-### Understanding Resource
-
-Ownership
+### Understanding Resource Ownership
 
 A _resource owner_ is the AWS account that created the
 resource. That is, the resource owner is the AWS account of the
@@ -75,9 +62,7 @@ following examples illustrate how this works:
   can create a ProgressUpdateStream. Your AWS account, to which the role
   belongs, owns the ProgressUpdateStream resource.
 
-### Managing Access to
-
-Resources
+### Managing Access to Resources
 
 A _permissions policy_ describes who has access to what.
 The following section explains the available options for creating permissions
@@ -96,19 +81,14 @@ Policies attached to an IAM identity are referred to as
 _identity-based_ policies (IAM polices) and policies
 attached to a resource are referred to as _resource-based_
 policies. AWS Migration Hub _does not support resource-based
-policies_, see [Resource-Based
-Policies](#access-control-manage-access-resource-based "#access-control-manage-access-resource-based").
+policies_, see [Resource-Based Policies](#access-control-manage-access-resource-based "#access-control-manage-access-resource-based").
 
 ###### Topics
 
-- [Identity-Based
-  Policies (IAM Policies)](#access-control-manage-access-identity-based "#access-control-manage-access-identity-based")
-- [Resource-Based
-  Policies](#access-control-manage-access-resource-based "#access-control-manage-access-resource-based")
+- [Identity-Based Policies (IAM Policies)](#access-control-manage-access-identity-based "#access-control-manage-access-identity-based")
+- [Resource-Based Policies](#access-control-manage-access-resource-based "#access-control-manage-access-resource-based")
 
-#### Identity-Based
-
-Policies (IAM Policies)
+#### Identity-Based Policies (IAM Policies)
 
 You can attach policies to IAM identities. For example, you can do the
 following:
@@ -145,14 +125,11 @@ The following is an example policy that grants permissions for the Migration Hub
 action `mgh:NotifyMigrationTaskState` on all resources.
 
 For more information about using identity-based policies with Migration Hub, see
-[Using Identity-Based Policies (IAM
-Policies) for AWS Migration Hub](#access-control-identity-based "#access-control-identity-based"). For more information
+[Using Identity-Based Policies (IAM Policies) for AWS Migration Hub](#access-control-identity-based "#access-control-identity-based"). For more information
 about users, groups, roles, and permissions, see [Identities (Users, Groups, and
 Roles)](../../../IAM/latest/UserGuide/id.md "../../../IAM/latest/UserGuide/id.md") in the _IAM User Guide_.
 
-#### Resource-Based
-
-Policies
+#### Resource-Based Policies
 
 Other services, such as Amazon S3, also support resource-based permissions
 policies. For example, you can attach a policy to an S3 bucket to manage
@@ -166,23 +143,19 @@ identity-based permission, on which resource a user or a role can perform
 actions on. Therefore, when references to resources are made discussing
 Migration Hub permissions, it is within this context of _resource-level_ permissions.
 
-### Specifying Policy Elements: Actions,
-
-Effects, and Principals
+### Specifying Policy Elements: Actions, Effects, and Principals
 
 For each Migration Hub resource, the service defines a set of API operations. To
 grant permissions for these API operations, Migration Hub defines a set of actions
 that you can specify in a policy. Some API operations can require permissions
 for more than one action in order to perform the API operation. For more
-information about resources and API operations, see [AWS Migration Hub Resources and
-Operations](#access-control-resources "#access-control-resources") and Migration Hub [Actions](API_Operations.md "API_Operations.md").
+information about resources and API operations, see [AWS Migration Hub Resources and Operations](#access-control-resources "#access-control-resources") and Migration Hub [Actions](API_Operations.md "API_Operations.md").
 
 The following are the most basic policy elements:
 
 - **Resource** – You use an Amazon
   Resource Name (ARN) to identify the resource that the policy applies to.
-  For more information, see [AWS Migration Hub Resources and
-  Operations](#access-control-resources "#access-control-resources").
+  For more information, see [AWS Migration Hub Resources and Operations](#access-control-resources "#access-control-resources").
 - **Action** – You use action
   keywords to identify resource operations that you want to allow or deny.
   For example, you can use `mgh:AssociateDiscoveredResource` to
@@ -205,12 +178,9 @@ To learn more about IAM policy syntax and descriptions, see [AWS IAM Policy Refe
 in the _IAM User Guide_.
 
 For a table showing all of the AWS Migration Hub API actions and the resources that
-they apply to, see [AWS Migration Hub API Permissions: Actions
-and Resources Reference](migrationhub-api-permissions-ref.md "migrationhub-api-permissions-ref.md").
+they apply to, see [AWS Migration Hub API Permissions: Actions and Resources Reference](migrationhub-api-permissions-ref.md "migrationhub-api-permissions-ref.md").
 
-### Specifying Conditions in a
-
-Policy
+### Specifying Conditions in a Policy
 
 When you grant permissions, you can use the IAM policy language to specify the
 conditions when a policy should take effect. For example, you might want a
@@ -223,9 +193,7 @@ that you can use as appropriate. For a complete list of AWS-wide keys, see
 [Available Keys for Conditions](../../../IAM/latest/UserGuide/reference_policies_elements.md#AvailableKeys "../../../IAM/latest/UserGuide/reference_policies_elements.md#AvailableKeys") in the
 _IAM User Guide_.
 
-## Using Identity-Based Policies (IAM
-
-Policies) for AWS Migration Hub
+## Using Identity-Based Policies (IAM Policies) for AWS Migration Hub
 
 This topic provides explanations of identity-based policies in which an account
 administrator can attach permissions policies to IAM identities (that is, users,
@@ -235,15 +203,12 @@ groups, and roles).
 
 We recommend that you first review the introductory topics that explain the
 basic concepts and options available for you to manage access to your
-AWS Migration Hub resources. For more information, see [Overview of Managing Access Permissions to
-Your Resources](#access-control-overview "#access-control-overview").
+AWS Migration Hub resources. For more information, see [Overview of Managing Access Permissions to Your Resources](#access-control-overview "#access-control-overview").
 
 The sections in this topic cover the following:
 
-- [Permissions Required to Use the
-  AWS Migration Hub Console and API](#console-required-permissions "#console-required-permissions")
-- [AWS Managed
-  (Predefined) Policies for AWS Migration Hub](#access-policy-examples-aws-managed "#access-policy-examples-aws-managed")
+- [Permissions Required to Use the AWS Migration Hub Console and API](#console-required-permissions "#console-required-permissions")
+- [AWS Managed (Predefined) Policies for AWS Migration Hub](#access-policy-examples-aws-managed "#access-policy-examples-aws-managed")
 - [AWS Migration Hub Trust Policies](#access-policy-examples-aws-trust "#access-policy-examples-aws-trust")
 
 The following shows an example of a permissions policy:
@@ -305,12 +270,9 @@ policy:
   associated with them.
 
 For a table showing all of the AWS Migration Hub API actions and the resources and
-conditions that they apply to, see [AWS Migration Hub API Permissions: Actions
-and Resources Reference](migrationhub-api-permissions-ref.md "migrationhub-api-permissions-ref.md").
+conditions that they apply to, see [AWS Migration Hub API Permissions: Actions and Resources Reference](migrationhub-api-permissions-ref.md "migrationhub-api-permissions-ref.md").
 
-### Permissions Required to Use the
-
-AWS Migration Hub Console and API
+### Permissions Required to Use the AWS Migration Hub Console and API
 
 The AWS Migration Hub console provides an integrated environment for users and APIs
 to create Migration Hub resources and to manage migrations. The console provides many
@@ -318,12 +280,9 @@ features and workflows that require specific permissions in order to access. The
 best way to implement these permissions is through managed policies. See [Console & API
 Managed Access](new-customer-setup.md#api-console-access-managed "new-customer-setup.md#api-console-access-managed").
 
-In addition, there are API-specific permissions documented in [AWS Migration Hub API Permissions: Actions
-and Resources Reference](migrationhub-api-permissions-ref.md "migrationhub-api-permissions-ref.md").
+In addition, there are API-specific permissions documented in [AWS Migration Hub API Permissions: Actions and Resources Reference](migrationhub-api-permissions-ref.md "migrationhub-api-permissions-ref.md").
 
-#### AWS Managed
-
-(Predefined) Policies for AWS Migration Hub
+#### AWS Managed (Predefined) Policies for AWS Migration Hub
 
 AWS addresses many common use cases by providing standalone IAM policies
 that are created and administered by AWS. These AWS managed policies

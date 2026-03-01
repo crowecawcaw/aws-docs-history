@@ -1,8 +1,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
 
-# Tagging migration resources in
-
-AWS Application Migration Service
+# Tagging migration resources in AWS Application Migration Service
 
 Migrated resources (Amazon EC2 instances or Amazon Machine Images (AMIs)) reported to Migration Hub by
 migration tools like AWS Application Migration Service are automatically tagged with Application Discovery Service server IDs.

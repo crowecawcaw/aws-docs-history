@@ -1,8 +1,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
 
-# Generating Amazon EC2 recommendations in
-
-AWS Migration Hub
+# Generating Amazon EC2 recommendations in AWS Migration Hub
 
 In the **Export Amazon EC2 instance recommendations** page of the Migration Hub
 console, you'll choose your recommendation preferences. These preferences include
@@ -85,7 +83,7 @@ following procedure to generate your Amazon EC2 instance recommendations.
 
 | File name                                    | Description                                                                                                                                                                                                                                                                                                                                           |
 | -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| EC2InstanceRecommendations-{type}-{date}.csv | Details of each server’s recommended Amazon EC2 instance type and cost.<br>For more information, see [Understanding your Amazon EC2<br>recommendations in AWS Migration Hub](understanding-ec2-recommendations.md "understanding-ec2-recommendations.md").                                                                                            |
+| EC2InstanceRecommendations-{type}-{date}.csv | Details of each server’s recommended Amazon EC2 instance type and cost.<br>For more information, see [Understanding your Amazon EC2 recommendations in AWS Migration Hub](understanding-ec2-recommendations.md "understanding-ec2-recommendations.md").                                                                                               |
 | MgnInventory-{type}-{date}.csv               | A list of server configurations that are compatible with AWS Application Migration Service<br>and recommend Amazon EC2 instance configurations. For more information,<br>see [Importing your data inventory](../../../mgn/latest/ug/import-main.md "../../../mgn/latest/ug/import-main.md") in the<br>_AWS Application Migration Service User Guide_. |
 
 Large datasets can take a few minutes to generate recommendations. You can generate

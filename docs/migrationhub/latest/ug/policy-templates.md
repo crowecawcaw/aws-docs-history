@@ -9,8 +9,7 @@ identities (that is, users, groups, and roles) and thereby grant permissions to 
 actions on AWS Migration Hub resources.
 
 The various types of permission policies referenced in this section have been
-explained in [Using Identity-Based Policies (IAM
-Policies) for AWS Migration Hub](auth-and-access-explained.md#access-control-identity-based "auth-and-access-explained.md#access-control-identity-based"). If you have not yet read that
+explained in [Using Identity-Based Policies (IAM Policies) for AWS Migration Hub](auth-and-access-explained.md#access-control-identity-based "auth-and-access-explained.md#access-control-identity-based"). If you have not yet read that
 section, it is recommended that you do to gain a thorough understanding of the different
 types of polices before proceeding to use the policy templates in this section.
 
@@ -20,5 +19,4 @@ You can click on any policy to go directly to its template.
 ###### Topics
 
 - [New user IAM setup for AWS Migration Hub](new-customer-setup.md "new-customer-setup.md")
-- [Custom Policies for Migration
-  Tools when using AWS Migration Hub](customer-managed-vendor.md "customer-managed-vendor.md")
+- [Custom Policies for Migration Tools when using AWS Migration Hub](customer-managed-vendor.md "customer-managed-vendor.md")
