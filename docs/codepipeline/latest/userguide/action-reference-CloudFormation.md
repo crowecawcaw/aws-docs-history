@@ -25,8 +25,7 @@ revoke this permission for the action IAM role by removing the
 - [Input artifacts](#action-reference-CloudFormation-input "#action-reference-CloudFormation-input")
 - [Output artifacts](#action-reference-CloudFormation-output "#action-reference-CloudFormation-output")
 - [Output variables](#action-reference-CloudFormation-variables "#action-reference-CloudFormation-variables")
-- [Service role permissions: CloudFormation
-  action](#edit-role-cloudformation "#edit-role-cloudformation")
+- [Service role permissions: CloudFormation action](#edit-role-cloudformation "#edit-role-cloudformation")
 - [Action declaration](#action-reference-CloudFormation-example "#action-reference-CloudFormation-example")
 - [See also](#action-reference-CloudFormation-links "#action-reference-CloudFormation-links")
 
@@ -296,12 +295,9 @@ corresponding action modes that generate variables are:
 
 For more information, see [Variables reference](reference-variables.md "reference-variables.md"). For a tutorial that shows you how to create a
 pipeline with a CloudFormation deployment action in a pipeline that uses CloudFormation
-output variables, see [Tutorial: Create a pipeline that uses
-variables from AWS CloudFormation deployment actions](tutorials-cloudformation-action.md "tutorials-cloudformation-action.md").
+output variables, see [Tutorial: Create a pipeline that uses variables from AWS CloudFormation deployment actions](tutorials-cloudformation-action.md "tutorials-cloudformation-action.md").
 
-## Service role permissions: CloudFormation
-
-action
+## Service role permissions: CloudFormation action
 
 When CodePipeline runs the action, the CodePipeline service role policy requires the following
 permissions, appropriately scoped down to the pipeline resource ARN in order to maintain

@@ -1,6 +1,4 @@
-# Appendix A: GitHub (via OAuth app) source
-
-actions
+# Appendix A: GitHub (via OAuth app) source actions
 
 This appendix provides information about (via OAuth app) of the GitHub action in
 CodePipeline.
@@ -13,8 +11,7 @@ with a GitHub (via OAuth app) action, CodePipeline uses OAuth-based tokens to co
 repository. By contrast, the GitHub action (via GitHub App) uses a connection resource to
 associate AWS resources to your GitHub repository. The connection resource uses app-based
 tokens to connect. For more information about updating your pipeline to the recommended GitHub
-action that uses a connection, see [Update a GitHub (via OAuth app) source action
-to a GitHub (via GitHub App) source action](update-github-action-connections.md "update-github-action-connections.md"). For more information about OAuth-based
+action that uses a connection, see [Update a GitHub (via OAuth app) source action to a GitHub (via GitHub App) source action](update-github-action-connections.md "update-github-action-connections.md"). For more information about OAuth-based
 GitHub access in contrast to app-based GitHub access, see [https://docs.github.com/en/developers/apps/differences-between-github-apps-and-oauth-apps](https://docs.github.com/en/developers/apps/differences-between-github-apps-and-oauth-apps "https://docs.github.com/en/developers/apps/differences-between-github-apps-and-oauth-apps").
 
 To integrate with GitHub, CodePipeline uses a GitHub OAuth application for your pipeline. CodePipeline
@@ -31,11 +28,9 @@ Guide._
 This reference contains the following sections for the GitHub (via OAuth app) action:
 
 - For information about how to add a GitHub (via OAuth app) source action and webhook to a
-  pipeline, see [Adding a GitHub (via OAuth app) source
-  action](#appendix-github-methods "#appendix-github-methods").
+  pipeline, see [Adding a GitHub (via OAuth app) source action](#appendix-github-methods "#appendix-github-methods").
 - For information about the configuration parameters and example YAML/JSON snippets for a
-  GitHub (via OAuth app) source action, see [GitHub (via OAuth app) source action
-  reference](#action-reference-GitHub "#action-reference-GitHub").
+  GitHub (via OAuth app) source action, see [GitHub (via OAuth app) source action reference](#action-reference-GitHub "#action-reference-GitHub").
 
 ###### Important
 
@@ -52,13 +47,10 @@ If a secret token was provided, it will be redacted in the response.
 
 ###### Topics
 
-- [Adding a GitHub (via OAuth app) source
-  action](#appendix-github-methods "#appendix-github-methods")
+- [Adding a GitHub (via OAuth app) source action](#appendix-github-methods "#appendix-github-methods")
 - [GitHub (via OAuth app) source action reference](#action-reference-GitHub "#action-reference-GitHub")
 
-## Adding a GitHub (via OAuth app) source
-
-action
+## Adding a GitHub (via OAuth app) source action
 
 You add GitHub (via OAuth app) source actions to CodePipeline by:
 
@@ -68,16 +60,13 @@ You add GitHub (via OAuth app) source actions to CodePipeline by:
   changes.
 - Using the CLI to add the action configuration for the `GitHub` action and
   creating additional resources as follows:
-  - Using the `GitHub` example action configuration in [GitHub (via OAuth app) source action
-    reference](#action-reference-GitHub "#action-reference-GitHub") to
+  - Using the `GitHub` example action configuration in [GitHub (via OAuth app) source action reference](#action-reference-GitHub "#action-reference-GitHub") to
     create the action as shown in [Create a pipeline (CLI)](pipelines-create.md#pipelines-create-cli "pipelines-create.md#pipelines-create-cli").
   - Disabling periodic checks and creating the change detection manually, because the
     change detection method defaults to starting the pipeline by polling the source. You
     migrate your polling pipeline to webhooks for GitHub (via OAuth app) actions.
 
-## GitHub (via OAuth app) source action
-
-reference
+## GitHub (via OAuth app) source action reference
 
 ###### Note
 
@@ -87,8 +76,7 @@ with a GitHub GitHub (via OAuth app) source action, CodePipeline uses OAuth-base
 to your GitHub repository. By contrast, the new GitHub action (via GitHub App) uses a
 connection resource to associate AWS resources to your GitHub repository. The connection
 resource uses app-based tokens to connect. For more information about updating your
-pipeline to the recommended GitHub action that uses a connection, see [Update a GitHub (via OAuth app) source action
-to a GitHub (via GitHub App) source action](update-github-action-connections.md "update-github-action-connections.md").
+pipeline to the recommended GitHub action that uses a connection, see [Update a GitHub (via OAuth app) source action to a GitHub (via GitHub App) source action](update-github-action-connections.md "update-github-action-connections.md").
 
 Triggers the pipeline when a new commit is made on the configured GitHub repository and
 branch.
@@ -115,8 +103,7 @@ documentation](https://developer.github.com "https://developer.github.com") on t
 - [Input artifacts](#action-reference-GitHub-input "#action-reference-GitHub-input")
 - [Output artifacts](#action-reference-GitHub-output "#action-reference-GitHub-output")
 - [Output variables](#action-reference-GitHub-variables "#action-reference-GitHub-variables")
-- [Action declaration (GitHub
-  example)](#action-reference-GitHub-example "#action-reference-GitHub-example")
+- [Action declaration (GitHub example)](#action-reference-GitHub-example "#action-reference-GitHub-example")
 - [Connecting to GitHub (OAuth)](#action-reference-GitHub-auth "#action-reference-GitHub-auth")
 - [See also](#action-reference-GitHub-links "#action-reference-GitHub-links")
 
@@ -179,9 +166,7 @@ Required: No
 `PollForSourceChanges` controls whether CodePipeline polls the GitHub
 repository for source changes. We recommend that you use webhooks to detect
 source changes instead. For more information about configuring webhooks, see
-[Migrate polling pipelines to
-webhooks (GitHub (via OAuth app) source actions) (CLI)](update-change-detection.md#update-change-detection-cli-github "update-change-detection.md#update-change-detection-cli-github") or [Update pipelines for push
-events (GitHub (via OAuth app) source actions) (CloudFormation template)](update-change-detection.md#update-change-detection-cfn-github "update-change-detection.md#update-change-detection-cfn-github").
+[Migrate polling pipelines to webhooks (GitHub (via OAuth app) source actions) (CLI)](update-change-detection.md#update-change-detection-cli-github "update-change-detection.md#update-change-detection-cli-github") or [Update pipelines for push events (GitHub (via OAuth app) source actions) (CloudFormation template)](update-change-detection.md#update-change-detection-cfn-github "update-change-detection.md#update-change-detection-cfn-github").
 
 ###### Important
 
@@ -265,9 +250,7 @@ The date when the commit was authored, in timestamp format.
 
 The date when the commit was committed, in timestamp format.
 
-### Action declaration (GitHub
-
-example)
+### Action declaration (GitHub example)
 
 YAML
 
@@ -350,8 +333,7 @@ The following related resources can help you as you work with this action.
 - Resource reference for the [AWS CloudFormation User Guide AWS::CodeStar::GitHubRepository](../../../AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.md") – This
   includes field definitions, examples, and snippets for the resource in
   CloudFormation.
-- [Tutorial: Create a pipeline that builds and
-  tests your Android app with AWS Device Farm](tutorials-codebuild-devicefarm.md "tutorials-codebuild-devicefarm.md") – This tutorial
+- [Tutorial: Create a pipeline that builds and tests your Android app with AWS Device Farm](tutorials-codebuild-devicefarm.md "tutorials-codebuild-devicefarm.md") – This tutorial
   provides a sample build spec file and sample application to create a pipeline
   with a GitHub source. It builds and tests an Android app with CodeBuild and
   AWS Device Farm.

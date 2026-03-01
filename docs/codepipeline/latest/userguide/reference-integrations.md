@@ -12,16 +12,13 @@ reference the AWS Partner Network (APN). This information is a supplement to the
 
 ###### Topics
 
-- [How third-party action types work with
-  the integrator](#reference-integrations-description "#reference-integrations-description")
+- [How third-party action types work with the integrator](#reference-integrations-description "#reference-integrations-description")
 - [Concepts](#reference-integrations-concepts "#reference-integrations-concepts")
 - [Supported integration models](#reference-integrations-models "#reference-integrations-models")
 - [Lambda integration model](#reference-integrations-models-lambda "#reference-integrations-models-lambda")
 - [Job worker integration model](#reference-integrations-models-worker "#reference-integrations-models-worker")
 
-## How third-party action types work with
-
-the integrator
+## How third-party action types work with the integrator
 
 You can add third-party action types to customer pipelines to complete tasks on customer
 resources. The integrator manages job requests and runs the action with CodePipeline. The following
@@ -140,9 +137,7 @@ For comparison, the following table describes the features of the two models:
 The supported Lambda integration model includes creating the Lambda function and defining
 output for the third-party action type.
 
-### Update your Lambda function to
-
-handle the input from CodePipeline
+### Update your Lambda function to handle the input from CodePipeline
 
 You can create a new Lambda function. You can add business logic to your Lambda function
 that is run whenever there’s a job available on your pipeline for your action type. For
@@ -337,9 +332,7 @@ Example:
 }
 ```
 
-### Return the results from your
-
-Lambda function to CodePipeline
+### Return the results from your Lambda function to CodePipeline
 
 The integrator's job worker resource must return a valid payload in success, failure, or
 continuation cases.
@@ -416,9 +409,7 @@ Example:
 }
 ```
 
-### Use continuation tokens
-
-to wait for results from an asynchronous process
+### Use continuation tokens to wait for results from an asynchronous process
 
 The `continuation` token is part of the payload and result of your Lambda
 function. It is a way to pass job state to CodePipeline and indicate that the job needs to be
@@ -437,9 +428,7 @@ The CodePipeline team invokes the integrator after 30 seconds with the same
 If the build completes, the integrator returns terminal success/fail result, else
 continues.
 
-### Provide CodePipeline the
-
-permissions to invoke the integrator Lambda function at runtime
+### Provide CodePipeline the permissions to invoke the integrator Lambda function at runtime
 
 You add permissions to your integrator Lambda function to provide the CodePipeline service with
 permissions to invoke it using the CodePipeline service principal:
@@ -473,9 +462,7 @@ For an example that shows how to create the AWS KMS parameters in Java or .NET, 
 [Specifying the AWS Key Management Service in Amazon S3 Using the
 AWS SDKs](../../../AmazonS3/latest/userguide/kms-using-sdks.md "../../../AmazonS3/latest/userguide/kms-using-sdks.md"). For more information about the Amazon S3 bucket for CodePipeline, see [CodePipeline concepts](concepts.md "concepts.md").
 
-### Choose and configure a
-
-permissions management strategy for your job worker
+### Choose and configure a permissions management strategy for your job worker
 
 To develop a job worker for your third-party action in CodePipeline, you need a strategy for
 the integration of user and permission management.

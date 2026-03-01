@@ -1,6 +1,4 @@
-# Tutorial: Use an AWS Step Functions invoke action in a
-
-pipeline
+# Tutorial: Use an AWS Step Functions invoke action in a pipeline
 
 You can use AWS Step Functions to create and configure state machines. This tutorial shows you how to
 add an invoke action to a pipeline that activates state machine executions from your pipeline.
@@ -22,20 +20,14 @@ In this tutorial, you do the following tasks:
 
 ###### Topics
 
-- [Prerequisite: Create or choose a simple
-  pipeline](#tutorials-step-functions-prereq "#tutorials-step-functions-prereq")
-- [Step 1: Create the sample state
-  machine](#tutorials-step-functions-sample "#tutorials-step-functions-sample")
-- [Step 2: Add a Step Functions invoke action to your
-  pipeline](#tutorials-step-functions-pipeline "#tutorials-step-functions-pipeline")
+- [Prerequisite: Create or choose a simple pipeline](#tutorials-step-functions-prereq "#tutorials-step-functions-prereq")
+- [Step 1: Create the sample state machine](#tutorials-step-functions-sample "#tutorials-step-functions-sample")
+- [Step 2: Add a Step Functions invoke action to your pipeline](#tutorials-step-functions-pipeline "#tutorials-step-functions-pipeline")
 
-## Prerequisite: Create or choose a simple
-
-pipeline
+## Prerequisite: Create or choose a simple pipeline
 
 In this tutorial, you add an invoke action to an existing pipeline. You can use the
-pipeline you created in [Tutorial: Create a simple pipeline (S3 bucket)](tutorials-simple-s3.md "tutorials-simple-s3.md") or [Tutorial: Create a simple pipeline (CodeCommit
-repository)](tutorials-simple-codecommit.md "tutorials-simple-codecommit.md").
+pipeline you created in [Tutorial: Create a simple pipeline (S3 bucket)](tutorials-simple-s3.md "tutorials-simple-s3.md") or [Tutorial: Create a simple pipeline (CodeCommit repository)](tutorials-simple-codecommit.md "tutorials-simple-codecommit.md").
 
 You use an existing pipeline with a source action and at least a two-stage structure, but
 you do not use source artifacts for this example.
@@ -45,20 +37,15 @@ you do not use source artifacts for this example.
 You might need to update the service role used by your pipeline with additional
 permissions required to run this action. To do this, open the AWS Identity and Access Management (IAM) console,
 find the role, and then add the permissions to the role's policy. For more information, see
-[Add permissions to the CodePipeline
-service role](how-to-custom-role.md#how-to-update-role-new-services "how-to-custom-role.md#how-to-update-role-new-services").
+[Add permissions to the CodePipeline service role](how-to-custom-role.md#how-to-update-role-new-services "how-to-custom-role.md#how-to-update-role-new-services").
 
-## Step 1: Create the sample state
-
-machine
+## Step 1: Create the sample state machine
 
 In the Step Functions console, create a state machine using the `HelloWorld` sample
 template. For instructions, see [Create a State Machine](../../../step-functions/latest/dg/getting-started.md#create-state-machine "../../../step-functions/latest/dg/getting-started.md#create-state-machine")
 in the _AWS Step Functions Developer Guide_.
 
-## Step 2: Add a Step Functions invoke action to your
-
-pipeline
+## Step 2: Add a Step Functions invoke action to your pipeline
 
 Add a Step Functions invoke action to your pipeline as follows:
 

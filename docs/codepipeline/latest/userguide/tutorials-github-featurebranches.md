@@ -1,13 +1,10 @@
-# Tutorial: Filter on branch names for pull
-
-requests to start your pipeline (V2 type)
+# Tutorial: Filter on branch names for pull requests to start your pipeline (V2 type)
 
 In this tutorial, you will create a pipeline that connects to your GitHub.com repository
 where the source action is configured to start your pipeline with a trigger configuration that
 filters on pull requests. When a specified pull request event occurs for a specified branch,
 your pipeline starts. This example shows you how to create a pipeline that allows filtering for
-branch names. For more information about working with triggers, see [Add filters for push and pull request event types
-(CLI)](pipelines-filter.md#pipelines-filter-cli "pipelines-filter.md#pipelines-filter-cli"). For more information
+branch names. For more information about working with triggers, see [Add filters for push and pull request event types (CLI)](pipelines-filter.md#pipelines-filter-cli "pipelines-filter.md#pipelines-filter-cli"). For more information
 about filtering with regex patterns in glob format, see [Working with glob patterns in syntax](syntax-glob.md "syntax-glob.md").
 
 ###### Important
@@ -24,10 +21,8 @@ action type.
 ###### Topics
 
 - [Prerequisites](#tutorials-github-featurebranches-prereq "#tutorials-github-featurebranches-prereq")
-- [Step 1: Create a pipeline to start
-  on pull request for specified branches](#tutorials-github-featurebranches-pipeline "#tutorials-github-featurebranches-pipeline")
-- [Step 2: Create and merge a pull request in GitHub.com to start your pipeline
-  executions](#tutorials-github-featurebranches-pullrequest "#tutorials-github-featurebranches-pullrequest")
+- [Step 1: Create a pipeline to start on pull request for specified branches](#tutorials-github-featurebranches-pipeline "#tutorials-github-featurebranches-pipeline")
+- [Step 2: Create and merge a pull request in GitHub.com to start your pipeline executions](#tutorials-github-featurebranches-pullrequest "#tutorials-github-featurebranches-pullrequest")
 
 ## Prerequisites
 
@@ -37,9 +32,7 @@ Before you begin, you must do the following:
 - Have your GitHub credentials ready. When you use the AWS Management Console to set up a connection,
   you are asked to sign in with your GitHub credentials.
 
-## Step 1: Create a pipeline to start
-
-on pull request for specified branches
+## Step 1: Create a pipeline to start on pull request for specified branches
 
 In this section, you create a pipeline with the following actions:
 
@@ -123,9 +116,7 @@ deploy stage**, and then accept the warning message by choosing
 **Skip** again. Choose **Next**. 12. On **Step 7: Review**, choose **Create
 pipeline**.
 
-## Step 2: Create and merge a pull request in GitHub.com to start your pipeline
-
-executions
+## Step 2: Create and merge a pull request in GitHub.com to start your pipeline executions
 
 In this section, you create and merge a pull request. This starts your pipeline, with one
 execution for the opened pull request and one execution for the closed pull request.

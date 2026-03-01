@@ -45,9 +45,7 @@ CodePipeline currently supports VPC endpoints in the following AWS Regions:
 
 \* You must enable this Region before you can use it.
 
-## Create a VPC endpoint for
-
-CodePipeline
+## Create a VPC endpoint for CodePipeline
 
 You can use the Amazon VPC console to create the **com.amazonaws.`region`.codepipeline** VPC
 endpoint. In the console, `region` is the Region identifier for

@@ -1,12 +1,8 @@
-# Start a pipeline on a
-
-schedule
+# Start a pipeline on a schedule
 
 You can set up a rule in EventBridge to start a pipeline on a schedule.
 
-## Create an EventBridge rule that
-
-schedules your pipeline to start (console)
+## Create an EventBridge rule that schedules your pipeline to start (console)
 
 ###### To create an EventBridge rule with a schedule as the event source
 
@@ -24,8 +20,7 @@ schedules your pipeline to start (console)
 ###### Note
 
 You can find the pipeline ARN under **Settings** in
-the console. See [View the pipeline ARN and service role ARN
-(console)](pipelines-settings-console.md "pipelines-settings-console.md"). 7. Choose one of the following to create or specify an IAM service role that
+the console. See [View the pipeline ARN and service role ARN (console)](pipelines-settings-console.md "pipelines-settings-console.md"). 7. Choose one of the following to create or specify an IAM service role that
 gives EventBridge permissions to invoke the target associated with your EventBridge rule
 (in this case, the target is CodePipeline).
 
@@ -43,9 +38,7 @@ gives EventBridge permissions to invoke the target associated with your EventBri
 10. If you're satisfied with the rule, choose **Create
     rule**.
 
-## Create an EventBridge rule that
-
-schedules your pipeline to start (CLI)
+## Create an EventBridge rule that schedules your pipeline to start (CLI)
 
 To use the AWS CLI to create a rule, call the **put-rule** command,
 specifying:

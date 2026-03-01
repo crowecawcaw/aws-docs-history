@@ -13,8 +13,7 @@ This action is only supported for V2 type pipelines.
 - [Configuration parameters](#action-reference-PipelineInvoke-parameters "#action-reference-PipelineInvoke-parameters")
 - [Input artifacts](#action-reference-PipelineInvoke-input "#action-reference-PipelineInvoke-input")
 - [Output artifacts](#action-reference-PipelineInvoke-output "#action-reference-PipelineInvoke-output")
-- [Service role policy
-  permissions for the CodePipeline invoke action](#action-reference-PipelineInvoke-permissions-action "#action-reference-PipelineInvoke-permissions-action")
+- [Service role policy permissions for the CodePipeline invoke action](#action-reference-PipelineInvoke-permissions-action "#action-reference-PipelineInvoke-permissions-action")
 - [Action declaration](#action-reference-PipelineInvoke-example "#action-reference-PipelineInvoke-example")
 - [See also](#action-reference-PipelineInvoke-links "#action-reference-PipelineInvoke-links")
 
@@ -103,9 +102,7 @@ value of `zq8mjNYEexample`.
 - **Description:** Output artifacts do not apply
   for this action type.
 
-## Service role policy
-
-permissions for the CodePipeline invoke action
+## Service role policy permissions for the CodePipeline invoke action
 
 When CodePipeline runs the action, the CodePipeline service role policy requires the
 `codepipeline:StartPipelineExecution` permission, appropriately scoped
@@ -166,7 +163,6 @@ JSON
 
 The following related resources can help you as you work with this action.
 
-- [Start a pipeline with a source
-  revision override](pipelines-trigger-source-overrides.md "pipelines-trigger-source-overrides.md") – This section
+- [Start a pipeline with a source revision override](pipelines-trigger-source-overrides.md "pipelines-trigger-source-overrides.md") – This section
   describes starting a pipeline with source revisions manually or through the
   EventBridge event input transformer.

@@ -12,8 +12,7 @@ choose the action and add it to their pipelines after it is available in CodePip
 
 You create actions with `custom` in the `owner` field to run
 with a job worker. You do not create them with an integration model. For information
-about custom actions, see [Create and add a custom action in
-CodePipeline](actions-create-custom-action.md "actions-create-custom-action.md").
+about custom actions, see [Create and add a custom action in CodePipeline](actions-create-custom-action.md "actions-create-custom-action.md").
 
 **Action type components**
 
@@ -62,8 +61,7 @@ The following components make up an action type.
 ###### Topics
 
 - [Request an action type](#action-types-request "#action-types-request")
-- [Add an available action type to a pipeline
-  (console)](#action-types-in-pipelines "#action-types-in-pipelines")
+- [Add an available action type to a pipeline (console)](#action-types-in-pipelines "#action-types-in-pipelines")
 - [View an action type](#action-types-view-cli "#action-types-view-cli")
 - [Update an action type](#action-types-update-cli "#action-types-update-cli")
 
@@ -80,9 +78,7 @@ the CodePipeline service team.
 Before you create your action definition file, executor resources, and action type
 request for the CodePipeline team, you must choose an integration model.
 
-### Step 1: Choose your integration
-
-model
+### Step 1: Choose your integration model
 
 Choose your integration model and then create the configuration for that model.
 After you choose the integration model, you must configure your integration
@@ -110,9 +106,7 @@ resources.
   list of allowed accounts where the job worker polls for jobs with the CodePipeline
   APIs.
 
-### Step 2: Create an action type
-
-definition file
+### Step 2: Create an action type definition file
 
 You define an action type in an action type definition file using JSON. In the
 file, you include the action category, the integration model used to manage the
@@ -262,9 +256,7 @@ The following code shows an example action type definition file.
 }
 ```
 
-### Step 3: Register Your Integration with
-
-CodePipeline
+### Step 3: Register Your Integration with CodePipeline
 
 To register your action type with CodePipeline, you contact the CodePipeline service team with
 your request.
@@ -330,16 +322,12 @@ Example runtime URL pattern: `https://www.example.com/%TestThirdPartyName%/%cust
 5. Will this be available as a public action?
 ```
 
-### Step 4: Activate Your New
-
-Integration
+### Step 4: Activate Your New Integration
 
 Contact the CodePipeline service team when you are ready to use the new integration
 publicly.
 
-## Add an available action type to a pipeline
-
-(console)
+## Add an available action type to a pipeline (console)
 
 You add your action type to a pipeline so that you can test it. You can do this by
 creating a new pipeline or editing an existing one.
@@ -487,8 +475,7 @@ properties to required, and you can only add new optional properties.
    parameters you want to change. You can also add optional parameters.
 
 For more information about the parameters for the input file, see the action
-definition file description in [Step 2: Create an action type
-definition file](#action-type-definition-file "#action-type-definition-file").
+definition file description in [Step 2: Create an action type definition file](#action-type-definition-file "#action-type-definition-file").
 
 The following example shows how to update an example action type created with
 the Lambda integration model. This example makes the following changes:

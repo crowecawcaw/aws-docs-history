@@ -21,12 +21,9 @@ resource that can be managed with either the console or the CLI.
 ###### Topics
 
 - [Add tags to a pipeline (console)](#pipelines-tag-add-console "#pipelines-tag-add-console")
-- [View tags for a pipeline
-  (console)](#pipelines-tag-list-console "#pipelines-tag-list-console")
-- [Edit tags for a pipeline
-  (console)](#pipelines-tag-update-console "#pipelines-tag-update-console")
-- [Remove tags from a pipeline
-  (console)](#pipelines-tag-delete-console "#pipelines-tag-delete-console")
+- [View tags for a pipeline (console)](#pipelines-tag-list-console "#pipelines-tag-list-console")
+- [Edit tags for a pipeline (console)](#pipelines-tag-update-console "#pipelines-tag-update-console")
+- [Remove tags from a pipeline (console)](#pipelines-tag-delete-console "#pipelines-tag-delete-console")
 
 ### Add tags to a pipeline (console)
 
@@ -49,9 +46,7 @@ You can use the console to add tags to an existing pipeline.
 7. Choose **Submit**. The tags are listed under pipeline
    settings.
 
-### View tags for a pipeline
-
-(console)
+### View tags for a pipeline (console)
 
 You can use the console to list tags for existing pipelines.
 
@@ -63,9 +58,7 @@ You can use the console to list tags for existing pipelines.
    under the **Key** and **Value**
    columns.
 
-### Edit tags for a pipeline
-
-(console)
+### Edit tags for a pipeline (console)
 
 You can use the console to edit tags that have been added to pipelines.
 
@@ -82,9 +75,7 @@ You can use the console to edit tags that have been added to pipelines.
    `ProjectB`.
 6. Choose **Submit**.
 
-### Remove tags from a pipeline
-
-(console)
+### Remove tags from a pipeline (console)
 
 You can use the console to delete tags from pipelines. When you remove tags from
 the associated resource, the tags are deleted.

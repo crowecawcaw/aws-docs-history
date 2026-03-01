@@ -34,9 +34,7 @@ only. It is not a quote tool and does not guarantee the cost for your actual use
 a V2 type pipeline, and it does not include any taxes that might apply. For
 information about pricing for CodePipeline, see [Pricing](https://aws.amazon.com/codepipeline/pricing/ "https://aws.amazon.com/codepipeline/pricing/").
 
-###### To create and run a script to help you evaluate the cost of moving a V1 type
-
-pipeline to a V2 type pipeline
+###### To create and run a script to help you evaluate the cost of moving a V1 type pipeline to a V2 type pipeline
 
 1. Download and install python.
 2. Open a terminal window. Run the following command to create a new python

@@ -32,20 +32,13 @@ the service-managed permissions model, you must enable trusted access between AW
 ###### Topics
 
 - [How CloudFormation StackSets actions work](#action-reference-StackSets-concepts "#action-reference-StackSets-concepts")
-- [How to structure StackSets
-  actions in a pipeline](#action-reference-StackSets-bestpractices "#action-reference-StackSets-bestpractices")
-- [The CloudFormationStackSet
-  action](#action-reference-StackSet "#action-reference-StackSet")
-- [The CloudFormationStackInstances
-  action](#action-reference-StackInstances "#action-reference-StackInstances")
-- [Service role permissions:
-  CloudFormationStackSet action](#edit-role-cfn-stackset "#edit-role-cfn-stackset")
-- [Service role permissions:
-  CloudFormationStackInstances action](#edit-role-cfn-stackinstances "#edit-role-cfn-stackinstances")
-- [Permissions models for stack
-  set operations](#action-reference-StackSets-permissions "#action-reference-StackSets-permissions")
-- [Template parameter data
-  types](#action-reference-StackSets-datatypes "#action-reference-StackSets-datatypes")
+- [How to structure StackSets actions in a pipeline](#action-reference-StackSets-bestpractices "#action-reference-StackSets-bestpractices")
+- [The CloudFormationStackSet action](#action-reference-StackSet "#action-reference-StackSet")
+- [The CloudFormationStackInstances action](#action-reference-StackInstances "#action-reference-StackInstances")
+- [Service role permissions: CloudFormationStackSet action](#edit-role-cfn-stackset "#edit-role-cfn-stackset")
+- [Service role permissions: CloudFormationStackInstances action](#edit-role-cfn-stackinstances "#edit-role-cfn-stackinstances")
+- [Permissions models for stack set operations](#action-reference-StackSets-permissions "#action-reference-StackSets-permissions")
+- [Template parameter data types](#action-reference-StackSets-datatypes "#action-reference-StackSets-datatypes")
 - [See also](#action-reference-CloudFormation-links "#action-reference-CloudFormation-links")
 
 ## How CloudFormation StackSets actions work
@@ -119,9 +112,7 @@ from the update and set to a status of `OUTDATED`.
 During a deployment, stack instances can also show a status of `OUTDATED`
 if the deployment to instances failed.
 
-## How to structure StackSets
-
-actions in a pipeline
+## How to structure StackSets actions in a pipeline
 
 As a best practice, you should construct your pipeline so that the stack set is
 created and initially deploys to a subset or a single instance. After you test your
@@ -180,9 +171,7 @@ For more information about best practices for deploying stack sets, see [Best pr
 StackSets in the _AWS CloudFormation User
 Guide_.
 
-## The `CloudFormationStackSet`
-
-action
+## The `CloudFormationStackSet` action
 
 This action creates or updates a stack set from the template stored in the pipeline
 source location.
@@ -204,8 +193,7 @@ are not allowed without a deployment to at least one stack instance.
 
 - [Action type](#action-reference-StackSet-type "#action-reference-StackSet-type")
 - [Configuration parameters](#action-reference-StackSet-config "#action-reference-StackSet-config")
-- [Input
-  artifacts](#action-reference-StackSet-input "#action-reference-StackSet-input")
+- [Input artifacts](#action-reference-StackSet-input "#action-reference-StackSet-input")
 - [Output artifacts](#action-reference-StackSet-output "#action-reference-StackSet-output")
 - [Output variables](#action-reference-StackSet-variables "#action-reference-StackSet-variables")
 - [Example CloudFormationStackSet action configuration](#action-reference-StackSet-example "#action-reference-StackSet-example")
@@ -266,8 +254,7 @@ You can provide parameters as a literal list or a file path:
   format:
   `ParameterKey=string,ParameterValue=string,UsePreviousValue=boolean,ResolvedValue=string
 ParameterKey=string,ParameterValue=string,UsePreviousValue=boolean,ResolvedValue=string`.
-  For more information about these data types, see [Template parameter data
-  types](#action-reference-StackSets-datatypes "#action-reference-StackSets-datatypes").
+  For more information about these data types, see [Template parameter data types](#action-reference-StackSets-datatypes "#action-reference-StackSets-datatypes").
 
 The following example shows a parameter named
 `BucketName` with the value
@@ -337,8 +324,7 @@ with multiple capabilities.
 Required: No
 
 Determines how IAM roles are created and managed. If the field is not
-specified, the default is used. For information, see [Permissions models for stack
-set operations](#action-reference-StackSets-permissions "#action-reference-StackSets-permissions").
+specified, the default is used. For information, see [Permissions models for stack set operations](#action-reference-StackSets-permissions "#action-reference-StackSets-permissions").
 
 Valid values are:
 
@@ -684,9 +670,7 @@ action will fail while running with an error similar to the following:
   use service-managed permissions while signed in to a delegated administrator
   account.
 
-### Input
-
-artifacts
+### Input artifacts
 
 You must include at least one input artifact that contains the template for the
 stack set in a `CloudFormationStackSet` action. You can include more
@@ -728,9 +712,7 @@ For more information, see [Variables reference](reference-variables.md "referenc
 
 The following examples show the action configuration for the **CloudFormationStackSet** action.
 
-#### Example for the
-
-self-managed permissions model
+#### Example for the self-managed permissions model
 
 The following example shows a **CloudFormationStackSet** action where the deployment target
 entered is an AWS account ID.
@@ -792,9 +774,7 @@ JSON
 }
 ```
 
-#### Example for
-
-the service-managed permissions model
+#### Example for the service-managed permissions model
 
 The following example shows a **CloudFormationStackSet** action for the service-managed
 permissions model where the option for auto deployment to AWS Organizations is
@@ -854,9 +834,7 @@ JSON
 }
 ```
 
-## The CloudFormationStackInstances
-
-action
+## The CloudFormationStackInstances action
 
 This action creates new instances and deploys stack sets to specified instances. A
 stack instance is a reference to a stack in a target account within a Region. A stack
@@ -886,8 +864,7 @@ override the value of that parameter to be `beta` or
 - [Input artifacts](#action-reference-StackInstances-input "#action-reference-StackInstances-input")
 - [Output artifacts](#action-reference-StackInstances-output "#action-reference-StackInstances-output")
 - [Output variables](#action-reference-StackInstances-variables "#action-reference-StackInstances-variables")
-- [Example action
-  configuration](#action-reference-StackInstances-example "#action-reference-StackInstances-example")
+- [Example action configuration](#action-reference-StackInstances-example "#action-reference-StackInstances-example")
 
 ### Action type
 
@@ -1067,8 +1044,7 @@ You can provide parameters as a literal list or a file path:
   format:
   `ParameterKey=string,ParameterValue=string,UsePreviousValue=boolean,ResolvedValue=string
 ParameterKey=string,ParameterValue=string,UsePreviousValue=boolean,ResolvedValue=string`.
-  For more information about these data types, see [Template parameter data
-  types](#action-reference-StackSets-datatypes "#action-reference-StackSets-datatypes").
+  For more information about these data types, see [Template parameter data types](#action-reference-StackSets-datatypes "#action-reference-StackSets-datatypes").
 
 The following example shows a parameter named
 `BucketName` with the value
@@ -1237,15 +1213,11 @@ downstream actions.
 
 For more information, see [Variables reference](reference-variables.md "reference-variables.md").
 
-### Example action
-
-configuration
+### Example action configuration
 
 The following examples show the action configuration for the **CloudFormationStackInstances** action.
 
-#### Example
-
-for the self-managed permissions model
+#### Example for the self-managed permissions model
 
 The following example shows a **CloudFormationStackInstances** action where the deployment target
 entered is an AWS account ID `111111222222`.
@@ -1298,9 +1270,7 @@ JSON
 }
 ```
 
-#### Example
-
-for the service-managed permissions model
+#### Example for the service-managed permissions model
 
 The following example shows a **CloudFormationStackInstances** action for the service-managed
 permissions model where the deployment target is an AWS Organizations
@@ -1354,9 +1324,7 @@ JSON
 }
 ```
 
-## Service role permissions:
-
-`CloudFormationStackSet` action
+## Service role permissions: `CloudFormationStackSet` action
 
 For CloudFormation StackSets actions, the following minimum permissions are
 required.
@@ -1379,9 +1347,7 @@ policy statement:
 },
 ```
 
-## Service role permissions:
-
-`CloudFormationStackInstances` action
+## Service role permissions: `CloudFormationStackInstances` action
 
 For the `CloudFormationStackInstances` action, add the following to
 your policy statement:
@@ -1397,9 +1363,7 @@ your policy statement:
 },
 ```
 
-## Permissions models for stack
-
-set operations
+## Permissions models for stack set operations
 
 Because CloudFormation StackSets performs operations across multiple accounts, you must define
 the necessary permissions in those accounts before you can create the stack set. You can
@@ -1429,9 +1393,7 @@ organization in the future. See [Enable trusted access
 with AWS Organizations](../../../AWSCloudFormation/latest/UserGuide/stacksets-orgs-enable-trusted-access.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-orgs-enable-trusted-access.md") in the
 _AWS CloudFormation User Guide_.
 
-## Template parameter data
-
-types
+## Template parameter data types
 
 The template parameters used in stack set operations include the following data types.
 For more information, see [DescribeStackSet](../../../AWSCloudFormation/latest/APIReference/API_Parameter.md "../../../AWSCloudFormation/latest/APIReference/API_Parameter.md").

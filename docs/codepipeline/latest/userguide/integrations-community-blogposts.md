@@ -113,8 +113,7 @@ _Published February 2016_
 - [Running AWS Lambda Functions in CodePipeline Using AWS CloudFormation](http://www.stelligent.com/automation/aws-lambda-functions-aws-codepipeline-cloudformation/ "http://www.stelligent.com/automation/aws-lambda-functions-aws-codepipeline-cloudformation/")
 
 Learn how to create an AWS CloudFormation stack that provisions all the AWS resources used
-in the user guide task [Invoke an AWS Lambda function in a pipeline
-in CodePipeline](actions-invoke-lambda-function.md "actions-invoke-lambda-function.md").
+in the user guide task [Invoke an AWS Lambda function in a pipeline in CodePipeline](actions-invoke-lambda-function.md "actions-invoke-lambda-function.md").
 
 _Published February 2016_
 

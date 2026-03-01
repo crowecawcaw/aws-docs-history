@@ -8,8 +8,7 @@ conditions, see [How do stage conditions work?](concepts-how-it-works-conditions
 
 - [Rule type](#rule-reference-DeploymentWindow-type "#rule-reference-DeploymentWindow-type")
 - [Configuration parameters](#rule-reference-DeploymentWindow-config "#rule-reference-DeploymentWindow-config")
-- [Example rule
-  configuration](#rule-reference-DeploymentWindow-example "#rule-reference-DeploymentWindow-example")
+- [Example rule configuration](#rule-reference-DeploymentWindow-example "#rule-reference-DeploymentWindow-example")
 - [See also](#rule-reference-DeploymentWindow-links "#rule-reference-DeploymentWindow-links")
 
 ## Rule type
@@ -111,9 +110,7 @@ Note that certain abbreviations are duplicated abbreviations, such
 as CST for Central Standard Time, China Standard Time, and Cuba
 Standard Time.
 
-## Example rule
-
-configuration
+## Example rule configuration
 
 YAML
 

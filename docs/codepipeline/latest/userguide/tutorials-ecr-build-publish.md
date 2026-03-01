@@ -1,6 +1,4 @@
-# Tutorial: Build and push a Docker image to
-
-Amazon ECR with CodePipeline (V2 type)
+# Tutorial: Build and push a Docker image to Amazon ECR with CodePipeline (V2 type)
 
 This tutorial helps you to create a build action in CodePipeline that runs and pushes your
 Docker image to Amazon ECR after a change to your source code. This tutorial also shows you how
@@ -19,8 +17,7 @@ be dependable.
 This tutorial is for the ECRBuildAndPublish build action for a CodePipeline pipeline with a
 GitHub source repository and an Amazon ECS standard action for deploying to an Amazon ECS cluster.
 For a tutorial that uses a pipeline with an ECR image repository as the source for an
-Amazon ECS to CodeDeploy blue/green deployment action in CodePipeline, see [Tutorial: Create a pipeline with an Amazon ECR
-source and ECS-to-CodeDeploy deployment](tutorials-ecs-ecr-codedeploy.md "tutorials-ecs-ecr-codedeploy.md").
+Amazon ECS to CodeDeploy blue/green deployment action in CodePipeline, see [Tutorial: Create a pipeline with an Amazon ECR source and ECS-to-CodeDeploy deployment](tutorials-ecs-ecr-codedeploy.md "tutorials-ecs-ecr-codedeploy.md").
 
 ###### Important
 
@@ -56,9 +53,7 @@ All of these resources should be created within the same AWS Region.
 After you have satisfied these prerequisites, you can proceed with the tutorial and
 create your CD pipeline.
 
-## Step 1: Add a Dockerfile to your
-
-source repository
+## Step 1: Add a Dockerfile to your source repository
 
 This tutorial uses the ECRBuildAndPublish action to build your Docker image and push
 the image to Amazon ECR. The managed compute action in CodePipeline uses CodeBuild to run the commands
@@ -127,8 +122,7 @@ CMD /root/run_apache.sh
 This tutorial uses theAmazon ECS standard deploy action in CodePipeline to deploy your container
 to your Amazon ECS cluster. The Amazon ECS standard deploy action requires an
 imagedefinitions.json file containing your image name and URI. For more information
-about the imagedefinitions.json file, see [imagedefinitions.json file for Amazon ECS
-standard deployment actions](file-reference.md#pipelines-create-image-definitions "file-reference.md#pipelines-create-image-definitions").
+about the imagedefinitions.json file, see [imagedefinitions.json file for Amazon ECS standard deployment actions](file-reference.md#pipelines-create-image-definitions "file-reference.md#pipelines-create-image-definitions").
 
 Paste this sample text to create your `imagedefinitions.json` file.
 Use the name in your Dockerfile, such as `hello-world`, and use the URI from
@@ -143,9 +137,7 @@ your Amazon ECR repository where the image is stored.
 ]
 ```
 
-###### To add an `imagedefinitions.json` file to your source
-
-repository
+###### To add an `imagedefinitions.json` file to your source repository
 
 1. Open a text editor and then copy and paste the example above into a new
    file.
@@ -174,9 +166,7 @@ repository
 / imagedefinitions.json
 ```
 
-## Step 3: Creating your
-
-pipeline
+## Step 3: Creating your pipeline
 
 Use the CodePipeline wizard to create your pipeline stages and connect your source
 repository.

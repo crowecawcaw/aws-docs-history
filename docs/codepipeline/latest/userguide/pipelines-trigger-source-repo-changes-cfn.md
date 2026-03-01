@@ -1,12 +1,8 @@
-# Create an EventBridge rule for
-
-a CodeCommit source (CloudFormation template)
+# Create an EventBridge rule for a CodeCommit source (CloudFormation template)
 
 To use CloudFormation to create a rule, update your template as shown here.
 
-###### To update your pipeline CloudFormation template and create EventBridge
-
-rule
+###### To update your pipeline CloudFormation template and create EventBridge rule
 
 1.  In the template, under `Resources`, use the `AWS::IAM::Role` CloudFormation
     resource to configure the IAM role that allows your event to start your pipeline. This entry
@@ -252,17 +248,14 @@ Targets:
    be made to the stack. You should see your new resources in the list.
 7. Choose **Execute**.
 
-###### To edit your pipeline's PollForSourceChanges
-
-parameter
+###### To edit your pipeline's PollForSourceChanges parameter
 
 ###### Important
 
 In many cases, the `PollForSourceChanges` parameter defaults to true when
 you create a pipeline. When you add event-based change detection, you must add the
 parameter to your output and set it to false to disable polling. Otherwise, your
-pipeline starts twice for a single source change. For details, see [Valid settings for the
-PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md").
+pipeline starts twice for a single source change. For details, see [Valid settings for the PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md").
 
 - In the template, change `PollForSourceChanges` to `false`. If
   you did not include `PollForSourceChanges` in your pipeline definition, add

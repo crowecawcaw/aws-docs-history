@@ -1,8 +1,7 @@
 # Events placeholder bucket reference
 
 This section is a reference only. For information about creating a pipeline with event detection resources, see
-[Source actions and change detection
-methods](change-detection-methods.md "change-detection-methods.md").
+[Source actions and change detection methods](change-detection-methods.md "change-detection-methods.md").
 
 Source actions provided by Amazon S3 and CodeCommit use event-based change detection resources to
 trigger your pipeline when a change is made in the source bucket or repository. These resources

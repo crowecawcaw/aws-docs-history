@@ -7,9 +7,7 @@ notifications?](../../../codestar-notifications/latest/userguide/welcome.md "../
 
 You can use the console or the AWS CLI to create notification rules for AWS CodePipeline.
 
-# To create a notification rule
-
-(console)
+# To create a notification rule (console)
 
 1. Sign in to the AWS Management Console and open the CodePipeline console at
    [https://console.aws.amazon.com/codepipeline/](https://console.aws.amazon.com/codepipeline/ "https://console.aws.amazon.com/codepipeline/").

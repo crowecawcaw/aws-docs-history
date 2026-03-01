@@ -1,7 +1,4 @@
-# Tutorial: Lambda
-
-function
-deployments with CodePipeline
+# Tutorial: Lambda function deployments with CodePipeline
 
 This tutorial helps you to create a deploy action in CodePipeline that deploys your code to your
 function you have configured in
@@ -41,18 +38,12 @@ All of these resources should be created within the same AWS Region.
   file that
   you create for your Lambda function.
 - You must use an existing CodePipeline service role that has been updated with the
-  permissions for this action. To update your service role, see [Service role policy
-  permissions for the
-  Lambda
-  deploy action](action-reference-LambdaDeploy.md#action-reference-LambdaDeploy-permissions-action "action-reference-LambdaDeploy.md#action-reference-LambdaDeploy-permissions-action").
+  permissions for this action. To update your service role, see [Service role policy permissions for the Lambda deploy action](action-reference-LambdaDeploy.md#action-reference-LambdaDeploy-permissions-action "action-reference-LambdaDeploy.md#action-reference-LambdaDeploy-permissions-action").
 
 After you have satisfied these prerequisites, you can proceed with the tutorial and
 create your CD pipeline.
 
-## Step 1:
-
-Create your
-sample Lambda function
+## Step 1: Create your sample Lambda function
 
 In this step, you create the
 Lambda
@@ -60,10 +51,7 @@ function
 where you will
 deploy.
 
-###### To create
-
-your Lambda
-function
+###### To create your Lambda function
 
 1. Access the Lambda console and follow the steps in the following tutorial to
    create a sample Lambda function: link.
@@ -95,20 +83,13 @@ If you choose $LATEST, you cannot use traffic shifting features because
 Lambda does not support $LATEST for an alias pointing to more than 1
 version.
 
-## Step
-
-2:
-Upload
-the function file to your repository
+## Step 2: Upload the function file to your repository
 
 Download
 the function and save it as a zip file. Upload the zipped file to your S3 bucket using
 the following steps.
 
-###### To add a
-
-`.zip`
-file to your source repository
+###### To add a `.zip` file to your source repository
 
 1. Open
    your S3
@@ -127,10 +108,7 @@ path.
 object key
 ```
 
-## Step
-
-3:
-Creating your pipeline
+## Step 3: Creating your pipeline
 
 Use the CodePipeline wizard to create your pipeline stages and connect your source
 repository.
@@ -154,10 +132,7 @@ repository.
 6. In **Service role**, choose **Use existing service
    role**, and then choose the CodePipeline service role that has been
    updated with the required permissions for this action. To configure your CodePipeline
-   service role for this action, see [Service role policy
-   permissions for the
-   Lambda
-   deploy action](action-reference-LambdaDeploy.md#action-reference-LambdaDeploy-permissions-action "action-reference-LambdaDeploy.md#action-reference-LambdaDeploy-permissions-action").
+   service role for this action, see [Service role policy permissions for the Lambda deploy action](action-reference-LambdaDeploy.md#action-reference-LambdaDeploy-permissions-action "action-reference-LambdaDeploy.md#action-reference-LambdaDeploy-permissions-action").
 7. Leave the settings under **Advanced settings** at their
    defaults, and then choose **Next**.
 8. On the **Step 3: Add source stage** page, add a source
@@ -196,10 +171,7 @@ repository.
 
 ![A console diagram showing a successful pipeline run with the Lambda deploy action added to your pipeline.](images/lambdadeploy-pipeline-screen.png)
 
-## Step
-
-4:
-Test Your Pipeline
+## Step 4: Test Your Pipeline
 
 Your pipeline should have everything for running an end-to-end native AWS continuous
 deployment. Now, test its functionality by pushing a code change to your source

@@ -1,6 +1,4 @@
-# Tutorial: Deploy to Amazon EC2 instances with
-
-CodePipeline
+# Tutorial: Deploy to Amazon EC2 instances with CodePipeline
 
 This tutorial helps you to create a deploy action in CodePipeline that deploys your code to
 instances you have configured in Amazon EC2.
@@ -29,15 +27,12 @@ All of these resources should be created within the same AWS Region.
 - A source control repository (this tutorial uses GitHub) where you will add a
   sample `script.sh` file.
 - You must use an existing CodePipeline service role that has been updated with the
-  permissions for this action. To update your service role, see [Service role policy
-  permissions for the EC2 deploy action](action-reference-EC2Deploy.md#action-reference-EC2Deploy-permissions-action "action-reference-EC2Deploy.md#action-reference-EC2Deploy-permissions-action").
+  permissions for this action. To update your service role, see [Service role policy permissions for the EC2 deploy action](action-reference-EC2Deploy.md#action-reference-EC2Deploy-permissions-action "action-reference-EC2Deploy.md#action-reference-EC2Deploy-permissions-action").
 
 After you have satisfied these prerequisites, you can proceed with the tutorial and
 create your CD pipeline.
 
-## Step 1: Create Amazon EC2 Linux
-
-instances
+## Step 1: Create Amazon EC2 Linux instances
 
 In this step, you create the Amazon EC2 instances where you will deploy a sample
 application. As part of this process, create an instance role in IAM, if you have not
@@ -109,9 +104,7 @@ receives a public DNS name. (If the **Public DNS** column is
 not displayed, choose the **Show/Hide** icon, and then select
 **Public DNS**.)
 
-## Step 2: Add artifact bucket permissions
-
-to the EC2 instance role
+## Step 2: Add artifact bucket permissions to the EC2 instance role
 
 You must update the EC2 instance role you created for your instance to allow it access
 to your pipeline's artifact bucket.
@@ -146,9 +139,7 @@ permission scoped down to the artifact bucket for your pipeline's Region.
 
 5. Choose **Update**.
 
-## Step 3: Add a script file to your
-
-repository
+## Step 3: Add a script file to your repository
 
 Paste this sample text to create your `script.sh` file for the
 post-script step in the deployment.
@@ -211,8 +202,7 @@ repository.
 6. In **Service role**, choose **Use existing service
    role**, and then choose the CodePipeline service role that has been
    updated with the required permissions for this action. To configure your CodePipeline
-   service role for this action, see [Service role policy
-   permissions for the EC2 deploy action](action-reference-EC2Deploy.md#action-reference-EC2Deploy-permissions-action "action-reference-EC2Deploy.md#action-reference-EC2Deploy-permissions-action").
+   service role for this action, see [Service role policy permissions for the EC2 deploy action](action-reference-EC2Deploy.md#action-reference-EC2Deploy-permissions-action "action-reference-EC2Deploy.md#action-reference-EC2Deploy-permissions-action").
 7. Leave the settings under **Advanced settings** at their
    defaults, and then choose **Next**.
 8. On the **Step 3: Add source stage** page, add a source
@@ -272,5 +262,4 @@ repository.
 3. Choose your pipeline from the list.
 4. Watch the pipeline progress through its stages. Your pipeline should complete
    and your action deploys the script on your instances.
-5. For more troubleshooting information, see [EC2 Deploy action fails with an error message
-   No such file](troubleshooting.md#troubleshooting-ec2-deploy "troubleshooting.md#troubleshooting-ec2-deploy").
+5. For more troubleshooting information, see [EC2 Deploy action fails with an error message No such file](troubleshooting.md#troubleshooting-ec2-deploy "troubleshooting.md#troubleshooting-ec2-deploy").

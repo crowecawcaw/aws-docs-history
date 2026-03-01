@@ -1,13 +1,9 @@
-# Update a GitHub (via OAuth app) source action
-
-to a GitHub (via GitHub App) source action
+# Update a GitHub (via OAuth app) source action to a GitHub (via GitHub App) source action
 
 In AWS CodePipeline, there are two supported versions of the GitHub source action:
 
 - **Recommended:** The GitHub (via GitHub App) action uses
-  Github app-based auth backed by a [CodeStarSourceConnection for
-  Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed
-  actions](action-reference-CodestarConnectionSource.md "action-reference-CodestarConnectionSource.md") resource. It
+  Github app-based auth backed by a [CodeStarSourceConnection for Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed actions](action-reference-CodestarConnectionSource.md "action-reference-CodestarConnectionSource.md") resource. It
   installs an AWS CodeStar Connections application into your GitHub organization so
   that you can manage access in GitHub.
 - **Not recommended:** The GitHub (via OAuth app) action uses
@@ -22,9 +18,7 @@ Asia Pacific (Osaka), Africa (Cape Town), Middle East (Bahrain),
 Middle East (UAE), Europe (Spain), Europe (Zurich),
 Israel (Tel Aviv), or AWS GovCloud (US-West) Regions. To reference other available
 actions, see [Product and service integrations with CodePipeline](integrations.md "integrations.md"). For
-considerations with this action in the Europe (Milan) Region, see the note in [CodeStarSourceConnection for
-Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed
-actions](action-reference-CodestarConnectionSource.md "action-reference-CodestarConnectionSource.md").
+considerations with this action in the Europe (Milan) Region, see the note in [CodeStarSourceConnection for Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed actions](action-reference-CodestarConnectionSource.md "action-reference-CodestarConnectionSource.md").
 
 There are some important advantages to using the GitHub (via GitHub App) action instead of the
 GitHub (via OAuth app) action:
@@ -39,9 +33,7 @@ GitHub (via OAuth app) action:
   longer have to store your personal access token as a secret in Secrets Manager. You
   no longer have to dynamically reference the stored secret in your CodePipeline action
   configuration. You instead add the connection ARN to your action configuration. For
-  an example action configuration, see [CodeStarSourceConnection for
-  Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed
-  actions](action-reference-CodestarConnectionSource.md "action-reference-CodestarConnectionSource.md").
+  an example action configuration, see [CodeStarSourceConnection for Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed actions](action-reference-CodestarConnectionSource.md "action-reference-CodestarConnectionSource.md").
 - When you create a connection resource to use with your GitHub (via GitHub App) action in
   CodePipeline, you can use the same connection resource to associate other supported
   services, such as CodeGuru Reviewer, with your repository.
@@ -61,16 +53,11 @@ a GitHub (via GitHub App) source action from the CodePipeline console.
 
 ###### Topics
 
-- [Step 1: Replace your (via OAuth app)
-  GitHub action](#connections-pipelines-github-action "#connections-pipelines-github-action")
-- [Step 2: Create a connection to
-  GitHub](#connections-pipelines-github-create "#connections-pipelines-github-create")
-- [Step 3: Save your GitHub source
-  action](#connections-pipelines-github-save "#connections-pipelines-github-save")
+- [Step 1: Replace your (via OAuth app) GitHub action](#connections-pipelines-github-action "#connections-pipelines-github-action")
+- [Step 2: Create a connection to GitHub](#connections-pipelines-github-create "#connections-pipelines-github-create")
+- [Step 3: Save your GitHub source action](#connections-pipelines-github-save "#connections-pipelines-github-save")
 
-## Step 1: Replace your (via OAuth app)
-
-GitHub action
+## Step 1: Replace your (via OAuth app) GitHub action
 
 Use the pipeline edit page to replace your (via OAuth app) GitHub action with a
 GitHub (via GitHub App) action.
@@ -91,9 +78,7 @@ GitHub (via GitHub App) action.
      connection to your provider, choose the connection. Proceed to Step 3:
      Save the Source Action for Your Connection.
 
-## Step 2: Create a connection to
-
-GitHub
+## Step 2: Create a connection to GitHub
 
 After you choose to create the connection, the **Connect to GitHub**
 page is shown.
@@ -123,9 +108,7 @@ button to return to the console. 4. On the **Install AWS CodeStar** page, choose
 **Install**. 5. On the **Connect to GitHub** page, the connection ID for your
 new installation is displayed. Choose **Connect**.
 
-## Step 3: Save your GitHub source
-
-action
+## Step 3: Save your GitHub source action
 
 Complete your updates on the **Edit action** page to save your new
 source action.
@@ -157,11 +140,9 @@ my-account/my-repository
      CodeBuild downstream actions.
 
    If you choose this option, you will need to update the permissions for
-   your CodeBuild project service role as shown in [Add CodeBuild GitClone permissions for connections to
-   Bitbucket, GitHub, GitHub Enterprise Server, or GitLab.com](troubleshooting.md#codebuild-role-connections "troubleshooting.md#codebuild-role-connections"). For a tutorial that
+   your CodeBuild project service role as shown in [Add CodeBuild GitClone permissions for connections to Bitbucket, GitHub, GitHub Enterprise Server, or GitLab.com](troubleshooting.md#codebuild-role-connections "troubleshooting.md#codebuild-role-connections"). For a tutorial that
    shows you how to use the **Full clone** option, see
-   [Tutorial: Use full clone with a GitHub pipeline
-   source](tutorials-github-gitclone.md "tutorials-github-gitclone.md").
+   [Tutorial: Use full clone with a GitHub pipeline source](tutorials-github-gitclone.md "tutorials-github-gitclone.md").
 
 3. In **Output artifacts**, you can retain the name of the
    output artifact for this action, such as `SourceArtifact`. Choose

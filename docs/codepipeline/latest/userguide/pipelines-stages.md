@@ -5,7 +5,5 @@ actions in a stage. To configure conditions for stages where you want to use Rol
 
 ###### Topics
 
-- [Configuring
-  stage retry for a failed stage or failed
-  actions](stage-retry.md "stage-retry.md")
+- [Configuring stage retry for a failed stage or failed actions](stage-retry.md "stage-retry.md")
 - [Configuring stage rollback](stage-rollback.md "stage-rollback.md")

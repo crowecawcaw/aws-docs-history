@@ -1,6 +1,4 @@
-# Tutorial: Create a pipeline that
-
-publishes your serverless application to the AWS Serverless Application Repository
+# Tutorial: Create a pipeline that publishes your serverless application to the AWS Serverless Application Repository
 
 You can use AWS CodePipeline to continuously deliver your AWS SAM serverless application to the
 AWS Serverless Application Repository.
@@ -42,9 +40,7 @@ In this tutorial, we assume the following.
   To publish your own application to the AWS Serverless Application Repository, see [Publishing Applications Using the AWS SAM CLI](../../../serverless-application-model/latest/developerguide/serverless-sam-template-publishing-applications.md "../../../serverless-application-model/latest/developerguide/serverless-sam-template-publishing-applications.md") in the
   _AWS Serverless Application Model Developer Guide_.
 
-## Step 1: Create a
-
-buildspec.yml file
+## Step 1: Create a buildspec.yml file
 
 Create a `buildspec.yml` file with the following contents, and add it to
 your serverless application's GitHub repository. Replace
@@ -66,9 +62,7 @@ artifacts:
     - packaged-template.yml
 ```
 
-## Step 2: Create and
-
-configure your pipeline
+## Step 2: Create and configure your pipeline
 
 Follow these steps to create your pipeline in the AWS Region where you want to
 publish your serverless application.
@@ -168,9 +162,7 @@ packaged application is stored.
     7. Choose **Review policy**.
     8. Choose **Save changes**.
 
-## Step 3: Deploy the publish
-
-application
+## Step 3: Deploy the publish application
 
 Follow these steps to deploy the application that contains the Lambda function that
 performs the publish to the AWS Serverless Application Repository. This application is **aws-serverless-codepipeline-serverlessrepo-publish**.
@@ -190,9 +182,7 @@ You must deploy the application to the same AWS Region as your pipeline.
    of this resource for the next step. You use this physical ID when you create the
    new publish action in CodePipeline.
 
-## Step 4: Create the publish
-
-action
+## Step 4: Create the publish action
 
 Follow these steps to create the publish action in your pipeline.
 

@@ -1,6 +1,4 @@
-# Tutorial: Create a pipeline that builds and
-
-tests your Android app with AWS Device Farm
+# Tutorial: Create a pipeline that builds and tests your Android app with AWS Device Farm
 
 You can use AWS CodePipeline to configure a continuous integration flow in which your app is built
 and tested each time a commit is pushed. This tutorial shows how to create and configure a
@@ -94,8 +92,7 @@ If you use Device Farm built-in tests, you can skip this step. 3. To create your
     If you use a CodePipeline service role that was created before July 2018, you need to
      add permissions for Device Farm. To do this, open the IAM console, find the role, and
      then add the following permissions to the role's policy. For more information, see
-     [Add permissions to the CodePipeline
-     service role](how-to-custom-role.md#how-to-update-role-new-services "how-to-custom-role.md#how-to-update-role-new-services").
+     [Add permissions to the CodePipeline service role](how-to-custom-role.md#how-to-update-role-new-services "how-to-custom-role.md#how-to-update-role-new-services").
 
 
     ```

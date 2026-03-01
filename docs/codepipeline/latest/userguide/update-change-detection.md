@@ -1,6 +1,4 @@
-# Migrate polling pipelines to use event-based
-
-change detection
+# Migrate polling pipelines to use event-based change detection
 
 AWS CodePipeline supports full, end-to-end continuous delivery, which includes starting your
 pipeline whenever there is a code change. There are two supported ways to start your
@@ -14,15 +12,12 @@ The recommended event-based change detection method for pipelines is determined 
 pipeline source, such as CodeCommit. In that case, for example, the polling pipeline would need
 to migrate to event-based change detection with EventBridge.
 
-## How to migrate polling
-
-pipelines
+## How to migrate polling pipelines
 
 To migrate polling pipelines, determine your polling pipelines and then determine the
 recommended event-based change detection method:
 
-- Use the steps in [Viewing polling pipelines in your
-  account](#update-change-detection-view-polling "#update-change-detection-view-polling") to determine your
+- Use the steps in [Viewing polling pipelines in your account](#update-change-detection-view-polling "#update-change-detection-view-polling") to determine your
   polling pipelines.
 - In the table, find your pipeline source type and then choose the procedure
   with the implementation you want to use to migrate your polling pipeline. Each
@@ -30,13 +25,13 @@ recommended event-based change detection method:
   CloudFormation.
 
 | How to migrate pipelines to the<br>recommended change detection method |
-| ---------------------------------------------------------------------- | ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Pipeline source                                                        | Recommended event-based detection method                                 | Migration procedures                                                                                                                                                                   |
-| AWS CodeCommit                                                         | EventBridge (recommended).                                               | See [Migrate polling pipelines with a<br>CodeCommit source](#update-change-detection-codecommit "#update-change-detection-codecommit").                                                |
-| Amazon S3                                                              | EventBridge and bucket enabled for event notifications<br>(recommended). | See [Migrate polling pipelines with an S3<br>source enabled for events](#update-change-detection-S3-event "#update-change-detection-S3-event").                                        |
-| Amazon S3                                                              | EventBridge and an AWS CloudTrail trail.                                 | See [Migrate polling pipelines with an S3 source<br>and CloudTrail trail](#update-change-detection-S3 "#update-change-detection-S3").                                                  |
-| GitHub (via GitHub App)                                                | Connections (recommended)                                                | See [Migrate polling pipelines<br>for a GitHub (via OAuth app) source action to connections](#update-change-detection-github-connection "#update-change-detection-github-connection"). |
-| GitHub (via OAuth app)                                                 | Webhooks                                                                 | See [Migrate polling pipelines for<br>a GitHub (via OAuth app) source action to webhooks](#update-change-detection-github-webhooks "#update-change-detection-github-webhooks").        |
+| ---------------------------------------------------------------------- | ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Pipeline source                                                        | Recommended event-based detection method                                 | Migration procedures                                                                                                                                                                |
+| AWS CodeCommit                                                         | EventBridge (recommended).                                               | See [Migrate polling pipelines with a CodeCommit source](#update-change-detection-codecommit "#update-change-detection-codecommit").                                                |
+| Amazon S3                                                              | EventBridge and bucket enabled for event notifications<br>(recommended). | See [Migrate polling pipelines with an S3 source enabled for events](#update-change-detection-S3-event "#update-change-detection-S3-event").                                        |
+| Amazon S3                                                              | EventBridge and an AWS CloudTrail trail.                                 | See [Migrate polling pipelines with an S3 source and CloudTrail trail](#update-change-detection-S3 "#update-change-detection-S3").                                                  |
+| GitHub (via GitHub App)                                                | Connections (recommended)                                                | See [Migrate polling pipelines for a GitHub (via OAuth app) source action to connections](#update-change-detection-github-connection "#update-change-detection-github-connection"). |
+| GitHub (via OAuth app)                                                 | Webhooks                                                                 | See [Migrate polling pipelines for a GitHub (via OAuth app) source action to webhooks](#update-change-detection-github-webhooks "#update-change-detection-github-webhooks").        |
 
 ###### Important
 
@@ -50,17 +45,13 @@ pipeline executions, and the pipeline is counted toward the limit on total numbe
 polling pipelines, which by default is much lower than event-based pipelines. For more
 information, see [Quotas in AWS CodePipeline](limits.md "limits.md").
 
-## Viewing polling pipelines in your
-
-account
+## Viewing polling pipelines in your account
 
 As a first step, use one of the following scripts to determine which pipelines in your
 account are configured for polling. These are the pipelines to migrate to event-based
 change detection.
 
-### Viewing polling
-
-pipelines in your account (script)
+### Viewing polling pipelines in your account (script)
 
 Follow these steps to use a script to determine pipelines in your account that are
 using polling.
@@ -267,9 +258,7 @@ Note that this script also generates a .csv file containing the list of
 polling pipelines in your account and saves the .csv file to the current
 working folder.
 
-## Migrate polling pipelines with a
-
-CodeCommit source
+## Migrate polling pipelines with a CodeCommit source
 
 You can migrate your polling pipeline to use EventBridge to detect changes in your CodeCommit
 source repository or your Amazon S3 source bucket.
@@ -278,17 +267,12 @@ source repository or your Amazon S3 source bucket.
 the pipeline so that change detection is automated through EventBridge. Choose from the
 following methods to implement the migration:
 
-- **Console:** [Migrate polling
-  pipelines (CodeCommit or Amazon S3 source) (console)](#update-change-detection-console-codecommit-S3 "#update-change-detection-console-codecommit-S3")
-- **CLI:** [Migrate polling pipelines
-  (CodeCommit source) (CLI)](#update-change-detection-cli-codecommit "#update-change-detection-cli-codecommit")
+- **Console:** [Migrate polling pipelines (CodeCommit or Amazon S3 source) (console)](#update-change-detection-console-codecommit-S3 "#update-change-detection-console-codecommit-S3")
+- **CLI:** [Migrate polling pipelines (CodeCommit source) (CLI)](#update-change-detection-cli-codecommit "#update-change-detection-cli-codecommit")
 - **CloudFormation:**
-  [Migrate polling pipelines
-  (CodeCommit source) (CloudFormation template)](#update-change-detection-cfn-codecommit "#update-change-detection-cfn-codecommit")
+  [Migrate polling pipelines (CodeCommit source) (CloudFormation template)](#update-change-detection-cfn-codecommit "#update-change-detection-cfn-codecommit")
 
-### Migrate polling
-
-pipelines (CodeCommit or Amazon S3 source) (console)
+### Migrate polling pipelines (CodeCommit or Amazon S3 source) (console)
 
 You can use the CodePipeline console to update your pipeline to use EventBridge to detect
 changes in your CodeCommit source repository or your Amazon S3 source bucket.
@@ -326,9 +310,7 @@ A message displays the name of the EventBridge rule to be created for your
 pipeline. Choose **Save and continue**. 7. To test your action, release a change by using the AWS CLI to commit a
 change to the source specified in the source stage of the pipeline.
 
-### Migrate polling pipelines
-
-(CodeCommit source) (CLI)
+### Migrate polling pipelines (CodeCommit source) (CLI)
 
 Follow these steps to edit a pipeline that is using polling (periodic checks) to
 use an EventBridge rule to start the pipeline. If you want to create a pipeline, see [Create a pipeline, stages, and actions](pipelines-create.md "pipelines-create.md").
@@ -340,9 +322,7 @@ following resources:
 - EventBridge event
 - IAM role to allow this event to start your pipeline
 
-###### To edit your pipeline's PollForSourceChanges
-
-parameter
+###### To edit your pipeline's PollForSourceChanges parameter
 
 ###### Important
 
@@ -350,8 +330,7 @@ When you create a pipeline with this method, the `PollForSourceChanges`
 parameter defaults to true if it is not explicitly set to false. When you add
 event-based change detection, you must add the parameter to your output and set it to
 false to disable polling. Otherwise, your pipeline starts twice for a single source
-change. For details, see [Valid settings for the
-PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md").
+change. For details, see [Valid settings for the PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md").
 
 1. Run the **get-pipeline** command to copy the pipeline structure into a
    JSON file. For example, for a pipeline named
@@ -416,9 +395,7 @@ manually start the pipeline to run that revision through the updated pipeline. U
 the **`start-pipeline-execution`** command to manually
 start your pipeline.
 
-###### To create an EventBridge rule with CodeCommit as the event
-
-source and CodePipeline as the target
+###### To create an EventBridge rule with CodeCommit as the event source and CodePipeline as the target
 
 1. Add permissions for EventBridge to use CodePipeline to invoke the rule. For more information, see
    [Using resource-based policies for Amazon EventBridge](../../../eventbridge/latest/userguide/eb-use-resource-based.md "../../../eventbridge/latest/userguide/eb-use-resource-based.md").
@@ -555,9 +532,7 @@ aws events put-targets --rule MyCodeCommitRepoRule --targets Id=1,Arn=arn:aws:co
 }
 ```
 
-### Migrate polling pipelines
-
-(CodeCommit source) (CloudFormation template)
+### Migrate polling pipelines (CodeCommit source) (CloudFormation template)
 
 To build an event-driven pipeline with AWS CodeCommit, you edit the
 `PollForSourceChanges` parameter of your pipeline and then add the
@@ -637,9 +612,7 @@ JSON
     },
 ```
 
-###### To update your pipeline CloudFormation template and create EventBridge
-
-rule
+###### To update your pipeline CloudFormation template and create EventBridge rule
 
 1.  In the template, under `Resources`, use the `AWS::IAM::Role` CloudFormation
     resource to configure the IAM role that allows your event to start your pipeline. This entry
@@ -885,17 +858,14 @@ Targets:
    be made to the stack. You should see your new resources in the list.
 7. Choose **Execute**.
 
-###### To edit your pipeline's PollForSourceChanges
-
-parameter
+###### To edit your pipeline's PollForSourceChanges parameter
 
 ###### Important
 
 In many cases, the `PollForSourceChanges` parameter defaults to true when
 you create a pipeline. When you add event-based change detection, you must add the
 parameter to your output and set it to false to disable polling. Otherwise, your
-pipeline starts twice for a single source change. For details, see [Valid settings for the
-PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md").
+pipeline starts twice for a single source change. For details, see [Valid settings for the PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md").
 
 - In the template, change `PollForSourceChanges` to `false`. If
   you did not include `PollForSourceChanges` in your pipeline definition, add
@@ -1227,9 +1197,7 @@ JSON
 ...
 ```
 
-## Migrate polling pipelines with an S3
-
-source enabled for events
+## Migrate polling pipelines with an S3 source enabled for events
 
 For a pipeline with an Amazon S3 source, modify the pipeline so that change detection is
 automated through EventBridge and with a source bucket that is enabled for event notifications.
@@ -1240,17 +1208,12 @@ pipeline.
 
 This includes using a bucket that is enabled for event notifications, where you do
 not need to create a separate CloudTrail trail. If you are using the console, then an
-event rule and CloudTrail trail are set up for you. For those steps, see [Migrate polling pipelines with an S3 source
-and CloudTrail trail](#update-change-detection-S3 "#update-change-detection-S3").
+event rule and CloudTrail trail are set up for you. For those steps, see [Migrate polling pipelines with an S3 source and CloudTrail trail](#update-change-detection-S3 "#update-change-detection-S3").
 
-- **CLI:** [Migrate polling pipelines with an
-  S3 source and CloudTrail trail (CLI)](#update-change-detection-cli-S3 "#update-change-detection-cli-S3")
-- **CloudFormation:** [Migrate polling pipelines with an
-  S3 source and CloudTrail trail (CloudFormation template)](#update-change-detection-cfn-s3 "#update-change-detection-cfn-s3")
+- **CLI:** [Migrate polling pipelines with an S3 source and CloudTrail trail (CLI)](#update-change-detection-cli-S3 "#update-change-detection-cli-S3")
+- **CloudFormation:** [Migrate polling pipelines with an S3 source and CloudTrail trail (CloudFormation template)](#update-change-detection-cfn-s3 "#update-change-detection-cfn-s3")
 
-### Migrate polling pipelines
-
-with an S3 source enabled for events (CLI)
+### Migrate polling pipelines with an S3 source enabled for events (CLI)
 
 Follow these steps to edit a pipeline that is using polling (periodic checks) to
 use an event in EventBridge instead. If you want to create a pipeline, see [Create a pipeline, stages, and actions](pipelines-create.md "pipelines-create.md").
@@ -1262,9 +1225,7 @@ following resources:
 - EventBridge event rule
 - IAM role to allow the EventBridge event to start your pipeline
 
-###### To create an EventBridge rule with Amazon S3 as the event source and CodePipeline as the target
-
-and apply the permissions policy
+###### To create an EventBridge rule with Amazon S3 as the event source and CodePipeline as the target and apply the permissions policy
 
 1. Grant permissions for EventBridge to use CodePipeline to invoke the rule. For more
    information, see [Using resource-based policies for Amazon EventBridge](../../../eventbridge/latest/userguide/eb-use-resource-based.md "../../../eventbridge/latest/userguide/eb-use-resource-based.md").
@@ -1361,9 +1322,7 @@ changes in the repository.
 aws events put-targets --rule EnabledS3SourceRule --targets Id=codepipeline-AppPipeline,Arn=arn:aws:codepipeline:us-west-2:80398EXAMPLE:TestPipeline
 ```
 
-###### To edit your pipeline's PollForSourceChanges
-
-parameter
+###### To edit your pipeline's PollForSourceChanges parameter
 
 ###### Important
 
@@ -1371,8 +1330,7 @@ When you create a pipeline with this method, the `PollForSourceChanges`
 parameter defaults to true if it is not explicitly set to false. When you add
 event-based change detection, you must add the parameter to your output and set it to
 false to disable polling. Otherwise, your pipeline starts twice for a single source
-change. For details, see [Valid settings for the
-PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md").
+change. For details, see [Valid settings for the PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md").
 
 1. Run the **get-pipeline** command to copy the pipeline structure into a
    JSON file. For example, for a pipeline named
@@ -1439,9 +1397,7 @@ manually start the pipeline to run that revision through the updated pipeline. U
 the **start-pipeline-execution** command to manually start your
 pipeline.
 
-### Migrate polling pipelines
-
-with an S3 source enabled for events (CloudFormation template)
+### Migrate polling pipelines with an S3 source enabled for events (CloudFormation template)
 
 This procedure is for a pipeline where the source bucket has events
 enabled.
@@ -1541,9 +1497,7 @@ JSON
 ...
 ```
 
-###### To create an EventBridge rule with Amazon S3 as the event source and CodePipeline as the target
-
-and apply the permissions policy
+###### To create an EventBridge rule with Amazon S3 as the event source and CodePipeline as the target and apply the permissions policy
 
 1.  In the template, under `Resources`, use the
     `AWS::IAM::Role` CloudFormation resource to configure the IAM role
@@ -1751,9 +1705,7 @@ JSON
    new resources in the list.
 6. Choose **Execute**.
 
-###### To edit your pipeline's PollForSourceChanges
-
-parameter
+###### To edit your pipeline's PollForSourceChanges parameter
 
 ###### Important
 
@@ -1761,8 +1713,7 @@ When you create a pipeline with this method, the `PollForSourceChanges`
 parameter defaults to true if it is not explicitly set to false. When you add
 event-based change detection, you must add the parameter to your output and set it to
 false to disable polling. Otherwise, your pipeline starts twice for a single source
-change. For details, see [Valid settings for the
-PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md").
+change. For details, see [Valid settings for the PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md").
 
 - In the template, change `PollForSourceChanges` to `false`. If
   you did not include `PollForSourceChanges` in your pipeline definition, add
@@ -2082,24 +2033,17 @@ JSONJSON
 
 ```
 
-## Migrate polling pipelines with an S3 source
-
-and CloudTrail trail
+## Migrate polling pipelines with an S3 source and CloudTrail trail
 
 For a pipeline with an Amazon S3 source, modify the pipeline so that change detection is
 automated through EventBridge. Choose from the following methods to implement the
 migration:
 
-- **Console:** [Migrate polling
-  pipelines (CodeCommit or Amazon S3 source) (console)](#update-change-detection-console-codecommit-S3 "#update-change-detection-console-codecommit-S3")
-- **CLI:** [Migrate polling pipelines with an
-  S3 source and CloudTrail trail (CLI)](#update-change-detection-cli-S3 "#update-change-detection-cli-S3")
-- **CloudFormation:** [Migrate polling pipelines with an
-  S3 source and CloudTrail trail (CloudFormation template)](#update-change-detection-cfn-s3 "#update-change-detection-cfn-s3")
+- **Console:** [Migrate polling pipelines (CodeCommit or Amazon S3 source) (console)](#update-change-detection-console-codecommit-S3 "#update-change-detection-console-codecommit-S3")
+- **CLI:** [Migrate polling pipelines with an S3 source and CloudTrail trail (CLI)](#update-change-detection-cli-S3 "#update-change-detection-cli-S3")
+- **CloudFormation:** [Migrate polling pipelines with an S3 source and CloudTrail trail (CloudFormation template)](#update-change-detection-cfn-s3 "#update-change-detection-cfn-s3")
 
-### Migrate polling pipelines with an
-
-S3 source and CloudTrail trail (CLI)
+### Migrate polling pipelines with an S3 source and CloudTrail trail (CLI)
 
 Follow these steps to edit a pipeline that is using polling (periodic checks) to
 use an event in EventBridge instead. If you want to create a pipeline, see [Create a pipeline, stages, and actions](pipelines-create.md "pipelines-create.md").
@@ -2170,9 +2114,7 @@ named `amzn-s3-demo-source-bucket/myFolder`.
 aws cloudtrail put-event-selectors --trail-name `my-trail` --event-selectors '[{ "ReadWriteType": "WriteOnly", "IncludeManagementEvents":false, "DataResources": [{ "Type": "AWS::S3::Object", "Values": ["arn:aws:s3:::amzn-s3-demo-source-bucket/myFolder/file.zip"] }] }]'
 ```
 
-###### To create an EventBridge rule with Amazon S3 as the event
-
-source and CodePipeline as the target and apply the permissions policy
+###### To create an EventBridge rule with Amazon S3 as the event source and CodePipeline as the target and apply the permissions policy
 
 1. Grant permissions for EventBridge to use CodePipeline to invoke the rule. For more information, see
    [Using resource-based policies for Amazon EventBridge](../../../eventbridge/latest/userguide/eb-use-resource-based.md "../../../eventbridge/latest/userguide/eb-use-resource-based.md").
@@ -2299,9 +2241,7 @@ aws events put-targets --rule MyS3SourceRule --targets Id=1,Arn=arn:aws:codepipe
 }
 ```
 
-###### To edit your pipeline's PollForSourceChanges
-
-parameter
+###### To edit your pipeline's PollForSourceChanges parameter
 
 ###### Important
 
@@ -2309,8 +2249,7 @@ When you create a pipeline with this method, the `PollForSourceChanges`
 parameter defaults to true if it is not explicitly set to false. When you add
 event-based change detection, you must add the parameter to your output and set it to
 false to disable polling. Otherwise, your pipeline starts twice for a single source
-change. For details, see [Valid settings for the
-PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md").
+change. For details, see [Valid settings for the PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md").
 
 1. Run the **get-pipeline** command to copy the pipeline structure into a
    JSON file. For example, for a pipeline named
@@ -2377,9 +2316,7 @@ manually start the pipeline to run that revision through the updated pipeline. U
 the **start-pipeline-execution** command to manually start your
 pipeline.
 
-### Migrate polling pipelines with an
-
-S3 source and CloudTrail trail (CloudFormation template)
+### Migrate polling pipelines with an S3 source and CloudTrail trail (CloudFormation template)
 
 Use these steps to edit your pipeline with an Amazon S3 source from polling to
 event-based change detection.
@@ -2479,9 +2416,7 @@ JSON
 ...
 ```
 
-###### To create an EventBridge rule with Amazon S3 as the event
-
-source and CodePipeline as the target and apply the permissions policy
+###### To create an EventBridge rule with Amazon S3 as the event source and CodePipeline as the target and apply the permissions policy
 
 1.  In the template, under `Resources`, use the `AWS::IAM::Role` CloudFormation
     resource to configure the IAM role that allows your event to start your pipeline. This entry
@@ -2758,9 +2693,7 @@ Targets:
    changes that will be made to the stack. You should see your new resources in the list.
 8. Choose **Execute**.
 
-###### To edit your pipeline's PollForSourceChanges
-
-parameter
+###### To edit your pipeline's PollForSourceChanges parameter
 
 ###### Important
 
@@ -2768,8 +2701,7 @@ When you create a pipeline with this method, the `PollForSourceChanges`
 parameter defaults to true if it is not explicitly set to false. When you add
 event-based change detection, you must add the parameter to your output and set it to
 false to disable polling. Otherwise, your pipeline starts twice for a single source
-change. For details, see [Valid settings for the
-PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md").
+change. For details, see [Valid settings for the PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md").
 
 - In the template, change `PollForSourceChanges` to `false`. If
   you did not include `PollForSourceChanges` in your pipeline definition, add
@@ -2830,9 +2762,7 @@ JSON
 
 ```
 
-###### To create a second template for your Amazon S3
-
-pipeline's CloudTrail resources
+###### To create a second template for your Amazon S3 pipeline's CloudTrail resources
 
 - In a separate template, under `Resources`, use the
   `AWS::S3::Bucket`, `AWS::S3::BucketPolicy`, and
@@ -3663,9 +3593,7 @@ JSON
 ...
 ```
 
-## Migrate polling pipelines
-
-for a GitHub (via OAuth app) source action to connections
+## Migrate polling pipelines for a GitHub (via OAuth app) source action to connections
 
 You can migrate a GitHub (via OAuth app) source action to use connections for your
 external repository. This is the recommended change detection method for pipelines with
@@ -3679,9 +3607,7 @@ through AWS CodeConnections. For more information about working with connections
 
 You can use the console to create a connection to GitHub.
 
-#### Step 1:
-
-Replace your GitHub (via OAuth app) action
+#### Step 1: Replace your GitHub (via OAuth app) action
 
 Use the pipeline edit page to replace your GitHub (via OAuth app) action with
 a GitHub (via GitHub App) action.
@@ -3703,9 +3629,7 @@ a GitHub (via GitHub App) action.
      Proceed to Step 3: Save the Source Action for Your
      Connection.
 
-#### Step
-
-2: Create a connection to GitHub
+#### Step 2: Create a connection to GitHub
 
 After you choose to create the connection, the **Connect to
 GitHub** page is shown.
@@ -3737,9 +3661,7 @@ to the console. 4. On the **Install AWS CodeStar** page, choose
 for your new installation is displayed. Choose
 **Connect**.
 
-#### Step 3:
-
-Save your GitHub source action
+#### Step 3: Save your GitHub source action
 
 Complete your updates on the **Edit action** page to save
 your new source action.
@@ -3774,11 +3696,9 @@ my-account/my-repository
 
    If you choose this option, you will need to update the
    permissions for your CodeBuild project service role as shown in
-   [Add CodeBuild GitClone permissions for connections to
-   Bitbucket, GitHub, GitHub Enterprise Server, or GitLab.com](troubleshooting.md#codebuild-role-connections "troubleshooting.md#codebuild-role-connections"). For a tutorial
+   [Add CodeBuild GitClone permissions for connections to Bitbucket, GitHub, GitHub Enterprise Server, or GitLab.com](troubleshooting.md#codebuild-role-connections "troubleshooting.md#codebuild-role-connections"). For a tutorial
    that shows you how to use the **Full clone**
-   option, see [Tutorial: Use full clone with a GitHub pipeline
-   source](tutorials-github-gitclone.md "tutorials-github-gitclone.md").
+   option, see [Tutorial: Use full clone with a GitHub pipeline source](tutorials-github-gitclone.md "tutorials-github-gitclone.md").
 
 3. In **Output artifacts**, you can retain the name of
    the output artifact for this action, such as
@@ -3788,9 +3708,7 @@ my-account/my-repository
    Choose **Save** to close the pipeline editing
    page.
 
-### Create a connection
-
-to GitHub (CLI)
+### Create a connection to GitHub (CLI)
 
 You can use the AWS Command Line Interface (AWS CLI) to create a connection to GitHub.
 
@@ -3826,21 +3744,16 @@ to the following.
 
 2. Use the console to complete the connection.
 
-## Migrate polling pipelines for
-
-a GitHub (via OAuth app) source action to webhooks
+## Migrate polling pipelines for a GitHub (via OAuth app) source action to webhooks
 
 You can migrate your pipeline to use webhooks to detect changes in your GitHub source
 repository. This migration to webhooks is for the GitHub (via OAuth app) action
 only.
 
-- **Console:** [Migrate polling pipelines
-  to webhooks (GitHub (via OAuth app) source actions) (console)](#update-change-detection-console-github "#update-change-detection-console-github")
-- **CLI:** [Migrate polling pipelines to
-  webhooks (GitHub (via OAuth app) source actions) (CLI)](#update-change-detection-cli-github "#update-change-detection-cli-github")
+- **Console:** [Migrate polling pipelines to webhooks (GitHub (via OAuth app) source actions) (console)](#update-change-detection-console-github "#update-change-detection-console-github")
+- **CLI:** [Migrate polling pipelines to webhooks (GitHub (via OAuth app) source actions) (CLI)](#update-change-detection-cli-github "#update-change-detection-cli-github")
 - **CloudFormation:**
-  [Update pipelines for push
-  events (GitHub (via OAuth app) source actions) (CloudFormation template)](#update-change-detection-cfn-github "#update-change-detection-cfn-github")
+  [Update pipelines for push events (GitHub (via OAuth app) source actions) (CloudFormation template)](#update-change-detection-cfn-github "#update-change-detection-cfn-github")
 
 ###### Important
 
@@ -3852,9 +3765,7 @@ CodePipeline, for protecting the integrity and authenticity of the webhook paylo
 your own credentials or reusing the same token across multiple webhooks can lead to
 security vulnerabilities.
 
-### Migrate polling pipelines
-
-to webhooks (GitHub (via OAuth app) source actions) (console)
+### Migrate polling pipelines to webhooks (GitHub (via OAuth app) source actions) (console)
 
 For the GitHub (via OAuth app) source action, you can use the CodePipeline console to
 update your pipeline to use webhooks to detect changes in your GitHub source
@@ -3899,9 +3810,7 @@ A message displays the name of the webhook to be created for your
 pipeline. Choose **Save and continue**. 7. To test your action, release a change by using the AWS CLI to commit a
 change to the source specified in the source stage of the pipeline.
 
-### Migrate polling pipelines to
-
-webhooks (GitHub (via OAuth app) source actions) (CLI)
+### Migrate polling pipelines to webhooks (GitHub (via OAuth app) source actions) (CLI)
 
 Follow these steps to edit a pipeline that is using periodic checks to use a
 webhook instead. If you want to create a pipeline, see [Create a pipeline, stages, and actions](pipelines-create.md "pipelines-create.md").
@@ -3921,8 +3830,7 @@ periodic checks. To disable periodic checks, you must explicitly add the
 final procedure below. Otherwise, the default for a CLI or CloudFormation pipeline is that
 `PollForSourceChanges` defaults to true and does not display in the
 pipeline structure output. For more information about PollForSourceChanges defaults, see
-[Valid settings for the
-PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md").
+[Valid settings for the PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md").
 
 1. In a text editor, create and save a JSON file for the webhook you want to create. Use
    this sample file for a webhook named `my-webhook`:
@@ -3997,9 +3905,7 @@ The following sample command registers a webhook named `my-webhook`.
 aws codepipeline register-webhook-with-third-party --webhook-name my-webhook
 ```
 
-###### To edit your pipeline's PollForSourceChanges
-
-parameter
+###### To edit your pipeline's PollForSourceChanges parameter
 
 ###### Important
 
@@ -4007,8 +3913,7 @@ When you create a pipeline with this method, the `PollForSourceChanges`
 parameter defaults to true if it is not explicitly set to false. When you add
 event-based change detection, you must add the parameter to your output and set it to
 false to disable polling. Otherwise, your pipeline starts twice for a single source
-change. For details, see [Valid settings for the
-PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md").
+change. For details, see [Valid settings for the PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md").
 
 1. Run the **get-pipeline** command to copy the pipeline structure into a
    JSON file. For example, for a pipeline named
@@ -4077,9 +3982,7 @@ manually start the pipeline to run that revision through the updated pipeline. U
 the **start-pipeline-execution** command to manually start your
 pipeline.
 
-### Update pipelines for push
-
-events (GitHub (via OAuth app) source actions) (CloudFormation template)
+### Update pipelines for push events (GitHub (via OAuth app) source actions) (CloudFormation template)
 
 Follow these steps to update your pipeline (with a GitHub source) from periodic
 checks (polling) to event-based change detection using webhooks.
@@ -4184,9 +4087,7 @@ JSON
 ...
 ```
 
-###### To add parameters and create a webhook in your
-
-template
+###### To add parameters and create a webhook in your template
 
 We strongly recommend that you use AWS Secrets Manager to store your credentials. If you use
 Secrets Manager, you must have already configured and stored your secret parameters in
@@ -4210,8 +4111,7 @@ To disable periodic checks, you must explicitly add the
 final procedure below. Otherwise, the default for a CLI or CloudFormation pipeline is that
 `PollForSourceChanges` defaults to true and does not display in the
 pipeline structure output. For more information about PollForSourceChanges defaults, see
-[Valid settings for the
-PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md").
+[Valid settings for the PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md").
 
 1. In the template, under `Resources`, add your parameters:
 
@@ -4324,9 +4224,7 @@ JSON
    to be made to the stack. You should see your new resources in the list.
 6. Choose **Execute**.
 
-###### To edit your pipeline's PollForSourceChanges
-
-parameter
+###### To edit your pipeline's PollForSourceChanges parameter
 
 ###### Important
 
@@ -4334,8 +4232,7 @@ When you create a pipeline with this method, the `PollForSourceChanges`
 parameter defaults to true if it is not explicitly set to false. When you add
 event-based change detection, you must add the parameter to your output and set it to
 false to disable polling. Otherwise, your pipeline starts twice for a single source
-change. For details, see [Valid settings for the
-PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md").
+change. For details, see [Valid settings for the PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md").
 
 - In the template, change `PollForSourceChanges` to `false`. If
   you did not include `PollForSourceChanges` in your pipeline definition, add

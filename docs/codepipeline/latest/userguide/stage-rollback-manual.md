@@ -7,9 +7,7 @@ pipeline structure version.
 You can also configure a stage to roll back automatically on failure as detailed in
 [Configure a stage for automatic rollback](stage-rollback-auto.md "stage-rollback-auto.md").
 
-## Roll back a stage manually
-
-(console)
+## Roll back a stage manually (console)
 
 You can use the console to manually roll back a stage to a target pipeline
 execution. When a stage is rolled back, a **Rollback** label

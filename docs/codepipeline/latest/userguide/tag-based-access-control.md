@@ -1,6 +1,4 @@
-# Using tags to control access to CodePipeline
-
-resources
+# Using tags to control access to CodePipeline resources
 
 Conditions in IAM policy statements are part of the syntax that you use to
 specify permissions to resources required by CodePipeline actions. Using tags in conditions

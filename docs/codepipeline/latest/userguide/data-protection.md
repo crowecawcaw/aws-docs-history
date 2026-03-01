@@ -31,10 +31,8 @@ credentials and set up individual users with AWS IAM Identity Center or AWS Iden
 
 The following security best practices also address data protection in CodePipeline:
 
-- [Configure server-side encryption for artifacts
-  stored in Amazon S3 for CodePipeline](S3-artifact-encryption.md "S3-artifact-encryption.md")
-- [Use AWS Secrets Manager to track database passwords
-  or third-party API keys](parameter-store-encryption.md "parameter-store-encryption.md")
+- [Configure server-side encryption for artifacts stored in Amazon S3 for CodePipeline](S3-artifact-encryption.md "S3-artifact-encryption.md")
+- [Use AWS Secrets Manager to track database passwords or third-party API keys](parameter-store-encryption.md "parameter-store-encryption.md")
 
 ## Internetwork traffic privacy
 
@@ -63,8 +61,7 @@ Guide](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md").
 
 Data in CodePipeline is encrypted at rest using AWS KMS keys. Code artifacts are stored in
 a customer-owned S3 bucket and encrypted with either the AWS managed key or a
-customer managed key. For more information, see [Configure server-side encryption for artifacts
-stored in Amazon S3 for CodePipeline](S3-artifact-encryption.md "S3-artifact-encryption.md").
+customer managed key. For more information, see [Configure server-side encryption for artifacts stored in Amazon S3 for CodePipeline](S3-artifact-encryption.md "S3-artifact-encryption.md").
 
 ## Encryption in transit
 

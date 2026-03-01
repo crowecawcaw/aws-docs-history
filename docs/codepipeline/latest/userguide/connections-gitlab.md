@@ -17,25 +17,20 @@ Asia Pacific (Osaka), Africa (Cape Town), Middle East (Bahrain),
 Middle East (UAE), Europe (Spain), Europe (Zurich),
 Israel (Tel Aviv), or AWS GovCloud (US-West) Regions. To reference other available
 actions, see [Product and service integrations with CodePipeline](integrations.md "integrations.md"). For
-considerations with this action in the Europe (Milan) Region, see the note in [CodeStarSourceConnection for
-Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed
-actions](action-reference-CodestarConnectionSource.md "action-reference-CodestarConnectionSource.md").
+considerations with this action in the Europe (Milan) Region, see the note in [CodeStarSourceConnection for Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed actions](action-reference-CodestarConnectionSource.md "action-reference-CodestarConnectionSource.md").
 
 To add a GitLab.com source action in CodePipeline, you can choose either to:
 
 - Use the CodePipeline console **Create pipeline** wizard or
   **Edit action** page to choose the **GitLab**
-  provider option. See [Create a connection to GitLab.com
-  (console)](#connections-gitlab-console "#connections-gitlab-console") to add the action. The console
+  provider option. See [Create a connection to GitLab.com (console)](#connections-gitlab-console "#connections-gitlab-console") to add the action. The console
   helps you create a connections resource.
 - Use the CLI to add the action configuration for the
   `CreateSourceConnection` action with the `GitLab` provider
   as follows:
   - To create your connections resources, see [Create a connection to GitLab.com (CLI)](#connections-gitlab-cli "#connections-gitlab-cli") to create a connections resource with the CLI.
   - Use the `CreateSourceConnection` example action configuration
-    in [CodeStarSourceConnection for
-    Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed
-    actions](action-reference-CodestarConnectionSource.md "action-reference-CodestarConnectionSource.md") to add your
+    in [CodeStarSourceConnection for Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed actions](action-reference-CodestarConnectionSource.md "action-reference-CodestarConnectionSource.md") to add your
     action as shown in [Create a pipeline (CLI)](pipelines-create.md#pipelines-create-cli "pipelines-create.md#pipelines-create-cli").
 
 ###### Note
@@ -70,13 +65,10 @@ groups, you do not need to be the group owner.
 
 ###### Topics
 
-- [Create a connection to GitLab.com
-  (console)](#connections-gitlab-console "#connections-gitlab-console")
+- [Create a connection to GitLab.com (console)](#connections-gitlab-console "#connections-gitlab-console")
 - [Create a connection to GitLab.com (CLI)](#connections-gitlab-cli "#connections-gitlab-cli")
 
-## Create a connection to GitLab.com
-
-(console)
+## Create a connection to GitLab.com (console)
 
 Use these steps to use the CodePipeline console to add a connections action for your project
 (repository) in GitLab.
@@ -146,8 +138,7 @@ group `mygroup`, enter the following:
 `mygroup/myrepo`. You can find the project path with the
 namespace in the URL in GitLab. 10. Under **Pipeline triggers** you can add triggers if your
 action is an CodeConnections action. To configure the pipeline trigger configuration and
-to optionally filter with triggers, see more details in [Add trigger with code push or pull request event
-types](pipelines-filter.md "pipelines-filter.md"). 11. In **Branch name**, choose the branch where you want your
+to optionally filter with triggers, see more details in [Add trigger with code push or pull request event types](pipelines-filter.md "pipelines-filter.md"). 11. In **Branch name**, choose the branch where you want your
 pipeline to detect source changes.
 
 ###### Note
@@ -169,11 +160,9 @@ your artifacts.
 
 
     If you choose this option, you will need to update the permissions for
-     your CodeBuild project service role as shown in [Add CodeBuild GitClone permissions for connections to
-     Bitbucket, GitHub, GitHub Enterprise Server, or GitLab.com](troubleshooting.md#codebuild-role-connections "troubleshooting.md#codebuild-role-connections"). For a tutorial that
+     your CodeBuild project service role as shown in [Add CodeBuild GitClone permissions for connections to Bitbucket, GitHub, GitHub Enterprise Server, or GitLab.com](troubleshooting.md#codebuild-role-connections "troubleshooting.md#codebuild-role-connections"). For a tutorial that
      shows you how to use the **Full clone** option, see
-     [Tutorial: Use full clone with a GitHub pipeline
-     source](tutorials-github-gitclone.md "tutorials-github-gitclone.md").
+     [Tutorial: Use full clone with a GitHub pipeline source](tutorials-github-gitclone.md "tutorials-github-gitclone.md").
 
 13. Choose to save the source action and continue.
 
@@ -223,8 +212,7 @@ the following.
    ```
 
    - To configure the pipeline trigger configuration to filter with
-     triggers, see more details in [Add trigger with code push or pull request event
-     types](pipelines-filter.md "pipelines-filter.md"). For example, the following adds
+     triggers, see more details in [Add trigger with code push or pull request event types](pipelines-filter.md "pipelines-filter.md"). For example, the following adds
      to the pipeline level of the pipeline JSON definition. In this example,
      `release-v0` and `release-v1` are the Git tags
      to include, and `release-v2` is the Git tag to

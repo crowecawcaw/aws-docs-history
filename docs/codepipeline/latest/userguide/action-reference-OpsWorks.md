@@ -67,9 +67,7 @@ For AWS OpsWorks support, add the following to your policy statement:
 },
 ```
 
-## Example action
-
-configuration
+## Example action configuration
 
 YAML
 

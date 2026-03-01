@@ -12,8 +12,7 @@ For Amazon ECR, Amazon S3, or CodeCommit sources, you can also create a source o
 transform entry to use the `revisionValue` in EventBridge for your pipeline event,
 where the `revisionValue` is derived from the source event variable for your
 object key, commit, or image ID. For more information, see the optional step for input
-transform entry included in the procedures under [Amazon ECR source actions and EventBridge resources](create-cwe-ecr-source.md "create-cwe-ecr-source.md"), [Connecting to Amazon S3 source actions with a
-source enabled for events](create-S3-source-events.md "create-S3-source-events.md"), or [CodeCommit source actions and EventBridge](triggering.md "triggering.md").
+transform entry included in the procedures under [Amazon ECR source actions and EventBridge resources](create-cwe-ecr-source.md "create-cwe-ecr-source.md"), [Connecting to Amazon S3 source actions with a source enabled for events](create-S3-source-events.md "create-S3-source-events.md"), or [CodeCommit source actions and EventBridge](triggering.md "triggering.md").
 
 You must have already created a CodeCommit repository before you connect the pipeline through a
 CodeCommit action.
@@ -38,8 +37,7 @@ to non-CodeBuild actions results in an error.
 - [Output artifacts](#action-reference-CodeCommit-output "#action-reference-CodeCommit-output")
 - [Output variables](#action-reference-CodeCommit-variables "#action-reference-CodeCommit-variables")
 - [Service role permissions: CodeCommit action](#edit-role-codecommit "#edit-role-codecommit")
-- [Example action
-  configuration](#action-reference-CodeCommit-example "#action-reference-CodeCommit-example")
+- [Example action configuration](#action-reference-CodeCommit-example "#action-reference-CodeCommit-example")
 - [See also](#action-reference-CodeCommit-links "#action-reference-CodeCommit-links")
 
 ## Action type
@@ -70,9 +68,7 @@ Required: No
 `PollForSourceChanges` controls whether CodePipeline polls the CodeCommit
 repository for source changes. We recommend that you use CloudWatch Events to detect
 source changes instead. For more information about configuring CloudWatch Events, see
-[Migrate polling pipelines
-(CodeCommit source) (CLI)](update-change-detection.md#update-change-detection-cli-codecommit "update-change-detection.md#update-change-detection-cli-codecommit") or [Migrate polling pipelines
-(CodeCommit source) (CloudFormation template)](update-change-detection.md#update-change-detection-cfn-codecommit "update-change-detection.md#update-change-detection-cfn-codecommit").
+[Migrate polling pipelines (CodeCommit source) (CLI)](update-change-detection.md#update-change-detection-cli-codecommit "update-change-detection.md#update-change-detection-cli-codecommit") or [Migrate polling pipelines (CodeCommit source) (CloudFormation template)](update-change-detection.md#update-change-detection-cfn-codecommit "update-change-detection.md#update-change-detection-cfn-codecommit").
 
 ###### Important
 
@@ -111,14 +107,11 @@ downstream actions.
 
 If you choose this option, you need to add the
 `codecommit:GitPull` permission to your CodeBuild service
-role as shown in [Add CodeBuild GitClone permissions for CodeCommit
-source actions](troubleshooting.md#codebuild-role-codecommitclone "troubleshooting.md#codebuild-role-codecommitclone"). You also need to
+role as shown in [Add CodeBuild GitClone permissions for CodeCommit source actions](troubleshooting.md#codebuild-role-codecommitclone "troubleshooting.md#codebuild-role-codecommitclone"). You also need to
 add the `codecommit:GetRepository` permission to your CodePipeline
-service role as shown in [Add permissions to the CodePipeline
-service role](how-to-custom-role.md#how-to-update-role-new-services "how-to-custom-role.md#how-to-update-role-new-services"). For a tutorial
+service role as shown in [Add permissions to the CodePipeline service role](how-to-custom-role.md#how-to-update-role-new-services "how-to-custom-role.md#how-to-update-role-new-services"). For a tutorial
 that shows you how to use the **Full clone** option,
-see [Tutorial: Use full clone with a CodeCommit pipeline
-source](tutorials-codecommit-gitclone.md "tutorials-codecommit-gitclone.md").
+see [Tutorial: Use full clone with a CodeCommit pipeline source](tutorials-codecommit-gitclone.md "tutorials-codecommit-gitclone.md").
 
 ## Input artifacts
 
@@ -207,9 +200,7 @@ JSON
 
 ```
 
-## Example action
-
-configuration
+## Example action configuration
 
 ### Example for default output artifact format
 
@@ -320,8 +311,7 @@ JSON
 
 The following related resources can help you as you work with this action.
 
-- [Tutorial: Create a simple pipeline (CodeCommit
-  repository)](tutorials-simple-codecommit.md "tutorials-simple-codecommit.md") – This tutorial
+- [Tutorial: Create a simple pipeline (CodeCommit repository)](tutorials-simple-codecommit.md "tutorials-simple-codecommit.md") – This tutorial
   provides a sample app spec file and sample CodeDeploy application and deployment
   group. Use this tutorial to create a pipeline with a CodeCommit source that deploys
   to Amazon EC2 instances.

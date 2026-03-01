@@ -1,6 +1,4 @@
-# Permissions required to use the
-
-CodePipeline console
+# Permissions required to use the CodePipeline console
 
 To use CodePipeline in the CodePipeline console, you must have a minimum set of
 permissions from the following services:

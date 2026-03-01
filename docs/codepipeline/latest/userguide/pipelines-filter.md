@@ -1,6 +1,4 @@
-# Add trigger with code push or pull request event
-
-types
+# Add trigger with code push or pull request event types
 
 You can configure filters for pipeline triggers to have pipeline executions started for
 different Git events, such as tag or branch push, changes in specific file paths, a pull
@@ -16,8 +14,7 @@ pipeline where triggers are used to filter branches by push or pull request, the
 pipeline won't use the default `BranchName` field branch in the action
 configuration. However, the branch in the `BranchName` field in the action
 configuration is the default when the pipeline is started manually. For an example, see
-[5: Trigger configured while default
-action configuration BranchName is used for a manual start](pipelines-triggers.md#example-filter-default-manual "pipelines-triggers.md#example-filter-default-manual").
+[5: Trigger configured while default action configuration BranchName is used for a manual start](pipelines-triggers.md#example-filter-default-manual "pipelines-triggers.md#example-filter-default-manual").
 
 You can specify filters for the following trigger types:
 
@@ -46,25 +43,18 @@ request events are ignored.
 ###### Note
 
 Certain pull request event behavior can differ by provider. For details, see
-[Pull request events for triggers
-by provider](pipelines-triggers.md#pipelines-filter-pullrequest-events "pipelines-triggers.md#pipelines-filter-pullrequest-events").
+[Pull request events for triggers by provider](pipelines-triggers.md#pipelines-filter-pullrequest-events "pipelines-triggers.md#pipelines-filter-pullrequest-events").
 The pipeline definition allows you to combine different filters within the same push
-trigger configuration. For details about the pipeline definition, see [Add filters for push and pull request event types
-(CLI)](#pipelines-filter-cli "#pipelines-filter-cli"). For a list of
+trigger configuration. For details about the pipeline definition, see [Add filters for push and pull request event types (CLI)](#pipelines-filter-cli "#pipelines-filter-cli"). For a list of
 field definitions, see [triggers](pipeline-requirements.md#pipeline.triggers "pipeline-requirements.md#pipeline.triggers") in the _Pipeline structure reference_ in this guide.
 
 ###### Topics
 
-- [Add filters for push and pull request event
-  types (console)](#pipelines-filter-console "#pipelines-filter-console")
-- [Add filters for push and pull request event types
-  (CLI)](#pipelines-filter-cli "#pipelines-filter-cli")
-- [Add filters for push and pull request event types
-  (CloudFormation templates)](#pipelines-filter-cfn "#pipelines-filter-cfn")
+- [Add filters for push and pull request event types (console)](#pipelines-filter-console "#pipelines-filter-console")
+- [Add filters for push and pull request event types (CLI)](#pipelines-filter-cli "#pipelines-filter-cli")
+- [Add filters for push and pull request event types (CloudFormation templates)](#pipelines-filter-cfn "#pipelines-filter-cfn")
 
-## Add filters for push and pull request event
-
-types (console)
+## Add filters for push and pull request event types (console)
 
 You can use the console to add filters for push events and include or exclude branches
 or file paths.
@@ -163,9 +153,7 @@ following options.
      trigger configuration to start with pull request events that you
      specify.
 
-## Add filters for push and pull request event types
-
-(CLI)
+## Add filters for push and pull request event types (CLI)
 
 You can update the pipeline JSON to add filters for triggers.
 
@@ -270,9 +258,7 @@ guide.
 }
 ```
 
-## Add filters for push and pull request event types
-
-(CloudFormation templates)
+## Add filters for push and pull request event types (CloudFormation templates)
 
 You can update the pipeline resource in CloudFormation to add trigger filtering.
 

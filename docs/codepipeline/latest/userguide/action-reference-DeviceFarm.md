@@ -12,8 +12,7 @@ Test Types in AWS Device Farm](../../../devicefarm/latest/developerguide/test-ty
 - [Configuration parameters](#action-reference-DeviceFarm-config "#action-reference-DeviceFarm-config")
 - [Input artifacts](#action-reference-DeviceFarm-input "#action-reference-DeviceFarm-input")
 - [Output artifacts](#action-reference-DeviceFarm-output "#action-reference-DeviceFarm-output")
-- [Service role permissions: AWS Device Farm
-  action](#edit-role-devicefarm "#edit-role-devicefarm")
+- [Service role permissions: AWS Device Farm action](#edit-role-devicefarm "#edit-role-devicefarm")
 - [Action declaration](#action-reference-DeviceFarm-example "#action-reference-DeviceFarm-example")
 - [See also](#action-reference-DeviceFarm-links "#action-reference-DeviceFarm-links")
 
@@ -241,9 +240,7 @@ degrees.
 - **Description:** Output artifacts do not apply
   for this action type.
 
-## Service role permissions: AWS Device Farm
-
-action
+## Service role permissions: AWS Device Farm action
 
 When CodePipeline runs the action, the CodePipeline service role policy requires the following
 permissions, appropriately scoped down to the pipeline resource ARN in order to maintain
@@ -338,12 +335,10 @@ The following related resources can help you as you work with this action.
 - [Actions in Device Farm](../../../devicefarm/latest/APIReference/Welcome.md "../../../devicefarm/latest/APIReference/Welcome.md") – The API calls and parameters in the
   _Device Farm API Reference_ can help you work with Device Farm
   projects.
-- [Tutorial: Create a pipeline that builds and
-  tests your Android app with AWS Device Farm](tutorials-codebuild-devicefarm.md "tutorials-codebuild-devicefarm.md") – This tutorial
+- [Tutorial: Create a pipeline that builds and tests your Android app with AWS Device Farm](tutorials-codebuild-devicefarm.md "tutorials-codebuild-devicefarm.md") – This tutorial
   provides a sample build spec file and sample application to create a pipeline
   with a GitHub source that builds and tests an Android app with CodeBuild and
   Device Farm.
-- [Tutorial: Create a pipeline that tests your
-  iOS app with AWS Device Farm](tutorials-codebuild-devicefarm-S3.md "tutorials-codebuild-devicefarm-S3.md") – This tutorial
+- [Tutorial: Create a pipeline that tests your iOS app with AWS Device Farm](tutorials-codebuild-devicefarm-S3.md "tutorials-codebuild-devicefarm-S3.md") – This tutorial
   provides a sample application to create a pipeline with an Amazon S3 source that
   tests a built iOS app with Device Farm.

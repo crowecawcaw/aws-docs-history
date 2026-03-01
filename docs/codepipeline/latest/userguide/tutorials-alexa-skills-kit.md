@@ -1,6 +1,4 @@
-# Tutorial: Create a pipeline that deploys an
-
-Amazon Alexa skill
+# Tutorial: Create a pipeline that deploys an Amazon Alexa skill
 
 In this tutorial, you configure a pipeline that continuously delivers your Alexa skill
 using the Alexa Skills Kit as the deployment provider in your deployment stage. The
@@ -29,8 +27,7 @@ skill.
 
 You must already have the following:
 
-- A CodeCommit repository. You can use the AWS CodeCommit repository you created in [Tutorial: Create a simple pipeline (CodeCommit
-  repository)](tutorials-simple-codecommit.md "tutorials-simple-codecommit.md").
+- A CodeCommit repository. You can use the AWS CodeCommit repository you created in [Tutorial: Create a simple pipeline (CodeCommit repository)](tutorials-simple-codecommit.md "tutorials-simple-codecommit.md").
 - An Amazon developer account. This is the account that owns your Alexa skills.
   You can create an account for free at [Alexa Skills
   Kit](https://developer.amazon.com/alexa-skills-kit "https://developer.amazon.com/alexa-skills-kit").
@@ -38,9 +35,7 @@ You must already have the following:
 - Install the ASK CLI and configure it using `ask init` with your
   AWS credentials. See [Install and initialize ASK CLI](https://developer.amazon.com/docs/smapi/quick-start-alexa-skills-kit-command-line-interface.html#install-initialize "https://developer.amazon.com/docs/smapi/quick-start-alexa-skills-kit-command-line-interface.html#install-initialize").
 
-## Step 1: Create an Alexa developer
-
-services LWA security profile
+## Step 1: Create an Alexa developer services LWA security profile
 
 In this section, you create a security profile to use with Login with Amazon (LWA). If
 you already have a profile, you can skip this step.
@@ -52,9 +47,7 @@ you already have a profile, you can skip this step.
   in the instructions. The URLs allow the ASK CLI command to redirect refresh
   token requests.
 
-## Step 2: Create Alexa skill
-
-source files and push to your CodeCommit repository
+## Step 2: Create Alexa skill source files and push to your CodeCommit repository
 
 In this section, you create and push your Alexa skill source files to the repository
 that the pipeline uses for your source stage. For the skill you have created in the
@@ -147,9 +140,7 @@ skill.json
          changes**.
       4. Repeat this step for each file you want to upload.
 
-## Step 3: Use ASK CLI commands to
-
-create a refresh token
+## Step 3: Use ASK CLI commands to create a refresh token
 
 CodePipeline uses a refresh token based on the client ID and secret in your Amazon developer
 account to authorize actions it performs on your behalf. In this section, you use the
@@ -258,9 +249,7 @@ Add deploy stage**:
     Review**, review the information, and then choose **Create
     pipeline**.
 
-## Step 5: Make a change to any source
-
-file and verify deployment
+## Step 5: Make a change to any source file and verify deployment
 
 Make a change to your skill and then push the change to your repository. This triggers
 your pipeline to run. Verify that your skill is updated in the [Alexa Skills Kit developer

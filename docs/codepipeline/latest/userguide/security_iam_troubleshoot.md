@@ -1,25 +1,16 @@
-# Troubleshooting AWS CodePipeline
-
-identity and access
+# Troubleshooting AWS CodePipeline identity and access
 
 Use the following information to help you diagnose and fix common issues that you
 might encounter when working with CodePipeline and IAM.
 
 ###### Topics
 
-- [I am not authorized to
-  perform an action in CodePipeline](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
-- [I am not authorized to perform
-  iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
-- [I'm an administrator and
-  want to allow others to access CodePipeline](#security_iam_troubleshoot-admin-delegate "#security_iam_troubleshoot-admin-delegate")
-- [I want to allow
-  people outside of my AWS account to access my CodePipeline
-  resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
+- [I am not authorized to perform an action in CodePipeline](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
+- [I am not authorized to perform iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
+- [I'm an administrator and want to allow others to access CodePipeline](#security_iam_troubleshoot-admin-delegate "#security_iam_troubleshoot-admin-delegate")
+- [I want to allow people outside of my AWS account to access my CodePipeline resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
 
-## I am not authorized to
-
-perform an action in CodePipeline
+## I am not authorized to perform an action in CodePipeline
 
 If the AWS Management Console tells you that you're not authorized to perform an action, you
 must contact your administrator for assistance. Your administrator is the person who
@@ -37,9 +28,7 @@ In this case, Mateo asks his administrator to update his policies to allow him t
 access the `my-pipeline` resource using the
 `codepipeline:GetPipeline` action.
 
-## I am not authorized to perform
-
-iam:PassRole
+## I am not authorized to perform iam:PassRole
 
 If you receive an error that you're not authorized to perform the
 `iam:PassRole` action, you must contact your administrator for
@@ -63,9 +52,7 @@ User: `arn:aws`:iam::`123456789012`:user/`marymajor` is not authorized to perfor
 In this case, Mary asks her administrator to update her policies to allow her to
 perform the `iam:PassRole` action.
 
-## I'm an administrator and
-
-want to allow others to access CodePipeline
+## I'm an administrator and want to allow others to access CodePipeline
 
 To allow others to access CodePipeline, you must grant permission to the people or applications that need access. If you are using AWS IAM Identity Center
 to manage people and applications, you assign permission sets to users or groups to define their level of access. Permission sets automatically create
@@ -76,10 +63,7 @@ a policy to the entity that grants them the correct permissions in CodePipeline.
 or application developer. They will use those credentials to access AWS. To learn more about creating IAM users, groups, policies, and permissions,
 see [IAM Identities](../../../IAM/latest/UserGuide/id.md "../../../IAM/latest/UserGuide/id.md") and [Policies and permissions in IAM](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md") in the _IAM User Guide_.
 
-## I want to allow
-
-people outside of my AWS account to access my CodePipeline
-resources
+## I want to allow people outside of my AWS account to access my CodePipeline resources
 
 You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who
 is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant
@@ -87,8 +71,7 @@ people access to your resources.
 
 To learn more, consult the following:
 
-- To learn whether CodePipeline supports these features, see [How AWS CodePipeline works with
-  IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
+- To learn whether CodePipeline supports these features, see [How AWS CodePipeline works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
 - To learn how to provide access to your resources across AWS accounts that you own, see [Providing access to an IAM user in another AWS account that you
   own](../../../IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.md") in the _IAM User Guide_.
 - To learn how to provide access to your resources to third-party AWS accounts, see [Providing access to AWS accounts owned by third parties](../../../IAM/latest/UserGuide/id_roles_common-scenarios_third-party.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios_third-party.md") in the

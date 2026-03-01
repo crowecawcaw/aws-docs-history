@@ -1,6 +1,4 @@
-# Identity-based policies (IAM)
-
-examples
+# Identity-based policies (IAM) examples
 
 You can attach policies to IAM identities. For example, you can do the
 following:

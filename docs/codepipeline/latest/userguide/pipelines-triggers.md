@@ -1,6 +1,4 @@
-# Automate starting pipelines using triggers and
-
-filtering
+# Automate starting pipelines using triggers and filtering
 
 Triggers allow you to configure your pipeline to start on a particular event type or
 filtered event type, such as when a change on a particular branch or pull request is
@@ -102,18 +100,14 @@ For filtering, regular expression patterns in glob format are supported as detai
 
 In certain cases, for pipelines with triggers that are filtered on file paths, the
 pipeline might not start when a branch with a file path filter is first created. For
-more information, see [Pipelines with connections that use
-trigger filtering by file paths might not start at branch creation](troubleshooting.md#troubleshooting-file-paths-filtering "troubleshooting.md#troubleshooting-file-paths-filtering").
+more information, see [Pipelines with connections that use trigger filtering by file paths might not start at branch creation](troubleshooting.md#troubleshooting-file-paths-filtering "troubleshooting.md#troubleshooting-file-paths-filtering").
 
-## Considerations for trigger
-
-filters
+## Considerations for trigger filters
 
 The following considerations apply when using triggers.
 
 - You cannot add more than one trigger per source action.
-- You can add multiple filter types to a trigger. For an example, see [4: A trigger with two push filter types
-  with conflicting includes and excludes](#example-filter-multiple-push "#example-filter-multiple-push") .
+- You can add multiple filter types to a trigger. For an example, see [4: A trigger with two push filter types with conflicting includes and excludes](#example-filter-multiple-push "#example-filter-multiple-push").
 - For a trigger with branch and file paths filters, when pushing the branch for
   the first time, the pipeline won't run since there is not access to the list of
   files changed for the newly created branch.
@@ -125,12 +119,9 @@ The following considerations apply when using triggers.
   connection might have a separate status for a merge event. For example, in
   Bitbucket, the Git event for a merge is not a pull request closure event.
   However, in GitHub, merging a pull request is a closure event. For more
-  information, see [Pull request events for triggers
-  by provider](#pipelines-filter-pullrequest-events "#pipelines-filter-pullrequest-events").
+  information, see [Pull request events for triggers by provider](#pipelines-filter-pullrequest-events "#pipelines-filter-pullrequest-events").
 
-## Pull request events for triggers
-
-by provider
+## Pull request events for triggers by provider
 
 The following table provides a summary of the Git events, such as for pull request
 closure, that result in pull request event types by provider.
@@ -162,9 +153,7 @@ configuration object.
 For a list of field definitions in the JSON structure and a detailed reference for
 includes and excludes, see [triggers](pipeline-requirements.md#pipeline.triggers "pipeline-requirements.md#pipeline.triggers").
 
-###### Example 1: A filter type with filters for
-
-branches and file paths (AND operation)
+###### Example 1: A filter type with filters for branches and file paths (AND operation)
 
 For a single filter type such as pull request, you can combine filters, and these
 filters will use an AND operation, meaning only a full match will start the
@@ -226,9 +215,7 @@ the file path is not.
 }
 ```
 
-###### Example 2: Includes and excludes use an AND
-
-operation between them
+###### Example 2: Includes and excludes use an AND operation between them
 
 Trigger filters, such as branch in a single pull request event type, use an AND
 operation between the includes and excludes. This allows you to configure multiple
@@ -260,10 +247,7 @@ For the following example JSON:
    }
 ```
 
-###### Example 3: A trigger with push and pull
-
-request filter types (OR operation), filters for file paths and branches (AND
-operation), and includes/excludes (AND operation)
+###### Example 3: A trigger with push and pull request filter types (OR operation), filters for file paths and branches (AND operation), and includes/excludes (AND operation)
 
 Trigger configuration objects, such as a trigger that contains a push event type
 and a pull request event type, use an OR operation between the two event types. The
@@ -353,9 +337,7 @@ The following is the example JSON for the configuration.
 
 ```
 
-###### Example 4: A trigger with two push filter types
-
-with conflicting includes and excludes
+###### Example 4: A trigger with two push filter types with conflicting includes and excludes
 
 The following image shows a push filter type specifying to filter on the tag
 `release-1` (included). A second push filter type is added specifying
@@ -409,9 +391,7 @@ The following is the example JSON for the configuration.
     },
 ```
 
-###### Example 5: Trigger configured while default
-
-action configuration BranchName is used for a manual start
+###### Example 5: Trigger configured while default action configuration BranchName is used for a manual start
 
 The action configuration default `BranchName` field defines a single
 branch that will be used when the pipeline is started manually, while triggers with

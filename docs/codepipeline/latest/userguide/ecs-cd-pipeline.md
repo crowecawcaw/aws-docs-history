@@ -13,15 +13,13 @@ the S3 artifact bucket is owned by AWS accounts that are safe and will be depend
 ###### Note
 
 This tutorial is for the Amazon ECS standard deployment action for CodePipeline. For a tutorial
-that uses the Amazon ECS to CodeDeploy blue/green deployment action in CodePipeline, see [Tutorial: Create a pipeline with an Amazon ECR
-source and ECS-to-CodeDeploy deployment](tutorials-ecs-ecr-codedeploy.md "tutorials-ecs-ecr-codedeploy.md").
+that uses the Amazon ECS to CodeDeploy blue/green deployment action in CodePipeline, see [Tutorial: Create a pipeline with an Amazon ECR source and ECS-to-CodeDeploy deployment](tutorials-ecs-ecr-codedeploy.md "tutorials-ecs-ecr-codedeploy.md").
 
 ###### Note
 
 This tutorial is for the Amazon ECS standard deployment action for CodePipeline with a source
 action. For a tutorial that uses the Amazon ECSstandard deployment action along with the
-ECRBuildAndPublish build action in CodePipeline to push your image, see [Tutorial: Build and push a Docker image to
-Amazon ECR with CodePipeline (V2 type)](tutorials-ecr-build-publish.md "tutorials-ecr-build-publish.md").
+ECRBuildAndPublish build action in CodePipeline to push your image, see [Tutorial: Build and push a Docker image to Amazon ECR with CodePipeline (V2 type)](tutorials-ecr-build-publish.md "tutorials-ecr-build-publish.md").
 
 ## Prerequisites
 
@@ -146,9 +144,7 @@ your build specification file.
 After you have satisfied these prerequisites, you can proceed with the tutorial and
 create your CD pipeline.
 
-## Step 1: Add a Build Specification File to Your Source
-
-Repository
+## Step 1: Add a Build Specification File to Your Source Repository
 
 This tutorial uses CodeBuild to build your Docker image and push the image to Amazon ECR. Add a
 `buildspec.yml` file to your source code repository to tell CodeBuild
@@ -214,9 +210,7 @@ service for this tutorial. The `REPOSITORY_URI` value corresponds to the
 `hello-world` value near the end of the
 file corresponds to the container name in the service's task definition.
 
-###### To add a `buildspec.yml` file to your source
-
-repository
+###### To add a `buildspec.yml` file to your source repository
 
 1. Open a text editor and then copy and paste the build specification above into
    a new file.
@@ -245,9 +239,7 @@ repository
    `git push`
    ```
 
-## Step 2: Creating Your Continuous Deployment
-
-Pipeline
+## Step 2: Creating Your Continuous Deployment Pipeline
 
 Use the CodePipeline wizard to create your pipeline stages and connect your source repository
 to your ECS service.
@@ -328,9 +320,7 @@ wizard does not have permissions to execute all of the commands contained in
 the `buildspec.yml` file, so the build stage fails. The
 next section adds the permissions for the build stage.
 
-## Step 3: Add Amazon ECR Permissions to the CodeBuild
-
-Role
+## Step 3: Add Amazon ECR Permissions to the CodeBuild Role
 
 The CodePipeline wizard created an IAM role for the CodeBuild build project, called
 **codebuild-`build-project-name`-service-role**.

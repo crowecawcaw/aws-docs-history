@@ -177,8 +177,7 @@ The following related resources can help you as you work with this action.
   instances, and CodeDeploy resources to deploy a sample application. You then build
   your pipeline with a CodeDeploy deployment action that deploys code maintained in
   your S3 bucket to your Amazon EC2 instance.
-- [Tutorial: Create a simple pipeline (CodeCommit
-  repository)](tutorials-simple-codecommit.md "tutorials-simple-codecommit.md") – This tutorial walks
+- [Tutorial: Create a simple pipeline (CodeCommit repository)](tutorials-simple-codecommit.md "tutorials-simple-codecommit.md") – This tutorial walks
   you through the creation of your CodeCommit source repository, EC2 instances, and
   CodeDeploy resources to deploy a sample application. You then build your pipeline
   with a CodeDeploy deployment action that deploys code from your CodeCommit repository to

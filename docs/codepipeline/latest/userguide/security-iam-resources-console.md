@@ -1,6 +1,4 @@
-# Viewing resources in the
-
-console
+# Viewing resources in the console
 
 The CodePipeline console requires the `ListRepositories` permission to
 display a list of repositories for your AWS account in the AWS Region where you

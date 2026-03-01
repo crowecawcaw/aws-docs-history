@@ -1,6 +1,4 @@
-# Tutorial: Create a pipeline with an Amazon ECR
-
-source and ECS-to-CodeDeploy deployment
+# Tutorial: Create a pipeline with an Amazon ECR source and ECS-to-CodeDeploy deployment
 
 In this tutorial, you configure a pipeline in AWS CodePipeline that deploys container
 applications using a blue/green deployment that supports Docker images. In a blue/green
@@ -51,8 +49,7 @@ This flow uses the following artifacts:
 
 When you commit a change to your Amazon ECR image repository, the pipeline source action
 creates an `imageDetail.json` file for that commit. For information
-about the `imageDetail.json` file, see [imageDetail.json file for Amazon ECS blue/green
-deployment actions](file-reference.md#file-reference-ecs-bluegreen "file-reference.md#file-reference-ecs-bluegreen").
+about the `imageDetail.json` file, see [imageDetail.json file for Amazon ECS blue/green deployment actions](file-reference.md#file-reference-ecs-bluegreen "file-reference.md#file-reference-ecs-bluegreen").
 
 When you create or edit your pipeline and update or specify source artifacts for your
 deployment stage, make sure to point to the source artifacts with the latest name and
@@ -63,33 +60,24 @@ and then edit the deployment stage in your pipeline.
 ###### Topics
 
 - [Prerequisites](#tutorials-ecs-ecr-codedeploy-prereq "#tutorials-ecs-ecr-codedeploy-prereq")
-- [Step 1: Create image and
-  push to an Amazon ECR repository](#tutorials-ecs-ecr-codedeploy-imagerepository "#tutorials-ecs-ecr-codedeploy-imagerepository")
-- [Step 2: Create task
-  definition and AppSpec source files and push to a CodeCommit repository](#tutorials-ecs-ecr-codedeploy-taskdefinition "#tutorials-ecs-ecr-codedeploy-taskdefinition")
-- [Step 3: Create your Application
-  Load Balancer and target groups](#tutorials-ecs-ecr-codedeploy-loadbal "#tutorials-ecs-ecr-codedeploy-loadbal")
-- [Step 4: Create your Amazon ECS cluster
-  and service](#tutorials-ecs-ecr-codedeploy-cluster "#tutorials-ecs-ecr-codedeploy-cluster")
-- [Step 5: Create your CodeDeploy
-  application and deployment group (ECS compute platform)](#tutorials-ecs-ecr-codedeploy-deployment "#tutorials-ecs-ecr-codedeploy-deployment")
+- [Step 1: Create image and push to an Amazon ECR repository](#tutorials-ecs-ecr-codedeploy-imagerepository "#tutorials-ecs-ecr-codedeploy-imagerepository")
+- [Step 2: Create task definition and AppSpec source files and push to a CodeCommit repository](#tutorials-ecs-ecr-codedeploy-taskdefinition "#tutorials-ecs-ecr-codedeploy-taskdefinition")
+- [Step 3: Create your Application Load Balancer and target groups](#tutorials-ecs-ecr-codedeploy-loadbal "#tutorials-ecs-ecr-codedeploy-loadbal")
+- [Step 4: Create your Amazon ECS cluster and service](#tutorials-ecs-ecr-codedeploy-cluster "#tutorials-ecs-ecr-codedeploy-cluster")
+- [Step 5: Create your CodeDeploy application and deployment group (ECS compute platform)](#tutorials-ecs-ecr-codedeploy-deployment "#tutorials-ecs-ecr-codedeploy-deployment")
 - [Step 6: Create your pipeline](#tutorials-ecs-ecr-codedeploy-pipeline "#tutorials-ecs-ecr-codedeploy-pipeline")
-- [Step 7: Make a change to your
-  pipeline and verify deployment](#tutorials-ecs-ecr-codedeploy-update "#tutorials-ecs-ecr-codedeploy-update")
+- [Step 7: Make a change to your pipeline and verify deployment](#tutorials-ecs-ecr-codedeploy-update "#tutorials-ecs-ecr-codedeploy-update")
 
 ## Prerequisites
 
 You must have already created the following resources:
 
-- A CodeCommit repository. You can use the AWS CodeCommit repository you created in [Tutorial: Create a simple pipeline (CodeCommit
-  repository)](tutorials-simple-codecommit.md "tutorials-simple-codecommit.md").
+- A CodeCommit repository. You can use the AWS CodeCommit repository you created in [Tutorial: Create a simple pipeline (CodeCommit repository)](tutorials-simple-codecommit.md "tutorials-simple-codecommit.md").
 - Launch an Amazon EC2 Linux instance and install Docker to create an image as shown
   in this tutorial. If you already have an image you want to use, you can skip
   this prerequisite.
 
-## Step 1: Create image and
-
-push to an Amazon ECR repository
+## Step 1: Create image and push to an Amazon ECR repository
 
 In this section, you use Docker to create an image and then use the AWS CLI to create an
 Amazon ECR repository and push the image to the repository.
@@ -161,9 +149,7 @@ aws ecr get-login-password --region us-west-2 | docker login --username AWS --pa
 docker push 111122223333.dkr.ecr.`us-east-1`.amazonaws.com/nginx:latest
 ```
 
-## Step 2: Create task
-
-definition and AppSpec source files and push to a CodeCommit repository
+## Step 2: Create task definition and AppSpec source files and push to a CodeCommit repository
 
 In this section, you create a task definition JSON file and register it with Amazon ECS.
 You then create an AppSpec file for CodeDeploy and use your Git client to push the files to
@@ -352,9 +338,7 @@ Resources:
          changes**.
       4. Repeat this step for each file you want to upload.
 
-## Step 3: Create your Application
-
-Load Balancer and target groups
+## Step 3: Create your Application Load Balancer and target groups
 
 In this section, you create an Amazon EC2 Application Load Balancer. You use the subnet
 names and target group values you create with your load balancer later, when you create
@@ -460,9 +444,7 @@ first target group. This ARN is used in the
    second target group, and then choose the check mark. Choose
    **Update** to save the updates.
 
-## Step 4: Create your Amazon ECS cluster
-
-and service
+## Step 4: Create your Amazon ECS cluster and service
 
 In this section, you create an Amazon ECS cluster and service where CodeDeploy routes traffic
 during deployment (to an Amazon ECS cluster rather than EC2 instances). To create your Amazon ECS
@@ -500,8 +482,7 @@ in Amazon ECS, you give it a family. This is similar to a name for multiple vers
 of the task definition, specified with a revision number. In this example, use
 "`ecs-demo:1`" for the family and revision number in your file.
 Use the subnet names, security group, and target group value you created with
-your load balancer in [Step 3: Create your Application
-Load Balancer and target groups](#tutorials-ecs-ecr-codedeploy-loadbal "#tutorials-ecs-ecr-codedeploy-loadbal") .
+your load balancer in [Step 3: Create your Application Load Balancer and target groups](#tutorials-ecs-ecr-codedeploy-loadbal "#tutorials-ecs-ecr-codedeploy-loadbal").
 
 ###### Note
 
@@ -568,9 +549,7 @@ service was created.
 aws ecs describe-services --cluster `cluster-name` --services `service-name`
 ```
 
-## Step 5: Create your CodeDeploy
-
-application and deployment group (ECS compute platform)
+## Step 5: Create your CodeDeploy application and deployment group (ECS compute platform)
 
 When you create a CodeDeploy application and deployment group for the Amazon ECS compute
 platform, the application is used during a deployment to reference the correct
@@ -777,9 +756,7 @@ terminates the original task set. You can use this time to roll back or
 terminate the task, but your deployment otherwise completes when the task
 set is terminated.
 
-## Step 7: Make a change to your
-
-pipeline and verify deployment
+## Step 7: Make a change to your pipeline and verify deployment
 
 Make a change to your image and then push the change to your Amazon ECR repository. This
 triggers your pipeline to run. Verify that your image source change is deployed.

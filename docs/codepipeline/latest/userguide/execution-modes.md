@@ -9,15 +9,13 @@ For more information about pipeline execution modes, see [How pipeline execution
 
 For pipelines in PARALLEL mode, when editing the pipeline execution mode to QUEUED or
 SUPERSEDED, the pipeline state will not display the updated state as PARALLEL. For more
-information, see [Pipelines changed from
-PARALLEL mode will display a previous execution mode](troubleshooting.md#troubleshooting-execution-mode-displayedstate "troubleshooting.md#troubleshooting-execution-mode-displayedstate").
+information, see [Pipelines changed from PARALLEL mode will display a previous execution mode](troubleshooting.md#troubleshooting-execution-mode-displayedstate "troubleshooting.md#troubleshooting-execution-mode-displayedstate").
 
 ###### Important
 
 For pipelines in PARALLEL mode, when editing the pipeline execution mode to QUEUED or
 SUPERSEDED, the pipeline definition for the pipeline in each mode will not be updated. For more
-information, see [Pipelines in PARALLEL mode have an
-outdated pipeline definition if edited when changing to QUEUED or SUPERSEDED mode](troubleshooting.md#troubleshooting-execution-mode-editing "troubleshooting.md#troubleshooting-execution-mode-editing").
+information, see [Pipelines in PARALLEL mode have an outdated pipeline definition if edited when changing to QUEUED or SUPERSEDED mode](troubleshooting.md#troubleshooting-execution-mode-editing "troubleshooting.md#troubleshooting-execution-mode-editing").
 
 ###### Important
 

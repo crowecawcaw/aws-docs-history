@@ -132,8 +132,7 @@ JSON
 ```
 
 For a list of example `configuration` details appropriate to the provider
-type, see [Valid configuration parameters for
-each provider type](structure-configuration-examples.md "structure-configuration-examples.md").
+type, see [Valid configuration parameters for each provider type](structure-configuration-examples.md "structure-configuration-examples.md").
 
 The action structure has the following requirements:
 
@@ -193,8 +192,7 @@ input transform entry to use the `revisionValue` in EventBridge for your
 pipeline event, where the `revisionValue` is derived from the source
 event variable for your object key, commit, or image ID. For more information,
 see the optional step for input transform entry included in the procedures under
-[Amazon ECR source actions and EventBridge resources](create-cwe-ecr-source.md "create-cwe-ecr-source.md"), [Connecting to Amazon S3 source actions with a
-source enabled for events](create-S3-source-events.md "create-S3-source-events.md"), or [CodeCommit source actions and EventBridge](triggering.md "triggering.md").
+[Amazon ECR source actions and EventBridge resources](create-cwe-ecr-source.md "create-cwe-ecr-source.md"), [Connecting to Amazon S3 source actions with a source enabled for events](create-S3-source-events.md "create-S3-source-events.md"), or [CodeCommit source actions and EventBridge](triggering.md "triggering.md").
 
 ## `actionTypeId`
 
@@ -338,9 +336,7 @@ pipeline.
 
 The artifact name for the action's output artifacts.
 
-## `configuration` (by action
-
-provider)
+## `configuration` (by action provider)
 
 The action configuration contains details and parameters appropriate to the
 provider type. In the section below, the example action configuration parameters are
@@ -348,12 +344,10 @@ specific to the S3 source action.
 
 The action configuration and input/output artifact limits can vary by action
 provider. For a list of action configuration examples by action provider, see [Action structure reference](action-reference.md "action-reference.md") and the table in
-[Valid configuration parameters for
-each provider type](structure-configuration-examples.md "structure-configuration-examples.md"). The table provides a link to
+[Valid configuration parameters for each provider type](structure-configuration-examples.md "structure-configuration-examples.md"). The table provides a link to
 the action reference for each provider type, which lists the configuration
 parameters for each action in detail. For a table with the input and output artifact
-limits for each action provider, see [Valid input and output artifacts for each
-action type](reference-action-artifacts.md "reference-action-artifacts.md").
+limits for each action provider, see [Valid input and output artifacts for each action type](reference-action-artifacts.md "reference-action-artifacts.md").
 
 The following considerations apply to working with actions:
 
@@ -362,14 +356,11 @@ The following considerations apply to working with actions:
 - For source action providers that do not use a connection, such as S3, you
   must use the `PollForSourceChanges` parameter to specify whether
   you want your pipeline to start automatically when a change is detected. See
-  [Valid settings for the
-  PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md").
+  [Valid settings for the PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md").
 - To configure automated change detection to start your pipeline, or to
-  disable change detection, see [Source actions and change detection
-  methods](change-detection-methods.md "change-detection-methods.md").
+  disable change detection, see [Source actions and change detection methods](change-detection-methods.md "change-detection-methods.md").
 - To configure triggers with filtering, use the source action for
-  connections, and then see [Automate starting pipelines using triggers and
-  filtering](pipelines-triggers.md "pipelines-triggers.md").
+  connections, and then see [Automate starting pipelines using triggers and filtering](pipelines-triggers.md "pipelines-triggers.md").
 - For the output variables for each action, see [Variables reference](reference-variables.md "reference-variables.md").
 
 ###### Note
@@ -380,8 +371,7 @@ override using input transform entry to use the
 the `revisionValue` is derived from the source event variable
 for your object key, commit, or image ID. For more information, see the
 optional step for input transform entry included in the procedures under
-[Amazon ECR source actions and EventBridge resources](create-cwe-ecr-source.md "create-cwe-ecr-source.md"), [Connecting to Amazon S3 source actions with a
-source enabled for events](create-S3-source-events.md "create-S3-source-events.md"), or [CodeCommit source actions and EventBridge](triggering.md "triggering.md").
+[Amazon ECR source actions and EventBridge resources](create-cwe-ecr-source.md "create-cwe-ecr-source.md"), [Connecting to Amazon S3 source actions with a source enabled for events](create-S3-source-events.md "create-S3-source-events.md"), or [CodeCommit source actions and EventBridge](triggering.md "triggering.md").
 
 ###### Important
 

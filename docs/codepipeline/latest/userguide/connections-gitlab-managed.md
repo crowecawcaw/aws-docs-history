@@ -17,27 +17,21 @@ Asia Pacific (Osaka), Africa (Cape Town), Middle East (Bahrain),
 Middle East (UAE), Europe (Spain), Europe (Zurich),
 Israel (Tel Aviv), or AWS GovCloud (US-West) Regions. To reference other available
 actions, see [Product and service integrations with CodePipeline](integrations.md "integrations.md"). For
-considerations with this action in the Europe (Milan) Region, see the note in [CodeStarSourceConnection for
-Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed
-actions](action-reference-CodestarConnectionSource.md "action-reference-CodestarConnectionSource.md").
+considerations with this action in the Europe (Milan) Region, see the note in [CodeStarSourceConnection for Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed actions](action-reference-CodestarConnectionSource.md "action-reference-CodestarConnectionSource.md").
 
 To add a GitLab self-managed source action in CodePipeline, you can choose either to:
 
 - Use the CodePipeline console **Create pipeline** wizard or
   **Edit action** page to choose the **GitLab
-  self-managed** provider option. See [Create a connection to GitLab
-  self-managed (console)](#connections-gitlab-managed-console "#connections-gitlab-managed-console") to add the action. The
+  self-managed** provider option. See [Create a connection to GitLab self-managed (console)](#connections-gitlab-managed-console "#connections-gitlab-managed-console") to add the action. The
   console helps you create a host resource and a connections resource.
 - Use the CLI to add the action configuration for the
   `CreateSourceConnection` action with the
   `GitLabSelfManaged` provider and create your resources:
-  - To create your connections resources, see [Create a host and connection to GitLab
-    self-managed (CLI)](#connections-gitlab-managed-cli "#connections-gitlab-managed-cli") to create a host
+  - To create your connections resources, see [Create a host and connection to GitLab self-managed (CLI)](#connections-gitlab-managed-cli "#connections-gitlab-managed-cli") to create a host
     resource and a connections resource with the CLI.
   - Use the `CreateSourceConnection` example action configuration
-    in [CodeStarSourceConnection for
-    Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed
-    actions](action-reference-CodestarConnectionSource.md "action-reference-CodestarConnectionSource.md") to add your
+    in [CodeStarSourceConnection for Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed actions](action-reference-CodestarConnectionSource.md "action-reference-CodestarConnectionSource.md") to add your
     action as shown in [Create a pipeline (CLI)](pipelines-create.md#pipelines-create-cli "pipelines-create.md#pipelines-create-cli").
 
 ###### Note
@@ -79,14 +73,10 @@ set up the host, you can delete the PAT.
 
 ###### Topics
 
-- [Create a connection to GitLab
-  self-managed (console)](#connections-gitlab-managed-console "#connections-gitlab-managed-console")
-- [Create a host and connection to GitLab
-  self-managed (CLI)](#connections-gitlab-managed-cli "#connections-gitlab-managed-cli")
+- [Create a connection to GitLab self-managed (console)](#connections-gitlab-managed-console "#connections-gitlab-managed-console")
+- [Create a host and connection to GitLab self-managed (CLI)](#connections-gitlab-managed-cli "#connections-gitlab-managed-cli")
 
-## Create a connection to GitLab
-
-self-managed (console)
+## Create a connection to GitLab self-managed (console)
 
 Use these steps to use the CodePipeline console to add a connections action for your GitLab
 self-managedr repository.
@@ -102,9 +92,7 @@ For a host connection to GitLab self-managed, you must have completed the steps 
 create a host resource for your connection. See [Manage hosts
 for connections](../../../dtconsole/latest/userguide/connections-hosts.md "../../../dtconsole/latest/userguide/connections-hosts.md").
 
-### Step 1: Create or edit
-
-your pipeline
+### Step 1: Create or edit your pipeline
 
 ###### To create or edit your pipeline
 
@@ -130,9 +118,7 @@ your pipeline
      proceed to Step 3: Save your GitLab self-managed source
      action.
 
-### Step 2: Create a
-
-connection to GitLab self-managed
+### Step 2: Create a connection to GitLab self-managed
 
 After you choose to create the connection, the **Connect to GitLab
 self-managed** page is shown.
@@ -168,9 +154,7 @@ Choose **Continue**.
 ![Console screenshot showing GitLab self-managed personal access token entry for the new host](images/connections-create-glsm-pat.png) 8. The connection page shows the created connection in an
 **Available** status.
 
-### Step 3: Save your GitLab
-
-self-managed source action
+### Step 3: Save your GitLab self-managed source action
 
 Use these steps on the wizard or **Edit action** page to save
 your source action with your connection information.
@@ -181,8 +165,7 @@ your source action with your connection information.
    third-party repository.
 2. Under **Pipeline triggers** you can add triggers if your
    action is an CodeConnections action. To configure the pipeline trigger configuration
-   and to optionally filter with triggers, see more details in [Add trigger with code push or pull request event
-   types](pipelines-filter.md "pipelines-filter.md").
+   and to optionally filter with triggers, see more details in [Add trigger with code push or pull request event types](pipelines-filter.md "pipelines-filter.md").
 3. In **Output artifact format**, you must choose the format
    for your artifacts.
    - To store output artifacts from the GitLab self-managed action
@@ -199,9 +182,7 @@ your source action with your connection information.
    **Save** on the **Edit action**
    page.
 
-## Create a host and connection to GitLab
-
-self-managed (CLI)
+## Create a host and connection to GitLab self-managed (CLI)
 
 You can use the AWS Command Line Interface (AWS CLI) to create a connection.
 
@@ -286,8 +267,7 @@ the following.
    ```
 
    - To configure the pipeline trigger configuration to filter with
-     triggers, see more details in [Add trigger with code push or pull request event
-     types](pipelines-filter.md "pipelines-filter.md"). For example, the following adds
+     triggers, see more details in [Add trigger with code push or pull request event types](pipelines-filter.md "pipelines-filter.md"). For example, the following adds
      to the pipeline level of the pipeline JSON definition. In this example,
      `release-v0` and `release-v1` are the Git tags
      to include, and `release-v2` is the Git tag to

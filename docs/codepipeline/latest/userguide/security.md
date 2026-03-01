@@ -25,8 +25,7 @@ responsibility model](https://aws.amazon.com/compliance/shared-responsibility-mo
 ###### Topics
 
 - [Data protection in AWS CodePipeline](data-protection.md "data-protection.md")
-- [Identity and access management for
-  AWS CodePipeline](security-iam.md "security-iam.md")
+- [Identity and access management for AWS CodePipeline](security-iam.md "security-iam.md")
 - [Logging and monitoring in CodePipeline](incident-response.md "incident-response.md")
 - [Compliance validation for AWS CodePipeline](codepipeline-compliance.md "codepipeline-compliance.md")
 - [Resilience in AWS CodePipeline](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")

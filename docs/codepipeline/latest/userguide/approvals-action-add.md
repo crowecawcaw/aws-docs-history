@@ -1,6 +1,4 @@
-# Add a manual approval action to a pipeline in
-
-CodePipeline
+# Add a manual approval action to a pipeline in CodePipeline
 
 You can add an approval action to a stage in a CodePipeline pipeline at the point where you
 want the pipeline to stop so someone can manually approve or reject the action.
@@ -14,18 +12,14 @@ If you want to use Amazon SNS to send notifications when an approval action is r
 review, you must first complete the following prerequisites:
 
 - Grant permission to your CodePipeline service role to access Amazon SNS resources. For
-  information, see [Grant Amazon SNS permissions to a CodePipeline
-  service role](approvals-service-role-permissions.md "approvals-service-role-permissions.md").
+  information, see [Grant Amazon SNS permissions to a CodePipeline service role](approvals-service-role-permissions.md "approvals-service-role-permissions.md").
 - Grant permission to one or more IAM identities in your organization to update
-  the status of an approval action. For information, see [Grant approval permissions to an IAM user
-  in CodePipeline](approvals-iam-permissions.md "approvals-iam-permissions.md").
+  the status of an approval action. For information, see [Grant approval permissions to an IAM user in CodePipeline](approvals-iam-permissions.md "approvals-iam-permissions.md").
   In this example, you create a new approval stage and add a manual approval action to
   the stage. You can also add a manual approval action to an existing stage that contains
   other actions.
 
-## Add a manual approval action to a
-
-CodePipeline pipeline (console)
+## Add a manual approval action to a CodePipeline pipeline (console)
 
 You can use the CodePipeline console to add an approval action to an existing CodePipeline
 pipeline. You must use the AWS CLI if you want to add approval actions when you
@@ -62,9 +56,7 @@ Add action group**. 6. On the **Edit action** page, do the following:
      information you want to share with the reviewer.
     6. Choose **Save**.
 
-## Add a manual approval action to a CodePipeline
-
-pipeline (CLI)
+## Add a manual approval action to a CodePipeline pipeline (CLI)
 
 You can use the CLI to add an approval action to an existing pipeline or when you
 create a pipeline. You do this by including an approval action, with the Manual

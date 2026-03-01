@@ -59,8 +59,7 @@ for an emitted event along with the schema for a processed event.
 - [Pipeline-level events](#detect-state-events-pipeline "#detect-state-events-pipeline")
 - [Stage-level events](#detect-state-events-stage "#detect-state-events-stage")
 - [Action-level events](#detect-state-events-action "#detect-state-events-action")
-- [Create a Rule That Sends a Notification on a
-  Pipeline Event](#create-cloudwatch-notifications "#create-cloudwatch-notifications")
+- [Create a Rule That Sends a Notification on a Pipeline Event](#create-cloudwatch-notifications "#create-cloudwatch-notifications")
 
 ## Detail types
 
@@ -999,9 +998,7 @@ the `us-west-2` Region, for the action `"Deploy"`.
 }
 ```
 
-## Create a Rule That Sends a Notification on a
-
-Pipeline Event
+## Create a Rule That Sends a Notification on a Pipeline Event
 
 A rule watches for certain events and then routes them to AWS targets that you choose. You
 can create a rule that performs an AWS action automatically when another AWS action happens,
@@ -1009,14 +1006,10 @@ or a rule that performs an AWS action regularly on a set schedule.
 
 ###### Topics
 
-- [Send a Notification When Pipeline
-  State Changes (Console)](#monitoring-cloudwatch-events-console "#monitoring-cloudwatch-events-console")
-- [Send a Notification When Pipeline State
-  Changes (CLI)](#monitoring-cloudwatch-events-cli "#monitoring-cloudwatch-events-cli")
+- [Send a Notification When Pipeline State Changes (Console)](#monitoring-cloudwatch-events-console "#monitoring-cloudwatch-events-console")
+- [Send a Notification When Pipeline State Changes (CLI)](#monitoring-cloudwatch-events-cli "#monitoring-cloudwatch-events-cli")
 
-### Send a Notification When Pipeline
-
-State Changes (Console)
+### Send a Notification When Pipeline State Changes (Console)
 
 These steps show how to use the EventBridge console to create a rule to send notifications of
 changes in CodePipeline.
@@ -1162,9 +1155,7 @@ the target associated with your EventBridge rule (in this case, the target is Co
 15. On the **Review and create** page, review the rule configuration.
     If you're satisfied with the rule, choose **Create rule**.
 
-### Send a Notification When Pipeline State
-
-Changes (CLI)
+### Send a Notification When Pipeline State Changes (CLI)
 
 These steps show how to use the CLI to create an CloudWatch Events rule to send notifications of
 changes in CodePipeline.

@@ -32,12 +32,9 @@ pipeline component types:
 - Field reference for the [Stage declaration](stage-requirements.md "stage-requirements.md")
 - Field reference for the [Action declaration](action-requirements.md "action-requirements.md")
 - List of [Valid action providers in CodePipeline](actions-valid-providers.md "actions-valid-providers.md") by action type
-- Reference for [Valid settings for the
-  PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md")
-- Reference for [Valid input and output artifacts for each
-  action type](reference-action-artifacts.md "reference-action-artifacts.md")
-- List of links for [Valid configuration parameters for
-  each provider type](structure-configuration-examples.md "structure-configuration-examples.md")
+- Reference for [Valid settings for the PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md")
+- Reference for [Valid input and output artifacts for each action type](reference-action-artifacts.md "reference-action-artifacts.md")
+- List of links for [Valid configuration parameters for each provider type](structure-configuration-examples.md "structure-configuration-examples.md")
   For more information, see the [PipelineDeclaration](../APIReference/API_PipelineDeclaration.md "../APIReference/API_PipelineDeclaration.md") object in the _CodePipeline API
   Guide_.
 
@@ -57,9 +54,6 @@ overrides, triggers, and actions as shown in the following example.
 - [Stage declaration](stage-requirements.md "stage-requirements.md")
 - [Action declaration](action-requirements.md "action-requirements.md")
 - [Valid action providers in CodePipeline](actions-valid-providers.md "actions-valid-providers.md")
-- [Valid settings for the
-  PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md")
-- [Valid input and output artifacts for each
-  action type](reference-action-artifacts.md "reference-action-artifacts.md")
-- [Valid configuration parameters for
-  each provider type](structure-configuration-examples.md "structure-configuration-examples.md")
+- [Valid settings for the PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md")
+- [Valid input and output artifacts for each action type](reference-action-artifacts.md "reference-action-artifacts.md")
+- [Valid configuration parameters for each provider type](structure-configuration-examples.md "structure-configuration-examples.md")

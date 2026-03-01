@@ -1,6 +1,4 @@
-# Tutorial: Create a pipeline that tests your
-
-iOS app with AWS Device Farm
+# Tutorial: Create a pipeline that tests your iOS app with AWS Device Farm
 
 You can use AWS CodePipeline to easily configure a continuous integration flow in which your app
 is tested each time the source bucket changes. This tutorial shows you how to create and
@@ -44,12 +42,9 @@ Here is an example URL for a project. To extract the project ID, copy the value 
 https://<region-URL>/devicefarm/home?region=us-west-2#/projects/eec4905f-98f8-40aa-9afc-4c1cfexample/runs
 ```
 
-## Configure CodePipeline to use your Device Farm tests
+## Configure CodePipeline to use your Device Farm tests (Amazon S3 example)
 
-(Amazon S3 example)
-
-1. Create or use an S3 bucket with versioning enabled. Follow the instructions in [Step 1: Create an S3 source bucket for your
-   application](tutorials-simple-s3.md#s3-create-s3-bucket "tutorials-simple-s3.md#s3-create-s3-bucket") to create an S3
+1. Create or use an S3 bucket with versioning enabled. Follow the instructions in [Step 1: Create an S3 source bucket for your application](tutorials-simple-s3.md#s3-create-s3-bucket "tutorials-simple-s3.md#s3-create-s3-bucket") to create an S3
    bucket.
 2. In the Amazon S3 console for your bucket, choose **Upload**,
    and follow the instructions to upload your .zip file.
@@ -79,8 +74,7 @@ Your sample application must be packaged in a .zip file. 3. To create your pipel
 
     If you use a CodePipeline service role that was created before July 2018, you must add
      permissions for Device Farm. To do this, open the IAM console, find the role, and then
-     add the following permissions to the role's policy. For more information, see [Add permissions to the CodePipeline
-     service role](how-to-custom-role.md#how-to-update-role-new-services "how-to-custom-role.md#how-to-update-role-new-services").
+     add the following permissions to the role's policy. For more information, see [Add permissions to the CodePipeline service role](how-to-custom-role.md#how-to-update-role-new-services "how-to-custom-role.md#how-to-update-role-new-services").
 
 
     ```

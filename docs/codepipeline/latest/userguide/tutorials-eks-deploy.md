@@ -37,11 +37,9 @@ All of these resources should be created within the same AWS Region.
 - You must use an existing CodePipeline service role that you will update with the
   permissions for this action using
 
-[Step 3: Update the CodePipeline service role policy
-in IAM](#tutorials-eks-deploy-role "#tutorials-eks-deploy-role") below. The
+[Step 3: Update the CodePipeline service role policy in IAM](#tutorials-eks-deploy-role "#tutorials-eks-deploy-role") below. The
 permissions needed are based on the type of cluster you create. For more
-information, see [Service role policy
-permissions](action-reference-EKS.md#action-reference-EKS-service-role "action-reference-EKS.md#action-reference-EKS-service-role").
+information, see [Service role policy permissions](action-reference-EKS.md#action-reference-EKS-service-role "action-reference-EKS.md#action-reference-EKS-service-role").
 
 - A working image and repository tag that you have pushed to ECR or your image
   repository.
@@ -49,18 +47,14 @@ permissions](action-reference-EKS.md#action-reference-EKS-service-role "action-r
 After you have satisfied these prerequisites, you can proceed with the tutorial and
 create your CD pipeline.
 
-## Step 1: (Optional) Create a cluster in
-
-Amazon EKS
+## Step 1: (Optional) Create a cluster in Amazon EKS
 
 You can choose to create an EKS cluster with a public or private endpoint.
 
 In the following steps, you create a public or a private cluster in EKS. This step is
 optional if you have already created your cluster.
 
-### Create a public cluster in
-
-Amazon EKS
+### Create a public cluster in Amazon EKS
 
 In this step, you create a cluster in EKS.
 
@@ -72,9 +66,7 @@ In this step, you create a cluster in EKS.
    **Next**.
 3. Choose **Create**.
 
-### Create a private cluster in
-
-Amazon EKS
+### Create a private cluster in Amazon EKS
 
 In case you choose to create a cluster with a private endpoint, make sure to
 attach the private subnets only, and make sure they have internet connection.
@@ -148,9 +140,7 @@ In this step, you create a cluster in EKS.
 Your EKS cluster can be a public or a private cluster. This step is for clusters
 that have ONLY a private endpoint. Make sure that if your cluster is private.
 
-## Step 2: Configure your
-
-private cluster in Amazon EKS
+## Step 2: Configure your private cluster in Amazon EKS
 
 This step is applicable only if you have created a private cluster. This step is for
 clusters that have ONLY a private endpoint.
@@ -161,15 +151,12 @@ clusters that have ONLY a private endpoint.
    **Networking**
    tab.
    Attach the private subnets captured in the **Determine the
-   private subnets in your VPC** section under [Step 1: (Optional) Create a cluster in
-   Amazon EKS](#tutorials-eks-deploy-cluster "#tutorials-eks-deploy-cluster").
+   private subnets in your VPC** section under [Step 1: (Optional) Create a cluster in Amazon EKS](#tutorials-eks-deploy-cluster "#tutorials-eks-deploy-cluster").
 2. Make sure that the private subnets have access to the internet since CodePipeline
    stores and retrieves artifacts from the S3 artifact bucket for your
    pipeline.
 
-## Step 3: Update the CodePipeline service role policy
-
-in IAM
+## Step 3: Update the CodePipeline service role policy in IAM
 
 In this step, you will update an existing CodePipeline service role, such as `**cp-service-role**`, with permissions required by
 CodePipeline to connect with your cluster. If you do not have existing role, create a
@@ -302,9 +289,7 @@ Update your CodePipeline service role with the following steps.
 
 6. Choose **Update policy**.
 
-## Step 4: Create an access entry for
-
-the CodePipeline service role
+## Step 4: Create an access entry for the CodePipeline service role
 
 In this step, you create an access entry on your cluster that will add the
 CodePipeline service role you updated in Step 3, along with a managed access
@@ -328,9 +313,7 @@ Kubernetes. As a best practice, to scope down permissions in your policy
 with least privilege rather than the administrative policy, attach a custom
 policy instead. 6. On the review page, choose **Create**.
 
-## Step 5: Create a source repository and add
-
-the `helm chart` config files
+## Step 5: Create a source repository and add the `helm chart` config files
 
 In this step, you create a config file that is appropriate for your action (Kubernetes
 manifest files or Helm

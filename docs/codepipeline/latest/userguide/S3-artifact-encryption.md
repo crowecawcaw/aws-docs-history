@@ -1,6 +1,4 @@
-# Configure server-side encryption for artifacts
-
-stored in Amazon S3 for CodePipeline
+# Configure server-side encryption for artifacts stored in Amazon S3 for CodePipeline
 
 There are two ways to configure server-side encryption for Amazon S3 artifacts:
 
@@ -72,8 +70,7 @@ Developer Guide](../../../kms/latest/developerguide.md "../../../kms/latest/deve
 ###### Topics
 
 - [View your AWS managed key](#S3-view-default-keys "#S3-view-default-keys")
-- [Configure server-side encryption for S3
-  buckets using CloudFormation or the AWS CLI](#S3-rotate-customer-key "#S3-rotate-customer-key")
+- [Configure server-side encryption for S3 buckets using CloudFormation or the AWS CLI](#S3-rotate-customer-key "#S3-rotate-customer-key")
 
 ## View your AWS managed key
 
@@ -101,9 +98,7 @@ For more information about the Regions and endpoints available for CodePipeline,
 default, **aws/s3**). Basic information about the key is
 displayed.
 
-## Configure server-side encryption for S3
-
-buckets using CloudFormation or the AWS CLI
+## Configure server-side encryption for S3 buckets using CloudFormation or the AWS CLI
 
 When you use CloudFormation or the AWS CLI to create a pipeline, you must configure
 server-side encryption manually. Use the sample bucket policy above, and then create
@@ -114,8 +109,7 @@ AWS managed key. Some reasons to choose your own key include:
   requirements for your organization.
 - You want to create a pipeline that uses resources associated with another
   AWS account. This requires the use of a customer managed key. For more information,
-  see [Create a pipeline in CodePipeline that uses resources
-  from another AWS account](pipelines-create-cross-account.md "pipelines-create-cross-account.md").
+  see [Create a pipeline in CodePipeline that uses resources from another AWS account](pipelines-create-cross-account.md "pipelines-create-cross-account.md").
 
 Cryptographic best practices discourage extensive reuse of encryption keys. As a
 best practice, rotate your key on a regular basis. To create new cryptographic

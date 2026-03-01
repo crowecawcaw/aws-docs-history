@@ -9,8 +9,7 @@ You use an Elastic Beanstalk action to deploy application code to your deploymen
 - [Configuration parameters](#action-reference-Beanstalk-config "#action-reference-Beanstalk-config")
 - [Input artifacts](#action-reference-Beanstalk-input "#action-reference-Beanstalk-input")
 - [Output artifacts](#action-reference-Beanstalk-output "#action-reference-Beanstalk-output")
-- [Service role permissions:
-  ElasticBeanstalk deploy action](#edit-role-beanstalk "#edit-role-beanstalk")
+- [Service role permissions: ElasticBeanstalk deploy action](#edit-role-beanstalk "#edit-role-beanstalk")
 - [Action declaration](#action-reference-Beanstalk-example "#action-reference-Beanstalk-example")
 - [See also](#action-reference-Beanstalk-links "#action-reference-Beanstalk-links")
 
@@ -53,9 +52,7 @@ environments simultaneously.
 - **Description:** Output artifacts do not apply
   for this action type.
 
-## Service role permissions:
-
-`ElasticBeanstalk` deploy action
+## Service role permissions: `ElasticBeanstalk` deploy action
 
 For Elastic Beanstalk, the following are the minimum permissions needed to create pipelines
 with an `ElasticBeanstalk` deploy action.

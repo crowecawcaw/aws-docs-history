@@ -7,9 +7,7 @@ started in the current pipeline structure version. Since, automatic rollback
 configuration is part of the pipeline definition, your pipeline stage will auto-rollback
 only after there is a successful pipeline execution in the pipeline stage.
 
-## Configure a stage for automatic
-
-rollback (console)
+## Configure a stage for automatic rollback (console)
 
 You can roll back a stage to a specified previous successful execution. For more
 information, see [RollbackStage](../APIReference/API_RollbackStage.md "../APIReference/API_RollbackStage.md") in the _CodePipeline API
@@ -28,9 +26,7 @@ Save the changes to your pipeline.
 
 ![An example edit screen to configure a rolled back stage in CodePipeline.](images/rollback-configure.png)
 
-## Configure a stage for automatic rollback
-
-(CLI)
+## Configure a stage for automatic rollback (CLI)
 
 To use the AWS CLI to configure a failed stage to automatically roll back to the
 most recent successful execution, use the commands to create or update a pipeline as
@@ -78,9 +74,7 @@ For more information about configuring failure conditions for stage
 rollback, see [FailureConditions](../APIReference/API_FailureConditions.md "../APIReference/API_FailureConditions.md") in the _CodePipeline API
 Reference_.
 
-## Configure a stage for automatic rollback
-
-(CloudFormation)
+## Configure a stage for automatic rollback (CloudFormation)
 
 To use CloudFormation to configure a stage to roll back automatically on failure, use the
 `OnFailure` parameter. On failure, the stage will automatically roll

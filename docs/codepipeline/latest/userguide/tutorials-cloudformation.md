@@ -15,7 +15,5 @@ dependable.
 
 ###### Topics
 
-- [Example 1: Create an AWS CodeCommit pipeline
-  with AWS CloudFormation](tutorials-cloudformation-codecommit.md "tutorials-cloudformation-codecommit.md")
-- [Example 2: Create an Amazon S3 pipeline with
-  AWS CloudFormation](tutorials-cloudformation-s3.md "tutorials-cloudformation-s3.md")
+- [Example 1: Create an AWS CodeCommit pipeline with AWS CloudFormation](tutorials-cloudformation-codecommit.md "tutorials-cloudformation-codecommit.md")
+- [Example 2: Create an Amazon S3 pipeline with AWS CloudFormation](tutorials-cloudformation-s3.md "tutorials-cloudformation-s3.md")

@@ -1,6 +1,4 @@
-# Tutorial: Create a pipeline that uses AWS AppConfig
-
-as a deployment provider
+# Tutorial: Create a pipeline that uses AWS AppConfig as a deployment provider
 
 In this tutorial, you configure a pipeline that continuously delivers configuration files
 using AWS AppConfig as the deployment action provider in your deployment stage.
@@ -16,26 +14,20 @@ and will be dependable.
 ###### Topics
 
 - [Prerequisites](#tutorials-AppConfig-prereq "#tutorials-AppConfig-prereq")
-- [Step 1: Create your AWS AppConfig
-  resources](#tutorials-AppConfig-application "#tutorials-AppConfig-application")
-- [Step 2: Upload files to your S3 source
-  bucket](#tutorials-AppConfig-bucket "#tutorials-AppConfig-bucket")
+- [Step 1: Create your AWS AppConfig resources](#tutorials-AppConfig-application "#tutorials-AppConfig-application")
+- [Step 2: Upload files to your S3 source bucket](#tutorials-AppConfig-bucket "#tutorials-AppConfig-bucket")
 - [Step 3: Create your pipeline](#tutorials-AppConfig-pipeline "#tutorials-AppConfig-pipeline")
-- [Step 4: Make a change to any source file
-  and verify deployment](#tutorials-AppConfig-verify "#tutorials-AppConfig-verify")
+- [Step 4: Make a change to any source file and verify deployment](#tutorials-AppConfig-verify "#tutorials-AppConfig-verify")
 
 ## Prerequisites
 
 Before you begin, you must complete the following:
 
 - This example uses an S3 source for your pipeline. Create or use an Amazon S3 bucket
-  with versioning enabled. Follow the instructions in [Step 1: Create an S3 source bucket for your
-  application](tutorials-simple-s3.md#s3-create-s3-bucket "tutorials-simple-s3.md#s3-create-s3-bucket") to
+  with versioning enabled. Follow the instructions in [Step 1: Create an S3 source bucket for your application](tutorials-simple-s3.md#s3-create-s3-bucket "tutorials-simple-s3.md#s3-create-s3-bucket") to
   create an S3 bucket.
 
-## Step 1: Create your AWS AppConfig
-
-resources
+## Step 1: Create your AWS AppConfig resources
 
 In this section, you create the following resources:
 
@@ -53,9 +45,7 @@ In this section, you create the following resources:
   percentage of clients should receive the new deployed config at any given time
   during a deployment.
 
-###### To create an application, environment, configuration profile, and deployment
-
-strategy
+###### To create an application, environment, configuration profile, and deployment strategy
 
 1. Sign in to the AWS Management Console.
 2. Use the steps in the following topics to create your resources in AWS
@@ -68,9 +58,7 @@ strategy
    - (Optional) [Choose a predefined deployment strategy or create your
      own](../../../systems-manager/latest/userguide/appconfig-creating-deployment-strategy.md "../../../systems-manager/latest/userguide/appconfig-creating-deployment-strategy.md").
 
-## Step 2: Upload files to your S3 source
-
-bucket
+## Step 2: Upload files to your S3 source bucket
 
 In this section, create your configuration file or files. Then zip and push your
 source files to the bucket that the pipeline uses for your source stage.
@@ -175,9 +163,7 @@ Choose **Next**. 11. In **Step 6: Add deploy stage**:
 12. In **Step 7: Review**, review the information, and then
     choose **Create pipeline**.
 
-## Step 4: Make a change to any source file
-
-and verify deployment
+## Step 4: Make a change to any source file and verify deployment
 
 Make a change to your source files and upload the change to your bucket. This triggers
 your pipeline to run. Verify that your configuration is available by viewing the

@@ -1,6 +1,4 @@
-# Create an EventBridge rule for an Amazon S3
-
-source (CLI)
+# Create an EventBridge rule for an Amazon S3 source (CLI)
 
 ###### To create an AWS CloudTrail trail and enable logging
 
@@ -59,9 +57,7 @@ named `amzn-s3-demo-source-bucket/myFolder`.
 aws cloudtrail put-event-selectors --trail-name `my-trail` --event-selectors '[{ "ReadWriteType": "WriteOnly", "IncludeManagementEvents":false, "DataResources": [{ "Type": "AWS::S3::Object", "Values": ["arn:aws:s3:::amzn-s3-demo-source-bucket/myFolder/file.zip"] }] }]'
 ```
 
-###### To create an EventBridge rule with Amazon S3 as the event
-
-source and CodePipeline as the target and apply the permissions policy
+###### To create an EventBridge rule with Amazon S3 as the event source and CodePipeline as the target and apply the permissions policy
 
 1. Grant permissions for EventBridge to use CodePipeline to invoke the rule. For more information, see
    [Using resource-based policies for Amazon EventBridge](../../../eventbridge/latest/userguide/eb-use-resource-based.md "../../../eventbridge/latest/userguide/eb-use-resource-based.md").
@@ -188,9 +184,7 @@ aws events put-targets --rule MyS3SourceRule --targets Id=1,Arn=arn:aws:codepipe
 }
 ```
 
-###### To edit your pipeline's PollForSourceChanges
-
-parameter
+###### To edit your pipeline's PollForSourceChanges parameter
 
 ###### Important
 
@@ -198,8 +192,7 @@ When you create a pipeline with this method, the `PollForSourceChanges`
 parameter defaults to true if it is not explicitly set to false. When you add
 event-based change detection, you must add the parameter to your output and set it to
 false to disable polling. Otherwise, your pipeline starts twice for a single source
-change. For details, see [Valid settings for the
-PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md").
+change. For details, see [Valid settings for the PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md").
 
 1. Run the **get-pipeline** command to copy the pipeline structure into a
    JSON file. For example, for a pipeline named

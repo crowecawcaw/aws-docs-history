@@ -1,6 +1,4 @@
-# AWS CodeBuild build and test action
-
-reference
+# AWS CodeBuild build and test action reference
 
 Allows you to run builds and tests as part of your pipeline. When you run a CodeBuild build or
 test action, commands specified in the buildspec are run inside of a CodeBuild container. All
@@ -21,8 +19,7 @@ your pipeline adjusts the source in the CodeBuild console. For more information,
 - [Output artifacts](#action-reference-CodeBuild-output "#action-reference-CodeBuild-output")
 - [Output variables](#action-reference-CodeBuild-variables "#action-reference-CodeBuild-variables")
 - [Service role permissions: CodeBuild action](#edit-role-codebuild "#edit-role-codebuild")
-- [Action declaration (CodeBuild
-  example)](#action-reference-CodeBuild-example "#action-reference-CodeBuild-example")
+- [Action declaration (CodeBuild example)](#action-reference-CodeBuild-example "#action-reference-CodeBuild-example")
 - [See also](#action-reference-CodeBuild-links "#action-reference-CodeBuild-links")
 
 ## Action type
@@ -114,8 +111,7 @@ Required: No
 The value of this parameter is used to set environment variables for the
 CodeBuild action in your pipeline. The value for the
 `EnvironmentVariables` parameter takes the form of a JSON
-array of environment variable objects. See the example parameter in [Action declaration (CodeBuild
-example)](#action-reference-CodeBuild-example "#action-reference-CodeBuild-example").
+array of environment variable objects. See the example parameter in [Action declaration (CodeBuild example)](#action-reference-CodeBuild-example "#action-reference-CodeBuild-example").
 
 Each object has three parts, all of which are strings:
 
@@ -151,8 +147,7 @@ exceeded.
 
 For more information, see [EnvironmentVariable](../../../codebuild/latest/APIReference/API_EnvironmentVariable.md "../../../codebuild/latest/APIReference/API_EnvironmentVariable.md") in the AWS CodeBuild API Reference. For an
 example CodeBuild action with an environment variable that resolves to the
-GitHub branch name, see [Example: Use a BranchName
-variable with CodeBuild environment variables](actions-variables.md#actions-variables-examples-env-branchname "actions-variables.md#actions-variables-examples-env-branchname").
+GitHub branch name, see [Example: Use a BranchName variable with CodeBuild environment variables](actions-variables.md#actions-variables-examples-env-branchname "actions-variables.md#actions-variables-examples-env-branchname").
 
 ## Input artifacts
 
@@ -205,8 +200,7 @@ part of the build. For more details on how to export environment variables, see 
 _AWS CodeBuild API Guide_.
 
 For more information about using CodeBuild environment variables in CodePipeline, see the
-examples in [CodeBuild action output
-variables](reference-variables.md#reference-variables-list-configured-codebuild "reference-variables.md#reference-variables-list-configured-codebuild"). For a list of the
+examples in [CodeBuild action output variables](reference-variables.md#reference-variables-list-configured-codebuild "reference-variables.md#reference-variables-list-configured-codebuild"). For a list of the
 environment variables you can use in CodeBuild, see [Environment variables in build
 environments](../../../codebuild/latest/userguide/build-env-ref-env-vars.md "../../../codebuild/latest/userguide/build-env-ref-env-vars.md") in the _AWS CodeBuild User
 Guide_.
@@ -238,9 +232,7 @@ JSON
 
 ```
 
-## Action declaration (CodeBuild
-
-example)
+## Action declaration (CodeBuild example)
 
 YAML
 
@@ -318,8 +310,7 @@ The following related resources can help you as you work with this action.
   multiple input and output CodeBuild artifacts, see [CodePipeline
   Integration with CodeBuild and Multiple Input Sources and Output Artifacts
   Sample](../../../codebuild/latest/userguide/sample-pipeline-multi-input-output.md "../../../codebuild/latest/userguide/sample-pipeline-multi-input-output.md") and [Multiple Input Sources and Output Artifacts Sample](../../../codebuild/latest/userguide/sample-multi-in-out.md "../../../codebuild/latest/userguide/sample-multi-in-out.md") .
-- [Tutorial: Create a pipeline that builds and
-  tests your Android app with AWS Device Farm](tutorials-codebuild-devicefarm.md "tutorials-codebuild-devicefarm.md") – This tutorial
+- [Tutorial: Create a pipeline that builds and tests your Android app with AWS Device Farm](tutorials-codebuild-devicefarm.md "tutorials-codebuild-devicefarm.md") – This tutorial
   provides a sample buildspec file and sample application to create a pipeline
   with a GitHub source that builds and tests an Android app with CodeBuild and
   AWS Device Farm.

@@ -1,6 +1,4 @@
-# Tutorial: Create a pipeline with AWS CloudFormation
-
-StackSets deployment actions
+# Tutorial: Create a pipeline with AWS CloudFormation StackSets deployment actions
 
 In this tutorial, you use the AWS CodePipeline console to create a pipeline with deployment actions
 for creating a stack set and creating stack instances. When the pipeline runs, the template
@@ -24,16 +22,11 @@ concepts behind CloudFormation StackSets and how they work. See [StackSets conce
 ###### Topics
 
 - [Prerequisites](#tutorials-stackset-deployment-prereq "#tutorials-stackset-deployment-prereq")
-- [Step 1: Upload the sample AWS CloudFormation
-  template and parameter file](#tutorials-stackset-deployment-upload "#tutorials-stackset-deployment-upload")
-- [Step 2: Create your
-  pipeline](#tutorials-stackset-action-pipeline "#tutorials-stackset-action-pipeline")
-- [Step 3: View initial
-  deployment](#tutorials-stackset-action-initial "#tutorials-stackset-action-initial")
-- [Step 4: Add a CloudFormationStackInstances
-  action](#tutorials-stacksets-instances "#tutorials-stacksets-instances")
-- [Step 5: View stack set resources for your
-  deployment](#tutorials-stacksets-view "#tutorials-stacksets-view")
+- [Step 1: Upload the sample AWS CloudFormation template and parameter file](#tutorials-stackset-deployment-upload "#tutorials-stackset-deployment-upload")
+- [Step 2: Create your pipeline](#tutorials-stackset-action-pipeline "#tutorials-stackset-action-pipeline")
+- [Step 3: View initial deployment](#tutorials-stackset-action-initial "#tutorials-stackset-action-initial")
+- [Step 4: Add a CloudFormationStackInstances action](#tutorials-stacksets-instances "#tutorials-stacksets-instances")
+- [Step 5: View stack set resources for your deployment](#tutorials-stacksets-view "#tutorials-stacksets-view")
 - [Step 6: Make an update to your stack set](#tutorials-stacksets-update "#tutorials-stacksets-update")
 
 ## Prerequisites
@@ -53,9 +46,7 @@ stacks that belong to a stack set in the target account.
   Follow the instructions in [Set up basic permissions for stack set operations](../../../AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.md#stacksets-prereqs-accountsetup "../../../AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.md#stacksets-prereqs-accountsetup"). Your role must be named
   **`AWSCloudFormationStackSetExecutionRole`**.
 
-## Step 1: Upload the sample AWS CloudFormation
-
-template and parameter file
+## Step 1: Upload the sample AWS CloudFormation template and parameter file
 
 Create a source bucket for your stack set template and parameters files. Download the
 sample AWS CloudFormation template file, set up a parameters file, and then zip the files before upload
@@ -133,9 +124,7 @@ accounts.txt
 2. Upload the ZIP file to your S3 bucket. This file is the source artifact created by the
    **Create Pipeline** wizard for your deployment action in CodePipeline.
 
-## Step 2: Create your
-
-pipeline
+## Step 2: Create your pipeline
 
 In this section, you create a pipeline with the following actions:
 
@@ -250,9 +239,7 @@ Choose **Next**. 13. In **Step 6: Add deploy stage**:
      pipeline**. Your pipeline displays.
     13. Allow your pipeline to run.
 
-## Step 3: View initial
-
-deployment
+## Step 3: View initial deployment
 
 View the resources and status for your initial deployment. After verifying the deployment
 successfully created your stack set, you can add the second action to your
@@ -274,9 +261,7 @@ successfully created your stack set, you can add the second action to your
    for each account you provided was created in the us-east-1 Region. Verify that the status
    for each stack instance is `CURRENT`.
 
-## Step 4: Add a CloudFormationStackInstances
-
-action
+## Step 4: Add a CloudFormationStackInstances action
 
 Create a next action in your pipeline that will allow CloudFormation StackSets to create the
 remainingstack instances.
@@ -324,9 +309,7 @@ action group**. 5. On the **Edit action** page, add the action details:
     10. .Manually release a change. Your updated pipeline displays with two actions in the
      Deploy stage.
 
-## Step 5: View stack set resources for your
-
-deployment
+## Step 5: View stack set resources for your deployment
 
 You can view the resources and status for your stack set deployment.
 

@@ -12,8 +12,7 @@ artifact from that action and is the input artifact for the next action, such as
 action. As another example, a build action might run build commands that compile
 application source code for an input artifact, which is the application source code
 files. See the action configuration reference page for a specific action for details
-about artifact parameters, such as [AWS CodeBuild build and test action
-reference](action-reference-CodeBuild.md "action-reference-CodeBuild.md") for the CodeBuild action.
+about artifact parameters, such as [AWS CodeBuild build and test action reference](action-reference-CodeBuild.md "action-reference-CodeBuild.md") for the CodeBuild action.
 
 Actions use input and output artifacts that are stored in the Amazon S3 artifact bucket you
 chose when you created the pipeline. CodePipeline zips and transfers the files for input or

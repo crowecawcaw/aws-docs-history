@@ -10,8 +10,7 @@ You must have already created an alarm in Amazon CloudWatch as a separate resour
 
 - [Rule type](#rule-reference-CloudWatchAlarm-type "#rule-reference-CloudWatchAlarm-type")
 - [Configuration parameters](#rule-reference-CloudWatchAlarm-config "#rule-reference-CloudWatchAlarm-config")
-- [Example rule
-  configuration](#rule-reference-CloudWatchAlarm-example "#rule-reference-CloudWatchAlarm-example")
+- [Example rule configuration](#rule-reference-CloudWatchAlarm-example "#rule-reference-CloudWatchAlarm-example")
 - [See also](#rule-reference-CloudWatchAlarm-links "#rule-reference-CloudWatchAlarm-links")
 
 ## Rule type
@@ -45,9 +44,7 @@ The wait time in minutes to allow for a state change before running the
 rule result. For example, configure 20 minutes to wait for an alarm state to
 change to OK before applying the rule result.
 
-## Example rule
-
-configuration
+## Example rule configuration
 
 YAML
 

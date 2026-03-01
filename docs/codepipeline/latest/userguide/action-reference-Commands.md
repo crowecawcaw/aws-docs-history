@@ -17,10 +17,8 @@ The Commands action is only available for V2 type pipelines.
 
 ###### Topics
 
-- [Considerations for the
-  Commands action](#action-reference-Commands-considerations "#action-reference-Commands-considerations")
-- [Service role policy
-  permissions](#action-reference-Commands-policy "#action-reference-Commands-policy")
+- [Considerations for the Commands action](#action-reference-Commands-considerations "#action-reference-Commands-considerations")
+- [Service role policy permissions](#action-reference-Commands-policy "#action-reference-Commands-policy")
 - [Action type](#action-reference-Commands-type "#action-reference-Commands-type")
 - [Configuration parameters](#action-reference-Commands-config "#action-reference-Commands-config")
 - [Input artifacts](#action-reference-Commands-input "#action-reference-Commands-input")
@@ -30,9 +28,7 @@ The Commands action is only available for V2 type pipelines.
 - [Action declaration (example)](#action-reference-Commands-example "#action-reference-Commands-example")
 - [See also](#action-reference-Commands-links "#action-reference-Commands-links")
 
-## Considerations for the
-
-Commands action
+## Considerations for the Commands action
 
 The following considerations apply for the Commands action.
 
@@ -66,17 +62,13 @@ instance might be reused for another pipeline execution.
 - For this action, CodePipeline will assume the pipeline service role and use that role
   to allow access to resources at runtime. It is recommended to configure the
   service role so that the permissions are scoped down to the action level.
-- The permissions added to the CodePipeline service role are detailed in [Add permissions to the CodePipeline
-  service role](how-to-custom-role.md#how-to-update-role-new-services "how-to-custom-role.md#how-to-update-role-new-services") .
-- The permission needed to view logs in the console is detailed in [Permissions required to view
-  compute logs in the CodePipeline console](security-iam-permissions-console-logs.md "security-iam-permissions-console-logs.md") .
+- The permissions added to the CodePipeline service role are detailed in [Add permissions to the CodePipeline service role](how-to-custom-role.md#how-to-update-role-new-services "how-to-custom-role.md#how-to-update-role-new-services") .
+- The permission needed to view logs in the console is detailed in [Permissions required to view compute logs in the CodePipeline console](security-iam-permissions-console-logs.md "security-iam-permissions-console-logs.md") .
 - Unlike other actions in CodePipeline, you do not set fields in the action
   configuration; you set the action configuration fields outside of the action
   configuration.
 
-## Service role policy
-
-permissions
+## Service role policy permissions
 
 When CodePipeline runs the action, CodePipeline creates a log group using the name of the pipeline
 as follows. This enables you to scope down permissions to log resources using the
@@ -113,8 +105,7 @@ as shown in the following example.
 
 To view logs in the console using the action details dialog page, the permission to
 view logs must be added to the console role. For more information, see the console
-permissions policy example in [Permissions required to view
-compute logs in the CodePipeline console](security-iam-permissions-console-logs.md "security-iam-permissions-console-logs.md").
+permissions policy example in [Permissions required to view compute logs in the CodePipeline console](security-iam-permissions-console-logs.md "security-iam-permissions-console-logs.md").
 
 ## Action type
 
@@ -441,7 +432,6 @@ JSON
 
 The following related resources can help you as you work with this action.
 
-- [Tutorial: Create a pipeline that runs commands with
-  compute (V2 type)](tutorials-commands.md "tutorials-commands.md")
+- [Tutorial: Create a pipeline that runs commands with compute (V2 type)](tutorials-commands.md "tutorials-commands.md")
   – This tutorial provides a sample pipeline with the Commands
   action.

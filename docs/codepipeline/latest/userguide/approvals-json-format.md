@@ -1,6 +1,4 @@
-# JSON data format for manual approval
-
-notifications in CodePipeline
+# JSON data format for manual approval notifications in CodePipeline
 
 For approval actions that use Amazon SNS notifications, JSON data about the action is
 created and published to Amazon SNS when the pipeline stops. You can use the JSON output to

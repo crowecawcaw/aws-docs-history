@@ -1,6 +1,4 @@
-# Tutorial: Use full clone with a GitHub pipeline
-
-source
+# Tutorial: Use full clone with a GitHub pipeline source
 
 You can choose the full clone option for your GitHub source action in CodePipeline. Use this option
 to run CodeBuild commands for Git metadata in your pipeline build action.
@@ -29,20 +27,15 @@ performs Git commands for the repository.
 This feature is not available in the Asia Pacific (Hong Kong),
 Africa (Cape Town), Middle East (Bahrain), Europe (Zurich), or AWS GovCloud (US-West)
 Regions. To reference other available actions, see [Product and service integrations with CodePipeline](integrations.md "integrations.md"). For considerations with this action in the
-Europe (Milan) Region, see the note in [CodeStarSourceConnection for
-Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed
-actions](action-reference-CodestarConnectionSource.md "action-reference-CodestarConnectionSource.md").
+Europe (Milan) Region, see the note in [CodeStarSourceConnection for Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed actions](action-reference-CodestarConnectionSource.md "action-reference-CodestarConnectionSource.md").
 
 ###### Topics
 
 - [Prerequisites](#tutorials-github-gitclone-prereq "#tutorials-github-gitclone-prereq")
 - [Step 1: Create a README file](#tutorials-github-gitclone-file "#tutorials-github-gitclone-file")
-- [Step 2: Create your pipeline and build
-  project](#tutorials-github-gitclone-pipeline "#tutorials-github-gitclone-pipeline")
-- [Step 3: Update the CodeBuild service role
-  policy to use connections](#tutorials-github-gitclone-rolepolicy "#tutorials-github-gitclone-rolepolicy")
-- [Step 4: View repository commands in build
-  output](#tutorials-github-gitclone-view "#tutorials-github-gitclone-view")
+- [Step 2: Create your pipeline and build project](#tutorials-github-gitclone-pipeline "#tutorials-github-gitclone-pipeline")
+- [Step 3: Update the CodeBuild service role policy to use connections](#tutorials-github-gitclone-rolepolicy "#tutorials-github-gitclone-rolepolicy")
+- [Step 4: View repository commands in build output](#tutorials-github-gitclone-view "#tutorials-github-gitclone-view")
 
 ## Prerequisites
 
@@ -69,9 +62,7 @@ This is a GitHub repository!
 Make sure the `README.md` file is at the root level of your
 repository.
 
-## Step 2: Create your pipeline and build
-
-project
+## Step 2: Create your pipeline and build project
 
 In this section, you create a pipeline with the following actions:
 
@@ -137,8 +128,7 @@ Choose **Next**. 8. On the **Step 3: Add source stage** page, add a source stage
      is selected.
     6. Under **Output artifact format**, choose **Full
      clone** to enable the Git clone option for the source repository. Only
-     actions provided by CodeBuild can use the Git clone option. You will use [Step 3: Update the CodeBuild service role
-     policy to use connections](#tutorials-github-gitclone-rolepolicy "#tutorials-github-gitclone-rolepolicy") in this tutorial to update
+     actions provided by CodeBuild can use the Git clone option. You will use [Step 3: Update the CodeBuild service role policy to use connections](#tutorials-github-gitclone-rolepolicy "#tutorials-github-gitclone-rolepolicy") in this tutorial to update
      the permissions for your CodeBuild project service role to use this option.Choose **Next**.
 
 9. In **Step 4: Add build stage**, add a build stage:
@@ -224,19 +214,14 @@ deploy stage**, and then accept the warning message by choosing
 **Skip** again. Choose **Next**. 12. On **Step 7: Review**, choose **Create
 pipeline**.
 
-## Step 3: Update the CodeBuild service role
-
-policy to use connections
+## Step 3: Update the CodeBuild service role policy to use connections
 
 The initial pipeline run will fail because the CodeBuild service role must be updated with
 permissions to use connections. Add the `codestar-connections:UseConnection` IAM
 permission to your service role policy. For instructions to update the policy in the IAM
-console, see [Add CodeBuild GitClone permissions for connections to
-Bitbucket, GitHub, GitHub Enterprise Server, or GitLab.com](troubleshooting.md#codebuild-role-connections "troubleshooting.md#codebuild-role-connections").
+console, see [Add CodeBuild GitClone permissions for connections to Bitbucket, GitHub, GitHub Enterprise Server, or GitLab.com](troubleshooting.md#codebuild-role-connections "troubleshooting.md#codebuild-role-connections").
 
-## Step 4: View repository commands in build
-
-output
+## Step 4: View repository commands in build output
 
 1. When your service role is successfully updated, choose **Retry** on
    the failed CodeBuild stage.

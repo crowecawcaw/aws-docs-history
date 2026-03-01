@@ -1,12 +1,8 @@
-# Create an EventBridge rule for an Amazon S3
-
-source (CloudFormation template)
+# Create an EventBridge rule for an Amazon S3 source (CloudFormation template)
 
 To use CloudFormation to create a rule, update your template as shown here.
 
-###### To create an EventBridge rule with Amazon S3 as the event
-
-source and CodePipeline as the target and apply the permissions policy
+###### To create an EventBridge rule with Amazon S3 as the event source and CodePipeline as the target and apply the permissions policy
 
 1.  In the template, under `Resources`, use the `AWS::IAM::Role` CloudFormation
     resource to configure the IAM role that allows your event to start your pipeline. This entry
@@ -283,9 +279,7 @@ Targets:
    changes that will be made to the stack. You should see your new resources in the list.
 8. Choose **Execute**.
 
-###### To edit your pipeline's PollForSourceChanges
-
-parameter
+###### To edit your pipeline's PollForSourceChanges parameter
 
 ###### Important
 
@@ -293,8 +287,7 @@ When you create a pipeline with this method, the `PollForSourceChanges`
 parameter defaults to true if it is not explicitly set to false. When you add
 event-based change detection, you must add the parameter to your output and set it to
 false to disable polling. Otherwise, your pipeline starts twice for a single source
-change. For details, see [Valid settings for the
-PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md").
+change. For details, see [Valid settings for the PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md").
 
 - In the template, change `PollForSourceChanges` to `false`. If
   you did not include `PollForSourceChanges` in your pipeline definition, add
@@ -355,9 +348,7 @@ JSON
 
 ```
 
-###### To create a second template for your Amazon S3
-
-pipeline's CloudTrail resources
+###### To create a second template for your Amazon S3 pipeline's CloudTrail resources
 
 - In a separate template, under `Resources`, use the
   `AWS::S3::Bucket`, `AWS::S3::BucketPolicy`, and

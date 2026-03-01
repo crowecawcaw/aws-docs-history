@@ -9,8 +9,7 @@ role.
 
 Before you create a pipeline with the AWS CLI, you must create a CodePipeline service role for
 your pipeline. For an example CloudFormation template with the service role and policy specified, see
-the tutorials in [Tutorial: Create a pipeline that uses
-variables from AWS CloudFormation deployment actions](tutorials-cloudformation-action.md "tutorials-cloudformation-action.md").
+the tutorials in [Tutorial: Create a pipeline that uses variables from AWS CloudFormation deployment actions](tutorials-cloudformation-action.md "tutorials-cloudformation-action.md").
 
 The service role is not an AWS managed role but is created initially for pipeline
 creation, and then as new permissions are added to the service role policy, you may need to

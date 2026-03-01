@@ -19,9 +19,7 @@ You might use manual approvals for these reasons:
 - You want someone to review new or updated text before it is published to a company
   website.
 
-## Configuration options for manual
-
-approval actions in CodePipeline
+## Configuration options for manual approval actions in CodePipeline
 
 CodePipeline provides three configuration options you can use to tell approvers about the
 approval action.
@@ -52,8 +50,7 @@ the following topics:
   Amazon SNS Notifications](../../../sns/latest/dg/sns-lambda.md "../../../sns/latest/dg/sns-lambda.md")
 
 For the structure of the JSON data generated for an approval action notification, see
-[JSON data format for manual approval
-notifications in CodePipeline](approvals-json-format.md "approvals-json-format.md").
+[JSON data format for manual approval notifications in CodePipeline](approvals-json-format.md "approvals-json-format.md").
 
 **Specify a URL for Review** As part of the configuration
 of the approval action, you can specify a URL to be reviewed. The URL might be a link to
@@ -70,9 +67,7 @@ configure any of these three options. You might not need them if, for example, y
 notify someone directly that the action is ready for their review, or you simply want
 the pipeline to stop until you decide to approve the action yourself.
 
-## Setup and workflow overview for approval actions in
-
-CodePipeline
+## Setup and workflow overview for approval actions in CodePipeline
 
 The following is an overview for setting up and using manual approvals.
 

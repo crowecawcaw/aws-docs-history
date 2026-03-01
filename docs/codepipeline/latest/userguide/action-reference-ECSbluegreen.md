@@ -28,8 +28,7 @@ reference information about Amazon ECS standard deployment actions in CodePipeli
 - [Configuration parameters](#action-reference-ECSbluegreen-config "#action-reference-ECSbluegreen-config")
 - [Input artifacts](#action-reference-ECSbluegreen-input "#action-reference-ECSbluegreen-input")
 - [Output artifacts](#action-reference-ECSbluegreen-output "#action-reference-ECSbluegreen-output")
-- [Service role permissions:
-  CodeDeployToECS action](#edit-role-codedeploy-ecs "#edit-role-codedeploy-ecs")
+- [Service role permissions: CodeDeployToECS action](#edit-role-codedeploy-ecs "#edit-role-codedeploy-ecs")
 - [Action declaration](#action-reference-ECSbluegreen-example "#action-reference-ECSbluegreen-example")
 - [See also](#action-reference-ECSbluegreen-links "#action-reference-ECSbluegreen-links")
 
@@ -135,8 +134,7 @@ image. When you commit a change to your Amazon ECR image repository, the pipelin
 source action creates an `imageDetail.json` file for that
 commit. You can also manually add an `imageDetail.json` file
 for a pipeline where the action is not automated. For information about the
-`imageDetail.json` file, see [imageDetail.json file for Amazon ECS blue/green
-deployment actions](file-reference.md#file-reference-ecs-bluegreen "file-reference.md#file-reference-ecs-bluegreen").
+`imageDetail.json` file, see [imageDetail.json file for Amazon ECS blue/green deployment actions](file-reference.md#file-reference-ecs-bluegreen "file-reference.md#file-reference-ecs-bluegreen").
 
 The `CodeDeployToECS` action dynamically generates a new revision of
 the task definition. In this phase, this action replaces placeholders in task
@@ -170,9 +168,7 @@ definition.
 - **Description:** Output artifacts do not apply
   for this action type.
 
-## Service role permissions:
-
-`CodeDeployToECS` action
+## Service role permissions: `CodeDeployToECS` action
 
 For the `CodeDeployToECS` action (blue/green deployments), the following
 are the minimum permissions needed to create pipelines with a CodeDeploy to Amazon ECS blue/green
@@ -340,8 +336,7 @@ JSON
 
 The following related resources can help you as you work with this action.
 
-- [Tutorial: Create a pipeline with an Amazon ECR
-  source and ECS-to-CodeDeploy deployment](tutorials-ecs-ecr-codedeploy.md "tutorials-ecs-ecr-codedeploy.md") – This tutorial walks
+- [Tutorial: Create a pipeline with an Amazon ECR source and ECS-to-CodeDeploy deployment](tutorials-ecs-ecr-codedeploy.md "tutorials-ecs-ecr-codedeploy.md") – This tutorial walks
   you through creation of the CodeDeploy and Amazon ECS resources you need for a
   blue/green deployment. The tutorial shows you how to push a Docker image to
   Amazon ECR and create an Amazon ECS task definition that lists your Docker image name,

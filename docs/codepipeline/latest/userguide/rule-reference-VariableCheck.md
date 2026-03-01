@@ -13,8 +13,7 @@ specified output variable.
 
 - [Rule type](#rule-reference-VariableCheck-type "#rule-reference-VariableCheck-type")
 - [Configuration parameters](#rule-reference-VariableCheck-config "#rule-reference-VariableCheck-config")
-- [Example rule
-  configuration](#rule-reference-VariableCheck-example "#rule-reference-VariableCheck-example")
+- [Example rule configuration](#rule-reference-VariableCheck-example "#rule-reference-VariableCheck-example")
 - [See also](#rule-reference-VariableCheck-links "#rule-reference-VariableCheck-links")
 
 ## Rule type
@@ -153,9 +152,7 @@ against the provided value "update."
         ],
 ```
 
-## Example rule
-
-configuration
+## Example rule configuration
 
 YAML
 
@@ -201,8 +198,7 @@ JSON
 
 The following related resources can help you as you work with this rule.
 
-- [Tutorial: Create a variable check rule for a
-  pipeline as an entry condition](tutorials-varcheckrule.md "tutorials-varcheckrule.md") – This section provides
+- [Tutorial: Create a variable check rule for a pipeline as an entry condition](tutorials-varcheckrule.md "tutorials-varcheckrule.md") – This section provides
   a tutorial with steps for creating an On Entry condition with a variable check
   rule.
 - [Variables reference](reference-variables.md "reference-variables.md") – This section provides reference information and examples for

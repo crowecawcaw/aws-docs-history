@@ -8,8 +8,7 @@ release your software changes continuously. For information about pricing for Co
 
 ###### Topics
 
-- [Continuous delivery and
-  continuous integration](concepts-continuous-delivery-integration.md "concepts-continuous-delivery-integration.md")
+- [Continuous delivery and continuous integration](concepts-continuous-delivery-integration.md "concepts-continuous-delivery-integration.md")
 - [What can I do with CodePipeline?](welcome-what-can-I-do.md "welcome-what-can-I-do.md")
 - [A quick look at CodePipeline](welcome-introducing.md "welcome-introducing.md")
 - [How do I get started with CodePipeline?](welcome-get-started.md "welcome-get-started.md")

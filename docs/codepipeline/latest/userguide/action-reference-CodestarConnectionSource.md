@@ -1,7 +1,4 @@
-# CodeStarSourceConnection for
-
-Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed
-actions
+# CodeStarSourceConnection for Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed actions
 
 Source actions for connections are supported by AWS CodeConnections. CodeConnections allows you to create and
 manage connections between AWS resources and third-party repositories such as GitHub.
@@ -11,8 +8,7 @@ is sent from the source provider.
 
 You can configure actions in your pipeline to use a Git configuration that allows you to
 start your pipeline with triggers. To configure the pipeline trigger configuration to filter
-with triggers, see more details in [Add trigger with code push or pull request event
-types](pipelines-filter.md "pipelines-filter.md").
+with triggers, see more details in [Add trigger with code push or pull request event types](pipelines-filter.md "pipelines-filter.md").
 
 ###### Note
 
@@ -22,9 +18,7 @@ Asia Pacific (Osaka), Africa (Cape Town), Middle East (Bahrain),
 Middle East (UAE), Europe (Spain), Europe (Zurich),
 Israel (Tel Aviv), or AWS GovCloud (US-West) Regions. To reference other available
 actions, see [Product and service integrations with CodePipeline](integrations.md "integrations.md"). For
-considerations with this action in the Europe (Milan) Region, see the note in CodeStarSourceConnection for
-Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed
-actions.
+considerations with this action in the Europe (Milan) Region, see the note in CodeStarSourceConnection for Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed actions.
 
 Connections can associate your AWS resources with the following third-party
 repositories:
@@ -101,8 +95,7 @@ account and repository before you can connect through the
 To create or attach a policy to your role with the permissions required to use AWS CodeStar
 connections, see [Connections permissions reference](../../../dtconsole/latest/userguide/security-iam.md#permissions-reference-connections "../../../dtconsole/latest/userguide/security-iam.md#permissions-reference-connections"). Depending on when your CodePipeline service
 role was created, you might need to update its permissions to support AWS CodeStar connections.
-For instructions, see [Add permissions to the CodePipeline
-service role](how-to-custom-role.md#how-to-update-role-new-services "how-to-custom-role.md#how-to-update-role-new-services").
+For instructions, see [Add permissions to the CodePipeline service role](how-to-custom-role.md#how-to-update-role-new-services "how-to-custom-role.md#how-to-update-role-new-services").
 
 ###### Note
 
@@ -127,19 +120,13 @@ the app once you disable the Region. For more information, see [Enabling a Regio
 ###### Topics
 
 - [Action type](#action-reference-CodestarConnectionSource-type "#action-reference-CodestarConnectionSource-type")
-- [Configuration
-  parameters](#action-reference-CodestarConnectionSource-config "#action-reference-CodestarConnectionSource-config")
-- [Input
-  artifacts](#action-reference-CodestarConnectionSource-input "#action-reference-CodestarConnectionSource-input")
-- [Output
-  artifacts](#action-reference-CodestarConnectionSource-output "#action-reference-CodestarConnectionSource-output")
+- [Configuration parameters](#action-reference-CodestarConnectionSource-config "#action-reference-CodestarConnectionSource-config")
+- [Input artifacts](#action-reference-CodestarConnectionSource-input "#action-reference-CodestarConnectionSource-input")
+- [Output artifacts](#action-reference-CodestarConnectionSource-output "#action-reference-CodestarConnectionSource-output")
 - [Output variables](#action-reference-CodestarConnectionSource-variables "#action-reference-CodestarConnectionSource-variables")
-- [Service role permissions: CodeConnections
-  action](#edit-role-connections "#edit-role-connections")
-- [Action
-  declaration](#action-reference-CodestarConnectionSource-example "#action-reference-CodestarConnectionSource-example")
-- [Installing the
-  installation app and creating a connection](#action-reference-CodestarConnectionSource-auth "#action-reference-CodestarConnectionSource-auth")
+- [Service role permissions: CodeConnections action](#edit-role-connections "#edit-role-connections")
+- [Action declaration](#action-reference-CodestarConnectionSource-example "#action-reference-CodestarConnectionSource-example")
+- [Installing the installation app and creating a connection](#action-reference-CodestarConnectionSource-auth "#action-reference-CodestarConnectionSource-auth")
 - [See also](#action-reference-CodestarConnectionSource-links "#action-reference-CodestarConnectionSource-links")
 
 ## Action type
@@ -149,9 +136,7 @@ the app once you disable the Region. For more information, see [Enabling a Regio
 - Provider: `CodeStarSourceConnection`
 - Version: `1`
 
-## Configuration
-
-parameters
+## Configuration parameters
 
 \***\*ConnectionArn\*\***
 
@@ -198,11 +183,9 @@ The `CODEBUILD_CLONE_REF` option can only be used by CodeBuild
 downstream actions.
 
 If you choose this option, you will need to update the permissions for
-your CodeBuild project service role as shown in [Add CodeBuild GitClone permissions for connections to
-Bitbucket, GitHub, GitHub Enterprise Server, or GitLab.com](troubleshooting.md#codebuild-role-connections "troubleshooting.md#codebuild-role-connections"). For a tutorial that
+your CodeBuild project service role as shown in [Add CodeBuild GitClone permissions for connections to Bitbucket, GitHub, GitHub Enterprise Server, or GitLab.com](troubleshooting.md#codebuild-role-connections "troubleshooting.md#codebuild-role-connections"). For a tutorial that
 shows you how to use the **Full clone** option, see
-[Tutorial: Use full clone with a GitHub pipeline
-source](tutorials-github-gitclone.md "tutorials-github-gitclone.md").
+[Tutorial: Use full clone with a GitHub pipeline source](tutorials-github-gitclone.md "tutorials-github-gitclone.md").
 
 **DetectChanges**
 
@@ -218,18 +201,14 @@ values for this parameter:
 - `false`: CodePipeline does not start your pipeline on new
   commits.
 
-## Input
-
-artifacts
+## Input artifacts
 
 - **Number of artifacts:**
   `0`
 - **Description:** Input artifacts do not apply for
   this action type.
 
-## Output
-
-artifacts
+## Output artifacts
 
 - **Number of artifacts:**
   `1`
@@ -251,8 +230,7 @@ artifacts
   If you choose this option, you will need to update the permissions
   for your CodeBuild project service role as shown in [Troubleshooting CodePipeline](troubleshooting.md "troubleshooting.md"). For
   a tutorial that shows you how to use the **Full
-  clone** option, see [Tutorial: Use full clone with a GitHub pipeline
-  source](tutorials-github-gitclone.md "tutorials-github-gitclone.md").
+  clone** option, see [Tutorial: Use full clone with a GitHub pipeline source](tutorials-github-gitclone.md "tutorials-github-gitclone.md").
 
 ## Output variables
 
@@ -292,9 +270,7 @@ FullRepositoryName
 The name of the repository where the commit that triggered the pipeline
 was made.
 
-## Service role permissions: CodeConnections
-
-action
+## Service role permissions: CodeConnections action
 
 For CodeConnections, the following permission is required to create pipelines with a source
 that uses a connection, such as Bitbucket Cloud.
@@ -311,9 +287,7 @@ that uses a connection, such as Bitbucket Cloud.
 
 For more information about the IAM permissions for connections, see [Connections permissions reference](../../../dtconsole/latest/userguide/security-iam.md#permissions-reference-connections "../../../dtconsole/latest/userguide/security-iam.md#permissions-reference-connections").
 
-## Action
-
-declaration
+## Action declaration
 
 In the following example, the output artifact is set to the default ZIP format of
 `CODE_ZIP` for the connection with ARN
@@ -374,9 +348,7 @@ JSON
 },
 ```
 
-## Installing the
-
-installation app and creating a connection
+## Installing the installation app and creating a connection
 
 The first time you use the console to add a new connection to a third-party
 repository, you must authorize CodePipeline access to your repositories. You choose or create
@@ -423,5 +395,4 @@ The following related resources can help you as you work with this action.
   source and a CodeBuild action, see [Getting started with connections](../../../dtconsole/latest/userguide/getting-started-connections.md "../../../dtconsole/latest/userguide/getting-started-connections.md").
 - For a tutorial that shows you how to connect to a GitHub repository and use
   the **Full clone** option with a downstream CodeBuild action, see
-  [Tutorial: Use full clone with a GitHub pipeline
-  source](tutorials-github-gitclone.md "tutorials-github-gitclone.md").
+  [Tutorial: Use full clone with a GitHub pipeline source](tutorials-github-gitclone.md "tutorials-github-gitclone.md").

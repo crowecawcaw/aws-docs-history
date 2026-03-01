@@ -63,9 +63,7 @@ The AWS AppConfig deployment strategy to use for deployment.
 
 Not applicable.
 
-## Service role permissions:
-
-`AppConfig` action
+## Service role permissions: `AppConfig` action
 
 When CodePipeline runs the action, the CodePipeline service role policy requires the following
 permissions, appropriately scoped down to the resource level in order to maintain access
@@ -95,9 +93,7 @@ JSON
 
 ```
 
-## Example action
-
-configuration
+## Example action configuration
 
 YAML
 
@@ -167,7 +163,6 @@ The following related resources can help you as you work with this action.
 - [AWS AppConfig](../../../systems-manager/latest/userguide/appconfig.md "../../../systems-manager/latest/userguide/appconfig.md") – For information
   about AWS AppConfig deployments, see the
   _AWS Systems Manager User Guide_.
-- [Tutorial: Create a pipeline that uses AWS AppConfig
-  as a deployment provider](tutorials-AppConfig.md "tutorials-AppConfig.md") – This tutorial gets you
+- [Tutorial: Create a pipeline that uses AWS AppConfig as a deployment provider](tutorials-AppConfig.md "tutorials-AppConfig.md") – This tutorial gets you
   started setting up simple deployment configuration files and AppConfig resources, and shows you how to use the
   console to create a pipeline with an AWS AppConfig deployment action.

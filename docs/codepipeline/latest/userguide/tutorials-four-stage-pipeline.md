@@ -1,7 +1,6 @@
 # Tutorial: Create a four-stage pipeline
 
-Now that you've created your first pipeline in [Tutorial: Create a simple pipeline (S3 bucket)](tutorials-simple-s3.md "tutorials-simple-s3.md") or [Tutorial: Create a simple pipeline (CodeCommit
-repository)](tutorials-simple-codecommit.md "tutorials-simple-codecommit.md"), you can start creating more complex pipelines.
+Now that you've created your first pipeline in [Tutorial: Create a simple pipeline (S3 bucket)](tutorials-simple-s3.md "tutorials-simple-s3.md") or [Tutorial: Create a simple pipeline (CodeCommit repository)](tutorials-simple-codecommit.md "tutorials-simple-codecommit.md"), you can start creating more complex pipelines.
 This tutorial will walk you through the creation of a four-stage pipeline that uses a GitHub
 repository for your source, a Jenkins build server to build the project, and a CodeDeploy application
 to deploy the built code to a staging server. The following diagram shows the initial
@@ -38,17 +37,12 @@ in [Getting started with CodePipeline](getting-started-codepipeline.md "getting-
 
 ###### Topics
 
-- [Step 1: Complete
-  prerequisites](#tutorials-four-stage-pipeline-prerequisites "#tutorials-four-stage-pipeline-prerequisites")
-- [Step 2: Create a pipeline in
-  CodePipeline](#tutorials-four-stage-pipeline-pipeline-create "#tutorials-four-stage-pipeline-pipeline-create")
-- [Step 3: Add another stage to your
-  pipeline](#tutorials-four-stage-pipeline-add-stage "#tutorials-four-stage-pipeline-add-stage")
+- [Step 1: Complete prerequisites](#tutorials-four-stage-pipeline-prerequisites "#tutorials-four-stage-pipeline-prerequisites")
+- [Step 2: Create a pipeline in CodePipeline](#tutorials-four-stage-pipeline-pipeline-create "#tutorials-four-stage-pipeline-pipeline-create")
+- [Step 3: Add another stage to your pipeline](#tutorials-four-stage-pipeline-add-stage "#tutorials-four-stage-pipeline-add-stage")
 - [Step 4: Clean up resources](#tutorials-four-stage-pipeline-clean-up "#tutorials-four-stage-pipeline-clean-up")
 
-## Step 1: Complete
-
-prerequisites
+## Step 1: Complete prerequisites
 
 To integrate with Jenkins, AWS CodePipeline requires you to install the CodePipeline Plugin for Jenkins on
 any instance of Jenkins you want to use with CodePipeline. You should also configure a dedicated
@@ -66,8 +60,7 @@ information, see [Securing Jenkins](https://wiki.jenkins.io/display/JENKINS/Secu
 
 This tutorial uses a code sample and configures build steps that convert the sample from
 Haml to HTML. You can download the open-source sample code from the GitHub repository by
-following the steps in [Copy or clone the
-sample into a GitHub repository](#tutorials-four-stage-pipeline-prerequisites-github "#tutorials-four-stage-pipeline-prerequisites-github"). You will need the
+following the steps in [Copy or clone the sample into a GitHub repository](#tutorials-four-stage-pipeline-prerequisites-github "#tutorials-four-stage-pipeline-prerequisites-github"). You will need the
 entire sample in your GitHub repository, not just the .zip file.
 
 This tutorial also assumes that:
@@ -82,16 +75,11 @@ This tutorial also assumes that:
 
 ###### Topics
 
-- [Copy or clone the
-  sample into a GitHub repository](#tutorials-four-stage-pipeline-prerequisites-github "#tutorials-four-stage-pipeline-prerequisites-github")
-- [Create an
-  IAM role to use for Jenkins integration](#tutorials-four-stage-pipeline-prerequisites-jenkins-iam-role "#tutorials-four-stage-pipeline-prerequisites-jenkins-iam-role")
-- [Install and
-  configure Jenkins and the CodePipeline Plugin for Jenkins](#tutorials-four-stage-pipeline-prerequisites-jenkins-configure "#tutorials-four-stage-pipeline-prerequisites-jenkins-configure")
+- [Copy or clone the sample into a GitHub repository](#tutorials-four-stage-pipeline-prerequisites-github "#tutorials-four-stage-pipeline-prerequisites-github")
+- [Create an IAM role to use for Jenkins integration](#tutorials-four-stage-pipeline-prerequisites-jenkins-iam-role "#tutorials-four-stage-pipeline-prerequisites-jenkins-iam-role")
+- [Install and configure Jenkins and the CodePipeline Plugin for Jenkins](#tutorials-four-stage-pipeline-prerequisites-jenkins-configure "#tutorials-four-stage-pipeline-prerequisites-jenkins-configure")
 
-### Copy or clone the
-
-sample into a GitHub repository
+### Copy or clone the sample into a GitHub repository
 
 ###### To clone the sample and push to a GitHub repository
 
@@ -105,9 +93,7 @@ sample into a GitHub repository
    a repo in your Github account. For more information, see the [GitHub
    documentation](https://help.github.com/articles/create-a-repo/ "https://help.github.com/articles/create-a-repo/").
 
-### Create an
-
-IAM role to use for Jenkins integration
+### Create an IAM role to use for Jenkins integration
 
 As a best practice, consider launching an EC2 instance to host your Jenkins server and
 using an IAM role to grant the instance the required permissions for interacting with
@@ -134,9 +120,7 @@ For more information about instance roles and Amazon EC2, see [IAM roles for Ama
 to Applications Running on Amazon EC2 Instances](../../../IAM/latest/UserGuide/roles-usingrole-ec2instance.md "../../../IAM/latest/UserGuide/roles-usingrole-ec2instance.md"), and [Creating a role to delegate
 permissions to an AWS service](../../../IAM/latest/UserGuide/roles-creatingrole-service.md "../../../IAM/latest/UserGuide/roles-creatingrole-service.md").
 
-### Install and
-
-configure Jenkins and the CodePipeline Plugin for Jenkins
+### Install and configure Jenkins and the CodePipeline Plugin for Jenkins
 
 ###### To install Jenkins and the CodePipeline Plugin for Jenkins
 
@@ -209,9 +193,7 @@ CodePipeline Publisher**. Choose **Add**, and in
 configuration is the default. It will create a compressed file at the end of the build
 process. 15. Choose **Save** to save your Jenkins project.
 
-## Step 2: Create a pipeline in
-
-CodePipeline
+## Step 2: Create a pipeline in CodePipeline
 
 In this part of the tutorial, you create the pipeline using the **Create
 Pipeline** wizard.
@@ -263,9 +245,7 @@ view progress and success and failure messages as the pipeline builds the Haml s
 HTML and deploys it a webpage to each of the Amazon EC2 instances in the CodeDeploy
 deployment.
 
-## Step 3: Add another stage to your
-
-pipeline
+## Step 3: Add another stage to your pipeline
 
 Now you will add a test stage and then a test action to that stage that uses the Jenkins
 test included in the sample to determine whether the webpage has any content. This test is for
@@ -276,21 +256,15 @@ demonstration purposes only.
 If you did not want to add another stage to your pipeline, you could add a test action
 to the Staging stage of the pipeline, before or after the deployment action.
 
-### Add a test stage to your
-
-pipeline
+### Add a test stage to your pipeline
 
 ###### Topics
 
-- [Look up the IP address
-  of an instance](#tutorials-four-stage-pipeline-instance-ip-lookup "#tutorials-four-stage-pipeline-instance-ip-lookup")
-- [Create a Jenkins
-  project for testing the deployment](#tutorials-four-stage-pipeline-create-jenkins-project "#tutorials-four-stage-pipeline-create-jenkins-project")
+- [Look up the IP address of an instance](#tutorials-four-stage-pipeline-instance-ip-lookup "#tutorials-four-stage-pipeline-instance-ip-lookup")
+- [Create a Jenkins project for testing the deployment](#tutorials-four-stage-pipeline-create-jenkins-project "#tutorials-four-stage-pipeline-create-jenkins-project")
 - [Create a fourth stage](#tutorials-four-stage-pipeline-create-fourth-stage "#tutorials-four-stage-pipeline-create-fourth-stage")
 
-#### Look up the IP address
-
-of an instance
+#### Look up the IP address of an instance
 
 ###### To verify the IP address of an instance where you deployed your code
 
@@ -302,9 +276,7 @@ of an instance
    `192.168.0.4`). You will use this IP address in your
    Jenkins test.
 
-#### Create a Jenkins
-
-project for testing the deployment
+#### Create a Jenkins project for testing the deployment
 
 ###### To create the Jenkins project
 

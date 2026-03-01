@@ -19,9 +19,7 @@ For pipelines in PARALLEL mode, stage rollback is not available.
 Similarly, failure conditions with a rollback result type cannot be added to
 a PARALLEL mode pipeline.
 
-## How pipeline executions are
-
-started
+## How pipeline executions are started
 
 You can start an execution when you change your source code or manually start the
 pipeline. You can also trigger an execution through an Amazon CloudWatch Events rule that you
@@ -34,9 +32,7 @@ starts an execution.
 If a pipeline contains multiple source actions, all of them run again, even if
 a change is detected for one source action only.
 
-## How source revisions are
-
-processed in pipeline executions
+## How source revisions are processed in pipeline executions
 
 For each pipeline execution that starts with source code changes (source
 revisions), source revisions are determined as follows.
@@ -51,8 +47,7 @@ revisions), source revisions are determined as follows.
 For pipelines in PARALLEL mode with a CodeCommit source, regardless of
 the commit that triggered the pipeline execution, the source action will
 always clone the HEAD at the time it is started. For more information,
-see [CodeCommit or S3 source revisions in PARALLEL
-mode might not match EventBridge event](troubleshooting.md#troubleshooting-revisions-parallel "troubleshooting.md#troubleshooting-revisions-parallel") .
+see [CodeCommit or S3 source revisions in PARALLEL mode might not match EventBridge event](troubleshooting.md#troubleshooting-revisions-parallel "troubleshooting.md#troubleshooting-revisions-parallel").
 
 - For pipelines with an S3 source, the EventBridge event for the S3 bucket
   update is used. For example, the event is generated when a file is updated
@@ -64,8 +59,7 @@ mode might not match EventBridge event](troubleshooting.md#troubleshooting-revis
 
 For pipelines in PARALLEL mode with an S3 source, regardless of the
 image tag that triggered the execution, the source action will always
-start with the latest image tag. For more information, see [CodeCommit or S3 source revisions in PARALLEL
-mode might not match EventBridge event](troubleshooting.md#troubleshooting-revisions-parallel "troubleshooting.md#troubleshooting-revisions-parallel") .
+start with the latest image tag. For more information, see [CodeCommit or S3 source revisions in PARALLEL mode might not match EventBridge event](troubleshooting.md#troubleshooting-revisions-parallel "troubleshooting.md#troubleshooting-revisions-parallel").
 
 - For pipelines with a connections source, such as to Bitbucket, the HEAD is
   cloned by CodePipeline at the moment that the commit is pushed. For example,
@@ -73,9 +67,7 @@ mode might not match EventBridge event](troubleshooting.md#troubleshooting-revis
   pipeline for execution 1, and the second pipeline execution uses the second
   commit.
 
-## How source overrides work with
-
-the EventBridge input transformer
+## How source overrides work with the EventBridge input transformer
 
 You can use overrides to start a pipeline with a specific source revision ID that you
 provide for the pipeline execution. For example, if you want to start a pipeline that
@@ -102,7 +94,7 @@ source revisions, either of the types can be used independently, or they can be 
 together to override the source with a specific ObjectKey and VersionID. For
 `S3_OBJECT_KEY`, the configuration parameter
 `AllowOverrideForS3ObjectKey` needs to be set to `true`.
-For more information on S3 source configuration parameters, see [Configuration parameters](action-reference-S3.md#action-reference-S3-config "action-reference-S3.md#action-reference-S3-config") .
+For more information on S3 source configuration parameters, see [Configuration parameters](action-reference-S3.md#action-reference-S3-config "action-reference-S3.md#action-reference-S3-config").
 
 You can specify source overrides using the input transformer in EventBridge. Use
 the input transformer to pass the data as one of the following:
@@ -111,12 +103,9 @@ the input transformer to pass the data as one of the following:
   parameters.
 - You can use the input transformer to pass pipeline variables.
 
-For examples of passing the data as JSON parameters, see [Amazon ECR source actions and EventBridge resources](create-cwe-ecr-source.md "create-cwe-ecr-source.md"), [Connecting to Amazon S3 source actions that use
-EventBridge and AWS CloudTrail](create-cloudtrail-S3-source.md "create-cloudtrail-S3-source.md") for S3, and [CodeCommit source actions and EventBridge](triggering.md "triggering.md") for CodeCommit.
+For examples of passing the data as JSON parameters, see [Amazon ECR source actions and EventBridge resources](create-cwe-ecr-source.md "create-cwe-ecr-source.md"), [Connecting to Amazon S3 source actions that use EventBridge and AWS CloudTrail](create-cloudtrail-S3-source.md "create-cloudtrail-S3-source.md") for S3, and [CodeCommit source actions and EventBridge](triggering.md "triggering.md") for CodeCommit.
 
-## How pipeline executions are
-
-stopped
+## How pipeline executions are stopped
 
 To use the console to stop a pipeline execution, you can choose **Stop
 execution** on the pipeline visualization page, on the execution
@@ -211,9 +200,7 @@ You might want to use the stop and abandon option in the case where you have a
 custom action. For example, you can abandon a custom action with work that does not
 need to finish before starting a new execution for a bug fix.
 
-## How executions are processed in
-
-SUPERSEDED mode
+## How executions are processed in SUPERSEDED mode
 
 The default mode for processing executions is SUPERSEDED mode. An execution
 consists of a set of changes picked up and processed by the execution. Pipelines can
@@ -273,9 +260,7 @@ execution 3 exits stage 1. execution 2 is superseded by execution 3.
 For more information about considerations for viewing and switching between
 execution modes, see [Set or change the pipeline execution mode](execution-modes.md "execution-modes.md"). For more information about quotas with execution modes, see [Quotas in AWS CodePipeline](limits.md "limits.md").
 
-## How executions are
-
-processed in QUEUED mode
+## How executions are processed in QUEUED mode
 
 For pipelines in QUEUED mode, stages are locked when an execution is being
 processed; however, waiting executions do not overtake executions that have already
@@ -298,9 +283,7 @@ execution in the queue will be processed after the stage unlocks.
 For more information about considerations for viewing and switching between
 execution modes, see [Set or change the pipeline execution mode](execution-modes.md "execution-modes.md"). For more information about quotas with execution modes, see [Quotas in AWS CodePipeline](limits.md "limits.md").
 
-## How executions are
-
-processed in PARALLEL mode
+## How executions are processed in PARALLEL mode
 
 For pipelines in PARALLEL mode, executions are independent of one another and
 don’t wait for other executions to complete before starting. There are no queues. To
@@ -312,9 +295,7 @@ feature branch and deploys to targets that are not shared by other users.
 For more information about considerations for viewing and switching between
 execution modes, see [Set or change the pipeline execution mode](execution-modes.md "execution-modes.md"). For more information about quotas with execution modes, see [Quotas in AWS CodePipeline](limits.md "limits.md").
 
-## Managing Pipeline
-
-Flow
+## Managing Pipeline Flow
 
 The flow of pipeline executions can be controlled by:
 
@@ -355,9 +336,7 @@ processed in the same way as a failed action.
     failed execution. At this point, the failed execution cannot be
     retried.
 
-### Recommended pipeline
-
-structure
+### Recommended pipeline structure
 
 When deciding how a code change should flow through your pipeline, it is best
 to group related actions within a stage so that, when the stage locks, the
@@ -380,9 +359,7 @@ stages.
 approval actions grouped together (recommended). **Right:** related actions in separate stages (not
 recommended).
 
-### How Inbound Executions
-
-Work
+### How Inbound Executions Work
 
 An inbound execution is an execution that is waiting for an unavailable stage,
 transition, or action to become available before it moves forward. The next

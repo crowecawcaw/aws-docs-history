@@ -24,13 +24,10 @@ This action is only supported for V2 type pipelines.
 - [Configuration parameters](#action-reference-EC2Deploy-parameters "#action-reference-EC2Deploy-parameters")
 - [Input artifacts](#action-reference-EC2Deploy-input "#action-reference-EC2Deploy-input")
 - [Output artifacts](#action-reference-EC2Deploy-output "#action-reference-EC2Deploy-output")
-- [Service role policy
-  permissions for the EC2 deploy action](#action-reference-EC2Deploy-permissions-action "#action-reference-EC2Deploy-permissions-action")
-- [Deploy spec file
-  reference](#action-reference-EC2Deploy-spec-reference "#action-reference-EC2Deploy-spec-reference")
+- [Service role policy permissions for the EC2 deploy action](#action-reference-EC2Deploy-permissions-action "#action-reference-EC2Deploy-permissions-action")
+- [Deploy spec file reference](#action-reference-EC2Deploy-spec-reference "#action-reference-EC2Deploy-spec-reference")
 - [Action declaration](#action-reference-EC2Deploy-example "#action-reference-EC2Deploy-example")
-- [Action declaration with Deploy
-  spec example](#action-reference-EC2Deploy-example-spec "#action-reference-EC2Deploy-example-spec")
+- [Action declaration with Deploy spec example](#action-reference-EC2Deploy-example-spec "#action-reference-EC2Deploy-example-spec")
 - [See also](#action-reference-EC2Deploy-links "#action-reference-EC2Deploy-links")
 
 ## Action type
@@ -91,11 +88,9 @@ The directory to be used on your Amazon EC2 instance to run scripts.
 Required: Yes (If deploy spec is specified)
 
 The file to be used to configure deployment install and lifecycle events.
-For deploy spec field descriptions and information, see [Deploy spec file
-reference](#action-reference-EC2Deploy-spec-reference "#action-reference-EC2Deploy-spec-reference"). To view an
+For deploy spec field descriptions and information, see [Deploy spec file reference](#action-reference-EC2Deploy-spec-reference "#action-reference-EC2Deploy-spec-reference"). To view an
 action configuration with the deploy spec file specified, see the example in
-[Action declaration with Deploy
-spec example](#action-reference-EC2Deploy-example-spec "#action-reference-EC2Deploy-example-spec").
+[Action declaration with Deploy spec example](#action-reference-EC2Deploy-example-spec "#action-reference-EC2Deploy-example-spec").
 
 **MaxBatch**
 
@@ -157,9 +152,7 @@ action where **Use a DeploySpec file** is chosen.
 - **Description:** Output artifacts do not apply
   for this action type.
 
-## Service role policy
-
-permissions for the EC2 deploy action
+## Service role policy permissions for the EC2 deploy action
 
 When CodePipeline runs the action, CodePipeline service role requires the following permissions,
 appropriately scoped down for access with least privilege.
@@ -240,9 +233,7 @@ JSON
 
 ```
 
-### Log groups for your pipeline in
-
-CloudWatch logs
+### Log groups for your pipeline in CloudWatch logs
 
 When CodePipeline runs the action, CodePipeline creates a log group using the name of the
 pipeline as follows. This enables you to scope down permissions to log resources
@@ -261,8 +252,7 @@ service role.
 
 To view logs in the console using the action details dialog page, the permission
 to view logs must be added to the console role. For more information, see the
-console permissions policy example in [Permissions required to view
-compute logs in the CodePipeline console](security-iam-permissions-console-logs.md "security-iam-permissions-console-logs.md").
+console permissions policy example in [Permissions required to view compute logs in the CodePipeline console](security-iam-permissions-console-logs.md "security-iam-permissions-console-logs.md").
 
 ### Service role policy permissions for CloudWatch logs
 
@@ -276,12 +266,9 @@ using the pipeline name.
 
 To view logs in the console using the action details dialog page, the permission
 to view logs must be added to the console role. For more information, see the
-console permissions policy example in [Permissions required to view
-compute logs in the CodePipeline console](security-iam-permissions-console-logs.md "security-iam-permissions-console-logs.md").
+console permissions policy example in [Permissions required to view compute logs in the CodePipeline console](security-iam-permissions-console-logs.md "security-iam-permissions-console-logs.md").
 
-## Deploy spec file
-
-reference
+## Deploy spec file reference
 
 When CodePipeline runs the action, you can specify a spec file to configure deployment to
 your instances. The deploy spec file specifies what to install and which lifecycle event
@@ -341,8 +328,7 @@ scripts:
 ```
 
 To view an action configuration with the deploy spec file specified, see the example
-in [Action declaration with Deploy
-spec example](#action-reference-EC2Deploy-example-spec "#action-reference-EC2Deploy-example-spec").
+in [Action declaration with Deploy spec example](#action-reference-EC2Deploy-example-spec "#action-reference-EC2Deploy-example-spec").
 
 ## Action declaration
 
@@ -404,9 +390,7 @@ JSON
 },
 ```
 
-## Action declaration with Deploy
-
-spec example
+## Action declaration with Deploy spec example
 
 YAML
 
@@ -468,11 +452,9 @@ JSON
 
 The following related resources can help you as you work with this action.
 
-- [Tutorial: Deploy to Amazon EC2 instances with
-  CodePipeline](tutorials-ec2-deploy.md "tutorials-ec2-deploy.md")
+- [Tutorial: Deploy to Amazon EC2 instances with CodePipeline](tutorials-ec2-deploy.md "tutorials-ec2-deploy.md")
   – This tutorial walks you through the creation of a EC2 instances where
   you will deploy a script file, along with creation of the pipeline using the EC2
   action.
-- [EC2 Deploy action fails with an error message
-  No such file](troubleshooting.md#troubleshooting-ec2-deploy "troubleshooting.md#troubleshooting-ec2-deploy") – This topic describes
+- [EC2 Deploy action fails with an error message No such file](troubleshooting.md#troubleshooting-ec2-deploy "troubleshooting.md#troubleshooting-ec2-deploy") – This topic describes
   troubleshooting for file not found errors with the EC2 action.

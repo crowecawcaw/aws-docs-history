@@ -1,6 +1,4 @@
-# Grant Amazon SNS permissions to a CodePipeline
-
-service role
+# Grant Amazon SNS permissions to a CodePipeline service role
 
 If you plan to use Amazon SNS to publish notifications to topics when approval actions
 require review, the service role you use in your CodePipeline operations must be granted

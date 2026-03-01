@@ -1,6 +1,4 @@
-# Example 1: Create an AWS CodeCommit pipeline
-
-with AWS CloudFormation
+# Example 1: Create an AWS CodeCommit pipeline with AWS CloudFormation
 
 This walkthrough shows you how to use the AWS CloudFormation console to create infrastructure that
 includes a pipeline connected to a CodeCommit source repository. In this tutorial, you use the
@@ -16,11 +14,9 @@ You must have created the following resources to use with the AWS CloudFormation
 template:
 
 - You must have created a source repository. You can use the AWS CodeCommit repository you
-  created in [Tutorial: Create a simple pipeline (CodeCommit
-  repository)](tutorials-simple-codecommit.md "tutorials-simple-codecommit.md").
+  created in [Tutorial: Create a simple pipeline (CodeCommit repository)](tutorials-simple-codecommit.md "tutorials-simple-codecommit.md").
 - You must have created a CodeDeploy application and deployment group. You can use the CodeDeploy
-  resources you created in [Tutorial: Create a simple pipeline (CodeCommit
-  repository)](tutorials-simple-codecommit.md "tutorials-simple-codecommit.md").
+  resources you created in [Tutorial: Create a simple pipeline (CodeCommit repository)](tutorials-simple-codecommit.md "tutorials-simple-codecommit.md").
 - Choose one of these links to download the sample AWS CloudFormation template file for creating
   a pipeline: [YAML](samples/codepipeline-codecommit-events-yaml.md "samples/codepipeline-codecommit-events-yaml.md") |
   [JSON](samples/codepipeline-codecommit-events-json.md "samples/codepipeline-codecommit-events-json.md")

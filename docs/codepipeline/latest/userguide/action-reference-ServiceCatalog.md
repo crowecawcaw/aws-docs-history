@@ -81,9 +81,7 @@ For Service Catalog support, add the following to your policy statement:
 }
 ```
 
-## Example action configurations
-
-by type of configuration file
+## Example action configurations by type of configuration file
 
 The following example shows a valid configuration for a deploy action that uses Service Catalog,
 for a pipeline that was created in the console without a separate configuration
@@ -110,9 +108,7 @@ for a pipeline that was created in the console with a separate
 }
 ```
 
-### Example action
-
-configuration
+### Example action configuration
 
 YAML
 
@@ -165,7 +161,6 @@ The following related resources can help you as you work with this action.
 
 - [Service Catalog User Guide](../../../servicecatalog/latest/userguide.md "../../../servicecatalog/latest/userguide.md") – For information
   about resources and templates in Service Catalog, see the _Service Catalog User Guide_.
-- [Tutorial: Create a pipeline that deploys to
-  Service Catalog](tutorials-S3-servicecatalog.md "tutorials-S3-servicecatalog.md") – This tutorial tutorial
+- [Tutorial: Create a pipeline that deploys to Service Catalog](tutorials-S3-servicecatalog.md "tutorials-S3-servicecatalog.md") – This tutorial tutorial
   shows you how to create and configure a pipeline to deploy your product template
   to Service Catalog and deliver changes you have made in your source repository.

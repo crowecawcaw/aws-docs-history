@@ -1,6 +1,4 @@
-# Tutorial: Use full clone with a CodeCommit pipeline
-
-source
+# Tutorial: Use full clone with a CodeCommit pipeline source
 
 You can choose the full clone option for your CodeCommit source action in CodePipeline. Use this option
 to allow CodeBuild to access Git metadata in your pipeline build action.
@@ -28,12 +26,9 @@ dependable.
 
 - [Prerequisites](#tutorials-codecommit-gitclone-prereq "#tutorials-codecommit-gitclone-prereq")
 - [Step 1: Create a README file](#tutorials-codecommit-gitclone-file "#tutorials-codecommit-gitclone-file")
-- [Step 2: Create your pipeline and
-  build project](#tutorials-codecommit-gitclone-pipeline "#tutorials-codecommit-gitclone-pipeline")
-- [Step 3: Update the CodeBuild service
-  role policy to clone the repository](#tutorials-codecommit-gitclone-rolepolicy "#tutorials-codecommit-gitclone-rolepolicy")
-- [Step 4: View repository commands in build
-  output](#tutorials-codecommit-gitclone-view "#tutorials-codecommit-gitclone-view")
+- [Step 2: Create your pipeline and build project](#tutorials-codecommit-gitclone-pipeline "#tutorials-codecommit-gitclone-pipeline")
+- [Step 3: Update the CodeBuild service role policy to clone the repository](#tutorials-codecommit-gitclone-rolepolicy "#tutorials-codecommit-gitclone-rolepolicy")
+- [Step 4: View repository commands in build output](#tutorials-codecommit-gitclone-view "#tutorials-codecommit-gitclone-view")
 
 ## Prerequisites
 
@@ -60,9 +55,7 @@ This is a CodeCommit repository!
 Make sure the `README.md` file is at the root level of your
 repository.
 
-## Step 2: Create your pipeline and
-
-build project
+## Step 2: Create your pipeline and build project
 
 In this section, you create a pipeline with the following actions:
 
@@ -181,20 +174,15 @@ deploy stage**, and then accept the warning message by choosing
 **Skip** again. Choose **Next**. 12. On **Step 7: Review**, choose **Create
 pipeline**.
 
-## Step 3: Update the CodeBuild service
-
-role policy to clone the repository
+## Step 3: Update the CodeBuild service role policy to clone the repository
 
 The initial pipeline run will fail because you need to update the CodeBuild service role with
 permissions to pull from your repository.
 
 Add the `codecommit:GitPull` IAM permission to your service role policy. For
-instructions to update the policy in the IAM console, see [Add CodeBuild GitClone permissions for CodeCommit
-source actions](troubleshooting.md#codebuild-role-codecommitclone "troubleshooting.md#codebuild-role-codecommitclone").
+instructions to update the policy in the IAM console, see [Add CodeBuild GitClone permissions for CodeCommit source actions](troubleshooting.md#codebuild-role-codecommitclone "troubleshooting.md#codebuild-role-codecommitclone").
 
-## Step 4: View repository commands in build
-
-output
+## Step 4: View repository commands in build output
 
 ###### To view the build output
 

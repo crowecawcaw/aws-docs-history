@@ -1,6 +1,4 @@
-# Tutorial: Create a pipeline that uses
-
-variables from AWS CloudFormation deployment actions
+# Tutorial: Create a pipeline that uses variables from AWS CloudFormation deployment actions
 
 In this tutorial, you use the AWS CodePipeline console to create a pipeline with a deployment
 action. When the pipeline runs, the template creates a stack and also creates an
@@ -24,29 +22,19 @@ dependable.
 
 ###### Topics
 
-- [Prerequisites: Create an AWS CloudFormation
-  service role and a CodeCommit repository](#tutorials-cloudformation-action-prereq "#tutorials-cloudformation-action-prereq")
-- [Step 1: Download, edit, and upload
-  the sample AWS CloudFormation template](#tutorials-cloudformation-action-upload "#tutorials-cloudformation-action-upload")
-- [Step 2: Create your
-  pipeline](#tutorials-cloudformation-action-pipeline "#tutorials-cloudformation-action-pipeline")
-- [Step 3: Add an CloudFormation deployment
-  action to create the change set](#tutorials-cloudformation-action-changeset "#tutorials-cloudformation-action-changeset")
-- [Step 4: Add a manual approval
-  action](#tutorials-cloudformation-action-approval "#tutorials-cloudformation-action-approval")
-- [Step 5: Add a CloudFormation
-  deployment action to execute the change set](#tutorials-cloudformation-action-deployment "#tutorials-cloudformation-action-deployment")
-- [Step 6: Add a CloudFormation
-  deployment action to delete the stack](#tutorials-cloudformation-action-delete "#tutorials-cloudformation-action-delete")
+- [Prerequisites: Create an AWS CloudFormation service role and a CodeCommit repository](#tutorials-cloudformation-action-prereq "#tutorials-cloudformation-action-prereq")
+- [Step 1: Download, edit, and upload the sample AWS CloudFormation template](#tutorials-cloudformation-action-upload "#tutorials-cloudformation-action-upload")
+- [Step 2: Create your pipeline](#tutorials-cloudformation-action-pipeline "#tutorials-cloudformation-action-pipeline")
+- [Step 3: Add an CloudFormation deployment action to create the change set](#tutorials-cloudformation-action-changeset "#tutorials-cloudformation-action-changeset")
+- [Step 4: Add a manual approval action](#tutorials-cloudformation-action-approval "#tutorials-cloudformation-action-approval")
+- [Step 5: Add a CloudFormation deployment action to execute the change set](#tutorials-cloudformation-action-deployment "#tutorials-cloudformation-action-deployment")
+- [Step 6: Add a CloudFormation deployment action to delete the stack](#tutorials-cloudformation-action-delete "#tutorials-cloudformation-action-delete")
 
-## Prerequisites: Create an AWS CloudFormation
-
-service role and a CodeCommit repository
+## Prerequisites: Create an AWS CloudFormation service role and a CodeCommit repository
 
 You must already have the following:
 
-- A CodeCommit repository. You can use the AWS CodeCommit repository you created in [Tutorial: Create a simple pipeline (CodeCommit
-  repository)](tutorials-simple-codecommit.md "tutorials-simple-codecommit.md").
+- A CodeCommit repository. You can use the AWS CodeCommit repository you created in [Tutorial: Create a simple pipeline (CodeCommit repository)](tutorials-simple-codecommit.md "tutorials-simple-codecommit.md").
 - This example creates an Amazon DocumentDB stack from a template. You must use AWS Identity and Access Management (IAM)
   to create an AWS CloudFormation service role with the following permissions for Amazon DocumentDB.
 
@@ -58,9 +46,7 @@ You must already have the following:
 
 ```
 
-## Step 1: Download, edit, and upload
-
-the sample AWS CloudFormation template
+## Step 1: Download, edit, and upload the sample AWS CloudFormation template
 
 Download the sample AWS CloudFormation template file and upload it to your CodeCommit repository.
 
@@ -107,9 +93,7 @@ To use the CodeCommit console to upload your files:
 documentdb_full_stack.yaml
 ```
 
-## Step 2: Create your
-
-pipeline
+## Step 2: Create your pipeline
 
 In this section, you create a pipeline with the following actions:
 
@@ -212,9 +196,7 @@ Choose **Next**. 11. In **Step 6: Add deploy stage**:
      your pipeline to run. Your two-stage pipeline is complete and ready for the additional
      stages to be added.
 
-## Step 3: Add an CloudFormation deployment
-
-action to create the change set
+## Step 3: Add an CloudFormation deployment action to create the change set
 
 Create a next action in your pipeline that will allow CloudFormation to create the change set
 before the manual approval action.
@@ -266,9 +248,7 @@ in the previous action. You add this action after the existing action in the sta
     ```
     7. Choose **Done** to save the action.
 
-## Step 4: Add a manual approval
-
-action
+## Step 4: Add a manual approval action
 
 Create a manual approval action in your pipeline.
 
@@ -279,9 +259,7 @@ Create a manual approval action in your pipeline.
    action allows you to verify the created resource change set in CloudFormation before the pipeline
    executes the change set.
 
-## Step 5: Add a CloudFormation
-
-deployment action to execute the change set
+## Step 5: Add a CloudFormation deployment action to execute the change set
 
 Create a next action in your pipeline that allows CloudFormation to execute the change set after
 the manual approval action.
@@ -321,9 +299,7 @@ previous manual action:
     6. Choose **Done** to save the action.
     7. Continue the pipeline run.
 
-## Step 6: Add a CloudFormation
-
-deployment action to delete the stack
+## Step 6: Add a CloudFormation deployment action to delete the stack
 
 Create a final action in your pipeline that allows CloudFormation to get the stack name from the
 variable in the outputs file and delete the stack.

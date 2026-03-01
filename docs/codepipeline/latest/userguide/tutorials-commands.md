@@ -1,6 +1,4 @@
-# Tutorial: Create a pipeline that runs commands with
-
-compute (V2 type)
+# Tutorial: Create a pipeline that runs commands with compute (V2 type)
 
 In this tutorial, you configure a pipeline that continuously runs provided build commands
 using the Commands action in a build stage. For more information about the Commands action,
@@ -18,12 +16,9 @@ and will be dependable.
 
 You must already have the following:
 
-- A GitHub repository. You can use the GitHub repository you created in [Tutorial: Use full clone with a GitHub pipeline
-  source](tutorials-github-gitclone.md "tutorials-github-gitclone.md").
+- A GitHub repository. You can use the GitHub repository you created in [Tutorial: Use full clone with a GitHub pipeline source](tutorials-github-gitclone.md "tutorials-github-gitclone.md").
 
-## Step 1: Create source files and push to your
-
-GitHub repository
+## Step 1: Create source files and push to your GitHub repository
 
 In this section, you create and push your example source files to the repository that
 the pipeline uses for your source stage. For this example, you produce and push the
@@ -106,8 +101,7 @@ If you are using an existing service role, to use the Commands action, you
 will need to add the following permissions for the service role. Scope down
 the permissions to the pipeline resource level by using resource-based
 permissions in the service role policy statement. For more information, see
-the policy example in [Service role policy
-permissions](action-reference-Commands.md#action-reference-Commands-policy "action-reference-Commands.md#action-reference-Commands-policy").
+the policy example in [Service role policy permissions](action-reference-Commands.md#action-reference-Commands-policy "action-reference-Commands.md#action-reference-Commands-policy").
 
     * logs:CreateLogGroup
     * logs:CreateLogStream
@@ -130,8 +124,7 @@ permissions](action-reference-Commands.md#action-reference-Commands-policy "acti
       trigger or if a pipeline execution was started manually, then the change
       used will be the HEAD commit from the default branch. Optionally, you
       can also specify webhooks with filtering (triggers). For more
-      information, see [Automate starting pipelines using triggers and
-      filtering](pipelines-triggers.md "pipelines-triggers.md").Choose **Next**.
+      information, see [Automate starting pipelines using triggers and filtering](pipelines-triggers.md "pipelines-triggers.md").Choose **Next**.
 
 9. In **Step 4: Add build stage**, choose
    **Commands**.
@@ -173,9 +166,7 @@ choose **Add variable**.
 
 ![The Edit page for the Commands action](images/commands-output-edit-var.png)
 
-## Step 3: Run your pipeline and verify build
-
-commands
+## Step 3: Run your pipeline and verify build commands
 
 Release a change to run your pipeline. Verify that the build commands ran by viewing
 the execution history, the build logs, and the output variables.

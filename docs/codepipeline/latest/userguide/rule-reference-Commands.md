@@ -17,8 +17,7 @@ For beforeEntry conditions that are configured with the **Skip** result, only th
 - [Service role policy permissions](#rule-reference-Commands-policy "#rule-reference-Commands-policy")
 - [Rule type](#rule-reference-Commands-type "#rule-reference-Commands-type")
 - [Configuration parameters](#rule-reference-Commands-config "#rule-reference-Commands-config")
-- [Example rule
-  configuration](#rule-reference-Commands-example "#rule-reference-Commands-example")
+- [Example rule configuration](#rule-reference-Commands-example "#rule-reference-Commands-example")
 - [See also](#rule-reference-Commands-links "#rule-reference-Commands-links")
 
 ## Considerations for the Commands rule
@@ -51,10 +50,8 @@ instance might be reused for another pipeline execution.
 - For this rule, CodePipeline will assume the pipeline service role and use that role
   to allow access to resources at runtime. It is recommended to configure the
   service role so that the permissions are scoped down to the action level.
-- The permissions added to the CodePipeline service role are detailed in [Add permissions to the CodePipeline
-  service role](how-to-custom-role.md#how-to-update-role-new-services "how-to-custom-role.md#how-to-update-role-new-services").
-- The permission needed to view logs in the console is detailed in [Permissions required to view
-  compute logs in the CodePipeline console](security-iam-permissions-console-logs.md "security-iam-permissions-console-logs.md") . In the following
+- The permissions added to the CodePipeline service role are detailed in [Add permissions to the CodePipeline service role](how-to-custom-role.md#how-to-update-role-new-services "how-to-custom-role.md#how-to-update-role-new-services").
+- The permission needed to view logs in the console is detailed in [Permissions required to view compute logs in the CodePipeline console](security-iam-permissions-console-logs.md "security-iam-permissions-console-logs.md") . In the following
   example screens, use the **Logs** link to view logs
   for a successful Commands rule in CloudWatch logs.
 
@@ -100,8 +97,7 @@ as shown in the following example.
 
 To view logs in the console using the action details dialog page, the permission to
 view logs must be added to the console role. For more information, see the console
-permissions policy example in [Permissions required to view
-compute logs in the CodePipeline console](security-iam-permissions-console-logs.md "security-iam-permissions-console-logs.md").
+permissions policy example in [Permissions required to view compute logs in the CodePipeline console](security-iam-permissions-console-logs.md "security-iam-permissions-console-logs.md").
 
 ## Rule type
 
@@ -138,9 +134,7 @@ Guide.
 - **Environment type value:**
   LINUX_CONTAINER
 
-## Example rule
-
-configuration
+## Example rule configuration
 
 YAML
 

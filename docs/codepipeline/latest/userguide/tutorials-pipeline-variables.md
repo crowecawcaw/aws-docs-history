@@ -14,10 +14,8 @@ dependable.
 ###### Topics
 
 - [Prerequisites](#tutorials-pipeline-variables-prereq "#tutorials-pipeline-variables-prereq")
-- [Step 1: Create your pipeline and build
-  project](#tutorials-pipeline-variables-pipeline "#tutorials-pipeline-variables-pipeline")
-- [Step 2: Release change and view
-  logs](#tutorials-pipeline-variables-view "#tutorials-pipeline-variables-view")
+- [Step 1: Create your pipeline and build project](#tutorials-pipeline-variables-pipeline "#tutorials-pipeline-variables-pipeline")
+- [Step 2: Release change and view logs](#tutorials-pipeline-variables-view "#tutorials-pipeline-variables-view")
 
 ## Prerequisites
 
@@ -26,9 +24,7 @@ Before you begin, you must do the following:
 - Create a CodeCommit repository.
 - Add a .txt file to the repository.
 
-## Step 1: Create your pipeline and build
-
-project
+## Step 1: Create your pipeline and build project
 
 In this section, you create a pipeline with the following actions:
 
@@ -175,9 +171,7 @@ deploy stage**, and then accept the warning message by choosing
 **Skip** again. Choose **Next**. 13. On **Step 7: Review**, choose **Create
 pipeline**.
 
-## Step 2: Release change and view
-
-logs
+## Step 2: Release change and view logs
 
 1. After the pipeline runs successfully, on your successful build stage, choose
    **View details**.

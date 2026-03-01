@@ -1,6 +1,4 @@
-# Create an EventBridge rule for an Amazon ECR
-
-source (console)
+# Create an EventBridge rule for an Amazon ECR source (console)
 
 ###### To create an EventBridge rule for use in CodePipeline operations (Amazon ECR source)
 

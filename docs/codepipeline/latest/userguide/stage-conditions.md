@@ -39,10 +39,8 @@ or actions in a stage. See Configure conditions for a stage.
 ###### Topics
 
 - [Use cases for stage conditions](#stage-conditions-cases "#stage-conditions-cases")
-- [Considerations for results configured
-  for stage conditions](#stage-conditions-considerations "#stage-conditions-considerations")
-- [Considerations for rules
-  configured for stage conditions](#stage-conditions-considerations-rules "#stage-conditions-considerations-rules")
+- [Considerations for results configured for stage conditions](#stage-conditions-considerations "#stage-conditions-considerations")
+- [Considerations for rules configured for stage conditions](#stage-conditions-considerations-rules "#stage-conditions-considerations-rules")
 - [Creating Entry conditions](#stage-conditions-entry "#stage-conditions-entry")
 - [Creating On Failure conditions](#stage-conditions-onfailure "#stage-conditions-onfailure")
 - [Creating On Success conditions](#stage-conditions-onsuccess "#stage-conditions-onsuccess")
@@ -65,9 +63,7 @@ pipelines. The following are sample use cases for stage conditions.
   completes successfully, the rule will check whether the current time is in the
   deployment window and then deploy if the rule succeeds.
 
-## Considerations for results configured
-
-for stage conditions
+## Considerations for results configured for stage conditions
 
 Considerations for stage conditions are as follows:
 
@@ -99,9 +95,7 @@ Considerations for stage conditions are as follows:
   | OnSuccess | Rollback                               | Succeeded    | The stage proceeds.  |
   | OnSuccess | Fail                                   | Failed       | The stage proceeds.  |
 
-## Considerations for rules
-
-configured for stage conditions
+## Considerations for rules configured for stage conditions
 
 Considerations for the available rules for stage conditions are as follows:
 
@@ -124,9 +118,7 @@ The steps provide an example Entry condition that uses a monitor rule.
 For more information, see [Condition](../APIReference/API_Condition.md "../APIReference/API_Condition.md"), [RuleTypeId](../APIReference/API_RuleTypeId.md "../APIReference/API_RuleTypeId.md"), and [RuleExecution](../APIReference/API_RuleExecution.md "../APIReference/API_RuleExecution.md") in the _CodePipeline API
 Guide_.
 
-### Creating Entry conditions -
-
-CloudWatchAlarm rule example (Console)
+### Creating Entry conditions - CloudWatchAlarm rule example (Console)
 
 You can configure Entry conditions for a stage, along with the rules and results
 you want the stage to perform when the conditions are met.
@@ -169,24 +161,19 @@ following.
 
 8. After the run, view the result.
 
-### Creating Entry conditions with Skip
-
-result and `VariableCheck` rule (console)
+### Creating Entry conditions with Skip result and `VariableCheck` rule (console)
 
 You can configure Entry conditions for a stage so that if the entry condition is
 not met, the stage is skipped If the condition fails, then the result engages and
 the stage is skipped. When a stage is skipped, the stage status is
 **Skipped**, and the action status is **Didn't
 Run**. For considerations for stage conditions with Skip results, see
-[Considerations for results configured
-for stage conditions](#stage-conditions-considerations "#stage-conditions-considerations").
+[Considerations for results configured for stage conditions](#stage-conditions-considerations "#stage-conditions-considerations").
 
 In the following example, the variable check rule finds that the value is not a
 match, and the build stage is skipped.
 
-###### Configure an Entry condition with a **Skip** result
-
-(console)
+###### Configure an Entry condition with a **Skip** result (console)
 
 1. Complete any prerequisites, such as creating the resource and ARN for a
    rule where a resource is provided, such as the **AWS
@@ -362,9 +349,7 @@ configure the corresponding rules and results for each condition. For a rollback
 the pipeline can only roll back to a previous execution if the previous execution was
 started in the current pipeline structure version.
 
-### Creating On Failure conditions
-
-(Console)
+### Creating On Failure conditions (Console)
 
 You can configure On Failure conditions for a stage, along with the rules and
 results you want the stage to perform when the conditions are met.
@@ -450,9 +435,7 @@ rule** and enter a rule for the condition.
 
 8. After the run, view the result.
 
-### Creating On Failure conditions
-
-(CLI)
+### Creating On Failure conditions (CLI)
 
 To use the AWS CLI to configure an On Failure condition, use the commands to create
 or update a pipeline as detailed in [Create a pipeline, stages, and actions](pipelines-create.md "pipelines-create.md") and [Edit a pipeline in CodePipeline](pipelines-edit.md "pipelines-edit.md").
@@ -525,9 +508,7 @@ or update a pipeline as detailed in [Create a pipeline, stages, and actions](pip
 For more information about configuring failure conditions, see [FailureConditions](../APIReference/API_FailureConditions.md "../APIReference/API_FailureConditions.md") in the _CodePipeline API
 Reference_.
 
-### Creating On Failure conditions
-
-(CFN)
+### Creating On Failure conditions (CFN)
 
 To use CloudFormation to configure an On Failure condition, use the `OnFailure`
 parameter. On success, the stage will run the rule and perform the result.
@@ -594,9 +575,7 @@ rule.
 For more information, see [Condition](../APIReference/API_Condition.md "../APIReference/API_Condition.md"), [RuleTypeId](../APIReference/API_RuleTypeId.md "../APIReference/API_RuleTypeId.md"), and [RuleExecution](../APIReference/API_RuleExecution.md "../APIReference/API_RuleExecution.md") in the _CodePipeline API
 Guide_.
 
-### Creating On Success conditions
-
-(Console)
+### Creating On Success conditions (Console)
 
 You can configure On Success conditions for a stage, along with the rules and
 results you want the stage to perform when the conditions are met.
@@ -637,9 +616,7 @@ following.
 
 ![An example condition in CodePipeline.](images/stage-condition-onsuccess-deplwin-example-message.png)
 
-### Creating On Success conditions
-
-(CLI)
+### Creating On Success conditions (CLI)
 
 To use the AWS CLI to configure an On Success condition, use the commands to create
 or update a pipeline as detailed in [Create a pipeline, stages, and actions](pipelines-create.md "pipelines-create.md") and [Edit a pipeline in CodePipeline](pipelines-edit.md "pipelines-edit.md").
@@ -710,9 +687,7 @@ or update a pipeline as detailed in [Create a pipeline, stages, and actions](pip
 For more information about configuring success conditions, see [SuccessConditions](../APIReference/API_SuccessConditions.md "../APIReference/API_SuccessConditions.md") in the _CodePipeline API
 Reference_.
 
-### Create an On Success condition
-
-(CFN)
+### Create an On Success condition (CFN)
 
 To use CloudFormation to configure an On Success condition, use the `OnSuccess`
 parameter. On success, the stage will run the rule and perform the result.

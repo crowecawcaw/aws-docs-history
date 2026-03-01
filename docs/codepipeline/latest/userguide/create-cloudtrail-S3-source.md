@@ -1,20 +1,16 @@
-# Connecting to Amazon S3 source actions that use
-
-EventBridge and AWS CloudTrail
+# Connecting to Amazon S3 source actions that use EventBridge and AWS CloudTrail
 
 The instructions in this section provide the steps for creating the S3 source action
 that uses AWS CloudTrail resources that you must create and manage. To use the S3 source
 action with EventBridge that does not require additional AWS CloudTrail resources, use the CLI
-instructions at [Migrate polling pipelines with an S3
-source enabled for events](update-change-detection.md#update-change-detection-S3-event "update-change-detection.md#update-change-detection-S3-event").
+instructions at [Migrate polling pipelines with an S3 source enabled for events](update-change-detection.md#update-change-detection-S3-event "update-change-detection.md#update-change-detection-S3-event").
 
 ###### Important
 
 This procedure provides the steps for creating the S3 source action that uses
 AWS CloudTrail resources that you must create and manage. The procedure to create this
 action without AWS CloudTrail resources is not available in the console. To use the CLI,
-see [Migrate polling pipelines with an S3
-source enabled for events](update-change-detection.md#update-change-detection-S3-event "update-change-detection.md#update-change-detection-S3-event").
+see [Migrate polling pipelines with an S3 source enabled for events](update-change-detection.md#update-change-detection-S3-event "update-change-detection.md#update-change-detection-S3-event").
 
 To add an Amazon S3 source action in CodePipeline, you choose either to:
 
@@ -29,10 +25,7 @@ To add an Amazon S3 source action in CodePipeline, you choose either to:
       + The change detection method defaults to starting the pipeline by
        polling the source. You should disable periodic checks and create the
        change detection rule and trail manually. Use one of the following
-       methods: [Create an EventBridge rule for an
-       Amazon S3 source (console)](create-cloudtrail-S3-source-console.md "create-cloudtrail-S3-source-console.md"), [Create an EventBridge rule for an Amazon S3
-       source (CLI)](create-cloudtrail-S3-source-cli.md "create-cloudtrail-S3-source-cli.md"), or [Create an EventBridge rule for an Amazon S3
-       source (CloudFormation template)](create-cloudtrail-S3-source-cfn.md "create-cloudtrail-S3-source-cfn.md") .
+       methods: [Create an EventBridge rule for an Amazon S3 source (console)](create-cloudtrail-S3-source-console.md "create-cloudtrail-S3-source-console.md"), [Create an EventBridge rule for an Amazon S3 source (CLI)](create-cloudtrail-S3-source-cli.md "create-cloudtrail-S3-source-cli.md"), or [Create an EventBridge rule for an Amazon S3 source (CloudFormation template)](create-cloudtrail-S3-source-cfn.md "create-cloudtrail-S3-source-cfn.md").
 
   AWS CloudTrail is a service that logs and filters events on your Amazon S3 source bucket. The
   trail sends the filtered source changes to the EventBridge rule. The EventBridge rule detects the

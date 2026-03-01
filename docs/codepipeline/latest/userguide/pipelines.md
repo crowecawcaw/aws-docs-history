@@ -10,8 +10,7 @@ When you add Build, Deploy, Test, or Invoke stages, in addition to the default o
 provided with CodePipeline, you can choose custom actions that you have already created for use with
 your pipelines. Custom actions can be used for tasks such as running an internally developed
 build process or a test suite. Version identifiers are included to help you distinguish among
-different versions of a custom action in the provider lists. For more information, see [Create and add a custom action in
-CodePipeline](actions-create-custom-action.md "actions-create-custom-action.md").
+different versions of a custom action in the provider lists. For more information, see [Create and add a custom action in CodePipeline](actions-create-custom-action.md "actions-create-custom-action.md").
 
 Before you can create a pipeline, you must first complete the steps in [Getting started with CodePipeline](getting-started-codepipeline.md "getting-started-codepipeline.md").
 

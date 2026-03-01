@@ -1,7 +1,4 @@
-# Configuring
-
-stage retry for a failed stage or failed
-actions
+# Configuring stage retry for a failed stage or failed actions
 
 You can retry a stage that has failed without having to run a pipeline again from the
 beginning. You do this by either retrying the failed actions in a stage or by retrying all
@@ -40,8 +37,7 @@ In the following cases, you might not be able to retry a stage:
 
 - [Considerations for stage retry](#stage-retry-considerations "#stage-retry-considerations")
 - [Retry a failed stage manually](#stage-retry-manual "#stage-retry-manual")
-- [Configure a stage for automatic retry on
-  failure](#stage-retry-auto "#stage-retry-auto")
+- [Configure a stage for automatic retry on failure](#stage-retry-auto "#stage-retry-auto")
 
 ## Considerations for stage retry
 
@@ -56,16 +52,11 @@ Considerations for stage retry are as follows:
 
 You can manually retry a failed stage using the console or CLI.
 
-You can also configure a stage for retry automatically on failure as detailed in [Configure a stage for automatic retry on
-failure](#stage-retry-auto "#stage-retry-auto").
+You can also configure a stage for retry automatically on failure as detailed in [Configure a stage for automatic retry on failure](#stage-retry-auto "#stage-retry-auto").
 
-### Retry a failed stage manually
+### Retry a failed stage manually (console)
 
-(console)
-
-###### To retry a failed stage or failed actions in a stage
-
-- console
+###### To retry a failed stage or failed actions in a stage - console
 
 1. Sign in to the AWS Management Console and open the CodePipeline console at [http://console.aws.amazon.com/codesuite/codepipeline/home](http://console.aws.amazon.com/codesuite/codepipeline/home "http://console.aws.amazon.com/codesuite/codepipeline/home").
 
@@ -198,9 +189,7 @@ The output returns the execution ID:
        **get-pipeline-state** command again. For more information,
        see [View pipelines and details in CodePipeline](pipelines-view.md "pipelines-view.md").
 
-## Configure a stage for automatic retry on
-
-failure
+## Configure a stage for automatic retry on failure
 
 You can configure a stage for automatic retry on failure. The stage will make one
 retry attempt and display a retry status on the failed stage on the
@@ -209,9 +198,7 @@ retry attempt and display a retry status on the failed stage on the
 You can configure the retry mode by specifying that the stage should automatically
 retry either all actions in the failed stage or only failed actions in the stage.
 
-### Configure a stage for automatic retry on
-
-failure (console)
+### Configure a stage for automatic retry on failure (console)
 
 You can use the console to configure a stage for automatic retry.
 
@@ -243,9 +230,7 @@ displays.
 
 ![An example of the retry stage metadata window showing there has been one attempt.](images/retry-stage-metadata.png)
 
-### Configure a stage for automatic retry
-
-(CLI)
+### Configure a stage for automatic retry (CLI)
 
 To use the AWS CLI to configure a stage to automatically retry on failure, use the
 commands to create or update a pipeline as detailed in [Create a pipeline, stages, and actions](pipelines-create.md "pipelines-create.md") and [Edit a pipeline in CodePipeline](pipelines-edit.md "pipelines-edit.md").
@@ -290,9 +275,7 @@ commands to create or update a pipeline as detailed in [Create a pipeline, stage
             }
 ```
 
-### Configure a stage for automatic retry
-
-(CloudFormation)
+### Configure a stage for automatic retry (CloudFormation)
 
 To use CloudFormation to configure a stage for automatic retry on failure, use the
 `OnFailure` stage lifecycle parameter. Use the

@@ -138,9 +138,7 @@ The ARN of the state machine.
 The ARN of the execution of the state machine. Standard state machines
 only.
 
-## Service role permissions:
-
-`StepFunctions` action
+## Service role permissions: `StepFunctions` action
 
 For the `StepFunctions` action, the following are the minimum
 permissions needed to create pipelines with a Step Functions invoke action.
@@ -157,13 +155,9 @@ permissions needed to create pipelines with a Step Functions invoke action.
 },
 ```
 
-## Example action
+## Example action configuration
 
-configuration
-
-### Example for default
-
-input
+### Example for default input
 
 YAML
 
@@ -204,9 +198,7 @@ JSON
 }
 ```
 
-### Example for literal
-
-input
+### Example for literal input
 
 YAML
 
@@ -249,9 +241,7 @@ JSON
 }
 ```
 
-### Example for input
-
-file
+### Example for input file
 
 YAML
 
@@ -325,9 +315,7 @@ field is required and an input artifact must exist; otherwise, the action fails.
 After a successful start execution, behavior will diverge for the two state machine
 types, _standard_ and _express_.
 
-### Standard state
-
-machines
+### Standard state machines
 
 If the standard state machine execution was successfully started, CodePipeline polls the
 `DescribeExecution` API until the execution reaches a terminal
@@ -341,9 +329,7 @@ DescribeExecution API](../../../step-functions/latest/apireference/API_DescribeE
 completes successfully. Note that there are output length constraints enforced on
 this API.
 
-#### Error
-
-handling
+#### Error handling
 
 - If the action fails to start a state machine execution, the action
   execution fails.
@@ -362,9 +348,7 @@ all actions of this type in all Regions for that account.
 - If the state machine execution reaches a terminal status of FAILED,
   TIMED_OUT, or ABORTED, the action execution fails.
 
-### Express state
-
-machines
+### Express state machines
 
 If the express state machine execution was successfully started, the invoke action
 execution completes successfully.
@@ -377,9 +361,7 @@ Considerations for actions configured for express state machines:
 - After the action execution is started in CodePipeline, the action execution
   succeeds even if the state machine execution fails.
 
-#### Error
-
-handling
+#### Error handling
 
 - If CodePipeline fails to start a state machine execution, the action
   execution fails. Otherwise, the action succeeds immediately. The action
@@ -393,7 +375,6 @@ The following related resources can help you as you work with this action.
 - [AWS Step Functions Developer Guide](../../../step-functions/latest/dg.md "../../../step-functions/latest/dg.md") – For information
   about state machines, executions, and inputs for state machines, see the
   _AWS Step Functions Developer Guide_.
-- [Tutorial: Use an AWS Step Functions invoke action in a
-  pipeline](tutorials-step-functions.md "tutorials-step-functions.md") – This tutorial gets you
+- [Tutorial: Use an AWS Step Functions invoke action in a pipeline](tutorials-step-functions.md "tutorials-step-functions.md") – This tutorial gets you
   started with a sample standard state machine and shows you how to use the
   console to update a pipeline by adding a Step Functions invoke action.

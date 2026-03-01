@@ -4,8 +4,7 @@ Triggers the pipeline when a new image is pushed to the Amazon ECR repository. T
 provides an image definitions file referencing the URI for the image that was pushed to
 Amazon ECR. This source action is often used in conjunction with another source action, such as
 CodeCommit, to allow a source location for all other source artifacts. For more information, see
-[Tutorial: Create a pipeline with an Amazon ECR
-source and ECS-to-CodeDeploy deployment](tutorials-ecs-ecr-codedeploy.md "tutorials-ecs-ecr-codedeploy.md").
+[Tutorial: Create a pipeline with an Amazon ECR source and ECS-to-CodeDeploy deployment](tutorials-ecs-ecr-codedeploy.md "tutorials-ecs-ecr-codedeploy.md").
 
 When you use the console to create or edit your pipeline, CodePipeline creates an EventBridge rule that
 starts your pipeline when a change occurs in the repository.
@@ -16,8 +15,7 @@ For Amazon ECR, Amazon S3, or CodeCommit sources, you can also create a source o
 transform entry to use the `revisionValue` in EventBridge for your pipeline event,
 where the `revisionValue` is derived from the source event variable for your
 object key, commit, or image ID. For more information, see the optional step for input
-transform entry included in the procedures under [Amazon ECR source actions and EventBridge resources](create-cwe-ecr-source.md "create-cwe-ecr-source.md"), [Connecting to Amazon S3 source actions with a
-source enabled for events](create-S3-source-events.md "create-S3-source-events.md"), or [CodeCommit source actions and EventBridge](triggering.md "triggering.md").
+transform entry included in the procedures under [Amazon ECR source actions and EventBridge resources](create-cwe-ecr-source.md "create-cwe-ecr-source.md"), [Connecting to Amazon S3 source actions with a source enabled for events](create-S3-source-events.md "create-S3-source-events.md"), or [CodeCommit source actions and EventBridge](triggering.md "triggering.md").
 
 You must have already created an Amazon ECR repository and pushed an image before you connect
 the pipeline through an Amazon ECR action.
@@ -30,8 +28,7 @@ the pipeline through an Amazon ECR action.
 - [Output artifacts](#action-reference-ECR-output "#action-reference-ECR-output")
 - [Output variables](#action-reference-ECR-variables "#action-reference-ECR-variables")
 - [Service role permissions: Amazon ECR action](#edit-role-ecr "#edit-role-ecr")
-- [Action declaration (Amazon ECR
-  example)](#action-reference-ECR-example "#action-reference-ECR-example")
+- [Action declaration (Amazon ECR example)](#action-reference-ECR-example "#action-reference-ECR-example")
 - [See also](#action-reference-ECR-links "#action-reference-ECR-links")
 
 ## Action type
@@ -75,8 +72,7 @@ defaults to `latest`.
 
 that contains an `imageDetail.json` file that contains the
 URI for the image that triggered the pipeline execution. For information about
-the `imageDetail.json` file, see [imageDetail.json file for Amazon ECS blue/green
-deployment actions](file-reference.md#file-reference-ecs-bluegreen "file-reference.md#file-reference-ecs-bluegreen").
+the `imageDetail.json` file, see [imageDetail.json file for Amazon ECS blue/green deployment actions](file-reference.md#file-reference-ecs-bluegreen "file-reference.md#file-reference-ecs-bluegreen").
 
 ## Output variables
 
@@ -130,9 +126,7 @@ For Amazon ECR support, add the following to your policy statement:
 
 For more information about this action, see [Amazon ECR source action reference](action-reference-ECR.md "action-reference-ECR.md").
 
-## Action declaration (Amazon ECR
-
-example)
+## Action declaration (Amazon ECR example)
 
 YAML
 
@@ -189,8 +183,7 @@ JSON
 
 The following related resources can help you as you work with this action.
 
-- [Tutorial: Create a pipeline with an Amazon ECR
-  source and ECS-to-CodeDeploy deployment](tutorials-ecs-ecr-codedeploy.md "tutorials-ecs-ecr-codedeploy.md") – This tutorial
+- [Tutorial: Create a pipeline with an Amazon ECR source and ECS-to-CodeDeploy deployment](tutorials-ecs-ecr-codedeploy.md "tutorials-ecs-ecr-codedeploy.md") – This tutorial
   provides a sample app spec file and sample CodeDeploy application and deployment
 
 group to create a pipeline with a CodeCommit and Amazon ECR source that deploys to Amazon ECS

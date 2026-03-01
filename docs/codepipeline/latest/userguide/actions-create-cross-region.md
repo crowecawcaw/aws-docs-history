@@ -62,9 +62,7 @@ The pipeline Region and the Region where your CloudWatch Events change detection
 maintained remain the same. The Region where your pipeline is hosted does not
 change.
 
-## Manage cross-Region actions in a pipeline
-
-(console)
+## Manage cross-Region actions in a pipeline (console)
 
 You can use the CodePipeline console to add a cross-Region action to an existing pipeline. To
 create a new pipeline with cross-Region actions using the Create pipeline wizard, see
@@ -76,9 +74,7 @@ have created in that region for that provider. When you add a cross-Region actio
 uses a separate artifact bucket in the action's region. For more information about
 cross-Region artifact buckets, see [CodePipeline pipeline structure reference](reference-pipeline-structure.md "reference-pipeline-structure.md").
 
-### Add a cross-Region action to a
-
-pipeline stage (console)
+### Add a cross-Region action to a pipeline stage (console)
 
 Use the console to add a cross-Region action to a pipeline.
 
@@ -125,9 +121,7 @@ complete.
    **Done**.
 7. Choose **Save**.
 
-### Edit a cross-Region action in a
-
-pipeline stage (console)
+### Edit a cross-Region action in a pipeline stage (console)
 
 Use the console to edit an existing cross-Region action in a pipeline.
 
@@ -149,9 +143,7 @@ complete.
    **Done**.
 7. Choose **Save**.
 
-### Delete a cross-Region action
-
-from a pipeline stage (console)
+### Delete a cross-Region action from a pipeline stage (console)
 
 Use the console to delete an existing cross-Region action from a pipeline.
 
@@ -171,9 +163,7 @@ complete.
    **Done**.
 6. Choose **Save**.
 
-## Add a cross-Region action to a pipeline
-
-(CLI)
+## Add a cross-Region action to a pipeline (CLI)
 
 You can use the AWS CLI to add a cross-Region action to an existing pipeline.
 
@@ -203,9 +193,7 @@ You must have created the following:
   deployment group for a cross-Region deploy action, in
   `RegionB`.
 
-### Add a cross-Region action to a
-
-pipeline (CLI)
+### Add a cross-Region action to a pipeline (CLI)
 
 Use the AWS CLI to add a cross-Region action to a pipeline.
 
@@ -421,9 +409,7 @@ the console.
 
 ![A high-level view of a pipeline that includes a cross-Region action.](images/cross-region-icon.png)
 
-## Add a cross-Region action to a
-
-pipeline (CloudFormation)
+## Add a cross-Region action to a pipeline (CloudFormation)
 
 You can use CloudFormation to add a cross-Region action to an existing pipeline.
 

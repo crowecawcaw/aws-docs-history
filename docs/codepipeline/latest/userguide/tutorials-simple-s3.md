@@ -36,20 +36,15 @@ Before you begin, you should complete the prerequisites in [Getting started with
 
 ###### Topics
 
-- [Step 1: Create an S3 source bucket for your
-  application](#s3-create-s3-bucket "#s3-create-s3-bucket")
-- [Step 2: Create Amazon EC2 Windows instances and install the
-  CodeDeploy agent](#S3-create-instances "#S3-create-instances")
+- [Step 1: Create an S3 source bucket for your application](#s3-create-s3-bucket "#s3-create-s3-bucket")
+- [Step 2: Create Amazon EC2 Windows instances and install the CodeDeploy agent](#S3-create-instances "#S3-create-instances")
 - [Step 3: Create an application in CodeDeploy](#S3-create-deployment "#S3-create-deployment")
 - [Step 4: Create your first pipeline in CodePipeline](#s3-create-pipeline "#s3-create-pipeline")
 - [(Optional) Step 5: Add another stage to your pipeline](#s3-add-stage "#s3-add-stage")
-- [(Optional) Step 6: Disable and enable transitions
-  between stages in CodePipeline](#s3-configure-transitions "#s3-configure-transitions")
+- [(Optional) Step 6: Disable and enable transitions between stages in CodePipeline](#s3-configure-transitions "#s3-configure-transitions")
 - [Step 7: Clean up resources](#s3-clean-up "#s3-clean-up")
 
-## Step 1: Create an S3 source bucket for your
-
-application
+## Step 1: Create an S3 source bucket for your application
 
 You can store your source files or applications in any versioned location. In this
 tutorial, you create an S3 bucket for the sample application files and enable versioning on
@@ -131,15 +126,12 @@ computer.
       file.
    3. Choose **Upload**.
 
-## Step 2: Create Amazon EC2 Windows instances and install the
-
-CodeDeploy agent
+## Step 2: Create Amazon EC2 Windows instances and install the CodeDeploy agent
 
 ###### Note
 
 This tutorial provides sample steps for creating Amazon EC2 Windows instances. For sample
-steps to create Amazon EC2 Linux instances, see [Step 3: Create an Amazon EC2 Linux instance and
-install the CodeDeploy agent](tutorials-simple-codecommit.md#codecommit-create-deployment "tutorials-simple-codecommit.md#codecommit-create-deployment"). When prompted for the number of instances
+steps to create Amazon EC2 Linux instances, see [Step 3: Create an Amazon EC2 Linux instance and install the CodeDeploy agent](tutorials-simple-codecommit.md#codecommit-create-deployment "tutorials-simple-codecommit.md#codecommit-create-deployment"). When prompted for the number of instances
 to create, specify **2** instances.
 
 In this step, you create the Windows Server Amazon EC2 instances to which you will deploy a sample
@@ -330,8 +322,7 @@ The V2 type is the only type you can choose in the console. For more information
    then choose **Next**.
 8. In **Step 3: Add source stage**, in **Source
    provider**, choose **Amazon S3**. In **Bucket**,
-   enter the name of the S3 bucket you created in [Step 1: Create an S3 source bucket for your
-   application](#s3-create-s3-bucket "#s3-create-s3-bucket"). In **S3 object key**, enter the
+   enter the name of the S3 bucket you created in [Step 1: Create an S3 source bucket for your application](#s3-create-s3-bucket "#s3-create-s3-bucket"). In **S3 object key**, enter the
    object key with or without a file path, and remember to include the file extension. For
    example, for `SampleApp_Windows.zip`, enter the sample file name as shown in
    this example:
@@ -412,8 +403,7 @@ update the pipeline with your changes.
 ###### Topics
 
 - [Create a second deployment group in CodeDeploy](#s3-add-stage-part-1 "#s3-add-stage-part-1")
-- [Add the deployment group as another stage in your
-  pipeline](#s3-add-stage-part-2 "#s3-add-stage-part-2")
+- [Add the deployment group as another stage in your pipeline](#s3-add-stage-part-2 "#s3-add-stage-part-2")
 
 ### Create a second deployment group in CodeDeploy
 
@@ -447,9 +437,7 @@ designed to fail to show you how errors are displayed in CodePipeline.
    balancing**.
 10. Choose **Create deployment group**.
 
-### Add the deployment group as another stage in your
-
-pipeline
+### Add the deployment group as another stage in your pipeline
 
 Now that you have another deployment group, you can add a stage that uses this
 deployment group to deploy to the same EC2 instances you used earlier. You can use the CodePipeline
@@ -674,9 +662,7 @@ for the second deployment group.
 This failure is by design, to demonstrate what happens when there is a failure
 in a pipeline stage.
 
-## (Optional) Step 6: Disable and enable transitions
-
-between stages in CodePipeline
+## (Optional) Step 6: Disable and enable transitions between stages in CodePipeline
 
 You can enable or disable the transition between stages in a pipeline. Disabling the
 transition between stages allows you to manually control transitions between one stage and

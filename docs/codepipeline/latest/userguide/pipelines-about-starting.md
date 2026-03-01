@@ -21,8 +21,7 @@ You cannot specify more than one trigger per source action.
   detected to a source commit and branch in the source repository, your pipeline
   starts. This trigger type uses automated change detection. The source action
   providers that use this trigger type are S3 and CodeCommit. This type is also used
-  for a schedule that starts your pipeline. See [Start a pipeline on a
-  schedule](pipelines-trigger-source-schedule.md "pipelines-trigger-source-schedule.md").
+  for a schedule that starts your pipeline. See [Start a pipeline on a schedule](pipelines-trigger-source-schedule.md "pipelines-trigger-source-schedule.md").
 - **Polling for source changes**: This category
   represents the `PollForSourceChanges` trigger type in the
   **Execution history**. When a change is detected to a source
@@ -60,13 +59,10 @@ You cannot specify more than one trigger per source action.
   types, the actions work with additional resources. Creating each source action is detailed
   in separate sections due to these additional resources for change detection. For details
   about each source provider and the change detection methods required for automated change
-  detection, see [Source actions and change detection
-  methods](change-detection-methods.md "change-detection-methods.md").
+  detection, see [Source actions and change detection methods](change-detection-methods.md "change-detection-methods.md").
 
 ###### Topics
 
 - [Start a pipeline manually](pipelines-rerun-manually.md "pipelines-rerun-manually.md")
-- [Start a pipeline on a
-  schedule](pipelines-trigger-source-schedule.md "pipelines-trigger-source-schedule.md")
-- [Start a pipeline with a source
-  revision override](pipelines-trigger-source-overrides.md "pipelines-trigger-source-overrides.md")
+- [Start a pipeline on a schedule](pipelines-trigger-source-schedule.md "pipelines-trigger-source-schedule.md")
+- [Start a pipeline with a source revision override](pipelines-trigger-source-overrides.md "pipelines-trigger-source-overrides.md")

@@ -15,8 +15,7 @@ be uploaded to the S3 bucket as part of the function implementation.
 Do not log the JSON event that CodePipeline sends to Lambda because this can result in user
 credentials being logged in CloudWatch Logs. The CodePipeline role uses a JSON event to pass temporary
 credentials to Lambda in the `artifactCredentials` field. For an example
-event, see [Example JSON
-event](actions-invoke-lambda-function.md#actions-invoke-lambda-function-json-event-example "actions-invoke-lambda-function.md#actions-invoke-lambda-function-json-event-example").
+event, see [Example JSON event](actions-invoke-lambda-function.md#actions-invoke-lambda-function-json-event-example "actions-invoke-lambda-function.md#actions-invoke-lambda-function-json-event-example").
 
 ## Action type
 
@@ -168,7 +167,7 @@ CodePipeline:
 - `data`: Other information required for a job worker to complete the
   job.
   - `actionConfiguration`: The action parameters for the Lambda
-    action. For definitions, see [Configuration parameters](#action-reference-Lambda-config "#action-reference-Lambda-config") .
+    action. For definitions, see [Configuration parameters](#action-reference-Lambda-config "#action-reference-Lambda-config").
   - `inputArtifacts`: The artifact supplied to the
     action.
     - `location`: The artifact store location.
@@ -243,7 +242,6 @@ The following related resources can help you as you work with this action.
 - [AWS CloudFormation User Guide](../../../AWSCloudFormation/latest/UserGuide.md "../../../AWSCloudFormation/latest/UserGuide.md") – For more information about
   Lambda actions and CloudFormation artifacts for pipelines, see [Using Parameter Override Functions with CodePipeline Pipelines](../../../AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-parameter-override-functions.md "../../../AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-parameter-override-functions.md"), [Automating Deployment of
   Lambda-based Applications](../../../lambda/latest/dg/automating-deployment.md "../../../lambda/latest/dg/automating-deployment.md"), and [AWS CloudFormation Artifacts](../../../AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-cfn-artifacts.md "../../../AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-cfn-artifacts.md").
-- [Invoke an AWS Lambda function in a pipeline
-  in CodePipeline](actions-invoke-lambda-function.md "actions-invoke-lambda-function.md") – This procedure
+- [Invoke an AWS Lambda function in a pipeline in CodePipeline](actions-invoke-lambda-function.md "actions-invoke-lambda-function.md") – This procedure
   provides a sample Lambda function and shows you how to use the console to create
   a pipeline with a Lambda invoke action.

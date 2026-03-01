@@ -1,6 +1,4 @@
-# Example 2: Create an Amazon S3 pipeline with
-
-AWS CloudFormation
+# Example 2: Create an Amazon S3 pipeline with AWS CloudFormation
 
 This walkthrough shows you how to use the AWS CloudFormation console to create infrastructure that
 includes a pipeline connected to an Amazon S3 source bucket. In this tutorial, you use the provided
@@ -16,8 +14,7 @@ You must have the following resources to use with the AWS CloudFormation sample 
 
 - You must have created the Amazon EC2 instances, where you installed the CodeDeploy agent on the
   instances. You must have created a CodeDeploy application and deployment group. Use the Amazon EC2
-  and CodeDeploy resources you created in [Tutorial: Create a simple pipeline (CodeCommit
-  repository)](tutorials-simple-codecommit.md "tutorials-simple-codecommit.md").
+  and CodeDeploy resources you created in [Tutorial: Create a simple pipeline (CodeCommit repository)](tutorials-simple-codecommit.md "tutorials-simple-codecommit.md").
 - Choose the following links to download the sample AWS CloudFormation template files for
   creating a pipeline with an Amazon S3 source:
   - Download the sample template for your pipeline: [YAML](samples/codepipeline-s3-events-yaml.md "samples/codepipeline-s3-events-yaml.md") | [JSON](samples/codepipeline-s3-events-json.md "samples/codepipeline-s3-events-json.md")

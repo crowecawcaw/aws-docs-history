@@ -1,6 +1,4 @@
-# AWS CodePipeline
-
-resource-based policy examples
+# AWS CodePipeline resource-based policy examples
 
 ###### Topics
 
@@ -9,9 +7,7 @@ example, you can attach a policy to an S3 bucket to manage access permissions to
 bucket. Although CodePipeline doesn't support resource-based policies, it does store artifacts
 to be used in pipelines in versioned S3 buckets.
 
-###### Example To create a policy for an S3 bucket to use as the artifact store for
-
-CodePipeline
+###### Example To create a policy for an S3 bucket to use as the artifact store for CodePipeline
 
 You can use any versioned S3 bucket as the artifact store for CodePipeline. If you use
 the **Create Pipeline** wizard to create your first pipeline, this

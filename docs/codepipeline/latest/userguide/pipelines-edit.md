@@ -29,10 +29,8 @@ pushed. These detection methods are based on source type:
 Change detection resources are created automatically when you use the console. When you
 use the console to create or edit a pipeline, the additional resources are created for you. If
 you use the AWS CLI to create the pipeline, you must create the additional resources yourself.
-For more information about creating or updating a CodeCommit pipeline, see [Create an EventBridge rule for
-a CodeCommit source (CLI)](pipelines-trigger-source-repo-changes-cli.md "pipelines-trigger-source-repo-changes-cli.md"). For more information about
-using the CLI to create or update an Amazon S3 pipeline, see [Create an EventBridge rule for an Amazon S3
-source (CLI)](create-cloudtrail-S3-source-cli.md "create-cloudtrail-S3-source-cli.md").
+For more information about creating or updating a CodeCommit pipeline, see [Create an EventBridge rule for a CodeCommit source (CLI)](pipelines-trigger-source-repo-changes-cli.md "pipelines-trigger-source-repo-changes-cli.md"). For more information about
+using the CLI to create or update an Amazon S3 pipeline, see [Create an EventBridge rule for an Amazon S3 source (CLI)](create-cloudtrail-S3-source-cli.md "create-cloudtrail-S3-source-cli.md").
 
 ###### Topics
 
@@ -265,8 +263,7 @@ see [CodePipeline pipeline structure reference](reference-pipeline-structure.md 
 }
 ```
 
-For information about using the CLI to add an approval action to a pipeline, see [Add a manual approval action to a pipeline in
-CodePipeline](approvals-action-add.md "approvals-action-add.md") .
+For information about using the CLI to add an approval action to a pipeline, see [Add a manual approval action to a pipeline in CodePipeline](approvals-action-add.md "approvals-action-add.md").
 
 Make sure the `PollForSourceChanges` parameter in your JSON file is set as
 follows:
@@ -306,11 +303,9 @@ For example, remove the following lines from the structure:
 Save the file. 5. If you use the CLI to edit a pipeline, you must manually manage the recommended change
 detection resources for your pipeline:
 
-    * For a CodeCommit repository, you must create the CloudWatch Events rule, as described in [Create an EventBridge rule for
-     a CodeCommit source (CLI)](pipelines-trigger-source-repo-changes-cli.md "pipelines-trigger-source-repo-changes-cli.md").
+    * For a CodeCommit repository, you must create the CloudWatch Events rule, as described in [Create an EventBridge rule for a CodeCommit source (CLI)](pipelines-trigger-source-repo-changes-cli.md "pipelines-trigger-source-repo-changes-cli.md").
     * For an Amazon S3 source, you must create the CloudWatch Events rule and AWS CloudTrail trail, as
-     described in [Connecting to Amazon S3 source actions that use
-     EventBridge and AWS CloudTrail](create-cloudtrail-S3-source.md "create-cloudtrail-S3-source.md").
+     described in [Connecting to Amazon S3 source actions that use EventBridge and AWS CloudTrail](create-cloudtrail-S3-source.md "create-cloudtrail-S3-source.md").
 
 6. To apply your changes, run the **update-pipeline** command, specifying
    the pipeline JSON file:

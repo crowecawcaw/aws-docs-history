@@ -1,6 +1,4 @@
-# Valid settings for the
-
-`PollForSourceChanges` parameter
+# Valid settings for the `PollForSourceChanges` parameter
 
 The `PollForSourceChanges` parameter default is determined by the method
 used to create the pipeline, as described in the following table. In many cases, the

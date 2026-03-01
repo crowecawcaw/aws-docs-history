@@ -159,9 +159,7 @@ following permissions to your policy statement:
 
 The following show examples for the action configuration.
 
-### Example configuration when
-
-`Extract` is set to `false`
+### Example configuration when `Extract` is set to `false`
 
 The following example shows the default action configuration when the action is
 created with the `Extract` field set to `false`.
@@ -222,9 +220,7 @@ JSON
 },
 ```
 
-### Example configuration when
-
-`Extract` is set to `true`
+### Example configuration when `Extract` is set to `true`
 
 The following example shows the default action configuration when the action is
 created with the `Extract` field set to `true`.
@@ -287,8 +283,7 @@ JSON
 
 The following related resources can help you as you work with this action.
 
-- [Tutorial: Create a pipeline that uses Amazon S3 as a
-  deployment provider](tutorials-s3deploy.md "tutorials-s3deploy.md")
+- [Tutorial: Create a pipeline that uses Amazon S3 as a deployment provider](tutorials-s3deploy.md "tutorials-s3deploy.md")
   – This tutorial walks you through two examples for creating a pipeline
   with an S3 deploy action. You download sample files, upload the files to your
   CodeCommit repository, create your S3 bucket, and configure your bucket for hosting.

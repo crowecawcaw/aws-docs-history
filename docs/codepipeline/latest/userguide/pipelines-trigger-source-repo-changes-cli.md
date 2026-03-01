@@ -1,6 +1,4 @@
-# Create an EventBridge rule for
-
-a CodeCommit source (CLI)
+# Create an EventBridge rule for a CodeCommit source (CLI)
 
 Call the **put-rule** command, specifying:
 
@@ -10,9 +8,7 @@ Call the **put-rule** command, specifying:
 - The event pattern for the source and detail fields used by the rule. For
   more information, see [Amazon EventBridge and Event Patterns](../../../eventbridge/latest/userguide/eb-events.md "../../../eventbridge/latest/userguide/eb-events.md").
 
-###### To create an EventBridge rule with CodeCommit as the event
-
-source and CodePipeline as the target
+###### To create an EventBridge rule with CodeCommit as the event source and CodePipeline as the target
 
 1. Add permissions for EventBridge to use CodePipeline to invoke the rule. For more information, see
    [Using resource-based policies for Amazon EventBridge](../../../eventbridge/latest/userguide/eb-use-resource-based.md "../../../eventbridge/latest/userguide/eb-use-resource-based.md").
@@ -149,9 +145,7 @@ aws events put-targets --rule MyCodeCommitRepoRule --targets Id=1,Arn=arn:aws:co
 }
 ```
 
-###### To edit your pipeline's PollForSourceChanges
-
-parameter
+###### To edit your pipeline's PollForSourceChanges parameter
 
 ###### Important
 
@@ -159,8 +153,7 @@ When you create a pipeline with this method, the `PollForSourceChanges`
 parameter defaults to true if it is not explicitly set to false. When you add
 event-based change detection, you must add the parameter to your output and set it to
 false to disable polling. Otherwise, your pipeline starts twice for a single source
-change. For details, see [Valid settings for the
-PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md").
+change. For details, see [Valid settings for the PollForSourceChanges parameter](PollForSourceChanges-defaults.md "PollForSourceChanges-defaults.md").
 
 1. Run the **get-pipeline** command to copy the pipeline structure into a
    JSON file. For example, for a pipeline named

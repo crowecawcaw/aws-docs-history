@@ -1,6 +1,4 @@
-# `ECRBuildAndPublish` build
-
-action reference
+# `ECRBuildAndPublish` build action reference
 
 This build action allows you to automate building and pushing a new image when a change
 occurs in your source. This action builds based on a specified Docker file location and
@@ -29,10 +27,8 @@ This action is only available for V2 type pipelines.
 - [Configuration parameters](#action-reference-ECRBuildAndPublish-config "#action-reference-ECRBuildAndPublish-config")
 - [Input artifacts](#action-reference-ECRBuildAndPublish-input "#action-reference-ECRBuildAndPublish-input")
 - [Output artifacts](#action-reference-ECRBuildAndPublish-output "#action-reference-ECRBuildAndPublish-output")
-- [Output
-  variables](#action-reference-ECRBuildAndPublish-output-variables "#action-reference-ECRBuildAndPublish-output-variables")
-- [Service role permissions:
-  ECRBuildAndPublish action](#edit-role-ECRBuildAndPublish "#edit-role-ECRBuildAndPublish")
+- [Output variables](#action-reference-ECRBuildAndPublish-output-variables "#action-reference-ECRBuildAndPublish-output-variables")
+- [Service role permissions: ECRBuildAndPublish action](#edit-role-ECRBuildAndPublish "#edit-role-ECRBuildAndPublish")
 - [Action declaration](#action-reference-ECRBuildAndPublish-example "#action-reference-ECRBuildAndPublish-example")
 - [See also](#action-reference-ECRBuildAndPublish-links "#action-reference-ECRBuildAndPublish-links")
 
@@ -100,9 +96,7 @@ defaults to `private`.
 - **Number of artifacts:**
   `0`
 
-## Output
-
-variables
+## Output variables
 
 When configured, this action produces variables that can be referenced by the action
 configuration of a downstream action in the pipeline. This action produces variables
@@ -120,9 +114,7 @@ The `sha256` digest of the image manifest.
 
 The name of the Amazon ECR repository where the image was pushed.
 
-## Service role permissions:
-
-`ECRBuildAndPublish` action
+## Service role permissions: `ECRBuildAndPublish` action
 
 For the `ECRBuildAndPublish` action support, add the following to your
 policy statement:
@@ -199,8 +191,7 @@ following permissions to your service role in order to view CloudWatch logs.
 Scope down the permissions to the pipeline resource level by using
 resource-based permissions in the service role policy statement.
 
-For more information about this action, see [ECRBuildAndPublish build
-action reference](action-reference-ECRBuildAndPublish.md "action-reference-ECRBuildAndPublish.md").
+For more information about this action, see [ECRBuildAndPublish build action reference](action-reference-ECRBuildAndPublish.md "action-reference-ECRBuildAndPublish.md").
 
 ## Action declaration
 
@@ -254,8 +245,7 @@ JSON
 
 The following related resources can help you as you work with this action.
 
-- [Tutorial: Build and push a Docker image to
-  Amazon ECR with CodePipeline (V2 type)](tutorials-ecr-build-publish.md "tutorials-ecr-build-publish.md") – This tutorial
+- [Tutorial: Build and push a Docker image to Amazon ECR with CodePipeline (V2 type)](tutorials-ecr-build-publish.md "tutorials-ecr-build-publish.md") – This tutorial
   provides a sample Dockerfile and instructions to create a pipeline that pushes
   your image to ECR on a change to your source
   repository

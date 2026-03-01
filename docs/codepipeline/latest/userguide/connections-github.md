@@ -16,25 +16,21 @@ Asia Pacific (Osaka), Africa (Cape Town), Middle East (Bahrain),
 Middle East (UAE), Europe (Spain), Europe (Zurich),
 Israel (Tel Aviv), or AWS GovCloud (US-West) Regions. To reference other available
 actions, see [Product and service integrations with CodePipeline](integrations.md "integrations.md"). For
-considerations with this action in the Europe (Milan) Region, see the note in [CodeStarSourceConnection for
-Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed
-actions](action-reference-CodestarConnectionSource.md "action-reference-CodestarConnectionSource.md").
+considerations with this action in the Europe (Milan) Region, see the note in [CodeStarSourceConnection for Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed actions](action-reference-CodestarConnectionSource.md "action-reference-CodestarConnectionSource.md").
 
 To add a source action for your GitHub or GitHub Enterprise Cloud repository in CodePipeline, you
 can choose either to:
 
 - Use the CodePipeline console **Create pipeline** wizard or
   **Edit action** page to choose the **GitHub (via GitHub
-  App)** provider option. See [Create a connection to GitHub Enterprise
-  Server (console)](connections-ghes.md#connections-ghes-console "connections-ghes.md#connections-ghes-console") to add the action. The console helps
+  App)** provider option. See [Create a connection to GitHub Enterprise Server (console)](connections-ghes.md#connections-ghes-console "connections-ghes.md#connections-ghes-console") to add the action. The console helps
   you create a connections resource.
 
 ###### Note
 
 For a tutorial that walks you through how to add a GitHub connection and use
 the **Full clone** option in your pipeline to clone metadata,
-see [Tutorial: Use full clone with a GitHub pipeline
-source](tutorials-github-gitclone.md "tutorials-github-gitclone.md").
+see [Tutorial: Use full clone with a GitHub pipeline source](tutorials-github-gitclone.md "tutorials-github-gitclone.md").
 
 - Use the CLI to add the action configuration for the
   `CodeStarSourceConnection` action with the `GitHub`
@@ -52,8 +48,7 @@ Before you begin:
 - You must have already created a GitHub code repository.
 - If your CodePipeline service role was created before December 18, 2019, you might need to
   update its permissions to use `codestar-connections:UseConnection` for
-  AWS CodeStar connections. For instructions, see [Add permissions to the CodePipeline
-  service role](how-to-custom-role.md#how-to-update-role-new-services "how-to-custom-role.md#how-to-update-role-new-services").
+  AWS CodeStar connections. For instructions, see [Add permissions to the CodePipeline service role](how-to-custom-role.md#how-to-update-role-new-services "how-to-custom-role.md#how-to-update-role-new-services").
 
 ###### Note
 
@@ -62,13 +57,10 @@ that are not under an organization, you must be the repository owner.
 
 ###### Topics
 
-- [Create a connection to GitHub
-  (console)](#connections-github-console "#connections-github-console")
+- [Create a connection to GitHub (console)](#connections-github-console "#connections-github-console")
 - [Create a connection to GitHub (CLI)](#connections-github-cli "#connections-github-cli")
 
-## Create a connection to GitHub
-
-(console)
+## Create a connection to GitHub (console)
 
 Use these steps to use the CodePipeline console to add a connections action for your GitHub
 or GitHub Enterprise Cloud repository.
@@ -78,9 +70,7 @@ or GitHub Enterprise Cloud repository.
 In these steps, you can select specific repositories under **Repository Access**. Any repositories that are not selected will not
 be accessible or visible by CodePipeline.
 
-### Step 1: Create or edit your
-
-pipeline
+### Step 1: Create or edit your pipeline
 
 1. Sign in to the CodePipeline console.
 2. Choose one of the following.
@@ -105,9 +95,7 @@ pipeline
      a connection to your provider, choose the connection. Proceed to
      Step 3: Save the source action for your connection.
 
-### Step 2: Create a connection to
-
-GitHub
+### Step 2: Create a connection to GitHub
 
 After you choose to create the connection, the **Connect to
 GitHub** page appears.
@@ -150,9 +138,7 @@ the defaults, and choose **Install**. 6. On the **Connect to GitHub** page, the 
 your new installation appears in **GitHub Apps**. Choose
 **Connect**.
 
-### Step 3: Save your GitHub source
-
-action
+### Step 3: Save your GitHub source action
 
 Use these steps on the **Edit action** page to save your source
 action with your connection information.
@@ -163,8 +149,7 @@ action with your connection information.
    third-party repository.
 2. Under **Pipeline triggers** you can add triggers if your
    action is an CodeConnections action. To configure the pipeline trigger configuration
-   and to optionally filter with triggers, see more details in [Add trigger with code push or pull request event
-   types](pipelines-filter.md "pipelines-filter.md").
+   and to optionally filter with triggers, see more details in [Add trigger with code push or pull request event types](pipelines-filter.md "pipelines-filter.md").
 3. In **Output artifact format**, you must choose the format
    for your artifacts.
    - To store output artifacts from the GitHub action using the default
@@ -177,11 +162,9 @@ action with your connection information.
      only be used by CodeBuild downstream actions.
 
    If you choose this option, you will need to update the permissions
-   for your CodeBuild project service role as shown in [Add CodeBuild GitClone permissions for connections to
-   Bitbucket, GitHub, GitHub Enterprise Server, or GitLab.com](troubleshooting.md#codebuild-role-connections "troubleshooting.md#codebuild-role-connections"). For a tutorial
+   for your CodeBuild project service role as shown in [Add CodeBuild GitClone permissions for connections to Bitbucket, GitHub, GitHub Enterprise Server, or GitLab.com](troubleshooting.md#codebuild-role-connections "troubleshooting.md#codebuild-role-connections"). For a tutorial
    that shows you how to use the **Full clone**
-   option, see [Tutorial: Use full clone with a GitHub pipeline
-   source](tutorials-github-gitclone.md "tutorials-github-gitclone.md").
+   option, see [Tutorial: Use full clone with a GitHub pipeline source](tutorials-github-gitclone.md "tutorials-github-gitclone.md").
 
 4. Choose **Next** on the wizard or
    **Save** on the **Edit action**
@@ -233,8 +216,7 @@ the following.
    ```
 
    - To configure the pipeline trigger configuration to filter with
-     triggers, see more details in [Add trigger with code push or pull request event
-     types](pipelines-filter.md "pipelines-filter.md"). For example, the following adds
+     triggers, see more details in [Add trigger with code push or pull request event types](pipelines-filter.md "pipelines-filter.md"). For example, the following adds
      to the pipeline level of the pipeline JSON definition. In this example,
      `release-v0` and `release-v1` are the Git tags
      to include, and `release-v2` is the Git tag to

@@ -16,14 +16,10 @@ approved to continue. For more information, see [Add a manual approval action to
 
 ###### Topics
 
-- [Disable or enable transitions
-  (console)](#transitions-disable-enable-console "#transitions-disable-enable-console")
-- [Disable or enable transitions
-  (CLI)](#transitions-disable-enable-cli "#transitions-disable-enable-cli")
+- [Disable or enable transitions (console)](#transitions-disable-enable-console "#transitions-disable-enable-console")
+- [Disable or enable transitions (CLI)](#transitions-disable-enable-cli "#transitions-disable-enable-cli")
 
-## Disable or enable transitions
-
-(console)
+## Disable or enable transitions (console)
 
 ###### To disable or enable transitions in a pipeline
 
@@ -61,9 +57,7 @@ pipeline.
 It might take a few seconds for changes to appear in the CodePipeline console
 after you enable the transition.
 
-## Disable or enable transitions
-
-(CLI)
+## Disable or enable transitions (CLI)
 
 To disable a transition between stages by using the AWS CLI, run the
 **disable-stage-transition** command. To enable a disabled

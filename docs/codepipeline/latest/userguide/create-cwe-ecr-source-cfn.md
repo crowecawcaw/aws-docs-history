@@ -1,6 +1,4 @@
-# Create an EventBridge rule for an Amazon ECR source
-
-(CloudFormation template)
+# Create an EventBridge rule for an Amazon ECR source (CloudFormation template)
 
 To use CloudFormation to create a rule, use the template snippet as shown here.
 

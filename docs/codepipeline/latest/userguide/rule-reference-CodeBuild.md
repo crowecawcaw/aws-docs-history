@@ -95,8 +95,7 @@ Required: No
 The value of this parameter is used to set environment variables for the
 CodeBuild action in your pipeline. The value for the
 `EnvironmentVariables` parameter takes the form of a JSON
-array of environment variable objects. See the example parameter in [Action declaration (CodeBuild
-example)](action-reference-CodeBuild.md#action-reference-CodeBuild-example "action-reference-CodeBuild.md#action-reference-CodeBuild-example").
+array of environment variable objects. See the example parameter in [Action declaration (CodeBuild example)](action-reference-CodeBuild.md#action-reference-CodeBuild-example "action-reference-CodeBuild.md#action-reference-CodeBuild-example").
 
 Each object has three parts, all of which are strings:
 
@@ -132,8 +131,7 @@ exceeded.
 
 For more information, see [EnvironmentVariable](../../../codebuild/latest/APIReference/API_EnvironmentVariable.md "../../../codebuild/latest/APIReference/API_EnvironmentVariable.md") in the AWS CodeBuild API Reference. For an
 example CodeBuild action with an environment variable that resolves to the
-GitHub branch name, see [Example: Use a BranchName
-variable with CodeBuild environment variables](actions-variables.md#actions-variables-examples-env-branchname "actions-variables.md#actions-variables-examples-env-branchname").
+GitHub branch name, see [Example: Use a BranchName variable with CodeBuild environment variables](actions-variables.md#actions-variables-examples-env-branchname "actions-variables.md#actions-variables-examples-env-branchname").
 
 ## Example rule configuration
 

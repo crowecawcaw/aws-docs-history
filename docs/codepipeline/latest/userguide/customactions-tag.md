@@ -18,8 +18,7 @@ action.
 ## Add tags to a custom action
 
 Follow these steps to use the AWS CLI to add a tag to a custom action. To add a tag to a
-custom action when you create it, see [Create and add a custom action in
-CodePipeline](actions-create-custom-action.md "actions-create-custom-action.md").
+custom action when you create it, see [Create and add a custom action in CodePipeline](actions-create-custom-action.md "actions-create-custom-action.md").
 
 In these steps, we assume that you have already installed a recent version of the
 AWS CLI or updated to the current version. For more information, see [Installing the AWS Command Line Interface](../../../cli/latest/userguide/installing.md "../../../cli/latest/userguide/installing.md").

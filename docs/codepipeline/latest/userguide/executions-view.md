@@ -5,23 +5,15 @@ history, and retry failed stages or actions.
 
 ###### Topics
 
-- [View pipeline execution history
-  (console)](#pipelines-executions-console "#pipelines-executions-console")
-- [View execution status
-  (console)](#pipelines-executions-status-console "#pipelines-executions-status-console")
-- [View an inbound execution
-  (Console)](#pipelines-executions-inbound-console "#pipelines-executions-inbound-console")
-- [View pipeline execution source
-  revisions (console)](#pipelines-source-revisions-console "#pipelines-source-revisions-console")
-- [View action executions
-  (console)](#pipelines-action-executions-console "#pipelines-action-executions-console")
-- [View action artifacts and artifact
-  store information (console)](#pipelines-action-artifacts-console "#pipelines-action-artifacts-console")
+- [View pipeline execution history (console)](#pipelines-executions-console "#pipelines-executions-console")
+- [View execution status (console)](#pipelines-executions-status-console "#pipelines-executions-status-console")
+- [View an inbound execution (Console)](#pipelines-executions-inbound-console "#pipelines-executions-inbound-console")
+- [View pipeline execution source revisions (console)](#pipelines-source-revisions-console "#pipelines-source-revisions-console")
+- [View action executions (console)](#pipelines-action-executions-console "#pipelines-action-executions-console")
+- [View action artifacts and artifact store information (console)](#pipelines-action-artifacts-console "#pipelines-action-artifacts-console")
 - [View pipeline details and history (CLI)](#executions-view-cli "#executions-view-cli")
 
-## View pipeline execution history
-
-(console)
+## View pipeline execution history (console)
 
 You can use the CodePipeline console to view a list of all of the pipelines in your account.
 You can also view details for each pipeline, including when actions last ran in the
@@ -69,9 +61,7 @@ viewed in the execution history for each execution.
 Output variables from pipeline actions can be viewed on the Output
 variables tab under the history for each action execution.
 
-## View execution status
-
-(console)
+## View execution status (console)
 
 You can view the pipeline status in **Status** on the execution
 history page. Choose an execution ID link, and then view the action status.
@@ -81,8 +71,7 @@ The following are valid states for pipelines, stages, and actions:
 ###### Note
 
 The following pipeline states also apply to a pipeline execution that is an
-inbound execution. To view an inbound execution and its status, see [View an inbound execution
-(Console)](#pipelines-executions-inbound-console "#pipelines-executions-inbound-console").
+inbound execution. To view an inbound execution and its status, see [View an inbound execution (Console)](#pipelines-executions-inbound-console "#pipelines-executions-inbound-console").
 
 | Pipeline-level states | Pipeline state                                                                                                                                                      | Description |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
@@ -108,9 +97,7 @@ inbound execution. To view an inbound execution and its status, see [View an inb
 | Succeeded           | The action was completed successfully.                                                                                                                |
 | Failed              | For approval actions, the FAILED state means the action was either<br>rejected by the reviewer or failed due to an incorrect action<br>configuration. |
 
-## View an inbound execution
-
-(Console)
+## View an inbound execution (Console)
 
 You can use the console to view the status and details for an inbound execution. When
 the transition is enabled or the stage becomes available, an inbound execution that is
@@ -143,9 +130,7 @@ execution, Do one of the following:
     * Choose the pipeline and choose **View
      history**.
 
-## View pipeline execution source
-
-revisions (console)
+## View pipeline execution source revisions (console)
 
 You can view details about source artifacts (output artifact that originated in the
 first stage of a pipeline) that are used in an execution of a pipeline. The details
@@ -189,9 +174,7 @@ details. Do one of the following:
 
     ![View source revisions.](images/view-changes-console-4.png)
 
-## View action executions
-
-(console)
+## View action executions (console)
 
 You can view action details for a pipeline, such as action execution ID, input
 artifacts, output artifacts, and status. You can view action details by choosing a
@@ -213,9 +196,7 @@ tab:
      console page for the CodeDeploy application configured for that stage is
      displayed.
 
-## View action artifacts and artifact
-
-store information (console)
+## View action artifacts and artifact store information (console)
 
 You can view input and output artifact details for an action. You can also choose a
 link that takes you to the artifact information for that action. Because the artifact
@@ -256,20 +237,13 @@ executions:
 
 ###### Topics
 
-- [View execution history with
-  list-pipeline-executions (CLI)](#pipelines-executions-cli "#pipelines-executions-cli")
-- [View pipeline state with
-  get-pipeline-state (CLI)](#pipelines-executions-status-cli "#pipelines-executions-status-cli")
-- [View inbound execution status
-  with get-pipeline-state (CLI)](#pipelines-executions-inbound-cli "#pipelines-executions-inbound-cli")
-- [View status and source revisions
-  with get-pipeline-execution (CLI)](#pipelines-source-revisions-cli "#pipelines-source-revisions-cli")
-- [View action executions with
-  list-action-executions (CLI)](#pipelines-action-executions-cli "#pipelines-action-executions-cli")
+- [View execution history with list-pipeline-executions (CLI)](#pipelines-executions-cli "#pipelines-executions-cli")
+- [View pipeline state with get-pipeline-state (CLI)](#pipelines-executions-status-cli "#pipelines-executions-status-cli")
+- [View inbound execution status with get-pipeline-state (CLI)](#pipelines-executions-inbound-cli "#pipelines-executions-inbound-cli")
+- [View status and source revisions with get-pipeline-execution (CLI)](#pipelines-source-revisions-cli "#pipelines-source-revisions-cli")
+- [View action executions with list-action-executions (CLI)](#pipelines-action-executions-cli "#pipelines-action-executions-cli")
 
-### View execution history with
-
-`list-pipeline-executions` (CLI)
+### View execution history with `list-pipeline-executions` (CLI)
 
 You can view pipeline execution history.
 
@@ -375,9 +349,7 @@ The following example shows the returned data for a pipeline named
 }
 ```
 
-### View pipeline state with
-
-`get-pipeline-state` (CLI)
+### View pipeline state with `get-pipeline-state` (CLI)
 
 You can use the CLI to view pipeline, stage, and action status.
 
@@ -466,9 +438,7 @@ transition between the second and third stages is disabled:
 }
 ```
 
-### View inbound execution status
-
-with `get-pipeline-state` (CLI)
+### View inbound execution status with `get-pipeline-state` (CLI)
 
 You can use the CLI to view inbound execution status. When the transition is
 enabled or the stage becomes available, an inbound execution that is
@@ -571,9 +541,7 @@ state.
 }
 ```
 
-### View status and source revisions
-
-with `get-pipeline-execution` (CLI)
+### View status and source revisions with `get-pipeline-execution` (CLI)
 
 You can view details about source artifacts (output artifacts that originated in
 the first stage of a pipeline) that are used in an execution of a pipeline. The
@@ -665,8 +633,7 @@ named "MyApp" is stored in a GitHub repository: 3. ```
 
 ````
 
-### View action executions with
- `list-action-executions` (CLI)
+### View action executions with `list-action-executions` (CLI)
 
 
 You can view action execution details for a pipeline, such as action execution ID,

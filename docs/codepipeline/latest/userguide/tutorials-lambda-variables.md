@@ -1,6 +1,4 @@
-# Tutorial: Using variables with Lambda invoke
-
-actions
+# Tutorial: Using variables with Lambda invoke actions
 
 A Lambda invoke action can use variables from another action as part of its input and
 return new variables along with its output. For information about variables for actions in
@@ -30,15 +28,13 @@ At the end of this tutorial, you will have:
 
 - [Prerequisites](#lambda-variables-prereqs "#lambda-variables-prereqs")
 - [Step 1: Create a Lambda function](#lambda-variables-function "#lambda-variables-function")
-- [Step 2: Add a Lambda invoke action and manual
-  approval action to your pipeline](#lambda-variables-pipeline "#lambda-variables-pipeline")
+- [Step 2: Add a Lambda invoke action and manual approval action to your pipeline](#lambda-variables-pipeline "#lambda-variables-pipeline")
 
 ## Prerequisites
 
 Before you begin, you must have the following:
 
-- You can create or use the pipeline with the CodeCommit source in [Tutorial: Create a simple pipeline (CodeCommit
-  repository)](tutorials-simple-codecommit.md "tutorials-simple-codecommit.md").
+- You can create or use the pipeline with the CodeCommit source in [Tutorial: Create a simple pipeline (CodeCommit repository)](tutorials-simple-codecommit.md "tutorials-simple-codecommit.md").
 - Edit your existing pipeline so that the CodeCommit source action has a namespace.
   Assign the namespace `SourceVariables` to the action.
 
@@ -161,12 +157,9 @@ export const handler = async (event, context) => {
    at the top of the screen.
 9. As a last step, open the AWS Identity and Access Management (IAM) console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
    Modify the Lambda execution role to add the following policy: [AWSCodePipelineCustomActionAccess](https://console.aws.amazon.com/iam/home?region=us-west-2#/policies/arn%3Aaws%3Aiam%3A%3Aaws%3Apolicy%2FAWSCodePipelineCustomActionAccess "https://console.aws.amazon.com/iam/home?region=us-west-2#/policies/arn%3Aaws%3Aiam%3A%3Aaws%3Apolicy%2FAWSCodePipelineCustomActionAccess"). For the steps to create a Lambda
-   execution role or modify the role policy, see [Step 2: Create the
-   Lambda function](actions-invoke-lambda-function.md#actions-invoke-lambda-function-create-function "actions-invoke-lambda-function.md#actions-invoke-lambda-function-create-function") .
+   execution role or modify the role policy, see [Step 2: Create the Lambda function](actions-invoke-lambda-function.md#actions-invoke-lambda-function-create-function "actions-invoke-lambda-function.md#actions-invoke-lambda-function-create-function") .
 
-## Step 2: Add a Lambda invoke action and manual
-
-approval action to your pipeline
+## Step 2: Add a Lambda invoke action and manual approval action to your pipeline
 
 In this step, you add a Lambda invoke action to your pipeline. You add the action as
 part of a stage named **Test**. The action type is an invoke action.

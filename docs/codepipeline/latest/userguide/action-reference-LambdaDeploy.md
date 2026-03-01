@@ -22,10 +22,7 @@ This action is only supported for V2 type pipelines.
 - [Input artifacts](#action-reference-LambdaDeploy-input "#action-reference-LambdaDeploy-input")
 - [Output artifacts](#action-reference-LambdaDeploy-output "#action-reference-LambdaDeploy-output")
 - [Output variables](#action-reference-LambdaDeploy-output-variables "#action-reference-LambdaDeploy-output-variables")
-- [Service role policy
-  permissions for the
-  Lambda
-  deploy action](#action-reference-LambdaDeploy-permissions-action "#action-reference-LambdaDeploy-permissions-action")
+- [Service role policy permissions for the Lambda deploy action](#action-reference-LambdaDeploy-permissions-action "#action-reference-LambdaDeploy-permissions-action")
 - [Action declaration](#action-reference-LambdaDeploy-example "#action-reference-LambdaDeploy-example")
 - [See also](#action-reference-LambdaDeploy-links "#action-reference-LambdaDeploy-links")
 
@@ -147,11 +144,7 @@ For more information, see [Variables reference](reference-variables.md "referenc
 
 The new Lambda function version that was deployed.
 
-## Service role policy
-
-permissions for the
-Lambda
-deploy action
+## Service role policy permissions for the Lambda deploy action
 
 When CodePipeline runs the action, CodePipeline service role requires the following permissions,
 appropriately scoped down for access with least privilege.
@@ -270,9 +263,7 @@ JSON
 
 The following related resources can help you as you work with this action.
 
-- [Tutorial: Lambda
-  function
-  deployments with CodePipeline](tutorials-lambda-deploy.md "tutorials-lambda-deploy.md") – This tutorial walks you through the creation of a
+- [Tutorial: Lambda function deployments with CodePipeline](tutorials-lambda-deploy.md "tutorials-lambda-deploy.md") – This tutorial walks you through the creation of a
   sample
   Lambda function where you
   will

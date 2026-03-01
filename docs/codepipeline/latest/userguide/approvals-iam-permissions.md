@@ -1,6 +1,4 @@
-# Grant approval permissions to an IAM user
-
-in CodePipeline
+# Grant approval permissions to an IAM user in CodePipeline
 
 Before IAM users in your organization can approve or reject approval actions, they
 must be granted permissions to access pipelines and to update the status of approval
@@ -16,9 +14,7 @@ user, role, or group to do more than approve or reject approval actions, you can
 attach other managed policies. For information about the managed policies available
 for CodePipeline, see [AWS managed policies for AWS CodePipeline](managed-policies.md "managed-policies.md").
 
-## Grant approval permission to all
-
-pipelines and approval actions
+## Grant approval permission to all pipelines and approval actions
 
 For users who need to perform approval actions in CodePipeline, use the
 `AWSCodePipelineApproverAccess` managed policy.
@@ -38,9 +34,7 @@ in the _IAM User Guide_.
   - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
   - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 
-## Specify approval permission for
-
-specific pipelines and approval actions
+## Specify approval permission for specific pipelines and approval actions
 
 For users who need to perform approval actions in CodePipeline, use the following custom
 policy. In the policy below, specify the individual resources a user can access. For

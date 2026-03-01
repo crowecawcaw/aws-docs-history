@@ -1,6 +1,4 @@
-# Tutorial: Create a variable check rule for a
-
-pipeline as an entry condition
+# Tutorial: Create a variable check rule for a pipeline as an entry condition
 
 In this tutorial, you configure a pipeline that continuously delivers files using GitHub
 as the source action provider in your source stage. The completed pipeline detects changes
@@ -39,9 +37,7 @@ Before you begin, you must do the following:
   action for your pipeline. To create a connection to your GitHub repository, see
   [GitHub connections](connections-github.md "connections-github.md").
 
-## Step 1: Create sample source file and add to
-
-your GitHub repository
+## Step 1: Create sample source file and add to your GitHub repository
 
 In this section, you create and add your example source file to the repository that
 the pipeline uses for your source stage. For this example, you produce and add the
@@ -208,9 +204,7 @@ by choosing **Skip** again. Choose
 **Next**. 12. On **Step 7: Review**, choose **Create
 pipeline**.
 
-## Step 2: Edit the build stage to add the
-
-condition and rule
+## Step 2: Edit the build stage to add the condition and rule
 
 In this step, you edit the stage to add an On Entry condition for the variable check
 rule.
@@ -231,9 +225,7 @@ check.
 
 Choose **Done**.
 
-## Step 3: Run the pipeline and view
-
-resolved variables
+## Step 3: Run the pipeline and view resolved variables
 
 In this step, you view the resolved values and results of the variable check
 rule.

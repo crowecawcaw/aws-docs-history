@@ -1,6 +1,4 @@
-# Create an EventBridge rule for an
-
-Amazon S3 source (console)
+# Create an EventBridge rule for an Amazon S3 source (console)
 
 Before you set up a rule in EventBridge, you must create an AWS CloudTrail trail. For more
 information, see [Creating a Trail in the Console](../../../awscloudtrail/latest/userguide/cloudtrail-create-a-trail-using-the-console-first-time.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-a-trail-using-the-console-first-time.md").

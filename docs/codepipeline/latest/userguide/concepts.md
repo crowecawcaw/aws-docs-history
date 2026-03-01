@@ -61,7 +61,7 @@ deploys code to a compute service like Amazon EC2 or AWS Lambda.
 
 Valid CodePipeline action types are `source`, `build`, `test`,
 `deploy`, `approval`, and `invoke`. For a list of action
-providers, see [Valid action providers in CodePipeline](actions-valid-providers.md "actions-valid-providers.md") .
+providers, see [Valid action providers in CodePipeline](actions-valid-providers.md "actions-valid-providers.md").
 
 Actions can run in series or in parallel. For information about serial and parallel
 actions in a stage, see the `runOrder` information in [action structure
@@ -79,8 +79,7 @@ processes only one execution at a time. To do this, a stage is locked while it p
 execution. Two pipeline executions can't occupy the same stage at the same time. The execution
 waiting to enter the occupied stage is referred to an _inbound
 execution_. An inbound execution can still fail, be superseded, or be manually
-stopped. For more information about how inbound executions work, see [How Inbound Executions
-Work](concepts-how-it-works.md#how-it-works-inbound-executions "concepts-how-it-works.md#how-it-works-inbound-executions").
+stopped. For more information about how inbound executions work, see [How Inbound Executions Work](concepts-how-it-works.md#how-it-works-inbound-executions "concepts-how-it-works.md#how-it-works-inbound-executions").
 
 Pipeline executions traverse pipeline stages in order. Valid statuses for pipelines are
 `InProgress`, `Stopping`, `Stopped`,
@@ -102,8 +101,7 @@ There are two ways to stop a pipeline execution:
 - **Stop and abandon**
 
 For information about use cases for stopping an execution and sequence details for these
-options, see [How pipeline executions are
-stopped](concepts-how-it-works.md#concepts-how-it-works-stopping "concepts-how-it-works.md#concepts-how-it-works-stopping").
+options, see [How pipeline executions are stopped](concepts-how-it-works.md#concepts-how-it-works-stopping "concepts-how-it-works.md#concepts-how-it-works-stopping").
 
 ### Failed executions
 
@@ -128,15 +126,13 @@ pipeline execution is superseded, the execution is stopped and does not complete
 the pipeline. You can no longer retry the superseded execution after it has been replaced at
 this stage. Other available execution modes are PARALLEL or QUEUED mode.
 
-For more information about execution modes and locked stages, see [How executions are processed in
-SUPERSEDED mode](concepts-how-it-works.md#concepts-how-it-works-executions "concepts-how-it-works.md#concepts-how-it-works-executions").
+For more information about execution modes and locked stages, see [How executions are processed in SUPERSEDED mode](concepts-how-it-works.md#concepts-how-it-works-executions "concepts-how-it-works.md#concepts-how-it-works-executions").
 
 ## Stage operations
 
 When a pipeline execution runs through a stage, the stage is in the process of completing
 all of the actions within it. For information about how stage operations work and information
-about locked stages, see [How executions are processed in
-SUPERSEDED mode](concepts-how-it-works.md#concepts-how-it-works-executions "concepts-how-it-works.md#concepts-how-it-works-executions").
+about locked stages, see [How executions are processed in SUPERSEDED mode](concepts-how-it-works.md#concepts-how-it-works-executions "concepts-how-it-works.md#concepts-how-it-works-executions").
 
 Valid statuses for stages are `InProgress`, `Stopping`,
 `Stopped`, `Succeeded`, and `Failed`. You can retry a
@@ -201,8 +197,7 @@ For S3 buckets or actions, this is the object version.
 
 You can start a pipeline execution with a source revision, such as a commit, that you
 specify. The execution will process the specified revision and override what would have been
-the revision used for the execution. For more information, see [Start a pipeline with a source
-revision override](pipelines-trigger-source-overrides.md "pipelines-trigger-source-overrides.md").
+the revision used for the execution. For more information, see [Start a pipeline with a source revision override](pipelines-trigger-source-overrides.md "pipelines-trigger-source-overrides.md").
 
 ## Triggers
 

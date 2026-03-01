@@ -1,6 +1,4 @@
-# Tutorial: Create a pipeline that deploys to
-
-Service Catalog
+# Tutorial: Create a pipeline that deploys to Service Catalog
 
 Service Catalog enables you to create and provision products based on AWS CloudFormation templates.
 
@@ -26,28 +24,22 @@ tutorial provides two options for setting up the deployment configuration:
 
 - Create a product in Service Catalog and upload a template file to your source repository. Provide
   product version and deployment configuration in the CodePipeline console (without a separate
-  configuration file). See [Option 1: Deploy to Service Catalog without a
-  configuration file](#tutorials-S3-servicecatalog-ex1-configure "#tutorials-S3-servicecatalog-ex1-configure").
+  configuration file). See [Option 1: Deploy to Service Catalog without a configuration file](#tutorials-S3-servicecatalog-ex1-configure "#tutorials-S3-servicecatalog-ex1-configure").
 
 ###### Note
 
 The template file can be created in YAML or JSON format.
 
 - Create a product in Service Catalog and upload a template file to your source repository. Provide
-  product version and deployment configuration in a separate configuration file. See [Option 2: Deploy to Service Catalog using a
-  configuration file](#tutorials-S3-servicecatalog-ex2-configure "#tutorials-S3-servicecatalog-ex2-configure").
+  product version and deployment configuration in a separate configuration file. See [Option 2: Deploy to Service Catalog using a configuration file](#tutorials-S3-servicecatalog-ex2-configure "#tutorials-S3-servicecatalog-ex2-configure").
 
-## Option 1: Deploy to Service Catalog without a
-
-configuration file
+## Option 1: Deploy to Service Catalog without a configuration file
 
 In this example, you upload the sample AWS CloudFormation template file for an S3 bucket, and then
 create your product in Service Catalog. Next, you create your pipeline and specify deployment
 configuration in the CodePipeline console.
 
-### Step 1: Upload sample template file
-
-to source repository
+### Step 1: Upload sample template file to source repository
 
 1. Open a text editor. Create a sample template by pasting the following into the file.
    Save the file as `S3_template.json`.
@@ -77,9 +69,7 @@ This template allows AWS CloudFormation to create an S3 bucket that can be used 
 Service Catalog. 2. Upload the `S3_template.json` file to your AWS CodeCommit
 repository.
 
-### Step 2: Create a product in
-
-Service Catalog
+### Step 2: Create a product in Service Catalog
 
 1. As an IT administrator, sign in to the Service Catalog console, go to the
    **Products** page, and then choose **Upload new
@@ -193,9 +183,7 @@ Choose **Next**. 5. In **Step 6: Add deploy stage**, complete the following:
 ![View your pipeline's Service Catalog deploy stage](images/deploy-servicecatalog-pipeline.png) 8. Under your product information, choose your version name to open the product
 template. View the template deployment.
 
-### Step 4: Push a change and verify your
-
-product in Service Catalog
+### Step 4: Push a change and verify your product in Service Catalog
 
 1. View your pipeline in the CodePipeline console, and on your source stage, choose
    **Details**. Your source AWS CodeCommit repository opens in the console.
@@ -212,18 +200,14 @@ product in Service Catalog
 3. Under your product information, choose the new version name to open the product
    template. View the deployed template change.
 
-## Option 2: Deploy to Service Catalog using a
-
-configuration file
+## Option 2: Deploy to Service Catalog using a configuration file
 
 In this example, you upload the sample AWS CloudFormation template file for an S3 bucket, and then
 create your product in Service Catalog. You also upload a separate configuration file that specifies your
 deployment configuration. Next, you create your pipeline and specify the location of your
 configuration file.
 
-### Step 1: Upload sample template file to
-
-source repository
+### Step 1: Upload sample template file to source repository
 
 1. Open a text editor. Create a sample template by pasting the following into the file.
    Save the file as `S3_template.json`.
@@ -253,9 +237,7 @@ This template allows AWS CloudFormation to create an S3 bucket that can be used 
 Service Catalog. 2. Upload the `S3_template.json` file to your AWS CodeCommit
 repository.
 
-### Step 2: Create your product
-
-deployment configuration file
+### Step 2: Create your product deployment configuration file
 
 1. Open a text editor. Create the configuration file for your product. The
    configuration file is used to define your Service Catalog deployment parameters/preferences. You
@@ -285,9 +267,7 @@ This file creates the product version information for you each time your pipelin
 runs. 2. Upload the `sample_config.json` file to your AWS CodeCommit
 repository. Make sure you upload this file to your source repository.
 
-### Step 3: Create a product in
-
-Service Catalog
+### Step 3: Create a product in Service Catalog
 
 1. As an IT administrator, sign in to the Service Catalog console, go to the
    **Products** page, and then choose **Upload new
@@ -377,9 +357,7 @@ in the list.
 ![View your pipeline's Service Catalog deploy stage](images/deploy-servicecatalog-pipeline.png) 7. Under your product information, choose your version name to open the product
 template. View the template deployment.
 
-### Step 5: Push a change and verify your
-
-product in Service Catalog
+### Step 5: Push a change and verify your product in Service Catalog
 
 1. View your pipeline in the CodePipeline console, and on the source stage, choose
    **Details**. Your source AWS CodeCommit repository opens in the console.

@@ -17,16 +17,13 @@ Asia Pacific (Osaka), Africa (Cape Town), Middle East (Bahrain),
 Middle East (UAE), Europe (Spain), Europe (Zurich),
 Israel (Tel Aviv), or AWS GovCloud (US-West) Regions. To reference other available
 actions, see [Product and service integrations with CodePipeline](integrations.md "integrations.md"). For
-considerations with this action in the Europe (Milan) Region, see the note in [CodeStarSourceConnection for
-Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed
-actions](action-reference-CodestarConnectionSource.md "action-reference-CodestarConnectionSource.md").
+considerations with this action in the Europe (Milan) Region, see the note in [CodeStarSourceConnection for Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed actions](action-reference-CodestarConnectionSource.md "action-reference-CodestarConnectionSource.md").
 
 To add a Bitbucket Cloud source action in CodePipeline, you can choose either to:
 
 - Use the CodePipeline console **Create pipeline** wizard or
   **Edit action** page to choose the
-  **Bitbucket** provider option. See [Create a connection to Bitbucket Cloud
-  (console)](#connections-bitbucket-console "#connections-bitbucket-console") to add the action. The console
+  **Bitbucket** provider option. See [Create a connection to Bitbucket Cloud (console)](#connections-bitbucket-console "#connections-bitbucket-console") to add the action. The console
   helps you create a connections resource.
 
 ###### Note
@@ -37,14 +34,10 @@ Bitbucket provider types, such as Bitbucket Server, are not supported.
 - Use the CLI to add the action configuration for the
   `CreateSourceConnection` action with the `Bitbucket`
   provider as follows:
-  - To create your connections resources, see [Create a connection to
-    Bitbucket
-    Cloud (CLI)](#connections-bitbucket-cli "#connections-bitbucket-cli") to create a connections
+  - To create your connections resources, see [Create a connection to Bitbucket Cloud (CLI)](#connections-bitbucket-cli "#connections-bitbucket-cli") to create a connections
     resource with the CLI.
   - Use the `CreateSourceConnection` example action configuration
-    in [CodeStarSourceConnection for
-    Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed
-    actions](action-reference-CodestarConnectionSource.md "action-reference-CodestarConnectionSource.md") to add your
+    in [CodeStarSourceConnection for Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed actions](action-reference-CodestarConnectionSource.md "action-reference-CodestarConnectionSource.md") to add your
     action as shown in [Create a pipeline (CLI)](pipelines-create.md#pipelines-create-cli "pipelines-create.md#pipelines-create-cli").
 
 ###### Note
@@ -71,15 +64,10 @@ install the app will not display.
 
 ###### Topics
 
-- [Create a connection to Bitbucket Cloud
-  (console)](#connections-bitbucket-console "#connections-bitbucket-console")
-- [Create a connection to
-  Bitbucket
-  Cloud (CLI)](#connections-bitbucket-cli "#connections-bitbucket-cli")
+- [Create a connection to Bitbucket Cloud (console)](#connections-bitbucket-console "#connections-bitbucket-console")
+- [Create a connection to Bitbucket Cloud (CLI)](#connections-bitbucket-cli "#connections-bitbucket-cli")
 
-## Create a connection to Bitbucket Cloud
-
-(console)
+## Create a connection to Bitbucket Cloud (console)
 
 Use these steps to use the CodePipeline console to add a connections action for your
 Bitbucket repository.
@@ -89,9 +77,7 @@ Bitbucket repository.
 You can create connections to a Bitbucket Cloud repository. Installed Bitbucket
 provider types, such as Bitbucket Server, are not supported.
 
-### Step 1: Create or edit your
-
-pipeline
+### Step 1: Create or edit your pipeline
 
 ###### To create or edit your pipeline
 
@@ -117,9 +103,7 @@ pipeline
      a connection to your provider, choose the connection. Proceed to
      Step 3: Save the Source Action for Your Connection.
 
-### Step 2: Create a connection to
-
-Bitbucket Cloud
+### Step 2: Create a connection to Bitbucket Cloud
 
 ###### To create a connection to Bitbucket Cloud
 
@@ -151,10 +135,7 @@ connection displays in the connections list.
 
 ![Console screenshot showing request for access.](images/create-connection-bitbucket-app-ID.png)
 
-### Step 3: Save your
-
-Bitbucket
-Cloud source action
+### Step 3: Save your Bitbucket Cloud source action
 
 Use these steps on the wizard or **Edit action** page to save
 your source action with your connection information.
@@ -166,8 +147,7 @@ your source action with your connection information.
    repository.
 2. Under **Pipeline triggers** you can add triggers if your
    action is an CodeConnections action. To configure the pipeline trigger configuration
-   and to optionally filter with triggers, see more details in [Add trigger with code push or pull request event
-   types](pipelines-filter.md "pipelines-filter.md").
+   and to optionally filter with triggers, see more details in [Add trigger with code push or pull request event types](pipelines-filter.md "pipelines-filter.md").
 3. In **Output artifact format**, you must choose the format
    for your artifacts.
    - To store output artifacts from the Bitbucket
@@ -184,17 +164,13 @@ your source action with your connection information.
      only be used by CodeBuild downstream actions.
 
    If you choose this option, you will need to update the permissions
-   for your CodeBuild project service role as shown in [Add CodeBuild GitClone permissions for connections to
-   Bitbucket, GitHub, GitHub Enterprise Server, or GitLab.com](troubleshooting.md#codebuild-role-connections "troubleshooting.md#codebuild-role-connections").
+   for your CodeBuild project service role as shown in [Add CodeBuild GitClone permissions for connections to Bitbucket, GitHub, GitHub Enterprise Server, or GitLab.com](troubleshooting.md#codebuild-role-connections "troubleshooting.md#codebuild-role-connections").
 
 4. Choose **Next** on the wizard or
    **Save** on the **Edit action**
    page.
 
-## Create a connection to
-
-Bitbucket
-Cloud (CLI)
+## Create a connection to Bitbucket Cloud (CLI)
 
 You can use the AWS Command Line Interface (AWS CLI) to create a connection.
 
@@ -245,8 +221,7 @@ the following.
    ```
 
    - To configure the pipeline trigger configuration to filter with
-     triggers, see more details in [Add trigger with code push or pull request event
-     types](pipelines-filter.md "pipelines-filter.md"). For example, the following adds
+     triggers, see more details in [Add trigger with code push or pull request event types](pipelines-filter.md "pipelines-filter.md"). For example, the following adds
      Git tags to the pipeline level of the pipeline JSON definition. In this
      example, `release-v0` and `release-v1` are the Git
      tags to include, and `release-v2` is the Git tag to

@@ -1,6 +1,4 @@
-# Start a pipeline with a source
-
-revision override
+# Start a pipeline with a source revision override
 
 You can use overrides to start a pipeline with a specific source revision ID that you
 provide for the pipeline execution. For example, if you want to start a pipeline that
@@ -14,8 +12,7 @@ You can also create a source override using input transform entry to use the
 `revisionValue` is derived from the source event variable for your
 object
 key, commit, or image ID. For more information, see the optional
-step for input transform entry included in the procedures under [Amazon ECR source actions and EventBridge resources](create-cwe-ecr-source.md "create-cwe-ecr-source.md"), [Connecting to Amazon S3 source actions with a
-source enabled for events](create-S3-source-events.md "create-S3-source-events.md"), or [CodeCommit source actions and EventBridge](triggering.md "triggering.md").
+step for input transform entry included in the procedures under [Amazon ECR source actions and EventBridge resources](create-cwe-ecr-source.md "create-cwe-ecr-source.md"), [Connecting to Amazon S3 source actions with a source enabled for events](create-S3-source-events.md "create-S3-source-events.md"), or [CodeCommit source actions and EventBridge](triggering.md "triggering.md").
 
 There are four types of source revision for `revisionType`:
 
@@ -37,22 +34,16 @@ source revisions, either of the types can be used independently, or they can be 
 together to override the source with a specific ObjectKey and VersionID. For
 `S3_OBJECT_KEY`, the configuration parameter
 `AllowOverrideForS3ObjectKey` needs to be set to `true`.
-For more information on S3 source configuration parameters, see [Configuration parameters](action-reference-S3.md#action-reference-S3-config "action-reference-S3.md#action-reference-S3-config") .
+For more information on S3 source configuration parameters, see [Configuration parameters](action-reference-S3.md#action-reference-S3-config "action-reference-S3.md#action-reference-S3-config").
 
 ###### Topics
 
-- [Start a pipeline with a
-  source revision override (console)](#pipelines-trigger-source-overrides-console "#pipelines-trigger-source-overrides-console")
-- [Start a pipeline with a
-  source revision override (CLI)](#pipelines-trigger-source-overrides-cli "#pipelines-trigger-source-overrides-cli")
+- [Start a pipeline with a source revision override (console)](#pipelines-trigger-source-overrides-console "#pipelines-trigger-source-overrides-console")
+- [Start a pipeline with a source revision override (CLI)](#pipelines-trigger-source-overrides-cli "#pipelines-trigger-source-overrides-cli")
 
-## Start a pipeline with a
+## Start a pipeline with a source revision override (console)
 
-source revision override (console)
-
-###### To manually start a pipeline and run the most recent revision through a
-
-pipeline
+###### To manually start a pipeline and run the most recent revision through a pipeline
 
 1. Sign in to the AWS Management Console and open the CodePipeline console at [http://console.aws.amazon.com/codesuite/codepipeline/home](http://console.aws.amazon.com/codesuite/codepipeline/home "http://console.aws.amazon.com/codesuite/codepipeline/home").
 2. In **Name**, choose the name of the pipeline you want to
@@ -67,13 +58,9 @@ pipeline
 
 ![An example of the overrides screen in CodePipeline.](images/overrides.png)
 
-## Start a pipeline with a
+## Start a pipeline with a source revision override (CLI)
 
-source revision override (CLI)
-
-###### To manually start a pipeline and run the specified source revision ID for an
-
-artifact through a pipeline
+###### To manually start a pipeline and run the specified source revision ID for an artifact through a pipeline
 
 1. Open a terminal (Linux, macOS, or Unix) or command prompt (Windows) and use the AWS CLI
    to run the **start-pipeline-execution** command, specifying

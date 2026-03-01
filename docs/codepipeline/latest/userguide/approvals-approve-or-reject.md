@@ -1,6 +1,4 @@
-# Approve or reject an approval action in
-
-CodePipeline
+# Approve or reject an approval action in CodePipeline
 
 When a pipeline includes an approval action, the pipeline execution stops at the point
 where the action has been added. The pipeline won't resume unless someone manually
@@ -11,9 +9,7 @@ pipeline status becomes "Failed."
 If the person who added the approval action to the pipeline configured notifications,
 you might receive an email with the pipeline information and status for approval.
 
-## Approve or reject an approval
-
-action (console)
+## Approve or reject an approval action (console)
 
 If you receive a notification that includes a direct link to an approval action,
 choose the **Approve or reject** link, sign in to the console, and
@@ -48,9 +44,7 @@ window, enter review comments, such as why you are approving or rejecting
 the action, and then choose **Approve** or
 **Reject**. 7. Choose **Submit**.
 
-## Approve or reject an approval
-
-request (CLI)
+## Approve or reject an approval request (CLI)
 
 To use the CLI to respond to an approval action, you must first use the
 **get-pipeline-state** command to retrieve the token associated

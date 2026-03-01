@@ -34,8 +34,7 @@ This option can lead to failed tasks or out of sequence tasks.
 ###### Topics
 
 - [Stop a pipeline execution (console)](#pipelines-stop-console "#pipelines-stop-console")
-- [Stop an Inbound Execution
-  (Console)](#pipelines-stop-inbound-console "#pipelines-stop-inbound-console")
+- [Stop an Inbound Execution (Console)](#pipelines-stop-inbound-console "#pipelines-stop-inbound-console")
 - [Stop a pipeline execution (CLI)](#pipelines-stop-cli "#pipelines-stop-cli")
 - [Stop an Inbound Execution (CLI)](#pipelines-stop-inbound-cli "#pipelines-stop-inbound-cli")
 
@@ -47,8 +46,7 @@ choose the method for stopping the pipeline execution.
 ###### Note
 
 You can also stop a pipeline execution that is an inbound execution. To learn more
-about stopping an inbound execution, see [Stop an Inbound Execution
-(Console)](#pipelines-stop-inbound-console "#pipelines-stop-inbound-console").
+about stopping an inbound execution, see [Stop an Inbound Execution (Console)](#pipelines-stop-inbound-console "#pipelines-stop-inbound-console").
 
 1. Sign in to the AWS Management Console and open the CodePipeline console at [http://console.aws.amazon.com/codesuite/codepipeline/home](http://console.aws.amazon.com/codesuite/codepipeline/home "http://console.aws.amazon.com/codesuite/codepipeline/home").
 2. Do one of the following:
@@ -146,9 +144,7 @@ This action cannot be undone. 7. View the execution status in the pipeline visua
 You can view the pipeline execution status in the execution history view and
 the detailed history view.
 
-## Stop an Inbound Execution
-
-(Console)
+## Stop an Inbound Execution (Console)
 
 You can use the console to stop an inbound execution. An inbound execution is a
 pipeline execution that is waiting to enter a stage where the transition has been

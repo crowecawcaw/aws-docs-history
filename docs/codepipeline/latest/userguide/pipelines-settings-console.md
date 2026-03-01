@@ -1,6 +1,4 @@
-# View the pipeline ARN and service role ARN
-
-(console)
+# View the pipeline ARN and service role ARN (console)
 
 You can use the console to view pipeline settings, such as the pipeline ARN, the
 service role ARN, and the pipeline artifact store.

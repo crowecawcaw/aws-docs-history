@@ -1,6 +1,4 @@
-# Amazon Inspector `InspectorScan` invoke
-
-action reference
+# Amazon Inspector `InspectorScan` invoke action reference
 
 Amazon Inspector is a vulnerability management service that automatically discovers workloads and
 continually scans them for software vulnerabilities and unintended network exposure. The
@@ -23,8 +21,7 @@ Running the action will incur separate charges in AWS CodeBuild.
 - [Input artifacts](#action-reference-InspectorScan-input "#action-reference-InspectorScan-input")
 - [Output artifacts](#action-reference-InspectorScan-output "#action-reference-InspectorScan-output")
 - [Output variables](#w2aac55c62c19 "#w2aac55c62c19")
-- [Service role permissions:
-  InspectorScan action](#edit-role-InspectorScan "#edit-role-InspectorScan")
+- [Service role permissions: InspectorScan action](#edit-role-InspectorScan "#edit-role-InspectorScan")
 - [Action declaration](#w2aac55c62c23 "#w2aac55c62c23")
 - [See also](#action-reference-InspectorScan-links "#action-reference-InspectorScan-links")
 
@@ -117,9 +114,7 @@ For more information, see [Variables reference](reference-variables.md "referenc
 The highest severity output from the scan. Valid values are `medium |
  high | critical`.
 
-## Service role permissions:
-
-`InspectorScan` action
+## Service role permissions: `InspectorScan` action
 
 For the `InspectorScan` action support, add the following to your policy
 statement:

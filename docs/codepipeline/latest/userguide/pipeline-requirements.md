@@ -138,9 +138,7 @@ structure, choose your pipeline in the console, and then choose
 **Settings**. Under the **General** tab, the
 **Service role ARN** field displays.
 
-## `artifactStore` OR
-
-`artifactStores`
+## `artifactStore` OR `artifactStores`
 
 The `artifactStore` field contains the artifact bucket type and
 location for a pipeline with all actions in the same AWS Region. If you add
@@ -258,8 +256,7 @@ the `CodeStarSourceConnection` action in CodePipeline, such as GitHub,
 Bitbucket, and GitLab. For more information about source actions that use
 connections, see [Add third-party source providers to pipelines using CodeConnections](pipelines-connections.md "pipelines-connections.md").
 
-For more information and more detailed examples, see [Automate starting pipelines using triggers and
-filtering](pipelines-triggers.md "pipelines-triggers.md").
+For more information and more detailed examples, see [Automate starting pipelines using triggers and filtering](pipelines-triggers.md "pipelines-triggers.md").
 
 For filtering, regular expression patterns in glob format are supported as
 detailed in [Working with glob patterns in syntax](syntax-glob.md "syntax-glob.md").
@@ -275,9 +272,7 @@ For more information, see [pollingDisabledAt](#metadata.pollingDisabledAt "#meta
 For the steps to migrate your pipeline from polling to event-based change detection, see
 [Change Detection Methods](change-detection-methods.md "change-detection-methods.md").
 
-### `gitConfiguration`
-
-fields
+### `gitConfiguration` fields
 
 The Git configuration for the trigger, including the event types and any
 parameters for filtering by branches, file paths, tags, or pull request events.
@@ -433,9 +428,7 @@ list:
             TAG/**", "TAG2/** `(OR operation is used between tag names)`
 ```
 
-### Event type `pull request` fields for include and
-
-exclude
+### Event type `pull request` fields for include and exclude
 
 Include and exclude behavior for levels of Git configuration fields for
 **pull request** event types are shown in the

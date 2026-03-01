@@ -1,6 +1,4 @@
-# Tutorial: Create a simple pipeline (CodeCommit
-
-repository)
+# Tutorial: Create a simple pipeline (CodeCommit repository)
 
 In this tutorial, you use CodePipeline to deploy code maintained in a CodeCommit repository to a single
 Amazon EC2 instance. Your pipeline is triggered when you push a change to the CodeCommit repository. The
@@ -201,9 +199,7 @@ directory and file hierarchy should look like this:
    `main` branch in your CodeCommit `MyDemoRepo` repository and are ready
    to be included in a pipeline.
 
-## Step 3: Create an Amazon EC2 Linux instance and
-
-install the CodeDeploy agent
+## Step 3: Create an Amazon EC2 Linux instance and install the CodeDeploy agent
 
 In this step, you create the Amazon EC2 instance where you deploy a sample application. As part
 of this process, create an instance role that allows install and management of the CodeDeploy agent
@@ -276,9 +272,7 @@ the **Public DNS** column is not displayed, choose the
 **Show/Hide** icon, and then select **Public
 DNS**.)
 
-## Step 4: Create an application in
-
-CodeDeploy
+## Step 4: Create an application in CodeDeploy
 
 In CodeDeploy, an [_application_](../../../codedeploy/latest/userguide/applications.md "../../../codedeploy/latest/userguide/applications.md") is a resource that contains the software application you
 want to deploy. Later, you use this application with CodePipeline to automate deployments of the
@@ -343,9 +337,7 @@ which instances to deploy to and how fast to deploy them.
    choose a target group for this example.
 9. Choose **Create deployment group**.
 
-## Step 5: Create your first pipeline in
-
-CodePipeline
+## Step 5: Create your first pipeline in CodePipeline
 
 You're now ready to create and run your first pipeline. In this step, you create a
 pipeline that runs automatically when code is pushed to your CodeCommit repository.

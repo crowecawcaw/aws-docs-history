@@ -60,8 +60,7 @@ Required: No
 
 The name of your image definitions file, the JSON file that describes your
 service's container name and the image and tag. You use this file for ECS
-standard deployments. For more information, see [Input artifacts](#action-reference-ECS-input "#action-reference-ECS-input") and [imagedefinitions.json file for Amazon ECS
-standard deployment actions](file-reference.md#pipelines-create-image-definitions "file-reference.md#pipelines-create-image-definitions").
+standard deployments. For more information, see [Input artifacts](#action-reference-ECS-input "#action-reference-ECS-input") and [imagedefinitions.json file for Amazon ECS standard deployment actions](file-reference.md#pipelines-create-image-definitions "file-reference.md#pipelines-create-image-definitions").
 
 **DeploymentTimeout**
 
@@ -85,8 +84,7 @@ configurable up to the maximum default timeout for this action. For example:
   to retrieve the image from your image repository such as Amazon ECR. You can manually
   add an `imagedefinitions.json` file for a pipeline where the
   action is not automated. For information about the
-  `imagedefinitions.json` file, see [imagedefinitions.json file for Amazon ECS
-  standard deployment actions](file-reference.md#pipelines-create-image-definitions "file-reference.md#pipelines-create-image-definitions").
+  `imagedefinitions.json` file, see [imagedefinitions.json file for Amazon ECS standard deployment actions](file-reference.md#pipelines-create-image-definitions "file-reference.md#pipelines-create-image-definitions").
 
 The action requires an existing image that has already been pushed to your
 image repository. Because the image mapping is provided by the
@@ -233,8 +231,7 @@ JSON
 
 The following related resources can help you as you work with this action.
 
-- See [Tutorial: Build and push a Docker image to
-  Amazon ECR with CodePipeline (V2 type)](tutorials-ecr-build-publish.md "tutorials-ecr-build-publish.md") for a tutorial that shows you
+- See [Tutorial: Build and push a Docker image to Amazon ECR with CodePipeline (V2 type)](tutorials-ecr-build-publish.md "tutorials-ecr-build-publish.md") for a tutorial that shows you
   how to use the ECRBuildandPublish action to push an image and then use the ECS
   standard action to deploy to Amazon ECS.
 - [Tutorial: Continuous Deployment
@@ -249,8 +246,7 @@ The following related resources can help you as you work with this action.
 
 This topic and tutorial describe the Amazon ECS standard deployment action for
 CodePipeline. For information about Amazon ECS to CodeDeploy blue/green deployment
-actions in CodePipeline, see [Tutorial: Create a pipeline with an Amazon ECR
-source and ECS-to-CodeDeploy deployment](tutorials-ecs-ecr-codedeploy.md "tutorials-ecs-ecr-codedeploy.md").
+actions in CodePipeline, see [Tutorial: Create a pipeline with an Amazon ECR source and ECS-to-CodeDeploy deployment](tutorials-ecs-ecr-codedeploy.md "tutorials-ecs-ecr-codedeploy.md").
 
 - _Amazon Elastic Container Service Developer Guide_ – For information about working
   with Docker images and containers, Amazon ECS services and clusters, and Amazon ECS task

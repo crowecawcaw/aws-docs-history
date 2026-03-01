@@ -12,25 +12,20 @@ The CodePipeline console also provides a way to quickly search for your resource
 repositories, build projects, deployment applications, and pipelines. Choose **Go to
 resource** or press the `/` key, and then type the name of the resource.
 Any matches appear in the list. Searches are case insensitive. You only see resources that you
-have permissions to view. For more information, see [Viewing resources in the
-console](security-iam-resources-console.md "security-iam-resources-console.md").
+have permissions to view. For more information, see [Viewing resources in the console](security-iam-resources-console.md "security-iam-resources-console.md").
 
 Before you can use AWS CodePipeline for the first time, you must create your AWS account and
 create your first administrative user.
 
 ###### Topics
 
-- [Step 1: Create an AWS account and administrative
-  user](#create-iam-user "#create-iam-user")
-- [Step 2: Apply a managed policy for administrative access
-  to CodePipeline](#assign-permissions "#assign-permissions")
+- [Step 1: Create an AWS account and administrative user](#create-iam-user "#create-iam-user")
+- [Step 2: Apply a managed policy for administrative access to CodePipeline](#assign-permissions "#assign-permissions")
 - [Step 3: Install the AWS CLI](#install-cli "#install-cli")
 - [Step 4: Open the console for CodePipeline](#open-codepipeline-console "#open-codepipeline-console")
 - [Next steps](#next-steps "#next-steps")
 
-## Step 1: Create an AWS account and administrative
-
-user
+## Step 1: Create an AWS account and administrative user
 
 ### Sign up for an AWS account
 
@@ -90,9 +85,7 @@ For instructions, see [Create a permission set](../../../singlesignon/latest/use
 
 For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md") in the _AWS IAM Identity Center User Guide_.
 
-## Step 2: Apply a managed policy for administrative access
-
-to CodePipeline
+## Step 2: Apply a managed policy for administrative access to CodePipeline
 
 You must grant permissions to interact with CodePipeline. The quickest way to do this is to apply
 the `AWSCodePipeline_FullAccess` managed policy to the administrative user.
@@ -120,8 +113,7 @@ IAM user has access to, as well as all possible actions when creating stages in 
 pipeline, such as creating stages that include CodeDeploy, Elastic Beanstalk, or Amazon S3. As a best practice,
 you should grant individuals only the permissions they need to perform their duties. For
 more information about how to restrict IAM users to a limited set of CodePipeline actions and
-resources, see [Remove permissions from the CodePipeline
-service role](how-to-custom-role.md#remove-permissions-from-policy "how-to-custom-role.md#remove-permissions-from-policy").
+resources, see [Remove permissions from the CodePipeline service role](how-to-custom-role.md#remove-permissions-from-policy "how-to-custom-role.md#remove-permissions-from-policy").
 
 To provide access, add permissions to your users, groups, or roles:
 

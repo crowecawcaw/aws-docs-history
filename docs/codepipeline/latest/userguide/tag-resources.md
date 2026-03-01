@@ -33,5 +33,4 @@ You can tag the following resource types in CodePipeline:
 
 In addition to identifying, organizing, and tracking your resource with tags, you can use
 tags in IAM policies to help control who can view and interact with your resource. For
-examples of tag-based access policies, see [Using tags to control access to CodePipeline
-resources](tag-based-access-control.md "tag-based-access-control.md").
+examples of tag-based access policies, see [Using tags to control access to CodePipeline resources](tag-based-access-control.md "tag-based-access-control.md").

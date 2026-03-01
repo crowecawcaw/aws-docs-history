@@ -8,18 +8,12 @@ recent revision through your pipeline.
 
 ###### Topics
 
-- [Start a pipeline manually
-  (console)](#pipelines-rerun-manually-console "#pipelines-rerun-manually-console")
-- [Start a pipeline manually
-  (CLI)](#pipelines-rerun-manually-cli "#pipelines-rerun-manually-cli")
+- [Start a pipeline manually (console)](#pipelines-rerun-manually-console "#pipelines-rerun-manually-console")
+- [Start a pipeline manually (CLI)](#pipelines-rerun-manually-cli "#pipelines-rerun-manually-cli")
 
-## Start a pipeline manually
+## Start a pipeline manually (console)
 
-(console)
-
-###### To manually start a pipeline and run the most recent revision through a
-
-pipeline
+###### To manually start a pipeline and run the most recent revision through a pipeline
 
 1. Sign in to the AWS Management Console and open the CodePipeline console at [http://console.aws.amazon.com/codesuite/codepipeline/home](http://console.aws.amazon.com/codesuite/codepipeline/home "http://console.aws.amazon.com/codesuite/codepipeline/home").
 2. In **Name**, choose the name of the pipeline you want to
@@ -35,13 +29,9 @@ pipeline
 This starts the most recent revision available in each source location
 specified in a source action through the pipeline.
 
-## Start a pipeline manually
+## Start a pipeline manually (CLI)
 
-(CLI)
-
-###### To manually start a pipeline and run the most recent version of an artifact
-
-through a pipeline
+###### To manually start a pipeline and run the most recent version of an artifact through a pipeline
 
 1. Open a terminal (Linux, macOS, or Unix) or command prompt (Windows) and use the AWS CLI
    to run the **start-pipeline-execution** command, specifying

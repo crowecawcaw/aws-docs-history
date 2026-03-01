@@ -27,8 +27,7 @@ For Amazon ECR, Amazon S3, or CodeCommit sources, you can also create a source o
 transform entry to use the `revisionValue` in EventBridge for your pipeline event,
 where the `revisionValue` is derived from the source event variable for your
 object key, commit, or image ID. For more information, see the optional step for input
-transform entry included in the procedures under [Amazon ECR source actions and EventBridge resources](create-cwe-ecr-source.md "create-cwe-ecr-source.md"), [Connecting to Amazon S3 source actions with a
-source enabled for events](create-S3-source-events.md "create-S3-source-events.md"), or [CodeCommit source actions and EventBridge](triggering.md "triggering.md").
+transform entry included in the procedures under [Amazon ECR source actions and EventBridge resources](create-cwe-ecr-source.md "create-cwe-ecr-source.md"), [Connecting to Amazon S3 source actions with a source enabled for events](create-S3-source-events.md "create-S3-source-events.md"), or [CodeCommit source actions and EventBridge](triggering.md "triggering.md").
 
 You must have already created an Amazon S3 source bucket and uploaded the source files as a
 
@@ -82,8 +81,7 @@ Required: No
 `AllowOverrideForS3ObjectKey` controls whether source overrides
 from `StartPipelineExecution` can override the already configured
 `S3ObjectKey` in the source action. For more information on
-source overrides with the S3 Object Key, see [Start a pipeline with a source
-revision override](pipelines-trigger-source-overrides.md "pipelines-trigger-source-overrides.md").
+source overrides with the S3 Object Key, see [Start a pipeline with a source revision override](pipelines-trigger-source-overrides.md "pipelines-trigger-source-overrides.md").
 
 ###### Important
 
@@ -118,9 +116,7 @@ Required: No
 
 source bucket for source changes. We recommend that you use CloudWatch Events and CloudTrail
 to detect source changes instead. For more information about configuring
-CloudWatch Events, see [Migrate polling pipelines with an
-S3 source and CloudTrail trail (CLI)](update-change-detection.md#update-change-detection-cli-S3 "update-change-detection.md#update-change-detection-cli-S3") or [Migrate polling pipelines with an
-S3 source and CloudTrail trail (CloudFormation template)](update-change-detection.md#update-change-detection-cfn-s3 "update-change-detection.md#update-change-detection-cfn-s3").
+CloudWatch Events, see [Migrate polling pipelines with an S3 source and CloudTrail trail (CLI)](update-change-detection.md#update-change-detection-cli-S3 "update-change-detection.md#update-change-detection-cli-S3") or [Migrate polling pipelines with an S3 source and CloudTrail trail (CloudFormation template)](update-change-detection.md#update-change-detection-cfn-s3 "update-change-detection.md#update-change-detection-cfn-s3").
 
 ###### Important
 

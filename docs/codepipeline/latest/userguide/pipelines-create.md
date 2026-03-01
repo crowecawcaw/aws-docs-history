@@ -37,8 +37,7 @@ the additional resources yourself. For more information, see [CodeCommit source 
 
 - [Create a custom pipeline (console)](#pipelines-create-console "#pipelines-create-console")
 - [Create a pipeline (CLI)](#pipelines-create-cli "#pipelines-create-cli")
-- [Create a pipeline from static
-  templates](#pipelines-create-templates "#pipelines-create-templates")
+- [Create a pipeline from static templates](#pipelines-create-templates "#pipelines-create-templates")
 
 ## Create a custom pipeline (console)
 
@@ -96,8 +95,7 @@ Pipeline types differ in characteristics and price. For more information, see
 
 Depending on when your service role was created, you might need to update
 its permissions to support additional AWS services. For information, see
-[Add permissions to the CodePipeline
-service role](how-to-custom-role.md#how-to-update-role-new-services "how-to-custom-role.md#how-to-update-role-new-services").
+[Add permissions to the CodePipeline service role](how-to-custom-role.md#how-to-update-role-new-services "how-to-custom-role.md#how-to-update-role-new-services").
 
 For more information about the service role and its policy statement, see
 [Manage the CodePipeline service role](how-to-custom-role.md "how-to-custom-role.md"). 7. (Optional) Under **Variables**, choose **Add
@@ -156,8 +154,7 @@ For more information, see [Input and output artifacts](welcome-introducing-artif
 
       Choose to add a trigger or filter on trigger types to start
       your pipeline. For more information about working with triggers,
-      see [Add trigger with code push or pull request event
-      types](pipelines-filter.md "pipelines-filter.md"). For more information
+      see [Add trigger with code push or pull request event types](pipelines-filter.md "pipelines-filter.md"). For more information
       about filtering with glob patterns, see [Working with glob patterns in syntax](syntax-glob.md "syntax-glob.md"). 3. In **Output artifact format**, choose the
       format for your artifacts.
 
@@ -177,8 +174,7 @@ For more information, see [Input and output artifacts](welcome-introducing-artif
            permissions for your CodeBuild project service role as shown
            in [Troubleshooting CodePipeline](troubleshooting.md "troubleshooting.md"). For a tutorial
            that shows you how to use the **Full
-           clone** option, see [Tutorial: Use full clone with a GitHub pipeline
-           source](tutorials-github-gitclone.md "tutorials-github-gitclone.md").
+           clone** option, see [Tutorial: Use full clone with a GitHub pipeline source](tutorials-github-gitclone.md "tutorials-github-gitclone.md").
 
     - For **Amazon S3**:
       1. In **Amazon S3 location**, provide the S3
@@ -223,15 +219,12 @@ For more information, see [Input and output artifacts](welcome-introducing-artif
 
         If you choose this option, you will need to add the
         `codecommit:GitPull` permission to your
-        CodeBuild service role as shown in [Add CodeBuild GitClone permissions for CodeCommit
-        source actions](troubleshooting.md#codebuild-role-codecommitclone "troubleshooting.md#codebuild-role-codecommitclone").
+        CodeBuild service role as shown in [Add CodeBuild GitClone permissions for CodeCommit source actions](troubleshooting.md#codebuild-role-codecommitclone "troubleshooting.md#codebuild-role-codecommitclone").
         You will also need to add the
         `codecommit:GetRepository` permissions to
-        your CodePipeline service role as shown in [Add permissions to the CodePipeline
-        service role](how-to-custom-role.md#how-to-update-role-new-services "how-to-custom-role.md#how-to-update-role-new-services").
+        your CodePipeline service role as shown in [Add permissions to the CodePipeline service role](how-to-custom-role.md#how-to-update-role-new-services "how-to-custom-role.md#how-to-update-role-new-services").
         For a tutorial that shows you how to use the
-        **Full clone** option, see [Tutorial: Use full clone with a GitHub pipeline
-        source](tutorials-github-gitclone.md "tutorials-github-gitclone.md").
+        **Full clone** option, see [Tutorial: Use full clone with a GitHub pipeline source](tutorials-github-gitclone.md "tutorials-github-gitclone.md").
 
       - After you choose the CodeCommit repository name and branch, a
         message is displayed in **Change detection
@@ -254,14 +247,12 @@ For more information, see [Input and output artifacts](welcome-introducing-artif
 
           For a tutorial about creating a pipeline for Amazon ECS with CodeDeploy
            blue-green deployments that includes an Amazon ECR source stage, see
-           [Tutorial: Create a pipeline with an Amazon ECR
-           source and ECS-to-CodeDeploy deployment](tutorials-ecs-ecr-codedeploy.md "tutorials-ecs-ecr-codedeploy.md").
+           [Tutorial: Create a pipeline with an Amazon ECR source and ECS-to-CodeDeploy deployment](tutorials-ecs-ecr-codedeploy.md "tutorials-ecs-ecr-codedeploy.md").
 
       When you include an Amazon ECR source stage in your pipeline, the source
       action generates an `imageDetail.json` file as an
       output artifact when you commit a change. For information about the
-      `imageDetail.json` file, see [imageDetail.json file for Amazon ECS blue/green
-      deployment actions](file-reference.md#file-reference-ecs-bluegreen "file-reference.md#file-reference-ecs-bluegreen").
+      `imageDetail.json` file, see [imageDetail.json file for Amazon ECS blue/green deployment actions](file-reference.md#file-reference-ecs-bluegreen "file-reference.md#file-reference-ecs-bluegreen").
 
 ###### Note
 
@@ -273,8 +264,7 @@ Elastic Beanstalk Environments](../../../elasticbeanstalk/latest/dg/customize-co
 For more information about deploying revisions with CodeDeploy, see [Uploading Your Application Revision](../../../codedeploy/latest/userguide/deployment-steps.md#deployment-steps-uploading-your-app "../../../codedeploy/latest/userguide/deployment-steps.md#deployment-steps-uploading-your-app") and [Prepare a
 Revision](../../../codedeploy/latest/userguide/how-to-prepare-revision.md "../../../codedeploy/latest/userguide/how-to-prepare-revision.md"). 2. To configure the stage for automatic retry, choose **Enable automatic
 retry on stage failure**. For more information about automatic
-retry, see [Configure a stage for automatic retry on
-failure](stage-retry.md#stage-retry-auto "stage-retry.md#stage-retry-auto"). 3. Choose **Next**.
+retry, see [Configure a stage for automatic retry on failure](stage-retry.md#stage-retry-auto "stage-retry.md#stage-retry-auto"). 3. Choose **Next**.
 
 ###### Step 4: Create a build stage
 
@@ -372,8 +362,7 @@ This step is optional if you plan to create a deployment stage.
 
 2.  To configure the stage for automatic retry, choose **Enable automatic
     retry on stage failure**. For more information about automatic
-    retry, see [Configure a stage for automatic retry on
-    failure](stage-retry.md#stage-retry-auto "stage-retry.md#stage-retry-auto").
+    retry, see [Configure a stage for automatic retry on failure](stage-retry.md#stage-retry-auto "stage-retry.md#stage-retry-auto").
 3.  Choose **Next**.
 
 ###### Step 5: Create a test stage
@@ -389,10 +378,7 @@ This step is optional if you plan to create a build or deployment stage.
 
 2. Choose **Next**.
 
-###### Step
-
-6:
-Create a deployment stage
+###### Step 6: Create a deployment stage
 
 This step is optional if you have already created a build stage.
 
@@ -491,8 +477,7 @@ This step is optional if you have already created a build stage.
       input to the deployment action. The default ﬁle name for the
       ﬁle is imagedefinitions.json. If you choose to use a
       diﬀerent ﬁle name, you must provide it when you create the
-      pipeline deployment stage. For more information, see [imagedefinitions.json file for Amazon ECS
-      standard deployment actions](file-reference.md#pipelines-create-image-definitions "file-reference.md#pipelines-create-image-definitions").
+      pipeline deployment stage. For more information, see [imagedefinitions.json file for Amazon ECS standard deployment actions](file-reference.md#pipelines-create-image-definitions "file-reference.md#pipelines-create-image-definitions").
 
       Choose **Next**.
 
@@ -519,12 +504,10 @@ This step is optional if you have already created a build stage.
       the deploy action. Because the Amazon ECR source action creates
       this file, pipelines with an Amazon ECR source action do not need
       to provide an `imageDetail.json` file.
-      For more information, see [imageDetail.json file for Amazon ECS blue/green
-      deployment actions](file-reference.md#file-reference-ecs-bluegreen "file-reference.md#file-reference-ecs-bluegreen").
+      For more information, see [imageDetail.json file for Amazon ECS blue/green deployment actions](file-reference.md#file-reference-ecs-bluegreen "file-reference.md#file-reference-ecs-bluegreen").
 
       For a tutorial about creating a pipeline for blue-green
-      deployments to an Amazon ECS cluster with CodeDeploy, see [Tutorial: Create a pipeline with an Amazon ECR
-      source and ECS-to-CodeDeploy deployment](tutorials-ecs-ecr-codedeploy.md "tutorials-ecs-ecr-codedeploy.md").
+      deployments to an Amazon ECS cluster with CodeDeploy, see [Tutorial: Create a pipeline with an Amazon ECR source and ECS-to-CodeDeploy deployment](tutorials-ecs-ecr-codedeploy.md "tutorials-ecs-ecr-codedeploy.md").
       - **AWS Service Catalog**
 
       Choose **Enter deployment configuration** if
@@ -535,8 +518,7 @@ This step is optional if you have already created a build stage.
       **Next**.
 
       For a tutorial about deploying product changes to Service Catalog with
-      your pipeline, see [Tutorial: Create a pipeline that deploys to
-      Service Catalog](tutorials-S3-servicecatalog.md "tutorials-S3-servicecatalog.md").
+      your pipeline, see [Tutorial: Create a pipeline that deploys to Service Catalog](tutorials-S3-servicecatalog.md "tutorials-S3-servicecatalog.md").
       - **Alexa Skills Kit**
 
       In **Alexa Skill ID**, enter the skill ID for
@@ -548,8 +530,7 @@ This step is optional if you have already created a build stage.
       token. Choose **Next**.
 
       For a tutorial about deploying Alexa skills with your pipeline
-      and generating the LWA credentials, see [Tutorial: Create a pipeline that deploys an
-      Amazon Alexa skill](tutorials-alexa-skills-kit.md "tutorials-alexa-skills-kit.md").
+      and generating the LWA credentials, see [Tutorial: Create a pipeline that deploys an Amazon Alexa skill](tutorials-alexa-skills-kit.md "tutorials-alexa-skills-kit.md").
       - **Amazon S3**
 
       In **Bucket**, enter the name of the S3
@@ -598,22 +579,17 @@ This step is optional if you have already created a build stage.
       Choose **Next**.
 
       For a tutorial about creating a pipeline with an Amazon S3
-      deployment action provider, see [Tutorial: Create a pipeline that uses Amazon S3 as a
-      deployment provider](tutorials-s3deploy.md "tutorials-s3deploy.md").
+      deployment action provider, see [Tutorial: Create a pipeline that uses Amazon S3 as a deployment provider](tutorials-s3deploy.md "tutorials-s3deploy.md").
 
 2.  To configure the stage for automatic retry, choose **Enable automatic
     retry on stage failure**. For more information about automatic
-    retry, see [Configure a stage for automatic retry on
-    failure](stage-retry.md#stage-retry-auto "stage-retry.md#stage-retry-auto").
+    retry, see [Configure a stage for automatic retry on failure](stage-retry.md#stage-retry-auto "stage-retry.md#stage-retry-auto").
 3.  To configure the stage for automatic rollback, choose **Configure
     automatic rollback on stage failure**. For more information about
     automatic rollback, see [Configure a stage for automatic rollback](stage-rollback-auto.md "stage-rollback-auto.md").
 4.  Choose **Next step**.
 
-###### Step
-
-7:
-Review the pipeline
+###### Step 7: Review the pipeline
 
 - On the **Step
   7:
@@ -871,15 +847,11 @@ more information, see [View pipelines and details in CodePipeline](pipelines-vie
 recommended change detection resources for your pipeline:
 
     * For a pipeline with a CodeCommit repository, you must manually create the
-     CloudWatch Events rule, as described in [Create an EventBridge rule for
-     a CodeCommit source (CLI)](pipelines-trigger-source-repo-changes-cli.md "pipelines-trigger-source-repo-changes-cli.md").
+     CloudWatch Events rule, as described in [Create an EventBridge rule for a CodeCommit source (CLI)](pipelines-trigger-source-repo-changes-cli.md "pipelines-trigger-source-repo-changes-cli.md").
     * For a pipeline with an Amazon S3 source, you must manually create the CloudWatch Events
-     rule and AWS CloudTrail trail, as described in [Connecting to Amazon S3 source actions that use
-     EventBridge and AWS CloudTrail](create-cloudtrail-S3-source.md "create-cloudtrail-S3-source.md").
+     rule and AWS CloudTrail trail, as described in [Connecting to Amazon S3 source actions that use EventBridge and AWS CloudTrail](create-cloudtrail-S3-source.md "create-cloudtrail-S3-source.md").
 
-## Create a pipeline from static
-
-templates
+## Create a pipeline from static templates
 
 You can create a pipeline in the console that uses a template to configure a pipeline
 with source code and properties that you specify. You must provide the source file
@@ -917,10 +889,7 @@ When you use a static template to create a pipeline, CodePipeline creates the na
 (source, build, staging). These names cannot be changed. You can use more specific names
 (for example, BuildToGamma or DeployToProd) to stages you add later.
 
-###### Step 1:
-
-Access
-the console
+###### Step 1: Access the console
 
 1. Sign in to the AWS Management Console and open the CodePipeline console at [http://console.aws.amazon.com/codesuite/codepipeline/home](http://console.aws.amazon.com/codesuite/codepipeline/home "http://console.aws.amazon.com/codesuite/codepipeline/home").
 2. On the **Welcome** page, choose **Create
@@ -971,8 +940,7 @@ CI pipeline.
 
     Choose to add a trigger or filter on trigger types to start
     your pipeline. For more information about working with triggers,
-    see [Add trigger with code push or pull request event
-    types](pipelines-filter.md "pipelines-filter.md"). For more information
+    see [Add trigger with code push or pull request event types](pipelines-filter.md "pipelines-filter.md"). For more information
     about filtering with glob patterns, see [Working with glob patterns in syntax](syntax-glob.md "syntax-glob.md"). 3. In **Output artifact format**, choose the
     format for your artifacts.
 
@@ -992,8 +960,7 @@ CI pipeline.
          permissions for your CodeBuild project service role as shown
          in [Troubleshooting CodePipeline](troubleshooting.md "troubleshooting.md"). For a tutorial
          that shows you how to use the **Full
-         clone** option, see [Tutorial: Use full clone with a GitHub pipeline
-         source](tutorials-github-gitclone.md "tutorials-github-gitclone.md").
+         clone** option, see [Tutorial: Use full clone with a GitHub pipeline source](tutorials-github-gitclone.md "tutorials-github-gitclone.md").
 
   - For **Amazon ECR**:
 
@@ -1009,8 +976,7 @@ CI pipeline.
     When you include an Amazon ECR source stage in your pipeline, the source
     action generates an `imageDetail.json` file as an
     output artifact when you commit a change. For information about the
-    `imageDetail.json` file, see [imageDetail.json file for Amazon ECS blue/green
-    deployment actions](file-reference.md#file-reference-ecs-bluegreen "file-reference.md#file-reference-ecs-bluegreen").
+    `imageDetail.json` file, see [imageDetail.json file for Amazon ECS blue/green deployment actions](file-reference.md#file-reference-ecs-bluegreen "file-reference.md#file-reference-ecs-bluegreen").
 
 ###### Note
 
@@ -1022,10 +988,7 @@ Elastic Beanstalk Environments](../../../elasticbeanstalk/latest/dg/customize-co
 For more information about deploying revisions with CodeDeploy, see [Uploading Your Application Revision](../../../codedeploy/latest/userguide/deployment-steps.md#deployment-steps-uploading-your-app "../../../codedeploy/latest/userguide/deployment-steps.md#deployment-steps-uploading-your-app") and [Prepare a
 Revision](../../../codedeploy/latest/userguide/how-to-prepare-revision.md "../../../codedeploy/latest/userguide/how-to-prepare-revision.md").
 
-###### Step
-
-4:
-Configure template
+###### Step 4: Configure template
 
 For this example, the deployment to CloudFormation was selected. In this step, add
 configuration for your template.
@@ -1042,10 +1005,7 @@ configuration for your template.
 4. A message displays stating that your pipeline resources are being
    created.
 
-###### Step
-
-5:
-View the pipeline
+###### Step 5: View the pipeline
 
 - Now that you've created your pipeline, you can view it in the CodePipeline
   console and view the stack in

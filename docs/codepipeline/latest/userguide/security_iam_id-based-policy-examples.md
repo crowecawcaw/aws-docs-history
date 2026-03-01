@@ -1,6 +1,4 @@
-# AWS CodePipeline
-
-identity-based policy examples
+# AWS CodePipeline identity-based policy examples
 
 By default, IAM users and roles don't have permission to create or modify
 CodePipeline resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or
@@ -14,25 +12,17 @@ documents, see [Creating Policies on the JSON Tab](../../../IAM/latest/UserGuide
 _IAM User Guide_.
 
 To learn how to create a pipeline that uses resources from another account, and for
-the related example policies, see [Create a pipeline in CodePipeline that uses resources
-from another AWS account](pipelines-create-cross-account.md "pipelines-create-cross-account.md").
+the related example policies, see [Create a pipeline in CodePipeline that uses resources from another AWS account](pipelines-create-cross-account.md "pipelines-create-cross-account.md").
 
 ###### Topics
 
-- [Policy best
-  practices](security_iam_service-with-iam-policy-best-practices.md "security_iam_service-with-iam-policy-best-practices.md")
-- [Viewing resources in the
-  console](security-iam-resources-console.md "security-iam-resources-console.md")
-- [Allow
-  users to view their own permissions](security_iam_id-based-policy-examples-view-own-permissions.md "security_iam_id-based-policy-examples-view-own-permissions.md")
-- [Identity-based policies (IAM)
-  examples](security-iam-id-policies-examples.md "security-iam-id-policies-examples.md")
-- [Using tags to control access to CodePipeline
-  resources](tag-based-access-control.md "tag-based-access-control.md")
-- [Permissions required to use the
-  CodePipeline console](security-iam-permissions-console.md "security-iam-permissions-console.md")
-- [Permissions required to view
-  compute logs in the CodePipeline console](security-iam-permissions-console-logs.md "security-iam-permissions-console-logs.md")
+- [Policy best practices](security_iam_service-with-iam-policy-best-practices.md "security_iam_service-with-iam-policy-best-practices.md")
+- [Viewing resources in the console](security-iam-resources-console.md "security-iam-resources-console.md")
+- [Allow users to view their own permissions](security_iam_id-based-policy-examples-view-own-permissions.md "security_iam_id-based-policy-examples-view-own-permissions.md")
+- [Identity-based policies (IAM) examples](security-iam-id-policies-examples.md "security-iam-id-policies-examples.md")
+- [Using tags to control access to CodePipeline resources](tag-based-access-control.md "tag-based-access-control.md")
+- [Permissions required to use the CodePipeline console](security-iam-permissions-console.md "security-iam-permissions-console.md")
+- [Permissions required to view compute logs in the CodePipeline console](security-iam-permissions-console-logs.md "security-iam-permissions-console-logs.md")
 - [AWS managed policies for AWS CodePipeline](managed-policies.md "managed-policies.md")
 - [Customer managed policy examples](#customer-managed-policies "#customer-managed-policies")
 
@@ -42,8 +32,7 @@ In this section, you can find example user policies that grant permissions for
 various CodePipeline actions. These policies work when you are using the
 CodePipeline API, AWS SDKs, or the AWS CLI. When you are using the console, you
 must grant additional permissions specific to the console. For more information, see
-[Permissions required to use the
-CodePipeline console](security-iam-permissions-console.md "security-iam-permissions-console.md").
+[Permissions required to use the CodePipeline console](security-iam-permissions-console.md "security-iam-permissions-console.md").
 
 ###### Note
 
@@ -52,24 +41,15 @@ fictitious account IDs.
 
 **Examples**
 
-- [Example 1: Grant permissions
-  to get the state of a pipeline](#identity-based-policies-example-1 "#identity-based-policies-example-1")
-- [Example 2: Grant permissions
-  to enable and disable transitions between stages](#identity-based-policies-example-2 "#identity-based-policies-example-2")
-- [Example 3: Grant permissions
-  to get a list of all available action types](#identity-based-policies-example-3 "#identity-based-policies-example-3")
-- [Example 4: Grant permissions
-  to approve or reject manual approval actions](#identity-based-policies-example-4 "#identity-based-policies-example-4")
-- [Example 5: Grant permissions
-  to poll for jobs for a custom action](#identity-based-policies-example-5 "#identity-based-policies-example-5")
-- [Example 6: Attach or edit a
-  policy for Jenkins integration with AWS CodePipeline](#identity-based-policies-example-6 "#identity-based-policies-example-6")
-- [Example 7: Configure
-  cross-account access to a pipeline](#identity-based-policies-example-7 "#identity-based-policies-example-7")
+- [Example 1: Grant permissions to get the state of a pipeline](#identity-based-policies-example-1 "#identity-based-policies-example-1")
+- [Example 2: Grant permissions to enable and disable transitions between stages](#identity-based-policies-example-2 "#identity-based-policies-example-2")
+- [Example 3: Grant permissions to get a list of all available action types](#identity-based-policies-example-3 "#identity-based-policies-example-3")
+- [Example 4: Grant permissions to approve or reject manual approval actions](#identity-based-policies-example-4 "#identity-based-policies-example-4")
+- [Example 5: Grant permissions to poll for jobs for a custom action](#identity-based-policies-example-5 "#identity-based-policies-example-5")
+- [Example 6: Attach or edit a policy for Jenkins integration with AWS CodePipeline](#identity-based-policies-example-6 "#identity-based-policies-example-6")
+- [Example 7: Configure cross-account access to a pipeline](#identity-based-policies-example-7 "#identity-based-policies-example-7")
 
-### Example 1: Grant permissions
-
-to get the state of a pipeline
+### Example 1: Grant permissions to get the state of a pipeline
 
 The following example grants permissions to get the state of the pipeline
 named `MyFirstPipeline`:
@@ -92,9 +72,7 @@ JSON
 
 ```
 
-### Example 2: Grant permissions
-
-to enable and disable transitions between stages
+### Example 2: Grant permissions to enable and disable transitions between stages
 
 The following example grants permissions to disable and enable transitions
 between all stages in the pipeline named
@@ -128,9 +106,7 @@ named `MyFirstPipeline`:
 "Resource": "arn:aws:codepipeline:us-west-2:111222333444:MyFirstPipeline/Staging"
 ```
 
-### Example 3: Grant permissions
-
-to get a list of all available action types
+### Example 3: Grant permissions to get a list of all available action types
 
 The following example grants permissions to get a list of all available action
 types available for pipelines in the `us-west-2` Region:
@@ -153,9 +129,7 @@ JSON
 
 ```
 
-### Example 4: Grant permissions
-
-to approve or reject manual approval actions
+### Example 4: Grant permissions to approve or reject manual approval actions
 
 The following example grants permissions to approve or reject manual approval
 actions in a stage named `Staging` in a pipeline named
@@ -179,9 +153,7 @@ JSON
 
 ```
 
-### Example 5: Grant permissions
-
-to poll for jobs for a custom action
+### Example 5: Grant permissions to poll for jobs for a custom action
 
 The following example grants permissions to poll for jobs for the custom
 action named `TestProvider`, which is a `Test` action type
@@ -212,9 +184,7 @@ JSON
 
 ```
 
-### Example 6: Attach or edit a
-
-policy for Jenkins integration with AWS CodePipeline
+### Example 6: Attach or edit a policy for Jenkins integration with AWS CodePipeline
 
 If you configure a pipeline to use Jenkins for build or test, create a
 separate identity for that integration and attach an IAM policy that has the
@@ -245,9 +215,7 @@ JSON
 
 ```
 
-### Example 7: Configure
-
-cross-account access to a pipeline
+### Example 7: Configure cross-account access to a pipeline
 
 You can configure access to pipelines for users and groups in another AWS
 account. The recommended way is to create a role in the account where the

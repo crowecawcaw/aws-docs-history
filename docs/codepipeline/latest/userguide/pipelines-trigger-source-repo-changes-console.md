@@ -1,6 +1,4 @@
-# Create an EventBridge rule
-
-for a CodeCommit source (console)
+# Create an EventBridge rule for a CodeCommit source (console)
 
 ###### Important
 

@@ -1,6 +1,4 @@
-# Amazon Elastic Kubernetes Service `EKS` deploy action
-
-reference
+# Amazon Elastic Kubernetes Service `EKS` deploy action reference
 
 You can use the `EKSDeploy` action to deploy an Amazon EKS service. The deployment
 requires a Kubernetes manifest file that CodePipeline uses to deploy the image.
@@ -32,8 +30,7 @@ add `actionRoleArn` from your target account in the action declaration.
 - [Output artifacts](#action-reference-EKS-output "#action-reference-EKS-output")
 - [Environment variables](#action-reference-EKS-env-variables "#action-reference-EKS-env-variables")
 - [Output variables](#action-reference-EKS-output-vars "#action-reference-EKS-output-vars")
-- [Service role policy
-  permissions](#action-reference-EKS-service-role "#action-reference-EKS-service-role")
+- [Service role policy permissions](#action-reference-EKS-service-role "#action-reference-EKS-service-role")
 - [Action declaration](#action-reference-EKS-example "#action-reference-EKS-example")
 - [See also](#action-reference-EKS-links "#action-reference-EKS-links")
 
@@ -165,9 +162,7 @@ environment variable.
 
 The Amazon EKS cluster in Amazon EKS.
 
-## Service role policy
-
-permissions
+## Service role policy permissions
 
 To run this action, the following permissions must be available in your pipeline's
 service role policy.
@@ -262,20 +257,16 @@ JSON
 
 To view logs in the console using the action details dialog page, the permission to
 view logs must be added to the console role. For more information, see the console
-permissions policy example in [Permissions required to view
-compute logs in the CodePipeline console](security-iam-permissions-console-logs.md "security-iam-permissions-console-logs.md").
+permissions policy example in [Permissions required to view compute logs in the CodePipeline console](security-iam-permissions-console-logs.md "security-iam-permissions-console-logs.md").
 
-### Adding the service role
-
-as an access entry for your cluster
+### Adding the service role as an access entry for your cluster
 
 After the permissions are available in your pipeline's service role policy, you
 configure your cluster permissions by adding the CodePipeline service role as an
 access entry for your cluster.
 
 You can also use an action role that has the updated permissions. For more
-information, see the tutorial example in [Step 4: Create an access entry for
-the CodePipeline service role](tutorials-eks-deploy.md#tutorials-eks-deploy-access-entry "tutorials-eks-deploy.md#tutorials-eks-deploy-access-entry").
+information, see the tutorial example in [Step 4: Create an access entry for the CodePipeline service role](tutorials-eks-deploy.md#tutorials-eks-deploy-access-entry "tutorials-eks-deploy.md#tutorials-eks-deploy-access-entry").
 
 ## Action declaration
 

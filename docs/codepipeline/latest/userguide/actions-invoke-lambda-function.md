@@ -1,6 +1,4 @@
-# Invoke an AWS Lambda function in a pipeline
-
-in CodePipeline
+# Invoke an AWS Lambda function in a pipeline in CodePipeline
 
 [AWS Lambda](../../../lambda/latest/dg.md "../../../lambda/latest/dg.md") is a compute service that lets you run code
 without provisioning or managing servers. You can create Lambda functions and add them as
@@ -12,8 +10,7 @@ task, you can customize the way your pipeline works.
 Do not log the JSON event that CodePipeline sends to Lambda because this can result in user
 credentials being logged in CloudWatch Logs. The CodePipeline role uses a JSON event to pass temporary
 credentials to Lambda in the `artifactCredentials` field. For an example
-event, see [Example JSON
-event](#actions-invoke-lambda-function-json-event-example "#actions-invoke-lambda-function-json-event-example").
+event, see [Example JSON event](#actions-invoke-lambda-function-json-event-example "#actions-invoke-lambda-function-json-event-example").
 
 Here are some ways Lambda functions can be used in pipelines:
 
@@ -79,23 +76,15 @@ provided as-is.
 
 ###### Topics
 
-- [Step 1: Create a
-  pipeline](#actions-invoke-lambda-function-create-test-pipeline "#actions-invoke-lambda-function-create-test-pipeline")
-- [Step 2: Create the
-  Lambda function](#actions-invoke-lambda-function-create-function "#actions-invoke-lambda-function-create-function")
-- [Step 3: Add the Lambda
-  function to a pipeline in the CodePipeline console](#actions-invoke-lambda-function-add-action "#actions-invoke-lambda-function-add-action")
-- [Step 4: Test the pipeline
-  with the Lambda function](#actions-invoke-lambda-function-test-function "#actions-invoke-lambda-function-test-function")
+- [Step 1: Create a pipeline](#actions-invoke-lambda-function-create-test-pipeline "#actions-invoke-lambda-function-create-test-pipeline")
+- [Step 2: Create the Lambda function](#actions-invoke-lambda-function-create-function "#actions-invoke-lambda-function-create-function")
+- [Step 3: Add the Lambda function to a pipeline in the CodePipeline console](#actions-invoke-lambda-function-add-action "#actions-invoke-lambda-function-add-action")
+- [Step 4: Test the pipeline with the Lambda function](#actions-invoke-lambda-function-test-function "#actions-invoke-lambda-function-test-function")
 - [Step 5: Next steps](#actions-invoke-lambda-function-next-steps "#actions-invoke-lambda-function-next-steps")
-- [Example JSON
-  event](#actions-invoke-lambda-function-json-event-example "#actions-invoke-lambda-function-json-event-example")
-- [Additional sample
-  functions](#actions-invoke-lambda-function-samples "#actions-invoke-lambda-function-samples")
+- [Example JSON event](#actions-invoke-lambda-function-json-event-example "#actions-invoke-lambda-function-json-event-example")
+- [Additional sample functions](#actions-invoke-lambda-function-samples "#actions-invoke-lambda-function-samples")
 
-## Step 1: Create a
-
-pipeline
+## Step 1: Create a pipeline
 
 In this step, you create a pipeline to which you later add the Lambda function. This is
 the same pipeline you created in [CodePipeline tutorials](tutorials.md "tutorials.md").
@@ -124,9 +113,7 @@ selected a different one, make sure the policy for the role allows the
 `lambda:InvokeFunction` and `lambda:ListFunctions`
 permissions. Otherwise, pipelines that include Lambda actions fail.
 
-## Step 2: Create the
-
-Lambda function
+## Step 2: Create the Lambda function
 
 In this step, you create a Lambda function that makes an HTTP request and checks for a
 line of text on a webpage. As part of this step, you must also create an IAM policy
@@ -213,8 +200,7 @@ box:
 ###### Note
 
 The event object, under the CodePipeline.job key, contains the [job details](../APIReference/API_JobDetails.md "../APIReference/API_JobDetails.md"). For a full
-example of the JSON event CodePipeline returns to Lambda, see [Example JSON
-event](#actions-invoke-lambda-function-json-event-example "#actions-invoke-lambda-function-json-event-example").
+example of the JSON event CodePipeline returns to Lambda, see [Example JSON event](#actions-invoke-lambda-function-json-event-example "#actions-invoke-lambda-function-json-event-example").
 
 ```
 import { CodePipelineClient, PutJobSuccessResultCommand, PutJobFailureResultCommand } from "@aws-sdk/client-codepipeline";
@@ -319,9 +305,7 @@ export const handler = (event, context) => {
    enter `20` seconds.
 8. Choose **Save**.
 
-## Step 3: Add the Lambda
-
-function to a pipeline in the CodePipeline console
+## Step 3: Add the Lambda function to a pipeline in the CodePipeline console
 
 In this step, you add a new stage to your pipeline, and then add a Lambda action that
 calls your function to that stage.
@@ -363,15 +347,11 @@ For more information about event data and handlers in AWS Lambda, see [Programmi
 in the _AWS Lambda Developer Guide_. 6. On the **Edit action** page, choose
 **Save**.
 
-## Step 4: Test the pipeline
-
-with the Lambda function
+## Step 4: Test the pipeline with the Lambda function
 
 To test the function, release the most recent change through the pipeline.
 
-###### To use the console to run the most recent version of an artifact through a
-
-pipeline
+###### To use the console to run the most recent version of an artifact through a pipeline
 
 1. On the pipeline details page, choose **Release change**.
    This runs the most recent revision available in each source location specified
@@ -399,9 +379,7 @@ from your pipeline, deleting it from AWS Lambda, and deleting the role from IAM 
 avoid possible charges. For more information, see [Edit a pipeline in CodePipeline](pipelines-edit.md "pipelines-edit.md"), [Delete a pipeline in CodePipeline](pipelines-delete.md "pipelines-delete.md"), and [Deleting
 Roles or Instance Profiles](../../../IAM/latest/UserGuide/id_roles_manage_delete.md "../../../IAM/latest/UserGuide/id_roles_manage_delete.md").
 
-## Example JSON
-
-event
+## Example JSON event
 
 The following example shows a sample JSON event sent to Lambda by CodePipeline. The structure
 of this event is similar to the response to the `GetJobDetails API`, but
@@ -466,9 +444,7 @@ explanations, not real values.
 }
 ```
 
-## Additional sample
-
-functions
+## Additional sample functions
 
 The following sample Lambda functions demonstrate additional functionality you can use
 for your pipelines in CodePipeline. To use these functions, you might have to modify the policy

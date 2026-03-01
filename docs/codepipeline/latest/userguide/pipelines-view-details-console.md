@@ -1,8 +1,4 @@
-# View
-
-action
-details
-in a pipeline (console)
+# View action details in a pipeline (console)
 
 You can view
 details
@@ -14,10 +10,7 @@ including details for actions in each stage.
 After an hour, the detailed view of a pipeline stops refreshing automatically in
 your browser. To view current information, refresh the page.
 
-###### To view
-
-action
-details in a pipeline
+###### To view action details in a pipeline
 
 1. Sign in to the AWS Management Console and open the CodePipeline console at [http://console.aws.amazon.com/codesuite/codepipeline/home](http://console.aws.amazon.com/codesuite/codepipeline/home "http://console.aws.amazon.com/codesuite/codepipeline/home").
 

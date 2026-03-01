@@ -22,16 +22,13 @@ type.
 This feature is not available in the Asia Pacific (Hong Kong),
 Africa (Cape Town), Middle East (Bahrain), or Europe (Zurich) Regions. To reference other
 available actions, see [Product and service integrations with CodePipeline](integrations.md "integrations.md"). For
-considerations with this action in the Europe (Milan) Region, see the note in [CodeStarSourceConnection for
-Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed
-actions](action-reference-CodestarConnectionSource.md "action-reference-CodestarConnectionSource.md").
+considerations with this action in the Europe (Milan) Region, see the note in [CodeStarSourceConnection for Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed actions](action-reference-CodestarConnectionSource.md "action-reference-CodestarConnectionSource.md").
 
 ###### Topics
 
 - [Prerequisites](#tutorials-github-tags-prereq "#tutorials-github-tags-prereq")
 - [Step 1: Open CloudShell and clone your repository](#w2aac13c16c15 "#w2aac13c16c15")
-- [Step 2: Create a pipeline to trigger on Git
-  tags](#tutorials-github-tags-pipeline "#tutorials-github-tags-pipeline")
+- [Step 2: Create a pipeline to trigger on Git tags](#tutorials-github-tags-pipeline "#tutorials-github-tags-pipeline")
 - [Step 3: Tag your commits for release](#w2aac13c16c19 "#w2aac13c16c19")
 - [Step 4: Release change and view logs](#tutorials-github-tags-view "#tutorials-github-tags-view")
 
@@ -69,9 +66,7 @@ git clone https://github.com/<account>/MyGitHubRepo.git
    prompted. For the `Password` entry, you must use a user-created token rather
    than your account password.
 
-## Step 2: Create a pipeline to trigger on Git
-
-tags
+## Step 2: Create a pipeline to trigger on Git tags
 
 In this section, you create a pipeline with the following actions:
 

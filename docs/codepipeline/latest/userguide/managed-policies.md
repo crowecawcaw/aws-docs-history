@@ -21,9 +21,7 @@ The AWS managed policies `AWSCodePipelineFullAccess` and
 `AWSCodePipelineReadOnlyAccess` have been replaced. Use the
 `AWSCodePipeline_FullAccess` and `AWSCodePipeline_ReadOnlyAccess` policies.
 
-## AWS managed
-
-policy: `AWSCodePipeline_FullAccess`
+## AWS managed policy: `AWSCodePipeline_FullAccess`
 
 This is a policy that grants full access to CodePipeline. To view the JSON policy
 document in the IAM console, see [AWSCodePipeline_FullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSCodePipeline_FullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSCodePipeline_FullAccess").
@@ -71,9 +69,7 @@ This policy includes the following permissions.
 
 For the policy, see [AWSCodePipeline_FullAccess](../../../aws-managed-policy/latest/reference/AWSCodePipeline_FullAccess.md "../../../aws-managed-policy/latest/reference/AWSCodePipeline_FullAccess.md").
 
-## AWS managed
-
-policy: `AWSCodePipeline_ReadOnlyAccess`
+## AWS managed policy: `AWSCodePipeline_ReadOnlyAccess`
 
 This is a policy that grants read-only access to CodePipeline. To view the JSON
 policy document in the IAM console, see [AWSCodePipeline_ReadOnlyAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSCodePipeline_ReadOnlyAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSCodePipeline_ReadOnlyAccess").
@@ -93,9 +89,7 @@ This policy includes the following permissions.
 
 For the policy, see [AWSCodePipeline_ReadOnlyAccess](../../../aws-managed-policy/latest/reference/AWSCodePipeline_ReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AWSCodePipeline_ReadOnlyAccess.md").
 
-## AWS managed policy:
-
-`AWSCodePipelineApproverAccess`
+## AWS managed policy: `AWSCodePipelineApproverAccess`
 
 This is a policy that grants permission to approve or reject a manual approval action.
 To view the JSON policy document in the IAM console, see [AWSCodePipelineApproverAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSCodePipelineApproverAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSCodePipelineApproverAccess").
@@ -109,9 +103,7 @@ This policy includes the following permissions.
 
 For the policy, see [AWSCodePipelineApproverAccess](../../../aws-managed-policy/latest/reference/AWSCodePipelineApproverAccess.md "../../../aws-managed-policy/latest/reference/AWSCodePipelineApproverAccess.md").
 
-## AWS managed
-
-policy: `AWSCodePipelineCustomActionAccess`
+## AWS managed policy: `AWSCodePipelineCustomActionAccess`
 
 This is a policy that grants permission to to create custom actions in CodePipeline
 or integrate Jenkins resources for build or test actions. To view the JSON policy
@@ -126,9 +118,7 @@ This policy includes the following permissions.
 
 For the policy, see [AWSCodePipelineCustomActionAccess](../../../aws-managed-policy/latest/reference/AWSCodePipelineCustomActionAccess.md "../../../aws-managed-policy/latest/reference/AWSCodePipelineCustomActionAccess.md").
 
-## CodePipeline managed policies and
-
-notifications
+## CodePipeline managed policies and notifications
 
 CodePipeline supports notifications, which can notify users of important changes to
 pipelines.
@@ -136,9 +126,7 @@ Managed policies for CodePipeline include policy statements for notification
 functionality. For more information, see [What are
 notifications?](../../../codestar-notifications/latest/userguide/welcome.md "../../../codestar-notifications/latest/userguide/welcome.md").
 
-### Permissions related to notifications in full access
-
-managed policies
+### Permissions related to notifications in full access managed policies
 
 This managed policy grants permissions for CodePipeline along with the related services
 CodeCommit, CodeBuild, CodeDeploy, and AWS CodeStar Notifications. The policy also grants permissions that
@@ -207,9 +195,7 @@ statements to allow full access to notifications.
     }
 ```
 
-### Permissions related to notifications in read-only managed
-
-policies
+### Permissions related to notifications in read-only managed policies
 
 The
 `AWSCodePipeline_ReadOnlyAccess` managed policy includes the following
@@ -242,9 +228,7 @@ can view notifications for resources, but cannot create, manage, or subscribe to
 
 For more information about IAM and notifications, see [Identity and Access Management for AWS CodeStar Notifications](../../../codestar-notifications/latest/userguide/security-iam.md "../../../codestar-notifications/latest/userguide/security-iam.md").
 
-## AWS CodePipeline updates to AWS managed
-
-policies
+## AWS CodePipeline updates to AWS managed policies
 
 View details about updates to AWS managed policies for CodePipeline since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe
@@ -254,7 +238,7 @@ history](history.md "history.md") page.
 | Change                                                                                                                                                                                                                                                                                                                                       | Description                                                                                                                                                                                                                                                                             | Date              |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
 | [AWSCodePipeline_FullAccess](#security-iam-awsmanpol-AWSCodePipeline_FullAccess "#security-iam-awsmanpol-AWSCodePipeline_FullAccess") – Updates to existing<br>policy                                                                                                                                                                        | CodePipeline added a permission to this policy to support<br>`ListStacks` in CloudFormation.                                                                                                                                                                                            | March 15, 2024    |
-| [AWSCodePipeline_FullAccess](#security-iam-awsmanpol-AWSCodePipeline_FullAccess "#security-iam-awsmanpol-AWSCodePipeline_FullAccess") – Updates to existing<br>policy                                                                                                                                                                        | This policy was updated to add permissions for Amazon Q Developer in chat applications. For more<br>information, see [CodePipeline managed policies and<br>notifications](#notifications-permissions "#notifications-permissions").                                                     | June 21, 2023     |
+| [AWSCodePipeline_FullAccess](#security-iam-awsmanpol-AWSCodePipeline_FullAccess "#security-iam-awsmanpol-AWSCodePipeline_FullAccess") – Updates to existing<br>policy                                                                                                                                                                        | This policy was updated to add permissions for Amazon Q Developer in chat applications. For more<br>information, see [CodePipeline managed policies and notifications](#notifications-permissions "#notifications-permissions").                                                        | June 21, 2023     |
 | [AWSCodePipeline_FullAccess](#security-iam-awsmanpol-AWSCodePipeline_FullAccess "#security-iam-awsmanpol-AWSCodePipeline_FullAccess") and [AWSCodePipeline_ReadOnlyAccess](#security-iam-awsmanpol-AWSCodePipeline_ReadOnlyAccess "#security-iam-awsmanpol-AWSCodePipeline_ReadOnlyAccess") managed policies –<br>Updates to existing policy | CodePipeline added a permission to these policies to support an<br>additional notification type using Amazon Q Developer in chat applications,<br>`chatbot:ListMicrosoftTeamsChannelConfigurations`.                                                                                    | May 16, 2023      |
 | \*_AWSCodePipelineFullAccess_<br>• –<br>Deprecated                                                                                                                                                                                                                                                                                           | This policy has been replaced by `AWSCodePipeline_FullAccess`.<br>After November 17, 2022, this policy can not be attached to any<br>new users, groups, or roles. For more information, see [AWS managed policies for AWS CodePipeline](managed-policies.md "managed-policies.md").     | November 17, 2022 |
 | \*_AWSCodePipelineReadOnlyAccess_<br>• –<br>Deprecated                                                                                                                                                                                                                                                                                       | This policy has been replaced by `AWSCodePipeline_ReadOnlyAccess`.<br>After November 17, 2022, this policy can not be attached to any<br>new users, groups, or roles. For more information, see [AWS managed policies for AWS CodePipeline](managed-policies.md "managed-policies.md"). | November 17, 2022 |

@@ -1,6 +1,4 @@
-# Create an EventBridge rule for an Amazon ECR source
-
-(CLI)
+# Create an EventBridge rule for an Amazon ECR source (CLI)
 
 Call the **put-rule** command, specifying:
 
@@ -10,9 +8,7 @@ Call the **put-rule** command, specifying:
 - The event pattern for the source and detail fields used by the rule. For
   more information, see [Amazon EventBridge and Event Patterns](../../../eventbridge/latest/userguide/eb-events.md "../../../eventbridge/latest/userguide/eb-events.md").
 
-###### To create an EventBridge rule with Amazon ECR as the event source and CodePipeline as the
-
-target
+###### To create an EventBridge rule with Amazon ECR as the event source and CodePipeline as the target
 
 1. Add permissions for EventBridge to use CodePipeline to invoke the rule. For more
    information, see [Using resource-based policies for Amazon EventBridge](../../../eventbridge/latest/userguide/eb-use-resource-based.md "../../../eventbridge/latest/userguide/eb-use-resource-based.md").

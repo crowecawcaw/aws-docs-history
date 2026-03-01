@@ -11,24 +11,18 @@ Each definitions file is a JSON-formatted file used by the action provider as fo
   an input to the deploy action. For a tutorial that uses the Amazon ECS standard deployment action
   in CodePipeline, see [Tutorial: Amazon ECS Standard Deployment with CodePipeline](ecs-cd-pipeline.md "ecs-cd-pipeline.md"). For another
   example tutorial that uses the Amazon ECS standard deployment action in CodePipeline along with the
-  ECRBuildAndPublish action, see [Tutorial: Build and push a Docker image to
-  Amazon ECR with CodePipeline (V2 type)](tutorials-ecr-build-publish.md "tutorials-ecr-build-publish.md").
+  ECRBuildAndPublish action, see [Tutorial: Build and push a Docker image to Amazon ECR with CodePipeline (V2 type)](tutorials-ecr-build-publish.md "tutorials-ecr-build-publish.md").
 - Amazon ECS blue/green deployments require an `imageDetail.json` file as an
-  input to the deploy action. For a tutorial with a sample blue/green deployment, see [Tutorial: Create a pipeline with an Amazon ECR
-  source and ECS-to-CodeDeploy deployment](tutorials-ecs-ecr-codedeploy.md "tutorials-ecs-ecr-codedeploy.md").
+  input to the deploy action. For a tutorial with a sample blue/green deployment, see [Tutorial: Create a pipeline with an Amazon ECR source and ECS-to-CodeDeploy deployment](tutorials-ecs-ecr-codedeploy.md "tutorials-ecs-ecr-codedeploy.md").
   - Amazon ECR source actions generate an `imageDetail.json` file that is
     provided as an output from the source action.
 
 ###### Topics
 
-- [imagedefinitions.json file for Amazon ECS
-  standard deployment actions](#pipelines-create-image-definitions "#pipelines-create-image-definitions")
-- [imageDetail.json file for Amazon ECS blue/green
-  deployment actions](#file-reference-ecs-bluegreen "#file-reference-ecs-bluegreen")
+- [imagedefinitions.json file for Amazon ECS standard deployment actions](#pipelines-create-image-definitions "#pipelines-create-image-definitions")
+- [imageDetail.json file for Amazon ECS blue/green deployment actions](#file-reference-ecs-bluegreen "#file-reference-ecs-bluegreen")
 
-## imagedefinitions.json file for Amazon ECS
-
-standard deployment actions
+## imagedefinitions.json file for Amazon ECS standard deployment actions
 
 An image definitions document is a JSON file that describes your Amazon ECS container name and
 the image and tag. If you are deploying container-based applications, you must generate an
@@ -135,9 +129,7 @@ For a step-by-step tutorial for creating a pipeline that uses Amazon ECS as the 
 provider, see [Tutorial: Continuous Deployment
 with CodePipeline](../../../AmazonECS/latest/developerguide/ecs-cd-pipeline.md "../../../AmazonECS/latest/developerguide/ecs-cd-pipeline.md").
 
-## imageDetail.json file for Amazon ECS blue/green
-
-deployment actions
+## imageDetail.json file for Amazon ECS blue/green deployment actions
 
 An `imageDetail.json` document is a JSON file that describes your Amazon ECS
 image URI. If you are deploying container-based applications for a blue/green deployment, you
@@ -171,8 +163,7 @@ Because the Amazon ECR source action creates this file, pipelines with an Amazon
 action do not need to manually provide an `imageDetail.json` file.
 
 For a tutorial about creating a pipeline that includes an Amazon ECR source stage, see
-[Tutorial: Create a pipeline with an Amazon ECR
-source and ECS-to-CodeDeploy deployment](tutorials-ecs-ecr-codedeploy.md "tutorials-ecs-ecr-codedeploy.md").
+[Tutorial: Create a pipeline with an Amazon ECR source and ECS-to-CodeDeploy deployment](tutorials-ecs-ecr-codedeploy.md "tutorials-ecs-ecr-codedeploy.md").
 
 ![Diagram showing the imageDetail.json file contained in the artifact bucket](images/imageDetail_file_diagram.png)
 

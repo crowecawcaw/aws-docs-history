@@ -1,6 +1,4 @@
-# Create and add a custom action in
-
-CodePipeline
+# Create and add a custom action in CodePipeline
 
 AWS CodePipeline includes a number of actions that help you configure build, test, and deploy
 resources for your automated release process. If your release process includes activities
@@ -41,10 +39,8 @@ These instructions assume that you have already completed the steps in [Getting 
 ###### Topics
 
 - [Create a custom action](#actions-create-custom-action-cli "#actions-create-custom-action-cli")
-- [Create a job worker for your
-  custom action](#actions-create-custom-action-job-worker "#actions-create-custom-action-job-worker")
-- [Add a custom action to a
-  pipeline](#actions-create-custom-action-add "#actions-create-custom-action-add")
+- [Create a job worker for your custom action](#actions-create-custom-action-job-worker "#actions-create-custom-action-job-worker")
+- [Add a custom action to a pipeline](#actions-create-custom-action-add "#actions-create-custom-action-add")
 
 ## Create a custom action
 
@@ -206,9 +202,7 @@ owner of custom action types. This value can't be assigned or changed when
 you use the **create-custom-action-type** command or the
 **update-pipeline** command.
 
-## Create a job worker for your
-
-custom action
+## Create a job worker for your custom action
 
 Custom actions require a job worker that will poll CodePipeline for job requests for the
 custom action, execute the job, and return the status result to CodePipeline. The job worker can be
@@ -220,16 +214,11 @@ practical guidance for developing your custom job worker for CodePipeline.
 
 ###### Topics
 
-- [Choose and configure a
-  permissions management strategy for your job worker](#actions-create-custom-action-permissions "#actions-create-custom-action-permissions")
-- [Develop a job
-  worker for your custom action](#actions-create-custom-action-job-worker-workflow "#actions-create-custom-action-job-worker-workflow")
-- [Custom job worker
-  architecture and examples](#actions-create-custom-action-job-worker-common "#actions-create-custom-action-job-worker-common")
+- [Choose and configure a permissions management strategy for your job worker](#actions-create-custom-action-permissions "#actions-create-custom-action-permissions")
+- [Develop a job worker for your custom action](#actions-create-custom-action-job-worker-workflow "#actions-create-custom-action-job-worker-workflow")
+- [Custom job worker architecture and examples](#actions-create-custom-action-job-worker-common "#actions-create-custom-action-job-worker-common")
 
-### Choose and configure a
-
-permissions management strategy for your job worker
+### Choose and configure a permissions management strategy for your job worker
 
 To develop a custom job worker for your custom action in CodePipeline, you will need a
 strategy for the integration of user and permission management.
@@ -322,9 +311,7 @@ JSON
 Consider using the `AWSCodePipelineCustomActionAccess` managed
 policy.
 
-### Develop a job
-
-worker for your custom action
+### Develop a job worker for your custom action
 
 After you've chosen your permissions management strategy, you should consider how
 your job worker will interact with CodePipeline. The following high-level diagram shows the
@@ -398,9 +385,7 @@ custom action to CodePipeline by calling one of two APIs:
 Depending on the result, the pipeline will either continue on to the next
 action (success) or stop (failure).
 
-### Custom job worker
-
-architecture and examples
+### Custom job worker architecture and examples
 
 After you have mapped out your high-level workflow, you can create your job
 worker. Although the specifics of your custom action will ultimately determine what
@@ -439,9 +424,7 @@ is open source and provided as-is.
 - [Sample Job Worker for CodePipeline](https://github.com/awslabs/aws-codepipeline-custom-job-worker "https://github.com/awslabs/aws-codepipeline-custom-job-worker"):
   Download the sample from the GitHub repository.
 
-## Add a custom action to a
-
-pipeline
+## Add a custom action to a pipeline
 
 After you have a job worker, you can add your custom action to a pipeline by creating a new
 one and choosing it when you use the Create Pipeline wizard, by editing an existing
@@ -456,12 +439,9 @@ editing an existing pipeline.
 
 ###### Topics
 
-- [Add a custom action to an
-  existing pipeline (CLI)](#actions-create-custom-action-add-cli "#actions-create-custom-action-add-cli")
+- [Add a custom action to an existing pipeline (CLI)](#actions-create-custom-action-add-cli "#actions-create-custom-action-add-cli")
 
-### Add a custom action to an
-
-existing pipeline (CLI)
+### Add a custom action to an existing pipeline (CLI)
 
 You can use the AWS CLI to add a custom action to an existing pipeline.
 
