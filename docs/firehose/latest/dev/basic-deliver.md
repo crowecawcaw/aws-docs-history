@@ -24,8 +24,7 @@ Tables, and Snowflake destinations.
 ###### Topics
 
 - [Understand delivery across AWS accounts and regions](across.md "across.md")
-- [Understand HTTP endpoint delivery request and
-  response specifications](httpdeliveryrequestresponse.md "httpdeliveryrequestresponse.md")
+- [Understand HTTP endpoint delivery request and response specifications](httpdeliveryrequestresponse.md "httpdeliveryrequestresponse.md")
 - [Handle data delivery failures](retry.md "retry.md")
 - [Configure Amazon S3 object name format](s3-object-name.md "s3-object-name.md")
 - [Configure index rotation for OpenSearch Service](es-index-rotation.md "es-index-rotation.md")

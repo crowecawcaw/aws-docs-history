@@ -26,14 +26,11 @@ the request and the response. Make sure that your buffering size for sending the
 request to the function is less than or equal to 6 MB. Also ensure that the response
 that your function returns doesn't exceed 6 MB.
 
-## Lambda invocation
-
-duration
+## Lambda invocation duration
 
 Amazon Data Firehose supports a Lambda invocation time of up to 5 minutes. If your Lambda function
 takes more than 5 minutes to complete, you get the following error: **`Firehose
  encountered timeout errors when calling AWS Lambda. The maximum supported function
  timeout is 5 minutes.`**
 
-For information about what Amazon Data Firehose does if such an error occurs, see [Handle failure in data
-transformation](data-transformation-failure-handling.md "data-transformation-failure-handling.md") .
+For information about what Amazon Data Firehose does if such an error occurs, see [Handle failure in data transformation](data-transformation-failure-handling.md "data-transformation-failure-handling.md").

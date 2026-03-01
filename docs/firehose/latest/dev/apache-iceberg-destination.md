@@ -1,6 +1,4 @@
-# Deliver data to Apache Iceberg Tables with
-
-Amazon Data Firehose
+# Deliver data to Apache Iceberg Tables with Amazon Data Firehose
 
 Apache Iceberg is a high-performance open-source table format for performing big data
 analytics. Apache Iceberg brings the reliability and simplicity of SQL tables to Amazon S3 data

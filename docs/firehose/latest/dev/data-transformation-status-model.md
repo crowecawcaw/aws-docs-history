@@ -1,6 +1,4 @@
-# Required parameters for data
-
-transformation
+# Required parameters for data transformation
 
 All transformed records from Lambda must contain the following parameters, or Amazon Data Firehose
 rejects them and treats that as a data transformation failure.

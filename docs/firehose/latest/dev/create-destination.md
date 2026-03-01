@@ -7,40 +7,23 @@ the destination you select.
 
 - [Configure destination settings for Amazon S3](#create-destination-s3 "#create-destination-s3")
 - [Configure destination settings for Apache Iceberg Tables](#create-destination-iceberg "#create-destination-iceberg")
-- [Configure destination settings for
-  Amazon Redshift](#create-destination-redshift "#create-destination-redshift")
-- [Configure destination settings for
-  OpenSearch Service](#create-destination-elasticsearch "#create-destination-elasticsearch")
-- [Configure destination
-  settings for OpenSearch Serverless](#create-destination-opensearch-serverless "#create-destination-opensearch-serverless")
-- [Configure destination settings for HTTP
-  Endpoint](#create-destination-http "#create-destination-http")
-- [Configure destination settings for
-  Datadog](#create-destination-datadog "#create-destination-datadog")
-- [Configure destination settings for
-  Honeycomb](#create-destination-honeycomb "#create-destination-honeycomb")
-- [Configure destination settings for
-  Coralogix](#create-destination-coralogix "#create-destination-coralogix")
-- [Configure destination settings for
-  Dynatrace](#create-destination-dynatrace "#create-destination-dynatrace")
-- [Configure destination settings for
-  LogicMonitor](#create-destination-logicmonitor "#create-destination-logicmonitor")
-- [Configure destination settings for
-  Logz.io](#create-destination-logz "#create-destination-logz")
-- [Configure destination settings for MongoDB
-  Atlas](#create-destination-mongodb "#create-destination-mongodb")
-- [Configure destination settings for New
-  Relic](#create-destination-new-relic "#create-destination-new-relic")
-- [Configure destination settings for
-  Snowflake](#create-destination-snowflake "#create-destination-snowflake")
-- [Configure destination settings for
-  Splunk](#create-destination-splunk "#create-destination-splunk")
-- [Configure destination settings for
-  Splunk Observability Cloud](#create-destination-splunk-cloud "#create-destination-splunk-cloud")
-- [Configure destination settings for Sumo
-  Logic](#create-destination-sumo-logic "#create-destination-sumo-logic")
-- [Configure destination settings for
-  Elastic](#create-destination-elastic "#create-destination-elastic")
+- [Configure destination settings for Amazon Redshift](#create-destination-redshift "#create-destination-redshift")
+- [Configure destination settings for OpenSearch Service](#create-destination-elasticsearch "#create-destination-elasticsearch")
+- [Configure destination settings for OpenSearch Serverless](#create-destination-opensearch-serverless "#create-destination-opensearch-serverless")
+- [Configure destination settings for HTTP Endpoint](#create-destination-http "#create-destination-http")
+- [Configure destination settings for Datadog](#create-destination-datadog "#create-destination-datadog")
+- [Configure destination settings for Honeycomb](#create-destination-honeycomb "#create-destination-honeycomb")
+- [Configure destination settings for Coralogix](#create-destination-coralogix "#create-destination-coralogix")
+- [Configure destination settings for Dynatrace](#create-destination-dynatrace "#create-destination-dynatrace")
+- [Configure destination settings for LogicMonitor](#create-destination-logicmonitor "#create-destination-logicmonitor")
+- [Configure destination settings for Logz.io](#create-destination-logz "#create-destination-logz")
+- [Configure destination settings for MongoDB Atlas](#create-destination-mongodb "#create-destination-mongodb")
+- [Configure destination settings for New Relic](#create-destination-new-relic "#create-destination-new-relic")
+- [Configure destination settings for Snowflake](#create-destination-snowflake "#create-destination-snowflake")
+- [Configure destination settings for Splunk](#create-destination-splunk "#create-destination-splunk")
+- [Configure destination settings for Splunk Observability Cloud](#create-destination-splunk-cloud "#create-destination-splunk-cloud")
+- [Configure destination settings for Sumo Logic](#create-destination-sumo-logic "#create-destination-sumo-logic")
+- [Configure destination settings for Elastic](#create-destination-elastic "#create-destination-elastic")
 
 ## Configure destination settings for Amazon S3
 
@@ -202,12 +185,9 @@ If you encrypt the data with AWS KMS keys, you can use either the default AWS ma
 Firehose supports Apache Iceberg Tables as a destination in all [AWS Regions](../../../glossary/latest/reference/glos-chap.md#region "../../../glossary/latest/reference/glos-chap.md#region") except China Regions, AWS GovCloud (US) Regions, Asia Pacific (Taipei),
 Asia Pacific (Malaysia), Asia Pacific (New Zealand), and Mexico (Central).
 
-For more information on Apache Iceberg Tables as your destination, see [Deliver data to Apache Iceberg Tables with
-Amazon Data Firehose](apache-iceberg-destination.md "apache-iceberg-destination.md").
+For more information on Apache Iceberg Tables as your destination, see [Deliver data to Apache Iceberg Tables with Amazon Data Firehose](apache-iceberg-destination.md "apache-iceberg-destination.md").
 
-## Configure destination settings for
-
-Amazon Redshift
+## Configure destination settings for Amazon Redshift
 
 This section describes settings for using Amazon Redshift as your Firehose stream
 destination.
@@ -215,18 +195,14 @@ destination.
 Choose either of the following procedures based on whether you have an Amazon Redshift
 provisioned cluster or an Amazon Redshift Serverless workgroup.
 
-- [Amazon Redshift Provisioned
-  Cluster](#create-destination-redshift-provisioned "#create-destination-redshift-provisioned")
-- [Configure destination
-  settings for Amazon Redshift Serverless workgroup](#create-destination-redshift-serverless "#create-destination-redshift-serverless")
+- [Amazon Redshift Provisioned Cluster](#create-destination-redshift-provisioned "#create-destination-redshift-provisioned")
+- [Configure destination settings for Amazon Redshift Serverless workgroup](#create-destination-redshift-serverless "#create-destination-redshift-serverless")
 
 ###### Note
 
 Firehose can't write to Amazon Redshift clusters that use enhanced VPC routing.
 
-### Amazon Redshift Provisioned
-
-Cluster
+### Amazon Redshift Provisioned Cluster
 
 This section describes settings for using Amazon Redshift provisioned cluster as your
 Firehose stream destination.
@@ -239,7 +215,7 @@ Firehose stream destination.
 
 The Amazon Redshift cluster to which S3 bucket data is copied. Configure
 the Amazon Redshift cluster to be publicly accessible and unblock Amazon Data Firehose IP
-addresses. For more information, see [Grant Firehose access to an Amazon Redshift destination](controlling-access.md#using-iam-rs "controlling-access.md#using-iam-rs") .
+addresses. For more information, see [Grant Firehose access to an Amazon Redshift destination](controlling-access.md#using-iam-rs "controlling-access.md#using-iam-rs").
 
 **Authentication**
 
@@ -363,9 +339,7 @@ You can choose to use the default encryption type specified in the destination S
 If you encrypt the data with AWS KMS keys, you can use either the default AWS managed key (aws/s3) or a customer managed key. For more information, see [Protecting Data Using Server-Side Encryption with AWS KMS-Managed Keys
 (SSE-KMS)](../../../AmazonS3/latest/userguide/UsingKMSEncryption.md "../../../AmazonS3/latest/userguide/UsingKMSEncryption.md").
 
-### Configure destination
-
-settings for Amazon Redshift Serverless workgroup
+### Configure destination settings for Amazon Redshift Serverless workgroup
 
 This section describes settings for using Amazon Redshift Serverless workgroup as your
 Firehose stream destination.
@@ -382,7 +356,7 @@ Configure the Amazon Redshift Serverless workgroup to be publicly accessible and
 unblock the Firehose IP addresses. For more information, see the
 Connect to a publicly accessible Amazon Redshift Serverless instance section in
 [Connecting to Amazon Redshift Serverless](../../../redshift/latest/mgmt/serverless-connecting.md "../../../redshift/latest/mgmt/serverless-connecting.md") and also
-[Grant Firehose access to an Amazon Redshift destination](controlling-access.md#using-iam-rs "controlling-access.md#using-iam-rs") .
+[Grant Firehose access to an Amazon Redshift destination](controlling-access.md#using-iam-rs "controlling-access.md#using-iam-rs").
 
 **Authentication**
 
@@ -506,9 +480,7 @@ You can choose to use the default encryption type specified in the destination S
 If you encrypt the data with AWS KMS keys, you can use either the default AWS managed key (aws/s3) or a customer managed key. For more information, see [Protecting Data Using Server-Side Encryption with AWS KMS-Managed Keys
 (SSE-KMS)](../../../AmazonS3/latest/userguide/UsingKMSEncryption.md "../../../AmazonS3/latest/userguide/UsingKMSEncryption.md").
 
-## Configure destination settings for
-
-OpenSearch Service
+## Configure destination settings for OpenSearch Service
 
 Firehose supports Elasticsearch versions – 1.5, 2.3, 5.1, 5.3, 5.5, 5.6, as well
 as all 6.\*, 7.\*, and 8.\* versions. Firehose supports Amazon OpenSearch Service 2.x and 3.x.
@@ -599,9 +571,7 @@ Amazon Data Firehose buffers incoming data before delivering it
 to the specified destination. The recommended buffer size for the
 destination varies from service provider to service provider.
 
-## Configure destination
-
-settings for OpenSearch Serverless
+## Configure destination settings for OpenSearch Serverless
 
 This section describes options for using OpenSearch Serverless for your
 destination.
@@ -658,9 +628,7 @@ Amazon Data Firehose buffers incoming data before delivering it
 to the specified destination. The recommended buffer size for the
 destination varies from service provider to service provider.
 
-## Configure destination settings for HTTP
-
-Endpoint
+## Configure destination settings for HTTP Endpoint
 
 This section describes options for using **HTTP endpoint** for your
 destination.
@@ -668,8 +636,7 @@ destination.
 ###### Important
 
 If you choose an HTTP endpoint as your destination, review and follow the
-instructions in [Understand HTTP endpoint delivery request and
-response specifications](httpdeliveryrequestresponse.md "httpdeliveryrequestresponse.md").
+instructions in [Understand HTTP endpoint delivery request and response specifications](httpdeliveryrequestresponse.md "httpdeliveryrequestresponse.md").
 
 ######
 
@@ -757,9 +724,7 @@ response codes from the destination endpoint in CloudWatch Logs,
 lower the buffering hint size on your Firehose stream and try
 again.
 
-## Configure destination settings for
-
-Datadog
+## Configure destination settings for Datadog
 
 This section describes options for using **Datadog** for your
 destination. For more information about Datadog, see [https://docs.datadoghq.com/integrations/amazon_web_services/](https://docs.datadoghq.com/integrations/amazon_web_services/ "https://docs.datadoghq.com/integrations/amazon_web_services/").
@@ -854,9 +819,7 @@ Amazon Data Firehose buffers incoming data before delivering it
 to the specified destination. The recommended buffer size for the
 destination varies from service provider to service provider.
 
-## Configure destination settings for
-
-Honeycomb
+## Configure destination settings for Honeycomb
 
 This section describes options for using **Honeycomb** for your
 destination. For more information about Honeycomb, see [https://docs.honeycomb.io/getting-data-in/metrics/aws-cloudwatch-metrics/](https://docs.honeycomb.io/getting-data-in/metrics/aws-cloudwatch-metrics/ "https://docs.honeycomb.io/getting-data-in/metrics/aws-cloudwatch-metrics/ ") .
@@ -934,9 +897,7 @@ Amazon Data Firehose buffers incoming data before delivering it
 to the specified destination. The recommended buffer size for the
 destination varies from service provider to service provider.
 
-## Configure destination settings for
-
-Coralogix
+## Configure destination settings for Coralogix
 
 This section describes options for using **Coralogix** for your
 destination. For more information about Coralogix, see [Get Started with Coralogix](https://coralogix.com/docs/guide-first-steps-coralogix/ "https://coralogix.com/docs/guide-first-steps-coralogix/").
@@ -1027,9 +988,7 @@ Amazon Data Firehose buffers incoming data before delivering it to the
 specified destination. The recommended buffer size for the
 destination varies based on the service provider.
 
-## Configure destination settings for
-
-Dynatrace
+## Configure destination settings for Dynatrace
 
 This section describes options for using **Dynatrace** for your
 destination. For more information, see [https://www.dynatrace.com/support/help/technology-support/cloud-platforms/amazon-web-services/integrations/cloudwatch-metric-streams/](https://www.dynatrace.com/support/help/technology-support/cloud-platforms/amazon-web-services/integrations/cloudwatch-metric-streams/ "https://www.dynatrace.com/support/help/technology-support/cloud-platforms/amazon-web-services/integrations/cloudwatch-metric-streams/").
@@ -1122,9 +1081,7 @@ specified destination. The buffer hints include the buffer size and
 interval for your streams. The recommended buffer size for the
 destination varies according to the service provider.
 
-## Configure destination settings for
-
-LogicMonitor
+## Configure destination settings for LogicMonitor
 
 This section describes options for using **LogicMonitor** for your
 destination. For more information, see [https://www.logicmonitor.com](https://www.logicmonitor.com "https://www.logicmonitor.com").
@@ -1205,9 +1162,7 @@ Amazon Data Firehose buffers incoming data before delivering it
 to the specified destination. The recommended buffer size for the
 destination varies from service provider to service provider.
 
-## Configure destination settings for
-
-Logz.io
+## Configure destination settings for Logz.io
 
 This section describes options for using **Logz.io** for your
 destination. For more information, see [https://logz.io/](https://logz.io/ "https://logz.io/").
@@ -1290,9 +1245,7 @@ Amazon Data Firehose buffers incoming data before delivering it
 to the specified destination. The recommended buffer size for the
 destination varies from service provider to service provider.
 
-## Configure destination settings for MongoDB
-
-Atlas
+## Configure destination settings for MongoDB Atlas
 
 This section describes options for using **MongoDB Atlas** for your
 destination. For more information, see [MongoDB Atlas on Amazon Web Services](https://www.mongodb.com/products/platform/atlas-cloud-providers/aws "https://www.mongodb.com/products/platform/atlas-cloud-providers/aws").
@@ -1373,9 +1326,7 @@ Amazon Data Firehose includes these key-value pairs in each HTTP
 call. These parameters can help you identify and organize your
 destinations.
 
-## Configure destination settings for New
-
-Relic
+## Configure destination settings for New Relic
 
 This section describes options for using **New Relic** for your
 destination. For more information, see [https://newrelic.com](https://newrelic.com "https://newrelic.com").
@@ -1458,9 +1409,7 @@ Amazon Data Firehose buffers incoming data before delivering it
 to the specified destination. The recommended buffer size for the
 destination varies from service provider to service provider.
 
-## Configure destination settings for
-
-Snowflake
+## Configure destination settings for Snowflake
 
 This section describes options for using Snowflake for your destination.
 
@@ -1619,9 +1568,7 @@ Amazon Data Firehose buffers incoming data before delivering it to the specified
 recommended buffer size for the destination varies from service provider to service
 provider. For more information, see [Configure buffering hints](create-configure-backup.md#buffering-hints "create-configure-backup.md#buffering-hints").
 
-## Configure destination settings for
-
-Splunk
+## Configure destination settings for Splunk
 
 This section describes options for using Splunk for your destination.
 
@@ -1707,9 +1654,7 @@ Amazon Data Firehose buffers incoming data before delivering it to the
 specified destination. The recommended buffer size for the
 destination varies based on the service provider.
 
-## Configure destination settings for
-
-Splunk Observability Cloud
+## Configure destination settings for Splunk Observability Cloud
 
 This section describes options for using **Splunk Observability Cloud** for your
 destination. For more information, see [https://docs.splunk.com/observability/en/gdi/get-data-in/connect/aws/aws-apiconfig.html#connect-to-aws-using-the-splunk-observability-cloud-api](https://docs.splunk.com/Observability/gdi/get-data-in/connect/aws/aws-apiconfig.html#connect-to-aws-using-the-splunk-observability-cloud-api "https://docs.splunk.com/Observability/gdi/get-data-in/connect/aws/aws-apiconfig.html#connect-to-aws-using-the-splunk-observability-cloud-api").
@@ -1788,9 +1733,7 @@ Amazon Data Firehose buffers incoming data before delivering it
 to the specified destination. The recommended buffer size for the
 destination varies from service provider to service provider.
 
-## Configure destination settings for Sumo
-
-Logic
+## Configure destination settings for Sumo Logic
 
 This section describes options for using **Sumo Logic** for your
 destination. For more information, see [https://www.sumologic.com](https://www.sumologic.com "https://www.sumologic.com").
@@ -1850,9 +1793,7 @@ to the specified destination. The recommended buffer size for the
 Elastic destination varies from service provider to service
 provider.
 
-## Configure destination settings for
-
-Elastic
+## Configure destination settings for Elastic
 
 This section describes options for using **Elastic** for your
 destination.

@@ -1,6 +1,4 @@
-# Troubleshooting Firehose endpoint
-
-reachability
+# Troubleshooting Firehose endpoint reachability
 
 If the Firehose API encounters a timeout, perform the following steps to test endpoint reachability:
 

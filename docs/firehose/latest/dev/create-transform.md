@@ -1,12 +1,8 @@
-# (Optional) Configure record transformation and format
-
-conversion
+# (Optional) Configure record transformation and format conversion
 
 Configure Amazon Data Firehose to transform and convert your record data.
 
-###### In the **Transform source records with AWS Lambda** section,
-
-provide values for the following field.
+###### In the **Transform source records with AWS Lambda** section, provide values for the following field.
 
 1. **Data transformation**
 
@@ -35,9 +31,7 @@ see [Convert input data format in Amazon Data Firehose](record-format-conversion
 For an example of how to set up record format conversion with CloudFormation,
 see [AWS::KinesisFirehose::DeliveryStream](../../../AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.md#aws-resource-kinesisfirehose-deliverystream--examples "../../../AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.md#aws-resource-kinesisfirehose-deliverystream--examples").
 
-###### In the **Source settings** section, provide the following
-
-fields.
+###### In the **Source settings** section, provide the following fields.
 
 1. Under **Transform records**, choose one of the following:
    1. If your destination is Amazon S3 or Splunk, in the **Decompress source records Amazon CloudWatch Logs** section, choose **Turn on decompression**.

@@ -8,9 +8,7 @@ configure the following.
 The setup of a Firehose stream for delivering to tables in S3 table buckets is the same
 as Apache Iceberg Tables in Amazon S3.
 
-## Configure source and
-
-destination
+## Configure source and destination
 
 To deliver data to Apache Iceberg Tables, choose the source for your stream.
 
@@ -19,9 +17,7 @@ To configure your source for your stream, see [Configure source settings](config
 Next, choose **Apache Iceberg Tables** as the destination and
 provide a Firehose stream name.
 
-## Configure data
-
-transformation
+## Configure data transformation
 
 To perform custom transformations on your data, such as adding or modifying
 records in your incoming stream, you can add a Lambda function to your Firehose stream.
@@ -70,8 +66,7 @@ Example:
 For Apache Iceberg Tables, you must specify how you want to route incoming records
 to different destination tables and the operations such as insert, update, and
 delete that you want to perform. You can do this by configuring JQ expressions for
-Firehose to parse and get the required information. For more information, see [Provide routing information to Firehose with
-JSONQuery expression](apache-iceberg-format-input-record-different.md#apache-iceberg-route-jq "apache-iceberg-format-input-record-different.md#apache-iceberg-route-jq").
+Firehose to parse and get the required information. For more information, see [Provide routing information to Firehose with JSONQuery expression](apache-iceberg-format-input-record-different.md#apache-iceberg-route-jq "apache-iceberg-format-input-record-different.md#apache-iceberg-route-jq").
 
 ## Configure unique keys
 
@@ -158,18 +153,14 @@ In the following example, `_id` is not a valid unique key for the schema because
 ]
 ```
 
-## Specify retry
-
-duration
+## Specify retry duration
 
 You can use this configuration to specify the duration in seconds for which Firehose
 should attempt to retry, if it encounters failures in writing to Apache Iceberg
 Tables in Amazon S3. You can set any value from 0 to 7200 seconds for performing retries.
 By default, Firehose retries for 300 seconds.
 
-## Handle failed delivery or
-
-processing
+## Handle failed delivery or processing
 
 You must configure Firehose to deliver records to an S3 backup bucket in case it
 encounters failures in processing or delivering a stream after expiry of retry
@@ -200,14 +191,11 @@ seconds. Higher buffer hints results in a lower number of S3 writes, less cost o
 compaction due to larger data files, and faster query runtime, but with a higher
 latency. Lower buffer hint values deliver the data with lower latency.
 
-## Configure advanced
-
-settings
+## Configure advanced settings
 
 You can configure server-side encryption, error logging, permissions, and tags for
 your Apache Iceberg Tables. For more information, see [Configure advanced settings](create-configure-advanced.md "create-configure-advanced.md").
-You must add the IAM role that you created as part of the [Prerequisites to use Apache Iceberg Tables as a
-destination](apache-iceberg-prereq.md "apache-iceberg-prereq.md"). Firehose will assume the role to access AWS Glue
+You must add the IAM role that you created as part of the [Prerequisites to use Apache Iceberg Tables as a destination](apache-iceberg-prereq.md "apache-iceberg-prereq.md"). Firehose will assume the role to access AWS Glue
 tables and write to Amazon S3 buckets.
 
 Firehose stream creation can take several minutes to complete. After you successfully

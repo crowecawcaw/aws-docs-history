@@ -1,6 +1,4 @@
-# Log Amazon Data Firehose API calls with
-
-AWS CloudTrail
+# Log Amazon Data Firehose API calls with AWS CloudTrail
 
 Amazon Data Firehose is integrated with AWS CloudTrail, a service that provides a record of actions
 taken by a user, role, or an AWS service in Amazon Data Firehose. CloudTrail captures all API calls for
@@ -14,9 +12,7 @@ request was made, who made the request, when it was made, and additional details
 
 To learn more about CloudTrail, including how to configure and enable it, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
 
-## Firehose information in
-
-CloudTrail
+## Firehose information in CloudTrail
 
 CloudTrail is enabled on your AWS account when you create the account. When
 supported event activity occurs in Amazon Data Firehose, that activity is recorded in a CloudTrail
@@ -65,9 +61,7 @@ The identity information helps you determine the following:
 For more information, see the [CloudTrail
 userIdentity Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Example: Firehose log file
-
-entries
+## Example: Firehose log file entries
 
 A trail is a configuration that enables delivery of events as log files to an
 Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An

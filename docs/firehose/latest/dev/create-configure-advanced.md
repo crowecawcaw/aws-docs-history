@@ -7,8 +7,7 @@ Firehose stream.
   encryption with AWS Key Management Service (AWS KMS) for encrypting
   delivered data in Amazon S3. For more information, see [Protecting Data Using Server-Side Encryption with AWS KMS–Managed Keys
   (SSE-KMS)](../../../AmazonS3/latest/userguide/UsingKMSEncryption.md "../../../AmazonS3/latest/userguide/UsingKMSEncryption.md").
-- Error logging - Amazon Data Firehose logs errors related to processing and delivery. Additionally, when data transformation is enabled, it can log Lambda invocations and send data delivery errors to CloudWatch Logs. For more information, see [Monitor Amazon Data Firehose Using
-  CloudWatch Logs](monitoring-with-cloudwatch-logs.md "monitoring-with-cloudwatch-logs.md").
+- Error logging - Amazon Data Firehose logs errors related to processing and delivery. Additionally, when data transformation is enabled, it can log Lambda invocations and send data delivery errors to CloudWatch Logs. For more information, see [Monitor Amazon Data Firehose Using CloudWatch Logs](monitoring-with-cloudwatch-logs.md "monitoring-with-cloudwatch-logs.md").
 
 ###### Important
 

@@ -19,8 +19,7 @@ reachable by Firehose. This can be due to one of the following reasons:
 ### Delivery failures
 
 Check the following if data is not getting delivered to your Snowflake table. Snowflake delivery failed data will be delivered to the S3 error bucket along with an error code and an error message that corresponds to the payload.
-Following are few a common error scenarios. For the entire list of error codes, see [Snowflake Data delivery
-errors](monitoring-with-cloudwatch-logs.md#monitoring-snowflake-errors "monitoring-with-cloudwatch-logs.md#monitoring-snowflake-errors").
+Following are few a common error scenarios. For the entire list of error codes, see [Snowflake Data delivery errors](monitoring-with-cloudwatch-logs.md#monitoring-snowflake-errors "monitoring-with-cloudwatch-logs.md#monitoring-snowflake-errors").
 
 - **Error code: Snowflake.DefaultRoleMissing**: Indicates that snowflake role is not configured while creating Firehose stream. If Snowflake role is not configured, make sure you set a default role to the Snowflake user specified.
 - **Error code: Snowflake.ExtraColumns**: Indicates that insert to Snowflake is rejected due to extra columns in the input payload. Columns not present in table shouldn’t be specified. Note that Snowflake column names are case-sensitive. If the delivery is failing with this error despite column being present in table, make sure that the case of the column name in input payload matches the column name declared in table definition.

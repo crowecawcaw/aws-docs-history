@@ -16,8 +16,7 @@ Perform the steps in the following topics to create a Firehose stream.
 
 - [Choose source and destination for your Firehose stream](create-name.md "create-name.md")
 - [Configure source settings](configure-source.md "configure-source.md")
-- [(Optional) Configure record transformation and format
-  conversion](create-transform.md "create-transform.md")
+- [(Optional) Configure record transformation and format conversion](create-transform.md "create-transform.md")
 - [Configure destination settings](create-destination.md "create-destination.md")
 - [Configure backup settings](create-configure-backup.md "create-configure-backup.md")
 - [Configure advanced settings](create-configure-advanced.md "create-configure-advanced.md")

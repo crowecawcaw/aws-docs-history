@@ -1,6 +1,4 @@
-# Troubleshooting Amazon OpenSearch
-
-Service
+# Troubleshooting Amazon OpenSearch Service
 
 Check the following if data is not delivered to your OpenSearch Service domain.
 
@@ -9,19 +7,15 @@ your S3 bucket, see [Troubleshooting Amazon S3](data-not-delivered-to-s3.md "dat
 
 - Check the Firehose `IncomingBytes` and `IncomingRecords`
   metrics to make sure that data is sent to your Firehose stream successfully. For more
-  information, see [Monitor Amazon Data Firehose with
-  CloudWatch metrics](monitoring-with-cloudwatch-metrics.md "monitoring-with-cloudwatch-metrics.md").
+  information, see [Monitor Amazon Data Firehose with CloudWatch metrics](monitoring-with-cloudwatch-metrics.md "monitoring-with-cloudwatch-metrics.md").
 - If data transformation with Lambda is enabled, check the Firehose
   `ExecuteProcessingSuccess` metric to make sure that Firehose has
-  tried to invoke your Lambda function. For more information, see [Monitor Amazon Data Firehose with
-  CloudWatch metrics](monitoring-with-cloudwatch-metrics.md "monitoring-with-cloudwatch-metrics.md").
+  tried to invoke your Lambda function. For more information, see [Monitor Amazon Data Firehose with CloudWatch metrics](monitoring-with-cloudwatch-metrics.md "monitoring-with-cloudwatch-metrics.md").
 - Check the Firehose `DeliveryToAmazonOpenSearchService.Success` metric
   to make sure that Firehose has tried to index data to the OpenSearch Service
-  cluster. For more information, see [Monitor Amazon Data Firehose with
-  CloudWatch metrics](monitoring-with-cloudwatch-metrics.md "monitoring-with-cloudwatch-metrics.md").
+  cluster. For more information, see [Monitor Amazon Data Firehose with CloudWatch metrics](monitoring-with-cloudwatch-metrics.md "monitoring-with-cloudwatch-metrics.md").
 - Enable error logging if it is not already enabled, and check error logs for
-  delivery failure. For more information, see [Monitor Amazon Data Firehose Using
-  CloudWatch Logs](monitoring-with-cloudwatch-logs.md "monitoring-with-cloudwatch-logs.md").
+  delivery failure. For more information, see [Monitor Amazon Data Firehose Using CloudWatch Logs](monitoring-with-cloudwatch-logs.md "monitoring-with-cloudwatch-logs.md").
 - Make sure that the OpenSearch Service configuration in your Firehose stream is
   accurate and valid.
 - If data transformation with Lambda is enabled, make sure that the Lambda

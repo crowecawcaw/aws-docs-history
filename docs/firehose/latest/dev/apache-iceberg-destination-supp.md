@@ -1,6 +1,4 @@
-# Understand supported data
-
-types
+# Understand supported data types
 
 Firehose supports all the primitive and complex data types that Apache Iceberg supports.
 For more information, see [Schemas and Data

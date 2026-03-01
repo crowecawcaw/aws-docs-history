@@ -1,6 +1,4 @@
-# Route incoming records to
-
-different Iceberg tables
+# Route incoming records to different Iceberg tables
 
 Amazon Data Firehose can route incoming records in a stream to different Iceberg tables based on
 the content of the record. Records are not kept in order when delivered from Amazon Data Firehose.
@@ -51,9 +49,7 @@ Iceberg table. The incoming records might have a nested JSON structure where the
 record. In the upcoming sections, we discuss how you can route records to different
 tables by providing the appropriate routing information to Firehose in such scenarios.
 
-## Provide routing information to Firehose with
-
-JSONQuery expression
+## Provide routing information to Firehose with JSONQuery expression
 
 The simplest and most cost effective way to provide record routing information to
 Firehose is by providing a JSONQuery expression. With this approach, you provide
@@ -105,9 +101,7 @@ Table Name with the nested field information as `.event.deviceId`.
   not match, then Firehose throws an error and delivers data to an S3 error
   bucket.
 
-## Provide routing information using an
-
-AWS Lambda function
+## Provide routing information using an AWS Lambda function
 
 There might be scenarios where you have complex rules that determine how to route
 incoming records to a destination table. For example, you might have a rule that
@@ -127,8 +121,7 @@ contain `recordId`, `result`, and `data` or
 `KafkaRecordValue` parameters. The parameter `recordId`
 contains the input stream record, `result` indicates whether the
 transformation was successful, and `data` contains the Base64-encoded
-transformed output of your Lambda function. For more information, see [Required parameters for data
-transformation](data-transformation-status-model.md "data-transformation-status-model.md").
+transformed output of your Lambda function. For more information, see [Required parameters for data transformation](data-transformation-status-model.md "data-transformation-status-model.md").
 
 ```
 {

@@ -43,9 +43,7 @@ explains how to use them.
 | `error-output-type`             | Evaluates to one of the following strings, depending on the<br>configuration of your Firehose stream, and the reason of failure:<br>{processing-failed, AmazonOpenSearchService-failed, splunk-failed,<br>format-conversion-failed, http-endpoint-failed}.If you use it more<br>than once in the same expression, every instance evaluates to the<br>same error string.. | `myPrefix/result=!{firehose:error-output-type}/!{timestamp:yyyy/MM/dd}` | `myPrefix/result=processing-failed/2018/08/03` | The error-output-type value can only be used in the ErrorOutputPrefix<br>field.                                                                                                                                        |
 | `random-string`                 | Evaluates to a random string of 11 characters. If you use it more<br>than once in the same expression, every instance evaluates to a new<br>random string.                                                                                                                                                                                                               | `myPrefix/!{firehose:random-string}/`                                   | `myPrefix/046b6c7f-0b/`                        | You can use it with both prefix types.You can place it at the<br>beginning of the format string to get a randomized prefix, which is<br>sometimes necessary for attaining extremely high throughput with<br>Amazon S3. |
 
-## `partitionKeyFromLambda` and `partitionKeyFromQuery`
-
-namespaces
+## `partitionKeyFromLambda` and `partitionKeyFromQuery` namespaces
 
 For [dynamic partitioning](dynamic-partitioning.md "dynamic-partitioning.md"), you must use the following expression format in your
 S3 bucket prefix: `!{namespace:value}`, where namespace can be either

@@ -1,6 +1,4 @@
-# Use Amazon S3 bucket prefix to deliver
-
-data
+# Use Amazon S3 bucket prefix to deliver data
 
 When you create a Firehose stream that uses Amazon S3 as the destination, you must specify an
 Amazon S3 bucket where Firehose is to deliver your data. Amazon S3 bucket prefixes are used to
@@ -60,9 +58,7 @@ example customer_id=!{partitionKeyFromQuery:customer_id}.
 
 For more information, see the "Choose Amazon S3 for Your Destination" in [Creating an Amazon Firehose stream](basic-create.md "basic-create.md") and [Custom Prefixes for Amazon S3 Objects](s3-prefixes.md "s3-prefixes.md").
 
-## Add a new line delimiter when
-
-delivering data to Amazon S3
+## Add a new line delimiter when delivering data to Amazon S3
 
 You can enable **New Line Delimiter** to add a new line delimiter
 between records in objects that are delivered to Amazon S3. This can be helpful for parsing

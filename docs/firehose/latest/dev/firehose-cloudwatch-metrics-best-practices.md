@@ -1,6 +1,4 @@
-# Implement best practices
-
-with CloudWatch Alarms
+# Implement best practices with CloudWatch Alarms
 
 Add CloudWatch alarms for when the following metrics exceed the buffering limit (a maximum
 of 15 minutes).

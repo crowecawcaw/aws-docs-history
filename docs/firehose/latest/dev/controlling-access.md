@@ -16,35 +16,25 @@ is IAM?](../../../IAM/latest/UserGuide/IAM_Introduction.md "../../../IAM/latest/
 - [Grant access to your Firehose resources](#access-to-firehose "#access-to-firehose")
 - [Grant Firehose access to your private Amazon MSK cluster](#access-to-msk "#access-to-msk")
 - [Allow Firehose to assume an IAM role](#firehose-assume-role "#firehose-assume-role")
-- [Grant Firehose access to AWS Glue for data format
-  conversion](#using-iam-glue "#using-iam-glue")
+- [Grant Firehose access to AWS Glue for data format conversion](#using-iam-glue "#using-iam-glue")
 - [Grant Firehose access to an Amazon S3 destination](#using-iam-s3 "#using-iam-s3")
 - [Grant Firehose access to Amazon S3 Tables](#using-s3-tables "#using-s3-tables")
-- [Grant Firehose access to an Apache Iceberg Tables
-  destination](#using-iam-iceberg "#using-iam-iceberg")
+- [Grant Firehose access to an Apache Iceberg Tables destination](#using-iam-iceberg "#using-iam-iceberg")
 - [Grant Firehose access to an Amazon Redshift destination](#using-iam-rs "#using-iam-rs")
 - [Grant Firehose access to a public OpenSearch Service destination](#using-iam-es "#using-iam-es")
-- [Grant Firehose access to an OpenSearch Service destination in a
-  VPC](#using-iam-es-vpc "#using-iam-es-vpc")
-- [Grant Firehose access to a public OpenSearch
-  Serverless destination](#using-iam-serverless "#using-iam-serverless")
-- [Grant Firehose access to an OpenSearch
-  Serverless destination in a VPC](#using-iam-serverless-vpc "#using-iam-serverless-vpc")
+- [Grant Firehose access to an OpenSearch Service destination in a VPC](#using-iam-es-vpc "#using-iam-es-vpc")
+- [Grant Firehose access to a public OpenSearch Serverless destination](#using-iam-serverless "#using-iam-serverless")
+- [Grant Firehose access to an OpenSearch Serverless destination in a VPC](#using-iam-serverless-vpc "#using-iam-serverless-vpc")
 - [Grant Firehose access to a Splunk destination](#using-iam-splunk "#using-iam-splunk")
 - [Accessing Splunk in VPC](#using-iam-splunk-vpc "#using-iam-splunk-vpc")
 - [Ingest VPC flow logs into Splunk using Amazon Data Firehose](#vpc-splunk-tutorial "#vpc-splunk-tutorial")
-- [Accessing Snowflake or HTTP end
-  point](#using-snowflake-http-endpoint "#using-snowflake-http-endpoint")
-- [Grant Firehose access to a Snowflake
-  destination](#using-iam-snowflake "#using-iam-snowflake")
+- [Accessing Snowflake or HTTP end point](#using-snowflake-http-endpoint "#using-snowflake-http-endpoint")
+- [Grant Firehose access to a Snowflake destination](#using-iam-snowflake "#using-iam-snowflake")
 - [Accessing Snowflake in VPC](#using-iam-snowflake-vpc "#using-iam-snowflake-vpc")
-- [Grant Firehose access to an HTTP endpoint
-  destination](#using-iam-http "#using-iam-http")
+- [Grant Firehose access to an HTTP endpoint destination](#using-iam-http "#using-iam-http")
 - [Cross-account delivery from Amazon MSK](#cross-account-delivery-msk "#cross-account-delivery-msk")
-- [Cross-account delivery to an Amazon S3
-  destination](#cross-account-delivery-s3 "#cross-account-delivery-s3")
-- [Cross-account delivery to an OpenSearch Service
-  destination](#cross-account-delivery-es "#cross-account-delivery-es")
+- [Cross-account delivery to an Amazon S3 destination](#cross-account-delivery-s3 "#cross-account-delivery-s3")
+- [Cross-account delivery to an OpenSearch Service destination](#cross-account-delivery-es "#cross-account-delivery-es")
 - [Using tags to control access](#tag-based-access-control "#tag-based-access-control")
 
 ## Grant access to your Firehose resources
@@ -132,9 +122,7 @@ JSON
 Make sure that this role that grants Amazon Data Firehose permissions to ingest source data
 from the specified Amazon MSK cluster grants the following permissions:
 
-## Grant Firehose access to AWS Glue for data format
-
-conversion
+## Grant Firehose access to AWS Glue for data format conversion
 
 If your Firehose stream performs data-format conversion, Amazon Data Firehose references table
 definitions stored in AWS Glue. To give Amazon Data Firehose the necessary access to AWS Glue, add the
@@ -295,8 +283,7 @@ Role to Delegate Permissions to an AWS Service](../../../IAM/latest/UserGuide/id
 _IAM User Guide_.
 
 To learn how to grant Amazon Data Firehose access to an Amazon S3 destination in another account, see
-[Cross-account delivery to an Amazon S3
-destination](#cross-account-delivery-s3 "#cross-account-delivery-s3").
+[Cross-account delivery to an Amazon S3 destination](#cross-account-delivery-s3 "#cross-account-delivery-s3").
 
 ## Grant Firehose access to Amazon S3 Tables
 
@@ -416,8 +403,7 @@ The policy has statements that allows access to Amazon Kinesis Data Streams, inv
 and access to AWS KMS keys. If you don't use any of these resources, you can remove the
 respective statements. If error logging is enabled, Amazon Data Firehose also sends data delivery
 errors to your CloudWatch log group and streams. You must configure log group and log stream
-names to use this option. For log group and log stream names, see [Monitor Amazon Data Firehose Using
-CloudWatch Logs](monitoring-with-cloudwatch-logs.md "monitoring-with-cloudwatch-logs.md").
+names to use this option. For log group and log stream names, see [Monitor Amazon Data Firehose Using CloudWatch Logs](monitoring-with-cloudwatch-logs.md "monitoring-with-cloudwatch-logs.md").
 
 In the inline policies, replace `<error delivery bucket>` with your Amazon S3
 bucket name, `aws-account-id` and Region with a valid AWS account number
@@ -437,9 +423,7 @@ Amazon Data Firehose can assume it to perform required operations on AWS Glue an
 Firehose service principal to the trust policy of the role that is created. For more
 information, see [Allow Firehose to assume an IAM role](#firehose-assume-role "#firehose-assume-role").
 
-## Grant Firehose access to an Apache Iceberg Tables
-
-destination
+## Grant Firehose access to an Apache Iceberg Tables destination
 
 You must have an IAM role before you create a Firehose stream and Apache Iceberg Tables
 using AWS Glue. Use the following steps to create a policy and an IAM role. Firehose assumes
@@ -456,8 +440,7 @@ you can remove the respective statements.
 
 If error logging is enabled, Firehose also sends data delivery errors to your
 CloudWatch log group and streams. For this you must configure log group and log stream
-names. For log group and log stream names, see [Monitor Amazon Data Firehose Using
-CloudWatch Logs](monitoring-with-cloudwatch-logs.md "monitoring-with-cloudwatch-logs.md"). 4. In the inline policies, replace `amzn-s3-demo-bucket`
+names. For log group and log stream names, see [Monitor Amazon Data Firehose Using CloudWatch Logs](monitoring-with-cloudwatch-logs.md "monitoring-with-cloudwatch-logs.md"). 4. In the inline policies, replace `amzn-s3-demo-bucket`
 with your Amazon S3 bucket name, aws-account-id and Region with a valid AWS account
 number and Region of the resources.
 
@@ -483,8 +466,7 @@ destination.
 ###### Topics
 
 - [IAM role and access policy](#using-iam-rs-policy "#using-iam-rs-policy")
-- [VPC access to an Amazon Redshift provisioned cluster or
-  Amazon Redshift Serverless workgroup](#using-iam-rs-vpc "#using-iam-rs-vpc")
+- [VPC access to an Amazon Redshift provisioned cluster or Amazon Redshift Serverless workgroup](#using-iam-rs-vpc "#using-iam-rs-vpc")
 
 ### IAM role and access policy
 
@@ -583,9 +565,7 @@ resources, see [Creating
 a Role to Delegate Permissions to an AWS Service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the
 _IAM User Guide_.
 
-### VPC access to an Amazon Redshift provisioned cluster or
-
-Amazon Redshift Serverless workgroup
+### VPC access to an Amazon Redshift provisioned cluster or Amazon Redshift Serverless workgroup
 
 If your Amazon Redshift provisioned cluster or Amazon Redshift Serverless workgroup is in a virtual private
 cloud (VPC), it must be publicly accessible with a public IP address. Also, grant
@@ -658,12 +638,9 @@ Role to Delegate Permissions to an AWS Service](../../../IAM/latest/UserGuide/id
 _IAM User Guide_.
 
 To learn how to grant Amazon Data Firehose access to an OpenSearch Service cluster in another
-account, see [Cross-account delivery to an OpenSearch Service
-destination](#cross-account-delivery-es "#cross-account-delivery-es").
+account, see [Cross-account delivery to an OpenSearch Service destination](#cross-account-delivery-es "#cross-account-delivery-es").
 
-## Grant Firehose access to an OpenSearch Service destination in a
-
-VPC
+## Grant Firehose access to an OpenSearch Service destination in a VPC
 
 If your OpenSearch Service domain is in a VPC, make sure you give Amazon Data Firehose the
 permissions that are described in the previous section. In addition, you need to give
@@ -702,9 +679,7 @@ configured your Firehose stream. If you use the same security group for both you
 and the OpenSearch Service domain, make sure the security group inbound rule allows
 HTTPS traffic. For more information about security group rules, see [Security group rules](../../../vpc/latest/userguide/VPC_SecurityGroups.md#SecurityGroupRules "../../../vpc/latest/userguide/VPC_SecurityGroups.md#SecurityGroupRules") in the Amazon VPC documentation.
 
-## Grant Firehose access to a public OpenSearch
-
-Serverless destination
+## Grant Firehose access to a public OpenSearch Serverless destination
 
 When you're using an OpenSearch Serverless destination, Amazon Data Firehose delivers data to your
 OpenSearch Serverless collection, and concurrently backs up failed or all documents to
@@ -830,9 +805,7 @@ resources, see [Creating a
 Role to Delegate Permissions to an AWS Service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the
 _IAM User Guide_.
 
-## Grant Firehose access to an OpenSearch
-
-Serverless destination in a VPC
+## Grant Firehose access to an OpenSearch Serverless destination in a VPC
 
 If your OpenSearch Serverless collection is in a VPC, make sure you give Amazon Data Firehose the
 permissions that are described in the previous section. In addition, you need to give
@@ -1027,9 +1000,7 @@ addresses. Amazon Data Firehose currently uses the following CIDR blocks.
 To learn more about how to create a VPC flow log subscription, publish to Firehose, and send
 the VPC flow logs to a supported destination see [Ingest VPC flow logs into Splunk using Amazon Data Firehose](https://www.splunk.com/en_us/blog/partners/streamline-your-amazon-vpc-flow-logs-ingestion-to-splunk.html "https://www.splunk.com/en_us/blog/partners/streamline-your-amazon-vpc-flow-logs-ingestion-to-splunk.html").
 
-## Accessing Snowflake or HTTP end
-
-point
+## Accessing Snowflake or HTTP end point
 
 There is no subset of [AWS IP address ranges](../../../vpc/latest/userguide/aws-ip-ranges.md "../../../vpc/latest/userguide/aws-ip-ranges.md")
 specific to Amazon Data Firehose when the destination is HTTP end point or Snowflake public
@@ -1045,9 +1016,7 @@ Notifications aren't always sourced from IP addresses in the same AWS Region as
 their associated topic. You must include the AWS IP address range for all
 Regions.
 
-## Grant Firehose access to a Snowflake
-
-destination
+## Grant Firehose access to a Snowflake destination
 
 When you're using Snowflake as a destination, Firehose delivers data to a Snowflake account using your Snowflake account URL. It also backs up
 error data to the Amazon Simple Storage Service bucket that you specify, and you can optionally use an AWS Key Management Service key that you own for Amazon S3 server-side encryption.
@@ -1160,9 +1129,7 @@ network rule](https://docs.snowflake.com/en/sql-reference/sql/create-network-rul
 | Europe (Stockholm)                                          | vpce-0d96410833219025a<br>vpce-060a32f9a75ba969f                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Asia Pacific (Jakarta)                                      | vpce-00add4b9a25e5c649<br>vpce-004ae2de34338a856                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
-## Grant Firehose access to an HTTP endpoint
-
-destination
+## Grant Firehose access to an HTTP endpoint destination
 
 You can use Amazon Data Firehose to deliver data to any HTTP endpoint destination. Amazon Data Firehose also backs
 up that data to the Amazon S3 bucket that you specify, and you can optionally use an AWS KMS
@@ -1310,12 +1277,9 @@ The following is what gets configured by the AWS Management Console:
 ```
 
 Next, you can complete the optional step of configuring record transformation and
-record format conversion. For more information, see [(Optional) Configure record transformation and format
-conversion](create-transform.md "create-transform.md").
+record format conversion. For more information, see [(Optional) Configure record transformation and format conversion](create-transform.md "create-transform.md").
 
-## Cross-account delivery to an Amazon S3
-
-destination
+## Cross-account delivery to an Amazon S3 destination
 
 You can use the AWS CLI or the Amazon Data Firehose APIs to create a Firehose stream in one AWS
 account with an Amazon S3 destination in a different account. The following procedure shows
@@ -1372,9 +1336,7 @@ JSON
 3. Create a Firehose stream under account A using the IAM role that you
    created in step 1.
 
-## Cross-account delivery to an OpenSearch Service
-
-destination
+## Cross-account delivery to an OpenSearch Service destination
 
 You can use the AWS CLI or the Amazon Data Firehose APIs to create a Firehose stream in one AWS
 account with an OpenSearch Service destination in a different account. The following procedure shows

@@ -17,16 +17,13 @@ are no data ingestion problems and the metrics emitted for the Firehose stream l
 good, but you don't see the data at the destination, check the reader logic.
 Make sure your reader is correctly parsing out all data.
 
-## Data freshness metric increasing or
-
-not emitted
+## Data freshness metric increasing or not emitted
 
 Data freshness is a measure of how current your data is within your Firehose stream.
 It is the age of the oldest data record in the Firehose stream, measured from the time
 that Firehose ingested the data to the present time. Firehose provides metrics that you can use
 to monitor data freshness. To identify the data-freshness metric for a given
-destination, see [Monitor Amazon Data Firehose with
-CloudWatch metrics](monitoring-with-cloudwatch-metrics.md "monitoring-with-cloudwatch-metrics.md").
+destination, see [Monitor Amazon Data Firehose with CloudWatch metrics](monitoring-with-cloudwatch-metrics.md "monitoring-with-cloudwatch-metrics.md").
 
 If you enable backup for all events or all documents, monitor two separate
 data-freshness metrics: one for the main destination and one for the backup.
@@ -53,8 +50,7 @@ is falling behind. This can happen for one of the following reasons.
   allocation can increase accordingly. This might lead to faster Lambda
   invocations. For information about configuring Lambda functions, see [Configuring AWS Lambda Functions](../../../lambda/latest/dg/resource-model.md "../../../lambda/latest/dg/resource-model.md").
 - There are failures during data delivery. For information about how to monitor
-  errors using Amazon CloudWatch Logs, see [Monitor Amazon Data Firehose Using
-  CloudWatch Logs](monitoring-with-cloudwatch-logs.md "monitoring-with-cloudwatch-logs.md").
+  errors using Amazon CloudWatch Logs, see [Monitor Amazon Data Firehose Using CloudWatch Logs](monitoring-with-cloudwatch-logs.md "monitoring-with-cloudwatch-logs.md").
 - If the data source of the Firehose stream is a Kinesis data stream, throttling
   might be happening. Check the `ThrottledGetRecords`,
   `ThrottledGetShardIterator`, and
@@ -75,17 +71,14 @@ is falling behind. This can happen for one of the following reasons.
 - A high retry duration might cause delivery to fall behind when the errors are
   frequent. Consider reducing the retry duration. Also, monitor the errors and try
   to reduce them. For information about how to monitor errors using Amazon CloudWatch Logs, see
-  [Monitor Amazon Data Firehose Using
-  CloudWatch Logs](monitoring-with-cloudwatch-logs.md "monitoring-with-cloudwatch-logs.md").
+  [Monitor Amazon Data Firehose Using CloudWatch Logs](monitoring-with-cloudwatch-logs.md "monitoring-with-cloudwatch-logs.md").
 - If the destination is Splunk and `DeliveryToSplunk.DataFreshness`
   is high but `DeliveryToSplunk.Success` looks good, the Splunk cluster
   might be busy. Free the Splunk cluster if possible. Alternatively, contact AWS
   Support and request an increase in the number of channels that Firehose is using to
   communicate with the Splunk cluster.
 
-## Record format conversion to Apache
-
-Parquet fails
+## Record format conversion to Apache Parquet fails
 
 This happens if you take DynamoDB data that includes the `Set` type, stream it
 through Lambda to a Firehose stream, and use an AWS Glue Data Catalog to convert the record format
@@ -100,9 +93,7 @@ set types aren't valid Apache Hive data types, conversion fails. To get conversi
 work, update the data catalog with Apache Hive data types. You can do that by changing
 `set` to `array` in the data catalog.
 
-###### To change one or more data types from `set` to `array` in
-
-an AWS Glue data catalog
+###### To change one or more data types from `set` to `array` in an AWS Glue data catalog
 
 1. Sign in to the AWS Management Console and open the AWS Glue console at
    [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue/ "https://console.aws.amazon.com/glue/").

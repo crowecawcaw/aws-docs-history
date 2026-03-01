@@ -126,9 +126,7 @@ After conversion:
 {"host":"64.242.88.10","ident":null,"authuser":null,"datetime":"07/Mar/2004:16:10:02 -0800","request":"GET /mailman/listinfo/hsdivision HTTP/1.1","response":"200","bytes":"6291"}
 ```
 
-###### Example: LOGTOJSON Configuration With Custom
-
-Fields
+###### Example: LOGTOJSON Configuration With Custom Fields
 
 Here is another example `LOGTOJSON` configuration:
 
@@ -147,9 +145,7 @@ previous example is converted to JSON format as follows:
 {"f1":"64.242.88.10","f2":null,"f3":null,"f4":"07/Mar/2004:16:10:02 -0800","f5":"GET /mailman/listinfo/hsdivision HTTP/1.1","f6":"200","f7":"6291"}
 ```
 
-###### Example: Convert Apache Common Log
-
-Entry
+###### Example: Convert Apache Common Log Entry
 
 The following flow configuration converts an Apache Common Log entry to a
 single-line record in JSON format:
@@ -201,9 +197,7 @@ form a single-line record in JSON format.
 }
 ```
 
-###### Example: LOGTOJSON Configuration with Match
-
-Pattern
+###### Example: LOGTOJSON Configuration with Match Pattern
 
 Here is one example of a `LOGTOJSON` configuration for an Apache Common
 Log entry converted to JSON format, with the last field (bytes) omitted:

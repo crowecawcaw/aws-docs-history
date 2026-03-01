@@ -7,9 +7,7 @@ VPC endpoints are powered by AWS PrivateLink, an AWS technology that enables pri
 communication between AWS services using an elastic network interface with private IPs in
 your Amazon VPC. For more information, see [Amazon Virtual Private Cloud](../../../AmazonVPC/latest/UserGuide/VPC_Introduction.md "../../../AmazonVPC/latest/UserGuide/VPC_Introduction.md").
 
-## Using interface VPC endpoints (AWS
-
-PrivateLink) for Firehose
+## Using interface VPC endpoints (AWS PrivateLink) for Firehose
 
 To get started, create an interface VPC endpoint in order for your Amazon Data Firehose traffic from
 your Amazon VPC resources to start flowing through the interface VPC endpoint. When you

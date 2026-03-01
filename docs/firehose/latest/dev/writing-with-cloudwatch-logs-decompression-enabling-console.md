@@ -1,6 +1,4 @@
-# Enable decompression
-
-on a new Firehose stream from console
+# Enable decompression on a new Firehose stream from console
 
 ###### To enable decompression on a new Firehose stream using the AWS Management Console
 

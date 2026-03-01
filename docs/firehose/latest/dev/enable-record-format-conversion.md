@@ -6,9 +6,7 @@ only destination that you can use for your Firehose stream. The following sectio
 to enable record format conversion from console and Firehose API operations. For an example
 of how to set up record format conversion with CloudFormation, see [AWS::DataFirehose::DeliveryStream](../../../AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.md#aws-resource-kinesisfirehose-deliverystream--examples "../../../AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.md#aws-resource-kinesisfirehose-deliverystream--examples").
 
-## Enable record format conversion
-
-from console
+## Enable record format conversion from console
 
 You can enable data format conversion on the console when you create or update a
 Firehose stream. With data format conversion enabled, Amazon S3 is the only destination that
@@ -33,9 +31,7 @@ Hadoop relies on, see [BlockCompressorStream.java](https://github.com/apache/had
 5. Choose an AWS Glue table to specify a schema for your source records. Set the
    Region, database, table, and table version.
 
-## Manage record format conversion
-
-from Firehose API
+## Manage record format conversion from Firehose API
 
 If you want Amazon Data Firehose to convert the format of your input data from JSON to Parquet or
 ORC, specify the optional [DataFormatConversionConfiguration](../APIReference/API_DataFormatConversionConfiguration.md "../APIReference/API_DataFormatConversionConfiguration.md") element in [ExtendedS3DestinationConfiguration](../APIReference/API_ExtendedS3DestinationConfiguration.md "../APIReference/API_ExtendedS3DestinationConfiguration.md") or in [ExtendedS3DestinationUpdate](../APIReference/API_ExtendedS3DestinationUpdate.md "../APIReference/API_ExtendedS3DestinationUpdate.md"). If you specify [DataFormatConversionConfiguration](../APIReference/API_DataFormatConversionConfiguration.md "../APIReference/API_DataFormatConversionConfiguration.md"), the following restrictions apply.

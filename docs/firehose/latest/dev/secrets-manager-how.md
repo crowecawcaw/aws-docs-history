@@ -22,9 +22,7 @@ you can use the username/password or API key instead.
 Although, there is no additional cost for this feature in Firehose, you are billed for access and
 maintenance of Secrets Manager. For more information, see [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/pricing/ "https://aws.amazon.com/secrets-manager/pricing/") pricing page.
 
-## Grant access to Firehose to retrieve the
-
-secret
+## Grant access to Firehose to retrieve the secret
 
 For Firehose to retrieve a secret from AWS Secrets Manager, you must provide Firehose the required
 permissions to access the secret and the key that encrypts your secret.

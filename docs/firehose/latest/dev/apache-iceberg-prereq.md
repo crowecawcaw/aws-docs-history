@@ -1,19 +1,13 @@
-# Prerequisites to use Apache Iceberg Tables as a
-
-destination
+# Prerequisites to use Apache Iceberg Tables as a destination
 
 Choose from the following options to complete the required prerequisites.
 
 ###### Topics
 
-- [Prerequisites to deliver to Iceberg
-  Tables in Amazon S3](#iceberg-tables-prerequisites "#iceberg-tables-prerequisites")
-- [Prerequisites to deliver to Amazon S3
-  Tables](#s3-tables-prerequisites "#s3-tables-prerequisites")
+- [Prerequisites to deliver to Iceberg Tables in Amazon S3](#iceberg-tables-prerequisites "#iceberg-tables-prerequisites")
+- [Prerequisites to deliver to Amazon S3 Tables](#s3-tables-prerequisites "#s3-tables-prerequisites")
 
-## Prerequisites to deliver to Iceberg
-
-Tables in Amazon S3
+## Prerequisites to deliver to Iceberg Tables in Amazon S3
 
 Before you begin, complete the following prerequisites.
 
@@ -51,9 +45,7 @@ tables.
      Firehose supports the Merge-on-Read (MOR) mode of writing data to
      Apache Iceberg Tables.
 
-## Prerequisites to deliver to Amazon S3
-
-Tables
+## Prerequisites to deliver to Amazon S3 Tables
 
 To deliver data to Amazon S3 table buckets, complete the following
 prerequisites.

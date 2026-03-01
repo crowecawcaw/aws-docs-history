@@ -1,6 +1,4 @@
-# Configure multiple file directories and
-
-streams
+# Configure multiple file directories and streams
 
 By specifying multiple flow configuration settings, you can configure the agent to
 monitor multiple file directories and send data to multiple streams. In the following

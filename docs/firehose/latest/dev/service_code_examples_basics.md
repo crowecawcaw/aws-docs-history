@@ -1,6 +1,4 @@
-# Basic examples for
-
-Firehose using AWS SDKs
+# Basic examples for Firehose using AWS SDKs
 
 The following code examples show how to use the basics of Amazon Data Firehose with AWS
 SDKs.

@@ -1,6 +1,4 @@
-# Troubleshoot dynamic partitioning
-
-errors
+# Troubleshoot dynamic partitioning errors
 
 If Amazon Data Firehose is not able to parse data records in your Firehose stream or
 it fails to extract the specified partitioning keys, or to evaluate the expressions

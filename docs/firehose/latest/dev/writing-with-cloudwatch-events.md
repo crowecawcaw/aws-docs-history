@@ -2,9 +2,7 @@
 
 You can configure Amazon CloudWatch to send events to a Firehose stream by adding a target to a CloudWatch Events rule.
 
-###### To create a target for a CloudWatch Events rule that sends events to an existing
-
-Firehose stream
+###### To create a target for a CloudWatch Events rule that sends events to an existing Firehose stream
 
 1. Sign in to the AWS Management Console and open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").

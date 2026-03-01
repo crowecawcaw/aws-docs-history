@@ -23,9 +23,7 @@ responsibility model](https://aws.amazon.com/compliance/shared-responsibility-mo
 - [Controlling access with Amazon Data Firehose](controlling-access.md "controlling-access.md")
 - [Authenticate with AWS Secrets Manager in Amazon Data Firehose](using-secrets-manager.md "using-secrets-manager.md")
 - [Manage IAM roles through Amazon Data Firehose console](console-managed-roles.md "console-managed-roles.md")
-- [Understand compliance for Amazon Data Firehose](akda-java-compliance.md "akda-java-compliance.md")
+- [Understand compliance for Amazon Data Firehose](compliance-validation.md "compliance-validation.md")
 - [Resilience in Amazon Data Firehose](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Understand infrastructure security in
-  Amazon Data Firehose](infrastructure-security.md "infrastructure-security.md")
-- [Implement security best practices for
-  Amazon Data Firehose](security-best-practices.md "security-best-practices.md")
+- [Understand infrastructure security in Amazon Data Firehose](infrastructure-security.md "infrastructure-security.md")
+- [Implement security best practices for Amazon Data Firehose](security-best-practices.md "security-best-practices.md")

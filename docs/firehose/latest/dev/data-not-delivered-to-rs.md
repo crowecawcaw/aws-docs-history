@@ -8,11 +8,9 @@ delivered to your S3 bucket, see [Troubleshooting Amazon S3](data-not-delivered-
 
 - Check the Firehose `DeliveryToRedshift.Success` metric to make sure
   that Firehose has tried to copy data from your S3 bucket to the Amazon Redshift provisioned
-  cluster or Amazon Redshift Serverless workgroup. For more information, see [Monitor Amazon Data Firehose with
-  CloudWatch metrics](monitoring-with-cloudwatch-metrics.md "monitoring-with-cloudwatch-metrics.md").
+  cluster or Amazon Redshift Serverless workgroup. For more information, see [Monitor Amazon Data Firehose with CloudWatch metrics](monitoring-with-cloudwatch-metrics.md "monitoring-with-cloudwatch-metrics.md").
 - Enable error logging if it is not already enabled, and check error logs for
-  delivery failure. For more information, see [Monitor Amazon Data Firehose Using
-  CloudWatch Logs](monitoring-with-cloudwatch-logs.md "monitoring-with-cloudwatch-logs.md").
+  delivery failure. For more information, see [Monitor Amazon Data Firehose Using CloudWatch Logs](monitoring-with-cloudwatch-logs.md "monitoring-with-cloudwatch-logs.md").
 - Check the Amazon Redshift `STL_CONNECTION_LOG` table to see if Firehose can
   make successful connections. In this table, you should be able to see
   connections and their status based on a user name. For more information, see
@@ -27,10 +25,10 @@ delivered to your S3 bucket, see [Troubleshooting Amazon S3](data-not-delivered-
 - Make sure that the IAM role that is specified in your Firehose stream can access
   the S3 bucket that Amazon Redshift copies data from, and also the Lambda function for data
   transformation (if data transformation is enabled). Also, make sure that the IAM role has access to CloudWatch log group and log streams to check error logs. For more information, see
-  [Grant Firehose access to an Amazon Redshift destination](controlling-access.md#using-iam-rs "controlling-access.md#using-iam-rs") .
+  [Grant Firehose access to an Amazon Redshift destination](controlling-access.md#using-iam-rs "controlling-access.md#using-iam-rs").
 - If your Amazon Redshift provisioned cluster or Amazon Redshift Serverless workgroup is in a virtual
   private cloud (VPC), make sure that the cluster allows access from Firehose IP
-  addresses. For more information, see [Grant Firehose access to an Amazon Redshift destination](controlling-access.md#using-iam-rs "controlling-access.md#using-iam-rs") .
+  addresses. For more information, see [Grant Firehose access to an Amazon Redshift destination](controlling-access.md#using-iam-rs "controlling-access.md#using-iam-rs").
 - Make sure that the Amazon Redshift provisioned cluster or Amazon Redshift Serverless workgroup is
   publicly available.
 - If you're using data transformation, make sure that your Lambda function never

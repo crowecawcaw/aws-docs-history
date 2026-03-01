@@ -1,6 +1,4 @@
-# Route incoming records to a single
-
-Iceberg table
+# Route incoming records to a single Iceberg table
 
 If you want Firehose to insert data to a single Iceberg table, simply configure a single
 database and table in your stream configuration as shown in the following example JSON.

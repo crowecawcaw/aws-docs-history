@@ -25,10 +25,7 @@ architectures.
 
 - [Enable dynamic partitioning in Amazon Data Firehose](dynamic-partitioning-enable.md "dynamic-partitioning-enable.md")
 - [Understand partitioning keys](dynamic-partitioning-partitioning-keys.md "dynamic-partitioning-partitioning-keys.md")
-- [Use Amazon S3 bucket prefix to deliver
-  data](dynamic-partitioning-s3bucketprefix.md "dynamic-partitioning-s3bucketprefix.md")
-- [Apply dynamic partitioning to
-  aggregated data](dynamic-partitioning-multirecord-deaggergation.md "dynamic-partitioning-multirecord-deaggergation.md")
-- [Troubleshoot dynamic partitioning
-  errors](dynamic-partitioning-error-handling.md "dynamic-partitioning-error-handling.md")
+- [Use Amazon S3 bucket prefix to deliver data](dynamic-partitioning-s3bucketprefix.md "dynamic-partitioning-s3bucketprefix.md")
+- [Apply dynamic partitioning to aggregated data](dynamic-partitioning-multirecord-deaggergation.md "dynamic-partitioning-multirecord-deaggergation.md")
+- [Troubleshoot dynamic partitioning errors](dynamic-partitioning-error-handling.md "dynamic-partitioning-error-handling.md")
 - [Buffer data for dynamic partitioning](buffering.md "buffering.md")

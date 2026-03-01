@@ -1,6 +1,4 @@
-# Understand infrastructure security in
-
-Amazon Data Firehose
+# Understand infrastructure security in Amazon Data Firehose
 
 As a managed service, Amazon Data Firehose is protected by AWS global network security. For
 information about AWS security services and how AWS protects infrastructure, see [AWS Cloud Security](https://aws.amazon.com/security/ "https://aws.amazon.com/security/"). To design your AWS

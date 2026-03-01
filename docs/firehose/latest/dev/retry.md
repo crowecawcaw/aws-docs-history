@@ -52,9 +52,7 @@ S3 bucket as a manifest file in the `errors/` folder, which you
 can use for manual backfill. For information about how to COPY data manually
 with manifest files, see [Using a Manifest to Specify Data Files](../../../redshift/latest/dg/loading-data-files-using-manifest.md "../../../redshift/latest/dg/loading-data-files-using-manifest.md").
 
-## Amazon OpenSearch Service and OpenSearch
-
-Serverless
+## Amazon OpenSearch Service and OpenSearch Serverless
 
 For the OpenSearch Service and OpenSearch Serverless destination, you can
 specify a retry duration (0–7200 seconds) during Firehose stream

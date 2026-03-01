@@ -1,6 +1,4 @@
-# Apply dynamic partitioning to
-
-aggregated data
+# Apply dynamic partitioning to aggregated data
 
 You can apply dynamic partitioning to aggregated data (for example, multiple events,
 logs, or records aggregated into a single `PutRecord` and

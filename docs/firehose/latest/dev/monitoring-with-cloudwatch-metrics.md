@@ -1,6 +1,4 @@
-# Monitor Amazon Data Firehose with
-
-CloudWatch metrics
+# Monitor Amazon Data Firehose with CloudWatch metrics
 
 ###### Important
 
@@ -58,8 +56,7 @@ bucket.
 ###### Topics
 
 - [Delivery to OpenSearch Service](#fh-es-metrics "#fh-es-metrics")
-- [Delivery to OpenSearch
-  Serverless](#fh-serverless-metrics "#fh-serverless-metrics")
+- [Delivery to OpenSearch Serverless](#fh-serverless-metrics "#fh-serverless-metrics")
 - [Delivery to Amazon Redshift](#fh-redshift-metrics "#fh-redshift-metrics")
 - [Delivery to Amazon S3](#fh-s3-metrics "#fh-s3-metrics")
 - [Delivery to Snowflake](#fh-snowflake-metrics "#fh-snowflake-metrics")
@@ -81,9 +78,7 @@ bucket.
 | `DeliveryToAmazonOpenSearchService.AuthFailure`      | Authentication/authorization error. Verify the OS/ES<br>cluster policy and role permissions.<br>0 indicates that there is no issue. 1 indicates<br>authentication failure.                                                                                                                 |
 | `DeliveryToAmazonOpenSearchService.DeliveryRejected` | Delivery rejected error. Verify the OS/ES cluster policy<br>and role permissions.<br>0 indicates that there is no issue. 1 indicates that<br>there's a delivery failure.                                                                                                                   |
 
-### Delivery to OpenSearch
-
-Serverless
+### Delivery to OpenSearch Serverless
 
 | Metric                                                  | Description                                                                                                                                                                                                                                                                                |
 | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -179,8 +174,7 @@ the main destination of the Firehose stream.
 ###### Topics
 
 - [Data ingestion through Kinesis Data Streams](#fh-ingestion-kds-metrics "#fh-ingestion-kds-metrics")
-- [Data ingestion through Direct
-  PUT](#fh-ingestion-directput-metrics "#fh-ingestion-directput-metrics")
+- [Data ingestion through Direct PUT](#fh-ingestion-directput-metrics "#fh-ingestion-directput-metrics")
 - [Data ingestion from MSK](#fh-ingestion-msk-metrics "#fh-ingestion-msk-metrics")
 
 ### Data ingestion through Kinesis Data Streams
@@ -194,9 +188,7 @@ the main destination of the Firehose stream.
 | `ThrottledGetShardIterator`         | The total number of times the<br>`GetShardIterator` operation is throttled<br>when the data source is a Kinesis data stream.<br>Statistics: Minimum, Maximum, Average, Sum, Samples<br>Units: Count                                                                |
 | `KinesisMillisBehindLatest`         | When the data source is a Kinesis data stream, this metric<br>indicates the number of milliseconds that the last read<br>record is behind the newest record in the Kinesis data<br>stream.<br>Statistics: Minimum, Maximum, Average, Samples<br>Units: Millisecond |
 
-### Data ingestion through Direct
-
-PUT
+### Data ingestion through Direct PUT
 
 | Metric                                            | Description                                                                                                                                                                                                                                                                                                                                                                                                    |
 | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

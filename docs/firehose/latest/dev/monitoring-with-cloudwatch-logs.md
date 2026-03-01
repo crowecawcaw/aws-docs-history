@@ -1,6 +1,4 @@
-# Monitor Amazon Data Firehose Using
-
-CloudWatch Logs
+# Monitor Amazon Data Firehose Using CloudWatch Logs
 
 Amazon Data Firehose integrates with Amazon CloudWatch Logs so that you can view the specific error logs when
 the Lambda invocation for data transformation or data delivery fails. You can enable
@@ -54,26 +52,18 @@ to fix the issue.
 ###### Errors
 
 - [Amazon S3 Data delivery errors](#monitoring-s3-errors "#monitoring-s3-errors")
-- [Apache Iceberg Tables Data Delivery
-  Errors](#monitoring-iceberg-errors "#monitoring-iceberg-errors")
+- [Apache Iceberg Tables Data Delivery Errors](#monitoring-iceberg-errors "#monitoring-iceberg-errors")
 - [Amazon Redshift Data delivery errors](#monitoring-rs-errors "#monitoring-rs-errors")
-- [Snowflake Data delivery
-  errors](#monitoring-snowflake-errors "#monitoring-snowflake-errors")
-- [Splunk Data delivery
-  errors](#monitoring-splunk-errors "#monitoring-splunk-errors")
-- [ElasticSearch Data delivery
-  errors](#monitoring-es-errors "#monitoring-es-errors")
-- [HTTPS Endpoint Data delivery
-  errors](#monitoring-http-errors "#monitoring-http-errors")
-- [Amazon OpenSearch Service Data
-  delivery errors](#monitoring-es-errors "#monitoring-es-errors")
+- [Snowflake Data delivery errors](#monitoring-snowflake-errors "#monitoring-snowflake-errors")
+- [Splunk Data delivery errors](#monitoring-splunk-errors "#monitoring-splunk-errors")
+- [ElasticSearch Data delivery errors](#monitoring-es-errors "#monitoring-es-errors")
+- [HTTPS Endpoint Data delivery errors](#monitoring-http-errors "#monitoring-http-errors")
+- [Amazon OpenSearch Service Data delivery errors](#monitoring-es-errors "#monitoring-es-errors")
 - [Lambda invocation errors](#lambda-invocation-errors "#lambda-invocation-errors")
 - [Kinesis invocation errors](#kinesis-invocation-errors "#kinesis-invocation-errors")
-- [Kinesis DirectPut invocation
-  errors](#kinesis-directput-errors "#kinesis-directput-errors")
+- [Kinesis DirectPut invocation errors](#kinesis-directput-errors "#kinesis-directput-errors")
 - [AWS Glue invocation errors](#glue-invocation-errors "#glue-invocation-errors")
-- [DataFormatConversion invocation
-  errors](#dfc-invocation-errors "#dfc-invocation-errors")
+- [DataFormatConversion invocation errors](#dfc-invocation-errors "#dfc-invocation-errors")
 
 ### Amazon S3 Data delivery errors
 
@@ -104,12 +94,9 @@ Amazon Data Firehose can send the following Amazon S3-related errors to CloudWat
 | `S3.InvalidPrefixConfigurationException` | "The custom s3 prefix used for the timestamp evaluation is invalid. Check your s3 prefix contains valid expressions for the current date and time of the year."                                                                                                                                                                 |
 | `DataFormatConversion.MalformedData`     | "Illegal character found between tokens."                                                                                                                                                                                                                                                                                       |
 
-### Apache Iceberg Tables Data Delivery
+### Apache Iceberg Tables Data Delivery Errors
 
-Errors
-
-For Apache Iceberg Tables data delivery errors, see [Deliver data to Apache Iceberg Tables with
-Amazon Data Firehose](apache-iceberg-destination.md "apache-iceberg-destination.md").
+For Apache Iceberg Tables data delivery errors, see [Deliver data to Apache Iceberg Tables with Amazon Data Firehose](apache-iceberg-destination.md "apache-iceberg-destination.md").
 
 ### Amazon Redshift Data delivery errors
 
@@ -170,9 +157,7 @@ Amazon Data Firehose can send the following Amazon Redshift-related errors to Cl
 | `Redshift.RelationCouldNotBeOpened`           | "Encountered Redshift error, relation could not be opened. Check Redshift logs for the specified DB."                                                                                                                                                                                                                                                                      |
 | `Redshift.TooManyClients`                     | "Encountered too many clients exception from Redshift. Revisit max connections to the database if there are multiple producers writing to it simultaneously."                                                                                                                                                                                                              |
 
-### Snowflake Data delivery
-
-errors
+### Snowflake Data delivery errors
 
 Firehose can send the following Snowflake-related errors to CloudWatch Logs.
 
@@ -190,9 +175,7 @@ Firehose can send the following Snowflake-related errors to CloudWatch Logs.
 | `Snowflake.InvalidInput`                  | "Delivery failed due to invalid input format. Make sure that the input payload provided is in the JSON format acceptable"                                                                  |
 | `Snowflake.IncorrectValue`                | "Delivery failed due to incorrect data type in the input payload. Make sure that the JSON values specified in input payload adhere to the datatype declared in Snowflake table definition" |
 
-### Splunk Data delivery
-
-errors
+### Splunk Data delivery errors
 
 Amazon Data Firehose can send the following Splunk-related errors to CloudWatch Logs.
 
@@ -219,9 +202,7 @@ Amazon Data Firehose can send the following Splunk-related errors to CloudWatch 
 | `Splunk.AcknowledgementsDisabled`    | "Could not get acknowledgements on POST. Make sure that acknowledgements are enabled on HEC endpoint."                                                                                                                                                                                                                            |
 | `Splunk.InvalidHecResponseCharacter` | "Invalid characters found in HEC response, make sure to check to the service and HEC configuration."                                                                                                                                                                                                                              |
 
-### ElasticSearch Data delivery
-
-errors
+### ElasticSearch Data delivery errors
 
 Amazon Data Firehose can send the following ElasticSearch errors to CloudWatch Logs.
 
@@ -230,9 +211,7 @@ Amazon Data Firehose can send the following ElasticSearch errors to CloudWatch L
 | `ES.AccessDenied`     | "Access was denied. Ensure that the provided IAM role associated with firehose is not deleted." |
 | `ES.ResourceNotFound` | "The specified AWS Elasticsearch domain does not exist."                                        |
 
-### HTTPS Endpoint Data delivery
-
-errors
+### HTTPS Endpoint Data delivery errors
 
 Amazon Data Firehose can send the following HTTP Endpoint-related errors to CloudWatch Logs. If
 none of these errors are a match to the problem that you're experiencing,
@@ -263,9 +242,7 @@ then it will be reported to AWS for resolution."
 | `HttpEndpoint.IllegalResponseFailure`                           | "HttpEndpoint request failed due to illegal response error. HTTP message must not contain more than one Content-Type header."                                                   |
 | `HttpEndpoint.IllegalMessageStart`                              | "HttpEndpoint request failed due to illegal response error. Illegal HTTP message start. See Troubleshooting HTTP Endpoints in the Firehose documentation for more information." |
 
-### Amazon OpenSearch Service Data
-
-delivery errors
+### Amazon OpenSearch Service Data delivery errors
 
 For the OpenSearch Service destination, Amazon Data Firehose sends errors to CloudWatch Logs as
 they are returned by OpenSearch Service.
@@ -334,10 +311,10 @@ Amazon Data Firehose can send the following Lambda invocation errors to CloudWat
 | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `Lambda.AssumeRoleAccessDenied`               | "Access was denied. Ensure that the trust policy for the<br>provided IAM role allows Amazon Data Firehose to assume the role."                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | `Lambda.InvokeAccessDenied`                   | "Access was denied. Ensure that the access policy allows<br>access to the Lambda function."                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `Lambda.JsonProcessingException`              | "There was an error parsing returned records from the<br>Lambda function. Ensure that the returned records follow the<br>status model required by Amazon Data Firehose."<br>For more information, see [Required parameters for data<br>transformation](data-transformation-status-model.md "data-transformation-status-model.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `Lambda.JsonProcessingException`              | "There was an error parsing returned records from the<br>Lambda function. Ensure that the returned records follow the<br>status model required by Amazon Data Firehose."<br>For more information, see [Required parameters for data transformation](data-transformation-status-model.md "data-transformation-status-model.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | `Lambda.InvokeLimitExceeded`                  | "The Lambda concurrent execution limit is exceeded.<br>Increase the concurrent execution limit."<br>For more information, see [AWS Lambda<br>Limits](../../../lambda/latest/dg/limits.md "../../../lambda/latest/dg/limits.md") in the<br>_AWS Lambda Developer Guide_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `Lambda.DuplicatedRecordId`                   | "Multiple records were returned with the same record ID.<br>Ensure that the Lambda function returns unique record IDs for<br>each record."<br>For more information, see [Required parameters for data<br>transformation](data-transformation-status-model.md "data-transformation-status-model.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `Lambda.MissingRecordId`                      | "One or more record IDs were not returned. Ensure that the<br>Lambda function returns all received record IDs."<br>For more information, see [Required parameters for data<br>transformation](data-transformation-status-model.md "data-transformation-status-model.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `Lambda.DuplicatedRecordId`                   | "Multiple records were returned with the same record ID.<br>Ensure that the Lambda function returns unique record IDs for<br>each record."<br>For more information, see [Required parameters for data transformation](data-transformation-status-model.md "data-transformation-status-model.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `Lambda.MissingRecordId`                      | "One or more record IDs were not returned. Ensure that the<br>Lambda function returns all received record IDs."<br>For more information, see [Required parameters for data transformation](data-transformation-status-model.md "data-transformation-status-model.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | `Lambda.ResourceNotFound`                     | "The specified Lambda function does not exist. Use a<br>different function that does exist."                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | `Lambda.InvalidSubnetIDException`             | "The specified subnet ID in the Lambda function VPC<br>configuration is invalid. Ensure that the subnet ID is<br>valid."                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | `Lambda.InvalidSecurityGroupIDException`      | "The specified security group ID in the Lambda function VPC<br>configuration is invalid. Ensure that the security group ID<br>is valid."                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
@@ -372,9 +349,7 @@ Amazon Data Firehose can send the following Kinesis invocation errors to CloudWa
 | `Kinesis.KMS.InvalidStateException` | "Firehose is unable to read from the source Kinesis Stream because the KMS key used to encrypt it is in an invalid state."                                                                                                                          |
 | `Kinesis.KMS.NotFoundException`     | "Firehose is unable to read from the source Kinesis Stream because the KMS key used to encrypt it was not found."                                                                                                                                   |
 
-### Kinesis DirectPut invocation
-
-errors
+### Kinesis DirectPut invocation errors
 
 Amazon Data Firehose can send the following Kinesis DirectPut invocation errors to CloudWatch Logs.
 
@@ -409,9 +384,7 @@ Amazon Data Firehose can send the following AWS Glue invocation errors to CloudW
 | `DataFirehose.InternalError`                    | "Timed out while retrieving table from Glue. If you have a large number of Glue table versions, please add 'glue:GetTableVersion' permission (recommended) or delete unused table versions. If you do not have a large number of tables in Glue, please contact AWS Support." |
 | `DataFormatConversion.GlueEncryptionException`  | "There was an error retrieving the master key. Ensure that the key exists and state is correct."                                                                                                                                                                              |
 
-### DataFormatConversion invocation
-
-errors
+### DataFormatConversion invocation errors
 
 Amazon Data Firehose can send the following DataFormatConversion invocation errors to CloudWatch Logs.
 

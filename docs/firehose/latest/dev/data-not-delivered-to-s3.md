@@ -4,19 +4,15 @@ Check the following if data is not delivered to your Amazon Simple Storage Servi
 
 - Check the Firehose `IncomingBytes` and `IncomingRecords`
   metrics to make sure that data is sent to your Firehose stream successfully. For more
-  information, see [Monitor Amazon Data Firehose with
-  CloudWatch metrics](monitoring-with-cloudwatch-metrics.md "monitoring-with-cloudwatch-metrics.md").
+  information, see [Monitor Amazon Data Firehose with CloudWatch metrics](monitoring-with-cloudwatch-metrics.md "monitoring-with-cloudwatch-metrics.md").
 - If data transformation with Lambda is enabled, check the Firehose
   `ExecuteProcessingSuccess` metric to make sure that Firehose has
-  tried to invoke your Lambda function. For more information, see [Monitor Amazon Data Firehose with
-  CloudWatch metrics](monitoring-with-cloudwatch-metrics.md "monitoring-with-cloudwatch-metrics.md").
+  tried to invoke your Lambda function. For more information, see [Monitor Amazon Data Firehose with CloudWatch metrics](monitoring-with-cloudwatch-metrics.md "monitoring-with-cloudwatch-metrics.md").
 - Check the Firehose `DeliveryToS3.Success` metric to make sure that
   Firehose has tried putting data to your Amazon S3 bucket. For more information, see
-  [Monitor Amazon Data Firehose with
-  CloudWatch metrics](monitoring-with-cloudwatch-metrics.md "monitoring-with-cloudwatch-metrics.md").
+  [Monitor Amazon Data Firehose with CloudWatch metrics](monitoring-with-cloudwatch-metrics.md "monitoring-with-cloudwatch-metrics.md").
 - Enable error logging if it is not already enabled, and check error logs for
-  delivery failure. For more information, see [Monitor Amazon Data Firehose Using
-  CloudWatch Logs](monitoring-with-cloudwatch-logs.md "monitoring-with-cloudwatch-logs.md").
+  delivery failure. For more information, see [Monitor Amazon Data Firehose Using CloudWatch Logs](monitoring-with-cloudwatch-logs.md "monitoring-with-cloudwatch-logs.md").
 - If you see an error message in the log saying _“Firehose encountered InternalServerError when calling Amazon S3 service. The operation
   will be retried; if the error persists, please contact S3 for resolution.”_, it could be due to the significant increase in request
   rates on a single partition in S3. You can optimize S3 prefix design patterns to mitigate the issue. For more information, see

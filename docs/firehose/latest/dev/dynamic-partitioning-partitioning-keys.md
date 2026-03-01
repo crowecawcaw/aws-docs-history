@@ -25,9 +25,7 @@ When you enable dynamic partitioning, you must configure at least one of these
 methods to partition your data. You can configure either of these methods to specify
 your partitioning keys or both of them at the same time.
 
-## Create partitioning keys with inline
-
-parsing
+## Create partitioning keys with inline parsing
 
 To configure inline parsing as the dynamic partitioning method for your streaming
 data, you must choose data record parameters to be used as partitioning keys and
@@ -75,9 +73,7 @@ parameters to jq expressions:
 At runtime, Firehose uses the right column above to evaluate the parameters based on
 the data in each record.
 
-## Create partitioning keys with an
-
-AWS Lambda function
+## Create partitioning keys with an AWS Lambda function
 
 For compressed or encrypted data records, or data that is in any file format other
 than JSON, you can use the integrated AWS Lambda function with your own custom code

@@ -13,9 +13,7 @@ command line interface or an API, use a FIPS endpoint. For more information abou
 available FIPS endpoints, see [Federal
 Information Processing Standard (FIPS) 140-2](https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/compliance/fips/").
 
-## Server-side encryption with
-
-Kinesis Data Streams
+## Server-side encryption with Kinesis Data Streams
 
 When you send data from your data producers to your data stream, Kinesis Data Streams encrypts your
 data using an AWS Key Management Service (AWS KMS) key before storing the data at rest. When your
@@ -27,9 +25,7 @@ unencrypted data at rest.
 For information about how to enable server-side encryption for Kinesis Data Streams, see [Using Server-Side Encryption](../../../streams/latest/dev/server-side-encryption.md "../../../streams/latest/dev/server-side-encryption.md")
 in the _Amazon Kinesis Data Streams Developer Guide_.
 
-## Server-side encryption with Direct PUT or other
-
-data sources
+## Server-side encryption with Direct PUT or other data sources
 
 If you send data to your Firehose stream using [PutRecord](../APIReference/API_PutRecord.md "../APIReference/API_PutRecord.md") or
 [PutRecordBatch](../APIReference/API_PutRecordBatch.md "../APIReference/API_PutRecordBatch.md"), or if you send the data using AWS IoT, Amazon CloudWatch Logs, or CloudWatch Events,
@@ -39,6 +35,8 @@ To stop server-side-encryption, use the [StopDeliveryStreamEncryption](../APIRef
 
 You can also enable SSE when you create the Firehose stream. To do that, specify
 [DeliveryStreamEncryptionConfigurationInput](../APIReference/API_DeliveryStreamEncryptionConfigurationInput.md "../APIReference/API_DeliveryStreamEncryptionConfigurationInput.md") when you invoke [CreateDeliveryStream](../APIReference/API_CreateDeliveryStream.md "../APIReference/API_CreateDeliveryStream.md").
+
+To successfully use `CUSTOMER_MANAGED_CMK`, both the caller's IAM policy and the KMS key policy must allow `kms:GenerateDataKey` and `kms:Decrypt` operations. Firehose validates these permissions when you call PutRecord or PutRecordBatch with `CUSTOMER_MANAGED_CMK` encryption. Additionally, `kms:CreateGrant` permission is required when calling CreateDeliveryStream or StartDeliveryStreamEncryption with `CUSTOMER_MANAGED_CMK` encryption.
 
 When the CMK is of type `CUSTOMER_MANAGED_CMK`, if the Amazon Data Firehose service is
 unable to decrypt records because of a `KMSNotFoundException`, a
@@ -54,8 +52,7 @@ four CloudWatch metrics that you can use to track the four AWS KMS exceptions:
 - `KMSKeyInvalidState`
 - `KMSKeyNotFound`
 
-For more information about these four metrics, see [Monitor Amazon Data Firehose with
-CloudWatch metrics](monitoring-with-cloudwatch-metrics.md "monitoring-with-cloudwatch-metrics.md").
+For more information about these four metrics, see [Monitor Amazon Data Firehose with CloudWatch metrics](monitoring-with-cloudwatch-metrics.md "monitoring-with-cloudwatch-metrics.md").
 
 ###### Important
 

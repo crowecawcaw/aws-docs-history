@@ -1,6 +1,4 @@
-# Understand HTTP endpoint delivery request and
-
-response specifications
+# Understand HTTP endpoint delivery request and response specifications
 
 For Amazon Data Firehose to successfully deliver data to custom HTTP endpoints, these
 endpoints must accept requests and send responses using certain Amazon Data Firehose

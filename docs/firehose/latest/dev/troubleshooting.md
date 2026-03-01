@@ -6,8 +6,7 @@ successfully, Firehose backs up the data to the configured S3 backup bucket. If 
 is Amazon S3 and delivery fails or if delivery to the backup S3 bucket fails, Firehose keeps
 retrying until the retention period ends.
 
-For information about tracking delivery errors using CloudWatch, see [Monitor Amazon Data Firehose Using
-CloudWatch Logs](monitoring-with-cloudwatch-logs.md "monitoring-with-cloudwatch-logs.md").
+For information about tracking delivery errors using CloudWatch, see [Monitor Amazon Data Firehose Using CloudWatch Logs](monitoring-with-cloudwatch-logs.md "monitoring-with-cloudwatch-logs.md").
 
 Direct PUTFor `DirectPut` Firehose streams, Firehose retains the records for 24 hours. For a
 Firehose stream whose data source is a Kinesis data stream, you can change the retention period
