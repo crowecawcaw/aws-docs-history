@@ -1,6 +1,4 @@
-# List the attributes of an AWS CloudHSM key
-
-using CMU
+# List the attributes of an AWS CloudHSM key using CMU
 
 Use the **listAttributes** command in the AWS CloudHSM cloudhsm_mgmt_util (CMU) to list the
 attributes of an AWS CloudHSM key and the constants that represent them. You use these constants to
@@ -13,9 +11,7 @@ Before you run any key_mgmt_util command, you must [start
 key_mgmt_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user
 (CU).
 
-## User
-
-type
+## User type
 
 The following users can run this command.
 

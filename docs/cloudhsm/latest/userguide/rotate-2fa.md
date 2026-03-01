@@ -35,5 +35,4 @@ information, see [Configuration reference for 2FA with AWS CloudHSM Management U
 ###### Note
 
 The cluster uses the same key for quorum authentication and 2FA. If you are using quorum
-authentication or plan to use quorum authentication, see [Quorum authentication and 2FA in AWS CloudHSM clusters using AWS CloudHSM
-Management Utility](quorum-2fa.md "quorum-2fa.md").
+authentication or plan to use quorum authentication, see [Quorum authentication and 2FA in AWS CloudHSM clusters using AWS CloudHSM Management Utility](quorum-2fa.md "quorum-2fa.md").

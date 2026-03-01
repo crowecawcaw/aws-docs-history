@@ -218,9 +218,7 @@ Client SDK 5.17.0 introduces new features and improvements across multiple compo
 ###### CloudHSM CLI
 
 - Added Ed25519 curve support to EC key generation for non-FIPS hsm2m.medium types.
-- Added support for EdDSA (Edwards-curve Digital Signature Algorithm) signing and verification in CloudHSM CLI. For more information, see [Generate a signature with the HashEdDSA mechanism in
-  CloudHSM CLI](cloudhsm_cli-crypto-sign-ed25519ph.md "cloudhsm_cli-crypto-sign-ed25519ph.md") and [Verify a signature signed with the HashEdDSA
-  mechanism in CloudHSM CLI](cloudhsm_cli-crypto-verify-ed25519ph.md "cloudhsm_cli-crypto-verify-ed25519ph.md").
+- Added support for EdDSA (Edwards-curve Digital Signature Algorithm) signing and verification in CloudHSM CLI. For more information, see [Generate a signature with the HashEdDSA mechanism in CloudHSM CLI](cloudhsm_cli-crypto-sign-ed25519ph.md "cloudhsm_cli-crypto-sign-ed25519ph.md") and [Verify a signature signed with the HashEdDSA mechanism in CloudHSM CLI](cloudhsm_cli-crypto-verify-ed25519ph.md "cloudhsm_cli-crypto-verify-ed25519ph.md").
 
 ###### OpenSSL Provider
 

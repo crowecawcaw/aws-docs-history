@@ -1,6 +1,4 @@
-# Install the OpenSSL Dynamic Engine for AWS CloudHSM
-
-Client SDK 5
+# Install the OpenSSL Dynamic Engine for AWS CloudHSM Client SDK 5
 
 Use the following sections to install the OpenSSL Dynamic Engine for AWS CloudHSM Client SDK 5.
 

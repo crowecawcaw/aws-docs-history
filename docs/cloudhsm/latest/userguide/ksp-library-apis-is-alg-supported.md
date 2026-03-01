@@ -1,6 +1,4 @@
-# NCryptIsAlgSupported with
-
-Key storage provider (KSP)
+# NCryptIsAlgSupported with Key storage provider (KSP)
 
 NCryptIsAlgSupported function determines if Key Storage Provider (KSP) supports a specific cryptographic
 algorithm.

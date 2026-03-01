@@ -1,6 +1,4 @@
-# Code samples for the PKCS #11 library for AWS CloudHSM
-
-Client SDK 5
+# Code samples for the PKCS #11 library for AWS CloudHSM Client SDK 5
 
 The code samples on GitHub show you how to accomplish basic tasks using the PKCS #11 library for
 AWS CloudHSM Client SDK 5.

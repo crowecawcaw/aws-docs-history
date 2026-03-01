@@ -29,7 +29,5 @@ Each service type is further broken down into a qualifying service name, which c
 
 ## Related topics
 
-- [Set up quorum authentication for AWS CloudHSM
-  admins using CloudHSM CLI](quorum-auth-chsm-cli-first-time.md "quorum-auth-chsm-cli-first-time.md")
-- [Manage quorum authentication (M of N access control) using
-  CloudHSM CLI](quorum-auth-chsm-cli.md "quorum-auth-chsm-cli.md")
+- [Set up quorum authentication for AWS CloudHSM admins using CloudHSM CLI](quorum-auth-chsm-cli-first-time.md "quorum-auth-chsm-cli-first-time.md")
+- [Manage quorum authentication (M of N access control) using CloudHSM CLI](quorum-auth-chsm-cli.md "quorum-auth-chsm-cli.md")

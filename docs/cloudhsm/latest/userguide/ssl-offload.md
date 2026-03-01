@@ -17,8 +17,7 @@ web server software
 ###### Topics
 
 - [How SSL/TLS offload with AWS CloudHSM works](ssl-offload-overview.md "ssl-offload-overview.md")
-- [AWS CloudHSM SSL/TLS offload on Linux using NGINX or
-  Apache with OpenSSL](third-offload-linux-openssl.md "third-offload-linux-openssl.md")
+- [AWS CloudHSM SSL/TLS offload on Linux using NGINX or Apache with OpenSSL](third-offload-linux-openssl.md "third-offload-linux-openssl.md")
 - [AWS CloudHSM SSL/TLS offload on Linux using NGINX or HAProxy with OpenSSL Provider](third-offload-linux-openssl-provider.md "third-offload-linux-openssl-provider.md")
 - [AWS CloudHSM SSL/TLS offload on Linux using Tomcat with JSSE](third-offload-linux-jsse.md "third-offload-linux-jsse.md")
 - [AWS CloudHSM SSL/TLS offload on Windows using IIS with KSP](ssl-offload-windows.md "ssl-offload-windows.md")

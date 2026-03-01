@@ -4,32 +4,23 @@ These are the known issues for OpenSSL Dynamic Engine for AWS CloudHSM.
 
 ###### Topics
 
-- [Issue: You cannot install AWS CloudHSM OpenSSL Dynamic Engine on RHEL 6 and
-  CentOS6](#ki-openssl-1 "#ki-openssl-1")
-- [Issue: Only RSA offload to the HSM is supported by
-  default](#ki-openssl-2 "#ki-openssl-2")
-- [Issue: RSA encryption and decryption with OAEP padding using a
-  key on the HSM is not supported](#ki-openssl-3 "#ki-openssl-3")
-- [Issue: Only private key generation of RSA and ECC keys is
-  offloaded to the HSM](#ki-openssl-4 "#ki-openssl-4")
-- [Issue: You cannot install OpenSSL Dynamic Engine for Client SDK 3 on RHEL
-  8, CentOS 8, or Ubuntu 18.04 LTS](#ki-openssl-5 "#ki-openssl-5")
+- [Issue: You cannot install AWS CloudHSM OpenSSL Dynamic Engine on RHEL 6 and CentOS6](#ki-openssl-1 "#ki-openssl-1")
+- [Issue: Only RSA offload to the HSM is supported by default](#ki-openssl-2 "#ki-openssl-2")
+- [Issue: RSA encryption and decryption with OAEP padding using a key on the HSM is not supported](#ki-openssl-3 "#ki-openssl-3")
+- [Issue: Only private key generation of RSA and ECC keys is offloaded to the HSM](#ki-openssl-4 "#ki-openssl-4")
+- [Issue: You cannot install OpenSSL Dynamic Engine for Client SDK 3 on RHEL 8, CentOS 8, or Ubuntu 18.04 LTS](#ki-openssl-5 "#ki-openssl-5")
 - [Issue: SHA-1 Sign and Verify deprecation on RHEL 9 (9.2+)](#ki-openssl-6 "#ki-openssl-6")
 - [Issue: AWS CloudHSM OpenSSL Dynamic Engine is incompatible with the FIPS provider for OpenSSL v3.x](#ki-openssl-7 "#ki-openssl-7")
 - [Issue: SSL/TLS offload fails with ECDSA cipher suites in TLS 1.0 and TLS 1.1 starting with SDK 5.16](#ki-openssl-8 "#ki-openssl-8")
 
-## Issue: You cannot install AWS CloudHSM OpenSSL Dynamic Engine on RHEL 6 and
-
-CentOS6
+## Issue: You cannot install AWS CloudHSM OpenSSL Dynamic Engine on RHEL 6 and CentOS6
 
 - **Impact:** The OpenSSL Dynamic Engine only [supports OpenSSL 1.0.2[f+]](client-supported-platforms.md "client-supported-platforms.md"). By
   default, RHEL 6 and CentOS 6 ship with OpenSSL 1.0.1.
 - **Workaround:** Upgrade the OpenSSL library on RHEL 6 and CentOS 6
   to version 1.0.2[f+].
 
-## Issue: Only RSA offload to the HSM is supported by
-
-default
+## Issue: Only RSA offload to the HSM is supported by default
 
 - **Impact:** To maximize performance, the SDK is not
   configured to offload additional functions such as random number generation or
@@ -40,9 +31,7 @@ default
   configure offload options through a configuration file. The update will be
   announced on the version history page once available.
 
-## Issue: RSA encryption and decryption with OAEP padding using a
-
-key on the HSM is not supported
+## Issue: RSA encryption and decryption with OAEP padding using a key on the HSM is not supported
 
 - **Impact:** Any call to RSA encryption and decryption with
   OAEP padding fails with a divide-by-zero error. This occurs because the OpenSSL
@@ -55,9 +44,7 @@ key on the HSM is not supported
   correctly offload this operation. The update will be announced on the version
   history page once available.
 
-## Issue: Only private key generation of RSA and ECC keys is
-
-offloaded to the HSM
+## Issue: Only private key generation of RSA and ECC keys is offloaded to the HSM
 
 For any other key type, the OpenSSL AWS CloudHSM engine is not used for
 call processing. The local OpenSSL engine is used instead. This generates a key locally
@@ -74,9 +61,7 @@ in software.
   supports. For all other key types, use PKCS #11 or JCE in applications, or use
   `key_mgmt_util` in the CLI.
 
-## Issue: You cannot install OpenSSL Dynamic Engine for Client SDK 3 on RHEL
-
-8, CentOS 8, or Ubuntu 18.04 LTS
+## Issue: You cannot install OpenSSL Dynamic Engine for Client SDK 3 on RHEL 8, CentOS 8, or Ubuntu 18.04 LTS
 
 - **Impact:** By default, RHEL 8, CentOS 8, and Ubuntu 18.04 LTS ship a
   version of OpenSSL that is not compatible with OpenSSL Dynamic Engine for

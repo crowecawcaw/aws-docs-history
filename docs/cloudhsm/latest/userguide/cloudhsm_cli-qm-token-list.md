@@ -4,9 +4,7 @@ Use the **quorum token-sign list** command in CloudHSM CLI to list all token-sig
 A token is bound to a user, so while you may see tokens from other users, you will only be able to use tokens associated with the currently logged in user.
 
 For more information about service types and names, see [Service names and types that support quorum authentication.](quorum-auth-chsm-cli-service-names.md "quorum-auth-chsm-cli-service-names.md")
-For more information about the content displayed from listed tokens, see [Key management and usage with quorum
-authentication enabled for AWS CloudHSM using CloudHSM CLI](key-quorum-auth-chsm-cli-crypto-user.md "key-quorum-auth-chsm-cli-crypto-user.md") for tokens associated with `key-management` and `key-usage` services, and see [User management with quorum authentication enabled
-for AWS CloudHSM using CloudHSM CLI](quorum-auth-chsm-cli-admin.md "quorum-auth-chsm-cli-admin.md") for tokens associated with `user`, `quorum`, or `cluster` service, respectively.
+For more information about the content displayed from listed tokens, see [Key management and usage with quorum authentication enabled for AWS CloudHSM using CloudHSM CLI](key-quorum-auth-chsm-cli-crypto-user.md "key-quorum-auth-chsm-cli-crypto-user.md") for tokens associated with `key-management` and `key-usage` services, and see [User management with quorum authentication enabled for AWS CloudHSM using CloudHSM CLI](quorum-auth-chsm-cli-admin.md "quorum-auth-chsm-cli-admin.md") for tokens associated with `user`, `quorum`, or `cluster` service, respectively.
 
 ## User type
 

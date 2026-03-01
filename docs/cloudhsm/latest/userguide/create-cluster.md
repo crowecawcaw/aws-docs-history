@@ -19,8 +19,7 @@ communication and connections with the HSM.
       + When you create a cluster, AWS CloudHSM creates a [service-linked
        role](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") named AWSServiceRoleForCloudHSM. If AWS CloudHSM cannot create the
        role or the role does not already exist, you may not be able to create a
-       cluster. For more information, see [Resolving AWS CloudHSM cluster creation
-       failures](troubleshooting-create-cluster.md "troubleshooting-create-cluster.md"). For more information
+       cluster. For more information, see [Resolving AWS CloudHSM cluster creation failures](troubleshooting-create-cluster.md "troubleshooting-create-cluster.md"). For more information
        about service–linked roles, see [Service-linked roles for AWS CloudHSM](service-linked-roles.md "service-linked-roles.md").
       + If you are using the [AWS CloudHSM dual-stack endpoint](../../../general/latest/gr/cloudhsm.md "../../../general/latest/gr/cloudhsm.md")
        (that is, cloudhsmv2.`<region>`.api.aws),
@@ -100,8 +99,7 @@ Console
 
 If your attempts to create a cluster fail, it might be related to problems
 with the AWS CloudHSM service-linked roles. For help on resolving the failure, see
-[Resolving AWS CloudHSM cluster creation
-failures](troubleshooting-create-cluster.md "troubleshooting-create-cluster.md").
+[Resolving AWS CloudHSM cluster creation failures](troubleshooting-create-cluster.md "troubleshooting-create-cluster.md").
 
 AWS CLI
 
@@ -159,8 +157,7 @@ except hsm1.medium.`--mode`:
 
 If your attempts to create a cluster fail, it might be related to problems
 with the AWS CloudHSM service-linked roles. For help on resolving the failure, see
-[Resolving AWS CloudHSM cluster creation
-failures](troubleshooting-create-cluster.md "troubleshooting-create-cluster.md").
+[Resolving AWS CloudHSM cluster creation failures](troubleshooting-create-cluster.md "troubleshooting-create-cluster.md").
 
 AWS CloudHSM API
 
@@ -174,5 +171,4 @@ AWS CloudHSM API
 
 If your attempts to create a cluster fail, it might be related to problems
 with the AWS CloudHSM service-linked roles. For help on resolving the failure, see
-[Resolving AWS CloudHSM cluster creation
-failures](troubleshooting-create-cluster.md "troubleshooting-create-cluster.md").
+[Resolving AWS CloudHSM cluster creation failures](troubleshooting-create-cluster.md "troubleshooting-create-cluster.md").

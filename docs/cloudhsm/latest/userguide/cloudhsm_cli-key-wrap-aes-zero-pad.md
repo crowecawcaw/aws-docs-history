@@ -1,6 +1,4 @@
-# Wrap a key with AES-ZERO-PAD using
-
-CloudHSM CLI
+# Wrap a key with AES-ZERO-PAD using CloudHSM CLI
 
 Use the **key wrap aes-zero-pad** command in CloudHSM CLI to wrap a payload key
 using an AES key on the hardware security module HSM) and the `AES-ZERO-PAD` wrapping
@@ -10,8 +8,7 @@ mechanism. The payload key’s `extractable` attribute must be set to
 Only the owner of a key, that is the crypto user (CU) who created the key, can wrap the key. Users who share the key can use the key in cryptographic operations.
 
 To use the **key wrap aes-zero-pad** command, you must first have an AES key in your AWS CloudHSM cluster.
-You can generate an AES key for wrapping using the [Generate a symmetric AES key with
-CloudHSM CLI](cloudhsm_cli-key-generate-symmetric-aes.md "cloudhsm_cli-key-generate-symmetric-aes.md")
+You can generate an AES key for wrapping using the [Generate a symmetric AES key with CloudHSM CLI](cloudhsm_cli-key-generate-symmetric-aes.md "cloudhsm_cli-key-generate-symmetric-aes.md")
 command with the `wrap` attribute set to `true`.
 
 ## User type

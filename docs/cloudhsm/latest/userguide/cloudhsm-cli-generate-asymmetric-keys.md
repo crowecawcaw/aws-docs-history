@@ -1,9 +1,6 @@
-# Generate asymmetric keys using
+# Generate asymmetric keys using CloudHSM CLI
 
-CloudHSM CLI
-
-Use the commands listed in **[The generate-asymmetric-pair
-category in CloudHSM CLI](cloudhsm_cli-key-generate-asymmetric-pair.md "cloudhsm_cli-key-generate-asymmetric-pair.md")** to generate
+Use the commands listed in **[The generate-asymmetric-pair category in CloudHSM CLI](cloudhsm_cli-key-generate-asymmetric-pair.md "cloudhsm_cli-key-generate-asymmetric-pair.md")** to generate
 asymmetric key pairs for AWS CloudHSM clusters.
 
 ## Generate an RSA key

@@ -1,6 +1,4 @@
-# Getting started with AWS CloudHSM Command Line
-
-Interface (CLI)
+# Getting started with AWS CloudHSM Command Line Interface (CLI)
 
 With the CloudHSM CLI Command Line Interface (CLI), you can manage users in your AWS CloudHSM cluster. Use
 this topic to get started with basic hardware security module (HSM) user management tasks, such

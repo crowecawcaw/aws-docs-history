@@ -1,6 +1,4 @@
-# Generate ECC (elliptic curve cryptography) key
-
-pairs using the AWS CloudHSM KMU
+# Generate ECC (elliptic curve cryptography) key pairs using the AWS CloudHSM KMU
 
 To generate an ECC key pair for AWS CloudHSM, use the [genECCKeyPair](key_mgmt_util-genECCKeyPair.md "key_mgmt_util-genECCKeyPair.md") command in AWS CloudHSM key_mgmt_util. To see
 all available options, including a list of the supported elliptic curves, use the

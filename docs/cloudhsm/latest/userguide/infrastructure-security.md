@@ -19,8 +19,7 @@ subnet so that you can interact with your HSMs. For more information, see [AWS C
 
 AWS CloudHSM creates a security group that allows inbound and outbound communication between
 HSMs in your cluster. You can use this security group to enable your EC2 instances to
-communicate with the HSMs in your cluster. For more information, see [Configure the Client Amazon EC2 instance security
-groups for AWS CloudHSM](configure-sg-client-instance.md "configure-sg-client-instance.md").
+communicate with the HSMs in your cluster. For more information, see [Configure the Client Amazon EC2 instance security groups for AWS CloudHSM](configure-sg-client-instance.md "configure-sg-client-instance.md").
 
 ## Authorization of users
 

@@ -1,6 +1,4 @@
-# Token file reference for MFA with
-
-CloudHSM CLI
+# Token file reference for MFA with CloudHSM CLI
 
 The token file generated when either registering a multi-factor authentication (MFA)
 public key or when attempting to login to the CloudHSM CLI using MFA consists of the

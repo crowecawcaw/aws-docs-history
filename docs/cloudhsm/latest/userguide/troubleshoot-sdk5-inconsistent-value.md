@@ -1,6 +1,4 @@
-# AWS CloudHSM Client SDK 5 user contains
-
-inconsistent values
+# AWS CloudHSM Client SDK 5 user contains inconsistent values
 
 The `user list` command in AWS CloudHSM Client SDK 5 returns a list of all users, and user properties, in your cluster.
 If any of a user’s properties have the value "**inconsistent**", this user is not synchronized across your cluster.

@@ -1,6 +1,4 @@
-# Unwrap a key with AES-GCM using
-
-CloudHSM CLI
+# Unwrap a key with AES-GCM using CloudHSM CLI
 
 Use the **key unwrap aes-gcm** command in CloudHSM CLI to unwrap a payload key
 into the cluster using the AES wrapping key and the `AES-GCM` unwrapping

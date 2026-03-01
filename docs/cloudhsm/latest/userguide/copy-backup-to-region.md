@@ -1,6 +1,4 @@
-# Copying AWS CloudHSM cluster backups across AWS
-
-Regions
+# Copying AWS CloudHSM cluster backups across AWS Regions
 
 You can copy AWS CloudHSM cluster backups across Regions for many reasons, including
 cross-region resilience, global workloads, and [disaster

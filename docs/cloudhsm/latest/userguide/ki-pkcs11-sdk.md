@@ -4,32 +4,20 @@ The following issues impact the PKCS #11 library for AWS CloudHSM.
 
 ###### Topics
 
-- [Issue: AES key wrap in version 3.0.0 of the PKCS #11 library does not validate
-  IVs before use](#ki-pkcs11-1 "#ki-pkcs11-1")
-- [Issue: PKCS#11 SDK 2.0.4 and earlier versions always used the default
-  IV of 0xA6A6A6A6A6A6A6A6 for AES key wrap and unwrap](#ki-pkcs11-2 "#ki-pkcs11-2")
-- [Issue: The CKA_DERIVE attribute was not supported
-  and was not handled](#ki-pkcs11-3 "#ki-pkcs11-3")
-- [Issue: The CKA_SENSITIVE attribute was not supported
-  and was not handled](#ki-pkcs11-4 "#ki-pkcs11-4")
+- [Issue: AES key wrap in version 3.0.0 of the PKCS #11 library does not validate IVs before use](#ki-pkcs11-1 "#ki-pkcs11-1")
+- [Issue: PKCS#11 SDK 2.0.4 and earlier versions always used the default IV of 0xA6A6A6A6A6A6A6A6 for AES key wrap and unwrap](#ki-pkcs11-2 "#ki-pkcs11-2")
+- [Issue: The CKA_DERIVE attribute was not supported and was not handled](#ki-pkcs11-3 "#ki-pkcs11-3")
+- [Issue: The CKA_SENSITIVE attribute was not supported and was not handled](#ki-pkcs11-4 "#ki-pkcs11-4")
 - [Issue: Multipart hashing and signing are not supported](#ki-pkcs11-5 "#ki-pkcs11-5")
-- [Issue: C_GenerateKeyPair does not handle
-  CKA_MODULUS_BITS or CKA_PUBLIC_EXPONENT in the private
-  template in a manner that is compliant with standards](#ki-pkcs11-6 "#ki-pkcs11-6")
-- [Issue: Buffers for the C_Encrypt and
-  C_Decrypt API operations cannot exceed 16 KB when using the
-  CKM_AES_GCM mechanism](#ki-pkcs11-8 "#ki-pkcs11-8")
-- [Issue: Elliptic-curve Diffie-Hellman (ECDH) key derivation is
-  executed partially within the HSM](#ki-pkcs11-9 "#ki-pkcs11-9")
-- [Issue: Verification of secp256k1 signatures fails on EL6
-  platforms such as CentOS6 and RHEL 6](#ki-pkcs11-10 "#ki-pkcs11-10")
+- [Issue: C_GenerateKeyPair does not handle CKA_MODULUS_BITS or CKA_PUBLIC_EXPONENT in the private template in a manner that is compliant with standards](#ki-pkcs11-6 "#ki-pkcs11-6")
+- [Issue: Buffers for the C_Encrypt and C_Decrypt API operations cannot exceed 16 KB when using the CKM_AES_GCM mechanism](#ki-pkcs11-8 "#ki-pkcs11-8")
+- [Issue: Elliptic-curve Diffie-Hellman (ECDH) key derivation is executed partially within the HSM](#ki-pkcs11-9 "#ki-pkcs11-9")
+- [Issue: Verification of secp256k1 signatures fails on EL6 platforms such as CentOS6 and RHEL 6](#ki-pkcs11-10 "#ki-pkcs11-10")
 - [Issue: Incorrect sequence of function calls gives undefined results instead of failing](#ki-pkcs11-11 "#ki-pkcs11-11")
 - [Issue: Read Only Session is not supported in SDK 5](#ki-pkcs11-13 "#ki-pkcs11-13")
 - [Issue: cryptoki.h header file is Windows-only](#ki-pkcs11-14 "#ki-pkcs11-14")
 
-## Issue: AES key wrap in version 3.0.0 of the PKCS #11 library does not validate
-
-IVs before use
+## Issue: AES key wrap in version 3.0.0 of the PKCS #11 library does not validate IVs before use
 
 If you specify an IV shorter than 8 bytes in length, it is padded with
 unpredictable bytes before use.
@@ -54,9 +42,7 @@ This impacts `C_WrapKey` with `CKM_AES_KEY_WRAP` mechanism only.
   PKCS #11 library. To wrap keys using AES key wrap, specify an IV that is NULL or 8 bytes
   long.
 
-## Issue: PKCS#11 SDK 2.0.4 and earlier versions always used the default
-
-IV of `0xA6A6A6A6A6A6A6A6` for AES key wrap and unwrap
+## Issue: PKCS#11 SDK 2.0.4 and earlier versions always used the default IV of `0xA6A6A6A6A6A6A6A6` for AES key wrap and unwrap
 
 User-provided IVs were silently ignored.
 
@@ -79,9 +65,7 @@ This impacts `C_WrapKey` with `CKM_AES_KEY_WRAP` mechanism only.
   unwrapping code to pass a NULL IV, or specify the default IV of
   `0xA6A6A6A6A6A6A6A6`.
 
-## Issue: The `CKA_DERIVE` attribute was not supported
-
-and was not handled
+## Issue: The `CKA_DERIVE` attribute was not supported and was not handled
 
 - **Resolution status:** We have implemented fixes to accept
   `CKA_DERIVE` if it is set to `FALSE`.
@@ -89,9 +73,7 @@ and was not handled
   we begin to add key derivation function support to AWS CloudHSM. You must update your
   client and SDK(s) to version 1.1.1 or higher to benefit from the fix.
 
-## Issue: The `CKA_SENSITIVE` attribute was not supported
-
-and was not handled
+## Issue: The `CKA_SENSITIVE` attribute was not supported and was not handled
 
 - **Resolution status:** We have implemented fixes to accept
   and properly honor the `CKA_SENSITIVE` attribute. You must update
@@ -110,10 +92,7 @@ and was not handled
   to correctly implement multipart hashing. Updates will be announced in the AWS CloudHSM
   forum and on the version history page.
 
-## Issue: `C_GenerateKeyPair` does not handle
-
-`CKA_MODULUS_BITS` or `CKA_PUBLIC_EXPONENT` in the private
-template in a manner that is compliant with standards
+## Issue: `C_GenerateKeyPair` does not handle `CKA_MODULUS_BITS` or `CKA_PUBLIC_EXPONENT` in the private template in a manner that is compliant with standards
 
 - **Impact:** `C_GenerateKeyPair` should return
   `CKA_TEMPLATE_INCONSISTENT` when the private template contains
@@ -126,10 +105,7 @@ template in a manner that is compliant with standards
   the proper error message when an incorrect private key template is used. The
   updated PKCS #11 library will be announced on the version history page.
 
-## Issue: Buffers for the `C_Encrypt` and
-
-`C_Decrypt` API operations cannot exceed 16 KB when using the
-`CKM_AES_GCM` mechanism
+## Issue: Buffers for the `C_Encrypt` and `C_Decrypt` API operations cannot exceed 16 KB when using the `CKM_AES_GCM` mechanism
 
 AWS CloudHSM does not support multipart AES-GCM encryption.
 
@@ -149,9 +125,7 @@ AWS CloudHSM does not support multipart AES-GCM encryption.
   to support larger buffers without relying on multipart encryption. Updates will
   be announced in the AWS CloudHSM forum and on the version history page.
 
-## Issue: Elliptic-curve Diffie-Hellman (ECDH) key derivation is
-
-executed partially within the HSM
+## Issue: Elliptic-curve Diffie-Hellman (ECDH) key derivation is executed partially within the HSM
 
 Your EC private key remains within the HSM at all
 times, but the key derivation process is performed in multiple steps. As a result,
@@ -168,9 +142,7 @@ intermediate results from each step are available on the client.
 - **Resolution status:** SDK 5.16 now supports ECDH with Key Derivation
   which is performed entirely within the HSM.
 
-## Issue: Verification of secp256k1 signatures fails on EL6
-
-platforms such as CentOS6 and RHEL 6
+## Issue: Verification of secp256k1 signatures fails on EL6 platforms such as CentOS6 and RHEL 6
 
 This happens because the CloudHSM PKCS#11 library avoids
 a network call during initialization of the verification operation by using OpenSSL to

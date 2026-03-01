@@ -1,6 +1,4 @@
-# Supported AWS CloudHSM service names and types
-
-for quorum authentication with CloudHSM CLI
+# Supported AWS CloudHSM service names and types for quorum authentication with CloudHSM CLI
 
 **Admin Services**: Quorum authentication is used for admin privileged services like creating users, deleting users,
 changing user passwords, setting quorum values, and deactivating quorum and MFA capabilities.

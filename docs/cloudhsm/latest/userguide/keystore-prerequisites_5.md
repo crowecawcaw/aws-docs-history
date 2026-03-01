@@ -1,6 +1,4 @@
-# Prerequisites for integrating AWS CloudHSM with Java
-
-Keytool and Jarsigner using Client SDK 5
+# Prerequisites for integrating AWS CloudHSM with Java Keytool and Jarsigner using Client SDK 5
 
 To use the AWS CloudHSM key store, you must first initialize and configure the AWS CloudHSM JCE SDK. Use
 the following steps to do so.
@@ -10,9 +8,7 @@ the following steps to do so.
 To install the JCE, including the AWS CloudHSM client prerequisites, follow the steps for
 [installing the Java library](java-library-install_5.md "java-library-install_5.md").
 
-## Step 2: Add HSM login credentials to environment
-
-variables
+## Step 2: Add HSM login credentials to environment variables
 
 Set up environment variables to contain your HSM login credentials.
 

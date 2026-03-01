@@ -1,6 +1,4 @@
-# Migrate your AWS CloudHSM PKCS #11 library from Client SDK 3 to
-
-Client SDK 5
+# Migrate your AWS CloudHSM PKCS #11 library from Client SDK 3 to Client SDK 5
 
 Use this topic to migrate your AWS CloudHSM [PKCS #11 library](pkcs11-library.md "pkcs11-library.md") from
 Client SDK 3 to Client SDK 5. For benefits on migrating, see [Benefits of AWS CloudHSM Client SDK 5](client-sdk-5-benefits.md "client-sdk-5-benefits.md").
@@ -8,8 +6,7 @@ Client SDK 3 to Client SDK 5. For benefits on migrating, see [Benefits of AWS Cl
 In AWS CloudHSM, customer applications perform cryptographic operations using the AWS CloudHSM Client Software Development Kit (SDK).
 Client SDK 5 is the primary SDK that continues to have new features and platform support added to it.
 
-To review migration instructions for all providers, see [Migrating from AWS CloudHSM Client SDK 3 to
-Client SDK 5](client-sdk-migration.md "client-sdk-migration.md").
+To review migration instructions for all providers, see [Migrating from AWS CloudHSM Client SDK 3 to Client SDK 5](client-sdk-migration.md "client-sdk-migration.md").
 
 ## Prepare by addressing breaking changes
 
@@ -164,7 +161,7 @@ Ubuntu 18.04 LTS
 
 ###### Note
 
-Custom configurations need to be enabled again. 4. Install the Client SDK PKCS #11 library by following the steps in [Install the PKCS #11 library for AWS CloudHSM Client SDK 5](pkcs11-library-install.md "pkcs11-library-install.md") . 5. Client SDK 5 introduces a new configuration file format and command-line bootstrapping tool. To bootstrap your Client SDK 5 PKCS #11 library, follow the instructions listed in the user guide under
+Custom configurations need to be enabled again. 4. Install the Client SDK PKCS #11 library by following the steps in [Install the PKCS #11 library for AWS CloudHSM Client SDK 5](pkcs11-library-install.md "pkcs11-library-install.md"). 5. Client SDK 5 introduces a new configuration file format and command-line bootstrapping tool. To bootstrap your Client SDK 5 PKCS #11 library, follow the instructions listed in the user guide under
 [Bootstrap the Client SDK](cluster-connect.md#connect-how-to "cluster-connect.md#connect-how-to"). 6. In your development environment, test your application. Make updates to your existing code to resolve your breaking changes before your final migration.
 
 ## Related topics

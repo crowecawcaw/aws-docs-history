@@ -125,8 +125,7 @@ Required: No
 Flag to disable key availability quorum. Use this flag to indicate AWS CloudHSM should
 disable key availability quorum and you can use keys that exist on only one HSM in the
 cluster. For more information about using this flag to set key availability quorum,
-see [Managing client key durability
-settings](working-client-sync.md#setting-file-sdk8 "working-client-sync.md#setting-file-sdk8").
+see [Managing client key durability settings](working-client-sync.md#setting-file-sdk8 "working-client-sync.md#setting-file-sdk8").
 
 Required: No
 
@@ -135,8 +134,7 @@ Required: No
 Flag to enable key availability quorum. Use this flag to indicate AWS CloudHSM should use
 key availability quorum and not allow you to use keys until those keys exist on two
 HSMs in the cluster. For more information about using this flag to set key
-availability quorum, see [Managing client key durability
-settings](working-client-sync.md#setting-file-sdk8 "working-client-sync.md#setting-file-sdk8").
+availability quorum, see [Managing client key durability settings](working-client-sync.md#setting-file-sdk8 "working-client-sync.md#setting-file-sdk8").
 
 Enabled by default.
 

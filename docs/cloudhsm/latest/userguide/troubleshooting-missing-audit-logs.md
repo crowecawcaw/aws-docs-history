@@ -1,6 +1,4 @@
-# Missing AWS CloudHSM audit logs in
-
-CloudWatch
+# Missing AWS CloudHSM audit logs in CloudWatch
 
 If you created an AWS CloudHSM cluster before January 20th, 2018, you will need to manually configure a
 [service-linked role](service-linked-roles.md "service-linked-roles.md") in order to enable the

@@ -5,14 +5,10 @@ commands that, when combined with the parent category, uses a chosen private key
 cluster to generate a signature. **crypto sign** has the following
 subcommands:
 
-- [Generate a signature with the ECDSA mechanism in
-  CloudHSM CLI](cloudhsm_cli-crypto-sign-ecdsa.md "cloudhsm_cli-crypto-sign-ecdsa.md")
-- [Generate a signature with the HashEdDSA mechanism in
-  CloudHSM CLI](cloudhsm_cli-crypto-sign-ed25519ph.md "cloudhsm_cli-crypto-sign-ed25519ph.md")
-- [Generate a signature with the RSA-PKCS
-  mechanism in CloudHSM CLI](cloudhsm_cli-crypto-sign-rsa-pkcs.md "cloudhsm_cli-crypto-sign-rsa-pkcs.md")
-- [Generate a signature with the
-  RSA-PKCS-PSS mechanism in CloudHSM CLI](cloudhsm_cli-crypto-sign-rsa-pkcs-pss.md "cloudhsm_cli-crypto-sign-rsa-pkcs-pss.md")
+- [Generate a signature with the ECDSA mechanism in CloudHSM CLI](cloudhsm_cli-crypto-sign-ecdsa.md "cloudhsm_cli-crypto-sign-ecdsa.md")
+- [Generate a signature with the HashEdDSA mechanism in CloudHSM CLI](cloudhsm_cli-crypto-sign-ed25519ph.md "cloudhsm_cli-crypto-sign-ed25519ph.md")
+- [Generate a signature with the RSA-PKCS mechanism in CloudHSM CLI](cloudhsm_cli-crypto-sign-rsa-pkcs.md "cloudhsm_cli-crypto-sign-rsa-pkcs.md")
+- [Generate a signature with the RSA-PKCS-PSS mechanism in CloudHSM CLI](cloudhsm_cli-crypto-sign-rsa-pkcs-pss.md "cloudhsm_cli-crypto-sign-rsa-pkcs-pss.md")
   To use **crypto sign**, you must have a private key in your HSM. You can generate a private key with the following commands:
 
 - [key generate-asymmetric-pair ec](cloudhsm_cli-key-generate-asymmetric-pair-ec.md "cloudhsm_cli-key-generate-asymmetric-pair-ec.md")

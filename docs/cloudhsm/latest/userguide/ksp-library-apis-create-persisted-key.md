@@ -1,6 +1,4 @@
-# NCryptCreatePersistedKey with
-
-Key storage provider (KSP)
+# NCryptCreatePersistedKey with Key storage provider (KSP)
 
 The `NCryptCreatePersistedKey` function creates a new key and stores it in the Key Storage Provider (KSP). You can use the [NCryptSetProperty](ksp-library-apis-set-property.md "ksp-library-apis-set-property.md") function to set its
 properties after creation. You must call [NCryptFinalizeKey](ksp-library-apis-finalize-key.md "ksp-library-apis-finalize-key.md") before you can use the key.

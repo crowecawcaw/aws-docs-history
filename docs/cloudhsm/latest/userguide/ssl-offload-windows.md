@@ -7,11 +7,9 @@ on a Windows web server.
 
 - [Overview](#ssl-offload-windows-overview "#ssl-offload-windows-overview")
 - [Step 1: Set up the prerequisites](#ssl-offload-prerequisites-windows "#ssl-offload-prerequisites-windows")
-- [Step 2: Create a certificate
-  signing request (CSR) and certificate](#ssl-offload-windows-create-csr-and-certificate "#ssl-offload-windows-create-csr-and-certificate")
+- [Step 2: Create a certificate signing request (CSR) and certificate](#ssl-offload-windows-create-csr-and-certificate "#ssl-offload-windows-create-csr-and-certificate")
 - [Step 3: Configure the web server](#ssl-offload-configure-web-server-windows "#ssl-offload-configure-web-server-windows")
-- [Step 4: Enable HTTPS
-  traffic and verify the certificate](#ssl-offload-enable-traffic-and-verify-certificate-windows "#ssl-offload-enable-traffic-and-verify-certificate-windows")
+- [Step 4: Enable HTTPS traffic and verify the certificate](#ssl-offload-enable-traffic-and-verify-certificate-windows "#ssl-offload-enable-traffic-and-verify-certificate-windows")
 
 ## Overview
 
@@ -114,8 +112,7 @@ Replace `<USERNAME>` and `<PASSWORD>` with the HSM credentials.
     **Install**.
 12. After the installation is complete, choose **Close**.
 
-After you complete these steps, go to [Step 2: Create a certificate
-signing request (CSR) and certificate](#ssl-offload-windows-create-csr-and-certificate "#ssl-offload-windows-create-csr-and-certificate").
+After you complete these steps, go to [Step 2: Create a certificate signing request (CSR) and certificate](#ssl-offload-windows-create-csr-and-certificate "#ssl-offload-windows-create-csr-and-certificate").
 
 ### Prerequisites for Client SDK 3
 
@@ -188,12 +185,9 @@ Replace `<USERNAME>` and `<PASSWORD>` with the HSM credentials.
     **Install**.
 12. After the installation is complete, choose **Close**.
 
-After you complete these steps, go to [Step 2: Create a certificate
-signing request (CSR) and certificate](#ssl-offload-windows-create-csr-and-certificate "#ssl-offload-windows-create-csr-and-certificate").
+After you complete these steps, go to [Step 2: Create a certificate signing request (CSR) and certificate](#ssl-offload-windows-create-csr-and-certificate "#ssl-offload-windows-create-csr-and-certificate").
 
-## Step 2: Create a certificate
-
-signing request (CSR) and certificate
+## Step 2: Create a certificate signing request (CSR) and certificate
 
 To enable HTTPS, your web server needs an SSL/TLS certificate and a corresponding private
 key. To use SSL/TLS offload with AWS CloudHSM, you store the private key in the HSM in your AWS CloudHSM
@@ -206,8 +200,7 @@ create a certificate signing request (CSR). Then you give the CSR to a certifica
 
 - [Create a CSR with Client SDK 5](#ssl-offload-windows-create-csr-new-version "#ssl-offload-windows-create-csr-new-version")
 - [Create a CSR with Client SDK 3](#ssl-offload-windows-create-csr-old-version "#ssl-offload-windows-create-csr-old-version")
-- [Get a signed certificate and import
-  it](#ssl-offload-windows-create-certificate "#ssl-offload-windows-create-certificate")
+- [Get a signed certificate and import it](#ssl-offload-windows-create-certificate "#ssl-offload-windows-create-certificate")
 
 ### Create a CSR with Client SDK 5
 
@@ -357,9 +350,7 @@ CertReq: Request Created`
 The `IISCertRequest.csr` file contains your CSR. You need this CSR
 to get a signed certificate.
 
-### Get a signed certificate and import
-
-it
+### Get a signed certificate and import it
 
 In a production environment, you typically use a certificate authority (CA) to create a
 certificate from a CSR. A CA is not necessary for a test environment. If you do use a CA, send
@@ -456,9 +447,7 @@ AWS CloudHSM.
 If you used a self-signed certificate to sign your CSR, you must first import the
 self-signed certificate into the Windows Trusted Root Certification Authorities.
 
-###### To import your self-signed certificate into the Windows Trusted Root Certification
-
-Authorities
+###### To import your self-signed certificate into the Windows Trusted Root Certification Authorities
 
 1. If you haven't already done so, connect to your Windows server. For more information,
    see [Connect to Your Instance](../../../AWSEC2/latest/WindowsGuide/EC2_GetStarted.md#ec2-connect-to-instance-windows "../../../AWSEC2/latest/WindowsGuide/EC2_GetStarted.md#ec2-connect-to-instance-windows") in the _Amazon EC2 User Guide_.
@@ -518,12 +507,9 @@ Authorities
 If you encounter an error during this certificate binding, restart your server and
 retry this step. 11. Choose **OK**.
 
-After you update your website's configuration, go to [Step 4: Enable HTTPS
-traffic and verify the certificate](#ssl-offload-enable-traffic-and-verify-certificate-windows "#ssl-offload-enable-traffic-and-verify-certificate-windows").
+After you update your website's configuration, go to [Step 4: Enable HTTPS traffic and verify the certificate](#ssl-offload-enable-traffic-and-verify-certificate-windows "#ssl-offload-enable-traffic-and-verify-certificate-windows").
 
-## Step 4: Enable HTTPS
-
-traffic and verify the certificate
+## Step 4: Enable HTTPS traffic and verify the certificate
 
 After you configure your web server for SSL/TLS offload with AWS CloudHSM, add your web server
 instance to a security group that allows inbound HTTPS traffic. This allows clients, such as web
@@ -533,14 +519,10 @@ SSL/TLS offload with AWS CloudHSM.
 
 ###### Topics
 
-- [Enable inbound HTTPS
-  connections](#ssl-offload-add-security-group-windows "#ssl-offload-add-security-group-windows")
-- [Verify that HTTPS uses the
-  certificate that you configured](#ssl-offload-verify-https-connection-windows "#ssl-offload-verify-https-connection-windows")
+- [Enable inbound HTTPS connections](#ssl-offload-add-security-group-windows "#ssl-offload-add-security-group-windows")
+- [Verify that HTTPS uses the certificate that you configured](#ssl-offload-verify-https-connection-windows "#ssl-offload-verify-https-connection-windows")
 
-### Enable inbound HTTPS
-
-connections
+### Enable inbound HTTPS connections
 
 To connect to your web server from a client (such as a web browser), create a security
 group that allows inbound HTTPS connections. Specifically, it should allow inbound TCP
@@ -568,9 +550,7 @@ connections on port 443. Assign this security group to your web server.
 8. For **Associated security groups**, select the search box and choose the security group that you created for HTTPS. Then choose **Add Security Groups**.
 9. Select **Save**.
 
-### Verify that HTTPS uses the
-
-certificate that you configured
+### Verify that HTTPS uses the certificate that you configured
 
 After you add the web server to a security group, you can verify that SSL/TLS offload is using your self-signed certificate.
 You can do this with a web browser or with a tool such as [OpenSSL s_client](https://www.openssl.org/docs/manmaster/man1/s_client.html "https://www.openssl.org/docs/manmaster/man1/s_client.html").

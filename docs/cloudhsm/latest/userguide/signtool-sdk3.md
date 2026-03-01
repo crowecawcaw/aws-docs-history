@@ -21,8 +21,7 @@ The following topics provide an overview of how to use SignTool with AWS CloudHS
 ###### Topics
 
 - [Step 1: Set up the prerequisites](#signtool-sdk3-prereqs "#signtool-sdk3-prereqs")
-- [Step 2: Create a signing
-  certificate](#signtool-sdk3-csr "#signtool-sdk3-csr")
+- [Step 2: Create a signing certificate](#signtool-sdk3-csr "#signtool-sdk3-csr")
 - [Step 3: Sign a file](#signtool-sdk3-sign "#signtool-sdk3-sign")
 
 ## Step 1: Set up the prerequisites
@@ -64,9 +63,7 @@ C:\Program Files (x86)\Windows Kits\`<SDK version>`\bin\`<version number>`\`<CPU
 
 You can now use the Microsoft Windows SDK, your AWS CloudHSM cluster, and your CA to [Create a Signing Certificate](#signtool-sdk3-csr "#signtool-sdk3-csr").
 
-## Step 2: Create a signing
-
-certificate
+## Step 2: Create a signing certificate
 
 Now that you've downloaded the Windows SDK on to your EC2 instance, you can use it to
 generate a certificate signing request (CSR). The CSR is an unsigned certificate that is
@@ -170,7 +167,7 @@ successful, PowerShell returns a success message.
 signtool.exe sign /v /fd sha256 /sha1 `<thumbprint>` /sm C:\Users\Administrator\Desktop\`<test>`.ps1
 ```
 
-![The .ps1 file was successfully signed.](images/signtool-last-command.png) 4. (Optional) To verify the signature on the file, use the following command:
+![The .ps1 file was successfully signed.](/images/cloudhsm/latest/userguide/images/signtool-last-command.png) 4. (Optional) To verify the signature on the file, use the following command:
 
 ```
 signtool.exe verify /v /pa C:\Users\Administrator\Desktop\`<test>`.ps1

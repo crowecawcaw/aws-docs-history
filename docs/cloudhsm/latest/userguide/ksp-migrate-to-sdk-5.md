@@ -1,6 +1,4 @@
-# Migrate your Key Storage Provider (KSP) from AWS CloudHSM Client SDK 3 to
-
-Client SDK 5
+# Migrate your Key Storage Provider (KSP) from AWS CloudHSM Client SDK 3 to Client SDK 5
 
 This topic explains how to migrate your [Key Storage Provider (KSP)](ksp-library.md "ksp-library.md") from
 AWS CloudHSM Client SDK 3 to Client SDK 5. The latest version of AWS CloudHSM Client SDK is 5.16. For information about migration benefits, see [Benefits of AWS CloudHSM Client SDK 5](client-sdk-5-benefits.md "client-sdk-5-benefits.md").
@@ -9,8 +7,7 @@ In AWS CloudHSM, you use the AWS CloudHSM Client Software Development Kit (SDK) 
 operations. Client SDK 5 is the primary SDK that receives new features and platform support
 updates.
 
-For migration instructions for all providers, see [Migrating from AWS CloudHSM Client SDK 3 to
-Client SDK 5](client-sdk-migration.md "client-sdk-migration.md").
+For migration instructions for all providers, see [Migrating from AWS CloudHSM Client SDK 3 to Client SDK 5](client-sdk-migration.md "client-sdk-migration.md").
 
 ## Migrate to Client SDK 5
 
@@ -25,17 +22,14 @@ Client SDK 5](client-sdk-migration.md "client-sdk-migration.md").
 3. Configure your Client SDK 5 Key Storage Provider (KSP) using the new configuration file format and
    command-line bootstrapping tool. For instructions, see [Bootstrap the Client SDK](cluster-connect.md#connect-how-to "cluster-connect.md#connect-how-to").
 4. Key Storage Provider (KSP) for AWS CloudHSM Client SDK 5 includes SDK3 compatibility mode to support key
-   reference files generated in SDK3. For more information, see [SDK3 compatibility mode for Key Storage Provider (KSP)
-   for AWS CloudHSM](ksp-library-configs-sdk3-compatibility-mode.md "ksp-library-configs-sdk3-compatibility-mode.md").
+   reference files generated in SDK3. For more information, see [SDK3 compatibility mode for Key Storage Provider (KSP) for AWS CloudHSM](ksp-library-configs-sdk3-compatibility-mode.md "ksp-library-configs-sdk3-compatibility-mode.md").
 
 ###### Note
 
 You must enable SDK3 compatibility mode when using Client SDK 3 generated key
 reference files with Client SDK 5.
 
-## Migrate to new Windows Server
-
-instances
+## Migrate to new Windows Server instances
 
 1. Complete all steps in [Migrate to
    Client SDK 5](#ksp-migrate-steps "#ksp-migrate-steps") on your new Windows Server instances.
@@ -297,8 +291,7 @@ Before completing the migration:
 
     1. Test your application in your development environment
     2. Update your code to resolve any breaking changes
-    3. For application-specific guidance, see [Integrating third-party applications with
-     AWS CloudHSM](third-party-applications.md "third-party-applications.md")
+    3. For application-specific guidance, see [Integrating third-party applications with AWS CloudHSM](third-party-applications.md "third-party-applications.md")
 
 ## Verify the migration
 

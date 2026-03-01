@@ -86,20 +86,16 @@ command or action, and the `Sequence No`, which indicates the order of events.
 
 ###### Topics
 
-- [Example: Initialize the first HSM in a
-  cluster](#example-audit-log-first-hsm "#example-audit-log-first-hsm")
+- [Example: Initialize the first HSM in a cluster](#example-audit-log-first-hsm "#example-audit-log-first-hsm")
 - [Login and logout events](#example-audit-log-login-logout "#example-audit-log-login-logout")
 - [Example: Create and delete users](#example-audit-log-first-hsm "#example-audit-log-first-hsm")
-- [Example: Create and delete a key
-  pair](#example-audit-log-manage-keys "#example-audit-log-manage-keys")
+- [Example: Create and delete a key pair](#example-audit-log-manage-keys "#example-audit-log-manage-keys")
 - [Example: Generate and synchronize a key](#audit-log-example-gen-key "#audit-log-example-gen-key")
 - [Example: Export a key](#audit-log-example-export-key "#audit-log-example-export-key")
 - [Example: Import a key](#audit-log-example-import-key "#audit-log-example-import-key")
 - [Example: Share and unshare a key](#audit-log-example-share-unshare-key "#audit-log-example-share-unshare-key")
 
-### Example: Initialize the first HSM in a
-
-cluster
+### Example: Initialize the first HSM in a cluster
 
 The audit log stream for the first HSM in each cluster differs significantly from the
 log streams of other HSMs in the cluster. The audit log for the first HSM in each cluster
@@ -353,9 +349,7 @@ User Name : alice
 User Type : CN_CRYPTO_OFFICER (2)
 ```
 
-### Example: Create and delete a key
-
-pair
+### Example: Create and delete a key pair
 
 This example shows the events that are recorded in an HSM audit log when you create and
 delete a key pair.

@@ -1,6 +1,4 @@
-# Supported key types for the PKCS #11 library for AWS CloudHSM
-
-Client SDK 5
+# Supported key types for the PKCS #11 library for AWS CloudHSM Client SDK 5
 
 The PKCS #11 library for AWS CloudHSM Client SDK 5supports the following key types.
 

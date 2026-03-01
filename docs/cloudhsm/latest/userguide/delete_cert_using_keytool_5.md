@@ -1,6 +1,4 @@
-# Use keytool to delete certificates from AWS CloudHSM
-
-key store
+# Use keytool to delete certificates from AWS CloudHSM key store
 
 The following command shows an example of how to delete a AWS CloudHSM certificate from a Java
 keytool key store.

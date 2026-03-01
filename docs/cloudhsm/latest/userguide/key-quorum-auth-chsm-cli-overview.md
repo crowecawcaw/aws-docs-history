@@ -1,8 +1,7 @@
 # Quorum authentication process for CloudHSM CLI
 
 The following steps summarize the quorum authentication processes for CloudHSM CLI. For the
-specific steps and tools, see [Key management and usage with quorum
-authentication enabled for AWS CloudHSM using CloudHSM CLI](key-quorum-auth-chsm-cli-crypto-user.md "key-quorum-auth-chsm-cli-crypto-user.md").
+specific steps and tools, see [Key management and usage with quorum authentication enabled for AWS CloudHSM using CloudHSM CLI](key-quorum-auth-chsm-cli-crypto-user.md "key-quorum-auth-chsm-cli-crypto-user.md").
 
 1. Each hardware security module (HSM) user creates an asymmetric key for signing. Users do
    this outside of the HSM, taking care to protect the key appropriately.

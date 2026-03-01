@@ -1,6 +1,4 @@
-# Interact with one HSM in an AWS CloudHSM cluster
-
-using CMU
+# Interact with one HSM in an AWS CloudHSM cluster using CMU
 
 Use the **server** command in the AWS CloudHSM cloudhsm_mgmt_util to enter _server mode_ and interact directly with a particular hardware
 security module (HSM) instance.

@@ -12,8 +12,7 @@ The following issues impact all AWS CloudHSM hsm2m.medium instances.
 - [Issue: Customer applications will stop processing all requests when using mTLS with a passphrase protected client private key.](#ki-hsm2m-medium-6 "#ki-hsm2m-medium-6")
 - [Issue: User replicate fails when using the CloudHSM CLI](#ki-hsm2m-medium-7 "#ki-hsm2m-medium-7")
 - [Issue: Operations can fail during backup creation](#ki-hsm2m-medium-8 "#ki-hsm2m-medium-8")
-- [Issue: Client SDK 5.8 and above do not perform automatic retries
-  for HSM throttled operations in some scenarios on hsm2m.medium](#ki-hsm2m-medium-9 "#ki-hsm2m-medium-9")
+- [Issue: Client SDK 5.8 and above do not perform automatic retries for HSM throttled operations in some scenarios on hsm2m.medium](#ki-hsm2m-medium-9 "#ki-hsm2m-medium-9")
 - [Issue: AES/CBC unwrap operations with all zero IV fails on hsm2m.medium](#ki-hsm2m-medium-10 "#ki-hsm2m-medium-10")
 - [Issue: Failure to initialize HSM connection during application cold starts on hsm2m.medium](#ki-hsm2m-medium-11 "#ki-hsm2m-medium-11")
 
@@ -65,9 +64,7 @@ The following issues impact all AWS CloudHSM hsm2m.medium instances.
 
   For more information about best practices, see [Best practices for AWS CloudHSM](best-practices.md "best-practices.md").
 
-## Issue: Client SDK 5.8 and above do not perform automatic retries
-
-for HSM throttled operations in some scenarios on hsm2m.medium
+## Issue: Client SDK 5.8 and above do not perform automatic retries for HSM throttled operations in some scenarios on hsm2m.medium
 
 - **Impact:** Client SDK 5.8 and above will not retry some HSM
   throttled operations

@@ -242,8 +242,7 @@ The users must be manually recreated because the `user replicate` command does n
 See user replicate [known issues](troubleshoot-sdk5-user-replicate-failures.md#troubleshoot-sdk5-user-replicate-failures-hsm2m-to-hsm1 "troubleshoot-sdk5-user-replicate-failures.md#troubleshoot-sdk5-user-replicate-failures-hsm2m-to-hsm1").
 
 To address key synchronization, use the [key replicate](cloudhsm_cli-key-replicate.md "cloudhsm_cli-key-replicate.md") command to replicate a key between two clusters.
-If you haven't installed CloudHSM CLI, see the instructions in [Getting started with AWS CloudHSM Command Line
-Interface (CLI)](cloudhsm_cli-getting-started.md "cloudhsm_cli-getting-started.md").
+If you haven't installed CloudHSM CLI, see the instructions in [Getting started with AWS CloudHSM Command Line Interface (CLI)](cloudhsm_cli-getting-started.md "cloudhsm_cli-getting-started.md").
 
 ###### To synchronize keys after rollback
 

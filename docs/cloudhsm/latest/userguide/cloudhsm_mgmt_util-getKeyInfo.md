@@ -1,6 +1,4 @@
-# Get AWS CloudHSM user info about a key using
-
-CMU
+# Get AWS CloudHSM user info about a key using CMU
 
 Use the **getKeyInfo** command in the AWS CloudHSM key_mgmt_util (KMU) to return the
 hardware security module (HSM) user IDs of users who can use the key, including the owner and
@@ -25,9 +23,7 @@ If you add or delete HSMs, update the
 configuration files for CMU.
 Otherwise, the changes that you make might not be effective for all HSMs in the cluster.
 
-## User
-
-type
+## User type
 
 The following types of users can run this command.
 

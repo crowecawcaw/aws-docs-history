@@ -1,6 +1,4 @@
-# Export an AWS CloudHSM key to fake PEM format
-
-using KMU
+# Export an AWS CloudHSM key to fake PEM format using KMU
 
 Use the **getCaviumPrivKey** command in the AWS CloudHSM key_mgmt_util to
 export a private key from a hardware security module (HSM) in fake PEM format. The fake PEM

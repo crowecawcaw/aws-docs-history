@@ -1,6 +1,4 @@
-# Supported Java key attributes for AWS CloudHSM
-
-Client SDK 3
+# Supported Java key attributes for AWS CloudHSM Client SDK 3
 
 This topic describes how to use a proprietary extension for the Java library version 3.1 to
 set key attributes for AWS CloudHSM Client SDK 3. Use this extension to set supported key attributes

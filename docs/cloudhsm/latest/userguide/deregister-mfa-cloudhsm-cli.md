@@ -1,6 +1,4 @@
-# Deregister an MFA public key using
-
-CloudHSM CLI
+# Deregister an MFA public key using CloudHSM CLI
 
 Follow these steps to deregister a multi-factor authentication (MFA) public key for AWS CloudHSM
 admin users when MFA public key is registered.

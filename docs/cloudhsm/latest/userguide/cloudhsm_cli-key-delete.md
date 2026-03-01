@@ -58,8 +58,7 @@ Required: Yes
 ## Related topics
 
 - [List keys for a user with CloudHSM CLI](cloudhsm_cli-key-list.md "cloudhsm_cli-key-list.md")
-- [Export an asymmetric key with
-  CloudHSM CLI](cloudhsm_cli-key-generate-file.md "cloudhsm_cli-key-generate-file.md")
+- [Export an asymmetric key with CloudHSM CLI](cloudhsm_cli-key-generate-file.md "cloudhsm_cli-key-generate-file.md")
 - [Unshare a key using CloudHSM CLI](cloudhsm_cli-key-unshare.md "cloudhsm_cli-key-unshare.md")
 - [Key attributes for CloudHSM CLI](cloudhsm_cli-key-attributes.md "cloudhsm_cli-key-attributes.md")
 - [Filter keys using CloudHSM CLI](manage-keys-cloudhsm-cli-filtering.md "manage-keys-cloudhsm-cli-filtering.md")

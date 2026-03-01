@@ -1,29 +1,22 @@
-# Set up quorum authentication for AWS CloudHSM
-
-admins using CloudHSM CLI
+# Set up quorum authentication for AWS CloudHSM admins using CloudHSM CLI
 
 The following topics describe the steps that you must complete to configure your hardware
 security module (HSM) so that AWS CloudHSM [admins](understanding-users.md#admin "understanding-users.md#admin") can use quorum
 authentication. You need to do these steps only once when you first configure quorum
-authentication for admins. After you complete these steps, see [User management with quorum authentication enabled
-for AWS CloudHSM using CloudHSM CLI](quorum-auth-chsm-cli-admin.md "quorum-auth-chsm-cli-admin.md").
+authentication for admins. After you complete these steps, see [User management with quorum authentication enabled for AWS CloudHSM using CloudHSM CLI](quorum-auth-chsm-cli-admin.md "quorum-auth-chsm-cli-admin.md").
 
 ###### Topics
 
 - [Prerequisites](#quorum-admin-prerequisites "#quorum-admin-prerequisites")
-- [Step 1. Create and register a key for
-  signing](#quorum-admin-create-and-register-key "#quorum-admin-create-and-register-key")
-- [Step 2. Set the quorum minimum
-  value on the HSM](#quorum-admin-set-quorum-minimum-value-chsm-cli "#quorum-admin-set-quorum-minimum-value-chsm-cli")
+- [Step 1. Create and register a key for signing](#quorum-admin-create-and-register-key "#quorum-admin-create-and-register-key")
+- [Step 2. Set the quorum minimum value on the HSM](#quorum-admin-set-quorum-minimum-value-chsm-cli "#quorum-admin-set-quorum-minimum-value-chsm-cli")
 - [Quorum minimum values](#cloudhsm_cli-qm-list-minimum "#cloudhsm_cli-qm-list-minimum")
 
 ## Prerequisites
 
 To understand this example, you should be familiar with [CloudHSM CLI](cloudhsm_cli.md "cloudhsm_cli.md").
 
-## Step 1. Create and register a key for
-
-signing
+## Step 1. Create and register a key for signing
 
 To use quorum authentication, each admin must complete _all_ of
 the following steps:
@@ -191,8 +184,7 @@ Windows
 }`
 ```
 
-3. Use the **[Register a user's token-sign quorum strategy
-   using CloudHSM CLI](cloudhsm_cli-user-chqm-token-reg.md "cloudhsm_cli-user-chqm-token-reg.md")** command to register the public key. For more
+3. Use the **[Register a user's token-sign quorum strategy using CloudHSM CLI](cloudhsm_cli-user-chqm-token-reg.md "cloudhsm_cli-user-chqm-token-reg.md")** command to register the public key. For more
    information, see the following example or use the **help user change-quorum token-sign register** command.
 
 ###### Example– Register a public key with AWS CloudHSM cluster
@@ -303,9 +295,7 @@ in the following output from the **user list** command. For more
 information about creating users, see [User management with
 CloudHSM CLI](manage-hsm-users-chsm-cli.md "manage-hsm-users-chsm-cli.md")
 
-## Step 2. Set the quorum minimum
-
-value on the HSM
+## Step 2. Set the quorum minimum value on the HSM
 
 To use quorum authentication, an admin must log in to the HSM and then set the
 _quorum minimum value_. This is the minimum number of admin approvals that

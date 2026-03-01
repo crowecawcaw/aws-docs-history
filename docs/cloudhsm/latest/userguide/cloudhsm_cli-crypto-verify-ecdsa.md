@@ -1,6 +1,4 @@
-# Verify a signature signed with the ECDSA
-
-mechanism in CloudHSM CLI
+# Verify a signature signed with the ECDSA mechanism in CloudHSM CLI
 
 Use the **crypto verify ecdsa** command in CloudHSM CLI to complete the
 following operations:

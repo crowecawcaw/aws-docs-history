@@ -4,20 +4,16 @@ The following issues impact the JCE SDK for AWS CloudHSM.
 
 ###### Topics
 
-- [Issue: When working with asymmetric key pairs, you see occupied
-  key capacity even when you are not explicitly creating or importing keys](#ki-jce-1 "#ki-jce-1")
+- [Issue: When working with asymmetric key pairs, you see occupied key capacity even when you are not explicitly creating or importing keys](#ki-jce-1 "#ki-jce-1")
 - [Issue: The JCE KeyStore is read only](#ki-jce-3 "#ki-jce-3")
 - [Issue: Buffers for AES-GCM encryption cannot exceed 16,000 bytes](#ki-jce-4 "#ki-jce-4")
-- [Issue: Elliptic-curve Diffie-Hellman (ECDH) key derivation is
-  executed partially within the HSM](#ki-jce-5 "#ki-jce-5")
+- [Issue: Elliptic-curve Diffie-Hellman (ECDH) key derivation is executed partially within the HSM](#ki-jce-5 "#ki-jce-5")
 - [Issue: KeyGenerator and KeyAttribute incorrectly interprets key size parameter as number of bytes instead of bits](#ki-jce-6 "#ki-jce-6")
 - [Issue: Client SDK 5 throws the warning “An illegal reflective access operation has occurred”](#ki-jce-7 "#ki-jce-7")
 - [Issue: JCE session pool is exhausted](#ki-jce-8 "#ki-jce-8")
 - [Issue: Client SDK 5 memory leak with getKey operations](#ki-jce-9 "#ki-jce-9")
 
-## Issue: When working with asymmetric key pairs, you see occupied
-
-key capacity even when you are not explicitly creating or importing keys
+## Issue: When working with asymmetric key pairs, you see occupied key capacity even when you are not explicitly creating or importing keys
 
 - **Impact:** This issue can cause your HSMs to unexpectedly run out of key
   space and occurs when your application uses a standard JCE key object for
@@ -67,9 +63,7 @@ Multi-part AES-GCM encryption is not supported.
   buffers without relying on multi-part encryption. Updates will be announced in the
   AWS CloudHSM forum and on the version history page.
 
-## Issue: Elliptic-curve Diffie-Hellman (ECDH) key derivation is
-
-executed partially within the HSM
+## Issue: Elliptic-curve Diffie-Hellman (ECDH) key derivation is executed partially within the HSM
 
 Your EC private key remains within the HSM at all times,
 but the key derivation process is performed in multiple steps. As a result, intermediate

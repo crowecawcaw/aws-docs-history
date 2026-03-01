@@ -1,6 +1,4 @@
-# Supported key types for PKCS #11 library for AWS CloudHSM
-
-Client SDK 3
+# Supported key types for PKCS #11 library for AWS CloudHSM Client SDK 3
 
 The PKCS #11 library supports the following key types with AWS CloudHSM Client SDK 3.
 

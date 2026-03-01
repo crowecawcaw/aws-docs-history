@@ -1,6 +1,4 @@
-# Unwrap a key with RSA-AES using
-
-CloudHSM CLI
+# Unwrap a key with RSA-AES using CloudHSM CLI
 
 Use the **key unwrap rsa-aes** command in CloudHSM CLI to unwrap a payload key
 using an RSA private key and the `RSA-AES` unwrapping mechanism.

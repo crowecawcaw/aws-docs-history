@@ -1,13 +1,10 @@
-# Generate a signature with the
-
-RSA-PKCS-PSS mechanism in CloudHSM CLI
+# Generate a signature with the RSA-PKCS-PSS mechanism in CloudHSM CLI
 
 Use the **crypto sign rsa-pkcs-pss** command in CloudHSM CLI to generate a
 signature using an RSA private key and the `RSA-PKCS-PSS` signing mechanism.
 
 To use the **crypto sign rsa-pkcs-pss** command, you must first have a RSA private key in your AWS CloudHSM cluster.
-You can generate an RSA private key using the [Generate an asymmetric RSA key
-pair with CloudHSM CLI](cloudhsm_cli-key-generate-asymmetric-pair-rsa.md "cloudhsm_cli-key-generate-asymmetric-pair-rsa.md") command with the `sign` attribute set to `true`.
+You can generate an RSA private key using the [Generate an asymmetric RSA key pair with CloudHSM CLI](cloudhsm_cli-key-generate-asymmetric-pair-rsa.md "cloudhsm_cli-key-generate-asymmetric-pair-rsa.md") command with the `sign` attribute set to `true`.
 
 ###### Note
 

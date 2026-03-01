@@ -1,6 +1,4 @@
-# Modifying PKCS #11 library attributes for AWS CloudHSM
-
-Client SDK 5
+# Modifying PKCS #11 library attributes for AWS CloudHSM Client SDK 5
 
 Some PKCS #11 library attributes for of an AWS CloudHSM object can be modified after the object has been
 created, whereas some cannot. To modify attributes, use the [key set-attribute](cloudhsm_cli-key-set-attribute.md "cloudhsm_cli-key-set-attribute.md") command from CloudHSM CLI. You can

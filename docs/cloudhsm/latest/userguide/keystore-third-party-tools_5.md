@@ -1,6 +1,4 @@
-# Use Client SDK 5 to integrate AWS CloudHSM with Java
-
-Keytool and Jarsigner
+# Use Client SDK 5 to integrate AWS CloudHSM with Java Keytool and Jarsigner
 
 AWS CloudHSM key store is a special-purpose JCE key store that utilizes certificates associated
 with keys on your hardware security module (HSM) through third-party tools such as

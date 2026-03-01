@@ -1,6 +1,4 @@
-# AWS CloudHSM Client SDK 3 key synchronization
-
-failures
+# AWS CloudHSM Client SDK 3 key synchronization failures
 
 In Client SDK 3, if client-side synchronization fails, AWS CloudHSM makes a best-effort response to clean up any
 unwanted keys that may have been created (and are now unwanted). This process involves removing

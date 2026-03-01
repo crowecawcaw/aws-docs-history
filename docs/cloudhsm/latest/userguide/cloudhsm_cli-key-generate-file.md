@@ -1,6 +1,4 @@
-# Export an asymmetric key with
-
-CloudHSM CLI
+# Export an asymmetric key with CloudHSM CLI
 
 Use the **key generate-file** command in CloudHSM CLI to export an asymmetric
 key from the hardware security module (HSM). If the target is a private key, then the reference
@@ -140,9 +138,7 @@ Options:
  Print help (see a summary with '-h')`
 ```
 
-### Example – Generate a KSP key reference
-
-using an attribute filter of a private key
+### Example – Generate a KSP key reference using an attribute filter of a private key
 
 The following example generates a KSP key reference for a private key with a specific label.
 
@@ -157,9 +153,7 @@ The following example generates a KSP key reference for a private key with a spe
 }`
 ```
 
-### Example – Generate KSP key references for
-
-all key pairs
+### Example – Generate KSP key references for all key pairs
 
 The following example generates KSP key references for all key pairs in your cluster.
 
@@ -178,7 +172,5 @@ The following example generates KSP key references for all key pairs in your clu
 
 - [Key attributes for CloudHSM CLI](cloudhsm_cli-key-attributes.md "cloudhsm_cli-key-attributes.md")
 - [Filter keys using CloudHSM CLI](manage-keys-cloudhsm-cli-filtering.md "manage-keys-cloudhsm-cli-filtering.md")
-- [The generate-asymmetric-pair
-  category in CloudHSM CLI](cloudhsm_cli-key-generate-asymmetric-pair.md "cloudhsm_cli-key-generate-asymmetric-pair.md")
-- [The generate-symmetric category in
-  CloudHSM CLI](cloudhsm_cli-key-generate-symmetric.md "cloudhsm_cli-key-generate-symmetric.md")
+- [The generate-asymmetric-pair category in CloudHSM CLI](cloudhsm_cli-key-generate-asymmetric-pair.md "cloudhsm_cli-key-generate-asymmetric-pair.md")
+- [The generate-symmetric category in CloudHSM CLI](cloudhsm_cli-key-generate-symmetric.md "cloudhsm_cli-key-generate-symmetric.md")

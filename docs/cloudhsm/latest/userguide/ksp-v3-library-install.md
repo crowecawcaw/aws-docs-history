@@ -6,9 +6,7 @@ install the client by following the steps at [Install the client
 
 Use the following sections to verify the installation of the providers.
 
-## Configure and run the Windows AWS CloudHSM
-
-client
+## Configure and run the Windows AWS CloudHSM client
 
 To start the Windows CloudHSM client, you must first satisfy the [Prerequisites](ksp-library-prereq.md "ksp-library-prereq.md"). Then,
 update the configuration files that the providers use and start the client by completing

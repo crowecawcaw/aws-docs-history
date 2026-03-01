@@ -1,6 +1,4 @@
-# Install and configure the AWS CloudHSM client for
-
-KMU (Windows)
+# Install and configure the AWS CloudHSM client for KMU (Windows)
 
 To work with a hardware security module (HSM) in your AWS CloudHSM cluster on Windows using the
 key_mgmt_util (KMU), you need the AWS CloudHSM client software for Windows. You should install it
@@ -32,5 +30,4 @@ on the Windows Server instance that you created previously.
   uninstall the client, run the installer again and follow the uninstall
   instructions.
 - If you are using Linux, you can install the Linux client. For more information,
-  see [Install and configure the AWS CloudHSM client
-  for KMU (Linux)](kmu-install-and-configure-client-linux.md "kmu-install-and-configure-client-linux.md").
+  see [Install and configure the AWS CloudHSM client for KMU (Linux)](kmu-install-and-configure-client-linux.md "kmu-install-and-configure-client-linux.md").

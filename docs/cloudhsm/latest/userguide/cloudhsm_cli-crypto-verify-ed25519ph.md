@@ -1,6 +1,4 @@
-# Verify a signature signed with the HashEdDSA
-
-mechanism in CloudHSM CLI
+# Verify a signature signed with the HashEdDSA mechanism in CloudHSM CLI
 
 ###### Important
 
@@ -13,8 +11,7 @@ following operations:
 - Confirm the signature was generated using the HashEdDSA signing mechanism. For additional information on HashEdDSA,
   see [NIST SP 186-5, Section 7.8](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf").
   To use the **crypto verify ed25519ph** command, you must first have an Ed25519 public key in your AWS CloudHSM cluster.
-  You can generate an Ed25519 key pair using the [Generate an asymmetric EC key
-  pair with CloudHSM CLI](cloudhsm_cli-key-generate-asymmetric-pair-ec.md "cloudhsm_cli-key-generate-asymmetric-pair-ec.md") command with the `curve` parameter set to `ed25519` and the `verify` attribute set to `true`, or import an Ed25519 public key using the [Import a PEM format key with CloudHSM CLI](cloudhsm_cli-key-import-pem.md "cloudhsm_cli-key-import-pem.md") command with the `verify` attribute set to `true`.
+  You can generate an Ed25519 key pair using the [Generate an asymmetric EC key pair with CloudHSM CLI](cloudhsm_cli-key-generate-asymmetric-pair-ec.md "cloudhsm_cli-key-generate-asymmetric-pair-ec.md") command with the `curve` parameter set to `ed25519` and the `verify` attribute set to `true`, or import an Ed25519 public key using the [Import a PEM format key with CloudHSM CLI](cloudhsm_cli-key-import-pem.md "cloudhsm_cli-key-import-pem.md") command with the `verify` attribute set to `true`.
 
 ###### Note
 
@@ -160,5 +157,4 @@ Required: Yes
 
 - [The crypto sign category in CloudHSM CLI](cloudhsm_cli-crypto-sign.md "cloudhsm_cli-crypto-sign.md")
 - [The crypto verify category in CloudHSM CLI](cloudhsm_cli-crypto-verify.md "cloudhsm_cli-crypto-verify.md")
-- [Generate a signature with the HashEdDSA mechanism in
-  CloudHSM CLI](cloudhsm_cli-crypto-sign-ed25519ph.md "cloudhsm_cli-crypto-sign-ed25519ph.md")
+- [Generate a signature with the HashEdDSA mechanism in CloudHSM CLI](cloudhsm_cli-crypto-sign-ed25519ph.md "cloudhsm_cli-crypto-sign-ed25519ph.md")

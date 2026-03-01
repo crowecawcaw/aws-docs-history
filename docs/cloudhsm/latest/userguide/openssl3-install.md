@@ -16,9 +16,6 @@ OpenSSL.
 
 ###### Topics
 
-- [Prerequisites for OpenSSL Dynamic Engine with AWS CloudHSM
-  Client SDK 3](openssl3-install-dyn3-prereqs.md "openssl3-install-dyn3-prereqs.md")
-- [Install the OpenSSL Dynamic Engine for AWS CloudHSM
-  Client SDK 3](openssl3-install-openssl-library.md "openssl3-install-openssl-library.md")
-- [Use the OpenSSL Dynamic Engine for AWS CloudHSM
-  Client SDK 3](openssl3-use-library.md "openssl3-use-library.md")
+- [Prerequisites for OpenSSL Dynamic Engine with AWS CloudHSM Client SDK 3](openssl3-install-dyn3-prereqs.md "openssl3-install-dyn3-prereqs.md")
+- [Install the OpenSSL Dynamic Engine for AWS CloudHSM Client SDK 3](openssl3-install-openssl-library.md "openssl3-install-openssl-library.md")
+- [Use the OpenSSL Dynamic Engine for AWS CloudHSM Client SDK 3](openssl3-use-library.md "openssl3-use-library.md")

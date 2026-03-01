@@ -1,6 +1,4 @@
-# Keep HSM users in sync across HSMs in
-
-the AWS CloudHSM cluster
+# Keep HSM users in sync across HSMs in the AWS CloudHSM cluster
 
 To [manage your HSM's users](manage-hsm-users.md "manage-hsm-users.md"), you use a AWS CloudHSM command
 line tool known as cloudhsm_mgmt_util. It communicates only with the HSMs that are in the tool's

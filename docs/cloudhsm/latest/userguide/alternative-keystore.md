@@ -14,9 +14,7 @@ Provider Interface (SPI) of the Java Cryptography Extension (JCE). For more info
 about using `KeyStore`, see [Class
 KeyStore](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html "https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html").
 
-## Choose the appropriate key store for AWS CloudHSM
-
-Client SDK 3
+## Choose the appropriate key store for AWS CloudHSM Client SDK 3
 
 The AWS CloudHSM Java Cryptographic Extension (JCE) provider comes with a default pass-through, read-only key store that passes
 all transactions to the HSM. This default key store is distinct from the special-purpose
@@ -65,9 +63,7 @@ file and password as follows:
 ks.load(inputStream, password);
 ```
 
-## Use the AWS CloudHSM KeyStore for AWS CloudHSM
-
-Client SDK 3
+## Use the AWS CloudHSM KeyStore for AWS CloudHSM Client SDK 3
 
 A CloudHSM KeyStore object is generally used through a third-party application such as
 [jarsigner](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/jarsigner.html "https://docs.oracle.com/javase/8/docs/technotes/tools/windows/jarsigner.html") or [keytool](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html "https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html"). You can also access the object directly with code.

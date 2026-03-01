@@ -1,6 +1,4 @@
-# Get an AWS CloudHSM key attribute value using
-
-CMU
+# Get an AWS CloudHSM key attribute value using CMU
 
 Use the **getAttribute** command in the AWS CloudHSM cloudhsm_mgmt_util (CMU) to get one
 attribute value for a key from all hardware security modules (HSM) in the AWS CloudHSM cluster and

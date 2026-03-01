@@ -1,6 +1,4 @@
-# Lost connection to the AWS CloudHSM
-
-cluster
+# Lost connection to the AWS CloudHSM cluster
 
 When you [configured the AWS CloudHSM client](cmu-install-and-configure-client-linux.md#cmu-edit-client-configuration "cmu-install-and-configure-client-linux.md#cmu-edit-client-configuration"), you
 provided the IP address of the first HSM in your cluster. This IP address is saved in the

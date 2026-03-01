@@ -1,6 +1,4 @@
-# Oracle database transparent data encryption (TDE) with
-
-AWS CloudHSM
+# Oracle database transparent data encryption (TDE) with AWS CloudHSM
 
 Transparent Data Encryption (TDE) is used to encrypt database files. Using TDE, database software encrypts data before storing it on disk.
 The data in the database's table columns or tablespaces are encrypted with a table key or tablespace key. Some versions of Oracle's database software offer TDE.

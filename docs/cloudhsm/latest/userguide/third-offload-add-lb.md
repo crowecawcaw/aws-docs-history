@@ -9,16 +9,11 @@ automatically stops routing traffic to it.
 
 ###### Topics
 
-- [Step 1. Create a subnet for a
-  second web server](#ssl-offload-load-balancer-create-new-subnet "#ssl-offload-load-balancer-create-new-subnet")
-- [Step 2. Create the second web
-  server](#ssl-offload-load-balancer-create-web-server "#ssl-offload-load-balancer-create-web-server")
-- [Step 3. Create the load
-  balancer](#ssl-offload-load-balancer-create-load-balancer "#ssl-offload-load-balancer-create-load-balancer")
+- [Step 1. Create a subnet for a second web server](#ssl-offload-load-balancer-create-new-subnet "#ssl-offload-load-balancer-create-new-subnet")
+- [Step 2. Create the second web server](#ssl-offload-load-balancer-create-web-server "#ssl-offload-load-balancer-create-web-server")
+- [Step 3. Create the load balancer](#ssl-offload-load-balancer-create-load-balancer "#ssl-offload-load-balancer-create-load-balancer")
 
-## Step 1. Create a subnet for a
-
-second web server
+## Step 1. Create a subnet for a second web server
 
 Before you can create another web server, you need to create a new subnet in the same VPC
 that contains your existing web server and AWS CloudHSM cluster.
@@ -46,9 +41,7 @@ that contains your existing web server and AWS CloudHSM cluster.
 **Edit**. 8. Select the check box next to the public subnet that you created earlier in this
 procedure. Then choose **Save**.
 
-## Step 2. Create the second web
-
-server
+## Step 2. Create the second web server
 
 Complete the following steps to create a second web server with the same configuration as
 your existing web server.
@@ -158,9 +151,7 @@ Details**. 14. For **Step 3: Configure Instance Details**, do the following:
 
     Choose **Launch Instances**.
 
-## Step 3. Create the load
-
-balancer
+## Step 3. Create the load balancer
 
 Complete the following steps to create an Elastic Load Balancing load balancer that routes HTTPS traffic to
 your web servers.

@@ -12,8 +12,7 @@ key attributes. These commands complement the key management commands in the pri
 management tool, [key_mgmt_util](key_mgmt_util.md "key_mgmt_util.md").
 
 For a quick start, see [Cloned clusters in AWS CloudHSM](cloudhsm_mgmt_util-getting-started.md "cloudhsm_mgmt_util-getting-started.md"). For detailed information about the cloudhsm_mgmt_util
-commands and examples of using the commands, see [Reference for AWS CloudHSM Management Utility
-commands](cloudhsm_mgmt_util-reference.md "cloudhsm_mgmt_util-reference.md") .
+commands and examples of using the commands, see [Reference for AWS CloudHSM Management Utility commands](cloudhsm_mgmt_util-reference.md "cloudhsm_mgmt_util-reference.md").
 
 ###### Topics
 

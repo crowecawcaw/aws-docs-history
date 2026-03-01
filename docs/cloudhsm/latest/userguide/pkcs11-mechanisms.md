@@ -1,6 +1,4 @@
-# Supported mechanisms for the PKCS #11 library for AWS CloudHSM
-
-Client SDK 5
+# Supported mechanisms for the PKCS #11 library for AWS CloudHSM Client SDK 5
 
 The PKCS #11 library is compliant with version 2.40 of the PKCS #11 specification. To invoke a
 cryptographic feature using PKCS #11, call a function with a given mechanism. The following

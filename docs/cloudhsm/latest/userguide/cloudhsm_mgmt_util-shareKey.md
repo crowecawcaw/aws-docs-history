@@ -16,9 +16,7 @@ If you add or delete HSMs, update the
 configuration files for CMU.
 Otherwise, the changes that you make might not be effective for all HSMs in the cluster.
 
-## User
-
-type
+## User type
 
 The following types of users can run this command.
 

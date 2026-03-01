@@ -1,6 +1,4 @@
-# User management with quorum
-
-authentication enabled for AWS CloudHSM Management Utility
+# User management with quorum authentication enabled for AWS CloudHSM Management Utility
 
 An AWS CloudHSM [crypto officer (CO)](understanding-users-cmu.md#crypto-officer "understanding-users-cmu.md#crypto-officer") on the hardware security
 module (HSM) can configure quorum authentication for the following operations on the HSM:
@@ -57,8 +55,7 @@ _quorum token_.
 `$` `/opt/cloudhsm/bin/cloudhsm_mgmt_util /opt/cloudhsm/etc/cloudhsm_mgmt_util.cfg`
 ```
 
-2. Use the **loginHSM** command to log in to the HSM as a CO. For more information, see [HSM user management with CloudHSM Management Utility
-   (CMU)](manage-hsm-users-cmu.md "manage-hsm-users-cmu.md").
+2. Use the **loginHSM** command to log in to the HSM as a CO. For more information, see [HSM user management with CloudHSM Management Utility (CMU)](manage-hsm-users-cmu.md "manage-hsm-users-cmu.md").
 3. Use the **getToken** command to get a quorum token. For more
    information, see the following example or use the **help getToken**
    command.
@@ -76,8 +73,7 @@ these values with your own:
   storing the quorum token.
   In the following command, `3` identifies the _service_ for
   which you can use the token that you are getting. In this case, the token is for HSM user
-  management operations (service 3). For more information, see [Step 2. Set the quorum
-  minimum value on the HSM](quorum-authentication-crypto-officers-first-time-setup.md#quorum-crypto-officers-set-quorum-minimum-value "quorum-authentication-crypto-officers-first-time-setup.md#quorum-crypto-officers-set-quorum-minimum-value").
+  management operations (service 3). For more information, see [Step 2. Set the quorum minimum value on the HSM](quorum-authentication-crypto-officers-first-time-setup.md#quorum-crypto-officers-set-quorum-minimum-value "quorum-authentication-crypto-officers-first-time-setup.md#quorum-crypto-officers-set-quorum-minimum-value").
 
 ````
 `aws-cloudhsm >` `getToken 3 `officer1` `officer1.token```getToken success on server 0(10.0.2.14)
@@ -96,9 +92,7 @@ Key Handle:0
 User:officer1`
 ````
 
-## Step 2. Get signatures from
-
-approving COs
+## Step 2. Get signatures from approving COs
 
 A CO who has a quorum token must get the token approved by other COs. To give their
 approval, the other COs use their signing key to cryptographically sign the token. They do
@@ -136,9 +130,7 @@ In the following command, officer2 signs the same token.
 `$` `openssl dgst -sha256 -sign `officer2.key` -out `officer1.token.sig2` `officer1.token```Enter pass phrase for officer2.key:`
 ````
 
-## Step 3. Approve the signed token on the
-
-HSM
+## Step 3. Approve the signed token on the HSM
 
 After a CO gets the minimum number of approvals (signatures) from other COs, he or she
 must approve the signed token on the HSM.
@@ -153,8 +145,7 @@ must approve the signed token on the HSM.
 `$` `/opt/cloudhsm/bin/cloudhsm_mgmt_util /opt/cloudhsm/etc/cloudhsm_mgmt_util.cfg`
 ```
 
-3. Use the **loginHSM** command to log in to the HSM as a CO. For more information, see [HSM user management with CloudHSM Management Utility
-   (CMU)](manage-hsm-users-cmu.md "manage-hsm-users-cmu.md").
+3. Use the **loginHSM** command to log in to the HSM as a CO. For more information, see [HSM user management with CloudHSM Management Utility (CMU)](manage-hsm-users-cmu.md "manage-hsm-users-cmu.md").
 4. Use the **approveToken** command to approve the signed token, passing
    the token approval file. For more information, see the following example.
 
@@ -247,9 +238,7 @@ Num of tokens = 1
 listTokens success`
 ```
 
-## Step 4. Use the token for user management
-
-operations
+## Step 4. Use the token for user management operations
 
 After a CO has a token with the required number of approvals, as shown in the previous
 section, the CO can perform one of the following HSM user management operations:

@@ -1,6 +1,4 @@
-# Quorum authentication and MFA in AWS CloudHSM
-
-clusters using CloudHSM CLI
+# Quorum authentication and MFA in AWS CloudHSM clusters using CloudHSM CLI
 
 The AWS CloudHSM cluster uses the same key for quorum authentication and for multi-factor
 authentication (MFA). This means a user with MFA enabled is effectively registered for MofN

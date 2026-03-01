@@ -1,6 +1,4 @@
-# AWS CloudHSM SSL/TLS offload on Linux using NGINX or
-
-Apache with OpenSSL
+# AWS CloudHSM SSL/TLS offload on Linux using NGINX or Apache with OpenSSL
 
 This topic provides step-by-step instructions for setting up SSL/TLS offload with AWS CloudHSM
 on a Linux web server.
@@ -9,11 +7,9 @@ on a Linux web server.
 
 - [Overview](#ssl-offload-linux-openssl-overview "#ssl-offload-linux-openssl-overview")
 - [Step 1: Set up the prerequisites](#ssl-offload-prerequisites "#ssl-offload-prerequisites")
-- [Step 2: Generate the
-  private key and SSL/TLS certificate](#ssl-offload-import-or-generate-private-key-and-certificate "#ssl-offload-import-or-generate-private-key-and-certificate")
+- [Step 2: Generate the private key and SSL/TLS certificate](#ssl-offload-import-or-generate-private-key-and-certificate "#ssl-offload-import-or-generate-private-key-and-certificate")
 - [Step 3: Configure the web server](#ssl-offload-configure-web-server "#ssl-offload-configure-web-server")
-- [Step 4: Enable HTTPS traffic
-  and verify the certificate](#ssl-offload-enable-traffic-and-verify-certificate "#ssl-offload-enable-traffic-and-verify-certificate")
+- [Step 4: Enable HTTPS traffic and verify the certificate](#ssl-offload-enable-traffic-and-verify-certificate "#ssl-offload-enable-traffic-and-verify-certificate")
 
 ## Overview
 
@@ -286,8 +282,7 @@ Ubuntu 24.04
 Keep track of the CU user name and password. You will need them later when you
 generate or import the HTTPS private key and certificate for your web server.
 
-After you complete these steps, go to [Step 2: Generate the
-private key and SSL/TLS certificate](#ssl-offload-import-or-generate-private-key-and-certificate "#ssl-offload-import-or-generate-private-key-and-certificate").
+After you complete these steps, go to [Step 2: Generate the private key and SSL/TLS certificate](#ssl-offload-import-or-generate-private-key-and-certificate "#ssl-offload-import-or-generate-private-key-and-certificate").
 
 #### Notes
 
@@ -305,9 +300,7 @@ private key and SSL/TLS certificate](#ssl-offload-import-or-generate-private-key
   to Your Linux Instance Using SSH](../../../AWSEC2/latest/UserGuide/AccessingInstancesLinux.md "../../../AWSEC2/latest/UserGuide/AccessingInstancesLinux.md") or [Connecting to Your Linux Instance from Windows Using PuTTY](../../../AWSEC2/latest/UserGuide/putty.md "../../../AWSEC2/latest/UserGuide/putty.md") in the Amazon EC2
   documentation.
 
-## Step 2: Generate the
-
-private key and SSL/TLS certificate
+## Step 2: Generate the private key and SSL/TLS certificate
 
 To enable HTTPS, your web server application (NGINX or Apache) needs a private key and a
 corresponding SSL/TLS certificate. To use web server SSL/TLS offload with AWS CloudHSM, you must store
@@ -603,8 +596,7 @@ certificate.
 ###### Install and configure the OpenSSL Dynamic Engine
 
 1. Connect to your client instance.
-2. [Install the OpenSSL Dynamic Engine for AWS CloudHSM
-   Client SDK 5](openssl5-install.md "openssl5-install.md")
+2. [Install the OpenSSL Dynamic Engine for AWS CloudHSM Client SDK 5](openssl5-install.md "openssl5-install.md")
 
 ###### Generate a certificate
 
@@ -1913,8 +1905,7 @@ Ubuntu 24.04 LTS
 `$` `sudo systemctl enable nginx`
 ```
 
-After you update your web server configuration, go to [Step 4: Enable HTTPS traffic
-and verify the certificate](#ssl-offload-enable-traffic-and-verify-certificate "#ssl-offload-enable-traffic-and-verify-certificate").
+After you update your web server configuration, go to [Step 4: Enable HTTPS traffic and verify the certificate](#ssl-offload-enable-traffic-and-verify-certificate "#ssl-offload-enable-traffic-and-verify-certificate").
 
 ### Configure Apache web server
 
@@ -2964,12 +2955,9 @@ Ubuntu 24.04 LTS
 `$` `sudo systemctl enable apache2`
 ```
 
-After you update your web server configuration, go to [Step 4: Enable HTTPS traffic
-and verify the certificate](#ssl-offload-enable-traffic-and-verify-certificate "#ssl-offload-enable-traffic-and-verify-certificate").
+After you update your web server configuration, go to [Step 4: Enable HTTPS traffic and verify the certificate](#ssl-offload-enable-traffic-and-verify-certificate "#ssl-offload-enable-traffic-and-verify-certificate").
 
-## Step 4: Enable HTTPS traffic
-
-and verify the certificate
+## Step 4: Enable HTTPS traffic and verify the certificate
 
 After you configure your web server for SSL/TLS offload with AWS CloudHSM, add your web server
 instance to a security group that allows inbound HTTPS traffic. This allows clients, such as web
@@ -2979,14 +2967,10 @@ SSL/TLS offload with AWS CloudHSM.
 
 ###### Topics
 
-- [Enable inbound HTTPS
-  connections](#ssl-offload-add-security-group-linux "#ssl-offload-add-security-group-linux")
-- [Verify that HTTPS uses the
-  certificate that you configured](#ssl-offload-verify-https-connection-linux-enable "#ssl-offload-verify-https-connection-linux-enable")
+- [Enable inbound HTTPS connections](#ssl-offload-add-security-group-linux "#ssl-offload-add-security-group-linux")
+- [Verify that HTTPS uses the certificate that you configured](#ssl-offload-verify-https-connection-linux-enable "#ssl-offload-verify-https-connection-linux-enable")
 
-### Enable inbound HTTPS
-
-connections
+### Enable inbound HTTPS connections
 
 To connect to your web server from a client (such as a web browser), create a security
 group that allows inbound HTTPS connections. Specifically, it should allow inbound TCP
@@ -3014,9 +2998,7 @@ connections on port 443. Assign this security group to your web server.
 8. For **Associated security groups**, select the search box and choose the security group that you created for HTTPS. Then choose **Add Security Groups**.
 9. Select **Save**.
 
-### Verify that HTTPS uses the
-
-certificate that you configured
+### Verify that HTTPS uses the certificate that you configured
 
 After you add the web server to a security group, you can verify that SSL/TLS offload is using your self-signed certificate.
 You can do this with a web browser or with a tool such as [OpenSSL s_client](https://www.openssl.org/docs/manmaster/man1/s_client.html "https://www.openssl.org/docs/manmaster/man1/s_client.html").

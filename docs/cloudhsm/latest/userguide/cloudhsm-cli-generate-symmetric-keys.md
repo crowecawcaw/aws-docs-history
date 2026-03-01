@@ -1,9 +1,6 @@
-# Generate symmetric keys with
+# Generate symmetric keys with CloudHSM CLI
 
-CloudHSM CLI
-
-Use the commands listed in **[The generate-symmetric category in
-CloudHSM CLI](cloudhsm_cli-key-generate-symmetric.md "cloudhsm_cli-key-generate-symmetric.md")** to generate symmetric keys
+Use the commands listed in **[The generate-symmetric category in CloudHSM CLI](cloudhsm_cli-key-generate-symmetric.md "cloudhsm_cli-key-generate-symmetric.md")** to generate symmetric keys
 for AWS CloudHSM. To see all available options, use the **help key
 generate-symmetric** command.
 

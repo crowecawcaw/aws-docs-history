@@ -1,6 +1,4 @@
-# Use AWS CloudHSM key store with keytool using
-
-Client SDK 5
+# Use AWS CloudHSM key store with keytool using Client SDK 5
 
 [Keytool](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html "https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html") is a popular command line utility for common key and certificate
 tasks. A complete tutorial on keytool is out of scope for AWS CloudHSM
@@ -23,8 +21,7 @@ Windows
 -storetype CLOUDHSM -J-classpath`<'-J"C:\Program Files\Amazon\CloudHSM\java\*"'>`
 ```
 
-If you want to create a new key store file using AWS CloudHSM key store, see [Use the AWS CloudHSM KeyStore for AWS CloudHSM
-Client SDK 3](alternative-keystore.md#using_cloudhsm_keystore "alternative-keystore.md#using_cloudhsm_keystore"). To use an existing key
+If you want to create a new key store file using AWS CloudHSM key store, see [Use the AWS CloudHSM KeyStore for AWS CloudHSM Client SDK 3](alternative-keystore.md#using_cloudhsm_keystore "alternative-keystore.md#using_cloudhsm_keystore"). To use an existing key
 store, specify its name (including path) using the –keystore argument to keytool. If you
 specify a non-existent key store file in a keytool command, the AWS CloudHSM key store creates a
 new key store file.

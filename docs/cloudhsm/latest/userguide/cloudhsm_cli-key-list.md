@@ -427,8 +427,7 @@ Required: No
 ## Related topics
 
 - [Delete a key with CloudHSM CLI](cloudhsm_cli-key-delete.md "cloudhsm_cli-key-delete.md")
-- [Export an asymmetric key with
-  CloudHSM CLI](cloudhsm_cli-key-generate-file.md "cloudhsm_cli-key-generate-file.md")
+- [Export an asymmetric key with CloudHSM CLI](cloudhsm_cli-key-generate-file.md "cloudhsm_cli-key-generate-file.md")
 - [Unshare a key using CloudHSM CLI](cloudhsm_cli-key-unshare.md "cloudhsm_cli-key-unshare.md")
 - [Key attributes for CloudHSM CLI](cloudhsm_cli-key-attributes.md "cloudhsm_cli-key-attributes.md")
 - [Filter keys using CloudHSM CLI](manage-keys-cloudhsm-cli-filtering.md "manage-keys-cloudhsm-cli-filtering.md")

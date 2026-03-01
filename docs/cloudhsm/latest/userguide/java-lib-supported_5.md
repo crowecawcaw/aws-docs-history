@@ -1,6 +1,4 @@
-# Supported mechanisms for JCE provider for AWS CloudHSM
-
-Client SDK 5
+# Supported mechanisms for JCE provider for AWS CloudHSM Client SDK 5
 
 This topic provides information about supported mechanisms for JCE provider with AWS CloudHSM Client SDK 5.
 For information about the Java Cryptography Architecture (JCA) interfaces and engine classes

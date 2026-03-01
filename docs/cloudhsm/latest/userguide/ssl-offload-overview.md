@@ -30,7 +30,6 @@ exchange. The process is slightly different when Diffie–Hellman is used instea
    To learn how to configure SSL/TLS offload with AWS CloudHSM, see one of the following
    topics:
 
-- [AWS CloudHSM SSL/TLS offload on Linux using NGINX or
-  Apache with OpenSSL](third-offload-linux-openssl.md "third-offload-linux-openssl.md")
+- [AWS CloudHSM SSL/TLS offload on Linux using NGINX or Apache with OpenSSL](third-offload-linux-openssl.md "third-offload-linux-openssl.md")
 - [AWS CloudHSM SSL/TLS offload on Linux using Tomcat with JSSE](third-offload-linux-jsse.md "third-offload-linux-jsse.md")
 - [AWS CloudHSM SSL/TLS offload on Windows using IIS with KSP](ssl-offload-windows.md "ssl-offload-windows.md")

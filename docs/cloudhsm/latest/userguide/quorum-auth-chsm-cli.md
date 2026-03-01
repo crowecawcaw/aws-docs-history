@@ -1,6 +1,4 @@
-# Manage quorum authentication (M of N access control) using
-
-CloudHSM CLI
+# Manage quorum authentication (M of N access control) using CloudHSM CLI
 
 AWS CloudHSM clusters support quorum authentication, also known as M of N access control. This
 feature requires HSM users to cooperate for certain operations, adding an extra layer of
@@ -13,8 +11,7 @@ operations.
 Quorum authentication can control the following operations:
 
 - HSM user management by [admin](understanding-users.md#admin "understanding-users.md#admin"): Creating and deleting HSM
-  users or changing a different HSM user's password. For more information, see [User management with quorum authentication enabled
-  for AWS CloudHSM using CloudHSM CLI](quorum-auth-chsm-cli-admin.md "quorum-auth-chsm-cli-admin.md").
+  users or changing a different HSM user's password. For more information, see [User management with quorum authentication enabled for AWS CloudHSM using CloudHSM CLI](quorum-auth-chsm-cli-admin.md "quorum-auth-chsm-cli-admin.md").
   Key points about quorum authentication in AWS CloudHSM.
 
 - An HSM user can sign their own quorum token—that is, providing
@@ -31,11 +28,7 @@ Quorum authentication can control the following operations:
 ###### Topics
 
 - [Quorum authentication process for CloudHSM CLI](quorum-auth-chsm-cli-overview.md "quorum-auth-chsm-cli-overview.md")
-- [Supported AWS CloudHSM service names and types
-  for quorum authentication with CloudHSM CLI](quorum-auth-chsm-cli-service-names.md "quorum-auth-chsm-cli-service-names.md")
-- [Set up quorum authentication for AWS CloudHSM
-  admins using CloudHSM CLI](quorum-auth-chsm-cli-first-time.md "quorum-auth-chsm-cli-first-time.md")
-- [User management with quorum authentication enabled
-  for AWS CloudHSM using CloudHSM CLI](quorum-auth-chsm-cli-admin.md "quorum-auth-chsm-cli-admin.md")
-- [Change the quorum minimum value for AWS CloudHSM
-  using CloudHSM CLI](quorum-auth-chsm-cli-min-value.md "quorum-auth-chsm-cli-min-value.md")
+- [Supported AWS CloudHSM service names and types for quorum authentication with CloudHSM CLI](quorum-auth-chsm-cli-service-names.md "quorum-auth-chsm-cli-service-names.md")
+- [Set up quorum authentication for AWS CloudHSM admins using CloudHSM CLI](quorum-auth-chsm-cli-first-time.md "quorum-auth-chsm-cli-first-time.md")
+- [User management with quorum authentication enabled for AWS CloudHSM using CloudHSM CLI](quorum-auth-chsm-cli-admin.md "quorum-auth-chsm-cli-admin.md")
+- [Change the quorum minimum value for AWS CloudHSM using CloudHSM CLI](quorum-auth-chsm-cli-min-value.md "quorum-auth-chsm-cli-min-value.md")

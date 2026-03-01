@@ -1,6 +1,4 @@
-# Generate an AWS CloudHSM RSA key pair using
-
-KMU
+# Generate an AWS CloudHSM RSA key pair using KMU
 
 Use the **genRSAKeyPair** command in the AWS CloudHSM key_mgmt_util tool to generate an
 [RSA](<https://en.wikipedia.org/wiki/RSA_(cryptosystem)> "https://en.wikipedia.org/wiki/RSA_(cryptosystem)") asymmetric key pair.

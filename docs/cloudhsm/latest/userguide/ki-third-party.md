@@ -1,12 +1,8 @@
-# Known issues for integrating third-party applications with
-
-AWS CloudHSM
+# Known issues for integrating third-party applications with AWS CloudHSM
 
 The following issues impact AWS CloudHSM when integrating with third-party applications.
 
-## Issue: Client SDK 3 does not support Oracle setting PKCS #11 attribute `CKA_MODIFIABLE`
-
-during master key generation
+## Issue: Client SDK 3 does not support Oracle setting PKCS #11 attribute `CKA_MODIFIABLE` during master key generation
 
 This limit is defined in the PKCS #11 library. For more information, see
 annotation 1 on [Supported PKCS #11

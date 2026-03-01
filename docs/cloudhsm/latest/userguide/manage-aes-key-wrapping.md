@@ -26,9 +26,7 @@ application.
 To learn how to use the AES key wrap algorithms from the preceding table in your
 application, see [Using AES Key Wrap in AWS CloudHSM.](#use-aes-key-wrap "#use-aes-key-wrap")
 
-### Understanding initialization vectors in AES key
-
-wrap
+### Understanding initialization vectors in AES key wrap
 
 Prior to wrapping, CloudHSM appends an initialization vector (IV) to the target key for
 data integrity. Each key wrap algorithm has specific restrictions on what type of IV is

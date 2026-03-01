@@ -1,6 +1,4 @@
-# NCryptOpenStorageProvider function with
-
-Key Storage Provider (KSP)
+# NCryptOpenStorageProvider function with Key Storage Provider (KSP)
 
 The `NCryptOpenStorageProvider` function loads and initializes the Key Storage Provider (KSP).
 

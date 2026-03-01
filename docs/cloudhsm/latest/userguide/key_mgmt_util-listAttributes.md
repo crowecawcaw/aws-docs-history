@@ -1,6 +1,4 @@
-# List the attributes of an AWS CloudHSM key using
-
-KMU
+# List the attributes of an AWS CloudHSM key using KMU
 
 Use the **listAttributes** command in the AWS CloudHSM key_mgmt_util to list the attributes
 of an AWS CloudHSM key and the constants that represent them. You use these constants to identify the

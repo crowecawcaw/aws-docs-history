@@ -1,6 +1,4 @@
-# Register a trust anchor
-
-with CloudHSM CLI
+# Register a trust anchor with CloudHSM CLI
 
 Use the **cluster mtls register-trust-anchor** command in CloudHSM CLI to register a trust anchor for mutual TLS between client and AWS CloudHSM.
 

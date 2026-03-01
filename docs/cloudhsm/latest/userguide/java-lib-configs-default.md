@@ -1,6 +1,4 @@
-# Configure the AWS CloudHSM`CloudHsmProvider` class with a file (Default
-
-configuration)
+# Configure the AWS CloudHSM `CloudHsmProvider` class with a file (Default configuration)
 
 The default way to configure the AWS CloudHSM `CloudHsmProvider` class is with a file.
 

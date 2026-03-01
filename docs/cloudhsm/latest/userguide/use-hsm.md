@@ -37,8 +37,6 @@ The AWS CloudHSM client for Windows includes CNG and KSP providers.
 
 - [Check your AWS CloudHSM Client SDK version](check-client_version.md "check-client_version.md")
 - [Compare AWS CloudHSM Client SDK component support](sdk3-compare.md "sdk3-compare.md")
-- [Migrating from AWS CloudHSM Client SDK 3 to
-  Client SDK 5](client-sdk-migration.md "client-sdk-migration.md")
+- [Migrating from AWS CloudHSM Client SDK 3 to Client SDK 5](client-sdk-migration.md "client-sdk-migration.md")
 - [Using Client SDK 5 to work with AWS CloudHSM](client-sdk5.md "client-sdk5.md")
-- [Using previous SDK version to work with
-  AWS CloudHSM](choose-client-sdk.md "choose-client-sdk.md")
+- [Using previous SDK version to work with AWS CloudHSM](choose-client-sdk.md "choose-client-sdk.md")

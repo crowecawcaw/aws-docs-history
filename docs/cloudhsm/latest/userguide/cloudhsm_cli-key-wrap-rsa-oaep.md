@@ -1,6 +1,4 @@
-# Wrap a key with RSA-OAEP using
-
-CloudHSM CLI
+# Wrap a key with RSA-OAEP using CloudHSM CLI
 
 Use the **key wrap rsa-oaep** command in CloudHSM CLI to wrap a payload key
 using an RSA public key on the hardware security module (HSM) and the `RSA-OAEP`
@@ -10,8 +8,7 @@ wrapping mechanism. The payload key’s `extractable` attribute must be set to
 Only the owner of a key, that is the crypto user (CU) who created the key, can wrap the key. Users who share the key can use the key in cryptographic operations.
 
 To use the **key wrap rsa-oaep** command, you must first have an RSA key in your AWS CloudHSM cluster. You can generate an RSA key pair using the
-[The generate-asymmetric-pair
-category in CloudHSM CLI](cloudhsm_cli-key-generate-asymmetric-pair.md "cloudhsm_cli-key-generate-asymmetric-pair.md") command and the `wrap` attribute set to `true`.
+[The generate-asymmetric-pair category in CloudHSM CLI](cloudhsm_cli-key-generate-asymmetric-pair.md "cloudhsm_cli-key-generate-asymmetric-pair.md") command and the `wrap` attribute set to `true`.
 
 ## User type
 

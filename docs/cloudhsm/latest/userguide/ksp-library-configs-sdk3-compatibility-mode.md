@@ -1,6 +1,4 @@
-# SDK3 compatibility mode for Key Storage Provider (KSP)
-
-for AWS CloudHSM
+# SDK3 compatibility mode for Key Storage Provider (KSP) for AWS CloudHSM
 
 Key Storage Provider (KSP) implements different approaches for HSM key interaction:
 

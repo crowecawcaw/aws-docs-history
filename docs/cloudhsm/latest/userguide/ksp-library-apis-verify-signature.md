@@ -1,6 +1,4 @@
-# NCryptVerifySignature with
-
-Key storage provider (KSP)
+# NCryptVerifySignature with Key storage provider (KSP)
 
 The `NCryptVerifySignature` function confirms whether a signature
 matches a specified hash.

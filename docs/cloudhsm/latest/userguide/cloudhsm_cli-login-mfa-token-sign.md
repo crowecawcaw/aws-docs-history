@@ -1,6 +1,4 @@
-# Log in with MFA to an HSM using
-
-CloudHSM CLI
+# Log in with MFA to an HSM using CloudHSM CLI
 
 Use the **login mfa-token-sign** command in AWS CloudHSM CloudHSM CLI to log in
 to a hardware security module (HSM) using multi-factor authentication (MFA). To use this

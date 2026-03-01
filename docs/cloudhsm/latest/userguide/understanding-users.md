@@ -28,8 +28,7 @@ After changing the password, the unactivated admin becomes an admin.
 ## Admin
 
 In CloudHSM CLI, admin can perform user management operations. For example, they can create
-and delete users and change user passwords. For more information about admins, see the [HSM user permissions table for
-CloudHSM CLI](user-permissions-table-chsm-cli.md "user-permissions-table-chsm-cli.md").
+and delete users and change user passwords. For more information about admins, see the [HSM user permissions table for CloudHSM CLI](user-permissions-table-chsm-cli.md "user-permissions-table-chsm-cli.md").
 
 ## Crypto user (CU)
 
@@ -41,16 +40,14 @@ operations.
 - **Cryptographic operations** – Use cryptographic
   keys for encryption, decryption, signing, verifying, and more.
 
-For more information, see the [HSM user permissions table for
-CloudHSM CLI](user-permissions-table-chsm-cli.md "user-permissions-table-chsm-cli.md").
+For more information, see the [HSM user permissions table for CloudHSM CLI](user-permissions-table-chsm-cli.md "user-permissions-table-chsm-cli.md").
 
 ## Appliance user (AU)
 
 The appliance user (AU) can perform cloning and synchronization operations on your cluster's
 HSMs. AWS CloudHSM uses the
 AU to synchronize the HSMs in an AWS CloudHSM cluster. The AU exists on all HSMs provided by AWS CloudHSM,
-and has limited permissions. For more information, see the [HSM user permissions table for
-CloudHSM CLI](user-permissions-table-chsm-cli.md "user-permissions-table-chsm-cli.md").
+and has limited permissions. For more information, see the [HSM user permissions table for CloudHSM CLI](user-permissions-table-chsm-cli.md "user-permissions-table-chsm-cli.md").
 
 AWS cannot perform any operations on your HSMs . AWS cannot view or modify your users or keys and cannot perform any
 cryptographic operations using those keys.

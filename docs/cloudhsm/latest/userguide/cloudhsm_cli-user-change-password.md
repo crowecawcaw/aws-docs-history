@@ -1,6 +1,4 @@
-# Change a user's password with
-
-CloudHSM CLI
+# Change a user's password with CloudHSM CLI
 
 Use the **user change-password** command in CloudHSM CLI to change the password of an existing user
 in your AWS CloudHSM cluster. To enable MFA for a user, use the `user change-mfa` command.

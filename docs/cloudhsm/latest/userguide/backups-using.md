@@ -12,7 +12,7 @@ You may want to remove unwanted cryptographic materials from your environment su
 expired keys or inactive users. This is a two-step process. First, delete these materials
 from your HSM. Next, delete all existing backups. Following this process ensures you do not
 restore deleted information when initializing a new cluster from backup. For more
-information, see [Delete AWS CloudHSM cluster backups](delete-restore-backup.md "delete-restore-backup.md") .
+information, see [Delete AWS CloudHSM cluster backups](delete-restore-backup.md "delete-restore-backup.md").
 
 ## Considering disaster recovery
 

@@ -6,11 +6,9 @@ This topic provides step-by-step instructions for setting up SSL/TLS offload usi
 
 - [Overview](#third-offload-linux-jsse-overview "#third-offload-linux-jsse-overview")
 - [Step 1: Set up the prerequisites](#third-offload-linux-jsse-prereqs "#third-offload-linux-jsse-prereqs")
-- [Step 2: Generate or
-  import a private key and SSL/TLS certificate](#third-offload-linux-jsse-gen "#third-offload-linux-jsse-gen")
+- [Step 2: Generate or import a private key and SSL/TLS certificate](#third-offload-linux-jsse-gen "#third-offload-linux-jsse-gen")
 - [Step 3: Configure the Tomcat web server](#third-offload-linux-jsse-config "#third-offload-linux-jsse-config")
-- [Step 4: Enable HTTPS traffic
-  and verify the certificate](#third-offload-linux-jsse-verify "#third-offload-linux-jsse-verify")
+- [Step 4: Enable HTTPS traffic and verify the certificate](#third-offload-linux-jsse-verify "#third-offload-linux-jsse-verify")
 
 ## Overview
 
@@ -53,11 +51,9 @@ Configure Tool](configure-sdk-5.md "configure-sdk-5.md").
 ###### Tip
 
 Keep track of the CU user name and password. You will need them later when you
-generate or import the HTTPS private key and certificate for your web server. 4. To setup JCE with Java Keytool, follow the instructions in [Use Client SDK 5 to integrate AWS CloudHSM with Java
-Keytool and Jarsigner](keystore-third-party-tools_5.md "keystore-third-party-tools_5.md").
+generate or import the HTTPS private key and certificate for your web server. 4. To setup JCE with Java Keytool, follow the instructions in [Use Client SDK 5 to integrate AWS CloudHSM with Java Keytool and Jarsigner](keystore-third-party-tools_5.md "keystore-third-party-tools_5.md").
 
-After you complete these steps, go to [Step 2: Generate or
-import a private key and SSL/TLS certificate](#third-offload-linux-jsse-gen "#third-offload-linux-jsse-gen").
+After you complete these steps, go to [Step 2: Generate or import a private key and SSL/TLS certificate](#third-offload-linux-jsse-gen "#third-offload-linux-jsse-gen").
 
 #### Notes
 
@@ -75,9 +71,7 @@ import a private key and SSL/TLS certificate](#third-offload-linux-jsse-gen "#th
   to Your Linux Instance Using SSH](../../../AWSEC2/latest/UserGuide/AccessingInstancesLinux.md "../../../AWSEC2/latest/UserGuide/AccessingInstancesLinux.md") or [Connecting to Your Linux Instance from Windows Using PuTTY](../../../AWSEC2/latest/UserGuide/putty.md "../../../AWSEC2/latest/UserGuide/putty.md") in the Amazon EC2
   documentation.
 
-## Step 2: Generate or
-
-import a private key and SSL/TLS certificate
+## Step 2: Generate or import a private key and SSL/TLS certificate
 
 To enable HTTPS, your Tomcat web server application needs a private key and a corresponding SSL/TLS certificate.
 To use web server SSL/TLS offload with AWS CloudHSM, you must store the private key in an HSM in your AWS CloudHSM cluster.
@@ -260,12 +254,9 @@ Remember to backup your existing certificates and keys before you start. This wi
 
 **`<TOMCAT DIRECTORY>`** is the name of your Tomcat installation directory.
 
-After you update your web server configuration, go to [Step 4: Enable HTTPS traffic
-and verify the certificate](#third-offload-linux-jsse-verify "#third-offload-linux-jsse-verify").
+After you update your web server configuration, go to [Step 4: Enable HTTPS traffic and verify the certificate](#third-offload-linux-jsse-verify "#third-offload-linux-jsse-verify").
 
-## Step 4: Enable HTTPS traffic
-
-and verify the certificate
+## Step 4: Enable HTTPS traffic and verify the certificate
 
 After you configure your web server for SSL/TLS offload with AWS CloudHSM, add your web server
 instance to a security group that allows inbound HTTPS traffic. This allows clients, such as web
@@ -275,14 +266,10 @@ SSL/TLS offload with AWS CloudHSM.
 
 ###### Topics
 
-- [Enable inbound HTTPS
-  connections](#jsse-linux-add-security-group "#jsse-linux-add-security-group")
-- [Verify that HTTPS uses the
-  certificate that you configured](#jsse-linux-verify-https-connection "#jsse-linux-verify-https-connection")
+- [Enable inbound HTTPS connections](#jsse-linux-add-security-group "#jsse-linux-add-security-group")
+- [Verify that HTTPS uses the certificate that you configured](#jsse-linux-verify-https-connection "#jsse-linux-verify-https-connection")
 
-### Enable inbound HTTPS
-
-connections
+### Enable inbound HTTPS connections
 
 To connect to your web server from a client (such as a web browser), create a security
 group that allows inbound HTTPS connections. Specifically, it should allow inbound TCP
@@ -310,9 +297,7 @@ connections on port 443. Assign this security group to your web server.
 8. For **Associated security groups**, select the search box and choose the security group that you created for HTTPS. Then choose **Add Security Groups**.
 9. Select **Save**.
 
-### Verify that HTTPS uses the
-
-certificate that you configured
+### Verify that HTTPS uses the certificate that you configured
 
 After you add the web server to a security group, you can verify that SSL/TLS offload is using your self-signed certificate.
 You can do this with a web browser or with a tool such as [OpenSSL s_client](https://www.openssl.org/docs/manmaster/man1/s_client.html "https://www.openssl.org/docs/manmaster/man1/s_client.html").

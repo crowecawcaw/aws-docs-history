@@ -1,6 +1,4 @@
-# Set up AWS CloudHSM keys and certificates with
-
-Jarsigner
+# Set up AWS CloudHSM keys and certificates with Jarsigner
 
 Before you can sign AWS CloudHSM JAR files with Jarsigner, make sure you have set up or completed
 the following steps:
@@ -18,8 +16,6 @@ the following steps:
 3. The entire certificate chain should be verifiable. For the certificate
    chain to be verifiable, you may need to add the CA certificate and
    intermediate certificates to the AWS CloudHSM key store. See the code snippet in
-   [Sign a JAR file using
-   AWS CloudHSM and Jarsigner](jarsigner_sign_jar_using_hsm_jarsigner_5.md "jarsigner_sign_jar_using_hsm_jarsigner_5.md") for instruction on using Java code
+   [Sign a JAR file using AWS CloudHSM and Jarsigner](jarsigner_sign_jar_using_hsm_jarsigner_5.md "jarsigner_sign_jar_using_hsm_jarsigner_5.md") for instruction on using Java code
    to verify the certificate chain. If you prefer, you can use keytool to
-   import certificates. For instructions on using keytool, see [Use keytool to import intermediate and root
-   certificates into AWS CloudHSM key store](import_cert_using_keytool_5.md "import_cert_using_keytool_5.md") .
+   import certificates. For instructions on using keytool, see [Use keytool to import intermediate and root certificates into AWS CloudHSM key store](import_cert_using_keytool_5.md "import_cert_using_keytool_5.md").

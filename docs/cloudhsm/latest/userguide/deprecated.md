@@ -431,9 +431,7 @@ Version 5.0.0 is the first release.
 
 - This is the initial release.
 
-#### Introductory PKCS #11 library
-
-support in client SDK version 5.0.0
+#### Introductory PKCS #11 library support in client SDK version 5.0.0
 
 This section details support for key types, mechanisms, API operations
 and

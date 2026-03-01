@@ -1,6 +1,4 @@
-# Change HSM user passwords using AWS CloudHSM
-
-Management Utility
+# Change HSM user passwords using AWS CloudHSM Management Utility
 
 Use **changePswd** in the AWS CloudHSM Management Utility (CMU) to change a hardware security module (HSM) user's password.
 

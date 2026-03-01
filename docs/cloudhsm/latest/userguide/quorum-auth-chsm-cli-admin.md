@@ -1,16 +1,12 @@
-# User management with quorum authentication enabled
-
-for AWS CloudHSM using CloudHSM CLI
+# User management with quorum authentication enabled for AWS CloudHSM using CloudHSM CLI
 
 An AWS CloudHSM [admin](understanding-users.md#admin "understanding-users.md#admin") on the hardware security module (HSM) can
 configure quorum authentication for the following operations in the AWS CloudHSM cluster:
 
 - **[Create an AWS CloudHSM user with CloudHSM CLI](cloudhsm_cli-user-create.md "cloudhsm_cli-user-create.md")**
 - **[Delete an AWS CloudHSM user with CloudHSM CLI](cloudhsm_cli-user-delete.md "cloudhsm_cli-user-delete.md")**
-- **[Change a user's password with
-  CloudHSM CLI](cloudhsm_cli-user-change-password.md "cloudhsm_cli-user-change-password.md")**
-- **[The user change-mfa category in
-  CloudHSM CLI](cloudhsm_cli-user-change-mfa.md "cloudhsm_cli-user-change-mfa.md")**
+- **[Change a user's password with CloudHSM CLI](cloudhsm_cli-user-change-password.md "cloudhsm_cli-user-change-password.md")**
+- **[The user change-mfa category in CloudHSM CLI](cloudhsm_cli-user-change-mfa.md "cloudhsm_cli-user-change-mfa.md")**
   After the AWS CloudHSM cluster is configured for quorum authentication, admins cannot perform HSM user
   management operations on their own. The following example shows the output when an admin attempts to
   create a new user on the HSM. The command fails with an error, stating that quorum authentication is required.
@@ -29,10 +25,8 @@ To perform an HSM user management operation, an admin must complete the followin
 ###### Topics
 
 - [Step 1. Get a quorum token](#quorum-admin-gen-token-chsm-cli "#quorum-admin-gen-token-chsm-cli")
-- [Step 2. Get signatures from
-  approving admins](#quorum-admin-get-approval-signatures-chsm-cli "#quorum-admin-get-approval-signatures-chsm-cli")
-- [Step 3. Approve the token on the AWS CloudHSM
-  cluster and execute a user management operation](#quorum-admin-approve-token-chsm-cli "#quorum-admin-approve-token-chsm-cli")
+- [Step 2. Get signatures from approving admins](#quorum-admin-get-approval-signatures-chsm-cli "#quorum-admin-get-approval-signatures-chsm-cli")
+- [Step 3. Approve the token on the AWS CloudHSM cluster and execute a user management operation](#quorum-admin-approve-token-chsm-cli "#quorum-admin-approve-token-chsm-cli")
 
 ## Step 1. Get a quorum token
 
@@ -161,9 +155,7 @@ The generated user service quorum token can be confirmed to exist on the CloudHS
 
 The `token-timeout-seconds` time indicates the timeout period in seconds for a generated token to be approved before it expires.
 
-## Step 2. Get signatures from
-
-approving admins
+## Step 2. Get signatures from approving admins
 
 An admin who has a quorum token must get the token approved by other admins. To give their
 approval, the other admins use their signing key to cryptographically sign the token. They do
@@ -225,9 +217,7 @@ token.
 }`
 ```
 
-## Step 3. Approve the token on the AWS CloudHSM
-
-cluster and execute a user management operation
+## Step 3. Approve the token on the AWS CloudHSM cluster and execute a user management operation
 
 After an admin has the necessary approvals/signatures, as detailed in the previous section, the admin can supply that token to the AWS CloudHSM
 cluster along with one of the following user management operations:

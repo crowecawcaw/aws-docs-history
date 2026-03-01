@@ -1,6 +1,4 @@
-# AWS CloudHSM Client SDK 5 key replicate
-
-failures
+# AWS CloudHSM Client SDK 5 key replicate failures
 
 The `key replicate` command in the CloudHSM CLI replicates a key from a source AWS CloudHSM cluster to a destination AWS CloudHSM cluster. This guide addresses failures caused by inconsistencies within the source cluster or between the source and destination clusters.
 
@@ -87,9 +85,7 @@ To synchronize key information and attributes throughout the source cluster:
 2. For inconsistent shared user coverage: Use the `key share` or `key
 unshare` commands to adjust key sharing with the desired users.
 
-## Problem: Key with same reference exists in destination cluster with different
-
-information or attributes
+## Problem: Key with same reference exists in destination cluster with different information or attributes
 
 If a key with the same reference exists in the destination cluster but has different
 information or attributes, the following error may occur:

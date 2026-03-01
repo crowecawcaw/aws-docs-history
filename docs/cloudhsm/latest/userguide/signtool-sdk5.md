@@ -21,8 +21,7 @@ The following topics provide an overview of how to use SignTool with AWS CloudHS
 ###### Topics
 
 - [Step 1: Set up the prerequisites](#signtool-sdk5-prereqs "#signtool-sdk5-prereqs")
-- [Step 2: Create a signing
-  certificate](#signtool-sdk5-csr "#signtool-sdk5-csr")
+- [Step 2: Create a signing certificate](#signtool-sdk5-csr "#signtool-sdk5-csr")
 - [Step 3: Sign a file](#signtool-sdk5-sign "#signtool-sdk5-sign")
 
 ## Step 1: Set up the prerequisites
@@ -64,9 +63,7 @@ C:\Program Files (x86)\Windows Kits\`<SDK version>`\bin\`<version number>`\`<CPU
 
 You can now use the Microsoft Windows SDK, your AWS CloudHSM cluster, and your CA to [Create a Signing Certificate](#signtool-sdk5-csr "#signtool-sdk5-csr").
 
-## Step 2: Create a signing
-
-certificate
+## Step 2: Create a signing certificate
 
 Now that you've downloaded the Windows SDK on to your EC2 instance, you can use it to
 generate a certificate signing request (CSR). The CSR is an unsigned certificate that is

@@ -31,9 +31,7 @@ The following table describes how to set the backup retention.
 
 Console
 
-###### To configure backup retention policy
-
-(console)
+###### To configure backup retention policy (console)
 
 1. Open the AWS CloudHSM console at
    [https://console.aws.amazon.com/cloudhsm/home](https://console.aws.amazon.com/cloudhsm/home "https://console.aws.amazon.com/cloudhsm/home").
@@ -47,9 +45,7 @@ Console
 The Change backup retention period dialog box appears. 5. In **Backup retention period (in days)**, type a value between
 7 and 379 days. 6. Choose **Change backup retention period**.
 
-###### To exclude or include a backup from
-
-backup retention policy (console)
+###### To exclude or include a backup from backup retention policy (console)
 
 1. Open the AWS CloudHSM console at
    [https://console.aws.amazon.com/cloudhsm/home](https://console.aws.amazon.com/cloudhsm/home "https://console.aws.amazon.com/cloudhsm/home").
@@ -65,9 +61,7 @@ backup retention policy (console)
 
 AWS CLI
 
-###### To configure backup retention policy
-
-(AWS CLI)
+###### To configure backup retention policy (AWS CLI)
 
 - At a command prompt, issue the **modify-cluster** command.
   Specify the cluster ID and the backup retention policy.
@@ -104,9 +98,7 @@ AWS CLI
 }`
 ````
 
-###### To exclude a backup from backup retention
-
-policy (AWS CLI)
+###### To exclude a backup from backup retention policy (AWS CLI)
 
 - At a command prompt, issue the **modify-backup-attributes**
   command. Specify the backup ID and set the never-expires flag to preserve the

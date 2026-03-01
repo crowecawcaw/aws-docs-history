@@ -17,7 +17,6 @@ CMU prompts you to confirm the change password operation.
 
 If you remove the 2FA requirement or change the password for a 2FA user that is also a
 quorum authentication user, you will also remove the registration of the quorum user as an
-MofN user. For more information about quorum users and 2FA, see [Quorum authentication and 2FA in AWS CloudHSM clusters using AWS CloudHSM
-Management Utility](quorum-2fa.md "quorum-2fa.md"). 3. Type `y`.
+MofN user. For more information about quorum users and 2FA, see [Quorum authentication and 2FA in AWS CloudHSM clusters using AWS CloudHSM Management Utility](quorum-2fa.md "quorum-2fa.md"). 3. Type `y`.
 
 CMU confirms the change password operation.

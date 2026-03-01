@@ -1,6 +1,4 @@
-# Configure Windows Server as a certificate authority (CA) with
-
-Client SDK 3
+# Configure Windows Server as a certificate authority (CA) with Client SDK 3
 
 In a public key infrastructure (PKI), a certificate authority (CA) is a trusted entity
 that issues digital certificates. These digital certificates bind a public key to an identity
@@ -22,8 +20,7 @@ For more information, see the following topics:
 
 - [Step 1: Set up the prerequisites](#win-ca-prerequisites-sdk3 "#win-ca-prerequisites-sdk3")
 - [Step 2: Create a Windows Server CA with AWS CloudHSM](#win-ca-setup-sdk3 "#win-ca-setup-sdk3")
-- [Step 3: Sign a certificate signing request
-  (CSR) with your Windows Server CA with AWS CloudHSM](#win-ca-sign-csr-sdk3 "#win-ca-sign-csr-sdk3")
+- [Step 3: Sign a certificate signing request (CSR) with your Windows Server CA with AWS CloudHSM](#win-ca-sign-csr-sdk3 "#win-ca-sign-csr-sdk3")
 
 ## Step 1: Set up the prerequisites
 
@@ -142,9 +139,7 @@ Then choose **Next**. 17. For **Cryptography**, do the following:
 You now have a Windows Server CA with AWS CloudHSM. To learn how to sign a certificate signing
 request (CSR) with your CA, go to [Sign a CSR](#win-ca-sign-csr-sdk3 "#win-ca-sign-csr-sdk3").
 
-## Step 3: Sign a certificate signing request
-
-(CSR) with your Windows Server CA with AWS CloudHSM
+## Step 3: Sign a certificate signing request (CSR) with your Windows Server CA with AWS CloudHSM
 
 You can use your Windows Server CA with AWS CloudHSM to sign a certificate signing request (CSR).
 To complete these steps, you need a valid CSR. You can create a CSR in several ways, including

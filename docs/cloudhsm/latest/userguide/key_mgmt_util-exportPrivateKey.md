@@ -1,6 +1,4 @@
-# Export a private AWS CloudHSM key using
-
-KMU
+# Export a private AWS CloudHSM key using KMU
 
 Use the **exportPrivateKey** command in the AWS CloudHSM key_mgmt_util to export an
 asymmetric private key from a hardware security module (HSM) to a file. The HSM does not

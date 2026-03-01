@@ -1,6 +1,4 @@
-# Getting started with AWS CloudHSM Management
-
-Utility (CMU)
+# Getting started with AWS CloudHSM Management Utility (CMU)
 
 AWS CloudHSM Management Utility (CMU) enables you to manage hardware security module (HSM) users.
 Use this topic to get started with basic HSM user management tasks, such as creating users,

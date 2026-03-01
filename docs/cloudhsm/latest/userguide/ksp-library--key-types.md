@@ -1,6 +1,4 @@
-# Supported key types for Key Storage Provider (KSP) for AWS CloudHSM
-
-Client SDK 5
+# Supported key types for Key Storage Provider (KSP) for AWS CloudHSM Client SDK 5
 
 The AWS CloudHSM Key Storage Provider (KSP) supports the following key types with Client SDK 5.
 

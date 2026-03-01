@@ -1,6 +1,4 @@
-# NCryptEnumAlgorithms with
-
-Key storage provider (KSP)
+# NCryptEnumAlgorithms with Key storage provider (KSP)
 
 The `NCryptEnumAlgorithms` function retrieves the names of algorithms that the Key Storage Provider (KSP)
 supports.

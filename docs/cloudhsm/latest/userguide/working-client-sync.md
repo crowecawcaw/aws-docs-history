@@ -1,6 +1,4 @@
-# Change AWS CloudHSM client key durability
-
-settings
+# Change AWS CloudHSM client key durability settings
 
 Key synchronization is mostly an automatic process, but you can manage client-side key
 durability settings. Client-side key durability settings works differently in Client SDK 5
@@ -38,9 +36,7 @@ AWS CloudHSM specifies the number of HSMs in a cluster on which keys
 must exist before your application can use the key. Requires
 clusters with a minimum of two HSMs.
 
-### Managing client key durability
-
-settings
+### Managing client key durability settings
 
 To manage client key durability settings, you must use the configure tool for
 Client SDK 5.
@@ -162,9 +158,7 @@ best-effort attempt to clone keys to every HSM in the cluster.
   material. For more information, see [Key
   Synchronization Failures](ts-client-sync-fail.md "ts-client-sync-fail.md").
 
-### Setting up the configuration file for client key
-
-durability
+### Setting up the configuration file for client key durability
 
 To specify client key durability settings, you must edit
 `cloudhsm_client.cfg`.

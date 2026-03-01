@@ -14,9 +14,7 @@ For more information, see [Interface VPC
 endpoints (AWS PrivateLink)](../../../vpc/latest/userguide/vpce-interface.md "../../../vpc/latest/userguide/vpce-interface.md") in the _Amazon VPC User
 Guide_.
 
-## Considerations for AWS CloudHSM VPC
-
-endpoints
+## Considerations for AWS CloudHSM VPC endpoints
 
 Before you set up an interface VPC endpoint for AWS CloudHSM, ensure that you review
 [Interface endpoint
@@ -24,9 +22,7 @@ properties and limitations](../../../vpc/latest/userguide/vpce-interface.md#vpce
 
 - AWS CloudHSM supports making calls to all of its API actions from your VPC.
 
-## Creating an interface VPC endpoint for
-
-AWS CloudHSM
+## Creating an interface VPC endpoint for AWS CloudHSM
 
 You can create a VPC endpoint for the AWS CloudHSM service using either the Amazon VPC console
 or the AWS Command Line Interface (AWS CLI). For more information, see [Creating an

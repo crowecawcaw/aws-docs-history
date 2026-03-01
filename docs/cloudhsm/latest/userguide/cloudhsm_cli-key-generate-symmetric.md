@@ -1,6 +1,4 @@
-# The generate-symmetric category in
-
-CloudHSM CLI
+# The generate-symmetric category in CloudHSM CLI
 
 In the CloudHSM CLI, **key generate-symmetric** is a parent category for a
 group of commands that, when combined with the parent category, create a command that generates

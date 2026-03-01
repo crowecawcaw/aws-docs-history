@@ -72,8 +72,7 @@ provider.
 
 - [Step 1: Install the JCE provider](#install-java-library "#install-java-library")
 - [Step 2: Validate the installation](#validate-install "#validate-install")
-- [Step 3: Provide credentials to the
-  JCE provider](#java-library-credentials "#java-library-credentials")
+- [Step 3: Provide credentials to the JCE provider](#java-library-credentials "#java-library-credentials")
 
 ## Step 1: Install the JCE provider
 
@@ -240,9 +239,7 @@ Time: 0.205
 OK (1 test)`
 ```
 
-## Step 3: Provide credentials to the
-
-JCE provider
+## Step 3: Provide credentials to the JCE provider
 
 HSMs need to authenticate your Java application before the application can use them.
 Each application can use one session. HSMs authenticate a session by using either explicit

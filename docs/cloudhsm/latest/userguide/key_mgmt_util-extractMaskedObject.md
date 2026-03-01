@@ -1,6 +1,4 @@
-# Extract an AWS CloudHSM key using
-
-KMU
+# Extract an AWS CloudHSM key using KMU
 
 Use the **extractMaskedObject** command in the AWS CloudHSM key_mgmt_util to extract a key
 from a hardware security module (HSM) and saves it

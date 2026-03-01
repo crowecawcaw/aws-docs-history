@@ -1,6 +1,4 @@
-# The user change-mfa category in
-
-CloudHSM CLI
+# The user change-mfa category in CloudHSM CLI
 
 In the CloudHSM CLI, **user change-mfa** is a parent category for a group of
 commands that, when combined with the parent category, create a command specific to changing

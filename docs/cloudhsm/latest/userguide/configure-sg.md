@@ -1,6 +1,4 @@
-# Review the security group for your cluster in
-
-AWS CloudHSM
+# Review the security group for your cluster in AWS CloudHSM
 
 When you create a cluster or add an HSM to a cluster, AWS CloudHSM creates a security group with the name
 `cloudhsm-cluster-`<clusterID>`-sg` if one doesn't already exist. This

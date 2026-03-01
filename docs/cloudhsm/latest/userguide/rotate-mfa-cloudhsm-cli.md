@@ -1,6 +1,4 @@
-# Rotate keys for users with MFA enabled for
-
-CloudHSM CLI
+# Rotate keys for users with MFA enabled for CloudHSM CLI
 
 Follow these steps to rotate keys for AWS CloudHSM users with multi-factor authentication
 (MFA) enabled.

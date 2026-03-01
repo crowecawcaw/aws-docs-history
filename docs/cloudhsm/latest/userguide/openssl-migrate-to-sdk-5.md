@@ -1,6 +1,4 @@
-# Migrate your OpenSSL Dynamic Engine from AWS CloudHSM Client SDK 3 to
-
-Client SDK 5
+# Migrate your OpenSSL Dynamic Engine from AWS CloudHSM Client SDK 3 to Client SDK 5
 
 Use this topic to migrate your [OpenSSL Dynamic Engine](openssl-library.md "openssl-library.md") from AWS CloudHSM
 Client SDK 3 to Client SDK 5. For benefits on migrating, see [Benefits of AWS CloudHSM Client SDK 5](client-sdk-5-benefits.md "client-sdk-5-benefits.md").
@@ -12,8 +10,7 @@ Client SDK 5 is the primary SDK that continues to have new features and platform
 
 Random number generation is not currently supported in Client SDK 5 with OpenSSL Dynamic Engine.
 
-To review migration instructions for all providers, see [Migrating from AWS CloudHSM Client SDK 3 to
-Client SDK 5](client-sdk-migration.md "client-sdk-migration.md").
+To review migration instructions for all providers, see [Migrating from AWS CloudHSM Client SDK 3 to Client SDK 5](client-sdk-migration.md "client-sdk-migration.md").
 
 ## Migrate to Client SDK 5
 
@@ -140,8 +137,7 @@ Ubuntu 18.04 LTS
 
 ###### Note
 
-Custom configurations need to be enabled again. 4. Install the Client SDK OpenSSL Dynamic Engine by following the steps in [Install the OpenSSL Dynamic Engine for AWS CloudHSM
-Client SDK 5](openssl5-install.md "openssl5-install.md"). 5. Client SDK 5 introduces a new configuration file format and command-line bootstrapping tool. To bootstrap your Client SDK 5 OpenSSL Dynamic Engine, follow the instructions listed in the user guide under
+Custom configurations need to be enabled again. 4. Install the Client SDK OpenSSL Dynamic Engine by following the steps in [Install the OpenSSL Dynamic Engine for AWS CloudHSM Client SDK 5](openssl5-install.md "openssl5-install.md"). 5. Client SDK 5 introduces a new configuration file format and command-line bootstrapping tool. To bootstrap your Client SDK 5 OpenSSL Dynamic Engine, follow the instructions listed in the user guide under
 [Bootstrap the Client SDK](cluster-connect.md#connect-how-to "cluster-connect.md#connect-how-to"). 6. In your development environment, test your application. Make updates to your existing code to resolve your breaking changes before your final migration.
 
 ## Related topics

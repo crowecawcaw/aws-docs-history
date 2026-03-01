@@ -1,6 +1,4 @@
-# Allow the JCE provider to extract private key
-
-secrets out of AWS CloudHSM
+# Allow the JCE provider to extract private key secrets out of AWS CloudHSM
 
 Use the following steps to allow AWS CloudHSM JCE provider to extract your private key
 secrets.

@@ -1,6 +1,4 @@
-# AWS CloudHSM Client SDK 5 user replicate
-
-failures
+# AWS CloudHSM Client SDK 5 user replicate failures
 
 The `user replicate` command in the CloudHSM CLI replicates a user between cloned AWS CloudHSM clusters.
 This guide addresses failures due to user inconsistencies within the source cluster or between the source and destination clusters.
@@ -66,8 +64,7 @@ To check for user desynchronization in the source cluster:
 ###### Resolution: Synchronize user attributes throughout the source cluster
 
 - To synchronize user information throughout the source cluster, refer to the following:
-  [AWS CloudHSM Client SDK 5 user contains
-  inconsistent values](troubleshoot-sdk5-inconsistent-value.md "troubleshoot-sdk5-inconsistent-value.md").
+  [AWS CloudHSM Client SDK 5 user contains inconsistent values](troubleshoot-sdk5-inconsistent-value.md "troubleshoot-sdk5-inconsistent-value.md").
 
 ## Problem: User exists on the destination cluster with different attributes
 

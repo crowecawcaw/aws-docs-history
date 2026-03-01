@@ -1,6 +1,4 @@
-# Synchronize users across the AWS CloudHSM cluster
-
-using CMU
+# Synchronize users across the AWS CloudHSM cluster using CMU
 
 Use the **syncUser** command in the AWS CloudHSM cloudhsm_mgmt_util to manually synchronize
 crypto users (CUs) or crypto officers (COs) across HSM instances within a cluster or across

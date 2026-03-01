@@ -6,8 +6,7 @@ of the HSM.
 
 ###### Note
 
-Use the [Export an asymmetric key with
-CloudHSM CLI](cloudhsm_cli-key-generate-file.md "cloudhsm_cli-key-generate-file.md") command to create a standard PEM file from a public key or to create a reference PEM file from a private key.
+Use the [Export an asymmetric key with CloudHSM CLI](cloudhsm_cli-key-generate-file.md "cloudhsm_cli-key-generate-file.md") command to create a standard PEM file from a public key or to create a reference PEM file from a private key.
 
 ## User type
 

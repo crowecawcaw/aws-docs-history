@@ -1,6 +1,4 @@
-# Generate symmetric keys with the AWS CloudHSM
-
-KMU
+# Generate symmetric keys with the AWS CloudHSM KMU
 
 Use the [genSymKey](key_mgmt_util-genSymKey.md "key_mgmt_util-genSymKey.md") command in AWS CloudHSM key_mgmt_util
 (KMU) to generate AES and other types of symmetric keys for AWS CloudHSM. To

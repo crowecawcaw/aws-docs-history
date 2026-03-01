@@ -1,6 +1,4 @@
-# Verify a signature signed with the RSA-PKCS
-
-mechanism in CloudHSM CLI
+# Verify a signature signed with the RSA-PKCS mechanism in CloudHSM CLI
 
 Use the **crypto verify rsa-pkcs** command in CloudHSM CLI complete the
 following operations:

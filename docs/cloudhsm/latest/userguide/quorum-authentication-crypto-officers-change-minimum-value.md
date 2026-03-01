@@ -1,6 +1,4 @@
-# Change the quorum
-
-minimum value with AWS CloudHSM Management Utility
+# Change the quorum minimum value with AWS CloudHSM Management Utility
 
 After you [set the quorum
 minimum value](quorum-authentication-crypto-officers-first-time-setup.md#quorum-crypto-officers-set-quorum-minimum-value "quorum-authentication-crypto-officers-first-time-setup.md#quorum-crypto-officers-set-quorum-minimum-value") so that AWS CloudHSM [crypto officers (COs)](understanding-users-cmu.md#crypto-officer "understanding-users-cmu.md#crypto-officer")
@@ -32,8 +30,7 @@ descriptions, and the commands that are included in the service.
 `$` `/opt/cloudhsm/bin/cloudhsm_mgmt_util /opt/cloudhsm/etc/cloudhsm_mgmt_util.cfg`
 ```
 
-2. Use the **loginHSM** command to log in to the HSM as a CO. For more information, see [HSM user management with CloudHSM Management Utility
-   (CMU)](manage-hsm-users-cmu.md "manage-hsm-users-cmu.md").
+2. Use the **loginHSM** command to log in to the HSM as a CO. For more information, see [HSM user management with CloudHSM Management Utility (CMU)](manage-hsm-users-cmu.md "manage-hsm-users-cmu.md").
 3. Use the **getMValue** command to get the quorum minimum value for
    service 3. For more information, see the following example.
 4. Use the **getMValue** command to get the quorum minimum value for

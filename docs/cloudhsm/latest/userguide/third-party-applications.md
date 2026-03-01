@@ -1,6 +1,4 @@
-# Integrating third-party applications with
-
-AWS CloudHSM
+# Integrating third-party applications with AWS CloudHSM
 
 Some of the [use cases](use-cases.md "use-cases.md") for AWS CloudHSM involve integrating
 third-party software applications with the HSM in your AWS CloudHSM cluster. By integrating third-party

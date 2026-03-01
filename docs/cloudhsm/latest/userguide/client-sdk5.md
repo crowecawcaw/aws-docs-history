@@ -6,8 +6,7 @@ AWS CloudHSM includes two major Client SDK versions:
   see [Benefits of AWS CloudHSM Client SDK 5](client-sdk-5-benefits.md "client-sdk-5-benefits.md").
 - Client SDK 3: This is our older Client SDK. It includes a full set of components for platform and language-based
   applications compatibility and management tools.
-  For instructions on migrating from Client SDK 3 to Client SDK 5, see [Migrating from AWS CloudHSM Client SDK 3 to
-  Client SDK 5](client-sdk-migration.md "client-sdk-migration.md").
+  For instructions on migrating from Client SDK 3 to Client SDK 5, see [Migrating from AWS CloudHSM Client SDK 3 to Client SDK 5](client-sdk-migration.md "client-sdk-migration.md").
 
 This topic describes Client SDK 5. To check what version of Client SDK you're using, see
 

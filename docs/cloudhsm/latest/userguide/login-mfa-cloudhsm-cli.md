@@ -1,6 +1,4 @@
-# Log in users with MFA enabled for
-
-CloudHSM CLI
+# Log in users with MFA enabled for CloudHSM CLI
 
 Follow these steps to log in AWS CloudHSM users with multi-factor authentication (MFA)
 enabled.

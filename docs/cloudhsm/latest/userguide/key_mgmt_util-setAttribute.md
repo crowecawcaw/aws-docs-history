@@ -1,6 +1,4 @@
-# Set the attributes of AWS CloudHSM keys using
-
-KMU
+# Set the attributes of AWS CloudHSM keys using KMU
 
 Use the **setAttribute** command in the AWS CloudHSM key_mgmt_util to convert a key that is
 valid only in the current session to a persistent key that exists until you delete it. It does

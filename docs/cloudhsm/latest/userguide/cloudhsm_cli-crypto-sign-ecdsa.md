@@ -1,13 +1,10 @@
-# Generate a signature with the ECDSA mechanism in
-
-CloudHSM CLI
+# Generate a signature with the ECDSA mechanism in CloudHSM CLI
 
 Use the **crypto sign ecdsa** command in CloudHSM CLI to generate a signature
 using an EC private key and the ECDSA signing mechanism.
 
 To use the **crypto sign ecdsa** command, you must first have an EC private key in your AWS CloudHSM cluster.
-You can generate an EC private key using the [Generate an asymmetric EC key
-pair with CloudHSM CLI](cloudhsm_cli-key-generate-asymmetric-pair-ec.md "cloudhsm_cli-key-generate-asymmetric-pair-ec.md") command with the `sign` attribute set to `true`.
+You can generate an EC private key using the [Generate an asymmetric EC key pair with CloudHSM CLI](cloudhsm_cli-key-generate-asymmetric-pair-ec.md "cloudhsm_cli-key-generate-asymmetric-pair-ec.md") command with the `sign` attribute set to `true`.
 
 The resulting ECDSA signature is generated in the format `r||s`, where the r and s components are concatenated as raw binary data and returned in base64 encoded format.
 

@@ -1,6 +1,4 @@
-# Supported key types for JCE provider for AWS CloudHSM
-
-Client SDK 5
+# Supported key types for JCE provider for AWS CloudHSM Client SDK 5
 
 The AWS CloudHSM software library for Java enables you to generate the following key
 types.

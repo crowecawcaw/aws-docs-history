@@ -1,20 +1,14 @@
-# Custom IVs with non-compliant length for AES key wrap
-
-in AWS CloudHSM
+# Custom IVs with non-compliant length for AES key wrap in AWS CloudHSM
 
 This troubleshooting topic helps you determine if your application generates irrecoverable
 wrapped keys. If you are impacted by this issue, use this topic to address the problem.
 
 ###### Topics
 
-- [Determine whether your code generates irrecoverable
-  wrapped keys](#troubleshooting-problem1 "#troubleshooting-problem1")
-- [Actions you must take if your code generates
-  irrecoverable wrapped keys](#troubleshooting-problem2 "#troubleshooting-problem2")
+- [Determine whether your code generates irrecoverable wrapped keys](#troubleshooting-problem1 "#troubleshooting-problem1")
+- [Actions you must take if your code generates irrecoverable wrapped keys](#troubleshooting-problem2 "#troubleshooting-problem2")
 
-## Determine whether your code generates irrecoverable
-
-wrapped keys
+## Determine whether your code generates irrecoverable wrapped keys
 
 You are impacted only if you meet _all_ the conditions
 below:
@@ -27,12 +21,9 @@ below:
 | You specify a custom IV when calling AES key wrapping, and the length of this IV is<br>shorter than 8 | AES key wrap is generally initialized using a `CK_MECHANISM` structure as<br>follows:<br>`CK_MECHANISM mech = {CKM_AES_KEY_WRAP, IV_POINTER, IV_LENGTH};`<br>This issue applies to you only if:<br>• IV_POINTER is not NULL<br>• IV_LENGTH is less than 8 bytes                                                                                                                                                                               |
 
 If you do not meet all the conditions above, you may stop reading now. Your wrapped keys can
-be unwrapped properly, and this issue does not impact you. Otherwise, see [Actions you must take if your code generates
-irrecoverable wrapped keys](#troubleshooting-problem2 "#troubleshooting-problem2").
+be unwrapped properly, and this issue does not impact you. Otherwise, see [Actions you must take if your code generates irrecoverable wrapped keys](#troubleshooting-problem2 "#troubleshooting-problem2").
 
-## Actions you must take if your code generates
-
-irrecoverable wrapped keys
+## Actions you must take if your code generates irrecoverable wrapped keys
 
 You should take the following three steps:
 

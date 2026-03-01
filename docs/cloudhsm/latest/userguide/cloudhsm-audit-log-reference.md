@@ -36,6 +36,9 @@ The following table defines the `Opcode` values in an AWS CloudHSM audit log.
 | `CN_NIST_AES_WRAP`                                                          | Encrypt or decrypt a key with an AES key                                                                     |
 | `CN_INSERT_MASKED_OBJECT_USER`                                              | Insert an encrypted key with attributes from another HSM in the cluster.                                     |
 | `CN_EXTRACT_MASKED_OBJECT_USER`                                             | Wraps/encrypts a key with attributes from the HSM to be sent to another HSM in the cluster.                  |
+| **Session Management**                                                      |
+| `CN_ENCRYPT_SESSION_V2 (0x107)`                                             | Establishes an authenticated end-to-end encrypted session.                                                   |
+| `END_MARKER_OPCODE (0xffff)`                                                | Inserts an end-marker in the audit logs buffer indicating no more loggable commands are allowed on the HSM   |
 | **Back up HSMs**                                                            |
 | `CN_BACKUP_BEGIN`                                                           | Begin the backup process                                                                                     |
 | `CN_BACKUP_END`                                                             | Completed the backup process                                                                                 |

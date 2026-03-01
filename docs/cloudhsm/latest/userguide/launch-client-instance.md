@@ -1,6 +1,4 @@
-# Launch an Amazon EC2 client instance for interacting with
-
-AWS CloudHSM
+# Launch an Amazon EC2 client instance for interacting with AWS CloudHSM
 
 To interact with and manage your AWS CloudHSM cluster and HSM instances, you must be able to
 communicate with the elastic network interfaces of your HSMs. The easiest way to do this is

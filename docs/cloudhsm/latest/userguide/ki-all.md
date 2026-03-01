@@ -5,34 +5,22 @@ key_mgmt_util command line tool, the PKCS #11 SDK, the JCE SDK, or the OpenSSL S
 
 ###### Topics
 
-- [Issue: AES key wrapping uses PKCS #5 padding instead of providing a
-  standards-compliant implementation of key wrap with zero padding](#ki-all-1 "#ki-all-1")
-- [Issue: The client daemon requires at least one valid IP address
-  in its configuration file to successfully connect to the cluster](#ki-all-2 "#ki-all-2")
-- [Issue: There was an upper limit of 16 KB on data that can be
-  hashed and signed by AWS CloudHSM using Client SDK 3](#ki-all-3 "#ki-all-3")
-- [Issue: Imported keys could not be specified as
-  non-exportable](#ki-all-4 "#ki-all-4")
-- [Issue: The default mechanism for the wrapKey and unWrapKey
-  commands in the key_mgmt_util has been removed](#ki-all-5 "#ki-all-5")
-- [Issue: If you have a single HSM in your cluster, HSM failover
-  does not work correctly](#ki-all-6 "#ki-all-6")
-- [Issue: If you exceed the key capacity of the HSMs in your cluster
-  within a short period of time, the client enters an unhandled error state](#ki-all-7 "#ki-all-7")
-- [Issue: Digest operations with HMAC keys of size greater than 800
-  bytes are not supported](#ki-all-8 "#ki-all-8")
-- [Issue: The client_info tool, distributed with Client SDK 3, deletes the
-  contents of the path specified by the optional output argument](#ki-all-9 "#ki-all-9")
-- [Issue: You receive an error when running the SDK 5 configure
-  tool using the --cluster-id argument in containerized environments](#ki-all-10 "#ki-all-10")
+- [Issue: AES key wrapping uses PKCS #5 padding instead of providing a standards-compliant implementation of key wrap with zero padding](#ki-all-1 "#ki-all-1")
+- [Issue: The client daemon requires at least one valid IP address in its configuration file to successfully connect to the cluster](#ki-all-2 "#ki-all-2")
+- [Issue: There was an upper limit of 16 KB on data that can be hashed and signed by AWS CloudHSM using Client SDK 3](#ki-all-3 "#ki-all-3")
+- [Issue: Imported keys could not be specified as non-exportable](#ki-all-4 "#ki-all-4")
+- [Issue: The default mechanism for the wrapKey and unWrapKey commands in the key_mgmt_util has been removed](#ki-all-5 "#ki-all-5")
+- [Issue: If you have a single HSM in your cluster, HSM failover does not work correctly](#ki-all-6 "#ki-all-6")
+- [Issue: If you exceed the key capacity of the HSMs in your cluster within a short period of time, the client enters an unhandled error state](#ki-all-7 "#ki-all-7")
+- [Issue: Digest operations with HMAC keys of size greater than 800 bytes are not supported](#ki-all-8 "#ki-all-8")
+- [Issue: The client_info tool, distributed with Client SDK 3, deletes the contents of the path specified by the optional output argument](#ki-all-9 "#ki-all-9")
+- [Issue: You receive an error when running the SDK 5 configure tool using the --cluster-id argument in containerized environments](#ki-all-10 "#ki-all-10")
 - [Issue: You receive the error "Failed to create cert/key from provided pfx file. Error: NotPkcs8"](#ki-all-11 "#ki-all-11")
 - [Issue: ECDSA signing fails with "invalid mechanism" error starting with SDK 5.16](#ki-all-12 "#ki-all-12")
 - [Issue: Signing operations with prehashed data do not properly clear session tokens in interactive mode](#ki-all-13 "#ki-all-13")
 - [Issue: CloudHSM client library's default client certificate expires on Jan 31, 2026](#ki-all-14 "#ki-all-14")
 
-## Issue: AES key wrapping uses PKCS #5 padding instead of providing a
-
-standards-compliant implementation of key wrap with zero padding
+## Issue: AES key wrapping uses PKCS #5 padding instead of providing a standards-compliant implementation of key wrap with zero padding
 
 Additionally, key wrap with no padding and zero padding is not supported.
 
@@ -50,9 +38,7 @@ Additionally, key wrap with no padding and zero padding is not supported.
   provides standards-compliant options for AES key wrapping. For more information,
   see [AES Key Wrapping](manage-aes-key-wrapping.md "manage-aes-key-wrapping.md").
 
-## Issue: The client daemon requires at least one valid IP address
-
-in its configuration file to successfully connect to the cluster
+## Issue: The client daemon requires at least one valid IP address in its configuration file to successfully connect to the cluster
 
 - **Impact:** If you delete every HSM in your cluster and then
   add another HSM, which gets a new IP address, the client daemon continues to
@@ -67,9 +53,7 @@ in its configuration file to successfully connect to the cluster
   command. For more information, see [Install and Configure the AWS CloudHSM
   Client (Linux)](cmu-install-and-configure-client-linux.md "cmu-install-and-configure-client-linux.md") or [Install and Configure the AWS CloudHSM Client (Windows)](cmu-install-and-configure-client-win.md "cmu-install-and-configure-client-win.md").
 
-## Issue: There was an upper limit of 16 KB on data that can be
-
-hashed and signed by AWS CloudHSM using Client SDK 3
+## Issue: There was an upper limit of 16 KB on data that can be hashed and signed by AWS CloudHSM using Client SDK 3
 
 - **Resolution status:** Data less than 16KB in size continues
   to be sent to the HSM for hashing. We have added capability to hash locally, in
@@ -77,23 +61,17 @@ hashed and signed by AWS CloudHSM using Client SDK 3
   explicitly fail if the data buffer is larger than 64KB. You must update your
   client and SDK(s) to a version greater than 5.0.0 or higher to benefit from the fix.
 
-## Issue: Imported keys could not be specified as
-
-non-exportable
+## Issue: Imported keys could not be specified as non-exportable
 
 - **Resolution Status:** This issue is fixed. No action is
   required on your part to benefit from the fix.
 
-## Issue: The default mechanism for the wrapKey and unWrapKey
-
-commands in the key_mgmt_util has been removed
+## Issue: The default mechanism for the wrapKey and unWrapKey commands in the key_mgmt_util has been removed
 
 - **Resolution:** When using the wrapKey or unWrapKey commands,
   you must use the `-m` option to specify the mechanism. See the examples in the [wrapKey](key_mgmt_util-wrapKey.md "key_mgmt_util-wrapKey.md") or [unWrapKey](key_mgmt_util-unwrapKey.md "key_mgmt_util-unwrapKey.md") articles for more information.
 
-## Issue: If you have a single HSM in your cluster, HSM failover
-
-does not work correctly
+## Issue: If you have a single HSM in your cluster, HSM failover does not work correctly
 
 - **Impact:** If the single HSM instance in your cluster loses
   connectivity, the client will not reconnect with it even if the HSM instance is
@@ -106,9 +84,7 @@ does not work correctly
   AWS CloudHSM client 1.1.2 release. You
   must upgrade to this client to benefit from the fix.
 
-## Issue: If you exceed the key capacity of the HSMs in your cluster
-
-within a short period of time, the client enters an unhandled error state
+## Issue: If you exceed the key capacity of the HSMs in your cluster within a short period of time, the client enters an unhandled error state
 
 - **Impact:** When the client encounters the unhandled error
   state, it freezes and must be restarted.
@@ -120,9 +96,7 @@ within a short period of time, the client enters an unhandled error state
   AWS CloudHSM client 1.1.2 release. You
   must upgrade to this client to benefit from the fix.
 
-## Issue: Digest operations with HMAC keys of size greater than 800
-
-bytes are not supported
+## Issue: Digest operations with HMAC keys of size greater than 800 bytes are not supported
 
 - **Impact:** HMAC keys larger than 800 bytes can be generated
   on or imported into the HSM. However, if you use this larger key in a digest
@@ -132,9 +106,7 @@ bytes are not supported
   operations on the HSM, ensure the size is smaller than 800 bytes.
 - **Resolution status:** None at this time.
 
-## Issue: The client_info tool, distributed with Client SDK 3, deletes the
-
-contents of the path specified by the optional output argument
+## Issue: The client_info tool, distributed with Client SDK 3, deletes the contents of the path specified by the optional output argument
 
 - **Impact:** All existing files and sub-directories under the
   specified output path may be permanently lost.
@@ -142,9 +114,7 @@ contents of the path specified by the optional output argument
 the`client_info` tool.
 - **Resolution status:** This issue has been resolved in the [Client SDK 3.3.2 release](client-history.md#client-version-3-3-2 "client-history.md#client-version-3-3-2"). You must upgrade to this client to benefit from the fix.
 
-## Issue: You receive an error when running the SDK 5 configure
-
-tool using the `--cluster-id` argument in containerized environments
+## Issue: You receive an error when running the SDK 5 configure tool using the `--cluster-id` argument in containerized environments
 
 You receive the following error when using the --cluster-id argument with the Configure Tool:
 

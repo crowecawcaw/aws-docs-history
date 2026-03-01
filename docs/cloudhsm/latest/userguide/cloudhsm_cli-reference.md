@@ -1,7 +1,6 @@
 # Reference for CloudHSM CLI commands
 
-CloudHSM CLI helps admins manage users in their AWS CloudHSM cluster. CloudHSM CLI can be run in two modes: Interactive Mode and Single Command Mode. For a quick start, see [Getting started with AWS CloudHSM Command Line
-Interface (CLI)](cloudhsm_cli-getting-started.md "cloudhsm_cli-getting-started.md").
+CloudHSM CLI helps admins manage users in their AWS CloudHSM cluster. CloudHSM CLI can be run in two modes: Interactive Mode and Single Command Mode. For a quick start, see [Getting started with AWS CloudHSM Command Line Interface (CLI)](cloudhsm_cli-getting-started.md "cloudhsm_cli-getting-started.md").
 
 To run most CloudHSM CLI commands, you must start the CloudHSM CLI and log in to the HSM. If you add or delete HSMs, update the configuration files for CloudHSM CLI.
 Otherwise, the changes that you make might not be effective for all HSMs in the cluster.

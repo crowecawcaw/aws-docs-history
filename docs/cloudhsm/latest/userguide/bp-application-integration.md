@@ -21,19 +21,16 @@ AWS CloudHSM recommends securely storing your HSM credentials when not being use
 
 **Authenticate with PKCS #11**: In PKCS #11, you login using the C_Login API after opening a session using C_OpenSession.
 You only need to perform one C_Login per slot (cluster). After you have successfully logged in, you can open additional sessions using C_OpenSession without the need to perform additional login operations.
-For examples on authenticating to PKCS #11, see [Code samples for the PKCS #11 library for AWS CloudHSM
-Client SDK 5](pkcs11-samples.md "pkcs11-samples.md").
+For examples on authenticating to PKCS #11, see [Code samples for the PKCS #11 library for AWS CloudHSM Client SDK 5](pkcs11-samples.md "pkcs11-samples.md").
 
 **Authenticate with JCE**: The AWS CloudHSM JCE Provider supports both implicit and explicit login.
 The method that works for you depends on your use case. When possible, we recommend using Implicit Login because the SDK will automatically handle authentication if
 your application becomes disconnected from your cluster and needs to be re-authenticated. Using implicit login also allows you to provide credentials to your application
-when using an integration that doesn’t allow you to have control over your application code. For more about login methods, see [Step 2: Provide credentials to the
-JCE provider](java-library-install_5.md#java-library-credentials_5 "java-library-install_5.md#java-library-credentials_5").
+when using an integration that doesn’t allow you to have control over your application code. For more about login methods, see [Step 2: Provide credentials to the JCE provider](java-library-install_5.md#java-library-credentials_5 "java-library-install_5.md#java-library-credentials_5").
 
 **Authenticate with OpenSSL**: With the OpenSSL Dynamic Engine, you provide credentials through environment variables.
 AWS CloudHSM recommends securely storing your HSM credentials when not being used by your application. If possible, you should configure your environment
-to systematically retrieve and set these environment variables without manual entry. For details on authenticating with OpenSSL, see [Install the OpenSSL Dynamic Engine for AWS CloudHSM
-Client SDK 5](openssl5-install.md "openssl5-install.md").
+to systematically retrieve and set these environment variables without manual entry. For details on authenticating with OpenSSL, see [Install the OpenSSL Dynamic Engine for AWS CloudHSM Client SDK 5](openssl5-install.md "openssl5-install.md").
 
 **Authenticate with KSP**: You can authenticate with Key Storage Provider (KSP) using either Windows credential manager or environment variables, see [Install the Key storage provider (KSP) for AWS CloudHSM Client SDK 5](ksp-library-install.md "ksp-library-install.md").
 
@@ -51,8 +48,7 @@ out of the HSM. For more information, see our attributes pages for the following
 - With PKCS #11, you find keys using the `C_FindObjects` API.
 - With JCE, you find keys using the KeyStore.
 
-For optimal performance, AWS recommends that you utilize key find commands (like [Search for AWS CloudHSM keys by attributes using
-KMU](key_mgmt_util-findKey.md "key_mgmt_util-findKey.md") and [List keys for a user with CloudHSM CLI](cloudhsm_cli-key-list.md "cloudhsm_cli-key-list.md")) only once during your application start-up and cache the key object returned in application memory.
+For optimal performance, AWS recommends that you utilize key find commands (like [Search for AWS CloudHSM keys by attributes using KMU](key_mgmt_util-findKey.md "key_mgmt_util-findKey.md") and [List keys for a user with CloudHSM CLI](cloudhsm_cli-key-list.md "cloudhsm_cli-key-list.md")) only once during your application start-up and cache the key object returned in application memory.
 If you require this key object later on, you should retrieve the object from your cache instead of querying for this object for each operation which will add significant performance overhead.
 
 ## Use multi-threading
@@ -96,10 +92,8 @@ For example, you can have two active clusters, each in different regions, and yo
 If your application is not using Client SDK 5 (the latest SDK), then you cannot connect to multiple clusters from the same application. Alternatively, you can keep another cluster up and running and,
 in the event there is a regional outage, shift your traffic to the other cluster to minimize downtime. See the respective pages for details:
 
-- [Multiple slot configuration with PKCS #11 library for
-  AWS CloudHSM](pkcs11-library-configs-multi-slot.md "pkcs11-library-configs-multi-slot.md")
-- [Connecting to multiple AWS CloudHSM clusters with the JCE
-  provider](java-lib-configs-multi.md "java-lib-configs-multi.md")
+- [Multiple slot configuration with PKCS #11 library for AWS CloudHSM](pkcs11-library-configs-multi-slot.md "pkcs11-library-configs-multi-slot.md")
+- [Connecting to multiple AWS CloudHSM clusters with the JCE provider](java-lib-configs-multi.md "java-lib-configs-multi.md")
 - [Connecting to multiple clusters with CloudHSM CLI](cloudhsm_cli-configs-multi-cluster.md "cloudhsm_cli-configs-multi-cluster.md")
 
 **Restore a cluster from a backup**: You can create a new Cluster from a backup of an existing Cluster. For more information, see [Cluster backups in AWS CloudHSM](manage-backups.md "manage-backups.md").

@@ -1,6 +1,4 @@
-# Verify the identity and authenticity of your cluster's HSM
-
-in AWS CloudHSM (optional)
+# Verify the identity and authenticity of your cluster's HSM in AWS CloudHSM (optional)
 
 To initialize your cluster in AWS CloudHSM, you sign a certificate signing request (CSR) generated
 by the cluster's first hardware security module (HSM). Before you do this, you might want to

@@ -1,8 +1,7 @@
 # Quorum authentication process for AWS CloudHSM Management Utility
 
 The following steps summarize the quorum authentication processes. For the specific steps
-and tools, see [User management with quorum
-authentication enabled for AWS CloudHSM Management Utility](quorum-authentication-crypto-officers.md "quorum-authentication-crypto-officers.md").
+and tools, see [User management with quorum authentication enabled for AWS CloudHSM Management Utility](quorum-authentication-crypto-officers.md "quorum-authentication-crypto-officers.md").
 
 1. Each HSM user creates an asymmetric key for signing. They do this outside of
    the HSM, taking care to protect the key appropriately.

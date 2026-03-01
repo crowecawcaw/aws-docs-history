@@ -1,6 +1,4 @@
-# AWS CloudHSM Client SDK 3 verify HSM
-
-performance with the pkpspeed tool
+# AWS CloudHSM Client SDK 3 verify HSM performance with the pkpspeed tool
 
 This topic describes how to verify AWS CloudHSM hardware security module (HSM) performance with Client SDK 3.
 
@@ -11,10 +9,8 @@ We recommend load testing your application independently to determine your scali
 We do not recommend running the following tests: Random (I), ModExp (R), and EC point mul (Y).
 
 For more information
-about installing the client on a Linux EC2 instance, see [Install and configure the AWS CloudHSM client
-for CMU (Linux)](cmu-install-and-configure-client-linux.md "cmu-install-and-configure-client-linux.md"). For more information about
-installing the client on a Windows instance, see [Install and configure the AWS CloudHSM client for CMU
-(Windows)](cmu-install-and-configure-client-win.md "cmu-install-and-configure-client-win.md").
+about installing the client on a Linux EC2 instance, see [Install and configure the AWS CloudHSM client for CMU (Linux)](cmu-install-and-configure-client-linux.md "cmu-install-and-configure-client-linux.md"). For more information about
+installing the client on a Windows instance, see [Install and configure the AWS CloudHSM client for CMU (Windows)](cmu-install-and-configure-client-win.md "cmu-install-and-configure-client-win.md").
 
 After you install and configure the AWS CloudHSM client, run the following command to start
 it.
@@ -102,8 +98,7 @@ recommendations.
 ## Configurable options for the pkpspeed tool
 
 - **FIPS Mode**: AWS CloudHSM is always in FIPS mode (See [AWS CloudHSM FAQs](https://aws.amazon.com/cloudhsm/faqs/ "https://aws.amazon.com/cloudhsm/faqs/") for details).
-  This can be verified by using the CLI tools as documented in the AWS CloudHSM User Guide and running the **[Get hardware information for each HSM in an
-  AWS CloudHSM cluster with CMU](cloudhsm_mgmt_util-getHSMInfo.md "cloudhsm_mgmt_util-getHSMInfo.md")**  
+  This can be verified by using the CLI tools as documented in the AWS CloudHSM User Guide and running the **[Get hardware information for each HSM in an AWS CloudHSM cluster with CMU](cloudhsm_mgmt_util-getHSMInfo.md "cloudhsm_mgmt_util-getHSMInfo.md")**  
   command which will indicate the FIPS mode status.
 - **Test type (blocking versus non-blocking)**: This specifies how operations are performed in a threaded manner.
   You will most likely get better numbers using non-blocking. This is because they utilize threads and concurrency.

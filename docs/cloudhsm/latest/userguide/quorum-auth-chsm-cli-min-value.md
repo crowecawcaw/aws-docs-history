@@ -1,6 +1,4 @@
-# Change the quorum minimum value for AWS CloudHSM
-
-using CloudHSM CLI
+# Change the quorum minimum value for AWS CloudHSM using CloudHSM CLI
 
 After [setting the quorum
 minimum value](quorum-auth-chsm-cli-first-time.md#quorum-admin-set-quorum-minimum-value-chsm-cli "quorum-auth-chsm-cli-first-time.md#quorum-admin-set-quorum-minimum-value-chsm-cli") for CloudHSM [admins](understanding-users.md#admin "understanding-users.md#admin"), you might need to adjust
@@ -11,8 +9,7 @@ of two (2), at least two (2) admins must approve any changes.
 ###### Note
 
 The quorum value of the user service must always be less than or equal to the quorum value of the
-quorum service. For information on service names, see [Supported AWS CloudHSM service names and types
-for quorum authentication with CloudHSM CLI](quorum-auth-chsm-cli-service-names.md "quorum-auth-chsm-cli-service-names.md").
+quorum service. For information on service names, see [Supported AWS CloudHSM service names and types for quorum authentication with CloudHSM CLI](quorum-auth-chsm-cli-service-names.md "quorum-auth-chsm-cli-service-names.md").
 
 To get quorum approval to change the quorum minimum value, you need a _quorum
 token_ for the **quorum service** using the **quorum token-sign set-quorum-value** command.

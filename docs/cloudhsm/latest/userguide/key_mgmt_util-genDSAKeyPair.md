@@ -1,6 +1,4 @@
-# Generate an AWS CloudHSM DSA key pair using
-
-KMU
+# Generate an AWS CloudHSM DSA key pair using KMU
 
 Use the **genDSAKeyPair** command in the AWS CloudHSM key_mgmt_util tool to generate a
 [Digital Signing

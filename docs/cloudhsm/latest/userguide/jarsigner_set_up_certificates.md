@@ -1,6 +1,4 @@
-# Set up AWS CloudHSM keys and certificates with
-
-Jarsigner
+# Set up AWS CloudHSM keys and certificates with Jarsigner
 
 Before you can sign AWS CloudHSM JAR files with Jarsigner, make sure you have set up or completed
 the following steps:

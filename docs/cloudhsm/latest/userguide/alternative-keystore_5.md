@@ -12,9 +12,7 @@ KeyStore](https://devdocs.io/openjdk~8/java/security/keystore "https://devdocs.i
 Because certificates are public information, and to maximize storage capacity for
 cryptographic keys, AWS CloudHSM does not support storing certificates on HSMs.
 
-## Choose the appropriate key store for AWS CloudHSM
-
-Client SDK 5
+## Choose the appropriate key store for AWS CloudHSM Client SDK 5
 
 The AWS CloudHSM Java Cryptographic Extension (JCE) provider offers a special-purpose AWS CloudHSM KeyStore.
 The AWS CloudHSM `KeyStore` class supports offloading key operations to the HSM,
@@ -26,9 +24,7 @@ Load the special-purpose CloudHSM KeyStore as follows:
 KeyStore ks = KeyStore.getInstance("CloudHSM")
 ```
 
-## Initialize the AWS CloudHSM KeyStore
-
-Client SDK 5
+## Initialize the AWS CloudHSM KeyStore Client SDK 5
 
 Log into the AWS CloudHSM KeyStore the same way that you log into the JCE provider.
 You can use either environment variables or the system property file, and you should log
@@ -53,9 +49,7 @@ file and password as follows:
 ks.load(inputStream, password);
 ```
 
-## Use AWS CloudHSM KeyStore or AWS CloudHSM
-
-Client SDK 5
+## Use AWS CloudHSM KeyStore or AWS CloudHSM Client SDK 5
 
 AWS CloudHSM KeyStore complies with the JCE [Class
 KeyStore](https://devdocs.io/openjdk~8/java/security/keystore "https://devdocs.io/openjdk~8/java/security/keystore") specification and provides the following functions.

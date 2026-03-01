@@ -2,9 +2,7 @@
 
 The following issues impact AWS CloudHSM and Amazon EC2 instances that are running on Amazon Linux 2.
 
-## Issue: Amazon Linux 2 version 2018.07 uses an updated `ncurses`
-
-package (version 6) that is currently incompatible with the AWS CloudHSM SDKs
+## Issue: Amazon Linux 2 version 2018.07 uses an updated `ncurses` package (version 6) that is currently incompatible with the AWS CloudHSM SDKs
 
 You see the following
 error returned upon running the AWS CloudHSM [cloudhsm_mgmt_util](cloudhsm_mgmt_util.md "cloudhsm_mgmt_util.md") or [key_mgmt_util](key_mgmt_util.md "key_mgmt_util.md"):

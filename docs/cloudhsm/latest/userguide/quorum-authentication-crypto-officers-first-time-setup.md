@@ -1,20 +1,15 @@
-# Set up quorum
-
-authentication for AWS CloudHSM crypto officers
+# Set up quorum authentication for AWS CloudHSM crypto officers
 
 The following topics describe the steps that you must complete to configure your hardware
 security module (HSM) so that AWS CloudHSM [crypto officers (COs)](understanding-users-cmu.md#crypto-officer "understanding-users-cmu.md#crypto-officer")
 can use quorum authentication. You need to do these steps only once when you first configure
-quorum authentication for COs. After you complete these steps, see [User management with quorum
-authentication enabled for AWS CloudHSM Management Utility](quorum-authentication-crypto-officers.md "quorum-authentication-crypto-officers.md").
+quorum authentication for COs. After you complete these steps, see [User management with quorum authentication enabled for AWS CloudHSM Management Utility](quorum-authentication-crypto-officers.md "quorum-authentication-crypto-officers.md").
 
 ###### Topics
 
 - [Prerequisites](#quorum-crypto-officers-prerequisites "#quorum-crypto-officers-prerequisites")
-- [Step 1. Create and register a
-  key for signing](#quorum-crypto-officers-create-and-register-key "#quorum-crypto-officers-create-and-register-key")
-- [Step 2. Set the quorum
-  minimum value on the HSM](#quorum-crypto-officers-set-quorum-minimum-value "#quorum-crypto-officers-set-quorum-minimum-value")
+- [Step 1. Create and register a key for signing](#quorum-crypto-officers-create-and-register-key "#quorum-crypto-officers-create-and-register-key")
+- [Step 2. Set the quorum minimum value on the HSM](#quorum-crypto-officers-set-quorum-minimum-value "#quorum-crypto-officers-set-quorum-minimum-value")
 
 ## Prerequisites
 
@@ -48,9 +43,7 @@ Number of users found:7
  7 CO officer5 NO 0 NO`
 ```
 
-## Step 1. Create and register a
-
-key for signing
+## Step 1. Create and register a key for signing
 
 To use quorum authentication, each CO must do _all_ of
 the following steps:
@@ -138,8 +131,7 @@ with the HSM.
 `$` `/opt/cloudhsm/bin/cloudhsm_mgmt_util /opt/cloudhsm/etc/cloudhsm_mgmt_util.cfg`
 ```
 
-2. Use the **loginHSM** command to log in to the HSM as a CO. For more information, see [HSM user management with CloudHSM Management Utility
-   (CMU)](manage-hsm-users-cmu.md "manage-hsm-users-cmu.md").
+2. Use the **loginHSM** command to log in to the HSM as a CO. For more information, see [HSM user management with CloudHSM Management Utility (CMU)](manage-hsm-users-cmu.md "manage-hsm-users-cmu.md").
 3. Use the **[registerQuorumPubKey](cloudhsm_mgmt_util-registerQuorumPubKey.md "cloudhsm_mgmt_util-registerQuorumPubKey.md")** command to register the public key. For more
    information, see the following example or use the **help
    registerQuorumPubKey** command.
@@ -213,9 +205,7 @@ Number of users found:7
  7 CO officer5 YES 0 NO`
 ```
 
-## Step 2. Set the quorum
-
-minimum value on the HSM
+## Step 2. Set the quorum minimum value on the HSM
 
 To use quorum authentication for COs, a CO must log in to the HSM and then set the
 _quorum minimum value_, also known as the _m value_.
@@ -234,8 +224,7 @@ the minimum value](quorum-authentication-crypto-officers-change-minimum-value.md
 `$` `/opt/cloudhsm/bin/cloudhsm_mgmt_util /opt/cloudhsm/etc/cloudhsm_mgmt_util.cfg`
 ```
 
-2. Use the **loginHSM** command to log in to the HSM as a CO. For more information, see [HSM user management with CloudHSM Management Utility
-   (CMU)](manage-hsm-users-cmu.md "manage-hsm-users-cmu.md").
+2. Use the **loginHSM** command to log in to the HSM as a CO. For more information, see [HSM user management with CloudHSM Management Utility (CMU)](manage-hsm-users-cmu.md "manage-hsm-users-cmu.md").
 3. Use the **setMValue** command to set the quorum minimum value. For
    more information, see the following example or use the **help setMValue**
    command.
@@ -283,5 +272,4 @@ MValue of service 3[USER_MGMT] on server 1 : [2]`
 The output from the preceding **getMValue** command shows that the quorum
 minimum value for HSM user management operations (service 3) is now two.
 
-After you complete these steps, see [User management with quorum
-authentication enabled for AWS CloudHSM Management Utility](quorum-authentication-crypto-officers.md "quorum-authentication-crypto-officers.md").
+After you complete these steps, see [User management with quorum authentication enabled for AWS CloudHSM Management Utility](quorum-authentication-crypto-officers.md "quorum-authentication-crypto-officers.md").

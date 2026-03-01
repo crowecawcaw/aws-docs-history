@@ -1,6 +1,4 @@
-# Create an HSM user admin using
-
-CloudHSM CLI
+# Create an HSM user admin using CloudHSM CLI
 
 Follow these steps to create a hardware security module (HSM) admin user using the
 CloudHSM CLI.

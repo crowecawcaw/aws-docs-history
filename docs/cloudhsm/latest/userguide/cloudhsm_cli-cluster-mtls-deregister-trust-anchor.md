@@ -1,6 +1,4 @@
-# Deregister a trust
-
-anchor with CloudHSM CLI
+# Deregister a trust anchor with CloudHSM CLI
 
 Use the **cluster mtls deregister-trust-anchor** command in CloudHSM CLI to deregister a trust anchor for mutual TLS between client and AWS CloudHSM.
 

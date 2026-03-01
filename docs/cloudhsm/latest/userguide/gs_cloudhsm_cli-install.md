@@ -4,8 +4,7 @@ To interact with the HSM in your AWS CloudHSM cluster, you need the CloudHSM CLI
 
 Connect to your client instance and run the following commands to download and install
 the AWS CloudHSM command line tools. For more information,
-see [Launch an Amazon EC2 client instance for interacting with
-AWS CloudHSM](launch-client-instance.md "launch-client-instance.md").
+see [Launch an Amazon EC2 client instance for interacting with AWS CloudHSM](launch-client-instance.md "launch-client-instance.md").
 
 Amazon Linux 2023
 Amazon Linux 2023 on x86_64 architecture:

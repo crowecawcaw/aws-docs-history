@@ -1,6 +1,4 @@
-# Register a user's token-sign quorum strategy
-
-using CloudHSM CLI
+# Register a user's token-sign quorum strategy using CloudHSM CLI
 
 Use the **user change-quorum token-sign register** command in CloudHSM CLI to register the token-sign quorum strategy for an admin user.
 

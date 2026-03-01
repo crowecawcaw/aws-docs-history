@@ -1,6 +1,4 @@
-# HSM user management with CloudHSM Management Utility
-
-(CMU)
+# HSM user management with CloudHSM Management Utility (CMU)
 
 To manage hardware security module (HSM) users in AWS CloudHSM, you must log in to the HSM with
 the user name and password of a [cryptographic officer](understanding-users-cmu.md#crypto-officer "understanding-users-cmu.md#crypto-officer")

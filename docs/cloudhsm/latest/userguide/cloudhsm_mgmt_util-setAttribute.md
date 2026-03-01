@@ -1,6 +1,4 @@
-# Set the attributes of AWS CloudHSM keys using
-
-CMU
+# Set the attributes of AWS CloudHSM keys using CMU
 
 Use the **setAttribute** command in the AWS CloudHSM cloudhsm_mgmt_util to change the value of
 the label, encrypt, decrypt, wrap, and unwrap attributes of a key in the HSMs. You can also use
@@ -15,9 +13,7 @@ If you add or delete HSMs, update the
 configuration files for CMU.
 Otherwise, the changes that you make might not be effective for all HSMs in the cluster.
 
-## User
-
-type
+## User type
 
 The following users can run this command.
 

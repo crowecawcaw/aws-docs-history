@@ -8,8 +8,7 @@ This topic provides step-by-step instructions for setting up SSL/TLS server iden
 - [Step 1: Set up the prerequisites](#ssl-offload-provider-prerequisites "#ssl-offload-provider-prerequisites")
 - [Step 2: Generate or import a private key and get a certificate](#ssl-offload-provider-generate-key-and-certificate "#ssl-offload-provider-generate-key-and-certificate")
 - [Step 3: Configure the web server](#ssl-offload-provider-configure-web-server "#ssl-offload-provider-configure-web-server")
-- [Step 4: Enable HTTPS traffic
-  and verify the certificate](#ssl-offload-enable-traffic-and-verify-certificate-provider "#ssl-offload-enable-traffic-and-verify-certificate-provider")
+- [Step 4: Enable HTTPS traffic and verify the certificate](#ssl-offload-enable-traffic-and-verify-certificate-provider "#ssl-offload-enable-traffic-and-verify-certificate-provider")
 
 ## Overview
 
@@ -447,8 +446,7 @@ certificate.
 ###### Install and configure the OpenSSL Dynamic Engine
 
 1. Connect to your client instance.
-2. [Install the OpenSSL Dynamic Engine for AWS CloudHSM
-   Client SDK 5](openssl5-install.md "openssl5-install.md")
+2. [Install the OpenSSL Dynamic Engine for AWS CloudHSM Client SDK 5](openssl5-install.md "openssl5-install.md")
 
 ###### Generate a certificate
 
@@ -1033,8 +1031,7 @@ Start the NGINX process
 `$` `systemctl start nginx`
 ```
 
-After you configure NGINX, go to [Verify that HTTPS uses the
-certificate that you configured](#ssl-offload-verify-https-connection-linux "#ssl-offload-verify-https-connection-linux").
+After you configure NGINX, go to [Verify that HTTPS uses the certificate that you configured](#ssl-offload-verify-https-connection-linux "#ssl-offload-verify-https-connection-linux").
 
 ### Configure HAProxy web server
 
@@ -1161,12 +1158,9 @@ You can also run HAProxy directly with a custom configuration file:
 `$` `haproxy -f /path/to/haproxy-cloudhsm.cfg`
 ```
 
-After you configure HAProxy, go to [Verify that HTTPS uses the
-certificate that you configured](#ssl-offload-verify-https-connection-linux "#ssl-offload-verify-https-connection-linux").
+After you configure HAProxy, go to [Verify that HTTPS uses the certificate that you configured](#ssl-offload-verify-https-connection-linux "#ssl-offload-verify-https-connection-linux").
 
-## Step 4: Enable HTTPS traffic
-
-and verify the certificate
+## Step 4: Enable HTTPS traffic and verify the certificate
 
 After you configure your web server for SSL/TLS offload with AWS CloudHSM, add your web server
 instance to a security group that allows inbound HTTPS traffic. This allows clients, such as web
@@ -1176,14 +1170,10 @@ SSL/TLS offload with AWS CloudHSM.
 
 ###### Topics
 
-- [Enable inbound HTTPS
-  connections](#ssl-offload-add-security-group-linux "#ssl-offload-add-security-group-linux")
-- [Verify that HTTPS uses the
-  certificate that you configured](#ssl-offload-verify-https-connection-linux "#ssl-offload-verify-https-connection-linux")
+- [Enable inbound HTTPS connections](#ssl-offload-add-security-group-linux "#ssl-offload-add-security-group-linux")
+- [Verify that HTTPS uses the certificate that you configured](#ssl-offload-verify-https-connection-linux "#ssl-offload-verify-https-connection-linux")
 
-### Enable inbound HTTPS
-
-connections
+### Enable inbound HTTPS connections
 
 To connect to your web server from a client (such as a web browser), create a security
 group that allows inbound HTTPS connections. Specifically, it should allow inbound TCP
@@ -1211,9 +1201,7 @@ connections on port 443. Assign this security group to your web server.
 8. For **Associated security groups**, select the search box and choose the security group that you created for HTTPS. Then choose **Add Security Groups**.
 9. Select **Save**.
 
-### Verify that HTTPS uses the
-
-certificate that you configured
+### Verify that HTTPS uses the certificate that you configured
 
 After you add the web server to a security group, you can verify that SSL/TLS offload is using your self-signed certificate.
 You can do this with a web browser or with a tool such as [OpenSSL s_client](https://www.openssl.org/docs/manmaster/man1/s_client.html "https://www.openssl.org/docs/manmaster/man1/s_client.html").

@@ -47,5 +47,4 @@ Related resources:
 
 - [General overview of backups](backups.md "backups.md")
 - [Backup retention policy](manage-backup-retention.md "manage-backup-retention.md")
-- [Copying AWS CloudHSM cluster backups across AWS
-  Regions](copy-backup-to-region.md "copy-backup-to-region.md")
+- [Copying AWS CloudHSM cluster backups across AWS Regions](copy-backup-to-region.md "copy-backup-to-region.md")

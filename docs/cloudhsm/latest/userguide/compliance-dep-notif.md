@@ -10,8 +10,7 @@ The AWS CloudHSM hsm1.medium instance type will reach its end of support on Marc
 - Starting January 2026, we will begin automatically migrating existing hsm1.medium clusters to the new hsm2m.medium instance type.
 
 The hsm2m.medium instance type is compatible with your current AWS CloudHSM instance type and offers improved performance. To avoid disruption to your
-applications, you must upgrade to latest version of client SDK. For upgrade instructions, see [Migrating from AWS CloudHSM Client SDK 3 to
-Client SDK 5](client-sdk-migration.md "client-sdk-migration.md").
+applications, you must upgrade to latest version of client SDK. For upgrade instructions, see [Migrating from AWS CloudHSM Client SDK 3 to Client SDK 5](client-sdk-migration.md "client-sdk-migration.md").
 
 You have two options for migration:
 

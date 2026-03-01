@@ -1,6 +1,4 @@
-# Use the OpenSSL Dynamic Engine for AWS CloudHSM
-
-Client SDK 3
+# Use the OpenSSL Dynamic Engine for AWS CloudHSM Client SDK 3
 
 To use the AWS CloudHSM dynamic engine for OpenSSL from an OpenSSL-integrated application,
 ensure that your application uses the OpenSSL dynamic engine named `cloudhsm`.

@@ -8,5 +8,4 @@ Zones are more highly available, fault tolerant, and scalable than traditional s
 center infrastructures.
 
 For more information about AWS Regions and Availability Zones, see [AWS Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/ "https://aws.amazon.com/about-aws/global-infrastructure/"). For more information about
-AWS CloudHSM features to support resiliency, see [AWS CloudHSM cluster high availability and load
-balancing](cluster-high-availability-load-balancing.md "cluster-high-availability-load-balancing.md").
+AWS CloudHSM features to support resiliency, see [AWS CloudHSM cluster high availability and load balancing](cluster-high-availability-load-balancing.md "cluster-high-availability-load-balancing.md").

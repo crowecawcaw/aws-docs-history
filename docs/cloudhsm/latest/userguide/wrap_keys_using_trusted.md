@@ -51,19 +51,16 @@ To generate a key with CloudHSM CLI, you need to set the key's `wrap-with-truste
 - For public keys, add `wrap-with-trusted` to the `public-attributes` argument.
 - For private keys, add `wrap-with-trusted` to the `private-attributes` argument.
 
-For more information on key pair generation, see [The generate-asymmetric-pair
-category in CloudHSM CLI](cloudhsm_cli-key-generate-asymmetric-pair.md "cloudhsm_cli-key-generate-asymmetric-pair.md").
+For more information on key pair generation, see [The generate-asymmetric-pair category in CloudHSM CLI](cloudhsm_cli-key-generate-asymmetric-pair.md "cloudhsm_cli-key-generate-asymmetric-pair.md").
 
-For more information on symmetric key generation, see [The generate-symmetric category in
-CloudHSM CLI](cloudhsm_cli-key-generate-symmetric.md "cloudhsm_cli-key-generate-symmetric.md").
+For more information on symmetric key generation, see [The generate-symmetric category in CloudHSM CLI](cloudhsm_cli-key-generate-symmetric.md "cloudhsm_cli-key-generate-symmetric.md").
 
 ### Option 2: If using an existing key, use CloudHSM CLI to set its `CKA_WRAP_WITH_TRUSTED` to true
 
 To set an existing key's `CKA_WRAP_WITH_TRUSTED` attribute to true, follow these steps:
 
 1. Use the [Log in to an HSM using CloudHSM CLI](cloudhsm_cli-login.md "cloudhsm_cli-login.md") command to log in as a crypto user (CU).
-2. Use the [Set the attributes of keys with
-   CloudHSM CLI](cloudhsm_cli-key-set-attribute.md "cloudhsm_cli-key-set-attribute.md") command to set the key's `wrap-with-trusted` attribute to true.
+2. Use the [Set the attributes of keys with CloudHSM CLI](cloudhsm_cli-key-set-attribute.md "cloudhsm_cli-key-set-attribute.md") command to set the key's `wrap-with-trusted` attribute to true.
 
 ```
 `aws-cloudhsm >` `key set-attribute --filter attr.label=test_key --name wrap-with-trusted --value true`
@@ -79,10 +76,8 @@ To set an existing key's `CKA_WRAP_WITH_TRUSTED` attribute to true, follow these
 
 To make a key a trusted key, its `CKA_TRUSTED` attribute must be set to true. You can either use CloudHSM CLI or the CloudHSM Management Utility (CMU) to do this.
 
-- If using CloudHSM CLI to set a key's `CKA_TRUSTED` attribute, see [Mark a key as trusted using
-  CloudHSM CLI](manage-keys-cloudhsm-cli-trusted.md "manage-keys-cloudhsm-cli-trusted.md").
-- If using the CMU to set a key's `CKA_TRUSTED` attribute, see [How to mark a key as trusted with
-  the AWS CloudHSM Management Utility](cloudhsm_using_trusted_keys_control_key_wrap.md "cloudhsm_using_trusted_keys_control_key_wrap.md").
+- If using CloudHSM CLI to set a key's `CKA_TRUSTED` attribute, see [Mark a key as trusted using CloudHSM CLI](manage-keys-cloudhsm-cli-trusted.md "manage-keys-cloudhsm-cli-trusted.md").
+- If using the CMU to set a key's `CKA_TRUSTED` attribute, see [How to mark a key as trusted with the AWS CloudHSM Management Utility](cloudhsm_using_trusted_keys_control_key_wrap.md "cloudhsm_using_trusted_keys_control_key_wrap.md").
 
 ## Step 3. Use the trusted key to wrap the data key
 

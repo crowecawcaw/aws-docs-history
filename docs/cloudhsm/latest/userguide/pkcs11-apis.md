@@ -1,6 +1,4 @@
-# Supported API operations for the PKCS #11 library for AWS CloudHSM
-
-Client SDK 5
+# Supported API operations for the PKCS #11 library for AWS CloudHSM Client SDK 5
 
 The PKCS #11 library supports the following PKCS #11 API operations for AWS CloudHSM Client SDK 5.
 

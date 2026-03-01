@@ -19,8 +19,7 @@ Verify compatibility: `openssl version`
 
 ###### Topics
 
-- [Install the OpenSSL Provider for AWS CloudHSM
-  Client SDK 5](openssl-provider-install.md "openssl-provider-install.md")
+- [Install the OpenSSL Provider for AWS CloudHSM Client SDK 5](openssl-provider-install.md "openssl-provider-install.md")
 - [Supported key types for OpenSSL Provider for AWS CloudHSM Client SDK 5](openssl-provider-key-types.md "openssl-provider-key-types.md")
 - [OpenSSL Provider Supported Mechanisms](openssl-provider-mechanisms.md "openssl-provider-mechanisms.md")
 - [OpenSSL Provider Advanced Configuration](openssl-provider-advanced-config.md "openssl-provider-advanced-config.md")

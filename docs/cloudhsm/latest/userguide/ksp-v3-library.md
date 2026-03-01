@@ -26,6 +26,5 @@ provides the following functionality:
 
 - [Verify the KSP and CNG Providers for AWS CloudHSM](ksp-v3-library-install.md "ksp-v3-library-install.md")
 - [Prerequisites for using the AWS CloudHSM Windows Client](ksp-library-prereq.md "ksp-library-prereq.md")
-- [Associate an AWS CloudHSM key with a
-  certificate](ksp-library-associate-key-certificate.md "ksp-library-associate-key-certificate.md")
+- [Associate an AWS CloudHSM key with a certificate](ksp-library-associate-key-certificate.md "ksp-library-associate-key-certificate.md")
 - [Code sample for CNG provider for AWS CloudHSM](ksp-library-sample.md "ksp-library-sample.md")

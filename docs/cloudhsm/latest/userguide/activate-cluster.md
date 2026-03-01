@@ -33,8 +33,7 @@ the unactivated-admin role changes to admin.
 ###### To activate a cluster
 
 1. Connect to the client instance that you previously launched in. For more information,
-   see [Launch an Amazon EC2 client instance for interacting with
-   AWS CloudHSM](launch-client-instance.md "launch-client-instance.md"). You can
+   see [Launch an Amazon EC2 client instance for interacting with AWS CloudHSM](launch-client-instance.md "launch-client-instance.md"). You can
    launch a Linux instance or a Windows Server.
 2. Run the CloudHSM CLI in interactive mode.
 

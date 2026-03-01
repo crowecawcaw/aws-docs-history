@@ -1,6 +1,4 @@
-# Connecting to multiple AWS CloudHSM clusters with the JCE
-
-provider
+# Connecting to multiple AWS CloudHSM clusters with the JCE provider
 
 This configuration allows a single client instance to communicate to multiple AWS CloudHSM
 clusters. Compared to having a single instance only communicate with a single cluster, this
@@ -26,7 +24,6 @@ if (Security.getProvider(CloudHsmProvider.PROVIDER_NAME) == null) {
 
 ###### Topics
 
-- [Configure the AWS CloudHSMCloudHsmProvider class with a file (Default
-  configuration)](java-lib-configs-default.md "java-lib-configs-default.md")
-- [Configure the AWS CloudHSMCloudHsmProvider class using code](java-lib-configs-using-code.md "java-lib-configs-using-code.md")
+- [Configure the AWS CloudHSM CloudHsmProvider class with a file (Default configuration)](java-lib-configs-default.md "java-lib-configs-default.md")
+- [Configure the AWS CloudHSM CloudHsmProvider class using code](java-lib-configs-using-code.md "java-lib-configs-using-code.md")
 - [Connect to multiple AWS CloudHSM clusters](java-lib-connecting-to-multiclusters.md "java-lib-connecting-to-multiclusters.md")

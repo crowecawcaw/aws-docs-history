@@ -1,6 +1,4 @@
-# Get hardware information for each HSM in an
-
-AWS CloudHSM cluster with CMU
+# Get hardware information for each HSM in an AWS CloudHSM cluster with CMU
 
 Use the **getHSMInfo** command in the AWS CloudHSM cloudhsm_mgmt_util (CMU) to get information
 about the hardware on which each hardware security module (HSM) runs, including the model,

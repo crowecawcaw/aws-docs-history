@@ -1,6 +1,4 @@
-# Insert a masked object using AWS CloudHSM
-
-KMU
+# Insert a masked object using AWS CloudHSM KMU
 
 Use the **insertMaskedObject** command in the AWS CloudHSM key_mgmt_util to insert a
 masked object from a file into a designated hardware security module (HSM). Masked objects

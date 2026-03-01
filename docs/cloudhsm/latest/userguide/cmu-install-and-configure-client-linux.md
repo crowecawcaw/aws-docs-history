@@ -1,22 +1,16 @@
-# Install and configure the AWS CloudHSM client
-
-for CMU (Linux)
+# Install and configure the AWS CloudHSM client for CMU (Linux)
 
 To interact with the hardware security module (HSM) in your AWS CloudHSM cluster using the
 cloudhsm_mgmt_util (CMU), you need the AWS CloudHSM client software for Linux. You should install it on
 the Linux Amazon EC2 client instance that you created previously. You can also install a client if
-you are using Windows. For more information, see [Install and configure the AWS CloudHSM client for CMU
-(Windows)](cmu-install-and-configure-client-win.md "cmu-install-and-configure-client-win.md").
+you are using Windows. For more information, see [Install and configure the AWS CloudHSM client for CMU (Windows)](cmu-install-and-configure-client-win.md "cmu-install-and-configure-client-win.md").
 
 ###### Tasks
 
-- [Step 1. Install the AWS CloudHSM client and command line
-  tools](#cmu-install-client "#cmu-install-client")
+- [Step 1. Install the AWS CloudHSM client and command line tools](#cmu-install-client "#cmu-install-client")
 - [Step 2. Edit the client configuration](#cmu-edit-client-configuration "#cmu-edit-client-configuration")
 
-## Step 1. Install the AWS CloudHSM client and command line
-
-tools
+## Step 1. Install the AWS CloudHSM client and command line tools
 
 Connect to your client instance and run the following commands to download and install
 the AWS CloudHSM client and command line tools.

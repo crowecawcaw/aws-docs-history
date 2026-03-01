@@ -1,6 +1,4 @@
-# Set up mutual TLS between client and AWS CloudHSM
-
-(recommended)
+# Set up mutual TLS between client and AWS CloudHSM (recommended)
 
 The following topics describe the steps that you must complete to enable the mutual
 Transport Layer Security (mTLS) between client and AWS CloudHSM.
@@ -13,29 +11,21 @@ Transport Layer Security (mTLS) between client and AWS CloudHSM.
 
 ###### Topics
 
-- [Step 1. Create and
-  register a trust anchor onto the HSM](#setup-mtls-create-and-register-trust-anchor "#setup-mtls-create-and-register-trust-anchor")
+- [Step 1. Create and register a trust anchor onto the HSM](#setup-mtls-create-and-register-trust-anchor "#setup-mtls-create-and-register-trust-anchor")
 - [Step 2. Enable mTLS for AWS CloudHSM](#getting-start-setup-mtl-sdk "#getting-start-setup-mtl-sdk")
-- [Step 3. Set the mTLS enforcement
-  for AWS CloudHSM](#getting-start-setup-mtls-enforcement "#getting-start-setup-mtls-enforcement")
+- [Step 3. Set the mTLS enforcement for AWS CloudHSM](#getting-start-setup-mtls-enforcement "#getting-start-setup-mtls-enforcement")
 
-## Step 1. Create and
-
-register a trust anchor onto the HSM
+## Step 1. Create and register a trust anchor onto the HSM
 
 A trust anchor must be created and registered onto the HSM before enabling mTLS. This
 is a two-step process:
 
 ######
 
-- [Create a private key and
-  self-signed root certificate](#setup-mtls-create-trust-anchor "#setup-mtls-create-trust-anchor")
-- [Register the trust anchor onto
-  the HSM](#setup-mtls-register-trust-anchor "#setup-mtls-register-trust-anchor")
+- [Create a private key and self-signed root certificate](#setup-mtls-create-trust-anchor "#setup-mtls-create-trust-anchor")
+- [Register the trust anchor onto the HSM](#setup-mtls-register-trust-anchor "#setup-mtls-register-trust-anchor")
 
-### Create a private key and
-
-self-signed root certificate
+### Create a private key and self-signed root certificate
 
 ###### Note
 
@@ -93,9 +83,7 @@ Common Name (e.g. server FQDN or YOUR name) []:
 Email Address []:`
 ```
 
-### Register the trust anchor onto
-
-the HSM
+### Register the trust anchor onto the HSM
 
 After creating a self-signed root certificate, the admin must register it as the
 trust anchor with the AWS CloudHSM cluster.
@@ -129,8 +117,7 @@ Windows
 }`
 ```
 
-3. Use the **[Register a trust anchor
-   with CloudHSM CLI](cloudhsm_cli-cluster-mtls-register-trust-anchor.md "cloudhsm_cli-cluster-mtls-register-trust-anchor.md")** command to register the trust anchor. For more information, see
+3. Use the **[Register a trust anchor with CloudHSM CLI](cloudhsm_cli-cluster-mtls-register-trust-anchor.md "cloudhsm_cli-cluster-mtls-register-trust-anchor.md")** command to register the trust anchor. For more information, see
    the following example or use the **help cluster mtls
    register-trust-anchor** command.
 
@@ -197,13 +184,10 @@ setup the private key path and client certificate chain path.
 
 ######
 
-- [Create a private key and client certificate
-  chain](#create-client-ssl "#create-client-ssl")
+- [Create a private key and client certificate chain](#create-client-ssl "#create-client-ssl")
 - [Configure mTLS for Client SDK 5](#enable-ssl-5 "#enable-ssl-5")
 
-### Create a private key and client certificate
-
-chain
+### Create a private key and client certificate chain
 
 ###### Example– Create a private key with OpenSSL
 
@@ -427,9 +411,7 @@ cp ssl-client.key `<C:\ProgramData\Amazon\CloudHSM\ssl-client.key>``
  --client-key-hsm-tls-file `<C:\ProgramData\Amazon\CloudHSM\ssl-client.key>``
 ```
 
-## Step 3. Set the mTLS enforcement
-
-for AWS CloudHSM
+## Step 3. Set the mTLS enforcement for AWS CloudHSM
 
 After configuring with any of the Client SDK 5 configure tools, connection between client
 and AWS CloudHSM will be mutual TLS in the cluster. However, removing the private key path and
@@ -471,8 +453,7 @@ Windows
 
 2.  You must be logged in as the default admin user with username as
     **admin** before set mTLS enforcement.
-3.  Use the **[Set the mTLS enforcement level
-    with CloudHSM CLI](cloudhsm_cli-cluster-mtls-set-enforcement.md "cloudhsm_cli-cluster-mtls-set-enforcement.md")** command to set the enforcement. For more information, see the
+3.  Use the **[Set the mTLS enforcement level with CloudHSM CLI](cloudhsm_cli-cluster-mtls-set-enforcement.md "cloudhsm_cli-cluster-mtls-set-enforcement.md")** command to set the enforcement. For more information, see the
     following example or use the **help cluster mtls
     set-enforcement** command.
 

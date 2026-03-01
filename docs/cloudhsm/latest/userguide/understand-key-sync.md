@@ -1,6 +1,4 @@
-# Understanding AWS CloudHSM key
-
-synchronization
+# Understanding AWS CloudHSM key synchronization
 
 AWS CloudHSM uses key synchronization to clone token keys across all the hardware security
 modules (HSM) in a cluster. You create token keys as persistent keys during key

@@ -1,6 +1,4 @@
-# Using CloudHSM Management Utility (CMU) to manage quorum authentication (M of N access
-
-control)
+# Using CloudHSM Management Utility (CMU) to manage quorum authentication (M of N access control)
 
 The HSMs in your AWS CloudHSM cluster support quorum authentication, which is also known as M of N
 access control. With quorum authentication, no single user on the HSM can do quorum-controlled
@@ -12,8 +10,7 @@ Quorum authentication can control the following operations:
 
 - HSM user management by [crypto officers (COs)](understanding-users-cmu.md#crypto-officer "understanding-users-cmu.md#crypto-officer")
   – Creating and deleting HSM users, and changing a different HSM user's password. For
-  more information, see [User management with quorum
-  authentication enabled for AWS CloudHSM Management Utility](quorum-authentication-crypto-officers.md "quorum-authentication-crypto-officers.md").
+  more information, see [User management with quorum authentication enabled for AWS CloudHSM Management Utility](quorum-authentication-crypto-officers.md "quorum-authentication-crypto-officers.md").
   Note the following additional information about using quorum authentication in
   AWS CloudHSM.
 

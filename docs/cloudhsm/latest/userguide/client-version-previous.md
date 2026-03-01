@@ -530,13 +530,11 @@ Client SDK 5.16 adds ECDH with X963 KDF support on hsm2m.medium cluster type for
 
 ###### JCE provider
 
-- Added ECDH with X963 KDF support on hsm2m.medium cluster type, see [Supported mechanisms for JCE provider for AWS CloudHSM
-  Client SDK 5](java-lib-supported_5.md "java-lib-supported_5.md").
+- Added ECDH with X963 KDF support on hsm2m.medium cluster type, see [Supported mechanisms for JCE provider for AWS CloudHSM Client SDK 5](java-lib-supported_5.md "java-lib-supported_5.md").
 
 ###### PKCS #11 library
 
-- Added ECDH with X963 KDF support on hsm2m.medium cluster type, see [Supported mechanisms for the PKCS #11 library for AWS CloudHSM
-  Client SDK 5](pkcs11-mechanisms.md "pkcs11-mechanisms.md").
+- Added ECDH with X963 KDF support on hsm2m.medium cluster type, see [Supported mechanisms for the PKCS #11 library for AWS CloudHSM Client SDK 5](pkcs11-mechanisms.md "pkcs11-mechanisms.md").
 
 ###### Bug fixes/Improvements
 
@@ -871,8 +869,7 @@ Client SDK 5.14 adds support for quorum controlled key usage and key management 
 
 - Added support for Key Storage Provider (KSP), a cryptographic API specific to the Microsoft Windows operating system. For more information, see [Key storage provider (KSP) for AWS CloudHSM Client SDK 5](ksp-library.md "ksp-library.md")
   Client SDK 5.13 adds support for configuring mutual TLS on hsm2m.medium cluster
-  types. For information on using mutual TLS with CloudHSM, see [Set up mutual TLS between client and AWS CloudHSM
-  (recommended)](getting-started-setup-mtls.md "getting-started-setup-mtls.md").
+  types. For information on using mutual TLS with CloudHSM, see [Set up mutual TLS between client and AWS CloudHSM (recommended)](getting-started-setup-mtls.md "getting-started-setup-mtls.md").
   Client SDK 5.13 also adds installation packages for Ubuntu 24.04 LTS.
 
 ###### Platform support
@@ -938,8 +935,7 @@ Client SDK 5.14 adds support for quorum controlled key usage and key management 
   - [The key unwrap command in CloudHSM CLI](cloudhsm_cli-key-unwrap.md "cloudhsm_cli-key-unwrap.md")
   - [The key wrap command in CloudHSM CLI](cloudhsm_cli-key-wrap.md "cloudhsm_cli-key-wrap.md")
 
-- [Export an asymmetric key with
-  CloudHSM CLI](cloudhsm_cli-key-generate-file.md "cloudhsm_cli-key-generate-file.md") now supports
+- [Export an asymmetric key with CloudHSM CLI](cloudhsm_cli-key-generate-file.md "cloudhsm_cli-key-generate-file.md") now supports
   export of public keys.
 
 ###### OpenSSL Dynamic Engine

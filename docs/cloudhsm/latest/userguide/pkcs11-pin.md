@@ -1,6 +1,4 @@
-# Authenticate to the PKCS #11 library for AWS CloudHSM
-
-Client SDK 5
+# Authenticate to the PKCS #11 library for AWS CloudHSM Client SDK 5
 
 When you use the PKCS #11 library, your application runs as a particular [crypto user (CU)](manage-hsm-users.md "manage-hsm-users.md") in your HSMs in AWS CloudHSM. Your application
 can view and manage only the keys that the CU owns and shares. You can use an existing CU in

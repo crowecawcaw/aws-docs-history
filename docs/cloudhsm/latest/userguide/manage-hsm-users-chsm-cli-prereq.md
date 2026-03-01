@@ -10,8 +10,7 @@ Before you use CloudHSM CLI to manage hardware security modules (HSM) users in A
 ## Get the IP address of an HSM in AWS CloudHSM
 
 To use CloudHSM CLI, you must use the configure tool to update the local configuration. For
-instructions on running the configure tool with CloudHSM CLI, see [Getting started with AWS CloudHSM Command Line
-Interface (CLI)](cloudhsm_cli-getting-started.md "cloudhsm_cli-getting-started.md"). The
+instructions on running the configure tool with CloudHSM CLI, see [Getting started with AWS CloudHSM Command Line Interface (CLI)](cloudhsm_cli-getting-started.md "cloudhsm_cli-getting-started.md"). The
 `-a` parameter requires you to add the IP address of an HSM in your cluster. If
 you have multiple HSMs, you can use any IP address. This ensures CloudHSM CLI can propagate any
 changes you make across the entire cluster. Remember that CloudHSM CLI uses its local file to

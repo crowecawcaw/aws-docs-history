@@ -1,6 +1,4 @@
-# Mark a key as trusted using
-
-CloudHSM CLI
+# Mark a key as trusted using CloudHSM CLI
 
 The content in this section provides instructions on using CloudHSM CLI to mark a key as trusted.
 

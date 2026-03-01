@@ -1,6 +1,4 @@
-# Verify the signature of a file using
-
-AWS CloudHSMKMU
+# Verify the signature of a file using AWS CloudHSMKMU
 
 Use the **verify** command in the AWS CloudHSM key_mgmt_util to confirm whether or not a
 file has been signed by a given key. To do so, the **verify** command compares

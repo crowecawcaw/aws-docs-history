@@ -1,26 +1,20 @@
-# Set up quorum authentication for AWS CloudHSM
-
-crypto-users using CloudHSM CLI
+# Set up quorum authentication for AWS CloudHSM crypto-users using CloudHSM CLI
 
 These topics describe how to configure your CloudHSM for quorum authentication by
 [crypto-users](understanding-users.md#crypto-user-chsm-cli "understanding-users.md#crypto-user-chsm-cli"). Perform these steps once during
-initial setup. For subsequent key management and usage, refer to [Key management and usage with quorum
-authentication enabled for AWS CloudHSM using CloudHSM CLI](key-quorum-auth-chsm-cli-crypto-user.md "key-quorum-auth-chsm-cli-crypto-user.md").
+initial setup. For subsequent key management and usage, refer to [Key management and usage with quorum authentication enabled for AWS CloudHSM using CloudHSM CLI](key-quorum-auth-chsm-cli-crypto-user.md "key-quorum-auth-chsm-cli-crypto-user.md").
 
 ###### Topics
 
 - [Prerequisites](#key-quorum-crypto-user-prerequisites "#key-quorum-crypto-user-prerequisites")
-- [Step 1. Create and register a key for
-  signing](#key-quorum-crypto-user-create-and-register-key "#key-quorum-crypto-user-create-and-register-key")
+- [Step 1. Create and register a key for signing](#key-quorum-crypto-user-create-and-register-key "#key-quorum-crypto-user-create-and-register-key")
 - [Step 2. Set the key quorum values during key generation](#key-quorum-admin-set-quorum-minimum-value-chsm-cli "#key-quorum-admin-set-quorum-minimum-value-chsm-cli")
 
 ## Prerequisites
 
 - Familiarity with the [CloudHSM CLI](cloudhsm_cli.md "cloudhsm_cli.md")
 
-## Step 1. Create and register a key for
-
-signing
+## Step 1. Create and register a key for signing
 
 To use quorum authentication, each crypto-user must complete _all_ of
 the following steps:
@@ -187,8 +181,7 @@ Windows
 }`
 ```
 
-3. Register the public key with the **[Register a user's token-sign quorum strategy
-   using CloudHSM CLI](cloudhsm_cli-user-chqm-token-reg.md "cloudhsm_cli-user-chqm-token-reg.md")**. For more
+3. Register the public key with the **[Register a user's token-sign quorum strategy using CloudHSM CLI](cloudhsm_cli-user-chqm-token-reg.md "cloudhsm_cli-user-chqm-token-reg.md")**. For more
    information, see the following example or use the **help user change-quorum token-sign register** command.
 
 ###### Example– Register a public key with AWS CloudHSM cluster

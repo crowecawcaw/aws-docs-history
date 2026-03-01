@@ -1,6 +1,4 @@
-# Get HSM partition certificates using AWS CloudHSM
-
-KMU
+# Get HSM partition certificates using AWS CloudHSM KMU
 
 Use the **getCert** command in the AWS CloudHSM key_mgmt_util to retrieve a hardware
 security module's (HSM) partition certificates and saves them to a file. When you run the

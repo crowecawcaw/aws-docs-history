@@ -1,6 +1,4 @@
-# AWS CloudHSM cluster high availability and load
-
-balancing
+# AWS CloudHSM cluster high availability and load balancing
 
 When you create an AWS CloudHSM cluster with more than one HSM, you automatically get load
 balancing. Load balancing means that the [AWS CloudHSM

@@ -1,6 +1,4 @@
-# Supported mechanisms for Client SDK 3 for AWS CloudHSM
-
-Client SDK 3
+# Supported mechanisms for Client SDK 3 for AWS CloudHSM Client SDK 3
 
 This topic provides information about supported mechanisms for JCE provider with AWS CloudHSM Client SDK 3.
 For information about the Java Cryptography Architecture (JCA) interfaces and engine classes
@@ -11,8 +9,7 @@ supported by AWS CloudHSM, see the following topics.
 - [Supported keys](#java-keys "#java-keys")
 - [Supported ciphers](#java-ciphers "#java-ciphers")
 - [Supported digests](#java-digests "#java-digests")
-- [Supported hash-based message authentication code (HMAC)
-  algorithms](#java-mac "#java-mac")
+- [Supported hash-based message authentication code (HMAC) algorithms](#java-mac "#java-mac")
 - [Supported sign/verify mechanisms](#java-sign-verify "#java-sign-verify")
 - [Mechanism annotations](#w2aac25c23c25c11c17 "#w2aac25c23c25c11c17")
 
@@ -76,9 +73,7 @@ The AWS CloudHSM software library for Java supports the following message digest
 Data under 16 KB in length are hashed on the HSM, while larger data are hashed
 locally in software.
 
-## Supported hash-based message authentication code (HMAC)
-
-algorithms
+## Supported hash-based message authentication code (HMAC) algorithms
 
 The AWS CloudHSM software library for Java supports the following HMAC algorithms.
 

@@ -1,6 +1,4 @@
-# Manage quorum authentication (M of N access control) using
-
-CloudHSM CLI
+# Manage quorum authentication (M of N access control) using CloudHSM CLI
 
 The hardware security modules (HSMs) in your AWS CloudHSM cluster support quorum authentication,
 also known as M of N access control. With quorum authentication, no single user on the
@@ -32,9 +30,6 @@ Quorum authentication can control the following operations:
 ###### Topics
 
 - [Quorum authentication process for CloudHSM CLI](key-quorum-auth-chsm-cli-overview.md "key-quorum-auth-chsm-cli-overview.md")
-- [Supported AWS CloudHSM service names and types
-  for quorum authentication with CloudHSM CLI](key-quorum-auth-chsm-cli-service-names.md "key-quorum-auth-chsm-cli-service-names.md")
-- [Set up quorum authentication for AWS CloudHSM
-  crypto-users using CloudHSM CLI](key-quorum-auth-chsm-cli-first-time.md "key-quorum-auth-chsm-cli-first-time.md")
-- [Key management and usage with quorum
-  authentication enabled for AWS CloudHSM using CloudHSM CLI](key-quorum-auth-chsm-cli-crypto-user.md "key-quorum-auth-chsm-cli-crypto-user.md")
+- [Supported AWS CloudHSM service names and types for quorum authentication with CloudHSM CLI](key-quorum-auth-chsm-cli-service-names.md "key-quorum-auth-chsm-cli-service-names.md")
+- [Set up quorum authentication for AWS CloudHSM crypto-users using CloudHSM CLI](key-quorum-auth-chsm-cli-first-time.md "key-quorum-auth-chsm-cli-first-time.md")
+- [Key management and usage with quorum authentication enabled for AWS CloudHSM using CloudHSM CLI](key-quorum-auth-chsm-cli-crypto-user.md "key-quorum-auth-chsm-cli-crypto-user.md")

@@ -1,6 +1,4 @@
-# Validate key file using AWS CloudHSM
-
-KMU
+# Validate key file using AWS CloudHSM KMU
 
 Use the **IsValidKeyHandlefile** command in the AWS CloudHSM key_mgmt_util to find out
 whether a key file contains a real private key or a fake RSA PEM key. A fake PEM file does

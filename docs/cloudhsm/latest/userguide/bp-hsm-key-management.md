@@ -21,10 +21,8 @@ The original key data remains safely stored in your data store for use whenever 
 In this approach, you maintain a mapping of the keys that are stored in each cluster. Use this mapping to route your client requests to the cluster with the required key.
 For information on how to connect to multiple clusters from the same client application, see the following topics:
 
-- [Connecting to multiple AWS CloudHSM clusters with the JCE
-  provider](java-lib-configs-multi.md "java-lib-configs-multi.md")
-- [Multiple slot configuration with PKCS #11 library for
-  AWS CloudHSM](pkcs11-library-configs-multi-slot.md "pkcs11-library-configs-multi-slot.md")
+- [Connecting to multiple AWS CloudHSM clusters with the JCE provider](java-lib-configs-multi.md "java-lib-configs-multi.md")
+- [Multiple slot configuration with PKCS #11 library for AWS CloudHSM](pkcs11-library-configs-multi-slot.md "pkcs11-library-configs-multi-slot.md")
 
 ## Managing and securing key wrapping
 
@@ -42,6 +40,5 @@ Related resources
 
 - [Wrap and Unwrap functions](pkcs11-mechanisms.md#pkcs11-mech-function-wrap-unwrap "pkcs11-mechanisms.md#pkcs11-mech-function-wrap-unwrap")
 - [Cipher functions for JCE](java-lib-supported_5.md#java-ciphers_5 "java-lib-supported_5.md#java-ciphers_5")
-- [Supported Java key attributes for AWS CloudHSM
-  Client SDK 5](java-lib-attributes_5.md "java-lib-attributes_5.md")
+- [Supported Java key attributes for AWS CloudHSM Client SDK 5](java-lib-attributes_5.md "java-lib-attributes_5.md")
 - [Key attributes for CloudHSM CLI](cloudhsm_cli-key-attributes.md "cloudhsm_cli-key-attributes.md")

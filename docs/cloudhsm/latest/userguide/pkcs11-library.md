@@ -6,8 +6,7 @@ AWS CloudHSM offers implementations of the PKCS #11 library that are compliant w
 For information about bootstrapping, see [Connecting to the cluster](cluster-connect.md "cluster-connect.md").
 For troubleshooting, see [Known issues for the PKCS #11 library for AWS CloudHSM](ki-pkcs11-sdk.md "ki-pkcs11-sdk.md").
 
-For information on using Client SDK 3, see [Using previous SDK version to work with
-AWS CloudHSM](choose-client-sdk.md "choose-client-sdk.md").
+For information on using Client SDK 3, see [Using previous SDK version to work with AWS CloudHSM](choose-client-sdk.md "choose-client-sdk.md").
 
 ###### Topics
 

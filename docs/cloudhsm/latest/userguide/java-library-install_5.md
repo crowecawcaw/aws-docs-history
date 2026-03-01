@@ -17,8 +17,7 @@ Synchronization](manage-key-sync.md "manage-key-sync.md") and [Client SDK 5 Conf
 ###### Topics
 
 - [Step 1: Install the JCE provider](#install-java-library_5 "#install-java-library_5")
-- [Step 2: Provide credentials to the
-  JCE provider](#java-library-credentials_5 "#java-library-credentials_5")
+- [Step 2: Provide credentials to the JCE provider](#java-library-credentials_5 "#java-library-credentials_5")
 
 ## Step 1: Install the JCE provider
 
@@ -198,9 +197,7 @@ Windows
     * `C:\Program Files\Amazon\CloudHSM\bin\configure-jce.exe`
     * `C:\Program Files\Amazon\CloudHSM\bin\jce_info.exe`
 
-## Step 2: Provide credentials to the
-
-JCE provider
+## Step 2: Provide credentials to the JCE provider
 
 Before your Java application can use an HSM, the HSM needs to first authenticate the application.
 HSMs authenticate using either an explicit login or implicit login method.
