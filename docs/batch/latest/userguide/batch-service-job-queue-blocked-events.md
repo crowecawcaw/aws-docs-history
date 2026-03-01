@@ -1,6 +1,4 @@
-# Service job queue blocked
-
-events
+# Service job queue blocked events
 
 Anytime that AWS Batch detects a blocked queue, an event is created in Amazon CloudWatch Events.
 The reason for the blocked queue is available in the `statusReason` field

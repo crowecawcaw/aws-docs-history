@@ -1,6 +1,4 @@
-# Create a single-node job definition with multiple containers on Amazon EC2
-
-resources
+# Create a single-node job definition with multiple containers on Amazon EC2 resources
 
 Complete the following steps to create a single-node job definition with multiple containers on Amazon Elastic Compute Cloud (Amazon EC2) resources.
 

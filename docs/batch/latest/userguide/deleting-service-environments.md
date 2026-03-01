@@ -1,6 +1,4 @@
-# Delete a service environment in
-
-AWS Batch
+# Delete a service environment in AWS Batch
 
 You can delete a service environment when it's no longer needed for your SageMaker Training
 jobs. Deleting a service environment removes the configuration and prevents
@@ -24,9 +22,7 @@ remains available for future service environment creation. If you want to remove
 service-linked role, you must delete it separately using IAM after ensuring no service
 environments exist in your account.
 
-## Deletion
-
-prerequisites
+## Deletion prerequisites
 
 Before you can delete a service environment you must disassociate any service job
 queue and then disable the service environment.

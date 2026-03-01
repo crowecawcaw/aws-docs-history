@@ -1,6 +1,4 @@
-# Update the quantity of a
-
-resource while it is in use by jobs
+# Update the quantity of a resource while it is in use by jobs
 
 You can reset the total quantity of a resource to a new value, add to the total
 quantity or subtract from it.

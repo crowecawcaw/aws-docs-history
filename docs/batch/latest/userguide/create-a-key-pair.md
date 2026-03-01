@@ -47,9 +47,7 @@ instance from a computer running Windows, use either MindTerm or PuTTY. If you p
 use the following procedure to convert the `.pem` file to a `.ppk`
 file.
 
-###### (Optional) To prepare to connect to a Linux instance from Windows using
-
-PuTTY
+###### (Optional) To prepare to connect to a Linux instance from Windows using PuTTY
 
 1. Download and install PuTTY from [http://www.chiark.greenend.org.uk/~sgtatham/putty/](http://www.chiark.greenend.org.uk/~sgtatham/putty/ "http://www.chiark.greenend.org.uk/~sgtatham/putty/"). Be sure to install the entire suite.
 2. Start PuTTYgen (for example, from the **Start** menu, choose **All Programs,

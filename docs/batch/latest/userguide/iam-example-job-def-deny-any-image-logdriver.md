@@ -1,6 +1,4 @@
-# Resource: Deny action when any
-
-condition keys match strings
+# Resource: Deny action when any condition keys match strings
 
 The following policy denies access to the [RegisterJobDefinition](../APIReference/API_RegisterJobDefinition.md "../APIReference/API_RegisterJobDefinition.md") API operation when either the
 `batch:Image` (container image ID) condition key is

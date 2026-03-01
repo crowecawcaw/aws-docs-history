@@ -5,9 +5,7 @@ console first-run experience. However, you can follow these steps to check if yo
 already has the Amazon ECS instance role and instance profile. The following steps also cover how to
 attach the managed IAM policy.
 
-###### Tutorial: Check for the `ecsInstanceRole` in
-
-the IAM console
+###### Tutorial: Check for the `ecsInstanceRole` in the IAM console
 
 1.  Open the IAM console at
     [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -37,9 +35,7 @@ the IAM console
     The following example creates an IAM role with a trust policy and an AWS managed
     policy.
 
-###### Tutorial: Create an IAM role and instance profile
-
-(AWS CLI)
+###### Tutorial: Create an IAM role and instance profile (AWS CLI)
 
 1. Create the following trust policy and save it in a text file that's named
    `ecsInstanceRole-role-trust-policy.json`.

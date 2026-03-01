@@ -30,7 +30,7 @@ specify and then registers them with an Amazon ECS cluster. The Amazon EC2 insta
 access to communicate with the Amazon ECS service endpoint. Some subnets don't provide Amazon EC2 instances
 with public IP addresses. If your Amazon EC2 instances don't have a public IP address, they must use
 network address translation (NAT) to gain this access. For more information, see [NAT gateways](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md") in the
-_Amazon VPC User Guide_. For more information about how to create a VPC, see [Create a virtual private cloud](create-public-private-vpc.md "create-public-private-vpc.md") .
+_Amazon VPC User Guide_. For more information about how to create a VPC, see [Create a virtual private cloud](create-public-private-vpc.md "create-public-private-vpc.md").
 
 By default, AWS Batch managed compute environments use a recent, approved version of the Amazon ECS
 optimized AMI for compute resources. However, you might want to create your own AMI to use
@@ -51,8 +51,7 @@ steps:
 3. Remove the earlier compute environment from your job queue.
 4. Delete the earlier compute environment.
    In April 2022, AWS Batch added enhanced support for updating compute environments. For more
-   information, see [Update a compute environment in
-   AWS Batch](updating-compute-environments.md "updating-compute-environments.md"). To use the enhanced updating of compute environments
+   information, see [Update a compute environment in AWS Batch](updating-compute-environments.md "updating-compute-environments.md"). To use the enhanced updating of compute environments
    to update AMIs, follow these rules:
 
 - Either don't set the service role ([`serviceRole`](../APIReference/API_CreateComputeEnvironment.md#Batch-CreateComputeEnvironment-request-serviceRole "../APIReference/API_CreateComputeEnvironment.md#Batch-CreateComputeEnvironment-request-serviceRole")) parameter or set it to the **AWSServiceRoleForBatch** service-linked role.
@@ -75,9 +74,7 @@ steps:
   the latest or default version of the launch template are evaluated up at the time of the
   infrastructure update, even if the [`launchTemplate`](../APIReference/API_ComputeResourceUpdate.md#Batch-Type-ComputeResourceUpdate-launchTemplate "../APIReference/API_ComputeResourceUpdate.md#Batch-Type-ComputeResourceUpdate-launchTemplate") was not updated.
 
-## Consideration when creating multi-node
-
-parallel jobs
+## Consideration when creating multi-node parallel jobs
 
 AWS Batch recommends creating dedicated compute environments for running multi-node parallel
 (MNP) jobs and non-MNP jobs. This is due to the way compute capacity is created in your managed

@@ -1,6 +1,4 @@
-# Update a compute environment in
-
-AWS Batch
+# Update a compute environment in AWS Batch
 
 AWS Batch provides multiple strategies for updating compute environments, each designed for
 specific update scenarios and requirements. These approaches use the same underlying update API

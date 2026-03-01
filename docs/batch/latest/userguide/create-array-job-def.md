@@ -2,7 +2,7 @@
 
 Now that your Docker image is in an image registry, you can specify it in an AWS Batch job definition. Then, you
 can use it later to run an array job. This example only uses the AWS CLI. However, you can also use the AWS Management Console. For
-more information, see [Create a single-node job definition](create-job-definition.md "create-job-definition.md") .
+more information, see [Create a single-node job definition](create-job-definition.md "create-job-definition.md").
 
 ###### To create a job definition
 

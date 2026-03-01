@@ -1,6 +1,4 @@
-# Override an Amazon EKS MNP job
-
-definition
+# Override an Amazon EKS MNP job definition
 
 Optionally, you can override the job definition details (such as changing the MNP job size
 or child job details). The following provides an example JSON request payload to submit a five

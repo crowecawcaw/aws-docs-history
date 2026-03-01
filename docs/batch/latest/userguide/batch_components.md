@@ -56,7 +56,7 @@ A consumable resource is a resource that is needed to run your jobs, such as a 3
 to throttle calls to a third-party API, and so on. You specify the consumable resources which
 are needed for a job to run, and Batch takes these resource dependencies into account when it
 schedules a job. You can reduce the under-utilization of
-compute resources by allocating only the jobs that have all the required resources available. For more information, see [Resource-aware scheduling](resource-aware-scheduling.md "resource-aware-scheduling.md") .
+compute resources by allocating only the jobs that have all the required resources available. For more information, see [Resource-aware scheduling](resource-aware-scheduling.md "resource-aware-scheduling.md").
 
 ## Service Environment
 

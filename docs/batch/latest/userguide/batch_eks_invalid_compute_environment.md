@@ -1,6 +1,4 @@
-# `INVALID` compute
-
-environment
+# `INVALID` compute environment
 
 It's possible that you might have incorrectly configured a managed compute environment. If
 you did, the compute environment enters an `INVALID` state and can't accept jobs for
@@ -82,8 +80,7 @@ This issue can occur if any of the following are true:
   not configured correctly.
 - AWS Batch doesn't have access to the Amazon EKS Kubernetes API server endpoint.
 
-To resolve this issue, see [Verify that the aws-auth ConfigMap is
-configured correctly](verify-configmap-config.md "verify-configmap-config.md"). For more information, see [Getting started with AWS Batch on Amazon EKS](getting-started-eks.md "getting-started-eks.md").
+To resolve this issue, see [Verify that the aws-auth ConfigMap is configured correctly](verify-configmap-config.md "verify-configmap-config.md"). For more information, see [Getting started with AWS Batch on Amazon EKS](getting-started-eks.md "getting-started-eks.md").
 
 ## Deleted compute environment
 

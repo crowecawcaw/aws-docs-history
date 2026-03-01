@@ -14,9 +14,7 @@ Fluentd. For more information, see [Install the CloudWatch agent with the Amazon
 - Attach the `CloudWatchAgentServerPolicy` policy to the AWS Identity and Access Management policy of
   your worker nodes. For more information, see [Verify prerequisites](../../../AmazonCloudWatch/latest/monitoring/Container-Insights-prerequisites.md "../../../AmazonCloudWatch/latest/monitoring/Container-Insights-prerequisites.md").
 
-## Install the
-
-add-on
+## Install the add-on
 
 For instructions on how to install AWS for Fluent Bit and create the
 CloudWatch groups, see [Install the CloudWatch agent with the Amazon CloudWatch Observability EKS add-on or the Helm

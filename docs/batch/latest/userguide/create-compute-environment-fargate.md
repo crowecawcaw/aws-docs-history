@@ -1,6 +1,4 @@
-# Tutorial: Create a managed compute
-
-environment using Fargate resources
+# Tutorial: Create a managed compute environment using Fargate resources
 
 Complete the following steps to create a managed compute environment using AWS Fargate
 resources.
@@ -23,8 +21,7 @@ Compute environments for Windows containers on AWS Fargate jobs must at least on
     3. For **Service role**, choose service-linked role that lets the
      AWS Batch service to make calls to the required AWS API operations on your behalf. For
      example, choose **AWSServiceRoleForBatch**. For more information, see
-     [Using service-linked roles for
-     AWS Batch](using-service-linked-roles.md "using-service-linked-roles.md").
+     [Using service-linked roles for AWS Batch](using-service-linked-roles.md "using-service-linked-roles.md").
     4. (Optional) Expand **Tags**. To add a tag, choose **Add
      tag**. Then, enter a **Key** name and optional
      **Value**. Choose **Add tag**.

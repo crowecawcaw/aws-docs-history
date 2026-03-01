@@ -13,7 +13,7 @@ can override many of the parameters that are specified in the job definition at 
    up to 128 characters in length. It can contain uppercase and lowercase letters, numbers, hyphens
    (-), and underscores (\_).
 6. For **Job definition**, choose an existing job definition for your job.
-   For more information, see [Create a single-node job definition](create-job-definition.md "create-job-definition.md") .
+   For more information, see [Create a single-node job definition](create-job-definition.md "create-job-definition.md").
 7. For **Job queue**, choose an existing job queue. For more information, see
    [Create a job queue](create-job-queue.md "create-job-queue.md").
 8. For **Job dependencies**, choose **Add Job

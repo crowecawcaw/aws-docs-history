@@ -20,8 +20,7 @@ When you submit a service job, AWS Batch follows this workflow:
 6. When SageMaker AI starts to execute the job its status is changed to `RUNNING`.
 7. While SageMaker AI executes the job, AWS Batch monitors its progress and maps service
    states to AWS Batch job states. For details about how service job states are
-   mapped, see [Mapping AWS Batch service job status to SageMaker AI
-   status](service-job-status.md "service-job-status.md")
+   mapped, see [Mapping AWS Batch service job status to SageMaker AI status](service-job-status.md "service-job-status.md")
 8. When the service job is completed it moves to `SUCCEEDED` and any output is ready to be downloaded.
 
 ## Prerequisites
@@ -29,8 +28,7 @@ When you submit a service job, AWS Batch follows this workflow:
 Before submitting a service job, ensure you have:
 
 - **Service environment** – A service environment
-  that defines capacity limits. For more information, see [Create a service environment in
-  AWS Batch](create-service-environments.md "create-service-environments.md").
+  that defines capacity limits. For more information, see [Create a service environment in AWS Batch](create-service-environments.md "create-service-environments.md").
 - **SageMaker job queue** – A SageMaker job queue
   to provide job scheduling. For more information, see [Create a SageMaker Training job queue in AWS Batch](create-sagemaker-job-queue.md "create-sagemaker-job-queue.md").
 - **IAM permissions** – Permissions to create and manage AWS Batch

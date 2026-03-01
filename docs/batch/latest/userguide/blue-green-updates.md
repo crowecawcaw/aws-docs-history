@@ -27,9 +27,7 @@ You must use blue/green updates in the following situations:
   _AWSServiceRoleForBatch_ service-linked role
 - When you need to transition between different service role types
 
-### When blue/green updates are
-
-recommended
+### When blue/green updates are recommended
 
 Blue/green updates are particularly recommended for production environments where zero
 downtime is critical for your workloads. This approach works well when you need to test new

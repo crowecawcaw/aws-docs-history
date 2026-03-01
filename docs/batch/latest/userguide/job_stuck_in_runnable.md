@@ -6,8 +6,7 @@ the jobs from being placed on a compute resource and causing your job queues to 
 Here's how to know if your job is waiting for its turn or stuck and blocking the queue.
 
 If AWS Batch detects that you have a `RUNNABLE` job at the head and blocking the
-queue, you'll receive a [Job queue blocked
-events](batch-job-queue-blocked-events.md "batch-job-queue-blocked-events.md") event from Amazon CloudWatch Events with the reason. The same
+queue, you'll receive a [Job queue blocked events](batch-job-queue-blocked-events.md "batch-job-queue-blocked-events.md") event from Amazon CloudWatch Events with the reason. The same
 reason is also updated into the `statusReason` field as a part of `ListJobs`
 and `DescribeJobs` API calls.
 
@@ -31,7 +30,7 @@ When a job has been in a `RUNNABLE` state with the defined
 For example, you can set the `jobStateTimeLimitActions` parameter to wait up to
 4 hours for any job in the `RUNNABLE` state that is waiting for sufficient capacity
 to become available. You can do this by setting `statusReason` to
-`CAPACITY:INSUFFICIENT_INSTANCE_CAPACITY` and `maxTimeSeconds` to 144000
+`CAPACITY:INSUFFICIENT_INSTANCE_CAPACITY` and `maxTimeSeconds` to 14400
 before cancelling the job and allowing the next job to advance to the head of the job
 queue.
 
@@ -43,9 +42,7 @@ blocked. This list provides the messages returned from the `ListJobs` and
 1. **Reason:** All connected compute environments have
    insufficient capacity errors. When requested, AWS Batch detects Amazon EC2 instances that experience
    insufficient capacity errors. Manually canceling the job will allow the subsequent job to move
-   to the head of the queue but without resolving the service role issue(s), it is likely that
-   the next job will also be blocked as well. It's best to manually investigate and resolve this
-   issue.
+   to the head of the queue.
    - **`statusReason` message while the job is
      stuck:**
      `CAPACITY:INSUFFICIENT_INSTANCE_CAPACITY - Service cannot fulfill the capacity
@@ -61,9 +58,7 @@ blocked. This list provides the messages returned from the `ListJobs` and
 **Note:**
 
     1. The AWS Batch service role requires `autoscaling:DescribeScalingActivities`
-     permission for this detection to work. If you use the [Using service-linked roles for
-     AWS Batch](using-service-linked-roles.md "using-service-linked-roles.md") service-linked role (SLR) or the [AWS managed policy:
-     AWSBatchServiceRole policy](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSBatchServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSBatchServiceRolePolicy") managed policy, then you
+     permission for this detection to work. If you use the [Using service-linked roles for AWS Batch](using-service-linked-roles.md "using-service-linked-roles.md") service-linked role (SLR) or the [AWS managed policy: AWSBatchServiceRole policy](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSBatchServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSBatchServiceRolePolicy") managed policy, then you
      don't need to take any action because their permission policies are updated.
     2. If you use the SLR or the managed policy, you must add the
      `autoscaling:DescribeScalingActivities` and
@@ -118,8 +113,7 @@ queue.`
    gaps. Note:You can't configure a programmable action through the `jobStateTimeLimitActions`
    parameter to resolve this error.
 
-It's a best practice to use the [Using service-linked roles for
-AWS Batch](using-service-linked-roles.md "using-service-linked-roles.md") to avoid similar errors.
+It's a best practice to use the [Using service-linked roles for AWS Batch](using-service-linked-roles.md "using-service-linked-roles.md") to avoid similar errors.
 
 Canceling the job, either manually or by setting the
 `jobStateTimeLimitActions` parameter on `statusReason`, allows the

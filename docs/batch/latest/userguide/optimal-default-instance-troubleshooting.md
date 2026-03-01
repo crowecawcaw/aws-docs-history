@@ -1,6 +1,4 @@
-# Optimal instance type configuration to
-
-receive automatic instance family updates
+# Optimal instance type configuration to receive automatic instance family updates
 
 ###### Note
 

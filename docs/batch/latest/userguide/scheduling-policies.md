@@ -1,6 +1,6 @@
 # Use fair-share scheduling policies to assign share identifiers
 
-You can use scheduling policies to configure how compute resources in a job queue are
+You can use fair-share scheduling policies to configure how compute resources in a job queue are
 allocated between users or workloads. Using fair-share scheduling policies, you can assign different
 share identifiers to workloads or users. AWS Batch assigns each share identifier a percentage
 of the total resources that are available during a period of time.

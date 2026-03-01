@@ -1,6 +1,4 @@
-# Supported resource-level permissions for AWS Batch API
-
-actions
+# Supported resource-level permissions for AWS Batch API actions
 
 The term _resource-level permissions_ refers to the ability to specify
 the resources that users are allowed to perform actions on. AWS Batch has partial support for

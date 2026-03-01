@@ -1,6 +1,4 @@
-# Find the jobs that require a
-
-specific consumable resource
+# Find the jobs that require a specific consumable resource
 
 Batch lets you retrieve a list of jobs that require a specific consumable resource.
 

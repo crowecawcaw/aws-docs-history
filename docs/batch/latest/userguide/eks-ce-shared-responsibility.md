@@ -30,7 +30,6 @@ the Kubernetes version of your computer environment to `1.32`.
 
 When updating to a more recent AMI or the Kubernetes version, you can specify whether to terminate jobs when they're
 updated (`terminateJobsOnUpdate`) and how long to wait for before an instance is replaced if running jobs
-don't finish (`jobExecutionTimeoutMinutes`.) For more information, see [Update a compute environment in
-AWS Batch](updating-compute-environments.md "updating-compute-environments.md") and the infrastructure update
+don't finish (`jobExecutionTimeoutMinutes`.) For more information, see [Update a compute environment in AWS Batch](updating-compute-environments.md "updating-compute-environments.md") and the infrastructure update
 policy ([UpdatePolicy](../APIReference/API_UpdatePolicy.md "../APIReference/API_UpdatePolicy.md")) set in the [UpdateComputeEnvironment](../APIReference/API_UpdateComputeEnvironment.md "../APIReference/API_UpdateComputeEnvironment.md") API
 operation.

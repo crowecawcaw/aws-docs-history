@@ -1,6 +1,4 @@
-# Tutorial: Use AWS user notifications with
-
-AWS Batch
+# Tutorial: Use AWS user notifications with AWS Batch
 
 You can use [AWS User Notifications](../../../notifications/latest/userguide/what-is.md "../../../notifications/latest/userguide/what-is.md") to set up delivery channels to get notified about
 AWS Batch events. You receive a notification when an event matches a rule that you specify.

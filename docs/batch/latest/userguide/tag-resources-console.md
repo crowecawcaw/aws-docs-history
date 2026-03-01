@@ -3,9 +3,7 @@
 Using the AWS Batch console, you can manage the tags associated with new or existing compute environments, jobs,
 job definitions, and job queues.
 
-## Add tags on an individual resource on
-
-creation
+## Add tags on an individual resource on creation
 
 You can add tags to AWS Batch compute environments, jobs, job definitions, job queues, and scheduling policies
 when you create them.

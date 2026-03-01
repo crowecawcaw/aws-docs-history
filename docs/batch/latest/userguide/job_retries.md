@@ -47,4 +47,4 @@ Jobs that are cancelled or terminated aren't retried. Also, jobs that fail becau
 aren't retried.
 
 For more information, see [Retry strategy](job_definition_parameters.md#retryStrategy "job_definition_parameters.md#retryStrategy"),
-[Create a single-node job definition](create-job-definition.md "create-job-definition.md") , [Tutorial: submit a job](submit_job.md "submit_job.md") and [Stopped tasks error codes](../../../AmazonECS/latest/userguide/stopped-task-error-codes.md "../../../AmazonECS/latest/userguide/stopped-task-error-codes.md").
+[Create a single-node job definition](create-job-definition.md "create-job-definition.md"), [Tutorial: submit a job](submit_job.md "submit_job.md") and [Stopped tasks error codes](../../../AmazonECS/latest/userguide/stopped-task-error-codes.md "../../../AmazonECS/latest/userguide/stopped-task-error-codes.md").

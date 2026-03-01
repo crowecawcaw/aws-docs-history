@@ -14,17 +14,10 @@ permissions to an AWS Service](../../../IAM/latest/UserGuide/id_roles_create_for
 
 ###### Topics
 
-- [Attach
-  AmazonEC2SpotFleetTaggingRole managed policy to your Spot Fleet role in
-  the AWS Management Console](#spot-fleet-not-authorized-console "#spot-fleet-not-authorized-console")
-- [Attach
-  AmazonEC2SpotFleetTaggingRole managed policy to your Spot Fleet role
-  with the AWS CLI](#spot-fleet-not-authorized-cli "#spot-fleet-not-authorized-cli")
+- [Attach AmazonEC2SpotFleetTaggingRole managed policy to your Spot Fleet role in the AWS Management Console](#spot-fleet-not-authorized-console "#spot-fleet-not-authorized-console")
+- [Attach AmazonEC2SpotFleetTaggingRole managed policy to your Spot Fleet role with the AWS CLI](#spot-fleet-not-authorized-cli "#spot-fleet-not-authorized-cli")
 
-## Attach
-
-**AmazonEC2SpotFleetTaggingRole** managed policy to your Spot Fleet role in
-the AWS Management Console
+## Attach **AmazonEC2SpotFleetTaggingRole** managed policy to your Spot Fleet role in the AWS Management Console
 
 ###### To apply the current IAM managed policy to your Amazon EC2 Spot Fleet role
 
@@ -39,18 +32,13 @@ the AWS Management Console
    **AmazonEC2SpotFleetRole** policy, and choose
    **Detach**.
 
-## Attach
-
-**AmazonEC2SpotFleetTaggingRole** managed policy to your Spot Fleet role
-with the AWS CLI
+## Attach **AmazonEC2SpotFleetTaggingRole** managed policy to your Spot Fleet role with the AWS CLI
 
 The example commands assume that your Amazon EC2 Spot Fleet role is named
 `AmazonEC2SpotFleetRole`. If your role uses a different name, adjust
 the commands to match.
 
-###### To attach the **AmazonEC2SpotFleetTaggingRole** managed policy to your
-
-Spot Fleet role
+###### To attach the **AmazonEC2SpotFleetTaggingRole** managed policy to your Spot Fleet role
 
 1. To attach the **AmazonEC2SpotFleetTaggingRole** managed IAM policy to
    your `AmazonEC2SpotFleetRole` role, run the following command using

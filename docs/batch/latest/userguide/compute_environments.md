@@ -13,8 +13,7 @@ resource, the scheduler attempts to run the job on the next compute environment.
 - [Managed compute environments](managed_compute_environments.md "managed_compute_environments.md")
 - [Unmanaged compute environments](unmanaged_compute_environments.md "unmanaged_compute_environments.md")
 - [Create a compute environment](create-compute-environment.md "create-compute-environment.md")
-- [Update a compute environment in
-  AWS Batch](updating-compute-environments.md "updating-compute-environments.md")
+- [Update a compute environment in AWS Batch](updating-compute-environments.md "updating-compute-environments.md")
 - [Compute resource AMIs](compute_resource_AMIs.md "compute_resource_AMIs.md")
 - [Use Amazon EC2 launch templates with AWS Batch](launch-templates.md "launch-templates.md")
 - [Instance Metadata Service (IMDS) configuration](imds-compute-environments.md "imds-compute-environments.md")

@@ -1,6 +1,4 @@
-# Tutorial: Pass event information to an AWS Batch target on a
-
-schedule using the EventBridge input transformer
+# Tutorial: Pass event information to an AWS Batch target on a schedule using the EventBridge input transformer
 
 You can use the EventBridge input transformer to pass event information to AWS Batch in a job
 submission. This can be especially valuable if you invoke jobs as a result of other AWS

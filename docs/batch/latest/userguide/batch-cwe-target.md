@@ -38,5 +38,4 @@ the required service principal and IAM permissions for this role, see [EventBrid
 
 - [Tutorial: Create a scheduled AWS Batch job](scheduled-batch-job.md "scheduled-batch-job.md")
 - [Tutorial: Create a rule with an event pattern](event-pattern-batch-job.md "event-pattern-batch-job.md")
-- [Tutorial: Pass event information to an AWS Batch target on a
-  schedule using the EventBridge input transformer](cwe-input-transformer.md "cwe-input-transformer.md")
+- [Tutorial: Pass event information to an AWS Batch target on a schedule using the EventBridge input transformer](cwe-input-transformer.md "cwe-input-transformer.md")

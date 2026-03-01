@@ -1,6 +1,4 @@
-# Check how many resources are
-
-in-use and available
+# Check how many resources are in-use and available
 
 Batch lets you query the number of available resources (`availableQuantity`),
 the number of resources in use (`inUseQuantity`), and the total resources

@@ -19,44 +19,32 @@ following:
 ###### Contents
 
 - [AWS Batch](batch-troubleshooting.md "batch-troubleshooting.md")
-  - [Optimal instance type configuration to
-    receive automatic instance family updates](optimal-default-instance-troubleshooting.md "optimal-default-instance-troubleshooting.md")
+  - [Optimal instance type configuration to receive automatic instance family updates](optimal-default-instance-troubleshooting.md "optimal-default-instance-troubleshooting.md")
   - [INVALID compute environment](invalid_compute_environment.md "invalid_compute_environment.md")
     - [Incorrect role name or ARN](invalid_compute_environment.md#invalid_service_role_arn "invalid_compute_environment.md#invalid_service_role_arn")
-    - [Repair an INVALID compute
-      environment](invalid_compute_environment.md#repairing_invalid_compute_environment "invalid_compute_environment.md#repairing_invalid_compute_environment")
+    - [Repair an INVALID compute environment](invalid_compute_environment.md#repairing_invalid_compute_environment "invalid_compute_environment.md#repairing_invalid_compute_environment")
 
   - [Jobs stuck in a RUNNABLE status](job_stuck_in_runnable.md "job_stuck_in_runnable.md")
   - [Spot Instances not tagged on creation](spot-instance-no-tag.md "spot-instance-no-tag.md")
   - [Spot Instances not scaling down](spot-fleet-not-authorized.md "spot-fleet-not-authorized.md")
-    - [Attach
-      AmazonEC2SpotFleetTaggingRole managed policy to your Spot Fleet role in
-      the AWS Management Console](spot-fleet-not-authorized.md#spot-fleet-not-authorized-console "spot-fleet-not-authorized.md#spot-fleet-not-authorized-console")
-    - [Attach
-      AmazonEC2SpotFleetTaggingRole managed policy to your Spot Fleet role
-      with the AWS CLI](spot-fleet-not-authorized.md#spot-fleet-not-authorized-cli "spot-fleet-not-authorized.md#spot-fleet-not-authorized-cli")
+    - [Attach AmazonEC2SpotFleetTaggingRole managed policy to your Spot Fleet role in the AWS Management Console](spot-fleet-not-authorized.md#spot-fleet-not-authorized-console "spot-fleet-not-authorized.md#spot-fleet-not-authorized-console")
+    - [Attach AmazonEC2SpotFleetTaggingRole managed policy to your Spot Fleet role with the AWS CLI](spot-fleet-not-authorized.md#spot-fleet-not-authorized-cli "spot-fleet-not-authorized.md#spot-fleet-not-authorized-cli")
 
   - [Can't retrieve Secrets Manager secrets](troubleshooting-cant-specify-secrets.md "troubleshooting-cant-specify-secrets.md")
-  - [Can't override job definition resource
-    requirements](override-resource-requirements.md "override-resource-requirements.md")
-  - [Error message when you update the
-    desiredvCpus setting](error-desired-vcpus-update.md "error-desired-vcpus-update.md")
+  - [Can't override job definition resource requirements](override-resource-requirements.md "override-resource-requirements.md")
+  - [Error message when you update the desiredvCpus setting](error-desired-vcpus-update.md "error-desired-vcpus-update.md")
 
 - [AWS Batch on Amazon EKS](batch-eks-troubleshooting.md "batch-eks-troubleshooting.md")
-  - [INVALID compute
-    environment](batch_eks_invalid_compute_environment.md "batch_eks_invalid_compute_environment.md")
+  - [INVALID compute environment](batch_eks_invalid_compute_environment.md "batch_eks_invalid_compute_environment.md")
     - [Unsupported Kubernetes version](batch_eks_invalid_compute_environment.md#invalid_kubernetes_version "batch_eks_invalid_compute_environment.md#invalid_kubernetes_version")
     - [Instance profile doesn't exist](batch_eks_invalid_compute_environment.md#instance_profile_not_exist "batch_eks_invalid_compute_environment.md#instance_profile_not_exist")
     - [Invalid Kubernetes namespace](batch_eks_invalid_compute_environment.md#invalid_kubernetes_namespace "batch_eks_invalid_compute_environment.md#invalid_kubernetes_namespace")
     - [Deleted compute environment](batch_eks_invalid_compute_environment.md#deleted_compute_environment "batch_eks_invalid_compute_environment.md#deleted_compute_environment")
     - [Nodes don't join the Amazon EKS cluster](batch_eks_invalid_compute_environment.md#batch_eks_node_not_join_cluster "batch_eks_invalid_compute_environment.md#batch_eks_node_not_join_cluster")
 
-  - [AWS Batch on Amazon EKS job is stuck in
-    RUNNABLE status](batch_eks_job_stuck_in_runnable.md "batch_eks_job_stuck_in_runnable.md")
-  - [AWS Batch on Amazon EKS job is stuck in
-    STARTING status](batch-eks-job-stuck-in-starting.md "batch-eks-job-stuck-in-starting.md")
+  - [AWS Batch on Amazon EKS job is stuck in RUNNABLE status](batch_eks_job_stuck_in_runnable.md "batch_eks_job_stuck_in_runnable.md")
+  - [AWS Batch on Amazon EKS job is stuck in STARTING status](batch-eks-job-stuck-in-starting.md "batch-eks-job-stuck-in-starting.md")
     - [Scenario: Persisted Volume Claim Attach or Mount Failure](batch-eks-job-stuck-in-starting.md#batch-eks-job-stuck-in-starting-scenario "batch-eks-job-stuck-in-starting.md#batch-eks-job-stuck-in-starting-scenario")
 
-  - [Verify that the aws-auth ConfigMap is
-    configured correctly](verify-configmap-config.md "verify-configmap-config.md")
+  - [Verify that the aws-auth ConfigMap is configured correctly](verify-configmap-config.md "verify-configmap-config.md")
   - [RBAC permissions or bindings aren't configured properly](batch_eks_rbac.md "batch_eks_rbac.md")

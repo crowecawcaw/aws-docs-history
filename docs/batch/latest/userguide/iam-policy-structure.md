@@ -7,8 +7,7 @@ The following topics explain the structure of an IAM policy.
 - [Policy syntax](#policy-syntax "#policy-syntax")
 - [API actions for AWS Batch](#UsingWithbatch_Actions "#UsingWithbatch_Actions")
 - [Amazon Resource Names for AWS Batch](#batch_ARN_Format "#batch_ARN_Format")
-- [Confirm that users have the required
-  permissions](#check-required-permissions "#check-required-permissions")
+- [Confirm that users have the required permissions](#check-required-permissions "#check-required-permissions")
 
 ## Policy syntax
 
@@ -42,8 +41,7 @@ There are four primary elements that make up a statement:
 - **Resource**: The resource that's affected by the action. With some
   AWS Batch API actions, you can include specific resources in your policy that can be created or
   modified by the action. To specify a resource in the statement, use its Amazon Resource Name
-  (ARN). For more information, see [Supported resource-level permissions for AWS Batch API
-  actions](batch-supported-iam-actions-resources.md "batch-supported-iam-actions-resources.md") and [Amazon Resource Names for AWS Batch](#batch_ARN_Format "#batch_ARN_Format"). If the AWS Batch API operation currently doesn't support
+  (ARN). For more information, see [Supported resource-level permissions for AWS Batch API actions](batch-supported-iam-actions-resources.md "batch-supported-iam-actions-resources.md") and [Amazon Resource Names for AWS Batch](#batch_ARN_Format "#batch_ARN_Format"). If the AWS Batch API operation currently doesn't support
   resource-level permissions, include a wildcard (\*) to specify that all resources can be
   affected by the action.
 - **Condition**: Conditions are optional. They can be used to control when your policy is in
@@ -113,8 +111,7 @@ _resourcePath_
 A path that identifies the resource. You can use a wildcard (\*) in your paths.
 
 AWS Batch API operations currently support resource-level permissions on several API
-operations. For more information, see [Supported resource-level permissions for AWS Batch API
-actions](batch-supported-iam-actions-resources.md "batch-supported-iam-actions-resources.md"). To specify all resources, or if a specific
+operations. For more information, see [Supported resource-level permissions for AWS Batch API actions](batch-supported-iam-actions-resources.md "batch-supported-iam-actions-resources.md"). To specify all resources, or if a specific
 API action doesn't support ARNs, include a wildcard (\*) in the `Resource`
 element.
 
@@ -122,9 +119,7 @@ element.
 "Resource": "*"
 ```
 
-## Confirm that users have the required
-
-permissions
+## Confirm that users have the required permissions
 
 Before you put an IAM policy into production, make sure that it grants users the
 permissions to use the specific API actions and resources that they need.

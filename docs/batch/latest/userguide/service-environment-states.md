@@ -1,6 +1,4 @@
-# Service environment states and
-
-lifecycle in AWS Batch
+# Service environment states and lifecycle in AWS Batch
 
 Service environments maintain lifecycle states that indicate their current operational
 status and readiness to process SageMaker Training jobs. Understanding these states helps you

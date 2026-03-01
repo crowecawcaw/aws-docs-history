@@ -37,9 +37,7 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-### Identity-based policy examples for
-
-AWS Batch
+### Identity-based policy examples for AWS Batch
 
 To view examples of AWS Batch identity-based policies, see [Identity-based policy examples for AWS Batch](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
@@ -101,9 +99,7 @@ To see a list of AWS Batch resource types and their ARNs, see [Resources Defined
 _Service Authorization Reference_. To learn with which actions you can specify the ARN of each resource, see
 [Actions Defined by AWS Batch](../../../service-authorization/latest/reference/list_awsbatch.md#awsbatch-actions-as-permissions "../../../service-authorization/latest/reference/list_awsbatch.md#awsbatch-actions-as-permissions").
 
-## Policy condition keys for
-
-AWS Batch
+## Policy condition keys for AWS Batch
 
 **Supports service-specific policy condition keys:**
 
@@ -151,9 +147,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service principal permissions for
-
-AWS Batch
+## Cross-service principal permissions for AWS Batch
 
 **Supports forward access sessions (FAS):**
 

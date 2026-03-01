@@ -13,9 +13,7 @@ service-linked role and an allocation strategy of `BEST_FIT_PROGRESSIVE`,
 `SPOT_CAPACITY_OPTIMIZED`, or `SPOT_PRICE_CAPACITY_OPTIMIZED`. If your
 environment doesn't meet these requirements, use blue/green updates instead.
 
-## Changes that trigger infrastructure
-
-updates
+## Changes that trigger infrastructure updates
 
 When you modify any of the following settings, AWS Batch performs an infrastructure update.
 Infrastructure updates also occur when you modify these settings together with scaling update

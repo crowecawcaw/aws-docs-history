@@ -1,6 +1,4 @@
-# Cross-service confused deputy
-
-prevention
+# Cross-service confused deputy prevention
 
 The confused deputy problem is a security issue where an entity that doesn't have
 permission to perform an action can coerce a more privileged entity to perform the action.
@@ -34,9 +32,7 @@ characters (`*`) for the unknown portions of the ARN. For example,
 The following examples shows how you can use the `aws:SourceArn` and `aws:SourceAccount`
 global condition context keys in AWS Batch to prevent the confused deputy problem.
 
-## Example: Role for accessing only one compute
-
-environment
+## Example: Role for accessing only one compute environment
 
 The following role can only be used to access one compute environment. The job name must be specified as
 `*` because the job queue can be associated with multiple compute
@@ -71,9 +67,7 @@ JSON
 
 ```
 
-## Example: Role for accessing multiple compute
-
-environments
+## Example: Role for accessing multiple compute environments
 
 The following role can be used to access multiple compute environments. The job name must be specified as
 `*` because the job queue can be associated with multiple compute

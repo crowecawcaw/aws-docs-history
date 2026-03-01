@@ -60,5 +60,4 @@ PolicyRule:
 ```
 
 To resolve this issue, re-apply the RBAC permissions and `rolebinding` commands.
-For more information, see [Step 2: Prepare your Amazon EKS cluster for
-AWS Batch](getting-started-eks.md#getting-started-eks-step-1 "getting-started-eks.md#getting-started-eks-step-1").
+For more information, see [Step 2: Prepare your Amazon EKS cluster for AWS Batch](getting-started-eks.md#getting-started-eks-step-1 "getting-started-eks.md#getting-started-eks-step-1").

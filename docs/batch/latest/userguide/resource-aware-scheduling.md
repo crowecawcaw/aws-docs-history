@@ -30,10 +30,7 @@ resources are available for the job to run successfully.
 
 - [Create consumable resources](resource-aware-scheduling-how-to-create.md "resource-aware-scheduling-how-to-create.md")
 - [Specify the resources needed to run a job](resource-aware-scheduling-how-to-for-jobs.md "resource-aware-scheduling-how-to-for-jobs.md")
-- [Check how many resources are
-  in-use and available](resource-aware-scheduling-how-to-check-resources-check-resources.md "resource-aware-scheduling-how-to-check-resources-check-resources.md")
-- [Update the quantity of a
-  resource while it is in use by jobs](resource-aware-scheduling-how-to-update-quantity.md "resource-aware-scheduling-how-to-update-quantity.md")
-- [Find the jobs that require a
-  specific consumable resource](resource-aware-scheduling-how-to-find-jobs.md "resource-aware-scheduling-how-to-find-jobs.md")
+- [Check how many resources are in-use and available](resource-aware-scheduling-how-to-check-resources-check-resources.md "resource-aware-scheduling-how-to-check-resources-check-resources.md")
+- [Update the quantity of a resource while it is in use by jobs](resource-aware-scheduling-how-to-update-quantity.md "resource-aware-scheduling-how-to-update-quantity.md")
+- [Find the jobs that require a specific consumable resource](resource-aware-scheduling-how-to-find-jobs.md "resource-aware-scheduling-how-to-find-jobs.md")
 - [Delete a consumable resource](resource-aware-scheduling-how-to-delete.md "resource-aware-scheduling-how-to-delete.md")

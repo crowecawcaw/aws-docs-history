@@ -1,6 +1,4 @@
-# Create an Amazon EKS MNP job
-
-definition
+# Create an Amazon EKS MNP job definition
 
 To define and run MNP jobs on Amazon EKS, there are new parameters within the [`RegisterJobDefinition`](../APIReference/API_RegisterJobDefinition.md "../APIReference/API_RegisterJobDefinition.md") and [`SubmitJob`](../APIReference/API_SubmitJob.md "../APIReference/API_SubmitJob.md") API
 operations.
@@ -10,9 +8,7 @@ operations.
   in the job definition when submitting an MNP job.
   These actions can be defined through API operations and the AWS Management Console.
 
-## Reference: Register the Amazon EKS MNP
-
-job definition request payload
+## Reference: Register the Amazon EKS MNP job definition request payload
 
 The following example illustrates how you can register an Amazon EKS MNP job definition
 with two nodes.

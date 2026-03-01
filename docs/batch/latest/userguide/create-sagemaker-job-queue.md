@@ -9,8 +9,7 @@ compute infrastructure.
 Before creating a SageMaker Training job queue, ensure you have:
 
 - **Service environment** – A service environment
-  that defines capacity limits. For more information, see [Create a service environment in
-  AWS Batch](create-service-environments.md "create-service-environments.md").
+  that defines capacity limits. For more information, see [Create a service environment in AWS Batch](create-service-environments.md "create-service-environments.md").
 - **IAM permissions** – Permissions to create and manage AWS Batch
   job queues and service environments. For more information, see
   [AWS Batch IAM policies, roles, and permissions](IAM_policies.md "IAM_policies.md").

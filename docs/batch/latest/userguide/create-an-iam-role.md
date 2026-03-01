@@ -10,6 +10,5 @@ To verify that your AWS account has the required permissions, see [Initial IAM s
 
 The AWS Batch compute environment and container instance roles are automatically created for you in the console
 first-run experience. So, if you intend to use the AWS Batch console, you can move ahead to the next section. If you
-plan to use the AWS CLI instead, complete the procedures in [Using service-linked roles for
-AWS Batch](using-service-linked-roles.md "using-service-linked-roles.md"), [Amazon ECS instance role](instance_IAM_role.md "instance_IAM_role.md"), and [Tutorial: Create the IAM execution role](create-execution-role.md "create-execution-role.md") before
+plan to use the AWS CLI instead, complete the procedures in [Using service-linked roles for AWS Batch](using-service-linked-roles.md "using-service-linked-roles.md"), [Amazon ECS instance role](instance_IAM_role.md "instance_IAM_role.md"), and [Tutorial: Create the IAM execution role](create-execution-role.md "create-execution-role.md") before
 creating your first compute environment.

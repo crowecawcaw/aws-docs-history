@@ -37,6 +37,6 @@ After you have created your VPC, consider the following next steps:
   private subnets that you want to launch your instances into.
 - Create an AWS Batch job queue that's mapped to your new compute environment. For more
   information, see [Create a job queue](create-job-queue.md "create-job-queue.md").
-- Create a job definition to run your jobs with. For more information, see [Create a single-node job definition](create-job-definition.md "create-job-definition.md") .
+- Create a job definition to run your jobs with. For more information, see [Create a single-node job definition](create-job-definition.md "create-job-definition.md").
 - Submit a job with your job definition to your new job queue. This job lands in the compute
   environment that you created with your new VPC and subnets. For more information, see [Tutorial: submit a job](submit_job.md "submit_job.md").

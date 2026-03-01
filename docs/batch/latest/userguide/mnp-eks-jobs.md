@@ -12,8 +12,6 @@ Learning (ML) jobs.
 ###### Topics
 
 - [Running MNP jobs](mnp-eks-running-mnp-jobs.md "mnp-eks-running-mnp-jobs.md")
-- [Create an Amazon EKS MNP job
-  definition](mnp-eks-create-eks-mnp-job-definition.md "mnp-eks-create-eks-mnp-job-definition.md")
+- [Create an Amazon EKS MNP job definition](mnp-eks-create-eks-mnp-job-definition.md "mnp-eks-create-eks-mnp-job-definition.md")
 - [Submit an Amazon EKS MNP job](mnp-eks-submit-eks-mnp-job.md "mnp-eks-submit-eks-mnp-job.md")
-- [Override an Amazon EKS MNP job
-  definition](mnp-eks-override-eks-mnp-job-definition.md "mnp-eks-override-eks-mnp-job-definition.md")
+- [Override an Amazon EKS MNP job definition](mnp-eks-override-eks-mnp-job-definition.md "mnp-eks-override-eks-mnp-job-definition.md")

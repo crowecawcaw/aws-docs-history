@@ -27,9 +27,7 @@ about CloudWatch Logs, see [Monitoring Log
 Files](../../../AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatchLogs.md") and [CloudWatch Logs quotas](../../../AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.md "../../../AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.md") in the
 _Amazon CloudWatch Logs User Guide_.
 
-## awslogs log driver options in the AWS Batch
-
-JobDefiniton data type
+## awslogs log driver options in the AWS Batch JobDefiniton data type
 
 The `awslogs` log driver supports the following options in AWS Batch job
 definitions. For more information, see [CloudWatch Logs logging
@@ -128,13 +126,11 @@ The IAM policy for your execution role must include the
 `logs:CreateLogGroup` permission before you attempt to use
 `awslogs-create-group`.
 
-## Specify a log configuration in your job
-
-definition
+## Specify a log configuration in your job definition
 
 By default, AWS Batch enables the `awslogs` log driver. This section describes
 how to customize the `awslogs` log configuration for a job. For more information,
-see [Create a single-node job definition](create-job-definition.md "create-job-definition.md") .
+see [Create a single-node job definition](create-job-definition.md "create-job-definition.md").
 
 The following log configuration JSON snippets have a `logConfiguration` object
 specified for each job. One is for a WordPress job that sends logs to a log group called

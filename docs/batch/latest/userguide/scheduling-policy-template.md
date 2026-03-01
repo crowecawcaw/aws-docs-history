@@ -1,6 +1,6 @@
-# Reference: Scheduling policy template
+# Reference: Fair-share scheduling policy template
 
-An empty scheduling policy template is shown below. You can use this template to create your scheduling policy
+An empty fair-share scheduling policy template is shown below. You can use this template to create your scheduling policy
 which can then be saved to a file and used with the AWS CLI `--cli-input-json` option. For more information
 about these parameters, see [CreateSchedulingPolicy](../APIReference/API_CreateSchedulingPolicy.md "../APIReference/API_CreateSchedulingPolicy.md") in the
 _AWS Batch API Reference_.

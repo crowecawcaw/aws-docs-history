@@ -30,9 +30,7 @@ that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-wo
 **Yes** with a link to view the service-linked role
 documentation for that service.
 
-## Service-linked role
-
-permissions for AWS Batch
+## Service-linked role permissions for AWS Batch
 
 AWS Batch uses the service-linked role named **AWSServiceRoleForBatch**
 – Allows AWS Batch to create and manage AWS resources on your behalf.
@@ -61,9 +59,7 @@ You must configure permissions to allow your users, groups, or roles to create, 
 delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the
 _IAM User Guide_.
 
-## Creating a service-linked role for
-
-AWS Batch
+## Creating a service-linked role for AWS Batch
 
 You don't need to manually create a service-linked role. When you
 create a compute environment in the AWS Management Console, the AWS CLI, or the AWS API, AWS Batch
@@ -81,9 +77,7 @@ If you delete this service-linked role, and then need to create it again, you ca
 the same process to recreate the role in your account. When you
 create a compute environment, AWS Batch creates the service-linked role for you again.
 
-## Editing a service-linked role for
-
-AWS Batch
+## Editing a service-linked role for AWS Batch
 
 AWS Batch does not allow you to edit the AWSServiceRoleForBatch service-linked role. After
 you create a service-linked role, you cannot change the name of the role because various
@@ -108,9 +102,7 @@ service-linked role.
 }
 ```
 
-## Deleting a service-linked role for
-
-AWS Batch
+## Deleting a service-linked role for AWS Batch
 
 If you no longer need to use a feature or service that requires a service-linked role,
 we recommend that you delete that role. That way you don't have an unused entity that is not
@@ -134,9 +126,7 @@ role.
 }
 ```
 
-### Cleaning up a
-
-service-linked role
+### Cleaning up a service-linked role
 
 Before you can use IAM to delete a service-linked role, you must first confirm that the role has no active
 sessions and delete all of the AWS Batch compute environments that use the role in all AWS Regions in a single
@@ -289,9 +279,7 @@ up the resources for a service that does not report any resources, see
 the table, and choose the **Yes** link to view the
 service-linked role documentation for that service.
 
-## Supported Regions for AWS Batch
-
-service-linked roles
+## Supported Regions for AWS Batch service-linked roles
 
 AWS Batch supports using service-linked roles in all of the Regions where the
 service is available. For more information, see [AWS Batch endpoints](../../../general/latest/gr/batch.md#batch_region "../../../general/latest/gr/batch.md#batch_region").

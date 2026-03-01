@@ -1,6 +1,4 @@
-# AWS Batch on Amazon EKS job is stuck in
-
-`STARTING` status
+# AWS Batch on Amazon EKS job is stuck in `STARTING` status
 
 A Job may remain in `STARTING` status when the Pod is stuck in `PENDING` on `ContainerCreating`
 for any long running requests from the kubelet (`pull`, `log`, `exec`, and `attach`) until the Pod
@@ -42,6 +40,5 @@ Consider configuring your EKS cluster to [Send control plane logs to CloudWatch 
 
 Jobs using Persistent Volume Claims where the volume fails to attach or mount are
 candidates for termination. This can be a result of an incorrectly configured Job Definition.
-See [Create a single-node job definition on Amazon EKS
-resources](create-job-definition-eks.md "create-job-definition-eks.md") for more
+See [Create a single-node job definition on Amazon EKS resources](create-job-definition-eks.md "create-job-definition-eks.md") for more
 details.

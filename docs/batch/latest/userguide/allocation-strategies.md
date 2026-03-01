@@ -14,8 +14,7 @@ instances available, or if the user is reaching the [Amazon EC2 service quotas](
 additional jobs don't run until currently running jobs are complete. This allocation strategy
 keeps costs lower but can limit scaling. If you're using Spot Fleets with
 `BEST_FIT`, the Spot Fleet IAM Role must be specified. `BEST_FIT` isn't
-supported when updating compute environments. For more information, see [Update a compute environment in
-AWS Batch](updating-compute-environments.md "updating-compute-environments.md").
+supported when updating compute environments. For more information, see [Update a compute environment in AWS Batch](updating-compute-environments.md "updating-compute-environments.md").
 
 ###### Note
 

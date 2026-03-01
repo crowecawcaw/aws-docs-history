@@ -19,6 +19,11 @@ The following settings trigger scaling updates when modified exclusively:
 - `maxvCpus` – Defines the maximum number of vCPUs that can be
   launched.
 - `minvCpus` – Specifies the minimum number of vCPUs to maintain.
+- `minScaleDownDelayMinutes` – Specifies minimum time (in minutes) that AWS Batch keeps instances running in the compute environment after their jobs complete.
+
+###### Note
+
+`minScaleDownDelayMinutes` does not apply to instances being replaced during infrastructure updates.
 
 For Fargate compute environments, you can also modify these settings for scaling updates:
 
@@ -31,8 +36,7 @@ We recommend not using `desiredvCpus` to initiate a scaling update as AWS Batch 
 
 When updating `desiredvCpus`, the value must be between
 `minvCpus` and `maxvCpus`. The new value must be greater than or
-equal to the current `desiredvCpus`. For more information, see [Error message when you update the
-desiredvCpus setting](error-desired-vcpus-update.md "error-desired-vcpus-update.md").
+equal to the current `desiredvCpus`. For more information, see [Error message when you update the desiredvCpus setting](error-desired-vcpus-update.md "error-desired-vcpus-update.md").
 
 ###### Important
 

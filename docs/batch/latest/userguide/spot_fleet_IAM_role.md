@@ -13,6 +13,5 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [Create Amazon EC2 spot fleet roles in the
-  AWS Management Console](spot-fleet-roles-console.md "spot-fleet-roles-console.md")
+- [Create Amazon EC2 spot fleet roles in the AWS Management Console](spot-fleet-roles-console.md "spot-fleet-roles-console.md")
 - [Create Amazon EC2 spot fleet roles with the AWS CLI](spot-fleet-roles-cli.md "spot-fleet-roles-cli.md")

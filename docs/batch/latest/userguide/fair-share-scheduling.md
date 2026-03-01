@@ -1,9 +1,6 @@
 # Use fair-share scheduling to help schedule jobs
 
 Fair-share scheduling provides a set of controls to help schedule jobs.
-
-###### Note
-
 For more information about scheduling policy parameters, see [SchedulingPolicyDetail](../APIReference/API_SchedulingPolicyDetail.md "../APIReference/API_SchedulingPolicyDetail.md").
 
 - **Share decay seconds –** The period of time (in seconds)

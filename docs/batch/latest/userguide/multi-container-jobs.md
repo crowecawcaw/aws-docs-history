@@ -6,9 +6,7 @@ can use this feature to logically organize your workload components, and separat
 main application. This feature can be used with AWS Batch on Amazon Elastic Container Service (Amazon ECS), Amazon Elastic Kubernetes Service (Amazon EKS), and
 AWS Fargate.
 
-## `ContainerProperties`
-
-versus `EcsProperties` job definitions
+## `ContainerProperties` versus `EcsProperties` job definitions
 
 You can choose to use [`ContainerProperties`](../APIReference/API_ContainerProperties.md "../APIReference/API_ContainerProperties.md") or [`EcsProperties`](../APIReference/API_EcsProperties.md "../APIReference/API_EcsProperties.md")
 job definitions as your use case dictates. At a high-level, running AWS Batch jobs with

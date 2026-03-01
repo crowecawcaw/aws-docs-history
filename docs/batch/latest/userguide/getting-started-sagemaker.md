@@ -8,20 +8,14 @@ set up and run a simple SageMaker Training job using AWS Batch service jobs.
 
 - [Overview](getting-started-sagemaker.md#getting-started-sagemaker-context "getting-started-sagemaker.md#getting-started-sagemaker-context")
 - [Prerequisites](getting-started-sagemaker.md#getting-started-sagemaker-prerequisites "getting-started-sagemaker.md#getting-started-sagemaker-prerequisites")
-- [Step 1: Create a SageMaker AI execution
-  role](getting-started-sagemaker.md#getting-started-sagemaker-step-1 "getting-started-sagemaker.md#getting-started-sagemaker-step-1")
-- [Step 2: Create your service
-  environment](getting-started-sagemaker.md#getting-started-sagemaker-step-2 "getting-started-sagemaker.md#getting-started-sagemaker-step-2")
-- [Step 3: Create your SageMaker job
-  queue](getting-started-sagemaker.md#getting-started-sagemaker-step-3 "getting-started-sagemaker.md#getting-started-sagemaker-step-3")
-- [Step 4: Create and submit a training
-  job](getting-started-sagemaker.md#getting-started-sagemaker-step-4 "getting-started-sagemaker.md#getting-started-sagemaker-step-4")
+- [Step 1: Create a SageMaker AI execution role](getting-started-sagemaker.md#getting-started-sagemaker-step-1 "getting-started-sagemaker.md#getting-started-sagemaker-step-1")
+- [Step 2: Create your service environment](getting-started-sagemaker.md#getting-started-sagemaker-step-2 "getting-started-sagemaker.md#getting-started-sagemaker-step-2")
+- [Step 3: Create your SageMaker job queue](getting-started-sagemaker.md#getting-started-sagemaker-step-3 "getting-started-sagemaker.md#getting-started-sagemaker-step-3")
+- [Step 4: Create and submit a training job](getting-started-sagemaker.md#getting-started-sagemaker-step-4 "getting-started-sagemaker.md#getting-started-sagemaker-step-4")
 - [Step 5: Monitor job status](getting-started-sagemaker.md#getting-started-sagemaker-step-5 "getting-started-sagemaker.md#getting-started-sagemaker-step-5")
 - [Step 6: View job output](getting-started-sagemaker.md#getting-started-sagemaker-step-6 "getting-started-sagemaker.md#getting-started-sagemaker-step-6")
-- [Step 7: Clean up your tutorial
-  resources](getting-started-sagemaker.md#getting-started-sagemaker-step-7 "getting-started-sagemaker.md#getting-started-sagemaker-step-7")
-- [Additional
-  resources](getting-started-sagemaker.md#getting-started-sagemaker-additional-resources "getting-started-sagemaker.md#getting-started-sagemaker-additional-resources")
+- [Step 7: Clean up your tutorial resources](getting-started-sagemaker.md#getting-started-sagemaker-step-7 "getting-started-sagemaker.md#getting-started-sagemaker-step-7")
+- [Additional resources](getting-started-sagemaker.md#getting-started-sagemaker-additional-resources "getting-started-sagemaker.md#getting-started-sagemaker-additional-resources")
 
 ## Overview
 
@@ -75,9 +69,7 @@ resources that you need to create and manage both AWS Batch and SageMaker AI res
   recommend that you also configure it. For more information, see [Quick configuration with `aws configure`](../../../cli/latest/userguide/cli-configure-quickstart.md#cli-configure-quickstart-config "../../../cli/latest/userguide/cli-configure-quickstart.md#cli-configure-quickstart-config") in the
   _AWS Command Line Interface User Guide_.
 
-## Step 1: Create a SageMaker AI execution
-
-role
+## Step 1: Create a SageMaker AI execution role
 
 SageMaker AI uses execution roles to perform operations on your behalf using other AWS
 services. You must create an execution role and grant SageMaker AI permissions to use the
@@ -150,9 +142,7 @@ aws iam get-role --role-name SageMakerExecutionRole --query 'Role.Arn' --output 
 
 Save this ARN as you'll use it when creating your training job payload.
 
-## Step 2: Create your service
-
-environment
+## Step 2: Create your service environment
 
 A service environment defines the capacity constraints for SageMaker Training jobs. The
 service environment encapsulates the maximum number of training instances that can run
@@ -215,9 +205,7 @@ Output:
 
 For more information about service environments, see [Service environments for AWS Batch](service-environments.md "service-environments.md").
 
-## Step 3: Create your SageMaker job
-
-queue
+## Step 3: Create your SageMaker job queue
 
 A SageMaker job queue manages the scheduling and execution of service jobs. Jobs submitted
 to this queue will be dispatched to your service environment based on available
@@ -276,9 +264,7 @@ Output:
 
 For more information about SageMaker job queues, see [Create a SageMaker Training job queue in AWS Batch](create-sagemaker-job-queue.md "create-sagemaker-job-queue.md").
 
-## Step 4: Create and submit a training
-
-job
+## Step 4: Create and submit a training job
 
 Now you'll create a simple training job and submit it to your job queue. This example
 uses a basic "hello world" training job that demonstrates the service job
@@ -448,8 +434,7 @@ Output:
 }`
 ```
 
-For more information about job state mapping, see [Mapping AWS Batch service job status to SageMaker AI
-status](service-job-status.md "service-job-status.md").
+For more information about job state mapping, see [Mapping AWS Batch service job status to SageMaker AI status](service-job-status.md "service-job-status.md").
 
 ## Step 6: View job output
 
@@ -568,9 +553,7 @@ Output:
 The log output shows the "hello world" message from your training job, confirming that
 the job executed successfully.
 
-## Step 7: Clean up your tutorial
-
-resources
+## Step 7: Clean up your tutorial resources
 
 When you're done with the tutorial, clean up the resources you created to avoid
 ongoing charges.
@@ -605,9 +588,7 @@ aws batch delete-service-environment \
     --service-environment `TutorialServiceEnvironment`
 ```
 
-## Additional
-
-resources
+## Additional resources
 
 After you complete the tutorial, you might want to explore the following
 topics:
@@ -620,8 +601,7 @@ topics:
   configurations.
 - Learn about [Submit a service job in AWS Batch](service-job-submit.md "service-job-submit.md") and the `SubmitServiceJob`
   API.
-- Review [Mapping AWS Batch service job status to SageMaker AI
-  status](service-job-status.md "service-job-status.md")
+- Review [Mapping AWS Batch service job status to SageMaker AI status](service-job-status.md "service-job-status.md")
   to understand job state transitions.
 - Visit the [SageMaker AI Python
   SDK documentation](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/") for more feature-rich ways to create and submit

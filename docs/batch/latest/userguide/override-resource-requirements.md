@@ -1,6 +1,4 @@
-# Can't override job definition resource
-
-requirements
+# Can't override job definition resource requirements
 
 The memory and vCPU overrides that are specified in the `memory` and
 `vcpus` members of the [containerOverrides](../APIReference/API_ContainerOverrides.md "../APIReference/API_ContainerOverrides.md")

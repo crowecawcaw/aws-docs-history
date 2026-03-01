@@ -1,6 +1,4 @@
-# Service environment state
-
-definitions
+# Service environment state definitions
 
 Service environments can be in one of four possible states that indicate their current
 operational status and readiness to process SageMaker Training jobs. Each state represents
@@ -15,9 +13,7 @@ its meaning:
 | `INVALID`  | A state indicating that the service environment has encountered a<br>configuration or permissions issue that prevents it from processing<br>SageMaker Training jobs. Job queues associated with invalid service environments cannot<br>process new service job submissions until the underlying issues are<br>resolved.                                                                                                                                     |
 | `DELETING` | The state that occurs when you request deletion of a service<br>environment. During this state, AWS Batch ensures that no active<br>SageMaker Training jobs are associated with the environment and<br>performs necessary cleanup operations. Service environments in this<br>state cannot process new job submissions, and the deletion process<br>completes once all associated resources are properly cleaned<br>up.                                     |
 
-## Service environment state
-
-transitions
+## Service environment state transitions
 
 Service environment state transitions occur automatically based on configuration
 changes, validation results, and operational health monitoring. The AWS Batch service

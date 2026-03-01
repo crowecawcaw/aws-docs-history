@@ -20,5 +20,5 @@ that jobs are run in. For more information, see [Use fair-share scheduling polic
 - [Use share identifiers to identify workloads](share-identifiers.md "share-identifiers.md")
 - [Use fair-share scheduling policies to assign share identifiers](scheduling-policies.md "scheduling-policies.md")
 - [Use fair-share scheduling to help schedule jobs](fair-share-scheduling.md "fair-share-scheduling.md")
-- [Tutorial: Create a scheduling policy](create-scheduling-policy.md "create-scheduling-policy.md")
-- [Reference: Scheduling policy template](scheduling-policy-template.md "scheduling-policy-template.md")
+- [Tutorial: Create a fair-share scheduling policy](create-scheduling-policy.md "create-scheduling-policy.md")
+- [Reference: Fair-share scheduling policy template](scheduling-policy-template.md "scheduling-policy-template.md")

@@ -1,8 +1,6 @@
 # Create Amazon EC2 spot fleet roles with the AWS CLI
 
-###### To create the **AmazonEC2SpotFleetTaggingRole** IAM role for your Spot Fleet compute
-
-environments
+###### To create the **AmazonEC2SpotFleetTaggingRole** IAM role for your Spot Fleet compute environments
 
 1. Run the following command with the AWS CLI.
 
@@ -35,9 +33,7 @@ environments
  AmazonEC2SpotFleetTaggingRole`
 ```
 
-###### To create the `AWSServiceRoleForEC2Spot` IAM service-linked role for Amazon EC2
-
-Spot
+###### To create the `AWSServiceRoleForEC2Spot` IAM service-linked role for Amazon EC2 Spot
 
 ###### Note
 
@@ -55,9 +51,7 @@ Service role name `AWSServiceRoleForEC2Spot` has been taken in this account, ple
 `$` `aws iam create-service-linked-role --aws-service-name spot.amazonaws.com`
 ```
 
-###### To create the `AWSServiceRoleForEC2SpotFleet` IAM service-linked role for Amazon EC2 Spot
-
-Fleet
+###### To create the `AWSServiceRoleForEC2SpotFleet` IAM service-linked role for Amazon EC2 Spot Fleet
 
 ###### Note
 

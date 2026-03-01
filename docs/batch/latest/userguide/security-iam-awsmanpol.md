@@ -20,14 +20,11 @@ a service launches a new feature, AWS adds read-only permissions for new operati
 descriptions of job function policies, see [AWS managed policies for job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md") in the
 _IAM User Guide_.
 
-## AWS managed policy:
-
-**BatchServiceRolePolicy**
+## AWS managed policy: **BatchServiceRolePolicy**
 
 The **BatchServiceRolePolicy** managed IAM policy is used by the [AWSServiceRoleForBatch](using-service-linked-roles.md "using-service-linked-roles.md")
 service-linked role. This allows AWS Batch to perform actions on your behalf. You can't attach
-this policy to your IAM entities. For more information, see [Using service-linked roles for
-AWS Batch](using-service-linked-roles.md "using-service-linked-roles.md").
+this policy to your IAM entities. For more information, see [Using service-linked roles for AWS Batch](using-service-linked-roles.md "using-service-linked-roles.md").
 
 This policy allows AWS Batch to complete the following actions on specific resources:
 
@@ -48,13 +45,10 @@ This policy allows AWS Batch to complete the following actions on specific resou
 To view the JSON for the policy, see [BatchServiceRolePolicy](../../../aws-managed-policy/latest/reference/BatchServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/BatchServiceRolePolicy.md") in the [_AWS managed policies Reference
 Guide_](../../../aws-managed-policy/latest/reference/about-managed-policy-reference.md "../../../aws-managed-policy/latest/reference/about-managed-policy-reference.md").
 
-## AWS managed policy:
-
-**AWSBatchServiceRolePolicyForSageMaker**
+## AWS managed policy: **AWSBatchServiceRolePolicyForSageMaker**
 
 [AWSServiceRoleForAWSBatchWithSagemaker](using-service-linked-roles-batch-sagemaker.md "using-service-linked-roles-batch-sagemaker.md") allows AWS Batch to perform actions on your behalf. You can't attach
-this policy to your IAM entities. For more information, see [Using service-linked roles for
-AWS Batch](using-service-linked-roles.md "using-service-linked-roles.md").
+this policy to your IAM entities. For more information, see [Using service-linked roles for AWS Batch](using-service-linked-roles.md "using-service-linked-roles.md").
 
 This policy allows AWS Batch to complete the following actions on specific resources:
 
@@ -65,9 +59,7 @@ This policy allows AWS Batch to complete the following actions on specific resou
 To view the JSON for the policy, see [AWSBatchServiceRolePolicyForSageMaker](../../../aws-managed-policy/latest/reference/AWSBatchServiceRolePolicyForSageMaker.md "../../../aws-managed-policy/latest/reference/AWSBatchServiceRolePolicyForSageMaker.md") in the [_AWS managed policies Reference
 Guide_](../../../aws-managed-policy/latest/reference/about-managed-policy-reference.md "../../../aws-managed-policy/latest/reference/about-managed-policy-reference.md").
 
-## AWS managed policy:
-
-**AWSBatchServiceRole** policy
+## AWS managed policy: **AWSBatchServiceRole** policy
 
 The role permissions policy named **AWSBatchServiceRole** allows AWS Batch
 to complete the following actions on specific resources:
@@ -96,9 +88,7 @@ preferred for a less error prone, better scoped and improved managed experience.
 To view the JSON for the policy, see [AWSBatchServiceRole](../../../aws-managed-policy/latest/reference/AWSBatchServiceRole.md "../../../aws-managed-policy/latest/reference/AWSBatchServiceRole.md") in the [_AWS managed policies Reference
 Guide_](../../../aws-managed-policy/latest/reference/about-managed-policy-reference.md "../../../aws-managed-policy/latest/reference/about-managed-policy-reference.md").
 
-## AWS managed policy:
-
-**AWSBatchFullAccess**
+## AWS managed policy: **AWSBatchFullAccess**
 
 The **AWSBatchFullAccess** policy grants AWS Batch actions full access to AWS Batch resources. It
 also grants describe and list action access for Amazon EC2, Amazon ECS, Amazon EKS, CloudWatch, and IAM services. This is so that IAM
@@ -111,9 +101,7 @@ policy to a service role that allows AWS Batch to perform actions on your behalf
 To view the JSON for the policy, see [AWSBatchFullAccess](../../../aws-managed-policy/latest/reference/AWSBatchFullAccess.md "../../../aws-managed-policy/latest/reference/AWSBatchFullAccess.md") in the [_AWS managed policies Reference
 Guide_](../../../aws-managed-policy/latest/reference/about-managed-policy-reference.md "../../../aws-managed-policy/latest/reference/about-managed-policy-reference.md").
 
-## AWS Batch updates to AWS managed
-
-policies
+## AWS Batch updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS Batch since this service began tracking these
 changes. For automatic alerts about changes to this page, subscribe to the RSS feed on the AWS Batch Document history

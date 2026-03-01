@@ -1,6 +1,4 @@
-# Tutorial: Create a managed compute
-
-environment using Amazon EKS resources
+# Tutorial: Create a managed compute environment using Amazon EKS resources
 
 Complete the following steps to create a managed compute environment using Amazon Elastic Kubernetes Service
 (Amazon EKS) resources.
@@ -38,7 +36,9 @@ IAM role for the `SPOT` compute environment.
 This role is required if the allocation strategy is set to `BEST_FIT` or
 not specified. 15. (Optional) For **Minimum vCPUs**, choose the minimum number of vCPUs
 that your compute environment maintains, regardless of job queue demand. 16. (Optional) For **Maximum vCPUs**, choose the maximum number of vCPUs
-that your compute environment can scale out to, regardless of job queue demand. 17. For **Allowed instance types**, choose the Amazon EC2 instance types
+that your compute environment can scale out to, regardless of job queue demand. 17. (Optional) For **Scale down delay (minutes)**, choose the minimum time
+(in minutes) that AWS Batch keeps instances running in the compute environment after
+their jobs complete. 18. For **Allowed instance types**, choose the Amazon EC2 instance types
 that can be launched. You can specify instance families to launch any instance type
 within those families (for example, `c5`, `c5n`, or
 `p3`). Or, you can specify specific sizes within a family (such as
@@ -62,8 +62,7 @@ AWS Batch can select the instance type for you if you choose one of the followin
 Starting on 11/01/2025 the behavior of `optimal` is going to be changed to
 match `default_x86_64`. During the change your instance families could be
 updated to a newer generation. You do not need to perform any actions for the upgrade to
-happen. For more information about change, see [Optimal instance type configuration to
-receive automatic instance family updates](optimal-default-instance-troubleshooting.md "optimal-default-instance-troubleshooting.md").
+happen. For more information about change, see [Optimal instance type configuration to receive automatic instance family updates](optimal-default-instance-troubleshooting.md "optimal-default-instance-troubleshooting.md").
 
 ###### Note
 
@@ -93,7 +92,7 @@ the same architecture. For example, you can't mix x86 and ARM instances in the s
 AWS Batch will scale GPUs based on the required amount in your job queues. To use
 GPU scheduling, the compute environment must include instance types from the
 `p3`, `p4`, `p5`, `p6`, `g3`, `g3s`,
-`g4`, `g5`, or `g6` families. 18. (Optional) Expand **Additional configuration**.
+`g4`, `g5`, or `g6` families. 19. (Optional) Expand **Additional configuration**.
 
     1. (Optional) For **Placement group**, enter a placement group name
      to group resources in the compute environment.
@@ -187,16 +186,16 @@ GPU scheduling, the compute environment must include instance types from the
     	 environment](mixed-ami-environments.md#mixed-ami-environments.title "mixed-ami-environments.md#mixed-ami-environments.title") where you're using both AL2 and AL2023-based custom AMIs in the same
     	 compute environment.
 
-19. Choose **Next page**.
-20. For **Virtual Private Cloud (VPC) ID**, choose a VPC where to launch
+20. Choose **Next page**.
+21. For **Virtual Private Cloud (VPC) ID**, choose a VPC where to launch
     the instances.
-21. For **Subnets**, choose the subnets to use. By default, all subnets
+22. For **Subnets**, choose the subnets to use. By default, all subnets
     within the selected VPC are available.
 
 ###### Note
 
 AWS Batch on Amazon EKS supports Local Zones. For more information, see [Amazon EKS and AWS Local
-Zones](../../../eks/latest/userguide/local-zones.md "../../../eks/latest/userguide/local-zones.md") in the _Amazon EKS User Guide_. 22. (Optional) For **Security groups**, choose a security group to attach
-to your instances. By default, the default security group for your VPC is selected. 23. Choose **Next page**. 24. For **Review**, review the configuration steps. If you
+Zones](../../../eks/latest/userguide/local-zones.md "../../../eks/latest/userguide/local-zones.md") in the _Amazon EKS User Guide_. 23. (Optional) For **Security groups**, choose a security group to attach
+to your instances. By default, the default security group for your VPC is selected. 24. Choose **Next page**. 25. For **Review**, review the configuration steps. If you
 need to make changes, choose **Edit**. When you're finished,
 choose **Create compute environment**.

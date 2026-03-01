@@ -1,10 +1,10 @@
-# Tutorial: Create a scheduling policy
+# Tutorial: Create a fair-share scheduling policy
 
 Before you can create a job queue with a scheduling policy, you must create a scheduling policy. When you create
 a fair-share scheduling policy, you associate one or more share identifiers or share identifier prefixes with weights
 for the queue and optionally assign a decay period and compute reservation to the policy.
 
-###### To create a scheduling policy
+###### To create a fair-share scheduling policy
 
 1. Open the AWS Batch console at [https://console.aws.amazon.com/batch/](https://console.aws.amazon.com/batch/ "https://console.aws.amazon.com/batch/").
 2. From the navigation bar, select the Region to use.

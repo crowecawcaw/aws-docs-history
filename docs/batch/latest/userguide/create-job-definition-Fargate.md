@@ -1,6 +1,4 @@
-# Create a single-node job definition on Fargate
-
-resources
+# Create a single-node job definition on Fargate resources
 
 Complete the following steps to create a single-node job definition on AWS Fargate resources.
 

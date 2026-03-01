@@ -1,6 +1,4 @@
-# Tutorial: Create a managed compute
-
-environment using Amazon EC2 resources
+# Tutorial: Create a managed compute environment using Amazon EC2 resources
 
 Complete the following steps to create a managed compute environment using Amazon Elastic Compute Cloud
 (Amazon EC2) resources.
@@ -21,8 +19,7 @@ Complete the following steps to create a managed compute environment using Amazo
     4. For **Service role**, choose service-linked role that lets the
        AWS Batch service make calls to the required AWS API operations on your behalf. For
        example, choose **AWSServiceRoleForBatch**. For more information, see
-       [Using service-linked roles for
-       AWS Batch](using-service-linked-roles.md "using-service-linked-roles.md").
+       [Using service-linked roles for AWS Batch](using-service-linked-roles.md "using-service-linked-roles.md").
     5. For **Instance role**, choose to create a new instance profile or
        use an existing instance profile that has the required IAM permissions attached. This
        instance profile allows the Amazon ECS container instances that are created for your
@@ -69,7 +66,9 @@ Complete the following steps to create a managed compute environment using Amazo
     instances, up to the maximum vCPUs. As demand decreases, AWS Batch can decrease the
     desired number of vCPUs in your compute environment and remove instances, down to the
     minimum vCPUs. 6. For **Maximum vCPUs**, choose the maximum number of vCPUs that
-    your compute environment can scale out to, regardless of job queue demand. 7. For **Allowed instance types**, choose the Amazon EC2 instance types
+    your compute environment can scale out to, regardless of job queue demand. 7. (Optional) For **Scale down delay (minutes)**, choose the minimum time
+    (in minutes) that AWS Batch keeps instances running in the compute environment after
+    their jobs complete. 8. For **Allowed instance types**, choose the Amazon EC2 instance types
     that can be launched. You can specify instance families to launch any instance type
     within those families (for example, `c5`, `c5n`, or
     `p3`). Or, you can specify specific sizes within a family (such as
@@ -124,12 +123,12 @@ Complete the following steps to create a managed compute environment using Amazo
     AWS Batch will scale GPUs based on the required amount in your job queues. To use
     GPU scheduling, the compute environment must include instance types from the
     `p3`, `p4`, `p5`, `p6`, `g3`, `g3s`,
-    `g4`, `g5`, or `g6` families. 8. For **Allocation strategy**, choose the allocation strategy to
+    `g4`, `g5`, or `g6` families. 9. For **Allocation strategy**, choose the allocation strategy to
     use when selecting instance types from the list of allowed instance types.
     **BEST_FIT_PROGRESSIVE** is usually the better choice for EC2
     On-Demand compute environments, **SPOT_CAPACITY_OPTIMIZED**, and
     **SPOT_PRICE_CAPACITY_OPTIMIZED** for EC2 Spot compute
-    environments. For more information, see [Instance type allocation strategies for AWS Batch](allocation-strategies.md "allocation-strategies.md"). 9. Expand **Additional configuration**.
+    environments. For more information, see [Instance type allocation strategies for AWS Batch](allocation-strategies.md "allocation-strategies.md"). 10. Expand **Additional configuration**.
 
         1. (Optional) For **Placement group**, enter a placement group name
          to group resources in the compute environment.
@@ -201,7 +200,7 @@ Complete the following steps to create a managed compute environment using Amazo
          Amazon ECS optimized Amazon Linux 2 AMI. For more information, see [Amazon ECS optimized Amazon Linux 2 AMI](../../../AmazonECS/latest/developerguide/ecs-optimized_AMI.md#ecs-optimized-ami-linux-variants.html "../../../AmazonECS/latest/developerguide/ecs-optimized_AMI.md#ecs-optimized-ami-linux-variants.html")
          in the *Amazon Elastic Container Service Developer Guide*.
 
-    10. (Optional) Expand **Launch templates**
+    11. (Optional) Expand **Launch templates**
         1. For **Default launch template**, select an existing Amazon EC2
            launch template to configure your compute resources. The default version of the
            template is automatically populated. For more information, see [Use Amazon EC2 launch templates with AWS Batch](launch-templates.md "launch-templates.md").
@@ -254,7 +253,7 @@ Complete the following steps to create a managed compute environment using Amazo
             If the instance type or family that you want to select doesn't appear in this
              list, review the selections you made in `Allowed instance types`.
 
-    11. Choose **Next**.
+    12. Choose **Next**.
 
 7.  In the **Network configuration** section:
 

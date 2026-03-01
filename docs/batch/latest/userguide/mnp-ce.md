@@ -28,7 +28,7 @@ AWS Batch.
   the _Amazon VPC User Guide_. Inter-node communication must use the private IP
   address or DNS hostname for the node. Multi-node parallel jobs that run on compute resources
   within public subnets don't have outbound network access. To create a VPC with private subnets
-  and a NAT gateway, see [Create a virtual private cloud](create-public-private-vpc.md "create-public-private-vpc.md") .
+  and a NAT gateway, see [Create a virtual private cloud](create-public-private-vpc.md "create-public-private-vpc.md").
 - The elastic network interfaces that are created and attached to your compute resources
   can't be detached manually or modified by your account. This is to prevent the accidental
   deletion of an elastic network interface that's associated with a running job. To release the

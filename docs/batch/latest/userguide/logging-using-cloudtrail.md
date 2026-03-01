@@ -1,6 +1,4 @@
-# Logging AWS Batch API calls with
-
-AWS CloudTrail
+# Logging AWS Batch API calls with AWS CloudTrail
 
 AWS Batch is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role,
 or an AWS service in AWS Batch. CloudTrail captures all API calls for AWS Batch as events. The calls captured
@@ -15,6 +13,5 @@ To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../aws
 
 ###### Topics
 
-- [AWS Batch information in
-  CloudTrail](service-name-info-in-cloudtrail.md "service-name-info-in-cloudtrail.md")
+- [AWS Batch information in CloudTrail](service-name-info-in-cloudtrail.md "service-name-info-in-cloudtrail.md")
 - [Reference: Understanding AWS Batch log file entries](understanding-service-name-entries.md "understanding-service-name-entries.md")

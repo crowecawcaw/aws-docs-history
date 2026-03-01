@@ -4,16 +4,11 @@ The following are example MIME multi-part files that you can use to create your 
 
 ###### Examples
 
-- [Example: Mount an existing Amazon EFS file
-  system](#example-mount-an-existing-amazon-efs-file-system "#example-mount-an-existing-amazon-efs-file-system")
-- [Example: Override default Amazon ECS
-  container agent configuration](#example-override-default-amazon-ecs-container-agent-configuration "#example-override-default-amazon-ecs-container-agent-configuration")
-- [Example: Mount an existing
-  Amazon FSx for Lustre file system](#example-mount-an-existing-amazon-fsx-for-lustre-file-system "#example-mount-an-existing-amazon-fsx-for-lustre-file-system")
+- [Example: Mount an existing Amazon EFS file system](#example-mount-an-existing-amazon-efs-file-system "#example-mount-an-existing-amazon-efs-file-system")
+- [Example: Override default Amazon ECS container agent configuration](#example-override-default-amazon-ecs-container-agent-configuration "#example-override-default-amazon-ecs-container-agent-configuration")
+- [Example: Mount an existing Amazon FSx for Lustre file system](#example-mount-an-existing-amazon-fsx-for-lustre-file-system "#example-mount-an-existing-amazon-fsx-for-lustre-file-system")
 
-## Example: Mount an existing Amazon EFS file
-
-system
+## Example: Mount an existing Amazon EFS file system
 
 ###### Example
 
@@ -41,9 +36,7 @@ runcmd:
 --==MYBOUNDARY==--
 ```
 
-## Example: Override default Amazon ECS
-
-container agent configuration
+## Example: Override default Amazon ECS container agent configuration
 
 ###### Example
 
@@ -64,9 +57,7 @@ echo ECS_IMAGE_MINIMUM_CLEANUP_AGE=60m >> /etc/ecs/ecs.config
 --==MYBOUNDARY==--
 ```
 
-## Example: Mount an existing
-
-Amazon FSx for Lustre file system
+## Example: Mount an existing Amazon FSx for Lustre file system
 
 ###### Example
 

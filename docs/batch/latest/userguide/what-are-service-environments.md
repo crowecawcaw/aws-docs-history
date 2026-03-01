@@ -1,6 +1,4 @@
-# What are service environments in
-
-AWS Batch
+# What are service environments in AWS Batch
 
 A service environment is a AWS Batch resource that contains the configuration parameters
 required to integrate AWS Batch with SageMaker AI. Service environments enable AWS Batch to submit and
@@ -26,9 +24,7 @@ intervention as soon as resources are available. This integration leverages AWS 
 extensive queuing and scheduling capabilities, enabling customers to customize their queuing
 and scheduling policies to match their organization's goals.
 
-## How service environments work with
-
-other AWS Batch components
+## How service environments work with other AWS Batch components
 
 Service environments integrate with other AWS Batch components to enable SageMaker Training
 job queuing:
@@ -47,9 +43,7 @@ This integration allows you to leverage AWS Batch's mature queuing and schedulin
 capabilities while maintaining the full functionality and flexibility of SageMaker Training
 jobs.
 
-## Best practices for service
-
-environments
+## Best practices for service environments
 
 Service environments provide capabilities for managing SageMaker Training jobs at scale.
 Following these best practices helps you optimize cost, performance, and operational

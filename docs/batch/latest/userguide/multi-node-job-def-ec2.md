@@ -1,13 +1,10 @@
-# Tutorial: Create a multi-node parallel job definition on Amazon EC2
-
-resources
+# Tutorial: Create a multi-node parallel job definition on Amazon EC2 resources
 
 To create a multi-node parallel job definition on Amazon Elastic Compute Cloud (Amazon EC2) resources.
 
 ###### Note
 
-To create a _single-node_ job definition, see [Create a single-node job definition on Amazon EC2
-resources](create-job-definition-EC2.md "create-job-definition-EC2.md").
+To create a _single-node_ job definition, see [Create a single-node job definition on Amazon EC2 resources](create-job-definition-EC2.md "create-job-definition-EC2.md").
 
 ###### To create a multi-node parallel job definition on Amazon EC2 resources:
 

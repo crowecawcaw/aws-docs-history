@@ -1,6 +1,4 @@
-# Mapping AWS Batch service job status to SageMaker AI
-
-status
+# Mapping AWS Batch service job status to SageMaker AI status
 
 When you submit jobs to a SageMaker job queue using [SubmitServiceJob](../APIReference/API_SubmitServiceJob.md "../APIReference/API_SubmitServiceJob.md"),
 AWS Batch manages the job lifecycle and maps AWS Batch [job states](job_states.md "job_states.md") to equivalent SageMaker Training

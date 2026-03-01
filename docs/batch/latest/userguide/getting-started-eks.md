@@ -28,19 +28,14 @@ The following sections cover how to get set up for AWS Batch on Amazon EKS.
 
 - [Overview](getting-started-eks.md#getting-started-eks-context "getting-started-eks.md#getting-started-eks-context")
 - [Prerequisites](getting-started-eks.md#getting-started-eks-prerequisites "getting-started-eks.md#getting-started-eks-prerequisites")
-- [Step 1: Create your Amazon EKS cluster for
-  AWS Batch](getting-started-eks.md#getting-started-eks-step-0 "getting-started-eks.md#getting-started-eks-step-0")
-- [Step 2: Prepare your Amazon EKS cluster for
-  AWS Batch](getting-started-eks.md#getting-started-eks-step-1 "getting-started-eks.md#getting-started-eks-step-1")
-- [Step 3: Create an Amazon EKS compute
-  environment](getting-started-eks.md#getting-started-eks-step-2 "getting-started-eks.md#getting-started-eks-step-2")
-- [Step 4: Create a job queue and attach the compute
-  environment](getting-started-eks.md#getting-started-eks-step-3 "getting-started-eks.md#getting-started-eks-step-3")
+- [Step 1: Create your Amazon EKS cluster for AWS Batch](getting-started-eks.md#getting-started-eks-step-0 "getting-started-eks.md#getting-started-eks-step-0")
+- [Step 2: Prepare your Amazon EKS cluster for AWS Batch](getting-started-eks.md#getting-started-eks-step-1 "getting-started-eks.md#getting-started-eks-step-1")
+- [Step 3: Create an Amazon EKS compute environment](getting-started-eks.md#getting-started-eks-step-2 "getting-started-eks.md#getting-started-eks-step-2")
+- [Step 4: Create a job queue and attach the compute environment](getting-started-eks.md#getting-started-eks-step-3 "getting-started-eks.md#getting-started-eks-step-3")
 - [Step 5: Create a job definition](getting-started-eks.md#getting-started-eks-step-4 "getting-started-eks.md#getting-started-eks-step-4")
 - [Step 6: Submit a job](getting-started-eks.md#getting-started-eks-step-5 "getting-started-eks.md#getting-started-eks-step-5")
 - [Step 7: View the Job's output](getting-started-eks.md#getting-started-eks-step-7 "getting-started-eks.md#getting-started-eks-step-7")
-- [Step 8: (Optional) Submit a job with
-  overrides](getting-started-eks.md#getting-started-eks-step-6 "getting-started-eks.md#getting-started-eks-step-6")
+- [Step 8: (Optional) Submit a job with overrides](getting-started-eks.md#getting-started-eks-step-6 "getting-started-eks.md#getting-started-eks-step-6")
 - [Step 9: Clean up your tutorial resources](getting-started-eks.md#getting-started-eks-step-8 "getting-started-eks.md#getting-started-eks-step-8")
 - [Additional resources](getting-started-eks.md#getting-started-eks-additional-resources "getting-started-eks.md#getting-started-eks-additional-resources")
 
@@ -121,9 +116,7 @@ resources that you need to create and manage both AWS Batch and Amazon EKS resou
   overrides](#getting-started-eks-step-6 "#getting-started-eks-step-6"),
   logging must be configured. For more information, see [Use CloudWatch Logs to monitor AWS Batch on Amazon EKS jobs](batch-eks-cloudwatch-logs.md "batch-eks-cloudwatch-logs.md").
 
-## Step 1: Create your Amazon EKS cluster for
-
-AWS Batch
+## Step 1: Create your Amazon EKS cluster for AWS Batch
 
 ###### Important
 
@@ -147,9 +140,7 @@ In the preceding command replace:
 
 The cluster name and region are needed for later in this tutorial.
 
-## Step 2: Prepare your Amazon EKS cluster for
-
-AWS Batch
+## Step 2: Prepare your Amazon EKS cluster for AWS Batch
 
 All steps are required.
 
@@ -319,9 +310,7 @@ the ARN of the service-linked role. This is because of an issue with the
 `aws-auth` configuration map. For more information, see [Roles with
 paths don't work when the path is included in their ARN in the aws-authconfigmap](https://github.com/kubernetes-sigs/aws-iam-authenticator/issues/268 "https://github.com/kubernetes-sigs/aws-iam-authenticator/issues/268").
 
-## Step 3: Create an Amazon EKS compute
-
-environment
+## Step 3: Create an Amazon EKS compute environment
 
 AWS Batch compute environments define compute resource parameters to meet your batch
 workload needs. In a managed compute environment, AWS Batch helps you to manage the capacity and
@@ -414,9 +403,7 @@ EOF`
 - Maintenance of an Amazon EKS compute environment is a shared responsibility. For more
   information, see [Shared responsibility of the Kubernetes nodes](eks-ce-shared-responsibility.md "eks-ce-shared-responsibility.md").
 
-## Step 4: Create a job queue and attach the compute
-
-environment
+## Step 4: Create a job queue and attach the compute environment
 
 ###### Important
 
@@ -536,9 +523,7 @@ To view the Job's output, do the following:
 5. In the **Details** pane the **Started at** and
    **Stopped at** times should be one minute apart.
 
-## Step 8: (Optional) Submit a job with
-
-overrides
+## Step 8: (Optional) Submit a job with overrides
 
 This job overrides the command passed to the container. AWS Batch aggressively cleans up the
 pods after the jobs complete to reduce the load to Kubernetes. To examine the details of a job,

@@ -5,16 +5,13 @@ Parameter Store parameters and then referencing them in your container definitio
 
 ###### Topics
 
-- [Considerations when you specify sensitive data using Systems Manager
-  Parameter Store](#secrets--parameterstore-considerations "#secrets--parameterstore-considerations")
+- [Considerations when you specify sensitive data using Systems Manager Parameter Store](#secrets--parameterstore-considerations "#secrets--parameterstore-considerations")
 - [Required IAM permissions for AWS Batch secrets](#secrets-iam-parameters "#secrets-iam-parameters")
 - [Inject sensitive data as an environment variable](#secrets-envvar-parameters "#secrets-envvar-parameters")
 - [Inject sensitive data in a log configuration](#secrets-logconfig-parameters "#secrets-logconfig-parameters")
 - [Create an AWS Systems Manager Parameter Store parameter](#secrets-create-parameter "#secrets-create-parameter")
 
-## Considerations when you specify sensitive data using Systems Manager
-
-Parameter Store
+## Considerations when you specify sensitive data using Systems Manager Parameter Store
 
 The following should be considered when specifying sensitive data for containers using Systems Manager Parameter Store
 parameters.

@@ -26,8 +26,7 @@ To use a new AMI for your AWS Batch jobs, do the following:
 3. Remove the earlier compute environment from your job queue.
 4. Delete the earlier compute environment.
    In April 2022, AWS Batch added enhanced support for updating compute environments. For more
-   information, see [Update a compute environment in
-   AWS Batch](updating-compute-environments.md "updating-compute-environments.md"). To use the enhanced updating of compute environments
+   information, see [Update a compute environment in AWS Batch](updating-compute-environments.md "updating-compute-environments.md"). To use the enhanced updating of compute environments
    to update AMIs, follow these rules:
 
 - Either don't set the service role ([`serviceRole`](../APIReference/API_CreateComputeEnvironment.md#Batch-CreateComputeEnvironment-request-serviceRole "../APIReference/API_CreateComputeEnvironment.md#Batch-CreateComputeEnvironment-request-serviceRole")) parameter or set it to the **AWSServiceRoleForBatch** service-linked role.

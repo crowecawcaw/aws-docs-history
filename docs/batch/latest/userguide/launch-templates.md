@@ -59,8 +59,7 @@ key, the value in the compute environment configuration takes precedence.
 - Instance market options (AWS Batch must control Spot Instance configuration)
 - Disable API termination (AWS Batch must control instance lifecycle)
   AWS Batch only updates the launch template with a new launch template version during infrastructure updates. For
-  more information, see [Update a compute environment in
-  AWS Batch](updating-compute-environments.md "updating-compute-environments.md").
+  more information, see [Update a compute environment in AWS Batch](updating-compute-environments.md "updating-compute-environments.md").
 
 ## Default and override launch templates
 

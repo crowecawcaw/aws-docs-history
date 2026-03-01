@@ -1,6 +1,4 @@
-# AWS Batch information in
-
-CloudTrail
+# AWS Batch information in CloudTrail
 
 CloudTrail is enabled on your AWS account when you create the account. When activity occurs in AWS Batch,
 that activity is recorded in a CloudTrail event along with other AWS service events in **Event

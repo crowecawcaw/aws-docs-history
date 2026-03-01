@@ -10,5 +10,4 @@ AWS Fargate doesn't support multi-node parallel jobs.
 
 ###### Contents
 
-- [Tutorial: Create a multi-node parallel job definition on Amazon EC2
-  resources](multi-node-job-def-ec2.md "multi-node-job-def-ec2.md")
+- [Tutorial: Create a multi-node parallel job definition on Amazon EC2 resources](multi-node-job-def-ec2.md "multi-node-job-def-ec2.md")

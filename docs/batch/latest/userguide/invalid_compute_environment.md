@@ -49,8 +49,7 @@ One common cause for this issue is the following scenario. You only specify the 
 IAM role when using the AWS CLI or the AWS SDKs, instead of the full Amazon Resource Name
 (ARN). Depending on how you created the role, the ARN might contain a
 `aws-service-role` path prefix. For example, if you manually create the AWS Batch
-service role using the procedures in [Using service-linked roles for
-AWS Batch](using-service-linked-roles.md "using-service-linked-roles.md"), your service role ARN might look like the
+service role using the procedures in [Using service-linked roles for AWS Batch](using-service-linked-roles.md "using-service-linked-roles.md"), your service role ARN might look like the
 following.
 
 ```
@@ -85,12 +84,9 @@ AWS Batch assumes that your ARN doesn't use the `aws-service-role` path prefix.
 Because of this, we recommend that you specify the full ARN for your IAM roles when you
 create compute environments.
 
-To repair a compute environment that's misconfigured this way, see [Repair an INVALID compute
-environment](#repairing_invalid_compute_environment "#repairing_invalid_compute_environment").
+To repair a compute environment that's misconfigured this way, see [Repair an INVALID compute environment](#repairing_invalid_compute_environment "#repairing_invalid_compute_environment").
 
-## Repair an `INVALID` compute
-
-environment
+## Repair an `INVALID` compute environment
 
 When you have a compute environment in an `INVALID` state, update it to repair
 the invalid parameter. For an [Incorrect role name or ARN](#invalid_service_role_arn "#invalid_service_role_arn"), update the compute environment using the correct service

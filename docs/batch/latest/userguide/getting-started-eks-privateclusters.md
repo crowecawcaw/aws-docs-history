@@ -1,6 +1,4 @@
-# Getting started with AWS Batch on Amazon EKS
-
-Private Clusters
+# Getting started with AWS Batch on Amazon EKS Private Clusters
 
 AWS Batch is a managed service that orchestrates batch workloads in your Amazon Elastic Kubernetes Service (Amazon EKS)
 clusters. This includes queuing, dependency tracking, managed job retries and priorities,
@@ -36,23 +34,15 @@ to once every 24 hours.
 
 - [Overview](getting-started-eks-privateclusters.md#getting-started-eks-context "getting-started-eks-privateclusters.md#getting-started-eks-context")
 - [Prerequisites](getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-prerequisites "getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-prerequisites")
-- [Step 1: Create your EKS
-  cluster for AWS Batch](getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-step-0 "getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-step-0")
-- [Step 2: Prepare your EKS
-  cluster for AWS Batch](getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-step-1 "getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-step-1")
-- [Step 3: Create an Amazon EKS
-  compute environment](getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-2 "getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-2")
-- [Step 4: Create a job queue
-  and attach the compute environment](getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-step-3 "getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-step-3")
-- [Step 5: Create an Amazon ECR
-  with pull through cache](getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-step-ecr "getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-step-ecr")
-- [Step 6: Register a job
-  definition](getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-step-4 "getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-step-4")
-- [Step 7: Submit a job to
-  run](getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-step-5 "getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-step-5")
+- [Step 1: Create your EKS cluster for AWS Batch](getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-step-0 "getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-step-0")
+- [Step 2: Prepare your EKS cluster for AWS Batch](getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-step-1 "getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-step-1")
+- [Step 3: Create an Amazon EKS compute environment](getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-2 "getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-2")
+- [Step 4: Create a job queue and attach the compute environment](getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-step-3 "getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-step-3")
+- [Step 5: Create an Amazon ECR with pull through cache](getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-step-ecr "getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-step-ecr")
+- [Step 6: Register a job definition](getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-step-4 "getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-step-4")
+- [Step 7: Submit a job to run](getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-step-5 "getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-step-5")
 - [Step 8: View the Job's output](getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-step-7 "getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-step-7")
-- [Step 9: (Optional) Submit a
-  job with overrides](getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-step-6 "getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-step-6")
+- [Step 9: (Optional) Submit a job with overrides](getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-step-6 "getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-step-6")
 - [Step 10: Clean up your tutorial resources](getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-step-8 "getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-step-8")
 - [Additional resources](getting-started-eks-privateclusters.md#getting-started-eks-additional-resources "getting-started-eks-privateclusters.md#getting-started-eks-additional-resources")
 - [Troubleshooting](getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-troubleshooting "getting-started-eks-privateclusters.md#getting-started-eks-privateclusters-troubleshooting")
@@ -145,9 +135,7 @@ a connected network.
   overrides](getting-started-eks.md#getting-started-eks-step-6 "getting-started-eks.md#getting-started-eks-step-6"), logging must be configured. For more information, see
   [Use CloudWatch Logs to monitor AWS Batch on Amazon EKS jobs](batch-eks-cloudwatch-logs.md "batch-eks-cloudwatch-logs.md").
 
-## Step 1: Create your EKS
-
-cluster for AWS Batch
+## Step 1: Create your EKS cluster for AWS Batch
 
 ###### Important
 
@@ -230,9 +218,7 @@ ip-192-168-165-40.ec2.internal    Ready    none     1h   v1.32.3-eks-473151a
 ip-192-168-98-54.ec2.internal     Ready    none     1h   v1.32.1-eks-5d632ec
 ```
 
-## Step 2: Prepare your EKS
-
-cluster for AWS Batch
+## Step 2: Prepare your EKS cluster for AWS Batch
 
 All steps are required and must be done in AWS CloudShell.
 
@@ -396,9 +382,7 @@ with the `aws-auth` configuration map. For more information, see
 [Roles with paths don't work when the path is included in their ARN in
 the aws-authconfigmap](https://github.com/kubernetes-sigs/aws-iam-authenticator/issues/268 "https://github.com/kubernetes-sigs/aws-iam-authenticator/issues/268").
 
-## Step 3: Create an Amazon EKS
-
-compute environment
+## Step 3: Create an Amazon EKS compute environment
 
 AWS Batch compute environments define compute resource parameters to meet your batch
 workload needs. In a managed compute environment, AWS Batch helps you to manage the
@@ -468,9 +452,7 @@ EOF`
   more information, see [Security in Amazon
   EKS](../../../eks/latest/userguide/security.md "../../../eks/latest/userguide/security.md").
 
-## Step 4: Create a job queue
-
-and attach the compute environment
+## Step 4: Create a job queue and attach the compute environment
 
 ###### Important
 
@@ -508,9 +490,7 @@ EOF`
 `$` `aws batch create-job-queue --cli-input-json file://./batch-eks-job-queue.json`
 ```
 
-## Step 5: Create an Amazon ECR
-
-with pull through cache
+## Step 5: Create an Amazon ECR with pull through cache
 
 Because the cluster doesn't have public internet access you have to create an Amazon ECR
 for container images. The following directions create an Amazon ECR with a pull-through cache
@@ -556,9 +536,7 @@ Now you can pull an image.
 `<your-account-ID>`.dkr.ecr.us-east-1.amazonaws.com/`my-prefix`/amazonlinux/amazonlinux:2
 ```
 
-## Step 6: Register a job
-
-definition
+## Step 6: Register a job definition
 
 The following Job definition instructs the pod to sleep for 60 seconds.
 
@@ -609,9 +587,7 @@ EOF`
 - There are considerations for the `cpu` and `memory`
   parameters. For more information, see [Memory and vCPU considerations for AWS Batch on Amazon EKS](memory-cpu-batch-eks.md "memory-cpu-batch-eks.md").
 
-## Step 7: Submit a job to
-
-run
+## Step 7: Submit a job to run
 
 Run the following AWS CLI command in AWS CloudShell to submit a new Job and returns the unique
 JobID.
@@ -635,9 +611,7 @@ To check the status of a Job:
 
 The `startedAt` and `stoppedAt` should be one minute apart.
 
-## Step 9: (Optional) Submit a
-
-job with overrides
+## Step 9: (Optional) Submit a job with overrides
 
 This job overrides the command passed to the container.
 

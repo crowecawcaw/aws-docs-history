@@ -12,12 +12,8 @@ utilization across your organization's machine learning workflows.
 
 ###### Topics
 
-- [What are service environments in
-  AWS Batch](what-are-service-environments.md "what-are-service-environments.md")
-- [Service environment states and
-  lifecycle in AWS Batch](service-environment-states.md "service-environment-states.md")
-- [Create a service environment in
-  AWS Batch](create-service-environments.md "create-service-environments.md")
+- [What are service environments in AWS Batch](what-are-service-environments.md "what-are-service-environments.md")
+- [Service environment states and lifecycle in AWS Batch](service-environment-states.md "service-environment-states.md")
+- [Create a service environment in AWS Batch](create-service-environments.md "create-service-environments.md")
 - [Update a service environment in AWS Batch](updating-service-environments.md "updating-service-environments.md")
-- [Delete a service environment in
-  AWS Batch](deleting-service-environments.md "deleting-service-environments.md")
+- [Delete a service environment in AWS Batch](deleting-service-environments.md "deleting-service-environments.md")

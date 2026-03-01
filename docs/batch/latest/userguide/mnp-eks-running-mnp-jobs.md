@@ -31,9 +31,7 @@ job definition.
 For example, you can run up to a maximum of 10,000 containers in a single MNP job that
 contains 5 node ranges and a total of 50 unique images.
 
-## Running MNP jobs in a private Amazon VPC and an
-
-Amazon EKS cluster
+## Running MNP jobs in a private Amazon VPC and an Amazon EKS cluster
 
 MNP jobs can run on any Amazon EKS cluster whether it has public Internet or not. When using
 an Amazon EKS cluster with only private network access be sure that AWS Batch can access the Amazon EKS
@@ -61,5 +59,4 @@ and Amazon EventBridge. For example, if an MNP job is stuck at the head of the q
 notified about the issue along with information about what caused it so that you can take
 prompt action to unblock your job queue. Optionally, you can auto-terminate the MNP job if
 no action is taken within a distinct amount of time, which can be defined in the job queue
-template. For more information, see [Job queue blocked
-events](batch-job-queue-blocked-events.md "batch-job-queue-blocked-events.md")
+template. For more information, see [Job queue blocked events](batch-job-queue-blocked-events.md "batch-job-queue-blocked-events.md")

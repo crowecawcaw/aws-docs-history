@@ -24,8 +24,7 @@ in the Amazon EventBridge User Guide.
 ###### Topics
 
 - [AWS Batch events](batch_cwe_events.md "batch_cwe_events.md")
-- [Tutorial: Use AWS user notifications with
-  AWS Batch](using-user-notifications.md "using-user-notifications.md")
+- [Tutorial: Use AWS user notifications with AWS Batch](using-user-notifications.md "using-user-notifications.md")
 - [AWS Batch jobs as EventBridge targets](batch-cwe-target.md "batch-cwe-target.md")
 - [Tutorial: Listen for AWS Batch job events using EventBridge](batch_cwet.md "batch_cwet.md")
 - [Tutorial: Sending Amazon Simple Notification Service alerts for failed job events](batch_sns_tutorial.md "batch_sns_tutorial.md")

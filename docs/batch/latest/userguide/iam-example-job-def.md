@@ -1,6 +1,4 @@
-# Resource: Restrict to POSIX user, Docker image, privilege level,
-
-and role on job submission
+# Resource: Restrict to POSIX user, Docker image, privilege level, and role on job submission
 
 The following policy allows a POSIX user to manage their own set of restricted job
 definitions.

@@ -26,8 +26,6 @@ _of_ the cloud and security _in_ the cloud:
 - [Use an interface endpoint to Access AWS Batch](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
 - [Compliance validation for AWS Batch](compliance.md "compliance.md")
 - [Infrastructure security in AWS Batch](infrastructure-security.md "infrastructure-security.md")
-- [Cross-service confused deputy
-  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
-- [Logging AWS Batch API calls with
-  AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Logging AWS Batch API calls with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
 - [Troubleshoot AWS Batch IAM](security_iam_troubleshoot.md "security_iam_troubleshoot.md")

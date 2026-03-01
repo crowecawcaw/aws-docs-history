@@ -48,9 +48,7 @@ placed in the `RUNNABLE` state, including the initial attempt. A value of 3
 means the job will be attempted once initially, then retried up to 2 additional times if
 it fails.
 
-### Retry configuration with
-
-evaluateOnExit
+### Retry configuration with evaluateOnExit
 
 You can use the `evaluateOnExit` parameter to specify conditions under which
 jobs should be retried or allowed to fail. This is useful for when different types of

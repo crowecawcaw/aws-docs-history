@@ -1,6 +1,4 @@
-# Job queue blocked
-
-events
+# Job queue blocked events
 
 Anytime that AWS Batch detects a job in the `RUNNABLE` state and thus
 blocking a queue, an event is created in Amazon CloudWatch Events. For more information about

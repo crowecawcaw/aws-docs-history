@@ -102,8 +102,7 @@ the agent doesn't start on instances that are launched from your AMI.
 1. After the new AMI is created, create a compute environment with the new AMI. To do
    this,choose the image type and enter the custom AMI ID in the **Image ID
    override** box when you create the AWS Batch compute environment. For more information,
-   see [Tutorial: Create a managed compute
-   environment using Amazon EC2 resources](create-compute-environment-managed-ec2.md "create-compute-environment-managed-ec2.md").
+   see [Tutorial: Create a managed compute environment using Amazon EC2 resources](create-compute-environment-managed-ec2.md "create-compute-environment-managed-ec2.md").
 
 ###### Note
 
@@ -116,4 +115,4 @@ in the _Amazon Elastic Container Service Developer Guide_. 2. Create a job queue
 ###### Note
 
 All compute environments that are associated with a job queue must share the same architecture. AWS Batch
-doesn't support mixing compute environment architecture types in a single job queue. 3. (Optional) Submit a sample job to your new job queue. For more information, see [Job definition examples](example-job-definitions.md "example-job-definitions.md"), [Create a single-node job definition](create-job-definition.md "create-job-definition.md") , and [Tutorial: submit a job](submit_job.md "submit_job.md").
+doesn't support mixing compute environment architecture types in a single job queue. 3. (Optional) Submit a sample job to your new job queue. For more information, see [Job definition examples](example-job-definitions.md "example-job-definitions.md"), [Create a single-node job definition](create-job-definition.md "create-job-definition.md"), and [Tutorial: submit a job](submit_job.md "submit_job.md").

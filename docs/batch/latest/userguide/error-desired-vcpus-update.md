@@ -1,6 +1,4 @@
-# Error message when you update the
-
-`desiredvCpus` setting
+# Error message when you update the `desiredvCpus` setting
 
 You see the following error message when you use the AWS Batch API to update the desired
 vCPUs (`desiredvCpus`) setting.

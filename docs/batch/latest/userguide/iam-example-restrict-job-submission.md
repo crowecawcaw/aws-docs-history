@@ -1,6 +1,4 @@
-# Resource: Restrict to job definition prefix on job
-
-submission
+# Resource: Restrict to job definition prefix on job submission
 
 Use the following policy to submit jobs to any job queue with any job definition name that
 starts with `JobDefA`.

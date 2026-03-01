@@ -34,7 +34,7 @@ These are the AWS Batch specific features that are also common to Kubernetes job
 - [Automated job retries](job_retries.md "job_retries.md")
 - [Use fair-share scheduling to help schedule jobs](fair-share-scheduling.md "fair-share-scheduling.md")
 
-###### Kubernetes`Secrets` and `ServiceAccounts`
+###### Kubernetes `Secrets` and `ServiceAccounts`
 
 AWS Batch supports referencing Kubernetes `Secrets` and `ServiceAccounts`. You can configure
 pods to use Amazon EKS IAM roles for service accounts. For more information, see [Configuring pods to use a Kubernetes service account](../../../eks/latest/userguide/pod-configuration.md "../../../eks/latest/userguide/pod-configuration.md") in the
