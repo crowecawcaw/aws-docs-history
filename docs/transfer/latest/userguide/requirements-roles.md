@@ -58,8 +58,7 @@ detail later:
 
 ###### Create a user role
 
-1. Create an IAM policy for AWS Transfer Family. This is described in [To create an IAM policy for
-   AWS Transfer Family](#iam-policy-procedure "#iam-policy-procedure").
+1. Create an IAM policy for AWS Transfer Family. This is described in [To create an IAM policy for AWS Transfer Family](#iam-policy-procedure "#iam-policy-procedure").
 2. Create an IAM role and attach the new IAM policy. For an example, see
    [Example read/write access policy](#read-write-access "#read-write-access").
 3. Establish a trust relationship between AWS Transfer Family and the IAM role. This
@@ -67,9 +66,7 @@ detail later:
 
 The following procedures describe how to create an IAM policy and role.
 
-###### To create an IAM policy for
-
-AWS Transfer Family
+###### To create an IAM policy for AWS Transfer Family
 
 1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the navigation pane, choose **Policies**, and then
@@ -223,8 +220,7 @@ access to their `home` directories only. Note the following:
 - If your Amazon S3 bucket is encrypted using AWS Key Management Service (AWS KMS), you must
   specify additional permissions in your policy. For details, see [Data protection and encryption](encryption-at-rest.md "encryption-at-rest.md").
 - To use session policies to create access permissions based on user
-  attributes without creating separate IAM roles for each user, see [Dynamic permission management
-  approaches](dynamic-permission-management.md "dynamic-permission-management.md").
+  attributes without creating separate IAM roles for each user, see [Dynamic permission management approaches](dynamic-permission-management.md "dynamic-permission-management.md").
 
 ```
 `{

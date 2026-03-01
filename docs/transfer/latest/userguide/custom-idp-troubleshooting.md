@@ -5,17 +5,12 @@ providers with Transfer Family.
 
 ###### Topics
 
-- [Troubleshoot API Gateway integration
-  errors](#api-gateway-errors "#api-gateway-errors")
-- [Troubleshoot Lambda function
-  timeouts](#lambda-timeout-issues "#lambda-timeout-issues")
-- [Troubleshoot consistent Lambda timeout
-  issues](#lambda-timeout-auth "#lambda-timeout-auth")
+- [Troubleshoot API Gateway integration errors](#api-gateway-errors "#api-gateway-errors")
+- [Troubleshoot Lambda function timeouts](#lambda-timeout-issues "#lambda-timeout-issues")
+- [Troubleshoot consistent Lambda timeout issues](#lambda-timeout-auth "#lambda-timeout-auth")
 - [Troubleshoot KeyError exceptions](#keyerror-logs "#keyerror-logs")
 
-## Troubleshoot API Gateway integration
-
-errors
+## Troubleshoot API Gateway integration errors
 
 Description
 
@@ -81,9 +76,7 @@ curl -X POST https://your-api-id.execute-api.region.amazonaws.com/prod/servers/y
    - Check that the execution role for your Lambda function has
      necessary permissions
 
-## Troubleshoot Lambda function
-
-timeouts
+## Troubleshoot Lambda function timeouts
 
 Description
 
@@ -128,9 +121,7 @@ aws lambda put-provisioned-concurrency-config \
 4. Monitor Lambda performance using CloudWatch metrics and set up alarms for
    duration thresholds
 
-## Troubleshoot consistent Lambda timeout
-
-issues
+## Troubleshoot consistent Lambda timeout issues
 
 Description
 

@@ -1,6 +1,4 @@
-# Configure Amazon S3 Access Grants for Transfer Family web
-
-apps
+# Configure Amazon S3 Access Grants for Transfer Family web apps
 
 This topic describes how to add an access grant using Amazon S3 Access Grants. This access
 grant defines access to your data directly to your users and groups in your corporate

@@ -28,8 +28,7 @@ greater than the size of the file that you are sending.
 ## Create an AS2 connector
 
 This procedure explains how to create AS2 connectors by using the AWS Transfer Family
-console. If you want to use the AWS CLI instead, see [Step 6: Create a connector between
-you and your partner](as2-example-tutorial.md#as2-create-connector-example "as2-example-tutorial.md#as2-create-connector-example").
+console. If you want to use the AWS CLI instead, see [Step 6: Create a connector between you and your partner](as2-example-tutorial.md#as2-create-connector-example "as2-example-tutorial.md#as2-create-connector-example").
 
 ###### To create an AS2 connector
 
@@ -106,8 +105,7 @@ you and your partner](as2-example-tutorial.md#as2-create-connector-example "as2-
      - To use an existing secret, choose **Choose an
        existing secret**, and then choose a secret
        from the dropdown menu. For the details of creating a
-       correctly formatted secret in Secrets Manager, see [Enable Basic authentication for AS2
-       connectors](#as2-secret-create "#as2-secret-create").
+       correctly formatted secret in Secrets Manager, see [Enable Basic authentication for AS2 connectors](#as2-secret-create "#as2-secret-create").
 
      ![The Create connector page in the AWS Transfer Family console, showing the Basic authentication section with Choose an existing secret chosen.](images/as2-basic-auth-select-secret.png)
 
@@ -160,14 +158,11 @@ choices, you can enter a username and password for the secret.
 
 The following screenshot shows **Enable Basic authentication**
 selected, and **Choose an existing secret** chosen. Your secret
-must be in the correct format, as described in [Enable Basic authentication for AS2
-connectors](#as2-secret-create "#as2-secret-create").
+must be in the correct format, as described in [Enable Basic authentication for AS2 connectors](#as2-secret-create "#as2-secret-create").
 
 ![The Transfer Family console Connectors page, showing the message authentication information for your connector. In this case, Enable Basic authentication is selected, and Choose an existing secret is chosen.](images/as2-basic-auth-select-secret.png)
 
-## Enable Basic authentication for AS2
-
-connectors
+## Enable Basic authentication for AS2 connectors
 
 When you enable Basic authentication for AS2 connectors, you can either create a
 new secret in the Transfer Family console, or you can use a secret that you create in
@@ -175,14 +170,11 @@ AWS Secrets Manager. In either case, your secret is stored in Secrets Manager.
 
 ###### Topics
 
-- [Create a new secret in the
-  console](#as2-secret-details-console "#as2-secret-details-console")
+- [Create a new secret in the console](#as2-secret-details-console "#as2-secret-details-console")
 - [Use an existing secret](#use-existing-secret "#use-existing-secret")
 - [Create a secret in AWS Secrets Manager](#as2-secret-details-asm "#as2-secret-details-asm")
 
-### Create a new secret in the
-
-console
+### Create a new secret in the console
 
 When you're creating a connector in the console, you can create a new
 secret.
@@ -222,9 +214,7 @@ with your AS2 connector.
 
 Basic authentication is available only if you're using HTTPS.
 
-###### To store user credentials in Secrets Manager
-
-for AS2 Basic authentication
+###### To store user credentials in Secrets Manager for AS2 Basic authentication
 
 1. Sign in to the AWS Management Console and open the AWS Secrets Manager console at [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
 2. In the left navigation pane, choose **Secrets**.

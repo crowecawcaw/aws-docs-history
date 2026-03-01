@@ -43,18 +43,12 @@ to:
 
 ###### Topics
 
-- [Step 1: Create the necessary supporting
-  resources](#create-prereq-resources "#create-prereq-resources")
-- [Step 2: Create and test an SFTP
-  connector](#create-connector-tutorial "#create-connector-tutorial")
-- [Step 3: Send and retrieve files using the SFTP
-  connector](#use-connector-tutorial "#use-connector-tutorial")
-- [Procedures to create a Transfer Family server to
-  use as your remote SFTP server](#non-standard-tutorial-procedures "#non-standard-tutorial-procedures")
+- [Step 1: Create the necessary supporting resources](#create-prereq-resources "#create-prereq-resources")
+- [Step 2: Create and test an SFTP connector](#create-connector-tutorial "#create-connector-tutorial")
+- [Step 3: Send and retrieve files using the SFTP connector](#use-connector-tutorial "#use-connector-tutorial")
+- [Procedures to create a Transfer Family server to use as your remote SFTP server](#non-standard-tutorial-procedures "#non-standard-tutorial-procedures")
 
-## Step 1: Create the necessary supporting
-
-resources
+## Step 1: Create the necessary supporting resources
 
 You can use SFTP connectors to copy files between Amazon S3 and any remote SFTP server. For
 this tutorial, we are using an AWS Transfer Family server as our remote SFTP server. We need to
@@ -63,21 +57,17 @@ create and configure the following resources:
 - Create Amazon S3 buckets to store files in your AWS environment, and to send and
   retrieve files from the remote SFTP server: [Create Amazon S3 buckets](#sftp-tutorial-s3-bucket "#sftp-tutorial-s3-bucket").
 - Create an AWS Identity and Access Management role for accessing Amazon S3 storage and our secret in
-  Secrets Manager: [Create an IAM role with the necessary
-  permissions](#sftp-tutorial-role "#sftp-tutorial-role").
+  Secrets Manager: [Create an IAM role with the necessary permissions](#sftp-tutorial-role "#sftp-tutorial-role").
 - Create a Transfer Family server that uses the SFTP protocol, and a service-managed user
   that uses the SFTP connector to transfer files to or from the SFTP server: [Create a Transfer Family SFTP server and a user](#sftp-tutorial-server "#sftp-tutorial-server").
 - Create an AWS Secrets Manager secret that stores the credentials used by the SFTP
-  connector to log in to the remote SFTP server: [Create and store a secret in
-  AWS Secrets Manager](#sftp-tutorial-secret "#sftp-tutorial-secret").
+  connector to log in to the remote SFTP server: [Create and store a secret in AWS Secrets Manager](#sftp-tutorial-secret "#sftp-tutorial-secret").
 
 For VPC egress type connectors, you also need:
 
 - A VPC with appropriate subnets and security groups
-- A Resource Gateway (minimum 2 Availability Zones required): [Create a Resource Gateway (VPC
-  egress type only)](#sftp-tutorial-resource-gateway "#sftp-tutorial-resource-gateway").
-- A Resource Configuration pointing to your SFTP server: [Create a Resource Configuration (VPC
-  egress type only)](#sftp-tutorial-resource-config "#sftp-tutorial-resource-config"). For more information, see
+- A Resource Gateway (minimum 2 Availability Zones required): [Create a Resource Gateway (VPC egress type only)](#sftp-tutorial-resource-gateway "#sftp-tutorial-resource-gateway").
+- A Resource Configuration pointing to your SFTP server: [Create a Resource Configuration (VPC egress type only)](#sftp-tutorial-resource-config "#sftp-tutorial-resource-config"). For more information, see
   [Resource configurations](../../../vpc-lattice/latest/ug/resource-configuration.md "../../../vpc-lattice/latest/ug/resource-configuration.md") in the _Amazon VPC Lattice User
   Guide_.
 
@@ -95,9 +85,7 @@ For this tutorial, our bucket is in `US East (N. Virginia)
 For complete details about creating Amazon S3 buckets, see [How do I create an
 S3 bucket?](../../../AmazonS3/latest/user-guide/create-bucket-overview.md "../../../AmazonS3/latest/user-guide/create-bucket-overview.md") in the _Amazon Simple Storage Service User Guide_.
 
-### Create an IAM role with the necessary
-
-permissions
+### Create an IAM role with the necessary permissions
 
 For the access role, create a policy with the following permissions.
 
@@ -165,9 +153,7 @@ requests. For details on establishing a trust relationship, see [To establish a 
 
 To see the details for the role that we are using for the tutorial, see [Combined user and access role](#sftp-tutorial-combined-role "#sftp-tutorial-combined-role").
 
-### Create and store a secret in
-
-AWS Secrets Manager
+### Create and store a secret in AWS Secrets Manager
 
 We need to store a secret in Secrets Manager to store user credentials for your SFTP
 connector. You can use a password, SSH private key, or both. For the tutorial, we
@@ -246,9 +232,7 @@ procedure (in step 6).
 10. On the **Review** page, choose **Store**
     to create and store the secret.
 
-### Create a Resource Gateway (VPC
-
-egress type only)
+### Create a Resource Gateway (VPC egress type only)
 
 For VPC egress type connectors, you need to create a Resource Gateway in your VPC.
 The Resource Gateway serves as the entry point for Cross-VPC Resource Access.
@@ -271,9 +255,7 @@ Resource Gateways require subnets in at least 2 Availability
 Zones. 2. Note the Resource Gateway ID from the response for use in the next
 step.
 
-### Create a Resource Configuration (VPC
-
-egress type only)
+### Create a Resource Configuration (VPC egress type only)
 
 Create a Resource Configuration that points to your SFTP server. This can be a
 private IP address for servers in your VPC, or a public DNS name for external
@@ -309,9 +291,7 @@ aws vpc-lattice create-resource-configuration \
 Public endpoints must use DNS names, not IP addresses. 3. Note the Resource Configuration ARN from the response for use when
 creating the connector.
 
-## Step 2: Create and test an SFTP
-
-connector
+## Step 2: Create and test an SFTP connector
 
 In this section, we create an SFTP connector that uses all of the resources that we
 created earlier. For more details, see [Creating SFTP connectors](configure-sftp-connector.md "configure-sftp-connector.md").
@@ -490,9 +470,7 @@ Note that `ServiceManagedEgressIpAddresses` is null for VPC egress type
 connectors since traffic routes through your VPC instead of AWS managed
 infrastructure.
 
-## Step 3: Send and retrieve files using the SFTP
-
-connector
+## Step 3: Send and retrieve files using the SFTP connector
 
 For simplicity, we assume that you already have files in your Amazon S3 bucket.
 
@@ -593,9 +571,7 @@ If successful, the log entry looks like the following:
 }
 ```
 
-### Troubleshooting VPC egress type
-
-connectors
+### Troubleshooting VPC egress type connectors
 
 If you're experiencing issues with VPC egress type connectors, check the
 following:
@@ -630,9 +606,7 @@ following:
 - No additional Transfer Family charges beyond the standard $0.40/GB data
   processing fee
 
-## Procedures to create a Transfer Family server to
-
-use as your remote SFTP server
+## Procedures to create a Transfer Family server to use as your remote SFTP server
 
 Following, we outline the steps to create a Transfer Family server that serves as your remote
 SFTP server for this tutorial. Note the following:
@@ -681,8 +655,7 @@ user. These are the user details that we are using for the tutorial:
 ssh-keyscan s-1111aaaa2222bbbb3.server.transfer.us-east-1.amazonaws.com
 ```
 
-Copy this text somewhere, as you need to paste it in the [Step 2: Create and test an SFTP
-connector](#create-connector-tutorial "#create-connector-tutorial") procedure.
+Copy this text somewhere, as you need to paste it in the [Step 2: Create and test an SFTP connector](#create-connector-tutorial "#create-connector-tutorial") procedure.
 
 ### Combined user and access role
 

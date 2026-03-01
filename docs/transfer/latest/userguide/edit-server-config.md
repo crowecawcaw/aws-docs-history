@@ -8,10 +8,8 @@ After you create an AWS Transfer Family server, you can edit the server configur
 - [Edit the server endpoint](#edit-endpoint-configuration "#edit-endpoint-configuration")
 - [Edit your logging configuration](#edit-CloudWatch-logging "#edit-CloudWatch-logging")
 - [Edit the security policy](#edit-cryptographic-algorithm "#edit-cryptographic-algorithm")
-- [Change the managed workflow
-  for your server](#configuring-servers-change-workflow "#configuring-servers-change-workflow")
-- [Change the display banners for
-  your server](#configuring-servers-change-banner "#configuring-servers-change-banner")
+- [Change the managed workflow for your server](#configuring-servers-change-workflow "#configuring-servers-change-workflow")
+- [Change the display banners for your server](#configuring-servers-change-banner "#configuring-servers-change-banner")
 - [Put your server online or offline](#edit-online-offline "#edit-online-offline")
 
 ###### To edit a server's configuration
@@ -28,13 +26,11 @@ You can change the server's properties on this page by choosing
     * For the identity provider, you can now change between any identity
      provider types (service-managed, AWS Directory Service, or custom
      identity provider). For details about changing identity provider types
-     and the required information for each transition, see [Edit identity provider
-     configuration](configuring-servers-edit-custom-idp.md "configuring-servers-edit-custom-idp.md").
+     and the required information for each transition, see [Edit identity provider configuration](configuring-servers-edit-custom-idp.md "configuring-servers-edit-custom-idp.md").
     * To change the endpoint type or custom hostname, see [Edit the server endpoint](#edit-endpoint-configuration "#edit-endpoint-configuration").
     * To add an agreement, you need to first add AS2 as a protocol to your
      server. For details, see [Edit the file transfer protocols](#edit-protocols "#edit-protocols").
-    * To manage host keys for your server, see [Manage host keys for your SFTP-enabled
-     server](configuring-servers-change-host-key.md "configuring-servers-change-host-key.md").
+    * To manage host keys for your server, see [Manage host keys for your SFTP-enabled server](configuring-servers-change-host-key.md "configuring-servers-change-host-key.md").
     * Under **Additional details**, you can edit the
      following information:
 
@@ -43,12 +39,9 @@ You can change the server's properties on this page by choosing
 
     	+ To change the logging role, see [Edit your logging configuration](#edit-CloudWatch-logging "#edit-CloudWatch-logging").
     	+ To change the security policy, see [Edit the security policy](#edit-cryptographic-algorithm "#edit-cryptographic-algorithm").
-    	+ To change the server host key, see [Manage host keys for your SFTP-enabled
-    	 server](configuring-servers-change-host-key.md "configuring-servers-change-host-key.md").
-    	+ To change the managed workflow for your server, see [Change the managed workflow
-    	 for your server](#configuring-servers-change-workflow "#configuring-servers-change-workflow").
-    	+ To edit the display banners for your server, see [Change the display banners for
-    	 your server](#configuring-servers-change-banner "#configuring-servers-change-banner").
+    	+ To change the server host key, see [Manage host keys for your SFTP-enabled server](configuring-servers-change-host-key.md "configuring-servers-change-host-key.md").
+    	+ To change the managed workflow for your server, see [Change the managed workflow for your server](#configuring-servers-change-workflow "#configuring-servers-change-workflow").
+    	+ To edit the display banners for your server, see [Change the display banners for your server](#configuring-servers-change-banner "#configuring-servers-change-banner").
     * Under Additional configuration, you can edit the following
      information:
 
@@ -77,8 +70,7 @@ You can change the server's properties on this page by choosing
     	Avoid placing Network Load Balancers (NLBs) or NAT
     	 gateways in front of AWS Transfer Family servers. This configuration
     	 increases costs and can cause performance issues. For more
-    	 details, see [Avoid placing NLBs and NATs in front of AWS Transfer Family
-    	 servers](infrastructure-security.md#nlb-considerations "infrastructure-security.md#nlb-considerations")
+    	 details, see [Avoid placing NLBs and NATs in front of AWS Transfer Family servers](infrastructure-security.md#nlb-considerations "infrastructure-security.md#nlb-considerations")
     * To start or stop your server, see [Put your server online or offline](#edit-online-offline "#edit-online-offline").
     * To delete a server, see [Delete a server](configuring-servers.md#delete-server "configuring-servers.md#delete-server").
     * To edit a user's properties, see [Managing access controls](users-policies.md "users-policies.md").
@@ -317,9 +309,7 @@ your server's security policy.
 
 ```
 
-## Change the managed workflow
-
-for your server
+## Change the managed workflow for your server
 
 On the AWS Transfer Family console, you can change the managed workflow associated with the
 server.
@@ -346,9 +336,7 @@ workflow** to create one.
 ![The Managed workflows console section.](images/workflows-addtoserver.png) 3. Choose **Save**. You are returned to the **Server
 details** page.
 
-## Change the display banners for
-
-your server
+## Change the display banners for your server
 
 On the AWS Transfer Family console, you can change the display banners associated with the
 server.

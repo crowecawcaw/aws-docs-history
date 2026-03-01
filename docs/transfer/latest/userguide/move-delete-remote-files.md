@@ -1,17 +1,11 @@
-# Move, rename, or delete files or directories
-
-on the remote server
+# Move, rename, or delete files or directories on the remote server
 
 ###### Topics
 
-- [Move or rename files or directories on the remote
-  SFTP server](#move-remote-file "#move-remote-file")
-- [Delete files or directories on the remote SFTP
-  server](#delete-remote-file "#delete-remote-file")
+- [Move or rename files or directories on the remote SFTP server](#move-remote-file "#move-remote-file")
+- [Delete files or directories on the remote SFTP server](#delete-remote-file "#delete-remote-file")
 
-## Move or rename files or directories on the remote
-
-SFTP server
+## Move or rename files or directories on the remote SFTP server
 
 You can use an SFTP connector to move or rename files and directories on a remote
 SFTP server. Note that the remote server needs to support these operations for
@@ -48,9 +42,7 @@ aws transfer --connector-id c-AAAA1111BBBB2222C start-remote-move \
 For the move/rename operations, Transfer Family uses the standard `SFTP
  SSH_FXP_RENAME` command to do the move/rename operation.
 
-## Delete files or directories on the remote SFTP
-
-server
+## Delete files or directories on the remote SFTP server
 
 You can use an SFTP connector to delete files or directories on a remote SFTP
 server. Note that the remote server needs to support these operations for successful

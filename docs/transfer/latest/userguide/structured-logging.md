@@ -75,8 +75,7 @@ The following is an example policy.
 }
 ```
 
-For details on setting up JSON structured logging, see [Creating, updating, and viewing logging for
-servers](log-server-manage.md "log-server-manage.md").
+For details on setting up JSON structured logging, see [Creating, updating, and viewing logging for servers](log-server-manage.md "log-server-manage.md").
 
 **Logging role**
 
@@ -146,9 +145,7 @@ Properties:
   ComparisonOperator: GreaterThanOrEqualToThreshold
 ```
 
-## Logging Amazon S3 API operations to S3 access
-
-logs
+## Logging Amazon S3 API operations to S3 access logs
 
 ###### Note
 

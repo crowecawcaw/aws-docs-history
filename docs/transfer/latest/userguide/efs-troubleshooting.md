@@ -12,15 +12,11 @@ This section describes possible solutions for the following Amazon EFS issues.
 
 ###### Topics
 
-- [Troubleshoot Amazon EFS service-managed
-  users](#transfer-service-managed-efs "#transfer-service-managed-efs")
+- [Troubleshoot Amazon EFS service-managed users](#transfer-service-managed-efs "#transfer-service-managed-efs")
 - [Troubleshoot missing POSIX profile](#missing-posix-profile "#missing-posix-profile")
-- [Troubleshoot logical directories with
-  Amazon EFS](#logical-dir-efs-no-directory "#logical-dir-efs-no-directory")
+- [Troubleshoot logical directories with Amazon EFS](#logical-dir-efs-no-directory "#logical-dir-efs-no-directory")
 
-### Troubleshoot Amazon EFS service-managed
-
-users
+### Troubleshoot Amazon EFS service-managed users
 
 Description
 
@@ -92,9 +88,7 @@ the GID and UID.
 {"Uid": `your-uid`, "Gid": `your-gid`, "SecondaryGids": []}
 ```
 
-### Troubleshoot logical directories with
-
-Amazon EFS
+### Troubleshoot logical directories with Amazon EFS
 
 Description
 

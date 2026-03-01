@@ -1,11 +1,8 @@
-# Store authentication credentials
-
-for SFTP connectors in Secrets Manager
+# Store authentication credentials for SFTP connectors in Secrets Manager
 
 You can use Secrets Manager to store user credentials for your SFTP connectors. When
 you create your secret, you must provide a username. Additionally, you can provide
-either a password, a private key, or both. For details, see [Quotas for SFTP
-connectors](scale-and-limits-sftp-connector.md#limits-sftp-connector "scale-and-limits-sftp-connector.md#limits-sftp-connector").
+either a password, a private key, or both. For details, see [Quotas for SFTP connectors](scale-and-limits-sftp-connector.md#limits-sftp-connector "scale-and-limits-sftp-connector.md#limits-sftp-connector").
 
 ###### Note
 
@@ -49,8 +46,7 @@ pricing, see [AWS Secrets Manager Pricing](https://aws.amazon.com/secrets-manage
     for authentication with an AWS Transfer Family SFTP connector.
 
     For details on how to generate a public/private key pair, see
-    [Creating SSH keys on macOS, Linux, or
-    Unix](macOS-linux-unix-ssh.md "macOS-linux-unix-ssh.md"). 3. If you want to provide a password, choose **Add
+    [Creating SSH keys on macOS, Linux, or Unix](macOS-linux-unix-ssh.md "macOS-linux-unix-ssh.md"). 3. If you want to provide a password, choose **Add
     row**, and in the **Key/value pairs**
     section, choose the **Key/value** tab.
 

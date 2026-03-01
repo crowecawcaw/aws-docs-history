@@ -1,6 +1,4 @@
-# Using AWS Directory Service for Entra ID Domain
-
-Services
+# Using AWS Directory Service for Entra ID Domain Services
 
 For customers that need SFTP Transfer only, and do not want to manage a domain,
 there is Simple Active Directory. Alternatively, customers who want the benefits of
@@ -15,26 +13,21 @@ Note the following:
   needs, you can use [Active
   Directory Connector](../../../directoryservice/latest/admin-guide/directory_ad_connector.md "../../../directoryservice/latest/admin-guide/directory_ad_connector.md").
 - If you want the benefits of Active Directory and high availability in a fully
-  managed service, you can use AWS Directory Service for Microsoft Active Directory. For details, see [Using AWS Directory Service for Microsoft
-  Active Directory](directory-services-users.md "directory-services-users.md").
+  managed service, you can use AWS Directory Service for Microsoft Active Directory. For details, see [Using AWS Directory Service for Microsoft Active Directory](directory-services-users.md "directory-services-users.md").
   This topic describes how to use an Active Directory Connector and [Entra ID (formerly
   Azure AD) Domain Services](https://azure.microsoft.com/en-us/services/active-directory-ds/ "https://azure.microsoft.com/en-us/services/active-directory-ds/") to authenticate SFTP Transfer users with Entra ID.
 
 ###### Topics
 
-- [Before you start using AWS Directory Service for Entra
-  ID Domain Services](#azure-prereq "#azure-prereq")
+- [Before you start using AWS Directory Service for Entra ID Domain Services](#azure-prereq "#azure-prereq")
 - [Step 1: Adding Entra ID Domain Services](#azure-add-adds "#azure-add-adds")
 - [Step 2: Creating a service account](#azure-create-service-acct "#azure-create-service-acct")
-- [Step 3: Setting up AWS Directory using AD
-  Connector](#azure-setup-directory "#azure-setup-directory")
+- [Step 3: Setting up AWS Directory using AD Connector](#azure-setup-directory "#azure-setup-directory")
 - [Step 4: Setting up AWS Transfer Family server](#azure-setup-transfer-server "#azure-setup-transfer-server")
 - [Step 5: Granting access to groups](#azure-grant-access "#azure-grant-access")
 - [Step 6: Testing users](#azure-test "#azure-test")
 
-## Before you start using AWS Directory Service for Entra
-
-ID Domain Services
+## Before you start using AWS Directory Service for Entra ID Domain Services
 
 ###### Note
 
@@ -109,9 +102,7 @@ connect.
 
 ![Entra multi-factor authentication details, showing the MFA status as disabled for two users.](images/azure-ad-mfa-disable.png)
 
-## Step 3: Setting up AWS Directory using AD
-
-Connector
+## Step 3: Setting up AWS Directory using AD Connector
 
 After you have configured Entra DS, and created a service account with IPSEC VPN
 tunnels between your AWS VPC and Entra Virtual network, you can test the connectivity

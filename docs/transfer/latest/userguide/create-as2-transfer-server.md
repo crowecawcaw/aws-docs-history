@@ -12,19 +12,14 @@ an AS2 server, you can add an agreement to the server.
 
 ###### Topics
 
-- [Create an AS2 server using the Transfer Family
-  console](#create-server-as2-console "#create-server-as2-console")
-- [Use a template to create a demo Transfer Family AS2
-  stack](#as2-cfn-demo-template "#as2-cfn-demo-template")
+- [Create an AS2 server using the Transfer Family console](#create-server-as2-console "#create-server-as2-console")
+- [Use a template to create a demo Transfer Family AS2 stack](#as2-cfn-demo-template "#as2-cfn-demo-template")
 - [Create an AS2 agreement](#as2-agreements "#as2-agreements")
 
-## Create an AS2 server using the Transfer Family
-
-console
+## Create an AS2 server using the Transfer Family console
 
 This procedure explains how to create an AS2-enabled server by using the Transfer Family console.
-If you want to use the AWS CLI instead, see [Step 4: Create a Transfer Family server that uses the AS2
-protocol](as2-example-tutorial.md#as2-example-server "as2-example-tutorial.md#as2-example-server").
+If you want to use the AWS CLI instead, see [Step 4: Create a Transfer Family server that uses the AS2 protocol](as2-example-tutorial.md#as2-example-server "as2-example-tutorial.md#as2-example-server").
 
 ###### Note
 
@@ -129,9 +124,7 @@ make sure they are correct.
      changes to **Online**. At that point, your server can
      perform file operations for your users.
 
-## Use a template to create a demo Transfer Family AS2
-
-stack
+## Use a template to create a demo Transfer Family AS2 stack
 
 We supply a self-contained, CloudFormation template to quickly create an AS2-enabled Transfer Family
 server. The template configures the server with a public Amazon VPC endpoint, certificates,
@@ -274,8 +267,7 @@ _inbound_ transfers—sending AS2 files from an external,
 partner-owned source to a Transfer Family server.
 
 This procedure explains how to create AS2 agreements by using the Transfer Family console. If you
-want to use the AWS CLI instead, see [Step 5: Create an agreement between
-you and your partner](as2-example-tutorial.md#as2-create-agreement-example "as2-example-tutorial.md#as2-create-agreement-example").
+want to use the AWS CLI instead, see [Step 5: Create an agreement between you and your partner](as2-example-tutorial.md#as2-create-agreement-example "as2-example-tutorial.md#as2-create-agreement-example").
 
 ###### To create an agreement for a Transfer Family server
 

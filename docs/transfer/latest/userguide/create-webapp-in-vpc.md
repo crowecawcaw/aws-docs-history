@@ -1,7 +1,6 @@
 # Create a Transfer Family web app in a VPC
 
-This section describes the procedures for creating a Transfer Family web app in a VPC. You can host your web app's endpoint inside a virtual private cloud (VPC) to use for transferring data to and from an Amazon S3 bucket without going over the public internet. To assign users and groups that can use your web app, see [Assign or add users or groups to a Transfer Family
-web app](webapp-add-users.md "webapp-add-users.md").
+This section describes the procedures for creating a Transfer Family web app in a VPC. You can host your web app's endpoint inside a virtual private cloud (VPC) to use for transferring data to and from an Amazon S3 bucket without going over the public internet. To assign users and groups that can use your web app, see [Assign or add users or groups to a Transfer Family web app](webapp-add-users.md "webapp-add-users.md").
 
 ###### Note
 
@@ -11,8 +10,7 @@ To ensure a private end-to-end data flow when using a Transfer Family web app VP
 
 **Prerequisites**
 
-- AWS IAM Identity Center set up with configured identity provider. See [Configure your identity provider for Transfer Family web
-  apps](webapp-identity-center.md "webapp-identity-center.md").
+- AWS IAM Identity Center set up with configured identity provider. See [Configure your identity provider for Transfer Family web apps](webapp-identity-center.md "webapp-identity-center.md").
 - VPC and networking components set up. See [Create a VPC](../../../vpc/latest/userguide/create-vpc.md#create-vpc-and-other-resources "../../../vpc/latest/userguide/create-vpc.md#create-vpc-and-other-resources").
 - API endpoint set up for Amazon S3 Control operations. See [Accessing Amazon S3 interface endpoints](../../../AmazonS3/latest/userguide/privatelink-interface-endpoints.md#s3-creating-vpc "../../../AmazonS3/latest/userguide/privatelink-interface-endpoints.md#s3-creating-vpc").
 - VPC endpoints for Amazon S3 (Gateway or Interface) set up. See [Types of VPC endpoints for Amazon S3](../../../AmazonS3/latest/userguide/privatelink-interface-endpoints.md#types-of-vpc-endpoints-for-s3 "../../../AmazonS3/latest/userguide/privatelink-interface-endpoints.md#types-of-vpc-endpoints-for-s3"). If you’re using an interface
@@ -70,13 +68,11 @@ infrastructure.
 - Make sure to set up a Cross-origin resource sharing (CORS) policy for all of the buckets that are accessed from the web app endpoint. See [Cross-origin resource sharing (CORS) policy](#webapp-vpce-cors "#webapp-vpce-cors").
 - Update your bucket policy to allow traffic only originating from your
   VPC through your VPC endpoint. See [Restricting access to a specific VPC endpoint](#webapp-vpce-bucket-policy "#webapp-vpce-bucket-policy").
-- Assign or add users or groups to Transfer Family web app. See [Assign or add users or groups to a Transfer Family
-  web app](webapp-add-users.md "webapp-add-users.md").
+- Assign or add users or groups to Transfer Family web app. See [Assign or add users or groups to a Transfer Family web app](webapp-add-users.md "webapp-add-users.md").
 
 ## Cross-origin resource sharing (CORS) policy
 
-You must set up cross-origin resource sharing (CORS) for all buckets that are used by your web app. For more information about CORS, see [Set up Cross-origin resource sharing (CORS) for your
-bucket](access-grant-cors.md "access-grant-cors.md").
+You must set up cross-origin resource sharing (CORS) for all buckets that are used by your web app. For more information about CORS, see [Set up Cross-origin resource sharing (CORS) for your bucket](access-grant-cors.md "access-grant-cors.md").
 
 ###### Important
 

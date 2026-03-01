@@ -28,8 +28,7 @@ Solution
 
 - In IAM Identity Center, make sure to assign the user to the correct application. Or, if
   you have a group assigned, make sure that the user attempting to log in
-  belongs to the correct group. This is described in [Assign or add users or groups to a Transfer Family
-  web app](webapp-add-users.md "webapp-add-users.md").
+  belongs to the correct group. This is described in [Assign or add users or groups to a Transfer Family web app](webapp-add-users.md "webapp-add-users.md").
 - Check whether your roles contain the necessary actions in the
   **Custom trust policy** for both
   `sts:AssumeRole` and `sts:SetContext` actions.
@@ -38,9 +37,7 @@ Solution
   described in [Set up Cross-origin resource
   sharing (CORS) for your Amazon S3 bucket](access-grant-cors.md#cors-configure "access-grant-cors.md#cors-configure").
 
-## Troubleshoot configured bucket not
-
-appearing
+## Troubleshoot configured bucket not appearing
 
 Description
 

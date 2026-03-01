@@ -1,6 +1,4 @@
-# Using AWS Directory Service for Microsoft
-
-Active Directory
+# Using AWS Directory Service for Microsoft Active Directory
 
 You can use AWS Transfer Family to authenticate your file transfer end users using AWS Directory Service for Microsoft Active Directory.
 It enables seamless migration of file transfer workflows that rely on Active Directory
@@ -43,16 +41,13 @@ AWS Transfer Family](https://aws.amazon.com/blogs/storage/simplify-active-direct
 
 - [Before you start using AWS Directory Service for Microsoft Active Directory](#managed-ad-prereq "#managed-ad-prereq")
 - [Working with Active Directory realms](#managed-ad-realms "#managed-ad-realms")
-- [Choosing AWS Managed Microsoft AD as your identity
-  provider](#managed-ad-identity-provider "#managed-ad-identity-provider")
+- [Choosing AWS Managed Microsoft AD as your identity provider](#managed-ad-identity-provider "#managed-ad-identity-provider")
 - [Connecting to on-prem Microsoft Active Directory](#on-prem-ad "#on-prem-ad")
 - [Granting access to groups](#directory-services-grant-access "#directory-services-grant-access")
 - [Testing users](#directory-services-test-user "#directory-services-test-user")
 - [Deleting server access for a group](#directory-services-misc "#directory-services-misc")
-- [Connecting to the server using SSH
-  (Secure Shell)](#directory-services-ssh-procedure "#directory-services-ssh-procedure")
-- [Connecting AWS Transfer Family to a self-managed
-  Active Directory using forests and trusts](#directory-services-ad-trust "#directory-services-ad-trust")
+- [Connecting to the server using SSH (Secure Shell)](#directory-services-ssh-procedure "#directory-services-ssh-procedure")
+- [Connecting AWS Transfer Family to a self-managed Active Directory using forests and trusts](#directory-services-ad-trust "#directory-services-ad-trust")
 
 ## Before you start using AWS Directory Service for Microsoft Active Directory
 
@@ -63,9 +58,7 @@ use case requires more than 100 groups, consider using a custom identity provide
 solution as described in [Simplify Active Directory authentication with a custom identity provider for
 AWS Transfer Family](https://aws.amazon.com/blogs/storage/simplify-active-directory-authentication-with-a-custom-identity-provider-for-aws-transfer-family/ "https://aws.amazon.com/blogs/storage/simplify-active-directory-authentication-with-a-custom-identity-provider-for-aws-transfer-family/").
 
-### Provide a unique identifier for your AD
-
-groups
+### Provide a unique identifier for your AD groups
 
 Before you can use AWS Managed Microsoft AD, you must provide a unique identifier for each
 group in your Microsoft AD directory. You can use the security identifier (SID) for
@@ -87,9 +80,7 @@ different values, AWS Transfer Family accepts the value in `SamAccountName`.
 Transfer Family does not accept the value specified in
 `userPrincipalName`.
 
-### Add Directory Service permissions to your
-
-role
+### Add Directory Service permissions to your role
 
 You also need Directory Service API permissions to use AWS Directory Service as your identity provider.
 The following permissions are required or suggested:
@@ -117,9 +108,7 @@ cannot be authenticated by Transfer Family.
 You can test the user to ensure the configuration is correct. For details, see [Testing users](#directory-services-test-user "#directory-services-test-user"). If there is a problem with the user/group realm, you receive the error,
 **`No associated access found for user's groups`**.
 
-## Choosing AWS Managed Microsoft AD as your identity
-
-provider
+## Choosing AWS Managed Microsoft AD as your identity provider
 
 This section describes how to use AWS Directory Service for Microsoft Active Directory with a server.
 
@@ -242,8 +231,7 @@ the box.
 /filetest/${transfer:UserName}
 ```
 
-To learn more about creating a session policy, see [Creating a session policy for an Amazon S3
-bucket](users-policies-session.md "users-policies-session.md"). 8. Choose **Add** to create the association. 9. Choose your server. 10. Choose **Add access**.
+To learn more about creating a session policy, see [Creating a session policy for an Amazon S3 bucket](users-policies-session.md "users-policies-session.md"). 8. Choose **Add** to create the association. 9. Choose your server. 10. Choose **Add access**.
 
     1. Enter the SID for the group.
 
@@ -304,9 +292,7 @@ response.
 When you return to the server details page, you see that the access for this group is
 no longer listed.
 
-## Connecting to the server using SSH
-
-(Secure Shell)
+## Connecting to the server using SSH (Secure Shell)
 
 After you configure your server and users, you can connect to the server using SSH and
 use the fully qualified username for a user that has access.
@@ -330,9 +316,7 @@ search, and authentication might fail even if the user should have access.
 After authenticating, the user is located in the home directory that you specified
 when you configured the user.
 
-## Connecting AWS Transfer Family to a self-managed
-
-Active Directory using forests and trusts
+## Connecting AWS Transfer Family to a self-managed Active Directory using forests and trusts
 
 Directory Service has the following options available to connect to a self-managed Active
 Directory:

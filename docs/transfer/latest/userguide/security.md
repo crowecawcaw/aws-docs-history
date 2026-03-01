@@ -34,17 +34,14 @@ You can view the details for this workshop
 
 - [VPC connectivity security benefits](#vpc-connectivity-security "#vpc-connectivity-security")
 - [Security policies for AWS Transfer Family servers](security-policies.md "security-policies.md")
-- [Security policies for AWS Transfer Family SFTP
-  connectors](security-policies-connectors.md "security-policies-connectors.md")
-- [Using hybrid post-quantum key exchange with
-  AWS Transfer Family](post-quantum-security-policies.md "post-quantum-security-policies.md")
+- [Security policies for AWS Transfer Family SFTP connectors](security-policies-connectors.md "security-policies-connectors.md")
+- [Using hybrid post-quantum key exchange with AWS Transfer Family](post-quantum-security-policies.md "post-quantum-security-policies.md")
 - [Data protection and encryption](encryption-at-rest.md "encryption-at-rest.md")
 - [Managing SSH and PGP keys in Transfer Family](key-management.md "key-management.md")
 - [Identity and access management for AWS Transfer Family](security-iam.md "security-iam.md")
 - [Compliance validation for AWS Transfer Family](transfer-compliance.md "transfer-compliance.md")
 - [Resilience in AWS Transfer Family](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Create a private connection between a VPC and AWS Transfer Family
-  APIs](vpc-api-endpoints.md "vpc-api-endpoints.md")
+- [Create a private connection between a VPC and AWS Transfer Family APIs](vpc-api-endpoints.md "vpc-api-endpoints.md")
 - [Infrastructure security in AWS Transfer Family](infrastructure-security.md "infrastructure-security.md")
 - [Add a web application firewall](web-application-firewall.md "web-application-firewall.md")
 - [Cross-service confused deputy prevention](confused-deputy.md "confused-deputy.md")
@@ -90,9 +87,7 @@ to provide secure multi-tenant access:
   connector is associated with a specific Resource Configuration, ensuring
   granular access control to individual SFTP servers.
 
-### Security best practices for VPC
-
-connectivity
+### Security best practices for VPC connectivity
 
 When using VPC egress type connectors, follow these security best
 practices:

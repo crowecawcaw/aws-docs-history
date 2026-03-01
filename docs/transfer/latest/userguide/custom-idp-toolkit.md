@@ -14,9 +14,7 @@ authentication and authorization use cases. This modular solution offers:
 - Granular per-user session configuration
 - Separated authentication and authorization logic
 
-## Implementation details for the
-
-custom identity toolkit
+## Implementation details for the custom identity toolkit
 
 The solution provides a flexible and maintainable base for various use cases. To
 get started, review the toolkit at [https://github.com/aws-samples/toolkit-for-aws-transfer-family](https://github.com/aws-samples/toolkit-for-aws-transfer-family "https://github.com/aws-samples/toolkit-for-aws-transfer-family"), then

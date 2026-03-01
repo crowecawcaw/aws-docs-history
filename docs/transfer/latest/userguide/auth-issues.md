@@ -5,13 +5,11 @@ This section describes possible solutions for the following authentication issue
 ###### Topics
 
 - [Authentication failures—SSH/SFTP](#publickey-auth "#publickey-auth")
-- [Managed AD mismatched realms
-  issue](#managed-ad-realms-mismatched "#managed-ad-realms-mismatched")
+- [Managed AD mismatched realms issue](#managed-ad-realms-mismatched "#managed-ad-realms-mismatched")
 - [Active Directory group limits exceeded](#managed-ad-group-limits "#managed-ad-group-limits")
 - [Miscellaneous authentication issues](#misc-auth-issues "#misc-auth-issues")
 - [Troubleshoot Amazon API Gateway issues](#transfer-apigateway "#transfer-apigateway")
-- [Troubleshoot testing your identity
-  provider](#blank-test-identity-provider "#blank-test-identity-provider")
+- [Troubleshoot testing your identity provider](#blank-test-identity-provider "#blank-test-identity-provider")
 - [Duplicate Amazon S3 buckets in web app](#webapp-duplicate-buckets "#webapp-duplicate-buckets")
 
 ## Authentication failures—SSH/SFTP
@@ -45,9 +43,7 @@ password. For example:
 sftp -o PubkeyAuthentication=no `sftp-user`@`server-id`.server.transfer.`region-id`.amazonaws.com
 ```
 
-## Managed AD mismatched realms
-
-issue
+## Managed AD mismatched realms issue
 
 Description
 
@@ -194,9 +190,7 @@ Solution
 Make sure that the logging role for the server has a trust relationship with Transfer Family. For more information,
 see [To establish a trust relationship](requirements-roles.md#establish-trust-transfer "requirements-roles.md#establish-trust-transfer").
 
-## Troubleshoot testing your identity
-
-provider
+## Troubleshoot testing your identity provider
 
 Description
 

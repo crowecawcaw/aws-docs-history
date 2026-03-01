@@ -5,8 +5,7 @@ AWS Transfer Family supports dual-stack (IPv4 and IPv6) endpoints for the follow
 - SFTP public endpoints
 - VPC internal endpoints for all protocols (SFTP/FTPS/FTP and AS2)
 - Public endpoints for AS2-enabled Transfer Family servers, by using the steps provided in
-  [Using an Application Load Balancer for dual-stack AS2
-  server connectivity](#ipv6-alb-as2 "#ipv6-alb-as2")
+  [Using an Application Load Balancer for dual-stack AS2 server connectivity](#ipv6-alb-as2 "#ipv6-alb-as2")
 - API endpoints
   With dual-stack support, your Transfer Family endpoints can communicate with both IPv4 and IPv6
   enabled clients. This enables you to gradually transition from IPv4 to IPv6 based systems
@@ -59,9 +58,7 @@ To update an existing server's IP address type:
 
 For VPC-Internet endpoints, dual-stack mode is not currently supported.
 
-## Using an Application Load Balancer for dual-stack AS2
-
-server connectivity
+## Using an Application Load Balancer for dual-stack AS2 server connectivity
 
 You can enable dual-stack (IPv4 and IPv6) connectivity to your AS2 server by using an
 Application Load Balancer that has a public-facing endpoint. This allows trading

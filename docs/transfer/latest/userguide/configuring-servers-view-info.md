@@ -1,6 +1,4 @@
-# View SFTP, FTPS, and FTP server
-
-details
+# View SFTP, FTPS, and FTP server details
 
 You can find a list of details and properties for an individual AWS Transfer Family server.
 Server properties include protocols, identity provider, status, endpoint type, custom
@@ -44,5 +42,5 @@ The migration occurred between September 2 and September 13. The actual migratio
 within this range depends on the Region of your server.
 
 ![Server details screen showing the Monitoring section..](images/edit-server-details-additional.png)
-![Server details screen showing the Tags section.](/images/transfer/latest/userguide/images/edit-server-details-monitoring.png)
+![Server details screen showing the Tags section.](images/edit-server-details-monitoring.png)
 ![Server details screen showing the Tags section.](images/edit-server-details-tags.png)

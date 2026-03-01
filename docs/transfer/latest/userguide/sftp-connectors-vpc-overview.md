@@ -34,6 +34,4 @@ Before creating a VPC_LATTICE-enabled SFTP connector, you need:
 - VPC and related infrastructure (subnets, route tables, security groups)
 - Resource Gateway in your VPC (minimum two Availability Zones)
 - Resource Configuration specifying the target SFTP server
-  For detailed setup instructions, see [Create a VPC_LATTICE-enabled SFTP
-  connector](create-vpc-sftp-connector-procedure.md#create-vpc-connector-procedure "create-vpc-sftp-connector-procedure.md#create-vpc-connector-procedure"). And, for examples, see [VPC connectivity examples for SFTP
-  connectors](create-vpc-sftp-connector-procedure.md#sftp-connectors-vpc-examples "create-vpc-sftp-connector-procedure.md#sftp-connectors-vpc-examples").
+  For detailed setup instructions, see [Create a VPC_LATTICE-enabled SFTP connector](create-vpc-sftp-connector-procedure.md#create-vpc-connector-procedure "create-vpc-sftp-connector-procedure.md#create-vpc-connector-procedure"). And, for examples, see [VPC connectivity examples for SFTP connectors](create-vpc-sftp-connector-procedure.md#sftp-connectors-vpc-examples "create-vpc-sftp-connector-procedure.md#sftp-connectors-vpc-examples").

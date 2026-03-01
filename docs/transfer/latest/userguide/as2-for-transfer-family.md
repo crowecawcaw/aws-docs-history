@@ -79,8 +79,7 @@ This topic provides information about AWS CloudFormation templates that you can 
 deploy AS2 servers and configurations for AWS Transfer Family. These templates automate the setup
 process and help you implement best practices for AS2 file transfers.
 
-- The basic AS2 template is described in [Use a template to create a demo Transfer Family AS2
-  stack](create-as2-transfer-server.md#as2-cfn-demo-template "create-as2-transfer-server.md#as2-cfn-demo-template")
+- The basic AS2 template is described in [Use a template to create a demo Transfer Family AS2 stack](create-as2-transfer-server.md#as2-cfn-demo-template "create-as2-transfer-server.md#as2-cfn-demo-template")
 - The AS2 template for customizing HTTP headers is described in [Customize HTTP headers for AS2 messages](as2-custom-http-headers.md "as2-custom-http-headers.md").
 
 ### Customizing AS2 templates
@@ -123,9 +122,7 @@ aws transfer start-file-transfer --connector-id `your-connector-id` --send-file-
 For more comprehensive testing, consider using third-party AS2 clients to send
 files to your Transfer Family AS2 server.
 
-### Best practices for AS2 template
-
-deployment
+### Best practices for AS2 template deployment
 
 Follow these best practices when using AS2 CloudFormation templates:
 

@@ -1,6 +1,4 @@
-# Updating the AWS Transfer Family server endpoint type
-
-from VPC_ENDPOINT to VPC
+# Updating the AWS Transfer Family server endpoint type from VPC_ENDPOINT to VPC
 
 You can use the AWS Management Console, CloudFormation, or the Transfer Family API to update a server's
 `EndpointType` from `VPC_ENDPOINT` to `VPC`.
@@ -12,25 +10,17 @@ the following section, with modifications, to identify servers using the
 
 ###### Topics
 
-- [Identifying servers using the VPC_ENDPOINT
-  endpoint type](#id-servers "#id-servers")
-- [Updating the server endpoint type using
-  the AWS Management Console](#update-endpoint-console "#update-endpoint-console")
-- [Updating the server endpoint type
-  using CloudFormation](#update-endpoint-cloudformation "#update-endpoint-cloudformation")
-- [Updating the server EndpointType using the
-  API](#update-endpoint-cli "#update-endpoint-cli")
+- [Identifying servers using the VPC_ENDPOINT endpoint type](#id-servers "#id-servers")
+- [Updating the server endpoint type using the AWS Management Console](#update-endpoint-console "#update-endpoint-console")
+- [Updating the server endpoint type using CloudFormation](#update-endpoint-cloudformation "#update-endpoint-cloudformation")
+- [Updating the server EndpointType using the API](#update-endpoint-cli "#update-endpoint-cli")
 
-## Identifying servers using the `VPC_ENDPOINT`
-
-endpoint type
+## Identifying servers using the `VPC_ENDPOINT` endpoint type
 
 You can identify which servers are using the `VPC_ENDPOINT` using the
 AWS Management Console.
 
-###### To identify servers using the `VPC_ENDPOINT` endpoint type using
-
-the console
+###### To identify servers using the `VPC_ENDPOINT` endpoint type using the console
 
 1. Open the AWS Transfer Family console at [https://console.aws.amazon.com/transfer/](https://console.aws.amazon.com/transfer/ "https://console.aws.amazon.com/transfer/").
 2. Choose **Servers** in the navigation pane to display the
@@ -38,9 +28,7 @@ the console
 3. Sort the list of servers by the **Endpoint type** to see
    all servers using `VPC_ENDPOINT`.
 
-###### To identify servers using `VPC_ENDPOINT` across multiple AWS
-
-Regions and accounts
+###### To identify servers using `VPC_ENDPOINT` across multiple AWS Regions and accounts
 
 If you have servers in multiple AWS regions and in multiple AWS accounts,
 you can use the following example script, with modifications, to identify
@@ -77,9 +65,7 @@ for region in regions['Regions']:
    methods described in the following sections to update the
    `EndpointType` to `VPC`.
 
-## Updating the server endpoint type using
-
-the AWS Management Console
+## Updating the server endpoint type using the AWS Management Console
 
 1. Open the AWS Transfer Family console at [https://console.aws.amazon.com/transfer/](https://console.aws.amazon.com/transfer/ "https://console.aws.amazon.com/transfer/").
 2. In the navigation pane, choose **Servers**.
@@ -105,9 +91,7 @@ type**. 9. Choose **Save** 10. For **Actions**, choose **Start** and
 wait for the status of the server to change to **Online**;
 this can take a couple of minutes.
 
-## Updating the server endpoint type
-
-using CloudFormation
+## Updating the server endpoint type using CloudFormation
 
 This section describes how to use CloudFormation to update a server's
 `EndpointType` to `VPC`. Use this procedure for Transfer Family
@@ -240,9 +224,7 @@ Resources:
    choose **Start** from the **Actions**
    menu.
 
-## Updating the server EndpointType using the
-
-API
+## Updating the server EndpointType using the API
 
 You can use the [describe-server](../../../cli/latest/reference/transfer/update-server.md "../../../cli/latest/reference/transfer/update-server.md")
 AWS CLI command, or the [UpdateServer](../APIReference/API_UpdateServer.md "../APIReference/API_UpdateServer.md")

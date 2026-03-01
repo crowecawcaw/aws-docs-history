@@ -5,8 +5,7 @@ This section provides information about troubleshooting monitoring and alerting 
 ###### Topics
 
 - [Troubleshoot missing or incomplete CloudWatch metrics](#missing-cloudwatch-metrics "#missing-cloudwatch-metrics")
-- [Troubleshoot missing EventBridge
-  events](#eventbridge-event-issues "#eventbridge-event-issues")
+- [Troubleshoot missing EventBridge events](#eventbridge-event-issues "#eventbridge-event-issues")
 
 ## Troubleshoot missing or incomplete CloudWatch metrics
 
@@ -37,9 +36,7 @@ Solution
 
 3. Generate test activity on your Transfer Family server to ensure metrics are being produced.
 
-## Troubleshoot missing EventBridge
-
-events
+## Troubleshoot missing EventBridge events
 
 Description
 

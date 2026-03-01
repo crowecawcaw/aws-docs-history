@@ -19,11 +19,9 @@ matches, the event bus sends the event to one or more specified targets.
 ###### Topics
 
 - [Transfer Family events](#supported-events "#supported-events")
-- [Sending Transfer Family events by using
-  EventBridge rules](#eventbridge-using-events-rules "#eventbridge-using-events-rules")
+- [Sending Transfer Family events by using EventBridge rules](#eventbridge-using-events-rules "#eventbridge-using-events-rules")
 - [Amazon EventBridge permissions](#eventbridge-permissions "#eventbridge-permissions")
-- [Additional EventBridge
-  resources](#eventbridge-additonal-resources "#eventbridge-additonal-resources")
+- [Additional EventBridge resources](#eventbridge-additonal-resources "#eventbridge-additonal-resources")
 - [Transfer Family events detail reference](events-detail-reference.md "events-detail-reference.md")
 
 ## Transfer Family events
@@ -137,9 +135,7 @@ AWS service events](../../../eventbridge/latest/ref/event-delivery-level.md "../
 | [AS2 MDN Send Completed](events-detail-reference.md#event-detail-as2-server-events "events-detail-reference.md#event-detail-as2-server-events")        | The message disposition notification for an AS2 message has been<br>sent successfully. |
 | [AS2 MDN Send Failed](events-detail-reference.md#event-detail-as2-server-events "events-detail-reference.md#event-detail-as2-server-events")           | The message disposition notification for an AS2 message has<br>failed to send.         |
 
-## Sending Transfer Family events by using
-
-EventBridge rules
+## Sending Transfer Family events by using EventBridge rules
 
 If you want the EventBridge default event bus to send Transfer Family events to a
 target, you must create a rule that contains an event pattern that matches the data in
@@ -203,9 +199,7 @@ your desired Transfer Family events.
 11. In the **Review and create** screen, if everything looks
     good, choose **Create rule**.
 
-### Creating event patterns
-
-for Transfer Family events
+### Creating event patterns for Transfer Family events
 
 When Transfer Family delivers an event to the default event bus, EventBridge uses
 the event pattern defined for each rule to determine if the event should be
@@ -266,9 +260,7 @@ The following event pattern example matches successful SFTP downloads for user
 For more information on writing event patterns, see [Event patterns](../../../eventbridge/latest/userguide/eb-event-patterns.md "../../../eventbridge/latest/userguide/eb-event-patterns.md")
 in the _EventBridge User Guide_.
 
-### Testing event patterns for
-
-Transfer Family events in EventBridge
+### Testing event patterns for Transfer Family events in EventBridge
 
 You can use the EventBridge Sandbox to quickly define and test an event
 pattern, without having to complete the broader process of creating or editing a
@@ -289,9 +281,7 @@ The targets that you specify might require specific permissions or configuration
 more details on using specific services for targets, see [Amazon EventBridge
 targets](../../../eventbridge/latest/userguide/eb-targets.md "../../../eventbridge/latest/userguide/eb-targets.md") in the _Amazon EventBridge User Guide_.
 
-## Additional EventBridge
-
-resources
+## Additional EventBridge resources
 
 Refer to the following topics in the [_Amazon EventBridge
 User Guide_](../../../eventbridge/latest/userguide/eb-what-is.md "../../../eventbridge/latest/userguide/eb-what-is.md") for more information on how to use EventBridge to process and manage events.

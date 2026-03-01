@@ -1,6 +1,4 @@
-# Reference architectures using SFTP
-
-connectors
+# Reference architectures using SFTP connectors
 
 This section lists the reference materials that are available for configuring
 automated file transfer workflows using SFTP connectors. You can design your own
@@ -48,9 +46,7 @@ The following reference architectures show common patterns for deploying
 VPC_LATTICE-enabled SFTP connectors. These examples help you understand where VPC Lattice
 resources need to be created in your overall AWS architecture.
 
-### Single account with shared egress
-
-infrastructure
+### Single account with shared egress infrastructure
 
 In this architecture, the egress infrastructure (NAT Gateway, VPN tunnel, or
 Direct Connect) is configured in a VPC within the same account as your SFTP
@@ -65,9 +61,7 @@ This pattern is ideal when:
 - Egress infrastructure is setup in a VPC within the same account as
   your SFTP connectors
 
-### Cross-account with centralized egress
-
-infrastructure
+### Cross-account with centralized egress infrastructure
 
 In this architecture, the egress infrastructure (NAT Gateway, VPN tunnel,
 Direct Connect, or B2B Firewalls) is configured in a central Egress account

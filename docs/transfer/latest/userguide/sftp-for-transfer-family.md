@@ -1,6 +1,4 @@
-# Configuring an SFTP, FTPS, or FTP server
-
-endpoint
+# Configuring an SFTP, FTPS, or FTP server endpoint
 
 This topic provides details for creating and using AWS Transfer Family server endpoints that use one
 or more of the SFTP, FTPS, and FTP protocols.
@@ -9,15 +7,11 @@ or more of the SFTP, FTPS, and FTP protocols.
 
 - [Identity provider options](#identity-provider-details "#identity-provider-details")
 - [AWS Transfer Family endpoint type matrix](#endpoint-matrix "#endpoint-matrix")
-- [Configuring an SFTP, FTPS, or FTP server
-  endpoint](tf-server-endpoint.md "tf-server-endpoint.md")
-- [FTP and FTPS Network Load Balancer
-  considerations](#ftp-ftps-nlb-considerations "#ftp-ftps-nlb-considerations")
-- [Transferring files over a server endpoint using a
-  client](transfer-file.md "transfer-file.md")
+- [Configuring an SFTP, FTPS, or FTP server endpoint](tf-server-endpoint.md "tf-server-endpoint.md")
+- [FTP and FTPS Network Load Balancer considerations](#ftp-ftps-nlb-considerations "#ftp-ftps-nlb-considerations")
+- [Transferring files over a server endpoint using a client](transfer-file.md "transfer-file.md")
 - [Managing users for server endpoints](create-user.md "create-user.md")
-- [Using logical directories to simplify your Transfer Family
-  directory structures](logical-dir-mappings.md "logical-dir-mappings.md")
+- [Using logical directories to simplify your Transfer Family directory structures](logical-dir-mappings.md "logical-dir-mappings.md")
 - [Access your FSx for NetApp ONTAP file systems with Transfer Family](fsx-s3-access-points.md "fsx-s3-access-points.md")
 
 ## Identity provider options
@@ -85,8 +79,7 @@ the VPC endpoint type (`EndpointType=VPC`), which you can use as either
 described in the preceding table.
 
 - For details about the deprecation, see [Discontinuing the use of VPC_ENDPOINT](create-server-in-vpc.md#deprecate-vpc-endpoint "create-server-in-vpc.md#deprecate-vpc-endpoint").
-- For information about managing VPC endpoint permissions, see [Limiting VPC endpoint access for Transfer Family
-  servers](create-server-in-vpc.md#limit-vpc-endpoint-access "create-server-in-vpc.md#limit-vpc-endpoint-access").
+- For information about managing VPC endpoint permissions, see [Limiting VPC endpoint access for Transfer Family servers](create-server-in-vpc.md#limit-vpc-endpoint-access "create-server-in-vpc.md#limit-vpc-endpoint-access").
 
 Consider the following options to increase the security posture of your AWS Transfer Family
 server:
@@ -117,9 +110,7 @@ server:
 If you use a Network Load Balancer, the AWS Transfer Family CloudWatch logs show the IP
 address for the NLB, rather than the actual client IP address.
 
-## FTP and FTPS Network Load Balancer
-
-considerations
+## FTP and FTPS Network Load Balancer considerations
 
 Although we recommend avoiding Network Load Balancers in front of AWS Transfer Family servers, if
 your FTP or FTPS implementation requires an NLB or NAT in the communication route from
@@ -148,5 +139,4 @@ For additional guidance on NLB alternatives, contact the AWS Transfer Family Pro
 team through AWS Support. For more information about improving your security posture,
 see the blog post [Six tips to improve the security of your AWS Transfer Family server](https://aws.amazon.com/blogs/security/six-tips-to-improve-the-security-of-your-aws-transfer-family-server/ "https://aws.amazon.com/blogs/security/six-tips-to-improve-the-security-of-your-aws-transfer-family-server/").
 
-Security guidance for NLBs is provided in [Avoid placing NLBs and NATs in front of AWS Transfer Family
-servers](infrastructure-security.md#nlb-considerations "infrastructure-security.md#nlb-considerations").
+Security guidance for NLBs is provided in [Avoid placing NLBs and NATs in front of AWS Transfer Family servers](infrastructure-security.md#nlb-considerations "infrastructure-security.md#nlb-considerations").

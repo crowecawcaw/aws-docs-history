@@ -1,6 +1,4 @@
-# Using AWS Lambda to integrate your identity
-
-provider
+# Using AWS Lambda to integrate your identity provider
 
 This topic describes how to create an AWS Lambda function that connects to your custom
 identity provider. You can use any custom identity provider, such as Okta, Secrets
@@ -34,8 +32,7 @@ as one of the protocols for your Transfer Family server. 3. Make sure the defaul
 provider**, is selected. 4. For **AWS Lambda function**, choose the name of your Lambda
 function. 5. Fill in the remaining boxes, and then choose **Create
 server**. For details on the remaining steps for creating a server,
-see [Configuring an SFTP, FTPS, or FTP server
-endpoint](tf-server-endpoint.md "tf-server-endpoint.md").
+see [Configuring an SFTP, FTPS, or FTP server endpoint](tf-server-endpoint.md "tf-server-endpoint.md").
 
 ## Lambda resource-based policy
 
@@ -111,9 +108,7 @@ block.
 The event structure is similar for FTP and FTPS: the only difference is those
 values are used for the `protocol` parameter, rather than SFTP.
 
-## Lambda functions for
-
-authentication
+## Lambda functions for authentication
 
 To implement different authentication strategies, edit the Lambda function. To help
 you meet your application's needs, you can deploy a CloudFormation stack. For more
@@ -124,8 +119,7 @@ functions with Node.js](../../../lambda/latest/dg/lambda-nodejs.md "../../../lam
 
 - [Valid Lambda values](#lambda-valid-values "#lambda-valid-values")
 - [Example Lambda functions](#lambda-auth-examples "#lambda-auth-examples")
-- [Testing your
-  configuration](#authentication-test-configuration "#authentication-test-configuration")
+- [Testing your configuration](#authentication-test-configuration "#authentication-test-configuration")
 - [Lambda function templates](#lambda-idp-templates "#lambda-idp-templates")
 
 ### Valid Lambda values
@@ -344,18 +338,14 @@ def lambda_handler(event, context):
   return response
 ```
 
-### Testing your
-
-configuration
+### Testing your configuration
 
 After you create your custom identity provider, you should test your
 configuration.
 
 Console
 
-###### To test your configuration by using the AWS Transfer Family
-
-console
+###### To test your configuration by using the AWS Transfer Family console
 
 1. Open the [AWS Transfer Family
    console](https://console.aws.amazon.com/transfer/ "https://console.aws.amazon.com/transfer/").

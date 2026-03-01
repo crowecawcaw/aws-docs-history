@@ -1,6 +1,4 @@
-# Set up Cross-origin resource sharing (CORS) for your
-
-bucket
+# Set up Cross-origin resource sharing (CORS) for your bucket
 
 You must set up cross-origin resource sharing (CORS) for all buckets that are used by
 your web app. A _CORS configuration_ is a document that
@@ -12,9 +10,7 @@ more information about CORS, see [Configuring cross-origin resource sharing (COR
 If you don't set up CORS, your end users receive an error when they attempt to
 access a location on your web app.
 
-###### To set up Cross-origin
-
-resource sharing (CORS) for your Amazon S3 bucket
+###### To set up Cross-origin resource sharing (CORS) for your Amazon S3 bucket
 
 1.  Sign in to the AWS Management Console and open the Amazon S3 console at
     [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").

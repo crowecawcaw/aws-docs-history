@@ -10,23 +10,18 @@ For information about IPv6 support for AWS Transfer Family servers, see [IPv6 su
 
 ###### Topics
 
-- [Supported AWS Regions, endpoints and quotas for Transfer Family
-  servers](#regions "#regions")
+- [Supported AWS Regions, endpoints and quotas for Transfer Family servers](#regions "#regions")
 - [Sign up for AWS](requirements-aws-signup.md "requirements-aws-signup.md")
-- [Configure storage to use with AWS Transfer Family
-  servers](configure-storage.md "configure-storage.md")
+- [Configure storage to use with AWS Transfer Family servers](configure-storage.md "configure-storage.md")
 - [Create an IAM role and policy](requirements-roles.md "requirements-roles.md")
 
-## Supported AWS Regions, endpoints and quotas for Transfer Family
-
-servers
+## Supported AWS Regions, endpoints and quotas for Transfer Family servers
 
 To connect programmatically to an AWS service, you use an endpoint. For example, the
 endpoint for customers in US East (Ohio) region (`us-east-2`), is
 `transfer.us-east-2.amazonaws.com`. Service quotas, also referred
 to as limits, are the maximum number of service resources or operations for your
-AWS account. In this guide, you can find quotas in [AS2 quotas](create-b2b-server.md#as2-quotas "create-b2b-server.md#as2-quotas") and [Quotas for SFTP
-connectors](scale-and-limits-sftp-connector.md#limits-sftp-connector "scale-and-limits-sftp-connector.md#limits-sftp-connector").
+AWS account. In this guide, you can find quotas in [AS2 quotas](create-b2b-server.md#as2-quotas "create-b2b-server.md#as2-quotas") and [Quotas for SFTP connectors](scale-and-limits-sftp-connector.md#limits-sftp-connector "scale-and-limits-sftp-connector.md#limits-sftp-connector").
 
 For more information about supported AWS Regions, endpoints, and service quotas, see
 [AWS Transfer Family

@@ -47,9 +47,7 @@ The `AWSTransferReadOnlyAccess` policy provides read-only access to Transfer Fam
 services. For more information, see
 [Service-linked role for AWS Transfer Family](../../../aws-managed-policy/latest/reference/AWSTransferReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AWSTransferReadOnlyAccess.md").
 
-## AWS Transfer Family updates to AWS managed
-
-policies
+## AWS Transfer Family updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS Transfer Family since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

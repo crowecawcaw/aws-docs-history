@@ -1,6 +1,4 @@
-# Using hybrid post-quantum key exchange with
-
-AWS Transfer Family
+# Using hybrid post-quantum key exchange with AWS Transfer Family
 
 Transfer Family supports a hybrid post-quantum key establishment option for the Secure Shell (SSH)
 protocol. Post-quantum key establishment is needed because it's already possible to record
@@ -33,26 +31,17 @@ Cryptography](https://aws.amazon.com/security/post-quantum-cryptography/ "https:
 
 ###### Contents
 
-- [About post-quantum hybrid key exchange in
-  SSH](post-quantum-security-policies.md#pq-about-key-exchange "post-quantum-security-policies.md#pq-about-key-exchange")
-- [How post-quantum hybrid key establishment works in
-  Transfer Family](post-quantum-security-policies.md#pqtls-details "post-quantum-security-policies.md#pqtls-details")
+- [About post-quantum hybrid key exchange in SSH](post-quantum-security-policies.md#pq-about-key-exchange "post-quantum-security-policies.md#pq-about-key-exchange")
+- [How post-quantum hybrid key establishment works in Transfer Family](post-quantum-security-policies.md#pqtls-details "post-quantum-security-policies.md#pqtls-details")
   - [Why ML-KEM?](post-quantum-security-policies.md#why-mlkem "post-quantum-security-policies.md#why-mlkem")
-  - [Post-quantum hybrid SSH key exchange and cryptographic
-    requirements (FIPS 140)](post-quantum-security-policies.md#pq-alignment "post-quantum-security-policies.md#pq-alignment")
+  - [Post-quantum hybrid SSH key exchange and cryptographic requirements (FIPS 140)](post-quantum-security-policies.md#pq-alignment "post-quantum-security-policies.md#pq-alignment")
 
-- [Testing post-quantum hybrid key exchange in
-  Transfer Family](post-quantum-security-policies.md#pq-policy-testing "post-quantum-security-policies.md#pq-policy-testing")
-  - [Enable post-quantum hybrid key exchange on your SFTP
-    endpoint](post-quantum-security-policies.md#pq-enable-policy "post-quantum-security-policies.md#pq-enable-policy")
-  - [Set up an SFTP client that supports post-quantum
-    hybrid key exchange](post-quantum-security-policies.md#pq-client-openssh "post-quantum-security-policies.md#pq-client-openssh")
-  - [Confirm post-quantum hybrid key exchange in
-    SFTP](post-quantum-security-policies.md#pq-verify-exchange "post-quantum-security-policies.md#pq-verify-exchange")
+- [Testing post-quantum hybrid key exchange in Transfer Family](post-quantum-security-policies.md#pq-policy-testing "post-quantum-security-policies.md#pq-policy-testing")
+  - [Enable post-quantum hybrid key exchange on your SFTP endpoint](post-quantum-security-policies.md#pq-enable-policy "post-quantum-security-policies.md#pq-enable-policy")
+  - [Set up an SFTP client that supports post-quantum hybrid key exchange](post-quantum-security-policies.md#pq-client-openssh "post-quantum-security-policies.md#pq-client-openssh")
+  - [Confirm post-quantum hybrid key exchange in SFTP](post-quantum-security-policies.md#pq-verify-exchange "post-quantum-security-policies.md#pq-verify-exchange")
 
-## About post-quantum hybrid key exchange in
-
-SSH
+## About post-quantum hybrid key exchange in SSH
 
 Transfer Family supports post-quantum hybrid key exchange cipher suites, which uses both the
 classical [Elliptic Curve Diffie-Hellman (ECDH)](https://csrc.nist.gov/publications/detail/sp/800-56a/rev-3/final "https://csrc.nist.gov/publications/detail/sp/800-56a/rev-3/final") key exchange algorithm, and ML-KEM. ML-KEM
@@ -67,9 +56,7 @@ high assurance of a classical key exchange with the security of the proposed pos
 key exchanges, to help ensure that the handshakes are protected as long as the ECDH or the
 post-quantum shared secret cannot be broken.
 
-## How post-quantum hybrid key establishment works in
-
-Transfer Family
+## How post-quantum hybrid key establishment works in Transfer Family
 
 AWS recently announced support for post-quantum key exchange in SFTP file transfers in
 AWS Transfer Family. Transfer Family securely scales business-to-business file transfers to AWS Storage
@@ -100,8 +87,7 @@ SSH. To help enhance security for our customers, the AWS implementation of the
 post-quantum key exchange in SFTP and SSH follows that draft. We plan to support future
 updates to it until our proposal is adopted by the IETF and becomes a standard.
 
-The new key exchange methods (listed in section [How post-quantum hybrid key establishment works in
-Transfer Family](#pqtls-details "#pqtls-details")) might change as the draft evolves towards
+The new key exchange methods (listed in section [How post-quantum hybrid key establishment works in Transfer Family](#pqtls-details "#pqtls-details")) might change as the draft evolves towards
 standardization.
 
 ###### Note
@@ -110,9 +96,7 @@ Post-quantum algorithm support is currently available for post-quantum hybrid ke
 exchange in TLS for AWS KMS ( see [Using hybrid post-quantum TLS with
 AWS KMS](../../../kms/latest/developerguide/pqtls.md "../../../kms/latest/developerguide/pqtls.md")),AWS Certificate Manager, and AWS Secrets Manager API endpoints.
 
-### Post-quantum hybrid SSH key exchange and cryptographic
-
-requirements (FIPS 140)
+### Post-quantum hybrid SSH key exchange and cryptographic requirements (FIPS 140)
 
 For customers that require FIPS compliance, Transfer Family provides FIPS-approved cryptography
 in SSH by using the AWS FIPS 140-certified, open-source cryptographic library,
@@ -122,25 +106,18 @@ Security ( [BSI](https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisatione
 ([ANSSI](https://www.ssi.gouv.fr/en/publication/anssi-views-on-the-post-quantum-cryptography-transition/ "https://www.ssi.gouv.fr/en/publication/anssi-views-on-the-post-quantum-cryptography-transition/")) of France also recommend such post-quantum hybrid key exchange
 methods.
 
-## Testing post-quantum hybrid key exchange in
-
-Transfer Family
+## Testing post-quantum hybrid key exchange in Transfer Family
 
 This section describes the steps you take to test post-quantum hybrid key
 exchange.
 
-1. [Enable post-quantum hybrid key exchange on your SFTP
-   endpoint](#pq-enable-policy "#pq-enable-policy").
-2. Use an SFTP client (such as [Set up an SFTP client that supports post-quantum
-   hybrid key exchange](#pq-client-openssh "#pq-client-openssh")) that supports post-quantum hybrid key
+1. [Enable post-quantum hybrid key exchange on your SFTP endpoint](#pq-enable-policy "#pq-enable-policy").
+2. Use an SFTP client (such as [Set up an SFTP client that supports post-quantum hybrid key exchange](#pq-client-openssh "#pq-client-openssh")) that supports post-quantum hybrid key
    exchange by following the guidance in the aforementioned draft specification.
 3. Transfer a file using a Transfer Family server.
-4. [Confirm post-quantum hybrid key exchange in
-   SFTP](#pq-verify-exchange "#pq-verify-exchange").
+4. [Confirm post-quantum hybrid key exchange in SFTP](#pq-verify-exchange "#pq-verify-exchange").
 
-### Enable post-quantum hybrid key exchange on your SFTP
-
-endpoint
+### Enable post-quantum hybrid key exchange on your SFTP endpoint
 
 You can choose the SSH policy when you create a new SFTP server endpoint in Transfer Family, or
 by editing the Cryptographic algorithm options in an existing SFTP endpoint. The
@@ -153,9 +130,7 @@ The SSH policy names that support post-quantum key exchange are
 **TransferSecurityPolicy-2025-03** and **TransferSecurityPolicy-FIPS-2025-03**. For more
 details on Transfer Family policies, see [Security policies for AWS Transfer Family servers](security-policies.md "security-policies.md").
 
-### Set up an SFTP client that supports post-quantum
-
-hybrid key exchange
+### Set up an SFTP client that supports post-quantum hybrid key exchange
 
 After you select the correct post-quantum SSH policy in your SFTP Transfer Family endpoint, you
 can experiment with post-quantum SFTP in Transfer Family. Install the latest OpenSSH client (such
@@ -188,9 +163,7 @@ information:
 - Replace `region-id` with the actual region where your
   Transfer Family server is located
 
-### Confirm post-quantum hybrid key exchange in
-
-SFTP
+### Confirm post-quantum hybrid key exchange in SFTP
 
 To confirm that post-quantum hybrid key exchange was used during an SSH connection
 for SFTP to Transfer Family, check the client output. Optionally, you can use a packet capture

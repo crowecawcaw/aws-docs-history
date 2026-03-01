@@ -57,9 +57,7 @@ They are functionally identical, and therefore you may use either when you const
 Transfer Family documentation uses `ArnLike` when the condition contains a wildcard character, and
 `ArnEquals` to indicate an exact match condition.
 
-## AWS Transfer Family user role cross-service confused
-
-deputy prevention
+## AWS Transfer Family user role cross-service confused deputy prevention
 
 The following example policy allows any user of any server in the account to assume
 the role.
@@ -142,9 +140,7 @@ role.
 
 ```
 
-## AWS Transfer Family workflow role cross-service
-
-confused deputy prevention
+## AWS Transfer Family workflow role cross-service confused deputy prevention
 
 The following example policy allows any workflow in the account to assume the role.
 
@@ -197,9 +193,7 @@ The following example policy allows a specific workflow to assume the role.
 
 ```
 
-## AWS Transfer Family connector role cross-service
-
-confused deputy prevention
+## AWS Transfer Family connector role cross-service confused deputy prevention
 
 The following example policy allows any connector in the account to assume the
 role.
@@ -253,9 +247,7 @@ The following example policy allows a specific connector to assume the role.
 
 ```
 
-## AWS Transfer Family logging and invocation role
-
-cross-service confused deputy prevention
+## AWS Transfer Family logging and invocation role cross-service confused deputy prevention
 
 ###### Note
 

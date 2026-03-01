@@ -1,6 +1,4 @@
-# IAM condition keys for organizational
-
-governance
+# IAM condition keys for organizational governance
 
 AWS Transfer Family provides IAM condition keys that allow you to restrict resource configurations in
 any IAM policy. These condition keys can be used in identity-based policies attached to

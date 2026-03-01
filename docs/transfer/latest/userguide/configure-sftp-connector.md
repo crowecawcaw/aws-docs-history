@@ -7,8 +7,7 @@ tasks to configure an SFTP connector.
 ###### Note
 
 For VPC-based connectors that route traffic through your Virtual Private Cloud,
-see [Create an SFTP connector with
-VPC-based egress](create-vpc-sftp-connector-procedure.md "create-vpc-sftp-connector-procedure.md").
+see [Create an SFTP connector with VPC-based egress](create-vpc-sftp-connector-procedure.md "create-vpc-sftp-connector-procedure.md").
 
 1. Store the authentication credentials for the connector in AWS Secrets Manager.
 2. Create the connector, by specifying the secret ARN, the remote server's URL or
@@ -66,10 +65,7 @@ VPN._
 
 ###### Topics
 
-- [Store authentication credentials
-  for SFTP connectors in Secrets Manager](sftp-connector-secret-procedure.md "sftp-connector-secret-procedure.md")
-- [Create an SFTP connector with
-  service-managed egress](create-sftp-connector-procedure.md "create-sftp-connector-procedure.md")
-- [Create an SFTP connector with
-  VPC-based egress](create-vpc-sftp-connector-procedure.md "create-vpc-sftp-connector-procedure.md")
+- [Store authentication credentials for SFTP connectors in Secrets Manager](sftp-connector-secret-procedure.md "sftp-connector-secret-procedure.md")
+- [Create an SFTP connector with service-managed egress](create-sftp-connector-procedure.md "create-sftp-connector-procedure.md")
+- [Create an SFTP connector with VPC-based egress](create-vpc-sftp-connector-procedure.md "create-vpc-sftp-connector-procedure.md")
 - [Test an SFTP connector](test-sftp-connector.md "test-sftp-connector.md")

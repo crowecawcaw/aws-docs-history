@@ -2,12 +2,9 @@
 
 ###### Topics
 
-- [Send and retrieve files by using
-  an SFTP connector](#send-retrieve-connector-details "#send-retrieve-connector-details")
+- [Send and retrieve files by using an SFTP connector](#send-retrieve-connector-details "#send-retrieve-connector-details")
 
-## Send and retrieve files by using
-
-an SFTP connector
+## Send and retrieve files by using an SFTP connector
 
 To send and retrieve files by using an SFTP connector, you use the [StartFileTransfer](../APIReference/API_StartFileTransfer.md "../APIReference/API_StartFileTransfer.md") API operation and specify the
 following parameters, depending on whether you're _sending files_
@@ -22,8 +19,7 @@ concurrent sessions with remote servers that support concurrent sessions from th
 user, and process up to 5 files in parallel.
 
 To enable concurrent connections for any connector, you can edit the **Maximum conncurent connections** setting when creating or updating a connector.
-For details, see [Create an SFTP connector with
-service-managed egress](create-sftp-connector-procedure.md "create-sftp-connector-procedure.md").
+For details, see [Create an SFTP connector with service-managed egress](create-sftp-connector-procedure.md "create-sftp-connector-procedure.md").
 
 - **Outbound transfers**
   - `send-file-paths` contains from one to ten source file

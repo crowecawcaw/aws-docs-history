@@ -1,6 +1,4 @@
-# Transferring files over a server endpoint using a
-
-client
+# Transferring files over a server endpoint using a client
 
 You transfer files over the AWS Transfer Family service by specifying the transfer operation in a
 client. AWS Transfer Family supports the following clients:
@@ -177,9 +175,7 @@ This client works only with an SFTP-enabled server.
 
 ### Using OpenSSH
 
-###### To transfer files over AWS Transfer Family using the OpenSSH command line
-
-utility
+###### To transfer files over AWS Transfer Family using the OpenSSH command line utility
 
 1. On Linux, macOS, or Windows, open a command terminal.
 2. At the prompt, enter the following command:
@@ -275,8 +271,7 @@ following:
 
 3. For **Host name**, enter your server endpoint. The server
    endpoint is located on the **Server details** page. For more
-   information, see [View SFTP, FTPS, and FTP server
-   details](configuring-servers-view-info.md "configuring-servers-view-info.md").
+   information, see [View SFTP, FTPS, and FTP server details](configuring-servers-view-info.md "configuring-servers-view-info.md").
 
 If your server uses a VPC endpoint, see [Find your Amazon VPC endpoint](#find-vpc-endpoint "#find-vpc-endpoint"). 4. For **Port number**, enter the following:
 
@@ -291,8 +286,7 @@ you created or configured for your identity provider. AWS Transfer Family provid
 following identity providers:
 
     * [Working with service-managed users](service-managed-users.md "service-managed-users.md")
-    * [Using AWS Directory Service for Microsoft
-     Active Directory](directory-services-users.md "directory-services-users.md")
+    * [Using AWS Directory Service for Microsoft Active Directory](directory-services-users.md "directory-services-users.md")
     * [Working with custom identity providers](custom-idp-intro.md "custom-idp-intro.md")
 
 6. Choose **Advanced** to open the **Advanced Site
@@ -357,8 +351,7 @@ Cyberduck.
    Protocol)**.
 4. For **Server**, enter your server endpoint. The server
    endpoint is located on the **Server details** page. For more
-   information, see [View SFTP, FTPS, and FTP server
-   details](configuring-servers-view-info.md "configuring-servers-view-info.md").
+   information, see [View SFTP, FTPS, and FTP server details](configuring-servers-view-info.md "configuring-servers-view-info.md").
 
 If your server uses a VPC endpoint, see [Find your Amazon VPC endpoint](#find-vpc-endpoint "#find-vpc-endpoint"). 5. For **Port number**, enter the following:
 
@@ -405,8 +398,7 @@ following:
 
 5.  For **Host name**, enter the protocol that you are using,
     followed by your server endpoint. The server endpoint is located on the
-    **Server details** page. For more information, see [View SFTP, FTPS, and FTP server
-    details](configuring-servers-view-info.md "configuring-servers-view-info.md").
+    **Server details** page. For more information, see [View SFTP, FTPS, and FTP server details](configuring-servers-view-info.md "configuring-servers-view-info.md").
 
         * If you are using SFTP, enter:
          `sftp://`hostname``
@@ -464,8 +456,7 @@ notifications.
 ###### Topics
 
 - [Amazon S3 object metadata](#post-processing-S3-object-metadata "#post-processing-S3-object-metadata")
-- [Amazon S3 event
-  notifications](#post-processing-S3-event-notifications "#post-processing-S3-event-notifications")
+- [Amazon S3 event notifications](#post-processing-S3-event-notifications "#post-processing-S3-event-notifications")
 
 ### Amazon S3 object metadata
 
@@ -479,9 +470,7 @@ object inside your Lambda function.
 
 ![The Metadata screen displaying information about Amazon S3 object metadata for AWS Transfer Family.](images/s3-object-metadata.png)
 
-### Amazon S3 event
-
-notifications
+### Amazon S3 event notifications
 
 When an object is uploaded to your S3 bucket using Transfer Family, `RoleSessionName`
 is contained in the Requester field in the [S3 event notification

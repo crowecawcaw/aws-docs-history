@@ -1,7 +1,6 @@
 # Configure a Transfer Family web app
 
-This section describes the procedures for creating a Transfer Family web app. To assign users and groups that can use it, see [Assign or add users or groups to a Transfer Family
-web app](webapp-add-users.md "webapp-add-users.md").
+This section describes the procedures for creating a Transfer Family web app. To assign users and groups that can use it, see [Assign or add users or groups to a Transfer Family web app](webapp-add-users.md "webapp-add-users.md").
 
 ###### Note
 
@@ -15,8 +14,7 @@ to each bucket's Cross-origin resource sharing (CORS) policy.
 
 If you are not using the IAM Identity Center directory for your identity provider, don't
 attempt to create a web app until you have already set up IAM Identity Center and configured a
-third party identity provider, as described in [Configure your identity provider for Transfer Family web
-apps](webapp-identity-center.md "webapp-identity-center.md").
+third party identity provider, as described in [Configure your identity provider for Transfer Family web apps](webapp-identity-center.md "webapp-identity-center.md").
 
 Complete the following steps to create a Transfer Family web app.
 

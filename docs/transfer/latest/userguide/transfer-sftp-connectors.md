@@ -17,5 +17,4 @@ operations on the remote SFTP server that it's associated with.
 
 - [Transfer files](transfer-files-and-track.md "transfer-files-and-track.md")
 - [List contents of a remote directory](sftp-connector-list-dir.md "sftp-connector-list-dir.md")
-- [Move, rename, or delete files or directories
-  on the remote server](move-delete-remote-files.md "move-delete-remote-files.md")
+- [Move, rename, or delete files or directories on the remote server](move-delete-remote-files.md "move-delete-remote-files.md")

@@ -4,14 +4,10 @@ This section describes possible solutions for issues with storage and encryption
 
 ###### Topics
 
-- [Troubleshoot policies for encrypted Amazon S3
-  buckets](#encrypted-buckets "#encrypted-buckets")
-- [Troubleshoot ResourceNotFound
-  exception](#resource-not-found "#resource-not-found")
+- [Troubleshoot policies for encrypted Amazon S3 buckets](#encrypted-buckets "#encrypted-buckets")
+- [Troubleshoot ResourceNotFound exception](#resource-not-found "#resource-not-found")
 
-## Troubleshoot policies for encrypted Amazon S3
-
-buckets
+## Troubleshoot policies for encrypted Amazon S3 buckets
 
 Description
 
@@ -36,9 +32,7 @@ Solution
 You must specify additional permissions in your policy to grant the required
 AWS Key Management Service (AWS KMS) permissions. For details, see [Data protection and encryption](encryption-at-rest.md "encryption-at-rest.md").
 
-## Troubleshoot `ResourceNotFound`
-
-exception
+## Troubleshoot `ResourceNotFound` exception
 
 Description
 

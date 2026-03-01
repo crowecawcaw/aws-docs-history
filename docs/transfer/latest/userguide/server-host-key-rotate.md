@@ -3,9 +3,7 @@
 Periodically, you can rotate your server host key. This topic describes how the server
 chooses which key to apply, and the procedure for rotating these keys.
 
-## How the client chooses a server host
-
-key
+## How the client chooses a server host key
 
 The way that Transfer Family chooses which server key to apply depends on conditions for the
 SFTP client, as explained here. The assumption is that there is one older key and
@@ -58,5 +56,4 @@ your Transfer Family server.
 2. Delete one or more of the host keys of the same type that you had added
    previously. This procedure is described in [Delete a server host key](server-host-key-delete.md "server-host-key-delete.md").
 3. All keys are visible, and can be active, subject to the behavior described
-   previously in [How the client chooses a server host
-   key](#server-key-behavior "#server-key-behavior").
+   previously in [How the client chooses a server host key](#server-key-behavior "#server-key-behavior").

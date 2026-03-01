@@ -71,9 +71,7 @@ definitions.
   not a _Target_. For more details, see [Rules for using logical directories](logical-dir-mappings.md#logical-dir-rules "logical-dir-mappings.md#logical-dir-rules").
 - For details on how a virtual directory is structured see [Virtual directory structure](implement-log-dirs.md#virtual-dirs "implement-log-dirs.md#virtual-dirs").
 
-### Custom Identity Provider
-
-considerations
+### Custom Identity Provider considerations
 
 When using a Custom Identity Provider, you can now specify a HomeDirectory in the
 response while using LOGICAL HomeDirectoryType. The TestIdentityProvider API call
@@ -116,7 +114,5 @@ For troubleshooting information related to Active Directory group limits, see [A
 
 - [Working with service-managed users](service-managed-users.md "service-managed-users.md")
 - [Working with custom identity providers](custom-idp-intro.md "custom-idp-intro.md")
-- [Using AWS Directory Service for Microsoft
-  Active Directory](directory-services-users.md "directory-services-users.md")
-- [Using AWS Directory Service for Entra ID Domain
-  Services](azure-sftp.md "azure-sftp.md")
+- [Using AWS Directory Service for Microsoft Active Directory](directory-services-users.md "directory-services-users.md")
+- [Using AWS Directory Service for Entra ID Domain Services](azure-sftp.md "azure-sftp.md")

@@ -5,12 +5,9 @@ This topic presents example log entries.
 ###### Topics
 
 - [Example transfer sessions log entries](#session-log-examples "#session-log-examples")
-- [Example log entries for SFTP
-  connectors](#example-sftp-connector-logs "#example-sftp-connector-logs")
-- [Example log entries for VPC Lattice
-  connectors](#example-vpc-lattice-connector-logs "#example-vpc-lattice-connector-logs")
-- [Example log entries for Key exchange algorithm
-  failures](#example-kex-logs "#example-kex-logs")
+- [Example log entries for SFTP connectors](#example-sftp-connector-logs "#example-sftp-connector-logs")
+- [Example log entries for VPC Lattice connectors](#example-vpc-lattice-connector-logs "#example-vpc-lattice-connector-logs")
+- [Example log entries for Key exchange algorithm failures](#example-kex-logs "#example-kex-logs")
 
 ## Example transfer sessions log entries
 
@@ -81,9 +78,7 @@ The available activity types are as follows:
 `RENAME`, `RMDIR`, `SETSTAT`,
 `TLS_RESUME_FAILURE`.
 
-## Example log entries for SFTP
-
-connectors
+## Example log entries for SFTP connectors
 
 This section contains example logs for both a successful and an unsuccessful transfer.
 Logs are generated to a log group named
@@ -170,9 +165,7 @@ Descriptions for some key fields in the previous log examples.
   transferred. Note that the initial portion of the `file-transfer-id`
   is the same as `transfer-id`.
 
-## Example log entries for VPC Lattice
-
-connectors
+## Example log entries for VPC Lattice connectors
 
 This section contains example logs for VPC Lattice connectors. For VPC Lattice
 connectors, logs include additional fields that provide information about the connector
@@ -211,9 +204,7 @@ VPC Lattice connector logs include the following additional fields:
 - `vpc-lattice-port-number` - Port number for connecting to the SFTP
   server through VPC Lattice
 
-## Example log entries for Key exchange algorithm
-
-failures
+## Example log entries for Key exchange algorithm failures
 
 This section contains example logs where the Key exchange algorithm (KEX) failed.
 These are examples from the **ERRORS** log stream for structured

@@ -4,12 +4,9 @@ This section describes possible solutions for issues with service-managed users.
 
 ###### Topics
 
-- [Troubleshoot service-managed
-  users](#transfer-service-managed-issues "#transfer-service-managed-issues")
+- [Troubleshoot service-managed users](#transfer-service-managed-issues "#transfer-service-managed-issues")
 
-## Troubleshoot service-managed
-
-users
+## Troubleshoot service-managed users
 
 This section describes possible solutions for the following issues.
 
@@ -59,5 +56,4 @@ not support SSH2-formatted public keys for service-managed users.
 Solution
 
 You need to convert the key into OpenSSH format. This process is described in
-[Converting an SSH2 key to SSH public key
-format](convert-ssh2-public-key.md "convert-ssh2-public-key.md").
+[Converting an SSH2 key to SSH public key format](convert-ssh2-public-key.md "convert-ssh2-public-key.md").

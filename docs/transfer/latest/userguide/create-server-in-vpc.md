@@ -51,22 +51,15 @@ For information about dual-stack (IPv4 and IPv6) server endpoints, see [IPv6 sup
 
 ###### Topics
 
-- [Create a server endpoint that can be
-  accessed only within your VPC](#create-server-endpoint-in-vpc "#create-server-endpoint-in-vpc")
-- [Create an internet-facing endpoint for
-  your server](#create-internet-facing-endpoint "#create-internet-facing-endpoint")
-- [Change the endpoint type for your
-  server](#change-server-endpoint-type "#change-server-endpoint-type")
+- [Create a server endpoint that can be accessed only within your VPC](#create-server-endpoint-in-vpc "#create-server-endpoint-in-vpc")
+- [Create an internet-facing endpoint for your server](#create-internet-facing-endpoint "#create-internet-facing-endpoint")
+- [Change the endpoint type for your server](#change-server-endpoint-type "#change-server-endpoint-type")
 - [Discontinuing the use of VPC_ENDPOINT](#deprecate-vpc-endpoint "#deprecate-vpc-endpoint")
-- [Limiting VPC endpoint access for Transfer Family
-  servers](#limit-vpc-endpoint-access "#limit-vpc-endpoint-access")
+- [Limiting VPC endpoint access for Transfer Family servers](#limit-vpc-endpoint-access "#limit-vpc-endpoint-access")
 - [Additional networking features](#additional-networking-features "#additional-networking-features")
-- [Updating the AWS Transfer Family server endpoint type
-  from VPC_ENDPOINT to VPC](update-endpoint-type-vpc.md "update-endpoint-type-vpc.md")
+- [Updating the AWS Transfer Family server endpoint type from VPC_ENDPOINT to VPC](update-endpoint-type-vpc.md "update-endpoint-type-vpc.md")
 
-## Create a server endpoint that can be
-
-accessed only within your VPC
+## Create a server endpoint that can be accessed only within your VPC
 
 In the following procedure, you create a server endpoint that is accessible only to
 resources within your VPC.
@@ -78,8 +71,7 @@ resources within your VPC.
    **Create server**.
 3. In **Choose protocols**, select one or more protocols, and
    then choose **Next**. For more information about protocols, see
-   [Step 2: Create an SFTP-enabled
-   server](getting-started.md#getting-started-server "getting-started.md#getting-started-server").
+   [Step 2: Create an SFTP-enabled server](getting-started.md#getting-started-server "getting-started.md#getting-started-server").
 4. In **Choose an identity provider**, choose **Service
    managed** to store user identities and keys in AWS Transfer Family, and then
    choose **Next**.
@@ -99,8 +91,7 @@ about working with custom identity providers, see [Working with custom identity 
 
 
     For details on the **Internet Facing** option, see
-     [Create an internet-facing endpoint for
-     your server](#create-internet-facing-endpoint "#create-internet-facing-endpoint"). A server that is
+     [Create an internet-facing endpoint for your server](#create-internet-facing-endpoint "#create-internet-facing-endpoint"). A server that is
      created in a VPC for internal access only doesn't support custom
      hostnames.
     3. For **VPC**, choose an existing VPC ID or choose
@@ -223,9 +214,7 @@ It can take a couple of minutes before the status for your new server changes to
 but you'll need to create a user first. For details on creating users, see
 [Managing users for server endpoints](create-user.md "create-user.md").
 
-## Create an internet-facing endpoint for
-
-your server
+## Create an internet-facing endpoint for your server
 
 In the following procedure, you create a server endpoint. This endpoint is accessible
 over the internet only to clients whose source IP addresses are allowed in your
@@ -244,8 +233,7 @@ Only SFTP and FTPS can be used on an internet-facing VPC hosted endpoint.
    **Create server**.
 3. In **Choose protocols**, select one or more protocols, and
    then choose **Next**. For more information about protocols, see
-   [Step 2: Create an SFTP-enabled
-   server](getting-started.md#getting-started-server "getting-started.md#getting-started-server").
+   [Step 2: Create an SFTP-enabled server](getting-started.md#getting-started-server "getting-started.md#getting-started-server").
 4. In **Choose an identity provider**, choose **Service
    managed** to store user identities and keys in AWS Transfer Family, and then
    choose **Next**.
@@ -445,9 +433,7 @@ through the [UpdateServer](../APIReference/API_UpdateServer.md "../APIReference/
 API. You must [stop the server](edit-server-config.md#edit-online-offline "edit-server-config.md#edit-online-offline") to add or
 change the server endpoint's Elastic IP addresses.
 
-## Change the endpoint type for your
-
-server
+## Change the endpoint type for your server
 
 If you have an existing server that is accessible over the internet (that is, has a
 public endpoint type), you can change its endpoint to a VPC endpoint.
@@ -594,8 +580,7 @@ an option from the AWS Transfer Family console.
 
 You can change the endpoint type for your server
 using the Transfer Family console, AWS CLI, API, SDKs, or CloudFormation. To change your server’s endpoint
-type, see [Updating the AWS Transfer Family server endpoint type
-from VPC_ENDPOINT to VPC](update-endpoint-type-vpc.md "update-endpoint-type-vpc.md").
+type, see [Updating the AWS Transfer Family server endpoint type from VPC_ENDPOINT to VPC](update-endpoint-type-vpc.md "update-endpoint-type-vpc.md").
 
 If you have any questions, contact AWS Support or your AWS account team.
 
@@ -608,9 +593,7 @@ Console.
 If you have additional questions, you can contact us through AWS Support or your account
 team.
 
-## Limiting VPC endpoint access for Transfer Family
-
-servers
+## Limiting VPC endpoint access for Transfer Family servers
 
 When creating an AWS Transfer Family server with VPC endpoint type, your IAM users and
 principals need permissions to create and delete VPC endpoints. However, your

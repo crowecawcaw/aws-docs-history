@@ -1,6 +1,4 @@
-# Setting up an Amazon API Gateway method as a custom
-
-identity provider
+# Setting up an Amazon API Gateway method as a custom identity provider
 
 This tutorial illustrates how to set up an Amazon API Gateway method and use it as a custom
 identity provider to upload files to an AWS Transfer Family server. This tutorial uses the [Basic stack template](https://s3.amazonaws.com/aws-transfer-resources/custom-idp-templates/aws-transfer-custom-idp-basic-apig.template.yml "https://s3.amazonaws.com/aws-transfer-resources/custom-idp-templates/aws-transfer-custom-idp-basic-apig.template.yml"), and other basic functionality as an example only.
@@ -92,9 +90,7 @@ Caching is inappropriate and invalid for authentication requests because:
 - Caching provides no benefits since Transfer Family never sends duplicate or repeated requests to the API Gateway
 - Enabling caching will cause the API Gateway to respond with mismatched data, resulting in invalid responses to authentication requests
 
-######
-
-To check the API Gateway method configuration for your server and deploy it
+###### To check the API Gateway method configuration for your server and deploy it
 
 1. Open the API Gateway console at
    [https://console.aws.amazon.com/apigateway/](https://console.aws.amazon.com/apigateway/ "https://console.aws.amazon.com/apigateway/").
@@ -138,9 +134,7 @@ The server ID matches the ID displayed for the
 
 ## Step 4: Test that your user can connect to the server
 
-######
-
-To test that your user can connect to the server, using the Transfer Family console
+###### To test that your user can connect to the server, using the Transfer Family console
 
 1. Open the AWS Transfer Family console at [https://console.aws.amazon.com/transfer/](https://console.aws.amazon.com/transfer/ "https://console.aws.amazon.com/transfer/").
 2. On the **Servers** page, choose your new

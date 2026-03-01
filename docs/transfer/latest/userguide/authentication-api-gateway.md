@@ -1,6 +1,4 @@
-# Using Amazon API Gateway to integrate your identity
-
-provider
+# Using Amazon API Gateway to integrate your identity provider
 
 This topic describes how to use an AWS Lambda function to back an API Gateway method. Use
 this option if you need a RESTful API to integrate your identity provider or if you want
@@ -16,12 +14,9 @@ provider
 - This configuration does not support custom domains.
 - This configuration does not support a private API Gateway URL.
   If you need either of these, you can use Lambda as an identity provider, without API Gateway.
-  For details, see [Using AWS Lambda to integrate your identity
-  provider](custom-lambda-idp.md "custom-lambda-idp.md").
+  For details, see [Using AWS Lambda to integrate your identity provider](custom-lambda-idp.md "custom-lambda-idp.md").
 
-## Authenticating using an API Gateway
-
-method
+## Authenticating using an API Gateway method
 
 You can create an API Gateway method for use as an identity provider for Transfer Family. This
 approach provides a highly secure way for you to create and provide APIs. With
@@ -183,8 +178,7 @@ not, configure your server using these steps.
      ``CloudFormation-stack-name`-TransferIdentityProviderRole-`ABC123DEF456GHI``.
     4. Fill in the remaining boxes, and then choose **Create
      server**. For details on the remaining steps for
-     creating a server, see [Configuring an SFTP, FTPS, or FTP server
-     endpoint](tf-server-endpoint.md "tf-server-endpoint.md").
+     creating a server, see [Configuring an SFTP, FTPS, or FTP server endpoint](tf-server-endpoint.md "tf-server-endpoint.md").
 
 ## Implementing your API Gateway method
 
@@ -333,9 +327,7 @@ type.
 You can include user policies in the Lambda function in JSON format. For more
 information about configuring user policies in Transfer Family, see [Managing access controls](users-policies.md "users-policies.md").
 
-## Default Lambda
-
-function
+## Default Lambda function
 
 To implement different authentication strategies, edit the Lambda function that
 your gateway uses. To help you meet your application's needs, you can use the
@@ -381,9 +373,7 @@ on the value for the [HomeDirectoryType](../APIReference/API_CreateUser.md#Trans
 
 The example functions are listed in [Example Lambda functions](custom-lambda-idp.md#lambda-auth-examples "custom-lambda-idp.md#lambda-auth-examples").
 
-## Lambda function for use
-
-with AWS Secrets Manager
+## Lambda function for use with AWS Secrets Manager
 
 To use AWS Secrets Manager as your identity provider, you can work with the Lambda function
 in the sample CloudFormation template. The Lambda function queries the Secrets Manager service with your

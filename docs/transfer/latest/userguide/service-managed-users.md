@@ -1,8 +1,7 @@
 # Working with service-managed users
 
 You can add either Amazon S3 or Amazon EFS service-managed users to your server, depending on
-the server's **Domain** setting. For more information, see [Configuring an SFTP, FTPS, or FTP server
-endpoint](tf-server-endpoint.md "tf-server-endpoint.md").
+the server's **Domain** setting. For more information, see [Configuring an SFTP, FTPS, or FTP server endpoint](tf-server-endpoint.md "tf-server-endpoint.md").
 
 If you use a service-managed identity type, you add users to your file transfer
 protocol enabled server. When you do so, each username must be unique on your
@@ -14,15 +13,13 @@ API.
 ###### Note
 
 For service-managed users there is a limit of 2,000 logical directory entries. For
-information about using logical directories see [Using logical directories to simplify your Transfer Family
-directory structures](logical-dir-mappings.md "logical-dir-mappings.md").
+information about using logical directories see [Using logical directories to simplify your Transfer Family directory structures](logical-dir-mappings.md "logical-dir-mappings.md").
 
 ###### Topics
 
 - [Adding Amazon S3 service-managed users](#add-s3-user "#add-s3-user")
 - [Adding Amazon EFS service-managed users](#add-efs-user "#add-efs-user")
-- [Managing service-managed
-  users](#managing-service-managed-users "#managing-service-managed-users")
+- [Managing service-managed users](#managing-service-managed-users "#managing-service-managed-users")
 
 ## Adding Amazon S3 service-managed users
 
@@ -72,9 +69,7 @@ following:
      folder**, do not select
      **Restricted** for this user.
 
-To learn more about session policies, see [Create an IAM role and policy](requirements-roles.md "requirements-roles.md"), [Creating a session policy for an Amazon S3
-bucket](users-policies-session.md "users-policies-session.md"), or [Dynamic permission management
-approaches](dynamic-permission-management.md "dynamic-permission-management.md"). 7. For **Home directory**, choose the Amazon S3 bucket to store
+To learn more about session policies, see [Create an IAM role and policy](requirements-roles.md "requirements-roles.md"), [Creating a session policy for an Amazon S3 bucket](users-policies-session.md "users-policies-session.md"), or [Dynamic permission management approaches](dynamic-permission-management.md "dynamic-permission-management.md"). 7. For **Home directory**, choose the Amazon S3 bucket to store
 the data to transfer using AWS Transfer Family. Enter the path to the `home`
 directory where your user lands when they log in using their client.
 
@@ -118,8 +113,7 @@ The new user appears in the **Users** section of the
 **Server details** page.
 
 **Next steps** – For the next step, continue
-on to [Transferring files over a server endpoint using a
-client](transfer-file.md "transfer-file.md").
+on to [Transferring files over a server endpoint using a client](transfer-file.md "transfer-file.md").
 
 ## Adding Amazon EFS service-managed users
 
@@ -127,8 +121,7 @@ Amazon EFS uses the Portable Operating System Interface (POSIX) file permission 
 to represent file ownership.
 
 - For more details on Amazon EFS file ownership, see [Amazon EFS file ownership](configure-storage.md#efs-file-ownership "configure-storage.md#efs-file-ownership").
-- For more details on setting up directories for your EFS users, see [Set up Amazon EFS users for
-  Transfer Family](configure-storage.md#configure-efs-users-permissions "configure-storage.md#configure-efs-users-permissions").
+- For more details on setting up directories for your EFS users, see [Set up Amazon EFS users for Transfer Family](configure-storage.md#configure-efs-users-permissions "configure-storage.md#configure-efs-users-permissions").
 
 ###### To add an Amazon EFS service-managed user to your server
 
@@ -250,12 +243,9 @@ In this case, you should be able to navigate to the parent directory
  `username``) .
 
 **Next steps** – For the next step, continue
-on to [Transferring files over a server endpoint using a
-client](transfer-file.md "transfer-file.md").
+on to [Transferring files over a server endpoint using a client](transfer-file.md "transfer-file.md").
 
-## Managing service-managed
-
-users
+## Managing service-managed users
 
 In this section, you can find information about how to view a list of users, how
 to edit user details, and how to add an SSH public key.
@@ -307,8 +297,7 @@ following:
      object containing the details of the policy.
 
 To learn more about session policies, see [Create an IAM role and policy](requirements-roles.md "requirements-roles.md"). To
-learn more about creating a session policy, see [Creating a session policy for an Amazon S3
-bucket](users-policies-session.md "users-policies-session.md"). 8. For **Home directory**, choose the Amazon S3 bucket to store
+learn more about creating a session policy, see [Creating a session policy for an Amazon S3 bucket](users-policies-session.md "users-policies-session.md"). 8. For **Home directory**, choose the Amazon S3 bucket to store
 the data to transfer using AWS Transfer Family. Enter the path to the `home`
 directory where your user lands when they log in using their client.
 

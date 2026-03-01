@@ -40,9 +40,7 @@ This takes you to the AWS sign in screen.
 This takes you to the AWS access portal, which shows a list of your available
 applications. 4. Choose the application for your Transfer Family web app.
 
-## User experience for third-party identity provider
-
-users
+## User experience for third-party identity provider users
 
 If your organization did not use AWS IAM Identity Center to configure its users, your onboarding
 experience will depend upon the identity provider application that they used to

@@ -1,20 +1,14 @@
-# Troubleshoot Terraform deployment
-
-issues
+# Troubleshoot Terraform deployment issues
 
 This section describes possible solutions for issues related to deploying Transfer Family resources
 using Terraform. For general information about Terraform modules for Transfer Family, see [Transfer Family Terraform modules](terraform.md "terraform.md").
 
 ###### Topics
 
-- [Troubleshoot Terraform resource creation
-  failures](#terraform-resource-creation "#terraform-resource-creation")
-- [Troubleshoot Terraform state management
-  issues](#terraform-state-issues "#terraform-state-issues")
+- [Troubleshoot Terraform resource creation failures](#terraform-resource-creation "#terraform-resource-creation")
+- [Troubleshoot Terraform state management issues](#terraform-state-issues "#terraform-state-issues")
 
-## Troubleshoot Terraform resource creation
-
-failures
+## Troubleshoot Terraform resource creation failures
 
 Description
 
@@ -58,9 +52,7 @@ To resolve Terraform deployment issues:
   cases, follow AWS best practices, and can simplify deployment for customers
   who need help with infrastructure as code (IaC) configuration.
 
-## Troubleshoot Terraform state management
-
-issues
+## Troubleshoot Terraform state management issues
 
 Description
 

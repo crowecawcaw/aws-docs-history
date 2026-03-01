@@ -8,15 +8,12 @@ for your SFTP-enabled server.
 
 - [View a list of servers](#configuring-servers-view-server-list "#configuring-servers-view-server-list")
 - [Delete a server](#delete-server "#delete-server")
-- [View SFTP, FTPS, and FTP server
-  details](configuring-servers-view-info.md "configuring-servers-view-info.md")
+- [View SFTP, FTPS, and FTP server details](configuring-servers-view-info.md "configuring-servers-view-info.md")
 - [View AS2 server details](view-as2-server-details.md "view-as2-server-details.md")
 - [IPv6 support for Transfer Family servers](ipv6-support.md "ipv6-support.md")
 - [Edit server details](edit-server-config.md "edit-server-config.md")
-- [Edit identity provider
-  configuration](configuring-servers-edit-custom-idp.md "configuring-servers-edit-custom-idp.md")
-- [Manage host keys for your SFTP-enabled
-  server](configuring-servers-change-host-key.md "configuring-servers-change-host-key.md")
+- [Edit identity provider configuration](configuring-servers-edit-custom-idp.md "configuring-servers-edit-custom-idp.md")
+- [Manage host keys for your SFTP-enabled server](configuring-servers-change-host-key.md "configuring-servers-change-host-key.md")
 - [Monitoring usage in the console](monitor-usage-transfer-console.md "monitor-usage-transfer-console.md")
 
 ## View a list of servers
@@ -33,8 +30,7 @@ to show a list of your servers. If you don't see a list of servers, make
 sure that you are in the correct Region. You can also choose
 **Servers** from the navigation pane.
 
-For more information about viewing your server details, see [View SFTP, FTPS, and FTP server
-details](configuring-servers-view-info.md "configuring-servers-view-info.md").
+For more information about viewing your server details, see [View SFTP, FTPS, and FTP server details](configuring-servers-view-info.md "configuring-servers-view-info.md").
 
 ## Delete a server
 

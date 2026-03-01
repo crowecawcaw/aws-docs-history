@@ -1,6 +1,4 @@
-# Using logical directories to simplify your Transfer Family
-
-directory structures
+# Using logical directories to simplify your Transfer Family directory structures
 
 Logical directories simplify your AWS Transfer Family server directory structure. With logical
 directories, you can create a virtual directory structure with user-friendly names that
@@ -25,9 +23,7 @@ Even though Transfer Family prevents your end users from accessing directories o
 logical directory, we recommend you also use unique roles or session policies to enforce
 least privilege at the storage level.
 
-## Understanding chroot and directory
-
-structure
+## Understanding chroot and directory structure
 
 A **chroot** operation lets you set a user's root
 directory to any location in your storage hierarchy. This restricts users to their

@@ -1,6 +1,4 @@
-# Create an SFTP connector with
-
-VPC-based egress
+# Create an SFTP connector with VPC-based egress
 
 This topic provides step-by-step instructions for creating SFTP connectors with VPC
 connectivity. VPC_LATTICE-enabled connectors use Amazon VPC Lattice to route traffic through your Virtual
@@ -23,9 +21,7 @@ Use VPC connectivity for SFTP connectors in these scenarios:
 
 ![Architecture diagram showing VPC-based egress for SFTP connectors, illustrating how Cross-VPC Resource Access enables secure connections through your Virtual Private Cloud.](images/vpc-egress-diagram.png)
 
-## Prerequisites for VPC_LATTICE-enabled SFTP
-
-connectors
+## Prerequisites for VPC_LATTICE-enabled SFTP connectors
 
 Before creating a VPC_LATTICE-enabled SFTP connector, you must complete the following
 prerequisites:
@@ -65,8 +61,7 @@ service network.
      for public endpoints)
 
 4. **Authentication credentials**: Store the SFTP
-   user credentials in AWS Secrets Manager as described in [Store authentication credentials
-   for SFTP connectors in Secrets Manager](sftp-connector-secret-procedure.md "sftp-connector-secret-procedure.md") .
+   user credentials in AWS Secrets Manager as described in [Store authentication credentials for SFTP connectors in Secrets Manager](sftp-connector-secret-procedure.md "sftp-connector-secret-procedure.md").
 
 ###### Important
 
@@ -84,18 +79,14 @@ Amazon VPC Lattice resources are available. For more information, see [VPC Latti
 Availability Zone support varies by region, and Resource Gateways require a minimum
 of two Availability Zones.
 
-## Create a VPC_LATTICE-enabled SFTP
-
-connector
+## Create a VPC_LATTICE-enabled SFTP connector
 
 After completing the prerequisites, you can create an SFTP connector with VPC
 connectivity using the AWS CLI, AWS Management Console, or AWS SDKs.
 
 Console
 
-###### To create a VPC_LATTICE-enabled SFTP
-
-connector
+###### To create a VPC_LATTICE-enabled SFTP connector
 
 1. Open the AWS Transfer Family console at [https://console.aws.amazon.com/transfer/](https://console.aws.amazon.com/transfer/ "https://console.aws.amazon.com/transfer/").
 2. In the left navigation pane, choose **SFTP
@@ -288,9 +279,7 @@ The key parameter for VPC connectivity is `--egress-config`,
 which specifies the Resource Configuration ARN that defines your SFTP server
 target.
 
-## Monitoring VPC connector
-
-status
+## Monitoring VPC connector status
 
 VPC_LATTICE-enabled connectors have an asynchronous setup process. After creation, monitor the
 connector status:
@@ -336,17 +325,13 @@ for egress to internet.
 For complete AWS Transfer Family pricing information, see the [AWS Transfer Family pricing
 page](https://aws.amazon.com/aws-transfer-family/pricing/ "https://aws.amazon.com/aws-transfer-family/pricing/").
 
-## VPC connectivity examples for SFTP
-
-connectors
+## VPC connectivity examples for SFTP connectors
 
 This section provides examples of creating SFTP connectors with VPC connectivity for
 various scenarios. Before using these examples, ensure you have completed the VPC
 infrastructure setup as described in the VPC connectivity documentation.
 
-### Example: Private endpoint
-
-connection
+### Example: Private endpoint connection
 
 This example shows how to create an SFTP connector that connects to a private SFTP
 server accessible only from your VPC.
@@ -392,9 +377,7 @@ aws transfer describe-connector --connector-id c-1234567890abcdef0
 The remote SFTP server will see connections coming from the Resource Gateway's IP
 address within your VPC CIDR range.
 
-### Example: Public endpoint via
-
-VPC
+### Example: Public endpoint via VPC
 
 This example shows how to route connections to a public SFTP server through your VPC
 to leverage centralized security controls and use your own NAT Gateway IP
@@ -434,9 +417,7 @@ Traffic will flow from the connector to your Resource Gateway, then through your
 Gateway to reach the public SFTP server. The remote server will see your NAT Gateway's
 Elastic IP address as the source.
 
-### Example: Cross-account private
-
-endpoint
+### Example: Cross-account private endpoint
 
 This example shows how to connect to a private SFTP server in a different AWS
 account by using resource sharing.
@@ -484,9 +465,7 @@ aws transfer create-connector \
 The connector in Account B can now access the private SFTP server in Account A through
 the shared Resource Configuration.
 
-### Common troubleshooting
-
-scenarios
+### Common troubleshooting scenarios
 
 Here are solutions for common issues when creating VPC_LATTICE-enabled connectors:
 

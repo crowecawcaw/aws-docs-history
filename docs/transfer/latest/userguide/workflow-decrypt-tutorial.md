@@ -1,6 +1,4 @@
-# Setting up a managed workflow for decrypting a
-
-file
+# Setting up a managed workflow for decrypting a file
 
 This tutorial illustrates how to set up a managed workflow that contains a decrypt step.
 The tutorial also shows how to upload an encrypted file to an Amazon S3 bucket and then view the
@@ -13,21 +11,15 @@ The AWS storage blog has a post that describes how to simply decrypt files witho
 
 ###### Topics
 
-- [Step 1: Configure an execution
-  role](#create-example-execution-role "#create-example-execution-role")
+- [Step 1: Configure an execution role](#create-example-execution-role "#create-example-execution-role")
 - [Step 2: Create a managed workflow](#create-example-workflow "#create-example-workflow")
-- [Step 3: Add the workflow to a server and create
-  a user](#add-workflow-to-server "#add-workflow-to-server")
+- [Step 3: Add the workflow to a server and create a user](#add-workflow-to-server "#add-workflow-to-server")
 - [Step 4: Create a PGP key pair](#create-example-pgp-key-pair "#create-example-pgp-key-pair")
-- [Step 5: Store the PGP private key in
-  AWS Secrets Manager](#output-private-key-to-secrets "#output-private-key-to-secrets")
+- [Step 5: Store the PGP private key in AWS Secrets Manager](#output-private-key-to-secrets "#output-private-key-to-secrets")
 - [Step 6: Encrypt a file](#encrypt-example-file "#encrypt-example-file")
-- [Step 7: Run the workflow and view the
-  results](#test-decrypt-workflow "#test-decrypt-workflow")
+- [Step 7: Run the workflow and view the results](#test-decrypt-workflow "#test-decrypt-workflow")
 
-## Step 1: Configure an execution
-
-role
+## Step 1: Configure an execution role
 
 Create an AWS Identity and Access Management (IAM) execution role that Transfer Family can use to launch a workflow. The
 process of creating an execution role is described in [IAM policies for workflows](workflow-execution-role.md "workflow-execution-role.md").
@@ -142,9 +134,7 @@ Note the workflow ID for your new workflow. You will need this ID for the next s
 This tutorial uses `w-1234abcd5678efghi` as the
 example workflow ID.
 
-## Step 3: Add the workflow to a server and create
-
-a user
+## Step 3: Add the workflow to a server and create a user
 
 Now that you have a workflow with a decrypt step, you must associate it with a Transfer Family
 server. This tutorial shows how to attach the workflow to an existing Transfer Family server.
@@ -168,8 +158,7 @@ the server and trigger the workflow to run.
      the workflow that you created in [Step 2: Create a managed workflow](#create-example-workflow "#create-example-workflow"), for example,
      `w-1234abcd5678efghi`.
    - For **Managed workflows execution role**, choose the
-     IAM role that you created in [Step 1: Configure an execution
-     role](#create-example-execution-role "#create-example-execution-role").
+     IAM role that you created in [Step 1: Configure an execution role](#create-example-execution-role "#create-example-execution-role").
 
 5. Scroll to the bottom of the page, and choose **Save** to save
    your changes.
@@ -236,9 +225,7 @@ This command exports the private key to the
 output file anything that you like. You can also delete the private key file
 after you have added it to AWS Secrets Manager.
 
-## Step 5: Store the PGP private key in
-
-AWS Secrets Manager
+## Step 5: Store the PGP private key in AWS Secrets Manager
 
 You need to store the private key in Secrets Manager, in a very specific way, so that the
 workflow can find the private key when the workflow runs a decrypt step on an uploaded
@@ -318,12 +305,9 @@ When encrypting files for use with AWS Transfer Family workflows, always ensure 
 non-anonymous recipient using the `-r` parameter. Anonymous encryption
 (without specifying a recipient) can cause decryption failures in the workflow
 because the system won't be able to identify which key to use for decryption.
-Debugging information for this issue is available at [Troubleshoot anonymous recipient
-encryption issues](workflow-issues.md#workflows-decrypt-anonymous "workflow-issues.md#workflows-decrypt-anonymous").
+Debugging information for this issue is available at [Troubleshoot anonymous recipient encryption issues](workflow-issues.md#workflows-decrypt-anonymous "workflow-issues.md#workflows-decrypt-anonymous").
 
-## Step 7: Run the workflow and view the
-
-results
+## Step 7: Run the workflow and view the results
 
 To run the workflow, you connect to the Transfer Family server with the user that you created in
 Step 3. Then you can look in the Amazon S3 bucket that you specified in [Step 2.5, configure destination

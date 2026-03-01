@@ -1,6 +1,4 @@
-# Configure storage to use with AWS Transfer Family
-
-servers
+# Configure storage to use with AWS Transfer Family servers
 
 This topic describes the storage options that you can use with AWS Transfer Family. You can use
 either Amazon S3 or Amazon EFS as storage for your Transfer Family servers.
@@ -10,17 +8,13 @@ either Amazon S3 or Amazon EFS as storage for your Transfer Family servers.
 - [Configure an Amazon S3 bucket](configure-storage.md#requirements-S3 "configure-storage.md#requirements-S3")
   - [Amazon S3 access points](configure-storage.md#access-points "configure-storage.md#access-points")
   - [Amazon S3 HeadObject behavior](configure-storage.md#head-object-behavior "configure-storage.md#head-object-behavior")
-    - [Grant ability to only write and
-      list files](configure-storage.md#headobject-access-denied "configure-storage.md#headobject-access-denied")
-    - [Large number of zero-byte objects
-      causing latency issues](configure-storage.md#headobject-latency "configure-storage.md#headobject-latency")
+    - [Grant ability to only write and list files](configure-storage.md#headobject-access-denied "configure-storage.md#headobject-access-denied")
+    - [Large number of zero-byte objects causing latency issues](configure-storage.md#headobject-latency "configure-storage.md#headobject-latency")
 
 - [Configure an Amazon EFS file system](configure-storage.md#requirements-efs "configure-storage.md#requirements-efs")
   - [Amazon EFS file ownership](configure-storage.md#efs-file-ownership "configure-storage.md#efs-file-ownership")
-  - [Set up Amazon EFS users for
-    Transfer Family](configure-storage.md#configure-efs-users-permissions "configure-storage.md#configure-efs-users-permissions")
-    - [Configure Transfer Family users on
-      Amazon EFS](configure-storage.md#set-up-efs-home-folders "configure-storage.md#set-up-efs-home-folders")
+  - [Set up Amazon EFS users for Transfer Family](configure-storage.md#configure-efs-users-permissions "configure-storage.md#configure-efs-users-permissions")
+    - [Configure Transfer Family users on Amazon EFS](configure-storage.md#set-up-efs-home-folders "configure-storage.md#set-up-efs-home-folders")
     - [Create an Amazon EFS root user](configure-storage.md#create-root-user-efs "configure-storage.md#create-root-user-efs")
 
   - [Supported Amazon EFS commands](configure-storage.md#efs-commands "configure-storage.md#efs-commands")
@@ -103,9 +97,7 @@ issues a `HeadObject` request for each of these objects (see [HeadObject](../../
 This can result in the following problems when using Amazon S3 as your storage with
 Transfer Family.
 
-#### Grant ability to only write and
-
-list files
+#### Grant ability to only write and list files
 
 In some cases, you might want to offer only write access to your Amazon S3 objects. For example, you might want to provide
 access to write (or upload) and list objects in a bucket, but not to read (download) objects. To perform `ls`
@@ -178,9 +170,7 @@ modify them. Additionally, if your use case requires a `HeadObject`
 call before uploading a file, this policy won't
 work for you.
 
-#### Large number of zero-byte objects
-
-causing latency issues
+#### Large number of zero-byte objects causing latency issues
 
 If your Amazon S3 buckets contain a large number of these zero-byte objects,
 Transfer Family issues a lot of `HeadObject` calls, which can result in
@@ -194,8 +184,7 @@ operation takes between six and eight minutes. However, if you optimize your
 directories, this operation takes only a few seconds. You set this option in
 the **Configure additional details** screen during the
 server creation or update procedure. These procedures are detailed under the
-[Configuring an SFTP, FTPS, or FTP server
-endpoint](sftp-for-transfer-family.md "sftp-for-transfer-family.md") topic.
+[Configuring an SFTP, FTPS, or FTP server endpoint](sftp-for-transfer-family.md "sftp-for-transfer-family.md") topic.
 
 ###### Note
 
@@ -280,14 +269,11 @@ are owned by a single owner and a single group. Amazon EFS uses the mapped numer
 IDs to check permissions when a user attempts to access a file system
 object.
 
-### Set up Amazon EFS users for
-
-Transfer Family
+### Set up Amazon EFS users for Transfer Family
 
 Before you set up your Amazon EFS users, you can do either of the following:
 
-- You can create users and set up their home folders in Amazon EFS. See [Configure Transfer Family users on
-  Amazon EFS](#set-up-efs-home-folders "#set-up-efs-home-folders") for details.
+- You can create users and set up their home folders in Amazon EFS. See [Configure Transfer Family users on Amazon EFS](#set-up-efs-home-folders "#set-up-efs-home-folders") for details.
 - If you are comfortable adding a root user, you can [Create an Amazon EFS root user](#create-root-user-efs "#create-root-user-efs").
 
 ###### Note
@@ -297,9 +283,7 @@ Transfer Family users' POSIX profiles (described in the preceding section) offer
 ability to set POSIX permissions. These permissions are set at a user level,
 for granular access, based on UID, GID, and secondary GIDs.
 
-#### Configure Transfer Family users on
-
-Amazon EFS
+#### Configure Transfer Family users on Amazon EFS
 
 Transfer Family maps the users to the UID/GID and directories you specify. If the
 UID/GID/directories do not already exist in EFS, then you should create them
@@ -319,8 +303,7 @@ an example Lambda function that interacts with EFS, see [Using Amazon EFS for AW
 applications](https://aws.amazon.com/blogs/compute/using-amazon-efs-for-aws-lambda-in-your-serverless-applications "https://aws.amazon.com/blogs/compute/using-amazon-efs-for-aws-lambda-in-your-serverless-applications").
 
 Additionally, you can configure logical directories for your Transfer Family users.
-For details, see the [Configure logical directories for Amazon EFS](logical-dir-mappings.md#logical-dir-efs "logical-dir-mappings.md#logical-dir-efs") section in the [Using logical directories to simplify your Transfer Family
-directory structures](logical-dir-mappings.md "logical-dir-mappings.md")
+For details, see the [Configure logical directories for Amazon EFS](logical-dir-mappings.md#logical-dir-efs "logical-dir-mappings.md#logical-dir-efs") section in the [Using logical directories to simplify your Transfer Family directory structures](logical-dir-mappings.md "logical-dir-mappings.md")
 topic.
 
 #### Create an Amazon EFS root user

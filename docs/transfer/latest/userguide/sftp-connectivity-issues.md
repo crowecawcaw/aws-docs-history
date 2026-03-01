@@ -1,6 +1,4 @@
-# Troubleshoot SFTP connectivity and transfer
-
-issues
+# Troubleshoot SFTP connectivity and transfer issues
 
 This section describes possible solutions for SFTP connectivity and file transfer
 issues.
@@ -8,11 +6,9 @@ issues.
 ###### Topics
 
 - [Troubleshoot SFTP connectivity issues](#connection-issues "#connection-issues")
-- [Troubleshoot SFTP client
-  issues](#sftp-client-troubleshooting-issues "#sftp-client-troubleshooting-issues")
+- [Troubleshoot SFTP client issues](#sftp-client-troubleshooting-issues "#sftp-client-troubleshooting-issues")
 - [Troubleshoot file upload issues](#file-upload-issues "#file-upload-issues")
-- [Troubleshoot VPC egress type SFTP
-  connector issues](#vpc-connector-connectivity-issues "#vpc-connector-connectivity-issues")
+- [Troubleshoot VPC egress type SFTP connector issues](#vpc-connector-connectivity-issues "#vpc-connector-connectivity-issues")
 
 ## Troubleshoot SFTP connectivity issues
 
@@ -45,9 +41,7 @@ solution is available only on port 2223.
 In the procedure for creating a Transfer Family server in a VPC ([Create a server in a virtual private cloud](create-server-in-vpc.md "create-server-in-vpc.md")), when you
 specify a security group, configure SSH traffic to use port 2223.
 
-## Troubleshoot SFTP client
-
-issues
+## Troubleshoot SFTP client issues
 
 SFTP client side messages are described in [SFTP messages](transfer-file.md#sftp-transfer-activity-types "transfer-file.md#sftp-transfer-activity-types"). The best way to troubleshoot SFTP client issues is to check the SFTP client logs
 and, if necessary, reach out to your network administrator.
@@ -58,13 +52,10 @@ This section describes possible solutions for the following file upload issues.
 
 ###### Topics
 
-- [Troubleshoot Amazon S3 file upload
-  errors](#random-access-writes-s3 "#random-access-writes-s3")
+- [Troubleshoot Amazon S3 file upload errors](#random-access-writes-s3 "#random-access-writes-s3")
 - [Troubleshoot unreadable file names](#non-utf8-issues "#non-utf8-issues")
 
-### Troubleshoot Amazon S3 file upload
-
-errors
+### Troubleshoot Amazon S3 file upload errors
 
 Description
 
@@ -104,9 +95,7 @@ Solution
 To solve this problem, review your client application for file name character
 encoding and make sure it is set to UTF-8.
 
-## Troubleshoot VPC egress type SFTP
-
-connector issues
+## Troubleshoot VPC egress type SFTP connector issues
 
 If you're experiencing issues with VPC egress type SFTP connectors, check the
 following:
@@ -145,9 +134,7 @@ Solution
 Verify that security groups allow traffic on port 22 between your Resource Gateway
 subnets and the target SFTP server.
 
-### Resource Configuration
-
-errors
+### Resource Configuration errors
 
 Description
 

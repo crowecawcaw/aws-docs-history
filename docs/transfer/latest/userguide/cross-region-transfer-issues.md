@@ -1,20 +1,14 @@
-# Troubleshoot cross-region transfer
-
-issues
+# Troubleshoot cross-region transfer issues
 
 This section describes possible solutions for issues related to transferring files across
 AWS Regions.
 
 ###### Topics
 
-- [Troubleshoot cross-region transfer permission
-  issues](#cross-region-permissions "#cross-region-permissions")
-- [Troubleshoot cross-region transfer
-  performance issues](#cross-region-performance "#cross-region-performance")
+- [Troubleshoot cross-region transfer permission issues](#cross-region-permissions "#cross-region-permissions")
+- [Troubleshoot cross-region transfer performance issues](#cross-region-performance "#cross-region-performance")
 
-## Troubleshoot cross-region transfer permission
-
-issues
+## Troubleshoot cross-region transfer permission issues
 
 Description
 
@@ -93,9 +87,7 @@ To resolve cross-region transfer permission issues:
 4. For cross-account transfers, ensure proper cross-account permissions are
    configured
 
-## Troubleshoot cross-region transfer
-
-performance issues
+## Troubleshoot cross-region transfer performance issues
 
 Description
 

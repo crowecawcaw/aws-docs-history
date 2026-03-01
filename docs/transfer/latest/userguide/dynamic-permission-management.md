@@ -1,10 +1,6 @@
-# Dynamic permission management
+# Dynamic permission management approaches
 
-approaches
-
-## Understanding Transfer Family permission
-
-architecture
+## Understanding Transfer Family permission architecture
 
 AWS Transfer Family supports dynamic permission management through session policies, which allow
 you to restrict the effective permissions of IAM roles at runtime. This approach works
@@ -29,9 +25,7 @@ This architecture applies to both user types:
 - _Custom identity provider users_ - Session policies can be
   returned as part of the authentication response or stored in AWS Secrets Manager
 
-## Two approaches to permission
-
-management
+## Two approaches to permission management
 
 When designing permissions for Transfer Family users who need unique access patterns, you can
 choose between two main approaches:
@@ -84,8 +78,7 @@ Use Transfer Family policy variables such as `${transfer:Username}`,
 `${transfer:HomeDirectory}`, and
 `${transfer:HomeBucket}` in your session policies. These
 variables are automatically replaced with the actual values at runtime. For
-more information about these variables, see [Creating a session policy for an Amazon S3
-bucket](users-policies-session.md "users-policies-session.md").
+more information about these variables, see [Creating a session policy for an Amazon S3 bucket](users-policies-session.md "users-policies-session.md").
 
 Dynamic generation
 
@@ -126,9 +119,7 @@ two ways:
 
 For more information, see [Custom identity provider solution](custom-idp-toolkit.md "custom-idp-toolkit.md").
 
-## Example: Simplifying role management with
-
-session policies
+## Example: Simplifying role management with session policies
 
 This example demonstrates how dynamic permission management can significantly reduce
 administrative overhead while maintaining security.

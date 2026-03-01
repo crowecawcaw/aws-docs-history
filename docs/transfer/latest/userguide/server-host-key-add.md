@@ -44,8 +44,7 @@ it over the SFTP-enabled server.
 ###### Note
 
 When you create a server host key, make sure to specify `-N ""`
-(no passphrase). See [Creating SSH keys on macOS, Linux, or
-Unix](macOS-linux-unix-ssh.md "macOS-linux-unix-ssh.md") for details on how to generate
+(no passphrase). See [Creating SSH keys on macOS, Linux, or Unix](macOS-linux-unix-ssh.md "macOS-linux-unix-ssh.md") for details on how to generate
 key pairs. 6. (Optional) Add a description to differentiate among multiple server host keys.
 You can also add tags for your key. 7. Choose **Add key**. You are returned to the **Server
 details** page.

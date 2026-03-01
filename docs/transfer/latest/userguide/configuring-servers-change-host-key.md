@@ -1,6 +1,4 @@
-# Manage host keys for your SFTP-enabled
-
-server
+# Manage host keys for your SFTP-enabled server
 
 Server host keys are private keys used by the Transfer Family server to provide a unique identity to
 the caller, and to guarantee that it is the correct server. That guarantee is enforced by

@@ -42,8 +42,7 @@ To get started, perform the following tasks:
 Related information
 
 - To monitor your workflow executions, see [Using CloudWatch metrics for Transfer Family servers](metrics.md "metrics.md").
-- For detailed execution logs and troubleshooting information, see [Troubleshoot workflow-related errors
-  using Amazon CloudWatch](workflow-issues.md#workflows-cloudwatch-errors "workflow-issues.md#workflows-cloudwatch-errors").
+- For detailed execution logs and troubleshooting information, see [Troubleshoot workflow-related errors using Amazon CloudWatch](workflow-issues.md#workflows-cloudwatch-errors "workflow-issues.md#workflows-cloudwatch-errors").
 - Transfer Family provides a blog post and a workshop that walk you through building a file transfer
   solution. This solution leverages AWS Transfer Family for managed SFTP/FTPS endpoints and
   Amazon Cognito and DynamoDB for user management.
@@ -70,10 +69,8 @@ This video provides a walk through of this workshop.
 - [Exception handling for a workflow](#exception-workflow "#exception-workflow")
 - [Monitor workflow execution](cloudwatch-workflow.md "cloudwatch-workflow.md")
 - [Create a workflow from a template](workflow-template.md "workflow-template.md")
-- [Remove a workflow from a Transfer Family
-  server](#remove-workflow-association "#remove-workflow-association")
-- [Managed workflows restrictions and
-  limitations](#limitations-workflow "#limitations-workflow")
+- [Remove a workflow from a Transfer Family server](#remove-workflow-association "#remove-workflow-association")
+- [Managed workflows restrictions and limitations](#limitations-workflow "#limitations-workflow")
   For more help getting started
   with managed workflows, see the following resources:
 
@@ -103,9 +100,7 @@ handling in workflows, see [Use custom file-processing steps](custom-step-detail
 
 ![AWS Transfer Family console, showing an example workflow with one nominal step and one exception-handling step.](images/workflow-exception-sample.png)
 
-## Remove a workflow from a Transfer Family
-
-server
+## Remove a workflow from a Transfer Family server
 
 If you have associated a workflow with a Transfer Family server, and you now want to remove that
 association, you can do so by using the console or programmatically.
@@ -161,9 +156,7 @@ for your server. For example, if your server ID is,
 aws transfer update-server --server-id s-01234567890abcdef --workflow-details '{"OnPartialUpload":[],"OnUpload":[]}'
 ```
 
-## Managed workflows restrictions and
-
-limitations
+## Managed workflows restrictions and limitations
 
 **Restrictions**
 

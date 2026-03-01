@@ -1,6 +1,4 @@
-# Creating a session policy for an Amazon S3
-
-bucket
+# Creating a session policy for an Amazon S3 bucket
 
 A _session policy_ is an AWS Identity and Access Management (IAM) policy that restricts
 users to certain portions of an Amazon S3 bucket. It does so by evaluating access in real
@@ -152,9 +150,7 @@ aws transfer update-user --server-id `server` --user-name `user` --policy \
    "$(aws iam get-policy-version --policy-arn `policy` --version-id `version` --output json)"
 ```
 
-## Nested substitutions for session
-
-policies
+## Nested substitutions for session policies
 
 Nested substitutions are not performed in Transfer Family session policies. Session policies
 can use nested variables, such as `${transfer:HomeDirectory}`. When the

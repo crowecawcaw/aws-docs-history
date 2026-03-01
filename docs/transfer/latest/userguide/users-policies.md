@@ -16,8 +16,7 @@ permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for
 _IAM User Guide_.
 
 You can grant write-only access to Amazon S3 objects by using certain permissions within an
-IAM policy. For details, see [Grant ability to only write and
-list files](configure-storage.md#headobject-access-denied "configure-storage.md#headobject-access-denied").
+IAM policy. For details, see [Grant ability to only write and list files](configure-storage.md#headobject-access-denied "configure-storage.md#headobject-access-denied").
 
 The AWS Storage Blog contains a post detailing how to set up least privilege access. For
 details, see [Implementing least privilege access in an AWS Transfer Family workflow](https://aws.amazon.com/blogs//storage/implementing-least-privilege-access-in-an-aws-transfer-family-workflow/ "https://aws.amazon.com/blogs//storage/implementing-least-privilege-access-in-an-aws-transfer-family-workflow/").
@@ -30,9 +29,6 @@ For details, see [Data protection and encryption](encryption-at-rest.md "encrypt
 
 ###### Topics
 
-- [Allowing read and write access to an Amazon S3
-  bucket](users-policies-all-access.md "users-policies-all-access.md")
-- [Creating a session policy for an Amazon S3
-  bucket](users-policies-session.md "users-policies-session.md")
-- [Dynamic permission management
-  approaches](dynamic-permission-management.md "dynamic-permission-management.md")
+- [Allowing read and write access to an Amazon S3 bucket](users-policies-all-access.md "users-policies-all-access.md")
+- [Creating a session policy for an Amazon S3 bucket](users-policies-session.md "users-policies-session.md")
+- [Dynamic permission management approaches](dynamic-permission-management.md "dynamic-permission-management.md")

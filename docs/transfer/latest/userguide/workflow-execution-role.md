@@ -101,9 +101,7 @@ While you're establishing your trust relationship, you can also take steps to
 avoid the _confused deputy_ problem. For a description of this
 problem, as well as examples of how to avoid it, see [Cross-service confused deputy prevention](confused-deputy.md "confused-deputy.md").
 
-## Example execution role: Decrypt,
-
-copy, and tag
+## Example execution role: Decrypt, copy, and tag
 
 If you have workflows that include tagging, copying, and decrypt steps, you can
 use the following IAM policy. Replace each `user input
@@ -188,9 +186,7 @@ use the following IAM policy. Replace each `user input
 
 ```
 
-## Example execution role: Run
-
-function and delete
+## Example execution role: Run function and delete
 
 In this example, you have a workflow that invokes an AWS Lambda function. If the
 workflow deletes the uploaded file and has an exception handler step to act upon a

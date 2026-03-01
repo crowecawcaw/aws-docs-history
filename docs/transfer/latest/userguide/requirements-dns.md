@@ -13,8 +13,7 @@ AWS Transfer Family natively supports.
 
 - [Use Amazon Route 53 as your DNS provider](#requirements-use-r53 "#requirements-use-r53")
 - [Use other DNS providers](#requirements-use-alt-dns "#requirements-use-alt-dns")
-- [Custom hostnames for non-console created
-  servers](#tag-custom-hostname-cdk "#tag-custom-hostname-cdk")
+- [Custom hostnames for non-console created servers](#tag-custom-hostname-cdk "#tag-custom-hostname-cdk")
   On the console, you can choose one of these options for setting up a custom
   hostname:
 
@@ -25,8 +24,7 @@ AWS Transfer Family natively supports.
 - **None** – to use the server's endpoint and not use a
   custom hostname.
   You set this option when you create a new server or edit the configuration of an existing
-  server. For more information about creating a new server, see [Step 2: Create an SFTP-enabled
-  server](getting-started.md#getting-started-server "getting-started.md#getting-started-server"). For more
+  server. For more information about creating a new server, see [Step 2: Create an SFTP-enabled server](getting-started.md#getting-started-server "getting-started.md#getting-started-server"). For more
   information about editing the configuration of an existing server, see [Edit server details](edit-server-config.md "edit-server-config.md").
 
 For more details about using your own domain for the server hostname and how AWS Transfer Family uses
@@ -79,9 +77,7 @@ from those described above. To find your VPC endpoint, select the VPC on the
 server's details page, then select the **VPC endpoint ID** on the
 VPC dashboard. The endpoint is the first DNS name of those listed.
 
-## Custom hostnames for non-console created
-
-servers
+## Custom hostnames for non-console created servers
 
 When you create a server using AWS Cloud Development Kit (AWS CDK), CloudFormation, or through the CLI, you must add a
 tag if you want that server to have a custom hostname. When you create a Transfer Family server by

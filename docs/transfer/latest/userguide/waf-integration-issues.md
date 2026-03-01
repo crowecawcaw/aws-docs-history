@@ -5,14 +5,10 @@ Transfer Family.
 
 ###### Topics
 
-- [Troubleshoot WAF blocking legitimate
-  traffic](#waf-false-positives "#waf-false-positives")
-- [Troubleshoot WAF integration with custom identity
-  providers](#waf-custom-idp "#waf-custom-idp")
+- [Troubleshoot WAF blocking legitimate traffic](#waf-false-positives "#waf-false-positives")
+- [Troubleshoot WAF integration with custom identity providers](#waf-custom-idp "#waf-custom-idp")
 
-## Troubleshoot WAF blocking legitimate
-
-traffic
+## Troubleshoot WAF blocking legitimate traffic
 
 Description
 
@@ -49,9 +45,7 @@ To resolve false positive issues:
 4. Test the updated configuration with a representative sample of legitimate
    traffic before fully deploying.
 
-## Troubleshoot WAF integration with custom identity
-
-providers
+## Troubleshoot WAF integration with custom identity providers
 
 Description
 

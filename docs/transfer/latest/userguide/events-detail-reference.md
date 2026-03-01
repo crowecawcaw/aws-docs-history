@@ -31,14 +31,11 @@ Guide_.
 
 ###### Topics
 
-- [SFTP, FTPS, and FTP server
-  events](#event-detail-server-events "#event-detail-server-events")
+- [SFTP, FTPS, and FTP server events](#event-detail-server-events "#event-detail-server-events")
 - [SFTP connector events](#event-detail-sftp-connector-events "#event-detail-sftp-connector-events")
 - [AS2 events](#event-detail-as2-server-events "#event-detail-as2-server-events")
 
-## SFTP, FTPS, and FTP server
-
-events
+## SFTP, FTPS, and FTP server events
 
 The following are the detail fields for SFTP, FTPS, and FTP server events:
 
@@ -205,9 +202,7 @@ The unique identifier for the transfer session.
 For successful transfers, the timestamp for when file
 processing begins.
 
-###### Example SFTP Server File Download Failed
-
-example event
+###### Example SFTP Server File Download Failed example event
 
 The following example shows an event where a download failed on an SFTP server
 (Amazon EFS is the storage being used).
@@ -241,9 +236,7 @@ The following example shows an event where a download failed on an SFTP server
 }
 ```
 
-###### Example FTP Server File Upload Completed
-
-example event
+###### Example FTP Server File Upload Completed example event
 
 The following example shows an event where an upload completed successfully on
 an FTP server (Amazon S3 is the storage being used).
@@ -276,9 +269,7 @@ an FTP server (Amazon S3 is the storage being used).
 }
 ```
 
-###### Example SFTP Server File Delete Completed
-
-example event
+###### Example SFTP Server File Delete Completed example event
 
 The following example shows an event where a file was successfully deleted on
 an SFTP server.
@@ -309,9 +300,7 @@ an SFTP server.
 }
 ```
 
-###### Example SFTP Server File Rename Completed
-
-example event
+###### Example SFTP Server File Rename Completed example event
 
 The following example shows an event where a file was successfully renamed on
 an SFTP server.
@@ -343,9 +332,7 @@ an SFTP server.
 }
 ```
 
-###### Example SFTP Server Directory Create Completed
-
-example event
+###### Example SFTP Server Directory Create Completed example event
 
 The following example shows an event where a directory was successfully
 created on an SFTP server.
@@ -618,9 +605,7 @@ The container for the object in Amazon S3.
 
 The name assigned to the object in Amazon S3.
 
-###### Example SFTP Connector File Send Failed
-
-example event
+###### Example SFTP Connector File Send Failed example event
 
 The following example shows an event where an SFTP connector failed while
 trying to send a file to a remote SFTP server.
@@ -660,9 +645,7 @@ trying to send a file to a remote SFTP server.
 }
 ```
 
-###### Example SFTP Connector File Retrieve Completed
-
-example event
+###### Example SFTP Connector File Retrieve Completed example event
 
 The following example shows an event where an SFTP connector successfully
 retrieved a file sent from a remote SFTP server.
@@ -700,9 +683,7 @@ retrieved a file sent from a remote SFTP server.
 }
 ```
 
-###### Example SFTP Connector Directory Listing Completed
-
-example event
+###### Example SFTP Connector Directory Listing Completed example event
 
 The following example shows an event where a start directory listing call
 retrieved a listing file from a remote SFTP server.
@@ -945,9 +926,7 @@ failed.
 
 The unique identifier for the transfer event.
 
-###### Example AS2 Payload Receive Completed
-
-example event
+###### Example AS2 Payload Receive Completed example event
 
 ```
 {
@@ -980,9 +959,7 @@ example event
 }
 ```
 
-###### Example AS2 MDN Receive Failed
-
-example event
+###### Example AS2 MDN Receive Failed example event
 
 ```
 {

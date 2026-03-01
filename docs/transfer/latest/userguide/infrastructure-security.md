@@ -14,9 +14,7 @@ support the following:
   Diffie-Hellman) or ECDHE (Elliptic Curve Ephemeral Diffie-Hellman). Most modern systems
   such as Java 7 and later support these modes.
 
-## Avoid placing NLBs and NATs in front of AWS Transfer Family
-
-servers
+## Avoid placing NLBs and NATs in front of AWS Transfer Family servers
 
 ###### Note
 
@@ -74,9 +72,7 @@ For additional guidance on NLB alternatives, contact the AWS Transfer Family Pro
 team through AWS Support. For more information about improving your security posture,
 see the blog post [Six tips to improve the security of your AWS Transfer Family server](https://aws.amazon.com/blogs/security/six-tips-to-improve-the-security-of-your-aws-transfer-family-server/ "https://aws.amazon.com/blogs/security/six-tips-to-improve-the-security-of-your-aws-transfer-family-server/").
 
-## VPC connectivity
-
-infrastructure security
+## VPC connectivity infrastructure security
 
 SFTP connectors with VPC egress type provide enhanced infrastructure security through
 network isolation and private connectivity:
@@ -96,9 +92,7 @@ network isolation and private connectivity:
   SFTP servers through established VPN or Direct Connect connections without
   additional internet exposure.
 
-### Resource Gateway security
-
-considerations
+### Resource Gateway security considerations
 
 Resource Gateways provide secure ingress points for Cross-VPC Resource
 Access:

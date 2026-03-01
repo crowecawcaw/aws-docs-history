@@ -14,8 +14,7 @@ network, you must use secure protocols, such as SFTP or FTPS.
 
 ###### Note
 
-For important considerations about Network Load Balancers, see [Avoid placing NLBs and NATs in front of AWS Transfer Family
-servers](infrastructure-security.md#nlb-considerations "infrastructure-security.md#nlb-considerations").
+For important considerations about Network Load Balancers, see [Avoid placing NLBs and NATs in front of AWS Transfer Family servers](infrastructure-security.md#nlb-considerations "infrastructure-security.md#nlb-considerations").
 
 ###### To create an FTP-enabled server
 
@@ -31,8 +30,7 @@ servers](infrastructure-security.md#nlb-considerations "infrastructure-security.
       provide an Directory Service directory to access the endpoint. By doing so, you can
       use credentials stored in your Active Directory to authenticate your
       users. To learn more about working with AWS Managed Microsoft AD identity providers,
-      see [Using AWS Directory Service for Microsoft
-      Active Directory](directory-services-users.md "directory-services-users.md").
+      see [Using AWS Directory Service for Microsoft Active Directory](directory-services-users.md "directory-services-users.md").
 
     ###### Note
 
@@ -42,11 +40,9 @@ servers](infrastructure-security.md#nlb-considerations "infrastructure-security.
 
     - **Custom identity provider** – Choose either of the following options:
       - **Use AWS Lambda to connect your identity provider** – You can use an existing identity provider, backed by a Lambda function. You provide
-        the name of the Lambda function. For more information, see [Using AWS Lambda to integrate your identity
-        provider](custom-lambda-idp.md "custom-lambda-idp.md").
+        the name of the Lambda function. For more information, see [Using AWS Lambda to integrate your identity provider](custom-lambda-idp.md "custom-lambda-idp.md").
       - **Use Amazon API Gateway to connect your identity provider** – You can create an API Gateway method backed by a Lambda function for use as an identity provider.
-        You provide an Amazon API Gateway URL and an invocation role. For more information, see [Using Amazon API Gateway to integrate your identity
-        provider](authentication-api-gateway.md "authentication-api-gateway.md").
+        You provide an Amazon API Gateway URL and an invocation role. For more information, see [Using Amazon API Gateway to integrate your identity provider](authentication-api-gateway.md "authentication-api-gateway.md").
 
     ![The Choose an identity provider console section with Custom identity provider selected.](images/custom-lambda-console-no-sftp.png)
 

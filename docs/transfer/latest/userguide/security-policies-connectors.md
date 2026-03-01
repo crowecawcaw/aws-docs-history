@@ -1,6 +1,4 @@
-# Security policies for AWS Transfer Family SFTP
-
-connectors
+# Security policies for AWS Transfer Family SFTP connectors
 
 SFTP connector security policies in AWS Transfer Family allow you to limit the set of cryptographic
 algorithms (message authentication codes (MACs), key exchanges (KEXs), and cipher suites)
@@ -38,9 +36,7 @@ For authentication, SFTP connectors support the following key types:
 - `ssh-rsa`
 - `ecdsa`
 
-## SFTP connector security policy
-
-details
+## SFTP connector security policy details
 
 The following table shows the specific cryptographic algorithms supported by each SFTP
 connector security policy.

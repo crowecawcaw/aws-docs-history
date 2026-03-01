@@ -1,6 +1,4 @@
-# Allowing read and write access to an Amazon S3
-
-bucket
+# Allowing read and write access to an Amazon S3 bucket
 
 This section describes how to create an IAM policy that allows read and write access
 to a specific Amazon S3 bucket. Assigning an IAM role that has this IAM policy to your
@@ -48,5 +46,4 @@ permissions. Because these are different resources, they are specified using dif
 Amazon Resource Names (ARNs).
 
 To further restrict your users' access to only the `home` prefix of
-the specified Amazon S3 bucket, see [Creating a session policy for an Amazon S3
-bucket](users-policies-session.md "users-policies-session.md").
+the specified Amazon S3 bucket, see [Creating a session policy for an Amazon S3 bucket](users-policies-session.md "users-policies-session.md").

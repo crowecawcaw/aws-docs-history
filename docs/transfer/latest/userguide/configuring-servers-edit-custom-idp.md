@@ -1,6 +1,4 @@
-# Edit identity provider
-
-configuration
+# Edit identity provider configuration
 
 You can change your server's identity provider type from any type to any other type. The
 available identity provider types are:
@@ -30,9 +28,7 @@ Considerations when changing identity providers:
   identity provider has the necessary IAM permissions and roles configured
   before making the change.
 
-## Changing to service-managed identity
-
-provider
+## Changing to service-managed identity provider
 
 When changing from any other identity provider type to service-managed, you need
 to:
@@ -47,9 +43,7 @@ Example: If you're changing from a custom identity provider to service-managed, 
 need to recreate all user accounts and their associated permissions within the AWS Transfer Family
 service.
 
-## Changing to AWS Directory
-
-Service
+## Changing to AWS Directory Service
 
 When changing from any other identity provider type to AWS Directory Service, you
 need to provide:
@@ -106,9 +100,7 @@ the `TransferApiGatewayInvocationRole` IAM role, and choose
 
 ![For an API Gateway identity provider, you can update the Gateway URL or the invocation role, or both.](images/edit-server-idp-apigateway.png)
 
-### Changing from Amazon API Gateway to Lambda
-
-function
+### Changing from Amazon API Gateway to Lambda function
 
 A common transition is changing from Amazon API Gateway to Lambda function for custom
 identity provider integration. This change allows you to simplify your architecture
@@ -153,9 +145,7 @@ Example resource policy for direct Lambda integration:
 
 ```
 
-## User preservation during identity
-
-provider transitions
+## User preservation during identity provider transitions
 
 When changing between identity provider types, existing user configurations are
 preserved in specific scenarios to enable efficient rollback in case of issues:
@@ -173,9 +163,7 @@ This preservation behavior allows you to safely test custom identity provider
 configurations and roll back to your previous setup without losing user access
 configurations.
 
-## Important considerations when
-
-changing identity providers
+## Important considerations when changing identity providers
 
 - **User migration** – When changing
   identity provider types, existing user configurations are not automatically

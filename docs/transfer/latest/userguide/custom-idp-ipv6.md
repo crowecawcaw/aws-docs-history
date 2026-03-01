@@ -48,5 +48,4 @@ def lambda_handler(event, context):
 
 ```
 
-For more information about implementing custom identity providers, see [Using AWS Lambda to integrate your identity
-provider](custom-lambda-idp.md "custom-lambda-idp.md").
+For more information about implementing custom identity providers, see [Using AWS Lambda to integrate your identity provider](custom-lambda-idp.md "custom-lambda-idp.md").

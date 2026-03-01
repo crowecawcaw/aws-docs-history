@@ -18,7 +18,5 @@ SFTP connectors.
 - [Using SFTP connectors](transfer-sftp-connectors.md "transfer-sftp-connectors.md")
 - [Monitoring SFTP connectors](track-connector-progress.md "track-connector-progress.md")
 - [Managing SFTP connectors](manage-sftp-connectors.md "manage-sftp-connectors.md")
-- [Scaling and quotas for
-  SFTP connectors](scale-and-limits-sftp-connector.md "scale-and-limits-sftp-connector.md")
-- [Reference architectures using SFTP
-  connectors](reference-architectures.md "reference-architectures.md")
+- [Scaling and quotas for SFTP connectors](scale-and-limits-sftp-connector.md "scale-and-limits-sftp-connector.md")
+- [Reference architectures using SFTP connectors](reference-architectures.md "reference-architectures.md")

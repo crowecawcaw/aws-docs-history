@@ -1,6 +1,4 @@
-# Create a private connection between a VPC and AWS Transfer Family
-
-APIs
+# Create a private connection between a VPC and AWS Transfer Family APIs
 
 You can establish a private connection between your VPC and AWS Transfer Family APIs by creating an
 _interface VPC endpoint_, powered by [AWS PrivateLink](https://aws.amazon.com/privatelink/ "https://aws.amazon.com/privatelink/"). You can access AWS Transfer Family APIs as if it were
@@ -13,9 +11,7 @@ endpoint. For more information, see [Access AWS services
 through AWS PrivateLink](../../../vpc/latest/privatelink/privatelink-access-aws-services.md "../../../vpc/latest/privatelink/privatelink-access-aws-services.md") in the _AWS PrivateLink Guide_.
 Before you set up an interface VPC endpoint for AWS Transfer Family APIs, review [Considerations](../../../vpc/latest/privatelink/create-interface-endpoint.md#considerations-interface-endpoints "../../../vpc/latest/privatelink/create-interface-endpoint.md#considerations-interface-endpoints") in the _AWS PrivateLink Guide_.
 
-## Controlling access using VPC endpoint
-
-policies
+## Controlling access using VPC endpoint policies
 
 By default, full access to AWS Transfer Family APIs is allowed through the endpoint. You can
 control access to the interface endpoint using VPC endpoint policies. You can attach an
@@ -58,9 +54,7 @@ except those that are tagged with key `Environment` and value
 }
 ```
 
-## Create an interface VPC endpoint for AWS Transfer Family
-
-APIs
+## Create an interface VPC endpoint for AWS Transfer Family APIs
 
 You can create a VPC endpoint for AWS Transfer Family APIs using either the Amazon VPC console or
 the AWS Command Line Interface (AWS CLI). For more information, see [Create a VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws "../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws") in the _AWS PrivateLink

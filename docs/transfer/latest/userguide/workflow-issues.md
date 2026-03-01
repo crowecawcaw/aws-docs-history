@@ -5,8 +5,7 @@ This section describes possible solutions for issues with managed workflows.
 ###### Topics
 
 - [Troubleshoot managed workflows issues](#workflow-errors "#workflow-errors")
-- [Troubleshoot workflow decryption
-  issues](#workflows-decrypt-issues "#workflows-decrypt-issues")
+- [Troubleshoot workflow decryption issues](#workflows-decrypt-issues "#workflows-decrypt-issues")
 
 ## Troubleshoot managed workflows issues
 
@@ -14,13 +13,10 @@ This section describes possible solutions for the following workflow issues.
 
 ###### Topics
 
-- [Troubleshoot workflow-related errors
-  using Amazon CloudWatch](#workflows-cloudwatch-errors "#workflows-cloudwatch-errors")
+- [Troubleshoot workflow-related errors using Amazon CloudWatch](#workflows-cloudwatch-errors "#workflows-cloudwatch-errors")
 - [Troubleshoot workflow copy errors](#source-bucket-region "#source-bucket-region")
 
-### Troubleshoot workflow-related errors
-
-using Amazon CloudWatch
+### Troubleshoot workflow-related errors using Amazon CloudWatch
 
 Description
 
@@ -128,25 +124,18 @@ Solution
 If you're executing a workflow that includes a copy step, make sure that the
 source and destination buckets are in the same AWS Region.
 
-## Troubleshoot workflow decryption
-
-issues
+## Troubleshoot workflow decryption issues
 
 This section describes possible solutions for the following issues with encrypted
 workflows.
 
 ###### Topics
 
-- [Troubleshoot anonymous recipient
-  encryption issues](#workflows-decrypt-anonymous "#workflows-decrypt-anonymous")
-- [Troubleshoot error for signed encryption
-  file](#workflows-decrypt-signed "#workflows-decrypt-signed")
-- [Troubleshoot error for a FIPS
-  algorithm](#workflows-decrypt-fips "#workflows-decrypt-fips")
+- [Troubleshoot anonymous recipient encryption issues](#workflows-decrypt-anonymous "#workflows-decrypt-anonymous")
+- [Troubleshoot error for signed encryption file](#workflows-decrypt-signed "#workflows-decrypt-signed")
+- [Troubleshoot error for a FIPS algorithm](#workflows-decrypt-fips "#workflows-decrypt-fips")
 
-### Troubleshoot anonymous recipient
-
-encryption issues
+### Troubleshoot anonymous recipient encryption issues
 
 Description
 
@@ -203,9 +192,7 @@ gpg --version
 This information can help you ensure that you're using encryption algorithms
 compatible with Transfer Family workflows, especially when FIPS compliance is required.
 
-### Troubleshoot error for signed encryption
-
-file
+### Troubleshoot error for signed encryption file
 
 Description
 
@@ -225,9 +212,7 @@ In your PGP client, if there is an option to sign the encrypted file, make sure 
 clear the selection, as Transfer Family does not currently support signing for encrypted
 files.
 
-### Troubleshoot error for a FIPS
-
-algorithm
+### Troubleshoot error for a FIPS algorithm
 
 Description
 

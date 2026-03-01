@@ -6,8 +6,7 @@ content encryption ciphers, and hash algorithms) associated with your server.
 
 AWS Transfer Family supports post-quantum security policies that use hybrid key exchange algorithms,
 combining traditional cryptographic methods with post-quantum algorithms to provide enhanced
-security against future quantum computing threats. Details are provided in [Using hybrid post-quantum key exchange with
-AWS Transfer Family](post-quantum-security-policies.md "post-quantum-security-policies.md").
+security against future quantum computing threats. Details are provided in [Using hybrid post-quantum key exchange with AWS Transfer Family](post-quantum-security-policies.md "post-quantum-security-policies.md").
 
 For a list of supported cryptographic algorithms, see [Cryptographic algorithms](#cryptographic-algorithms "#cryptographic-algorithms"). For a
 list of supported key algorithms for use with server host keys and service-managed user
@@ -41,10 +40,8 @@ For more information on security in Transfer Family, see the following blog post
 - [TransferSecurityPolicy-SshAuditCompliant-2025-02](#security-policy-transferSecurityPolicy-SshAuditCompliant-2025-02 "#security-policy-transferSecurityPolicy-SshAuditCompliant-2025-02")
 - [TransferSecurityPolicy-2023-05](#security-policy-transfer-2023-05 "#security-policy-transfer-2023-05")
 - [TransferSecurityPolicy-2022-03](#security-policy-transfer-2022-03 "#security-policy-transfer-2022-03")
-- [TransferSecurityPolicy-2020-06 and
-  TransferSecurityPolicy-Restricted-2020-06](#security-policy-transfer-2020-06 "#security-policy-transfer-2020-06")
-- [TransferSecurityPolicy-2018-11 and
-  TransferSecurityPolicy-Restricted-2018-11](#security-policy-transfer-2018-11 "#security-policy-transfer-2018-11")
+- [TransferSecurityPolicy-2020-06 and TransferSecurityPolicy-Restricted-2020-06](#security-policy-transfer-2020-06 "#security-policy-transfer-2020-06")
+- [TransferSecurityPolicy-2018-11 and TransferSecurityPolicy-Restricted-2018-11](#security-policy-transfer-2018-11 "#security-policy-transfer-2018-11")
 - [TransferSecurityPolicy-FIPS-2024-01/TransferSecurityPolicy-FIPS-2024-05](#security-policy-transfer-fips-2024-01 "#security-policy-transfer-fips-2024-01")
 - [TransferSecurityPolicy-FIPS-2023-05](#security-policy-transfer-fips-2023-05 "#security-policy-transfer-fips-2023-05")
 - [TransferSecurityPolicy-FIPS-2020-06](#security-policy-transfer-fips-2020-06 "#security-policy-transfer-fips-2020-06")
@@ -392,9 +389,7 @@ The following shows the TransferSecurityPolicy-2022-03 security policy.
 }
 ```
 
-## TransferSecurityPolicy-2020-06 and
-
-TransferSecurityPolicy-Restricted-2020-06
+## TransferSecurityPolicy-2020-06 and TransferSecurityPolicy-Restricted-2020-06
 
 The following shows the TransferSecurityPolicy-2020-06 security policy.
 
@@ -460,9 +455,7 @@ the `chacha20-poly1305@openssh.com` cipher.
 }
 ```
 
-## TransferSecurityPolicy-2018-11 and
-
-TransferSecurityPolicy-Restricted-2018-11
+## TransferSecurityPolicy-2018-11 and TransferSecurityPolicy-Restricted-2018-11
 
 The following shows the TransferSecurityPolicy-2018-11 security policy.
 
@@ -793,8 +786,7 @@ SHA-1.
 ## Post Quantum security policies
 
 This table lists the algorithms for the Transfer Family post quantum security policies. These
-polices are described in detail in [Using hybrid post-quantum key exchange with
-AWS Transfer Family](post-quantum-security-policies.md "post-quantum-security-policies.md").
+polices are described in detail in [Using hybrid post-quantum key exchange with AWS Transfer Family](post-quantum-security-policies.md "post-quantum-security-policies.md").
 
 The policy listings follow the table.
 

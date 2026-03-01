@@ -10,10 +10,8 @@ function is used to process the output file from the previous step.
 
 ###### Note
 
-For an example Lambda function, see [Example Lambda function for a custom
-workflow step](#example-workflow-lambda "#example-workflow-lambda"). For example events (including the
-location for files passed into the Lambda), see [Example events sent to AWS Lambda upon
-file upload](#example-workflow-lambdas "#example-workflow-lambdas").
+For an example Lambda function, see [Example Lambda function for a custom workflow step](#example-workflow-lambda "#example-workflow-lambda"). For example events (including the
+location for files passed into the Lambda), see [Example events sent to AWS Lambda upon file upload](#example-workflow-lambdas "#example-workflow-lambdas").
 
 With a custom workflow step, you must configure the Lambda function to call the [SendWorkflowStepState](../APIReference/API_SendWorkflowStepState.md "../APIReference/API_SendWorkflowStepState.md") API operation. `SendWorkflowStepState`
 notifies the workflow execution that the step was completed with either a success or a
@@ -48,9 +46,7 @@ can be either `SUCCESS` or `FAILURE`.
 To be able to call the `SendWorkflowStepState` API operation from your
 Lambda function, you must use a version of the AWS SDK that was published after [Managed Workflows were introduced](doc-history.md#workflows-introduced "doc-history.md#workflows-introduced").
 
-## Using multiple Lambda functions
-
-consecutively
+## Using multiple Lambda functions consecutively
 
 When you use multiple custom steps one after the other, the **File
 location** option works differently than if you use only a single
@@ -67,9 +63,7 @@ predefined step is configured to use the `previous.file` setting, the
 predefined step uses the same input file that's used by the custom step. The
 processed file from the custom step is not passed to the predefined step.
 
-## Accessing a file after custom
-
-processing
+## Accessing a file after custom processing
 
 If you're using Amazon S3 as your storage, and if your workflow includes a custom step
 that performs actions on the originally uploaded file, subsequent steps cannot
@@ -116,9 +110,7 @@ file.
 This behavior doesn't occur if you're using Amazon EFS because Amazon EFS doesn't use
 entity tags to identify files.
 
-## Example events sent to AWS Lambda upon
-
-file upload
+## Example events sent to AWS Lambda upon file upload
 
 The following examples show the events that are sent to AWS Lambda when a file
 upload is complete. One example uses a Transfer Family server where the domain is configured
@@ -174,9 +166,7 @@ Custom step that uses an Amazon EFS domain
 }
 ```
 
-## Example Lambda function for a custom
-
-workflow step
+## Example Lambda function for a custom workflow step
 
 The following Lambda function extracts the information regarding the execution
 status, and then calls the [SendWorkflowStepState](../APIReference/API_SendWorkflowStepState.md "../APIReference/API_SendWorkflowStepState.md") API operation to return the status to the

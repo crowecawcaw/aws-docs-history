@@ -1,6 +1,4 @@
-# Create an SFTP connector with
-
-service-managed egress
+# Create an SFTP connector with service-managed egress
 
 This procedure explains how to create SFTP connectors by using the AWS Transfer Family console or
 AWS CLI.
@@ -158,8 +156,7 @@ Console
      dropdown list, choose the name of a secret in AWS Secrets Manager that
      contains the SFTP user's private key or password. You must
      create a secret and store it in a specific manner. For details,
-     see [Store authentication credentials
-     for SFTP connectors in Secrets Manager](sftp-connector-secret-procedure.md "sftp-connector-secret-procedure.md") .
+     see [Store authentication credentials for SFTP connectors in Secrets Manager](sftp-connector-secret-procedure.md "sftp-connector-secret-procedure.md").
     * (Optional) You have an option to create your connector while
      leaving the `TrustedHostKeys` parameter empty.
      However, your connector will not be able to transfer files with
@@ -227,8 +224,7 @@ Console
    the **Security Policy** field. The security policy
    enables you to select the cryptographic algorithms that your connector
    supports. For details on the available security policies and algorithms,
-   see [Security policies for AWS Transfer Family SFTP
-   connectors](security-policies-connectors.md "security-policies-connectors.md").
+   see [Security policies for AWS Transfer Family SFTP connectors](security-policies-connectors.md "security-policies-connectors.md").
 8. (Optional) In the **Tags** section, for
    **Key** and **Value**, enter one
    or more tags as key-value pairs.

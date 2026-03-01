@@ -7,11 +7,9 @@ documentation for this feature, see [Transfer Family web apps](web-app.md "web-a
 ## Web app tutorial: prerequisites
 
 - Create either an account instance or organization instance of AWS IAM Identity Center. For
-  details, see [Configure your identity provider for Transfer Family web
-  apps](webapp-identity-center.md "webapp-identity-center.md").
+  details, see [Configure your identity provider for Transfer Family web apps](webapp-identity-center.md "webapp-identity-center.md").
 
-If you are not using IAM Identity Center as your identity provider, [Integrate Okta as your identity provider for web
-apps](#web-tutorial-okta "#web-tutorial-okta") illustrates
+If you are not using IAM Identity Center as your identity provider, [Integrate Okta as your identity provider for web apps](#web-tutorial-okta "#web-tutorial-okta") illustrates
 how to use an alternative (in this case Okta) identity provider.
 
 - You need an Amazon S3 bucket to use for interacting with your Transfer Family web app. For
@@ -20,16 +18,13 @@ how to use an alternative (in this case Okta) identity provider.
 ###### Note
 
 This tutorial assumes that you are using the IAM Identity Center directory for your identity
-provider, If that is not the case, see [Configure your identity provider for Transfer Family web
-apps](webapp-identity-center.md "webapp-identity-center.md") before proceeding with this
+provider, If that is not the case, see [Configure your identity provider for Transfer Family web apps](webapp-identity-center.md "webapp-identity-center.md") before proceeding with this
 tutorial.
 
 After you complete the tutorial, your user can log in and interact with the web app that
 you create.
 
-## Step 1: Create the necessary supporting
-
-resources
+## Step 1: Create the necessary supporting resources
 
 You need to add a user to your IAM Identity Center directory. You also need two roles: one to use as
 an identity bearer role for your web app, and a second to use for configuring an Amazon S3
@@ -97,9 +92,7 @@ files for your logo and favicon.
 To provide a branded experience, you can provide a custom URL for your users to access
 your Transfer Family web app. For details, see [Update your access endpoint with a custom URL](webapp-customize.md "webapp-customize.md").
 
-## Step 3: Configure Cross-origin resource sharing
-
-(CORS) for your bucket
+## Step 3: Configure Cross-origin resource sharing (CORS) for your bucket
 
 You must set up cross-origin resource sharing (CORS) for all buckets that are used by
 your web app. A _CORS configuration_ is a document that
@@ -185,9 +178,7 @@ Add the user that you previously created in IAM Identity Center.
     2. Choose the `Bob Stiles` user, then choose
      **Assign**.
 
-## Step 5: Register a location in Amazon S3 and create an
-
-access grant
+## Step 5: Register a location in Amazon S3 and create an access grant
 
 After you assign a user to your web app, you need to register a bucket and create an
 access grant for that user.
@@ -274,12 +265,9 @@ includes customization for the favicon and logo.
 
 ## Next steps
 
-You have successfully set up a basic Transfer Family web app with standard S3 bucket access. If you need more granular control over bucket permissions, such as allowing users to download from one bucket and upload to another, see [Tutorial: Setting up AWS Transfer Family web app with selective
-multi-bucket access](webapp-s3-tutorial.md "webapp-s3-tutorial.md").
+You have successfully set up a basic Transfer Family web app with standard S3 bucket access. If you need more granular control over bucket permissions, such as allowing users to download from one bucket and upload to another, see [Tutorial: Setting up AWS Transfer Family web app with selective multi-bucket access](webapp-s3-tutorial.md "webapp-s3-tutorial.md").
 
-## Integrate Okta as your identity provider for web
-
-apps
+## Integrate Okta as your identity provider for web apps
 
 You can integrate an external identity provider with Transfer Family web apps. This section
 describes how to set up Okta as your identity provider.

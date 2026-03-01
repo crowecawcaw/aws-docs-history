@@ -4,19 +4,14 @@ This section describes possible solutions for issues with SFTP connectors.
 
 ###### Topics
 
-- [Troubleshoot adding trusted host keys for your
-  SFTP connector](#sftp-connector-keys "#sftp-connector-keys")
+- [Troubleshoot adding trusted host keys for your SFTP connector](#sftp-connector-keys "#sftp-connector-keys")
 - [Key negotiation fails](#sftp-connector-issue-kex "#sftp-connector-issue-kex")
 - [SFTP connector throttling](#sftp-connector-throttling "#sftp-connector-throttling")
-- [Optimizing SFTP connector
-  performance](#sftp-connector-performance "#sftp-connector-performance")
-- [Troubleshoot VPC connectivity
-  issues](#sftp-connector-vpc-troubleshooting "#sftp-connector-vpc-troubleshooting")
+- [Optimizing SFTP connector performance](#sftp-connector-performance "#sftp-connector-performance")
+- [Troubleshoot VPC connectivity issues](#sftp-connector-vpc-troubleshooting "#sftp-connector-vpc-troubleshooting")
 - [Miscellaneous SFTP connector issues](#sftp-connector-issue-misc "#sftp-connector-issue-misc")
 
-## Troubleshoot adding trusted host keys for your
-
-SFTP connector
+## Troubleshoot adding trusted host keys for your SFTP connector
 
 Description
 
@@ -66,8 +61,7 @@ the server and those supported by the connector.
 Solution
 
 Ensure that the remote server supports at least one of the Client host key algorithms
-listed in the error message. For the list of supported algorithms, see [Security policies for AWS Transfer Family SFTP
-connectors](security-policies-connectors.md "security-policies-connectors.md").
+listed in the error message. For the list of supported algorithms, see [Security policies for AWS Transfer Family SFTP connectors](security-policies-connectors.md "security-policies-connectors.md").
 
 ## SFTP connector throttling
 
@@ -103,14 +97,11 @@ To address SFTP connector issues, try the following solutions:
    - Use CloudWatch metrics to track API usage.
    - Set up alarms to notify you when approaching quota limits.
 
-4. For options to scale your SFTP connectors, see [Scaling your SFTP
-   connectors](scale-and-limits-sftp-connector.md#scaling-sftp-connector "scale-and-limits-sftp-connector.md#scaling-sftp-connector").
+4. For options to scale your SFTP connectors, see [Scaling your SFTP connectors](scale-and-limits-sftp-connector.md#scaling-sftp-connector "scale-and-limits-sftp-connector.md#scaling-sftp-connector").
 5. If throttling persists and impacts your business operations, request a quota
    increase through the Service Quotas console.
 
-## Optimizing SFTP connector
-
-performance
+## Optimizing SFTP connector performance
 
 Description
 
@@ -138,16 +129,12 @@ To optimize SFTP connector performance:
   - Monitor network throughput and latency
   - Analyze logs for patterns in slow transfers
 
-## Troubleshoot VPC connectivity
-
-issues
+## Troubleshoot VPC connectivity issues
 
 This section describes solutions for common issues with VPC_LATTICE-enabled SFTP
 connectors.
 
-### Connector stuck in PENDING
-
-status
+### Connector stuck in PENDING status
 
 Description
 
@@ -210,9 +197,7 @@ aws transfer describe-connector --connector-id `c-1234567890abcdef0`
 4. Check that your Resource Configuration target (IP address or DNS name) is
    reachable from your VPC.
 
-### Public IP address not supported
-
-error
+### Public IP address not supported error
 
 Description
 
@@ -238,9 +223,7 @@ aws vpc-lattice create-resource-configuration \
     --port-ranges 22
 ```
 
-### Availability Zone not supported
-
-error
+### Availability Zone not supported error
 
 Description
 
@@ -260,9 +243,7 @@ Solution
    only.
 3. Ensure you have at least two subnets in different supported AZs.
 
-### Connection timeouts with
-
-VPC_LATTICE connectors
+### Connection timeouts with VPC_LATTICE connectors
 
 Description
 
@@ -301,7 +282,6 @@ Solution
   test fails, the system provides an error message based on the reason the test
   failed. That section describes how to test your connector from either the
   console or by using the [TestConnection](../APIReference/API_TestConnection.md "../APIReference/API_TestConnection.md") API command.
-- **View CloudWatch logs for your connector**: See [Example log entries for SFTP
-  connectors](cw-example-logs.md#example-sftp-connector-logs "cw-example-logs.md#example-sftp-connector-logs"). This topic provides examples
+- **View CloudWatch logs for your connector**: See [Example log entries for SFTP connectors](cw-example-logs.md#example-sftp-connector-logs "cw-example-logs.md#example-sftp-connector-logs"). This topic provides examples
   for SFTP connector log entries, and the naming convention to help you find the
   appropriate logs.

@@ -7,8 +7,7 @@ This section describes possible solutions for issues with AS2 transfers.
 - [Troubleshoot AS2 issues](#as2-troubleshooting-issues "#as2-troubleshooting-issues")
 - [AS2 certificate issues](#as2-certificate-issues "#as2-certificate-issues")
 - [AS2 MDN receipt issues](#as2-mdn-issues "#as2-mdn-issues")
-- [Certificate expiration
-  monitoring issues](#certificate-expiration-troubleshooting "#certificate-expiration-troubleshooting")
+- [Certificate expiration monitoring issues](#certificate-expiration-troubleshooting "#certificate-expiration-troubleshooting")
 
 ## Troubleshoot AS2 issues
 
@@ -61,16 +60,12 @@ Consider these solutions:
 - Review AS2 logs for any errors related to MDN processing
 - If using synchronous MDNs, verify that timeouts are set appropriately
 
-## Certificate expiration
-
-monitoring issues
+## Certificate expiration monitoring issues
 
 This section provides solutions for common issues related to certificate expiration
 monitoring and the DaysUntilExpiry metric.
 
-### DaysUntilExpiry metric not
-
-appearing
+### DaysUntilExpiry metric not appearing
 
 **Problem:** The DaysUntilExpiry metric is not
 visible in Amazon CloudWatch after importing a certificate.
@@ -82,9 +77,7 @@ visible in Amazon CloudWatch after importing a certificate.
 - Ensure you're looking in the correct AWS region and under the
   `AWS/Transfer` namespace in CloudWatch.
 
-### Certificate
-
-expiration alarms not triggering
+### Certificate expiration alarms not triggering
 
 **Problem:** CloudWatch alarms for certificate expiration
 are not triggering when expected.

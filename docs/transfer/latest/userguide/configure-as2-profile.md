@@ -12,8 +12,7 @@ profile_ defines the remote partner organization, external to Transfer Family.
 5. [Configure AS2 connectors](configure-as2-connector.md "configure-as2-connector.md")
    Use this procedure to create both local and partner profiles. This procedure explains
    how to create AS2 profiles by using the Transfer Family console. If you want to use the AWS CLI
-   instead, see [Step 3: Create profiles for you and
-   your trading partner](as2-example-tutorial.md#as2-create-profiles-example "as2-example-tutorial.md#as2-create-profiles-example").
+   instead, see [Step 3: Create profiles for you and your trading partner](as2-example-tutorial.md#as2-create-profiles-example "as2-example-tutorial.md#as2-create-profiles-example").
 
 ###### To create an AS2 profile
 

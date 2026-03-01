@@ -1,13 +1,9 @@
-# AWS Transfer Family tag-based policy
-
-examples
+# AWS Transfer Family tag-based policy examples
 
 The following are examples of how to control access to AWS Transfer Family resources based on
 tags.
 
-## Using tags to control access to AWS Transfer Family
-
-resources
+## Using tags to control access to AWS Transfer Family resources
 
 Conditions in IAM policies are part of the syntax that you use to specify permissions to
 AWS Transfer Family resources. You can control access to AWS Transfer Family resources (such as users, servers,
@@ -37,9 +33,7 @@ Guide_. For details about specifying IAM policies with API Gateway, see [Control
 access to an API with IAM permissions](../../../apigateway/latest/developerguide/permissions.md "../../../apigateway/latest/developerguide/permissions.md") in the
 _API Gateway Developer Guide_.
 
-### Example 1: Deny actions based on
-
-resource tags
+### Example 1: Deny actions based on resource tags
 
 You can deny an action to be performed on a resource based on tags. The following
 example policy denies `TagResource`, `UntagResource`,
@@ -73,9 +67,7 @@ the key `stage` and the value `prod`.
 
 ```
 
-### Example 2: Allow actions based on
-
-resource tags
+### Example 2: Allow actions based on resource tags
 
 You can allow an action to be performed on a resource based on tags. The following
 example policy allows `TagResource`, `UntagResource`,
@@ -109,9 +101,7 @@ the key `stage` and the value `prod`.
 
 ```
 
-### Example 3: Deny creation of a user
-
-or server based on request tags
+### Example 3: Deny creation of a user or server based on request tags
 
 The following example policy contains two statements. The first statement denies the
 `CreateServer` operation on all resources if the cost center key for the

@@ -1,6 +1,4 @@
-# Assign or add users or groups to a Transfer Family
-
-web app
+# Assign or add users or groups to a Transfer Family web app
 
 After you create a Transfer Family web app, you can assign users and groups who can then
 access the web app. You can either retrieve users that are already created and

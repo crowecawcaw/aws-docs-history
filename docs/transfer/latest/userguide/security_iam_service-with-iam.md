@@ -8,17 +8,12 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [AWS Transfer Family
-  identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [AWS Transfer Family
-  resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
-- [Authorization based on AWS Transfer Family
-  tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [AWS Transfer Family identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [AWS Transfer Family resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
+- [Authorization based on AWS Transfer Family tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
 - [AWS Transfer Family IAM roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
 
-## AWS Transfer Family
-
-identity-based policies
+## AWS Transfer Family identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources as well as the conditions under which actions are allowed or denied.
@@ -136,14 +131,10 @@ _Service Authorization Reference_.
 
 ### Examples
 
-To view examples of AWS Transfer Family identity-based policies, see [AWS Transfer Family identity-based policy
-examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"). For VPC
-endpoint-specific IAM policies, see [Limiting VPC endpoint access for Transfer Family
-servers](create-server-in-vpc.md#limit-vpc-endpoint-access "create-server-in-vpc.md#limit-vpc-endpoint-access").
+To view examples of AWS Transfer Family identity-based policies, see [AWS Transfer Family identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"). For VPC
+endpoint-specific IAM policies, see [Limiting VPC endpoint access for Transfer Family servers](create-server-in-vpc.md#limit-vpc-endpoint-access "create-server-in-vpc.md#limit-vpc-endpoint-access").
 
-## AWS Transfer Family
-
-resource-based policies
+## AWS Transfer Family resource-based policies
 
 Resource-based policies are JSON policy documents that specify what actions a
 specified principal can perform on the AWS Transfer Family resource and under what conditions.
@@ -173,12 +164,9 @@ on the object.
 
 ### Examples
 
-To view examples of AWS Transfer Family resource-based policies, see [AWS Transfer Family tag-based policy
-examples](security_iam_tag-based-policy-examples.md "security_iam_tag-based-policy-examples.md").
+To view examples of AWS Transfer Family resource-based policies, see [AWS Transfer Family tag-based policy examples](security_iam_tag-based-policy-examples.md "security_iam_tag-based-policy-examples.md").
 
-## Authorization based on AWS Transfer Family
-
-tags
+## Authorization based on AWS Transfer Family tags
 
 You can attach tags to AWS Transfer Family resources or pass tags in a request to AWS Transfer Family.
 To control access based on tags, you provide tag information in the [condition
@@ -186,8 +174,7 @@ element](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md 
 `transfer:ResourceTag/`key-name``,
  `aws:RequestTag/`key-name``, or
 `aws:TagKeys` condition keys. For information about how to use tags
-to control access to AWS Transfer Family resources, see [AWS Transfer Family tag-based policy
-examples](security_iam_tag-based-policy-examples.md "security_iam_tag-based-policy-examples.md").
+to control access to AWS Transfer Family resources, see [AWS Transfer Family tag-based policy examples](security_iam_tag-based-policy-examples.md "security_iam_tag-based-policy-examples.md").
 
 ## AWS Transfer Family IAM roles
 
@@ -195,9 +182,7 @@ An [IAM
 role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within your AWS account that has specific
 permissions.
 
-### Using temporary
-
-credentials with AWS Transfer Family
+### Using temporary credentials with AWS Transfer Family
 
 You can use temporary credentials to sign in with federation, assume an IAM
 role, or to assume a cross-account role. You obtain temporary security

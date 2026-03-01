@@ -7,13 +7,10 @@ with service-managed authentication, and transfer a file with Cyberduck.
 ###### Topics
 
 - [Prerequisites](#getting-started-prerequisites "#getting-started-prerequisites")
-- [Step 1: Sign in to the AWS Transfer Family
-  console](#getting-started-logging-in "#getting-started-logging-in")
-- [Step 2: Create an SFTP-enabled
-  server](#getting-started-server "#getting-started-server")
+- [Step 1: Sign in to the AWS Transfer Family console](#getting-started-logging-in "#getting-started-logging-in")
+- [Step 2: Create an SFTP-enabled server](#getting-started-server "#getting-started-server")
 - [Step 3: Add a service managed user](#getting-started-user "#getting-started-user")
-- [Step 4: Transfer a file using a
-  client](#getting-started-transfer-file "#getting-started-transfer-file")
+- [Step 4: Transfer a file using a client](#getting-started-transfer-file "#getting-started-transfer-file")
 
 ## Prerequisites
 
@@ -40,8 +37,7 @@ To use the Transfer Family console, you require the following:
   **ec2:CreateVpcEndpoint** and
   **ec2:DeleteVpcEndpoints** to your policy. For
   information about limiting VPC endpoint access for security purposes, see
-  [Limiting VPC endpoint access for Transfer Family
-  servers](create-server-in-vpc.md#limit-vpc-endpoint-access "create-server-in-vpc.md#limit-vpc-endpoint-access").
+  [Limiting VPC endpoint access for Transfer Family servers](create-server-in-vpc.md#limit-vpc-endpoint-access "create-server-in-vpc.md#limit-vpc-endpoint-access").
 
 ###### Note
 
@@ -53,9 +49,7 @@ AWS managed policies, which are standard policies that are available to all
 AWS customers. You can view the individual permissions in these policies and
 determine a minimal set that you need for your purposes.
 
-## Step 1: Sign in to the AWS Transfer Family
-
-console
+## Step 1: Sign in to the AWS Transfer Family console
 
 ###### To sign in to Transfer Family
 
@@ -68,9 +62,7 @@ console
    password.
 5. Choose **Sign in**.
 
-## Step 2: Create an SFTP-enabled
-
-server
+## Step 2: Create an SFTP-enabled server
 
 Secure Shell (SSH) File Transfer Protocol (SFTP) is a network protocol used for
 secure transfer of data over the internet. The protocol supports the full security
@@ -163,13 +155,10 @@ you chose.
 The new user appears in the **Users** section of the
 **Server details** page.
 
-## Step 4: Transfer a file using a
-
-client
+## Step 4: Transfer a file using a client
 
 You transfer files over the AWS Transfer Family service by specifying the transfer operation
-in a client. AWS Transfer Family supports several clients. For details, see [Transferring files over a server endpoint using a
-client](transfer-file.md "transfer-file.md")
+in a client. AWS Transfer Family supports several clients. For details, see [Transferring files over a server endpoint using a client](transfer-file.md "transfer-file.md")
 
 This section contains procedures for using Cyberduck and OpenSSH.
 
@@ -189,8 +178,7 @@ This section contains procedures for using Cyberduck and OpenSSH.
    **SFTP (SSH File Transfer Protocol)**.
 4. For **Server**, enter your server endpoint. The
    server endpoint is located on the **Server details**
-   page, see [View SFTP, FTPS, and FTP server
-   details](configuring-servers-view-info.md "configuring-servers-view-info.md").
+   page, see [View SFTP, FTPS, and FTP server details](configuring-servers-view-info.md "configuring-servers-view-info.md").
 5. For **Port number**, enter `22`
    for SFTP.
 6. For **Username**, enter the name for the user that
@@ -218,9 +206,7 @@ OpenSSH.
 
 This client works only with an SFTP-enabled server.
 
-###### To transfer files over AWS Transfer Family using the OpenSSH command line
-
-utility
+###### To transfer files over AWS Transfer Family using the OpenSSH command line utility
 
 1. On Linux or Macintosh, open a command terminal.
 2. At the prompt, enter the following command: `% sftp -i

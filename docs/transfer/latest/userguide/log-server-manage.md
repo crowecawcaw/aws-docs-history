@@ -1,6 +1,4 @@
-# Creating, updating, and viewing logging for
-
-servers
+# Creating, updating, and viewing logging for servers
 
 For all AWS Transfer Family servers, we provide structured logging. We recommend that you use
 structured logging for all new and existing Transfer Family servers. Benefits of using structured

@@ -1,17 +1,11 @@
-# Scaling and quotas for
-
-SFTP connectors
+# Scaling and quotas for SFTP connectors
 
 ###### Topics
 
-- [Quotas for SFTP
-  connectors](#limits-sftp-connector "#limits-sftp-connector")
-- [Scaling your SFTP
-  connectors](#scaling-sftp-connector "#scaling-sftp-connector")
+- [Quotas for SFTP connectors](#limits-sftp-connector "#limits-sftp-connector")
+- [Scaling your SFTP connectors](#scaling-sftp-connector "#scaling-sftp-connector")
 
-## Quotas for SFTP
-
-connectors
+## Quotas for SFTP connectors
 
 The following quotas are in place for SFTP connectors.
 
@@ -39,8 +33,7 @@ concurrent sessions with remote servers that support concurrent sessions from th
 user, and process up to 5 files in parallel.
 
 To enable concurrent connections for any connector, you can edit the **Maximum conncurent connections** setting when creating or updating a connector.
-For details, see [Create an SFTP connector with
-service-managed egress](create-sftp-connector-procedure.md "create-sftp-connector-procedure.md").
+For details, see [Create an SFTP connector with service-managed egress](create-sftp-connector-procedure.md "create-sftp-connector-procedure.md").
 
 For storing the credentials for SFTP connectors, there are quotas associated with
 each Secrets Manager secret. If you use the same secret to store multiple types of keys, for
@@ -54,9 +47,7 @@ multiple purposes, you may encounter these quotas.
 - Maximum length of the `Username` string: 100
   characters
 
-## Scaling your SFTP
-
-connectors
+## Scaling your SFTP connectors
 
 This section describes considerations for how to scale your AWS Transfer Family SFTP
 connector workloads. You need to take into account the following three quotas that
@@ -95,8 +86,7 @@ sessions with remote servers that support concurrent sessions from the same
 user, and process up to 5 files in parallel. When you create an SFTP
 connector, choose a value up to 5 for the **Maximum concurrent
 connections** setting when you create or update the connector.
-For details, see [Create an SFTP connector with
-service-managed egress](create-sftp-connector-procedure.md "create-sftp-connector-procedure.md").
+For details, see [Create an SFTP connector with service-managed egress](create-sftp-connector-procedure.md "create-sftp-connector-procedure.md").
 
 - **The rate of `StartFileTransfer`
   requests.** You can request up to 100 file paths per second for

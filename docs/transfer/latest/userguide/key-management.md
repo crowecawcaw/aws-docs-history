@@ -12,12 +12,9 @@ AWS Transfer Family accepts RSA, ECDSA, and ED25519 keys for SSH authentication.
 This section also covers how to generate and manage Pretty Good Privacy (PGP) keys.
 
 For a comprehensive overview of all supported encryption and key algorithms, including
-recommendations for different use cases, see [Encryption and key algorithms
-overview](#encryption-algorithms-overview "#encryption-algorithms-overview").
+recommendations for different use cases, see [Encryption and key algorithms overview](#encryption-algorithms-overview "#encryption-algorithms-overview").
 
-## Encryption and key algorithms
-
-overview
+## Encryption and key algorithms overview
 
 AWS Transfer Family supports different types of algorithms for different purposes. Understanding
 which algorithms to use for your specific use case helps ensure secure and compatible
@@ -75,9 +72,7 @@ Choosing the right SSH algorithm
 - **For modern environments:** ED25519 offers
   excellent security and performance
 
-## PGP encryption and decryption
-
-algorithms
+## PGP encryption and decryption algorithms
 
 PGP (Pretty Good Privacy) uses two types of algorithms working together to encrypt and
 decrypt files in workflows:
@@ -118,9 +113,7 @@ implementations.
 
 For detailed instructions on generating PGP keys, see [Generate PGP keys](generate-pgp-keys.md "generate-pgp-keys.md").
 
-### PGP symmetric encryption
-
-algorithms
+### PGP symmetric encryption algorithms
 
 These algorithms encrypt your actual file data. The algorithm used depends on how
 the PGP file was created by your PGP software:
@@ -145,5 +138,4 @@ workflows - it's determined by the PGP software used to create the encrypted
 file. However, you can configure your PGP software to prefer FIPS-compliant
 algorithms like AES-256.
 
-For more information about supported symmetric algorithms, see [Supported symmetric encryption
-algorithms](nominal-steps-workflow.md#symmetric-algorithms "nominal-steps-workflow.md#symmetric-algorithms").
+For more information about supported symmetric algorithms, see [Supported symmetric encryption algorithms](nominal-steps-workflow.md#symmetric-algorithms "nominal-steps-workflow.md#symmetric-algorithms").

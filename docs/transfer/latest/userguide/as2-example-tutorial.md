@@ -18,40 +18,34 @@ _AWS Command Line Interface User Guide_.
 
 This process is described in [Step 1: Create certificates for AS2](#as2-create-certs "#as2-create-certs"). 2. Import the certificates that you created in step 1.
 
-This process is described in [Step 2: Import certificates as Transfer Family
-certificate resources](#as2-import-certs-example "#as2-import-certs-example"). 3. To set up your trading partners, create a local profile and a partner
+This process is described in [Step 2: Import certificates as Transfer Family certificate resources](#as2-import-certs-example "#as2-import-certs-example"). 3. To set up your trading partners, create a local profile and a partner
 profile.
 
-This process is described in [Step 3: Create profiles for you and
-your trading partner](#as2-create-profiles-example "#as2-create-profiles-example"). 4. Create an AWS Transfer Family server that uses the AS2 protocol. Optionally, you can add
+This process is described in [Step 3: Create profiles for you and your trading partner](#as2-create-profiles-example "#as2-create-profiles-example"). 4. Create an AWS Transfer Family server that uses the AS2 protocol. Optionally, you can add
 an Elastic IP address to the server to make it internet-facing.
 
-This process is described in [Step 4: Create a Transfer Family server that uses the AS2
-protocol](#as2-example-server "#as2-example-server").
+This process is described in [Step 4: Create a Transfer Family server that uses the AS2 protocol](#as2-example-server "#as2-example-server").
 
 ###### Note
 
 You must create a Transfer Family server for inbound transfers only. If you're
 performing only outbound transfers, you don't need a Transfer Family server. 5. Create an agreement between you and your trading partner.
 
-This process is described in [Step 5: Create an agreement between
-you and your partner](#as2-create-agreement-example "#as2-create-agreement-example").
+This process is described in [Step 5: Create an agreement between you and your partner](#as2-create-agreement-example "#as2-create-agreement-example").
 
 ###### Note
 
 You must create an agreement for inbound transfers only. If you're
 performing only outbound transfers, you don't need an agreement. 6. Create a connector between you and your trading partner.
 
-This process is described in [Step 6: Create a connector between
-you and your partner](#as2-create-connector-example "#as2-create-connector-example").
+This process is described in [Step 6: Create a connector between you and your partner](#as2-create-connector-example "#as2-create-connector-example").
 
 ###### Note
 
 You must create a connector for outbound transfers only. If you're
 performing only inbound transfers, you don't need a connector. 7. Test an AS2 file exchange.
 
-This process is described in [Step 7: Test exchanging files over AS2 by using
-Transfer Family](#as2-test-config "#as2-test-config").
+This process is described in [Step 7: Test exchanging files over AS2 by using Transfer Family](#as2-test-config "#as2-test-config").
 After you complete these steps, you can do the following:
 
 - Send files to a remote AS2-enabled partner server with the Transfer Family
@@ -191,9 +185,7 @@ root-ca.pem -CAkey root-ca-key.pem -extfile signing-cert.conf
 -CA root-ca.pem -CAkey root-ca-key.pem -extfile encryption-cert.conf
 ```
 
-## Step 2: Import certificates as Transfer Family
-
-certificate resources
+## Step 2: Import certificates as Transfer Family certificate resources
 
 This procedure explains how to import certificates by using the AWS CLI. If you want
 to use the Transfer Family console instead, see [Import AS2 certificates](managing-as2-partners.md#configure-as2-certificate "managing-as2-partners.md#configure-as2-certificate").
@@ -263,9 +255,7 @@ This command returns your partner's signing `CertificateId`. In the
 next section, this certificate ID is referred to as
 `partner-signing-cert-id`.
 
-## Step 3: Create profiles for you and
-
-your trading partner
+## Step 3: Create profiles for you and your trading partner
 
 This procedure explains how to create AS2 profiles by using AWS CLI. If you want to
 use the Transfer Family console instead, see [Create AS2 profiles](configure-as2-profile.md "configure-as2-profile.md").
@@ -300,9 +290,7 @@ In the previous commands, replace `MYCORP` with the
 name of your organization, and `PARTNER-COMPANY` with
 the name of your trading partner's organization.
 
-## Step 4: Create a Transfer Family server that uses the AS2
-
-protocol
+## Step 4: Create a Transfer Family server that uses the AS2 protocol
 
 This procedure explains how to create an AS2-enabled server by using the Transfer Family
 AWS CLI.
@@ -313,8 +301,7 @@ Many of the example steps use commands that load parameters from a file.
 For more details about using files to load parameters, see
 [How to load parameters from a file](../../../cli/latest/userguide/cli-usage-parameters-file.md "../../../cli/latest/userguide/cli-usage-parameters-file.md").
 
-If you want to use the console instead, see [Create an AS2 server using the Transfer Family
-console](create-as2-transfer-server.md#create-server-as2-console "create-as2-transfer-server.md#create-server-as2-console").
+If you want to use the console instead, see [Create an AS2 server using the Transfer Family console](create-as2-transfer-server.md#create-server-as2-console "create-as2-transfer-server.md#create-server-as2-console").
 
 Similar to how you create an SFTP or FTPS AWS Transfer Family server, you create an
 AS2-enabled server by using the `--protocols AS2` parameter of the
@@ -462,9 +449,7 @@ Even though the logging role is optional, we highly recommend setting
 it up so that you can see the status of your messages and troubleshoot
 configuration issues.
 
-## Step 5: Create an agreement between
-
-you and your partner
+## Step 5: Create an agreement between you and your partner
 
 This procedure explains how to create AS2 agreements by using the AWS CLI. If you
 want to use the Transfer Family console instead, see [Create an AS2 agreement](create-as2-transfer-server.md#as2-agreements "create-as2-transfer-server.md#as2-agreements").
@@ -541,9 +526,7 @@ the details of the agreement with the following command.
 aws transfer describe-agreement --agreement-id `agreement-id` --server-id `your-server-id`
 ```
 
-## Step 6: Create a connector between
-
-you and your partner
+## Step 6: Create a connector between you and your partner
 
 This procedure explains how to create AS2 connectors by using the AWS CLI. If you
 want to use the Transfer Family console instead, see [Configure AS2 connectors](configure-as2-connector.md "configure-as2-connector.md").
@@ -590,13 +573,9 @@ aws transfer create-connector --url "http://`partner-as2-server-url`" \
 --as2-config file:///`path/to`/testAS2Config.json
 ```
 
-## Step 7: Test exchanging files over AS2 by using
+## Step 7: Test exchanging files over AS2 by using Transfer Family
 
-Transfer Family
-
-### Receive a file from your trading
-
-partner
+### Receive a file from your trading partner
 
 If you associated a public Elastic IP address with your VPC endpoint, Transfer Family
 automatically created a DNS name that contains your public IP address. The
@@ -646,8 +625,7 @@ http://vpce-0123456789abcdefg-fghij123.vpce-svc-11111aaaa2222bbbb.us-east-1.vpce
 
 In this example, successful transfers are stored at the location that's
 specified in the `base-directory` parameter that you specified in
-[Step 5: Create an agreement between
-you and your partner](#as2-create-agreement-example "#as2-create-agreement-example"). If we successfully receive
+[Step 5: Create an agreement between you and your partner](#as2-create-agreement-example "#as2-create-agreement-example"). If we successfully receive
 files named `myfile1.txt` and
 `myfile2.txt`, the files are stored as
 `/`path-defined-in-the-agreement`/processed/`original_filename.messageId.original_extension``.

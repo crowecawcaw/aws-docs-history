@@ -1,6 +1,4 @@
-# Tutorial: Setting up AWS Transfer Family web app with selective
-
-multi-bucket access
+# Tutorial: Setting up AWS Transfer Family web app with selective multi-bucket access
 
 This tutorial guides you through configuring a Transfer Family web app with specific Amazon S3 bucket
 permissions for a single user. You'll learn how to set up a solution that allows users to
@@ -61,16 +59,12 @@ files for your logo and favicon.
 8. Choose **Next**, then choose **Create web
    app**.
 
-## Step 2: Configure IAM roles for S3
-
-access
+## Step 2: Configure IAM roles for S3 access
 
 You need to create two IAM roles: one with download-only access to the first bucket
 and another with upload-only access to the second bucket.
 
-### Trust policy for both
-
-roles
+### Trust policy for both roles
 
 Use the following trust policy for both IAM roles:
 
@@ -95,9 +89,7 @@ Use the following trust policy for both IAM roles:
 
 ```
 
-### IAM policy for download
-
-bucket
+### IAM policy for download bucket
 
 Create an IAM role with the following policy for read-only access to your
 download bucket:
@@ -132,9 +124,7 @@ download bucket:
 Replace **amzn-s3-demo-bucket1** with the actual name of your
 download bucket.
 
-### IAM policy for upload
-
-bucket
+### IAM policy for upload bucket
 
 Create another IAM role with the following policy for write access to your
 upload bucket:
@@ -170,9 +160,7 @@ upload bucket:
 Replace **amzn-s3-demo-bucket2** with the actual name of your
 upload bucket.
 
-## Step 3: Set up S3 Access
-
-Grants
+## Step 3: Set up S3 Access Grants
 
 1. Open the S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
 2. In the navigation pane, choose **Access Grants**.
@@ -186,9 +174,7 @@ Grants
 This step creates the S3 Access Grants instance. You'll now register locations and
 create access grants.
 
-## Step 4: Register S3 bucket
-
-locations
+## Step 4: Register S3 bucket locations
 
 Register both S3 buckets as locations with S3 Access Grants:
 
@@ -226,9 +212,7 @@ IAM Identity Center**. 6. For **IAM principal type**, select
 (amzn-s3-demo-bucket2), but select **Read-write** for the
 permissions.
 
-## Step 6: Configure CORS policy for S3
-
-buckets
+## Step 6: Configure CORS policy for S3 buckets
 
 Configure a CORS policy for both S3 buckets to allow access through your AWS Transfer Family
 WebApp:

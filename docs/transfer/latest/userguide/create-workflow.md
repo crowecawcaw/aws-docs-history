@@ -66,8 +66,7 @@ Before you can run a workflow, you need to associate it with a Transfer Family s
    - To add the workflow to an existing server, choose the server that
      you want to use for your workflow.
    - Alternatively, create a new server and add the workflow to it. For
-     more information, see [Configuring an SFTP, FTPS, or FTP server
-     endpoint](tf-server-endpoint.md "tf-server-endpoint.md").
+     more information, see [Configuring an SFTP, FTPS, or FTP server endpoint](tf-server-endpoint.md "tf-server-endpoint.md").
 
 3. On the details page for the server, scroll down to the
    **Additional details** section, and then choose
@@ -96,8 +95,7 @@ Workflow** to create one.
 ###### Note
 
 If you no longer want a workflow to be associated with the server, you can
-remove the association. For details, see [Remove a workflow from a Transfer Family
-server](transfer-workflows.md#remove-workflow-association "transfer-workflows.md#remove-workflow-association").
+remove the association. For details, see [Remove a workflow from a Transfer Family server](transfer-workflows.md#remove-workflow-association "transfer-workflows.md#remove-workflow-association").
 
 To execute a workflow
 

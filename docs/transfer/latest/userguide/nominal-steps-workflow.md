@@ -64,9 +64,7 @@ Amazon S3 supports buckets and objects, and there is no hierarchy. However, you
 can use prefixes and delimiters in object key names to imply a hierarchy and
 organize your data in a way similar to folders.
 
-### Use a named variable in a copy file
-
-step
+### Use a named variable in a copy file step
 
 In a copy file step, you can use a variable to dynamically copy your files
 into user-specific folders. Currently, you can use
@@ -145,22 +143,17 @@ If your Amazon S3 files have tags, you need to add one or two permissions to you
 The AWS storage blog has a post that describes how to simply decrypt files without writing any code using Transfer Family Managed workflows,
 [Encrypt and decrypt files with PGP and AWS Transfer Family](https://aws.amazon.com/blogs/storage/encrypt-and-decrypt-files-with-pgp-and-aws-transfer-family/ "https://aws.amazon.com/blogs/storage/encrypt-and-decrypt-files-with-pgp-and-aws-transfer-family/").
 
-### Supported symmetric encryption
-
-algorithms
+### Supported symmetric encryption algorithms
 
 For PGP decryption, Transfer Family supports symmetric encryption algorithms that are
 used to encrypt the actual file data within PGP files.
 
 - For detailed information about supported symmetric encryption
-  algorithms, see [PGP symmetric encryption
-  algorithms](key-management.md#pgp-symmetric-algorithms "key-management.md#pgp-symmetric-algorithms").
+  algorithms, see [PGP symmetric encryption algorithms](key-management.md#pgp-symmetric-algorithms "key-management.md#pgp-symmetric-algorithms").
 - For information about PGP key pair algorithms used with these
   symmetric algorithms, see [PGP key pair algorithms](key-management.md#pgp-key-algorithms "key-management.md#pgp-key-algorithms").
 
-### Use PGP decryption in your
-
-workflow
+### Use PGP decryption in your workflow
 
 Transfer Family has built-in support for Pretty Good Privacy (PGP) decryption. You can
 use PGP decryption on files that are uploaded over SFTP, FTPS, or FTP to
@@ -170,11 +163,9 @@ To use PGP decryption, you must create and store the PGP private keys that
 will be used for decryption of your files. Your users can then encrypt files by
 using corresponding PGP encryption keys before uploading the files to your Transfer Family
 server. After you receive the encrypted files, you can decrypt those files in
-your workflow. For a detailed tutorial, see [Setting up a managed workflow for decrypting a
-file](workflow-decrypt-tutorial.md "workflow-decrypt-tutorial.md").
+your workflow. For a detailed tutorial, see [Setting up a managed workflow for decrypting a file](workflow-decrypt-tutorial.md "workflow-decrypt-tutorial.md").
 
-For information about supported PGP algorithms and recommendations, see [PGP encryption and decryption
-algorithms](key-management.md#pgp-encryption-algorithms "key-management.md#pgp-encryption-algorithms").
+For information about supported PGP algorithms and recommendations, see [PGP encryption and decryption algorithms](key-management.md#pgp-encryption-algorithms "key-management.md#pgp-encryption-algorithms").
 
 ###### To use PGP decryption in your workflow
 
@@ -207,16 +198,14 @@ When encrypting files for use with AWS Transfer Family workflows, always ensure 
 non-anonymous recipient using the `-r` parameter. Anonymous encryption
 (without specifying a recipient) can cause decryption failures in the workflow
 because the system won't be able to identify which key to use for decryption.
-Debugging information for this issue is available at [Troubleshoot anonymous recipient
-encryption issues](workflow-issues.md#workflows-decrypt-anonymous "workflow-issues.md#workflows-decrypt-anonymous"). 4. Upload the encrypted file to your Transfer Family server. 5. Configure a decryption step in your workflow. For more information,
+Debugging information for this issue is available at [Troubleshoot anonymous recipient encryption issues](workflow-issues.md#workflows-decrypt-anonymous "workflow-issues.md#workflows-decrypt-anonymous"). 4. Upload the encrypted file to your Transfer Family server. 5. Configure a decryption step in your workflow. For more information,
 see [Add a decryption step](#decrypt-step-procedure "#decrypt-step-procedure").
 
 ### Add a decryption step
 
 A decryption step decrypts an encrypted file that was uploaded to Amazon S3 or
 Amazon EFS as part of your workflow. For details about configuring decryption, see
-[Use PGP decryption in your
-workflow](#configure-decryption "#configure-decryption").
+[Use PGP decryption in your workflow](#configure-decryption "#configure-decryption").
 
 When you create your decryption step for a workflow, you must specify the
 destination for the decrypted files. You must also select whether to overwrite
@@ -531,8 +520,7 @@ For more details about using files to load parameters, see
 ###### Note
 
 This step assumes you already have a Transfer Family server and you
-want to associate a workflow with it. If not, see [Configuring an SFTP, FTPS, or FTP server
-endpoint](tf-server-endpoint.md "tf-server-endpoint.md"). Replace each
+want to associate a workflow with it. If not, see [Configuring an SFTP, FTPS, or FTP server endpoint](tf-server-endpoint.md "tf-server-endpoint.md"). Replace each
 `user input
  placeholder` with your own
 information.

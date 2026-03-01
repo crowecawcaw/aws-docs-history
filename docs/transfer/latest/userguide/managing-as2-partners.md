@@ -48,8 +48,7 @@ process.
 For details on how to create certificates, see [Step 1: Create certificates for AS2](as2-example-tutorial.md#as2-create-certs "as2-example-tutorial.md#as2-create-certs").
 
 This procedure explains how to import certificates by using the Transfer Family console. If
-you want to use the AWS CLI instead, see [Step 2: Import certificates as Transfer Family
-certificate resources](as2-example-tutorial.md#as2-import-certs-example "as2-example-tutorial.md#as2-import-certs-example").
+you want to use the AWS CLI instead, see [Step 2: Import certificates as Transfer Family certificate resources](as2-example-tutorial.md#as2-import-certs-example "as2-example-tutorial.md#as2-import-certs-example").
 
 ###### To specify an AS2-enabled certificate
 
@@ -120,9 +119,7 @@ provides `Active Date` and `Inactive Date` settings to control
 which certificate is used for outbound payloads and which is accepted for inbound
 payloads.
 
-### Certificate expiration
-
-monitoring
+### Certificate expiration monitoring
 
 Transfer Family publishes a Amazon CloudWatch metric `DaysUntilExpiry` after importing
 a certificate. The metric emits the number of days between the current date and

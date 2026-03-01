@@ -151,18 +151,12 @@ and compliance purposes.
 
 ###### Topics
 
-- [Example log entry for
-  credential verification](#webapp-credential-verification-example "#webapp-credential-verification-example")
-- [Example log entry for sign-in
-  authentication](#webapp-signin-authentication-example "#webapp-signin-authentication-example")
-- [Example log entry for
-  ListCallerAccessGrants](#webapp-list-caller-access-grants-example "#webapp-list-caller-access-grants-example")
-- [Example log entry for GetDataAccess
-  event](#webapp-get-data-access-example "#webapp-get-data-access-example")
+- [Example log entry for credential verification](#webapp-credential-verification-example "#webapp-credential-verification-example")
+- [Example log entry for sign-in authentication](#webapp-signin-authentication-example "#webapp-signin-authentication-example")
+- [Example log entry for ListCallerAccessGrants](#webapp-list-caller-access-grants-example "#webapp-list-caller-access-grants-example")
+- [Example log entry for GetDataAccess event](#webapp-get-data-access-example "#webapp-get-data-access-example")
 
-### Example log entry for
-
-credential verification
+### Example log entry for credential verification
 
 The following example shows a CloudTrail log entry for a credential verification event
 that occurs during the authentication process.
@@ -212,9 +206,7 @@ This event provides additional detail about the credential verification step in
 the authentication process, showing the specific credential ID and authentication
 workflow ID used.
 
-### Example log entry for sign-in
-
-authentication
+### Example log entry for sign-in authentication
 
 The following example shows a CloudTrail log entry for a successful user authentication
 event during web app sign-in using IAM Identity Center.
@@ -274,9 +266,7 @@ In this example, note the following important fields:
 - `serviceEventDetails`: Shows the authentication result
   (Success).
 
-### Example log entry for
-
-ListCallerAccessGrants
+### Example log entry for ListCallerAccessGrants
 
 The following example shows a CloudTrail log entry for a ListCallerAccessGrants event,
 which occurs when Transfer Family web app queries available access grants for a user.
@@ -360,9 +350,7 @@ In this example, note the following important fields:
 This event helps track when Transfer Family web app queries what S3 resources a user has
 access to, providing visibility into access grant discovery operations.
 
-### Example log entry for GetDataAccess
-
-event
+### Example log entry for GetDataAccess event
 
 The following example shows a CloudTrail log entry for a GetDataAccess event, which
 occurs when Transfer Family web app requests access permissions for S3 resources on behalf of a

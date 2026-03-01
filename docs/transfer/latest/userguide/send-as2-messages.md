@@ -17,10 +17,8 @@ when you can use them.
 ###### Topics
 
 - [Receive AS2 message process](#as2-inbound-process "#as2-inbound-process")
-- [Sending and receiving AS2 messages over
-  HTTPS](#as2-https-process "#as2-https-process")
-- [Transferring files by using an AS2
-  connector](#transfer-as2-connectors "#transfer-as2-connectors")
+- [Sending and receiving AS2 messages over HTTPS](#as2-https-process "#as2-https-process")
+- [Transferring files by using an AS2 connector](#transfer-as2-connectors "#transfer-as2-connectors")
 - [File names and locations](#file-names-as2 "#file-names-as2")
 - [Status codes](#status-codes "#status-codes")
 - [Sample JSON files](#file-as2-json "#file-as2-json")
@@ -47,9 +45,7 @@ your AWS Transfer Family server. The sequence for inbound messages is as follows
 
 ![Diagram that shows the processing sequence for inbound messages.](images/as2-architecture-inbound.png)
 
-## Sending and receiving AS2 messages over
-
-HTTPS
+## Sending and receiving AS2 messages over HTTPS
 
 This section describes how to configure a Transfer Family server that uses the AS2 protocol
 to send and receive messages over HTTPS.
@@ -123,10 +119,7 @@ Configure NLB
 This procedure describes how to set up an internet-facing Network
 Load Balancer (NLB) in your VPC.
 
-###### To create a Network Load Balancer
-
-and define the VPC endpoint of the server as the load balancer's
-target
+###### To create a Network Load Balancer and define the VPC endpoint of the server as the load balancer's target
 
 1.  Open the Amazon Elastic Compute Cloud console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2.  From the navigation pane, choose **Load
@@ -189,10 +182,7 @@ Configure ALB
 This procedure describes how to set up an Application Load
 Balancer (ALB) in your VPC.
 
-###### To create an Application Load
-
-Balancer and define the VPC endpoint of the server as the load
-balancer's target
+###### To create an Application Load Balancer and define the VPC endpoint of the server as the load balancer's target
 
 1. Open the Amazon Elastic Compute Cloud console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. From the navigation pane, choose **Load
@@ -311,9 +301,7 @@ issue, check the following:
 - Confirm that the server's **State** is
   **Online**.
 
-## Transferring files by using an AS2
-
-connector
+## Transferring files by using an AS2 connector
 
 AS2 connectors establish a relationship between trading partners for transfers of
 AS2 messages from a Transfer Family server to an external, partner-owned destination.
