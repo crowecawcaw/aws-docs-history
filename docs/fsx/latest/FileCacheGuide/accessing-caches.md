@@ -15,10 +15,8 @@ your compute instance.
 - [Installing the Lustre client](install-lustre-client.md "install-lustre-client.md")
 - [Mounting from an Amazon EC2 instance](mounting-ec2-instance.md "mounting-ec2-instance.md")
 - [Mounting from Amazon Elastic Container Service](mounting-ecs.md "mounting-ecs.md")
-- [Mounting caches from on-premises or
-  a peered Amazon VPC](mounting-on-premises.md "mounting-on-premises.md")
-- [Mounting your cache
-  automatically](mount-fs-auto-mount-onreboot.md "mount-fs-auto-mount-onreboot.md")
+- [Mounting caches from on-premises or a peered Amazon VPC](mounting-on-premises.md "mounting-on-premises.md")
+- [Mounting your cache automatically](mount-fs-auto-mount-onreboot.md "mount-fs-auto-mount-onreboot.md")
 - [Mounting specific filesets](mounting-from-fileset.md "mounting-from-fileset.md")
 - [Unmounting caches](unmounting-fs.md "unmounting-fs.md")
 - [Working with Amazon EC2 Spot Instances](working-with-ec2-spot-instances.md "working-with-ec2-spot-instances.md")

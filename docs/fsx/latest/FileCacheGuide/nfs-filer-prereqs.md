@@ -1,6 +1,4 @@
-# Prerequisites for linking to on-premises
-
-NFS data repositories
+# Prerequisites for linking to on-premises NFS data repositories
 
 Before you can link your cache to an on-premises NFS data store, verify that your
 resources and configurations meet the following requirements:
@@ -54,8 +52,7 @@ rpcinfo -p localhost
   Make sure to add outbound rules to allow port 53 for both UDP and TCP for DNS traffic,
   and to allow the TCP ports used by the on-premises NFSv3 file system for NFS.
   For more information, see
-  [Controlling access using inbound and
-  outbound rules](limit-access-security-groups.md#inbound-outbound-rules "limit-access-security-groups.md#inbound-outbound-rules").
+  [Controlling access using inbound and outbound rules](limit-access-security-groups.md#inbound-outbound-rules "limit-access-security-groups.md#inbound-outbound-rules").
 - While Amazon File Cache supports NFSv3 file systems with most NFSv3 export
   policies, you must not use the NFS export option
   `all_squash`. This configuration is required so that Amazon File Cache has the

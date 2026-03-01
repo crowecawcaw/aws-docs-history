@@ -1,6 +1,4 @@
-# Linking your cache to a data
-
-repository
+# Linking your cache to a data repository
 
 You can link your Amazon File Cache to data repositories in Amazon S3 or on NFS (Network File
 System) file systems that support the NFSv3 protocol. The NFS file systems can be on-premises

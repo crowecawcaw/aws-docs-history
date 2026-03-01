@@ -45,12 +45,9 @@ request fails if the user does not have permissions to use the
 `fsx:TagResource` action.
 
 For more information about tagging Amazon FSx resources, see [Tag your Amazon File Cache resources](tag-resources.md "tag-resources.md").
-For more information about using tags to control access to FSx resources, see [Using tags to control access to your Amazon File Cache
-resources](#restrict-fsx-access-tags "#restrict-fsx-access-tags").
+For more information about using tags to control access to FSx resources, see [Using tags to control access to your Amazon File Cache resources](#restrict-fsx-access-tags "#restrict-fsx-access-tags").
 
-## Using tags to control access to your Amazon File Cache
-
-resources
+## Using tags to control access to your Amazon File Cache resources
 
 To control access to Amazon FSx resources and actions, you can use AWS Identity and Access Management (IAM) policies
 based on tags. You can provide the control in two ways:

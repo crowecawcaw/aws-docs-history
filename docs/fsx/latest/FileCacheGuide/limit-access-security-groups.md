@@ -20,9 +20,7 @@ group_ acts as a virtual firewall to control the traffic for its
 associated resources. In this case, the associated resource is your cache's network
 interface. You also use VPC security groups to control network traffic for your clients.
 
-### Controlling access using inbound and
-
-outbound rules
+### Controlling access using inbound and outbound rules
 
 To use a security group to control access to your cache and clients, add the
 inbound rules to control incoming traffic and outbound rules to control the

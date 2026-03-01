@@ -12,7 +12,6 @@ This getting started exercise includes the following steps.
 
 - [Prerequisites](prerequisites.md "prerequisites.md")
 - [Step 1: Create your cache](getting-started-step1.md "getting-started-step1.md")
-- [Step 2: Install and configure the Lustre client on your
-  instance before mounting your cache](getting-started-step2.md "getting-started-step2.md")
+- [Step 2: Install and configure the Lustre client on your instance before mounting your cache](getting-started-step2.md "getting-started-step2.md")
 - [Step 3: Run your analysis](getting-started-step3.md "getting-started-step3.md")
 - [Step 4: Clean up resources](getting-started-step4.md "getting-started-step4.md")

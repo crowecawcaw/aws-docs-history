@@ -1,6 +1,4 @@
-# Mounting caches from on-premises or
-
-a peered Amazon VPC
+# Mounting caches from on-premises or a peered Amazon VPC
 
 You can access your cache in two ways. One is from Amazon EC2 instances located in an Amazon VPC
 that's peered to the cache's VPC. The other is from on-premises clients that are connected to

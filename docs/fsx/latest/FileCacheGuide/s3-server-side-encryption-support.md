@@ -1,6 +1,4 @@
-# Working with
-
-server-side encrypted Amazon S3 buckets
+# Working with server-side encrypted Amazon S3 buckets
 
 Amazon File Cache supports Amazon Simple Storage Service (Amazon S3) buckets that use server-side encryption with
 S3-managed keys (SSE-S3), and with AWS Key Management Service (AWS KMS) stored in AWS KMS (SSE-KMS).
@@ -91,9 +89,7 @@ specific S3 bucket.
 }
 ```
 
-## Accessing server-side encrypted
-
-Amazon S3 buckets in a different AWS account
+## Accessing server-side encrypted Amazon S3 buckets in a different AWS account
 
 After you create a cache linked to an encrypted Amazon S3 bucket, you must then grant the
 `AWSServiceRoleForFSxS3Access_`fc-01234567890``
@@ -119,5 +115,4 @@ string.
       --operations "Decrypt" "Encrypt" "GenerateDataKey" "GenerateDataKeyWithoutPlaintext" "CreateGrant" "DescribeKey" "ReEncryptFrom" "ReEncryptTo"
 ```
 
-For more information about service-linked roles, see [Using service-linked roles for
-Amazon FSx](using-service-linked-roles.md "using-service-linked-roles.md").
+For more information about service-linked roles, see [Using service-linked roles for Amazon FSx](using-service-linked-roles.md "using-service-linked-roles.md").

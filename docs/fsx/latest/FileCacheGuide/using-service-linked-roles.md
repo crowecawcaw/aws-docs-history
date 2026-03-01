@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-Amazon FSx
+# Using service-linked roles for Amazon FSx
 
 Amazon FSx uses AWS Identity and Access Management (IAM)[service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to Amazon FSx. Service-linked roles are predefined by Amazon FSx and
@@ -178,8 +176,7 @@ JSON
 ```
 
 Any updates to this policy are described in
-[Amazon FSx updates to AWS managed
-policies](security-iam-awsmanpol.md#security-iam-awsmanpol-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-updates").
+[Amazon FSx updates to AWS managed policies](security-iam-awsmanpol.md#security-iam-awsmanpol-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-updates").
 
 You must configure permissions to allow an IAM entity (such as a user, group, or role)
 to create, edit, or delete a service-linked role. For more information, see [Service-Linked Role Permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the
@@ -229,9 +226,7 @@ Use the IAM console, the IAM CLI, or the IAM API to delete the AWSServiceRoleFor
 service-linked role. For more information, see [Deleting a
 Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the _IAM User Guide_.
 
-## Supported regions for Amazon FSx service-linked
-
-roles
+## Supported regions for Amazon FSx service-linked roles
 
 Amazon FSx supports using service-linked roles in all of the regions where the
 service is available. For more information, see [AWS Regions and Endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md").

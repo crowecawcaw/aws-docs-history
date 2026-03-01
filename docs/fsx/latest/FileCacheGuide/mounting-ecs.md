@@ -9,8 +9,7 @@ You can do so by using either of the following options:
    For more information about Amazon ECS, see [What is Amazon Elastic Container
    Service?](../../../AmazonECS/latest/developerguide/Welcome.md "../../../AmazonECS/latest/developerguide/Welcome.md") in the _Amazon Elastic Container Service Developer Guide_.
 
-We recommend using option one ([Mounting from an Amazon EC2 instance hosting Amazon ECS
-tasks](#mounting-from-ecs-ec2 "#mounting-from-ecs-ec2")) because it provides better resource use, especially
+We recommend using option one ([Mounting from an Amazon EC2 instance hosting Amazon ECS tasks](#mounting-from-ecs-ec2 "#mounting-from-ecs-ec2")) because it provides better resource use, especially
 if you start many containers (more than five) on the same EC2 instance, or if your tasks are
 short-lived (less than five minutes).
 
@@ -26,13 +25,10 @@ cache from an Amazon ECS container.
 
 ###### Topics
 
-- [Mounting from an Amazon EC2 instance hosting Amazon ECS
-  tasks](#mounting-from-ecs-ec2 "#mounting-from-ecs-ec2")
+- [Mounting from an Amazon EC2 instance hosting Amazon ECS tasks](#mounting-from-ecs-ec2 "#mounting-from-ecs-ec2")
 - [Mounting from a Docker container](#mounting-from-docker "#mounting-from-docker")
 
-## Mounting from an Amazon EC2 instance hosting Amazon ECS
-
-tasks
+## Mounting from an Amazon EC2 instance hosting Amazon ECS tasks
 
 This procedure shows how you can configure an Amazon ECS on an EC2 instance to locally mount
 your cache. The procedure uses `volumes` and `mountPoints` container

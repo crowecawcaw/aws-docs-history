@@ -23,8 +23,7 @@ an error when you try to read a file on it.
 If this issue occurs, do the following:
 
 1. Ensure that your setup complies with the
-   [Prerequisites for linking to on-premises
-   NFS data repositories](nfs-filer-prereqs.md "nfs-filer-prereqs.md").
+   [Prerequisites for linking to on-premises NFS data repositories](nfs-filer-prereqs.md "nfs-filer-prereqs.md").
 
 ###### Note
 

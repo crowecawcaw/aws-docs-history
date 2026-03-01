@@ -3,9 +3,7 @@
 This topic describes how Amazon File Cache secures connections from the service to other
 locations.
 
-## Traffic between
-
-Amazon File Cache and on-premises clients
+## Traffic between Amazon File Cache and on-premises clients
 
 You have two connectivity options between your private network and AWS:
 
@@ -26,9 +24,7 @@ requests must be signed by using an access key ID and a secret access key that i
 associated with an IAM principal. Or you can use the [AWS Security Token Service (STS)](../../../STS/latest/APIReference/Welcome.md "../../../STS/latest/APIReference/Welcome.md") to generate
 temporary security credentials to sign requests.
 
-## API traffic between
-
-AWS resources in the same Region
+## API traffic between AWS resources in the same Region
 
 An Amazon Virtual Private Cloud (Amazon VPC) endpoint for Amazon File Cache is a logical entity within a VPC
 that allows connectivity only to Amazon File Cache. The Amazon VPC routes API requests to

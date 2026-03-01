@@ -10,8 +10,7 @@ speeds—sub-millisecond latencies and high throughput.
 ###### Topics
 
 - [Overview of data repositories](overview-data-repo.md "overview-data-repo.md")
-- [Linking your cache to a data
-  repository](create-linked-data-repo.md "create-linked-data-repo.md")
+- [Linking your cache to a data repository](create-linked-data-repo.md "create-linked-data-repo.md")
 - [Importing files from your data repository](importing-files.md "importing-files.md")
 - [Exporting changes to the data repository](export-changed-data.md "export-changed-data.md")
 - [Cache eviction](cache-eviction.md "cache-eviction.md")

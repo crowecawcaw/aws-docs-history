@@ -1,13 +1,9 @@
-# Mounting your cache
-
-automatically
+# Mounting your cache automatically
 
 You can update the `/etc/fstab` file in your Amazon EC2 instance after you connect to
 the instance for the first time so that it mounts your cache each time it reboots.
 
-## Using /etc/fstab to
-
-mount Amazon File Cache automatically
+## Using /etc/fstab to mount Amazon File Cache automatically
 
 To automatically mount your cache directory when the Amazon EC2 instance
 reboots, you can use the `fstab` file. The `fstab`

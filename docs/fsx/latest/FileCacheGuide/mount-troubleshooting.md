@@ -23,9 +23,7 @@ command. You can get the `mountname` value from the response of the
 or the [**DescribeFileCaches**](../APIReference/API_DescribeFileCaches.md "../APIReference/API_DescribeFileCaches.md") API operation, and also from the **Mount name**
 field on the cache console's **Summary** panel.
 
-## Cache mount hangs and then fails with
-
-timeout error
+## Cache mount hangs and then fails with timeout error
 
 The cache mount command hangs for a minute or two, and then fails with a timeout
 error.
@@ -47,9 +45,7 @@ cache aren't configured properly.
 Make sure that your security groups for the cache
 have the inbound rules specified in [Amazon VPC security groups](limit-access-security-groups.md#fsx-vpc-security-groups "limit-access-security-groups.md#fsx-vpc-security-groups").
 
-## Automatic mounting fails and the instance is
-
-unresponsive
+## Automatic mounting fails and the instance is unresponsive
 
 In some cases, automatic mounting might fail for a cache and your Amazon EC2
 instance might stop responding.
@@ -63,9 +59,7 @@ starts its networking.
 
 If this issue occurs, contact AWS Support.
 
-## Cache mount fails during
-
-system boot
+## Cache mount fails during system boot
 
 The cache mount fails during the system boot. The mounting is automated
 using `/etc/fstab`. When the cache is not mounted, the following

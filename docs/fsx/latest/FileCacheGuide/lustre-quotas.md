@@ -180,8 +180,7 @@ and grace periods.
 ## Quotas and linked data repositories
 
 You can link your cache to an Amazon S3 or NFS data repository. For more information,
-see [Linking your cache to a data
-repository](create-linked-data-repo.md "create-linked-data-repo.md").
+see [Linking your cache to a data repository](create-linked-data-repo.md "create-linked-data-repo.md").
 
 You can optionally choose a specific folder or prefix within a linked data repository as an import
 path to your cache. Only data loaded into the cache from the linked data repository

@@ -62,8 +62,7 @@ You can link your cache to data repositories on Amazon S3, or on
 file systems that support the NFSv3 protocol. The NFS data repository can be on-premises
 or in the AWS Cloud. You can link a maximum of 8 data repositories, but they must all
 be of the same repository type (either all Amazon S3 or all NFS). For more information about
-linking your cache to a data repository, see [Linking your cache to a data
-repository](create-linked-data-repo.md "create-linked-data-repo.md").
+linking your cache to a data repository, see [Linking your cache to a data repository](create-linked-data-repo.md "create-linked-data-repo.md").
 
 When linked to a data repository, a cache transparently presents Amazon S3 or NFS objects
 as files and directories. By default, Amazon File Cache automatically loads data into the

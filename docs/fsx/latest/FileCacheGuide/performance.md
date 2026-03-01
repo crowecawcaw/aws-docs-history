@@ -45,9 +45,7 @@ The following table shows performance that the Amazon File Cache deployment type
 | -------------------------------------- | --------------- | ----------------------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | -------------------------------------------------------- |
 | CACHE-1000                             | 2600            | Tens of thousands baseline<br>Hundreds of thousands burst   | 27.3                                                  | Metadata: sub-ms<br>Data: sub-ms                             | 1000                                                         |
 
-### Example: Aggregate baseline and burst
-
-throughput
+### Example: Aggregate baseline and burst throughput
 
 The following example illustrates how storage capacity and disk throughput impact cache
 performance.

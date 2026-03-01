@@ -21,9 +21,7 @@ To get a high-level view of how Amazon File Cache and other AWS services work wi
 IAM features, see [AWS services that
 work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Identity-based
-
-policies for File Cache
+## Identity-based policies for File Cache
 
 **Supports identity-based policies:**
 
@@ -40,16 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for File Cache
 
-Identity-based policy examples for File Cache
+To view examples of File Cache identity-based policies, see [Identity-based policy examples for Amazon File Cache](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of File Cache identity-based policies, see [Identity-based policy
-examples for Amazon File Cache](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within File Cache
+## Resource-based policies within File Cache
 
 **Supports resource-based policies:**
 
@@ -65,9 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for File Cache
+## Policy actions for File Cache
 
 **Supports policy actions:**
 
@@ -97,12 +88,9 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-To view examples of File Cache identity-based policies, see [Identity-based policy
-examples for Amazon File Cache](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of File Cache identity-based policies, see [Identity-based policy examples for Amazon File Cache](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for File Cache
+## Policy resources for File Cache
 
 **Supports policy resources:**
 
@@ -122,12 +110,9 @@ To see a list of File Cache resource types and their ARNs, see
 which actions you can specify the ARN of each resource, see
 [Actions defined by Amazon File Cache](../../../service-authorization/latest/reference/list_amazonfsx.md#your_service-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonfsx.md#your_service-actions-as-permissions").
 
-To view examples of File Cache identity-based policies, see [Identity-based policy
-examples for Amazon File Cache](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of File Cache identity-based policies, see [Identity-based policy examples for Amazon File Cache](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for File Cache
+## Policy condition keys for File Cache
 
 **Supports service-specific policy condition keys:**
 
@@ -146,8 +131,7 @@ To see a list of File Cache condition keys, see [Condition keys for Amazon File 
 _Service Authorization Reference_. To learn with which actions and resources you
 can use a condition key, see [Actions defined by Amazon File Cache](../../../service-authorization/latest/reference/list_amazonfsx.md#your_service-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonfsx.md#your_service-actions-as-permissions").
 
-To view examples of File Cache identity-based policies, see [Identity-based policy
-examples for Amazon File Cache](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of File Cache identity-based policies, see [Identity-based policy examples for Amazon File Cache](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in File Cache
 
@@ -175,9 +159,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with File Cache
+## Using temporary credentials with File Cache
 
 **Supports temporary credentials:**
 
@@ -198,9 +180,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-File Cache
+## Service roles for File Cache
 
 **Supports service roles:**
 
@@ -216,9 +196,7 @@ Changing the permissions for a service role might break Amazon File Cache
 functionality. Edit service roles only when Amazon File Cache provides guidance to do
 so.
 
-## Service-linked
-
-roles for File Cache
+## Service-linked roles for File Cache
 
 **Supports service-linked roles:**
 

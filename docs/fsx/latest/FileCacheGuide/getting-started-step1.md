@@ -41,8 +41,7 @@ networking and security group information:
 10. Choose **Next**.
 11. In the **Data repository associations (DRAs)**
     section, there are no DRAs linking your cache to Amazon S3 or NFS data repositories. For
-    detailed information about linking data repositories to Amazon File Cache, see [To link an S3 bucket or NFS file system while
-    creating a cache (console)](create-linked-repo.md#link-new-repo-console "create-linked-repo.md#link-new-repo-console").
+    detailed information about linking data repositories to Amazon File Cache, see [To link an S3 bucket or NFS file system while creating a cache (console)](create-linked-repo.md#link-new-repo-console "create-linked-repo.md#link-new-repo-console").
 
 The following instructions describe how to link your cache to an existing Amazon S3 bucket
 for this getting started exercise. In the **Data repository association**

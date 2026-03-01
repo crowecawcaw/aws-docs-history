@@ -95,5 +95,4 @@ its own set of tags to control access to the resource.
 For more information about the permissions required to tag Amazon File Cache resources at creation,
 see [Grant permission to tag resources during creation](using-tags.md#supported-iam-actions-tagging "using-tags.md#supported-iam-actions-tagging"). For
 more information about using tags to restrict access to Amazon File Cache resources in IAM policies, see
-[Using tags to control access to your Amazon File Cache
-resources](using-tags.md#restrict-fsx-access-tags "using-tags.md#restrict-fsx-access-tags").
+[Using tags to control access to your Amazon File Cache resources](using-tags.md#restrict-fsx-access-tags "using-tags.md#restrict-fsx-access-tags").

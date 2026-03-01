@@ -21,5 +21,4 @@ Service control policy (SCP) that prohibits creation of a Amazon File Cache
 resource linked to an NFSv3 data repository:
 
 For more information about IAM condition keys, see
-[Policy
-condition keys for File Cache](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys").
+[Policy condition keys for File Cache](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys").
