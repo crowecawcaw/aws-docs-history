@@ -1,6 +1,4 @@
-#
-
-Amazon Linux 2 release notes for 2026
+# Amazon Linux 2 release notes for 2026
 
 The following are the release notes for Amazon Linux 2 for 2026.
 
