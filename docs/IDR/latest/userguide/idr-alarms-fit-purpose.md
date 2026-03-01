@@ -43,9 +43,7 @@ After you confirm that your proposed alarms fit your business needs, validate th
 
 The preceding recommendations might vary depending on how you use a service. Each AWS service operates differently within a workload. And, the same service might operate differently when used in multiple places. You must be sure that you understand how your workload utilizes the resources that feed the alarm, as well as the upstream and downstream effects.
 
-## Validate how your alarms handle missing
-
-data
+## Validate how your alarms handle missing data
 
 Some metric sources don't send data to CloudWatch at regular intervals. For these metrics, it's a best practice to treat missing data as **notBreaching**. For more information, see [Configuring how CloudWatch alarms treat missing data](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md#alarms-and-missing-data "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md#alarms-and-missing-data") and [Avoiding premature transitions to alarm state](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md#CloudWatch-alarms-avoiding-premature-transition "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md#CloudWatch-alarms-avoiding-premature-transition").
 
@@ -57,9 +55,7 @@ In cases where metrics monitor an error rate, in the absence of service degradat
 
 If an alarm's history shows that it frequently enters the "Alarm" state and then recovers quickly, then the alarm might become an issue for you. Make sure that you tune the alarm to prevent noise or false alarms.
 
-## Validate metrics for underlying
-
-resources
+## Validate metrics for underlying resources
 
 Make sure that your metrics look at valid underlying resources and use the correct statistics. If an alarm is configured to review invalid resource names, then the alarm might not be able to track the underlying data. This might cause the alarm to enter the "Alarm" state.
 

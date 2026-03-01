@@ -1,21 +1,16 @@
-# Example: Integrate notifications
-
-from Datadog and Splunk
+# Example: Integrate notifications from Datadog and Splunk
 
 This example provides detailed steps for integrating notifications from
 Datadog and Splunk to AWS Incident Detection and Response.
 
 ###### Topics
 
-- [Step 1: Set up
-  your APM as an event source in Amazon EventBridge](#example_integrating_notifications_step1 "#example_integrating_notifications_step1")
+- [Step 1: Set up your APM as an event source in Amazon EventBridge](#example_integrating_notifications_step1 "#example_integrating_notifications_step1")
 - [Step 2: Create a custom event bus](#example_integrating_notifications_step2 "#example_integrating_notifications_step2")
 - [Step 3: Create an AWS Lambda function for transformation](#example_integrating_notifications_step3 "#example_integrating_notifications_step3")
 - [Step 4: Create a custom Amazon EventBridge rule](#example_integrating_notifications_step4 "#example_integrating_notifications_step4")
 
-## Step 1: Set up
-
-your APM as an event source in Amazon EventBridge
+## Step 1: Set up your APM as an event source in Amazon EventBridge
 
 Set up each of your APMs as an event source in Amazon EventBridge in your AWS account.
 For instructions on setting up your APM as an event source, see the [event source set up instructions for your tool in

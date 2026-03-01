@@ -15,9 +15,7 @@ workload, create an Support case. After the support case is raised, AWS Incident
 you on a conference bridge with the AWS experts required to accelerate the recovery of
 your workload.
 
-## Request an Incident Response using the
-
-AWS Support Center Console
+## Request an Incident Response using the AWS Support Center Console
 
 1. Open the [AWS Support Center Console](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/"), and then choose **Create case**.
 2. Choose **Technical**.

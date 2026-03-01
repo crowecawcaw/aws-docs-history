@@ -1,6 +1,4 @@
-# Develop runbooks and response plans for responding
-
-to an incident in Incident Detection and Response
+# Develop runbooks and response plans for responding to an incident in Incident Detection and Response
 
 Incident Detection and Response uses information captured from your onboarding questionnaire to develop runbooks
 and response plans for the management of incidents affecting your workloads. Runbooks
