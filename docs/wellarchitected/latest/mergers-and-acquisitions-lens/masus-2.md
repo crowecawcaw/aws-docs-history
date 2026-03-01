@@ -1,7 +1,4 @@
-# MASUS 2: How can we make sustainability
-
-a priority during the post-acquisition integration
-process?
+# MASUS 2: How can we make sustainability a priority during the post-acquisition integration process?
 
 Encourage a culture of sustainability within the organization by
 providing training, education, and opportunities for employees
@@ -36,9 +33,7 @@ sustainability to all employees, stakeholders, and customers.
 Make sure everyone understands why sustainability is important
 and how it fits into the organization's long-term goals.
 
-## MASUS02-BP04 Integrate sustainability into the integration
-
-plan
+## MASUS02-BP04 Integrate sustainability into the integration plan
 
 Incorporate sustainability
 into the overall integration plan. This may involve developing
@@ -46,9 +41,7 @@ new policies and procedures, identifying areas where
 sustainability can be improved, and setting goals and metrics
 for sustainability performance.
 
-## MASUS02-BP05 Monitor and evaluate sustainability
-
-performance
+## MASUS02-BP05 Monitor and evaluate sustainability performance
 
 Regularly monitor and
 evaluate the organization's sustainability performance to ensure

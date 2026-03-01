@@ -70,14 +70,9 @@ The security pillar provides an overview of design principles, best practices, a
 
 ###### Questions
 
-- [MASEC 1: How do you plan to manage user
-  and application identities across companies?](masec-1.md "masec-1.md")
-- [MASEC 2: What security tools (AWS or
-  third-party) do you use?](masec-2.md "masec-2.md")
-- [MASEC 3: How do you plan to maintain your
-  data security posture?](masec-3.md "masec-3.md")
-- [MASEC 4: How can a company (buyer) gain
-  confidence in compliance and regulatory needs?](masec-4.md "masec-4.md")
-- [MASEC 5: How do you plan to maintain your
-  network security posture?](masec-5.md "masec-5.md")
+- [MASEC 1: How do you plan to manage user and application identities across companies?](masec-1.md "masec-1.md")
+- [MASEC 2: What security tools (AWS or third-party) do you use?](masec-2.md "masec-2.md")
+- [MASEC 3: How do you plan to maintain your data security posture?](masec-3.md "masec-3.md")
+- [MASEC 4: How can a company (buyer) gain confidence in compliance and regulatory needs?](masec-4.md "masec-4.md")
+- [MASEC 5: How do you plan to maintain your network security posture?](masec-5.md "masec-5.md")
 - [Resources](resources-sec.md "resources-sec.md")

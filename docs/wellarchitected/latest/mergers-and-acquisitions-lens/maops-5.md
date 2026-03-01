@@ -20,9 +20,7 @@ value, both of which you define. For example, if you have two EC2 instances, you
 assign both a tag key of `Stack`. But the value of `Stack` might be
 `Testing` for one and `Production` for the other.
 
-## MAOPS05-BP03 Associate tags with each configured resource (during
-
-provisioning)
+## MAOPS05-BP03 Associate tags with each configured resource (during provisioning)
 
 AWS CloudFormation provides a common language for provisioning all the infrastructure resources
 in your AWS environment. For AWS resources using CloudFormation templates, you can use the CloudFormation

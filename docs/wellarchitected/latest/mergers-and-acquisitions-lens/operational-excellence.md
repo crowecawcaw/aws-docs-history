@@ -23,22 +23,13 @@ practices, and questions. You can find prescriptive guidance on implementation i
 
 ###### Questions
 
-- [MAOPS 1: How do you plan to structure your company and
-  processes to support mergers and acquisitions?](maops-1.md "maops-1.md")
-- [MAOPS 2: How do you plan to set up and govern a secure,
-  multi-account, or multicloud AWS environment?](maops-2.md "maops-2.md")
-- [MAOPS 3: What is your combined AWS Organizations strategy, and how do you
-  handle cross-cloud governance?](maops-3.md "maops-3.md")
-- [MAOPS 4: How does technical debt hamper new feature development,
-  hosting efficiencies, or cost reductions?](maops-4.md "maops-4.md")
+- [MAOPS 1: How do you plan to structure your company and processes to support mergers and acquisitions?](maops-1.md "maops-1.md")
+- [MAOPS 2: How do you plan to set up and govern a secure, multi-account, or multicloud AWS environment?](maops-2.md "maops-2.md")
+- [MAOPS 3: What is your combined AWS Organizations strategy, and how do you handle cross-cloud governance?](maops-3.md "maops-3.md")
+- [MAOPS 4: How does technical debt hamper new feature development, hosting efficiencies, or cost reductions?](maops-4.md "maops-4.md")
 - [MAOPS 5: Do you have a well-defined tagging strategy?](maops-5.md "maops-5.md")
-- [MAOPS 6: How do you plan to use key industry domain knowledge,
-  intellectual property (like patents and algorithms), and open-source tools after an
-  acquisition as a barrier to entry?](maops-6.md "maops-6.md")
-- [MAOPS 7: How do you plan to prioritize and develop a product
-  innovation roadmap for the combined organization?](maops-7.md "maops-7.md")
-- [MAOPS 8: Are product teams from both organizations aligned with
-  the deal rationale and how to organize themselves internally?](maops-8.md "maops-8.md")
-- [MAOPS 9: How do combined product teams organize their product
-  hypothesis, prototyping, and testing with customer validation?](maops-9.md "maops-9.md")
+- [MAOPS 6: How do you plan to use key industry domain knowledge, intellectual property (like patents and algorithms), and open-source tools after an acquisition as a barrier to entry?](maops-6.md "maops-6.md")
+- [MAOPS 7: How do you plan to prioritize and develop a product innovation roadmap for the combined organization?](maops-7.md "maops-7.md")
+- [MAOPS 8: Are product teams from both organizations aligned with the deal rationale and how to organize themselves internally?](maops-8.md "maops-8.md")
+- [MAOPS 9: How do combined product teams organize their product hypothesis, prototyping, and testing with customer validation?](maops-9.md "maops-9.md")
 - [Resources](resources-ops.md "resources-ops.md")

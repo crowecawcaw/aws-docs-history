@@ -1,7 +1,4 @@
-# MASUS 1: How can we verify that the
-
-acquired company aligns with our sustainability
-goals?
+# MASUS 1: How can we verify that the acquired company aligns with our sustainability goals?
 
 Discuss sustainability vision and priorities with seller's
 executives, managers and sustainability staff. Important to
@@ -25,9 +22,7 @@ goals and targets that you want the acquired company to achieve.
 Ensure that these objectives align with your organization's
 sustainability strategy.
 
-## MASUS01-BP03 Integrate sustainability into the acquisition
-
-process
+## MASUS01-BP03 Integrate sustainability into the acquisition process
 
 Incorporate
 sustainability considerations into the due diligence process and

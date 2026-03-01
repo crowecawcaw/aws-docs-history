@@ -38,10 +38,6 @@ Pillar whitepaper](../sustainability-pillar/sustainability-pillar.md "../sustain
 
 ###### Questions
 
-- [MASUS 1: How can we verify that the
-  acquired company aligns with our sustainability
-  goals?](masus-1.md "masus-1.md")
-- [MASUS 2: How can we make sustainability
-  a priority during the post-acquisition integration
-  process?](masus-2.md "masus-2.md")
+- [MASUS 1: How can we verify that the acquired company aligns with our sustainability goals?](masus-1.md "masus-1.md")
+- [MASUS 2: How can we make sustainability a priority during the post-acquisition integration process?](masus-2.md "masus-2.md")
 - [Resources](resources-sus.md "resources-sus.md")

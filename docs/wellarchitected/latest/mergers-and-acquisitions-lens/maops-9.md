@@ -1,6 +1,4 @@
-# MAOPS 9: How do combined product teams organize their product
-
-hypothesis, prototyping, and testing with customer validation?
+# MAOPS 9: How do combined product teams organize their product hypothesis, prototyping, and testing with customer validation?
 
 Mergers and acquisitions can impact the ability to perform both qualitative and
 quantitative experiments with consumers and customers, test agility maturity, and disrupt a

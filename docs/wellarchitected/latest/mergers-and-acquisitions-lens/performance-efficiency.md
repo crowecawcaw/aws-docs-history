@@ -22,8 +22,6 @@ Efficiency Pillar whitepaper](../performance-efficiency-pillar/welcome.md "../pe
 
 ###### Questions
 
-- [MAPERF 1: How do you select the best
-  performing architecture between two organizations?](maperf-1.md "maperf-1.md")
-- [MAPERF 2: How does the platform scale and
-  maintain performance as more customer load is added?](maperf-2.md "maperf-2.md")
+- [MAPERF 1: How do you select the best performing architecture between two organizations?](maperf-1.md "maperf-1.md")
+- [MAPERF 2: How does the platform scale and maintain performance as more customer load is added?](maperf-2.md "maperf-2.md")
 - [Resources](resources-perf.md "resources-perf.md")

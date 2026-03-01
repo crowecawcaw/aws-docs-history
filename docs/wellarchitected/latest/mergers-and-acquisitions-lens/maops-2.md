@@ -1,6 +1,4 @@
-# MAOPS 2: How do you plan to set up and govern a secure,
-
-multi-account, or multicloud AWS environment?
+# MAOPS 2: How do you plan to set up and govern a secure, multi-account, or multicloud AWS environment?
 
 Businesses that are expanding their footprint on AWS due to mergers and acquisitions,
 or are planning to enhance an established AWS environment, need have a foundation on AWS
@@ -13,9 +11,7 @@ you plan, implement, and operate your cloud environment, and include people, pro
 technology considerations. Capabilities are designed to integrate into your overall
 technology environment.
 
-## MAOPS02-BP01 Each company has identified their primary
-
-Region
+## MAOPS02-BP01 Each company has identified their primary Region
 
 For many services, you can choose an AWS Region that specifies where your resources
 are managed. Regions are sets of AWS resources located in the same geographical area. You
@@ -27,16 +23,12 @@ AWS Control Tower offers the easiest way to set up and govern a secure, multi-ac
 environment. It establishes a landing zone that is based on best-practices blueprints, and
 it enables governance using guardrails you can choose from a pre-packaged list.
 
-## MAOPS02-BP03 Automate infrastructure as code (IaC) using Cloud
-
-Formation or Terraform
+## MAOPS02-BP03 Automate infrastructure as code (IaC) using Cloud Formation or Terraform
 
 AWS CloudFormation helps you model, provision, and manage AWS and third-party resources by
 treating infrastructure as code.
 
-## MAOPS02-BP04 Automate resource compliance using tools like
-
-AWS Config
+## MAOPS02-BP04 Automate resource compliance using tools like AWS Config
 
 AWS Config is a config tool that helps you assess, audit, and evaluate the configurations
 and relationships of your resources.

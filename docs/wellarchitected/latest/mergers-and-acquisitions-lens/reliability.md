@@ -43,10 +43,6 @@ Pillar whitepaper](../reliability-pillar/welcome.md "../reliability-pillar/welco
 
 ###### Questions
 
-- [MAREL 1: How do you plan to manage
-  application robustness and availability during mergers
-  and acquisitions?](marel-1.md "marel-1.md")
-- [MAREL 2: How are critical external
-  system integrations set up for high availability to maintain
-  your platform capabilities?](marel-2.md "marel-2.md")
+- [MAREL 1: How do you plan to manage application robustness and availability during mergers and acquisitions?](marel-1.md "marel-1.md")
+- [MAREL 2: How are critical external system integrations set up for high availability to maintain your platform capabilities?](marel-2.md "marel-2.md")
 - [Resources](resources-rel.md "resources-rel.md")

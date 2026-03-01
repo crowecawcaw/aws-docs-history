@@ -1,22 +1,16 @@
-# MAOPS 3: What is your combined AWS Organizations strategy, and how do you
-
-handle cross-cloud governance?
+# MAOPS 3: What is your combined AWS Organizations strategy, and how do you handle cross-cloud governance?
 
 With accounts in AWS Organizations, you can easily allocate resources, group accounts, and apply
 governance policies to accounts or groups. Buyer organization structure needs to be
 extendible to accommodate new organization structure. Both involved organizations should
 come up with the right structure to support operational excellence.
 
-## MAOPS03-BP01 Structure your organization following AWS best
-
-practices
+## MAOPS03-BP01 Structure your organization following AWS best practices
 
 A well-architected multi-account strategy helps you innovate faster in AWS, while
 helping you meet your security and scalability needs.
 
-## MAOPS03-BP02 Merge the management accounts of both
-
-organizations
+## MAOPS03-BP02 Merge the management accounts of both organizations
 
 Consolidated billing is a feature of AWS Organizations. You can use the management account of
 your organization to consolidate and pay for all member accounts. In consolidated billing,
@@ -34,9 +28,7 @@ management accounts. There may be few reasons to keep Organizations separate:
 2. Differing financial needs, including taxation (Europe compared to the US)
 3. Differing operating scope (Systems Manager)
 
-## MAOPS03-BP04 Merge logging, security, and infrastructure
-
-organizations
+## MAOPS03-BP04 Merge logging, security, and infrastructure organizations
 
 The approach covered in this pattern is suitable for customers who have multiple
 AWS accounts with AWS Organizations and are now encountering challenges when using AWS Control Tower, a
