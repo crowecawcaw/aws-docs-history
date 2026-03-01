@@ -1,6 +1,4 @@
-# Identity-based policy examples for
-
-AWS Diagnostic Tools
+# Identity-based policy examples for AWS Diagnostic Tools
 
 By default, users and roles don't have permission to create or modify Diagnostic Tools
 resources. To grant users permission to perform actions on the
@@ -14,20 +12,13 @@ For details about actions and resource types defined by Diagnostic Tools, includ
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the Diagnostic Tools
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allowing all operations
-  on the Diagnostic Tools service](#security_iam_id-based-policy-examples-run-all "#security_iam_id-based-policy-examples-run-all")
-- [Allowing
-  StartExecution for a specific tool](#security_iam_id-based-policy-examples-start-exec-onetool "#security_iam_id-based-policy-examples-start-exec-onetool")
-- [Allowing
-  StartExecution using a specific IAM user](#security_iam_id-based-policy-examples-start-exec-role "#security_iam_id-based-policy-examples-start-exec-role")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the Diagnostic Tools console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allowing all operations on the Diagnostic Tools service](#security_iam_id-based-policy-examples-run-all "#security_iam_id-based-policy-examples-run-all")
+- [Allowing StartExecution for a specific tool](#security_iam_id-based-policy-examples-start-exec-onetool "#security_iam_id-based-policy-examples-start-exec-onetool")
+- [Allowing StartExecution using a specific IAM user](#security_iam_id-based-policy-examples-start-exec-role "#security_iam_id-based-policy-examples-start-exec-role")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Diagnostic Tools resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -60,9 +51,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the Diagnostic Tools
-
-console
+## Using the Diagnostic Tools console
 
 To access the Diagnostic Tools console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the Diagnostic Tools resources
@@ -80,17 +69,13 @@ Diagnostic Tools `ConsoleAccess` or
 entities. For more information, see [Adding permissions to a user](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the
 _IAM User Guide_.
 
-## Allowing all operations
-
-on the Diagnostic Tools service
+## Allowing all operations on the Diagnostic Tools service
 
 In this example, you want to grant an IAM user in your AWS account access to run
 all operations on the Diagnostic Tools service on your account. You also want to allow the user
 to list executions, tools and tags for resources.
 
-## Allowing
-
-`StartExecution` for a specific tool
+## Allowing `StartExecution` for a specific tool
 
 In this example, you want to grant an IAM user in your AWS account access to run
 a specific tools using a specific passrole. This policy includes permissions to complete
