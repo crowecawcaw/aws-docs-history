@@ -1,6 +1,4 @@
-# Accept or reject an AWS Cloud WAN core network
-
-attachment
+# Accept or reject an AWS Cloud WAN core network attachment
 
 When you create an attachment and associate it to a segment that requires an
 acceptance from the core network owner, the newly created attachment goes into a

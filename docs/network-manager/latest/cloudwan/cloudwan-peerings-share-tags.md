@@ -1,6 +1,4 @@
-# Edit shared peering tags in an AWS Cloud WAN global
-
-network
+# Edit shared peering tags in an AWS Cloud WAN global network
 
 Edit the tags associated with a shared transit gateway peering.
 

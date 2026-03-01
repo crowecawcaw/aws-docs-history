@@ -1,10 +1,7 @@
-# View or edit an AWS Cloud WAN Site-to-Site VPN
-
-attachment
+# View or edit an AWS Cloud WAN Site-to-Site VPN attachment
 
 You can view and edit configuration information for a VPN attachment, as well as adding a
-new attachment. If you want to add a new VPN attachment, see [Create a Site-to-Site VPN attachment for an AWS Cloud WAN core
-network](cloudwan-vpn-attachment-add.md "cloudwan-vpn-attachment-add.md").
+new attachment. If you want to add a new VPN attachment, see [Create a Site-to-Site VPN attachment for an AWS Cloud WAN core network](cloudwan-vpn-attachment-add.md "cloudwan-vpn-attachment-add.md").
 
 ## View and edit a VPN attachment
 
@@ -58,9 +55,7 @@ You can delete a routing policy labels for an attachment. Once you delete an att
 6. In the section showing details about the attachment, choose the **Routing policy** tab, choose **Delete**.
 7. Choose **Delete** again to confirm the removal. If the routing policy label was mapped to an attachment routing policy, the **Attachment routing policy association** section updates and removes the policy from the list.
 
-## View a Site-to-Site VPN attachment using the command line or
-
-API
+## View a Site-to-Site VPN attachment using the command line or API
 
 Use the command line or API to viewt a Site-to-Site VPN attachment.
 

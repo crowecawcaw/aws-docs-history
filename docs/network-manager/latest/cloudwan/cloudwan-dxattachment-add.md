@@ -1,6 +1,4 @@
-# Create a Direct Connect gateway attachment for an
-
-AWS Cloud WAN core network
+# Create a Direct Connect gateway attachment for an AWS Cloud WAN core network
 
 You can add a Direct Connect gateway attachment using either the Network Manager console or using the
 AWS CLI. The Direct Connect gateway must first be created using the Direct Connect console before it
@@ -10,14 +8,10 @@ attachments](cloudwan-dxattach-about.md "cloudwan-dxattach-about.md").
 
 ###### Topics
 
-- [Create a Direct Connect gateway attachment using
-  the console](#cloudwan-dxattachment-console "#cloudwan-dxattachment-console")
-- [Create a Direct Connect gateway attachment using
-  the command line or API](#cloudwan-dxattachment-cli "#cloudwan-dxattachment-cli")
+- [Create a Direct Connect gateway attachment using the console](#cloudwan-dxattachment-console "#cloudwan-dxattachment-console")
+- [Create a Direct Connect gateway attachment using the command line or API](#cloudwan-dxattachment-cli "#cloudwan-dxattachment-cli")
 
-## Create a Direct Connect gateway attachment using
-
-the console
+## Create a Direct Connect gateway attachment using the console
 
 The following steps create a Direct Connect gateway attachment for a core network using the
 console.
@@ -58,9 +52,7 @@ console.
 A Direct Connect gateway can be used for only one core network, and can't
 be used for any other Direct Connect gateway type. 10. (Optional) For **Routing policy label**, provide a label that will be used to map this policy to attachments. The policy will automatically be applied to any attachment tagged with the same label. 11. Choose **Create attachment**.
 
-## Create a Direct Connect gateway attachment using
-
-the command line or API
+## Create a Direct Connect gateway attachment using the command line or API
 
 Use the command line or API to create a Direct Connect gateway attachment.
 

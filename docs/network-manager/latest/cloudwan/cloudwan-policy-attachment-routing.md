@@ -19,8 +19,7 @@ Attachment routing policies are used to associate one or more route policies to 
 11. (Optional) Choose the **Edge locations** that this attachment routing rule is applicable to. You can only choose those edge locations that you set up in your network configuration. You can configure this option for Direct Connect attachments that can associate with multiple CNEs. This option allows you to associate the routing policy to a select CNE. By default routing policy applies to all CNEs associated with the Direct Connect attachment.
 12. For **Condition - Routing policy label**, enter the label for the routing policy you want to use for attachment association. All attachments with the same routing label will be automatically associated with this attachment routing policy. You can add a label to attachment when you create that attachment, or you can modify an existing attachment to add a routing label. For more information about adding labels to an attachment, see the applicable steps for the type of attachment you're creating in [Attachments](cloudwan-create-attachment.md "cloudwan-create-attachment.md").
 13. For **Action - Associate with these routing policies**, choose the Cloud WAN routing policies you want to associate with label defined in the previous step.
-    For more information on the parameters used in the JSON file, see [Core network policy version parameters in
-    AWS Cloud WAN](cloudwan-policies-json.md "cloudwan-policies-json.md").
+    For more information on the parameters used in the JSON file, see [Core network policy version parameters in AWS Cloud WAN](cloudwan-policies-json.md "cloudwan-policies-json.md").
 
 ```
 {

@@ -2,8 +2,7 @@
 
 You can create a core network policy by creating a JSON file. In the JSON editor, you add
 the parameters of your core network and policies, including advanced routing policies for fine-grained traffic control. For a description of the required and
-optional parameters in the JSON file, see [Core network policy version parameters in
-AWS Cloud WAN](cloudwan-policies-json.md "cloudwan-policies-json.md").
+optional parameters in the JSON file, see [Core network policy version parameters in AWS Cloud WAN](cloudwan-policies-json.md "cloudwan-policies-json.md").
 
 ###### Note
 
@@ -22,8 +21,7 @@ Familiarity with creating JSON files is required.
    version using a blank form, or copy and modify the contents of a policy version
    that you've downloaded.
    - For the required and optional parameters in your JSON policy, see
-     [Core network policy version parameters in
-     AWS Cloud WAN](cloudwan-policies-json.md "cloudwan-policies-json.md").
+     [Core network policy version parameters in AWS Cloud WAN](cloudwan-policies-json.md "cloudwan-policies-json.md").
    - For the steps to download a previous policy version, see
 
 8. Choose **Create policy**.

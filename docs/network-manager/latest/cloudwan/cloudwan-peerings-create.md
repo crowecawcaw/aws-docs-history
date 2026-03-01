@@ -1,6 +1,4 @@
-# Create a peering in an AWS Cloud WAN core
-
-network
+# Create a peering in an AWS Cloud WAN core network
 
 Create a transit gateway peering.
 

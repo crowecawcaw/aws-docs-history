@@ -2,9 +2,7 @@
 
 Add a transit gateway route table attachment to your AWS Cloud WAN core network.
 
-## Create a transit gateway route table attachment
-
-using the console
+## Create a transit gateway route table attachment using the console
 
 The following steps create a transit gateway route table attachment for a core network using the
 console.
@@ -22,8 +20,7 @@ console.
    **Transit gateway route table**.
 9. In the **Transit gateway route table attachment** section, choose
    the **Transit gateway peering** that will be used for the route
-   table attachment. For information on creating a peering, see [Create a peering in an AWS Cloud WAN core
-   network](cloudwan-peerings-create.md "cloudwan-peerings-create.md").
+   table attachment. For information on creating a peering, see [Create a peering in an AWS Cloud WAN core network](cloudwan-peerings-create.md "cloudwan-peerings-create.md").
 10. From the **Transit gateway route table** list, choose
     the route table to be used for the peering. For information about
     creating a transit gateway route table, see [Transit gateway route tables](../../../vpc/latest/tgw/tgw-route-tables.md "../../../vpc/latest/tgw/tgw-route-tables.md")
@@ -35,9 +32,7 @@ console.
     choosing **Remove tag**.
 13. Choose **Create attachment**.
 
-## Create a transit gateway route table attachment
-
-using the command line or API
+## Create a transit gateway route table attachment using the command line or API
 
 Use the command line or API to create an AWS Cloud WAN transit gateway route table attachment.
 

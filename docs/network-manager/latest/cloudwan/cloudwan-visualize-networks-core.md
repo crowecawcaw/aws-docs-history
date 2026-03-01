@@ -1,6 +1,4 @@
-# Access Cloud WAN core network
-
-dashboards
+# Access Cloud WAN core network dashboards
 
 Use the following dashboards to view information about your Cloud WAN core network. For more information about the Cloud WAN core network dashboards, see [Cloud WAN core network dashboards](cloudwan-visualize-networks.md#cloudwan-core-network-intro "cloudwan-visualize-networks.md#cloudwan-core-network-intro").
 

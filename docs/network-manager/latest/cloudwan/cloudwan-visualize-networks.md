@@ -1,14 +1,10 @@
-# AWS Cloud WAN global and core network
-
-dashboards
+# AWS Cloud WAN global and core network dashboards
 
 AWS Cloud WAN provides two dashboards, a global network dashboard and a core network dashboard.
 Each dashboard is composed sub-dashboards that allow you to view details about your global
 and core networks.
 
-## Cloud WAN global network
-
-dashboards
+## Cloud WAN global network dashboards
 
 The AWS Cloud WAN console uses dashboard visualizations to help you view and monitor all
 aspects of your global and core networks. The following list describes just a few of the
@@ -40,5 +36,4 @@ WAN global network dashboards:
 - Track real-time core network events.
 - Set monitor alarms on core network metrics using Amazon CloudWatch.
 
-For the steps to use the Cloud WAN core network dashboards see [Access Cloud WAN core network
-dashboards](cloudwan-visualize-networks-core.md "cloudwan-visualize-networks-core.md").
+For the steps to use the Cloud WAN core network dashboards see [Access Cloud WAN core network dashboards](cloudwan-visualize-networks-core.md "cloudwan-visualize-networks-core.md").

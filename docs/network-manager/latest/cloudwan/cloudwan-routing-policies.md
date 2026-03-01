@@ -58,3 +58,7 @@ The following is a list of considerations that should be taken into account befo
 - External AWS devices cannot advertise routes with BGP communities containing internal ASNs
 - The list-core-network-routing-information API shows the routing information before routing policies have been applied
 - Route summarization will remove all matched prefixes and replace them with a single summarized route. The summarized prefix will be advertised at the same time as matched prefixes are withdrawn.
+- TGW Route Table Attachments that use the same Peering and are associated to the same segment will share the same outbound routing policies across all similar attachments.
+  This means if you have TGW Route Table Attachment attachment-1 with outbound routing policy 1 on segment prod and peering 1 and you have
+  TGW Route Table Attachment attachment-2 with outbound routing policy 2 on segment prod and peering 1, then both attachment-1 and attachment-2
+  will have both have routing policy 1 and routing policy 2 applied to both of the attachments.

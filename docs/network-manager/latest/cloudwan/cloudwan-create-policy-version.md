@@ -1,6 +1,4 @@
-# Core network policy
-
-versions in AWS Cloud WAN
+# Core network policy versions in AWS Cloud WAN
 
 Create a version of your current network policy any time you want to make changes to your
 network. Policy versions can be created using the console, through either the visual editor
@@ -31,8 +29,7 @@ Change set states can be any of the following:
 - **Out of date** — If you have multiple policy version change
   sets, any policy version that's older than the current LIVE policy is set to
   out-of-date, indicating that it's older than the LIVE policy. You can restore an
-  out-of-date policy. For instructions, see [Restore an out-of-date AWS Cloud WAN core network policy
-  version](cloudwan-policy-version-restore.md "cloudwan-policy-version-restore.md").
+  out-of-date policy. For instructions, see [Restore an out-of-date AWS Cloud WAN core network policy version](cloudwan-policy-version-restore.md "cloudwan-policy-version-restore.md").
 - **Failed generation** — An error prevented the policy from
   generating. Choose the Failed generation link to see details about the failure.
 - **Pending generation** — A policy version was created and is
@@ -84,10 +81,8 @@ any time, you can add or remove edge locations through the network configuration
 
 See the following for the steps to configure your network:
 
-- To configure your network using the console, see [Configure the core network settings in an AWS Cloud WAN policy
-  version](cloudwan-core-network-config.md "cloudwan-core-network-config.md").
-- To configure your network using a JSON file, see [core-network-configuration](cloudwan-policies-json.md#cloudwan-network-config-json "cloudwan-policies-json.md#cloudwan-network-config-json") in [Core network policy version parameters in
-  AWS Cloud WAN](cloudwan-policies-json.md "cloudwan-policies-json.md").
+- To configure your network using the console, see [Configure the core network settings in an AWS Cloud WAN policy version](cloudwan-core-network-config.md "cloudwan-core-network-config.md").
+- To configure your network using a JSON file, see [core-network-configuration](cloudwan-policies-json.md#cloudwan-network-config-json "cloudwan-policies-json.md#cloudwan-network-config-json") in [Core network policy version parameters in AWS Cloud WAN](cloudwan-policies-json.md "cloudwan-policies-json.md").
 
 ### Segments
 
@@ -104,8 +99,7 @@ your network.
 See the following for the steps to add segments to your core network:
 
 - To add a segment using the console, see [Add a segment to an AWS Cloud WAN core network policy version](cloudwan-policy-segments.md "cloudwan-policy-segments.md").
-- To add a segment using a JSON file, see [segments](cloudwan-policies-json.md#cloudwan-segments-json-about "cloudwan-policies-json.md#cloudwan-segments-json-about") in [Core network policy version parameters in
-  AWS Cloud WAN](cloudwan-policies-json.md "cloudwan-policies-json.md").
+- To add a segment using a JSON file, see [segments](cloudwan-policies-json.md#cloudwan-segments-json-about "cloudwan-policies-json.md#cloudwan-segments-json-about") in [Core network policy version parameters in AWS Cloud WAN](cloudwan-policies-json.md "cloudwan-policies-json.md").
 
 ### Network function groups
 
@@ -120,10 +114,8 @@ Cloud WAN using your policy document. After creating a network function group yo
 create a segment action that defines how you want to steer the segments and attachments
 for the network function group.
 
-- For the steps to create a network function group using the console, see [Create a network function group in
-  an AWS Cloud WAN policy version](cloudwan-policy-network-function-groups.md "cloudwan-policy-network-function-groups.md").
-- For the steps to create a network function group using JSON, see [network-function-groups](cloudwan-policies-json.md#cloudwan-network-functions-json "cloudwan-policies-json.md#cloudwan-network-functions-json") in [Core network policy version parameters in
-  AWS Cloud WAN](cloudwan-policies-json.md "cloudwan-policies-json.md").
+- For the steps to create a network function group using the console, see [Create a network function group in an AWS Cloud WAN policy version](cloudwan-policy-network-function-groups.md "cloudwan-policy-network-function-groups.md").
+- For the steps to create a network function group using JSON, see [network-function-groups](cloudwan-policies-json.md#cloudwan-network-functions-json "cloudwan-policies-json.md#cloudwan-network-functions-json") in [Core network policy version parameters in AWS Cloud WAN](cloudwan-policies-json.md "cloudwan-policies-json.md").
 
 ### Segment actions
 
@@ -149,18 +141,15 @@ a service insertion action for a network functions group.
 - **Service insertion** — Create a service insertion action
   that allows you to insert a network function within a segment or across
   segments. This action can either be send via (east-west) or send to
-  north-south). For more information about traffic actions and modes see [Traffic actions and
-  modes](cloudwan-policy-service-insertion.md#cloudwan-policy-service-insertion-modes "cloudwan-policy-service-insertion.md#cloudwan-policy-service-insertion-modes"). You can additionally
+  north-south). For more information about traffic actions and modes see [Traffic actions and modes](cloudwan-policy-service-insertion.md#cloudwan-policy-service-insertion-modes "cloudwan-policy-service-insertion.md#cloudwan-policy-service-insertion-modes"). You can additionally
   choose to specify which edge locations you want to use. Service insertion uses a
   default order for choosing the edgte locations. However, you can specify which
   edges you want to use as well as which edge is the preferred edge.
 
 See the following for the steps to set segment actions:
 
-- To add a segment using the console, see [Add segment actions in an AWS Cloud WAN
-  core network policy version](cloudwan-policy-network-actions-routes.md "cloudwan-policy-network-actions-routes.md").
-- To add a segment using a JSON file, see [segments](cloudwan-policies-json.md#cloudwan-segments-json-about "cloudwan-policies-json.md#cloudwan-segments-json-about") in [segment-actions](cloudwan-policies-json.md#cloudwan-segment-actions-json "cloudwan-policies-json.md#cloudwan-segment-actions-json") in [Core network policy version parameters in
-  AWS Cloud WAN](cloudwan-policies-json.md "cloudwan-policies-json.md").
+- To add a segment using the console, see [Add segment actions in an AWS Cloud WAN core network policy version](cloudwan-policy-network-actions-routes.md "cloudwan-policy-network-actions-routes.md").
+- To add a segment using a JSON file, see [segments](cloudwan-policies-json.md#cloudwan-segments-json-about "cloudwan-policies-json.md#cloudwan-segments-json-about") in [segment-actions](cloudwan-policies-json.md#cloudwan-segment-actions-json "cloudwan-policies-json.md#cloudwan-segment-actions-json") in [Core network policy version parameters in AWS Cloud WAN](cloudwan-policies-json.md "cloudwan-policies-json.md").
 
 ### Attachment policies
 
@@ -171,8 +160,7 @@ subset of conditions along with either the full tag name or tag value.
 See the following for the steps to create a network functions group attachment
 policy:
 
-- To add an attachment policy using the console, see [Create an attachment policy in an AWS Cloud WAN core
-  network policy version](cloudwan-policy-attachments.md "cloudwan-policy-attachments.md").
+- To add an attachment policy using the console, see [Create an attachment policy in an AWS Cloud WAN core network policy version](cloudwan-policy-attachments.md "cloudwan-policy-attachments.md").
 - To add an attachment policy using a JSON file, see [attachment-policies](cloudwan-policies-json.md#cloudwan-attach-policies-json "cloudwan-policies-json.md#cloudwan-attach-policies-json") in [segment-actions](cloudwan-policies-json.md#cloudwan-segment-actions-json "cloudwan-policies-json.md#cloudwan-segment-actions-json").
 
 ### Routing policies

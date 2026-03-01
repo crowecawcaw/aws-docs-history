@@ -1,14 +1,10 @@
-# Delete an AWS Cloud WAN prefix list
-
-association
+# Delete an AWS Cloud WAN prefix list association
 
 ###### Note
 
 Before you can delete a core network prefix list association you must remove any prefix list alias that is referred to in the associated core network policy before the delete call will work.
 
-## Delete a prefix list
-
-association using the console
+## Delete a prefix list association using the console
 
 1. Access the Network Manager console at [https://console.aws.amazon.com/networkmanager/home/](https://console.aws.amazon.com/networkmanager/home "https://console.aws.amazon.com/networkmanager/home").
 2. Under **Connectivity**, choose **Global networks**.
@@ -18,9 +14,7 @@ association using the console
 6. Choose **Delete**.
 7. Confirm the deletion by choosing **Delete**.
 
-## Delete a prefix list
-
-association using the AWS CLI
+## Delete a prefix list association using the AWS CLI
 
 Use the **delete-core-network-prefix-list-association** command.
 
@@ -48,9 +42,7 @@ The command returns the following output:
 }
 ```
 
-## Delete a prefix list
-
-association using the API
+## Delete a prefix list association using the API
 
 Use the [DeleteCoreNetworkPrefixListAssociation](../../../networkmanager/latest/APIReference/API_DeleteCoreNetworkPrefixListAssociation.md "../../../networkmanager/latest/APIReference/API_DeleteCoreNetworkPrefixListAssociation.md") operation.
 

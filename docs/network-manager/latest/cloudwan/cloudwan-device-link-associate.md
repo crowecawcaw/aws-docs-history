@@ -1,6 +1,4 @@
-# Associate or disassociate a device
-
-link in an AWS Cloud WAN global network
+# Associate or disassociate a device link in an AWS Cloud WAN global network
 
 Associate a link with a device in your Cloud WAN global network. In order to associate a
 link with a device, you must first create a link that can be used for the device connection.

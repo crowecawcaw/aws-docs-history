@@ -1,6 +1,4 @@
-# AWS Cloud WAN example: Two segments and multiple
-
-AWS Regions
+# AWS Cloud WAN example: Two segments and multiple AWS Regions
 
 This policy sets up two networks, `Secured` and `Non-Secured`,
 across three AWS Regions. Attachments with the tag `"Network" : "Secured"` map

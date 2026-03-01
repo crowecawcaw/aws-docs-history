@@ -1,6 +1,4 @@
-# View or edit an AWS Cloud WAN core network Direct Connect
-
-gateway attachment
+# View or edit an AWS Cloud WAN core network Direct Connect gateway attachment
 
 You can update the edge locations for a Direct Connect gateway attachment using either the Network Manager
 console or using the AWS CLI. The Direct Connect gateway attachment must first be created using
@@ -10,15 +8,11 @@ attachments](cloudwan-dxattach-about.md "cloudwan-dxattach-about.md").
 
 ###### Topics
 
-- [View or edit a Direct Connect gateway
-  attachment using the console](#cloudwan-dxattachment-update-console "#cloudwan-dxattachment-update-console")
+- [View or edit a Direct Connect gateway attachment using the console](#cloudwan-dxattachment-update-console "#cloudwan-dxattachment-update-console")
 - [Manage a Direct Connect gateway attachment routing policy label](#cloudwan-labels-editing-dx "#cloudwan-labels-editing-dx")
-- [Update a Direct Connect gateway attachment
-  using the command line or API](#cloudwan-dxattachment-update-cli "#cloudwan-dxattachment-update-cli")
+- [Update a Direct Connect gateway attachment using the command line or API](#cloudwan-dxattachment-update-cli "#cloudwan-dxattachment-update-cli")
 
-## View or edit a Direct Connect gateway
-
-attachment using the console
+## View or edit a Direct Connect gateway attachment using the console
 
 Use the following steps he following steps to update the edge locations for a Direct Connect
 gateway attachment. The updated edge locations are automatically associated with the
@@ -64,9 +58,7 @@ You can delete a routing policy labels for an attachment. Once you delete an att
 6. In the section showing details about the attachment, choose the **Routing policy** tab, choose **Delete**.
 7. Choose **Delete** again to confirm the removal. If the routing policy label was mapped to an attachment routing policy, the **Attachment routing policy association** section updates and removes the policy from the list.
 
-## Update a Direct Connect gateway attachment
-
-using the command line or API
+## Update a Direct Connect gateway attachment using the command line or API
 
 Use the command line or API to update a Direct Connect gateway attachment.
 

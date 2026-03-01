@@ -6,8 +6,7 @@ networks by performing a number of different tasks.
 ###### Note
 
 Modifying a global network or a core network requires that both be set up first. If you
-haven't yet created either, see [Quick start: Create an AWS Cloud WAN global network and
-core network](cloudwan-getting-started.md "cloudwan-getting-started.md") for the steps to
+haven't yet created either, see [Quick start: Create an AWS Cloud WAN global network and core network](cloudwan-getting-started.md "cloudwan-getting-started.md") for the steps to
 create a global or core network.
 
 Tasks you can perform to modify your global and core networks include:

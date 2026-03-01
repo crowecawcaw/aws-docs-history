@@ -40,9 +40,7 @@ behalf when you work with global networks. For more information, see [AWS Cloud 
 To view the permissions for this policy, see [AWSNetworkManagerServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSNetworkManagerServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSNetworkManagerServiceRolePolicy.md")
 in the _AWS Managed Policy Reference_.
 
-## Cloud WAN updates to AWS managed
-
-policies
+## Cloud WAN updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS Cloud WAN since this service began
 tracking these changes in July 2022.

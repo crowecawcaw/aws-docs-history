@@ -1,6 +1,4 @@
-# Core network policy version parameters in
-
-AWS Cloud WAN
+# Core network policy version parameters in AWS Cloud WAN
 
 The following sections describe the parameters that you use to create a core network
 policy version using JSON. Your JSON file contains two sections that describe the policy

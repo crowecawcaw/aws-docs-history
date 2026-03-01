@@ -1,6 +1,4 @@
-# Monitor AWS Cloud WAN with Amazon CloudWatch Events
-
-metrics
+# Monitor AWS Cloud WAN with Amazon CloudWatch Events metrics
 
 You can monitor your core network and core network attachments using Amazon CloudWatch under the
 `AWS/NetworkManager` namespace, which collects raw data and processes it into readable,

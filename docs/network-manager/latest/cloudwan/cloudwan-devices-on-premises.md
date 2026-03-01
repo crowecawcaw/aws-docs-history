@@ -1,6 +1,4 @@
-# Associate or disassociate an on-premises
-
-link in an AWS Cloud WAN global network
+# Associate or disassociate an on-premises link in an AWS Cloud WAN global network
 
 Associate or disassociate an on-premises device link association in your Cloud WAN global network.
 

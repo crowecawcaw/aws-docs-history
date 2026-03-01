@@ -1,6 +1,4 @@
-# Create a network function group in
-
-an AWS Cloud WAN policy version
+# Create a network function group in an AWS Cloud WAN policy version
 
 The following steps guide you through configuring a core network for a policy version
 using the **Policy versions** link on the AWS Network Manager console. There are no
@@ -30,5 +28,4 @@ group, but not both. You can't associate an attachment to a network functions
 group if that attachment is already associated with a segment. 11. Once you've created the network function group, you can create a service insertion
 segment action that routes your network functions from source segments to
 destination segments using this network function group. For more information on
-creating a segment action, see "Service insertion" in [Add segment actions in an AWS Cloud WAN
-core network policy version](cloudwan-policy-network-actions-routes.md "cloudwan-policy-network-actions-routes.md").
+creating a segment action, see "Service insertion" in [Add segment actions in an AWS Cloud WAN core network policy version](cloudwan-policy-network-actions-routes.md "cloudwan-policy-network-actions-routes.md").

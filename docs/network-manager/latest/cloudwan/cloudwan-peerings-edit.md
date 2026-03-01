@@ -1,6 +1,4 @@
-# Edit peering tags in an AWS Cloud WAN core
-
-network
+# Edit peering tags in an AWS Cloud WAN core network
 
 Edit the tags that are associated with transit gateway peering.
 

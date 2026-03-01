@@ -92,9 +92,7 @@ value as `test` for one resource. Tags help you do the following:
   access to AWS resources using tags](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest/UserGuide/access_tags.md") in the _AWS Identify
   and Access Management User Guide_.
 
-### Supported
-
-resources
+### Supported resources
 
 The following core network resources support tagging:
 

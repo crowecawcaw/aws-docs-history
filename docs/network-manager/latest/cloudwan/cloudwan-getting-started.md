@@ -1,6 +1,4 @@
-# Quick start: Create an AWS Cloud WAN global network and
-
-core network
+# Quick start: Create an AWS Cloud WAN global network and core network
 
 With AWS Cloud WAN, you'll first create a global network framework, which eventually will contain
 all of your network resources, such as core networks, sites, devices, and attachments. During
@@ -60,8 +58,7 @@ that your global network was created successfully.
 - [create-global-network](../../../cli/latest/reference/networkmanager/create-global-network.md "../../../cli/latest/reference/networkmanager/create-global-network.md")
 
 You can also view dashboards of your global and core networks as topological trees and
-logical diagrams, and you can monitor and track events. See [AWS Cloud WAN global and core network
-dashboards](cloudwan-visualize-networks.md "cloudwan-visualize-networks.md") for the ways you can visualize and monitor your
+logical diagrams, and you can monitor and track events. See [AWS Cloud WAN global and core network dashboards](cloudwan-visualize-networks.md "cloudwan-visualize-networks.md") for the ways you can visualize and monitor your
 global and core networks.
 
 ## Step 2: Create a core network
@@ -109,15 +106,13 @@ deployed successfully, the **Policy versions** tab displays
 that the core network policy is LIVE and that the **Change set
 state** has succeeded when the policy has deployed
 successfully. 9. After your policy is LIVE and the core network was created, you can begin to
-add attachments to your core network. See [Attachments in AWS Cloud WAN](cloudwan-create-attachment.md "cloudwan-create-attachment.md") .
+add attachments to your core network. See [Attachments in AWS Cloud WAN](cloudwan-create-attachment.md "cloudwan-create-attachment.md").
 
 ###### To create a core network using the command line or API
 
 - [create-core-network](../../../cli/latest/reference/networkmanager/create-core-network.md "../../../cli/latest/reference/networkmanager/create-core-network.md")
 
-## (Optional) Step 3: Modify your global and core
-
-networks
+## (Optional) Step 3: Modify your global and core networks
 
 Once you've created your global and core networks you can optionally modify your global
 and core network by completing any of the following tasks based on the needs of your network:
@@ -136,9 +131,7 @@ and core network by completing any of the following tasks based on the needs of 
 | Register transit gateways                                 | Register transit gateways you've created in Amazon VPC with your Cloud WAN global network.                                                                                                                                                                                                                                                                                                 | See [Transit gateways](cloudwan-register-tgw.md "cloudwan-register-tgw.md").                               |
 | Monitor events and track metrics using Amazon CloudWatch. | Onboard CloudWatch Logs Insight, allowing you to monitor our Cloud WAN resources.<br>Use Amazon CloudWatch Events to track CloudWatch metrics and to set threshold alarms<br>on metrics.                                                                                                                                                                                                   | See [CloudWatch events and metrics](cloudwan-events-metrics.md "cloudwan-events-metrics.md").              |
 
-## (Optional) Step 4: View your global and
-
-core network dashboards
+## (Optional) Step 4: View your global and core network dashboards
 
 View dashboards of your global and core networks. Cloud WAN uses Amazon CloudWatch events and
 metrics, allowing you to monitor your global and core networks. You can use these events and
@@ -163,12 +156,9 @@ navigating this dashboard, see [Access AWS Cloud WAN global network dashboards](
 3. In the navigation pane choose **Core network**.
 
 The dashboard opens for that core network. For information on navigating this
-dashboard, see [Access Cloud WAN core network
-dashboards](cloudwan-visualize-networks-core.md "cloudwan-visualize-networks-core.md").
+dashboard, see [Access Cloud WAN core network dashboards](cloudwan-visualize-networks-core.md "cloudwan-visualize-networks-core.md").
 
-## (Optional) Step 5: View your transit gateway
-
-network and transit gateway dashboards
+## (Optional) Step 5: View your transit gateway network and transit gateway dashboards
 
 View dashboards of both your transit gateway network and your transit gateways to view
 logical diagrams, geographical representations, and topologies of your transit gateway network
@@ -183,8 +173,7 @@ events.
 3. In the navigation pane, choose **Transit gateway network**.
 
 The transit gateway network dashboard opens. For information on navigating this
-dashboard, see [Access AWS Cloud WAN transit gateway network
-dashboards](cloudwan-tgw-networks.md "cloudwan-tgw-networks.md").
+dashboard, see [Access AWS Cloud WAN transit gateway network dashboards](cloudwan-tgw-networks.md "cloudwan-tgw-networks.md").
 
 ###### To access the transit gateway dashboards
 

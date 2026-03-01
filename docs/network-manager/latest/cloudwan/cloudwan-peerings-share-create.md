@@ -1,6 +1,4 @@
-# Create a shared peering in an AWS Cloud WAN global
-
-network
+# Create a shared peering in an AWS Cloud WAN global network
 
 The following steps guide you through creating a shared peering in your core network.
 

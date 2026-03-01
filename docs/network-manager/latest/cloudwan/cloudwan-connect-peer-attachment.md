@@ -1,22 +1,15 @@
-# Create an AWS Cloud WAN Connect peer for a core
-
-network
+# Create an AWS Cloud WAN Connect peer for a core network
 
 You can create a either a GRE Connect peer or a Tunnel-less Connect peer for an existing
 Connect attachment using either the AWS Cloud WAN console or the command line/API.
 
 ###### Topics
 
-- [Add a GRE Connect peer using the
-  console](#cloudwan-connect-peer-console "#cloudwan-connect-peer-console")
-- [Add a Tunnel-less Connect peer
-  using the console](#cloudwan-connect-peer-tlc-attachment "#cloudwan-connect-peer-tlc-attachment")
-- [Add a Connect peer using the command line or
-  API](#cloudwan-connect-peer-cli "#cloudwan-connect-peer-cli")
+- [Add a GRE Connect peer using the console](#cloudwan-connect-peer-console "#cloudwan-connect-peer-console")
+- [Add a Tunnel-less Connect peer using the console](#cloudwan-connect-peer-tlc-attachment "#cloudwan-connect-peer-tlc-attachment")
+- [Add a Connect peer using the command line or API](#cloudwan-connect-peer-cli "#cloudwan-connect-peer-cli")
 
-## Add a GRE Connect peer using the
-
-console
+## Add a GRE Connect peer using the console
 
 The following steps add a GRE Connect peer using the console.
 
@@ -55,9 +48,7 @@ help identify this resource. You can add multiple tags by choosing **Add
 tag**, or remove any tag by choosing **Remove
 tag**. 15. Choose **Create Connect peer**.
 
-## Add a Tunnel-less Connect peer
-
-using the console
+## Add a Tunnel-less Connect peer using the console
 
 The following steps add a Tunnel-less Connect peer using the console.
 
@@ -98,9 +89,7 @@ help identify this resource. You can add multiple tags by choosing **Add
 tag**, or remove any tag by choosing **Remove
 tag**. 13. Choose **Create Connect peer**.
 
-## Add a Connect peer using the command line or
-
-API
+## Add a Connect peer using the command line or API
 
 Use the command line or API to create an AWS Cloud WAN Connect peer.
 

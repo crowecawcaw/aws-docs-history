@@ -1,10 +1,6 @@
-# AWS Cloud WAN transit gateway network and transit gateways
+# AWS Cloud WAN transit gateway network and transit gateways dashboards
 
-dashboards
-
-## Cloud WAN transit gateway network
-
-dashboards
+## Cloud WAN transit gateway network dashboards
 
 Use the transit gateway network dashboard to view details about all transit gateways in your
 global network. Some of the dashboards include:
@@ -19,8 +15,7 @@ global network. Some of the dashboards include:
   gateways.
 
 For the steps to access and use the Cloud WAN transit gateway networks dashboards,
-see [Access AWS Cloud WAN transit gateway network
-dashboards](cloudwan-tgw-networks.md "cloudwan-tgw-networks.md").
+see [Access AWS Cloud WAN transit gateway network dashboards](cloudwan-tgw-networks.md "cloudwan-tgw-networks.md").
 
 ## Cloud WAN transit gateway dashboards
 

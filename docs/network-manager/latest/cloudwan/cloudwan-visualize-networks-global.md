@@ -4,8 +4,7 @@ Visualize and monitor your global networks in the Network Manager console throug
 representation of your global network topology, including a map showing the locations of
 transit gateways, edge locations, devices, and sites.
 
-Use the following dashboards to view information about your Cloud WAN global network. For more information about the Cloud WAN core network dashboards, see [Cloud WAN global network
-dashboards](cloudwan-visualize-networks.md#cloudwan-global-network-intro "cloudwan-visualize-networks.md#cloudwan-global-network-intro").
+Use the following dashboards to view information about your Cloud WAN global network. For more information about the Cloud WAN core network dashboards, see [Cloud WAN global network dashboards](cloudwan-visualize-networks.md#cloudwan-global-network-intro "cloudwan-visualize-networks.md#cloudwan-global-network-intro").
 
 ###### Global network dashboards
 

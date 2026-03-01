@@ -1,6 +1,4 @@
-# AWS Cloud WAN example: Service insertion firewalls
-
-between on-premises and VPCs
+# AWS Cloud WAN example: Service insertion firewalls between on-premises and VPCs
 
 In this policy, traffic on a segment named _development_ is first sent
 to an Inspection VPC before being sent to a segment named _production_ using

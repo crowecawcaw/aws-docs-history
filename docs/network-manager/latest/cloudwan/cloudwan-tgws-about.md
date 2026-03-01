@@ -11,8 +11,7 @@ you can view
 
 - For information about viewing the dashboard for a single transit gateway in your
   global network, see [Access AWS Cloud WAN transit gateway dashboards](cloudwan-tgw-dashboard.md "cloudwan-tgw-dashboard.md").
-- For information about viewing all transit gateways in your global network, see [Access AWS Cloud WAN transit gateway network
-  dashboards](cloudwan-tgw-networks.md "cloudwan-tgw-networks.md").
+- For information about viewing all transit gateways in your global network, see [Access AWS Cloud WAN transit gateway network dashboards](cloudwan-tgw-networks.md "cloudwan-tgw-networks.md").
 
 ###### Topics
 

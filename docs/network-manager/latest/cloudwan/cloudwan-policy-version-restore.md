@@ -1,6 +1,4 @@
-# Restore an out-of-date AWS Cloud WAN core network policy
-
-version
+# Restore an out-of-date AWS Cloud WAN core network policy version
 
 An out-of-date policy can be restored as a new version of a policy.
 

@@ -1,19 +1,13 @@
-# Create a Site-to-Site VPN attachment for an AWS Cloud WAN core
-
-network
+# Create a Site-to-Site VPN attachment for an AWS Cloud WAN core network
 
 You can create a Site-to-Site VPN attachment using either the Network Manager console or the AWS CLI.
 
 ###### Topics
 
-- [Create a Site-to-Site VPN attachment using the
-  console](#cloudwan-vpn-attachment-console "#cloudwan-vpn-attachment-console")
-- [Create a Site-to-Site VPN attachment using the command
-  line or API](#cloudwan-vpn-attachment-cli "#cloudwan-vpn-attachment-cli")
+- [Create a Site-to-Site VPN attachment using the console](#cloudwan-vpn-attachment-console "#cloudwan-vpn-attachment-console")
+- [Create a Site-to-Site VPN attachment using the command line or API](#cloudwan-vpn-attachment-cli "#cloudwan-vpn-attachment-cli")
 
-## Create a Site-to-Site VPN attachment using the
-
-console
+## Create a Site-to-Site VPN attachment using the console
 
 The following steps create a Site-to-Site VPN attachment for a core network using the
 console
@@ -38,9 +32,7 @@ console
     tag**.
 12. Choose **Create attachment**.
 
-## Create a Site-to-Site VPN attachment using the command
-
-line or API
+## Create a Site-to-Site VPN attachment using the command line or API
 
 Use the command line or API to create an AWS Cloud WAN Site-to-Site VPN attachment.
 

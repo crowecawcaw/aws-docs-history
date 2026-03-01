@@ -27,8 +27,7 @@ You can create a policy version containing the service insertion action using
 either the AWS Network Manager console or through creating a JSON file which you can also
 create using the console:
 
-    * To create a policy version using the console, see [Create an AWS Cloud WAN core network policy version
-     using the console](cloudwan-create-policy-console.md "cloudwan-create-policy-console.md").
+    * To create a policy version using the console, see [Create an AWS Cloud WAN core network policy version using the console](cloudwan-create-policy-console.md "cloudwan-create-policy-console.md").
     * To create a policy version using a JSON file, see [Create an AWS Cloud WAN core network policy version using JSON](cloudwan-create-policy-json.md "cloudwan-create-policy-json.md").
 
 2. Using either the console or within the JSON file you'll do the following:
@@ -56,8 +55,7 @@ create using the console:
    the appliance. For example, you might create segment action using send via.
    With send via (east-west traffic), traffic is routed to the Inspection VPC
    for security processing and then re-enters the Cloud WAN core network to
-   reach its final VPC destination. See [Traffic actions and
-   modes](#cloudwan-policy-service-insertion-modes "#cloudwan-policy-service-insertion-modes") below for more
+   reach its final VPC destination. See [Traffic actions and modes](#cloudwan-policy-service-insertion-modes "#cloudwan-policy-service-insertion-modes") below for more
    information about traffic actions and modes.
 
    By default, Cloud WAN will select an attachment in one of the two Regions
@@ -93,9 +91,7 @@ create using the console:
   through your security infrastructure without having to set up complex
   multi-Region network configurations.
 
-## Traffic actions and
-
-modes
+## Traffic actions and modes
 
 Service insertion supports the following traffic actions and modes for both east-west
 and north-south traffic.

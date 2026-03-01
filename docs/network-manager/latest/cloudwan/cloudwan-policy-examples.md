@@ -2,8 +2,7 @@
 
 This section provides example JSON AWS Cloud WAN policies. You can modify any of these examples
 for your own use. For a description of the required and optional parameters in the JSON
-file, see [Core network policy version parameters in
-AWS Cloud WAN](cloudwan-policies-json.md "cloudwan-policies-json.md").
+file, see [Core network policy version parameters in AWS Cloud WAN](cloudwan-policies-json.md "cloudwan-policies-json.md").
 
 ###### Topics
 

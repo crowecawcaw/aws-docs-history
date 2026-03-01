@@ -1,6 +1,4 @@
-# View or edit an AWS Cloud WAN Connect
-
-attachment
+# View or edit an AWS Cloud WAN Connect attachment
 
 You can view information about a Connect attachment. For an existing attachment you can
 create a GRE or Tunnel-less Connect peer, as well as edit the key-value tags associated with
@@ -20,8 +18,7 @@ the attachment. If you want to add a new Connect attachment, see [Connect attach
    that are associated with the attachment. Here you can also add a new Connect peer,
    as well as add, edit, or remove tags.
    - To add a new GRE or Tunnel-less Connect peer attachment, choose the
-     **Connect peers** tab and follow the steps here: [Create an AWS Cloud WAN Connect peer for a core
-     network](cloudwan-connect-peer-attachment.md "cloudwan-connect-peer-attachment.md").
+     **Connect peers** tab and follow the steps here: [Create an AWS Cloud WAN Connect peer for a core network](cloudwan-connect-peer-attachment.md "cloudwan-connect-peer-attachment.md").
    - To add or edit attachment Tags, choose the **Tags** tab.
      The current list of tags associated with this attachment are displayed.
      Choose **Edit tags** to modify or delete current tags, and
@@ -58,15 +55,11 @@ You can delete a routing policy labels for an attachment. Once you delete an att
 6. In the section showing details about the attachment, choose the **Routing policy** tab, choose **Delete**.
 7. Choose **Delete** again to confirm the removal. If the routing policy label was mapped to an attachment routing policy, the **Attachment routing policy association** section updates and removes the policy from the list.
 
-## View a Connect or Connect peer attachment using
-
-the command line or API
+## View a Connect or Connect peer attachment using the command line or API
 
 Use the command line or API to view a Connect or Connect peer attachment.
 
-###### To view a Connect or Connect peer attachment using the command line or
-
-API
+###### To view a Connect or Connect peer attachment using the command line or API
 
 - For a Connect attachment, see [get-connect-attachment](../../../cli/latest/reference/networkmanager/get-connect-attachment.md "../../../cli/latest/reference/networkmanager/get-connect-attachment.md").
 - For a Connect peer attachment, see [get-connect-peer](../../../cli/latest/reference/networkmanager/get-connect-peer.md "../../../cli/latest/reference/networkmanager/get-connect-peer.md").

@@ -1,6 +1,4 @@
-# View or edit an AWS Cloud WAN transit
-
-gateway route table attachment
+# View or edit an AWS Cloud WAN transit gateway route table attachment
 
 You can view and edit the key-value tags associated with a transit gateway route table
 attachment, as well as adding a new attachment or for managing route labels For the steps to add a new transit gateway
@@ -21,9 +19,7 @@ route table attachment, see[Transit gateway route table attachments in AWS Cloud
    **Edit tags** to modify or delete current tags, and to add new
    tags.
 
-## Manage a route table attachment routing
-
-policy label
+## Manage a route table attachment routing policy label
 
 You can create, modify, or delete routing policy labels for an attachment. Once you add or modify a routing policy label, you'll need to map or remap it to an attachment routing policy. Deleting a routing policy label removes any association with an attachment routing policy.
 
@@ -51,14 +47,10 @@ You can delete a routing policy labels for an attachment. Once you delete an att
 6. In the section showing details about the attachment, choose the **Routing policy** tab, choose **Delete**.
 7. Choose **Delete** again to confirm the removal. If the routing policy label was mapped to an attachment routing policy, the **Attachment routing policy association** section updates and removes the policy from the list.
 
-## View a transit gateway route table attachment
-
-using the command line or API
+## View a transit gateway route table attachment using the command line or API
 
 Use the command line or API to view a transit gateway route table attachment.
 
-###### To view a transit gateway route table attachment using the command line or
-
-API
+###### To view a transit gateway route table attachment using the command line or API
 
 - See [get-transit-gateway-route-table-attachment](../../../cli/latest/reference/networkmanager/get-transit-gateway-route-table-attachment.md "../../../cli/latest/reference/networkmanager/get-transit-gateway-route-table-attachment.md").

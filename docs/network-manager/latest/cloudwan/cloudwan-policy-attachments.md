@@ -1,6 +1,4 @@
-# Create an attachment policy in an AWS Cloud WAN core
-
-network policy version
+# Create an attachment policy in an AWS Cloud WAN core network policy version
 
 The following steps guide you through configuring a core network for a policy version
 using the **Policy versions** link on the AWS Network Manager console. For more
@@ -8,15 +6,14 @@ information about attachment policies, see [Attachment policies](cloudwan-create
 
 An attachment policy requires the following:
 
-- The core network configured. See [Configure the core network settings in an AWS Cloud WAN policy
-  version](cloudwan-core-network-config.md "cloudwan-core-network-config.md").
+- The core network configured. See [Configure the core network settings in an AWS Cloud WAN policy version](cloudwan-core-network-config.md "cloudwan-core-network-config.md").
 - One or more segments. See [Segments](cloudwan-create-policy-version.md#cloudwan-policy-create-segment "cloudwan-create-policy-version.md#cloudwan-policy-create-segment").
 - If you are optionally creating a service insertion action, you'll first need the
   following:
   - A network functions group. See [Network function groups](cloudwan-create-policy-version.md#cloudwan-core-network-function "cloudwan-create-policy-version.md#cloudwan-core-network-function").
   - At least one attachment. Supported attachment types are Connect, Direct
     Connect gateway, transit gateway route table, VPC, and Site-to-Site VPN. For more
-    information about attachments, see [Attachments in AWS Cloud WAN](cloudwan-create-attachment.md "cloudwan-create-attachment.md") .
+    information about attachments, see [Attachments in AWS Cloud WAN](cloudwan-create-attachment.md "cloudwan-create-attachment.md").
 
   ###### Important
 
@@ -156,9 +153,7 @@ following:
 14. Choose **Create attachment policy**.
 15. Choose **Create policy**.
 
-## Example condition logic for a network
-
-function group attachment policy
+## Example condition logic for a network function group attachment policy
 
 The following shows a partial JSON example using the OR operator for a network function
 group attachment policy.
@@ -172,8 +167,7 @@ group attachment policy.
   looks for any segment with the value `production` or
   `development`.
 
-For more information on the parameters used in the JSON file, see [Core network policy version parameters in
-AWS Cloud WAN](cloudwan-policies-json.md "cloudwan-policies-json.md").
+For more information on the parameters used in the JSON file, see [Core network policy version parameters in AWS Cloud WAN](cloudwan-policies-json.md "cloudwan-policies-json.md").
 
 ```
 {
@@ -225,8 +219,7 @@ The following shows a JSON containing three attachment policies for a core netwo
   only accept `vpc` attachments and only if the request comes from
   `us-east-2`.
 
-For more information on the parameters used in the JSON file, see [Core network policy version parameters in
-AWS Cloud WAN](cloudwan-policies-json.md "cloudwan-policies-json.md").
+For more information on the parameters used in the JSON file, see [Core network policy version parameters in AWS Cloud WAN](cloudwan-policies-json.md "cloudwan-policies-json.md").
 
 ```
 {

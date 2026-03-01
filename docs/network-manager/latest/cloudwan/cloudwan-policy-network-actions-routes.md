@@ -1,6 +1,4 @@
-# Add segment actions in an AWS Cloud WAN
-
-core network policy version
+# Add segment actions in an AWS Cloud WAN core network policy version
 
 The following steps guide you through optionally setting segment actions for a core network
 for a policy version using the **Policy versions** link on the AWS Network Manager
@@ -11,8 +9,7 @@ information, about segment actions, see [Segment actions](cloudwan-create-policy
 
 - [Segment sharing](#cloudwan-policy-network-actions-sharing "#cloudwan-policy-network-actions-sharing")
 - [Segment routes](#cloudwan-policy-version-routes "#cloudwan-policy-version-routes")
-- [Edge location routing
-  policy associations](#cloudwan-policy-routing-associations-console "#cloudwan-policy-routing-associations-console")
+- [Edge location routing policy associations](#cloudwan-policy-routing-associations-console "#cloudwan-policy-routing-associations-console")
 - [Service insertion](#cloudwan-policy-service-insertion "#cloudwan-policy-service-insertion")
 
 ## Segment sharing
@@ -93,13 +90,10 @@ Create a segment route for a policy version.
    that you want to include in this route. 5. Choose **Create segment route**.
 
 8. (Optional) Add **Attachment policies**. For more information,
-   see [Create an attachment policy in an AWS Cloud WAN core
-   network policy version](cloudwan-policy-attachments.md "cloudwan-policy-attachments.md").
+   see [Create an attachment policy in an AWS Cloud WAN core network policy version](cloudwan-policy-attachments.md "cloudwan-policy-attachments.md").
 9. Choose **Create route**.
 
-## Edge location routing
-
-policy associations
+## Edge location routing policy associations
 
 Associating a routing policy to an edge location pair allows you to control how
 traffic flows between two specific geographic locations in your network, overriding
@@ -128,8 +122,7 @@ locations.
       routing policy to associate with this segment and edge location pair.
    5. Choose **Associate**.
 
-For more information on the parameters used in the JSON file, see [Core network policy version parameters in
-AWS Cloud WAN](cloudwan-policies-json.md "cloudwan-policies-json.md").
+For more information on the parameters used in the JSON file, see [Core network policy version parameters in AWS Cloud WAN](cloudwan-policies-json.md "cloudwan-policies-json.md").
 
 ```
 {
@@ -243,5 +236,4 @@ location.
 
 8. Choose **Create service insertion**.
 9. (Optional) Add **Attachment policies**. For more information,
-   see [Create an attachment policy in an AWS Cloud WAN core
-   network policy version](cloudwan-policy-attachments.md "cloudwan-policy-attachments.md").
+   see [Create an attachment policy in an AWS Cloud WAN core network policy version](cloudwan-policy-attachments.md "cloudwan-policy-attachments.md").

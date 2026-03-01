@@ -1,6 +1,4 @@
-# View or edit an AWS Cloud WAN VPC
-
-attachment
+# View or edit an AWS Cloud WAN VPC attachment
 
 You can view and edit configuration information for a VPC attachment . If you want to add
 a new VPC attachment, see [VPC attachments in AWS Cloud WAN](cloudwan-vpc-attachment.md "cloudwan-vpc-attachment.md").
@@ -61,9 +59,7 @@ You can delete a routing policy labels for an attachment. Once you delete an att
 6. In the section showing details about the attachment, choose the **Routing policy** tab, choose **Delete**.
 7. Choose **Delete** again to confirm the removal. If the routing policy label was mapped to an attachment routing policy, the **Attachment routing policy association** section updates and removes the policy from the list.
 
-## View a VPC attachment using the command line or
-
-API
+## View a VPC attachment using the command line or API
 
 Use the command line or API to view a VPC attachment.
 

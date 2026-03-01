@@ -1,6 +1,4 @@
-# Associate or disassociate a Connect peer
-
-link in an AWS Cloud WAN global network
+# Associate or disassociate a Connect peer link in an AWS Cloud WAN global network
 
 Associate or disassociate a Connect peer device link association in your Cloud WAN global network.
 

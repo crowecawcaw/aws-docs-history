@@ -41,9 +41,7 @@ The following steps create a VPC attachment for a core network using the console
     tag**.
 17. Choose **Create attachment**.
 
-## Create a VPC attachment using the command line
-
-or API
+## Create a VPC attachment using the command line or API
 
 Use the command line or API to create an AWS Cloud WAN VPC attachment
 
