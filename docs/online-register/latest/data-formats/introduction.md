@@ -171,6 +171,7 @@ You can also search the AWS documentation website for a product's API reference.
 - [Data retrieval APIs for Amazon ElastiCache](amazonelasticache.md "amazonelasticache.md")
 - [Data retrieval APIs for AWS Elemental Appliances and Software](awselementalappliancesandsoftware.md "awselementalappliancesandsoftware.md")
 - [Data retrieval APIs for AWS Elemental Appliances and Software Activation Service](awselementalappliancesandsoftwareactivationservice.md "awselementalappliancesandsoftwareactivationservice.md")
+- [Data retrieval APIs for AWS Elemental Inference](awselementalinference.md "awselementalinference.md")
 - [Data retrieval APIs for AWS Elemental MediaConnect](awselementalmediaconnect.md "awselementalmediaconnect.md")
 - [Data retrieval APIs for AWS Elemental MediaConvert](awselementalmediaconvert.md "awselementalmediaconvert.md")
 - [Data retrieval APIs for AWS Elemental MediaLive](awselementalmedialive.md "awselementalmedialive.md")

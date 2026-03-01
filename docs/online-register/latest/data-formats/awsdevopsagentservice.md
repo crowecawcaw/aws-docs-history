@@ -17,6 +17,7 @@ AWS DevOps Agent Service provides the following APIs for data retrieval.
 | [ListAgentSpaces](../../../devopsagent/latest/userguide/what-is.md "../../../devopsagent/latest/userguide/what-is.md")                   | List agentspace                                       | List         |
 | [ListAssociations](../../../devopsagent/latest/userguide/what-is.md "../../../devopsagent/latest/userguide/what-is.md")                  | List associations                                     | List         |
 | [ListBacklogTasks](../../../devopsagent/latest/userguide/what-is.md "../../../devopsagent/latest/userguide/what-is.md")                  | List backlog tasks                                    | List         |
+| [ListChats](../../../devopsagent/latest/userguide/what-is.md "../../../devopsagent/latest/userguide/what-is.md")                         | List existing chat sessions                           | List         |
 | [ListExecutions](../../../devopsagent/latest/userguide/what-is.md "../../../devopsagent/latest/userguide/what-is.md")                    | List executions                                       | List         |
 | [ListGoals](../../../devopsagent/latest/userguide/what-is.md "../../../devopsagent/latest/userguide/what-is.md")                         | List goals                                            | List         |
 | [ListJournalRecords](../../../devopsagent/latest/userguide/what-is.md "../../../devopsagent/latest/userguide/what-is.md")                | List journal records                                  | List         |
