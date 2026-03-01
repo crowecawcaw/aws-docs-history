@@ -104,9 +104,7 @@ view of a running workflow using the AWS Glue API. For more information, see [Qu
 
 ###### See also
 
-- [Creating a workflow from a blueprint in
-  AWS Glue](creating_workflow_blueprint.md "creating_workflow_blueprint.md")
-- [Creating and building out a workflow manually
-  in AWS Glue](creating_running_workflows.md "creating_running_workflows.md")
+- [Creating a workflow from a blueprint in AWS Glue](creating_workflow_blueprint.md "creating_workflow_blueprint.md")
+- [Creating and building out a workflow manually in AWS Glue](creating_running_workflows.md "creating_running_workflows.md")
 - [Workflows](aws-glue-api-workflow.md "aws-glue-api-workflow.md")
   (for the workflows API)

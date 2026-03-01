@@ -1,12 +1,8 @@
-# AWS Glue Scala TimestampNode
-
-APIs
+# AWS Glue Scala TimestampNode APIs
 
 **Package: com.amazonaws.services.glue.types**
 
-## TimestampNode case
-
-class
+## TimestampNode case class
 
 **TimestampNode**
 

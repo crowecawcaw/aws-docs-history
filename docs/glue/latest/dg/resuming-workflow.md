@@ -8,15 +8,11 @@ nodes are then run.
 
 ###### Topics
 
-- [Resuming a workflow run: How it
-  works](#resume-workflow-howitworks "#resume-workflow-howitworks")
+- [Resuming a workflow run: How it works](#resume-workflow-howitworks "#resume-workflow-howitworks")
 - [Resuming a workflow run](#how-to-resume-workflow "#how-to-resume-workflow")
-- [Notes and limitations for resuming workflow
-  runs](#resume-workflow-notes "#resume-workflow-notes")
+- [Notes and limitations for resuming workflow runs](#resume-workflow-notes "#resume-workflow-notes")
 
-## Resuming a workflow run: How it
-
-works
+## Resuming a workflow run: How it works
 
 Consider the workflow W1 in the following diagram.
 
@@ -191,9 +187,7 @@ restarted. This is because one node was downstream of the other node, and the
 downstream node would be restarted anyway by the normal flow of the
 workflow.
 
-## Notes and limitations for resuming workflow
-
-runs
+## Notes and limitations for resuming workflow runs
 
 Keep the following notes and limitations in mind when resuming workflow runs.
 

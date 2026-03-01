@@ -174,9 +174,7 @@ trusted-identity-propagation sessions in your account.
 **Warning:** Do not manually modify settings on the managed Identity Center Application.
 Any changes could affect all trusted-identity-propagation enabled AWS Glue interactive sessions in your account.
 
-## Creating a AWS Glue Interactive Session with Trusted
-
-Identity Propagation Enabled
+## Creating a AWS Glue Interactive Session with Trusted Identity Propagation Enabled
 
 After you connect AWS Glue with IAM Identity Center, you can use
 [identity-enhanced role credentials](../../../singlesignon/latest/userguide/trustedidentitypropagation-identity-enhanced-iam-role-sessions.md "../../../singlesignon/latest/userguide/trustedidentitypropagation-identity-enhanced-iam-role-sessions.md")

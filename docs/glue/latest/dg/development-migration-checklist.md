@@ -1,6 +1,4 @@
-#
-
-Migrating from dev endpoints to interactive sessions
+# Migrating from dev endpoints to interactive sessions
 
 Use the following checklist to determine the appropriate method to migrate from dev endpoints
 to interactive sessions.

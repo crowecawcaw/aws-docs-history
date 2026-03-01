@@ -1,6 +1,4 @@
-# AWS Glue Scala DynamicFrame
-
-class
+# AWS Glue Scala DynamicFrame class
 
 **Package: com.amazonaws.services.glue**
 

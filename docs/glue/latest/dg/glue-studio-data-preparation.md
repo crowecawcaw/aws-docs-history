@@ -1,6 +1,4 @@
-#
-
-Using a data preparation recipe in AWS Glue Studio
+# Using a data preparation recipe in AWS Glue Studio
 
 The **Data preparation recipe** transform allows you to author a data preparation recipe from
 scratch using an interactive grid style authoring interface. It also allows you to import an existing AWS Glue DataBrew
@@ -11,9 +9,7 @@ You can connect the **Data Preparation Recipe** node to another node in the visu
 is a Data source node or another transformation node. After choosing a AWS Glue DataBrew recipe and version,
 the applied steps in the recipe are visible in the node properties tab.
 
-##
-
-Prerequisites
+## Prerequisites
 
 - If importing an AWS Glue DataBrew recipe, you have the required IAM permissions as described in
   [Import a AWS Glue DataBrew recipe in AWS Glue Studio](glue-studio-data-preparation-import-recipe.md "glue-studio-data-preparation-import-recipe.md")

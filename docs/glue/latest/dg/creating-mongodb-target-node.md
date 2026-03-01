@@ -17,5 +17,4 @@
 
 Once you have chosen a connection, you can view the connection properties by clicking
 **View properties**. 2. Choose a **Database**. Enter `mongodbName`. 3. Choose a **Collection**. Enter `mongodbCollection`. 4. Choose your **Partitioner**, **Partition size (MB)** and
-**Partition key**. For more information about partition parameters, see ["connectionType": "mongodb" as
-source](aws-glue-programming-etl-connect-mongodb-home.md#etl-connect-mongodb-as-source "aws-glue-programming-etl-connect-mongodb-home.md#etl-connect-mongodb-as-source"). 5. Choose **Retry Writes** if desired. 6. In **Custom MongoDB properties**, enter parameters and values as needed.
+**Partition key**. For more information about partition parameters, see ["connectionType": "mongodb" as source](aws-glue-programming-etl-connect-mongodb-home.md#etl-connect-mongodb-as-source "aws-glue-programming-etl-connect-mongodb-home.md#etl-connect-mongodb-as-source"). 5. Choose **Retry Writes** if desired. 6. In **Custom MongoDB properties**, enter parameters and values as needed.

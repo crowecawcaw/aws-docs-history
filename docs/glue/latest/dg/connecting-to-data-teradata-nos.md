@@ -1,6 +1,4 @@
-#
-
-Teradata Vantage NOS connections
+# Teradata Vantage NOS connections
 
 Teradata NOS (Native Object Store) connection is a new connection for Teradata Vantage which leverages Teradata WRITE_NOS query to read
 from existing tables and READ_NOS query to write to tables. These queries uses Amazon S3 as a staging directory, and therefore the Teradata NOS
@@ -70,9 +68,7 @@ After creating a AWS Glue Teradata Vantage NOS connection, you will need to perf
 2. In your AWS Glue job configuration, provide `connectionName` as an **Additional network connection**
    Under **Connections**.
 
-##
-
-Reading from Teradata tables
+## Reading from Teradata tables
 
 ### Prerequisites:
 

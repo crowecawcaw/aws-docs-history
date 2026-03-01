@@ -2,12 +2,10 @@
 
 You can use AWS Glue for Spark to read and write files in Amazon S3. AWS Glue for Spark supports many common data formats
 stored in Amazon S3 out of the box, including CSV, Avro, JSON, Orc and Parquet. For more information about supported
-data formats, see [Data format options for inputs and outputs in
-AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md"). Each data format may support a different
+data formats, see [Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md"). Each data format may support a different
 set of AWS Glue features. Consult the page for your data format for the specifics of feature support. Additionally,
 you can read and write versioned files stored in the Hudi, Iceberg and Delta Lake data lake frameworks. For more
-information about data lake frameworks, see [Using data lake
-frameworks with AWS Glue ETL jobs](aws-glue-programming-etl-datalake-native-frameworks.md "aws-glue-programming-etl-datalake-native-frameworks.md").
+information about data lake frameworks, see [Using data lake frameworks with AWS Glue ETL jobs](aws-glue-programming-etl-datalake-native-frameworks.md "aws-glue-programming-etl-datalake-native-frameworks.md").
 
 With AWS Glue you can partition your Amazon S3 objects into a folder structure while writing, then retrieve it by
 partition to improve performance using simple configuration. You can also set configuration to group small files
@@ -43,8 +41,7 @@ Designates a connection to Amazon S3.
 
 Since Amazon S3 manages files rather than tables, in addition to specifying the connection properties provided
 in this document, you will need to specify additional configuration about your file type. You specify this
-information through data format options. For more information about format options, see [Data format options for inputs and outputs in
-AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md"). You can also specify this information by integrating with the
+information through data format options. For more information about format options, see [Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md"). You can also specify this information by integrating with the
 AWS Glue Data Catalog.
 
 For an example of the distinction between connection options and format options, consider how
@@ -103,8 +100,7 @@ Use the following connection options with `"connectionType": "s3"`:
 
 Certain data formats can be accessed using a specific connection type syntax. This syntax is deprecated. We
 recommend you specify your formats using the `s3` connection type and the format options provided
-in [Data format options for inputs and outputs in
-AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md") instead.
+in [Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md") instead.
 
 ### "connectionType": "Orc"
 

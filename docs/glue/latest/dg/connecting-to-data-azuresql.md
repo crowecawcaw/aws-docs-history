@@ -1,6 +1,4 @@
-#
-
-Connecting to Azure SQL in AWS Glue Studio
+# Connecting to Azure SQL in AWS Glue Studio
 
 AWS Glue provides built-in support for Azure SQL. AWS Glue Studio provides a visual interface to
 connect to Azure SQL, author data integration jobs, and run them on the AWS Glue Studio serverless Spark runtime.

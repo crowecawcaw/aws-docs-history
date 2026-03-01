@@ -91,7 +91,7 @@ entities. For a list of entities which are not supported, see [Unsupported entit
 
 ## Configuring a Salesforce Marketing Cloud Account Engagement source
 
-To create a connection for an Salesforce Marketing Cloud Account Engagement source, see [Connecting to Salesforce Marketing Cloud Account Engagement](connecting-to-data-salesforce-marketing-cloud-account-engagement.md "connecting-to-data-salesforce-marketing-cloud-account-engagement.md") .
+To create a connection for an Salesforce Marketing Cloud Account Engagement source, see [Connecting to Salesforce Marketing Cloud Account Engagement](connecting-to-data-salesforce-marketing-cloud-account-engagement.md "connecting-to-data-salesforce-marketing-cloud-account-engagement.md").
 
 Using your zero-ETL integration you can perform DDL operations for the following supported
 entities:
@@ -119,17 +119,17 @@ Salesforce Zero-ETL needs Lake Formation permission on Glue database, otherwise 
 
 ## Configuring an SAP OData source
 
-To create a connection for an SAP OData source, see [Connecting to SAP OData](connecting-to-data-sap-odata.md "connecting-to-data-sap-odata.md") .
+To create a connection for an SAP OData source, see [Connecting to SAP OData](connecting-to-data-sap-odata.md "connecting-to-data-sap-odata.md").
 
 Zero-ETL integrations with an SAP OData source now supports entities starting with `EntityOf`. The ability to override the primary key is currently supported only for SAPOData EntityOf objects. Once this property has been set, it cannot be modified.
 
 ## Configuring a ServiceNow source
 
-To create a connection for a ServiceNow source, see [Connecting to ServiceNow](connecting-to-data-servicenow.md "connecting-to-data-servicenow.md") .
+To create a connection for a ServiceNow source, see [Connecting to ServiceNow](connecting-to-data-servicenow.md "connecting-to-data-servicenow.md").
 
 ## Configuring a Zendesk source
 
-To create a connection for a Zendesk source, see [Connecting to Zendesk](connecting-to-data-zendesk.md "connecting-to-data-zendesk.md") .
+To create a connection for a Zendesk source, see [Connecting to Zendesk](connecting-to-data-zendesk.md "connecting-to-data-zendesk.md").
 
 Using your zero-ETL integration you can perform the following DDL operations for supported
 entities:
@@ -146,7 +146,7 @@ entities:
 
 ## Configuring a Zoho CRM source
 
-To create a connection for a Zoho CRM source, see [Connecting to Zoho CRM](connecting-to-data-zoho-crm.md "connecting-to-data-zoho-crm.md") .
+To create a connection for a Zoho CRM source, see [Connecting to Zoho CRM](connecting-to-data-zoho-crm.md "connecting-to-data-zoho-crm.md").
 
 Using your zero-ETL integration you can perform the following DDL operations for supported
 entities:
@@ -172,7 +172,7 @@ entities:
 
 ## Configuring a Facebook Ads source
 
-To create a connection for a Facebook Ads source, see [Connecting to Facebook Ads](connecting-to-data-facebook-ads.md "connecting-to-data-facebook-ads.md") .
+To create a connection for a Facebook Ads source, see [Connecting to Facebook Ads](connecting-to-data-facebook-ads.md "connecting-to-data-facebook-ads.md").
 
 Using your zero-ETL integration you can perform the following DDL operations for supported
 entities:
@@ -185,7 +185,7 @@ entities:
 
 ## Configuring an Instagram Ads source
 
-To create a connection for an Instagram Ads source, see [Connecting to Instagram Ads](connecting-to-data-instagram-ads.md "connecting-to-data-instagram-ads.md") .
+To create a connection for an Instagram Ads source, see [Connecting to Instagram Ads](connecting-to-data-instagram-ads.md "connecting-to-data-instagram-ads.md").
 
 Using your zero-ETL integration you can perform the following DDL operations for supported
 entities:

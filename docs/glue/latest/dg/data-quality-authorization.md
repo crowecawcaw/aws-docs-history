@@ -100,9 +100,7 @@ An IAM role for AWS Glue Data Quality needs the following types of permissions:
 You must configure Amazon S3 permissions in addition to the permissions
 described in this section.
 
-### Minimum permissions to get
-
-recommended data quality rules
+### Minimum permissions to get recommended data quality rules
 
 This example policy includes the permissions you need in order to generate recommended
 data quality rules.
@@ -157,9 +155,7 @@ JSON
 
 ```
 
-### Minimum permissions to run a data quality
-
-task
+### Minimum permissions to run a data quality task
 
 This example policy includes the permissions you need in order to run a data quality
 evaluation task.
@@ -239,9 +235,7 @@ JSON
 
 ```
 
-### Minimum permissions to run an data quality
-
-ETL job
+### Minimum permissions to run an data quality ETL job
 
 This example policy includes the permissions you need in order to run an data quality ETL Job.
 

@@ -1,6 +1,4 @@
-# Reading from Asana
-
-entities
+# Reading from Asana entities
 
 **Prerequisites**
 

@@ -17,9 +17,7 @@ their parameter names remain capitalized. It is important to remember this, beca
 parameters should be passed by name when calling AWS Glue APIs, as described in
 the following section.
 
-## Passing
-
-and accessing Python parameters in AWS Glue
+## Passing and accessing Python parameters in AWS Glue
 
 In Python calls to AWS Glue APIs, it's best to pass parameters explicitly by name. For
 example:

@@ -64,8 +64,7 @@ Returns a `DataFrame` created with the specified connection and format. Use this
 - `connectionType` – The streaming connection type. Valid values include `kinesis` and `kafka`.
 - `connectionOptions` – Connection options, which are different for
   Kinesis and Kafka. You can find the list of all connection options for each streaming data
-  source at [Connection types and options for ETL in
-  AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md"). Note the following differences in
+  source at [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md"). Note the following differences in
   streaming connection options:
   - Kinesis streaming sources require `streamARN`,
     `startingPosition`, `inferSchema`, and
@@ -77,8 +76,7 @@ Returns a `DataFrame` created with the specified connection and format. Use this
 - `transformationContext` – The transformation context to use (optional).
 - `format` – A format specification (optional). This is used for an
   Amazon S3 or an AWS Glue connection that supports multiple formats. For information about the
-  supported formats, see [Data format options for inputs and outputs in
-  AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md")
+  supported formats, see [Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md")
 - `formatOptions` – Format options for the specified format. For information about the supported format options, see [Data format options](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md").
 
 Example for Amazon Kinesis streaming source:
@@ -192,11 +190,9 @@ table definition in the Data Catalog.
 - `transformationContext` — The transformation context that is
   associated with the sink to be used by job bookmarks. Set to empty by default.
 - `pushDownPredicate` – Filters partitions without having to list and read all the files in your dataset.
-  For more information, see [Pre-filtering using pushdown
-  predicates](aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns "aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns").
+  For more information, see [Pre-filtering using pushdown predicates](aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns "aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns").
 - `additionalOptions` – A collection of optional name-value pairs. The possible
-  options include those listed in [Connection types and options for ETL in
-  AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md") except for `endpointUrl`,
+  options include those listed in [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md") except for `endpointUrl`,
   `streamName`, `bootstrap.servers`, `security.protocol`,
   `topicName`, `classification`, and `delimiter`. Another supported option is `catalogPartitionPredicate`:
 
@@ -280,12 +276,10 @@ Creates a [DataSink](glue-etl-scala-apis-glue-datasink-class.md "glue-etl-scala-
 destination like Amazon Simple Storage Service (Amazon S3), JDBC, or the AWS Glue Data Catalog, or an Apache Kafka or Amazon
 Kinesis data stream.
 
-- `connectionType` — The type of the connection. See [Connection types and options for ETL in
-  AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
+- `connectionType` — The type of the connection. See [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
 - `connectionOptions` — A string of JSON name-value pairs
   that provide additional information to establish the connection with the data sink. See
-  [Connection types and options for ETL in
-  AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
+  [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
 - `transformationContext` — The transformation context that
   is associated with the sink to be used by job bookmarks. Set to empty by default.
 
@@ -306,11 +300,9 @@ Creates a [DataSink](glue-etl-scala-apis-glue-datasink-class.md "glue-etl-scala-
 destination like Amazon S3, JDBC, or the Data Catalog, or an Apache Kafka or Amazon Kinesis data stream.
 Also sets the format for the data to be written out to the destination.
 
-- `connectionType` — The type of the connection. See [Connection types and options for ETL in
-  AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
+- `connectionType` — The type of the connection. See [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
 - `options` — A string of JSON name-value pairs that provide
-  additional information to establish a connection with the data sink. See [Connection types and options for ETL in
-  AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
+  additional information to establish a connection with the data sink. See [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
 - `transformationContext` — The transformation context that is
   associated with the sink to be used by job bookmarks. Set to empty by default.
 - `format` — The format of the data to be written out to the
@@ -334,12 +326,10 @@ Creates a [DataSource trait](glue-etl-scala-apis-glue-datasource-trait.md "glue-
 source like Amazon S3, JDBC, or the AWS Glue Data Catalog. Also supports Kafka and Kinesis streaming data
 sources.
 
-- `connectionType` — The type of the data source. See [Connection types and options for ETL in
-  AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
+- `connectionType` — The type of the data source. See [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
 - `connectionOptions` — A string of JSON name-value pairs
   that provide additional information for establishing a connection with the data source.
-  For more information, see [Connection types and options for ETL in
-  AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
+  For more information, see [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
 
 A Kinesis streaming source requires the following connection options:
 `streamARN`, `startingPosition`, `inferSchema`, and
@@ -401,11 +391,9 @@ Creates a [DataSource trait](glue-etl-scala-apis-glue-datasource-trait.md "glue-
 source like Amazon S3, JDBC, or the AWS Glue Data Catalog, and also sets the format of data stored in the
 source.
 
-- `connectionType` – The type of the data source. See [Connection types and options for ETL in
-  AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
+- `connectionType` – The type of the data source. See [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
 - `options` – A string of JSON name-value pairs that provide
-  additional information for establishing a connection with the data source. See [Connection types and options for ETL in
-  AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
+  additional information for establishing a connection with the data source. See [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
 - `transformationContext` – The transformation context that is
   associated with the sink to be used by job bookmarks. Set to empty by default.
 - `format` – The format of the data that is stored at the source.

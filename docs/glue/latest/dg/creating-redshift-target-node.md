@@ -11,9 +11,7 @@ The following permissions are needed in order to use an Amazon Redshift connecti
 - redshift-data:ListSchemas
 - redshift-data:ListTables
 
-##
-
-Adding an Amazon Redshift target node
+## Adding an Amazon Redshift target node
 
 ###### To create a a Amazon Redshift target node:
 

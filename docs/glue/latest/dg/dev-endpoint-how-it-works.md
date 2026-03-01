@@ -1,6 +1,4 @@
-# How AWS Glue development endpoints
-
-work with SageMaker notebooks
+# How AWS Glue development endpoints work with SageMaker notebooks
 
 One of the common ways to access your development endpoints is to use [Jupyter](https://jupyter.org/ "https://jupyter.org/") on SageMaker notebooks. The Jupyter notebook is
 an open-source web application which is widely used in visualization, analytics, machine
@@ -29,9 +27,7 @@ instance. When you open an each notebook file and run the paragraphs, then a Liv
 launched per notebook file on the Spark cluster via SparkMagic. Each Livy session corresponds
 to single Spark job.
 
-## Default behavior for AWS Glue
-
-development endpoints and SageMaker notebooks
+## Default behavior for AWS Glue development endpoints and SageMaker notebooks
 
 The Spark jobs run based on the [Spark configuration](https://spark.apache.org/docs/2.4.3/configuration.html "https://spark.apache.org/docs/2.4.3/configuration.html").
 There are multiple ways to set the Spark configuration (for example, Spark cluster
@@ -69,5 +65,4 @@ Livy sessions at the same time.
 ###### Note
 
 For more information about how resources are allocated in different use cases and how
-you set a configuration to modify the behavior, see [Advanced configuration: sharing development endpoints
-among multiple users](dev-endpoint-sharing.md "dev-endpoint-sharing.md").
+you set a configuration to modify the behavior, see [Advanced configuration: sharing development endpoints among multiple users](dev-endpoint-sharing.md "dev-endpoint-sharing.md").

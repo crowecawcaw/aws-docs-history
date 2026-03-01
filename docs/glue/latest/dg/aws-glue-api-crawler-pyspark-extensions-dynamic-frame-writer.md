@@ -15,9 +15,7 @@
 
 ## from_options
 
-###### `from_options(frame, connection_type, connection_options={},
-
-format=None, format_options={}, transformation_ctx="")`
+###### `from_options(frame, connection_type, connection_options={}, format=None, format_options={}, transformation_ctx="")`
 
 Writes a `DynamicFrame` using the specified connection and format.
 
@@ -44,15 +42,12 @@ connection_options = {"url": "`jdbc-url/database`", "user": "`username`", "passw
 
 The `dbtable` property is the name of the JDBC table. For JDBC data stores that support schemas within a database, specify `schema.table-name`. If a schema is not provided, then the default "public" schema is used.
 
-For more information, see [Connection types and options for ETL in
-AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
+For more information, see [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
 
 - `format` – A format specification (optional). This is used
-  for an Amazon Simple Storage Service (Amazon S3) or an AWS Glue connection that supports multiple formats. See [Data format options for inputs and outputs in
-  AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md")
+  for an Amazon Simple Storage Service (Amazon S3) or an AWS Glue connection that supports multiple formats. See [Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md")
   for the formats that are supported.
-- `format_options` – Format options for the specified format. See [Data format options for inputs and outputs in
-  AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md")
+- `format_options` – Format options for the specified format. See [Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md")
   for the formats that are supported.
 - `transformation_ctx` – A transformation context to use (optional).
 

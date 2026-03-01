@@ -1,6 +1,4 @@
-# Reading from Smartsheet
-
-entities
+# Reading from Smartsheet entities
 
 **Prerequisites**
 

@@ -1,12 +1,8 @@
-# AWS Glue Scala GlueArgParser
-
-APIs
+# AWS Glue Scala GlueArgParser APIs
 
 **Package: com.amazonaws.services.glue.util**
 
-## GlueArgParser
-
-object
+## GlueArgParser object
 
 **GlueArgParser**
 

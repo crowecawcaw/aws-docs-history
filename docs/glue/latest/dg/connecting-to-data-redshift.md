@@ -1,6 +1,4 @@
-#
-
-Connecting to Amazon Redshift in AWS Glue Studio
+# Connecting to Amazon Redshift in AWS Glue Studio
 
 ###### Note
 

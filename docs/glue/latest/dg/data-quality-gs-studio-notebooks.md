@@ -52,14 +52,9 @@ public Amazon S3 bucket at
   notebooks in
   AWS Glue Studio](../ug/notebook-getting-started.md "../ug/notebook-getting-started.md"))
 
-## Creating an ETL job in
+## Creating an ETL job in AWS Glue Studio
 
-AWS Glue Studio
-
-###### To
-
-create an ETL
-job
+###### To create an ETL job
 
 1. Change the session version to AWS Glue 3.0.
 

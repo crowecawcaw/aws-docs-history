@@ -18,9 +18,7 @@ The following table shows which common AWS Glue features support the CSV format 
 | --------- | --------- | -------------- | ----------------- | ------------- |
 | Supported | Supported | Supported      | Supported         | Supported     |
 
-## Example: Read CSV files or folders from
-
-S3
+## Example: Read CSV files or folders from S3
 
 **Prerequisites:** You will need the S3 paths (`s3path`) to the
 CSV files or folders that you want to read.
@@ -35,8 +33,7 @@ The following AWS Glue ETL script shows the process of reading CSV files or fold
 
 We provide a custom CSV reader with performance optimizations for common workflows through the
 `optimizePerformance` configuration key. To determine if this reader is right for your workload,
-see [Optimize read performance with
-vectorized SIMD CSV reader](#aws-glue-programming-etl-format-simd-csv-reader "#aws-glue-programming-etl-format-simd-csv-reader").
+see [Optimize read performance with vectorized SIMD CSV reader](#aws-glue-programming-etl-format-simd-csv-reader "#aws-glue-programming-etl-format-simd-csv-reader").
 
 Python
 For this example, use the [create_dynamic_frame.from_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options") method.
@@ -112,9 +109,7 @@ val dataFrame = spark.read
 
 ```
 
-## Example: Write CSV files and folders to
-
-S3
+## Example: Write CSV files and folders to S3
 
 **Prerequisites:** You will need an initialized DataFrame
 (`dataFrame`) or a DynamicFrame (`dynamicFrame`). You will also need your expected S3
@@ -258,9 +253,7 @@ You can use the following `format_options` wherever AWS Glue libraries specify
   - **Type:** Boolean, **Default:**
     `false`
 
-## Optimize read performance with
-
-vectorized SIMD CSV reader
+## Optimize read performance with vectorized SIMD CSV reader
 
 AWS Glue version 3.0 adds an optimized CSV reader that can significantly speed up overall
 job performance compared to row-based CSV readers.

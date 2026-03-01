@@ -1,7 +1,4 @@
-# Infrastructure
-
-security
-in AWS Glue
+# Infrastructure security in AWS Glue
 
 As a managed service, AWS Glue is protected by the AWS global network
 security procedures that are described in the [Amazon Web Services: Overview of Security Processes](https://d0.awsstatic.com/whitepapers/Security/AWS_Security_Whitepaper.pdf "https://d0.awsstatic.com/whitepapers/Security/AWS_Security_Whitepaper.pdf") whitepaper.
@@ -19,6 +16,5 @@ temporary security credentials to sign requests.
 
 ###### Topics
 
-- [Configuring interface VPC endpoints (AWS PrivateLink) for AWS Glue
-  (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
+- [Configuring interface VPC endpoints (AWS PrivateLink) for AWS Glue (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
 - [Configuring shared Amazon VPCs](shared-vpc.md "shared-vpc.md")

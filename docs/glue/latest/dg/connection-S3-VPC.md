@@ -1,6 +1,4 @@
-# Crawling an Amazon S3 data store using a VPC
-
-endpoint
+# Crawling an Amazon S3 data store using a VPC endpoint
 
 For security, auditing, or control purposes you may want your Amazon S3 data store or Amazon S3
 backed Data Catalog tables to only be accessed through an Amazon Virtual Private Cloud
@@ -11,12 +9,9 @@ the Amazon S3 data store or Amazon S3 backed Data Catalog tables in a VPC endpoi
 Perform the following tasks to run a crawler on the data store:
 
 - [Prerequisites](#connection-S3-VPC-prerequisites "#connection-S3-VPC-prerequisites")
-- [Creating the connection to
-  Amazon S3](#connection-S3-VPC-create-connection "#connection-S3-VPC-create-connection")
-- [Testing the connection to
-  Amazon S3](#connection-S3-VPC-test-connection "#connection-S3-VPC-test-connection")
-- [Creating a crawler for an Amazon S3
-  data store](#connection-S3-VPC-create-crawler "#connection-S3-VPC-create-crawler")
+- [Creating the connection to Amazon S3](#connection-S3-VPC-create-connection "#connection-S3-VPC-create-connection")
+- [Testing the connection to Amazon S3](#connection-S3-VPC-test-connection "#connection-S3-VPC-test-connection")
+- [Creating a crawler for an Amazon S3 data store](#connection-S3-VPC-create-crawler "#connection-S3-VPC-create-crawler")
 - [Running a crawler](#connection-S3-VPC-run-crawler "#connection-S3-VPC-run-crawler")
 
 ## Prerequisites
@@ -43,9 +38,7 @@ Cloud environment (Amazon VPC).
 - A network ACL attached to the VPC allows the traffic.
 - A security group attached to the VPC allows the traffic.
 
-## Creating the connection to
-
-Amazon S3
+## Creating the connection to Amazon S3
 
 Typically, you create resources inside Amazon Virtual Private Cloud (Amazon VPC) so that they cannot be
 accessed over the public internet. By default, AWS Glue can't access
@@ -77,9 +70,7 @@ To set up a `Network` connection:
 
 ![Selecting the connection type.](images/network_s3_vpc_add_network_3.png)
 
-## Testing the connection to
-
-Amazon S3
+## Testing the connection to Amazon S3
 
 Once you have created your `Network` connection, you can test the
 connectivity to your Amazon S3 data store in a VPC endpoint.
@@ -118,9 +109,7 @@ If you receive an error, check the following:
 
 Once you have successfully tested the connection, you can create a crawler.
 
-## Creating a crawler for an Amazon S3
-
-data store
+## Creating a crawler for an Amazon S3 data store
 
 You can now create a crawler that specifies the `Network` connection
 you've created. For more details on creating a crawler, see [Configuring a crawler](define-crawler.md "define-crawler.md").
@@ -143,9 +132,7 @@ entry.
 
 ![Testing the connection.](images/network_s3_vpc_add_crawler_3.png) 9. Finish the remaining setup.
 
-## Creating a crawler
-
-for Amazon S3 backed Data Catalog tables
+## Creating a crawler for Amazon S3 backed Data Catalog tables
 
 You can now create a crawler that specifies the `Network` connection
 you've created and a Catalog source type. For more details on creating a crawler,

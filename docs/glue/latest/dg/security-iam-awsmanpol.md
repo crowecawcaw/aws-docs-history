@@ -15,9 +15,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS managed (predefined) policies for
-
-AWS Glue
+## AWS managed (predefined) policies for AWS Glue
 
 AWS addresses many common use cases by providing standalone IAM policies that are
 created and administered by AWS. These AWS managed policies grant necessary permissions
@@ -155,9 +153,7 @@ To create a connection with VPC configuration while using a custom IAM role, it 
 - ec2:DescribeNetworkInterfaces
 - ec2:DescribeSubnets
 
-## AWS Glue updates to AWS managed
-
-policies
+## AWS Glue updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS Glue since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

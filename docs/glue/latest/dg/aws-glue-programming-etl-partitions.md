@@ -36,9 +36,7 @@ Partitioning is an optimization technique that reduces data scan. For more infor
 identifying when this technique is appropriate, consult [Reduce the amount of data scan](../../../prescriptive-guidance/latest/tuning-aws-glue-for-apache-spark/reduce-data-scan.md "../../../prescriptive-guidance/latest/tuning-aws-glue-for-apache-spark/reduce-data-scan.md") in the _Best practices for performance tuning AWS Glue
 for Apache Spark jobs_ guide on AWS Prescriptive Guidance.
 
-## Pre-filtering using pushdown
-
-predicates
+## Pre-filtering using pushdown predicates
 
 In many cases, you can use a pushdown predicate to filter on partitions without having to
 list and read all the files in your dataset. Instead of reading the entire dataset and then

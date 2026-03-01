@@ -1,6 +1,4 @@
-# Using SelectFields to remove most data
-
-property keys
+# Using SelectFields to remove most data property keys
 
 You can create a subset of data property keys from the dataset using the
 _SelectFields_ transform. You indicate which data property keys you

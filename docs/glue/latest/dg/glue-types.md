@@ -37,8 +37,7 @@ If type information can be inferred or provided to a `DataFrame`, it can be infe
 provided to a `DynamicFrame`, unless otherwise documented. When we provide optimized readers or
 writers for specific data formats, if Spark can read or write your data, our provided readers and writers
 will be able to, subject to documented limitations. For more information about readers and writers, see
-[Data format options for inputs and outputs in
-AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md").
+[Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md").
 
 ### The Choice Type
 
@@ -48,8 +47,7 @@ certain rows, and an integer in others. This mechanism is an in-memory type call
 We provide transforms such as the `ResolveChoice` method, to resolve Choice columns to a
 concrete type. AWS Glue ETL will not write the Choice type to the Data Catalog in the normal course of
 operation; Choice types only exist in the context of DynamicFrame memory models of datasets. For an
-example of Choice type usage, see [Code example:
-Data preparation using ResolveChoice, Lambda, and ApplyMapping](aws-glue-programming-python-samples-medicaid.md "aws-glue-programming-python-samples-medicaid.md").
+example of Choice type usage, see [Code example: Data preparation using ResolveChoice, Lambda, and ApplyMapping](aws-glue-programming-python-samples-medicaid.md "aws-glue-programming-python-samples-medicaid.md").
 
 ## AWS Glue Crawler Types
 

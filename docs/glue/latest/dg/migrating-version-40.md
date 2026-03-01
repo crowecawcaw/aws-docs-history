@@ -1,6 +1,4 @@
-# Migrating AWS Glue for Spark jobs to
-
-AWS Glue version 4.0
+# Migrating AWS Glue for Spark jobs to AWS Glue version 4.0
 
 This topic describes the changes between AWS Glue versions 0.9, 1.0, 2.0, and
 3.0 to allow you to migrate your Spark applications and ETL jobs to AWS Glue
@@ -14,25 +12,16 @@ jobs.
 ###### Topics
 
 - [New features supported](#migrating-version-40-features "#migrating-version-40-features")
-- [Actions to migrate to
-  AWS Glue 4.0](#migrating-version-40-actions "#migrating-version-40-actions")
+- [Actions to migrate to AWS Glue 4.0](#migrating-version-40-actions "#migrating-version-40-actions")
 - [Migration checklist](#migrating-version-40-checklist "#migrating-version-40-checklist")
-- [Migrating from AWS Glue 3.0
-  to AWS Glue 4.0](#migrating-version-40-from-30 "#migrating-version-40-from-30")
-- [Migrating from AWS Glue 2.0
-  to AWS Glue 4.0](#migrating-version-40-from-20 "#migrating-version-40-from-20")
-- [Migrating from AWS Glue 1.0
-  to AWS Glue 4.0](#migrating-version-40-from-10 "#migrating-version-40-from-10")
-- [Migrating from AWS Glue 0.9
-  to AWS Glue 4.0](#migrating-version-40-from-09 "#migrating-version-40-from-09")
-- [Connector and JDBC
-  driver migration for AWS Glue 4.0](#migrating-version-40-connector-driver-migration "#migrating-version-40-connector-driver-migration")
-- [Appendix A: Notable
-  dependency upgrades](#migrating-version-40-appendix-dependencies "#migrating-version-40-appendix-dependencies")
-- [Appendix B: JDBC driver
-  upgrades](#migrating-version-40-appendix-jdbc-driver "#migrating-version-40-appendix-jdbc-driver")
-- [Appendix C: Connector
-  upgrades](#migrating-version-40-appendix-connector "#migrating-version-40-appendix-connector")
+- [Migrating from AWS Glue 3.0 to AWS Glue 4.0](#migrating-version-40-from-30 "#migrating-version-40-from-30")
+- [Migrating from AWS Glue 2.0 to AWS Glue 4.0](#migrating-version-40-from-20 "#migrating-version-40-from-20")
+- [Migrating from AWS Glue 1.0 to AWS Glue 4.0](#migrating-version-40-from-10 "#migrating-version-40-from-10")
+- [Migrating from AWS Glue 0.9 to AWS Glue 4.0](#migrating-version-40-from-09 "#migrating-version-40-from-09")
+- [Connector and JDBC driver migration for AWS Glue 4.0](#migrating-version-40-connector-driver-migration "#migrating-version-40-connector-driver-migration")
+- [Appendix A: Notable dependency upgrades](#migrating-version-40-appendix-dependencies "#migrating-version-40-appendix-dependencies")
+- [Appendix B: JDBC driver upgrades](#migrating-version-40-appendix-jdbc-driver "#migrating-version-40-appendix-jdbc-driver")
+- [Appendix C: Connector upgrades](#migrating-version-40-appendix-connector "#migrating-version-40-appendix-connector")
 
 ## New features supported
 
@@ -86,9 +75,7 @@ Note the following changes:
     ([SPARK-32079](https://issues.apache.org/jira/browse/SPARK-32079 "https://issues.apache.org/jira/browse/SPARK-32079")).
   - Bump minimum pandas version to 1.0.5 ([SPARK-37465](https://issues.apache.org/jira/browse/SPARK-37465 "https://issues.apache.org/jira/browse/SPARK-37465")).
 
-## Actions to migrate to
-
-AWS Glue 4.0
+## Actions to migrate to AWS Glue 4.0
 
 For existing jobs, change the `Glue version` from the previous version to
 `Glue 4.0` in the job configuration.
@@ -118,9 +105,7 @@ Docker](monitor-spark-ui-history.md "monitor-spark-ui-history.md").
   - Update the dependent libraries from Python 2.7/3.6 to Python 3.10 as
     Spark 3.3.0 completely removed Python 2.7 and 3.6 support.
 
-## Migrating from AWS Glue 3.0
-
-to AWS Glue 4.0
+## Migrating from AWS Glue 3.0 to AWS Glue 4.0
 
 Note the following changes when migrating:
 
@@ -133,8 +118,7 @@ Several Spark changes alone might require revision of your scripts to ensure
 that removed features are not being referenced.
 
 - AWS Glue 4.0 also features an update to EMRFS and Hadoop. For the
-  specific version, see [Appendix A: Notable
-  dependency upgrades](#migrating-version-40-appendix-dependencies "#migrating-version-40-appendix-dependencies").
+  specific version, see [Appendix A: Notable dependency upgrades](#migrating-version-40-appendix-dependencies "#migrating-version-40-appendix-dependencies").
 - The AWS SDK provided in ETL jobs is now upgraded from 1.11 to 1.12.
 - All Python jobs will be using Python version 3.10. Previously, Python 3.7 was
   used in AWS Glue 3.0.
@@ -148,8 +132,7 @@ upgraded.
     log4j2.properties file instead, with the appropriate log4j2
     properties.
 
-- For migrating certain connectors, see [Connector and JDBC
-  driver migration for AWS Glue 4.0](#migrating-version-40-connector-driver-migration "#migrating-version-40-connector-driver-migration").
+- For migrating certain connectors, see [Connector and JDBC driver migration for AWS Glue 4.0](#migrating-version-40-connector-driver-migration "#migrating-version-40-connector-driver-migration").
 - The AWS Encryption SDK is upgraded from 1.x to 2.x. AWS Glue
   jobs using AWS Glue security configurations and jobs dependent on
   the AWS Encryption SDK dependency provided in runtime are affected. See the
@@ -164,16 +147,13 @@ Refer to the Spark migration documentation:
 - [Upgrading from Spark SQL 3.1 to 3.2](https://spark.apache.org/docs/latest/sql-migration-guide.html#upgrading-from-spark-sql-31-to-32 "https://spark.apache.org/docs/latest/sql-migration-guide.html#upgrading-from-spark-sql-31-to-32")
 - [Upgrading from Spark SQL 3.2 to 3.3](https://spark.apache.org/docs/latest/sql-migration-guide.html#upgrading-from-spark-sql-32-to-33 "https://spark.apache.org/docs/latest/sql-migration-guide.html#upgrading-from-spark-sql-32-to-33")
 
-## Migrating from AWS Glue 2.0
-
-to AWS Glue 4.0
+## Migrating from AWS Glue 2.0 to AWS Glue 4.0
 
 Note the following changes when migrating:
 
 ###### Note
 
-For migration steps related to AWS Glue 3.0, see [Migrating from AWS Glue 3.0
-to AWS Glue 4.0](#migrating-version-40-from-30 "#migrating-version-40-from-30").
+For migration steps related to AWS Glue 3.0, see [Migrating from AWS Glue 3.0 to AWS Glue 4.0](#migrating-version-40-from-30 "#migrating-version-40-from-30").
 
 - All existing job parameters and major features that exist in
   AWS Glue 2.0 will exist in AWS Glue 4.0.
@@ -202,8 +182,7 @@ to AWS Glue 4.0](#migrating-version-40-from-30 "#migrating-version-40-from-30").
   - A new mechanism of installing additional Python modules is available
     since AWS Glue 2.0.
 
-- Several dependency updates, highlighted in [Appendix A: Notable
-  dependency upgrades](#migrating-version-40-appendix-dependencies "#migrating-version-40-appendix-dependencies").
+- Several dependency updates, highlighted in [Appendix A: Notable dependency upgrades](#migrating-version-40-appendix-dependencies "#migrating-version-40-appendix-dependencies").
 - Any extra JAR files supplied in existing AWS Glue 2.0 jobs might
   bring in conflicting dependencies because there were upgrades in several
   dependencies in 4.0 from 2.0. You can avoid classpath conflicts in AWS Glue 4.0 with the `--user-jars-first` AWS Glue job parameter.
@@ -216,8 +195,7 @@ We recommend to set the following parameters when reading/writing parquet data t
 - Value: spark.sql.legacy.parquet.int96RebaseModeInRead=[CORRECTED|LEGACY] --conf spark.sql.legacy.parquet.int96RebaseModeInWrite=[CORRECTED|LEGACY] --conf spark.sql.legacy.parquet.datetimeRebaseModeInRead=[CORRECTED|LEGACY]
 ```
 
-- For migrating certain connectors, see [Connector and JDBC
-  driver migration for AWS Glue 4.0](#migrating-version-40-connector-driver-migration "#migrating-version-40-connector-driver-migration").
+- For migrating certain connectors, see [Connector and JDBC driver migration for AWS Glue 4.0](#migrating-version-40-connector-driver-migration "#migrating-version-40-connector-driver-migration").
 - The AWS Encryption SDK is upgraded from 1.x to 2.x. AWS Glue
   jobs using AWS Glue security configurations and jobs dependent on
   the AWS Encryption SDK dependency provided in runtime are affected. See these
@@ -234,9 +212,7 @@ Refer to the Spark migration documentation:
 - [Changes in
   Datetime behavior to be expected since Spark 3.0.](https://issues.apache.org/jira/browse/SPARK-31408 "https://issues.apache.org/jira/browse/SPARK-31408")
 
-## Migrating from AWS Glue 1.0
-
-to AWS Glue 4.0
+## Migrating from AWS Glue 1.0 to AWS Glue 4.0
 
 Note the following changes when migrating:
 
@@ -281,8 +257,7 @@ the job configuration will fail with an IllegalArgumentException.
   and worker type, but do not specify a `maxCapacity`.
 - AWS Glue 4.0 does not yet support machine learning
   transforms.
-- For migrating certain connectors, see [Connector and JDBC
-  driver migration for AWS Glue 4.0](#migrating-version-40-connector-driver-migration "#migrating-version-40-connector-driver-migration").
+- For migrating certain connectors, see [Connector and JDBC driver migration for AWS Glue 4.0](#migrating-version-40-connector-driver-migration "#migrating-version-40-connector-driver-migration").
 - The AWS Encryption SDK is upgraded from 1.x to 2.x. AWS Glue
   jobs using AWS Glue security configurations and jobs dependent on
   the AWS Encryption SDK dependency provided in runtime are affected. See these
@@ -308,9 +283,7 @@ Refer to the Spark migration documentation:
 - [Changes in
   Datetime behavior to be expected since Spark 3.0.](https://issues.apache.org/jira/browse/SPARK-31408 "https://issues.apache.org/jira/browse/SPARK-31408")
 
-## Migrating from AWS Glue 0.9
-
-to AWS Glue 4.0
+## Migrating from AWS Glue 0.9 to AWS Glue 4.0
 
 Note the following changes when migrating:
 
@@ -355,8 +328,7 @@ Note the following changes when migrating:
   and worker type, but do not specify a `maxCapacity`.
 - AWS Glue 4.0 does not yet support machine learning
   transforms.
-- For migrating certain connectors, see [Connector and JDBC
-  driver migration for AWS Glue 4.0](#migrating-version-40-connector-driver-migration "#migrating-version-40-connector-driver-migration").
+- For migrating certain connectors, see [Connector and JDBC driver migration for AWS Glue 4.0](#migrating-version-40-connector-driver-migration "#migrating-version-40-connector-driver-migration").
 - The AWS Encryption SDK is upgraded from 1.x to 2.x. AWS Glue
   jobs using AWS Glue security configurations and jobs dependent on
   the AWS Encryption SDK dependency provided in runtime are affected. See these
@@ -384,16 +356,12 @@ Refer to the Spark migration documentation:
 - [Changes in
   Datetime behavior to be expected since Spark 3.0](https://issues.apache.org/jira/browse/SPARK-31408 "https://issues.apache.org/jira/browse/SPARK-31408").
 
-## Connector and JDBC
-
-driver migration for AWS Glue 4.0
+## Connector and JDBC driver migration for AWS Glue 4.0
 
 For the versions of JDBC and data lake connectors that were upgraded, see:
 
-- [Appendix B: JDBC driver
-  upgrades](#migrating-version-40-appendix-jdbc-driver "#migrating-version-40-appendix-jdbc-driver")
-- [Appendix C: Connector
-  upgrades](#migrating-version-40-appendix-connector "#migrating-version-40-appendix-connector")
+- [Appendix B: JDBC driver upgrades](#migrating-version-40-appendix-jdbc-driver "#migrating-version-40-appendix-jdbc-driver")
+- [Appendix C: Connector upgrades](#migrating-version-40-appendix-connector "#migrating-version-40-appendix-connector")
 
 ### Hudi
 
@@ -445,9 +413,7 @@ For the versions of JDBC and data lake connectors that were upgraded, see:
   `PaginateBySizePartitioner` for Amazon DocumentDB because the stage
   operator does not support the MongoDB API. For more information, see [Supported MongoDB APIs, Operations, and Data Types](../../../documentdb/latest/developerguide/mongo-apis.md "../../../documentdb/latest/developerguide/mongo-apis.md").
 
-### Delta
-
-Lake
+### Delta Lake
 
 - Delta Lake now supports [time travel in SQL](https://docs.delta.io/2.1.0/delta-batch.html#query-an-older-snapshot-of-a-table-time-travel "https://docs.delta.io/2.1.0/delta-batch.html#query-an-older-snapshot-of-a-table-time-travel") to query older data easily. With this
   update, time travel is now available both in Spark SQL and through the
@@ -497,9 +463,7 @@ Lake
     Update command performance](https://github.com/delta-io/delta/pull/1202 "https://github.com/delta-io/delta/pull/1202") by enabling schema pruning in
     the first pass.
 
-### Apache
-
-Iceberg
+### Apache Iceberg
 
 - Added several [performance improvements](https://iceberg.apache.org/releases/#performance-improvements "https://iceberg.apache.org/releases/#performance-improvements") for scan planning and Spark
   queries.
@@ -539,9 +503,7 @@ Changes are minor.
 AWS Glue 4.0 features a new Amazon Redshift connector with a new JDBC driver. For information about
 the enhancements and how to migrate from previous AWS Glue versions, see [Redshift connections](aws-glue-programming-etl-connect-redshift-home.md "aws-glue-programming-etl-connect-redshift-home.md").
 
-## Appendix A: Notable
-
-dependency upgrades
+## Appendix A: Notable dependency upgrades
 
 The following are dependency upgrades:
 
@@ -559,9 +521,7 @@ The following are dependency upgrades:
 | Python                       | 3.10                    | 3.7                     | 2.7 & 3.6               | 2.7 & 3.6               |
 | Boto                         | 1.26                    | 1.18                    | 1.12                    | N/A                     |
 
-## Appendix B: JDBC driver
-
-upgrades
+## Appendix B: JDBC driver upgrades
 
 The following are JDBC driver upgrades:
 
@@ -574,9 +534,7 @@ The following are JDBC driver upgrades:
 | MongoDB              | 2.0.0                                         | 4.0.0                               | 4.7.2                               |
 | Amazon Redshift      | redshift-jdbc41-1.2.12.1017                   | redshift-jdbc41-1.2.12.1017         | redshift-jdbc42-2.1.0.16            |
 
-## Appendix C: Connector
-
-upgrades
+## Appendix C: Connector upgrades
 
 The following are connector upgrades:
 

@@ -49,7 +49,7 @@ The Data Catalog supports a wide range of data sources, including Amazon S3, Ama
 Apache Hive, and more. It can automatically infer and store metadata from these sources
 using AWS Glue crawlers.
 
-For more information see, [Using crawlers to populate the Data Catalog](add-crawler.md "add-crawler.md") .
+For more information see, [Using crawlers to populate the Data Catalog](add-crawler.md "add-crawler.md").
 
 Schema management
 

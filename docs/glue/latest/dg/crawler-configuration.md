@@ -33,10 +33,8 @@ When you configure an AWS Glue crawler, you have several options for defining th
 - [Scheduling incremental crawls for adding new partitions](incremental-crawls.md "incremental-crawls.md")
 - [Generating partition indexes](crawler-configure-partition-indexes.md "crawler-configure-partition-indexes.md")
 - [Preventing a crawler from changing an existing schema](crawler-schema-changes-prevent.md "crawler-schema-changes-prevent.md")
-- [Creating a single schema for each Amazon S3 include
-  path](crawler-grouping-policy.md "crawler-grouping-policy.md")
-- [Specifying the table location and partitioning
-  level](crawler-table-level.md "crawler-table-level.md")
+- [Creating a single schema for each Amazon S3 include path](crawler-grouping-policy.md "crawler-grouping-policy.md")
+- [Specifying the table location and partitioning level](crawler-table-level.md "crawler-table-level.md")
 - [Specifying the maximum number of tables the crawler is allowed to create](crawler-maximum-number-of-tables.md "crawler-maximum-number-of-tables.md")
 - [Configuring a crawler to use Lake Formation credentials](crawler-lf-integ.md "crawler-lf-integ.md")
 - [Accelerating crawls using Amazon S3 event notifications](crawler-s3-event-notifications.md "crawler-s3-event-notifications.md")

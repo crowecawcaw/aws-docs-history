@@ -1,6 +1,4 @@
-# Data format options for inputs and outputs in
-
-AWS Glue for Spark
+# Data format options for inputs and outputs in AWS Glue for Spark
 
 These pages offer information about feature support and configuration parameters for data formats supported by
 AWS Glue for Spark. See the following for a description of the usage and applicablity of this information.
@@ -65,8 +63,7 @@ For writing Apache Parquet, AWS Glue ETL only supports writing to a governed tab
 - [Using the Ion format in AWS Glue](aws-glue-programming-etl-format-ion-home.md "aws-glue-programming-etl-format-ion-home.md")
 - [Using the JSON format in AWS Glue](aws-glue-programming-etl-format-json-home.md "aws-glue-programming-etl-format-json-home.md")
 - [Using the ORC format in AWS Glue](aws-glue-programming-etl-format-orc-home.md "aws-glue-programming-etl-format-orc-home.md")
-- [Using data lake
-  frameworks with AWS Glue ETL jobs](aws-glue-programming-etl-datalake-native-frameworks.md "aws-glue-programming-etl-datalake-native-frameworks.md")
+- [Using data lake frameworks with AWS Glue ETL jobs](aws-glue-programming-etl-datalake-native-frameworks.md "aws-glue-programming-etl-datalake-native-frameworks.md")
 - [Shared configuration reference](#aws-glue-programming-etl-format-shared-reference "#aws-glue-programming-etl-format-shared-reference")
 
 ## Shared configuration reference

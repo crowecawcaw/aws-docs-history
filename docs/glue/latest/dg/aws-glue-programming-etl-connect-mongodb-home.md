@@ -284,9 +284,7 @@ These connection properties are shared between source and sink connections:
   option can also be passed in `additional_options` when calling
   `glue_context.create_dynamic_frame_from_catalog` in your job script.
 
-### "connectionType": "mongodb" as
-
-source
+### "connectionType": "mongodb" as source
 
 Use the following connection options with `"connectionType": "mongodb"` as a
 source:

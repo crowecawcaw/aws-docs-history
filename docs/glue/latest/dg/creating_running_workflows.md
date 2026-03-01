@@ -1,6 +1,4 @@
-# Creating and building out a workflow manually
-
-in AWS Glue
+# Creating and building out a workflow manually in AWS Glue
 
 You can use the AWS Glue console to manually create and build out a workflow one node at a
 time.
@@ -34,8 +32,7 @@ the graph by adding event (conditional) triggers.
    ETL workflow** form.
 
 Any optional default run properties that you add are made available as
-arguments to all jobs in the workflow. For more information, see [Getting and setting workflow run properties in
-AWS Glue](workflow-run-properties-code.md "workflow-run-properties-code.md"). 4. Choose **Add workflow**.
+arguments to all jobs in the workflow. For more information, see [Getting and setting workflow run properties in AWS Glue](workflow-run-properties-code.md "workflow-run-properties-code.md"). 4. Choose **Add workflow**.
 
 The new workflow appears in the list on the **Workflows**
 page.
@@ -168,7 +165,5 @@ come back later and add more nodes.
 For more information on workflows and blueprints, see the following topics.
 
 - [Overview of workflows in AWS Glue](workflows_overview.md "workflows_overview.md")
-- [Running and monitoring a workflow in
-  AWS Glue](running_monitoring_workflow.md "running_monitoring_workflow.md")
-- [Creating a workflow from a blueprint in
-  AWS Glue](creating_workflow_blueprint.md "creating_workflow_blueprint.md")
+- [Running and monitoring a workflow in AWS Glue](running_monitoring_workflow.md "running_monitoring_workflow.md")
+- [Creating a workflow from a blueprint in AWS Glue](creating_workflow_blueprint.md "creating_workflow_blueprint.md")

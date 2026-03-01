@@ -1,6 +1,4 @@
-# Reading from Datadog
-
-entities
+# Reading from Datadog entities
 
 **Prerequisites**
 

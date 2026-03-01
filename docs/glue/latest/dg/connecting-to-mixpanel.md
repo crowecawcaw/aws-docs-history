@@ -14,8 +14,7 @@ or other supported applications.
 - [Policies containing the API operations for creating and using connections](mixpanel-configuring-iam-permissions.md "mixpanel-configuring-iam-permissions.md")
 - [Configuring Mixpanel](mixpanel-configuring.md "mixpanel-configuring.md")
 - [Configuring Mixpanel connections](mixpanel-configuring-connections.md "mixpanel-configuring-connections.md")
-- [Reading from Mixpanel
-  entities](mixpanel-reading-from-entities.md "mixpanel-reading-from-entities.md")
+- [Reading from Mixpanel entities](mixpanel-reading-from-entities.md "mixpanel-reading-from-entities.md")
 - [Mixpanel connection options](mixpanel-connection-options.md "mixpanel-connection-options.md")
 - [Creating a Mixpanel account and configuring the client app](mixpanel-create-account.md "mixpanel-create-account.md")
 - [Limitations](mixpanel-connector-limitations.md "mixpanel-connector-limitations.md")

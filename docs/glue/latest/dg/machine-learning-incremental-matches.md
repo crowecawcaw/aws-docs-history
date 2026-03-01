@@ -4,8 +4,7 @@ The Find matches feature allows you to identify duplicate or matching records in
 
 The incremental matching feature makes it simpler to match to incremental records against existing matched datasets. Suppose that you want to match prospects data with existing customer datasets. The incremental match capability provides you the flexibility to match hundreds of thousands of new prospects with an existing database of prospects and customers by merging the results into a single database or table. By matching only between the new and existing datasets, the find incremental matches optimization reduces computation time, which also reduces cost.
 
-The usage of incremental matching is similar to Find matches as described in [Tutorial: Creating a machine learning transform with
-AWS Glue](machine-learning-transform-tutorial.md "machine-learning-transform-tutorial.md"). This topic identifies only the differences with incremental matching.
+The usage of incremental matching is similar to Find matches as described in [Tutorial: Creating a machine learning transform with AWS Glue](machine-learning-transform-tutorial.md "machine-learning-transform-tutorial.md"). This topic identifies only the differences with incremental matching.
 
 For more information, see the blog post on [Incremental data matching](https://aws.amazon.com/blogs/big-data/incremental-data-matching-using-aws-lake-formation/ "https://aws.amazon.com/blogs/big-data/incremental-data-matching-using-aws-lake-formation/").
 

@@ -1,6 +1,4 @@
-# Tutorial: Creating a machine learning transform with
-
-AWS Glue
+# Tutorial: Creating a machine learning transform with AWS Glue
 
 This tutorial guides you through the actions to create and manage a machine learning (ML)
 transform using AWS Glue. Before using this tutorial, you should be familiar with using the
@@ -25,14 +23,10 @@ tutorial.
 
 - [Step 1: Crawl the source data](#ml-transform-tutorial-crawler "#ml-transform-tutorial-crawler")
 - [Step 2: Add a machine learning transform](#ml-transform-tutorial-create "#ml-transform-tutorial-create")
-- [Step 3: Teach your machine learning
-  transform](#ml-transform-tutorial-teach "#ml-transform-tutorial-teach")
-- [Step 4: Estimate the quality of
-  your machine learning transform](#ml-transform-tutorial-estimate-quality "#ml-transform-tutorial-estimate-quality")
-- [Step 5: Add and run a job with your machine
-  learning transform](#ml-transform-tutorial-add-job "#ml-transform-tutorial-add-job")
-- [Step 6: Verify output data from
-  Amazon S3](#ml-transform-tutorial-data-output "#ml-transform-tutorial-data-output")
+- [Step 3: Teach your machine learning transform](#ml-transform-tutorial-teach "#ml-transform-tutorial-teach")
+- [Step 4: Estimate the quality of your machine learning transform](#ml-transform-tutorial-estimate-quality "#ml-transform-tutorial-estimate-quality")
+- [Step 5: Add and run a job with your machine learning transform](#ml-transform-tutorial-add-job "#ml-transform-tutorial-add-job")
+- [Step 6: Verify output data from Amazon S3](#ml-transform-tutorial-data-output "#ml-transform-tutorial-data-output")
 
 ## Step 1: Crawl the source data
 
@@ -82,9 +76,7 @@ table created by the crawler named `demo-crawl-dblp-acm`.
 2. In the wizard, choose **Finish** and return to the **ML
    transforms** list.
 
-## Step 3: Teach your machine learning
-
-transform
+## Step 3: Teach your machine learning transform
 
 Next, you teach your machine learning transform using the tutorial sample labeling
 file.
@@ -112,9 +104,7 @@ tutorial, you can use the example labeling file named
 When you upload a labeling file, a task is started in AWS Glue to add or overwrite the labels used to teach the transform how to process the data source. 4. On the final page of the wizard, choose **Finish**, and return to the
 **ML transforms** list.
 
-## Step 4: Estimate the quality of
-
-your machine learning transform
+## Step 4: Estimate the quality of your machine learning transform
 
 Next, you can estimate the quality of your machine learning transform. The quality
 depends on how much labeling you have done. For more information about
@@ -132,9 +122,7 @@ estimating quality, see [Estimate quality](console-machine-learning-transforms.m
    about the run, choose **Logs**. Check that the run status is
    **Succeeded** when it finishes.
 
-## Step 5: Add and run a job with your machine
-
-learning transform
+## Step 5: Add and run a job with your machine learning transform
 
 In this step, you use your machine learning transform to add and run a job in AWS Glue.
 When the transform `demo-xform-dblp-acm` is **Ready for
@@ -239,9 +227,7 @@ object GlueApp {
    runs are listed. For more details about the run, choose **Logs**. Check
    that the run status is **Succeeded** when it finishes.
 
-## Step 6: Verify output data from
-
-Amazon S3
+## Step 6: Verify output data from Amazon S3
 
 In this step, you check the output of the job run in the Amazon S3 bucket that you chose when
 you added the job. You can download the output file to your local machine and verify that

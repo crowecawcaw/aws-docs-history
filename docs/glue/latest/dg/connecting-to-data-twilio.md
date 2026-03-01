@@ -1,6 +1,4 @@
-#
-
-Connecting to Twilio
+# Connecting to Twilio
 
 Twilio provides programmable communication tools for making and receiving phone calls, sending, and receiving text messages, and performing other communication functions using its web service APIs. Twilio’s APIs power its platform for communications. Behind these APIs is a software layer connecting and optimizing communications networks around the world to allow your users to call and message anyone, globally. As a Twilio user, you can connect AWS Glue to your Twilio account. Then, you can use Twilio as a data source in your ETL jobs. Run these jobs to transfer data between Twilio and AWS services or other supported applications.
 

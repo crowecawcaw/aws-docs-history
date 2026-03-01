@@ -2,9 +2,7 @@
 
 **Package: com.amazonaws.services.glue.types**
 
-## DoubleNode case
-
-class
+## DoubleNode case class
 
 **DoubleNode**
 

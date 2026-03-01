@@ -117,8 +117,7 @@ Checking **Use Lake Formation credentials for crawling S3 data source** will all
 
 Settings include security configurations. For more information, see the following:
 
-- [Encrypting data written by
-  AWS Glue](encryption-security-configuration.md "encryption-security-configuration.md")
+- [Encrypting data written by AWS Glue](encryption-security-configuration.md "encryption-security-configuration.md")
 
 ###### Note
 

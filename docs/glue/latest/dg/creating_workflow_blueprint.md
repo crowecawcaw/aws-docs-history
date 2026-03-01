@@ -1,6 +1,4 @@
-# Creating a workflow from a blueprint in
-
-AWS Glue
+# Creating a workflow from a blueprint in AWS Glue
 
 You can create an AWS Glue workflow manually, adding one component at a time, or
 you can create a workflow from an AWS Glue
@@ -26,8 +24,7 @@ troubleshooting a workflow, you can view the blueprint run to determine the blue
 parameter values that were used to create a workflow.
 
 To create and view workflows, you require certain IAM permissions. For a suggested IAM
-policy, see [Data analyst permissions for
-blueprints](blueprints-personas-permissions.md#bp-persona-analyst "blueprints-personas-permissions.md#bp-persona-analyst").
+policy, see [Data analyst permissions for blueprints](blueprints-personas-permissions.md#bp-persona-analyst "blueprints-personas-permissions.md#bp-persona-analyst").
 
 You can create a workflow from a blueprint by using the AWS Glue console, AWS Glue API, or
 AWS Command Line Interface (AWS CLI).
@@ -50,8 +47,7 @@ the developer. blueprints typically include a parameter for the workflow name.
 
 The role that AWS Glue assumes to create the workflow and its components. The role must
 have permissions to create and delete workflows, jobs, crawlers, and triggers. For a
-suggested policy for the role, see [Permissions for blueprint
-roles](blueprints-personas-permissions.md#blueprints-role-permissions "blueprints-personas-permissions.md#blueprints-role-permissions"). 5. Choose **Submit**.
+suggested policy for the role, see [Permissions for blueprint roles](blueprints-personas-permissions.md#blueprints-role-permissions "blueprints-personas-permissions.md#blueprints-role-permissions"). 5. Choose **Submit**.
 
 The **Blueprint Details** page appears, showing a list of blueprint runs
 at the bottom. 6. In the blueprint runs list, check the topmost blueprint run for workflow creation
@@ -71,5 +67,4 @@ For more information on workflows and blueprints, see the following topics.
 
 - [Overview of workflows in AWS Glue](workflows_overview.md "workflows_overview.md")
 - [Updating a blueprint in AWS Glue](updating_blueprints.md "updating_blueprints.md")
-- [Creating and building out a workflow manually
-  in AWS Glue](creating_running_workflows.md "creating_running_workflows.md")
+- [Creating and building out a workflow manually in AWS Glue](creating_running_workflows.md "creating_running_workflows.md")

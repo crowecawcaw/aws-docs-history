@@ -41,8 +41,7 @@ The `layoutGenerator` property specifies the fully qualified name of the
 function in the script that generates the layout.
 
 The `parameterSpec` property specifies the parameters that this blueprint
-accepts. For more information, see [Specifying blueprint
-parameters](developing-blueprints-code-parameters.md "developing-blueprints-code-parameters.md").
+accepts. For more information, see [Specifying blueprint parameters](developing-blueprints-code-parameters.md "developing-blueprints-code-parameters.md").
 
 ###### Important
 

@@ -1,6 +1,4 @@
-# AWS Glue Scala DynamicRecord
-
-class
+# AWS Glue Scala DynamicRecord class
 
 ###### Topics
 

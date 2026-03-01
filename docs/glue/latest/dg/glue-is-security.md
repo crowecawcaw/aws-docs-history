@@ -58,8 +58,7 @@ For more information, see
 [Make your session private with TagOnCreate](#glue-is-tagoncreate "#glue-is-tagoncreate")
 on
 how an owner tag-based scoped down managed policy can make your session private with TagOnCreate.
-For more information on identity-based policies, see [Identity-based
-policies for AWS Glue](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies").
+For more information on identity-based policies, see [Identity-based policies for AWS Glue](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies").
 If you are creating the execution role by yourself from the IAM console and you want to make your service
 private with TagOnCreate feature then follow the steps below.
 
@@ -98,9 +97,7 @@ see
 If you're interacting with interactive sessions using an AWS Glue notebook, then you can pass the execution role
 in the `%iam_role` magic in the first cell that you run.
 
-##
-
-Make your session private with TagOnCreate
+## Make your session private with TagOnCreate
 
 AWS Glue interactive sessions supports tagging and Tag Based Authorization (TBAC) for interactive sessions as a named resource.
 In addition to TBAC using TagResource and UntagResource APIs, AWS Glue interactive sessions supports
@@ -224,9 +221,7 @@ _AwsGlueSessionUserRestrictedNotebookPolicy_. Also attach the additional inline 
 `iam:passrole` of your role to AWS Glue. And finally attach the above trust policy to allow
 `sts:AssumeRole` and `sts:TagSession`.
 
-###
-
-AWSGlueSessionUserRestrictedNotebookPolicy
+### AWSGlueSessionUserRestrictedNotebookPolicy
 
 The AWSGlueSessionUserRestrictedNotebookPolicy provides access to create a AWS Glue Interactive Session from a notebook
 only if a tag key "owner" and value matching the AWS user id of the principal (user or Role). For more information, see
@@ -236,9 +231,7 @@ from AWS Glue Studio. This policy also permits sufficient access to the AWS Glue
 AWS Glue Studio Interactive Session resources that are created with the "owner" tag value matching the AWS user ID of the principal.
 This policy denies permission to change or remove "owner" tag from a AWS Glue session resource after the session is created.
 
-###
-
-AWSGlueSessionUserRestrictedNotebookServiceRole
+### AWSGlueSessionUserRestrictedNotebookServiceRole
 
 The **AWSGlueSessionUserRestrictedNotebookServiceRole** provides sufficient access to the AWS Glue Studio notebook to
 interact with the
@@ -328,8 +321,7 @@ If you'd like to configure a policy tailored to your specific needs, see
 [IAM documentation about configuring resources for a policy](../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md "../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md") .
 For example, in order to isolate sessions that belong to an user,
 you can use the TagOnCreate feature supported by AWS Glue Interactive sessions.
-See [Make your session private with TagOnCreate](#glue-is-tagoncreate "#glue-is-tagoncreate") .
+See [Make your session private with TagOnCreate](#glue-is-tagoncreate "#glue-is-tagoncreate").
 
 Interactive sessions supports limiting session creation based on certain VPC conditions. See
-[Control policies
-that control settings using condition keys](security_iam_id-based-policy-examples.md#glue-identity-based-policy-condition-key-vpc "security_iam_id-based-policy-examples.md#glue-identity-based-policy-condition-key-vpc").
+[Control policies that control settings using condition keys](security_iam_id-based-policy-examples.md#glue-identity-based-policy-condition-key-vpc "security_iam_id-based-policy-examples.md#glue-identity-based-policy-condition-key-vpc").

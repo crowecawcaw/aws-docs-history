@@ -9,9 +9,7 @@ AWS Glue uses the user profile to run the code you supplied, while the system
 profile enforces Lake Formation policies. You can access the logs for the tasks ran as the
 user profile.
 
-## Live UI and Spark
-
-History Server
+## Live UI and Spark History Server
 
 The Live UI and the Spark History Server have all Spark events generated from the
 user profile and redacted events generated from the system driver.
@@ -21,36 +19,26 @@ You can see all of the tasks from both the user and system drivers in the
 the user profile. Also, some information is redacted from Live UI, such as the
 number of output records.
 
-## Job
-
-failed with insufficient Lake Formation permissions
+## Job failed with insufficient Lake Formation permissions
 
 Make sure that your job runtime role has the permissions to run SELECT and
 DESCRIBE on the table that you are accessing.
 
-## Job with RDD
-
-execution failed
+## Job with RDD execution failed
 
 AWS Glue currently doesn't support resilient distributed dataset (RDD)
 operations on Lake Formation-enabled jobs.
 
-## Unable to
-
-access data files in Amazon S3
+## Unable to access data files in Amazon S3
 
 Make sure you have registered the location of the data lake in Lake Formation.
 
-## Security
-
-validation exception
+## Security validation exception
 
 AWS Glue detected a security validation error. Contact AWS support for
 assistance.
 
-## Sharing
-
-AWS Glue Data Catalog and tables across accounts
+## Sharing AWS Glue Data Catalog and tables across accounts
 
 You can share databases and tables across accounts and still use Lake Formation. For more
 information, see [Cross-account data

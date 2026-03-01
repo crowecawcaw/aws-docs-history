@@ -9,8 +9,7 @@ For information about how to create a machine learning transform, see [Record ma
 ###### Topics
 
 - [Transform properties](#console-machine-learning-properties "#console-machine-learning-properties")
-- [Adding and editing machine learning
-  transforms](#console-machine-learning-transforms-actions "#console-machine-learning-transforms-actions")
+- [Adding and editing machine learning transforms](#console-machine-learning-transforms-actions "#console-machine-learning-transforms-actions")
 - [Viewing transform details](#console-machine-learning-transforms-details "#console-machine-learning-transforms-details")
 - [Teach transforms using labels](#console-machine-learning-transforms-teaching-transforms "#console-machine-learning-transforms-teaching-transforms")
 
@@ -82,9 +81,7 @@ Indicates the status of the task run. Possible statuses include:
 
 If the status is Failed, an error message is displayed describing the reason for the failure.
 
-## Adding and editing machine learning
-
-transforms
+## Adding and editing machine learning transforms
 
 You can view, delete, set up and teach, or tune a transform on the AWS Glue console.
 Select the check box next to the transform in the list, choose
@@ -96,13 +93,10 @@ take.
 To add a new machine learning transform, choose **Create transform**. Follow the instructions in the **Add
 job** wizard. For more information, see [Record matching with AWS Lake Formation FindMatches](machine-learning.md "machine-learning.md").
 
-####
-
-Step 1. Set transform properties.
+#### Step 1. Set transform properties.
 
 1. Enter the name and description (optional).
-2. Optionally, set security configuration. See [Using data encryption with machine learning
-   transforms](#ml_transform_sec_config "#ml_transform_sec_config").
+2. Optionally, set security configuration. See [Using data encryption with machine learning transforms](#ml_transform_sec_config "#ml_transform_sec_config").
 3. Optionally, set Task execution settings. Task execution settings allow you to customize how the
    task is run. Select the Worker type,
    number of workers, task timeout (in minutes), the number of retries, and the AWS Glue version.
@@ -110,17 +104,13 @@ Step 1. Set transform properties.
    Each tag consists of a key and an optional value. Tags can be used to search and filter
    your resource or track your AWS costs.
 
-####
-
-Step 2. Choose table and primary key.
+#### Step 2. Choose table and primary key.
 
 1. Choose the AWS Glue Catalog database and table.
 2. Choose a primary key from the selected table. The primary key column typically contains a unique
    identifier for every record in the data source.
 
-####
-
-Step 3. Select tuning options.
+#### Step 3. Select tuning options.
 
 1. For **Recall vs. precision**, choose the tuning value to tune the transform to favor recall or
    precision. By default, **Balanced** is selected, but you can choose
@@ -130,17 +120,13 @@ Step 3. Select tuning options.
 3. For **Match enforcement**, choose **Force output to match labels**
    if you want to teach the ML transform by forcing the output to match the labels used.
 
-####
-
-Step 4. Review and create.
+#### Step 4. Review and create.
 
 1. Review the options for steps 1 – 3.
 2. Choose **Edit** for any step that needs to be modified. Choose **Create transform**
    to complete the create transform wizard.
 
-### Using data encryption with machine learning
-
-transforms
+### Using data encryption with machine learning transforms
 
 When adding a machine learning transform to AWS Glue, you can optionally specify a
 security configuration that is associated with the data source or data target. If

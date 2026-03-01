@@ -1,22 +1,15 @@
-# Authoring jobs with custom
-
-connectors
+# Authoring jobs with custom connectors
 
 You can use connectors and connections for both data source nodes and data target nodes in
 AWS Glue Studio.
 
 ###### Topics
 
-- [Create jobs that use a connector for the data
-  source](#create-job-connectors "#create-job-connectors")
-- [Configure source properties for nodes that use
-  connectors](#edit-connector-source "#edit-connector-source")
-- [Configure target properties for nodes that use
-  connectors](#edit-connector-target "#edit-connector-target")
+- [Create jobs that use a connector for the data source](#create-job-connectors "#create-job-connectors")
+- [Configure source properties for nodes that use connectors](#edit-connector-source "#edit-connector-source")
+- [Configure target properties for nodes that use connectors](#edit-connector-target "#edit-connector-target")
 
-## Create jobs that use a connector for the data
-
-source
+## Create jobs that use a connector for the data source
 
 When you create a new job, you can choose a connector for the data source and data
 targets.
@@ -35,14 +28,11 @@ graph**. In the **Source** drop-down list, choose the custom
 connector that you want to use in your job.
 You can also choose a connector for **Target**.
 
-![The image is a screenshot of the Jobs page, with the Source drop-down list selected, showing the various data sources that can be selected for the job, including connectors.](images/create-job-data-sources-screenshot.png) 3. Choose **Create** to open the visual job editor. 4. Configure the data source node, as described in [Configure source properties for nodes that use
-connectors](#edit-connector-source "#edit-connector-source"). 5. Continue creating your ETL job by adding transforms, additional data stores, and
+![The image is a screenshot of the Jobs page, with the Source drop-down list selected, showing the various data sources that can be selected for the job, including connectors.](images/create-job-data-sources-screenshot.png) 3. Choose **Create** to open the visual job editor. 4. Configure the data source node, as described in [Configure source properties for nodes that use connectors](#edit-connector-source "#edit-connector-source"). 5. Continue creating your ETL job by adding transforms, additional data stores, and
 data targets, as described in [Starting visual ETL jobs in AWS Glue Studio](edit-nodes-chapter.md "edit-nodes-chapter.md"). 6. Customize the job run environment by configuring job properties as described in
 [Modify the job properties](managing-jobs-chapter.md#edit-jobs-properties "managing-jobs-chapter.md#edit-jobs-properties"). 7. Save and run the job.
 
-## Configure source properties for nodes that use
-
-connectors
+## Configure source properties for nodes that use connectors
 
 After you create a job that uses a connector for the data source, the visual job editor
 displays a job graph with a data source node configured for the connector. You must
@@ -94,8 +84,7 @@ JDBC
      data source. Choose **Add schema** to open the schema editor.
 
 
-    For instructions on how to use the schema editor, see [Editing the schema in a custom transform
-     node](transforms-custom.md#transforms-custom-editschema "transforms-custom.md#transforms-custom-editschema").
+    For instructions on how to use the schema editor, see [Editing the schema in a custom transform node](transforms-custom.md#transforms-custom-editschema "transforms-custom.md#transforms-custom-editschema").
     * **Partition column**: (Optional) You can choose to
      partition the data reads by providing values for **Partition
      column**, **Lower bound**, **Upper
@@ -161,8 +150,7 @@ Spark
      data source. Choose **Add schema** to open the schema editor.
 
 
-    For instructions on how to use the schema editor, see [Editing the schema in a custom transform
-     node](transforms-custom.md#transforms-custom-editschema "transforms-custom.md#transforms-custom-editschema").
+    For instructions on how to use the schema editor, see [Editing the schema in a custom transform node](transforms-custom.md#transforms-custom-editschema "transforms-custom.md#transforms-custom-editschema").
     * **Connection options**: Enter additional key-value pairs
      as needed to provide additional connection information or options. For
      example, you might enter a database name, table name, a user name, and
@@ -170,7 +158,7 @@ Spark
 
 
     For example, for OpenSearch, you enter the following key-value pairs, as
-     described in [Tutorial: Using the AWS Glue Connector for Elasticsearch](tutorial-elastisearch-connector.md "tutorial-elastisearch-connector.md") :
+     described in [Tutorial: Using the AWS Glue Connector for Elasticsearch](tutorial-elastisearch-connector.md "tutorial-elastisearch-connector.md"):
 
 
 
@@ -206,8 +194,7 @@ Athena
      data source. Choose **Add schema** to open the schema editor.
 
 
-    For instructions on how to use the schema editor, see [Editing the schema in a custom transform
-     node](transforms-custom.md#transforms-custom-editschema "transforms-custom.md#transforms-custom-editschema").
+    For instructions on how to use the schema editor, see [Editing the schema in a custom transform node](transforms-custom.md#transforms-custom-editschema "transforms-custom.md#transforms-custom-editschema").
     * **Additional connection options**: Enter additional
      key-value pairs as needed to provide additional connection information or
      options.
@@ -226,9 +213,7 @@ you can preview the dataset from your data source by choosing the Data preview t
 The first time you choose this tab for any node in your job, you are prompted to provide an IAM role to access
 the data. There is a cost associated with using this feature, and billing starts as soon as you provide an IAM role.
 
-## Configure target properties for nodes that use
-
-connectors
+## Configure target properties for nodes that use connectors
 
 If you use a connector for the data target type, you must configure the properties of
 the data target node.
@@ -269,7 +254,7 @@ Spark
 
 
     For example, for OpenSearch, you enter the following key-value pairs, as
-     described in [Tutorial: Using the AWS Glue Connector for Elasticsearch](tutorial-elastisearch-connector.md "tutorial-elastisearch-connector.md") :
+     described in [Tutorial: Using the AWS Glue Connector for Elasticsearch](tutorial-elastisearch-connector.md "tutorial-elastisearch-connector.md"):
 
 
 

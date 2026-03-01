@@ -105,9 +105,7 @@ root
     - Required: No
     - Default value: "" (empty string)
 
-## apply(cls,
-
-\*args, \*\*kwargs)
+## apply(cls, \*args, \*\*kwargs)
 
 Inherited from `GlueTransform`
 [apply](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-apply "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-apply").

@@ -1,6 +1,4 @@
-# Troubleshooting blueprint errors in
-
-AWS Glue
+# Troubleshooting blueprint errors in AWS Glue
 
 If you encounter errors when using AWS Glue blueprints, use the following solutions to help you find the source of the problems and fix them.
 

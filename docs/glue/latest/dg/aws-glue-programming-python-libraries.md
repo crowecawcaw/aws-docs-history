@@ -145,7 +145,7 @@ have to bundle your dependencies before submitting.
 ## Programming scripts that use visual transforms
 
 When you create a AWS Glue job using the AWS Glue Studio visual interface, you can transform your data with managed data
-transform nodes and custom visual transforms. For more information about managed data transform nodes, see [Transform data with AWS Glue managed transforms](edit-jobs-transforms.md "edit-jobs-transforms.md"). For more information about custom visual transforms, see [Transform data with custom visual transforms](custom-visual-transform.md "custom-visual-transform.md") . Scripts using visual transforms can only be generated when your job
+transform nodes and custom visual transforms. For more information about managed data transform nodes, see [Transform data with AWS Glue managed transforms](edit-jobs-transforms.md "edit-jobs-transforms.md"). For more information about custom visual transforms, see [Transform data with custom visual transforms](custom-visual-transform.md "custom-visual-transform.md"). Scripts using visual transforms can only be generated when your job
 **Language** is set to use Python.
 
 When generating a AWS Glue job using visual transforms, AWS Glue Studio will include these transforms in the runtime

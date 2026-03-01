@@ -263,9 +263,7 @@ You can skip this step if you created your own policy for AWS Glue console acces
    principal entities. After choosing the user to attach the policy to, choose
    **Attach policy**.
 
-###### To attach the `AWSGlueConsoleSageMakerNotebookFullAccess` managed
-
-policy
+###### To attach the `AWSGlueConsoleSageMakerNotebookFullAccess` managed policy
 
 You can attach the `AWSGlueConsoleSageMakerNotebookFullAccess` policy to a
 user to manage SageMaker AI notebooks created on the AWS Glue console. In addition to other

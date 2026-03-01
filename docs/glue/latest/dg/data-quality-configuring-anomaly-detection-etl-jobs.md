@@ -8,9 +8,7 @@ statistics and observations about your data, allowing you to take action on any 
 Review the [Anomaly Detection](data-quality-anomaly-detection.md "data-quality-anomaly-detection.md") documentation to understand the
 inner workings of this feature.
 
-##
-
-Enabling anomaly detection
+## Enabling anomaly detection
 
 ###### To enable anomaly detection in AWS Glue Studio:
 

@@ -44,11 +44,9 @@ The following video demonstrates how to enhance query performance using column s
 
 ###### Topics
 
-- [Prerequisites for generating column
-  statistics](column-stats-prereqs.md "column-stats-prereqs.md")
+- [Prerequisites for generating column statistics](column-stats-prereqs.md "column-stats-prereqs.md")
 - [Automatic column statistics generation](auto-column-stats-generation.md "auto-column-stats-generation.md")
-- [Generating column statistics on a
-  schedule](generate-column-stats.md "generate-column-stats.md")
+- [Generating column statistics on a schedule](generate-column-stats.md "generate-column-stats.md")
 - [Generating column statistics on demand](column-stats-on-demand.md "column-stats-on-demand.md")
 - [Viewing column statistics](view-column-stats.md "view-column-stats.md")
 - [Viewing column statistics task runs](view-stats-run.md "view-stats-run.md")

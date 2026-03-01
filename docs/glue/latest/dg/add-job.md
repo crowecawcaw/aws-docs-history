@@ -7,8 +7,7 @@ control the AWS Glue runtime environment.
 
 The following list describes the properties of a Spark job. For the properties
 of a Python shell job, see [Defining job properties for Python shell jobs](add-job-python.md#create-job-python-properties "add-job-python.md#create-job-python-properties"). For properties of a streaming ETL
-job, see [Defining job properties for a
-streaming ETL job](add-job-streaming.md#create-job-streaming-properties "add-job-streaming.md#create-job-streaming-properties").
+job, see [Defining job properties for a streaming ETL job](add-job-streaming.md#create-job-streaming-properties "add-job-streaming.md#create-job-streaming-properties").
 
 The properties are listed in the order in which they appear on the **Add
 job** wizard on AWS Glue console.
@@ -212,8 +211,7 @@ The Amazon S3 location of the script. The path must be in the form `s3://bucket/
 Turn on or turn off the creation of Amazon CloudWatch metrics when this
 job runs. To see profiling data, you must enable this option.
 For more information about how to turn on and visualize metrics,
-see [Job monitoring and
-debugging](monitor-profile-glue-job-cloudwatch-metrics.md "monitor-profile-glue-job-cloudwatch-metrics.md").
+see [Job monitoring and debugging](monitor-profile-glue-job-cloudwatch-metrics.md "monitor-profile-glue-job-cloudwatch-metrics.md").
 
 **Job observability metrics**
 
@@ -332,8 +330,7 @@ run the job. You must prefix the key name with `--`;
 for example: `--myKey`. You pass job parameters as a
 map when using the AWS Command Line Interface.
 
-For examples, see Python parameters in [Passing
-and accessing Python parameters in AWS Glue](aws-glue-programming-python-calling.md#aws-glue-programming-python-calling-parameters "aws-glue-programming-python-calling.md#aws-glue-programming-python-calling-parameters").
+For examples, see Python parameters in [Passing and accessing Python parameters in AWS Glue](aws-glue-programming-python-calling.md#aws-glue-programming-python-calling-parameters "aws-glue-programming-python-calling.md#aws-glue-programming-python-calling-parameters").
 
 **Tags**
 
@@ -342,9 +339,7 @@ Tag your job with a **Tag key** and an optional
 read-only. Use tags on some resources to help you organize and identify
 them. For more information, see [AWS tags in AWS Glue](monitor-tags.md "monitor-tags.md").
 
-## Restrictions for jobs that access Lake Formation managed
-
-tables
+## Restrictions for jobs that access Lake Formation managed tables
 
 Keep in mind the following notes and restrictions when creating jobs that read from or
 write to tables managed by AWS Lake Formation:

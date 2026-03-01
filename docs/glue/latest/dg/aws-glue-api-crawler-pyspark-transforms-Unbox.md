@@ -18,10 +18,7 @@ method to unbox a field in a `DynamicFrame`. To view a code example, see [Exampl
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-Unbox-describeErrors "#aws-glue-api-crawler-pyspark-transforms-Unbox-describeErrors")
 - [describe](#aws-glue-api-crawler-pyspark-transforms-Unbox-describe "#aws-glue-api-crawler-pyspark-transforms-Unbox-describe")
 
-## \_\_call\_\_(frame, path,
-
-format, transformation_ctx = "", info="", stageThreshold=0, totalThreshold=0,
-\*\*options)
+## \_\_call\_\_(frame, path, format, transformation_ctx = "", info="", stageThreshold=0, totalThreshold=0, \*\*options)
 
 Unboxes a string field in a `DynamicFrame`.
 
@@ -31,8 +28,7 @@ Unboxes a string field in a `DynamicFrame`.
   (required).
 - `format` – A format specification (optional). This is used for an
   Amazon S3 or AWS Glue connection that supports multiple formats. For the formats
-  that are supported, see [Data format options for inputs and outputs in
-  AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md").
+  that are supported, see [Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md").
 - `transformation_ctx` – A unique string that is used to identify state
   information (optional).
 - `info` – A string associated with errors in the transformation

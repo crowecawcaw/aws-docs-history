@@ -12,8 +12,6 @@ files:
 
 ###### Topics
 
-- [Creating the blueprint layout
-  script](developing-blueprints-code-layout.md "developing-blueprints-code-layout.md")
+- [Creating the blueprint layout script](developing-blueprints-code-layout.md "developing-blueprints-code-layout.md")
 - [Creating the configuration file](developing-blueprints-code-config.md "developing-blueprints-code-config.md")
-- [Specifying blueprint
-  parameters](developing-blueprints-code-parameters.md "developing-blueprints-code-parameters.md")
+- [Specifying blueprint parameters](developing-blueprints-code-parameters.md "developing-blueprints-code-parameters.md")

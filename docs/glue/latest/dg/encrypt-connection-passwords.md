@@ -1,6 +1,4 @@
-# Encrypting connection
-
-passwords
+# Encrypting connection passwords
 
 You can retrieve connection passwords in the AWS Glue Data Catalog by
 using the `GetConnection` and `GetConnections` API operations. These
@@ -29,4 +27,4 @@ select **Choose a AWS KMS key ARN**, the console lets you
 enter an ARN for any key type. Ensure that you enter only ARNs for
 symmetric keys.
 
-For more information, see [Data Catalog settings](console-data-catalog-settings.md "console-data-catalog-settings.md") .
+For more information, see [Data Catalog settings](console-data-catalog-settings.md "console-data-catalog-settings.md").

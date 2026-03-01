@@ -1,6 +1,4 @@
-# Step 6: Create an IAM policy for SageMaker AI
-
-notebooks
+# Step 6: Create an IAM policy for SageMaker AI notebooks
 
 If you plan to use SageMaker AI notebooks with development endpoints, you must specify permissions when
 you create the notebook. You provide those permissions by using AWS Identity and Access Management

@@ -1,6 +1,4 @@
-# Prerequisites for generating column
-
-statistics
+# Prerequisites for generating column statistics
 
 To generate or update column statistics, the statistics generation task assumes an
 AWS Identity and Access Management (IAM) role on your behalf. Based on the permissions granted to the role, the

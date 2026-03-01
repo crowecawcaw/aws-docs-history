@@ -1,6 +1,4 @@
-# Using DropFields to keep most data
-
-property keys
+# Using DropFields to keep most data property keys
 
 You can create a subset of data property keys from the dataset using the
 _DropFields_ transform. You indicate which data property keys you want

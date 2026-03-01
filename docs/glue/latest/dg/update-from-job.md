@@ -1,6 +1,4 @@
-# Updating the schema, and adding new partitions in the Data Catalog using
-
-AWS Glue ETL jobs
+# Updating the schema, and adding new partitions in the Data Catalog using AWS Glue ETL jobs
 
 Your extract, transform, and load (ETL) job might create new table partitions in the target
 data store. Your dataset schema can evolve and diverge from the AWS Glue Data Catalog schema over

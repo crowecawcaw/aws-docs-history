@@ -183,9 +183,7 @@ with `numPartitions` partitions.
 
 ## apply_mapping
 
-###### `apply_mapping(mappings, transformation_ctx="", info="", stageThreshold=0,
-
-totalThreshold=0)`
+###### `apply_mapping(mappings, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`
 
 Applies a declarative mapping to a `DynamicFrame` and returns a new
 `DynamicFrame` with those mappings applied to the fields that you specify.
@@ -218,9 +216,7 @@ The following code example shows how to use the `apply_mapping` method to rename
 
 ###### Note
 
-To access the dataset that is used in this example, see [Code example: Joining
-and relationalizing data](aws-glue-programming-python-samples-legislators.md "aws-glue-programming-python-samples-legislators.md") and follow the instructions in [Step 1:
-Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling "aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling").
+To access the dataset that is used in this example, see [Code example: Joining and relationalizing data](aws-glue-programming-python-samples-legislators.md "aws-glue-programming-python-samples-legislators.md") and follow the instructions in [Step 1: Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling "aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling").
 
 ```
 # Example: Use apply_mapping to reshape source data into
@@ -297,9 +293,7 @@ root
 
 ## drop_fields
 
-###### `drop_fields(paths, transformation_ctx="", info="", stageThreshold=0,
-
-totalThreshold=0)`
+###### `drop_fields(paths, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`
 
 Calls the [FlatMap class](aws-glue-api-crawler-pyspark-transforms-flat-map.md "aws-glue-api-crawler-pyspark-transforms-flat-map.md") transform to remove
 fields from a `DynamicFrame`. Returns a new `DynamicFrame` with the
@@ -425,9 +419,7 @@ schema.
   including this transformation at which the process should error out (optional). The
   default is zero, which indicates that the process should not error out.
 
-### Example: Use filter to get a filtered selection of
-
-fields
+### Example: Use filter to get a filtered selection of fields
 
 This example uses the `filter` method to create a new
 `DynamicFrame` that includes a filtered selection of another
@@ -441,9 +433,7 @@ is left out.
 
 ###### Note
 
-To access the dataset that is used in this example, see [Code example:
-Data preparation using ResolveChoice, Lambda, and ApplyMapping](aws-glue-programming-python-samples-medicaid.md "aws-glue-programming-python-samples-medicaid.md") and follow the instructions in [Step 1:
-Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-medicaid.md#aws-glue-programming-python-samples-medicaid-crawling "aws-glue-programming-python-samples-medicaid.md#aws-glue-programming-python-samples-medicaid-crawling").
+To access the dataset that is used in this example, see [Code example: Data preparation using ResolveChoice, Lambda, and ApplyMapping](aws-glue-programming-python-samples-medicaid.md "aws-glue-programming-python-samples-medicaid.md") and follow the instructions in [Step 1: Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-medicaid.md#aws-glue-programming-python-samples-medicaid-crawling "aws-glue-programming-python-samples-medicaid.md#aws-glue-programming-python-samples-medicaid-crawling").
 
 ```
 # Example: Use filter to create a new DynamicFrame
@@ -488,9 +478,7 @@ Filtered record count:   564
 
 ## join
 
-###### `join(paths1, paths2, frame2, transformation_ctx="", info="", stageThreshold=0,
-
-totalThreshold=0)`
+###### `join(paths1, paths2, frame2, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`
 
 Performs an equality join with another `DynamicFrame` and returns the
 resulting `DynamicFrame`.
@@ -523,9 +511,7 @@ remove these redundant keys after the join.
 
 ###### Note
 
-To access the dataset that is used in this example, see [Code example: Joining
-and relationalizing data](aws-glue-programming-python-samples-legislators.md "aws-glue-programming-python-samples-legislators.md") and follow the instructions in [Step 1:
-Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling "aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling").
+To access the dataset that is used in this example, see [Code example: Joining and relationalizing data](aws-glue-programming-python-samples-legislators.md "aws-glue-programming-python-samples-legislators.md") and follow the instructions in [Step 1: Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling "aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling").
 
 ```
 # Example: Use join to combine data from three DynamicFrames
@@ -719,9 +705,7 @@ This example shows how to use the `map` method to apply a function to every reco
 
 ###### Note
 
-To access the dataset that is used in this example, see [Code example:
-Data preparation using ResolveChoice, Lambda, and ApplyMapping](aws-glue-programming-python-samples-medicaid.md "aws-glue-programming-python-samples-medicaid.md") and follow the instructions in [Step 1:
-Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-medicaid.md#aws-glue-programming-python-samples-medicaid-crawling "aws-glue-programming-python-samples-medicaid.md#aws-glue-programming-python-samples-medicaid-crawling").
+To access the dataset that is used in this example, see [Code example: Data preparation using ResolveChoice, Lambda, and ApplyMapping](aws-glue-programming-python-samples-medicaid.md "aws-glue-programming-python-samples-medicaid.md") and follow the instructions in [Step 1: Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-medicaid.md#aws-glue-programming-python-samples-medicaid-crawling "aws-glue-programming-python-samples-medicaid.md#aws-glue-programming-python-samples-medicaid-crawling").
 
 ```
 # Example: Use map to combine fields in all records
@@ -803,9 +787,7 @@ root
 
 ## mergeDynamicFrame
 
-###### `mergeDynamicFrame(stage_dynamic_frame, primary_keys, transformation_ctx = "",
-
-options = {}, info = "", stageThreshold = 0, totalThreshold = 0)`
+###### `mergeDynamicFrame(stage_dynamic_frame, primary_keys, transformation_ctx = "", options = {}, info = "", stageThreshold = 0, totalThreshold = 0)`
 
 Merges this `DynamicFrame` with a staging `DynamicFrame` based on
 the specified primary keys to identify records. Duplicate records (records with the same
@@ -843,9 +825,7 @@ The returned `DynamicFrame` contains record A in these cases:
 
 The source frame and staging frame don't need to have the same schema.
 
-### Example: Use mergeDynamicFrame to merge
-
-two `DynamicFrames` based on a primary key
+### Example: Use mergeDynamicFrame to merge two `DynamicFrames` based on a primary key
 
 The following code example shows how to use the `mergeDynamicFrame` method to
 merge a `DynamicFrame` with a "staging" `DynamicFrame`, based on the
@@ -1123,9 +1103,7 @@ This code example uses the `rename_field` method to rename fields in a `DynamicF
 
 ###### Note
 
-To access the dataset that is used in this example, see [Code example: Joining
-and relationalizing data](aws-glue-programming-python-samples-legislators.md "aws-glue-programming-python-samples-legislators.md") and follow the instructions in [Step 1:
-Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling "aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling").
+To access the dataset that is used in this example, see [Code example: Joining and relationalizing data](aws-glue-programming-python-samples-legislators.md "aws-glue-programming-python-samples-legislators.md") and follow the instructions in [Step 1: Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling "aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling").
 
 **Example code**
 
@@ -1203,10 +1181,7 @@ root
 
 ## resolveChoice
 
-###### `resolveChoice(specs = None, choice = "" , database = None , table_name = None ,
-
-transformation_ctx="", info="", stageThreshold=0, totalThreshold=0, catalog_id =
-None)`
+###### `resolveChoice(specs = None, choice = "" , database = None , table_name = None , transformation_ctx="", info="", stageThreshold=0, totalThreshold=0, catalog_id = None)`
 
 Resolves a choice type within this `DynamicFrame` and returns the new
 `DynamicFrame`.
@@ -1304,9 +1279,7 @@ This code example uses the `resolveChoice` method to specify how to handle a `Dy
 
 ###### Note
 
-To access the dataset that is used in this example, see [Code example:
-Data preparation using ResolveChoice, Lambda, and ApplyMapping](aws-glue-programming-python-samples-medicaid.md "aws-glue-programming-python-samples-medicaid.md") and follow the instructions in [Step 1:
-Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-medicaid.md#aws-glue-programming-python-samples-medicaid-crawling "aws-glue-programming-python-samples-medicaid.md#aws-glue-programming-python-samples-medicaid-crawling").
+To access the dataset that is used in this example, see [Code example: Data preparation using ResolveChoice, Lambda, and ApplyMapping](aws-glue-programming-python-samples-medicaid.md "aws-glue-programming-python-samples-medicaid.md") and follow the instructions in [Step 1: Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-medicaid.md#aws-glue-programming-python-samples-medicaid-crawling "aws-glue-programming-python-samples-medicaid.md#aws-glue-programming-python-samples-medicaid-crawling").
 
 The example uses a `DynamicFrame` called `medicare` with the following schema:
 
@@ -1501,9 +1474,7 @@ The following code example shows how to use the `select_fields` method to create
 
 ###### Note
 
-To access the dataset that is used in this example, see [Code example: Joining
-and relationalizing data](aws-glue-programming-python-samples-legislators.md "aws-glue-programming-python-samples-legislators.md") and follow the instructions in [Step 1:
-Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling "aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling").
+To access the dataset that is used in this example, see [Code example: Joining and relationalizing data](aws-glue-programming-python-samples-legislators.md "aws-glue-programming-python-samples-legislators.md") and follow the instructions in [Step 1: Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling "aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling").
 
 ```
 # Example: Use select_fields to select specific fields from a DynamicFrame
@@ -1700,9 +1671,7 @@ This code example uses the `spigot` method to write sample records to an Amazon 
 
 ###### Note
 
-To access the dataset that is used in this example, see [Code example: Joining
-and relationalizing data](aws-glue-programming-python-samples-legislators.md "aws-glue-programming-python-samples-legislators.md") and follow the instructions in [Step 1:
-Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling "aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling").
+To access the dataset that is used in this example, see [Code example: Joining and relationalizing data](aws-glue-programming-python-samples-legislators.md "aws-glue-programming-python-samples-legislators.md") and follow the instructions in [Step 1: Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling "aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling").
 
 The example uses a `DynamicFrame` called `persons` with the following schema:
 
@@ -1917,9 +1886,7 @@ root
 
 ## split_rows
 
-###### `split_rows(comparison_dict, name1, name2, transformation_ctx="", info="",
-
-stageThreshold=0, totalThreshold=0)`
+###### `split_rows(comparison_dict, name1, name2, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`
 
 Splits one or more rows in a `DynamicFrame` off into a new
 `DynamicFrame`.
@@ -1947,9 +1914,7 @@ have been split off, and the second contains the rows that remain.
   including this transformation at which the process should error out (optional). The
   default is zero, which indicates that the process should not error out.
 
-### Example: Use split_rows to split rows in a
-
-`DynamicFrame`
+### Example: Use split_rows to split rows in a `DynamicFrame`
 
 This code example uses the `split_rows` method to split rows in a
 `DynamicFrame` based on the `id` field value.
@@ -2092,8 +2057,7 @@ self-describing and can be used for data that doesn't conform to a fixed schema.
 - `path` – A full path to the string node you want to unbox.
 - `format` – A format specification (optional). You use this for an Amazon S3 or
   AWS Glue connection that supports multiple formats. For the formats that are
-  supported, see [Data format options for inputs and outputs in
-  AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md").
+  supported, see [Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md").
 - `transformation_ctx` – A unique string that is used to
   identify state information (optional).
 - `info` – A string to be associated with error
@@ -2231,9 +2195,7 @@ only showing top 20 rows
 
 ## union
 
-###### `union(frame1, frame2, transformation_ctx = "",
-
-info = "", stageThreshold = 0, totalThreshold = 0)`
+###### `union(frame1, frame2, transformation_ctx = "", info = "", stageThreshold = 0, totalThreshold = 0)`
 
 Union two DynamicFrames. Returns DynamicFrame containing all records from both input DynamicFrames.
 This transform may return different results from the union of two DataFrames with equivalent data. If
@@ -2250,9 +2212,7 @@ you need the Spark DataFrame union behavior, consider using `toDF`.
 
 ## unnest
 
-###### `unnest(transformation_ctx="", info="", stageThreshold=0,
-
-totalThreshold=0)`
+###### `unnest(transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`
 
 Unnests nested objects in a `DynamicFrame`, which makes them top-level
 objects, and returns a new unnested `DynamicFrame`.
@@ -2268,9 +2228,7 @@ objects, and returns a new unnested `DynamicFrame`.
   including this transformation at which the process should error out (optional). The
   default is zero, which indicates that the process should not error out.
 
-### Example: Use unnest to turn nested fields into
-
-top-level fields
+### Example: Use unnest to turn nested fields into top-level fields
 
 This code example uses the `unnest` method to flatten all of the nested
 fields in a `DynamicFrame` into top-level fields.
@@ -2442,11 +2400,9 @@ connection_options = {"url": "`jdbc-url/database`", "user": "`username`", "passw
 ```
 
 - `format` – A format specification (optional). This is used
-  for an Amazon Simple Storage Service (Amazon S3) or an AWS Glue connection that supports multiple formats. See [Data format options for inputs and outputs in
-  AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md")
+  for an Amazon Simple Storage Service (Amazon S3) or an AWS Glue connection that supports multiple formats. See [Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md")
   for the formats that are supported.
-- `format_options` – Format options for the specified format. See [Data format options for inputs and outputs in
-  AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md")
+- `format_options` – Format options for the specified format. See [Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md")
   for the formats that are supported.
 - `accumulator_size` – The accumulable size to use, in bytes (optional).
 
@@ -2468,9 +2424,7 @@ underlying `DataFrame`.
 `errorsAsDynamicFrame( )` – Returns a `DynamicFrame` that has
 error records nested inside.
 
-### Example: Use errorsAsDynamicFrame to
-
-view error records
+### Example: Use errorsAsDynamicFrame to view error records
 
 The following code example shows how to use the `errorsAsDynamicFrame` method
 to view an error record for a `DynamicFrame`.

@@ -14,9 +14,7 @@ Topics
 - [Getting started](#getting-started-visual-job-api "#getting-started-visual-job-api")
 - [Visual job limitations](#visual-job-limitations "#visual-job-limitations")
 
-##
-
-API design and CRUD APIs
+## API design and CRUD APIs
 
 The CreateJob and UpdateJob
 [APIs](aws-glue-api-jobs-job.md "aws-glue-api-jobs-job.md")
@@ -32,9 +30,7 @@ the codeGenConfigurationNodes to be set as empty and any previous DAG removed. T
 one exists.
 The DeleteJob API will also delete any associated DAG.
 
-##
-
-Getting started
+## Getting started
 
 To create a job, use the
 [CreateJob action](aws-glue-api-jobs-job.md#aws-glue-api-jobs-job-CreateJob "aws-glue-api-jobs-job.md#aws-glue-api-jobs-job-CreateJob") . The `CreateJob` request input will have an additional field
@@ -113,9 +109,7 @@ be the same. See
 The _GetJob_ action will return a ‘codeGenConfigurationNodes’ field in the same format as well. See
 [GetJob](aws-glue-api-jobs-job.md#aws-glue-api-jobs-job-GetJob "aws-glue-api-jobs-job.md#aws-glue-api-jobs-job-GetJob") Action.
 
-##
-
-Visual job limitations
+## Visual job limitations
 
 Since the ‘codeGenConfigurationNodes’ parameter has been added to existing APIs, any limitations in those APIs
 will be inherited. In addition, the codeGenConfigurationNodes and some nodes will be limited in size.

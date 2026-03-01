@@ -1,6 +1,4 @@
-#
-
-Connecting to OpenSearch Service in AWS Glue Studio
+# Connecting to OpenSearch Service in AWS Glue Studio
 
 AWS Glue provides built-in support for Amazon OpenSearch Service. AWS Glue Studio provides a visual interface to
 connect to Amazon OpenSearch Service, author data integration jobs, and run them on the AWS Glue Studio serverless Spark runtime.

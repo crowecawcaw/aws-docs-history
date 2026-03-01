@@ -4,12 +4,9 @@
 
 - [Def writeDynamicFrame](#glue-etl-scala-apis-glue-datasink-class-defs-writeDynamicFrame "#glue-etl-scala-apis-glue-datasink-class-defs-writeDynamicFrame")
 - [Def pyWriteDynamicFrame](#glue-etl-scala-apis-glue-datasink-class-defs-pyWriteDynamicFrame "#glue-etl-scala-apis-glue-datasink-class-defs-pyWriteDynamicFrame")
-- [Def
-  writeDataFrame](#glue-etl-scala-apis-glue-datasink-class-defs-writeDataFrame "#glue-etl-scala-apis-glue-datasink-class-defs-writeDataFrame")
-- [Def
-  pyWriteDataFrame](#glue-etl-scala-apis-glue-datasink-class-defs-pyWriteDataFrame "#glue-etl-scala-apis-glue-datasink-class-defs-pyWriteDataFrame")
-- [Def
-  setCatalogInfo](#glue-etl-scala-apis-glue-datasink-class-defs-setCatalogInfo "#glue-etl-scala-apis-glue-datasink-class-defs-setCatalogInfo")
+- [Def writeDataFrame](#glue-etl-scala-apis-glue-datasink-class-defs-writeDataFrame "#glue-etl-scala-apis-glue-datasink-class-defs-writeDataFrame")
+- [Def pyWriteDataFrame](#glue-etl-scala-apis-glue-datasink-class-defs-pyWriteDataFrame "#glue-etl-scala-apis-glue-datasink-class-defs-pyWriteDataFrame")
+- [Def setCatalogInfo](#glue-etl-scala-apis-glue-datasink-class-defs-setCatalogInfo "#glue-etl-scala-apis-glue-datasink-class-defs-setCatalogInfo")
 - [Def supportsFormat](#glue-etl-scala-apis-glue-datasink-class-defs-supportsFormat "#glue-etl-scala-apis-glue-datasink-class-defs-supportsFormat")
 - [Def setFormat](#glue-etl-scala-apis-glue-datasink-class-defs-setFormat "#glue-etl-scala-apis-glue-datasink-class-defs-setFormat")
 - [Def withFormat](#glue-etl-scala-apis-glue-datasink-class-defs-withFormat "#glue-etl-scala-apis-glue-datasink-class-defs-withFormat")
@@ -42,9 +39,7 @@ def pyWriteDynamicFrame( frame : DynamicFrame,
                          info : String = "" )
 ```
 
-## Def
-
-writeDataFrame
+## Def writeDataFrame
 
 ```
 def writeDataFrame(frame: DataFrame,
@@ -53,9 +48,7 @@ def writeDataFrame(frame: DataFrame,
                    ): DataFrame
 ```
 
-## Def
-
-pyWriteDataFrame
+## Def pyWriteDataFrame
 
 ```
 def pyWriteDataFrame(frame: DataFrame,
@@ -65,9 +58,7 @@ def pyWriteDataFrame(frame: DataFrame,
                      ): DataFrame
 ```
 
-## Def
-
-setCatalogInfo
+## Def setCatalogInfo
 
 ```
 def setCatalogInfo(catalogDatabase: String,

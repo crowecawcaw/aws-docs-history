@@ -18,9 +18,7 @@ AWS Glue for Apache Spark jobs. See the following sections to learn more about L
 
 Using AWS Glue with AWS Lake Formation incurs additional charges.
 
-## How AWS Glue works with
-
-AWS Lake Formation
+## How AWS Glue works with AWS Lake Formation
 
 Using AWS Glue with Lake Formation lets you enforce a layer of permissions on each Spark
 job to apply Lake Formation permissions control when AWS Glue executes jobs.
@@ -65,9 +63,7 @@ All Lake Formation-enabled jobs have auto-scaling enabled, meaning the user exec
 
 For an example configuration, see [Considerations and limitations](security-lf-enable-considerations.md "security-lf-enable-considerations.md").
 
-## Job runtime role IAM
-
-permissions
+## Job runtime role IAM permissions
 
 Lake Formation permissions control access to AWS Glue Data Catalog resources, Amazon S3 locations, and the
 underlying data at those locations. IAM permissions control access to the Lake Formation and
@@ -134,9 +130,7 @@ JSON
 
 ```
 
-## Setting up Lake Formation permissions
-
-for job runtime role
+## Setting up Lake Formation permissions for job runtime role
 
 First, register the location of your Hive table with Lake Formation. Then create permissions for
 your job runtime role on your desired table. For more details about Lake Formation, see [What is AWS Lake Formation?](../../../lake-formation/latest/dg/what-is-lake-formation.md "../../../lake-formation/latest/dg/what-is-lake-formation.md") in the _AWS Lake Formation Developer Guide_.
@@ -184,9 +178,7 @@ To enable Fine-Grained Access Control (FGAC) in AWS Glue you must specify the Sp
 
 Specifying it later using the calls `SparkSession.builder().conf("").get()` or `SparkSession.builder().conf("").create()` will not be enough. This is a change from the AWS Glue 4.0 behavior.
 
-## Open-table format
-
-support
+## Open-table format support
 
 AWS Glue version 5.0 or later includes support for fine-grained access control based on Lake Formation.
 AWS Glue supports Hive and Iceberg table types. The following table describes all of the

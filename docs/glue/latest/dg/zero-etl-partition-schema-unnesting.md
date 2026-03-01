@@ -1,6 +1,4 @@
-#
-
-Partition specification and schema unnesting guide
+# Partition specification and schema unnesting guide
 
 When working with NoSQL data sources like DynamoDB and SaaS applications, data often presents unique challenges for analytics:
 

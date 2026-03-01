@@ -1,6 +1,4 @@
-# Step 5: Create an IAM role for notebook
-
-servers
+# Step 5: Create an IAM role for notebook servers
 
 If you plan to use notebooks with development endpoints, you need to grant the IAM role
 permissions. You provide those permissions by using AWS Identity and Access Management IAM, through an IAM

@@ -36,8 +36,7 @@ integration for Apache Spark. For more information see [Amazon Redshift integrat
 Apache Spark](../../../redshift/latest/mgmt/spark-redshift-connector.md "../../../redshift/latest/mgmt/spark-redshift-connector.md"). In previous versions, see [Amazon Redshift
 data source for Spark](https://github.com/databricks/spark-redshift "https://github.com/databricks/spark-redshift").
 
-To configure your Amazon VPC to connect to Amazon RDS data stores using JDBC, refer to [Setting up Amazon VPC for JDBC connections to Amazon RDS data stores from
-AWS Glue](setup-vpc-for-glue-access.md "setup-vpc-for-glue-access.md").
+To configure your Amazon VPC to connect to Amazon RDS data stores using JDBC, refer to [Setting up Amazon VPC for JDBC connections to Amazon RDS data stores from AWS Glue](setup-vpc-for-glue-access.md "setup-vpc-for-glue-access.md").
 
 ###### Note
 
@@ -50,8 +49,7 @@ multiple data sources through the same job. This behavior is not limited to JDBC
 - [Use sampleQuery](#aws-glue-programming-etl-jdbc-samplequery "#aws-glue-programming-etl-jdbc-samplequery")
 - [Use custom JDBC driver](#aws-glue-programming-etl-jdbc-custom-driver "#aws-glue-programming-etl-jdbc-custom-driver")
 - [Reading from JDBC tables in parallel](run-jdbc-parallel-read-job.md "run-jdbc-parallel-read-job.md")
-- [Setting up Amazon VPC for JDBC connections to Amazon RDS data stores from
-  AWS Glue](setup-vpc-for-glue-access.md "setup-vpc-for-glue-access.md")
+- [Setting up Amazon VPC for JDBC connections to Amazon RDS data stores from AWS Glue](setup-vpc-for-glue-access.md "setup-vpc-for-glue-access.md")
 
 ## JDBC connection option reference
 

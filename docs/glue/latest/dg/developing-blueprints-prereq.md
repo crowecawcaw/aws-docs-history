@@ -1,6 +1,4 @@
-# Prerequisites for developing
-
-blueprints
+# Prerequisites for developing blueprints
 
 To develop blueprints, you should be familiar with using AWS Glue and writing scripts for
 Apache Spark ETL jobs or Python shell jobs. In addition, you must complete the following setup

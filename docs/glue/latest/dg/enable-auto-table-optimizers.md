@@ -27,7 +27,7 @@ For the Lake Formation managed tables, the IAM role selected during the catalog 
     	* Choose the IAM role that has the necessary permissions to run the optimizers.
 
 
-    	For more information on the permission requirements for the IAM role, see [Table optimization prerequisites](optimization-prerequisites.md "optimization-prerequisites.md") .
+    	For more information on the permission requirements for the IAM role, see [Table optimization prerequisites](optimization-prerequisites.md "optimization-prerequisites.md").
     2. Configure **Snapshot retention** settings:
 
 

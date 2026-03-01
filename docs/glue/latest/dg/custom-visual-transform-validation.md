@@ -1,6 +1,4 @@
-#
-
-Step 3. Validate and troubleshoot custom visual transforms in AWS Glue Studio
+# Step 3. Validate and troubleshoot custom visual transforms in AWS Glue Studio
 
 AWS Glue Studio validates the JSON config file before custom visual transforms are loaded into AWS Glue Studio.
 Validation includes:

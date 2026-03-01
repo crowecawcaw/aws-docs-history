@@ -283,9 +283,7 @@ The following table lists expressions that you can use in DQDL rules.
 | `now()`                                                  | Works only with the `ColumnValues` rule type to create a date<br>expression.                                                                                    | `<br>ColumnValues "load_date" > (now()<br>• 3 days)<br>`                                                                                                                                                    |
 | matches/in […]/not matches/not in [...] `with threshold` | Specifies the percentage of values that match the rule conditions. Works only<br>with the `ColumnValues`, `ColumnDataType`, and `CustomSQL` rule types.         | `<br>ColumnValues "colA" in ["A", "B"] with threshold > 0.8,<br>ColumnValues "colA" matches "[a-zA-Z]*" with threshold between 0.2 and 0.9<br>ColumnDataType "colA" = "Timestamp" with threshold > 0.9<br>` |
 
-####
-
-Keywords for NULL, EMPTY and WHITESPACES_ONLY
+#### Keywords for NULL, EMPTY and WHITESPACES_ONLY
 
 If you want to validate if a string column has a null, empty or a string with only whitespaces you can use the
 following keywords:

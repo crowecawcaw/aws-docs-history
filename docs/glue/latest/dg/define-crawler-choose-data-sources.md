@@ -27,8 +27,7 @@ catalog tables in a single run; it can't mix in other source types.
 A common reason to specify a catalog table as the source is when you create the table
 manually (because you already know the structure of the data store) and you want a crawler
 to keep the table updated, including adding new partitions. For a discussion of other
-reasons, see [Updating manually created Data Catalog tables using
-crawlers](tables-described.md#update-manual-tables "tables-described.md#update-manual-tables").
+reasons, see [Updating manually created Data Catalog tables using crawlers](tables-described.md#update-manual-tables "tables-described.md#update-manual-tables").
 
 When you specify existing tables as the crawler source type, the following conditions
 apply:
@@ -43,8 +42,7 @@ apply:
     + The crawler configuration option to create a single schema for each Amazon S3 path is
      enabled by default and cannot be disabled.
      (`TableGroupingPolicy`=`CombineCompatibleSchemas`) For more
-     information, see [Creating a single schema for each Amazon S3 include
-     path](crawler-grouping-policy.md "crawler-grouping-policy.md").
+     information, see [Creating a single schema for each Amazon S3 include path](crawler-grouping-policy.md "crawler-grouping-policy.md").
     + You can't mix catalog tables as a source with any other source types (for example
      Amazon S3 or Amazon DynamoDB).
 

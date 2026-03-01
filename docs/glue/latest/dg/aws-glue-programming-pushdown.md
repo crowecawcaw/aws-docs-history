@@ -48,7 +48,7 @@ AWS Glue Data Catalog and filters them before reading the underlying Amazon S3 f
 working with datasets that have millions of partitions, the process of listing partitions can be time
 consuming. To address this issue, server-side pruning of partitions can be used to improve performance. This
 is done by building a **Partition index** for your data in the AWS Glue Data Catalog. For more
-information about partition indices, see [Creating partition indexes](partition-indexes.md "partition-indexes.md") . You can then use the
+information about partition indices, see [Creating partition indexes](partition-indexes.md "partition-indexes.md"). You can then use the
 `catalogPartitionPredicate` option to reference the index. For an example retrieving partitions
 with `catalogPartitionPredicate`, see [Server-side filtering using catalog partition predicates](aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-cat-predicates "aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-cat-predicates").
 

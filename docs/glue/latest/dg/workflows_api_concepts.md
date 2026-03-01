@@ -37,9 +37,7 @@ _Edge_ is a 2-tuple of the form (`src, dest`), where
 `src` and `dest` are nodes and there is a directed edge
 from `src` to `dest`.
 
-### Example of querying a static
-
-view
+### Example of querying a static view
 
 Consider a conditional trigger T, which triggers job J2 upon completion of job J1.
 
@@ -72,9 +70,7 @@ _Runtime nodes example:_
  jobDetails:{jobRuns}}`, `{name:C1, type:Crawler, uniqueId:3,
  crawlerDetails:{crawls}}`
 
-### Example 1: Dynamic
-
-view
+### Example 1: Dynamic view
 
 The following example illustrates a simple two-trigger workflow.
 
@@ -185,9 +181,7 @@ The `GetWorkflowRun` response contains the following.
 }
 ```
 
-### Example 2: Multiple jobs
-
-with a conditional trigger
+### Example 2: Multiple jobs with a conditional trigger
 
 The following example shows a workflow with multiple jobs and a conditional
 trigger (t3).

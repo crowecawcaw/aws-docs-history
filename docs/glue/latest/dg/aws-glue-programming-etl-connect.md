@@ -1,6 +1,4 @@
-# Connection types and options for ETL in
-
-AWS Glue for Spark
+# Connection types and options for ETL in AWS Glue for Spark
 
 In AWS Glue for Spark, various PySpark and Scala methods and transforms specify the connection type using
 a `connectionType` parameter. They specify connection options using a
@@ -34,8 +32,8 @@ For sample code that demonstrates setting and using connection options, see the 
 | [snowflake](aws-glue-programming-etl-connect-snowflake-home.md "aws-glue-programming-etl-connect-snowflake-home.md")                                                                                            | [Snowflake](https://www.snowflake.com/ "https://www.snowflake.com/") data lake                                                                                                                                       |
 | [teradata](aws-glue-programming-etl-connect-teradata-home.md "aws-glue-programming-etl-connect-teradata-home.md")                                                                                               | Teradata Vantage.                                                                                                                                                                                                    |
 | [vertica](aws-glue-programming-etl-connect-vertica-home.md "aws-glue-programming-etl-connect-vertica-home.md")                                                                                                  | Vertica.                                                                                                                                                                                                             |
-| [custom.\*](#aws-glue-programming-etl-connect-market "#aws-glue-programming-etl-connect-market")                                                                                                                | Spark, Athena, or JDBC data stores (see [Custom and AWS Marketplace connectionType<br>values](#aws-glue-programming-etl-connect-market "#aws-glue-programming-etl-connect-market")                                   |
-| [marketplace.\*](#aws-glue-programming-etl-connect-market "#aws-glue-programming-etl-connect-market")                                                                                                           | Spark, Athena, or JDBC data stores (see [Custom and AWS Marketplace connectionType<br>values](#aws-glue-programming-etl-connect-market "#aws-glue-programming-etl-connect-market"))                                  |
+| [custom.\*](#aws-glue-programming-etl-connect-market "#aws-glue-programming-etl-connect-market")                                                                                                                | Spark, Athena, or JDBC data stores (see [Custom and AWS Marketplace connectionType values](#aws-glue-programming-etl-connect-market "#aws-glue-programming-etl-connect-market")                                      |
+| [marketplace.\*](#aws-glue-programming-etl-connect-market "#aws-glue-programming-etl-connect-market")                                                                                                           | Spark, Athena, or JDBC data stores (see [Custom and AWS Marketplace connectionType values](#aws-glue-programming-etl-connect-market "#aws-glue-programming-etl-connect-market"))                                     |
 
 ## DataFrame options for ETL in AWS Glue 5.0 for Spark
 
@@ -188,9 +186,7 @@ val dataSinkOptions = Map(
 dataframe.write.format(dataSinkClassName).options(dataSinkOptions).save()
 ```
 
-## Custom and AWS Marketplace connectionType
-
-values
+## Custom and AWS Marketplace connectionType values
 
 These include the following:
 
@@ -208,9 +204,7 @@ These include the following:
 - `"connectionType": "custom.jdbc"`: Designates a connection to a JDBC data
   store. The connection uses a custom connector that you upload to AWS Glue Studio.
 
-### Connection options for type custom.jdbc
-
-or marketplace.jdbc
+### Connection options for type custom.jdbc or marketplace.jdbc
 
 - `className` – String, required, driver class name.
 - `connectionName` – String, required, name of the connection that
@@ -382,9 +376,7 @@ drivers. It demonstrates reading from a database and writing to an S3 location.
 
 ```
 
-### Connection options for type
-
-custom.athena or marketplace.athena
+### Connection options for type custom.athena or marketplace.athena
 
 - `className` – String, required, driver class name. When you're
   using the Athena-CloudWatch connector, this parameter value is the prefix of the class
@@ -452,9 +444,7 @@ AWS Marketplace connector. It demonstrates reading from Athena and writing to an
 
 ```
 
-### Connection options for type custom.spark
-
-or marketplace.spark
+### Connection options for type custom.spark or marketplace.spark
 
 - `className` – String, required, connector class name.
 - `secretId` – String, optional, used to retrieve credentials for

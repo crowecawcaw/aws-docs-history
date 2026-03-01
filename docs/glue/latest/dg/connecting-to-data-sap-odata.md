@@ -1,6 +1,4 @@
-#
-
-Connecting to SAP OData
+# Connecting to SAP OData
 
 SAP OData is a standard Web protocol used for querying and updating data present in SAP using ABAP (Advanced Business Application Programming), applying and building on Web technologies such as HTTP to provide access to information from a variety of external applications, platforms and devices. With the product, you can access everything you need to help you seamlessly integrate with your SAP system, application, or data.
 

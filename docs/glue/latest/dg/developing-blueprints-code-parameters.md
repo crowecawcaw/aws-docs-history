@@ -1,6 +1,4 @@
-# Specifying blueprint
-
-parameters
+# Specifying blueprint parameters
 
 The configuration file contains blueprint parameter specifications in a
 `parameterSpec` JSON object. `parameterSpec` contains one or more

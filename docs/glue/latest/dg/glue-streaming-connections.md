@@ -36,8 +36,7 @@ specified methods in the `GlueContext` class.
     `create_data_frame_from_catalog`, `write_dynamic_frame_from_catalog`
   - `options`: Use with `getSource`, `getSink`
 
-For notes and restrictions about streaming ETL jobs, consult [Streaming ETL notes and
-restrictions](add-job-streaming.md#create-job-streaming-restrictions "add-job-streaming.md#create-job-streaming-restrictions").
+For notes and restrictions about streaming ETL jobs, consult [Streaming ETL notes and restrictions](add-job-streaming.md#create-job-streaming-restrictions "add-job-streaming.md#create-job-streaming-restrictions").
 
 ###### Topics
 
@@ -51,8 +50,7 @@ restrictions](add-job-streaming.md#create-job-streaming-restrictions "add-job-st
 There are no AWS prerequisites to connecting to Kafka streams available through the internet.
 
 You can create a AWS Glue Kafka connection to manage your connection credentials. For more
-information, see [Creating an AWS Glue connection for an Apache Kafka
-data stream](add-job-streaming.md#create-conn-streaming "add-job-streaming.md#create-conn-streaming"). In your AWS Glue job configuration, provide
+information, see [Creating an AWS Glue connection for an Apache Kafka data stream](add-job-streaming.md#create-conn-streaming "add-job-streaming.md#create-conn-streaming"). In your AWS Glue job configuration, provide
 `connectionName` as an **Additional network connection**, then, in your method
 call, provide `connectionName` to the `connectionName` parameter.
 
@@ -261,8 +259,7 @@ specified methods in the `GlueContext` class.
     `create_data_frame_from_catalog`, `write_dynamic_frame_from_catalog`
   - `options`: Use with `getSource`, `getSink`
 
-For notes and restrictions about Streaming ETL jobs, consult [Streaming ETL notes and
-restrictions](add-job-streaming.md#create-job-streaming-restrictions "add-job-streaming.md#create-job-streaming-restrictions").
+For notes and restrictions about Streaming ETL jobs, consult [Streaming ETL notes and restrictions](add-job-streaming.md#create-job-streaming-restrictions "add-job-streaming.md#create-job-streaming-restrictions").
 
 ### Configure Kinesis
 

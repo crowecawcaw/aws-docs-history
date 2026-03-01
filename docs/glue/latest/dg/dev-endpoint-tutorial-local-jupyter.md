@@ -7,9 +7,7 @@ Shell (SSH) port forwarding to connect your local machine to an AWS Glue develop
 more information, see [Port
 forwarding](https://en.wikipedia.org/wiki/Port_forwarding "https://en.wikipedia.org/wiki/Port_forwarding") on Wikipedia.
 
-## Step 1: Install JupyterLab and
-
-Sparkmagic
+## Step 1: Install JupyterLab and Sparkmagic
 
 You can install JupyterLab by using `conda` or `pip`.
 `conda` is an open-source package management system and environment management
@@ -62,9 +60,7 @@ When you start JupyterLab, your default web browser is automatically opened, and
 $ `jupyter lab`
 ```
 
-## Step 3: Initiate SSH port
-
-forwarding to connect to your development endpoint
+## Step 3: Initiate SSH port forwarding to connect to your development endpoint
 
 Next, use SSH local port forwarding to forward a local port (here, `8998`) to
 the remote destination that is defined by AWS Glue (`169.254.76.1:8998`).
@@ -108,9 +104,7 @@ $ curl localhost:8998/sessions
 
 ```
 
-## Step 4: Run a simple script
-
-fragment in a notebook paragraph
+## Step 4: Run a simple script fragment in a notebook paragraph
 
 Now your notebook in JupyterLab should work with your development endpoint. Enter the
 following script fragment into your notebook and run it.

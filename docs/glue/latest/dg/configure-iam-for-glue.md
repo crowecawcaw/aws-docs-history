@@ -1,6 +1,4 @@
-# Configuring IAM permissions for
-
-AWS Glue
+# Configuring IAM permissions for AWS Glue
 
 You use AWS Identity and Access Management (IAM) to define policies and roles that AWS Glue uses to
 access resources. The following steps lead you through various options for setting up the

@@ -1,6 +1,4 @@
-# Setting up Amazon VPC for JDBC connections to Amazon RDS data stores from
-
-AWS Glue
+# Setting up Amazon VPC for JDBC connections to Amazon RDS data stores from AWS Glue
 
 When using JDBC to connect to databases in Amazon RDS, you will need to perform additional setup. To enable
 AWS Glue components to communicate with Amazon RDS, you must set up access to your Amazon RDS data stores in

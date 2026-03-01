@@ -1,6 +1,4 @@
-#
-
-Connecting to Stripe in AWS Glue Studio
+# Connecting to Stripe in AWS Glue Studio
 
 Stripe is an online payment processing and credit card processing platform for businesses. The Stripe platform lets businesses
 accept online payments, create subscription (recurring billing) for their e-commerce, and sets up back account to receive pay outs.

@@ -32,8 +32,7 @@ created by the classifier that inferred the table schema.
 ###### Topics
 
 - [How crawlers work](#crawler-running "#crawler-running")
-- [How does a crawler determine when to
-  create partitions?](#crawler-s3-folder-table-partition "#crawler-s3-folder-table-partition")
+- [How does a crawler determine when to create partitions?](#crawler-s3-folder-table-partition "#crawler-s3-folder-table-partition")
 - [Supported data sources for crawling](crawler-data-stores.md "crawler-data-stores.md")
 - [Crawler prerequisites](crawler-prereqs.md "crawler-prereqs.md")
 - [Defining and managing classifiers](add-classifier.md "add-classifier.md")
@@ -92,9 +91,7 @@ If your crawler runs more than once, perhaps on a schedule, it looks for new or 
 files or tables in your data store. The output of the crawler includes new tables and
 partitions found since a previous run.
 
-## How does a crawler determine when to
-
-create partitions?
+## How does a crawler determine when to create partitions?
 
 When an AWS Glue crawler scans Amazon S3 data stpre and detects multiple folders in a bucket, it determines
 the root of a table in the folder structure and which folders are partitions of a table. The

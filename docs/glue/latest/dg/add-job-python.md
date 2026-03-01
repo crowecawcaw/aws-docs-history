@@ -17,8 +17,7 @@ If you wish to continue with Python shell v3.9 see
 - [Defining job properties for Python shell jobs](#create-job-python-properties "#create-job-python-properties")
 - [Supported libraries for Python shell jobs](#python-shell-supported-library "#python-shell-supported-library")
 - [Providing your own Python library](#create-python-extra-library "#create-python-extra-library")
-- [Use AWS CloudFormation with Python shell jobs in
-  AWS Glue](#python-shell-jobs-cloudformation "#python-shell-jobs-cloudformation")
+- [Use AWS CloudFormation with Python shell jobs in AWS Glue](#python-shell-jobs-cloudformation "#python-shell-jobs-cloudformation")
 - [Migrating from Python shell 3.6 to Python shell 3.9](#migrating-version-pyshell36-to-pyshell39 "#migrating-version-pyshell36-to-pyshell39")
 - [Migrate from AWS Glue Python shell jobs](pyshell-migration.md "pyshell-migration.md")
 
@@ -347,9 +346,7 @@ aws glue create-job --name python-redshift-test-cli --role Role --command '{"Nam
 When the job runs, the script prints the rows created in the
 `table_name` table in the Amazon Redshift cluster.
 
-## Use AWS CloudFormation with Python shell jobs in
-
-AWS Glue
+## Use AWS CloudFormation with Python shell jobs in AWS Glue
 
 You can use AWS CloudFormation with Python shell jobs in AWS Glue. The following is
 an example:

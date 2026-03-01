@@ -1,6 +1,4 @@
-#
-
-Connecting to Kustomer
+# Connecting to Kustomer
 
 Kustomer is a powerful customer experience platform that brings together everything you need to serve your customers better in one easy-to-use tool.
 

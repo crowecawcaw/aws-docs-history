@@ -1,10 +1,6 @@
-#
+# Using Data Lake frameworks with AWS Glue Studio
 
-Using Data Lake frameworks with AWS Glue Studio
-
-##
-
-Overview
+## Overview
 
 Open source data lake frameworks simplify incremental data processing for files stored in data lakes built on
 Amazon S3. AWS Glue 3.0 and later supports the following open-source data lake storage frameworks:

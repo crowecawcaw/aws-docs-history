@@ -204,8 +204,7 @@ the **Runs** tab includes:
   - **Input arguments**
   - **Continuous logs**
   - **Metrics** – You can see visualizations of basic metrics. For more information on
-    included metrics, see [Viewing Amazon CloudWatch metrics for a
-    Spark job run](view-job-runs.md#monitoring-job-run-metrics "view-job-runs.md#monitoring-job-run-metrics").
+    included metrics, see [Viewing Amazon CloudWatch metrics for a Spark job run](view-job-runs.md#monitoring-job-run-metrics "view-job-runs.md#monitoring-job-run-metrics").
   - **Spark UI** – You can visualize Spark logs for your job in the Spark UI. For more
     information about using the Spark Web UI, see [Monitoring jobs using the Apache Spark web UI](monitor-spark-ui.md "monitor-spark-ui.md"). Enable this feature by
     following the procedure in [Enabling the Apache Spark web UI for AWS Glue jobs](monitor-spark-ui-jobs.md "monitor-spark-ui-jobs.md").

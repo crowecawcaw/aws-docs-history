@@ -1,6 +1,4 @@
-#
-
-Step 2. Implement the transform logic
+# Step 2. Implement the transform logic
 
 ###### Note
 

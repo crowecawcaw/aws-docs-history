@@ -1,6 +1,4 @@
-# Crawler errors when the crawler is using Lake Formation
-
-permissions
+# Crawler errors when the crawler is using Lake Formation permissions
 
 Use the information below to diagnose and fix various issues while configuring the crawler using Lake Formation
 credentials.
@@ -10,9 +8,7 @@ credentials.
 For a crawler to run using Lake Formation credentials, you need to first set up Lake Formation permissions. To resolve this
 error, please register the target Amazon S3 location with Lake Formation. For more information, see [Registering an Amazon S3 location](../../../lake-formation/latest/dg/register-location.md "../../../lake-formation/latest/dg/register-location.md").
 
-## Error: User/Role is not authorized to perform:
-
-lakeformation:GetDataAccess on resource
+## Error: User/Role is not authorized to perform: lakeformation:GetDataAccess on resource
 
 Please add the `lakeformation:GetDataAccess` permission to the crawler role using the IAM
 console or AWS CLI. With this permission, Lake Formation grants the request for temporary credentials to access the data.
@@ -34,9 +30,7 @@ JSON
 
 ```
 
-## Error: Insufficient Lake Formation permission(s) on (Database name: exampleDatabase,
-
-Table Name: exampleTable)
+## Error: Insufficient Lake Formation permission(s) on (Database name: exampleDatabase, Table Name: exampleTable)
 
 In the Lake Formation console ([https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/")), grant the crawler role access permissions ( `Create`,
 `Describe`, `Alter`) on the database, which is specified as the output database. You can
@@ -60,9 +54,7 @@ named resource method](../../../lake-formation/latest/dg/granting-cat-perms-name
    [Granting
    data location permissions (same account)](../../../lake-formation/latest/dg/granting-location-permissions-local.md "../../../lake-formation/latest/dg/granting-location-permissions-local.md").
 
-## Frequently asked questions about crawler configuration using Lake Formation
-
-credentials
+## Frequently asked questions about crawler configuration using Lake Formation credentials
 
 1. **How do I configure a crawler to run using Lake Formation credentials using the AWS
    console?**

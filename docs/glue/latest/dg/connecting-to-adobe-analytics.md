@@ -14,8 +14,7 @@ applications.
 - [Policies containing the API operations for creating and using connections](adobeanalytics-configuring-iam-permissions.md "adobeanalytics-configuring-iam-permissions.md")
 - [Configuring Adobe Analytics](adobeanalytics-configuring.md "adobeanalytics-configuring.md")
 - [Configuring Adobe Analytics connections](adobeanalytics-configuring-connections.md "adobeanalytics-configuring-connections.md")
-- [Reading from Adobe Analytics
-  entities](adobeanalytics-reading-from-entities.md "adobeanalytics-reading-from-entities.md")
+- [Reading from Adobe Analytics entities](adobeanalytics-reading-from-entities.md "adobeanalytics-reading-from-entities.md")
 - [Adobe Analytics connection options](adobeanalytics-connection-options.md "adobeanalytics-connection-options.md")
 - [Creating an Adobe Analytics account](adobeanalytics-create-account.md "adobeanalytics-create-account.md")
 - [Limitations](adobeanalytics-connector-limitations.md "adobeanalytics-connector-limitations.md")

@@ -146,9 +146,7 @@ Designates a connection to Amazon DocumentDB (with MongoDB compatibility).
 
 Connection options differ for a source connection and a sink connection.
 
-### "connectionType": "Documentdb" as
-
-source
+### "connectionType": "Documentdb" as source
 
 Use the following connection options with `"connectionType": "documentdb"` as
 a source:
@@ -190,9 +188,7 @@ a source:
 
   For more information about these options, see [Partitioner Configuration](https://docs.mongodb.com/spark-connector/master/configuration/#partitioner-conf "https://docs.mongodb.com/spark-connector/master/configuration/#partitioner-conf") in the MongoDB documentation.
 
-### "connectionType": "Documentdb" as
-
-sink
+### "connectionType": "Documentdb" as sink
 
 Use the following connection options with `"connectionType": "documentdb"` as
 a sink:

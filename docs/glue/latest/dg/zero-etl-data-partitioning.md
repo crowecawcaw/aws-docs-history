@@ -236,9 +236,7 @@ When designing multi-level partitioning schemes, consider:
 ]
 ```
 
-###
-
-Partition FunctionSpec/ConversionSpec selection
+### Partition FunctionSpec/ConversionSpec selection
 
 - Specify the correct ConversionSpec (epoch_sec | epoch_milli | iso) that represents format of column values chosen for timestamp based
   partitioning when using timestamp-based partition functions. AWS Glue Zero-ETL uses this parameter to correctly transform source data into timestamp

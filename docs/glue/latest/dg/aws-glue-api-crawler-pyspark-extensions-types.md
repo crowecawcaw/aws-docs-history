@@ -85,9 +85,7 @@ enumeration of valid options.
 
 - `options` – A list of the options being enumerated.
 
-##  collection
-
-types
+##  collection types
 
 - [ArrayType(DataType)](#aws-glue-api-crawler-pyspark-extensions-types-awsglue-arraytype "#aws-glue-api-crawler-pyspark-extensions-types-awsglue-arraytype")
 - [ChoiceType(DataType)](#aws-glue-api-crawler-pyspark-extensions-types-awsglue-choicetype "#aws-glue-api-crawler-pyspark-extensions-types-awsglue-choicetype")
@@ -181,9 +179,7 @@ Returns `True` if this structure has a field of the same name, or
 
 This class is not yet implemented.
 
-##  other
-
-types
+##  other types
 
 - [DataSource(object)](#aws-glue-api-crawler-pyspark-extensions-types-awsglue-data-source "#aws-glue-api-crawler-pyspark-extensions-types-awsglue-data-source")
 - [DataSink(object)](#aws-glue-api-crawler-pyspark-extensions-types-awsglue-data-sink "#aws-glue-api-crawler-pyspark-extensions-types-awsglue-data-sink")
@@ -202,8 +198,7 @@ types
 
 - `format` – The format to set for the data source.
 - `options` – A collection of options to set for the data
-  source. For more information about format options, see [Data format options for inputs and outputs in
-  AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md").
+  source. For more information about format options, see [Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md").
 
  
 
@@ -224,8 +219,7 @@ Returns a `DynamicFrame` for the data source.
 
 - `format` – The format to set for the data sink.
 - `options` – A collection of options to set for the data sink.
-  For more information about format options, see [Data format options for inputs and outputs in
-  AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md").
+  For more information about format options, see [Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md").
 
  
 

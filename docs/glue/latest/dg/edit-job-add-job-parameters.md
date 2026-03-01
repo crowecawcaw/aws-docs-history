@@ -1,6 +1,4 @@
-#
-
-Adding source and target parameters to the AWS Glue Data Catalog node
+# Adding source and target parameters to the AWS Glue Data Catalog node
 
 AWS Glue Studio allows you to parameterize visual jobs. Since catalog table names in production and development environment may be different,
 you can define and select runtime parameters for databases and tables that will run when

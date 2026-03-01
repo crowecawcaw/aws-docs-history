@@ -35,9 +35,7 @@ To learn how to use interactive sessions, see the documentation in this section.
 
 [Magics supported by AWS Glue](interactive-sessions-magics.md#interactive-sessions-magics2 "interactive-sessions-magics.md#interactive-sessions-magics2")
 
-###
-
-Limitations
+### Limitations
 
 - Job bookmarks are not supported in interactive sessions.
 - Creating notebook jobs using the AWS Command Line Interface is not supported.

@@ -1,6 +1,4 @@
-# Monitoring AWS Glue using Amazon CloudWatch
-
-metrics
+# Monitoring AWS Glue using Amazon CloudWatch metrics
 
 You can profile and monitor AWS Glue operations using AWS Glue job profiler. It collects and
 processes raw data from AWS Glue jobs into readable, near real-time metrics stored in Amazon CloudWatch.

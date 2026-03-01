@@ -4,8 +4,7 @@
 
 ###### Contents
 
-- [AWS Glue Scala DynamicFrame
-  class](glue-etl-scala-apis-glue-dynamicframe-class.md "glue-etl-scala-apis-glue-dynamicframe-class.md")
+- [AWS Glue Scala DynamicFrame class](glue-etl-scala-apis-glue-dynamicframe-class.md "glue-etl-scala-apis-glue-dynamicframe-class.md")
   - [Val errorsCount](glue-etl-scala-apis-glue-dynamicframe-class.md#glue-etl-scala-apis-glue-dynamicframe-class-vals-errorsCount "glue-etl-scala-apis-glue-dynamicframe-class.md#glue-etl-scala-apis-glue-dynamicframe-class-vals-errorsCount")
   - [Def applyMapping](glue-etl-scala-apis-glue-dynamicframe-class.md#glue-etl-scala-apis-glue-dynamicframe-class-defs-applyMapping "glue-etl-scala-apis-glue-dynamicframe-class.md#glue-etl-scala-apis-glue-dynamicframe-class-defs-applyMapping")
   - [Def assertErrorThreshold](glue-etl-scala-apis-glue-dynamicframe-class.md#glue-etl-scala-apis-glue-dynamicframe-class-defs-assertErrorThreshold "glue-etl-scala-apis-glue-dynamicframe-class.md#glue-etl-scala-apis-glue-dynamicframe-class-defs-assertErrorThreshold")

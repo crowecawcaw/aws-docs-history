@@ -92,12 +92,7 @@ For `null` values in the `source\_column\_int` column, the `target\_column` valu
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-IntToIp-describeErrors "#aws-glue-api-crawler-pyspark-transforms-IntToIp-describeErrors")
 - [describe](#aws-glue-api-crawler-pyspark-transforms-IntToIp-describe "#aws-glue-api-crawler-pyspark-transforms-IntToIp-describe")
 
-## \_\_call\_\_(spark_context,
-
-data_frame,
-target_column,
-source_column=None,
-value=None)
+## \_\_call\_\_(spark_context, data_frame, target_column, source_column=None, value=None)
 
 The `IntToIp` transform converts the integer value of source column or other value to the corresponding
 IPv4 value in then target column, and returns the result in a new column.

@@ -1,6 +1,4 @@
-# Basic examples for
-
-AWS Glue using AWS SDKs
+# Basic examples for AWS Glue using AWS SDKs
 
 The following code examples show how to use the basics of AWS Glue with AWS
 SDKs.

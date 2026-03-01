@@ -1,6 +1,4 @@
-# Overview of
-
-_SelectFromCollection_ transform
+# Overview of _SelectFromCollection_ transform
 
 Certain transforms have multiple datasets as their output instead of a single dataset,
 for example, _SplitFields_. The _SelectFromCollection_

@@ -42,9 +42,7 @@ might generate records pairs that don't respect the provided labels. To enforce 
 **EnforceProvidedLabels** in
 **FindMatchesParameter**.
 
-###### What techniques can you use when an ML transform identifies items as matches that are
-
-not true matches?
+###### What techniques can you use when an ML transform identifies items as matches that are not true matches?
 
 You can use the following techniques:
 

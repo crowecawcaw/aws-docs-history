@@ -1,6 +1,4 @@
-#
-
-Connecting to SendGrid
+# Connecting to SendGrid
 
 SendGrid is a customer communication platform for transactional and marketing emails.
 

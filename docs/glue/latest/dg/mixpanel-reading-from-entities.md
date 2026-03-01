@@ -1,6 +1,4 @@
-# Reading from Mixpanel
-
-entities
+# Reading from Mixpanel entities
 
 **Prerequisites**
 

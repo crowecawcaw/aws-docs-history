@@ -1,6 +1,4 @@
-# Generating column statistics on a
-
-schedule
+# Generating column statistics on a schedule
 
 Follow these steps to configure a schedule for generating column statistics in the AWS Glue Data Catalog
 using the AWS Glue console, the AWS CLI, or the

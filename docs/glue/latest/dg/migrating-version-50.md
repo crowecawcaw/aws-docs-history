@@ -1,6 +1,4 @@
-# Migrating AWS Glue for Spark jobs to
-
-AWS Glue version 5.0
+# Migrating AWS Glue for Spark jobs to AWS Glue version 5.0
 
 This topic describes the changes between AWS Glue versions 0.9, 1.0, 2.0, 3.0, and
 4.0 to allow you to migrate your Spark applications and ETL jobs to AWS Glue
@@ -14,16 +12,12 @@ jobs.
 ###### Topics
 
 - [New features](#migrating-version-50-features "#migrating-version-50-features")
-- [Actions to migrate to
-  AWS Glue 5.0](#migrating-version-50-actions "#migrating-version-50-actions")
+- [Actions to migrate to AWS Glue 5.0](#migrating-version-50-actions "#migrating-version-50-actions")
 - [Migration checklist](#migrating-version-50-checklist "#migrating-version-50-checklist")
 - [AWS Glue 5.0 features](#migrating-version-50-features "#migrating-version-50-features")
-- [Migrating from AWS Glue 4.0
-  to AWS Glue 5.0](#migrating-version-50-from-40 "#migrating-version-50-from-40")
-- [Migrating from AWS Glue 3.0
-  to AWS Glue 5.0](#migrating-version-50-from-30 "#migrating-version-50-from-30")
-- [Migrating from AWS Glue 2.0
-  to AWS Glue 5.0](#migrating-version-50-from-20 "#migrating-version-50-from-20")
+- [Migrating from AWS Glue 4.0 to AWS Glue 5.0](#migrating-version-50-from-40 "#migrating-version-50-from-40")
+- [Migrating from AWS Glue 3.0 to AWS Glue 5.0](#migrating-version-50-from-30 "#migrating-version-50-from-30")
+- [Migrating from AWS Glue 2.0 to AWS Glue 5.0](#migrating-version-50-from-20 "#migrating-version-50-from-20")
 - [Logging behavior changes in AWS Glue 5.0](#enable-continous-logging-changes-glue-50 "#enable-continous-logging-changes-glue-50")
 - [Connector and JDBC driver migration for AWS Glue 5.0](#migrating-version-50-connector-driver-migration "#migrating-version-50-connector-driver-migration")
 
@@ -42,8 +36,7 @@ Note the following considerations or limitations for Spark-native FGAC:
     + Currently data writes are not supported
     + Writing into Iceberg through `GlueContext` using Lake Formation requires use of IAM access control instead
 
-For a complete list of limitations and considerations when using Spark-native FGAC, see [Considerations and
-limitations](security-lf-enable-considerations.md "security-lf-enable-considerations.md").
+For a complete list of limitations and considerations when using Spark-native FGAC, see [Considerations and limitations](security-lf-enable-considerations.md "security-lf-enable-considerations.md").
 
 - Support for Amazon S3 Access Grants as a scalable access control solution to your Amazon S3 data from AWS Glue. For more information, see [Using Amazon S3 Access Grants with AWS Glue](security-s3-access-grants.md "security-s3-access-grants.md").
 - Open Table Formats (OTF) updated to Hudi 0.15.0, Iceberg 1.7.1, and Delta Lake 3.3.0
@@ -69,9 +62,7 @@ Alternatively, you can provide the following job parameter (provide your DataZon
     -conf spark.openlineage.transport.domainId=<your-domain-ID>
     ```
 
-- Connector and JDBC driver updates. For more information, see [Appendix B: JDBC driver
-  upgrades](#migrating-version-50-appendix-jdbc-driver "#migrating-version-50-appendix-jdbc-driver") and [Appendix C: Connector
-  upgrades](#migrating-version-50-appendix-connector "#migrating-version-50-appendix-connector").
+- Connector and JDBC driver updates. For more information, see [Appendix B: JDBC driver upgrades](#migrating-version-50-appendix-jdbc-driver "#migrating-version-50-appendix-jdbc-driver") and [Appendix C: Connector upgrades](#migrating-version-50-appendix-connector "#migrating-version-50-appendix-connector").
 - Java update from 8 to 17.
 - Increased storage for AWS Glue `G.1X` and `G.2X` workers with disk space increasing to 94GB and 138GB respectively. Additionally, new worker types `G.12X`, `G.16X`, and memory-optimized `R.1X`, `R.2X`, `R.4X`, `R.8X` are available in AWS Glue 4.0 and later versions. For more information, see [Jobs](aws-glue-api-jobs-job.md "aws-glue-api-jobs-job.md")
 - **Support for AWS SDK for Java, version 2** - AWS Glue 5.0 jobs can use the for Java versions [1.12.569](https://github.com/aws/aws-sdk-java/tree/1.12.569 "https://github.com/aws/aws-sdk-java/tree/1.12.569") or [2.28.8](https://github.com/aws/aws-sdk-java-v2/tree/2.28.8 "https://github.com/aws/aws-sdk-java-v2/tree/2.28.8") if the job supports v2. The AWS SDK for Java 2.x is a major rewrite of the version 1.x code base. It’s built on top of Java 8+ and adds several frequently requested features. These include support for non-blocking I/O, and the ability to plug in a different HTTP implementation at runtime. For more information, including a Migration Guide from SDK for Java v1 to v2, see the [AWS SDK for Java, version 2](../../../sdk-for-java.md "../../../sdk-for-java.md") guide.
@@ -151,9 +142,7 @@ Note the following enhancements:
 - Introduce dropDuplicatesWithinWatermark ([SPARK-42931](https://issues.apache.org/jira/browse/SPARK-42931 "https://issues.apache.org/jira/browse/SPARK-42931")).
 - RocksDB state store provider memory management enhancements ([SPARK-43311](https://issues.apache.org/jira/browse/SPARK-43311 "https://issues.apache.org/jira/browse/SPARK-43311")).
 
-## Actions to migrate to
-
-AWS Glue 5.0
+## Actions to migrate to AWS Glue 5.0
 
 For existing jobs, change the `Glue version` from the previous version to
 `Glue 5.0` in the job configuration.
@@ -204,9 +193,7 @@ Data is organized in a logical hierarchy of catalogs, databases and tables, usin
 - Database – Organizes data objects such as tables and views in a catalog.
 - Tables and views – Data objects in a database that provide an abstraction layer with an understandable schema. They make it easy to access underlying data, which could be in various formats and in various locations.
 
-## Migrating from AWS Glue 4.0
-
-to AWS Glue 5.0
+## Migrating from AWS Glue 4.0 to AWS Glue 5.0
 
 All existing job parameters and major features that exist in
 AWS Glue 4.0 will exist in AWS Glue 5.0, except machine learning transforms.
@@ -222,26 +209,20 @@ Refer to the Spark migration documentation:
 - [Migration Guide: Structured Streaming](https://spark.apache.org/docs/3.5.0/ss-migration-guide.html "https://spark.apache.org/docs/3.5.0/ss-migration-guide.html")
 - [Upgrading PySpark](https://spark.apache.org/docs/3.5.0/api/python/migration_guide/pyspark_upgrade.html "https://spark.apache.org/docs/3.5.0/api/python/migration_guide/pyspark_upgrade.html")
 
-## Migrating from AWS Glue 3.0
-
-to AWS Glue 5.0
+## Migrating from AWS Glue 3.0 to AWS Glue 5.0
 
 ###### Note
 
-For migration steps related to AWS Glue 4.0, see [Migrating from AWS Glue 3.0
-to AWS Glue 4.0](migrating-version-40.md#migrating-version-40-from-30 "migrating-version-40.md#migrating-version-40-from-30").
+For migration steps related to AWS Glue 4.0, see [Migrating from AWS Glue 3.0 to AWS Glue 4.0](migrating-version-40.md#migrating-version-40-from-30 "migrating-version-40.md#migrating-version-40-from-30").
 
 All existing job parameters and major features that exist in
 AWS Glue 3.0 will exist in AWS Glue 5.0, except machine learning transforms.
 
-## Migrating from AWS Glue 2.0
-
-to AWS Glue 5.0
+## Migrating from AWS Glue 2.0 to AWS Glue 5.0
 
 ###### Note
 
-For migration steps related to AWS Glue 4.0 and a list of migration differences between AWS Glue version 3.0 and 4.0, see [Migrating from AWS Glue 3.0
-to AWS Glue 4.0](migrating-version-40.md#migrating-version-40-from-30 "migrating-version-40.md#migrating-version-40-from-30").
+For migration steps related to AWS Glue 4.0 and a list of migration differences between AWS Glue version 3.0 and 4.0, see [Migrating from AWS Glue 3.0 to AWS Glue 4.0](migrating-version-40.md#migrating-version-40-from-30 "migrating-version-40.md#migrating-version-40-from-30").
 
 Also note the following migration differences between AWS Glue versions 3.0 and 2.0:
 
@@ -252,9 +233,7 @@ Also note the following migration differences between AWS Glue versions 3.0 and 
 - Changes to the behavior of loading/saving of timestamps from/to parquet files. For more details, see Upgrading from Spark SQL 3.0 to 3.1.
 - Different Spark task parallelism for driver/executor configuration. You can adjust task parallelism by passing the `--executor-cores` job argument.
 
-##
-
-Logging behavior changes in AWS Glue 5.0
+## Logging behavior changes in AWS Glue 5.0
 
 The following are changes in logging behavior in AWS Glue 5.0. For more information, see
 [Logging for AWS Glue jobs](monitor-continuous-logging.md "monitor-continuous-logging.md").
@@ -291,12 +270,9 @@ The following job arguments for continuous logging have been deprecated in AWS G
 
 For the versions of JDBC and data lake connectors that were upgraded, see:
 
-- [Appendix B: JDBC driver
-  upgrades](#migrating-version-50-appendix-jdbc-driver "#migrating-version-50-appendix-jdbc-driver")
-- [Appendix C: Connector
-  upgrades](#migrating-version-50-appendix-connector "#migrating-version-50-appendix-connector")
-- [Appendix D: Open table format
-  upgrades](#migrating-version-50-appendix-open-table-formats "#migrating-version-50-appendix-open-table-formats")
+- [Appendix B: JDBC driver upgrades](#migrating-version-50-appendix-jdbc-driver "#migrating-version-50-appendix-jdbc-driver")
+- [Appendix C: Connector upgrades](#migrating-version-50-appendix-connector "#migrating-version-50-appendix-connector")
+- [Appendix D: Open table format upgrades](#migrating-version-50-appendix-open-table-formats "#migrating-version-50-appendix-open-table-formats")
 
 The following changes apply to the connector or driver versions identified in the appendices for Glue 5.0.
 
@@ -374,9 +350,7 @@ Note the following changes:
 
 For more information, see the [Snowflake Connector for Spark release notes](https://docs.snowflake.com/en/release-notes/clients-drivers/spark-connector-2024 "https://docs.snowflake.com/en/release-notes/clients-drivers/spark-connector-2024").
 
-### Appendix A: Notable
-
-dependency upgrades
+### Appendix A: Notable dependency upgrades
 
 The following are dependency upgrades:
 
@@ -397,9 +371,7 @@ The following are dependency upgrades:
 | Boto                         | 1.34.131                | 1.26                    | 1.18                    | 1.12                    | N/A                     |
 | EMR DynamoDB connector       | 5.6.0                   | 4.16.0                  |                         |                         |                         |
 
-### Appendix B: JDBC driver
-
-upgrades
+### Appendix B: JDBC driver upgrades
 
 The following are JDBC driver upgrades:
 
@@ -413,9 +385,7 @@ The following are JDBC driver upgrades:
 | SAP Hana             | 2.20.17                             | 2.17.12                             |                                     |                                               |
 | Teradata             | 20.00.00.33                         | 20.00.00.06                         |                                     |                                               |
 
-### Appendix C: Connector
-
-upgrades
+### Appendix C: Connector upgrades
 
 The following are connector upgrades:
 
@@ -431,9 +401,7 @@ The following are connector upgrades:
 | AzureSQL               | 1.3.0                             | 1.3.0                             |                                   |
 | Vertica                | 3.3.5                             | 3.3.5                             |                                   |
 
-### Appendix D: Open table format
-
-upgrades
+### Appendix D: Open table format upgrades
 
 The following are open table format upgrades:
 

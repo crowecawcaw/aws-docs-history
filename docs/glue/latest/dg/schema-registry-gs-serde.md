@@ -13,8 +13,7 @@ applications consuming data.
 
 ###### Note
 
-AWS managed policies grant necessary permissions for common use cases. For information on using managed policies to manage the schema registry, see [AWS managed (predefined) policies for
-AWS Glue](security-iam-awsmanpol.md#access-policy-examples-aws-managed "security-iam-awsmanpol.md#access-policy-examples-aws-managed").
+AWS managed policies grant necessary permissions for common use cases. For information on using managed policies to manage the schema registry, see [AWS managed (predefined) policies for AWS Glue](security-iam-awsmanpol.md#access-policy-examples-aws-managed "security-iam-awsmanpol.md#access-policy-examples-aws-managed").
 
 For serializers, you should create a minimal policy similar to that below to give you the ability to find the `schemaVersionId` for a given schema definition. Note, you should have read permissions on the registry in order to read the schemas in the registry. You can limit the registries that can be read by using the `Resource` clause.
 

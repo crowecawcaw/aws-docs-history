@@ -1,6 +1,4 @@
-# Setup required when the crawler and registered Amazon S3
-
-location reside in different accounts (cross-account crawling)
+# Setup required when the crawler and registered Amazon S3 location reside in different accounts (cross-account crawling)
 
 To allow the crawler to access a data store in a different account using
 Lake Formation credentials, you must first register the Amazon S3 data location with Lake Formation. Then, you grant

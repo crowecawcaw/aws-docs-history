@@ -5,8 +5,7 @@ you define it. This IAM role must have permissions to extract data from your dat
 write to the Data Catalog. The AWS Glue console lists only IAM roles that have attached a trust policy
 for the AWS Glue principal service. From the console, you can also create an IAM role with an IAM
 policy to access Amazon S3 data stores accessed by the crawler. For more information about
-providing roles for AWS Glue, see [Identity-based
-policies for AWS Glue](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies").
+providing roles for AWS Glue, see [Identity-based policies for AWS Glue](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies").
 
 ###### Note
 

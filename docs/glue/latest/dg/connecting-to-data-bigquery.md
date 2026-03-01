@@ -1,6 +1,4 @@
-#
-
-Connecting to Google BigQuery in AWS Glue Studio
+# Connecting to Google BigQuery in AWS Glue Studio
 
 ###### Note
 

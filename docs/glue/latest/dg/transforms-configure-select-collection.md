@@ -1,6 +1,4 @@
-# Using SelectFromCollection to
-
-choose which dataset to keep
+# Using SelectFromCollection to choose which dataset to keep
 
 Use the _SelectFromCollection_ transform to convert a collection of
 `DynamicFrames` into a single `DynamicFrame`.

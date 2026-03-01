@@ -1,10 +1,6 @@
-#
+# Configuring AWS Glue interactive sessions for Jupyter and AWS Glue Studio notebooks
 
-Configuring AWS Glue interactive sessions for Jupyter and AWS Glue Studio notebooks
-
-##
-
-Introduction to Jupyter Magics
+## Introduction to Jupyter Magics
 
 Jupyter Magics are commands that can be run at the beginning of a cell or as a whole cell body.
 Magics start with `%` for line-magics and `%%` for cell-magics.
@@ -26,9 +22,7 @@ select * from rds_tables.sales_table
 
 ```
 
-##
-
-Magics supported by AWS Glue interactive sessions for Jupyter
+## Magics supported by AWS Glue interactive sessions for Jupyter
 
 The following are magics that you can use with AWS Glue interactive sessions for Jupyter
 notebooks.
@@ -125,9 +119,7 @@ parameters](aws-glue-programming-etl-glue-arguments.md "aws-glue-programming-etl
 | timeout                                   | Int          | Determines the maximum amount of time that the Spark session should wait for a statement to complete before<br>terminating it.<br>`<br>%%configure<br>{<br>"timeout": "30"<br>}<br>`                                                                                                                                                                                                          |
 | auto-scaling                              | Boolean      | Determines whether or not to use auto-scaling.<br>`<br>%%configure<br>{<br>"––enable-auto-scaling": "true"<br>}<br>`                                                                                                                                                                                                                                                                          |
 
-###
-
-Spark jobs (ETL & streaming) magics
+### Spark jobs (ETL & streaming) magics
 
 | Name              | Type   | Description                                                                                                                                                                                                                            |
 | ----------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -137,9 +129,7 @@ Spark jobs (ETL & streaming) magics
 | `%extra_jars`     | List   | Comma-separated list of additional jars to include in the cluster.                                                                                                                                                                     |
 | `%spark_conf`     | String | Specify custom spark configurations for your session.<br>For example, `%spark_conf spark.serializer=org.apache.spark.serializer.KryoSerializer`.                                                                                       |
 
-###
-
-Magics for Ray jobs
+### Magics for Ray jobs
 
 | Name                  | Type | Description                                                                                                                                      |
 | --------------------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -166,7 +156,7 @@ The Jupyter kernel automatically generates unique session names for you. However
    [Setting Up AWS Config
    with the AWS Command Line Interface](../../../config/latest/developerguide/gs-cli.md "../../../config/latest/developerguide/gs-cli.md").
 2. Using the `%session_id_prefix` magics. See
-   [Magics supported by AWS Glue interactive sessions for Jupyter](#interactive-sessions-supported-magics "#interactive-sessions-supported-magics") .
+   [Magics supported by AWS Glue interactive sessions for Jupyter](#interactive-sessions-supported-magics "#interactive-sessions-supported-magics").
 
 A session name is generated as follows:
 
@@ -197,11 +187,9 @@ When the `%profile` magic is used, the configuration for `glue_iam_role` of that
 profile is honored.
 
 - Using the %iam_role magic. For more information, see
-  [Magics supported by AWS Glue interactive sessions for Jupyter](#interactive-sessions-supported-magics "#interactive-sessions-supported-magics") .
+  [Magics supported by AWS Glue interactive sessions for Jupyter](#interactive-sessions-supported-magics "#interactive-sessions-supported-magics").
 
-##
-
-Configuring sessions with named profiles
+## Configuring sessions with named profiles
 
 AWS Glue interactive sessions uses the same credentials as the AWS Command Line Interface or boto3, and interactive sessions
 honors and works with named profiles like the AWS CLI

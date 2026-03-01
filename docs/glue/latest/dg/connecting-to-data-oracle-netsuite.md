@@ -1,6 +1,4 @@
-#
-
-Connecting to Oracle NetSuite
+# Connecting to Oracle NetSuite
 
 Oracle NetSuite is an all-in-one cloud business management solution that helps organizations operate more effectively by automating core processes and providing real-time visibility into operational and financial performance. With a single, integrated suite of applications for managing accounting, order processing, inventory management, production, supply chain and warehouse operations, Oracle NetSuite gives companies clear visibility into their data and tighter control over their businesses.
 

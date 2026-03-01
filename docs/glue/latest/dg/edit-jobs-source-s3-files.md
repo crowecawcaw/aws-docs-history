@@ -1,6 +1,4 @@
-# Using files in Amazon S3 for the data
-
-source
+# Using files in Amazon S3 for the data source
 
 If you choose Amazon S3 as your data source, then you can choose either:
 
@@ -13,9 +11,7 @@ If you choose Amazon S3 as your data source, then you can choose either:
   choose **Infer schema** again to perform the schema detection using the new
   information.
 
-###### To configure a data source node that reads directly from files in
-
-Amazon S3
+###### To configure a data source node that reads directly from files in Amazon S3
 
 1.  Go to the visual editor for a new or saved job.
 2.  Choose a data source node in the job diagram for an Amazon S3 source.

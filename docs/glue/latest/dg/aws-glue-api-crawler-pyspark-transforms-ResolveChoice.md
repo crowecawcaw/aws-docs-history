@@ -18,9 +18,7 @@ method to handle fields that contain multiple types in a `DynamicFrame`. To view
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-ResolveChoice-describeErrors "#aws-glue-api-crawler-pyspark-transforms-ResolveChoice-describeErrors")
 - [describe](#aws-glue-api-crawler-pyspark-transforms-ResolveChoice-describe "#aws-glue-api-crawler-pyspark-transforms-ResolveChoice-describe")
 
-## \_\_call\_\_(frame, specs = none, choice = "", transformation_ctx = "", info = "",
-
-stageThreshold = 0, totalThreshold = 0)
+## \_\_call\_\_(frame, specs = none, choice = "", transformation_ctx = "", info = "", stageThreshold = 0, totalThreshold = 0)
 
 Provides information for resolving ambiguous types within a `DynamicFrame`. It
 returns the resulting `DynamicFrame`.

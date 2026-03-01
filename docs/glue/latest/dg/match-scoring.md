@@ -78,8 +78,7 @@ From this example, we can see that these records share only the same `primary_na
 
 For more information, see:
 
-- [Step 5: Add and run a job with your machine
-  learning transform](machine-learning-transform-tutorial.md#ml-transform-tutorial-add-job "machine-learning-transform-tutorial.md#ml-transform-tutorial-add-job")
+- [Step 5: Add and run a job with your machine learning transform](machine-learning-transform-tutorial.md#ml-transform-tutorial-add-job "machine-learning-transform-tutorial.md#ml-transform-tutorial-add-job")
 - PySpark: [FindMatches class](aws-glue-api-crawler-pyspark-transforms-findmatches.md "aws-glue-api-crawler-pyspark-transforms-findmatches.md")
 - PySpark: [FindIncrementalMatches class](aws-glue-api-crawler-pyspark-transforms-findincrementalmatches.md "aws-glue-api-crawler-pyspark-transforms-findincrementalmatches.md")
 - Scala: [FindMatches class](glue-etl-scala-apis-glue-ml-findmatches.md "glue-etl-scala-apis-glue-ml-findmatches.md")

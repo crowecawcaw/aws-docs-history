@@ -1,6 +1,4 @@
-#
-
-Using Git version control systems in AWS Glue
+# Using Git version control systems in AWS Glue
 
 ###### Note
 
@@ -39,9 +37,7 @@ At minimum, the following actions are needed for Git integration:
 - `s3:GetObject` — to be able to retrieve the script for the job while pushing to version control system
 - `s3:PutObject` — to be able to update the script when pulling a job from a source control system
 
-##
-
-Prerequisites
+## Prerequisites
 
 In order to push jobs to a source control repository, you will need:
 
@@ -114,16 +110,12 @@ The script name should match the name in the `scriptLocation` including the exte
 
 ```
 
-##
-
-Limitations
+## Limitations
 
 - AWS Glue currently does not support pushing/pulling from
   [GitLab-Groups](https://docs.gitlab.com/ee/user/group "https://docs.gitlab.com/ee/user/group").
 
-##
-
-Connecting version control repositories with AWS Glue
+## Connecting version control repositories with AWS Glue
 
 You can enter your version control repository details and manage them in the **Version Control** tab in the AWS Glue Studio
 job editor.
@@ -212,9 +204,7 @@ Complete the repository configuration by selecting the workspace, repository, br
 
 4. Choose **Save** at the top of the AWS Glue Studio job
 
-##
-
-Pushing AWS Glue jobs to the source repository
+## Pushing AWS Glue jobs to the source repository
 
 Once you've entered the details of your version control system, you can edit jobs in AWS Glue Studio and push the jobs to
 your source repository. If you're unfamiliar with Git concepts such as pushing and pulling, see this tutorial on
@@ -233,9 +223,7 @@ from AWS Glue Studio. 3. Choose **Confirm** to complete the action.
 This creates a new commit in the repository.
 If you are using AWS CodeCommit, a confirmation message will display a link to the latest commit on AWS CodeCommit.
 
-##
-
-Pulling AWS Glue jobs from the source repository
+## Pulling AWS Glue jobs from the source repository
 
 Once you've entered details of your Git repository into the **Version control** tab,
 you can also pull jobs from your repository and edit them in AWS Glue Studio.

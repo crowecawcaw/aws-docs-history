@@ -312,5 +312,4 @@ The workflow is now ready to be started by an EventBridge event or event batch.
 
 - [_Amazon EventBridge User Guide_](../../../eventbridge/latest/userguide/what-is-amazon-eventbridge.md "../../../eventbridge/latest/userguide/what-is-amazon-eventbridge.md")
 - [Overview of workflows in AWS Glue](workflows_overview.md "workflows_overview.md")
-- [Creating and building out a workflow manually
-  in AWS Glue](creating_running_workflows.md "creating_running_workflows.md")
+- [Creating and building out a workflow manually in AWS Glue](creating_running_workflows.md "creating_running_workflows.md")

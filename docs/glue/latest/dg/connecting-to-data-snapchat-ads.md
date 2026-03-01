@@ -1,6 +1,4 @@
-#
-
-Connecting to Snapchat Ads in AWS Glue Studio
+# Connecting to Snapchat Ads in AWS Glue Studio
 
 Snapchat is a multimedia instant messaging app and service developed by Snap Inc., originally Snapchat Inc. One of the principal features of Snapchat is that pictures and messages are usually only available for a brief time before they become inaccessible to their recipients. Snapchat Marketing are posts for which businesses can pay to serve to Snapchat users.
 

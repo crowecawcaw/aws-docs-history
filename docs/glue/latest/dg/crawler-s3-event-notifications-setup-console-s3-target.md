@@ -1,6 +1,4 @@
-#
-
-Setting up a crawler for Amazon S3 event notifications for an Amazon S3 target
+# Setting up a crawler for Amazon S3 event notifications for an Amazon S3 target
 
 Follow these steps to set up a crawler for Amazon S3 event notifications for an Amazon S3 target using the AWS Management Console or AWS CLI.
 

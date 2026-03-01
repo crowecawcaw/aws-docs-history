@@ -3,8 +3,7 @@
 ###### Topics
 
 - [ResolveSpec object](#glue-etl-scala-apis-glue-resolvespec-object "#glue-etl-scala-apis-glue-resolvespec-object")
-- [ResolveSpec case
-  class](#glue-etl-scala-apis-glue-resolvespec-case-class "#glue-etl-scala-apis-glue-resolvespec-case-class")
+- [ResolveSpec case class](#glue-etl-scala-apis-glue-resolvespec-case-class "#glue-etl-scala-apis-glue-resolvespec-case-class")
   **Package: com.amazonaws.services.glue**
 
 ## ResolveSpec object
@@ -45,9 +44,7 @@ Creates a `ResolveSpec`.
 
 Returns the `ResolveSpec`.
 
-## ResolveSpec case
-
-class
+## ResolveSpec case class
 
 ```
 case class ResolveSpec extends Product2[String, String]  (

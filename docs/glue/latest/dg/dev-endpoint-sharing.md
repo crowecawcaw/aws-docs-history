@@ -1,6 +1,4 @@
-# Advanced configuration: sharing development endpoints
-
-among multiple users
+# Advanced configuration: sharing development endpoints among multiple users
 
 This section explains how you can take advantage of development endpoints with SageMaker
 notebooks in typical use cases to share development endpoints among multiple users.
@@ -32,8 +30,7 @@ the same time.
 ###### Note
 
 For more information about how resources are allocated in different use cases and how
-you set a configuration to modify the behavior, see [Advanced configuration: sharing development endpoints
-among multiple users](dev-endpoint-sharing.md "dev-endpoint-sharing.md").
+you set a configuration to modify the behavior, see [Advanced configuration: sharing development endpoints among multiple users](dev-endpoint-sharing.md "dev-endpoint-sharing.md").
 
 ### Multi-tenancy configuration
 
@@ -210,9 +207,7 @@ c) Restart the kernel.
 
 This section describes techniques for monitoring resources and sessions.
 
-#### Monitoring and debugging cluster
-
-resource allocation
+#### Monitoring and debugging cluster resource allocation
 
 You can watch the Spark UI to monitor how many resources are allocated per Livy session,
 and what are the effective Spark configurations on the job. To activate the Spark UI, see [Enabling

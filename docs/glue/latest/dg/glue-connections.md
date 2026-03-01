@@ -10,9 +10,7 @@ jobs.
 
 The latest version of the AWS Glue connections schema provides a unified way to manage data connections across AWS services and applications, such as AWS Glue, Amazon Athena, and Amazon SageMaker AI Unified Studio.
 
-## Overview of using connectors and
-
-connections
+## Overview of using connectors and connections
 
 A _connection_ contains the properties that are required to connect to
 a particular data store. When you create a connection, it is stored in the AWS Glue Data Catalog. You
@@ -41,13 +39,11 @@ The following steps describe the overall process of using connectors in AWS Glue
    authenticate with, extract data from, and write data to your data stores.
 5. Create an ETL job and configure the data source properties for your ETL job. Provide
    the connection options and authentication information as instructed by the custom
-   connector provider. For more information, see [Authoring jobs with custom
-   connectors](job-authoring-custom-connectors.md "job-authoring-custom-connectors.md").
+   connector provider. For more information, see [Authoring jobs with custom connectors](job-authoring-custom-connectors.md "job-authoring-custom-connectors.md").
 6. Customize your ETL job by adding transforms or additional data stores, as described in
    [Starting visual ETL jobs in AWS Glue Studio](edit-nodes-chapter.md "edit-nodes-chapter.md").
 7. If using a connector for the data target, configure the data target properties for
    your ETL job. Provide the connection options and authentication information as instructed
-   by the custom connector provider. For more information, see [Authoring jobs with custom
-   connectors](job-authoring-custom-connectors.md "job-authoring-custom-connectors.md").
+   by the custom connector provider. For more information, see [Authoring jobs with custom connectors](job-authoring-custom-connectors.md "job-authoring-custom-connectors.md").
 8. Customize the job run environment by configuring job properties, as described in [Modify the job properties](managing-jobs-chapter.md#edit-jobs-properties "managing-jobs-chapter.md#edit-jobs-properties").
 9. Run the job.

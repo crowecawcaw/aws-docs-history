@@ -1,6 +1,4 @@
-# Specifying the table location and partitioning
-
-level
+# Specifying the table location and partitioning level
 
 By default, when a crawler defines tables for data stored in Amazon S3 the crawler attempts to
 merge schemas together, and create top-level tables (`year=2019`). In some cases,

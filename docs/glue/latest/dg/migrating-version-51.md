@@ -1,6 +1,4 @@
-# Migrating AWS Glue for Spark jobs to
-
-AWS Glue version 5.1
+# Migrating AWS Glue for Spark jobs to AWS Glue version 5.1
 
 This topic describes the changes between AWS Glue versions 0.9, 1.0, 2.0, 3.0, 4.0 and
 5.0 to allow you to migrate your Spark applications and ETL jobs to AWS Glue
@@ -14,11 +12,9 @@ jobs.
 ###### Topics
 
 - [New features](#migrating-version-51-features "#migrating-version-51-features")
-- [Actions to migrate to
-  AWS Glue 5.1](#migrating-version-51-actions "#migrating-version-51-actions")
+- [Actions to migrate to AWS Glue 5.1](#migrating-version-51-actions "#migrating-version-51-actions")
 - [Migration checklist](#migrating-version-51-checklist "#migrating-version-51-checklist")
-- [Migrating from AWS Glue 5.0
-  to AWS Glue 5.1](#migrating-version-51-from-50 "#migrating-version-51-from-50")
+- [Migrating from AWS Glue 5.0 to AWS Glue 5.1](#migrating-version-51-from-50 "#migrating-version-51-from-50")
 - [Migrating from Older AWS Glue Versions to AWS Glue 5.1](#migrating-older-versions-to-51 "#migrating-older-versions-to-51")
 - [Connector and JDBC driver migration for AWS Glue 5.1](#migrating-version-51-connector-driver-migration "#migrating-version-51-connector-driver-migration")
 
@@ -61,12 +57,9 @@ Note the following breaking changes:
 
 - S3A filesystem has replaced EMRFS as the default S3 connector.
   For information on how to migrate, see
-  [Migrating from AWS Glue 5.0
-  to AWS Glue 5.1](#migrating-version-51-from-50 "#migrating-version-51-from-50").
+  [Migrating from AWS Glue 5.0 to AWS Glue 5.1](#migrating-version-51-from-50 "#migrating-version-51-from-50").
 
-## Actions to migrate to
-
-AWS Glue 5.1
+## Actions to migrate to AWS Glue 5.1
 
 For existing jobs, change the `Glue version` from the previous version to
 `Glue 5.1` in the job configuration.
@@ -96,9 +89,7 @@ Review this checklist for migration:
 
 - [Python] Update boto references from 1.34 to 1.40.
 
-## Migrating from AWS Glue 5.0
-
-to AWS Glue 5.1
+## Migrating from AWS Glue 5.0 to AWS Glue 5.1
 
 All existing job parameters and major features that exist in
 AWS Glue 5.0 will exist in AWS Glue 5.1. Note the following changes when migrating:
@@ -138,16 +129,12 @@ Refer to the Spark migration documentation:
 
 For the versions of JDBC and data lake connectors that were upgraded, see:
 
-- [Appendix B: JDBC driver
-  upgrades](#migrating-version-51-appendix-jdbc-driver "#migrating-version-51-appendix-jdbc-driver")
-- [Appendix C: Connector
-  upgrades](#migrating-version-51-appendix-connector "#migrating-version-51-appendix-connector")
-- [Appendix D: Open table format
-  upgrades](#migrating-version-51-appendix-open-table-formats "#migrating-version-51-appendix-open-table-formats")
+- [Appendix B: JDBC driver upgrades](#migrating-version-51-appendix-jdbc-driver "#migrating-version-51-appendix-jdbc-driver")
+- [Appendix C: Connector upgrades](#migrating-version-51-appendix-connector "#migrating-version-51-appendix-connector")
+- [Appendix D: Open table format upgrades](#migrating-version-51-appendix-open-table-formats "#migrating-version-51-appendix-open-table-formats")
 
 The following changes apply to the OTF version upgrades identified in
-[Appendix D: Open table format
-upgrades](#migrating-version-51-appendix-open-table-formats "#migrating-version-51-appendix-open-table-formats") for AWS Glue 5.1.
+[Appendix D: Open table format upgrades](#migrating-version-51-appendix-open-table-formats "#migrating-version-51-appendix-open-table-formats") for AWS Glue 5.1.
 
 ###### Apache Hudi
 
@@ -176,9 +163,7 @@ Note the following changes:
 
 - Support FTA read and write access on Lake Formation registered tables.
 
-### Appendix A: Notable
-
-dependency upgrades
+### Appendix A: Notable dependency upgrades
 
 The following are dependency upgrades:
 
@@ -199,9 +184,7 @@ The following are dependency upgrades:
 | Boto                         | 1.40.61                 | 1.34.131                | 1.26                    | 1.18                    | 1.12                    | N/A                     |
 | EMR DynamoDB connector       | 5.7.0                   | 5.6.0                   | 4.16.0                  |                         |                         |                         |
 
-### Appendix B: JDBC driver
-
-upgrades
+### Appendix B: JDBC driver upgrades
 
 The following are JDBC driver upgrades:
 
@@ -215,9 +198,7 @@ The following are JDBC driver upgrades:
 | SAP Hana             | 2.20.17                             | 2.20.17                             | 2.17.12                             |                                     |                                               |
 | Teradata             | 20.00.00.33                         | 20.00.00.33                         | 20.00.00.06                         |                                     |                                               |
 
-### Appendix C: Connector
-
-upgrades
+### Appendix C: Connector upgrades
 
 The following are connector upgrades:
 
@@ -233,9 +214,7 @@ The following are connector upgrades:
 | AzureSQL               | 1.3.0                             | 1.3.0                             | 1.3.0                             |                                   |
 | Vertica                | 3.3.5                             | 3.3.5                             | 3.3.5                             |                                   |
 
-### Appendix D: Open table format
-
-upgrades
+### Appendix D: Open table format upgrades
 
 The following are open table format upgrades:
 

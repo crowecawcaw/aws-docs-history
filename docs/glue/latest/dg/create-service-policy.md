@@ -1,6 +1,4 @@
-# Step 1: Create an IAM policy for the AWS Glue
-
-service
+# Step 1: Create an IAM policy for the AWS Glue service
 
 For any operation that accesses data on another AWS resource, such as accessing your
 objects in Amazon S3, AWS Glue needs permission to access the resource on your behalf. You

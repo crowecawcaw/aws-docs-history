@@ -1,6 +1,4 @@
-#
-
-Creating a Snapchat Ad account and configuring the client app
+# Creating a Snapchat Ad account and configuring the client app
 
 ###### Topics
 
@@ -9,9 +7,7 @@ Creating a Snapchat Ad account and configuring the client app
 
 ## Sign up for Snapchat Ads
 
-######
-
-To sign up for Snapchat Ads:
+###### To sign up for Snapchat Ads:
 
 1. Navigate to [Snapchat Ads Manager](https://ads.snapchat.com/ "https://ads.snapchat.com/"). Choose **Sign Up**
    next to **New to Snapchat?**.
@@ -23,13 +19,9 @@ To sign up for Snapchat Ads:
 4. On the **Business Info** screen, fill out the required fields like Country, Currency, Phone Number,
    GSTIN etc, and complete the account creation process by choosing **Next**.
 
-##
+## Steps to create a Snapchat Ad account
 
-Steps to create a Snapchat Ad account
-
-######
-
-To create a Snapchat Ad account:
+###### To create a Snapchat Ad account:
 
 1. Log in to **Ads Manager**. Then click the navigation in the top corner and select
    **Ad Accounts**.

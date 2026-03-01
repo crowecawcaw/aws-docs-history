@@ -1,19 +1,13 @@
-# AWS Glue connection
-
-properties
+# AWS Glue connection properties
 
 This topic includes information about properties for AWS Glue connections.
 
 ###### Topics
 
-- [Required connection
-  properties](#connection-properties-required "#connection-properties-required")
-- [AWS Glue JDBC connection
-  properties](#connection-properties-jdbc "#connection-properties-jdbc")
-- [AWS Glue MongoDB and MongoDB Atlas connection
-  properties](#connection-properties-mongodb "#connection-properties-mongodb")
-- [Salesforce connection
-  properties](#connection-properties-salesforce "#connection-properties-salesforce")
+- [Required connection properties](#connection-properties-required "#connection-properties-required")
+- [AWS Glue JDBC connection properties](#connection-properties-jdbc "#connection-properties-jdbc")
+- [AWS Glue MongoDB and MongoDB Atlas connection properties](#connection-properties-mongodb "#connection-properties-mongodb")
+- [Salesforce connection properties](#connection-properties-salesforce "#connection-properties-salesforce")
 - [Snowflake connection](#connection-properties-snowflake "#connection-properties-snowflake")
 - [Vertica connection](#connection-properties-vertica "#connection-properties-vertica")
 - [SAP HANA connection](#connection-properties-saphana "#connection-properties-saphana")
@@ -21,16 +15,12 @@ This topic includes information about properties for AWS Glue connections.
 - [Teradata Vantage connection](#connection-properties-teradata "#connection-properties-teradata")
 - [OpenSearch Service connection](#connection-properties-opensearch "#connection-properties-opensearch")
 - [Azure Cosmos connection](#connection-properties-azurecosmos "#connection-properties-azurecosmos")
-- [AWS Glue SSL connection
-  properties](#connection-properties-SSL "#connection-properties-SSL")
-- [Apache Kafka connection
-  properties for client authentication](#connection-properties-authentication "#connection-properties-authentication")
+- [AWS Glue SSL connection properties](#connection-properties-SSL "#connection-properties-SSL")
+- [Apache Kafka connection properties for client authentication](#connection-properties-authentication "#connection-properties-authentication")
 - [Google BigQuery connection](#connection-properties-bigquery "#connection-properties-bigquery")
 - [Vertica connection](#connection-properties-vertica "#connection-properties-vertica")
 
-## Required connection
-
-properties
+## Required connection properties
 
 When you define a connection on the AWS Glue console, you must provide
 values for the following properties:
@@ -44,8 +34,7 @@ Enter a unique name for your connection.
 Choose **JDBC** or one of the specific connection
 types.
 
-For details about the JDBC connection type, see [AWS Glue JDBC connection
-properties](#connection-properties-jdbc "#connection-properties-jdbc")
+For details about the JDBC connection type, see [AWS Glue JDBC connection properties](#connection-properties-jdbc "#connection-properties-jdbc")
 
 Choose **Network** to connect to a data source within
 an Amazon Virtual Private Cloud environment (Amazon VPC)).
@@ -62,8 +51,7 @@ connection to the data store is connected over a trusted Secure Sockets
 Layer (SSL).
 
 For more information, including additional options that are available
-when you select this option, see [AWS Glue SSL connection
-properties](#connection-properties-SSL "#connection-properties-SSL").
+when you select this option, see [AWS Glue SSL connection properties](#connection-properties-SSL "#connection-properties-SSL").
 
 **Select MSK cluster (Amazon managed streaming for Apache
 Kafka (MSK) only)**
@@ -78,9 +66,7 @@ b-1.vpc-test-2.o4q88o.c6.kafka.us-east-1.amazonaws.com:9094,
 b-2.vpc-test-2.o4q88o.c6.kafka.us-east-1.amazonaws.com:9094,
 b-3.vpc-test-2.o4q88o.c6.kafka.us-east-1.amazonaws.com:9094
 
-## AWS Glue JDBC connection
-
-properties
+## AWS Glue JDBC connection properties
 
 AWS Glue Studio now creates unified connections for MySQL, Oracle, PostgresSQL, Redshift, and SQL Server data sources, which requires
 additional steps for accessing Secrets Manager and VPC resources, which may incur extra costs. You can access these
@@ -221,8 +207,7 @@ For Snowflake connections over JDBC, the order of parameters in the URL is enfor
 
 We recommend that you use an AWS secret to store connection
 credentials instead of supplying your user name and password
-directly. For more information, see [Storing connection credentials
-in AWS Secrets Manager](connection-properties-secrets-manager.md "connection-properties-secrets-manager.md").
+directly. For more information, see [Storing connection credentials in AWS Secrets Manager](connection-properties-secrets-manager.md "connection-properties-secrets-manager.md").
 
 Provide a user name that has permission to access the JDBC data store.
 
@@ -251,8 +236,7 @@ your VPC should have a NAT gateway which splits traffic into public and private 
 public subnet is used for connection to the external source, and the internal subnet is used for
 processing by AWS Glue. For information on configuring your Amazon VPC for external connections, read
 [Connect to the internet or other networks using NAT devices](../../../vpc/latest/userguide/vpc-nat.md "../../../vpc/latest/userguide/vpc-nat.md")
-and [Setting up Amazon VPC for JDBC connections to Amazon RDS data stores from
-AWS Glue](setup-vpc-for-glue-access.md "setup-vpc-for-glue-access.md").
+and [Setting up Amazon VPC for JDBC connections to Amazon RDS data stores from AWS Glue](setup-vpc-for-glue-access.md "setup-vpc-for-glue-access.md").
 
 **Subnet**
 
@@ -285,12 +269,9 @@ Provide the custom JDBC driver class name:
 Provide the Amazon S3 location to the custom JDBC driver. This is an absolute path to a .jar file. If you want to provide
 your own JDBC drivers to connect to your data souces for your crawler-supported databases,  you can specify values for parameters 
 `customJdbcDriverS3Path` and `customJdbcDriverClassName`.  Using a JDBC driver supplied by a customer is
-limited to the required [Required connection
-properties](#connection-properties-required "#connection-properties-required").
+limited to the required [Required connection properties](#connection-properties-required "#connection-properties-required").
 
-## AWS Glue MongoDB and MongoDB Atlas connection
-
-properties
+## AWS Glue MongoDB and MongoDB Atlas connection properties
 
 The following are additional properties for the MongoDB or MongoDB Atlas connection type.
 
@@ -307,8 +288,7 @@ Enter the URL for your MongoDB or MongoDB Atlas data store:
 
 We recommend that you use an AWS secret to store connection
 credentials instead of supplying your user name and password
-directly. For more information, see [Storing connection credentials
-in AWS Secrets Manager](connection-properties-secrets-manager.md "connection-properties-secrets-manager.md").
+directly. For more information, see [Storing connection credentials in AWS Secrets Manager](connection-properties-secrets-manager.md "connection-properties-secrets-manager.md").
 
 Provide a user name that has permission to access the JDBC data store.
 
@@ -317,9 +297,7 @@ Provide a user name that has permission to access the JDBC data store.
 Enter the password for the user name that has access permission to the
 MongoDB or MongoDB Atlas data store.
 
-## Salesforce connection
-
-properties
+## Salesforce connection properties
 
 The following are additional properties for the Salesforce connection type.
 
@@ -572,9 +550,7 @@ The endpoint used to connect to Azure Cosmos. For more information, see [the Azu
 The **Secret name** of a secret in AWS Secrets Manager. AWS Glue will connect to
 Azure Cosmos using the keys of your secret.
 
-## AWS Glue SSL connection
-
-properties
+## AWS Glue SSL connection properties
 
 The following are details about the **Require SSL connection**
 property.
@@ -704,9 +680,7 @@ The password to access the provided keystore.
 A keystore can consist of multiple keys, so this is the password to
 access the client key to be used with the Kafka server side key.
 
-## Apache Kafka connection
-
-properties for client authentication
+## Apache Kafka connection properties for client authentication
 
 AWS Glue supports the Simple Authentication and Security Layer (SASL)
 framework for authentication when you create an Apache Kafka connection. The SASL
@@ -725,8 +699,7 @@ connections for connectors](../ug/connectors-chapter.md#creating-connections "..
     option, you can store your user name and password in AWS Secrets
     Manager and let AWS Glue access them when needed.
     Specify the secret that stores the SSL or SASL authentication
-    credentials. For more information, see [Storing connection credentials
-    in AWS Secrets Manager](connection-properties-secrets-manager.md "connection-properties-secrets-manager.md").
+    credentials. For more information, see [Storing connection credentials in AWS Secrets Manager](connection-properties-secrets-manager.md "connection-properties-secrets-manager.md").
   - Provide a user name and password directly.
 
 - SASL/GSSAPI (Kerberos) - if you select this option, you can select the

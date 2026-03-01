@@ -282,9 +282,7 @@ The Amazon Redshift connection type takes some additional connection options:
   The AWS Glue job will pass this role to the Amazon Redshift cluster to grant the cluster permissions needed to
   complete instructions from the job.
 
-### Additional connection options available
-
-in AWS Glue 4.0+
+### Additional connection options available in AWS Glue 4.0+
 
 You can also pass options for the new Amazon Redshift connector through AWS Glue connection options. For a complete
 list of supported connector options, see the _Spark SQL parameters_ section in [Amazon Redshift integration
@@ -402,9 +400,7 @@ redshift_read = glueContext.create_dynamic_frame.from_options(
 
 A `DynamicFrame` currently only supports an IAM-based JDBC URL with a `DbUser` in the `GlueContext.create_dynamic_frame.from_options` workflow.
 
-## Migrating from AWS Glue
-
-version 3.0 to version 4.0
+## Migrating from AWS Glue version 3.0 to version 4.0
 
 In AWS Glue 4.0, ETL jobs have access to a new Amazon Redshift Spark connector and a new JDBC driver with different
 options and configuration. The new Amazon Redshift connector and driver are written with performance in mind, and

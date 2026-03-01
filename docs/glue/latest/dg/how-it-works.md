@@ -46,13 +46,7 @@ AWS Glue for Spark can stream data from the following systems:
 - [AWS Glue concepts](components-key-concepts.md "components-key-concepts.md")
 - [AWS Glue components](components-overview.md "components-overview.md")
 - [AWS Glue for Spark and AWS Glue for Ray](how-it-works-engines.md "how-it-works-engines.md")
-- [Converting
-  semi-structured
-  schemas
-  to
-  relational
-  schemas
-  with AWS Glue](schema-relationalize.md "schema-relationalize.md")
+- [Converting semi-structured schemas to relational schemas with AWS Glue](schema-relationalize.md "schema-relationalize.md")
 - [AWS Glue type systems](glue-types.md "glue-types.md")
 
 ## Serverless ETL jobs run in isolation

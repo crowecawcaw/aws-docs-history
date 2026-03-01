@@ -1,12 +1,8 @@
-# AWS Glue Scala IntegerNode
-
-APIs
+# AWS Glue Scala IntegerNode APIs
 
 **Package: com.amazonaws.services.glue.types**
 
-## IntegerNode case
-
-class
+## IntegerNode case class
 
 **IntegerNode**
 

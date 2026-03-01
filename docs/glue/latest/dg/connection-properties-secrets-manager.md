@@ -1,6 +1,4 @@
-# Storing connection credentials
-
-in AWS Secrets Manager
+# Storing connection credentials in AWS Secrets Manager
 
 We recommend that you use AWS Secrets Manager to supply connection credentials for your data
 store. Using Secrets Manager this way lets AWS Glue access your secret at runtime for

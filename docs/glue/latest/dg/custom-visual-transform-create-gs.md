@@ -1,6 +1,4 @@
-#
-
-Step 5. Use custom visual transforms in AWS Glue Studio
+# Step 5. Use custom visual transforms in AWS Glue Studio
 
 To use a custom visual transform in AWS Glue Studio, you upload the config and source files, then select the transform
 from the **Action** menu. Any parameters that need values or input are available to you in the

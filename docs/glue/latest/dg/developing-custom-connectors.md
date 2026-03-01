@@ -18,8 +18,7 @@ development environments include:
 - [Developing Spark connectors](#code-spark-connector "#code-spark-connector")
 - [Developing Athena connectors](#code-athena-connector "#code-athena-connector")
 - [Developing JDBC connectors](#code-jdbc-connector "#code-jdbc-connector")
-- [Examples of using custom connectors with
-  AWS Glue Studio](#custom-connector-examples "#custom-connector-examples")
+- [Examples of using custom connectors with AWS Glue Studio](#custom-connector-examples "#custom-connector-examples")
 - [Developing AWS Glue connectors for AWS Marketplace](#code-marketplace-connector "#code-marketplace-connector")
 
 ## Developing Spark connectors
@@ -61,9 +60,7 @@ more input options in the AWS Glue Studio console to configure the connection to
 if necessary. For a code example that shows how to read from and write to a JDBC
 database with a custom JDBC connector, see [Custom and AWS Marketplace connectionType values](aws-glue-programming-etl-connect.md#aws-glue-programming-etl-connect-market "aws-glue-programming-etl-connect.md#aws-glue-programming-etl-connect-market").
 
-## Examples of using custom connectors with
-
-AWS Glue Studio
+## Examples of using custom connectors with AWS Glue Studio
 
 You can refer to the following blogs for examples of using custom connectors:
 

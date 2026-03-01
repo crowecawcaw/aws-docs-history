@@ -2,9 +2,7 @@
 
 This section includes things to consider when using table optimizers within the AWS Glue Data Catalog.
 
-## Supported formats and limitations for managed data
-
-compaction
+## Supported formats and limitations for managed data compaction
 
 Data compaction supports a variety of data types and compression formats for reading and writing data, including reading data from encrypted tables.
 
@@ -39,9 +37,7 @@ When compaction operations fail four consecutive times, AWS Glue catalog table o
   - Decimal
   - TimestampWithoutZone
 
-## Considerations for snapshot retention and orphan file
-
-deletion optimizers
+## Considerations for snapshot retention and orphan file deletion optimizers
 
 The following considerations apply to the snapshot retention and the orphan file
 deletion optimizers.

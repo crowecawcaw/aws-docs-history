@@ -21,9 +21,7 @@ AWS Glue Observability provides Amazon CloudWatch metrics categorized in followi
 - **Resource Utilization (i.e., workers, memory and disk utilization)** – efficiently find the jobs with low
   capacity utilization. You may want to enable AWS Glue auto-scaling for those jobs.
 
-##
-
-Getting started with AWS Glue Observability metrics
+## Getting started with AWS Glue Observability metrics
 
 ###### Note
 
@@ -55,9 +53,7 @@ console, AWS CLI, SDK or API to query the observability metrics datapoints. See
 [Using Glue Observability for monitoring resource utilization to reduce cost](https://aws.amazon.com/blogs/big-data/enhance-monitoring-and-debugging-for-aws-glue-jobs-using-new-job-observability-metrics/ "https://aws.amazon.com/blogs/big-data/enhance-monitoring-and-debugging-for-aws-glue-jobs-using-new-job-observability-metrics/")  
  for an example use case when to use AWS Glue observability metrics.
 
-###
-
-Using AWS Glue observability in the Amazon CloudWatch console
+### Using AWS Glue observability in the Amazon CloudWatch console
 
 ###### To query and visualize metrics in the Amazon CloudWatch console:
 

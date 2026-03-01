@@ -32,9 +32,7 @@ Validation rules and limitations for custom prefixes:
 - The custom prefix itself is restricted to 400 characters.
 - The custom prefix must match the regular expression pattern `[^:\*]\*` (special characters allowed are '\_', '-', and '/').
 
-## Logging application-specific messages
-
-using the custom script logger
+## Logging application-specific messages using the custom script logger
 
 You can use the AWS Glue logger to log any application-specific messages in the script that
 are sent in real time to the driver log stream.
@@ -70,9 +68,7 @@ object GlueApp {
 
 ```
 
-## Enabling the progress bar to show job
-
-progress
+## Enabling the progress bar to show job progress
 
 AWS Glue provides a real-time progress bar under the `JOB_RUN_ID-progress-bar` log
 stream to check AWS Glue job run status. Currently it supports only jobs that initialize

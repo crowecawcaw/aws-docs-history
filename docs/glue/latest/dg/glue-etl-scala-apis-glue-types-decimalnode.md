@@ -1,12 +1,8 @@
-# AWS Glue Scala DecimalNode
-
-APIs
+# AWS Glue Scala DecimalNode APIs
 
 **Package: com.amazonaws.services.glue.types**
 
-## DecimalNode case
-
-class
+## DecimalNode case class
 
 **DecimalNode**
 

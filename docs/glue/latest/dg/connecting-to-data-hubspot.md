@@ -1,6 +1,4 @@
-#
-
-Connecting to HubSpot
+# Connecting to HubSpot
 
 HubSpot's CRM platform has all the tools and integrations you need for marketing, sales, content management, and customer service.
 

@@ -124,9 +124,7 @@ FilterTransform_transform2.write.format("csv").mode("append").save(
 
 ![An example of asking Amazon Q data integration in AWS Glue for a generated ETL script.](/images/glue/latest/dg/images/context-awareness-complex-example.gif)
 
-##
-
-Limitations
+## Limitations
 
 - Context carryover:
   - The context-awareness feature only carries over context from the previous user query within the same conversation.

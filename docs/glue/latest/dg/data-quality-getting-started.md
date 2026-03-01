@@ -1,6 +1,4 @@
-# Getting started with
-
-AWS Glue Data Quality for the Data Catalog
+# Getting started with AWS Glue Data Quality for the Data Catalog
 
 This
 getting
@@ -87,9 +85,7 @@ rules, and
 create a
 ruleset that you can evaluate in a data quality task. Recommendation runs are automatically deleted after 90 days.
 
-###### To generate data quality rule
-
-recommendations
+###### To generate data quality rule recommendations
 
 1. Open the AWS Glue console at [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue/ "https://console.aws.amazon.com/glue/").
 2. Choose **Tables** in the navigation pane. Then choose the table that you want to generate data quality rule recommendations for.

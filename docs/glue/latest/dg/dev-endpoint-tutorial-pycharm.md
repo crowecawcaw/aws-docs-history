@@ -1,6 +1,4 @@
-# Tutorial: Set up PyCharm professional with a
-
-development endpoint
+# Tutorial: Set up PyCharm professional with a development endpoint
 
 This tutorial shows you how to connect the [PyCharm Professional](https://www.jetbrains.com/pycharm/ "https://www.jetbrains.com/pycharm/") Python IDE running on your local machine to a development
 endpoint so that you can interactively run, debug, and test AWS Glue ETL (extract, transfer, and
@@ -20,18 +18,12 @@ development endpoint in a VPC, see [Securely Connect to Linux Instances Running 
 
 ###### Topics
 
-- [Connecting PyCharm professional to a
-  development endpoint](#dev-endpoint-tutorial-pycharm-connect "#dev-endpoint-tutorial-pycharm-connect")
-- [Deploying the script to your
-  development endpoint](#dev-endpoint-tutorial-pycharm-deploy "#dev-endpoint-tutorial-pycharm-deploy")
-- [Configuring a remote
-  interpreter](#dev-endpoint-tutorial-pycharm-interpreter "#dev-endpoint-tutorial-pycharm-interpreter")
-- [Running your script on the
-  development endpoint](#dev-endpoint-tutorial-pycharm-debug-run "#dev-endpoint-tutorial-pycharm-debug-run")
+- [Connecting PyCharm professional to a development endpoint](#dev-endpoint-tutorial-pycharm-connect "#dev-endpoint-tutorial-pycharm-connect")
+- [Deploying the script to your development endpoint](#dev-endpoint-tutorial-pycharm-deploy "#dev-endpoint-tutorial-pycharm-deploy")
+- [Configuring a remote interpreter](#dev-endpoint-tutorial-pycharm-interpreter "#dev-endpoint-tutorial-pycharm-interpreter")
+- [Running your script on the development endpoint](#dev-endpoint-tutorial-pycharm-debug-run "#dev-endpoint-tutorial-pycharm-debug-run")
 
-## Connecting PyCharm professional to a
-
-development endpoint
+## Connecting PyCharm professional to a development endpoint
 
 1. Create a new pure-Python project in PyCharm named `legislators`.
 2. Create a file named `get_person_schema.py` in the project with the
@@ -138,9 +130,7 @@ following:
 Choose **OK** to close the **Settings** dialog
 box.
 
-## Deploying the script to your
-
-development endpoint
+## Deploying the script to your development endpoint
 
 1. Choose **Tools**, **Deployment**, and then choose
    the name under which you set up your development endpoint, as shown in the following
@@ -158,9 +148,7 @@ like the following:
 When this option is enabled, PyCharm automatically uploads changed files to the
 development endpoint.
 
-## Configuring a remote
-
-interpreter
+## Configuring a remote interpreter
 
 Configure PyCharm to use the Python interpreter on the development endpoint.
 
@@ -181,9 +169,7 @@ Your screen should look something like the following image.
 `/usr/bin/gluepython3` if you are using Python 3. Then choose
 **Finish**.
 
-## Running your script on the
-
-development endpoint
+## Running your script on the development endpoint
 
 To run the script:
 

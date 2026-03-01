@@ -21,9 +21,7 @@ to improve triaging and analysis of issues.
 
 ###### Topics
 
-- [Monitoring AWS Glue using Amazon CloudWatch
-  metrics](monitoring-awsglue-with-cloudwatch-metrics.md "monitoring-awsglue-with-cloudwatch-metrics.md")
-- [Setting up Amazon CloudWatch alarms on AWS Glue
-  job profiles](monitor-profile-glue-job-cloudwatch-alarms.md "monitor-profile-glue-job-cloudwatch-alarms.md")
+- [Monitoring AWS Glue using Amazon CloudWatch metrics](monitoring-awsglue-with-cloudwatch-metrics.md "monitoring-awsglue-with-cloudwatch-metrics.md")
+- [Setting up Amazon CloudWatch alarms on AWS Glue job profiles](monitor-profile-glue-job-cloudwatch-alarms.md "monitor-profile-glue-job-cloudwatch-alarms.md")
 - [Logging for AWS Glue jobs](monitor-continuous-logging.md "monitor-continuous-logging.md")
 - [Monitoring with AWS Glue Observability metrics](monitor-observability.md "monitor-observability.md")

@@ -1,18 +1,12 @@
-#
-
-Using Hudi framework in AWS Glue Studio
+# Using Hudi framework in AWS Glue Studio
 
 When creating or editing a job, AWS Glue Studio automatically adds the corresponding Hudi
 libraries for you depending on the version of AWS Glue you are using. For more information, see
 [Using the Hudi framework in AWS Glue](aws-glue-programming-etl-format-hudi.md "aws-glue-programming-etl-format-hudi.md").
 
-##
+## Using Apache Hudi framework in Data Catalog data sources
 
-Using Apache Hudi framework in Data Catalog data sources
-
-######
-
-To add a Hudi data source format to a job:
+###### To add a Hudi data source format to a job:
 
 1. From the Source menu, choose AWS Glue Studio Data Catalog.
 2. In the **Data source properties** tab, choose a database and table.
@@ -20,9 +14,7 @@ To add a Hudi data source format to a job:
 
 ![The screenshot shows the data source properties tab for the Data Catalog source node.](images/data_lake_formats_data_catalog_hudi.png)
 
-##
-
-Using Hudi framework in Amazon S3 data sources
+## Using Hudi framework in Amazon S3 data sources
 
 1. From the Source menu, choose Amazon S3.
 2. If you choose Data Catalog table as the Amazon S3 source type, choose a database and table.
@@ -48,21 +40,15 @@ In **Additional options** choose from the following options under **Schema infer
 
 ![The screenshot shows the Additional options section in the Data source properties tab for an Amazon S3 data source node.](images/data_lake_formats_additional_options.png)
 
-##
+## Using Apache Hudi framework in data targets
 
-Using Apache Hudi framework in data targets
-
-###
-
-Using Apache Hudi framework in Data Catalog data targets
+### Using Apache Hudi framework in Data Catalog data targets
 
 1. From the **Target** menu, choose AWS Glue Studio Data Catalog.
 2. In the **Data source properties** tab, choose a database and table.
 3. AWS Glue Studio displays the format type as Apache Hudi and the Amazon S3 URL.
 
-####
-
-Using Apache Hudi framework in Amazon S3 data targets
+#### Using Apache Hudi framework in Amazon S3 data targets
 
 Enter values or select from the available options to configure Apache Hudi format. For more information on Apache Hudi, see
 [Apache Hudi documentation](https://hudi.apache.org/docs/overview "https://hudi.apache.org/docs/overview").
@@ -111,9 +97,7 @@ Enter values or select from the available options to configure Apache Hudi forma
   To add more partition keys, choose Add a partition key.
 - **Addtional options** — enter a key-value pair as needed.
 
-##
-
-Generating code through AWS Glue Studio
+## Generating code through AWS Glue Studio
 
 When the job is saved, the following job parameters are added to the job if a Hudi source or target are detected:
 
@@ -124,9 +108,7 @@ When the job is saved, the following job parameters are added to the job if a Hu
   `spark.serializer=org.apache.spark.serializer.KryoSerializer —conf spark.sql.hive.convertMetastoreParquet=false`
   for this parameter.
 
-##
-
-Overriding AWS Glue-provided libraries
+## Overriding AWS Glue-provided libraries
 
 To use a version of Hudi that AWS Glue doesn't support, you can specify your own Hudi library JAR files.
 To use your own JAR file:

@@ -23,8 +23,7 @@ If you're using AWS Lake Formation permissions to control access to the table, t
 
 ###### Topics
 
-- [Prerequisites for generating column
-  statistics](iceberg-column-stats-prereqs.md "iceberg-column-stats-prereqs.md")
+- [Prerequisites for generating column statistics](iceberg-column-stats-prereqs.md "iceberg-column-stats-prereqs.md")
 - [Generating column statistics for Iceberg tables](iceberg-generate-column-stats.md "iceberg-generate-column-stats.md")
 - [See also](#see-also-iceberg-stats "#see-also-iceberg-stats")
 

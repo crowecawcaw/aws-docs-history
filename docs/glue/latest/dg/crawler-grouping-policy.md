@@ -1,6 +1,4 @@
-# Creating a single schema for each Amazon S3 include
-
-path
+# Creating a single schema for each Amazon S3 include path
 
 By default, when a crawler defines tables for data stored in Amazon S3, it considers both data
 compatibility and schema similarity. Data compatibility factors that it considers include

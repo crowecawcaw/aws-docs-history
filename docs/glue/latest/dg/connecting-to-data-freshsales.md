@@ -1,6 +1,4 @@
-#
-
-Connecting to Freshsales
+# Connecting to Freshsales
 
 Freshsales is an intuitive CRM that helps sales reps take the guesswork out of sales. With the built-in phone and email, tasks, appointments and notes, sales reps needn’t have to toggle between tabs to follow up on prospects. You can manage your deals better with the pipeline view and drive more deals to closure. If you are a Freshsales user, you can connect AWS Glue to your Freshsales account. You can use Freshsales as a data source in your ETL jobs. Run these jobs to transfer data from Freshsales to AWS services or other supported applications.
 

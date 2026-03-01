@@ -1,6 +1,4 @@
-#
-
-Connecting to SAP HANA in AWS Glue Studio
+# Connecting to SAP HANA in AWS Glue Studio
 
 AWS Glue provides built-in support for SAP HANA. AWS Glue Studio provides a visual interface to
 connect to SAP HANA, author data integration jobs, and run them on the AWS Glue Studio serverless Spark runtime.

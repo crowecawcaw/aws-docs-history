@@ -5,20 +5,15 @@ and load (ETL) jobs to query and join data from different accounts.
 
 ###### Topics
 
-- [Methods for granting cross-account access in
-  AWS Glue](#cross-account-how-works "#cross-account-how-works")
-- [Adding or updating the Data Catalog
-  resource policy](#cross-account-adding-resource-policy "#cross-account-adding-resource-policy")
+- [Methods for granting cross-account access in AWS Glue](#cross-account-how-works "#cross-account-how-works")
+- [Adding or updating the Data Catalog resource policy](#cross-account-adding-resource-policy "#cross-account-adding-resource-policy")
 - [Making a cross-account API call](#cross-account-calling "#cross-account-calling")
 - [Making a cross-account ETL call](#cross-account-calling-etl "#cross-account-calling-etl")
 - [Cross-account CloudTrail logging](#cross-account-ct-logs "#cross-account-ct-logs")
-- [Cross-account resource ownership
-  and billing](#cross-account-ownership-and-billing "#cross-account-ownership-and-billing")
+- [Cross-account resource ownership and billing](#cross-account-ownership-and-billing "#cross-account-ownership-and-billing")
 - [Cross-account access limitations](#cross-account-limitations "#cross-account-limitations")
 
-## Methods for granting cross-account access in
-
-AWS Glue
+## Methods for granting cross-account access in AWS Glue
 
 You can grant access to your data to external AWS accounts by using
 AWS Glue methods or by using AWS Lake Formation cross-account grants. The
@@ -138,9 +133,7 @@ JSON
 
 ```
 
-## Adding or updating the Data Catalog
-
-resource policy
+## Adding or updating the Data Catalog resource policy
 
 You can add or update the AWS Glue Data Catalog resource policy using the
 console, API, or AWS Command Line Interface (AWS CLI).
@@ -179,8 +172,7 @@ be in addition to any permissions granted using Lake Formation, choose
   already exist, ensure that you include the `--enable-hybrid` option
   with the value `'TRUE'`.
 
-For examples of using this command, see [Resource-based policy
-examples for AWS Glue](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md").
+For examples of using this command, see [Resource-based policy examples for AWS Glue](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md").
 
 ## Making a cross-account API call
 
@@ -285,13 +277,9 @@ logging](../../../lake-formation/latest/dg/cross-account-logging.md "../../../la
 
 ###### See Also
 
-- [Logging and
-  monitoring
-  in AWS Glue](logging-and-monitoring.md "logging-and-monitoring.md")
+- [Logging and monitoring in AWS Glue](logging-and-monitoring.md "logging-and-monitoring.md")
 
-## Cross-account resource ownership
-
-and billing
+## Cross-account resource ownership and billing
 
 When a user in one AWS account (Account A) creates a new resource such as a
 database in a different account (Account B), that resource is then owned by Account B,

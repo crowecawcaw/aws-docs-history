@@ -1,13 +1,9 @@
-#
-
-Step 1. Create a JSON config file
+# Step 1. Create a JSON config file
 
 A JSON config file is required to define and describe your custom visual transform.
 The schema for the config file is as follows.
 
-##
-
-JSON file structure
+## JSON file structure
 
 **Fields**
 
@@ -63,9 +59,7 @@ JSON file structure
 - `value: string | int | float | bool` – (required) option value.
 - `label: string` – (optional) option label displayed in the select dropdown.
 
-##
-
-Transform parameters in AWS Glue Studio
+## Transform parameters in AWS Glue Studio
 
 By default, parameters are required unless mark as `isOptional` in the .json file.
 In AWS Glue Studio, parameters are displayed in the **Transform** tab. The example shows

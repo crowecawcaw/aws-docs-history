@@ -1,6 +1,4 @@
-# Job monitoring and
-
-debugging
+# Job monitoring and debugging
 
 You can collect metrics about AWS Glue jobs and visualize them on the AWS Glue and Amazon CloudWatch
 consoles to identify and fix issues. Profiling your AWS Glue jobs requires the following
@@ -62,11 +60,8 @@ job.commit()
 
 **Use cases for AWS Glue observability metrics**
 
-- [Debugging OOM exceptions and job
-  abnormalities](monitor-profile-debug-oom-abnormalities.md "monitor-profile-debug-oom-abnormalities.md")
-- [Debugging demanding stages and
-  straggler tasks](monitor-profile-debug-straggler.md "monitor-profile-debug-straggler.md")
-- [Monitoring the progress of multiple
-  jobs](monitor-debug-multiple.md "monitor-debug-multiple.md")
+- [Debugging OOM exceptions and job abnormalities](monitor-profile-debug-oom-abnormalities.md "monitor-profile-debug-oom-abnormalities.md")
+- [Debugging demanding stages and straggler tasks](monitor-profile-debug-straggler.md "monitor-profile-debug-straggler.md")
+- [Monitoring the progress of multiple jobs](monitor-debug-multiple.md "monitor-debug-multiple.md")
 - [Monitoring for DPU capacity planning](monitor-debug-capacity.md "monitor-debug-capacity.md")
 - [Using AWS Glue Observability for monitoring resource utilization to reduce cost](https://aws.amazon.com/blogs/big-data/enhance-monitoring-and-debugging-for-aws-glue-jobs-using-new-job-observability-metrics "https://aws.amazon.com/blogs/big-data/enhance-monitoring-and-debugging-for-aws-glue-jobs-using-new-job-observability-metrics")

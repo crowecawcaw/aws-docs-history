@@ -1,6 +1,4 @@
-# Review IAM permissions needed for ETL
-
-jobs
+# Review IAM permissions needed for ETL jobs
 
 When you create a job using AWS Glue Studio, the job assumes the permissions of the IAM role
 that you specify when you create it. This IAM role must have permission to extract
@@ -10,9 +8,7 @@ The name of the role that you create for the job must start with the string
 `AWSGlueServiceRole` for it to be used correctly by AWS Glue Studio. For example,
 you might name your role `AWSGlueServiceRole-FlightDataJob`.
 
-## Data source and data target
-
-permissions
+## Data source and data target permissions
 
 An AWS Glue Studio job must have access to Amazon S3 for any sources, targets,
 scripts, and temporary directories that you use in your job. You can create a policy
@@ -87,8 +83,7 @@ Environment to Access Data Stores](start-connecting.md "start-connecting.md") in
 _AWS Glue Developer Guide_.
 
 If you're using connectors and connections for your data store, you need
-additional permissions, as described in [Permissions required for
-using connectors](#getting-started-min-privs-connectors "#getting-started-min-privs-connectors").
+additional permissions, as described in [Permissions required for using connectors](#getting-started-min-privs-connectors "#getting-started-min-privs-connectors").
 
 ## Permissions required for deleting jobs
 
@@ -112,9 +107,7 @@ There are additional charges for using AWS KMS CMKs. For more information, see
 (CMKs)](../../../kms/latest/developerguide/concepts.md#master_keys "../../../kms/latest/developerguide/concepts.md#master_keys") and [AWS Key Management Service Pricing](https://aws.amazon.com/kms/pricing "https://aws.amazon.com/kms/pricing") in the
 _AWS Key Management Service Developer Guide_.
 
-## Permissions required for
-
-using connectors
+## Permissions required for using connectors
 
 If you're using an AWS Glue Custom Connector and connection to access a data store,
 the role used to run the AWS Glue ETL job needs additional permissions attached:

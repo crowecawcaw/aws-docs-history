@@ -1,6 +1,4 @@
-# Working with jobs in
-
-AWS Glue
+# Working with jobs in AWS Glue
 
 The following sections provide information on ETL and Ray jobs in AWS Glue.
 

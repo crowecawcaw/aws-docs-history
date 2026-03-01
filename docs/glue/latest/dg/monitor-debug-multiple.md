@@ -1,6 +1,4 @@
-# Monitoring the progress of multiple
-
-jobs
+# Monitoring the progress of multiple jobs
 
 You can profile multiple AWS Glue jobs together and monitor the flow of data between them.
 This is a common workflow pattern, and requires monitoring for individual job progress, data
@@ -9,8 +7,7 @@ processing backlog, data reprocessing, and job bookmarks.
 ###### Topics
 
 - [Profiled code](#monitor-debug-multiple-profile "#monitor-debug-multiple-profile")
-- [Visualize the profiled metrics on the AWS Glue
-  console](#monitor-debug-multiple-visualize "#monitor-debug-multiple-visualize")
+- [Visualize the profiled metrics on the AWS Glue console](#monitor-debug-multiple-visualize "#monitor-debug-multiple-visualize")
 - [Fix the processing of files](#monitor-debug-multiple-fix "#monitor-debug-multiple-fix")
 
 ## Profiled code
@@ -43,9 +40,7 @@ datasink2 = glueContext.write_dynamic_frame.from_options(frame = applymapping1, 
 
 ```
 
-## Visualize the profiled metrics on the AWS Glue
-
-console
+## Visualize the profiled metrics on the AWS Glue console
 
 The following dashboard superimposes the Amazon S3 bytes written metric from the Input job onto
 the Amazon S3 bytes read metric on the same timeline for the Output job. The timeline shows

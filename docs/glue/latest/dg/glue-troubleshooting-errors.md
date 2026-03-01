@@ -11,16 +11,12 @@ Frequently Asked Questions](https://github.com/aws-samples/aws-glue-samples/blob
 ###### Topics
 
 - [Error: Resource unavailable](#error-resource-unavailable "#error-resource-unavailable")
-- [Error: Could not find S3 endpoint or NAT gateway for
-  subnetId in VPC](#error-s3-subnet-vpc-NAT-configuration "#error-s3-subnet-vpc-NAT-configuration")
+- [Error: Could not find S3 endpoint or NAT gateway for subnetId in VPC](#error-s3-subnet-vpc-NAT-configuration "#error-s3-subnet-vpc-NAT-configuration")
 - [Error: Inbound rule in security group required](#error-inbound-self-reference-rule "#error-inbound-self-reference-rule")
 - [Error: Outbound rule in security group required](#error-outbound-self-reference-rule "#error-outbound-self-reference-rule")
-- [Error: Job run failed because the role passed should be given
-  assume role permissions for the AWS Glue service](#error-assume-role-user-policy "#error-assume-role-user-policy")
-- [Error: DescribeVpcEndpoints action is unauthorized. unable
-  to validate VPC ID vpc-id](#error-DescribeVpcEndpoints-permission "#error-DescribeVpcEndpoints-permission")
-- [Error: DescribeRouteTables action is unauthorized. unable
-  to validate subnet id: Subnet-id in VPC id: vpc-id](#error-DescribeRouteTables-permission "#error-DescribeRouteTables-permission")
+- [Error: Job run failed because the role passed should be given assume role permissions for the AWS Glue service](#error-assume-role-user-policy "#error-assume-role-user-policy")
+- [Error: DescribeVpcEndpoints action is unauthorized. unable to validate VPC ID vpc-id](#error-DescribeVpcEndpoints-permission "#error-DescribeVpcEndpoints-permission")
+- [Error: DescribeRouteTables action is unauthorized. unable to validate subnet id: Subnet-id in VPC id: vpc-id](#error-DescribeRouteTables-permission "#error-DescribeRouteTables-permission")
 - [Error: Failed to call ec2:DescribeSubnets](#error-DescribeSubnets-permission "#error-DescribeSubnets-permission")
 - [Error: Failed to call ec2:DescribeSecurityGroups](#error-DescribeSecurityGroups-permission "#error-DescribeSecurityGroups-permission")
 - [Error: Could not find subnet for AZ](#error-az-not-available "#error-az-not-available")
@@ -29,8 +25,7 @@ Frequently Asked Questions](https://github.com/aws-samples/aws-glue-samples/blob
 - [Error: Amazon S3 timeout](#error-s3-timeout "#error-s3-timeout")
 - [Error: Amazon S3 access denied](#error-s3-access-denied "#error-s3-access-denied")
 - [Error: Amazon S3 access key ID does not exist](#error-s3-accesskeyid-not-found "#error-s3-accesskeyid-not-found")
-- [Error: Job run fails when accessing Amazon S3 with an
-  s3a:// URI](#error-s3a-uri-directory-listing "#error-s3a-uri-directory-listing")
+- [Error: Job run fails when accessing Amazon S3 with an s3a:// URI](#error-s3a-uri-directory-listing "#error-s3a-uri-directory-listing")
 - [Error: Amazon S3 service token expired](#error-s3-service-token-expired "#error-s3-service-token-expired")
 - [Error: No private DNS for network interface found](#error-no-private-DNS "#error-no-private-DNS")
 - [Error: Development endpoint provisioning failed](#error-development-endpoint-failed "#error-development-endpoint-failed")
@@ -39,8 +34,7 @@ Frequently Asked Questions](https://github.com/aws-samples/aws-glue-samples/blob
 - [Error: Running crawler failed](#error-running-crawler-failed "#error-running-crawler-failed")
 - [Error: Partitions were not updated](#error-update-from-job-partitions "#error-update-from-job-partitions")
 - [Error: Job bookmark update failed due to version mismatch](#error-job-bookmarks-limitation "#error-job-bookmarks-limitation")
-- [Error: A job is reprocessing data when job bookmarks are
-  enabled](#error-job-bookmarks-reprocess-data "#error-job-bookmarks-reprocess-data")
+- [Error: A job is reprocessing data when job bookmarks are enabled](#error-job-bookmarks-reprocess-data "#error-job-bookmarks-reprocess-data")
 - [Error: Failover behavior between VPCs in AWS Glue](#vpc-failover-behavior-error-10 "#vpc-failover-behavior-error-10")
 
 ## Error: Resource unavailable
@@ -51,9 +45,7 @@ you learn more about the issue. The following tasks describe general methods for
 - For any connections and development endpoints that you use, check that your cluster has not run out of
   elastic network interfaces.
 
-## Error: Could not find S3 endpoint or NAT gateway for
-
-subnetId in VPC
+## Error: Could not find S3 endpoint or NAT gateway for subnetId in VPC
 
 Check the subnet ID and VPC ID in the message to help you diagnose the issue.
 
@@ -80,9 +72,7 @@ outbound rule can be restricted to the same security group.
 - When you are using a development endpoint, check your security group for an outbound rule that is
   self-referencing. For more information, see [Setting up network access to data stores](start-connecting.md "start-connecting.md").
 
-## Error: Job run failed because the role passed should be given
-
-assume role permissions for the AWS Glue service
+## Error: Job run failed because the role passed should be given assume role permissions for the AWS Glue service
 
 The user who defines a job must have permission for `iam:PassRole` for
 AWS Glue.
@@ -90,16 +80,12 @@ AWS Glue.
 - When a user creates an AWS Glue job, confirm that the user's role contains a policy that
   contains `iam:PassRole` for AWS Glue. For more information, see [Step 3: Attach a policy to users or groups that access AWS Glue](attach-policy-iam-user.md "attach-policy-iam-user.md").
 
-## Error: DescribeVpcEndpoints action is unauthorized. unable
-
-to validate VPC ID vpc-id
+## Error: DescribeVpcEndpoints action is unauthorized. unable to validate VPC ID vpc-id
 
 - Check the policy passed to AWS Glue for the `ec2:DescribeVpcEndpoints`
   permission.
 
-## Error: DescribeRouteTables action is unauthorized. unable
-
-to validate subnet id: Subnet-id in VPC id: vpc-id
+## Error: DescribeRouteTables action is unauthorized. unable to validate subnet id: Subnet-id in VPC id: vpc-id
 
 - Check the policy passed to AWS Glue for the `ec2:DescribeRouteTables`
   permission.
@@ -183,9 +169,7 @@ of one of the following reasons:
 - An IAM role contains permissions to access your data stores, confirm that any attached Amazon S3 policy
   containing `s3:ListBucket` is correct.
 
-## Error: Job run fails when accessing Amazon S3 with an
-
-`s3a://` URI
+## Error: Job run fails when accessing Amazon S3 with an `s3a://` URI
 
 If a job run returns an error like _Failed to parse XML document with handler class_ , it
 might be because of a failure trying to list hundreds of files using an `s3a://` URI. Access your data
@@ -319,8 +303,7 @@ In case your partitions were not updated in the Data Catalog when you ran an ETL
   then your DynamicFrame schema needs to be identical or contain a subset of the columns seen in the Data Catalog
   table schema.
 
-For more information on updating partitions, see [Updating the schema, and adding new partitions in the Data Catalog using
-AWS Glue ETL jobs](update-from-job.md "update-from-job.md").
+For more information on updating partitions, see [Updating the schema, and adding new partitions in the Data Catalog using AWS Glue ETL jobs](update-from-job.md "update-from-job.md").
 
 ## Error: Job bookmark update failed due to version mismatch
 
@@ -337,9 +320,7 @@ Solution: set concurrency to 1 or don't run the job concurrently.
 
 Currently AWS Glue bookmarks don't support concurrent job runs and commits will fail.
 
-## Error: A job is reprocessing data when job bookmarks are
-
-enabled
+## Error: A job is reprocessing data when job bookmarks are enabled
 
 There might be cases when you have enabled AWS Glue job bookmarks, but your ETL job is
 reprocessing data that was already processed in an earlier run. Check for these common causes of this error:

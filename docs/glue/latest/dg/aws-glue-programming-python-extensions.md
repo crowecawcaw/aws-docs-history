@@ -2,8 +2,7 @@
 
 AWS Glue has created the following extensions to the PySpark Python dialect.
 
-- [Accessing
-  parameters using getResolvedOptions](aws-glue-api-crawler-pyspark-extensions-get-resolved-options.md "aws-glue-api-crawler-pyspark-extensions-get-resolved-options.md")
+- [Accessing parameters using getResolvedOptions](aws-glue-api-crawler-pyspark-extensions-get-resolved-options.md "aws-glue-api-crawler-pyspark-extensions-get-resolved-options.md")
 - [PySpark extension types](aws-glue-api-crawler-pyspark-extensions-types.md "aws-glue-api-crawler-pyspark-extensions-types.md")
 - [DynamicFrame class](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md")
 - [DynamicFrameCollection class](aws-glue-api-crawler-pyspark-extensions-dynamic-frame-collection.md "aws-glue-api-crawler-pyspark-extensions-dynamic-frame-collection.md")

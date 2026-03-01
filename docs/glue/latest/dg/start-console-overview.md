@@ -12,8 +12,7 @@ use
 the following
 steps,
 or you can create a workflow that automatically performs steps 1 through 3. For more
-information, see [Performing complex ETL activities using
-blueprints and workflows in AWS Glue](orchestrate-using-workflows.md "orchestrate-using-workflows.md").
+information, see [Performing complex ETL activities using blueprints and workflows in AWS Glue](orchestrate-using-workflows.md "orchestrate-using-workflows.md").
 
 1. Populate the AWS Glue Data Catalog with table definitions.
 

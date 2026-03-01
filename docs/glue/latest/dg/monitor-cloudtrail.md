@@ -69,9 +69,7 @@ GetConnections          GetDevEndpoints      GetPartitions    GetUserDefinedFunc
 GetCrawler              GetJob               GetPlan
 ```
 
-## Understanding AWS Glue log file
-
-entries
+## Understanding AWS Glue log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
 that you specify. CloudTrail log files contain one or more log entries. An event represents a single

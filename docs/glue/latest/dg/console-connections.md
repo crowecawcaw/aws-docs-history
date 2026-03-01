@@ -1,8 +1,7 @@
 # Adding an AWS Glue connection
 
 You can connect to data sources in AWS Glue for Spark programmatically. For more information, see
-[Connection types and options for ETL in
-AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md")
+[Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md")
 
 You can also use the AWS Glue console to add, edit, delete, and test connections. For information
 about AWS Glue connections, see [Connecting to data](glue-connections.md "glue-connections.md").

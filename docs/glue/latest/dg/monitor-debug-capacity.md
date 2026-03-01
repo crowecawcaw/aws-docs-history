@@ -11,8 +11,7 @@ that introduce additional considerations when capacity planning.
 ###### Topics
 
 - [Profiled code](#monitor-debug-capacity-profile "#monitor-debug-capacity-profile")
-- [Visualize the profiled metrics on the AWS Glue
-  console](#monitor-debug-capacity-visualize "#monitor-debug-capacity-visualize")
+- [Visualize the profiled metrics on the AWS Glue console](#monitor-debug-capacity-visualize "#monitor-debug-capacity-visualize")
 - [Determine the optimal DPU capacity](#monitor-debug-capacity-fix "#monitor-debug-capacity-fix")
 
 ## Profiled code
@@ -27,9 +26,7 @@ applymapping1 = ApplyMapping.apply(frame = datasource0, mappings = [(map_spec])
 datasink2 = glueContext.write_dynamic_frame.from_options(frame = applymapping1, connection_type = "s3", connection_options = {"path": output_path}, format = "parquet")
 ```
 
-## Visualize the profiled metrics on the AWS Glue
-
-console
+## Visualize the profiled metrics on the AWS Glue console
 
 **Job run 1:** In this job run we show how to find if there
 are under-provisioned DPUs in the cluster. The job execution functionality in AWS Glue shows the

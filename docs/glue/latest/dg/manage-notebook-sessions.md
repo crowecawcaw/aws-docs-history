@@ -5,9 +5,7 @@ AWS Glue. There is a cost for using interactive sessions. To help manage your
 costs, you can monitor the sessions created for your account, and configure the default
 settings for all sessions.
 
-## Change the default timeout for all notebook
-
-sessions
+## Change the default timeout for all notebook sessions
 
 By default, the provisioned AWS Glue Studio notebook times out after 12 hours if the notebook was launched and no cells have been executed.
 There is no cost associated to it and the timeout is not configurable.
@@ -15,9 +13,7 @@ There is no cost associated to it and the timeout is not configurable.
 Once you execute a cell this will start an interactive session. This session has a default timeout of 48 hours. This timeout can be configured by
 passing an `%idle_timeout` magic before executing a cell.
 
-###### To modify the default session timeout for notebooks in
-
-AWS Glue Studio
+###### To modify the default session timeout for notebooks in AWS Glue Studio
 
 1. In the notebook, enter the `%idle_timeout` magic in a cell and specify the timeout value in minutes.
 2. For example: `%idle_timeout 15` will change the default timeout to 15 minutes. If the session

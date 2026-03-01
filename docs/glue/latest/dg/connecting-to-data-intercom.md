@@ -1,6 +1,4 @@
-#
-
-Connecting to Intercom in AWS Glue Studio
+# Connecting to Intercom in AWS Glue Studio
 
 Intercom is the Engagement OS, an open channel between your business and your customers—in product, in the moment, and on their
 terms—creating an ongoing dialogue that enables you to make the most of every engagement across the customer journey.

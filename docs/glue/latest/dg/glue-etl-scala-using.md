@@ -11,9 +11,7 @@ Jupyter Notebook and test it there before running it in a job. Because the compi
 occurs on the server, you will not have good visibility into any problems that happen
 there.
 
-## Testing a Scala ETL program in a
-
-Jupyter notebook on a development endpoint
+## Testing a Scala ETL program in a Jupyter notebook on a development endpoint
 
 To test a Scala program on an AWS Glue development endpoint, set up the development endpoint
 as described in [Adding a development endpoint](add-dev-endpoint.md "add-dev-endpoint.md").

@@ -1,6 +1,4 @@
-#
-
-Getting started with custom visual transforms
+# Getting started with custom visual transforms
 
 To create a custom visual transform, you go through the following steps.
 
@@ -12,9 +10,7 @@ To create a custom visual transform, you go through the following steps.
 
 Get started by setting up the Amazon S3 bucket and continue to **Step 1. Create a JSON config file.**
 
-##
-
-Prerequisites
+## Prerequisites
 
 Customer-supplied transforms reside within a customer AWS account. That account owns the transforms and
 therefore has all permissions to view (search and use), edit, or delete them.
@@ -38,9 +34,7 @@ the icon. In order to pair the files together, use the same name for the icon:
 
 AWS Glue Studio will automatically match them using their respective file names. File names cannot be the same for any existing module.
 
-##
-
-Recommended convention for transform file name
+## Recommended convention for transform file name
 
 AWS Glue Studio will import your file as module (for example, `import myTransform`) in your job script.
 Therefore, your file name must follow the same naming rules set for python variable names (identifiers). Specifically,
@@ -51,9 +45,7 @@ they must start with either a letter or an underscore and then be composed entir
 Ensure your transform file name is not conflicting with existing loaded python modules (for example, `sys, array, copy` etc.)
 to avoid unexpected runtime issues.
 
-##
-
-Setting up the Amazon S3 bucket
+## Setting up the Amazon S3 bucket
 
 Transforms you create are stored in Amazon S3 and is owned by your AWS account. You create new custom visual transforms by simply
 uploading files (json and py) to the Amazon S3 assets folder where all job scripts are currently stored

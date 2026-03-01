@@ -16,8 +16,7 @@ partitions have more than 100 files. Each file must be smaller than 75% of the t
 size. The target file size is defined by the `write.target-file-size-bytes` table property,
 which defaults to 512 MB if not explicitly set.
 
-For limitations, see [Supported formats and limitations for managed data
-compaction](optimizer-notes.md#compaction-notes "optimizer-notes.md#compaction-notes") .
+For limitations, see [Supported formats and limitations for managed data compaction](optimizer-notes.md#compaction-notes "optimizer-notes.md#compaction-notes").
 
 ###### Topics
 

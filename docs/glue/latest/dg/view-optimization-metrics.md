@@ -1,6 +1,4 @@
-#
-
-Viewing Amazon CloudWatch metrics
+# Viewing Amazon CloudWatch metrics
 
 After running the table optimizers successfully, the service creates
 Amazon CloudWatch metrics on the optimization job performance. You can go to the

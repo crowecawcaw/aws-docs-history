@@ -1,7 +1,4 @@
-# Getting
-
-started
-with the AWS Glue Data Catalog
+# Getting started with the AWS Glue Data Catalog
 
 The AWS Glue Data Catalog is your persistent technical metadata store. It is a managed service that
 you can use to store, annotate, and share metadata in the AWS Cloud. For more information,
@@ -25,9 +22,7 @@ In this tutorial, you'll do the following using the AWS Glue console:
 After completing these steps, you will have successfully used an Amazon S3 bucket as the data
 source to populate the AWS Glue Data Catalog.
 
-## Step 1: Create a
-
-database
+## Step 1: Create a database
 
 To get started, sign in to the AWS Management Console and open the
 [AWS Glue console](https://console.aws.amazon.com/glue "https://console.aws.amazon.com/glue").

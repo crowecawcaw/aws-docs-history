@@ -8,8 +8,7 @@ jobs. Using triggers, you can design a chain of dependent jobs and crawlers.
 
 You can accomplish the same thing by defining _workflows_.
 Workflows are preferred for creating complex multi-job ETL operations. For more
-information, see [Performing complex ETL activities using
-blueprints and workflows in AWS Glue](orchestrate-using-workflows.md "orchestrate-using-workflows.md").
+information, see [Performing complex ETL activities using blueprints and workflows in AWS Glue](orchestrate-using-workflows.md "orchestrate-using-workflows.md").
 
 ###### Topics
 

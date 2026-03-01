@@ -6,15 +6,12 @@ console, AWS CLI, or [AWS Glue column statistics API operations](aws-glue-api-cr
 
 ###### Topics
 
-- [Updating the column statistics generation
-  schedule](#update-column-stats-shedule "#update-column-stats-shedule")
+- [Updating the column statistics generation schedule](#update-column-stats-shedule "#update-column-stats-shedule")
 - [Stopping the schedule for column statistics generation](#stop-column-stats-schedule "#stop-column-stats-schedule")
 - [Resuming the schedule for column statistics generation](#resume-column-stats-schedule "#resume-column-stats-schedule")
 - [Deleting column statistics generation schedule](#delete-column-stats-schedule "#delete-column-stats-schedule")
 
-## Updating the column statistics generation
-
-schedule
+## Updating the column statistics generation schedule
 
 You can update the schedule to trigger the column statistics generation task after it
 has been created. You can use the AWS Glue console, AWS CLI, or run the

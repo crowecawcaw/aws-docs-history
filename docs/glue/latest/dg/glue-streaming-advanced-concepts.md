@@ -1,6 +1,4 @@
-#
-
-Advanced AWS Glue streaming concepts
+# Advanced AWS Glue streaming concepts
 
 In contemporary data-driven applications, the significance of data diminishes over time and its value
 transitions from being predictive to reactive. As a result, customers want to process data in real-time for

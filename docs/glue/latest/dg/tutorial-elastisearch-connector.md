@@ -1,6 +1,4 @@
-#
-
-Tutorial: Using the AWS Glue Connector for Elasticsearch
+# Tutorial: Using the AWS Glue Connector for Elasticsearch
 
 Elasticsearch is a popular open-source search and analytics engine for use cases such as log
 analytics, real-time application monitoring, and clickstream analysis. You can use OpenSearch as a
@@ -22,11 +20,9 @@ steps.
 ###### Topics
 
 - [Prerequisites](#tutorial-prerequisites "#tutorial-prerequisites")
-- [Step 1: (Optional) Create an AWS secret for your OpenSearch
-  cluster information](#tutorial-step1 "#tutorial-step1")
+- [Step 1: (Optional) Create an AWS secret for your OpenSearch cluster information](#tutorial-step1 "#tutorial-step1")
 - [Step 2: Subscribe to the connector](#tutorial-step2 "#tutorial-step2")
-- [Step 3: Activate the connector in AWS Glue Studio and create a
-  connection](#tutorial-step3 "#tutorial-step3")
+- [Step 3: Activate the connector in AWS Glue Studio and create a connection](#tutorial-step3 "#tutorial-step3")
 - [Step 4: Configure an IAM role for your ETL job](#tutorial-step4 "#tutorial-step4")
 - [Step 5: Create a job that uses the OpenSearch connection](#tutorial-step5 "#tutorial-step5")
 - [Step 6: Run the job](#tutorial-step6 "#tutorial-step6")
@@ -39,9 +35,7 @@ To use this tutorial, you must have the following:
 - Access to an OpenSearch cluster in the AWS Cloud
 - (Optional) Access to AWS Secrets Manager.
 
-## Step 1: (Optional) Create an AWS secret for your OpenSearch
-
-cluster information
+## Step 1: (Optional) Create an AWS secret for your OpenSearch cluster information
 
 To safely store and use your connection credential, save your credential in
 AWS Secrets Manager. The secret you create will be used later in the tutorial by the
@@ -119,12 +113,9 @@ The AWS Glue Connector for Elasticsearch is available for free from
 
 ### Next step
 
-[Step 3: Activate the connector in AWS Glue Studio and create a
-connection](#tutorial-step3 "#tutorial-step3")
+[Step 3: Activate the connector in AWS Glue Studio and create a connection](#tutorial-step3 "#tutorial-step3")
 
-## Step 3: Activate the connector in AWS Glue Studio and create a
-
-connection
+## Step 3: Activate the connector in AWS Glue Studio and create a connection
 
 After you choose **Continue to Launch**, you see the **Launch this software** page in AWS Marketplace.
 After you use the link to activate the
@@ -161,11 +152,9 @@ and Access Control for AWS Secrets Manager](../../../secretsmanager/latest/userg
 
 ###### To configure an IAM role for your ETL job
 
-1. Configure the permissions described in [Review IAM permissions needed for ETL
-   jobs](getting-started-min-privs-job.md "getting-started-min-privs-job.md").
+1. Configure the permissions described in [Review IAM permissions needed for ETL jobs](getting-started-min-privs-job.md "getting-started-min-privs-job.md").
 2. Configure the additional permissions needed when using connectors with AWS Glue Studio, as
-   described in [Permissions required for
-   using connectors](getting-started-min-privs-job.md#getting-started-min-privs-connectors "getting-started-min-privs-job.md#getting-started-min-privs-connectors").
+   described in [Permissions required for using connectors](getting-started-min-privs-job.md#getting-started-min-privs-connectors "getting-started-min-privs-job.md#getting-started-min-privs-connectors").
 
 ### Next step
 
@@ -190,8 +179,7 @@ more information, see [Configure a VPC for your ETL job](getting-started-vpc-con
     1.  Choose **Add schema** and enter the schema of the data set in the data
         source. Connections do not use tables stored in the Data Catalog, which means that AWS Glue Studio doesn't
         know the schema of the data. You must manually provide this schema information. For
-        instructions on how to use the schema editor, see [Editing the schema in a custom transform
-        node](transforms-custom.md#transforms-custom-editschema "transforms-custom.md#transforms-custom-editschema").
+        instructions on how to use the schema editor, see [Editing the schema in a custom transform node](transforms-custom.md#transforms-custom-editschema "transforms-custom.md#transforms-custom-editschema").
     2.  Expand **Connection options**.
     3.  Choose **Add new option** and enter the information needed for the
         connector that was not entered in the AWS secret:

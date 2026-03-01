@@ -1,6 +1,4 @@
-# Reading from Productboard
-
-entities
+# Reading from Productboard entities
 
 **Prerequisites**
 

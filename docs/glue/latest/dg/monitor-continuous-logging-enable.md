@@ -19,10 +19,8 @@ log stream prefixes and conversions patterns.
 ###### Topics
 
 - [Using the AWS Management Console](#monitor-continuous-logging-enable-console "#monitor-continuous-logging-enable-console")
-- [Logging application-specific messages
-  using the custom script logger](#monitor-continuous-logging-script "#monitor-continuous-logging-script")
-- [Enabling the progress bar to show job
-  progress](#monitor-continuous-logging-progress "#monitor-continuous-logging-progress")
+- [Logging application-specific messages using the custom script logger](#monitor-continuous-logging-script "#monitor-continuous-logging-script")
+- [Enabling the progress bar to show job progress](#monitor-continuous-logging-progress "#monitor-continuous-logging-progress")
 - [Security configuration with continuous logging](#monitor-logging-encrypt-log-data "#monitor-logging-encrypt-log-data")
 
 ## Using the AWS Management Console
@@ -79,9 +77,7 @@ progress bar.
 '--continuous-log-conversionPattern': '`custom_log_conversion_pattern`'
 ```
 
-## Logging application-specific messages
-
-using the custom script logger
+## Logging application-specific messages using the custom script logger
 
 You can use the AWS Glue logger to log any application-specific messages in the script that
 are sent in real time to the driver log stream.
@@ -117,9 +113,7 @@ object GlueApp {
 
 ```
 
-## Enabling the progress bar to show job
-
-progress
+## Enabling the progress bar to show job progress
 
 AWS Glue provides a real-time progress bar under the `JOB_RUN_ID-progress-bar` log
 stream to check AWS Glue job run status. Currently it supports only jobs that initialize
@@ -152,8 +146,7 @@ instructions at [Encrypt Log Data in
 CloudWatch Logs Using AWS Key Management Service](../../../AmazonCloudWatch/latest/logs/encrypt-log-data-kms.md "../../../AmazonCloudWatch/latest/logs/encrypt-log-data-kms.md") in the
 _Amazon CloudWatch Logs User Guide_.
 
-For more information on creating security configurations, see [Managing security configurations on
-the AWS Glue console](console-security-configurations.md "console-security-configurations.md").
+For more information on creating security configurations, see [Managing security configurations on the AWS Glue console](console-security-configurations.md "console-security-configurations.md").
 
 ###### Note
 

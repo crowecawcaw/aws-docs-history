@@ -6,8 +6,7 @@ Builds a new `DynamicFrame` that contains records from the input
 ## Example
 
 We recommend that you use the [DynamicFrame.filter()](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-filter "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-filter") method to filter records
-in a `DynamicFrame`. To view a code example, see [Example: Use filter to get a filtered selection of
-fields](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-filter-example "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-filter-example").
+in a `DynamicFrame`. To view a code example, see [Example: Use filter to get a filtered selection of fields](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-filter-example "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-filter-example").
 
 ## Methods
 
@@ -20,9 +19,7 @@ fields](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-filter-
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-filter-describeErrors "#aws-glue-api-crawler-pyspark-transforms-filter-describeErrors")
 - [describe](#aws-glue-api-crawler-pyspark-transforms-filter-describe "#aws-glue-api-crawler-pyspark-transforms-filter-describe")
 
-## \_\_call\_\_(frame, f,
-
-transformation_ctx="", info="", stageThreshold=0, totalThreshold=0))
+## \_\_call\_\_(frame, f, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0))
 
 Returns a new `DynamicFrame` that is built by selecting records from the input
 `DynamicFrame` that satisfy a specified predicate function.

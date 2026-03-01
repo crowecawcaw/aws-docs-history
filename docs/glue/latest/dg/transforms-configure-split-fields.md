@@ -1,6 +1,4 @@
-# Using SplitFields to split a dataset
-
-into two
+# Using SplitFields to split a dataset into two
 
 The _SplitFields_ transform allows you to choose some of the data
 property keys in the input dataset and put them into one dataset and the unselected keys

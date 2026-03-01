@@ -13,5 +13,4 @@ tuning strategies, such as optimizing shuffles and parallelizing tasks.
 You can identify bottlenecks by configuring AWS Glue to show the Spark UI. For more information, see [Monitoring jobs using the Apache Spark web UI](monitor-spark-ui.md "monitor-spark-ui.md").
 
 Additionally, AWS Glue provides performance features that may be applicable to the specific type of data store
-your job connects to. Reference information about performance parameters for data stores can be found in [Connection types and options for ETL in
-AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
+your job connects to. Reference information about performance parameters for data stores can be found in [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").

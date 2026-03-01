@@ -1,6 +1,4 @@
-# Review IAM permissions needed for the
-
-AWS Glue Studio user
+# Review IAM permissions needed for the AWS Glue Studio user
 
 To use AWS Glue Studio, the user must have access to various AWS resources. The user must be
 able to view and select Amazon S3 buckets, IAM policies and roles, and
@@ -111,9 +109,7 @@ For more information on actions defined by AWS Glue, see
 
 - CreateScript (different from API of same name in AWS Glue)
 
-##
-
-Accessing AWS Glue Studio APIs
+## Accessing AWS Glue Studio APIs
 
 To access AWS Glue Studio, add `glue:UseGlueStudio` in the actions policy list in the IAM permissions.
 
@@ -127,9 +123,7 @@ AWS Glue Studio APIs, so they will need to be included in the IAM permissions as
 include Amazon S3 Proxy actions to specify the level of Amazon S3 access to grant. The example policy below provides access to open
 AWS Glue Studio, create a visual job, and save/run it if the IAM role selected has sufficient access.
 
-## Notebook and data preview
-
-permissions
+## Notebook and data preview permissions
 
 Data previews and notebooks allow you to see a sample of your data at any stage
 of your job (reading, transforming, writing), without having to run the job. You
@@ -141,8 +135,7 @@ AWS Glue Studio assumes the role, IAM provides it with temporary security creden
 To ensure data previews and notebook commands work correctly, use a role that has
 a name that starts with the string `AWSGlueServiceRole`. If you choose to
 use a different name for your role, then you must add the `iam:passrole`
-permission and configure a policy for the role in IAM. For more information, see [Create an IAM policy for roles not named
-"AWSGlueServiceRole\*"](getting-started-iam-permissions.md#create-iam-policy "getting-started-iam-permissions.md#create-iam-policy").
+permission and configure a policy for the role in IAM. For more information, see [Create an IAM policy for roles not named "AWSGlueServiceRole\*"](getting-started-iam-permissions.md#create-iam-policy "getting-started-iam-permissions.md#create-iam-policy").
 
 ###### Warning
 
@@ -154,9 +147,7 @@ monitor which users have been granted access to the notebook.
 If you would like to deny an IAM identity the ability to create data preview sessions, consult the
 following example [Deny an identity the ability to create data preview sessions](security_iam_id-based-policy-examples.md#deny-data-preview-sessions-per-identity "security_iam_id-based-policy-examples.md#deny-data-preview-sessions-per-identity").
 
-## Amazon CloudWatch
-
-permissions
+## Amazon CloudWatch permissions
 
 You can monitor your AWS Glue Studio jobs using Amazon CloudWatch, which collects
 and processes raw data from AWS Glue into readable, near-real-time metrics. By default,

@@ -12,17 +12,14 @@ If you encounter errors in AWS Glue Data Quality, use the following solutions to
 - [Error: overall rule status is failed](data-quality-trouble.md#data-quality-trouble-error-6 "data-quality-trouble.md#data-quality-trouble-error-6")
 - [AnalysisException: Unable to verify existence of default database](data-quality-trouble.md#data-quality-trouble-error-7 "data-quality-trouble.md#data-quality-trouble-error-7")
 - [Error Message: Provided key map not suitable for given data frames](data-quality-trouble.md#data-quality-trouble-error-8 "data-quality-trouble.md#data-quality-trouble-error-8")
-- [Exception in User Class:
-  java.lang.RuntimeException : Failed to fetch data. Check the logs in CloudWatch to get more details](data-quality-trouble.md#data-quality-trouble-error-9 "data-quality-trouble.md#data-quality-trouble-error-9")
+- [Exception in User Class: java.lang.RuntimeException : Failed to fetch data. Check the logs in CloudWatch to get more details](data-quality-trouble.md#data-quality-trouble-error-9 "data-quality-trouble.md#data-quality-trouble-error-9")
 - [LAUNCH ERROR: Error downloading from S3 for bucket](data-quality-trouble.md#data-quality-trouble-error-10 "data-quality-trouble.md#data-quality-trouble-error-10")
 - [InvalidInputException (status: 400): DataQuality rules cannot be parsed](data-quality-trouble.md#data-quality-trouble-error-11 "data-quality-trouble.md#data-quality-trouble-error-11")
 - [Error: Eventbridge is not triggering Glue DQ jobs based on the schedule I setup](data-quality-trouble.md#data-quality-trouble-error-12 "data-quality-trouble.md#data-quality-trouble-error-12")
 - [CustomSQL errors](data-quality-trouble.md#data-quality-trouble-error-13 "data-quality-trouble.md#data-quality-trouble-error-13")
 - [Dynamic Rules](data-quality-trouble.md#data-quality-trouble-error-14 "data-quality-trouble.md#data-quality-trouble-error-14")
-- [Exception in User Class: org.apache.spark.sql.AnalysisException:
-  org.apache.hadoop.hive.ql.metadata.HiveException](data-quality-trouble.md#data-quality-trouble-error-15 "data-quality-trouble.md#data-quality-trouble-error-15")
-- [UNCLASSIFIED_ERROR; IllegalArgumentException: Parsing Error: No rules or analyzers
-  provided., no viable alternative at input](data-quality-trouble.md#data-quality-trouble-error-16 "data-quality-trouble.md#data-quality-trouble-error-16")
+- [Exception in User Class: org.apache.spark.sql.AnalysisException: org.apache.hadoop.hive.ql.metadata.HiveException](data-quality-trouble.md#data-quality-trouble-error-15 "data-quality-trouble.md#data-quality-trouble-error-15")
+- [UNCLASSIFIED_ERROR; IllegalArgumentException: Parsing Error: No rules or analyzers provided., no viable alternative at input](data-quality-trouble.md#data-quality-trouble-error-16 "data-quality-trouble.md#data-quality-trouble-error-16")
 
 ## Error: missing AWS Glue Data Quality module
 
@@ -95,9 +92,7 @@ If you do not need Spark SQL Data Catalog integration in the job, you can disabl
 Your join keys must be unique and must not be NULL. In cases where you can’t have join keys that are unique, consider using other
 ruletypes such as **AggregateMatch** to match on summary data.
 
-## Exception in User Class:
-
-java.lang.RuntimeException : Failed to fetch data. Check the logs in CloudWatch to get more details
+## Exception in User Class: java.lang.RuntimeException : Failed to fetch data. Check the logs in CloudWatch to get more details
 
 **Error condition**: Exception in User Class:
 java.lang.RuntimeException : Failed to fetch data. Check the logs in CloudWatch to get more details.
@@ -261,9 +256,7 @@ Note: `...` is dynamic. Example: `IllegalArgumentException: Parsing Error: Unexp
 
 **Resolution**: Anomaly detection is only available in AWS Glue 4.0.
 
-## Exception in User Class: org.apache.spark.sql.AnalysisException:
-
-org.apache.hadoop.hive.ql.metadata.HiveException
+## Exception in User Class: org.apache.spark.sql.AnalysisException: org.apache.hadoop.hive.ql.metadata.HiveException
 
 **Error condition**`: Exception in User Class: org.apache.spark.sql.AnalysisException: 
  org.apache.hadoop.hive.ql.metadata.HiveException: Unable to fetch table mailpiece_submitted. 
@@ -277,9 +270,7 @@ AWS Glue Data Catalog is empty.
 One way to fix this is to use “primary“ or add catalog name `glue_catalog.` to `<database>.<table>
  in Custom ruletype` .
 
-## UNCLASSIFIED_ERROR; IllegalArgumentException: Parsing Error: No rules or analyzers
-
-provided., no viable alternative at input
+## UNCLASSIFIED_ERROR; IllegalArgumentException: Parsing Error: No rules or analyzers provided., no viable alternative at input
 
 **Error condition**`: UNCLASSIFIED_ERROR; IllegalArgumentException: Parsing Error: No rules or 
  analyzers provided., no viable alternative at input`

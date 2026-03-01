@@ -1,6 +1,4 @@
-# Code example:
-
-Data preparation using ResolveChoice, Lambda, and ApplyMapping
+# Code example: Data preparation using ResolveChoice, Lambda, and ApplyMapping
 
 The dataset that is used in this example consists of Medicare Provider payment data that was
 downloaded from two [Data.CMS.gov](https://data.cms.gov "https://data.cms.gov")
@@ -17,9 +15,7 @@ file in the [AWS Glue examples](https://github.com/awslabs/aws-glue-samples "htt
 The preferred way to debug Python or PySpark scripts while running on AWS is to use
 [Notebooks on AWS Glue Studio](../ug/notebooks-chapter.md "../ug/notebooks-chapter.md").
 
-## Step 1:
-
-Crawl the data in the Amazon S3 bucket
+## Step 1: Crawl the data in the Amazon S3 bucket
 
 1. Sign in to the AWS Management Console and open the AWS Glue console at
    [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue/ "https://console.aws.amazon.com/glue/").
@@ -51,9 +47,7 @@ average medicare payments                  string
 
 ```
 
-## Step 2:
-
-Add boilerplate script to the development endpoint notebook
+## Step 2: Add boilerplate script to the development endpoint notebook
 
 Paste the following boilerplate script into the development endpoint notebook to import
 the AWS Glue libraries that you need, and set up a single `GlueContext`:
@@ -70,9 +64,7 @@ glueContext = GlueContext(SparkContext.getOrCreate())
 
 ```
 
-## Step 3:
-
-Compare different schema parsings
+## Step 3: Compare different schema parsings
 
 Next, you can see if the schema that was recognized by an Apache Spark
 `DataFrame` is the same as the one that your AWS Glue crawler recorded. Run this
@@ -226,9 +218,7 @@ medicare_dataframe = medicare_dataframe.where("'provider id' is NOT NULL")
 
 ```
 
-## Step
-
-4: Map the data and use Apache Spark Lambda functions
+## Step 4: Map the data and use Apache Spark Lambda functions
 
 AWS Glue does not yet directly support Lambda functions, also known as user-defined
 functions. But you can always convert a `DynamicFrame` to and from an Apache Spark
@@ -364,9 +354,7 @@ only showing top 20 rows
 
 ```
 
-## Step 5: Write
-
-the data to Apache Parquet
+## Step 5: Write the data to Apache Parquet
 
 AWS Glue makes it easy to write the data in a format such as Apache Parquet that
 relational databases can effectively consume:

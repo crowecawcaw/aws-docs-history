@@ -1,6 +1,4 @@
-# Using the Array To Columns transform to extract the elements of an array into
-
-top level columns
+# Using the Array To Columns transform to extract the elements of an array into top level columns
 
 The Array To Columns transform allows you extract some or all the elements of a column of type array into new columns. The transform will fill
 the new columns as much as possible if the array has enough values to extract, optionally taking the elements in the positions specified.

@@ -26,9 +26,7 @@ then write your transformed data to an Amazon S3 bucket that you control.
 **Prerequisites** – For this tutorial, you need an AWS account with
 access to AWS Glue and Amazon S3.
 
-## Step 1: Create a bucket in Amazon S3 to hold your output
-
-data
+## Step 1: Create a bucket in Amazon S3 to hold your output data
 
 You will need an Amazon S3 bucket that you control to serve as a sink for data created in this tutorial. You
 can create this bucket with the following procedure.
@@ -53,9 +51,7 @@ steps.
 
 ![A dialog box in the Amazon S3 console that is used in configuring a new bucket.](images/ray-tutorial-create-bucket.jpg)
 
-## Step 2: Create an IAM role and policy for your Ray
-
-job
+## Step 2: Create an IAM role and policy for your Ray job
 
 Your job will need an AWS Identity and Access Management (IAM) role with the following:
 
@@ -102,9 +98,7 @@ options about how to provision IAM resources, see the [AWS Identity and Access M
    - When selecting the role name, take note of `YourRoleName`, which
      you will refer to in later steps.
 
-## Step 3: Create and run an AWS Glue for Ray
-
-job
+## Step 3: Create and run an AWS Glue for Ray job
 
 In this step, you create an AWS Glue job using the AWS Management Console, provide it with a sample script, and run the
 job. When you create a job, it creates a place in the console for you to store, configure, and edit your Ray

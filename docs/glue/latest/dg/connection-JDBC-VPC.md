@@ -15,9 +15,7 @@ When using encryption in Data Catalog, create the KMS interface endpoint and add
 For more information, see
 [Creating a VPC endpoint for AWS KMS](../../../kms/latest/developerguide/kms-vpc-endpoint.md#vpce-create-endpoint "../../../kms/latest/developerguide/kms-vpc-endpoint.md#vpce-create-endpoint").
 
-## Accessing VPC Data Using elastic network
-
-interfaces
+## Accessing VPC Data Using elastic network interfaces
 
 When AWS Glue connects to a JDBC data store in a VPC,
 AWS Glue creates an elastic network interface (with the prefix
@@ -63,9 +61,7 @@ Don't put your data store in a public subnet or in a private subnet that
 doesn't have internet access. Instead, attach it only to private subnets that
 have internet access through a NAT instance or an Amazon VPC NAT gateway.
 
-## Elastic network interface
-
-properties
+## Elastic network interface properties
 
 To create the elastic network interface, you must supply the following
 properties:

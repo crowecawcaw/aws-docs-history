@@ -1,11 +1,4 @@
-# Converting
-
-semi-structured
-schemas
-to
-relational
-schemas
-with AWS Glue
+# Converting semi-structured schemas to relational schemas with AWS Glue
 
 It's common to want to convert semi-structured data into relational tables. Conceptually,
 you are flattening a hierarchical schema to a relational schema. AWS Glue can perform this

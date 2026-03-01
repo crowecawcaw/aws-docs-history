@@ -1,6 +1,4 @@
-# Code example: Joining
-
-and relationalizing data
+# Code example: Joining and relationalizing data
 
 This example uses a dataset that was downloaded from [http://everypolitician.org/](http://everypolitician.org/ "http://everypolitician.org/") to the
 `sample-dataset` bucket in Amazon Simple Storage Service (Amazon S3):
@@ -28,9 +26,7 @@ Using this data, this tutorial shows you how to do the following:
   The preferred way to debug Python or PySpark scripts while running on AWS is to use
   [Notebooks on AWS Glue Studio](../ug/notebooks-chapter.md "../ug/notebooks-chapter.md").
 
-## Step 1:
-
-Crawl the data in the Amazon S3 bucket
+## Step 1: Crawl the data in the Amazon S3 bucket
 
 1. Sign in to the AWS Management Console, and open the AWS Glue console at [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue/ "https://console.aws.amazon.com/glue/").
 2. Following the steps in [Configuring a crawler](define-crawler.md "define-crawler.md"), create a new crawler that can crawl the
@@ -50,9 +46,7 @@ The crawler creates the following metadata tables:
 This is a semi-normalized collection of tables containing legislators and their
 histories.
 
-## Step 2:
-
-Add boilerplate script to the development endpoint notebook
+## Step 2: Add boilerplate script to the development endpoint notebook
 
 Paste the following boilerplate script into the development endpoint notebook to import
 the AWS Glue libraries that you need, and set up a single `GlueContext`:
@@ -70,9 +64,7 @@ glueContext = GlueContext(SparkContext.getOrCreate())
 
 ```
 
-## Step 3:
-
-Examine the schemas from the data in the Data Catalog
+## Step 3: Examine the schemas from the data in the Data Catalog
 
 Next, you can easily create examine a DynamicFrame from the AWS Glue Data Catalog, and examine the schemas of the data. For
 example, to see the schema of the `persons_json` table, add the following in your
@@ -199,9 +191,7 @@ root
 
 ```
 
-## Step 4:
-
-Filter the data
+## Step 4: Filter the data
 
 Next, keep only the fields that you want, and rename `id` to
 `org_id`. The dataset is small enough that you can view the whole thing.
@@ -266,9 +256,7 @@ The following shows the output:
 
 ```
 
-## Step 5: Put
-
-it all together
+## Step 5: Put it all together
 
 Now, use AWS Glue to join these relational tables and create one full history table of
 legislator `memberships` and their corresponding `organizations`.
@@ -376,9 +364,7 @@ l_history.toDF().write.parquet('s3://glue-sample-target/output-dir/legislator_pa
 
 ```
 
-## Step 6: Transform
-
-the data for relational databases
+## Step 6: Transform the data for relational databases
 
 AWS Glue makes it easy to write the data to relational databases like Amazon Redshift, even with
 semi-structured data. It offers a transform `relationalize`, which flattens
@@ -502,8 +488,7 @@ for df_name in dfc.keys():
 Your connection settings will differ based on your type of relational database:
 
 - For instructions on writing to Amazon Redshift consult [Redshift connections](aws-glue-programming-etl-connect-redshift-home.md "aws-glue-programming-etl-connect-redshift-home.md").
-- For other databases, consult [Connection types and options for ETL in
-  AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
+- For other databases, consult [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
 
 ## Conclusion
 

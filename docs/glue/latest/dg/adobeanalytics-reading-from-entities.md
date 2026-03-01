@@ -1,6 +1,4 @@
-# Reading from Adobe Analytics
-
-entities
+# Reading from Adobe Analytics entities
 
 **Prerequisites**
 

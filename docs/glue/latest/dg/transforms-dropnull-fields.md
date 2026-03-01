@@ -1,6 +1,4 @@
-# Using DropNullFields to remove fields with null
-
-values
+# Using DropNullFields to remove fields with null values
 
 Use the _DropNullFields_ transform to remove fields
 from the dataset if all values in the field are ‘null’. By default, AWS Glue Studio

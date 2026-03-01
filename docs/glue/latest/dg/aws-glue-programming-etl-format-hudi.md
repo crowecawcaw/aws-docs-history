@@ -1,6 +1,4 @@
-# Using the Hudi framework in
-
-AWS Glue
+# Using the Hudi framework in AWS Glue
 
 AWS Glue 3.0 and later supports Apache Hudi framework for data lakes. Hudi is an open-source
 data lake storage framework that simplifies incremental data processing and data pipeline
@@ -32,8 +30,7 @@ The following table lists the Hudi version that is included in each AWS Glue ver
 | 4.0              | 0.12.1                 |
 | 3.0              | 0.10.1                 |
 
-To learn more about the data lake frameworks that AWS Glue supports, see [Using data lake
-frameworks with AWS Glue ETL jobs](aws-glue-programming-etl-datalake-native-frameworks.md "aws-glue-programming-etl-datalake-native-frameworks.md").
+To learn more about the data lake frameworks that AWS Glue supports, see [Using data lake frameworks with AWS Glue ETL jobs](aws-glue-programming-etl-datalake-native-frameworks.md "aws-glue-programming-etl-datalake-native-frameworks.md").
 
 ## Enabling Hudi
 
@@ -58,9 +55,7 @@ To use a version of Hudi that AWS Glue doesn't support, specify your own Hudi JA
 using the `--extra-jars` job parameter. Do not include `hudi` as a
 value for the `--datalake-formats` job parameter. If you use AWS Glue 5.0 or above, you must set `--user-jars-first true` job parameter.
 
-## Example: Write a Hudi table
-
-to Amazon S3 and register it in the AWS Glue Data Catalog
+## Example: Write a Hudi table to Amazon S3 and register it in the AWS Glue Data Catalog
 
 This example script demonstrates how to write a Hudi table to Amazon S3 and
 register the table to the AWS Glue Data Catalog. The example uses the Hudi [Hive Sync tool](https://hudi.apache.org/docs/syncing_metastore/ "https://hudi.apache.org/docs/syncing_metastore/") to
@@ -132,12 +127,9 @@ dataFrame.write.format("hudi")
   .save()
 ```
 
-## Example: Read a Hudi table
+## Example: Read a Hudi table from Amazon S3 using the AWS Glue Data Catalog
 
-from Amazon S3 using the AWS Glue Data Catalog
-
-This example reads the Hudi table that you created in the [Example: Write a Hudi table
-to Amazon S3 and register it in the AWS Glue Data Catalog](#aws-glue-programming-etl-format-hudi-write "#aws-glue-programming-etl-format-hudi-write") from
+This example reads the Hudi table that you created in the [Example: Write a Hudi table to Amazon S3 and register it in the AWS Glue Data Catalog](#aws-glue-programming-etl-format-hudi-write "#aws-glue-programming-etl-format-hudi-write") from
 Amazon S3.
 
 ###### Note
@@ -186,13 +178,10 @@ object GlueApp {
 }
 ```
 
-## Example: Update and
-
-insert a `DataFrame` into a Hudi table in Amazon S3
+## Example: Update and insert a `DataFrame` into a Hudi table in Amazon S3
 
 This example uses the AWS Glue Data Catalog to insert a DataFrame into the Hudi table that you
-created in [Example: Write a Hudi table
-to Amazon S3 and register it in the AWS Glue Data Catalog](#aws-glue-programming-etl-format-hudi-write "#aws-glue-programming-etl-format-hudi-write").
+created in [Example: Write a Hudi table to Amazon S3 and register it in the AWS Glue Data Catalog](#aws-glue-programming-etl-format-hudi-write "#aws-glue-programming-etl-format-hudi-write").
 
 ###### Note
 
@@ -273,9 +262,7 @@ object GlueApp {
 }
 ```
 
-## Example: Read a Hudi
-
-table from Amazon S3 using Spark
+## Example: Read a Hudi table from Amazon S3 using Spark
 
 This example reads a Hudi table from Amazon S3 using the Spark DataFrame
 API.
@@ -296,9 +283,7 @@ Scala
 val dataFrame = spark.read.format("hudi").load("s3://`<s3path/>`")
 ```
 
-## Example: Write a Hudi
-
-table to Amazon S3 using Spark
+## Example: Write a Hudi table to Amazon S3 using Spark
 
 This example writes a Hudi table to Amazon S3 using Spark.
 

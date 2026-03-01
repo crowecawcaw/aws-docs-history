@@ -1,6 +1,4 @@
-#
-
-Connecting to Zoho CRM
+# Connecting to Zoho CRM
 
 Zoho CRM acts as a single repository to bring sales, marketing, and customer support activities together, and streamline process, policy, and people in one platform. Zoho CRM can be easily customized to meet the specific needs of any business type and size.
 

@@ -6,8 +6,7 @@ generates join keys for array objects.
 ## Example
 
 We recommend that you use the [DynamicFrame.unnest()](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-unnest "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-unnest")
-method to flatten nested structures in a `DynamicFrame`. To view a code example, see [Example: Use unnest to turn nested fields into
-top-level fields](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-unnest-example "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-unnest-example").
+method to flatten nested structures in a `DynamicFrame`. To view a code example, see [Example: Use unnest to turn nested fields into top-level fields](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-unnest-example "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-unnest-example").
 
 ## Methods
 
@@ -20,9 +19,7 @@ top-level fields](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspa
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-UnnestFrame-describeErrors "#aws-glue-api-crawler-pyspark-transforms-UnnestFrame-describeErrors")
 - [describe](#aws-glue-api-crawler-pyspark-transforms-UnnestFrame-describe "#aws-glue-api-crawler-pyspark-transforms-UnnestFrame-describe")
 
-## \_\_call\_\_(frame,
-
-transformation_ctx = "", info="", stageThreshold=0, totalThreshold=0)
+## \_\_call\_\_(frame, transformation_ctx = "", info="", stageThreshold=0, totalThreshold=0)
 
 Unnests a `DynamicFrame`, flattens nested objects to top-level elements, and
 generates join keys for array objects.

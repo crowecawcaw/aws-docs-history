@@ -1,6 +1,4 @@
-#
-
-Connecting to Facebook Page Insights
+# Connecting to Facebook Page Insights
 
 Facebook Pages allow companies and other interest groups to create pages for the Facebook.com social network. Companies use these pages to share open hours, make announcements, and engage with customers online. If you are a Facebook Page Insights user, you can connect AWS Glue to your Facebook Page Insights account. You can use Facebook Page Insights as a data source in your ETL jobs. Run these jobs to transfer data from Facebook Page Insights to AWS services or other supported applications.
 

@@ -1,6 +1,4 @@
-#
-
-Connecting to Freshdesk
+# Connecting to Freshdesk
 
 Freshdesk is a cloud-based customer support software that is both feature-rich and easy to use. With multiple support channels available, including live chat, email, phone, and social media, you can help customers through their preferred communication method. If you are a Freshdesk user, you can connect AWS Glue to your Freshdesk account. You can use Freshdesk as a data source in your ETL jobs. Run these jobs to transfer data from Freshdesk to AWS services or other supported applications.
 

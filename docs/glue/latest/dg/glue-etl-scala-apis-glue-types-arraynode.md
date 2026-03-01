@@ -2,9 +2,7 @@
 
 **Package: com.amazonaws.services.glue.types**
 
-## ArrayNode case
-
-class
+## ArrayNode case class
 
 **ArrayNode**
 

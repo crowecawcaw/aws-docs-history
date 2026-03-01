@@ -42,9 +42,7 @@ There are two entry points for AWS Glue Data Quality: the AWS Glue Data Catalog 
 section provides an overview of the use cases and AWS Glue features that each entry point
 supports.
 
-### Data
-
-quality for the AWS Glue Data Catalog
+### Data quality for the AWS Glue Data Catalog
 
 AWS Glue Data Quality evaluates objects that are stored in the AWS Glue Data Catalog It offers non-coders an easy way to set up data
 quality rules. These personas include data stewards and business analysts.
@@ -61,8 +59,7 @@ You can manage data quality for the Data Catalog using the following interfaces:
 - The AWS Glue management console
 - AWS Glue APIs
 
-To get started with AWS Glue Data Quality for the AWS Glue Data Catalog see [Getting started with
-AWS Glue Data Quality for the Data Catalog](data-quality-getting-started.md "data-quality-getting-started.md").
+To get started with AWS Glue Data Quality for the AWS Glue Data Catalog see [Getting started with AWS Glue Data Quality for the Data Catalog](data-quality-getting-started.md "data-quality-getting-started.md").
 
 ### Data quality for AWS Glue ETL jobs
 
@@ -88,9 +85,7 @@ To get started with data quality for ETL jobs, see [Tutorial: Getting started wi
 Data Quality](../ug/gs-data-quality-chapter.md "../ug/gs-data-quality-chapter.md") in the _AWS Glue Studio User
 Guide_.
 
-### Comparing data quality for the Data Catalog
-
-to data quality for ETL jobs
+### Comparing data quality for the Data Catalog to data quality for ETL jobs
 
 This table provides an overview of features that each entry point for AWS Glue Data Quality
 supports.

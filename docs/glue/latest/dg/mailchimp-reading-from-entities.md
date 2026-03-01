@@ -1,6 +1,4 @@
-# Reading from Mailchimp
-
-entities
+# Reading from Mailchimp entities
 
 **Prerequisites**
 

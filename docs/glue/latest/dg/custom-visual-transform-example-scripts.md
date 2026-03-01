@@ -1,6 +1,4 @@
-#
-
-Examples of custom visual scripts
+# Examples of custom visual scripts
 
 The following examples perform equivalent transformations. However, the second example (SparkSQL)
 is the cleanest and most efficient, followed by the Pandas UDF and finally the low level mapping in the first example.

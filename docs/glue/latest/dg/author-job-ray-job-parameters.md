@@ -106,8 +106,7 @@ can also provide custom modules with `--s3-py-modules`.
 
 You can use this to distribute your own modules to your Ray job. You can also provide modules from
 PyPI with `--pip-install`. Unlike with AWS Glue ETL, custom modules are not set up through
-pip, but are passed to Ray for distribution. For more information, see [Additional Python modules for Ray
-jobs](edit-script-ray-env-dependencies.md#edit-script-ray-python-libraries-additional "edit-script-ray-env-dependencies.md#edit-script-ray-python-libraries-additional").
+pip, but are passed to Ray for distribution. For more information, see [Additional Python modules for Ray jobs](edit-script-ray-env-dependencies.md#edit-script-ray-python-libraries-additional "edit-script-ray-env-dependencies.md#edit-script-ray-python-libraries-additional").
 
 - `--working-dir` – A path to a .zip file hosted in Amazon S3 that contains files to be
   distributed to all nodes running your Ray job. Format: string. For more information, see [Providing files to your Ray job](edit-script-ray-env-dependencies.md#edit-script-ray-working-directory "edit-script-ray-env-dependencies.md#edit-script-ray-working-directory").

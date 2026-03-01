@@ -70,22 +70,16 @@ Ray documentation.
 Check the failure message of the job run. If that doesn't provide enough information, check
 `/aws-glue/ray/jobs/script-log/`.
 
-### Problem area: PIP dependency
-
-management
+### Problem area: PIP dependency management
 
 Check `/aws-glue/ray/jobs/ray-runtime-env-log/`.
 
-### Problem area: Inspecting intermediate values
-
-in main process
+### Problem area: Inspecting intermediate values in main process
 
 Write to `stderr` or `stdout` from your main script, and retrieve logs from
 `/aws-glue/ray/jobs/script-log/`.
 
-### Problem area: Inspecting intermediate values
-
-in a child process
+### Problem area: Inspecting intermediate values in a child process
 
 Write to `stderr` or `stdout` from your `remote` function. Then,
 retrieve logs from `/aws-glue/ray/jobs/ray-worker-out-logs/` or

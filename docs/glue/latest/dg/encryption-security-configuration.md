@@ -1,6 +1,4 @@
-# Encrypting data written by
-
-AWS Glue
+# Encrypting data written by AWS Glue
 
 A _security configuration_ is a set of security properties that can be
 used by AWS Glue. You can use a security configuration to encrypt data at rest. The following
@@ -22,21 +20,15 @@ security configuration and an SSE-S3 parameter are associated with a job, the
 SSE-S3 parameter is ignored.
 
 For more information about security configurations,
-see [Managing security configurations on
-the AWS Glue console](console-security-configurations.md "console-security-configurations.md").
+see [Managing security configurations on the AWS Glue console](console-security-configurations.md "console-security-configurations.md").
 
 ###### Topics
 
-- [Setting Up AWS Glue to use security
-  configurations](#encryption-setup-Glue "#encryption-setup-Glue")
-- [Creating a route to AWS KMS for VPC jobs and
-  crawlers](#encryption-kms-vpc-endpoint "#encryption-kms-vpc-endpoint")
-- [Managing security configurations on
-  the AWS Glue console](console-security-configurations.md "console-security-configurations.md")
+- [Setting Up AWS Glue to use security configurations](#encryption-setup-Glue "#encryption-setup-Glue")
+- [Creating a route to AWS KMS for VPC jobs and crawlers](#encryption-kms-vpc-endpoint "#encryption-kms-vpc-endpoint")
+- [Managing security configurations on the AWS Glue console](console-security-configurations.md "console-security-configurations.md")
 
-## Setting Up AWS Glue to use security
-
-configurations
+## Setting Up AWS Glue to use security configurations
 
 Follow these steps to set up your AWS Glue environment to use security
 configurations.
@@ -80,9 +72,7 @@ use the key to encrypt CloudWatch Logs. 2. Ensure that the AWS KMS key is `ENABL
 
 If you are using Iceberg as your data lake framework, Iceberg tables have their own mechanisms to enable server-side encryption. You should enable these configuration in addition to AWS Glue's security configurations. To enable server-side encryption on Iceberg tables, review the guidance from [Iceberg documentation](https://iceberg.apache.org/docs/latest/aws/#s3-server-side-encryption "https://iceberg.apache.org/docs/latest/aws/#s3-server-side-encryption").
 
-## Creating a route to AWS KMS for VPC jobs and
-
-crawlers
+## Creating a route to AWS KMS for VPC jobs and crawlers
 
 You can connect directly to AWS KMS
 through a private endpoint in your virtual private cloud (VPC) instead of connecting over

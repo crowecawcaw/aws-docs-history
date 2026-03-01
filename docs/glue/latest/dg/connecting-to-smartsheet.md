@@ -10,8 +10,7 @@ data.
 - [Policies containing the API operations for creating and using connections](smartsheet-configuring-iam-permissions.md "smartsheet-configuring-iam-permissions.md")
 - [Configuring Smartsheet](smartsheet-configuring.md "smartsheet-configuring.md")
 - [Configuring Smartsheet connections](smartsheet-configuring-connections.md "smartsheet-configuring-connections.md")
-- [Reading from Smartsheet
-  entities](smartsheet-reading-from-entities.md "smartsheet-reading-from-entities.md")
+- [Reading from Smartsheet entities](smartsheet-reading-from-entities.md "smartsheet-reading-from-entities.md")
 - [Smartsheet connection options](smartsheet-connection-options.md "smartsheet-connection-options.md")
 - [Creating an Smartsheet account](smartsheet-create-account.md "smartsheet-create-account.md")
 - [Limitations](smartsheet-connector-limitations.md "smartsheet-connector-limitations.md")

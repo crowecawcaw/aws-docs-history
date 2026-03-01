@@ -10,7 +10,6 @@ and dash-boarding and set alerts if they choose.
 - [Policies containing the API operations for creating and using connections](pendo-configuring-iam-permissions.md "pendo-configuring-iam-permissions.md")
 - [Configuring Pendo](pendo-configuring.md "pendo-configuring.md")
 - [Configuring Pendo connections](pendo-configuring-connections.md "pendo-configuring-connections.md")
-- [Reading from Pendo
-  entities](pendo-reading-from-entities.md "pendo-reading-from-entities.md")
+- [Reading from Pendo entities](pendo-reading-from-entities.md "pendo-reading-from-entities.md")
 - [Pendo connection options](pendo-connection-options.md "pendo-connection-options.md")
 - [Limitations](pendo-connector-limitations.md "pendo-connector-limitations.md")

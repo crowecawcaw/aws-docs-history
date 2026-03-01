@@ -28,8 +28,7 @@ enabled by default.
    Amazon S3**.
 6. Specify an Amazon S3 path for storing the Spark event logs for the job. Note that if you use a security
    configuration in the job, the encryption also applies to the Spark UI log file. For more information, see
-   [Encrypting data written by
-   AWS Glue](encryption-security-configuration.md "encryption-security-configuration.md").
+   [Encrypting data written by AWS Glue](encryption-security-configuration.md "encryption-security-configuration.md").
 7. Under **Spark UI logging and monitoring configuration**:
    - Select **Standard** if you are generating logs to view in the AWS Glue console.
    - Select **Legacy** if you are generating logs to view on a Spark history server.

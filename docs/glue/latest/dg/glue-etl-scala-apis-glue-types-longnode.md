@@ -2,9 +2,7 @@
 
 **Package: com.amazonaws.services.glue.types**
 
-## LongNode case
-
-class
+## LongNode case class
 
 **LongNode**
 

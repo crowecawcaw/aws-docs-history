@@ -26,9 +26,7 @@ Reads a `DynamicFrame` from a Resilient Distributed Dataset (RDD).
 
 ## from_options
 
-###### `from_options(connection_type, connection_options={}, format=None,
-
-format_options={}, transformation_ctx="")`
+###### `from_options(connection_type, connection_options={}, format=None, format_options={}, transformation_ctx="")`
 
 Reads a `DynamicFrame` using the specified connection and format.
 
@@ -63,11 +61,9 @@ connection_options = {"url": "`jdbc-url/database`", "user": "`username`", "passw
 For more information, see [Reading from JDBC tables in parallel](run-jdbc-parallel-read-job.md "run-jdbc-parallel-read-job.md").
 
 - `format` – A format specification (optional). This is used
-  for an Amazon Simple Storage Service (Amazon S3) or an AWS Glue connection that supports multiple formats. See [Data format options for inputs and outputs in
-  AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md")
+  for an Amazon Simple Storage Service (Amazon S3) or an AWS Glue connection that supports multiple formats. See [Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md")
   for the formats that are supported.
-- `format_options` – Format options for the specified format. See [Data format options for inputs and outputs in
-  AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md")
+- `format_options` – Format options for the specified format. See [Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md")
   for the formats that are supported.
 - `transformation_ctx` – The transformation context to use (optional).
 - `push_down_predicate` – Filters partitions without having to list and read all the files in your dataset. For more information, see [Pre-Filtering Using Pushdown Predicates](aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns "aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns").
@@ -85,8 +81,7 @@ name.
   reading data from Redshift).
 - `transformation_ctx` – The transformation context to use (optional).
 - `push_down_predicate` – Filters partitions without having to list and read all the files in your dataset.
-  For more information, see [Pre-filtering using pushdown
-  predicates](aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns "aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns").
+  For more information, see [Pre-filtering using pushdown predicates](aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns "aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns").
 - `additional_options` – Additional options provided to AWS Glue.
   - To use a JDBC connection that performs parallel reads, you can set the
     `hashfield`, `hashexpression`, or `hashpartitions`

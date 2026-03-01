@@ -1,6 +1,4 @@
-# AWS Glue Scala MapLikeNode
-
-APIs
+# AWS Glue Scala MapLikeNode APIs
 
 **Package: com.amazonaws.services.glue.types**
 

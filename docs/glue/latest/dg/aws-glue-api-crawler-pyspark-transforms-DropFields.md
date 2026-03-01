@@ -18,9 +18,7 @@ fields from a `DynamicFrame`. To view a code example, see [Example: Use drop_fie
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-DropFields-describeErrors "#aws-glue-api-crawler-pyspark-transforms-DropFields-describeErrors")
 - [Describe](#aws-glue-api-crawler-pyspark-transforms-DropFields-describe "#aws-glue-api-crawler-pyspark-transforms-DropFields-describe")
 
-## \_\_call\_\_(frame, paths, transformation_ctx = "",
-
-info = "", stageThreshold = 0, totalThreshold = 0)
+## \_\_call\_\_(frame, paths, transformation_ctx = "", info = "", stageThreshold = 0, totalThreshold = 0)
 
 Drops nodes within a `DynamicFrame`.
 

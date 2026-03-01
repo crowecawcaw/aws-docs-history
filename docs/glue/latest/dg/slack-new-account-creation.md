@@ -1,8 +1,6 @@
 # Creating a new Slack account and configuring the client app
 
-######
-
-Creating a Slack account
+###### Creating a Slack account
 
 1. Open the [Slack home page](https://slack.com/intl/en-in/ "https://slack.com/intl/en-in/") to sign-up for an account.
 2. Choose **SIGN UP WITH EMAIL ADDRESS**. Enter your email ID and choose
@@ -18,9 +16,7 @@ Creating a Slack account
 
 5. Fill in the input fields for these questions and continue. Your account is now ready to be used.
 
-######
-
-Creating a Slack developer app
+###### Creating a Slack developer app
 
 1. Log in to your Slack account and sign into your Slack workspace.
 2. From the workspace menu, select **Tools and settings** and then select **Manage apps**.

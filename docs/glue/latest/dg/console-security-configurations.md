@@ -1,6 +1,4 @@
-# Managing security configurations on
-
-the AWS Glue console
+# Managing security configurations on the AWS Glue console
 
 ###### Warning
 
@@ -81,8 +79,7 @@ JSON
 ###### Important
 
 When a security configuration is attached to a crawler or job, the IAM
-role that is passed must have AWS KMS permissions. For more information, see [Encrypting data written by
-AWS Glue](encryption-security-configuration.md "encryption-security-configuration.md").
+role that is passed must have AWS KMS permissions. For more information, see [Encrypting data written by AWS Glue](encryption-security-configuration.md "encryption-security-configuration.md").
 
 When you define a configuration, you can provide values for the following properties:
 

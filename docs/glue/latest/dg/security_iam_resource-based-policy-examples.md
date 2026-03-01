@@ -1,6 +1,4 @@
-# Resource-based policy
-
-examples for AWS Glue
+# Resource-based policy examples for AWS Glue
 
 This section contains example resource-based policies, including policies that grant
 cross-account access.
@@ -20,8 +18,7 @@ changes.
 ###### Topics
 
 - [Considerations for using resource-based policies with AWS Glue](#security_iam_resource-based-policy-examples-considerations "#security_iam_resource-based-policy-examples-considerations")
-- [Use a resource
-  policy to control access in the same account](#glue-policy-resource-policies-example-same-account "#glue-policy-resource-policies-example-same-account")
+- [Use a resource policy to control access in the same account](#glue-policy-resource-policies-example-same-account "#glue-policy-resource-policies-example-same-account")
 
 ## Considerations for using resource-based policies with AWS Glue
 
@@ -66,9 +63,7 @@ are allowed, but `*` is not allowed.
   further policy creation or modification.
 - A resource-policy JSON document cannot exceed 10 KB in size.
 
-## Use a resource
-
-policy to control access in the same account
+## Use a resource policy to control access in the same account
 
 In this example, an admin user in Account A creates a resource policy that grants
 IAM user `Alice` in Account A full access to the catalog. Alice has no

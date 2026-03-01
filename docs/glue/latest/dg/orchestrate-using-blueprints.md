@@ -14,6 +14,5 @@ reuse it for different departments, teams, and projects.
 - [Registering a blueprint in AWS Glue](registering-blueprints.md "registering-blueprints.md")
 - [Viewing blueprints in AWS Glue](viewing_blueprints.md "viewing_blueprints.md")
 - [Updating a blueprint in AWS Glue](updating_blueprints.md "updating_blueprints.md")
-- [Creating a workflow from a blueprint in
-  AWS Glue](creating_workflow_blueprint.md "creating_workflow_blueprint.md")
+- [Creating a workflow from a blueprint in AWS Glue](creating_workflow_blueprint.md "creating_workflow_blueprint.md")
 - [Viewing blueprint runs in AWS Glue](viewing_blueprint_runs.md "viewing_blueprint_runs.md")

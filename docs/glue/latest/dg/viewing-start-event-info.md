@@ -1,6 +1,4 @@
-# Viewing the EventBridge events that started a
-
-workflow
+# Viewing the EventBridge events that started a workflow
 
 You can view the event ID of the Amazon EventBridge event that started your workflow. If your workflow
 was started by a batch of events, you can view the event IDs of all events in the batch.

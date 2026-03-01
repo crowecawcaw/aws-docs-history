@@ -1,7 +1,4 @@
-# Known
-
-issues
-for AWS Glue
+# Known issues for AWS Glue
 
 Note the following known issues for AWS Glue.
 
@@ -43,8 +40,7 @@ configurations can be _dummy_ configurations. That is, you can
 create the security configurations without enabling encryption of Amazon S3 data, Amazon CloudWatch data, or
 job bookmarks. All three encryption options can be disabled.
 
-For information about security configurations, see [Encrypting data written by
-AWS Glue](encryption-security-configuration.md "encryption-security-configuration.md").
+For information about security configurations, see [Encrypting data written by AWS Glue](encryption-security-configuration.md "encryption-security-configuration.md").
 
 ###### To attach a security configuration to a job
 

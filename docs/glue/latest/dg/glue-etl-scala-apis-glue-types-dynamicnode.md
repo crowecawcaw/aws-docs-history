@@ -1,6 +1,4 @@
-# AWS Glue Scala DynamicNode
-
-APIs
+# AWS Glue Scala DynamicNode APIs
 
 ###### Topics
 

@@ -6,9 +6,7 @@ Compaction is disabled by default for new tables.
 
 Console
 
-######
-
-To enable compaction
+###### To enable compaction
 
 1. Open the AWS Glue console at [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue/ "https://console.aws.amazon.com/glue/") and sign in as a data lake administrator, the table creator, or a user who has been granted
    the `glue:UpdateTable` and `lakeformation:GetDataAccess` permissions on the table.

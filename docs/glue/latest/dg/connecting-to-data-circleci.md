@@ -1,6 +1,4 @@
-#
-
-Connecting to CircleCI
+# Connecting to CircleCI
 
 CircleCI is a continuous integration and continuous delivery platform. Your CircleCI account contains data about your projects, pipelines, workflows, and more. If you're a CircleCI user, you can connect AWS Glue to your CircleCI account. Then, you can use CircleCI as a data source in your ETL jobs. Run these jobs to transfer data between CircleCI and AWS services or other supported applications.
 

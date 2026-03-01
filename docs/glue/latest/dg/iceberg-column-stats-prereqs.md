@@ -1,6 +1,4 @@
-# Prerequisites for generating column
-
-statistics
+# Prerequisites for generating column statistics
 
 To generate or update column statistics for Iceberg tables, the statistics generation
 task assumes an AWS Identity and Access Management (IAM) role on your behalf. Based on the permissions granted
@@ -15,5 +13,4 @@ If you specify an existing role for generating column statistics, ensure that it
 includes the `AWSGlueServiceRole` policy or equivalent (or a scoped down
 version of this policy), and the required inline policies.
 
-For more information about the required permissions, see [Prerequisites for generating column
-statistics](column-stats-prereqs.md "column-stats-prereqs.md").
+For more information about the required permissions, see [Prerequisites for generating column statistics](column-stats-prereqs.md "column-stats-prereqs.md").

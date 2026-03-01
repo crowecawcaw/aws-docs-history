@@ -1,6 +1,4 @@
-#
-
-Creating a Kafka connection
+# Creating a Kafka connection
 
 When creating a Kafka connection, selecting **Kafka** from the drop-down menu will
 display additional settings to configure:

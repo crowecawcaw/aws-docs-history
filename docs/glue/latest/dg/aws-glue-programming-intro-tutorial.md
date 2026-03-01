@@ -103,9 +103,7 @@ job.commit()
 language in **Job details**, you can switch back and forth between generating
 Python or Scala code.
 
-## Step 1. Create a job and paste your
-
-script
+## Step 1. Create a job and paste your script
 
 In this step, you create an AWS Glue job in the AWS Management Console. This sets up a configuration that allows AWS Glue to
 run your script. It also creates a place for you to store and edit your script.
@@ -119,9 +117,7 @@ run your script. It also creates a place for you to store and edit your script.
 4. **Optional** - Paste the full text of your script into the
    **Script** pane. Alternatively, you can follow along with the tutorial.
 
-## Step 2. Import AWS Glue
-
-libraries
+## Step 2. Import AWS Glue libraries
 
 You need to set your script up to interact with code and configuration that are defined outside of the
 script. This work is done behind the scenes in AWS Glue Studio.
@@ -136,16 +132,14 @@ In this step, you perform the following actions.
   the Spark engine available inside the AWS Glue job. You won't need to use them directly within
   introductory AWS Glue scripts.
 - Call `getResolvedOptions` to prepare your job arguments for use within the script. For
-  more information about resolving job parameters, see [Accessing
-  parameters using getResolvedOptions](aws-glue-api-crawler-pyspark-extensions-get-resolved-options.md "aws-glue-api-crawler-pyspark-extensions-get-resolved-options.md").
+  more information about resolving job parameters, see [Accessing parameters using getResolvedOptions](aws-glue-api-crawler-pyspark-extensions-get-resolved-options.md "aws-glue-api-crawler-pyspark-extensions-get-resolved-options.md").
 - Initialize a `Job`. The `Job` object sets configuration and tracks the state
   of various optional AWS Glue features. Your script can run without a `Job` object, but the
   best practice is to initialize it so that you don't encounter confusion if those features are later
   integrated.
 
 One of these features is job bookmarks, which you can optionally configure in this tutorial. You
-can learn about job bookmarks in the following section, [Optional - Enable job
-bookmarks](#aws-glue-programming-intro-tutorial-create-job-bookmarks "#aws-glue-programming-intro-tutorial-create-job-bookmarks").
+can learn about job bookmarks in the following section, [Optional - Enable job bookmarks](#aws-glue-programming-intro-tutorial-create-job-bookmarks "#aws-glue-programming-intro-tutorial-create-job-bookmarks").
 
 In this procedure, you write the following code. This code is a portion of the generated sample script.
 
@@ -174,9 +168,7 @@ You might consider copying code to be a bad engineering practice. In this tutori
 this to encourage you to consistently name your core variables across all AWS Glue ETL
 scripts.
 
-## Step 3. Extract data from a
-
-source
+## Step 3. Extract data from a source
 
 In any ETL process, you first need to define a source dataset that you want to change. In the AWS Glue Studio
 visual editor, you provide this information by creating a **Source** node.
@@ -209,8 +201,7 @@ The AWS Glue Data Catalog stores information about the location and format of yo
 up in the prerequisite section. You don't have to directly provide your script with that
 information. 3. **Optional** – Provide the `transformation_ctx`
 parameter to the method in order to support job bookmarks. You can learn about job bookmarks in the
-following section, [Optional - Enable job
-bookmarks](#aws-glue-programming-intro-tutorial-create-job-bookmarks "#aws-glue-programming-intro-tutorial-create-job-bookmarks").
+following section, [Optional - Enable job bookmarks](#aws-glue-programming-intro-tutorial-create-job-bookmarks "#aws-glue-programming-intro-tutorial-create-job-bookmarks").
 
 ###### Note
 
@@ -225,10 +216,8 @@ method. You will need to provide more detailed parameters describing your data t
 
 Refer to the supplemental documentation about `format_options` and
 `connection_parameters` to identify your required parameters. For an explanation of how to
-provide your script information about your source data format, see [Data format options for inputs and outputs in
-AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md"). For an explanation of how to provide your script
-information about your source data location, see [Connection types and options for ETL in
-AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
+provide your script information about your source data format, see [Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md"). For an explanation of how to provide your script
+information about your source data location, see [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
 
 If you're reading information from a streaming source, you provide your job with source information
 through the [create_data_frame_from_catalog](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create-dataframe-from-catalog "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create-dataframe-from-catalog") or [create_data_frame_from_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create-dataframe-from-options "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create-dataframe-from-options") methods.
@@ -239,9 +228,7 @@ documentation refers to `create_dynamic_frame_from_catalog`. These methods ultim
 the same code, and are included so you can write cleaner code. You can verify this by viewing the source
 for our Python wrapper, available at [aws-glue-libs](https://github.com/awslabs/aws-glue-libs/blob/master/awsglue/context.py "https://github.com/awslabs/aws-glue-libs/blob/master/awsglue/context.py").
 
-## Step 4. Transform data with
-
-AWS Glue
+## Step 4. Transform data with AWS Glue
 
 After extracting source data in an ETL process, you need to describe how you want to change your data. You
 provide this information by creating a **Transform** node in the AWS Glue Studio visual
@@ -328,8 +315,7 @@ Rather than calling `apply`, you can call the same transform with the
 readable code. For more information, see [apply_mapping](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-apply_mapping "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-apply_mapping"). 2. Examine the documentation for `ApplyMapping` to identify required parameters. See [ApplyMapping class](aws-glue-api-crawler-pyspark-transforms-ApplyMapping.md "aws-glue-api-crawler-pyspark-transforms-ApplyMapping.md"). You will find that this method
 requires `frame` and `mappings` parameters. Provide the necessary parameters
 to `ApplyMapping`. 3. **Optional** – Provide `transformation_ctx` to the
-method to support job bookmarks. You can learn about job bookmarks in the following section, [Optional - Enable job
-bookmarks](#aws-glue-programming-intro-tutorial-create-job-bookmarks "#aws-glue-programming-intro-tutorial-create-job-bookmarks").
+method to support job bookmarks. You can learn about job bookmarks in the following section, [Optional - Enable job bookmarks](#aws-glue-programming-intro-tutorial-create-job-bookmarks "#aws-glue-programming-intro-tutorial-create-job-bookmarks").
 
 ###### Note
 
@@ -343,9 +329,7 @@ You can create a `DataFrame` with [toDF](aws-glue-api-crawler-pyspark-extensions
 available on the DataFrame to transform your dataset. For more information on these methods, see [DataFrame](https://spark.apache.org/docs/3.1.1/api/python/reference/api/pyspark.sql.DataFrame.html "https://spark.apache.org/docs/3.1.1/api/python/reference/api/pyspark.sql.DataFrame.html"). You can then convert backwards with [fromDF](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-fromDF "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-fromDF") to use AWS Glue operations for
 loading your frame to a target.
 
-## Step 5. Load data into a
-
-target
+## Step 5. Load data into a target
 
 After you transform your data, you typically store the transformed data in a different place from the
 source. You perform this operation by creating a **target** node in the AWS Glue Studio visual
@@ -393,31 +377,25 @@ still need to use `connection_options` to provide `dbtable`.
 `write_dynamic_frame.from_catalog` is not a common method for loading data. This
 method updates the AWS Glue Data Catalog without updating the underlying dataset, and is used in
 combination with other processes that change the underlying dataset. For more information, see
-[Updating the schema, and adding new partitions in the Data Catalog using
-AWS Glue ETL jobs](update-from-job.md "update-from-job.md"). 2. Examine the documentation for [write_dynamic_frame_from_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options").
+[Updating the schema, and adding new partitions in the Data Catalog using AWS Glue ETL jobs](update-from-job.md "update-from-job.md"). 2. Examine the documentation for [write_dynamic_frame_from_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options").
 This method requires `frame`, `connection_type`, `format`,
 `connection_options`, and `format_options`. Call this method on
 `glueContext`.
 
     1. Refer to the supplemental documentation about `format_options` and
      `format` to identify the parameters you need. For an explanation of data formats,
-     see [Data format options for inputs and outputs in
-     AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md").
+     see [Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md").
     2. Refer to the supplemental documentation about `connection_type` and
      `connection_options` to identify the parameters you need. For an explanation of
-     connections, see [Connection types and options for ETL in
-     AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
+     connections, see [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
     3. Provide the necessary parameters to `write_dynamic_frame.from_options`. This
      method has a similar configuration to `create_dynamic_frame.from_options`.
 
 3. **Optional** – Provide `transformation_ctx` to
    `write_dynamic_frame.from_options` to support job bookmarks. You can learn about job
-   bookmarks in the following section, [Optional - Enable job
-   bookmarks](#aws-glue-programming-intro-tutorial-create-job-bookmarks "#aws-glue-programming-intro-tutorial-create-job-bookmarks").
+   bookmarks in the following section, [Optional - Enable job bookmarks](#aws-glue-programming-intro-tutorial-create-job-bookmarks "#aws-glue-programming-intro-tutorial-create-job-bookmarks").
 
-## Step 6. Commit the `Job`
-
-object
+## Step 6. Commit the `Job` object
 
 You initialized a `Job` object in Step 1. You may need to manually conclude its lifecycle at the
 end of your script if certain optional features need this to function properly, such as when using Job Bookmarks. This work is done behind the
@@ -437,9 +415,7 @@ job.commit()
    `transformation_ctx`.
 2. Call `commit`.
 
-## Optional - Enable job
-
-bookmarks
+## Optional - Enable job bookmarks
 
 In every prior step, you have been instructed to set `transformation_ctx` parameters. This is
 related to a feature called job bookmarks.

@@ -1,6 +1,4 @@
-# Considerations and
-
-limitations
+# Considerations and limitations
 
 Consider the following considerations and limitations when you use Lake Formation with
 AWS Glue.

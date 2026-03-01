@@ -2,9 +2,7 @@
 
 **Package: com.amazonaws.services.glue.types**
 
-## DateNode case
-
-class
+## DateNode case class
 
 **DateNode**
 

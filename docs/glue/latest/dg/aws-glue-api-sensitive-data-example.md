@@ -80,9 +80,7 @@ and `classifyColumns()` APIs:
 
 ```
 
-###
-
-Row-level detection with fine-grained actions
+### Row-level detection with fine-grained actions
 
 In the example, the job is performing the following actions using the `detect()` APIs:
 
@@ -163,9 +161,7 @@ object GlueApp {
 
 ```
 
-###
-
-Column-level detection
+### Column-level detection
 
 In the example, the job is performing the following actions using the `classifyColumns()`APIs:
 
@@ -216,9 +212,7 @@ object GlueApp {
 
 ```
 
-## Detecting Sensitive Data Detection using AWS
-
-CustomEntityType PII types
+## Detecting Sensitive Data Detection using AWS CustomEntityType PII types
 
 You can define custom entities through AWS Studio. However,
 to use this feature out of AWS Studio, you have to first define
@@ -280,9 +274,7 @@ If a custom sensitive data type is defined with the same name as an existing
 managed entity type, then the custom sensitive data type will take precedent
 and overwrite the managed entity type's logic.
 
-##
-
-Detection parameters for using `detect()`
+## Detection parameters for using `detect()`
 
 This method is used for detecting entities in a DynamicFrame. It returns a new DataFrame with original values and an additional
 column outputColumnName that has PII detection metadata. Custom masking can be done after this DynamicFrame is returned within

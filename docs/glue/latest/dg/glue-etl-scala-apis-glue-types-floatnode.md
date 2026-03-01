@@ -2,9 +2,7 @@
 
 **Package: com.amazonaws.services.glue.types**
 
-## FloatNode case
-
-class
+## FloatNode case class
 
 **FloatNode**
 

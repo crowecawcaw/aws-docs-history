@@ -16,8 +16,7 @@ AWS SDK for pandas and current third-party libraries substantively cover that ne
 consult those libraries to understand what capabilities are available.
 
 AWS Glue for Ray integration with Amazon VPC is not currently available. Resources in Amazon VPC will not be accessible
-without a public route. For more information about using AWS Glue with Amazon VPC, see [Configuring interface VPC endpoints (AWS PrivateLink) for AWS Glue
-(AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
+without a public route. For more information about using AWS Glue with Amazon VPC, see [Configuring interface VPC endpoints (AWS PrivateLink) for AWS Glue (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
 
 ## Common libraries for working with data in Ray
 

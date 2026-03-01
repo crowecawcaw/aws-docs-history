@@ -1,14 +1,8 @@
-#
+# Using Delta Lake framework in AWS Glue Studio
 
-Using Delta Lake framework in AWS Glue Studio
+## Using Delta Lake framework in data sources
 
-##
-
-Using Delta Lake framework in data sources
-
-###
-
-Using Delta Lake framework in Amazon S3 data sources
+### Using Delta Lake framework in Amazon S3 data sources
 
 1. From the Source menu, choose Amazon S3.
 2. If you choose Data Catalog table as the Amazon S3 source type, choose a database and table.
@@ -33,9 +27,7 @@ In **Additional options** choose from the following options under **Schema infer
 
 7. Click **Infer schema**. You can then view the output schema by clicking on the **Output schema** tab.
 
-###
-
-Using Delta Lake framework in Data Catalog data sources
+### Using Delta Lake framework in Data Catalog data sources
 
 1. From the **Source** menu, choose AWS Glue Studio Data Catalog.
 2. In the **Data source properties** tab, choose a database and table.
@@ -50,23 +42,17 @@ you have two options:
      information, see
      [How to specify configuration options for a Delta Lake data store](crawler-configuration.md#crawler-delta-lake "crawler-configuration.md#crawler-delta-lake").
     2. Use an Amazon S3 data source to select your Delta Lake data source. See
-     [Using Delta Lake framework in Amazon S3 data sources](#gs-data-lake-formats-delta-lake-s3-data-source "#gs-data-lake-formats-delta-lake-s3-data-source") .
+     [Using Delta Lake framework in Amazon S3 data sources](#gs-data-lake-formats-delta-lake-s3-data-source "#gs-data-lake-formats-delta-lake-s3-data-source").
 
-##
+## Using Delta Lake formats in data targets
 
-Using Delta Lake formats in data targets
-
-###
-
-Using Delta Lake formats in Data Catalog data targets
+### Using Delta Lake formats in Data Catalog data targets
 
 1. From the **Target** menu, choose AWS Glue Studio Data Catalog.
 2. In the **Data source properties** tab, choose a database and table.
 3. AWS Glue Studio displays the format type as Delta Lake and the Amazon S3 URL.
 
-###
-
-Using Delta Lake formats in Amazon S3 data sources
+### Using Delta Lake formats in Amazon S3 data sources
 
 Enter values or select from the available options to configure Delta Lake format.
 

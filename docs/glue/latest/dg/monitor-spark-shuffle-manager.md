@@ -27,9 +27,7 @@ are known to be bound by the local disk capacity for large shuffle operations. I
 shuffling to Amazon S3 is marginally slower than local disk (or EBS) if you have a large number of
 small partitions or shuffle files written out to Amazon S3.
 
-## Prerequisites for using Cloud Shuffle
-
-Storage Plugin
+## Prerequisites for using Cloud Shuffle Storage Plugin
 
 In order to use the Cloud Shuffle Storage Plugin with AWS Glue ETL jobs, you need the following:
 
@@ -48,18 +46,14 @@ In order to use the Cloud Shuffle Storage Plugin with AWS Glue ETL jobs, you nee
   setting up an Amazon S3 lifecycle policy are available at [Setting
   lifecycle configuration on a bucket](../../../AmazonS3/latest/userguide/how-to-set-lifecycle-configuration-intro.md "../../../AmazonS3/latest/userguide/how-to-set-lifecycle-configuration-intro.md") in the Amazon Simple Storage Service User Guide.
 
-## Using AWS Glue Spark
-
-shuffle manager from the AWS console
+## Using AWS Glue Spark shuffle manager from the AWS console
 
 To set up the AWS Glue Spark shuffle manager using the AWS Glue
 console or AWS Glue Studio when configuring a job: choose the **--write-shuffle-files-to-s3** job parameter to turn on Amazon S3 shuffling for the job.
 
 ![Job parameters interface showing --write-shuffle-files- parameter and option to add more.](images/gs-s3-shuffle.png)
 
-## Using AWS Glue Spark shuffle
-
-plugin
+## Using AWS Glue Spark shuffle plugin
 
 The following job parameters turn on and tune the AWS Glue shuffle manager. These parameters are flags, so any values provided are not considered.
 
@@ -95,7 +89,6 @@ The following are notes or limitations for the AWS Glue shuffle manager:
 
 - AWS Glue shuffle manager doesn't automatically delete the (temporary) shuffle data files stored
   in your Amazon S3 bucket after a job is completed. To ensure data protection, follow the instructions
-  in [Prerequisites for using Cloud Shuffle
-  Storage Plugin](#monitor-spark-shuffle-manager-prereqs "#monitor-spark-shuffle-manager-prereqs")
+  in [Prerequisites for using Cloud Shuffle Storage Plugin](#monitor-spark-shuffle-manager-prereqs "#monitor-spark-shuffle-manager-prereqs")
   before enabling the Cloud Shuffle Storage Plugin.
 - You can use this feature if your data is skewed.

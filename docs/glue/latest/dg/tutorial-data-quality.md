@@ -1,8 +1,4 @@
-# Evaluating
-
-data
-quality
-for ETL jobs in AWS Glue Studio
+# Evaluating data quality for ETL jobs in AWS Glue Studio
 
 In
 this tutorial, you get
@@ -25,10 +21,7 @@ the blog post
 started with AWS Glue Data Quality for ETL
 pipelines**](https://aws.amazon.com/blogs/big-data/getting-started-with-aws-glue-data-quality-for-etl-pipelines/ "https://aws.amazon.com/blogs/big-data/getting-started-with-aws-glue-data-quality-for-etl-pipelines/").
 
-## Step 1: Add the Evaluate Data Quality
-
-transform node
-to the visual job
+## Step 1: Add the Evaluate Data Quality transform node to the visual job
 
 In this step, you add the Evaluate Data Quality
 node
@@ -213,11 +206,7 @@ the column if
 it's
 greater than 80% complete (non-null) values.
 
-## Step 3: Configure
-
-data
-quality
-outputs
+## Step 3: Configure data quality outputs
 
 After creating data quality rules, you can select additional options to specify data quality node output.
 
@@ -314,11 +303,7 @@ After creating data quality rules, you can select additional options to specify 
     location** field. Then, choose **Browse** to
     search for an Amazon S3 location to set as the data quality output target.
 
-## Step 4. Configure
-
-data
-quality
-actions
+## Step 4. Configure data quality actions
 
 You can use
 actions

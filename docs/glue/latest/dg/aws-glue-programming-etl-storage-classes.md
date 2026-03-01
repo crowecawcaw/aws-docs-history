@@ -32,14 +32,10 @@ There are different ways that you can filter Amazon S3 storage classes in AWS Gl
 
 ###### Topics
 
-- [Excluding Amazon S3 storage
-  classes when creating a Dynamic Frame](#aws-glue-programming-etl-storage-classes-dynamic-frame "#aws-glue-programming-etl-storage-classes-dynamic-frame")
-- [Excluding Amazon S3 storage classes
-  on a Data Catalog table](#aws-glue-programming-etl-storage-classes-table "#aws-glue-programming-etl-storage-classes-table")
+- [Excluding Amazon S3 storage classes when creating a Dynamic Frame](#aws-glue-programming-etl-storage-classes-dynamic-frame "#aws-glue-programming-etl-storage-classes-dynamic-frame")
+- [Excluding Amazon S3 storage classes on a Data Catalog table](#aws-glue-programming-etl-storage-classes-table "#aws-glue-programming-etl-storage-classes-table")
 
-## Excluding Amazon S3 storage
-
-classes when creating a Dynamic Frame
+## Excluding Amazon S3 storage classes when creating a Dynamic Frame
 
 To exclude Amazon S3 storage classes while creating a dynamic frame, use
 `excludeStorageClasses` in `additionalOptions`. AWS Glue automatically
@@ -75,9 +71,7 @@ val* *df = glueContext.getCatalogSource(
 ).getDynamicFrame()
 ```
 
-## Excluding Amazon S3 storage classes
-
-on a Data Catalog table
+## Excluding Amazon S3 storage classes on a Data Catalog table
 
 You can specify storage class exclusions to be used by an AWS Glue ETL job as a table parameter
 in the AWS Glue Data Catalog. You can include this parameter in the `CreateTable` operation

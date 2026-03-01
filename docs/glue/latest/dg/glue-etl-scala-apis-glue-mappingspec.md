@@ -2,9 +2,7 @@
 
 **Package: com.amazonaws.services.glue**
 
-## MappingSpec case
-
-class
+## MappingSpec case class
 
 ```
 case class MappingSpec( sourcePath: SchemaPath,

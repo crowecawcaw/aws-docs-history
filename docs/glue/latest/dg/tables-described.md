@@ -24,8 +24,7 @@ You can also add tables to the Data Catalog manually in the following ways:
 - [Table resource links](#tables-resource-links "#tables-resource-links")
 - [Creating tables using the console](#console-tables "#console-tables")
 - [Creating partition indexes](partition-indexes.md "partition-indexes.md")
-- [Updating manually created Data Catalog tables using
-  crawlers](#update-manual-tables "#update-manual-tables")
+- [Updating manually created Data Catalog tables using crawlers](#update-manual-tables "#update-manual-tables")
 - [Data Catalog table properties](#table-properties "#table-properties")
 
 ## Table partitions
@@ -37,7 +36,7 @@ definitions include the partitioning key of a table. When AWS Glue evaluates the
 Amazon S3 folders to catalog a table, it determines whether an individual table or a
 partitioned table is added.
 
-You can create partition indexes on a table to fetch a subset of the partitions instead of loading all the partitions in the table. For information about working with partition indexes, see [Creating partition indexes](partition-indexes.md "partition-indexes.md") .
+You can create partition indexes on a table to fetch a subset of the partitions instead of loading all the partitions in the table. For information about working with partition indexes, see [Creating partition indexes](partition-indexes.md "partition-indexes.md").
 
 All the following conditions must be true for AWS Glue to create a partitioned table for
 an Amazon S3 folder:
@@ -107,7 +106,7 @@ button to create tables either with a crawler or by manually typing attributes.
 To use a crawler to add tables, choose **Add tables**, **Add
 tables using a crawler**. Then follow the instructions in the **Add
 crawler** wizard. When the crawler runs, tables are added to the AWS Glue Data Catalog.
-For more information, see [Using crawlers to populate the Data Catalog](add-crawler.md "add-crawler.md") .
+For more information, see [Using crawlers to populate the Data Catalog](add-crawler.md "add-crawler.md").
 
 If you know the attributes that are required to create an Amazon Simple Storage Service (Amazon S3) table
 definition in your Data Catalog, you can create it with the table wizard. Choose
@@ -207,7 +206,7 @@ To run the table optimizers, the service assumes an IAM role on your behalf. You
 an IAM role using the drop-down. Ensure that the role has the permissions
 required to enable compaction.
 
-To learn more about the required permissions for the IAM role, see [Table optimization prerequisites](optimization-prerequisites.md "optimization-prerequisites.md") .
+To learn more about the required permissions for the IAM role, see [Table optimization prerequisites](optimization-prerequisites.md "optimization-prerequisites.md").
 
 **Location**
 
@@ -305,7 +304,7 @@ remove columns, change column names, and change data types.
 
 To compare different versions of a table, including its schema, choose **Compare versions** to see a side-by-side comparison
 of two versions of the schema for a table. For more information, see
-[Comparing table schema versions](#console-tables-schema-comparison "#console-tables-schema-comparison") .
+[Comparing table schema versions](#console-tables-schema-comparison "#console-tables-schema-comparison").
 
 To display the files that make up an Amazon S3 partition, choose **View
 partition**. For Amazon S3 tables, the **Key** column displays
@@ -319,9 +318,7 @@ search the internet for information about "hive partitioning."
 To get step-by-step guidance for viewing the details of a table, see the
 **Explore table** tutorial in the console.
 
-###
-
-Comparing table schema versions
+### Comparing table schema versions
 
 When you compare two versions of table schemas, you can compare nested row changes by expanding and collapsing nested rows,
 compare schemas of two versions side-by-side, and view table properties side-by-side.
@@ -344,9 +341,7 @@ icon displays the type of change that was made.
 ![The screenshot shows the table schema comparison between two versions. On the left side is the older version. On the right side is the newer version. The delete icon is next to a column that was removed from the older version and is no longer in the newer version.](images/catalog-table-version-comparison.png) 4. Use the filter fields search bar to display fields based on the characters you enter here. If you enter a column name in either table
 version, the filtered fields are displayed in both table versions to show you where the changes have occurred. 5. To compare properties, choose the **Properties tab**. 6. To stop comparing versions, choose **Stop comparing** to return to the list of tables.
 
-## Updating manually created Data Catalog tables using
-
-crawlers
+## Updating manually created Data Catalog tables using crawlers
 
 You might want to create AWS Glue Data Catalog tables manually and then keep them updated with
 AWS Glue crawlers. Crawlers running on a schedule can add new partitions and update the

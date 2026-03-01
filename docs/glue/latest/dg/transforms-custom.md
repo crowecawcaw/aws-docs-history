@@ -19,9 +19,7 @@ actions:
 
 Use the following tasks to add a custom transform node to your job diagram.
 
-## Adding a custom code transform node to the job
-
-diagram
+## Adding a custom code transform node to the job diagram
 
 ###### To add a custom transform node to your job diagram
 
@@ -32,9 +30,7 @@ diagram
    inputs for the custom transform, then choose a node from the **Node
    parents** list to use as the input source for the transform.
 
-## Entering code for the custom transform
-
-node
+## Entering code for the custom transform node
 
 You can type or copy code into an input field. The job uses this code to perform the
 data transformation. You can provide a code snippet in either Python or Scala. The code
@@ -105,9 +101,7 @@ object FilterHighVoteCounts {
 }
 ```
 
-## Editing the schema in a custom transform
-
-node
+## Editing the schema in a custom transform node
 
 When you use a custom transform node, AWS Glue Studio cannot automatically infer
 the output schemas created by the transform. You use the schema editor to describe the
@@ -196,8 +190,7 @@ there is only one `DynamicFrame` in the result set.
 
 1. Add a _SelectFromCollection_ transform node, which has the
    custom transform node as its parent node. Update this transform to indicate which
-   dataset you want to use. See [Using SelectFromCollection to
-   choose which dataset to keep](transforms-configure-select-collection.md "transforms-configure-select-collection.md") for more information.
+   dataset you want to use. See [Using SelectFromCollection to choose which dataset to keep](transforms-configure-select-collection.md "transforms-configure-select-collection.md") for more information.
 2. Add additional _SelectFromCollection_ transforms to the job
    diagram if you want to use additional `DynamicFrames` produced by the
    custom transform node.

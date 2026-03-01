@@ -1,6 +1,4 @@
-#
-
-Connecting to Domo
+# Connecting to Domo
 
 Domo is a cloud-based dash-boarding tool. With Domo’s enterprise application platform, the foundation you need to extend Domo is in place, so you can build your custom solutions faster.
 

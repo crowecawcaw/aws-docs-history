@@ -13,8 +13,7 @@ interfaces](../../../vpc/latest/userguide/VPC_ElasticNetworkInterfaces.md "../..
 your VPC. Each elastic network interface is assigned a private IP address from the IP
 address range within the subnet you specified. No public IP addresses are assigned.
 Security groups specified in the AWS Glue connection are applied on each of the elastic network interfaces.
-For more information, see [Setting up Amazon VPC for JDBC connections to Amazon RDS data stores from
-AWS Glue](setup-vpc-for-glue-access.md "setup-vpc-for-glue-access.md").
+For more information, see [Setting up Amazon VPC for JDBC connections to Amazon RDS data stores from AWS Glue](setup-vpc-for-glue-access.md "setup-vpc-for-glue-access.md").
 
 All JDBC data stores that are accessed by the job must be available from the VPC subnet. To
 access Amazon S3 from within your VPC, a [VPC endpoint](vpc-endpoints-s3.md "vpc-endpoints-s3.md") is
@@ -29,8 +28,7 @@ A job or development endpoint can only access one VPC (and subnet) at a time. If
 - Use an Amazon S3 bucket as an intermediary storage location. Split the work into two jobs, with the Amazon S3 output of job 1 as the input to job 2.
   For details on how to connect to a Amazon Redshift data store using Amazon VPC, see [Configuring Redshift connections](aws-glue-programming-etl-connect-redshift-home.md#aws-glue-programming-etl-connect-redshift-configure "aws-glue-programming-etl-connect-redshift-home.md#aws-glue-programming-etl-connect-redshift-configure").
 
-For details on how to connnect to Amazon RDS data stores using Amazon VPC, see [Setting up Amazon VPC for JDBC connections to Amazon RDS data stores from
-AWS Glue](setup-vpc-for-glue-access.md "setup-vpc-for-glue-access.md").
+For details on how to connnect to Amazon RDS data stores using Amazon VPC, see [Setting up Amazon VPC for JDBC connections to Amazon RDS data stores from AWS Glue](setup-vpc-for-glue-access.md "setup-vpc-for-glue-access.md").
 
 Once necessary rules are set in Amazon VPC, you create a connection in AWS Glue with the necessary properties to connect to your data stores.
 For more information about the connection, see
@@ -43,6 +41,5 @@ see [Setting up DNS in your VPC](set-up-vpc-dns.md "set-up-vpc-dns.md").
 
 ###### Topics
 
-- [Setting up a VPC to connect to PyPI for
-  AWS Glue](setup-vpc-for-pypi.md "setup-vpc-for-pypi.md")
+- [Setting up a VPC to connect to PyPI for AWS Glue](setup-vpc-for-pypi.md "setup-vpc-for-pypi.md")
 - [Setting up DNS in your VPC](set-up-vpc-dns.md "set-up-vpc-dns.md")

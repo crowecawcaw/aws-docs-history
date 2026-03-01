@@ -1,6 +1,4 @@
-#
-
-Connecting to Jira Cloud
+# Connecting to Jira Cloud
 
 Jira Cloud is a platform developed by Atlassian. The platform includes issue tracking products that help teams plan and track their Agile projects. As a Jira Cloud user, your account contains data about your projects, such as issues, workflows, and events. You can use AWS Glue to transfer your Jira Cloud data to certain AWS services or other supported applications.
 

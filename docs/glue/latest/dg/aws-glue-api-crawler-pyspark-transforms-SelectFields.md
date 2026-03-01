@@ -21,9 +21,7 @@ fields from a `DynamicFrame`. To view a code example, see [Example: Use select_f
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-SelectFields-describeErrors "#aws-glue-api-crawler-pyspark-transforms-SelectFields-describeErrors")
 - [Describe](#aws-glue-api-crawler-pyspark-transforms-SelectFields-describe "#aws-glue-api-crawler-pyspark-transforms-SelectFields-describe")
 
-## \_\_call\_\_(frame, paths,
-
-transformation_ctx = "", info = "", stageThreshold = 0, totalThreshold = 0)
+## \_\_call\_\_(frame, paths, transformation_ctx = "", info = "", stageThreshold = 0, totalThreshold = 0)
 
 Gets fields (nodes) in a `DynamicFrame`.
 

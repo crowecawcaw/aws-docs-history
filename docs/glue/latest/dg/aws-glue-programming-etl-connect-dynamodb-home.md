@@ -39,9 +39,7 @@ In the following situations, you may need additional configuration:
   connection type to provide network options. Since access to DynamoDB is authorized by IAM, there is
   no need for a AWS Glue DynamoDB connection type.
 
-## Reading from and writing to
-
-DynamoDB
+## Reading from and writing to DynamoDB
 
 The following code examples show how to read from (via the ETL connector) and write to DynamoDB tables. They
 demonstrate reading from one table and writing to another table.
@@ -438,9 +436,7 @@ Designates a connection to Amazon DynamoDB.
 
 Connection options differ for a source connection and a sink connection.
 
-### "connectionType": "dynamodb" with the ETL connector as
-
-source
+### "connectionType": "dynamodb" with the ETL connector as source
 
 Use the following connection options with `"connectionType": "dynamodb"` as a source, when
 using the AWS Glue DynamoDB ETL connector:
@@ -473,9 +469,7 @@ appropriately setting a value, see [Configuring paralleism in DynamoDB operation
   to "glue-dynamodb-read-sts-session". This parameter is available in AWS Glue 1.0 or
   later.
 
-### "connectionType": "dynamodb" with the
-
-AWS Glue DynamoDB export connector as source
+### "connectionType": "dynamodb" with the AWS Glue DynamoDB export connector as source
 
 Use the following connection options with "connectionType": "dynamodb" as a source, when using the
 AWS Glue DynamoDB export connector, which is available only for AWS Glue version
@@ -525,9 +519,7 @@ AWS Glue DynamoDB export connector, which is available only for AWS Glue version
 - `"dynamodb.exportTime"` (Optional) Valid values: strings representing ISO-8601 instants. A point-in-time at which the export should be made.
 - `"dynamodb.sts.region"`: (Required if making a cross-region call using a regional endpoint) The region hosting the DynamoDB table you want to read.
 
-### "connectionType": "dynamodb" with the ETL connector as
-
-sink
+### "connectionType": "dynamodb" with the ETL connector as sink
 
 Use the following connection options with `"connectionType": "dynamodb"` as a sink:
 

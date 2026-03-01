@@ -51,22 +51,14 @@ AWS Glue supports auto-decompression for the following compression types given t
 
 ###### Topics
 
-- [Creating an AWS Glue connection for an Apache Kafka
-  data stream](#create-conn-streaming "#create-conn-streaming")
-- [Creating a Data Catalog table for a streaming
-  source](#create-table-streaming "#create-table-streaming")
-- [Notes and restrictions for Avro streaming
-  sources](#streaming-avro-notes "#streaming-avro-notes")
-- [Applying grok patterns to streaming
-  sources](#create-table-streaming-grok "#create-table-streaming-grok")
-- [Defining job properties for a
-  streaming ETL job](#create-job-streaming-properties "#create-job-streaming-properties")
-- [Streaming ETL notes and
-  restrictions](#create-job-streaming-restrictions "#create-job-streaming-restrictions")
+- [Creating an AWS Glue connection for an Apache Kafka data stream](#create-conn-streaming "#create-conn-streaming")
+- [Creating a Data Catalog table for a streaming source](#create-table-streaming "#create-table-streaming")
+- [Notes and restrictions for Avro streaming sources](#streaming-avro-notes "#streaming-avro-notes")
+- [Applying grok patterns to streaming sources](#create-table-streaming-grok "#create-table-streaming-grok")
+- [Defining job properties for a streaming ETL job](#create-job-streaming-properties "#create-job-streaming-properties")
+- [Streaming ETL notes and restrictions](#create-job-streaming-restrictions "#create-job-streaming-restrictions")
 
-## Creating an AWS Glue connection for an Apache Kafka
-
-data stream
+## Creating an AWS Glue connection for an Apache Kafka data stream
 
 To read from an Apache Kafka stream, you must create an AWS Glue connection.
 
@@ -107,11 +99,10 @@ For an SSL connection to self-managed Kafka, the custom certificate is
 mandatory. It's optional for Amazon MSK.
 
 For more information about specifying a custom certificate for Kafka, see
-[AWS Glue SSL connection
-properties](connection-properties.md#connection-properties-SSL "connection-properties.md#connection-properties-SSL"). 7. Use AWS Glue Studio or the AWS CLI to specify a Kafka client authentication method. To access AWS Glue Studio select
+[AWS Glue SSL connection properties](connection-properties.md#connection-properties-SSL "connection-properties.md#connection-properties-SSL"). 7. Use AWS Glue Studio or the AWS CLI to specify a Kafka client authentication method. To access AWS Glue Studio select
 **AWS Glue** from the **ETL** menu in the left navigation pane.
 
-For more information about Kafka client authentication methods, see [AWS Glue Kafka connection properties for client authentication](#connection-properties-kafka-client-auth "#connection-properties-kafka-client-auth") . 8. Optionally enter a description, and then choose
+For more information about Kafka client authentication methods, see [AWS Glue Kafka connection properties for client authentication](#connection-properties-kafka-client-auth "#connection-properties-kafka-client-auth"). 8. Optionally enter a description, and then choose
 **Next**. 9. For an Amazon MSK cluster, specify its virtual private cloud (VPC), subnet, and
 security group. The VPC information is optional for self-managed Kafka. 10. Choose **Next** to review all connection properties, and then
 choose **Finish**.
@@ -166,9 +157,7 @@ This authentication method does not require any additional specifications and is
 
 Choosing this authentication method allows you to specify authentication credentials.
 
-## Creating a Data Catalog table for a streaming
-
-source
+## Creating a Data Catalog table for a streaming source
 
 A Data Catalog table that specifies source data stream properties, including the data schema can be manually created for a streaming source. This table is used
 as the data source for the streaming ETL job.
@@ -191,17 +180,14 @@ AWS Glue console.
 Also consider the following information for streaming sources in Avro format or for
 log data that you can apply Grok patterns to.
 
-- [Notes and restrictions for Avro streaming
-  sources](#streaming-avro-notes "#streaming-avro-notes")
-- [Applying grok patterns to streaming
-  sources](#create-table-streaming-grok "#create-table-streaming-grok")
+- [Notes and restrictions for Avro streaming sources](#streaming-avro-notes "#streaming-avro-notes")
+- [Applying grok patterns to streaming sources](#create-table-streaming-grok "#create-table-streaming-grok")
 
 ###### Topics
 
 - [Kinesis data source](#kinesis-source "#kinesis-source")
 - [Kafka data source](#kafka-source "#kafka-source")
-- [AWS Glue Schema Registry table
-  source](#schema-registry-table "#schema-registry-table")
+- [AWS Glue Schema Registry table source](#schema-registry-table "#schema-registry-table")
 
 ### Kinesis data source
 
@@ -256,9 +242,7 @@ subsequent cross-account API requests that use the temporary
 security credentials will expose the role session name to
 the external account in their AWS CloudTrail logs.
 
-###### To set streaming ETL properties for Amazon Kinesis Data Streams (AWS Glue API or
-
-AWS CLI)
+###### To set streaming ETL properties for Amazon Kinesis Data Streams (AWS Glue API or AWS CLI)
 
 - To set up streaming ETL properties for a Kinesis source in the same account,
   specify the `streamName` and `endpointUrl` parameters
@@ -328,12 +312,9 @@ Topic name as specified in Kafka.
 **Connection**
 
 An AWS Glue connection that references a Kafka
-source, as described in [Creating an AWS Glue connection for an Apache Kafka
-data stream](#create-conn-streaming "#create-conn-streaming").
+source, as described in [Creating an AWS Glue connection for an Apache Kafka data stream](#create-conn-streaming "#create-conn-streaming").
 
-### AWS Glue Schema Registry table
-
-source
+### AWS Glue Schema Registry table source
 
 To use AWS Glue Schema Registry for streaming jobs, follow the
 instructions at [Use case: AWS Glue Data Catalog](schema-registry-integrations.md#schema-registry-integrations-aws-glue-data-catalog "schema-registry-integrations.md#schema-registry-integrations-aws-glue-data-catalog") to
@@ -342,9 +323,7 @@ create or update a Schema Registry table.
 Currently, AWS Glue Streaming supports only Glue Schema Registry Avro
 format with schema inference set to `false`.
 
-## Notes and restrictions for Avro streaming
-
-sources
+## Notes and restrictions for Avro streaming sources
 
 The following notes and restrictions apply for streaming sources in the Avro
 format:
@@ -395,9 +374,7 @@ format:
 
   ```
 
-## Applying grok patterns to streaming
-
-sources
+## Applying grok patterns to streaming sources
 
 You can create a streaming ETL job for a log data source and use Grok patterns to
 convert the logs to structured data. The ETL job then processes the data as a structured
@@ -409,8 +386,7 @@ For information about Grok patterns and custom pattern string values, see [Writi
 ###### To add grok patterns to the Data Catalog table (console)
 
 - Use the create table wizard, and create the table with the parameters
-  specified in [Creating a Data Catalog table for a streaming
-  source](#create-table-streaming "#create-table-streaming"). Specify the data format
+  specified in [Creating a Data Catalog table for a streaming source](#create-table-streaming "#create-table-streaming"). Specify the data format
   as Grok, fill in the **Grok pattern** field, and optionally add
   custom patterns under **Custom patterns (optional)**.
 
@@ -418,9 +394,7 @@ For information about Grok patterns and custom pattern string values, see [Writi
 
 Press **Enter** after each custom pattern.
 
-###### To add grok patterns to the Data Catalog table (AWS Glue API or
-
-AWS CLI)
+###### To add grok patterns to the Data Catalog table (AWS Glue API or AWS CLI)
 
 - Add the `GrokPattern` parameter and optionally the
   `CustomPatterns` parameter to the `CreateTable` API
@@ -452,9 +426,7 @@ The following is an example of specifying these parameters.
 
 ```
 
-## Defining job properties for a
-
-streaming ETL job
+## Defining job properties for a streaming ETL job
 
 When you define a streaming ETL job in the AWS Glue console, provide the following
 streams-specific properties. For descriptions of additional job properties, see [Defining job properties for Spark jobs](add-job.md#create-job "add-job.md#create-job").
@@ -496,8 +468,7 @@ Optionally enter a duration in minutes. The default value is blank.
 
 **Data source**
 
-Specify the table that you created in [Creating a Data Catalog table for a streaming
-source](#create-table-streaming "#create-table-streaming").
+Specify the table that you created in [Creating a Data Catalog table for a streaming source](#create-table-streaming "#create-table-streaming").
 
 **Data target**
 
@@ -536,9 +507,7 @@ Optionally supply your own script or modify the generated script to
 perform operations that the Apache Spark Structured Streaming engine
 supports. For information on the available operations, see [Operations on streaming DataFrames/Datasets](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html#operations-on-streaming-dataframesdatasets "https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html#operations-on-streaming-dataframesdatasets").
 
-## Streaming ETL notes and
-
-restrictions
+## Streaming ETL notes and restrictions
 
 Keep in mind the following notes and restrictions:
 

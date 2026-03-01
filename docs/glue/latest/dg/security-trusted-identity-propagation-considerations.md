@@ -1,6 +1,4 @@
-#
-
-Considerations and limitations for AWS Glue ETL Trusted Identity Propagation integration
+# Considerations and limitations for AWS Glue ETL Trusted Identity Propagation integration
 
 ###### Important
 

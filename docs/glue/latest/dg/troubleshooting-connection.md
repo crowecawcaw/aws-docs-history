@@ -1,6 +1,4 @@
-# Troubleshooting connection issues in
-
-AWS Glue
+# Troubleshooting connection issues in AWS Glue
 
 When an AWS Glue crawler or a job uses connection properties to access a data store, you
 might encounter errors when you try to connect.

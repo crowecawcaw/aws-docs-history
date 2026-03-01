@@ -70,13 +70,7 @@ The transformation successfully formats both phone numbers, regardless of their 
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-FormatPhoneNumber-describeErrors "#aws-glue-api-crawler-pyspark-transforms-FormatPhoneNumber-describeErrors")
 - [describe](#aws-glue-api-crawler-pyspark-transforms-FormatPhoneNumber-describe "#aws-glue-api-crawler-pyspark-transforms-FormatPhoneNumber-describe")
 
-## \_\_call\_\_(spark_context,
-
-data_frame,
-source_column,
-phone_number_format=None,
-default_region=None,
-default_region_column=None)
+## \_\_call\_\_(spark_context, data_frame, source_column, phone_number_format=None, default_region=None, default_region_column=None)
 
 The `FormatPhoneNumber` transform returns a column in which a phone number string is
 converted into a formatted value.

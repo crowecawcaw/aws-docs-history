@@ -1,6 +1,4 @@
-# Configuring AWS calls to go through
-
-your VPC
+# Configuring AWS calls to go through your VPC
 
 The special job parameter `disable-proxy-v2` allows you to route your
 calls to services such as Amazon S3, CloudWatch, and AWS Glue through your VPC. By

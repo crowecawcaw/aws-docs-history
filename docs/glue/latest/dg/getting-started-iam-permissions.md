@@ -1,6 +1,4 @@
-# Set up IAM permissions for
-
-AWS Glue Studio
+# Set up IAM permissions for AWS Glue Studio
 
 You can create the roles and assign policies to users and job roles by using the AWS
 administrator user.
@@ -10,14 +8,12 @@ managed policy to provide the necessary permissions for using the AWS Glue Studi
 
 To create your own policy, follow the steps documented in [Create an IAM
 Policy for the AWS Glue Service](create-service-policy.md "create-service-policy.md") in the _AWS Glue Developer Guide_.
-Include the IAM permissions described previously in [Review IAM permissions needed for the
-AWS Glue Studio user](getting-started-min-privs.md "getting-started-min-privs.md").
+Include the IAM permissions described previously in [Review IAM permissions needed for the AWS Glue Studio user](getting-started-min-privs.md "getting-started-min-privs.md").
 
 ###### Topics
 
 - [Attach policies to the AWS Glue Studio user](#attach-iam-policy "#attach-iam-policy")
-- [Create an IAM policy for roles not named
-  "AWSGlueServiceRole\*"](#create-iam-policy "#create-iam-policy")
+- [Create an IAM policy for roles not named "AWSGlueServiceRole\*"](#create-iam-policy "#create-iam-policy")
 
 ## Attach policies to the AWS Glue Studio user
 
@@ -25,9 +21,7 @@ Any AWS user that signs in to the AWS Glue Studio console must have permissions 
 specific resources. You provide those permissions by using assigning IAM policies
 to the user.
 
-###### To attach the **AWSGlueConsoleFullAccess** managed policy to
-
-a user
+###### To attach the **AWSGlueConsoleFullAccess** managed policy to a user
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the navigation pane, choose **Policies**.
@@ -43,9 +37,7 @@ a user
 6. Repeat the previous steps to attach additional policies to the user, as
    needed.
 
-## Create an IAM policy for roles not named
-
-"AWSGlueServiceRole\*"
+## Create an IAM policy for roles not named "AWSGlueServiceRole\*"
 
 ###### To configure an IAM policy for roles used by AWS Glue Studio
 

@@ -19,9 +19,7 @@ method to write a subset of records from a `DynamicFrame` to a specified destina
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-spigot-describeErrors "#aws-glue-api-crawler-pyspark-transforms-spigot-describeErrors")
 - [describe](#aws-glue-api-crawler-pyspark-transforms-spigot-describe "#aws-glue-api-crawler-pyspark-transforms-spigot-describe")
 
-## \_\_call\_\_(frame,
-
-path, options, transformation_ctx = "")
+## \_\_call\_\_(frame, path, options, transformation_ctx = "")
 
 Writes sample records to a specified destination during a transformation.
 

@@ -2,9 +2,7 @@
 
 In this section, we will explore the data quality dashboard and different functionalities that it provides.
 
-##
-
-Visualize and understand high level data quality metrics and trends
+## Visualize and understand high level data quality metrics and trends
 
 Once your job is successful, choose the **Data Quality** tab to view data quality scores and anomalies.
 
@@ -29,9 +27,7 @@ The following components in the Data quality tab provide useful information.
    - Statistics Tab lists all the statistics, allowing you to view the metrics and the trends over time.
    - Anomalies tab shows the list of anomalies that were detected.
 
-##
-
-Viewing anomalies and training anomaly detection algorithm
+## Viewing anomalies and training anomaly detection algorithm
 
 ![The screenshot shows the Anomalies tab with metrics.](images/data-quality-visualize-anomaly-detection.png)
 
@@ -53,9 +49,7 @@ Call outs for the image above:
    constitutes an anomaly for your specific data patterns and requirements, leading to more accurate anomaly detection
    over time.
 
-##
-
-Viewing Data Statistics over time and providing training inputs
+## Viewing Data Statistics over time and providing training inputs
 
 Sometimes, you may want to view data statistics or data profiles and view how they are progressing over time. To do this,
 choose **Statistics** or open the **Statistics** tab. You can then view the latest

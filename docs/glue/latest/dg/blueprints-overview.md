@@ -83,7 +83,5 @@ There are typically three personas involved in the blueprint lifecycle.
 ###### See also
 
 - [Developing blueprints in AWS Glue](developing-blueprints.md "developing-blueprints.md")
-- [Creating a workflow from a blueprint in
-  AWS Glue](creating_workflow_blueprint.md "creating_workflow_blueprint.md")
-- [Permissions for personas and roles for
-  AWS Glue blueprints](blueprints-personas-permissions.md "blueprints-personas-permissions.md")
+- [Creating a workflow from a blueprint in AWS Glue](creating_workflow_blueprint.md "creating_workflow_blueprint.md")
+- [Permissions for personas and roles for AWS Glue blueprints](blueprints-personas-permissions.md "blueprints-personas-permissions.md")

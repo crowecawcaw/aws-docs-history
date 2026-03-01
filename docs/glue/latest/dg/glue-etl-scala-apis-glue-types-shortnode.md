@@ -2,9 +2,7 @@
 
 **Package: com.amazonaws.services.glue.types**
 
-## ShortNode case
-
-class
+## ShortNode case class
 
 **ShortNode**
 

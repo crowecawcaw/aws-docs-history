@@ -49,9 +49,7 @@ For more information about `working_dir`, see the [Ray documentation](https://do
 similarly to
 Ray's native capabilities.
 
-## Additional Python modules for Ray
-
-jobs
+## Additional Python modules for Ray jobs
 
 **Additional modules from PyPI**
 

@@ -1,8 +1,6 @@
 # Creating a new Intercom account and configuring the client app
 
-######
-
-Creating a Intercom account
+###### Creating a Intercom account
 
 1. Choose on the [Intercom URL](https://app.intercom.com/ "https://app.intercom.com/") and choose
    **Start my free trial** on right upper corner of the page.
@@ -11,9 +9,7 @@ Creating a Intercom account
 4. Enter all the information required on the page.
 5. After entering all the information, choose **Register**.
 
-######
-
-Creating an Intercom developer app
+###### Creating an Intercom developer app
 
 To get the **Client Id** and **Client Secret**, you create a developer account.
 

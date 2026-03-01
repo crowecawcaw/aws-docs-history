@@ -124,15 +124,12 @@ Tips and the considerations for fine-tuning AWS Glue Auto Scaling:
   [Job parameter reference](aws-glue-programming-etl-glue-arguments.md#job-parameter-reference "aws-glue-programming-etl-glue-arguments.md#job-parameter-reference")
   .
 
-## Monitoring Auto Scaling with Amazon CloudWatch
-
-metrics
+## Monitoring Auto Scaling with Amazon CloudWatch metrics
 
 The CloudWatch executor metrics are available for your AWS Glue 3.0 or later
 jobs if you enable Auto Scaling. The metrics can be used to monitor the demand and
 optimized usage of executors in their Spark applications enabled with Auto Scaling. For
-more information, see [Monitoring AWS Glue using Amazon CloudWatch
-metrics](monitoring-awsglue-with-cloudwatch-metrics.md "monitoring-awsglue-with-cloudwatch-metrics.md").
+more information, see [Monitoring AWS Glue using Amazon CloudWatch metrics](monitoring-awsglue-with-cloudwatch-metrics.md "monitoring-awsglue-with-cloudwatch-metrics.md").
 
 You can also utilize AWS Glue observability metrics to get insights about resource utilization. For example, by monitoring
 `glue.driver.workerUtilization`, you can monitor how much resource was actually used with and without auto scaling.
@@ -186,9 +183,7 @@ Spark UI:
 
 ![Monitoring Auto Scaling with Spark UI.](images/auto-scaling-monitor-spark-ui.png)
 
-## Monitoring Auto Scaling job run DPU
-
-usage
+## Monitoring Auto Scaling job run DPU usage
 
 You may use the [AWS Glue Studio Job
 run view](../ug/monitoring-chapter.md "../ug/monitoring-chapter.md") to check the DPU usage of your Auto Scaling jobs.

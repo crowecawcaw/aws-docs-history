@@ -1,6 +1,4 @@
-#
-
-Connecting to Instagram Ads
+# Connecting to Instagram Ads
 
 Instagram is a popular photo-sharing app that lets you connect with brands, celebrities, thought leaders, friends, family, and more. It is a photo-sharing and social networking service. Users can take photos or short videos and share them with their followers. Instagram ads are posts for which businesses can pay to serve to Instagram users.
 

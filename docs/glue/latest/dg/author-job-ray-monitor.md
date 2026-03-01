@@ -4,8 +4,7 @@ You can monitor Ray jobs using AWS Glue Studio and Amazon CloudWatch. CloudWatch
 Ray, which makes them available for analysis. These metrics are visualized in the AWS Glue Studio console, so you can
 monitor your job as it runs.
 
-For a general overview of how to monitor AWS Glue, see [Monitoring AWS Glue using Amazon CloudWatch
-metrics](monitoring-awsglue-with-cloudwatch-metrics.md "monitoring-awsglue-with-cloudwatch-metrics.md"). For a general overview of how to use CloudWatch metrics that are published by AWS Glue, see [Monitoring with Amazon CloudWatch](monitor-cloudwatch.md "monitor-cloudwatch.md").
+For a general overview of how to monitor AWS Glue, see [Monitoring AWS Glue using Amazon CloudWatch metrics](monitoring-awsglue-with-cloudwatch-metrics.md "monitoring-awsglue-with-cloudwatch-metrics.md"). For a general overview of how to use CloudWatch metrics that are published by AWS Glue, see [Monitoring with Amazon CloudWatch](monitor-cloudwatch.md "monitor-cloudwatch.md").
 
 ## Monitoring Ray jobs in the AWS Glue console
 
@@ -14,8 +13,7 @@ pre-built aggregated graphs that visualize your available job metrics. AWS Glue 
 every job run. With these, you can build a profile of your cluster and tasks, as well as access detailed
 information about each node.
 
-For more information about available metrics graphs, see [Viewing Amazon CloudWatch metrics for a Ray job
-run](view-job-runs.md#monitoring-job-run-metrics-ray "view-job-runs.md#monitoring-job-run-metrics-ray").
+For more information about available metrics graphs, see [Viewing Amazon CloudWatch metrics for a Ray job run](view-job-runs.md#monitoring-job-run-metrics-ray "view-job-runs.md#monitoring-job-run-metrics-ray").
 
 ## Overview of Ray jobs metrics in CloudWatch
 

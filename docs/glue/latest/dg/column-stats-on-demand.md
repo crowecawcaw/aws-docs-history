@@ -18,8 +18,7 @@ AWS Management Console
 
 You can also choose **Generate**, **Generate on demand**
 option under **Column statistics** tab in the lower
-section of the **Table** page. 5. Follow steps 7 - 11 in the [Generating column statistics on a
-schedule](generate-column-stats.md "generate-column-stats.md") to generate column statistics for the table. 6. On the **Generate statistics** page, specify the
+section of the **Table** page. 5. Follow steps 7 - 11 in the [Generating column statistics on a schedule](generate-column-stats.md "generate-column-stats.md") to generate column statistics for the table. 6. On the **Generate statistics** page, specify the
 following options:
 
 ![The screenshot shows the options available to generate column stats.](images/generate-column-stats.png)
@@ -34,8 +33,7 @@ following options:
      required permission policies to run the column statistics generation
      task. Choose View permission details to review the policy statement.
      You can also select an IAM role from the list. For more
-     information about the required permissions, see [Prerequisites for generating column
-     statistics](column-stats-prereqs.md "column-stats-prereqs.md").
+     information about the required permissions, see [Prerequisites for generating column statistics](column-stats-prereqs.md "column-stats-prereqs.md").
 
 
     AWS Glue assumes the permissions of the role that you specify to

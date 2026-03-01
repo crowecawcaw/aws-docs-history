@@ -1,6 +1,4 @@
-# Changing the parent nodes for a node in the job
-
-diagram
+# Changing the parent nodes for a node in the job diagram
 
 You can change a node's parents to move nodes within the job diagram or to change a data
 source for a node.

@@ -1,6 +1,4 @@
-# Using the Delta Lake framework
-
-in AWS Glue
+# Using the Delta Lake framework in AWS Glue
 
 AWS Glue 3.0 and later supports the Linux Foundation Delta Lake framework. Delta Lake is an
 open-source data lake storage framework that helps you perform ACID transactions, scale
@@ -25,12 +23,9 @@ The following table lists the version of Delta Lake included in each AWS Glue ve
 | 4.0              | 2.1.0                        |
 | 3.0              | 1.0.0                        |
 
-To learn more about the data lake frameworks that AWS Glue supports, see [Using data lake
-frameworks with AWS Glue ETL jobs](aws-glue-programming-etl-datalake-native-frameworks.md "aws-glue-programming-etl-datalake-native-frameworks.md").
+To learn more about the data lake frameworks that AWS Glue supports, see [Using data lake frameworks with AWS Glue ETL jobs](aws-glue-programming-etl-datalake-native-frameworks.md "aws-glue-programming-etl-datalake-native-frameworks.md").
 
-## Enabling Delta Lake
-
-for AWS Glue
+## Enabling Delta Lake for AWS Glue
 
 To enable Delta Lake for AWS Glue, complete the following tasks:
 
@@ -56,9 +51,7 @@ parameter. If you use AWS Glue 5.0 or above, you must set `--user-jars-first tru
 using the `--extra-py-files` job parameter. The Python library comes
 packaged in the Delta Lake JAR files.
 
-## Example: Write a
-
-Delta Lake table to Amazon S3 and register it to the AWS Glue Data Catalog
+## Example: Write a Delta Lake table to Amazon S3 and register it to the AWS Glue Data Catalog
 
 The following AWS Glue ETL script demonstrates how to write a Delta Lake table to
 Amazon S3 and register the table to the AWS Glue Data Catalog.
@@ -96,12 +89,9 @@ dataFrame.write.format("delta")
   .saveAsTable("`<your_database_name>`.`<your_table_name>`")
 ```
 
-## Example: Read a Delta
+## Example: Read a Delta Lake table from Amazon S3 using the AWS Glue Data Catalog
 
-Lake table from Amazon S3 using the AWS Glue Data Catalog
-
-The following AWS Glue ETL script reads the Delta Lake table that you created in [Example: Write a
-Delta Lake table to Amazon S3 and register it to the AWS Glue Data Catalog](#aws-glue-programming-etl-format-delta-lake-write "#aws-glue-programming-etl-format-delta-lake-write").
+The following AWS Glue ETL script reads the Delta Lake table that you created in [Example: Write a Delta Lake table to Amazon S3 and register it to the AWS Glue Data Catalog](#aws-glue-programming-etl-format-delta-lake-write "#aws-glue-programming-etl-format-delta-lake-write").
 
 Python
 For this example, use the [create_data_frame.from_catalog](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create-dataframe-from-catalog "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create-dataframe-from-catalog") method.
@@ -142,13 +132,9 @@ object GlueApp {
 }
 ```
 
-## Example: Insert a
+## Example: Insert a `DataFrame` into a Delta Lake table in Amazon S3 using the AWS Glue Data Catalog
 
-`DataFrame` into a Delta Lake table in Amazon S3 using the
-AWS Glue Data Catalog
-
-This example inserts data into the Delta Lake table that you created in [Example: Write a
-Delta Lake table to Amazon S3 and register it to the AWS Glue Data Catalog](#aws-glue-programming-etl-format-delta-lake-write "#aws-glue-programming-etl-format-delta-lake-write").
+This example inserts data into the Delta Lake table that you created in [Example: Write a Delta Lake table to Amazon S3 and register it to the AWS Glue Data Catalog](#aws-glue-programming-etl-format-delta-lake-write "#aws-glue-programming-etl-format-delta-lake-write").
 
 ###### Note
 
@@ -195,9 +181,7 @@ object GlueApp {
 }
 ```
 
-## Example: Read a
-
-Delta Lake table from Amazon S3 using the Spark API
+## Example: Read a Delta Lake table from Amazon S3 using the Spark API
 
 This example reads a Delta Lake table from Amazon S3 using the Spark
 API.
@@ -218,9 +202,7 @@ Scala
 val dataFrame = spark.read.format("delta").load("s3://`<s3path/>`")
 ```
 
-## Example: Write
-
-a Delta Lake table to Amazon S3 using Spark
+## Example: Write a Delta Lake table to Amazon S3 using Spark
 
 This example writes a Delta Lake table to Amazon S3 using Spark.
 

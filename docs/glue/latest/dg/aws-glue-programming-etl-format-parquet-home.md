@@ -21,9 +21,7 @@ option.
 
 \* Supported in AWS Glue version 1.0+
 
-## Example: Read Parquet files or folders from
-
-S3
+## Example: Read Parquet files or folders from S3
 
 **Prerequisites:** You will need the S3 paths (`s3path`) to the
 Parquet files or folders that you want to read.
@@ -99,9 +97,7 @@ You can also use DataFrames in a script (`org.apache.spark.sql.DataFrame`).
 spark.read.parquet("s3://`s3path`/")
 ```
 
-## Example: Write Parquet files and folders to
-
-S3
+## Example: Write Parquet files and folders to S3
 
 **Prerequisites:** You will need an initialized DataFrame
 (`dataFrame`) or DynamicFrame (`dynamicFrame`). You will also need your expected S3
@@ -227,9 +223,7 @@ Additionally, any options that are accepted by the underlying SparkSQL code can 
 format by way of the `connection_options` map parameter. For example, you can set a Spark
 configuration such as [mergeSchema](https://spark.apache.org/docs/latest/sql-data-sources-parquet.html#schema-merging "https://spark.apache.org/docs/latest/sql-data-sources-parquet.html#schema-merging") for the AWS Glue Spark reader to merge the schema for all files.
 
-## Optimize write performance with
-
-AWS Glue Parquet writer
+## Optimize write performance with AWS Glue Parquet writer
 
 ###### Note
 

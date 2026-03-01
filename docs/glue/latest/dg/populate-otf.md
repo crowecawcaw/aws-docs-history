@@ -7,7 +7,7 @@ You can populate Iceberg, Hudi, and Delta Lake tables in the AWS Glue Data Catal
 following methods:
 
 - AWS Glue crawler; – AWS Glue crawlers can automatically discover and populate Iceberg, Hudi and
-  Delta Lake table metadata in the Data Catalog. For more information, see [Using crawlers to populate the Data Catalog](add-crawler.md "add-crawler.md") .
+  Delta Lake table metadata in the Data Catalog. For more information, see [Using crawlers to populate the Data Catalog](add-crawler.md "add-crawler.md").
 - AWS Glue ETL Jobs – You can create ETL jobs to write data to Iceberg, Hudi, and Delta Lake
   tables and populate their metadata in the Data Catalog. For more information, see [Using data
   lake frameworks with AWS Glue ETL jobs](aws-glue-programming-etl-datalake-native-frameworks.md "aws-glue-programming-etl-datalake-native-frameworks.md").
@@ -52,8 +52,7 @@ Data Catalog doesn’t support creating partitions and adding Iceberg table prop
 
 To create Iceberg tables in the Data Catalog, and set up Lake Formation data access permissions, you need to complete the following requirements:
 
-1. ###### Permissions required to create Iceberg tables without the data registered with
-   Lake Formation.
+1. ###### Permissions required to create Iceberg tables without the data registered with Lake Formation.
 
 In addition to the permissions required to create a table in the Data Catalog, the table creator requires the following permissions:
 
@@ -61,8 +60,7 @@ In addition to the permissions required to create a table in the Data Catalog, t
     * `s3:GetObject` on resource arn:aws:s3:::{bucketName}
     * `s3:DeleteObject`on resource arn:aws:s3:::{bucketName}
 
-2. ###### Permissions required to create Iceberg tables with data registered with
-   Lake Formation:
+2. ###### Permissions required to create Iceberg tables with data registered with Lake Formation:
 
 To use Lake Formation to manage and secure the data in your data lake, register your Amazon S3
 location that has the data for tables with Lake Formation. This is so that Lake Formation can vend
@@ -112,7 +110,7 @@ Console
      drop-down. Ensure that the role has the permissions required to enable
      compaction.
 
-   To learn more about the required permissions, see [Table optimization prerequisites](optimization-prerequisites.md "optimization-prerequisites.md") .
+   To learn more about the required permissions, see [Table optimization prerequisites](optimization-prerequisites.md "optimization-prerequisites.md").
    - **Location** – Specify the path to the folder in Amazon S3 that
      stores the metadata table. Iceberg needs a metadata file and location in the
      Data Catalog to be able to perform reads and writes.

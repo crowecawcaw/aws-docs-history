@@ -118,9 +118,7 @@ object MyScript {
 6. Write your Scala job script in the editor. Add additional `import`
    statements as needed.
 
-## Creating and editing Python shell jobs in
-
-AWS Glue Studio
+## Creating and editing Python shell jobs in AWS Glue Studio
 
 When you choose the Python shell script editor for creating a job, you can upload an
 existing Python script, or write a new one. If you choose to write a new script, boilerplate

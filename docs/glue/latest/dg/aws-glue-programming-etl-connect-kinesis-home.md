@@ -28,8 +28,7 @@ specified methods in the `GlueContext` class.
        `create_data_frame_from_catalog`, `write_dynamic_frame_from_catalog`
       + `options`: Use with `getSource`, `getSink`
 
-  For notes and restrictions about Streaming ETL jobs, consult [Streaming ETL notes and
-  restrictions](add-job-streaming.md#create-job-streaming-restrictions "add-job-streaming.md#create-job-streaming-restrictions").
+  For notes and restrictions about Streaming ETL jobs, consult [Streaming ETL notes and restrictions](add-job-streaming.md#create-job-streaming-restrictions "add-job-streaming.md#create-job-streaming-restrictions").
 
 ## Configure Kinesis
 

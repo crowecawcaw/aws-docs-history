@@ -7,9 +7,7 @@ to a default output group.
 
 This transform is similar to the filter transform, but useful for users who want to test the same input data on multiple conditions.
 
-######
-
-To add a Conditional Router transform:
+###### To add a Conditional Router transform:
 
 1. Choose a node where you will perform the conditional router transformation. This can be a source node or another transform.
 2. Choose **Action**, then use the search bar to find and choose 'Conditional Router'. A **Conditional Router** transform is added along with two output nodes. One output node, 'Default group',

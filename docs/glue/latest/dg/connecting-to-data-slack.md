@@ -1,6 +1,4 @@
-#
-
-Connecting to Slack in AWS Glue Studio
+# Connecting to Slack in AWS Glue Studio
 
 Slack is an enterprise communications app that lets users send messages and attachments through various public and private
 channels. If you're a Slack user, you can connect AWS Glue to your Slack account. Then, you can use Slack as a data source in

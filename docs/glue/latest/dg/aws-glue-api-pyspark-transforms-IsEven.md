@@ -77,14 +77,7 @@ the `"target\_column"` value is set to `null`.
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-IsEven-describeErrors "#aws-glue-api-crawler-pyspark-transforms-IsEven-describeErrors")
 - [describe](#aws-glue-api-crawler-pyspark-transforms-IsEven-describe "#aws-glue-api-crawler-pyspark-transforms-IsEven-describe")
 
-## \_\_call\_\_(spark_context,
-
-data_frame,
-target_column,
-source_column=None,
-true_string=DEFAULT_TRUE_STRING,
-false_string=DEFAULT_FALSE_STRING,
-value=None)
+## \_\_call\_\_(spark_context, data_frame, target_column, source_column=None, true_string=DEFAULT_TRUE_STRING, false_string=DEFAULT_FALSE_STRING, value=None)
 
 The `IsEven` transform returns a Boolean value in a new column that indicates whether the source
 column or value is even. If the source column or value is a decimal, the result is false.

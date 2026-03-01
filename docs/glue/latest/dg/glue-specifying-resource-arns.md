@@ -7,14 +7,10 @@ to. Not all resources in AWS Glue support ARNs.
 ###### Topics
 
 - [Data Catalog ARNs](#data-catalog-resource-arns "#data-catalog-resource-arns")
-- [ARNs for non-catalog objects in
-  AWS Glue](#non-catalog-resource-arns "#non-catalog-resource-arns")
-- [Access control for AWS Glue non-catalog singular API
-  operations](#non-catalog-singular-apis "#non-catalog-singular-apis")
-- [Access control for AWS Glue non-catalog API operations
-  that retrieve multiple items](#non-catalog-plural-apis "#non-catalog-plural-apis")
-- [Access control for AWS Glue non-catalog BatchGet API
-  operations](#non-catalog-batch-get-apis "#non-catalog-batch-get-apis")
+- [ARNs for non-catalog objects in AWS Glue](#non-catalog-resource-arns "#non-catalog-resource-arns")
+- [Access control for AWS Glue non-catalog singular API operations](#non-catalog-singular-apis "#non-catalog-singular-apis")
+- [Access control for AWS Glue non-catalog API operations that retrieve multiple items](#non-catalog-plural-apis "#non-catalog-plural-apis")
+- [Access control for AWS Glue non-catalog BatchGet API operations](#non-catalog-batch-get-apis "#non-catalog-batch-get-apis")
 
 ## Data Catalog ARNs
 
@@ -118,9 +114,7 @@ In summary, actions on Data Catalog resources follow these permission rules:
   and catalog.
 - Actions on a connection require permission on the connection and catalog.
 
-## ARNs for non-catalog objects in
-
-AWS Glue
+## ARNs for non-catalog objects in AWS Glue
 
 Some AWS Glue resources allow resource-level permissions to control access
 using an ARN. You can use these ARNs in your IAM policies to enable fine-grained access
@@ -134,9 +128,7 @@ control. The following table lists the resources that can contain resource ARNs.
 | Development endpoint       | `arn:aws:glue:`region`:`account-id`:devEndpoint/`development-endpoint-name``<br>For example: `arn:aws:glue:us-east-1:123456789012:devEndpoint/temporarydevendpoint` |
 | Machine learning transform | `arn:aws:glue:`region`:`account-id`:mlTransform/`transform-id``<br>For example: `arn:aws:glue:us-east-1:123456789012:mlTransform/tfm-1234567890`                    |
 
-## Access control for AWS Glue non-catalog singular API
-
-operations
+## Access control for AWS Glue non-catalog singular API operations
 
 AWS Glue non-catalog _singular_ API operations act on a single item
 (development endpoint). Examples are `GetDevEndpoint`,
@@ -210,9 +202,7 @@ JSON
 
 ```
 
-## Access control for AWS Glue non-catalog API operations
-
-that retrieve multiple items
+## Access control for AWS Glue non-catalog API operations that retrieve multiple items
 
 Some AWS Glue API operations retrieve multiple items (such as multiple development
 endpoints); for example, `GetDevEndpoints`. For this operation, you can specify
@@ -239,9 +229,7 @@ scoped to the wildcard (\*). The singular operations (`GetDevEndpoint`,
 }
 ```
 
-## Access control for AWS Glue non-catalog BatchGet API
-
-operations
+## Access control for AWS Glue non-catalog BatchGet API operations
 
 Some AWS Glue API operations retrieve multiple items (such as multiple development
 endpoints); for example, `BatchGetDevEndpoints`. For this operation, you can specify
@@ -276,5 +264,4 @@ An error occurred (AccessDeniedException) when calling the BatchGetDevEndpoints 
 ###### Important
 
 For alternative approaches to setting up IAM policies, such as using `List` and
-`BatchGet` API operations, see [Identity-based policy examples
-for AWS Glue](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+`BatchGet` API operations, see [Identity-based policy examples for AWS Glue](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").

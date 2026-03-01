@@ -18,9 +18,7 @@ method to apply a mapping in a `DynamicFrame`. To view a code example, see [Exam
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-ApplyMapping-describeErrors "#aws-glue-api-crawler-pyspark-transforms-ApplyMapping-describeErrors")
 - [Describe](#aws-glue-api-crawler-pyspark-transforms-ApplyMapping-describe "#aws-glue-api-crawler-pyspark-transforms-ApplyMapping-describe")
 
-## \_\_call\_\_(frame, mappings, transformation_ctx = "",
-
-info = "", stageThreshold = 0, totalThreshold = 0)
+## \_\_call\_\_(frame, mappings, transformation_ctx = "", info = "", stageThreshold = 0, totalThreshold = 0)
 
 Applies a declarative mapping to a specified `DynamicFrame`.
 

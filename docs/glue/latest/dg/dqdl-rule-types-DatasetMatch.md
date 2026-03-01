@@ -33,7 +33,7 @@ In the following example, the primary dataset and the reference dataset have dif
 In this scenario, you can use the special syntax to supply the column names.
 
 ```
-DatasetMatch "reference" "ID_1->ID_ref1,ID_ref2->ID_ref2" >= 0.9
+DatasetMatch "reference" "ID_1->ID_ref1,ID_2->ID_ref2" >= 0.9
 ```
 
 **Example: Match set datasets using multiple key columns and check that specific column matches**

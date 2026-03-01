@@ -38,7 +38,5 @@ In AWS Glue, you control encryption settings in the following places:
 ###### Topics
 
 - [Encrypting your Data Catalog](encrypt-glue-data-catalog.md "encrypt-glue-data-catalog.md")
-- [Encrypting connection
-  passwords](encrypt-connection-passwords.md "encrypt-connection-passwords.md")
-- [Encrypting data written by
-  AWS Glue](encryption-security-configuration.md "encryption-security-configuration.md")
+- [Encrypting connection passwords](encrypt-connection-passwords.md "encrypt-connection-passwords.md")
+- [Encrypting data written by AWS Glue](encryption-security-configuration.md "encryption-security-configuration.md")

@@ -1,6 +1,4 @@
-# Using Change Schema to remap data
-
-property keys
+# Using Change Schema to remap data property keys
 
 A _Change Schema_ transform remaps the source data property keys into
 the desired configured for the target data. In a Change Schema transform node, you
@@ -15,9 +13,7 @@ can:
   needed – for example, to modify additional data sources or following a
   _Join_ transform.
 
-##
-
-Using Change Schema with decimal datatype
+## Using Change Schema with decimal datatype
 
 When using the **Change Schema** transform with decimal datatype, the **Change Schema**
 transform modifies the precision to the default value of (10,2). To modify this and set the precision for your use case, you

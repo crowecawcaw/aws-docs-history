@@ -37,14 +37,12 @@ override job run `Arguments`, which will override job `DefaultArguments`.
 **In Python:**
 
 In Python jobs, we provide a function named `getResolvedParameters`. For more information, see
-[Accessing
-parameters using getResolvedOptions](aws-glue-api-crawler-pyspark-extensions-get-resolved-options.md "aws-glue-api-crawler-pyspark-extensions-get-resolved-options.md"). Job parameters are available in
+[Accessing parameters using getResolvedOptions](aws-glue-api-crawler-pyspark-extensions-get-resolved-options.md "aws-glue-api-crawler-pyspark-extensions-get-resolved-options.md"). Job parameters are available in
 the `sys.argv` variable.
 
 **In Scala:**
 
-In Scala jobs, we provide an object named `GlueArgParser`. For more information, see [AWS Glue Scala GlueArgParser
-APIs](glue-etl-scala-apis-glue-util-glueargparser.md "glue-etl-scala-apis-glue-util-glueargparser.md"). Job parameters are available in the `sysArgs`
+In Scala jobs, we provide an object named `GlueArgParser`. For more information, see [AWS Glue Scala GlueArgParser APIs](glue-etl-scala-apis-glue-util-glueargparser.md "glue-etl-scala-apis-glue-util-glueargparser.md"). Job parameters are available in the `sysArgs`
 variable.
 
 ## Job parameter reference
@@ -143,8 +141,7 @@ Supported in AWS Glue 3.0 and later versions.
 
 Specifies the data lake framework to use. AWS Glue adds the required JAR files for the
 frameworks that you specify into the `classpath`. For more information, see
-[Using data lake
-frameworks with AWS Glue ETL jobs](aws-glue-programming-etl-datalake-native-frameworks.md "aws-glue-programming-etl-datalake-native-frameworks.md").
+[Using data lake frameworks with AWS Glue ETL jobs](aws-glue-programming-etl-datalake-native-frameworks.md "aws-glue-programming-etl-datalake-native-frameworks.md").
 
 You can specify one or more of the following values, separated by a comma:
 
@@ -346,8 +343,7 @@ Controls Spark config parameters. It is for advanced use cases.
 **`--encryption-type`**
 
 Legacy parameter. The corresponding behavior should be configured using security configurations. for more
-information about security configurations, see [Encrypting data written by
-AWS Glue](encryption-security-configuration.md "encryption-security-configuration.md").
+information about security configurations, see [Encrypting data written by AWS Glue](encryption-security-configuration.md "encryption-security-configuration.md").
 
 AWS Glue uses the following arguments internally and you should never use
 them:

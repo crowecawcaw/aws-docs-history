@@ -10,8 +10,7 @@ location. You can then delete the archive from the upload location.
 To register a blueprint, you need read permissions on the Amazon S3 location that contains the
 uploaded archive. You also need the AWS Identity and Access Management (IAM) permission
 `glue:CreateBlueprint`. For the suggested permissions for an AWS Glue administrator
-who must register, view, and maintain blueprints, see [AWS Glue administrator permissions for
-blueprints](blueprints-personas-permissions.md#bp-persona-admin "blueprints-personas-permissions.md#bp-persona-admin").
+who must register, view, and maintain blueprints, see [AWS Glue administrator permissions for blueprints](blueprints-personas-permissions.md#bp-persona-admin "blueprints-personas-permissions.md#bp-persona-admin").
 
 You can register a blueprint by using the AWS Glue console, AWS Glue API, or AWS Command Line Interface
 (AWS CLI).
@@ -47,8 +46,7 @@ The detail page shows the reason for the failure. If the error message is
 
 9. Ensure that data analysts have permissions on the blueprint.
 
-The suggested IAM policy for data analysts is shown in [Data analyst permissions for
-blueprints](blueprints-personas-permissions.md#bp-persona-analyst "blueprints-personas-permissions.md#bp-persona-analyst"). This policy grants `glue:GetBlueprint` on any
+The suggested IAM policy for data analysts is shown in [Data analyst permissions for blueprints](blueprints-personas-permissions.md#bp-persona-analyst "blueprints-personas-permissions.md#bp-persona-analyst"). This policy grants `glue:GetBlueprint` on any
 resource. If your policy is more fine-grained at the resource level, then grant data
 analysts permissions on this newly created resource.
 

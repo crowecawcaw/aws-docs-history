@@ -6,8 +6,7 @@
 - [Monitoring jobs using the Apache Spark web UI](monitor-spark-ui.md "monitor-spark-ui.md")
 - [Monitoring with AWS Glue job run insights](monitor-job-insights.md "monitor-job-insights.md")
 - [Monitoring with Amazon CloudWatch](monitor-cloudwatch.md "monitor-cloudwatch.md")
-- [Job monitoring and
-  debugging](monitor-profile-glue-job-cloudwatch-metrics.md "monitor-profile-glue-job-cloudwatch-metrics.md")
+- [Job monitoring and debugging](monitor-profile-glue-job-cloudwatch-metrics.md "monitor-profile-glue-job-cloudwatch-metrics.md")
 
 ## Spark Metrics available in AWS Glue Studio
 
@@ -27,8 +26,7 @@ Choose **View additional metrics** to show the following graphs:
 
 Data for these graphs is pushed to CloudWatch metrics if the job is configured to collect metrics.
 For more information about how to turn on metrics and interpret the graphs, see
-[Job monitoring and
-debugging](monitor-profile-glue-job-cloudwatch-metrics.md "monitor-profile-glue-job-cloudwatch-metrics.md").
+[Job monitoring and debugging](monitor-profile-glue-job-cloudwatch-metrics.md "monitor-profile-glue-job-cloudwatch-metrics.md").
 
 ###### Example ETL data movement graph
 

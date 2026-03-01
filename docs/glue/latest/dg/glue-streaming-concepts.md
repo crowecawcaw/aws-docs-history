@@ -6,9 +6,7 @@ The following sections provide information on concepts of AWS Glue Streaming.
 
 - [Anatomy of a AWS Glue streaming job](#glue-streaming-anatomy "#glue-streaming-anatomy")
 
-##
-
-Anatomy of a AWS Glue streaming job
+## Anatomy of a AWS Glue streaming job
 
 AWS Glue streaming jobs operate on the Spark streaming paradigm and leverage structured
 streaming from the Spark framework. Streaming jobs constantly poll on the streaming data source,

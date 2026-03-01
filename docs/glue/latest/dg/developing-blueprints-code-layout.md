@@ -1,6 +1,4 @@
-# Creating the blueprint layout
-
-script
+# Creating the blueprint layout script
 
 The blueprint layout script must include a function that generates the entities in
 your workflow. You can name this function whatever you like. AWS Glue uses the configuration
@@ -26,15 +24,14 @@ Your layout function does the following:
   section.
 - Returns the `Workflow` object.
   For definitions of the `Job`, `Crawler`, and `Workflow`
-  classes, see [AWS Glue blueprint classes
-  reference](developing-blueprints-code-classes.md "developing-blueprints-code-classes.md").
+  classes, see [AWS Glue blueprint classes reference](developing-blueprints-code-classes.md "developing-blueprints-code-classes.md").
 
 The layout function must accept the following input arguments.
 
-| Argument        | Description                                                                                                                                                                                                        |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `user_params`   | Python dictionary of blueprint parameter names and values. For more<br>information, see [Specifying blueprint<br>parameters](developing-blueprints-code-parameters.md "developing-blueprints-code-parameters.md"). |
-| `system_params` | Python dictionary containing two properties: `region` and<br>`accountId`.                                                                                                                                          |
+| Argument        | Description                                                                                                                                                                                                     |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `user_params`   | Python dictionary of blueprint parameter names and values. For more<br>information, see [Specifying blueprint parameters](developing-blueprints-code-parameters.md "developing-blueprints-code-parameters.md"). |
+| `system_params` | Python dictionary containing two properties: `region` and<br>`accountId`.                                                                                                                                       |
 
 Here is a sample layout generator script in a file named `Layout.py`:
 
@@ -79,9 +76,7 @@ very simple script. A more complex script could employ additional logic and para
 generate a workflow with many jobs and crawlers, or even a variable number of jobs and
 crawlers.
 
-## Using the DependsOn
-
-argument
+## Using the DependsOn argument
 
 The `DependsOn` argument is a dictionary representation of a dependency
 that this entity has on other entities within the workflow. It has the following form.
@@ -117,9 +112,7 @@ job1 = Job(Name="Job1", `...`, DependsOn = {crawler2 : "SUCCEEDED", ...})
 If `DependsOn` is omitted for an entity, that entity depends on the
 workflow start trigger.
 
-## Using the
-
-WaitForDependencies argument
+## Using the WaitForDependencies argument
 
 The `WaitForDependencies` argument defines whether a job or crawler entity
 should wait until _all_ entities on which it depends complete or until
@@ -127,9 +120,7 @@ _any_ completes.
 
 The allowable values are "`AND`" or "`ANY`".
 
-## Using the OnSchedule
-
-argument
+## Using the OnSchedule argument
 
 The `OnSchedule` argument for the `Workflow` class constructor
 is a `cron` expression that defines the starting trigger definition for a

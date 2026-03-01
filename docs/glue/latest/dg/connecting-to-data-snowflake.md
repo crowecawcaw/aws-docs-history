@@ -1,6 +1,4 @@
-#
-
-Connecting to Snowflake in AWS Glue Studio
+# Connecting to Snowflake in AWS Glue Studio
 
 ###### Note
 

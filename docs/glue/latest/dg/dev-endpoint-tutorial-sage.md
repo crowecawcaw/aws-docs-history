@@ -1,6 +1,4 @@
-# Tutorial: Use a SageMaker AI notebook with your
-
-development endpoint
+# Tutorial: Use a SageMaker AI notebook with your development endpoint
 
 In AWS Glue, you can create a development endpoint and then create a SageMaker AI notebook to help
 develop your ETL and machine learning scripts. A SageMaker AI notebook is a fully managed machine
@@ -19,8 +17,7 @@ learning compute instance running the Jupyter Notebook application.
    3. Create or choose an AWS Identity and Access Management (IAM) role.
 
    Creating a role is recommended. If you use an existing role, ensure that it has the
-   required permissions. For more information, see [Step 6: Create an IAM policy for SageMaker AI
-   notebooks](create-sagemaker-notebook-policy.md "create-sagemaker-notebook-policy.md"). 4. (Optional) Choose a VPC, a subnet, and one or more security groups. 5. (Optional) Choose an AWS Key Management Service encryption key. 6. (Optional) Add tags for the notebook instance.
+   required permissions. For more information, see [Step 6: Create an IAM policy for SageMaker AI notebooks](create-sagemaker-notebook-policy.md "create-sagemaker-notebook-policy.md"). 4. (Optional) Choose a VPC, a subnet, and one or more security groups. 5. (Optional) Choose an AWS Key Management Service encryption key. 6. (Optional) Add tags for the notebook instance.
 
 4. Choose **Create notebook**. On the **Notebooks** page,
    choose the refresh icon at the upper right, and continue until the

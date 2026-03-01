@@ -1259,8 +1259,7 @@ An AWS Glue development endpoint is an environment that you can use to develop a
 
 This sample creates a development endpoint with the minimal network parameter values
 required to successfully create it. For more information about the parameters that you need to
-set up a development endpoint, see [Setting up networking for development for
-AWS Glue](start-development-endpoint.md "start-development-endpoint.md").
+set up a development endpoint, see [Setting up networking for development for AWS Glue](start-development-endpoint.md "start-development-endpoint.md").
 
 You provide an existing IAM role ARN (Amazon Resource Name) to create the development
 endpoint. Supply a valid RSA public key and keep the corresponding private key available if

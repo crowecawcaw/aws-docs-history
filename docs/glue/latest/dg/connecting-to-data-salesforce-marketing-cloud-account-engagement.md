@@ -1,6 +1,4 @@
-#
-
-Connecting to Salesforce Marketing Cloud Account Engagement
+# Connecting to Salesforce Marketing Cloud Account Engagement
 
 Salesforce Marketing Cloud Account Engagement is a marketing automation solution that helps companies create meaningful connections, generate more pipeline, and empower sales to close more deals. If you are a Salesforce Marketing Cloud Account Engagement user, you can connect AWS Glue to your Salesforce Marketing Cloud Account Engagement account. You can use Salesforce Marketing Cloud Account Engagement as a data source in your ETL jobs. Run these jobs to transfer data from Salesforce Marketing Cloud Account Engagement to AWS services or other supported applications.
 

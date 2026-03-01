@@ -1,6 +1,4 @@
-# Reading from Pendo
-
-entities
+# Reading from Pendo entities
 
 **Prerequisites**
 

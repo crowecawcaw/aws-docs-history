@@ -30,9 +30,7 @@ def detect(
 
 ```
 
-## Using Sensitive Data Detection APIs with
-
-fine-grained actions
+## Using Sensitive Data Detection APIs with fine-grained actions
 
 Sensitive data detection APIs using **detect** analyzes the data given, determines if the rows or
 columns are Sensitive Data Entity Types, and will run actions specified by the user for each Entity type.

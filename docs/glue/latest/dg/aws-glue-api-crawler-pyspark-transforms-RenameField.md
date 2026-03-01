@@ -18,9 +18,7 @@ method to rename a field in a `DynamicFrame`. To view a code example, see [Examp
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-RenameField-describeErrors "#aws-glue-api-crawler-pyspark-transforms-RenameField-describeErrors")
 - [describe](#aws-glue-api-crawler-pyspark-transforms-RenameField-describe "#aws-glue-api-crawler-pyspark-transforms-RenameField-describe")
 
-## \_\_call\_\_(frame,
-
-old_name, new_name, transformation_ctx = "", info = "", stageThreshold = 0, totalThreshold = 0)
+## \_\_call\_\_(frame, old_name, new_name, transformation_ctx = "", info = "", stageThreshold = 0, totalThreshold = 0)
 
 Renames a node within a `DynamicFrame`.
 

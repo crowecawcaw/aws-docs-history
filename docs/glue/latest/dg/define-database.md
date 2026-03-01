@@ -37,7 +37,7 @@ see
 - To display the list of tables contained in the database, choose
   the database name and the database properties will display all tables in the database.
   To change the database that a crawler writes to, you must change the crawler definition.
-  For more information, see [Using crawlers to populate the Data Catalog](add-crawler.md "add-crawler.md") .
+  For more information, see [Using crawlers to populate the Data Catalog](add-crawler.md "add-crawler.md").
 
 ## Database resource links
 

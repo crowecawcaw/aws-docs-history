@@ -1,6 +1,4 @@
-# Accessing
-
-parameters using `getResolvedOptions`
+# Accessing parameters using `getResolvedOptions`
 
 The AWS Glue `getResolvedOptions(args, options)` utility function gives you access
 to the arguments that are passed to your script when you run a job. To use this function, start

@@ -1,6 +1,4 @@
-# Identity-based policy examples
-
-for AWS Glue
+# Identity-based policy examples for AWS Glue
 
 By default, users and roles don't have permission to create or modify AWS Glue
 resources. To grant users permission to perform actions on the
@@ -19,31 +17,21 @@ You can replace this with the AWS Region that you want to use.
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Resource-level permissions
-  only apply to specific AWS Glue objects](#glue-identity-based-policy-limitations "#glue-identity-based-policy-limitations")
-- [Using the AWS Glue
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow
-  users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Resource-level permissions only apply to specific AWS Glue objects](#glue-identity-based-policy-limitations "#glue-identity-based-policy-limitations")
+- [Using the AWS Glue console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
 - [Grant read-only permission to a table](#security_iam_id-based-policy-examples-read-only-table-access "#security_iam_id-based-policy-examples-read-only-table-access")
 - [Filter tables by GetTables permission](#security_iam_id-based-policy-examples-filter-tables "#security_iam_id-based-policy-examples-filter-tables")
 - [Grant full access to a table and all partitions](#security_iam_id-based-policy-examples-full-access-tables-partitions "#security_iam_id-based-policy-examples-full-access-tables-partitions")
 - [Control access by name prefix and explicit denial](#security_iam_id-based-policy-examples-deny-by-name-prefix "#security_iam_id-based-policy-examples-deny-by-name-prefix")
-- [Grant access using
-  tags](#tags-control-access-example-triggers-allow "#tags-control-access-example-triggers-allow")
-- [Deny access using
-  tags](#tags-control-access-example-triggers-deny "#tags-control-access-example-triggers-deny")
-- [Use tags with list
-  and batch API operations](#tags-control-access-example-triggers-list-batch "#tags-control-access-example-triggers-list-batch")
-- [Control settings using
-  condition keys or context keys](#glue-identity-based-policy-condition-keys "#glue-identity-based-policy-condition-keys")
+- [Grant access using tags](#tags-control-access-example-triggers-allow "#tags-control-access-example-triggers-allow")
+- [Deny access using tags](#tags-control-access-example-triggers-deny "#tags-control-access-example-triggers-deny")
+- [Use tags with list and batch API operations](#tags-control-access-example-triggers-list-batch "#tags-control-access-example-triggers-list-batch")
+- [Control settings using condition keys or context keys](#glue-identity-based-policy-condition-keys "#glue-identity-based-policy-condition-keys")
 - [Deny an identity the ability to create data preview sessions](#deny-data-preview-sessions-per-identity "#deny-data-preview-sessions-per-identity")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete AWS Glue resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -76,9 +64,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Resource-level permissions
-
-only apply to specific AWS Glue objects
+## Resource-level permissions only apply to specific AWS Glue objects
 
 You can only define fine-grained control for specific objects in
 AWS Glue. Therefore you must write your client's IAM policy so that
@@ -125,9 +111,7 @@ JSON
 
 For a list of AWS Glue objects that allow ARNs, see [Specifying AWS Glue Resource ARNs](glue-specifying-resource-arns.md "glue-specifying-resource-arns.md").
 
-## Using the AWS Glue
-
-console
+## Using the AWS Glue console
 
 To access the AWS Glue console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the AWS Glue resources
@@ -166,12 +150,9 @@ with the AWS Glue console, see [Step 3: Attach a policy to users or groups that 
 If you create an IAM policy that is more restrictive than the minimum required
 permissions, the console won't function as intended for users with that IAM policy.
 To ensure that those users can still use the AWS Glue console, also
-attach the `AWSGlueConsoleFullAccess` managed policy as described in [AWS managed (predefined) policies for
-AWS Glue](security-iam-awsmanpol.md#access-policy-examples-aws-managed "security-iam-awsmanpol.md#access-policy-examples-aws-managed").
+attach the `AWSGlueConsoleFullAccess` managed policy as described in [AWS managed (predefined) policies for AWS Glue](security-iam-awsmanpol.md#access-policy-examples-aws-managed "security-iam-awsmanpol.md#access-policy-examples-aws-managed").
 
-## Allow
-
-users to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -555,9 +536,7 @@ In the preceding example, even though the first statement grants full access to
 `prod-` resources, the second statement explicitly revokes write access to
 them, leaving only read access to `prod-` resources.
 
-## Grant access using
-
-tags
+## Grant access using tags
 
 For example, suppose that you want to limit access to a trigger `t2` to
 a specific user named `Tom` in your account. All other users, including
@@ -682,9 +661,7 @@ JSON
 
 ```
 
-## Deny access using
-
-tags
+## Deny access using tags
 
 Another resource policy approach is to explicitly deny access to resources.
 
@@ -701,9 +678,7 @@ When an administrator attaches the following policy to an identity, the identity
 can access all jobs _except_ those tagged with the
 `Team` key and `Special` value.
 
-## Use tags with list
-
-and batch API operations
+## Use tags with list and batch API operations
 
 A third approach to writing a resource policy is to allow access to resources
 using a `List` API operation to list out resources for a tag value. Then,
@@ -853,21 +828,15 @@ aws glue batch-get-triggers --trigger-names t2 t3
 }
 ```
 
-## Control settings using
-
-condition keys or context keys
+## Control settings using condition keys or context keys
 
 You can use condition keys or context keys when granting permissions to create and
 update jobs. These sections discuss the keys:
 
-- [Control policies
-  that control settings using condition keys](#glue-identity-based-policy-condition-key-vpc "#glue-identity-based-policy-condition-key-vpc")
-- [Control policies
-  that control settings using context keys](#glue-identity-based-policy-context-key-glue "#glue-identity-based-policy-context-key-glue")
+- [Control policies that control settings using condition keys](#glue-identity-based-policy-condition-key-vpc "#glue-identity-based-policy-condition-key-vpc")
+- [Control policies that control settings using context keys](#glue-identity-based-policy-context-key-glue "#glue-identity-based-policy-context-key-glue")
 
-### Control policies
-
-that control settings using condition keys
+### Control policies that control settings using condition keys
 
 AWS Glue provides three IAM condition keys `glue:VpcIds`,
 `glue:SubnetIds`, and `glue:SecurityGroupIds`. You can
@@ -951,9 +920,7 @@ with the condition that the `glue:vpc-id` is null. For example:
 
 ```
 
-### Control policies
-
-that control settings using context keys
+### Control policies that control settings using context keys
 
 AWS Glue provides a context key (`glue:CredentialIssuingService=
  glue.amazonaws.com`) to each role session that AWS Glue makes

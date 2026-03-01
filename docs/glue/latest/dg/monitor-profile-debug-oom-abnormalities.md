@@ -1,14 +1,11 @@
-# Debugging OOM exceptions and job
-
-abnormalities
+# Debugging OOM exceptions and job abnormalities
 
 You can debug out-of-memory (OOM) exceptions and job abnormalities in AWS Glue. The following
 sections describe scenarios for debugging out-of-memory exceptions of the Apache Spark driver or
 a Spark executor.
 
 - [Debugging a driver OOM exception](#monitor-profile-debug-oom-driver "#monitor-profile-debug-oom-driver")
-- [Debugging an executor OOM
-  exception](#monitor-profile-debug-oom-executor "#monitor-profile-debug-oom-executor")
+- [Debugging an executor OOM exception](#monitor-profile-debug-oom-executor "#monitor-profile-debug-oom-executor")
 
 ## Debugging a driver OOM exception
 
@@ -26,9 +23,7 @@ data.write.format("parquet").save(output_path)
 
 ```
 
-### Visualize the profiled metrics on the
-
-AWS Glue console
+### Visualize the profiled metrics on the AWS Glue console
 
 The following graph shows the memory usage as a percentage for the driver and executors.
 This usage is plotted as one data point that is averaged over the values reported in the
@@ -65,9 +60,7 @@ results in the Spark driver having to maintain a large amount of state in memory
 all the tasks. It caches the complete list of a large number of files for the in-memory
 index, resulting in a driver OOM.
 
-### Fix the processing of multiple files using
-
-grouping
+### Fix the processing of multiple files using grouping
 
 You can fix the processing of the multiple files by using the
 _grouping_ feature in AWS Glue. Grouping is automatically enabled when you
@@ -104,9 +97,7 @@ less than three hours.
 
 ![The data movement profile showing the issue is fixed.](images/monitor-debug-oom-etlmovement.png)
 
-## Debugging an executor OOM
-
-exception
+## Debugging an executor OOM exception
 
 In this scenario, you can learn how to debug OOM exceptions that could occur in Apache
 Spark executors. The following code uses the Spark MySQL reader to read a large table of about
@@ -126,9 +117,7 @@ dfSpark.write.format("parquet").save(output_path)
 
 ```
 
-### Visualize the profiled metrics on the AWS Glue
-
-console
+### Visualize the profiled metrics on the AWS Glue console
 
 If the slope of the memory usage graph is positive and crosses 50 percent, then if the job fails before the next metric is emitted, then memory exhaustion is a good candidate for the cause. The following graph shows that within a minute of execution, the [average memory usage](monitoring-awsglue-with-cloudwatch-metrics.md#glue.ALL.jvm.heap.usage "monitoring-awsglue-with-cloudwatch-metrics.md#glue.ALL.jvm.heap.usage")
 across all executors spikes up quickly above 50 percent. The usage
@@ -198,9 +187,7 @@ Executor 4
 18/06/13 16:57:18 WARN TaskSetManager: Lost task 0.3 in stage 0.0 (TID 3, ip-10-1-2-96.ec2.internal, executor 4): ExecutorLostFailure (executor 4 exited caused by one of the running tasks) Reason: Container killed by YARN for exceeding memory limits. 5.5 GB of 5.5 GB physical memory used. Consider boosting spark.yarn.executor.memoryOverhead.
 ```
 
-### Fix the fetch size setting using AWS Glue dynamic
-
-frames
+### Fix the fetch size setting using AWS Glue dynamic frames
 
 The executor ran out of memory while reading the JDBC table because the default
 configuration for the Spark JDBC fetch size is zero. This means that the JDBC driver on the

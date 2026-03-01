@@ -2,9 +2,7 @@
 
 These sections describe how to run AWS Glue interactive sessions locally.
 
-## Prerequisites for setting up interactive
-
-sessions locally
+## Prerequisites for setting up interactive sessions locally
 
 The following are prerequisites for installing interactive sessions:
 
@@ -27,9 +25,7 @@ pip3 install --upgrade jupyter boto3 aws-glue-sessions
 install-glue-kernels
 ```
 
-##
-
-Running Jupyter
+## Running Jupyter
 
 To run Jupyter Notebook, complete the following steps.
 
@@ -42,13 +38,9 @@ jupyter notebook
 2. Choose **New**, and then choose one of the AWS Glue kernels to
    begin coding against AWS Glue.
 
-##
+## Configuring session credentials and region
 
-Configuring session credentials and region
-
-###
-
-MacOS/Linux instructions
+### MacOS/Linux instructions
 
 AWS Glue interactive sessions requires the same IAM permissions as AWS Glue Jobs and Dev Endpoints.
 Specify the role used with interactive sessions in one of two ways:
@@ -80,9 +72,7 @@ To set this role as the default role for interactive sessions:
 For more information, see
 [Interactive sessions with IAM](glue-is-security.md "glue-is-security.md").
 
-###
-
-Windows instructions
+### Windows instructions
 
 AWS Glue interactive sessions requires the same IAM permissions as AWS Glue Jobs and Dev Endpoints.
 Specify the role used with interactive sessions in one of two ways:

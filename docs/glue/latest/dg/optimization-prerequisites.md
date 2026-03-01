@@ -1,6 +1,4 @@
-#
-
-Table optimization prerequisites
+# Table optimization prerequisites
 
 The table optimizer assumes the permissions of the AWS Identity and Access Management (IAM) role that you
 specify when you enable optimization options (compaction, snapshot retention, and orphan file

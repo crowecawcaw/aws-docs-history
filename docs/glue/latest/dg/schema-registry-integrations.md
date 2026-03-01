@@ -6,19 +6,15 @@ For more examples, including schemas with JSON data format, see the integration 
 
 ###### Topics
 
-- [Use case: Connecting Schema Registry to
-  Amazon MSK or Apache Kafka](#schema-registry-integrations-amazon-msk "#schema-registry-integrations-amazon-msk")
+- [Use case: Connecting Schema Registry to Amazon MSK or Apache Kafka](#schema-registry-integrations-amazon-msk "#schema-registry-integrations-amazon-msk")
 - [Use case: Integrating Amazon Kinesis Data Streams with the AWS Glue Schema Registry](#schema-registry-integrations-kds "#schema-registry-integrations-kds")
-- [Use case:
-  Amazon Managed Service for Apache Flink](#schema-registry-integrations-kinesis-data-analytics-apache-flink "#schema-registry-integrations-kinesis-data-analytics-apache-flink")
+- [Use case: Amazon Managed Service for Apache Flink](#schema-registry-integrations-kinesis-data-analytics-apache-flink "#schema-registry-integrations-kinesis-data-analytics-apache-flink")
 - [Use Case: Integration with AWS Lambda](#schema-registry-integrations-aws-lambda "#schema-registry-integrations-aws-lambda")
 - [Use case: AWS Glue Data Catalog](#schema-registry-integrations-aws-glue-data-catalog "#schema-registry-integrations-aws-glue-data-catalog")
 - [Use case: AWS Glue streaming](#schema-registry-integrations-aws-glue-streaming "#schema-registry-integrations-aws-glue-streaming")
 - [Use case: Apache Kafka Streams](#schema-registry-integrations-apache-kafka-streams "#schema-registry-integrations-apache-kafka-streams")
 
-## Use case: Connecting Schema Registry to
-
-Amazon MSK or Apache Kafka
+## Use case: Connecting Schema Registry to Amazon MSK or Apache Kafka
 
 Let's assume you are writing data to an Apache Kafka topic, and you can follow these steps to get started.
 
@@ -251,9 +247,7 @@ Developer Guide_.
  }
 ```
 
-#### Interacting with data using the Kinesis Data Streams
-
-APIs
+#### Interacting with data using the Kinesis Data Streams APIs
 
 This section describes integrating Kinesis Data Streams with Schema Registry using the Kinesis Data Streams APIs.
 
@@ -327,9 +321,7 @@ This section describes integrating Kinesis Data Streams with Schema Registry usi
         }
 ```
 
-#### Interacting with data using the
-
-Kinesis Data Streams APIs
+#### Interacting with data using the Kinesis Data Streams APIs
 
 The following is example code for using the `PutRecords` and `GetRecords` APIs.
 
@@ -462,9 +454,7 @@ public class PutAndGetExampleWithEncodedData {
 }
 ```
 
-## Use case:
-
-Amazon Managed Service for Apache Flink
+## Use case: Amazon Managed Service for Apache Flink
 
 Apache Flink is a popular open source framework and distributed processing engine for stateful
 computations over unbounded and bounded data streams. Amazon Managed Service for Apache Flink is a fully managed AWS service that
@@ -479,9 +469,7 @@ Data Analytics Developer Guide](../../../kinesisanalytics/latest/java/what-is.md
 
 Apache Flink provides an Apache Kafka data stream connector for reading data from and writing data to Kafka topics with exactly-once guarantees. Flink's Kafka consumer, `FlinkKafkaConsumer`, provides access to read from one or more Kafka topics. Apache Flink’s Kafka Producer, `FlinkKafkaProducer`, allows writing a stream of records to one or more Kafka topics. For more information, see [Apache Kafka Connector](https://ci.apache.org/projects/flink/flink-docs-stable/dev/connectors/kafka.html "https://ci.apache.org/projects/flink/flink-docs-stable/dev/connectors/kafka.html").
 
-### Apache Flink Kinesis streams
-
-Connector
+### Apache Flink Kinesis streams Connector
 
 The Kinesis data stream connector provides access to Amazon Kinesis Data Streams. The `FlinkKinesisConsumer` is an exactly-once parallel streaming data source that subscribes to multiple Kinesis streams within the same AWS service region, and can transparently handle re-sharding of streams while the job is running. Each subtask of the consumer is responsible for fetching data records from multiple Kinesis shards. The number of shards fetched by each subtask will change as shards are closed and created by Kinesis. The `FlinkKinesisProducer` uses Kinesis Producer Library (KPL) to put data from an Apache Flink stream into a Kinesis stream. For more information, see [Amazon Kinesis Streams Connector](https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/connectors/kinesis.html "https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/connectors/kinesis.html").
 
@@ -506,9 +494,7 @@ To set up the integration dependencies to AWS Glue Schema Registry in the Apache
 </dependency>
 ```
 
-#### Integrating Kafka or Amazon MSK with
-
-Apache Flink
+#### Integrating Kafka or Amazon MSK with Apache Flink
 
 You can use Managed Service for Apache Flink for Apache Flink, with Kafka as a source or Kafka as a sink.
 
@@ -563,9 +549,7 @@ stream.addSink(producer);
 env.execute();
 ```
 
-#### Integrating Kinesis Data Streams with Apache
-
-Flink
+#### Integrating Kinesis Data Streams with Apache Flink
 
 You can use Managed Service for Apache Flink for Apache Flink with Kinesis Data Streams as a source or a sink.
 

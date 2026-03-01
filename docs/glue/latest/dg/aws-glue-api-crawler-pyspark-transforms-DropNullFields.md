@@ -13,9 +13,7 @@ the already-loaded `persons` dataset.
 
 ###### Note
 
-To access the dataset that is used in this example, see [Code example: Joining
-and relationalizing data](aws-glue-programming-python-samples-legislators.md "aws-glue-programming-python-samples-legislators.md") and follow the instructions in [Step 1:
-Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling "aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling").
+To access the dataset that is used in this example, see [Code example: Joining and relationalizing data](aws-glue-programming-python-samples-legislators.md "aws-glue-programming-python-samples-legislators.md") and follow the instructions in [Step 1: Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling "aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling").
 
 ```
 # Example: Use DropNullFields to create a new DynamicFrame without NullType fields
@@ -162,9 +160,7 @@ root
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-DropNullFields-describeErrors "#aws-glue-api-crawler-pyspark-transforms-DropNullFields-describeErrors")
 - [Describe](#aws-glue-api-crawler-pyspark-transforms-DropNullFields-describe "#aws-glue-api-crawler-pyspark-transforms-DropNullFields-describe")
 
-## \_\_call\_\_(frame,
-
-transformation_ctx = "", info = "", stageThreshold = 0, totalThreshold = 0)
+## \_\_call\_\_(frame, transformation_ctx = "", info = "", stageThreshold = 0, totalThreshold = 0)
 
 Drops all null fields in a `DynamicFrame` whose type is `NullType`.
 These are fields with missing or null values in every record in the `DynamicFrame`

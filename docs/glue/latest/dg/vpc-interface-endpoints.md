@@ -1,6 +1,4 @@
-# Configuring interface VPC endpoints (AWS PrivateLink) for AWS Glue
-
-(AWS PrivateLink)
+# Configuring interface VPC endpoints (AWS PrivateLink) for AWS Glue (AWS PrivateLink)
 
 You can establish a private connection between your VPC and AWS Glue by creating an
 _interface VPC endpoint_. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink "https://aws.amazon.com/privatelink"), a technology that enables you
@@ -16,9 +14,7 @@ For more information, see [Interface VPC
 endpoints (AWS PrivateLink)](../../../vpc/latest/userguide/vpce-interface.md "../../../vpc/latest/userguide/vpce-interface.md") in the _Amazon VPC User
 Guide_.
 
-## Considerations for
-
-AWS Glue VPC endpoints
+## Considerations for AWS Glue VPC endpoints
 
 Before you set up an interface VPC endpoint for AWS Glue, ensure that
 you review [Interface endpoint properties and limitations](../../../vpc/latest/userguide/vpce-interface.md#vpce-interface-limitations "../../../vpc/latest/userguide/vpce-interface.md#vpce-interface-limitations") in the _Amazon VPC User Guide_.
@@ -26,9 +22,7 @@ you review [Interface endpoint properties and limitations](../../../vpc/latest/u
 AWS Glue supports making calls to all of its API actions from your
 VPC.
 
-## Creating an interface VPC endpoint for
-
-AWS Glue
+## Creating an interface VPC endpoint for AWS Glue
 
 You can create a VPC endpoint for the AWS Glue service using either
 the Amazon VPC console or the AWS Command Line Interface (AWS CLI). For more information, see [Creating an
@@ -45,9 +39,7 @@ for example, `glue.us-east-1.amazonaws.com`.
 For more information, see [Accessing a service through an interface endpoint](../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint "../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint") in the
 _Amazon VPC User Guide_.
 
-## Creating a VPC endpoint policy for
-
-AWS Glue
+## Creating a VPC endpoint policy for AWS Glue
 
 You can attach an endpoint policy to your VPC endpoint that controls access to
 AWS Glue. The policy specifies the following information:
@@ -58,9 +50,7 @@ AWS Glue. The policy specifies the following information:
 
 For more information, see [Controlling access to services with VPC endpoints](../../../vpc/latest/userguide/vpc-endpoints-access.md "../../../vpc/latest/userguide/vpc-endpoints-access.md") in the _Amazon VPC User Guide_.
 
-###### Example: VPC endpoint policy for AWS Glue to allow job creation
-
-and update
+###### Example: VPC endpoint policy for AWS Glue to allow job creation and update
 
 The following is an example of an endpoint policy for AWS Glue.
 When attached to an endpoint, this policy grants access to the listed

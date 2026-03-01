@@ -32,15 +32,13 @@ The Data Catalog settings contains options to set encryption and permissions opt
    If this option is selected, any user or role that creates or updates a connection must have `kms:Encrypt`
    permission on the specified KMS key.
 
-   For more information, see [Encrypting connection
-   passwords](encrypt-connection-passwords.md "encrypt-connection-passwords.md").
+   For more information, see [Encrypting connection passwords](encrypt-connection-passwords.md "encrypt-connection-passwords.md").
 
 3. Choose **Settings**, and then in the **Permissions**
    editor, add the policy statement to change fine-grained access control of the
    Data Catalog for your account. Only one policy at a time can be attached to a
    Data Catalog. You can paste a
-   JSON resource policy into this control. For more information, see [Resource-based
-   policies within AWS Glue](security_iam_service-with-iam.md#security_iam_service-with-iam-resource-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-resource-based-policies").
+   JSON resource policy into this control. For more information, see [Resource-based policies within AWS Glue](security_iam_service-with-iam.md#security_iam_service-with-iam-resource-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-resource-based-policies").
 4. Choose **Save** to update your Data Catalog with any changes you made.
 
 You can also use AWS Glue API operations to put, get, and delete resource policies. For

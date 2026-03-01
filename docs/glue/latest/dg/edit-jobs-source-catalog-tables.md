@@ -1,6 +1,4 @@
-# Using Data Catalog tables for the data
-
-source
+# Using Data Catalog tables for the data source
 
 For all data sources except Amazon S3 and connectors, a table must exist in the
 AWS Glue Data Catalog for the source type that you choose. AWS Glue does not create the Data Catalog
@@ -30,5 +28,4 @@ month=='04')"`
      can write temporary intermediate results.
    - **Role associated with the cluster**: (For Amazon Redshift data sources
      only) Enter a role for your ETL job to use that contains permissions for
-     Amazon Redshift clusters. For more information, see [Data source and data target
-     permissions](getting-started-min-privs-job.md#getting-started-min-privs-data "getting-started-min-privs-job.md#getting-started-min-privs-data").
+     Amazon Redshift clusters. For more information, see [Data source and data target permissions](getting-started-min-privs-job.md#getting-started-min-privs-data "getting-started-min-privs-job.md#getting-started-min-privs-data").

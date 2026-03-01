@@ -50,8 +50,7 @@ The next steps for creating and managing your jobs are:
 - [Save the job](managing-jobs-chapter.md#save-job "managing-jobs-chapter.md#save-job")
 - [Start a job run](managing-jobs-chapter.md#start-jobs "managing-jobs-chapter.md#start-jobs")
 - [View information for recent job runs](managing-jobs-chapter.md#view-job-run-details "managing-jobs-chapter.md#view-job-run-details")
-- [Accessing the job monitoring
-  dashboard](view-job-runs.md#monitoring-accessing-dashboard "view-job-runs.md#monitoring-accessing-dashboard")
+- [Accessing the job monitoring dashboard](view-job-runs.md#monitoring-accessing-dashboard "view-job-runs.md#monitoring-accessing-dashboard")
 
 ## Build visual ETL flows with Amazon SageMaker
 

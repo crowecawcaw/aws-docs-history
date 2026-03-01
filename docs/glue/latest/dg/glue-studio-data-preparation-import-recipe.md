@@ -1,6 +1,4 @@
-#
-
-Import a AWS Glue DataBrew recipe in AWS Glue Studio
+# Import a AWS Glue DataBrew recipe in AWS Glue Studio
 
 In AWS Glue DataBrew, a recipe is a set of data transformation steps.
 AWS Glue DataBrew recipes prescribes how to transform data that have already been read and doesn't describe where and how to
@@ -72,9 +70,7 @@ authorized to perform: iam:PassRole on resource: arn:aws:iam::account_id:role/se
 because no identity-based policy allows the iam:PassRole action"
 ```
 
-##
-
-Importing an AWS Glue DataBrew recipe
+## Importing an AWS Glue DataBrew recipe
 
 ###### To import an AWS Glue DataBrew recipe and use in AWS Glue Studio:
 

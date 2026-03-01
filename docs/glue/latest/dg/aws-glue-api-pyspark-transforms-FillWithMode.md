@@ -84,11 +84,7 @@ in the output DataFrame `df\_output`.
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-FillWithMode-describeErrors "#aws-glue-api-crawler-pyspark-transforms-FillWithMode-describeErrors")
 - [describe](#aws-glue-api-crawler-pyspark-transforms-FillWithMode-describe "#aws-glue-api-crawler-pyspark-transforms-FillWithMode-describe")
 
-## \_\_call\_\_(spark_context,
-
-data_frame,
-source_column,
-mode_type)
+## \_\_call\_\_(spark_context, data_frame, source_column, mode_type)
 
 The `FillWithMode` transform formats the case of strings in a column.
 

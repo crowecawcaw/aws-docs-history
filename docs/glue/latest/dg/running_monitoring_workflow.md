@@ -1,6 +1,4 @@
-# Running and monitoring a workflow in
-
-AWS Glue
+# Running and monitoring a workflow in AWS Glue
 
 If the start trigger for a workflow is an on-demand trigger, you can start the workflow
 from the AWS Glue console. Complete the following steps to run and monitor a workflow. If the

@@ -2,9 +2,7 @@
 
 **Package: com.amazonaws.services.glue.types**
 
-## BinaryNode case
-
-class
+## BinaryNode case class
 
 **BinaryNode**
 

@@ -36,8 +36,7 @@ Creates a `DataSource` object that can be used to read
   `oracle`, and `dynamodb`.
 - `transformation_ctx` – The transformation context to use (optional).
 - `options` – A collection of optional name-value pairs.
-  For more information, see [Connection types and options for ETL in
-  AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
+  For more information, see [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
 
 The following is an example of using `getSource`.
 
@@ -74,11 +73,9 @@ table and other options through the `additional_options` argument.
 - `redshift_tmp_dir` – An Amazon Redshift temporary directory to use (optional).
 - `transformation_ctx` – The transformation context to use (optional).
 - `push_down_predicate` – Filters partitions without having to list and read all the files in your dataset. For supported sources and limitations, see [Optimizing reads with pushdown in AWS Glue ETL](aws-glue-programming-pushdown.md "aws-glue-programming-pushdown.md").
-  For more information, see [Pre-filtering using pushdown
-  predicates](aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns "aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns").
+  For more information, see [Pre-filtering using pushdown predicates](aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns "aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns").
 - `additional_options` – A collection of optional name-value pairs. The
-  possible options include those listed in [Connection types and options for ETL in
-  AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md") except for `endpointUrl`,
+  possible options include those listed in [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md") except for `endpointUrl`,
   `streamName`, `bootstrap.servers`, `security.protocol`,
   `topicName`, `classification`, and `delimiter`. Another supported option is `catalogPartitionPredicate`:
 
@@ -88,9 +85,7 @@ table and other options through the `additional_options` argument.
 
 ## create_dynamic_frame_from_options
 
-###### `create_dynamic_frame_from_options(connection_type, connection_options={},
-
-format=None, format_options={}, transformation_ctx = "")`
+###### `create_dynamic_frame_from_options(connection_type, connection_options={}, format=None, format_options={}, transformation_ctx = "")`
 
 Returns a `DynamicFrame` created with the specified connection and
 format.
@@ -117,15 +112,12 @@ connection_options = {"url": "`jdbc-url/database`", "user": "`username`", "passw
 
 The `dbtable` property is the name of the JDBC table. For JDBC data stores that support schemas within a database, specify `schema.table-name`. If a schema is not provided, then the default "public" schema is used.
 
-For more information, see [Connection types and options for ETL in
-AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
+For more information, see [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
 
 - `format` – A format specification. This is used for an Amazon S3 or an
-  AWS Glue connection that supports multiple formats. See [Data format options for inputs and outputs in
-  AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md") for the formats that are
+  AWS Glue connection that supports multiple formats. See [Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md") for the formats that are
   supported.
-- `format_options` – Format options for the specified format. See [Data format options for inputs and outputs in
-  AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md")
+- `format_options` – Format options for the specified format. See [Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md")
   for the formats that are supported.
 - `transformation_ctx` – The transformation context to use (optional).
 - `push_down_predicate` – Filters partitions without having to list and read all the files in your dataset. For supported sources and limitations, see [Optimizing reads with pushdown in AWS Glue ETL](aws-glue-programming-pushdown.md "aws-glue-programming-pushdown.md"). For more information, see [Pre-Filtering Using Pushdown Predicates](aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns "aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns").
@@ -143,11 +135,9 @@ Returns a sample `DynamicFrame` that is created using a Data Catalog database an
 - `transformation_ctx` – The transformation context to use
   (optional).
 - `push_down_predicate` – Filters partitions without having to list and read all the files in your dataset.
-  For more information, see [Pre-filtering using pushdown
-  predicates](aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns "aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns").
+  For more information, see [Pre-filtering using pushdown predicates](aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns "aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns").
 - `additional_options` – A collection of optional name-value pairs. The
-  possible options include those listed in [Connection types and options for ETL in
-  AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md") except for `endpointUrl`,
+  possible options include those listed in [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md") except for `endpointUrl`,
   `streamName`, `bootstrap.servers`, `security.protocol`,
   `topicName`, `classification`, and `delimiter`.
 - `sample_options` – Parameters to control sampling behavior (optional). Current available parameters for Amazon S3 sources:
@@ -169,8 +159,7 @@ Returns a sample `DynamicFrame` created with the specified connection and format
 - `connection_type` – The connection type, such as Amazon S3, Amazon Redshift, and JDBC.
   Valid values include `s3`, `mysql`, `postgresql`, `redshift`, `sqlserver`, `oracle`, and `dynamodb`.
 - `connection_options` – Connection options, such as paths and database table
-  (optional). For more information, see [Connection types and options for ETL in
-  AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
+  (optional). For more information, see [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
 - `num` – The maximum number of records in the returned sample dynamic frame.
 - `sample_options` – Parameters to control sampling behavior (optional). Current available parameters for Amazon S3 sources:
   - `maxSamplePartitions` – The maximum number of partitions the sampling will read. Default value is 10
@@ -179,17 +168,14 @@ Returns a sample `DynamicFrame` created with the specified connection and format
   These parameters help to reduce the time consumed by file listing. For example, suppose the dataset has 1000 partitions, and each partition has 10 files. If you set `maxSamplePartitions` = 10, and `maxSampleFilesPerPartition` = 10, instead of listing all 10,000 files, the sampling will only list and read the first 10 partitions with the first 10 files in each: 10\*10 = 100 files in total.
 
 - `format` – A format specification. This is used for an Amazon S3 or an
-  AWS Glue connection that supports multiple formats. See [Data format options for inputs and outputs in
-  AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md") for the formats that are
+  AWS Glue connection that supports multiple formats. See [Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md") for the formats that are
   supported.
-- `format_options` – Format options for the specified format. See [Data format options for inputs and outputs in
-  AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md")
+- `format_options` – Format options for the specified format. See [Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md")
   for the formats that are supported.
 - `transformation_ctx` – The transformation context to use
   (optional).
 - `push_down_predicate` – Filters partitions without having to list and read all the files in your dataset.
-  For more information, see [Pre-filtering using pushdown
-  predicates](aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns "aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns").
+  For more information, see [Pre-filtering using pushdown predicates](aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns "aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns").
 
 ## add_ingestion_time_columns
 
@@ -221,9 +207,7 @@ dynamic_frame = DynamicFrame.fromDF(glueContext.add_ingestion_time_columns(dataF
 
 ## create_data_frame_from_catalog
 
-###### `create_data_frame_from_catalog(database, table_name, transformation_ctx = "",
-
-additional_options = {})`
+###### `create_data_frame_from_catalog(database, table_name, transformation_ctx = "", additional_options = {})`
 
 Returns a `DataFrame` that is created using information from a Data Catalog
 table.
@@ -233,8 +217,7 @@ table.
 - `transformation_ctx` – The transformation context to use
   (optional).
 - `additional_options` – A collection of optional name-value pairs. The
-  possible options include those listed in [Connection types and options for ETL in
-  AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md") for streaming sources, such as
+  possible options include those listed in [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md") for streaming sources, such as
   `startingPosition`, `maxFetchTimeInMs`, and
   `startingOffsets`.
   - `useSparkDataSource`
@@ -251,8 +234,7 @@ table.
        `create_dynamic_frame.from_catalog().toDF()`.
       - Supports AWS Lake Formation table-level permission control for native formats.
       - Supports reading data lake formats without AWS Lake Formation table-level permission
-       control. For more information, see [Using data lake
-       frameworks with AWS Glue ETL jobs](aws-glue-programming-etl-datalake-native-frameworks.md "aws-glue-programming-etl-datalake-native-frameworks.md").
+       control. For more information, see [Using data lake frameworks with AWS Glue ETL jobs](aws-glue-programming-etl-datalake-native-frameworks.md "aws-glue-programming-etl-datalake-native-frameworks.md").
 
   When you enable `useSparkDataSource`, you can also add any of the
   [Spark Data
@@ -278,8 +260,7 @@ option:
       + [Catalog partition predicates](aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-cat-predicates "aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-cat-predicates")
 
   To use partition filtering with these features, you can use the AWS Glue pushdown
-  predicate. For more information, see [Pre-filtering using pushdown
-  predicates](aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns "aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns"). Filtering on
+  predicate. For more information, see [Pre-filtering using pushdown predicates](aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns "aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns"). Filtering on
   non-partitioned columns is not affected.
 
 The following example script demonstrates the incorrect way to perform partition
@@ -338,9 +319,7 @@ read_df = glueContext.create_data_frame.from_catalog(
 
 ## create_data_frame_from_options
 
-###### `create_data_frame_from_options(connection_type, connection_options={},
-
-format=None, format_options={}, transformation_ctx = "")`
+###### `create_data_frame_from_options(connection_type, connection_options={}, format=None, format_options={}, transformation_ctx = "")`
 
 This API is now deprecated. Instead use the `getSource()` API. Returns a `DataFrame` created with the specified connection and format. Use
 this function only with AWS Glue streaming sources.
@@ -349,8 +328,7 @@ this function only with AWS Glue streaming sources.
   include `kinesis` and `kafka`.
 - `connection_options` – Connection options, which are different for
   Kinesis and Kafka. You can find the list of all connection options for each streaming data
-  source at [Connection types and options for ETL in
-  AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md"). Note the following differences in
+  source at [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md"). Note the following differences in
   streaming connection options:
   - Kinesis streaming sources require `streamARN`,
     `startingPosition`, `inferSchema`, and
@@ -361,11 +339,9 @@ this function only with AWS Glue streaming sources.
 
 - `format` – A format specification. This is used for an
   Amazon S3 or an AWS Glue connection that supports multiple formats. For information about the
-  supported formats, see [Data format options for inputs and outputs in
-  AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md").
+  supported formats, see [Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md").
 - `format_options` – Format options for the specified format. For
-  information about the supported format options, see [Data format options for inputs and outputs in
-  AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md").
+  information about the supported format options, see [Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md").
 - `transformation_ctx` – The transformation context to use
   (optional).
 
@@ -451,9 +427,7 @@ def processBatch(data_frame, batchId):
 
 ## purge_table
 
-###### `purge_table(catalog_id=None, database="", table_name="", options={},
-
-transformation_ctx="")`
+###### `purge_table(catalog_id=None, database="", table_name="", options={}, transformation_ctx="")`
 
 Deletes files from Amazon S3 for the specified catalog's database and table. If all files in
 a partition are deleted, that partition is also deleted from the catalog. We don't support purge_table action on tables registered with Lake Formation.
@@ -694,8 +668,7 @@ to external sources. Check the SparkSQL `format` first to be sure to get the exp
   - `dbtable`: The name of the target table
   - `bulkSize`: Degree of parallelism for insert operations
 
-The options that you can specify depends on the connection type. See [Connection types and options for ETL in
-AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md") for additional values and examples.
+The options that you can specify depends on the connection type. See [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md") for additional values and examples.
 
 Example:
 
@@ -708,9 +681,7 @@ Example:
 
 ## write_dynamic_frame_from_options
 
-###### `write_dynamic_frame_from_options(frame, connection_type, connection_options={}, format=None,
-
-format_options={}, transformation_ctx = "")`
+###### `write_dynamic_frame_from_options(frame, connection_type, connection_options={}, format=None, format_options={}, transformation_ctx = "")`
 
 Writes and returns a `DynamicFrame` using the specified connection and
 format.
@@ -740,23 +711,18 @@ connection_options = {"url": "`jdbc-url/database`", "user": "`username`", "passw
 
 The `dbtable` property is the name of the JDBC table. For JDBC data stores that support schemas within a database, specify `schema.table-name`. If a schema is not provided, then the default "public" schema is used.
 
-For more information, see [Connection types and options for ETL in
-AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
+For more information, see [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
 
 - `format` – A format specification. This is used for an Amazon S3 or an
-  AWS Glue connection that supports multiple formats. See [Data format options for inputs and outputs in
-  AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md") for the formats that are
+  AWS Glue connection that supports multiple formats. See [Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md") for the formats that are
   supported.
-- `format_options` – Format options for the specified format. See [Data format options for inputs and outputs in
-  AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md")
+- `format_options` – Format options for the specified format. See [Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md")
   for the formats that are supported.
 - `transformation_ctx` – A transformation context to use (optional).
 
 ## write_from_options
 
-###### `write_from_options(frame_or_dfc, connection_type,
-
-connection_options={}, format={}, format_options={}, transformation_ctx = "")`
+###### `write_from_options(frame_or_dfc, connection_type, connection_options={}, format={}, format_options={}, transformation_ctx = "")`
 
 Writes and returns a `DynamicFrame` or `DynamicFrameCollection`
 that is created with the specified connection and format information.
@@ -785,15 +751,12 @@ connection_options = {"url": "`jdbc-url/database`", "user": "`username`", "passw
 
 The `dbtable` property is the name of the JDBC table. For JDBC data stores that support schemas within a database, specify `schema.table-name`. If a schema is not provided, then the default "public" schema is used.
 
-For more information, see [Connection types and options for ETL in
-AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
+For more information, see [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
 
 - `format` – A format specification. This is used for an Amazon S3 or an
-  AWS Glue connection that supports multiple formats. See [Data format options for inputs and outputs in
-  AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md") for the formats that are
+  AWS Glue connection that supports multiple formats. See [Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md") for the formats that are
   supported.
-- `format_options` – Format options for the specified format. See [Data format options for inputs and outputs in
-  AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md")
+- `format_options` – Format options for the specified format. See [Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md")
   for the formats that are supported.
 - `transformation_ctx` – A transformation context to use (optional).
 
@@ -816,14 +779,11 @@ and table.
 
 ## write_data_frame_from_catalog
 
-###### `write_data_frame_from_catalog(frame, database, table_name, redshift_tmp_dir,
-
-transformation_ctx = "", additional_options = {}, catalog_id = None)`
+###### `write_data_frame_from_catalog(frame, database, table_name, redshift_tmp_dir, transformation_ctx = "", additional_options = {}, catalog_id = None)`
 
 Writes and returns a `DataFrame` using information from a Data Catalog database
 and table. This method supports writing to data lake formats (Hudi, Iceberg, and Delta
-Lake). For more information, see [Using data lake
-frameworks with AWS Glue ETL jobs](aws-glue-programming-etl-datalake-native-frameworks.md "aws-glue-programming-etl-datalake-native-frameworks.md").
+Lake). For more information, see [Using data lake frameworks with AWS Glue ETL jobs](aws-glue-programming-etl-datalake-native-frameworks.md "aws-glue-programming-etl-datalake-native-frameworks.md").
 
 - `frame` – The `DataFrame` to write.
 - `Database` – The Data Catalog database that contains the table.
@@ -881,9 +841,7 @@ glueContext.write_data_frame.from_catalog(
 
 ## write_dynamic_frame_from_jdbc_conf
 
-###### `write_dynamic_frame_from_jdbc_conf(frame, catalog_connection, connection_options={},
-
-redshift_tmp_dir = "", transformation_ctx = "", catalog_id = None)`
+###### `write_dynamic_frame_from_jdbc_conf(frame, catalog_connection, connection_options={}, redshift_tmp_dir = "", transformation_ctx = "", catalog_id = None)`
 
 Writes and returns a `DynamicFrame` using the specified JDBC connection
 information.
@@ -891,8 +849,7 @@ information.
 - `frame` – The `DynamicFrame` to write.
 - `catalog_connection` – A catalog connection to use.
 - `connection_options` – Connection options, such as path and database table
-  (optional). For more information, see [Connection types and options for ETL in
-  AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
+  (optional). For more information, see [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
 - `redshift_tmp_dir` – An Amazon Redshift temporary directory to use (optional).
 - `transformation_ctx` – A transformation context to use (optional).
 - `catalog_id` — The catalog ID (account ID) of the Data Catalog being accessed. When None, the default account ID of the caller is used.
@@ -908,8 +865,7 @@ using the specified JDBC connection information.
   `DynamicFrameCollection` to write.
 - `catalog_connection` – A catalog connection to use.
 - `connection_options` – Connection options, such as path and database table
-  (optional). For more information, see [Connection types and options for ETL in
-  AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
+  (optional). For more information, see [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
 - `redshift_tmp_dir` – An Amazon Redshift temporary directory to use (optional).
 - `transformation_ctx` – A transformation context to use (optional).
 - `catalog_id` — The catalog ID (account ID) of the Data Catalog being accessed. When None, the default account ID of the caller is used.

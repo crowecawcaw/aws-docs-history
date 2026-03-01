@@ -7,8 +7,7 @@ AWS Glue. You will complete the following tasks:
 - Create a service role for running jobs, accessing data, and running AWS Glue Data Quality
   tasks.
   For detailed instructions that you can use to customize IAM permissions for AWS Glue, see
-  [Configuring IAM permissions for
-  AWS Glue](configure-iam-for-glue.md "configure-iam-for-glue.md").
+  [Configuring IAM permissions for AWS Glue](configure-iam-for-glue.md "configure-iam-for-glue.md").
 
 ###### To set up IAM permissions for AWS Glue in the AWS Management Console
 
@@ -43,8 +42,7 @@ AWS Glue. You will complete the following tasks:
 7. Choose **Next**.
 8. Choose a default AWS Glue service role for your account. A service role is an IAM
    role that AWS Glue uses to access resources in other AWS services on your behalf. For
-   more information, see [Service roles for
-   AWS Glue](security_iam_service-with-iam.md#security_iam_service-with-iam-roles-service "security_iam_service-with-iam.md#security_iam_service-with-iam-roles-service").
+   more information, see [Service roles for AWS Glue](security_iam_service-with-iam.md#security_iam_service-with-iam-roles-service "security_iam_service-with-iam.md#security_iam_service-with-iam-roles-service").
    - When you choose the standard AWS Glue service role, AWS Glue creates a new IAM
      role in your AWS account named `AWSGlueServiceRole` with the following
      managed policies attached. If your account already has an IAM role named
@@ -69,8 +67,7 @@ AWS Glue. You will complete the following tasks:
      ETL process.
 
    - When you choose an existing IAM role, AWS Glue sets the role as the default, but doesn't add `AWSGlueServiceRole` permissions to it.
-     Ensure that you've configured the role to use as a service role for AWS Glue. For more information, see [Step 1: Create an IAM policy for the AWS Glue
-     service](create-service-policy.md "create-service-policy.md") and [Step 2: Create an IAM role for AWS Glue](create-an-iam-role.md "create-an-iam-role.md").
+     Ensure that you've configured the role to use as a service role for AWS Glue. For more information, see [Step 1: Create an IAM policy for the AWS Glue service](create-service-policy.md "create-service-policy.md") and [Step 2: Create an IAM role for AWS Glue](create-an-iam-role.md "create-an-iam-role.md").
 
 9. Choose **Next**.
 10. Finally, review the permissions you've selected and then choose **Apply
@@ -87,6 +84,4 @@ Now that you have IAM permissions set up, you can explore the following topics t
 started using AWS Glue:
 
 - [Getting Started with AWS Glue in AWS Skill Builder](https://explore.skillbuilder.aws/learn/course/external/view/elearning/8171/getting-started-with-aws-glue "https://explore.skillbuilder.aws/learn/course/external/view/elearning/8171/getting-started-with-aws-glue")
-- [Getting
-  started
-  with the AWS Glue Data Catalog](start-data-catalog.md "start-data-catalog.md")
+- [Getting started with the AWS Glue Data Catalog](start-data-catalog.md "start-data-catalog.md")

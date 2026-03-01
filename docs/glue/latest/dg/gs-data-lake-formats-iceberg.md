@@ -1,14 +1,8 @@
-#
+# Using Apache Iceberg framework in AWS Glue Studio
 
-Using Apache Iceberg framework in AWS Glue Studio
+## Using Apache Iceberg framework in data targets
 
-##
-
-Using Apache Iceberg framework in data targets
-
-###
-
-Using Apache Iceberg framework in Data Catalog data targets
+### Using Apache Iceberg framework in Data Catalog data targets
 
 1. From the **Target** menu, choose AWS Glue Studio Data Catalog.
 2. In the **Data source properties** tab, choose a database and table.
@@ -31,13 +25,9 @@ Enter values or select from the available options to configure Apache Iceberg fo
 
 ![The screenshot shows the Data target properties when using Apache Iceberg framework in Amazon S3 data targets.](images/apache-iceberg-data-target-properties.png)
 
-##
+## Using Apache Iceberg framework in Amazon S3 data sources
 
-Using Apache Iceberg framework in Amazon S3 data sources
-
-###
-
-Using Apache Iceberg framework in Data Catalog data sources
+### Using Apache Iceberg framework in Data Catalog data sources
 
 1. From the **Source** menu, choose AWS Glue Studio Data Catalog.
 2. In the **Data source properties** tab, choose a database and table.

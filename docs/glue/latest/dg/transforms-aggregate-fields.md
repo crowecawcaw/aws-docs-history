@@ -1,6 +1,4 @@
-# Using Aggregate to perform summary
-
-calculations on selected fields
+# Using Aggregate to perform summary calculations on selected fields
 
 ###### To use the Aggregate transform
 

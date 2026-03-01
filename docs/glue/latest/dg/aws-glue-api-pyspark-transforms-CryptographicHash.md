@@ -87,16 +87,7 @@ from the original `input\_df` DataFrame, plus the additional `id\_hashed` and `p
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-CryptographicHash-describeErrors "#aws-glue-api-crawler-pyspark-transforms-CryptographicHash-describeErrors")
 - [describe](#aws-glue-api-crawler-pyspark-transforms-CryptographicHash-describe "#aws-glue-api-crawler-pyspark-transforms-CryptographicHash-describe")
 
-## \_\_call\_\_(spark_context,
-
-data_frame,
-source_columns,
-secret_id,
-algorithm=None,
-secret_version=None,
-create_secret_if_missing=False,
-output_format=None,
-entity_type_filter=None)
+## \_\_call\_\_(spark_context, data_frame, source_columns, secret_id, algorithm=None, secret_version=None, create_secret_if_missing=False, output_format=None, entity_type_filter=None)
 
 The `CryptographicHash` transform applies an algorithm to hash values in the column.
 

@@ -1,6 +1,4 @@
-# Setting up networking for development for
-
-AWS Glue
+# Setting up networking for development for AWS Glue
 
 To run your extract, transform, and load (ETL) scripts with AWS Glue, you can develop and test
 your scripts using a _development endpoint_. Development
@@ -8,9 +6,7 @@ endpoints are not supported for use with AWS Glue version 2.0 jobs. For versions
 the preferred development method is using Jupyter Notebook with one of the AWS Glue kernels.
 For more information, see [Getting started with AWS Glue interactive sessions](interactive-sessions.md "interactive-sessions.md").
 
-## Setting up your network for a development
-
-endpoint
+## Setting up your network for a development endpoint
 
 When you set up a development endpoint, you specify a virtual private cloud (VPC), subnet,
 and security groups.

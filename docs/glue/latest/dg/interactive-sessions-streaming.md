@@ -1,17 +1,11 @@
-#
+# Working with streaming operations in AWS Glue interactive sessions
 
-Working with streaming operations in AWS Glue interactive sessions
-
-##
-
-Switching streaming session type
+## Switching streaming session type
 
 Use the AWS Glue interactive sessions configuration magic, `%streaming`, to define the job you are running
 and initialize a streaming interactive session.
 
-##
-
-Sampling input stream for interactive development
+## Sampling input stream for interactive development
 
 One tool we have derived to help enhance the interactive experience in AWS Glue interactive sessions is the addition
 of a new method under `GlueContext` to obtain a snapshot of a stream in a static DynamicFrame. `GlueContext` allows
@@ -64,9 +58,7 @@ When the sampled `DynFrame` is empty, it could be caused by a few reasons:
 - The Streaming source is set to "Latest" and no new data has been ingested during the sampling period.
 - The polling time is not enough to process the records it ingested. Data won't show up unless the whole batch has been processed.
 
-##
-
-Running streaming applications in interactive sessions
+## Running streaming applications in interactive sessions
 
 In AWS Glue interactive sessions, you can run a the AWS Glue streaming application like how you would
 create a streaming application in the AWS Glue Console. Since interactive sessions is session-based,

@@ -6,8 +6,7 @@ while the source `DynamicFrame` was created.
 ## Example
 
 We recommend that you use the [DynamicFrame.errorsAsDynamicFrame()](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-errorsAsDynamicFrame "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-errorsAsDynamicFrame") method to
-retrieve and view error records. To view a code example, see [Example: Use errorsAsDynamicFrame to
-view error records](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-errorsAsDynamicFrame-example "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-errorsAsDynamicFrame-example").
+retrieve and view error records. To view a code example, see [Example: Use errorsAsDynamicFrame to view error records](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-errorsAsDynamicFrame-example "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-errorsAsDynamicFrame-example").
 
 ## Methods
 

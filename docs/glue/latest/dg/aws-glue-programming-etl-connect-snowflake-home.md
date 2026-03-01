@@ -55,8 +55,7 @@ In the following situations, you may require the following:
   - You will need appropriate Amazon VPC configuration for Snowflake. For more information on how
     to configure your Amazon VPC, consult [AWS PrivateLink
     & Snowflake](https://docs.snowflake.com/en/user-guide/admin-security-privatelink "https://docs.snowflake.com/en/user-guide/admin-security-privatelink") in the Snowflake documentation.
-  - You will need appropriate Amazon VPC configuration for AWS Glue. [Configuring interface VPC endpoints (AWS PrivateLink) for AWS Glue
-    (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
+  - You will need appropriate Amazon VPC configuration for AWS Glue. [Configuring interface VPC endpoints (AWS PrivateLink) for AWS Glue (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
   - You will need to create a AWS Glue Data Catalog connection that provides Amazon VPC connection
     information (in addition to the id of an AWS Secrets Manager secret that defines your Snowflake
     security credentials). Your URL will change when using AWS PrivateLink, as described in the

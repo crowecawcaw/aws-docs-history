@@ -4,9 +4,7 @@ AWS Glue streaming ETL jobs continuously consume data from streaming sources, cl
 
 The following sections provide information on AWS Glue streaming autoscaling
 
-## Enabling Auto Scaling in
-
-AWS Glue Studio
+## Enabling Auto Scaling in AWS Glue Studio
 
 On the **Job details** tab in AWS Glue Studio, choose the
 type as **Spark** or **Spark Streaming**, and
@@ -21,9 +19,7 @@ type as **Spark** or **Spark Streaming**, and
 
 ![Enabling and configuring Auto Scaling in AWS Glue Studio.](images/auto-scaling-enable-studio.png)
 
-## Enabling Auto Scaling with the AWS CLI
-
-or SDK
+## Enabling Auto Scaling with the AWS CLI or SDK
 
 To enable Auto Scaling From the AWS CLI for your job run, run
 `start-job-run` with the following configuration:

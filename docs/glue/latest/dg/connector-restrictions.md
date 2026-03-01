@@ -1,6 +1,4 @@
-# Restrictions for using connectors and connections in
-
-AWS Glue Studio
+# Restrictions for using connectors and connections in AWS Glue Studio
 
 When you're using custom connectors or connectors from AWS Marketplace, take note of the following
 restrictions:

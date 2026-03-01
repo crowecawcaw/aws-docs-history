@@ -19,11 +19,9 @@ properties.
 
 4. Configure the **Data source properties** information. For more information,
    see the following sections:
-   - [Using Data Catalog tables for the data
-     source](edit-jobs-source-catalog-tables.md "edit-jobs-source-catalog-tables.md")
+   - [Using Data Catalog tables for the data source](edit-jobs-source-catalog-tables.md "edit-jobs-source-catalog-tables.md")
    - [Using a connector for the data source](edit-jobs-source-connectors.md "edit-jobs-source-connectors.md")
-   - [Using files in Amazon S3 for the data
-     source](edit-jobs-source-s3-files.md "edit-jobs-source-s3-files.md")
+   - [Using files in Amazon S3 for the data source](edit-jobs-source-s3-files.md "edit-jobs-source-s3-files.md")
    - [Using a streaming data source](edit-jobs-source-streaming.md "edit-jobs-source-streaming.md")
 
 5. (Optional) After configuring the node properties and data source properties, you can view the schema for your data source by choosing the **Output schema** tab in the node details panel. The first time you choose this tab for any node in your job, you are prompted to provide an IAM role to access the data. If you have not specified an IAM role on the **Job details** tab, you are prompted to enter an IAM role here.

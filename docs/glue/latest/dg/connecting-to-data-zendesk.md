@@ -1,6 +1,4 @@
-#
-
-Connecting to Zendesk
+# Connecting to Zendesk
 
 Zendesk is a cloud-based help desk management solution offering customizable tools to build a customer service portal, knowledge base and online communities.
 

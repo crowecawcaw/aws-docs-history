@@ -1,6 +1,4 @@
-#
-
-Detect and process sensitive data
+# Detect and process sensitive data
 
 The Detect PII transform identifies Personal Identifiable Information (PII) in your data source. You choose the PII entity to identify,
 how you want the data to be scanned, and what to do with the PII entity that have been identified by the Detect PII transform.
@@ -23,9 +21,7 @@ Topics
 - [Choosing what to do with identified PII data](#choose-action-pii "#choose-action-pii")
 - [Adding fine-grained action overrides](#sensitive-data-fine-grained-actions-override "#sensitive-data-fine-grained-actions-override")
 
-##
-
-Choosing how you want the data to be scanned
+## Choosing how you want the data to be scanned
 
 When you scan your dataset for sensitive data like personally identifiable information (PII), you can choose to
 detect PII in each row or detect the columns that contain PII data.
@@ -50,9 +46,7 @@ Choosing this option will allow you to specify additional options:
   field will
   not be labeled as having the PII entity, US Phone, in it.
 
-##
-
-Choosing the PII entities to detect
+## Choosing the PII entities to detect
 
 If you chose **Detect PII in each cell**, you can choose from one of three options:
 
@@ -71,9 +65,7 @@ more than one, or all entities.
 
 ![The screen shot shows the options in the list of pre-defined AWS entities.](images/pii-select-entities-to-detect.png)
 
-###
-
-Select categories
+### Select categories
 
 If you chose **Select categories** as the PII patterns to detect, you can select from the options
 in the drop-down menu.
@@ -123,9 +115,7 @@ is an entity that belongs to the _Universal_ and _HIPAA_ categories.
 - United Kingdom
 - Venezuela
 
-###
-
-Select specific patterns
+### Select specific patterns
 
 If you choose **Select specific patterns** as the PII patterns to detect, you can search or
 browse from a list of patterns you've
@@ -150,9 +140,7 @@ AWS Glue Studio console. Click on **Detection entities** in the left-hand naviga
 You can edit, delete, or create detection entities from the **Detection entities** page. You can also
 search for a pattern using the search field.
 
-##
-
-Specifying the level of detection sensitivity
+## Specifying the level of detection sensitivity
 
 You can set the level of sensitivity when using detecting sensitive data.
 
@@ -163,9 +151,7 @@ You can set the level of sensitivity when using detecting sensitive data.
 
 ![The screen shot shows the global detection sensitivity options. There is a low option, which is for better precision, but is more strict and can result in lower overall detection. The second option is a high sensitivity setting, which is for broader detection and is better suited if you need higher PII detection.](images/detect-sensitve-data-sensitvity-new.png)
 
-##
-
-Choosing what to do with identified PII data
+## Choosing what to do with identified PII data
 
 If you chose to detect PII in the entire data source, you can select a global action to apply:
 
@@ -181,9 +167,7 @@ If you chose to detect PII in the entire data source, you can select a global ac
 
 ![The screen shot shows the options in the Detect PII transform when selecting all rows in the data source to detect PII.](images/detect-sensitive-data-global-action.png)
 
-###
-
-Differences between AWS Glue versions 2.0 and 3.0+
+### Differences between AWS Glue versions 2.0 and 3.0+
 
 AWS Glue 2.0 jobs will return a new DataFrame with the detected PII information for each column in
 a supplementary column. Any redaction or hash work is visible within the AWS Glue script in the
@@ -194,9 +178,7 @@ for “actionUsed” is present and can be one of `DETECT`, `REDACT`, `PARTIAL_R
 or `SHA256_HASH`.
 If a masking action is selected, the DataFrame will return data with sensitive data masked.
 
-##
-
-Adding fine-grained action overrides
+## Adding fine-grained action overrides
 
 Additional detection and action settings can be added to the fine-grained actions overrides table. This allows you
 to:

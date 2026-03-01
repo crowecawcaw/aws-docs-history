@@ -1,6 +1,4 @@
-#
-
-Converting a script or notebook into an AWS Glue job
+# Converting a script or notebook into an AWS Glue job
 
 There are two ways you can convert a script or notebook into an AWS Glue job:
 

@@ -9,17 +9,10 @@ an EC2 instance, or launch locally using Docker.
 
 ###### Topics
 
-- [Launching the Spark history server and viewing
-  the
-  Spark UI using AWS CloudFormation](#monitor-spark-ui-history-cfn "#monitor-spark-ui-history-cfn")
-- [Launching the Spark history server and
-  viewing the
-  Spark UI using Docker](#monitor-spark-ui-history-local "#monitor-spark-ui-history-local")
+- [Launching the Spark history server and viewing the Spark UI using AWS CloudFormation](#monitor-spark-ui-history-cfn "#monitor-spark-ui-history-cfn")
+- [Launching the Spark history server and viewing the Spark UI using Docker](#monitor-spark-ui-history-local "#monitor-spark-ui-history-local")
 
-## Launching the Spark history server and viewing
-
-the
-Spark UI using AWS CloudFormation
+## Launching the Spark history server and viewing the Spark UI using AWS CloudFormation
 
 You can use an AWS CloudFormation template to start the Apache Spark history server and view the
 Spark
@@ -111,10 +104,7 @@ then choose **Create stack**. 6. Wait for the stack to be created. 7. Open the *
    on the specified port. Your browser may not recognize the server's certificate, in which
    case you have to override its protection and proceed anyway.
 
-## Launching the Spark history server and
-
-viewing the
-Spark UI using Docker
+## Launching the Spark history server and viewing the Spark UI using Docker
 
 If you prefer local access (not to have an EC2 instance for the Apache Spark history
 server), you can also use Docker to start the Apache Spark history server and view the Spark

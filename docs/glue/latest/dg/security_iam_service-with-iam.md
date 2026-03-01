@@ -21,9 +21,7 @@ To get a high-level view of how AWS Glue and other AWS services work with most I
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for AWS Glue
+## Identity-based policies for AWS Glue
 
 **Supports identity-based policies:**
 
@@ -45,16 +43,11 @@ AWS Glue operations. By attaching a policy, you can grant permissions to
 create, access, or modify an AWS Glue resource, such as a table in the
 AWS Glue Data Catalog.
 
-###
+### Identity-based policy examples for AWS Glue
 
-Identity-based policy examples for AWS Glue
+To view examples of AWS Glue identity-based policies, see [Identity-based policy examples for AWS Glue](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of AWS Glue identity-based policies, see [Identity-based policy examples
-for AWS Glue](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within AWS Glue
+## Resource-based policies within AWS Glue
 
 **Supports resource-based policies:**
 
@@ -88,12 +81,9 @@ A resource policy is evaluated for all API calls to the catalog where the caller
 principal is included in the `"Principal"` block of the policy
 document.
 
-To view examples of AWS Glue resource-based policies, see [Resource-based policy
-examples for AWS Glue](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md").
+To view examples of AWS Glue resource-based policies, see [Resource-based policy examples for AWS Glue](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md").
 
-## Policy actions
-
-for AWS Glue
+## Policy actions for AWS Glue
 
 **Supports policy actions:**
 
@@ -132,9 +122,7 @@ actions that begin with the word `Get`, include the following action:
 
 To view example policies, see [AWS Glue access control policy examples](glue-policy-examples.md "glue-policy-examples.md").
 
-## Policy
-
-resources for AWS Glue
+## Policy resources for AWS Glue
 
 **Supports policy resources:**
 
@@ -156,9 +144,7 @@ To see a list of AWS Glue resource types and their ARNs, see [Resources defined 
 in the _Service Authorization Reference_. To learn which actions you can use to
 specify the ARN of each resource, see [Actions defined by AWS Glue](../../../service-authorization/latest/reference/list_awsglue.md#awsglue-actions-as-permissions "../../../service-authorization/latest/reference/list_awsglue.md#awsglue-actions-as-permissions").
 
-## Policy
-
-condition keys for AWS Glue
+## Policy condition keys for AWS Glue
 
 **Supports service-specific policy condition keys:**
 
@@ -177,8 +163,7 @@ To see a list of AWS Glue condition keys, see [Condition keys for AWS Glue](../.
 _Service Authorization Reference_. To learn which actions and resources you can
 use a condition key with, see [Actions defined by AWS Glue](../../../service-authorization/latest/reference/list_awsglue.md#awsglue-actions-as-permissions "../../../service-authorization/latest/reference/list_awsglue.md#awsglue-actions-as-permissions").
 
-To view example policies, see [Control settings using
-condition keys or context keys](security_iam_id-based-policy-examples.md#glue-identity-based-policy-condition-keys "security_iam_id-based-policy-examples.md#glue-identity-based-policy-condition-keys").
+To view example policies, see [Control settings using condition keys or context keys](security_iam_id-based-policy-examples.md#glue-identity-based-policy-condition-keys "security_iam_id-based-policy-examples.md#glue-identity-based-policy-condition-keys").
 
 ## ACLs in AWS Glue
 
@@ -217,12 +202,9 @@ The AWS Glue Data Catalog API operations don't currently support the
 keys.
 
 To view an example identity-based policy for limiting access to a resource based on
-the tags on that resource, see [Grant access using
-tags](security_iam_id-based-policy-examples.md#tags-control-access-example-triggers-allow "security_iam_id-based-policy-examples.md#tags-control-access-example-triggers-allow").
+the tags on that resource, see [Grant access using tags](security_iam_id-based-policy-examples.md#tags-control-access-example-triggers-allow "security_iam_id-based-policy-examples.md#tags-control-access-example-triggers-allow").
 
-## Using temporary
-
-credentials with AWS Glue
+## Using temporary credentials with AWS Glue
 
 **Supports temporary credentials:**
 
@@ -234,9 +216,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for AWS Glue
+## Cross-service principal permissions for AWS Glue
 
 **Supports forward access sessions (FAS):**
 
@@ -245,9 +225,7 @@ No
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-AWS Glue
+## Service roles for AWS Glue
 
 **Supports service roles:**
 
@@ -262,12 +240,9 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break AWS Glue functionality.
 Edit service roles only when AWS Glue provides guidance to do so.
 
-For detailed instructions on creating a service role for AWS Glue, see [Step 1: Create an IAM policy for the AWS Glue
-service](create-service-policy.md "create-service-policy.md") and [Step 2: Create an IAM role for AWS Glue](create-an-iam-role.md "create-an-iam-role.md").
+For detailed instructions on creating a service role for AWS Glue, see [Step 1: Create an IAM policy for the AWS Glue service](create-service-policy.md "create-service-policy.md") and [Step 2: Create an IAM role for AWS Glue](create-an-iam-role.md "create-an-iam-role.md").
 
-## Service-linked
-
-roles for AWS Glue
+## Service-linked roles for AWS Glue
 
 **Supports service-linked roles:**
 

@@ -1,6 +1,4 @@
-#
-
-Using interactive sessions with Microsoft Visual Studio Code
+# Using interactive sessions with Microsoft Visual Studio Code
 
 **Prerequisites**
 
@@ -9,9 +7,7 @@ Using interactive sessions with Microsoft Visual Studio Code
   [Jupyter
   Notebook in VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks "https://code.visualstudio.com/docs/datascience/jupyter-notebooks").
 
-######
-
-To get started with interactive sessions with VSCode
+###### To get started with interactive sessions with VSCode
 
 1. Disable Jupyter AutoStart in VS Code.
 

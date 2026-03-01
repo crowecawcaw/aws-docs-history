@@ -3,16 +3,12 @@
 You can view the status of an AWS Glue extract, transform, and load (ETL) job while it is running
 or after it has stopped. You can view the status using the AWS Glue console.
 
-## Accessing the job monitoring
-
-dashboard
+## Accessing the job monitoring dashboard
 
 You access the job monitoring dashboard by choosing the
 **Job run monitoring** link in the AWS Glue navigation pane under **ETL jobs**.
 
-## Overview of the job monitoring
-
-dashboard
+## Overview of the job monitoring dashboard
 
 The job monitoring dashboard provides an overall summary of the job runs, with totals for
 the jobs with a status of **Running**, **Canceled**,
@@ -142,15 +138,12 @@ runs. For more information, see [View information for recent job runs](managing-
 - **Input arguments**
 - **Continuous logs**
 - **Metrics** – You can see visualizations of basic metrics. For more information on
-  included metrics, see [Viewing Amazon CloudWatch metrics for a
-  Spark job run](#monitoring-job-run-metrics "#monitoring-job-run-metrics").
+  included metrics, see [Viewing Amazon CloudWatch metrics for a Spark job run](#monitoring-job-run-metrics "#monitoring-job-run-metrics").
 - **Spark UI** – You can visualize Spark logs for your job in the Spark UI. For more
   information about using the Spark Web UI, see [Monitoring jobs using the Apache Spark web UI](monitor-spark-ui.md "monitor-spark-ui.md"). Enable this feature by
   following the procedure in [Enabling the Apache Spark web UI for AWS Glue jobs](monitor-spark-ui-jobs.md "monitor-spark-ui-jobs.md").
 
-## Viewing Amazon CloudWatch metrics for a
-
-Spark job run
+## Viewing Amazon CloudWatch metrics for a Spark job run
 
 On the details page for a job run, below the **Run details** section, you
 can view the job metrics. AWS Glue Studio sends job metrics to Amazon CloudWatch for every job
@@ -178,9 +171,7 @@ The metrics provide information about your job run, such as:
 - **CPU Load** – The fraction of CPU system load used (scale:
   0–1), shown as a percentage.
 
-## Viewing Amazon CloudWatch metrics for a Ray job
-
-run
+## Viewing Amazon CloudWatch metrics for a Ray job run
 
 On the details page for a job run, below the **Run details** section, you can view the job
 metrics. AWS Glue Studio sends job metrics to Amazon CloudWatch for every job run.

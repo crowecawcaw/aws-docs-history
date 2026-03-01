@@ -11,9 +11,7 @@
 6. After the company administration's approval, activate your account by clicking on the link
    in the approval email.
 
-######
-
-Verifying if the account that you created has access to Adobe Analytics service
+###### Verifying if the account that you created has access to Adobe Analytics service
 
 1. Log in to [Adobe Admin Console](https://adminconsole.adobe.com/ "https://adminconsole.adobe.com/").
 2. Check the organization name at the top-right corner of the page to ensure that you have logged

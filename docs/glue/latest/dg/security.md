@@ -28,11 +28,7 @@ responsibility model](https://aws.amazon.com/compliance/shared-responsibility-mo
 - [AWS Lake Formation access control models](lake-formation-access-control-models.md "lake-formation-access-control-models.md")
 - [Using Amazon S3 Access Grants with AWS Glue](security-s3-access-grants.md "security-s3-access-grants.md")
 - [Trusted Identity Propagation with AWS Glue ETL](security-trusted-identity-propagation.md "security-trusted-identity-propagation.md")
-- [Logging and
-  monitoring
-  in AWS Glue](logging-and-monitoring.md "logging-and-monitoring.md")
+- [Logging and monitoring in AWS Glue](logging-and-monitoring.md "logging-and-monitoring.md")
 - [Compliance validation for AWS Glue](compliance.md "compliance.md")
 - [Resilience in AWS Glue](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Infrastructure
-  security
-  in AWS Glue](infrastructure-security.md "infrastructure-security.md")
+- [Infrastructure security in AWS Glue](infrastructure-security.md "infrastructure-security.md")

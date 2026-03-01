@@ -135,9 +135,7 @@ Migrated Spark programs may be designed to take custom configuration. AWS Glue a
 set on the job and job run level, through the job arguments. For information about job arguments, see
 [Using job parameters in AWS Glue jobs](aws-glue-programming-etl-glue-arguments.md "aws-glue-programming-etl-glue-arguments.md"). You can access job arguments within the
 context of a job through our libraries. AWS Glue provides a utility function to provide a consistent view between arguments
-set on the job and arguments set on the job run. See [Accessing
-parameters using getResolvedOptions](aws-glue-api-crawler-pyspark-extensions-get-resolved-options.md "aws-glue-api-crawler-pyspark-extensions-get-resolved-options.md") in Python and [AWS Glue Scala GlueArgParser
-APIs](glue-etl-scala-apis-glue-util-glueargparser.md "glue-etl-scala-apis-glue-util-glueargparser.md") in Scala.
+set on the job and arguments set on the job run. See [Accessing parameters using getResolvedOptions](aws-glue-api-crawler-pyspark-extensions-get-resolved-options.md "aws-glue-api-crawler-pyspark-extensions-get-resolved-options.md") in Python and [AWS Glue Scala GlueArgParser APIs](glue-etl-scala-apis-glue-util-glueargparser.md "glue-etl-scala-apis-glue-util-glueargparser.md") in Scala.
 
 ### Migrate Java code
 

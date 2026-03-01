@@ -89,13 +89,7 @@ named `phone\_encrypted` containing the encrypted values of the `phone` column.
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-Encrypt-describeErrors "#aws-glue-api-crawler-pyspark-transforms-Encrypt-describeErrors")
 - [describe](#aws-glue-api-crawler-pyspark-transforms-Encrypt-describe "#aws-glue-api-crawler-pyspark-transforms-Encrypt-describe")
 
-## \_\_call\_\_(spark_context,
-
-data_frame,
-source_columns,
-kms_key_arn,
-entity_type_filter=None,
-preserve_data_type=None)
+## \_\_call\_\_(spark_context, data_frame, source_columns, kms_key_arn, entity_type_filter=None, preserve_data_type=None)
 
 The `Encrypt` transform encrypts source columns using the AWS Key Management Service key.
 

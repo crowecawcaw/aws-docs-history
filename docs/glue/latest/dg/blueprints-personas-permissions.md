@@ -1,6 +1,4 @@
-# Permissions for personas and roles for
-
-AWS Glue blueprints
+# Permissions for personas and roles for AWS Glue blueprints
 
 The following are the typical personas and suggested AWS Identity and Access Management (IAM) permissions
 policies for personas and roles for AWS Glue blueprints.
@@ -9,8 +7,7 @@ policies for personas and roles for AWS Glue blueprints.
 
 - [Blueprint personas](#blueprints-personas "#blueprints-personas")
 - [Permissions for blueprint personas](#blueprints-permssions "#blueprints-permssions")
-- [Permissions for blueprint
-  roles](#blueprints-role-permissions "#blueprints-role-permissions")
+- [Permissions for blueprint roles](#blueprints-role-permissions "#blueprints-role-permissions")
 
 ## Blueprint personas
 
@@ -29,19 +26,13 @@ For more information, see [Overview of blueprints in AWS Glue](blueprints-overvi
 
 The following are the suggested permissions for each blueprint persona.
 
-### AWS Glue developer permissions for
-
-blueprints
+### AWS Glue developer permissions for blueprints
 
 The AWS Glue developer must have write permissions on the Amazon S3 bucket that is used to
 publish the blueprint. Often, the developer registers the blueprint after
-uploading it. In that case, the developer needs the permissions listed in [AWS Glue administrator permissions for
-blueprints](#bp-persona-admin "#bp-persona-admin"). Additionally, if the developer wishes to test the blueprint after its registered, he or she also needs the permissions listed in [Data analyst permissions for
-blueprints](#bp-persona-analyst "#bp-persona-analyst").
+uploading it. In that case, the developer needs the permissions listed in [AWS Glue administrator permissions for blueprints](#bp-persona-admin "#bp-persona-admin"). Additionally, if the developer wishes to test the blueprint after its registered, he or she also needs the permissions listed in [Data analyst permissions for blueprints](#bp-persona-analyst "#bp-persona-analyst").
 
-### AWS Glue administrator permissions for
-
-blueprints
+### AWS Glue administrator permissions for blueprints
 
 The following policy grants permissions to register, view, and maintain AWS Glue
 blueprints.
@@ -83,9 +74,7 @@ JSON
 
 ```
 
-### Data analyst permissions for
-
-blueprints
+### Data analyst permissions for blueprints
 
 The following policy grants permissions to run blueprints and to view
 the resulting workflow and workflow components. It also grants `PassRole`
@@ -104,8 +93,7 @@ arn:aws:glue:`<region>`:`<account-id>`:blueprint/`<blueprint-name>`
 
 In the following policy, replace `<account-id>`
 with a valid AWS account and replace `<role-name>`
-with the name of the role used to run a blueprint. See [Permissions for blueprint
-roles](#blueprints-role-permissions "#blueprints-role-permissions") for the permissions that this role
+with the name of the role used to run a blueprint. See [Permissions for blueprint roles](#blueprints-role-permissions "#blueprints-role-permissions") for the permissions that this role
 requires.
 
 JSON
@@ -151,9 +139,7 @@ JSON
 
 ```
 
-## Permissions for blueprint
-
-roles
+## Permissions for blueprint roles
 
 The following are the suggested permissions for the IAM role used to create a
 workflow from a blueprint. The role has to have a trust relationship with

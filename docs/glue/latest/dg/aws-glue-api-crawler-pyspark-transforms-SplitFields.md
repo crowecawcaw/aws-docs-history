@@ -18,10 +18,7 @@ method to split fields in a `DynamicFrame`. To view a code example, see [Example
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-SplitFields-describeErrors "#aws-glue-api-crawler-pyspark-transforms-SplitFields-describeErrors")
 - [describe](#aws-glue-api-crawler-pyspark-transforms-SplitFields-describe "#aws-glue-api-crawler-pyspark-transforms-SplitFields-describe")
 
-## \_\_call\_\_(frame,
-
-paths, name1 = none, name2 = none, transformation_ctx = "", info = "", stageThreshold = 0,
-totalThreshold = 0)
+## \_\_call\_\_(frame, paths, name1 = none, name2 = none, transformation_ctx = "", info = "", stageThreshold = 0, totalThreshold = 0)
 
 Splits one or more fields in a `DynamicFrame` off into a new
 `DynamicFrame`, and creates another new `DynamicFrame` that contains

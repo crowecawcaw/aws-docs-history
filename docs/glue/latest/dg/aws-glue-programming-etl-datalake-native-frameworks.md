@@ -1,6 +1,4 @@
-# Using data lake
-
-frameworks with AWS Glue ETL jobs
+# Using data lake frameworks with AWS Glue ETL jobs
 
 Open-source data lake frameworks simplify incremental data processing for files that you
 store in data lakes built on Amazon S3. AWS Glue 3.0 and later supports the following
@@ -23,9 +21,6 @@ In this video, you can learn about the basics of how Apache Hudi, Apache Iceberg
 ###### Topics
 
 - [Limitations](aws-glue-programming-etl-datalake-native-frameworks-limitations.md "aws-glue-programming-etl-datalake-native-frameworks-limitations.md")
-- [Using the Hudi framework in
-  AWS Glue](aws-glue-programming-etl-format-hudi.md "aws-glue-programming-etl-format-hudi.md")
-- [Using the Delta Lake framework
-  in AWS Glue](aws-glue-programming-etl-format-delta-lake.md "aws-glue-programming-etl-format-delta-lake.md")
-- [Using the Iceberg framework in
-  AWS Glue](aws-glue-programming-etl-format-iceberg.md "aws-glue-programming-etl-format-iceberg.md")
+- [Using the Hudi framework in AWS Glue](aws-glue-programming-etl-format-hudi.md "aws-glue-programming-etl-format-hudi.md")
+- [Using the Delta Lake framework in AWS Glue](aws-glue-programming-etl-format-delta-lake.md "aws-glue-programming-etl-format-delta-lake.md")
+- [Using the Iceberg framework in AWS Glue](aws-glue-programming-etl-format-iceberg.md "aws-glue-programming-etl-format-iceberg.md")

@@ -4,8 +4,7 @@ After you develop a blueprint, you must upload it to Amazon S3. You must have wr
 permissions on the Amazon S3 bucket that you use to publish the blueprint. You must also make
 sure that the AWS Glue administrator, who will register the blueprint, has read access to the
 Amazon S3 bucket. For the suggested AWS Identity and Access Management (IAM) permissions policies for personas and roles
-for AWS Glue blueprints, see [Permissions for personas and roles for
-AWS Glue blueprints](blueprints-personas-permissions.md "blueprints-personas-permissions.md").
+for AWS Glue blueprints, see [Permissions for personas and roles for AWS Glue blueprints](blueprints-personas-permissions.md "blueprints-personas-permissions.md").
 
 ###### To publish a blueprint
 
@@ -44,8 +43,7 @@ JSON
 
 4. Grant the IAM `s3:GetObject` permission on the Amazon S3 bucket to the AWS Glue
    administrator or to whoever will be registering blueprints. For a sample policy to grant
-   to administrators, see [AWS Glue administrator permissions for
-   blueprints](blueprints-personas-permissions.md#bp-persona-admin "blueprints-personas-permissions.md#bp-persona-admin").
+   to administrators, see [AWS Glue administrator permissions for blueprints](blueprints-personas-permissions.md#bp-persona-admin "blueprints-personas-permissions.md#bp-persona-admin").
    After you have completed local testing of your blueprint, you may also want to test a
    blueprint on AWS Glue. To test a blueprint on AWS Glue, it must be registered. You can limit who
    sees the registered blueprint using IAM authorization, or by using separate testing

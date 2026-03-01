@@ -1,6 +1,4 @@
-# Getting and setting workflow run properties in
-
-AWS Glue
+# Getting and setting workflow run properties in AWS Glue
 
 Use workflow run properties to share and manage state among the jobs in your AWS Glue workflow.
 You can set default run properties when you create the workflow. Then, as your jobs run, they can

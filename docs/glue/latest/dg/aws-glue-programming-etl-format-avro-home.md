@@ -20,8 +20,7 @@ option.
 | --------- | --------- | -------------- | ----------------- | ------------- |
 | Supported | Supported | Supported\*    | Unsupported       | Supported     |
 
-\*Supported with restrictions. For more information, see [Notes and restrictions for Avro streaming
-sources](add-job-streaming.md#streaming-avro-notes "add-job-streaming.md#streaming-avro-notes").
+\*Supported with restrictions. For more information, see [Notes and restrictions for Avro streaming sources](add-job-streaming.md#streaming-avro-notes "add-job-streaming.md#streaming-avro-notes").
 
 ## Example: Read Avro files or folders from S3
 

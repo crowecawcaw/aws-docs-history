@@ -1,6 +1,4 @@
-#
-
-Transform data with custom visual transforms
+# Transform data with custom visual transforms
 
 Custom visual transforms allow you to create transforms and make them available for use in
 AWS Glue Studio jobs.

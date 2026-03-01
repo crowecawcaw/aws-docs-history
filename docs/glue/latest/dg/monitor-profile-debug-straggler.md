@@ -1,15 +1,11 @@
-# Debugging demanding stages and
-
-straggler tasks
+# Debugging demanding stages and straggler tasks
 
 You can use AWS Glue job profiling to identify demanding stages and straggler tasks in your
 extract, transform, and load (ETL) jobs. A straggler task takes much longer than the rest of the
 tasks in a stage of an AWS Glue job. As a result, the stage takes longer to complete, which also
 delays the total execution time of the job.
 
-## Coalescing small input files into larger output
-
-files
+## Coalescing small input files into larger output files
 
 A straggler task can occur when there is a non-uniform distribution of work across the
 different tasks, or a data skew results in one task processing more data.
@@ -27,9 +23,7 @@ df = datasource0.coalesce(1)
 df.write.format("json").save(output_path)
 ```
 
-### Visualize the profiled metrics on the
-
-AWS Glue console
+### Visualize the profiled metrics on the AWS Glue console
 
 You can profile your job to examine four different sets of metrics:
 
@@ -68,9 +62,7 @@ stages.
 
 ![The metrics for the memory profile after the first two stages.](images/monitor-debug-straggler-4.png)
 
-### Fix straggling executors using
-
-grouping
+### Fix straggling executors using grouping
 
 You can avoid straggling executors by using the _grouping_ feature in
 AWS Glue. Use grouping to distribute the data uniformly across all the executors and coalesce
