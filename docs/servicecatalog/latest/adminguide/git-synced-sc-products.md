@@ -1,6 +1,4 @@
-# Syncing products to template files from GitHub, GitHub Enterprise,
-
-or Bitbucket
+# Syncing products to template files from GitHub, GitHub Enterprise, or Bitbucket
 
 AWS Service Catalog allows you to sync products to template files that are managed through external repository
 provider. AWS Service Catalog refers to products with this type of template connection as _Git-synced_
@@ -17,8 +15,7 @@ to a template file in the repository. When changes are made to the template file
 - [Viewing Git-synced product connections](#view-repo-sync "#view-repo-sync")
 - [Updating Git-synced product connections](#update-repo-sync "#update-repo-sync")
 - [Deleting Git-synced product connections](#delete-repo-sync "#delete-repo-sync")
-- [Syncing Terraform products to template files from GitHub, GitHub Enterprise,
-  or Bitbucket](#git-synced-Terraform "#git-synced-Terraform")
+- [Syncing Terraform products to template files from GitHub, GitHub Enterprise, or Bitbucket](#git-synced-Terraform "#git-synced-Terraform")
 - [AWS Region support for Git-synced products](git-sync-supported-regions.md "git-sync-supported-regions.md")
 
 ## Required permissions to sync products to external template files
@@ -97,8 +94,7 @@ refer to [Service-linked roles for AWS Service Catalog](#required-perms-synced-r
    Specify the repository details, including the **repository**, **branch**,
    and **template file path**.
 
-For infomration about using a Terraform configuration file, see [Syncing Terraform products to template files from GitHub, GitHub Enterprise,
-or Bitbucket](#git-synced-Terraform "#git-synced-Terraform") .
+For infomration about using a Terraform configuration file, see [Syncing Terraform products to template files from GitHub, GitHub Enterprise, or Bitbucket](#git-synced-Terraform "#git-synced-Terraform").
 
     1. (Optional when creating a new AWS Service Catalog product resource) In the **Support Details** section,
      add metadata for the product.
@@ -243,9 +239,7 @@ input, remove the specified connection.
 
 In the CodeConnections API or AWS CLI, run the `$ aws codestar-connections delete-connection` command.
 
-## Syncing Terraform products to template files from GitHub, GitHub Enterprise,
-
-or Bitbucket
+## Syncing Terraform products to template files from GitHub, GitHub Enterprise, or Bitbucket
 
 When creating a Git-synced product using a Terraform configuration file, the file
 path only accepts the tar.gz format. Terraform folder formats are not accepted in the file path.

@@ -26,22 +26,14 @@ using this tutorial.
 
 ###### Topics
 
-- [Step 1: Configure end user
-  permissions](#service-actions-configure-end-user-permissions "#service-actions-configure-end-user-permissions")
-- [Step 2: Create a service
-  action](#service-actions-create-new-service-action "#service-actions-create-new-service-action")
-- [Step 3: Associate the service
-  action with a product version](#service-actions-associate-with-product-version "#service-actions-associate-with-product-version")
-- [Step 4: Test the end user
-  experience](#service-actions-test-end-user-experience "#service-actions-test-end-user-experience")
-- [Step 5:
-  Managing service actions
-  with AWS CloudFormation](#service-actions-cloudformation "#service-actions-cloudformation")
+- [Step 1: Configure end user permissions](#service-actions-configure-end-user-permissions "#service-actions-configure-end-user-permissions")
+- [Step 2: Create a service action](#service-actions-create-new-service-action "#service-actions-create-new-service-action")
+- [Step 3: Associate the service action with a product version](#service-actions-associate-with-product-version "#service-actions-associate-with-product-version")
+- [Step 4: Test the end user experience](#service-actions-test-end-user-experience "#service-actions-test-end-user-experience")
+- [Step 5: Managing service actions with AWS CloudFormation](#service-actions-cloudformation "#service-actions-cloudformation")
 - [Step 6: Troubleshooting](#service-actions-troubleshooting "#service-actions-troubleshooting")
 
-## Step 1: Configure end user
-
-permissions
+## Step 1: Configure end user permissions
 
 End users must have the necessary permissions to view and perform specific service
 actions. In this example, the end user needs permission to access the AWS Service Catalog service actions
@@ -96,9 +88,7 @@ JSON
    end user group now have the necessary permissions to perform the Amazon EC2 restart action in
    AWS Service Catalog.
 
-## Step 2: Create a service
-
-action
+## Step 2: Create a service action
 
 Next, you create a service action to restart Amazon EC2 instances.
 
@@ -124,9 +114,7 @@ Next, you create a service action to restart Amazon EC2 instances.
 10. On the next page, a confirmation appears when the action has been created and is ready
     to use.
 
-## Step 3: Associate the service
-
-action with a product version
+## Step 3: Associate the service action with a product version
 
 After you define an action, you must associate a product with that action.
 
@@ -144,9 +132,7 @@ After you define an action, you must associate a product with that action.
 You have now created the service action in AWS Service Catalog. The next step of this tutorial is to
 use the service action as an end user.
 
-## Step 4: Test the end user
-
-experience
+## Step 4: Test the end user experience
 
 End users can perform service actions on provisioned products. For the purposes of
 this tutorial, the end user must have at least one provisioned product. The provisioned
@@ -167,11 +153,7 @@ action in the previous step.
 5. Confirm that you want to execute the custom action. You receive confirmation that the
    action has been sent.
 
-##
-
-Step 5:
-Managing service actions
-with AWS CloudFormation
+## Step 5: Managing service actions with AWS CloudFormation
 
 You can create service actions and their associations
 with AWS CloudFormation resources.

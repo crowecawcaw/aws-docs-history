@@ -1,6 +1,4 @@
-# Tutorial: Identifying User Resource
-
-Allocation
+# Tutorial: Identifying User Resource Allocation
 
 You can identify the user who provisioned a product and resources associated with the
 product using the AWS Service Catalog console. This tutorial helps translate this example to your own
@@ -10,9 +8,7 @@ To manage all provisioned products for the account, you need `AWSServiceCatalogA
 equivalent access to the provisioned product write operations. For more information, see
 [Identity and Access Management](controlling_access.md "controlling_access.md") in the _AWS Service Catalog Administrator Guide._
 
-###### To identify the user who provisioned a product and the associated
-
-resources
+###### To identify the user who provisioned a product and the associated resources
 
 1. Open [https://console.aws.amazon.com/servicecatalog](https://console.aws.amazon.com/servicecatalog "https://console.aws.amazon.com/servicecatalog").
 2. In the left navigation menu, choose **Provisioned

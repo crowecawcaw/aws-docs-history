@@ -76,9 +76,7 @@ to the following entities:
 
 You can share a portfolio with an organization when you use your organizational structure or input the ID of an organizational node.
 
-###### \*\*To share a portfolio with an organization by using the
-
-organizational structure\*\*
+###### **To share a portfolio with an organization by using the organizational structure**
 
 1. Open the AWS Service Catalog console at [https://console.aws.amazon.com/servicecatalog/](https://console.aws.amazon.com/servicecatalog/ "https://console.aws.amazon.com/servicecatalog/").
 2. On the **Portfolios** page, select the portfolio that you want to
@@ -95,9 +93,7 @@ that parent OU.
 You can select **View AWS accounts only** to see a list
 of all of the AWS accounts in your organization.
 
-###### \*\*To share a portfolio with an organization by entering the ID of
-
-the organizational node\*\*
+###### **To share a portfolio with an organization by entering the ID of the organizational node**
 
 1. Open the AWS Service Catalog console at [https://console.aws.amazon.com/servicecatalog/](https://console.aws.amazon.com/servicecatalog/ "https://console.aws.amazon.com/servicecatalog/").
 2. On the **Portfolios** page, select the portfolio that you want to

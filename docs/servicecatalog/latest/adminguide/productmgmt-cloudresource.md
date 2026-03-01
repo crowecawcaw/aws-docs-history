@@ -80,9 +80,7 @@ values, allowed values, and a regular expression for the value. AWS Service Cata
 provisioning if the value provided does not adhere to the parameter property. To learn more
 about parameter properties, see [Parameters](../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md") in the _CloudFormation User Guide_.
 
-##
-
-Troubleshooting
+## Troubleshooting
 
 You must have permission
 to retrieve objects

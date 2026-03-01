@@ -5,16 +5,11 @@ issues you might encounter when working with AWS Service Catalog and IAM.
 
 ###### Topics
 
-- [I am not authorized to perform
-  an action in AWS Service Catalog](#troubleshoot-one "#troubleshoot-one")
-- [I am not authorized to perform
-  iam:PassRole](#troubleshoot-two "#troubleshoot-two")
-- [I want to allow people outside
-  of my AWS account to access my AWS Service Catalog resources](#troubleshoot-five "#troubleshoot-five")
+- [I am not authorized to perform an action in AWS Service Catalog](#troubleshoot-one "#troubleshoot-one")
+- [I am not authorized to perform iam:PassRole](#troubleshoot-two "#troubleshoot-two")
+- [I want to allow people outside of my AWS account to access my AWS Service Catalog resources](#troubleshoot-five "#troubleshoot-five")
 
-## I am not authorized to perform
-
-an action in AWS Service Catalog
+## I am not authorized to perform an action in AWS Service Catalog
 
 If the AWS Management Console tells you that you're not
 authorized to perform an action, then you must contact your administrator for
@@ -30,9 +25,7 @@ User: arn:aws:iam::123456789012:user/mateojackson is not authorized to perform: 
 In this case, Mateo asks his administrator to update his policies to allow him to
 access the `my-example-widget` resource using the `aws:GetWidget` action.
 
-## I am not authorized to perform
-
-`iam:PassRole`
+## I am not authorized to perform `iam:PassRole`
 
 If you receive an error that you're not authorized to perform the
 `iam:PassRole` action, then you must contact your administrator for assistance. Your
@@ -55,9 +48,7 @@ User: arn:aws:iam::123456789012:user/marymajor is not authorized to perform: iam
 In this case, Mary asks her administrator to update her policies to allow her to
 perform the iam:PassRole action.
 
-## I want to allow people outside
-
-of my AWS account to access my AWS Service Catalog resources
+## I want to allow people outside of my AWS account to access my AWS Service Catalog resources
 
 You can create a role that users in other accounts or people outside of your
 organization can use to access your resources. You can specify who is trusted to

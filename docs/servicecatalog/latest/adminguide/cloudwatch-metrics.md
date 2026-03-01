@@ -10,8 +10,7 @@ CloudWatch in 1-minute periods. For more information about CloudWatch, see the [
 
 - [Enabling CloudWatch Metrics](#enable_cloudwatch "#enable_cloudwatch")
 - [Available Metrics and Dimensions](#available_cloudwatch_metrics "#available_cloudwatch_metrics")
-- [Viewing AWS Service Catalog
-  Metrics](viewing-cloudwatch-metrics.md "viewing-cloudwatch-metrics.md")
+- [Viewing AWS Service Catalog Metrics](viewing-cloudwatch-metrics.md "viewing-cloudwatch-metrics.md")
 
 ## Enabling CloudWatch Metrics
 
@@ -32,9 +31,7 @@ following metrics.
 | `ProvisionedProductLaunch`     | The number of provisioned products launched for a given<br>product and provisioning artifact in a specified time period.<br>The dimensions are published as separate records in CloudWatch logs.<br>Units: `Count`<br>Valid statistics: `Minimum`, `Maximum`,<br>`Sum`, `Average`<br>Dimensions: `State`, `PPState`,<br>`ProductId`,<br>`ProvisioningArtifactId` |
 | `ProductProvisioningOperation` | The number of operations performed on product id,<br>`provisioningArtifactId`. The dimensions are published as one record in CloudWatch logs.<br>Units: `Count`<br>Valid statistics: `Minimum`, `Maximum`,<br>`Sum`, `Average`<br>Dimensions: `State`, `PPState`,<br>`ProductId`,<br>`ProvisioningArtifactId`                                                    |
 
-### Dimensions for
-
-AWS Service Catalog Metrics
+### Dimensions for AWS Service Catalog Metrics
 
 AWS Service Catalog sends the following dimensions to Amazon CloudWatch.
 

@@ -30,9 +30,7 @@ To create a TagOption using the AWS Service Catalog API, see
 3. Select **Delete** and confirm the
    deletion.
 
-###### \*\*To activate or deactivate one or more TagOptions in the
-
-console\*\*
+###### **To activate or deactivate one or more TagOptions in the console**
 
 1. Open the Service Catalog console at [https://console.aws.amazon.com/servicecatalog/](https://console.aws.amazon.com/servicecatalog/ "https://console.aws.amazon.com/servicecatalog/").
 2. In the left navigation menu, choose **TagOptions library**
@@ -43,9 +41,7 @@ console\*\*
 To deactivate, choose the active TagOption you want. Then choose **Actions** and select **Deactivate** from the dropdown menu, and confirm your
 selection.
 
-###### \*\*To associate or disassociate one or more TagOptions with a
-
-portfolio in the console\*\*
+###### **To associate or disassociate one or more TagOptions with a portfolio in the console**
 
 1. Open the Service Catalog console at [https://console.aws.amazon.com/servicecatalog/](https://console.aws.amazon.com/servicecatalog/ "https://console.aws.amazon.com/servicecatalog/").
 2. In the left navigation menu, choose **Portfolios**, and then open the portfolio you want to associate or
@@ -54,9 +50,7 @@ portfolio in the console\*\*
    more TagOptions to associate or disassociate with the portfolio.
 4. Choose **Actions**. Then select **Associate** or **Disassociate** and confirm your selection.
 
-###### \*\*To associate or disassociate one or more TagOptions with a
-
-product in the console\*\*
+###### **To associate or disassociate one or more TagOptions with a product in the console**
 
 1. Open the AWS Service Catalog console at: [https://console.aws.amazon.com/servicecatalog/](https://console.aws.amazon.com/servicecatalog/ "https://console.aws.amazon.com/servicecatalog/").
 2. In the left navigation menu, under **Administration**, choose

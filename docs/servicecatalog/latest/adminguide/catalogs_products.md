@@ -12,11 +12,9 @@ products.
 
 - [Viewing the Products Page](#productmgmt-menu "#productmgmt-menu")
 - [Creating Products](productmgmt-cloudresource.md "productmgmt-cloudresource.md")
-- [Adding products
-  to portfolios](catalogs_portfolios_adding-products.md "catalogs_portfolios_adding-products.md")
+- [Adding products to portfolios](catalogs_portfolios_adding-products.md "catalogs_portfolios_adding-products.md")
 - [Updating products](productmgmt-update.md "productmgmt-update.md")
-- [Syncing products to template files from GitHub, GitHub Enterprise,
-  or Bitbucket](git-synced-sc-products.md "git-synced-sc-products.md")
+- [Syncing products to template files from GitHub, GitHub Enterprise, or Bitbucket](git-synced-sc-products.md "git-synced-sc-products.md")
 - [Deleting products](productmgmt-delete.md "productmgmt-delete.md")
 - [Managing Versions](managing-versions.md "managing-versions.md")
 

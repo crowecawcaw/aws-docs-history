@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-AWS Service Catalog
+# Using service-linked roles for AWS Service Catalog
 
 AWS Service Catalog uses AWS Identity and Access Management (IAM)[service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to AWS Service Catalog. Service-linked roles are predefined by AWS Service Catalog and
@@ -135,9 +133,7 @@ If you delete this service-linked role, and then need to create it again, you ca
 same process to recreate the role in your account. When you request `EnableAWSOrganizationsAccess` or `CreatePortfolioShare`,
 AWS Service Catalog creates the service-linked role for you again.
 
-## Editing a service-linked role for
-
-AWS Service Catalog
+## Editing a service-linked role for AWS Service Catalog
 
 AWS Service Catalog does not allow you to edit the `AWSServiceRoleForServiceCatalogSync` or `AWSServiceRoleForServiceCatalogOrgsDataSync` service-linked roles. After you
 create a service-linked role, you cannot change the name of the role because various entities
@@ -145,9 +141,7 @@ might reference the role. However, you can edit the description of the role usin
 more information, see [Editing a
 service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the _IAM User Guide_.
 
-## Deleting a service-linked role for
-
-AWS Service Catalog
+## Deleting a service-linked role for AWS Service Catalog
 
 You can use the IAM console, the AWS CLI, or the AWS API to manually delete the `AWSServiceRoleForServiceCatalogSync` or
 `AWSServiceRoleForServiceCatalogOrgsDataSync` SLR. To do this, you must first manually remove all resources that are using the
@@ -155,9 +149,7 @@ service-linked role (for example, any AWS Service Catalog products that are sync
 and then the service-linked role can be
 manually deleted.
 
-## Supported regions for
-
-AWS Service Catalog service-linked roles
+## Supported regions for AWS Service Catalog service-linked roles
 
 AWS Service Catalog supports using service-linked roles in all of the regions where the service is available. For more information, see [AWS regions and endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md").
 

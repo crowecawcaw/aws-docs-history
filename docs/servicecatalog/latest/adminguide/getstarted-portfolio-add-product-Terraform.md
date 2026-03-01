@@ -2,9 +2,7 @@
 
 After creating a portfolio, you can add the HashiCorp Terraform product you created in Step 2.
 
-######
-
-To add a product to a portfolio
+###### To add a product to a portfolio
 
 1. Navigate to the **Products list** page.
 2. Select the Simple S3 bucket Terraform product you created in Step 2,

@@ -6,8 +6,7 @@ administrator console.
 ###### Note
 
 To perform any of the tasks in this section, you must have administrator permissions for
-AWS Service Catalog. For more information, see [Identity and Access Management in
-AWS Service Catalog](controlling_access.md "controlling_access.md").
+AWS Service Catalog. For more information, see [Identity and Access Management in AWS Service Catalog](controlling_access.md "controlling_access.md").
 
 ###### Tasks
 

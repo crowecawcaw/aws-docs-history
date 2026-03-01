@@ -17,9 +17,7 @@ the following permissions:
   and `Tag` resource group operations. These operations enable AWS Service Catalog to manage
   resource groups and tags
 
-######
-
-To create a launch role in the AWS Service Catalog administrator account
+###### To create a launch role in the AWS Service Catalog administrator account
 
 1. While logged in to the AWS Service Catalog administrator account, follow the instructions to [Create new policies on the JSON tab](../../../IAM/latest/UserGuide/access_policies_create-console.md "../../../IAM/latest/UserGuide/access_policies_create-console.md") in the _IAM User guide_.
 2. Create a **policy** for your simple Amazon S3 bucket Terraform product.
@@ -121,9 +119,7 @@ After creating the launch role in your AWS Service Catalog administrator account
 user account. The role in the end user account must have the same name and include the same policy as the
 role in the administrator account.
 
-######
-
-To create a launch role in the AWS Service Catalog end user account
+###### To create a launch role in the AWS Service Catalog end user account
 
 1. Log in as the administrator to the end user account, and then follow the instructions to [Create new policies on the JSON tab](../../../IAM/latest/UserGuide/access_policies_create-console.md "../../../IAM/latest/UserGuide/access_policies_create-console.md") in the _IAM User guide_.
 2. Repeat steps 2-10 from _To create a launch role in the AWS Service Catalog administrator account_ above.

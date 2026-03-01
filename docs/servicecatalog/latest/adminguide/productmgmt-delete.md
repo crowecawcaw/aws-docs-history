@@ -12,9 +12,7 @@ Service Actions.
 
 You cannot recover a product after it is deleted.
 
-######
-
-To delete a product using the AWS Service Catalog console
+###### To delete a product using the AWS Service Catalog console
 
 1. Navigate to the **Portfolios** page and select the portfolio containing the product
    you want to delete.

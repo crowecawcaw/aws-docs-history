@@ -25,8 +25,7 @@ To learn about the compliance programs that apply to AWS Service Catalog, see
 ###### Topics
 
 - [Data Protection in AWS Service Catalog](data-protection.md "data-protection.md")
-- [Identity and Access Management in
-  AWS Service Catalog](controlling_access.md "controlling_access.md")
+- [Identity and Access Management in AWS Service Catalog](controlling_access.md "controlling_access.md")
 - [Logging and Monitoring in AWS Service Catalog](logging-and-monitoring.md "logging-and-monitoring.md")
 - [Compliance Validation for AWS Service Catalog](service-catalog-compliance.md "service-catalog-compliance.md")
 - [Resilience in AWS Service Catalog](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")

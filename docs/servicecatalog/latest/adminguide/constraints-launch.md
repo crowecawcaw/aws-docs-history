@@ -15,8 +15,7 @@ Without a launch constraint, end users must launch and manage products using the
 credentials. To do so, they must have permissions for CloudFormation, AWS services that the products
 use, and AWS Service Catalog. By using a launch role, you can instead limit the end users' permissions to the
 minimum they require for that product. For more information about end user permissions, see
-[Identity and Access Management in
-AWS Service Catalog](controlling_access.md "controlling_access.md").
+[Identity and Access Management in AWS Service Catalog](controlling_access.md "controlling_access.md").
 
 To create and assign IAM roles, you must have the following IAM administrative
 permissions:

@@ -1,7 +1,4 @@
-#
-
-Adding products
-to portfolios
+# Adding products to portfolios
 
 You can add products
 to any number
@@ -14,9 +11,7 @@ portfolios
 that contain the product
 automatically receive the new version.
 
-######
-
-To add a product from your catalog to a portfolio
+###### To add a product from your catalog to a portfolio
 
 1. Navigate
    to the **Products list** page.

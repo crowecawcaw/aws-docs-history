@@ -1,6 +1,4 @@
-# Identity and Access Management in
-
-AWS Service Catalog
+# Identity and Access Management in AWS Service Catalog
 
 Access to AWS Service Catalog requires credentials. Those credentials must have
 permission to access AWS resources, such as a AWS Service Catalog portfolio or product. AWS Service Catalog integrates

@@ -31,9 +31,7 @@ value.
 
 ![TagOptions Example 2: Same Key on a Portfolio](images/tagoptions-ex2.png)
 
-## Example 3: A Set of TagOptions with the Same Key on
-
-Both the Portfolio and a Product in that Portfolio
+## Example 3: A Set of TagOptions with the Same Key on Both the Portfolio and a Product in that Portfolio
 
 An administrator has placed several TagOptions with the same key on a portfolio,
 and there are also several TagOptions with the same key on the product within that
@@ -44,9 +42,7 @@ the user-selected value.
 
 ![TagOptions Example 3: Same Key on a Portfolio and Product in That Portfolio](images/tagoptions-ex3.png)
 
-## Example 4: Multiple TagOptions with the Same Key and
-
-Conflicting Values
+## Example 4: Multiple TagOptions with the Same Key and Conflicting Values
 
 An administrator has placed several TagOptions with the same key on a portfolio,
 and there are also several TagOptions with the same key on the product in that

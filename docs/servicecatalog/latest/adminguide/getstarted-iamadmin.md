@@ -13,10 +13,7 @@ IAM permissions that allow you to perform tasks such as the following:
   You, or an administrator who manages your IAM permissions, must attach policies to your IAM user,
   group, or role that are required to complete this tutorial.
 
-######
-
-To grant permissions
-to a catalog administrator
+###### To grant permissions to a catalog administrator
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").

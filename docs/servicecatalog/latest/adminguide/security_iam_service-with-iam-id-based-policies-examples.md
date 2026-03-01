@@ -4,8 +4,7 @@
 
 - [Console access for end users](#permissions-end-users-console "#permissions-end-users-console")
 - [Product access for end users](#permissions-end-users-product "#permissions-end-users-product")
-- [Example policies for managing provisioned
-  products](#example-policies "#example-policies")
+- [Example policies for managing provisioned products](#example-policies "#example-policies")
 
 ## Console access for end users
 
@@ -56,9 +55,7 @@ policy to a launch role. You then use AWS Service Catalog to apply the launch ro
 constraint for the product. For more information about applying a launch role,
 launch role limitations, and a sample launch role, see [AWS Service Catalog Launch Constraints](constraints-launch.md "constraints-launch.md").
 
-## Example policies for managing provisioned
-
-products
+## Example policies for managing provisioned products
 
 You can create custom policies to help meet the security requirements of your
 organization. The following examples describe how to customize the access level for
@@ -85,16 +82,11 @@ more information, see the [Service Catalog Developer Guide](../dg.md "../dg.md")
 
 ###### Examples
 
-- [Full admin access to provisioned
-  products](#full-admin "#full-admin")
-- [End-user access to provisioned
-  products](#examples-end-user "#examples-end-user")
-- [Partial admin access to provisioned
-  products](#partial-admin "#partial-admin")
+- [Full admin access to provisioned products](#full-admin "#full-admin")
+- [End-user access to provisioned products](#examples-end-user "#examples-end-user")
+- [Partial admin access to provisioned products](#partial-admin "#partial-admin")
 
-### Full admin access to provisioned
-
-products
+### Full admin access to provisioned products
 
 The following policy allows full read and write access to provisioned products
 and records within the catalog at the account level.
@@ -148,9 +140,7 @@ in any policy for AWS Service Catalog is treated as the same as specifying
 `accountLevel` access includes `roleLevel` and
 `userLevel` access.
 
-### End-user access to provisioned
-
-products
+### End-user access to provisioned products
 
 The following policy restricts access to read and write operations to only the
 provisioned products or associated records that the current user created.
@@ -188,9 +178,7 @@ JSON
 
 ```
 
-### Partial admin access to provisioned
-
-products
+### Partial admin access to provisioned products
 
 The two policies below, if both applied to the same user, allow what might be
 called a type of "partial admin access" by providing full read-only access and

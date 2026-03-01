@@ -32,9 +32,7 @@ Using a launch constraint allows you follow the IAM best practice of keeping end
 For more information, see [Grant least privilege](../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege "../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege") in
 the _IAM User Guide_.
 
-######
-
-To add a launch constraint
+###### To add a launch constraint
 
 1. Follow the instructions to [Create new policies on the JSON tab](../../../IAM/latest/UserGuide/access_policies_create-console.md "../../../IAM/latest/UserGuide/access_policies_create-console.md") in the _IAM User guide_.
 2. Paste the following JSON policy document:

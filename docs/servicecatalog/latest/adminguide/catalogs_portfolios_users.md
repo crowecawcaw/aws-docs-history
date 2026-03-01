@@ -8,8 +8,7 @@ _IAM User Guide_.
 
 In addition to access to a portfolio, users must also have access to the AWS Service Catalog end user
 console. You grant access to the console by applying permissions in IAM. For more information,
-see [Identity and Access Management in
-AWS Service Catalog](controlling_access.md "controlling_access.md").
+see [Identity and Access Management in AWS Service Catalog](controlling_access.md "controlling_access.md").
 
 If you want to share a portfolio and its Principals with other accounts, you can associate
 Principal Names (groups, roles or users) with the Portfolio. Principal Names are shared

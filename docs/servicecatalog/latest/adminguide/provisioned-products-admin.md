@@ -1,6 +1,4 @@
-#
-
-Managing provisioned products as the administrator
+# Managing provisioned products as the administrator
 
 To manage all
 of the provisioned products
@@ -8,8 +6,7 @@ for an account,
 you must have `AWSServiceCatalogAdminFullAccess` or an equivalent IAM permission
 to access provisioned-product write operations.
 For more information,
-see [Identity and Access Management in
-AWS Service Catalog](controlling_access.md "controlling_access.md").
+see [Identity and Access Management in AWS Service Catalog](controlling_access.md "controlling_access.md").
 
 ###### Tip
 

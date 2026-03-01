@@ -1,6 +1,4 @@
-#
-
-Updating products
+# Updating products
 
 When you update a product's template, you create a new version of the product.
 New product versions are automatically available to all users who have access to a portfolio

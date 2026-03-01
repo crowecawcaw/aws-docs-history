@@ -28,9 +28,7 @@ Catalog**. For more information, see [Copying
 Products to AWS Service Catalog](https://aws.amazon.com/marketplace/help/buyer-copy-product-to-SC?ref=help_ln_sibling "https://aws.amazon.com/marketplace/help/buyer-copy-product-to-SC?ref=help_ln_sibling") in the _AWS Marketplace Help and
 FAQ_.
 
-## Managing and Adding AWS Marketplace Products
-
-Manually
+## Managing and Adding AWS Marketplace Products Manually
 
 Complete the following steps to subscribe to an AWS Marketplace product, define that product in an
 CloudFormation template, and add the template to a AWS Service Catalog portfolio.

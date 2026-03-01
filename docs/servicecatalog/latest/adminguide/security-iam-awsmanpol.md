@@ -212,9 +212,7 @@ granted permissions using the current policies.
 
 To migrate from the deprecated policies to the current policies, see [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policies-console "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policies-console") in _AWS Identity and Access Management User Guide_.
 
-## AppRegistry updates to AWS managed
-
-policies
+## AppRegistry updates to AWS managed policies
 
 View details about updates to AWS managed policies for AppRegistry since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

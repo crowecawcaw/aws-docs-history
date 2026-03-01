@@ -1,6 +1,4 @@
-# Logging AWS Service Catalog API calls using
-
-AWS CloudTrail
+# Logging AWS Service Catalog API calls using AWS CloudTrail
 
 AWS Service Catalog is integrated with AWS CloudTrail, a service that provides a record of
 actions taken by a user, role, or an AWS service in AWS Service Catalog. CloudTrail captures all API calls for
@@ -14,9 +12,7 @@ request was made, who made the request, when it was made, and additional details
 To learn more about CloudTrail, see the [AWS CloudTrail
 User Guide.](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
 
-## AWS Service Catalog information
-
-in CloudTrail
+## AWS Service Catalog information in CloudTrail
 
 CloudTrail is enabled on your AWS account when you create it. When
 activity occurs in AWS Service Catalog, that activity is recorded in a CloudTrail event
@@ -52,9 +48,7 @@ identity information helps you determine the following:
 
 For more information, see the [CloudTrail userIdentity element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Understanding AWS Service Catalog log file
-
-entries
+## Understanding AWS Service Catalog log file entries
 
 A trail is a configuration that enables delivery of events as log
 files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log
