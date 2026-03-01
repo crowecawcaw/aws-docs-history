@@ -38,9 +38,7 @@ support the following:
 You are responsible for implementing a disaster recovery plan that can effectively
 recover a network service that you provisioned through AWS TNB.
 
-## Network connectivity security
-
-model
+## Network connectivity security model
 
 The network services that you provision through AWS TNB, run on compute instances
 within a virtual private cloud (VPC) located in an AWS Region that you select. A VPC is a

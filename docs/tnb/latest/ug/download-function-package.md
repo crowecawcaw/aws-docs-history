@@ -1,6 +1,4 @@
-# Download a function package from
-
-AWS TNB
+# Download a function package from AWS TNB
 
 Learn how to download a function package from the AWS TNB network functions catalog.
 

@@ -1,6 +1,4 @@
-# Download a network package from
-
-AWS TNB
+# Download a network package from AWS TNB
 
 Learn how to download a network package from the AWS TNB network service
 catalog.

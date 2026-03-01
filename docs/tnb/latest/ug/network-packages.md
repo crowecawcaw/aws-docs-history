@@ -18,6 +18,5 @@ packages](function-packages.md "function-packages.md") with their descriptor IDs
 
 - [Create a network package in AWS TNB](create-network-package.md "create-network-package.md")
 - [View a network package in AWS TNB](view-network-package.md "view-network-package.md")
-- [Download a network package from
-  AWS TNB](download-network-package.md "download-network-package.md")
+- [Download a network package from AWS TNB](download-network-package.md "download-network-package.md")
 - [Delete a network package from AWS TNB](delete-network-package.md "delete-network-package.md")

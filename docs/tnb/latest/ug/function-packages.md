@@ -6,6 +6,5 @@ A function package is a .zip file in CSAR (Cloud Service Archive) format that co
 
 - [Create a function package in AWS TNB](create-function-package.md "create-function-package.md")
 - [View a function package in AWS TNB](view-function-package.md "view-function-package.md")
-- [Download a function package from
-  AWS TNB](download-function-package.md "download-function-package.md")
+- [Download a function package from AWS TNB](download-function-package.md "download-function-package.md")
 - [Delete a function package from AWS TNB](delete-function-package.md "delete-function-package.md")

@@ -7,7 +7,7 @@ AWS TNB allows you to ingest network function packages and network service descr
 (NSDs)
 and provides you with the automation engine to operate your networks. You can use your end-to-end
 orchestrator and integrate with AWS TNB APIs, or use AWS TNB SDKs to build your own automation
-flow. For more information, see [AWS TNB architecture](#tnb-architecture "#tnb-architecture") .
+flow. For more information, see [AWS TNB architecture](#tnb-architecture "#tnb-architecture").
 
 ###### Topics
 
