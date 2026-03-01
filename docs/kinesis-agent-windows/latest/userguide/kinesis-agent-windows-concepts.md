@@ -50,8 +50,7 @@ data pipeline can do any of the following:
 - Provide insight into the root cause of problems that are reported by customers of the
   service. This speeds up the resolution of those problems and reduces support costs.
 
-For a step-by-step example of constructing a data pipeline using Kinesis Agent for Windows, see [Tutorial: Stream JSON Log Files to Amazon S3 Using
-Kinesis Agent for Windows](directory-source-to-s3-tutorial.md "directory-source-to-s3-tutorial.md").
+For a step-by-step example of constructing a data pipeline using Kinesis Agent for Windows, see [Tutorial: Stream JSON Log Files to Amazon S3 Using Kinesis Agent for Windows](directory-source-to-s3-tutorial.md "directory-source-to-s3-tutorial.md").
 
 ## Sources
 

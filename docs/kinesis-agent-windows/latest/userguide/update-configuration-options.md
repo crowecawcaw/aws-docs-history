@@ -71,8 +71,7 @@ an earlier version of Kinesis Agent for Windows that is known to work in your en
 
 The value of the `PackageVersion` key-value pair is affected by
 variable substitution to facilitate the automatic selection of different package
-version files. For more information about variable substitution, see [Configuring Sink Variable
-Substitutions](sink-object-declarations.md#configuring-kinesis-agent-windows-sink-variable-substitution "sink-object-declarations.md#configuring-kinesis-agent-windows-sink-variable-substitution").
+version files. For more information about variable substitution, see [Configuring Sink Variable Substitutions](sink-object-declarations.md#configuring-kinesis-agent-windows-sink-variable-substitution "sink-object-declarations.md#configuring-kinesis-agent-windows-sink-variable-substitution").
 
 `AccessKey`
 
@@ -143,8 +142,7 @@ Amazon S3.
 
 The value of the `Source` key-value pair is affected by variable
 substitution to facilitate the automatic selection of different configuration files.
-For more information about variable substitution, see [Configuring Sink Variable
-Substitutions](sink-object-declarations.md#configuring-kinesis-agent-windows-sink-variable-substitution "sink-object-declarations.md#configuring-kinesis-agent-windows-sink-variable-substitution").
+For more information about variable substitution, see [Configuring Sink Variable Substitutions](sink-object-declarations.md#configuring-kinesis-agent-windows-sink-variable-substitution "sink-object-declarations.md#configuring-kinesis-agent-windows-sink-variable-substitution").
 
 `Destination`
 

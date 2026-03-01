@@ -21,8 +21,7 @@ of the log, event, or metric data that is being collected by this source object.
 controls what other aspects of the source can be declared.
 
 For examples of complete configuration files that use different kinds of source
-declarations, see [Streaming from Various Sources to
-Kinesis Data Streams](configuring-kaw-examples.md#configuring-kaw-examples-sources "configuring-kaw-examples.md#configuring-kaw-examples-sources").
+declarations, see [Streaming from Various Sources to Kinesis Data Streams](configuring-kaw-examples.md#configuring-kaw-examples-sources "configuring-kaw-examples.md#configuring-kaw-examples-sources").
 
 ###### Topics
 
@@ -33,8 +32,7 @@ Kinesis Data Streams](configuring-kaw-examples.md#configuring-kaw-examples-sourc
 - [WindowsEventLogSource Configuration](#window-event-source-configuration "#window-event-source-configuration")
 - [WindowsEventLogPollingSource Configuration](#eventlogpolling-source-configuration "#eventlogpolling-source-configuration")
 - [WindowsETWEventSource Configuration](#etw-source-configuration "#etw-source-configuration")
-- [WindowsPerformanceCounterSource
-  Configuration](#performance-counter-source-configuration "#performance-counter-source-configuration")
+- [WindowsPerformanceCounterSource Configuration](#performance-counter-source-configuration "#performance-counter-source-configuration")
 - [Kinesis Agent for Windows Built-In Metrics Source](#kinesis-agent-builin-metrics-source "#kinesis-agent-builin-metrics-source")
 - [List of Kinesis Agent for Windows Metrics](#kinesis-agent-metric-list "#kinesis-agent-metric-list")
 - [Bookmark Configuration](#advanced-source-configuration "#advanced-source-configuration")
@@ -103,10 +101,8 @@ values are as follows:
 - `SingleLine` — Each line of the log file is a log record.
 - `SingleLineJson` — Each line of the log file is a JSON-formatted log
   record. This parser is useful when you want to add additional key-value pairs to the JSON
-  using object decoration. For more information, see [Configuring Sink
-  Decorations](sink-object-declarations.md#configuring-kinesis-agent-windows-decoration-configuration "sink-object-declarations.md#configuring-kinesis-agent-windows-decoration-configuration"). For an example that
-  uses the `SingleLineJson` record parser, see [Tutorial: Stream JSON Log Files to Amazon S3 Using
-  Kinesis Agent for Windows](directory-source-to-s3-tutorial.md "directory-source-to-s3-tutorial.md").
+  using object decoration. For more information, see [Configuring Sink Decorations](sink-object-declarations.md#configuring-kinesis-agent-windows-decoration-configuration "sink-object-declarations.md#configuring-kinesis-agent-windows-decoration-configuration"). For an example that
+  uses the `SingleLineJson` record parser, see [Tutorial: Stream JSON Log Files to Amazon S3 Using Kinesis Agent for Windows](directory-source-to-s3-tutorial.md "directory-source-to-s3-tutorial.md").
 - `Timestamp` — One or more lines can include a log record. The log
   record starts with a timestamp. This option requires specifying the
   `TimestampFormat` key-value pair.
@@ -835,9 +831,7 @@ The following is an example event transformed into JSON:
 }
 ```
 
-## WindowsPerformanceCounterSource
-
-Configuration
+## WindowsPerformanceCounterSource Configuration
 
 The `WindowsPerformanceCounterSource` type collects performance counter metrics
 from Windows. The following is an example `WindowsPerformanceCounterSource`
@@ -970,8 +964,7 @@ command invocation.
 ## Kinesis Agent for Windows Built-In Metrics Source
 
 In addition to ordinary metrics sources such as the
-`WindowsPerformanceCounterSource` type (see [WindowsPerformanceCounterSource
-Configuration](#performance-counter-source-configuration "#performance-counter-source-configuration")), the CloudWatch sink type can receive
+`WindowsPerformanceCounterSource` type (see [WindowsPerformanceCounterSource Configuration](#performance-counter-source-configuration "#performance-counter-source-configuration")), the CloudWatch sink type can receive
 metrics from a special source that gathers metrics about Kinesis Agent for Windows itself. Kinesis Agent for Windows metrics are also
 available in the `KinesisTap` category of Windows performance counters.
 

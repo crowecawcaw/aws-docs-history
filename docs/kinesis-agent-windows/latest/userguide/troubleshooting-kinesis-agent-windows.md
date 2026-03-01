@@ -4,17 +4,14 @@ Use the following instructions to diagnose and correct issues when using Amazon 
 
 ###### Topics
 
-- [No Data Is Streaming from Desktops or Servers to
-  Expected AWS services](#troubleshooting-no-data "#troubleshooting-no-data")
+- [No Data Is Streaming from Desktops or Servers to Expected AWS services](#troubleshooting-no-data "#troubleshooting-no-data")
 - [Expected Data Is Sometimes Missing](#troubleshooting-missing-data "#troubleshooting-missing-data")
 - [Data Arrives in an Incorrect Format](#troubleshooting-bad-format "#troubleshooting-bad-format")
 - [Performance Issues](#troubleshooting-poor-performance "#troubleshooting-poor-performance")
 - [Out of Disk Space](#troubleshooting-out-of-disk-space "#troubleshooting-out-of-disk-space")
 - [Troubleshooting Tools](#troubleshooting-tools "#troubleshooting-tools")
 
-## No Data Is Streaming from Desktops or Servers to
-
-Expected AWS services
+## No Data Is Streaming from Desktops or Servers to Expected AWS services
 
 ### Symptoms
 
@@ -72,8 +69,7 @@ To resolve issues with data not streaming, perform the following steps:
    3. If the error message indicates that a particular IAM user or role is not authorized to
       perform certain operations, do the following:
       1. Ensure that the correct IAM user or role is being used by Kinesis Agent for Windows. If it is not,
-         review [Sink Security
-         Configuration](sink-object-declarations.md#configuring-kinesis-agent-windows-sink-security-configuration "sink-object-declarations.md#configuring-kinesis-agent-windows-sink-security-configuration"), and adjust how
+         review [Sink Security Configuration](sink-object-declarations.md#configuring-kinesis-agent-windows-sink-security-configuration "sink-object-declarations.md#configuring-kinesis-agent-windows-sink-security-configuration"), and adjust how
          Kinesis Agent for Windows authenticates to ensure that the correct IAM user or role is being used.
       2. If the correct IAM user or role is being used, using the AWS Management Console, examine the
          policies that are associated with the user or role. Ensure that the user or role has all
@@ -475,8 +471,7 @@ File: c:\foo\log1.log ChangeType: Changed
 
 If no such output is occurring, then there is an application or service issue in writing
 the logs, or there is a security configuration issue rather than a problem with Kinesis Agent for Windows. If such
-output is occurring but Kinesis Agent for Windows is still not apparently processing the logs, see [No Data Is Streaming from Desktops or Servers to
-Expected AWS services](#troubleshooting-no-data "#troubleshooting-no-data").
+output is occurring but Kinesis Agent for Windows is still not apparently processing the logs, see [No Data Is Streaming from Desktops or Servers to Expected AWS services](#troubleshooting-no-data "#troubleshooting-no-data").
 
 - Sometimes logs are only occasionally written, but it would be useful to verify that Kinesis Agent for Windows
   is operating correctly. Use the `/log4net` switch to simulate an application writing

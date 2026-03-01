@@ -1,6 +1,4 @@
-# Tutorial: Stream JSON Log Files to Amazon S3 Using
-
-Kinesis Agent for Windows
+# Tutorial: Stream JSON Log Files to Amazon S3 Using Kinesis Agent for Windows
 
 This tutorial presents detailed steps for setting up a data pipeline using Amazon Kinesis Agent for Microsoft Windows (Kinesis Agent for Windows).
 
@@ -10,8 +8,7 @@ The tutorial includes the following steps:
   (Amazon S3)](../../../AmazonS3/latest/userguide.md "../../../AmazonS3/latest/userguide.md") via [Amazon Data Firehose](../../../firehose/latest/dev.md "../../../firehose/latest/dev.md"). For information about
   Kinesis Agent for Windows, see [What Is Amazon Kinesis Agent for Microsoft Windows?](what-is-kinesis-agent-windows.md "what-is-kinesis-agent-windows.md").
 - Enhancing the log data before streaming using object decoration. For more information, see
-  [Configuring Sink
-  Decorations](sink-object-declarations.md#configuring-kinesis-agent-windows-decoration-configuration "sink-object-declarations.md#configuring-kinesis-agent-windows-decoration-configuration").
+  [Configuring Sink Decorations](sink-object-declarations.md#configuring-kinesis-agent-windows-decoration-configuration "sink-object-declarations.md#configuring-kinesis-agent-windows-decoration-configuration").
 - Using [Amazon Athena](../../../athena/latest/ug.md "../../../athena/latest/ug.md") to search for particular kinds of log
   records.
 

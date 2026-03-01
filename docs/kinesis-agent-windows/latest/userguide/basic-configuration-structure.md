@@ -68,5 +68,4 @@ example:
   `DirectorySource` source. For more information, see [DirectorySource Configuration](source-object-declarations.md#directory-source-configuration "source-object-declarations.md#directory-source-configuration").
 - The value of the `InitialPosition` key-value pair for sources. For more
   information, see [Bookmark Configuration](source-object-declarations.md#advanced-source-configuration "source-object-declarations.md#advanced-source-configuration").
-- Prefixes for variable substitutions. For more information, see [Configuring Sink Variable
-  Substitutions](sink-object-declarations.md#configuring-kinesis-agent-windows-sink-variable-substitution "sink-object-declarations.md#configuring-kinesis-agent-windows-sink-variable-substitution").
+- Prefixes for variable substitutions. For more information, see [Configuring Sink Variable Substitutions](sink-object-declarations.md#configuring-kinesis-agent-windows-sink-variable-substitution "sink-object-declarations.md#configuring-kinesis-agent-windows-sink-variable-substitution").

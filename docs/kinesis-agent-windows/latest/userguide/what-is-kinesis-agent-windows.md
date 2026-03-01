@@ -11,7 +11,7 @@ other AWS services, including the following:
 - [Amazon Redshift](../../../redshift/latest/gsg.md "../../../redshift/latest/gsg.md")
 - [Amazon OpenSearch Service (Amazon ES)](../../../opensearch-service/latest/developerguide.md "../../../opensearch-service/latest/developerguide.md")
 - [Managed Service for Apache Flink](../../../kinesisanalytics/latest/dev.md "../../../kinesisanalytics/latest/dev.md")
-- [Amazon Quick Suite](../../../quicksuite/latest/user.md "../../../quicksuite/latest/user.md")
+- [Amazon Quick](../../../quick/latest/userguide.md "../../../quick/latest/userguide.md")
 - [Amazon Athena](../../../athena/latest/ug.md "../../../athena/latest/ug.md")
 - [Kibana](https://aws.amazon.com/elasticsearch-service/kibana/ "https://aws.amazon.com/elasticsearch-service/kibana/")
   The following diagram illustrates a simple configuration of Kinesis Agent for Windows that streams log files to
@@ -133,9 +133,9 @@ and metrics for data pipelines. Building these data pipelines has numerous benef
 The integration of Kinesis Agent for Windows with Firehose and its transformation capabilities make it easy to
 integrate with several different analytic and visualization services:
 
-- [Quick Suite](../../../quicksuite/latest/user.md "../../../quicksuite/latest/user.md") — A cloud-based BI service that can ingest
+- [Quick](../../../quick/latest/userguide.md "../../../quick/latest/userguide.md") — A cloud-based BI service that can ingest
   from many different sources. Kinesis Agent for Windows can transform data and stream it to Amazon S3 and Amazon Redshift via Firehose.
-  This process enables discovery of deep insights from the data using Quick Suite visualizations.
+  This process enables discovery of deep insights from the data using Quick visualizations.
 - [Athena](../../../athena/latest/ug.md "../../../athena/latest/ug.md") — An interactive query service that enables
   SQL-based querying of data. Kinesis Agent for Windows can transform and stream data to Amazon S3 via Firehose. Athena can
   then interactively execute SQL queries against that data to rapidly inspect and analyze logs

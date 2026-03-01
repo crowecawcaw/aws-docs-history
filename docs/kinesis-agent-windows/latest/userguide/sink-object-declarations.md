@@ -21,14 +21,12 @@ destination of the log, event, or metric data that is being streamed by this sin
 `AccessKey`
 
 Specifies the AWS access key to use when authorizing access to the AWS service that is
-associated with the sink type. This key-value pair is optional. For more information, see [Sink Security
-Configuration](#configuring-kinesis-agent-windows-sink-security-configuration "#configuring-kinesis-agent-windows-sink-security-configuration").
+associated with the sink type. This key-value pair is optional. For more information, see [Sink Security Configuration](#configuring-kinesis-agent-windows-sink-security-configuration "#configuring-kinesis-agent-windows-sink-security-configuration").
 
 `SecretKey`
 
 Specifies the AWS secret key to use when authorizing access to the AWS service that is
-associated with the sink type. This key-value pair is optional. For more information, see [Sink Security
-Configuration](#configuring-kinesis-agent-windows-sink-security-configuration "#configuring-kinesis-agent-windows-sink-security-configuration").
+associated with the sink type. This key-value pair is optional. For more information, see [Sink Security Configuration](#configuring-kinesis-agent-windows-sink-security-configuration "#configuring-kinesis-agent-windows-sink-security-configuration").
 
 `Region`
 
@@ -39,8 +37,7 @@ key-value pair is optional.
 
 Specifies which AWS profile to use for authentication. This key-value pair is optional,
 but if specified, it overrides any specified access key and secret key. For more information,
-see [Sink Security
-Configuration](#configuring-kinesis-agent-windows-sink-security-configuration "#configuring-kinesis-agent-windows-sink-security-configuration").
+see [Sink Security Configuration](#configuring-kinesis-agent-windows-sink-security-configuration "#configuring-kinesis-agent-windows-sink-security-configuration").
 
 `RoleARN`
 
@@ -62,16 +59,14 @@ from the sink to the AWS service that is associated with the sink type.
 
 When no `Format` is specified, `TextDecoration` specifies what
 additional text should be included when streaming log or event records. For more information,
-see [Configuring Sink
-Decorations](#configuring-kinesis-agent-windows-decoration-configuration "#configuring-kinesis-agent-windows-decoration-configuration"). This key-value pair is
+see [Configuring Sink Decorations](#configuring-kinesis-agent-windows-decoration-configuration "#configuring-kinesis-agent-windows-decoration-configuration"). This key-value pair is
 optional.
 
 `ObjectDecoration`
 
 When `Format` is specified, `ObjectDecoration` specifies what
 additional data is included in the log or event record before serialization and streaming. For
-more information, see [Configuring Sink
-Decorations](#configuring-kinesis-agent-windows-decoration-configuration "#configuring-kinesis-agent-windows-decoration-configuration"). This key-value pair is
+more information, see [Configuring Sink Decorations](#configuring-kinesis-agent-windows-decoration-configuration "#configuring-kinesis-agent-windows-decoration-configuration"). This key-value pair is
 optional.
 
 `BufferInterval`
@@ -97,26 +92,19 @@ metric records to an AWS service if the streaming consistently fails. This key-v
 optional. If it is specified, use a string to represent the value. The default value is
 "`3`".
 
-For examples of complete configuration files that use various kinds of sinks, see [Streaming from the Windows Application Event
-Log to Sinks](configuring-kaw-examples.md#configuring-kaw-examples-sinks "configuring-kaw-examples.md#configuring-kaw-examples-sinks").
+For examples of complete configuration files that use various kinds of sinks, see [Streaming from the Windows Application Event Log to Sinks](configuring-kaw-examples.md#configuring-kaw-examples-sinks "configuring-kaw-examples.md#configuring-kaw-examples-sinks").
 
 ###### Topics
 
-- [KinesisStream Sink
-  Configuration](#sink-object-declarations-kinesis-stream "#sink-object-declarations-kinesis-stream")
-- [KinesisFirehose Sink
-  Configuration](#sink-object-declarations-kinesis-firehose "#sink-object-declarations-kinesis-firehose")
+- [KinesisStream Sink Configuration](#sink-object-declarations-kinesis-stream "#sink-object-declarations-kinesis-stream")
+- [KinesisFirehose Sink Configuration](#sink-object-declarations-kinesis-firehose "#sink-object-declarations-kinesis-firehose")
 - [CloudWatch Sink Configuration](#sink-object-declarations-cloud-watch "#sink-object-declarations-cloud-watch")
-- [CloudWatchLogs Sink
-  Configuration](#sink-object-declarations-cloud-watch-logs "#sink-object-declarations-cloud-watch-logs")
+- [CloudWatchLogs Sink Configuration](#sink-object-declarations-cloud-watch-logs "#sink-object-declarations-cloud-watch-logs")
 - [Local FileSystem Sink Configuration](#sink-object-declarations-local-filesystem "#sink-object-declarations-local-filesystem")
-- [Sink Security
-  Configuration](#configuring-kinesis-agent-windows-sink-security-configuration "#configuring-kinesis-agent-windows-sink-security-configuration")
+- [Sink Security Configuration](#configuring-kinesis-agent-windows-sink-security-configuration "#configuring-kinesis-agent-windows-sink-security-configuration")
 - [Configuring ProfileRefreshingAWSCredentialProvider to Refresh AWS Credentials](#configuring-credential-refresh "#configuring-credential-refresh")
-- [Configuring Sink
-  Decorations](#configuring-kinesis-agent-windows-decoration-configuration "#configuring-kinesis-agent-windows-decoration-configuration")
-- [Configuring Sink Variable
-  Substitutions](#configuring-kinesis-agent-windows-sink-variable-substitution "#configuring-kinesis-agent-windows-sink-variable-substitution")
+- [Configuring Sink Decorations](#configuring-kinesis-agent-windows-decoration-configuration "#configuring-kinesis-agent-windows-decoration-configuration")
+- [Configuring Sink Variable Substitutions](#configuring-kinesis-agent-windows-sink-variable-substitution "#configuring-kinesis-agent-windows-sink-variable-substitution")
 - [Configuring Sink Queuing](#configuring-kinesis-agent-windows-queuing "#configuring-kinesis-agent-windows-queuing")
 - [Configuring a Proxy for Sinks](#configuring-kinesis-agent-windows-sink-proxy "#configuring-kinesis-agent-windows-sink-proxy")
 - [Configuring resolving variables in more sink attributes](#configuring-resolving-variables "#configuring-resolving-variables")
@@ -124,9 +112,7 @@ Log to Sinks](configuring-kaw-examples.md#configuring-kaw-examples-sinks "config
 - [Configuring VPC Endpoint for AWS Sinks](#configuring-vpc-endpoint "#configuring-vpc-endpoint")
 - [Configuring An Alternate Means of Proxy](#configuring-alternate-proxy "#configuring-alternate-proxy")
 
-## `KinesisStream` Sink
-
-Configuration
+## `KinesisStream` Sink Configuration
 
 The `KinesisStream` sink type streams log records and events to the Kinesis Data Streams
 service. Typically, data that is streamed to Kinesis Data Streams is processed by one or more custom
@@ -174,9 +160,7 @@ MB.
 The default `BufferInterval` for this sink type is 1 second, and the default
 `BufferSize` is 500 records.
 
-## `KinesisFirehose` Sink
-
-Configuration
+## `KinesisFirehose` Sink Configuration
 
 The `KinesisFirehose` sink type streams log records and events to the Firehose
 service. Firehose delivers the streamed data to other services for storage. Typically the stored
@@ -272,8 +256,7 @@ This can be useful to provide separate sets of metric data for each desktop or s
 example. This key-value pair is optional, and if specified, the value must comply with the
 following format: `"`_key1_`=`_value1_;_key2_`=`_value2..._`"`. The
 default value is `"ComputerName={computername};InstanceId={instance_id}"`. This
-value supports sink variable substitution. For more information, see [Configuring Sink Variable
-Substitutions](#configuring-kinesis-agent-windows-sink-variable-substitution "#configuring-kinesis-agent-windows-sink-variable-substitution").
+value supports sink variable substitution. For more information, see [Configuring Sink Variable Substitutions](#configuring-kinesis-agent-windows-sink-variable-substitution "#configuring-kinesis-agent-windows-sink-variable-substitution").
 
 `MetricsFilter`
 
@@ -281,9 +264,7 @@ Specifies which metrics are streamed to CloudWatch from the built-in Kinesis Age
 more information about the built-in Kinesis Agent for Windows metrics source, including the details of the syntax
 of the value of this key-value pair, see [Kinesis Agent for Windows Built-In Metrics Source](source-object-declarations.md#kinesis-agent-builin-metrics-source "source-object-declarations.md#kinesis-agent-builin-metrics-source").
 
-## `CloudWatchLogs` Sink
-
-Configuration
+## `CloudWatchLogs` Sink Configuration
 
 The `CloudWatchLogs` sink type streams log records and events to Amazon CloudWatch Logs. You
 can view logs in the AWS Management Console, or process them via additional stages of a data pipeline. Data is
@@ -321,8 +302,7 @@ log group does not exist, Kinesis Agent for Windows attempts to create it.
 
 Specifies the name of the CloudWatch Logs log stream that receives the log and event records stream
 by the `CloudWatchLogs` sink type. This value supports sink variable substitution.
-For more information, see [Configuring Sink Variable
-Substitutions](#configuring-kinesis-agent-windows-sink-variable-substitution "#configuring-kinesis-agent-windows-sink-variable-substitution"). If the specified log
+For more information, see [Configuring Sink Variable Substitutions](#configuring-kinesis-agent-windows-sink-variable-substitution "#configuring-kinesis-agent-windows-sink-variable-substitution"). If the specified log
 stream does not exist, Kinesis Agent for Windows attempts to create it.
 
 The default `BufferInterval` for this sink type is 1 second, and the default
@@ -336,8 +316,7 @@ With `FileSystem` sinks, you can also use configuration parameters to simulate b
 
 All records from all sources connected to a `FileSystem` sink are saved to the single file specified as `FilePath`. If `FilePath` is not specified, records are saved to a file named ``SinkId`.txt` in the `%TEMP%` directory, which is usually `C:\Users\`UserName`\AppData\Local\Temp`, where ``SinkId`is the unique identifier of the sink and`UserName`` is the Windows user name of the active user.
 
-This sink type supports text decoration attributes. For more information, see [Configuring Sink
-Decorations](#configuring-kinesis-agent-windows-decoration-configuration "#configuring-kinesis-agent-windows-decoration-configuration").
+This sink type supports text decoration attributes. For more information, see [Configuring Sink Decorations](#configuring-kinesis-agent-windows-decoration-configuration "#configuring-kinesis-agent-windows-decoration-configuration").
 
 An example `FileSystem` sink type configuration is shown in the following example.
 
@@ -404,9 +383,7 @@ The maximum record rate limit is a function of `BufferSize`, which determines th
 
 Given configuration values in the example above, there is a maximum record rate of 1000 records per second.
 
-## Sink Security
-
-Configuration
+## Sink Security Configuration
 
 ### Configuring Authentication
 
@@ -563,9 +540,7 @@ JSON
 For more information, see [Overview of Managing Access Permissions to Your CloudWatch Resources](../../../AmazonCloudWatch/latest/monitoring/iam-access-control-overview-cw.md "../../../AmazonCloudWatch/latest/monitoring/iam-access-control-overview-cw.md") in the
 _Amazon CloudWatch Logs User Guide_.
 
-#### CloudWatch Logs with an Existing Log Group and
-
-Log Stream
+#### CloudWatch Logs with an Existing Log Group and Log Stream
 
 JSON
 
@@ -598,9 +573,7 @@ To restrict access to a specific Region, account, log group, or log stream, repl
 appropriate asterisks in the ARNs with appropriate values. For more information, see [Overview of Managing Access Permissions to Your CloudWatch Logs Resources](../../../AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.md "../../../AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.md") in the
 _Amazon CloudWatch Logs User Guide_.
 
-#### CloudWatch Logs with Extra Permissions for Kinesis Agent for Windows
-
-to Create Log Groups and Log Streams
+#### CloudWatch Logs with Extra Permissions for Kinesis Agent for Windows to Create Log Groups and Log Streams
 
 JSON
 
@@ -711,9 +684,7 @@ Optional. Specifies the path to the AWS credentials file. If omitted, `%USERPROF
 `RefreshingInterval`
 Optional. The frequency at which credentials are refreshed, in seconds. If omitted, `300` is the default.
 
-## Configuring Sink
-
-Decorations
+## Configuring Sink Decorations
 
 Sink declarations can optionally include key-value pairs that specify additional data to
 stream to various AWS services to enhance the records gathered from the source.
@@ -746,8 +717,7 @@ following key-value pairs in addition to the original data from the source:
 }
 ```
 
-For an example of using `ObjectDecoration`, see [Tutorial: Stream JSON Log Files to Amazon S3 Using
-Kinesis Agent for Windows](directory-source-to-s3-tutorial.md "directory-source-to-s3-tutorial.md").
+For an example of using `ObjectDecoration`, see [Tutorial: Stream JSON Log Files to Amazon S3 Using Kinesis Agent for Windows](directory-source-to-s3-tutorial.md "directory-source-to-s3-tutorial.md").
 
 `ObjectDecorationEx`
 Specifies an expression, which allows for more flexible data extraction and formatting as compared to `ObjectDecoration`. This field can be used when the format of the sink is `json`. The expression syntax is shown in the following.
@@ -900,9 +870,7 @@ object coalesce(object obj1, object obj2, object obj3, object obj4, object obj5)
 object coalesce(object obj1, object obj2, object obj3, object obj4, object obj5, object obj6)
 ```
 
-## Configuring Sink Variable
-
-Substitutions
+## Configuring Sink Variable Substitutions
 
 The `KinesisStream`, `KinesisFirehose`, and
 `CloudWatchLogs` sink declarations require either a `LogStream` or
@@ -957,8 +925,7 @@ streams when required based on the generated names. You cannot do this for other
 because they require additional configuration beyond the name of the stream.
 
 There are special variable substitutions that occur in text and object decoration. For more
-information, see [Configuring Sink
-Decorations](#configuring-kinesis-agent-windows-decoration-configuration "#configuring-kinesis-agent-windows-decoration-configuration").
+information, see [Configuring Sink Decorations](#configuring-kinesis-agent-windows-decoration-configuration "#configuring-kinesis-agent-windows-decoration-configuration").
 
 ## Configuring Sink Queuing
 

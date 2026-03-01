@@ -1,8 +1,7 @@
 # Step 1: Configure AWS services
 
 Follow these steps to prepare your environment for streaming log data to Amazon Simple Storage Service (Amazon S3)
-using Amazon Kinesis Agent for Microsoft Windows. For more information and prerequisites, see [Tutorial: Stream JSON Log Files to Amazon S3 Using
-Kinesis Agent for Windows](directory-source-to-s3-tutorial.md "directory-source-to-s3-tutorial.md").
+using Amazon Kinesis Agent for Microsoft Windows. For more information and prerequisites, see [Tutorial: Stream JSON Log Files to Amazon S3 Using Kinesis Agent for Windows](directory-source-to-s3-tutorial.md "directory-source-to-s3-tutorial.md").
 
 Use the AWS Management Console to configure AWS Identity and Access Management (IAM), Amazon S3, Firehose, and Amazon Elastic Compute Cloud (Amazon EC2) to
 prepare for streaming log data from an EC2 instance to Amazon S3.
@@ -127,9 +126,7 @@ JSON
    `firehose-s3-access-role`.
 7. Choose **Create role**.
 
-###### To create the role to associate with the instance profile for the EC2 instance that will
-
-run Kinesis Agent for Windows
+###### To create the role to associate with the instance profile for the EC2 instance that will run Kinesis Agent for Windows
 
 1. In the navigation pane of the IAM console, choose **Roles**, and then
    choose **Create role**.

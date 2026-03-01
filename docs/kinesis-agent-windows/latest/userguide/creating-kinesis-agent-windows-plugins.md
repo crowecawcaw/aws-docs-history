@@ -17,18 +17,12 @@ of these scenarios include the following:
 
 ###### Topics
 
-- [Getting Started with Kinesis Agent for Windows
-  Plugins](#creating-kinesis-agent-windows-plugins-overview "#creating-kinesis-agent-windows-plugins-overview")
-- [Implementing Kinesis Agent for Windows Plugin
-  Factories](#creating-kinesis-agent-windows-plugins-factory "#creating-kinesis-agent-windows-plugins-factory")
-- [Implementing Kinesis Agent for Windows Plugin
-  Sources](#creating-kinesis-agent-windows-plugins-source "#creating-kinesis-agent-windows-plugins-source")
-- [Implementing Kinesis Agent for Windows Plugin
-  Sinks](#creating-kinesis-agent-windows-plugins-sink "#creating-kinesis-agent-windows-plugins-sink")
+- [Getting Started with Kinesis Agent for Windows Plugins](#creating-kinesis-agent-windows-plugins-overview "#creating-kinesis-agent-windows-plugins-overview")
+- [Implementing Kinesis Agent for Windows Plugin Factories](#creating-kinesis-agent-windows-plugins-factory "#creating-kinesis-agent-windows-plugins-factory")
+- [Implementing Kinesis Agent for Windows Plugin Sources](#creating-kinesis-agent-windows-plugins-source "#creating-kinesis-agent-windows-plugins-source")
+- [Implementing Kinesis Agent for Windows Plugin Sinks](#creating-kinesis-agent-windows-plugins-sink "#creating-kinesis-agent-windows-plugins-sink")
 
-## Getting Started with Kinesis Agent for Windows
-
-Plugins
+## Getting Started with Kinesis Agent for Windows Plugins
 
 There is nothing special about custom plugins. All the existing sources and sinks use
 the same mechanisms that custom plugins use to load when Kinesis Agent for Windows starts up, and they
@@ -61,9 +55,7 @@ the plugin, and the plugin class itself must be defined.
 
 The Kinesis Agent for Windows source code is located at [Kinesis Agent windows](https://github.com/awslabs/kinesis-agent-windows "https://github.com/awslabs/kinesis-agent-windows").
 
-## Implementing Kinesis Agent for Windows Plugin
-
-Factories
+## Implementing Kinesis Agent for Windows Plugin Factories
 
 Follow these steps to implement a Kinesis Agent for Windows plugin factory.
 
@@ -188,9 +180,7 @@ namespace MyCompany.MySinks
 }
 ```
 
-## Implementing Kinesis Agent for Windows Plugin
-
-Sources
+## Implementing Kinesis Agent for Windows Plugin Sources
 
 Follow these steps to implement a Kinesis Agent for Windows plugin source.
 
@@ -330,9 +320,7 @@ For an example of how to create a source that provides bookmarking functionality
 `Amazon.KinesisTap.Windows\EventLogSource.cs` in the Kinesis Agent for Windows source
 code.
 
-## Implementing Kinesis Agent for Windows Plugin
-
-Sinks
+## Implementing Kinesis Agent for Windows Plugin Sinks
 
 Follow these steps to implement a Kinesis Agent for Windows plugin sink.
 

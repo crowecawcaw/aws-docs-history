@@ -10,24 +10,18 @@ of scenarios.
 
 ###### Topics
 
-- [Streaming from Various Sources to
-  Kinesis Data Streams](#configuring-kaw-examples-sources "#configuring-kaw-examples-sources")
-- [Streaming from the Windows Application Event
-  Log to Sinks](#configuring-kaw-examples-sinks "#configuring-kaw-examples-sinks")
+- [Streaming from Various Sources to Kinesis Data Streams](#configuring-kaw-examples-sources "#configuring-kaw-examples-sources")
+- [Streaming from the Windows Application Event Log to Sinks](#configuring-kaw-examples-sinks "#configuring-kaw-examples-sinks")
 - [Using Pipes](#configuring-kaw-examples-pipes "#configuring-kaw-examples-pipes")
 - [Using Multiple Sources and Pipes](#configuring-kaw-examples-multiple "#configuring-kaw-examples-multiple")
 
-## Streaming from Various Sources to
-
-Kinesis Data Streams
+## Streaming from Various Sources to Kinesis Data Streams
 
 The following example `appsettings.json` configuration files
 demonstrate streaming logs and events from various sources to Kinesis Data Streams and from Windows
 performance counters to Amazon CloudWatch metrics.
 
-### `DirectorySource`,
-
-`SysLog` Record Parser
+### `DirectorySource`, `SysLog` Record Parser
 
 The following file streams syslog format log records from all files with a
 `.log` file extension in the `C:\LogSource\`
@@ -67,9 +61,7 @@ records from the `SyslogKinesisDataStream` stream.
 }
 ```
 
-### `DirectorySource`,
-
-`SingleLineJson` Record Parser
+### `DirectorySource`, `SingleLineJson` Record Parser
 
 The following file streams JSON-formatted log records from all files with a
 `.log` file extension in the `C:\LogSource\`
@@ -190,9 +182,7 @@ from the `IISKinesisDataStream` stream. IIS is a web server for Windows.
 }
 ```
 
-### `WindowsEventLogSource`
-
-with Query
+### `WindowsEventLogSource` with Query
 
 The following file streams log events from the Windows system event log that have a
 level of `Critical` or `Error` (less than or equal to 2) to the
@@ -319,15 +309,12 @@ from the graphs, and set alarms that send notifications when thresholds are exce
 }
 ```
 
-## Streaming from the Windows Application Event
-
-Log to Sinks
+## Streaming from the Windows Application Event Log to Sinks
 
 The following example `appsettings.json` configuration files
 demonstrate streaming Windows application event logs to various sinks in Amazon Kinesis Agent for Microsoft Windows. For
 examples of using the `KinesisStream` and `CloudWatch` sink types, see
-[Streaming from Various Sources to
-Kinesis Data Streams](#configuring-kaw-examples-sources "#configuring-kaw-examples-sources").
+[Streaming from Various Sources to Kinesis Data Streams](#configuring-kaw-examples-sources "#configuring-kaw-examples-sources").
 
 ### `KinesisFirehose`
 
