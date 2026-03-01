@@ -1,6 +1,4 @@
-# VDI session management
-
-permissions
+# VDI session management permissions
 
 **Create a session**
 

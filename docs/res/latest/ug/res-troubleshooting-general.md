@@ -4,19 +4,15 @@ This section contains information about where information can be found within RE
 
 - [Useful log and event information sources](#res-troubleshooting-general-info "#res-troubleshooting-general-info")
   - [Where to find environment variables](#res-troubleshooting-general-info-env-vars "#res-troubleshooting-general-info-env-vars")
-  - [Log files on the environment Amazon EC2
-    instances](#res-troubleshooting-general-info-logs "#res-troubleshooting-general-info-logs")
+  - [Log files on the environment Amazon EC2 instances](#res-troubleshooting-general-info-logs "#res-troubleshooting-general-info-logs")
   - [CloudFormation Stacks](#res-troubleshooting-cf-stacks "#res-troubleshooting-cf-stacks")
-  - [System failures due to an issue and
-    reflected by Amazon EC2 Auto Scaling Group Activity](#res-troubleshooting-asg-activity "#res-troubleshooting-asg-activity")
+  - [System failures due to an issue and reflected by Amazon EC2 Auto Scaling Group Activity](#res-troubleshooting-asg-activity "#res-troubleshooting-asg-activity")
 
 - [Typical Amazon EC2 Console Appearance](#res-troubleshooting-ec2-console "#res-troubleshooting-ec2-console")
   - [Infrastructure hosts](#res-troubleshooting-ec2-console-infra "#res-troubleshooting-ec2-console-infra")
-  - [Infrastructure hosts and
-    virtual desktops](#res-troubleshooting-ec2-console-virtual "#res-troubleshooting-ec2-console-virtual")
+  - [Infrastructure hosts and virtual desktops](#res-troubleshooting-ec2-console-virtual "#res-troubleshooting-ec2-console-virtual")
   - [Hosts in a terminated state](#res-troubleshooting-ec2-console-hosts-terminated "#res-troubleshooting-ec2-console-hosts-terminated")
-  - [Useful Active Directory (AD)
-    related commands for reference](#res-troubleshooting-ec2-console-active-dir "#res-troubleshooting-ec2-console-active-dir")
+  - [Useful Active Directory (AD) related commands for reference](#res-troubleshooting-ec2-console-active-dir "#res-troubleshooting-ec2-console-active-dir")
 
 - [Windows DCV debugging](#res-troubleshooting-windows-dcv "#res-troubleshooting-windows-dcv")
 - [Find Amazon DCV Version Information](#res-troubleshooting-find-nice-dcv "#res-troubleshooting-find-nice-dcv")
@@ -34,9 +30,7 @@ in the following locations:
 - Linux: `/etc/environment`
 - Windows: `C:\Users\Administrator\RES\Bootstrap\virtual-desktop-host-windows\environment_variables.json`
 
-### Log files on the environment Amazon EC2
-
-instances
+### Log files on the environment Amazon EC2 instances
 
 Log files exist on the Amazon EC2 instances in use by RES. The SSM Session Manager
 can be used to open a session to the instance for examining these files.
@@ -175,9 +169,7 @@ to generate resources for a demo environment.)
 - <envname>-Storage
 - <envname>-WindowsManagementHost
 
-### System failures due to an issue and
-
-reflected by Amazon EC2 Auto Scaling Group Activity
+### System failures due to an issue and reflected by Amazon EC2 Auto Scaling Group Activity
 
 If the RES UIs indicate server errors, the cause may be an application software
 or other issue.
@@ -210,9 +202,7 @@ prefix in an instance name is the RES environment name.
 
 ![dashboard showing ec2 instances for res-stage2 with state running](images/res-ec2-instances.png)
 
-### Infrastructure hosts and
-
-virtual desktops
+### Infrastructure hosts and virtual desktops
 
 In the Amazon EC2 console, when virtual desktops are running, they appear similar to
 the following. In this case, the virtual desktops are noted in red. The suffix to
@@ -233,9 +223,7 @@ The following image shows desktop instances that have been terminated.
 
 ![Instances page in the EC2 console dashboard highlighting terminated instances](images/res-ec2-terminated-instances.png)
 
-### Useful Active Directory (AD)
-
-related commands for reference
+### Useful Active Directory (AD) related commands for reference
 
 The following are examples of ldap related commands that can be entered on infrastructure
 hosts to view AD configuration related information. The domain and other parameters used

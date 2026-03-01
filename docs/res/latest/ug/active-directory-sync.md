@@ -93,9 +93,7 @@ If an email address of an active directory user has changed, administrators can 
 start the AD sync or wait for the next scheduled AD sync for the change to be picked up
 and synced to RES.
 
-## How to manually start or stop the sync
-
-(release 2025.03 and later)
+## How to manually start or stop the sync (release 2025.03 and later)
 
 Navigate to the **Identity management** page, and choose the
 **Start AD Synchronization** button in the **Active
@@ -113,9 +111,7 @@ Directory Domain** container.
 
 ![Active Directory domain configurations page showing latest synchronization time](images/res-ad-directory-sync3.png)
 
-## How to manually run the sync (release
-
-2024.12 and 2024.12.01)
+## How to manually run the sync (release 2024.12 and 2024.12.01)
 
 The Active Directory synchronization process has been moved from the Cluster Manager
 infra host to a one-off Amazon Elastic Container Service (ECS) task behind the scenes. The process is scheduled

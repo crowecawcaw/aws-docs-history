@@ -65,3 +65,55 @@ For **Arguments**, provide any arguments separated by a comma.
 ![Example of a project configuration](images/res-projectconfigexample.png)
 
 _Example of a project configuration_
+
+Example templates for launch scripts.
+
+Linux
+
+```
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#
+#  Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance
+#  with the License. A copy of the License is located at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  or in the 'license' file accompanying this file. This file is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES
+#  OR CONDITIONS OF ANY KIND, express or implied. See the License for the specific language governing permissions
+#  and limitations under the License.
+
+#!/bin/bash
+
+echo "start_script.sh running" >> /test_scripts
+echo "All arguments: $@" >> /test_scripts
+echo "Argument count: $#" >> /test_scripts
+echo "Argument 1, $1" >> /test_scripts
+echo "Argument 2, $2" >> /test_scripts
+echo "end of start_script.sh" >> /test_scripts
+```
+
+Windows
+
+```
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#
+#  Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance
+#  with the License. A copy of the License is located at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  or in the 'license' file accompanying this file. This file is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES
+#  OR CONDITIONS OF ANY KIND, express or implied. See the License for the specific language governing permissions
+#  and limitations under the License.
+
+#!pwsh
+
+Write-Output "configure_script.ps1 running" | Out-File -Append -FilePath "/test_scripts"
+Write-Output "All arguments: $args" | Out-File -Append -FilePath "/test_scripts"
+Write-Output "Argument count: $($args.Count)" | Out-File -Append -FilePath "/test_scripts"
+Write-Output "Argument 1, $($args[0])" | Out-File -Append -FilePath "/test_scripts"
+Write-Output "Argument 2, $($args[1])" | Out-File -Append -FilePath "/test_scripts"
+Write-Output "end of configure_script.ps1" | Out-File -Append -FilePath "/test_scripts"
+
+
+```

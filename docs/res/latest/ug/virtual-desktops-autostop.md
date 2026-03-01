@@ -8,10 +8,14 @@ There are 4 configurable settings:
 2. CPU Utilization Threshold: Sessions with no interaction and under this threshold
    (vCPU usage) are considered idle. If this is set to 0, then sessions will never be
    considered idle.
-3. Transition State: After idle timeout, sessions will transition to this state
-   (stopped or terminated).
-4. Enforce Schedule: If selected, a session that has been stopped for being idle can
-   be resumed by its daily schedule.
+
+###### Important
+
+RES runs an idle detection script at the top of every minute that checks
+CPU utilization. This script itself causes temporary CPU spikes, which can prevent idle
+detection if your threshold is set too low. 3. Transition State: After idle timeout, sessions will transition to this state
+(stopped or terminated). 4. Enforce Schedule: If selected, a session that has been stopped for being idle can
+be resumed by its daily schedule.
 
 ![update session settings](images/res-update-session-settings.png)
 These settings are present on the **Desktop Settings** page under the

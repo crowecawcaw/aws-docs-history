@@ -4,138 +4,92 @@ The following section contains issues that may occur, how to detect them, and su
 on how to resolve the issue.
 
 - [Installation issues](#installation-issues "#installation-issues")
-  - [CloudFormation stack fails to create with message "WaitCondition
-    received failed message. Error:States.TaskFailed"](#cf-stack-fails "#cf-stack-fails")
-  - [Email notification not received after CloudFormation
-    stacks created successfully](#email-invitation-not-received "#email-invitation-not-received")
+  - [CloudFormation stack fails to create with message "WaitCondition received failed message. Error:States.TaskFailed"](#cf-stack-fails "#cf-stack-fails")
+  - [Email notification not received after CloudFormation stacks created successfully](#email-invitation-not-received "#email-invitation-not-received")
   - [Instances cycling or vdc-controller in failed state](#instances-cycling "#instances-cycling")
   - [Environment CloudFormation stack fails to delete due to dependent object error](#object-error "#object-error")
   - [Error encountered for CIDR block parameter during environment creation](#cidr-block-error "#cidr-block-error")
   - [CloudFormation stack creation failure during environment creation](#cf-stack-creation-fails "#cf-stack-creation-fails")
-  - [Creation of external resources (demo) stack
-    fails with AdDomainAdminNode CREATE_FAILED](#demo-environment-stack-fails "#demo-environment-stack-fails")
+  - [Creation of external resources (demo) stack fails with AdDomainAdminNode CREATE_FAILED](#demo-environment-stack-fails "#demo-environment-stack-fails")
 
 - [Identity management issues](#troubleshooting-identity-management "#troubleshooting-identity-management")
-  - [I am not authorized to
-    perform iam:PassRole](#res-troubleshooting-issue-runbooks-unauth-passrole "#res-troubleshooting-issue-runbooks-unauth-passrole")
-  - [I want to allow people
-    outside of my AWS account to access my Research and Engineering Studio on AWS
-    resources](#res-troubleshooting-issue-runbooks-outside-acct "#res-troubleshooting-issue-runbooks-outside-acct")
-  - [When logging into the environment, I immediately return
-    to the login page](#return-to-login "#return-to-login")
+  - [I am not authorized to perform iam:PassRole](#res-troubleshooting-issue-runbooks-unauth-passrole "#res-troubleshooting-issue-runbooks-unauth-passrole")
+  - [I want to allow people outside of my AWS account to access my Research and Engineering Studio on AWS resources](#res-troubleshooting-issue-runbooks-outside-acct "#res-troubleshooting-issue-runbooks-outside-acct")
+  - [When logging into the environment, I immediately return to the login page](#return-to-login "#return-to-login")
   - ["User not found" error when trying to log in](#user-not-found "#user-not-found")
   - [User added in Active Directory, but missing from RES](#user-missing "#user-missing")
   - [User unavailable when creating a session](#session-user-unavailable "#session-user-unavailable")
-  - [Size limit exceeded error in CloudWatch cluster-manager
-    log](#sizelimit-exceeded-error "#sizelimit-exceeded-error")
+  - [Size limit exceeded error in CloudWatch cluster-manager log](#sizelimit-exceeded-error "#sizelimit-exceeded-error")
 
 - [Storage](#res-troubleshooting-storage "#res-troubleshooting-storage")
-  - [I created file system through RES
-    but it doesn't mount on the VDI hosts](#res-troubleshooting-storage-created "#res-troubleshooting-storage-created")
-  - [I onboarded a file system through
-    RES but it doesn't mount on the VDI hosts](#res-troubleshooting-storage-onboarded "#res-troubleshooting-storage-onboarded")
-  - [I am not able to read/write on
-    from VDI hosts](#res-troubleshooting-storage-rw "#res-troubleshooting-storage-rw")
-    - [Example permission handling
-      use cases](#res-troubleshooting-storage-rw-example "#res-troubleshooting-storage-rw-example")
+  - [I created file system through RES but it doesn't mount on the VDI hosts](#res-troubleshooting-storage-created "#res-troubleshooting-storage-created")
+  - [I onboarded a file system through RES but it doesn't mount on the VDI hosts](#res-troubleshooting-storage-onboarded "#res-troubleshooting-storage-onboarded")
+  - [I am not able to read/write on from VDI hosts](#res-troubleshooting-storage-rw "#res-troubleshooting-storage-rw")
+    - [Example permission handling use cases](#res-troubleshooting-storage-rw-example "#res-troubleshooting-storage-rw-example")
 
-  - [I created Amazon FSx for NetApp ONTAP from RES
-    but it did not join my domain](#res-troubleshooting-storage-join "#res-troubleshooting-storage-join")
+  - [I created Amazon FSx for NetApp ONTAP from RES but it did not join my domain](#res-troubleshooting-storage-join "#res-troubleshooting-storage-join")
 
 - [Snapshots](#res-troubleshooting-snapshots "#res-troubleshooting-snapshots")
   - [A Snapshot has a status of Failed](#res-troubleshooting-snapshots-failed "#res-troubleshooting-snapshots-failed")
-  - [A Snapshot fails to apply
-    with logs indicating that the tables could not be imported.](#res-troubleshooting-snapshots-not-imported "#res-troubleshooting-snapshots-not-imported")
+  - [A Snapshot fails to apply with logs indicating that the tables could not be imported.](#res-troubleshooting-snapshots-not-imported "#res-troubleshooting-snapshots-not-imported")
 
 - [Infrastructure](#res-troubleshooting-infrastructure "#res-troubleshooting-infrastructure")
-  - [Load balancer target
-    groups without healthy instances](#res-troubleshooting-infrastructure-load-balancer "#res-troubleshooting-infrastructure-load-balancer")
+  - [Load balancer target groups without healthy instances](#res-troubleshooting-infrastructure-load-balancer "#res-troubleshooting-infrastructure-load-balancer")
 
 - [Launching Virtual Desktops](#res-troubleshooting-virtual-desktops "#res-troubleshooting-virtual-desktops")
-  - [I need to launch / resume a large number
-    of VDIs in the RES web portal](#res-troubleshooting-virtual-desktops-resume-vdis "#res-troubleshooting-virtual-desktops-resume-vdis")
-  - [Login account for Windows
-    Virtual Desktop is set to Administrator](#res-troubleshooting-virtual-desktops-windows-admin "#res-troubleshooting-virtual-desktops-windows-admin")
-  - [Certificate expires
-    when using external resource CertificateRenewalNode](#res-troubleshooting-virtual-desktops-certificate-expires "#res-troubleshooting-virtual-desktops-certificate-expires")
-  - [A virtual desktop that
-    was previously working is no longer able to connect successfully](#res-troubleshooting-virtual-desktops-was-working "#res-troubleshooting-virtual-desktops-was-working")
-  - [I am only able to launch
-    5 virtual desktops](#res-troubleshooting-virtual-desktops-only-five "#res-troubleshooting-virtual-desktops-only-five")
-  - [Desktop Windows
-    connect attempts fail with "The connection has been closed. Transport error"](#res-troubleshooting-virtual-desktops-transport-error "#res-troubleshooting-virtual-desktops-transport-error")
-  - [VDIs stuck in Provisioning
-    state](#res-troubleshooting-virtual-desktops-stuck-prov "#res-troubleshooting-virtual-desktops-stuck-prov")
-  - [VDIs get into Error
-    state after launching](#res-troubleshooting-virtual-desktops-error-after "#res-troubleshooting-virtual-desktops-error-after")
-  - [VDI session goes to a blank screen
-    after logging in](#res-troubleshooting-virtual-desktops-vdi-blank-screen "#res-troubleshooting-virtual-desktops-vdi-blank-screen")
+  - [I need to launch / resume a large number of VDIs in the RES web portal](#res-troubleshooting-virtual-desktops-resume-vdis "#res-troubleshooting-virtual-desktops-resume-vdis")
+  - [Login account for Windows Virtual Desktop is set to Administrator](#res-troubleshooting-virtual-desktops-windows-admin "#res-troubleshooting-virtual-desktops-windows-admin")
+  - [Certificate expires when using external resource CertificateRenewalNode](#res-troubleshooting-virtual-desktops-certificate-expires "#res-troubleshooting-virtual-desktops-certificate-expires")
+  - [A virtual desktop that was previously working is no longer able to connect successfully](#res-troubleshooting-virtual-desktops-was-working "#res-troubleshooting-virtual-desktops-was-working")
+  - [I am only able to launch 5 virtual desktops](#res-troubleshooting-virtual-desktops-only-five "#res-troubleshooting-virtual-desktops-only-five")
+  - [Desktop Windows connect attempts fail with "The connection has been closed. Transport error"](#res-troubleshooting-virtual-desktops-transport-error "#res-troubleshooting-virtual-desktops-transport-error")
+  - [VDIs stuck in Provisioning state](#res-troubleshooting-virtual-desktops-stuck-prov "#res-troubleshooting-virtual-desktops-stuck-prov")
+  - [VDIs get into Error state after launching](#res-troubleshooting-virtual-desktops-error-after "#res-troubleshooting-virtual-desktops-error-after")
+  - [VDI session goes to a blank screen after logging in](#res-troubleshooting-virtual-desktops-vdi-blank-screen "#res-troubleshooting-virtual-desktops-vdi-blank-screen")
 
 - [Virtual Desktop Component](#res-troubleshooting-vd-component "#res-troubleshooting-vd-component")
-  - [Amazon EC2 instance is repeatedly
-    showing terminated in the console](#res-troubleshooting-vd-component-ec2-terminated "#res-troubleshooting-vd-component-ec2-terminated")
-  - [vdc-controller instance is
-    cycling due to failing to join AD / eVDI module shows Failed API Health Check](#res-troubleshooting-vd-component-cycling "#res-troubleshooting-vd-component-cycling")
-  - [Project does not appear
-    in the pull down when editing the Software Stack to add it](#res-troubleshooting-vd-component-not-in-pulldown "#res-troubleshooting-vd-component-not-in-pulldown")
-  - [cluster-manager Amazon CloudWatch
-    log shows "<user-home-init> account not available yet. waiting for user to be synced"
-    (where the account is a user name)](#res-troubleshooting-vd-component-acct-unavailable "#res-troubleshooting-vd-component-acct-unavailable")
-  - [Windows desktop on login attempt
-    says "Your account has been disabled. Please see your administrator"](#res-troubleshooting-vd-component-acct-disabled "#res-troubleshooting-vd-component-acct-disabled")
-  - [DHCP Options issues with
-    external/customer AD configuration](#res-troubleshooting-vd-component-dhcp "#res-troubleshooting-vd-component-dhcp")
+  - [Amazon EC2 instance is repeatedly showing terminated in the console](#res-troubleshooting-vd-component-ec2-terminated "#res-troubleshooting-vd-component-ec2-terminated")
+  - [vdc-controller instance is cycling due to failing to join AD / eVDI module shows Failed API Health Check](#res-troubleshooting-vd-component-cycling "#res-troubleshooting-vd-component-cycling")
+  - [Project does not appear in the pull down when editing the Software Stack to add it](#res-troubleshooting-vd-component-not-in-pulldown "#res-troubleshooting-vd-component-not-in-pulldown")
+  - [cluster-manager Amazon CloudWatch log shows "<user-home-init> account not available yet. waiting for user to be synced" (where the account is a user name)](#res-troubleshooting-vd-component-acct-unavailable "#res-troubleshooting-vd-component-acct-unavailable")
+  - [Windows desktop on login attempt says "Your account has been disabled. Please see your administrator"](#res-troubleshooting-vd-component-acct-disabled "#res-troubleshooting-vd-component-acct-disabled")
+  - [DHCP Options issues with external/customer AD configuration](#res-troubleshooting-vd-component-dhcp "#res-troubleshooting-vd-component-dhcp")
   - [Firefox error MOZILLA_PKIX_ERROR_REQUIRED_TLS_FEATURE_MISSING](#res-troubleshooting-vd-firefox "#res-troubleshooting-vd-firefox")
 
 - [Env deletion](#res-troubleshooting-env-deletion "#res-troubleshooting-env-deletion")
-  - [res-xxx-cluster stack in
-    "DELETE_FAILED" state and cannot be deleted manually due to "Role is invalid or cannot
-    be assumed" error](#res-troubleshooting-env-deletion-role-invalid "#res-troubleshooting-env-deletion-role-invalid")
+  - [res-xxx-cluster stack in "DELETE_FAILED" state and cannot be deleted manually due to "Role is invalid or cannot be assumed" error](#res-troubleshooting-env-deletion-role-invalid "#res-troubleshooting-env-deletion-role-invalid")
   - [Collecting Logs](#res-troubleshooting-env-deletion-collect-logs "#res-troubleshooting-env-deletion-collect-logs")
   - [Downloading VDI Logs](#res-troubleshooting-env-deletion-download-logs "#res-troubleshooting-env-deletion-download-logs")
-  - [Downloading logs from Linux
-    EC2 instances](#res-troubleshooting-env-deletion-linux-ec2-logs "#res-troubleshooting-env-deletion-linux-ec2-logs")
-  - [Downloading logs from
-    Windows EC2 instances](#res-troubleshooting-env-deletion-windows-ec2-logs "#res-troubleshooting-env-deletion-windows-ec2-logs")
-  - [Collecting ECS logs for
-    the WaitCondition error](#res-troubleshooting-env-deletion-waitcondition "#res-troubleshooting-env-deletion-waitcondition")
+  - [Downloading logs from Linux EC2 instances](#res-troubleshooting-env-deletion-linux-ec2-logs "#res-troubleshooting-env-deletion-linux-ec2-logs")
+  - [Downloading logs from Windows EC2 instances](#res-troubleshooting-env-deletion-windows-ec2-logs "#res-troubleshooting-env-deletion-windows-ec2-logs")
+  - [Collecting ECS logs for the WaitCondition error](#res-troubleshooting-env-deletion-waitcondition "#res-troubleshooting-env-deletion-waitcondition")
 
 - [Demo environment](#res-troubleshooting-demo-env "#res-troubleshooting-demo-env")
-  - [Demo environment login error when handling
-    authentication request to identity provider](#demo-environment-login-error "#demo-environment-login-error")
+  - [Demo environment login error when handling authentication request to identity provider](#demo-environment-login-error "#demo-environment-login-error")
   - [Demo stack keycloak not working](#demo-environment-stack-keycloak "#demo-environment-stack-keycloak")
 
 - [Active Directory issues](#active-directory-issues "#active-directory-issues")
-  - [My VDI is stuck in the provisioning state for
-    a long time, or I cannot login my VDI as an AD user after the VDI is ready](#active-directory-issues-vdi-stuck "#active-directory-issues-vdi-stuck")
+  - [My VDI is stuck in the provisioning state for a long time, or I cannot login my VDI as an AD user after the VDI is ready](#active-directory-issues-vdi-stuck "#active-directory-issues-vdi-stuck")
   - [I cannot login the RES web portal after configuring SSO](#active-directory-issues-res-web-portal "#active-directory-issues-res-web-portal")
-  - [AD user cannot access the
-    home directory using File Browser even after launching Linux VDIs successfully](#active-directory-issues-home-directory-access "#active-directory-issues-home-directory-access")
-  - [AD admin user cannot access the
-    Bastion Host after SSH access is enabled](#active-directory-issues-bastion-host-access "#active-directory-issues-bastion-host-access")
-  - [View and manage my Active
-    Directory deployed by RES external resource stack](#active-directory-issues-external-resource-stack "#active-directory-issues-external-resource-stack")
+  - [AD user cannot access the home directory using File Browser even after launching Linux VDIs successfully](#active-directory-issues-home-directory-access "#active-directory-issues-home-directory-access")
+  - [AD admin user cannot access the Bastion Host after SSH access is enabled](#active-directory-issues-bastion-host-access "#active-directory-issues-bastion-host-access")
+  - [View and manage my Active Directory deployed by RES external resource stack](#active-directory-issues-external-resource-stack "#active-directory-issues-external-resource-stack")
 
 ## Installation issues
 
 ###### Topics
 
-- [CloudFormation stack fails to create with message "WaitCondition
-  received failed message. Error:States.TaskFailed"](#cf-stack-fails "#cf-stack-fails")
-- [Email notification not received after CloudFormation
-  stacks created successfully](#email-invitation-not-received "#email-invitation-not-received")
+- [CloudFormation stack fails to create with message "WaitCondition received failed message. Error:States.TaskFailed"](#cf-stack-fails "#cf-stack-fails")
+- [Email notification not received after CloudFormation stacks created successfully](#email-invitation-not-received "#email-invitation-not-received")
 - [Instances cycling or vdc-controller in failed state](#instances-cycling "#instances-cycling")
 - [Environment CloudFormation stack fails to delete due to dependent object error](#object-error "#object-error")
 - [Error encountered for CIDR block parameter during environment creation](#cidr-block-error "#cidr-block-error")
 - [CloudFormation stack creation failure during environment creation](#cf-stack-creation-fails "#cf-stack-creation-fails")
-- [Creation of external resources (demo) stack
-  fails with AdDomainAdminNode CREATE_FAILED](#demo-environment-stack-fails "#demo-environment-stack-fails")
+- [Creation of external resources (demo) stack fails with AdDomainAdminNode CREATE_FAILED](#demo-environment-stack-fails "#demo-environment-stack-fails")
 
 ........................
 
-### CloudFormation stack fails to create with message "WaitCondition
-
-received failed message. Error:States.TaskFailed"
+### CloudFormation stack fails to create with message "WaitCondition received failed message. Error:States.TaskFailed"
 
 To identify the issue, examine the Amazon CloudWatch log group named
 `<stack-name>-InstallerTasksCreateTaskDefCreateContainerLogGroup<nonce>-<nonce>`.
@@ -148,9 +102,7 @@ Confirm that the parameter values do not have spaces.
 
 ........................
 
-### Email notification not received after CloudFormation
-
-stacks created successfully
+### Email notification not received after CloudFormation stacks created successfully
 
 If an email invitation was not received after the CloudFormation stacks were created successfully,
 verify the following:
@@ -328,9 +280,7 @@ the creation in a different Region.
 
 ........................
 
-### Creation of external resources (demo) stack
-
-fails with AdDomainAdminNode CREATE_FAILED
+### Creation of external resources (demo) stack fails with AdDomainAdminNode CREATE_FAILED
 
 If the demo environment stack creation fails with the following error, it may be due
 to Amazon EC2 patching occurring unexpectedly during the provisioning after instance launch.
@@ -359,32 +309,24 @@ Most issues with single sign-on (SSO) and identity management occur due to misco
 For information on setting up your SSO configuration, see:
 
 - [Setting up single sign-on (SSO) with IAM Identity Center](sso-idc.md "sso-idc.md")
-- [Configuring your identity provider for single sign-on
-  (SSO)](configure-id-federation.md "configure-id-federation.md")
+- [Configuring your identity provider for single sign-on (SSO)](configure-id-federation.md "configure-id-federation.md")
 
 To troubleshoot other issues related to identity management, see the following troubleshooting
 topics:
 
 ###### Topics
 
-- [I am not authorized to
-  perform iam:PassRole](#res-troubleshooting-issue-runbooks-unauth-passrole "#res-troubleshooting-issue-runbooks-unauth-passrole")
-- [I want to allow people
-  outside of my AWS account to access my Research and Engineering Studio on AWS
-  resources](#res-troubleshooting-issue-runbooks-outside-acct "#res-troubleshooting-issue-runbooks-outside-acct")
-- [When logging into the environment, I immediately return
-  to the login page](#return-to-login "#return-to-login")
+- [I am not authorized to perform iam:PassRole](#res-troubleshooting-issue-runbooks-unauth-passrole "#res-troubleshooting-issue-runbooks-unauth-passrole")
+- [I want to allow people outside of my AWS account to access my Research and Engineering Studio on AWS resources](#res-troubleshooting-issue-runbooks-outside-acct "#res-troubleshooting-issue-runbooks-outside-acct")
+- [When logging into the environment, I immediately return to the login page](#return-to-login "#return-to-login")
 - ["User not found" error when trying to log in](#user-not-found "#user-not-found")
 - [User added in Active Directory, but missing from RES](#user-missing "#user-missing")
 - [User unavailable when creating a session](#session-user-unavailable "#session-user-unavailable")
-- [Size limit exceeded error in CloudWatch cluster-manager
-  log](#sizelimit-exceeded-error "#sizelimit-exceeded-error")
+- [Size limit exceeded error in CloudWatch cluster-manager log](#sizelimit-exceeded-error "#sizelimit-exceeded-error")
 
 ........................
 
-### I am not authorized to
-
-perform iam:PassRole
+### I am not authorized to perform iam:PassRole
 
 If you receive an error that you're not authorized to perform the iam:PassRole action,
 your policies must be updated to allow you to pass a role to RES.
@@ -408,10 +350,7 @@ person who provided you with your sign-in credentials.
 
 ........................
 
-### I want to allow people
-
-outside of my AWS account to access my Research and Engineering Studio on AWS
-resources
+### I want to allow people outside of my AWS account to access my Research and Engineering Studio on AWS resources
 
 You can create a role that users in other accounts or people outside of your organization
 can use to access your resources. You can specify who is trusted to assume the role. For
@@ -437,9 +376,7 @@ To learn more, consult the following:
 
 ........................
 
-### When logging into the environment, I immediately return
-
-to the login page
+### When logging into the environment, I immediately return to the login page
 
 This issue occurs when your SSO integration is misconfigured. To determine the issue,
 check the controller instance logs and review the configuration settings for errors.
@@ -476,17 +413,14 @@ check the controller instance logs and review the configuration settings for err
 If a user receives the error "User not found" when they try to log in to the RES
 interface, and the user is present in Active Directory:
 
-- ###### If the user is not present in RES and you recently added the
-
-  user to AD
+- ###### If the user is not present in RES and you recently added the user to AD
   - It is possible that the user is not yet synced to RES. RES
     syncs hourly, so you may need to wait and check that the user was added after
     the next sync. To sync immediately, follow the steps in [User added in Active Directory, but missing from RES](#user-missing "#user-missing").
 
 - ###### If the user is present in RES:
   1.  Ensure the attribute mapping is configured correctly. For more information,
-      see [Configuring your identity provider for single sign-on
-      (SSO)](configure-id-federation.md "configure-id-federation.md").
+      see [Configuring your identity provider for single sign-on (SSO)](configure-id-federation.md "configure-id-federation.md").
   2.  Ensure that the SAML subject and SAML email both map to the user's email
       address.
 
@@ -497,10 +431,8 @@ interface, and the user is present in Active Directory:
 ###### Note
 
 This section applies to RES 2024.10 and earlier. For RES 2024.12 and later see
-[How to manually run the sync (release
-2024.12 and 2024.12.01)](active-directory-sync.md#active-directory-sync-manually "active-directory-sync.md#active-directory-sync-manually").
-For RES 2025.03 and later see [How to manually start or stop the sync
-(release 2025.03 and later)](active-directory-sync.md#active-directory-sync-start-stop "active-directory-sync.md#active-directory-sync-start-stop").
+[How to manually run the sync (release 2024.12 and 2024.12.01)](active-directory-sync.md#active-directory-sync-manually "active-directory-sync.md#active-directory-sync-manually").
+For RES 2025.03 and later see [How to manually start or stop the sync (release 2025.03 and later)](active-directory-sync.md#active-directory-sync-start-stop "active-directory-sync.md#active-directory-sync-start-stop").
 
 If you have added a user to the Active Directory but they are missing in RES,
 the AD sync needs to be triggered. The AD sync is performed hourly by a Lambda function
@@ -532,9 +464,7 @@ log into the environment at least once.
 
 ........................
 
-### Size limit exceeded error in CloudWatch cluster-manager
-
-log
+### Size limit exceeded error in CloudWatch cluster-manager log
 
 ```
 2023-10-31T18:03:12.942-07:00 ldap.SIZELIMIT_EXCEEDED: {'msgtype': 100, 'msgid': 11, 'result': 4, 'desc': 'Size limit exceeded', 'ctrls': []}
@@ -549,20 +479,14 @@ too many user records. To fix this issue, increase your IDP's ldap search result
 
 ###### Topics
 
-- [I created file system through RES
-  but it doesn't mount on the VDI hosts](#res-troubleshooting-storage-created "#res-troubleshooting-storage-created")
-- [I onboarded a file system through
-  RES but it doesn't mount on the VDI hosts](#res-troubleshooting-storage-onboarded "#res-troubleshooting-storage-onboarded")
-- [I am not able to read/write on
-  from VDI hosts](#res-troubleshooting-storage-rw "#res-troubleshooting-storage-rw")
-- [I created Amazon FSx for NetApp ONTAP from RES
-  but it did not join my domain](#res-troubleshooting-storage-join "#res-troubleshooting-storage-join")
+- [I created file system through RES but it doesn't mount on the VDI hosts](#res-troubleshooting-storage-created "#res-troubleshooting-storage-created")
+- [I onboarded a file system through RES but it doesn't mount on the VDI hosts](#res-troubleshooting-storage-onboarded "#res-troubleshooting-storage-onboarded")
+- [I am not able to read/write on from VDI hosts](#res-troubleshooting-storage-rw "#res-troubleshooting-storage-rw")
+- [I created Amazon FSx for NetApp ONTAP from RES but it did not join my domain](#res-troubleshooting-storage-join "#res-troubleshooting-storage-join")
 
 ........................
 
-### I created file system through RES
-
-but it doesn't mount on the VDI hosts
+### I created file system through RES but it doesn't mount on the VDI hosts
 
 The file systems need to be in the "Available" state before they can be mounted by VDI
 hosts. Follow the steps below to validate the file system is in the required state.
@@ -583,9 +507,7 @@ Amazon FSx ONTAP
 
 ........................
 
-### I onboarded a file system through
-
-RES but it doesn't mount on the VDI hosts
+### I onboarded a file system through RES but it doesn't mount on the VDI hosts
 
 The file systems onboarded on RES should have the required security group rules
 configured to allow VDI hosts to mount the file systems. As these file systems are
@@ -599,9 +521,7 @@ inbound traffic:
 
 ........................
 
-### I am not able to read/write on
-
-from VDI hosts
+### I am not able to read/write on from VDI hosts
 
 ONTAP supports UNIX, NTFS and MIXED security style for the volumes. The security
 styles determine the type of permissions ONTAP uses to control data access and what
@@ -612,9 +532,7 @@ data (provided that they properly authenticate and authorize) due to the multi-p
 nature of ONTAP. However, ONTAP uses UNIX permissions that only UNIX clients can
 modify using native tools.
 
-#### Example permission handling
-
-use cases
+#### Example permission handling use cases
 
 **Using UNIX style volume with Linux workloads**
 
@@ -645,9 +563,7 @@ to translate between Linux and Windows users. For reference see
 
 ........................
 
-### I created Amazon FSx for NetApp ONTAP from RES
-
-but it did not join my domain
+### I created Amazon FSx for NetApp ONTAP from RES but it did not join my domain
 
 Currently, when you create Amazon FSx for NetApp ONTAP from the RES console, the file system
 gets provisioned but it does not join the domain. To join the created ONTAP file system
@@ -691,8 +607,7 @@ choose **File Systems**, **Onboard File System**.
 ###### Topics
 
 - [A Snapshot has a status of Failed](#res-troubleshooting-snapshots-failed "#res-troubleshooting-snapshots-failed")
-- [A Snapshot fails to apply
-  with logs indicating that the tables could not be imported.](#res-troubleshooting-snapshots-not-imported "#res-troubleshooting-snapshots-not-imported")
+- [A Snapshot fails to apply with logs indicating that the tables could not be imported.](#res-troubleshooting-snapshots-not-imported "#res-troubleshooting-snapshots-not-imported")
 
 ........................
 
@@ -713,9 +628,7 @@ that the error occurred.
 
 ........................
 
-### A Snapshot fails to apply
-
-with logs indicating that the tables could not be imported.
+### A Snapshot fails to apply with logs indicating that the tables could not be imported.
 
 If a snapshot taken from a previous env fails to apply in a new env, look into the
 CloudWatch logs for cluster-manager to identify the issue. If the issue mentions that the
@@ -737,14 +650,11 @@ required tables cloud not be imported, verify that the snapshot is in a valid st
 
 ###### Topics
 
-- [Load balancer target
-  groups without healthy instances](#res-troubleshooting-infrastructure-load-balancer "#res-troubleshooting-infrastructure-load-balancer")
+- [Load balancer target groups without healthy instances](#res-troubleshooting-infrastructure-load-balancer "#res-troubleshooting-infrastructure-load-balancer")
 
 ........................
 
-### Load balancer target
-
-groups without healthy instances
+### Load balancer target groups without healthy instances
 
 If issues such as server error messages are appearing in the UI or desktop sessions
 cannot connect, that may indicate an issue in the infrastructure Amazon EC2 instances.
@@ -779,30 +689,19 @@ console indicating that network state exists.
 
 ###### Topics
 
-- [I need to launch / resume a large number
-  of VDIs in the RES web portal](#res-troubleshooting-virtual-desktops-resume-vdis "#res-troubleshooting-virtual-desktops-resume-vdis")
-- [Login account for Windows
-  Virtual Desktop is set to Administrator](#res-troubleshooting-virtual-desktops-windows-admin "#res-troubleshooting-virtual-desktops-windows-admin")
-- [Certificate expires
-  when using external resource CertificateRenewalNode](#res-troubleshooting-virtual-desktops-certificate-expires "#res-troubleshooting-virtual-desktops-certificate-expires")
-- [A virtual desktop that
-  was previously working is no longer able to connect successfully](#res-troubleshooting-virtual-desktops-was-working "#res-troubleshooting-virtual-desktops-was-working")
-- [I am only able to launch
-  5 virtual desktops](#res-troubleshooting-virtual-desktops-only-five "#res-troubleshooting-virtual-desktops-only-five")
-- [Desktop Windows
-  connect attempts fail with "The connection has been closed. Transport error"](#res-troubleshooting-virtual-desktops-transport-error "#res-troubleshooting-virtual-desktops-transport-error")
-- [VDIs stuck in Provisioning
-  state](#res-troubleshooting-virtual-desktops-stuck-prov "#res-troubleshooting-virtual-desktops-stuck-prov")
-- [VDIs get into Error
-  state after launching](#res-troubleshooting-virtual-desktops-error-after "#res-troubleshooting-virtual-desktops-error-after")
-- [VDI session goes to a blank screen
-  after logging in](#res-troubleshooting-virtual-desktops-vdi-blank-screen "#res-troubleshooting-virtual-desktops-vdi-blank-screen")
+- [I need to launch / resume a large number of VDIs in the RES web portal](#res-troubleshooting-virtual-desktops-resume-vdis "#res-troubleshooting-virtual-desktops-resume-vdis")
+- [Login account for Windows Virtual Desktop is set to Administrator](#res-troubleshooting-virtual-desktops-windows-admin "#res-troubleshooting-virtual-desktops-windows-admin")
+- [Certificate expires when using external resource CertificateRenewalNode](#res-troubleshooting-virtual-desktops-certificate-expires "#res-troubleshooting-virtual-desktops-certificate-expires")
+- [A virtual desktop that was previously working is no longer able to connect successfully](#res-troubleshooting-virtual-desktops-was-working "#res-troubleshooting-virtual-desktops-was-working")
+- [I am only able to launch 5 virtual desktops](#res-troubleshooting-virtual-desktops-only-five "#res-troubleshooting-virtual-desktops-only-five")
+- [Desktop Windows connect attempts fail with "The connection has been closed. Transport error"](#res-troubleshooting-virtual-desktops-transport-error "#res-troubleshooting-virtual-desktops-transport-error")
+- [VDIs stuck in Provisioning state](#res-troubleshooting-virtual-desktops-stuck-prov "#res-troubleshooting-virtual-desktops-stuck-prov")
+- [VDIs get into Error state after launching](#res-troubleshooting-virtual-desktops-error-after "#res-troubleshooting-virtual-desktops-error-after")
+- [VDI session goes to a blank screen after logging in](#res-troubleshooting-virtual-desktops-vdi-blank-screen "#res-troubleshooting-virtual-desktops-vdi-blank-screen")
 
 ........................
 
-### I need to launch / resume a large number
-
-of VDIs in the RES web portal
+### I need to launch / resume a large number of VDIs in the RES web portal
 
 When you launch or resume a large number of VDIs in batch, they may end up in the Error
 state due to the configured provisioned throughput (5 - 20) for the
@@ -821,9 +720,7 @@ read / write capacity units may impact your cost on RES. Please check [Pricing f
 
 ........................
 
-### Login account for Windows
-
-Virtual Desktop is set to Administrator
+### Login account for Windows Virtual Desktop is set to Administrator
 
 If you're able to launch a Windows Virtual Desktop in the RES web portal but its login
 account is set to Administrator when you connect, your Windows VDI may not have joined the
@@ -852,9 +749,7 @@ for more details about the failure:
 
 ........................
 
-### Certificate expires
-
-when using external resource CertificateRenewalNode
+### Certificate expires when using external resource CertificateRenewalNode
 
 If you deployed the [External Resources recipe](create-external-resources.md "create-external-resources.md")
 and encounter an error that states `"The connection has been closed. Transport error"`
@@ -932,9 +827,7 @@ cd acme.sh-$VERSION
 
 ........................
 
-### A virtual desktop that
-
-was previously working is no longer able to connect successfully
+### A virtual desktop that was previously working is no longer able to connect successfully
 
 If a desktop connection closes or you can no longer connect to it, the issue may be
 due to the underlying Amazon EC2 instance failing or the Amazon EC2 instance may have been terminated
@@ -951,9 +844,7 @@ terminated using the Admin UI.
 
 ........................
 
-### I am only able to launch
-
-5 virtual desktops
+### I am only able to launch 5 virtual desktops
 
 The default limit for the number of virtual desktops that a user can launch is 5.
 This can be changed by an admin using the Admin UI as follows:
@@ -967,9 +858,7 @@ This can be changed by an admin using the Admin UI as follows:
 
 ........................
 
-### Desktop Windows
-
-connect attempts fail with "The connection has been closed. Transport error"
+### Desktop Windows connect attempts fail with "The connection has been closed. Transport error"
 
 If a Windows desktop connection fails with the UI error "The connection has been
 closed. Transport error", the cause can be due to an issue in the DCV server software
@@ -1023,9 +912,7 @@ software stack that can be used for successful launches and connections.
 
 ........................
 
-### VDIs stuck in Provisioning
-
-state
+### VDIs stuck in Provisioning state
 
 If a desktop launch remains in the provisioning state in the Admin UI, this may be
 due to several reasons.
@@ -1073,9 +960,7 @@ desktop from the misconfigured AMI.
 
 ........................
 
-### VDIs get into Error
-
-state after launching
+### VDIs get into Error state after launching
 
 **Possible issue 1: The home filesystem has directory for the user with different
 POSIX permissions.**
@@ -1111,9 +996,7 @@ ldap sync-from-ad` in the cluster-manager Amazon EC2.
 
 ........................
 
-### VDI session goes to a blank screen
-
-after logging in
+### VDI session goes to a blank screen after logging in
 
 When a VDI session with Console Session type is blank and unresponsive after you log in,
 this means that the X server is broken. This likely is due to a OS issue where DCV is
@@ -1141,26 +1024,17 @@ ln -sf /usr/bin/Xdcv-console /usr/bin/Xorg
 
 ###### Topics
 
-- [Amazon EC2 instance is repeatedly
-  showing terminated in the console](#res-troubleshooting-vd-component-ec2-terminated "#res-troubleshooting-vd-component-ec2-terminated")
-- [vdc-controller instance is
-  cycling due to failing to join AD / eVDI module shows Failed API Health Check](#res-troubleshooting-vd-component-cycling "#res-troubleshooting-vd-component-cycling")
-- [Project does not appear
-  in the pull down when editing the Software Stack to add it](#res-troubleshooting-vd-component-not-in-pulldown "#res-troubleshooting-vd-component-not-in-pulldown")
-- [cluster-manager Amazon CloudWatch
-  log shows "<user-home-init> account not available yet. waiting for user to be synced"
-  (where the account is a user name)](#res-troubleshooting-vd-component-acct-unavailable "#res-troubleshooting-vd-component-acct-unavailable")
-- [Windows desktop on login attempt
-  says "Your account has been disabled. Please see your administrator"](#res-troubleshooting-vd-component-acct-disabled "#res-troubleshooting-vd-component-acct-disabled")
-- [DHCP Options issues with
-  external/customer AD configuration](#res-troubleshooting-vd-component-dhcp "#res-troubleshooting-vd-component-dhcp")
+- [Amazon EC2 instance is repeatedly showing terminated in the console](#res-troubleshooting-vd-component-ec2-terminated "#res-troubleshooting-vd-component-ec2-terminated")
+- [vdc-controller instance is cycling due to failing to join AD / eVDI module shows Failed API Health Check](#res-troubleshooting-vd-component-cycling "#res-troubleshooting-vd-component-cycling")
+- [Project does not appear in the pull down when editing the Software Stack to add it](#res-troubleshooting-vd-component-not-in-pulldown "#res-troubleshooting-vd-component-not-in-pulldown")
+- [cluster-manager Amazon CloudWatch log shows "<user-home-init> account not available yet. waiting for user to be synced" (where the account is a user name)](#res-troubleshooting-vd-component-acct-unavailable "#res-troubleshooting-vd-component-acct-unavailable")
+- [Windows desktop on login attempt says "Your account has been disabled. Please see your administrator"](#res-troubleshooting-vd-component-acct-disabled "#res-troubleshooting-vd-component-acct-disabled")
+- [DHCP Options issues with external/customer AD configuration](#res-troubleshooting-vd-component-dhcp "#res-troubleshooting-vd-component-dhcp")
 - [Firefox error MOZILLA_PKIX_ERROR_REQUIRED_TLS_FEATURE_MISSING](#res-troubleshooting-vd-firefox "#res-troubleshooting-vd-firefox")
 
 ........................
 
-### Amazon EC2 instance is repeatedly
-
-showing terminated in the console
+### Amazon EC2 instance is repeatedly showing terminated in the console
 
 If an infrastructure instance is repeatedly showing as terminated in the Amazon EC2 console,
 the cause may be related to its configuration and depend on the infrastructure instance
@@ -1194,9 +1068,7 @@ Check the tags on the Amazon EC2 instance and confirm that they match the above 
 
 ........................
 
-### vdc-controller instance is
-
-cycling due to failing to join AD / eVDI module shows Failed API Health Check
+### vdc-controller instance is cycling due to failing to join AD / eVDI module shows Failed API Health Check
 
 If the eVDI module is failing it’s health check, it will show the following in the
 Environment Status section.
@@ -1269,9 +1141,7 @@ Example log line:
 
 ........................
 
-### Project does not appear
-
-in the pull down when editing the Software Stack to add it
+### Project does not appear in the pull down when editing the Software Stack to add it
 
 This issue may be related to the following issue associated with syncing the user account
 with AD. If this issue appears, check the cluster-manager Amazon CloudWatch log group for the error
@@ -1280,10 +1150,7 @@ to determine if the cause is the same or related.
 
 ........................
 
-### cluster-manager Amazon CloudWatch
-
-log shows "<user-home-init> account not available yet. waiting for user to be synced"
-(where the account is a user name)
+### cluster-manager Amazon CloudWatch log shows "<user-home-init> account not available yet. waiting for user to be synced" (where the account is a user name)
 
 The SQS subscriber is busy and stuck in an infinite loop because it cannot get to the
 user account. This code is triggered when trying to create a home filesystem for a user
@@ -1295,9 +1162,7 @@ parameter used at BI/RES environment creation was not the correct value.
 
 ........................
 
-### Windows desktop on login attempt
-
-says "Your account has been disabled. Please see your administrator"
+### Windows desktop on login attempt says "Your account has been disabled. Please see your administrator"
 
 ![account disabled error screen](images/res-disabled-account.png)
 
@@ -1309,9 +1174,7 @@ The SSO login should fail if the user account has been disabled in AD.
 
 ........................
 
-### DHCP Options issues with
-
-external/customer AD configuration
+### DHCP Options issues with external/customer AD configuration
 
 If you encounter an error stating `"The connection has been closed. Transport 
  error"` with Windows virtual desktops when using RES with your own Active Directory,
@@ -1359,24 +1222,16 @@ You can fix this by following the instructions at:
 
 ###### Topics
 
-- [res-xxx-cluster stack in
-  "DELETE_FAILED" state and cannot be deleted manually due to "Role is invalid or cannot
-  be assumed" error](#res-troubleshooting-env-deletion-role-invalid "#res-troubleshooting-env-deletion-role-invalid")
+- [res-xxx-cluster stack in "DELETE_FAILED" state and cannot be deleted manually due to "Role is invalid or cannot be assumed" error](#res-troubleshooting-env-deletion-role-invalid "#res-troubleshooting-env-deletion-role-invalid")
 - [Collecting Logs](#res-troubleshooting-env-deletion-collect-logs "#res-troubleshooting-env-deletion-collect-logs")
 - [Downloading VDI Logs](#res-troubleshooting-env-deletion-download-logs "#res-troubleshooting-env-deletion-download-logs")
-- [Downloading logs from Linux
-  EC2 instances](#res-troubleshooting-env-deletion-linux-ec2-logs "#res-troubleshooting-env-deletion-linux-ec2-logs")
-- [Downloading logs from
-  Windows EC2 instances](#res-troubleshooting-env-deletion-windows-ec2-logs "#res-troubleshooting-env-deletion-windows-ec2-logs")
-- [Collecting ECS logs for
-  the WaitCondition error](#res-troubleshooting-env-deletion-waitcondition "#res-troubleshooting-env-deletion-waitcondition")
+- [Downloading logs from Linux EC2 instances](#res-troubleshooting-env-deletion-linux-ec2-logs "#res-troubleshooting-env-deletion-linux-ec2-logs")
+- [Downloading logs from Windows EC2 instances](#res-troubleshooting-env-deletion-windows-ec2-logs "#res-troubleshooting-env-deletion-windows-ec2-logs")
+- [Collecting ECS logs for the WaitCondition error](#res-troubleshooting-env-deletion-waitcondition "#res-troubleshooting-env-deletion-waitcondition")
 
 ........................
 
-### res-xxx-cluster stack in
-
-"DELETE_FAILED" state and cannot be deleted manually due to "Role is invalid or cannot
-be assumed" error
+### res-xxx-cluster stack in "DELETE_FAILED" state and cannot be deleted manually due to "Role is invalid or cannot be assumed" error
 
 If you notice that the "res-xxx-cluster" stack is in "DELETE_FAILED" state and cannot
 be deleted manually, you can perform the following steps to delete it.
@@ -1448,8 +1303,7 @@ role you created.
       EC2 console" at the beginning of this section to login to your instance.
 
 One of the ways to get the logs easily is to follow the instructions in the
-[Downloading logs from Linux
-EC2 instances](#res-troubleshooting-env-deletion-linux-ec2-logs "#res-troubleshooting-env-deletion-linux-ec2-logs") section. The module name
+[Downloading logs from Linux EC2 instances](#res-troubleshooting-env-deletion-linux-ec2-logs "#res-troubleshooting-env-deletion-linux-ec2-logs") section. The module name
 would be the instance name.
 
 **Collecting VDI logs**
@@ -1512,11 +1366,9 @@ download them from there. To do that, follow the steps listed in the next sectio
 5. Choose **Add permissions** to attach that policy.
 6. After that, follow the steps listed below based on your VDI type to download the
    logs. The module name would be the instance name.
-   1. [Downloading logs from Linux
-      EC2 instances](#res-troubleshooting-env-deletion-linux-ec2-logs "#res-troubleshooting-env-deletion-linux-ec2-logs")
+   1. [Downloading logs from Linux EC2 instances](#res-troubleshooting-env-deletion-linux-ec2-logs "#res-troubleshooting-env-deletion-linux-ec2-logs")
       for Linux.
-   2. [Downloading logs from
-      Windows EC2 instances](#res-troubleshooting-env-deletion-windows-ec2-logs "#res-troubleshooting-env-deletion-windows-ec2-logs")
+   2. [Downloading logs from Windows EC2 instances](#res-troubleshooting-env-deletion-windows-ec2-logs "#res-troubleshooting-env-deletion-windows-ec2-logs")
       for Windows.
 
 7. Lastly, edit the role to remove the `AmazonS3FullAccess` policy.
@@ -1528,9 +1380,7 @@ All VDIs use the same IAM role which is
 
 ........................
 
-### Downloading logs from Linux
-
-EC2 instances
+### Downloading logs from Linux EC2 instances
 
 Login to the EC2 instance from which you want to download logs and run the following
 commands to upload all the logs to an s3 bucket:
@@ -1553,9 +1403,7 @@ and download the previously uploaded `<module_name>_logs.tar.gz` file.
 
 ........................
 
-### Downloading logs from
-
-Windows EC2 instances
+### Downloading logs from Windows EC2 instances
 
 Login to the EC2 instance from which you want to download logs and run the following
 commands to upload all the logs to an S3 bucket:
@@ -1581,9 +1429,7 @@ and download the previously uploaded `<module_name>_logs.zip` file.
 
 ........................
 
-### Collecting ECS logs for
-
-the WaitCondition error
+### Collecting ECS logs for the WaitCondition error
 
 1. Go to the deployed stack and select the **Resources** tab.
 2. Expand **Deploy** → **ResearchAndEngineeringStudio** →
@@ -1598,15 +1444,12 @@ the WaitCondition error
 
 ###### Topics
 
-- [Demo environment login error when handling
-  authentication request to identity provider](#demo-environment-login-error "#demo-environment-login-error")
+- [Demo environment login error when handling authentication request to identity provider](#demo-environment-login-error "#demo-environment-login-error")
 - [Demo stack keycloak not working](#demo-environment-stack-keycloak "#demo-environment-stack-keycloak")
 
 ........................
 
-### Demo environment login error when handling
-
-authentication request to identity provider
+### Demo environment login error when handling authentication request to identity provider
 
 **Issue**
 
@@ -1670,19 +1513,13 @@ deployed stack.
 
 ###### Topics
 
-- [My VDI is stuck in the provisioning state for
-  a long time, or I cannot login my VDI as an AD user after the VDI is ready](#active-directory-issues-vdi-stuck "#active-directory-issues-vdi-stuck")
+- [My VDI is stuck in the provisioning state for a long time, or I cannot login my VDI as an AD user after the VDI is ready](#active-directory-issues-vdi-stuck "#active-directory-issues-vdi-stuck")
 - [I cannot login the RES web portal after configuring SSO](#active-directory-issues-res-web-portal "#active-directory-issues-res-web-portal")
-- [AD user cannot access the
-  home directory using File Browser even after launching Linux VDIs successfully](#active-directory-issues-home-directory-access "#active-directory-issues-home-directory-access")
-- [AD admin user cannot access the
-  Bastion Host after SSH access is enabled](#active-directory-issues-bastion-host-access "#active-directory-issues-bastion-host-access")
-- [View and manage my Active
-  Directory deployed by RES external resource stack](#active-directory-issues-external-resource-stack "#active-directory-issues-external-resource-stack")
+- [AD user cannot access the home directory using File Browser even after launching Linux VDIs successfully](#active-directory-issues-home-directory-access "#active-directory-issues-home-directory-access")
+- [AD admin user cannot access the Bastion Host after SSH access is enabled](#active-directory-issues-bastion-host-access "#active-directory-issues-bastion-host-access")
+- [View and manage my Active Directory deployed by RES external resource stack](#active-directory-issues-external-resource-stack "#active-directory-issues-external-resource-stack")
 
-### My VDI is stuck in the provisioning state for
-
-a long time, or I cannot login my VDI as an AD user after the VDI is ready
+### My VDI is stuck in the provisioning state for a long time, or I cannot login my VDI as an AD user after the VDI is ready
 
 Check the VDI installation and configuration logs (`/root/bootstrap/logs/` and
 `/opt/idea/app/logs/` directories for Linux, or
@@ -1756,8 +1593,7 @@ empty or missing the users you're logging in, check AD sync logs in the
 group (prior to 2024.12 release) or `/`environment-name`/ad-sync`
 CloudWatch log group (2024.12 release and later).
 
-Besides the common AD configuration issues mentioned at [My VDI is stuck in the provisioning state for
-a long time, or I cannot login my VDI as an AD user after the VDI is ready](#active-directory-issues-vdi-stuck "#active-directory-issues-vdi-stuck"),
+Besides the common AD configuration issues mentioned at [My VDI is stuck in the provisioning state for a long time, or I cannot login my VDI as an AD user after the VDI is ready](#active-directory-issues-vdi-stuck "#active-directory-issues-vdi-stuck"),
 other errors may include:
 
 - Service Account doesn't have the permission to query users and groups in AD.
@@ -1768,16 +1604,12 @@ other errors may include:
   - Update your user / group attributes accordingly to fix the issue.
 
 After you fix the AD sync issue, you can wait for the next scheduled AD sync which happens
-every hour or manually trigger it following the instructions in [How to manually run the sync (release
-2024.12 and 2024.12.01)](active-directory-sync.md#active-directory-sync-manually "active-directory-sync.md#active-directory-sync-manually")
-(2024.12 and 2024.12.01 release) or [How to manually start or stop the sync
-(release 2025.03 and later)](active-directory-sync.md#active-directory-sync-start-stop "active-directory-sync.md#active-directory-sync-start-stop") (release 2025.03 and later).
+every hour or manually trigger it following the instructions in [How to manually run the sync (release 2024.12 and 2024.12.01)](active-directory-sync.md#active-directory-sync-manually "active-directory-sync.md#active-directory-sync-manually")
+(2024.12 and 2024.12.01 release) or [How to manually start or stop the sync (release 2025.03 and later)](active-directory-sync.md#active-directory-sync-start-stop "active-directory-sync.md#active-directory-sync-start-stop") (release 2025.03 and later).
 
 ........................
 
-### AD user cannot access the
-
-home directory using File Browser even after launching Linux VDIs successfully
+### AD user cannot access the home directory using File Browser even after launching Linux VDIs successfully
 
 Check whether the AD user is visible to the Cluster Manager by running the command
 `id `username``on the Cluster Manager instance. If the 
@@ -1800,9 +1632,7 @@ successfully.
 
 ........................
 
-### AD admin user cannot access the
-
-Bastion Host after SSH access is enabled
+### AD admin user cannot access the Bastion Host after SSH access is enabled
 
 Check whether the AD user is visible to the Bastion Host by running the command
 `id `username``on the Bastion Host instance. If the 
@@ -1815,9 +1645,7 @@ Check whether the AD user is visible to the Bastion Host by running the command
 
 ........................
 
-### View and manage my Active
-
-Directory deployed by RES external resource stack
+### View and manage my Active Directory deployed by RES external resource stack
 
 If your AWS managed Active Directory is deployed by a RES external resource stack, there
 should be an instance with a name starting with

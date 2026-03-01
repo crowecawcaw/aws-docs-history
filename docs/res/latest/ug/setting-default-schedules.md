@@ -1,6 +1,4 @@
-# Setting default schedules across the entire
-
-environment
+# Setting default schedules across the entire environment
 
 The default schedule can be updated in [DynamoDB](https://console.aws.amazon.com/dynamodbv2 "https://console.aws.amazon.com/dynamodbv2") :
 

@@ -51,8 +51,7 @@ Services in Scope by Compliance Program](https://aws.amazon.com/compliance/servi
   applicable laws and regulations.
 
 To understand how to apply the shared responsibility model with the AWS services used
-by Research and Engineering Studio, see [Security considerations for services
-in this product](#plan-your-deployment-security-links "#plan-your-deployment-security-links"). For more information about AWS security,
+by Research and Engineering Studio, see [Security considerations for services in this product](#plan-your-deployment-security-links "#plan-your-deployment-security-links"). For more information about AWS security,
 visit [AWS Cloud Security](https://aws.amazon.com/security/ "https://aws.amazon.com/security/").
 
 ### IAM roles
@@ -88,9 +87,7 @@ AWS KMS key, customer data at rest will be encrypted using that key.
 RES encrypts customer data in transit using SSL/TLS. We require TLS 1.2,
 but recommend TLS 1.3.
 
-### Security considerations for services
-
-in this product
+### Security considerations for services in this product
 
 For more detailed information regarding security considerations for the services used by
 Research and Engineering Studio, follow the links in this table:
@@ -125,9 +122,7 @@ Research and Engineering Studio, follow the links in this table:
 Service quotas, also referred to as limits, are the maximum number of service resources
 or operations for your AWS account.
 
-### Quotas for AWS services in
-
-this product
+### Quotas for AWS services in this product
 
 Make sure you have sufficient quota for each of the [services implemented in this product](architecture-overview.md#aws-services-in-this-product "architecture-overview.md#aws-services-in-this-product"). For more information, see [AWS service quotas](../../../general/latest/gr/aws_service_limits.md "../../../general/latest/gr/aws_service_limits.md").
 

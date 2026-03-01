@@ -1,6 +1,4 @@
-# Configuring your identity provider for single sign-on
-
-(SSO)
+# Configuring your identity provider for single sign-on (SSO)
 
 Research and Engineering Studio integrates with any SAML 2.0 identity provider to authenticate user access to the
 RES portal. These steps provide directions to integrate with your chosen SAML 2.0
@@ -15,8 +13,7 @@ to connect your identity provider with your Active Directory and periodically sy
 
 - [Configure your identity provider](#configure-id-federation_config-idp "#configure-id-federation_config-idp")
 - [Configure RES to use your identity provider](#configure-id-federation_config-res "#configure-id-federation_config-res")
-- [Configuring your identity provider in a
-  non-production environment](#configure-id-federation-demo-env "#configure-id-federation-demo-env")
+- [Configuring your identity provider in a non-production environment](#configure-id-federation-demo-env "#configure-id-federation-demo-env")
 - [Debugging SAML IdP issues](#configure-id-federation_debug "#configure-id-federation_debug")
 
 ## Configure your identity provider
@@ -218,9 +215,7 @@ indicator to open the **Single Sign On Configuration** page.
 4. Reload the **Environment Settings** page. Single sign-on is enabled
    if the configuration was correct.
 
-## Configuring your identity provider in a
-
-non-production environment
+## Configuring your identity provider in a non-production environment
 
 If you used the provided [external resources](prerequisites.md#external-resources "prerequisites.md#external-resources") to
 create a non-production RES environment and configured IAM Identity Center as

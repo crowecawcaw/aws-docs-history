@@ -4,9 +4,7 @@ RES has the ability to mount buckets from other AWS accounts, provided these buc
 the right permissions. In the following scenario, a RES environment in Account A wants to
 mount an S3 bucket in Account B.
 
-###### Step 1: Create an IAM Role in the account that RES is deployed in \*(this will
-
-be referred to as Account A)\*:
+###### Step 1: Create an IAM Role in the account that RES is deployed in _(this will be referred to as Account A)_:
 
 1. Sign in to the AWS Management Console for the RES account that needs access to the
    S3 bucket (Account A).

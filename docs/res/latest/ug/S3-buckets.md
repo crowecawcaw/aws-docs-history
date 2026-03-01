@@ -26,7 +26,6 @@ The following sections describe how to manage Amazon S3 buckets in your RES proj
 - [Remove an Amazon S3 bucket](S3-buckets-remove.md "S3-buckets-remove.md")
 - [Data Isolation](S3-buckets-data-isolation.md "S3-buckets-data-isolation.md")
 - [Cross account bucket access](S3-buckets-cross-account-access.md "S3-buckets-cross-account-access.md")
-- [Preventing data exfiltration in a
-  private VPC](S3-buckets-preventing-exfiltration.md "S3-buckets-preventing-exfiltration.md")
+- [Preventing data exfiltration in a private VPC](S3-buckets-preventing-exfiltration.md "S3-buckets-preventing-exfiltration.md")
 - [Troubleshooting](S3-buckets-troubleshooting.md "S3-buckets-troubleshooting.md")
 - [Enabling CloudTrail](S3-buckets-enabling-cloudtrail.md "S3-buckets-enabling-cloudtrail.md")

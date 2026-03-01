@@ -1,6 +1,4 @@
-# Project management
-
-permissions
+# Project management permissions
 
 **Update project membership**
 

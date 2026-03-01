@@ -62,9 +62,7 @@ in the **Desktop settings**. You can find and modify the global
 
 ![Admin console page showing desktop settings under session management](images/res-vdi-instance-list1.png)
 
-###### To edit the **Allowed Instance Families and Types** attribute
-
-of a software stack:
+###### To edit the **Allowed Instance Families and Types** attribute of a software stack:
 
 1. On the **Software Stacks** page, choose the radio button for
    the software stack.

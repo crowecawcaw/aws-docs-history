@@ -22,10 +22,8 @@ profile:
 
 ###### Topics
 
-- [Project management
-  permissions](permission-profiles-permission-project-management.md "permission-profiles-permission-project-management.md")
-- [VDI session management
-  permissions](permission-profiles-permission-vdi-sessions.md "permission-profiles-permission-vdi-sessions.md")
+- [Project management permissions](permission-profiles-permission-project-management.md "permission-profiles-permission-project-management.md")
+- [VDI session management permissions](permission-profiles-permission-vdi-sessions.md "permission-profiles-permission-vdi-sessions.md")
 - [Managing permission profiles](permission-profiles-permission-management.md "permission-profiles-permission-management.md")
 - [Default permissions profiles](permission-matrix.md "permission-matrix.md")
 - [Environment boundaries](permission-profiles-environment-boundaries.md "permission-profiles-environment-boundaries.md")

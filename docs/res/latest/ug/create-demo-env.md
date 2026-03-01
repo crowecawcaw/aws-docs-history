@@ -18,14 +18,11 @@ This CloudFormation stack creates all the components required by Research and En
 
 ###### Topics
 
-- [Create an AWS account with an administrative
-  user](#create-demo-env-aws-account "#create-demo-env-aws-account")
+- [Create an AWS account with an administrative user](#create-demo-env-aws-account "#create-demo-env-aws-account")
 - [Create an Amazon EC2 SSH key pair](#create-demo-env-ssh-key-pair "#create-demo-env-ssh-key-pair")
 - [Increase service quotas](#create-demo-env-increase-service-quotas "#create-demo-env-increase-service-quotas")
 
-#### Create an AWS account with an administrative
-
-user
+#### Create an AWS account with an administrative user
 
 You must have an AWS account with an administrative user:
 
@@ -58,8 +55,7 @@ We recommend [increasing the service quotas](../../../servicequotas/latest/userg
 Your AWS account has default quotas, formerly referred to as limits, for each AWS service.
 Unless otherwise noted, each quota is Region-specific. You can request increases for some
 quotas, and other quotas cannot be increased. For more information,
-see [Quotas for AWS services in
-this product](plan-your-deployment.md#quotas-for-aws-services-in-this-product "plan-your-deployment.md#quotas-for-aws-services-in-this-product").
+see [Quotas for AWS services in this product](plan-your-deployment.md#quotas-for-aws-services-in-this-product "plan-your-deployment.md#quotas-for-aws-services-in-this-product").
 
 ### Create resources and input parameters
 

@@ -9,6 +9,12 @@ build and register your AMIs as new software stacks. For more information on Ima
 Before you begin, you must [deploy the latest version of
 RES](update-the-product.md "update-the-product.md").
 
+###### Important
+
+RES-ready AMIs created before RES 2025.06.01 are incompatible with RES 2025.06.01 and all
+subsequent versions. When upgrading your RES environment from a version prior to 2025.06.01
+to the latest, you must rebuild all RES-ready AMIs.
+
 ###### Topics
 
 - [Prepare an IAM role to access RES environment](#prepare-role "#prepare-role")
@@ -190,6 +196,7 @@ RES supports the following image operating systems:
 - RHEL 8 (x86), and 9 (x86)
 - Rocky Linux 9 (x86)
 - Ubuntu 22.04.3 (x86)
+- Ubuntu 24.04.3 (x86)
 - Windows Server 2019, 2022 (x86)
 - Windows 10, 11 (x86)
 

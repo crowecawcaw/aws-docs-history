@@ -33,8 +33,7 @@ After you enable IAM Identity Center, complete these recommended set up steps:
 5. Review your changes and enter `ACCEPT` in the
    confirmation box.
 6. Choose **Change identity source**.
-   Once the changes made in [Connecting IAM Identity Center to a managed
-   Active Directory](#connecting-identity-center-ad "#connecting-identity-center-ad") are complete, a green confirmation
+   Once the changes made in [Connecting IAM Identity Center to a managed Active Directory](#connecting-identity-center-ad "#connecting-identity-center-ad") are complete, a green confirmation
    banner appears.
 
 7. In the confirmation banner, choose **Start guided setup**.
@@ -126,8 +125,7 @@ To create the urn:
       name.
    3. Choose **Enter metadata document endpoint URL**.
    4. Enter the URL you copied during
-      [Setting up the application
-      in IAM Identity Center](#setup-application-identity-center "#setup-application-identity-center").
+      [Setting up the application in IAM Identity Center](#setup-application-identity-center "#setup-application-identity-center").
    5. Under **Provider email attribute**, enter
       'email'.
    6. Choose **Submit**.
