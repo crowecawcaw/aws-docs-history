@@ -40,9 +40,7 @@ validation** that your policy store with use to validate the audience of a token
   `client_id` claims. Check with your identity provider
   for the correct audience claim and format.
 
-## Client-side authorization for
-
-JWTs
+## Client-side authorization for JWTs
 
 You might want to process JSON web tokens in your application and pass their claims to
 Verified Permissions without using a policy store identity source. You can extract your entity attributes from

@@ -22,9 +22,7 @@ a new feature, AWS adds read-only permissions for new operations and resources. 
 and descriptions of job function policies, see [AWS managed policies for
 job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md") in the _IAM User Guide_.
 
-## AWS managed
-
-policy: AmazonVerifiedPermissionsFullAccess
+## AWS managed policy: AmazonVerifiedPermissionsFullAccess
 
 The `AmazonVerifiedPermissionsFullAccess` managed policy grants full access
 to Verified Permissions. To work with Amazon Cognito-based identity sources, you'll need to attach a separate policy, such as the [AmazonCognitoReadOnly](../../../aws-managed-policy/latest/reference/AmazonCognitoReadOnly.md "../../../aws-managed-policy/latest/reference/AmazonCognitoReadOnly.md") policy.
@@ -59,9 +57,7 @@ JSON
 
 ```
 
-## AWS
-
-managed policy: AmazonVerifiedPermissionsReadOnlyAccess
+## AWS managed policy: AmazonVerifiedPermissionsReadOnlyAccess
 
 The `AmazonVerifiedPermissionsReadOnlyAccess` managed policy grants read-only
 access to Verified Permissions.
@@ -114,9 +110,7 @@ JSON
 
 ```
 
-## Verified Permissions updates to AWS managed
-
-policies
+## Verified Permissions updates to AWS managed policies
 
 View details about updates to AWS managed policies for Verified Permissions since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

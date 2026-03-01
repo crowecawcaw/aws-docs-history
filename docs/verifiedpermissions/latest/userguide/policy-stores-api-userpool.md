@@ -29,14 +29,10 @@ To see an demo, see [Amazon Verified Permissions - Quick Start Overview and Demo
 
 ###### Topics
 
-- [How Verified Permissions authorizes API
-  requests](#policy-stores-api-userpool-how-it-works "#policy-stores-api-userpool-how-it-works")
-- [Considerations for
-  API-linked policy stores](#policy-stores-api-userpool-considerations "#policy-stores-api-userpool-considerations")
-- [Adding attribute-based access control
-  (ABAC)](#policy-stores-api-userpool-abac "#policy-stores-api-userpool-abac")
-- [Moving to
-  production with AWS CloudFormation](policy-stores-api-userpool-considerations-production.md "policy-stores-api-userpool-considerations-production.md")
+- [How Verified Permissions authorizes API requests](#policy-stores-api-userpool-how-it-works "#policy-stores-api-userpool-how-it-works")
+- [Considerations for API-linked policy stores](#policy-stores-api-userpool-considerations "#policy-stores-api-userpool-considerations")
+- [Adding attribute-based access control (ABAC)](#policy-stores-api-userpool-abac "#policy-stores-api-userpool-abac")
+- [Moving to production with AWS CloudFormation](policy-stores-api-userpool-considerations-production.md "policy-stores-api-userpool-considerations-production.md")
 - [Troubleshooting API-linked policy stores](policy-stores-api-userpool-considerations-troubleshooting.md "policy-stores-api-userpool-considerations-troubleshooting.md")
 
 ###### Important
@@ -46,8 +42,7 @@ source** option in the Verified Permissions console aren’t intended for immedi
 deployment to production. With your initial policy store, finalize your authorization
 model and export the policy store resources to CloudFormation. Deploy Verified Permissions to
 production programmatically with the [AWS Cloud Development Kit (AWS CDK)](https://aws.amazon.com/cdk "https://aws.amazon.com/cdk").
-For more information, see [Moving to
-production with AWS CloudFormation](policy-stores-api-userpool-considerations-production.md "policy-stores-api-userpool-considerations-production.md").
+For more information, see [Moving to production with AWS CloudFormation](policy-stores-api-userpool-considerations-production.md "policy-stores-api-userpool-considerations-production.md").
 
 In a policy store that's linked to an API and an identity source, your application
 presents a user pool token in an authorization header when it makes a request to the API.
@@ -78,9 +73,7 @@ passes the request on to your data source or denies the request.
 - An application that authenticates users with your IdP and appends tokens to API
   requests.
 
-## How Verified Permissions authorizes API
-
-requests
+## How Verified Permissions authorizes API requests
 
 When you create a new policy store and select the **Set up with API Gateway and an identity
 source** option, Verified Permissions creates policy store schema and policies. The schema
@@ -119,9 +112,7 @@ take the actions. Verified Permissions also creates the Lambda function and [aut
     application. Your application processes and displays the results of the API
     request.
 
-## Considerations for
-
-API-linked policy stores
+## Considerations for API-linked policy stores
 
 When you build an API-linked policy store in the Verified Permissions console, you're creating a test for an
 eventual production deployment. Before you move to production, establish a fixed
@@ -173,13 +164,10 @@ the permission to add and modify resources in Verified Permissions, IAM, Lambda,
 API Gateway. As a best practice, don't share these credentials with other
 administrators in your organization.
 
-See [Moving to
-production with AWS CloudFormation](policy-stores-api-userpool-considerations-production.md "policy-stores-api-userpool-considerations-production.md") for an
+See [Moving to production with AWS CloudFormation](policy-stores-api-userpool-considerations-production.md "policy-stores-api-userpool-considerations-production.md") for an
 overview of the resources that Verified Permissions creates.
 
-## Adding attribute-based access control
-
-(ABAC)
+## Adding attribute-based access control (ABAC)
 
 A typical authentication session with an IdP returns ID and access tokens. You can
 pass either of these token types as a bearer token in application requests to your API.

@@ -51,9 +51,7 @@ logged by default when you create a trail or event data store. To record CloudTr
 must explicitly add the supported resources or resource types for which you want to collect
 activity. For more information, see [Data events](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events") in the _AWS CloudTrail User Guide_.
 
-## Understanding Verified Permissions log file
-
-entries
+## Understanding Verified Permissions log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
 that you specify. CloudTrail log files contain one or more log entries. An event represents a single

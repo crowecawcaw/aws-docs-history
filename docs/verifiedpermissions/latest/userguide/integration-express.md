@@ -81,14 +81,11 @@ aws verifiedpermissions put-schema \
   --policy-store-id `policy-store-id`
 ```
 
-### Step 2: Create authorization
-
-policies
+### Step 2: Create authorization policies
 
 If no policies are configured, Cedar denies all authorization requests. The Express framework integration helps bootstrap this process by generating example policies based on the previously generated schema.
 
-When using this integration in your production applications, we recommend creating new policies using infrastructure as a code (IaaC) tools. For more information, see [Creating Amazon Verified Permissions resources with
-AWS CloudFormation](cloudformation-verified-permissions.md "cloudformation-verified-permissions.md").
+When using this integration in your production applications, we recommend creating new policies using infrastructure as a code (IaaC) tools. For more information, see [Creating Amazon Verified Permissions resources with AWS CloudFormation](cloudformation-verified-permissions.md "cloudformation-verified-permissions.md").
 
 Generate sample Cedar policies:
 

@@ -1,6 +1,4 @@
-# Create your first Amazon Verified Permissions
-
-policy store
+# Create your first Amazon Verified Permissions policy store
 
 For this tutorial, let's assume you're the developer of a photo sharing application and
 you are looking for a way to control what actions the users of the application can perform.
@@ -81,9 +79,7 @@ For instructions, see [Create a permission set](../../../singlesignon/latest/use
 
 For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md") in the _AWS IAM Identity Center User Guide_.
 
-## Step 1: Create a PhotoFlash
-
-policy store
+## Step 1: Create a PhotoFlash policy store
 
 In the following procedure you'll create a **PhotoFlash** policy
 store using the AWS console.
@@ -140,9 +136,7 @@ alice-favorites-album.`.
 
 Now that you've created a policy you can test it in the Verified Permissions console.
 
-## Step 3: Testing a
-
-policy store
+## Step 3: Testing a policy store
 
 After creating your policy store and policy, you can test them by running a simulated [authorization request](terminology.md#term-authorization-request "terminology.md#term-authorization-request") using the Verified Permissions
 test bench.

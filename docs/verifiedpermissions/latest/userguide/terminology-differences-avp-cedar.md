@@ -1,6 +1,4 @@
-# Differences between
-
-Amazon Verified Permissions and the Cedar policy language
+# Differences between Amazon Verified Permissions and the Cedar policy language
 
 Amazon Verified Permissions uses the Cedar policy language engine to perform its authorization tasks.
 However, there are some differences between the native Cedar implementation and the
@@ -88,7 +86,7 @@ ways:
 | `attrs`          | `Attributes`                    |
 | `parents`        | `Parents`                       |
 
-###### Example - Lists
+###### Example- Lists
 
 The following examples show how a list of entities is expressed in Cedar and Verified Permissions,
 respectively.
@@ -141,7 +139,7 @@ Verified Permissions
 
 ```
 
-###### Example - Policy evaluation
+###### Example- Policy evaluation
 
 The following examples shows how entities are formatted for evaluating a policy in an
 authorization request in Cedar and Verified Permissions, respectively.

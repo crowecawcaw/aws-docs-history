@@ -26,9 +26,7 @@ of app client IDs to the ID token `aud` claim or the access token
 `client_id` claim. Verified Permissions doesn't validate a relying-party
 audience URL for Amazon Cognito identity sources.
 
-## Client-side authorization for
-
-JWTs
+## Client-side authorization for JWTs
 
 You might want to process JSON web tokens in your application and pass their claims to
 Verified Permissions without using a policy store identity source. You can extract your entity attributes from

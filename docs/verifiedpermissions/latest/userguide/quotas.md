@@ -46,9 +46,7 @@ explore this option,
 [contact
 Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-### Template-linked policy size
-
-example
+### Template-linked policy size example
 
 You can determine how template-linked policies contribute to the _Policy
 size per resource_ quota by taking the sum of the length of the

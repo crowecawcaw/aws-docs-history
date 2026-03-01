@@ -106,9 +106,7 @@ To test this example context in the example **DigitalPetStore** app, you
 must update your request `entities`, your policy store schema, and the static policy with the
 description **Customer Role - Get Order**.
 
-## Modifying DigitalPetStore to accept
-
-authorization context
+## Modifying DigitalPetStore to accept authorization context
 
 Initially, **DigitalPetStore** is not a very complex policy store. It doesn't
 include any preconfigured policies or context attributes to support the context that we

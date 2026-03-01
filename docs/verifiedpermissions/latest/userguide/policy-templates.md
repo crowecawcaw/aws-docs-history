@@ -1,6 +1,4 @@
-# Amazon Verified Permissions policy templates and template-linked
-
-policies
+# Amazon Verified Permissions policy templates and template-linked policies
 
 In Verified Permissions, policy templates are policies with placeholders for the `principal`,
 `resource`, or both. Policy templates alone can't be used to handle authorization

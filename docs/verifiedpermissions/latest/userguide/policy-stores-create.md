@@ -19,9 +19,7 @@ You can create a policy store using the following methods:
 
 Guided setup
 
-###### To create a policy store using the **Guided setup**
-
-configuration method
+###### To create a policy store using the **Guided setup** configuration method
 
 The guided setup wizard leads you through the process of creating the
 first iteration of your policy store. You will create a schema for your first
@@ -141,9 +139,7 @@ templates.
 
 Set up with API Gateway and an identity source
 
-###### To create a policy store using the \*\*Set up with API Gateway and an identity
-
-source\*\* configuration method
+###### To create a policy store using the **Set up with API Gateway and an identity source** configuration method
 
 The API Gateway option secures APIs with Verified Permissions policies that are designed to
 make authorization decisions from users’ groups, or _roles_. This option builds a policy store for testing authorization
@@ -282,9 +278,7 @@ To learn how to assign a Lambda authorizer, see [Use API Gateway Lambda authoriz
 
 Sample policy store
 
-###### To create a policy store using the **Sample policy store** configuration
-
-method
+###### To create a policy store using the **Sample policy store** configuration method
 
 1. In the **Starting options** section, choose
    **Sample policy store**.
@@ -326,9 +320,7 @@ policy stores, see [Amazon Verified Permissions example template-linked policies
 
 Empty policy store
 
-###### To create a policy store using the **Empty policy store** configuration
-
-method
+###### To create a policy store using the **Empty policy store** configuration method
 
 1. In the **Starting options** section, choose
    **Empty policy store**.

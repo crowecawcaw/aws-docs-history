@@ -56,9 +56,7 @@ For more information about Cedar, see the following:
 
 ## Benefits of Verified Permissions
 
-### Accelerate application
-
-development
+### Accelerate application development
 
 Accelerate application development by decoupling authorization from business
 logic.

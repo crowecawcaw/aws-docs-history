@@ -57,8 +57,7 @@ AWS Management Console
    identity source creates. That addition to the schema must include the
    attributes that you want to reference in your Cedar policies. For more
    information about mapping Amazon Cognito token attributes to Cedar principal
-   attributes, see [Mapping Amazon Cognito tokens to
-   schema](cognito-map-token-to-schema.md "cognito-map-token-to-schema.md").
+   attributes, see [Mapping Amazon Cognito tokens to schema](cognito-map-token-to-schema.md "cognito-map-token-to-schema.md").
 
 ###### Note
 
@@ -117,8 +116,7 @@ a Amazon Cognito user pool.
    identity source creates. That addition to the schema must include the
    attributes that you want to reference in your Cedar policies. For more
    information about mapping Amazon Cognito token attributes to Cedar principal
-   attributes, see [Mapping Amazon Cognito tokens to
-   schema](cognito-map-token-to-schema.md "cognito-map-token-to-schema.md").
+   attributes, see [Mapping Amazon Cognito tokens to schema](cognito-map-token-to-schema.md "cognito-map-token-to-schema.md").
 
 ###### Note
 

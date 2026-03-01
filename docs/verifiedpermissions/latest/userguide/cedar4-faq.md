@@ -14,9 +14,7 @@ Amazon Verified Permissions is automatically upgrading policy stores to Cedar 4.
 - [How do I make my schema compatible with Cedar 4?](#how-do-i-make-my-schema-compatible "#how-do-i-make-my-schema-compatible")
 - [How do I make my policies and templates compatible with Cedar 4?](#how-do-i-make-my-policies-compatible "#how-do-i-make-my-policies-compatible")
 
-##
-
-Why are some policies, policy templates and schemas not compatible with Cedar 4?
+## Why are some policies, policy templates and schemas not compatible with Cedar 4?
 
 The Cedar team has made several backwards-incompatible changes since Cedar 2, to fix bugs and simplify the language. These changes include:
 
@@ -26,9 +24,7 @@ The Cedar team has made several backwards-incompatible changes since Cedar 2, to
 
 For a full list of backwards-incompatible changes, look for items marked with `(*)` in the [Cedar changelog](https://github.com/cedar-policy/cedar/blob/main/cedar-policy/CHANGELOG.md "https://github.com/cedar-policy/cedar/blob/main/cedar-policy/CHANGELOG.md").
 
-##
-
-How do I tell whether my policy store is using Cedar 2 or Cedar 4?
+## How do I tell whether my policy store is using Cedar 2 or Cedar 4?
 
 You can check the version of Cedar your policy store uses using the Amazon Verified Permissions console, or using the GetPolicyStore operation.
 
@@ -77,9 +73,7 @@ The `cedarVersion` field in the output shows which version of Cedar the policy s
 
 The field reads `CEDAR_2` if your policy store is using Cedar 2, and `CEDAR_4` if it uses Cedar 4.
 
-##
-
-How do I upgrade to Cedar 4?
+## How do I upgrade to Cedar 4?
 
 Amazon Verified Permissions has already upgraded most customers to Cedar 4. If you have never created a policy store, then any new policy stores you create will use Cedar 4. If you are an existing customer, then we have likely already upgraded you to Cedar 4. See [How do I tell whether my policy store is using Cedar 2 or Cedar 4?](#how-do-i-tell-cedar-2-or-cedar-4 "#how-do-i-tell-cedar-2-or-cedar-4") to check which version of Cedar your policy stores use.
 
@@ -89,15 +83,11 @@ If you have not been upgraded, then Verified Permissions detected a policy, poli
 
 All policy stores in the same AWS account use the same version of Cedar. If one policy store in your account is incompatible with Cedar 4, then you can’t use Cedar 4 in any policy store in that account.
 
-##
-
-Can I downgrade my policy store from Cedar 4 to Cedar 2?
+## Can I downgrade my policy store from Cedar 4 to Cedar 2?
 
 No. If you experience issues after your policy store is upgraded to Cedar 4, open a case with Support.
 
-##
-
-Why am I receiving an error message saying my policy store is configured for Cedar 2?
+## Why am I receiving an error message saying my policy store is configured for Cedar 2?
 
 Some features of Amazon Verified Permissions rely on the new features in Cedar 4. If your policy store does not use Cedar 4, then you can’t use the following API fields:
 
@@ -106,9 +96,7 @@ Some features of Amazon Verified Permissions rely on the new features in Cedar 4
 
 You can’t use syntax or data types in policies, policy templates or schemas introduced after Cedar 2 until your policy store is upgraded.
 
-##
-
-How do I make my schema compatible with Cedar 4?
+## How do I make my schema compatible with Cedar 4?
 
 The Verified Permissions console can automatically fix some compatibility problems in your schema. If your schema cannot be automatically fixed, the console will show a list of errors for you to fix manually.
 
@@ -143,9 +131,7 @@ In Cedar 2, when you declare an attribute whose `type` is `Extension`, you can s
 
 If you are still unsure how to resolve the errors in your schema, contact Support
 
-##
-
-How do I make my policies and templates compatible with Cedar 4?
+## How do I make my policies and templates compatible with Cedar 4?
 
 The Verified Permissions console shows you any errors in your policy or template which make it incompatible with Cedar 4.
 

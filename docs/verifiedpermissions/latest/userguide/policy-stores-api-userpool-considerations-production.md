@@ -1,6 +1,4 @@
-# Moving to
-
-production with AWS CloudFormation
+# Moving to production with AWS CloudFormation
 
 API-linked policy stores are a way to quickly build an authorization model for an API Gateway API.
 They are designed to serve as a testing environment for the authorization component of

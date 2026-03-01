@@ -1,6 +1,4 @@
-# Implementing Amazon Verified Permissions in Rust with the AWS
-
-SDK
+# Implementing Amazon Verified Permissions in Rust with the AWS SDK
 
 This topic provides a practical example of implementing Amazon Verified Permissions in Rust with the AWS
 SDK. This example shows how to develop an authorization model that can test whether a user

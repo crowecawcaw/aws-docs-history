@@ -31,8 +31,7 @@ contribute to authorization decisions in Verified Permissions. These include:
 2. [Custom user attributes](../../../cognito/latest/developerguide/user-pool-settings-attributes.md#user-pool-settings-custom-attributes "../../../cognito/latest/developerguide/user-pool-settings-attributes.md#user-pool-settings-custom-attributes") with a `custom: prefix`
 3. Custom claims added at runtime
 4. OIDC standard claims like `sub` and `email`
-   We cover these claims in detail, and how to manage them in Verified Permissions policies, in [Mapping Amazon Cognito tokens to
-   schema](cognito-map-token-to-schema.md "cognito-map-token-to-schema.md").
+   We cover these claims in detail, and how to manage them in Verified Permissions policies, in [Mapping Amazon Cognito tokens to schema](cognito-map-token-to-schema.md "cognito-map-token-to-schema.md").
 
 ###### Important
 
@@ -91,8 +90,7 @@ prefix and a claim name with the literal value `cognito` or
 `custom`, an authorization request with [IsAuthorizedWithToken](../apireference/API_IsAuthorizedWithToken.md "../apireference/API_IsAuthorizedWithToken.md")
 will fail with a `ValidationException`.
 
-For more information about mapping claims, see [Mapping Amazon Cognito tokens to
-schema](cognito-map-token-to-schema.md "cognito-map-token-to-schema.md"). For more information about authorization
+For more information about mapping claims, see [Mapping Amazon Cognito tokens to schema](cognito-map-token-to-schema.md "cognito-map-token-to-schema.md"). For more information about authorization
 for Amazon Cognito users, see [Authorization with
 Amazon Verified Permissions](../../../cognito/latest/developerguide/amazon-cognito-authorization-with-avp.md "../../../cognito/latest/developerguide/amazon-cognito-authorization-with-avp.md") in the _Amazon Cognito Developer Guide_.
 
@@ -100,6 +98,5 @@ Amazon Verified Permissions](../../../cognito/latest/developerguide/amazon-cogni
 
 - [Creating Amazon Verified Permissions Amazon Cognito identity sources](cognito-create.md "cognito-create.md")
 - [Editing Amazon Verified Permissions Amazon Cognito identity sources](cognito-edit.md "cognito-edit.md")
-- [Mapping Amazon Cognito tokens to
-  schema](cognito-map-token-to-schema.md "cognito-map-token-to-schema.md")
+- [Mapping Amazon Cognito tokens to schema](cognito-map-token-to-schema.md "cognito-map-token-to-schema.md")
 - [Client and audience validation for Amazon Cognito](cognito-validation.md "cognito-validation.md")

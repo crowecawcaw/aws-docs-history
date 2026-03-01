@@ -50,6 +50,5 @@ permit(
 
 - [Creating Amazon Verified Permissions OIDC identity sources](oidc-create.md "oidc-create.md")
 - [Editing Amazon Verified Permissions OIDC identity sources](oidc-edit.md "oidc-edit.md")
-- [Mapping OIDC tokens to
-  schema](oidc-map-token-to-schema.md "oidc-map-token-to-schema.md")
+- [Mapping OIDC tokens to schema](oidc-map-token-to-schema.md "oidc-map-token-to-schema.md")
 - [Client and audience validation for OIDC providers](oidc-validation.md "oidc-validation.md")

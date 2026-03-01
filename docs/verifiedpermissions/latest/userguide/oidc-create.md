@@ -35,8 +35,7 @@ AWS Management Console
    `/.well-known/openid-configuration`.
 6. In **Token type**, choose the type of OIDC JWT
    that you want your application to submit for authorization. For more
-   information, see [Mapping OIDC tokens to
-   schema](oidc-map-token-to-schema.md "oidc-map-token-to-schema.md").
+   information, see [Mapping OIDC tokens to schema](oidc-map-token-to-schema.md "oidc-map-token-to-schema.md").
 7. In **Map token claims to schema entities**,
    choose a **User entity** and **User
    claim** for the identity source. The **User
@@ -66,8 +65,7 @@ AWS Management Console
     That addition to the schema must include the attributes that you want to
     reference in your Cedar policies. For more
     information about mapping OIDC token attributes to Cedar principal
-    attributes, see [Mapping OIDC tokens to
-    schema](oidc-map-token-to-schema.md "oidc-map-token-to-schema.md").
+    attributes, see [Mapping OIDC tokens to schema](oidc-map-token-to-schema.md "oidc-map-token-to-schema.md").
 12. Create policies that use information from the tokens to make authorization decisions. For more information, see
     [Creating Amazon Verified Permissions static policies](policies-create.md "policies-create.md").
 
@@ -126,8 +124,7 @@ a an OIDC identity provider(IdP).
    That addition to the schema must include the attributes that you want to
    reference in your Cedar policies. For more
    information about mapping OIDC token attributes to Cedar principal
-   attributes, see [Mapping OIDC tokens to
-   schema](oidc-map-token-to-schema.md "oidc-map-token-to-schema.md").
+   attributes, see [Mapping OIDC tokens to schema](oidc-map-token-to-schema.md "oidc-map-token-to-schema.md").
 4. Create policies that use information from the tokens to make authorization decisions. For more information, see
    [Creating Amazon Verified Permissions static policies](policies-create.md "policies-create.md").
 

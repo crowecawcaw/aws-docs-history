@@ -1,6 +1,4 @@
-# Best practices for designing an authorization
-
-model
+# Best practices for designing an authorization model
 
 As you prepare to use the Amazon Verified Permissions service within a software application, it can be
 challenging to leap immediately into writing policy statements as a first step. This would
@@ -48,18 +46,12 @@ To help answer the questions and come to an optimal model, do the following:
 
 ###### Best practices
 
-- [There isn't a canonical “correct”
-  model](#design-no-canonical-correct-model "#design-no-canonical-correct-model")
-- [Return 403 forbidden errors rather than 404 not
-  found errors](#resource-existence-errors "#resource-existence-errors")
-- [Focus on your resources beyond API
-  operations](#design-focus-on-data-beyond-apis "#design-focus-on-data-beyond-apis")
-- [Multi-tenancy
-  considerations](#design-multi-tenancy-considerations "#design-multi-tenancy-considerations")
+- [There isn't a canonical “correct” model](#design-no-canonical-correct-model "#design-no-canonical-correct-model")
+- [Return 403 forbidden errors rather than 404 not found errors](#resource-existence-errors "#resource-existence-errors")
+- [Focus on your resources beyond API operations](#design-focus-on-data-beyond-apis "#design-focus-on-data-beyond-apis")
+- [Multi-tenancy considerations](#design-multi-tenancy-considerations "#design-multi-tenancy-considerations")
 
-## There isn't a canonical “correct”
-
-model
+## There isn't a canonical “correct” model
 
 When you design an authorization model, there is no single, uniquely correct answer.
 Different applications can effectively use different authorization models for similar
@@ -78,9 +70,7 @@ this, then it is successful.
 This is why beginning your design with the desired user experience is the most helpful
 prerequisite to the creation of an effective authorization model.
 
-## Return 403 forbidden errors rather than 404 not
-
-found errors
+## Return 403 forbidden errors rather than 404 not found errors
 
 It's best to return a _403 Forbidden_ error to requests that
 include an entity, especially a resource, that doesn't correspond to any policy rather
@@ -88,9 +78,7 @@ than a _404 Not found_ error. This provides the highest level of
 security because you're not exposing whether an entity exists or not, just that the
 request didn't meet the policy conditions in any policy in the policy store.
 
-## Focus on your resources beyond API
-
-operations
+## Focus on your resources beyond API operations
 
 In most applications, permissions are modeled around the resources supported. For
 example, a file-sharing application might represent permissions as actions that can be
@@ -155,9 +143,7 @@ now document the possibly several permissions that it requires, and the administ
 must consult this documentation when crafting permissions. This can be a valid tradeoff
 when necessary to meet your security requirements.
 
-## Multi-tenancy
-
-considerations
+## Multi-tenancy considerations
 
 You might want to develop applications for use by multiple customers - businesses that
 consume your application, or _tenants_ - and integrate
@@ -215,9 +201,7 @@ with their level of isolation from other tenants.
 Verified Permissions has resource and request-rate quotas that might influence your
 multi-tenancy decision. For more information about quotas, see [Quotas for resources](quotas.md#quotas-resources "quotas.md#quotas-resources").
 
-### Comparing shared policy
-
-stores and per-tenant policy stores
+### Comparing shared policy stores and per-tenant policy stores
 
 Each consideration requires its own level of time and resource commitment in
 shared and per-tenant policy store models.
@@ -231,9 +215,7 @@ shared and per-tenant policy store models.
 | **Tenant<br>off-boarding**             | \*High.<br>• Must identify and delete only tenant-specific<br>policies.                                                                                       | _Low._<br>Delete the policy store.                                                                                                              |
 | **Service resource<br>quotas**         | \*High.<br>• Tenants share resource quotas that<br>affect policy stores like schema size, policy size per resource, and<br>identity sources per policy store. | \*Low.<br>• Each tenant has dedicated resource<br>quotas.                                                                                       |
 
-### How to
-
-choose
+### How to choose
 
 Each multi-tenant application is different. Carefully compare the two approaches
 and their considerations before making an architectural decision.

@@ -12,21 +12,14 @@ Cedar](https://docs.cedarpolicy.com/policies/syntax-policy.html "https://docs.ce
 - [Allows access for any entity](https://docs.cedarpolicy.com/policies/policy-examples.html#allow-any "https://docs.cedarpolicy.com/policies/policy-examples.html#allow-any")
 - [Allows access for attributes of an entity (ABAC)](https://docs.cedarpolicy.com/policies/policy-examples.html#allow-abac "https://docs.cedarpolicy.com/policies/policy-examples.html#allow-abac")
 - [Denies access](https://docs.cedarpolicy.com/policies/policy-examples.html#deny-access "https://docs.cedarpolicy.com/policies/policy-examples.html#deny-access")
-- [Uses bracket notation to reference token
-  attributes](#policies-examples-brackets "#policies-examples-brackets")
-- [Uses dot notation to reference
-  attributes](#policies-examples-dot "#policies-examples-dot")
-- [Reflects Amazon Cognito ID token
-  attributes](#policies-examples-cognito-id "#policies-examples-cognito-id")
+- [Uses bracket notation to reference token attributes](#policies-examples-brackets "#policies-examples-brackets")
+- [Uses dot notation to reference attributes](#policies-examples-dot "#policies-examples-dot")
+- [Reflects Amazon Cognito ID token attributes](#policies-examples-cognito-id "#policies-examples-cognito-id")
 - [Reflects OIDC ID token attributes](#policies-examples-oidc-id "#policies-examples-oidc-id")
-- [Reflects Amazon Cognito access token
-  attributes](#policies-examples-cognito-access "#policies-examples-cognito-access")
-- [Reflects OIDC access token
-  attributes](#policies-examples-oidc-access "#policies-examples-oidc-access")
+- [Reflects Amazon Cognito access token attributes](#policies-examples-cognito-access "#policies-examples-cognito-access")
+- [Reflects OIDC access token attributes](#policies-examples-oidc-access "#policies-examples-oidc-access")
 
-## Uses bracket notation to reference token
-
-attributes
+## Uses bracket notation to reference token attributes
 
 This following example shows how you might create a policy that uses bracket notation
 to reference token attributes.
@@ -46,9 +39,7 @@ permit (
 };
 ```
 
-## Uses dot notation to reference
-
-attributes
+## Uses dot notation to reference attributes
 
 This following example shows how you might create a policy that uses dot notation to
 reference attributes.
@@ -65,9 +56,7 @@ when {
 };
 ```
 
-## Reflects Amazon Cognito ID token
-
-attributes
+## Reflects Amazon Cognito ID token attributes
 
 This following example shows how you might create a policy references ID token
 attributes from Amazon Cognito.
@@ -105,9 +94,7 @@ permit (
 };
 ```
 
-## Reflects Amazon Cognito access token
-
-attributes
+## Reflects Amazon Cognito access token attributes
 
 This following example shows how you might create a policy references access token
 attributes from Amazon Cognito.
@@ -122,9 +109,7 @@ when {
 };
 ```
 
-## Reflects OIDC access token
-
-attributes
+## Reflects OIDC access token attributes
 
 This following example shows how you might create a policy references access token
 attributes from an OIDC provider.

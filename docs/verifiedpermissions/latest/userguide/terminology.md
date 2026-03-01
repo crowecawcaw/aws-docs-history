@@ -11,13 +11,11 @@ You should understand the following concepts to use Amazon Verified Permissions.
 - [Context data](#term-context-data "#term-context-data")
 - [Determining policies](#term-determining-policies "#term-determining-policies")
 - [Entity data](#term-entity-data "#term-entity-data")
-- [Permissions, authorization,
-  and principals](#term-permissions-authorization-principals "#term-permissions-authorization-principals")
+- [Permissions, authorization, and principals](#term-permissions-authorization-principals "#term-permissions-authorization-principals")
 - [Policy enforcement](#term-policy-enforcement "#term-policy-enforcement")
 - [Policy store](#term-policy-store "#term-policy-store")
 - [Satisfied policies](#term-satisfied-policies "#term-satisfied-policies")
-- [Differences between
-  Amazon Verified Permissions and the Cedar policy language](terminology-differences-avp-cedar.md "terminology-differences-avp-cedar.md")
+- [Differences between Amazon Verified Permissions and the Cedar policy language](terminology-differences-avp-cedar.md "terminology-differences-avp-cedar.md")
   **Cedar policy language concepts**
 
 - [Authorization](https://docs.cedarpolicy.com/overview/terminology.html#authorization "https://docs.cedarpolicy.com/overview/terminology.html#authorization")
@@ -90,9 +88,7 @@ _Entity data_ are data about the principal, action, and resource.
 Entity data relevant for policy evaluation are group membership all the way up the
 entity hierarchy and attribute values of the principal and resource.
 
-## Permissions, authorization,
-
-and principals
+## Permissions, authorization, and principals
 
 Verified Permissions manages fine-grained _permissions_ and
 _authorization_ within custom applications that you build.

@@ -1,6 +1,4 @@
-# Mapping Amazon Cognito tokens to
-
-schema
+# Mapping Amazon Cognito tokens to schema
 
 You might find that you want to add an identity source to a policy store and map provider
 claims, or tokens, to your policy store schema. You can automate this process, by using the [Guided
@@ -42,10 +40,8 @@ _Amazon Cognito Developer Guide_.
 
 - [Mapping ID tokens to schema](#cognito-map-id-token "#cognito-map-id-token")
 - [Mapping access tokens](#cognito-map-access-token "#cognito-map-access-token")
-- [Alternative notation for Amazon Cognito
-  colon-delimited claims](#cognito-colon-claims "#cognito-colon-claims")
-- [Things to know
-  about schema mapping](#cognito-map-token-to-schema-things-to-know "#cognito-map-token-to-schema-things-to-know")
+- [Alternative notation for Amazon Cognito colon-delimited claims](#cognito-colon-claims "#cognito-colon-claims")
+- [Things to know about schema mapping](#cognito-map-token-to-schema-things-to-know "#cognito-map-token-to-schema-things-to-know")
 
 ## Mapping ID tokens to schema
 
@@ -180,8 +176,7 @@ available to Cedar.
 }
 ```
 
-For an example policy that will validate against this schema, see [Reflects Amazon Cognito ID token
-attributes](policies-examples.md#policies-examples-cognito-id "policies-examples.md#policies-examples-cognito-id").
+For an example policy that will validate against this schema, see [Reflects Amazon Cognito ID token attributes](policies-examples.md#policies-examples-cognito-id "policies-examples.md#policies-examples-cognito-id").
 
 ## Mapping access tokens
 
@@ -303,12 +298,9 @@ token in your Verified Permissions schema. For more information about editing yo
 }
 ```
 
-For an example policy that will validate against this schema, see [Reflects Amazon Cognito access token
-attributes](policies-examples.md#policies-examples-cognito-access "policies-examples.md#policies-examples-cognito-access").
+For an example policy that will validate against this schema, see [Reflects Amazon Cognito access token attributes](policies-examples.md#policies-examples-cognito-access "policies-examples.md#policies-examples-cognito-access").
 
-## Alternative notation for Amazon Cognito
-
-colon-delimited claims
+## Alternative notation for Amazon Cognito colon-delimited claims
 
 At the time that Verified Permissions launched, the recommended schema for Amazon Cognito token claims like
 `cognito:groups` and `custom:store` converted these
@@ -367,12 +359,9 @@ following example:
 ```
 
 For an example policy that will validate against this schema and use dot notation, see
-[Uses dot notation to reference
-attributes](policies-examples.md#policies-examples-dot "policies-examples.md#policies-examples-dot").
+[Uses dot notation to reference attributes](policies-examples.md#policies-examples-dot "policies-examples.md#policies-examples-dot").
 
-## Things to know
-
-about schema mapping
+## Things to know about schema mapping
 
 ###### Attribute mapping differs between token types
 
@@ -491,5 +480,4 @@ following:
 }
 ```
 
-For an example policy that will validate against this schema, see [Uses bracket notation to reference token
-attributes](policies-examples.md#policies-examples-brackets "policies-examples.md#policies-examples-brackets").
+For an example policy that will validate against this schema, see [Uses bracket notation to reference token attributes](policies-examples.md#policies-examples-brackets "policies-examples.md#policies-examples-brackets").

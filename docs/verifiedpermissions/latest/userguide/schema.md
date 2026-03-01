@@ -26,9 +26,7 @@ AWS Management Console
 
 AWS CLI
 
-###### To submit a new schema, or overwrite an existing schema by using the
-
-AWS CLI.
+###### To submit a new schema, or overwrite an existing schema by using the AWS CLI.
 
 You can create a policy store by running a AWS CLI command similar to the
 following example.

@@ -5,9 +5,7 @@ your policy store is created with predefined policies, policy templates, and a s
 you chose. The following Verified Permissions template-linked policy examples can be used with the sample policy stores and their
 respective policies, policy templates, and schemas.
 
-## PhotoFlash
-
-examples
+## PhotoFlash examples
 
 The following example shows how you might create a template-linked policy that uses the policy template **Grant limited access to non-private shared
 photos** with an individual user and photo.
@@ -87,9 +85,7 @@ The DigitalPetStore sample policy store does not include any policy templates. Y
 included with the policy store by choosing **Policies** in the navigation pane
 on the left after creating the **DigitalPetStore** sample policy store.
 
-## TinyToDo
-
-examples
+## TinyToDo examples
 
 The following example shows how you might create a template-linked policy that uses the policy template that gives viewer access for an individual user and
 task list.

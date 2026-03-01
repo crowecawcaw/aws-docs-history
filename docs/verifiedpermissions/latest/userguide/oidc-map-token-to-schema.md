@@ -1,6 +1,4 @@
-# Mapping OIDC tokens to
-
-schema
+# Mapping OIDC tokens to schema
 
 You might find that you want to add an identity source to a policy store and map provider
 claims, or tokens, to your policy store schema. You can automate this process, by using the [Guided
@@ -32,8 +30,7 @@ API requests. Then you can write policies using attributes from the provider tok
 
 - [Mapping ID tokens to schema](#oidc-map-id-token "#oidc-map-id-token")
 - [Mapping access tokens](#oidc-map-access-token "#oidc-map-access-token")
-- [Things to know
-  about schema mapping](#oidc-map-token-to-schema-things-to-know "#oidc-map-token-to-schema-things-to-know")
+- [Things to know about schema mapping](#oidc-map-token-to-schema-things-to-know "#oidc-map-token-to-schema-things-to-know")
 
 ## Mapping ID tokens to schema
 
@@ -164,12 +161,9 @@ token in your Verified Permissions schema. For more information about editing yo
 }
 ```
 
-For an example policy that will validate against this schema, see [Reflects OIDC access token
-attributes](policies-examples.md#policies-examples-oidc-access "policies-examples.md#policies-examples-oidc-access").
+For an example policy that will validate against this schema, see [Reflects OIDC access token attributes](policies-examples.md#policies-examples-oidc-access "policies-examples.md#policies-examples-oidc-access").
 
-## Things to know
-
-about schema mapping
+## Things to know about schema mapping
 
 ###### Attribute mapping differs between token types
 
@@ -306,5 +300,4 @@ following:
 }
 ```
 
-For an example policy that will validate against this schema, see [Uses bracket notation to reference token
-attributes](policies-examples.md#policies-examples-brackets "policies-examples.md#policies-examples-brackets").
+For an example policy that will validate against this schema, see [Uses bracket notation to reference token attributes](policies-examples.md#policies-examples-brackets "policies-examples.md#policies-examples-brackets").
