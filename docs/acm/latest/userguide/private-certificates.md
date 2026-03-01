@@ -34,8 +34,7 @@ algorithm family of the CA's secret key.
 
 Private certificates have a longer validity period than public certificates.
 Public ACM certificates are valid for 198 days. For more information
-about public certificates, see [Request a public certificate in
-AWS Certificate Manager](acm-public-certificates.md "acm-public-certificates.md").
+about public certificates, see [Request a public certificate in AWS Certificate Manager](acm-public-certificates.md "acm-public-certificates.md").
 
 - **Renewal:** ACM attempts to renew a private
   certificate automatically after 11 months.
@@ -51,8 +50,6 @@ require validation.
 
 ###### Topics
 
-- [Conditions for using AWS Private CA to sign ACM private
-  certificates](ca-access.md "ca-access.md")
-- [Request a private certificate in
-  AWS Certificate Manager](gs-acm-request-private.md "gs-acm-request-private.md")
+- [Conditions for using AWS Private CA to sign ACM private certificates](ca-access.md "ca-access.md")
+- [Request a private certificate in AWS Certificate Manager](gs-acm-request-private.md "gs-acm-request-private.md")
 - [Export an AWS Certificate Manager private certificate](export-private.md "export-private.md")

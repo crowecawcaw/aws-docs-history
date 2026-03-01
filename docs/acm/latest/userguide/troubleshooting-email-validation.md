@@ -1,6 +1,4 @@
-# Troubleshoot email validation
-
-problems
+# Troubleshoot email validation problems
 
 Consult the following guidance if you are having trouble validating a certificate domain
 with email.

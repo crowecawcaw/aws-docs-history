@@ -1,6 +1,4 @@
-# Conditions for using AWS Private CA to sign ACM private
-
-certificates
+# Conditions for using AWS Private CA to sign ACM private certificates
 
 You can use AWS Private CA to sign your ACM certificates in either of two
 cases:

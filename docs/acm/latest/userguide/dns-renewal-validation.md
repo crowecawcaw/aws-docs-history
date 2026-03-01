@@ -1,12 +1,17 @@
-# Renewal for domains validated by
-
-DNS
+# Renewal for domains validated by DNS
 
 Managed renewal is fully automated for ACM certificates that were originally
 issued using [DNS validation](dns-validation.md "dns-validation.md").
 
 At 45 days prior to expiration, ACM checks for the following renewal
 criteria:
+
+###### Note
+
+Previously issued certificates with a 395-day validity period renew
+60 days before expiration and receive a renewed validity period of
+198 days. Certificates with a 198-day validity period renew 45 days
+before expiration.
 
 - The certificate is currently in use by an AWS service.
 - All required ACM-provided DNS CNAME records (one for each unique Subject

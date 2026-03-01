@@ -8,8 +8,7 @@ this guide.
 
 ###### Important
 
-Your selected signature algorithm must meet the [Prerequisites for importing ACM
-certificates](import-certificate-prerequisites.md "import-certificate-prerequisites.md").
+Your selected signature algorithm must meet the [Prerequisites for importing ACM certificates](import-certificate-prerequisites.md "import-certificate-prerequisites.md").
 
 ###### Topics
 

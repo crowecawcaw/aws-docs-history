@@ -1,6 +1,4 @@
-# Certificate and key format for
-
-importing
+# Certificate and key format for importing
 
 ACM requires you to separately import the certificate, certificate chain, and
 private key (if any), and to encode each component in PEM format. PEM stands for Privacy

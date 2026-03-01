@@ -1,6 +1,4 @@
-# Identity-based policy
-
-examples for AWS Certificate Manager
+# Identity-based policy examples for AWS Certificate Manager
 
 By default, users and roles don't have permission to create or modify ACM
 resources. To grant users permission to perform actions on the
@@ -14,21 +12,16 @@ For details about actions and resource types defined by ACM, including the forma
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the ACM
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the ACM console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
 - [Listing certificates](#policy-list-certificates "#policy-list-certificates")
 - [Request a certificate](#policy-request-certificates "#policy-request-certificates")
 - [Retrieving a certificate](#policy-retrieve-certificates "#policy-retrieve-certificates")
 - [Importing a certificate](#policy-import-certificate "#policy-import-certificate")
 - [Deleting a certificate](#policy-delete-certificates "#policy-delete-certificates")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete ACM resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -61,9 +54,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the ACM
-
-console
+## Using the ACM console
 
 To access the AWS Certificate Manager console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the ACM resources
@@ -80,9 +71,7 @@ ACM `AWSCertificateManagerReadOnly` AWS managed policy to
 the entities. For more information, see [Adding permissions to a user](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the
 _IAM User Guide_.
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.

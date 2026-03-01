@@ -1,6 +1,4 @@
-# Troubleshooting HTTP validation
-
-problems
+# Troubleshooting HTTP validation problems
 
 Consult the following guidance if you're having trouble validating a certificate with
 HTTP.
@@ -14,24 +12,18 @@ with tools such as the following:
 
 ###### Topics
 
-- [Content mismatch between RedirectFrom
-  and RedirectTo locations](#http-validation-content-mismatch "#http-validation-content-mismatch")
-- [Incorrect CloudFront
-  configuration](#http-validation-cloudfront-configuration "#http-validation-cloudfront-configuration")
+- [Content mismatch between RedirectFrom and RedirectTo locations](#http-validation-content-mismatch "#http-validation-content-mismatch")
+- [Incorrect CloudFront configuration](#http-validation-cloudfront-configuration "#http-validation-cloudfront-configuration")
 - [HTTP redirect issues](http-validation-redirect-issues.md "http-validation-redirect-issues.md")
 - [Validation timeout](http-validation-timeout.md "http-validation-timeout.md")
 
-## Content mismatch between RedirectFrom
-
-and RedirectTo locations
+## Content mismatch between RedirectFrom and RedirectTo locations
 
 If the content at the `RedirectFrom` location doesn't match the content at
 the `RedirectTo` location, validation will fail. Ensure that the content is
 identical for each domain in the certificate.
 
-## Incorrect CloudFront
-
-configuration
+## Incorrect CloudFront configuration
 
 Make sure your CloudFront distribution is correctly configured to serve the validation
 content. Check that the origin and behavior settings are correct and that the distribution

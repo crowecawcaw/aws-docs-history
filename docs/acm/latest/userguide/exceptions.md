@@ -3,9 +3,7 @@
 An AWS Certificate Manager command might fail for several reasons. For information about each exception,
 see the table below.
 
-## Private certificate exception
-
-handling
+## Private certificate exception handling
 
 The following exceptions can occur when you attempt to renew a private PKI certificate
 issued by AWS Private CA.

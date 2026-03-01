@@ -56,5 +56,4 @@ In the **Targets** section, you can choose from among
 many services that can immediately consume your event, such as Amazon Simple Notification Service
 (SNS), or you can choose **Lambda function** to pass
 the event to customized executable code. For an example of an AWS Lambda
-implementation, see [Responding to an event with a Lambda
-function](event-lambda-response.md "event-lambda-response.md").
+implementation, see [Responding to an event with a Lambda function](event-lambda-response.md "event-lambda-response.md").

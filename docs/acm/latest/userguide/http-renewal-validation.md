@@ -1,12 +1,17 @@
-# Renewal for domains validated by
-
-HTTP
+# Renewal for domains validated by HTTP
 
 ACM provides automated managed renewal for certificates that were originally
 issued using HTTP validation through CloudFront.
 
 At 45 days prior to expiration, ACM checks for the following renewal
 criteria:
+
+###### Note
+
+Previously issued certificates with a 395-day validity period renew
+60 days before expiration and receive a renewed validity period of
+198 days. Certificates with a 198-day validity period renew 45 days
+before expiration.
 
 - The certificate is currently in use by CloudFront.
 - All required HTTP validation records are accessible and contain the

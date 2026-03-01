@@ -1,6 +1,4 @@
-# Prerequisites for importing ACM
-
-certificates
+# Prerequisites for importing ACM certificates
 
 To import a self–signed SSL/TLS certificate into ACM, you must provide both
 the certificate and its private key. To import a certificate signed by a non-AWS
@@ -40,8 +38,7 @@ size. ACM supports the following algorithms (API name in parentheses):
   and the `NotAfter` field contains the end date.
 - All of the required certificate materials (certificate, private key, and
   certificate chain) must be PEM–encoded. Uploading DER–encoded
-  materials results in an error. For more information and examples, see [Certificate and key format for
-  importing](import-certificate-format.md "import-certificate-format.md").
+  materials results in an error. For more information and examples, see [Certificate and key format for importing](import-certificate-format.md "import-certificate-format.md").
 - When you renew (reimport) a certificate, you cannot add a
   `KeyUsage` or `ExtendedKeyUsage` extension if the
   extension was not present in the previously imported certificate

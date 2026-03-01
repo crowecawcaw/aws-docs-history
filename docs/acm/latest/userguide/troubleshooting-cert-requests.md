@@ -25,16 +25,12 @@ after resolving the problem, submit a new request.
 
 ###### Topics
 
-- [Error message: No Available
-  Contacts](#failed-no-available-contacts "#failed-no-available-contacts")
-- [Error message: Additional
-  Verification Required](#failed-additional-verification-required "#failed-additional-verification-required")
+- [Error message: No Available Contacts](#failed-no-available-contacts "#failed-no-available-contacts")
+- [Error message: Additional Verification Required](#failed-additional-verification-required "#failed-additional-verification-required")
 - [Error message: Invalid Public Domain](#failed-invalid-domain "#failed-invalid-domain")
 - [Error message: Other](#failed-other "#failed-other")
 
-### Error message: No Available
-
-Contacts
+### Error message: No Available Contacts
 
 You chose email validation when requesting a certificate, but ACM could not find an
 email address to use for validating one or more of the domain names in the request. To
@@ -54,9 +50,7 @@ you follow these steps and continue to get the **No Available Contacts**
 message, then [report this to AWS](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home")
 so that we can investigate it.
 
-### Error message: Additional
-
-Verification Required
+### Error message: Additional Verification Required
 
 ACM requires additional information to process this certificate request. This
 happens as a fraud-protection measure if your domain ranks within the [Alexa top 1000 websites](https://aws.amazon.com/marketplace/pp/Amazon-Web-Services-Alexa-Top-Sites/B07QK2XWNV "https://aws.amazon.com/marketplace/pp/Amazon-Web-Services-Alexa-Top-Sites/B07QK2XWNV"). To provide the required information, use the [Support Center](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home") to contact Support. If you

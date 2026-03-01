@@ -1,6 +1,4 @@
-# Responding to an event with a Lambda
-
-function
+# Responding to an event with a Lambda function
 
 This procedure demonstrates how to use AWS Lambda to listen on Amazon EventBridge, create
 notifications with Amazon Simple Notification Service (SNS), and publish findings to AWS Security Hub CSPM, providing

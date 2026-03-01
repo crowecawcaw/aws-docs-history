@@ -22,9 +22,7 @@ The following outlines benefits of ACM exportable public certificates:
   application that supports standard [SSL/TLS
   certificates](acm-concepts.md#concept-sslcert "acm-concepts.md#concept-sslcert").
 
-## How ACM exportable public certificates
-
-works
+## How ACM exportable public certificates works
 
 The following outlines how ACM exportable public certificates work:
 

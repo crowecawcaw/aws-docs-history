@@ -33,9 +33,7 @@ you encounter problems importing a certificate, see [Certificate import problems
 
 ###### Topics
 
-- [Prerequisites for importing ACM
-  certificates](import-certificate-prerequisites.md "import-certificate-prerequisites.md")
-- [Certificate and key format for
-  importing](import-certificate-format.md "import-certificate-format.md")
+- [Prerequisites for importing ACM certificates](import-certificate-prerequisites.md "import-certificate-prerequisites.md")
+- [Certificate and key format for importing](import-certificate-format.md "import-certificate-format.md")
 - [Import a certificate](import-certificate-api-cli.md "import-certificate-api-cli.md")
 - [Reimport a certificate](import-reimport.md "import-reimport.md")

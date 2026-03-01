@@ -1,10 +1,6 @@
-# Request a private certificate in
+# Request a private certificate in AWS Certificate Manager
 
-AWS Certificate Manager
-
-## Request a private certificate
-
-(console)
+## Request a private certificate (console)
 
 1. Sign into the AWS Management Console and open the ACM console at
    [https://console.aws.amazon.com/acm/home](https://console.aws.amazon.com/acm/home "https://console.aws.amazon.com/acm/home").
@@ -85,9 +81,7 @@ black triangle at right to change the ordering. You can also navigate
 through multiple pages of certificates using the page numbers at
 upper-right.
 
-## Request a private certificate
-
-(CLI)
+## Request a private certificate (CLI)
 
 Use the [request-certificate](../../../cli/latest/reference/acm/request-certificate.md "../../../cli/latest/reference/acm/request-certificate.md") command to request a private certificate in
 ACM.

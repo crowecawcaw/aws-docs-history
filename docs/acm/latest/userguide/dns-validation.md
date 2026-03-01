@@ -136,9 +136,7 @@ _a79865eb4cd1a6ab990a45779b4e0b96.example.com.example.com.
 Validation will fail in this case. Consequently, you should try to determine in
 advance which type of input your provider expects.
 
-## Setting up DNS
-
-validation
+## Setting up DNS validation
 
 This section describes how to configure a public certificate to use DNS
 validation.
@@ -175,8 +173,7 @@ list, confirm that you have specified the correct Region.
 
     If you are in fact using Route 53 but the **Create
     records in Route 53** is missing or disabled, see
-    [ACM Console does not display "Create records
-    in Route 53" button](troubleshooting-DNS-validation.md#troubleshooting-route53-1 "troubleshooting-DNS-validation.md#troubleshooting-route53-1").
+    [ACM Console does not display "Create records in Route 53" button](troubleshooting-DNS-validation.md#troubleshooting-route53-1 "troubleshooting-DNS-validation.md#troubleshooting-route53-1").
 
     Choose the **Create records in Route 53**, then
     choose **Create records**. The
@@ -211,8 +208,7 @@ list, confirm that you have specified the correct Region.
 
     To avoid validation problems, review [How CNAME records for ACM work](#cnames-overview "#cnames-overview")
     before you add information to your DNS provider's database. If
-    you do encounter problems, see [Troubleshoot DNS validation
-    problems](troubleshooting-DNS-validation.md "troubleshooting-DNS-validation.md").
+    you do encounter problems, see [Troubleshoot DNS validation problems](troubleshooting-DNS-validation.md "troubleshooting-DNS-validation.md").
 
 If ACM is not able to validate the domain name within 72 hours from the time it
 generates a CNAME value for you, ACM changes the certificate status to

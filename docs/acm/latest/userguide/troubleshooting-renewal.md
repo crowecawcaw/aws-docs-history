@@ -3,9 +3,7 @@
 ACM tries to automatically renew your ACM certificates before they expire so that no
 action is required from you. Consult the following topics if you have trouble with [Managed certificate renewal in AWS Certificate Manager](managed-renewal.md "managed-renewal.md").
 
-## Preparing for automatic domain
-
-validation
+## Preparing for automatic domain validation
 
 Before ACM can renew your certificates automatically, the following must be
 true:
@@ -20,17 +18,13 @@ true:
 - For HTTP-validated certificates, make sure that your redirects are configured as
   described in [AWS Certificate Manager HTTP validation](http-validation.md "http-validation.md").
 
-## Handling failures in managed certificate
-
-renewal
+## Handling failures in managed certificate renewal
 
 As the certificate nears expiration (45 days for DNS, 45 for EMAIL and 60 days for
 Private), ACM attempts to renew the certificate if it meets the [eligibility criteria](managed-renewal.md "managed-renewal.md"). You
 might have to take actions for the renewal to succeed. For more information, see [Managed certificate renewal in AWS Certificate Manager](managed-renewal.md "managed-renewal.md").
 
-## Managed certificate
-
-renewal for email-validated certificates
+## Managed certificate renewal for email-validated certificates
 
 ACM certificates are valid for 198 days. Renewing a certificate requires action by the domain owner. ACM begins sending renewal notices to the email addresses associated with the domain 45 days before expiration. The notifications contain a link that the
 domain owner can click for renewal. Once all listed domains are validated,
@@ -41,9 +35,7 @@ Email](email-validation.md "email-validation.md") for instructions on identifyin
 `PENDING_VALIDATION` state and repeating the validation process for those
 domains.
 
-## Managed certificate
-
-renewal for DNS-validated certificates
+## Managed certificate renewal for DNS-validated certificates
 
 ACM does not attempt TLS validation for DNS-validated certificates. If ACM fails to
 renew a certificate you validated with DNS validation, it is most likely due to missing or
@@ -69,9 +61,7 @@ Expand the certificate window to find the certificate's CNAME information.
 
 If the problem persists, contact the [Support Center](https://console.aws.amazon.com/support "https://console.aws.amazon.com/support").
 
-## Managed certificate
-
-renewal for HTTP-validated certificates
+## Managed certificate renewal for HTTP-validated certificates
 
 ACM attempts to renew HTTP-validated certificates automatically. If renewal fails,
 it's likely due to issues with the HTTP validation records. In such cases, ACM notifies

@@ -8,5 +8,4 @@ actions.
 ###### Topics
 
 - [Responding to an event with Amazon SNS](event-sns-response.md "event-sns-response.md")
-- [Responding to an event with a Lambda
-  function](event-lambda-response.md "event-lambda-response.md")
+- [Responding to an event with a Lambda function](event-lambda-response.md "event-lambda-response.md")

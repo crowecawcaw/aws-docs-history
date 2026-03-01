@@ -25,8 +25,7 @@ certificates.
         	 management category of an ACM certificate. Possible values
         	 are: **Amazon Issued** |
         	 **Private** |
-        	 **Imported**. For more information, see [AWS Certificate Manager public certificates](gs-acm-request-public.md "gs-acm-request-public.md"), [Request a private certificate in
-        	 AWS Certificate Manager](gs-acm-request-private.md "gs-acm-request-private.md"), or [Import certificates into AWS Certificate Manager](import-certificate.md "import-certificate.md").
+        	 **Imported**. For more information, see [AWS Certificate Manager public certificates](gs-acm-request-public.md "gs-acm-request-public.md"), [Request a private certificate in AWS Certificate Manager](gs-acm-request-private.md "gs-acm-request-private.md"), or [Import certificates into AWS Certificate Manager](import-certificate.md "import-certificate.md").
         	+ **Status** – The certificate status.
         	 Possible values are: **Pending validation** |
         	 **Issued** | **Inactive**

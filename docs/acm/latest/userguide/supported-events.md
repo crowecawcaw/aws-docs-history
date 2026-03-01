@@ -3,9 +3,7 @@
 This topic lists and describes the ACM related events supported by
 Amazon EventBridge.
 
-## ACM Certificate Approaching
-
-Expiration event
+## ACM Certificate Approaching Expiration event
 
 ACM sends daily expiration events for all active certificates (public,
 private and imported) starting 45 days prior to expiration for private/imported certificates
@@ -114,9 +112,7 @@ following structure.
 }
 ```
 
-## ACM Certificate Renewal Action
-
-Required event
+## ACM Certificate Renewal Action Required event
 
 ###### Note
 

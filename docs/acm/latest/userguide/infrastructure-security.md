@@ -1,6 +1,4 @@
-# Infrastructure security in
-
-AWS Certificate Manager
+# Infrastructure security in AWS Certificate Manager
 
 As a managed service, AWS Certificate Manager is protected by AWS global network security. For
 information about AWS security services and how AWS protects infrastructure, see [AWS Cloud Security](https://aws.amazon.com/security/ "https://aws.amazon.com/security/"). To design your AWS

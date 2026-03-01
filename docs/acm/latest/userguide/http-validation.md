@@ -117,9 +117,7 @@ redirect depends on your web server software or CloudFront configuration. Ensure
 redirect is set up correctly to allow ACM to validate your domain ownership and
 issue or renew your certificate.
 
-## Setting up HTTP
-
-validation
+## Setting up HTTP validation
 
 ACM uses HTTP validation to verify your domain ownership when issuing public
 SSL/TLS certificates for use with CloudFront. This section describes how to configure a
@@ -163,8 +161,7 @@ you must request a new certificate after reviewing the redirect instructions.
 To avoid validation problems, make sure that the content at the
 **Redirect From** location matches the content at the
 **Redirect To** location. If you encounter problems, see
-[Troubleshooting HTTP validation
-problems](troubleshooting-HTTP-validation.md "troubleshooting-HTTP-validation.md").
+[Troubleshooting HTTP validation problems](troubleshooting-HTTP-validation.md "troubleshooting-HTTP-validation.md").
 
 ###### Note
 

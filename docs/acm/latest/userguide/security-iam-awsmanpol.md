@@ -32,9 +32,7 @@ To view this AWS managed policy in the console, go to [https://console.aws.amazo
 
 For a JSON listing of the policy details, see [AWSCertificateManagerFullAccess](../../../aws-managed-policy/latest/reference/AWSCertificateManagerFullAccess.md "../../../aws-managed-policy/latest/reference/AWSCertificateManagerFullAccess.md").
 
-## ACM updates to AWS managed
-
-policies
+## ACM updates to AWS managed policies
 
 View details about updates to AWS managed policies for ACM since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe

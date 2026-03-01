@@ -1,6 +1,4 @@
-# ACM API permissions: Actions and resources
-
-reference
+# ACM API permissions: Actions and resources reference
 
 When you set up access control and write permissions policies that you can attach
 to an IAM user or role, you can use the following table as a reference. The first

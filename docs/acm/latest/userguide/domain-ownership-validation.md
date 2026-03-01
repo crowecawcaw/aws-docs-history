@@ -1,6 +1,4 @@
-# Validate domain ownership for AWS Certificate Manager public
-
-certificates
+# Validate domain ownership for AWS Certificate Manager public certificates
 
 Before the Amazon certificate authority (CA) can issue a certificate for your site,
 AWS Certificate Manager (ACM) must prove that you own or control all of the domain names that you

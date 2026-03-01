@@ -47,5 +47,4 @@ certificates must be renewed independently.
 
 - [Renew ACM public certificates](renew-publicly-trusted.md "renew-publicly-trusted.md")
 - [Private certificate renewal in AWS Certificate Manager](renew-private-cert.md "renew-private-cert.md")
-- [Check a certificate's renewal
-  status](check-certificate-renewal-status.md "check-certificate-renewal-status.md")
+- [Check a certificate's renewal status](check-certificate-renewal-status.md "check-certificate-renewal-status.md")

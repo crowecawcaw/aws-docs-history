@@ -30,9 +30,6 @@ Consult the following topics if you experience validation problems.
 
 ###### Topics
 
-- [Troubleshoot DNS validation
-  problems](troubleshooting-DNS-validation.md "troubleshooting-DNS-validation.md")
-- [Troubleshoot email validation
-  problems](troubleshooting-email-validation.md "troubleshooting-email-validation.md")
-- [Troubleshooting HTTP validation
-  problems](troubleshooting-HTTP-validation.md "troubleshooting-HTTP-validation.md")
+- [Troubleshoot DNS validation problems](troubleshooting-DNS-validation.md "troubleshooting-DNS-validation.md")
+- [Troubleshoot email validation problems](troubleshooting-email-validation.md "troubleshooting-email-validation.md")
+- [Troubleshooting HTTP validation problems](troubleshooting-HTTP-validation.md "troubleshooting-HTTP-validation.md")

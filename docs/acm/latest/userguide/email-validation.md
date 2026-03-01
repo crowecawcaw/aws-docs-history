@@ -5,8 +5,7 @@ AWS Certificate Manager (ACM) must verify that you own or control all of the dom
 specified in your request. You can perform verification using either email or DNS. This
 topic discusses email validation.
 
-If you encounter problems using email validation, see [Troubleshoot email validation
-problems](troubleshooting-email-validation.md "troubleshooting-email-validation.md").
+If you encounter problems using email validation, see [Troubleshoot email validation problems](troubleshooting-email-validation.md "troubleshooting-email-validation.md").
 
 ## How email validation works
 
@@ -82,8 +81,6 @@ request. However, because the validation email required for the approval process
 be blocked by spam filters or lost in transit, the token automatically expires after
 72 hours. If you do not receive the original email or the token has expired, you can
 request that the email be resent. For information about how to resend a validation
-email, see [Resend validation
-email](email-renewal-validation.md#request-domain-validation-email-for-renewal "email-renewal-validation.md#request-domain-validation-email-for-renewal")
+email, see [Resend validation email](email-renewal-validation.md#request-domain-validation-email-for-renewal "email-renewal-validation.md#request-domain-validation-email-for-renewal")
 
-For persistent problems with email validation, see the [Troubleshoot email validation
-problems](troubleshooting-email-validation.md "troubleshooting-email-validation.md") section in [Troubleshoot issues with AWS Certificate Manager](troubleshooting.md "troubleshooting.md").
+For persistent problems with email validation, see the [Troubleshoot email validation problems](troubleshooting-email-validation.md "troubleshooting-email-validation.md") section in [Troubleshoot issues with AWS Certificate Manager](troubleshooting.md "troubleshooting.md").

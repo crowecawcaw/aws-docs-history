@@ -44,9 +44,7 @@ Sincerely,
 Amazon Web Services
 ```
 
-### Validating a certificate for
-
-renewal
+### Validating a certificate for renewal
 
 Email template text:
 

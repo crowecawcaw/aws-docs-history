@@ -20,8 +20,7 @@ stand-alone secure server on an Amazon EC2 instance, the following tutorial has 
 - [Supported Regions](#acm-regions "#acm-regions")
 - [Pricing for AWS Certificate Manager](#acm-billing "#acm-billing")
 - [AWS Certificate Manager concepts](acm-concepts.md "acm-concepts.md")
-- [What is the right AWS certificate service for my
-  needs?](service-options.md "service-options.md")
+- [What is the right AWS certificate service for my needs?](service-options.md "service-options.md")
 
 ## Supported Regions
 

@@ -1,6 +1,4 @@
-# Export an AWS Certificate Manager public
-
-certificate
+# Export an AWS Certificate Manager public certificate
 
 The following procedures walks you through how you can export an ACM public
 certificate in the ACM console. Alternatively, you can use the [`export-certificate`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/acm/export-certificate.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/acm/export-certificate.html") AWS CLI or [ExportCertificate](../APIReference/API_ExportCertificate.md "../APIReference/API_ExportCertificate.md")

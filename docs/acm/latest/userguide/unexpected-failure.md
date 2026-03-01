@@ -1,6 +1,4 @@
-# What to do when a working certificate fails
-
-unexpectedly
+# What to do when a working certificate fails unexpectedly
 
 If you have successfully associated an ACM certificate with an integrated service, but
 the certificate stops working and the integrated service begins returning errors, the cause

@@ -30,6 +30,5 @@ cloud and security _in_ the cloud:
 - [Data protection in AWS Certificate Manager](data-protection.md "data-protection.md")
 - [Identity and Access Management for AWS Certificate Manager](security-iam.md "security-iam.md")
 - [Resilience in AWS Certificate Manager](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Infrastructure security in
-  AWS Certificate Manager](infrastructure-security.md "infrastructure-security.md")
+- [Infrastructure security in AWS Certificate Manager](infrastructure-security.md "infrastructure-security.md")
 - [Best practices](acm-bestpractices.md "acm-bestpractices.md")

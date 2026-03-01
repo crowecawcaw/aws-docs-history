@@ -12,8 +12,7 @@ current ACM customers.
 - [Certificate pinning](#best-practices-pinning "#best-practices-pinning")
 - [Domain validation](#best-practices-validating "#best-practices-validating")
 - [Adding or deleting domain names](#best-practices-add-delete "#best-practices-add-delete")
-- [Opting out of certificate transparency
-  logging](#best-practices-transparency "#best-practices-transparency")
+- [Opting out of certificate transparency logging](#best-practices-transparency "#best-practices-transparency")
 - [Turn on AWS CloudTrail](#best-practices-ct "#best-practices-ct")
 
 ## Account-level separation
@@ -160,9 +159,7 @@ the record asserts that you own or control the domain. In the preceding example,
 you request a certificate with five domain names, you must create five DNS records.
 We recommend that you use DNS validation when possible.
 
-## Opting out of certificate transparency
-
-logging
+## Opting out of certificate transparency logging
 
 ###### Important
 

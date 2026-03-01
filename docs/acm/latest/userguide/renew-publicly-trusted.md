@@ -7,9 +7,6 @@ describe how the renewal process works in each case.
 
 ###### Topics
 
-- [Renewal for domains validated by
-  DNS](dns-renewal-validation.md "dns-renewal-validation.md")
-- [Renewal for email-validated
-  domains](email-renewal-validation.md "email-renewal-validation.md")
-- [Renewal for domains validated by
-  HTTP](http-renewal-validation.md "http-renewal-validation.md")
+- [Renewal for domains validated by DNS](dns-renewal-validation.md "dns-renewal-validation.md")
+- [Renewal for email-validated domains](email-renewal-validation.md "email-renewal-validation.md")
+- [Renewal for domains validated by HTTP](http-renewal-validation.md "http-renewal-validation.md")

@@ -1,8 +1,7 @@
 # AWS Certificate Manager public certificates
 
 After you request a public certificate you must validate domain ownership, as described in
-[Validate domain ownership for AWS Certificate Manager public
-certificates](domain-ownership-validation.md "domain-ownership-validation.md").
+[Validate domain ownership for AWS Certificate Manager public certificates](domain-ownership-validation.md "domain-ownership-validation.md").
 
 Public ACM certificates follow the X.509 standard and are subject to the following
 restrictions:
@@ -31,15 +30,11 @@ Policies](acm-conditions.md "acm-conditions.md") to control how end users issue 
 allow restrictions to be placed on domains, validation methods, and other attributes related
 to a certificate request. If you encounter problems when requesting a certificate, see [Troubleshoot certificate requests](troubleshooting-cert-requests.md "troubleshooting-cert-requests.md").
 
-To request a certificate for a private PKI using AWS Private CA, see [Request a private certificate in
-AWS Certificate Manager](gs-acm-request-private.md "gs-acm-request-private.md").
+To request a certificate for a private PKI using AWS Private CA, see [Request a private certificate in AWS Certificate Manager](gs-acm-request-private.md "gs-acm-request-private.md").
 
 ###### Topics
 
-- [AWS Certificate Manager public certificate
-  characteristics and limitations](acm-certificate-characteristics.md "acm-certificate-characteristics.md")
-- [Request a public certificate in
-  AWS Certificate Manager](acm-public-certificates.md "acm-public-certificates.md")
+- [AWS Certificate Manager public certificate characteristics and limitations](acm-certificate-characteristics.md "acm-certificate-characteristics.md")
+- [Request a public certificate in AWS Certificate Manager](acm-public-certificates.md "acm-public-certificates.md")
 - [AWS Certificate Manager exportable public certificates](acm-exportable-certificates.md "acm-exportable-certificates.md")
-- [Validate domain ownership for AWS Certificate Manager public
-  certificates](domain-ownership-validation.md "domain-ownership-validation.md")
+- [Validate domain ownership for AWS Certificate Manager public certificates](domain-ownership-validation.md "domain-ownership-validation.md")

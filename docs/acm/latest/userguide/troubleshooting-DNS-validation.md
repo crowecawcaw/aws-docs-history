@@ -1,6 +1,4 @@
-# Troubleshoot DNS validation
-
-problems
+# Troubleshoot DNS validation problems
 
 Consult the following guidance if you are having trouble validating a certificate with
 DNS.
@@ -14,15 +12,11 @@ tools such as the following:
 ###### Topics
 
 - [Underscores prohibited by DNS provider](#underscores-prohibited "#underscores-prohibited")
-- [Default trailing period added by DNS
-  provider](#troubleshooting-trailing-period "#troubleshooting-trailing-period")
+- [Default trailing period added by DNS provider](#troubleshooting-trailing-period "#troubleshooting-trailing-period")
 - [DNS validation on GoDaddy fails](#troubleshooting-DNS-GoDaddy "#troubleshooting-DNS-GoDaddy")
-- [ACM Console does not display "Create records
-  in Route 53" button](#troubleshooting-route53-1 "#troubleshooting-route53-1")
-- [Route 53 validation fails on private (untrusted)
-  domains](#troubleshooting-route53-2 "#troubleshooting-route53-2")
-- [Validation is successful but
-  issuance or renewal fails](#troubleshooting-dns-pending-violation "#troubleshooting-dns-pending-violation")
+- [ACM Console does not display "Create records in Route 53" button](#troubleshooting-route53-1 "#troubleshooting-route53-1")
+- [Route 53 validation fails on private (untrusted) domains](#troubleshooting-route53-2 "#troubleshooting-route53-2")
+- [Validation is successful but issuance or renewal fails](#troubleshooting-dns-pending-violation "#troubleshooting-dns-pending-violation")
 - [Validation fails for DNS server on a VPN](#troubleshooting-vpn "#troubleshooting-vpn")
 
 ## Underscores prohibited by DNS provider
@@ -41,9 +35,7 @@ domain.
 | `_<random value>.example.com.` | CNAME | `_<random value>.acm-validations.aws.` |
 | `_<random value>.example.com.` | CNAME | `<random value>.acm-validations.aws.`  |
 
-## Default trailing period added by DNS
-
-provider
+## Default trailing period added by DNS provider
 
 Some DNS providers add by default a trailing period to the CNAME value that you
 provide. As a result, adding the period yourself causes an error. For example,
@@ -67,9 +59,7 @@ You can create a CNAME record compatible with GoDaddy by truncating the apex dom
 NAME: _ho9hv39800vb3examplew3vnewoib3u VALUE: _cjhwou20vhu2exampleuw20vuyb2ovb9.j9s73ucn9vy.acm-validations.aws.
 ```
 
-## ACM Console does not display "Create records
-
-in Route 53" button
+## ACM Console does not display "Create records in Route 53" button
 
 If you select Amazon Route 53 as your DNS provider, AWS Certificate Manager can interact directly with it
 to validate your domain ownership. Under some circumstances, the console's
@@ -82,9 +72,7 @@ it. If this happens, check for the following possible causes.
 - You or someone else has already validated the domain.
 - The domain is not publicly addressable.
 
-## Route 53 validation fails on private (untrusted)
-
-domains
+## Route 53 validation fails on private (untrusted) domains
 
 During DNS validation, ACM searches for a CNAME in a publicly hosted zone. When it
 doesn't find one, it times out after 72 hours with a status of **Validation timed
@@ -94,9 +82,7 @@ certificates.
 
 AWS does provide support for publicly untrusted domains through the [AWS Private CA](https://aws.amazon.com/certificate-manager/private-certificate-authority/ "https://aws.amazon.com/certificate-manager/private-certificate-authority/") service.
 
-## Validation is successful but
-
-issuance or renewal fails
+## Validation is successful but issuance or renewal fails
 
 If certificate issuance fails with "Pending validation" even though DNS is correct,
 check that issuance is not being blocked by a Certification Authority Authorization (CAA)

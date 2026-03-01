@@ -67,8 +67,7 @@ still be installed on its target device.
    Amazon EventBridge](../../../eventbridge/latest/userguide/eb-create-rule.md "../../../eventbridge/latest/userguide/eb-create-rule.md") to listen for ACM health events and call your Lambda
    function when it detects one. ACM writes to an AWS Health event each time
    it attempts to renew a certificate. For more information about these
-   notices, see [Check the status using Personal Health
-   Dashboard (PHD)](check-certificate-renewal-status.md#check-renewal-status-phd "check-certificate-renewal-status.md#check-renewal-status-phd").
+   notices, see [Check the status using Personal Health Dashboard (PHD)](check-certificate-renewal-status.md#check-renewal-status-phd "check-certificate-renewal-status.md#check-renewal-status-phd").
 
 Configure the rule by adding the following event pattern.
 
@@ -100,9 +99,7 @@ Configure the rule by adding the following event pattern.
 3. Complete the renewal process by manually installing the certificate on the
    target system.
 
-## Test managed renewal of private PKI
-
-certificates
+## Test managed renewal of private PKI certificates
 
 You can use the ACM API or AWS CLI to manually test the configuration of your
 ACM managed renewal workflow. By doing so, you can confirm that your certificates

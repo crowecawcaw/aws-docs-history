@@ -31,6 +31,5 @@ For more information about CloudTrail, consult the following documentation:
 
 ###### Topics
 
-- [ACM API actions supported in
-  CloudTrail logging](acm-supported-actions-in-cloudtrail.md "acm-supported-actions-in-cloudtrail.md")
+- [ACM API actions supported in CloudTrail logging](acm-supported-actions-in-cloudtrail.md "acm-supported-actions-in-cloudtrail.md")
 - [Logging API calls for integrated services](ct-related.md "ct-related.md")

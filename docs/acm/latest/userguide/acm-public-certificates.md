@@ -1,6 +1,4 @@
-# Request a public certificate in
-
-AWS Certificate Manager
+# Request a public certificate in AWS Certificate Manager
 
 You can request AWS Certificate Manager public certificates from the ACM console, AWS CLI, or API.
 You can use these certificates with integrated AWS services or export them for use
@@ -30,14 +28,10 @@ certificate.
 
 ###### Topics
 
-- [Request a public certificate using the
-  console](#request-public-console "#request-public-console")
-- [Request a public certificate using the
-  CLI](#request-public-cli "#request-public-cli")
+- [Request a public certificate using the console](#request-public-console "#request-public-console")
+- [Request a public certificate using the CLI](#request-public-cli "#request-public-cli")
 
-## Request a public certificate using the
-
-console
+## Request a public certificate using the console
 
 ###### To request an ACM public certificate (console)
 
@@ -136,9 +130,7 @@ black triangle at right to change the ordering. You can also navigate
 through multiple pages of certificates using the page numbers at
 upper-right.
 
-## Request a public certificate using the
-
-CLI
+## Request a public certificate using the CLI
 
 Use the [request-certificate](../../../cli/latest/reference/acm/request-certificate.md "../../../cli/latest/reference/acm/request-certificate.md") command to request a new public ACM certificate
 on the command line. Optional values for the validation method are DNS and EMAIL.

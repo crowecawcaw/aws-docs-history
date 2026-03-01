@@ -19,8 +19,7 @@ the AWS resources on which you provision the ACM certificate.
 ###### Topics
 
 - [Creating a Load Balancer](#ct-related-lb "#ct-related-lb")
-- [Registering an Amazon EC2 Instance with a Load
-  Balancer](#ct-related-ec2 "#ct-related-ec2")
+- [Registering an Amazon EC2 Instance with a Load Balancer](#ct-related-ec2 "#ct-related-ec2")
 - [Encrypting a Private Key](#ct-related-encrypt "#ct-related-encrypt")
 - [Decrypting a Private Key](#ct-related-decrypt "#ct-related-decrypt")
 
@@ -74,9 +73,7 @@ ACM certificate.
 }
 ```
 
-### Registering an Amazon EC2 Instance with a Load
-
-Balancer
+### Registering an Amazon EC2 Instance with a Load Balancer
 
 When you provision your website or application on an Amazon Elastic Compute Cloud (Amazon EC2)
 instance, the load balancer must be made aware of that instance. This can be
