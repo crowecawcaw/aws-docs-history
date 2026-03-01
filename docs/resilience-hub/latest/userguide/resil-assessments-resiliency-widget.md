@@ -1,6 +1,4 @@
-# Running and managing resiliency
-
-assessments from Resiliency widget
+# Running and managing resiliency assessments from Resiliency widget
 
 AWS Resilience Hub enables you to run assessments for applications created and managed in myApplications in Resiliency widget.
 Whenever you make modifications to an application, it is recommended to run a resiliency assessment from Resiliency widget or from AWS Resilience Hub console.
@@ -16,7 +14,5 @@ You can test whether application alarms are triggered when resources reach their
 
 ###### Topics:
 
-- [Running resiliency assessments from
-  Resiliency widget](run-assessment-resiliency-widget.md "run-assessment-resiliency-widget.md")
-- [Reviewing assessment summary in
-  Resiliency widget](review-assessment-resliency-widget.md "review-assessment-resliency-widget.md")
+- [Running resiliency assessments from Resiliency widget](run-assessment-resiliency-widget.md "run-assessment-resiliency-widget.md")
+- [Reviewing assessment summary in Resiliency widget](review-assessment-resliency-widget.md "review-assessment-resliency-widget.md")

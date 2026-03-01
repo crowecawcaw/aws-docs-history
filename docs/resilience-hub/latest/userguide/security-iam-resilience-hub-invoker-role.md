@@ -1,6 +1,4 @@
-# Invoker
-
-role
+# Invoker role
 
 The AWS Resilience Hub invoker role is an AWS Identity and Access Management (IAM) role that AWS Resilience Hub
 assumes to access AWS services and resources. For example, you might
@@ -37,9 +35,7 @@ create an invoker role in the primary account using the IAM console.
 For more information about creating roles using IAM console, see
 [Creating a role for an AWS service (console)](../../../IAM/latest/UserGuide/id_roles_create_for-service.md#roles-creatingrole-service-console "../../../IAM/latest/UserGuide/id_roles_create_for-service.md#roles-creatingrole-service-console").
 
-###### To create an invoker role in the primary account using IAM
-
-console
+###### To create an invoker role in the primary account using IAM console
 
 1. Open the IAM console at
    `https://console.aws.amazon.com/iam/`.

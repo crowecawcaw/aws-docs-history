@@ -21,9 +21,7 @@ You can attach the `AWSResilienceHubAsssessmentExecutionPolicy` to your
 IAM identities. While running an assessment, this policy grants access permissions to
 other AWS services for executing assessments.
 
-### Permission
-
-details
+### Permission details
 
 This policy provides adequate permissions to publish alarms, AWS FIS and SOP
 templates to your Amazon Simple Storage Service (Amazon S3) bucket. The Amazon S3 bucket name must start with
@@ -126,9 +124,7 @@ The following IAM policy is required for an AWS account to add permissions for
 users, user-groups, and roles that provide required permissions for your team to
 access AWS services while running assessments.
 
-## AWS Resilience Hub updates to AWS managed
-
-policies
+## AWS Resilience Hub updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS Resilience Hub since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

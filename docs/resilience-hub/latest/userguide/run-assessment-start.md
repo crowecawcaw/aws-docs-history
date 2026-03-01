@@ -1,6 +1,4 @@
-# Run an assessment of your AWS Resilience Hub
-
-application
+# Run an assessment of your AWS Resilience Hub application
 
 The application that you published is listed on the **Summary**
 page.

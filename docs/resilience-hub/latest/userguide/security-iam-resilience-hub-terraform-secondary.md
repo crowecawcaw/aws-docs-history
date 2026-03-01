@@ -1,6 +1,4 @@
-# Importing
-
-Terraform state file into AWS Resilience Hub
+# Importing Terraform state file into AWS Resilience Hub
 
 AWS Resilience Hub supports importing Terraform state files that are encrypted using
 server-side encryption (SSE) with Amazon Simple Storage Service managed keys (SSE-S3) or with AWS Key Management Service
@@ -11,9 +9,7 @@ AWS Resilience Hub.
 Importing Terraform state files into AWS Resilience Hub requires the following IAM
 policies depending on where your state file is located.
 
-## Importing Terraform state files from an Amazon S3 bucket located in the
-
-primary account
+## Importing Terraform state files from an Amazon S3 bucket located in the primary account
 
 The following Amazon S3 bucket policy and IAM policy are required to allow
 AWS Resilience Hub read access to your Terraform state files located in an Amazon S3 bucket on
@@ -69,9 +65,7 @@ following `kms:Decrypt` permission.
 }
 ```
 
-## Importing Terraform state files from an Amazon S3 bucket located in a
-
-secondary account
+## Importing Terraform state files from an Amazon S3 bucket located in a secondary account
 
 - Bucket policy – A bucket policy on the target Amazon S3 bucket,
   which is located in one of the secondary accounts. For more information,

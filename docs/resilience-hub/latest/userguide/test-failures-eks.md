@@ -1,6 +1,4 @@
-# AWS FIS experiment failures while testing Kubernetes
-
-pods running in your Amazon Elastic Kubernetes Service clusters
+# AWS FIS experiment failures while testing Kubernetes pods running in your Amazon Elastic Kubernetes Service clusters
 
 The following are common Amazon Elastic Kubernetes Service (Amazon EKS) failures encountered while testing
 Kubernetes pods running in your Amazon EKS clusters:

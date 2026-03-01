@@ -1,6 +1,4 @@
-# Setup scheduled assessments and drift
-
-notification
+# Setup scheduled assessments and drift notification
 
 AWS Resilience Hub allows you to setup scheduled assessments and drift notification for assessing
 your application daily and getting notified when a drift is detected.
@@ -34,8 +32,7 @@ select **Choose an SNS topic** option and select an Amazon SNS topic from the
 
     * To enable AWS Resilience Hub to publish notifications to your Amazon SNS topics, your Amazon SNS
      topic must be configured with appropriate permissions. For more information about
-     configuring permissions, see [Enabling AWS Resilience Hub to publish to your
-     Amazon Simple Notification Service topics](enabling-sns-in-arh.md "enabling-sns-in-arh.md").
+     configuring permissions, see [Enabling AWS Resilience Hub to publish to your Amazon Simple Notification Service topics](enabling-sns-in-arh.md "enabling-sns-in-arh.md").
     * Daily assessments can have an impact on your quota for runs. For more information about
      quotas, see [AWS Resilience Hub endpoints and quotas](../../../general/latest/gr/resiliencehub.md "../../../general/latest/gr/resiliencehub.md") in the *AWS General
      Reference*.

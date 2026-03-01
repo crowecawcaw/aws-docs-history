@@ -32,9 +32,7 @@ statuses to view all the applications that share the same status in the
   applications that have drifted from their resiliency policy or if their
   resources have drifted.
 
-## Application resiliency score over
-
-time
+## Application resiliency score over time
 
 With the application resiliency score over time, you can view a graph of your
 application's resiliency over the past 30 days. While the dropdown menu can list 10 of

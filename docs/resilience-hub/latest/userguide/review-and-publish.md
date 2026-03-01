@@ -1,6 +1,4 @@
-# Review and publish your AWS Resilience Hub
-
-application
+# Review and publish your AWS Resilience Hub application
 
 After creating the application, you can still review the application and edit its resources.
 After you finish, choose **Publish** to publish the application.
@@ -12,8 +10,7 @@ grouped in a more efficient way that will improve the accuracy of the assessment
 identifies resources that can be grouped into relevant AppComponents, it displays
 **Resource grouping recommendations** information alert in the
 **Application structure** tab of the application page and you can review them
-by choosing **Review recommendations**. For more information, see [AWS Resilience Hub resource grouping
-recommendations](grouping-recommendation.md "grouping-recommendation.md").
+by choosing **Review recommendations**. For more information, see [AWS Resilience Hub resource grouping recommendations](grouping-recommendation.md "grouping-recommendation.md").
 
 For more information about reviewing the application and editing its resources, see the following:
 
@@ -22,5 +19,4 @@ For more information about reviewing the application and editing its resources, 
 
 ## Next
 
-[Run an assessment of your AWS Resilience Hub
-application](run-assessment-start.md "run-assessment-start.md")
+[Run an assessment of your AWS Resilience Hub application](run-assessment-start.md "run-assessment-start.md")

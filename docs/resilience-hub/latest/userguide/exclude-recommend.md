@@ -1,6 +1,4 @@
-# Including or excluding operational
-
-recommendations
+# Including or excluding operational recommendations
 
 AWS Resilience Hub provides an option to include or exclude the alarms, SOPs, and AWS FIS
 experiments (tests) that were recommended for improving the resiliency score of your
@@ -10,8 +8,7 @@ after you run a new assessment. Hence, we recommend you to run an assessment to 
 the updated resiliency score and understand its impact on your application.
 
 For more information about restricting permissions to include or exclude
-recommendations per application, see [Limiting permissions to
-include or exclude AWS Resilience Hub recommendations](include-exclude-limit-permissions.md "include-exclude-limit-permissions.md").
+recommendations per application, see [Limiting permissions to include or exclude AWS Resilience Hub recommendations](include-exclude-limit-permissions.md "include-exclude-limit-permissions.md").
 
 ###### To include or exclude operational recommendations from applications
 
@@ -66,9 +63,7 @@ include or exclude AWS Resilience Hub recommendations](include-exclude-limit-per
       **Include selected** to include all the
       selected alarms in your application.
 
-###### To include or exclude recommended standard operating procedures (SOPs) from
-
-your application
+###### To include or exclude recommended standard operating procedures (SOPs) from your application
 
 1. To exclude recommended SOPs, complete the following steps:
    1. Under **Standard operating procedures** tab, from

@@ -22,8 +22,7 @@ and AWS FIS console, see the following topics:
 
 - AWS Resilience Hub console
   - [Viewing AWS FIS experiments](view-fis-experiment.md "view-fis-experiment.md")
-    - [To view the list of implemented AWS FIS
-      experiments from applications](view-fis-experiment.md#view-active-fis-experiments "view-fis-experiment.md#view-active-fis-experiments")
+    - [To view the list of implemented AWS FIS experiments from applications](view-fis-experiment.md#view-active-fis-experiments "view-fis-experiment.md#view-active-fis-experiments")
     - [To view the recommended AWS FIS experiments from assessments](view-fis-experiment.md#view-recommended-fis-experiments "view-fis-experiment.md#view-recommended-fis-experiments")
 
   - [Running AWS FIS experiments](test-assessment-report.md#arh-running-aws-fis-experiments "test-assessment-report.md#arh-running-aws-fis-experiments")

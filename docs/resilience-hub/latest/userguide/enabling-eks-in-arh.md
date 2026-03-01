@@ -1,6 +1,4 @@
-# Enabling AWS Resilience Hub access to your Amazon Elastic Kubernetes Service
-
-cluster
+# Enabling AWS Resilience Hub access to your Amazon Elastic Kubernetes Service cluster
 
 AWS Resilience Hub assesses the resiliency of an Amazon Elastic Kubernetes Service (Amazon EKS) cluster by analyzing the
 infrastructure of your Amazon EKS cluster. AWS Resilience Hub uses Kubernetes role-based access

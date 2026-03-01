@@ -1,6 +1,4 @@
-# Reviewing assessment summary in
-
-Resiliency widget
+# Reviewing assessment summary in Resiliency widget
 
 The **Resiliency** widget displays a snapshot of the assessment results that will provide you with most important and actionable
 insights into the myApplications application's resilience, potential vulnerabilities, key performance indicators (KPIs) and

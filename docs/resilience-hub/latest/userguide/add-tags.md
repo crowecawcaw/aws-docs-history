@@ -12,5 +12,4 @@ Choose **Add application** to create your application.
 
 ## Next
 
-[Review and publish your AWS Resilience Hub
-application](review-and-publish.md "review-and-publish.md")
+[Review and publish your AWS Resilience Hub application](review-and-publish.md "review-and-publish.md")

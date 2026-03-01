@@ -1,6 +1,4 @@
-# Analyzing AWS FIS experiment execution using AWS
-
-Systems Manager
+# Analyzing AWS FIS experiment execution using AWS Systems Manager
 
 After running an AWS FIS experiment, you can view the execution details in the AWS
 Systems Manager.

@@ -13,8 +13,7 @@ application's resilience posture. This new capability combines AWS Resilience Hu
 with your current monitoring setup, streamlining alarm management and enhancing assessment
 accuracy. If you have implemented an Amazon CloudWatch alarm and AWS Resilience Hub doesn't automatically
 detect it, you can exclude the alarm and select the reason as **Already
-implemented**. For more information about excluding recommendation, see [Including or excluding operational
-recommendations](exclude-recommend.md "exclude-recommend.md").
+implemented**. For more information about excluding recommendation, see [Including or excluding operational recommendations](exclude-recommend.md "exclude-recommend.md").
 
 AWS Resilience Hub provides a template file (`README.md`) that allows you to create
 alarms recommended by AWS Resilience Hub within AWS (such as Amazon CloudWatch) or outside AWS. The
@@ -23,6 +22,5 @@ creating these alarms.
 
 ###### Topics
 
-- [Creating alarms from the operational
-  recommendations](create-alarm.md "create-alarm.md")
+- [Creating alarms from the operational recommendations](create-alarm.md "create-alarm.md")
 - [Viewing alarms](view-alarm.md "view-alarm.md")

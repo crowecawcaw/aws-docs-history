@@ -506,9 +506,7 @@ AWS Resilience Hub will not recommend backup as a recovery method if you are not
 backup. However, you can reset Cache layer in the event of data inconsistency and
 recreate the data from the primary storage.
 
-### Faster in-Region
-
-failover
+### Faster in-Region failover
 
 AWS Resilience Hub checks RTO and RPO targets defined in the resiliency policy during
 infrastructure or AZ disruptions. Additionally, AWS Resilience Hub can identify the following

@@ -50,8 +50,7 @@ topics:
     + [Running resiliency assessments in AWS Resilience Hub](run-assessment.md "run-assessment.md")
     + [Reviewing assessments reports](review-assessment.md "review-assessment.md")
     + [Reviewing resiliency recommendations](resil-recs.md "resil-recs.md")
-    + [Including or excluding operational
-     recommendations](exclude-recommend.md "exclude-recommend.md")
+    + [Including or excluding operational recommendations](exclude-recommend.md "exclude-recommend.md")
 
 - **AWS Resilience Hub application policy breached**
   – Checks if the AWS Resilience Hub applications meet the RTO and RPO targets
@@ -90,8 +89,7 @@ implementing the same, see the following topics:
     + [Running resiliency assessments in AWS Resilience Hub](run-assessment.md "run-assessment.md")
     + [Reviewing assessments reports](review-assessment.md "review-assessment.md")
     + [Reviewing resiliency recommendations](resil-recs.md "resil-recs.md")
-    + [Including or excluding operational
-     recommendations](exclude-recommend.md "exclude-recommend.md")
+    + [Including or excluding operational recommendations](exclude-recommend.md "exclude-recommend.md")
 
 - **AWS Resilience Hub application assessment age**
   – Checks the last time since you had run an assessment for each of

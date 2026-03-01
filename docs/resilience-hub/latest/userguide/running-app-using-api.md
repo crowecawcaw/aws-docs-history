@@ -1,6 +1,4 @@
-# Running and managing AWS Resilience Hub
-
-resiliency assessments
+# Running and managing AWS Resilience Hub resiliency assessments
 
 After you publish a new version of your application, you must run a new resiliency
 assessment and analyze the results to ensure that your application meets the estimated
@@ -10,13 +8,10 @@ alarm, SOP, and test recommendations.
 
 For more information, see the following topics:
 
-- [Running and monitoring AWS Resilience Hub
-  resiliency assessments](#run-assess-analyze-using-api "#run-assess-analyze-using-api")
+- [Running and monitoring AWS Resilience Hub resiliency assessments](#run-assess-analyze-using-api "#run-assess-analyze-using-api")
 - [Examining assessment results](#run-assessment-using-api "#run-assessment-using-api")
 
-## Running and monitoring AWS Resilience Hub
-
-resiliency assessments
+## Running and monitoring AWS Resilience Hub resiliency assessments
 
 To run resiliency assessments in AWS Resilience Hub and monitor their status, you must use
 the following APIs:

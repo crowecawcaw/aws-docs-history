@@ -7,7 +7,5 @@ which you need to execute the APIs and the parameter values you must provide wit
 appropriate examples. For more information, see the following topics:
 
 - [Preparing the application](prepare-app-using-api.md "prepare-app-using-api.md")
-- [Running and managing AWS Resilience Hub
-  resiliency assessments](running-app-using-api.md "running-app-using-api.md")
-- [Modifying your
-  application](modify-application-using-api.md "modify-application-using-api.md")
+- [Running and managing AWS Resilience Hub resiliency assessments](running-app-using-api.md "running-app-using-api.md")
+- [Modifying your application](modify-application-using-api.md "modify-application-using-api.md")

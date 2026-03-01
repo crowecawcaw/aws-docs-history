@@ -1,6 +1,4 @@
-# Identity-based policy examples for
-
-AWS Resilience Hub
+# Identity-based policy examples for AWS Resilience Hub
 
 By default, users and roles don't have permission to create or modify AWS Resilience Hub
 resources. To grant users permission to perform actions on the
@@ -14,25 +12,17 @@ For details about actions and resource types defined by AWS Resilience Hub, incl
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the AWS Resilience Hub
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Listing available
-  AWS Resilience Hub applications](#security-iam-policy-examples-list-apps "#security-iam-policy-examples-list-apps")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the AWS Resilience Hub console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Listing available AWS Resilience Hub applications](#security-iam-policy-examples-list-apps "#security-iam-policy-examples-list-apps")
 - [Starting an application assessment](#security-iam-policy-examples-start-app-assessment "#security-iam-policy-examples-start-app-assessment")
 - [Deleting an application assessment](#security-iam-policy-examples-delete-app-assessment "#security-iam-policy-examples-delete-app-assessment")
 - [Creating a recommendation template for a specific application](#security-iam-policy-examples-create-app-reco-template "#security-iam-policy-examples-create-app-reco-template")
 - [Deleting a recommendation template for a specific application](#security-iam-policy-examples-delete-app-reco-template "#security-iam-policy-examples-delete-app-reco-template")
-- [Updating an
-  application
-  with a specific resiliency policy](#security-iam-policy-examples-update-app-resiliency-policy "#security-iam-policy-examples-update-app-resiliency-policy")
+- [Updating an application with a specific resiliency policy](#security-iam-policy-examples-update-app-resiliency-policy "#security-iam-policy-examples-update-app-resiliency-policy")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete AWS Resilience Hub resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -65,9 +55,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the AWS Resilience Hub
-
-console
+## Using the AWS Resilience Hub console
 
 To access the AWS Resilience Hub console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the AWS Resilience Hub resources
@@ -108,9 +96,7 @@ JSON
 
 ```
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -150,9 +136,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Listing available
-
-AWS Resilience Hub applications
+## Listing available AWS Resilience Hub applications
 
 The following policy grants users the permission to list the available
 AWS Resilience Hub applications.
@@ -282,10 +266,7 @@ JSON
 
 ```
 
-## Updating an
-
-application
-with a specific resiliency policy
+## Updating an application with a specific resiliency policy
 
 The following policy grants users the permission to update an AWS Resilience Hub
 application with a specific resiliency policy.

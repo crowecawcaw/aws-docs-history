@@ -22,13 +22,9 @@ from disruptions by:
 - [Select how this application is managed](how-app-manage.md "how-app-manage.md")
 - [Add resource collections](discover-structure.md "discover-structure.md")
 - [Set RTO and RPO](setup-resiliency-policy.md "setup-resiliency-policy.md")
-- [Setup scheduled assessments and drift
-  notification](scheduled-assessment.md "scheduled-assessment.md")
+- [Setup scheduled assessments and drift notification](scheduled-assessment.md "scheduled-assessment.md")
 - [Setup permissions](setup-permissions.md "setup-permissions.md")
-- [Configure the application configuration
-  parameters](app-config-param.md "app-config-param.md")
+- [Configure the application configuration parameters](app-config-param.md "app-config-param.md")
 - [Add tags](add-tags.md "add-tags.md")
-- [Review and publish your AWS Resilience Hub
-  application](review-and-publish.md "review-and-publish.md")
-- [Run an assessment of your AWS Resilience Hub
-  application](run-assessment-start.md "run-assessment-start.md")
+- [Review and publish your AWS Resilience Hub application](review-and-publish.md "review-and-publish.md")
+- [Run an assessment of your AWS Resilience Hub application](run-assessment-start.md "run-assessment-start.md")

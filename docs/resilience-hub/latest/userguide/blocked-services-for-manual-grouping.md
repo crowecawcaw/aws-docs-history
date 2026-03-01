@@ -1,6 +1,4 @@
-# Blocked services for manual
-
-grouping
+# Blocked services for manual grouping
 
 AWS Resilience Hub blocks you from manually grouping resources of certain AWS services to
 prevent configuration errors that could affect the resilience assessment and

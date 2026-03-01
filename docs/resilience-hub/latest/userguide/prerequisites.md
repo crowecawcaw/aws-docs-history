@@ -31,8 +31,7 @@ features. Hence:
 
 
 
-    	- [Publishing a new AWS Resilience Hub application
-    	 version](applications-publish.md "applications-publish.md")
+    	- [Publishing a new AWS Resilience Hub application version](applications-publish.md "applications-publish.md")
     	- [Running resiliency assessments in AWS Resilience Hub](run-assessment.md "run-assessment.md")
     + If you are not using AWS managed policies to assign appropriate
      IAM permissions to users, groups, and roles, you must manually

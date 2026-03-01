@@ -46,5 +46,4 @@ may not function as expected and the inputs you have provided for creating a new
 
 ## Next
 
-[Configure the application configuration
-parameters](app-config-param.md "app-config-param.md")
+[Configure the application configuration parameters](app-config-param.md "app-config-param.md")

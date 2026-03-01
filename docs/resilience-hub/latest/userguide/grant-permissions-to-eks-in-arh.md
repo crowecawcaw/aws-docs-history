@@ -1,13 +1,9 @@
-# Granting AWS Resilience Hub access to
-
-resources in your Amazon EKS cluster
+# Granting AWS Resilience Hub access to resources in your Amazon EKS cluster
 
 AWS Resilience Hub allows you to access resources located on Amazon EKS clusters provided
 you have configured the required permissions.
 
-###### To grant required permissions to AWS Resilience Hub for discovering and assessing
-
-resources within Amazon EKS cluster
+###### To grant required permissions to AWS Resilience Hub for discovering and assessing resources within Amazon EKS cluster
 
 1. Configure an IAM role to access Amazon EKS cluster.
 

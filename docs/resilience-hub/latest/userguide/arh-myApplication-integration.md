@@ -54,11 +54,6 @@ For more information about managing applications and resources in the myApplicat
 
 For more information about describing applications and running assessments in AWS Resilience Hub, see the following topics:
 
-- [To run a resiliency assessment for an existing
-  myApplications application from
-  Resiliency widget for the first time](run-assessment-resiliency-widget.md#run-res-widget-new "run-assessment-resiliency-widget.md#run-res-widget-new")
-- [To rerun a resiliency assessment for an existing
-  myApplications application from
-  Resiliency widget](run-assessment-resiliency-widget.md#rerun-res-widget "run-assessment-resiliency-widget.md#rerun-res-widget")
-- [Reviewing assessment summary in
-  Resiliency widget](review-assessment-resliency-widget.md "review-assessment-resliency-widget.md")
+- [To run a resiliency assessment for an existing myApplications application from Resiliency widget for the first time](run-assessment-resiliency-widget.md#run-res-widget-new "run-assessment-resiliency-widget.md#run-res-widget-new")
+- [To rerun a resiliency assessment for an existing myApplications application from Resiliency widget](run-assessment-resiliency-widget.md#rerun-res-widget "run-assessment-resiliency-widget.md#rerun-res-widget")
+- [Reviewing assessment summary in Resiliency widget](review-assessment-resliency-widget.md "review-assessment-resliency-widget.md")

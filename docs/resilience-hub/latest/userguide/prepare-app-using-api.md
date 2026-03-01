@@ -7,10 +7,8 @@ see the following topics:
 
 - [Creating an application](#create-app-using-api "#create-app-using-api")
 - [Creating resiliency policy](#create-res-policy-using-api "#create-res-policy-using-api")
-- [Importing resources from an input
-  source and monitoring the import status](#import-app-resource-using-api "#import-app-resource-using-api")
-- [Publishing the draft version of your
-  application and assigning a resiliency policy](#publish-application-using-api "#publish-application-using-api")
+- [Importing resources from an input source and monitoring the import status](#import-app-resource-using-api "#import-app-resource-using-api")
+- [Publishing the draft version of your application and assigning a resiliency policy](#publish-application-using-api "#publish-application-using-api")
 
 ## Creating an application
 
@@ -95,9 +93,7 @@ aws resiliencehub create-resiliency-policy \
 }
 ```
 
-## Importing resources from an input
-
-source and monitoring the import status
+## Importing resources from an input source and monitoring the import status
 
 AWS Resilience Hub provides the following APIs to import resources to your
 application:
@@ -203,17 +199,13 @@ aws resiliencehub describe-draft-app-version-resources-import-status \
 }
 ```
 
-## Publishing the draft version of your
-
-application and assigning a resiliency policy
+## Publishing the draft version of your application and assigning a resiliency policy
 
 Before running an assessment, you must first publish the draft version of your
 application and assign a resiliency policy to the released version of your
 application.
 
-###### To publish the draft version of your application and assign a resiliency
-
-policy
+###### To publish the draft version of your application and assign a resiliency policy
 
 1. To publish the draft version of your application, use
    `PublishAppVersion` API. For more information about this API,

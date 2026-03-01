@@ -1,6 +1,4 @@
-# Updating application configuration
-
-parameters
+# Updating application configuration parameters
 
 This section allows you to update the configuration parameters of your AWS Elastic Disaster Recovery and
 publish the application to include the updated parameters for resiliency

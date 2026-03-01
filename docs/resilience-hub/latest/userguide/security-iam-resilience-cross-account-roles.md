@@ -1,6 +1,4 @@
-# Roles in
-
-different AWS account for cross-account access - optional
+# Roles in different AWS account for cross-account access - optional
 
 When your resources are located in secondary/resource accounts, you must
 create roles in each of these accounts to enable AWS Resilience Hub to successfully
@@ -15,21 +13,16 @@ are located.
 
 **Topics**
 
-- [Creating a role in the IAM console for secondary/resource
-  accounts](#security-iam-resilience-cross-create-roles-infra-account "#security-iam-resilience-cross-create-roles-infra-account")
+- [Creating a role in the IAM console for secondary/resource accounts](#security-iam-resilience-cross-create-roles-infra-account "#security-iam-resilience-cross-create-roles-infra-account")
 - [Managing roles with the IAM API](#security-iam-resilience-cross-create-roles-infra-account-api "#security-iam-resilience-cross-create-roles-infra-account-api")
 - [Defining trust policy using JSON file](#security-iam-resilience-cross-define-trust-policy-infra-account "#security-iam-resilience-cross-define-trust-policy-infra-account")
 
-## Creating a role in the IAM console for secondary/resource
-
-accounts
+## Creating a role in the IAM console for secondary/resource accounts
 
 To enable AWS Resilience Hub to access AWS services and resources in other
 AWS accounts, you must create roles in each of these accounts.
 
-###### To create a role in the IAM console for the secondary/resource
-
-accounts using IAM console
+###### To create a role in the IAM console for the secondary/resource accounts using IAM console
 
 1. Open the IAM console at
    `https://console.aws.amazon.com/iam/`.

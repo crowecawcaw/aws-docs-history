@@ -5,7 +5,5 @@ more information, see the [To view the recommended AWS FIS experiments from asse
 
 ###### Topics
 
-- [Analyzing AWS FIS experiment execution using AWS
-  Systems Manager](test-failures-ssm.md "test-failures-ssm.md")
-- [AWS FIS experiment failures while testing Kubernetes
-  pods running in your Amazon Elastic Kubernetes Service clusters](test-failures-eks.md "test-failures-eks.md")
+- [Analyzing AWS FIS experiment execution using AWS Systems Manager](test-failures-ssm.md "test-failures-ssm.md")
+- [AWS FIS experiment failures while testing Kubernetes pods running in your Amazon Elastic Kubernetes Service clusters](test-failures-eks.md "test-failures-eks.md")

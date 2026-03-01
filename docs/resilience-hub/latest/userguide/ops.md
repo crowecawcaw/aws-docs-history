@@ -32,7 +32,6 @@ In AWS Resilience Hub, you can perform the following actions:
   access your created templates through an Amazon Simple Storage Service (Amazon S3) URL.
 - You can include or exclude selected alarms, SOPs, and AWS FIS experiments
   that were recommended for your application at any point of time. For more
-  information see, [Including or excluding operational
-  recommendations](exclude-recommend.md "exclude-recommend.md").
+  information see, [Including or excluding operational recommendations](exclude-recommend.md "exclude-recommend.md").
 - You can also search, create, add, remove, and manage tags, for an
   application and see all the tags associated with it.

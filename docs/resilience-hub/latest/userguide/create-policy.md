@@ -33,7 +33,7 @@ them.
 
 1. In the left navigation menu, choose **Applications**.
 2. Complete the procedures from [Get started by adding an application](describe-app-intro.md "describe-app-intro.md") through
-   [Add tags](add-tags.md "add-tags.md") .
+   [Add tags](add-tags.md "add-tags.md").
 3. In **Resiliency policies** section, choose **Create
    resiliency policy**.
 

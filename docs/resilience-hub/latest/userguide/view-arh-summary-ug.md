@@ -29,21 +29,15 @@ The charts and graphs in the widgets help you understand the following:
 ###### Widgets
 
 - [Application status](#arh-summary-app-status-ug "#arh-summary-app-status-ug")
-- [Top infrastructure
-  recommendations by resource type](#arh-summary-infra-top-recommendation-ug "#arh-summary-infra-top-recommendation-ug")
-- [Infrastructure
-  recommendations](#arh-summary-infra-recommendation-ug "#arh-summary-infra-recommendation-ug")
-- [Unimplemented operational
-  recommendations](#arh-summary-ops-recommendation-ug "#arh-summary-ops-recommendation-ug")
-- [Alarm
-  recommendations](#arh-summary-alarms-overtime-recommendation-ug "#arh-summary-alarms-overtime-recommendation-ug")
+- [Top infrastructure recommendations by resource type](#arh-summary-infra-top-recommendation-ug "#arh-summary-infra-top-recommendation-ug")
+- [Infrastructure recommendations](#arh-summary-infra-recommendation-ug "#arh-summary-infra-recommendation-ug")
+- [Unimplemented operational recommendations](#arh-summary-ops-recommendation-ug "#arh-summary-ops-recommendation-ug")
+- [Alarm recommendations](#arh-summary-alarms-overtime-recommendation-ug "#arh-summary-alarms-overtime-recommendation-ug")
 - [SOP recommendations](#arh-summary-sop-overtime-recommendation-ug "#arh-summary-sop-overtime-recommendation-ug")
-- [AWS FIS experiment
-  recommendations](#arh-summary-fis-exp-overtime-recommendation-ug "#arh-summary-fis-exp-overtime-recommendation-ug")
+- [AWS FIS experiment recommendations](#arh-summary-fis-exp-overtime-recommendation-ug "#arh-summary-fis-exp-overtime-recommendation-ug")
 - [Applications with drifts](#arh-summary-app-drifts-ug "#arh-summary-app-drifts-ug")
 - [Resiliency score](#arh-summary-res-score-overtime-recommendation-ug "#arh-summary-res-score-overtime-recommendation-ug")
-- [Bottom 10 applications for
-  resiliency score](#arh-summary-res-score-bottom-ten-app-ug "#arh-summary-res-score-bottom-ten-app-ug")
+- [Bottom 10 applications for resiliency score](#arh-summary-res-score-bottom-ten-app-ug "#arh-summary-res-score-bottom-ten-app-ug")
 - [Application state by policy](#arh-summary-app-state-policy-ug "#arh-summary-app-state-policy-ug")
 
 ## Application status
@@ -55,9 +49,7 @@ To view all the applications you have created, choose **View
 applications**. For more information about managing applications in
 AWS Resilience Hub, see [Viewing an AWS Resilience Hub application summary](view-app-summary.md "view-app-summary.md").
 
-## Top infrastructure
-
-recommendations by resource type
+## Top infrastructure recommendations by resource type
 
 This widget displays the number of infrastructure recommendations for each resource
 type of your AWS resources provided in the last successful assessment to improve their
@@ -66,9 +58,7 @@ to them. To view all the applications you have created, choose **View
 applications**. For more information about infrastructure recommendations,
 see [Reviewing resiliency recommendations](resil-recs.md "resil-recs.md").
 
-## Infrastructure
-
-recommendations
+## Infrastructure recommendations
 
 This widget lists up to 10 applications that have the maximum number of infrastructure
 recommendations provided in the last successful assessment to improve their resiliency
@@ -87,9 +77,7 @@ You can identify the details using the following:
 - **Last assessed** – Indicates the date and time when
   your application was last assessed successfully.
 
-## Unimplemented operational
-
-recommendations
+## Unimplemented operational recommendations
 
 This widget lists up to 10 applications that have the maximum number of unimplemented
 operational recommendations provided in the last successful assessment to improve their
@@ -108,9 +96,7 @@ You can identify the details using the following:
 - **Last assessment time** – Indicates the date and time
   when your application was last assessed successfully.
 
-## Alarm
-
-recommendations
+## Alarm recommendations
 
 This widget lists all the Amazon CloudWatch alarm recommendations provided for improving the
 resilience posture over a selected time period. The different categories
@@ -132,9 +118,7 @@ hovering over them or by navigating to them. To view all the applications you ha
 created, choose **View applications**. For more information about
 operational recommendations, see [Reviewing operational recommendations](ops.md "ops.md").
 
-## AWS FIS experiment
-
-recommendations
+## AWS FIS experiment recommendations
 
 This widget lists all the AWS FIS experiment recommendations provided for
 improving the resilience posture over a selected time period. The different categories
@@ -174,9 +158,7 @@ and then choosing the application name to view the application summary. To view 
 applications you have created, choose **View applications**. For more
 information about resilience score, see [Understanding resiliency scores](resil-score.md "resil-score.md").
 
-## Bottom 10 applications for
-
-resiliency score
+## Bottom 10 applications for resiliency score
 
 This widget lists up to 10 applications with the lowest resiliency scores from their
 most recent assessments, highlighting the applications that require immediate attention

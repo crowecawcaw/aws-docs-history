@@ -1,12 +1,9 @@
-# AWS Resilience Hub access
-
-permissions reference
+# AWS Resilience Hub access permissions reference
 
 You can use AWS Identity and Access Management (IAM) to manage access to the application resources and
 create IAM policies that apply to users, groups, or roles.
 
-Every AWS Resilience Hub application can be configured to use the [Invoker
-role](security-iam-resilience-hub-invoker-role.md "security-iam-resilience-hub-invoker-role.md") (an IAM role), or use the
+Every AWS Resilience Hub application can be configured to use the [Invoker role](security-iam-resilience-hub-invoker-role.md "security-iam-resilience-hub-invoker-role.md") (an IAM role), or use the
 current IAM user permissions (along with a set of predefined roles for
 cross-account and scheduled assessment). In this role, you can attach a policy that
 defines the permissions required by AWS Resilience Hub to access other AWS resources or
@@ -30,6 +27,5 @@ see [Control access to VPC endpoints using endpoint policies](../../../vpc/lates
 
 **Topics**
 
-- [Using IAM
-  role](security-iam-resilience-hub-using-iam-role.md "security-iam-resilience-hub-using-iam-role.md")
+- [Using IAM role](security-iam-resilience-hub-using-iam-role.md "security-iam-resilience-hub-using-iam-role.md")
 - [Using current IAM user permissions](security-iam-resilience-hub-current-user-permissions.md "security-iam-resilience-hub-current-user-permissions.md")

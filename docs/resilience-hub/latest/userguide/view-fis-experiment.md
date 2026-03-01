@@ -19,9 +19,7 @@ experiments using the following information:
 - **Experiment template ID** – Identifier of the AWS FIS
   experiment template that was used to create the AWS FIS experiment.
 
-###### To view the list of implemented AWS FIS
-
-experiments from applications
+###### To view the list of implemented AWS FIS experiments from applications
 
 1. In the left navigation menu, choose **Applications**.
 2. Select an application from the **Applications** table.

@@ -44,5 +44,4 @@ and **RPO**.
 
 ## Next
 
-[Setup scheduled assessments and drift
-notification](scheduled-assessment.md "scheduled-assessment.md")
+[Setup scheduled assessments and drift notification](scheduled-assessment.md "scheduled-assessment.md")

@@ -71,8 +71,7 @@ Disabling scheduled assessment will disable drift notification. 4. Choose **Turn
    - Choose **Enable notification** in **Application
      drifts** section.
 
-4. Complete the steps in [Setup scheduled assessments and drift
-   notification](scheduled-assessment.md "scheduled-assessment.md"), and then return to this
+4. Complete the steps in [Setup scheduled assessments and drift notification](scheduled-assessment.md "scheduled-assessment.md"), and then return to this
    procedure.
 5. Choose **Enable**.
 
@@ -96,8 +95,7 @@ notification.
    - Choose **Edit notification** in **Application
      drifts** section.
 
-4. Complete the steps in [Setup scheduled assessments and drift
-   notification](scheduled-assessment.md "scheduled-assessment.md"), and then return to this
+4. Complete the steps in [Setup scheduled assessments and drift notification](scheduled-assessment.md "scheduled-assessment.md"), and then return to this
    procedure.
 5. Choose **Save**.
 
@@ -225,8 +223,7 @@ You can identify the resources by the following:
      the component resource for your application. For example,
      `AWS::EC2::Instance` declares an Amazon EC2
      instance.
-     For more information about grouping AppComponent resources, see [Grouping resources in an Application
-     Component](AppComponent.md "AppComponent.md").
+     For more information about grouping AppComponent resources, see [Grouping resources in an Application Component](AppComponent.md "AppComponent.md").
     * **Source name** – The name of the input source.
      Choose a source name to view its details in the respective application. For
      manually added input sources, the link will not be available. For example,
@@ -318,8 +315,7 @@ You can identify the resources by the following:
 
 ###### Note
 
-For more information about grouping AppComponent resources, see [Grouping resources in an Application
-Component](AppComponent.md "AppComponent.md").
+For more information about grouping AppComponent resources, see [Grouping resources in an Application Component](AppComponent.md "AppComponent.md").
 
 The **AppComponents** section lists all the logical components
 that the resources are grouped into. You can identify the AppComponents by the
@@ -358,5 +354,4 @@ following:
    After you make changes to your resource list, you will receive an alert indicating that
    changes have been made to the draft version of your application. To run an accurate
    resiliency assessment, you must publish a new version of your application. For more
-   information about how to publish a new version, see [Publishing a new AWS Resilience Hub application
-   version](applications-publish.md "applications-publish.md").
+   information about how to publish a new version, see [Publishing a new AWS Resilience Hub application version](applications-publish.md "applications-publish.md").

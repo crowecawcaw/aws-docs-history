@@ -1,15 +1,11 @@
-# Initiating, creating, and running AWS FIS
-
-experiments
+# Initiating, creating, and running AWS FIS experiments
 
 AWS Resilience Hub simplifies AWS FIS experiments by integrating with AWS FIS experiments. It
 provides tailored recommendations and allows initiating AWS FIS experiments with
 pre-populated templates mapped to your Application Components (AppComponents), enabling
 efficient resilience testing.
 
-###### To initiate an AWS FIS experiment from
-
-Operational recommendations
+###### To initiate an AWS FIS experiment from Operational recommendations
 
 1. Open the AWS Resilience Hub console.
 2. In the navigation pane, choose **Applications**.

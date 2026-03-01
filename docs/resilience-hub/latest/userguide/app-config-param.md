@@ -1,6 +1,4 @@
-# Configure the application configuration
-
-parameters
+# Configure the application configuration parameters
 
 This section allows you to provide the details of your cross-Region failover support using
 AWS Elastic Disaster Recovery. AWS Resilience Hub will use this information to provide resiliency recommendations.

@@ -96,10 +96,8 @@ You must have Amazon EKS permissions and additional IAM roles to connect to the 
 For more information about adding single account and cross-account Amazon EKS permissions and
 additional IAM roles to connect to the cluster, see the following topics:
 
-- [AWS Resilience Hub access
-  permissions reference](security-iam-resilience-hub-permissions.md "security-iam-resilience-hub-permissions.md")
-- [Enabling AWS Resilience Hub access to your Amazon Elastic Kubernetes Service
-  cluster](enabling-eks-in-arh.md "enabling-eks-in-arh.md")
+- [AWS Resilience Hub access permissions reference](security-iam-resilience-hub-permissions.md "security-iam-resilience-hub-permissions.md")
+- [Enabling AWS Resilience Hub access to your Amazon Elastic Kubernetes Service cluster](enabling-eks-in-arh.md "enabling-eks-in-arh.md")
 
 Choose the Amazon EKS clusters and namespaces that contain the resources you want to use in the
 application you're describing. The Amazon EKS clusters can be from the AWS account that you are
@@ -125,8 +123,7 @@ namespace name must match exactly with the namespace name on your Amazon EKS clu
    the _AWS General Reference_.
 
 For more information about adding permissions to access cross-Region Amazon Elastic Kubernetes Service clusters,
-see [Enabling AWS Resilience Hub access to your Amazon Elastic Kubernetes Service
-cluster](enabling-eks-in-arh.md "enabling-eks-in-arh.md").
+see [Enabling AWS Resilience Hub access to your Amazon Elastic Kubernetes Service cluster](enabling-eks-in-arh.md "enabling-eks-in-arh.md").
 
 ###### To add namespaces from the selected Amazon EKS clusters
 

@@ -15,7 +15,7 @@ option**:
   recommended options. If Regional RTO and RPO targets are not set,
   **Optimize for Availability Zone (AZ)
   RTO/RPO** is displayed. For more information about setting
-  Regional RTO/RPO targets while creating resiliency policies, see [Creating resiliency policies](create-policy.md "create-policy.md") .
+  Regional RTO/RPO targets while creating resiliency policies, see [Creating resiliency policies](create-policy.md "create-policy.md").
 - Estimated workload RTO and estimated workload RPO values for the
   applications and their configurations are determined by considering the
   amount of data and individual AppComponents. However, these values are

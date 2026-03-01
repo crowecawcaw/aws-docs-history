@@ -24,9 +24,7 @@ to perform scheduled assessment related tasks.
 - The role name must be
   `AwsResilienceHubPeriodicAssessmentRole`.
 
-###### To enable AWS Resilience Hub to perform scheduled assessment related
-
-tasks
+###### To enable AWS Resilience Hub to perform scheduled assessment related tasks
 
 1. Attach the `AWSResilienceHubAsssessmentExecutionPolicy`
    managed policy to the role.
@@ -78,8 +76,7 @@ for cross-account access, the following accounts and roles are considered:
 - While using the role-based access (with the invoker role
   mentioned above) this step is not required.
 - For more information about configuring permissions to access
-  Amazon Elastic Kubernetes Service, see [Enabling AWS Resilience Hub access to your Amazon Elastic Kubernetes Service
-  cluster](enabling-eks-in-arh.md "enabling-eks-in-arh.md").
+  Amazon Elastic Kubernetes Service, see [Enabling AWS Resilience Hub access to your Amazon Elastic Kubernetes Service cluster](enabling-eks-in-arh.md "enabling-eks-in-arh.md").
 
 ### Primary account setup
 

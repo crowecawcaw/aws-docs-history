@@ -1,16 +1,11 @@
-# Running resiliency assessments from
-
-Resiliency widget
+# Running resiliency assessments from Resiliency widget
 
 For applications created in **myApplications** widget, you can now run
 resiliency assessments from the **Resiliency** widget and AWS Resilience Hub
 console. For more information about running resiliency assessments from AWS Resilience Hub
 console, see [Running resiliency assessments in AWS Resilience Hub](run-assessment.md "run-assessment.md").
 
-###### To run a resiliency assessment for an existing
-
-**myApplications** application from
-**Resiliency** widget for the first time
+###### To run a resiliency assessment for an existing **myApplications** application from **Resiliency** widget for the first time
 
 1. Sign in to the [AWS Management
    Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").
@@ -64,10 +59,7 @@ Before starting assessments, it is advisable to evaluate the potential
 costs involved in running assessments using AWS Resilience Hub. For detailed pricing
 information, see the [AWS Resilience Hub pricing](https://aws.amazon.com//resilience-hub/pricing?icmpid=docs_resiliencehub_help_panel_resiliency_policies_hp "https://aws.amazon.com//resilience-hub/pricing?icmpid=docs_resiliencehub_help_panel_resiliency_policies_hp").
 
-###### To rerun a resiliency assessment for an existing
-
-**myApplications** application from
-**Resiliency** widget
+###### To rerun a resiliency assessment for an existing **myApplications** application from **Resiliency** widget
 
 1. Sign in to the [AWS Management
    Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").

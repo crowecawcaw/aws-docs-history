@@ -114,10 +114,8 @@ options in the **Applications** page:
 - [Viewing an AWS Resilience Hub application summary](view-app-summary.md "view-app-summary.md")
 - [Editing AWS Resilience Hub application resources](application-resources.md "application-resources.md")
 - [Managing Application Components](AppComponent.md "AppComponent.md")
-- [Publishing a new AWS Resilience Hub application
-  version](applications-publish.md "applications-publish.md")
-- [Viewing all the AWS Resilience Hub application
-  versions](view-application-version.md "view-application-version.md")
+- [Publishing a new AWS Resilience Hub application version](applications-publish.md "applications-publish.md")
+- [Viewing all the AWS Resilience Hub application versions](view-application-version.md "view-application-version.md")
 - [Viewing resources of AWS Resilience Hub application](view-resources.md "view-resources.md")
 - [Deleting an AWS Resilience Hub application](applications-delete.md "applications-delete.md")
 - [Application configuration parameters](app-config.md "app-config.md")

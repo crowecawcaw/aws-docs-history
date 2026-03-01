@@ -1,6 +1,4 @@
-# Manually grouping resources into an
-
-AppComponent
+# Manually grouping resources into an AppComponent
 
 This section explains how to manually group resources into an AppComponent and
 assigning different AppComponent to a resource in AWS Resilience Hub.

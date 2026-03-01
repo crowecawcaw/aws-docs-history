@@ -1,6 +1,4 @@
-# Modifying your
-
-application
+# Modifying your application
 
 AWS Resilience Hub allows you to modify your application resources by editing a draft version
 of your application and publishing the changes to a new (published) version. AWS Resilience Hub
@@ -9,16 +7,11 @@ running resiliency assessments.
 
 For more information, see the following topics:
 
-- [Manually adding resources to your
-  application](#manually-add-resource-using-api "#manually-add-resource-using-api")
-- [Grouping resources into a single
-  Application Component](#group-resource-using-api "#group-resource-using-api")
-- [Excluding a resource from an
-  AppComponent](#exclude-resource-using-api "#exclude-resource-using-api")
+- [Manually adding resources to your application](#manually-add-resource-using-api "#manually-add-resource-using-api")
+- [Grouping resources into a single Application Component](#group-resource-using-api "#group-resource-using-api")
+- [Excluding a resource from an AppComponent](#exclude-resource-using-api "#exclude-resource-using-api")
 
-## Manually adding resources to your
-
-application
+## Manually adding resources to your application
 
 If the resource is not deployed as part of an input source, AWS Resilience Hub allows you
 to manually add the resource to your application using
@@ -74,9 +67,7 @@ aws resiliencehub create-app-version-resource \
 }
 ```
 
-## Grouping resources into a single
-
-Application Component
+## Grouping resources into a single Application Component
 
 An Application Component (AppComponent) is a group of related AWS resources that
 work and fail as a single unit. For example, when you have cross-Region workloads
@@ -143,9 +134,7 @@ aws resiliencehub delete-app-version-app-component \
 }
 ```
 
-## Excluding a resource from an
-
-AppComponent
+## Excluding a resource from an AppComponent
 
 AWS Resilience Hub allows you to exclude resources from assessments using
 `UpdateAppVersionResource` API. These resources will not be

@@ -142,8 +142,7 @@ using the following:
     	 below will filter the **Alarms** table to
     	 display all the recommended alarms that are excluded from your
     	 application. For more information about including and excluding
-    	 recommended alarms, see [Including or excluding operational
-    	 recommendations](exclude-recommend.md "exclude-recommend.md").
+    	 recommended alarms, see [Including or excluding operational recommendations](exclude-recommend.md "exclude-recommend.md").
     	+ **Inactive** – Indicates that the
     	 alarms are deployed to Amazon CloudWatch, but the status is set to
     	 **INSUFFICIENT\_DATA** in Amazon CloudWatch. Choosing

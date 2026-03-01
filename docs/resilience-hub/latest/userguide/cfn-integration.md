@@ -1,6 +1,4 @@
-# Integrating operational recommendations into your application
-
-with CloudFormation
+# Integrating operational recommendations into your application with CloudFormation
 
 After you choose **Create CloudFormation template** in the
 **Operational recommendations** page, AWS Resilience Hub creates an CloudFormation template that

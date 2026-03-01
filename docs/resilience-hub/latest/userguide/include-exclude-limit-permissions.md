@@ -1,6 +1,4 @@
-# Limiting permissions to
-
-include or exclude AWS Resilience Hub recommendations
+# Limiting permissions to include or exclude AWS Resilience Hub recommendations
 
 AWS Resilience Hub enables you to restrict permissions to include or exclude
 recommendations per application. You can restrict permissions to include or exclude

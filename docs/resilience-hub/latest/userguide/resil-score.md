@@ -21,5 +21,4 @@ recommendations from your application. To understand the impact of the excluded
 recommendations on the resiliency score, you must run a new assessment. However, you can
 always include the excluded recommendations in your application and run a new assessment.
 For more information about including and excluding alarm, SOP, and test recommendations, see
-[Including or excluding operational
-recommendations](exclude-recommend.md "exclude-recommend.md").
+[Including or excluding operational recommendations](exclude-recommend.md "exclude-recommend.md").

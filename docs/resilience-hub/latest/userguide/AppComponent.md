@@ -56,5 +56,4 @@ The AWS Resilience Hub AppComponents support the following resources:
 
 ###### Topics
 
-- [Grouping resources in an Application
-  Component](AppComponent.md "AppComponent.md")
+- [Grouping resources in an Application Component](AppComponent.md "AppComponent.md")
