@@ -21,8 +21,7 @@ network.
 - [Hardware maintenance](#outpost-hardware-maintenance-events "#outpost-hardware-maintenance-events")
 - [Firmware updates](#outpost-firmware-updates "#outpost-firmware-updates")
 - [Network equipment maintenance](#outpost-network-equipment-maintenance "#outpost-network-equipment-maintenance")
-- [Best practices for power and network
-  events](#outpost-power-network-events "#outpost-power-network-events")
+- [Best practices for power and network events](#outpost-power-network-events "#outpost-power-network-events")
 
 ## Update contact details
 
@@ -85,9 +84,7 @@ maintenance is required. This traffic shift requires equal BGP prefixes from the
 side on all ONDs. If maintenance is required on the customer network, we recommend that you
 use AS-Path prepending to temporarily shift traffic array from specific uplinks.
 
-## Best practices for power and network
-
-events
+## Best practices for power and network events
 
 As stated in the [AWS Service Terms](https://aws.amazon.com/service-terms/ "https://aws.amazon.com/service-terms/") for AWS Outposts customers, the facility where the Outposts equipment
 is located must meet the minimum [power](outposts-rack2ndgen-requirements.md#compute-network-power-requirements "outposts-rack2ndgen-requirements.md#compute-network-power-requirements") and [network](outposts-rack2ndgen-requirements.md#network-rack-requirements "outposts-rack2ndgen-requirements.md#network-rack-requirements")

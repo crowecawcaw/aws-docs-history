@@ -42,9 +42,7 @@ to:
   Virtual LAN (VLAN) and Border Gateway Protocol (BGP) settings, through the API and AWS Outposts
   console.
 
-## Specialized Amazon EC2 instances with accelerated
-
-networking
+## Specialized Amazon EC2 instances with accelerated networking
 
 Second-generation Outposts racks support specialized Amazon EC2 instances with accelerated
 networking. These instances are built for the latency-sensitive, compute-intensive, and

@@ -18,17 +18,13 @@ between your Outposts and the AWS Region:
 
 Second-generation Outposts racks require a /24 or larger subnet for the service link infrastructure. This subnet is customer-provided IP address space used by Outpost networking devices to establish connectivity to AWS Region endpoints.
 
-## Option 1. Public connectivity through the
-
-internet
+## Option 1. Public connectivity through the internet
 
 This option requires the AWS Outposts [service link infrastructure subnet IPs](outposts-rack2ndgen-local-rack.md#service-link-subnet "outposts-rack2ndgen-local-rack.md#service-link-subnet") to have access to the public IP ranges of
 your AWS Region or home Region. You must allow-list AWS Region public IPs or 0.0.0.0/0
 on networking devices such as your firewall.
 
-## Option 2. Public connectivity through Direct Connect
-
-public VIFs
+## Option 2. Public connectivity through Direct Connect public VIFs
 
 This option requires the AWS Outposts [service link infrastructure subnet IPs](outposts-rack2ndgen-local-rack.md#service-link-subnet "outposts-rack2ndgen-local-rack.md#service-link-subnet") to have access to the public IP ranges of
 your AWS Region or home Region over DX service. You must allow-list AWS Region public

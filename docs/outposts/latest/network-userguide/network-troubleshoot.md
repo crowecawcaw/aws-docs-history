@@ -5,9 +5,7 @@ Use this checklist to help troubleshoot a service link that has a status of
 
 ![Virtual LANs.](images/outpost-rack2ndgen-servicelink-troubleshoot.png)
 
-## Connectivity with Outpost network
-
-devices
+## Connectivity with Outpost network devices
 
 Check the BGP peering status on the customer local network devices that are connected to
 the Outpost network devices. If the BGP peering status is `DOWN`, follow these
@@ -57,18 +55,13 @@ Use one of the following checklists, depending on how your service link connecti
 provisioned.
 
 - Edge routers connected with Direct Connect – Public virtual interface in use for
-  service link connectivity. For more information, see [Direct Connect public virtual interface connectivity to AWS
-  Region](#check-dc-public "#check-dc-public").
+  service link connectivity. For more information, see [Direct Connect public virtual interface connectivity to AWS Region](#check-dc-public "#check-dc-public").
 - Edge routers connected with Direct Connect – Private virtual interface in use for
-  service link connectivity. For more information, see [Direct Connect private virtual interface connectivity to AWS
-  Region](#check-dc-private "#check-dc-private").
+  service link connectivity. For more information, see [Direct Connect private virtual interface connectivity to AWS Region](#check-dc-private "#check-dc-private").
 - Edge routers connected with Internet Service Providers (ISPs) – Public internet
-  in use for service link connectivity. For more information, see [ISP public internet connectivity to AWS
-  Region](#check-public-internet "#check-public-internet").
+  in use for service link connectivity. For more information, see [ISP public internet connectivity to AWS Region](#check-public-internet "#check-public-internet").
 
-## Direct Connect public virtual interface connectivity to AWS
-
-Region
+## Direct Connect public virtual interface connectivity to AWS Region
 
 Use the following checklist to troubleshoot edge routers connected with Direct Connect when a
 public virtual interface is in use for service link connectivity.
@@ -126,9 +119,7 @@ public virtual interface is in use for service link connectivity.
    router to the Direct Connect peer IP addresses. Share the test results with AWS Support, using
    your Enterprise support plan.
 
-## Direct Connect private virtual interface connectivity to AWS
-
-Region
+## Direct Connect private virtual interface connectivity to AWS Region
 
 Use the following checklist to troubleshoot edge routers connected with Direct Connect when a
 private virtual interface is in use for service link connectivity.
@@ -166,9 +157,7 @@ private virtual interface is in use for service link connectivity.
    router to the Direct Connect peer IP addresses. Share the test results with AWS Support, using
    your Enterprise support plan.
 
-## ISP public internet connectivity to AWS
-
-Region
+## ISP public internet connectivity to AWS Region
 
 Use the following checklist to troubleshoot edge routers connected through an ISP when
 using the public internet for service link connectivity.

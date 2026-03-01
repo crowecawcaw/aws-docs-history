@@ -1,6 +1,4 @@
-# Site requirements for second-generation
-
-Outposts racks
+# Site requirements for second-generation Outposts racks
 
 This page covers the requirements for second-generation Outposts network and compute
 racks.
@@ -9,8 +7,7 @@ racks.
 
 - [Compute rack requirements](#compute-rack-requirements "#compute-rack-requirements")
 - [Network rack requirements](#network-rack-requirements "#network-rack-requirements")
-- [Power requirements for compute and
-  network racks](#compute-network-power-requirements "#compute-network-power-requirements")
+- [Power requirements for compute and network racks](#compute-network-power-requirements "#compute-network-power-requirements")
 - [Order fulfillment](#order-fulfillment "#order-fulfillment")
 
 ## Compute rack requirements
@@ -304,9 +301,7 @@ For more information, see [Local gateway BGP connectivity](outposts-rack2ndgen-l
 | #3                    | – Local gateway BGP peer IP address.<br>– Local gateway BGP peer ASN. 2-byte (16-bit) or 4-byte<br>(32-bit). |
 | #4                    | – Local gateway BGP peer IP address.<br>– Local gateway BGP peer ASN. 2-byte (16-bit) or 4-byte<br>(32-bit). |
 
-## Power requirements for compute and
-
-network racks
+## Power requirements for compute and network racks
 
 The Outposts power shelf supports 10 kVA, 15 kVA, and 30 kVA power positions. Contact your
 AWS representative if you need a custom configuration for your unique application

@@ -32,9 +32,9 @@ bandwidth](../../../AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.md ".
 
 ###### IP Address Planning for Local Gateway
 
-For Outposts using private connectivity, do not create CoIP pools or DVR subnet ranges
+For Outposts using private connectivity, avoid creating CoIP pools or DVR subnet ranges
 that overlap with existing Service Link VIF address ranges or VPC CIDR ranges used for the
-dedicated private connectivity VPC, as they will cause BGP routing conflicts and affect
+dedicated private connectivity VPC, as they may cause BGP routing conflicts and disrupt
 Service Link functionality.
 
 A local gateway has the following components:

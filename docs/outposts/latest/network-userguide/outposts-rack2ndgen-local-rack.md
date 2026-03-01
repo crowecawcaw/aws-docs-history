@@ -1,6 +1,4 @@
-# Local network connectivity for
-
-Outposts network racks
+# Local network connectivity for Outposts network racks
 
 You need the following components to connect your Outposts network racks to your on-premises
 network:
@@ -23,11 +21,9 @@ network:
 - [Virtual LANs](#vlans "#vlans")
 - [Network layer connectivity](#network-layer-connectivity "#network-layer-connectivity")
 - [Service link BGP connectivity](#service-link-bgp-connectivity "#service-link-bgp-connectivity")
-- [Service link infrastructure subnet advertisement and IP
-  range](#service-link-subnet "#service-link-subnet")
+- [Service link infrastructure subnet advertisement and IP range](#service-link-subnet "#service-link-subnet")
 - [Local gateway BGP connectivity](#local-gateway-bgp-connectivity "#local-gateway-bgp-connectivity")
-- [Local gateway customer-owned IP subnet
-  advertisement](#local-gateway-subnet "#local-gateway-subnet")
+- [Local gateway customer-owned IP subnet advertisement](#local-gateway-subnet "#local-gateway-subnet")
 
 ## Link aggregation
 
@@ -141,9 +137,7 @@ from the navigation pane. Select the link aggregation group. Choose the **LGW vi
 interfaces (VIFs)** and **Service link virtual interfaces (VIFs)**
 tabs to see the BGP values.
 
-## Service link infrastructure subnet advertisement and IP
-
-range
+## Service link infrastructure subnet advertisement and IP range
 
 You provide a /24 CIDR range during the pre-installation process for the _service link infrastructure subnet_. The Outpost infrastructure uses
 this range to establish connectivity to the Region through the service link. The service link
@@ -178,9 +172,7 @@ customer side on all network devices. If maintenance is required on the customer
 recommend that you use AS-Path prepending to temporarily shift traffic array from specific
 uplinks.
 
-## Local gateway customer-owned IP subnet
-
-advertisement
+## Local gateway customer-owned IP subnet advertisement
 
 By default, the local gateway uses the private IP addresses of instances in your VPC (see
 [Direct VPC

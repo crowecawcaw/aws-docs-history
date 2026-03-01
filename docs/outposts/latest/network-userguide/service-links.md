@@ -12,9 +12,7 @@ managed by AWS. The service link facilitates the following traffic:
 - Outposts management traffic, such as resource management, resource monitoring, and
   firmware and software updates.
 
-## Service link maximum transmission unit (MTU)
-
-requirements
+## Service link maximum transmission unit (MTU) requirements
 
 The maximum transmission unit (MTU) of a network connection is the size, in bytes, of
 the largest permissible packet that can be passed over the connection.
@@ -27,9 +25,7 @@ Note the following:
   an MTU of 1300 bytes, which is lower than the required MTU of 1500 bytes due to packet
   overheads.
 
-## Service link bandwidth
-
-recommendations
+## Service link bandwidth recommendations
 
 For an optimal experience and resiliency, AWS requires that you use redundant
 connectivity of at least 500 Mbps for each compute rack and a maximum of 175 ms round trip
@@ -81,8 +77,7 @@ The following steps explain the service link setup process.
    access to the AWS Region or home Region. AWS Outposts utilizes the [service link infrastructure subnet IPs](outposts-rack2ndgen-local-rack.md#service-link-subnet "outposts-rack2ndgen-local-rack.md#service-link-subnet") to set up VPN connections and exchange
    control and data traffic with the Region. Service link establishment is always initiated
    from the Outpost.
-
-###### Note
+6. ###### Note
 
 You won't be able to modify the service link configuration or connectivity type after you complete the
 order.

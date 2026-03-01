@@ -1,6 +1,4 @@
-# AWS Outposts policy
-
-examples
+# AWS Outposts policy examples
 
 By default, users and roles don't have permission to create or modify AWS Outposts
 resources. To grant users permission to perform actions on the
@@ -14,14 +12,10 @@ For details about actions and resource types defined by AWS Outposts, including 
 
 ###### Contents
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Example: Using resource-level
-  permissions](#outposts-policy-examples "#outposts-policy-examples")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Example: Using resource-level permissions](#outposts-policy-examples "#outposts-policy-examples")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete AWS Outposts resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -54,9 +48,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Example: Using resource-level
-
-permissions
+## Example: Using resource-level permissions
 
 The following example uses resource-level permissions to grant permission to get
 information about the specified Outpost.

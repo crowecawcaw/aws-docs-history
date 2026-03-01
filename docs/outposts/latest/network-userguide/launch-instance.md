@@ -12,8 +12,7 @@ You must have an Outpost installed at your site.
 
 - [Step 1: Create a VPC](#create-vpc "#create-vpc")
 - [Step 2: Create a subnet and custom route table](#create-subnet "#create-subnet")
-- [Step 3: Configure local gateway
-  connectivity](#configure-lgw-connectivity "#configure-lgw-connectivity")
+- [Step 3: Configure local gateway connectivity](#configure-lgw-connectivity "#configure-lgw-connectivity")
 - [Step 4: Configure the on-premises network](#configure-on-prem "#configure-on-prem")
 - [Step 5: Launch an instance on the Outpost](#launch-instances "#launch-instances")
 - [Step 6: Test the connectivity](#test-connecitivity "#test-connecitivity")
@@ -98,9 +97,7 @@ information, see [Network components](how-outposts-works.md#outposts-networking-
 4. Select the check box for the subnet to associate with the route table.
 5. Choose **Save associations**.
 
-## Step 3: Configure local gateway
-
-connectivity
+## Step 3: Configure local gateway connectivity
 
 The local gateway (LGW) enables connectivity between your Outpost subnets and your
 on-premises network.
@@ -168,9 +165,7 @@ target of the local gateway.
 | --------------- | -------- |
 | 172.16.100.0/24 | `lgw-id` |
 
-###### To add a route entry with the local gateway as a target in the subnet route
-
-table
+###### To add a route entry with the local gateway as a target in the subnet route table
 
 1. Open the Amazon VPC console at
    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
@@ -321,8 +316,7 @@ you launch the instance, just as you do for instances in an Availability Zone su
 
 - To use block data or boot volumes backed by compatible third-party storage, you
   must provision and configure these volumes for use with EC2 instances on Outposts.
-  For more information, see [Third-party block storage on
-  Outposts racks](outpost-third-party-block-storage.md "outpost-third-party-block-storage.md").
+  For more information, see [Third-party block storage on Outposts racks](outpost-third-party-block-storage.md "outpost-third-party-block-storage.md").
 - You can create a placement group to influence how Amazon EC2 should attempt to place groups
   of interdependent instances on the Outposts hardware. You can choose the placement group
   strategy that meets the needs of your workload.

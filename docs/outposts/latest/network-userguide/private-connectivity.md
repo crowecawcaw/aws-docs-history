@@ -23,10 +23,10 @@ Second-generation Outposts racks require a larger subnet size (/24 or larger) an
 ###### IP Address Planning for Private Connectivity
 
 When configuring private connectivity for the Outposts service link, plan your IP
-addressing carefully to avoid future conflicts. Service Link VIFs are immutable. You cannot
-create CoIP pools or DVR subnet ranges assigned to the Local Gateway (LGW) that overlap
+addressing carefully to avoid future conflicts. Service Link VIFs are immutable. You should
+avoid creating CoIP pools or DVR subnet ranges assigned to the Local Gateway (LGW) that overlap
 with existing Service Link address ranges or VPC CIDR ranges used for the dedicated private
-connectivity VPC, as they will cause BGP routing conflicts and affect Service Link
+connectivity VPC, as they may cause BGP routing conflicts and disrupt Service Link
 functionality.
 
 ## Prerequisites
@@ -107,8 +107,6 @@ JSON
   `0.0.0.0/0` and with no **outbound**
   rules.
 
-###### Note
-
 To select the private connectivity option when your Outpost is in
 **PENDING** status, choose **Outposts** from the AWS Outposts
 console and select your Outpost. Choose **Actions**, **Add private
@@ -132,13 +130,9 @@ on your behalf:
 After your Outpost is installed, confirm connectivity to the private IPs in your subnet
 from your Outpost.
 
-###### Note
-
 VPC configuration cannot be changed after order placement. If incorrect VPC specifications are provided during ordering, the Outpost must be decommissioned and a new order placed.
 
-## Option 1. Private connectivity through Direct Connect
-
-private VIFs
+## Option 1. Private connectivity through Direct Connect private VIFs
 
 Create an AWS Direct Connect connection, private virtual interface, and virtual private
 gateway to allow your on-premises Outpost to access the VPC.
@@ -158,9 +152,7 @@ If the AWS Direct Connect connection is in a different AWS account from your VPC
 virtual private gateway across accounts](../../../directconnect/latest/UserGuide/multi-account-associate-vgw.md "../../../directconnect/latest/UserGuide/multi-account-associate-vgw.md") in the
 _Direct Connect User Guide_.
 
-## Option 2. Private connectivity through Direct Connect
-
-transit VIFs
+## Option 2. Private connectivity through Direct Connect transit VIFs
 
 Create an AWS Direct Connect connection, transit virtual interface, and transit gateway to
 allow your on-premises Outpost to access the VPC.

@@ -13,8 +13,7 @@ route status changes from **active** to
 
 - [Requirements and limitations](#lgw-requirements-limitations "#lgw-requirements-limitations")
 - [Create custom local gateway route tables](#create-lgw-route-table "#create-lgw-route-table")
-- [Switch local gateway route table modes or delete a local
-  gateway route table](#switch-modes "#switch-modes")
+- [Switch local gateway route table modes or delete a local gateway route table](#switch-modes "#switch-modes")
 
 ## Requirements and limitations
 
@@ -111,9 +110,7 @@ network.
 [Remove a tag] Choose **Remove** to the right of the tag’s key and
 value. 10. Choose **Create local gateway route table**.
 
-## Switch local gateway route table modes or delete a local
-
-gateway route table
+## Switch local gateway route table modes or delete a local gateway route table
 
 You must delete and recreate the local gateway route table to switch modes. Deleting the
 local gateway route table causes network traffic interruption.

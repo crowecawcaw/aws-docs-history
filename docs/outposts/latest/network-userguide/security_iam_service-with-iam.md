@@ -1,6 +1,4 @@
-# How AWS Outposts works with
-
-IAM
+# How AWS Outposts works with IAM
 
 Before you use IAM to manage access to AWS Outposts, learn what IAM features are
 available to use with AWS Outposts.
@@ -19,9 +17,7 @@ available to use with AWS Outposts.
 | Service roles                                                                                                                                                               | No                   |
 | [Service-linked roles](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked")                                           | Yes                  |
 
-## Identity-based
-
-policies for AWS Outposts
+## Identity-based policies for AWS Outposts
 
 **Supports identity-based policies:**
 
@@ -38,16 +34,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for AWS Outposts
 
-Identity-based policy examples for AWS Outposts
+To view examples of AWS Outposts identity-based policies, see [AWS Outposts policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of AWS Outposts identity-based policies, see [AWS Outposts policy
-examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Policy
-
-actions for AWS Outposts
+## Policy actions for AWS Outposts
 
 **Supports policy actions:**
 
@@ -86,9 +77,7 @@ action:
 "Action": "outposts:List*"
 ```
 
-## Policy
-
-resources for AWS Outposts
+## Policy resources for AWS Outposts
 
 **Supports policy resources:**
 
@@ -137,8 +126,7 @@ To see a list of AWS Outposts condition keys, see [Condition keys for AWS Outpos
 _Service Authorization Reference_. To learn with which actions and resources
 you can use a condition key, see [Actions defined by AWS Outposts](../../../service-authorization/latest/reference/list_awsoutposts.md#awsoutposts-actions-as-permissions "../../../service-authorization/latest/reference/list_awsoutposts.md#awsoutposts-actions-as-permissions").
 
-To view examples of AWS Outposts identity-based policies, see [AWS Outposts policy
-examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS Outposts identity-based policies, see [AWS Outposts policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ABAC with AWS Outposts
 
@@ -157,9 +145,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with AWS Outposts
+## Using temporary credentials with AWS Outposts
 
 **Supports temporary credentials:**
 
@@ -171,9 +157,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for AWS Outposts
+## Cross-service principal permissions for AWS Outposts
 
 **Supports forward access sessions (FAS):**
 
@@ -182,9 +166,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service-linked
-
-roles for AWS Outposts
+## Service-linked roles for AWS Outposts
 
 **Supports service-linked roles:**
 
