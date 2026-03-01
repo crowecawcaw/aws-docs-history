@@ -4,8 +4,7 @@ The following procedures walk you through the process of creating a data reposit
 association for an FSx for Lustre file system to an existing S3 bucket, using the
 AWS Management Console and AWS Command Line Interface (AWS CLI). For information on adding permissions to an S3 bucket
 in order to link it to your file system,
-see [Adding permissions to use data repositories in
-Amazon S3](setting-up.md#fsx-adding-permissions-s3 "setting-up.md#fsx-adding-permissions-s3").
+see [Adding permissions to use data repositories in Amazon S3](setting-up.md#fsx-adding-permissions-s3 "setting-up.md#fsx-adding-permissions-s3").
 
 ###### Note
 
@@ -43,14 +42,12 @@ enabled. Disable backups before linking to a data repository.
    Policy** that determines how your file and directory listings are kept up
    to date as you add, change, or delete objects in your S3 bucket. For example, choose
    **New** to import metadata to your file system for new objects
-   created in the S3 bucket. For more information on import policies, see [Automatically import updates from your S3
-   bucket](autoimport-data-repo-dra.md "autoimport-data-repo-dra.md").
+   created in the S3 bucket. For more information on import policies, see [Automatically import updates from your S3 bucket](autoimport-data-repo-dra.md "autoimport-data-repo-dra.md").
 7. For **Export policy**, set an export policy that determines how
    your files are exported to your linked S3 bucket as you add, change, or delete
    objects in your file system. For example, choose **Changed** to
    export objects whose content or metadata has been changed on your file system. For
-   more information about export policies, see [Automatically export updates to your S3
-   bucket](autoexport-data-repo-dra.md "autoexport-data-repo-dra.md").
+   more information about export policies, see [Automatically export updates to your S3 bucket](autoexport-data-repo-dra.md "autoexport-data-repo-dra.md").
 8. Continue with the next section of the file system creation wizard.
 9. Open the Amazon FSx console at [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/").
 10. From the dashboard, choose **File systems** and then select the
@@ -83,14 +80,12 @@ enabled. Disable backups before linking to a data repository.
     Policy** that determines how your file and directory listings are kept up
     to date as you add, change, or delete objects in your S3 bucket. For example, choose
     **New** to import metadata to your file system for new objects
-    created in the S3 bucket. For more information about import policies, see [Automatically import updates from your S3
-    bucket](autoimport-data-repo-dra.md "autoimport-data-repo-dra.md").
+    created in the S3 bucket. For more information about import policies, see [Automatically import updates from your S3 bucket](autoimport-data-repo-dra.md "autoimport-data-repo-dra.md").
 15. For **Export policy**, set an export policy that determines how
     your files are exported to your linked S3 bucket as you add, change, or delete
     objects in your file system. For example, choose **Changed** to
     export objects whose content or metadata has been changed on your file system. For
-    more information about export policies, see [Automatically export updates to your S3
-    bucket](autoexport-data-repo-dra.md "autoexport-data-repo-dra.md").
+    more information about export policies, see [Automatically export updates to your S3 bucket](autoexport-data-repo-dra.md "autoexport-data-repo-dra.md").
 16. Choose **Create**.
     The following example creates a data repository association that links an Amazon FSx file system to an S3
     bucket, with an import policy that imports any new or changed files to the file system

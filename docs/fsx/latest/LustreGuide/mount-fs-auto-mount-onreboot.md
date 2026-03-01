@@ -1,13 +1,9 @@
-# Mounting your Amazon FSx file system
-
-automatically
+# Mounting your Amazon FSx file system automatically
 
 You can update the `/etc/fstab` file in your Amazon EC2 instance after you connect to
 the instance for the first time so that it mounts your Amazon FSx file system each time it reboots.
 
-## Using /etc/fstab to
-
-mount FSx for Lustre automatically
+## Using /etc/fstab to mount FSx for Lustre automatically
 
 To automatically mount your Amazon FSx file system directory when the Amazon EC2 instance
 reboots, you can use the `fstab` file. The `fstab`
@@ -60,8 +56,7 @@ Use the `_netdev` option, used to identify network file systems, when
 mounting your file system automatically. If `_netdev` is missing, your EC2
 instance might stop responding. This result is because network file systems need to be
 initialized after the compute instance starts its networking. For more information,
-see [Automatic mounting fails and the instance is
-unresponsive](mount-troubleshooting.md#lustre-automount-fails "mount-troubleshooting.md#lustre-automount-fails"). 3. Save the changes to the file.
+see [Automatic mounting fails and the instance is unresponsive](mount-troubleshooting.md#lustre-automount-fails "mount-troubleshooting.md#lustre-automount-fails"). 3. Save the changes to the file.
 
 Your EC2 instance is now configured to mount the Amazon FSx file system whenever it
 restarts.

@@ -93,5 +93,4 @@ repository path `s3://amzn-s3-demo-bucket/my-prefix/my-sub-prefix`.
 - [Deleting an association to an S3 bucket](delete-linked-dra.md "delete-linked-dra.md")
 - [Viewing data repository association details](view-dra-details.md "view-dra-details.md")
 - [Data repository association lifecycle state](dra-lifecycles.md "dra-lifecycles.md")
-- [Working with server-side encrypted Amazon S3
-  buckets](s3-server-side-encryption-support.md "s3-server-side-encryption-support.md")
+- [Working with server-side encrypted Amazon S3 buckets](s3-server-side-encryption-support.md "s3-server-side-encryption-support.md")

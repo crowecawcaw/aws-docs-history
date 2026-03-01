@@ -1,6 +1,4 @@
-# POSIX metadata support for data
-
-repositories
+# POSIX metadata support for data repositories
 
 Amazon FSx for Lustre automatically transfers Portable Operating System Interface (POSIX)
 metadata for files, directories, and symbolic links (symlinks) when importing and exporting

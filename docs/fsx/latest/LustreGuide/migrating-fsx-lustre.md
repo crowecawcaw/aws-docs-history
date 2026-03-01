@@ -6,9 +6,7 @@ between self-managed storage systems and AWS storage services over the internet 
 Direct Connect. DataSync can transfer your file system data and metadata, such as ownership, timestamps,
 and access permissions.
 
-## How to migrate existing files to FSx for Lustre using
-
-AWS DataSync
+## How to migrate existing files to FSx for Lustre using AWS DataSync
 
 You can use DataSync with FSx for Lustre file systems to perform one-time data migrations,
 periodically ingest data for distributed workloads, and schedule replication for data
@@ -35,9 +33,7 @@ in the _AWS DataSync User Guide_.
 
 DataSync can only transfer across AWS accounts to or from FSx for Lustre if the other transfer location is Amazon S3.
 
-### Basic steps for migrating files using
-
-DataSync
+### Basic steps for migrating files using DataSync
 
 Transferring files from a source to a destination using DataSync involves the
 following basic steps:

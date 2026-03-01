@@ -181,8 +181,7 @@ use up to 256 Unicode letters, white space, and numbers plus the special charact
 13. For **Data Repository Import/Export _optional_** section,
     linking your file system to Amazon S3 data repositories is disabled by default. For information
     about enabling this option and creating a data repository association to an existing S3 bucket, see
-    [To link an S3 bucket while
-    creating a file system (console)](create-linked-dra.md#export-path-lustre-console-dra-new "create-linked-dra.md#export-path-lustre-console-dra-new").
+    [To link an S3 bucket while creating a file system (console)](create-linked-dra.md#export-path-lustre-console-dra-new "create-linked-dra.md#export-path-lustre-console-dra-new").
 
 ###### Important
 
@@ -365,8 +364,7 @@ sudo lfs hsm_archive `file_name`
 ```
 
 For more information on how to run this command on a folder or large collection of files
-quickly, see [Exporting files using HSM
-commands](exporting-files-hsm.md "exporting-files-hsm.md").
+quickly, see [Exporting files using HSM commands](exporting-files-hsm.md "exporting-files-hsm.md").
 
 ## Step 5: Clean up resources
 

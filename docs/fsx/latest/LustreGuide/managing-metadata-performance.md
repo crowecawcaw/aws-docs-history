@@ -29,8 +29,7 @@ Amazon FSx console, CLI, and API. For more information, see
 ###### Topics
 
 - [Lustre metadata performance configuration](#metadata-configuration "#metadata-configuration")
-- [Considerations when increasing
-  metadata performance](#metadata-scaling-considerations "#metadata-scaling-considerations")
+- [Considerations when increasing metadata performance](#metadata-scaling-considerations "#metadata-scaling-considerations")
 - [When to increase metadata performance](#when-to-modify-metadata-performance "#when-to-modify-metadata-performance")
 - [Increasing metadata performance](modify-metadata-performance.md "modify-metadata-performance.md")
 - [Changing the metadata configuration mode](switch-provisioning-mode.md "switch-provisioning-mode.md")
@@ -80,9 +79,7 @@ as follows:
   [describe-file-systems](../../../cli/latest/reference/fsx/describe-file-systems.md "../../../cli/latest/reference/fsx/describe-file-systems.md") CLI command or the [DescribeFileSystems](../APIReference/API_DescribeFileSystems.md "../APIReference/API_DescribeFileSystems.md") API operation, and look for
   the `MetadataConfiguration` property.
 
-## Considerations when increasing
-
-metadata performance
+## Considerations when increasing metadata performance
 
 Here are a few important considerations when increasing your metadata performance:
 

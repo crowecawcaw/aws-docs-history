@@ -50,9 +50,7 @@ TiB of storage: Africa (Cape Town), Asia Pacific (Hong Kong), Asia Pacific (Osak
 Europe (Frankfurt), Europe (London), Europe (Milan), Europe (Stockholm), Middle East (Bahrain),
 South America (São Paulo), China, and US West (Los Angeles).
 
-## Example: Aggregate baseline and burst
-
-throughput
+## Example: Aggregate baseline and burst throughput
 
 The following example illustrates how storage capacity and disk throughput impact file system performance.
 

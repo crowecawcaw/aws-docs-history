@@ -1,6 +1,4 @@
-# Preloading files into your file
-
-system
+# Preloading files into your file system
 
 You can optionally preload contents individual files or directories into your file system.
 

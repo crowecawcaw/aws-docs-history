@@ -39,16 +39,12 @@ as follows:
 
 ###### Topics
 
-- [Considerations when
-  updating throughput capacity](#throughput-capacity-considerations "#throughput-capacity-considerations")
+- [Considerations when updating throughput capacity](#throughput-capacity-considerations "#throughput-capacity-considerations")
 - [When to modify throughput capacity](#when-to-modify-throughput-capacity "#when-to-modify-throughput-capacity")
 - [Modifying throughput capacity](increase-throughput-capacity.md "increase-throughput-capacity.md")
-- [Monitoring throughput capacity
-  changes](monitoring-throughput-capacity-changes.md "monitoring-throughput-capacity-changes.md")
+- [Monitoring throughput capacity changes](monitoring-throughput-capacity-changes.md "monitoring-throughput-capacity-changes.md")
 
-## Considerations when
-
-updating throughput capacity
+## Considerations when updating throughput capacity
 
 Here are a few important items to consider when updating throughput capacity:
 

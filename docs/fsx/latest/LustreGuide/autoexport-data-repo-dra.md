@@ -1,6 +1,4 @@
-# Automatically export updates to your S3
-
-bucket
+# Automatically export updates to your S3 bucket
 
 You can configure your FSx for Lustre file system to automatically update the contents of a
 linked S3 bucket as files are added, changed, or deleted on the file system. FSx for Lustre creates,

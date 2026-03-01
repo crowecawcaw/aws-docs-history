@@ -1,6 +1,4 @@
-# Mounting from an Amazon Elastic Compute Cloud
-
-instance
+# Mounting from an Amazon Elastic Compute Cloud instance
 
 You can mount your file system from an Amazon EC2 instance.
 

@@ -13,8 +13,7 @@ Amazon S3 bucket on your behalf.
 
 1. Ensure that your IAM entity (user, group, or role) has the appropriate permissions
    to create file systems. Doing this includes adding the permissions policy that supports
-   the Amazon FSx for Lustre service-linked role. For more information, see [Adding permissions to use data repositories in
-   Amazon S3](setting-up.md#fsx-adding-permissions-s3 "setting-up.md#fsx-adding-permissions-s3").
+   the Amazon FSx for Lustre service-linked role. For more information, see [Adding permissions to use data repositories in Amazon S3](setting-up.md#fsx-adding-permissions-s3 "setting-up.md#fsx-adding-permissions-s3").
 2. Using the Amazon FSx CLI or API, refresh the file system's
    `AutoImportPolicy` with the `update-file-system` CLI command
    ([UpdateFileSystem](../APIReference/API_UpdateFileSystem.md "../APIReference/API_UpdateFileSystem.md") is the equivalent API action), as follows.
@@ -25,8 +24,7 @@ aws fsx update-file-system \
 --lustre-configuration AutoImportPolicy=`the_existing_AutoImportPolicy`
 ```
 
-For more information about service-linked roles, see [Using service-linked roles for
-Amazon FSx](using-service-linked-roles.md "using-service-linked-roles.md").
+For more information about service-linked roles, see [Using service-linked roles for Amazon FSx](using-service-linked-roles.md "using-service-linked-roles.md").
 
 **Possible Cause**
 

@@ -4,14 +4,12 @@ Before you use Amazon FSx for Lustre for the first time, complete the tasks
 in the [Sign up for Amazon Web Services](#setting-up-aws "#setting-up-aws") section.
 To complete the [Getting started tutorial](getting-started.md "getting-started.md"), make
 sure the Amazon S3 bucket that you'll link to your file system has the permissions listed
-in [Adding permissions to use data repositories in
-Amazon S3](#fsx-adding-permissions-s3 "#fsx-adding-permissions-s3").
+in [Adding permissions to use data repositories in Amazon S3](#fsx-adding-permissions-s3 "#fsx-adding-permissions-s3").
 
 ###### Topics
 
 - [Sign up for Amazon Web Services](#setting-up-aws "#setting-up-aws")
-- [Adding permissions to use data repositories in
-  Amazon S3](#fsx-adding-permissions-s3 "#fsx-adding-permissions-s3")
+- [Adding permissions to use data repositories in Amazon S3](#fsx-adding-permissions-s3 "#fsx-adding-permissions-s3")
 - [How FSx for Lustre checks for access to linked S3 buckets](#fsx-lustre-permissions-s3-bucket "#fsx-lustre-permissions-s3-bucket")
 - [Next step](#setting-up-next-step "#setting-up-next-step")
 
@@ -80,9 +78,7 @@ For instructions, see [Create a permission set](../../../singlesignon/latest/use
 
 For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md") in the _AWS IAM Identity Center User Guide_.
 
-## Adding permissions to use data repositories in
-
-Amazon S3
+## Adding permissions to use data repositories in Amazon S3
 
 Amazon FSx for Lustre is deeply integrated with Amazon S3. This integration means that applications that access
 your FSx for Lustre file system can also seamlessly access the objects stored in your linked Amazon S3 bucket.
@@ -128,8 +124,7 @@ JSON
 ```
 
 After you create an inline policy, it is automatically embedded in your role.
-For more information about service-linked roles, see [Using service-linked roles for
-Amazon FSx](using-service-linked-roles.md "using-service-linked-roles.md").
+For more information about service-linked roles, see [Using service-linked roles for Amazon FSx](using-service-linked-roles.md "using-service-linked-roles.md").
 
 ## How FSx for Lustre checks for access to linked S3 buckets
 

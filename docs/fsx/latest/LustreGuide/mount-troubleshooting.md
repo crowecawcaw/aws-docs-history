@@ -21,9 +21,7 @@ mounting a persistent or scratch 2 file system by using the **mount**
 command. You can get the `mountname` value from the response of the
 [**describe-file-systems**](../../../cli/latest/reference/fsx/describe-file-systems.md "../../../cli/latest/reference/fsx/describe-file-systems.md") AWS CLI command or the [**DescribeFileSystems**](../APIReference/API_DescribeFileSystems.md "../APIReference/API_DescribeFileSystems.md") API operation.
 
-## File system mount hangs and then fails with
-
-timeout error
+## File system mount hangs and then fails with timeout error
 
 The file system mount command hangs for a minute or two, and then fails with a timeout
 error.
@@ -46,9 +44,7 @@ system aren't configured properly.
 Make sure that your security groups for the file
 system have the inbound rules specified in [Amazon VPC Security Groups](limit-access-security-groups.md#fsx-vpc-security-groups "limit-access-security-groups.md#fsx-vpc-security-groups").
 
-## Automatic mounting fails and the instance is
-
-unresponsive
+## Automatic mounting fails and the instance is unresponsive
 
 In some cases, automatic mounting might fail for a file system and your Amazon EC2
 instance might stop responding.
@@ -62,9 +58,7 @@ starts its networking.
 
 If this issue occurs, contact AWS Support.
 
-## File system mount fails during
-
-system boot
+## File system mount fails during system boot
 
 The file system mount fails during the system boot. The mounting is automated
 using `/etc/fstab`. When the file system is not mounted, the following

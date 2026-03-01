@@ -14,9 +14,7 @@ made, and additional details.
 
 To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
 
-## Amazon FSx for Lustre
-
-information in CloudTrail
+## Amazon FSx for Lustre information in CloudTrail
 
 CloudTrail is enabled on your AWS account when you create the account. When API activity
 occurs in Amazon FSx for Lustre, that activity is recorded in a CloudTrail event along with other AWS
@@ -55,9 +53,7 @@ identity information helps you determine the following:
 For more information, see the [CloudTrail userIdentity
 Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md") in the _AWS CloudTrail User Guide._
 
-## Understanding Amazon FSx for Lustre log file
-
-entries
+## Understanding Amazon FSx for Lustre log file entries
 
 A _trail_ is a configuration that enables delivery of
 events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log

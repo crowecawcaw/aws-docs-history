@@ -19,12 +19,10 @@ the Lustre file system.
 ###### Topics
 
 - [Overview of data repositories](overview-dra-data-repo.md "overview-dra-data-repo.md")
-- [POSIX metadata support for data
-  repositories](posix-metadata-support.md "posix-metadata-support.md")
+- [POSIX metadata support for data repositories](posix-metadata-support.md "posix-metadata-support.md")
 - [Linking your file system to an Amazon S3 bucket](create-dra-linked-data-repo.md "create-dra-linked-data-repo.md")
 - [Importing changes from your data repository](importing-files-dra.md "importing-files-dra.md")
-- [Exporting changes to the data
-  repository](export-changed-data-meta-dra.md "export-changed-data-meta-dra.md")
+- [Exporting changes to the data repository](export-changed-data-meta-dra.md "export-changed-data-meta-dra.md")
 - [Data repository tasks](data-repository-tasks.md "data-repository-tasks.md")
 - [Releasing files](file-release.md "file-release.md")
 - [Using Amazon FSx with your on-premises data](fsx-on-premises.md "fsx-on-premises.md")

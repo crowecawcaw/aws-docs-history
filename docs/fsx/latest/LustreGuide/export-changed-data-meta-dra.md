@@ -1,6 +1,4 @@
-# Exporting changes to the data
-
-repository
+# Exporting changes to the data repository
 
 You can export changes to data and POSIX metadata changes from your FSx for Lustre file
 system to a linked data repository. Associated POSIX metadata includes ownership, permissions,
@@ -9,8 +7,7 @@ and timestamps.
 To export changes from the file system, use one of the following methods.
 
 - Configure your file system to automatically export new, changed, or deleted files
-  to your linked data repository. For more information, see [Automatically export updates to your S3
-  bucket](autoexport-data-repo-dra.md "autoexport-data-repo-dra.md").
+  to your linked data repository. For more information, see [Automatically export updates to your S3 bucket](autoexport-data-repo-dra.md "autoexport-data-repo-dra.md").
 - Use an on-demand export data repository task. For more information, see [Using data repository tasks to export changes](export-data-repo-task-dra.md "export-data-repo-task-dra.md")
   Automatic export and export data repository tasks cannot run at the same time.
 
@@ -29,8 +26,7 @@ file system with S3 if the corresponding objects are stored in S3 Glacier Flexib
   last export.
 
 Both automatic export and export data repository tasks export POSIX metadata.
-For more information, see [POSIX metadata support for data
-repositories](posix-metadata-support.md "posix-metadata-support.md").
+For more information, see [POSIX metadata support for data repositories](posix-metadata-support.md "posix-metadata-support.md").
 
 ###### Important
 
@@ -47,8 +43,6 @@ using the S3 Standard storage class.
 
 ###### Topics
 
-- [Automatically export updates to your S3
-  bucket](autoexport-data-repo-dra.md "autoexport-data-repo-dra.md")
+- [Automatically export updates to your S3 bucket](autoexport-data-repo-dra.md "autoexport-data-repo-dra.md")
 - [Using data repository tasks to export changes](export-data-repo-task-dra.md "export-data-repo-task-dra.md")
-- [Exporting files using HSM
-  commands](exporting-files-hsm.md "exporting-files-hsm.md")
+- [Exporting files using HSM commands](exporting-files-hsm.md "exporting-files-hsm.md")

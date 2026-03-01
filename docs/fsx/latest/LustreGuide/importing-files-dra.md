@@ -6,8 +6,7 @@ file system. Associated POSIX metadata includes ownership, permissions, and time
 To import changes to the file system, use one of the following methods:
 
 - Configure your file system to automatically import new, changed, or deleted files
-  from your linked data repository. For more information, see [Automatically import updates from your S3
-  bucket](autoimport-data-repo-dra.md "autoimport-data-repo-dra.md").
+  from your linked data repository. For more information, see [Automatically import updates from your S3 bucket](autoimport-data-repo-dra.md "autoimport-data-repo-dra.md").
 - Select the option to import metadata when you create a data repository association.
   This will initiate an import data repository task immediately after creating the data repository
   association.
@@ -30,15 +29,13 @@ sub-millisecond latencies.
 
 You can also preload your whole ﬁle system or a directory within your ﬁle system.
 For more information, see
-[Preloading files into your file
-system](preload-file-contents-hsm-dra.md "preload-file-contents-hsm-dra.md").
+[Preloading files into your file system](preload-file-contents-hsm-dra.md "preload-file-contents-hsm-dra.md").
 If you request the preloading of multiple ﬁles simultaneously, FSx for Lustre loads ﬁles
 from your Amazon S3 data repository in parallel.
 
 FSx for Lustre only imports S3 objects that have POSIX-compliant object keys. Both
 automatic import and import data repository tasks import POSIX metadata. For more information, see
-[POSIX metadata support for data
-repositories](posix-metadata-support.md "posix-metadata-support.md").
+[POSIX metadata support for data repositories](posix-metadata-support.md "posix-metadata-support.md").
 
 ###### Note
 

@@ -139,9 +139,7 @@ $ aws fsx update-file-system \
     --lustre-configuration DataCompressionType=LZ4
 ```
 
-### Data compression configuration when creating a
-
-file system from backup
+### Data compression configuration when creating a file system from backup
 
 You can use an available backup to create a new Amazon FSx for Lustre file system. When you create
 a new file system from backup, there is no need to specify the `DataCompressionType`;

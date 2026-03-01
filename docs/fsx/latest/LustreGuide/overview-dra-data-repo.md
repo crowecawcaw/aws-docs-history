@@ -58,9 +58,7 @@ task are exported.
 If you have linked one or more FSx for Lustre file systems to a data repository on Amazon S3,
 don't delete the Amazon S3 bucket until you have deleted or unlinked all linked file systems.
 
-## Region and account support for linked S3
-
-buckets
+## Region and account support for linked S3 buckets
 
 When you create links to S3 buckets, keep in mind the following Region and account
 support limitations:

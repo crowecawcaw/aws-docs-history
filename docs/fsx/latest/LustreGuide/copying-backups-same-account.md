@@ -3,9 +3,7 @@
 You can copy backups of FSx for Lustre file systems using the AWS Management Console, CLI, and API, as described in the following
 procedures.
 
-###### To copy a backup within the same account (cross-Region or in-Region) using the
-
-console
+###### To copy a backup within the same account (cross-Region or in-Region) using the console
 
 1. Open the Amazon FSx console at [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/").
 2. In the navigation pane, choose **Backups**.

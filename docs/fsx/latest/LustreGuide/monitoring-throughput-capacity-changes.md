@@ -1,6 +1,4 @@
-# Monitoring throughput capacity
-
-changes
+# Monitoring throughput capacity changes
 
 You can monitor the progress of a throughput capacity modification using the Amazon FSx
 console, the API, and the AWS CLI.

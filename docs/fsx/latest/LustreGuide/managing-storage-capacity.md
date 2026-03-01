@@ -26,17 +26,13 @@ API. For more information, see [Monitoring storage capacity increases](monitorin
 
 ###### Topics
 
-- [Considerations when
-  increasing storage capacity](#storage-capacity-important-to-know "#storage-capacity-important-to-know")
+- [Considerations when increasing storage capacity](#storage-capacity-important-to-know "#storage-capacity-important-to-know")
 - [When to increase storage capacity](#when-to-modify-storage-capacity "#when-to-modify-storage-capacity")
-- [How concurrent storage scaling
-  and backup requests are handled](#storage-capacity-changes-and-backups "#storage-capacity-changes-and-backups")
+- [How concurrent storage scaling and backup requests are handled](#storage-capacity-changes-and-backups "#storage-capacity-changes-and-backups")
 - [Increasing storage capacity](increase-storage-capacity.md "increase-storage-capacity.md")
 - [Monitoring storage capacity increases](monitoring-storage-capacity-increase.md "monitoring-storage-capacity-increase.md")
 
-## Considerations when
-
-increasing storage capacity
+## Considerations when increasing storage capacity
 
 Here are a few important items to consider when increasing storage capacity:
 
@@ -83,9 +79,7 @@ For information about how storage capacity affects throughput capacity, see [Ama
 You can also view your file system's storage capacity and total throughput on
 the **Summary** panel of the file system details page.
 
-## How concurrent storage scaling
-
-and backup requests are handled
+## How concurrent storage scaling and backup requests are handled
 
 You can request a backup just before a storage scaling workflow begins or while it is
 in progress. The sequence of how Amazon FSx handles the two requests is as follows:

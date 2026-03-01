@@ -13,18 +13,14 @@ the AWS Management Console or by using the
 [describe-file-systems](../../../cli/latest/reference/fsx/describe-file-systems.md "../../../cli/latest/reference/fsx/describe-file-systems.md") AWS CLI command.
 
 Before you perform a Lustre version upgrade, we recommend that you follow
-the steps described in [Best practices for Lustre
-version upgrades](#version-upgrade-best-practices "#version-upgrade-best-practices").
+the steps described in [Best practices for Lustre version upgrades](#version-upgrade-best-practices "#version-upgrade-best-practices").
 
 ###### Topics
 
-- [Best practices for Lustre
-  version upgrades](#version-upgrade-best-practices "#version-upgrade-best-practices")
+- [Best practices for Lustre version upgrades](#version-upgrade-best-practices "#version-upgrade-best-practices")
 - [Performing the upgrade](#perform-upgrade "#perform-upgrade")
 
-## Best practices for Lustre
-
-version upgrades
+## Best practices for Lustre version upgrades
 
 We recommend following these best practices before upgrading the Lustre version
 of your FSx for Lustre file system:

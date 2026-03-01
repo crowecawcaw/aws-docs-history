@@ -3,9 +3,7 @@
 There are a number of potential causes when a file system creation request fails,
 as described in the following topics.
 
-## Cannot create an EFA-enabled file system because of
-
-misconfigured security group
+## Cannot create an EFA-enabled file system because of misconfigured security group
 
 Creating an FSx for Lustre EFA-enabled file system fails with the following error message:
 
@@ -21,9 +19,7 @@ is configured as described in [EFA-enabled security groups](limit-access-securit
 all inbound and outbound traffic to and from the security group itself and the
 security group of the clients if clients reside in a different security group.
 
-## Cannot create a file system because of
-
-misconfigured security group
+## Cannot create a file system because of misconfigured security group
 
 Creating an FSx for Lustre file system fails with the following error message:
 
@@ -40,9 +36,7 @@ group to allow inbound traffic on ports 988 and 1018-1023 from the security
 group itself or the full subnet CIDR, which is required to allow the file system
 hosts to communicate with each other.
 
-## Cannot create a file system because of
-
-insufficient capacity errors
+## Cannot create a file system because of insufficient capacity errors
 
 You may receive an insufficient capacity error when attempting to create a new file system,
 update storage capacity, or modify throughput capacity.
@@ -80,8 +74,6 @@ Amazon S3 bucket on your behalf.
 
 Ensure that your IAM entity (user, group, or role) has the appropriate permissions
 to create file systems. Doing this includes adding the permissions policy that supports
-the Amazon FSx for Lustre service-linked role. For more information, see [Adding permissions to use data repositories in
-Amazon S3](setting-up.md#fsx-adding-permissions-s3 "setting-up.md#fsx-adding-permissions-s3").
+the Amazon FSx for Lustre service-linked role. For more information, see [Adding permissions to use data repositories in Amazon S3](setting-up.md#fsx-adding-permissions-s3 "setting-up.md#fsx-adding-permissions-s3").
 
-For more information about service-linked roles, see [Using service-linked roles for
-Amazon FSx](using-service-linked-roles.md "using-service-linked-roles.md").
+For more information about service-linked roles, see [Using service-linked roles for Amazon FSx](using-service-linked-roles.md "using-service-linked-roles.md").

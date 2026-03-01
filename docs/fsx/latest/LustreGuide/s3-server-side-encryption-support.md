@@ -1,6 +1,4 @@
-# Working with server-side encrypted Amazon S3
-
-buckets
+# Working with server-side encrypted Amazon S3 buckets
 
 FSx for Lustre supports Amazon S3 buckets that use server-side encryption with S3-managed keys
 (SSE-S3), and with AWS KMS keys stored in AWS Key Management Service (SSE-KMS).
@@ -91,9 +89,7 @@ a specific S3 bucket.
 }
 ```
 
-## Accessing server-side encrypted
-
-Amazon S3 buckets in a different AWS account or from a Shared VPC
+## Accessing server-side encrypted Amazon S3 buckets in a different AWS account or from a Shared VPC
 
 After you create an FSx for Lustre file system linked to an encrypted Amazon S3 bucket, you
 must then grant the
@@ -120,5 +116,4 @@ string.
       --operations "Decrypt" "Encrypt" "GenerateDataKey" "GenerateDataKeyWithoutPlaintext" "CreateGrant" "DescribeKey" "ReEncryptFrom" "ReEncryptTo"
 ```
 
-For more information about service-linked roles, see [Using service-linked roles for
-Amazon FSx](using-service-linked-roles.md "using-service-linked-roles.md").
+For more information about service-linked roles, see [Using service-linked roles for Amazon FSx](using-service-linked-roles.md "using-service-linked-roles.md").

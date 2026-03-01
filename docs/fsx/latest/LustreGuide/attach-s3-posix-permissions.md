@@ -1,6 +1,4 @@
-# Walkthrough: Attaching POSIX permissions when
-
-uploading objects into an Amazon S3 bucket
+# Walkthrough: Attaching POSIX permissions when uploading objects into an Amazon S3 bucket
 
 The following procedure walks you through the process of uploading objects into Amazon S3 with
 POSIX permissions. Doing so allows you to import the POSIX permissions when you create an
@@ -23,8 +21,7 @@ drwxr-xr-x 3 500 500 96 Jan 8 11:29 s3cptestdir/
 The newly created file and directory have a file owner user ID (UID) and group ID
 (GID) of 500 and permissions as shown in the preceding example. 2. Call the Amazon S3 API to create the directory `s3cptestdir` with
 metadata permissions. You must specify the directory name with a trailing slash
-(`/`). For information about supported POSIX metadata, see [POSIX metadata support for data
-repositories](posix-metadata-support.md "posix-metadata-support.md").
+(`/`). For information about supported POSIX metadata, see [POSIX metadata support for data repositories](posix-metadata-support.md "posix-metadata-support.md").
 
 Replace `bucket_name` with the actual name of
 your S3 bucket.

@@ -5,8 +5,7 @@ Following, you can find out about quotas when working with Amazon FSx for Lustre
 ###### Topics
 
 - [Quotas that you can increase](#soft-limits "#soft-limits")
-- [Resource quotas for each file
-  system](#limits-MFS-resources-file-system "#limits-MFS-resources-file-system")
+- [Resource quotas for each file system](#limits-MFS-resources-file-system "#limits-MFS-resources-file-system")
 - [Additional considerations](#limits-additional-considerations "#limits-additional-considerations")
 
 ## Quotas that you can increase
@@ -41,9 +40,7 @@ can increase.
 For more information, see [Requesting a quota
 increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User Guide_.
 
-## Resource quotas for each file
-
-system
+## Resource quotas for each file system
 
 Following are the limits on Amazon FSx for Lustre resources for each file system in an AWS
 Region.

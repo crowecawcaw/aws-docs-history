@@ -15,9 +15,7 @@ To ensure that Amazon FSx file systems are unaffected by EC2 Spot Instances Inte
 Amazon FSx file systems prior to terminating or hibernating EC2 Spot Instances. For more information, see
 [Unmounting file systems](unmounting-fs.md "unmounting-fs.md").
 
-## Handling Amazon EC2 Spot Instance
-
-interruptions
+## Handling Amazon EC2 Spot Instance interruptions
 
 FSx for Lustre is a distributed file system where server and client instances cooperate to
 provide a performant and reliable file system. They maintain a distributed and coherent
@@ -34,7 +32,7 @@ EC2 Spot sends termination notices 2 minutes in advance before shutting down an
 instance. We recommend that you automate the process of cleanly unmounting Lustre clients
 before terminating EC2 Spot Instances.
 
-###### Example – Script to cleanly unmount terminating EC2 Spot Instances
+###### Example– Script to cleanly unmount terminating EC2 Spot Instances
 
 This example script cleanly unmounts terminating EC2 Spot Instances by doing the
 following:

@@ -17,13 +17,11 @@ your compute instance.
 
 - [Lustre file system and client kernel compatibility](lustre-client-matrix.md "lustre-client-matrix.md")
 - [Installing the Lustre client](install-lustre-client.md "install-lustre-client.md")
-- [Mounting from an Amazon Elastic Compute Cloud
-  instance](mounting-ec2-instance.md "mounting-ec2-instance.md")
+- [Mounting from an Amazon Elastic Compute Cloud instance](mounting-ec2-instance.md "mounting-ec2-instance.md")
 - [Configuring EFA clients](configure-efa-clients.md "configure-efa-clients.md")
 - [Mounting from Amazon Elastic Container Service](mounting-ecs.md "mounting-ecs.md")
 - [Mounting Amazon FSx file systems from on-premises or a peered Amazon VPC](mounting-on-premises.md "mounting-on-premises.md")
-- [Mounting your Amazon FSx file system
-  automatically](mount-fs-auto-mount-onreboot.md "mount-fs-auto-mount-onreboot.md")
+- [Mounting your Amazon FSx file system automatically](mount-fs-auto-mount-onreboot.md "mount-fs-auto-mount-onreboot.md")
 - [Mounting specific filesets](mounting-from-fileset.md "mounting-from-fileset.md")
 - [Unmounting file systems](unmounting-fs.md "unmounting-fs.md")
 - [Working with Amazon EC2 Spot Instances](working-with-ec2-spot-instances.md "working-with-ec2-spot-instances.md")

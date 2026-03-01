@@ -70,12 +70,9 @@ user attempts to create a resource with tags, the request fails if the user does
 permissions to use the `fsx:TagResource` action.
 
 For more information about tagging Amazon FSx resources, see [Tag your Amazon FSx for Lustre resources](tag-resources.md "tag-resources.md"). For more information about using tags to control access to
-Amazon FSx for Lustre resources, see [Using tags to control access to your Amazon FSx
-resources](#restrict-fsx-access-tags "#restrict-fsx-access-tags").
+Amazon FSx for Lustre resources, see [Using tags to control access to your Amazon FSx resources](#restrict-fsx-access-tags "#restrict-fsx-access-tags").
 
-## Using tags to control access to your Amazon FSx
-
-resources
+## Using tags to control access to your Amazon FSx resources
 
 To control access to Amazon FSx resources and actions, you can use IAM policies based on tags.
 You can provide this control in two ways:

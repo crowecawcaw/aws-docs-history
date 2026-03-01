@@ -139,8 +139,7 @@ For more information, see the `README.md` file in the zip file.
 ### Auto-mount configuration (optional)
 
 For information on automatically mounting your Amazon FSx for Lustre file system on boot,
-see [Mounting your Amazon FSx file system
-automatically](mount-fs-auto-mount-onreboot.md "mount-fs-auto-mount-onreboot.md").
+see [Mounting your Amazon FSx file system automatically](mount-fs-auto-mount-onreboot.md "mount-fs-auto-mount-onreboot.md").
 
 ## Step 3: EFA interfaces
 

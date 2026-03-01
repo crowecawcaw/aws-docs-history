@@ -20,11 +20,9 @@ create it again.
    data repository association.
 6. For **Import settings - optional**, you can update your
    **Import Policy**. For more information on import policies, see
-   [Automatically import updates from your S3
-   bucket](autoimport-data-repo-dra.md "autoimport-data-repo-dra.md").
+   [Automatically import updates from your S3 bucket](autoimport-data-repo-dra.md "autoimport-data-repo-dra.md").
 7. For **Export settings - optional**, you can update your export
-   policy. For more information on export policies, see [Automatically export updates to your S3
-   bucket](autoexport-data-repo-dra.md "autoexport-data-repo-dra.md").
+   policy. For more information on export policies, see [Automatically export updates to your S3 bucket](autoexport-data-repo-dra.md "autoexport-data-repo-dra.md").
 8. Choose **Update**.
 
 - To update a data repository association, use the Amazon FSx CLI command

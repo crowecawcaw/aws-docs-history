@@ -21,9 +21,7 @@ To get a high-level view of how Amazon FSx and other AWS services work with most
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for Amazon FSx
+## Identity-based policies for Amazon FSx
 
 **Supports identity-based policies:**
 
@@ -40,24 +38,17 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for Amazon FSx
 
-Identity-based policy examples for Amazon FSx
+To view examples of Amazon FSx identity-based policies, see [Identity-based policy examples for Amazon FSx for Lustre](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of Amazon FSx identity-based policies, see [Identity-based policy
-examples for Amazon FSx for Lustre](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within Amazon FSx
+## Resource-based policies within Amazon FSx
 
 **Supports resource-based policies:**
 
 No
 
-## Policy actions
-
-for Amazon FSx
+## Policy actions for Amazon FSx
 
 **Supports policy actions:**
 
@@ -87,12 +78,9 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-To view examples of Amazon FSx identity-based policies, see [Identity-based policy
-examples for Amazon FSx for Lustre](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon FSx identity-based policies, see [Identity-based policy examples for Amazon FSx for Lustre](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for Amazon FSx
+## Policy resources for Amazon FSx
 
 **Supports policy resources:**
 
@@ -112,12 +100,9 @@ To see a list of Amazon FSx resource types and their ARNs, see
 which actions you can specify the ARN of each resource, see
 [Actions defined by Amazon FSx for Lustre](../../../service-authorization/latest/reference/list_amazonfsx.md#amazonfsx-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonfsx.md#amazonfsx-actions-as-permissions").
 
-To view examples of Amazon FSx identity-based policies, see [Identity-based policy
-examples for Amazon FSx for Lustre](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon FSx identity-based policies, see [Identity-based policy examples for Amazon FSx for Lustre](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for Amazon FSx
+## Policy condition keys for Amazon FSx
 
 **Supports service-specific policy condition keys:**
 
@@ -136,20 +121,15 @@ To see a list of Amazon FSx condition keys, see [Condition keys for Amazon FSx f
 _Service Authorization Reference_. To learn with which actions and resources you
 can use a condition key, see [Actions defined by Amazon FSx for Lustre](../../../service-authorization/latest/reference/list_amazonfsx.md#amazonfsx-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonfsx.md#amazonfsx-actions-as-permissions").
 
-To view examples of Amazon FSx identity-based policies, see [Identity-based policy
-examples for Amazon FSx for Lustre](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon FSx identity-based policies, see [Identity-based policy examples for Amazon FSx for Lustre](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Access control lists (ACLs) in
-
-Amazon FSx
+## Access control lists (ACLs) in Amazon FSx
 
 **Supports ACLs:**
 
 No
 
-## Attribute-based access control
-
-(ABAC) with Amazon FSx
+## Attribute-based access control (ABAC) with Amazon FSx
 
 **Supports ABAC (tags in policies):**
 
@@ -170,12 +150,9 @@ For more information about tagging Amazon FSx
 resources, see [Tag your Amazon FSx for Lustre resources](tag-resources.md "tag-resources.md").
 
 To view an example identity-based policy for limiting access to a resource based on
-the tags on that resource, see [Using tags to control access to your Amazon FSx
-resources](using-tags-fsx.md#restrict-fsx-access-tags "using-tags-fsx.md#restrict-fsx-access-tags").
+the tags on that resource, see [Using tags to control access to your Amazon FSx resources](using-tags-fsx.md#restrict-fsx-access-tags "using-tags-fsx.md#restrict-fsx-access-tags").
 
-## Using Temporary
-
-credentials with Amazon FSx
+## Using Temporary credentials with Amazon FSx
 
 **Supports temporary credentials:**
 
@@ -196,9 +173,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Amazon FSx
+## Service roles for Amazon FSx
 
 **Supports service roles:**
 
@@ -213,9 +188,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break Amazon FSx functionality.
 Edit service roles only when Amazon FSx provides guidance to do so.
 
-## Service-linked
-
-roles for Amazon FSx
+## Service-linked roles for Amazon FSx
 
 **Supports service-linked roles:**
 
@@ -225,5 +198,4 @@ A service-linked role is a type of service role that is linked to an AWS service
 Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view,
 but not edit the permissions for service-linked roles.
 
-For more information about creating and managing Amazon FSx service-linked roles, see [Using service-linked roles for
-Amazon FSx](using-service-linked-roles.md "using-service-linked-roles.md").
+For more information about creating and managing Amazon FSx service-linked roles, see [Using service-linked roles for Amazon FSx](using-service-linked-roles.md "using-service-linked-roles.md").

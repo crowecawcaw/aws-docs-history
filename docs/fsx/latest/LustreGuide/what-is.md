@@ -34,8 +34,7 @@ consistency and supports file locking.
 - [Assumptions](#assumptions "#assumptions")
 - [Pricing for Amazon FSx for Lustre](#pricing "#pricing")
 - [Amazon FSx for Lustre forums](#fsx-forums "#fsx-forums")
-- [Are you a first-time user of
-  Amazon FSx for Lustre?](#first-time-user "#first-time-user")
+- [Are you a first-time user of Amazon FSx for Lustre?](#first-time-user "#first-time-user")
 
 ## Multiple deployment options and storage classes
 
@@ -175,9 +174,7 @@ information about the pricing and fees associated with the service, see [Amazon 
 
 If you encounter issues while using Amazon FSx for Lustre, check the [forums](https://forums.aws.amazon.com/forum.jspa?forumID=311 "https://forums.aws.amazon.com/forum.jspa?forumID=311").
 
-## Are you a first-time user of
-
-Amazon FSx for Lustre?
+## Are you a first-time user of Amazon FSx for Lustre?
 
 If you are a first-time user of Amazon FSx for Lustre, we recommend that you read the following
 sections in order:
