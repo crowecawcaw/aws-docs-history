@@ -1,6 +1,4 @@
-# Amazon Corretto 11 Installation Instructions for Debian-Based,
-
-RPM-Based and Alpine Linux Distributions
+# Amazon Corretto 11 Installation Instructions for Debian-Based, RPM-Based and Alpine Linux Distributions
 
 This topic describes how to install Amazon Corretto 11 on Debian-based, RPM-based and Alpine Linux
 distributions.
@@ -8,9 +6,7 @@ distributions.
 If you need to install Amazon Corretto 11 on Amazon Linux, see
 [Installing on Amazon Linux](amazon-linux-install.md "amazon-linux-install.md").
 
-## Install Amazon Corretto 11 on Debian-Based
-
-Linux
+## Install Amazon Corretto 11 on Debian-Based Linux
 
 This section describes how to install and uninstall Amazon Corretto 11 on a host or container
 running a Debian-based operating system.
@@ -53,9 +49,7 @@ If so, add the public key via:
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys A122542AB04F24E3
 ```
 
-### Download and Install the Debian
-
-Package Manually
+### Download and Install the Debian Package Manually
 
 1. Before you install the JDK, install the `java-common` package.
 
@@ -118,9 +112,7 @@ You can uninstall Amazon Corretto 11 by using the following command.
 sudo dpkg --remove java-11-amazon-corretto-jdk
 ```
 
-## Install Amazon Corretto 11 on RPM-Based
-
-Linux
+## Install Amazon Corretto 11 on RPM-Based Linux
 
 ### Using yum
 
@@ -218,9 +210,7 @@ You can uninstall Amazon Corretto 11 by using the following command:
 sudo yum remove java-11-amazon-corretto-devel
 ```
 
-## Install Amazon Corretto 11 on Alpine
-
-Linux
+## Install Amazon Corretto 11 on Alpine Linux
 
 ### Using Alpine Package Manager
 
@@ -243,14 +233,6 @@ command:
 
 ```
 apk add amazon-corretto-11
-```
-
-You can install Corretto 11 JRE by running
-
-###### Example
-
-```
-apk add amazon-corretto-11-jre
 ```
 
 ### Uninstall Amazon Corretto 11
