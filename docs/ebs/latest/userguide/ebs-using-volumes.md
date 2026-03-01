@@ -169,9 +169,7 @@ If the volume has partitions, use the following command and specify the partitio
 8. The mount point is not automatically preserved after rebooting your instance. To
    automatically mount this EBS volume after reboot, follow the next procedure.
 
-### Automatically mount an attached volume after
-
-reboot
+### Automatically mount an attached volume after reboot
 
 To mount an attached EBS volume on every system reboot, add an entry for the device to
 the `/etc/fstab` file.
@@ -270,9 +268,7 @@ Use one of the following methods to make a volume available on a Windows instanc
 
 PowerShell
 
-###### To make all EBS volumes with raw partitions available to use with Windows
-
-PowerShell
+###### To make all EBS volumes with raw partitions available to use with Windows PowerShell
 
 1. Log in to your Windows instance using Remote Desktop. For more information, see
    [Connect to your Windows instance](../../../AWSEC2/latest/UserGuide/connecting_to_windows_instance.md "../../../AWSEC2/latest/UserGuide/connecting_to_windows_instance.md").
@@ -296,9 +292,7 @@ Start-Service -Name ShellHWDetection
 
 DiskPart command line tool
 
-###### To make an EBS volume available to use with the DiskPart command line
-
-tool
+###### To make an EBS volume available to use with the DiskPart command line tool
 
 1. Log in to your Windows instance using Remote Desktop. For more information, see
    [Connect to your Windows instance](../../../AWSEC2/latest/UserGuide/connecting_to_windows_instance.md "../../../AWSEC2/latest/UserGuide/connecting_to_windows_instance.md").

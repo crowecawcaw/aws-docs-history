@@ -58,9 +58,7 @@ these factors (performance, I/O, and latency) affects the others, and different 
 are more sensitive to one factor or another. For more information, see
 [Benchmark Amazon EBS volumes](benchmark_procedures.md "benchmark_procedures.md").
 
-### Be aware of the performance penalty When initializing volumes
-
-from snapshots
+### Be aware of the performance penalty When initializing volumes from snapshots
 
 There is a significant increase in latency when you first access each block of data
 on a new EBS volume that was created from a snapshot. You can avoid this performance

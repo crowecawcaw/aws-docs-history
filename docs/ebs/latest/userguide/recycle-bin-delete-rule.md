@@ -1,6 +1,4 @@
-# Delete a Recycle Bin retention rule to stop it
-
-from retaining resources
+# Delete a Recycle Bin retention rule to stop it from retaining resources
 
 You can delete a retention rule at any time. When you delete a retention rule, it no longer
 retains new resources in the Recycle Bin after they have been deleted. Resources

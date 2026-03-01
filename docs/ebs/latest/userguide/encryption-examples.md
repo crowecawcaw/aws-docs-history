@@ -10,23 +10,16 @@ volumes and snapshots. For a full list of encryption cases, see the [encryption 
 
 ###### Examples
 
-- [Restore an unencrypted volume (encryption by
-  default not enabled)](#volume-account-off "#volume-account-off")
-- [Restore an unencrypted volume (encryption by
-  default enabled)](#volume-account-on "#volume-account-on")
-- [Copy an unencrypted snapshot (encryption by
-  default not enabled)](#snapshot-account-off "#snapshot-account-off")
-- [Copy an unencrypted snapshot (encryption
-  by default enabled)](#snapshot-account-on "#snapshot-account-on")
+- [Restore an unencrypted volume (encryption by default not enabled)](#volume-account-off "#volume-account-off")
+- [Restore an unencrypted volume (encryption by default enabled)](#volume-account-on "#volume-account-on")
+- [Copy an unencrypted snapshot (encryption by default not enabled)](#snapshot-account-off "#snapshot-account-off")
+- [Copy an unencrypted snapshot (encryption by default enabled)](#snapshot-account-on "#snapshot-account-on")
 - [Re-encrypt an encrypted volume](#reencrypt-volume "#reencrypt-volume")
 - [Re-encrypt an encrypted snapshot](#reencrypt-snapshot "#reencrypt-snapshot")
-- [Migrate data between encrypted
-  and unencrypted volumes](#migrate-data-encrypted-unencrypted "#migrate-data-encrypted-unencrypted")
+- [Migrate data between encrypted and unencrypted volumes](#migrate-data-encrypted-unencrypted "#migrate-data-encrypted-unencrypted")
 - [Encryption outcomes](#ebs-volume-encryption-outcomes "#ebs-volume-encryption-outcomes")
 
-## Restore an unencrypted volume (encryption by
-
-default not enabled)
+## Restore an unencrypted volume (encryption by default not enabled)
 
 Without encryption by default enabled, a volume restored from an unencrypted
 snapshot is unencrypted by default. However, you can encrypt the resulting
@@ -42,9 +35,7 @@ a different KMS key.
 
 For more information, see [Create an Amazon EBS volume](ebs-creating-volume.md "ebs-creating-volume.md").
 
-## Restore an unencrypted volume (encryption by
-
-default enabled)
+## Restore an unencrypted volume (encryption by default enabled)
 
 When you have enabled encryption by default, encryption is mandatory for
 volumes restored from unencrypted snapshots, and no encryption parameters are
@@ -55,12 +46,9 @@ simple default case:
 
 If you want to encrypt the restored volume to a symmetric customer managed encryption key,
 you must supply both the `Encrypted` and `KmsKeyId` parameters
-as shown in [Restore an unencrypted volume (encryption by
-default not enabled)](#volume-account-off "#volume-account-off").
+as shown in [Restore an unencrypted volume (encryption by default not enabled)](#volume-account-off "#volume-account-off").
 
-## Copy an unencrypted snapshot (encryption by
-
-default not enabled)
+## Copy an unencrypted snapshot (encryption by default not enabled)
 
 Without encryption by default enabled, a copy of an unencrypted snapshot is
 unencrypted by default. However, you can encrypt the resulting snapshot by setting
@@ -77,9 +65,7 @@ You can encrypt an EBS volume by copying an unencrypted snapshot to an
 encrypted snapshot and then creating a volume from the encrypted snapshot.
 For more information, see [Copy an Amazon EBS snapshot](ebs-copy-snapshot.md "ebs-copy-snapshot.md").
 
-## Copy an unencrypted snapshot (encryption
-
-by default enabled)
+## Copy an unencrypted snapshot (encryption by default enabled)
 
 When you have enabled encryption by default, encryption is
 mandatory for copies of unencrypted snapshots, and no encryption parameters are
@@ -120,9 +106,7 @@ you create a copy of the shared snapshot using a different KMS key that you cont
 This protects your access to the volume if the original KMS key is compromised, or
 if the owner revokes the KMS key for any reason. For more information, see [Encryption and snapshot copying](ebs-copy-snapshot.md#creating-encrypted-snapshots "ebs-copy-snapshot.md#creating-encrypted-snapshots").
 
-## Migrate data between encrypted
-
-and unencrypted volumes
+## Migrate data between encrypted and unencrypted volumes
 
 When you have access to both an encrypted and unencrypted volume, you can freely
 transfer data between them. EC2 carries out the encryption and decryption operations

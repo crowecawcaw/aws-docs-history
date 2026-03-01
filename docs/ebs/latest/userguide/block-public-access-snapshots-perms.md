@@ -1,6 +1,4 @@
-# IAM permissions for block public access
-
-for Amazon EBS snapshots
+# IAM permissions for block public access for Amazon EBS snapshots
 
 By default, users don't have permission to work with block public access for snapshots.
 To allow users to work with block public access for snapshots, you must create IAM policies

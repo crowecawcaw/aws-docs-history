@@ -21,9 +21,7 @@ To get a high-level view of how Amazon EBS and other AWS services work with most
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for Amazon EBS
+## Identity-based policies for Amazon EBS
 
 **Supports identity-based policies:**
 
@@ -40,15 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
-
-Identity-based policy examples for Amazon EBS
+### Identity-based policy examples for Amazon EBS
 
 To view examples of Amazon EBS identity-based policies, see [Example IAM policies for Amazon EBS](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Resource-based
-
-policies within Amazon EBS
+## Resource-based policies within Amazon EBS
 
 **Supports resource-based policies:**
 
@@ -64,9 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for Amazon EBS
+## Policy actions for Amazon EBS
 
 **Supports policy actions:**
 
@@ -95,9 +87,7 @@ To specify multiple actions in a single statement, separate them with commas.
 
 To view examples of Amazon EBS identity-based policies, see [Example IAM policies for Amazon EBS](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for Amazon EBS
+## Policy resources for Amazon EBS
 
 **Supports policy resources:**
 
@@ -124,9 +114,7 @@ so a principal must have permissions to access both resources.
 ]
 ```
 
-## Policy
-
-condition keys for Amazon EBS
+## Policy condition keys for Amazon EBS
 
 **Supports service-specific policy condition keys:**
 
@@ -180,9 +168,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with Amazon EBS
+## Using temporary credentials with Amazon EBS
 
 **Supports temporary credentials:**
 
@@ -194,9 +180,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for Amazon EBS
+## Cross-service principal permissions for Amazon EBS
 
 **Supports forward access sessions (FAS):**
 
@@ -205,9 +189,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Amazon EBS
+## Service roles for Amazon EBS
 
 **Supports service roles:**
 
@@ -222,9 +204,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break Amazon EBS functionality.
 Edit service roles only when Amazon EBS provides guidance to do so.
 
-## Service-linked
-
-roles for Amazon EBS
+## Service-linked roles for Amazon EBS
 
 **Supports service-linked roles:**
 

@@ -1,6 +1,4 @@
-# Lock a Recycle Bin retention rule to prevent
-
-it from being updated or deleted
+# Lock a Recycle Bin retention rule to prevent it from being updated or deleted
 
 Recycle Bin lets you lock Region-level retention rules at any time.
 

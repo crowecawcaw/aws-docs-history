@@ -11,18 +11,13 @@ documents, see [Creating IAM policies](../../../IAM/latest/UserGuide/access_poli
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Allow users to use the Amazon EBS
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Allow users to use the Amazon EBS console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
 - [Allow users to work with volumes](#iam-example-manage-volumes "#iam-example-manage-volumes")
 - [Allow users to work with snapshots](#iam-example-manage-snapshots "#iam-example-manage-snapshots")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Amazon EBS resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -55,9 +50,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Allow users to use the Amazon EBS
-
-console
+## Allow users to use the Amazon EBS console
 
 To access the Amazon Elastic Block Store console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the Amazon EBS resources
@@ -74,9 +67,7 @@ Amazon EBS `ConsoleAccess` or `ReadOnly` AWS managed policy to
 the entities. For more information, see [Adding permissions to a user](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the
 _IAM User Guide_.
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -120,15 +111,12 @@ identity. This policy includes permissions to complete this action on the consol
 
 ###### Examples
 
-- [Example: Attach and detach
-  volumes](#iam-example-manage-volumes-attach-detach "#iam-example-manage-volumes-attach-detach")
+- [Example: Attach and detach volumes](#iam-example-manage-volumes-attach-detach "#iam-example-manage-volumes-attach-detach")
 - [Example: Create a volume](#iam-example-manage-volumes-create "#iam-example-manage-volumes-create")
 - [Example: Create a volume with tags](#iam-example-manage-volumes-tags "#iam-example-manage-volumes-tags")
 - [Example: Work with volumes using the Amazon EC2 console](#ex-volumes "#ex-volumes")
 
-### Example: Attach and detach
-
-volumes
+### Example: Attach and detach volumes
 
 When an API action requires a caller to specify multiple resources, you
 must create a policy statement that allows users to access all required
@@ -328,13 +316,10 @@ snapshot of an EBS volume) and `CreateSnapshots` (multi-volume snapshots).
 
 - [Example: Create a snapshot](#iam-creating-snapshot "#iam-creating-snapshot")
 - [Example: Create snapshots](#iam-creating-snapshots "#iam-creating-snapshots")
-- [Example: Create a snapshot with
-  tags](#iam-creating-snapshot-with-tags "#iam-creating-snapshot-with-tags")
-- [Example: Create multi-volume snapshots with
-  tags](#iam-creating-snapshots-with-tags "#iam-creating-snapshots-with-tags")
+- [Example: Create a snapshot with tags](#iam-creating-snapshot-with-tags "#iam-creating-snapshot-with-tags")
+- [Example: Create multi-volume snapshots with tags](#iam-creating-snapshots-with-tags "#iam-creating-snapshots-with-tags")
 - [Example: Copying snapshots](#iam-copy-snapshot "#iam-copy-snapshot")
-- [Example: Modify permission settings for
-  snapshots](#iam-modifying-snapshot-with-tags "#iam-modifying-snapshot-with-tags")
+- [Example: Modify permission settings for snapshots](#iam-modifying-snapshot-with-tags "#iam-modifying-snapshot-with-tags")
 
 ### Example: Create a snapshot
 
@@ -407,9 +392,7 @@ JSON
 
 ```
 
-### Example: Create a snapshot with
-
-tags
+### Example: Create a snapshot with tags
 
 The following policy includes the `aws:RequestTag` condition key that requires the
 customer to apply the tags `costcenter=115` and `stack=prod` to any new
@@ -460,9 +443,7 @@ JSON
 
 ```
 
-### Example: Create multi-volume snapshots with
-
-tags
+### Example: Create multi-volume snapshots with tags
 
 The following policy includes the `aws:RequestTag` condition key that requires the
 customer to apply the tags `costcenter=115` and `stack=prod` when creating
@@ -816,9 +797,7 @@ is created with tag key of `CSISnapshotName`.
 
 ```
 
-### Example: Modify permission settings for
-
-snapshots
+### Example: Modify permission settings for snapshots
 
 The following policy allows modification of a snapshot only if the snapshot is tagged
 with `User:`username``, where

@@ -5,16 +5,11 @@ is potentially inconsistent.
 
 ###### Options
 
-- [Option 1: Perform a consistency check on the volume
-  attached to its instance](#work_volumes_impaired_option1 "#work_volumes_impaired_option1")
-- [Option 2: Perform a consistency check on the volume
-  using another instance](#work_volumes_impaired_option2 "#work_volumes_impaired_option2")
-- [Option 3: Delete the volume if you no longer need
-  it](#work_volumes_impaired_option3 "#work_volumes_impaired_option3")
+- [Option 1: Perform a consistency check on the volume attached to its instance](#work_volumes_impaired_option1 "#work_volumes_impaired_option1")
+- [Option 2: Perform a consistency check on the volume using another instance](#work_volumes_impaired_option2 "#work_volumes_impaired_option2")
+- [Option 3: Delete the volume if you no longer need it](#work_volumes_impaired_option3 "#work_volumes_impaired_option3")
 
-## Option 1: Perform a consistency check on the volume
-
-attached to its instance
+## Option 1: Perform a consistency check on the volume attached to its instance
 
 The simplest option is to enable I/O and then perform a data consistency check on
 the volume while the volume is still attached to its Amazon EC2 instance.
@@ -66,9 +61,7 @@ Enable-EC2VolumeIO -VolumeId `vol-01234567890abcdef`
       choose **Contact Support** to submit a support
       case.
 
-## Option 2: Perform a consistency check on the volume
-
-using another instance
+## Option 2: Perform a consistency check on the volume using another instance
 
 Use the following procedure to check the volume outside your production
 environment.
@@ -127,9 +120,7 @@ Enable-EC2VolumeIO -VolumeId `vol-01234567890abcdef`
       troubleshooting dialog box, choose **Contact
       Support** to submit a support case.
 
-## Option 3: Delete the volume if you no longer need
-
-it
+## Option 3: Delete the volume if you no longer need it
 
 If you want to remove the volume from your environment, simply delete it. For
 information about deleting a volume, see [Delete an Amazon EBS volume](ebs-deleting-volume.md "ebs-deleting-volume.md").

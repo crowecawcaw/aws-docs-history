@@ -17,9 +17,7 @@ client token for the request to ensure that it is idempotent.
 A client token can be any string that includes up to 64 ASCII characters. You should
 not reuse the same client tokens for different requests.
 
-###### To make an idempotent StartSnapshot request with your own client token using the
-
-API
+###### To make an idempotent StartSnapshot request with your own client token using the API
 
 Specify the `ClientToken` request parameter.
 
@@ -39,9 +37,7 @@ Authorization: `<Authentication parameter>`
 }
 ```
 
-###### To make an idempotent StartSnapshot request with your own client token using the
-
-AWS CLI
+###### To make an idempotent StartSnapshot request with your own client token using the AWS CLI
 
 Specify the `client-token` request parameter.
 

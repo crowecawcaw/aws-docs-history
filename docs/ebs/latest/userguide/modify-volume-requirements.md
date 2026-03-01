@@ -15,8 +15,7 @@ Elastic Volumes are supported on the following instances:
 - All [current generation instances](../../../AWSEC2/latest/UserGuide/instance-types.md#current-gen-instances "../../../AWSEC2/latest/UserGuide/instance-types.md#current-gen-instances")
 - The following previous-generation instances: C1, C3, C4, G2, I2, M1, M3, M4, R3, and R4
 
-If your instance type does not support Elastic Volumes, see [Modify an EBS volume if Elastic Volumes is not
-supported](requesting-ebs-volume-modifications.md#modify-volume-stop-start "requesting-ebs-volume-modifications.md#modify-volume-stop-start").
+If your instance type does not support Elastic Volumes, see [Modify an EBS volume if Elastic Volumes is not supported](requesting-ebs-volume-modifications.md#modify-volume-stop-start "requesting-ebs-volume-modifications.md#modify-volume-stop-start").
 
 ## Operating system
 

@@ -77,8 +77,7 @@ Recycle Bin console
    period**, specify the unlock delay period in days. A locked retention rule
    can't be modified or deleted. To modify or delete the rule, you must first unlock it and
    then wait for the unlock delay period to expire. For more information, see
-   [Lock a Recycle Bin retention rule to prevent
-   it from being updated or deleted](recycle-bin-lock.md "recycle-bin-lock.md")
+   [Lock a Recycle Bin retention rule to prevent it from being updated or deleted](recycle-bin-lock.md "recycle-bin-lock.md")
 
 To leave the retention rule unlocked, for **Rule lock settings**, keep
 **Unlock** selected. An unlocked retention rule can be modified or

@@ -20,8 +20,7 @@ To prevent the public sharing of snapshots, you can enable [Block public access 
 - [Share a snapshot](#share-unencrypted-snapshot "#share-unencrypted-snapshot")
 - [Share a KMS key](share-kms-key.md "share-kms-key.md")
 - [Use shared snapshots](view-shared-snapshot.md "view-shared-snapshot.md")
-- [Determine the use of snapshots that
-  you share](#shared-snapshot-cloudtrail-logging "#shared-snapshot-cloudtrail-logging")
+- [Determine the use of snapshots that you share](#shared-snapshot-cloudtrail-logging "#shared-snapshot-cloudtrail-logging")
 
 ## Before you share a snapshot
 
@@ -141,9 +140,7 @@ Edit-EC2SnapshotAttribute `
     -UserId `123456789012` `111122223333`
 ```
 
-## Determine the use of snapshots that
-
-you share
+## Determine the use of snapshots that you share
 
 You can use AWS CloudTrail to monitor whether a snapshot that you have shared with others is copied or
 used to create a volume. The following events are logged in CloudTrail when an action is taken on a snapshot

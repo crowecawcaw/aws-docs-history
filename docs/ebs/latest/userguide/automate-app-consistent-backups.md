@@ -1,6 +1,4 @@
-# Automate application-consistent snapshots
-
-with Data Lifecycle Manager
+# Automate application-consistent snapshots with Data Lifecycle Manager
 
 You can automate application-consistent snapshots with Amazon Data Lifecycle Manager by enabling pre and post scripts
 in your snapshot lifecycle policies that target instances.
@@ -21,11 +19,9 @@ Using Amazon Data Lifecycle Manager, you can automate application-consistent sna
 ###### Topics
 
 - [Requirements for using pre and post scripts](#app-consistent-prereqs "#app-consistent-prereqs")
-- [Getting started with application-consistent
-  snapshots](#app-consistent-get-started "#app-consistent-get-started")
+- [Getting started with application-consistent snapshots](#app-consistent-get-started "#app-consistent-get-started")
 - [Considerations for VSS Backups with Amazon Data Lifecycle Manager](#app-consistent-vss "#app-consistent-vss")
-- [Shared responsibility for application-consistent
-  snapshots](#shared-responsibility "#shared-responsibility")
+- [Shared responsibility for application-consistent snapshots](#shared-responsibility "#shared-responsibility")
 
 ## Requirements for using pre and post scripts
 
@@ -43,9 +39,7 @@ scripts with Amazon Data Lifecycle Manager.
 | Prepare Amazon Data Lifecycle Manager IAM role run pre and post scripts                     | ✓                                | ✓                   | ✓               |
 | Create snapshot policy that targets instances and<br>is configured for pre and post scripts | ✓                                | ✓                   | ✓               |
 
-## Getting started with application-consistent
-
-snapshots
+## Getting started with application-consistent snapshots
 
 This section explains the steps you need to follow to automate application-consistent
 snapshots using Amazon Data Lifecycle Manager.
@@ -1318,9 +1312,7 @@ You might need to manually delete these snapshots.
 - T3a: `t3a.nano` | `t3a.micro`
 - T2: `t2.nano` | `t2.micro`
 
-## Shared responsibility for application-consistent
-
-snapshots
+## Shared responsibility for application-consistent snapshots
 
 ###### You must ensure that:
 

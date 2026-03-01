@@ -22,9 +22,7 @@ Amazon EC2 works with AWS KMS to encrypt and decrypt your EBS volumes in slightl
 ways depending on whether the snapshot from which you create an encrypted volume is
 encrypted or unencrypted.
 
-## How EBS encryption works
-
-when the snapshot is encrypted
+## How EBS encryption works when the snapshot is encrypted
 
 When you create an encrypted volume from an encrypted snapshot that you own, Amazon EC2
 works with AWS KMS to encrypt and decrypt your EBS volumes as follows:

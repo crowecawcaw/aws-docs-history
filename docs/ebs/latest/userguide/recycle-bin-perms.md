@@ -8,14 +8,11 @@ or roles.
 
 ###### Topics
 
-- [Permissions for working with Recycle Bin and
-  retention rules](#rule-perms "#rule-perms")
+- [Permissions for working with Recycle Bin and retention rules](#rule-perms "#rule-perms")
 - [Permissions for working with resources in the Recycle Bin](#resource-perms "#resource-perms")
 - [Condition keys for Recycle Bin](#rbin-condition-keys "#rbin-condition-keys")
 
-## Permissions for working with Recycle Bin and
-
-retention rules
+## Permissions for working with Recycle Bin and retention rules
 
 To work with Recycle Bin and retention rules, users need the following
 permissions.

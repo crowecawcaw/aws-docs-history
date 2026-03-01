@@ -17,8 +17,7 @@ performance, and change the volume type of your Amazon EBS volumes without detac
 ###### Contents
 
 - [Modify an EBS volume using Elastic Volumes](#modify-ebs-volume "#modify-ebs-volume")
-- [Modify an EBS volume if Elastic Volumes is not
-  supported](#modify-volume-stop-start "#modify-volume-stop-start")
+- [Modify an EBS volume if Elastic Volumes is not supported](#modify-volume-stop-start "#modify-volume-stop-start")
 - [Initialize Elastic Volumes support (if needed)](#initialize-modification-support "#initialize-modification-support")
 
 ## Modify an EBS volume using Elastic Volumes
@@ -119,9 +118,7 @@ If you've increased the size of your volume, then you must also extend the
 volume's partition to make use of the additional storage capacity. For more
 information, see [Extend the file system after resizing an Amazon EBS volume](recognize-expanded-volume-linux.md "recognize-expanded-volume-linux.md").
 
-## Modify an EBS volume if Elastic Volumes is not
-
-supported
+## Modify an EBS volume if Elastic Volumes is not supported
 
 If you are using a supported instance type, you can use Elastic Volumes to dynamically
 modify the size, performance, and volume type of your Amazon EBS volumes without detaching

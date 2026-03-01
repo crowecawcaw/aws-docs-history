@@ -34,8 +34,7 @@ delete the volume.
 
 - [Step 1: Unmount the volume](#unmount "#unmount")
 - [Step 2: Detach the volume from the instance](#detach "#detach")
-- [Step 3: (Windows instances only) Uninstall
-  the offline device locations](#uninstall "#uninstall")
+- [Step 3: (Windows instances only) Uninstall the offline device locations](#uninstall "#uninstall")
 
 ### Step 1: Unmount the volume
 
@@ -95,9 +94,7 @@ After unmounting the volume, use the [Dismount-EC2Volume](../../../powershell/la
 Dismount-EC2Volume -VolumeId `vol-01234567890abcdef`
 ```
 
-### Step 3: (_Windows instances only_) Uninstall
-
-the offline device locations
+### Step 3: (_Windows instances only_) Uninstall the offline device locations
 
 When you unmount and detach a volume from an instance, Windows flags the device location
 as offline. The device location remains offline after rebooting, and stopping and restarting

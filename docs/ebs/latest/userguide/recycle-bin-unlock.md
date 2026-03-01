@@ -1,6 +1,4 @@
-# Unlock a Recycle Bin retention rule to allow
-
-it to be updated or deleted
+# Unlock a Recycle Bin retention rule to allow it to be updated or deleted
 
 You can't modify or delete a locked retention rule. If you need to modify a
 locked retention rule, you must first unlock it. After you have unlocked the

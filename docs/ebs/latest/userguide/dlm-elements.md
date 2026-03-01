@@ -65,9 +65,7 @@ Amazon Data Lifecycle Manager supports the following custom policies:
 
 For more information, see [Amazon Data Lifecycle Manager default policies vs custom policies](policy-differences.md "policy-differences.md").
 
-## Policy schedules (\*custom policies
-
-only\*)
+## Policy schedules (_custom policies only_)
 
 Policy schedules define when snapshots or AMIs are created by the policy. Policies
 can have up to four schedules—one mandatory schedule, and up to three optional
@@ -98,9 +96,7 @@ all of the initiated schedules are applied to the snapshot or AMI.
   the snapshot or AMI is copied to all Regions specified across all of the initiated
   schedules. The highest retention period of the initiated schedules is applied.
 
-## Target resource tags (\*custom policies
-
-only\*)
+## Target resource tags (_custom policies only_)
 
 Amazon Data Lifecycle Manager custom policies use resource tags to identify the resources to back up. When you
 create a snapshot or EBS-backed AMI policy, you can specify multiple target resource tags.

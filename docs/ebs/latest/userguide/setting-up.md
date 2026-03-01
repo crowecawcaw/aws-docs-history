@@ -6,10 +6,8 @@ Complete the tasks in this section to get set up for working with Amazon EBS res
 
 - [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Create a user with administrative access](#create-an-admin "#create-an-admin")
-- [(Optional) Create and use a customer managed key for
-  Amazon EBS encryption](#create-kms-key "#create-kms-key")
-- [(Optional) Enable block public access for Amazon EBS
-  snapshots](#setup-bpa "#setup-bpa")
+- [(Optional) Create and use a customer managed key for Amazon EBS encryption](#create-kms-key "#create-kms-key")
+- [(Optional) Enable block public access for Amazon EBS snapshots](#setup-bpa "#setup-bpa")
 
 ## Sign up for an AWS account
 
@@ -69,9 +67,7 @@ For instructions, see [Create a permission set](../../../singlesignon/latest/use
 
 For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md") in the _AWS IAM Identity Center User Guide_.
 
-## (_Optional_) Create and use a customer managed key for
-
-Amazon EBS encryption
+## (_Optional_) Create and use a customer managed key for Amazon EBS encryption
 
 Amazon EBS encryption is an encryption solution that uses AWS KMS cryptographic keys to encrypt your
 Amazon EBS volumes and Amazon EBS snapshots. Amazon EBS automatically creates a unique AWS managed KMS key
@@ -87,9 +83,7 @@ the KMS key used for Amazon EBS encryption, you might consider creating and usin
 3. [Give users permission to use the KMS key for
    Amazon EBS encryption](ebs-encryption-requirements.md#ebs-encryption-permissions "ebs-encryption-requirements.md#ebs-encryption-permissions").
 
-## (_Optional_) Enable block public access for Amazon EBS
-
-snapshots
+## (_Optional_) Enable block public access for Amazon EBS snapshots
 
 To prevent public sharing of your snapshots, you can enable block public access for snapshots.
 After you enable block public access for snapshots in a Region, any attempt to publicly share

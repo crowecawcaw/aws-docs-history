@@ -12,10 +12,8 @@ The HDD-backed volumes provided by Amazon EBS fall into these categories:
 - [Limitations on per-instance throughput](#throughput-limitations "#throughput-limitations")
 - [Throughput Optimized HDD volumes](#EBSVolumeTypes_st1 "#EBSVolumeTypes_st1")
 - [Cold HDD volumes](#EBSVolumeTypes_sc1 "#EBSVolumeTypes_sc1")
-- [Performance considerations when using HDD
-  volumes](#EBSVolumeTypes_considerations "#EBSVolumeTypes_considerations")
-- [Monitor the burst bucket balance for
-  volumes](#monitoring_burstbucket-hdd "#monitoring_burstbucket-hdd")
+- [Performance considerations when using HDD volumes](#EBSVolumeTypes_considerations "#EBSVolumeTypes_considerations")
+- [Monitor the burst bucket balance for volumes](#monitoring_burstbucket-hdd "#monitoring_burstbucket-hdd")
 
 ## Limitations on per-instance throughput
 
@@ -128,8 +126,7 @@ When you create a snapshot of a Throughput Optimized HDD (`st1`) volume, perform
 far as the volume's baseline value while the snapshot is in progress.
 
 For information about using CloudWatch metrics and alarms to monitor your burst bucket
-balance, see [Monitor the burst bucket balance for
-volumes](#monitoring_burstbucket-hdd "#monitoring_burstbucket-hdd").
+balance, see [Monitor the burst bucket balance for volumes](#monitoring_burstbucket-hdd "#monitoring_burstbucket-hdd").
 
 ## Cold HDD volumes
 
@@ -230,19 +227,14 @@ When you create a snapshot of a Cold HDD (`sc1`) volume, performance may drop as
 as the volume's baseline value while the snapshot is in progress.
 
 For information about using CloudWatch metrics and alarms to monitor your burst bucket
-balance, see [Monitor the burst bucket balance for
-volumes](#monitoring_burstbucket-hdd "#monitoring_burstbucket-hdd").
+balance, see [Monitor the burst bucket balance for volumes](#monitoring_burstbucket-hdd "#monitoring_burstbucket-hdd").
 
-## Performance considerations when using HDD
-
-volumes
+## Performance considerations when using HDD volumes
 
 For optimal throughput results using HDD volumes, plan your workloads with the following
 considerations in mind.
 
-### \*\*Comparing Throughput Optimized HDD and
-
-Cold HDD\*\*
+### **Comparing Throughput Optimized HDD and Cold HDD**
 
 The `st1` and `sc1` bucket sizes vary according to volume size, and a full bucket
 contains enough tokens for a full volume scan. However, larger `st1` and `sc1` volumes
@@ -342,9 +334,7 @@ For example, an I/O request of 1 MiB or less counts as a 1 MiB I/O credit. Howev
 the I/Os are sequential, they are merged into 1 MiB I/O blocks and count only as a 1 MiB
 I/O credit.
 
-## Monitor the burst bucket balance for
-
-volumes
+## Monitor the burst bucket balance for volumes
 
 You can monitor the burst bucket level for `st1` and `sc1` volumes using the Amazon EBS
 `BurstBalance` metric available in Amazon CloudWatch. This metric shows the throughput

@@ -50,8 +50,7 @@ in the _IAM User Guide_.
   - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
   - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 
-For more information about the permissions needed to use Recycle Bin, see [Permissions for working with Recycle Bin and
-retention rules](recycle-bin-perms.md#rule-perms "recycle-bin-perms.md#rule-perms").
+For more information about the permissions needed to use Recycle Bin, see [Permissions for working with Recycle Bin and retention rules](recycle-bin-perms.md#rule-perms "recycle-bin-perms.md#rule-perms").
 
 ## View AMIs in the Recycle Bin
 

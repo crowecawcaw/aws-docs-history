@@ -183,8 +183,7 @@ schedule that you add, do the following:
     3. Configure pre and post scripts for application-consistent snapshots.
 
 
-    For more information, see [Automate application-consistent snapshots
-     with Data Lifecycle Manager](automate-app-consistent-backups.md "automate-app-consistent-backups.md").
+    For more information, see [Automate application-consistent snapshots with Data Lifecycle Manager](automate-app-consistent-backups.md "automate-app-consistent-backups.md").
 
 
     [Show moreShow less](# "#")
@@ -396,9 +395,7 @@ If the request succeeds, the command returns the ID of the newly created policy.
 }
 ```
 
-###### Example 2—Snapshot lifecycle policy that targets instances and creates snapshots of a subset of
-
-data (non-root) volumes
+###### Example 2—Snapshot lifecycle policy that targets instances and creates snapshots of a subset of data (non-root) volumes
 
 This example creates a snapshot lifecycle policy that creates multi-volume snapshot sets from instances
 tagged with `code=production`. The policy includes only one schedule. The schedule does not
