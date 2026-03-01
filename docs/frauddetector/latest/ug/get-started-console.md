@@ -1,8 +1,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
-# Tutorial: Get started using the Amazon Fraud Detector
-
-console
+# Tutorial: Get started using the Amazon Fraud Detector console
 
 This tutorial consists of two parts. The first part describes how to build, train, and deploy a
 fraud detection model. The second part covers how to use the model to generate fraud predictions in real time. The model

@@ -21,9 +21,7 @@ You can use any list that is associated with a variable type and is populated wi
 $example_list_variable in @list_name
 ```
 
-## Comparison, membership, and identity
-
-operators
+## Comparison, membership, and identity operators
 
 Amazon Fraud Detector includes the following comparison operators: >, >=, <,
 <=,!=, ==, in, not in

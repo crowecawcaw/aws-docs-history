@@ -1,8 +1,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
-# Import
-
-a SageMaker AI model
+# Import a SageMaker AI model
 
 You can optionally import SageMaker AI-hosted models to Amazon Fraud Detector. Similar to models, SageMaker AI models can be added to detectors and generate fraud predictions using the `GetEventPrediction` API. As part of the `GetEventPrediction` request, Amazon Fraud Detector will invoke your SageMaker AI endpoint and pass the results to your rules.
 

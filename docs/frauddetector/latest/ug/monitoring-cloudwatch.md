@@ -48,9 +48,7 @@ see [Authentication and Access Control for Amazon CloudWatch](../../../AmazonClo
 
 The following steps show how to access Amazon Fraud Detector metrics using the CloudWatch console.
 
-###### To view metrics
-
-(console)
+###### To view metrics (console)
 
 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch "https://console.aws.amazon.com/cloudwatch").
 2. Choose **Metrics**, choose the **All

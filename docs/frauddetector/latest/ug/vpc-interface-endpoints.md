@@ -1,8 +1,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
-# Amazon Fraud Detector and interface VPC endpoints
-
-(AWS PrivateLink)
+# Amazon Fraud Detector and interface VPC endpoints (AWS PrivateLink)
 
 You can establish a private connection between your VPC and Amazon Fraud Detector by creating an
 _interface VPC endpoint_. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink "https://aws.amazon.com/privatelink"), a technology that enables you
@@ -18,9 +16,7 @@ For more information, see [Interface VPC
 endpoints (AWS PrivateLink)](../../../vpc/latest/userguide/vpce-interface.md "../../../vpc/latest/userguide/vpce-interface.md") in the _Amazon VPC User
 Guide_.
 
-## Considerations for Amazon Fraud Detector VPC
-
-endpoints
+## Considerations for Amazon Fraud Detector VPC endpoints
 
 Before you set up an interface VPC endpoint for Amazon Fraud Detector, ensure that you
 review [Interface
@@ -33,9 +29,7 @@ VPC endpoint policies are supported for Amazon Fraud Detector. By default, full 
 Amazon Fraud Detector is allowed through the endpoint. For more information, see [Controlling access to services with
 VPC endpoints](../../../vpc/latest/userguide/vpc-endpoints-access.md "../../../vpc/latest/userguide/vpc-endpoints-access.md") in the _Amazon VPC User Guide_.
 
-## Creating an interface VPC endpoint for
-
-Amazon Fraud Detector
+## Creating an interface VPC endpoint for Amazon Fraud Detector
 
 You can create a VPC endpoint for the Amazon Fraud Detector service using either the Amazon VPC console
 or the AWS Command Line Interface (AWS CLI). For more information, see [Creating an
@@ -86,5 +80,4 @@ In this example, the following are denied:
 
 ###### Note
 
-In this example, users can still take other Amazon Fraud Detector API actions from outside the VPC. For information about how to restrict API calls to those from within the VPC, see [Amazon Fraud Detector
-identity-based policies](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies").
+In this example, users can still take other Amazon Fraud Detector API actions from outside the VPC. For information about how to restrict API calls to those from within the VPC, see [Amazon Fraud Detector identity-based policies](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies").

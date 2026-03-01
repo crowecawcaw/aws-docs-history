@@ -36,9 +36,7 @@ If you need to update, choose **Edit** and provide the updates. Choose **Save ch
 
 We recommend that you create as many variables as you want from your dataset. You can decide later when creating your event type which variables you want to include for training your model to detect fraud and to generate fraud detections.
 
-## Create a variable using
-
-the AWS SDK for Python (Boto3)
+## Create a variable using the AWS SDK for Python (Boto3)
 
 The following example shows requests for the [CreateVariable](../api/API_CreateVariable.md "../api/API_CreateVariable.md")
 API. The example creates two variables, `email_address` and

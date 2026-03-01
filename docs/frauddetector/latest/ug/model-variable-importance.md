@@ -97,9 +97,7 @@ After model training is complete, you can view model variable importance ranking
 4. Make sure that the **Overview** tab is selected.
 5. Scroll down to view the **Model variable importance** pane.
 
-## Understanding how the model variable importance
-
-value is calculated
+## Understanding how the model variable importance value is calculated
 
 Upon completion of each model version training, Amazon Fraud Detector automatically generates
 model variable importance values and model’s performance metrics. For this, Amazon Fraud Detector

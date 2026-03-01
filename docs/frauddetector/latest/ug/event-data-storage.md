@@ -18,5 +18,5 @@ where to store your dataset based on the model you use for generating fraud pred
 | Transaction Fraud Insights | Internal storage                   |
 | Account Takeover Insights  | Internal storage                   |
 
-For information on storing your dataset externally with Amazon Simple Storage Service, see [Store your event data externally with Amazon S3](uploading-event-data-to-an-s3-bucket.md "uploading-event-data-to-an-s3-bucket.md") .
+For information on storing your dataset externally with Amazon Simple Storage Service, see [Store your event data externally with Amazon S3](uploading-event-data-to-an-s3-bucket.md "uploading-event-data-to-an-s3-bucket.md").
 For information on storing your dataset internally with Amazon Fraud Detector see [Store your event data internally with Amazon Fraud Detector](storing-event-data-afd.md "storing-event-data-afd.md").

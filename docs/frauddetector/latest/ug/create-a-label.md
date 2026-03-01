@@ -21,9 +21,7 @@ using the [PutLabel](../api/API_PutLabel.md "../api/API_PutLabel.md") API, or us
 5. Create a second label and enter a label name for legitimate event. Make sure the label name corresponds to the value that
    represents the legitimate activity in your training dataset.
 
-## Create a label using the
-
-AWS SDK for Python (Boto3)
+## Create a label using the AWS SDK for Python (Boto3)
 
 The following AWS SDK for Python (Boto3) example code creates two labels (fraud, legit) using the [PutLabel](../api/API_PutLabel.md "../api/API_PutLabel.md") API. After creating the labels, you can add them to an event type to classify
 specific events.

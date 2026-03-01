@@ -1,8 +1,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
-# Delete a detector, detector version, or rule
-
-version
+# Delete a detector, detector version, or rule version
 
 Before deleting a detector in Amazon Fraud Detector, you must first delete all detector versions and
 rule versions that are associated with the detector.

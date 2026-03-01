@@ -102,9 +102,7 @@ rules using the following rule details:
 For more information about creating and writing rules, see [Rules](rules.md "rules.md") and
 [Rule language reference](rule-language-reference.md "rule-language-reference.md").
 
-### Step 4: Configure rule
-
-execution and rule order
+### Step 4: Configure rule execution and rule order
 
 The rule execution mode for the rules that are included in the detector
 determines if all the rules you define are evaluated, or if rule evaluation
@@ -146,9 +144,7 @@ returns the outcomes for all matched rules.
 Select `FIRST_MATCHED` for this tutorial and then choose
 **Next**.
 
-### Step 5:
-
-Review and create detector version
+### Step 5: Review and create detector version
 
 A detector version defines the specific models and rules that are used for
 generating fraud predictions.

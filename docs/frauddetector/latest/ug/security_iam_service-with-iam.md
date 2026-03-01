@@ -1,8 +1,6 @@
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
-# How Amazon Fraud Detector works with
-
-IAM
+# How Amazon Fraud Detector works with IAM
 
 Before you use IAM to manage access to Amazon Fraud Detector, you should understand what
 IAM features are available to use with Amazon Fraud Detector. To get a high-level view of how
@@ -11,18 +9,12 @@ Work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-wi
 
 ###### Topics
 
-- [Amazon Fraud Detector
-  identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [Amazon Fraud Detector
-  resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
-- [Authorization Based on
-  Amazon Fraud Detector Tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
-- [Amazon Fraud Detector IAM
-  roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
+- [Amazon Fraud Detector identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [Amazon Fraud Detector resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
+- [Authorization Based on Amazon Fraud Detector Tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [Amazon Fraud Detector IAM roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
 
-## Amazon Fraud Detector
-
-identity-based policies
+## Amazon Fraud Detector identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources as well as the conditions under which actions are allowed or denied.
@@ -130,18 +122,13 @@ resources you can use a condition key, see [Actions Defined by Amazon Fraud Dete
 
 ### Examples
 
-To view examples of Amazon Fraud Detector identity-based policies, see [Amazon Fraud Detector identity-based
-policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Fraud Detector identity-based policies, see [Amazon Fraud Detector identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Amazon Fraud Detector
-
-resource-based policies
+## Amazon Fraud Detector resource-based policies
 
 Amazon Fraud Detector does not support resource-based policies.
 
-## Authorization Based on
-
-Amazon Fraud Detector Tags
+## Authorization Based on Amazon Fraud Detector Tags
 
 You can attach tags to Amazon Fraud Detector resources or pass tags in a request to
 Amazon Fraud Detector. To control access based on tags, you provide tag information in
@@ -151,9 +138,7 @@ element](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md 
  `aws:RequestTag/`key-name``, or
 `aws:TagKeys` condition keys.
 
-## Amazon Fraud Detector IAM
-
-roles
+## Amazon Fraud Detector IAM roles
 
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within
 your AWS account that has specific permissions.

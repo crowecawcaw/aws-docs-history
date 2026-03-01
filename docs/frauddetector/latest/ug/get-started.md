@@ -12,6 +12,5 @@ registration dataset for this tutorial. The example dataset must be uploaded bef
 
 You can get started with Amazon Fraud Detector using one of the following interfaces. Before getting started with the tutorial, make sure that you follow instructions to [Get and upload example dataset](step-1-get-s3-data.md "step-1-get-s3-data.md")
 
-- [Tutorial: Get started using the Amazon Fraud Detector
-  console](get-started-console.md "get-started-console.md")
+- [Tutorial: Get started using the Amazon Fraud Detector console](get-started-console.md "get-started-console.md")
 - [Tutorial: Get started using the AWS SDK for Python (Boto3)](getting-started-python.md "getting-started-python.md")

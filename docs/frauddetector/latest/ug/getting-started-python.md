@@ -443,9 +443,7 @@ After you completed this tutorial, you did the following:
 - Tested the detector by providing different inputs and checking if the
   rules and rule execution order worked as expected.
 
-## (Optional) Explore the Amazon Fraud Detector APIs with a
-
-Jupyter (iPython) Notebook
+## (Optional) Explore the Amazon Fraud Detector APIs with a Jupyter (iPython) Notebook
 
 For more examples for how to use the Amazon Fraud Detector APIs, see [aws-fraud-detector-samples GitHub repository](https://github.com/aws-samples/aws-fraud-detector-samples "https://github.com/aws-samples/aws-fraud-detector-samples"). The topics that the
 notebooks cover include both building models and detectors using the Amazon Fraud Detector APIs and
