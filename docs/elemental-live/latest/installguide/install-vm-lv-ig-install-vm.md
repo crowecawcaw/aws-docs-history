@@ -1,6 +1,4 @@
-# Step B: Deploy the
-
-VM
+# Step B: Deploy the VM
 
 Perform these steps from your workstation.
 

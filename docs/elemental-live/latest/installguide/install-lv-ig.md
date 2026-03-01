@@ -1,6 +1,4 @@
-# Installing Elemental Live on
-
-qualified hardware
+# Installing Elemental Live on qualified hardware
 
 This section is for IT administrators who perform the first-time installation of AWS Elemental Live
 software on a hardware unit that is considered _qualified
@@ -37,13 +35,8 @@ to install version 2.25.4 of the Elemental Live. Wherever an instruction shows
 
 ###### Topics
 
-- [Step A: Prepare hardware and
-  download files](install-lv-ig-prep.md "install-lv-ig-prep.md")
-- [Step B: Install
-  (kickstart) the operating system software](install-lv-ig-install-ks.md "install-lv-ig-install-ks.md")
-- [Step C: Install the
-  Elemental Live software](install-lv-ig-install-sw.md "install-lv-ig-install-sw.md")
-- [Step D: Set up
-  licenses](install-lv-ig-licensing.md "install-lv-ig-licensing.md")
-- [Step E: Complete node
-  configuration](install-lv-ig-complete.md "install-lv-ig-complete.md")
+- [Step A: Prepare hardware and download files](install-lv-ig-prep.md "install-lv-ig-prep.md")
+- [Step B: Install (kickstart) the operating system software](install-lv-ig-install-ks.md "install-lv-ig-install-ks.md")
+- [Step C: Install the Elemental Live software](install-lv-ig-install-sw.md "install-lv-ig-install-sw.md")
+- [Step D: Set up licenses](install-lv-ig-licensing.md "install-lv-ig-licensing.md")
+- [Step E: Complete node configuration](install-lv-ig-complete.md "install-lv-ig-complete.md")

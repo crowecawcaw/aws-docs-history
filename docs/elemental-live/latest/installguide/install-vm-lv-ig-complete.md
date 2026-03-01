@@ -1,6 +1,4 @@
-# Step E: Complete node
-
-configuration
+# Step E: Complete node configuration
 
 You have now installed and performed the basic initial
 configuration of Elemental Live. Use the following table to

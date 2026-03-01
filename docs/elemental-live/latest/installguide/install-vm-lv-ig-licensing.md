@@ -1,6 +1,4 @@
-# Step D: Set up
-
-licenses
+# Step D: Set up licenses
 
 At this point, the software is installed but it is not yet
 enabled.
@@ -28,18 +26,12 @@ The license generation procedure works as follows:
 
 ###### Topics
 
-- [Organize your activation
-  codes](#install-vm-live-license-retrieve "#install-vm-live-license-retrieve")
-- [Generate a
-  key file](#install-vm-live-license-generate "#install-vm-live-license-generate")
-- [Generate a
-  license](#install-vm-live-license-download "#install-vm-live-license-download")
-- [Install the
-  license files](#install-vm-live-license-install "#install-vm-live-license-install")
+- [Organize your activation codes](#install-vm-live-license-retrieve "#install-vm-live-license-retrieve")
+- [Generate a key file](#install-vm-live-license-generate "#install-vm-live-license-generate")
+- [Generate a license](#install-vm-live-license-download "#install-vm-live-license-download")
+- [Install the license files](#install-vm-live-license-install "#install-vm-live-license-install")
 
-## Organize your activation
-
-codes
+## Organize your activation codes
 
 ###### To organize the activation codes:
 
@@ -67,9 +59,7 @@ hostname `SystemA`.
 `LVE-111-222-444` with the virtual machine that has the
 hostname `SystemB`.
 
-## Generate a
-
-key file
+## Generate a key file
 
 You must generate a key file using a utility that always
 exists on the operating system of the VM.
@@ -107,9 +97,7 @@ next step. 5. Repeat these steps for each Elemental Live VM. Make
 sure that you use a different activation code on each
 VM.
 
-## Generate a
-
-license
+## Generate a license
 
 You must log on to the AWS Elemental Appliances & Software
 console, and use the key file to generate a license.
@@ -217,9 +205,7 @@ packages that you purchased.
 The licenses work only with the specific product and the
 specific VM.
 
-## Install the
-
-license files
+## Install the license files
 
 When you [downloaded the license files](#install-vm-live-license-download "#install-vm-live-license-download"), you should have made a
 note of the folder where these files were downloaded to on your

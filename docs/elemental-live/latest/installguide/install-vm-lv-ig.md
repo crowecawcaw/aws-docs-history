@@ -1,6 +1,4 @@
-# Installing AWS Elemental Live on a
-
-virtual machine (VM)
+# Installing AWS Elemental Live on a virtual machine (VM)
 
 This section is for IT administrators who will perform the first-time
 installation of AWS Elemental Live software on a virtual machine
@@ -37,13 +35,8 @@ version that you are installing.
 
 ###### Topics
 
-- [Step A: Prepare hardware and
-  download files](install-vm-lv-ig-prep.md "install-vm-lv-ig-prep.md")
-- [Step B: Deploy the
-  VM](install-vm-lv-ig-install-vm.md "install-vm-lv-ig-install-vm.md")
-- [Step C: Install the
-  Elemental Live software](install-vm-lv-ig-install-sw.md "install-vm-lv-ig-install-sw.md")
-- [Step D: Set up
-  licenses](install-vm-lv-ig-licensing.md "install-vm-lv-ig-licensing.md")
-- [Step E: Complete node
-  configuration](install-vm-lv-ig-complete.md "install-vm-lv-ig-complete.md")
+- [Step A: Prepare hardware and download files](install-vm-lv-ig-prep.md "install-vm-lv-ig-prep.md")
+- [Step B: Deploy the VM](install-vm-lv-ig-install-vm.md "install-vm-lv-ig-install-vm.md")
+- [Step C: Install the Elemental Live software](install-vm-lv-ig-install-sw.md "install-vm-lv-ig-install-sw.md")
+- [Step D: Set up licenses](install-vm-lv-ig-licensing.md "install-vm-lv-ig-licensing.md")
+- [Step E: Complete node configuration](install-vm-lv-ig-complete.md "install-vm-lv-ig-complete.md")

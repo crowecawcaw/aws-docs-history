@@ -1,21 +1,13 @@
-# Step C: Install the
-
-Elemental Live software
+# Step C: Install the Elemental Live software
 
 ###### Topics
 
-- [About Installer
-  Options](#install-live-vm-about-options "#install-live-vm-about-options")
-- [Setting up OCR
-  Conversion in Versions 2.22.0 to 2.23.0](#install-live-vm-ocr2200-option "#install-live-vm-ocr2200-option")
-- [Setting up OCR
-  Conversion in Versions 2.23.1 and later](#install-live-vm-ocr2231-option "#install-live-vm-ocr2231-option")
-- [The Install
-  Procedure](#install-live-vm-procedure "#install-live-vm-procedure")
+- [About Installer Options](#install-live-vm-about-options "#install-live-vm-about-options")
+- [Setting up OCR Conversion in Versions 2.22.0 to 2.23.0](#install-live-vm-ocr2200-option "#install-live-vm-ocr2200-option")
+- [Setting up OCR Conversion in Versions 2.23.1 and later](#install-live-vm-ocr2231-option "#install-live-vm-ocr2231-option")
+- [The Install Procedure](#install-live-vm-procedure "#install-live-vm-procedure")
 
-## About Installer
-
-Options
+## About Installer Options
 
 To install Elemental Live, you run the installer. The installer
 has options that control the way the installer works:
@@ -35,9 +27,7 @@ this command at the Linux command line:
 [elemental@hostname ~]$ sudo sh ./elemental_live_cpu_2.25.4.12345.run --help
 ```
 
-### The skip-all
-
-Installer Option
+### The skip-all Installer Option
 
 The installer has a `--skip-all` option that
 skips all the prompts and performs the default choice for
@@ -51,9 +41,7 @@ The `--skip-all` option means that the
 installer won't present prompts. It will perform some
 actions using default information.
 
-## Setting up OCR
-
-Conversion in Versions 2.22.0 to 2.23.0
+## Setting up OCR Conversion in Versions 2.22.0 to 2.23.0
 
 The installer for Elemental Live versions 2.22.0 to 2.23.0
 includes an option to set up the feature to convert captions
@@ -97,9 +85,7 @@ installer with these options:
 - You can include or omit the `--skip-all`
   option.
 
-## Setting up OCR
-
-Conversion in Versions 2.23.1 and later
+## Setting up OCR Conversion in Versions 2.23.1 and later
 
 The installer for Elemental Live version 2.23.1 and later
 includes several options to set up the feature to convert
@@ -175,9 +161,7 @@ installer with these options:
   option, depending on whether you want to be presented
   with prompts for other features.
 
-## The Install
-
-Procedure
+## The Install Procedure
 
 1. Use SCP to move each Elemental Live software installer
    (`.run` file) to the
@@ -223,7 +207,7 @@ help about all the options, enter this command:
 | `Will this machine ingest MPEG-TS<br>over UDP (ports 5000-5100)`                          | Type `Yes` or<br>`No`                                                                                                                                                                                                                                              |
 | `Will this machine serve files using<br>Windows file-sharing<br>(Samba/CIFS)?`            | Type `Yes` or<br>`No`                                                                                                                                                                                                                                              |
 | `Will this machine be an NTP<br>server?`                                                  | Type `Yes` or<br>`No`                                                                                                                                                                                                                                              |
-| `Enable conversion of eligible<br>captions using OCR<br>technology?`                      | Type `Yes` or<br>`No`. For<br>information about requirements for this<br>feature, see [Setting up OCR<br>Conversion in Versions 2.23.1 and later](install-lv-ig-install-sw.md#install-live-sw-ocr-2231 "install-lv-ig-install-sw.md#install-live-sw-ocr-2231").    |
+| `Enable conversion of eligible<br>captions using OCR<br>technology?`                      | Type `Yes` or<br>`No`. For<br>information about requirements for this<br>feature, see [Setting up OCR Conversion in Versions 2.23.1 and later](install-lv-ig-install-sw.md#install-live-sw-ocr-2231 "install-lv-ig-install-sw.md#install-live-sw-ocr-2231").       |
 | `Select time zone ('n' for<br>more)`                                                      | Enter the time zone you want to show on<br>the web interface of the nodes. This setting<br>does not affect activity via SSH or via the<br>REST API.                                                                                                                |
 | `Do you wish to enable<br>authentication?`                                                | Type `Yes` or<br>`No` if you want to set<br>up so that users must log in to use<br>Elemental Live                                                                                                                                                                  |
 | `For security purposes, we require<br>that you change the default<br>password.`           | This prompt is shown if you are still<br>using the default password.<br>We recommend that you create a strong password:<br>• Minimum 8 characters<br>• At least one uppercase letter, at least one lowercase letter, at least one number, and at least one symbol. |

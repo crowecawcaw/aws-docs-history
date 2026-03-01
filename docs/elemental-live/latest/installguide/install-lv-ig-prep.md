@@ -1,10 +1,6 @@
-# Step A: Prepare hardware and
+# Step A: Prepare hardware and download files
 
-download files
-
-## Prepare hardware and
-
-network
+## Prepare hardware and network
 
 To prepare your hardware and network, make sure the following steps are
 complete:
@@ -16,9 +12,7 @@ complete:
 - You have set up a method, such as SCP, for transferring files between your
   workstation and the node.
 
-## Note your activation
-
-code
+## Note your activation code
 
 You should have received an email with your activation code. You need this number
 for the installation.
@@ -30,9 +24,7 @@ unit, and make a note. The codes are not tied ahead of time to
 any specific hardware unit, but you cannot use the same code on
 more than one.
 
-## Download installation
-
-files
+## Download installation files
 
 Download the installation files for Elemental Live.
 
@@ -64,9 +56,7 @@ You need the following files for Elemental Live:
 
     `elemental_production_live_2.25.4.12345.run`.
 
-## Create bootable
-
-kickstart
+## Create bootable kickstart
 
 At your workstation, use a third-party utility (such as
 PowerISO or ISO2USB) to create a bootable USB drive from the

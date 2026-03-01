@@ -1,6 +1,4 @@
-# Step D: Set up
-
-licenses
+# Step D: Set up licenses
 
 At this point, the software is installed but it is not yet
 enabled.
@@ -29,18 +27,12 @@ The license generation procedure works as follows:
 
 ###### Topics
 
-- [Organize your
-  activation codes](#install-live-license-retrieve "#install-live-license-retrieve")
-- [Generate a key
-  file](#install-live-license-generate "#install-live-license-generate")
-- [Generate a
-  license](#install-live-license-download "#install-live-license-download")
-- [Install the
-  license files](#install-live-license-install "#install-live-license-install")
+- [Organize your activation codes](#install-live-license-retrieve "#install-live-license-retrieve")
+- [Generate a key file](#install-live-license-generate "#install-live-license-generate")
+- [Generate a license](#install-live-license-download "#install-live-license-download")
+- [Install the license files](#install-live-license-install "#install-live-license-install")
 
-## Organize your
-
-activation codes
+## Organize your activation codes
 
 ###### To organize the activation codes:
 
@@ -68,9 +60,7 @@ hostname `SystemA`.
 `LVE-111-222-444` with the hardware unit that has the
 hostname `SystemB`.
 
-## Generate a key
-
-file
+## Generate a key file
 
 You must generate a key file using a utility that always
 exists on the operating system of the hardware unit.
@@ -105,9 +95,7 @@ path because you will need it in the next step. 5. Repeat these steps for each E
 unit. Make sure that you use a different activation code
 on each hardware unit.
 
-## Generate a
-
-license
+## Generate a license
 
 You must log on to the AWS Elemental Appliances & Software
 console, and use the key file to generate a license.
@@ -214,9 +202,7 @@ that you purchased.
 The licenses work only with the specific product and the
 specific hardware unit.
 
-## Install the
-
-license files
+## Install the license files
 
 When you [downloaded the license files](#install-live-license-download "#install-live-license-download"), you should have made a
 note of the folder where these files were downloaded to on your

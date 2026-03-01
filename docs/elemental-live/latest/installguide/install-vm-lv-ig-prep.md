@@ -1,10 +1,6 @@
-# Step A: Prepare hardware and
+# Step A: Prepare hardware and download files
 
-download files
-
-## Prepare hardware and
-
-network
+## Prepare hardware and network
 
 To prepare your hardware and network, make sure you have done
 the following:
@@ -16,9 +12,7 @@ the following:
 - Set up a method, such as SCP, for transferring files
   from your workstation to the VM guest.
 
-## Note your activation
-
-code
+## Note your activation code
 
 You should have received an email with your activation code.
 You need this number for the installation.
@@ -29,9 +23,7 @@ and note which activation code you will use for each unit. The
 codes are not tied ahead of time to any specific system, but you
 cannot use the same code on more than one.
 
-## Download installation
-
-files
+## Download installation files
 
 Download the installation files for each unique AWS Elemental product
 that you're using.

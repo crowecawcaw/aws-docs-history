@@ -1,6 +1,4 @@
-# Step B: Install
-
-(kickstart) the operating system software
+# Step B: Install (kickstart) the operating system software
 
 Install the operating system on the node. This action is known as
 _kickstarting_ the
