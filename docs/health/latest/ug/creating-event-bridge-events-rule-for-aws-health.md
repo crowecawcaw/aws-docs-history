@@ -1,6 +1,4 @@
-# Configuring an EventBridge rule to
-
-send notifications about events in AWS Health
+# Configuring an EventBridge rule to send notifications about events in AWS Health
 
 You can create an EventBridge rule to get notified for AWS Health events in your account. Before
 you create event rules for AWS Health, do the following:
@@ -54,8 +52,7 @@ you create event rules for AWS Health, do the following:
       events](#all-ec2-events-rule "#all-ec2-events-rule").
     - You can create a rule to monitor for more than one service or event type
       category. To do so, you must manually update the event pattern for the rule. For
-      more information, see [Creating a rule for multiple
-      services and categories](#create-rule-multiple-services-categories "#create-rule-multiple-services-categories").
+      more information, see [Creating a rule for multiple services and categories](#create-rule-multiple-services-categories "#create-rule-multiple-services-categories").
 
 12. If you chose a specific service and event type category, choose one of the following
     options for event type codes.
@@ -111,9 +108,7 @@ The following example creates a rule so that EventBridge monitors the following:
 
 ![Create an EventBridge rule for specific Amazon EC2 events only.](images/event-bridge-event-pattern-ec2-scheduled-change.png)
 
-## Creating a rule for multiple
-
-services and categories
+## Creating a rule for multiple services and categories
 
 The examples in the previous procedure show you how to create a rule for a single
 service and event type category. You can also create a rule for multiple services and event
@@ -137,14 +132,12 @@ You can use one of the following options.
 
 ###### To add services and categories for a new rule
 
-1. Follow the procedure in [Configuring an EventBridge rule to
-   send notifications about events in AWS Health](creating-event-bridge-events-rule-for-aws-health.md "creating-event-bridge-events-rule-for-aws-health.md") to [step 9](#choose-service-category "#choose-service-category").
+1. Follow the procedure in [Configuring an EventBridge rule to send notifications about events in AWS Health](creating-event-bridge-events-rule-for-aws-health.md "creating-event-bridge-events-rule-for-aws-health.md") to [step 9](#choose-service-category "#choose-service-category").
 2. Instead of choosing a single service or category from the lists, for **Event
    pattern**, choose **Edit pattern**.
 3. Enter your changes into the text field. See the following [example pattern](#example-multiple-services-categories "#example-multiple-services-categories") as a model for
    creating your own event pattern.
-4. Review your event pattern, and then follow the rest of the procedure in [Configuring an EventBridge rule to
-   send notifications about events in AWS Health](creating-event-bridge-events-rule-for-aws-health.md "creating-event-bridge-events-rule-for-aws-health.md") to create your
+4. Review your event pattern, and then follow the rest of the procedure in [Configuring an EventBridge rule to send notifications about events in AWS Health](creating-event-bridge-events-rule-for-aws-health.md "creating-event-bridge-events-rule-for-aws-health.md") to create your
    rule.
 
 ###### Use the API or AWS Command Line Interface (AWS CLI)

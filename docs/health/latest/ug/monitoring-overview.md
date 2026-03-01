@@ -14,8 +14,7 @@ appropriate:
 - _Amazon EventBridge_ delivers a near-real-time stream of system events that
   describe changes in AWS resources. EventBridge enables automated event-driven computing. You can
   write rules that watch for certain events and trigger automated actions in other AWS
-  services when these events happen. For more information, see [Monitoring events in AWS Health with
-  Amazon EventBridge](cloudwatch-events-health.md "cloudwatch-events-health.md").
+  services when these events happen. For more information, see [Monitoring events in AWS Health with Amazon EventBridge](cloudwatch-events-health.md "cloudwatch-events-health.md").
 - _AWS CloudTrail_ captures API calls and related events made by or on behalf
   of your AWS account and delivers the log files to an Amazon Simple Storage Service (Amazon S3) bucket that you
   specify. You can identify which users and accounts called AWS, the source IP address from

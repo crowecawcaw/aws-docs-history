@@ -1,6 +1,4 @@
-# Viewing your account events in the
-
-AWS Health Dashboard
+# Viewing your account events in the AWS Health Dashboard
 
 You can sign in to your account to get personalized events and recommendations.
 
@@ -58,8 +56,7 @@ might affect your account. These events can include scheduled maintenance activi
 for services and planned lifecycle events that require action to resolve. To help
 you plan for these activities, a calendar view is provided so that you can map these
 scheduled changes into a monthly calendar. Filters are available. For more
-information about planned lifecycle events, see [Planned lifecycle events for
-AWS Health](aws-health-planned-lifecycle-events.md "aws-health-planned-lifecycle-events.md").
+information about planned lifecycle events, see [Planned lifecycle events for AWS Health](aws-health-planned-lifecycle-events.md "aws-health-planned-lifecycle-events.md").
 
 ## Other notifications
 
@@ -154,8 +151,7 @@ account-specific:
 - In the AWS Health Dashboard, choose the **Affected resources** tab for
   an event. Events with resources are specific
   to your account. Events without resources are public and are not specific to
-  your account. For more information, see [Getting started with your
-  AWS Health Dashboard](getting-started-health-dashboard.md "getting-started-health-dashboard.md").
+  your account. For more information, see [Getting started with your AWS Health Dashboard](getting-started-health-dashboard.md "getting-started-health-dashboard.md").
 - Use the AWS Health API to return the `eventScopeCode`
   parameter. Events can have the `PUBLIC`,
   `ACCOUNT_SPECIFIC`, or `NONE` value. For more
@@ -192,8 +188,7 @@ Account-level AWS Health events display a summary of affected resources statuses
 at the top of the **Affected Resources** tab. A list of affected
 resources is displayed in a table along with the corresponding status. Planned
 lifecycle events are an example of event types that use the resource status field.
-To learn more about planned lifecycle events, see [Planned lifecycle events for
-AWS Health](aws-health-planned-lifecycle-events.md "aws-health-planned-lifecycle-events.md").
+To learn more about planned lifecycle events, see [Planned lifecycle events for AWS Health](aws-health-planned-lifecycle-events.md "aws-health-planned-lifecycle-events.md").
 
 When you access the organization view, AWS Health events display a summary of the
 status of all affected resources for all included accounts. After the summary is a

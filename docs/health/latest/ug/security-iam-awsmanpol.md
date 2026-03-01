@@ -19,24 +19,17 @@ AWS Health has the following managed policies.
 
 ###### Contents
 
-- [AWS
-  managed policy: AWSHealth_EventProcessorServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-Health_EventProcessorServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-Health_EventProcessorServiceRolePolicy")
-- [AWS
-  managed policy: Health_OrganizationsServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-Health_OrganizationsServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-Health_OrganizationsServiceRolePolicy")
-- [AWS managed policy:
-  AWSHealthFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSHealthFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSHealthFullAccess")
-- [AWS Health updates to AWS managed
-  policies](security-iam-awsmanpol.md#security-iam-awsmanpol-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-updates")
+- [AWS managed policy: AWSHealth_EventProcessorServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-Health_EventProcessorServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-Health_EventProcessorServiceRolePolicy")
+- [AWS managed policy: Health_OrganizationsServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-Health_OrganizationsServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-Health_OrganizationsServiceRolePolicy")
+- [AWS managed policy: AWSHealthFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSHealthFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSHealthFullAccess")
+- [AWS Health updates to AWS managed policies](security-iam-awsmanpol.md#security-iam-awsmanpol-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-updates")
 
-## AWS
-
-managed policy: AWSHealth_EventProcessorServiceRolePolicy
+## AWS managed policy: AWSHealth_EventProcessorServiceRolePolicy
 
 AWS Health uses the [AWSHealth_EventProcessorServiceRolePolicy](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/Health_EventProcessorServiceRolePolicy$jsonEditor "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/Health_EventProcessorServiceRolePolicy$jsonEditor") AWS managed policy. This
 managed policy is attached to the `AWSServiceRoleForHealth_EventProcessor` service-linked
 role. The policy allows the service-linked role to complete actions for you. You can't
-attach this policy to your IAM entities. For more information, see [Using service-linked roles for
-AWS Health](using-service-linked-roles.md "using-service-linked-roles.md").
+attach this policy to your IAM entities. For more information, see [Using service-linked roles for AWS Health](using-service-linked-roles.md "using-service-linked-roles.md").
 
 The managed policy has the following permissions to allow AWS Health to access the
 Amazon EventBridge rule for AWS Incident Detection and Response.
@@ -80,19 +73,15 @@ JSON
 
 ```
 
-For a list of changes to the policy, see [AWS Health updates to AWS managed
-policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates").
+For a list of changes to the policy, see [AWS Health updates to AWS managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates").
 
-## AWS
-
-managed policy: Health_OrganizationsServiceRolePolicy
+## AWS managed policy: Health_OrganizationsServiceRolePolicy
 
 AWS Health uses the [Health_OrganizationsServiceRolePolicy](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/Health_OrganizationsServiceRolePolicy$jsonEditor "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/Health_OrganizationsServiceRolePolicy$jsonEditor") AWS managed
 policy. This managed policy is attached to the
 `AWSServiceRoleForHealth_Organizations` service-linked role. The policy
 allows the service-linked role to complete actions for you. You can't attach this policy
-to your IAM entities. For more information, see [Using service-linked roles for
-AWS Health](using-service-linked-roles.md "using-service-linked-roles.md").
+to your IAM entities. For more information, see [Using service-linked roles for AWS Health](using-service-linked-roles.md "using-service-linked-roles.md").
 
 This policy grants permissions that allow AWS Health to access required AWS Organizations
 details for the Health Organizational view.
@@ -126,17 +115,13 @@ JSON
 
 ```
 
-For a list of changes to the policy, see [AWS Health updates to AWS managed
-policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates").
+For a list of changes to the policy, see [AWS Health updates to AWS managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates").
 
-## AWS managed policy:
-
-AWSHealthFullAccess
+## AWS managed policy: AWSHealthFullAccess
 
 AWS Health uses the [AWSHealthFullAccess](https://console.aws.amazon.com//iam/home?#/policies/arn:aws:iam::aws:policy/AWSHealthFullAccess$jsonEditor "https://console.aws.amazon.com//iam/home?#/policies/arn:aws:iam::aws:policy/AWSHealthFullAccess$jsonEditor") AWS managed policy. The policy
 grants entities (IAM users or roles) access to the AWS Health console. For more
-information, see [Using the
-AWS Health console](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-console "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-console").
+information, see [Using the AWS Health console](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-console "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-console").
 
 **Permissions details**
 
@@ -198,12 +183,9 @@ JSON
 
 ```
 
-For a list of changes to the policy, see [AWS Health updates to AWS managed
-policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates").
+For a list of changes to the policy, see [AWS Health updates to AWS managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates").
 
-## AWS Health updates to AWS managed
-
-policies
+## AWS Health updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS Health since this
 service began tracking these changes. For automatic alerts about changes to this page,
@@ -212,8 +194,8 @@ subscribe to the RSS feed on the [Document history for AWS Health](doc-history.m
 The following table describes important updates to the AWS Health managed policies
 since January 13, 2022.
 
-| AWS Health                                                                                                                                                                                                                      | Change                                                                                                                                                               | Description      | Date |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ---- |
-| [AWS managed policy:<br>AWSHealthFullAccess](#security-iam-awsmanpol-AWSHealthFullAccess "#security-iam-awsmanpol-AWSHealthFullAccess")<br>• Update<br>to an existing policy                                                    | AWS Health has expanded the AWSHealthFullAccess policy to<br>AWS GovCloud (US) Regions and China Regions.                                                            | October 16, 2023 |
-| [AWS<br>managed policy: Health_OrganizationsServiceRolePolicy](#security-iam-awsmanpol-Health_OrganizationsServiceRolePolicy "#security-iam-awsmanpol-Health_OrganizationsServiceRolePolicy")<br>• Update to an existing policy | AWS Health added new AWS Organizations actions to allow service-linked<br>role to describe the accounts and AWS services that can be used<br>with AWS Organizations. | July 19, 2023    |
-| Change log published                                                                                                                                                                                                            | Change log for the AWS Health managed policies.                                                                                                                      | January 13, 2023 |
+| AWS Health                                                                                                                                                                                                                   | Change                                                                                                                                                               | Description      | Date |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ---- |
+| [AWS managed policy: AWSHealthFullAccess](#security-iam-awsmanpol-AWSHealthFullAccess "#security-iam-awsmanpol-AWSHealthFullAccess")<br>• Update<br>to an existing policy                                                    | AWS Health has expanded the AWSHealthFullAccess policy to<br>AWS GovCloud (US) Regions and China Regions.                                                            | October 16, 2023 |
+| [AWS managed policy: Health_OrganizationsServiceRolePolicy](#security-iam-awsmanpol-Health_OrganizationsServiceRolePolicy "#security-iam-awsmanpol-Health_OrganizationsServiceRolePolicy")<br>• Update to an existing policy | AWS Health added new AWS Organizations actions to allow service-linked<br>role to describe the accounts and AWS services that can be used<br>with AWS Organizations. | July 19, 2023    |
+| Change log published                                                                                                                                                                                                         | Change log for the AWS Health managed policies.                                                                                                                      | January 13, 2023 |

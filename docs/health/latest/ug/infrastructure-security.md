@@ -1,6 +1,4 @@
-# Infrastructure security in
-
-AWS Health
+# Infrastructure security in AWS Health
 
 As a managed service, AWS Health is protected by the AWS global network security
 procedures that are described in the [Amazon Web Services: Overview of Security Processes](https://d0.awsstatic.com/whitepapers/Security/AWS_Security_Whitepaper.pdf "https://d0.awsstatic.com/whitepapers/Security/AWS_Security_Whitepaper.pdf") whitepaper.

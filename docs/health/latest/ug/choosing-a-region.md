@@ -13,15 +13,13 @@ both the primary Region and its designated backup Region. For example, if you're
 events in the Europe (Frankfurt) Region, then any health events are delivered to both the
 Europe (Frankfurt) Region and the US West (Oregon) Region. This system makes sure you continue to receive
 health notifications even if your primary Region experiences issues. To create a backup rule,
-follow the procedure for [Configuring an EventBridge rule to
-send notifications about events in AWS Health](creating-event-bridge-events-rule-for-aws-health.md "creating-event-bridge-events-rule-for-aws-health.md").
+follow the procedure for [Configuring an EventBridge rule to send notifications about events in AWS Health](creating-event-bridge-events-rule-for-aws-health.md "creating-event-bridge-events-rule-for-aws-health.md").
 
 If you prefer not to use backup functionality, then you must add a filter to your backup region rule. For example, implement a filter for `detail.backupEvent = False`. This prevents you from receiving backup events from other regions.
 
 ## High availability setup (optional)
 
-If you want to create an EventBridge integration with high availability, make sure you have implemented rules in both the relevant and backup Regions, and then implement de-duplication using `detail.communicationId`. This makes sure you receive all events while avoiding duplicates. For more information, see [Reference: AWS Health events
-Amazon EventBridge schema](aws-health-events-eventbridge-schema.md "aws-health-events-eventbridge-schema.md").
+If you want to create an EventBridge integration with high availability, make sure you have implemented rules in both the relevant and backup Regions, and then implement de-duplication using `detail.communicationId`. This makes sure you receive all events while avoiding duplicates. For more information, see [Reference: AWS Health events Amazon EventBridge schema](aws-health-events-eventbridge-schema.md "aws-health-events-eventbridge-schema.md").
 
 ## Simplified integration
 

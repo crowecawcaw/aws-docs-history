@@ -1,6 +1,4 @@
-# Running operations on EC2 instances
-
-automatically in response to events in AWS Health
+# Running operations on EC2 instances automatically in response to events in AWS Health
 
 You can automate actions that respond to scheduled events for your Amazon EC2 instances. When
 AWS Health sends an event to your AWS account, your EventBridge rule can then invoke targets, such

@@ -1,20 +1,15 @@
-# Security best practices for
-
-AWS Health
+# Security best practices for AWS Health
 
 See the following best practices for working with AWS Health.
 
-## Grant AWS Health users minimum possible
-
-permissions
+## Grant AWS Health users minimum possible permissions
 
 Follow the principle of least privilege by using the minimum set of access policy
 permissions for your users and groups. For example, you might allow an AWS Identity and Access Management (IAM)
 user access to the Health Dashboard. However, you might not allow that same user to enable or
 disable access to AWS Organizations.
 
-For more information, see [AWS Health identity-based
-policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+For more information, see [AWS Health identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## View the Health Dashboard
 
@@ -22,12 +17,9 @@ Check your Health Dashboard often to identify events that might affect your acco
 applications. For example, you might receive an event notification about your resources,
 such as an Amazon Elastic Compute Cloud (Amazon EC2) instance that needs to be updated.
 
-For more information, see [Getting started with your
-AWS Health Dashboard](getting-started-health-dashboard.md "getting-started-health-dashboard.md").
+For more information, see [Getting started with your AWS Health Dashboard](getting-started-health-dashboard.md "getting-started-health-dashboard.md").
 
-## Integrate AWS Health with Amazon Chime or
-
-Slack
+## Integrate AWS Health with Amazon Chime or Slack
 
 You can integrate AWS Health with your chat tools. This integration lets you and your
 team get notified about AWS Health events in real time. For more information, see the
@@ -45,5 +37,4 @@ In some cases, the Region for the AWS Health event can't be determined. If that
 situation occurs, the event appears in the US East (N. Virginia) Region by default. You can set up
 CloudWatch Events in this Region to ensure that you monitor these events.
 
-For more information, see [Monitoring events in AWS Health with
-Amazon EventBridge](cloudwatch-events-health.md "cloudwatch-events-health.md").
+For more information, see [Monitoring events in AWS Health with Amazon EventBridge](cloudwatch-events-health.md "cloudwatch-events-health.md").

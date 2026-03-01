@@ -1,6 +1,4 @@
-# How AWS Health works with
-
-IAM
+# How AWS Health works with IAM
 
 Before you use IAM to manage access to AWS Health, you should understand what
 IAM features are available to use with AWS Health. To get a high-level view of how
@@ -9,18 +7,12 @@ Work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-wi
 
 ###### Topics
 
-- [AWS Health
-  identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [AWS Health
-  resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
-- [Authorization based on
-  AWS Health tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
-- [AWS Health IAM
-  roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
+- [AWS Health identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [AWS Health resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
+- [Authorization based on AWS Health tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [AWS Health IAM roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
 
-## AWS Health
-
-identity-based policies
+## AWS Health identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources as well as the conditions under which actions are allowed or denied.
@@ -120,8 +112,7 @@ commas.
 ```
 
 AWS Health supports only resource-level permissions for health events and only
-for the [DescribeAffectedEntities](../APIReference/API_DescribeAffectedEntities.md "../APIReference/API_DescribeAffectedEntities.md") and [DescribeEventDetails](../APIReference/API_DescribeEventDetails.md "../APIReference/API_DescribeEventDetails.md") API operations. For more information, see [Resource- and action-based
-conditions](security_iam_id-based-policy-examples.md#resource-action-based-conditions "security_iam_id-based-policy-examples.md#resource-action-based-conditions").
+for the [DescribeAffectedEntities](../APIReference/API_DescribeAffectedEntities.md "../APIReference/API_DescribeAffectedEntities.md") and [DescribeEventDetails](../APIReference/API_DescribeEventDetails.md "../APIReference/API_DescribeEventDetails.md") API operations. For more information, see [Resource- and action-based conditions](security_iam_id-based-policy-examples.md#resource-action-based-conditions "security_iam_id-based-policy-examples.md#resource-action-based-conditions").
 
 To see a list of AWS Health resource types and their ARNs, see
 [Resources Defined by AWS Health](../../../IAM/latest/UserGuide/list_awshealthapisandnotifications.md#awshealthapisandnotifications-resources-for-iam-policies "../../../IAM/latest/UserGuide/list_awshealthapisandnotifications.md#awshealthapisandnotifications-resources-for-iam-policies") in the _IAM User Guide_. To learn
@@ -153,12 +144,9 @@ resources you can use a condition key, see [Actions Defined by AWS Health](../..
 
 ### Examples
 
-To view examples of AWS Health identity-based policies, see [AWS Health identity-based
-policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS Health identity-based policies, see [AWS Health identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## AWS Health
-
-resource-based policies
+## AWS Health resource-based policies
 
 Resource-based policies are JSON policy documents that specify what actions a
 specified principal can perform on the AWS Health resource and under what
@@ -185,26 +173,19 @@ can perform actions on the AWS Health event.
 
 ### Examples
 
-To view examples of AWS Health resource-based policies, see [Resource- and action-based
-conditions](security_iam_id-based-policy-examples.md#resource-action-based-conditions "security_iam_id-based-policy-examples.md#resource-action-based-conditions").
+To view examples of AWS Health resource-based policies, see [Resource- and action-based conditions](security_iam_id-based-policy-examples.md#resource-action-based-conditions "security_iam_id-based-policy-examples.md#resource-action-based-conditions").
 
-## Authorization based on
-
-AWS Health tags
+## Authorization based on AWS Health tags
 
 AWS Health doesn't support tagging resources or controlling access based on
 tags.
 
-## AWS Health IAM
-
-roles
+## AWS Health IAM roles
 
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within
 your AWS account that has specific permissions.
 
-### Using temporary
-
-credentials with AWS Health
+### Using temporary credentials with AWS Health
 
 You can use temporary credentials to sign in with federation, assume an IAM
 role, or to assume a cross-account role. You obtain temporary security credentials by
@@ -212,9 +193,7 @@ calling AWS STS API operations such as [AssumeRole](../../../STS/latest/APIRefer
 
 AWS Health supports using temporary credentials.
 
-### Service-linked
-
-roles
+### Service-linked roles
 
 [Service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role") allow AWS services to access resources in other
 services to complete an action on your behalf. Service-linked roles appear in your

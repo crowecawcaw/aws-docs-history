@@ -41,13 +41,11 @@ keys](../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials "../
 
 - If you sign in as an IAM user, use an IAM policy that grants access to the
   AWS Health and Organizations actions, such as the [AWSHealthFullAccess](https://console.aws.amazon.com//iam/home?#/policies/arn:aws:iam::aws:policy/AWSHealthFullAccess "https://console.aws.amazon.com//iam/home?#/policies/arn:aws:iam::aws:policy/AWSHealthFullAccess") policy. For more
-  information, see [AWS Health identity-based
-  policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+  information, see [AWS Health identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ###### Topics
 
 - [Enabling organizational view](enable-organizational-view.md "enable-organizational-view.md")
 - [Viewing organizational view](view-organizational-view-events.md "view-organizational-view-events.md")
 - [Disabling organizational view](disable-organizational-view.md "disable-organizational-view.md")
-- [Managing delegated administrator
-  views for an organization](delegated-administrator-organizational-view.md "delegated-administrator-organizational-view.md")
+- [Managing delegated administrator views for an organization](delegated-administrator-organizational-view.md "delegated-administrator-organizational-view.md")

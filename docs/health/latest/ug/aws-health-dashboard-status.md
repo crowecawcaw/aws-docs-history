@@ -9,8 +9,7 @@ AWS account to access the AWS Health Dashboard – Service health page.
 This website only shows _public_ events, which are not specific to
 an AWS account. If you already have an account, we recommend that you sign in to view
 your AWS Health Dashboard and stay informed about events that can affect your account and services. For
-more information, see [Getting started with your
-AWS Health Dashboard](getting-started-health-dashboard.md "getting-started-health-dashboard.md").
+more information, see [Getting started with your AWS Health Dashboard](getting-started-health-dashboard.md "getting-started-health-dashboard.md").
 
 ###### To view the AWS Health Dashboard – Service health
 
@@ -67,10 +66,8 @@ After you select this link, you
 navigate to the list of events view with that event pop-up. 6. (Optional) You can view the events in your local time zone or UTC. For more
 information, see [Time zone settings](aws-health-account-views.md#update-time-zone "aws-health-account-views.md#update-time-zone"). 7. (Optional) If you have an account, choose **Open your account
 health** to sign in. After you sign in, you can view events that are
-specific to your account. For more information, see [Getting started with your
-AWS Health Dashboard](getting-started-health-dashboard.md "getting-started-health-dashboard.md").
+specific to your account. For more information, see [Getting started with your AWS Health Dashboard](getting-started-health-dashboard.md "getting-started-health-dashboard.md").
 
 ###### Note
 
-Although an RSS feed is available for health events, the format is subject to changes. So, scraping the RSS feed might not provide all the relevant data. To programmatically ingest health event data, we recommend integrating with Amazon EventBridge. For more information, see [Monitoring events in AWS Health with
-Amazon EventBridge](cloudwatch-events-health.md "cloudwatch-events-health.md").
+Although an RSS feed is available for health events, the format is subject to changes. So, scraping the RSS feed might not provide all the relevant data. To programmatically ingest health event data, we recommend integrating with Amazon EventBridge. For more information, see [Monitoring events in AWS Health with Amazon EventBridge](cloudwatch-events-health.md "cloudwatch-events-health.md").

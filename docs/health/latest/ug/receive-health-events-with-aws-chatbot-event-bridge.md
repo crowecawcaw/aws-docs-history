@@ -1,6 +1,4 @@
-# Configuring Amazon Q Developer in chat applications to
-
-send notifications about events in AWS Health
+# Configuring Amazon Q Developer in chat applications to send notifications about events in AWS Health
 
 You can receive AWS Health events directly in your chat clients, such as Slack and Amazon Chime.
 You can use this event to identify recent AWS service issues that might affect your AWS
@@ -22,12 +20,10 @@ Before you get started, you must have the following:
 
 ###### To receive AWS Health events with Amazon Q Developer in chat applications
 
-1. Follow the procedure in [Configuring an EventBridge rule to
-   send notifications about events in AWS Health](creating-event-bridge-events-rule-for-aws-health.md "creating-event-bridge-events-rule-for-aws-health.md") through step 13.
+1. Follow the procedure in [Configuring an EventBridge rule to send notifications about events in AWS Health](creating-event-bridge-events-rule-for-aws-health.md "creating-event-bridge-events-rule-for-aws-health.md") through step 13.
    1. When you finish setting up the event pattern in step 13, add a comma to the last
       line of the pattern, and add the following line to remove unnecessary chat messages
-      from paginated AWS Health events. See [Viewing paginated lists of AWS Health events on
-      EventBridge](pagnation-of-health-events.md "pagnation-of-health-events.md").
+      from paginated AWS Health events. See [Viewing paginated lists of AWS Health events on EventBridge](pagnation-of-health-events.md "pagnation-of-health-events.md").
 
    `"detail.page": ["1"]` 2. When you choose the target in [step 14](creating-event-bridge-events-rule-for-aws-health.md#choose-target "creating-event-bridge-events-rule-for-aws-health.md#choose-target"), choose
    an SNS topic. You will use this same SNS topic in the Amazon Q Developer in chat applications console. 3. Complete the rest of the procedure to create the rule.

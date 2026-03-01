@@ -56,8 +56,7 @@ them.
 
 You can find public events from your AWS Health Dashboard and the AWS Health Dashboard – Service health.
 
-If you have an account, see [Getting started with your
-AWS Health Dashboard](getting-started-health-dashboard.md "getting-started-health-dashboard.md").
+If you have an account, see [Getting started with your AWS Health Dashboard](getting-started-health-dashboard.md "getting-started-health-dashboard.md").
 
 If you don't have an account, see [AWS Health Dashboard](aws-health-dashboard-status.md "aws-health-dashboard-status.md").
 
@@ -73,8 +72,7 @@ account.
 
 You can sign in to the AWS Management Console to view your AWS Health Dashboard at [https://health.aws.amazon.com/health/home](https://health.aws.amazon.com/health/home "https://health.aws.amazon.com/health/home").
 
-For more information, see [Getting started with your
-AWS Health Dashboard](getting-started-health-dashboard.md "getting-started-health-dashboard.md").
+For more information, see [Getting started with your AWS Health Dashboard](getting-started-health-dashboard.md "getting-started-health-dashboard.md").
 
 ### AWS Health Dashboard – Service health
 
@@ -218,8 +216,7 @@ AWS Health event is received by an account. These can be general actions, such a
 planned lifecycle event messages to a chat interface. Or, they can be specific actions, such
 as triggering a workflow in an IT service management tool.
 
-For more information, see [Monitoring events in AWS Health with
-Amazon EventBridge](cloudwatch-events-health.md "cloudwatch-events-health.md").
+For more information, see [Monitoring events in AWS Health with Amazon EventBridge](cloudwatch-events-health.md "cloudwatch-events-health.md").
 
 ## AWS Health API
 

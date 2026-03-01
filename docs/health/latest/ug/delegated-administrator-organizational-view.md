@@ -1,6 +1,4 @@
-# Managing delegated administrator
-
-views for an organization
+# Managing delegated administrator views for an organization
 
 With AWS Health, you can leverage the delegated administrator feature from AWS Organizations that
 allows an account other than the management account to view aggregated AWS Health events on the
@@ -12,7 +10,5 @@ management account where possible.
 
 ###### Contents
 
-- [Registering a delegated administrator for your
-  organizational view](register-a-delegated-administrator.md "register-a-delegated-administrator.md")
-- [Removing a delegated administrator from your
-  organizational view](remove-a-delegated-administrator.md "remove-a-delegated-administrator.md")
+- [Registering a delegated administrator for your organizational view](register-a-delegated-administrator.md "register-a-delegated-administrator.md")
+- [Removing a delegated administrator from your organizational view](remove-a-delegated-administrator.md "remove-a-delegated-administrator.md")

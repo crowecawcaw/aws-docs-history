@@ -1,6 +1,4 @@
-# Monitoring events in AWS Health with
-
-Amazon EventBridge
+# Monitoring events in AWS Health with Amazon EventBridge
 
 You can use Amazon EventBridge to detect and react to AWS Health events. Then, based on rules that
 you create, EventBridge invokes one or more target actions when an event matches the values that you
@@ -35,19 +33,11 @@ response to AWS Health events, see the [AWS Health Tools](https://github.com/aws
 ###### Topics
 
 - [Creating EventBridge rules for AWS Region coverage](choosing-a-region.md "choosing-a-region.md")
-- [Monitoring account-specific and public events for
-  AWS Health](about-public-events.md "about-public-events.md")
-- [Viewing paginated lists of AWS Health events on
-  EventBridge](pagnation-of-health-events.md "pagnation-of-health-events.md")
-- [Aggregating AWS Health events using
-  organizational view and delegated administrator access](aggregating-health-events.md "aggregating-health-events.md")
-- [Integrating AWS Health event monitoring and notifications
-  with JIRA and ServiceNow](SMC-integration.md "SMC-integration.md")
-- [Configuring an EventBridge rule to
-  send notifications about events in AWS Health](creating-event-bridge-events-rule-for-aws-health.md "creating-event-bridge-events-rule-for-aws-health.md")
-- [Configuring Amazon Q Developer in chat applications to
-  send notifications about events in AWS Health](receive-health-events-with-aws-chatbot-event-bridge.md "receive-health-events-with-aws-chatbot-event-bridge.md")
-- [Running operations on EC2 instances
-  automatically in response to events in AWS Health](automating-instance-actions.md "automating-instance-actions.md")
-- [Reference: AWS Health events
-  Amazon EventBridge schema](aws-health-events-eventbridge-schema.md "aws-health-events-eventbridge-schema.md")
+- [Monitoring account-specific and public events for AWS Health](about-public-events.md "about-public-events.md")
+- [Viewing paginated lists of AWS Health events on EventBridge](pagnation-of-health-events.md "pagnation-of-health-events.md")
+- [Aggregating AWS Health events using organizational view and delegated administrator access](aggregating-health-events.md "aggregating-health-events.md")
+- [Integrating AWS Health event monitoring and notifications with JIRA and ServiceNow](SMC-integration.md "SMC-integration.md")
+- [Configuring an EventBridge rule to send notifications about events in AWS Health](creating-event-bridge-events-rule-for-aws-health.md "creating-event-bridge-events-rule-for-aws-health.md")
+- [Configuring Amazon Q Developer in chat applications to send notifications about events in AWS Health](receive-health-events-with-aws-chatbot-event-bridge.md "receive-health-events-with-aws-chatbot-event-bridge.md")
+- [Running operations on EC2 instances automatically in response to events in AWS Health](automating-instance-actions.md "automating-instance-actions.md")
+- [Reference: AWS Health events Amazon EventBridge schema](aws-health-events-eventbridge-schema.md "aws-health-events-eventbridge-schema.md")

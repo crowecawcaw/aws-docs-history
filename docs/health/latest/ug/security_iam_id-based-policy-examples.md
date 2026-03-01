@@ -1,6 +1,4 @@
-# AWS Health identity-based
-
-policy examples
+# AWS Health identity-based policy examples
 
 By default, IAM users and roles don't have permission to create or modify
 AWS Health resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or
@@ -15,20 +13,13 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the
-  AWS Health console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Accessing the
-  Health Dashboard and the AWS Health API](#security_iam_id-based-policy-examples-access-dashboard "#security_iam_id-based-policy-examples-access-dashboard")
-- [Resource- and action-based
-  conditions](#resource-action-based-conditions "#resource-action-based-conditions")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the AWS Health console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Accessing the Health Dashboard and the AWS Health API](#security_iam_id-based-policy-examples-access-dashboard "#security_iam_id-based-policy-examples-access-dashboard")
+- [Resource- and action-based conditions](#resource-action-based-conditions "#resource-action-based-conditions")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete AWS Health resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -61,9 +52,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the
-
-AWS Health console
+## Using the AWS Health console
 
 To access the AWS Health console, you must have a minimum set of
 permissions. These permissions must allow you to list and view details about the
@@ -135,8 +124,7 @@ JSON
 
 You can also use the `Health_OrganizationsServiceRolePolicy` AWS
 managed policy, so that AWS Health can view events for other accounts in your
-organization. For more information, see [Using service-linked roles for
-AWS Health](using-service-linked-roles.md "using-service-linked-roles.md").
+organization. For more information, see [Using service-linked roles for AWS Health](using-service-linked-roles.md "using-service-linked-roles.md").
 
 You don't need to allow minimum console permissions for users that are making calls
 only to the AWS CLI or the AWS API. Instead, allow access to only the actions that match
@@ -145,9 +133,7 @@ the API operation that you're trying to perform.
 For more information, see [Adding Permissions to a User](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the
 _IAM User Guide_.
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -187,9 +173,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Accessing the
-
-Health Dashboard and the AWS Health API
+## Accessing the Health Dashboard and the AWS Health API
 
 The Health Dashboard is available for all AWS accounts. The AWS Health API is available only
 to accounts with a AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan. For more information, see [Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
@@ -311,9 +295,7 @@ _IAM User Guide_.
 You must use credentials from the management account for an organization to
 access the AWS Health APIs for AWS Organizations. For more information, see [Aggregating AWS Health events across accounts](aggregate-events.md "aggregate-events.md").
 
-#### Allow access to AWS Health
-
-organizational view
+#### Allow access to AWS Health organizational view
 
 This policy statement grants access to all AWS Health and AWS Organizations actions
 that you need for the organizational view feature.
@@ -360,9 +342,7 @@ JSON
 
 ```
 
-#### Deny access to AWS Health
-
-organizational view
+#### Deny access to AWS Health organizational view
 
 This policy statement denies access to the AWS Organizations actions but allows access
 to the AWS Health actions for an individual account.
@@ -421,9 +401,7 @@ If the user or group that you want to give permissions to already has an IAM
 policy, you can add the AWS Health-specific policy statement to that
 policy.
 
-## Resource- and action-based
-
-conditions
+## Resource- and action-based conditions
 
 AWS Health supports [IAM conditions](../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md") for the [DescribeAffectedEntities](../APIReference/API_DescribeAffectedEntities.md "../APIReference/API_DescribeAffectedEntities.md") and [DescribeEventDetails](../APIReference/API_DescribeEventDetails.md "../APIReference/API_DescribeEventDetails.md") API operations. You can use resource- and action-based
 conditions to restrict events that the AWS Health API sends to a user, group, or role.
@@ -552,5 +530,4 @@ JSON
 
 If you call the [DescribeAffectedEntities](../APIReference/API_DescribeAffectedEntities.md "../APIReference/API_DescribeAffectedEntities.md") and [DescribeEventDetails](../APIReference/API_DescribeEventDetails.md "../APIReference/API_DescribeEventDetails.md") operations and don't have permission to access the
 AWS Health event, the `AccessDeniedException` error appears. For more
-information, see [Troubleshooting AWS Health identity
-and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md").
+information, see [Troubleshooting AWS Health identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md").

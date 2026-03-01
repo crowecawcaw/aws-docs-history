@@ -1,6 +1,4 @@
-# Removing a delegated administrator from your
-
-organizational view
+# Removing a delegated administrator from your organizational view
 
 To remove access for a delegated administrator, call the [DeregisterDelegatedAdministrator](../../../organizations/latest/APIReference/API_DeregisterDelegatedAdministrator.md "../../../organizations/latest/APIReference/API_DeregisterDelegatedAdministrator.md") API operation.
 

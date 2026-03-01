@@ -1,6 +1,4 @@
-# Logging AWS Health API calls with
-
-AWS CloudTrail
+# Logging AWS Health API calls with AWS CloudTrail
 
 AWS Health is integrated with AWS CloudTrail, a service that provides a record of actions taken
 by a user, role, or an AWS service in AWS Health. CloudTrail captures API calls for AWS Health
@@ -14,9 +12,7 @@ made the request, when it was made, and additional details.
 
 To learn more about CloudTrail, including how to configure and enable it, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
 
-## AWS Health information in
-
-CloudTrail
+## AWS Health information in CloudTrail
 
 CloudTrail is enabled on your AWS account when you create the account. When supported
 event activity occurs in AWS Health, that activity is recorded in a CloudTrail event along
@@ -72,9 +68,7 @@ CloudTrail Log Files from Multiple Regions](../../../awscloudtrail/latest/usergu
 [Receiving
 CloudTrail Log Files from Multiple Accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md").
 
-## Example: AWS Health log file
-
-entries
+## Example: AWS Health log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3
 bucket that you specify. CloudTrail log files contain one or more log entries. An event

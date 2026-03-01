@@ -1,6 +1,4 @@
-# Monitoring account-specific and public events for
-
-AWS Health
+# Monitoring account-specific and public events for AWS Health
 
 When you create an EventBridge rule to monitor events from AWS Health, the rule delivers both
 account-specific events and public events:

@@ -10,8 +10,7 @@ additional cost.
 
 If you want to allow users access to this feature in the management account, they must
 have permissions such as the [AWSHealthFullAccess](https://console.aws.amazon.com//iam/home?#/policies/arn:aws:iam::aws:policy/AWSHealthFullAccess "https://console.aws.amazon.com//iam/home?#/policies/arn:aws:iam::aws:policy/AWSHealthFullAccess") policy. For more information, see
-[AWS Health identity-based
-policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+[AWS Health identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 Enabling organizational view (Console)
 You can enable organizational view from the AWS Health console. You must sign
@@ -42,8 +41,7 @@ _AWS Organizations User Guide_.
   service-linked role with the
   `Health_OrganizationsServiceRolePolicy` AWS managed
   policy is applied to the management account in the organization. For
-  more information, see [Using service-linked roles for
-  AWS Health](using-service-linked-roles.md "using-service-linked-roles.md").
+  more information, see [Using service-linked roles for AWS Health](using-service-linked-roles.md "using-service-linked-roles.md").
 
 Enabling organizational view (CLI)
 You can enable organizational view by using the [EnableHealthServiceAccessForOrganization](../APIReference/API_EnableHealthServiceAccessForOrganization.md "../APIReference/API_EnableHealthServiceAccessForOrganization.md") API operation.

@@ -1,6 +1,4 @@
-# Registering a delegated administrator for your
-
-organizational view
+# Registering a delegated administrator for your organizational view
 
 After you enable organizational view for your organization, you can register up to five
 member accounts in your organization as a delegated administrator. To do this, call the [RegisterDelegatedAdministrator](../../../organizations/latest/APIReference/API_RegisterDelegatedAdministrator.md "../../../organizations/latest/APIReference/API_RegisterDelegatedAdministrator.md") API operation. After you register the member accounts,

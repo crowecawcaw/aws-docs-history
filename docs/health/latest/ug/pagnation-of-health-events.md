@@ -1,6 +1,4 @@
-# Viewing paginated lists of AWS Health events on
-
-EventBridge
+# Viewing paginated lists of AWS Health events on EventBridge
 
 AWS Health supports pagination of AWS Health events when the list of
 `resources` or `affectedEntities` causes the size of the message to

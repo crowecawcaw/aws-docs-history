@@ -1,6 +1,4 @@
-# Demos: Retrieving the last seven days of
-
-AWS Health event data programmatically
+# Demos: Retrieving the last seven days of AWS Health event data programmatically
 
 In the following code examples, AWS Health uses a DNS lookup against the global
 endpoint to determine the active regional endpoint and signing Region. AWS Health uses
@@ -9,14 +7,10 @@ restarts the workflow if the active endpoint changes.
 
 ###### Topics
 
-- [Demo: Retrieving the last seven days of
-  AWS Health event data using Java](#using-the-java-sample-code "#using-the-java-sample-code")
-- [Demo: Retrieving the last seven days of
-  AWS Health event data using Python](#using-the-python-code "#using-the-python-code")
+- [Demo: Retrieving the last seven days of AWS Health event data using Java](#using-the-java-sample-code "#using-the-java-sample-code")
+- [Demo: Retrieving the last seven days of AWS Health event data using Python](#using-the-python-code "#using-the-python-code")
 
-## Demo: Retrieving the last seven days of
-
-AWS Health event data using Java
+## Demo: Retrieving the last seven days of AWS Health event data using Java
 
 ###### Prerequisite
 
@@ -119,9 +113,7 @@ EventMetadata={})
 - For more information about the library used in this demo for DNS
   lookups, see the [dnsjava](https://github.com/dnsjava/dnsjava "https://github.com/dnsjava/dnsjava") in GitHub.
 
-## Demo: Retrieving the last seven days of
-
-AWS Health event data using Python
+## Demo: Retrieving the last seven days of AWS Health event data using Python
 
 ###### Prerequisite
 

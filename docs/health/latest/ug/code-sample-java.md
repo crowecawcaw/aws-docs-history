@@ -1,6 +1,4 @@
-# Tutorial: Using the AWS Health API with Java
-
-examples
+# Tutorial: Using the AWS Health API with Java examples
 
 The following Java code examples demonstrate how to initialize an AWS Health client and
 retrieve information about events and entities.
@@ -36,9 +34,7 @@ AWSHealth awsHealthClient = new AWSHealthClient(credentials);
 
 ```
 
-## Step 3: Use AWS Health API operations to get event
-
-information
+## Step 3: Use AWS Health API operations to get event information
 
 **DescribeEvents**
 

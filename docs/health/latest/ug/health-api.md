@@ -1,6 +1,4 @@
-# Integrating AWS Health with other systems using the
-
-AWS Health API
+# Integrating AWS Health with other systems using the AWS Health API
 
 AWS Health is a RESTful web service that uses HTTPS as a transport and JSON as a message
 serialization format. Your application code can make requests directly to the AWS Health
@@ -19,17 +17,14 @@ application development. You specify your AWS credentials, and these libraries t
 of authentication and request signing for you.
 
 AWS Health also provides a AWS Health Dashboard in the AWS Management Console that you can use to view and search for
-events and affected entities. See [Getting started with your
-AWS Health Dashboard](getting-started-health-dashboard.md "getting-started-health-dashboard.md").
+events and affected entities. See [Getting started with your AWS Health Dashboard](getting-started-health-dashboard.md "getting-started-health-dashboard.md").
 
 ###### Topics
 
 - [Signing AWS Health API requests](#signing "#signing")
 - [Choosing endpoints for AWS Health API requests](#endpoints "#endpoints")
-- [Demos: Retrieving the last seven days of
-  AWS Health event data programmatically](using-global-endpoints-demo.md "using-global-endpoints-demo.md")
-- [Tutorial: Using the AWS Health API with Java
-  examples](code-sample-java.md "code-sample-java.md")
+- [Demos: Retrieving the last seven days of AWS Health event data programmatically](using-global-endpoints-demo.md "using-global-endpoints-demo.md")
+- [Tutorial: Using the AWS Health API with Java examples](code-sample-java.md "code-sample-java.md")
 
 ## Signing AWS Health API requests
 

@@ -29,14 +29,10 @@ cloud and security _in_ the cloud:
 ###### Topics
 
 - [Data protection in AWS Health](data-protection.md "data-protection.md")
-- [Identity and access management for
-  AWS Health](controlling-access.md "controlling-access.md")
+- [Identity and access management for AWS Health](controlling-access.md "controlling-access.md")
 - [Logging and monitoring in AWS Health](monitoring-overview.md "monitoring-overview.md")
 - [Compliance validation for AWS Health](aws-health-compliance.md "aws-health-compliance.md")
 - [Resilience in AWS Health](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Infrastructure security in
-  AWS Health](infrastructure-security.md "infrastructure-security.md")
-- [Configuration and vulnerability
-  analysis in AWS Health](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
-- [Security best practices for
-  AWS Health](security-best-practices.md "security-best-practices.md")
+- [Infrastructure security in AWS Health](infrastructure-security.md "infrastructure-security.md")
+- [Configuration and vulnerability analysis in AWS Health](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
+- [Security best practices for AWS Health](security-best-practices.md "security-best-practices.md")

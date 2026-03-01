@@ -17,5 +17,4 @@ take action, when events change.
    - Under **Configure EventBridge**, choose **Go to
      EventBridge**.
 
-3. Follow this procedure to create rules and monitor for events. See [Monitoring events in AWS Health with
-   Amazon EventBridge](cloudwatch-events-health.md "cloudwatch-events-health.md").
+3. Follow this procedure to create rules and monitor for events. See [Monitoring events in AWS Health with Amazon EventBridge](cloudwatch-events-health.md "cloudwatch-events-health.md").

@@ -1,6 +1,4 @@
-# Getting started with your
-
-AWS Health Dashboard
+# Getting started with your AWS Health Dashboard
 
 You can use your AWS Health Dashboard to learn about AWS Health events. These events can affect your
 AWS services or AWS account. After you sign in to your account, the AWS Health Dashboard shows
@@ -28,8 +26,7 @@ resources.
 ###### Topics
 
 - [Setting up your AWS account](#awshealth-before-you-begin "#awshealth-before-you-begin")
-- [Viewing your account events in the
-  AWS Health Dashboard](aws-health-account-views.md "aws-health-account-views.md")
+- [Viewing your account events in the AWS Health Dashboard](aws-health-account-views.md "aws-health-account-views.md")
 - [Configuring Amazon EventBridge](cloud-watch-events-integration.md "cloud-watch-events-integration.md")
 - [Manage AWS Health notifications in AWS User Notifications](manage-user-notifications.md "manage-user-notifications.md")
 

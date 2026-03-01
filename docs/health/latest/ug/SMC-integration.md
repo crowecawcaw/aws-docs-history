@@ -1,6 +1,4 @@
-# Integrating AWS Health event monitoring and notifications
-
-with JIRA and ServiceNow
+# Integrating AWS Health event monitoring and notifications with JIRA and ServiceNow
 
 You can integrate AWS Health events with JIRA and ServiceNow to receive operational and
 account information, prepare for scheduled changes, and manage Health events using the Service

@@ -1,14 +1,11 @@
-# Planned lifecycle events for
-
-AWS Health
+# Planned lifecycle events for AWS Health
 
 Learn about planned lifecycle events for AWS Health.
 
 ###### Topics
 
 - [What are planned lifecycle events?](#what-are-planned-lifecycle-events "#what-are-planned-lifecycle-events")
-- [What should I expect when I receive a
-  planned lifecycle event notification?](#planned-lifecycle-event-notifications "#planned-lifecycle-event-notifications")
+- [What should I expect when I receive a planned lifecycle event notification?](#planned-lifecycle-event-notifications "#planned-lifecycle-event-notifications")
 - [Shared responsibility model for resilience](#shared-responsibility-model "#shared-responsibility-model")
 - [Accessing planned lifecycle events](#accessing-planned-lifecycle-events "#accessing-planned-lifecycle-events")
 
@@ -53,9 +50,7 @@ AWS Health notifies you in advance of important changes such as:
      a “PENDING” or “RESOLVED” status, resources will not be assigned any status.
     + Resource status updates are not supported in the AWS GovCloud (US) and China Regions.
 
-## What should I expect when I receive a
-
-planned lifecycle event notification?
+## What should I expect when I receive a planned lifecycle event notification?
 
 The AWS Health experience for planned lifecycle events helps your teams learn about
 upcoming lifecycle changes and track action completion.

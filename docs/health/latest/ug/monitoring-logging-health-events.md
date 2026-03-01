@@ -13,8 +13,7 @@ appropriate:
 You can use Amazon EventBridge so that you're notified about AWS Health events that might
 affect your services and resources. For example, if AWS Health publishes an event
 about your Amazon EC2 instances, you can use these notifications to take action and
-update or replace your resources as needed. For more information, see [Monitoring events in AWS Health with
-Amazon EventBridge](cloudwatch-events-health.md "cloudwatch-events-health.md").
+update or replace your resources as needed. For more information, see [Monitoring events in AWS Health with Amazon EventBridge](cloudwatch-events-health.md "cloudwatch-events-health.md").
 
 - AWS CloudTrail captures API calls and related events made by or on behalf of your AWS
   account and delivers the log files to an Amazon S3 bucket that you specify. You can
@@ -24,5 +23,4 @@ Amazon EventBridge](cloudwatch-events-health.md "cloudwatch-events-health.md").
 
 ###### Topics
 
-- [Logging AWS Health API calls with
-  AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
+- [Logging AWS Health API calls with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
