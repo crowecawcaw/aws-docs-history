@@ -13,14 +13,10 @@ stream.
 
 ###### Topics
 
-- [AppFabric support for Atlassian
-  Confluence](#confluence-appfabric-support "#confluence-appfabric-support")
-- [Connecting AppFabric to your
-  Atlassian Confluence account](#confluence-appfabric-connecting "#confluence-appfabric-connecting")
+- [AppFabric support for Atlassian Confluence](#confluence-appfabric-support "#confluence-appfabric-support")
+- [Connecting AppFabric to your Atlassian Confluence account](#confluence-appfabric-connecting "#confluence-appfabric-connecting")
 
-## AppFabric support for Atlassian
-
-Confluence
+## AppFabric support for Atlassian Confluence
 
 AppFabric supports receiving audit logs from Atlassian Confluence.
 
@@ -52,17 +48,13 @@ destination. This is due to delay in audit events made available by the applicat
 as well as due to precautions taken to reduce data loss. However, this might be
 customizable at an account-level. For assistance, contact [Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-## Connecting AppFabric to your
-
-Atlassian Confluence account
+## Connecting AppFabric to your Atlassian Confluence account
 
 After you create your app bundle within the AppFabric service, you must authorize AppFabric
 with Atlassian Confluence. To find the information required to authorize
 Atlassian Confluence with AppFabric, use the following steps.
 
-### Create an OAuth
-
-application
+### Create an OAuth application
 
 AppFabric integrates with Atlassian Confluence using OAuth. To create
 an OAuth application in Atlassian Confluence, use the following

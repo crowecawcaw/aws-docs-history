@@ -22,9 +22,7 @@ a new feature, AWS adds read-only permissions for new operations and resources. 
 and descriptions of job function policies, see [AWS managed policies for
 job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md") in the _IAM User Guide_.
 
-## AWS managed policy:
-
-AWSAppFabricReadOnlyAccess
+## AWS managed policy: AWSAppFabricReadOnlyAccess
 
 You can attach the `AWSAppFabricReadOnlyAccess` policy to your IAM
 identities. This policy grants read-only permissions to the AppFabric service.
@@ -69,9 +67,7 @@ JSON
 
 ```
 
-## AWS managed policy:
-
-AWSAppFabricFullAccess
+## AWS managed policy: AWSAppFabricFullAccess
 
 You can attach the `AWSAppFabricFullAccess` policy to your IAM identities.
 This policy grants administrative permissions to the AppFabric service.
@@ -80,8 +76,7 @@ This policy grants administrative permissions to the AppFabric service.
 
 The `AWSAppFabricFullAccess` policy does not grant access to the
 AppFabric for productivity features because they are currently in preview. For more information about
-ranting access to the AppFabric for productivity features, see [AppFabric for productivity IAM policy
-examples](security_iam_id-based-policy-examples.md#appfabric-for-productivity-policy-examples "security_iam_id-based-policy-examples.md#appfabric-for-productivity-policy-examples").
+ranting access to the AppFabric for productivity features, see [AppFabric for productivity IAM policy examples](security_iam_id-based-policy-examples.md#appfabric-for-productivity-policy-examples "security_iam_id-based-policy-examples.md#appfabric-for-productivity-policy-examples").
 
 **Permissions details**
 
@@ -96,8 +91,7 @@ This policy includes the following permissions:
   streams, and describe delivery streams.
 - `iam` – Grants permission to create the
   `AWSServiceRoleForAppFabric` service-linked role for AppFabric. For more
-  information, see [Using service-linked roles for
-  AppFabric](using-service-linked-roles.md "using-service-linked-roles.md").
+  information, see [Using service-linked roles for AppFabric](using-service-linked-roles.md "using-service-linked-roles.md").
 
 JSON
 
@@ -148,14 +142,11 @@ JSON
 
 ```
 
-## AWS managed
-
-policy: AWSAppFabricServiceRolePolicy
+## AWS managed policy: AWSAppFabricServiceRolePolicy
 
 You can't attach the `AWSAppFabricServiceRolePolicy` policy to your IAM
 entities. This policy is attached to a service-linked role that allows AppFabric to perform
-actions on your behalf. For more information, see [Using service-linked roles for
-AppFabric](using-service-linked-roles.md "using-service-linked-roles.md").
+actions on your behalf. For more information, see [Using service-linked roles for AppFabric](using-service-linked-roles.md "using-service-linked-roles.md").
 
 **Permissions details**
 
@@ -207,9 +198,7 @@ JSON
 
 ```
 
-## AppFabric updates to AWS managed
-
-policies
+## AppFabric updates to AWS managed policies
 
 View details about updates to AWS managed policies for AppFabric since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

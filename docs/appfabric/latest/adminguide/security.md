@@ -30,5 +30,4 @@ _in_ the cloud:
 - [Security best practices for AWS AppFabric](security-best-practices.md "security-best-practices.md")
 - [Resilience in AWS AppFabric](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in AWS AppFabric](infrastructure-security.md "infrastructure-security.md")
-- [Configuration and vulnerability
-  analysis in AWS AppFabric](configuration-vulnerability-analysis.md "configuration-vulnerability-analysis.md")
+- [Configuration and vulnerability analysis in AWS AppFabric](configuration-vulnerability-analysis.md "configuration-vulnerability-analysis.md")

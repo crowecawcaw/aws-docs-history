@@ -10,9 +10,7 @@ billions of raw events daily from 40+ integrated data sources, and together with
 threat detection rules that map to the MITRE ATT&CK® framework, it can detect
 threats faster and reduce response time.
 
-## AWS AppFabric audit log ingestion
-
-considerations
+## AWS AppFabric audit log ingestion considerations
 
 The following sections describe the AppFabric output schema, output formats, and output
 destinations to use with Barracuda XDR.

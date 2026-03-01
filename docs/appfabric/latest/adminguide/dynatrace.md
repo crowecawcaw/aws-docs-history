@@ -6,9 +6,7 @@ intelligent automation from data. This enables innovators to modernize and autom
 operations, deliver software faster and more securely, and ensure flawless digital
 experiences.
 
-## AWS AppFabric audit log ingestion
-
-considerations
+## AWS AppFabric audit log ingestion considerations
 
 The following sections describe the AppFabric output schema, output formats, and output
 destinations to use with the Dynatrace Platform.

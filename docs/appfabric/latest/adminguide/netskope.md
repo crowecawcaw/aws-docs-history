@@ -11,9 +11,7 @@ evolving threats, new risks, technology shifts, organizational and network chang
 regulatory requirements. Learn how Netskope helps customers be ready for
 anything on their SASE journey, visit [netskope.com](https://www.netskope.com/ "https://www.netskope.com/").
 
-## AWS AppFabric audit log ingestion
-
-considerations
+## AWS AppFabric audit log ingestion considerations
 
 The following sections describe the AppFabric output schema, output formats, and output
 destinations to use with Netskope.

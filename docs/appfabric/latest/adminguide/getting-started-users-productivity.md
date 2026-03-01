@@ -1,6 +1,4 @@
-# Get started with AppFabric for productivity (preview) for
-
-end users
+# Get started with AppFabric for productivity (preview) for end users
 
 |                                                                                    |
 | ---------------------------------------------------------------------------------- |
@@ -27,12 +25,9 @@ please see [Amazon Bedrock FAQs](https://aws.amazon.com/bedrock/faqs/ "https://a
 - [Prerequisites](#getting-started-prerequisites "#getting-started-prerequisites")
 - [Step 1. Sign in to AppFabric](#sign-in-appfabric "#sign-in-appfabric")
 - [Step 2. Provide consent for the app to display insights](#provide-consent "#provide-consent")
-- [Step 3. Connect your applications to generate insights and
-  actions](#connect-apps "#connect-apps")
-- [Step 4. Start seeing insights and execute cross-app actions in
-  your application](#insights_in_app "#insights_in_app")
-- [Manage access to AppFabric for productivity (preview)
-  features for IT and security administrators](productivity-end-users-managing-access.md "productivity-end-users-managing-access.md")
+- [Step 3. Connect your applications to generate insights and actions](#connect-apps "#connect-apps")
+- [Step 4. Start seeing insights and execute cross-app actions in your application](#insights_in_app "#insights_in_app")
+- [Manage access to AppFabric for productivity (preview) features for IT and security administrators](productivity-end-users-managing-access.md "productivity-end-users-managing-access.md")
 - [Troubleshoot end user errors in AppFabric for productivity](productivity-end-users-errors.md "productivity-end-users-errors.md")
 
 ## Prerequisites
@@ -88,9 +83,7 @@ time per application that you enable AppFabric in.
 
 ![Dialog box requesting permission to display insights and artifacts within an application.](images/fabric-05.png)
 
-## Step 3. Connect your applications to generate insights and
-
-actions
+## Step 3. Connect your applications to generate insights and actions
 
 After you complete the consent page, you're taken to the **Connect
 applications** page where you can connect, disconnect, or reconnect individual
@@ -137,9 +130,7 @@ application or gathering new data to generate new insights. Data from disconnect
 will be automatically be deleted within 7 days if you choose to not reconnect the application in
 that time.
 
-## Step 4. Start seeing insights and execute cross-app actions in
-
-your application
+## Step 4. Start seeing insights and execute cross-app actions in your application
 
 After you connect your applications with AppFabric, you'll have access to valuable insights and
 the ability to perform cross-app actions directly from your preferred application. Note: this
@@ -180,9 +171,7 @@ You have the responsibility to validate and confirm the AppFabric LLM outputs. A
 guarantee the accuracy or quality of its LLM outputs. For more information, see [AWS Responsible AI
 Policy](https://aws.amazon.com/machine-learning/responsible-ai/policy/ "https://aws.amazon.com/machine-learning/responsible-ai/policy/").
 
-### Create emails (Google Workspace,
-
-Microsoft 365)
+### Create emails (Google Workspace, Microsoft 365)
 
 AppFabric allows you to edit and send an email from within your preferred application. We
 support basic email fields including the From, To, Cc/Bcc, Email Subject Line, and Email Body
@@ -204,9 +193,7 @@ this link to quickly navigate to the application and verify the email has been s
 
 ![Email sent confirmation with recipient details and message preview.](images/fabric-13.png)
 
-### Create calendar events (Google
-
-Workspace, Microsoft 365)
+### Create calendar events (Google Workspace, Microsoft 365)
 
 AppFabric allows you to edit and create a calendar event from within your preferred
 application. We support basic calendar event fields including the Event Title, Location,

@@ -13,14 +13,10 @@ format, and output the data to an Amazon Simple Storage Service (Amazon S3) buck
 
 ###### Topics
 
-- [AppFabric support for Terraform
-  Cloud](#terraform-appfabric-support "#terraform-appfabric-support")
-- [Connecting AppFabric to your
-  Terraform Cloud account](#terraform-appfabric-connecting "#terraform-appfabric-connecting")
+- [AppFabric support for Terraform Cloud](#terraform-appfabric-support "#terraform-appfabric-support")
+- [Connecting AppFabric to your Terraform Cloud account](#terraform-appfabric-connecting "#terraform-appfabric-connecting")
 
-## AppFabric support for Terraform
-
-Cloud
+## AppFabric support for Terraform Cloud
 
 AppFabric supports receiving user information and audit logs from Terraform
 Cloud.
@@ -54,17 +50,13 @@ destination. This is due to delay in audit events made available by the applicat
 as well as due to precautions taken to reduce data loss. However, this might be
 customizable at an account-level. For assistance, contact [Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-## Connecting AppFabric to your
-
-Terraform Cloud account
+## Connecting AppFabric to your Terraform Cloud account
 
 After you create your app bundle within the AppFabric service, you must authorize AppFabric
 with Terraform Cloud. To find the information required to authorize
 Terraform Cloud with AppFabric, use the following steps.
 
-### Create an organization API
-
-token
+### Create an organization API token
 
 AppFabric integrates with Terraform Cloud using an organization API
 token. For more information about the Terraform Cloud organization
@@ -108,5 +100,4 @@ ingestions created from the app authorization.
 #### Service account token
 
 AppFabric will request your service account token. The service account token in
-AppFabric is the organization API token you created in [Create an organization API
-token](#terraform-create-org-token "#terraform-create-org-token").
+AppFabric is the organization API token you created in [Create an organization API token](#terraform-create-org-token "#terraform-create-org-token").

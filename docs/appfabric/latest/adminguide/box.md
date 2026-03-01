@@ -11,8 +11,7 @@ data to an Amazon Simple Storage Service (Amazon S3) bucket or an Amazon Data Fi
 ###### Topics
 
 - [AppFabric support for the Box](#box-appfabric-support "#box-appfabric-support")
-- [Connecting AppFabric to your Box
-  account](#box-appfabric-connecting "#box-appfabric-connecting")
+- [Connecting AppFabric to your Box account](#box-appfabric-connecting "#box-appfabric-connecting")
 
 ## AppFabric support for the Box
 
@@ -47,9 +46,7 @@ destination. This is due to delay in audit events made available by the applicat
 as well as due to precautions taken to reduce data loss. However, this may be
 customizable on an account level. For assistance, contact [Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-## Connecting AppFabric to your Box
-
-account
+## Connecting AppFabric to your Box account
 
 After you create your app bundle within the AppFabric service, you need to authorize AppFabric
 with Box. To find the information required to authorize
@@ -132,9 +129,7 @@ Enter a name that identifies this unique Box organization.
 AppFabric uses the tenant name to label the app authorizations and any ingestion
 created from the app authorization.
 
-#### Client ID and client
-
-secret
+#### Client ID and client secret
 
 1. Log in to Box and go to the [Developer
    Console](https://app.box.com/developers/console "https://app.box.com/developers/console").

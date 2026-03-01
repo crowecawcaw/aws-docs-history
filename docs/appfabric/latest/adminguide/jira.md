@@ -17,14 +17,10 @@ bucket or an Amazon Data Firehose stream.
 
 ###### Topics
 
-- [AppFabric support for the Jira
-  suite](#jira-appfabric-support "#jira-appfabric-support")
-- [Connecting AppFabric to your Jira
-  account](#jira-appfabric-connecting "#jira-appfabric-connecting")
+- [AppFabric support for the Jira suite](#jira-appfabric-support "#jira-appfabric-support")
+- [Connecting AppFabric to your Jira account](#jira-appfabric-connecting "#jira-appfabric-connecting")
 
-## AppFabric support for the Jira
-
-suite
+## AppFabric support for the Jira suite
 
 AppFabric supports receiving user information and audit logs from the Jira
 suite, with the exception of Jira Align.
@@ -58,9 +54,7 @@ destination. This is due to delay in audit events made available by the applicat
 as well as due to precautions taken to reduce data loss. However, this might be
 customizable at an account-level. For assistance, contact [Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-## Connecting AppFabric to your Jira
-
-account
+## Connecting AppFabric to your Jira account
 
 After you create your app bundle within the AppFabric service, you must authorize AppFabric
 with Jira. To find the information required to authorize

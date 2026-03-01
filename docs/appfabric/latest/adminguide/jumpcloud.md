@@ -12,8 +12,7 @@ bucket or an Amazon Data Firehose stream.
 ###### Topics
 
 - [AppFabric support for JumpCloud](#jumpcloud-appfabric-support "#jumpcloud-appfabric-support")
-- [Connecting AppFabric to your
-  JumpCloud account](#jumpcloud-appfabric-connecting "#jumpcloud-appfabric-connecting")
+- [Connecting AppFabric to your JumpCloud account](#jumpcloud-appfabric-connecting "#jumpcloud-appfabric-connecting")
 
 ## AppFabric support for JumpCloud
 
@@ -44,17 +43,13 @@ destination. This is due to delays in audit events made available by the applica
 precautions taken to reduce data loss. However, this might be customizable at an account-level.
 For assistance, contact [Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-## Connecting AppFabric to your
-
-JumpCloud account
+## Connecting AppFabric to your JumpCloud account
 
 After you create your app bundle within the AppFabric service, you must authorize AppFabric with
 JumpCloud. To find the information required to authorize JumpCloud
 with AppFabric, follow the steps in the next section.
 
-### Create an Organization token from the
-
-JumpCloud account
+### Create an Organization token from the JumpCloud account
 
 AppFabric uses an API key to integrate with JumpCloud To create an API key in
 JumpCloud, follow these steps:.
@@ -94,5 +89,4 @@ authorization.
 #### Service account token
 
 AppFabric will request your service account token. In AppFabric, this is the organization API
-token that you created in [Create an Organization token from the
-JumpCloud account](#jumpcloud-appfabric-access-token "#jumpcloud-appfabric-access-token"), earlier in this topic.
+token that you created in [Create an Organization token from the JumpCloud account](#jumpcloud-appfabric-access-token "#jumpcloud-appfabric-access-token"), earlier in this topic.

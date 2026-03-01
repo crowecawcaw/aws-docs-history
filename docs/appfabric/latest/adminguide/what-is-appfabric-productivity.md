@@ -33,10 +33,8 @@ insights they need from across their applications without interrupting their flo
 - [Benefits](#benefits "#benefits")
 - [Use cases](#use-cases "#use-cases")
 - [Accessing AppFabric for productivity](#acessing-appfabric "#acessing-appfabric")
-- [Get started with AppFabric for productivity
-  (preview) for application developers](getting-started-appdeveloper-productivity.md "getting-started-appdeveloper-productivity.md")
-- [Get started with AppFabric for productivity (preview) for
-  end users](getting-started-users-productivity.md "getting-started-users-productivity.md")
+- [Get started with AppFabric for productivity (preview) for application developers](getting-started-appdeveloper-productivity.md "getting-started-appdeveloper-productivity.md")
+- [Get started with AppFabric for productivity (preview) for end users](getting-started-users-productivity.md "getting-started-users-productivity.md")
 - [AppFabric for productivity APIs (preview)](productivity-apis.md "productivity-apis.md")
 - [Data processing in AppFabric](productivity-data-processing.md "productivity-data-processing.md")
 
@@ -103,9 +101,7 @@ _AWS General Reference_.
 In each Region, you can access AppFabric for productivity in any of the following ways:
 
 - As an app developer
-  - [Get started with AppFabric for productivity
-    (preview) for application developers](getting-started-appdeveloper-productivity.md "getting-started-appdeveloper-productivity.md")
+  - [Get started with AppFabric for productivity (preview) for application developers](getting-started-appdeveloper-productivity.md "getting-started-appdeveloper-productivity.md")
 
 - As an end user
-  - [Get started with AppFabric for productivity (preview) for
-    end users](getting-started-users-productivity.md "getting-started-users-productivity.md")
+  - [Get started with AppFabric for productivity (preview) for end users](getting-started-users-productivity.md "getting-started-users-productivity.md")

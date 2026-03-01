@@ -17,9 +17,7 @@ analysts, threat content as a service and AI-backed capabilities purpose-built t
 reduce noisy data and focus on the information that enables your team to rapidly prioritize
 real world threats.
 
-## AWS AppFabric audit log ingestion
-
-considerations
+## AWS AppFabric audit log ingestion considerations
 
 The following sections describe the AppFabric output schema, output formats, and output
 destinations to use with Logz.io.

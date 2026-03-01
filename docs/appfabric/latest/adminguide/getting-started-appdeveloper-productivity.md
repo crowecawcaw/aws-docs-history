@@ -1,6 +1,4 @@
-# Get started with AppFabric for productivity
-
-(preview) for application developers
+# Get started with AppFabric for productivity (preview) for application developers
 
 |                                                                                    |
 | ---------------------------------------------------------------------------------- |
@@ -18,8 +16,7 @@ controlled environment. When you first start using AppFabric for productivity, y
 register a single test user. This approach is designed to help you understand and test the
 authentication and communication flow between your application and AppFabric. After you've
 tested with a single user, you can submit your application to AppFabric for verification before
-expanding access to additional users (see [Step 5. Request AppFabric to verify your
-application](#request_verification "#request_verification")). AppFabric will verify application information
+expanding access to additional users (see [Step 5. Request AppFabric to verify your application](#request_verification "#request_verification")). AppFabric will verify application information
 before enabling wide spread adoption to help protect app developers, end users, and their
 data — paving the way for expanding user adoption in a responsible manner.
 
@@ -27,14 +24,10 @@ data — paving the way for expanding user adoption in a responsible manner.
 
 - [Prerequisites](#getting-started-prerequisites "#getting-started-prerequisites")
 - [Step 1. Create an AppFabric for productivity AppClient](#create_appclient "#create_appclient")
-- [Step 2. Authenticate and authorize your
-  application](#authorize_data_access "#authorize_data_access")
-- [Step 3. Add the AppFabric user portal URL to your
-  application](#end_user_portal "#end_user_portal")
-- [Step 4. Use AppFabric to surface cross-app
-  insights and actions](#surface_insights_actions "#surface_insights_actions")
-- [Step 5. Request AppFabric to verify your
-  application](#request_verification "#request_verification")
+- [Step 2. Authenticate and authorize your application](#authorize_data_access "#authorize_data_access")
+- [Step 3. Add the AppFabric user portal URL to your application](#end_user_portal "#end_user_portal")
+- [Step 4. Use AppFabric to surface cross-app insights and actions](#surface_insights_actions "#surface_insights_actions")
+- [Step 5. Request AppFabric to verify your application](#request_verification "#request_verification")
 - [Manage AppFabric for productivity AppClients](manage-appclients.md "manage-appclients.md")
 - [Troubleshoot AppClients in AppFabric for productivity](ahead-app-dev-errors.md "ahead-app-dev-errors.md")
 
@@ -44,8 +37,7 @@ Before you get started, you need to create an AWS account. For more information,
 [Sign up for an AWS account](prerequisites.md#sign-up-for-aws "prerequisites.md#sign-up-for-aws"). You also need to
 create at least one user with access to the `"appfabric:CreateAppClient"` IAM
 policy listed below, which allows the user to register your application with AppFabric. For
-more information about granting permissions for the AppFabric for productivity features, see [AppFabric for productivity IAM policy
-examples](security_iam_id-based-policy-examples.md#appfabric-for-productivity-policy-examples "security_iam_id-based-policy-examples.md#appfabric-for-productivity-policy-examples"). While having an
+more information about granting permissions for the AppFabric for productivity features, see [AppFabric for productivity IAM policy examples](security_iam_id-based-policy-examples.md#appfabric-for-productivity-policy-examples "security_iam_id-based-policy-examples.md#appfabric-for-productivity-policy-examples"). While having an
 administrative user is beneficial, it's not mandatory for initial setup. For more
 information, see [Create a user with administrative access](prerequisites.md#create-an-admin "prerequisites.md#create-an-admin").
 
@@ -66,8 +58,7 @@ controlled environment. When you first start using AppFabric for productivity, y
 and register a single test user. This approach is designed to help you understand and
 test the authentication and communication flow between your application and AppFabric. After
 you've tested with a single user, you can submit your application to AppFabric for
-verification before expanding access to additional users (see [Step 5. Request AppFabric to verify your
-application](#request_verification "#request_verification")). AppFabric will
+verification before expanding access to additional users (see [Step 5. Request AppFabric to verify your application](#request_verification "#request_verification")). AppFabric will
 verify application information before enabling wide spread adoption to help protect app
 developers, end users, and their data — paving the way for expanding user adoption in a
 responsible manner.
@@ -116,8 +107,7 @@ requests](../../../IAM/latest/UserGuide/reference_aws-signing.md "../../../IAM/l
     is still in progress with AppFabric. Until the AppClient is verified, only
     one user (specified in `starterUserEmails`) can use the
     AppClient. The user will see a notification in the AppFabric user portal,
-    introduced in [Step 3. Add the AppFabric user portal URL to your
-    application](#end_user_portal "#end_user_portal"), indicating that the application
+    introduced in [Step 3. Add the AppFabric user portal URL to your application](#end_user_portal "#end_user_portal"), indicating that the application
     isn't verified.
   - `verified` - The verification process has been successfully
     completed by AppFabric and the AppClient is now fully verified.
@@ -154,9 +144,7 @@ If the action is successful, the service sends back an HTTP 200 response.
 }
 ```
 
-## Step 2. Authenticate and authorize your
-
-application
+## Step 2. Authenticate and authorize your application
 
 Enable your application to securely integrate AppFabric insights by establishing an OAuth
 2.0 authorization flow. First, you need to create an authorization code, which verifies
@@ -164,8 +152,7 @@ your application identity. For more information, see [Authorize](API_Authorize.m
 access token, which grants your application the permissions to fetch and display AppFabric
 insights within your application. For more information, see [Token](API_Token.md "API_Token.md").
 
-For more information about granting permission to authorize an application, see [Allow
-access to authorize applications](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-token "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-token").
+For more information about granting permission to authorize an application, see [Allow access to authorize applications](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-token "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-token").
 
 1. To create an authorization code, use the AWS AppFabric
    `oauth2/authorize` API operation.
@@ -267,9 +254,7 @@ response.
 }
 ```
 
-## Step 3. Add the AppFabric user portal URL to your
-
-application
+## Step 3. Add the AppFabric user portal URL to your application
 
 End users need to authorize AppFabric to access data from their applications that are used
 to generate insights. AppFabric removes the complexity for app developers to own this
@@ -295,9 +280,7 @@ After you add the URL, your application will be set up to direct users to the Ap
 user portal. Here, users can log in and connect and manage their applications used to
 generate AppFabric for productivity insights.
 
-## Step 4. Use AppFabric to surface cross-app
-
-insights and actions
+## Step 4. Use AppFabric to surface cross-app insights and actions
 
 After users connect their applications, you can bring your user’s insights to improve
 their productivity by helping reducing app and context switching. AppFabric only generates
@@ -314,9 +297,7 @@ and actions within your apps:
 - `ListMeetingInsights` — For more information, see the [Meeting preparation](#productivity-meeting-insights "#productivity-meeting-insights") section
   later in this guide.
 
-### Actionable insights
-
-(`ListActionableInsights`)
+### Actionable insights (`ListActionableInsights`)
 
 The `ListActionableInsights` API helps users best manage their day
 surfacing actionable insights based on activity across their applications, including
@@ -443,9 +424,7 @@ If the action is successful, the service sends back an HTTP 200 response.
 }
 ```
 
-### Meeting preparation
-
-(`ListMeetingInsights`)
+### Meeting preparation (`ListMeetingInsights`)
 
 The `ListMeetingInsights` API helps users best prepare for upcoming
 meetings by summarizing the meeting purpose and surfacing relevant cross-app
@@ -565,9 +544,7 @@ If the action is successful, the service sends back an HTTP 201 response.
 }
 ```
 
-### Provide feedback for your insights
-
-or actions
+### Provide feedback for your insights or actions
 
 Use the AppFabric `PutFeedback` API operation to provide feedback for the
 generated insights and actions. You can embed this feature in your apps to provide a
@@ -606,9 +583,7 @@ curl --request POST \
 If the action is successful, the service sends back an HTTP 201 response with an
 empty HTTP body.
 
-## Step 5. Request AppFabric to verify your
-
-application
+## Step 5. Request AppFabric to verify your application
 
 To this point, you've updated your application UI to embed AppFabric cross-app insights
 and actions, and received insights for a single user. After you’re satisfied with

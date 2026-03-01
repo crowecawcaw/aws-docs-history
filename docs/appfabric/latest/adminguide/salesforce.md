@@ -13,14 +13,10 @@ data to an Amazon Simple Storage Service (Amazon S3) bucket or an Amazon Data Fi
 
 ###### Topics
 
-- [AppFabric support for
-  Salesforce](#salesforce-appfabric-support "#salesforce-appfabric-support")
-- [Connecting AppFabric to your
-  Salesforce account](#salesforce-appfabric-connecting "#salesforce-appfabric-connecting")
+- [AppFabric support for Salesforce](#salesforce-appfabric-support "#salesforce-appfabric-support")
+- [Connecting AppFabric to your Salesforce account](#salesforce-appfabric-connecting "#salesforce-appfabric-connecting")
 
-## AppFabric support for
-
-Salesforce
+## AppFabric support for Salesforce
 
 AppFabric supports receiving user information and audit logs from
 Salesforce.
@@ -81,9 +77,7 @@ to delay in audit events made available by the application as well as due to
 precautions taken to reduce data loss. However, this might be customizable at an
 account-level. For assistance, contact [Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-## Connecting AppFabric to your
-
-Salesforce account
+## Connecting AppFabric to your Salesforce account
 
 After you create your app bundle within the AppFabric service, you must authorize AppFabric
 with Salesforce. To find the information required to authorize

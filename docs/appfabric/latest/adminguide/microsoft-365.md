@@ -9,14 +9,10 @@ the data to an Amazon Simple Storage Service (Amazon S3) bucket or an Amazon Dat
 
 ###### Topics
 
-- [AppFabric support for
-  Microsoft 365](#microsoft-365-appfabric-support "#microsoft-365-appfabric-support")
-- [Connecting AppFabric to your
-  Microsoft 365 account](#microsoft-365-appfabric-connecting "#microsoft-365-appfabric-connecting")
+- [AppFabric support for Microsoft 365](#microsoft-365-appfabric-support "#microsoft-365-appfabric-support")
+- [Connecting AppFabric to your Microsoft 365 account](#microsoft-365-appfabric-connecting "#microsoft-365-appfabric-connecting")
 
-## AppFabric support for
-
-Microsoft 365
+## AppFabric support for Microsoft 365
 
 AppFabric supports receiving user information and audit logs from Microsoft 365.
 
@@ -52,17 +48,13 @@ destination. This is due to delay in audit events made available by the applicat
 as well as due to precautions taken to reduce data loss. However, this might be
 customizable at an account-level. For assistance, contact [Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-## Connecting AppFabric to your
-
-Microsoft 365 account
+## Connecting AppFabric to your Microsoft 365 account
 
 After you create your app bundle within the AppFabric service, you must authorize AppFabric
 with Microsoft 365. To find the information required to authorize
 Microsoft 365 with AppFabric, use the following steps.
 
-### Create an OAuth
-
-application
+### Create an OAuth application
 
 AppFabric integrates with Microsoft 365 using OAuth. To create an OAuth
 application in Microsoft 365, use the following steps:
@@ -163,9 +155,7 @@ following steps:
 2. Enter the contents of the **Value** field into the
    **Client secret** field in AppFabric.
 
-#### Approve
-
-authorization
+#### Approve authorization
 
 After creating the app authorization in AppFabric, you will receive a pop-up
 window from Microsoft 365 to approve the authorization. To

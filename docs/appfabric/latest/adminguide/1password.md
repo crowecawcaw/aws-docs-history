@@ -10,14 +10,10 @@ data to an Amazon Simple Storage Service (Amazon S3) bucket or an Amazon Data Fi
 
 ###### Topics
 
-- [AppFabric support for
-  1Password](#1password-appfabric-support "#1password-appfabric-support")
-- [Connecting AppFabric to your
-  1Password account](#1password-appfabric-connecting "#1password-appfabric-connecting")
+- [AppFabric support for 1Password](#1password-appfabric-support "#1password-appfabric-support")
+- [Connecting AppFabric to your 1Password account](#1password-appfabric-connecting "#1password-appfabric-connecting")
 
-## AppFabric support for
-
-1Password
+## AppFabric support for 1Password
 
 AppFabric supports receiving user information and audit logs from
 1Password.
@@ -48,17 +44,13 @@ destination. This is due to delay in audit events made available by the applicat
 as well as due to precautions taken to reduce data loss. However, this might be
 customizable at an account-level. For assistance, contact [Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-## Connecting AppFabric to your
-
-1Password account
+## Connecting AppFabric to your 1Password account
 
 After you create your app bundle within the AppFabric service, you must authorize AppFabric
 with 1Password. To find the information required to authorize
 1Password with AppFabric, use the following steps.
 
-### Create a personal
-
-1Password access token
+### Create a personal 1Password access token
 
 1Password supports personal access tokens for public clients.
 Complete the following steps to generate a personal access token.

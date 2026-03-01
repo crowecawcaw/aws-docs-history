@@ -11,14 +11,10 @@ format, and output the data to an Amazon Simple Storage Service (Amazon S3) buck
 
 ###### Topics
 
-- [AppFabric support for Genesys
-  Cloud](#genesys-appfabric-support "#genesys-appfabric-support")
-- [Connecting AppFabric to your Genesys
-  Cloud account](#genesys-appfabric-connecting "#genesys-appfabric-connecting")
+- [AppFabric support for Genesys Cloud](#genesys-appfabric-support "#genesys-appfabric-support")
+- [Connecting AppFabric to your Genesys Cloud account](#genesys-appfabric-connecting "#genesys-appfabric-connecting")
 
-## AppFabric support for Genesys
-
-Cloud
+## AppFabric support for Genesys Cloud
 
 AppFabric supports receiving user information and audit logs from Genesys
 Cloud.
@@ -46,17 +42,13 @@ destination. This is due to delay in audit events made available by the applicat
 as well as due to precautions taken to reduce data loss. However, this might be
 customizable at an account-level. For assistance, contact [Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-## Connecting AppFabric to your Genesys
-
-Cloud account
+## Connecting AppFabric to your Genesys Cloud account
 
 After you create your app bundle within the AppFabric service, you must authorize AppFabric
 with Genesys Cloud. To find the information required to authorize
 Genesys Cloud with AppFabric, use the following steps.
 
-### Create an OAuth
-
-application
+### Create an OAuth application
 
 AppFabric integrates with Genesys Cloud using OAuth. To create an OAuth
 application in Genesys Cloud, use the following steps:

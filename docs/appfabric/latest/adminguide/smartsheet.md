@@ -12,14 +12,10 @@ data to an Amazon Simple Storage Service (Amazon S3) bucket or an Amazon Data Fi
 
 ###### Topics
 
-- [AppFabric support for
-  Smartsheet](#smartsheet-appfabric-support "#smartsheet-appfabric-support")
-- [Connecting AppFabric to your
-  Smartsheet account](#smartsheet-appfabric-connecting "#smartsheet-appfabric-connecting")
+- [AppFabric support for Smartsheet](#smartsheet-appfabric-support "#smartsheet-appfabric-support")
+- [Connecting AppFabric to your Smartsheet account](#smartsheet-appfabric-connecting "#smartsheet-appfabric-connecting")
 
-## AppFabric support for
-
-Smartsheet
+## AppFabric support for Smartsheet
 
 AppFabric supports receiving user information and audit logs from
 Smartsheet.
@@ -51,17 +47,13 @@ destination. This is due to delay in audit events made available by the applicat
 as well as due to precautions taken to reduce data loss. However, this might be
 customizable at an account-level. For assistance, contact [Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-## Connecting AppFabric to your
-
-Smartsheet account
+## Connecting AppFabric to your Smartsheet account
 
 After you create your app bundle within the AppFabric service, you must authorize AppFabric
 with Smartsheet. To find the information required to authorize
 Smartsheet with AppFabric, use the following steps.
 
-### Create an OAuth
-
-application
+### Create an OAuth application
 
 AppFabric integrates with Smartsheet using OAuth. To create an OAuth
 application in Smartsheet, use the following steps:

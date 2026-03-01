@@ -1,21 +1,19 @@
-# Amazon Quick Suite
+# Amazon Quick
 
-Amazon Quick Suite powers data-driven organizations with unified business intelligence (BI) at
-hyperscale. With Quick Suite, all users can meet varying analytic needs from the same source
+Amazon Quick powers data-driven organizations with unified business intelligence (BI) at
+hyperscale. With Quick, all users can meet varying analytic needs from the same source
 of truth through modern interactive dashboards, paginated reports, embedded analytics, and
-natural language queries. You can analyze AWS AppFabric audit log data in Quick Suite, by choosing
+natural language queries. You can analyze AWS AppFabric audit log data in Quick, by choosing
 your Amazon Simple Storage Service (Amazon S3) bucket where your AppFabric for security logs are stored as your source.
 
-## AppFabric audit log ingestion
-
-considerations
+## AppFabric audit log ingestion considerations
 
 The following sections describe the AppFabric output schema, output formats, and output
-destinations to use with Quick Suite.
+destinations to use with Quick.
 
 ### Schema and formats
 
-Quick Suite supports the following AppFabric output schema and formats:
+Quick supports the following AppFabric output schema and formats:
 
 - Raw - JSON
   - AppFabric outputs data in the original schema used by the source
@@ -27,17 +25,17 @@ Quick Suite supports the following AppFabric output schema and formats:
 
 ### Output locations
 
-Quick Suite supports the following AppFabric output locations:
+Quick supports the following AppFabric output locations:
 
 - Amazon S3
-  - You can ingest data from Amazon S3 directly into Quick Suite by [Creating
+  - You can ingest data from Amazon S3 directly into Quick by [Creating
     a dataset using Amazon S3 files](../../../quicksight/latest/user/create-a-data-set-s3.md "../../../quicksight/latest/user/create-a-data-set-s3.md"). To verify that your target
-    file set doesn't exceed Quick Suite data source quotas, see [Data source
-    quotas](../../../quicksight/latest/user/data-source-limits.md "../../../quicksight/latest/user/data-source-limits.md") in the _Quick Suite User
+    file set doesn't exceed Quick data source quotas, see [Data source
+    quotas](../../../quicksight/latest/user/data-source-limits.md "../../../quicksight/latest/user/data-source-limits.md") in the _Quick User
     Guide_.
-  - If your file set exceeds Quick Suite quotas for an Amazon S3 data source,
+  - If your file set exceeds Quick quotas for an Amazon S3 data source,
     you can ingest your data in Amazon S3 using Amazon Athena and AWS Glue tables.
-    Using Athena in your Quick Suite dataset will incur additional costs.
+    Using Athena in your Quick dataset will incur additional costs.
     For more information about Athena pricing, see the [Athena pricing
     page](https://aws.amazon.com/athena/pricing/ "https://aws.amazon.com/athena/pricing/").
 
@@ -47,4 +45,4 @@ Quick Suite supports the following AppFabric output locations:
        AWS Glue to connect to data sources in Amazon S3](../../../athena/latest/ug/data-sources-glue.md "../../../athena/latest/ug/data-sources-glue.md") in the
        *Athena User Guide*.
       2. Follow the instructions in [Creating a dataset using Athena data](../../../quicksight/latest/user/create-a-data-set-athena.md "../../../quicksight/latest/user/create-a-data-set-athena.md") in the
-       *Quick Suite User Guide*.
+       *Quick User Guide*.

@@ -166,9 +166,7 @@ ThrottlingException
 HTTP Status Code: 429
 ```
 
-## `ListActionableInsights`,
-
-`ListMeetingInsights`, and `PutFeedback` errors
+## `ListActionableInsights`, `ListMeetingInsights`, and `PutFeedback` errors
 
 ### ValidationException
 

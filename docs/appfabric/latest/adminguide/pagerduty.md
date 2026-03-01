@@ -13,14 +13,10 @@ stream.
 
 ###### Topics
 
-- [AppFabric support for
-  PagerDuty](#pagerduty-appfabric-support "#pagerduty-appfabric-support")
-- [Connecting AppFabric to your
-  PagerDuty account](#pagerduty-appfabric-connecting "#pagerduty-appfabric-connecting")
+- [AppFabric support for PagerDuty](#pagerduty-appfabric-support "#pagerduty-appfabric-support")
+- [Connecting AppFabric to your PagerDuty account](#pagerduty-appfabric-connecting "#pagerduty-appfabric-connecting")
 
-## AppFabric support for
-
-PagerDuty
+## AppFabric support for PagerDuty
 
 AppFabric supports receiving user information and audit logs from
 PagerDuty.
@@ -51,9 +47,7 @@ destination. This is due to delay in audit events made available by the applicat
 as well as due to precautions taken to reduce data loss. However, this might be
 customizable at an account-level. For assistance, contact [Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-## Connecting AppFabric to your
-
-PagerDuty account
+## Connecting AppFabric to your PagerDuty account
 
 The PagerDuty platform supports API access keys. To generate an API
 access key, use the following steps.

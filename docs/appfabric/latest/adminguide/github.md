@@ -12,14 +12,10 @@ stream.
 
 ###### Topics
 
-- [AppFabric support for
-  GitHub](#github-appfabric-support "#github-appfabric-support")
-- [Connecting AppFabric to your
-  GitHub account](#github-appfabric-connecting "#github-appfabric-connecting")
+- [AppFabric support for GitHub](#github-appfabric-support "#github-appfabric-support")
+- [Connecting AppFabric to your GitHub account](#github-appfabric-connecting "#github-appfabric-connecting")
 
-## AppFabric support for
-
-GitHub
+## AppFabric support for GitHub
 
 AppFabric supports receiving user information and audit logs from
 GitHub.
@@ -51,9 +47,7 @@ destination. This is due to delay in audit events made available by the applicat
 as well as due to precautions taken to reduce data loss. However, this might be
 customizable at an account-level. For assistance, contact [Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-## Connecting AppFabric to your
-
-GitHub account
+## Connecting AppFabric to your GitHub account
 
 After you create your app bundle within the AppFabric service, you must authorize AppFabric
 with GitHub. To find the information required to authorize

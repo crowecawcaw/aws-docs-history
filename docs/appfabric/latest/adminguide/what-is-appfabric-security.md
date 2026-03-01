@@ -93,17 +93,17 @@ availability, security, and performance. When you use AppFabric, you can choose 
 normalized (JSON or Apache Parquet) or raw (JSON) audit logs to a new or existing
 Amazon S3 bucket as your destination. For more information, see [Create an output location in Amazon S3](prerequisites.md#output-location-s3 "prerequisites.md#output-location-s3").
 
-**Amazon Quick Suite**
+**Amazon Quick**
 
-Quick Suite powers data-driven organizations with unified business intelligence (BI) at hyperscale.
-With Quick Suite, all users can meet varying analytic needs from the same source of truth through
+Quick powers data-driven organizations with unified business intelligence (BI) at hyperscale.
+With Quick, all users can meet varying analytic needs from the same source of truth through
 modern interactive dashboards, paginated reports, embedded analytics, and natural language
-queries. You can analyze AppFabric audit log data in Quick Suite, by choosing the Amazon S3 bucket where
+queries. You can analyze AppFabric audit log data in Quick, by choosing the Amazon S3 bucket where
 your AppFabric logs are stored as your source. For more information, see [Creating a dataset using Amazon S3
-files](../../../quicksight/latest/user/create-a-data-set-s3.md "../../../quicksight/latest/user/create-a-data-set-s3.md") in the _Quick Suite User Guide_. You can also import AppFabric data in
-Amazon S3 to Amazon Athena and select Amazon Athena as the data source in Quick Suite. For more information, see
+files](../../../quicksight/latest/user/create-a-data-set-s3.md "../../../quicksight/latest/user/create-a-data-set-s3.md") in the _Quick User Guide_. You can also import AppFabric data in
+Amazon S3 to Amazon Athena and select Amazon Athena as the data source in Quick. For more information, see
 [Creating
-a dataset using Amazon Athena data](../../../quicksight/latest/user/create-a-data-set-athena.md "../../../quicksight/latest/user/create-a-data-set-athena.md") in the _Quick Suite User Guide_.
+a dataset using Amazon Athena data](../../../quicksight/latest/user/create-a-data-set-athena.md "../../../quicksight/latest/user/create-a-data-set-athena.md") in the _Quick User Guide_.
 
 **AWS Key Management Service**
 

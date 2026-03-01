@@ -6,9 +6,7 @@ digital systems secure and reliable. Organizations trust Splunk to prevent
 security, infrastructure, and application issues from becoming major incidents, absorb
 shocks from digital disruptions and accelerate digital transformation.
 
-## AWS AppFabric audit log ingestion
-
-considerations
+## AWS AppFabric audit log ingestion considerations
 
 The following sections describe the AppFabric output schema, output formats, and output
 destinations to use with Splunk.

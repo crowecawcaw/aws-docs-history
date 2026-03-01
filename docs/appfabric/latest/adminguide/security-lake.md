@@ -8,9 +8,7 @@ adopted the Open Cybersecurity Schema Framework (OCSF), an open source security 
 schema. With OCSF support, the service normalizes and combines security data from AWS and
 a broad range of enterprise security data sources.
 
-## AppFabric audit log ingestion
-
-considerations
+## AppFabric audit log ingestion considerations
 
 You can get your SaaS audit logs into Amazon Security Lake in your AWS account by
 adding a custom source to Security Lake. The following sections describe the AppFabric
@@ -825,9 +823,7 @@ procedures.
 ]
 ```
 
-### Create a custom
-
-source in Security Lake
+### Create a custom source in Security Lake
 
 1. Navigate to the Amazon Security Lake console.
 2. Select **Custom sources** in the navigation pane.
@@ -846,9 +842,7 @@ ID**, enter your AWS account ID. Then, choose
 **Create**. 6. Save the Amazon S3 location of the custom source. You will use it to set up an
 Amazon Data Firehose delivery stream.
 
-### Create a delivery
-
-stream in Firehose
+### Create a delivery stream in Firehose
 
 1. Navigate to the Amazon Data Firehose console.
 2. Choose **Create a delivery stream**.

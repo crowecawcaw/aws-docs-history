@@ -1,6 +1,4 @@
-# Configure Google Analytics for
-
-AppFabric
+# Configure Google Analytics for AppFabric
 
 Google Analytics is a web analytics service that provides statistics and
 basic analytical tools for search engine optimization (SEO) and marketing purposes.
@@ -19,14 +17,10 @@ format, and output the data to an Amazon Simple Storage Service (Amazon S3) buck
 
 ###### Topics
 
-- [AppFabric support for Google
-  Analytics](#google-analytics-appfabric-support "#google-analytics-appfabric-support")
-- [Connecting AppFabric to your
-  Google Analytics account](#google-analytics-appfabric-connecting "#google-analytics-appfabric-connecting")
+- [AppFabric support for Google Analytics](#google-analytics-appfabric-support "#google-analytics-appfabric-support")
+- [Connecting AppFabric to your Google Analytics account](#google-analytics-appfabric-connecting "#google-analytics-appfabric-connecting")
 
-## AppFabric support for Google
-
-Analytics
+## AppFabric support for Google Analytics
 
 AppFabric supports receiving audit logs from Google Analytics.
 
@@ -57,17 +51,13 @@ destination. This is due to delay in audit events made available by the applicat
 as well as due to precautions taken to reduce data loss. However, this might be
 customizable at an account-level. For assistance, contact [Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-## Connecting AppFabric to your
-
-Google Analytics account
+## Connecting AppFabric to your Google Analytics account
 
 After you create your app bundle within the AppFabric service, you must authorize AppFabric
 with Google Analytics. Use the following steps to find the information
 required to authorize Google Analytics with AppFabric.
 
-### Create an OAuth
-
-application
+### Create an OAuth application
 
 AppFabric integrates with the Google Analytics using OAuth. Complete
 the following steps to create an OAuth application in Google

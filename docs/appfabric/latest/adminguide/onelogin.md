@@ -1,6 +1,4 @@
-# Configure OneLogin by One Identity for
-
-AppFabric
+# Configure OneLogin by One Identity for AppFabric
 
 OneLogin by One Identity is a modern, cloud-based access management
 solution that seamlessly manages all digital identities for your workforce, customers and
@@ -18,14 +16,10 @@ stream.
 
 ###### Topics
 
-- [AppFabric support for OneLogin by One
-  Identity](#onelogin-appfabric-support "#onelogin-appfabric-support")
-- [Connecting AppFabric to your OneLogin
-  by One Identity account](#onelogin-appfabric-connecting "#onelogin-appfabric-connecting")
+- [AppFabric support for OneLogin by One Identity](#onelogin-appfabric-support "#onelogin-appfabric-support")
+- [Connecting AppFabric to your OneLogin by One Identity account](#onelogin-appfabric-connecting "#onelogin-appfabric-connecting")
 
-## AppFabric support for OneLogin by One
-
-Identity
+## AppFabric support for OneLogin by One Identity
 
 AppFabric supports receiving user information and audit logs from OneLogin by One
 Identity.
@@ -57,17 +51,13 @@ destination. This is due to delay in audit events made available by the applicat
 as well as due to precautions taken to reduce data loss. However, this might be
 customizable at an account-level. For assistance, contact [Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-## Connecting AppFabric to your OneLogin
-
-by One Identity account
+## Connecting AppFabric to your OneLogin by One Identity account
 
 After you create your app bundle within the AppFabric service, you must authorize AppFabric
 with OneLogin by One Identity. To find the information required to
 authorize OneLogin with AppFabric, use the following steps.
 
-### Create an OAuth
-
-application
+### Create an OAuth application
 
 AppFabric integrates with OneLogin by One Identity using OAuth. To
 create an OAuth application in OneLogin, use the following
@@ -125,9 +115,7 @@ OneLogin by One Identity, use the following steps:
    Credentials**.
 3. Choose the API credential to get the Client Secret.
 
-#### Client app
-
-authorization
+#### Client app authorization
 
 In AppFabric, create an app authorization using your tenant ID and name, and your
 client ID and name. Choose connect to activate the authorization.

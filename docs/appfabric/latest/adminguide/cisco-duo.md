@@ -12,14 +12,10 @@ and output the data to an Amazon Simple Storage Service (Amazon S3) bucket or an
 
 ###### Topics
 
-- [AppFabric support for Cisco
-  Duo](#cisco-duo-appfabric-support "#cisco-duo-appfabric-support")
-- [Connect AppFabric to your Cisco
-  Duo account](#cisco-duo-appfabric-connecting "#cisco-duo-appfabric-connecting")
+- [AppFabric support for Cisco Duo](#cisco-duo-appfabric-support "#cisco-duo-appfabric-support")
+- [Connect AppFabric to your Cisco Duo account](#cisco-duo-appfabric-connecting "#cisco-duo-appfabric-connecting")
 
-## AppFabric support for Cisco
-
-Duo
+## AppFabric support for Cisco Duo
 
 AppFabric supports receiving user information and audit logs from Cisco
 Duo.
@@ -55,17 +51,13 @@ destination. This is due to delay in audit events made available by the applicat
 as well as due to precautions taken to reduce data loss. However, this might be
 customizable at an account-level. For assistance, contact [Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-## Connect AppFabric to your Cisco
-
-Duo account
+## Connect AppFabric to your Cisco Duo account
 
 After you create your app bundle within the AppFabric service, you must authorize AppFabric
 with Cisco Duo. To find the information required to authorize
 Cisco Duo with AppFabric, use the following steps.
 
-### Create a Cisco Duo
-
-Admin API application
+### Create a Cisco Duo Admin API application
 
 AppFabric integrates with Cisco Duo using an API service token. To
 create an application in Cisco Duo, use the following steps.

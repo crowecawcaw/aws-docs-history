@@ -1,6 +1,4 @@
-# Manage access to AppFabric for productivity (preview)
-
-features for IT and security administrators
+# Manage access to AppFabric for productivity (preview) features for IT and security administrators
 
 |                                                                                    |
 | ---------------------------------------------------------------------------------- |

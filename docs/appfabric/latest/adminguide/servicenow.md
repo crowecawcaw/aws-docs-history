@@ -15,15 +15,11 @@ stream.
 
 ###### Topics
 
-- [AppFabric support for
-  ServiceNow](#servicenow-appfabric-support "#servicenow-appfabric-support")
+- [AppFabric support for ServiceNow](#servicenow-appfabric-support "#servicenow-appfabric-support")
 - [Data delay considerations](#servicenow-data-delay "#servicenow-data-delay")
-- [Connecting AppFabric to your
-  ServiceNow account](#servicenow-appfabric-connecting "#servicenow-appfabric-connecting")
+- [Connecting AppFabric to your ServiceNow account](#servicenow-appfabric-connecting "#servicenow-appfabric-connecting")
 
-## AppFabric support for
-
-ServiceNow
+## AppFabric support for ServiceNow
 
 AppFabric supports receiving user information and audit logs from
 ServiceNow.
@@ -53,9 +49,7 @@ destination. This is due to delay in audit events made available by the applicat
 well as due to precautions taken to reduce data loss. However, this might be
 customizable at an account-level. For assistance, contact [Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-## Connecting AppFabric to your
-
-ServiceNow account
+## Connecting AppFabric to your ServiceNow account
 
 After you create your app bundle within the AppFabric service, you must authorize AppFabric
 with ServiceNow. Use the following steps to find the information required

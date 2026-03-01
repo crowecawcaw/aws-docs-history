@@ -14,14 +14,10 @@ data to an Amazon Simple Storage Service (Amazon S3) bucket or an Amazon Data Fi
 
 ###### Topics
 
-- [AppFabric support for
-  Dropbox](#dropbox-appfabric-support "#dropbox-appfabric-support")
-- [Connecting AppFabric to your
-  Dropbox account](#dropbox-appfabric-connecting "#dropbox-appfabric-connecting")
+- [AppFabric support for Dropbox](#dropbox-appfabric-support "#dropbox-appfabric-support")
+- [Connecting AppFabric to your Dropbox account](#dropbox-appfabric-connecting "#dropbox-appfabric-connecting")
 
-## AppFabric support for
-
-Dropbox
+## AppFabric support for Dropbox
 
 AppFabric supports receiving user information and audit logs from
 Dropbox.
@@ -57,17 +53,13 @@ destination. This is due to delay in audit events made available by the applicat
 as well as due to precautions taken to reduce data loss. However, this might be
 customizable at an account-level. For assistance, contact [Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-## Connecting AppFabric to your
-
-Dropbox account
+## Connecting AppFabric to your Dropbox account
 
 After you create your app bundle within the AppFabric service, you must authorize AppFabric
 with Dropbox. To find the information required to authorize
 Dropbox with AppFabric, use the following steps.
 
-### Create an OAuth
-
-application
+### Create an OAuth application
 
 AppFabric integrates with Dropbox using OAuth. To create an OAuth
 application in Dropbox, use the following steps:

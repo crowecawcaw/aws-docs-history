@@ -1,6 +1,4 @@
-# Configure Google Workspace for
-
-AppFabric
+# Configure Google Workspace for AppFabric
 
 Google Workspace is a collection of cloud computing, productivity and
 collaboration tools, software and products developed and marketed by Google.
@@ -11,14 +9,10 @@ format, and output the data to an Amazon Simple Storage Service (Amazon S3) buck
 
 ###### Topics
 
-- [AppFabric support for Google
-  Workspace](#google-workspace-appfabric-support "#google-workspace-appfabric-support")
-- [Connecting AppFabric to your
-  Google Workspace account](#google-workspace-appfabric-connecting "#google-workspace-appfabric-connecting")
+- [AppFabric support forGoogle Workspace](#google-workspace-appfabric-support "#google-workspace-appfabric-support")
+- [Connecting AppFabric to your Google Workspace account](#google-workspace-appfabric-connecting "#google-workspace-appfabric-connecting")
 
-## AppFabric support for Google
-
-Workspace
+## AppFabric support forGoogle Workspace
 
 AppFabric supports receiving user information and audit logs from Google
 Workspace.
@@ -60,17 +54,13 @@ times](https://support.google.com/a/answer/7061566?hl=en "https://support.google
 However, this might be customizable at an account-level. For assistance contact
 [Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-## Connecting AppFabric to your
-
-Google Workspace account
+## Connecting AppFabric to your Google Workspace account
 
 After you create your app bundle within the AppFabric service, you must authorize AppFabric
 with Google Workspace. To find the information required to authorize
 Google Workspace with AppFabric, use the following steps.
 
-### Create an OAuth
-
-application
+### Create an OAuth application
 
 AppFabric integrates with Google Workspace using OAuth. To create an
 OAuth application in Google Workspace, use the following
@@ -145,9 +135,7 @@ following steps:
 3. Enter the your client secret into the **Client
    secret** field in AppFabric.
 
-#### Approve
-
-authorization
+#### Approve authorization
 
 After creating the app authorization in AppFabric you will receive a pop-up window
 from Google Workspace to approve the authorization. To approve

@@ -23,8 +23,7 @@ data to an Amazon Simple Storage Service (Amazon S3) bucket or an Amazon Data Fi
 ###### Topics
 
 - [AppFabric support for Webex](#webex-appfabric-support "#webex-appfabric-support")
-- [Connecting AppFabric to your
-  Webex account](#webex-appfabric-connecting "#webex-appfabric-connecting")
+- [Connecting AppFabric to your Webex account](#webex-appfabric-connecting "#webex-appfabric-connecting")
 
 ## AppFabric support for Webex
 
@@ -66,9 +65,7 @@ destination. This is due to delay in audit events made available by the applicat
 as well as due to precautions taken to reduce data loss. However, this might be
 customizable at an account-level. For assistance, contact [Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-## Connecting AppFabric to your
-
-Webex account
+## Connecting AppFabric to your Webex account
 
 After you create your app bundle within the AppFabric service, you must authorize AppFabric
 with Webex. To find the information required to authorize

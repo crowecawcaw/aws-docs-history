@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-AppFabric
+# Using service-linked roles for AppFabric
 
 AWS AppFabric uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to AppFabric. Service-linked roles are predefined by AppFabric and
@@ -24,9 +22,7 @@ For information about other services that support service-linked roles, see [AWS
 column. Choose a **Yes** with a link to view the service-linked
 role documentation for that service.
 
-## Service-linked role permissions for
-
-AppFabric
+## Service-linked role permissions for AppFabric
 
 AppFabric uses the service-linked role named
 `AWSServiceRoleForAppFabric`
@@ -70,17 +66,13 @@ You must configure permissions to allow your users, groups, or roles to create, 
 delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the
 _IAM User Guide_.
 
-## Creating a service-linked role for
-
-AppFabric
+## Creating a service-linked role for AppFabric
 
 You don't need to manually create a service-linked role. When you
 create an AppFabric app bundle in the AWS Management Console, the AWS CLI, or the AWS API, AppFabric creates
 the service-linked role for you.
 
-## Editing a service-linked role for
-
-AppFabric
+## Editing a service-linked role for AppFabric
 
 AppFabric doesn't
 allow you to
@@ -92,19 +84,14 @@ change the name of the role because various entities might reference the role. H
 can edit the description of the role using IAM. For more information, see [Editing
 a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the _IAM User Guide_.
 
-## Deleting a service-linked role for
-
-AppFabric
+## Deleting a service-linked role for AppFabric
 
 If you no longer need to use a feature or service that requires a service-linked role, we
 recommend that you delete that role. That way you don’t have an unused entity that is not
 actively monitored or maintained. However, you must delete all of your AppFabric app bundles
 before you can delete the service-linked role.
 
-### Cleaning
-
-up
-a service-linked role
+### Cleaning up a service-linked role
 
 Before you can use IAM to delete a service-linked role, you must first delete any
 resources used by the role. App bundles that you create in AppFabric are used by the role. For

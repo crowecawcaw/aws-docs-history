@@ -15,14 +15,10 @@ data to an Amazon Simple Storage Service (Amazon S3) bucket or an Amazon Data Fi
 
 ###### Topics
 
-- [AppFabric support for
-  Zendesk](#zendesk-appfabric-support "#zendesk-appfabric-support")
-- [Connecting AppFabric to your
-  Zendesk account](#zendesk-appfabric-connecting "#zendesk-appfabric-connecting")
+- [AppFabric support for Zendesk](#zendesk-appfabric-support "#zendesk-appfabric-support")
+- [Connecting AppFabric to your Zendesk account](#zendesk-appfabric-connecting "#zendesk-appfabric-connecting")
 
-## AppFabric support for
-
-Zendesk
+## AppFabric support for Zendesk
 
 AppFabric supports receiving user information and audit logs from
 Zendesk.
@@ -57,17 +53,13 @@ destination. This is due to delay in audit events made available by the applicat
 as well as due to precautions taken to reduce data loss. However, this might be
 customizable at an account-level. For assistance, contact [Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-## Connecting AppFabric to your
-
-Zendesk account
+## Connecting AppFabric to your Zendesk account
 
 After you create your app bundle within the AppFabric service, you must authorize AppFabric
 with Zendesk. To find the information required to authorize
 Zendesk with AppFabric, use the following steps.
 
-### Create an OAuth
-
-application
+### Create an OAuth application
 
 AppFabric integrates with Zendesk using OAuth. In
 Zendesk, you must create an OAuth application with the following

@@ -1,6 +1,4 @@
-# Configure Singularity Cloud for
-
-AppFabric
+# Configure Singularity Cloud for AppFabric
 
 The Singularity Cloud platform protects your enterprise from threats of all
 categories, at all stages. Its patented artificial intelligence extends security from known
@@ -19,14 +17,10 @@ Singularity Cloud documentation from this document.
 
 ###### Topics
 
-- [AppFabric support for
-  Singularity Cloud](#singularity-cloud-appfabric-support "#singularity-cloud-appfabric-support")
-- [Connecting AppFabric to your
-  Singularity Cloud account](#singularity-cloud-appfabric-connecting "#singularity-cloud-appfabric-connecting")
+- [AppFabric support for Singularity Cloud](#singularity-cloud-appfabric-support "#singularity-cloud-appfabric-support")
+- [Connecting AppFabric to your Singularity Cloud account](#singularity-cloud-appfabric-connecting "#singularity-cloud-appfabric-connecting")
 
-## AppFabric support for
-
-Singularity Cloud
+## AppFabric support for Singularity Cloud
 
 AppFabric supports receiving user information and audit logs from Singularity
 Cloud.
@@ -55,17 +49,13 @@ destination. This is due to delay in audit events made available by the applicat
 as well as due to precautions taken to reduce data loss. However, this might be
 customizable at an account-level. For assistance, contact [Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-## Connecting AppFabric to your
-
-Singularity Cloud account
+## Connecting AppFabric to your Singularity Cloud account
 
 After you create your app bundle within the AppFabric service, you must authorize AppFabric
 with Singularity Cloud. To find the information required to authorize
 Singularity Cloud with AppFabric, use the following steps.
 
-### Create an API token for
-
-Singularity Cloud
+### Create an API token for Singularity Cloud
 
 Complete the following procedure to create an API token that is associated to a
 service user. The API token will not be linked to a specific console user or email
@@ -112,12 +102,9 @@ Enter a name that identifies this unique Singularity Cloud
 organization. AppFabric uses the tenant name to label the app authorizations and any
 ingestions created from the app authorization.
 
-#### Service account
+#### Service account token
 
-token
-
-Use the token that you generated using the steps in the [Create an API token for
-Singularity Cloud](#singularity-cloud-api-token "#singularity-cloud-api-token") section of this guide. If you
+Use the token that you generated using the steps in the [Create an API token for Singularity Cloud](#singularity-cloud-api-token "#singularity-cloud-api-token") section of this guide. If you
 misplace or are unable to locate the token, you can generate a new one by
 following the same steps again.
 

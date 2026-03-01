@@ -14,8 +14,7 @@ This section explains how to start using AppFabric in the AWS Management Console
 - [Step 2: Authorize applications](#getting-started-2-authorize-application "#getting-started-2-authorize-application")
 - [Step 3: Set up audit log ingestions](#getting-started-3-set-up-ingestion "#getting-started-3-set-up-ingestion")
 - [Step 4: Use the user access tool](#getting-started-4-user-access-tool "#getting-started-4-user-access-tool")
-- [Step 5: Connect AppFabric for
-  security data in security tools and other destinations](#getting-started-5-connect-appfabric-to-security-tools "#getting-started-5-connect-appfabric-to-security-tools")
+- [Step 5: Connect AppFabric for security data in security tools and other destinations](#getting-started-5-connect-appfabric-to-security-tools "#getting-started-5-connect-appfabric-to-security-tools")
 
 ## Prerequisites
 
@@ -86,8 +85,7 @@ When an app bundle is created, AppFabric for security also creates a special IAM
 AWS account called a service-linked role (SLR) for AppFabric. It allows the service to send
 metrics to Amazon CloudWatch. After you add an audit log destination, the SLR allows the AppFabric for security
 service access to your AWS resources (Amazon S3 buckets, Amazon Data Firehose delivery streams). For more
-information, see [Using service-linked roles for
-AppFabric](using-service-linked-roles.md "using-service-linked-roles.md"). 7. (Optional) For **Tags**, you have the option to add tags to your app
+information, see [Using service-linked roles for AppFabric](using-service-linked-roles.md "using-service-linked-roles.md"). 7. (Optional) For **Tags**, you have the option to add tags to your app
 bundle. Tags are key-value pairs that assign metadata to resources that you create. For more
 information, see [Tagging your AWS resources](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md") in the _AWS Tag Editor User
 Guide_. 8. To create your app bundle, choose **Create app bundle**.
@@ -256,9 +254,7 @@ user has access to.
 | The application encountered a bad request error.                                                        | This is an error message we received from the application. You can try to search an<br>email again later.                                                                                                                                                                                       |
 | The application encountered a service unavailable error.                                                | This is an error message we received from the application. You can try to search an<br>email again later.                                                                                                                                                                                       |
 
-## Step 5: Connect AppFabric for
-
-security data in security tools and other destinations
+## Step 5: Connect AppFabric for security data in security tools and other destinations
 
 Normalized (or raw) application data from AppFabric is compatible with any tool that supports
 data ingestion from Amazon S3 and integration with Firehose, including security tools like

@@ -14,8 +14,7 @@ data to an Amazon Simple Storage Service (Amazon S3) bucket or an Amazon Data Fi
 ###### Topics
 
 - [AppFabric support for Zoom](#zoom-appfabric-support "#zoom-appfabric-support")
-- [Connecting AppFabric to your Zoom
-  account](#zoom-appfabric-connecting "#zoom-appfabric-connecting")
+- [Connecting AppFabric to your Zoom account](#zoom-appfabric-connecting "#zoom-appfabric-connecting")
 
 ## AppFabric support for Zoom
 
@@ -56,17 +55,13 @@ You might see an approximately 24-hour delay for an audit event to be delivered 
 your destination. This is due to delay in audit events made available by the
 application as well as due to precautions taken to reduce data loss.
 
-## Connecting AppFabric to your Zoom
-
-account
+## Connecting AppFabric to your Zoom account
 
 After you create your app bundle within the AppFabric service, then you must authorize
 AppFabric with Zoom. To find the information required to authorize
 Zoom with AppFabric, use the following steps.
 
-### Create a server-to-server OAuth
-
-application
+### Create a server-to-server OAuth application
 
 AppFabric uses server-to-server OAuth with app credentials to integrate with
 Zoom. To create a server-to-server OAuth application in

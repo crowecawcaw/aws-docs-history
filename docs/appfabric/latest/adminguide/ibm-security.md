@@ -1,6 +1,4 @@
-# Configure IBM Security® Verify for
-
-AppFabric
+# Configure IBM Security® Verify for AppFabric
 
 The IBM Security® Verify family provides automated, cloud-based and
 on-premises capabilities for administering identity governance, managing workforce and
@@ -16,14 +14,10 @@ stream.
 
 ###### Topics
 
-- [AppFabric support for the IBM
-  Security® Verify](#ibm-security-appfabric-support "#ibm-security-appfabric-support")
-- [Connecting AppFabric to your IBM
-  Security® Verify account](#ibm-security-appfabric-connecting "#ibm-security-appfabric-connecting")
+- [AppFabric support for the IBM Security® Verify](#ibm-security-appfabric-support "#ibm-security-appfabric-support")
+- [Connecting AppFabric to your IBM Security® Verify account](#ibm-security-appfabric-connecting "#ibm-security-appfabric-connecting")
 
-## AppFabric support for the IBM
-
-Security® Verify
+## AppFabric support for the IBM Security® Verify
 
 AppFabric supports receiving user information and audit logs from IBM
 Security® Verify.
@@ -53,18 +47,14 @@ destination. This is due to delay in audit events made available by the applicat
 as well as due to precautions taken to reduce data loss. However, this may be
 customizable on an account level. For assistance, contact [Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-## Connecting AppFabric to your IBM
-
-Security® Verify account
+## Connecting AppFabric to your IBM Security® Verify account
 
 After you create your app bundle within the AppFabric service, you must authorize AppFabric
 with IBM Security® Verify. To find the information required to
 authorize IBM Security® Verify with AppFabric, use the following
 steps.
 
-### Create an OAuth
-
-application
+### Create an OAuth application
 
 AppFabric integrates with the IBM Security® Verify using OAuth. To
 create an OAuth application in IBM Security® Verify, see [Create an API client](https://docs.verify.ibm.com/verify/docs/support-developers-create-api-client "https://docs.verify.ibm.com/verify/docs/support-developers-create-api-client") on the _IBM documentation

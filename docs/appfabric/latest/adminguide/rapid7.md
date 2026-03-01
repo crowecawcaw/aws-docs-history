@@ -8,9 +8,7 @@ security solutions help more than 10,000 global customers unite cloud risk manag
 threat detection to reduce attack surfaces and eliminate threats with speed and
 precision.
 
-## AWS AppFabric audit log ingestion
-
-considerations
+## AWS AppFabric audit log ingestion considerations
 
 The following sections describe the AppFabric output schema, output format, and output
 destinations to use with Rapid7.

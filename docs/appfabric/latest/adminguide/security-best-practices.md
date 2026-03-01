@@ -6,12 +6,10 @@ represent a complete security solution. Because these best practices might not b
 appropriate or sufficient for your environment, treat them as helpful considerations rather
 than prescriptions.
 
-## Monitor for application
-
-without admin access
+## Monitor for application without admin access
 
 With the read-only AWS Identity and Access Management (IAM) permission, anyone can integrate AppFabric with
-Amazon Quick Suite and other security information and event management (SIEM) tools, such as
+Amazon Quick and other security information and event management (SIEM) tools, such as
 Splunk. To monitor application security, data is delivered to an
 Amazon Simple Storage Service (Amazon S3) bucket or an Amazon Data Firehose delivery stream.
 

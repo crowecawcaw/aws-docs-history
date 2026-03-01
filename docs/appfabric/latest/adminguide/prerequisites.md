@@ -9,8 +9,7 @@ AWS Identity and Access Management (IAM) service. For complete information about
 
 - [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Create a user with administrative access](#create-an-admin "#create-an-admin")
-- [(Required) Complete application
-  prerequisites](#application-prerequisites "#application-prerequisites")
+- [(Required) Complete application prerequisites](#application-prerequisites "#application-prerequisites")
 - [(Optional) Create an output location](#create-output-location "#create-output-location")
 - [(Optional) Create an AWS KMS key](#create-kms-keys "#create-kms-keys")
 
@@ -72,9 +71,7 @@ For instructions, see [Create a permission set](../../../singlesignon/latest/use
 
 For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md") in the _AWS IAM Identity Center User Guide_.
 
-## (Required) Complete application
-
-prerequisites
+## (Required) Complete application prerequisites
 
 To use AppFabric for security to receive user information and audit logs from applications,
 many applications require that you have specific role and plan types. Ensure that you
@@ -93,25 +90,20 @@ topics.
 - [Configure Dropbox for AppFabric](dropbox.md "dropbox.md")
 - [Configure Genesys Cloud for AppFabric](genesys.md "genesys.md")
 - [Configure GitHub for AppFabric](github.md "github.md")
-- [Configure Google Analytics for
-  AppFabric](google-analytics.md "google-analytics.md")
-- [Configure Google Workspace for
-  AppFabric](google-workspace.md "google-workspace.md")
+- [Configure Google Analytics for AppFabric](google-analytics.md "google-analytics.md")
+- [Configure Google Workspace for AppFabric](google-workspace.md "google-workspace.md")
 - [Configure HubSpot for AppFabric](hubspot.md "hubspot.md")
-- [Configure IBM Security® Verify for
-  AppFabric](ibm-security.md "ibm-security.md")
+- [Configure IBM Security® Verify for AppFabric](ibm-security.md "ibm-security.md")
 - [Configure JumpCloud for AppFabric](jumpcloud.md "jumpcloud.md")
 - [Configure Microsoft 365 for AppFabric](microsoft-365.md "microsoft-365.md")
 - [Configure Miro for AppFabric](miro.md "miro.md")
 - [Configure Okta for AppFabric](okta.md "okta.md")
-- [Configure OneLogin by One Identity for
-  AppFabric](onelogin.md "onelogin.md")
+- [Configure OneLogin by One Identity for AppFabric](onelogin.md "onelogin.md")
 - [Configure PagerDuty for AppFabric](pagerduty.md "pagerduty.md")
 - [Configure Ping Identity for AppFabric](pingidentity.md "pingidentity.md")
 - [Configure Salesforce for AppFabric](salesforce.md "salesforce.md")
 - [Configure ServiceNow for AppFabric](servicenow.md "servicenow.md")
-- [Configure Singularity Cloud for
-  AppFabric](singularity-cloud.md "singularity-cloud.md")
+- [Configure Singularity Cloud for AppFabric](singularity-cloud.md "singularity-cloud.md")
 - [Configure Slack for AppFabric](slack.md "slack.md")
 - [Configure Smartsheet for AppFabric](smartsheet.md "smartsheet.md")
 - [Configure Terraform Cloud for AppFabric](terraform.md "terraform.md")

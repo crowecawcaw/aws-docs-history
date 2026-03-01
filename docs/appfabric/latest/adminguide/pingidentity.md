@@ -13,14 +13,10 @@ format, and output the data to an Amazon Simple Storage Service (Amazon S3) buck
 
 ###### Topics
 
-- [AppFabric support for Ping
-  Identity](#pingidentity-appfabric-support "#pingidentity-appfabric-support")
-- [Connecting AppFabric to your Ping
-  Identity account](#pingidentity-appfabric-connecting "#pingidentity-appfabric-connecting")
+- [AppFabric support for Ping Identity](#pingidentity-appfabric-support "#pingidentity-appfabric-support")
+- [Connecting AppFabric to your Ping Identity account](#pingidentity-appfabric-connecting "#pingidentity-appfabric-connecting")
 
-## AppFabric support for Ping
-
-Identity
+## AppFabric support for Ping Identity
 
 AppFabric supports receiving user information and audit logs from Ping
 Identity.
@@ -56,17 +52,13 @@ destination. This is due to delay in audit events made available by the applicat
 as well as due to precautions taken to reduce data loss. However, this might be
 customizable at an account-level. For assistance, contact [Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-## Connecting AppFabric to your Ping
-
-Identity account
+## Connecting AppFabric to your Ping Identity account
 
 After you create your app bundle within the AppFabric service, you must authorize AppFabric
 with Ping Identity. To find the information required to authorize
 Ping Identity with AppFabric, use the following steps.
 
-### Create an OAuth
-
-application
+### Create an OAuth application
 
 AppFabric integrates with Ping Identity using OAuth. To create an OAuth
 application in Ping Identity, use the following steps:
@@ -141,9 +133,7 @@ Identity, use the following steps:
 3. Choose the **Overview** tab, and then look for the
    **Client Secret** value.
 
-#### Approve
-
-authorization
+#### Approve authorization
 
 After creating the app authorization in AppFabric, you will receive a pop-up
 window from Ping Identity to approve the authorization. To

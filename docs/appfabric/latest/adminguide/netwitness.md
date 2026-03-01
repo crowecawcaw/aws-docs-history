@@ -15,9 +15,7 @@ activities, investigate, and automate response. All this empowers security analy
 better, faster efficiency to keep security operations well ahead of business-impacting
 threats.
 
-## AWS AppFabric audit log ingestion
-
-considerations
+## AWS AppFabric audit log ingestion considerations
 
 The following sections describe the AppFabric output schema, output formats, and output
 destinations to use with NetWitness.

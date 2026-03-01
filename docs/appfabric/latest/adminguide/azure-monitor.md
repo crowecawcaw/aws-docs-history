@@ -20,14 +20,10 @@ format, and output the data to an Amazon Simple Storage Service (Amazon S3) buck
 
 ###### Topics
 
-- [AppFabric support for Azure
-  Monitor](#azure-monitor-appfabric-support "#azure-monitor-appfabric-support")
-- [Connecting AppFabric to your
-  Azure Monitor account](#azure-monitor-appfabric-connecting "#azure-monitor-appfabric-connecting")
+- [AppFabric support for Azure Monitor](#azure-monitor-appfabric-support "#azure-monitor-appfabric-support")
+- [Connecting AppFabric to your Azure Monitor account](#azure-monitor-appfabric-connecting "#azure-monitor-appfabric-connecting")
 
-## AppFabric support for Azure
-
-Monitor
+## AppFabric support for Azure Monitor
 
 AppFabric is capable of receiving user information and audit logs from the following
 Azure Monitor services:
@@ -61,17 +57,13 @@ destination. This is due to delay in audit events made available by the applicat
 as well as due to precautions taken to reduce data loss. However, this might be
 customizable at an account-level. For assistance, contact [Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-## Connecting AppFabric to your
-
-Azure Monitor account
+## Connecting AppFabric to your Azure Monitor account
 
 After you create your app bundle within the AppFabric service, you must authorize AppFabric
 with Azure Monitor. To find the information required to authorize
 Azure Monitor with AppFabric, use the following steps.
 
-### Create an OAuth
-
-application
+### Create an OAuth application
 
 AppFabric integrates with Azure Monitor using OAuth2. Complete the
 following steps to create an OAuth2 application in Azure
