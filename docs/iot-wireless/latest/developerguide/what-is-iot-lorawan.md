@@ -81,21 +81,18 @@ LoRaWAN has been formally documented as an international standard by ITU for low
 wide area networking. The standard is titled Recommendation ITU-T Y.4480 “Low power protocol
 for wide area wireless networks”.
 
-- ###### [The Things Fundamentals
-  on LoRaWAN](https://www.thethingsnetwork.org/docs/lorawan/ "https://www.thethingsnetwork.org/docs/lorawan/")
+- ###### [The Things Fundamentals on LoRaWAN](https://www.thethingsnetwork.org/docs/lorawan/ "https://www.thethingsnetwork.org/docs/lorawan/")
 
 The Things Fundamentals on LoRaWAN contains an introductory video that covers the
 fundamentals of LoRaWAN and a series of chapters that'll help you learn about LoRa and
 LoRaWAN.
 
-- ###### [What is
-  LoRaWAN](https://lora-alliance.org/resource_hub/what-is-lorawan/ "https://lora-alliance.org/resource_hub/what-is-lorawan/")
+- ###### [What is LoRaWAN](https://lora-alliance.org/resource_hub/what-is-lorawan/ "https://lora-alliance.org/resource_hub/what-is-lorawan/")
 
 LoRa Alliance provides a technical overview of LoRa and LoRaWAN, including a summary of
 the LoRaWAN specifications in different Regions.
 
-- ###### [LoRa
-  Basics Station](https://lora-developers.semtech.com/resources/tools/lora-basics/ "https://lora-developers.semtech.com/resources/tools/lora-basics/")
+- ###### [LoRa Basics Station](https://lora-developers.semtech.com/resources/tools/lora-basics/ "https://lora-developers.semtech.com/resources/tools/lora-basics/")
 
 Semtech Corporation provides helpful concepts about LoRa basics for gateways and end
 nodes. LoRa Basics Station, an open source software that runs on your LoRaWAN gateway, is
@@ -103,8 +100,7 @@ maintained and distributed through Semtech Corporation's [GitHub](https://github
 learn about the LNS and CUPS protocols that describe how to exchange LoRaWAN data and
 perform configuration updates.
 
-- ###### [LoRaWAN
-  regional parameters and specifications](https://lora-alliance.org/resource_hub/rp2-102-lorawan-regional-parameters/ "https://lora-alliance.org/resource_hub/rp2-102-lorawan-regional-parameters/")
+- ###### [LoRaWAN regional parameters and specifications](https://lora-alliance.org/resource_hub/rp2-102-lorawan-regional-parameters/ "https://lora-alliance.org/resource_hub/rp2-102-lorawan-regional-parameters/")
 
 RP002-1.0.2 document includes support for all versions of the LoRaWAN Layer 2
 specification.It includes information about the LoRaWAN specifications and regional
@@ -134,11 +130,9 @@ The following steps show an overview of how you can get started using AWS IoT Co
 
 The [AWS
 Partner Device Catalog](https://devices.amazonaws.com/search?page=1&sv=iotclorawan "https://devices.amazonaws.com/search?page=1&sv=iotclorawan") contains gateways and developer kits that are qualified for
-use with AWS IoT Core for LoRaWAN. For more information, see [Using qualified gateways from the AWS
-Partner Device Catalog](lorawan-manage-gateways.md#lorawan-qualified-gateways "lorawan-manage-gateways.md#lorawan-qualified-gateways"). 2. ###### Add your wireless devices and LoRaWAN gateways to AWS IoT Core for LoRaWAN.
+use with AWS IoT Core for LoRaWAN. For more information, see [Using qualified gateways from the AWS Partner Device Catalog](lorawan-manage-gateways.md#lorawan-qualified-gateways "lorawan-manage-gateways.md#lorawan-qualified-gateways"). 2. ###### Add your wireless devices and LoRaWAN gateways to AWS IoT Core for LoRaWAN.
 
-[Connecting gateways and devices to
-AWS IoT Core for LoRaWAN](lorawan-getting-started.md "lorawan-getting-started.md") gives
+[Connecting gateways and devices to AWS IoT Core for LoRaWAN](lorawan-getting-started.md "lorawan-getting-started.md") gives
 you information about how to describe your resources and add your wireless devices and
 LoRaWAN gateways to AWS IoT Core for LoRaWAN. You'll also learn how to configure the other AWS IoT Core for LoRaWAN
 resources that you'll need to manage these devices and send their data to AWS
@@ -152,14 +146,12 @@ AWS IoT Core for LoRaWAN solution](https://github.com/aws-samples/aws-iot-core-l
 The following resources will help you learn more about AWS IoT Core for LoRaWAN and how to get
 started.
 
-- ###### [Getting Started with
-  AWS IoT Core for LoRaWAN](https://www.youtube.com/watch?v=6-ZrdRjqdTk/ "https://www.youtube.com/watch?v=6-ZrdRjqdTk/")
+- ###### [Getting Started with AWS IoT Core for LoRaWAN](https://www.youtube.com/watch?v=6-ZrdRjqdTk/ "https://www.youtube.com/watch?v=6-ZrdRjqdTk/")
 
 The following video describes how AWS IoT Core for LoRaWAN works and walks you through the process
 of adding LoRaWAN gateways from the AWS Management Console.
 
-- ###### [AWS IoT Core for LoRaWAN
-  workshop](https://iotwireless.workshop.aws/en/ "https://iotwireless.workshop.aws/en/")
+- ###### [AWS IoT Core for LoRaWAN workshop](https://iotwireless.workshop.aws/en/ "https://iotwireless.workshop.aws/en/")
 
 The workshop covers fundamentals of LoRaWAN technology and its implementation with
 AWS IoT Core for LoRaWAN. You can also use the workshop to walk through labs that show how to connect

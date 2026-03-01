@@ -11,9 +11,7 @@ After reviewing the initial logs, you can change the default log level to
 resource-specific log level on resources that might need more attention. Log levels can
 be changed whenever you want.
 
-## AWS IoT Wireless resources and log
-
-levels
+## AWS IoT Wireless resources and log levels
 
 Before you use the console or the API, use the following table to learn about the
 different log levels and the resources that you can configure logging for. The table
@@ -42,7 +40,5 @@ AWS IoT Wireless resources.
 
 ###### Topics
 
-- [Create logging role and policy for
-  AWS IoT Wireless monitoring](create-logging-role-policy.md "create-logging-role-policy.md")
-- [Configure resource logging for
-  AWS IoT Wireless resources](configure-resource-logging.md "configure-resource-logging.md")
+- [Create logging role and policy for AWS IoT Wireless monitoring](create-logging-role-policy.md "create-logging-role-policy.md")
+- [Configure resource logging for AWS IoT Wireless resources](configure-resource-logging.md "configure-resource-logging.md")

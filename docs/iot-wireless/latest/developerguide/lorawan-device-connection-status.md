@@ -1,18 +1,13 @@
-# Connect your LoRaWAN device and
-
-verify its connection status
+# Connect your LoRaWAN device and verify its connection status
 
 Before you can check the device connection status, you must have already added
 your device and connected it to AWS IoT Core for LoRaWAN. For information about how to add your
-device, see [Add your wireless device to
-AWS IoT Core for LoRaWAN](lorawan-end-devices-add.md "lorawan-end-devices-add.md").
+device, see [Add your wireless device to AWS IoT Core for LoRaWAN](lorawan-end-devices-add.md "lorawan-end-devices-add.md").
 
 After you've added your device, refer to your device's user manual to learn how to
 initiate sending an uplink message from your LoRaWAN device.
 
-## Wireless device destination
-
-payload
+## Wireless device destination payload
 
 The following code shows the payload received at the destination for your
 wireless device. It shows a sample payload when using your own private LoRaWAN
@@ -92,8 +87,7 @@ service directly by Everynet. The following example shows the public
 LoRaWAN network metadata in the message. The metadata consists of the ID
 of the gateway and the network provider (Everynet), whether downlink is
 allowed, and the SNR and RSSI values. For more infrrmation about the
-public network, see [Managing LoRaWAN traffic from public networks
-(Everynet)](iot-lorawan-roaming.md "iot-lorawan-roaming.md").
+public network, see [Managing LoRaWAN traffic from public networks (Everynet)](iot-lorawan-roaming.md "iot-lorawan-roaming.md").
 
 ###### Note
 
@@ -183,9 +177,7 @@ uplink metadata, as illustrated in the following example.
 }
 ```
 
-## Check device connection
-
-status
+## Check device connection status
 
 The following sections show you how to check the connection status using the
 AWS Management Console and the AWS CLI.
@@ -207,5 +199,4 @@ Now that you have connected your device and verified the connection status,
 you can observe the format of the uplink metadata recieved from the device by
 using the [MQTT test
 client](https://console.aws.amazon.com/iot/home#/test "https://console.aws.amazon.com/iot/home#/test") on the **Test** page of the AWS IoT console.
-For more information, see [View format of uplink messages sent
-from LoRaWAN devices](lorawan-uplink-metadata-format.md "lorawan-uplink-metadata-format.md").
+For more information, see [View format of uplink messages sent from LoRaWAN devices](lorawan-uplink-metadata-format.md "lorawan-uplink-metadata-format.md").

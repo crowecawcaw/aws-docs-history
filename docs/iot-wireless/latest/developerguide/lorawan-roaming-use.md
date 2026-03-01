@@ -1,6 +1,4 @@
-# How to use AWS IoT Core for LoRaWAN public network
-
-support
+# How to use AWS IoT Core for LoRaWAN public network support
 
 To use Everynet's public network support, you enable certain roaming parameters
 when creating the service profile. In this beta release, these parameters are
@@ -17,8 +15,7 @@ these parameters.
 ###### Topics
 
 - [Roaming parameters](#lorawan-roaming-parameters "#lorawan-roaming-parameters")
-- [Enable public network support for
-  devices](#lorawan-roaming-enable "#lorawan-roaming-enable")
+- [Enable public network support for devices](#lorawan-roaming-enable "#lorawan-roaming-enable")
 - [View coverage information](#lorawan-roaming-coverage "#lorawan-roaming-coverage")
 
 ## Roaming parameters
@@ -42,9 +39,7 @@ specifies whether to use handover roaming.
   specifies whether to enable passive roaming. When using the roaming
   feature, `PrAllowed` must be set to `true`.
 
-## Enable public network support for
-
-devices
+## Enable public network support for devices
 
 To enable public LoRaWAN network support on your devices, run the following
 procedure.
@@ -171,8 +166,7 @@ Attach the service profile that you created with the roaming
 parameters to your end devices. You can also create a device profile and
 add a destination for your wireless devices. You'll use this destination
 to route uplink messages that are sent from your device. For more
-information about creating device profiles and a destination, see [Add device profiles](lorawan-define-profiles.md#lorawan-device-profiles "lorawan-define-profiles.md#lorawan-device-profiles") and [Add destinations to
-AWS IoT Core for LoRaWAN](lorawan-create-destinations.md "lorawan-create-destinations.md").
+information about creating device profiles and a destination, see [Add device profiles](lorawan-define-profiles.md#lorawan-device-profiles "lorawan-define-profiles.md#lorawan-device-profiles") and [Add destinations to AWS IoT Core for LoRaWAN](lorawan-create-destinations.md "lorawan-create-destinations.md").
 
     * ###### Onboarding new devices
 
@@ -183,8 +177,7 @@ AWS IoT Core for LoRaWAN](lorawan-create-destinations.md "lorawan-create-destina
      the `create-wireless-device` CLI command to add a
      device using the ID of the service profile that you created.
      For information about adding the service profile using the
-     console, see [Add your wireless device
-     specification to AWS IoT Core for LoRaWAN using the console](lorawan-end-devices-add.md#lorawan-end-device-spec-console "lorawan-end-devices-add.md#lorawan-end-device-spec-console").
+     console, see [Add your wireless device specification to AWS IoT Core for LoRaWAN using the console](lorawan-end-devices-add.md#lorawan-end-device-spec-console "lorawan-end-devices-add.md#lorawan-end-device-spec-console").
 
 
 
@@ -299,13 +292,11 @@ exchanging messages between your device and the Cloud.
      or use the MQTT client to subscribe to the MQTT topic that was
      specified when creating the destination. For more information
      about the rule name and other destination details that you
-     specify, see [Add a destination using the
-     console](lorawan-create-destinations.md#lorawan-create-destination-console "lorawan-create-destinations.md#lorawan-create-destination-console").
+     specify, see [Add a destination using the console](lorawan-create-destinations.md#lorawan-create-destination-console "lorawan-create-destinations.md#lorawan-create-destination-console").
 
 
     For more information about viewing uplink message and the
-     format, see [View format of uplink messages sent
-     from LoRaWAN devices](lorawan-uplink-metadata-format.md "lorawan-uplink-metadata-format.md").
+     format, see [View format of uplink messages sent from LoRaWAN devices](lorawan-uplink-metadata-format.md "lorawan-uplink-metadata-format.md").
     * ###### Send downlink messages
 
 
@@ -314,8 +305,7 @@ exchanging messages between your device and the Cloud.
      command, `SendDataToWirelessDevice`, or the AWS CLI
      command, `send-data-to-wireless-device`. For
      information about queuing and sending downlink messages, see
-     [Queue downlink messages to send to
-     LoRaWAN devices](lorawan-downlink-queue.md "lorawan-downlink-queue.md").
+     [Queue downlink messages to send to LoRaWAN devices](lorawan-downlink-queue.md "lorawan-downlink-queue.md").
 
 
     The following code shows an example of how you can send a
@@ -344,8 +334,7 @@ exchanging messages between your device and the Cloud.
     In some cases, even if you receive the
      `MessageId`, packets can get dropped. For
      information about troubleshooting such scenarios and
-     resolving them, see [Troubleshoot downlink
-     message queue errors](lorawan-downlink-queue.md#lorawan-downlink-queue-troubleshoot "lorawan-downlink-queue.md#lorawan-downlink-queue-troubleshoot").
+     resolving them, see [Troubleshoot downlink message queue errors](lorawan-downlink-queue.md#lorawan-downlink-queue-troubleshoot "lorawan-downlink-queue.md#lorawan-downlink-queue-troubleshoot").
 
 
 

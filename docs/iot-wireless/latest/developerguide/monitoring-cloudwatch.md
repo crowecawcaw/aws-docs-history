@@ -1,6 +1,4 @@
-# Monitoring your AWS IoT Wireless resources using
-
-Amazon CloudWatch Logs
+# Monitoring your AWS IoT Wireless resources using Amazon CloudWatch Logs
 
 Monitoring is an important part of maintaining the reliability, availability, and
 performance of AWS IoT Wireless and your other AWS solutions. You can use monitoring for both
@@ -40,8 +38,7 @@ is wrong, and take automatic actions when appropriate:
 - Network analyzer enables you to monitor your LoRaWAN resources, which includes
   LoRaWAN devices and gateways. The network analyzer reduces the time that it
   takes to set up a connection to start receiving trace messages, providing you
-  with just-in-time log information. For more information, see [Monitoring of LoRaWAN resources using network
-  analyzer](network-analyzer-overview.md "network-analyzer-overview.md").
+  with just-in-time log information. For more information, see [Monitoring of LoRaWAN resources using network analyzer](network-analyzer-overview.md "network-analyzer-overview.md").
 
 ## How to monitor resources using Amazon CloudWatch
 
@@ -56,18 +53,15 @@ To log and monitor your AWS IoT Wireless resources, perform the following
 steps:
 
 1. Create a logging role to log your AWS IoT Wireless resources, as described
-   in [Create logging role and policy for
-   AWS IoT Wireless monitoring](create-logging-role-policy.md "create-logging-role-policy.md").
+   in [Create logging role and policy for AWS IoT Wireless monitoring](create-logging-role-policy.md "create-logging-role-policy.md").
 2. Log messages in the CloudWatch Logs console have a default log level of
    `ERROR`, which is less verbose and contains only error
    information. If you want to view more verbose messages, we recommend that you
-   first configure logging, as described in [Configure resource logging for
-   AWS IoT Wireless resources](configure-resource-logging.md "configure-resource-logging.md").
+   first configure logging, as described in [Configure resource logging for AWS IoT Wireless resources](configure-resource-logging.md "configure-resource-logging.md").
 3. Next, you can monitor your resources by viewing the log entries in the CloudWatch Logs
    console. For more information, see [View CloudWatch AWS IoT Wireless log entries](cwl-format.md "cwl-format.md").
 4. You can create filter expressions by using **Logs groups**
    but we recommend that you first create simple filters and view log entries in
    the log groups, and then go to CloudWatch Insights to create queries to filter the log
    entries depending on the resource or event you're monitoring. For more
-   information, see [Use CloudWatch Insights to filter logs for
-   AWS IoT Wireless](cwl-insights.md "cwl-insights.md").
+   information, see [Use CloudWatch Insights to filter logs for AWS IoT Wireless](cwl-insights.md "cwl-insights.md").

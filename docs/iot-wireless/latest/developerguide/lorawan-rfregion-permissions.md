@@ -1,6 +1,4 @@
-# Consider frequency band selection and
-
-add necessary IAM role
+# Consider frequency band selection and add necessary IAM role
 
 Before you add your gateway to AWS IoT Core for LoRaWAN, we recommend that you consider the
 frequency band in which your gateway will be operating and add the necessary IAM
@@ -13,9 +11,7 @@ role** in the console to create the necessary IAM role so you can
 then skip these steps. You need to perform these steps only if you're using the
 CLI to create the gateway.
 
-## Consider selection of LoRa frequency
-
-bands for your gateways and device connection
+## Consider selection of LoRa frequency bands for your gateways and device connection
 
 AWS IoT Core for LoRaWAN supports EU863-870, US902-928, AU915, and AS923-1 frequency
 bands, which you can use to connect your gateways and devices that are
@@ -37,18 +33,14 @@ a frequency allocation that is adapted to the Industrial, Scientific, and
 Medical (ISM) band. We recommend that you work with the compliance teams to
 ensure that you meet any applicable regulatory requirements.
 
-## Add an IAM role to allow the
-
-Configuration and Update Server (CUPS) to manage gateway credentials
+## Add an IAM role to allow the Configuration and Update Server (CUPS) to manage gateway credentials
 
 This procedure describes how to add an IAM role that will allow the
 Configuration and Update Server (CUPS) to manage gateway credentials. Make sure
 you perform this procedure before a LoRaWAN gateway tries to connect with
 AWS IoT Core for LoRaWAN; however, you need to do this only once.
 
-###### Add the IAM role to allow the Configuration and Update Server (CUPS) to
-
-manage gateway credentials
+###### Add the IAM role to allow the Configuration and Update Server (CUPS) to manage gateway credentials
 
 1. Open the [Roles
    hub of the IAM console](https://console.aws.amazon.com/iam/home#/roles "https://console.aws.amazon.com/iam/home#/roles") and choose **Create

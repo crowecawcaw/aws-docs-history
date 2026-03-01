@@ -1,15 +1,10 @@
-# Event notifications for wireless
-
-resources
+# Event notifications for wireless resources
 
 You can use the AWS Management Console or AWS IoT Wireless API operations to notify you of events
 for your Sidewalk devices, and your LoRaWAN devices and gateways. For information about
-event notifications and how to enable them, see [Event notifications for AWS IoT Wireless](iot-wireless-events.md "iot-wireless-events.md") and [Enable events for wireless
-resources](iot-wireless-control-events.md "iot-wireless-control-events.md").
+event notifications and how to enable them, see [Event notifications for AWS IoT Wireless](iot-wireless-events.md "iot-wireless-events.md") and [Enable events for wireless resources](iot-wireless-control-events.md "iot-wireless-control-events.md").
 
-## Event notifications for LoRaWAN
-
-resources
+## Event notifications for LoRaWAN resources
 
 Events that you can enable for your LoRaWAN resources include:
 
@@ -19,9 +14,7 @@ Events that you can enable for your LoRaWAN resources include:
 - Connection status events that notify you when the connection status of
   your LoRaWAN gateway changes to connected or disconnected.
 
-## Event notifications for Sidewalk
-
-resources
+## Event notifications for Sidewalk resources
 
 Events that you can enable for your Sidewalk resources include:
 
@@ -40,13 +33,8 @@ Sidewalk resources.
 
 ###### Topics
 
-- [Enable notifications for LoRaWAN join
-  events](iot-lorawan-join-events.md "iot-lorawan-join-events.md")
-- [Enable notifications for LoRaWAN
-  gateway connection status events](iot-lorawan-gateway-events.md "iot-lorawan-gateway-events.md")
-- [Enable notifications for Sidewalk
-  device registration state events](iot-sidewalk-device-events.md "iot-sidewalk-device-events.md")
-- [Enable notifications for Sidewalk
-  proximity events](iot-sidewalk-proximity-events.md "iot-sidewalk-proximity-events.md")
-- [Enable notifications for
-  message delivery status events](iot-sidewalk-message-delivery-events.md "iot-sidewalk-message-delivery-events.md")
+- [Enable notifications for LoRaWAN join events](iot-lorawan-join-events.md "iot-lorawan-join-events.md")
+- [Enable notifications for LoRaWAN gateway connection status events](iot-lorawan-gateway-events.md "iot-lorawan-gateway-events.md")
+- [Enable notifications for Sidewalk device registration state events](iot-sidewalk-device-events.md "iot-sidewalk-device-events.md")
+- [Enable notifications for Sidewalk proximity events](iot-sidewalk-proximity-events.md "iot-sidewalk-proximity-events.md")
+- [Enable notifications for message delivery status events](iot-sidewalk-message-delivery-events.md "iot-sidewalk-message-delivery-events.md")

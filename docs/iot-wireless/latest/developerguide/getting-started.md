@@ -11,8 +11,7 @@ The following sections show how to get started with AWS IoT Wireless.
 ###### Topics
 
 - [Setting up AWS IoT Wireless](#setting-up-iotwireless "#setting-up-iotwireless")
-- [Describing your AWS IoT Wireless
-  resources](#iotwireless-describe-resources "#iotwireless-describe-resources")
+- [Describing your AWS IoT Wireless resources](#iotwireless-describe-resources "#iotwireless-describe-resources")
 
 ## Setting up AWS IoT Wireless
 
@@ -114,9 +113,7 @@ AWS account and authorize API calls. For configuration instructions, see:
     * [Configuration and credentials file settings](../../../cli/latest/userguide/cli-configure-files.md "../../../cli/latest/userguide/cli-configure-files.md") in the *AWS CLI
      Documentation Guide*
 
-## Describing your AWS IoT Wireless
-
-resources
+## Describing your AWS IoT Wireless resources
 
 Before you get started with onboarding your LoRaWAN or Sidewalk devices, consider
 the naming convention of your devices, gateways, and destination. AWS IoT Wireless provides

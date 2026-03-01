@@ -1,12 +1,9 @@
 # View CloudWatch AWS IoT Wireless log entries
 
-After you've configured logging for AWS IoT Wireless as described in [Create logging role and policy for
-AWS IoT Wireless monitoring](create-logging-role-policy.md "create-logging-role-policy.md") and written some log entries, you can view the log entries in the CloudWatch console by
+After you've configured logging for AWS IoT Wireless as described in [Create logging role and policy for AWS IoT Wireless monitoring](create-logging-role-policy.md "create-logging-role-policy.md") and written some log entries, you can view the log entries in the CloudWatch console by
 performing the following steps.
 
-## Viewing AWS IoT logs in the CloudWatch Log groups
-
-console
+## Viewing AWS IoT logs in the CloudWatch Log groups console
 
 In the [CloudWatch console](https://console.aws.amazon.com/cloudwatch "https://console.aws.amazon.com/cloudwatch"), CloudWatch
 logs appear in a log group named **/aws/iotwireless**. For more
@@ -63,9 +60,7 @@ specifying a log level for each of them.
 The following topic contains more information about these event types and the log
 entries for wireless gateways and wireless devices.
 
-## Log entries for wireless gateways and
-
-wireless device resources
+## Log entries for wireless gateways and wireless device resources
 
 After you've enabled logging, you can view log entries for your wireless
 gateways, wireless devices, and FUOTA tasks. The following section describes the
@@ -98,8 +93,7 @@ your wireless gateway resource, then in the logs:
      response sent to your gateway and the gateway details.
      Following shows an example of this log entry. For more
      information about the `logLevel` and other
-     fields in the log entry, see [AWS IoT Wireless resources and log
-     levels](configure-logging.md#log-levels-resources "configure-logging.md#log-levels-resources").
+     fields in the log entry, see [AWS IoT Wireless resources and log levels](configure-logging.md#log-levels-resources "configure-logging.md#log-levels-resources").
 
 
 
@@ -158,8 +152,7 @@ logs:
      ID and the Wireless gateway identifier. Following shows
      an example of this log entry. For more information about
      the `logLevel` and other fields in the log
-     entry, see [AWS IoT Wireless resources and log
-     levels](configure-logging.md#log-levels-resources "configure-logging.md#log-levels-resources").
+     entry, see [AWS IoT Wireless resources and log levels](configure-logging.md#log-levels-resources "configure-logging.md#log-levels-resources").
 
 
 
@@ -214,9 +207,7 @@ metadata at the same time. To avoid an `ERROR` log entry
 for this scenario, specify either LoRaWAN or Sidewalk wireless
 data.
 
-#### LoRaWAN device log
-
-entries
+#### LoRaWAN device log entries
 
 The log entries for your LoRaWAN wireless device can be classified
 based on the following event types:
@@ -227,8 +218,7 @@ When you add a LoRaWAN device and connect it to
 AWS IoT Core for LoRaWAN, before your device can send uplink data,
 you must complete a process called
 `activation` or `join
- procedure`. For more information, see [Add your wireless device to
-AWS IoT Core for LoRaWAN](lorawan-end-devices-add.md "lorawan-end-devices-add.md").
+ procedure`. For more information, see [Add your wireless device to AWS IoT Core for LoRaWAN](lorawan-end-devices-add.md "lorawan-end-devices-add.md").
 
 For this event type, if you set log level to
 `INFO` when configuring the CLI for your
@@ -241,8 +231,7 @@ wireless gateway resource, then in the logs:
      request. Following shows an example of this log
      entry. For more information about the
      `logLevel` and other fields in the log
-     entry, see [AWS IoT Wireless resources and log
-     levels](configure-logging.md#log-levels-resources "configure-logging.md#log-levels-resources").
+     entry, see [AWS IoT Wireless resources and log levels](configure-logging.md#log-levels-resources "configure-logging.md#log-levels-resources").
 
 
 
@@ -305,8 +294,7 @@ wireless devices, then in the logs, you'll see:
      identifier. Following shows an example of this log
      entry for a Sidewalk device. For more information
      about the `logLevel` and other fields in
-     the log entry, see [AWS IoT Wireless resources and log
-     levels](configure-logging.md#log-levels-resources "configure-logging.md#log-levels-resources").
+     the log entry, see [AWS IoT Wireless resources and log levels](configure-logging.md#log-levels-resources "configure-logging.md#log-levels-resources").
 
 
 
@@ -347,9 +335,7 @@ wireless devices, then in the logs, you'll see:
     }
     ```
 
-#### Sidewalk device log
-
-entries
+#### Sidewalk device log entries
 
 The log entries for your Sidewalk device can be classified based
 on the following event types:
@@ -371,8 +357,7 @@ troubleshoot issues with registering your device.
 Following shows an example for a log message with log
 level of `INFO`. For more information about the
 `logLevel` and other fields in the log entry,
-see [AWS IoT Wireless resources and log
-levels](configure-logging.md#log-levels-resources "configure-logging.md#log-levels-resources").
+see [AWS IoT Wireless resources and log levels](configure-logging.md#log-levels-resources "configure-logging.md#log-levels-resources").
 
 ```
 {
@@ -413,8 +398,7 @@ For the `Fuota` event type, if you set log level to
   identifier. The following example shows a log entry when a FUOTA
   task file transmission has started. For more information about
   the `logLevel` and other fields in the log entry, see
-  [AWS IoT Wireless resources and log
-  levels](configure-logging.md#log-levels-resources "configure-logging.md#log-levels-resources").
+  [AWS IoT Wireless resources and log levels](configure-logging.md#log-levels-resources "configure-logging.md#log-levels-resources").
 
 ```
 {
@@ -447,8 +431,7 @@ change occurs to a FUOTA task.
   you resolve it. Examples of when an error can occur for the
   `Fuota` event include insufficient memory or the
   device is not ready. For more information about the different
-  FUOTA statuses and how to troubleshoot them, see [Monitor and troubleshoot your FUOTA task and
-  devices](lorawan-fuota-status.md "lorawan-fuota-status.md").
+  FUOTA statuses and how to troubleshoot them, see [Monitor and troubleshoot your FUOTA task and devices](lorawan-fuota-status.md "lorawan-fuota-status.md").
 
 ```
 {
@@ -467,5 +450,4 @@ You've learned how to view log entries for your resources and the different
 log entries that you can view in the CloudWatch console after enabling logging for
 AWS IoT Wireless. While you can create filter streams using **Log
 groups**, we recommend that you use CloudWatch Insights to create and use
-filter streams. For more information, see [Use CloudWatch Insights to filter logs for
-AWS IoT Wireless](cwl-insights.md "cwl-insights.md").
+filter streams. For more information, see [Use CloudWatch Insights to filter logs for AWS IoT Wireless](cwl-insights.md "cwl-insights.md").

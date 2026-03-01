@@ -1,6 +1,4 @@
-# Provisioning Sidewalk devices
-
-using import tasks
+# Provisioning Sidewalk devices using import tasks
 
 This section shows how you can provision Sidewalk devices in bulk using the
 AWS IoT console, or the AWS IoT Core for Amazon Sidewalk API operations, or the AWS CLI. The following
@@ -8,21 +6,14 @@ sections explain how to bulk provision your Sidewalk devices.
 
 ###### Topics
 
-- [How Sidewalk bulk provisioning
-  works](#provision-bulk-works "#provision-bulk-works")
-- [Key considerations for
-  Sidewalk bulk provisioning](#provision-bulk-considerations "#provision-bulk-considerations")
+- [How Sidewalk bulk provisioning works](#provision-bulk-works "#provision-bulk-works")
+- [Key considerations for Sidewalk bulk provisioning](#provision-bulk-considerations "#provision-bulk-considerations")
 - [CSV file format](#provision-csv-format "#provision-csv-format")
-- [How to use Sidewalk bulk
-  provisioning](#provision-bulk-use "#provision-bulk-use")
-- [Provision Sidewalk devices in
-  bulk](sidewalk-bulk-provision-how.md "sidewalk-bulk-provision-how.md")
-- [View import task and device
-  onboarding status](sidewalk-bulk-provision-status.md "sidewalk-bulk-provision-status.md")
+- [How to use Sidewalk bulk provisioning](#provision-bulk-use "#provision-bulk-use")
+- [Provision Sidewalk devices in bulk](sidewalk-bulk-provision-how.md "sidewalk-bulk-provision-how.md")
+- [View import task and device onboarding status](sidewalk-bulk-provision-status.md "sidewalk-bulk-provision-status.md")
 
-## How Sidewalk bulk provisioning
-
-works
+## How Sidewalk bulk provisioning works
 
 The following steps illustrate how bulk provisioning works.
 
@@ -49,9 +40,7 @@ wireless device records for the Sidewalk devices that correspond to
 these serial numbers. Once all the devices have been onboarded, the import
 task is marked as _Completed_.
 
-## Key considerations for
-
-Sidewalk bulk provisioning
+## Key considerations for Sidewalk bulk provisioning
 
 When provisioning your Sidewalk devices in bulk to AWS IoT Core for Amazon Sidewalk,
 following are some key considerations.
@@ -111,9 +100,7 @@ C2C021CA1C111CCAB1221C0021C1C2AAA0AA1A2A01ABC10CBAACCA2A0121022A
 0CB22C01BBC2CA2C0B11001121ACB2ABB0BB0121C2BA101C012CC2B20C011AC0
 ```
 
-## How to use Sidewalk bulk
-
-provisioning
+## How to use Sidewalk bulk provisioning
 
 The following steps show you how to use Amazon Sidewalk bulk provisioning.
 
@@ -170,7 +157,5 @@ created.
 
 ###### Topics
 
-- [Provision Sidewalk devices in
-  bulk](sidewalk-bulk-provision-how.md "sidewalk-bulk-provision-how.md")
-- [View import task and device
-  onboarding status](sidewalk-bulk-provision-status.md "sidewalk-bulk-provision-status.md")
+- [Provision Sidewalk devices in bulk](sidewalk-bulk-provision-how.md "sidewalk-bulk-provision-how.md")
+- [View import task and device onboarding status](sidewalk-bulk-provision-status.md "sidewalk-bulk-provision-status.md")

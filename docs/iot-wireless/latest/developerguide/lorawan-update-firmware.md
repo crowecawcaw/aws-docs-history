@@ -1,6 +1,4 @@
-# Update gateway firmware using CUPS service
-
-with AWS IoT Core for LoRaWAN
+# Update gateway firmware using CUPS service with AWS IoT Core for LoRaWAN
 
 The [LoRa Basics Station](https://doc.sm.tc/station/ "https://doc.sm.tc/station/") software that
 runs on your gateway provides credential management and firmware update interface using
@@ -22,8 +20,7 @@ Before you can update the firmware of your LoRaWAN gateway, your gateway must ha
 established a CUPS connection to the cloud. If you had previously connected your
 gateway, verify that your gateway is still connected before updating the gateway
 firmware. For information about onboarding and connecting your LoRaWAN gateway to
-AWS IoT Core for LoRaWAN, see [Onboard your gateways to
-AWS IoT Core for LoRaWAN](lorawan-onboard-gateways.md "lorawan-onboard-gateways.md").
+AWS IoT Core for LoRaWAN, see [Onboard your gateways to AWS IoT Core for LoRaWAN](lorawan-onboard-gateways.md "lorawan-onboard-gateways.md").
 
 ## Firmware update process
 
@@ -50,24 +47,18 @@ AWS IoT Core for LoRaWAN.
 
 Gateway manufacturers usually provide their own firmware update files and
 signatures so you can use that for the firmware update. If you don't have the
-firmware update files, see [(Optional) Generate the firmware
-update file and signature](lorawan-script-fwupdate-sigkey.md "lorawan-script-fwupdate-sigkey.md") for an example that you can use
+firmware update files, see [(Optional) Generate the firmware update file and signature](lorawan-script-fwupdate-sigkey.md "lorawan-script-fwupdate-sigkey.md") for an example that you can use
 to adapt to your application.
 
 - If you're using the AWS Management Console to schedule and run the firmware update,
-  proceed to [Schedule and run gateway firmware
-  update task](lorawan-schedule-firmware-update.md "lorawan-schedule-firmware-update.md").
+  proceed to [Schedule and run gateway firmware update task](lorawan-schedule-firmware-update.md "lorawan-schedule-firmware-update.md").
 - If you're using the AWS CLI to schedule and run the firmware update, first
-  proceed to [Upload the firmware file to an
-  Amazon S3 bucket and add an IAM role](lorawan-upload-firmware-s3bucket.md "lorawan-upload-firmware-s3bucket.md") to upload your
+  proceed to [Upload the firmware file to an Amazon S3 bucket and add an IAM role](lorawan-upload-firmware-s3bucket.md "lorawan-upload-firmware-s3bucket.md") to upload your
   firmware file to Amazon S3 and grant AWS IoT Core for LoRaWAN permissions to access the file
   on your behalf.
 
 ###### To perform your gateway's firmware update:
 
-- [(Optional) Generate the firmware
-  update file and signature](lorawan-script-fwupdate-sigkey.md "lorawan-script-fwupdate-sigkey.md")
-- [Upload the firmware file to an
-  Amazon S3 bucket and add an IAM role](lorawan-upload-firmware-s3bucket.md "lorawan-upload-firmware-s3bucket.md")
-- [Schedule and run gateway firmware
-  update task](lorawan-schedule-firmware-update.md "lorawan-schedule-firmware-update.md")
+- [(Optional) Generate the firmware update file and signature](lorawan-script-fwupdate-sigkey.md "lorawan-script-fwupdate-sigkey.md")
+- [Upload the firmware file to an Amazon S3 bucket and add an IAM role](lorawan-upload-firmware-s3bucket.md "lorawan-upload-firmware-s3bucket.md")
+- [Schedule and run gateway firmware update task](lorawan-schedule-firmware-update.md "lorawan-schedule-firmware-update.md")

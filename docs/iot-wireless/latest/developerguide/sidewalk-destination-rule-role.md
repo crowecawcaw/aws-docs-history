@@ -1,6 +1,4 @@
-# Create an IAM role and IoT rule
-
-for your destination
+# Create an IAM role and IoT rule for your destination
 
 Your destination can be an MQTT topic or an AWS IoT rule. In this example, you
 configure an AWS IoT rule as a destination.
@@ -14,9 +12,7 @@ data to the same service, you can create a destination that can be shared by all
 devices. You must also create an IAM role that grants permission to send data to
 the rule.
 
-## Create an IAM role for your
-
-destination
+## Create an IAM role for your destination
 
 Create an IAM role that grants AWS IoT Core for Amazon Sidewalk permission to send data to the
 AWS IoT rule. To create the role, use the [`CreateRole`](../../../IAM/latest/APIReference/API_CreateRole.md "../../../IAM/latest/APIReference/API_CreateRole.md") API
@@ -56,9 +52,7 @@ The following shows the contents of the JSON file.
 
 ```
 
-## Create a rule for your
-
-destination
+## Create a rule for your destination
 
 Use the AWS IoT Core API operation, [`CreateTopicRule`](../../../iot/latest/apireference/API_CreateTopicRule.md "../../../iot/latest/apireference/API_CreateTopicRule.md"), or the AWS CLI command, [`create-topic-rule`](../../../cli/latest/reference/iot/create-topic-rule.md "../../../cli/latest/reference/iot/create-topic-rule.md"), to create a rule. The topic
 rule will be used by your destination to route the data received from your

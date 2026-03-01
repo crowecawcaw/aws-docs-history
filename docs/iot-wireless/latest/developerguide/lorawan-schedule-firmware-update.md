@@ -1,11 +1,8 @@
-# Schedule and run gateway firmware
-
-update task
+# Schedule and run gateway firmware update task
 
 If you have the firmware update file and signature, you can schedule and run the
 task definition to update the gateway firmware, as described in this page. If you
-don't have the firmware update files, see [(Optional) Generate the firmware
-update file and signature](lorawan-script-fwupdate-sigkey.md "lorawan-script-fwupdate-sigkey.md") for an example that you can use
+don't have the firmware update files, see [(Optional) Generate the firmware update file and signature](lorawan-script-fwupdate-sigkey.md "lorawan-script-fwupdate-sigkey.md") for an example that you can use
 to adapt to your application.
 
 The following steps show you how to create a wireless gateway task definition to
@@ -13,18 +10,12 @@ update the gateway firmware.
 
 ###### Topics
 
-- [What's a wireless gateway
-  task definition?](#lorawan-firmware-task-definition "#lorawan-firmware-task-definition")
-- [Get the current firmware
-  version running on your gateway](#lorawan-gateway-current-version "#lorawan-gateway-current-version")
-- [Schedule gateway firmware
-  update using a task definition](#lorawan-create-task-definition "#lorawan-create-task-definition")
-- [Run the firmware update task and
-  track progress](#lorawan-run-fwupdate-task "#lorawan-run-fwupdate-task")
+- [What's a wireless gateway task definition?](#lorawan-firmware-task-definition "#lorawan-firmware-task-definition")
+- [Get the current firmware version running on your gateway](#lorawan-gateway-current-version "#lorawan-gateway-current-version")
+- [Schedule gateway firmware update using a task definition](#lorawan-create-task-definition "#lorawan-create-task-definition")
+- [Run the firmware update task and track progress](#lorawan-run-fwupdate-task "#lorawan-run-fwupdate-task")
 
-## What's a wireless gateway
-
-task definition?
+## What's a wireless gateway task definition?
 
 To update the gateway firmware, you create a task definition. You can use the
 task definition to include details about the firmware update and define the
@@ -51,9 +42,7 @@ it provides a way to define your firmware version (for example,
 The platform or model that is being used by the gateway (for
 example, Linux).
 
-## Get the current firmware
-
-version running on your gateway
+## Get the current firmware version running on your gateway
 
 To determine your gateway's eligibility for a firmware update, the CUPS server
 checks all three fields, **LoRa Basics Station**,
@@ -139,9 +128,7 @@ information from all three fields displayed by the
 }
 ```
 
-## Schedule gateway firmware
-
-update using a task definition
+## Schedule gateway firmware update using a task definition
 
 Now that you've verified the eligibility of the firmware update, you can
 schedule a firmware update task using a wireless gateway task definition and
@@ -170,9 +157,7 @@ firmware file in Amazon S3, and the status of the update. You can
 review the information and then choose **Update
 firmware**.
 
-#### Create a
-
-gateway task definition
+#### Create a gateway task definition
 
 If you're creating a new task definition, you'll need to perform
 the steps described below to specify the location to your firmware
@@ -202,8 +187,7 @@ permission to access the file and perform the update.
      the Amazon S3 bucket where the file will be
      uploaded.
 
-2. ###### (Optional) Provide additional firmware verification
-   settings
+2. ###### (Optional) Provide additional firmware verification settings
 
 Optionally, if your firmware update was signed, you can
 use the additional settings to specify the update signature
@@ -212,16 +196,14 @@ authenticity and integrity of the signed update. It also
 ensures that the code was not corrupted or altered, and the
 devices run code that's published only by trusted authors.
 The update signature and CRC will be passed to AWS IoT Core for LoRaWAN
-when updating the firmware using CUPS. 3. ###### (Optional) Provide additional setting to automatically
-create update tasks
+when updating the firmware using CUPS. 3. ###### (Optional) Provide additional setting to automatically create update tasks
 
 Optionally, we recommend that you choose to specify
 automatic creation of tasks for all gateways by using the
 `Auto create tasks and update all like
  gateways` parameter. This parameter applies to any
 gateway that has a match for all three parameters mentioned
-previously in [What's a wireless gateway
-task definition?](#lorawan-firmware-task-definition "#lorawan-firmware-task-definition"). If
+previously in [What's a wireless gateway task definition?](#lorawan-firmware-task-definition "#lorawan-firmware-task-definition"). If
 this parameter is disabled, the parameters have to be
 manually assigned to the gateway. 4. ###### Permissions to access the bucket
 
@@ -245,8 +227,7 @@ When you create the task definition, we recommend that you specify
 automatic creation of tasks by using the
 `AutoCreateTasks` parameter. This parameter applies
 to any gateway that has a match for all three parameters mentioned
-previously in [What's a wireless gateway
-task definition?](#lorawan-firmware-task-definition "#lorawan-firmware-task-definition"). If this
+previously in [What's a wireless gateway task definition?](#lorawan-firmware-task-definition "#lorawan-firmware-task-definition"). If this
 parameter is disabled, the parameters have to be manually assigned
 to the gateway.
 
@@ -256,18 +237,14 @@ Before you use the AWS CLI to update the firmware, you must have
 uploaded the firmware file to an Amazon S3 bucket, and created an IAM
 role that grants AWS IoT Core for LoRaWAN permission to access the file in the
 Amazon S3 bucket for performing the update. If you've already uploaded
-the firmware file and the IAM role, proceed to [Run
-firmware update task](#lorawan-create-task-definition-cli-run "#lorawan-create-task-definition-cli-run") to run
+the firmware file and the IAM role, proceed to [Run firmware update task](#lorawan-create-task-definition-cli-run "#lorawan-create-task-definition-cli-run") to run
 the firmware update task.
 
 If you haven't already uploaded the firmware file and specified
-the IAM role, perform the steps described in [Upload the firmware file to an
-Amazon S3 bucket and add an IAM role](lorawan-upload-firmware-s3bucket.md "lorawan-upload-firmware-s3bucket.md")8 and then run
+the IAM role, perform the steps described in [Upload the firmware file to an Amazon S3 bucket and add an IAM role](lorawan-upload-firmware-s3bucket.md "lorawan-upload-firmware-s3bucket.md")8 and then run
 the firmware update task.
 
-#### Run
-
-firmware update task
+#### Run firmware update task
 
 To run the firmware update task, perform the following
 steps.
@@ -299,8 +276,7 @@ information that you obtained earlier:
 
     This information might be provided by your
      gateway manufacturer, but if you followed the
-     procedure described in [(Optional) Generate the firmware
-     update file and signature](lorawan-script-fwupdate-sigkey.md "lorawan-script-fwupdate-sigkey.md"),
+     procedure described in [(Optional) Generate the firmware update file and signature](lorawan-script-fwupdate-sigkey.md "lorawan-script-fwupdate-sigkey.md"),
      you'll find this information when generating the
      signature.
     * ###### CurrentVersion
@@ -363,9 +339,7 @@ Following shows the output of the command.
 }
 ```
 
-## Run the firmware update task and
-
-track progress
+## Run the firmware update task and track progress
 
 The gateway is ready to receive the firmware update and, once powered on, it
 connects to the CUPS server. When the CUPS server finds a match in the version

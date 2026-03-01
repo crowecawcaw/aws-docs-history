@@ -1,6 +1,4 @@
-# Enable notifications for Sidewalk
-
-device registration state events
+# Enable notifications for Sidewalk device registration state events
 
 Device registration state events publish event notifications when there is a
 change in the device registration state, such as when a Sidewalk device has been
@@ -8,9 +6,7 @@ provisioned or registered. The events provide you information about the differen
 states that the device goes through from when it's provisioned to when it has been
 registered.
 
-## How device registration state
-
-events work
+## How device registration state events work
 
 When you onboard your Sidewalk device with Amazon Sidewalk and
 AWS IoT Wireless, AWS IoT Wireless performs a `create` operation
@@ -31,20 +27,15 @@ to `deregister` your device. AWS IoT Wireless then fulfills the
 request and changes the device state back to `provisioned`. For more
 information about the device states, see [DeviceState](../apireference/API_SidewalkDeviceMetadata.md#iotwireless-Type-SidewalkDeviceMetadata-DeviceState "../apireference/API_SidewalkDeviceMetadata.md#iotwireless-Type-SidewalkDeviceMetadata-DeviceState").
 
-## Enable notifications for
-
-device registration state events
+## Enable notifications for device registration state events
 
 Before subscribers to the device registration state reserved topics can
 receive messages, you must enable event notifications for them from the
 AWS Management Console, or by using the API or CLI. You can enable these events for all
 Sidewalk resources in your AWS account or for select resources. For
-information about how to enable these events, see [Enable events for wireless
-resources](iot-wireless-control-events.md "iot-wireless-control-events.md").
+information about how to enable these events, see [Enable events for wireless resources](iot-wireless-control-events.md "iot-wireless-control-events.md").
 
-## Format of MQTT topics for
-
-device registration state events
+## Format of MQTT topics for device registration state events
 
 To notify you of device registration state events, you can subscribe to MQTT
 reserved topics that begin with a dollar ($) sign. For more information, see
@@ -100,9 +91,7 @@ You can't use the wildcard character `#` to subscribe to the
 reserved topics. For more information about topic filters, see [MQTT topic filters](../../../iot/latest/developerguide/topicfilters.md "../../../iot/latest/developerguide/topicfilters.md") in the _AWS IoT developer
 guide_.
 
-## Message payload for device
-
-registration state events
+## Message payload for device registration state events
 
 After you enable notifications for device registration state events, event
 notifications are published over MQTT with a JSON payload. These events contain

@@ -1,14 +1,10 @@
-# Add necessary IAM role for network
-
-analyzer
+# Add necessary IAM role for network analyzer
 
 When you use network analyzer, you must grant a user permission to use the API
 operations [UpdateNetworkAnalyzerConfiguration](../apireference/API_UpdateNetworkAnalyzerConfiguration.md "../apireference/API_UpdateNetworkAnalyzerConfiguration.md") and [GetNetworkAnalyzerConfiguration](../apireference/API_GetNetworkAnalyzerConfiguration.md "../apireference/API_GetNetworkAnalyzerConfiguration.md") to access network analyzer resources. The
 following shows the IAM policies that you use to grant permissions.
 
-## IAM policies for network
-
-analyzer
+## IAM policies for network analyzer
 
 Use either of the following:
 
@@ -116,5 +112,4 @@ the resources are implicitly denied.
 
 Now that you've created the policy, you can add resources to your network analyzer
 configuration and receive trace messaging information for those resources. For more
-information, see [Create network analyzer
-configuration and add resources](network-analyzer-create-resources.md "network-analyzer-create-resources.md").
+information, see [Create network analyzer configuration and add resources](network-analyzer-create-resources.md "network-analyzer-create-resources.md").

@@ -25,5 +25,4 @@ model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://a
 
 - [Data protection](data-protection.md "data-protection.md")
 - [Identity and access management](security-iam.md "security-iam.md")
-- [Infrastructure security
-  and compliance validation](security-compliance-resiliency.md "security-compliance-resiliency.md")
+- [Infrastructure security and compliance validation](security-compliance-resiliency.md "security-compliance-resiliency.md")

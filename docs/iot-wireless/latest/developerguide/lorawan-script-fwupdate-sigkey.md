@@ -1,14 +1,11 @@
-# (Optional) Generate the firmware
-
-update file and signature
+# (Optional) Generate the firmware update file and signature
 
 The steps in this procedure are optional and depend on the gateway you're using.
 Gateway manufacturers provide their own firmware update in the form of an update
 file or a script and Basics Station runs this script in the background. In this
 case, you'll most likely find the firmware update file in the release notes of the
 gateway you're using. You can then use that update file or script instead and
-proceed to [Upload the firmware file to an
-Amazon S3 bucket and add an IAM role](lorawan-upload-firmware-s3bucket.md "lorawan-upload-firmware-s3bucket.md").
+proceed to [Upload the firmware file to an Amazon S3 bucket and add an IAM role](lorawan-upload-firmware-s3bucket.md "lorawan-upload-firmware-s3bucket.md").
 
 If you don't have this script, following shows the commands to run for generating
 the firmware update file. The updates can also be signed to ensure that the code was
@@ -17,16 +14,11 @@ authors.
 
 ###### In this procedure, you'll:
 
-- [Generate the firmware update
-  file](#lorawan-firmware-update-script "#lorawan-firmware-update-script")
-- [Generate signature for the
-  firmware update](#lorawan-generate-signature-fwupdate "#lorawan-generate-signature-fwupdate")
-- [Review the next
-  steps](#lorawan-fwupdate-sigkey-next-steps "#lorawan-fwupdate-sigkey-next-steps")
+- [Generate the firmware update file](#lorawan-firmware-update-script "#lorawan-firmware-update-script")
+- [Generate signature for the firmware update](#lorawan-generate-signature-fwupdate "#lorawan-generate-signature-fwupdate")
+- [Review the next steps](#lorawan-fwupdate-sigkey-next-steps "#lorawan-fwupdate-sigkey-next-steps")
 
-## Generate the firmware update
-
-file
+## Generate the firmware update file
 
 The LoRa Basics Station software running on the gateway is capable of
 receiving firmware updates in the CUPS response. If you don't have a script
@@ -148,9 +140,7 @@ terminal to generate the firmware update file, `fwstation`.
 $ ./addpayload.sh station version.txt station.conf
 ```
 
-## Generate signature for the
-
-firmware update
+## Generate signature for the firmware update
 
 The LoRa Basics Station software provides signed firmware updates with ECDSA
 signatures. To support signed updates, you'll need:
@@ -221,18 +211,14 @@ $ scp sig-0.key pi@192.168.1.11:/home/pi/Documents/basicstation/examples/iotwire
 
 ```
 
-## Review the next
-
-steps
+## Review the next steps
 
 Now that you have generated the firmware and signature. you can proceed to
 update the gateway firmware.
 
 - If you're using the AWS Management Console to schedule and run the firmware update,
-  proceed to [Schedule and run gateway firmware
-  update task](lorawan-schedule-firmware-update.md "lorawan-schedule-firmware-update.md").
+  proceed to [Schedule and run gateway firmware update task](lorawan-schedule-firmware-update.md "lorawan-schedule-firmware-update.md").
 - If you're using the AWS CLI to schedule and run the firmware update,
-  first proceed to [Upload the firmware file to an
-  Amazon S3 bucket and add an IAM role](lorawan-upload-firmware-s3bucket.md "lorawan-upload-firmware-s3bucket.md") to upload your
+  first proceed to [Upload the firmware file to an Amazon S3 bucket and add an IAM role](lorawan-upload-firmware-s3bucket.md "lorawan-upload-firmware-s3bucket.md") to upload your
   firmware file, `fwstation`, to an Amazon S3 bucket. Then, grant
   AWS IoT Core for LoRaWAN permissions to access the file on your behalf.

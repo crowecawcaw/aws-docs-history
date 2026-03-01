@@ -1,12 +1,9 @@
-# WebSocket messages and status
-
-codes
+# WebSocket messages and status codes
 
 After you've created a presigned request, you can use the request URL with your
 WebSocket library, , or a library that's suited to your programming language, to
 make requests to the service. For more information about how you can generate this
-presigned request, see [Generate a presigned request
-with the WebSocket library](network-analyzer-generate-request.md "network-analyzer-generate-request.md").
+presigned request, see [Generate a presigned request with the WebSocket library](network-analyzer-generate-request.md "network-analyzer-generate-request.md").
 
 ## WebSocket messages
 
@@ -20,8 +17,7 @@ client.
 When the request is received and a trace messaging session has started, the
 server responds with a JSON structure, which is the payload. For more
 information about the payload and how you can activate trace messaging from the
-AWS Management Console, see [View and monitor trace message
-logs in real time](network-analyzer-logs.md "network-analyzer-logs.md").
+AWS Management Console, see [View and monitor trace message logs in real time](network-analyzer-logs.md "network-analyzer-logs.md").
 
 ## WebSocket status codes
 
@@ -73,5 +69,4 @@ request.
 Now that you've learned how to generate a presigned request and how you can
 observe messages from the server by using the WebSocket connection, you can
 activate trace messaging and start receiving message logs for your wireless
-gateway and wireless device resources. For more information, see [View and monitor trace message
-logs in real time](network-analyzer-logs.md "network-analyzer-logs.md").
+gateway and wireless device resources. For more information, see [View and monitor trace message logs in real time](network-analyzer-logs.md "network-analyzer-logs.md").

@@ -1,13 +1,9 @@
-# Provision Sidewalk devices in
-
-bulk
+# Provision Sidewalk devices in bulk
 
 This section shows how you can provision Sidewalk devices in bulk to
 AWS IoT Core for Amazon Sidewalk using the AWS IoT console and the AWS CLI.
 
-## Provision Sidewalk devices in
-
-bulk (console)
+## Provision Sidewalk devices in bulk (console)
 
 To add your Sidewalk device using the AWS IoT console, go to the [Sidewalk
 tab of the Devices hub](https://console.aws.amazon.com/iot/home#/wireless/devices?tab=sidewalk "https://console.aws.amazon.com/iot/home#/wireless/devices?tab=sidewalk"), choose **Bulk provision
@@ -137,9 +133,7 @@ Provide any optional tags as name-value pairs and choose
 **Submit** to start your wireless device import
 task.
 
-## Provision Sidewalk devices in bulk
-
-(CLI)
+## Provision Sidewalk devices in bulk (CLI)
 
 To onboard your Sidewalk devices to your account for AWS IoT Core for Amazon Sidewalk,
 use any of the following API operations depending on whether you want to add
@@ -238,8 +232,7 @@ Running this command returns an ID and ARN for the import task.
 
 If you want to add additional devices to an import task, you can update the
 task. You can also delete a task if you no longer require the task or if it
-failed. For information about when to update or delete a task, see [How to use Sidewalk bulk
-provisioning](sidewalk-provision-bulk-import.md#provision-bulk-use "sidewalk-provision-bulk-import.md#provision-bulk-use").
+failed. For information about when to update or delete a task, see [How to use Sidewalk bulk provisioning](sidewalk-provision-bulk-import.md#provision-bulk-use "sidewalk-provision-bulk-import.md#provision-bulk-use").
 
 ###### Warning
 
@@ -276,18 +269,14 @@ tasks using the AWS IoT console.
 Use the following AWS IoT Wireless API operations or CLI
 commands to update or delete your import task.
 
-    + ###### [`UpdateWirelessDeviceImportTask`](../apireference/API_UpdateWirelessDeviceImportTask.md "../apireference/API_UpdateWirelessDeviceImportTask.md")
-     API or [`update-wireless-device-import-task`](../../../cli/latest/reference/update-wireless-device-import-task.md "../../../cli/latest/reference/update-wireless-device-import-task.md")
-     CLI
+    + ###### [`UpdateWirelessDeviceImportTask`](../apireference/API_UpdateWirelessDeviceImportTask.md "../apireference/API_UpdateWirelessDeviceImportTask.md") API or [`update-wireless-device-import-task`](../../../cli/latest/reference/update-wireless-device-import-task.md "../../../cli/latest/reference/update-wireless-device-import-task.md") CLI
 
 
     This API operation appends the contents of an Amazon S3 CSV
      file to an existing import task. You can only add serial
      numbers of devices that were not previously included in the
      task.
-    + ###### [`DeleteWirelessDeviceImportTask`](../apireference/API_DeleteWirelessDeviceImportTask.md "../apireference/API_DeleteWirelessDeviceImportTask.md")
-     API or [`delete-wireless-device-import-task`](../../../cli/latest/reference/delete-wireless-device-import-task.md "../../../cli/latest/reference/delete-wireless-device-import-task.md")
-     CLI
+    + ###### [`DeleteWirelessDeviceImportTask`](../apireference/API_DeleteWirelessDeviceImportTask.md "../apireference/API_DeleteWirelessDeviceImportTask.md") API or [`delete-wireless-device-import-task`](../../../cli/latest/reference/delete-wireless-device-import-task.md "../../../cli/latest/reference/delete-wireless-device-import-task.md") CLI
 
 
     This API operation deletes the import task that was marked

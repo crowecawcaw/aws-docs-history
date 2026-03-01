@@ -17,14 +17,12 @@ AWS IoT Core for AWS IoT Core for Amazon Sidewalk acts as a bridge to move data 
 
 - [Features of AWS IoT Core for Amazon Sidewalk](#sidewalk-features "#sidewalk-features")
 - [Accessing AWS IoT Core for Amazon Sidewalk](#sidewalk-how-use "#sidewalk-how-use")
-- [AWS IoT Core for Amazon Sidewalk Regions and
-  endpoints](#sidewalk-regions-endpoints "#sidewalk-regions-endpoints")
+- [AWS IoT Core for Amazon Sidewalk Regions and endpoints](#sidewalk-regions-endpoints "#sidewalk-regions-endpoints")
 - [AWS IoT Core for Amazon Sidewalk pricing](#iot-sidewalk-pricing "#iot-sidewalk-pricing")
 - [What is AWS IoT Core for Amazon Sidewalk?](what-is-iot-sidewalk.md "what-is-iot-sidewalk.md")
 - [Get started using AWS IoT Core for Amazon Sidewalk](sidewalk-getting-started.md "sidewalk-getting-started.md")
 - [Connecting to AWS IoT Core for Amazon Sidewalk](iot-sidewalk-onboard.md "iot-sidewalk-onboard.md")
-- [Bulk provisioning devices with
-  AWS IoT Core for Amazon Sidewalk](sidewalk-bulk-provisioning.md "sidewalk-bulk-provisioning.md")
+- [Bulk provisioning devices with AWS IoT Core for Amazon Sidewalk](sidewalk-bulk-provisioning.md "sidewalk-bulk-provisioning.md")
 
 ## Features of AWS IoT Core for Amazon Sidewalk
 
@@ -46,8 +44,7 @@ Using AWS IoT Core for Amazon Sidewalk, you can:
   easier to search and manage your features, and access other AWS IoT Core
   features.
 - Enable "Position" to resolve the location data of your Amazon Sidewalk enabled devices
-  in the cloud. For more information, see [Introduction to onboarding your Sidewalk
-  devices](sidewalk-getting-started.md#sidewalk-gs-workflow "sidewalk-getting-started.md#sidewalk-gs-workflow")..
+  in the cloud. For more information, see [Introduction to onboarding your Sidewalk devices](sidewalk-getting-started.md#sidewalk-gs-workflow "sidewalk-getting-started.md#sidewalk-gs-workflow")..
 
 ## Accessing AWS IoT Core for Amazon Sidewalk
 
@@ -74,9 +71,7 @@ You can use the AWS CLI to run commands for onboarding and managing your Sidewal
 devices. For more information, see [AWS IoT Wireless CLI
 reference](../../../cli/latest/reference/iotwireless/index.md "../../../cli/latest/reference/iotwireless/index.md").
 
-## AWS IoT Core for Amazon Sidewalk Regions and
-
-endpoints
+## AWS IoT Core for Amazon Sidewalk Regions and endpoints
 
 Amazon Sidewalk is only available in the `us-east-1` AWS Region.
 AWS IoT Core for Amazon Sidewalk provides support for control plane and data plane API endpoints in this

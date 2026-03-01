@@ -1,6 +1,4 @@
-# Configure subbands and filtering
-
-capabilities of your LoRaWAN gateways
+# Configure subbands and filtering capabilities of your LoRaWAN gateways
 
 LoRaWAN gateways run a [LoRa Basics
 Station](https://doc.sm.tc/station/ "https://doc.sm.tc/station/") software that enables the gateways to connect to AWS IoT Core for LoRaWAN. To
@@ -9,9 +7,7 @@ endpoint, and then establishes a WebSockets data connection with that endpoint. 
 the connection is established, uplink and downlink frames can be exchanged through that
 connection.
 
-## Filtering of LoRa data frames
-
-received by gateway
+## Filtering of LoRa data frames received by gateway
 
 After your LoRaWAN gateway establishes a connection to the endpoint,
 AWS IoT Core for LoRaWAN responds with a `router_config` message that specifies a
@@ -52,9 +48,7 @@ ranges of JoinEUI values. Join request frames will be dropped by the gateway unl
 the field `JoinEui` in the message is within the range
 [BegEui,EndEui].
 
-## Frequency channels and
-
-subbands
+## Frequency channels and subbands
 
 For US915 and AU915 RF regions, wireless devices have choices of 64 125KHz and 8
 500KHz uplink channels to access the LoRaWAN networks using the LoRa gateways. The
@@ -68,9 +62,7 @@ devices to be transmitted, configure the LoRa gateways to use that particular
 subband. For gateways in other RF regions, such as EU868, this configuration is not
 required.
 
-## Configure your gateway
-
-to use filtering and subbands using the console
+## Configure your gateway to use filtering and subbands using the console
 
 You can configure your gateway to use a particular subband and also enable the
 capability to filter the LoRa data frames. To specify these parameters using the
@@ -83,8 +75,7 @@ console:
    Eui**, **Frequency band (RFRegion)** and an
    optional **Name** and **Description**, and
    choose whether to associate an AWS IoT thing to your gateway. For more
-   information about how to add a gateway, see [Add a gateway using the
-   console](lorawan-onboard-gateway-add.md#lorawan-onboard-gateway-console "lorawan-onboard-gateway-add.md#lorawan-onboard-gateway-console").
+   information about how to add a gateway, see [Add a gateway using the console](lorawan-onboard-gateway-add.md#lorawan-onboard-gateway-console "lorawan-onboard-gateway-add.md#lorawan-onboard-gateway-console").
 3. In the **LoRaWAN configuration** section, you can
    specify the subbands and filtering information.
    - `SubBands`: To add a subband, choose **Add
@@ -108,8 +99,7 @@ console:
      dropped.
 
 4. You can then continue to configure your gateway by following the
-   instructions described in [Add a gateway using the
-   console](lorawan-onboard-gateway-add.md#lorawan-onboard-gateway-console "lorawan-onboard-gateway-add.md#lorawan-onboard-gateway-console").
+   instructions described in [Add a gateway using the console](lorawan-onboard-gateway-add.md#lorawan-onboard-gateway-console "lorawan-onboard-gateway-add.md#lorawan-onboard-gateway-console").
 
 After you've added a gateway, in the [AWS IoT Core for LoRaWAN](https://console.aws.amazon.com/iot/home#/wireless/gateways "https://console.aws.amazon.com/iot/home#/wireless/gateways")
 **Gateways** page of the AWS IoT console, if you select the gateway
@@ -118,9 +108,7 @@ that you've added, you can see the `SubBands` and filters
 **LoRaWAN specific details** section of the Gateway details
 page.
 
-## Configure your gateway to
-
-use filtering and subbands using the API
+## Configure your gateway to use filtering and subbands using the API
 
 You can use the [CreateWirelessGateway](../apireference/API_CreateWirelessGateway.md "../apireference/API_CreateWirelessGateway.md") API that you use to create a gateway to configure
 the subbands you want to use and enable the filtering capability. Using the

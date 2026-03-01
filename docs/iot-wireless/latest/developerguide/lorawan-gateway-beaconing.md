@@ -1,6 +1,4 @@
-# Configure beaconing for your
-
-LoRaWAN gateways
+# Configure beaconing for your LoRaWAN gateways
 
 If you onboard class B wireless devices to AWS IoT Core for LoRaWAN, the devices receive downlink
 messages in scheduled time slots. The devices open these slots based on
@@ -9,12 +7,9 @@ transmit these time-synchronous beacons, you can use AWS IoT Core for LoRaWAN to
 beaconing-related parameters for the gateways.
 
 To configure these beaconing parameters, your gateway must be running LoRa Basics
-Station software version 2.0.6. See [Using qualified gateways from the AWS
-Partner Device Catalog](lorawan-manage-gateways.md#lorawan-qualified-gateways "lorawan-manage-gateways.md#lorawan-qualified-gateways").
+Station software version 2.0.6. See [Using qualified gateways from the AWS Partner Device Catalog](lorawan-manage-gateways.md#lorawan-qualified-gateways "lorawan-manage-gateways.md#lorawan-qualified-gateways").
 
-## How to configure the beaconing
-
-parameters
+## How to configure the beaconing parameters
 
 ###### Note
 
@@ -36,8 +31,7 @@ The following example shows how you configure these parameters for the gateway.
 The `input.json` file will contain additional details, such as the
 gateway certificate and provisioning credentials. For more information about adding
 your gateway to AWS IoT Core for LoRaWAN using the `CreateWirelessGateway` API
-operation, see [Add a gateway by using the
-API](lorawan-onboard-gateway-add.md#lorawan-onboard-gateway-api "lorawan-onboard-gateway-add.md#lorawan-onboard-gateway-api").
+operation, see [Add a gateway by using the API](lorawan-onboard-gateway-add.md#lorawan-onboard-gateway-api "lorawan-onboard-gateway-add.md#lorawan-onboard-gateway-api").
 
 ###### Note
 
@@ -84,9 +78,7 @@ The following code shows a sample output of running this command.
 }
 ```
 
-## Get information about the beaconing
-
-parameters
+## Get information about the beaconing parameters
 
 You can get information about the beaconing parameters for your gateway using the
 [`GetWirelessGateway`](../apireference/API_GetWirelessGateway.md "../apireference/API_GetWirelessGateway.md") API operation.

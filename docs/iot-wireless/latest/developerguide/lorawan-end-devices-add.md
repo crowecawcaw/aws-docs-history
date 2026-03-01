@@ -1,6 +1,4 @@
-# Add your wireless device to
-
-AWS IoT Core for LoRaWAN
+# Add your wireless device to AWS IoT Core for LoRaWAN
 
 If you're adding your wireless device for the first time, we recommend that you
 use the console. Navigate to the [AWS IoT Core for LoRaWAN](https://console.aws.amazon.com/iot/home#/wireless/landing "https://console.aws.amazon.com/iot/home#/wireless/landing")
@@ -13,9 +11,7 @@ device**.
 Alternatively, you can also add wireless devices from the [Devices](https://console.aws.amazon.com/iot/home#/wireless/devices "https://console.aws.amazon.com/iot/home#/wireless/devices") page
 of the AWS IoT console.
 
-## Add your wireless device
-
-specification to AWS IoT Core for LoRaWAN using the console
+## Add your wireless device specification to AWS IoT Core for LoRaWAN using the console
 
 Choose a **Wireless device specification** based on your
 activation method and the LoRaWAN version. Once selected, your data is encrypted
@@ -65,15 +61,12 @@ For more information about the unique identifiers, session keys, and root
 keys, refer to the [LoRa
 Alliance](https://lora-alliance.org/about-lorawan "https://lora-alliance.org/about-lorawan") documentation.
 
-## Add your wireless device
-
-specification to AWS IoT Core for LoRaWAN by using the API
+## Add your wireless device specification to AWS IoT Core for LoRaWAN by using the API
 
 If you're adding a wireless device using the API, you must create your device
 profile and service profile first before creating the wireless device. You'll
 use the device profile and service profile ID when creating the wireless device.
-For information about how to create these profiles using the API, see [Add a device profile by using
-the API](lorawan-define-profiles.md#lorawan-device-profile-api "lorawan-define-profiles.md#lorawan-device-profile-api").
+For information about how to create these profiles using the API, see [Add a device profile by using the API](lorawan-define-profiles.md#lorawan-device-profile-api "lorawan-define-profiles.md#lorawan-device-profile-api").
 
 The following lists describe the API actions that perform the tasks associated
 with adding, updating, or deleting a service profile.

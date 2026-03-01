@@ -1,6 +1,4 @@
-# Create FUOTA task and provide firmware
-
-image
+# Create FUOTA task and provide firmware image
 
 To update the firmware of your LoRaWAN devices, first create a FUOTA task and
 provide the digitally signed firmware image you want to use for the update. You can
@@ -22,9 +20,7 @@ the one embedded in the [ARM Mbed
 GitHub repository](https://github.com/armmbed/mbed-os-example-lorawan-fuota "https://github.com/armmbed/mbed-os-example-lorawan-fuota"), which also includes tools for generating the
 delta image and for devices to use that image.
 
-## Create FUOTA task and upload
-
-firmware image by using the console
+## Create FUOTA task and upload firmware image by using the console
 
 To create a FUOTA task and upload your firmware image by using the console, go
 to the [FUOTA
@@ -188,8 +184,7 @@ verified when the firmware update is performed.
     	 compatibility verification when the firmware image is
     	 verified by the end device. If you specify a wrong
     	 descriptor field, it can result in the FUOTA session to
-    	 fail. For information about this error, see [Status of devices in a FUOTA
-    	 task](lorawan-fuota-status.md#lorawan-fuota-device-status "lorawan-fuota-status.md#lorawan-fuota-device-status").
+    	 fail. For information about this error, see [Status of devices in a FUOTA task](lorawan-fuota-status.md#lorawan-fuota-device-status "lorawan-fuota-status.md#lorawan-fuota-device-status").
     3. ###### Permissions to access the bucket
 
 
@@ -205,16 +200,13 @@ verified when the firmware update is performed.
      choose **View policy permissions**.
 
 For more information about using an S3 bucket to store your image and
-granting AWS IoT Core for LoRaWAN permissions to access it, see [Upload the firmware file to an
-Amazon S3 bucket and add an IAM role](lorawan-upload-firmware-s3bucket.md "lorawan-upload-firmware-s3bucket.md"). 3. ###### Review and create
+granting AWS IoT Core for LoRaWAN permissions to access it, see [Upload the firmware file to an Amazon S3 bucket and add an IAM role](lorawan-upload-firmware-s3bucket.md "lorawan-upload-firmware-s3bucket.md"). 3. ###### Review and create
 
 To create your FUOTA task, review the FUOTA task and configuration
 details that you specified and the choose **Create
 task**.
 
-## Create FUOTA task and upload firmware
-
-image by using the API
+## Create FUOTA task and upload firmware image by using the API
 
 To create a FUOTA task and specify your firmware image file by using the API,
 use the [`CreateFuotaTask`](../apireference/API_CreateFuotaTask.md "../apireference/API_CreateFuotaTask.md") API operation or the [`create-fuota-task`](../../../cli/latest/reference/iotwireless/create-fuota-task.md "../../../cli/latest/reference/iotwireless/create-fuota-task.md") CLI command. You
@@ -267,5 +259,4 @@ CLI commands to update, delete, or get information about your FUOTA task.
 Now that you've created a FUOTA task and provided the firmware image, you can
 add devices to the task for updating their firmware. You can either add
 individual devices or multicast groups to the task. For more information, see
-[Add devices and multicast groups and
-schedule FUOTA session](lorawan-fuota-add-devices.md "lorawan-fuota-add-devices.md").
+[Add devices and multicast groups and schedule FUOTA session](lorawan-fuota-add-devices.md "lorawan-fuota-add-devices.md").

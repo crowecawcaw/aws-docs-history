@@ -1,6 +1,4 @@
-# Stream network analyzer trace messages with
-
-WebSockets
+# Stream network analyzer trace messages with WebSockets
 
 Using the network analyzer API provided by AWS IoT Core for LoRaWAN, you can gain insights into
 the health and performance of your LoRaWAN network. This API provides visibility into
@@ -24,9 +22,6 @@ WebSockets.
 
 ###### Topics
 
-- [Generate a presigned request
-  with the WebSocket library](network-analyzer-generate-request.md "network-analyzer-generate-request.md")
-- [Sample Python code to generate
-  presigned URL](network-analyzer-request-sample.md "network-analyzer-request-sample.md")
-- [WebSocket messages and status
-  codes](network-analyzer-messages-status.md "network-analyzer-messages-status.md")
+- [Generate a presigned request with the WebSocket library](network-analyzer-generate-request.md "network-analyzer-generate-request.md")
+- [Sample Python code to generate presigned URL](network-analyzer-request-sample.md "network-analyzer-request-sample.md")
+- [WebSocket messages and status codes](network-analyzer-messages-status.md "network-analyzer-messages-status.md")

@@ -1,6 +1,4 @@
-# Onboard AWS IoT Core for LoRaWAN data plane API
-
-endpoints
+# Onboard AWS IoT Core for LoRaWAN data plane API endpoints
 
 AWS IoT Core for LoRaWAN data plane endpoints consist of the following endpoints. You get these
 endpoints when adding your gateway to AWS IoT Core for LoRaWAN. For more information, see [Add a gateway to AWS IoT Core for LoRaWAN](lorawan-onboard-gateway-add.md "lorawan-onboard-gateway-add.md").
@@ -32,7 +30,5 @@ privatelink.
 
 ###### The following shows how to onboard these endpoints.
 
-- [Create VPC interface endpoint and private
-  hosted zone](create-vpc-lns-cups.md "create-vpc-lns-cups.md")
-- [Use VPN to connect LoRa gateways to
-  your AWS account](lorawan-vpc-vpn-connection.md "lorawan-vpc-vpn-connection.md")
+- [Create VPC interface endpoint and private hosted zone](create-vpc-lns-cups.md "create-vpc-lns-cups.md")
+- [Use VPN to connect LoRa gateways to your AWS account](lorawan-vpc-vpn-connection.md "lorawan-vpc-vpn-connection.md")

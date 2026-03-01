@@ -1,11 +1,8 @@
-# Onboard your devices to
-
-AWS IoT Core for LoRaWAN
+# Onboard your devices to AWS IoT Core for LoRaWAN
 
 After you have onboarded your gateway to AWS IoT Core for LoRaWAN and verified its connection
 status, you can onboard your wireless devices. For information about how to onboard your
-gateways, see [Onboard your gateways to
-AWS IoT Core for LoRaWAN](lorawan-onboard-gateways.md "lorawan-onboard-gateways.md").
+gateways, see [Onboard your gateways to AWS IoT Core for LoRaWAN](lorawan-onboard-gateways.md "lorawan-onboard-gateways.md").
 
 LoRaWAN devices use a LoRaWAN protocol to exchange data with cloud-hosted
 applications. AWS IoT Core for LoRaWAN supports devices that comply to 1.0.x or 1.1 LoRaWAN
@@ -35,8 +32,7 @@ documentation.
 
 The information in these optional fields comes from how you organize and
 describe the elements in your wireless system. For more information about
-naming and describing your resources, see [Describing your AWS IoT Wireless
-resources](getting-started.md#iotwireless-describe-resources "getting-started.md#iotwireless-describe-resources").
+naming and describing your resources, see [Describing your AWS IoT Wireless resources](getting-started.md#iotwireless-describe-resources "getting-started.md#iotwireless-describe-resources").
 
 - ###### Device and service profiles
 
@@ -59,12 +55,8 @@ assign it to the device.
 
 ###### To onboard your wireless device to AWS IoT Core for LoRaWAN
 
-- [Add your wireless device to
-  AWS IoT Core for LoRaWAN](lorawan-end-devices-add.md "lorawan-end-devices-add.md")
+- [Add your wireless device to AWS IoT Core for LoRaWAN](lorawan-end-devices-add.md "lorawan-end-devices-add.md")
 - [Add profiles to AWS IoT Core for LoRaWAN](lorawan-define-profiles.md "lorawan-define-profiles.md")
-- [Add destinations to
-  AWS IoT Core for LoRaWAN](lorawan-create-destinations.md "lorawan-create-destinations.md")
-- [Create rules to process LoRaWAN device
-  messages](lorawan-destination-rules.md "lorawan-destination-rules.md")
-- [Connect your LoRaWAN device and
-  verify its connection status](lorawan-device-connection-status.md "lorawan-device-connection-status.md")
+- [Add destinations to AWS IoT Core for LoRaWAN](lorawan-create-destinations.md "lorawan-create-destinations.md")
+- [Create rules to process LoRaWAN device messages](lorawan-destination-rules.md "lorawan-destination-rules.md")
+- [Connect your LoRaWAN device and verify its connection status](lorawan-device-connection-status.md "lorawan-device-connection-status.md")

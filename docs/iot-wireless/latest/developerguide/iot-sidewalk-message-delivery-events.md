@@ -1,6 +1,4 @@
-# Enable notifications for
-
-message delivery status events
+# Enable notifications for message delivery status events
 
 Message delivery status events publish event notifications about the status of
 messages that are exchanged between your Sidewalk devices and AWS IoT Wireless.
@@ -8,9 +6,7 @@ Event notifications are published for both downlink messages that are sent from
 AWS IoT Wireless to the Sidewalk device, and uplink messages that are sent from
 your device to AWS IoT Wireless.
 
-## How message delivery
-
-status events work
+## How message delivery status events work
 
 After you've onboarded your Sidewalk device to AWS IoT Wireless and
 connected your device, messages can be exchanged between your device and
@@ -27,9 +23,7 @@ for the downlink message even if packets have dropped or the message wasn't
 delivered. In this case, the message delivery status events return an error
 indicating that the message failed to deliver to the device.
 
-## Enable
-
-notifications for message delivery status events
+## Enable notifications for message delivery status events
 
 Before subscribers to the Sidewalk message delivery status reserved topics can
 receive messages, you must enable event notifications for them using the
@@ -41,12 +35,9 @@ Sidewalk resources in your AWS account or for select resources.
 The Sidewalk message delivery status event configuration isn't available
 in the console.
 
-For information about how to enable these events, see [Enable notifications using the
-AWS CLI](iot-wireless-control-events.md#iot-wireless-control-events-cli "iot-wireless-control-events.md#iot-wireless-control-events-cli").
+For information about how to enable these events, see [Enable notifications using the AWS CLI](iot-wireless-control-events.md#iot-wireless-control-events-cli "iot-wireless-control-events.md#iot-wireless-control-events-cli").
 
-## Format of MQTT
-
-topics for message delivery status events
+## Format of MQTT topics for message delivery status events
 
 To receive notifications about message delivery status events, you can
 subscribe to MQTT reserved topics that begin with a dollar ($) sign. For more
@@ -99,9 +90,7 @@ ID, you can use the following topic filter:
 You can't use the wildcard character `#` to subscribe to the
 reserved topics. For more information about topic filters, see [topicfilters](../../../iot/latest/developerguide/topicfilters.md "../../../iot/latest/developerguide/topicfilters.md").
 
-## Message payload for
-
-message delivery status events
+## Message payload for message delivery status events
 
 After you enable notifications for message delivery status events, event
 messages are published over MQTT with a JSON payload. These events contain the

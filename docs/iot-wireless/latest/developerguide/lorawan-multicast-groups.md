@@ -1,6 +1,4 @@
-# Create multicast groups to send a downlink
-
-payload to multiple devices
+# Create multicast groups to send a downlink payload to multiple devices
 
 To send a downlink payload to multiple devices, create a multicast group. Using
 multicast, a source can send data to a single multicast address, which is then
@@ -33,11 +31,7 @@ message.
 
 ###### Topics
 
-- [Create multicast groups and add
-  devices to the group](lorawan-create-multicast-groups.md "lorawan-create-multicast-groups.md")
-- [Choose participating gateways to
-  receive multicast downlink messages](lorawan-multicast-choose-gateways.md "lorawan-multicast-choose-gateways.md")
-- [Monitor and troubleshoot your multicast
-  groups](lorawan-multicast-status.md "lorawan-multicast-status.md")
-- [Schedule a downlink message
-  for your multicast group](lorawan-multicast-schedule-downlink.md "lorawan-multicast-schedule-downlink.md")
+- [Create multicast groups and add devices to the group](lorawan-create-multicast-groups.md "lorawan-create-multicast-groups.md")
+- [Choose participating gateways to receive multicast downlink messages](lorawan-multicast-choose-gateways.md "lorawan-multicast-choose-gateways.md")
+- [Monitor and troubleshoot your multicast groups](lorawan-multicast-status.md "lorawan-multicast-status.md")
+- [Schedule a downlink message for your multicast group](lorawan-multicast-schedule-downlink.md "lorawan-multicast-schedule-downlink.md")

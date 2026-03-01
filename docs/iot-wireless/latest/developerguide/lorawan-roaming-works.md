@@ -1,6 +1,4 @@
-# How LoRaWAN public network support
-
-works
+# How LoRaWAN public network support works
 
 AWS IoT Core for LoRaWAN supports the passive roaming feature, according to the LoRa Alliance
 specification. With passive roaming, the roaming process is entirely transparent to
@@ -17,14 +15,10 @@ different carrier when it travels outside the home network.
 
 ###### Topics
 
-- [Public LoRaWAN network
-  concepts](#lorawan-roaming-concepts "#lorawan-roaming-concepts")
-- [Public LoRaWAN network support
-  architecture](#lorawan-roaming-architecture "#lorawan-roaming-architecture")
+- [Public LoRaWAN network concepts](#lorawan-roaming-concepts "#lorawan-roaming-concepts")
+- [Public LoRaWAN network support architecture](#lorawan-roaming-architecture "#lorawan-roaming-architecture")
 
-## Public LoRaWAN network
-
-concepts
+## Public LoRaWAN network concepts
 
 The following concepts are used by the public network feature supported by
 AWS IoT Core for LoRaWAN.
@@ -64,9 +58,7 @@ radio gateways. There can be zero or more fNS involved in one LoRa
 session. This network server manages the forwarding of data packets
 that are received from the device to the home network.
 
-## Public LoRaWAN network support
-
-architecture
+## Public LoRaWAN network support architecture
 
 The following architecture diagram shows how AWS IoT Core for LoRaWAN partners with
 Everynet to provide public network connectivity. In this case, _Device A_ is connected to the hNS (home network

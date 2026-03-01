@@ -1,6 +1,4 @@
-# Create network analyzer
-
-configuration and add resources
+# Create network analyzer configuration and add resources
 
 Before you can stream trace messages, create a network analyzer configuration and add
 the resources you want to monitor to this configuration. A LoRaWAN network analyzer
@@ -28,7 +26,5 @@ The following shows how to create a configuration and add resources.
 
 ###### Topics
 
-- [Create a network analyzer
-  configuration](network-analyzer-create.md "network-analyzer-create.md")
-- [Add resources and update the network
-  analyzer configuration](network-analyzer-resources.md "network-analyzer-resources.md")
+- [Create a network analyzer configuration](network-analyzer-create.md "network-analyzer-create.md")
+- [Add resources and update the network analyzer configuration](network-analyzer-resources.md "network-analyzer-resources.md")

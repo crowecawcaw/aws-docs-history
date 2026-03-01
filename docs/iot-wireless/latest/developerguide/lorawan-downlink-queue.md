@@ -1,6 +1,4 @@
-# Queue downlink messages to send to
-
-LoRaWAN devices
+# Queue downlink messages to send to LoRaWAN devices
 
 Cloud-hosted applications and other AWS services can send downlink messages to
 your wireless devices. Downlink messages are messages that are sent from
@@ -10,12 +8,9 @@ for each device that you've onboarded to AWS IoT Core for LoRaWAN.
 If you have multiple devices for which you want to send a downlink message, you
 can use a multicast group. Devices in a multicast group share the same multicast
 address, which is then distributed to an entire group of recipient devices. For more
-information, see [Create multicast groups to send a downlink
-payload to multiple devices](lorawan-multicast-groups.md "lorawan-multicast-groups.md").
+information, see [Create multicast groups to send a downlink payload to multiple devices](lorawan-multicast-groups.md "lorawan-multicast-groups.md").
 
-## How a downlink message queue
-
-works
+## How a downlink message queue works
 
 The device class of your LoRaWAN device determines how the messages in your
 queue are sent to the device. Class A devices send an uplink message to
@@ -45,9 +40,7 @@ devices.
    missing from the uplink message after checking three times, the message
    is discarded.
 
-## Perform downlink queue
-
-operations by using the console
+## Perform downlink queue operations by using the console
 
 You can use the AWS Management Console to queue downlink messages and clear individual
 messages, or the entire queue, as needed. For class A devices, after an uplink
@@ -84,8 +77,7 @@ To create a downlink message queue
 
 Your downlink message has now been added to the queue. If you don't see your
 message or you receive an error, you can troubleshoot the error as described in
-[Troubleshoot downlink
-message queue errors](#lorawan-downlink-queue-troubleshoot "#lorawan-downlink-queue-troubleshoot").
+[Troubleshoot downlink message queue errors](#lorawan-downlink-queue-troubleshoot "#lorawan-downlink-queue-troubleshoot").
 
 ###### Note
 
@@ -98,8 +90,7 @@ parameter values.
 
 The queue lists the downlink messages you've added. To see the payload for the
 uplink and downlink messages that are exchanged between your devices and
-AWS IoT Core for LoRaWAN, you can use network analyzer. For more information, see [Monitoring of LoRaWAN resources using network
-analyzer](network-analyzer-overview.md "network-analyzer-overview.md").
+AWS IoT Core for LoRaWAN, you can use network analyzer. For more information, see [Monitoring of LoRaWAN resources using network analyzer](network-analyzer-overview.md "network-analyzer-overview.md").
 
 ###### List downlink message queue
 
@@ -123,9 +114,7 @@ entire downlink queue. These actions can't be undone.
   you can clear the entire queue by choosing **Clear downlink
   queue**.
 
-## Perform downlink queue operations
-
-by using the API
+## Perform downlink queue operations by using the API
 
 You can use the AWS IoT Wireless API to queue downlink messages and clear
 individual messages, or the entire queue, as needed.
@@ -147,8 +136,7 @@ aws iotwireless send-data-to-wireless-device \
 The output of running this command generates a `MessageId` for the
 downlink message. In some cases, even if you receive the `MessageId`,
 packets can get dropped. For more information about how you can resolve the
-error, see [Troubleshoot downlink
-message queue errors](#lorawan-downlink-queue-troubleshoot "#lorawan-downlink-queue-troubleshoot").
+error, see [Troubleshoot downlink message queue errors](#lorawan-downlink-queue-troubleshoot "#lorawan-downlink-queue-troubleshoot").
 
 ```
 {
@@ -182,25 +170,20 @@ command.
   `*` for your wireless device, specified by the
   `wirelessDeviceId`.
 
-## Troubleshoot downlink
-
-message queue errors
+## Troubleshoot downlink message queue errors
 
 Here are some things to check if you're not seeing the expected
 results:
 
-- ###### Downlink messages
-  don't appear in the AWS IoT console
+- ###### Downlink messages don't appear in the AWS IoT console
 
 If you don't see your downlink message in the queue after adding
-it as described in [Perform downlink queue
-operations by using the console](#lorawan-downlink-queue-console "#lorawan-downlink-queue-console"), it might be
+it as described in [Perform downlink queue operations by using the console](#lorawan-downlink-queue-console "#lorawan-downlink-queue-console"), it might be
 because your device hasn't completed a process called
 _activation_ or _join
 procedure_. This procedure is completed when your
 device onboards with AWS IoT Core for LoRaWAN. For more information, see
-[Add your wireless device
-specification to AWS IoT Core for LoRaWAN using the console](lorawan-end-devices-add.md#lorawan-end-device-spec-console "lorawan-end-devices-add.md#lorawan-end-device-spec-console").
+[Add your wireless device specification to AWS IoT Core for LoRaWAN using the console](lorawan-end-devices-add.md#lorawan-end-device-spec-console "lorawan-end-devices-add.md#lorawan-end-device-spec-console").
 
 After onboarding your device to AWS IoT Core for LoRaWAN, you can monitor your
 device to check whether join and rejoin succeeded by using the network

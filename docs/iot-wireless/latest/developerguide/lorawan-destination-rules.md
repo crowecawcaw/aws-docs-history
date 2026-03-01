@@ -1,6 +1,4 @@
-# Create rules to process LoRaWAN device
-
-messages
+# Create rules to process LoRaWAN device messages
 
 AWS IoT rules send device messages to other services. AWS IoT rules can also process
 the binary messages received from a LoRaWAN device to convert the messages to other
@@ -13,9 +11,7 @@ AWS IoT Core for LoRaWAN receives it. [AWS IoT Core for LoRaWAN
 destinations](lorawan-create-destinations.md "lorawan-create-destinations.md") can be shared by all devices whose messages have the same
 data format and that send their data to the same service.
 
-## How AWS IoT rules process device
-
-messages
+## How AWS IoT rules process device messages
 
 How an AWS IoT rule processes a device's message data depends on the service
 that will receive the data, the format of the device's message data, and the
@@ -110,8 +106,7 @@ For information about AWS IoT rules and how to create and use them, see [AWS IoT
 rules](../../../iot/latest/developerguide/iot-rules.md "../../../iot/latest/developerguide/iot-rules.md") and [AWS IoT rules
 tutorials](../../../iot/latest/developerguide/iot-rules-tutorial.md "../../../iot/latest/developerguide/iot-rules-tutorial.md").
 
-For information about creating and using AWS IoT Core for LoRaWAN destinations, see [Add destinations to
-AWS IoT Core for LoRaWAN](lorawan-create-destinations.md "lorawan-create-destinations.md").
+For information about creating and using AWS IoT Core for LoRaWAN destinations, see [Add destinations to AWS IoT Core for LoRaWAN](lorawan-create-destinations.md "lorawan-create-destinations.md").
 
 For information about using binary message payloads in a rule, see [Binary payloads](../../../iot/latest/developerguide/binary-payloads.md "../../../iot/latest/developerguide/binary-payloads.md").
 

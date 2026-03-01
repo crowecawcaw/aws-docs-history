@@ -1,6 +1,4 @@
-# Prepare devices for multicast and
-
-FUOTA configuration
+# Prepare devices for multicast and FUOTA configuration
 
 When you add your wireless device to AWS IoT Core for LoRaWAN, you can prepare your wireless
 device for multicast setup and FUOTA configuration by using the console or the CLI. If
@@ -52,9 +50,7 @@ provide in an encrypted format.
   This `FPort` value is used for the clock
   synchronization.
 
-## Device profiles for multicast and
-
-FUOTA
+## Device profiles for multicast and FUOTA
 
 At the start of a multicast session, a class B or class C distribution window is
 used to send the downlink message to the devices in your group. The devices that you
@@ -64,9 +60,7 @@ your device that has either or both class B or class C modes enabled.
 
 For information about device profiles, see [Add profiles to AWS IoT Core for LoRaWAN](lorawan-define-profiles.md "lorawan-define-profiles.md").
 
-## Prepare devices for
-
-multicast and FUOTA by using the console
+## Prepare devices for multicast and FUOTA by using the console
 
 To specify the FPorts and GenAppKey parameters for multicast setup and FUOTA by
 using the console:
@@ -99,17 +93,14 @@ devices by using the **Intro** page of the AWS IoT
 console.
 
 For more information about the wireless device specification and onboarding your
-device, see [Add your wireless device to
-AWS IoT Core for LoRaWAN](lorawan-end-devices-add.md "lorawan-end-devices-add.md").
+device, see [Add your wireless device to AWS IoT Core for LoRaWAN](lorawan-end-devices-add.md "lorawan-end-devices-add.md").
 
 ###### Note
 
 You can specify these parameters only when you create the wireless device. You
 can't change or specify parameters when you update an existing device.
 
-## Prepare devices for
-
-multicast and FUOTA by using the API
+## Prepare devices for multicast and FUOTA by using the API
 
 To use multicast groups or to perform FUOTA, configure these parameters by using
 the [`CreateWirelessDevice`](../apireference/API_CreateWirelessDevice.md "../apireference/API_CreateWirelessDevice.md") API operation or the [`create-wireless-device`](../../../cli/latest/reference/iotwireless/create-wireless-device.md "../../../cli/latest/reference/iotwireless/create-wireless-device.md") CLI command. In
@@ -175,7 +166,5 @@ After you've configured the parameters, you can create multicast groups and FUOT
 tasks to send downlink payload or update the firmware of your LoRaWAN
 devices.
 
-- For information about creating multicast groups, see [Create multicast groups and add
-  devices to the group](lorawan-create-multicast-groups.md "lorawan-create-multicast-groups.md").
-- For information about creating FUOTA tasks, see [Create FUOTA task and provide firmware
-  image](lorawan-fuota-create-task.md "lorawan-fuota-create-task.md").
+- For information about creating multicast groups, see [Create multicast groups and add devices to the group](lorawan-create-multicast-groups.md "lorawan-create-multicast-groups.md").
+- For information about creating FUOTA tasks, see [Create FUOTA task and provide firmware image](lorawan-fuota-create-task.md "lorawan-fuota-create-task.md").

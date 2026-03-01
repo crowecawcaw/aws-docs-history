@@ -1,6 +1,4 @@
-# View format of uplink messages sent
-
-from LoRaWAN devices
+# View format of uplink messages sent from LoRaWAN devices
 
 To faciliate seamless connection between your LoRaWAN devices and the cloud, you can
 use AWS IoT Core for LoRaWAN. The AWS IoT Core for LoRaWAN service provides secure and reliable data exchange
@@ -19,18 +17,13 @@ applications to your devices are called downlink messages.
 This topic shows how you can observe the format of the uplink message that you'll
 receive from your wireless device.
 
-## Before you can observe
-
-the uplink messages
+## Before you can observe the uplink messages
 
 You must have onboarded your wireless device and connected your device to
 AWS IoT so that it can transmit and receive data. For information about onboarding
-your device to AWS IoT Core for LoRaWAN, see [Onboard your devices to
-AWS IoT Core for LoRaWAN](lorawan-onboard-end-devices.md "lorawan-onboard-end-devices.md").
+your device to AWS IoT Core for LoRaWAN, see [Onboard your devices to AWS IoT Core for LoRaWAN](lorawan-onboard-end-devices.md "lorawan-onboard-end-devices.md").
 
-## What do the uplink messages
-
-contain?
+## What do the uplink messages contain?
 
 LoRaWAN devices connect to AWS IoT Core for LoRaWAN by using LoRaWAN gateways. The
 uplink message that you receive from the device will contain the following
@@ -55,9 +48,7 @@ information.
   whether you want to switch to a stronger gateway channel that's closer
   to your device.
 
-## How to observe the uplink
-
-messages?
+## How to observe the uplink messages?
 
 After you've onboarded your device, you can use the [MQTT test client](https://console.aws.amazon.com/iot/home#/test "https://console.aws.amazon.com/iot/home#/test") on
 the **Test** page of the AWS IoT console to subscribe to the
@@ -74,9 +65,7 @@ When the wireless device starts sending uplink data, AWS IoT Core for LoRaWAN wr
 wireless metadata information with the payload and then sends it to your AWS
 applications.
 
-## Uplink message
-
-examples
+## Uplink message examples
 
 The following examples show the format of the uplink message received from
 your device. The format includes the gateway metadata that varies depending on
@@ -147,8 +136,7 @@ service directly by Everynet. The following example shows the public
 LoRaWAN network metadata in the uplink message. The metadata consists of
 the ID of the gateway and the network provider (Everynet), whether
 downlink is allowed, and the SNR and RSSI values. For more infrrmation
-about the public network, see [Managing LoRaWAN traffic from public networks
-(Everynet)](iot-lorawan-roaming.md "iot-lorawan-roaming.md").
+about the public network, see [Managing LoRaWAN traffic from public networks (Everynet)](iot-lorawan-roaming.md "iot-lorawan-roaming.md").
 
 ###### Note
 

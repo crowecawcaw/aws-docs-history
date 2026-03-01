@@ -1,6 +1,4 @@
-# Amazon Sidewalk bulk provisioning
-
-workflow
+# Amazon Sidewalk bulk provisioning workflow
 
 The following sections show you key concepts of bulk provisioning and how it works.
 The steps that are involved in bulk provisioning include:
@@ -13,9 +11,7 @@ The steps that are involved in bulk provisioning include:
 4. Create an import task and provide the serial numbers (SMSN) of the devices to
    be onboarded to AWS IoT Core for Amazon Sidewalk.
 
-## Components of bulk
-
-provisioning
+## Components of bulk provisioning
 
 The following concepts show you some key components of bulk provisioning and how
 to use them as part of bulk provisioning your Sidewalk devices.
@@ -35,9 +31,7 @@ are manufactured in the factory, AWS IoT Core for Amazon Sidewalk will receive a
 that contains the serial numbers of the devices. It then compares this
 information with your input CSV file for onboarding the devices to AWS IoT.
 
-### Device attestation key
-
-(`DAK`)
+### Device attestation key (`DAK`)
 
 When a Sidewalk end device joins the Sidewalk network, it must
 be provisioned with a Sidewalk device certificate. The certificates that
@@ -47,8 +41,7 @@ Sidewalk certificate chain. When your Sidewalk devices are
 manufactured, the YubiHSM signs the device certificates.
 
 The following shows a sample JSON file that contains the device certificates
-and the private keys. For more information, see [Obtain device JSON files for
-provisioning](sidewalk-json-get.md "sidewalk-json-get.md").
+and the private keys. For more information, see [Obtain device JSON files for provisioning](sidewalk-json-get.md "sidewalk-json-get.md").
 
 ```
 {
@@ -79,9 +72,7 @@ profile provides details such as the DAK name, the certificate ID, the ApId
 (Advertised Product ID), whether factory support is enabled, and the maximum
 number of signatures that the DAK can sign.
 
-### Advertised product ID
-
-(`ApId`)
+### Advertised product ID (`ApId`)
 
 The `ApId` parameter is an alphanumeric string that identifies the
 advertised product. This field must be specified when you want to use a given
@@ -108,8 +99,7 @@ process.
 
 Before you take your end device to the factory, first create a device
 profile. You can use this profile to provision individual devices as
-described in [Add your device profile and
-Sidewalk end device](iot-sidewalk-add-device.md "iot-sidewalk-add-device.md"). 2. ###### Request factory support for your profile
+described in [Add your device profile and Sidewalk end device](iot-sidewalk-add-device.md "iot-sidewalk-add-device.md"). 2. ###### Request factory support for your profile
 
 When you're ready to take your end device to factory, ask the Amazon Sidewalk
 team for the YubiHSM key and for factory support for your device

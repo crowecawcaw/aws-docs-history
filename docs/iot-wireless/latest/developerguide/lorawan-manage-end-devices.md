@@ -1,8 +1,7 @@
 # Managing devices with AWS IoT Core for LoRaWAN
 
 Following are some important considerations when using your devices with AWS IoT Core for LoRaWAN.
-For information about how to add your device to AWS IoT Core for LoRaWAN, see [Onboard your devices to
-AWS IoT Core for LoRaWAN](lorawan-onboard-end-devices.md "lorawan-onboard-end-devices.md").
+For information about how to add your device to AWS IoT Core for LoRaWAN, see [Onboard your devices to AWS IoT Core for LoRaWAN](lorawan-onboard-end-devices.md "lorawan-onboard-end-devices.md").
 
 ## Device considerations
 
@@ -15,15 +14,12 @@ consider the following.
 - Cost
 - Antenna type and transmission range
 
-## Using devices with gateways
-
-qualified for AWS IoT Core for LoRaWAN
+## Using devices with gateways qualified for AWS IoT Core for LoRaWAN
 
 The devices that you use can be paired with wireless gateways that are qualified for
 use with AWS IoT Core for LoRaWAN. You can find these gateways and developer kits in the [AWS Partner
 Device Catalog](https://devices.amazonaws.com/search?page=1&sv=iotclorawan "https://devices.amazonaws.com/search?page=1&sv=iotclorawan"). We also recommend that you consider proximity of these
-devices to your gateways. For more information, see [Using qualified gateways from the AWS
-Partner Device Catalog](lorawan-manage-gateways.md#lorawan-qualified-gateways "lorawan-manage-gateways.md#lorawan-qualified-gateways").
+devices to your gateways. For more information, see [Using qualified gateways from the AWS Partner Device Catalog](lorawan-manage-gateways.md#lorawan-qualified-gateways "lorawan-manage-gateways.md#lorawan-qualified-gateways").
 
 ## LoRaWAN version
 
@@ -41,8 +37,7 @@ secure.
 
 Your wireless device specification is based on the LoRaWAN version and activation
 mode, which determines the root keys and session keys generated for each activation. For
-more information, see [Add your wireless device
-specification to AWS IoT Core for LoRaWAN using the console](lorawan-end-devices-add.md#lorawan-end-device-spec-console "lorawan-end-devices-add.md#lorawan-end-device-spec-console").
+more information, see [Add your wireless device specification to AWS IoT Core for LoRaWAN using the console](lorawan-end-devices-add.md#lorawan-end-device-spec-console "lorawan-end-devices-add.md#lorawan-end-device-spec-console").
 
 ## Device classes
 
@@ -64,11 +59,7 @@ resources mentioned in [Learn more about LoRaWAN](what-is-iot-lorawan.md#lorawan
 
 ###### Topics
 
-- [Using adaptive data rate (ADR) with
-  AWS IoT Core for LoRaWAN](iot-lorawan-adr.md "iot-lorawan-adr.md")
-- [View format of uplink messages sent
-  from LoRaWAN devices](lorawan-uplink-metadata-format.md "lorawan-uplink-metadata-format.md")
-- [Queue downlink messages to send to
-  LoRaWAN devices](lorawan-downlink-queue.md "lorawan-downlink-queue.md")
-- [Managing LoRaWAN traffic from public networks
-  (Everynet)](iot-lorawan-roaming.md "iot-lorawan-roaming.md")
+- [Using adaptive data rate (ADR) with AWS IoT Core for LoRaWAN](iot-lorawan-adr.md "iot-lorawan-adr.md")
+- [View format of uplink messages sent from LoRaWAN devices](lorawan-uplink-metadata-format.md "lorawan-uplink-metadata-format.md")
+- [Queue downlink messages to send to LoRaWAN devices](lorawan-downlink-queue.md "lorawan-downlink-queue.md")
+- [Managing LoRaWAN traffic from public networks (Everynet)](iot-lorawan-roaming.md "iot-lorawan-roaming.md")

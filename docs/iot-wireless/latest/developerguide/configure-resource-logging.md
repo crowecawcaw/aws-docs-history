@@ -1,10 +1,7 @@
-# Configure resource logging for
-
-AWS IoT Wireless resources
+# Configure resource logging for AWS IoT Wireless resources
 
 By default, if you create the IAM role, `IoTWirelessLogsRole`, as
-described in [Create logging role and policy for
-AWS IoT Wireless monitoring](create-logging-role-policy.md "create-logging-role-policy.md"), you'll see CloudWatch logs in the
+described in [Create logging role and policy for AWS IoT Wireless monitoring](create-logging-role-policy.md "create-logging-role-policy.md"), you'll see CloudWatch logs in the
 AWS Management Console that have a default log level of `ERROR`. To change the
 default log level for all your resources or for specific resources, you
 can configure the logging settings.
@@ -15,14 +12,11 @@ logging API and how to use them to configure logging for your wireless resources
 
 ###### Topics
 
-- [Configure log levels of
-  resources (console)](#configure-logging-console "#configure-logging-console")
+- [Configure log levels of resources (console)](#configure-logging-console "#configure-logging-console")
 - [Configure log levels of resources (CLI)](#configure-logging-api "#configure-logging-api")
 - [Next Steps](#configure-logging-next-steps "#configure-logging-next-steps")
 
-## Configure log levels of
-
-resources (console)
+## Configure log levels of resources (console)
 
 To configure logging for AWS IoT Wireless resources from the console, first
 go to the [AWS IoT Core for LoRaWAN hub](https://console.aws.amazon.com/iot/home#/wireless/landing "https://console.aws.amazon.com/iot/home#/wireless/landing")
@@ -53,19 +47,14 @@ This section describes how to configure log levels for AWS IoT Wireless
 resources by using the API or AWS CLI. To use the AWS CLI, you must create the
 following IAM policy to perform the logging API operations. You also need
 the Amazon Resource Name (ARN) of the role that you want to use. If you
-need to create a role to use for logging, see [Create logging role and policy for
-AWS IoT Wireless monitoring](create-logging-role-policy.md "create-logging-role-policy.md").
+need to create a role to use for logging, see [Create logging role and policy for AWS IoT Wireless monitoring](create-logging-role-policy.md "create-logging-role-policy.md").
 
 ###### Topics
 
-- [Sample IAM policy for
-  AWS IoT Wireless logging API actions](#logging-api-roles "#logging-api-roles")
-- [How to configure logging using
-  the AWS CLI](#configure-logging-api-how "#configure-logging-api-how")
+- [Sample IAM policy for AWS IoT Wireless logging API actions](#logging-api-roles "#logging-api-roles")
+- [How to configure logging using the AWS CLI](#configure-logging-api-how "#configure-logging-api-how")
 
-### Sample IAM policy for
-
-AWS IoT Wireless logging API actions
+### Sample IAM policy for AWS IoT Wireless logging API actions
 
 Before you use the CLI, you must create the IAM policy for the API operations
 for which you want to run the CLI commands.
@@ -92,12 +81,9 @@ entries.
 If you want more information in the log entries, you can configure the default
 log level for your resources or for different event types, such as setting the
 log level to `INFO`. For information about configuring logging for
-your resources, see [Configure resource logging for
-AWS IoT Wireless resources](configure-resource-logging.md "configure-resource-logging.md").
+your resources, see [Configure resource logging for AWS IoT Wireless resources](configure-resource-logging.md "configure-resource-logging.md").
 
-### How to configure logging using
-
-the AWS CLI
+### How to configure logging using the AWS CLI
 
 The API actions can be categorized into the following types depending on
 whether you want to configure log levels for all resources or for specific

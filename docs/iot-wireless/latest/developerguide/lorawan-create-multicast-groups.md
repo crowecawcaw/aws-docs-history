@@ -1,6 +1,4 @@
-# Create multicast groups and add
-
-devices to the group
+# Create multicast groups and add devices to the group
 
 You can create multicast groups by using the console or the CLI. If you're
 creating your multicast group for the first time, we recommend that you use the
@@ -17,8 +15,7 @@ Before you can create multicast groups and add devices to the group:
 
 - Prepare your devices for multicast and FUOTA setup by specifying the
   FUOTA configuration parameters `GenAppKey` and
-  `FPorts`. For more information, see [Prepare devices for multicast and
-  FUOTA configuration](lorawan-prepare-devices-multicast.md "lorawan-prepare-devices-multicast.md").
+  `FPorts`. For more information, see [Prepare devices for multicast and FUOTA configuration](lorawan-prepare-devices-multicast.md "lorawan-prepare-devices-multicast.md").
 - Check whether the devices support class B or class C modes of
   operation. Depending on the device class that your device supports,
   choose a device profile that has one or both **Supports Class
@@ -29,9 +26,7 @@ At the start of the multicast session, a class B or class C
 distribution window is used to send downlink messages to the devices in
 your group.
 
-## Create multicast
-
-groups by using the console
+## Create multicast groups by using the console
 
 To create multicast groups by using the console, go to the [Multicast
 groups](https://console.aws.amazon.com/iot/home#/wireless/multicastGroups "https://console.aws.amazon.com/iot/home#/wireless/multicastGroups") page of the AWS IoT console and choose **Create
@@ -79,8 +74,7 @@ group. To add devices:
      **RFRegion** for your multicast group
      must match the **RFRegion** of devices that
      you add to the multicast group. For more information about
-     the **RFRegion**, see [Consider selection of LoRa frequency
-     bands for your gateways and device connection](lorawan-rfregion-permissions.md#lorawan-frequency-bands "lorawan-rfregion-permissions.md#lorawan-frequency-bands").
+     the **RFRegion**, see [Consider selection of LoRa frequency bands for your gateways and device connection](lorawan-rfregion-permissions.md#lorawan-frequency-bands "lorawan-rfregion-permissions.md#lorawan-frequency-bands").
     2. ###### Select a multicast device class
 
 
@@ -111,8 +105,7 @@ group. To add devices:
 
     Optionally, you can choose the gateways that you want to
      use for receiving the downlink message and the transmission
-     interval between them. For more information, see [Choose participating gateways to
-     receive multicast downlink messages](lorawan-multicast-choose-gateways.md "lorawan-multicast-choose-gateways.md").
+     interval between them. For more information, see [Choose participating gateways to receive multicast downlink messages](lorawan-multicast-choose-gateways.md "lorawan-multicast-choose-gateways.md").
     5. To create your multicast group, choose
      **Create**.
 
@@ -121,17 +114,14 @@ group. To add devices:
      appear
      in the group. For information about the
      status of the multicast group and your devices and for
-     troubleshooting any issues, see [Monitor and troubleshoot your multicast
-     groups](lorawan-multicast-status.md "lorawan-multicast-status.md").
+     troubleshooting any issues, see [Monitor and troubleshoot your multicast groups](lorawan-multicast-status.md "lorawan-multicast-status.md").
 
 After creating a multicast group, you can choose **Action**
 to edit, delete, or add devices to the multicast group. After you've added the
 devices, you can schedule a session for the downlink payload to be sent to the
 devices in your group.
 
-## Create multicast groups by
-
-using the API
+## Create multicast groups by using the API
 
 To create multicast groups and add devices to the group by using the
 API:
@@ -148,8 +138,7 @@ command. You can provide an `input.json` file as input to the
 When creating a multicast group, you can optionally specify the
 gateways that you want to use for receiving the multicast downlink
 message using the `ParticipatingGateways` parameter. For
-more information, see [Choose participating gateways to
-receive multicast downlink messages](lorawan-multicast-choose-gateways.md "lorawan-multicast-choose-gateways.md").
+more information, see [Choose participating gateways to receive multicast downlink messages](lorawan-multicast-choose-gateways.md "lorawan-multicast-choose-gateways.md").
 
 ```
 aws iotwireless create-multicast-group \
@@ -276,16 +265,13 @@ If your devices have been added successfully to the group, you can configure and
 schedule a downlink message to be sent to the devices. Before you can send a
 downlink message, your devices' status must be **Multicast setup
 ready**. After you schedule a downlink message, the status changes
-to **Session attempting**. For more information, see [Schedule a downlink message
-for your multicast group](lorawan-multicast-schedule-downlink.md "lorawan-multicast-schedule-downlink.md").
+to **Session attempting**. For more information, see [Schedule a downlink message for your multicast group](lorawan-multicast-schedule-downlink.md "lorawan-multicast-schedule-downlink.md").
 
 If you want to update the firmware of the devices in the multicast group, you
 can perform Firmware Updates Over-The-Air (FUOTA) with AWS IoT Core for LoRaWAN. For more
-information, see [Firmware update over-the-air (FUOTA) for
-AWS IoT Core for LoRaWAN](lorawan-mc-fuota-overview.md "lorawan-mc-fuota-overview.md").
+information, see [Firmware update over-the-air (FUOTA) for AWS IoT Core for LoRaWAN](lorawan-mc-fuota-overview.md "lorawan-mc-fuota-overview.md").
 
 If your devices weren't added or if you see an error in the multicast group or
 device statuses, you can hover over the error to get more information and
 resolve it. If you still see an error, for information about how to troubleshoot
-and resolve the issue, see [Monitor and troubleshoot your multicast
-groups](lorawan-multicast-status.md "lorawan-multicast-status.md").
+and resolve the issue, see [Monitor and troubleshoot your multicast groups](lorawan-multicast-status.md "lorawan-multicast-status.md").

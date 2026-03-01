@@ -1,6 +1,4 @@
-# Monitor and troubleshoot your FUOTA task and
-
-devices
+# Monitor and troubleshoot your FUOTA task and devices
 
 After you have provisioned the wireless devices and created any multicast groups
 that you might want to use, you can start a FUOTA session by performing the
@@ -74,9 +72,7 @@ be **Delete waiting** until the FUOTA task has been
 deleted. After your FUOTA task enters this state, it can't
 transition to one of the other states.
 
-## Status of devices in a FUOTA
-
-task
+## Status of devices in a FUOTA task
 
 The devices in your FUOTA task can have one of the following status messages
 displayed in the AWS Management Console. You can hover over each status message to get more

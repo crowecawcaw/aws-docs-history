@@ -12,8 +12,7 @@ The following topics will help you get started with AWS IoT Core for Amazon Side
 ###### Topics
 
 - [Try the sensor monitoring tutorial](#sidewalk-gs-tutorial "#sidewalk-gs-tutorial")
-- [Introduction to onboarding your Sidewalk
-  devices](#sidewalk-gs-workflow "#sidewalk-gs-workflow")
+- [Introduction to onboarding your Sidewalk devices](#sidewalk-gs-workflow "#sidewalk-gs-workflow")
 
 ## Try the sensor monitoring tutorial
 
@@ -31,9 +30,7 @@ this tutorial, see the [README document](https://github.com/aws-samples/amazon-s
 
 ![Application to monitor sensor temperature using AWS IoT Core for Amazon Sidewalk.](images/sidewalk-sensor-monitoring.png)
 
-## Introduction to onboarding your Sidewalk
-
-devices
+## Introduction to onboarding your Sidewalk devices
 
 This section shows you how to onboard your Sidewalk end devices to
 AWS IoT Core for Amazon Sidewalk. To onboard your devices, first add your Sidewalk device, then
@@ -55,26 +52,19 @@ documentation_.
 
 ###### Topics
 
-- [Step 1: Create a destination for your
-  Sidewalk end device](#iot-sidewalk-qsg-step2 "#iot-sidewalk-qsg-step2")
-- [Step 2: Add your Sidewalk device to
-  AWS IoT Core for Amazon Sidewalk](#iot-sidewalk-qsg-step1 "#iot-sidewalk-qsg-step1")
-- [Step 3: Provision and register the end
-  device](#iot-sidewalk-qsg-step2 "#iot-sidewalk-qsg-step2")
-- [Step 4: Connect to Sidewalk end
-  device and exchange messages](#iot-sidewalk-qsg-step4 "#iot-sidewalk-qsg-step4")
+- [Step 1: Create a destination for your Sidewalk end device](#iot-sidewalk-qsg-step2 "#iot-sidewalk-qsg-step2")
+- [Step 2: Add your Sidewalk device to AWS IoT Core for Amazon Sidewalk](#iot-sidewalk-qsg-step1 "#iot-sidewalk-qsg-step1")
+- [Step 3: Provision and register the end device](#iot-sidewalk-qsg-step2 "#iot-sidewalk-qsg-step2")
+- [Step 4: Connect to Sidewalk end device and exchange messages](#iot-sidewalk-qsg-step4 "#iot-sidewalk-qsg-step4")
 
-### Step 1: Create a destination for your
-
-Sidewalk end device
+### Step 1: Create a destination for your Sidewalk end device
 
 Here's an overview of the steps that you'll perform to add your destination to
 AWS IoT Core for Amazon Sidewalk. Using the AWS Management Console, or the AWS IoT Wireless API operations, or
 the AWS CLI, you run the following steps to create a destination which can be an AWS IoT
 rule or an MQTT topic. You can then connect to the hardware platform, and view and
 exchange messages. For a sample IAM role and AWS IoT rule used for the AWS CLI
-examples in this section, see [Create an IAM role and IoT rule
-for your destination](sidewalk-destination-rule-role.md "sidewalk-destination-rule-role.md").
+examples in this section, see [Create an IAM role and IoT rule for your destination](sidewalk-destination-rule-role.md "sidewalk-destination-rule-role.md").
 
 Store the destination name you create in this step. You'll use this information
 when you create a wireless device.
@@ -129,9 +119,7 @@ replace the `expression-type` option with `MqttTopic`
 instead of `RuleName`. Replace
 `SidewalkRule` with the topic name.
 
-### Step 2: Add your Sidewalk device to
-
-AWS IoT Core for Amazon Sidewalk
+### Step 2: Add your Sidewalk device to AWS IoT Core for Amazon Sidewalk
 
 Here's an overview of the steps that you'll perform to add your Sidewalk
 end device to AWS IoT Core for Amazon Sidewalk. Store the information you obtain about the device
@@ -155,9 +143,7 @@ this example.
 aws iotwireless create-device-profile --name `sidewalk_profile` --sidewalk {}
 ```
 
-2. ###### Create your Sidewalk end device and optionally get the device
-
-   location
+2. ###### Create your Sidewalk end device and optionally get the device location
    1. ###### Create your Sidewalk end device
 
    Create your Sidewalk end device with AWS IoT Core for Amazon Sidewalk.
@@ -183,8 +169,7 @@ aws iotwireless create-device-profile --name `sidewalk_profile` --sidewalk {}
        --sidewalk DeviceProfileId=`"12345678-234a-45bc-67de-e8901234f0a1"`
    ```
 
-   2. ###### (Optional) Create your Sidewalk end device and get the
-      Sidewalk device location
+   2. ###### (Optional) Create your Sidewalk end device and get the Sidewalk device location
 
    If you want to enable location data when you create your
    Sidewalk end device with AWS IoT Core for Amazon Sidewalk, enable positioning.
@@ -232,9 +217,7 @@ aws iotwireless create-device-profile --name `sidewalk_profile` --sidewalk {}
    re-identify, reverse engineer, or re-map any Gateway location data provided
    by us to you.
 
-3. ###### (Optional)
-   Update your existing Sidewalk end device
-   and get the device's location data
+3. ###### (Optional) Update your existing Sidewalk end device and get the device's location data
 
 If you've already provisioned a Sidewalk end device in
 AWS IoT Wireless, you can update the device to get the device
@@ -281,9 +264,7 @@ manufacturing serial number (SMSN).
         --identifier `"23456789-abcd-0123-bcde-fabc012345678"` > `wireless_device.json`
     ```
 
-### Step 3: Provision and register the end
-
-device
+### Step 3: Provision and register the end device
 
 Using Python commands, you can provision and register your end device. The
 provisioning script uses the device JSON data that you obtained to generate a
@@ -297,9 +278,7 @@ When registering your Sidewalk end device, your gateway must be opted
 in to Amazon Sidewalk, and your gateway and device must be in range of each
 other.
 
-### Step 4: Connect to Sidewalk end
-
-device and exchange messages
+### Step 4: Connect to Sidewalk end device and exchange messages
 
 After you've registered your end device, you can then connect your end device and
 start exchanging messages and device data.

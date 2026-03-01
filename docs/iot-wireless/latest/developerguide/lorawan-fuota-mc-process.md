@@ -43,8 +43,7 @@ individual or multiple devices.
 
     * To send your firmware updates to multiple devices, create a
      multicast group, and configure the multicast group with end devices.
-     For more information, see [Create multicast groups to send a downlink
-     payload to multiple devices](lorawan-multicast-groups.md "lorawan-multicast-groups.md").
+     For more information, see [Create multicast groups to send a downlink payload to multiple devices](lorawan-multicast-groups.md "lorawan-multicast-groups.md").
     * To send firmware updates to individual devices, add those devices
      to your FUOTA session and then perform the firmware update.
 
@@ -58,8 +57,7 @@ the session.
 
 Class B or class C devices wake up at the specified distribution window
 and start receiving the downlink packets. Devices operating in class C mode
-can consume more power than class B devices. For more information, see [Device classes](lorawan-manage-end-devices.md#lorawan-device-classes "lorawan-manage-end-devices.md#lorawan-device-classes"). 4. ###### End devices report status to AWS IoT Core for LoRaWAN and update firmware
-image
+can consume more power than class B devices. For more information, see [Device classes](lorawan-manage-end-devices.md#lorawan-device-classes "lorawan-manage-end-devices.md#lorawan-device-classes"). 4. ###### End devices report status to AWS IoT Core for LoRaWAN and update firmware image
 
 After you set up a fragmentation session, your end devices and
 AWS IoT Core for LoRaWAN perform the following steps to update the firmware of your
@@ -97,5 +95,4 @@ devices.
     	 signature of the firmware image.
 
 Now that you've learned the FUOTA process, you can create your FUOTA task and add
-devices to the task for updating their firmware. For more information, see [Create FUOTA task and provide firmware
-image](lorawan-fuota-create-task.md "lorawan-fuota-create-task.md").
+devices to the task for updating their firmware. For more information, see [Create FUOTA task and provide firmware image](lorawan-fuota-create-task.md "lorawan-fuota-create-task.md").

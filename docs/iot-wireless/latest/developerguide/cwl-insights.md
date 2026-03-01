@@ -1,6 +1,4 @@
-# Use CloudWatch Insights to filter logs for
-
-AWS IoT Wireless
+# Use CloudWatch Insights to filter logs for AWS IoT Wireless
 
 While you can use CloudWatch Logs to create filter expressions, we recommend that you use
 CloudWatch insights to more effectively create and use filter expressions depending on
@@ -12,9 +10,7 @@ use to view log entries in the console. You can then use the examples of some fi
 expressions on this page as a reference to create your own filters for your
 AWS IoT Wireless resources.
 
-## Viewing AWS IoT logs in the CloudWatch Logs insights
-
-console
+## Viewing AWS IoT logs in the CloudWatch Logs insights console
 
 In the [CloudWatch console](https://console.aws.amazon.com/cloudwatch "https://console.aws.amazon.com/cloudwatch"), CloudWatch
 logs appear in a log group named **/aws/iotwireless**. For more
@@ -38,16 +34,12 @@ You can now start entering queries to filter the log groups. The following
 sections contain some useful queries that'll help you gain insights about your
 resource metrics.
 
-## Create useful queries to filter and
-
-gain insights for AWS IoT Wireless
+## Create useful queries to filter and gain insights for AWS IoT Wireless
 
 You can use filter expressions to show additional helpful log information with
 CloudWatch Insights. Following shows some sample queries:
 
-### Show only logs for specific
-
-resource types
+### Show only logs for specific resource types
 
 You can create a query that'll help you show logs for only specific
 resource types, such as a LoRaWAN gateway or a Sidewalk device. For example,
@@ -95,9 +87,7 @@ wirelessDeviceId    3b058d05-4e84-4e1a-b026-4932bddf978d
 wirelessDeviceType  Sidewalk
 ```
 
-### Show specific messages or
-
-events
+### Show specific messages or events
 
 You can create a query that'll help you show specific messages and observe
 when the events occurred. For example, if you want to see when your downlink

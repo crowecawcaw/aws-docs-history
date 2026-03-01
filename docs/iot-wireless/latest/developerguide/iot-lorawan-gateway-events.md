@@ -1,27 +1,19 @@
-# Enable notifications for LoRaWAN
-
-gateway connection status events
+# Enable notifications for LoRaWAN gateway connection status events
 
 AWS IoT Core for LoRaWAN can publish messages to notify you of connection status events for
 LoRaWAN gateways that you onboard to AWS IoT. Connection status events notify you when
 the connection status of a LoRaWAN gateway changes to connected or
 disconnected.
 
-## How connection status events
-
-work
+## How connection status events work
 
 After you've onboarded your gateway to AWS IoT Core for LoRaWAN, you can connect your
 gateway to AWS IoT Core for LoRaWAN and verify its connection status. This event notifies
 you when your gateway connection status changes to connected or disconnected.
 For more information about onboarding and connecting your gateway to
-AWS IoT Core for LoRaWAN, see [Onboard your gateways to
-AWS IoT Core for LoRaWAN](lorawan-onboard-gateways.md "lorawan-onboard-gateways.md") and [Connect your LoRaWAN gateway and
-verify its connection status](lorawan-gateway-connection-status.md "lorawan-gateway-connection-status.md").
+AWS IoT Core for LoRaWAN, see [Onboard your gateways to AWS IoT Core for LoRaWAN](lorawan-onboard-gateways.md "lorawan-onboard-gateways.md") and [Connect your LoRaWAN gateway and verify its connection status](lorawan-gateway-connection-status.md "lorawan-gateway-connection-status.md").
 
-## Format of MQTT topics for
-
-LoRaWAN gateways
+## Format of MQTT topics for LoRaWAN gateways
 
 Reserved MQTT topics for LoRaWAN gateways use the following format. If you've
 subscribed to these topics, then all LoRaWAN gateways that are registered to
@@ -72,9 +64,7 @@ For more information about using the `+` wildcard when subscribing
 to topics, see [MQTT topic filters](../../../iot/latest/developerguide/topicfilters.md "../../../iot/latest/developerguide/topicfilters.md")
 in the _AWS IoT developer guide_.
 
-## Message payload for connection
-
-status events
+## Message payload for connection status events
 
 The following shows the message payload for the connection status
 event.

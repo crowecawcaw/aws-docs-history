@@ -4,18 +4,14 @@ You can add your gateway to AWS IoT Core for LoRaWAN by using the console or the
 
 Before adding your gateway, we recommend that you consider the factors mentioned
 in the **Before onboarding your gateway** section of
-[Onboard your gateways to
-AWS IoT Core for LoRaWAN](lorawan-onboard-gateways.md "lorawan-onboard-gateways.md").
+[Onboard your gateways to AWS IoT Core for LoRaWAN](lorawan-onboard-gateways.md "lorawan-onboard-gateways.md").
 
 If you're adding your gateway for the first time, we recommend that you use the
 console. If you want to add your gateway by using the CLI instead, you must have
 already created the necessary IAM role so that the gateway can connect with
-AWS IoT Core for LoRaWAN. For information about how to create the role, see [Add an IAM role to allow the
-Configuration and Update Server (CUPS) to manage gateway credentials](lorawan-rfregion-permissions.md#lorawan-onboard-permissions "lorawan-rfregion-permissions.md#lorawan-onboard-permissions").
+AWS IoT Core for LoRaWAN. For information about how to create the role, see [Add an IAM role to allow the Configuration and Update Server (CUPS) to manage gateway credentials](lorawan-rfregion-permissions.md#lorawan-onboard-permissions "lorawan-rfregion-permissions.md#lorawan-onboard-permissions").
 
-## Add a gateway using the
-
-console
+## Add a gateway using the console
 
 Navigate to the [AWS IoT Core for LoRaWAN](https://console.aws.amazon.com/iot/home#/wireless/landing "https://console.aws.amazon.com/iot/home#/wireless/landing")
 **Intro** page of the AWS IoT console and choose **Get
@@ -56,11 +52,9 @@ Gateway's EUI and the frequency band configuration.
      `AU915`, or `AS923-1`, depending
      on what your gateway supports and which country or region
      the gateway is physically connecting from. For more
-     information about the bands, see [Consider selection of LoRa frequency
-     bands for your gateways and device connection](lorawan-rfregion-permissions.md#lorawan-frequency-bands "lorawan-rfregion-permissions.md#lorawan-frequency-bands").
+     information about the bands, see [Consider selection of LoRa frequency bands for your gateways and device connection](lorawan-rfregion-permissions.md#lorawan-frequency-bands "lorawan-rfregion-permissions.md#lorawan-frequency-bands").
 
-2. ###### Specify your wireless gateway configuration data
-   (optional)
+2. ###### Specify your wireless gateway configuration data (optional)
 
 These fields are optional and you can use them to provide
 additional information about the gateway and it's
@@ -76,16 +70,14 @@ configuration.
      provide information about the gateway, and use
      **Tags** to add key-value pairs of
      metadata about the gateway. For more information on naming
-     and describing your resources, see [Describing your AWS IoT Wireless
-     resources](getting-started.md#iotwireless-describe-resources "getting-started.md#iotwireless-describe-resources").
+     and describing your resources, see [Describing your AWS IoT Wireless resources](getting-started.md#iotwireless-describe-resources "getting-started.md#iotwireless-describe-resources").
     * ###### LoRaWAN configuration using subbands and filters
 
 
     Optionally, you can also specify LoRaWAN configuration
      data such as the subbands that you want to use and filters
      that can control the flow of traffic. For this tutorial, you
-     can skip these fields. For more information, see [Configure subbands and filtering
-     capabilities of your LoRaWAN gateways](lorawan-subband-filter-configuration.md "lorawan-subband-filter-configuration.md").
+     can skip these fields. For more information, see [Configure subbands and filtering capabilities of your LoRaWAN gateways](lorawan-subband-filter-configuration.md "lorawan-subband-filter-configuration.md").
 
 3. ###### Associate an AWS IoT thing with the gateway
 
@@ -136,17 +128,14 @@ list.
 Click **Submit** to complete the gateway
 creation.
 
-## Add a gateway by using the
-
-API
+## Add a gateway by using the API
 
 ###### Note
 
 If you're adding a gateway for the first time by using the API or CLI, you
 must add the **IoTWirelessGatewayCertManager** IAM role
 so that the gateway can connect with AWS IoT Core for LoRaWAN. For information about
-how to create the role, see the following section [Add an IAM role to allow the
-Configuration and Update Server (CUPS) to manage gateway credentials](lorawan-rfregion-permissions.md#lorawan-onboard-permissions "lorawan-rfregion-permissions.md#lorawan-onboard-permissions").
+how to create the role, see the following section [Add an IAM role to allow the Configuration and Update Server (CUPS) to manage gateway credentials](lorawan-rfregion-permissions.md#lorawan-onboard-permissions "lorawan-rfregion-permissions.md#lorawan-onboard-permissions").
 
 The following sections show how to add a gateway using the AWS IoT Wireless
 API operations or the AWS CLI. You first add your gateway and then associate a
@@ -156,8 +145,7 @@ such as to update an existing gateway.
 ###### Topics
 
 - [How to add your gateway](#lorawan-gateway-api-add "#lorawan-gateway-api-add")
-- [Associate a certificate with your
-  gateway](#lorawan-gateway-cert "#lorawan-gateway-cert")
+- [Associate a certificate with your gateway](#lorawan-gateway-cert "#lorawan-gateway-cert")
 - [Additional API operations](#lorawan-gateway-api-list "#lorawan-gateway-api-list")
 
 ### How to add your gateway
@@ -171,8 +159,7 @@ If your gateway is communicating with class B LoRaWAN devices, you can
 also specify certain beaconing parameters when adding the gateway using
 the `CreateWirelessGateway` API or the
 `create-wireless-gateway` CLI command. For more
-information, see [Configure beaconing for your
-LoRaWAN gateways](lorawan-gateway-beaconing.md "lorawan-gateway-beaconing.md").
+information, see [Configure beaconing for your LoRaWAN gateways](lorawan-gateway-beaconing.md "lorawan-gateway-beaconing.md").
 
 The following example creates a wireless LoRaWAN device gateway. You can
 also provide an `input.json` file that will contain additional
@@ -191,9 +178,7 @@ aws iotwireless create-wireless-gateway \
     --cli-input-json `file://input.json`
 ```
 
-### Associate a certificate with your
-
-gateway
+### Associate a certificate with your gateway
 
 After you add your gateway to AWS IoT Wireless, it must be associated
 with a certificate to connect to the CUPS endpoint. To connect to the
@@ -213,16 +198,11 @@ it with your gateway.
 
 ###### Topics
 
-- [Step 1: Generating a
-  gateway certificate](#lorawan-gateway-cert-generate "#lorawan-gateway-cert-generate")
-- [Step 2: Obtaining server
-  trust certificate and CUPS endpoint](#lorawan-gateway-cert-obtain "#lorawan-gateway-cert-obtain")
-- [Step 3: Associate the
-  certificate with your gateway](#lorawan-gateway-cert-associate "#lorawan-gateway-cert-associate")
+- [Step 1: Generating a gateway certificate](#lorawan-gateway-cert-generate "#lorawan-gateway-cert-generate")
+- [Step 2: Obtaining server trust certificate and CUPS endpoint](#lorawan-gateway-cert-obtain "#lorawan-gateway-cert-obtain")
+- [Step 3: Associate the certificate with your gateway](#lorawan-gateway-cert-associate "#lorawan-gateway-cert-associate")
 
-#### Step 1: Generating a
-
-gateway certificate
+#### Step 1: Generating a gateway certificate
 
 To generate a certificate for your gateway, use the AWS IoT API Reference
 API action, [`CreateKeysAndCertificate`](../../../iot/latest/apireference/API_CreateKeysAndCertificate.md "../../../iot/latest/apireference/API_CreateKeysAndCertificate.md"), or the AWS CLI
@@ -264,9 +244,7 @@ you misplace the private key, rerun the
 `create-keys-and-certificate` command to generate
 another certificate.
 
-#### Step 2: Obtaining server
-
-trust certificate and CUPS endpoint
+#### Step 2: Obtaining server trust certificate and CUPS endpoint
 
 Now that you've generated the certificate and private key, use the
 [GetServiceEndpoint](../apireference/API_GetServiceEndpoint.md "../apireference/API_GetServiceEndpoint.md") API action or the [`get-service-endpoint`](../../../cli/latest/reference/iotwireless/get-service-endpoint.md "../../../cli/latest/reference/iotwireless/get-service-endpoint.md") CLI command to obtain
@@ -300,9 +278,7 @@ Store the `ServerTrust` certificate in a
 `.pem` file with the `\n` replaced by new
 lines.
 
-#### Step 3: Associate the
-
-certificate with your gateway
+#### Step 3: Associate the certificate with your gateway
 
 You must associate the gateway's certificate that you generated with
 the gateway that you added. AWS IoT Core for LoRaWAN will use this information to

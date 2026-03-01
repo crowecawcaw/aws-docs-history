@@ -1,6 +1,4 @@
-# Add devices and multicast groups and
-
-schedule FUOTA session
+# Add devices and multicast groups and schedule FUOTA session
 
 After you've created a FUOTA task, you can add devices to your task for which you
 want to update the firmware. After your devices have been added successfully to the
@@ -11,8 +9,7 @@ FUOTA task, you can schedule a FUOTA session to update the device firmware.
 - If you have a large number of devices that you want to update firmware
   for, you can add these devices to your multicast groups, and then add the
   multicast groups to your FUOTA task. For information about creating and
-  using multicast groups, see [Create multicast groups to send a downlink
-  payload to multiple devices](lorawan-multicast-groups.md "lorawan-multicast-groups.md").
+  using multicast groups, see [Create multicast groups to send a downlink payload to multiple devices](lorawan-multicast-groups.md "lorawan-multicast-groups.md").
 
 ###### Note
 
@@ -35,9 +32,7 @@ frequency and the `PingSlotPeriod` for Class B devices. First, you
 must run the [`StartMulticastGroupSession`](../apireference/API_StartMulticastGroupSession.md "../apireference/API_StartMulticastGroupSession.md") API command with the
 desired values for these parameters. Then, when you run the
 `StartFuotaTask` API, it will use the appropriate values once the
-multicast session has started. For more information, see [(Optional)
-Configure downlink frequency of multicast group before starting FUOTA
-session](#lorawan-fuota-devices-api-downlinkfreq "#lorawan-fuota-devices-api-downlinkfreq").
+multicast session has started. For more information, see [(Optional) Configure downlink frequency of multicast group before starting FUOTA session](#lorawan-fuota-devices-api-downlinkfreq "#lorawan-fuota-devices-api-downlinkfreq").
 
 ## Prerequisites
 
@@ -45,24 +40,18 @@ Before you can add devices or multicast groups to your FUOTA task, do the
 following.
 
 - You must have already created the FUOTA task and provided your
-  firmware image. For more information, see [Create FUOTA task and provide firmware
-  image](lorawan-fuota-create-task.md "lorawan-fuota-create-task.md").
+  firmware image. For more information, see [Create FUOTA task and provide firmware image](lorawan-fuota-create-task.md "lorawan-fuota-create-task.md").
 - Provision the wireless devices that you want to update the device
   firmware for. For more information about onboarding your device, see
-  [Onboard your devices to
-  AWS IoT Core for LoRaWAN](lorawan-onboard-end-devices.md "lorawan-onboard-end-devices.md").
+  [Onboard your devices to AWS IoT Core for LoRaWAN](lorawan-onboard-end-devices.md "lorawan-onboard-end-devices.md").
 - To update the firmware of multiple devices, you can add them to a
-  multicast group. For more information, see [Create multicast groups to send a downlink
-  payload to multiple devices](lorawan-multicast-groups.md "lorawan-multicast-groups.md").
+  multicast group. For more information, see [Create multicast groups to send a downlink payload to multiple devices](lorawan-multicast-groups.md "lorawan-multicast-groups.md").
 - When you onboard the devices to AWS IoT Core for LoRaWAN, specify the FUOTA
   configuration parameter `FPorts`. If you're using a LoRaWAN
   v1.0.x device, you must also specify the `GenAppKey`. For
-  more information about the FUOTA configuration parameters, see [Prepare devices for multicast and
-  FUOTA configuration](lorawan-prepare-devices-multicast.md "lorawan-prepare-devices-multicast.md").
+  more information about the FUOTA configuration parameters, see [Prepare devices for multicast and FUOTA configuration](lorawan-prepare-devices-multicast.md "lorawan-prepare-devices-multicast.md").
 
-## Add devices to a FUOTA task and
-
-schedule a FUOTA session by using the console
+## Add devices to a FUOTA task and schedule a FUOTA session by using the console
 
 To add devices or multicast groups and schedule a FUOTA session by using the
 console, go to the [FUOTA
@@ -110,9 +99,7 @@ following.
      time** for your FUOTA session. Make sure that the
      start time is 30 minutes or later from the current time.
 
-## Add devices to a FUOTA task and
-
-schedule a FUOTA session by using the API
+## Add devices to a FUOTA task and schedule a FUOTA session by using the API
 
 You can use the AWS IoT Wireless API or the CLI to add your wireless devices
 or multicast groups to your FUOTA task. You can then schedule a FUOTA
@@ -120,18 +107,11 @@ session.
 
 ###### Topics
 
-- [(Optional)
-  Configure downlink frequency of multicast group before starting FUOTA
-  session](#lorawan-fuota-devices-api-downlinkfreq "#lorawan-fuota-devices-api-downlinkfreq")
-- [Add devices and
-  multicast groups to FUOTA task](#lorawan-fuota-devices-api-adddevices "#lorawan-fuota-devices-api-adddevices")
-- [Schedule FUOTA
-  session](#lorawan-fuota-devices-api-schedule "#lorawan-fuota-devices-api-schedule")
+- [(Optional) Configure downlink frequency of multicast group before starting FUOTA session](#lorawan-fuota-devices-api-downlinkfreq "#lorawan-fuota-devices-api-downlinkfreq")
+- [Add devices and multicast groups to FUOTA task](#lorawan-fuota-devices-api-adddevices "#lorawan-fuota-devices-api-adddevices")
+- [Schedule FUOTA session](#lorawan-fuota-devices-api-schedule "#lorawan-fuota-devices-api-schedule")
 
-### (Optional)
-
-Configure downlink frequency of multicast group before starting FUOTA
-session
+### (Optional) Configure downlink frequency of multicast group before starting FUOTA session
 
 By default, when you start a FUOTA session, it will automatically start a
 multicast session. If you haven't already started a multicast session, the
@@ -143,8 +123,7 @@ parameter, you can start a multicast session by specifying the values that
 you want to use for these parameters. To start a multicast session, you can
 use the [`StartMulticastGroupSession`](../apireference/API_StartMulticastGroupSession.md "../apireference/API_StartMulticastGroupSession.md") API operation or
 the [`start-multicast-group-session`](../../../cli/latest/reference/iotwireless/start-multicast-group-session.md "../../../cli/latest/reference/iotwireless/start-multicast-group-session.md") CLI command. For
-information about using this API, see [Schedule a downlink message by
-using the API](lorawan-multicast-schedule-downlink.md#lorawan-multicast-downlink-api "lorawan-multicast-schedule-downlink.md#lorawan-multicast-downlink-api").
+information about using this API, see [Schedule a downlink message by using the API](lorawan-multicast-schedule-downlink.md#lorawan-multicast-downlink-api "lorawan-multicast-schedule-downlink.md#lorawan-multicast-downlink-api").
 
 After you have started the multicast session, when you start a FUOTA task,
 the task will automatically derive the downlink frequency and the
@@ -162,12 +141,9 @@ using the API. In addition:
   the FUOTA task, the session timeout will be automatically
   updated.
 
-For information about starting a FUOTA task, see [Schedule FUOTA
-session](#lorawan-fuota-devices-api-schedule "#lorawan-fuota-devices-api-schedule").
+For information about starting a FUOTA task, see [Schedule FUOTA session](#lorawan-fuota-devices-api-schedule "#lorawan-fuota-devices-api-schedule").
 
-### Add devices and
-
-multicast groups to FUOTA task
+### Add devices and multicast groups to FUOTA task
 
 You can associate either wireless devices or multicast groups with your
 FUOTA task.
@@ -221,9 +197,7 @@ The API:
      FUOTA task when `FuotaTaskID` is used as the
      filter.
 
-### Schedule FUOTA
-
-session
+### Schedule FUOTA session
 
 After your devices or multicast groups have been successfully added to the
 FUOTA task, you can start a FUOTA session to update the device firmware. The

@@ -1,6 +1,4 @@
-# Firmware update over-the-air (FUOTA) for
-
-AWS IoT Core for LoRaWAN
+# Firmware update over-the-air (FUOTA) for AWS IoT Core for LoRaWAN
 
 Use Firmware Updates Over-The-Air (FUOTA) to deploy firmware updates to AWS IoT Core for LoRaWAN
 devices.
@@ -41,9 +39,6 @@ you through the process of adding devices to the task and schedule a FUOTA task.
 ###### The following topics show how to perform FUOTA.
 
 - [FUOTA process overview](lorawan-fuota-mc-process.md "lorawan-fuota-mc-process.md")
-- [Create FUOTA task and provide firmware
-  image](lorawan-fuota-create-task.md "lorawan-fuota-create-task.md")
-- [Add devices and multicast groups and
-  schedule FUOTA session](lorawan-fuota-add-devices.md "lorawan-fuota-add-devices.md")
-- [Monitor and troubleshoot your FUOTA task and
-  devices](lorawan-fuota-status.md "lorawan-fuota-status.md")
+- [Create FUOTA task and provide firmware image](lorawan-fuota-create-task.md "lorawan-fuota-create-task.md")
+- [Add devices and multicast groups and schedule FUOTA session](lorawan-fuota-add-devices.md "lorawan-fuota-add-devices.md")
+- [Monitor and troubleshoot your FUOTA task and devices](lorawan-fuota-status.md "lorawan-fuota-status.md")

@@ -1,14 +1,11 @@
-# Use VPN to connect LoRa gateways to
-
-your AWS account
+# Use VPN to connect LoRa gateways to your AWS account
 
 To connect your gateways on premises to your AWS account, you can use either a
 Site-to-Site VPN connection or a Client VPN endpoint.
 
 Before you can connect your on premises gateways, you must have created the VPC
 endpoint, and configured a private hosted zone and inbound resolver so that traffic
-from the gateways don't go over the public internet. For more information, see [Create VPC interface endpoint and private
-hosted zone](create-vpc-lns-cups.md "create-vpc-lns-cups.md").
+from the gateways don't go over the public internet. For more information, see [Create VPC interface endpoint and private hosted zone](create-vpc-lns-cups.md "create-vpc-lns-cups.md").
 
 ## Site-to-Site VPN endpoint
 
@@ -44,8 +41,7 @@ up two tunnels bettween the sites. 2. After you set up the VPN connection, updat
 `/etc/resolv.conf` file by adding the inbound resolver's
 IP address from your AWS account. You use this IP address for the
 nameserver. For information about how to obtain this IP address, see
-[Configure Route 53 inbound
-resolver](create-vpc-lns-cups.md#configure-route53-resolver "create-vpc-lns-cups.md#configure-route53-resolver"). For this example, we
+[Configure Route 53 inbound resolver](create-vpc-lns-cups.md#configure-route53-resolver "create-vpc-lns-cups.md#configure-route53-resolver"). For this example, we
 can use the IP address `10.100.0.145` that was assigned when
 you created the Route 53 Resolver.
 
@@ -100,13 +96,11 @@ To establish a VPN connection to a Client VPN endpoint:
    and find the root name and password.
 3. Set up your LoRaWAN gateway by following the instructions in the
    gateway's documentation and then add your gateway to AWS IoT Core for LoRaWAN. For
-   information about how to add your gateway, see [Onboard your gateways to
-   AWS IoT Core for LoRaWAN](lorawan-onboard-gateways.md "lorawan-onboard-gateways.md").
+   information about how to add your gateway, see [Onboard your gateways to AWS IoT Core for LoRaWAN](lorawan-onboard-gateways.md "lorawan-onboard-gateways.md").
 4. Check whether your gateway's firmware is up to date. If the firmware
    is out of date, you can follow the instructions provided in the
    on-premises network to update your gateway's firmware. For more
-   information, see [Update gateway firmware using CUPS service
-   with AWS IoT Core for LoRaWAN](lorawan-update-firmware.md "lorawan-update-firmware.md").
+   information, see [Update gateway firmware using CUPS service with AWS IoT Core for LoRaWAN](lorawan-update-firmware.md "lorawan-update-firmware.md").
 5. Check whether OpenVPN has been enabled. If it has been enabled, skip
    to the next step to configure the OpenVPN client inside the on-premises
    network. If it hasn't been enabled, follow the instructions in [Guide to install

@@ -1,6 +1,4 @@
-# Monitoring of LoRaWAN resources using network
-
-analyzer
+# Monitoring of LoRaWAN resources using network analyzer
 
 Network analyzer uses a default WebSocket connection to receive real-time trace message
 logs for your wireless connectivity resources. By using network analyzer, you can add the
@@ -11,8 +9,7 @@ To monitor your resources, you can also use Amazon CloudWatch. To use CloudWatch
 role to configure logging and then wait for the log entries to be displayed in the console.
 Network analyzer significantly reduces the time that it takes to set up a connection and
 start receiving trace messages, providing you with just-in-time log information for your
-fleet of resources. For information about monitoring by using CloudWatch, see [Monitoring your AWS IoT Wireless resources using
-Amazon CloudWatch Logs](monitoring-cloudwatch.md "monitoring-cloudwatch.md").
+fleet of resources. For information about monitoring by using CloudWatch, see [Monitoring your AWS IoT Wireless resources using Amazon CloudWatch Logs](monitoring-cloudwatch.md "monitoring-cloudwatch.md").
 
 By reducing your setup time and using the information from the trace messages, you can
 monitor your resources more effectively, get meaningful insights, and troubleshoot errors.
@@ -49,13 +46,8 @@ your trace messaging session.
 
 ###### Topics
 
-- [Add necessary IAM role for network
-  analyzer](network-analyzer-iam.md "network-analyzer-iam.md")
-- [Create network analyzer
-  configuration and add resources](network-analyzer-create-resources.md "network-analyzer-create-resources.md")
-- [Stream network analyzer trace messages with
-  WebSockets](network-analyzer-api.md "network-analyzer-api.md")
-- [View and monitor trace message
-  logs in real time](network-analyzer-logs.md "network-analyzer-logs.md")
-- [Debug and troubleshoot your multicast
-  groups and FUOTA tasks using network analyzer](lorawan-network-analyzer-fuota.md "lorawan-network-analyzer-fuota.md")
+- [Add necessary IAM role for network analyzer](network-analyzer-iam.md "network-analyzer-iam.md")
+- [Create network analyzer configuration and add resources](network-analyzer-create-resources.md "network-analyzer-create-resources.md")
+- [Stream network analyzer trace messages with WebSockets](network-analyzer-api.md "network-analyzer-api.md")
+- [View and monitor trace message logs in real time](network-analyzer-logs.md "network-analyzer-logs.md")
+- [Debug and troubleshoot your multicast groups and FUOTA tasks using network analyzer](lorawan-network-analyzer-fuota.md "lorawan-network-analyzer-fuota.md")

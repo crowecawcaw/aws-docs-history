@@ -8,9 +8,7 @@ between LoRaWAN devices, gateways, and AWS IoT Core for LoRaWAN:
 - The security that AWS IoT Core uses to connect gateways to AWS IoT Core for LoRaWAN and
   send the data to other AWS services. For more information, see [data protection in AWS IoT Core](../../../iot/latest/developerguide/data-protection.md "../../../iot/latest/developerguide/data-protection.md").
 
-## How data is secured
-
-throughout the system
+## How data is secured throughout the system
 
 This diagram identifies the key elements in a LoRaWAN system connected to
 AWS IoT Core for LoRaWAN to identify how data is secured throughout.
@@ -28,9 +26,7 @@ AWS IoT Core for LoRaWAN to identify how data is secured throughout.
 4. The AWS IoT rule directs the message data to the services described in the
    rule's configuration. Data within AWS is encrypted using AWS-owned keys.
 
-## LoRaWAN device and gateway
-
-transport security
+## LoRaWAN device and gateway transport security
 
 LoRaWAN devices and AWS IoT Core for LoRaWAN store pre-shared root keys. Session keys are
 derived by both LoRaWAN devices and AWS IoT Core for LoRaWAN following the protocols. The

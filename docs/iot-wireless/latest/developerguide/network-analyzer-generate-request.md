@@ -1,13 +1,9 @@
-# Generate a presigned request
-
-with the WebSocket library
+# Generate a presigned request with the WebSocket library
 
 The following shows how you to generate a presigned request so that you can use
 the WebSocket library to send requests to the service,.
 
-## Add a policy for WebSocket requests to
-
-your IAM role
+## Add a policy for WebSocket requests to your IAM role
 
 To use the WebSocket protocol to call network analyzer, attach the following
 policy to the AWS Identity and Access Management (IAM) role that makes this request.
@@ -79,9 +75,7 @@ Use the following values for the Signature Version 4 parameters:
   headers that are signed when creating the signature for the request. The
   only valid value is `host`.
 
-## Construct the request URL
-
-and create Signature Version 4 signature
+## Construct the request URL and create Signature Version 4 signature
 
 To construct the URL for the request and create the Signature Version 4
 signature, use the following steps.
@@ -89,13 +83,11 @@ signature, use the following steps.
 ###### Note
 
 The examples in this section are in pseudocode. For a sample Python code
-that shows how to create the signature, see [Sample Python code to generate
-presigned URL](network-analyzer-request-sample.md "network-analyzer-request-sample.md").
+that shows how to create the signature, see [Sample Python code to generate presigned URL](network-analyzer-request-sample.md "network-analyzer-request-sample.md").
 
 Create a string that includes information from your request in a
 standardized format. This ensures that when AWS receives the request,
-it can calculate the same signature that you calculate in [Task 3: Calculate the
-signature](#calculate-signature "#calculate-signature").
+it can calculate the same signature that you calculate in [Task 3: Calculate the signature](#calculate-signature "#calculate-signature").
 For more information, see [Create a Signed AWS API request](../../../IAM/latest/UserGuide/reference_sigv-create-signed-request.md "../../../IAM/latest/UserGuide/reference_sigv-create-signed-request.md") in the _AWS
 AWS Identity and Access Management User Guide_.
 
@@ -255,7 +247,5 @@ request_url = endpoint + canonical_uri + "?" + canonical_querystring
 ## Next steps
 
 You can now use the request URL with your WebSocket library to make the
-request to the service and observe the messages. For more information, see [WebSocket messages and status
-codes](network-analyzer-messages-status.md "network-analyzer-messages-status.md"). For a sample Python code
-that shows how to generate a presigned request, see [Sample Python code to generate
-presigned URL](network-analyzer-request-sample.md "network-analyzer-request-sample.md").
+request to the service and observe the messages. For more information, see [WebSocket messages and status codes](network-analyzer-messages-status.md "network-analyzer-messages-status.md"). For a sample Python code
+that shows how to generate a presigned request, see [Sample Python code to generate presigned URL](network-analyzer-request-sample.md "network-analyzer-request-sample.md").

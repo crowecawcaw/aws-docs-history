@@ -36,8 +36,7 @@ page.
 ## IPv6 support for PrivateLink endpoints
 
 AWS IoT Core for LoRaWAN supports IPv6 communication to interface VPC endpoints using
-AWS PrivateLink. For more information, see [AWS IoT Core for LoRaWAN and interface VPC endpoints
-(AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
+AWS PrivateLink. For more information, see [AWS IoT Core for LoRaWAN and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
 
 ## Testing IPv6 address compatibility
 

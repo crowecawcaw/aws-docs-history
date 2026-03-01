@@ -1,6 +1,4 @@
-# Choose participating gateways to
-
-receive multicast downlink messages
+# Choose participating gateways to receive multicast downlink messages
 
 A multicast group that consists of multiple devices can have the devices
 associated with multiple gateways. When a downlink message is sent to the multicast
@@ -19,8 +17,7 @@ CLI.
 
 This feature is different from the participating gateways feature that you can
 use for general downlink data traffic from AWS IoT Core for LoRaWAN to your device. For
-more information, see [Choosing gateways to receive the LoRaWAN
-downlink data traffic](lorawan-gateway-participate.md "lorawan-gateway-participate.md").
+more information, see [Choosing gateways to receive the LoRaWAN downlink data traffic](lorawan-gateway-participate.md "lorawan-gateway-participate.md").
 
 - ###### Gateway list
 
@@ -43,15 +40,12 @@ participating gateways when creating the group, make sure that the
 fragment interval is less than or equal to the transmission interval for
 the gateways.
 
-## Choose gateways for
-
-multicast downlink (console)
+## Choose gateways for multicast downlink (console)
 
 In the AWS IoT console, you can choose the gateways that you want to use for
 receiving the multicast downlink message when creating the multicast group and
 adding your devices to the groups. For information about creating a group, see
-[Create multicast groups and add
-devices to the group](lorawan-create-multicast-groups.md "lorawan-create-multicast-groups.md").
+[Create multicast groups and add devices to the group](lorawan-create-multicast-groups.md "lorawan-create-multicast-groups.md").
 
 1. Go to the [Multicast groups](https://console.aws.amazon.com/iot/home#/wireless/multicastGroups "https://console.aws.amazon.com/iot/home#/wireless/multicastGroups") page of the AWS IoT console and choose
    **Create multicast group**.
@@ -66,9 +60,7 @@ devices to the group](lorawan-create-multicast-groups.md "lorawan-create-multica
 6. Choose **Create** to create the multicast
    group.
 
-## Choose gateways for multicast
-
-downlink (CLI)
+## Choose gateways for multicast downlink (CLI)
 
 To specify the gateways for receiving the downlink messages, use the [`CreateMulticastGroup`](../apireference/API_CreateMulticastGroup.md "../apireference/API_CreateMulticastGroup.md") API operation or the [`create-multicast-group`](../../../cli/latest/reference/iotwireless/create-multicast-group.md "../../../cli/latest/reference/iotwireless/create-multicast-group.md") CLI
 command.
@@ -110,12 +102,10 @@ then be sent to the gateway with ID
 
 After you've chosen the gateways to use, you can add devices to the multicast
 group and proceed to schedule a multicast session. For more information, see
-[Schedule a downlink message
-for your multicast group](lorawan-multicast-schedule-downlink.md "lorawan-multicast-schedule-downlink.md").
+[Schedule a downlink message for your multicast group](lorawan-multicast-schedule-downlink.md "lorawan-multicast-schedule-downlink.md").
 
 If you want to update the firmware of the devices in the multicast group, you
 can perform Firmware Updates Over-The-Air (FUOTA) with AWS IoT Core for LoRaWAN. In this
 case, as the FUOTA uses this multicast group, the FUOTA message will be sent to
 the gateways in the list that you specified. For more information about FUOTA,
-see [Firmware update over-the-air (FUOTA) for
-AWS IoT Core for LoRaWAN](lorawan-mc-fuota-overview.md "lorawan-mc-fuota-overview.md").
+see [Firmware update over-the-air (FUOTA) for AWS IoT Core for LoRaWAN](lorawan-mc-fuota-overview.md "lorawan-mc-fuota-overview.md").

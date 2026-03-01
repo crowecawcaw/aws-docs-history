@@ -1,6 +1,4 @@
-# Create a network analyzer
-
-configuration
+# Create a network analyzer configuration
 
 Before you can monitor your wireless gateways or wireless devices, you must create
 a network analyzer configuration. When creating the configuration, you only need to
@@ -18,9 +16,7 @@ displays all information about a wireless device that you want to monitor.
 The following sections show the various configuration settings and how to create
 your configuration.
 
-## Configuration
-
-settings
+## Configuration settings
 
 When creating or updating your network analyzer configuration, you can also
 customize the following parameters to filter the log stream information.
@@ -62,9 +58,7 @@ logging.
      log stream, you can identify and troubleshoot errors for
      resources in your fleet.
 
-## Create a
-
-configuration using the console
+## Create a configuration using the console
 
 You can create a network analyzer configuration and customize the optional
 parameters using the AWS IoT console or the AWS IoT Wireless API. You can also
@@ -89,8 +83,7 @@ no longer using.
    information about the configuration, and the
    **Tags** field to add key-value pairs
    of metadata about the configuration. For more information
-   about naming and describing your resources, see [Describing your AWS IoT Wireless
-   resources](getting-started.md#iotwireless-describe-resources "getting-started.md#iotwireless-describe-resources").
+   about naming and describing your resources, see [Describing your AWS IoT Wireless resources](getting-started.md#iotwireless-describe-resources "getting-started.md#iotwireless-describe-resources").
    - ###### Configuration settings
 
    Choose whether to disable frame info, and use
@@ -120,9 +113,7 @@ you want to receive for them.
 2. Choose **Actions**, and then choose
    **Delete**.
 
-## Create a
-
-configuration using the API
+## Create a configuration using the API
 
 To create a network analyzer configuration using the API, use the [CreateNetworkAnalyzerConfiguration](../apireference/API_CreateNetworkAnalyzerConfiguration.md "../apireference/API_CreateNetworkAnalyzerConfiguration.md") API operation or the [create-network-analyzer-configuration](../../../cli/latest/reference/iotwireless/create-network-analyzer-configuration.md "../../../cli/latest/reference/iotwireless/create-network-analyzer-configuration.md") CLI command.
 
@@ -233,5 +224,4 @@ API operation.
 
 Now that you've created a network analyzer configuration, you can add
 resources to your configuration or update your configuration settings. For more
-information, see [Add resources and update the network
-analyzer configuration](network-analyzer-resources.md "network-analyzer-resources.md").
+information, see [Add resources and update the network analyzer configuration](network-analyzer-resources.md "network-analyzer-resources.md").

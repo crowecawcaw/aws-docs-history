@@ -1,6 +1,4 @@
-# Configuring the position of LoRaWAN
-
-gateways
+# Configuring the position of LoRaWAN gateways
 
 When you add your gateway to AWS IoT Core for LoRaWAN, you can specify the static position data.
 If you've activated Amazon Location Service maps, the position data is displayed on an Amazon Location map.
@@ -15,9 +13,7 @@ be reported as `0.0`.
 You can configure the gateway position using the AWS Management Console, the AWS IoT Wireless
 API, or the AWS CLI.
 
-## Configuring position of your
-
-gateway using the console
+## Configuring position of your gateway using the console
 
 To configure the position of your gateway resources by using the AWS Management Console, first
 sign in to the console and then go to the [**Gateways**](https://console.aws.amazon.com/iot/home#/wireless/gateways "https://console.aws.amazon.com/iot/home#/wireless/gateways") hub page of the AWS IoT console.
@@ -30,8 +26,7 @@ To add a position configuration for your gateway
    gateway**.
 2. Enter the gateway's EUI, frequency band (RFRegion), and any additional
    gateway details and LoRaWAN configuration information. For more
-   information, see [Add a gateway using the
-   console](lorawan-onboard-gateway-add.md#lorawan-onboard-gateway-console "lorawan-onboard-gateway-add.md#lorawan-onboard-gateway-console").
+   information, see [Add a gateway using the console](lorawan-onboard-gateway-add.md#lorawan-onboard-gateway-console "lorawan-onboard-gateway-add.md#lorawan-onboard-gateway-console").
 3. Go to the **Position information - Optional** section,
    and enter the position information for your gateway using the latitude and
    longitude coordinates, and an optional altitude coordinate. The position
@@ -81,9 +76,7 @@ position data. After you've updated the position, in the
 position information. The change in timestamp indicates that it corresponds to
 the last known position of the gateway.
 
-## Configure position of your gateway
-
-using the API
+## Configure position of your gateway using the API
 
 You can specify the position information and configure the gateway position using
 the AWS IoT Wireless API or the AWS CLI.
@@ -93,9 +86,7 @@ the AWS IoT Wireless API or the AWS CLI.
 The API actions [UpdatePosition](../apireference/API_UpdatePosition.md "../apireference/API_UpdatePosition.md"), [GetPosition](../apireference/API_GetPosition.md "../apireference/API_GetPosition.md"), [PutPositionConfiguration](../apireference/API_PutPositionConfiguration.md "../apireference/API_PutPositionConfiguration.md"), [GetPositionConfiguration](../apireference/API_GetPositionConfiguration.md "../apireference/API_GetPositionConfiguration.md"), and [ListPositionConfigurations](../apireference/API_ListPositionConfigurations.md "../apireference/API_ListPositionConfigurations.md") are no longer supported. Calls to update
 and retrieve the position information should use the [GetResourcePosition](../apireference/API_GetResourcePosition.md "../apireference/API_GetResourcePosition.md") and [UpdateResourcePosition](../apireference/API_UpdateResourcePosition.md "../apireference/API_UpdateResourcePosition.md") API operations instead.
 
-### Add position
-
-information
+### Add position information
 
 To add the static position information for a given wireless gateway, specify
 the coordinates using the [UpdateResourcePosition](../apireference/API_UpdateResourcePosition.md "../apireference/API_UpdateResourcePosition.md") API operation or the [update-resource-position](../../../cli/latest/reference/iotwireless/update-resource-position.md "../../../cli/latest/reference/iotwireless/update-resource-position.md") CLI command. Specify
@@ -130,9 +121,7 @@ Running this command doesn't produce any output. To see the position
 information that you specified, use the `GetResourcePosition` API
 operation.
 
-### Get position
-
-information
+### Get position information
 
 To get the position information for a given wireless gateway, use the [GetResourcePosition](../apireference/API_GetResourcePosition.md "../apireference/API_GetResourcePosition.md") API operation or the [get-resource-position](../../../cli/latest/reference/iotwireless/get-position.md "../../../cli/latest/reference/iotwireless/get-position.md") CLI command. Specify
 `WirelessGateway` as the `resourceType` and provide

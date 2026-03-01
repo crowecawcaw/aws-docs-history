@@ -2,16 +2,14 @@
 
 AWS IoT Core for LoRaWAN has more than 50 CloudWatch log entries that are enabled by default. Each log
 entry describes the event type, log level, and the resource type. For more information,
-see [AWS IoT Wireless resources and log
-levels](configure-logging.md#log-levels-resources "configure-logging.md#log-levels-resources").
+see [AWS IoT Wireless resources and log levels](configure-logging.md#log-levels-resources "configure-logging.md#log-levels-resources").
 
 ###### How to monitor your AWS IoT Wireless resources
 
 When logging is enabled for AWS IoT Wireless, AWS IoT Wireless sends progress
 events about each message as it passes from your devices through AWS IoT Wireless
 and back. By default, AWS IoT Wireless log entries have a default log level of
-error. When you enable logging as described in [Create logging role and policy for
-AWS IoT Wireless monitoring](create-logging-role-policy.md "create-logging-role-policy.md"), you'll see messages in the CloudWatch console that have a default log level of
+error. When you enable logging as described in [Create logging role and policy for AWS IoT Wireless monitoring](create-logging-role-policy.md "create-logging-role-policy.md"), you'll see messages in the CloudWatch console that have a default log level of
 `ERROR`. By using this log level, the messages will show only error
 information for all wireless devices and gateway resources that you're using.
 
@@ -41,5 +39,4 @@ console, you must have done the following.
 ###### Topics
 
 - [View CloudWatch AWS IoT Wireless log entries](cwl-format.md "cwl-format.md")
-- [Use CloudWatch Insights to filter logs for
-  AWS IoT Wireless](cwl-insights.md "cwl-insights.md")
+- [Use CloudWatch Insights to filter logs for AWS IoT Wireless](cwl-insights.md "cwl-insights.md")

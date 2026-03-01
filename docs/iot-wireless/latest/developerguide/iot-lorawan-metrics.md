@@ -16,8 +16,7 @@ completed the activation steps for viewing summary metrics. You can use the
 **Activation steps** widget in the dashboard to check whether you
 have correctly configured your LoRaWAN devices, gateways, and destinations, and
 activated summary metrics. For information about onboarding your LoRaWAN resources, see
-[Connecting gateways and devices to
-AWS IoT Core for LoRaWAN](lorawan-getting-started.md "lorawan-getting-started.md").
+[Connecting gateways and devices to AWS IoT Core for LoRaWAN](lorawan-getting-started.md "lorawan-getting-started.md").
 
 | List of summary metrics                           | Metric name | AWS account | Individual devices | Individual gateways |
 | ------------------------------------------------- | ----------- | ----------- | ------------------ | ------------------- |
@@ -50,13 +49,10 @@ months, and daily and weekly metrics expire after 12 months.
 
 ###### Topics
 
-- [Activate summary metrics
-  (console)](#iot-lorawan-metrics-how-console "#iot-lorawan-metrics-how-console")
+- [Activate summary metrics (console)](#iot-lorawan-metrics-how-console "#iot-lorawan-metrics-how-console")
 - [Activate summary metrics (CLI)](#iot-lorawan-metrics-how-cli "#iot-lorawan-metrics-how-cli")
 
-### Activate summary metrics
-
-(console)
+### Activate summary metrics (console)
 
 1. Go to the [**Monitor**](https://console.aws.amazon.com/iot/home#/dashboard "https://console.aws.amazon.com/iot/home#/dashboard") dashboard of the AWS IoT console
    and choose **LoRaWAN metrics**.

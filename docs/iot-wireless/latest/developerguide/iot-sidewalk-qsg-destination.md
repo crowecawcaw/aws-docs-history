@@ -1,6 +1,4 @@
-# Add a destination for your
-
-Sidewalk end device
+# Add a destination for your Sidewalk end device
 
 ###### Note
 
@@ -30,9 +28,7 @@ associate your Sidewalk end device with the rule that processes the device data
 to send to other AWS services. For more information about rules, see [Rules for
 AWS IoT](../../../iot/latest/developerguide/iot-rules.md "../../../iot/latest/developerguide/iot-rules.md") in the _AWS IoT Core documentation_.
 
-## How to create and use a
-
-destination
+## How to create and use a destination
 
 1. Create an AWS IoT rule and an IAM role for the destination. The AWS IoT rule
    specifies the rules that will process the device's data and routes it for
@@ -49,7 +45,5 @@ the destination.
 
 ###### Topics
 
-- [Create a destination for your
-  Sidewalk device](iot-sidewalk-destination-create.md "iot-sidewalk-destination-create.md")
-- [Create an IAM role and IoT rule
-  for your destination](sidewalk-destination-rule-role.md "sidewalk-destination-rule-role.md")
+- [Create a destination for your Sidewalk device](iot-sidewalk-destination-create.md "iot-sidewalk-destination-create.md")
+- [Create an IAM role and IoT rule for your destination](sidewalk-destination-rule-role.md "sidewalk-destination-rule-role.md")

@@ -14,16 +14,12 @@ Device profiles define the device capabilities and boot parameters that the
 network server uses to set the LoRaWAN radio access service. It includes
 selection of parameters such as LoRa frequency band, LoRa regional parameters
 version, and MAC version of the device. To learn about the different frequency
-bands, see [Consider selection of LoRa frequency
-bands for your gateways and device connection](lorawan-rfregion-permissions.md#lorawan-frequency-bands "lorawan-rfregion-permissions.md#lorawan-frequency-bands").
+bands, see [Consider selection of LoRa frequency bands for your gateways and device connection](lorawan-rfregion-permissions.md#lorawan-frequency-bands "lorawan-rfregion-permissions.md#lorawan-frequency-bands").
 
-### Add a device profile by
-
-using the console
+### Add a device profile by using the console
 
 If you're adding a wireless device by using the console as described in
-[Add your wireless device
-specification to AWS IoT Core for LoRaWAN using the console](lorawan-end-devices-add.md#lorawan-end-device-spec-console "lorawan-end-devices-add.md#lorawan-end-device-spec-console"), after you've added
+[Add your wireless device specification to AWS IoT Core for LoRaWAN using the console](lorawan-end-devices-add.md#lorawan-end-device-spec-console "lorawan-end-devices-add.md#lorawan-end-device-spec-console"), after you've added
 the wireless device specification, you can add your device profile.
 Alternatively, you can also add wireless devices from the [Profiles](https://console.aws.amazon.com/iot/home#/wireless/profiles "https://console.aws.amazon.com/iot/home#/wireless/profiles") page of the AWS IoT console on the
 **LoRaWAN** tab.
@@ -36,9 +32,7 @@ band (RfRegion)** that you're using for the device and gateway,
 and keep the other settings to the default values, unless specified
 otherwise in the device documentation.
 
-### Add a device profile by using
-
-the API
+### Add a device profile by using the API
 
 If you're adding a wireless device by using the API, you must create your
 device profile before creating the wireless device.
@@ -89,15 +83,11 @@ communicate with the application server.
 
 When creating a service profile, you can specify that you want to use the
 public network instead of your own private LoRaWAN gateway. For more
-information, see [Managing LoRaWAN traffic from public networks
-(Everynet)](iot-lorawan-roaming.md "iot-lorawan-roaming.md").
+information, see [Managing LoRaWAN traffic from public networks (Everynet)](iot-lorawan-roaming.md "iot-lorawan-roaming.md").
 
-### Add a service profile
+### Add a service profile using the console
 
-using the console
-
-If you're adding a wireless device using the console as described in [Add your wireless device
-specification to AWS IoT Core for LoRaWAN using the console](lorawan-end-devices-add.md#lorawan-end-device-spec-console "lorawan-end-devices-add.md#lorawan-end-device-spec-console"), after you've added
+If you're adding a wireless device using the console as described in [Add your wireless device specification to AWS IoT Core for LoRaWAN using the console](lorawan-end-devices-add.md#lorawan-end-device-spec-console "lorawan-end-devices-add.md#lorawan-end-device-spec-console"), after you've added
 the device profile, you can add your service profile. Alternatively, you can
 also add wireless devices from the [Profiles](https://console.aws.amazon.com/iot/home#/wireless/profiles "https://console.aws.amazon.com/iot/home#/wireless/profiles") page of the AWS IoT console on the
 **LoRaWAN** tab.
@@ -106,9 +96,7 @@ We recommend that you leave the setting **AddGWMetaData**
 enabled so that you'll receive additional gateway metadata for each payload,
 such as RSSI and SNR for the data transmission.
 
-### Add a service profile using
-
-the API
+### Add a service profile using the API
 
 If you're adding a wireless device using the API, you must first create
 your service profile before creating the wireless device.

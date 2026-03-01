@@ -1,6 +1,4 @@
-# Configuring position of LoRaWAN
-
-devices
+# Configuring position of LoRaWAN devices
 
 When you add your device to AWS IoT Core for LoRaWAN, you can specify the static position
 information, optionally activate positioning, and specify a destination. The destination
@@ -12,9 +10,7 @@ that you specified.
 You can configure the position of your device using the AWS Management Console, the
 AWS IoT Wireless API, or the AWS CLI.
 
-## Frame ports and format of
-
-uplink messages
+## Frame ports and format of uplink messages
 
 If you activate positioning, you must specify the geolocation frame port for
 communicating the Wi-Fi and GNSS scan data from the device to AWS IoT Core for LoRaWAN. The
@@ -27,9 +23,7 @@ frame port. FPort 0 is reserved for MAC messages, FPort 224 is reserved for MAC
 compliance testing, and ports 225-255 are reserved for future standardized
 application extensions.
 
-### Uplink message from
-
-AWS IoT Core for LoRaWAN to rules engine
+### Uplink message from AWS IoT Core for LoRaWAN to rules engine
 
 When you add a destination, it creates an AWS IoT rule to route the data to
 Amazon Location Service using the rules engine. The updated position information is then
@@ -96,9 +90,7 @@ vertical accuracy information, the value is `null`.
 }
 ```
 
-## Configuring position of your
-
-devices using the console
+## Configuring position of your devices using the console
 
 To configure and manage the position of your devices by using the AWS Management Console, first
 sign in to the console and then go to the [**Devices**](https://console.aws.amazon.com/iot/home#/wireless/devices "https://console.aws.amazon.com/iot/home#/wireless/devices") hub page of the AWS IoT console.
@@ -111,8 +103,7 @@ To add position information for your device:
    wireless device**.
 2. Enter the wireless device specification, device and service profiles, and
    the destination that defines the IoT rule for routing the data to other
-   AWS services. For more information, see [Onboard your devices to
-   AWS IoT Core for LoRaWAN](lorawan-onboard-end-devices.md "lorawan-onboard-end-devices.md").
+   AWS services. For more information, see [Onboard your devices to AWS IoT Core for LoRaWAN](lorawan-onboard-end-devices.md "lorawan-onboard-end-devices.md").
 3. Enter the position information, optionally activate geolocation, and
    specify a position data destination that you want to use for routing
    messages.
@@ -188,9 +179,7 @@ position data. After you've updated the position, in the
 position information. The change in timestamp indicates that it corresponds to
 the last known position of the device.
 
-## Configure device position using the
-
-API
+## Configure device position using the API
 
 ###### Note
 
@@ -213,9 +202,7 @@ activate optional geolocation using the AWS IoT Wireless API or the AWS CLI.
 The API actions [UpdatePosition](../apireference/API_UpdatePosition.md "../apireference/API_UpdatePosition.md"), [GetPosition](../apireference/API_GetPosition.md "../apireference/API_GetPosition.md"), [PutPositionConfiguration](../apireference/API_PutPositionConfiguration.md "../apireference/API_PutPositionConfiguration.md"), [GetPositionConfiguration](../apireference/API_GetPositionConfiguration.md "../apireference/API_GetPositionConfiguration.md"), and [ListPositionConfigurations](../apireference/API_ListPositionConfigurations.md "../apireference/API_ListPositionConfigurations.md") are no longer supported. Calls to update
 and retrieve the position information should use the [GetResourcePosition](../apireference/API_GetResourcePosition.md "../apireference/API_GetResourcePosition.md") and [UpdateResourcePosition](../apireference/API_UpdateResourcePosition.md "../apireference/API_UpdateResourcePosition.md") API operations instead.
 
-### Add position information and
-
-configuration
+### Add position information and configuration
 
 To add the position information for a given wireless device, specify the
 coordinates using the [UpdateResourcePosition](../apireference/API_UpdateResourcePosition.md "../apireference/API_UpdateResourcePosition.md") API operation or the [update-resource-position](../../../cli/latest/reference/iotwireless/update-resource-position.md "../../../cli/latest/reference/iotwireless/update-resource-position.md") CLI command. Specify
@@ -253,9 +240,7 @@ Running this command doesn't produce any output. To see the position
 information that you specified, use the `GetResourcePosition` API
 operation.
 
-### Get position information and
-
-configuration
+### Get position information and configuration
 
 To get the position information for a given wireless device, use the [GetResourcePosition](../apireference/API_GetResourcePosition.md "../apireference/API_GetResourcePosition.md") API or the [get-resource-position](../../../cli/latest/reference/iotwireless/get-resource-position.md "../../../cli/latest/reference/iotwireless/get-resource-position.md") CLI command. Specify
 `WirelessDevice` as the `resourceType` and provide the

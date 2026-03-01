@@ -55,8 +55,7 @@ console or the AWS IoT Wireless API.
 To onboard your LoRaWAN devices and gateways by using the AWS Management Console, sign in to the
 AWS Management Console and navigate to the [AWS IoT Core for LoRaWAN](https://console.aws.amazon.com/iot/home#/wireless/landing "https://console.aws.amazon.com/iot/home#/wireless/landing") page in the AWS IoT console. You can then use the
 **Intro** section to add your gateways and devices to AWS IoT Core for LoRaWAN. For more
-information, see [Using the console to onboard your device and gateway
-to AWS IoT Core for LoRaWAN](lorawan-getting-started.md#lorawan-console "lorawan-getting-started.md#lorawan-console").
+information, see [Using the console to onboard your device and gateway to AWS IoT Core for LoRaWAN](lorawan-getting-started.md#lorawan-console "lorawan-getting-started.md#lorawan-console").
 
 ###### Using the API or CLI
 
@@ -70,9 +69,7 @@ Toolkits](https://aws.amazon.com/developer/tools/ "https://aws.amazon.com/develo
 You can use the AWS CLI to run commands for onboarding and managing your LoRaWAN gateways and
 devices. For more information, see [AWS IoT Wireless CLI reference](../../../cli/latest/reference/iotwireless/index.md "../../../cli/latest/reference/iotwireless/index.md").
 
-## AWS IoT Core for LoRaWAN Regions and
-
-endpoints
+## AWS IoT Core for LoRaWAN Regions and endpoints
 
 AWS IoT Core for LoRaWAN provides support for control plane and data plane API endpoints that are
 specific to your AWS Region. The data plane API endpoints are specific to your AWS account
@@ -81,8 +78,7 @@ Endpoints](../../../general/latest/gr/iot-core.md#iot-wireless_region "../../../
 
 For more secure communication between your devices and AWS IoT, you can connect your devices
 to AWS IoT Core for LoRaWAN through AWS PrivateLink in your virtual private cloud (VPC), instead of connecting
-over the public internet. For more information, see [AWS IoT Core for LoRaWAN and interface VPC endpoints
-(AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
+over the public internet. For more information, see [AWS IoT Core for LoRaWAN and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
 
 AWS IoT Core for LoRaWAN has quotas that apply to device data that is transmitted between the devices
 and the maximum TPS for the AWS IoT Wireless API operations. For more information, see [AWS IoT Core for LoRaWAN

@@ -1,6 +1,4 @@
-# Create a destination for your
-
-Sidewalk device
+# Create a destination for your Sidewalk device
 
 You can add a destination to your account for AWS IoT Core for Amazon Sidewalk either from the using
 the [Destinations
@@ -14,8 +12,7 @@ destination, specify:
 
 If you already add your device using a destination name, you must use
 that name when creating your destination. For more information, see
-[Step 2: Add your
-Sidewalk device](iot-sidewalk-add-device.md#iot-sidewalk-device-create "iot-sidewalk-add-device.md#iot-sidewalk-device-create").
+[Step 2: Add your Sidewalk device](iot-sidewalk-add-device.md#iot-sidewalk-device-create "iot-sidewalk-add-device.md#iot-sidewalk-device-create").
 
 - The name of the AWS IoT rule that will process the device's data, and the
   topic to which messages are published.
@@ -24,9 +21,7 @@ Sidewalk device](iot-sidewalk-add-device.md#iot-sidewalk-device-create "iot-side
   The following sections describe how to create the AWS IoT rule and IAM role for
   your destination.
 
-## Create a destination
-
-(console)
+## Create a destination (console)
 
 To create a destination using the AWS IoT console, go to the [Destinations
 hub](https://console.aws.amazon.com/iot/home#/wireless/destinations "https://console.aws.amazon.com/iot/home#/wireless/destinations") and choose **Add destination**.
@@ -85,9 +80,7 @@ blank for AWS IoT Core for LoRaWAN to generate a new role name. AWS IoT Core for
 will then automatically create the IAM role with the appropriate
 permissions on your behalf.
 
-## Create a destination
-
-(CLI)
+## Create a destination (CLI)
 
 To create a destination, use the [`CreateDestination`](../apireference/API_CreateDestination.md "../apireference/API_CreateDestination.md") API operation or the [`create-destination`](../../../cli/latest/reference/iotwireless/create-destination.md "../../../cli/latest/reference/iotwireless/create-destination.md") CLI command. For example, the
 following command creates a destination for your Sidewalk end

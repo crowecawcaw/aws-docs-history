@@ -1,14 +1,10 @@
-# Add your device profile and
-
-Sidewalk end device
+# Add your device profile and Sidewalk end device
 
 This section shows how you can create a device profile. It also shows how you can
 use the AWS IoT console and the AWS CLI to add your Sidewalk end device to
 AWS IoT Core for Amazon Sidewalk.
 
-## Add your Sidewalk
-
-device (console)
+## Add your Sidewalk device (console)
 
 To add your Sidewalk device using the AWS IoT console, go to the [Sidewalk
 tab of the Devices hub](https://console.aws.amazon.com/iot/home#/wireless/devices?tab=sidewalk "https://console.aws.amazon.com/iot/home#/wireless/devices?tab=sidewalk"), choose **Provision
@@ -42,8 +38,7 @@ for your Sidewalk device.
      created a destination, go to the [Destinations
      hub](https://console.aws.amazon.com/iot/home#/wireless/destinations "https://console.aws.amazon.com/iot/home#/wireless/destinations") to create your destination. You can then choose
      that destination for your Sidewalk device. For more
-     information, see [Add a destination for your
-     Sidewalk end device](iot-sidewalk-qsg-destination.md "iot-sidewalk-qsg-destination.md").
+     information, see [Add a destination for your Sidewalk end device](iot-sidewalk-qsg-destination.md "iot-sidewalk-qsg-destination.md").
     4. Choose **Next** to continue adding your
      Sidewalk device.
 
@@ -68,9 +63,7 @@ thing registration**.
      about your Sidewalk device, and then choose
      **Create**.
 
-## Add your Sidewalk device
-
-(CLI)
+## Add your Sidewalk device (CLI)
 
 To add your Sidewalk device and download the JSON files that will be
 used to provision your Sidewalk device, perform the following API
@@ -78,14 +71,10 @@ operations.
 
 ###### Topics
 
-- [Step 1: Create a device
-  profile](#iot-sidewalk-profile-create "#iot-sidewalk-profile-create")
-- [Step 2: Add your
-  Sidewalk device](#iot-sidewalk-device-create "#iot-sidewalk-device-create")
+- [Step 1: Create a device profile](#iot-sidewalk-profile-create "#iot-sidewalk-profile-create")
+- [Step 2: Add your Sidewalk device](#iot-sidewalk-device-create "#iot-sidewalk-device-create")
 
-### Step 1: Create a device
-
-profile
+### Step 1: Create a device profile
 
 To create a device profile in your AWS account, use the [`CreateDeviceProfile`](../apireference/API_CreateDeviceProfile.md "../apireference/API_CreateDeviceProfile.md") API operation or the
 [`create-device-profile`](../../../cli/latest/reference/create-device-profile.md "../../../cli/latest/reference/create-device-profile.md") CLI command. When
@@ -110,9 +99,7 @@ the device profile as output.
 }
 ```
 
-### Step 2: Add your
-
-Sidewalk device
+### Step 2: Add your Sidewalk device
 
 To add your Sidewalk device to your account for AWS IoT Core for Amazon Sidewalk, use
 the [`CreateWirelessDevice`](../apireference/API_CreateWirelessDevice.md "../apireference/API_CreateWirelessDevice.md") API operation or the
@@ -161,10 +148,7 @@ as output.
 }
 ```
 
-#### (Optional) Create
-
-your Sidewalk end device and get the Sidewalk device
-location
+#### (Optional) Create your Sidewalk end device and get the Sidewalk device location
 
 If you want to enable location data when you create your
 Sidewalk end device with AWS IoT Core for Amazon Sidewalk, enable positioning.

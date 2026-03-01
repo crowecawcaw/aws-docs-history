@@ -113,8 +113,7 @@ console, and the API operations. You'll also connect your device and
 view messages that are exchanged between your device and
 AWS IoT Core for Amazon Sidewalk.
 
-- ###### [Bulk provisioning devices with
-  AWS IoT Core for Amazon Sidewalk](sidewalk-bulk-provisioning.md "sidewalk-bulk-provisioning.md")
+- ###### [Bulk provisioning devices with AWS IoT Core for Amazon Sidewalk](sidewalk-bulk-provisioning.md "sidewalk-bulk-provisioning.md")
 
 This section provides a detailed step-by-step tutorial for bulk
 provisioning your Sidewalk end devices using AWS IoT Core for Amazon Sidewalk.

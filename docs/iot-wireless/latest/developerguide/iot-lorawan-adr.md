@@ -1,6 +1,4 @@
-# Using adaptive data rate (ADR) with
-
-AWS IoT Core for LoRaWAN
+# Using adaptive data rate (ADR) with AWS IoT Core for LoRaWAN
 
 To optimize the device transmission power consumption while making sure that messages
 from the end devices are received at the gateways, AWS IoT Core for LoRaWAN uses adaptive data
@@ -12,13 +10,10 @@ increases the data rate.
 
 ###### Topics
 
-- [How adaptive data rate (ADR)
-  works](#iot-lorawan-adr-algorithm "#iot-lorawan-adr-algorithm")
+- [How adaptive data rate (ADR) works](#iot-lorawan-adr-algorithm "#iot-lorawan-adr-algorithm")
 - [Configure data rate limits (CLI)](#iot-lorawan-adr-use "#iot-lorawan-adr-use")
 
-## How adaptive data rate (ADR)
-
-works
+## How adaptive data rate (ADR) works
 
 To enable ADR, your device must set the ADR bit in the frame header. Once the ADR
 bit is set, AWS IoT Core for LoRaWAN sends the `LinkADRReq` MAC command and your

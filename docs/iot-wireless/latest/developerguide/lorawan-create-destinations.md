@@ -1,6 +1,4 @@
-# Add destinations to
-
-AWS IoT Core for LoRaWAN
+# Add destinations to AWS IoT Core for LoRaWAN
 
 AWS IoT Core for LoRaWAN destinations describe the AWS IoT rule that processes a device's data
 for use by AWS services.
@@ -14,12 +12,9 @@ it.
 If you're adding your destination for the first time, we recommend that you use
 the console.
 
-## Add a destination using the
+## Add a destination using the console
 
-console
-
-If you're adding a wireless device using the console as described in [Add your wireless device
-specification to AWS IoT Core for LoRaWAN using the console](lorawan-end-devices-add.md#lorawan-end-device-spec-console "lorawan-end-devices-add.md#lorawan-end-device-spec-console"), after you've already
+If you're adding a wireless device using the console as described in [Add your wireless device specification to AWS IoT Core for LoRaWAN using the console](lorawan-end-devices-add.md#lorawan-end-device-spec-console "lorawan-end-devices-add.md#lorawan-end-device-spec-console"), after you've already
 added the wireless device specification and profiles to AWS IoT Core for LoRaWAN as
 described previously, you can go ahead and add a destination.
 
@@ -62,8 +57,7 @@ publishing to the AWS IoT message broker.
      topic to receive messages published to that topic. For more
      information, see [https://docs.aws.amazon.com/iot/latest/developerguide/topics.html](../../../iot/latest/developerguide/topics.md "../../../iot/latest/developerguide/topics.md").
 
-For more information about AWS IoT rules for destinations, see [Create rules to process LoRaWAN device
-messages](lorawan-destination-rules.md "lorawan-destination-rules.md").
+For more information about AWS IoT rules for destinations, see [Create rules to process LoRaWAN device messages](lorawan-destination-rules.md "lorawan-destination-rules.md").
 
 - ###### Role name
 
@@ -80,14 +74,11 @@ permissions on your behalf.
 For more information about IAM roles, see [Using
 IAM roles](../../../IAM/latest/UserGuide/id_roles_use.md "../../../IAM/latest/UserGuide/id_roles_use.md").
 
-## Add a destination by using the
-
-API
+## Add a destination by using the API
 
 If you want to add a destination using the CLI instead, you must have already
 created the rule and IAM role for your destination. For more information about
-the details that a destination requires in the role, see [Create an IAM role for
-your destinations](#lorawan-create-destinations-roles "#lorawan-create-destinations-roles").
+the details that a destination requires in the role, see [Create an IAM role for your destinations](#lorawan-create-destinations-roles "#lorawan-create-destinations-roles").
 
 The following list contains the API actions that perform the tasks associated
 with adding, updating, or deleting a destination.
@@ -104,9 +95,7 @@ For the complete list of the actions and data types available to create and
 manage AWS IoT Core for LoRaWAN resources, see the [AWS IoT Wireless API
 reference](../apireference/welcome.md "../apireference/welcome.md").
 
-###### How
-
-to use the AWS CLI to add a destination
+###### How to use the AWS CLI to add a destination
 
 You can use the AWS CLI to add a destination by using the [create-destination](../../../cli/latest/reference/iotwireless/create-destination.md "../../../cli/latest/reference/iotwireless/create-destination.md") command. The following
 example shows how to create a destination by entering a rule name by using
@@ -125,16 +114,12 @@ aws iotwireless create-destination \
 
 Running this command creates a destination with the specified destination
 name, rule name, and role name. For information about rule and role names for
-destinations, see [Create rules to process LoRaWAN device
-messages](lorawan-destination-rules.md "lorawan-destination-rules.md") and [Create an IAM role for
-your destinations](#lorawan-create-destinations-roles "#lorawan-create-destinations-roles").
+destinations, see [Create rules to process LoRaWAN device messages](lorawan-destination-rules.md "lorawan-destination-rules.md") and [Create an IAM role for your destinations](#lorawan-create-destinations-roles "#lorawan-create-destinations-roles").
 
 For information about the CLIs that you can use, see [AWS CLI
 reference](../../../cli/latest/reference/iotwireless/index.md "../../../cli/latest/reference/iotwireless/index.md").
 
-## Create an IAM role for
-
-your destinations
+## Create an IAM role for your destinations
 
 AWS IoT Core for LoRaWAN destinations require IAM roles that give AWS IoT Core for LoRaWAN the
 permissions necessary to send data to the AWS IoT rule. If such a role is not

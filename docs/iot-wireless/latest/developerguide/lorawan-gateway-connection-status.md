@@ -1,6 +1,4 @@
-# Connect your LoRaWAN gateway and
-
-verify its connection status
+# Connect your LoRaWAN gateway and verify its connection status
 
 Before you can check the gateway connection status, you must have already added
 your gateway and connected it to AWS IoT Core for LoRaWAN. For information about how to add
@@ -13,9 +11,7 @@ To enable IPv6 support for your account-specific CUPS and LNS endpoints, if you'
 already onboarded your LoRaWAN gateways before December 1st, 2024, you must request
 IPv6 activation. For more information, see [IPv6 activation for data plane endpoints](wireless-ipv6-access.md#iot-wireless-ipv6-activation "wireless-ipv6-access.md#iot-wireless-ipv6-activation").
 
-## Connect your gateway to
-
-AWS IoT Core for LoRaWAN
+## Connect your gateway to AWS IoT Core for LoRaWAN
 
 After you've added your gateway, connect to the configuration interface of
 your gateway to enter the configuration information and trust
@@ -72,18 +68,14 @@ After that you've connected your gateway to AWS IoT Core for LoRaWAN, you can ch
 status of your connection and get information about when the last uplink was
 received by using the console or the API.
 
-## Check gateway connection
-
-status using the console
+## Check gateway connection status using the console
 
 To check the connection status using the console, navigate to the [**Gateways**](https://console.aws.amazon.com/iot/home#/wireless/gateways "https://console.aws.amazon.com/iot/home#/wireless/gateways") page of the AWS IoT console and
 choose the gateway you've added. In the **LoRaWAN specific
 details** section of the Gateway details page, you'll see the
 connection status and the date and time the last uplink was received.
 
-## Check gateway connection status
-
-using the API
+## Check gateway connection status using the API
 
 To check the connection status using the API, use the
 `GetWirelessGatewayStatistics` API. This API doesn't have a
@@ -101,12 +93,9 @@ Content-type: application/json
 }
 ```
 
-## Enable connection status
-
-events
+## Enable connection status events
 
 You can also enable connection status events to receive notications about status
 updates to your gateway connection. You will be notified when a gateway becomes
 connected, or when it's disconnected. For more information about these events and
-how to enable them, see [Enable notifications for LoRaWAN
-gateway connection status events](iot-lorawan-gateway-events.md "iot-lorawan-gateway-events.md").
+how to enable them, see [Enable notifications for LoRaWAN gateway connection status events](iot-lorawan-gateway-events.md "iot-lorawan-gateway-events.md").

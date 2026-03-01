@@ -1,6 +1,4 @@
-# Connect your Sidewalk
-
-device and view uplink metadata format
+# Connect your Sidewalk device and view uplink metadata format
 
 In this tutorial, you'll use the MQTT test client to test the connectivity and see
 messages exhanged between your end device and the AWS Cloud. To receive messages, in
@@ -16,9 +14,7 @@ For information about connecting your hardware platform and setting it up, see
 [Provisioning and
 registering your end device](https://docs.sidewalk.amazon/provisioning/ "https://docs.sidewalk.amazon/provisioning/") and [Setting up the hardware development kit (HDK)](https://docs.sidewalk.amazon/getting-started/sidewalk-onboard-prereq-hdk.html "https://docs.sidewalk.amazon/getting-started/sidewalk-onboard-prereq-hdk.html") in the _Amazon Sidewalk documentation_..
 
-## Send downlink messages to your end
-
-device
+## Send downlink messages to your end device
 
 Use the [`SendDataToWirelessDevice`](../apireference/API_SendDataToWirelessDevice.md "../apireference/API_SendDataToWirelessDevice.md") API operation or the [`send-data-to-wireless-device`](../../../cli/latest/reference/iotwireless/send-data-to-wireless-device.md "../../../cli/latest/reference/iotwireless/send-data-to-wireless-device.md") CLI command to send
 downlink messages from AWS IoT Core for Amazon Sidewalk to your Sidewalk end device. Following
@@ -47,13 +43,10 @@ The `SendDataToWirelessDevice` API can return a message ID but the
 message might not be successfully delivered. To check the status of the message
 that was sent to the device, you can enable message delivery status events for
 your Sidewalk accounts and devices. For information about how to enable
-this event, see [Event notifications for Sidewalk
-resources](iot-wireless-events-notifications.md#iot-sidewalk-events "iot-wireless-events-notifications.md#iot-sidewalk-events"). For more information about this event
+this event, see [Event notifications for Sidewalk resources](iot-wireless-events-notifications.md#iot-sidewalk-events "iot-wireless-events-notifications.md#iot-sidewalk-events"). For more information about this event
 type, see [Message delivery events](../../../iot/latest/developerguide/iot-sidewalk-message-delivery-events.md "../../../iot/latest/developerguide/iot-sidewalk-message-delivery-events.md").
 
-## View format of uplink messages from
-
-the device
+## View format of uplink messages from the device
 
 After you've connected your device, you can subscribe to the topic (for example,
 `project/sensor/observed`) that you

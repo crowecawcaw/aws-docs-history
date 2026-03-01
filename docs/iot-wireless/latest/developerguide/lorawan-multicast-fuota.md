@@ -1,6 +1,4 @@
-# Perform firmware update over-the-air (FUOTA) for
-
-LoRaWAN devices and multicast groups
+# Perform firmware update over-the-air (FUOTA) for LoRaWAN devices and multicast groups
 
 Efficient firmware updates are crucial for maintaining the performance and security of IoT
 devices in the field. AWS IoT Core for LoRaWAN supports multicast firmware over-the-air (FUOTA) update
@@ -35,9 +33,6 @@ The following topics show how to create multicast groups and perform FUOTA.
 
 ###### Topics
 
-- [Prepare devices for multicast and
-  FUOTA configuration](lorawan-prepare-devices-multicast.md "lorawan-prepare-devices-multicast.md")
-- [Create multicast groups to send a downlink
-  payload to multiple devices](lorawan-multicast-groups.md "lorawan-multicast-groups.md")
-- [Firmware update over-the-air (FUOTA) for
-  AWS IoT Core for LoRaWAN](lorawan-mc-fuota-overview.md "lorawan-mc-fuota-overview.md")
+- [Prepare devices for multicast and FUOTA configuration](lorawan-prepare-devices-multicast.md "lorawan-prepare-devices-multicast.md")
+- [Create multicast groups to send a downlink payload to multiple devices](lorawan-multicast-groups.md "lorawan-multicast-groups.md")
+- [Firmware update over-the-air (FUOTA) for AWS IoT Core for LoRaWAN](lorawan-mc-fuota-overview.md "lorawan-mc-fuota-overview.md")

@@ -214,9 +214,7 @@ This policy includes the following permissions.
 
 ```
 
-## AWS IoT Wireless; updates to AWS managed
-
-policies
+## AWS IoT Wireless; updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS IoT Wireless since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

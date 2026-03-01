@@ -76,8 +76,7 @@ It also provides resources to help you learn more.
 Read this section to learn about using AWS IoT Core for Amazon Sidewalk and how to onboard your Amazon Sidewalk
 devices.
 
-- ###### [Connecting gateways and devices to
-  AWS IoT Core for LoRaWAN](lorawan-getting-started.md "lorawan-getting-started.md")
+- ###### [Connecting gateways and devices to AWS IoT Core for LoRaWAN](lorawan-getting-started.md "lorawan-getting-started.md")
 
 Next, you can learn more about how to onboard your LoRaWAN devices by using the console
 and the API.

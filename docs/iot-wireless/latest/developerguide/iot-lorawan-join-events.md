@@ -1,6 +1,4 @@
-# Enable notifications for LoRaWAN join
-
-events
+# Enable notifications for LoRaWAN join events
 
 AWS IoT Core for LoRaWAN can publish messages to notify you of join events for LoRaWAN
 devices that you onboard to AWS IoT. Join events notify you when a join or rejoin
@@ -14,27 +12,21 @@ performs a _join_ procedure for your device with
 AWS IoT Core for LoRaWAN. Your device then becomes activated for use and can send an uplink
 message to indicate that it's available. After the device has joined, uplink and
 downlink messages can be exchanged between your device and AWS IoT Core for LoRaWAN. For
-more information about onboarding your device, see [Onboard your devices to
-AWS IoT Core for LoRaWAN](lorawan-onboard-end-devices.md "lorawan-onboard-end-devices.md").
+more information about onboarding your device, see [Onboard your devices to AWS IoT Core for LoRaWAN](lorawan-onboard-end-devices.md "lorawan-onboard-end-devices.md").
 
 You can enable events to notify you when your device has joined with
 AWS IoT Core for LoRaWAN. You'll also be notified if the join event fails and when a rejoin
 request of type 0 or type 2 is received, and when it's accepted.
 
-## Enable LoRaWAN join
-
-events
+## Enable LoRaWAN join events
 
 Before subscribers to the LoRaWAN join reserved topics can receive messages,
 you must enable event notifications for them from the AWS Management Console, or by using the
 API or CLI. You can enable these events for all LoRaWAN resources in your
 AWS account or for select resources. For information about how to enable these
-events, see [Enable events for wireless
-resources](iot-wireless-control-events.md "iot-wireless-control-events.md").
+events, see [Enable events for wireless resources](iot-wireless-control-events.md "iot-wireless-control-events.md").
 
-## Format of MQTT topics for
-
-LoRaWAN events
+## Format of MQTT topics for LoRaWAN events
 
 Reserved MQTT topics for LoRaWAN devices use the following format. If you've
 subscribed to these topics, then all LoRaWAN devices that are registered to your
@@ -90,9 +82,7 @@ For more information about using the `+` wildcard when subscribing
 to topics, see [MQTT topic filters](../../../iot/latest/developerguide/topicfilters.md "../../../iot/latest/developerguide/topicfilters.md")
 in the _AWS IoT developer guide_.
 
-## Message payload for LoRaWAN join
-
-event
+## Message payload for LoRaWAN join event
 
 The following shows the message payload for the LoRaWAN join event.
 

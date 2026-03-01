@@ -1,6 +1,4 @@
-# Enable notifications for Sidewalk
-
-proximity events
+# Enable notifications for Sidewalk proximity events
 
 Proximity events publish event notifications when AWS IoT receives a beacon from the
 Sidewalk device. When your Sidewalk device approaches Amazon Sidewalk, beacons that
@@ -8,9 +6,7 @@ are sent from your device are filtered by Amazon Sidewalk at regular intervals a
 received by AWS IoT Wireless. AWS IoT Wireless then notifies you of these events
 when a beacon is received.
 
-## How proximity events
-
-work
+## How proximity events work
 
 Proximity events notify you when AWS IoT receives a beacon, Your Sidewalk
 devices can emit beacons any time. When your device is near Amazon Sidewalk,
@@ -23,20 +19,15 @@ Proximity events will notify you when a beacon is discovered or when a beacon
 is lost. You can configure the intervals at which you're notified of the
 proximity event.
 
-## Enable notifications for
-
-proximity events
+## Enable notifications for proximity events
 
 Before subscribers to the Sidewalk proximity reserved topics can receive
 messages, you must enable event notifications for them from the AWS Management Console, or by
 using the API or CLI. You can enable these events for all Sidewalk resources in
 your AWS account or for select resources. For information about how to enable
-these events, see [Enable events for wireless
-resources](iot-wireless-control-events.md "iot-wireless-control-events.md").
+these events, see [Enable events for wireless resources](iot-wireless-control-events.md "iot-wireless-control-events.md").
 
-## Format of MQTT topics for
-
-proximity events
+## Format of MQTT topics for proximity events
 
 To notify you of proximity events, you can subscribe to MQTT reserved topics
 that begin with a dollar ($) sign. For more information, see [MQTT
@@ -90,9 +81,7 @@ You can't use the wildcard character `#` to subscribe to the
 reserved topics. For more information about topic filters, see [MQTT topic filters](../../../iot/latest/developerguide/topicfilters.md "../../../iot/latest/developerguide/topicfilters.md") in the _AWS IoT developer
 guide_.
 
-## Message payload for
-
-proximity events
+## Message payload for proximity events
 
 After you enable notifications for proximity events, event messages are
 published over MQTT with a JSON payload. These events contain the following

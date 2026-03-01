@@ -1,6 +1,4 @@
-# Onboard AWS IoT Core for LoRaWAN control plane
-
-API endpoint
+# Onboard AWS IoT Core for LoRaWAN control plane API endpoint
 
 You can use AWS IoT Core for LoRaWAN control plane API endpoints to interact with the
 AWS IoT Wireless APIs. For example, you can use this endpoint to run the [SendDataToWirelessDevice](../apireference/API_SendDataToWirelessDevice.md "../apireference/API_SendDataToWirelessDevice.md") API to send data from AWS IoT to your LoRaWAN
@@ -14,11 +12,9 @@ instead of connecting over the public internet.
 ###### To onboard the control plane endpoint:
 
 - [Create your Amazon VPC and subnet](#create-vpc "#create-vpc")
-- [Launch an Amazon EC2 instance in your
-  subnet](#launch-ec2-instance "#launch-ec2-instance")
+- [Launch an Amazon EC2 instance in your subnet](#launch-ec2-instance "#launch-ec2-instance")
 - [Create Amazon VPC interface endpoint](#create-vpc-endpoint "#create-vpc-endpoint")
-- [Test your connection to the interface
-  endpoint](#connect-vpc-endpoint "#connect-vpc-endpoint")
+- [Test your connection to the interface endpoint](#connect-vpc-endpoint "#connect-vpc-endpoint")
 
 ## Create your Amazon VPC and subnet
 
@@ -66,9 +62,7 @@ To create your subnet:
 For more information, see [Work with VPCs and
 subnets](../../../vpc/latest/userguide/working-with-vpcs.md "../../../vpc/latest/userguide/working-with-vpcs.md").
 
-## Launch an Amazon EC2 instance in your
-
-subnet
+## Launch an Amazon EC2 instance in your subnet
 
 To launch your EC2 instance:
 
@@ -157,9 +151,7 @@ API. To create the endpoint:
 3. To create your VPC endpoint, choose **Create
    endpoint**.
 
-## Test your connection to the interface
-
-endpoint
+## Test your connection to the interface endpoint
 
 You can use an SSH to access your Amazon EC2 instance and then use the AWS CLI to connect
 to the privatelink interface endpoints.

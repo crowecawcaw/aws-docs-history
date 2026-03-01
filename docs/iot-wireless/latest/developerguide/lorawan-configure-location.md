@@ -1,6 +1,4 @@
-# Configuring position of wireless resources with
-
-AWS IoT Core for LoRaWAN
+# Configuring position of wireless resources with AWS IoT Core for LoRaWAN
 
 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -31,9 +29,7 @@ position data, you can:
 - Create alerts and receive notifications to devices in case of any unusual activity
   by using the position data and Amazon SNS.
 
-## How positioning works for LoRaWAN
-
-devices
+## How positioning works for LoRaWAN devices
 
 You can activate positioning to identify the position of your devices using
 third-party Wi-Fi and GNSS solvers. This information can be used to track and monitor
@@ -77,8 +73,7 @@ As solvers can't be used for LoRaWAN gateways, the accuracy information
 will be reported as `0.0`.
 
 For more information about the uplink message format and the frequency ports that are
-used for the positioning solver, see [Uplink message from
-AWS IoT Core for LoRaWAN to rules engine](lorawan-location-devices.md#lorawan-location-devices-uplink "lorawan-location-devices.md#lorawan-location-devices-uplink").
+used for the positioning solver, see [Uplink message from AWS IoT Core for LoRaWAN to rules engine](lorawan-location-devices.md#lorawan-location-devices-uplink "lorawan-location-devices.md#lorawan-location-devices-uplink").
 
 ## Overview of positioning workflow
 
@@ -118,7 +113,5 @@ map.
 
 ###### Topics
 
-- [Configuring the position of LoRaWAN
-  gateways](lorawan-location-gateways.md "lorawan-location-gateways.md")
-- [Configuring position of LoRaWAN
-  devices](lorawan-location-devices.md "lorawan-location-devices.md")
+- [Configuring the position of LoRaWAN gateways](lorawan-location-gateways.md "lorawan-location-gateways.md")
+- [Configuring position of LoRaWAN devices](lorawan-location-devices.md "lorawan-location-devices.md")

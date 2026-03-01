@@ -1,6 +1,4 @@
-# Monitor and troubleshoot your multicast
-
-groups
+# Monitor and troubleshoot your multicast groups
 
 After you've added devices and created your multicast group, open the AWS Management Console.
 Navigate to the [Multicast
@@ -57,9 +55,7 @@ be **Delete_Waiting** until the multicast group has
 been deleted. After your multicast group enters this state, it can't
 transition to one of the other states.
 
-## Status of devices in multicast
-
-group
+## Status of devices in multicast group
 
 The devices in your multicast group can have one of the following status
 messages displayed in the AWS Management Console. You can hover over each status message to
@@ -128,5 +124,4 @@ devices in your group, and how you can troubleshoot any issues such as when a
 device is not capable of multicast setup, you can schedule a downlink message to
 be sent to the devices and your multicast group will be in **In
 session**. For information about scheduling a downlink message, see
-[Schedule a downlink message
-for your multicast group](lorawan-multicast-schedule-downlink.md "lorawan-multicast-schedule-downlink.md").
+[Schedule a downlink message for your multicast group](lorawan-multicast-schedule-downlink.md "lorawan-multicast-schedule-downlink.md").

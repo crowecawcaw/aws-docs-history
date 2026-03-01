@@ -4,9 +4,7 @@ AWS IoT Wireless can publish messages to notify you of events for your LoRaWAN a
 Sidewalk devices. For example, the device registration event notifies you when the Sidewalk
 devices in your account have been registered.
 
-## How your resources can be notified of
-
-events
+## How your resources can be notified of events
 
 When certain events occur, AWS IoT Wireless publishes event notifications. For
 example, when you've provisioned your Sidewalk device, it generates an event. Each event
@@ -27,9 +25,7 @@ notifications. The event types depend on whether the resource type is a wireless
 device, a wireless gateway, or a Sidewalk account. You can also enable events for
 your resources at the resource level. This applies to all resources of a particular
 type, or for select resources, as described in the following section. For more
-information, see [Event notifications for LoRaWAN
-resources](iot-wireless-events-notifications.md#iot-lorawan-events "iot-wireless-events-notifications.md#iot-lorawan-events") and [Event notifications for Sidewalk
-resources](iot-wireless-events-notifications.md#iot-sidewalk-events "iot-wireless-events-notifications.md#iot-sidewalk-events").
+information, see [Event notifications for LoRaWAN resources](iot-wireless-events-notifications.md#iot-lorawan-events "iot-wireless-events-notifications.md#iot-lorawan-events") and [Event notifications for Sidewalk resources](iot-wireless-events-notifications.md#iot-sidewalk-events "iot-wireless-events-notifications.md#iot-sidewalk-events").
 
 | Event types based on resources | Resource                                   | Resource type                              | Event type |
 | ------------------------------ | ------------------------------------------ | ------------------------------------------ | ---------- |
@@ -38,9 +34,7 @@ resources](iot-wireless-events-notifications.md#iot-sidewalk-events "iot-wireles
 | Wireless gateway               | LoRaWAN                                    | Connection status                          |
 | Sidewalk account               | Sidewalk                                   | • Device registration state<br>• Proximity |
 
-### Policy for receiving wireless event
-
-notifications
+### Policy for receiving wireless event notifications
 
 To receive event notifications, your device must use an appropriate policy. The
 policy allows it to connect to the AWS IoT device gateway and subscribe to MQTT event
@@ -70,9 +64,7 @@ The following is an example policy.
 
 ```
 
-### Format of MQTT topics for wireless
-
-events
+### Format of MQTT topics for wireless events
 
 To send you event notifications, AWS IoT uses MQTT reserved topics that begin with a
 dollar sign ($). You can publish and subscribe to these reserved topics. However,
@@ -112,9 +104,7 @@ The following table shows examples of MQTT topics for the various events:
 | LoRaWAN join                       | • Resource-level topic<br>`$aws/iotwireless/events/join/{eventType}/lorawan/wireless_devices`<br>• Identifier-level topic<br>`$aws/iotwireless/events/join/{eventType}/lorawan/wireless_devices/{resourceID}/{id}`                                           | • `{eventType}` can be<br>`join_req_0_received` or<br>`join_req_2_received` or<br>`join_accepted`<br>• `{resourceID}` can be<br>`wireless_device_id` or<br>`dev_eui`                                                                                                      |
 | LoRaWAN gateway connection status  | • Resource-level topic<br>`$aws/iotwireless/events/join/{eventType}/lorawan/wireless_gateways`<br>• Identifier-level topic<br>`$aws/iotwireless/events/join/{eventType}/lorawan/wireless_gateways/{resourceID}/{id}`                                         | • `{eventType}` can be `connected`<br>or `disconnected`<br>• `{resourceID}` can be<br>`wireless_gateway_id` or<br>`gateway_eui`                                                                                                                                           |
 
-For more information about the different events, see [Event notifications for LoRaWAN
-resources](iot-wireless-events-notifications.md#iot-lorawan-events "iot-wireless-events-notifications.md#iot-lorawan-events") and [Event notifications for Sidewalk
-resources](iot-wireless-events-notifications.md#iot-sidewalk-events "iot-wireless-events-notifications.md#iot-sidewalk-events").
+For more information about the different events, see [Event notifications for LoRaWAN resources](iot-wireless-events-notifications.md#iot-lorawan-events "iot-wireless-events-notifications.md#iot-lorawan-events") and [Event notifications for Sidewalk resources](iot-wireless-events-notifications.md#iot-sidewalk-events "iot-wireless-events-notifications.md#iot-sidewalk-events").
 
 If you've subscribed to these topics, you'll be notified when a message is
 published to one of the topics. For more information, see [MQTT

@@ -1,6 +1,4 @@
-# Obtain device JSON files for
-
-provisioning
+# Obtain device JSON files for provisioning
 
 After you've added your Sidewalk device to AWS IoT Core for Amazon Sidewalk, download the
 JSON file that contains the information required to provision your end device. You
@@ -9,9 +7,7 @@ information about how to provision the device, see [Provisioning and registering
 your end device](https://docs.sidewalk.amazon/provisioning/ "https://docs.sidewalk.amazon/provisioning/") in the _Amazon Sidewalk
 documentation_.
 
-## Obtain JSON file
-
-(console)
+## Obtain JSON file (console)
 
 To obtain the JSON file for provisioning your Sidewalk device:
 
@@ -69,14 +65,10 @@ The following shows how to retrieve the JSON files.
 
 ###### Topics
 
-- [Step 1: Get device profile
-  information as JSON file](#iot-sidewalk-profile-get "#iot-sidewalk-profile-get")
-- [Step 2: Get Sidewalk device
-  information as JSON file](#iot-sidewalk-get-device "#iot-sidewalk-get-device")
+- [Step 1: Get device profile information as JSON file](#iot-sidewalk-profile-get "#iot-sidewalk-profile-get")
+- [Step 2: Get Sidewalk device information as JSON file](#iot-sidewalk-get-device "#iot-sidewalk-get-device")
 
-### Step 1: Get device profile
-
-information as JSON file
+### Step 1: Get device profile information as JSON file
 
 Use the [`GetDeviceProfile`](../apireference/API_GetDeviceProfile.md "../apireference/API_GetDeviceProfile.md") API operation or the [`get-device-profile`](../../../cli/latest/reference/get-device-profile.md "../../../cli/latest/reference/get-device-profile.md") CLI command to get
 information about your device profile that you added to your account for
@@ -127,9 +119,7 @@ of
 }
 ```
 
-### Step 2: Get Sidewalk device
-
-information as JSON file
+### Step 2: Get Sidewalk device information as JSON file
 
 Use the [`GetWirelessDevice`](../apireference/API_GetWirelessDevice.md "../apireference/API_GetWirelessDevice.md") API operation or the [`get-wireless-device`](../../../cli/latest/reference/get-wireless-device.md "../../../cli/latest/reference/get-wireless-device.md") CLI command to get
 information about your Sidewalk device that you added to your account

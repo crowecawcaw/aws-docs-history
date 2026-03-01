@@ -1,6 +1,4 @@
-# Creating device profiles with factory
-
-support
+# Creating device profiles with factory support
 
 Before you can bulk provision your Amazon Sidewalk devices, you must create a device
 profile and then contact the Amazon Sidewalk support team to request factory support for it.
@@ -180,5 +178,4 @@ AWS IoT Core for Amazon Sidewalk the serial numbers of the devices to be onboard
 AWS IoT Core for Amazon Sidewalk receives the control log, it compares the serial numbers in the
 control log with the serial numbers that you provided. If the serial numbers match,
 the import task starts onboarding your devices to AWS IoT Core for Amazon Sidewalk. For more
-information, see [Provisioning Sidewalk devices
-using import tasks](sidewalk-provision-bulk-import.md "sidewalk-provision-bulk-import.md").
+information, see [Provisioning Sidewalk devices using import tasks](sidewalk-provision-bulk-import.md "sidewalk-provision-bulk-import.md").

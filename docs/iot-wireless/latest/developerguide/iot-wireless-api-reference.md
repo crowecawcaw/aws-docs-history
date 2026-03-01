@@ -17,12 +17,9 @@ device profiles:
   about creating and retrieving device profiles, see:
 
 - [Add device profiles](lorawan-define-profiles.md#lorawan-device-profiles "lorawan-define-profiles.md#lorawan-device-profiles")
-- [Step 1: Create a device
-  profile](iot-sidewalk-add-device.md#iot-sidewalk-profile-create "iot-sidewalk-add-device.md#iot-sidewalk-profile-create")
+- [Step 1: Create a device profile](iot-sidewalk-add-device.md#iot-sidewalk-profile-create "iot-sidewalk-add-device.md#iot-sidewalk-profile-create")
 
-### List device profiles in your
-
-AWS account
+### List device profiles in your AWS account
 
 You can use the [`ListDeviceProfiles`](../apireference/API_ListDeviceProfiles.md "../apireference/API_ListDeviceProfiles.md") API operation to list device
 profiles in your AWS account that you added to AWS IoT Wireless. You can use
@@ -59,9 +56,7 @@ additional details about a specific profile, use the
 }
 ```
 
-### Delete device profiles from your
-
-AWS account
+### Delete device profiles from your AWS account
 
 You can delete your device profiles using the [`DeleteDeviceProfile`](../apireference/API_DeleteDeviceProfile.md "../apireference/API_DeleteDeviceProfile.md") API operation. The following
 shows an example CLI command:
@@ -96,14 +91,10 @@ Sidewalk devices:
   The following sections show you how to list and delete devices. For information
   about creating wireless devices and retrieving device information, see:
 
-- [Add your wireless device to
-  AWS IoT Core for LoRaWAN](lorawan-end-devices-add.md "lorawan-end-devices-add.md")
-- [Step 2: Add your
-  Sidewalk device](iot-sidewalk-add-device.md#iot-sidewalk-device-create "iot-sidewalk-add-device.md#iot-sidewalk-device-create")
+- [Add your wireless device to AWS IoT Core for LoRaWAN](lorawan-end-devices-add.md "lorawan-end-devices-add.md")
+- [Step 2: Add your Sidewalk device](iot-sidewalk-add-device.md#iot-sidewalk-device-create "iot-sidewalk-add-device.md#iot-sidewalk-device-create")
 
-### Associate wireless devices in
-
-your AWS account to an IoT thing
+### Associate wireless devices in your AWS account to an IoT thing
 
 To associate your LoRaWAN and Sidewalk devices with an AWS IoT thing,
 use the `AssociateWirelessDeviceWithThing` API operation.
@@ -129,9 +120,7 @@ aws iotwireless disassociate-wireless-device-from-thing \
     --id `"12345678-a1b2-3c45-67d8-e90fa1b2c34d"`
 ```
 
-### List wireless devices in your
-
-AWS account
+### List wireless devices in your AWS account
 
 To list wireless devices in your AWS account that you added to
 AWS IoT Wireless, use the [`ListWirelessDevices`](../apireference/API_ListWirelessDevices.md "../apireference/API_ListWirelessDevices.md") API operation. To filter the
@@ -205,9 +194,7 @@ details about a specific device, use the [`GetWirelessDevice`](../apireference/A
 }
 ```
 
-### Delete wireless devices from your
-
-AWS account
+### Delete wireless devices from your AWS account
 
 To delete your wireless devices, pass the `WirelessDeviceID` of the
 devices you want to delete to the [`DeleteWirelessDevice`](../apireference/API_DeleteWirelessDevice.md "../apireference/API_DeleteWirelessDevice.md") API operation.
@@ -232,12 +219,9 @@ and Sidewalk devices:
 - [`ListDestinations`](../apireference/API_ListDestinations.md "../apireference/API_ListDestinations.md") API or the [`list-destinations`](../../../cli/latest/reference/list-destinations.md "../../../cli/latest/reference/list-destinations.md") CLI
 - [`DeleteDestination`](../apireference/API_DeleteDestination.md "../apireference/API_DeleteDestination.md") API or the [`delete-destination`](../../../cli/latest/reference/delete-destination.md "../../../cli/latest/reference/delete-destination.md") CLI
   The following sections show you how to get, list, update, and delete destinations.
-  For information about creating destinations, see [Add a destination for your
-  Sidewalk end device](iot-sidewalk-qsg-destination.md "iot-sidewalk-qsg-destination.md").
+  For information about creating destinations, see [Add a destination for your Sidewalk end device](iot-sidewalk-qsg-destination.md "iot-sidewalk-qsg-destination.md").
 
-### Get information about your
-
-destination
+### Get information about your destination
 
 You can use the [`GetDestination`](../apireference/API_GetDestination.md "../apireference/API_GetDestination.md") API operation to get information
 about the destination that you added to your account for AWS IoT Wireless.
@@ -262,9 +246,7 @@ Running this command returns the parameters of your destination.
 }
 ```
 
-### Update properties of your
-
-destination
+### Update properties of your destination
 
 Use the [`UpdateDestination`](../apireference/API_UpdateDestination.md "../apireference/API_UpdateDestination.md") API operation to update
 properties of your destination that you added to your account for
@@ -276,9 +258,7 @@ aws iotwireless update-destination --name `SidewalkDestination` \
     --description `"Destination for messages processed using IoTWirelessRule"`
 ```
 
-### List destinations in your
-
-AWS account
+### List destinations in your AWS account
 
 Use the [`ListDestinations`](../apireference/API_ListDestinations.md "../apireference/API_ListDestinations.md") API operation to list
 destinations in your AWS account that you added to AWS IoT Wireless. To
@@ -315,9 +295,7 @@ specific destination, use the `GetDestination` API.
 }
 ```
 
-### Delete destinations from your
-
-AWS account
+### Delete destinations from your AWS account
 
 To delete your destination, pass the name of the destination to be deleted as
 input to the [`DeleteDestination`](../apireference/API_DeleteDestination.md "../apireference/API_DeleteDestination.md") API operation. The following
@@ -356,12 +334,9 @@ Sidewalk end devices:
 - [`DeleteWirelessDeviceImportTask`](../apireference/API_DeleteWirelessDeviceImportTask.md "../apireference/API_DeleteWirelessDeviceImportTask.md") API or the
   [`delete-wireless-device-import-task`](../../../cli/latest/reference/delete-wireless-device-import-task.md "../../../cli/latest/reference/delete-wireless-device-import-task.md") CLI
   The following sections show you how to get, list, update, and delete import tasks.
-  For information about creating import tasks, see [Provisioning Sidewalk devices
-  using import tasks](sidewalk-provision-bulk-import.md "sidewalk-provision-bulk-import.md").
+  For information about creating import tasks, see [Provisioning Sidewalk devices using import tasks](sidewalk-provision-bulk-import.md "sidewalk-provision-bulk-import.md").
 
-### Get information about your import
-
-task
+### Get information about your import task
 
 You can use the [`ListDevicesForWirelessDeviceImportTask`](../apireference/API_ListDevicesForWirelessDeviceImportTask.md "../apireference/API_ListDevicesForWirelessDeviceImportTask.md") API
 operation to retrieve information about a particular import task and the
@@ -414,9 +389,7 @@ onboarding status.
 }
 ```
 
-### Get import task device
-
-summary
+### Get import task device summary
 
 To get a count of summary information of the onboarding status of devices that
 you added to a particular import task, use the [`GetWirelessDeviceImportTask`](../apireference/API_GetWirelessDeviceImportTask.md "../apireference/API_GetWirelessDeviceImportTask.md") API operation. The
@@ -454,9 +427,7 @@ The following code shows a sample response from the command.
 }
 ```
 
-### Add devices to import
-
-task
+### Add devices to import task
 
 Use the `UpdateWirelessDeviceImportTask` API operation to add
 devices to an existing import task that you added. You can use this API
@@ -494,9 +465,7 @@ aws iotwireless update-wireless-device-import task \
     --sidewalk '{"FileForCreateDevices": "s3://`import_task_bucket`/`import_file3`"}'
 ```
 
-### List import tasks in your
-
-AWS account
+### List import tasks in your AWS account
 
 Use the `ListWirelessDeviceImportTasks` API or the
 `list-imported-wireless-device-tasks` CLI command to list import
@@ -539,9 +508,7 @@ task ID, and summary information of the device onboarding status.
 }
 ```
 
-### Delete import tasks from your
-
-AWS account
+### Delete import tasks from your AWS account
 
 To delete an import task, pass the import task ID to the
 `DeleteWirelessDeviceImportTask` API operation or the

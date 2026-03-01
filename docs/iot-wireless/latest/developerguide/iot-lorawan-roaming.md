@@ -1,6 +1,4 @@
-# Managing LoRaWAN traffic from public networks
-
-(Everynet)
+# Managing LoRaWAN traffic from public networks (Everynet)
 
 You can connect your LoRaWAN devices to the cloud in minutes by using publicly
 available LoRaWAN networks. AWS IoT Core for LoRaWAN now supports Everynet’s network coverage in
@@ -23,9 +21,7 @@ capability can be used to connect your end devices that are outside the home net
 support this capability, AWS IoT Core for LoRaWAN partners with Everynet to offer extended radio
 coverage.
 
-## Benefits of using a public LoRaWAN
-
-network
+## Benefits of using a public LoRaWAN network
 
 Your LoRaWAN devices can use a public network to connect to the cloud, which
 reduces the time to deployment, and reduces the time and cost that are required to
@@ -36,12 +32,10 @@ extension, running core without radio network, and coverage densification. This
 feature can be used to:
 
 - Provide coverage to devices when they move out of their home network, such
-  as _Device A_ in figure shown in the [Public LoRaWAN network support
-  architecture](lorawan-roaming-works.md#lorawan-roaming-architecture "lorawan-roaming-works.md#lorawan-roaming-architecture") section.
+  as _Device A_ in figure shown in the [Public LoRaWAN network support architecture](lorawan-roaming-works.md#lorawan-roaming-architecture "lorawan-roaming-works.md#lorawan-roaming-architecture") section.
 - Extend coverage to devices that don't have a LoRa gateway to connect to,
   such as _Device B_ in figure shown in the
-  [Public LoRaWAN network support
-  architecture](lorawan-roaming-works.md#lorawan-roaming-architecture "lorawan-roaming-works.md#lorawan-roaming-architecture") section. The device can
+  [Public LoRaWAN network support architecture](lorawan-roaming-works.md#lorawan-roaming-architecture "lorawan-roaming-works.md#lorawan-roaming-architecture") section. The device can
   then use the gateway provided by the partner to connect to the home
   network.
 
@@ -54,7 +48,5 @@ LoRaWAN network support works, and how to use this feature.
 
 ###### Topics
 
-- [How LoRaWAN public network support
-  works](lorawan-roaming-works.md "lorawan-roaming-works.md")
-- [How to use AWS IoT Core for LoRaWAN public network
-  support](lorawan-roaming-use.md "lorawan-roaming-use.md")
+- [How LoRaWAN public network support works](lorawan-roaming-works.md "lorawan-roaming-works.md")
+- [How to use AWS IoT Core for LoRaWAN public network support](lorawan-roaming-use.md "lorawan-roaming-use.md")

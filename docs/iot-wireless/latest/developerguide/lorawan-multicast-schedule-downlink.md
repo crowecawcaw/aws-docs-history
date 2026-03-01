@@ -1,6 +1,4 @@
-# Schedule a downlink message
-
-for your multicast group
+# Schedule a downlink message for your multicast group
 
 After you've successfully added devices to your multicast group, you can start a
 multicast session and configure a downlink message to be sent to those devices. The
@@ -20,18 +18,14 @@ been received.
 Before you can send a downlink message, you must have created a multicast
 group and successfully added devices to the group for which you want to send a
 downlink message. You can't add more devices after a start time has been
-scheduled for your multicast session. For more information, see [Create multicast groups and add
-devices to the group](lorawan-create-multicast-groups.md "lorawan-create-multicast-groups.md").
+scheduled for your multicast session. For more information, see [Create multicast groups and add devices to the group](lorawan-create-multicast-groups.md "lorawan-create-multicast-groups.md").
 
 If any of the devices weren't added successfully, the multicast group and
 device status will contain information to help you resolve the errors. If the
 errors still persist, for information about troubleshooting these errors, see
-[Monitor and troubleshoot your multicast
-groups](lorawan-multicast-status.md "lorawan-multicast-status.md").
+[Monitor and troubleshoot your multicast groups](lorawan-multicast-status.md "lorawan-multicast-status.md").
 
-## Schedule a downlink message
-
-by using the console
+## Schedule a downlink message by using the console
 
 To send a downlink message by using the console, go to the [Multicast
 groups](https://console.aws.amazon.com/iot/home#/wireless/multicastGroups "https://console.aws.amazon.com/iot/home#/wireless/multicastGroups") page of the AWS IoT console and choose the multicast group you
@@ -99,9 +93,7 @@ parameters:
 To schedule your downlink message, choose
 **Schedule**.
 
-## Schedule a downlink message by
-
-using the API
+## Schedule a downlink message by using the API
 
 To schedule a downlink message by using the API, use the [`StartMulticastGroupSession`](../apireference/API_StartMulticastGroupSession.md "../apireference/API_StartMulticastGroupSession.md") API operation or the
 [`start-multicast-group-session`](../../../cli/latest/reference/iotwireless/start-multicast-group-session.md "../../../cli/latest/reference/iotwireless/start-multicast-group-session.md") CLI
@@ -124,9 +116,7 @@ After you've configured a downlink message to be sent to the devices, the
 message is sent at the start of the session. The devices in a multicast group
 can't confirm whether the message has been received.
 
-### Configure additional
-
-downlink messages
+### Configure additional downlink messages
 
 You can also configure additional downlink messages to be sent to the
 devices in your multicast group:
@@ -150,9 +140,7 @@ devices in your multicast group:
   or the [`send-data-to-multicast-group`](../../../cli/latest/reference/iotwireless/send-data-to-multicast-group.md "../../../cli/latest/reference/iotwireless/send-data-to-multicast-group.md") CLI command
   for each additional downlink message.
 
-### Update session
-
-schedule
+### Update session schedule
 
 You can also update the session schedule to use a new start date and time
 for your multicast session. The new session schedule will override the

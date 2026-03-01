@@ -1,6 +1,4 @@
-# Add resources and update the network
-
-analyzer configuration
+# Add resources and update the network analyzer configuration
 
 Before you can activate trace messaging, you must add resources to your
 configuration. You can use only a single, default network analyzer configuration.
@@ -61,12 +59,9 @@ logging.
 ## Prerequisites
 
 Before you can add resources, you must have onboarded the gateways and devices
-that you want to monitor to AWS IoT Core for LoRaWAN. For more information, see [Connecting gateways and devices to
-AWS IoT Core for LoRaWAN](lorawan-getting-started.md "lorawan-getting-started.md").
+that you want to monitor to AWS IoT Core for LoRaWAN. For more information, see [Connecting gateways and devices to AWS IoT Core for LoRaWAN](lorawan-getting-started.md "lorawan-getting-started.md").
 
-## Add resources and update the network
-
-analyzer configuration by using the console
+## Add resources and update the network analyzer configuration by using the console
 
 You can add resources and customize the optional parameters by using the AWS IoT
 console or the AWS IoT Wireless API. In addition to resources, you can also
@@ -120,9 +115,7 @@ disable frame info and the log level for your trace message logs.
 You'll see the configuration settings that you specified in the
 details page of your network analyzer configuration.
 
-## Add resources and update
-
-the network analyzer configuration by using the API
+## Add resources and update the network analyzer configuration by using the API
 
 You can use the [AWS IoT Wireless API
 operations](../apireference.md "../apireference.md") or the [AWS IoT Wireless CLI
@@ -174,5 +167,4 @@ Now that you've added resources and specified any optional configuration
 settings for your configuration, you can use the WebSocket protocol to establish
 a connection with AWS IoT Core for LoRaWAN for using network analyzer. You can then
 activate trace messaging and start receiving trace messages for your resources.
-For more information, see [Stream network analyzer trace messages with
-WebSockets](network-analyzer-api.md "network-analyzer-api.md").
+For more information, see [Stream network analyzer trace messages with WebSockets](network-analyzer-api.md "network-analyzer-api.md").

@@ -1,6 +1,4 @@
-# Sample Python code to generate
-
-presigned URL
+# Sample Python code to generate presigned URL
 
 The following code shows an example for generating the pre-signed URL using Python
 as the programming language.
@@ -219,5 +217,4 @@ pip install websocket-client
 
 After you install the client and make the request, you'll see messages and
 status codes that indicate the status of your request. For more information, see
-[WebSocket messages and status
-codes](network-analyzer-messages-status.md "network-analyzer-messages-status.md").
+[WebSocket messages and status codes](network-analyzer-messages-status.md "network-analyzer-messages-status.md").

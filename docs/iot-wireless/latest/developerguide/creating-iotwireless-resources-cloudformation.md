@@ -1,6 +1,4 @@
-# Creating AWS IoT Wireless resources
-
-with AWS CloudFormation
+# Creating AWS IoT Wireless resources with AWS CloudFormation
 
 AWS IoT Wireless is integrated with AWS CloudFormation, a service that helps you model and set up your
 AWS resources so that you can spend less time creating and managing your resources and

@@ -1,6 +1,4 @@
-# View import task and device
-
-onboarding status
+# View import task and device onboarding status
 
 Your wireless device import tasks and Sidewalk devices that you've added to
 the task can have one of the following status messages. You'll see these messages
@@ -8,9 +6,7 @@ displayed in the AWS IoT console, or when you use any of the AWS IoT Wireless AP
 operations or AWS CLI commands to retrieve information about these tasks and their
 devices.
 
-## View import task status
-
-information
+## View import task status information
 
 After you've created an import task, you can view the import task that you created
 and the onboarding status of devices added to the task. The onboarding status
@@ -42,9 +38,7 @@ To view the device onboarding status, use any of the following
 AWS IoT Wireless API operations or the corresponding AWS CLI command.
 .
 
-    + ###### [`ListWirelessDeviceImportTasks`](../apireference/API_ListWirelessDeviceImportTasks.md "../apireference/API_ListWirelessDeviceImportTasks.md") API
-     or [`list-wireless-device-import-tasks`](../../../cli/latest/reference/list-wireless-device-import-tasks.md "../../../cli/latest/reference/list-wireless-device-import-tasks.md")
-     CLI
+    + ###### [`ListWirelessDeviceImportTasks`](../apireference/API_ListWirelessDeviceImportTasks.md "../apireference/API_ListWirelessDeviceImportTasks.md") API or [`list-wireless-device-import-tasks`](../../../cli/latest/reference/list-wireless-device-import-tasks.md "../../../cli/latest/reference/list-wireless-device-import-tasks.md") CLI
 
 
     This API operation returns information about all the import
@@ -52,18 +46,14 @@ AWS IoT Wireless API operations or the corresponding AWS CLI command.
      AWS IoT Wireless and their status. It also returns a count of
      the summary of onboarding status of Sidewalk devices in
      these tasks.
-    + ###### [`ListDevicesForWirelessDeviceImportTask`](../apireference/API_ListDevicesForWirelessDeviceImportTask.md "../apireference/API_ListDevicesForWirelessDeviceImportTask.md")
-     API or [`list-devices-for-wireless-device-import-task`](../../../cli/latest/reference/list-devices-for-wireless-device-import-task.md "../../../cli/latest/reference/list-devices-for-wireless-device-import-task.md")
-     CLI
+    + ###### [`ListDevicesForWirelessDeviceImportTask`](../apireference/API_ListDevicesForWirelessDeviceImportTask.md "../apireference/API_ListDevicesForWirelessDeviceImportTask.md") API or [`list-devices-for-wireless-device-import-task`](../../../cli/latest/reference/list-devices-for-wireless-device-import-task.md "../../../cli/latest/reference/list-devices-for-wireless-device-import-task.md") CLI
 
 
     This API operation returns information about the specified
      import task and its status, and information about all
      Sidewalk devices that have been added to the import task
      and their onboarding status information.
-    + ###### [`GetWirelessDeviceImportTask`](../apireference/API_GetWirelessDeviceImportTask.md "../apireference/API_GetWirelessDeviceImportTask.md") API or
-     [`get-wireless-device-import-task`](../../../cli/latest/reference/get-wireless-device-import-task.md "../../../cli/latest/reference/get-wireless-device-import-task.md")
-     CLI
+    + ###### [`GetWirelessDeviceImportTask`](../apireference/API_GetWirelessDeviceImportTask.md "../apireference/API_GetWirelessDeviceImportTask.md") API or [`get-wireless-device-import-task`](../../../cli/latest/reference/get-wireless-device-import-task.md "../../../cli/latest/reference/get-wireless-device-import-task.md") CLI
 
 
     This API operation returns information about the specified
@@ -112,9 +102,7 @@ task failed, such as a validation exception.
 The import task has been marked for deletion and is in the process
 of being deleted.
 
-## Device onboarding
-
-status
+## Device onboarding status
 
 The Sidewalk devices that you added to your import task can have one of
 the following status messages. The status indicates whether your devices are

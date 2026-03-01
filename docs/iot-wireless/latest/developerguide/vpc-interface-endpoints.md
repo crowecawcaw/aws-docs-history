@@ -1,6 +1,4 @@
-# AWS IoT Core for LoRaWAN and interface VPC endpoints
-
-(AWS PrivateLink)
+# AWS IoT Core for LoRaWAN and interface VPC endpoints (AWS PrivateLink)
 
 You can connect directly to AWS IoT Core for LoRaWAN through [Interface VPC endpoints
 (AWS PrivateLink)](../../../vpc/latest/privatelink/vpce-interface.md "../../../vpc/latest/privatelink/vpce-interface.md") in your Virtual Private Cloud (VPC) instead of connecting over
@@ -24,9 +22,7 @@ Amazon VPC](../../../vpc/latest/userguide/what-is-amazon-vpc.md#what-is-privatel
 For more information about AWS PrivateLink, see [AWS PrivateLink and VPC
 endpoints](../../../vpc/latest/privatelink/endpoint-services-overview.md "../../../vpc/latest/privatelink/endpoint-services-overview.md").
 
-## Considerations for AWS IoT Wireless VPC
-
-endpoints
+## Considerations for AWS IoT Wireless VPC endpoints
 
 Before you set up an interface VPC endpoint for AWS IoT Wireless, ensure that you review
 [Interface endpoint properties and limitations](../../../vpc/latest/userguide/vpce-interface.md#vpce-interface-limitations "../../../vpc/latest/userguide/vpce-interface.md#vpce-interface-limitations") in the
@@ -37,9 +33,7 @@ policies are not supported for AWS IoT Wireless. By default, full access to AWS 
 allowed through the endpoint. For more information, see [Controlling access to services with
 VPC endpoints](../../../vpc/latest/userguide/vpc-endpoints-access.md "../../../vpc/latest/userguide/vpc-endpoints-access.md") in the _Amazon VPC User Guide_.
 
-## AWS IoT Core for LoRaWAN privatelink
-
-architecture
+## AWS IoT Core for LoRaWAN privatelink architecture
 
 The following diagram shows the privatelink architecture of AWS IoT Core for LoRaWAN. The
 architecture uses a Transit Gateway and Route 53 Resolver to share the AWS PrivateLink interface endpoints
@@ -75,7 +69,5 @@ information, see [Add a gateway to AWS IoT Core for LoRaWAN](lorawan-onboard-gat
 
 ###### Topics
 
-- [Onboard AWS IoT Core for LoRaWAN control plane
-  API endpoint](lorawan-onboard-control-endpoint.md "lorawan-onboard-control-endpoint.md")
-- [Onboard AWS IoT Core for LoRaWAN data plane API
-  endpoints](onboard-lns-cups-endpoints.md "onboard-lns-cups-endpoints.md")
+- [Onboard AWS IoT Core for LoRaWAN control plane API endpoint](lorawan-onboard-control-endpoint.md "lorawan-onboard-control-endpoint.md")
+- [Onboard AWS IoT Core for LoRaWAN data plane API endpoints](onboard-lns-cups-endpoints.md "onboard-lns-cups-endpoints.md")

@@ -1,6 +1,4 @@
-# Enable events for wireless
-
-resources
+# Enable events for wireless resources
 
 Before subscribers to the reserved topics can receive messages, you must enable event
 notifications. To do this, you can use the AWS Management Console, or the AWS IoT Wireless API or
@@ -12,9 +10,7 @@ You can configure events to send notifications to either all resources that belo
 to a particular type, or for individual wireless resources. The resource type can be
 a wireless gateway, Sidewalk partner account, or a wireless device, which can be a
 LoRaWAN or Sidewalk device. For information about the type of events that you can
-enable for your wireless devices, see [Event notifications for LoRaWAN
-resources](iot-wireless-events-notifications.md#iot-lorawan-events "iot-wireless-events-notifications.md#iot-lorawan-events") and [Event notifications for Sidewalk
-resources](iot-wireless-events-notifications.md#iot-sidewalk-events "iot-wireless-events-notifications.md#iot-sidewalk-events").
+enable for your wireless devices, see [Event notifications for LoRaWAN resources](iot-wireless-events-notifications.md#iot-lorawan-events "iot-wireless-events-notifications.md#iot-lorawan-events") and [Event notifications for Sidewalk resources](iot-wireless-events-notifications.md#iot-sidewalk-events "iot-wireless-events-notifications.md#iot-sidewalk-events").
 
 ###### All resources
 
@@ -37,12 +33,9 @@ join or device registration state events for these resources.
 ## Prerequisites
 
 Your LoRaWAN or Sidewalk resource must have an appropriate policy that allows it
-to receive event notifications. For more information, see [Policy for receiving wireless event
-notifications](iot-wireless-events.md#iot-wireless-events-policy "iot-wireless-events.md#iot-wireless-events-policy").
+to receive event notifications. For more information, see [Policy for receiving wireless event notifications](iot-wireless-events.md#iot-wireless-events-policy "iot-wireless-events.md#iot-wireless-events-policy").
 
-## Enable notifications using the
-
-AWS Management Console
+## Enable notifications using the AWS Management Console
 
 To enable event messages from the console, go to the [Settings](https://console.aws.amazon.com/iot/home#/settings/ "https://console.aws.amazon.com/iot/home#/settings/") tab of the AWS IoT
 console, and then go to the **LoRaWAN and Sidewalk event
@@ -120,9 +113,7 @@ the specified resource type.
   choose your topics, and choose **Action** and then choose
   **Subscribe**.
 
-## Enable notifications using the
-
-AWS CLI
+## Enable notifications using the AWS CLI
 
 You can configure events and add resources to your configuration by using the
 AWS IoT Wireless API or the AWS CLI.

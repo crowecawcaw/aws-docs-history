@@ -1,6 +1,4 @@
-# Choosing gateways to receive the LoRaWAN
-
-downlink data traffic
+# Choosing gateways to receive the LoRaWAN downlink data traffic
 
 When you send a downlink message from AWS IoT Core for LoRaWAN to your device, you can choose the
 gateways you want to use for the downlink data traffic. You can specify an individual
@@ -11,8 +9,7 @@ gateway or choose from a list of gateways to receive the downlink traffic.
 This feature is different from the participating gateways feature that you can
 use for multicast downlink from AWS IoT Core for LoRaWAN to devices in your multicast
 group. For
-more information, see [Choose participating gateways to
-receive multicast downlink messages](lorawan-multicast-choose-gateways.md "lorawan-multicast-choose-gateways.md")
+more information, see [Choose participating gateways to receive multicast downlink messages](lorawan-multicast-choose-gateways.md "lorawan-multicast-choose-gateways.md")
 
 ## How to specify the gateway list
 
@@ -50,8 +47,7 @@ downlink message is sent to the device.
 The following example shows how you specify these parameters for the gateway. The
 `input.json` file will contain additional details. For more
 information about sending a downlink message using the
-`SendDataToWirelessDevice` API operation, see [Perform downlink queue operations
-by using the API](lorawan-downlink-queue.md#lorawan-downlink-queue-api "lorawan-downlink-queue.md#lorawan-downlink-queue-api").
+`SendDataToWirelessDevice` API operation, see [Perform downlink queue operations by using the API](lorawan-downlink-queue.md#lorawan-downlink-queue-api "lorawan-downlink-queue.md#lorawan-downlink-queue-api").
 
 ###### Note
 
@@ -98,8 +94,7 @@ The following shows the contents of the `input.json` file.
 The output of running this command generates a `MessageId` for the
 downlink message. In some cases, even if you receive the `MessageId`,
 packets can get dropped. For more information about how you can resolve the error,
-see [Troubleshoot downlink
-message queue errors](lorawan-downlink-queue.md#lorawan-downlink-queue-troubleshoot "lorawan-downlink-queue.md#lorawan-downlink-queue-troubleshoot").
+see [Troubleshoot downlink message queue errors](lorawan-downlink-queue.md#lorawan-downlink-queue-troubleshoot "lorawan-downlink-queue.md#lorawan-downlink-queue-troubleshoot").
 
 ```
 {
@@ -107,9 +102,7 @@ message queue errors](lorawan-downlink-queue.md#lorawan-downlink-queue-troublesh
 }
 ```
 
-## Get information about the list of
-
-participating gateways
+## Get information about the list of participating gateways
 
 You can get information about the list of gateways that are participating in
 receiving the downlink message by listing messages in the downlink queue. To list

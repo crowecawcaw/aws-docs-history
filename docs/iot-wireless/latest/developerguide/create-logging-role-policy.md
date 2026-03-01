@@ -1,6 +1,4 @@
-# Create logging role and policy for
-
-AWS IoT Wireless monitoring
+# Create logging role and policy for AWS IoT Wireless monitoring
 
 The following shows how to create a logging role for your AWS IoT Wireless
 resources. After you create the logging role and policy, you can configure logging
@@ -11,9 +9,7 @@ for your resources.
 If you want to also create a logging role for AWS IoT Core resources, see [Configure logging role and policy](../../../iot/latest/developerguide/configure-logging-role-and-policy.md "../../../iot/latest/developerguide/configure-logging-role-and-policy.md") in the _AWS IoT Core
 developer guide_.
 
-## Create a logging role for
-
-AWS IoT Wireless
+## Create a logging role for AWS IoT Wireless
 
 Before you can enable logging, you must create an IAM role and a policy that
 gives AWS permission to monitor AWS IoT Wireless activity on your
@@ -144,5 +140,4 @@ activity.
 
 Now that you've create a logging role and policy, you can specify how you want
 to configure logging for your AWS IoT Wireless resources using the
-AWS IoT Wireless API operations or the AWS CLI. For more information, see [Configure resource logging for
-AWS IoT Wireless resources](configure-resource-logging.md "configure-resource-logging.md").
+AWS IoT Wireless API operations or the AWS CLI. For more information, see [Configure resource logging for AWS IoT Wireless resources](configure-resource-logging.md "configure-resource-logging.md").

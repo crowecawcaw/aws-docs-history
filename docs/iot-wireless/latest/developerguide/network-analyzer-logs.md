@@ -1,6 +1,4 @@
-# View and monitor trace message
-
-logs in real time
+# View and monitor trace message logs in real time
 
 If you've added resources to your network analyzer configuration, you can activate
 trace messaging to start receiving trace messages for your resources. You can use either
@@ -12,16 +10,13 @@ Before you can activate trace messaging by using network analyzer, you must
 have:
 
 - Added the resources that you want to monitor to your default network
-  analyzer configuration. For more information, see [Add resources and update the network
-  analyzer configuration](network-analyzer-resources.md "network-analyzer-resources.md").
+  analyzer configuration. For more information, see [Add resources and update the network analyzer configuration](network-analyzer-resources.md "network-analyzer-resources.md").
 - Generated a presigned request by using the
   `StartNetworkAnalyzerStream` request URL. The request will be
   signed using the credentials for the AWS Identity and Access Management role that makes this request.
   For more information, see [Create a presigned URL](network-analyzer-generate-request.md#network-analyzer-presigned-url "network-analyzer-generate-request.md#network-analyzer-presigned-url").
 
-## Activate trace messaging by
-
-using the console
+## Activate trace messaging by using the console
 
 To activate trace messaging
 
@@ -41,9 +36,7 @@ After the messaging session starts, receiving trace messages can incur
 additional costs until you deactivate the session or leave the trace
 session. For more information about pricing, see [AWS IoT Core pricing](https://aws.amazon.com/iot-core/pricing/ "https://aws.amazon.com/iot-core/pricing/").
 
-## View and monitor trace
-
-messages
+## View and monitor trace messages
 
 After you activate trace messaging, the WebSocket connection is established and
 trace messages start appearing in real time, newest first. You can customize the
@@ -75,9 +68,7 @@ following information.
 - **Log level**:Information about `INFO` or
   `ERROR` log streams for your device.
 
-## Network analyzer JSON log
-
-message
+## Network analyzer JSON log message
 
 You can also choose one trace message at a time to view the JSON payload for that
 message. Depending on the message that you select in the trace message logs, you'll
@@ -107,8 +98,7 @@ analyzer if your devices connect to AWS IoT Core for LoRaWAN using your own priv
 LoRaWAN gateways. The metadata consists of the ID of the gateway and it's
 EUI, and the SNR and RSSI values. These values can help you determine the
 strength of your gateway channel and whether to switch to a stronger
-channel. For more information about the public network, see [Managing LoRaWAN traffic from public networks
-(Everynet)](iot-lorawan-roaming.md "iot-lorawan-roaming.md").
+channel. For more information about the public network, see [Managing LoRaWAN traffic from public networks (Everynet)](iot-lorawan-roaming.md "iot-lorawan-roaming.md").
 
 ```
 {
@@ -148,8 +138,7 @@ Everynet. The following example shows the public LoRaWAN network metadata in
 the uplink message. The metadata consists of the ID of the gateway and the
 network provider (Everynet), whether downlink is allowed, and the SNR and
 RSSI values. These values can help you determine the strength of your public
-network. For more information about the public network, see [Managing LoRaWAN traffic from public networks
-(Everynet)](iot-lorawan-roaming.md "iot-lorawan-roaming.md").
+network. For more information about the public network, see [Managing LoRaWAN traffic from public networks (Everynet)](iot-lorawan-roaming.md "iot-lorawan-roaming.md").
 
 ###### Note
 
@@ -267,5 +256,4 @@ the new resources and activate trace messaging to see the updated
 messages for the additional resources.
 
 For more information about updating your network analyzer configuration by editing
-the configuration settings and adding resources, see [Add resources and update the network
-analyzer configuration](network-analyzer-resources.md "network-analyzer-resources.md").
+the configuration settings and adding resources, see [Add resources and update the network analyzer configuration](network-analyzer-resources.md "network-analyzer-resources.md").

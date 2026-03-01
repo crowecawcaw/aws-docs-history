@@ -1,6 +1,4 @@
-# Debug and troubleshoot your multicast
-
-groups and FUOTA tasks using network analyzer
+# Debug and troubleshoot your multicast groups and FUOTA tasks using network analyzer
 
 The wireless resources that you can monitor include LoRaWAN devices, LoRaWAN gateways,
 and multicast groups. You can also use network analyzer to debug and troubleshoot any
@@ -27,22 +25,15 @@ and FUOTA tasks using network analyzer.
 
 ###### Topics
 
-- [Debug FUOTA tasks that only
-  contains devices](#lorawan-network-analyzer-fuota-devices "#lorawan-network-analyzer-fuota-devices")
-- [Debug FUOTA tasks with
-  multicast groups](#lorawan-network-analyzer-fuota-multicast "#lorawan-network-analyzer-fuota-multicast")
-- [Debug devices that are
-  attempting to join a multicast group](#lorawan-network-analyzer-fuota-multicast "#lorawan-network-analyzer-fuota-multicast")
-- [Debug a multicast
-  group session](#lorawan-network-analyzer-fuota-multicastsession "#lorawan-network-analyzer-fuota-multicastsession")
+- [Debug FUOTA tasks that only contains devices](#lorawan-network-analyzer-fuota-devices "#lorawan-network-analyzer-fuota-devices")
+- [Debug FUOTA tasks with multicast groups](#lorawan-network-analyzer-fuota-multicast "#lorawan-network-analyzer-fuota-multicast")
+- [Debug devices that are attempting to join a multicast group](#lorawan-network-analyzer-fuota-multicast "#lorawan-network-analyzer-fuota-multicast")
+- [Debug a multicast group session](#lorawan-network-analyzer-fuota-multicastsession "#lorawan-network-analyzer-fuota-multicastsession")
 
-## Debug FUOTA tasks that only
-
-contains devices
+## Debug FUOTA tasks that only contains devices
 
 You can use network analyzer to debug a FUOTA task that only has LoRaWAN devices
-added to the task. For information about adding devices to a FUOTA task, see [Add devices and multicast groups and
-schedule FUOTA session](lorawan-fuota-add-devices.md "lorawan-fuota-add-devices.md").
+added to the task. For information about adding devices to a FUOTA task, see [Add devices and multicast groups and schedule FUOTA session](lorawan-fuota-add-devices.md "lorawan-fuota-add-devices.md").
 To debug the FUOTA task, perform the following steps:
 
 1. Create a network analyzer configuration by activating frame info for the
@@ -68,14 +59,11 @@ You can also see the `applicationCommandType` and other detailed
 messages in the JSON log message under **WirelessMetadata >
 ApplicationInfo**.
 
-## Debug FUOTA tasks with
-
-multicast groups
+## Debug FUOTA tasks with multicast groups
 
 You can use network analyzer to debug a FUOTA task that has multicast groups and
 LoRaWAN devices added to the group. For information about adding devices to a FUOTA
-task, see [Add devices and multicast groups and
-schedule FUOTA session](lorawan-fuota-add-devices.md "lorawan-fuota-add-devices.md"). To debug the FUOTA task, perform
+task, see [Add devices and multicast groups and schedule FUOTA session](lorawan-fuota-add-devices.md "lorawan-fuota-add-devices.md"). To debug the FUOTA task, perform
 the following steps:
 
 1. Create a network analyzer configuration by activating the frame info and
@@ -95,17 +83,13 @@ the following steps:
 
 You can then view the trace messages and debug them using the
 `applicationCommandType` column of the trace message table and using
-the details in the JSON log message as described in [Debug FUOTA tasks that only
-contains devices](#lorawan-network-analyzer-fuota-devices "#lorawan-network-analyzer-fuota-devices").
+the details in the JSON log message as described in [Debug FUOTA tasks that only contains devices](#lorawan-network-analyzer-fuota-devices "#lorawan-network-analyzer-fuota-devices").
 
-## Debug devices that are
-
-attempting to join a multicast group
+## Debug devices that are attempting to join a multicast group
 
 You can use network analyzer to debug devices that are attempting to join a
 multicast group. For information about adding devices to a multicast group, see
-[Create multicast groups and add
-devices to the group](lorawan-create-multicast-groups.md "lorawan-create-multicast-groups.md"). To debug the multicast group,
+[Create multicast groups and add devices to the group](lorawan-create-multicast-groups.md "lorawan-create-multicast-groups.md"). To debug the multicast group,
 perform the following steps:
 
 1. Create a network analyzer configuration by activating frame info for the
@@ -117,13 +101,10 @@ perform the following steps:
 4. Start associating the devices to the multicast group after trace messaging
    has been activated for the devices in the group.
 
-## Debug a multicast
-
-group session
+## Debug a multicast group session
 
 You can use network analyzer to debug a multicast group session. For more
-information, see [Schedule a downlink message
-for your multicast group](lorawan-multicast-schedule-downlink.md "lorawan-multicast-schedule-downlink.md"). To debug a multicast
+information, see [Schedule a downlink message for your multicast group](lorawan-multicast-schedule-downlink.md "lorawan-multicast-schedule-downlink.md"). To debug a multicast
 group session, perform the following steps:
 
 1. Create a network analyzer configuration by activating multicast frame info

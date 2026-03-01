@@ -1,6 +1,4 @@
-# Create VPC interface endpoint and private
-
-hosted zone
+# Create VPC interface endpoint and private hosted zone
 
 AWS IoT Core for LoRaWAN has two data plane endpoints, Configuration and Update Server (CUPS)
 endpoint and LoRaWAN Network Server (LNS) endpoint. The setup process to establish a
@@ -23,11 +21,9 @@ to facilitate hybrid DNS.
 ###### To complete this procedure, perform the following steps.
 
 - [Create an Amazon VPC and subnet](#lns-create-vpc "#lns-create-vpc")
-- [Create an Amazon VPC interface
-  endpoint](#lns-create-vpc-endpoint "#lns-create-vpc-endpoint")
+- [Create an Amazon VPC interface endpoint](#lns-create-vpc-endpoint "#lns-create-vpc-endpoint")
 - [Configure private hosted zone](#create-phz-lns "#create-phz-lns")
-- [Configure Route 53 inbound
-  resolver](#configure-route53-resolver "#configure-route53-resolver")
+- [Configure Route 53 inbound resolver](#configure-route53-resolver "#configure-route53-resolver")
 - [Next steps](#lns-cups-next-steps "#lns-cups-next-steps")
 
 ## Create an Amazon VPC and subnet
@@ -35,9 +31,7 @@ to facilitate hybrid DNS.
 You can reuse your Amazon VPC and subnet that you created when onboarding your
 control plane endpoint. For information, see [Create your Amazon VPC and subnet](lorawan-onboard-control-endpoint.md#create-vpc "lorawan-onboard-control-endpoint.md#create-vpc").
 
-## Create an Amazon VPC interface
-
-endpoint
+## Create an Amazon VPC interface endpoint
 
 You can create a VPC endpoint for your VPC, which is similar to how you would
 create one for your control plane endpoint.
@@ -171,8 +165,7 @@ resources`.
    - For **Value/Route traffic to**, choose
      **Alias to VPC endpoint**. Then choose your
      **Region** and then choose the endpoint
-     that you created previously, as described in [Create an Amazon VPC interface
-     endpoint](#lns-create-vpc-endpoint "#lns-create-vpc-endpoint") from the list of
+     that you created previously, as described in [Create an Amazon VPC interface endpoint](#lns-create-vpc-endpoint "#lns-create-vpc-endpoint") from the list of
      endpoints displayed.
 
 6. Choose **Define simple record** to create your
@@ -193,8 +186,7 @@ steps when creating a record of type AAAA.
 You must make sure that the VPC and subnet that you created
 supports routing of IPv6 traffic. For information about the steps
 to be performed, see [Create your Amazon VPC and subnet](lorawan-onboard-control-endpoint.md#create-vpc "lorawan-onboard-control-endpoint.md#create-vpc"). 2. Create an EC2 instance in a subnet that has access to the VPC endpoint.
-For information about the steps to be performed, see [Launch an Amazon EC2 instance in your
-subnet](lorawan-onboard-control-endpoint.md#launch-ec2-instance "lorawan-onboard-control-endpoint.md#launch-ec2-instance"). 3. Create an Amazon VPC interface endpoint for the VPC that you created.
+For information about the steps to be performed, see [Launch an Amazon EC2 instance in your subnet](lorawan-onboard-control-endpoint.md#launch-ec2-instance "lorawan-onboard-control-endpoint.md#launch-ec2-instance"). 3. Create an Amazon VPC interface endpoint for the VPC that you created.
 For information about the steps to be performed, see [Create Amazon VPC interface endpoint](lorawan-onboard-control-endpoint.md#create-vpc-endpoint "lorawan-onboard-control-endpoint.md#create-vpc-endpoint"). 4. SSH into the EC2 instance and run the following command. In this command,
 replace `<vpce_domain_name>` with the domain
 name for your VPC interface endpoint. You can obtain this information from the
@@ -234,9 +226,7 @@ policy** and then choose
 11. Choose **Define simple record** to create your
     record.
 
-## Configure Route 53 inbound
-
-resolver
+## Configure Route 53 inbound resolver
 
 To share a VPC endpoint to an on-premises environment, a Route 53 Resolver can be used to
 facilitate hybrid DNS. The inbound resolver will enable you to route traffic
@@ -282,5 +272,4 @@ traffic.
 
 You've created the private hosted zone and an inbound resolver to route
 traffic for your DNS entries. You can now use either a Site-to-Site VPN or a Client VPN
-endpoint. For more information, see [Use VPN to connect LoRa gateways to
-your AWS account](lorawan-vpc-vpn-connection.md "lorawan-vpc-vpn-connection.md").
+endpoint. For more information, see [Use VPN to connect LoRa gateways to your AWS account](lorawan-vpc-vpn-connection.md "lorawan-vpc-vpn-connection.md").
