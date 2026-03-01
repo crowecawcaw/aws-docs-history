@@ -48,8 +48,7 @@ _CloudFormation compatibility_: This property is passed directly to the `Certifi
 
 The custom domain name for your API Gateway API. Uppercase letters are not supported.
 
-AWS SAM generates an `AWS::ApiGatewayV2::DomainName` resource when this property is set. For information about this scenario, see [DomainName
-property is specified](sam-specification-generated-resources-httpapi.md#sam-specification-generated-resources-httpapi-domain-name "sam-specification-generated-resources-httpapi.md#sam-specification-generated-resources-httpapi-domain-name"). For information about generated CloudFormation resources, see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
+AWS SAM generates an `AWS::ApiGatewayV2::DomainName` resource when this property is set. For information about this scenario, see [DomainName property is specified](sam-specification-generated-resources-httpapi.md#sam-specification-generated-resources-httpapi-domain-name "sam-specification-generated-resources-httpapi.md#sam-specification-generated-resources-httpapi-domain-name"). For information about generated CloudFormation resources, see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
 
 _Type_: String
 

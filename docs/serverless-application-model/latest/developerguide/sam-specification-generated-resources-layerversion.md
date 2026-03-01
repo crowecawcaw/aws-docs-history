@@ -1,6 +1,4 @@
-# CloudFormation resources
-
-generated when AWS::Serverless::LayerVersion is specified
+# CloudFormation resources generated when AWS::Serverless::LayerVersion is specified
 
 When an `AWS::Serverless::LayerVersion` is specified, AWS Serverless Application Model
 (AWS SAM) generates an `AWS::Lambda::LayerVersion` base CloudFormation resource.

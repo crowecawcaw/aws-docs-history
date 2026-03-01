@@ -100,9 +100,7 @@ parent application. For more information about permissions to deploy
 applications, see [Application Deployment Permissions](../../../serverlessrepo/latest/devguide/serverless-app-consuming-applications.md#application-deployment-permissions "../../../serverlessrepo/latest/devguide/serverless-app-consuming-applications.md#application-deployment-permissions") and [Publishing
 Applications](../../../serverlessrepo/latest/devguide/serverless-app-publishing-applications.md "../../../serverlessrepo/latest/devguide/serverless-app-publishing-applications.md") in the _AWS Serverless Application Repository Developer Guide_.
 
-## Defining
-
-a nested application from the local file system
+## Defining a nested application from the local file system
 
 You can define nested applications by using applications that are stored on your
 local file system. You do this by specifying the path to the AWS SAM template file
@@ -129,9 +127,7 @@ Resources:
 If there are no parameter settings, you can omit the `Parameters:`
 section of the template.
 
-## Deploying
-
-nested applications
+## Deploying nested applications
 
 You can deploy your nested application by using the AWS SAM CLI command `sam
  deploy`. For more details, see [Deploy your application and resources with AWS SAM](serverless-deploying.md "serverless-deploying.md").

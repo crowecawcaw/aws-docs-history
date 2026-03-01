@@ -171,9 +171,7 @@ resource.
 
 ## Examples
 
-### Use the AWS SAM generated
-
-resolver function code and save fields as variables
+### Use the AWS SAM generated resolver function code and save fields as variables
 
 Here is the GraphQL schema for our example:
 

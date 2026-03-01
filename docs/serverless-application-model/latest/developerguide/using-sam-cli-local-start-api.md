@@ -133,9 +133,7 @@ No Content-Type given. Defaulting to 'application/json'.
 
 ## Options
 
-### Continuously reuse containers to speed up local function
-
-invokes
+### Continuously reuse containers to speed up local function invokes
 
 By default, the AWS SAM CLI creates a new container each time your function is invoked through the local HTTP server.
 Use the `--warm-containers` option to automatically reuse your container for function invokes. This speeds
@@ -160,9 +158,7 @@ When using `--warm-containers` and modifying your Lambda function code:
 - When a code change is detected, the AWS SAM CLI automatically shuts down the Lambda function container.
 - When you invoke the function again, the AWS SAM CLI automatically creates a new container.
 
-### Specify a container image to use for your Lambda
-
-functions
+### Specify a container image to use for your Lambda functions
 
 By default, the AWS SAM CLI uses Lambda base images from Amazon Elastic Container Registry (Amazon ECR) to invoke your functions locally. Use
 the `--invoke-image` option to reference a custom container image. The following is an example:
@@ -186,9 +182,7 @@ load just that AWS SAM template and the resources it points to. The following is
 `$` `sam local start-api --template `myTemplate.yaml``
 ```
 
-### Specify the host development environment of your Lambda
-
-function
+### Specify the host development environment of your Lambda function
 
 By default, the `sam local start-api` subcommand creates an HTTP server using `localhost`
 with IP address `127.0.0.1`. You can customize these values if your local development environment is

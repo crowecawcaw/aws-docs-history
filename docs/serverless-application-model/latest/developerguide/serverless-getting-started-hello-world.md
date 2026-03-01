@@ -43,9 +43,7 @@ Verify that you have completed the following:
 
 If you prefer using Visual Studio Code for serverless development, see [Creating serverless applications](../../../toolkit-for-vscode/latest/userguide/sam-get-started.md#serverless-apps-create "../../../toolkit-for-vscode/latest/userguide/sam-get-started.md#serverless-apps-create") in the AWS Toolkit for VS Code User Guide for step-by-step instructions using the VS Code interface.
 
-##
-
-Step 1: Initialize the sample Hello World application
+## Step 1: Initialize the sample Hello World application
 
 In this step, you will use the AWS SAM CLI to create a sample **Hello World**
 application project on your local machine.

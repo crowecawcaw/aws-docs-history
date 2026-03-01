@@ -1,6 +1,4 @@
-# sam local
-
-generate-event
+# sam local generate-event
 
 This page provides reference information for the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `sam local generate-event` subcommand.
 

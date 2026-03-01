@@ -87,8 +87,7 @@ following values in a list:
 
 AWS SAM uses an `AWS::Serverless::Connector` resource which is transformed
 at deployment to provision your permissions. To learn about generated resources, see
-[CloudFormation resources generated when
-you specify AWS::Serverless::Connector](sam-specification-generated-resources-connector.md "sam-specification-generated-resources-connector.md").
+[CloudFormation resources generated when you specify AWS::Serverless::Connector](sam-specification-generated-resources-connector.md "sam-specification-generated-resources-connector.md").
 
 ###### Note
 

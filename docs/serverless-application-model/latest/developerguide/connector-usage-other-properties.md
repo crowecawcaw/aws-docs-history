@@ -5,8 +5,7 @@ property. Optionally, a `Qualifier` can be added to narrow the scope of your def
 the resource is not within the same template, use a combination of supported properties.
 
 - For a list of supported property combinations for source and destination resources, see
-  [Supported source and destination resource
-  types for connectors](reference-sam-connector.md#supported-connector-resource-types "reference-sam-connector.md#supported-connector-resource-types").
+  [Supported source and destination resource types for connectors](reference-sam-connector.md#supported-connector-resource-types "reference-sam-connector.md#supported-connector-resource-types").
 - For a description of properties that you can use with connectors, see [AWS::Serverless::Connector](sam-resource-connector.md "sam-resource-connector.md").
   When you define a source resource with a property other than `Id`, use the
   `SourceReference` property.

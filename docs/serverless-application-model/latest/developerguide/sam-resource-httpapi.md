@@ -360,9 +360,7 @@ Transform: AWS::Serverless-2016-10-31
 
 ```
 
-### HttpApi with
-
-Auth
+### HttpApi with Auth
 
 The following example shows how to set up authorization on HTTP API endpoints.
 
@@ -385,9 +383,7 @@ Properties:
 
 ```
 
-### HttpApi
-
-with OpenAPI definition
+### HttpApi with OpenAPI definition
 
 The following example shows how to add an OpenAPI definition to the template.
 

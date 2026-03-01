@@ -129,9 +129,7 @@ CodeLens integration, and streamlined deployment workflows.
 
 For information about configuring your AWS credentials in VS Code, see [Setting up credentials](../../../toolkit-for-vscode/latest/userguide/setup-credentials.md "../../../toolkit-for-vscode/latest/userguide/setup-credentials.md") in the AWS Toolkit for VS Code User Guide.
 
-##
-
-Next steps
+## Next steps
 
 - You are now ready to install the AWS SAM CLI and start using AWS SAM. To install the AWS SAM CLI, see
   [Install the AWS SAM CLI](install-sam-cli.md "install-sam-cli.md").

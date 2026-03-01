@@ -4,10 +4,8 @@ This page contains reference information for the **sam metadata resource**
 resource type used with Terraform projects.
 
 - For an introduction to using the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) with
-  Terraform, see [What is AWS SAM CLI support for
-  Terraform?](terraform-support.md#what-is-terraform-support "terraform-support.md#what-is-terraform-support").
-- To use the AWS SAM CLI with Terraform, see [Using the AWS SAM CLI with Terraform for local debugging
-  and testing](using-samcli-terraform.md "using-samcli-terraform.md").
+  Terraform, see [What is AWS SAM CLI support for Terraform?](terraform-support.md#what-is-terraform-support "terraform-support.md#what-is-terraform-support").
+- To use the AWS SAM CLI with Terraform, see [Using the AWS SAM CLI with Terraform for local debugging and testing](using-samcli-terraform.md "using-samcli-terraform.md").
 
 ###### Topics
 
@@ -31,9 +29,7 @@ resource type used with Terraform projects.
 
 ## Examples
 
-### sam metadata resource referencing
-
-a Lambda function using the ZIP package type
+### sam metadata resource referencing a Lambda function using the ZIP package type
 
 ```
 # Lambda function resource
@@ -62,9 +58,7 @@ resource "null_resource" "sam_metadata_function_example" {
 }
 ```
 
-### sam metadata resource referencing
-
-a Lambda function using the image package type
+### sam metadata resource referencing a Lambda function using the image package type
 
 ```
 resource "null_resource" "sam_metadata_function {
@@ -79,9 +73,7 @@ resource "null_resource" "sam_metadata_function {
 }
 ```
 
-### sam metadata resource referencing
-
-a Lambda layer
+### sam metadata resource referencing a Lambda layer
 
 ```
 resource "null_resource" "sam_metadata_layer1" {

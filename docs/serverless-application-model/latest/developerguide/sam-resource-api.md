@@ -465,8 +465,7 @@ invoke Uniform Resource Identifier (URI).
 To reference the stage resource, use
 ``<api-logical-id>`.Stage`. For more
 information about referencing resources generated when an [AWS::Serverless::Api](sam-resource-api.md "sam-resource-api.md") resource is specified,
-see [CloudFormation resources generated when
-AWS::Serverless::Api is specified](sam-specification-generated-resources-api.md "sam-specification-generated-resources-api.md"). For general information
+see [CloudFormation resources generated when AWS::Serverless::Api is specified](sam-specification-generated-resources-api.md "sam-specification-generated-resources-api.md"). For general information
 about generated CloudFormation resources, see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
 
 _Type_: String

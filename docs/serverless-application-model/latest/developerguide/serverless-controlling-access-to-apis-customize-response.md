@@ -1,6 +1,4 @@
-# Customized
-
-response example for AWS SAM
+# Customized response example for AWS SAM
 
 You can customize some API Gateway error responses by defining response headers within your
 AWS SAM template. To do this, you use the [Gateway Response Object](https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#gateway-response-object "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#gateway-response-object") data type.

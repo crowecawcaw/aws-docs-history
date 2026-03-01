@@ -398,15 +398,11 @@ To troubleshoot the AWS SAM CLI, see [AWS SAM CLI troubleshooting](sam-cli-tro
 
 ## Examples
 
-### Deploy a Hello World application that contains a Lambda
-
-function packaged as a .zip file archive
+### Deploy a Hello World application that contains a Lambda function packaged as a .zip file archive
 
 For an example, see [Step 3: Deploy your application to the AWS Cloud](serverless-getting-started-hello-world.md#serverless-getting-started-hello-world-deploy "serverless-getting-started-hello-world.md#serverless-getting-started-hello-world-deploy") in the Hello World application tutorial.
 
-### Deploy a Hello World application that contains a Lambda
-
-function packaged as a container image
+### Deploy a Hello World application that contains a Lambda function packaged as a container image
 
 First, we use `sam init` to create our Hello World application. During the interactive flow, we choose
 the `Python3.9` runtime and `Image` package type.

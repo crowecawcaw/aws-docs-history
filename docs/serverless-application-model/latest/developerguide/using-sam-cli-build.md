@@ -239,9 +239,7 @@ Example of the `env.json` file:
 }
 ```
 
-### Speed up the building of applications that contain multiple
-
-functions
+### Speed up the building of applications that contain multiple functions
 
 When you run `sam build` on an application with multiple functions, the AWS SAM CLI builds each function
 one at a time. To speed up the build process, use the `--parallel` option. This builds all of your functions
@@ -267,15 +265,11 @@ To troubleshoot the AWS SAM CLI, see [AWS SAM CLI troubleshooting](sam-cli-tro
 
 ## Examples
 
-### Building an application that uses a native runtime and
-
-.zip package type
+### Building an application that uses a native runtime and .zip package type
 
 For this example, see [Tutorial: Deploy a Hello World application with AWS SAM](serverless-getting-started-hello-world.md "serverless-getting-started-hello-world.md").
 
-### Building an application that uses a native runtime and image
-
-package type
+### Building an application that uses a native runtime and image package type
 
 First, we run `sam init` to initialize a new application. During the interactive flow, we select the
 `Image` package type. The following is an example:
@@ -399,9 +393,7 @@ Commands you can use next
 [*] Deploy: sam deploy --guided
 ```
 
-### Building an application that includes a compiled
-
-programming language
+### Building an application that includes a compiled programming language
 
 In this example, we build an application that contains a Lambda function using the Go runtime.
 

@@ -11,14 +11,11 @@ AWS SAM CLI does the following when you use the `sam
 
 ###### Topics
 
-- [Demo: Use the AWS SAM CLI to upload Lambda
-  function code](#deploy-upload-local-files-demo "#deploy-upload-local-files-demo")
+- [Demo: Use the AWS SAM CLI to upload Lambda function code](#deploy-upload-local-files-demo "#deploy-upload-local-files-demo")
 - [Supported use cases](#deploy-upload-local-files-use "#deploy-upload-local-files-use")
 - [Learn more](#deploy-upload-local-files-learn "#deploy-upload-local-files-learn")
 
-## Demo: Use the AWS SAM CLI to upload Lambda
-
-function code
+## Demo: Use the AWS SAM CLI to upload Lambda function code
 
 In this demo, we initialize the sample Hello World application using a .zip package type
 for our Lambda function. We use the AWS SAM CLI to automatically upload our Lambda function code

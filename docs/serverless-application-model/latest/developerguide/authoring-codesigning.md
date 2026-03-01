@@ -38,9 +38,7 @@ validation](../../../lambda/latest/dg/configuration-codesigning.md#config-codesi
 
 ## Example
 
-### Creating a signing
-
-profile
+### Creating a signing profile
 
 To create a signing profile, run the following command:
 
@@ -62,9 +60,7 @@ example:
 The `profileVersionArn` field contains the ARN to use when you create the
 code signing configuration.
 
-### Creating a
-
-code signing configuration and enabling code signing for a function
+### Creating a code signing configuration and enabling code signing for a function
 
 The following example AWS SAM template declares an [`AWS::Lambda::CodeSigningConfig`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.md") resource and enables code signing
 for a Lambda function. In this example, there is one trusted profile, and deployments are
@@ -125,9 +121,7 @@ enabled automatically. For more information about Amazon S3 bucket versioning an
 for enabling versioning on an Amazon S3 bucket that you provide, see [Using versioning in
 Amazon S3 buckets](../../../AmazonS3/latest/userguide/Versioning.md "../../../AmazonS3/latest/userguide/Versioning.md") in the _Amazon Simple Storage Service User Guide_.
 
-## Providing signing profiles with
-
-`sam deploy --guided`
+## Providing signing profiles with `sam deploy --guided`
 
 When you run the `sam deploy --guided` command with a serverless application
 that's configured with code signing, AWS SAM prompts you to provide the signing profile to use

@@ -7,8 +7,7 @@ deliver features that improve the customer experience.
 
 The AWS SAM command line interface (CLI) collects telemetry, such as generic usage metrics,
 system and environment information, and errors. For details about the types of telemetry
-collected, see [Types of information
-collected](#serverless-sam-telemtry-data-collected "#serverless-sam-telemtry-data-collected").
+collected, see [Types of information collected](#serverless-sam-telemtry-data-collected "#serverless-sam-telemtry-data-collected").
 
 The AWS SAM CLI does **not** collect personal information, such
 as user names or email addresses. It also does not extract sensitive project-level
@@ -18,9 +17,7 @@ Customers control whether telemetry is turned on, and they can change their sett
 any point of time. If telemetry remains on, the AWS SAM CLI sends telemetry data in the
 background without requiring any additional customer interaction.
 
-## Turn off telemetry for a
-
-session
+## Turn off telemetry for a session
 
 In macOS and Linux operating systems, you can turn off telemetry for a single session.
 To turn off telemetry for your current session, run the following command to set the
@@ -31,9 +28,7 @@ command for each new terminal or session.
 export SAM_CLI_TELEMETRY=0
 ```
 
-## Turn off telemetry for your profile in
-
-all sessions
+## Turn off telemetry for your profile in all sessions
 
 Run the following commands to turn off telemetry for all sessions when you're running
 the AWS SAM CLI on your operating system.
@@ -92,9 +87,7 @@ To set the environment variable permanently in either the Command Prompt or Powe
 
 Changes will not go into effect until the terminal has been closed and reopened.
 
-## Types of information
-
-collected
+## Types of information collected
 
 - **Usage information** – The generic
   commands and subcommands that customers run.

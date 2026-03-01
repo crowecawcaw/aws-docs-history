@@ -1,6 +1,4 @@
-# Resource
-
-policy example for AWS SAM
+# Resource policy example for AWS SAM
 
 You can control access to your APIs by attaching a resource policy within your AWS SAM
 template. To do this, you use the [ApiAuth](sam-property-api-apiauth.md "sam-property-api-apiauth.md") data type.

@@ -343,9 +343,7 @@ Returns the name of the state machine, such as
 
 ## Examples
 
-### State
-
-Machine Definition File
+### State Machine Definition File
 
 The following is an example of an inline state machine definition that allows a lambda function to invoke state machine.
 Note that this example expects the `Role` property to configure proper policy to allow invocation.

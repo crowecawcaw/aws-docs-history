@@ -1,6 +1,4 @@
-# CloudFormation resources generated
-
-when AWS::Serverless::HttpApi is specified
+# CloudFormation resources generated when AWS::Serverless::HttpApi is specified
 
 When an `AWS::Serverless::HttpApi` is specified, AWS Serverless Application Model
 (AWS SAM) generates an `AWS::ApiGatewayV2::Api` base CloudFormation resource.
@@ -17,16 +15,11 @@ specified, AWS SAM also generates CloudFormation resources for the following sce
 
 ###### Scenarios
 
-- [StageName
-  property is specified](#sam-specification-generated-resources-httpapi-stage-name "#sam-specification-generated-resources-httpapi-stage-name")
-- [StageName
-  property is not specified](#sam-specification-generated-resources-httpapi-not-stage-name "#sam-specification-generated-resources-httpapi-not-stage-name")
-- [DomainName
-  property is specified](#sam-specification-generated-resources-httpapi-domain-name "#sam-specification-generated-resources-httpapi-domain-name")
+- [StageName property is specified](#sam-specification-generated-resources-httpapi-stage-name "#sam-specification-generated-resources-httpapi-stage-name")
+- [StageName property is not specified](#sam-specification-generated-resources-httpapi-not-stage-name "#sam-specification-generated-resources-httpapi-not-stage-name")
+- [DomainName property is specified](#sam-specification-generated-resources-httpapi-domain-name "#sam-specification-generated-resources-httpapi-domain-name")
 
-## StageName
-
-property is specified
+## StageName property is specified
 
 When the `StageName` property of an `AWS::Serverless::HttpApi`
 is specified, AWS SAM generates the `AWS::ApiGatewayV2::Stage` CloudFormation
@@ -44,9 +37,7 @@ you set `StageName` to `Gamma`, the
 
 _Referenceable property:_ ``<httpapi‑LogicalId>`.Stage`
 
-## StageName
-
-property is _not_ specified
+## StageName property is _not_ specified
 
 When the `StageName` property of an `AWS::Serverless::HttpApi`
 is _not_ specified, AWS SAM generates the
@@ -58,9 +49,7 @@ _`LogicalId`:_ ``<httpapi‑LogicalId>`ApiGatewayDefaultStage`
 
 _Referenceable property:_ ``<httpapi‑LogicalId>`.Stage`
 
-## DomainName
-
-property is specified
+## DomainName property is specified
 
 When the `DomainName` property of the `Domain` property of an
 `AWS::Serverless::HttpApi` is specified, AWS SAM generates the

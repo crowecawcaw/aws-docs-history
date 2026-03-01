@@ -1,12 +1,9 @@
 # AWS SAM connector reference
 
 This section contains reference information for the AWS Serverless Application Model (AWS SAM) connector resource
-type. For an introduction to connectors, see [Managing resource permissions with AWS SAM
-connectors](managing-permissions-connectors.md "managing-permissions-connectors.md").
+type. For an introduction to connectors, see [Managing resource permissions with AWS SAM connectors](managing-permissions-connectors.md "managing-permissions-connectors.md").
 
-## Supported source and destination resource
-
-types for connectors
+## Supported source and destination resource types for connectors
 
 The `AWS::Serverless::Connector` resource type supports a select number of connections between source
 and destination resources. When configuring connectors in your AWS SAM template, use the following table to reference

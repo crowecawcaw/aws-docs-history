@@ -6,8 +6,7 @@ testing.
 
 - For an introduction to the AWS SAM CLI, see [What is the AWS SAM CLI?](what-is-sam-overview.md#what-is-sam-cli "what-is-sam-overview.md#what-is-sam-cli")
 - For a list of `sam local generate-event` command options, see
-  [sam local
-  generate-event](sam-cli-command-reference-sam-local-generate-event.md "sam-cli-command-reference-sam-local-generate-event.md").
+  [sam local generate-event](sam-cli-command-reference-sam-local-generate-event.md "sam-cli-command-reference-sam-local-generate-event.md").
   An _event_ is a JSON object that gets generated when an AWS service performs an action or task.
   These events contain specific information, such as the data that was processed or the timestamp of the event. Most
   AWS services generate events and each service’s events are formatted uniquely for its service.
@@ -254,8 +253,7 @@ REPORT RequestId: f4f45b6d-2ec6-4235-bc7b-495ec2ae0128  Init Duration: 1.23 ms  
 ## Learn more
 
 For a list of all `sam local generate-event` options, see
-[sam local
-generate-event](sam-cli-command-reference-sam-local-generate-event.md "sam-cli-command-reference-sam-local-generate-event.md").
+[sam local generate-event](sam-cli-command-reference-sam-local-generate-event.md "sam-cli-command-reference-sam-local-generate-event.md").
 
 For a demo of using `sam local`, see [AWS SAM for local development. Testing AWS Cloud resources from local
 development environments](https://www.youtube.com/watch?v=NzPqMrdgD1s&list=PLJo-rJlep0ED198FJnTzhIB5Aut_1vDAd&index=24 "https://www.youtube.com/watch?v=NzPqMrdgD1s&list=PLJo-rJlep0ED198FJnTzhIB5Aut_1vDAd&index=24") in the _Serverless Land Sessions with SAM series on

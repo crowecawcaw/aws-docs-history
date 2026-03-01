@@ -1,6 +1,4 @@
-# Building Node.js Lambda functions
-
-with esbuild in AWS SAM
+# Building Node.js Lambda functions with esbuild in AWS SAM
 
 To build and package Node.js AWS Lambda functions, you can use the AWS SAM CLI with the esbuild
 JavaScript bundler. The esbuild bundler supports Lambda functions that you write in
@@ -103,9 +101,7 @@ in the _esbuild website_.
 Specifies the target ECMAScript version. The default value is
 `es2020`.
 
-## TypeScript Lambda function
-
-example
+## TypeScript Lambda function example
 
 The following example AWS SAM template snippet uses esbuild to create a Node.js Lambda
 function from TypeScript code in `hello-world/app.ts`.

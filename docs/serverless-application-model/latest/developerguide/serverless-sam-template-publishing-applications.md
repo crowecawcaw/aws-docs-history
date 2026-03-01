@@ -1,6 +1,4 @@
-# Publishing your
-
-application with the AWS SAM CLI
+# Publishing your application with the AWS SAM CLI
 
 To make your AWS SAM application available for others to find and deploy, you can use the
 AWS SAM CLI to publish it to the AWS Serverless Application Repository. To publish your application using the AWS SAM CLI, you must
@@ -10,8 +8,7 @@ Cloud.
 Follow the instructions in this topic to create a new application, create a new version of
 an existing application, or update the metadata of an existing application. (What you do depends
 on whether the application already exists in the AWS Serverless Application Repository, and whether any application metadata is
-changing.) For more information about application metadata, see [AWS SAM
-template Metadata section properties](serverless-sam-template-publishing-applications-metadata-properties.md "serverless-sam-template-publishing-applications-metadata-properties.md").
+changing.) For more information about application metadata, see [AWS SAM template Metadata section properties](serverless-sam-template-publishing-applications-metadata-properties.md "serverless-sam-template-publishing-applications-metadata-properties.md").
 
 ## Prerequisites
 
@@ -82,13 +79,9 @@ sam --version
 
   6.  Choose **Save changes**.
 
-## Publishing a new
+## Publishing a new application
 
-application
-
-### Step 1: Add a
-
-`Metadata` section to the AWS SAM template
+### Step 1: Add a `Metadata` section to the AWS SAM template
 
 First, add a `Metadata` section to your AWS SAM template. Provide the
 application information to be published to the AWS Serverless Application Repository.
@@ -119,12 +112,9 @@ Resources:
 ```
 
 For more information about the `Metadata` section of the AWS SAM template, see
-[AWS SAM
-template Metadata section properties](serverless-sam-template-publishing-applications-metadata-properties.md "serverless-sam-template-publishing-applications-metadata-properties.md").
+[AWS SAM template Metadata section properties](serverless-sam-template-publishing-applications-metadata-properties.md "serverless-sam-template-publishing-applications-metadata-properties.md").
 
-### Step 2: Package the
-
-application
+### Step 2: Package the application
 
 Run the following AWS SAM CLI command, which uploads the application's artifacts to Amazon S3
 and outputs a new template file called `packaged.yaml`:
@@ -151,9 +141,7 @@ MySampleFunction:
 ...
 ```
 
-### Step 3: Publish the
-
-application
+### Step 3: Publish the application
 
 To publish a private version of your AWS SAM application to the AWS Serverless Application Repository, run the following
 AWS SAM CLI command:
@@ -166,9 +154,7 @@ The output of the `sam publish` command includes a link to your application
 on the AWS Serverless Application Repository. You can also go directly to the [AWS Serverless Application Repository landing page](https://serverlessrepo.aws.amazon.com/applications "https://serverlessrepo.aws.amazon.com/applications") and
 search for your application.
 
-### Step 4: Share the
-
-application (optional)
+### Step 4: Share the application (optional)
 
 By default, your application is set to private, so it isn't visible to other AWS
 accounts. To share your application with others, you must either make it public or grant
@@ -177,9 +163,7 @@ permission to a specific list of AWS accounts.
 For information about sharing your application using the AWS CLI, see [AWS Serverless Application Repository Resource-Based Policy Examples](../../../serverlessrepo/latest/devguide/security_iam_resource-based-policy-examples.md "../../../serverlessrepo/latest/devguide/security_iam_resource-based-policy-examples.md") in the _AWS Serverless Application Repository Developer Guide_. For information on sharing your application using the
 AWS Management Console, see [Sharing an Application](../../../serverlessrepo/latest/devguide/serverlessrepo-how-to-publish.md#share-application "../../../serverlessrepo/latest/devguide/serverlessrepo-how-to-publish.md#share-application") in the _AWS Serverless Application Repository Developer Guide_.
 
-## Publishing a new
-
-version of an existing application
+## Publishing a new version of an existing application
 
 After you've published an application to the AWS Serverless Application Repository, you might want to publish a new
 version of it. For example, you might have changed your Lambda function code or added a new
@@ -196,9 +180,6 @@ template must have the application name `SampleApp` and a
 `SemanticVersion` of `1.0.1` (or anything other than
 `1.0.0`).
 
-## Additional
+## Additional topics
 
-topics
-
-- [AWS SAM
-  template Metadata section properties](serverless-sam-template-publishing-applications-metadata-properties.md "serverless-sam-template-publishing-applications-metadata-properties.md")
+- [AWS SAM template Metadata section properties](serverless-sam-template-publishing-applications-metadata-properties.md "serverless-sam-template-publishing-applications-metadata-properties.md")

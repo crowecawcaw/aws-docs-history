@@ -15,9 +15,7 @@ build target of the form `build-`function-logical-id``that
 
 ## Examples
 
-### Example 1: Custom runtime for a
-
-function written in Rust
+### Example 1: Custom runtime for a function written in Rust
 
 ###### Note
 
@@ -57,9 +55,7 @@ For more information about setting up your development environment in order to e
 the `cargo build` command in the previous `makefile`, see the [Rust Runtime
 for AWS Lambda](https://aws.amazon.com/blogs/opensource/rust-runtime-for-aws-lambda/ "https://aws.amazon.com/blogs/opensource/rust-runtime-for-aws-lambda/") blog post.
 
-### Example 2: Makefile builder for
-
-Python3.12 (alternative to using the bundled builder)
+### Example 2: Makefile builder for Python3.12 (alternative to using the bundled builder)
 
 You might want to use a library or module that is not included in a bundled builder.
 This example shows a AWS SAM template for a Python3.12 runtime with a makefile builder.

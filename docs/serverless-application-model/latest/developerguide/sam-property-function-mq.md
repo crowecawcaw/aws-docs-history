@@ -198,9 +198,7 @@ _CloudFormation compatibility_: This property is passed directly to the
 
 ## Examples
 
-### Amazon MQ event
-
-source
+### Amazon MQ event source
 
 The following is an example of an `MQ` event source type for an Amazon MQ
 broker.

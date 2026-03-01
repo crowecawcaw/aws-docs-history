@@ -1,6 +1,4 @@
-# sam pipeline
-
-bootstrap
+# sam pipeline bootstrap
 
 This page provides reference information for the AWS Serverless Application Model Command Line Interface (AWS SAM CLI)
 `sam local pipeline bootstrap` subcommand.

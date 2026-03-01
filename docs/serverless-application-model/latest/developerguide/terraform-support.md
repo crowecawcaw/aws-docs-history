@@ -7,19 +7,13 @@ Issue](https://github.com/aws/aws-sam-cli/issues/new?labels=area%2Fterraform "ht
 
 ###### Topics
 
-- [Getting started with Terraform support for
-  AWS SAM CLI](gs-terraform-support.md "gs-terraform-support.md")
-- [Using the AWS SAM CLI with Terraform for local debugging
-  and testing](using-samcli-terraform.md "using-samcli-terraform.md")
-- [Using the AWS SAM CLI with Serverless.tf for local
-  debugging and testing](using-samcli-serverlesstf.md "using-samcli-serverlesstf.md")
+- [Getting started with Terraform support for AWS SAM CLI](gs-terraform-support.md "gs-terraform-support.md")
+- [Using the AWS SAM CLI with Terraform for local debugging and testing](using-samcli-terraform.md "using-samcli-terraform.md")
+- [Using the AWS SAM CLI with Serverless.tf for local debugging and testing](using-samcli-serverlesstf.md "using-samcli-serverlesstf.md")
 - [AWS SAM CLI with Terraform reference](terraform-reference.md "terraform-reference.md")
-- [What is AWS SAM CLI support for
-  Terraform?](#what-is-terraform-support "#what-is-terraform-support")
+- [What is AWS SAM CLI support for Terraform?](#what-is-terraform-support "#what-is-terraform-support")
 
-## What is AWS SAM CLI support for
-
-Terraform?
+## What is AWS SAM CLI support for Terraform?
 
 Use the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) with your Terraform projects or Terraform Cloud to
 perform local debugging and testing of:
@@ -76,5 +70,4 @@ For an example of using the AWS SAM CLI with Terraform, see [Better together: A
 
 ### Next steps
 
-To complete all prerequisites and set up Terraform, see [Getting started with Terraform support for
-AWS SAM CLI](gs-terraform-support.md "gs-terraform-support.md").
+To complete all prerequisites and set up Terraform, see [Getting started with Terraform support for AWS SAM CLI](gs-terraform-support.md "gs-terraform-support.md").

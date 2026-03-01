@@ -146,8 +146,7 @@ will result.
 
 The path and file name of a JSON file that contains values for the container's
 environment variables. For more information about container environment variable files,
-see [Container environment
-variable file](serverless-sam-cli-using-build.md#serverless-sam-cli-using-container-environment-file "serverless-sam-cli-using-build.md#serverless-sam-cli-using-container-environment-file").
+see [Container environment variable file](serverless-sam-cli-using-build.md#serverless-sam-cli-using-container-environment-file "serverless-sam-cli-using-build.md#serverless-sam-cli-using-container-environment-file").
 
 This
 option only applies if the `--use-container` option is specified, otherwise

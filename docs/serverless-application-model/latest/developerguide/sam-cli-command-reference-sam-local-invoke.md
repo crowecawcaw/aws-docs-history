@@ -116,8 +116,7 @@ Name for the durable execution (for durable functions only)
 `--env-vars, -n `PATH``
 
 The JSON file that contains values for the Lambda function's environment variables. For more information about environment variable files, see
-[Environment variable
-file](serverless-sam-cli-using-invoke.md#serverless-sam-cli-using-invoke-environment-file "serverless-sam-cli-using-invoke.md#serverless-sam-cli-using-invoke-environment-file").
+[Environment variable file](serverless-sam-cli-using-invoke.md#serverless-sam-cli-using-invoke-environment-file "serverless-sam-cli-using-invoke.md#serverless-sam-cli-using-invoke-environment-file").
 
 `--event, -e `PATH``
 

@@ -15,9 +15,7 @@ with Step Functions, code signing your applications, and validating your AWS SAM
 - [Control API access with your AWS SAM template](serverless-controlling-access-to-apis.md "serverless-controlling-access-to-apis.md")
 - [Increase efficiency using Lambda layers with AWS SAM](serverless-sam-cli-layers.md "serverless-sam-cli-layers.md")
 - [Reuse code and resources using nested applications in AWS SAM](serverless-sam-template-nested-applications.md "serverless-sam-template-nested-applications.md")
-- [Manage time-based events with EventBridge
-  Scheduler in AWS SAM](using-eventbridge-scheduler.md "using-eventbridge-scheduler.md")
-- [Orchestrating AWS SAM resources with
-  AWS Step Functions](serverless-step-functions-in-sam.md "serverless-step-functions-in-sam.md")
+- [Manage time-based events with EventBridge Scheduler in AWS SAM](using-eventbridge-scheduler.md "using-eventbridge-scheduler.md")
+- [Orchestrating AWS SAM resources with AWS Step Functions](serverless-step-functions-in-sam.md "serverless-step-functions-in-sam.md")
 - [Set up code signing for your AWS SAM application](authoring-codesigning.md "authoring-codesigning.md")
 - [Validate AWS SAM template files](serverless-sam-cli-using-validate.md "serverless-sam-cli-using-validate.md")

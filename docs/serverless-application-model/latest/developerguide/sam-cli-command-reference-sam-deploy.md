@@ -43,8 +43,7 @@ you don't specify this option, then the operation returns an
 
 When you deploy an application that contains nested applications, you must use `CAPABILITY_AUTO_EXPAND`
 to acknowledge the application contains nested applications. For more information,
-see [Deploying
-nested applications](serverless-sam-template-nested-applications.md#serverless-sam-templates-nested-applications-deploying "serverless-sam-template-nested-applications.md#serverless-sam-templates-nested-applications-deploying").
+see [Deploying nested applications](serverless-sam-template-nested-applications.md#serverless-sam-templates-nested-applications-deploying "serverless-sam-template-nested-applications.md#serverless-sam-templates-nested-applications-deploying").
 
 `--config-env `TEXT``
 

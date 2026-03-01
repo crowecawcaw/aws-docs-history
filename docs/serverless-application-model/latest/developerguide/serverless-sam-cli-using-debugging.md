@@ -51,9 +51,7 @@ step-through debugging of AWS SAM applications:
    [Installing the AWS Toolkit for JetBrains](../../../toolkit-for-jetbrains/latest/userguide/setup-toolkit.md "../../../toolkit-for-jetbrains/latest/userguide/setup-toolkit.md") in the
    _AWS Toolkit for JetBrains_.
 
-## Running AWS SAM locally in debug
-
-mode
+## Running AWS SAM locally in debug mode
 
 In addition to integrating with AWS Toolkits, you can also run AWS SAM in debug mode
 to attach to third-party debuggers like [ptvsd](https://pypi.org/project/ptvsd/ "https://pypi.org/project/ptvsd/") or [delve](https://github.com/go-delve/delve "https://github.com/go-delve/delve").

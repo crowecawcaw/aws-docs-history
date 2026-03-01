@@ -1,6 +1,4 @@
-# Using the AWS SAM CLI with Terraform for local debugging
-
-and testing
+# Using the AWS SAM CLI with Terraform for local debugging and testing
 
 This topic covers how to use supported AWS Serverless Application Model Command Line Interface (AWS SAM CLI) commands with your
 Terraform projects and Terraform Cloud.
@@ -10,16 +8,12 @@ Issue](https://github.com/aws/aws-sam-cli/issues/new?labels=area%2Fterraform "ht
 
 ###### Topics
 
-- [Local testing with sam local
-  invoke](#using-samcli-terraform-local-invoke "#using-samcli-terraform-local-invoke")
+- [Local testing with sam local invoke](#using-samcli-terraform-local-invoke "#using-samcli-terraform-local-invoke")
 - [Local testing with sam local start-api](#using-samcli-terraform-local-start-api "#using-samcli-terraform-local-start-api")
-- [Local testing with sam local
-  start-lambda](#using-samcli-terraform-local-start-lambda "#using-samcli-terraform-local-start-lambda")
+- [Local testing with sam local start-lambda](#using-samcli-terraform-local-start-lambda "#using-samcli-terraform-local-start-lambda")
 - [Terraform limitations](#using-samcli-terraform-unsupported "#using-samcli-terraform-unsupported")
 
-## Local testing with sam local
-
-invoke
+## Local testing with sam local invoke
 
 ###### Note
 
@@ -78,9 +72,7 @@ authorizer before invoking your Lambda function endpoint.
 - For more information on using Lambda authorizers in Terraform, see [Resource: aws_api_gateway_authorizer](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_authorizer#example-usage "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_authorizer#example-usage") in the _Terraform
   registry_.
 
-## Local testing with sam local
-
-start-lambda
+## Local testing with sam local start-lambda
 
 The following is an example of testing your Lambda function locally with the AWS Command Line Interface (AWS CLI):
 

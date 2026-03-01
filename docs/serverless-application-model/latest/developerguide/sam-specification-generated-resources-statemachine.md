@@ -1,6 +1,4 @@
-# CloudFormation resources
-
-generated when AWS::Serverless::StateMachine is specified
+# CloudFormation resources generated when AWS::Serverless::StateMachine is specified
 
 When an `AWS::Serverless::StateMachine` is specified, AWS Serverless Application Model
 (AWS SAM) generates an `AWS::StepFunctions::StateMachine` base CloudFormation
@@ -18,16 +16,11 @@ specified, AWS SAM also generates CloudFormation resources for the following sce
 
 ###### Scenarios
 
-- [Role property
-  is not specified](#sam-specification-generated-resources-statemachine-not-role "#sam-specification-generated-resources-statemachine-not-role")
-- [An API event
-  source is specified](#sam-specification-generated-resources-statemachine-api "#sam-specification-generated-resources-statemachine-api")
-- [An
-  event bridge (or event bus) event source is specified](#sam-specification-generated-resources-statemachine-eventbridge "#sam-specification-generated-resources-statemachine-eventbridge")
+- [Role property is not specified](#sam-specification-generated-resources-statemachine-not-role "#sam-specification-generated-resources-statemachine-not-role")
+- [An API event source is specified](#sam-specification-generated-resources-statemachine-api "#sam-specification-generated-resources-statemachine-api")
+- [An event bridge (or event bus) event source is specified](#sam-specification-generated-resources-statemachine-eventbridge "#sam-specification-generated-resources-statemachine-eventbridge")
 
-## Role property
-
-is not specified
+## Role property is not specified
 
 When the `Role` property of an `AWS::Serverless::StateMachine` is
 _not_ specified, AWS SAM generates an `AWS::IAM::Role`
@@ -40,9 +33,7 @@ _`LogicalId`:_ ``<statemachine‑LogicalId>`Role`
 _Referenceable property:_ N/A (you must use the
 `LogicalId` to reference this CloudFormation resource)
 
-## An API event
-
-source is specified
+## An API event source is specified
 
 When the `Event` property of an `AWS::Serverless::StateMachine`
 is set to `Api`, but the `RestApiId` property is
@@ -56,9 +47,7 @@ _`LogicalId`:_ `ServerlessRestApi`
 _Referenceable property:_ N/A (you must use the
 `LogicalId` to reference this CloudFormation resource)
 
-## An
-
-event bridge (or event bus) event source is specified
+## An event bridge (or event bus) event source is specified
 
 When the `Event` property of an `AWS::Serverless::StateMachine`
 is set to one of the event bridge (or event bus) types, AWS SAM generates the

@@ -40,9 +40,7 @@ policy template could be set without using an empty object.
 
 ## Examples
 
-### Example 1: Policy template with placeholder
-
-values
+### Example 1: Policy template with placeholder values
 
 The following example shows that the [SQSPollerPolicy](serverless-policy-template-list.md#sqs-poller-policy "serverless-policy-template-list.md#sqs-poller-policy") policy template expects a `QueueName` as a
 resource. The AWS SAM template retrieves the name of the "`MyQueue`" Amazon SQS queue,
@@ -63,9 +61,7 @@ MyFunction:
 
 ```
 
-### Example 2: Policy template with no placeholder
-
-values
+### Example 2: Policy template with no placeholder values
 
 The following example contains the [CloudWatchPutMetricPolicy](serverless-policy-template-list.md#cloudwatch-put-metric-policy "serverless-policy-template-list.md#cloudwatch-put-metric-policy") policy template, which has no placeholder
 values.
@@ -87,9 +83,7 @@ MyFunction:
 
 ```
 
-### Example 3: Policy template with placeholder
-
-values and a regular IAM policy
+### Example 3: Policy template with placeholder values and a regular IAM policy
 
 The following example contains the AmazonSQSFullAcess policy and [DynamoDBCrudPolicy](serverless-policy-template-list.md#dynamo-db-crud-policy "serverless-policy-template-list.md#dynamo-db-crud-policy") policy template.
 The AmazonSQSFullAccess policy is an IAM policy and not a AWS SAM policy, so you don't have
@@ -197,9 +191,7 @@ The following is a table of the available policy templates.
 
 ## Troubleshooting
 
-### SAM CLI error: "Must specify
-
-valid parameter values for policy template '<policy-template-name>'"
+### SAM CLI error: "Must specify valid parameter values for policy template '<policy-template-name>'"
 
 When executing `sam build`, you see the following error:
 

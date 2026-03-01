@@ -1,10 +1,8 @@
 # AWS::Serverless::Connector
 
-Configures permissions between two resources. For an introduction to connectors, see [Managing resource permissions with AWS SAM
-connectors](managing-permissions-connectors.md "managing-permissions-connectors.md").
+Configures permissions between two resources. For an introduction to connectors, see [Managing resource permissions with AWS SAM connectors](managing-permissions-connectors.md "managing-permissions-connectors.md").
 
-For more information on generated AWS CloudFormation resources, see [CloudFormation resources generated when
-you specify AWS::Serverless::Connector](sam-specification-generated-resources-connector.md "sam-specification-generated-resources-connector.md").
+For more information on generated AWS CloudFormation resources, see [CloudFormation resources generated when you specify AWS::Serverless::Connector](sam-specification-generated-resources-connector.md "sam-specification-generated-resources-connector.md").
 
 To provide feedback on connectors, [submit a new issue](https://github.com/aws/serverless-application-model/issues/new?assignees=&labels=area%2Fconnectors,stage%2Fneeds-triage&template=other.md&title=%28Feature%20Request%29 "https://github.com/aws/serverless-application-model/issues/new?assignees=&labels=area%2Fconnectors,stage%2Fneeds-triage&template=other.md&title=%28Feature%20Request%29") at the _serverless-application-model AWS GitHub repository_.
 

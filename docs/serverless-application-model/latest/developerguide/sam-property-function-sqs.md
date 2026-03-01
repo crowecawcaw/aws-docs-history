@@ -221,9 +221,7 @@ Events:
       BatchSize: 10
 ```
 
-### Lambda function with
-
-an SQS event that has scaling configured
+### Lambda function with an SQS event that has scaling configured
 
 ```
 MyFunction:

@@ -85,9 +85,7 @@ _CloudFormation compatibility_: This property is passed directly to the `UserPoo
 
 ## Examples
 
-### Configure a default and additional authorization
-
-type
+### Configure a default and additional authorization type
 
 In this example, we start by configuring a Lambda authorizer as the default authorization type for our
 GraphQL API.

@@ -16,8 +16,7 @@ an alternative container runtime to Docker.
 ###### Topics
 
 - [Installing Finch](#install-finch-instructions "#install-finch-instructions")
-- [Configuring Finch with AWS SAM
-  CLI](#install-finch-configuration "#install-finch-configuration")
+- [Configuring Finch with AWS SAM CLI](#install-finch-configuration "#install-finch-configuration")
 - [Verifying the installation](#install-finch-verification "#install-finch-verification")
 - [Stopping Finch](#install-finch-stopping "#install-finch-stopping")
 - [Troubleshooting](#install-finch-troubleshooting "#install-finch-troubleshooting")
@@ -97,9 +96,7 @@ You can install Finch on Amazon Linux, Ubuntu, or by using a generic
 installation method. For more information, see [Installing Finch on
 Linux](https://runfinch.com/docs/managing-finch/linux/installation/ "https://runfinch.com/docs/managing-finch/linux/installation/").
 
-## Configuring Finch with AWS SAM
-
-CLI
+## Configuring Finch with AWS SAM CLI
 
 After you install Finch, the AWS SAM CLI automatically detects and uses
 Finch as a container runtime when Docker does not run.

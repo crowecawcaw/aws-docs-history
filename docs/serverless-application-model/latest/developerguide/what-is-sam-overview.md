@@ -395,9 +395,7 @@ system.
 
 For more details, see [Deploy with CI/CD systems and pipelines](deploying-options.md#serverless-deploying-ci-cd "deploying-options.md#serverless-deploying-ci-cd").
 
-### Monitor and troubleshoot your application in the
-
-cloud
+### Monitor and troubleshoot your application in the cloud
 
 View important information about your deployed resources, gather logs, and utilize
 built-in monitoring tools such as AWS X-Ray.
@@ -410,9 +408,7 @@ logs** to view our function's logs.
 
 For more details, see [Monitor your application](serverless-monitoring.md "serverless-monitoring.md").
 
-### Sync local changes to the cloud as you
-
-develop
+### Sync local changes to the cloud as you develop
 
 As you develop on your local machine, automatically sync changes to the cloud. Quickly
 see your changes and perform testing and validation in the cloud.

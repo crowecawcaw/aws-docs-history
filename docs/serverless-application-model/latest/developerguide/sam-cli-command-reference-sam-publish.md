@@ -12,8 +12,7 @@ The `sam publish` command expects the AWS SAM template to include a
 `Metadata` section that contains application metadata required for publishing. In the
 `Metadata` section, the `LicenseUrl` and `ReadmeUrl` properties
 must refer to Amazon Simple Storage Service (Amazon S3) buckets, not local files. For more information about the
-`Metadata` section of the AWS SAM template, see [Publishing your
-application with the AWS SAM CLI](serverless-sam-template-publishing-applications.md "serverless-sam-template-publishing-applications.md").
+`Metadata` section of the AWS SAM template, see [Publishing your application with the AWS SAM CLI](serverless-sam-template-publishing-applications.md "serverless-sam-template-publishing-applications.md").
 
 By default, `sam publish` creates the application as private. Before other AWS
 accounts are allowed to view and deploy your application, you must share it. For information on

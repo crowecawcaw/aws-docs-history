@@ -26,9 +26,7 @@ previous example applications before executing this one.
 
 Make sure that you've completed the required setup in the [Install the AWS SAM CLI](install-sam-cli.md "install-sam-cli.md").
 
-## Step 1: Initialize the
-
-application
+## Step 1: Initialize the application
 
 In this section, you download the sample application, which consists of an AWS SAM template
 and application code.
@@ -115,9 +113,7 @@ names of these resources in the CloudFormation console.
 3. Verify that the DynamoDB table contains new records that contain text that Amazon Rekognition found in
    the uploaded image.
 
-## Step 4: Test the application
-
-locally
+## Step 4: Test the application locally
 
 Before you can test the application locally, you must first retrieve the names of the
 AWS resources that were created by CloudFormation.

@@ -16,10 +16,8 @@ For more information on functions, see [Lambda concepts](../../../lambda/latest/
 
 ###### Topics
 
-- [Building Node.js Lambda functions
-  with esbuild in AWS SAM](serverless-sam-cli-using-build-typescript.md "serverless-sam-cli-using-build-typescript.md")
-- [Building .NET Lambda functions with Native AOT
-  compilation in AWS SAM](build-dotnet7.md "build-dotnet7.md")
+- [Building Node.js Lambda functions with esbuild in AWS SAM](serverless-sam-cli-using-build-typescript.md "serverless-sam-cli-using-build-typescript.md")
+- [Building .NET Lambda functions with Native AOT compilation in AWS SAM](build-dotnet7.md "build-dotnet7.md")
 - [Building Rust Lambda functions with Cargo Lambda in AWS SAM](building-rust.md "building-rust.md")
 - [Building Lambda functions with custom runtimes in AWS SAM](building-custom-runtimes.md "building-custom-runtimes.md")
 - [Building Lambda layers in AWS SAM](building-layers.md "building-layers.md")

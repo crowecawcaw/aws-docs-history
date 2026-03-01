@@ -10,8 +10,7 @@ build.
 - [Uninstalling the AWS SAM CLI](#manage-sam-cli-versions-uninstall "#manage-sam-cli-versions-uninstall")
 - [Switch from using Homebrew to manage the AWS SAM CLI](#manage-sam-cli-versions-switch "#manage-sam-cli-versions-switch")
 - [Managing the AWS SAM CLI nightly build](#manage-sam-cli-versions-nightly-build "#manage-sam-cli-versions-nightly-build")
-- [Installing the AWS SAM CLI into a virtual environment using
-  pip](#manage-sam-cli-versions-install-virtual "#manage-sam-cli-versions-install-virtual")
+- [Installing the AWS SAM CLI into a virtual environment using pip](#manage-sam-cli-versions-install-virtual "#manage-sam-cli-versions-install-virtual")
 - [Managing the AWS SAM CLI with Homebrew](#manage-sam-cli-versions-homebrew "#manage-sam-cli-versions-homebrew")
 - [Troubleshooting](#manage-sam-cli-versions-troubleshoot "#manage-sam-cli-versions-troubleshoot")
 
@@ -128,8 +127,7 @@ supported method. Follow these instructions to switch to a supported method.
 
 ###### To switch from using Homebrew
 
-1. Follow instructions at [Uninstalling a Homebrew installed AWS SAM
-   CLI](#manage-sam-cli-versions-homebrew-uninstall "#manage-sam-cli-versions-homebrew-uninstall") to uninstall the Homebrew managed
+1. Follow instructions at [Uninstalling a Homebrew installed AWS SAM CLI](#manage-sam-cli-versions-homebrew-uninstall "#manage-sam-cli-versions-homebrew-uninstall") to uninstall the Homebrew managed
    version.
 2. Follow instructions at [Install the AWS SAM CLI](install-sam-cli.md "install-sam-cli.md") to install the AWS SAM
    CLI using a supported method.
@@ -183,9 +181,7 @@ form `1.X.Y.dev<YYYYMMDDHHmm>`, for example:
 SAM CLI, version 1.20.0.dev202103151200
 ```
 
-### Switch from Homebrew to the package
-
-installer
+### Switch from Homebrew to the package installer
 
 If you are using Homebrew to install and upgrade the AWS SAM CLI nightly build and would like to
 switch to using the package installer, follow these steps.
@@ -207,9 +203,7 @@ zsh: command not found: sam-nightly
 
 3. Follow steps in the previous section to install the AWS SAM CLI nightly build.
 
-## Installing the AWS SAM CLI into a virtual environment using
-
-pip
+## Installing the AWS SAM CLI into a virtual environment using pip
 
 We recommend using the native package installer to install the AWS SAM CLI. If you must use pip, we
 recommend that you install the AWS SAM CLI into a virtual environment. This ensures a clean installation environment and
@@ -329,9 +323,7 @@ To upgrade the AWS SAM CLI using Homebrew, run the following command:
 `$` `brew upgrade aws-sam-cli`
 ```
 
-### Uninstalling a Homebrew installed AWS SAM
-
-CLI
+### Uninstalling a Homebrew installed AWS SAM CLI
 
 If the AWS SAM CLI was installed using Homebrew, follow these steps to uninstall
 it.
@@ -351,9 +343,7 @@ it.
 command not found: sam
 ```
 
-### Switching to the community managed
-
-Homebrew installer
+### Switching to the community managed Homebrew installer
 
 If you are using the AWS managed Homebrew installer (`aws/tap/aws-sam-cli`) and prefer
 to continue using Homebrew, we recommend switching to the community managed Homebrew

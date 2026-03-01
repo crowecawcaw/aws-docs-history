@@ -1,6 +1,4 @@
-# Orchestrating AWS SAM resources with
-
-AWS Step Functions
+# Orchestrating AWS SAM resources with AWS Step Functions
 
 You can use [AWS Step Functions](../../../step-functions/latest/dg.md "../../../step-functions/latest/dg.md") to orchestrate AWS Lambda functions
 and other AWS resources to form complex and robust workflows. Step Functions to tell your application

@@ -68,9 +68,7 @@ directly to the [`InvokeMode`](../../../AWSCloudFormation/latest/UserGuide/aws-r
 
 ## Examples
 
-### Function
-
-URL
+### Function URL
 
 The following example creates a Lambda function with a function URL. The function URL uses
 IAM authorization.

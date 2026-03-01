@@ -95,5 +95,4 @@ Should we proceed with the creation? [y/N]:
 
 ## Learn more
 
-For more information on using OIDC with AWS SAM pipeline, see [sam pipeline
-bootstrap](sam-cli-command-reference-sam-pipeline-bootstrap.md "sam-cli-command-reference-sam-pipeline-bootstrap.md").
+For more information on using OIDC with AWS SAM pipeline, see [sam pipeline bootstrap](sam-cli-command-reference-sam-pipeline-bootstrap.md "sam-cli-command-reference-sam-pipeline-bootstrap.md").

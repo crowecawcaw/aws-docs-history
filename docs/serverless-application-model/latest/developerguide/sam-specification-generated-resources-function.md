@@ -1,6 +1,4 @@
-# CloudFormation resources generated
-
-when AWS::Serverless::Function is specified
+# CloudFormation resources generated when AWS::Serverless::Function is specified
 
 When an `AWS::Serverless::Function` is specified, AWS Serverless Application Model
 (AWS SAM) always creates an `AWS::Lambda::Function` base CloudFormation resource.
@@ -25,9 +23,7 @@ specified, AWS SAM also generates CloudFormation resources for the following sce
 
 The following scenarios generate CloudFormation resources based on core function properties:
 
-### Role property
-
-is not specified
+### Role property is not specified
 
 When the `Role` property of an `AWS::Serverless::Function` is
 _not_ specified, AWS SAM generates an `AWS::IAM::Role`
@@ -143,9 +139,7 @@ For additional information on the `FunctionUrlConfig` property, see [FunctionUrl
 
 The following scenarios generate CloudFormation resources based on event sources:
 
-### An Api
-
-event source is specified
+### An Api event source is specified
 
 When the `Event` property of an `AWS::Serverless::Function` is
 set to `Api`, but the `RestApiId` property is
@@ -159,9 +153,7 @@ _`LogicalId`:_ `ServerlessRestApi`
 _Referenceable property:_ N/A (you must use the
 `LogicalId` to reference this CloudFormation resource)
 
-### An HttpApi
-
-event source is specified
+### An HttpApi event source is specified
 
 When the `Event` property of an `AWS::Serverless::Function` is
 set to `HttpApi`, but the `ApiId` property is
@@ -175,9 +167,7 @@ _`LogicalId`:_ `ServerlessHttpApi`
 _Referenceable property:_ N/A (you must use the
 `LogicalId` to reference this CloudFormation resource)
 
-### A streaming
-
-event source is specified
+### A streaming event source is specified
 
 When the `Event` property of an `AWS::Serverless::Function` is
 set to one of the streaming types, AWS SAM generates the
@@ -192,9 +182,7 @@ _`LogicalId`:_ `<function‑LogicalId><event‑LogicalId>`
 _Referenceable property:_ N/A (you must use the
 `LogicalId` to reference this CloudFormation resource)
 
-### An event bridge
-
-(or event bus) event source is specified
+### An event bridge (or event bus) event source is specified
 
 When the `Event` property of an `AWS::Serverless::Function` is
 set to one of the event bridge (or event bus) types, AWS SAM generates the
@@ -209,9 +197,7 @@ _`LogicalId`:_ `<function‑LogicalId><event‑LogicalId>`
 _Referenceable property:_ N/A (you must use the
 `LogicalId` to reference this CloudFormation resource)
 
-### An IotRule
-
-event source is specified
+### An IotRule event source is specified
 
 When the `Event` property of an `AWS::Serverless::Function` is
 set to IoTRule, AWS SAM generates the
@@ -228,9 +214,7 @@ _Referenceable property:_ N/A (you must use the
 
 The following scenarios generate CloudFormation resources based on event configuration:
 
-### OnSuccess
-
-(or OnFailure) property is specified for Amazon SNS events
+### OnSuccess (or OnFailure) property is specified for Amazon SNS events
 
 When the `OnSuccess` (or `OnFailure`) property of the
 `DestinationConfig` property of the `EventInvokeConfig`
@@ -258,9 +242,7 @@ If both `OnSuccess` and `OnFailure` are specified
 for an Amazon SNS event, to distinguish between the generated resources, you must
 use the `LogicalId`.
 
-### OnSuccess
-
-(or OnFailure) property is specified for Amazon SQS events
+### OnSuccess (or OnFailure) property is specified for Amazon SQS events
 
 When the `OnSuccess` (or `OnFailure`) property of the
 `DestinationConfig` property of the `EventInvokeConfig`

@@ -1,6 +1,4 @@
-# Globals section of the AWS SAM
-
-template
+# Globals section of the AWS SAM template
 
 Sometimes resources that you declare in an AWS SAM template have common configurations. For
 example, you might have an application with multiple `AWS::Serverless::Function`
@@ -151,17 +149,13 @@ Any resources and properties that are not included in the previous list are not
 supported. Some reasons for not supporting them include: 1) They open potential
 security issues, or 2) They make the template hard to understand.
 
-## Implicit
-
-APIs
+## Implicit APIs
 
 AWS SAM creates _implicit APIs_ when you declare an API in the
 `Events` section. You can use `Globals` to override all
 properties of implicit APIs.
 
-## Overridable
-
-properties
+## Overridable properties
 
 Resources can override the properties that you declare in the `Globals`
 section. For example, you can add new variables to an environment variable map, or you
@@ -199,9 +193,7 @@ Resources:
 The `Runtime` for `MyFunction` is set to
 `python3.9`.
 
-### Maps
-
-are merged
+### Maps are merged
 
 Maps are also known as dictionaries or collections of key-value pairs.
 

@@ -37,8 +37,6 @@ configuration:
 The ordering of these steps, and details of each step, vary based on your CI/CD
 system:
 
-- If you are using AWS CodePipeline, see [Generating starter pipeline
-  for AWS CodePipeline in AWS SAM](serverless-generating-example-ci-cd-codepipeline.md "serverless-generating-example-ci-cd-codepipeline.md").
+- If you are using AWS CodePipeline, see [Generating starter pipeline for AWS CodePipeline in AWS SAM](serverless-generating-example-ci-cd-codepipeline.md "serverless-generating-example-ci-cd-codepipeline.md").
 - If you are using Jenkins, GitLab CI/CD, GitHub Actions, or Bitbucket Pipelines, see
-  [Use AWS SAM to generate starter pipelines for Jenkins, GitLab CI/CD, GitHub
-  Actions, Bitbucket Pipelines](serverless-generating-example-ci-cd-others.md "serverless-generating-example-ci-cd-others.md").
+  [Use AWS SAM to generate starter pipelines for Jenkins, GitLab CI/CD, GitHub Actions, Bitbucket Pipelines](serverless-generating-example-ci-cd-others.md "serverless-generating-example-ci-cd-others.md").

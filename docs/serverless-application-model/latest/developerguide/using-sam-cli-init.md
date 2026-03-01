@@ -293,9 +293,7 @@ example:
 `$` `sam init --location `https://github.com/aws-samples/sessions-with-aws-sam/raw/master/starter-templates/web-app.zip``
 ```
 
-### Initialize an application without the interactive
-
-flow
+### Initialize an application without the interactive flow
 
 Use the `--no-interactive` option and provide your configuration choices at the command line to skip
 the interactive flow. The following is an example:
@@ -310,16 +308,12 @@ To troubleshoot the AWS SAM CLI, see [AWS SAM CLI troubleshooting](sam-cli-tro
 
 ## Examples
 
-### Initialize a new serverless application using the
-
-Hello World AWS Starter Template
+### Initialize a new serverless application using the Hello World AWS Starter Template
 
 For this example, see [Step 1: Initialize the sample Hello World application](serverless-getting-started-hello-world.md#serverless-getting-started-hello-world-init "serverless-getting-started-hello-world.md#serverless-getting-started-hello-world-init") in _Tutorial: Deploying a Hello World
 application_.
 
-### Initialize a new serverless application with a custom
-
-template location
+### Initialize a new serverless application with a custom template location
 
 The following are examples of providing a GitHub location to your custom template:
 

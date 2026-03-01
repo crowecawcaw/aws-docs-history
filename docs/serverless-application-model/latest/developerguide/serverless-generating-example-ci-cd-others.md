@@ -1,6 +1,4 @@
-# Use AWS SAM to generate starter pipelines for Jenkins, GitLab CI/CD, GitHub
-
-Actions, Bitbucket Pipelines
+# Use AWS SAM to generate starter pipelines for Jenkins, GitLab CI/CD, GitHub Actions, Bitbucket Pipelines
 
 To generate a starter pipeline configuration for Jenkins, GitLab CI/CD, GitHub Actions, or
 Bitbucket Pipelines perform the following tasks in this order:
@@ -13,8 +11,7 @@ Bitbucket Pipelines perform the following tasks in this order:
 
 ###### Note
 
-The following procedure utilizes two AWS SAM CLI commands, `sam pipeline
- bootstrap` and `sam pipeline init`. The reason there are
+The following procedure utilizes two AWS SAM CLI commands, `sam pipeline bootstrap` and `sam pipeline init`. The reason there are
 two commands is to handle the use case where administrators (that is, users who need
 permission to set up infrastructure AWS resource like IAM users and roles) have more
 permission that developers (that is, users who just need permission to set up individual
@@ -39,9 +36,7 @@ Run the previous command for each deployment stage of your pipeline.
 You must capture the AWS credentials (key id and secret key) for the pipeline users for
 each deployment stage of your pipeline, because they are needed for subsequent steps.
 
-## Step 2: Connect your Git repository with your
-
-CI/CD system
+## Step 2: Connect your Git repository with your CI/CD system
 
 Connecting your Git repository to your CI/CD system is necessary so that the CI/CD system
 is able to access your application source code for builds and deployments.
@@ -82,9 +77,7 @@ To create the necessary credential objects, do one of the following:
   key id and secret key. Follow the instructions in the [Variables
   and secrets](https://support.atlassian.com/bitbucket-cloud/docs/variables-and-secrets "https://support.atlassian.com/bitbucket-cloud/docs/variables-and-secrets") - you will need two "secret names" for the next step.
 
-## Step 4: Generate the pipeline
-
-configuration
+## Step 4: Generate the pipeline configuration
 
 To generate the pipeline configuration, run the following command. You will need to input
 the credential object that you created in the previous step:
@@ -93,9 +86,7 @@ the credential object that you created in the previous step:
 sam pipeline init
 ```
 
-## Step 5: Commit your pipeline configuration to Git
-
-repository
+## Step 5: Commit your pipeline configuration to Git repository
 
 This step is necessary to ensure your CI/CD system is aware of your pipeline
 configuration, and will run when changes are committed.

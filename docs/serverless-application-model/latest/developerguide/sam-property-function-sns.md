@@ -113,9 +113,7 @@ resource.
 
 ## Examples
 
-### SNS Event
-
-Source Example
+### SNS Event Source Example
 
 SNS Event Source Example
 

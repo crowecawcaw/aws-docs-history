@@ -1,15 +1,11 @@
-# Lambda
-
-authorizer examples for AWS SAM
+# Lambda authorizer examples for AWS SAM
 
 The `AWS::Serverless::Api` resource type supports two types of Lambda
 authorizers: `TOKEN` authorizers and `REQUEST` authorizers. The
 `AWS::Serverless::HttpApi` resource type supports only `REQUEST`
 authorizers. The following are examples of each type.
 
-## Lambda
-
-`TOKEN` authorizer example (AWS::Serverless::Api)
+## Lambda `TOKEN` authorizer example (AWS::Serverless::Api)
 
 You can control access to your APIs by defining a Lambda `TOKEN` authorizer
 within your AWS SAM template. To do this, you use the [ApiAuth](sam-property-api-apiauth.md "sam-property-api-apiauth.md") data type.
@@ -58,9 +54,7 @@ Resources:
 For more information about Lambda authorizers, see [Use API Gateway
 Lambda authorizers](../../../apigateway/latest/developerguide/apigateway-use-lambda-authorizer.md "../../../apigateway/latest/developerguide/apigateway-use-lambda-authorizer.md") in the _API Gateway Developer Guide_.
 
-## Lambda
-
-`REQUEST` authorizer example (AWS::Serverless::Api)
+## Lambda `REQUEST` authorizer example (AWS::Serverless::Api)
 
 You can control access to your APIs by defining a Lambda `REQUEST` authorizer
 within your AWS SAM template. To do this, you use the [ApiAuth](sam-property-api-apiauth.md "sam-property-api-apiauth.md") data type.

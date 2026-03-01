@@ -117,8 +117,7 @@ nothing.
 
 The name of the Lambda alias. For more information about Lambda aliases, see [Lambda function aliases](../../../lambda/latest/dg/configuration-aliases.md "../../../lambda/latest/dg/configuration-aliases.md") in the
 _AWS Lambda Developer Guide_. For examples that use this
-property, see [Deploying serverless applications
-gradually with AWS SAM](automating-updates-to-serverless-apps.md "automating-updates-to-serverless-apps.md").
+property, see [Deploying serverless applications gradually with AWS SAM](automating-updates-to-serverless-apps.md "automating-updates-to-serverless-apps.md").
 
 AWS SAM generates [AWS::Lambda::Version](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.md") and [AWS::Lambda::Alias](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.md") resources when this property is set. For
 information about this scenario, see [AutoPublishAlias property is specified](sam-specification-generated-resources-function.md#sam-specification-generated-resources-function-autopublishalias "sam-specification-generated-resources-function.md#sam-specification-generated-resources-function-autopublishalias"). For
@@ -167,8 +166,7 @@ being changed to the new location).
 
 This problem is marked by an AWS SAM template having the following characteristics:
 
-- The `DeploymentPreference` object is configured for gradual deployments (as described in [Deploying serverless applications
-  gradually with AWS SAM](automating-updates-to-serverless-apps.md "automating-updates-to-serverless-apps.md"))
+- The `DeploymentPreference` object is configured for gradual deployments (as described in [Deploying serverless applications gradually with AWS SAM](automating-updates-to-serverless-apps.md "automating-updates-to-serverless-apps.md"))
 - The `AutoPublishAlias` property is set and doesn't change between deployments
 - The `CodeUri` property is set and doesn't change between deployments.
 
@@ -276,8 +274,7 @@ _Required_: No
 _CloudFormation compatibility_: This property is unique to AWS SAM and
 doesn't have an CloudFormation equivalent.
 
-_See also_: For more information about this property, see [Deploying serverless applications
-gradually with AWS SAM](automating-updates-to-serverless-apps.md "automating-updates-to-serverless-apps.md").
+_See also_: For more information about this property, see [Deploying serverless applications gradually with AWS SAM](automating-updates-to-serverless-apps.md "automating-updates-to-serverless-apps.md").
 
 `Description`
 
@@ -912,9 +909,7 @@ Properties:
 
 ```
 
-### Function
-
-properties example
+### Function properties example
 
 The following is an example of an [AWS::Serverless::Function](sam-resource-function.md "sam-resource-function.md") of package type `Zip` (default) that
 uses `InlineCode`, `Layers`, `Tracing`,
@@ -957,9 +952,7 @@ Properties:
 
 ```
 
-### ImageConfig
-
-example
+### ImageConfig example
 
 The following is an example of an `ImageConfig` for a Lambda function of
 package type `Image`.
@@ -981,9 +974,7 @@ HelloWorldFunction:
 
 ```
 
-###
-
-RuntimeManagementConfig examples
+### RuntimeManagementConfig examples
 
 A Lambda function configured to update its runtime environment according to current
 behavior:
@@ -1024,9 +1015,7 @@ TestFunction
       UpdateRuntimeOn: Manual
 ```
 
-### SnapStart
-
-examples
+### SnapStart examples
 
 Example of a Lambda function with SnapStart turned on for future versions:
 

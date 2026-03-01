@@ -1,6 +1,4 @@
-# Getting started with Terraform support for
-
-AWS SAM CLI
+# Getting started with Terraform support for AWS SAM CLI
 
 This topic covers how to get started with using the AWS Serverless Application Model Command Line Interface (AWS SAM CLI)
 with Terraform.
@@ -9,17 +7,12 @@ To provide feedback and submit feature requests, create a [GitHub Issue](https:/
 
 ###### Topics
 
-- [AWS SAM CLI Terraform
-  prerequisites](#gs-terraform-support-prerequisites "#gs-terraform-support-prerequisites")
-- [Using AWS SAM CLI commands with
-  Terraform](#gs-terraform-support-using "#gs-terraform-support-using")
-- [Set up for Terraform
-  projects](#gs-terraform-support-projects "#gs-terraform-support-projects")
+- [AWS SAM CLI Terraform prerequisites](#gs-terraform-support-prerequisites "#gs-terraform-support-prerequisites")
+- [Using AWS SAM CLI commands with Terraform](#gs-terraform-support-using "#gs-terraform-support-using")
+- [Set up for Terraform projects](#gs-terraform-support-projects "#gs-terraform-support-projects")
 - [Set up for Terraform Cloud](#gs-terraform-support-cloud "#gs-terraform-support-cloud")
 
-## AWS SAM CLI Terraform
-
-prerequisites
+## AWS SAM CLI Terraform prerequisites
 
 Complete all prerequisites to begin using the AWS SAM CLI with your Terraform
 projects.
@@ -50,9 +43,7 @@ registry_. 3. ###### Install Docker for local testing
 
 The AWS SAM CLI requires Docker for local testing. To install Docker, see [Installing Docker to use with the AWS SAM CLI](install-docker.md "install-docker.md").
 
-## Using AWS SAM CLI commands with
-
-Terraform
+## Using AWS SAM CLI commands with Terraform
 
 When you run a supported AWS SAM CLI command, use the `--hook-name` option and
 provide the `terraform` value. The following is an example:
@@ -68,16 +59,13 @@ following:
 hook_name = "terraform"
 ```
 
-## Set up for Terraform
-
-projects
+## Set up for Terraform projects
 
 Complete steps in this topic to use the AWS SAM CLI with Terraform
 projects.
 
 No additional setup is required if you build your AWS Lambda artifacts outside of your
-Terraform project. See [Using the AWS SAM CLI with Terraform for local debugging
-and testing](using-samcli-terraform.md "using-samcli-terraform.md") to start using the AWS SAM CLI.
+Terraform project. See [Using the AWS SAM CLI with Terraform for local debugging and testing](using-samcli-terraform.md "using-samcli-terraform.md") to start using the AWS SAM CLI.
 
 If you build your Lambda artifacts within your Terraform projects, you must
 do the following:
@@ -116,9 +104,7 @@ If you do not have Make installed on your local machine, install it before movin
 For Windows, you can install using [Chocolatey](https://chocolatey.org/ "https://chocolatey.org/"). For instructions, see [Using Chocolatey](https://www.technewstoday.com/install-and-use-make-in-windows/#using-chocolatey "https://www.technewstoday.com/install-and-use-make-in-windows/#using-chocolatey") in _How to Install and Use "Make" in
 Windows_
 
-### Define the Lambda artifacts build
-
-logic
+### Define the Lambda artifacts build logic
 
 Use the `null_resource`
 Terraform resource type to define your Lambda build logic. The following is an
@@ -136,9 +122,7 @@ resource "null_resource" "build_lambda_function" {
 }
 ```
 
-### Define a sam
-
-metadata resource
+### Define a sam metadata resource
 
 The `sam metadata` resource is a `null_resource`
 Terraform resource type that provides the AWS SAM CLI with the information it
@@ -304,8 +288,7 @@ The following is an example:
 ### Next steps
 
 To start using the AWS SAM CLI with your Terraform projects, see
-[Using the AWS SAM CLI with Terraform for local debugging
-and testing](using-samcli-terraform.md "using-samcli-terraform.md").
+[Using the AWS SAM CLI with Terraform for local debugging and testing](using-samcli-terraform.md "using-samcli-terraform.md").
 
 ## Set up for Terraform Cloud
 
@@ -368,5 +351,4 @@ GitHub repository_.
 ### Next steps
 
 To start using the AWS SAM CLI with Terraform Cloud, see
-[Using the AWS SAM CLI with Terraform for local debugging
-and testing](using-samcli-terraform.md "using-samcli-terraform.md").
+[Using the AWS SAM CLI with Terraform for local debugging and testing](using-samcli-terraform.md "using-samcli-terraform.md").

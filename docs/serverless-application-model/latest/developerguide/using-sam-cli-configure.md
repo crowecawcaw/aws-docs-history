@@ -25,8 +25,7 @@ and customize its default settings to optimize development time for your serverl
 
 - [How to create your configuration file (the samconfig file)](#using-sam-cli-configure-create "#using-sam-cli-configure-create")
 - [Configure project settings](#using-sam-cli-configure-project "#using-sam-cli-configure-project")
-- [Configure credentials and basic
-  settings](#using-sam-cli-configure-basic "#using-sam-cli-configure-basic")
+- [Configure credentials and basic settings](#using-sam-cli-configure-basic "#using-sam-cli-configure-basic")
 
 ## How to create your configuration file (the `samconfig` file)
 
@@ -242,9 +241,7 @@ prod:
       watch: false
 ```
 
-## Configure credentials and basic
-
-settings
+## Configure credentials and basic settings
 
 Use the AWS Command Line Interface (AWS CLI) to configure basic settings such as AWS credentials, default
 region name, and default output format. Once configured, you can use these settings with the

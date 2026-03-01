@@ -1,6 +1,4 @@
-# Building .NET Lambda functions with Native AOT
-
-compilation in AWS SAM
+# Building .NET Lambda functions with Native AOT compilation in AWS SAM
 
 Build and package your .NET 8 AWS Lambda functions with the AWS Serverless Application Model (AWS SAM), utilizing
 Native Ahead-of-Time (AOT) compilation to improve AWS Lambda cold-start times.
@@ -10,8 +8,7 @@ Native Ahead-of-Time (AOT) compilation to improve AWS Lambda cold-start times.
 - [.NET 8 Native AOT overview](#build-dotnet7-overview "#build-dotnet7-overview")
 - [Using AWS SAM with your .NET 8 Lambda functions](#build-dotnet7-sam "#build-dotnet7-sam")
 - [Install prerequisites](#build-dotnet7-prerequisites "#build-dotnet7-prerequisites")
-- [Define .NET 8 Lambda functions in your AWS SAM
-  template](#build-dotnet7-sam-define "#build-dotnet7-sam-define")
+- [Define .NET 8 Lambda functions in your AWS SAM template](#build-dotnet7-sam-define "#build-dotnet7-sam-define")
 - [Build your application with the AWS SAM CLI](#build-dotnet7-sam-build "#build-dotnet7-sam-build")
 - [Learn more](#build-dotnet7-learn-more "#build-dotnet7-learn-more")
 
@@ -82,9 +79,7 @@ dotnet tool update -g Amazon.Lambda.Tools
 - Building with Native AOT, requires Docker to be installed. For
   installation instructions, see [Installing Docker to use with the AWS SAM CLI](install-docker.md "install-docker.md").
 
-## Define .NET 8 Lambda functions in your AWS SAM
-
-template
+## Define .NET 8 Lambda functions in your AWS SAM template
 
 To define a .NET8 Lambda function in your AWS SAM template, do the following:
 

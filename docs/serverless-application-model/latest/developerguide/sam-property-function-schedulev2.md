@@ -269,9 +269,7 @@ resource.
 
 ## Examples
 
-### Basic example of
-
-defining a ScheduleV2 resource
+### Basic example of defining a ScheduleV2 resource
 
 ```
 Resources:

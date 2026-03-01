@@ -1,6 +1,4 @@
-# CloudFormation resources generated when
-
-you specify AWS::Serverless::Connector
+# CloudFormation resources generated when you specify AWS::Serverless::Connector
 
 ###### Note
 

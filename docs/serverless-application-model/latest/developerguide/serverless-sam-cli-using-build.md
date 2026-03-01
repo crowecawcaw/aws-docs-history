@@ -26,8 +26,7 @@ The format of your application's build artifacts depends on each function's
 
 - [Building a .zip file archive](#build-zip-archive "#build-zip-archive")
 - [Building a container image](#build-container-image "#build-container-image")
-- [Container environment
-  variable file](#serverless-sam-cli-using-container-environment-file "#serverless-sam-cli-using-container-environment-file")
+- [Container environment variable file](#serverless-sam-cli-using-container-environment-file "#serverless-sam-cli-using-container-environment-file")
 - [Speed up build times by building your project in the source folder](#serverless-sam-cli-using-build-in-source "#serverless-sam-cli-using-build-in-source")
 - [Examples](#building-applications-examples "#building-applications-examples")
 - [Building functions outside of AWS SAM](#building-applications-skip "#building-applications-skip")
@@ -107,9 +106,7 @@ If you specify a multi-architecture base image in your Dockerfile, AWS SAM build
 container image for your host machine's architecture. To build for a different architecture,
 specify a base image that uses the specific target architecture.
 
-## Container environment
-
-variable file
+## Container environment variable file
 
 To provide a JSON file that contains environment variables for the build container, use
 the `--container-env-var-file` argument with the `sam build` command.

@@ -35,9 +35,7 @@ $ echo '{"message": "Hey, are you there?" }' | sam local invoke --event - "Ratin
 $ sam local invoke --help
 ```
 
-## Environment variable
-
-file
+## Environment variable file
 
 To declare environment variables locally that override values defined in your
 templates, do the following:

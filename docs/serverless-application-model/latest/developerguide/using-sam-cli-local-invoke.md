@@ -116,9 +116,7 @@ To pass an event to the Lambda function, use the `--event` option. The following
 You can create events with the `sam local generate-event` subcommand. To learn more, see
 [Introduction to testing with sam local generate-event](using-sam-cli-local-generate-event.md "using-sam-cli-local-generate-event.md").
 
-### Pass environment variables when invoking your Lambda
-
-function
+### Pass environment variables when invoking your Lambda function
 
 If your Lambda function uses environment variables, you can pass them during local testing with the
 `--env-vars` option. This is a great way to test a Lambda function locally with services in your
@@ -140,13 +138,10 @@ function logical ID. The following is an example:
 `$` `sam local invoke `StackLogicalId/FunctionLogicalId``
 ```
 
-### Test a Lambda function from your Terraform
-
-project
+### Test a Lambda function from your Terraform project
 
 Use the `--hook-name` option to locally test Lambda functions from your Terraform
-projects. To learn more, see [Using the AWS SAM CLI with Terraform for local debugging
-and testing](using-samcli-terraform.md "using-samcli-terraform.md").
+projects. To learn more, see [Using the AWS SAM CLI with Terraform for local debugging and testing](using-samcli-terraform.md "using-samcli-terraform.md").
 
 The following is an example:
 
@@ -167,9 +162,7 @@ speed up your cloud testing workflows.
 
 ## Examples
 
-### Generate an Amazon API Gateway sample event and use it to invoke a
-
-Lambda function locally
+### Generate an Amazon API Gateway sample event and use it to invoke a Lambda function locally
 
 First, we generate an API Gateway HTTP API event payload and save it to our `events` folder.
 
@@ -207,9 +200,7 @@ REPORT RequestId: 59535d0d-3d9e-493d-8c98-6264e8e961b8  Init Duration: 1.63 ms  
 {"statusCode": 200, "body": "{\"message\": \"value\"}"}%
 ```
 
-### Pass environment variables when invoking a Lambda function
-
-locally
+### Pass environment variables when invoking a Lambda function locally
 
 This application has a Lambda function that uses an environment variable for an Amazon DynamoDB table name. The
 following is an example of the function defined in the AWS SAM template:

@@ -26,9 +26,7 @@ For more information about granting administrator permissions to a user, see [Cr
 first IAM admin user and group](../../../IAM/latest/UserGuide/getting-started_create-admin-group.md "../../../IAM/latest/UserGuide/getting-started_create-admin-group.md") in the
 _IAM User Guide_.
 
-## Attach necessary AWS managed
-
-policies
+## Attach necessary AWS managed policies
 
 You can grant users a subset of permissions using [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies"), rather than granting full administrator
 permissions. If you use this option, make sure that the set of AWS managed policies
@@ -48,9 +46,7 @@ application](serverless-getting-started-hello-world.md "serverless-getting-start
 For information about attaching policies to an IAM user, see [Changing permissions for an IAM user](../../../IAM/latest/UserGuide/id_users_change-permissions.md "../../../IAM/latest/UserGuide/id_users_change-permissions.md") in the
 _IAM User Guide_.
 
-## Grant specific IAM
-
-permissions
+## Grant specific IAM permissions
 
 For the most granular level of access control, you can grant specific IAM
 permissions to users using [policy

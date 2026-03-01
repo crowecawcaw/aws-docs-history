@@ -28,8 +28,7 @@ Determines how this usage plan is configured. Valid values are `PER_API`, `SHARE
 
 `SHARED` creates [AWS::ApiGateway::UsagePlan](../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.md"), [AWS::ApiGateway::ApiKey](../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.md"), and [AWS::ApiGateway::UsagePlanKey](../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.md") resources that are shared across any API that also has `CreateUsagePlan: SHARED` in the same AWS SAM template. These resources have logical IDs of `ServerlessUsagePlan`, `ServerlessApiKey`, and `ServerlessUsagePlanKey`, respectively. If you use this option, we recommend that you add additional configuration for this usage plan on only one API resource to avoid conflicting definitions and an uncertain state.
 
-`NONE` disables the creation or association of a usage plan with this API. This is only necessary if `SHARED` or `PER_API` is specified in the [Globals section of the AWS SAM
-template](sam-specification-template-anatomy-globals.md "sam-specification-template-anatomy-globals.md").
+`NONE` disables the creation or association of a usage plan with this API. This is only necessary if `SHARED` or `PER_API` is specified in the [Globals section of the AWS SAM template](sam-specification-template-anatomy-globals.md "sam-specification-template-anatomy-globals.md").
 
 _Valid values_: `PER_API`, `SHARED`, and `NONE`
 

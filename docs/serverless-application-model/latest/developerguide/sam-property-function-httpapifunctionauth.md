@@ -61,8 +61,7 @@ Auth:
 
 ### IAM authorization
 
-Specifies IAM authorization at the event level. To use `AWS_IAM` authorization at the event level, you must also specify `true` for `EnableIamAuthorizer` in the `Globals` section of your template. For more information, see [Globals section of the AWS SAM
-template](sam-specification-template-anatomy-globals.md "sam-specification-template-anatomy-globals.md").
+Specifies IAM authorization at the event level. To use `AWS_IAM` authorization at the event level, you must also specify `true` for `EnableIamAuthorizer` in the `Globals` section of your template. For more information, see [Globals section of the AWS SAM template](sam-specification-template-anatomy-globals.md "sam-specification-template-anatomy-globals.md").
 
 #### YAML
 

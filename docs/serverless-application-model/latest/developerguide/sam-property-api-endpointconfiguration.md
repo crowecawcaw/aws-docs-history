@@ -9,12 +9,26 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ### YAML
 
 ```
+  IpAddressType: `String`
   Type: `String`
   VPCEndpointIds: `List`
+
 
 ```
 
 ## Properties
+
+`IpAddressType`
+
+The IP address types that can invoke an API (RestApi).
+
+_Valid values_: `ipv4` or `dualstack`
+
+_Type_: String
+
+_Required_: No
+
+_CloudFormation compatibility_: This property is passed directly to the `IpAddressType` property of the `AWS::ApiGateway::RestApi` `EndpointConfiguration` data type.
 
 `Type`
 

@@ -25,8 +25,10 @@ To declare this entity in your AWS SAM template, use the following syntax.
   KafkaBootstrapServers: `List`
   FunctionResponseTypes: `List`
   KmsKeyArn: `String`
+  LoggingConfig: `LoggingConfig`
   MaximumRecordAgeInSeconds: `Integer`
   MaximumRetryAttempts: `Integer`
+  MetricsConfig: `MetricsConfig`
   ProvisionedPollerConfig: `ProvisionedPollerConfig`
   SchemaRegistryConfig: `SchemaRegistryConfig`
   SourceAccessConfigurations: `SourceAccessConfigurations`
@@ -76,7 +78,7 @@ _Type_: String
 _Required_: No
 
 _CloudFormation compatibility_: This property is passed directly to the
-`SelfManagedKafkaConfiguration` property of an
+`SelfManagedKafkaEventSourceConfig` property of an
 `AWS::Lambda::EventSourceMapping` resource.
 
 `DestinationConfig`
@@ -86,7 +88,7 @@ A configuration object that specifies the destination of an event after Lambda p
 Use this property to specify the destination of failed invocations from the self-managed Kafka event
 source.
 
-_Type_: [DestinationConfig](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.md#cfn-lambda-eventsourcemapping-destinationconfig "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.md#cfn-lambda-eventsourcemapping-destinationconfig")
+_Type_: [DestinationConfig](../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.md")
 
 _Required_: No
 
@@ -155,6 +157,18 @@ _CloudFormation compatibility_: This property is passed directly to the
 `KmsKeyArn`
 property of an `AWS::Lambda::EventSourceMapping` resource.
 
+`LoggingConfig`
+
+The logging configuration for your event source.
+
+_Type_: [LoggingConfig](../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-loggingconfig.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-loggingconfig.md")
+
+_Required_: No
+
+_CloudFormation compatibility_: This property is passed directly to the
+`LoggingConfig`
+property of an `AWS::Lambda::EventSourceMapping` resource.
+
 `MaximumRecordAgeInSeconds`
 
 The maximum age of a record that Lambda sends to a function for processing.
@@ -163,7 +177,21 @@ _Type_: Integer
 
 _Required_: No
 
-_CloudFormation compatibility_: This property is passed directly to the `MaximumRecordAgeInSeconds` property of an `AWS::Lambda::EventSourceMapping` resource.
+_CloudFormation compatibility_: This property is passed directly to the
+`MaximumRecordAgeInSeconds`
+property of an `AWS::Lambda::EventSourceMapping` resource.
+
+`MetricsConfig`
+
+The metrics configuration for your event source.
+
+_Type_: [MetricsConfig](../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-metricsconfig.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-metricsconfig.md")
+
+_Required_: No
+
+_CloudFormation compatibility_: This property is passed directly to the
+`MetricsConfig`
+property of an `AWS::Lambda::EventSourceMapping` resource.
 
 `MaximumRetryAttempts`
 
@@ -196,7 +224,7 @@ Configuration for using a schema registry with the self-managed Kafka event sour
 
 This feature requires `ProvisionedPollerConfig` to be configured.
 
-_Type_: SchemaRegistryConfig
+_Type_: [SchemaRegistryConfig](../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-schemaregistryconfig.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-schemaregistryconfig.md")
 
 _Required_: No
 
@@ -217,7 +245,7 @@ _Type_: List of [SourceAccessConfiguration](../../../AWSCloudFormation/latest/Us
 _Required_: Yes
 
 _CloudFormation compatibility:_ This property is part of the
-[SelfManagedKafkaEventSourceConfig](../../../AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-eventsourcemapping-selfmanagedkafkaeventsourceconfig.md "../../../AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-eventsourcemapping-selfmanagedkafkaeventsourceconfig.md")
+`SelfManagedKafkaEventSourceConfig`
 property of an `AWS::Lambda::EventSourceMapping` resource.
 
 `StartingPosition`

@@ -173,9 +173,7 @@ Resources:
               Authorizer: NONE
 ```
 
-###
-
-Override a global authorizer when DefinitionBody for AWS::Serverless::Api is specified
+### Override a global authorizer when DefinitionBody for AWS::Serverless::Api is specified
 
 When using the `DefinitionBody` property to describe your `AWS::Serverless::Api` resource, the previous override method does not work. The
 following is an example of using the `DefinitionBody` property for an `AWS::Serverless::Api` resource:

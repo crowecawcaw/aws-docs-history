@@ -9,7 +9,6 @@ calls to AWS services on your behalf, and different ways you can customize AWS S
 
 - [AWS SAM CLI configuration file](serverless-sam-cli-config.md "serverless-sam-cli-config.md")
 - [Managing AWS SAM CLI versions](manage-sam-cli-versions.md "manage-sam-cli-versions.md")
-- [Setting up AWS
-  credentials](serverless-getting-started-set-up-credentials.md "serverless-getting-started-set-up-credentials.md")
+- [Setting up AWS credentials](serverless-getting-started-set-up-credentials.md "serverless-getting-started-set-up-credentials.md")
 - [Telemetry in the AWS SAM CLI](serverless-sam-telemetry.md "serverless-sam-telemetry.md")
 - [AWS SAM CLI troubleshooting](sam-cli-troubleshooting.md "sam-cli-troubleshooting.md")

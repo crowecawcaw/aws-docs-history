@@ -9,8 +9,7 @@ The topics in this section provide information on both approaches.
 - [How to use the AWS SAM CLI to manually deploy](#serverless-sam-cli-using-package-and-deploy "#serverless-sam-cli-using-package-and-deploy")
 - [Deploy with CI/CD systems and pipelines](#serverless-deploying-ci-cd "#serverless-deploying-ci-cd")
 - [Gradual deployments](#serverless-deploying-gradual "#serverless-deploying-gradual")
-- [Troubleshooting deployments using the
-  AWS SAM CLI](#serverless-deploying-troubleshooting "#serverless-deploying-troubleshooting")
+- [Troubleshooting deployments using the AWS SAM CLI](#serverless-deploying-troubleshooting "#serverless-deploying-troubleshooting")
 - [Learn more](#serverless-sam-cli-using-invoke-learn "#serverless-sam-cli-using-invoke-learn")
 
 ## How to use the AWS SAM CLI to manually deploy
@@ -45,12 +44,9 @@ If you want to deploy your AWS SAM application gradually rather than all at once
 specify deployment configurations that AWS CodeDeploy provides. For more information, see [Working with deployment configurations in CodeDeploy](../../../codedeploy/latest/userguide/deployment-configurations.md "../../../codedeploy/latest/userguide/deployment-configurations.md") in the
 _AWS CodeDeploy User Guide_.
 
-For information about configuring your AWS SAM application to deploy gradually, see [Deploying serverless applications
-gradually with AWS SAM](automating-updates-to-serverless-apps.md "automating-updates-to-serverless-apps.md").
+For information about configuring your AWS SAM application to deploy gradually, see [Deploying serverless applications gradually with AWS SAM](automating-updates-to-serverless-apps.md "automating-updates-to-serverless-apps.md").
 
-## Troubleshooting deployments using the
-
-AWS SAM CLI
+## Troubleshooting deployments using the AWS SAM CLI
 
 ### AWS SAM CLI error: "Security Constraints Not Satisfied"
 

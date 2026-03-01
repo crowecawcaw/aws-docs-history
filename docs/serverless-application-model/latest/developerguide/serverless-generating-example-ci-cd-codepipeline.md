@@ -1,6 +1,4 @@
-# Generating starter pipeline
-
-for AWS CodePipeline in AWS SAM
+# Generating starter pipeline for AWS CodePipeline in AWS SAM
 
 To generate a starter pipeline configuration for AWS CodePipeline, perform the following tasks in
 this order:
@@ -12,8 +10,7 @@ this order:
 
 ###### Note
 
-The following procedure utilizes two AWS SAM CLI commands, `sam pipeline
- bootstrap` and `sam pipeline init`. The reason there are
+The following procedure utilizes two AWS SAM CLI commands, `sam pipeline bootstrap` and `sam pipeline init`. The reason there are
 two commands is to handle the use case where administrators (that is, users who need
 permission to set up infrastructure AWS resource like IAM users and roles) have more
 permission that developers (that is, users who just need permission to set up individual
@@ -35,9 +32,7 @@ sam pipeline bootstrap
 
 Run the previous command for each deployment stage of your pipeline.
 
-## Step 2: Generate the pipeline
-
-configuration
+## Step 2: Generate the pipeline configuration
 
 To generate the pipeline configuration, run the following command:
 
@@ -45,16 +40,12 @@ To generate the pipeline configuration, run the following command:
 sam pipeline init
 ```
 
-## Step 3: Commit your pipeline configuration to Git
-
-repository
+## Step 3: Commit your pipeline configuration to Git repository
 
 This step is necessary to ensure your CI/CD system is aware of your pipeline
 configuration, and will run when changes are committed.
 
-## Step 4: Connect your Git repository with your
-
-CI/CD system
+## Step 4: Connect your Git repository with your CI/CD system
 
 For AWS CodePipeline you can now create the connection by running the following command:
 

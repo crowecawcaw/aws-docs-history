@@ -1,6 +1,4 @@
-# IAM permission
-
-example for AWS SAM
+# IAM permission example for AWS SAM
 
 You can control access to your APIs by defining IAM permissions within your AWS SAM
 template. To do this, you use the [ApiAuth](sam-property-api-apiauth.md "sam-property-api-apiauth.md") data type.

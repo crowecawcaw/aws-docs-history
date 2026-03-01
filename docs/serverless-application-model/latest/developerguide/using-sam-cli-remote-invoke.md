@@ -16,8 +16,7 @@ workflow, see [Step 5: Interact with your function in the AWS Cloud](serverless-
 
 - [Using the sam remote invoke command](#using-sam-cli-remote-invoke-use "#using-sam-cli-remote-invoke-use")
 - [Using sam remote invoke command options](#using-sam-cli-remote-invoke-options "#using-sam-cli-remote-invoke-options")
-- [Configure your project configuration
-  file](#using-sam-cli-remote-invoke-configure "#using-sam-cli-remote-invoke-configure")
+- [Configure your project configuration file](#using-sam-cli-remote-invoke-configure "#using-sam-cli-remote-invoke-configure")
 - [Examples](#using-sam-cli-remote-invoke-examples "#using-sam-cli-remote-invoke-examples")
 - [Related links](#using-sam-cli-remote-invoke-links "#using-sam-cli-remote-invoke-links")
   To use `sam remote invoke`, install the AWS SAM CLI by completing the
@@ -101,9 +100,7 @@ REPORT RequestId: d5ef494b-5f45-4086-86fd-d7322fa1a1f9  Duration: 6.62 ms       
 2. Provide an event to send to your Lambda function. You can provide the event at the command line using the `--event` option, or from a file using
    `--event-file`. If you don’t provide an event, the AWS SAM CLI sends an empty event.
 
-#### Lambda functions configured with
-
-response streaming
+#### Lambda functions configured with response streaming
 
 The `sam remote invoke` command supports Lambda functions that are configured
 to stream responses. You can configure a Lambda function to stream responses using the
@@ -112,8 +109,7 @@ property in your AWS SAM templates. When you use `sam remote invoke`, the AWS SA
 will automatically detect your Lambda configuration and invoke with response
 streaming.
 
-For an example, see [Invoke a Lambda function
-configured to stream responses](#using-sam-cli-remote-invoke-examples-lambda-stream "#using-sam-cli-remote-invoke-examples-lambda-stream").
+For an example, see [Invoke a Lambda function configured to stream responses](#using-sam-cli-remote-invoke-examples-lambda-stream "#using-sam-cli-remote-invoke-examples-lambda-stream").
 
 #### Pass shareable test events to a Lambda function in the cloud
 
@@ -373,9 +369,7 @@ REPORT RequestId: 74acaa9f-5b80-4a5c-b3b8-ffaccb84cbbd  Duration: 2.31 ms       
 {"statusCode":200,"body":"{\"message\":\"hello world\"}"}%
 ```
 
-### Customize Boto3
-
-parameters
+### Customize Boto3 parameters
 
 For `sam remote invoke`, the AWS SAM CLI utilizes the AWS SDK for Python (Boto3) to interact
 with your resources in the cloud. You can use the `--parameter` option to
@@ -400,9 +394,7 @@ customize, see `--parameter`.
 
 For a full list of `sam remote invoke` options, see [sam remote invoke](sam-cli-command-reference-remote-invoke.md "sam-cli-command-reference-remote-invoke.md").
 
-## Configure your project configuration
-
-file
+## Configure your project configuration file
 
 To configure `sam remote invoke` in your configuration file, use
 `remote_invoke` in your table. The following is an example of a
@@ -609,9 +601,7 @@ REPORT RequestId: 207a864b-e67c-4307-8478-365b004d4bcd  Duration: 1.27 ms       
 {"statusCode": 200, "body": "{\"message\": \"Hello\", \"received_event\": {}}"}%
 ```
 
-#### Invoke a Lambda function
-
-configured to stream responses
+#### Invoke a Lambda function configured to stream responses
 
 In this example, we use the AWS SAM CLI to initialize a new serverless application that
 contains a Lambda function configured to stream its response. We deploy our application to

@@ -1,6 +1,4 @@
-# Test your serverless
-
-application with AWS SAM
+# Test your serverless application with AWS SAM
 
 After writing and building your application, you will be ready to test your application to verify that it functions correctly. With the AWS SAM command line interface (CLI),
 you can locally test your serverless application before uploading it to the AWS Cloud. Testing your application helps you confirm the application’s functionality, reliability,
@@ -21,6 +19,5 @@ showing you how to perform the test. After testing your application, you’ll be
 - [Introduction to cloud testing with sam remote test-event](using-sam-cli-remote-test-event.md "using-sam-cli-remote-test-event.md")
 - [Introduction to testing in the cloud with sam remote invoke](using-sam-cli-remote-invoke.md "using-sam-cli-remote-invoke.md")
 - [Automate local integration tests with AWS SAM](serverless-sam-cli-using-automated-tests.md "serverless-sam-cli-using-automated-tests.md")
-- [Generate sample event
-  payloads with AWS SAM](serverless-sam-cli-using-generate-event.md "serverless-sam-cli-using-generate-event.md")
+- [Generate sample event payloads with AWS SAM](serverless-sam-cli-using-generate-event.md "serverless-sam-cli-using-generate-event.md")
 - [Testing and debugging durable functions](test-and-debug-durable-functions.md "test-and-debug-durable-functions.md")

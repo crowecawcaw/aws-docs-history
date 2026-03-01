@@ -1,6 +1,4 @@
-# Using the AWS SAM CLI with Serverless.tf for local
-
-debugging and testing
+# Using the AWS SAM CLI with Serverless.tf for local debugging and testing
 
 The AWS Serverless Application Model Command Line Interface (AWS SAM CLI) can be used with Serverless.tf modules for
 local debugging and testing of your AWS Lambda functions and layers. The following AWS SAM CLI

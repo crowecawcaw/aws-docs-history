@@ -1,6 +1,4 @@
-# CloudFormation resources generated when
-
-AWS::Serverless::Api is specified
+# CloudFormation resources generated when AWS::Serverless::Api is specified
 
 When an `AWS::Serverless::Api` is specified, AWS Serverless Application Model (AWS SAM) always generates
 an `AWS::ApiGateway::RestApi` base CloudFormation resource. In addition, it also always
@@ -40,14 +38,10 @@ AWS SAM generates additional CloudFormation resources for the following scenario
 
 ###### Scenarios
 
-- [DomainName
-  property is specified](#sam-specification-generated-resources-api-domain-name "#sam-specification-generated-resources-api-domain-name")
-- [UsagePlan
-  property is specified](#sam-specification-generated-resources-api-usage-plan "#sam-specification-generated-resources-api-usage-plan")
+- [DomainName property is specified](#sam-specification-generated-resources-api-domain-name "#sam-specification-generated-resources-api-domain-name")
+- [UsagePlan property is specified](#sam-specification-generated-resources-api-usage-plan "#sam-specification-generated-resources-api-usage-plan")
 
-## DomainName
-
-property is specified
+## DomainName property is specified
 
 When the `DomainName` property of the `Domain` property of an
 `AWS::Serverless::Api` is specified, AWS SAM generates the
@@ -63,9 +57,7 @@ that is generated when the stack is created. For example:
 
 _Referenceable property:_ ``<api‑LogicalId>`.DomainName`
 
-## UsagePlan
-
-property is specified
+## UsagePlan property is specified
 
 When the `UsagePlan` property of the `Auth` property of an
 `AWS::Serverless::Api` is specified, AWS SAM generates the following CloudFormation

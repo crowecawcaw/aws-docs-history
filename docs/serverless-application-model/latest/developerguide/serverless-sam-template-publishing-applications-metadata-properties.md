@@ -1,6 +1,4 @@
-# AWS SAM
-
-template Metadata section properties
+# AWS SAM template Metadata section properties
 
 `AWS::ServerlessRepo::Application` is a metadata key that you can use to
 specify application information that you want published to the AWS Serverless Application Repository.

@@ -227,9 +227,7 @@ in the [CloudFormation User Guide](../../../AWSCloudFormation/latest/UserGuide/W
 
 ## Examples
 
-### GraphQL API with
-
-DynamoDB data source
+### GraphQL API with DynamoDB data source
 
 In this example, we create a GraphQL API that uses a DynamoDB table as a
 data source.
@@ -396,9 +394,7 @@ export function response(ctx) {
 }
 ```
 
-### GraphQL API with
-
-a Lambda function as a data source
+### GraphQL API with a Lambda function as a data source
 
 In this example, we create a GraphQL API that uses a Lambda function as a
 data source.

@@ -17,8 +17,7 @@ files and CloudFormation template files are the following:
   `AWS::Serverless::HttpApi`, `AWS::Serverless::SimpleTable`,
   and `AWS::Serverless::StateMachine`
   resources inherit the properties that are defined in the `Globals`
-  section. For more information about this section, see [Globals section of the AWS SAM
-  template](sam-specification-template-anatomy-globals.md "sam-specification-template-anatomy-globals.md").
+  section. For more information about this section, see [Globals section of the AWS SAM template](sam-specification-template-anatomy-globals.md "sam-specification-template-anatomy-globals.md").
 - **Resources section.** In AWS SAM templates the
   `Resources` section can contain a combination of CloudFormation resources and
   AWS SAM resources. For more information about CloudFormation resources, see [AWS resource and

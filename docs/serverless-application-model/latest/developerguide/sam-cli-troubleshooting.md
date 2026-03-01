@@ -15,9 +15,7 @@ For troubleshooting guidance related to AWS SAM CLI, see [Troubleshooting insta
 
 ## Error messages
 
-### Curl error: "curl: (6) Could not
-
-resolve: ..."
+### Curl error: "curl: (6) Could not resolve: ..."
 
 When trying to invoke the API Gateway endpoint, you see the following error:
 
@@ -31,9 +29,7 @@ typo in your **curl** command. Verify that the application deployed
 successfully by using the CloudFormation console or the AWS CLI, and verify that your
 **curl** command is correct.
 
-### Error: Can’t find exact
-
-resource information with given stack name
+### Error: Can’t find exact resource information with given stack name
 
 When running the `sam remote invoke` command on an application that contains
 a single Lambda function resource, you see the following error:
@@ -62,9 +58,7 @@ REPORT RequestId: 40593abb-e1ad-4d99-87bd-ac032e364e82  Duration: 11.31 ms      
 {"statusCode":200,"body":"{\"message\":\"hello world\"}"}%
 ```
 
-### Error: Can’t find resource
-
-information from stack name
+### Error: Can’t find resource information from stack name
 
 When running the `sam remote invoke` command and passing a Lambda function ARN
 as an argument, you see the following error:
@@ -91,9 +85,7 @@ the AWS SAM CLI from passing your function ARN as a logical ID value.
 
 Run `sam build` after modifying your configuration file.
 
-### Error: Failed to create managed
-
-resources: Unable to locate credentials
+### Error: Failed to create managed resources: Unable to locate credentials
 
 When running the **sam deploy** command, you see the following
 error:
@@ -104,8 +96,7 @@ Error: Failed to create managed resources: Unable to locate credentials
 
 This means that you have not set up AWS credentials to enable the AWS SAM CLI to make
 AWS service calls. To fix this, you must set up AWS credentials. For more information,
-see [Setting up AWS
-credentials](serverless-getting-started-set-up-credentials.md "serverless-getting-started-set-up-credentials.md").
+see [Setting up AWS credentials](serverless-getting-started-set-up-credentials.md "serverless-getting-started-set-up-credentials.md").
 
 ### Error: FileNotFoundError in Windows
 
@@ -120,9 +111,7 @@ Possible cause: The AWS SAM CLI might interact with filepaths that exceed the W
 Solution: To resolve this issue, the new long paths behavior must enabled. To do this, see [Enable Long Paths in Windows 10, Version 1607, and Later](https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=powershell#enable-long-paths-in-windows-10-version-1607-and-later "https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=powershell#enable-long-paths-in-windows-10-version-1607-and-later") in the
 _Microsoft Windows App Development Documentation_.
 
-### Error: pip's dependency resolver
-
-...
+### Error: pip's dependency resolver ...
 
 _Example error text_:
 
@@ -159,12 +148,9 @@ following will occur:
 
 2. If you must use pip, we recommend that you install the AWS SAM
    CLI into a virtual environment. This ensures a clean installation environment and
-   an isolated environment if errors occur. For instructions, see [Installing the AWS SAM CLI into a virtual environment using
-   pip](manage-sam-cli-versions.md#manage-sam-cli-versions-install-virtual "manage-sam-cli-versions.md#manage-sam-cli-versions-install-virtual").
+   an isolated environment if errors occur. For instructions, see [Installing the AWS SAM CLI into a virtual environment using pip](manage-sam-cli-versions.md#manage-sam-cli-versions-install-virtual "manage-sam-cli-versions.md#manage-sam-cli-versions-install-virtual").
 
-### Error: No such command
-
-‘remote’
+### Error: No such command ‘remote’
 
 When running the `sam remote invoke` command, you see the following
 error:
@@ -188,9 +174,7 @@ command.
 
 For instructions, see [Upgrading the AWS SAM CLI](manage-sam-cli-versions.md#manage-sam-cli-versions-upgrade "manage-sam-cli-versions.md#manage-sam-cli-versions-upgrade").
 
-### Error: Running AWS SAM projects
-
-locally requires Docker. Have you got it installed?
+### Error: Running AWS SAM projects locally requires Docker. Have you got it installed?
 
 When running the **sam local start-api** command, you see the following
 error:
@@ -204,9 +188,7 @@ Docker is required to test your application locally. To fix this, follow
 the instructions for installing Docker for your development host. For more information, see
 [Installing Docker](install-docker.md "install-docker.md").
 
-### Error: Security
-
-Constraints Not Satisfied
+### Error: Security Constraints Not Satisfied
 
 When running **sam deploy --guided**, you're prompted with the question
 ``Function` may not have authorization defined, Is this
@@ -229,9 +211,7 @@ To fix this, you have the following options:
   authorization, restart your deployment and respond to this question with
   `Y` to indicate that you're OK with deploying.
 
-### message: Missing Authentication
-
-Token
+### message: Missing Authentication Token
 
 When trying to invoke the API Gateway endpoint, you see the following error:
 
@@ -245,9 +225,7 @@ command with the correct URL.
 
 ## Warning messages
 
-### Warning: ... AWS will no longer maintain the
-
-Homebrew installer for AWS SAM ...
+### Warning: ... AWS will no longer maintain the Homebrew installer for AWS SAM ...
 
 When installing the AWS SAM CLI using Homebrew, you see the following warning message:
 

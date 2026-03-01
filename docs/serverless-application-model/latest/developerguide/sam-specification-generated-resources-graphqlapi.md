@@ -1,6 +1,4 @@
-# CloudFormation resources generated
-
-when AWS::Serverless::GraphQLApi is specified
+# CloudFormation resources generated when AWS::Serverless::GraphQLApi is specified
 
 When you specify an `AWS::Serverless::GraphQLApi` resource in an AWS Serverless Application Model
 (AWS SAM) template, AWS SAM always creates the following base AWS CloudFormation resources.
@@ -72,5 +70,4 @@ _Referenceable property:_ N/A (you must use the
 `LogicalId` to reference this CloudFormation resource)
 
 AWS SAM may also use the `AWS::Serverless::Connector` resource to provision
-permissions. For more information, see [CloudFormation resources generated when
-you specify AWS::Serverless::Connector](sam-specification-generated-resources-connector.md "sam-specification-generated-resources-connector.md").
+permissions. For more information, see [CloudFormation resources generated when you specify AWS::Serverless::Connector](sam-specification-generated-resources-connector.md "sam-specification-generated-resources-connector.md").

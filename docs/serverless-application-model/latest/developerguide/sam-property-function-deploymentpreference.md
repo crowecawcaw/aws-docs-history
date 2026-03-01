@@ -1,7 +1,6 @@
 # DeploymentPreference
 
-Specifies the configurations to enable gradual Lambda deployments. For more information about configuring gradual Lambda deployments, see [Deploying serverless applications
-gradually with AWS SAM](automating-updates-to-serverless-apps.md "automating-updates-to-serverless-apps.md").
+Specifies the configurations to enable gradual Lambda deployments. For more information about configuring gradual Lambda deployments, see [Deploying serverless applications gradually with AWS SAM](automating-updates-to-serverless-apps.md "automating-updates-to-serverless-apps.md").
 
 ###### Note
 
@@ -92,8 +91,7 @@ _CloudFormation compatibility_: This property is passed directly to the `Trigger
 
 `Type`
 
-There are two categories of deployment types at the moment: Linear and Canary. For more information about available deployment types see [Deploying serverless applications
-gradually with AWS SAM](automating-updates-to-serverless-apps.md "automating-updates-to-serverless-apps.md").
+There are two categories of deployment types at the moment: Linear and Canary. For more information about available deployment types see [Deploying serverless applications gradually with AWS SAM](automating-updates-to-serverless-apps.md "automating-updates-to-serverless-apps.md").
 
 _Type_: String
 

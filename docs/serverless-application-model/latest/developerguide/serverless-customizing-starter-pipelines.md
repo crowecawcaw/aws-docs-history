@@ -28,9 +28,7 @@ prompts, do the following:
    stages to create infrastructure resources for. To view an example `metadata.json`
    file that declares a pipeline with two stages, see [metadata.json](https://github.com/aws/aws-sam-cli-pipeline-init-templates/blob/main/Jenkins/two-stage-pipeline-template/metadata.json "https://github.com/aws/aws-sam-cli-pipeline-init-templates/blob/main/Jenkins/two-stage-pipeline-template/metadata.json").
 
-## Example
-
-projects
+## Example projects
 
 Here are example projects, which each include a Cookiecutter template, a
 `questions.json` file, and a `metadata.json` file:
@@ -42,8 +40,7 @@ Here are example projects, which each include a Cookiecutter template, a
 
 The following set of files show how questions in the `questions.json` file are
 associated with entries in the Cookiecutter template file. Note that these examples are file
-snippets, not full files. To see examples of full files, see the [Example
-projects](#serverless-customizing-starter-pipelines-example-projects "#serverless-customizing-starter-pipelines-example-projects") section earlier
+snippets, not full files. To see examples of full files, see the [Example projects](#serverless-customizing-starter-pipelines-example-projects "#serverless-customizing-starter-pipelines-example-projects") section earlier
 in this topic.
 
 Example **`questions.json`**:

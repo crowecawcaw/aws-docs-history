@@ -75,9 +75,7 @@ build` command or by specifying the function resource with the `sam build
 
 ## Examples
 
-### Template example 1: Build a layer
-
-against the Python 3.12 runtime environment
+### Template example 1: Build a layer against the Python 3.12 runtime environment
 
 The following example AWS SAM template builds a layer against the Python 3.12 runtime
 environment.
@@ -94,9 +92,7 @@ Resources:
       BuildMethod: python3.12   # Required to have AWS SAM build this layer
 ```
 
-### Template example 2: Build a layer
-
-using a custom makefile
+### Template example 2: Build a layer using a custom makefile
 
 The following example AWS SAM template uses a custom `makefile` to build the
 layer.

@@ -65,9 +65,7 @@ exports.handler = (event, context, callback) => {
 
 If you modify your function's code, run the `sam build` command for `sam local start-api` to detect your changes.
 
-## Environment
-
-variable file
+## Environment variable file
 
 To declare environment variables locally that override values defined in your
 templates, do the following:

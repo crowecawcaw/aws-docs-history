@@ -1,6 +1,4 @@
-# CloudFormation resources
-
-generated when AWS::Serverless::SimpleTable is specified
+# CloudFormation resources generated when AWS::Serverless::SimpleTable is specified
 
 When an `AWS::Serverless::SimpleTable` is specified, AWS Serverless Application Model
 (AWS SAM) generates an `AWS::DynamoDB::Table` base CloudFormation resource.

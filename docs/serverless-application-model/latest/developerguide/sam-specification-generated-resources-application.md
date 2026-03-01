@@ -1,6 +1,4 @@
-# CloudFormation resources
-
-generated when AWS::Serverless::Application is specified
+# CloudFormation resources generated when AWS::Serverless::Application is specified
 
 When an `AWS::Serverless::Application` is specified, AWS Serverless Application Model
 (AWS SAM) generates an `AWS::CloudFormation::Stack` base CloudFormation resource.

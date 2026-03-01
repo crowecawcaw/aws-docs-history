@@ -24,8 +24,7 @@ Connectors are a way of provisioning permissions between two resources. You do t
 interact with each other in your AWS SAM template. They can be defined using either the `Connectors` resource
 attribute or `AWS::Serverless::Connector` resource type. Connectors support the provisioning of
 `Read` and `Write` access of data and events between a combination of AWS resources. To learn
-more about AWS SAM connectors, see [Managing resource permissions with AWS SAM
-connectors](managing-permissions-connectors.md "managing-permissions-connectors.md").
+more about AWS SAM connectors, see [Managing resource permissions with AWS SAM connectors](managing-permissions-connectors.md "managing-permissions-connectors.md").
 
 ## AWS SAM policy templates
 

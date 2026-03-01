@@ -17,9 +17,7 @@ function's logical ID:
 sam logs -n HelloWorldFunction --stack-name mystack
 ```
 
-## Fetching logs by Lambda function
-
-name
+## Fetching logs by Lambda function name
 
 Or, you can fetch logs by using the function's name:
 
@@ -37,9 +35,7 @@ production issue.
 sam logs -n HelloWorldFunction --stack-name mystack --tail
 ```
 
-## Viewing logs for a specific time
-
-range
+## Viewing logs for a specific time range
 
 You can view logs for a specific time range by using the `-s` and
 `-e` options:

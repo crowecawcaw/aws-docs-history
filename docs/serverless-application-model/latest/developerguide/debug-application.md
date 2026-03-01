@@ -1,6 +1,4 @@
-# Debug your serverless
-
-application with AWS SAM
+# Debug your serverless application with AWS SAM
 
 After testing your application, you will be ready to debug any issues you’ve found.
 With the AWS SAM command line interface (CLI), you can locally test and debug your serverless

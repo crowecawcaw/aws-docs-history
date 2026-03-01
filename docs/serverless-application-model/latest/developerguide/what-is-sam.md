@@ -48,8 +48,7 @@ more information, see [AWS SAM CLI](using-sam-cli.md "using-sam-cli.md").
 
 Use AWS SAM connectors in your AWS SAM templates to define permissions between your
 AWS resources. AWS SAM transforms your code into the IAM permissions required to
-facilitate your intent. For more information, see [Managing resource permissions with AWS SAM
-connectors](managing-permissions-connectors.md "managing-permissions-connectors.md").
+facilitate your intent. For more information, see [Managing resource permissions with AWS SAM connectors](managing-permissions-connectors.md "managing-permissions-connectors.md").
 
 **Continuously sync local changes to the cloud as you develop**
 

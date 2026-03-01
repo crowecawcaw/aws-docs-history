@@ -23,8 +23,7 @@ includes:
 - [Installing the AWS SAM CLI](#install-sam-cli-instructions "#install-sam-cli-instructions")
 - [Troubleshooting installation errors](#sam-cli-troubleshoot-install "#sam-cli-troubleshoot-install")
 - [Next steps](#install-sam-cli-next-steps "#install-sam-cli-next-steps")
-- [Optional: Verify the integrity of the AWS SAM CLI
-  installer](reference-sam-cli-install-verify.md "reference-sam-cli-install-verify.md")
+- [Optional: Verify the integrity of the AWS SAM CLI installer](reference-sam-cli-install-verify.md "reference-sam-cli-install-verify.md")
 
 ## Installing the AWS SAM CLI
 
@@ -46,8 +45,7 @@ x86_64 - command line installer
 
 1. Download the [AWS SAM CLI .zip file](https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip "https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip") to a directory of your choice.
 2. **(Optional)** You can verify the integrity of the installer before
-   installation. For instructions, see [Optional: Verify the integrity of the AWS SAM CLI
-   installer](reference-sam-cli-install-verify.md "reference-sam-cli-install-verify.md").
+   installation. For instructions, see [Optional: Verify the integrity of the AWS SAM CLI installer](reference-sam-cli-install-verify.md "reference-sam-cli-install-verify.md").
 3. Unzip the installation files into a directory of your choice. The following is an example, using the
    `sam-installation` subdirectory.
 
@@ -84,8 +82,7 @@ arm64 - command line installer
 
 1. Download the [AWS SAM CLI .zip file](https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-arm64.zip "https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-arm64.zip") to a directory of your choice.
 2. **(Optional)** You can verify the integrity of the installer before
-   installation. For instructions, see [Optional: Verify the integrity of the AWS SAM CLI
-   installer](reference-sam-cli-install-verify.md "reference-sam-cli-install-verify.md").
+   installation. For instructions, see [Optional: Verify the integrity of the AWS SAM CLI installer](reference-sam-cli-install-verify.md "reference-sam-cli-install-verify.md").
 3. Unzip the installation files into a directory of your choice. The following is an example, using the
    `sam-installation` subdirectory.
 
@@ -145,8 +142,7 @@ need to uninstall it first. For instructions, see [Uninstalling the AWS SAM CLI
 ###### Note
 
 You have the option of verifying the integrity of the installer before installation. For instructions, see
-[Optional: Verify the integrity of the AWS SAM CLI
-installer](reference-sam-cli-install-verify.md "reference-sam-cli-install-verify.md"). 2. Run your downloaded file and follow the on-screen instructions to continue through the
+[Optional: Verify the integrity of the AWS SAM CLI installer](reference-sam-cli-install-verify.md "reference-sam-cli-install-verify.md"). 2. Run your downloaded file and follow the on-screen instructions to continue through the
 **Introduction**, **Read Me**, and
 **License** steps. 3. For **Destination Select**, select **Install for all users of this
 computer**. 4. For **Installation Type**, choose where the AWS SAM CLI will be installed and
@@ -187,8 +183,7 @@ need to uninstall it first. For instructions, see [Uninstalling the AWS SAM CLI
 ###### Note
 
 You have the option of verifying the integrity of the installer before installation. For instructions, see
-[Optional: Verify the integrity of the AWS SAM CLI
-installer](reference-sam-cli-install-verify.md "reference-sam-cli-install-verify.md"). 2. Run your downloaded file and follow the on-screen instructions to continue through the
+[Optional: Verify the integrity of the AWS SAM CLI installer](reference-sam-cli-install-verify.md "reference-sam-cli-install-verify.md"). 2. Run your downloaded file and follow the on-screen instructions to continue through the
 **Introduction**, **Read Me**, and
 **License** steps. 3. For **Destination Select**, select **Install for me only**.
 If you don't see this option, go to the next step. 4. For **Installation Type**, do the following:
@@ -249,8 +244,7 @@ need to uninstall it first. For instructions, see [Uninstalling the AWS SAM CLI
 ###### Note
 
 You have the option of verifying the integrity of the installer before installation. For instructions, see
-[Optional: Verify the integrity of the AWS SAM CLI
-installer](reference-sam-cli-install-verify.md "reference-sam-cli-install-verify.md"). 2. Modify and run the installation script:
+[Optional: Verify the integrity of the AWS SAM CLI installer](reference-sam-cli-install-verify.md "reference-sam-cli-install-verify.md"). 2. Modify and run the installation script:
 
 ```
 `$` `sudo installer -pkg `path-to-pkg-installer`/`name-of-pkg-installer` -target /`
@@ -292,8 +286,7 @@ need to uninstall it first. For instructions, see [Uninstalling the AWS SAM CLI
 ###### Note
 
 You have the option of verifying the integrity of the installer before installation. For instructions, see
-[Optional: Verify the integrity of the AWS SAM CLI
-installer](reference-sam-cli-install-verify.md "reference-sam-cli-install-verify.md"). 2. Determine an installation directory that you have write permissions to. Then, create
+[Optional: Verify the integrity of the AWS SAM CLI installer](reference-sam-cli-install-verify.md "reference-sam-cli-install-verify.md"). 2. Determine an installation directory that you have write permissions to. Then, create
 an `xml` file using the template and modify it to reflect your installation
 directory. The directory must already exist.
 
@@ -375,8 +368,7 @@ Follow these steps to install the AWS SAM CLI using the MSI file.
 
 1. Download the AWS SAM CLI [64-bit](https://github.com/aws/aws-sam-cli/releases/latest/download/AWS_SAM_CLI_64_PY3.msi "https://github.com/aws/aws-sam-cli/releases/latest/download/AWS_SAM_CLI_64_PY3.msi").
 2. **(Optional)** You can verify the integrity of the installer before
-   installation. For instructions, see [Optional: Verify the integrity of the AWS SAM CLI
-   installer](reference-sam-cli-install-verify.md "reference-sam-cli-install-verify.md").
+   installation. For instructions, see [Optional: Verify the integrity of the AWS SAM CLI installer](reference-sam-cli-install-verify.md "reference-sam-cli-install-verify.md").
 3. Verify the installation.
 
 After completing the installation, verify it by opening a new command prompt or
@@ -414,26 +406,19 @@ Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git "https://git-
 
 ### Linux
 
-#### Docker
-
-error: "Cannot connect to the Docker daemon. Is the docker daemon running on this
-host?"
+#### Docker error: "Cannot connect to the Docker daemon. Is the docker daemon running on this host?"
 
 In some cases, to provide permissions for the `ec2-user` to access the
 Docker daemon, you might have to reboot your instance. If you receive this error, try
 rebooting your instance.
 
-#### Shell
-
-error: "command not found"
+#### Shell error: "command not found"
 
 If you receive this error, your shell can't locate the AWS SAM CLI executable in the
 path. Verify the location of the directory where you installed the AWS SAM CLI executable,
 and then verify that the directory is on your path.
 
-#### AWS SAM CLI error: "/lib64/libc.so.6: version `GLIBC_2.14' not found (required by
-
-/usr/local/aws-sam-cli/dist/libz.so.1)"
+#### AWS SAM CLI error: "/lib64/libc.so.6: version `GLIBC_2.14' not found (required by /usr/local/aws-sam-cli/dist/libz.so.1)"
 
 If you receive this error, you're using an unsupported version of Linux, and the
 built-in glibc version is out of date. Try either of the following:
@@ -444,9 +429,7 @@ built-in glibc version is out of date. Try either of the following:
 
 ### macOS
 
-#### The installation
-
-failed
+#### The installation failed
 
 ![Image of the AWS SAM CLI installer showing an installation failed message](images/sam-cli-troubleshoot-install-macos-install-failed.jpg)
 

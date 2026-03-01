@@ -1,6 +1,4 @@
-# Deploying serverless applications
-
-gradually with AWS SAM
+# Deploying serverless applications gradually with AWS SAM
 
 AWS Serverless Application Model (AWS SAM) comes built-in with [CodeDeploy](../../../codedeploy/latest/userguide/welcome.md "../../../codedeploy/latest/userguide/welcome.md")
 to provide gradual AWS Lambda deployments. With just a few lines of configuration, AWS SAM does the
@@ -117,9 +115,7 @@ These revisions to the AWS SAM template do the following:
 
   For more information, see [SAM Reference to Safe Deployments](https://github.com/aws/serverless-application-model/blob/master/docs/safe_lambda_deployments.rst "https://github.com/aws/serverless-application-model/blob/master/docs/safe_lambda_deployments.rst").
 
-## Gradually deploying a Lambda
-
-function for the first time
+## Gradually deploying a Lambda function for the first time
 
 When deploying a Lambda function gradually, CodeDeploy requires a previously deployed function
 version to shift traffic from. Therefore, your first deployment should be accomplished in two
@@ -133,9 +129,7 @@ steps:
 Performing your first gradual deployment in two steps gives CodeDeploy a previous Lambda
 function version to shift traffic from.
 
-### Step 1: Deploy your
-
-Lambda function
+### Step 1: Deploy your Lambda function
 
 ```
 Resources:
@@ -149,9 +143,7 @@ MyLambdaFunction:
     AutoPublishAlias: live
 ```
 
-### Step 2: Perform
-
-your gradual deployment
+### Step 2: Perform your gradual deployment
 
 ```
 Resources:

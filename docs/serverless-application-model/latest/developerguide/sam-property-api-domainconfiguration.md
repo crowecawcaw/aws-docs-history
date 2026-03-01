@@ -75,8 +75,7 @@ _Additional notes_: For an `EDGE` endpoint, you must create the certificate in t
 
 The custom domain name for your API Gateway API. Uppercase letters are not supported.
 
-AWS SAM generates an [AWS::ApiGateway::DomainName](../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.md") resource when this property is set. For information about this scenario, see [DomainName
-property is specified](sam-specification-generated-resources-api.md#sam-specification-generated-resources-api-domain-name "sam-specification-generated-resources-api.md#sam-specification-generated-resources-api-domain-name"). For information about generated CloudFormation resources, see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
+AWS SAM generates an [AWS::ApiGateway::DomainName](../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.md") resource when this property is set. For information about this scenario, see [DomainName property is specified](sam-specification-generated-resources-api.md#sam-specification-generated-resources-api-domain-name "sam-specification-generated-resources-api.md#sam-specification-generated-resources-api-domain-name"). For information about generated CloudFormation resources, see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
 
 _Type_: String
 
