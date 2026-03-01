@@ -16,8 +16,7 @@ any message sent using a sender ID will have its ID changed to **LIKELY-SCAM** p
 
 Your Singapore registration must be completed in this order:
 
-1. [Registering for a Singapore Unique Entity
-   Number (UEN)](registrations-sg-uen.md "registrations-sg-uen.md")
+1. [Registering for a Singapore Unique Entity Number (UEN)](registrations-sg-uen.md "registrations-sg-uen.md")
 2. [Create a new registration using the AWS End User Messaging SMS console](registrations-create.md "registrations-create.md") with **Registration type** set to
    Singapore sender ID registration and complete the registration form.
 3. [Registering a Sender ID with Singapore Network Information Centre (SGNIC)](registrations-sg-sgnic.md "registrations-sg-sgnic.md")
@@ -28,5 +27,4 @@ Your Singapore registration must be completed in this order:
   (UEN)](registrations-sg-uen.md "registrations-sg-uen.md")
 - [Singapore sender ID registration form](registrations-sg-form.md "registrations-sg-form.md")
 - [Register a Sender ID with Singapore Network Information Centre (SGNIC)](registrations-sg-sgnic.md "registrations-sg-sgnic.md")
-- [Singapore sender ID registration frequently
-  asked questions](registrations-sg-faq.md "registrations-sg-faq.md")
+- [Singapore sender ID registration frequently asked questions](registrations-sg-faq.md "registrations-sg-faq.md")

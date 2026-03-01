@@ -21,14 +21,11 @@ shared with you.
 - [Sharing a phone number, pool, opt-out list, or sender ID](#sharing-share "#sharing-share")
 - [Unsharing a shared phone number, pool, opt-out list, or sender ID](#sharing-unshare "#sharing-unshare")
 - [Identifying a shared phone number, pool, opt-out list, or sender ID](#sharing-identify "#sharing-identify")
-- [Responsibilities and permissions for shared
-  phone number, pool, opt-out list, or sender IDs](#sharing-perms "#sharing-perms")
+- [Responsibilities and permissions for shared phone number, pool, opt-out list, or sender IDs](#sharing-perms "#sharing-perms")
 - [Billing and metering](#sharing-billing "#sharing-billing")
 - [Instance quotas](#sharing-quotas "#sharing-quotas")
-- [Example policies for sharing a sender ID or
-  phone number with Amazon Pinpoint](#sharing-policy-example "#sharing-policy-example")
-- [Example policy for sharing a sender
-  ID with Amazon Pinpoint and Amazon SNS](#sharing-policy-example-sender-id "#sharing-policy-example-sender-id")
+- [Example policies for sharing a sender ID or phone number with Amazon Pinpoint](#sharing-policy-example "#sharing-policy-example")
+- [Example policy for sharing a sender ID with Amazon Pinpoint and Amazon SNS](#sharing-policy-example-sender-id "#sharing-policy-example-sender-id")
 - [Example policy for sharing a phone number with Amazon Pinpoint and Amazon SNS](#sharing-policy-example-phone-number "#sharing-policy-example-phone-number")
 
 ## Prerequisites for sharing phone number, pool, opt-out list, or sender IDs
@@ -132,9 +129,7 @@ Use the [describe-opt-out-lists](../../../cli/latest/reference/pinpoint-sms-voic
 to `SHARED`. The command returns the phone number, pool, opt-out list, or sender IDs that are shared with
 you.
 
-## Responsibilities and permissions for shared
-
-phone number, pool, opt-out list, or sender IDs
+## Responsibilities and permissions for shared phone number, pool, opt-out list, or sender IDs
 
 ### Permissions for owners
 
@@ -157,9 +152,7 @@ For more information about pricing or spending limits, see [AWS End User Messagi
 
 Sharing a resource doesn't affect the limits of the resource in the owner's or consumer's account. Only the owner's account is used to calculate the limits of the resource.
 
-## Example policies for sharing a sender ID or
-
-phone number with Amazon Pinpoint
+## Example policies for sharing a sender ID or phone number with Amazon Pinpoint
 
 We recommend that you use the [AWS RAM
 console](https://console.aws.amazon.com/ram "https://console.aws.amazon.com/ram") to create and manage resource shares.
@@ -206,9 +199,7 @@ In the following JSON, make the following changes and then paste the JSON to the
 
 5. Choose **Save changes**.
 
-## Example policy for sharing a sender
-
-ID with Amazon Pinpoint and Amazon SNS
+## Example policy for sharing a sender ID with Amazon Pinpoint and Amazon SNS
 
 We recommend that you use the [AWS RAM
 console](https://console.aws.amazon.com/ram "https://console.aws.amazon.com/ram") to create and manage resource shares.

@@ -21,6 +21,5 @@ protect configuration. 6. Choose **Save changes**
 
 Edit a configuration set's protect configuration association (AWS CLI)
 To change a configuration set's protect configuration association in the AWS CLI
-follow the direction in [Change a protection configuration
-association in AWS End User Messaging SMS](protect-configuration-edit-association.md "protect-configuration-edit-association.md") on the Edit a protect
+follow the direction in [Change a protection configuration association in AWS End User Messaging SMS](protect-configuration-edit-association.md "protect-configuration-edit-association.md") on the Edit a protect
 configuration association (AWS CLI) tab.

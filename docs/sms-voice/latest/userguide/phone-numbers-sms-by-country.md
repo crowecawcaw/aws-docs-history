@@ -1,16 +1,11 @@
-# Supported countries and regions for SMS
-
-messaging with AWS End User Messaging SMS
+# Supported countries and regions for SMS messaging with AWS End User Messaging SMS
 
 You can use AWS End User Messaging SMS to send SMS messages to the countries, regions, and territories listed
 in the following table. This table also lists the countries and regions that support Sender
 IDs and two-way SMS messaging.
 
 If you are unsure of which origination identity will work best for you then see [Choosing an origination identity](phone-number-types.md "phone-number-types.md") for each origination
-types advantages and disadvantages. Depending on your use case you can also use [General considerations for choosing an
-origination identity](phone-number-types.md#phone-number-types-choosing-general "phone-number-types.md#phone-number-types-choosing-general"), [Choosing an origination identity
-for one-way messaging use cases](phone-number-types.md#phone-number-types-choosing-oneway "phone-number-types.md#phone-number-types-choosing-oneway") and [Choosing an origination identity
-for two-way messaging use cases](phone-number-types.md#phone-number-types-choosing-twoway "phone-number-types.md#phone-number-types-choosing-twoway") to help choose the correct
+types advantages and disadvantages. Depending on your use case you can also use [General considerations for choosing an origination identity](phone-number-types.md#phone-number-types-choosing-general "phone-number-types.md#phone-number-types-choosing-general"), [Choosing an origination identity for one-way messaging use cases](phone-number-types.md#phone-number-types-choosing-oneway "phone-number-types.md#phone-number-types-choosing-oneway") and [Choosing an origination identity for two-way messaging use cases](phone-number-types.md#phone-number-types-choosing-twoway "phone-number-types.md#phone-number-types-choosing-twoway") to help choose the correct
 origination identity for your use case.
 
 ###### Note
@@ -115,7 +110,7 @@ channel. However, if you purchase a long code that is based in the United States
 | Faroe Islands                                             | FO       | 298                 | No                   | No                                                | Yes                                                                 | No                   | Yes                                                                    |
 | Fiji                                                      | FJ       | 679                 | No                   | No                                                | Yes                                                                 | No                   | Yes                                                                    |
 | Finland                                                   | FI       | 358                 | Yes                  | Yes                                               | Yes                                                                 | Yes                  | Yes                                                                    |
-| France                                                    | FR       | 33                  | Yes                  | No                                                | Yes                                                                 | Yes                  | Yes                                                                    |
+| France                                                    | FR       | 33                  | Yes                  | No                                                | Yes[11](#sms-support-note-11 "#sms-support-note-11")                | Yes                  | Yes                                                                    |
 | French Guiana                                             | GF       | 594                 | No                   | No                                                | Yes                                                                 | No                   | Yes                                                                    |
 | French Polynesia                                          | PF       | 689                 | No                   | No                                                | Yes                                                                 | No                   | No                                                                     |
 | **G**                                                     |
@@ -307,8 +302,7 @@ channel. However, if you purchase a long code that is based in the United States
 
 In order to send messages to China, you must first register your templates
 through Support for approval. 3. Senders are required to use a pre-registered alphabetic Sender ID. Additional
-registration steps are required. For more information, see [India sender ID registration process in
-AWS End User Messaging SMS](registrations-sms-senderid-india.md "registrations-sms-senderid-india.md"). 4. Long codes in these countries only support inbound messaging. In other words, you
+registration steps are required. For more information, see [India sender ID registration process in AWS End User Messaging SMS](registrations-sms-senderid-india.md "registrations-sms-senderid-india.md"). 4. Long codes in these countries only support inbound messaging. In other words, you
 can't use these long codes to send messages _to_ your recipients,
 but you can use them to receive messages _from_ your recipients.
 These long codes are useful way to allow your recipients to opt-out if you send
@@ -339,4 +333,4 @@ If you do not register your sender ID, any message sent using a sender ID will
 have its ID changed to **Likely Scam** according to regulatory
 agency rules. Regulators filter or block unregistered traffic at their
 discretion. 10. Messages sent from internationally enabled numbers such as toll-free numbers are sent on a best effort
-basis and may be replaced downstream from AWS to send from a shared phone number or sender ID.
+basis and may be replaced downstream from AWS to send from a shared phone number or sender ID. 11. As of March 1, 2026, France does not support the dash character (-) in sender IDs. Sender IDs for France must only contain alphanumeric characters (a-z, A-Z, 0-9) without any special characters or spaces.

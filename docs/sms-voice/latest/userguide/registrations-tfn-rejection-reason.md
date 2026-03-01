@@ -1,6 +1,4 @@
-# Toll-free number
-
-registration rejection reasons
+# Toll-free number registration rejection reasons
 
 If your Toll-free number registration was rejected, use the following table to determine why it was
 rejected and what you can do to fix your Toll-free number registration. After you

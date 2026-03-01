@@ -61,8 +61,7 @@ To enable two-way SMS using the AWS End User Messaging SMS console, follow these
      choose **Choose existing IAM roles**.
      - In the **Existing IAM roles** drop
        down choose an existing IAM role as the message
-       destination. For example IAM policies, see [IAM policies for
-       Amazon Connect](two-way-connect-iam-policy.md "two-way-connect-iam-policy.md") .
+       destination. For example IAM policies, see [IAM policies for Amazon Connect](two-way-connect-iam-policy.md "two-way-connect-iam-policy.md") .
 
 7. Choose **Save changes**.
 8. _(Optional)_ If you've chosen Amazon Connect as the
@@ -100,7 +99,6 @@ In the preceding command, make the following changes:
 - Replace `TwoChannelWayRole` with the Amazon
   Resource Name (ARN) of the IAM role to use. For example SNS permission
   policies, see [IAM policies for Amazon SNS topics](two-way-sms-iam-policy.md "two-way-sms-iam-policy.md") and for example
-  Amazon Connect policies, see [IAM policies for
-  Amazon Connect](two-way-connect-iam-policy.md "two-way-connect-iam-policy.md"). This
+  Amazon Connect policies, see [IAM policies for Amazon Connect](two-way-connect-iam-policy.md "two-way-connect-iam-policy.md"). This
   parameter is only required if you choose to use IAM permission
   policies.

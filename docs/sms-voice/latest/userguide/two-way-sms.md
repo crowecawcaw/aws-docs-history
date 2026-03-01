@@ -29,6 +29,5 @@ administrator guide_.
 - [Set up two-way SMS messaging for a phone pool](two-way-sms-pool.md "two-way-sms-pool.md")
 - [IAM policies for Amazon SNS topics](two-way-sms-iam-policy.md "two-way-sms-iam-policy.md")
 - [Topic policies for Amazon SNS topics](two-way-sms-iam-policy-auto.md "two-way-sms-iam-policy-auto.md")
-- [IAM policies for
-  Amazon Connect](two-way-connect-iam-policy.md "two-way-connect-iam-policy.md")
+- [IAM policies for Amazon Connect](two-way-connect-iam-policy.md "two-way-connect-iam-policy.md")
 - [Example two-way SMS message payload](two-way-sms-payload.md "two-way-sms-payload.md")

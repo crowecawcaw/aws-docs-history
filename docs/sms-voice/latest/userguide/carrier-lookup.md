@@ -16,9 +16,7 @@ information for a phone number:
   There is an additional charge for using the carrier lookup service. For more
   information, see [AWS End User Messaging SMS pricing](https://aws.amazon.com/end-user-messaging/pricing/#Phone_number_validate "https://aws.amazon.com/end-user-messaging/pricing/#Phone_number_validate").
 
-## Carrier lookup use
-
-cases
+## Carrier lookup use cases
 
 You can use the carrier lookup service to enable several use cases, including
 the following:

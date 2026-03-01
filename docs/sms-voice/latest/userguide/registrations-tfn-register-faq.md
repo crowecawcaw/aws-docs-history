@@ -1,6 +1,4 @@
-# Toll-free number frequently asked
-
-questions
+# Toll-free number frequently asked questions
 
 Frequently asked questions about the toll-free number registration process.
 

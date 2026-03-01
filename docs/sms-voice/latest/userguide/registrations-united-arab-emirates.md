@@ -1,6 +1,4 @@
-# United Arab Emirates sender ID registration in
-
-AWS End User Messaging SMS
+# United Arab Emirates sender ID registration in AWS End User Messaging SMS
 
 Follow these directions to register your sender ID in United Arab Emirates.
 

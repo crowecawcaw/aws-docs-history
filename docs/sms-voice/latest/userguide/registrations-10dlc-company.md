@@ -52,8 +52,7 @@ For more information on expected registration times, see [United States 10DLC re
     or denied.
     - For **Country of tax registration**, enter the two letter
       ISO country code for the country where your company is registered. For a
-      list of ISO country codes, see [Supported countries and regions for SMS
-      messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md").
+      list of ISO country codes, see [Supported countries and regions for SMS messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md").
     - For **Tax ID or Business Registration Number**, enter
       your company's tax ID. The ID that you enter depends on the country that
       your company is registered in.

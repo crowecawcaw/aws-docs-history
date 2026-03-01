@@ -1,6 +1,4 @@
-# Associating a long code with a 10DLC
-
-campaign
+# Associating a long code with a 10DLC campaign
 
 After your 10DLC campaign is approved, you have provisioned a new long code or have an
 existing long code you can then associate that long code with the approved 10DLC

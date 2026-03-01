@@ -22,17 +22,12 @@ anything other than the specified use case, it can be revoked.
 
 ###### Topics
 
-- [Toll-free number forbidden use
-  cases](#registrations-tfn-forbidden-use-cases "#registrations-tfn-forbidden-use-cases")
+- [Toll-free number forbidden use cases](#registrations-tfn-forbidden-use-cases "#registrations-tfn-forbidden-use-cases")
 - [US toll-free number registration form](registrations-tfn-register.md "registrations-tfn-register.md")
-- [Toll-free number
-  registration rejection reasons](registrations-tfn-rejection-reason.md "registrations-tfn-rejection-reason.md")
-- [Toll-free number frequently asked
-  questions](registrations-tfn-register-faq.md "registrations-tfn-register-faq.md")
+- [Toll-free number registration rejection reasons](registrations-tfn-rejection-reason.md "registrations-tfn-rejection-reason.md")
+- [Toll-free number frequently asked questions](registrations-tfn-register-faq.md "registrations-tfn-register-faq.md")
 
-## Toll-free number forbidden use
-
-cases
+## Toll-free number forbidden use cases
 
 Please be aware that AWS is limited in our ability to send any messages or register TFNs
 for some use cases. Certain use cases are blocked entirely (for example, use cases related to

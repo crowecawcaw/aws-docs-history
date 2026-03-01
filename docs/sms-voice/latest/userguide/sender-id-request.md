@@ -1,7 +1,6 @@
 # Request a sender ID in AWS End User Messaging SMS
 
-Before you request a sender ID verify that they are available, see [Supported countries and regions for SMS
-messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md").
+Before you request a sender ID verify that they are available, see [Supported countries and regions for SMS messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md").
 
 For the rules of which sender ID is displayed when you send SMS messages to countries where Sender IDs are supported, compared to those where Sender IDs aren't supported, see [Sender ID display name rules](sender-id.md#channels-sms-countries-sender-id "sender-id.md#channels-sms-countries-sender-id").
 
@@ -10,8 +9,7 @@ For the rules of which sender ID is displayed when you send SMS messages to coun
 Some countries require you to register your sender ID or open a support case to request the sender ID.
 
 - **India sender ID registration** – Register a sender
-  ID for use in India. For more information on completing the registration for see [India sender ID registration process in
-  AWS End User Messaging SMS](registrations-sms-senderid-india.md "registrations-sms-senderid-india.md").
+  ID for use in India. For more information on completing the registration for see [India sender ID registration process in AWS End User Messaging SMS](registrations-sms-senderid-india.md "registrations-sms-senderid-india.md").
 - **Singapore sender ID registration** – Register a sender ID
   in Singapore. For more information on completing the registration for see [Singapore sender ID registration form](registrations-sg-form.md "registrations-sg-form.md").
 - **Request a Sender
@@ -20,8 +18,7 @@ Some countries require you to register your sender ID or open a support case to 
   requirements or abide by certain restrictions in order to obtain approval. In these cases,
   Support might contact you for additional information after you submit your sender ID request.
   For a list of countries that require a support ticket to request a sender ID, see the Supports
-  Sender IDs column in [Supported countries and regions for SMS
-  messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md").
+  Sender IDs column in [Supported countries and regions for SMS messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md").
   To request a sender ID using the AWS End User Messaging SMS console, follow these steps:
 
 ###### Request a sender ID
@@ -61,8 +58,7 @@ phone number or sender ID type. 4. On the **Messaging use case** section, enter 
 9. Under **Originator type**, choose Sender ID.
 
 If sender ID isn't available then choose **Previous** to go back and
-modify your use case. Also check the [Supported countries and regions for SMS
-messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md") to sender IDs are supported in the destination
+modify your use case. Also check the [Supported countries and regions for SMS messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md") to sender IDs are supported in the destination
 country.
 
 In the **Sender ID** field enter a sender ID. The sender ID must be 1-11 alphanumeric characters including letters (A-Z), numbers (0-9), or hyphens (-). The sender ID must begin with a letter. 10. Use **Resource policy** to share the sender ID with other

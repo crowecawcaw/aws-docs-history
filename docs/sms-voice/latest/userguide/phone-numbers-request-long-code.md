@@ -12,8 +12,7 @@ that you send from AWS End User Messaging SMS.
 
 If you're new to SMS messaging with AWS End User Messaging SMS, you should also request a monthly SMS and
 MMS spending threshold that meets the expected demands of your SMS and MMS use case. By
-default, your monthly spending threshold is $1.00 (USD). For more information, see [Requesting an SMS, MMS, or voice spending quota
-change for AWS End User Messaging SMS](awssupport-spend-threshold.md "awssupport-spend-threshold.md").
+default, your monthly spending threshold is $1.00 (USD). For more information, see [Requesting an SMS, MMS, or voice spending quota change for AWS End User Messaging SMS](awssupport-spend-threshold.md "awssupport-spend-threshold.md").
 
 ## Requesting a long code
 
@@ -48,9 +47,7 @@ steps and request a long code for the United States or US territories of Puerto
 Rico, US Virgin Islands, Guam and American Samoa, your request will be
 rejected.
 
-###### To request a dedicated long code by opening a case in the AWS Support
-
-Center
+###### To request a dedicated long code by opening a case in the AWS Support Center
 
 1. Create an AWS Support case at [https://support.console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase").
 2. On the **Create Case** page, complete the following:

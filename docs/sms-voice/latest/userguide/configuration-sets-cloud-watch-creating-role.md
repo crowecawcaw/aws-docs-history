@@ -1,6 +1,4 @@
-# IAM policy for
-
-Amazon CloudWatch
+# IAM policy for Amazon CloudWatch
 
 Use the following example to create a policy for sending events to a CloudWatch
 group.

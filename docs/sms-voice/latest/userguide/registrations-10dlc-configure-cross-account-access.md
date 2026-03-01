@@ -1,6 +1,4 @@
-# 10DLC cross-account
-
-access
+# 10DLC cross-account access
 
 Each 10DLC phone number is associated with a single account in a single AWS Region.
 If you want to use the same 10DLC phone number to send messages in more than one account
@@ -22,9 +20,7 @@ treated as if they were sent from your primary account. Quotas and billing
 are counted against the primary account and not against any secondary
 accounts.
 
-## Setting up
-
-cross-account access using IAM policies
+## Setting up cross-account access using IAM policies
 
 You can use IAM roles to associate other accounts with your main account. Then,
 you can delegate access permissions from your primary account to your secondary
@@ -38,8 +34,7 @@ accounts by granting them access to the 10DLC numbers in the primary account.
    - Register your 10DLC campaign (use case). For more information, see
      [10DLC campaign registration form](registrations-10dlc-register-campaign.md "registrations-10dlc-register-campaign.md").
    - Associate a phone number with your 10DLC campaign. For more
-     information, see [Associating a long code with a 10DLC
-     campaign](registrations-10dlc-associate.md "registrations-10dlc-associate.md").
+     information, see [Associating a long code with a 10DLC campaign](registrations-10dlc-associate.md "registrations-10dlc-associate.md").
 
 2. Create an IAM role in your primary account that allows another account
    to call the `SendTextMessage` API operation for your 10DLC phone

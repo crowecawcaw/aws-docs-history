@@ -28,8 +28,7 @@ _of_ the cloud and security _in_ the cloud:
 - [Resilience](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure Security](infrastructure-security.md "infrastructure-security.md")
 - [Configuration and vulnerability analysis in AWS End User Messaging SMS](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
-- [Cross-service confused deputy
-  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
 - [Security best practices](security-best-practices.md "security-best-practices.md")
 - [SMS protocol security considerations](security-protocol-considerations.md "security-protocol-considerations.md")
 - [SMS protocol security best practices](security-protocol-best-practices.md "security-protocol-best-practices.md")

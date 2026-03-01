@@ -1,6 +1,4 @@
-# Create a phone number override rule
-
-in AWS End User Messaging SMS
+# Create a phone number override rule in AWS End User Messaging SMS
 
 To create a new phone number override rule, you can use the AWS End User Messaging SMS console, the [PutProtectConfigurationRuleSetNumberOverride](../../../pinpoint/latest/apireference_smsvoicev2/API_PutProtectConfigurationRuleSetNumberOverride.md "../../../pinpoint/latest/apireference_smsvoicev2/API_PutProtectConfigurationRuleSetNumberOverride.md") action in
 the AWS End User Messaging SMS and voice v2 API, or the [put-protect-configuration-rule-set-number-override](../../../cli/latest/reference/pinpoint-sms-voice-v2/put-protect-configuration-rule-set-number-override.md "../../../cli/latest/reference/pinpoint-sms-voice-v2/put-protect-configuration-rule-set-number-override.md") command in the AWS CLI. This

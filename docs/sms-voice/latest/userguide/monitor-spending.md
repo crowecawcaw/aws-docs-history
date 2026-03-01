@@ -1,6 +1,4 @@
-# Monitoring SMS, MMS, and voice spending activity with
-
-AWS End User Messaging SMS
+# Monitoring SMS, MMS, and voice spending activity with AWS End User Messaging SMS
 
 This topic provides information about viewing SMS, MMS, and voice spending metrics in
 Amazon CloudWatch. It also explains how to set up a CloudWatch alarm that sends you a notification when
@@ -16,9 +14,7 @@ charges](../../../awsaccountbilling/latest/aboutv2/getting-viewing-bill.md "../.
 
 You must create a [service-linked role](using-service-linked-roles.md#using-service-linked-roles.title "using-service-linked-roles.md#using-service-linked-roles.title") for CloudWatch metrics to be collected.
 
-## View your monthly SMS, MMS, and voice
-
-spending by using CloudWatch
+## View your monthly SMS, MMS, and voice spending by using CloudWatch
 
 To quickly determine how much money you've spent sending SMS, MMS, and voice messages
 during the current month, you can use the Metrics section of the CloudWatch console. CloudWatch
@@ -46,9 +42,7 @@ _Amazon CloudWatch User Guide_.
 The **TextMessageMonthlySpend**, **MediaMessageMonthlySpend**, and **VoiceMessageMonthlySpend** metrics don't appear
 until you send at least one message using AWS End User Messaging SMS.
 
-## Create an SMS, MMS, or voice spending alarm by
-
-using CloudWatch
+## Create an SMS, MMS, or voice spending alarm by using CloudWatch
 
 In addition to viewing your monthly SMS, MMS, and voice spending metrics, you can
 create CloudWatch alarms that notify you when your SMS, MMS, or voice spending exceeds a

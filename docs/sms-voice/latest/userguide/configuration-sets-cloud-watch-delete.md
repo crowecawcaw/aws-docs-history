@@ -1,6 +1,4 @@
-# Delete an
-
-Amazon CloudWatch event destination in AWS End User Messaging SMS
+# Delete an Amazon CloudWatch event destination in AWS End User Messaging SMS
 
 Use the AWS End User Messaging SMS console or AWS CLI to delete a CloudWatch event destination.
 

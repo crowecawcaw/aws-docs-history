@@ -23,8 +23,7 @@ Some registrations have multiple steps that need to be completed in exact order.
   first register your company and use case with TRAI, create and submit a case with Support
   and then to send messages you must specify **Entity ID**
   and **Template ID** values that you received. For more
-  information about the process, see [India sender ID registration process in
-  AWS End User Messaging SMS](registrations-sms-senderid-india.md "registrations-sms-senderid-india.md").
+  information about the process, see [India sender ID registration process in AWS End User Messaging SMS](registrations-sms-senderid-india.md "registrations-sms-senderid-india.md").
 
 ###### Create a new registration
 

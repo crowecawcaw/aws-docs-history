@@ -12,8 +12,7 @@ AWS account. For example resource policies and directions on how to add one, see
 
 ###### Important
 
-- If you need to register a sender ID in India, complete the procedures in [India sender ID registration process in
-  AWS End User Messaging SMS](registrations-sms-senderid-india.md "registrations-sms-senderid-india.md")
+- If you need to register a sender ID in India, complete the procedures in [India sender ID registration process in AWS End User Messaging SMS](registrations-sms-senderid-india.md "registrations-sms-senderid-india.md")
   _before_ you open a case in Support Center.
 - If you need to register a sender ID in Singapore, complete the procedures in [Singapore sender ID registration process](registrations-sg.md "registrations-sg.md").
 

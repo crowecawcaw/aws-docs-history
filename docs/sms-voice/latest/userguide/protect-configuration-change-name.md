@@ -1,6 +1,4 @@
-# Rename a protect configuration in
-
-AWS End User Messaging SMS
+# Rename a protect configuration in AWS End User Messaging SMS
 
 To help manage your protect configurations you should give them descriptive names. You can
 add or edit the name of a protect configuration at any time. You need to add a tag with the

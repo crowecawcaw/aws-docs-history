@@ -21,9 +21,7 @@ and [Create CloudWatch Alarms](monitoring-sms-cw.md "monitoring-sms-cw.md").
    appears only for countries with monitor or filter rules enabled. Use the date and
    time controls to change the date range and timezone.
 
-## How protect metrics are
-
-processed in AWS End User Messaging SMS
+## How protect metrics are processed in AWS End User Messaging SMS
 
 The protect metrics section provides information about messages that have been blocked
 and to which countries. These charts and metrics help you better understand message

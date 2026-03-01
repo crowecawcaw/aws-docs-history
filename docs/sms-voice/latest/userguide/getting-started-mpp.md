@@ -15,8 +15,7 @@ of message parts they can send each second. If your message is split into two me
 are billed for each message part. Use the message part preview before you send your SMS message
 to see how many message parts it is. For more information about supported character sets, see
 [SMS character limits](sms-limitations-character.md "sms-limitations-character.md"). For more
-information about message size and throughput, see [What are the Message Parts per Second (MPS)
-limits](sms-limitations-mps.md "sms-limitations-mps.md").
+information about message size and throughput, see [What are the Message Parts per Second (MPS) limits](sms-limitations-mps.md "sms-limitations-mps.md").
 
 ###### Using the message part preview
 

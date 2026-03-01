@@ -7,9 +7,7 @@ application, set country rules to either block (prevent all messages to a countr
 filter (to use the End User Messaging AIT detection model to filter suspected AIT message
 requests).
 
-## What are the country rule modes in
-
-AWS End User Messaging SMS
+## What are the country rule modes in AWS End User Messaging SMS
 
 You can apply different country modes to individual countries or geographic regions,
 like North America. The country rule mode can be overridden with a [phone number override

@@ -1,6 +1,4 @@
-# Change a protection configuration
-
-association in AWS End User Messaging SMS
+# Change a protection configuration association in AWS End User Messaging SMS
 
 To use the country rules contained in a protect configuration, you need to associate the
 protect configuration as the _account default_ to a configuration set, or

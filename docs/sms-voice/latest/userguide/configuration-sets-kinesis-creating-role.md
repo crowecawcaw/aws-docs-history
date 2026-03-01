@@ -1,6 +1,4 @@
-# IAM policy for
-
-Amazon Data Firehose
+# IAM policy for Amazon Data Firehose
 
 Use the following example to create a policy for sending events to a Amazon Data Firehose
 stream.

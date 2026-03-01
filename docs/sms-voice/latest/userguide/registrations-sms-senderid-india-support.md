@@ -1,6 +1,4 @@
-# India sender ID registration
-
-in AWS End User Messaging SMS
+# India sender ID registration in AWS End User Messaging SMS
 
 After you register your company and use case with TRAI, you must create a case with
 Support. The Support team uses the information that you provide in your case to associate
@@ -16,9 +14,7 @@ You can register a sender ID for [transactional
 messages](#registrations-sms-senderid-india-support-case.title "#registrations-sms-senderid-india-support-case.title") using the AWS End User Messaging SMS console or to register a sender ID for [promotional messages](#registrations-sms-senderid-india-support.title "#registrations-sms-senderid-india-support.title")
 create an AWS Support case.
 
-## India transactional
-
-message sender ID registration
+## India transactional message sender ID registration
 
 Follow these directions to register your sender ID for transactional messages in
 India.
@@ -127,9 +123,7 @@ Choose **Next**. 9. In **Message samples**, do the following:
 
 Choose **Next**. 10. On the **Review and submit** page verify the information you are about to submit is correct. To make updates choose **Edit** next to the section. 11. Choose **Submit registration**.
 
-## India promotional
-
-message sender ID registration
+## India promotional message sender ID registration
 
 Follow these directions to register your sender ID for promotional messages in
 India.

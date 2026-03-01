@@ -1,6 +1,4 @@
-# Identity-based policy
-
-examples for AWS End User Messaging SMS
+# Identity-based policy examples for AWS End User Messaging SMS
 
 By default, users and roles don't have permission to create or modify AWS End User Messaging SMS
 resources. To grant users permission to perform actions on the
@@ -14,19 +12,13 @@ For details about actions and resource types defined by AWS End User Messaging S
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the AWS End User Messaging SMS
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Examples: Providing
-  access to AWS End User Messaging SMS and Voice v2 API actions](#permissions-actions-examples-pin-sms-voice-api "#permissions-actions-examples-pin-sms-voice-api")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the AWS End User Messaging SMS console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Examples: Providing access to AWS End User Messaging SMS and Voice v2 API actions](#permissions-actions-examples-pin-sms-voice-api "#permissions-actions-examples-pin-sms-voice-api")
 - [IAM role for streaming events to Kinesis](#permissions-streams "#permissions-streams")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete AWS End User Messaging SMS resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -59,9 +51,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the AWS End User Messaging SMS
-
-console
+## Using the AWS End User Messaging SMS console
 
 To access the AWS End User Messaging SMS console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the AWS End User Messaging SMS resources
@@ -78,9 +68,7 @@ AWS End User Messaging SMS `ConsoleAccess` or `ReadOnly` AWS managed policy to
 the entities. For more information, see [Adding permissions to a user](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the
 _IAM User Guide_.
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -120,18 +108,14 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Examples: Providing
-
-access to AWS End User Messaging SMS and Voice v2 API actions
+## Examples: Providing access to AWS End User Messaging SMS and Voice v2 API actions
 
 This section provides example policies that allow access to features that are
 available from the AWS End User Messaging SMS and Voice v2 API. This is a supplemental API that provides
 advanced options for using and managing the SMS and voice channels in AWS End User Messaging SMS. To learn
 more about this API, see the [AWS End User Messaging SMS and Voice v2 API](../../../pinpoint/latest/apireference_smsvoicev2/Welcome.md "../../../pinpoint/latest/apireference_smsvoicev2/Welcome.md").
 
-### Read-only
-
-access
+### Read-only access
 
 The following example policy allows read-only access to all AWS End User Messaging SMS and Voice v2 API
 actions and resources in your AWS account:
@@ -172,9 +156,7 @@ JSON
 
 ```
 
-### Administrator
-
-access
+### Administrator access
 
 The following example policy allows full access to all AWS End User Messaging SMS and Voice v2 API actions
 and resources in your AWS account:

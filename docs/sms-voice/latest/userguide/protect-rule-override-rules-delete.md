@@ -1,6 +1,4 @@
-# Delete a phone number override rule
-
-in AWS End User Messaging SMS
+# Delete a phone number override rule in AWS End User Messaging SMS
 
 To delete a phone number override rule, you can use the AWS End User Messaging SMS console, the
 [DeleteProtectConfigurationRuleSetNumberOverride](../../../pinpoint/latest/apireference_smsvoicev2/API_DeleteProtectConfigurationRuleSetNumberOverride.md "../../../pinpoint/latest/apireference_smsvoicev2/API_DeleteProtectConfigurationRuleSetNumberOverride.md") action in the AWS End User Messaging SMS and

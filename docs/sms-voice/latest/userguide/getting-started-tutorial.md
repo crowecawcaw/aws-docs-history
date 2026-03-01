@@ -166,9 +166,7 @@ type**, choose **Configuration set association**. Under
 **Configuration sets available for association**, choose the configuration
 set you created in step 2. 6. Choose **Create configuration**.
 
-## Step 4: Send a test message with the SMS
-
-simulator
+## Step 4: Send a test message with the SMS simulator
 
 ###### Note
 
@@ -233,9 +231,7 @@ phone number, do the following:
 
 Wait at least at 10 seconds after sending the test SMS message before refreshing.
 
-## Next steps: Move from sandbox to
-
-production
+## Next steps: Move from sandbox to production
 
 After fully testing your SMS environment in the SMS sandbox, you can request to move to
 production.

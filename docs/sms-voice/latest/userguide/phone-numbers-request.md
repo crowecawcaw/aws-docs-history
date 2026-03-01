@@ -86,8 +86,7 @@ To request a phone number using the AWS End User Messaging SMS console, follow t
       from the **Associate to registered campaign** to add the 10DLC phone number
       to the 10DLC campaign.
     - If the number type you want isn't available you can choose **Previous**
-      to go back and modify your use case. Also check the [Supported countries and regions for SMS
-      messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md") to
+      to go back and modify your use case. Also check the [Supported countries and regions for SMS messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md") to
       make sure the originator type you want is supported in the destination country.
     - If you want to request a short code or long code you may need to open a case with Support. For
       more information, see [Requesting dedicated short codes](phone-numbers-request-short-code.md "phone-numbers-request-short-code.md") and [Requesting dedicated long codes](phone-numbers-request-long-code.md "phone-numbers-request-long-code.md").
@@ -216,8 +215,7 @@ You are still billed the recurring monthly lease fee for the phone number regard
 registration status. For more information about registrations requirements see [Origination identity registration in AWS End User Messaging SMS](registrations.md "registrations.md").
 
 MMS capabilities are only available in some countries. For more information on supported
-countries for SMS and MMS, see [Supported countries and regions for SMS
-messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md") and [Supported countries and regions for MMS messaging in AWS End User Messaging SMS](phone-numbers-mms-by-country.md "phone-numbers-mms-by-country.md").
+countries for SMS and MMS, see [Supported countries and regions for SMS messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md") and [Supported countries and regions for MMS messaging in AWS End User Messaging SMS](phone-numbers-mms-by-country.md "phone-numbers-mms-by-country.md").
 
 ###### To request a phone number
 

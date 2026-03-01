@@ -1,6 +1,4 @@
-# IAM policies for
-
-Amazon Connect
+# IAM policies for Amazon Connect
 
 If you want AWS End User Messaging SMS to use an existing IAM role or if you create a new role, attach
 the following policies to that role so that AWS End User Messaging SMS can assume it. For information about

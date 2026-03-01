@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-AWS End User Messaging SMS
+# Using service-linked roles for AWS End User Messaging SMS
 
 AWS End User Messaging SMS uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles.md#id_roles_terms-and-concepts "../../../IAM/latest/UserGuide/id_roles.md#id_roles_terms-and-concepts"). A service-linked role is a unique type of IAM role that is
 linked directly to AWS End User Messaging SMS. Service-linked roles are predefined by AWS End User Messaging SMS and

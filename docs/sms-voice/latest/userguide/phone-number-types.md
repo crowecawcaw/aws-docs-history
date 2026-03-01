@@ -31,12 +31,10 @@ SMS and/or voice capabilities, a two-way number, and estimate monthly messages.
 - [10 digit long code (10DLC)](#phone-number-types-10dlc "#phone-number-types-10dlc")
 - [Short codes](#phone-number-types-short-code "#phone-number-types-short-code")
 - [Toll-free number (TFN)](#phone-number-types-tfn "#phone-number-types-tfn")
-- [General considerations for choosing an
-  origination identity](#phone-number-types-choosing-general "#phone-number-types-choosing-general")
+- [General considerations for choosing an origination identity](#phone-number-types-choosing-general "#phone-number-types-choosing-general")
 - [Choosing an origination identity
   for one-way messaging use cases](#phone-number-types-choosing-oneway "#phone-number-types-choosing-oneway")
-- [Choosing an origination identity
-  for two-way messaging use cases](#phone-number-types-choosing-twoway "#phone-number-types-choosing-twoway")
+- [Choosing an origination identity for two-way messaging use cases](#phone-number-types-choosing-twoway "#phone-number-types-choosing-twoway")
 
 ## Sender ID
 
@@ -172,9 +170,7 @@ US mobile carriers require that you register your toll-free number before live
 messaging will be enabled, see [Registrations](registrations.md "registrations.md"). When using or registering a toll-free number, it's
 best to follow the guidelines in the Best Practices section for [Prohibited message content](best-practices.md#best-practices-sms-message-content "best-practices.md#best-practices-sms-message-content").
 
-## General considerations for choosing an
-
-origination identity
+## General considerations for choosing an origination identity
 
 There are several guidelines to consider when you're deciding what type of origination
 identity to use:
@@ -201,16 +197,13 @@ identity to use:
   with little advance notice of these changes. For these reasons, dedicated
   origination identities are always preferred to shared ones.
 
-## Choosing an origination identity
-
-for one-way messaging use cases
+## Choosing an origination identity for one-way messaging use cases
 
 A _one-way messaging_ use case is a use case that only involves
 sending outgoing SMS messages to your recipients. This section provides information
 about choosing the right type of origination identity for your one-way messaging use
 case. If your use case requires two-way messaging—that is, the ability to both
-send outgoing messages and receive incoming messages—answer the questions in [Choosing an origination identity
-for two-way messaging use cases](#phone-number-types-choosing-twoway "#phone-number-types-choosing-twoway") instead.
+send outgoing messages and receive incoming messages—answer the questions in [Choosing an origination identity for two-way messaging use cases](#phone-number-types-choosing-twoway "#phone-number-types-choosing-twoway") instead.
 
 One-way messaging use cases can use short codes, long codes, toll-free numbers, or
 alphanumeric Sender IDs as their origination identity. The right kind of origination
@@ -356,17 +349,14 @@ each country that your recipients are located in.
    another country, return to [question 1](#one-way-q1 "#one-way-q1").
    Otherwise, **stop here**.
 
-## Choosing an origination identity
-
-for two-way messaging use cases
+## Choosing an origination identity for two-way messaging use cases
 
 A _two-way messaging_ use case is a use case that involves both
 sending outgoing SMS messages to your customers and receiving incoming SMS messages from
 them. This section provides information about choosing the right type of origination
 identity for your two-way messaging use case. If your use case requires one-way
 messaging—that is, only the ability to send outgoing messages—answer the
-questions in [Choosing an origination identity
-for one-way messaging use cases](#phone-number-types-choosing-oneway "#phone-number-types-choosing-oneway") instead.
+questions in [Choosing an origination identity for one-way messaging use cases](#phone-number-types-choosing-oneway "#phone-number-types-choosing-oneway") instead.
 
 If you plan to receive incoming SMS messages, you must have a dedicated phone number.
 There are different types of dedicated phone numbers depending on the country where your
@@ -430,8 +420,7 @@ each country that your recipients are located in.
 
 4. Are dedicated short codes available in the country
    that you plan to send messages to? For a list of countries where short codes are
-   available, see [Supported countries and regions for SMS
-   messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md").
+   available, see [Supported countries and regions for SMS messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md").
    - If you answered **Yes**, use a dedicated
      short code. For more information about requesting a short code, see
      [Requesting dedicated short codes](phone-numbers-request-short-code.md "phone-numbers-request-short-code.md").

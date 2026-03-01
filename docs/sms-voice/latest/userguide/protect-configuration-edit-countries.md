@@ -1,6 +1,4 @@
-# Change a protect configuration
-
-country rules in AWS End User Messaging SMS
+# Change a protect configuration country rules in AWS End User Messaging SMS
 
 Protect configuration country rules either _Allow_,
 _Block_, _Monitor_, or _Filter_
@@ -63,13 +61,11 @@ In the preceding command, make the following changes:
      `VOICE`.
     + Replace `CountryISO1` with the two
      letter ISO country code. For a list of ISO country codes, see
-     [Supported countries and regions for SMS
-     messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md").
+     [Supported countries and regions for SMS messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md").
     + Replace `Rule1` with
      `ALLOW` or `BLOCK`.
     + Replace `CountryISO2` with the two
      letter ISO country code. For a list of ISO country codes, see
-     [Supported countries and regions for SMS
-     messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md").
+     [Supported countries and regions for SMS messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md").
     + Replace `Rule2` with
      `ALLOW` or `BLOCK`.

@@ -21,8 +21,7 @@ characters. You can estimate how many message parts your message contains before
 using SMS length calculator tools, several of which are available online. The maximum supported
 size of any message is 1530 GSM characters or 630 non-GSM characters. If the message size is
 greater than the supported size, the message will fail and AWS End User Messaging SMS will return an **Invalid Message Exception**. For more information about throughput and
-message size, see [What are the Message Parts per Second (MPS)
-limits](sms-limitations-mps.md "sms-limitations-mps.md").
+message size, see [What are the Message Parts per Second (MPS) limits](sms-limitations-mps.md "sms-limitations-mps.md").
 
 AWS End User Messaging SMS does support all languages, however, depending on the recipient's mobile carrier and
 their regulations, certain symbols may be restricted on a case to case basis. When sending
@@ -33,8 +32,7 @@ in each message part are reduced to 67.
 
 When you send a message that contains more than one message parts, you're charged for the
 number of message parts contained in the message. For more information about throughput and
-message size, see [What are the Message Parts per Second (MPS)
-limits](sms-limitations-mps.md "sms-limitations-mps.md").
+message size, see [What are the Message Parts per Second (MPS) limits](sms-limitations-mps.md "sms-limitations-mps.md").
 
 ## GSM 03.38 character set
 

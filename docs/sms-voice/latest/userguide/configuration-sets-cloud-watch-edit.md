@@ -1,6 +1,4 @@
-# Edit an
-
-Amazon CloudWatch event destination in AWS End User Messaging SMS
+# Edit an Amazon CloudWatch event destination in AWS End User Messaging SMS
 
 Use the AWS End User Messaging SMS console or AWS CLI to edit a CloudWatch event destination.
 
@@ -17,8 +15,7 @@ To update an event destination using the AWS End User Messaging SMS console, fol
 4. On the **Event settings** tab, choose a Amazon CloudWatch
    event destination and then **Edit**.
 5. For **IAM role arn** enter the ARN of the IAM
-   role. For more information about the IAM role arn, see [IAM policy for
-   Amazon CloudWatch](configuration-sets-cloud-watch-creating-role.md "configuration-sets-cloud-watch-creating-role.md").
+   role. For more information about the IAM role arn, see [IAM policy for Amazon CloudWatch](configuration-sets-cloud-watch-creating-role.md "configuration-sets-cloud-watch-creating-role.md").
 6. For **Log group arn** enter the ARN of the
    Amazon CloudWatch log group to deliver the events to.
 7. Under **Event types**, choose:
@@ -81,11 +78,9 @@ In the preceding command, make the following changes:
   destination with. You can associate the event destination with a
   different configuration set.
 - Replace `eventTypes` with one of the
-  event types listed in [Event types for SMS, MMS, and
-  voice](configuration-sets-event-types.md "configuration-sets-event-types.md").
+  event types listed in [Event types for SMS, MMS, and voice](configuration-sets-event-types.md "configuration-sets-event-types.md").
 - Replace the value of `IamRoleArn` with the Amazon
   Resource Name (ARN) of an IAM role that has the policies described
-  in [Event types for SMS, MMS, and
-  voice](configuration-sets-event-types.md "configuration-sets-event-types.md").
+  in [Event types for SMS, MMS, and voice](configuration-sets-event-types.md "configuration-sets-event-types.md").
 - Replace the value of `LogGroupArn` with the ARN of the
   CloudWatch group that you want to send events to.

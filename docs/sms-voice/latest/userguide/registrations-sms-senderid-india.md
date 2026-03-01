@@ -1,6 +1,4 @@
-# India sender ID registration process in
-
-AWS End User Messaging SMS
+# India sender ID registration process in AWS End User Messaging SMS
 
 ###### Warning
 
@@ -48,12 +46,9 @@ To complete the registration process, you must provide the following information
   download and modify to fit your needs.
   To send SMS messages to India, follow these steps:
 
-1. [Register your company and
-   use case with the TRAI and create the required Telemarketer chains](registrations-sms-senderid-india-register.md "registrations-sms-senderid-india-register.md")
-2. [India sender ID registration
-   in AWS End User Messaging SMS](registrations-sms-senderid-india-support.md "registrations-sms-senderid-india-support.md")
-3. [Specify the Entity ID and
-   Template ID values to send messages to India](registrations-sms-senderid-india-specify-ids.md "registrations-sms-senderid-india-specify-ids.md")
+1. [Register your company and use case with the TRAI and create the required Telemarketer chains](registrations-sms-senderid-india-register.md "registrations-sms-senderid-india-register.md")
+2. [India sender ID registration in AWS End User Messaging SMS](registrations-sms-senderid-india-support.md "registrations-sms-senderid-india-support.md")
+3. [Specify the Entity ID and Template ID values to send messages to India](registrations-sms-senderid-india-specify-ids.md "registrations-sms-senderid-india-specify-ids.md")
 
 ###### Topics
 

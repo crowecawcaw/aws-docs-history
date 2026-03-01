@@ -34,32 +34,23 @@ Before creating message content you should review the [SMS protocol security con
 
 ###### Topics
 
-- [Comply with laws, regulations, and
-  carrier requirements](#best-practices-sms-understand-laws "#best-practices-sms-understand-laws")
+- [Comply with laws, regulations, and carrier requirements](#best-practices-sms-understand-laws "#best-practices-sms-understand-laws")
 - [Prohibited message content](#best-practices-sms-message-content "#best-practices-sms-message-content")
 - [Obtain permission](#best-practices-sms-obtain-permission "#best-practices-sms-obtain-permission")
 - [Don't send messages to old lists](#best-practices-sms-old-lists "#best-practices-sms-old-lists")
 - [Audit your customer lists](#best-practices-sms-audit-lists "#best-practices-sms-audit-lists")
 - [Keep records](#best-practices-sms-keep-records "#best-practices-sms-keep-records")
-- [Make your messages clear,
-  honest, and concise](#best-practices-sms-appropriate-content "#best-practices-sms-appropriate-content")
+- [Make your messages clear, honest, and concise](#best-practices-sms-appropriate-content "#best-practices-sms-appropriate-content")
 - [Respond appropriately](#best-practices-sms-respond-appropriately "#best-practices-sms-respond-appropriately")
-- [Adjust your sending based on
-  engagement](#best-practices-sms-adjust-engagement "#best-practices-sms-adjust-engagement")
+- [Adjust your sending based on engagement](#best-practices-sms-adjust-engagement "#best-practices-sms-adjust-engagement")
 - [Send at appropriate times](#best-practices-sms-appropriate-times "#best-practices-sms-appropriate-times")
-- [Avoid cross-channel
-  fatigue](#best-practices-sms-cross-channel-fatigue "#best-practices-sms-cross-channel-fatigue")
-- [Use dedicated short
-  codes](#best-practices-sms-dedicated-short-codes "#best-practices-sms-dedicated-short-codes")
-- [Verify your destination
-  phone numbers](#best-practices-sms-verify-destination-numbers "#best-practices-sms-verify-destination-numbers")
+- [Avoid cross-channel fatigue](#best-practices-sms-cross-channel-fatigue "#best-practices-sms-cross-channel-fatigue")
+- [Use dedicated short codes](#best-practices-sms-dedicated-short-codes "#best-practices-sms-dedicated-short-codes")
+- [Verify your destination phone numbers](#best-practices-sms-verify-destination-numbers "#best-practices-sms-verify-destination-numbers")
 - [Design with redundancy in mind](#best-practices-sms-redundancy "#best-practices-sms-redundancy")
-- [Handling deactivated phone
-  numbers](#channels-sms-best-practices-deactivated "#channels-sms-best-practices-deactivated")
+- [Handling deactivated phone numbers](#channels-sms-best-practices-deactivated "#channels-sms-best-practices-deactivated")
 
-### Comply with laws, regulations, and
-
-carrier requirements
+### Comply with laws, regulations, and carrier requirements
 
 You can face significant fines and penalties if you violate the laws and regulations
 of the places where your customers reside. For this reason, it's vital to understand the
@@ -233,9 +224,7 @@ complete with annotations. In the opt-in flow, the customer must take distinct,
 intentional actions to provide their consent to receive text messages and contains
 all of the required disclosures.
 
-#### Other opt-in workflow
-
-types
+#### Other opt-in workflow types
 
 Mobile carriers will also accept opt-in workflows outside of applications and
 websites, such as verbal or written opt-in if it complies with what has been
@@ -248,9 +237,7 @@ screenshot of your opt-in script, marketing material, or database where numbers 
 collected. Mobile carriers might have additional questions around these use cases if
 an opt-in is not clear or the use case exceed certain volumes.
 
-#### SMS and MMS specific
-
-Terms and Conditions page
+#### SMS and MMS specific Terms and Conditions page
 
 Mobile carriers also require that you make a specific set of SMS and MMS Terms and
 Conditions available to your customers. The following terms and conditions comply
@@ -346,9 +333,7 @@ of the information that the carrier or agency requires. If you can't provide the
 necessary information, we may pause your ability to send additional SMS and MMS
 messages.
 
-### Make your messages clear,
-
-honest, and concise
+### Make your messages clear, honest, and concise
 
 SMS is a unique medium. The 160-character-per-message limit means that your messages
 must be concise. Techniques that you might use in other communication channels, such as
@@ -364,9 +349,7 @@ concise, but it should still follow the best practices.
 The following section provides some tips and ideas for creating an effective SMS
 message body.
 
-#### Identify yourself as the
-
-sender
+#### Identify yourself as the sender
 
 Your recipients should be able to immediately identify that a message is from you.
 Senders who follow this best practice include an identifying name ("program name")
@@ -383,9 +366,7 @@ at the beginning of each message.
  from a new device. Reply Y to confirm, or STOP to
  opt-out.`
 
-#### Don't try to make your
-
-message look like a person-to-person message
+#### Don't try to make your message look like a person-to-person message
 
 Some marketers are tempted to add a personal touch to their messages by making
 their messages appear to come from an individual. However, this technique might make
@@ -403,9 +384,7 @@ your message seem like a phishing attempt.
  Click here to browse the sale: https://www.example.com. Text STOP to
  opt-out.`
 
-#### Be careful when talking
-
-about money
+#### Be careful when talking about money
 
 Scammers often prey upon people's desire to save and receive money. Don't make
 offers seem too good to be true. Don't use the lure of money to deceive people.
@@ -422,9 +401,7 @@ Don't use currency symbols to indicate money.
  discounts at 2300+ repair shops nationwide. More info at
  https://www.example.com. Text STOP to opt-out.`
 
-#### Use only the necessary
-
-characters
+#### Use only the necessary characters
 
 Brands are often inclined to protect their trademarks by including trademark
 symbols such as ™ or ® in their messages. However, these symbols are not
@@ -457,9 +434,7 @@ contains a Registered Trademark symbol (®), which is not part of the GSM
 alphabet. As a result, the first example is sent as two message parts, while the
 second example is sent as one message part.
 
-#### Use valid, safe
-
-links
+#### Use valid, safe links
 
 If your message includes links, double-check the links to make sure that they
 work. Test your links on a device outside of your internal network to confirm that
@@ -482,9 +457,7 @@ to the exclusive use of your company or organization.
  ExampleCorp Widget. See https://a.co/cFKmaRG for more info. Text
  STOP to opt-out.`
 
-#### Limit the number of
-
-abbreviations that you use
+#### Limit the number of abbreviations that you use
 
 The 160-character limitation of the SMS channel leads some senders to believe that
 they need to use abbreviations extensively in their messages. However, the overuse
@@ -521,9 +494,7 @@ any further messages. A STOP response might resemble the following example:
  will be sent. Reply HELP, email help@example.com, or call 425-555-0199 for more
  info.`
 
-### Adjust your sending based on
-
-engagement
+### Adjust your sending based on engagement
 
 Your customers' priorities can change over time. If customers no longer find your
 messages to be useful, they might opt out of your messages entirely, or even report your
@@ -550,18 +521,14 @@ rates for your originator phone numbers. Divide the number of recipients by your
 throughput rate to determine how long it will take to send messages to all of your
 recipients.
 
-### Avoid cross-channel
-
-fatigue
+### Avoid cross-channel fatigue
 
 In your campaigns, if you use multiple communication channels (such as email, SMS,
 MMS, and push messages), don't send the same message in every channel. When you send the
 same message at the same time in more than one channel, your customers will probably
 perceive your sending behavior to be annoying rather than helpful.
 
-### Use dedicated short
-
-codes
+### Use dedicated short codes
 
 If you use short codes, maintain a separate short code for each brand and each type of
 message. For example, if your company has two brands, use a separate short code for each
@@ -570,9 +537,7 @@ short code for each type of message or register the short code once for transact
 and create another registration for promotional. For more information about requesting
 short codes, see [Request a phone number in AWS End User Messaging SMS](phone-numbers-request.md "phone-numbers-request.md").
 
-### Verify your destination
-
-phone numbers
+### Verify your destination phone numbers
 
 When you send SMS and MMS messages through AWS End User Messaging SMS, you're billed for each message part
 that you send. The price you pay per message part varies on the recipient's country or
@@ -611,9 +576,7 @@ to the recipient. Having multiple phone number types available—either in the s
 AWS Region or spread across multiple AWS Regions—provides an additional layer
 of redundancy, which can help improve resiliency.
 
-### Handling deactivated phone
-
-numbers
+### Handling deactivated phone numbers
 
 A deactivated phone number means that the mobile subscriber has terminated their service or
 transferred their phone number to a different mobile network provider. Eventually, deactivated
@@ -634,9 +597,7 @@ a deactivated number that your end user believes should still receive messages. 
 with your end users through different channels, such as email or voice calls, if you find
 their phone number is deactivated.
 
-#### Why is handling deactivated phone
-
-numbers important?
+#### Why is handling deactivated phone numbers important?
 
 In the US, the Federal Communications Commission (FCC) considers sending messages to a
 phone number that belongs to a subscriber who has not opted in to your projects as spam. This
@@ -656,9 +617,7 @@ deactivated on the mobile network provider networks. You should download and com
 your existing end-users list. Delete all phone numbers from your end-users lists that have
 been deactivated.
 
-#### Requesting deactivation
-
-reports
+#### Requesting deactivation reports
 
 Before you can obtain a copy of a deactivation report, you must first request a
 deactivation report through an Amazon S3 GET OBJECT API request using the REQUESTER PAYS buckets
@@ -740,18 +699,12 @@ unexpected charges.
 
 ###### Topics in this section:
 
-- [Comply with laws and
-  regulations](#voice-best-practices-understand-laws "#voice-best-practices-understand-laws")
-- [Send at appropriate
-  times](#voice-best-practices-appropriate-times "#voice-best-practices-appropriate-times")
-- [Avoid
-  cross-channel fatigue](#voice-best-practices-cross-channel-fatigue "#voice-best-practices-cross-channel-fatigue")
-- [Protect yourself
-  against voice fraud](#voice-best-practices-fraud-protection "#voice-best-practices-fraud-protection")
+- [Comply with laws and regulations](#voice-best-practices-understand-laws "#voice-best-practices-understand-laws")
+- [Send at appropriate times](#voice-best-practices-appropriate-times "#voice-best-practices-appropriate-times")
+- [Avoid cross-channel fatigue](#voice-best-practices-cross-channel-fatigue "#voice-best-practices-cross-channel-fatigue")
+- [Protect yourself against voice fraud](#voice-best-practices-fraud-protection "#voice-best-practices-fraud-protection")
 
-### Comply with laws and
-
-regulations
+### Comply with laws and regulations
 
 You can face significant fines and penalties if you violate the laws and regulations of the
 places where your customers reside. For this reason, it's vital to understand the laws related
@@ -763,9 +716,7 @@ the US Federal laws concerning voice calls. This information is not intended to 
 Consult an attorney in each country or region where your customers are located to obtain legal
 advice.
 
-### Send at appropriate
-
-times
+### Send at appropriate times
 
 Only send messages during normal daytime business hours in each recipient's time zone.
 If you send messages at dinner time or in the middle of the night, there's a good chance
@@ -777,9 +728,7 @@ also prohibit sending messages on Sundays and national holidays. This informatio
 intended to be legal advice. Consult an attorney in each country or region where your
 customers are located to obtain legal advice.
 
-### Avoid
-
-cross-channel fatigue
+### Avoid cross-channel fatigue
 
 If you use multiple communication channels (such as voice, email, SMS, and push
 messages), don't send the same message across multiple channels unless there's a good
@@ -787,9 +736,7 @@ reason for doing so. If you send the same message at the same time in more than 
 channel, your customers are likely to perceive this behavior as annoying rather than
 helpful.
 
-### Protect yourself
-
-against voice fraud
+### Protect yourself against voice fraud
 
 Because voice calls can be expensive, it's important to secure your AWS account
 against unauthorized access, and to monitor the destinations of the messages that you

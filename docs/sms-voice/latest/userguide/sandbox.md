@@ -43,20 +43,16 @@ message per verification request.
   number](verify-destination-phone-number.md "verify-destination-phone-number.md").
 
 You can remove these restrictions by requesting production access. For more information,
-see [Moving from the AWS End User Messaging SMS MMS and Voice
-sandbox to production](#sandbox-sms-move-to-production "#sandbox-sms-move-to-production").
+see [Moving from the AWS End User Messaging SMS MMS and Voice sandbox to production](#sandbox-sms-move-to-production "#sandbox-sms-move-to-production").
 
 ###### Note
 
 If your account is observed to be sending suspicious SMS/MMS traffic, your
 account's ability to send messages may be paused. If this occurs, please follow
-the steps in [Moving from the AWS End User Messaging SMS MMS and Voice
-sandbox to production](#sandbox-sms-move-to-production "#sandbox-sms-move-to-production") to gain production
+the steps in [Moving from the AWS End User Messaging SMS MMS and Voice sandbox to production](#sandbox-sms-move-to-production "#sandbox-sms-move-to-production") to gain production
 access.
 
-## Moving from the AWS End User Messaging SMS MMS and Voice
-
-sandbox to production
+## Moving from the AWS End User Messaging SMS MMS and Voice sandbox to production
 
 After fully testing your SMS/MMS environment in the SMS/MMS sandbox, you can request
 to move to production. Moving from the SMS sandbox to production also applies to MMS

@@ -11,9 +11,7 @@ short code by opening a case in the Support by following the below process.
 
 For information about short code pricing, see [AWS End User Messaging Pricing](https://aws.amazon.com//end-user-messaging/pricing/ "https://aws.amazon.com//end-user-messaging/pricing/").
 
-## Important
-
-considerations
+## Important considerations
 
 Before you request a short code, consider the following information:
 
@@ -46,9 +44,7 @@ Countries support through console and APIs:
 - United Kingdom (GB)
 - United States (US)
 
-## Step 1: Open a support
-
-case
+## Step 1: Open a support case
 
 The first step in requesting a short code is to open a Service Limit Increase case in
 the Support Center Console.
@@ -142,9 +138,7 @@ from being used to send unsolicited or malicious content, we must consider each
 request carefully. We might not be able to grant your request if your use case doesn't
 align with our policies.
 
-## Step 2: Update your SMS
-
-settings in the AWS End User Messaging SMS console
+## Step 2: Update your SMS settings in the AWS End User Messaging SMS console
 
 After we notify you that your short code has been provisioned, complete the following
 steps.

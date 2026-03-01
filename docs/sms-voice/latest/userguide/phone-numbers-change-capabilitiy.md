@@ -7,8 +7,7 @@ protection setting.
 
 An example of an additional feature that you can enable by updating a phone number is
 two-way messaging. Support for two-way messaging varies depending on which country you
-plan to send messages to. For a list of supported countries, see [Supported countries and regions for SMS
-messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md").
+plan to send messages to. For a list of supported countries, see [Supported countries and regions for SMS messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md").
 
 ```
 `$` aws pinpoint-sms-voice-v2 update-phone-number \

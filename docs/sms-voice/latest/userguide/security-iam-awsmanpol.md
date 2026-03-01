@@ -24,9 +24,7 @@ This policy allows SMSVoice to put metric data into the `AWS/SMSVoice` CloudWatc
 
 For details about this policy, see [SMSVoiceServiceRolePolicy](../../../aws-managed-policy/latest/reference/SMSVoiceServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/SMSVoiceServiceRolePolicy.md").
 
-## AWS End User Messaging SMS updates to AWS managed
-
-policies
+## AWS End User Messaging SMS updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS End User Messaging SMS since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

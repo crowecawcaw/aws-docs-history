@@ -1,6 +1,4 @@
-# Create a registration using the AWS CLI in
-
-AWS End User Messaging SMS
+# Create a registration using the AWS CLI in AWS End User Messaging SMS
 
 The following section gives examples of how to create, populate, and submit a registration
 using the AWS CLI. For examples of how to create and submit a Toll-free phone number

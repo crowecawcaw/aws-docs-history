@@ -85,8 +85,7 @@ In the preceding command, make the following changes:
   of the configuration set that you want to associate the event
   destination with.
 - Replace `eventTypes` with one of the
-  event types listed in [Event types for SMS, MMS, and
-  voice](configuration-sets-event-types.md "configuration-sets-event-types.md").
+  event types listed in [Event types for SMS, MMS, and voice](configuration-sets-event-types.md "configuration-sets-event-types.md").
 - Replace the value of `TopicArn` with the Amazon
   Resource Name (ARN) of the Amazon SNS topic that you want to send events
   to.

@@ -1,6 +1,4 @@
-# Register your company and
-
-use case with the TRAI and create the required Telemarketer chains
+# Register your company and use case with the TRAI and create the required Telemarketer chains
 
 The first step is to register your company and use case with TRAI. All distributed
 ledger technology (DLT) registration portals require you to provide the same

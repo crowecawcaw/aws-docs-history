@@ -1,6 +1,4 @@
-# Understanding
-
-template matching issues when sending messages
+# Understanding template matching issues when sending messages
 
 Indian carriers will reject your messages if they don't align exactly with the
 templates that you submitted during the registration process. If you experience message

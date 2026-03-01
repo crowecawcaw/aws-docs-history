@@ -54,13 +54,11 @@ Depending on your use case we recommend the following:
 - If you only need one set of country rules for all SMS, MMS, and voice you should
   create a protect configuration and associate it as your account _account
   default_.
-  1.  Create a protect configuration by following the directions in [Create a protect configuration in
-      AWS End User Messaging SMS](protect-configuration-create.md "protect-configuration-create.md") and set the association as
+  1.  Create a protect configuration by following the directions in [Create a protect configuration in AWS End User Messaging SMS](protect-configuration-create.md "protect-configuration-create.md") and set the association as
       _account default_.
   2.  Edit the _Allow_, _Block_,
       _Monitor_, and _Filter_ country
-      rules for SMS, MMS, and voice by following the directions in [Change a protect configuration
-      country rules in AWS End User Messaging SMS](protect-configuration-edit-countries.md "protect-configuration-edit-countries.md").
+      rules for SMS, MMS, and voice by following the directions in [Change a protect configuration country rules in AWS End User Messaging SMS](protect-configuration-edit-countries.md "protect-configuration-edit-countries.md").
   3.  Your _account default_ protect configuration is now
       used for any message you send unless overridden by using the
       _ConfigurationSetName_ or
@@ -71,14 +69,12 @@ Depending on your use case we recommend the following:
   1.  If you don't already have a configuration set created then follow the
       directions at [Create a configuration set in AWS End User Messaging SMS](configuration-set-create.md "configuration-set-create.md") and we also recommend you setup an
       event destination to log SMS, MMS, and voice events.
-  2.  Create a protect configuration by following the directions in [Create a protect configuration in
-      AWS End User Messaging SMS](protect-configuration-create.md "protect-configuration-create.md") and set the association as
+  2.  Create a protect configuration by following the directions in [Create a protect configuration in AWS End User Messaging SMS](protect-configuration-create.md "protect-configuration-create.md") and set the association as
       _configuration set_ and choose one or more
       configuration sets.
   3.  Edit the _Allow_, _Block_,
       _Monitor_, and _Filter_ country
-      rules for SMS, MMS, and voice by following the directions in [Change a protect configuration
-      country rules in AWS End User Messaging SMS](protect-configuration-edit-countries.md "protect-configuration-edit-countries.md").
+      rules for SMS, MMS, and voice by following the directions in [Change a protect configuration country rules in AWS End User Messaging SMS](protect-configuration-edit-countries.md "protect-configuration-edit-countries.md").
   4.  To use the protect configuration you need to pass the
       _ConfigurationSetName_ in the of the
       `SendMediaMessage`, `SendTextMessage`, or
@@ -87,13 +83,11 @@ Depending on your use case we recommend the following:
 - If your use case requires more granular controls you can create the protect
   configuration and use the protect configuration in the
   _ProtectConfigurationId_ API parameter.
-  1.  Create a protect configuration by following the directions in [Create a protect configuration in
-      AWS End User Messaging SMS](protect-configuration-create.md "protect-configuration-create.md") and set the association as
+  1.  Create a protect configuration by following the directions in [Create a protect configuration in AWS End User Messaging SMS](protect-configuration-create.md "protect-configuration-create.md") and set the association as
       _No association_.
   2.  Edit the _Allow_, _Block_,
       _Monitor_, and _Filter_ country
-      rules for SMS, MMS, and voice by following the directions in [Change a protect configuration
-      country rules in AWS End User Messaging SMS](protect-configuration-edit-countries.md "protect-configuration-edit-countries.md").
+      rules for SMS, MMS, and voice by following the directions in [Change a protect configuration country rules in AWS End User Messaging SMS](protect-configuration-edit-countries.md "protect-configuration-edit-countries.md").
   3.  To use the protect configuration you need to pass the
       _ProtectConfigurationId_ in the of the
       `SendMediaMessage`, `SendTextMessage`, or

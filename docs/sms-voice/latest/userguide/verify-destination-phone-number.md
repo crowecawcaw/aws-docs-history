@@ -1,6 +1,4 @@
-# Add a destination phone number while in the
-
-AWS End User Messaging SMS sandbox
+# Add a destination phone number while in the AWS End User Messaging SMS sandbox
 
 ###### Note
 

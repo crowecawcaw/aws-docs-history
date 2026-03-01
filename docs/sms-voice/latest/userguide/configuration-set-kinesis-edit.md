@@ -18,8 +18,7 @@ these steps:
    a Amazon Data Firehose event destination and then
    **Edit**.
 6. For **IAM role arn** enter the ARN of the IAM
-   role. For more information on the IAM role arn, see [IAM policy for
-   Amazon Data Firehose](configuration-sets-kinesis-creating-role.md "configuration-sets-kinesis-creating-role.md").
+   role. For more information on the IAM role arn, see [IAM policy for Amazon Data Firehose](configuration-sets-kinesis-creating-role.md "configuration-sets-kinesis-creating-role.md").
 7. For **Delivery stream arn** enter the ARN of the
    Amazon Data Firehose log group to deliver the events to.
 8. Under **Event types**, choose:
@@ -81,11 +80,9 @@ In the preceding command, make the following changes:
   destination with. You can associate the event destination with a
   different configuration set.
 - Replace `eventTypes` with one of the
-  event types listed in [Event types for SMS, MMS, and
-  voice](configuration-sets-event-types.md "configuration-sets-event-types.md").
+  event types listed in [Event types for SMS, MMS, and voice](configuration-sets-event-types.md "configuration-sets-event-types.md").
 - Replace the value of `IamRoleArn` with the Amazon
   Resource Name (ARN) of an IAM role that has the policies described
-  in [IAM policy for
-  Amazon Data Firehose](configuration-sets-kinesis-creating-role.md "configuration-sets-kinesis-creating-role.md").
+  in [IAM policy for Amazon Data Firehose](configuration-sets-kinesis-creating-role.md "configuration-sets-kinesis-creating-role.md").
 - Replace the value of `DeliveryStreamArn` with the ARN
   of the Amazon Data Firehose stream that you want to send events to.

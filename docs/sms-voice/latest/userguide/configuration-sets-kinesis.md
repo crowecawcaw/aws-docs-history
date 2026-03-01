@@ -19,8 +19,7 @@ the AWS Command Line Interface. For more information about setting up the AWS CL
 
 You will need the Amazon Resource Name (ARN) of the Amazon Data Firehose delivery stream
 to create the event destination. 2. You have to create an IAM role that allows AWS End User Messaging SMS to write to the delivery
-stream, see [IAM policy for
-Amazon Data Firehose](configuration-sets-kinesis-creating-role.md "configuration-sets-kinesis-creating-role.md").
+stream, see [IAM policy for Amazon Data Firehose](configuration-sets-kinesis-creating-role.md "configuration-sets-kinesis-creating-role.md").
 
 ###### Important
 
@@ -30,8 +29,7 @@ see [Create a configuration set in AWS End User Messaging SMS](configuration-set
 
 ###### Topics
 
-- [IAM policy for
-  Amazon Data Firehose](configuration-sets-kinesis-creating-role.md "configuration-sets-kinesis-creating-role.md")
+- [IAM policy for Amazon Data Firehose](configuration-sets-kinesis-creating-role.md "configuration-sets-kinesis-creating-role.md")
 - [Create an Amazon Data Firehose event destination](configuration-set-kinesis-add.md "configuration-set-kinesis-add.md")
 - [Edit an Amazon Data Firehose event destination](configuration-set-kinesis-edit.md "configuration-set-kinesis-edit.md")
 - [Delete an Amazon Data Firehose event destination](configuration-set-kinesis-delete.md "configuration-set-kinesis-delete.md")

@@ -54,8 +54,7 @@ registration process, and then create a case in the AWS Support Center. In some
 situations, it isn't possible to convert an unregistered long code to a 10DLC phone number.
 In this case, you must request a new number through the AWS End User Messaging SMS console and associate it with
 your 10DLC campaign. For more information about using 10DLC with existing long codes, see
-[Associating a long code with a 10DLC
-campaign](registrations-10dlc-associate.md "registrations-10dlc-associate.md").
+[Associating a long code with a 10DLC campaign](registrations-10dlc-associate.md "registrations-10dlc-associate.md").
 
 ###### Topics
 
@@ -65,11 +64,9 @@ campaign](registrations-10dlc-associate.md "registrations-10dlc-associate.md").
 - [Resend a 10DLC brand email authentication](registrations-10dlc-auth.md "registrations-10dlc-auth.md")
 - [10DLC brand vetting form](registrations-10dlc-vetting.md "registrations-10dlc-vetting.md")
 - [10DLC campaign registration form](registrations-10dlc-register-campaign.md "registrations-10dlc-register-campaign.md")
-- [Associating a long code with a 10DLC
-  campaign](registrations-10dlc-associate.md "registrations-10dlc-associate.md")
+- [Associating a long code with a 10DLC campaign](registrations-10dlc-associate.md "registrations-10dlc-associate.md")
 - [10DLC registration and monthly fees](#registrations-10dlc-fees "#registrations-10dlc-fees")
-- [10DLC cross-account
-  access](registrations-10dlc-configure-cross-account-access.md "registrations-10dlc-configure-cross-account-access.md")
+- [10DLC cross-account access](registrations-10dlc-configure-cross-account-access.md "registrations-10dlc-configure-cross-account-access.md")
 
 ## 10DLC capabilities
 

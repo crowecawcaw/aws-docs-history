@@ -36,8 +36,7 @@ for your campaign is shown on the registration page. 4. **Request your 10DLC num
 After your 10DLC campaign is approved, you can request a phone number and
 associate that number with the approved 10DLC campaign. Each phone number can
 only be associated with a single 10DLC campaign. For more information on
-requesting a 10DLC phone number, see [Request a phone number in AWS End User Messaging SMS](phone-numbers-request.md "phone-numbers-request.md") and [Associating a long code with a 10DLC
-campaign](registrations-10dlc-associate.md "registrations-10dlc-associate.md"). There is a monthly recurring fee
+requesting a 10DLC phone number, see [Request a phone number in AWS End User Messaging SMS](phone-numbers-request.md "phone-numbers-request.md") and [Associating a long code with a 10DLC campaign](registrations-10dlc-associate.md "registrations-10dlc-associate.md"). There is a monthly recurring fee
 for leasing the phone number. This fee is shown on the purchase page.
 
 ###### Note

@@ -1,6 +1,4 @@
-# Change a message feedback
-
-status record in AWS End User Messaging SMS
+# Change a message feedback status record in AWS End User Messaging SMS
 
 Once you have a signal that a customer has received your message you have to provide
 feedback for the message by using [PutMessageFeedback](../../../pinpoint/latest/apireference_smsvoicev2/API_PutMessageFeedback.md "../../../pinpoint/latest/apireference_smsvoicev2/API_PutMessageFeedback.md") or [put-message-feedback](../../../cli/latest/reference/pinpoint-sms-voice-v2/put-message-feedback.md "../../../cli/latest/reference/pinpoint-sms-voice-v2/put-message-feedback.md"). If the message feedback status

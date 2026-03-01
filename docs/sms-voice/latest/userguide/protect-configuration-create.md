@@ -1,6 +1,4 @@
-# Create a protect configuration in
-
-AWS End User Messaging SMS
+# Create a protect configuration in AWS End User Messaging SMS
 
 To create a new protect configuration, you can use the AWS End User Messaging SMS console, the
 `CreateProtectConfiguration` action in the AWS End User Messaging SMS and voice v2 API, or the
@@ -12,8 +10,7 @@ By default you can have up to 25 protect configurations in your AWS account.
 
 When creating a protect configuration, you can create rules that allow, filter, or block
 for countries based on your business needs. To learn more about editing the country rules,
-see [Change a protect configuration
-country rules in AWS End User Messaging SMS](protect-configuration-edit-countries.md "protect-configuration-edit-countries.md").
+see [Change a protect configuration country rules in AWS End User Messaging SMS](protect-configuration-edit-countries.md "protect-configuration-edit-countries.md").
 
 ###### Note
 
@@ -56,8 +53,7 @@ steps:
 
 Now you have created your protect configuration you should edit the country
 rules list for MMS and voice. To learn more about editing the country rules, see
-[Change a protect configuration
-country rules in AWS End User Messaging SMS](protect-configuration-edit-countries.md "protect-configuration-edit-countries.md").
+[Change a protect configuration country rules in AWS End User Messaging SMS](protect-configuration-edit-countries.md "protect-configuration-edit-countries.md").
 
 Create a protect configuration (AWS CLI)
 You can use the create-protect-configuration command to create a new protect
@@ -78,7 +74,6 @@ In the preceding command, make the following changes:
 
 Now you have created your protect configuration you need to edit the country
 rules list for SMS, MMS, and voice. To learn more about editing the country
-rules, see [Change a protect configuration
-country rules in AWS End User Messaging SMS](protect-configuration-edit-countries.md "protect-configuration-edit-countries.md"). Optionally you can
+rules, see [Change a protect configuration country rules in AWS End User Messaging SMS](protect-configuration-edit-countries.md "protect-configuration-edit-countries.md"). Optionally you can
 associate the protect configuration with the _account
 default_ protect configuration or a configuration set.

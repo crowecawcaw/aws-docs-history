@@ -6,9 +6,7 @@ If more than 1000 text message parts are sent in 1 hour, an email notification c
 For more information, see [Using
 Amazon CloudWatch Alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md") in the _Amazon CloudWatch User Guide_.
 
-###### To create an alarm that sends an email when 1000 text message parts have been sent in an
-
-hour
+###### To create an alarm that sends an email when 1000 text message parts have been sent in an hour
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").

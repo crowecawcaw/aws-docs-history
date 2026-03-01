@@ -1,6 +1,4 @@
-# What are the Message Parts per Second (MPS)
-
-limits
+# What are the Message Parts per Second (MPS) limits
 
 SMS messages are delivered in 140-byte sections known as _message
 parts_. Messages that are very long, or that contain many multi-byte

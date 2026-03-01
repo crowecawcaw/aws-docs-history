@@ -71,8 +71,7 @@ recipients in their country. Registrations are processed by external third parti
 the amount of time to process a registration varies by phone number type and country.
 After all required registrations are complete, the status of your phone numbers changes
 to **Active** and is available for use. For more
-information about which countries require registration, see [Supported countries and regions for SMS
-messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md").
+information about which countries require registration, see [Supported countries and regions for SMS messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md").
 
 ###### Simulator phone number
 

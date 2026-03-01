@@ -1,6 +1,4 @@
-# Singapore sender ID registration frequently
-
-asked questions
+# Singapore sender ID registration frequently asked questions
 
 Frequently asked questions about the Singapore sender ID number registration process
 with AWS End User Messaging SMS.

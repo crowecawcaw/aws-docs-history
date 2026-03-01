@@ -1,6 +1,4 @@
-# Event types for SMS, MMS, and
-
-voice
+# Event types for SMS, MMS, and voice
 
 The easiest way to use event destinations is to send all SMS, MMS and voice events to
 a single destination. However, you can configure event destinations so that specific

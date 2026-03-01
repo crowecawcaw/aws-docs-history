@@ -1,6 +1,4 @@
-# How phone number override rules
-
-are processed in AWS End User Messaging SMS
+# How phone number override rules are processed in AWS End User Messaging SMS
 
 If a phone number is in the opt-out list then the message is not sent regardless if
 there is an override to allow. The phone number override always takes precedent over the

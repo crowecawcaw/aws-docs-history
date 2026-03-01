@@ -7,8 +7,7 @@ by using the AWS SDKs, the AWS Command Line Interface (AWS CLI), or the AWS End 
 
 This topic identifies AWS End User Messaging SMS actions that you can add to IAM policies for your AWS
 account. To see examples that demonstrate how you can use actions in policies to manage
-access to AWS End User Messaging SMS resources, see [Identity-based policy
-examples for AWS End User Messaging SMS](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+access to AWS End User Messaging SMS resources, see [Identity-based policy examples for AWS End User Messaging SMS](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ###### Topics
 

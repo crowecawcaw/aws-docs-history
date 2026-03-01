@@ -21,8 +21,7 @@ registration process through SSIR.
 ###### Note
 
 Before you request and register your sender ID you must obtain a Singapore Unique Entity Number (UEN).
-For more information, see [Registering for a Singapore Unique Entity
-Number (UEN)](registrations-sg-uen.md "registrations-sg-uen.md").
+For more information, see [Registering for a Singapore Unique Entity Number (UEN)](registrations-sg-uen.md "registrations-sg-uen.md").
 
 ###### Complete a Singapore sender ID registration
 

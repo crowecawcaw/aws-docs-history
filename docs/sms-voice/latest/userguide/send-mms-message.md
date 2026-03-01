@@ -9,8 +9,7 @@ AWS CLI](../../../cli/latest/userguide/cli-chap-configure.md "../../../cli/lates
 ###### Important
 
 MMS capabilities are only available in some countries. For more information on
-supported countries for SMS and MMS, see [Supported countries and regions for SMS
-messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md") and [Supported countries and regions for MMS messaging in AWS End User Messaging SMS](phone-numbers-mms-by-country.md "phone-numbers-mms-by-country.md").
+supported countries for SMS and MMS, see [Supported countries and regions for SMS messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md") and [Supported countries and regions for MMS messaging in AWS End User Messaging SMS](phone-numbers-mms-by-country.md "phone-numbers-mms-by-country.md").
 
 To check if you origination identity is MMS capable, see [View a phone number status and capabilities in AWS End User Messaging SMS](phone-numbers-status.md "phone-numbers-status.md").
 

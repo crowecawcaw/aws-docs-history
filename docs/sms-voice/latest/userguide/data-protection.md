@@ -81,9 +81,7 @@ connections and traffic between AWS End User Messaging SMS and your on-premises 
 between AWS End User Messaging SMS and other AWS resources in the same AWS Region . The following features and
 practices can help you secure internetwork traffic privacy for AWS End User Messaging SMS.
 
-### Traffic between
-
-AWS End User Messaging SMS and on-premises clients and applications
+### Traffic between AWS End User Messaging SMS and on-premises clients and applications
 
 To establish a private connection between AWS End User Messaging SMS and clients and applications on your
 on-premises network, you can use Direct Connect. This enables you to link your network to an
@@ -104,9 +102,7 @@ that's associated with an AWS Identity and Access Management (IAM) principal for
 Alternatively, you can use the [AWS Security Token Service](../../../STS/latest/APIReference/Welcome.md "../../../STS/latest/APIReference/Welcome.md") (AWS STS) to generate
 temporary security credentials to sign requests.
 
-### Traffic between
-
-AWS End User Messaging SMS and other AWS resources
+### Traffic between AWS End User Messaging SMS and other AWS resources
 
 To secure communications between AWS End User Messaging SMS and other AWS resources in the same AWS
 Region, AWS End User Messaging SMS uses HTTPS and TLS 1.2 by default.
@@ -122,9 +118,7 @@ The SMS protocol does not support encryption. To send an SMS message AWS is requ
 to transmit the SMS message outside of the AWS boundary and the SMS message will not be
 end-to-end encrypted.
 
-## Creating an interface VPC endpoint for
-
-AWS End User Messaging SMS
+## Creating an interface VPC endpoint for AWS End User Messaging SMS
 
 You can establish a private connection between your virtual private cloud (VPC) and an
 endpoint in AWS End User Messaging SMS by creating an interface VPC endpoint.
@@ -136,9 +130,7 @@ AWS PrivateLink.
 
 For more information, see the [AWS PrivateLink Guide](../../../vpc/latest/privatelink/what-is-privatelink.md "../../../vpc/latest/privatelink/what-is-privatelink.md").
 
-### Creating an
-
-interface VPC endpoints
+### Creating an interface VPC endpoints
 
 You can create an interface endpoint using either the Amazon VPC console or the AWS Command Line Interface
 (AWS CLI). For more information, see [Create an interface endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md") in the AWS PrivateLink Guide.

@@ -1,6 +1,4 @@
-# Specify the Entity ID and
-
-Template ID values to send messages to India
+# Specify the Entity ID and Template ID values to send messages to India
 
 To successfully deliver your messages using local routes, you must specify Entity ID
 and Template ID values that you received after completing the sender ID registration
@@ -52,5 +50,4 @@ journey. This section includes information for both scenarios.
    that it matches the content in the DLT registered template exactly. If you
    include additional character returns, spaces, punctuation, or mismatched
    sentence case, carriers will block your SMS messages. For more information about
-   issues related to template matching, see [Understanding
-   template matching issues when sending messages](registrations-sms-senderid-india-template-issues.md "registrations-sms-senderid-india-template-issues.md").
+   issues related to template matching, see [Understanding template matching issues when sending messages](registrations-sms-senderid-india-template-issues.md "registrations-sms-senderid-india-template-issues.md").

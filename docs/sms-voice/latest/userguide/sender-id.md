@@ -38,23 +38,20 @@ pre-approved by a regulatory agency before you can use them.
 
 ## Sender ID country capabilities and limitations in AWS End User Messaging SMS
 
-For more information on which countries support sender IDs see the **Supports Sender IDs** column in [Supported countries and regions for SMS
-messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md").
+For more information on which countries support sender IDs see the **Supports Sender IDs** column in [Supported countries and regions for SMS messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md").
 
 For the rules of which sender ID is displayed when you send SMS messages to countries where sender IDs are supported, compared to those where Sender IDs aren't supported, see [Sender ID display name rules](#channels-sms-countries-sender-id "#channels-sms-countries-sender-id").
 
 ## What are registered and dynamic sender IDs in AWS End User Messaging SMS
 
 **Registered sender ID** – A registered sender ID is registered with a regulatory agency or industry group. For a complete list of countries and regions that
-support or require sender IDs, see [Supported countries and regions for SMS
-messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md").
+support or require sender IDs, see [Supported countries and regions for SMS messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md").
 
 **Dynamic sender ID** – A dynamic sender ID does not have to be
 registered with a regulatory agency or industry group. Registration requirements can change
 quickly and it is recommended that you complete any optional registration for dynamic sender
 IDs. For a complete list of countries and regions that
-support or optionally have sender ID registration, see [Supported countries and regions for SMS
-messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md").
+support or optionally have sender ID registration, see [Supported countries and regions for SMS messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md").
 
 ## Considerations for a sender ID
 
@@ -69,6 +66,7 @@ When you are creating a Sender ID you should consider the following:
   - Minimum of 3 characters
   - Maximum of 11 characters
 
+- Some countries have additional character restrictions beyond the general rules listed above. For example, France does not support the dash character (-) in sender IDs. For country-specific requirements, see [Supported countries and regions for SMS messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md").
 - If the country you're sending to requires registration you must submit a registration for each AWS Region you plan on sending from
 
 ## Sender ID display name rules in AWS End User Messaging SMS

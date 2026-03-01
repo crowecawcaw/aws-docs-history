@@ -1,6 +1,4 @@
-# Requesting an SMS, MMS, or voice spending quota
-
-change for AWS End User Messaging SMS
+# Requesting an SMS, MMS, or voice spending quota change for AWS End User Messaging SMS
 
 Your spending quota determines how much money you can spend sending SMS, MMS, or voice
 messages through AWS End User Messaging SMS each month. When AWS End User Messaging SMS determines that sending an SMS, MMS, or voice
