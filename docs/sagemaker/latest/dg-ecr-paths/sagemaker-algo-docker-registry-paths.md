@@ -1,6 +1,4 @@
-# Docker Registry Paths and
-
-Example Code
+# Docker Registry Paths and Example Code
 
 The following topics list the Docker registry path and other parameters for each
 of the Amazon SageMaker AI provided algorithms and Deep Learning Containers (DLC). For more information, see
