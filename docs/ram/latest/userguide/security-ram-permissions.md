@@ -37,12 +37,9 @@ information, see [Viewing managed permissions](working-with-sharing-view-permiss
 ###### Topics
 
 - [Viewing managed permissions](working-with-sharing-view-permissions.md "working-with-sharing-view-permissions.md")
-- [Creating and using customer managed
-  permissions in AWS RAM](create-customer-managed-permissions.md "create-customer-managed-permissions.md")
-- [Updating AWS managed permissions to a newer
-  version](working-with-sharing-update-permissions.md "working-with-sharing-update-permissions.md")
-- [Considerations for using customer
-  managed permissions in AWS RAM](managed-permission-considerations.md "managed-permission-considerations.md")
+- [Creating and using customer managed permissions in AWS RAM](create-customer-managed-permissions.md "create-customer-managed-permissions.md")
+- [Updating AWS managed permissions to a newer version](working-with-sharing-update-permissions.md "working-with-sharing-update-permissions.md")
+- [Considerations for using customer managed permissions in AWS RAM](managed-permission-considerations.md "managed-permission-considerations.md")
 - [How managed permissions work](#permissions-work "#permissions-work")
 - [Types of managed permissions](#permissions-types "#permissions-types")
 
@@ -53,8 +50,7 @@ managed permissions let you apply the best practice of least privilege access to
 resources.
 
 This video demonstrates how to author and associate customer managed permissions following the best practice
-of least privilege. For more information see, [Creating and using customer managed
-permissions in AWS RAM](create-customer-managed-permissions.md "create-customer-managed-permissions.md").
+of least privilege. For more information see, [Creating and using customer managed permissions in AWS RAM](create-customer-managed-permissions.md "create-customer-managed-permissions.md").
 
 When you create a resource share, you associate an AWS managed permission with each resource type that you want
 to share. If the managed permission has more than one version, the new resource share
@@ -98,8 +94,7 @@ Conditions are available for customer managed permissions and supported resource
 AWS managed permissions.
 
 For information about conditions that are excluded from use with
-customer managed permissions, see [Considerations for using customer
-managed permissions in AWS RAM](managed-permission-considerations.md "managed-permission-considerations.md").
+customer managed permissions, see [Considerations for using customer managed permissions in AWS RAM](managed-permission-considerations.md "managed-permission-considerations.md").
 
 ## Types of managed permissions
 

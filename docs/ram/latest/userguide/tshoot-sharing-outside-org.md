@@ -1,6 +1,4 @@
-# Errors when trying to share with accounts
-
-outside of my organization
+# Errors when trying to share with accounts outside of my organization
 
 ## Scenario
 
@@ -18,13 +16,9 @@ AWS accounts to a resource share.`**"
 attempting to share can only be shared within your AWS
 Organization.`**"
 
-## Possible causes
+## Possible causes and solutions
 
-and solutions
-
-### Some resource types can be shared
-
-only with accounts in the same organization
+### Some resource types can be shared only with accounts in the same organization
 
 Some resource types can’t be shared with any account that isn't a member of
 that organization. An example resource type with this restriction is virtual
@@ -34,9 +28,7 @@ To verify if you can share a particular resource type with accounts and
 principals outside of your organization, see [Shareable AWS
 resources](shareable.md "shareable.md").
 
-### The service-linked role wasn't
-
-successfully created
+### The service-linked role wasn't successfully created
 
 This issue can occur if the service-linked role
 `AWSServiceRoleForResourceAccessManager` wasn't successfully

@@ -9,8 +9,6 @@ resource shares, modify existing resource shares, and delete resource shares tha
 - [Viewing resource shares you created in AWS RAM](working-with-sharing-view-rs.md "working-with-sharing-view-rs.md")
 - [Creating a resource share in AWS RAM](working-with-sharing-create.md "working-with-sharing-create.md")
 - [Update a resource share in AWS RAM](working-with-sharing-update.md "working-with-sharing-update.md")
-- [Viewing your shared resources in
-  AWS RAM](working-with-sharing-view-sr.md "working-with-sharing-view-sr.md")
-- [Viewing the principals you share
-  resources with in AWS RAM](working-with-sharing-view-principals.md "working-with-sharing-view-principals.md")
+- [Viewing your shared resources in AWS RAM](working-with-sharing-view-sr.md "working-with-sharing-view-sr.md")
+- [Viewing the principals you share resources with in AWS RAM](working-with-sharing-view-principals.md "working-with-sharing-view-principals.md")
 - [Deleting a resource share in AWS RAM](working-with-sharing-delete.md "working-with-sharing-delete.md")

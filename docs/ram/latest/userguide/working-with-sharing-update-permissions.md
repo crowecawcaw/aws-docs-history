@@ -1,6 +1,4 @@
-# Updating AWS managed permissions to a newer
-
-version
+# Updating AWS managed permissions to a newer version
 
 Occasionally, AWS updates the AWS managed permissions available to attach to a
 resource share for a specific resource type. When AWS does this, it creates a new version

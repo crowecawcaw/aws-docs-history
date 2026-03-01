@@ -1,4 +1,4 @@
-# Data protection in AWS RAM
+# Data protection in AWS Resource Access Manager
 
 The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/")
 applies to data protection in AWS Resource Access Manager. As described in this model, AWS is

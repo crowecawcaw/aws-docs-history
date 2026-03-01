@@ -22,7 +22,7 @@ in the _IAM User Guide_.
       + (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the *IAM User Guide*.
 
   AWS RAM provides several AWS managed policies that you can use that will address the needs
-  of many users. For more information about these, see [AWS managed policies for AWS RAM](security-iam-managed-policies.md "security-iam-managed-policies.md").
+  of many users. For more information about these, see [AWS managed policies for AWS Resource Access Manager](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
 
 If you need finer control over the permissions you grant to your users, you can construct
 your own policies in the IAM console. For information about creating policies and

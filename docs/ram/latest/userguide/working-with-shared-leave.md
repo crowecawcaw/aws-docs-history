@@ -3,9 +3,7 @@
 If you no longer need access to resources that are shared with you, you can leave a resource share
 at any time. When you leave a resource share, you lose access to the shared resources.
 
-## Prerequisites for leaving a
-
-resource share
+## Prerequisites for leaving a resource share
 
 - You can leave a resource share only if it was shared with you as an individual
   AWS account and not in the context of an organization. You can't leave a resource share
@@ -34,8 +32,7 @@ Console
 
 1. Navigate to the **[Shared with me : Resource shares](https://console.aws.amazon.com/ram/home#SharedResourceShares: "https://console.aws.amazon.com/ram/home#SharedResourceShares:")** page in the AWS RAM
    console.
-2. Because AWS RAM resource shares exist in specific AWS Regions, choose the appropriate AWS Region from the dropdown list in the upper-right corner of the console. To see resource shares that contain global resources, you must set the AWS Region to US East (N. Virginia), (`us-east-1`). For more information about sharing global resources, see [Sharing Regional resources compared to
-   global resources](working-with-regional-vs-global.md "working-with-regional-vs-global.md").
+2. Because AWS RAM resource shares exist in specific AWS Regions, choose the appropriate AWS Region from the dropdown list in the upper-right corner of the console. To see resource shares that contain global resources, you must set the AWS Region to US East (N. Virginia), (`us-east-1`). For more information about sharing global resources, see [Sharing Regional resources compared to global resources](working-with-regional-vs-global.md "working-with-regional-vs-global.md").
 3. Select the resource share you want to leave.
 4. Choose **Leave resource share**, and in the
    confirmation dialog box, choose **Leave**.

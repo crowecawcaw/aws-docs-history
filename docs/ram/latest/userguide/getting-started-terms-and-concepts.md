@@ -47,9 +47,7 @@ resource-based policy to the resources in a resource share, the AWS RAM administ
 must have permissions to call the `PutResourcePolicy` operation in the
 AWS service for each resource type included in a resource share.
 
-## Consuming
-
-principals
+## Consuming principals
 
 The _consuming account_ is the AWS account to which
 a resource is shared. The resource share can specify an entire account as the principal,
@@ -131,8 +129,7 @@ When you share with an organization or an OU, and that scope includes the accoun
 owns the resource share, all principals in the sharing account automatically get access to the
 resources in the share. The access granted is defined by the managed permissions associated with the share.
 This is because the resource-based policy that AWS RAM attaches to each resource in the
-share uses `"Principal": "*"`. For more information, see [Implications of using "Principal":
-"\*" in a resource-based policy](#term-principal-star "#term-principal-star").
+share uses `"Principal": "*"`. For more information, see [Implications of using "Principal": "\*" in a resource-based policy](#term-principal-star "#term-principal-star").
 
 Principals in the other consuming accounts don't immediately get access to the
 share's resources. The other accounts' administrators must first attach
@@ -219,9 +216,7 @@ types:
 - Amazon Virtual Private Cloud – Customer-owned IPv4 addresses, prefix lists, subnets, traffic
   mirror targets, transit gateways, and transit gateway multicast domains
 
-### Examples of AWS RAM generated resource-based
-
-policies
+### Examples of AWS RAM generated resource-based policies
 
 If you share an EC2 Image Builder image resource with an individual **_account_**, AWS RAM generates a
 policy that looks like the following example and attaches it to any image resources
@@ -284,8 +279,7 @@ the resource share.
 
 This policy uses `"Principal": "*"` and then uses the
 `"Condition"` element to restrict permissions to identities that
-match the specified `PrincipalOrgID`. For more information, see [Implications of using "Principal":
-"\*" in a resource-based policy](#term-principal-star "#term-principal-star").
+match the specified `PrincipalOrgID`. For more information, see [Implications of using "Principal": "\*" in a resource-based policy](#term-principal-star "#term-principal-star").
 
 JSON
 
@@ -312,9 +306,7 @@ JSON
 
 ```
 
-### Implications of using "Principal":
-
-"\*" in a resource-based policy
+### Implications of using "Principal": "\*" in a resource-based policy
 
 When you include `"Principal": "*"` in a resource-based policy, the
 policy grants access to all IAM principals in the account that contains the
@@ -391,5 +383,4 @@ associated with any resource shares. Each customer managed permission can have u
 versions.
 
 When you create or update a resource share, you can attach only the default version of
-the specified managed permission. For more information, see [Updating AWS managed permissions to a newer
-version](working-with-sharing-update-permissions.md "working-with-sharing-update-permissions.md").
+the specified managed permission. For more information, see [Updating AWS managed permissions to a newer version](working-with-sharing-update-permissions.md "working-with-sharing-update-permissions.md").

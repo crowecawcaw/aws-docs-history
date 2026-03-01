@@ -1,6 +1,4 @@
-# Considerations for using customer
-
-managed permissions in AWS RAM
+# Considerations for using customer managed permissions in AWS RAM
 
 Customer managed permissions are only available in the AWS Region that you create them in. Not all resource
 types support customer managed permissions. For a list of supported resource types in AWS Resource Access Manager, see [Shareable AWS resources](shareable.md "shareable.md").

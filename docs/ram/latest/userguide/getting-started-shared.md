@@ -5,14 +5,10 @@ following tasks.
 
 ###### Tasks
 
-- [Respond to the resource share
-  invitation](#getting-started-shared-respond-invitation "#getting-started-shared-respond-invitation")
-- [Use the resources that are shared
-  with you](#getting-started-shared-use-resources "#getting-started-shared-use-resources")
+- [Respond to the resource share invitation](#getting-started-shared-respond-invitation "#getting-started-shared-respond-invitation")
+- [Use the resources that are shared with you](#getting-started-shared-use-resources "#getting-started-shared-use-resources")
 
-## Respond to the resource share
-
-invitation
+## Respond to the resource share invitation
 
 If you receive an invitation to join a resource share, you must accept it to gain access to the
 shared resources.
@@ -96,9 +92,7 @@ The output shows that the `status` has changed to
 `ACCEPTED`. The resources that are included in that resource share are
 now available to principals in the accepting account.
 
-## Use the resources that are shared
-
-with you
+## Use the resources that are shared with you
 
 After you accept the invitation to join a resource share, you can perform specific actions on
 the shared resources. These actions vary by resource type. For more information, see

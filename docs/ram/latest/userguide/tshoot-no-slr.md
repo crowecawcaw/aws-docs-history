@@ -1,6 +1,4 @@
-# Error: "Your account ID does not exist in an AWS
-
-organization"
+# Error: "Your account ID does not exist in an AWS organization"
 
 ## Scenario
 

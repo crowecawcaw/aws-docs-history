@@ -28,8 +28,7 @@ The following video demonstrates how to apply AWS managed permissions to your AW
 more information, see [Managing permissions in AWS RAM](security-ram-permissions.md "security-ram-permissions.md").
 
 This video demonstrates how to author and associate customer managed permissions following the best practice
-of least privilege. For more information see, [Creating and using customer managed
-permissions in AWS RAM](create-customer-managed-permissions.md "create-customer-managed-permissions.md").
+of least privilege. For more information see, [Creating and using customer managed permissions in AWS RAM](create-customer-managed-permissions.md "create-customer-managed-permissions.md").
 
 ## Benefits of AWS RAM
 
@@ -54,9 +53,7 @@ Why use AWS RAM? It offers the following benefits:
   AWS RAM with Amazon CloudWatch and AWS CloudTrail. AWS RAM provides comprehensive visibility into
   shared resources and accounts.
 
-### What about cross-account access with
-
-resource-based policies?
+### What about cross-account access with resource-based policies?
 
 You can share some types of AWS resources with other AWS accounts by attaching
 a [resource-based policy](getting-started-terms-and-concepts.md#term-resource-based-policy "getting-started-terms-and-concepts.md#term-resource-based-policy") that
@@ -102,8 +99,7 @@ Any policies and permissions that apply to roles and users in the consuming acco
 apply to the shared resource. The resources in the share look like they're native
 resources in the AWS accounts you shared them with.
 
-You can share both global and Regional resources. For more information, see [Sharing Regional resources compared to
-global resources](working-with-regional-vs-global.md "working-with-regional-vs-global.md").
+You can share both global and Regional resources. For more information, see [Sharing Regional resources compared to global resources](working-with-regional-vs-global.md "working-with-regional-vs-global.md").
 
 ### Sharing your resources
 

@@ -1,4 +1,106 @@
-# Creating a resource share in AWS RAM
+# Sharing your AWS resources
+
+To share a resource that you own by using AWS RAM, do the following:
+
+- [Enable resource sharing within AWS Organizations](#getting-started-sharing-orgs "#getting-started-sharing-orgs") (optional)
+- [Create a resource share](#getting-started-sharing-create "#getting-started-sharing-create")
+
+###### Notes
+
+- Sharing a resource with principals outside of the AWS account that owns the
+  resource doesn't change the permissions or quotas that apply to the resource
+  within the account that created it.
+- AWS RAM is a Regional service. The principals that you share with can access
+  resource shares in only the AWS Regions in which the resources were created.
+- Some resources have special considerations and prerequisites for sharing. For
+  more information, see [Shareable AWS resources](shareable.md "shareable.md").
+
+## Enable resource sharing within AWS Organizations
+
+When your account is managed by AWS Organizations, you can take advantage of that to share
+resources more easily. With or without Organizations, a user can share with individual accounts.
+However, if your account is in an organization, then you can share with individual
+accounts, or with all accounts in the organization or in an OU without having to
+enumerate each account.
+
+To share resources within an organization, you must first use the AWS RAM console or
+AWS Command Line Interface (AWS CLI) to enable sharing with AWS Organizations. When you share resources in your
+organization, AWS RAM doesn't send invitations to principals. Principals in your
+organization gain access to shared resources without exchanging invitations.
+
+When you enable resource sharing within your organization, AWS RAM creates a
+service-linked role called `**AWSServiceRoleForResourceAccessManager**`. This role can be assumed by only the
+AWS RAM service, and grants AWS RAM permission to retrieve information about the
+organization it is a member of, by using the AWS managed policy
+`AWSResourceAccessManagerServiceRolePolicy`.
+
+###### Note
+
+By default, when you enable sharing with AWS Organizations, resource sharing within your organization restricts access to consumers within the same organization. If a consumer account leaves the organization, that account loses access to resources in the resource share. This restriction applies whether you share resources with an OU, the entire organization, or an individual account in the organization.
+
+For account-to-account sharing within your organization, you can retain sharing access when accounts leave by setting `RetainSharingOnAccountLeaveOrganization` to `True` when you create a new resource share. With this setting enabled, AWS RAM sends an invitation to the consuming account (similar to sharing with external accounts). The account retains access to shared resources even if it leaves the organization.
+
+The `RetainSharingOnAccountLeaveOrganization` setting has the following requirements and limitations:
+
+- Requires `allowExternalPrincipals` to be `True`
+- Can only be set when creating new resource shares
+- Does not apply to sharing with OUs or the entire organization
+- When `RetainSharingOnAccountLeaveOrganization` is set to `True`, you cannot use resource shares to share resources that [can only be shared within an organization](shareable.md "shareable.md").
+
+If you no longer need to share resources with your entire organization or OUs, you can
+disable resource sharing. For more information, see [Disabling resource sharing with AWS Organizations](security-disable-sharing-with-orgs.md "security-disable-sharing-with-orgs.md").
+
+###### Minimum permissions
+
+To run the procedures below, you must sign in as a principal in the organization's
+management account that has the following permissions:
+
+- `ram:EnableSharingWithAwsOrganization`
+- `iam:CreateServiceLinkedRole`
+- `organizations:enableAWSServiceAccess`
+- `organizations:DescribeOrganization`
+
+###### Requirements
+
+- You can perform these steps only while signed in as a principal in the
+  organization's management account.
+- The organization must have all features enabled. For more information, see
+  [Enabling all features in your organization](../../../organizations/latest/userguide/orgs_manage_org_support-all-features.md "../../../organizations/latest/userguide/orgs_manage_org_support-all-features.md") in the
+  _AWS Organizations User Guide_.
+
+###### Important
+
+You must enable sharing with AWS Organizations by using the AWS RAM console or the [enable-sharing-with-aws-organization](../../../cli/latest/reference/ram/enable-sharing-with-aws-organization.md "../../../cli/latest/reference/ram/enable-sharing-with-aws-organization.md") AWS CLI command. This ensures that
+the `AWSServiceRoleForResourceAccessManager` service-linked role is
+created. If you enable trusted access with AWS Organizations by using the AWS Organizations console or
+the [enable-aws-service-access](../../../cli/latest/reference/organizations/enable-aws-service-access.md "../../../cli/latest/reference/organizations/enable-aws-service-access.md") AWS CLI command, the
+`AWSServiceRoleForResourceAccessManager` service-linked role isn't
+created, and you can't share resources within your organization.
+
+Console
+
+###### To enable resource sharing within your organization
+
+1. Open the **[Settings](https://console.aws.amazon.com/ram/home#Settings: "https://console.aws.amazon.com/ram/home#Settings:")** page in the AWS RAM console.
+2. Choose **Enable sharing with AWS Organizations**, and then
+   choose **Save settings**.
+
+AWS CLI
+
+###### To enable resource sharing within your organization
+
+Use the [enable-sharing-with-aws-organization](../../../cli/latest/reference/ram/enable-sharing-with-aws-organization.md "../../../cli/latest/reference/ram/enable-sharing-with-aws-organization.md") command.
+
+This command can be used in any AWS Region, and it enables sharing with
+AWS Organizations in all Regions in which AWS RAM is supported.
+
+```
+`$` `aws ram enable-sharing-with-aws-organization``{
+ "returnValue": true
+}`
+```
+
+## Create a resource share
 
 To share resources that you own, create a resource share. Here's an overview of the process:
 
@@ -154,7 +256,7 @@ Choose **Create customer managed permission** to
 construct a customer managed permission that meets the requirements of your sharing use case.
 For more information see [Create a customer managed permission](create-customer-managed-permissions.md#create_cmp "create-customer-managed-permissions.md#create_cmp"). After completing the process, choose
 
-![Refresh icon](images/refresh_icon.PNG)
+![Refresh icon](/images/ram/latest/userguide/images/refresh_icon.PNG)
 and then you can select your new customer managed permission from the
 **Managed permissions** dropdown list.
 

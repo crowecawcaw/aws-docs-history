@@ -1,6 +1,4 @@
-# Access AWS Resource Access Manager using an interface endpoint
-
-(AWS PrivateLink)
+# Access AWS Resource Access Manager using an interface endpoint (AWS PrivateLink)
 
 You can use AWS PrivateLink to create a private connection between your VPC and
 AWS Resource Access Manager. You can access AWS RAM as if it were in your VPC, without the use of an
@@ -42,9 +40,7 @@ If you enable private DNS for the interface endpoint, you can make API requests 
 AWS RAM using its default Regional DNS name. For example,
 `ram.us-east-1.amazonaws.com`.
 
-## Create an endpoint policy for your interface
-
-endpoint
+## Create an endpoint policy for your interface endpoint
 
 An endpoint policy is an IAM resource that you can attach to an interface endpoint.
 The default endpoint policy allows full access to AWS RAM through the interface

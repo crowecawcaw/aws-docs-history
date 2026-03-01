@@ -1,6 +1,4 @@
-# Sharing Regional resources compared to
-
-global resources
+# Sharing Regional resources compared to global resources
 
 This topic discusses the differences in how AWS Resource Access Manager (AWS RAM) works with Regional and
 global resources.
@@ -9,9 +7,7 @@ Resources are either Regional or global. You can use the fourth field in the [Am
 whether a resource is Regional or global.
 Regional resources show the AWS Region. If it's blank, then the resource is global.
 
-## What are the differences between Regional and
-
-global resources?
+## What are the differences between Regional and global resources?
 
 **Regional resources**
 

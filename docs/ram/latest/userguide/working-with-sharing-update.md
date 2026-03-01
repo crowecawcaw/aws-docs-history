@@ -19,8 +19,7 @@ contains only resource types that support leaving a resource share. If the resou
 types that don't support leaving, a message appears to inform principals
 that they must contact the share owner. In this case, you, as the owner of the resource share,
 must remove the principals from your resource share. For a list of resource types that
-don't support this action, see [Prerequisites for leaving a
-resource share](working-with-shared-leave.md#working-with-shared-leave-prerequisites "working-with-shared-leave.md#working-with-shared-leave-prerequisites").
+don't support this action, see [Prerequisites for leaving a resource share](working-with-shared-leave.md#working-with-shared-leave-prerequisites "working-with-shared-leave.md#working-with-shared-leave-prerequisites").
 
 Console
 
@@ -28,8 +27,7 @@ Console
 
 1. Navigate to the **[Shared by me : Resource shares](https://console.aws.amazon.com/ram/home#OwnedResourceShares: "https://console.aws.amazon.com/ram/home#OwnedResourceShares:")** page in the AWS RAM
    console.
-2. Because AWS RAM resource shares exist in specific AWS Regions, choose the appropriate AWS Region from the dropdown list in the upper-right corner of the console. To see resource shares that contain global resources, you must set the AWS Region to US East (N. Virginia), (`us-east-1`). For more information about sharing global resources, see [Sharing Regional resources compared to
-   global resources](working-with-regional-vs-global.md "working-with-regional-vs-global.md").
+2. Because AWS RAM resource shares exist in specific AWS Regions, choose the appropriate AWS Region from the dropdown list in the upper-right corner of the console. To see resource shares that contain global resources, you must set the AWS Region to US East (N. Virginia), (`us-east-1`). For more information about sharing global resources, see [Sharing Regional resources compared to global resources](working-with-regional-vs-global.md "working-with-regional-vs-global.md").
 3. Select the resource share and then choose **Modify**.
 4. In **Step 1: Specify resource share details**, review the resource share
    details, and if required, update any of the following:
@@ -119,8 +117,7 @@ update any of the following:
     	 owns the resource share, all principals in the sharing account automatically get access to the
     	 resources in the share. The access granted is defined by the managed permissions associated with the share.
     	 This is because the resource-based policy that AWS RAM attaches to each resource in the
-    	 share uses `"Principal": "*"`. For more information, see [Implications of using "Principal":
-    	 "\*" in a resource-based policy](getting-started-terms-and-concepts.md#term-principal-star "getting-started-terms-and-concepts.md#term-principal-star").
+    	 share uses `"Principal": "*"`. For more information, see [Implications of using "Principal": "\*" in a resource-based policy](getting-started-terms-and-concepts.md#term-principal-star "getting-started-terms-and-concepts.md#term-principal-star").
 
     	Principals in the other consuming accounts don't immediately get access to the
     	 share's resources. The other accounts' administrators must first attach

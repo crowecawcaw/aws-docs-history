@@ -17,9 +17,7 @@ the loss of that specific event.
 
 For more information, see the Amazon EventBridge User Guide.
 
-## Example: Alerting on resource
-
-share failures
+## Example: Alerting on resource share failures
 
 Consider the scenario where you want to share Amazon EC2 capacity reservations with other
 accounts in your organization. Doing this is a good way to reduce your costs.

@@ -1,6 +1,4 @@
-# Viewing resource shares shared with
-
-you
+# Viewing resource shares shared with you
 
 You can view the resource shares to which you have access. You can see which principals
 are sharing resources with you and which resources they're sharing.
@@ -11,8 +9,7 @@ Console
 
 1. Navigate to the **[Shared with me : Resource shares](https://console.aws.amazon.com/ram/home#SharedResourceShares: "https://console.aws.amazon.com/ram/home#SharedResourceShares:")** page in the AWS RAM
    console.
-2. Because AWS RAM resource shares exist in specific AWS Regions, choose the appropriate AWS Region from the dropdown list in the upper-right corner of the console. To see resource shares that contain global resources, you must set the AWS Region to US East (N. Virginia), (`us-east-1`). For more information about sharing global resources, see [Sharing Regional resources compared to
-   global resources](working-with-regional-vs-global.md "working-with-regional-vs-global.md").
+2. Because AWS RAM resource shares exist in specific AWS Regions, choose the appropriate AWS Region from the dropdown list in the upper-right corner of the console. To see resource shares that contain global resources, you must set the AWS Region to US East (N. Virginia), (`us-east-1`). For more information about sharing global resources, see [Sharing Regional resources compared to global resources](working-with-regional-vs-global.md "working-with-regional-vs-global.md").
 3. (Optional) Apply a filter to find specific resource shares. You can apply
    multiple filters to narrow your search. You can type a keyword, such as
    part of a resource share name to list only those resource shares that include that text in

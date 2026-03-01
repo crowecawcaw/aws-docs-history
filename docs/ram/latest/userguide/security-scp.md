@@ -1,6 +1,4 @@
-# Example service control policies for AWS Organizations and
-
-AWS RAM
+# Example service control policies for AWS Organizations and AWS RAM
 
 AWS RAM supports service control policies (SCPs). SCPs are policies that you attach to
 elements in an organization to manage permissions within that organization. An SCP applies
@@ -28,14 +26,11 @@ To use SCPs, you must first do the following:
 ###### Contents
 
 - [Example 1: Prevent external sharing](security-scp.md#example-one "security-scp.md#example-one")
-- [Example 2: Prevent users from accepting resource share
-  invitations from external accounts outside your organization](security-scp.md#example-two "security-scp.md#example-two")
-- [Example 3: Allow specific accounts to share specific
-  resource types](security-scp.md#example-three "security-scp.md#example-three")
-- [Example 4: Prevent sharing with the entire
-  organization or with organizational units](security-scp.md#example-four "security-scp.md#example-four")
-- [Example 5: Allow sharing with only specific
-  principals](security-scp.md#example-five "security-scp.md#example-five")
+- [Example 2: Prevent users from accepting resource share invitations from external accounts outside your organization](security-scp.md#example-two "security-scp.md#example-two")
+- [Example 3: Allow specific accounts to share specific resource types](security-scp.md#example-three "security-scp.md#example-three")
+- [Example 4: Prevent sharing with the entire organization or with organizational units](security-scp.md#example-four "security-scp.md#example-four")
+- [Example 5: Allow sharing with only specific principals](security-scp.md#example-five "security-scp.md#example-five")
+- [Example 6: Prevent resource shares with RetainSharingOnAccountLeaveOrganization enabled](security-scp.md#example-six "security-scp.md#example-six")
 
 The following examples show how you can control various aspects of resource sharing in
 an organization.
@@ -71,9 +66,7 @@ JSON
 
 ```
 
-### Example 2: Prevent users from accepting resource share
-
-invitations from external accounts outside your organization
+### Example 2: Prevent users from accepting resource share invitations from external accounts outside your organization
 
 The following SCP blocks any principal in an affected account from accepting an
 invitation to use a resource share. Resource shares that are shared to other
@@ -96,9 +89,7 @@ JSON
 
 ```
 
-### Example 3: Allow specific accounts to share specific
-
-resource types
+### Example 3: Allow specific accounts to share specific resource types
 
 The following SCP allows _only_ accounts
 `111111111111` and `222222222222` to
@@ -146,9 +137,7 @@ JSON
 
 ```
 
-### Example 4: Prevent sharing with the entire
-
-organization or with organizational units
+### Example 4: Prevent sharing with the entire organization or with organizational units
 
 The following SCP prevents users from creating resource shares that share
 resources with an entire organization or with any organizational units. Users
@@ -184,9 +173,7 @@ JSON
 
 ```
 
-### Example 5: Allow sharing with only specific
-
-principals
+### Example 5: Allow sharing with only specific principals
 
 The following example SCP allows users to share resources with
 _only_ organization `o-12345abcdef,`
@@ -228,4 +215,30 @@ JSON
  ]
 }`
 
+```
+
+### Example 6: Prevent resource shares with RetainSharingOnAccountLeaveOrganization enabled
+
+The following SCP prevents users from creating or modifying resource shares when the `ram:RetainSharingOnAccountLeaveOrganization` condition key is set to `true`.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Deny",
+            "Action": [
+                "ram:CreateResourceShare",
+                "ram:AssociateResourceShare",
+                "ram:DisassociateResourceShare"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "Bool": {
+                    "ram:RetainSharingOnAccountLeaveOrganization": "true"
+                }
+            }
+        }
+    ]
+}
 ```

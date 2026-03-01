@@ -9,8 +9,7 @@ Console
 
 1. Open the **[Shared by me : Resource shares](https://console.aws.amazon.com/ram/home#OwnedResourceShares: "https://console.aws.amazon.com/ram/home#OwnedResourceShares:")** page in the AWS RAM
    console.
-2. Because AWS RAM resource shares exist in specific AWS Regions, choose the appropriate AWS Region from the dropdown list in the upper-right corner of the console. To see resource shares that contain global resources, you must set the AWS Region to US East (N. Virginia), (`us-east-1`). For more information about sharing global resources, see [Sharing Regional resources compared to
-   global resources](working-with-regional-vs-global.md "working-with-regional-vs-global.md").
+2. Because AWS RAM resource shares exist in specific AWS Regions, choose the appropriate AWS Region from the dropdown list in the upper-right corner of the console. To see resource shares that contain global resources, you must set the AWS Region to US East (N. Virginia), (`us-east-1`). For more information about sharing global resources, see [Sharing Regional resources compared to global resources](working-with-regional-vs-global.md "working-with-regional-vs-global.md").
 3. If any of the managed permissions used by the resource shares in the
    results have a new version of the managed permission that is designated
    as the default, then the page displays a banner to alert you. You can

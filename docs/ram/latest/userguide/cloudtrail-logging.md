@@ -52,9 +52,7 @@ request.
 For more information, see the [CloudTrail userIdentity
 element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Understanding AWS RAM log file
-
-entries
+## Understanding AWS RAM log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3
 bucket that you specify. CloudTrail log files contain one or more log entries. An event

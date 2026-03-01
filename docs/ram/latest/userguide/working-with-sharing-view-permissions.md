@@ -11,8 +11,7 @@ Console
 
 1.  Navigate to the \***\*[Managed permissions library](https://console.aws.amazon.com/ram/home#Permissions: "https://console.aws.amazon.com/ram/home#Permissions:")\*\*** page in
     the AWS RAM console.
-2.  Because AWS RAM resource shares exist in specific AWS Regions, choose the appropriate AWS Region from the dropdown list in the upper-right corner of the console. To see resource shares that contain global resources, you must set the AWS Region to US East (N. Virginia), (`us-east-1`). For more information about sharing global resources, see [Sharing Regional resources compared to
-    global resources](working-with-regional-vs-global.md "working-with-regional-vs-global.md"). Although all Regions share the same available
+2.  Because AWS RAM resource shares exist in specific AWS Regions, choose the appropriate AWS Region from the dropdown list in the upper-right corner of the console. To see resource shares that contain global resources, you must set the AWS Region to US East (N. Virginia), (`us-east-1`). For more information about sharing global resources, see [Sharing Regional resources compared to global resources](working-with-regional-vs-global.md "working-with-regional-vs-global.md"). Although all Regions share the same available
     AWS managed permissions, this affects the number of associated
     resource shares displayed for each managed permission in [Step 5](#step-5 "#step-5"). Customer managed permissions are only available in the
     Region that they were created in.

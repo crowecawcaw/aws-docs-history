@@ -1,6 +1,4 @@
-# Accepting and rejecting resource share
-
-invitations
+# Accepting and rejecting resource share invitations
 
 To access shared resources, the owner of the resource share must add you as a principal.
 The owner can add any of the following as a principal to the resource share.
@@ -51,8 +49,7 @@ Console
 ###### To respond to an invitation to a resource share
 
 1. Navigate to the **[Shared with me : Resource shares](https://console.aws.amazon.com/ram/home#SharedResourceShares: "https://console.aws.amazon.com/ram/home#SharedResourceShares:")** page in the AWS RAM console.
-2. Because AWS RAM resource shares exist in specific AWS Regions, choose the appropriate AWS Region from the dropdown list in the upper-right corner of the console. To see resource shares that contain global resources, you must set the AWS Region to US East (N. Virginia), (`us-east-1`). For more information about sharing global resources, see [Sharing Regional resources compared to
-   global resources](working-with-regional-vs-global.md "working-with-regional-vs-global.md").
+2. Because AWS RAM resource shares exist in specific AWS Regions, choose the appropriate AWS Region from the dropdown list in the upper-right corner of the console. To see resource shares that contain global resources, you must set the AWS Region to US East (N. Virginia), (`us-east-1`). For more information about sharing global resources, see [Sharing Regional resources compared to global resources](working-with-regional-vs-global.md "working-with-regional-vs-global.md").
 3. Review the list of resource shares to which you have been added.
 
 The **Status** column indicates your current participation status

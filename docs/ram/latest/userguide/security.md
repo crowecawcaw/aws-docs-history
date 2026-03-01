@@ -1,4 +1,4 @@
-# Security in AWS RAM
+# Security in AWS Resource Access Manager
 
 Cloud security at AWS is the highest priority. As an AWS customer, you benefit from a
 data center and network architecture that is built to meet the requirements of the most
@@ -27,9 +27,10 @@ _in_ the cloud:
 
 ###### Topics
 
-- [Data protection](security-data-protection.md "security-data-protection.md")
-- [Identity and access management](security-iam.md "security-iam.md")
-- [Logging and monitoring](security-monitoring.md "security-monitoring.md")
-- [Resilience](security-disaster-recovery-resiliency.md "security-disaster-recovery-resiliency.md")
-- [Infrastructure security](security-infrastructure.md "security-infrastructure.md")
-- [AWS PrivateLink](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
+- [Data protection in AWS Resource Access Manager](data-protection.md "data-protection.md")
+- [Identity and access management for AWS Resource Access Manager](security-iam.md "security-iam.md")
+- [Logging and monitoring in AWS RAM](security-monitoring.md "security-monitoring.md")
+- [Compliance validation for AWS Resource Access Manager](compliance-validation.md "compliance-validation.md")
+- [Resilience in AWS Resource Access Manager](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
+- [Infrastructure security in AWS Resource Access Manager](infrastructure-security.md "infrastructure-security.md")
+- [Access AWS Resource Access Manager using an interface endpoint (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")

@@ -1,4 +1,4 @@
-# AWS managed policies for AWS RAM
+# AWS managed policies for AWS Resource Access Manager
 
 AWS Resource Access Manager currently provides several AWS RAM managed policies, which are described in this
 topic.
@@ -67,9 +67,7 @@ JSON
 
 ```
 
-## AWS
-
-managed policy: AWSResourceAccessManagerFullAccess
+## AWS managed policy: AWSResourceAccessManagerFullAccess
 
 You can attach the `AWSResourceAccessManagerFullAccess` policy to your
 IAM identities.
@@ -104,9 +102,7 @@ JSON
 
 ```
 
-## AWS managed policy:
-
-AWSResourceAccessManagerResourceShareParticipantAccess
+## AWS managed policy: AWSResourceAccessManagerResourceShareParticipantAccess
 
 You can attach the `AWSResourceAccessManagerResourceShareParticipantAccess`
 policy to your IAM identities.
@@ -210,9 +206,7 @@ JSON
 
 ```
 
-## AWS RAM updates to AWS managed
-
-policies
+## AWS RAM updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS RAM since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe

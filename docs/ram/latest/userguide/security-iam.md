@@ -1,4 +1,4 @@
-# Identity and access management for AWS RAM
+# Identity and access management for AWS Resource Access Manager
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access
 to AWS resources. Administrators in IAM control who can be
@@ -12,11 +12,8 @@ _IAM User Guide_.
 ###### Topics
 
 - [How AWS RAM works with IAM](security-iam-policies.md "security-iam-policies.md")
-- [AWS managed policies for AWS RAM](security-iam-managed-policies.md "security-iam-managed-policies.md")
-- [Using Service-Linked Roles for
-  AWS RAM](security-iam-service-linked-roles.md "security-iam-service-linked-roles.md")
+- [AWS managed policies for AWS Resource Access Manager](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
+- [Using service-linked roles for AWS RAM](using-service-linked-roles.md "using-service-linked-roles.md")
 - [Example IAM policies for AWS RAM](security-iam-policies-examples.md "security-iam-policies-examples.md")
-- [Example service control policies for AWS Organizations and
-  AWS RAM](security-scp.md "security-scp.md")
-- [Disabling resource sharing with
-  AWS Organizations](security-disable-sharing-with-orgs.md "security-disable-sharing-with-orgs.md")
+- [Example service control policies for AWS Organizations and AWS RAM](security-scp.md "security-scp.md")
+- [Disabling resource sharing with AWS Organizations](security-disable-sharing-with-orgs.md "security-disable-sharing-with-orgs.md")

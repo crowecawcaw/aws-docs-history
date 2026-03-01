@@ -2,8 +2,7 @@
 
 To share a resource that you own by using AWS RAM, do the following:
 
-- [Enable resource sharing within
-  AWS Organizations](#getting-started-sharing-orgs "#getting-started-sharing-orgs") (optional)
+- [Enable resource sharing within AWS Organizations](#getting-started-sharing-orgs "#getting-started-sharing-orgs") (optional)
 - [Create a resource share](#getting-started-sharing-create "#getting-started-sharing-create")
 
 ###### Notes
@@ -16,9 +15,7 @@ To share a resource that you own by using AWS RAM, do the following:
 - Some resources have special considerations and prerequisites for sharing. For
   more information, see [Shareable AWS resources](shareable.md "shareable.md").
 
-## Enable resource sharing within
-
-AWS Organizations
+## Enable resource sharing within AWS Organizations
 
 When your account is managed by AWS Organizations, you can take advantage of that to share
 resources more easily. With or without Organizations, a user can share with individual accounts.
@@ -39,13 +36,19 @@ organization it is a member of, by using the AWS managed policy
 
 ###### Note
 
-When sharing with AWS Organizations is enabled, any resource sharing within the organization is restricted to consumers within
-the same organization. This means if the consumer leaves the organization, they will lose access to the resources in the resource
-share. This is true when the resource is shared with an OU, the entire organization, or an individual account in the organization.
+By default, when you enable sharing with AWS Organizations, resource sharing within your organization restricts access to consumers within the same organization. If a consumer account leaves the organization, that account loses access to resources in the resource share. This restriction applies whether you share resources with an OU, the entire organization, or an individual account in the organization.
+
+For account-to-account sharing within your organization, you can retain sharing access when accounts leave by setting `RetainSharingOnAccountLeaveOrganization` to `True` when you create a new resource share. With this setting enabled, AWS RAM sends an invitation to the consuming account (similar to sharing with external accounts). The account retains access to shared resources even if it leaves the organization.
+
+The `RetainSharingOnAccountLeaveOrganization` setting has the following requirements and limitations:
+
+- Requires `allowExternalPrincipals` to be `True`
+- Can only be set when creating new resource shares
+- Does not apply to sharing with OUs or the entire organization
+- When `RetainSharingOnAccountLeaveOrganization` is set to `True`, you cannot use resource shares to share resources that [can only be shared within an organization](shareable.md "shareable.md").
 
 If you no longer need to share resources with your entire organization or OUs, you can
-disable resource sharing. For more information, see [Disabling resource sharing with
-AWS Organizations](security-disable-sharing-with-orgs.md "security-disable-sharing-with-orgs.md").
+disable resource sharing. For more information, see [Disabling resource sharing with AWS Organizations](security-disable-sharing-with-orgs.md "security-disable-sharing-with-orgs.md").
 
 ###### Minimum permissions
 
@@ -130,8 +133,7 @@ as the default. 3. Specify the principals that you want to have access to the re
   console and tools. You can view such resource shares and their global resources in the AWS RAM
   console and tools only in the designated home Region, US East (N. Virginia),
   `us-east-1`. For more information about AWS RAM and global resources, see
-  [Sharing Regional resources compared to
-  global resources](working-with-regional-vs-global.md "working-with-regional-vs-global.md").
+  [Sharing Regional resources compared to global resources](working-with-regional-vs-global.md "working-with-regional-vs-global.md").
 - If the account you're sharing from is part of an organization in AWS Organizations and
   sharing within your organization is enabled, any principals in the
   organization that you share with are automatically granted access to the resource shares
@@ -162,8 +164,7 @@ When you share with an organization or an OU, and that scope includes the accoun
 owns the resource share, all principals in the sharing account automatically get access to the
 resources in the share. The access granted is defined by the managed permissions associated with the share.
 This is because the resource-based policy that AWS RAM attaches to each resource in the
-share uses `"Principal": "*"`. For more information, see [Implications of using "Principal":
-"\*" in a resource-based policy](getting-started-terms-and-concepts.md#term-principal-star "getting-started-terms-and-concepts.md#term-principal-star").
+share uses `"Principal": "*"`. For more information, see [Implications of using "Principal": "\*" in a resource-based policy](getting-started-terms-and-concepts.md#term-principal-star "getting-started-terms-and-concepts.md#term-principal-star").
 
 Principals in the other consuming accounts don't immediately get access to the
 share's resources. The other accounts' administrators must first attach
@@ -209,8 +210,7 @@ Console
 ###### To create a resource share
 
 1. Open the [AWS RAM console](https://console.aws.amazon.com/ram/home "https://console.aws.amazon.com/ram/home").
-2. Because AWS RAM resource shares exist in specific AWS Regions, choose the appropriate AWS Region from the dropdown list in the upper-right corner of the console. To see resource shares that contain global resources, you must set the AWS Region to US East (N. Virginia), (`us-east-1`). For more information about sharing global resources, see [Sharing Regional resources compared to
-   global resources](working-with-regional-vs-global.md "working-with-regional-vs-global.md"). If you want to include global resources in the
+2. Because AWS RAM resource shares exist in specific AWS Regions, choose the appropriate AWS Region from the dropdown list in the upper-right corner of the console. To see resource shares that contain global resources, you must set the AWS Region to US East (N. Virginia), (`us-east-1`). For more information about sharing global resources, see [Sharing Regional resources compared to global resources](working-with-regional-vs-global.md "working-with-regional-vs-global.md"). If you want to include global resources in the
    resource share, then you must choose the designated home Region,
    US East (N. Virginia), `us-east-1`.
 3. If you're new to AWS RAM, choose **Create a resource
@@ -304,8 +304,7 @@ following:
     	 owns the resource share, all principals in the sharing account automatically get access to the
     	 resources in the share. The access granted is defined by the managed permissions associated with the share.
     	 This is because the resource-based policy that AWS RAM attaches to each resource in the
-    	 share uses `"Principal": "*"`. For more information, see [Implications of using "Principal":
-    	 "\*" in a resource-based policy](getting-started-terms-and-concepts.md#term-principal-star "getting-started-terms-and-concepts.md#term-principal-star").
+    	 share uses `"Principal": "*"`. For more information, see [Implications of using "Principal": "\*" in a resource-based policy](getting-started-terms-and-concepts.md#term-principal-star "getting-started-terms-and-concepts.md#term-principal-star").
 
     	Principals in the other consuming accounts don't immediately get access to the
     	 share's resources. The other accounts' administrators must first attach

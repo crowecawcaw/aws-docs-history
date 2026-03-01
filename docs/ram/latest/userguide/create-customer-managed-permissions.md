@@ -1,6 +1,4 @@
-# Creating and using customer managed
-
-permissions in AWS RAM
+# Creating and using customer managed permissions in AWS RAM
 
 AWS Resource Access Manager (AWS RAM) provides at least one AWS managed permission for every resource type that you can
 share. However, those managed permissions might not provide [least privilege
@@ -15,8 +13,7 @@ In addition, you can update or delete customer managed permissions as needed.
 
 - [Create a customer managed permission](#create_cmp "#create_cmp")
 - [Create a new version of a customer managed permission](#update_mp "#update_mp")
-- [Choose a different version to be the
-  default for a customer managed permission](#set_new_mp_default_version "#set_new_mp_default_version")
+- [Choose a different version to be the default for a customer managed permission](#set_new_mp_default_version "#set_new_mp_default_version")
 - [Delete a customer managed permission version](#delete_mp_version "#delete_mp_version")
 - [Delete a customer managed permission](#delete_mp "#delete_mp")
 
@@ -164,9 +161,7 @@ CUSTOMER_MANAGED` parameter to include only customer managed permissions.
 
 The output includes the version number of the new version.
 
-## Choose a different version to be the
-
-default for a customer managed permission
+## Choose a different version to be the default for a customer managed permission
 
 You can set another customer managed permission version as the new default version.
 

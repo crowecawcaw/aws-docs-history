@@ -6,11 +6,8 @@ You can also leave a resource share when you no longer require access to its sha
 
 ###### Contents
 
-- [Accepting and rejecting resource share
-  invitations](working-with-shared-invitations.md "working-with-shared-invitations.md")
-- [Viewing resource shares shared with
-  you](working-with-shared-view-rs.md "working-with-shared-view-rs.md")
+- [Accepting and rejecting resource share invitations](working-with-shared-invitations.md "working-with-shared-invitations.md")
+- [Viewing resource shares shared with you](working-with-shared-view-rs.md "working-with-shared-view-rs.md")
 - [Viewing resources shared with you](working-with-shared-view-sr.md "working-with-shared-view-sr.md")
-- [View principals sharing with
-  you](working-with-shared-view-principals.md "working-with-shared-view-principals.md")
+- [View principals sharing with you](working-with-shared-view-principals.md "working-with-shared-view-principals.md")
 - [Leaving a resource share](working-with-shared-leave.md "working-with-shared-leave.md")

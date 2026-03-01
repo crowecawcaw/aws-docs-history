@@ -1,6 +1,4 @@
-# Viewing the principals you share
-
-resources with in AWS RAM
+# Viewing the principals you share resources with in AWS RAM
 
 You can view the principals you share your resources with, across all resource shares.
 Viewing this list of principals helps you determine who has access to your shared
@@ -12,8 +10,7 @@ Console
 
 1. Navigate to the **[Shared by me : Principals](https://console.aws.amazon.com/ram/home#OwnedPrincipals: "https://console.aws.amazon.com/ram/home#OwnedPrincipals:")** page in the AWS RAM
    console.
-2. Because AWS RAM resource shares exist in specific AWS Regions, choose the appropriate AWS Region from the dropdown list in the upper-right corner of the console. To see resource shares that contain global resources, you must set the AWS Region to US East (N. Virginia), (`us-east-1`). For more information about sharing global resources, see [Sharing Regional resources compared to
-   global resources](working-with-regional-vs-global.md "working-with-regional-vs-global.md").
+2. Because AWS RAM resource shares exist in specific AWS Regions, choose the appropriate AWS Region from the dropdown list in the upper-right corner of the console. To see resource shares that contain global resources, you must set the AWS Region to US East (N. Virginia), (`us-east-1`). For more information about sharing global resources, see [Sharing Regional resources compared to global resources](working-with-regional-vs-global.md "working-with-regional-vs-global.md").
 3. Apply a filter to find specific principals. You can apply
    multiple filters to narrow your search. Choose the text box to see a
    dropdown list of suggested attribute fields. After you choose one, you

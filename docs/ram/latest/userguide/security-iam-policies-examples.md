@@ -9,9 +9,7 @@ resources and resource types and restricting sharing.
 - [Allow sharing of specific resource types](#owner-share-resource-types "#owner-share-resource-types")
 - [Restrict sharing with external AWS accounts](#control-access-owner-external "#control-access-owner-external")
 
-## Example 1: Allow sharing of specific
-
-resources
+## Example 1: Allow sharing of specific resources
 
 You can use an IAM permission policy to restrict principals to associating
 only specific resources with resource shares.
@@ -45,9 +43,7 @@ JSON
 
 ```
 
-## Example 2: Allow sharing of specific
-
-resource types
+## Example 2: Allow sharing of specific resource types
 
 You can use an IAM policy to limit principals to associating only specific
 resource types with resource shares.
@@ -99,9 +95,7 @@ JSON
 
 ```
 
-## Example 3: Restrict sharing with
-
-external AWS accounts
+## Example 3: Restrict sharing with external AWS accounts
 
 You can use an IAM policy to prevent principals from sharing resources
 with AWS accounts that are outside of its AWS organization.

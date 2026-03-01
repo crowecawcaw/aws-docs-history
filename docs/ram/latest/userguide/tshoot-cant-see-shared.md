@@ -1,19 +1,13 @@
-# Can't see shared resources in the destination
-
-account
+# Can't see shared resources in the destination account
 
 ## Scenario
 
 Users can't see the resources that they believe are shared with them from other
 AWS accounts.
 
-## Possible causes and
+## Possible causes and solutions
 
-solutions
-
-### Sharing with AWS Organizations was turned on
-
-by using Organizations instead of AWS RAM
+### Sharing with AWS Organizations was turned on by using Organizations instead of AWS RAM
 
 If AWS Organizations was turned on by using Organizations instead of AWS RAM, then sharing within
 the organization fails. To check if this is the cause of the problem, navigate
@@ -45,18 +39,14 @@ You might need to [update the share
 and specify the accounts or organizational units](working-with-sharing-update.md "working-with-sharing-update.md") within the
 organization to share with.
 
-### The resource share doesn't specify
-
-this account as a principal
+### The resource share doesn't specify this account as a principal
 
 In the AWS account that created the resource share, [view the resource share](working-with-sharing-view-sr.md "working-with-sharing-view-sr.md") in the
 [AWS RAM console](https://console.aws.amazon.com/ram/home "https://console.aws.amazon.com/ram/home"). Verify that the account that can't access the resources is
 listed as a **Principal**. If it isn't, then [update the share to add the account as
 a principal](working-with-sharing-update.md "working-with-sharing-update.md").
 
-### The role or user in the account
-
-doesn't have required minimum permissions
+### The role or user in the account doesn't have required minimum permissions
 
 When you share a resource in account A to another account B, roles and users
 in account B don't automatically get access to the resources in the share. The
@@ -85,9 +75,7 @@ JSON
 
 ```
 
-### The resource is in a different
-
-AWS Region than the current console setting
+### The resource is in a different AWS Region than the current console setting
 
 AWS RAM is a Regional service. Resources exist in a specific AWS Region, and
 to see them, the AWS Management Console must be configured to view the resources in that

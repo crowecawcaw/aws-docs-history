@@ -1,6 +1,4 @@
-# The other account in my organization never
-
-receives an invitation
+# The other account in my organization never receives an invitation
 
 ## Scenario
 
