@@ -1,51 +1,243 @@
-# SQL server graph features for T-SQL
+# Cursors for T-SQL
 
-This topic provides reference information about graph database capabilities in Microsoft SQL Server 2019 and their potential migration to Amazon Aurora PostgreSQL. You can understand the fundamental concepts of graph databases, including nodes, edges, and their unique features for modeling complex relationships. The topic explores how SQL Server implements graph functionality, offering examples of creating graph tables and performing queries.
+This topic provides reference information about cursor compatibility between Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL. It introduces the concept of cursors and their role in database operations, explaining how they allow developers to work with result sets sequentially. The topic compares cursor functionality in SQL Server and PostgreSQL, highlighting similarities and differences in syntax and usage.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                           |
-| ------------------------------ | ---------------------------------- | ------------------------- | --------------------------------------------------------- |
-| Two star feature compatibility | No automation                      | N/A                       | No native support. Rewriting the application is required. |
+| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                | Key differences           |
+| -------------------------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| Three star feature compatibility | Three star automation level        | [Cursors](chap-sql-server-aurora-pg.tools.md#chap-sql-server-aurora-pg.tools.actioncode.cursors "chap-sql-server-aurora-pg.tools.md#chap-sql-server-aurora-pg.tools.actioncode.cursors") | Different cursor options. |
 
 ## SQL Server Usage
 
-SQL Server offers graph database capabilities to model many-to-many relationships. The graph relationships are integrated into Transact-SQL and receive the benefits of using SQL Server as the foundational database management system.
+A _set_ is a fundamental concept of the relation data model from which SQL is derived. SQL is a declarative language that operates on whole sets, unlike most procedural languages that operate on individual data elements. A single invocations of an SQL statements can return a whole set or modify millions of rows.
 
-A graph database is a collection of nodes or vertices and edges or relationships. A node represents an entity. For example, a person or an organization. An edge represents a relationship between the two nodes that it connects. For example, this can be likes or friends. Both nodes and edges may have properties associated with them. Here are some features that make a graph database unique:
+Many developers are accustomed to using procedural or imperative approaches to develop solutions that are difficult to implement using set-based querying techniques. Also, operating on row data sequentially may be a more appropriate approach in certain situations.
 
-- Edges or relationships are first class entities in a Graph Database and can have attributes or properties associated with them.
-- A single edge can flexibly connect multiple nodes in a Graph Database.
-- You can express pattern matching and multi-hop navigation queries easily.
-- You can express transitive closure and polymorphic queries easily.
+Cursors provide an alternative mechanism for operating on result sets. Instead of receiving a table object containing rows of data, applications can use cursors to access the data sequentially, row-by-row. Cursors provide the following capabilities:
 
-A relational database can achieve anything a graph database can. However, a graph database makes it easier to express certain kinds of queries. Also, with specific optimizations, certain queries may perform better. Your decision to choose either a relational or graph database is based on following factors:
+- Positioning the cursor at specific rows of the result set using absolute or relative offsets.
+- Retrieving a row, or a block of rows, from the current cursor position.
+- Modifying data at the current cursor position.
+- Isolating data modifications by concurrent transactions that affect the cursor’s result.
+- T-SQL statements can use cursors in scripts, stored procedures, and triggers.
 
-- Your application has hierarchical data. You can use the `HierarchyID` data type to implement hierarchies, but it has some limitations. For example, it doesn’t allow you to store multiple parents for a node.
-- Your application has complex many-to-many relationships. As application evolves, new relationships are added.
-- You need to analyze interconnected data and relationships.
-
-SQL Server 2017 adds new graph database capabilities for modeling graph many-to-many relationships. They include the new `CREATE TABLE` syntax for creating node and edge tables, and the keyword `MATCH` for queries. For more information, see [Graph processing with SQL Server and Azure SQL Database](https://docs.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver15").
-
-The following example creates SQL Server graph tables.
+### Syntax
 
 ```
-CREATE TABLE Person (ID INTEGER PRIMARY KEY, Name VARCHAR(100), Age INT) AS NODE;
-CREATE TABLE friends (StartDate date) AS EDGE;
+DECLARE <Cursor Name>
+CURSOR [LOCAL | GLOBAL]
+  [FORWARD_ONLY | SCROLL]
+  [STATIC | KEYSET | DYNAMIC | FAST_FORWARD]
+  [ READ_ONLY | SCROLL_LOCKS | OPTIMISTIC]
+  [TYPE_WARNING]
+  FOR <SELECT statement>
+  [ FOR UPDATE [ OF <Column List>]][;]
 ```
 
-A new `MATCH` clause is introduced to support pattern matching and multi-hop navigation through the graph. The `MATCH` function uses ASCII-art style syntax for pattern matching. The following example uses the `MATCH` function.
-
 ```
--- Find friends of John
-SELECT Person2.Name
-FROM Person Person1, Friends, Person Person2
-WHERE MATCH(Person1-(Friends)->Person2)
-AND Person1.Name = 'John';
+FETCH [NEXT | PRIOR | FIRST | LAST | ABSOLUTE <Value> | RELATIVE <Value>]
+FROM <Cursor Name> INTO <Variable List>;
 ```
 
-SQL Server 2019 adds ability to define cascaded delete actions on an edge constraint in a graph database. Edge constraints enable users to add constraints to their edge tables, thereby enforcing specific semantics and also maintaining data integrity. For more information, see [Edge constraints](https://docs.microsoft.com/en-us/sql/relational-databases/tables/graph-edge-constraints?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/tables/graph-edge-constraints?view=sql-server-ver15") in the _SQL Server documentation_.
+### Examples
 
-In SQL Server 2019, graph tables now have support for table and index partitioning. For more information, see [Partitioned Tables and Indexes](https://docs.microsoft.com/en-us/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-ver15") in the _SQL Server documentation_.
+Process data in a cursor.
+
+```
+DECLARE MyCursor CURSOR FOR
+  SELECT *
+  FROM Table1 AS T1
+    INNER JOIN
+    Table2 AS T2
+    ON T1.Col1 = T2.Col1;
+  OPEN MyCursor;
+  DECLARE @VarCursor1 VARCHAR(20);
+  FETCH NEXT
+    FROM MyCursor INTO @VarCursor1;
+  WHILE @@FETCH_STATUS = 0
+  BEGIN
+    EXEC MyPRocessingProcedure
+      @InputParameter = @VarCursor1;
+    FETCH NEXT
+    FROM product_cursor INTO @VarCursor1;
+END
+
+CLOSE MyCursor;
+DEALLOCATE MyCursor ;
+```
+
+For more information, see [SQL Server Cursors](https://docs.microsoft.com/en-us/sql/relational-databases/cursors?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/cursors?view=sql-server-ver15") and [Cursors (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/language-elements/cursors-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/language-elements/cursors-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## PostgreSQL Usage
 
-Currently, PostgreSQL doesn’t provide native Graph Database feature, but it is possible to implement some of them using recursive CTE queries or serializing graphs to regular relations.
+Similar to T-SQL Cursors in SQL Server, PostgreSQL has PL/pgSQL cursors that you can use to iterate business logic on rows read from the database. They can encapsulate the query and read the query results a few rows at a time. All access to cursors in PL/pgSQL is performed through cursor variables, which are always of the `refcursor` data type.
+
+### Examples
+
+**Declare a Cursor**
+
+The following table includes the `DECLARE..CURSOR` options that are Transact-SQL extended syntax have no equivalent in PostgreSQL.
+
+| SQL Server option | Use                                                                                                            | Comments                                                                                                |
+| ----------------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `FORWARD_ONLY`    | Defining that `FETCH NEXT` is the only supported fetching option.                                              | Using `FOR LOOP` might be a relevant solution for this option.                                          |
+| `STATIC`          | Cursor will make a temporary copy of the data.                                                                 | For small data sets temporary tables can be created and declare a cursor that will select these tables. |
+| `KEYSET`          | Determining that membership and order of rows in the cursor are fixed.                                         | N/A                                                                                                     |
+| `DYNAMIC`         | Cursor will reflect all data changes made on the selected rows.                                                | Default for PostgreSQL.                                                                                 |
+| `FAST_FORWARD`    | Will use `FORWARD_ONLY` and `READ_ONLY` to optimize performance.                                               | N/A                                                                                                     |
+| `SCROLL_LOCKS`    | Determine that positioned updates or deletes made by the cursor are guaranteed to succeed.                     | N/A                                                                                                     |
+| `OPTIMISTIC`      | Determine that positioned updates or deletes made by the cursor will not succeed if the rows has been updated. | N/A                                                                                                     |
+| `TYPE_WARNING`    | Will send warning messages to the client if the cursor is implicitly converted from the requested type.        | N/A                                                                                                     |
+
+Declare a Cursor in PL/pgSQL to be used with any query. The variable c1 is unbounded because it isn’t bound to any particular query.
+
+```
+DECLARE c1 refcursor;
+```
+
+Declare a Cursor in PL/pgSQL with a bounded query.
+
+```
+DECLARE c2 CURSOR FOR SELECT * FROM employees;
+```
+
+Declare a Cursor with a parametrized bound query:
+
+- The id variable is replaced by an integer parameter value when the cursor is opened.
+- When declaring a Cursor with SCROLL specified, the Cursor can scroll backwards.
+- If `NO SCROLL` is specified, backward fetches are rejected.
+
+```
+DECLARE c3 CURSOR (var1 integer) FOR SELECT * FROM employees where id = var1;
+```
+
+Declare a backward-scrolling compatible Cursor using the `SCROLL` option.
+
+- `SCROLL` specifies that rows can be retrieved backwards. `NO SCROLL` specifies that rows can’t be retrieved backwards.
+- Depending upon the complexity of the run plan for the query, `SCROLL` might create performance issues.
+- Backward fetches aren’t allowed when the query includes `FOR UPDATE` or `FOR SHARE`.
+
+```
+DECLARE c3 SCROLL CURSOR FOR SELECT id, name FROM employees;
+```
+
+**Open a Cursor**
+
+The `OPEN` command is fully compatible between SQL Server and PostgreSQL.
+
+Open a cursor variable that was declared as unbound and specify the query to run.
+
+```
+OPEN c1 FOR SELECT * FROM employees WHERE id = emp_id;
+```
+
+Open a Cursor variable that was declared as Unbound and specify the query to run as a string expression. This approach provides greater flexibility.
+
+```
+OPEN c1 FOR EXECUTE format('SELECT * FROM %I WHERE col1 = $1',tabname) USING keyvalue;
+```
+
+You can insert parameter values into the dynamic command with `format()` and `USING`. For example, the table name is inserted into the query with `format()`. The comparison value for `col1` is inserted with a `USING` parameter.
+
+Open a Cursor that was bound to a query when the cursor was declared and was declared to take arguments.
+
+```
+DO $$
+DECLARE
+  c3 CURSOR (var1 integer) FOR SELECT * FROM employees where id = var1;
+BEGIN
+  OPEN c3(var1 := 42);
+END$$;
+```
+
+For the `c3` cursor, supply the argument value expressions.
+
+If the cursor wasn’t declared to take arguments, you can specify the arguments outside the cursor.
+
+```
+DO $$
+DECLARE
+  var1 integer;
+  c3 CURSOR FOR SELECT * FROM employees where id = var1;
+BEGIN
+  var1 := 1;
+  OPEN c3;
+END$$;
+```
+
+**Fetch a Cursor**
+
+Use the following syntax to fetch a cursor.
+
+```
+FETCH [ direction [ FROM | IN ] ] cursor_name
+```
+
+The following table shows additional PostgreSQL options as a direction for the FETCH command.
+
+| PostgreSQL option | Use                        |
+| ----------------- | -------------------------- |
+| ALL               | Get all remaining rows     |
+| FORWARD           | Same as NEXT               |
+| FORWARD           | (n) Fetch the next n rows  |
+| FORWARD           | ALL Same as ALL            |
+| BACKWARD          | Same as PRIOR              |
+| BACKWARD          | (n) Fetch the prior n rows |
+| BACKWARD          | ALL Fetch all prior rows   |
+
+The PL/pgSQL `FETCH` command retrieves the next row from the cursor into a variable.
+
+Fetch the values returned from the `c3` cursor into a row variable.
+
+```
+DO $$
+DECLARE
+  c3 CURSOR FOR SELECT * FROM employees;
+  rowvar employees%ROWTYPE;
+BEGIN
+  OPEN c3;
+  FETCH c3 INTO rowvar;
+END$$;
+```
+
+Fetch the values returned from the c3 Cursor into two scalar data types.
+
+```
+DO $$
+DECLARE
+  c3 CURSOR FOR SELECT id, name FROM employees;
+  emp_id integer;
+  emp_name varchar;
+BEGIN
+  OPEN c3;
+  FETCH FROM c3 INTO emp_id, emp_name;
+END$$;
+```
+
+PL/pgSQL supports a special direction clause when fetching data from a cursor using the `NEXT`, `PRIOR`, `FIRST`, `LAST`, `ABSOLUTE count`, `RELATIVE count`, `FORWARD`, or `BACKWARD` arguments. Omitting direction is equivalent to specifying `NEXT`. For example, fetch the last row from the cursor into the declared variables.
+
+```
+DO $$
+DECLARE
+  c3 CURSOR FOR SELECT id, name FROM employees;
+  emp_id integer;
+  emp_name varchar;
+BEGIN
+  OPEN c3;
+  FETCH LAST FROM c3 INTO emp_id, emp_name;
+END$$;
+```
+
+## Summary
+
+| Feature              | SQL Server                             | Aurora PostgreSQL                               |
+| -------------------- | -------------------------------------- | ----------------------------------------------- | ------ | ------- | --------------------------- | --------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------- |
+| Cursor options       | ```<br>[FORWARD_ONLY                   | SCROLL] [STATIC                                 | KEYSET | DYNAMIC | FAST_FORWARD]<br>[READ_ONLY | SCROLL_LOCKS    | OPTIMISTIC]<br>```              | ```<br>[ BINARY ] [ INSENSITIVE ] [ [ NO ]<br>SCROLL ] CURSOR [ { WITH                                                                                                                                                                                       | WITHOUT } HOLD ]<br>``` |
+| Updateable cursors   | `<br>DECLARE CURSOR... FOR UPDATE<br>` | `<br>DECLARE cur_name CURSOR... FOR UPDATE<br>` |
+| Cursor declaration   | `<br>DECLARE CURSOR<br>`               | `<br>DECLARE cur_name CURSOR<br>`               |
+| Cursor open          | `<br>OPEN<br>`                         | `<br>OPEN<br>`                                  |
+| Cursor fetch         | ```<br>FETCH NEXT                      | PRIOR                                           | FIRST  | LAST    | ABSOLUTE                    | RELATIVE<br>``` | ```<br>FETCH [ direction [ FROM | IN ] ] cursor_name<br>```<br>The direction can be empty or one of the following: `NEXT`, `PRIOR`, `FIRST`, `LAST`, `ABSOLUTE count`, `RELATIVE count`, `count`, `ALL FORWARD`, `FORWARD count`, `FORWARD ALL`, `BACKWARD`, `BACKWARD count`, `BACKWARD ALL`. |
+| Cursor close         | `<br>CLOSE<br>`                        | `<br>CLOSE<br>`                                 |
+| Cursor deallocate    | `<br>DEALLOCATE<br>`                   | Same effect as CLOSE (not required)             |
+| Cursor end condition | `@@FETCH_STATUS` system variable       | Not supported                                   |
+
+For more information, see [FETCH](https://www.postgresql.org/docs/13/sql-fetch.html "https://www.postgresql.org/docs/13/sql-fetch.html") in the _PostgreSQL documentation_.

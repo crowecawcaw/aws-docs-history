@@ -1,108 +1,102 @@
-# Users and roles for Aurora PostgreSQL
+# Transparent data encryption Aurora PostgreSQL
 
-This topic provides reference information about the security and authentication differences between Microsoft SQL Server and Amazon Aurora PostgreSQL. You can understand how user management, role-based access control, and authentication mechanisms differ between these two database systems. The topic explains the fundamental concepts of users, roles, and permissions in both SQL Server and PostgreSQL, highlighting the key differences in terminology and implementation.
+This topic provides reference information about data encryption capabilities in Microsoft SQL Server and Amazon Aurora PostgreSQL. You can understand how Transparent Data Encryption (TDE) works in SQL Server to protect data at rest, and how Aurora PostgreSQL offers similar functionality through Amazon RDS encryption. The topic explains the encryption mechanisms, key management, and limitations associated with these features.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                                     |
-| -------------------------------- | ---------------------------------- | ------------------------- | --------------------------------------------------------------------------------------------------- |
-| Three star feature compatibility | N/A                                | N/A                       | Syntax and option differences, similar functionality. There are no users in PostgreSQL, only roles. |
+| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                 |
+| ------------------------------- | ---------------------------------- | ------------------------- | ----------------------------------------------- |
+| Four star feature compatibility | N/A                                | N/A                       | Storage level encryption managed by Amazon RDS. |
 
 ## SQL Server Usage
 
-SQL Server provides two layers of security principals: logins at the server level and users at the database level. Logins are mapped to users in one or more databases. Administrators can grant logins server-level permissions that aren’t mapped to particular databases such as database creator, system administrator, and security administrator.
+Transparent data encryption (TDE) is an SQL Server feature designed to protect data at rest in the event an attacker obtains the physical media containing database files.
 
-SQL Server also supports roles for both the server and the database levels. At the database level, administrators can create custom roles in addition to the general purpose built-in roles.
+TDE doesn’t require application changes and is completely transparent to users. The storage engine encrypts and decrypts data on-the-fly. Data isn’t encrypted while in memory or on the network. You can turn TDE on or off individually for each database.
 
-For each database, administrators can create users and associate them with logins. At the database level, the built-in roles include `db_owner`, `db_datareader`, `db_securityadmin`, and others. A database user can belong to one or more roles (users are assigned to the public role by default and can’t be removed). Administrators can grant permissions to roles and then assign individual users to the roles to simplify security management.
+TDE encryption uses a Database Encryption Key (DEK) stored in the database boot record, making it available during database recovery. The DEK is a symmetric key signed with a server certificate from the master system database.
 
-Logins are authenticated using either Windows Authentication, which uses the Windows Server Active Directory framework for integrated single sign-on, or SQL authentication, which is managed by the SQL Server service and requires a password, certificate, or asymmetric key for identification. You can create logins that use Windows Authentication for individual users and domain groups.
-
-In previous versions of SQL server, the concepts of user and schema were interchangeable. For backward compatibility, each database has several existing schemas, including a default schema named dbo which is owned by the `db_owner` role. Logins with system administrator privileges are automatically mapped to the dbo user in each database. Typically, you don’t need to migrate these schemas.
+In many instances, security compliance laws require TDE for data at rest.
 
 ### Examples
 
-Create a login.
+The following example demonstrates how to enable TDE for a database:
+
+Create a master key and certificate.
 
 ```
-CREATE LOGIN MyLogin WITH PASSWORD = 'MyPassword'
+USE master;
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'MyPassword';
+CREATE CERTIFICATE TDECert WITH SUBJECT = 'TDE Certificate';
 ```
 
-Create a database user for `MyLogin`.
+Create a database encryption key.
 
 ```
-USE MyDatabase; CREATE USER MyUser FOR LOGIN MyLogin;
+USE MyDatabase;
+CREATE DATABASE ENCRYPTION KEY
+WITH ALGORITHM = AES_128
+ENCRYPTION BY SERVER CERTIFICATE TDECert;
 ```
 
-Assign `MyLogin` to a server role.
+Enable TDE.
 
 ```
-ALTER SERVER ROLE dbcreator ADD MEMBER 'MyLogin'
+ALTER DATABASE MyDatabase SET ENCRYPTION ON;
 ```
 
-Assign `MyUser` to the `db_datareader` role.
-
-```
-ALTER ROLE db_datareader ADD MEMBER 'MyUser';
-```
-
-For more information, see [Database-level roles](https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [Transparent data encryption (TDE)](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## PostgreSQL Usage
 
-PostgreSQL supports only roles; there are no users. However, there is a `CREATE USER` command, which is an alias for `CREATE ROLE` that automatically includes the `LOGIN` permission.
+Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) provides the ability to encrypt data at rest (data stored in persistent storage) for new database instances. When data encryption is enabled, Amazon Relational Database Service (RDS) automatically encrypts the database server storage, automated backups, read replicas, and snapshots using the AES-256 encryption algorithm.
 
-Roles are defined at the database cluster level and are valid in all databases in the PostgreSQL cluster.
+You can manage the keys used for Amazon Relational Database Service (Amazon RDS) encrypted instances from the Identity and Access Management (IAM) console using the AWS Key Management Service (AWS KMS). If you require full control of a key, you must manage it yourself. You can’t delete, revoke, or rotate default keys provisioned by AWS KMS.
 
-### Syntax
+The following limitations exist for Amazon RDS encrypted instances:
 
-The following example shows a simplified syntax for `CREATE ROLE` in Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL).
+- You can only enable encryption for an Amazon RDS database instance when you create it, not afterward. It is possible to encrypt an existing database by creating a snapshot of the database instance and then creating an encrypted copy of the snapshot. You can restore the database from the encrypted snapshot. For more information, see [Copying a snapshot](../../../AmazonRDS/latest/UserGuide/USER_CopySnapshot.md "../../../AmazonRDS/latest/UserGuide/USER_CopySnapshot.md") in the _Amazon Relational Database Service User Guide_.
+- Encrypted database instances can’t be modified to disable encryption.
+- Encrypted Read Replicas must be encrypted with the same key as the source database instance.
+- An unencrypted backup or snapshot can’t be restored to an encrypted database instance.
+- KMS encryption keys are specific to the region where they are created. Copying an encrypted snapshot from one region to another requires the KMS key identifier of the destination region.
 
-```
-CREATE ROLE name [ [ WITH ] option [ ... ] ]
+###### Note
 
-where option can be:
+Disabling the key for an encrypted database instance prevents reading from, or writing to, that instance. When Amazon RDS encounters a database instance encrypted by a key to which Amazon RDS doesn’t have access, it puts the database instance into a terminal state. In this state, the database instance is no longer available and the current state of the database can’t be recovered. To restore the database instance, you must re-enable access to the encryption key for Amazon RDS and then restore the database instance from a backup.
 
-  SUPERUSER | NOSUPERUSER
-  | CREATEDB | NOCREATEDB
-  | CREATEROLE | NOCREATEROLE
-  | INHERIT | NOINHERIT
-  | LOGIN | NOLOGIN
-  | REPLICATION | NOREPLICATION
-  | BYPASSRLS | NOBYPASSRLS
-  | CONNECTION LIMIT connlimit
-  | [ ENCRYPTED | UNENCRYPTED ] PASSWORD 'password'
-  | VALID UNTIL 'timestamp'
-  | IN ROLE role_name [, ...]
-  | IN GROUP role_name [, ...]
-  | ROLE role_name [, ...]
-  | ADMIN role_name [, ...]
-  | USER role_name [, ...]
-  | SYSID uid
-```
+### Examples
 
-The `UNENCRYPTED PASSWORD` option was dropped in PostgreSQL 10, the password must be kept encrypted.
+The following walkthrough demonstrates how to enable TDE.
 
-### Example
+**Enable encryption**
 
-Create a new database role called `hr_role`. Users can use this role to create new databases in the PostgreSQL cluster. Note that this role isn’t able to login to the database and act as a database user. In addition, grant `SELECT`, `INSERT`, and `DELETE` privileges on the `hr.employees` table to the role.
+In the database settings, enable encryption and choose a master key. You can choose the default key provided for the account or define a specific key based on an IAM KMS ARN from your account or a different account.
 
-```
-CREATE ROLE hr_role;
-GRANT SELECT, INSERT,DELETE on hr.employees to hr_role;
-```
+![Enable encryption](images/pb-sql-server-aurora-pg-enable-encryption.png)
 
-## Summary
+**Create an encryption key**
 
-The following table summarizes common security tasks and the differences between SQL Server and Aurora PostgreSQL.
+To create your own key, browse to the Key Management Service (KMS), choose **Customer managed keys**, and create a new key.
 
-| Task                       | SQL Server                                             | Aurora PostgreSQL                                                    |
-| -------------------------- | ------------------------------------------------------ | -------------------------------------------------------------------- |
-| View database users        | `SELECT Name FROM sys.sysusers`                        | `SELECT<br>• FROM pg_roles where rolcanlogin = true;`                |
-| Create a user and password | `CREATE USER <User Name> WITH PASSWORD = <PassWord>;`  | `CREATE USER <User Name> WITH PASSWORD '<PassWord>';`                |
-| Create a role              | `CREATE ROLE <Role Name>`                              | `CREATE ROLE <Role Name>`                                            |
-| Change a user’s password   | `ALTER LOGIN <SQL Login> WITH PASSWORD = <PassWord>;`  | `ALTER USER <SQL Login> WITH PASSWORD '<PassWord>';`                 |
-| External authentication    | Windows Authentication                                 | N/A                                                                  |
-| Add a user to a role       | `ALTER ROLE <Role Name> ADD MEMBER <User Name>`        | `ALTER ROLE <Role Name> SET <property and value>`                    |
-| Lock a user                | `ALTER LOGIN <Login Name> DISABLE`                     | `REVOKE CONNECT ON DATABASE <database_name> from <Role Name>;`       |
-| Grant `SELECT` on a schema | `GRANT SELECT ON SCHEMA::<Schema Name> to <User Name>` | `GRANT SELECT ON ALL TABLES IN SCHEMA <Schema Name> TO <User Name>;` |
+Choose the key type and the key material origin, and then choose **Next**.
 
-For more information, see [CREATE ROLE](https://www.postgresql.org/docs/13/sql-createrole.html "https://www.postgresql.org/docs/13/sql-createrole.html") in the _PostgreSQL documentation_.
+Create alias and description, and then choose **Next**.
+
+![Create alias and description](images/pb-sql-server-aurora-pg-alias-description.png)
+
+For **Define Key Administrative Permissions**, leave the default values and choose **Next**.
+
+Make sure that you assigned the key to the relevant users who will need to interact with Amazon Aurora.
+
+![Key usage permissions](images/pb-sql-server-aurora-pg-key-permissions.png)
+
+Review and edit the key policy, and then choose **Finish**.
+
+![Key policy](images/pb-sql-server-aurora-pg-key-policy.png)
+
+Now, you can set the master encryption key by using the ARN of the key that you have created or picking it from the list.
+
+![Set master encryption key](images/pb-sql-server-aurora-pg-set-master-encryption-key.png)
+
+Proceed to the finish and launch the instance.
+
+For more information, see [Specifying Amazon S3 encryption](../../../AmazonS3/latest/userguide/specifying-s3-encryption.md "../../../AmazonS3/latest/userguide/specifying-s3-encryption.md") in the _Amazon Simple Storage Service User Guide_ and [s3](../../../cli/latest/reference/s3.md "../../../cli/latest/reference/s3.md") in the _Command Line Interface Command Reference_.

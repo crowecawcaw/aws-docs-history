@@ -1,245 +1,255 @@
-# Backup and restore design
+# High availability essentials
 
-This topic provides reference information about backup and restore capabilities in Microsoft SQL Server and Amazon Aurora PostgreSQL. You can understand the differences and similarities between these two database systems in terms of their backup and recovery features. The topic compares various aspects such as recovery models, backup types, and restore operations, helping you grasp how these functionalities translate between SQL Server and Aurora PostgreSQL.
+This topic provides reference information comparing high availability and disaster recovery solutions between Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL. You can gain insight into how these database systems handle server-level and database-level failure protection, disk error protection, read-only replicas, failover addressing, and read-only workloads.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                             | Key differences                             |
-| ------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
-| Four star feature compatibility | N/A                                | [Backup](chap-sql-server-aurora-pg.tools.md#chap-sql-server-aurora-pg.tools.actioncode.backup "chap-sql-server-aurora-pg.tools.md#chap-sql-server-aurora-pg.tools.actioncode.backup") | Storage level backup managed by Amazon RDS. |
+| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                        |
+| ------------------------------- | ---------------------------------- | ------------------------- | -------------------------------------------------------------------------------------- |
+| Four star feature compatibility | N/A                                | N/A                       | Multi replica, scale out solution using Amazon Aurora clusters and Availability Zones. |
 
 ## SQL Server Usage
 
-The term _backup_ refers to both the process of copying data and to the resulting set of data created by the processes that copy data for safekeeping and disaster recovery. Backup processes copy SQL Server data and transaction logs to media such as tapes, network shares, cloud storage, or local files. You can copy these backups back to the database using a _restore_ process.
+SQL Server provides several solutions to support high availability and disaster recovery requirements including Always On Failover Cluster Instances (FCI), Always On Availability Groups, Database Mirroring, and Log Shipping. The following sections describe each solution.
 
-SQL Server uses files, or filegroups, to create backups for an individual database or subset of a database. Table backups aren’t supported.
+SQL Server 2017 also adds new Availability Groups functionality which includes read-scale support without a cluster, Minimum Replica Commit Availability Groups setting, and Windows-Linux cross-OS migrations and testing.
 
-When a database uses the FULL recovery model, transaction logs also need to be backed up. Transaction logs allow backing up only database changes since the last full backup and provide a mechanism for point-in-time restore operations.
+SQL Server 2019 introduces support for creating Database Snapshots of databases that include memory-optimized filegroups. A database snapshot is a read-only, static view of a SQL Server database. The database snapshot is transactional consistent with the source database as of the moment of the snapshot’s creation. Among other things, some benefits of the database snapshots with regard to high availability are:
 
-Recovery model is a database-level setting that controls transaction log management. The three available recovery models are SIMPLE, FULL, and BULK LOGGED. For more information, see [Recovery Models (SQL Server)](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15") in the _SQL Server documentation_.
+- You can use snapshots for reporting purposes.
+- Maintaining historical data for report generation.
+- Using a mirror database that you are maintaining for availability purposes to offload reporting.
 
-The SQL Server `RESTORE` process copies data and log pages from a previously created backup back to the database. It then triggers a recovery process that rolls forward all committed transactions not yet flushed to the data pages when the backup took place. It also rolls back all uncommitted transactions written to the data files.
+For more information about snapshots, see [Database Snapshots](https://docs.microsoft.com/en-us/sql/relational-databases/databases/database-snapshots-sql-server?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/databases/database-snapshots-sql-server?view=sql-server-ver15") in the _SQL Server documentation_.
 
-SQL Server supports the following types of backups:
+SQL Server 2019 introduces secondary to primary connection redirection for Always On Availability Groups. It allows client application connections to be directed to the primary replica regardless of the target server specified in the connections string. The connection string can target a secondary replica. Using the right configuration of the availability group replica and the settings in the connection string, you can automatically redirect the connection to the primary replica.
 
-- **Copy-only backups** are independent of the standard chain of SQL Server backups. They are typically used as one-off backups for special use cases and don’t interrupt normal backup operations.
-- **Data backups** copy data files and the transaction log section of the activity during the backup. A data backup may contain the whole database (database backup) or part of the database. The parts can be a partial backup, a file, or a filegroup.
-- **A database backup** is a data backup representing the entire database at the point in time when the backup process finished.
-- **A differential backup** is a data backup containing only the data structures (extents) modified since the last full backup. A differential backup is dependent on the previous full backup and can’t be used alone.
-- **A full backup** is a data backup containing a Database Backup and the transaction log records of the activity during the backup process.
-- **Transaction log backups** don’t contain data pages. They contain the log pages for all transaction activity since the last full backup or the previous transaction log backup.
-- **File backups** consist of one or more files or filegroups.
+For more information, see [Secondary to primary replica read/write connection redirection (Always On Availability Groups)](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/secondary-replica-connection-redirection-always-on-availability-groups?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/secondary-replica-connection-redirection-always-on-availability-groups?view=sql-server-ver15") in the _SQL Server documentation_.
 
-SQL Server also supports media families and media sets that you can use to mirror and stripe backup devices. For more information, see [Media Sets, Media Families, and Backup Sets (SQL Server)](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/media-sets-media-families-and-backup-sets-sql-server?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/media-sets-media-families-and-backup-sets-sql-server?view=sql-server-ver15") in the _SQL Server documentation_.
+### Always On Failover Cluster Instances
 
-SQL Server 2008 Enterprise edition and later versions, support backup compression. Backup compression provides the benefit of a smaller backup file footprint, less I/O consumption, and less network traffic at the expense of increased CPU utilization for running the compression algorithm. For more information, see [Backup Compression (SQL Server)](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/backup-compression-sql-server?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/backup-compression-sql-server?view=sql-server-ver15") in the _SQL Server documentation_.
+Always On Failover Cluster Instances (FCI) use the Windows Server Failover Clustering (WSFC) operating system framework to deliver redundancy at the server instance level.
 
-A database backed up in the `SIMPLE` recovery mode can only be restored from a full or differential backup. For `FULL` and `BULK LOGGED` recovery models, you can restore transaction log backups to minimize potential data loss.
+An FCI is an instance of SQL Server installed across two or more WSFC nodes. For client applications, the FCI is transparent and appears to be a normal instance of SQL Server running on a single server. The FCI provides failover protection by moving the services from one WSFC node Windows server to another WSFC node windows server in the event the current active node becomes unavailable or degraded.
 
-Restoring a database involves maintaining a correct sequence of individual backup restores. For example, a typical restore operation may include the following steps:
+FCIs target scenarios where a server fails due to a hardware malfunction or a software hang up. Without FCI, a significant hardware or software failure would render the service unavailable until the malfunction is corrected. With FCI, you can configure another server as a standby to replace the original server if it stops servicing requests.
 
-1. Restore the most recent full backup.
-2. Restore the most recent differential backup.
-3. Restore a set of uninterrupted transaction log backups, in order.
-4. Recover the database.
+For each service or cluster resource, there is only one node that actively services client requests (known as owning a resource group). A monitoring agent constantly monitors the resource owners and can transfer ownership to another node in the event of a failure or planned maintenance such as installing service packs or security patches. This process is completely transparent to the client application, which may continue to submit requests as normal when the failover or ownership transfer process completes.
 
-For large databases, a full restore, or a complete database restore, from a full database backup isn’t always a practical solution. SQL Server supports data file restore that restores and recovers a set of files and a single Data Page Restore, except for databases using the `SIMPLE` recovery model.
+FCI can significantly minimize downtime due to hardware or software general failures. The main benefits of FCI are:
 
-### Syntax
+- Full instance level protection.
+- Automatic failover of resources from one node to another.
+- Supports a wide range of storage solutions. WSFC cluster disks can be iSCSI, Fiber Channel, SMB file shares, and others.
+- Supports multi-subnet.
+- No need client application configuration after a failover.
+- Configurable failover policies.
+- Automatic health detection and monitoring.
 
-SQL Server uses the following backup syntax.
+For more information, see [Always On Failover Cluster Instances (SQL Server)](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-ver15") in the _SQL Server documentation_.
 
-```
-Backing Up a Whole Database
-BACKUP DATABASE <Database Name> [ <Files / Filegroups> ] [ READ_WRITE_FILEGROUPS ]
-  TO <Backup Devices>
-  [ <MIRROR TO Clause> ]
-  [ WITH [DIFFERENTIAL ]
-  [ <Option List> ][;]
-```
+### Always On Availability Groups
 
-```
-BACKUP LOG <Database Name>
-  TO <Backup Devices>
-  [ <MIRROR TO clause> ]
-  [ WITH <Option List> ][;]
-```
+Always On Availability Groups is the most recent high availability and disaster recovery solution for SQL Server. It was introduced in SQL Server 2012 and supports high availability for one or more user databases. Because you can configure and manage it at the database level rather than the entire server, it provides much more control and functionality. As with FCI, Always On Availability Groups relies on the framework services of Windows Server Failover Cluster (WSFC) nodes.
 
-```
-<Option List> =
-COPY_ONLY | {COMPRESSION | NO_COMPRESSION } | DESCRIPTION = <Description>
-| NAME = <Backup Set Name> | CREDENTIAL | ENCRYPTION | FILE_SNAPSHOT | { EXPIREDATE =
-<Expiration Date> | RETAINDAYS = <Retention> }
-{ NOINIT | INIT } | { NOSKIP | SKIP } | { NOFORMAT | FORMAT } |
-{ NO_CHECKSUM | CHECKSUM } | { STOP_ON_ERROR | CONTINUE_AFTER_ERROR }
-{ NORECOVERY | STANDBY = <Undo File for Log Shipping> } | NO_TRUNCATE
-ENCRYPTION ( ALGORITHM = <Algorithm> | SERVER CERTIFICATE = <Certificate> | SERVER
-ASYMMETRIC KEY = <Key> );
-```
+Always On Availability Groups utilize real-time log record delivery and apply mechanism to maintain near-real-time readable copies of one or more databases. These copies can also be used as redundant copies for resource usage distribution between servers (a scale-out read solution).
 
-SQL Server uses the following restore syntax.
+The main characteristics of Always On Availability Groups are:
 
-```
-RESTORE DATABASE <Database Name> [ <Files / Filegroups> ] | PAGE = <Page ID>
-FROM <Backup Devices>
-[ WITH [ RECOVERY | NORECOVERY | STANDBY = <Undo File for Log Shipping> } ]
-[, <Option List>]
-[;]
-```
+- Supports up to nine availability replicas: One primary replica and up to eight secondary readable replicas.
+- Supports both asynchronous-commit and synchronous-commit availability modes.
+- Supports automatic failover, manual failover, and a forced failover. Only the latter can result in data loss.
+- Secondary replicas allow both read-only access and offloading of backups.
+- Availability Group Listener may be configured for each availability group. It acts as a virtual server address where applications can submit queries. The listener may route requests to a read-only replica or to the primary replica for read-write operations. This configuration also facilitates fast failover as client applications don’t need to be reconfigured post failover.
+- Flexible failover policies.
+- The automatic page repair feature protects against page corruption.
+- Log transport framework uses encrypted and compressed channels.
+- Rich tooling and APIs including Transact-SQL DDL statements, management studio wizards, Always On Dashboard Monitor, and PowerShell scripting.
 
-```
-RESTORE LOG <Database Name> [ <Files / Filegroups> ] | PAGE = <Page ID>
-[ FROM <Backup Devices>
-[ WITH [ RECOVERY | NORECOVERY | STANDBY = <Undo File for Log Shipping> } ]
-[, <Option List>]
-[;]
-```
+For more information, see [Always On availability groups: a high-availability and disaster-recovery solution](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15") in the _SQL Server documentation_.
 
-```
-<Option List> =
-MOVE <File to Location>
-| REPLACE | RESTART | RESTRICTED_USER | CREDENTIAL
-| FILE = <File Number> | PASSWORD = <Password>
-| { CHECKSUM | NO_CHECKSUM } | { STOP_ON_ERROR | CONTINUE_AFTER_ERROR }
-| KEEP_REPLICATION | KEEP_CDC
-| { STOPAT = <Stop Time>
-| STOPATMARK = <Log Sequence Number>
-| STOPBEFOREMARK = <Log Sequence Number>
-```
+### Database Mirroring
+
+Microsoft recommends avoiding Database Mirroring for new development. This feature is deprecated and will be removed in a future release. It is recommended to use Always On Availability Groups instead.
+
+Database mirroring is a legacy solution to increase database availability by supporting near instantaneous failover. It is similar in concept to Always On Availability Groups, but can only be configured for one database at a time and with only one standby replica.
+
+For more information, see [Database Mirroring (SQL Server)](https://docs.microsoft.com/en-us/sql/database-engine/database-mirroring/database-mirroring-sql-server?view=sql-server-ver15&viewFallbackFrom=sql-server-ver15Log "https://docs.microsoft.com/en-us/sql/database-engine/database-mirroring/database-mirroring-sql-server?view=sql-server-ver15&viewFallbackFrom=sql-server-ver15Log") in the _SQL Server documentation_.
+
+### Log Shipping
+
+Log shipping is one of the oldest and well tested high availability solutions. It is configured at the database level similar to Always On Availability Groups and Database Mirroring. You can use log shipping to maintain one or more secondary databases for a single primary database.
+
+The log shipping process involves three steps:
+
+1. Backing up the transaction log of the primary database instance.
+2. Copying the transaction log backup file to a secondary server.
+3. Restoring the transaction log backup to apply changes to the secondary database.
+
+You can configure log shipping to create multiple secondary database replicas by repeating steps 2 and 3 for each secondary server. Unlike FCI and Always On Availability Groups, log shipping solutions don’t provide automatic failover.
+
+In the event the primary database becomes unavailable or unusable for any reason, an administrator must configure the secondary database to serve as the primary and potentially reconfigure all client applications to connect to the new database.
+
+###### Note
+
+You can use secondary databases used for read-only access, but require special handling. For more information, see [Configure Log Shipping (SQL Server)](https://docs.microsoft.com/en-us/sql/database-engine/log-shipping/configure-log-shipping-sql-server?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/database-engine/log-shipping/configure-log-shipping-sql-server?view=sql-server-ver15") in the _SQL Server documentation_.
+
+The main characteristics of log shipping solutions are:
+
+- Provides redundancy for a single primary database and one or more secondary databases. Log shipping is considered less of a high availability solution due to the lack of automatic failover.
+- Supports limited read-only access to secondary databases.
+- Administrators have control over the timing and delays of the primary server log backup and secondary server restoration.
+- Longer delays can be useful if data is accidentally modified or deleted in the primary database.
+
+For more information, see [About Log Shipping (SQL Server)](https://docs.microsoft.com/en-us/sql/database-engine/log-shipping/about-log-shipping-sql-server?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/database-engine/log-shipping/about-log-shipping-sql-server?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ### Examples
 
-Perform a full compressed database backup.
+Configure an Always On Availability Group.
 
 ```
-BACKUP DATABASE MyDatabase TO DISK='C:\Backups\MyDatabase\FullBackup.bak'
-WITH COMPRESSION;
+CREATE DATABASE DB1;
+
+ALTER DATABASE DB1 SET RECOVERY FULL;
+
+BACKUP DATABASE DB1 TO DISK = N'\\MyBackupShare\DB1\DB1.bak' WITH FORMAT;
+
+CREATE ENDPOINT DBHA STATE=STARTED
+AS TCP (LISTENER_PORT=7022) FOR DATABASE_MIRRORING (ROLE=ALL);
+
+CREATE AVAILABILITY GROUP AG_DB1
+  FOR
+    DATABASE DB1
+  REPLICA ON
+    'SecondarySQL' WITH
+      (
+        ENDPOINT_URL = 'TCP://SecondarySQL.MyDomain.com:7022',
+        AVAILABILITY_MODE = ASYNCHRONOUS_COMMIT,
+        FAILOVER_MODE = MANUAL
+      );
+
+-- On SecondarySQL
+ALTER AVAILABILITY GROUP AG_DB1 JOIN;
+
+RESTORE DATABASE DB1 FROM DISK = N'\\MyBackupShare\DB1\DB1.bak'
+WITH NORECOVERY;
+
+-- On Primary
+BACKUP LOG DB1
+TO DISK = N'\\MyBackupShare\DB1\DB1_Tran.bak'
+  WITH NOFORMAT
+
+-- On SecondarySQL
+RESTORE LOG DB1
+  FROM DISK = N'\\MyBackupShare\DB1\DB1_Tran.bak'
+  WITH NORECOVERY
+
+ALTER DATABASE MyDb1 SET HADR AVAILABILITY GROUP = MyAG;
 ```
 
-Perform a log backup.
-
-```
-BACKUP DATABASE MyDatabase TO DISK='C:\Backups\MyDatabase\LogBackup.bak'
-WITH COMPRESSION;
-```
-
-Perform a partial differential backup.
-
-```
-BACKUP DATABASE MyDatabase
-  FILEGROUP = 'FileGroup1',
-  FILEGROUP = 'FileGroup2'
-  TO DISK='C:\Backups\MyDatabase\DB1.bak'
-  WITH DIFFERENTIAL;
-```
-
-Restore a database to a point in time.
-
-```
-RESTORE DATABASE MyDatabase
-  FROM DISK='C:\Backups\MyDatabase\FullBackup.bak'
-  WITH NORECOVERY;
-
-RESTORE LOG AdventureWorks2012
-  FROM DISK='C:\Backups\MyDatabase\LogBackup.bak'
-  WITH NORECOVERY, STOPAT = '20180401 10:35:00';
-
-RESTORE DATABASE AdventureWorks2012 WITH RECOVERY;
-```
-
-For more information, see [Backup Overview (SQL Server)](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/backup-overview-sql-server?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/backup-overview-sql-server?view=sql-server-ver15") and [Restore and Recovery Overview (SQL Server)](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/restore-and-recovery-overview-sql-server?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/restore-and-recovery-overview-sql-server?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [Business continuity and database recovery - SQL Server](https://docs.microsoft.com/en-us/sql/database-engine/sql-server-business-continuity-dr?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/database-engine/sql-server-business-continuity-dr?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## PostgreSQL Usage
 
-Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) continuously backs up all cluster volumes and retains restore data for the duration of the backup retention period. The backups are incremental and you can use them to restore the cluster to any point in time within the backup retention period. You can specify a backup retention period from one to 35 days when creating or modifying a database cluster. Backups incur no performance impact and don’t cause service interruptions.
+Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) is a fully managed Platform as a Service (PaaS) providing high availability capabilities. Amazon RDS provides database and instance administration functionality for provisioning, patching, backup, recovery, failure detection, and repair.
 
-Additionally, you can manually trigger data snapshots in a cluster volume that you can save beyond the retention period. You can use Snapshots to create new database clusters.
+New Aurora PostgreSQL database instances are always created as part of a cluster. If you don’t specify replicas at creation time, a single-node cluster is created. You can add database instances to clusters later.
+
+### Regions and Availability Zones
+
+Amazon Relational Database Service (Amazon RDS) is hosted in multiple global locations. Each location is composed of Regions and Availability Zones. Each Region is a separate geographic area having multiple, isolated Availability Zones. Amazon RDS supports placement of resources such as database instances and data storage in multiple locations. By default, resources aren’t replicated across regions.
+
+Each Region is completely independent and each Availability Zone is isolated from all others. However, the main benefit of Availability Zones within a Region is that they are connected through low-latency, high bandwidth local network links.
+
+![Availability Zones](images/pb-sql-server-aurora-pg-availability-zones.png)
+
+Resources may have different scopes. A resource may be global, associated with a specific region (region level), or associated with a specific Availability Zone within a region. For more information, see [Resource locations](../../../AWSEC2/latest/UserGuide/resources.md "../../../AWSEC2/latest/UserGuide/resources.md") in the _User Guide for Linux Instances_.
+
+When you create a database instance, you can specify an availability zone or use the default **No preference** option. In this case, Amazon chooses the availability zone for you.
+
+You can distribute Aurora PostgreSQL instances across multiple availability zones. You can design applications designed to take advantage of failover such that in the event of an instance in one availability zone failing, another instance in different availability zone will take over and handle requests.
+
+You can use elastic IP addresses to abstract the failure of an instance by remapping the virtual IP address to one of the available database instances in another Availability Zone. For more information, see [Elastic IP addresses](../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md "../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md") in the _User Guide for Linux Instances_.
+
+An Availability Zone is represented by a region code followed by a letter identifier. For example, `us-east-1a`.
 
 ###### Note
 
-Manual snapshots incur storage charges for Amazon Relational Database Service (Amazon RDS).
+To guarantee even resource distribution across Availability Zones for a region, Amazon RDS independently maps Availability Zones to identifiers for each account. For example, the Availability Zone us-east-1a for one account might not be in the same location as us-east-1a for another account. Users can’t coordinate Availability Zones between accounts.
 
-### Restoring Data
+### Aurora PostgreSQL DB Cluster
 
-You can recover databases from Amazon Aurora automatically retained data or from a manually saved snapshot. Using the automatically retained data significantly reduces the need to take frequent snapshots and maintain Recovery Point Objective (RPO) policies.
+A DB cluster consists of one or more DB instances and a cluster volume that manages the data for those instances. A cluster volume is a virtual database storage volume that may span multiple Availability Zones with each holding a copy of the database cluster data.
 
-The Amazon Relational Database Service (Amazon RDS) console displays the available time frame for restoring database instances in the Latest Restorable Time and Earliest Restorable Time fields. The Latest Restorable Time is typically within the last five minutes. The Earliest Restorable Time is the end of the backup retention period.
+An Amazon Aurora database cluster is made up of one of more of the following types of instances:
+
+- A Primary instance that supports both read and write workloads. This instance is used for all DML transactions. Every Amazon Aurora DB cluster has one, and only, one primary instance.
+- An Amazon Aurora Replica that supports read-only workloads. Every Aurora PostgreSQL database cluster may contain from zero to 15 Amazon Aurora Replicas in addition to the primary instance for a total maximum of 16 instances. Amazon Aurora Replicas enable scale-out of read operations by offloading reporting or other read-only processes to multiple replicas. Place Amazon Aurora replicas in multiple availability Zones to increase availability of the databases.
+
+![Aurora PostgreSQL DB Cluster](images/pb-aurora-architecture-four-cluster-nodes.png)
+
+### Endpoints
+
+Endpoints are used to connect to Aurora PostgreSQL databases. An endpoint is a Universal Resource Locator (URL) comprised of a host address and port number.
+
+- A Cluster Endpoint is an endpoint for an Amazon Aurora database cluster that connects to the current primary instance for that database cluster regardless of the availability zone in which the primary resides. Every Aurora PostgreSQL DB cluster has one cluster endpoint and one primary instance. The cluster endpoint should be used for transparent failover for either read or write workloads.
 
 ###### Note
 
-The Latest Restorable Time and Earliest Restorable Time fields display when a database cluster restore has been completed. Both display NULL until the restore process completes.
+Use the cluster endpoint for all write operations including all DML and DDL statements.
 
-### Database Cloning
+If the primary instance of a DB cluster fails for any reason, Amazon Aurora automatically fails over server requests to a new primary instance. An example of a typical Aurora PostgreSQL DB Cluster endpoint is: `mydbcluster.cluster-123456789012.us-east-1.rds.amazonaws.com:3306`.
 
-Database cloning is a fast and cost-effective way to create copies of a database. You can create multiple clones from a single DB cluster. You can also create additional clones from existing clones. When first created, a cloned database requires only minimal additional storage space.
+- A Reader Endpoint is an endpoint that is used to connect to one of the Aurora read-only replicas in the database cluster. Each Aurora PostgreSQL database cluster has one reader endpoint. If there are more than one Aurora Replicas in the cluster, the reader endpoint redirects the connection to one of the available replicas. Use the Reader Endpoint to support load balancing for read-only connections. If the DB cluster contains no replicas, the reader endpoint redirects the connection to the primary instance. If an Aurora Replica is created later, the Reader Endpoint starts directing connections to the new Aurora Replica with minimal interruption in service. An example of a typical Aurora PostgreSQL DB Reader Endpoint is: `mydbcluster.cluster-ro-123456789012.us-east-1.rds.amazonaws.com:3306`.
+- An Instance Endpoint is a specific endpoint for every database instance in an Aurora DB cluster. Every Aurora PostgreSQL DB instance regardless of its role has its own unique instance endpoint. Use the Instance Endpoints only when the application handles failover and read workload scale-out on its own. For example, you can have certain clients connect to one replica and others to another. An example of a typical Aurora PostgreSQL DB Reader Endpoint is: `pgsdbinstance.123456789012.us-east-1.rds.amazonaws.com:3306`.
 
-Database cloning uses a copy-on-write protocol. Data is copied only when it changes either on the source or cloned database.
+Some general considerations for using endpoints:
 
-Data cloning is useful for avoiding impacts on production databases. For example:
+- Consider using the cluster endpoint instead of individual instance endpoints because it supports high-availability scenarios. In the event that the primary instance fails, Aurora PostgreSQL automatically fails over to a new primary instance. You can accomplish this configuration by either promoting an existing Aurora Replica to be the new primary or by creating a new primary instance.
+- If you use the cluster endpoint instead of the instance endpoint, the connection is automatically redirected to the new primary.
+- If you choose to use the instance endpoint, you must use the Amazon RDS console or the API to discover which database instances in the database cluster are available and their current roles. Then, connect using that instance endpoint.
+- Be aware that the reader endpoint load balances connections to Aurora Replicas in an Aurora database cluster, but it doesn’t load balance specific queries or workloads. If your application requires custom rules for distributing read workloads, use instance endpoints.
+- The reader endpoint may redirect connection to a primary instance during the promotion of an Aurora Replica to a new primary instance.
 
-- Testing schema or parameter group modifications.
-- Isolating intensive workloads. For example, exporting large amounts of data and running high resource-consuming queries.
-- Development and testing with a copy of a production database.
+### Amazon Aurora Storage
 
-### Copying and sharing snapshots
+Aurora PostgreSQL data is stored in a cluster volume. The cluster volume is a single, virtual volume that uses fast solid-state disk (SSD) drives. The cluster volume is comprised of multiple copies of the data distributed between availability zones in a region. This configuration minimizes the chances of data loss and allows for the failover scenarios mentioned in the preceding sections.
 
-You can copy and share database snapshots within the same AWS Region, across AWS Regions, and across AWS accounts. Snapshot sharing allows an authorized AWS account to access and copy snapshots. Authorized users can restore a snapshot from its current location without first copying it.
+Amazon Aurora cluster volumes automatically grow to accommodate the growth in size of your databases. An Aurora cluster volume has a maximum size of 64 terabytes (TiB). Since table size is theoretically limited to the size of the cluster volume, the maximum table size in an Aurora DB cluster is 64 TiB.
 
-Copying an automated snapshot to another AWS account requires two steps:
+### Storage Auto-Repair
 
-- Create a manual snapshot from the automated snapshot.
-- Copy the manual snapshot to another account.
+The chance of data loss due to disk failure is greatly minimize due to the fact that Aurora PostgreSQL maintains multiple copies of the data in three Availability Zones. Aurora PostgreSQL detects failures in the disks that make up the cluster volume. If a disk segment fails, Aurora repairs the segment automatically. Repairs to the disk segments are made using data from the other cluster volumes to ensure correctness. This process allows Aurora to significantly minimize the potential for data loss and the subsequent need to restore a database.
 
-### Backup Storage
+### Survivable Cache Warming
 
-In all Amazon RDS regions, backup storage is the collection of both automated and manual snapshots for all database instances and clusters. The size of this storage is the sum of all individual instance snapshots.
+When a database instance starts, Aurora PostgreSQL performs a warming process for the buffer pool. Aurora PostgreSQL pre-loads the buffer pool with pages that have been frequently used in the past. This approach improves performance and shortens the natural cache filling process for the initial period when the database instance starts servicing requests. Aurora PostgreSQL maintains a separate process to manage the cache, which can stay alive even when the database process restarts. The buffer pool entries remain in memory regardless of the database restart providing the database instance with a fully warm buffer pool.
 
-When an Aurora PostgreSQL database instance is deleted, all automated backups of that database instance are also deleted. However, Amazon RDS provides the option to create a final snapshot before deleting a database instance. This final snapshot is retained as a manual snapshot. Manual snapshots aren’t automatically deleted.
+### Crash Recovery
 
-### The Backup Retention Period
+Aurora PostgreSQL can instantaneously recover from a crash and continue to serve requests. Crash recovery is performed asynchronously using parallel threads enabling the database to remain open and available immediately after a crash.
 
-Retention periods for Aurora PostgreSQL DB cluster backups are configured when creating a cluster. If not explicitly set, the default retention is one day when using the Amazon RDS API or the AWS CLI. The retention period is seven days if using the AWS Console. You can modify the backup retention period at any time with values of one to 35 days.
-
-### Disabling automated backups
-
-You can’t disable automated backups on Aurora PostgreSQL. The backup retention period for Aurora PostgreSQL is managed by the database cluster.
-
-### Migration Considerations
-
-Migrating from a self-managed backup policy to a Platform as a Service (PaaS) environment such as Aurora PostgreSQL is a complete paradigm shift. You no longer need to worry about transaction logs, file groups, disks running out of space, and purging old backups.
-
-Amazon RDS provides guaranteed continuous backup with point-in-time restore up to 35 days.
-
-Managing a SQL Server backup policy with similar RTO and RPO is a challenging task. With Aurora PostgreSQL, all you need to set is the retention period and take some manual snapshots for special use cases.
+For more information, see [Fault tolerance for an Aurora DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/Concepts.md#Aurora.Managing.FaultTolerance "../../../AmazonRDS/latest/AuroraUserGuide/Concepts.md#Aurora.Managing.FaultTolerance") in the _User Guide for Aurora_.
 
 ### Examples
 
-The following walkthrough describes how to change Aurora PostgreSQL DB cluster retention settings from one day to seven days using the Amazon RDS console.
+The following walkthrough demonstrates how to create a read-replica:
 
-1. Log in to the Amazon RDS Console and on dashboard choose **Databases**.
+1. Log in to the AWS Console, and choose **RDS**.
+2. Select the instance and choose **Instance actions**, **Create cross-region read replica**.
 
-![RDS Console](images/pb-sql-server-aurora-rds-console.png) 2. Choose the relevant DB identifier.
+![Create cross-region read replica](images/pb-sql-server-aurora-pg-cross-region-read-replica.png) 3. On the next page, enter all required details and choose **Create**.
 
-![DB identifier](images/pb-sql-server-aurora-db-identifier.png) 3. Verify the current automatic backup settings.
-
-![Backup settings](images/pb-sql-server-aurora-backup-settings.png) 4. In this cluster, select database instance with the writer role.
-
-![Database instance with the writer role](images/pb-sql-server-aurora-writer-role.png) 5. On the top right, choose **Modify**. 6. For **Backup retention period**, choose \*7 Days.
-
-![Backup retention period](images/pb-sql-server-aurora-backup-retention-period.png) 7. Choose **Continue** and review the summary. 8. For **When to apply modifications**, choose **Apply during the next scheduled maintenance window** to apply your changes during the next scheduled maintenance window. Or, choose **Apply immediately** to apply your changes immediately. 9. Choose **Modify DB instance**.
-
-For more information, see [Maintenance Plans](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md").
+After the replica is created, you can run read and write operations on the primary instance and read-only operations on the replica.
 
 ## Summary
 
-| Feature               | SQL Server                             | Aurora PostgreSQL                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Comments                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| --------------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Recovery Model        | `SIMPLE`, `BULK LOGGED`, `FULL`        | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | The functionality of Aurora PostgreSQL backups is equivalent to the `FULL` recovery model.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Backup database       | `BACKUP DATABASE`                      | `aws rds create-db-clustersnapshot --db-cluster-snapshot-identifier Snapshot_name --db-cluster-identifier Cluster_Name`                                                                                                                                                                                                                                                                                                                                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| Partial backup        | `BACKUP DATABASE …​ FILE= …​           | FILEGROUP = …​`                                                                                                                                                                                                                                                                                                                                                                                                                                                              | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Can use export utilities. For more information, see [SQL Server Export and Import with Text Files and PostgreSQL pg_dump and pg_restore](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md"). |
-| Log backup            | `BACKUP LOG`                           | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Backup is at the storage level.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| Differential backups  | `BACKUP DATABASE …​ WITH DIFFERENTIAL` | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | You can do manually using export tools.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| Database snapshots    | `BACKUP DATABASE …​ WITH COPY_ONLY`    | Amazon RDS console or API.                                                                                                                                                                                                                                                                                                                                                                                                                                                   | The terminology is inconsistent between SQL Server and Aurora PostgreSQL. A database snapshot in SQL Server is similar to database cloning in Aurora PostgreSQL. Aurora PostgreSQL database snapshots are similar to a `COPY_ONLY` backup in SQL Server.                                                                                                                                                                                                                                                                                    |
-| Database clones       | `CREATE DATABASE…​ AS SNAPSHOT OF…​`   | Create new cluster from a cluster snapshot: `aws rds restore-db-cluster-from-snapshot --db-clusteridentifier NewCluster --snapshot-identifier SnapshotToRestore --engine aurora-postgresql`.<br>Add a new instance to the new or restored cluster: `aws rds create-db-instance --region us-east-1 --db-subnet-group default --engine aurora-postgresql --dbcluster-identifier clustername-restore --db-instanceidentifier newinstancenodeA --db-instance-class db.r4.large`. | The terminology is inconsistent between SQL Server and Aurora PostgreSQL. A database snapshot in SQL Server is similar to database cloning in Aurora PostgreSQL. Aurora PostgreSQL database snapshots are similar to a `COPY_ONLY` backup in SQL Server.                                                                                                                                                                                                                                                                                    |
-| Point in time restore | `RESTORE DATABASE                      | LOG …​ WITH STOPAT…​`                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Create new cluster from a cluster snapshot by given custom time to restore: `aws rds restore-db-clusterto-point-in-time --db-clusteridentifier clusternamerestore --source-db-clusteridentifier<br>clustername --restore-to-time 2017-09-19T23:45:00.000Z`.<br>Add a new instance to the new or restored cluster: `aws rds create-db-instance --region us-east-1 --db-subnet-group default --engine aurora-postgresql --dbcluster-identifier clustername-restore --db-instanceidentifier newinstancenodeA --db-instance-class db.r4.large`. |                                                                                                                                                                                                                              |
-| Partial restore       | `RESTORE DATABASE…​ FILE= …​           | FILEGROUP = …​`                                                                                                                                                                                                                                                                                                                                                                                                                                                              | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | You can restore the cluster to a new cluster and copy the needed data to the primary cluster.                                                                                                                                |
+| Feature                           | SQL Server                    | Aurora PostgreSQL      | Comments                                                                         |
+| --------------------------------- | ----------------------------- | ---------------------- | -------------------------------------------------------------------------------- |
+| Server level failure protection   | Failover Cluster Instances    | N/A                    | Not applicable. Clustering is handled by Aurora PostgreSQL.                      |
+| Database level failure protection | Always On Availability Groups | Amazon Aurora Replicas |                                                                                  |
+| Log replication                   | Log Shipping                  | N/A                    | Not applicable. Aurora PostgreSQL handles data replication at the storage level. |
+| Disk error protection             | `RESTORE…​ PAGE=`             | Automatically          |                                                                                  |
+| Maximum read-only replicas        | 8 + Primary                   | 15 + Primary           |                                                                                  |
+| Failover address                  | Availability group listener   | Cluster endpoint       |                                                                                  |
+| Read-only workloads               | `READ INTENT` connection      | Read Endpoint          |                                                                                  |
 
-For more information, see [Managing an Amazon Aurora DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/CHAP_Aurora.md "../../../AmazonRDS/latest/AuroraUserGuide/CHAP_Aurora.md") in the _User Guide for Aurora_.
+For more information, see [Amazon Aurora DB clusters](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md") in the _User Guide for Aurora_ and [Regions and Zones](../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md "../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md") in the _User Guide for Linux Instances_.
