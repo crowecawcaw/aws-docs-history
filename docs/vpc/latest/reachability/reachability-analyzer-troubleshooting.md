@@ -5,8 +5,7 @@ The following error messages are returned by Reachability Analyzer:
 **The request failed due to insufficient permissions**
 
 Verify that you have the required permissions. For more information, see
-[Required API permissions for
-Reachability Analyzer](security_iam_required-API-permissions.md "security_iam_required-API-permissions.md").
+[Required API permissions for Reachability Analyzer](security_iam_required-API-permissions.md "security_iam_required-API-permissions.md").
 
 **The network configuration is not supported**
 

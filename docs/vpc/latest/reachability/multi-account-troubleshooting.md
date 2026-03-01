@@ -1,6 +1,4 @@
-# Troubleshoot cross-account analyses in
-
-Reachability Analyzer
+# Troubleshoot cross-account analyses in Reachability Analyzer
 
 The following information can help you troubleshoot common issues with running
 cross-account analyses in Reachability Analyzer.

@@ -51,9 +51,7 @@ your behalf. For more information, see [Use service-linked roles](using-service-
 
 To view the permissions for this policy, see [AWSReachabilityAnalyzerServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSReachabilityAnalyzerServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSReachabilityAnalyzerServiceRolePolicy.md") in the _AWS Managed Policy Reference_.
 
-## Reachability Analyzer updates to AWS managed
-
-policies
+## Reachability Analyzer updates to AWS managed policies
 
 View details about updates to AWS managed policies for Reachability Analyzer since this service began
 tracking these changes.

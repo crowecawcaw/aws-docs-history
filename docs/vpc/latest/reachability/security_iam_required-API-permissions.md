@@ -1,6 +1,4 @@
-# Required API permissions for
-
-Reachability Analyzer
+# Required API permissions for Reachability Analyzer
 
 Reachability Analyzer relies on data from other AWS services. It uses permissions from the following
 services:

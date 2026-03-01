@@ -28,8 +28,6 @@ There is no additional charge to run cross-account analyses.
 
 - [Enable trusted access in Reachability Analyzer](enable-trusted-access.md "enable-trusted-access.md")
 - [IAM role deployments in Reachability Analyzer](manage-role-deployments.md "manage-role-deployments.md")
-- [Manage delegated administrator
-  accounts in Reachability Analyzer](manage-delegated-administrators.md "manage-delegated-administrators.md")
+- [Manage delegated administrator accounts in Reachability Analyzer](manage-delegated-administrators.md "manage-delegated-administrators.md")
 - [Disable trusted access in Reachability Analyzer](disable-trusted-access.md "disable-trusted-access.md")
-- [Troubleshoot cross-account analyses in
-  Reachability Analyzer](multi-account-troubleshooting.md "multi-account-troubleshooting.md")
+- [Troubleshoot cross-account analyses in Reachability Analyzer](multi-account-troubleshooting.md "multi-account-troubleshooting.md")

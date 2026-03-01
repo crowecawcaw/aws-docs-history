@@ -1,6 +1,4 @@
-# Manage delegated administrator
-
-accounts in Reachability Analyzer
+# Manage delegated administrator accounts in Reachability Analyzer
 
 You can register up to 5 delegated administrator accounts in Reachability Analyzer. If you deregister a
 delegated administrator account, the users in the account can't run a new cross-account
