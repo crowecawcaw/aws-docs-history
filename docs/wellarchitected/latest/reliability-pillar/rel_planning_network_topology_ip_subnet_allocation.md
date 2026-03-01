@@ -1,6 +1,4 @@
-# REL02-BP03 Ensure IP subnet
-
-allocation accounts for expansion and availability
+# REL02-BP03 Ensure IP subnet allocation accounts for expansion and availability
 
 Amazon VPC IP address ranges must be large enough to accommodate workload requirements,
 including factoring in future expansion and allocation of IP addresses to subnets across

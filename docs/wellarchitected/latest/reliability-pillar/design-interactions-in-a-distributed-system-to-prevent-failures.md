@@ -8,8 +8,7 @@ mean time between failures (MTBF).
 
 ###### Best practices
 
-- [REL04-BP01 Identify the kind of distributed systems you depend
-  on](rel_prevent_interaction_failure_identify.md "rel_prevent_interaction_failure_identify.md")
+- [REL04-BP01 Identify the kind of distributed systems you depend on](rel_prevent_interaction_failure_identify.md "rel_prevent_interaction_failure_identify.md")
 - [REL04-BP02 Implement loosely coupled dependencies](rel_prevent_interaction_failure_loosely_coupled_system.md "rel_prevent_interaction_failure_loosely_coupled_system.md")
 - [REL04-BP03 Do constant work](rel_prevent_interaction_failure_constant_work.md "rel_prevent_interaction_failure_constant_work.md")
 - [REL04-BP04 Make mutating operations idempotent](rel_prevent_interaction_failure_idempotent.md "rel_prevent_interaction_failure_idempotent.md")

@@ -1,6 +1,4 @@
-# REL07-BP01 Use automation when obtaining or scaling
-
-resources
+# REL07-BP01 Use automation when obtaining or scaling resources
 
 A cornerstone of reliability in the cloud is the programmatic
 definition, provisioning, and management of your infrastructure and

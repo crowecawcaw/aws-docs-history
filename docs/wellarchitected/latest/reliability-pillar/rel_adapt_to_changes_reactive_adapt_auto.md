@@ -1,6 +1,4 @@
-# REL07-BP02 Obtain resources upon detection of impairment to a
-
-workload
+# REL07-BP02 Obtain resources upon detection of impairment to a workload
 
 Scale resources reactively when necessary if availability is
 impacted, to restore workload availability.

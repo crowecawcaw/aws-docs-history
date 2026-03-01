@@ -1,6 +1,4 @@
-# REL09-BP01 Identify and back up all data that needs to be
-
-backed up, or reproduce the data from sources
+# REL09-BP01 Identify and back up all data that needs to be backed up, or reproduce the data from sources
 
 Understand and use the backup capabilities of the data services and resources used by the workload. Most services provide capabilities to back up workload data.
 
@@ -110,11 +108,9 @@ Plan:** Moderate
 
 **Related Best Practices:**
 
-[REL13-BP01 Define recovery objectives for downtime and data
-loss](rel_planning_for_recovery_objective_defined_recovery.md "rel_planning_for_recovery_objective_defined_recovery.md")
+[REL13-BP01 Define recovery objectives for downtime and data loss](rel_planning_for_recovery_objective_defined_recovery.md "rel_planning_for_recovery_objective_defined_recovery.md")
 
-[REL13-BP02 Use defined recovery strategies to meet the recovery
-objectives](rel_planning_for_recovery_disaster_recovery.md "rel_planning_for_recovery_disaster_recovery.md")
+[REL13-BP02 Use defined recovery strategies to meet the recovery objectives](rel_planning_for_recovery_disaster_recovery.md "rel_planning_for_recovery_disaster_recovery.md")
 
 **Related documents:**
 

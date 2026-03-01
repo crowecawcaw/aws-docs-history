@@ -1,6 +1,4 @@
-# REL06-BP04 Automate responses (Real-time processing and
-
-alarming)
+# REL06-BP04 Automate responses (Real-time processing and alarming)
 
 Use automation to take action when an event is detected, for
 example, to replace failed components.
@@ -44,13 +42,10 @@ You can use [Amazon DevOps Guru](https://aws.amazon.com/devops-guru/ "https://a
 
 **Related best practices:**
 
-- [REL06-BP01 Monitor all components for the workload
-  (Generation)](rel_monitor_aws_resources_monitor_resources.md "rel_monitor_aws_resources_monitor_resources.md")
+- [REL06-BP01 Monitor all components for the workload (Generation)](rel_monitor_aws_resources_monitor_resources.md "rel_monitor_aws_resources_monitor_resources.md")
 - [REL06-BP02 Define and calculate metrics (Aggregation)](rel_monitor_aws_resources_notification_aggregation.md "rel_monitor_aws_resources_notification_aggregation.md")
-- [REL06-BP03 Send notifications (Real-time processing and
-  alarming)](rel_monitor_aws_resources_notification_monitor.md "rel_monitor_aws_resources_notification_monitor.md")
-- [REL08-BP01 Use runbooks for standard activities such as
-  deployment](rel_tracking_change_management_planned_changemgmt.md "rel_tracking_change_management_planned_changemgmt.md")
+- [REL06-BP03 Send notifications (Real-time processing and alarming)](rel_monitor_aws_resources_notification_monitor.md "rel_monitor_aws_resources_notification_monitor.md")
+- [REL08-BP01 Use runbooks for standard activities such as deployment](rel_tracking_change_management_planned_changemgmt.md "rel_tracking_change_management_planned_changemgmt.md")
 
 **Related documents:**
 

@@ -49,12 +49,10 @@ Application designs have to account for a diverse set of requirements that are d
 
 - [REL03-BP01 Choose how to segment your workload](rel_service_architecture_monolith_soa_microservice.md "rel_service_architecture_monolith_soa_microservice.md")
 - [REL10-BP01 Deploy the workload to multiple locations](rel_fault_isolation_multiaz_region_system.md "rel_fault_isolation_multiaz_region_system.md")
-- [REL11-BP01 Monitor all components of the workload to detect
-  failures](rel_withstand_component_failures_monitoring_health.md "rel_withstand_component_failures_monitoring_health.md")
+- [REL11-BP01 Monitor all components of the workload to detect failures](rel_withstand_component_failures_monitoring_health.md "rel_withstand_component_failures_monitoring_health.md")
 - [REL11-BP03 Automate healing on all layers](rel_withstand_component_failures_auto_healing_system.md "rel_withstand_component_failures_auto_healing_system.md")
 - [REL12-BP04 Test resiliency using chaos engineering](rel_testing_resiliency_failure_injection_resiliency.md "rel_testing_resiliency_failure_injection_resiliency.md")
-- [REL13-BP01 Define recovery objectives for downtime and data
-  loss](rel_planning_for_recovery_objective_defined_recovery.md "rel_planning_for_recovery_objective_defined_recovery.md")
+- [REL13-BP01 Define recovery objectives for downtime and data loss](rel_planning_for_recovery_objective_defined_recovery.md "rel_planning_for_recovery_objective_defined_recovery.md")
 - [Understanding workload health](../operational-excellence-pillar/understanding-workload-health.md "../operational-excellence-pillar/understanding-workload-health.md")
 
 **Related documents:**

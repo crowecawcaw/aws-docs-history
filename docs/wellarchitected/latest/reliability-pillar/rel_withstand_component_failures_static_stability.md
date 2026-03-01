@@ -1,6 +1,4 @@
-# REL11-BP05 Use static stability to prevent bimodal
-
-behavior
+# REL11-BP05 Use static stability to prevent bimodal behavior
 
 Workloads should be statically stable and only operate in a single
 normal mode. Bimodal behavior is when your workload exhibits

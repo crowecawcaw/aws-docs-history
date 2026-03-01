@@ -1,6 +1,4 @@
-# Resiliency, and the
-
-components of reliability
+# Resiliency, and the components of reliability
 
 Reliability of a workload in the cloud depends on several factors, the primary of which
 is _Resiliency_:

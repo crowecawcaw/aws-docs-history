@@ -46,8 +46,7 @@ Incorporate AWS services including [Amazon API Gateway](https://aws.amazon.com/a
 **Related best practices:**
 
 - [REL03-BP01 Choose how to segment your workload](rel_service_architecture_monolith_soa_microservice.md "rel_service_architecture_monolith_soa_microservice.md")
-- [REL03-BP02 Build services focused on specific business domains
-  and functionality](rel_service_architecture_business_domains.md "rel_service_architecture_business_domains.md")
+- [REL03-BP02 Build services focused on specific business domains and functionality](rel_service_architecture_business_domains.md "rel_service_architecture_business_domains.md")
 - [REL04-BP02 Implement loosely coupled dependencies](rel_prevent_interaction_failure_loosely_coupled_system.md "rel_prevent_interaction_failure_loosely_coupled_system.md")
 - [REL05-BP03 Control and limit retry calls](rel_mitigate_interaction_failure_limit_retries.md "rel_mitigate_interaction_failure_limit_retries.md")
 - [REL05-BP05 Set client timeouts](rel_mitigate_interaction_failure_client_timeouts.md "rel_mitigate_interaction_failure_client_timeouts.md")

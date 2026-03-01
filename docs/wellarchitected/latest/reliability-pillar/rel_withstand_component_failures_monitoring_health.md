@@ -1,6 +1,4 @@
-# REL11-BP01 Monitor all components of the workload to detect
-
-failures
+# REL11-BP01 Monitor all components of the workload to detect failures
 
 Continually monitor the health of your workload so that you and your
 automated systems are aware of failures or degradations as soon as

@@ -7,8 +7,7 @@ guidance for implementing reliable workloads on AWS.
 
 ###### Topics
 
-- [Shared Responsibility Model for
-  Resiliency](shared-responsibility-model-for-resiliency.md "shared-responsibility-model-for-resiliency.md")
+- [Shared Responsibility Model for Resiliency](shared-responsibility-model-for-resiliency.md "shared-responsibility-model-for-resiliency.md")
 - [Design principles](design-principles.md "design-principles.md")
 - [Definitions](definitions.md "definitions.md")
 - [Understanding availability needs](understanding-availability-needs.md "understanding-availability-needs.md")

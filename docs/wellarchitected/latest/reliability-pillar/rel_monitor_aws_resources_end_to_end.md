@@ -1,6 +1,4 @@
-# REL06-BP07 Monitor end-to-end tracing of requests through your
-
-system
+# REL06-BP07 Monitor end-to-end tracing of requests through your system
 
 Trace requests as they process through service components so product teams can more easily analyze and debug issues and improve performance.
 
@@ -36,10 +34,8 @@ You can use [AWS X-Ray](../../../xray/latest/devguide/aws-xray.md "../../../xray
 
 **Related best practices:**
 
-- [REL06-BP01 Monitor all components for the workload
-  (Generation)](rel_monitor_aws_resources_monitor_resources.md "rel_monitor_aws_resources_monitor_resources.md")
-- [REL11-BP01 Monitor all components of the workload to detect
-  failures](rel_withstand_component_failures_monitoring_health.md "rel_withstand_component_failures_monitoring_health.md")
+- [REL06-BP01 Monitor all components for the workload (Generation)](rel_monitor_aws_resources_monitor_resources.md "rel_monitor_aws_resources_monitor_resources.md")
+- [REL11-BP01 Monitor all components of the workload to detect failures](rel_withstand_component_failures_monitoring_health.md "rel_withstand_component_failures_monitoring_health.md")
 
 **Related documents:**
 

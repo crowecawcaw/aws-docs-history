@@ -32,8 +32,7 @@ on your workload.
 ###### Topics
 
 - [Back up data](back-up-data.md "back-up-data.md")
-- [Use fault isolation to protect
-  your workload](use-fault-isolation-to-protect-your-workload.md "use-fault-isolation-to-protect-your-workload.md")
+- [Use fault isolation to protect your workload](use-fault-isolation-to-protect-your-workload.md "use-fault-isolation-to-protect-your-workload.md")
 - [Design your workload to withstand component failures](design-your-workload-to-withstand-component-failures.md "design-your-workload-to-withstand-component-failures.md")
 - [Test reliability](test-reliability.md "test-reliability.md")
 - [Plan for Disaster Recovery (DR)](plan-for-disaster-recovery-dr.md "plan-for-disaster-recovery-dr.md")

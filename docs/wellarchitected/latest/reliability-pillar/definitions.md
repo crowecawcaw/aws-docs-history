@@ -15,7 +15,6 @@ areas:
 
 ###### Topics
 
-- [Resiliency, and the
-  components of reliability](resiliency-and-the-components-of-reliability.md "resiliency-and-the-components-of-reliability.md")
+- [Resiliency, and the components of reliability](resiliency-and-the-components-of-reliability.md "resiliency-and-the-components-of-reliability.md")
 - [Availability](availability.md "availability.md")
 - [Disaster Recovery (DR) objectives](disaster-recovery-dr-objectives.md "disaster-recovery-dr-objectives.md")

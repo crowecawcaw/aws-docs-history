@@ -16,6 +16,5 @@ reliability.
 
 ###### Topics
 
-- [Manage service quotas and
-  constraints](manage-service-quotas-and-constraints.md "manage-service-quotas-and-constraints.md")
+- [Manage service quotas and constraints](manage-service-quotas-and-constraints.md "manage-service-quotas-and-constraints.md")
 - [Plan your network topology](plan-your-network-topology.md "plan-your-network-topology.md")

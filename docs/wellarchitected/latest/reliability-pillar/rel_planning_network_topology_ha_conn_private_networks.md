@@ -1,6 +1,4 @@
-# REL02-BP02 Provision redundant connectivity between private
-
-networks in the cloud and on-premises environments
+# REL02-BP02 Provision redundant connectivity between private networks in the cloud and on-premises environments
 
 Implement redundancy in your connections between private networks in
 the cloud and on-premises environments to achieve connectivity

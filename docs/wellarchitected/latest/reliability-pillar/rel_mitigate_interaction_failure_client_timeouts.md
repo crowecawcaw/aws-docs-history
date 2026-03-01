@@ -65,8 +65,7 @@ Take advantage of well-established design patterns like retries and circuit brea
 
 - [REL05-BP03 Control and limit retry calls](rel_mitigate_interaction_failure_limit_retries.md "rel_mitigate_interaction_failure_limit_retries.md")
 - [REL05-BP04 Fail fast and limit queues](rel_mitigate_interaction_failure_fail_fast.md "rel_mitigate_interaction_failure_fail_fast.md")
-- [REL06-BP07 Monitor end-to-end tracing of requests through your
-  system](rel_monitor_aws_resources_end_to_end.md "rel_monitor_aws_resources_end_to_end.md")
+- [REL06-BP07 Monitor end-to-end tracing of requests through your system](rel_monitor_aws_resources_end_to_end.md "rel_monitor_aws_resources_end_to_end.md")
 
 **Related documents:**
 

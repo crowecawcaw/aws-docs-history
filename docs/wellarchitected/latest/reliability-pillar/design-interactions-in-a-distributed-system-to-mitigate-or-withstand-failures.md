@@ -12,8 +12,7 @@ between failures (MTBF).
 
 ###### Best practices
 
-- [REL05-BP01 Implement graceful degradation to transform
-  applicable hard dependencies into soft dependencies](rel_mitigate_interaction_failure_graceful_degradation.md "rel_mitigate_interaction_failure_graceful_degradation.md")
+- [REL05-BP01 Implement graceful degradation to transform applicable hard dependencies into soft dependencies](rel_mitigate_interaction_failure_graceful_degradation.md "rel_mitigate_interaction_failure_graceful_degradation.md")
 - [REL05-BP02 Throttle requests](rel_mitigate_interaction_failure_throttle_requests.md "rel_mitigate_interaction_failure_throttle_requests.md")
 - [REL05-BP03 Control and limit retry calls](rel_mitigate_interaction_failure_limit_retries.md "rel_mitigate_interaction_failure_limit_retries.md")
 - [REL05-BP04 Fail fast and limit queues](rel_mitigate_interaction_failure_fail_fast.md "rel_mitigate_interaction_failure_fail_fast.md")

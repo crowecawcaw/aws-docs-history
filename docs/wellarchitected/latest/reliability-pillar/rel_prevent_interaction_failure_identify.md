@@ -1,6 +1,4 @@
-# REL04-BP01 Identify the kind of distributed systems you depend
-
-on
+# REL04-BP01 Identify the kind of distributed systems you depend on
 
 Distributed systems can be synchronous, asynchronous, or batch.
 Synchronous systems must process requests as quickly as possible and
