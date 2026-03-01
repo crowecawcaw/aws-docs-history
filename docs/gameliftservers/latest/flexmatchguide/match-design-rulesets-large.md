@@ -1,6 +1,4 @@
-# Design a FlexMatch large-match rule
-
-set
+# Design a FlexMatch large-match rule set
 
 If your rule set creates matches that allow 41 to 200 players, you need to make some
 adjustments to your rule set configuration. These adjustments optimize the match

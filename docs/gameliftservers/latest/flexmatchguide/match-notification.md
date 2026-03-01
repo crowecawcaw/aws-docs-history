@@ -29,8 +29,7 @@ persist after all retry attempts, or for non-retryable errors such as authorizat
 - [Set up EventBridge events](#match-notification-cwe "#match-notification-cwe")
 - [Tutorial: Set up an Amazon SNS topic](match-notification-sns.md "match-notification-sns.md")
 - [Set up an SNS topic with server-side encryption](queue-notification-sns-sse.md "queue-notification-sns-sse.md")
-- [Configure a topic subscription to invoke a Lambda
-  function](match-notification-lambda.md "match-notification-lambda.md")
+- [Configure a topic subscription to invoke a Lambda function](match-notification-lambda.md "match-notification-lambda.md")
 
 ## Set up EventBridge events
 

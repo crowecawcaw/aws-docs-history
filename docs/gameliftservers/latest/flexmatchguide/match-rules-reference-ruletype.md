@@ -1,8 +1,6 @@
 # FlexMatch rule types
 
-## Batch distance
-
-rule
+## Batch distance rule
 
 ```
 batchDistance
@@ -152,18 +150,15 @@ might then require the team to have at least one of a certain character.
   include the following:
   - `intersection` – This operation measures the number
     of values that are the same in all players' collections. For an example
-    of a rule that uses the intersection operation, see [Example: Use explicit sorting to find best
-    matches](match-examples-4.md "match-examples-4.md").
+    of a rule that uses the intersection operation, see [Example: Use explicit sorting to find best matches](match-examples-4.md "match-examples-4.md").
   - `contains` – This operation measures the number of
     player attribute collections that contain the specified reference value.
-    For an example of a rule that uses the contains operation, see [Example: Set team-level requirements and latency
-    limits](match-examples-3.md "match-examples-3.md").
+    For an example of a rule that uses the contains operation, see [Example: Set team-level requirements and latency limits](match-examples-3.md "match-examples-3.md").
   - `reference_intersection_count` – This operation
     measures the number of items in a player attribute collection that match
     items in the reference value collection. You can use this operation to
     compare multiple different player attributes. For an example of a rule
-    that compares multiple player attribute collections, see [Example: Find intersections across multiple player
-    attributes](match-examples-5.md "match-examples-5.md").
+    that compares multiple player attribute collections, see [Example: Find intersections across multiple player attributes](match-examples-5.md "match-examples-5.md").
 
 - **`minCount`/`maxCount`**
   – The minimum or maximum count value for a successful match.

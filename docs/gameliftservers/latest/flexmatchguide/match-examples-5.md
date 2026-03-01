@@ -1,6 +1,4 @@
-# Example: Find intersections across multiple player
-
-attributes
+# Example: Find intersections across multiple player attributes
 
 This example illustrates how to use a collection rule to find intersections in two or
 more player attributes. When working with collections, you can use the

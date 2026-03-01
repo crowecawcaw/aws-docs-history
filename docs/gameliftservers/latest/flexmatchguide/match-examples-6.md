@@ -1,6 +1,4 @@
-# Example: Compare attributes across all
-
-players
+# Example: Compare attributes across all players
 
 This example illustrates how to compare player attributes across a group of players.
 

@@ -1,6 +1,4 @@
-# Tutorial: Create a matchmaker for Amazon GameLift Servers
-
-hosting
+# Tutorial: Create a matchmaker for Amazon GameLift Servers hosting
 
 Before creating a matchmaking configuration, [create a rule set](match-create-ruleset.md "match-create-ruleset.md") and an Amazon GameLift Servers [game session queue](../developerguide/queues-creating.md "../developerguide/queues-creating.md")
 to use with the matchmaker.

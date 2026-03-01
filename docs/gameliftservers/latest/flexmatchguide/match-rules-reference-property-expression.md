@@ -1,6 +1,4 @@
-# FlexMatch property
-
-expressions
+# FlexMatch property expressions
 
 Property expressions can be used to define certain matchmaking-related properties. They
 allow you to use calculations and logic when defining a property value. Property expressions
@@ -9,9 +7,7 @@ generally result in one of two forms:
 - Individual player data.
 - Calculated collections of individual player data.
 
-## Common matchmaking property
-
-expressions
+## Common matchmaking property expressions
 
 A property expression identifies a specific value for a player, team, or match. The
 following partial expressions illustrate how to identify teams and players:
@@ -25,9 +21,7 @@ following partial expressions illustrate how to identify teams and players:
 | To identify players in a set of specific teams in a match: | `team[red,blue].players` | Players in the match, grouped by team | List<List<Player>> |
 | To identify players in a match:                            | `team[*].players`        | Players in the match, grouped by team | List<List<Player>> |
 
-## Property expression
-
-examples
+## Property expression examples
 
 The following table illustrates some property expressions that build on the previous
 examples:
@@ -39,9 +33,7 @@ examples:
 | `teams[red,blue].players.attributes[skill]` | The "skill" attributes of all players on the Red team and the Blue<br>team, grouped by team | List<List<number>> |
 | `teams[*].players.attributes[skill]`        | The "skill" attributes of all players in the match, grouped by<br>team                      | List<List<number>> |
 
-## Property expression
-
-aggregations
+## Property expression aggregations
 
 Property expressions can be used to aggregate team data by using the following
 functions or combinations of functions:

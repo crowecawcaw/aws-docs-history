@@ -2,8 +2,7 @@
 
 This example illustrates how to set up a rule set for matches that can exceed 40
 players. When a rule set describes teams with a total maxPlayer count greater than 40,
-it is processed as a large match. Learn more in [Design a FlexMatch large-match rule
-set](match-design-rulesets-large.md "match-design-rulesets-large.md").
+it is processed as a large match. Learn more in [Design a FlexMatch large-match rule set](match-design-rulesets-large.md "match-design-rulesets-large.md").
 
 The example rule set creates a match using the following instructions:
 
@@ -34,8 +33,7 @@ The example rule set creates a match using the following instructions:
   default setting. To use the default, you can opt to omit the setting.
 - If you've enabled match backfill, do not relax player count requirements too
   quickly, or you may end up with too many partially filled game sessions. Learn
-  more in [Relax large match
-  requirements](match-design-rulesets-large-relax.md "match-design-rulesets-large-relax.md").
+  more in [Relax large match requirements](match-design-rulesets-large-relax.md "match-design-rulesets-large-relax.md").
 
 ```
 {

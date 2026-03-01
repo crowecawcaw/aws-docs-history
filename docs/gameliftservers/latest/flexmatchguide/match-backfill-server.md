@@ -1,6 +1,4 @@
-# Generate manual backfill requests from a game
-
-server
+# Generate manual backfill requests from a game server
 
 You can manually initiate match backfill requests from the game server process that is
 hosting the game session. The server process has the most up-to-date information on
@@ -14,8 +12,7 @@ To enable match backfill for your game, add the following functionality:
 
 - Send matchmaking backfill requests to a matchmaker and track the status of
   requests.
-- Update match information for the game session. See [Update match data on the game
-  server](match-backfill-server-data.md "match-backfill-server-data.md").
+- Update match information for the game session. See [Update match data on the game server](match-backfill-server-data.md "match-backfill-server-data.md").
   As with other server functionality, a game server uses the Amazon GameLift Servers Server SDK. This
   SDK is available in C++ and C#.
 
@@ -96,8 +93,7 @@ tasks.
     Amazon GameLift Servers updates your game server about the status of backfill requests using
     the Server SDK callback function `onUpdateGameSession` (see [Initialize the server process](../../../gamelift/latest/developerguide/gamelift-sdk-server-api.md#gamelift-sdk-server-initialize "../../../gamelift/latest/developerguide/gamelift-sdk-server-api.md#gamelift-sdk-server-initialize")). Add code to handle the status
     messages—as well as updated game session objects as a result of
-    successful backfill requests—at [Update match data on the game
-    server](match-backfill-server-data.md "match-backfill-server-data.md").
+    successful backfill requests—at [Update match data on the game server](match-backfill-server-data.md "match-backfill-server-data.md").
 
 A matchmaker can process only one match backfill request from a game session
 at a time. If you need to cancel a request, call [StopMatchBackfill()](../../../gamelift/latest/developerguide/integration-server-sdk-cpp-ref-actions.md#integration-server-sdk-cpp-ref-stopmatchbackfill "../../../gamelift/latest/developerguide/integration-server-sdk-cpp-ref-actions.md#integration-server-sdk-cpp-ref-stopmatchbackfill"). If you need to change a request, call

@@ -1,6 +1,4 @@
-# Example: Create a rule that uses a player's block
-
-list
+# Example: Create a rule that uses a player's block list
 
 This example illustrates a rule set that lets players avoid being matched with certain
 other players. Players can create a block list, which the matchmaker evaluates during

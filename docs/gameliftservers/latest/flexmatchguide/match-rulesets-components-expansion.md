@@ -1,6 +1,4 @@
-# Allow requirements to relax over
-
-time
+# Allow requirements to relax over time
 
 Expansions allow you to relax rule criteria over time when FlexMatch can't find a match.
 This feature ensures that FlexMatch makes a best available when it can't make a perfect

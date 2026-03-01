@@ -14,15 +14,11 @@ on other Amazon GameLift Servers hosting options.
 
 ###### Topics
 
-- [Set up matchmaking rules and
-  processes](#reference-awssdk-flex-configure "#reference-awssdk-flex-configure")
-- [Request a match for a player or
-  players](#reference-awssdk-flex-place "#reference-awssdk-flex-place")
+- [Set up matchmaking rules and processes](#reference-awssdk-flex-configure "#reference-awssdk-flex-configure")
+- [Request a match for a player or players](#reference-awssdk-flex-place "#reference-awssdk-flex-place")
 - [Available programming languages](#reference-awssdk-langlist "#reference-awssdk-langlist")
 
-## Set up matchmaking rules and
-
-processes
+## Set up matchmaking rules and processes
 
 Call these operations to create a FlexMatch matchmaker, configure the matchmaking process
 for your game, and define a set of custom rules for creating matches and teams.
@@ -51,9 +47,7 @@ for your game, and define a set of custom rules for creating matches and teams.
 - [DeleteMatchmakingRuleSet](../../../gamelift/latest/apireference/API_DeleteMatchmakingRuleSet.md "../../../gamelift/latest/apireference/API_DeleteMatchmakingRuleSet.md") – Remove a matchmaking rule set
   from the region.
 
-## Request a match for a player or
-
-players
+## Request a match for a player or players
 
 Call these operations from your game client service to manage player matchmaking
 requests.

@@ -1,6 +1,4 @@
-# Example: Set team-level requirements and latency
-
-limits
+# Example: Set team-level requirements and latency limits
 
 This example illustrates how to set up player teams and apply a set of rules to each
 team instead of each individual player. It uses a single definition to create three

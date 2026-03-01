@@ -1,6 +1,4 @@
-# Choose a location for the
-
-matchmaker
+# Choose a location for the matchmaker
 
 Decide where you want matchmaking activity to take place and create your
 matchmaking configuration and rule set in that location. Amazon GameLift Servers maintains ticket pools for

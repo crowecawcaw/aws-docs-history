@@ -1,6 +1,4 @@
-# Declare player
-
-attributes
+# Declare player attributes
 
 Make sure that you declare the player attribute that is used as a balancing
 attribute in the rule set algorithm. This attribute should be included for each

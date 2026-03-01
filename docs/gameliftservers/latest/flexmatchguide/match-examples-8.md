@@ -58,8 +58,7 @@ The example rule set creates a match using the following instructions:
 
 - If you've enabled backfill for matches created with this rule set, do not
   relax player count requirements too quickly, or you may end up with too many
-  partially filled game sessions. Learn more in [Relax large match
-  requirements](match-design-rulesets-large-relax.md "match-design-rulesets-large-relax.md").
+  partially filled game sessions. Learn more in [Relax large match requirements](match-design-rulesets-large-relax.md "match-design-rulesets-large-relax.md").
 
 ```
 {

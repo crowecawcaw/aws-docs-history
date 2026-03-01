@@ -26,13 +26,11 @@ To turn on automatic backfill, open a match configuration and set the backfill
 mode to "AUTOMATIC". For more details, see [Create a matchmaking configuration](match-create-configuration.md "match-create-configuration.md") 2. **Turn on backfill prioritization**. Customize
 your matchmaking process to prioritize filling backfill requests before creating
 new matches. In your matchmaking rule set, add an algorithm component and set
-backfill priority to "high". For more details, see [Customize the match
-algorithm](match-rulesets-components-algorithm.md "match-rulesets-components-algorithm.md"). 3. **Update game session with new matchmaker data.**
+backfill priority to "high". For more details, see [Customize the match algorithm](match-rulesets-components-algorithm.md "match-rulesets-components-algorithm.md"). 3. **Update game session with new matchmaker data.**
 Amazon GameLift Servers updates your game server with match information using the Server SDK
 callback function `onUpdateGameSession` (see [Initialize the server process](../../../gamelift/latest/developerguide/gamelift-sdk-server-api.md#gamelift-sdk-server-initialize "../../../gamelift/latest/developerguide/gamelift-sdk-server-api.md#gamelift-sdk-server-initialize")). Add code to your game server to
 handle updated game session objects as a result of backfill activity. Learn more
-in [Update match data on the game
-server](match-backfill-server-data.md "match-backfill-server-data.md"). 4. **Turn off automatic backfill for a game
+in [Update match data on the game server](match-backfill-server-data.md "match-backfill-server-data.md"). 4. **Turn off automatic backfill for a game
 session.** You can opt to stop automatic backfill at any point
 during an individual game session. To stop automatic backfill, add code to your
 game client or game server to make the Amazon GameLift Servers API call [StopMatchmaking](../../../gamelift/latest/apireference/API_StopMatchmaking.md "../../../gamelift/latest/apireference/API_StopMatchmaking.md"). This

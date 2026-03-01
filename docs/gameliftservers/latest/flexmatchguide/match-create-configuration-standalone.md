@@ -1,6 +1,4 @@
-# Tutorial: Create a matchmaker for
-
-standalone FlexMatch
+# Tutorial: Create a matchmaker for standalone FlexMatch
 
 Before creating a matchmaking configuration, [create a rule set](match-create-ruleset.md "match-create-ruleset.md") to use with the matchmaker.
 
@@ -9,8 +7,7 @@ Console
 1. Open the Amazon GameLift Servers console at [https://console.aws.amazon.com/gamelift/home](https://console.aws.amazon.com/gamelift/ "https://console.aws.amazon.com/gamelift/").
 2. Switch to the AWS Region where you want to create your
    matchmaker. For a list of Regions that support FlexMatch matchmaking
-   configurations, see [Choose a location for the
-   matchmaker](match-configuration-regions.md "match-configuration-regions.md").
+   configurations, see [Choose a location for the matchmaker](match-configuration-regions.md "match-configuration-regions.md").
 3. In the navigation pane, choose **FlexMatch**,
    **Matchmaking configurations**.
 4. On the **Matchmaking configurations** page,

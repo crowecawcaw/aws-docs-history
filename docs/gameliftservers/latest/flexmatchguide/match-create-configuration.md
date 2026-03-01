@@ -6,8 +6,6 @@ about creating a matchmaker, see [Design a FlexMatch matchmaker](match-configura
 
 ###### Topics
 
-- [Tutorial: Create a matchmaker for Amazon GameLift Servers
-  hosting](match-create-configuration-withqueue.md "match-create-configuration-withqueue.md")
-- [Tutorial: Create a matchmaker for
-  standalone FlexMatch](match-create-configuration-standalone.md "match-create-configuration-standalone.md")
+- [Tutorial: Create a matchmaker for Amazon GameLift Servers hosting](match-create-configuration-withqueue.md "match-create-configuration-withqueue.md")
+- [Tutorial: Create a matchmaker for standalone FlexMatch](match-create-configuration-standalone.md "match-create-configuration-standalone.md")
 - [Tutorial: Edit a matchmaking configuration](match-create-configuration-edit.md "match-create-configuration-edit.md")

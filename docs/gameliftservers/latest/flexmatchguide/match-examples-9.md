@@ -1,6 +1,4 @@
-# Example: Create a large match with players with
-
-similar attributes
+# Example: Create a large match with players with similar attributes
 
 This example illustrates how to set up a rule set for matches with two teams using
 `batchDistance`. In the example:

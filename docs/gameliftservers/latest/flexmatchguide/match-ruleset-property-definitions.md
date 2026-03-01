@@ -1,6 +1,4 @@
-# FlexMatch rule set property
-
-definitions
+# FlexMatch rule set property definitions
 
 This section defines each property in the rule set schema. For additional help with
 creating a rule set, see [Build a FlexMatch rule set](match-rulesets.md "match-rulesets.md").

@@ -5,8 +5,7 @@ This topic provides guidance on how to design a matchmaker that fits your game.
 ###### Topics
 
 - [Configure a basic matchmaker](#match-configuration-elements "#match-configuration-elements")
-- [Choose a location for the
-  matchmaker](match-configuration-regions.md "match-configuration-regions.md")
+- [Choose a location for the matchmaker](match-configuration-regions.md "match-configuration-regions.md")
 - [Add optional elements](match-configuration-options.md "match-configuration-options.md")
 
 ## Configure a basic matchmaker

@@ -1,6 +1,4 @@
-# Generate manual backfill requests from a backend
-
-service
+# Generate manual backfill requests from a backend service
 
 As an alternative to sending backfill requests from a game server, you may want to
 send them from a client-side game service. To use this option, the client-side service
@@ -15,8 +13,7 @@ To enable match backfill for your game, add the following functionality:
 
 - Send matchmaking backfill requests to a matchmaker and track the status of
   requests.
-- Update match information for the game session. See [Update match data on the game
-  server](match-backfill-server-data.md "match-backfill-server-data.md")
+- Update match information for the game session. See [Update match data on the game server](match-backfill-server-data.md "match-backfill-server-data.md")
   As with other client functionality, a client-side game service uses the AWS SDK with
   Amazon GameLift Servers API. This SDK is available in C++, C#, and several other languages. For a
   general description of client APIs, see the Amazon GameLift Servers API Reference, which
@@ -129,5 +126,4 @@ updated request.
 
 Once a match backfill request is successful, your game server receives an
 updated `GameSession` object and handles the tasks needed to join new
-players to the game session. See more at [Update match data on the game
-server](match-backfill-server-data.md "match-backfill-server-data.md").
+players to the game session. See more at [Update match data on the game server](match-backfill-server-data.md "match-backfill-server-data.md").

@@ -1,6 +1,4 @@
-# Example: Use a compound rule to create a match
-
-with players with similar attributes or similar selections
+# Example: Use a compound rule to create a match with players with similar attributes or similar selections
 
 This example illustrates how to set up a rule set for matches with two teams using
 `compound`. In the example:

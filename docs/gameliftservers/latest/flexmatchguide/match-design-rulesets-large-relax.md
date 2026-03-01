@@ -1,6 +1,4 @@
-# Relax large match
-
-requirements
+# Relax large match requirements
 
 As with small matches, you can use expansions to relax match requirements over
 time when no valid matches are possible. With large matches, you have the option to

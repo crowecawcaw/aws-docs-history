@@ -1,6 +1,4 @@
-# Example: Use explicit sorting to find best
-
-matches
+# Example: Use explicit sorting to find best matches
 
 This example sets up a simple match with two teams of three players. It illustrates
 how to use explicit sorting rules to help find the best possible matches as quickly as

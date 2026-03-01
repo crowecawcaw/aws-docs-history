@@ -1,6 +1,4 @@
-# Customize the match
-
-algorithm
+# Customize the match algorithm
 
 FlexMatch optimizes the default algorithm for most games to get players into acceptable
 matches with minimal wait time. You can customize the algorithm and adjust matchmaking
@@ -21,17 +19,12 @@ The following is the default FlexMatch matchmaking algorithm:
 Use the following optional customizations to impact different stages of your
 matchmaking process.
 
-- [Add pre-batch
-  sorting](#match-rulesets-components-algorithm-presort "#match-rulesets-components-algorithm-presort")
+- [Add pre-batch sorting](#match-rulesets-components-algorithm-presort "#match-rulesets-components-algorithm-presort")
 - [Form batches based on batchDistance attributes](match-rules-reference-ruletype.md#match-rules-reference-ruletype-batchdistance "match-rules-reference-ruletype.md#match-rules-reference-ruletype-batchdistance")
-- [Prioritize backfill
-  tickets](#match-rulesets-components-algorithm-backfill "#match-rulesets-components-algorithm-backfill")
-- [Favor older tickets
-  with expansions](#match-rulesets-components-algorithm-expansion "#match-rulesets-components-algorithm-expansion")
+- [Prioritize backfill tickets](#match-rulesets-components-algorithm-backfill "#match-rulesets-components-algorithm-backfill")
+- [Favor older tickets with expansions](#match-rulesets-components-algorithm-expansion "#match-rulesets-components-algorithm-expansion")
 
-## Add pre-batch
-
-sorting
+## Add pre-batch sorting
 
 You can sort the ticket pool before forming batches. This type of customization is
 most effective with games with large tickets pools. Pre-batch sorting can help speed
@@ -72,8 +65,7 @@ map.
 
 Set the algorithm property `strategy` to `balanced`.
 The balanced strategy limits the available types of rule statements. For
-more information, see [Design a FlexMatch large-match rule
-set](match-design-rulesets-large.md "match-design-rulesets-large.md").
+more information, see [Design a FlexMatch large-match rule set](match-design-rulesets-large.md "match-design-rulesets-large.md").
 
 FlexMatch sorts tickets based on players' reported latency data in one of the
 following ways:
@@ -117,9 +109,7 @@ following ways:
 The default value for the balanced strategy is
 `largestPopulation`.
 
-## Prioritize backfill
-
-tickets
+## Prioritize backfill tickets
 
 If your game implements auto-backfill or manual backfill, you can customize how
 FlexMatch processes matchmaking tickets based on request type. The request type can be
@@ -170,9 +160,7 @@ Set `backfillPriority` to `low`.
 },
 ```
 
-## Favor older tickets
-
-with expansions
+## Favor older tickets with expansions
 
 Expansion rules relax match criteria when matches are difficult to complete. Amazon GameLift Servers
 applies expansion rules when tickets in a partially completed match reach a certain

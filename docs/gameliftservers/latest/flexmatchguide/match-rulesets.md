@@ -16,7 +16,6 @@ creating a rule set, you can use either the Amazon GameLift Servers console or t
 ###### Topics
 
 - [Design a FlexMatch rule set](match-design-ruleset.md "match-design-ruleset.md")
-- [Design a FlexMatch large-match rule
-  set](match-design-rulesets-large.md "match-design-rulesets-large.md")
+- [Design a FlexMatch large-match rule set](match-design-rulesets-large.md "match-design-rulesets-large.md")
 - [Tutorial: Create a matchmaking rule set](match-create-ruleset.md "match-create-ruleset.md")
 - [FlexMatch rule set examples](match-examples.md "match-examples.md")

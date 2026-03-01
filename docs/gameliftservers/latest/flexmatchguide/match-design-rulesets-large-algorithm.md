@@ -1,6 +1,4 @@
-# Customize match algorithm
-
-for large matches
+# Customize match algorithm for large matches
 
 Add an algorithm component to the rule set, if one doesn't already exist. Set the
 following properties.
