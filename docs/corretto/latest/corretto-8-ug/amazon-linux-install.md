@@ -2,9 +2,7 @@
 
 This topic describes how to install and uninstall Amazon Corretto 8 on a host or container running the Amazon Linux 2 or Amazon Linux 2023 operating systems.
 
-##
-
-Option 1: Install using the yum Package Manager on Amazon Linux
+## Option 1: Install using the yum Package Manager on Amazon Linux
 
 1. Enable the yum repository in Amazon Linux 2. This is not required on Amazon Linux 2022 and later.
 
@@ -31,44 +29,6 @@ Install Amazon Corretto 8 as JDK.
 
 ```
 sudo yum install java-1.8.0-amazon-corretto-devel
-```
-
-Amazon Corretto 8 has a 'headless' variant available. This variant omits runtime dependencies that are
-typically associated with GUI applications such as X11 and ALSA and is worth considering for
-server-oriented workloads. The 'headful' variant adds support for X11 and ALSA. There is also a
-'devel' package which contains the JDK development tools, as well as a 'jmods' package that
-contains the Amazon Corretto 8 JMods used to create custom runtime images.
-
-Option 1: Install the headless Amazon Corretto 8:
-
-###### Example
-
-```
-sudo yum install java-1.8.0-amazon-corretto-headless
-```
-
-Option 2: Install the headful Amazon Corretto 8:
-
-###### Example
-
-```
-sudo yum install java-1.8.0-amazon-corretto
-```
-
-Option 3: Install the JDK for Amazon Corretto 8:
-
-###### Example
-
-```
-sudo yum install java-1.8.0-amazon-corretto-devel
-```
-
-Option 4: Install the JMods for Amazon Corretto 8:
-
-###### Example
-
-```
-sudo yum install java-1.8.0-amazon-corretto-jmods
 ```
 
 The installation location is `/usr/lib/jvm/java-1.8.0-amazon-corretto.<cpu_arch>`.
@@ -142,36 +102,4 @@ Uninstall JDK:
 
 ```
 sudo yum remove java-1.8.0-amazon-corretto-devel
-```
-
-Uninstall headless:
-
-###### Example
-
-```
-sudo yum remove java-1.8.0-amazon-corretto-headless
-```
-
-Uninstall headful:
-
-###### Example
-
-```
-sudo yum remove java-1.8.0-amazon-corretto
-```
-
-Uninstall devel:
-
-###### Example
-
-```
-sudo yum remove java-1.8.0-amazon-corretto-devel
-```
-
-Uninstall jmods:
-
-###### Example
-
-```
-sudo yum remove java-1.8.0-amazon-corretto-jmods
 ```

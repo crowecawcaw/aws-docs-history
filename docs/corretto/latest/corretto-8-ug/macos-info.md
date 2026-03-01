@@ -4,5 +4,4 @@ The topics in this section describe installation instructions for Amazon Corrett
 
 ###### Topics
 
-- [Amazon Corretto 8 Installation Instructions for macOS 11 or
-  later](macos-install.md "macos-install.md")
+- [Amazon Corretto 8 Installation Instructions for macOS 11 or later](macos-install.md "macos-install.md")
