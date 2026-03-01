@@ -1,6 +1,4 @@
-# Creating a machine learning-based matching
-
-workflow
+# Creating a machine learning-based matching workflow
 
 _[Machine learning-based
 matching](glossary.md#ml-matching-defn "glossary.md#ml-matching-defn")_ is a preset process that attempts to match records across all

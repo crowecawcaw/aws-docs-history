@@ -1,6 +1,4 @@
-# Creating an ID namespace target
-
-(rule-based method)
+# Creating an ID namespace target (rule-based method)
 
 This topic describes the process of creating an ID namespace target using the
 **rule-based** method. This method uses matching rules to translate

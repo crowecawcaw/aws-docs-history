@@ -1,6 +1,4 @@
-# Creating an ID mapping workflow
-
-(provider services)
+# Creating an ID mapping workflow (provider services)
 
 This topic describes the process of creating an ID mapping workflow for one
 AWS account using a provider service called LiveRamp. LiveRamp translates a set of source
@@ -24,8 +22,7 @@ RampIDs to another set using either maintained or derived RampIDs.
     AWS Entity Resolution currently offers the LiveRamp provider service as an ID mapping method. If
     you have a subscription to LiveRamp, then the status appears as
     **Subscribed**. For more information about how to subscribe to
-    LiveRamp, see [Step 1: Subscribe to a provider service on
-    AWS Data Exchange](prepare-third-party-input-data.md#subscribe-provider-service "prepare-third-party-input-data.md#subscribe-provider-service").
+    LiveRamp, see [Step 1: Subscribe to a provider service on AWS Data Exchange](prepare-third-party-input-data.md#subscribe-provider-service "prepare-third-party-input-data.md#subscribe-provider-service").
 
     ![The Subscribed status for the LiveRamp ID mapping method on the Specify ID mapping workflow page](images/id-mapping-method.PNG)
 
@@ -84,7 +81,7 @@ RampIDs to another set using either maintained or derived RampIDs.
     2. View the **LiveRamp generated output**.
     3. Choose **Next**.
 
-    ![The Data output destination fields on the Specify data output location page](images/specify-data-ouput-IDM.PNG)
+    ![The Data output destination fields on the Specify data output location page](/images/entityresolution/latest/userguide/images/specify-data-ouput-IDM.PNG)
 
 8.  For **Step 4: Review and create**, do the following.
     1. Review the selections that you made for the previous steps and edit them if

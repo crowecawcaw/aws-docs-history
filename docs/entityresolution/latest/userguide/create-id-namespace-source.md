@@ -14,7 +14,5 @@ method](create-id-namespace-source-provider-services.md "create-id-namespace-sou
 
 ###### Topics
 
-- [Creating an ID namespace source
-  (rule-based)](create-id-namespace-source-rule-based.md "create-id-namespace-source-rule-based.md")
-- [Creating an ID namespace
-  source (provider services)](create-id-namespace-source-provider-services.md "create-id-namespace-source-provider-services.md")
+- [Creating an ID namespace source (rule-based)](create-id-namespace-source-rule-based.md "create-id-namespace-source-rule-based.md")
+- [Creating an ID namespace source (provider services)](create-id-namespace-source-provider-services.md "create-id-namespace-source-provider-services.md")

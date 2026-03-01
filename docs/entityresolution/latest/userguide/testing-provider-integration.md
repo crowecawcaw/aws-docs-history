@@ -58,9 +58,7 @@ When creating a schema mapping, a [unique identifier](glossary.md#unique-id-defn
 each row of input data that AWS Entity Resolution reads. For example:
 `Primary_key`, `Row_ID`, `Record_ID`.
 
-###### Example Creating a schema mapping for data source containing `id` and
-
-`email`
+###### Example Creating a schema mapping for data source containing `id` and `email`
 
 The following is an example of a schema mapping for a data source that
 contains `id` and `email`:
@@ -78,9 +76,7 @@ contains `id` and `email`:
 ]
 ```
 
-###### Example Creating a schema mapping for data source containing `id` and
-
-`email` using Java SDK
+###### Example Creating a schema mapping for data source containing `id` and `email` using Java SDK
 
 The following is an example of a schema mapping for a data source that
 contains `id` and `email` using the Java SDK:
@@ -181,9 +177,7 @@ When creating a schema mapping, a [unique identifier](glossary.md#unique-id-defn
 each row of input data that AWS Entity Resolution reads. For example: `Primary_key`,
 `Row_ID`, `Record_ID`.
 
-###### Example Schema mapping for data source containing `id` and
-
-`email`
+###### Example Schema mapping for data source containing `id` and `email`
 
 The following is an example of a schema mapping for a data source that
 contains `id` and `email`:
@@ -201,8 +195,7 @@ contains `id` and `email`:
 ]
 ```
 
-2. Create and run matching workflow by following the steps in [Creating a provider service-based matching
-   workflow](create-matching-workflow-provider.md "create-matching-workflow-provider.md").
+2. Create and run matching workflow by following the steps in [Creating a provider service-based matching workflow](create-matching-workflow-provider.md "create-matching-workflow-provider.md").
 
 Creating a matching workflow is the process that you set up to specify the input
 data to match together and how the matching should be performed. In the

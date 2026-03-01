@@ -1,6 +1,4 @@
-# Creating a rule-based matching
-
-workflow
+# Creating a rule-based matching workflow
 
 _[Rule-based
 matching](glossary.md#rule-based-matching-defn "glossary.md#rule-based-matching-defn")_ is a hierarchical set of waterfall matching rules, suggested by
@@ -39,7 +37,5 @@ create a rule-based matching workflow with either the **Advanced** or
 
 ###### Topics
 
-- [Creating a rule-based matching workflow with the
-  Advanced rule type](rule-based-mw-advanced.md "rule-based-mw-advanced.md")
-- [Creating a rule-based matching workflow with the
-  Simple rule type](rule-based-mw-simple.md "rule-based-mw-simple.md")
+- [Creating a rule-based matching workflow with the Advanced rule type](rule-based-mw-advanced.md "rule-based-mw-advanced.md")
+- [Creating a rule-based matching workflow with the Simple rule type](rule-based-mw-simple.md "rule-based-mw-simple.md")

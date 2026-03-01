@@ -30,5 +30,4 @@ target.
 - [ID namespace target](create-id-namespace-target.md "create-id-namespace-target.md")
 - [Editing an ID namespace](edit-id-namespaces.md "edit-id-namespaces.md")
 - [Deleting an ID namespace](delete-id-namespace.md "delete-id-namespace.md")
-- [Adding or updating a resource policy
-  for an ID namespace](add-update-resource-policy-id-namespace.md "add-update-resource-policy-id-namespace.md")
+- [Adding or updating a resource policy for an ID namespace](add-update-resource-policy-id-namespace.md "add-update-resource-policy-id-namespace.md")

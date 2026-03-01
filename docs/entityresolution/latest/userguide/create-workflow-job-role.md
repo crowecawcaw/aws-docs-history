@@ -1,6 +1,4 @@
-# Creating a workflow job role for
-
-AWS Entity Resolution
+# Creating a workflow job role for AWS Entity Resolution
 
 AWS Entity Resolution uses a _workflow job role_ to run a
 workflow. You can create this role using the console if you have the necessary IAM

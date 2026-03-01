@@ -12,16 +12,12 @@ of your data, your company's compliance objectives, and applicable laws and
 regulations. For more information about your compliance responsibility when using AWS services, see
 [AWS Security Documentation](../../../security.md "../../../security.md").
 
-## AWS Entity Resolution compliance best
-
-practices
+## AWS Entity Resolution compliance best practices
 
 This section provides best practices and recommendations for compliance when you use
 AWS Entity Resolution.
 
-### Payment Card Industry Data Security
-
-Standards (PCI DSS)
+### Payment Card Industry Data Security Standards (PCI DSS)
 
 AWS Entity Resolution supports the processing, storage, and transmission of credit card data by a
 merchant or service provider, and has been validated as being compliant with the

@@ -1,6 +1,4 @@
-# Deleting records from a rule-based or ML-based matching
-
-workflow
+# Deleting records from a rule-based or ML-based matching workflow
 
 If you need to comply with data management regulations, you can delete the records from
 either a rule-based or ML-based matching workflow.

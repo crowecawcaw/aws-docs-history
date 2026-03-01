@@ -1,6 +1,4 @@
-# Creating an ID namespace source
-
-(rule-based)
+# Creating an ID namespace source (rule-based)
 
 This topic describes the process of creating an ID namespace source using the
 **rule-based** method. This method uses matching rules to translate

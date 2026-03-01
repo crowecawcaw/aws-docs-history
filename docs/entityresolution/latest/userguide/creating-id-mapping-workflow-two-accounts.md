@@ -1,6 +1,4 @@
-# ID mapping workflow across two
-
-AWS accounts
+# ID mapping workflow across two AWS accounts
 
 An _ID mapping workflow across two AWS accounts_
 enables you to perform ID mapping between two datasets across two AWS accounts. This is
@@ -22,7 +20,5 @@ across two AWS accounts:
 ###### Topics
 
 - [Prerequisites](create-idmw-two-accounts-prerequisite.md "create-idmw-two-accounts-prerequisite.md")
-- [Creating an ID mapping workflow
-  (rule-based)](create-id-mapping-workflow-procedure.md "create-id-mapping-workflow-procedure.md")
-- [Creating an ID mapping
-  workflow (provider services)](create-id-mapping-workflow-provider-services.md "create-id-mapping-workflow-provider-services.md")
+- [Creating an ID mapping workflow (rule-based)](create-id-mapping-workflow-procedure.md "create-id-mapping-workflow-procedure.md")
+- [Creating an ID mapping workflow (provider services)](create-id-mapping-workflow-provider-services.md "create-id-mapping-workflow-provider-services.md")

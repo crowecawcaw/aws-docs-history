@@ -3,9 +3,7 @@
 Use the following information to help you diagnose and fix common issues that you might
 encounter when running matching workflows.
 
-## I received an error file after running a matching
-
-workflow
+## I received an error file after running a matching workflow
 
 ### Common cause
 

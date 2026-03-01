@@ -1,6 +1,4 @@
-# Adding or updating a resource policy
-
-for an ID mapping workflow
+# Adding or updating a resource policy for an ID mapping workflow
 
 A resource policy allows the creator of the ID mapping resource to access your ID mapping
 workflow resource.

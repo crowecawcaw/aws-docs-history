@@ -22,8 +22,7 @@ case.
 ###### Topics
 
 - [Batch processing integration](#batch-processing-integration "#batch-processing-integration")
-- [Synchronous processing
-  integration](#entity-resolution-synchronous-processing "#entity-resolution-synchronous-processing")
+- [Synchronous processing integration](#entity-resolution-synchronous-processing "#entity-resolution-synchronous-processing")
 
 ## Batch processing integration
 
@@ -138,9 +137,7 @@ GET /jobs/{jobId}
 
 The full definition of these APIs are provided in the AWS Entity Resolution OpenAPI specification.
 
-## Synchronous processing
-
-integration
+## Synchronous processing integration
 
 The synchronous processing solution is more desirable for the providers that have a near
 real-time response time with real-time response time with higher throughput and higher TPS.

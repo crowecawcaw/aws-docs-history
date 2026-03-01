@@ -1,6 +1,4 @@
-# Creating an ID namespace
-
-source (provider services)
+# Creating an ID namespace source (provider services)
 
 This topic describes the process of creating an ID namespace source using the
 **Provider services** method. This method uses a provider service called
@@ -34,8 +32,7 @@ AWS Glue database.
 AWS Entity Resolution currently offers the LiveRamp provider service as an ID namespace method. If
 you have a subscription to LiveRamp, then the status appears as
 **Subscribed**. For more information about how to subscribe to
-LiveRamp, see [Step 1: Subscribe to a provider service on
-AWS Data Exchange](prepare-third-party-input-data.md#subscribe-provider-service "prepare-third-party-input-data.md#subscribe-provider-service"). 6. For **Data input**, choose the **AWS Region**,
+LiveRamp, see [Step 1: Subscribe to a provider service on AWS Data Exchange](prepare-third-party-input-data.md#subscribe-provider-service "prepare-third-party-input-data.md#subscribe-provider-service"). 6. For **Data input**, choose the **AWS Region**,
 **AWS Glue database**, the **AWS Glue table**, and the
 **Schema mapping** from the dropdown list.
 

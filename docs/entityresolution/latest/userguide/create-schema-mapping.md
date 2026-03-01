@@ -274,9 +274,7 @@ matching workflow](create-matching-workflow.md "create-matching-workflow.md") or
 
 Build custom schema
 
-###### To create a schema mapping using the **Build custom schema**
-
-option
+###### To create a schema mapping using the **Build custom schema** option
 
 1. Sign in to the AWS Management Console and open the AWS Entity Resolution console at [https://console.aws.amazon.com/entityresolution/](https://console.aws.amazon.com/entityresolution/ "https://console.aws.amazon.com/entityresolution/").
 2. In the left navigation pane, under **Data preparation**, choose

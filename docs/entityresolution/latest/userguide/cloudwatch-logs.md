@@ -27,11 +27,9 @@ to enable log delivery using the console and APIs.
 ###### Topics
 
 - [Permissions](#cloudwatch-logs-console-permissions "#cloudwatch-logs-console-permissions")
-- [Enabling logging for a new workflow
-  (console)](#enable-logging-new-workflow-console "#enable-logging-new-workflow-console")
+- [Enabling logging for a new workflow (console)](#enable-logging-new-workflow-console "#enable-logging-new-workflow-console")
 - [Enabling logging for a new workflow (API)](#set-up-log-delivery-api "#set-up-log-delivery-api")
-- [Enabling logging for an existing workflow
-  (console)](#enable-logging-console "#enable-logging-console")
+- [Enabling logging for an existing workflow (console)](#enable-logging-console "#enable-logging-console")
 
 ### Permissions
 
@@ -97,9 +95,7 @@ JSON
 For more information about permissions to manage workflow logging, see [Enable logging from AWS services](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md") in the _Amazon CloudWatch Logs
 User Guide_.
 
-### Enabling logging for a new workflow
-
-(console)
+### Enabling logging for a new workflow (console)
 
 After you set up permissions to the logging destination, you can enable logging for a
 new workflow in AWS Entity Resolution using the console.
@@ -254,17 +250,13 @@ Example `CreateDelivery` API operation
 6. After the workflow jobs completes, check the workflow logs in the log delivery
    destination you specified.
 
-### Enabling logging for an existing workflow
-
-(console)
+### Enabling logging for an existing workflow (console)
 
 After you set up permissions to the logging destination, you can enable logging for an
 existing workflow in AWS Entity Resolution using the **Log deliveries** tab on the
 console.
 
-###### To enable logging for an existing workflow using the \*\*Log
-
-deliveries\*\* tab (console)
+###### To enable logging for an existing workflow using the **Log deliveries** tab (console)
 
 1. Open the AWS Entity Resolution console at [https://console.aws.amazon.com/entityresolution/home](https://console.aws.amazon.com/mediapackage/ "https://console.aws.amazon.com/mediapackage/").
 2. Under **Workflows**, select either **Matching**

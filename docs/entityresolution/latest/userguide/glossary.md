@@ -93,8 +93,7 @@ There are two ID mapping methods:
 
 AWS Entity Resolution currently supports LiveRamp as the provider services-based ID mapping method. You
 must have a subscription to LiveRamp through AWS Data Exchange to use this method. For more information,
-see [Step 1: Subscribe to a provider service on
-AWS Data Exchange](prepare-third-party-input-data.md#subscribe-provider-service "prepare-third-party-input-data.md#subscribe-provider-service").
+see [Step 1: Subscribe to a provider service on AWS Data Exchange](prepare-third-party-input-data.md#subscribe-provider-service "prepare-third-party-input-data.md#subscribe-provider-service").
 
 ## ID mapping workflow
 
@@ -258,8 +257,7 @@ Normalization is only supported the group type for [Name](#normalization-rule-na
 
 The following sections describe our standard normalization rules.
 
-For ML-based matching specifically, see [Normalization (ApplyNormalization) – ML-based
-only](#normalization-ML-defn "#normalization-ML-defn").
+For ML-based matching specifically, see [Normalization (ApplyNormalization) – ML-based only](#normalization-ML-defn "#normalization-ML-defn").
 
 ###### Topics
 
@@ -484,9 +482,7 @@ string.
 
 - **TRIM** = Trims leading and trailing whitespace
 
-## Normalization (ApplyNormalization) – ML-based
-
-only
+## Normalization (ApplyNormalization) – ML-based only
 
 Choose whether to normalize input data as defined in the schema. Normalization standardizes
 data by removing extra spaces and special characters and standardizing to lowercase format.

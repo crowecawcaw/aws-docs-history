@@ -1,6 +1,4 @@
-# Looking up a Match ID for a rule-based matching
-
-workflow
+# Looking up a Match ID for a rule-based matching workflow
 
 After completing a rule-based matching workflow, you can retrieve the Match ID and
 associated rule for each processed record. This information helps you understand how records

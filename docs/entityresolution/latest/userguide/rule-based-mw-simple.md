@@ -1,6 +1,4 @@
-# Creating a rule-based matching workflow with the
-
-Simple rule type
+# Creating a rule-based matching workflow with the Simple rule type
 
 **Prerequisites**
 
@@ -15,9 +13,7 @@ Before you create a rule-based matching workflow, you must:
 
 Console
 
-###### To create a rule-based matching workflow with the **Simple**
-
-rule type using the console
+###### To create a rule-based matching workflow with the **Simple** rule type using the console
 
 1.  Sign in to the AWS Management Console and open the AWS Entity Resolution console at [https://console.aws.amazon.com/entityresolution/](https://console.aws.amazon.com/entityresolution/ "https://console.aws.amazon.com/entityresolution/").
 2.  In the left navigation pane, under **Workflows**, choose
@@ -164,9 +160,7 @@ rule type using the console
 
 API
 
-###### To create a rule-based matching workflow with the **Simple**
-
-rule type using the API
+###### To create a rule-based matching workflow with the **Simple** rule type using the API
 
 ###### Note
 

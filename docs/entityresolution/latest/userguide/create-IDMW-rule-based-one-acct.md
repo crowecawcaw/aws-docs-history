@@ -1,6 +1,4 @@
-# Creating an ID mapping workflow
-
-(rule-based)
+# Creating an ID mapping workflow (rule-based)
 
 This topic describes the process of creating an ID mapping workflow for one
 AWS account that uses matching rules to translate first-party data from a source to a

@@ -1,6 +1,4 @@
-# Creating an ID namespace
-
-target (provider services method)
+# Creating an ID namespace target (provider services method)
 
 This topic describes the process of creating an ID namespace target using the
 **Provider services** method. This method uses a provider service called
@@ -32,8 +30,7 @@ method.
 If you have a subscription to LiveRamp, then the status appears as
 **Subscribed**.
 
-For more information about how to subscribe to LiveRamp, see [Step 1: Subscribe to a provider service on
-AWS Data Exchange](prepare-third-party-input-data.md#subscribe-provider-service "prepare-third-party-input-data.md#subscribe-provider-service"). 6. For **Target domain**, enter the LiveRamp client domain identifier
+For more information about how to subscribe to LiveRamp, see [Step 1: Subscribe to a provider service on AWS Data Exchange](prepare-third-party-input-data.md#subscribe-provider-service "prepare-third-party-input-data.md#subscribe-provider-service"). 6. For **Target domain**, enter the LiveRamp client domain identifier
 targeted for transcoding that LiveRamp provides. 7. (Optional) To enable **Tags** for the resource, choose
 **Add new tag**, and then enter the **Key** and
 **Value** pair. 8. Choose **Create ID namespace**.

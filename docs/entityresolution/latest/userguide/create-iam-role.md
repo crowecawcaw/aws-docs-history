@@ -25,10 +25,8 @@ A new tab opens.
 
 
 
-    	* [AWS managed policy:
-    	 AWSEntityResolutionConsoleFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-fullaccess "security-iam-awsmanpol.md#security-iam-awsmanpol-fullaccess")
-    	* [AWS managed policy:
-    	 AWSEntityResolutionConsoleReadOnlyAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-readonly "security-iam-awsmanpol.md#security-iam-awsmanpol-readonly")
+    	* [AWS managed policy: AWSEntityResolutionConsoleFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-fullaccess "security-iam-awsmanpol.md#security-iam-awsmanpol-fullaccess")
+    	* [AWS managed policy: AWSEntityResolutionConsoleReadOnlyAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-readonly "security-iam-awsmanpol.md#security-iam-awsmanpol-readonly")
     2. Choose **Next: Tags**, add tags (optional), and then
      choose **Next: Review**.
     3. For **Review policy**, enter a

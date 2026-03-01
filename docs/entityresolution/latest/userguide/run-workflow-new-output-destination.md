@@ -1,6 +1,4 @@
-# Running a custom ID mapping
-
-workflow
+# Running a custom ID mapping workflow
 
 ###### Note
 

@@ -10,8 +10,7 @@ advertising IDs for use in a [provider service-based matching
 workflow](create-matching-workflow-provider.md "create-matching-workflow-provider.md").
 
 For more information about the provider services that are currently integrated with AWS Entity Resolution,
-see [Creating a provider service-based matching
-workflow](create-matching-workflow-provider.md "create-matching-workflow-provider.md").
+see [Creating a provider service-based matching workflow](create-matching-workflow-provider.md "create-matching-workflow-provider.md").
 
 ###### Topics
 

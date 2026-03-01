@@ -34,14 +34,10 @@ You can perform ID mapping between two datasets in either of the following scena
 
 ###### Topics
 
-- [ID mapping workflow for one
-  AWS account](creating-id-mapping-workflow-same-account.md "creating-id-mapping-workflow-same-account.md")
-- [ID mapping workflow across two
-  AWS accounts](creating-id-mapping-workflow-two-accounts.md "creating-id-mapping-workflow-two-accounts.md")
+- [ID mapping workflow for one AWS account](creating-id-mapping-workflow-same-account.md "creating-id-mapping-workflow-same-account.md")
+- [ID mapping workflow across two AWS accounts](creating-id-mapping-workflow-two-accounts.md "creating-id-mapping-workflow-two-accounts.md")
 - [Running an ID mapping workflow](run-id-mapping-workflow.md "run-id-mapping-workflow.md")
-- [Running a custom ID mapping
-  workflow](run-workflow-new-output-destination.md "run-workflow-new-output-destination.md")
+- [Running a custom ID mapping workflow](run-workflow-new-output-destination.md "run-workflow-new-output-destination.md")
 - [Editing an ID mapping workflow](edit-id-mapping-workflow.md "edit-id-mapping-workflow.md")
 - [Deleting an ID mapping workflow](delete-id-mapping-workflow.md "delete-id-mapping-workflow.md")
-- [Adding or updating a resource policy
-  for an ID mapping workflow](add-update-resource-policy-id-mapping.md "add-update-resource-policy-id-mapping.md")
+- [Adding or updating a resource policy for an ID mapping workflow](add-update-resource-policy-id-mapping.md "add-update-resource-policy-id-mapping.md")

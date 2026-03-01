@@ -1,6 +1,4 @@
-# Creating a provider service-based matching
-
-workflow
+# Creating a provider service-based matching workflow
 
 _[Provider service-based
 matching](glossary.md#provider-service-matching "glossary.md#provider-service-matching")_ enables you to match your known identifiers with your preferred
@@ -15,8 +13,7 @@ AWS Entity Resolution currently supports the following data provider services:
 
 You can use a public subscription for these providers on AWS Data Exchange or negotiate a private
 offer directly with the data provider. For more information about creating a new subscription
-or reusing an existing subscription to a provider service, see [Step 1: Subscribe to a provider service on
-AWS Data Exchange](prepare-third-party-input-data.md#subscribe-provider-service "prepare-third-party-input-data.md#subscribe-provider-service").
+or reusing an existing subscription to a provider service, see [Step 1: Subscribe to a provider service on AWS Data Exchange](prepare-third-party-input-data.md#subscribe-provider-service "prepare-third-party-input-data.md#subscribe-provider-service").
 
 The following sections describe how to create a provider-based matching workflow.
 
@@ -182,8 +179,7 @@ information.
     location** for the temporary storage of your data while it processes.
 
     You must have permission to the data staging **Amazon S3 location**.
-    For more information, see [Creating a workflow job role for
-    AWS Entity Resolution](create-workflow-job-role.md "create-workflow-job-role.md"). 6. Choose **Next**.
+    For more information, see [Creating a workflow job role for AWS Entity Resolution](create-workflow-job-role.md "create-workflow-job-role.md"). 6. Choose **Next**.
 
 6.  For **Step 3: Specify data output**:
     1. For **Data output destination and format**, choose the
@@ -382,8 +378,7 @@ information.
     location** for the temporary storage of your data while it processes.
 
     You must have permission to the data staging **Amazon S3 location**.
-    For more information, see [Creating a workflow job role for
-    AWS Entity Resolution](create-workflow-job-role.md "create-workflow-job-role.md").
+    For more information, see [Creating a workflow job role for AWS Entity Resolution](create-workflow-job-role.md "create-workflow-job-role.md").
 
 6.  Choose **Next**.
 7.  For **Step 3: Specify data output**:

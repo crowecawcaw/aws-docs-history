@@ -14,20 +14,14 @@ The following diagram summarizes how to create a matching workflow.
 - [Matching workflow types](#matching-workflow-types "#matching-workflow-types")
 - [Data output options](#data-output-options "#data-output-options")
 - [Matching workflow results](#matching-workflow-results "#matching-workflow-results")
-- [Creating a rule-based matching
-  workflow](creating-matching-workflow-rule-based.md "creating-matching-workflow-rule-based.md")
-- [Creating a machine learning-based matching
-  workflow](create-matching-workflow-ml.md "create-matching-workflow-ml.md")
-- [Creating a provider service-based matching
-  workflow](create-matching-workflow-provider.md "create-matching-workflow-provider.md")
+- [Creating a rule-based matching workflow](creating-matching-workflow-rule-based.md "creating-matching-workflow-rule-based.md")
+- [Creating a machine learning-based matching workflow](create-matching-workflow-ml.md "create-matching-workflow-ml.md")
+- [Creating a provider service-based matching workflow](create-matching-workflow-provider.md "create-matching-workflow-provider.md")
 - [Editing a matching workflow](edit-matching-workflow.md "edit-matching-workflow.md")
 - [Deleting a matching workflow](delete-matching-workflow.md "delete-matching-workflow.md")
-- [Modifying or generating a Match ID for a rule-based
-  matching workflow](generate-match-id.md "generate-match-id.md")
-- [Looking up a Match ID for a rule-based matching
-  workflow](find-match-id.md "find-match-id.md")
-- [Deleting records from a rule-based or ML-based matching
-  workflow](delete-records.md "delete-records.md")
+- [Modifying or generating a Match ID for a rule-based matching workflow](generate-match-id.md "generate-match-id.md")
+- [Looking up a Match ID for a rule-based matching workflow](find-match-id.md "find-match-id.md")
+- [Deleting records from a rule-based or ML-based matching workflow](delete-records.md "delete-records.md")
 - [Troubleshooting matching workflows](troubleshooting.md "troubleshooting.md")
 
 ## Matching workflow types

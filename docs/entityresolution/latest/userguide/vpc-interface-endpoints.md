@@ -1,6 +1,4 @@
-# Access AWS Entity Resolution using an interface endpoint
-
-(AWS PrivateLink)
+# Access AWS Entity Resolution using an interface endpoint (AWS PrivateLink)
 
 You can use AWS PrivateLink to create a private connection between your VPC and
 AWS Entity Resolution. You can access AWS Entity Resolution as if it were in your VPC, without the
@@ -49,9 +47,7 @@ If you enable private DNS for the interface endpoint, you can make API requests 
 AWS Entity Resolution using its default Regional DNS name. For example,
 `entityresolution.us-east-1.amazonaws.com`.
 
-## Create an endpoint policy for your interface
-
-endpoint
+## Create an endpoint policy for your interface endpoint
 
 An endpoint policy is an IAM resource that you can attach to an interface endpoint.
 The default endpoint policy allows full access to AWS Entity Resolution through the interface

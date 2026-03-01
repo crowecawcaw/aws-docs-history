@@ -16,20 +16,13 @@ workflow](create-IDMW-provider-services-one-acct.md "create-IDMW-provider-servic
 
 ###### Topics
 
-- [Step 1: Subscribe to a provider service on
-  AWS Data Exchange](#subscribe-provider-service "#subscribe-provider-service")
-- [Step 2: Prepare third-party data
-  tables](#prepare-third-party-data-tables "#prepare-third-party-data-tables")
-- [Step 3: Save your input data table in a supported
-  data format](#save-third-party-data-tables "#save-third-party-data-tables")
-- [Step 4: Upload your input data table to
-  Amazon S3](#upload-third-party-data-tables "#upload-third-party-data-tables")
-- [Step 5: Create an AWS Glue
-  table](#create-glue-table-third-party-data-tables "#create-glue-table-third-party-data-tables")
+- [Step 1: Subscribe to a provider service on AWS Data Exchange](#subscribe-provider-service "#subscribe-provider-service")
+- [Step 2: Prepare third-party data tables](#prepare-third-party-data-tables "#prepare-third-party-data-tables")
+- [Step 3: Save your input data table in a supported data format](#save-third-party-data-tables "#save-third-party-data-tables")
+- [Step 4: Upload your input data table to Amazon S3](#upload-third-party-data-tables "#upload-third-party-data-tables")
+- [Step 5: Create an AWS Glue table](#create-glue-table-third-party-data-tables "#create-glue-table-third-party-data-tables")
 
-## Step 1: Subscribe to a provider service on
-
-AWS Data Exchange
+## Step 1: Subscribe to a provider service on AWS Data Exchange
 
 If you have a subscription with a provider service through AWS Data Exchange, you can run a matching
 workflow with one of the following provider services to match your known identifiers with your
@@ -63,9 +56,7 @@ To subscribe to a provider service on AWS Data Exchange
 
 For more information about how to access a provider product that contains APIs, see [Accessing an API product](../../../data-exchange/latest/userguide/subscribing-to-product.md#use-API-product "../../../data-exchange/latest/userguide/subscribing-to-product.md#use-API-product") in the in the _AWS Data Exchange User Guide_.
 
-## Step 2: Prepare third-party data
-
-tables
+## Step 2: Prepare third-party data tables
 
 Each third-party service has a different set of recommendations and guidelines to help
 ensure a successful matching workflow.
@@ -78,9 +69,7 @@ To prepare third-party data tables, consult the following table:
 | TransUnion                        | Yes              | Ensure the following are a `string` type column in the input view:<br>• [Unique ID](glossary.md#unique-id-defn "glossary.md#unique-id-defn") is<br>required and can be a CRM ID, a contact ID, a user ID or any unique ID.<br>• `Name`<br>+ `First Name` can be lower or upper case, nicknames are<br>supported, but titles and suffixes should be excluded.<br>+ `Last Name` can be lower or upper case, middle initials to be<br>excluded.<br>• `Address`<br>+ `Street address1` and `Street address1`<br>is combined into a single `Full address` line, if present.<br>+ `City` is separated from the `Full<br>address`.<br>+ `Zip` (or `zip plus4`), without any<br>special characters such as spaces, hyphens, or blanks. Use nulls if no data.<br>+ `State` is specified as a 2-letter code in upper case.<br>• + `Phone`<br>• `Phone number` should be 10 digits, without any special<br>characters such as spaces or hyphens.<br>• `Email addresses` is either plaintext or SHA256-hashed lower<br>case strings.<br>• `Date of Birth` is in y`yyy-mm-dd` format.<br>• `Digital identifiers` (Device IDs) can include IDs with<br>hyphens (36-character length raw Device IDs/MAIDs/IFAs) and without hyphens (32 &<br>40-character long hashed Device IDs/MAIDs/IFAs).<br>+ `IPV4` is a 32-bit IP address expressed in dotted decimal<br>notation. For example: `192.0.2.1`<br>+ `IPV6` is a 128-bit IP address expressed in hexadecimal<br>notation, separated by colons. For example:<br>`2001:db8:0000:0000:0000:0000:0000:0001`<br>+ `MAID` (Mobile Advertising ID) is a unique, alphanumeric<br>string assigned to a mobile device for advertising purposes. A MAID usually has 36<br>characters. For example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111` |
 | Unified ID 2.0                    | Yes              | Ensure the following:<br>• The [Unique ID](glossary.md#unique-id-defn "glossary.md#unique-id-defn")<br>can't be a hash.<br>• Either `Phone number`or `Email<br>addresses` is used in the schema, not both.<br>• UID2 supports both email and phone number for UID2 generation. However, if both<br>values are present in the schema mapping, the workflow duplicates each record in the<br>output. One record uses the email for UID2 generation and the second record uses phone<br>number. If your data includes a mix of emails and phone numbers and you don't want this<br>duplication of records in the output, the best approach is to create a separate workflow<br>for each, with separate schema mappings. In this scenario, go through the steps<br>twice—create one workflow for emails and a separate one for phone numbers.<br>NoteA specific email or phone number, at any specific time, results in the same raw UID2<br>value, no matter who made the request.Raw UID2s are created by adding salts from salt buckets which are rotated<br>approximately once a year, causing the raw UID2 to also be rotated with it. Different salt<br>buckets rotate at different times throughout the year. AWS Entity Resolution currently doesn't keep track<br>of rotating salt buckets and raw UID2s, so it is recommended that you regenerate the raw<br>UID2s daily. For more information, see [How often should UID2s be refreshed for incremental updates?](https://unifiedid.com/docs/getting-started/gs-faqs#how-often-should-uid2s-be-refreshed-for-incremental-updates "https://unifiedid.com/docs/getting-started/gs-faqs#how-often-should-uid2s-be-refreshed-for-incremental-updates") in the UID 2.0<br>documentation.                         |
 
-## Step 3: Save your input data table in a supported
-
-data format
+## Step 3: Save your input data table in a supported data format
 
 If you already saved your third-party input data in a supported data format, you can skip
 this step.
@@ -97,9 +86,7 @@ LiveRamp only supports CSV files.
 
 - Parquet
 
-## Step 4: Upload your input data table to
-
-Amazon S3
+## Step 4: Upload your input data table to Amazon S3
 
 If you already have your third-party data table in Amazon S3, you can skip this step.
 
@@ -119,9 +106,7 @@ AWS account when running the matching workflow.
 
 You can select the folder to view the data table.
 
-## Step 5: Create an AWS Glue
-
-table
+## Step 5: Create an AWS Glue table
 
 The input data in Amazon S3 must be cataloged in AWS Glue and represented as an AWS Glue table. For
 more information about how to create an AWS Glue table with Amazon S3 as the input, see [Working with crawlers on the

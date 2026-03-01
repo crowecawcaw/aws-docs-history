@@ -15,9 +15,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS managed policy:
-
-AWSEntityResolutionConsoleFullAccess
+## AWS managed policy: AWSEntityResolutionConsoleFullAccess
 
 You can attach the `AWSEntityResolutionConsoleFullAccess` policy to your
 IAM identities.
@@ -64,9 +62,7 @@ This policy includes the following permissions.
 To view the permissions for this policy, see [AWSEntityResolutionConsoleFullAccess](../../../aws-managed-policy/latest/reference/AWSEntityResolutionConsoleFullAccess.md "../../../aws-managed-policy/latest/reference/AWSEntityResolutionConsoleFullAccess.md") in the _AWS
 Managed Policy Reference_.
 
-## AWS managed policy:
-
-AWSEntityResolutionConsoleReadOnlyAccess
+## AWS managed policy: AWSEntityResolutionConsoleReadOnlyAccess
 
 You can attach `AWSEntityResolutionConsoleReadOnlyAccess` to your IAM
 entities.
@@ -82,9 +78,7 @@ This policy includes the following permissions.
 
 To view the permissions for this policy, see [AWSEntityResolutionConsoleReadOnlyAccess](../../../aws-managed-policy/latest/reference/AWSEntityResolutionConsoleReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AWSEntityResolutionConsoleReadOnlyAccess.md") in the _AWS Managed Policy Reference_.
 
-## AWS Entity Resolution updates to AWS managed
-
-policies
+## AWS Entity Resolution updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS Entity Resolution since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

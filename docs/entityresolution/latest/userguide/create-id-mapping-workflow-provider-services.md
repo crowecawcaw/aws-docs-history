@@ -1,6 +1,4 @@
-# Creating an ID mapping
-
-workflow (provider services)
+# Creating an ID mapping workflow (provider services)
 
 After completing the [prerequisites](create-idmw-two-accounts-prerequisite.md "create-idmw-two-accounts-prerequisite.md"), you can create
 one or more ID mapping workflows using the LiveRamp provider service. LiveRamp translates a
@@ -24,8 +22,7 @@ set of source RampIDs to another set using either maintained or derived RampIDs.
     AWS Entity Resolution currently offers the LiveRamp provider service as an ID mapping method. If
     you have a subscription to LiveRamp, then the status appears as
     **Subscribed**. For more information about how to subscribe to
-    LiveRamp, see [Step 1: Subscribe to a provider service on
-    AWS Data Exchange](prepare-third-party-input-data.md#subscribe-provider-service "prepare-third-party-input-data.md#subscribe-provider-service").
+    LiveRamp, see [Step 1: Subscribe to a provider service on AWS Data Exchange](prepare-third-party-input-data.md#subscribe-provider-service "prepare-third-party-input-data.md#subscribe-provider-service").
 
     ![The Subscribed status for the LiveRamp ID mapping method on the Specify ID mapping workflow page](images/id-mapping-method.PNG)
 
@@ -40,7 +37,7 @@ set of source RampIDs to another set using either maintained or derived RampIDs.
         * **Client ID manager ARN**
         * **Client secret manager ARN**
 
-    ![The LiveRamp configuration fields on the Specify ID mapping workflow page](/images/entityresolution/latest/userguide/images/liveramp-configuration.PNG) 4. (Optional) To enable **Tags** for the resource, choose
+    ![The LiveRamp configuration fields on the Specify ID mapping workflow page](images/liveramp-configuration.PNG) 4. (Optional) To enable **Tags** for the resource, choose
     **Add new tag**, and then enter the **Key** and
     **Value** pair. 5. Choose **Next**.
 
@@ -80,7 +77,7 @@ set of source RampIDs to another set using either maintained or derived RampIDs.
     2. View the **LiveRamp generated output**.
     3. Choose **Next**.
 
-    ![The Data output destination fields on the Specify data output location page](/images/entityresolution/latest/userguide/images/specify-data-ouput-IDM.PNG)
+    ![The Data output destination fields on the Specify data output location page](images/specify-data-ouput-IDM.PNG)
 
 8.  For **Step 4: Review and create**, do the following.
 

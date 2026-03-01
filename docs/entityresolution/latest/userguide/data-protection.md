@@ -242,9 +242,7 @@ by the resource.
 **KMSArn** – Enter a key ARN, which is a [key
 identifier](../../../kms/latest/developerguide/concepts.md#key-id "../../../kms/latest/developerguide/concepts.md#key-id") for an AWS KMS customer managed key.
 
-### Monitoring your encryption keys for AWS Entity Resolution
-
-Service
+### Monitoring your encryption keys for AWS Entity Resolution Service
 
 When you use an AWS KMS customer managed key with your AWS Entity Resolution Service resources, you
 can use [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") or [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md") to track requests that AWS Entity Resolution sends to AWS KMS.
