@@ -10,11 +10,9 @@ You can use the topics in this section to troubleshoot common Amazon EventBridge
 - [Schedule pattern and trigger timing issues](#troubleshooting-timing "#troubleshooting-timing")
 - [Creating schedule patterns and cron expressions](#troubleshooting-patterns "#troubleshooting-patterns")
 - [Is my target being triggered?](#troubleshooting-trigger-target "#troubleshooting-trigger-target")
-- [Templated vs universal
-  targets](#troubleshooting-temp-universal-target "#troubleshooting-temp-universal-target")
+- [Templated vs universal targets](#troubleshooting-temp-universal-target "#troubleshooting-temp-universal-target")
 - [Schedule updates triggering unexpected invocations](#troubleshooting-temp-universal-target-invoke "#troubleshooting-temp-universal-target-invoke")
-- [Disabling or enabling
-  one-time schedules](#troubleshooting-temp-universal-target-enable "#troubleshooting-temp-universal-target-enable")
+- [Disabling or enabling one-time schedules](#troubleshooting-temp-universal-target-enable "#troubleshooting-temp-universal-target-enable")
 
 ## My schedule fails with target errors
 
@@ -303,9 +301,7 @@ To confirm if your target is being triggered:
 
 2. [Configure a Dead-Letter Queue](configuring-schedule-dlq.md "configuring-schedule-dlq.md") (DLQ) to capture and analyze any failed invocations.
 
-## Templated vs universal
-
-targets
+## Templated vs universal targets
 
 If you receive an error like "Invalid request provided: [service] is not a supported service for a target", you may be trying to use an unsupported service as a templated target.
 
@@ -318,9 +314,7 @@ To resolve this:
 
 When you make a change to a schedule, invocations might not immediately reflect the updated schedule. Allow a short period of time for changes to take effect. For example, if you update a schedule close to its original trigger time, you might see an invocation based on the original schedule configuration.
 
-## Disabling or enabling
-
-one-time schedules
+## Disabling or enabling one-time schedules
 
 When re-enabling a one-time schedule after its original scheduled time has passed, the schedule may immediately invoke its target. This can occur even if the schedule was disabled before its original execution time.
 

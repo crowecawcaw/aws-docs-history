@@ -28,7 +28,7 @@ Use the following sections to learn about configuring schedule expressions for e
 ## Rate-based schedules
 
 A rate-based schedule starts after the start date you specify for your schedule, and runs at a regular rate that you define until the schedule's end date. You can set up most common recurrent scheduling
-use cases using a rate-based schedule. For example, if you want a schedule that invokes it's target every 15 minutes, once every two hours, or once every five days, you can use a rate-based schedule to achieve this.
+use cases using a rate-based schedule. For example, if you want a schedule that invokes its target every 15 minutes, once every two hours, or once every five days, you can use a rate-based schedule to achieve this.
 You configure a rate-based schedule using a _rate expression_.
 
 With rate-based schedules, you use the
@@ -50,7 +50,7 @@ A positive number.
 
 unit
 
-The unit of time you want your schedule to invoke it's target.
+The unit of time you want your schedule to invoke its target.
 
 Valid inputs: `minutes` | `hours` | `days`
 
@@ -147,7 +147,7 @@ scheduling in Universal Coordinated Time (UTC), or in the time zone that you spe
 
 ###### Note
 
-A one-time schedule still count against your account quota _after_ it has completed running and invoking it's target.
+A one-time schedule still counts against your account quota _after_ it has completed running and invoking its target.
 We recommend [deleting](managing-schedule-delete.md "managing-schedule-delete.md") your one-time schedules after they've completed running.
 
 You configure a one-time schedule using an _at expression_. An at expression consists of the date and time at which you want

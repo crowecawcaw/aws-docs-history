@@ -12,16 +12,13 @@ For details about actions and resource types defined by EventBridge Scheduler, i
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_id-based-policies-best-practices "#security_iam_id-based-policies-best-practices")
+- [Policy best practices](#security_iam_id-based-policies-best-practices "#security_iam_id-based-policies-best-practices")
 - [EventBridge Scheduler permissions](#security_iam_id-based-policies-permissions "#security_iam_id-based-policies-permissions")
 - [AWS managed policies for EventBridge Scheduler](#security_iam_id-based-policies-managed-policies "#security_iam_id-based-policies-managed-policies")
 - [Customer managed policies for EventBridge Scheduler](#security_iam_id-based-policies-customer-managed-policies "#security_iam_id-based-policies-customer-managed-policies")
 - [AWS managed policy updates](#security_iam_id-based-policies-updates "#security_iam_id-based-policies-updates")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete EventBridge Scheduler resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
