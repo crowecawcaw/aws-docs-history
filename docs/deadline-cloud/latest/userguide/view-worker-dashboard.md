@@ -1,6 +1,4 @@
-# View worker details in the worker
-
-dashboard
+# View worker details in the worker dashboard
 
 The _worker dashboard_ provides details for the worker that
 processes a task. You can see:

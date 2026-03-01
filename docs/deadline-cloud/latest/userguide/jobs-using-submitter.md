@@ -15,8 +15,8 @@ With a Deadline Cloud submitter you can:
 - Submit jobs to Deadline Cloud without leaving your application
 - Reduce the potential for errors associated with manual file transfers
 - Save time because you don't need to switch between applications
-  To find a submitter for your DCC application, check the [supported submitters](supported-submitters.md "supported-submitters.md") list. Then follow the
-  instructions in [Set up Deadline Cloud submitters](submitter.md "submitter.md") to install the
+  To find a submitter for your DCC application, check the [Set up your workstation](submitter.md "submitter.md") page. Then follow the
+  instructions in [Set up your workstation](submitter.md "submitter.md") to install the
   submitter.
 
 If your application doesn't have a supported submitter, you can still run jobs for your

@@ -1,6 +1,4 @@
-# Creating AWS Deadline Cloud resources with
-
-AWS CloudFormation
+# Creating AWS Deadline Cloud resources with AWS CloudFormation
 
 AWS Deadline Cloud is integrated with AWS CloudFormation, a service that helps you to model and set up your
 AWS resources so that you can spend less time creating and managing your resources and

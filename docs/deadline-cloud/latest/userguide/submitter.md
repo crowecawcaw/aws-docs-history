@@ -1,4 +1,4 @@
-# Set up Deadline Cloud submitters
+# Set up your workstation
 
 This process is for administrators and artists who want to install, set up, and launch the
 AWS Deadline Cloud submitter. A Deadline Cloud _submitter_ is a digital
@@ -23,10 +23,8 @@ securing your workstation, see
 ###### Topics
 
 - [Step 1: Install the Deadline Cloud submitter](#submitter-installation "#submitter-installation")
-- [Step 2: Install and set up
-  Deadline Cloud monitor](#install-deadline-cloud-monitor "#install-deadline-cloud-monitor")
+- [Step 2: Install and set up Deadline Cloud monitor](#install-deadline-cloud-monitor "#install-deadline-cloud-monitor")
 - [Step 3: Launch the Deadline Cloud submitter](#load-dca-plugin "#load-dca-plugin")
-- [Supported submitters](supported-submitters.md "supported-submitters.md")
 
 ## Step 1: Install the Deadline Cloud submitter
 
@@ -52,27 +50,25 @@ installer.
 
 2. (Optional) [Verify the authenticity of downloaded software](security-best-practices.md#verify-installer "security-best-practices.md#verify-installer").
 
-### Install the Deadline Cloud
-
-submitter
+### Install the Deadline Cloud submitter
 
 With the installer, you can install the following submitters:
 
-| Software                      | Supported versions | Windows installer                                                                                                   | Linux installer                                                                                                 | MacOS (arm64) installer                                                                                             |
-| ----------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| Adobe After Effects           | 2024<br>• 2025     | Included                                                                                                            | Not included                                                                                                    | Included                                                                                                            |
-| Autodesk 3ds Max              | 2024<br>• 2026     | Included                                                                                                            | Not included                                                                                                    | Not included                                                                                                        |
-| Autodesk Arnold for Cinema 4D | 4.8.4.1            | Included                                                                                                            | Not included                                                                                                    | Included                                                                                                            |
-| Autodesk Arnold for Maya      | 7.1<br>• 7.4       | Included                                                                                                            | Included                                                                                                        | Included                                                                                                            |
-| Autodesk Maya                 | 2023<br>• 2026     | [Included](supported-submitters.md#submitter-launch-maya "supported-submitters.md#submitter-launch-maya")           | [Included](supported-submitters.md#submitter-launch-maya "supported-submitters.md#submitter-launch-maya")       | [Included](supported-submitters.md#submitter-launch-maya "supported-submitters.md#submitter-launch-maya")           |
-| Autodesk VRED                 | 2025<br>• 2026     | Included                                                                                                            | Not included                                                                                                    | Not included                                                                                                        |
-| Blender                       | 3.6<br>• 4.5       | [Included](supported-submitters.md#submitter-launch-blender "supported-submitters.md#submitter-launch-blender")     | [Included](supported-submitters.md#submitter-launch-blender "supported-submitters.md#submitter-launch-blender") | [Included](supported-submitters.md#submitter-launch-blender "supported-submitters.md#submitter-launch-blender")     |
-| Chaos V-Ray for Maya          | 6<br>• 7           | Included                                                                                                            | Included                                                                                                        | Included                                                                                                            |
-| Foundry Nuke                  | 15<br>• 16         | [Included](supported-submitters.md#submitter-launch-nuke "supported-submitters.md#submitter-launch-nuke")           | [Included](supported-submitters.md#submitter-launch-nuke "supported-submitters.md#submitter-launch-nuke")       | [Included](supported-submitters.md#submitter-launch-nuke "supported-submitters.md#submitter-launch-nuke")           |
-| KeyShot Studio                | 2023<br>• 2025     | [Included](supported-submitters.md#submitter-launch-keyshot "supported-submitters.md#submitter-launch-keyshot")     | Not included                                                                                                    | [Included](supported-submitters.md#submitter-launch-keyshot "supported-submitters.md#submitter-launch-keyshot")     |
-| Maxon Cinema 4D               | 2024<br>• 2026     | [Included](supported-submitters.md#submitter-launch-cinema-4d "supported-submitters.md#submitter-launch-cinema-4d") | Not included                                                                                                    | [Included](supported-submitters.md#submitter-launch-cinema-4d "supported-submitters.md#submitter-launch-cinema-4d") |
-| Maxon Redshift for Maya       | 2025-2026          | Included                                                                                                            | Included                                                                                                        | Included                                                                                                            |
-| SideFX Houdini                | 19.5<br>• 21.0     | [Included](supported-submitters.md#submitter-launch-houdini "supported-submitters.md#submitter-launch-houdini")     | [Included](supported-submitters.md#submitter-launch-houdini "supported-submitters.md#submitter-launch-houdini") | [Included](supported-submitters.md#submitter-launch-houdini "supported-submitters.md#submitter-launch-houdini")     |
+| Software                                                                 | Supported versions | Windows installer | Linux installer | MacOS (arm64) installer |
+| ------------------------------------------------------------------------ | ------------------ | ----------------- | --------------- | ----------------------- |
+| [Adobe After Effects](adobe-after-effects.md "adobe-after-effects.md")   | 2024<br>• 2025     | Included          | Not included    | Included                |
+| [Autodesk 3ds Max](autodesk-3ds-max.md "autodesk-3ds-max.md")            | 2024<br>• 2026     | Included          | Not included    | Not included            |
+| [Autodesk Arnold for Cinema 4D](maxon-cinema-4d.md "maxon-cinema-4d.md") | 4.8.4.1            | Included          | Not included    | Included                |
+| [Autodesk Arnold for Maya](autodesk-maya.md "autodesk-maya.md")          | 7.1<br>• 7.4       | Included          | Included        | Included                |
+| [Autodesk Maya](autodesk-maya.md "autodesk-maya.md")                     | 2023<br>• 2026     | Included          | Included        | Included                |
+| [Autodesk VRED](autodesk-vred.md "autodesk-vred.md")                     | 2025<br>• 2026     | Included          | Not included    | Not included            |
+| [Blender](blender.md "blender.md")                                       | 3.6<br>• 5.0       | Included          | Included        | Included                |
+| [Chaos V-Ray for Maya](autodesk-maya.md "autodesk-maya.md")              | 6<br>• 7           | Included          | Included        | Included                |
+| [Foundry Nuke](foundry-nuke.md "foundry-nuke.md")                        | 15<br>• 16         | Included          | Included        | Included                |
+| [KeyShot Studio](keyshot.md "keyshot.md")                                | 2023<br>• 2025     | Included          | Not included    | Included                |
+| [Maxon Cinema 4D](maxon-cinema-4d.md "maxon-cinema-4d.md")               | 2024<br>• 2026     | Included          | Not included    | Included                |
+| [Maxon Redshift for Maya](autodesk-maya.md "autodesk-maya.md")           | 2025-2026          | Included          | Included        | Included                |
+| [SideFX Houdini](sidefx-houdini.md "sidefx-houdini.md")                  | 19.5<br>• 21.0     | Included          | Included        | Included                |
 
 ###### Note
 
@@ -162,9 +158,7 @@ macOS (arm64)
 7. Choose **Next** again, and then choose
    **Finish**.
 
-## Step 2: Install and set up
-
-Deadline Cloud monitor
+## Step 2: Install and set up Deadline Cloud monitor
 
 You can install the Deadline Cloud monitor desktop application with Windows, Linux, or
 macOS.
@@ -249,9 +243,7 @@ sudo apt install -f
 
 Linux (RPM)
 
-###### To install Deadline Cloud monitor RPM on Rocky Linux 9 or Alma
-
-Linux 9
+###### To install Deadline Cloud monitor RPM on Rocky Linux 9 or Alma Linux 9
 
 ###### Note
 
@@ -306,9 +298,7 @@ sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noa
 sudo dnf install compat-openssl11 deadline-cloud-monitor.x86_64.rpm
 ```
 
-###### To install Deadline Cloud monitor RPM on Rocky Linux 8, Alma
-
-Linux 8, or Red Hat Linux 8
+###### To install Deadline Cloud monitor RPM on Rocky Linux 8, Alma Linux 8, or Red Hat Linux 8
 
 1. Download the Deadline Cloud monitor RPM:
 
@@ -328,7 +318,7 @@ folder.
 
 After you complete the download, you can verify the authenticity of the downloaded
 software. You might want to do this to ensure no one has tampered with the files during
-or after the download process. See Verify authenticity of downloaded software in Step
+or after the download process. See [Verify the authenticity of downloaded software](security-best-practices.md#verify-installer "security-best-practices.md#verify-installer") in Step
 
 1.
 
@@ -360,8 +350,8 @@ to set up the Deadline Cloud monitor.
    - Enable **Autologin** so you don’t have to enter your
      monitor URL on subsequent opens of Deadline Cloud monitor.
 
-5. Close the Deadline Cloud monitor window. It continues to run in the background and sync your
-   credentials every 15 minutes.
+5. Close the Deadline Cloud monitor window. It continues to run in the background and
+   enable other Deadline Cloud tools to access your render farm.
 6. For each digital content creation (DCC) application that you plan to use for
    your rendering projects, complete the following steps:
    1. From your Deadline Cloud submitter, open the Deadline Cloud workstation
@@ -373,15 +363,14 @@ to set up the Deadline Cloud monitor.
 ## Step 3: Launch the Deadline Cloud submitter
 
 The following example shows how to install the Blender submitter. You
-can install other submitters using the instructions in [Supported submitters](supported-submitters.md "supported-submitters.md").
+can install other submitters using similar steps.
 
 ###### To launch the Deadline Cloud submitter in Blender
 
 ###### Note
 
 Support for Blender is provided using the conda
-environment for service-managed fleets. For more information, see [Default conda queue
-environment](create-queue-environment.md#conda-queue-environment "create-queue-environment.md#conda-queue-environment").
+environment for service-managed fleets. For more information, see [Default conda queue environment](create-queue-environment.md#conda-queue-environment "create-queue-environment.md#conda-queue-environment").
 
 1. Open **Blender**.
 2. In the **Render** menu, choose **Submit to AWS Deadline Cloud**.
@@ -397,3 +386,5 @@ environment](create-queue-environment.md#conda-queue-environment "create-queue-e
       **AUTHENTICATED**.
 
 3. Choose **Submit**.
+
+Now your job is submitted to your Deadline Cloud farm and will be processed by a compatible fleet. For information on how to view job progress in the monitor, see [Using the Monitor](working-with-deadline-monitor.md "working-with-deadline-monitor.md").

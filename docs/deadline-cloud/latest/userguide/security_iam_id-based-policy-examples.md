@@ -1,6 +1,4 @@
-# Identity-based policy examples for
-
-Deadline Cloud
+# Identity-based policy examples for Deadline Cloud
 
 By default, users and roles don't have permission to create or modify Deadline Cloud
 resources. To grant users permission to perform actions on the
@@ -14,21 +12,14 @@ For details about actions and resource types defined by Deadline Cloud, includin
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the Deadline Cloud
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the Deadline Cloud console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
 - [Policy to access the console](#security_iam_id-based-policy-console-access "#security_iam_id-based-policy-console-access")
-- [Policy to submit
-  jobs to a queue](#security_iam_id-based-policy-examples-submit-jobs "#security_iam_id-based-policy-examples-submit-jobs")
-- [Policy to allow
-  creating a license endpoint](#security_iam-id-based-policy-examples-create-endpoint "#security_iam-id-based-policy-examples-create-endpoint")
-- [Policy to allow
-  monitoring a specific farm queue](#security_iam-id-based-policy-examples-monitor-queue "#security_iam-id-based-policy-examples-monitor-queue")
+- [Policy to submit jobs to a queue](#security_iam_id-based-policy-examples-submit-jobs "#security_iam_id-based-policy-examples-submit-jobs")
+- [Policy to allow creating a license endpoint](#security_iam-id-based-policy-examples-create-endpoint "#security_iam-id-based-policy-examples-create-endpoint")
+- [Policy to allow monitoring a specific farm queue](#security_iam-id-based-policy-examples-monitor-queue "#security_iam-id-based-policy-examples-monitor-queue")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Deadline Cloud resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -61,9 +52,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the Deadline Cloud
-
-console
+## Using the Deadline Cloud console
 
 To access the AWS Deadline Cloud console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the Deadline Cloud resources
@@ -325,9 +314,7 @@ JSON
 
 ```
 
-## Policy to submit
-
-jobs to a queue
+## Policy to submit jobs to a queue
 
 In this example, you create a scoped-down policy that grants permission to submit
 jobs to a specific queue in a specific farm.
@@ -349,9 +336,7 @@ JSON
 
 ```
 
-## Policy to allow
-
-creating a license endpoint
+## Policy to allow creating a license endpoint
 
 In this example, you create a scoped-down policy that grants the required permissions
 to create and manage license endpoints. Use this policy to create the license
@@ -387,9 +372,7 @@ JSON
 
 ```
 
-## Policy to allow
-
-monitoring a specific farm queue
+## Policy to allow monitoring a specific farm queue
 
 In this example, you create a scoped-down policy that grants permission to monitor
 jobs in a specific queue for a specific farm.

@@ -5,17 +5,13 @@ and resources.
 
 ###### Topics
 
-- [Why can a user not see my farm, fleet, or
-  queue?](#troubleshooting_user_not_seeing_farm "#troubleshooting_user_not_seeing_farm")
-- [Why are workers not picking up my
-  jobs?](#troubleshooting_workers_not_picking_jobs "#troubleshooting_workers_not_picking_jobs")
+- [Why can a user not see my farm, fleet, or queue?](#troubleshooting_user_not_seeing_farm "#troubleshooting_user_not_seeing_farm")
+- [Why are workers not picking up my jobs?](#troubleshooting_workers_not_picking_jobs "#troubleshooting_workers_not_picking_jobs")
 - [Why is my worker stuck running?](#troubleshooting_worker_stuck_running "#troubleshooting_worker_stuck_running")
 - [Troubleshooting Deadline Cloud jobs](#jobs-troubleshooting "#jobs-troubleshooting")
 - [Additional resources](#troubleshooting_additional_resources "#troubleshooting_additional_resources")
 
-## Why can a user not see my farm, fleet, or
-
-queue?
+## Why can a user not see my farm, fleet, or queue?
 
 ### User access
 
@@ -25,9 +21,7 @@ an issue with their access to your farm and resources.
 Users without access to any farms receive the message "No farms available" in the
 Deadline Cloud monitor.
 
-###### To confirm you have the correct user or group assigned to your farm, fleet, or
-
-queue
+###### To confirm you have the correct user or group assigned to your farm, fleet, or queue
 
 1. In the AWS Deadline Cloud console, find your farm, fleet, or queue, and then choose
    **Access management**.
@@ -61,9 +55,7 @@ case, consider assigning permissions to a user directly instead of by group.
 
 For more information about managing user access to Deadline Cloud, see [Managing users in Deadline Cloud](managing-users.md "managing-users.md").
 
-## Why are workers not picking up my
-
-jobs?
+## Why are workers not picking up my jobs?
 
 ### Fleet role configuration
 
@@ -77,9 +69,7 @@ logs](../developerguide/logging-using-cloudtrail.md "../developerguide/logging-u
 
 ## Why is my worker stuck running?
 
-### Worker stuck exiting OpenJD
-
-environment
+### Worker stuck exiting OpenJD environment
 
 Workers can get stuck in long-running `envExit` session actions. This might
 happen if you use a job template that overrides the OpenJD template and sets the environment
@@ -121,6 +111,8 @@ topics.
 
 ### Why did creating my job fail?
 
+#### Quota validation
+
 Some possible reasons that a job can fail validation checks include the following:
 
 - The job template doesn't follow the OpenJD specification.
@@ -130,6 +122,21 @@ Some possible reasons that a job can fail validation checks include the followin
 
 To see the quotas for the maximum number of steps and tasks in a job, use the Service Quotas
 console. For more information, see [Quotas for Deadline Cloud](deadline-cloud-quotas.md "deadline-cloud-quotas.md").
+
+#### CHUNK[INT] task parameter error
+
+If job creation fails with the following error message, you need to add the `TASK_CHUNKING` extension to your job template.
+
+```
+The CHUNK[INT] task parameter requires the TASK_CHUNKING extension.
+```
+
+To resolve this issue, add the following to your job template:
+
+```
+extensions:
+  - TASK_CHUNKING
+```
 
 ### Why is my job not compatible?
 

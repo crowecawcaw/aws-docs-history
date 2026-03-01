@@ -7,8 +7,7 @@ variables, and other resources to jobs in the queue.
 When you create a queue, you have the option of creating a default
 conda queue environment. This environment provides service-managed
 fleets access to packages for partner DCC applications and renderers. The default
-environment For more information, see [Default conda queue
-environment](#conda-queue-environment "#conda-queue-environment").
+environment For more information, see [Default conda queue environment](#conda-queue-environment "#conda-queue-environment").
 
 You can add queue environments using the console, or by editing the json or YAML
 template directly. This procedure describes how to create an environment with the
@@ -26,9 +25,7 @@ console.
    queue environments will run first.
 6. Choose **Create queue environment**.
 
-## Default conda queue
-
-environment
+## Default conda queue environment
 
 When you create a queue associated with a service-managed fleet, you have the
 option of adding a default queue environment that supports [conda](https://docs.conda.io/en/latest/ "https://docs.conda.io/en/latest/") to download
@@ -73,6 +70,7 @@ Linux
   - `blender=3.6`
   - `blender=4.2`
   - `blender=4.5`
+  - `blender=5.0`
   - `blender-openjd`
 
 - Chaos V-Ray for Maya
@@ -131,13 +129,16 @@ Windows
 ###### Note
 
 For **Cinema 4D**, the Linux conda package does not
-support substance 3D materials. In Cinema 4D 2025, jobs with this material fail with the following message:
+support substance 3D materials. Jobs with this material fail with one of the following errors:
 
 ```
 Commandline: ./modules/io_substance/source/substance_framework/src/details/detailsengine.cpp:794: SubstanceAir::Details::Engine::Context::Context(SubstanceAir::Details::Engine&, SubstanceAir::RenderCallbacks*): Assertion `res==0' failed.
 ```
 
-In Cinema 4D 2026 on Linux, jobs with this material stall at 0% progress.
+```
+/home/job-user/.conda/envs/<hash>/Lib/deadline/cinema4d_adaptor/Cinema4DAdaptor/adaptor.sh: line 44: 10832 Segmentation fault      (core dumped) $C4DEXE ${ARGS[*]}
+```
+
 We recommend that you submit jobs with substance materials to Windows instead.
 
 In Cinema 4D 2025.3.3 on Linux, globalized asset paths can cause segmentation faults.

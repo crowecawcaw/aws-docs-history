@@ -14,7 +14,7 @@ jobs.
        bucket**. You can define the name of the job bucket in
        the **Root prefix** field. We recommend calling the
        bucket
-       `deadlinecloud-job-attachments-[MONITORNAME]`.
+       `deadlinecloud-job-attachments-[QUEUENAME]`.
 
     You can only use lowercase letters and dashes. No spaces or
     special characters. 2. To search for and select an existing Amazon S3 bucket, select

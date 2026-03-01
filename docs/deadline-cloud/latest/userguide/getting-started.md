@@ -9,9 +9,6 @@ To create a farm and use the Deadline Cloud monitor, set up your account for Dea
 up the Deadline Cloud monitor infrastructure once per account. From your farm, you can manage your project,
 including user access to your farm and its resources.
 
-To create a farm without setting up the Deadline Cloud monitor infrastructure, set up a developer
-workstation for Deadline Cloud.
-
 To create a farm with minimal resources to accept jobs, select
 **Quickstart** in the console home page. **[Set up the Deadline Cloud monitor](monitor-onboarding.md "monitor-onboarding.md")** walks
 you through those steps. These farms start with a queue and a fleet that are automatically
@@ -22,4 +19,4 @@ in.
 
 - [Set up your AWS account](setting-up.md "setting-up.md")
 - [Set up the Deadline Cloud monitor](monitor-onboarding.md "monitor-onboarding.md")
-- [Set up Deadline Cloud submitters](submitter.md "submitter.md")
+- [Set up your workstation](submitter.md "submitter.md")

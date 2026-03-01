@@ -20,9 +20,7 @@ When you create a queue with the console, you can either choose an existing AWS 
 sets permissions to access the bucket that's specified for the queue. If you choose an existing
 role, you must grant the role permissions to access the S3 bucket.
 
-## Encryption for job attachment S3
-
-buckets
+## Encryption for job attachment S3 buckets
 
 Job attachment files are encrypted in your S3 bucket by default. This encryption helps secure your
 information from unauthorized access. You don't need to do anything to have your files encrypted
@@ -111,9 +109,7 @@ You can replace your current job attachments bucket with a different job attachm
 
 5. Verify permissions after making these changes to ensure proper access.
 
-## Managing job attachments in S3
-
-buckets
+## Managing job attachments in S3 buckets
 
 Deadline Cloud stores the job attachment files required for your job in an S3 bucket. These files
 accumulate over time, leading to increased Amazon S3 costs. To reduce costs, you can apply an S3

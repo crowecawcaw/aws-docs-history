@@ -1,6 +1,4 @@
-# Track usage and costs with the Deadline Cloud usage
-
-explorer
+# Track usage and costs with the Deadline Cloud usage explorer
 
 With the Deadline Cloud usage explorer, you can see real-time metrics on the activity happening on
 each farm. You can look at the farm’s costs by different variables, such as queue, job,
@@ -48,7 +46,7 @@ be displayed. By default, you see total usage in time (hours and minutes) within
 last 7 days. You can change these parameters, and the information displayed changes
 dynamically in accordance to the parameter settings.
 
-You can group the results based on the queue, job, compute usage, instance type, or
+You can group the results based on the queue, job, user, compute usage, instance type, or
 license product. If you choose license product, costs are calculated for specific
 licenses. For all other groups the time is calculated by adding up the time taken for
 each task to run.
