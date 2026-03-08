@@ -1,28 +1,54 @@
-# `pcluster describe-cluster`
+# `pcluster get-cluster-log-events`
 
-Get detailed information about a cluster.
+Retrieve the events associated with a log stream.
 
 ```
-pcluster describe-cluster [-h]
+pcluster get-cluster-log-events [-h]
                  --cluster-name `CLUSTER_NAME`
+                 --log-stream-name `LOG_STREAM_NAME`
                 [--debug]
+                [--end-time `END_TIME`]
+                [--limit `LIMIT`]
+                [--next-token `NEXT_TOKEN`]
                 [--query `QUERY`]
                 [--region `REGION`]
+                [--start-from-head `START_FROM_HEAD`]
+                [--start-time `START_TIME`]
 ```
 
 ## Named arguments
 
 `-h, --help`
 
-Shows the help text for `pcluster describe-cluster`.
+Shows the help text for `pcluster get-cluster-log-events`.
 
 `--cluster-name, -n `CLUSTER_NAME``
 
 Specifies the name of the cluster.
 
+`--log-stream-name `LOG_STREAM_NAME``
+
+Specifies the name of the log stream. You can use the `list-cluster-log-streams` command
+to retrieve a log stream associated with an event or events.
+
 `--debug`
 
 Enables debug logging.
+
+`--end-time `END_TIME``
+
+Specifies the end of the time range, expressed in ISO 8601 format (`YYYY-MM-DDThh:mm:ssZ`, for
+example `2021-01-01T20:00:00Z`). Events with a timestamp equal to or later than this time are not
+included.
+
+`--limit `LIMIT``
+
+Specifies the maximum number of log events returned. If a value is not specified, the maximum is as many log
+events as can fit in a response size of 1 MB, up to 10,000 log events.
+
+`--next-token `NEXT_TOKEN``
+
+The token for the next set of results.
 
 `--query `QUERY``
 
@@ -34,86 +60,40 @@ Specifies the AWS Region to use. The AWS Region must be specified, using the `AW
 environment variable, the `region` setting in the `[default]` section of the
 `~/.aws/config` file, or the `--region` parameter.
 
-**Examples using AWS ParallelCluster version 3.1.4:**
+`--start-from-head `START_FROM_HEAD``
 
-Describe cluster details:
+If the value is `true`, the earliest log events are returned first. If the value is
+`false`, the most recent log events are returned first. (Defaults to `false`.)
+
+`--start-time `START_TIME``
+
+Specifies the start of the time range, expressed in ISO 8601 format (`YYYY-MM-DDThh:mm:ssZ`, for
+example `2021-01-01T20:00:00Z`). Events with a timestamp equal to this time or later than this time
+are included.
+
+**Example using AWS ParallelCluster version 3.1.4:**
 
 ````
-`$` `pcluster describe-cluster -n `cluster-v3```{
- "creationTime": "2022-07-12T17:19:16.101Z",
- "headNode": {
- "launchTime": "2022-07-12T17:22:21.000Z",
- "instanceId": "i-1234567890abcdef0",
- "publicIpAddress": "198.51.100.44",
- "instanceType": "t2.micro",
- "state": "running",
- "privateIpAddress": "192.0.2.0.196"
- },
- "loginNodes": [
+`$` `pcluster get-cluster-log-events \
+ -c `cluster-v3` \
+ -r `us-east-1` \
+ --log-stream-name `ip-198-51-100-44.i-1234567890abcdef0.clustermgtd` \
+ --limit `3```{
+ "nextToken": "f/36966906399261933213029082268132291405859205452101451780/s",
+ "prevToken": "b/36966906399239632467830551644990755687586557090595471362/s",
+ "events": [
  {
- "status": "active",
- "poolName": "pool1",
- "address": "cluster-v3-eMr9BYRKZVDa-e5bb34f40b24f51d.elb.us-east-1.amazonaws.com",
- "scheme": "internet-facing",
- "healthyNodes": 1,
- "unhealthyNodes": 0
+ "message": "2022-07-12 19:16:53,379 - [slurm_plugin.clustermgtd:_maintain_nodes] - INFO - Performing node maintenance actions",
+ "timestamp": "2022-07-12T19:16:53.379Z"
  },
  {
- "status": "active",
- "poolName": "pool2",
- "address": "cluster-v3-PaQ7GgC27sic-aba10c890247b36b.elb.us-east-1.amazonaws.com",
- "scheme": "internet-facing",
- "healthyNodes": 1,
- "unhealthyNodes": 0
+ "message": "2022-07-12 19:16:53,380 - [slurm_plugin.clustermgtd:_maintain_nodes] - INFO - Following nodes are currently in replacement: (x0) []",
+ "timestamp": "2022-07-12T19:16:53.380Z"
+ },
+ {
+ "message": "2022-07-12 19:16:53,380 - [slurm_plugin.clustermgtd:_terminate_orphaned_instances] - INFO - Checking for orphaned instance",
+ "timestamp": "2022-07-12T19:16:53.380Z"
  }
- ],
- "version": "3.1.4",
- "clusterConfiguration": {
- "url": "https://parallelcluster-e5ca74255d6c3886-v1-do-not-delete..."
- },
- "tags": [
- {
- "value": "3.11",
- "key": "parallelcluster:version"
- }
- ],
- "cloudFormationStackStatus": "CREATE_COMPLETE",
- "clusterName": "cluster-v3",
- "computeFleetStatus": "RUNNING",
- "cloudformationStackArn": "arn:aws:cloudformation:us-east-1:123456789012:stack/cluster-v3/1234abcd-56ef-78gh-90ij-abcd1234efgh",
- "lastUpdatedTime": "2022-07-12T17:19:16.101Z",
- "region": "us-east-1",
- "clusterStatus": "CREATE_COMPLETE"
+ ]
 }`
 ````
-
-Use `describe-cluster` to retrieve the cluster configuration:
-
-```
-`$` `curl -o - $(pcluster describe-cluster -n `cluster-v3` --query clusterConfiguration.url | xargs echo)``Region: us-east-1
-Image:
- Os: alinux2
-HeadNode:
- InstanceType: t2.micro
- Networking:
- SubnetId: subnet-abcdef01234567890
- Ssh:
- KeyName: adpc
- Iam:
- S3Access:
- - BucketName: cluster-v3-bucket
- KeyName: logs
- EnableWriteAccess: true
-Scheduling:
- Scheduler: slurm
- SlurmQueues:
- - Name: queue1
- ComputeResources:
- - Name: t2micro
- InstanceType: t2.micro
- MinCount: 0
- MaxCount: 10
- Networking:
- SubnetIds:
- - subnet-021345abcdef6789`
-```
