@@ -28,7 +28,7 @@ JSON
 
 ```
 
-This sample policy gives users permissions to create, view, and manage Wickr networks
+This sample policy gives users permissions to list Wickr networks
 using the AWS Management Console for Wickr. To learn more about the elements within an IAM policy
 statement, see [Identity-based policies for Wickr](security_iam_service-with-iam-id-based-policies.md "security_iam_service-with-iam-id-based-policies.md"). To learn how to
 create an IAM policy using these example JSON policy documents, see [Creating policies on the JSON tab](../../../IAM/latest/UserGuide/access_policies_create.md#access_policies_create-json-editor "../../../IAM/latest/UserGuide/access_policies_create.md#access_policies_create-json-editor") in the

@@ -97,11 +97,6 @@ Administrators access the AWS Management Console for Wickr at [https://console.a
 using Wickr you should complete the [Setting up for AWS Wickr](setting-up.md "setting-up.md")
 and [Getting started with AWS Wickr](getting-started.md "getting-started.md") guides.
 
-###### Note
-
-Wickr API access is available only for Wickr Enterprise (self-hosted) and not for
-AWS Wickr.
-
 End users access Wickr through the Wickr client. For more information, see the
 _[AWS Wickr User
 Guide](../userguide.md "../userguide.md")_.
