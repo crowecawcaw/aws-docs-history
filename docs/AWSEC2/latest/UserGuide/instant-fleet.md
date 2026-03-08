@@ -980,7 +980,7 @@ After you create the instant fleet using the preceding configuration, the follow
 - 7 c5.large On-Demand Instances in us-east-1a – c5.large in us-east-1a is prioritized first, and there are
   3 available unused c5.large Capacity Reservations. The Capacity Reservations are used first to launch 3 On-Demand Instances plus 4 additional On-Demand Instances are launched according to the On-Demand allocation strategy, which is prioritized in this example.
 - 3 m5.large On-Demand Instances in us-east-1a – m5.large in us-east-1a is prioritized second, and there are
-  3 available unused c3.large Capacity Reservations.
+  3 available unused m5.large Capacity Reservations.
 - 10 Spot Instances from one of the 12 Spot capacity pools that has the optimal capacity according to the capacity-optimized
   allocation strategy.
 

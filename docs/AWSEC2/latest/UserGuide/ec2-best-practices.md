@@ -7,8 +7,8 @@ following best practices.
 
 - Manage access to AWS resources and APIs using identity federation
   with an identity provider and IAM roles whenever possible.
-  For more information, see [Creating IAM
-  policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the _IAM User Guide_.
+  For more information, see [Identity providers and
+  federation](../../../IAM/latest/UserGuide/id_roles_providers.md "../../../IAM/latest/UserGuide/id_roles_providers.md") in the _IAM User Guide_.
 - Implement the least permissive rules for your security group.
 - Regularly patch, update, and secure the operating system and applications
   on your instance. For more information, see [Update management](update-management.md "update-management.md"). For guidelines specific to

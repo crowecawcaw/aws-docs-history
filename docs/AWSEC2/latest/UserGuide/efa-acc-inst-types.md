@@ -5,12 +5,14 @@ see [Network cards](using-eni.md#network-cards "using-eni.md#network-cards"). If
 one of these instance types, we recommend the following basic configuration:
 
 - For the primary network interface (network card index `0`, device index
-  `0`), create an EFA (EFA with ENA) interface. You can't use an EFA-only network
+  `0`), create an ENA interface. You can't use an EFA-only network
   interface as the primary network interface.
+- If the network card index 0 supports EFA, create an EFA-only network interface for network card index `0`, device index
+  `1`.
 - For each additional network interface, use the next unused network card index, device
-  index `1`, and either an EFA (EFA with ENA) or EFA-only network interface,
-  depending on your usecase, such as ENA bandwidth requirements or IP address space. For
-  example use cases, see [EFA configuration for a P5 and P5e instances](#efa-for-p5 "#efa-for-p5").
+  index `0`, for EFA-only network interface, and/or device index `1`
+  for ENA network interface depending on your usecase, such as ENA bandwidth requirements or
+  IP address space. For example use cases, see [EFA configuration for a P5 and P5e instances](#efa-for-p5 "#efa-for-p5").
 
 ###### Note
 
@@ -26,21 +28,24 @@ Instance launch
 1. In the **Network settings** section, choose
    **Edit**.
 2. Expand **Advanced network configuration**.
-3. For the primary network interface (**Network interface 1**), select
-   **Network card index = 0**, **Device index = 0**,
-   and **Interface type = EFA with ENA**.
-4. For each additional network interface required, choose **Add network interface**.
-   For **Network card index** select the next unused index, and then select
-   **Device index = 1**, and **Interface type = EFA with ENA**
-   or **EFA-only**.
+3. For the primary network interface (network card index `0`, device index `0`),
+   create an ENA interface. You can't use an EFA-only network interface as the primary network interface.
+4. If the network card index 0 supports EFA, create an EFA-only network interface for network card
+   index `0`, device index `1`.
+5. For each additional network interface, use the next unused network card index, device
+   index `0`, for EFA-only network interface, and/or device index `1`
+   for ENA network interface depending on your usecase, such as ENA bandwidth requirements or
+   IP address space. For example use cases, see [EFA configuration for a P5 and P5e instances](#efa-for-p5 "#efa-for-p5").
 
 ###### To specify EFAs during instance launch using the [run-instances](../../../cli/latest/reference/ec2/run-instances.md "../../../cli/latest/reference/ec2/run-instances.md") command
 
 For `--network-interfaces`, specify the required number of network interfaces.
 For the primary network interface, specify `NetworkCardIndex=0`, `DeviceIndex=0`,
-and `InterfaceType=efa`. For any additional network interfaces, for
-`NetworkCardIndex` specify the next unused index, `DeviceIndex=1`,
-and `InterfaceType=efa` or `efa-only`.
+and `InterfaceType=interface`. If the network card index 0 supports EFA, specify
+`NetworkCardIndex=0`, `DeviceIndex=1`, and `InterfaceType=efa-only`.
+For any additional network interfaces, for `NetworkCardIndex` specify the next unused index,
+`DeviceIndex=0` for `InterfaceType=efa-only`, and/or `DeviceIndex=1`
+for `InterfaceType=interface`.
 
 The following example command snippet shows a request with 32 EFA devices and one ENA device.
 
@@ -50,38 +55,39 @@ The following example command snippet shows a request with 32 EFA devices and on
  --count 1 \
  --key-name `key_pair_name` \
  --image-id `ami-0abcdef1234567890` \
- --network-interfaces "NetworkCardIndex=**0**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa**" \
-"NetworkCardIndex=**1**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**`efa or efa-only`**" \
-"NetworkCardIndex=**2**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**`efa or efa-only`**" \
-"NetworkCardIndex=**3**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**`efa or efa-only`**" \
-"NetworkCardIndex=**4**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**`efa or efa-only`**" \
-"NetworkCardIndex=**5**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**`efa or efa-only`**" \
-"NetworkCardIndex=**6**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**`efa or efa-only`**" \
-"NetworkCardIndex=**7**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**`efa or efa-only`**" \
-"NetworkCardIndex=**8**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**`efa or efa-only`**" \
-"NetworkCardIndex=**9**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**`efa or efa-only`**" \
-"NetworkCardIndex=**10**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**`efa or efa-only`**" \
-"NetworkCardIndex=**11**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**`efa or efa-only`**" \
-"NetworkCardIndex=**12**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**`efa or efa-only`**" \
-"NetworkCardIndex=**13**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**`efa or efa-only`**" \
-"NetworkCardIndex=**14**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**`efa or efa-only`**" \
-"NetworkCardIndex=**15**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**`efa or efa-only`**" \
-"NetworkCardIndex=**16**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**`efa or efa-only`**" \
-"NetworkCardIndex=**17**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**`efa or efa-only`**" \
-"NetworkCardIndex=**18**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**`efa or efa-only`**" \
-"NetworkCardIndex=**19**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**`efa or efa-only`**" \
-"NetworkCardIndex=**20**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**`efa or efa-only`**" \
-"NetworkCardIndex=**21**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**`efa or efa-only`**" \
-"NetworkCardIndex=**22**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**`efa or efa-only`**" \
-"NetworkCardIndex=**23**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**`efa or efa-only`**" \
-"NetworkCardIndex=**24**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**`efa or efa-only`**" \
-"NetworkCardIndex=**25**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**`efa or efa-only`**" \
-"NetworkCardIndex=**26**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**`efa or efa-only`**" \
-"NetworkCardIndex=**27**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**`efa or efa-only`**" \
-"NetworkCardIndex=**28**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**`efa or efa-only`**" \
-"NetworkCardIndex=**29**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**`efa or efa-only`**" \
-"NetworkCardIndex=**30**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**`efa or efa-only`**" \
-"NetworkCardIndex=**31**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**`efa or efa-only`**"
+ --network-interfaces "NetworkCardIndex=**0**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**interface**" \
+"NetworkCardIndex=**0**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**1**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**2**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**3**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**4**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**5**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**6**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**7**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**8**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**9**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**10**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**11**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**12**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**13**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**14**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**15**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**16**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**17**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**18**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**19**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**20**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**21**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**22**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**23**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**24**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**25**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**26**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**27**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**28**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**29**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**30**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**31**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**"
 ...
 ```
 
@@ -91,21 +97,24 @@ Launch templates
 
 1. In the **Network settings** section, expand **Advanced
    network configuration**.
-2. To add the primary network interface (Network interface 1), choose **Add network interface**
-   and then select **Network card index = 0**, **Device index = 0**, and
-   **Interface type = EFA with ENA**.
-3. To add additional network interfaces, choose **Add network interface**.
-   For **Network card index**, select the next unused index, and then select
-   **Device index = 1**, and **Interface type = EFA with ENA**
-   or **EFA-only**.
+2. For the primary network interface (network card index `0`, device index `0`),
+   create an ENA interface. You can't use an EFA-only network interface as the primary network interface.
+3. If the network card index 0 supports EFA, create an EFA-only network interface for network card
+   index `0`, device index `1`.
+4. For each additional network interface, use the next unused network card index, device
+   index `0`, for EFA-only network interface, and/or device index `1`
+   for ENA network interface depending on your usecase, such as ENA bandwidth requirements or
+   IP address space. For example use cases, see [EFA configuration for a P5 and P5e instances](#efa-for-p5 "#efa-for-p5").
 
 ###### To add EFAs to a launch template using the [create-launch-template](../../../cli/latest/reference/ec2/create-launch-template.md "../../../cli/latest/reference/ec2/create-launch-template.md") command
 
 For `NetworkInterfaces`, specify the required number of network interfaces.
 For the primary network interface, specify `NetworkCardIndex=0`, `DeviceIndex=0`,
-and `InterfaceType=efa`. For any additional network interfaces, for
-`NetworkCardIndex` specify the next unused index, `DeviceIndex=1`,
-and `InterfaceType=efa` or `efa-only`.
+and `InterfaceType=interface`. If the network card index 0 supports EFA, specify
+`NetworkCardIndex=0`, `DeviceIndex=1`, and `InterfaceType=efa-only`.
+For any additional network interfaces, for `NetworkCardIndex` specify the next unused index,
+`DeviceIndex=0` for `InterfaceType=efa-only`, and/or `DeviceIndex=1`
+for `InterfaceType=interface`.
 
 The following snippet shows an example with 3 network interfaces out of the possible 32 network
 interfaces.
@@ -115,7 +124,17 @@ interfaces.
 {
   "NetworkCardIndex":**0**,
   "DeviceIndex":**0**,
-  "InterfaceType": "**efa**",
+  "InterfaceType": "**interface**",
+  "AssociatePublicIpAddress":false,
+  "Groups":[
+    "`security_group_id`"
+  ],
+  "DeleteOnTermination":true
+},
+{
+  "NetworkCardIndex": **0**,
+  "DeviceIndex": **1**,
+  "InterfaceType": "**efa-only**",
   "AssociatePublicIpAddress":false,
   "Groups":[
     "`security_group_id`"
@@ -124,8 +143,8 @@ interfaces.
 },
 {
   "NetworkCardIndex": **1**,
-  "DeviceIndex": **1**,
-  "InterfaceType": "**`efa or efa-only`**",
+  "DeviceIndex": **0**,
+  "InterfaceType": "**efa-only**",
   "AssociatePublicIpAddress":false,
   "Groups":[
     "`security_group_id`"
@@ -134,8 +153,8 @@ interfaces.
 },
 {
   "NetworkCardIndex": **2**,
-  "DeviceIndex": **1**,
-  "InterfaceType": "**`efa or efa-only`**",
+  "DeviceIndex": **0**,
+  "InterfaceType": "**efa-only**",
   "AssociatePublicIpAddress":false,
   "Groups":[
     "`security_group_id`"
@@ -144,8 +163,8 @@ interfaces.
 },
 {
   "NetworkCardIndex": **3**,
-  "DeviceIndex": **1**,
-  "InterfaceType": "**`efa or efa-only`**",
+  "DeviceIndex": **0**,
+  "InterfaceType": "**efa-only**",
   "AssociatePublicIpAddress":false,
   "Groups":[
     "`security_group_id`"
@@ -176,9 +195,10 @@ disallowed auto-assignment of public IP addresses and IP routing challenges
 that can arise if an instance has multiple network interfaces.
 
 - For the primary network interface (network card index 0, device index 0),
-  use an EFA (EFA with ENA) network interface.
+  use an ENA interface.
+- For network card index 0, device index 1, create an EFA-only network interface.
 - For the remaining network interfaces (network card indexes 1-31, device
-  index 1), use EFA-only network interfaces.
+  index 0), use EFA-only network interfaces.
 
 ###### Use case 2: Maximum EFA and IP network bandwidth
 
@@ -189,14 +209,14 @@ address to the primary network interface (network card index 0, device index 0) 
 launch for internet connectivity.
 
 - For the primary network interface (network card index 0, device index 0),
-  use an EFA (EFA with ENA) network interface.
+  use an ENA network interface.
 - For the remaining interfaces, do the following:
 
-      + Specify EFA-only network interfaces on network card indexes 1, 2, and 3,
-       and use device index 1.
-      + Specify one EFA (EFA with ENA) network interface and three EFA-only network
+      + Specify EFA-only network interfaces on network card index 0 device index 1, and for network card indexes 1, 2, and 3,
+       use device index 0.
+      + Specify one ENA network interface and four EFA-only network
        interfaces **in each** of the following network
-       card index subsets, and use device index 1 for all of them:
+       card index subsets, and use device index 1 for ENA network interface and device index 0 for EFA-only network interfaces:
 
 
 
@@ -217,38 +237,46 @@ $ aws --region $REGION ec2 run-instances \
  --count 1 \
  --key-name key_pair_name \
  --image-id ami_id \
- --network-interfaces "NetworkCardIndex=**0**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa**" \
-"NetworkCardIndex=**1**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
-"NetworkCardIndex=**2**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
-"NetworkCardIndex=**3**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
-"NetworkCardIndex=**4**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa**" \
-"NetworkCardIndex=**5**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
-"NetworkCardIndex=**6**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
-"NetworkCardIndex=**7**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
-"NetworkCardIndex=**8**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa**" \
-"NetworkCardIndex=**9**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
-"NetworkCardIndex=**10**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
-"NetworkCardIndex=**11**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
-"NetworkCardIndex=**12**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa**" \
-"NetworkCardIndex=**13**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
-"NetworkCardIndex=**14**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
-"NetworkCardIndex=**15**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
-"NetworkCardIndex=**16**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa**" \
-"NetworkCardIndex=**17**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
-"NetworkCardIndex=**18**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
-"NetworkCardIndex=**19**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
-"NetworkCardIndex=**20**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa**" \
-"NetworkCardIndex=**21**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
-"NetworkCardIndex=**22**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
-"NetworkCardIndex=**23**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
-"NetworkCardIndex=**24**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa**" \
-"NetworkCardIndex=**25**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
-"NetworkCardIndex=**26**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
-"NetworkCardIndex=**27**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
-"NetworkCardIndex=**28**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa**" \
-"NetworkCardIndex=**29**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
-"NetworkCardIndex=**30**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
-"NetworkCardIndex=**31**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**"
+ --network-interfaces "NetworkCardIndex=**0**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**interface**" \
+"NetworkCardIndex=**0**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**1**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**2**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**3**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**4**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**interface**" \
+"NetworkCardIndex=**4**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**5**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**6**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**7**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**8**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**interface**" \
+"NetworkCardIndex=**8**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**9**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**10**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**11**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**12**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**interface**" \
+"NetworkCardIndex=**12**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**13**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**14**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**15**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**16**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**interface**" \
+"NetworkCardIndex=**16**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**17**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**18**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**19**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**20**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**interface**" \
+"NetworkCardIndex=**20**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**21**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**22**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**23**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**24**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**interface**" \
+"NetworkCardIndex=**24**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**25**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**26**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**27**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**28**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**interface**" \
+"NetworkCardIndex=**28**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**29**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**30**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
+"NetworkCardIndex=**31**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**"
 ...
 ```
 
@@ -262,9 +290,10 @@ used by one will reduce the bandwidth that is available to the other.
 This configuration consumes at least one private IP address per instance and supports up to 3200 Gbps
 of EFA bandwidth and 200 Gbps of ENA bandwidth.
 
-- For the primary network interface (network card index 0, device index 0), use an EFA (EFA with ENA)
-  network interface.
-- For the remaining 7 network cards (network card indexes 1-7, device index 1), use EFA-only network
+- For the primary network interface (network card index 0, device index 0), use an ENA
+  interface.
+- For network card index 0, device index 1, create an EFA-only network interface.
+- For the remaining 7 network cards (network card indexes 1-7, device index 0), use EFA-only network
   interfaces.
 
 ###### Use case 2: Maximum EFA and ENA bandwidth
@@ -272,8 +301,9 @@ of EFA bandwidth and 200 Gbps of ENA bandwidth.
 This configuration consumes at least 8 private IP address per instance and supports up to 3200 Gbps
 of EFA bandwidth and 1600 Gbps of ENA bandwidth.
 
-- For the primary network interface (network card index 0, device index 0) and the remaining 7 network
-  cards (network card indexes 1-7, device index 1), use EFA (EFA with ENA) network interfaces.
+- For the primary network interface (network card index 0, device index 0), use an ENA interface.
+- For network card index 0, device index 1, create an EFA-only network interface.
+- For the remaining 7 network cards (network card indexes 1-7), create an EFA-only network interface on device index 0 and an ENA network interface on device index 1.
   P6e-GB200 instances can be configured with up to 17 network cards. The following image
   shows the physical network interface card (NIC) layout for P6e-GB200 instances, along with
   the mapping of network card indexes (NCIs).
@@ -347,7 +377,7 @@ supports up to 6400 Gbps of EFA bandwidth and up to 350 Gbps of ENA bandwidth.
 
 - For the primary network interface (network card index 0, device index 0),
   use an ENA network interface.
-- For the remaining network cards (network card indexes 1-16, device index 1),
+- For the remaining network cards (network card indexes 1-16, device index 0),
   use EFA-only network interfaces.
 
 ```
@@ -368,7 +398,8 @@ supports up to 6400 Gbps of EFA bandwidth and up to 350 Gbps of ENA bandwidth.
 "NetworkCardIndex=**13**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
 "NetworkCardIndex=**14**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
 "NetworkCardIndex=**15**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
-"NetworkCardIndex=**16**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**
+"NetworkCardIndex=**16**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**"
+
 ```
 
 ###### Use case 2: Maximum EFA and ENA bandwidth
@@ -379,7 +410,7 @@ up to 6400 Gbps of EFA bandwidth and up to 3870 Gbps of ENA bandwidth.
 - For the primary network interface (network card index 0, device index 0) use an
   ENA network interface.
 - For the remaining network cards, create an EFA-only interface (network card indexes
-  1-16 device index 1) and an ENA interface network card indexes 1-16 device index 2).
+  1-16 device index 0) and an ENA interface network card indexes 1-16 device index 1).
 
 ```
 --network-interfaces \
@@ -400,20 +431,21 @@ up to 6400 Gbps of EFA bandwidth and up to 3870 Gbps of ENA bandwidth.
 "NetworkCardIndex=**14**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
 "NetworkCardIndex=**15**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
 "NetworkCardIndex=**16**,DeviceIndex=**0**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**efa-only**" \
-"NetworkCardIndex=**1**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**ena**" \
-"NetworkCardIndex=**2**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**ena**" \
-"NetworkCardIndex=**3**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**ena**" \
-"NetworkCardIndex=**4**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**ena**" \
-"NetworkCardIndex=**5**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**ena**" \
-"NetworkCardIndex=**6**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**ena**" \
-"NetworkCardIndex=**7**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**ena**" \
-"NetworkCardIndex=**8**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**ena**" \
-"NetworkCardIndex=**9**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**ena**" \
-"NetworkCardIndex=**10**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**ena**" \
-"NetworkCardIndex=**11**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**ena**" \
-"NetworkCardIndex=**12**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**ena**" \
-"NetworkCardIndex=**13**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**ena**" \
-"NetworkCardIndex=**14**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**ena**" \
-"NetworkCardIndex=**15**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**ena**" \
-"NetworkCardIndex=**16**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**ena**
+"NetworkCardIndex=**1**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**interface**" \
+"NetworkCardIndex=**2**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**interface**" \
+"NetworkCardIndex=**3**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**interface**" \
+"NetworkCardIndex=**4**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**interface**" \
+"NetworkCardIndex=**5**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**interface**" \
+"NetworkCardIndex=**6**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**interface**" \
+"NetworkCardIndex=**7**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**interface**" \
+"NetworkCardIndex=**8**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**interface**" \
+"NetworkCardIndex=**9**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**interface**" \
+"NetworkCardIndex=**10**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**interface**" \
+"NetworkCardIndex=**11**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**interface**" \
+"NetworkCardIndex=**12**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**interface**" \
+"NetworkCardIndex=**13**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**interface**" \
+"NetworkCardIndex=**14**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**interface**" \
+"NetworkCardIndex=**15**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**interface**" \
+"NetworkCardIndex=**16**,DeviceIndex=**1**,Groups=`security_group_id`,SubnetId=`subnet_id`,InterfaceType=**interface**"
+
 ```

@@ -61,8 +61,8 @@ instance affected by this issue. Choose one of the following methods:
 
 ###### Warning
 
-When you stop an instance, the data on any instance store volumes is erased.
-To keep data from instance store volumes, be sure to back it up to persistent storage. 4. After the instance is stopped, create a backup. Select the instance
+When you stop an instance, the data on instance store volumes is lost.
+To preserve this data, back it up to persistent storage. 4. After the instance is stopped, create a backup. Select the instance
 and choose **Actions**, then **Image and
 templates**, and then choose **Create
 image**. 5. [Change](ec2-instance-resize.md "ec2-instance-resize.md") the instance type to
@@ -93,8 +93,8 @@ instance type. 11. Start the instance and resume normal use.
 
 ###### Warning
 
-When you stop an instance, the data on any instance store volumes is erased.
-To keep data from instance store volumes, be sure to back it up to persistent storage. 4. Choose **Launch instances** and create a temporary
+When you stop an instance, the data on instance store volumes is lost.
+To preserve this data, back it up to persistent storage. 4. Choose **Launch instances** and create a temporary
 Windows Server 2008 or Windows Server 2012 instance in the same
 Availability Zone as the affected instance. Do not create a Windows
 Server 2012 R2 instance.
@@ -173,8 +173,8 @@ Plug and Play Cleanup task.
 
 ###### Warning
 
-When you stop an instance, the data on any instance store volumes is erased.
-To keep data from instance store volumes, be sure to back it up to persistent storage. 4. After the instance is stopped, create a backup. Select the instance,
+When you stop an instance, the data on instance store volumes is lost.
+To preserve this data, back it up to persistent storage. 4. After the instance is stopped, create a backup. Select the instance,
 choose **Actions**, then **Image and
 templates**, and then choose **Create
 image**. 5. Choose **Instance state**, and then choose

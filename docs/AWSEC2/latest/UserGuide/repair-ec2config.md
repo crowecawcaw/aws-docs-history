@@ -19,8 +19,8 @@ instance that is inaccessible using Remote Desktop.
 
 ###### Warning
 
-When you stop an instance, the data on any instance store volumes is erased.
-To keep data from instance store volumes, be sure to back it up to persistent storage. 4. Choose **Launch instances** and create a temporary `t2.micro`
+When you stop an instance, the data on instance store volumes is lost.
+To preserve this data, back it up to persistent storage. 4. Choose **Launch instances** and create a temporary `t2.micro`
 instance in the same Availability Zone as the affected instance. Use a
 different AMI than the one that you used to launch the affected
 instance.

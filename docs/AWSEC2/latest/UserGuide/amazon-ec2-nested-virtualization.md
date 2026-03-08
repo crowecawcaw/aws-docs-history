@@ -89,8 +89,7 @@ aws ec2 run-instances \
     --image-id `ami-0abcdef1234567890` \
     --instance-type `r8i.4xlarge` \
     --cpu-options "NestedVirtualization=enabled" \
-    --key-name `my-key-pair` \
-    --placement "Tenancy=host"
+    --key-name `my-key-pair`
 ```
 
 PowerShell
@@ -104,8 +103,7 @@ New-EC2Instance `
     -ImageId `ami-0abcdef1234567890` `
     -InstanceType `r8i.4xlarge` `
     -CpuOption @{NestedVirtualization='enabled'} `
-    -KeyName `my-key-pair` `
-    -Placement_Tenancy host
+    -KeyName `my-key-pair`
 ```
 
 ## Configure an existing instance to use nested virtualization

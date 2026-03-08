@@ -10,8 +10,8 @@ If you are using a Windows Server AMI earlier than Windows Server 2016, see [Res
 
 ###### Warning
 
-When you stop an instance, the data on any instance store volumes is erased.
-To keep data from instance store volumes, be sure to back it up to persistent storage.
+When you stop an instance, the data on instance store volumes is lost.
+To preserve this data, back it up to persistent storage.
 
 ###### Note
 

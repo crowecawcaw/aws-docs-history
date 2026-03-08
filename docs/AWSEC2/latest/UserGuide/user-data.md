@@ -72,8 +72,8 @@ instance user data for a stopped instance.
 
 ###### Warning
 
-When you stop an instance, the data on any instance store volumes is erased.
-To keep data from instance store volumes, be sure to back it up to persistent storage. 4. When prompted for confirmation, choose **Stop**. It can
+When you stop an instance, the data on instance store volumes is lost.
+To preserve this data, back it up to persistent storage. 4. When prompted for confirmation, choose **Stop**. It can
 take a few minutes for the instance to stop. 5. With the instance still selected, choose **Actions**,
 **Instance settings**, **Edit user
 data**. You can't change the user data if the instance is
@@ -177,8 +177,8 @@ running, you can view the user data but you cannot modify it.
 
 ###### Warning
 
-When you stop an instance, the data on any instance store volumes is erased.
-To keep data from instance store volumes, be sure to back it up to persistent storage.
+When you stop an instance, the data on instance store volumes is lost.
+To preserve this data, back it up to persistent storage.
 
 ###### To modify instance user data
 

@@ -771,8 +771,8 @@ volume.
 
 ###### Warning
 
-When you stop an instance, the data on any instance store volumes is erased.
-To keep data from instance store volumes, be sure to back it up to persistent storage.
+When you stop an instance, the data on instance store volumes is lost.
+To preserve this data, back it up to persistent storage.
 
 ### Step 4: Launch a temporary instance
 

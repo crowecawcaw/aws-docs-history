@@ -22,6 +22,12 @@ For more information about creating your own image descriptions, see the followi
 - [Quick Start](https://osinside.github.io/kiwi/quickstart.html "https://osinside.github.io/kiwi/quickstart.html")
 - [Image Description](https://osinside.github.io/kiwi/image_description.html "https://osinside.github.io/kiwi/image_description.html")
 - [Sample Amazon Linux 2023 image description](https://github.com/amazonlinux/kiwi-image-descriptions-examples "https://github.com/amazonlinux/kiwi-image-descriptions-examples")
+  Prerequisites
+
+Your IAM identity must have the following permissions to complete this tutorial:
+
+- `ebs:CompleteSnapshot`, `ebs:StartSnapshot`, and `ebs:PutSnapshotBlock` on `arn:aws:ec2:*::snapshot/*`
+- `ec2:RegisterImage` on all resources
 
 ###### To build the sample Amazon Linux 2023 image description using KIWI NG
 
@@ -86,7 +92,7 @@ The measurements are provided in the following JSON format:
    snapshot. The command returns the snapshot ID. Make a note of the ID, you'll need it for the next step.
 
 ```
-SNAPSHOT=$(.cargo/bin/coldsnap upload ./image/kiwi*.raw)
+SNAPSHOT=$(.cargo/bin/coldsnap upload ./image/al2023*.raw)
 echo "Created snapshot: $SNAPSHOT"
 ```
 

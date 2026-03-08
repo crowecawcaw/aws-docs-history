@@ -21,10 +21,4 @@ crash trends for Amazon EC2 drivers, and diagnose large scale crash events.
 
 `EC2WinUtil` doesn't collect any customer data in its crash call stacks.
 
-**Hibernate/resume stability**
-
-`EC2WinUtil` tracks the virtualization settings of the instance across
-hibernate/resume cycles. This helps to improve the long-term stability of instances
-that have enabled hibernation.
-
 For driver release notes, see [EC2 Windows Utility Driver version history](ec2winutil-driver-version-history.md "ec2winutil-driver-version-history.md")

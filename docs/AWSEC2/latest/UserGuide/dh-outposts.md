@@ -41,14 +41,23 @@ User Guide_.
 
 ## Supported features
 
-- The following instance families are supported: `C5`,
-  `M5`, `R5`, `C5d`, `M5d`,
-  `R5d`, `G4dn`, and `i3en`.
+- The following instance families are supported:
+  - **General purpose:** M5 | M5d | M7i | M8i
+  - **Compute optimized:** C5 | C5d | C7i | C8i
+  - **Memory optimized:** R5 | R5d | R7i | R8i
+  - **Storage optimized:** I3en
+  - **Accelerated computing:** G4dn
+
 - Dedicated Hosts on Outposts can be configured to support multiple instance sizes.
   Support for multiple instance sizes is available for the following instance
-  families: `C5`, `M5`, `R5`,
-  `C5d`, `M5d`, and `R5d`. For more
-  information, see [Amazon EC2 Dedicated Host instance capacity configurations](dedicated-hosts-limits.md "dedicated-hosts-limits.md").
+  families.
+
+      + **General purpose:** M5 | M5d | M7i
+      + **Compute optimized:** C5 | C5d | C7i
+      + **Memory optimized:** R5 | R5d | R7i
+
+  For more information, see [Amazon EC2 Dedicated Host instance capacity configurations](dedicated-hosts-limits.md "dedicated-hosts-limits.md").
+
 - Dedicated Hosts on Outposts support auto-placement and targeted instance launches.
   For more information, see [Amazon EC2 Dedicated Host auto-placement and host affinity](dedicated-hosts-understanding.md "dedicated-hosts-understanding.md").
 - Dedicated Hosts on Outposts support host affinity. For more information, see [Amazon EC2 Dedicated Host auto-placement and host affinity](dedicated-hosts-understanding.md "dedicated-hosts-understanding.md").

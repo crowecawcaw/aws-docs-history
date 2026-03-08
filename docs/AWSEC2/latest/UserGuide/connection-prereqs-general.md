@@ -25,7 +25,7 @@ You can get the public DNS for your instance from the Amazon EC2 console. Check 
 **Public IPv4 DNS** column of the
 **Instances** pane. If this column is hidden, choose the
 settings icon (
-![The gear icon.](/images/AWSEC2/latest/UserGuide/images/settings-icon.png)
+![The gear icon.](images/settings-icon.png)
 ) in the top-right corner of the screen, and select
 **Public IPv4 DNS**. You can also find the public DNS in the
 instance information section of the **Instances** pane. When you
