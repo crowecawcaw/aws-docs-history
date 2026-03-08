@@ -21,7 +21,6 @@ not production volumes.
 ## Set up your instance
 
 To get optimal performance from EBS volumes, we recommend that you use an EBS-optimized
-instance. EBS-optimized instances deliver dedicated throughput between Amazon EC2 and Amazon EBS, with
 instance. EBS-optimized instances deliver dedicated bandwidth between Amazon EC2 and Amazon EBS, with
 specifications depending on the instance type.
 
@@ -131,7 +130,7 @@ I/Os. Then you can monitor your application performance and tune that value base
 application requirements. For example, a 2 TiB `st1` volume with burst throughput of 500
 MiB/s and IOPS of 500 should target a queue length of 4, 8, or 16 while performing 1,024
 KiB, 512 KiB, or 256 KiB sequential I/Os respectively. You should experiment with tuning
-these values value up or down to see what performs best for your application.
+these values up or down to see what performs best for your application.
 
 ## Disable C-states
 
