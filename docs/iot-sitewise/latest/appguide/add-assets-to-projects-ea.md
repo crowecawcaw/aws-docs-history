@@ -40,7 +40,7 @@ new project**, then choose **Next**.
 create multiple projects, each with a distinct set of assets, choose a descriptive
 name.
 
-![Add assets to project dialog, step 2 of 2.](images/asset-library-create-new-project-console.png) 6. In **Project description**, enter a description of the project and its
+![Add assets to project dialog, step 2 of 2.](/images/iot-sitewise/latest/appguide/images/asset-library-create-new-project-console.png) 6. In **Project description**, enter a description of the project and its
 contents.
 
 You can add project owners after you create the project. 7. Choose **Add asset to project**.
@@ -67,7 +67,7 @@ to that asset) to a project. To create a dashboard to compare two assets that ar
 of a common parent asset, add that common parent to the project. 4. In the **Add assets to project** dialog box, choose **Select
 existing project**, and then choose the project to add the assets.
 
-![Add assets to project dialog.](/images/iot-sitewise/latest/appguide/images/asset-library-add-assets-to-existing-project-console.png) 5. Choose **Add asset to project**.
+![Add assets to project dialog.](images/asset-library-add-assets-to-existing-project-console.png) 5. Choose **Add asset to project**.
 
 The **Create new project** dialog box closes, and the new project's
 page opens.
