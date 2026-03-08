@@ -24,9 +24,10 @@ Second-generation Outposts racks require a larger subnet size (/24 or larger) an
 
 When configuring private connectivity for the Outposts service link, plan your IP
 addressing carefully to avoid future conflicts. Service Link VIFs are immutable. You should
-avoid creating CoIP pools or DVR subnet ranges assigned to the Local Gateway (LGW) that overlap
-with existing Service Link address ranges or VPC CIDR ranges used for the dedicated private
-connectivity VPC, as they may cause BGP routing conflicts and disrupt Service Link
+avoid creating CoIP pools or DVR subnet ranges assigned to the Local Gateway (LGW) that
+overlap with existing Service Link address ranges or VPC CIDR ranges used for the dedicated
+private connectivity VPC. Overlapping prefixes across the Service Link and LGW networks may
+result in BGP routing conflicts on the upstream network and disrupt Service Link
 functionality.
 
 ## Prerequisites

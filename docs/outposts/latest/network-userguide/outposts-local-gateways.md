@@ -34,8 +34,9 @@ bandwidth](../../../AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.md ".
 
 For Outposts using private connectivity, avoid creating CoIP pools or DVR subnet ranges
 that overlap with existing Service Link VIF address ranges or VPC CIDR ranges used for the
-dedicated private connectivity VPC, as they may cause BGP routing conflicts and disrupt
-Service Link functionality.
+dedicated private connectivity VPC. Overlapping prefixes across the Service Link and LGW
+networks may result in BGP routing conflicts on the upstream network and disrupt Service
+Link functionality.
 
 A local gateway has the following components:
 
