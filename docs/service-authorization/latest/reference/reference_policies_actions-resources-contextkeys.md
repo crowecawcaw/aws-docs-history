@@ -145,6 +145,7 @@ If the **Type** column specifies a "List of …" one of the simple types, then y
 - [Amazon Connect](list_amazonconnect.md "list_amazonconnect.md")
 - [Amazon Connect Cases](list_amazonconnectcases.md "list_amazonconnectcases.md")
 - [Amazon Connect Customer Profiles](list_amazonconnectcustomerprofiles.md "list_amazonconnectcustomerprofiles.md")
+- [Amazon Connect Health](list_amazonconnecthealth.md "list_amazonconnecthealth.md")
 - [Amazon Connect Outbound Campaigns](list_amazonconnectoutboundcampaigns.md "list_amazonconnectoutboundcampaigns.md")
 - [Amazon Connect Voice ID](list_amazonconnectvoiceid.md "list_amazonconnectvoiceid.md")
 - [AWS Connector Service](list_awsconnectorservice.md "list_awsconnectorservice.md")
