@@ -46,7 +46,7 @@ domain.
    The following screenshot shows the location of the verification record to
    use.
 
-   ![The DNS records section in the Amplify console with the Hostname verification record circled](/images/amplify/latest/userguide/images/amplify-customdomains-DNS-verification-1.png) 3. For **Value**, enter the ACM validation certificate.
+   ![The DNS records section in the Amplify console with the Hostname verification record circled](images/amplify-customdomains-DNS-verification-1.png) 3. For **Value**, enter the ACM validation certificate.
 
    For example, if the validation server is **\_cjhwou20vhu2exampleuw20vuyb2ovb9.j9s73ucn9vy.acm-validations.aws**,
    enter **\_cjhwou20vhu2exampleuw20vuyb2ovb9.j9s73ucn9vy.acm-validations.aws**
