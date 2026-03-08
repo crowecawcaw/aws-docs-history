@@ -91,17 +91,15 @@ Recommended actions:
 
 **CUR reconfiguration requirement**
 
-After transfer, existing AWS Cost and Usage Report (CUR) configurations become inactive and display as `Unhealthy`. You might experience temporary gaps in cost and usage data during the first month of billing transfer.
+After transfer, existing AWS Cost and Usage Report (CUR) configurations become inactive and display as `Unhealthy`.
 
 Recommended actions:
 
 - Reconfigure CUR preferences after transfer
 
-- Contact Support to request a CUR refresh if your last month's report shows data gaps (for example, missing Invoice ID or incomplete usage data)
+**Pro forma billing limitations specific to Billing Transfer**
 
-**Pro forma billing limitations**
-
-Pro forma billing data might not match your final invoice from the billing entity because some pricing elements aren't yet supported. The following items don't appear in pro forma billing data: Support plan charges, AWS credits, AWS Free Tier usage, Reserved Instance volume discounts, Bundle discounts, usage-based discounts.
+Pro forma billing data might not match your final invoice from the billing entity because some pricing elements aren't yet supported. The following items don't appear in pro forma billing data: Support plan charges, AWS credits, AWS Free Tier usage (exclusively credits based free tier).
 
 The bill receiver can configure these items to appear in pro forma billing artifacts using AWS Billing Conductor. For more information, see the [Billing Conductor](../../../billingconductor/latest/userguide/what-is-billingconductor.md "../../../billingconductor/latest/userguide/what-is-billingconductor.md").
 
@@ -168,7 +166,7 @@ When the transfer begins, the bill source account:
 - Remains responsible for paying any usage charges from before the transfer start date.
 - No longer receives AWS invoices for usage after the transfer start date, as these go to the bill transfer account.
 - No longer has access to billed cost data (priced by AWS).
-- The bill source account and its member accounts are added to a billing group, where they can view only their costs as priced by the bill transfer account (at either pre-discounted or custom rates) through Billing Conductor. The bill transfer account can view the consumption and billing metadata (such as cost categories and cost allocation tags) of bill source accounts in Cost Explorer and AWS Cost and Usage Report.
+- The bill source account and its member accounts are added to a billing group, where they can view only their costs as priced by the bill transfer account (either gross of non-public discounts rates or custom rates) through Billing Conductor. The bill transfer account can view the consumption and billing metadata (such as cost categories and cost allocation tags) of bill source accounts in Cost Explorer and AWS Cost and Usage Report.
 
 For more information about which Billing and Cost Management services will be available to the bill source accounts see [AWS services for accounts in billing groups](../../../billingconductor/latest/userguide/service-integrations-support-proforma.md "../../../billingconductor/latest/userguide/service-integrations-support-proforma.md"). For more information about billing groups see [Billing groups](../../../billingconductor/latest/userguide/service-integrations-support-proforma.md "../../../billingconductor/latest/userguide/service-integrations-support-proforma.md").
 

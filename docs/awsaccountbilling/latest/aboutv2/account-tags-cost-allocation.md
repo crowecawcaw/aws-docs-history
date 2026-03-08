@@ -51,3 +51,10 @@ As a best practice, do not use "accountTag" keyword in your tag keys, as this pr
 5. Choose **Activate**
 6. Verify tags show as "Active"
 7. It can take up to 24 hours for tag activation status to change to “Active”
+
+## Viewing Account Tags in Cost and Usage Reports
+
+After completing the setup, account tags will appear in your Cost and Usage Report 2.0 (CUR 2.0) alongside other cost allocation tags.
+When viewing cost data in CUR 2.0, tags from different sources (resources, user attributes, accounts, and cost categories) are
+distinguished by prefixes to prevent conflicts when the same tag key is used across multiple contexts.
+For detailed information about how tag prefixes work and examples of overlapping tag keys, see the [CUR 2.0 Tags Column documentation](../../../cur/latest/userguide/table-dictionary-cur2-tag-columns.md "../../../cur/latest/userguide/table-dictionary-cur2-tag-columns.md").

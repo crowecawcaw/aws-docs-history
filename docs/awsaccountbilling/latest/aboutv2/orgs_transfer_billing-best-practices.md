@@ -24,20 +24,24 @@ Downloading these billing artifacts helps ensure that you maintain access to you
 
 There are three options to start using billing transfer:
 
-- You support a single organization and want to split into multiple AWS Organizations
-- Transfer ownership when you manage multiple organizations
+- Option 1: Set up billing transfer for externally owned organizations
+- Option 2: Create an AWS organization before setting up billing transfer
+- Option 3: Transfer ownership of an AWS organization before setting up billing transfer
 
-### Option 1: Take over billing for externally owned organizations
+### Option 1: Set up billing transfer for externally owned organizations
 
-This option involves taking over billing responsibility through billing transfer from AWS Organizations owned by external parties (such as end customers, affiliates, or subsidiaries). You can transfer billing to either an existing organization or create a new organization dedicated to billing and financial management.
+This option involves taking over billing responsibility through billing transfer from AWS Organizations owned by external parties (such as end customers, affiliates, or subsidiaries). You may send a billing transfer invite from your existing organization or create a new organization dedicated to billing and financial management to send invites from.
 
 **Prerequisites**
 
-Your organization must meet these requirements:
+To set up billing transfer you must meet this requirement:
 
-- Organization is in all-features mode
-- Customer has an email address for root account ownership
-- Organization serves one customer's workloads
+- The organizations sending and receiving the invites are on all-features mode
+
+For Channel Partners, you should follow these best practices to comply with channel program terms:
+
+- The administrator of the organization accepting the invite has control over root account
+- Organizations who transfer away their billing serve one customer's workloads
 
 This option is suitable for:
 
@@ -57,9 +61,9 @@ Back up Cost Explorer data from bill source accounts, as they lose historical da
 
 Create new preferences after billing transfer is active, as existing preferences become unhealthy and stop receiving data. Disable the split cost allocation data functionality when creating preferences.
 
-### Option 2: You support a single organization and want to split into multiple AWS Organizations
+### Option 2: Create an AWS organization before setting up billing transfer
 
-This process involves creating a new AWS Organizations, setting up billing transfer, and then migrating member accounts.
+This process involves creating a new AWS Organizations, setting up billing transfer, and then migrating member accounts. This process is suitable if you support a single AWS organization and want to split into multiple AWS organizations. For example, you are a channel partner who consolidates multiple end customers into one AWS organizations (multi-tenant organization) and needs to provide them with dedicated AWS organizations; or you are a customer who consolidates multiple business units, affiliates, or subsidiaries into one AWS organizations.
 
 ###### Benefits of organization migration
 
@@ -72,8 +76,6 @@ Consider the following requirements before migrating:
 - You must rebuild organization-level configurations
 - You must identify and recreate organization-level dependencies
 - Migration takes longer than a full organization transfer
-
-We recommend this approach for AWS Partners who consolidate multiple end customers into one AWS Organizations (multi-tenant organization) and for customers who consolidate multiple business units, affiliates, or subsidiaries into one AWS Organizations.
 
 Follow these steps and review the considerations for each:
 
@@ -133,9 +135,11 @@ During this process, remove any partner MFA devices and partner-specific securit
 
 This step is required only for channel partners and their reselling end customers. It's optional for customers purchasing services directly from AWS.
 
-### Option 3: Transfer ownership when you manage multiple organizations
+### Option 3: Transfer ownership of an AWS organization before setting up billing transfer
 
-This option involves transferring root access of an existing AWS Organizations to a new owner and transferring billing responsibility through billing transfer. You can transfer billing to either an existing organization or create a new organization dedicated to billing and financial management.
+This option involves handing over account ownership by providing root credentials controls of an existing AWS Organizations to a new owner and then transferring billing responsibility through billing transfer.
+
+You may send a billing transfer invite from your existing organization or create a new organization dedicated to billing and financial management to send invites from.
 
 **Prerequisites**
 

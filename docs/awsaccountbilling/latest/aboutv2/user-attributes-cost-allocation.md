@@ -14,7 +14,7 @@ Once you enable user attributes for cost allocation, you can map usage to intern
 You can use user attributes to see which teams, departments, or cost centers are consuming AWS services and at what rate,
 enabling data-driven decisions about resource allocation, budget planning, and optimization opportunities.
 This includes subscription-based charges and feature-specific overage charges, giving organizations a complete picture of their AWS application cost and usage.
-It works with existing AWS Cost Management like Cost Explorer and Cost and Usage Reports while gaining access to this new dimension of cost analysis.
+It works with existing AWS Cost Management tools like Cost Explorer and Cost and Usage Reports (CUR2.0 and FOCUS), giving you access to this new dimension for cost analysis.
 
 ## Prerequisites
 
@@ -48,3 +48,10 @@ By enabling User-Based Cost Allocation, user attributes stored in AWS IAM Identi
 
 1. Return to IAM Identity Center Settings and verify that selected attributes show as "Imported". Confirm attribute data is populated for your users.
 2. In Billing and Cost Management console, under Cost Organization, select Cost Allocation Tags. Verify tags show as "Active".
+
+## Viewing User Attributes in Cost and Usage Reports
+
+After completing the setup, user attributes will appear in your Cost and Usage Report 2.0 (CUR 2.0) alongside other cost allocation tags.
+When viewing cost data in CUR 2.0, tags from different sources (resources, user attributes, accounts, and cost categories) are
+distinguished by prefixes to prevent conflicts when the same tag key is used across multiple contexts.
+For detailed information about how tag prefixes work and examples of overlapping tag keys, see the [CUR 2.0 Tags Column documentation](../../../cur/latest/userguide/table-dictionary-cur2-tag-columns.md "../../../cur/latest/userguide/table-dictionary-cur2-tag-columns.md").

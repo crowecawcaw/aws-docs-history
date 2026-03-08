@@ -23,7 +23,7 @@ If you have questions about payment methods, see [Getting help with your bills a
 - [Set up automatic payments on your credit or debit card](edit-aispl-payment-method.md#using-aispl-autopay-enable "edit-aispl-payment-method.md#using-aispl-autopay-enable")
 - [Understanding your automatic payments](edit-aispl-payment-method.md#using-aispl-autopay-manage "edit-aispl-payment-method.md#using-aispl-autopay-manage")
 - [Making payments for AWS Marketplace or AWS subscriptions](edit-aispl-payment-method.md#using-aispl-autopay-subscriptions "edit-aispl-payment-method.md#using-aispl-autopay-subscriptions")
-- [Cancel automatic payments on your credit or debit card](edit-aispl-payment-method.md#using-aispl-autopay-disable "edit-aispl-payment-method.md#using-aispl-autopay-disable")
+- [Cancel automatic payments on your credit/ debit card or Unified Payments Interface (UPI)](edit-aispl-payment-method.md#using-aispl-autopay-disable "edit-aispl-payment-method.md#using-aispl-autopay-disable")
 - [Making payments for invoices outside of AWS India](edit-aispl-payment-method.md#aispl-payment-nonIndia "edit-aispl-payment-method.md#aispl-payment-nonIndia")
 - [Viewing eligible credit or debit cards for AWS India invoices](edit-aispl-payment-method.md#aispl-payment-view "edit-aispl-payment-method.md#aispl-payment-view")
   - [Troubleshooting ineligible payment method alerts](edit-aispl-payment-method.md#aispl-payment-ineligible "edit-aispl-payment-method.md#aispl-payment-ineligible")
@@ -240,12 +240,36 @@ need to approve the payment. After your payment is verified, you're redirected
 to the **Payments** page with a success message at the top of
 the page.
 
+###### Note
+
+The functionality is in preview release and is subject to change.
+
+You can use the Billing console to pay your AWS India bills. Follow this procedure to make a
+payment with Unified Payments Interface (UPI) Scan and Pay.
+
+###### Note
+
+To approve UPI transactions, AWS India will display a QR code that you can scan using your UPI app to complete the payment. You must approve the transaction within 10 minutes, or the request will expire and you'll need to retry the payment from the Billing console.
+
+###### To use UPI to make a payment
+
+1. Open the AWS Billing and Cost Management console at
+   [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/home?#/ "https://console.aws.amazon.com/costmanagement/home?#/").
+2. In the navigation pane, choose **Payments**.
+
+The **Payments due** table lists all of your remaining
+AWS bills. If there aren't any bills listed, you don't have to do
+anything. 3. Choose the bills that you're paying in the **Payments
+due** table. 4. Choose **Complete payment**. 5. Then, click the **Use UPI Scan and Pay**button 6. Choose **Verify and pay**.
+
+You will be redirected to an intermediate page that displays a QR code shown on the screen and payment approval instructions. Open your UPI app, scan the QR code, and approve the transaction. After your payment is verified, you will be redirected to the Payments page with a success message.
+
 ## Set up automatic payments using Unified Payments Interface (UPI)
 
 You can make automatic recurring payments for your AWS India
 bills using Unified Payments Interface (UPI). Your UPI AutoPay can be used to pay your future AWS invoices.
 
-###### To automatic payments using UPI
+###### To set up automatic payments using UPI
 
 1. Open the AWS Billing and Cost Management console at
    [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/home?#/ "https://console.aws.amazon.com/costmanagement/home?#/").
@@ -257,6 +281,25 @@ bills using Unified Payments Interface (UPI). Your UPI AutoPay can be used to pa
    address.
 7. Choose **Add payment method**.
 8. Once you're redirected back to the **Payments preferences** page, review your **Default payment preferences** section.
+
+You will see your UPI AutoPay selected, with an **AutoPay enabled** message below.
+
+###### Note
+
+The functionality is in preview release and is subject to change.
+
+###### To set up automatic payments using UPI Scan and Pay
+
+1. Open the AWS Billing and Cost Management console at
+   [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/home?#/ "https://console.aws.amazon.com/costmanagement/home?#/").
+2. In the navigation pane, choose **Payment preferences**.
+3. Choose **Add payment method**.
+4. Choose **UPI AutoPay**.
+5. Enter the billing address or choose to use an existing address.
+6. Choose **Add payment method**.
+7. Choose **Verify**.
+8. You will be redirected to an intermediate page that displays a QR code shown on the screen and payment approval instructions. Open your UPI app, scan the QR code, and approve the transaction. After your payment is verified, you will be redirected to the Payments page with a success message.
+9. Once you're redirected back to the **Payments preferences** page, review your **Default payment preferences** section.
 
 You will see your UPI AutoPay selected, with an **AutoPay enabled** message below.
 
@@ -284,7 +327,7 @@ table. 4. Choose **Complete payment**. 5. In the **Payment summary** section, se
 - You can’t select the checkbox to set up e-mandate if your credit or debit card is not supported, or if it is not set up as the default payment method. Contact your bank to learn more about e-mandate support. To change your default payment method, see [Designate a default payment method](manage-payment-method.md#manage-designate-default "manage-payment-method.md#manage-designate-default").
 - You can't change or edit your default payment method without canceling the active e-mandate on
   the card. This is to ensure we automatically charge the default payment
-  instrument only. To cancel the e-mandate, see [Cancel automatic payments on your credit or debit card](#using-aispl-autopay-disable "#using-aispl-autopay-disable"). After the e-mandate is
+  instrument only. To cancel the e-mandate, see [Cancel automatic payments on your credit/ debit card or Unified Payments Interface (UPI)](#using-aispl-autopay-disable "#using-aispl-autopay-disable"). After the e-mandate is
   canceled, you can edit or change your default card.
 
 As next steps, your bank redirects you to verify your payment and e-mandate setup. Once e-mandate is successfully configured, your default payment method on the **Payment preference** page shows the status as `AutoPay enabled`.
@@ -316,10 +359,9 @@ E-mandate is not available for automatic payments if you're making payments for 
 
 For subscriptions, you must complete the payment within one hour to activate the subscription. Your subscription purchase and invoice is void if you are unable to complete the transaction during that time. To continue, repurchase your subscription and complete the payment.
 
-## Cancel automatic payments on your credit or debit card
+## Cancel automatic payments on your credit/ debit card or Unified Payments Interface (UPI)
 
-You can disable credit or debit card automatic payments for your recurring AWS bills by
-canceling the e-mandate.
+You can disable credit/debit card or Unified Payments Interface (UPI) automatic payments for your recurring AWS bills by canceling the e-mandate.
 
 ###### To cancel an e-mandate through the AWS console
 
