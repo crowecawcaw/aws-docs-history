@@ -67,16 +67,82 @@ With specific instance type selection, you explicitly specify the EC2 instance t
 
 With attribute-based instance type selection, you specify the attributes that your application requires, and Amazon ECS Managed Instances selects an appropriate instance type that meets those requirements. This provides more flexibility and can help ensure that your tasks are placed successfully even if specific instance types are not available.
 
+When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
+
 The following attributes are supported for attribute-based instance type selection:
 
-- _cpuArchitecture_: The CPU architecture (X86_64 or ARM64).
-- _instanceGeneration_: The instance generation (current, previous, or all).
-- _burstablePerformance_: Whether to include burstable performance instances (included, excluded, or required).
-- _cpuManufacturer_: The CPU manufacturer (intel, amd, or amazon-web-services).
-- _networkBandwidth_: The minimum network bandwidth in Gbps.
-- _networkInterfaceCount_: The minimum number of network interfaces.
-- _localStorage_: Whether local storage is required (included, excluded, or required).
-- _localStorageType_: The type of local storage (hdd or ssd).
+**cpuArchitecture**
+
+The CPU architecture.
+
+Valid values: `X86_64` | `ARM64`
+
+**instanceGeneration**
+
+Indicates whether current or previous generation instance types are included.
+
+- For current generation instance types, specify `current`. The current generation includes EC2 instance types currently recommended for use. This typically includes the latest two to three generations in each instance family. For more information, see [Instance types](../../../AWSEC2/latest/UserGuide/instance-types.md "../../../AWSEC2/latest/UserGuide/instance-types.md") in the _Amazon EC2 User Guide_.
+- For previous generation instance types, specify `previous`.
+- To include both current and previous generation instance types, specify `all`.
+
+Valid values: `current` | `previous` | `all`
+
+Default: Any current or previous generation.
+
+**burstablePerformance**
+
+Indicates whether burstable performance instance types are included, excluded, or required. For more information, see [Burstable performance instances](../../../AWSEC2/latest/UserGuide/burstable-performance-instances.md "../../../AWSEC2/latest/UserGuide/burstable-performance-instances.md") in the _Amazon EC2 User Guide_.
+
+Valid values: `included` | `excluded` | `required`
+
+Default: `excluded`
+
+**cpuManufacturer**
+
+Lists which specific CPU manufacturers to include.
+
+- For instance types with Intel CPUs, specify `intel`.
+- For instance types with AMD CPUs, specify `amd`.
+- For instance types with AWS CPUs (such as AWS Graviton), specify `amazon-web-services`.
+
+###### Note
+
+Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify.
+
+Valid values: `intel` | `amd` | `amazon-web-services`
+
+Default: Any manufacturer.
+
+**networkBandwidth**
+
+The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
+
+Default: No minimum or maximum limits.
+
+**networkInterfaceCount**
+
+The minimum and maximum number of network interfaces.
+
+Default: No minimum or maximum limits.
+
+**localStorage**
+
+Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, see [Amazon EC2 instance store](../../../AWSEC2/latest/UserGuide/InstanceStorage.md "../../../AWSEC2/latest/UserGuide/InstanceStorage.md") in the _Amazon EC2 User Guide_.
+
+Valid values: `included` | `excluded` | `required`
+
+Default: `included`
+
+**localStorageType**
+
+Indicates the type of local storage that is required.
+
+- For instance types with hard disk drive (HDD) storage, specify `hdd`.
+- For instance types with solid state drive (SSD) storage, specify `ssd`.
+
+Valid values: `hdd` | `ssd`
+
+Default: Any local storage type.
 
 ## Billing and purchase options
 

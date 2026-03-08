@@ -23,7 +23,7 @@ to discover the names. Your application can look up the names by using the stand
 functionality for DNS names and making connections. If your application does this
 already, you don't need to modify your application to use Service Connect.
 
-![Diagram showing architecture of a network using service connect.](/images/AmazonECS/latest/developerguide/images/serviceconnect.png)
+![Diagram showing architecture of a network using service connect.](images/serviceconnect.png)
 
 ###### Changes only happen during deployments
 
