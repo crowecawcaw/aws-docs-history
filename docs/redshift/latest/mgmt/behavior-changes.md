@@ -17,6 +17,7 @@ The following describes upcoming behavior changes.
 ###### Topics
 
 - [Scalar Python UDFs will reach end of support after June 30, 2026](#python-udf-jun2026 "#python-udf-jun2026")
+- [Materialized View (MV) Auto-REFRESH Behavior Change after February 27, 2026](#autorefresh-feb272026 "#autorefresh-feb272026")
 - [Amazon Redshift won’t support functions that access consumer information through datasharing after February 16, 2026](#datasharing-feb2026 "#datasharing-feb2026")
 - [Minimum Transport Layer Security (TLS) version changes effective starting January 31, 2026](#tls-changes-jan2026 "#tls-changes-jan2026")
 - [Amazon Redshift won’t support the creation of new scalar Python UDFs after October 30, 2025](#python-udf-oct2025 "#python-udf-oct2025")
@@ -40,6 +41,12 @@ Lambda UDFs have the following advantages over Python UDFs:
 For information on creating and using Lambda UDFs, see [Scalar Lambda UDFs](../dg/udf-creating-a-lambda-sql-udf.md "../dg/udf-creating-a-lambda-sql-udf.md") in the
 _Amazon Redshift Database Developer Guide_. For information on converting existing Python UDFs to
 Lambda UDFs, see the [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
+
+### Materialized View (MV) Auto-REFRESH Behavior Change after February 27, 2026
+
+Starting February 27th, 2026, Auto REFRESH queries for Amazon Redshift materialized views
+are now treated as user queries instead of background autonomics processes. Auto REFRESH queries
+now run with the same priority as other user queries.
 
 ### Amazon Redshift won’t support functions that access consumer information through datasharing after February 16, 2026
 

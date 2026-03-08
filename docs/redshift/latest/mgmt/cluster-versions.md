@@ -25,6 +25,7 @@ and avoid potential disruptions to your workloads, see
 
 ###### Topics
 
+- [Amazon Redshift patch 199](#cluster-version-199 "#cluster-version-199")
 - [Amazon Redshift patch 198](#cluster-version-198 "#cluster-version-198")
 - [Amazon Redshift patch 197](#cluster-version-197 "#cluster-version-197")
 - [Amazon Redshift patch 196](#cluster-version-196 "#cluster-version-196")
@@ -56,6 +57,37 @@ and avoid potential disruptions to your workloads, see
 - [Amazon Redshift patch 170](#cluster-version-170 "#cluster-version-170")
 - [Amazon Redshift patch 169](#cluster-version-169 "#cluster-version-169")
 - [Amazon Redshift patch 168](#cluster-version-168 "#cluster-version-168")
+
+## Amazon Redshift patch 199
+
+Cluster versions in this patch:
+
+- 1.0.232773 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup
+  version – Released on March 4, 2026
+
+### New features and improvements in this patch
+
+- Enabled support for Column level grants from a consumer using Redshift federated permissions for a new grantee on producer.
+- Enabled support for scoped permission checks in the Metadata Security (MDS) feature.
+- Amazon Redshift federated permissions supports querying external tables through Late Binding Views (LBVs).
+- ALTER EXTERNAL SCHEMA can now be used with the KINESIS external schema type to change the IAM_ROLE and REGION of an existing external schema.
+- Added restore support for NO-BACKUP tables on Redshift RA3 and Serverless data warehouses. Since these instance types do not support the NO-BACKUP feature, tables marked as NO-BACKUP are always included in snapshots and are now properly restored as permanent tables
+- Vacuum operations may now be blocked on rows needed for materialized view (MV) refresh to reduce unnecessary MV recomputations. Added a new configuration option (force_complete_vacuum_delete) to force vacuum, allowing users to bypass vacuum blocking by first marking dependent MVs for recompute and then performing the vacuum, providing a safe escape hatch while ensuring MV data consistency.
+- Amazon Redshift now supports writing to external tables when connected using IAM roles or IAM users. Previously, only read operations on external tables were supported with IAM role-based authentication. With this update, Redshift correctly uses your IAM session credentials when writing data to Amazon S3 for external tables, enabling full read and write access.
+- For auto refreshing Kafka stream MVs, we now use a more efficient heuristic to determine if there are new records to ingest. This will reduce the amount of data transferred from the Kafka brokers for this check, and reduce the latency on starting the subsequent MV refresh.
+- Upgraded backup and restore operations to use FIPS-compliant SHA384 encryption, replacing legacy MD5 hashing
+- Enhanced performance for queries combining Lambda User-Defined Functions and UNNEST statements
+- Enhanced performance for queries using Lambda User-Defined Functions against system tables and views
+- Enhanced query execution performance when using ORDER BY and LIMIT clauses by eliminating unnecessary data scans
+- Auto REFRESH queries for Amazon Redshift materialized views are now treated as user queries instead of background autonomics processes. Auto REFRESH queries now run with the same priority as other user queries.
+- Fixed an issue where pg_last_query_id() incorrectly returned the rewritten query ID instead of the user query ID for Multi-AZ clusters
+- Fixes an issue where SHOW GRANTS would fail to process one-part object references.
+- Fixed an issue where DROP TABLE conflicted with the catalog rebuild worker's timestamp auto worker due to simultaneous updates on pg_class_extended, by skipping deletion during DROP TABLE and allowing the timestamp worker to clean up on its next run.
+- Fixed zero-ETL channel filter parsing issue when database, schema, or table names contained include/exclude keywords
+- Fixed a race condition that could occur when vacuum operations ran concurrently with zero-ETL table operations
+- Fixed an issue where zero-ETL integrations incorrectly attempted resync operations instead of transitioning to an error state when KMS encryption context changed
+- Fixed a race condition in zero-ETL integrations that could occur during cluster restart while data replication was active
+- Fixes SHOW TABLES
 
 ## Amazon Redshift patch 198
 
