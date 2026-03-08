@@ -9,6 +9,7 @@ and resources.
 - [Why are workers not picking up my jobs?](#troubleshooting_workers_not_picking_jobs "#troubleshooting_workers_not_picking_jobs")
 - [Why is my worker stuck running?](#troubleshooting_worker_stuck_running "#troubleshooting_worker_stuck_running")
 - [Troubleshooting Deadline Cloud jobs](#jobs-troubleshooting "#jobs-troubleshooting")
+- [Deadline Cloud monitor desktop application logs](#troubleshooting-desktop-logs "#troubleshooting-desktop-logs")
 - [Additional resources](#troubleshooting_additional_resources "#troubleshooting_additional_resources")
 
 ## Why can a user not see my farm, fleet, or queue?
@@ -186,6 +187,32 @@ instructions, see [View session and worker logs in Deadline Cloud](view-logs.md 
 Steps may stay in the `PENDING` state when one or more of their dependencies are
 not complete. You can check the state of dependencies using the Deadline Cloud monitor. For instructions,
 see [View a step in Deadline Cloud](view-a-step.md "view-a-step.md").
+
+## Deadline Cloud monitor desktop application logs
+
+The Deadline Cloud monitor desktop application writes diagnostic logs that you can use to investigate
+crashes or other unexpected behavior. When reporting an issue with the desktop application,
+include the relevant log files to help with diagnosis.
+
+The location of the log files depends on your operating system:
+
+Windows
+
+```
+%APPDATA%\com.amazonaws.deadline.monitor\logs
+```
+
+macOS
+
+```
+~/Library/Logs/com.amazonaws.deadline.monitor/
+```
+
+Linux
+
+```
+~/.config/com.amazonaws.deadline.monitor/logs
+```
 
 ## Additional resources
 

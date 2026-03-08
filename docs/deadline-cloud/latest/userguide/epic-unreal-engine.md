@@ -26,6 +26,17 @@ The following table shows current support levels for Unreal Engine versions:
 | 5.5           | Windows           | Windows       |
 | 5.6           | Windows           | Windows       |
 
+## Deadline Cloud Conda Channel
+
+The following table lists all conda packages applicable to Unreal Engine available to Service-managed fleets in the `deadline-cloud` conda channel:
+
+| OS      | Package              | Version |
+| ------- | -------------------- | ------- |
+| Windows | unreal-engine        | 5.4     |
+| Windows | unreal-engine        | 5.5     |
+| Windows | unreal-engine        | 5.6     |
+| Windows | unreal-engine-openjd |         |
+
 ## Getting started
 
 ### Prerequisites
@@ -96,17 +107,6 @@ Unreal Engine's rendering system provides comprehensive support for:
 | Sticky Rendering   | Application persistence between shots | Improved performance for multi-shot sequences |
 
 All rendering features are automatically detected and configured by the Unreal Engine integrated submitter. The adaptor maintains proper dependency handling and supports efficient multi-shot rendering without restarting Unreal Engine.
-
-## Deadline Cloud Conda Channel
-
-The following table lists all conda packages applicable to Unreal Engine available to Service-managed fleets in the `deadline-cloud` conda channel:
-
-| OS      | Package              | Version |
-| ------- | -------------------- | ------- |
-| Windows | unreal-engine        | 5.4     |
-| Windows | unreal-engine        | 5.5     |
-| Windows | unreal-engine        | 5.6     |
-| Windows | unreal-engine-openjd |         |
 
 ## Open source resources
 

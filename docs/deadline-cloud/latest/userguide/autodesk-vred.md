@@ -24,6 +24,15 @@ The following table shows current support levels for VRED versions:
 | 2026          | Windows           | Linux         | BYOL required         |
 | 2025          | Windows           | Linux         | BYOL required         |
 
+## Deadline Cloud Conda Channel
+
+The following table lists all conda packages applicable to VRED available to Service-managed fleets in the deadline-cloud conda channel:
+
+| OS    | Package  | Version | Notes               |
+| ----- | -------- | ------- | ------------------- |
+| Linux | vredcore | 2025    | VRED Core for Linux |
+| Linux | vredcore | 2026    | VRED Core for Linux |
+
 ## Requirements
 
 To use VRED with Deadline Cloud, you need:
@@ -55,15 +64,6 @@ To use VRED with Deadline Cloud:
 Deadline Cloud only supports and tests the workstation and worker software versions in the table above. When using the submitter, the worker will attempt to install the same version as used on the workstation. This will fail if the workstation version of VRED does not appear in the version table above.
 
 If you require an unsupported version of VRED, you may build a custom Conda recipe and channel for your desired version to be installed on the worker. Use the Conda recipe for a supported version linked below as a starting point and package your desired version in a custom conda channel. For more information about creating custom Conda channels, see [Creating custom conda channels](../developerguide/configure-jobs-s3-channel.md "../developerguide/configure-jobs-s3-channel.md").
-
-## Deadline Cloud Conda Channel
-
-The following table lists all conda packages applicable to VRED available to Service-managed fleets in the deadline-cloud conda channel:
-
-| OS    | Package  | Version | Notes               |
-| ----- | -------- | ------- | ------------------- |
-| Linux | vredcore | 2025    | VRED Core for Linux |
-| Linux | vredcore | 2026    | VRED Core for Linux |
 
 ## Open source resources
 

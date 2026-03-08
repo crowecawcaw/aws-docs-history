@@ -27,6 +27,19 @@ The following table shows current support levels for Houdini versions:
 | 20.5          | Windows, macOS, Linux | Linux         | Mantra, Karma CPU, Karma XPU | Usage-based licensing available |
 | 21.0          | Windows, macOS, Linux | Linux         | Mantra, Karma CPU, Karma XPU | Usage-based licensing available |
 
+## Deadline Cloud Conda Channel
+
+The following table lists all conda packages applicable to Houdini available to Service-managed fleets in the deadline-cloud conda channel:
+
+| OS    | Package        | Version | Notes                               |
+| ----- | -------------- | ------- | ----------------------------------- |
+| Linux | houdini        | 19.0    | Includes Mantra and Karma renderers |
+| Linux | houdini        | 19.5    | Includes Mantra and Karma renderers |
+| Linux | houdini        | 20.0    | Includes Mantra and Karma renderers |
+| Linux | houdini        | 20.5    | Includes Mantra and Karma renderers |
+| Linux | houdini        | 21.0    | Includes Mantra and Karma renderers |
+| Linux | houdini-openjd |         | Includes the Houdini Adaptor        |
+
 ## Getting started
 
 To use Houdini with Deadline Cloud:
@@ -76,19 +89,6 @@ Houdini supports multiple render engines that are compatible with Deadline Cloud
 | Redshift      | GPU-accelerated renderer                | GPU optimized   |
 
 These render engines are automatically detected and configured by the Houdini integrated submitter and usage is automatically licensed. The submitter maintains dependency trees between connected render output nodes (ROPs).
-
-## Deadline Cloud Conda Channel
-
-The following table lists all conda packages applicable to Houdini available to Service-managed fleets in the deadline-cloud conda channel:
-
-| OS    | Package        | Version | Notes                               |
-| ----- | -------------- | ------- | ----------------------------------- |
-| Linux | houdini        | 19.0    | Includes Mantra and Karma renderers |
-| Linux | houdini        | 19.5    | Includes Mantra and Karma renderers |
-| Linux | houdini        | 20.0    | Includes Mantra and Karma renderers |
-| Linux | houdini        | 20.5    | Includes Mantra and Karma renderers |
-| Linux | houdini        | 21.0    | Includes Mantra and Karma renderers |
-| Linux | houdini-openjd |         | Includes the Houdini Adaptor        |
 
 ## Open source resources
 

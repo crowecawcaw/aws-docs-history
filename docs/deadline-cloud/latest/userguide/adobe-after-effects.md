@@ -32,6 +32,18 @@ for After Effects versions:
 | 2024          | Windows, macOS    | Windows       |
 | 2025          | Windows, macOS    | Windows       |
 
+## Deadline Cloud Conda Channel
+
+The
+following table lists all conda packages applicable to After Effects available to
+Service-managed fleets in the deadline-cloud conda channel:
+
+| OS      | Package      | Version |
+| ------- | ------------ | ------- |
+| Windows | aftereffects | 24.6    |
+| Windows | aftereffects | 25.1    |
+| Windows | aftereffects | 25.2    |
+
 ## Getting started
 
 Complete the following steps to set up After Effects with Deadline Cloud. You will install the
@@ -128,18 +140,6 @@ options:
   custom conda channel. For more information about creating custom conda
   channels, see [Creating
   custom conda channels](../developerguide/configure-jobs-s3-channel.md "../developerguide/configure-jobs-s3-channel.md").
-
-## Deadline Cloud Conda Channel
-
-The
-following table lists all conda packages applicable to After Effects available to
-Service-managed fleets in the deadline-cloud conda channel:
-
-| OS      | Package      | Version |
-| ------- | ------------ | ------- |
-| Windows | aftereffects | 24.6    |
-| Windows | aftereffects | 25.1    |
-| Windows | aftereffects | 25.2    |
 
 ## Open source resources
 

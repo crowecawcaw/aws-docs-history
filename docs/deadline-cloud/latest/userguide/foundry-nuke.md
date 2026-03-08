@@ -24,6 +24,16 @@ The following table shows current support levels for Nuke versions:
 | 15            | Windows, macOS, Linux | Linux         |
 | 16            | Windows, macOS, Linux | Linux         |
 
+## Deadline Cloud Conda Channel
+
+The following table lists conda packages applicable to Nuke available to Service-managed fleets in the deadline-cloud conda channel:
+
+| OS    | Package     | Version | Notes                                |
+| ----- | ----------- | ------- | ------------------------------------ |
+| Linux | nuke        | 15      | Includes built-in compositing engine |
+| Linux | nuke        | 16      | Includes built-in compositing engine |
+| Linux | nuke-openjd |         | Includes the Nuke Adaptor            |
+
 ## Getting started
 
 To use Nuke with Deadline Cloud:
@@ -101,16 +111,6 @@ Nuke's compositing engine provides comprehensive support for:
 | Path Mapping     | Cross-platform path translation    | Seamless Windows/Linux compatibility     |
 
 Compositing features are automatically detected and configured by the Nuke integrated submitter. The submitter maintains proper dependency handling and asset management for complex compositions.
-
-## Deadline Cloud Conda Channel
-
-The following table lists conda packages applicable to Nuke available to Service-managed fleets in the deadline-cloud conda channel:
-
-| OS    | Package     | Version | Notes                                |
-| ----- | ----------- | ------- | ------------------------------------ |
-| Linux | nuke        | 15      | Includes built-in compositing engine |
-| Linux | nuke        | 16      | Includes built-in compositing engine |
-| Linux | nuke-openjd |         | Includes the Nuke Adaptor            |
 
 ## Open source resources
 

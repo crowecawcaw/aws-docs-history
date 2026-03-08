@@ -24,6 +24,16 @@ The following table shows current support levels for Keyshot versions:
 | 2024          | Windows, macOS    | Windows       | Built-in ray tracer | Usage-based licensing available |
 | 2025          | Windows, macOS    | Windows       | Built-in ray tracer | Usage-based licensing available |
 
+## Deadline Cloud Conda Channel
+
+The following table lists all conda packages applicable to Keyshot available to Service-managed fleets in the `deadline-cloud` conda channel:
+
+| OS      | Package        | Version | Notes                        |
+| ------- | -------------- | ------- | ---------------------------- |
+| Windows | keyshot        | 2024    | Includes built-in ray tracer |
+| Windows | keyshot        | 2025    | Includes built-in ray tracer |
+| Linux   | keyshot-openjd |         | Includes the KeyShot Adaptor |
+
 ## Getting started
 
 To use KeyShot with Deadline Cloud:
@@ -54,16 +64,6 @@ If you require an unsupported version of KeyShot, you have the following options
 
 - When submitting the job from KeyShot, you may override the CondaPackages queue parameter to specify a supported version to use on the worker (for example, `keyshot=2024`). The job may run successfully depending on the features used by your scene and how KeyShot works with scenes from the version on your workstation.
 - You may build a custom conda recipe and channel for your desired version to be installed on the worker. Use the conda recipe for a supported version linked below as a starting point, and package your desired version in a custom conda channel. For more information about creating custom conda channels, see [Creating custom conda channels](../developerguide/configure-jobs-s3-channel.md "../developerguide/configure-jobs-s3-channel.md").
-
-## Deadline Cloud Conda Channel
-
-The following table lists all conda packages applicable to Keyshot available to Service-managed fleets in the `deadline-cloud` conda channel:
-
-| OS      | Package        | Version | Notes                        |
-| ------- | -------------- | ------- | ---------------------------- |
-| Windows | keyshot        | 2024    | Includes built-in ray tracer |
-| Windows | keyshot        | 2025    | Includes built-in ray tracer |
-| Linux   | keyshot-openjd |         | Includes the KeyShot Adaptor |
 
 ## Open source resources
 

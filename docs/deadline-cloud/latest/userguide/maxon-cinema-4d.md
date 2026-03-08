@@ -26,6 +26,43 @@ The following table shows current support levels for Cinema 4D versions:
 | 2025          | Windows, macOS    | Windows, Linux | Usage-based licensing available |
 | 2026          | Windows, macOS    | Windows, Linux | Usage-based licensing available |
 
+## Deadline Cloud Conda Channel
+
+The following table lists all conda packages applicable to Cinema 4D available to Service-managed fleets in the deadline-cloud conda channel:
+
+| OS             | Package         | Version | Notes                                              |
+| -------------- | --------------- | ------- | -------------------------------------------------- |
+| Windows        | cinema4d        | 2024    | Includes Standard, Physical and Redshift renderers |
+| Windows, Linux | cinema4d        | 2025    | Includes Standard, Physical and Redshift renderers |
+| Windows, Linux | cinema4d        | 2026    | Includes Standard, Physical and Redshift renderers |
+| Windows, Linux | cinema4d-c4dtoa | 2025    | Cinema4D to Arnold                                 |
+| Windows        | cinema4d-c4dtoa | 2026    | Cinema4D to Arnold                                 |
+| Windows, Linux | cinema4d-openjd |         | Includes the Cinema 4D Adaptor                     |
+
+###### Note
+
+For **Cinema 4D**, the Linux conda package does not
+support substance 3D materials. Jobs with this material fail with one of the following errors:
+
+```
+Commandline: ./modules/io_substance/source/substance_framework/src/details/detailsengine.cpp:794: SubstanceAir::Details::Engine::Context::Context(SubstanceAir::Details::Engine&, SubstanceAir::RenderCallbacks*): Assertion `res==0' failed.
+```
+
+```
+/home/job-user/.conda/envs/<hash>/Lib/deadline/cinema4d_adaptor/Cinema4DAdaptor/adaptor.sh: line 44: 10832 Segmentation fault      (core dumped) $C4DEXE ${ARGS[*]}
+```
+
+We recommend that you submit jobs with substance materials to Windows instead.
+
+In Cinema 4D 2025.3.3 on Linux, globalized asset paths can cause segmentation faults.
+Therefore, the Linux conda package contains Cinema 4D 2025.3.1 with Redshift 2025.6.0 instead.
+If you need features or bug fixes from Cinema 4D 2025.3.3, we recommend two options: upgrade
+to Cinema 4D 2026 or submit those jobs to Windows instead.
+
+For **Cinema 4D OpenJD,** to prevent any timeout issues,
+we recommend you set task run timeouts to double their expected render time,
+instead of using the default 2 day timeout.
+
 ## Getting started
 
 To use Cinema 4D fully-managed on Deadline Cloud:
@@ -51,8 +88,8 @@ If you create a conda package for a different version of Cinema 4D, you should e
 
 | Plugin               | Plugin Version | Conda Recipe Provided | SMF Conda Package Provided | Usage-based Licensing Support |
 | -------------------- | -------------- | --------------------- | -------------------------- | ----------------------------- |
-| Redshift             | 2026.3.0       | N/A                   | Yes                        | Yes                           |
-| Redshift             | 2025.6.0       | N/A                   | Yes                        | Yes                           |
+| Redshift             | 2026.3.0       | Bundled\*             | Yes                        | Yes                           |
+| Redshift             | 2025.6.0       | Bundled\*             | Yes                        | Yes                           |
 | Red Giant            | 2025.x         | No                    | No                         | Yes                           |
 | V-Ray                | 7.x            | Yes                   | No                         | Yes                           |
 | Insydium X-Particles | 2024.x         | Yes                   | No                         | N/A                           |
@@ -81,19 +118,6 @@ Autodesk Arnold software is an advanced Monte Carlo ray tracing renderer. For mo
 ### Insydium X-Particles
 
 X-Particles is a fully-featured advanced particle and VFX system for Maxon's Cinema 4D. For more information, see [X-Particles](https://insydium.ltd/products/x-particles/ "https://insydium.ltd/products/x-particles/"). Insydium X-Particles is not currently fully supported in Service-managed fleets. A conda recipe is provided which you can use to create your own Conda channel for use in your Deadline Cloud farm. For more information about creating custom conda channels, see [Creating custom conda channels](../developerguide/configure-jobs-s3-channel.md "../developerguide/configure-jobs-s3-channel.md"). When you create the conda package from your X-Particles package, it will include your purchased license. No additional configuration is necessary to operate on service-managed fleets.
-
-## Deadline Cloud Conda Channel
-
-The following table lists all conda packages applicable to Cinema 4D available to Service-managed fleets in the deadline-cloud conda channel:
-
-| OS             | Package         | Version | Notes                                              |
-| -------------- | --------------- | ------- | -------------------------------------------------- |
-| Windows        | cinema4d        | 2024    | Includes Standard, Physical and Redshift renderers |
-| Windows, Linux | cinema4d        | 2025    | Includes Standard, Physical and Redshift renderers |
-| Windows, Linux | cinema4d        | 2026    | Includes Standard, Physical and Redshift renderers |
-| Windows, Linux | cinema4d-c4dtoa | 2025    | Cinema4D to Arnold                                 |
-| Windows        | cinema4d-c4dtoa | 2026    | Cinema4D to Arnold                                 |
-| Windows, Linux | cinema4d-openjd |         | Includes the Cinema 4D Adaptor                     |
 
 ## Open source resources
 

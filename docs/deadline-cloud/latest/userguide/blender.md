@@ -25,6 +25,17 @@ The following table shows current support levels for Blender versions:
 | 4.2           | Windows, macOS, Linux | Linux         | Cycles, Eevee, Workbench |
 | 4.5           | Windows, macOS, Linux | Linux         | Cycles, Eevee, Workbench |
 
+## Deadline Cloud Conda Channel
+
+The following table lists all conda packages applicable to Blender available to Service-managed fleets in the deadline-cloud conda channel:
+
+| OS    | Package        | Version | Notes                                |
+| ----- | -------------- | ------- | ------------------------------------ |
+| Linux | blender        | 3.6     | Includes all built-in render engines |
+| Linux | blender        | 4.2     | Includes all built-in render engines |
+| Linux | blender        | 4.5     | Includes all built-in render engines |
+| Linux | blender-openjd |         | Includes the Blender Adaptor         |
+
 ## Getting started
 
 To use Blender with Deadline Cloud:
@@ -75,17 +86,6 @@ Blender includes several built-in render engines that are supported:
 | Workbench     | Solid shading engine         | GPU optimized  | For modeling and sculpting workflows               |
 
 All render engines are automatically detected and configured by the Blender integrated submitter. GPU acceleration is available when using service-managed fleets with GPU-enabled instances.
-
-## Deadline Cloud Conda Channel
-
-The following table lists all conda packages applicable to Blender available to Service-managed fleets in the deadline-cloud conda channel:
-
-| OS    | Package        | Version | Notes                                |
-| ----- | -------------- | ------- | ------------------------------------ |
-| Linux | blender        | 3.6     | Includes all built-in render engines |
-| Linux | blender        | 4.2     | Includes all built-in render engines |
-| Linux | blender        | 4.5     | Includes all built-in render engines |
-| Linux | blender-openjd |         | Includes the Blender Adaptor         |
 
 ## Open source resources
 

@@ -26,6 +26,24 @@ The following table shows current support levels for Maya versions:
 | 2025          | Windows, macOS, Linux | Linux         | Maya Software, Arnold (MtoA), V-Ray, Redshift | Usage-based licensing available |
 | 2026          | Windows, macOS, Linux | Linux         | Maya Software, Arnold (MtoA), V-Ray, Redshift | Usage-based licensing available |
 
+## Deadline Cloud Conda Channel
+
+The following table lists all conda packages applicable to Maya available to Service-managed fleets in the deadline-cloud conda channel:
+
+| OS    | Package       | Version  | Notes                           |
+| ----- | ------------- | -------- | ------------------------------- |
+| Linux | maya          | 2024     | Includes Maya Software renderer |
+| Linux | maya          | 2025     | Includes Maya Software renderer |
+| Linux | maya          | 2026     | Includes Maya Software renderer |
+| Linux | maya-mtoa     | 2024.5.3 | Arnold for Maya 2024            |
+| Linux | maya-mtoa     | 2025.5.4 | Arnold for Maya 2025            |
+| Linux | maya-mtoa     | 2026.5.5 | Arnold for Maya 2026            |
+| Linux | maya-openjd   |          | Includes the Maya Adaptor       |
+| Linux | maya-redshift | 2025.4   | Redshift for Maya 2025          |
+| Linux | maya-redshift | 2026.2.1 | Redshift for Maya 2026          |
+| Linux | maya-vray     | 2025.7   | V-Ray for Maya 2025             |
+| Linux | maya-vray     | 2026.7   | V-Ray for Maya 2026             |
+
 ## Getting started
 
 To use Maya with Deadline Cloud:
@@ -89,24 +107,6 @@ Conda recipe: [maya-vray conda recipe](https://github.com/aws-deadline/deadline-
 Redshift is supported using the maya-redshift conda package and is automatically installed using the Maya integrated submitter. An additional licensing cost applies when using Redshift for rendering.
 
 Conda recipe: [maya-redshift conda recipe](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-redshift "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-redshift")
-
-## Deadline Cloud Conda Channel
-
-The following table lists all conda packages applicable to Maya available to Service-managed fleets in the deadline-cloud conda channel:
-
-| OS    | Package       | Version  | Notes                           |
-| ----- | ------------- | -------- | ------------------------------- |
-| Linux | maya          | 2024     | Includes Maya Software renderer |
-| Linux | maya          | 2025     | Includes Maya Software renderer |
-| Linux | maya          | 2026     | Includes Maya Software renderer |
-| Linux | maya-mtoa     | 2024.5.3 | Arnold for Maya 2024            |
-| Linux | maya-mtoa     | 2025.5.4 | Arnold for Maya 2025            |
-| Linux | maya-mtoa     | 2026.5.5 | Arnold for Maya 2026            |
-| Linux | maya-openjd   |          | Includes the Maya Adaptor       |
-| Linux | maya-redshift | 2025.4   | Redshift for Maya 2025          |
-| Linux | maya-redshift | 2026.2.1 | Redshift for Maya 2026          |
-| Linux | maya-vray     | 2025.7   | V-Ray for Maya 2025             |
-| Linux | maya-vray     | 2026.7   | V-Ray for Maya 2026             |
 
 ## Open source resources
 
