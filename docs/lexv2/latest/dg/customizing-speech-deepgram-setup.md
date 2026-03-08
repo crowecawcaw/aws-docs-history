@@ -6,6 +6,15 @@ Deepgram is a third-party speech recognition service that provides advanced AI-p
 
 Deepgram is a third-party service and may not comply with certain regulatory frameworks such as GDPR, FedRAMP, or other compliance standards that AWS services adhere to. Review Deepgram's compliance documentation and your organization's requirements before using this integration.
 
+## Regional endpoint selection
+
+Amazon Lex V2 automatically selects the appropriate Deepgram API endpoint based on your AWS region to optimize performance and data locality:
+
+- **EU regions:** For bots deployed in AWS regions with the `eu-` prefix (such as `eu-west-1`, `eu-west-2`, and `eu-central-1`), Amazon Lex V2 uses the Deepgram EU endpoint (`api.eu.deepgram.com`).
+- **All other regions:** For bots deployed in all other AWS regions, Amazon Lex V2 uses the global Deepgram endpoint (`api.deepgram.com`).
+
+This endpoint selection is automatic and currently cannot be customized. The same Deepgram API key works with both endpoints. Amazon Lex V2 does not support the `apiTokenRegion` parameter that Amazon Connect provides for custom endpoint configuration. For more information about Amazon Connect's endpoint configuration options, see [Endpoints and Regions for third-party STT providers](../../../connect/latest/adminguide/endpoints-regions-third-party-stt.md "../../../connect/latest/adminguide/endpoints-regions-third-party-stt.md") in the Amazon Connect Administrator Guide.
+
 ## Creating a Deepgram API key
 
 Before you can use Deepgram with Amazon Lex V2, you need to obtain an API key from Deepgram.
