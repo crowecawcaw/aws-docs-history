@@ -58,9 +58,9 @@ deploy the replatformed or refactored applications to production and cut over to
 on AWS. Most or all of these tasks are conducted in AWS Mainframe Modernization, in another AWS service, or in a
 tool to which AWS Mainframe Modernization provides access.
 
-If you want to use automated refactoring, see [Blu Insights](https://bluinsights.aws/ "https://bluinsights.aws/").
-AWS Blu Insights is now available from the AWS Management Console through single sign-on.
-You do not have to manage separate AWS Blu Insights credentials any longer.
+If you want to use automated refactoring, see [AWS Transform for mainframe refactor](https://bluinsights.aws/ "https://bluinsights.aws/").
+AWS AWS Transform for mainframe refactor is now available from the AWS Management Console through single sign-on.
+You do not have to manage separate AWS AWS Transform for mainframe refactor credentials any longer.
 You can access both the AWS AWS Blu Age Codebase and Transformation Center features directly from the AWS Management Console.
 
 For migrating data from the mainframe to AWS, we recommend the AWS SCT and

@@ -7,6 +7,12 @@ availability change](mainframe-modernization-availability-change.md "mainframe-m
 
 This page contains instructions for upgrading the AWS Blu Age version.
 
+###### Topics
+
+- [Common upgrades](#common-upgrades "#common-upgrades")
+- [Migrating from 3.10.0 to 4.0.0](#3.10-to-4.0 "#3.10-to-4.0")
+- [Migrating from 5.85.0 to 5.86.0](#5.85-to-5.86 "#5.85-to-5.86")
+
 ## Common upgrades
 
 In most of the cases, when upgrading the AWS Blu Age Runtime version, you should replace the artifacts
@@ -27,7 +33,7 @@ Tomcat 9 to Tomcat 10.
 
 This section lists changes required to make the modernized code compatible with AWS Blu Age Runtime
 4.0.0. You can skip this section if you decide to launch a new generation using the 4.0.0
-version on Blu Insights (Transformation Center).
+version on AWS Transform for mainframe refactor (Transformation Center).
 
 **POM changes**
 
@@ -79,3 +85,52 @@ The runtime shared folder contains the up-to-date dependencies.
 
 If you used extra dependencies (not included on the runtime), you might need to update
 them. The readme file in the extra folder lists the supported versions.
+
+## Migrating from 5.85.0 to 5.86.0
+
+The main change in 5.86.0 ([Alpha pre-releases](ba-versioning.md#ba-versioning-alpha "ba-versioning.md#ba-versioning-alpha")) is the migration from Spring Boot 3.5.7 to Spring Boot 4.0.3 and from Tomcat 10 to Tomcat 11.
+
+### Code changes
+
+This section lists changes required to make the modernized code compatible with AWS Blu Age Runtime 5.86.0. You can skip this section if you decide to launch a new generation using the 5.86.0 version on Blu Insights (Transformation Center).
+
+**POM changes**
+
+Update the Spring Boot version:
+
+```
+<properties>
+    <spring.boot.version>4.0.3</spring.boot.version>
+</properties>
+```
+
+Replace `spring-boot-starter-web` with `spring-boot-starter-webmvc`:
+
+```
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-webmvc</artifactId>
+    <scope>provided</scope>
+</dependency>
+```
+
+**Package reorganization**
+
+Due to the dependencies change referenced above, references to:
+
+- `org.springframework.boot.autoconfigure.domain.EntityScan` must be changed to `org.springframework.boot.persistence.autoconfigure.EntityScan`.
+- `org.springframework.boot.autoconfigure.jdbc.DataSourceProperties` must be changed to `org.springframework.boot.jdbc.autoconfigure.DataSourceProperties`.
+
+### Deployment (AWS Blu Age Runtime)
+
+**Tomcat**
+
+This version is compatible with Tomcat `11.0.15`. Upgrading the Tomcat server to this version is required to run the Blu Age Runtime `5.86.0`. Make sure to port the old configuration changes (notably the Catalina properties).
+
+**Shared dependencies**
+
+The runtime shared folder contains the up-to-date dependencies.
+
+**Extra dependencies**
+
+If you used extra dependencies (not included on the runtime), you might need to update them. The readme file in the extra folder lists the supported versions.

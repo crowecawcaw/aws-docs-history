@@ -26,7 +26,7 @@ Before you begin, make sure you complete the following prerequisites.
 - Complete [AWS Blu Age Runtime prerequisites](ba-runtime-setup-prereq.md "ba-runtime-setup-prereq.md") and [Onboarding AWS Blu Age Runtime](ba-runtime-setup-onboard.md "ba-runtime-setup-onboard.md").
 - Download the AWS Blu Age Runtime binaries. For instructions, see
   [Onboarding AWS Blu Age Runtime](ba-runtime-setup-onboard.md "ba-runtime-setup-onboard.md").
-- Download the Apache Tomcat 10 binaries.
+- Download the Apache Tomcat binaries.
 - Download the [PlanetsDemo
   application archive](https://d3lkpej5ajcpac.cloudfront.net/demo/bluage/PlanetsDemo-v1.zip "https://d3lkpej5ajcpac.cloudfront.net/demo/bluage/PlanetsDemo-v1.zip").
 - Create an Amazon Aurora PostgreSQL database for JICS, and run the
@@ -51,8 +51,8 @@ common.loader="${catalina.base}/lib","${catalina.base}/lib/*.jar","${catalina.ho
    archive.
 3. Prepare a [Dockerfile](https://docs.docker.com/engine/reference/builder/ "https://docs.docker.com/engine/reference/builder/") to build your custom image based on the provided runtime binaries
    and Apache Tomcat server binaries. See the following example Dockerfile. The goal is to
-   install Apache Tomcat 10, followed by AWS Blu Age Runtime (for Amazon ECS managed by
-   AWS Fargate) extracted at the root of Apache Tomcat 10 installation directory, and then
+   install Apache Tomcat, followed by AWS Blu Age Runtime (for Amazon ECS managed by
+   AWS Fargate) extracted at the root of Apache Tomcat installation directory, and then
    to install the sample modernized application named PlanetsDemo.
 
 ###### Note

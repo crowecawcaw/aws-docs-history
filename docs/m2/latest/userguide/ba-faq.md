@@ -78,13 +78,13 @@ AWS Blu Age tooling is accessible through the AWS Console via AWS Mainframe Mode
 Refactor, with feature access based on your accreditation level. Start with the
 Transformation Center to assess automatic Java refactoring of your source code.
 For detailed guidance, refer to the [AWS
-Blu Insights](https://bluinsights.aws/ "https://bluinsights.aws/") documentation. After modernization, you can deploy
+AWS Transform for mainframe refactor](https://bluinsights.aws/ "https://bluinsights.aws/") documentation. After modernization, you can deploy
 applications using runtime. For more information, see [AWS Mainframe Modernization
 documentation](ba-runtime-options.md "ba-runtime-options.md"). 10. **How to size (workload and timeline) a
 project?**
 
-See [AWS Blu
-Insights Estimates](https://bluinsights.aws/docs/business-estimate/ "https://bluinsights.aws/docs/business-estimate/") for more information on this or work with your
+See [AWS AWS Transform for mainframe refactor
+Estimates](https://bluinsights.aws/docs/business-estimate/ "https://bluinsights.aws/docs/business-estimate/") for more information on this or work with your
 Account Manager. 11. **Are there specific requirements to maintain Java AWS Blu Age
 migrated solutions?**
 
@@ -122,7 +122,7 @@ AWS Blu Age Runtime jars?**
 For information on Gapwalk, see [AWS Blu Age Runtime artifacts](ba-runtime-artifacts.md "ba-runtime-artifacts.md") . 4. **How to request access to the AWS Blu Age Runtime
 ?**
 
-The Runtime is accessible through the [Blu Age Toolbox](https://bluinsights.aws/docs/bluage-toolbox-introduction "https://bluinsights.aws/docs/bluage-toolbox-introduction") on Blu Insights. 5. **What are the supported Runtimes for AWS Blu Age refactored
+The Runtime is accessible through the [Blu Age Toolbox](https://bluinsights.aws/docs/bluage-toolbox-introduction "https://bluinsights.aws/docs/bluage-toolbox-introduction") on AWS Transform for mainframe refactor. 5. **What are the supported Runtimes for AWS Blu Age refactored
 applications?**
 
 AWS Blu Age offers a single Runtime to cater to different stages of your modernization journey and operational needs see [AWSBlu Age Runtime](ba-runtime-options.md "ba-runtime-options.md"). 6. **When is the AWS Blu Age Runtime
@@ -482,7 +482,7 @@ database as backend (PostgreSQL, either using RDS or Aurora).
 1. **Were can I found details about the transformation
    process?**
 
-See [AWS Blu Insights](https://bluinsights.aws/ "https://bluinsights.aws/")
+See [AWS Transform for mainframe refactor](https://bluinsights.aws/ "https://bluinsights.aws/")
 documentation. 2. **What are the names of the AWS Blu Age generated
 modules?**
 

@@ -51,8 +51,8 @@ AWS Mainframe Modernization features support the following use cases:
   programming languages, to create macroservices or microservices, and to modernize user
   interfaces (UIs) and application software stacks.
 
-AWS Blu Insights is now available from the AWS Management Console through single sign-on.
-You do not have to manage separate AWS Blu Insights credentials any longer.
+AWS AWS Transform for mainframe refactor is now available from the AWS Management Console through single sign-on.
+You do not have to manage separate AWS AWS Transform for mainframe refactor credentials any longer.
 You can access both the AWS AWS Blu Age Codebase and Transformation Center features directly from the AWS Management Console.
 
 - Replatform: powered by the Micro Focus Enterprise solution, you can port the application where
@@ -100,7 +100,7 @@ Try it! We offer tutorials and sample applications to help you get a sense of wh
 offers. Choose either the [Tutorial: Set up managed runtime for AWS Blu Age](tutorial-runtime-ba.md "tutorial-runtime-ba.md") or the [Tutorial: Set up managed runtime for Rocket Software (formerly Micro Focus)](tutorial-runtime-mf.md "tutorial-runtime-mf.md") for a complete,
 step-by-step tutorial.
 
-If you are interested in automated refactoring, check out the AWS Blu Age tools at [BluInsights](https://bluinsights.aws/ "https://bluinsights.aws/"). You can also set up WorkSpaces Applications to access the
+If you are interested in automated refactoring, check out the AWS Blu Age tools at [AWS Transform for mainframe refactor](https://bluinsights.aws/ "https://bluinsights.aws/"). You can also set up WorkSpaces Applications to access the
 AWS Blu Age Developer IDE, or the Rocket Enterprise Analyzer (formerly Micro Focus Enterprise Analyzer) and Rocket Enterprise Developer (formerly Micro Focus Enterprise Developer) tools.
 
 The tutorials and sample applications only give you a sense of what AWS Mainframe Modernization provides. When you
@@ -114,7 +114,7 @@ develop, test, and deploy and operate mainframe applications.
 
 ## Related services
 
-In addition to Blu Insights for automated refactoring, you can use the following AWS services with
+In addition to AWS Transform for mainframe refactor for automated refactoring, you can use the following AWS services with
 AWS Mainframe Modernization.
 
 - Amazon RDS for hosting your migrated databases
@@ -147,5 +147,5 @@ incurred for other AWS services that you use in connection with AWS Mainframe Mo
 days' notice before any pricing changes take effect for use of AWS Mainframe Modernization. For more information, see
 [Mainframe Modernization with AWS](https://aws.amazon.com/mainframe/ "https://aws.amazon.com/mainframe/").
 
-With AWS Blu Insights, you pay for Transformation Center usage.
+With AWS AWS Transform for mainframe refactor, you pay for Transformation Center usage.
 For more information, see [AWS Mainframe Modernization pricing](https://aws.amazon.com/mainframe-modernization/pricing/ "https://aws.amazon.com/mainframe-modernization/pricing/").

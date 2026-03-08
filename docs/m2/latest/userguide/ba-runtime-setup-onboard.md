@@ -7,7 +7,7 @@ availability change](mainframe-modernization-availability-change.md "mainframe-m
 
 ###### Note
 
-The AWS Blu Age Runtime access has transitioned from ticket-based requests to direct download through [AWS Blu Insights](https://bluinsights.aws/ "https://bluinsights.aws/"). We have introduced a new and simplified way to access Blu Age products through the [Blu Age Toolbox](https://bluinsights.aws/docs/bluage-toolbox-introduction "https://bluinsights.aws/docs/bluage-toolbox-introduction") feature in AWS Blu Insights.
+The AWS Blu Age Runtime access has transitioned from ticket-based requests to direct download through [AWS Transform for mainframe refactor](https://bluinsights.aws/ "https://bluinsights.aws/"). We have introduced a new and simplified way to access Blu Age products through the [Blu Age Toolbox](https://bluinsights.aws/docs/bluage-toolbox-introduction "https://bluinsights.aws/docs/bluage-toolbox-introduction") feature in AWS Transform for mainframe refactor.
 
 To get started, create an [AWS Support](https://support.console.aws.amazon.com/support/home "https://support.console.aws.amazon.com/support/home") case to request onboarding to access AWS Blu Age Runtime. Include in your request your
 AWS account ID, the AWS Region that you want to use, and a compute choice, and AWS Blu Age Runtime version.

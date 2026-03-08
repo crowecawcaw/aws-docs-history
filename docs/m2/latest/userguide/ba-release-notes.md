@@ -15,8 +15,8 @@ For each release, AWS Blu Age Runtime has been validated on specific versions of
 ###### Note
 
 For release notes predating this document, contact AWS Blu Age delivery services. For information
-about the latest Blu Insights features, see [Blu
-Insights releases](https://bluinsights.aws/releases "https://bluinsights.aws/releases").
+about the latest AWS Transform for mainframe refactor features, see [AWS Transform for mainframe refactor
+releases](https://bluinsights.aws/releases "https://bluinsights.aws/releases").
 
 ## Release notes 5.75.0
 
@@ -3063,7 +3063,7 @@ Added support for the dynamic configuration of OAuth2 provider secret.
 
 - Added robustness for ErrorID API
 - Performance optimization for large project transformation. For example: timeout to skip
-  blocked files, re-use of the classification from Blu Insights, and better memory
+  blocked files, re-use of the classification from AWS Transform for mainframe refactor, and better memory
   allocations.
 - Optimized the memory footprint during COBOL/PL1 transformation.
 - Fixed CVE on third-party (jQuery and bootstrap).

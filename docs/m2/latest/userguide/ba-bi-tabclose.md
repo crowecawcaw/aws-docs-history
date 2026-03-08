@@ -3,23 +3,23 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Troubleshooting: AWS Blu Insights does not open from the console
+# Troubleshooting: AWS AWS Transform for mainframe refactor does not open from the console
 
-This page describes how you can resolve Blu Insights page not opening from the AWS Mainframe Modernization
+This page describes how you can resolve AWS Transform for mainframe refactor page not opening from the AWS Mainframe Modernization
 console.
 
 - Engine: AWS Blu Age
-- Component: Blu Insights
-  When you try to access Blu Insights from the AWS Mainframe Modernization console, it doesn't open and the new tab is
+- Component: AWS Transform for mainframe refactor
+  When you try to access AWS Transform for mainframe refactor from the AWS Mainframe Modernization console, it doesn't open and the new tab is
   closed immediately.
 
 ## Common cause
 
-The role you are using to access Blu Insights does not have sufficient permissions.
+The role you are using to access AWS Transform for mainframe refactor does not have sufficient permissions.
 
 ## Resolution
 
-Attach an IAM policy to the role to allow it to access Blu Insights. Make sure the policy includes at least the following permissions.
+Attach an IAM policy to the role to allow it to access AWS Transform for mainframe refactor. Make sure the policy includes at least the following permissions.
 
 JSON
 

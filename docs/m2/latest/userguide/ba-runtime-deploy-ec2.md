@@ -46,7 +46,7 @@ instructions below or adapt the following instruction to the path of your choice
 To set up the PlanetsDemo sample application, complete the following steps.
 
 1. Connect to your Amazon EC2 instance and go to the `conf` folder under your Apache
-   Tomcat 10 installation folder. Open the `catalina.properties`
+   Tomcat installation folder. Open the `catalina.properties`
    file for editing and replace the line that starts with `common.loader`
    with the following line.
 

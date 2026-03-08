@@ -12,8 +12,8 @@ your mainframe applications. The steps in the refactoring process are as follows
 - Analyze dependencies
 - Automatically transform code
 - Capture and manage test scenarios
-  You can complete the previous steps in the Blu Insights tool, available through single sign-on from
-  the AWS Mainframe Modernization console. For more information on Blu Insights, see the [Blu Insights documentation](https://bluinsights.aws/docs/ "https://bluinsights.aws/docs/").
+  You can complete the previous steps in the AWS Transform for mainframe refactor tool, available through single sign-on from
+  the AWS Mainframe Modernization console. For more information on AWS Transform for mainframe refactor, see the [AWS Transform for mainframe refactor documentation](https://bluinsights.aws/docs/ "https://bluinsights.aws/docs/").
 
 When you are satisfied with the transformed source code, it's time to move to AWS: **build** and **deploy** the refactored application using [AWS Blu Age Runtime](ba-runtime-options.md "ba-runtime-options.md").
 

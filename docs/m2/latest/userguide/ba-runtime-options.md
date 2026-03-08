@@ -30,11 +30,11 @@ required.
 
 ### How to access
 
-The AWS Blu Age Runtime is accessible from [Blu Insights Toolbox](https://bluinsights.aws/docs/bluage-toolbox-introduction "https://bluinsights.aws/docs/bluage-toolbox-introduction").
+The AWS Blu Age Runtime is accessible from [AWS Transform for mainframe refactor Toolbox](https://bluinsights.aws/docs/bluage-toolbox-introduction "https://bluinsights.aws/docs/bluage-toolbox-introduction").
 
 ###### Note
 
-Access to the [Blu Insights Toolbox](https://bluinsights.aws/docs/bluage-toolbox-introduction "https://bluinsights.aws/docs/bluage-toolbox-introduction") is provided as part of your AWS Blu Age project
+Access to the [AWS Transform for mainframe refactor Toolbox](https://bluinsights.aws/docs/bluage-toolbox-introduction "https://bluinsights.aws/docs/bluage-toolbox-introduction") is provided as part of your AWS Blu Age project
 engagement.
 
 ### Deployment

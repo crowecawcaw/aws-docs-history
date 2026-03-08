@@ -601,7 +601,7 @@ first column.
 ### Create data sets from LISTCAT
 
 This feature makes it possible to take advantage of the LISTCAT JSON files created during
-the BluAge transformation process using BluInsights Transformation Center as the result of
+the BluAge transformation process using AWS Transform for mainframe refactor Transformation Center as the result of
 parsing LISTCAT export from the legacy platforms: LISTCAT exports are parsed and transformed
 into JSON files that hold the data set definitions (names, data set type, keys definitions, and
 whether the record length is fixed or variable).

@@ -83,12 +83,12 @@ the business records, based on application point of view is a convenient feature
 This relies on the SQL masks produced during the BluAge driven modernization process.
 
 For the SQL masks to be generated, please make sure to set the relevant option
-(`export.SQL.masks`) in the configuration of the BluInsights Transformation Center
+(`export.SQL.masks`) in the configuration of the AWS Transform for mainframe refactor Transformation Center
 to true:
 
 ![Property set configuration with export.sql.masks option set to true and boolean type.](images/ba-bac-bluinsights-generate-masks-option.png)
 
-The masks are part of the modernization artifacts that can be downloaded from BluInsights
+The masks are part of the modernization artifacts that can be downloaded from AWS Transform for mainframe refactor
 for a given project. They are SQL scripts, organized by modernized programs, giving the
 applicative point of view on data sets records.
 
