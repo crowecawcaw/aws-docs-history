@@ -114,7 +114,7 @@ RDS database. 5. Choose **Continue**.
 
 The **Review and confirm** page appears.
 
-![EC2 connection review and confirmation page.](/images/AmazonRDS/latest/UserGuide/images/auto-connect-rds-ec2-confirm.png) 6. On the **Review and confirm** page, review the changes that RDS will make to
+![EC2 connection review and confirmation page.](images/auto-connect-rds-ec2-confirm.png) 6. On the **Review and confirm** page, review the changes that RDS will make to
 set up connectivity with the EC2 instance.
 
 If the changes are correct, choose **Confirm and set up**.

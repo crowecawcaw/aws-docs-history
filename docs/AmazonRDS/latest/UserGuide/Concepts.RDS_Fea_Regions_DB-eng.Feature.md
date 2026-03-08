@@ -1,74 +1,87 @@
-# Supported Regions and DB engines for cross-Region read replicas in Amazon RDS
+# Supported Regions and DB engines for IAM database authentication in Amazon RDS
 
-By using cross-Region read replicas in Amazon RDS, you can create a MariaDB, MySQL, Oracle,
-PostgreSQL, or SQL Server read replica in a different Region from the source DB instance. For
-more information about cross-Region read replicas, including source and destination Region
-considerations, see [Creating a read replica in a different AWS Region](USER_ReadRepl.md "USER_ReadRepl.md").
+By using IAM database authentication in Amazon RDS, you can authenticate without a password
+when you connect to a DB instance. Instead, you use an authentication token. For more
+information, see [IAM database authenticationfor MariaDB, MySQL, and PostgreSQL](UsingWithRDS.md "UsingWithRDS.md").
 
-Cross-Region read replicas are not available for the following engines:
+IAM database authentication isn't available with the following engines:
 
 - RDS for Db2
+- RDS for Oracle
+- RDS for SQL Server
 
 ###### Topics
 
-- [Cross-Region read replicas with RDS for MariaDB](#Concepts.RDS_Fea_Regions_DB-eng.Feature.CrossRegionReadReplicas.mdb "#Concepts.RDS_Fea_Regions_DB-eng.Feature.CrossRegionReadReplicas.mdb")
-- [Cross-Region read replicas with RDS for MySQL](#Concepts.RDS_Fea_Regions_DB-eng.Feature.CrossRegionReadReplicas.my "#Concepts.RDS_Fea_Regions_DB-eng.Feature.CrossRegionReadReplicas.my")
-- [Cross-Region read replicas with RDS for Oracle](#Concepts.RDS_Fea_Regions_DB-eng.Feature.CrossRegionReadReplicas.ora "#Concepts.RDS_Fea_Regions_DB-eng.Feature.CrossRegionReadReplicas.ora")
-- [Cross-Region read replicas with RDS for PostgreSQL](#Concepts.RDS_Fea_Regions_DB-eng.Feature.CrossRegionReadReplicas.pg "#Concepts.RDS_Fea_Regions_DB-eng.Feature.CrossRegionReadReplicas.pg")
-- [Cross-Region read replicas with RDS for SQL Server](#Concepts.RDS_Fea_Regions_DB-eng.Feature.CrossRegionReadReplicas.sq "#Concepts.RDS_Fea_Regions_DB-eng.Feature.CrossRegionReadReplicas.sq")
+- [IAM database authentication with RDS for MariaDB](#Concepts.RDS_Fea_Regions_DB-eng.Feature.IamDatabaseAuthentication.mdb "#Concepts.RDS_Fea_Regions_DB-eng.Feature.IamDatabaseAuthentication.mdb")
+- [IAM database authentication with RDS for MySQL](#Concepts.RDS_Fea_Regions_DB-eng.Feature.IamDatabaseAuthentication.my "#Concepts.RDS_Fea_Regions_DB-eng.Feature.IamDatabaseAuthentication.my")
+- [IAM database authentication with RDS for PostgreSQL](#Concepts.RDS_Fea_Regions_DB-eng.Feature.IamDatabaseAuthentication.pg "#Concepts.RDS_Fea_Regions_DB-eng.Feature.IamDatabaseAuthentication.pg")
 
-## Cross-Region read replicas with RDS for MariaDB
+## IAM database authentication with RDS for MariaDB
 
-Cross-Region read replicas with RDS for MariaDB are available in all Regions for the following
-versions:
+The following Regions and engine versions are available for IAM database authentication
+with RDS for MariaDB.
 
-- RDS for MariaDB 11.8 (All available versions)
-- RDS for MariaDB 11.4 (All available versions)
-- RDS for MariaDB 10.11 (All available versions)
-- RDS for MariaDB 10.6 (All available versions)
-- RDS for MariaDB 10.5 (All available versions)
-- RDS for MariaDB 10.4 (All available versions)
+| Region                     | RDS for MariaDB 11.8   | RDS for MariaDB 11.4   | RDS for MariaDB 10.11  | RDS for MariaDB 10.6 | RDS for MariaDB 10.5 | RDS for MariaDB 10.4 |
+| -------------------------- | ---------------------- | ---------------------- | ---------------------- | -------------------- | -------------------- | -------------------- |
+| US East (N. Virginia)      | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| US East (Ohio)             | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| US West (N. California)    | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| US West (Oregon)           | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Africa (Cape Town)         | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Asia Pacific (Hong Kong)   | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Asia Pacific (Hyderabad)   | Not available          | Not available          | Not available          | Not available        | Not available        | Not available        |
+| Asia Pacific (Jakarta)     | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Asia Pacific (Malaysia)    | All available versions | All available versions | Not available          | Not available        | Not available        | Not available        |
+| Asia Pacific (Melbourne)   | Not available          | Not available          | Not available          | Not available        | Not available        | Not available        |
+| Asia Pacific (Mumbai)      | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Asia Pacific (New Zealand) | All available versions | All available versions | Not available          | Not available        | Not available        | Not available        |
+| Asia Pacific (Osaka)       | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Asia Pacific (Seoul)       | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Asia Pacific (Singapore)   | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Asia Pacific (Sydney)      | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Asia Pacific (Taipei)      | All available versions | All available versions | Not available          | Not available        | Not available        | Not available        |
+| Asia Pacific (Thailand)    | All available versions | All available versions | Not available          | Not available        | Not available        | Not available        |
+| Asia Pacific (Tokyo)       | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Canada (Central)           | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Canada West (Calgary)      | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| China (Beijing)            | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| China (Ningxia)            | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Europe (Frankfurt)         | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Europe (Ireland)           | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Europe (London)            | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Europe (Milan)             | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Europe (Paris)             | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Europe (Spain)             | Not available          | Not available          | Not available          | Not available        | Not available        | Not available        |
+| Europe (Stockholm)         | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Europe (Zurich)            | Not available          | Not available          | Not available          | Not available        | Not available        | Not available        |
+| Israel (Tel Aviv)          | Not available          | Not available          | Not available          | Not available        | Not available        | Not available        |
+| Mexico (Central)           | All available versions | All available versions | Not available          | Not available        | Not available        | Not available        |
+| Middle East (Bahrain)      | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Middle East (UAE)          | Not available          | Not available          | Not available          | Not available        | Not available        | Not available        |
+| South America (São Paulo)  | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| AWS GovCloud (US-East)     | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| AWS GovCloud (US-West)     | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
 
-## Cross-Region read replicas with RDS for MySQL
+## IAM database authentication with RDS for MySQL
 
-Cross-Region read replicas with RDS for MySQL are available in all Regions for the following
-versions:
-
-- RDS for MySQL 8.4 (All available versions)
-- RDS for MySQL 8.0 (All available versions)
-- RDS for MySQL 5.7 (All available versions)
-
-## Cross-Region read replicas with RDS for Oracle
-
-Cross-Region read replicas for RDS for Oracle are available in all AWS Regions for all
-supported database versions using Enterprise Edition. Replicas are supported only in non-CDBs
-and in the single-tenant configuration of the CDB architecture. Cross-Region read replicas
-aren't supported in the multi-tenant configuration of the CDB architecture.
-
-For more information on additional requirements for cross-Region read replicas with
-RDS for Oracle, see [Requirements and considerations for RDS for Oracle replicas](oracle-read-replicas.md "oracle-read-replicas.md").
-
-## Cross-Region read replicas with RDS for PostgreSQL
-
-Cross-Region read replicas with RDS for PostgreSQL are available in all Regions for the
+IAM database authentication with RDS for MySQL is available in all Regions for the
 following versions:
 
-- RDS for PostgreSQL 18 (All available versions)
-- RDS for PostgreSQL 17 (All available versions)
-- RDS for PostgreSQL 16 (All available versions)
-- RDS for PostgreSQL 15 (All available versions)
-- RDS for PostgreSQL 14 (All available versions)
-- RDS for PostgreSQL 13 (All available versions)
-- RDS for PostgreSQL 12 (All available versions)
-- RDS for PostgreSQL 11 (All available versions)
-- RDS for PostgreSQL 10 (All available versions)
+- RDS for MySQL 8.4 – All available versions
+- RDS for MySQL 8.0 – All available versions
+- RDS for MySQL 5.7 – All available versions
 
-## Cross-Region read replicas with RDS for SQL Server
+## IAM database authentication with RDS for PostgreSQL
 
-Cross-Region read replicas with RDS for SQL Server are available in all Regions for the following versions using
-Microsoft SQL Server Enterprise Edition:
+IAM database authentication with RDS for PostgreSQL is available in all Regions for the
+following versions:
 
-- RDS for SQL Server 2022
-- RDS for SQL Server 2019 (Version 15.00.4073.23 and higher)
-- RDS for SQL Server 2017 (Version 14.00.3281.6 and higher)
-- RDS for SQL Server 2016 (Version 13.00.6300.2 and higher)
+- RDS for PostgreSQL 18 – All available versions
+- RDS for PostgreSQL 17 – All available versions
+- RDS for PostgreSQL 16 – All available versions
+- RDS for PostgreSQL 15 – All available versions
+- RDS for PostgreSQL 14 – All available versions
+- RDS for PostgreSQL 13 – All available versions
+- RDS for PostgreSQL 12 – All available versions
+- RDS for PostgreSQL 11 – All available versions
+- RDS for PostgreSQL 10 – All available versions

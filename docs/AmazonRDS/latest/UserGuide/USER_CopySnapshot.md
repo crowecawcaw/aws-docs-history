@@ -444,6 +444,23 @@ When you use explicit deny statements for all resources (\*) in AWS KMS key poli
 
 For more information about AWS KMS key management for Amazon RDS, see [AWS KMS key management](Overview.Encryption.md "Overview.Encryption.md").
 
+#### Required permissions for copying encrypted snapshots
+
+To copy an encrypted DB snapshot, your user must have the following permissions to use Amazon RDS encryption.
+
+- `kms:DescribeKey`
+- `kms:CreateGrant`
+- `kms:Decrypt`
+- `kms:Encrypt`
+- `kms:GenerateDataKey`
+- `kms:GenerateDataKeyWithoutPlaintext`
+- `kms:ReEncrypt`
+
+If you use IAM policy conditions to restrict AWS KMS grant operations, ensure your policy includes all
+operations required by Amazon RDS. If you receive a `KMSKeyNotAccessibleFault` error when copying an
+encrypted snapshot across Regions, verify that your IAM policy includes all required AWS KMS grant operations
+mentioned above.
+
 ### Considerations for incremental snapshot copying
 
 An _incremental_ snapshot contains only the data that has changed after the most recent snapshot of the

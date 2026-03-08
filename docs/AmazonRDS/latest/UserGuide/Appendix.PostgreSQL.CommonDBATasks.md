@@ -1,74 +1,130 @@
-# Using a custom DNS server for outbound network access
+# Working with PostgreSQL autovacuum on Amazon RDS for PostgreSQL
 
-RDS for PostgreSQL supports outbound network access on your DB instances and allows Domain
-Name Service (DNS) resolution from a custom DNS server owned by the customer. You can
-resolve only fully qualified domain names from your RDS for PostgreSQL DB instance through
-your custom DNS server.
+We strongly recommend that you use the autovacuum feature to maintain the health of your
+PostgreSQL DB instance. Autovacuum automates the start of the VACUUM and the ANALYZE commands.
+It checks for tables with a large number of inserted, updated, or deleted tuples. After this
+check, it reclaims storage by removing obsolete data or tuples from the PostgreSQL
+database.
+
+By default, autovacuum is turned on for the RDS for PostgreSQL DB instances that you
+create using any of the default PostgreSQL DB parameter groups. Other configuration parameters
+associated with the autovacuum feature are also set by default. Because these defaults are
+somewhat generic, you can benefit from tuning some of the parameters associated with the
+autovacuum feature for your specific workload.
+
+Following, you can find more information about the autovacuum and how to tune some of its
+parameters on your RDS for PostgreSQL DB instance. For
+high-level information, see [Best practices for working with PostgreSQL](CHAP_BestPractices.md#CHAP_BestPractices.PostgreSQL "CHAP_BestPractices.md#CHAP_BestPractices.PostgreSQL").
 
 ###### Topics
 
-- [Turning on custom DNS resolution](#Appendix.PostgreSQL.CommonDBATasks.CustomDNS.Enable "#Appendix.PostgreSQL.CommonDBATasks.CustomDNS.Enable")
-- [Turning off custom DNS resolution](#Appendix.PostgreSQL.CommonDBATasks.CustomDNS.Disable "#Appendix.PostgreSQL.CommonDBATasks.CustomDNS.Disable")
-- [Setting up a custom DNS server](#Appendix.Oracle.CommonDBATasks.CustomDNS.Setup "#Appendix.Oracle.CommonDBATasks.CustomDNS.Setup")
+- [Allocating memory for autovacuum](#Appendix.PostgreSQL.CommonDBATasks.Autovacuum.WorkMemory "#Appendix.PostgreSQL.CommonDBATasks.Autovacuum.WorkMemory")
+- [Reducing the likelihood of transaction ID wraparound](#Appendix.PostgreSQL.CommonDBATasks.Autovacuum.AdaptiveAutoVacuuming "#Appendix.PostgreSQL.CommonDBATasks.Autovacuum.AdaptiveAutoVacuuming")
+- [Determining if the tables in your database need vacuuming](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md")
+- [Determining which tables are currently eligible for autovacuum](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md")
+- [Determining if autovacuum is currently running and for how long](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md")
+- [Performing a manual vacuum freeze](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md")
+- [Reindexing a table when autovacuum is running](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md")
+- [Managing autovacuum with large indexes](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md")
+- [Other parameters that affect autovacuum](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md")
+- [Setting table-level autovacuum parameters](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md")
+- [Logging autovacuum and vacuum activities](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md")
+- [Understanding the behavior of autovacuum with invalid databases](appendix.postgresql.commondbatasks.md "appendix.postgresql.commondbatasks.md")
+- [Identify and resolve aggressive vacuum blockers in RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
 
-## Turning on custom DNS resolution
+## Allocating memory for autovacuum
 
-To turn on DNS resolution in your customer VPC, first associate a custom DB
-parameter group to your RDS for PostgreSQL instance. Then turn on the `rds.custom_dns_resolution` parameter by setting it to 1, and then restart
-the DB instance for the changes to take place.
+One of the most important parameters influencing autovacuum performance is the [`autovacuum_work_mem`](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-AUTOVACUUM-WORK-MEM "https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-AUTOVACUUM-WORK-MEM") parameter. In RDS for PostgreSQL versions 14 and
+prior, the `autovacuum_work_mem` parameter is set to -1, indicating that the
+setting of `maintenance_work_mem` is used instead. For all other versions,
+`autovacuum_work_mem` is determined by GREATEST({DBInstanceClassMemory/32768},
+65536).
 
-## Turning off custom DNS resolution
+Manual vacuum operations always use the `maintenance_work_mem` setting, with a
+default setting of GREATEST({DBInstanceClassMemory/63963136\*1024}, 65536), and it can also be
+adjusted at the session level using the `SET` command for more targeted manual
+`VACUUM` operations.
 
-To turn off DNS resolution in your customer VPC, first turn off the `rds.custom_dns_resolution` parameter of your custom DB
-parameter group by setting it to 0. Then restart the DB instance for the changes to
-take place.
+The `autovacuum_work_mem` determines memory for autovacuum to hold identifiers
+of dead tuples (`pg_stat_all_tables.n_dead_tup`) for vacuuming indexes.
 
-## Setting up a custom DNS server
+When doing calculations to determine the `autovacuum_work_mem` parameter's
+value, be aware of the following:
 
-After you set up your custom DNS name server, it takes up to 30 minutes to
-propagate the changes to your DB instance. After the changes are propagated to your
-DB instance, all outbound network traffic requiring a DNS lookup queries your DNS
-server over port 53.
+- If you set the parameter too low, the vacuum process might have to scan the table
+  multiple times to complete its work. Such multiple scans can have a negative impact on
+  performance. For larger instances, setting `maintenance_work_mem` or
+  `autovacuum_work_mem` to at least 1 GB can improve the performance of
+  vacuuming tables with a high number of dead tuples. However, in PostgreSQL versions 16 and
+  prior, vacuum’s memory usage is capped at 1 GB, which is sufficient to process
+  approximately 179 million dead tuples in a single pass. If a table has more dead tuples
+  than this, vacuum will need to make multiple passes through the table's indexes,
+  significantly increasing the time required. Starting with PostgreSQL version 17, there
+  isn't a limit of 1 GB, and autovacuum can process more than 179 million tuples by using
+  radix trees.
 
-###### Note
+A tuple identifier is 6 bytes in size. To estimate the memory needed for vacuuming an
+index of a table, query `pg_stat_all_tables.n_dead_tup` to find the number of
+dead tuples, then multiply this number by 6 to determine the memory required for vacuuming
+the index in a single pass. You may use the following query:
 
-If you don't set up a custom DNS server and `rds.custom_dns_resolution` is set to 1, hosts are resolved using an
-Amazon Route 53 private zone. For more information, see [Working with
-private hosted zones](../../../Route53/latest/DeveloperGuide/hosted-zones-private.md "../../../Route53/latest/DeveloperGuide/hosted-zones-private.md").
+```
+SELECT
+    relname AS table_name,
+    n_dead_tup,
+    pg_size_pretty(n_dead_tup * 6) AS estimated_memory
+FROM
+    pg_stat_all_tables
+WHERE
+    relname = '`name_of_the_table`';
+```
 
-###### To set up a custom DNS server for your RDS for PostgreSQL DB instance
+- The `autovacuum_work_mem` parameter works in conjunction with the
+  `autovacuum_max_workers` parameter. Each worker among
+  `autovacuum_max_workers` can use the memory that you allocate. If you have
+  many small tables, allocate more `autovacuum_max_workers` and less
+  `autovacuum_work_mem`. If you have large tables (larger than 100 GB),
+  allocate more memory and fewer worker processes. You need to have enough memory allocated
+  to succeed on your biggest table. Thus, make sure that the combination of worker processes
+  and memory equals the total memory that you want to allocate.
 
-1. From the Dynamic Host Configuration Protocol (DHCP) options set attached
-   to your VPC, set the `domain-name-servers` option to the IP
-   address of your DNS name server. For more information, see [DHCP options sets](../../../vpc/latest/userguide/VPC_DHCP_Options.md "../../../vpc/latest/userguide/VPC_DHCP_Options.md").
+## Reducing the likelihood of transaction ID wraparound
 
-###### Note
+In some cases, parameter group settings related to autovacuum might not be aggressive
+enough to prevent transaction ID wraparound. To address this, RDS for PostgreSQL provides a
+mechanism that adapts the autovacuum parameter values automatically. _Adaptive
+autovacuum_ is a feature for RDS for PostgreSQL. A detailed
+explanation of [TransactionID wraparound](https://www.postgresql.org/docs/current/static/routine-vacuuming.html#VACUUM-FOR-WRAPAROUND "https://www.postgresql.org/docs/current/static/routine-vacuuming.html#VACUUM-FOR-WRAPAROUND") is found in the PostgreSQL documentation.
 
-The `domain-name-servers` option accepts up to four values,
-but your Amazon RDS DB instance uses only the first value. 2. Ensure that your DNS server can resolve all lookup queries, including
-public DNS names, Amazon EC2 private DNS names, and customer-specific DNS names.
-If the outbound network traffic contains any DNS lookups that your DNS
-server can't handle, your DNS server must have appropriate upstream DNS
-providers configured. 3. Configure your DNS server to produce User Datagram Protocol (UDP)
-responses of 512 bytes or less. 4. Configure your DNS server to produce Transmission Control Protocol (TCP)
-responses of 1,024 bytes or less. 5. Configure your DNS server to allow inbound traffic from your Amazon RDS DB
-instances over port 53. If your DNS server is in an Amazon VPC, the VPC must have
-a security group that contains inbound rules that allow UDP and TCP traffic
-on port 53. If your DNS server is not in an Amazon VPC, it must have appropriate
-firewall settings to allow UDP and TCP inbound traffic on port 53.
+Adaptive autovacuum is turned on by default for RDS for PostgreSQL instances with the
+dynamic parameter `rds.adaptive_autovacuum` set to ON. We strongly recommend that
+you keep this turned on. However, to turn off adaptive autovacuum parameter tuning, set the
+`rds.adaptive_autovacuum` parameter to 0 or OFF.
 
-For more information, see [Security groups for your
-VPC](../../../vpc/latest/userguide/VPC_SecurityGroups.md "../../../vpc/latest/userguide/VPC_SecurityGroups.md") and [Adding and
-removing rules](../../../vpc/latest/userguide/VPC_SecurityGroups.md#AddRemoveRules "../../../vpc/latest/userguide/VPC_SecurityGroups.md#AddRemoveRules"). 6. Configure the VPC of your Amazon RDS DB instance to allow outbound traffic over
-port 53. Your VPC must have a security group that contains outbound rules
-that allow UDP and TCP traffic on port 53.
+Transaction ID wraparound is still possible even when Amazon RDS Amazon RDS tunes the autovacuum
+parameters. We encourage you to implement an Amazon CloudWatch alarm for transaction ID wraparound. For
+more information, see the post [Implement an early warning system for transaction ID wraparound in RDS for PostgreSQL](https://aws.amazon.com/blogs/database/implement-an-early-warning-system-for-transaction-id-wraparound-in-amazon-rds-for-postgresql/ "https://aws.amazon.com/blogs/database/implement-an-early-warning-system-for-transaction-id-wraparound-in-amazon-rds-for-postgresql/") on
+the AWS Database Blog.
 
-For more information, see [Security groups for your
-VPC](../../../vpc/latest/userguide/VPC_SecurityGroups.md "../../../vpc/latest/userguide/VPC_SecurityGroups.md") and [Adding and
-removing rules](../../../vpc/latest/userguide/VPC_SecurityGroups.md#AddRemoveRules "../../../vpc/latest/userguide/VPC_SecurityGroups.md#AddRemoveRules") in the _Amazon VPC User Guide_. 7. Make sure that the routing path between the Amazon RDS DB instance and the DNS
-server is configured correctly to allow DNS traffic.
+With adaptive autovacuum parameter tuning turned on, Amazon RDS begins adjusting autovacuum
+parameters when the CloudWatch metric `MaximumUsedTransactionIDs` reaches the value of
+the `autovacuum_freeze_max_age` parameter or 500,000,000, whichever is greater.
 
-Also, if the Amazon RDS DB instance and the DNS server are not in the same VPC,
-make sure that a peering connection is set up between them. For more
-information, see [What is VPC
-peering?](../../../vpc/latest/peering/Welcome.md "../../../vpc/latest/peering/Welcome.md") in _Amazon VPC Peering Guide_.
+Amazon RDS continues to adjust parameters for autovacuum if a table continues to trend toward
+transaction ID wraparound. Each of these adjustments dedicates more resources to autovacuum to
+avoid wraparound. Amazon RDS updates the following autovacuum-related parameters:
+
+- [autovacuum_vacuum_cost_delay](https://www.postgresql.org/docs/current/static/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-COST-DELAY "https://www.postgresql.org/docs/current/static/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-COST-DELAY")
+- [autovacuum_vacuum_cost_limit](https://www.postgresql.org/docs/current/static/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-COST-LIMIT "https://www.postgresql.org/docs/current/static/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-COST-LIMIT")
+- [`autovacuum_work_mem`](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-AUTOVACUUM-WORK-MEM "https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-AUTOVACUUM-WORK-MEM")
+- [autovacuum_naptime](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-NAPTIME "https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-NAPTIME")
+
+RDS modifies these parameters only if the new value makes autovacuum more aggressive. The
+parameters are modified in memory on the DB instance. The values in the parameter group
+aren't changed. To view the current in-memory settings, use the PostgreSQL [SHOW](https://www.postgresql.org/docs/current/sql-show.html "https://www.postgresql.org/docs/current/sql-show.html") SQL command.
+
+When Amazon RDS modifies any of these autovacuum parameters, it generates an event for the
+affected DB instance. This event is visible on the AWS Management Console and through the Amazon RDS API. After
+the `MaximumUsedTransactionIDs` CloudWatch metric returns below the threshold, Amazon RDS
+resets the autovacuum-related parameters in memory back to the values specified in the
+parameter group. It then generates another event corresponding to this change.

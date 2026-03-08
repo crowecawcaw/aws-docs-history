@@ -1,50 +1,93 @@
-# Performing an incremental backup of a tenant database
+# Downloading archived redo logs from Amazon S3
 
-You can perform an incremental backup of the current tenant database in your CDB.
-Use the Amazon RDS procedure
-`rdsadmin.rdsadmin_rman_util.backup_tenant_incremental`.
+You can download archived redo logs on your DB instance using the
+`rdsadmin.rdsadmin_archive_log_download` package. If archived redo
+logs are no longer on your DB instance, you might want to download them again from
+Amazon S3. Then you can mine the logs or use them to recover or replicate your
+database.
 
-For more information about incremental backups, see [Incremental backups](https://docs.oracle.com/database/121/RCMRF/rcmsynta006.htm#GUID-73642FF2-43C5-48B2-9969-99001C52EB50__BGBHABHH "https://docs.oracle.com/database/121/RCMRF/rcmsynta006.htm#GUID-73642FF2-43C5-48B2-9969-99001C52EB50__BGBHABHH") in the Oracle Database documentation.
+###### Note
 
-This procedure applies only to the current tenant database and uses the following
-common parameters for RMAN tasks:
+You can't download archived redo logs on read replica instances.
 
-- `p_owner`
-- `p_directory_name`
-- `p_label`
-- `p_parallel`
-- `p_section_size_mb`
-- `p_include_archive_logs`
-- `p_include_controlfile`
-- `p_optimize`
-- `p_compress`
-- `p_rman_to_dbms_output`
-- `p_tag`
-  For more information, see [Common parameters for RMAN procedures](Appendix.Oracle.CommonDBATasks.md "Appendix.Oracle.CommonDBATasks.md").
+## Downloading archived redo logs: basic steps
 
-This procedure is supported for the following Amazon RDS for Oracle DB engine versions:
+The availability of your archived redo logs depends on the following retention
+policies:
 
-- Oracle Database 21c (21.0.0) CDB
-- Oracle Database 19c (19.0.0) CDB
-  This procedure also uses the following additional parameter.
+- Backup retention policy – Logs inside of this policy are
+  available in Amazon S3. Logs outside of this policy are removed.
+- Archived log retention policy – Logs inside of this policy are
+  available on your DB instance. Logs outside of this policy are
+  removed.
 
-| Parameter name | Data type | Valid values | Default | Required | Description                                                                                                          |
-| -------------- | --------- | ------------ | ------- | -------- | -------------------------------------------------------------------------------------------------------------------- |
-| `p_level`      | number    | `0`, `1`     | `0`     | No       | Specify `0` to enable a full incremental<br>backup.<br>Specify `1` to enable a non-cumulative incremental<br>backup. |
+If logs aren't on your instance but are protected by your backup retention period, use
+`rdsadmin.rdsadmin_archive_log_download` to download them again. RDS for Oracle saves the logs
+to the `/rdsdbdata/log/arch` directory on your DB instance.
 
-The following example performs an incremental backup of the current tenant
-database using the specified values for the parameters.
+###### To download archived redo logs from Amazon S3
+
+1. Configure your retention period to ensure your downloaded archived
+   redo logs are retained for the duration you need them. Make sure to
+   `COMMIT` your change.
+
+RDS retains your downloaded logs according to the archived log
+retention policy, starting from the time the logs were downloaded. To
+learn how to set the retention policy, see [Retaining archived redo logs](Appendix.Oracle.CommonDBATasks.md "Appendix.Oracle.CommonDBATasks.md"). 2. Wait up to 5 minutes for the archived log retention policy change to
+take effect. 3. Download the archived redo logs from Amazon S3 using
+`rdsadmin.rdsadmin_archive_log_download`.
+
+For more information, see [Downloading a single archived redo log](#Appendix.Oracle.CommonDBATasks.download-redo-logs.single-log "#Appendix.Oracle.CommonDBATasks.download-redo-logs.single-log") and [Downloading a series of archived redo logs](#Appendix.Oracle.CommonDBATasks.download-redo-logs.series "#Appendix.Oracle.CommonDBATasks.download-redo-logs.series").
+
+###### Note
+
+RDS automatically checks the available storage before downloading.
+If the requested logs consume a high percentage of space, you
+receive an alert. 4. Confirm that the logs were downloaded from Amazon S3 successfully.
+
+You can view the status of your download task in a bdump file. The
+bdump files have the path name
+`/rdsdbdata/log/trace/dbtask-`task-id`.log`.
+In the preceding download step, you run a `SELECT` statement
+that returns the task ID in a `VARCHAR2` data type. For more
+information, see similar examples in [Monitoring the status of a file transfer](oracle-s3-integration.md#oracle-s3-integration.using.task-status "oracle-s3-integration.md#oracle-s3-integration.using.task-status").
+
+## Downloading a single archived redo log
+
+To download a single archived redo log to the `/rdsdbdata/log/arch`
+directory, use
+`rdsadmin.rdsadmin_archive_log_download.download_log_with_seqnum`.
+This procedure has the following parameter.
+
+| Parameter name | Data type | Default | Required | Description                                   |
+| -------------- | --------- | ------- | -------- | --------------------------------------------- |
+| `seqnum`       | number    | —       | Yes      | The sequence number of the archived redo log. |
+
+The following example downloads the log with sequence number 20.
 
 ```
-BEGIN
-    rdsadmin.rdsadmin_rman_util.backup_tenant_incremental(
-        p_owner               => '`SYS`',
-        p_directory_name      => '`MYDIRECTORY`',
-        p_level               => `1`,
-        p_parallel            => `4`,
-        p_section_size_mb     => `10`,
-        p_tag                 => '`MY_INCREMENTAL_BACKUP`',
-        p_rman_to_dbms_output => `FALSE`);
-END;
-/
+SELECT rdsadmin.rdsadmin_archive_log_download.download_log_with_seqnum(seqnum => 20)
+       AS TASK_ID
+FROM   DUAL;
+```
+
+## Downloading a series of archived redo logs
+
+To download a series of archived redo logs to the
+`/rdsdbdata/log/arch` directory, use
+`download_logs_in_seqnum_range`. Your download is limited to 300
+logs per request. The `download_logs_in_seqnum_range` procedure has
+the following parameters.
+
+| Parameter name | Data type | Default | Required | Description                                  |
+| -------------- | --------- | ------- | -------- | -------------------------------------------- |
+| `start_seq`    | number    | —       | Yes      | The starting sequence number for the series. |
+| `end_seq`      | number    | —       | Yes      | The ending sequence number for the series.   |
+
+The following example downloads the logs from sequence 50 to 100.
+
+```
+SELECT rdsadmin.rdsadmin_archive_log_download.download_logs_in_seqnum_range(start_seq => 50, end_seq => 100)
+       AS TASK_ID
+FROM   DUAL;
 ```

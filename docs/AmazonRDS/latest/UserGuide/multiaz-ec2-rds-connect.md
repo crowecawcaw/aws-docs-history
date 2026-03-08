@@ -157,4 +157,4 @@ For a compute resource to be listed, the following conditions must apply:
 3. On the **Connectivity & security** tab, view the compute resources in the
    **Connected compute resources**.
 
-![Connected compute resources.](/images/AmazonRDS/latest/UserGuide/images/ec2-connected-compute-resources.png)
+![Connected compute resources.](images/ec2-connected-compute-resources.png)

@@ -1,18 +1,30 @@
-# Removing the NATIVE_NETWORK_ENCRYPTION option
+# Setting NNE values in the sqlnet.ora
 
-You can remove NNE from a DB instance.
+With Oracle native network encryption, you can set network encryption on the server side and client side. The
+client is the computer used to connect to the DB instance. You can specify the following client settings in the
+sqlnet.ora:
 
-To remove the `NATIVE_NETWORK_ENCRYPTION` option from a DB instance, do one of
-the following:
+- `SQLNET.ALLOW_WEAK_CRYPTO`
+- `SQLNET.ALLOW_WEAK_CRYPTO_CLIENTS`
+- `SQLNET.CRYPTO_CHECKSUM_CLIENT`
+- `SQLNET.CRYPTO_CHECKSUM_TYPES_CLIENT`
+- `SQLNET.ENCRYPTION_CLIENT`
+- `SQLNET.ENCRYPTION_TYPES_CLIENT`
+  For information, see [Configuring network data encryption and integrity for Oracle servers and clients](http://docs.oracle.com/cd/E11882_01/network.112/e40393/asoconfg.htm "http://docs.oracle.com/cd/E11882_01/network.112/e40393/asoconfg.htm") in the Oracle
+  documentation.
 
-- To remove the option from multiple DB instances, remove the
-  `NATIVE_NETWORK_ENCRYPTION` option from the option group they
-  belong to. This change affects all DB instances that use the option group. After you
-  remove the `NATIVE_NETWORK_ENCRYPTION` option, you don't need to
-  restart your DB instances. For more information, see [Removing an option from an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.RemoveOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.RemoveOption").
-- To remove the option from a single DB instance, modify the DB instance and specify a
-  different option group that doesn't include the
-  `NATIVE_NETWORK_ENCRYPTION` option. You can specify the default
-  (empty) option group, or a different custom option group. After you remove the
-  `NATIVE_NETWORK_ENCRYPTION` option, you don't need to restart
-  your DB instance. For more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+Sometimes, the DB instance rejects a connection request from an application. For example, a rejection can occur
+when the encryption algorithms on the client and on the server don't match. To test Oracle native network
+encryption, add the following lines to the sqlnet.ora file on the client:
+
+```
+DIAG_ADR_ENABLED=off
+TRACE_DIRECTORY_CLIENT=/tmp
+TRACE_FILE_CLIENT=nettrace
+TRACE_LEVEL_CLIENT=16
+```
+
+When a connection is attempted, the preceding lines generate a trace file on the client called
+`/tmp/nettrace*`. The trace file contains information about the connection. For more information
+about connection-related issues when you are using Oracle Native Network Encryption, see [About negotiating
+encryption and integrity](http://docs.oracle.com/cd/E11882_01/network.112/e40393/asoconfg.htm#autoId12 "http://docs.oracle.com/cd/E11882_01/network.112/e40393/asoconfg.htm#autoId12") in the Oracle Database documentation.

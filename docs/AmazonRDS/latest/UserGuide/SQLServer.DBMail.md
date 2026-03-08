@@ -1,38 +1,34 @@
-# Starting and stopping mail queue
+# Deleting messages
 
-Use the following instructions to start and stop the DB mail queue:
-
-###### Topics
-
-- [Starting the mail queue](#SQLServer.DBMail.Start "#SQLServer.DBMail.Start")
-- [Stopping the mail queue](#SQLServer.DBMail.Stop "#SQLServer.DBMail.Stop")
-
-## Starting the mail queue
-
-You use the `rds_sysmail_control` stored procedure to start the Database Mail process.
+You use the `rds_sysmail_delete_mailitems_sp` stored procedure to delete messages.
 
 ###### Note
 
-Enabling Database Mail automatically starts the mail queue.
+RDS automatically deletes mail table items when DBMail history data reaches 1 GB in size, with a retention period of at
+least 24 hours.
 
-###### To start the mail queue
+If you want to keep mail items for a longer period, you can archive them. For more
+information, see [Create a SQL Server Agent job to archive Database Mail messages and event
+logs](https://docs.microsoft.com/en-us/sql/relational-databases/database-mail/create-a-sql-server-agent-job-to-archive-database-mail-messages-and-event-logs "https://docs.microsoft.com/en-us/sql/relational-databases/database-mail/create-a-sql-server-agent-job-to-archive-database-mail-messages-and-event-logs") in the Microsoft documentation.
+
+###### To delete all email messages
 
 - Use the following SQL statement.
 
 ```
-EXECUTE msdb.dbo.rds_sysmail_control start;
+DECLARE @GETDATE datetime
+SET @GETDATE = GETDATE();
+EXECUTE msdb.dbo.rds_sysmail_delete_mailitems_sp @sent_before = @GETDATE;
 GO
 ```
 
-## Stopping the mail queue
+###### To delete all email messages with a particular status
 
-You use the `rds_sysmail_control` stored procedure to stop the Database Mail process.
-
-###### To stop the mail queue
-
-- Use the following SQL statement.
+- Use the following SQL statement to delete all failed messages.
 
 ```
-EXECUTE msdb.dbo.rds_sysmail_control stop;
+DECLARE @GETDATE datetime
+SET @GETDATE = GETDATE();
+EXECUTE msdb.dbo.rds_sysmail_delete_mailitems_sp @sent_status = 'failed';
 GO
 ```

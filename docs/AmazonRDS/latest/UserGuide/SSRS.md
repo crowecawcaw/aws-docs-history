@@ -1,40 +1,74 @@
-# Monitoring the status of a task
+# Accessing the SSRS web portal
 
-To track the status of your granting or revoking task, call the
-`rds_fn_task_status` function. It takes two parameters. The first
-parameter should always be `NULL` because it doesn't apply to SSRS. The
-second parameter accepts a task ID.
+Use the following process to access the SSRS web portal:
 
-To see a list of all tasks, set the first parameter to `NULL` and the second
-parameter to `0`, as shown in the following example.
+1. Turn on Secure Sockets Layer (SSL).
+2. Grant access to domain users.
+3. Access the web portal using a browser and the domain user credentials.
+
+## Using SSL on RDS
+
+SSRS uses the HTTPS SSL protocol for its connections. To work with this protocol, import an
+SSL certificate into the Microsoft Windows operating system on your client
+computer.
+
+For more information on SSL certificates, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.md "UsingWithRDS.md") . For more information about using SSL with
+SQL Server, see [Using SSL with a Microsoft SQL Server DB instance](SQLServer.Concepts.General.SSL.md "SQLServer.Concepts.General.SSL.md").
+
+## Granting access to domain users
+
+In a new SSRS activation, there are no role assignments in SSRS. To give a domain user or
+user group access to the web portal, RDS provides a stored procedure.
+
+###### To grant access to a domain user on the web portal
+
+- Use the following stored procedure.
 
 ```
-SELECT * FROM msdb.dbo.rds_fn_task_status(NULL,`0`);
+exec msdb.dbo.rds_msbi_task
+@task_type='SSRS_GRANT_PORTAL_PERMISSION',
+@ssrs_group_or_username=N'`AD_domain`\`user`';
 ```
 
-To get a specific task, set the first parameter to `NULL` and the second
-parameter to the task ID, as shown in the following example.
+The domain user or user group is granted the `RDS_SSRS_ROLE` system role. This
+role has the following system-level tasks granted to it:
+
+- Run reports
+- Manage jobs
+- Manage shared schedules
+- View shared schedules
+
+The item-level role of `Content Manager` on the root folder is also
+granted.
+
+## Accessing the web portal
+
+After the `SSRS_GRANT_PORTAL_PERMISSION` task finishes successfully, you have
+access to the portal using a web browser. The web portal URL has the following
+format.
 
 ```
-SELECT * FROM msdb.dbo.rds_fn_task_status(NULL,`42`);
+https://`rds_endpoint`:`port`/Reports
 ```
 
-The `rds_fn_task_status` function returns the following information.
+In this format, the following applies:
 
-| Output parameter           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `task_id`                  | The ID of the task.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `task_type`                | For SSRS, tasks can have the following task types:<br>• `SSRS_GRANT_PORTAL_PERMISSION`<br>• `SSRS_REVOKE_PORTAL_PERMISSION`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| `database_name`            | Not applicable to SSRS tasks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `% complete`               | The progress of the task as a percentage.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| `duration (mins)`          | The amount of time spent on the task, in minutes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `lifecycle`                | The status of the task. Possible statuses are the following:<br>• `CREATED` – After you call one of the SSRS stored procedures, a task is<br>created and the status is set to<br>`CREATED`.<br>• `IN_PROGRESS` – After a task starts, the status is set to<br>`IN_PROGRESS`. It can take up to five<br>minutes for the status to change from<br>`CREATED` to<br>`IN_PROGRESS`.<br>• `SUCCESS` – After a task completes, the status is set<br>to `SUCCESS`.<br>• `ERROR` – If a task fails, the status is set to<br>`ERROR`. For more information about the error, see the<br>`task_info` column.<br>• `CANCEL_REQUESTED` – After you call the<br>`rds_cancel_task` stored procedure, the<br>status of the task is set to<br>`CANCEL_REQUESTED`.<br>• `CANCELLED` – After a task is successfully canceled,<br>the status of the task is set to `CANCELLED`. |
-| `task_info`                | Additional information about the task. If an error occurs during processing, this column<br>contains information about the error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `last_updated`             | The date and time that the task status was last updated.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| `created_at`               | The date and time that the task was created.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `S3_object_arn`            | Not applicable to SSRS tasks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `overwrite_S3_backup_file` | Not applicable to SSRS tasks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `KMS_master_key_arn`       | Not applicable to SSRS tasks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `filepath`                 | Not applicable to SSRS tasks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `overwrite_file`           | Not applicable to SSRS tasks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `task_metadata`            | Metadata associated with the SSRS task.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+- `rds_endpoint` – The endpoint for the RDS DB
+  instance that you're using with SSRS.
+
+You can find the endpoint on the **Connectivity & security** tab for
+your DB instance. For more information, see [Connecting to your Microsoft SQL Server DB instance](USER_ConnectToMicrosoftSQLServerInstance.md "USER_ConnectToMicrosoftSQLServerInstance.md").
+
+- `port` – The listener port for SSRS that you
+  set in the `SSRS` option.
+
+###### To access the web portal
+
+1. Enter the web portal URL in your browser.
+
+```
+https://myssrsinstance.cg034itsfake.us-east-1.rds.amazonaws.com:8443/Reports
+```
+
+2. Log in with the credentials for a domain user that you granted access with
+   the `SSRS_GRANT_PORTAL_PERMISSION` task.
