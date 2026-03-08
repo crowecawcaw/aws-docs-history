@@ -174,16 +174,16 @@ instance should now be aware of the domain name.
 ###### Note
 
 If that command fails, you might be using an older version of the GitLab CE
-instance. Try running the following commands instead. Replace
+instance. Try running the following command instead. Replace
 `<DomainName>` with the domain name that is
 routing traffic to your instance.
 
 ```
-cd /opt/bitnami/apps/gitlab
+cd /opt/bitnami/apps/gitlab && \
 sudo ./bnconfig --machine_hostname `<DomainName>`
 ```
 
-After running those commands, enter the following command to keep the bnconfig
+After running the above command, enter the following command to keep the bnconfig
 tool from automatically running every time the server restarts.
 
 ```
@@ -262,11 +262,11 @@ sudo mkdir -p /opt/bitnami/letsencrypt
 sudo mv lego /opt/bitnami/letsencrypt/lego
 ```
 
-7. Enter the following commands one by one to stop the application services that
+7. Enter the following command to stop the application services that
    are running on your instance.
 
 ```
-sudo service bitnami stop
+sudo service bitnami stop && \
 sudo service gitlab-runsvdir stop
 ```
 
@@ -315,23 +315,22 @@ If successful, a set of certificates are saved to the
 `/opt/bitnami/letsencrypt/certificates` directory. This set
 includes the server certificate file (for example, `example.com.crt`)
 and the server certificate key file for (example,
-`example.com.key`). 10. Enter the following commands one by one to rename the existing certificates on
+`example.com.key`). 10. Enter the following command to rename the existing certificates on
 your instance. Later, you will replace these existing certificates with your new
 Let's Encrypt certificates.
 
 ```
-sudo mv /etc/gitlab/ssl/server.crt /etc/gitlab/ssl/server.crt.old
-sudo mv /etc/gitlab/ssl/server.key /etc/gitlab/ssl/server.key.old
-sudo mv /etc/gitlab/ssl/server.csr /etc/gitlab/ssl/server.csr.old
+sudo mv /etc/gitlab/ssl/tls.crt /etc/gitlab/ssl/tls.crt.old && \
+sudo mv /etc/gitlab/ssl/tls.key /etc/gitlab/ssl/tls.key.old
 ```
 
-11. Enter the following commands one by one to create symbolic links for your new
+11. Enter the following command to create symbolic links for your new
     Let's Encript certificates in the `/etc/gitlab/ssl` directory, which
     is the default certificates directory on your GitLab CE instance.
 
 ```
-sudo ln -sf /opt/bitnami/letsencrypt/certificates/`Domain`.key /etc/gitlab/ssl/server.key
-sudo ln -sf /opt/bitnami/letsencrypt/certificates/`Domain`.crt /etc/gitlab/ssl/server.crt
+sudo ln -sf /opt/bitnami/letsencrypt/certificates/`Domain`.key /etc/gitlab/ssl/tls.key && \
+sudo ln -sf /opt/bitnami/letsencrypt/certificates/`Domain`.crt /etc/gitlab/ssl/tls.crt
 ```
 
 In the command, replace `Domain` with the primary
@@ -341,23 +340,23 @@ certificates.
 **Example:**
 
 ```
-sudo ln -sf /opt/bitnami/letsencrypt/certificates/`example.com`.key /etc/gitlab/ssl/server.key
-sudo ln -sf /opt/bitnami/letsencrypt/certificates/`example.com`.crt /etc/gitlab/ssl/server.crt
+sudo ln -sf /opt/bitnami/letsencrypt/certificates/`example.com`.key /etc/gitlab/ssl/tls.key && \
+sudo ln -sf /opt/bitnami/letsencrypt/certificates/`example.com`.crt /etc/gitlab/ssl/tls.crt
 ```
 
-12. Enter the following commands one by one to change the permissions of your new
+12. Enter the following command to change the permissions of your new
     Let's Encrypt certificates in the directory you moved them into.
 
 ```
-sudo chown root:root /etc/gitlab/ssl/server*
-sudo chmod 600 /etc/gitlab/ssl/server*
+sudo chown root:root /etc/gitlab/ssl/tls* && \
+sudo chmod 600 /etc/gitlab/ssl/tls*
 ```
 
-13. Enter the following commands one by one to restart the application services on your GitLab
+13. Enter the following command to restart the application services on your GitLab
     CE instance.
 
 ```
-sudo service bitnami start
+sudo service bitnami start && \
 sudo service gitlab-runsvdir start
 ```
 

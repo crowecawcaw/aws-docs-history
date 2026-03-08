@@ -18,6 +18,7 @@ Node.js
 - [Set up and configure Magento on Lightsail](amazon-lightsail-quick-start-guide-magento.md "amazon-lightsail-quick-start-guide-magento.md")
 - [Deploy and manage an Nginx web server on Lightsail](amazon-lightsail-quick-start-guide-nginx.md "amazon-lightsail-quick-start-guide-nginx.md")
 - [Deploy and manage a Node.js stack on Lightsail](amazon-lightsail-quick-start-guide-nodejs.md "amazon-lightsail-quick-start-guide-nodejs.md")
+- [Get started with OpenClaw on Lightsail](amazon-lightsail-quick-start-guide-openclaw.md "amazon-lightsail-quick-start-guide-openclaw.md")
 - [Deploy a Plesk hosting stack on Lightsail](set-up-and-configure-plesk-stack-on-lightsail.md "set-up-and-configure-plesk-stack-on-lightsail.md")
 - [Set up a PrestaShop website on Lightsail](amazon-lightsail-quick-start-guide-prestashop.md "amazon-lightsail-quick-start-guide-prestashop.md")
 - [Configure and secure a Redmine instance on Lightsail](amazon-lightsail-quick-start-guide-redmine.md "amazon-lightsail-quick-start-guide-redmine.md")

@@ -361,6 +361,22 @@ _Bitnami_ website.
 Lightsail has multiple application stacks and servers for a wide variety of development
 projects. Each image uses Linux/Unix as the base operating system.
 
+\***\*OpenClaw\*\***
+
+OpenClaw is an open-source autonomous AI agent (formerly Clawdbot/Moltbot).
+It runs continuously in the background on your own server, connecting to messaging
+platforms like Slack, Telegram, WhatsApp, and Discord as its primary interface.
+OpenClaw features proactive task execution, multi-channel integration, and the
+ability to run code, manage files, and browse the web.
+
+Lightsail instances launched from OpenClaw will have Instance Metadata Service Version 2
+(IMDSv2) enforced by default. For more information, see [How Instance Metadata Service Version 2 works](amazon-lightsail-configuring-instance-metadata-service.md "amazon-lightsail-configuring-instance-metadata-service.md").
+
+[Get started with OpenClaw on Lightsail](amazon-lightsail-quick-start-guide-openclaw.md "amazon-lightsail-quick-start-guide-openclaw.md")
+
+Learn more about [OpenClaw](https://openclaw.ai "https://openclaw.ai")
+at the _OpenClaw_ website.
+
 \***\*LAMP stack (PHP 8) packaged by Bitnami\*\***
 
 The Bitnami LAMP stack simplifies the development and deployment of PHP

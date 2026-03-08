@@ -37,7 +37,7 @@ Lightsail console.
 ![The Lightsail home page.](images/amazon-lightsail-home-page-instances-storage.png) 3. Choose the name of the instance for which you want to delete automatic
 snapshots. 4. On the instance management page, choose the **Snapshots** tab.
 
-![The instance management page in the Lightsail console.](images/amazon-lightsail-instance-management-snapshots.png) 5. Under the **Automatic snapshots** section, choose the ellipsis icon
+![The instance management page in the Lightsail console.](/images/lightsail/latest/userguide/images/amazon-lightsail-instance-management-snapshots.png) 5. Under the **Automatic snapshots** section, choose the ellipsis icon
 next to the automatic snapshot that you want to delete, then choose **Delete
 snapshot**. 6. At the prompt, choose **Yes** to confirm that you want to delete the
 snapshot.
