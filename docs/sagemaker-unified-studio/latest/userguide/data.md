@@ -33,3 +33,4 @@ more information, see [Data discovery, subscription, and consumption](discover-d
 - [Data in Identity Center-based domains](data-identity-center-based-domains.md "data-identity-center-based-domains.md")
 - [Working with Catalog in IAM-based domains](data-iam-based-domains.md "data-iam-based-domains.md")
 - [Data and catalog connections in IAM-based domains](data-connections-iam-based-domains.md "data-connections-iam-based-domains.md")
+- [Third-party business data catalog integrations](third-party-catalog-integrations.md "third-party-catalog-integrations.md")

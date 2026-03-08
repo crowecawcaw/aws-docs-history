@@ -2,9 +2,9 @@
 
 ## Overview
 
-Amazon SageMaker Unified Studio now supports local IDE - Visual Studio Code (VS Code) integration, enabling
-you to use your preferred development environment. This integration allows you to
-maintain your familiar local development setup including custom extensions, debugging
+Amazon SageMaker Unified Studio now supports local IDE - Visual Studio Code (VS Code) and Kiro integrations,
+enabling you to use your preferred development environment. This integration allows you
+to maintain your familiar local development setup including custom extensions, debugging
 tools, and AI-assisted development features while accessing the Amazon SageMaker Unified Studio compute
 resources and data.
 

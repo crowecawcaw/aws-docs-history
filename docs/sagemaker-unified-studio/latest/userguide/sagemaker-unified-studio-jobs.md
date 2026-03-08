@@ -23,7 +23,7 @@ Apache Parquet, and Apache Avro. For some data formats, common compression forma
 
 ## Limitations
 
-- Jobs support AWS Glue ETL compute resource on AWS Glue 4.0 and 5.0
+- Jobs support AWS Glue ETL compute resource on AWS Glue 4.0, 5.0, and 5.1
 
 ## Best Practices
 

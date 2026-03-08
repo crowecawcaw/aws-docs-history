@@ -57,3 +57,15 @@ This section middle section offers pre-configured example projects:
 - Customer segmentation - PySpark and AWS Glue analysis
 - Customer churn prediction - Random Forest implementation with feature engineering
 - Retail sales forecasting - End-to-end retail sales analysis using Amazon SageMaker Unified Studio AI
+
+## Change the display mode
+
+You can switch between light mode and dark mode to suit your viewing preference.
+
+###### To change the display mode
+
+1. In the upper-right corner of the console, choose the Account icon.
+2. Choose Customize appearance.
+3. Select Light mode or Dark mode.
+
+Your preference is saved automatically and applied across sessions.

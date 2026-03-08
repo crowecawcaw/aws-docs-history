@@ -17,8 +17,7 @@ You can use Visual ETL to implement solutions such as:
 - Creating data warehouses or data lakes
 - Preparing data for machine learning models
 - Automating regular data processing tasks
-  Authoring flows with Visual ETL utilizes AWS Glue interactive sessions Version
-  5.0.
+  Authoring flows with Visual ETL utilizes AWS Glue interactive sessions. You can use AWS Glue version 4.0, 5.0, or 5.1.
 
 Amazon SageMaker Unified Studio supports Visual ETL in two domain types:
 

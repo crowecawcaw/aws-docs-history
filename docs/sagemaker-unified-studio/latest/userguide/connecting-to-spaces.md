@@ -1,8 +1,8 @@
 # Connecting to Amazon SageMaker Unified Studio Spaces
 
 Amazon SageMaker Unified Studio's remote connectivity establishes a secure tunnel between your local VS Code
-and SageMaker Spaces, enabling interactive development and code execution using cloud
-compute resources while maintaining your familiar local environment.
+or Kiro and SageMaker Spaces, enabling interactive development and code execution using
+cloud compute resources while maintaining your familiar local environment.
 
 ###### Note
 

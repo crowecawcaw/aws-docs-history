@@ -65,6 +65,7 @@ AWS Glue version determines the versions of Apache Spark and Python that are ava
 
 | AWS Glue version | Supported Spark and Python versions |
 | ---------------- | ----------------------------------- |
+| 5.1              | Spark 3.5.6, Python 3.11            |
 | 5.0              | Spark 3.5.4, Python 3.11            |
 | 4.0              | Spark 3.3.0, Python 3.10            |
 

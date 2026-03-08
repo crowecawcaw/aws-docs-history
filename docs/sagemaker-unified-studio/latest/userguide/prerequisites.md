@@ -1,24 +1,23 @@
 # Prerequisites
 
-Before connecting VS Code remotely to a SageMaker Unified Studio Space, ensure you
-have the following prerequisites:
+Before connecting VS Code or Kiro remotely to a SageMaker Unified Studio Space, ensure
+you have the following prerequisites:
 
 - Access to an existing domain in Amazon SageMaker Unified Studio.
-- AWS Toolkit for VS Code extension. For more details, see [Installing the AWS Toolkit for Visual Studio Code](../../../toolkit-for-vscode/latest/userguide/setup-toolkit.md "../../../toolkit-for-vscode/latest/userguide/setup-toolkit.md").
-  - Install the AWS Toolkit: Open VS Code, navigate to Extensions and
-    search for **AWS Toolkit**. Choose
-    **Install** to install the latest
-    version of the official AWS Toolkit extension. The AWS Toolkit
-    extension will appear on the VS Code sidebar.
-
-  ###### Note
-
-  For the best experience, use AWS Toolkit version 3.87.0 or
-  higher when connecting to Amazon SageMaker Unified Studio in VS Code.
+- AWS Toolkit version 3.97 or higher. You can install it using either of the
+  steps below based on your IDE:
+  - Open VS Code, navigate to Extensions and search for **AWS Toolkit**. Choose **Install** to install the latest version of the official
+    AWS Toolkit extension. The AWS Toolkit extension will appear on the
+    VS Code sidebar.
+  - In Kiro, choose **Extensions** and then choose AWS
+    toolkit. After installation, the AWS Toolkit extension appears on the
+    sidebar.
 
 - System Requirements
   - **VS Code Version**: v1.90 or later
     (latest stable version recommended)
+  - **Kiro Version**: 0.8.0 or later (latest
+    stable version recommended)
 
 - Operating Systems
   - macOS 13+
