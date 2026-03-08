@@ -155,7 +155,8 @@ Details:
 - **routing_table** - AWS route table ID(s) that need to be updated. Multiple route tables can be specified using commas (For example, `routing_table=rtb-xxxxxroutetable1,rtb-xxxxxroutetable2`). Ensure initial entries have been created following [Add VPC Route Table Entries for Overlay IPs](sap-hana-pacemaker-sles-infra-setup.md#rt-sles "sap-hana-pacemaker-sles-infra-setup.md#rt-sles")
 - **interface** - Network interface for the IP address (typically eth0)
 - **profile** - (optional) AWS CLI profile name for API authentication. Verify profile exists with `aws configure list-profiles`. If a profile is not explicitly configured the default profile will be used.
-- _Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md "sap-hana-pacemaker-sles-parameters.md")_ :
+- **awscli** - (optional) Path to the AWS CLI executable. The default path is `/usr/bin/aws`. Only specify this parameter if the AWS CLI is installed in a different location. To confirm the path on your system, run `which aws`.
+- _Example using values from [Parameter Reference](sap-hana-pacemaker-rhel-parameters.md "sap-hana-pacemaker-rhel-parameters.md")_ :
 
 ###### Example
 

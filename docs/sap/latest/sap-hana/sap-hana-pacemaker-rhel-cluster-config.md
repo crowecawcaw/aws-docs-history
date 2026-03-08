@@ -120,7 +120,7 @@ Details:
 
 - **pcmk_host_map** - Maps cluster node hostnames to their EC2 instance IDs. This mapping must be unique within the AWS account and follow the format hostname:instance-id, with multiple entries separated by semicolons.
 - **region** - AWS region where the EC2 instances are deployed
-- **pcmk_delay_max** - Random delay before fencing operations. Works in conjunction with cluster property `priority-fencing-delay` to prevent simultaneous fencing. Historically set to higher values, but with `priority-fencing-delay` now handling primary node protection, a lower value (10s) is sufficient.
+- **pcmk_delay_max** - Random delay before fencing operations. Works in conjunction with cluster property `priority-fencing-delay` to prevent simultaneous fencing in 2-node clusters. Historically set to higher values, but with `priority-fencing-delay` now handling primary node protection, a lower value (10s) is sufficient. Omit in clusters with real quorum (3+ nodes) to avoid unnecessary delay.
 - **pcmk_reboot_timeout** - Maximum time in seconds allowed for a reboot operation
 - **pcmk_reboot_retries** - Number of times to retry a failed reboot operation
 - **skip_os_shutdown** (NEW) - Leverages a new ec2 stop-instance API flag to forcefully stop an EC2 Instance by skipping the shutdown of the Operating System.
@@ -170,12 +170,11 @@ op stop interval="0" timeout="180" \
 op monitor interval="60" timeout="60"
 ```
 
-Details:
-
 - **ip** - Overlay IP address that will be used to connect to the Primary SAP HANA database. See [Overlay IP Concept](sap-hana-pacemaker-rhel-concepts.md#overlay-ip-rhel "sap-hana-pacemaker-rhel-concepts.md#overlay-ip-rhel")
 - **routing_table** - AWS route table ID(s) that need to be updated. Multiple route tables can be specified using commas (For example, `routing_table=rtb-xxxxxroutetable1,rtb-xxxxxroutetable2`). Ensure initial entries have been created following [Add VPC Route Table Entries for Overlay IPs](sap-hana-pacemaker-rhel-infra-setup.md#rt-rhel "sap-hana-pacemaker-rhel-infra-setup.md#rt-rhel")
 - **interface** - Network interface for the IP address (typically eth0)
 - **profile** - (optional) AWS CLI profile name for API authentication. Verify profile exists with `aws configure list-profiles`. If a profile is not explicitly configured the default profile will be used.
+- **awscli** - (optional) Path to the AWS CLI executable. The default path is `/usr/bin/aws`. Only specify this parameter if the AWS CLI is installed in a different location. To confirm the path on your system, run `which aws`.
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-rhel-parameters.md "sap-hana-pacemaker-rhel-parameters.md")_ :
 
 ###### Example
@@ -189,6 +188,14 @@ profile="cluster" \
 op start interval="0" timeout="180" \
 op stop interval="0" timeout="180" \
 op monitor interval="60" timeout="60"
+```
+
+###### Note
+
+To update any resource parameter after creation, use `pcs resource update`. For example, if the AWS CLI is not installed at the default path (`/usr/bin/aws`), run:
+
+```
+# pcs resource update rsc_ip_<SID>_HDB<hana_sys_nr> awscli=$(which aws)
 ```
 
 ###### For Active/Active Read Enabled

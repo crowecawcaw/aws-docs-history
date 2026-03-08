@@ -74,3 +74,5 @@ Once the switch-over is complete, setup AWS Systems Manager for SAP for an autom
 You can now create a backup plan or perform on-demand backups. For more information, see [Backup Operations in the AWS Backup console](../../../aws-backup/latest/devguide/backup-saphana.md#saphanabackupconsole "../../../aws-backup/latest/devguide/backup-saphana.md#saphanabackupconsole").
 
 For details about backup and restore of your SAP HANA databases on AWS Backup, see [SAP HANA databases on Amazon EC2 instances backup](../../../aws-backup/latest/devguide/backup-saphana.md#saphanabackupconsole "../../../aws-backup/latest/devguide/backup-saphana.md#saphanabackupconsole").
+
+AWS Backup supports PrivateLink for SAP HANA on AWS. To create a backup dataplane VPC endpoint, see [Create an AWS Backup VPC endpoint](../../../aws-backup/latest/devguide/backup-network.md "../../../aws-backup/latest/devguide/backup-network.md").

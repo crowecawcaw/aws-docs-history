@@ -13,7 +13,7 @@ The following section is an example host setup for SAP HANA scale-up deployment 
 
 ## Linux kernel parameters
 
-Create a file named `91-NetApp-HANA.conf` with the following configurations in the `/etc/sysctl.d` directory.
+1. Create a file `/etc/sysctl.d/91-NetApp-HANA.conf` with the following configurations
 
 ```
 net.core.rmem_max = 16777216
@@ -21,21 +21,35 @@ net.core.wmem_max = 16777216
 net.ipv4.tcp_rmem = 4096 131072 16777216
 net.ipv4.tcp_wmem = 4096 16384  16777216
 net.core.netdev_max_backlog = 300000
-net.ipv4.tcp_slow_start_after_idle=0
+net.ipv4.tcp_slow_start_after_idle = 0
 net.ipv4.tcp_no_metrics_save = 1
 net.ipv4.tcp_moderate_rcvbuf = 1
 net.ipv4.tcp_window_scaling = 1
 net.ipv4.tcp_timestamps = 1
 net.ipv4.tcp_sack = 1
+sunrpc.tcp_slot_table_entries = 128
 ```
 
-Increase the max sessions slots for NFSv4 to 180.
+2. To reduce I/O errors during failover of FSx for ONTAP Single-AZ file systems, including [planned maintenance windows](../../../fsx/latest/ONTAPGuide/maintenance-windows.md "../../../fsx/latest/ONTAPGuide/maintenance-windows.md") create an additional file `/etc/sysctl.d/99-fsx-failover.conf`. These parameters optimize NFS client behavior to detect and respond to failover events more quickly.
 
 ```
-echo options nfs max_session_slots=180 > /etc/modprobe.d/nfsclient.conf
+# NFS client optimizations for faster failover detection
+# Replace 'default' with your interface name (e.g., eth0, ens5) to target a specific interface
+net.ipv4.neigh.default.base_reachable_time_ms = 5000
+net.ipv4.neigh.default.delay_first_probe_time = 1
+net.ipv4.neigh.default.ucast_solicit = 0
+net.ipv4.tcp_syn_retries = 3
 ```
 
-You must reboot your instance for the kernel parameters and NFS settings to take effect.
+For more information and options, see [Troubleshooting I/O errors and NFS lock reclaim failures](../../../fsx/latest/ONTAPGuide/nfs-failover-issues.md "../../../fsx/latest/ONTAPGuide/nfs-failover-issues.md").
+
+If these errors occur, in some cases they may cause SAP HANA to perform an emergency shutdown of the indexserver process to protect database consistency. 3. Increase the max sessions slots for NFSv4 to 180.
+
+```
+echo options nfs max_session_slots = 180 > /etc/modprobe.d/nfsclient.conf
+```
+
+To activate these changes, run `sysctl -p` for the kernel parameters and reload the NFS module, or reboot the instance during a planned maintenance window (recommended).
 
 ## Network File System (NFS)
 

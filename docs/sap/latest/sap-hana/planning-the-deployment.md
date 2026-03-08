@@ -46,4 +46,4 @@ Deploying SAP HANA on AWS requires specific storage size and performance to ensu
 
 ## Network
 
-Ensure that your network constructs are set up to deploy resources related to SAP HANA. If you haven’t already set up network components such as Amazon VPC, subnets, route table, etc., you can use the AWS Modular and Scalable VPC reference deployment to easily deploy a scalable VPC architecture in minutes. For details, see the [reference deployment guide](../../../quickstart/latest/vpc/welcome.md "../../../quickstart/latest/vpc/welcome.md").
+Ensure that your network constructs are set up to deploy resources related to SAP HANA. If you haven’t already set up network components such as Amazon VPC, subnets, route table, etc., you can use the AWS Modular and Scalable VPC reference deployment to easily deploy a scalable VPC architecture in minutes. For details, see the [reference deployment guide](../../../vpc/latest/userguide/vpc-getting-started.md "../../../vpc/latest/userguide/vpc-getting-started.md").
