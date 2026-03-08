@@ -42,6 +42,17 @@ AWS PrivateLink for Amazon DynamoDB Streams doesn't support the following:
 - Transport Layer Security (TLS) 1.1
 - Private and Hybrid Domain Name System (DNS) services
 
+###### Important
+
+Do not create private hosted zones to override DynamoDB Streams endpoint DNS names to route
+traffic to your interface endpoints. DynamoDB DNS configurations may change over time and
+custom DNS overrides can cause requests to unexpectedly route over public IP addresses
+instead of your interface endpoints.
+
+To access DynamoDB Streams through AWS PrivateLink, configure
+your clients to use the Amazon VPC endpoint URL directly (for example,
+`https://vpce-1a2b3c4d-5e6f.streams.dynamodb.`region`.vpce.amazonaws.com`).
+
 ###### Note
 
 Network connectivity timeouts to AWS PrivateLink endpoints are not within the scope of DynamoDB Streams

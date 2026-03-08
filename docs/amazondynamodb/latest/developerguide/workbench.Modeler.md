@@ -1,22 +1,34 @@
-# Facets
+# Adding and validating access patterns
 
-In NoSQL Workbench, _Facets_ give you a way to view a subset of the data in a table, without having to see records that don't meet the constraints of the facet.
-Facets are considered a visual data modeling tool, and don't exist as a usable construct in DynamoDB, as they are purely an aid to modeling of access patterns.
+You can use NoSQL Workbench for Amazon DynamoDB to create, store, and validate _access patterns_.
 
 ###### Note
 
-We recommend you use [Adding and validating access patterns](workbench.Modeler.md "workbench.Modeler.md") to visualize how your application will access data in DynamoDB instead of Facets.
-Access patterns mirror your actual database interactions and help you build the correct data model for your use case, while facets are non-functional visualizations.
+See [Identify your data access patterns](../../../prescriptive-guidance/latest/dynamodb-data-modeling/step3.md "../../../prescriptive-guidance/latest/dynamodb-data-modeling/step3.md") for more details on identifying the right access patterns.
 
-###### To create a facet
+###### To create an access pattern
 
-1. In the resource selector panel, choose a **Table** you wish to edit
-2. In the top bar, click the **Edit** action icon.
-3. Scroll down to the **Facet filters** section.
-4. Choose **Add facet**. Specify the following:
-   - The **Facet name**.
-   - A **Partition key alias** to help distinguish this facet view.
-   - A **Sort key alias** if you provided a **Sort key** for the table.
-   - Choose the **Attributes** that are part of this facet.
+1. Open NoSQL Workbench, and on the main screen, click the name of the model that you want to add access patterns to.
+2. On the left side, choose the **Access patterns** tab, and click the **+** icon.
+3. On the next screen, provide a **Name**, an optional **Description**, the **Type** of the access pattern, and the **Table** or **Global Secondary Index** to test the access pattern against.
 
-Repeat this step if you want to add more facets.
+###### Note
+
+NoSQL Workbench currently supports the following operations for access patterns:
+`Scan`, `Query`, `GetItem`, `PutItem`, `UpdateItem`, `DeleteItem`. Amazon DynamoDB supports a broader list of operations. 4. After you create an access pattern, you can switch to the **Validate** tab to verify that your data model is designed to return expected results for the access pattern.
+See [Adding sample data to a data model](workbench.Modeler.md "workbench.Modeler.md") for details on how to auto-generate sample data for your tables. Different types of access patterns will support different input parameters.
+
+###### Note
+
+To validate access patterns, NoSQL Workbench starts a separate DynamoDB local database on port `8001` (by default) with tables and indexes stored in memory.
+
+    * NoSQL Workbench automatically adds the sample data from your model to the temporary tables.
+    * If you edit the sample data or the data model itself, NoSQL Workbench will update the temporary tables.
+    * This temporary database is erased when you close the application.
+
+###### To edit your access patterns
+
+1. Open NoSQL Workbench, and on the main screen, click the name of the model that you want to edit access patterns for.
+2. On the left side, choose the **Access patterns** tab.
+3. To edit an access pattern, select it from the list on the left.
+4. In the top bar, click the **Edit** action button.

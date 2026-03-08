@@ -32,14 +32,21 @@ through Amazon Redshift analytics and machine learning capabilities.
    before creating an integration. This information is covered in [Step 1: Configuring a source DynamoDB table](RedshiftforDynamoDB-zero-etl-getting-started.md#RedshiftforDynamoDB-zero-etl-getting-started-configuring "RedshiftforDynamoDB-zero-etl-getting-started.md#RedshiftforDynamoDB-zero-etl-getting-started-configuring") and [Step 2: Creating an Amazon Redshift data warehouse](RedshiftforDynamoDB-zero-etl-getting-started.md#RedshiftforDynamoDB-zero-etl-getting-started-creating "RedshiftforDynamoDB-zero-etl-getting-started.md#RedshiftforDynamoDB-zero-etl-getting-started-creating").
 2. A zero-ETL integration between Amazon DynamoDB and Amazon Redshift requires your
    source DynamoDB table to have [Point-in-time recovery (PITR)](Point-in-time-recovery.md "Point-in-time-recovery.md") enabled.
-3. For **resource-based policies**, if you
-   create the integration where your DynamoDB table and Amazon Redshift data warehouse are in
-   the same account, you can use the **Fix it for me** option
-   during the create integration step to automatically apply the required
-   resource policies to both DynamoDB and Amazon Redshift.
+3. For **resource-based policies**, the
+   zero-ETL integration requires a resource-based policy attached directly
+   to your DynamoDB table. This inline policy grants the Amazon Redshift service
+   permission to access your table data for replication. For more
+   information about resource-based policies for DynamoDB, see [Using resource-based
+   policies for DynamoDB](access-control-resource-based.md "access-control-resource-based.md").
+
+If you
+create the integration where your DynamoDB table and Amazon Redshift data warehouse are in
+the same account, you can use the **Fix it for me** option
+during the create integration step to automatically apply the required
+resource policies to both DynamoDB and Amazon Redshift.
 
 If you create an integration where your DynamoDB table and Amazon Redshift data
-warehouse are in different AWS accounts, you will need to apply the
+warehouse are in different AWS accounts, you will need to manually apply the
 following resource policy on your DynamoDB table.
 
 JSON

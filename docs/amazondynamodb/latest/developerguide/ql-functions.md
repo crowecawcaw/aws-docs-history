@@ -1,40 +1,28 @@
-# Using the EXISTS function with PartiQL for DynamoDB
+# Using the SIZE function with PartiQL for amazon DynamoDB
 
-You can use EXISTS to perform the same function as `ConditionCheck` does in
-the [TransactWriteItems](transaction-apis.md#transaction-apis-txwriteitems "transaction-apis.md#transaction-apis-txwriteitems") API. The EXISTS function can only be used in
-transactions.
-
-Given a value, returns `TRUE` if the value is a non-empty collection.
-Otherwise, returns `FALSE`.
-
-###### Note
-
-This function can only be used in transactional operations.
+Returns a number representing an attribute's size in bytes. The following are valid data types
+for use with size. For more information, see the DynamoDB [size](Expressions.md#Expressions.OperatorsAndFunctions.Functions "Expressions.md#Expressions.OperatorsAndFunctions.Functions") function.
 
 ## Syntax
 
 ```
-EXISTS ( `statement` )
+size( `path`)
 ```
 
 ## Arguments
 
-`statement`
+`path`
 
-(Required) The SELECT statement that the function evaluates.
+(Required) The attribute name or document path.
 
-###### Note
-
-The SELECT statement must specify a full primary key and one other condition.
+For supported types, see DynamoDB [size](Expressions.md#Expressions.OperatorsAndFunctions.Functions "Expressions.md#Expressions.OperatorsAndFunctions.Functions") function.
 
 ## Return type
 
-`bool`
+`int`
 
 ## Examples
 
 ```
-EXISTS(
-    SELECT * FROM "Music"
-    WHERE "Artist" = 'Acme Band' AND "SongTitle" = 'PartiQL Rocks')
+ SELECT * FROM "Orders" WHERE "OrderID"=1 AND size("Image") >300
 ```

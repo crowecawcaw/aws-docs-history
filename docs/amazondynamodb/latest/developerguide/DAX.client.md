@@ -1,140 +1,51 @@
-# Step 2: Create a user and policy
+# Modifying an existing application to use DAX
 
-In this step, you create a user with a policy that grants access to your Amazon
-DynamoDB Accelerator (DAX) cluster and to DynamoDB using AWS Identity and Access Management. You can then run applications
-that interact with your DAX cluster.
-
-## Sign up for an AWS account
-
-If you do not have an AWS account, complete the following steps to create one.
-
-###### To sign up for an AWS account
-
-1. Open [https://portal.aws.amazon.com/billing/signup](https://portal.aws.amazon.com/billing/signup "https://portal.aws.amazon.com/billing/signup").
-2. Follow the online instructions.
-
-Part of the sign-up procedure involves receiving a phone call or text message and entering
-a verification code on the phone keypad.
-
-When you sign up for an AWS account, an _AWS account root user_ is created. The root user has access to all AWS services
-and resources in the account. As a security best practice, assign administrative access to a user, and use only the root user to perform [tasks that require root user access](../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks "../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks").
-
-AWS sends you a confirmation email after the sign-up process is
-complete. At any time, you can view your current account activity and manage your account by
-going to [https://aws.amazon.com/](https://aws.amazon.com/ "https://aws.amazon.com/") and choosing **My
-Account**.
-
-## Create a user with administrative access
-
-After you sign up for an AWS account, secure your AWS account root user, enable AWS IAM Identity Center, and create an administrative user so that you
-don't use the root user for everyday tasks.
-
-###### Secure your AWS account root user
-
-1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/") as the account owner by choosing **Root user** and entering your AWS account email address. On the next page, enter your password.
-
-For help signing in by using root user, see [Signing in as the root user](../../../signin/latest/userguide/console-sign-in-tutorials.md#introduction-to-root-user-sign-in-tutorial "../../../signin/latest/userguide/console-sign-in-tutorials.md#introduction-to-root-user-sign-in-tutorial") in the _AWS Sign-In User Guide_. 2. Turn on multi-factor authentication (MFA) for your root user.
-
-For instructions, see [Enable a virtual MFA device for your AWS account root user (console)](../../../IAM/latest/UserGuide/enable-virt-mfa-for-root.md "../../../IAM/latest/UserGuide/enable-virt-mfa-for-root.md") in the _IAM User Guide_.
-
-###### Create a user with administrative access
-
-1. Enable IAM Identity Center.
-
-For instructions, see [Enabling
-AWS IAM Identity Center](../../../singlesignon/latest/userguide/get-set-up-for-idc.md "../../../singlesignon/latest/userguide/get-set-up-for-idc.md") in the
-_AWS IAM Identity Center User Guide_. 2. In IAM Identity Center, grant administrative access to a user.
-
-For a tutorial about using the IAM Identity Center directory as your identity source, see [Configure user access with the default IAM Identity Center directory](../../../singlesignon/latest/userguide/quick-start-default-idc.md "../../../singlesignon/latest/userguide/quick-start-default-idc.md") in the
-_AWS IAM Identity Center User Guide_.
-
-###### Sign in as the user with administrative access
-
-- To sign in with your IAM Identity Center user, use the sign-in URL that was sent to your email address when you created the IAM Identity Center user.
-
-For help signing in using an IAM Identity Center user, see [Signing in to the AWS access portal](../../../signin/latest/userguide/iam-id-center-sign-in-tutorial.md "../../../signin/latest/userguide/iam-id-center-sign-in-tutorial.md") in the _AWS Sign-In User Guide_.
-
-###### Assign access to additional users
-
-1. In IAM Identity Center, create a permission set that follows the best practice of applying least-privilege permissions.
-
-For instructions, see [Create a permission set](../../../singlesignon/latest/userguide/get-started-create-a-permission-set.md "../../../singlesignon/latest/userguide/get-started-create-a-permission-set.md") in the _AWS IAM Identity Center User Guide_. 2. Assign users to a group, and then assign single sign-on access to the group.
-
-For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md") in the _AWS IAM Identity Center User Guide_.
-
-To provide access, add permissions to your users, groups, or roles:
-
-- Users and groups in AWS IAM Identity Center:
-
-Create a permission set. Follow the instructions in [Create a permission set](../../../singlesignon/latest/userguide/howtocreatepermissionset.md "../../../singlesignon/latest/userguide/howtocreatepermissionset.md") in the _AWS IAM Identity Center User Guide_.
-
-- Users managed in IAM through an identity provider:
-
-Create a role for identity federation. Follow the instructions in [Create a role for a third-party identity provider (federation)](../../../IAM/latest/UserGuide/id_roles_create_for-idp.md "../../../IAM/latest/UserGuide/id_roles_create_for-idp.md")
-in the _IAM User Guide_.
-
-- IAM users:
-  - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
-  - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
-
-###### To use the JSON policy editor to create a policy
-
-1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2. In the navigation pane on the left, choose **Policies**.
-
-If this is your first time choosing **Policies**, the
-**Welcome to Managed Policies** page appears. Choose **Get
-Started**. 3. At the top of the page, choose **Create policy**. 4. In the **Policy editor** section, choose the
-**JSON** option. 5. Enter or paste a JSON policy document. For details about the IAM policy language, see
-[IAM JSON policy reference](../../../IAM/latest/UserGuide/reference_policies.md "../../../IAM/latest/UserGuide/reference_policies.md"). 6. Resolve any security warnings, errors, or general warnings generated during [policy validation](../../../IAM/latest/UserGuide/access_policies_policy-validator.md "../../../IAM/latest/UserGuide/access_policies_policy-validator.md"), and then choose **Next**.
+If you already have a Java application that uses Amazon DynamoDB, you can modify it so that
+it can access your DynamoDB Accelerator (DAX) cluster. You don't have to rewrite the entire
+application because the DAX Java client is similar to the DynamoDB low-level client
+included in the AWS SDK for Java 2.x. See [Working with
+items in DynamoDB](../../../sdk-for-java/latest/developer-guide/examples-dynamodb-items.md "../../../sdk-for-java/latest/developer-guide/examples-dynamodb-items.md") for details.
 
 ###### Note
 
-You can switch between the **Visual** and **JSON**
-editor options anytime. However, if you make changes or choose **Next**
-in the **Visual** editor, IAM might restructure your policy to
-optimize it for the visual editor. For more information, see [Policy restructuring](../../../IAM/latest/UserGuide/troubleshoot_policies.md#troubleshoot_viseditor-restructure "../../../IAM/latest/UserGuide/troubleshoot_policies.md#troubleshoot_viseditor-restructure")
-in the _IAM User Guide_. 7. (Optional) When you create or edit a policy in the AWS Management Console, you can generate a JSON
-or YAML policy template that you can use in CloudFormation templates.
+This example uses AWS SDK for Java 2.x. For the legacy SDK for Java 1.x version, see [Modifying an existing SDK for Java 1.x application to use DAX](DAX.client.modify-your-app.md "DAX.client.modify-your-app.md").
 
-To do this, in the **Policy editor** choose
-**Actions**, and then choose **Generate CloudFormation
-template**. To learn more about CloudFormation, see [AWS Identity and Access Management resource type reference](../../../AWSCloudFormation/latest/UserGuide/AWS_IAM.md "../../../AWSCloudFormation/latest/UserGuide/AWS_IAM.md") in the
-_AWS CloudFormation User Guide_. 8. When you are finished adding permissions to the policy, choose
-**Next**. 9. On the **Review and create** page, enter a **Policy
-name** and a **Description** (optional) for the policy that
-you are creating. Review **Permissions defined in this policy** to see
-the permissions that are granted by your policy. 10. (Optional) Add metadata to the policy by attaching tags as key-value pairs. For more
-information about using tags in IAM, see [Tags for AWS Identity and Access Management resources](../../../IAM/latest/UserGuide/id_tags.md "../../../IAM/latest/UserGuide/id_tags.md") in the _IAM User Guide_. 11. Choose **Create policy** to save your new policy.
-
-**Policy document** – Copy and paste the following document to
-create the JSON policy.
-
-JSON
+To modify your program, replace the DynamoDB client with a DAX client.
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Action": [
- "dax:*"
- ],
- "Effect": "Allow",
- "Resource": [
- "*"
- ]
- },
- {
- "Action": [
- "dynamodb:*"
- ],
- "Effect": "Allow",
- "Resource": [
- "*"
- ]
- }
- ]
-}`
+Region region = Region.US_EAST_1;
+
+// Create an asynchronous DynamoDB client
+DynamoDbAsyncClient client = DynamoDbAsyncClient.builder()
+                .region(region)
+                .build();
+
+// Create an asynchronous DAX client
+DynamoDbAsyncClient client = ClusterDaxAsyncClient.builder()
+                .overrideConfiguration(Configuration.builder()
+                    .url(`<cluster url>`) // for example, "dax://my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com"
+                    .region(region)
+                    .addMetricPublisher(cloudWatchMetricsPub) // optionally enable SDK metric collection
+                    .build())
+                .build();
+```
+
+You can also use the high-level library that is part of the AWS SDK for Java 2.x, replacing
+the DynamoDB client with a DAX client.
 
 ```
+Region region = Region.US_EAST_1;
+DynamoDbAsyncClient dax = ClusterDaxAsyncClient.builder()
+        .overrideConfiguration(Configuration.builder()
+            .url(`<cluster url>`) // for example, "dax://my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com"
+            .region(region)
+            .build())
+        .build();
+
+DynamoDbEnhancedAsyncClient enhancedClient = DynamoDbEnhancedAsyncClient.builder()
+        .dynamoDbClient(dax)
+        .build();
+```
+
+For more information, see [Mapping
+items in DynamoDB tables](../../../sdk-for-java/latest/developer-guide/examples-dynamodb-enhanced.md "../../../sdk-for-java/latest/developer-guide/examples-dynamodb-enhanced.md").
