@@ -23,7 +23,7 @@ drivers, and the Amazon DCV Server for a visual remote desktop.
    `Custom TCP`, **Port Range**
    `8443`, and **Source Type**
    `Anywhere` to allow access using Amazon DCV.
-10. Increase storage to at least **256GB** and choose **gp3** as the
+10. Increase storage to at least **256 GiB** and choose **gp3** as the
     storage type.
 11. Choose **Launch Instance**.
 

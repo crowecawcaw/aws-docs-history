@@ -19,7 +19,7 @@ Here are other possible real-life examples:
 ## Limitations and requirements
 
 You can only associate applications to stream groups that have compatible runtime environments and stream classes. For more
-information, refer to [Runtime environment and stream class compatibility](configuration-options.md#configuration-options-compatibility "configuration-options.md#configuration-options-compatibility").
+information, refer to [Stream classes](configuration-options.md#configuration-options-stream-classes "configuration-options.md#configuration-options-stream-classes").
 
 The following association limits apply to applications and stream groups. These limits are fixed within the service for all customers.
 

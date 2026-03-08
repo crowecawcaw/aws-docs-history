@@ -30,45 +30,27 @@ options to optimize the cost.
 
 ### For Windows applications
 
-We recommend using the Microsoft Windows Server 2022 Base runtime environment for Microsoft Windows applications. There are four hardware
-configurations available for this runtime, the NVIDIA-based
-`gen6n_pro_win2022`
-,
+We recommend for Windows applications starting with the Microsoft Windows Server 2022 Base runtime environment and
+the
 `gen6n_ultra_win2022`
-,
-`gen5n_win2022`, and `gen4n_win2022` stream classes. In this environment, Amazon GameLift Streams supports games and other
-3D applications using DirectX 11 or DirectX 12, and game engines including Unity 2022.3, Unreal Engine 4.27, and
-Unreal Engine 5 up through . Streaming is supported over both IPv4 and IPv6.
+stream class. This combination of runtime environment and stream
+classes provides a predictable, well-supported configuration with the highest compatibility and high
+performance for a wide range of graphics-intensive use cases for your Windows-based content.
 
-This combination of runtime environment and stream classes provides a predictable, well-supported configuration with the highest
-compatibility and best performance for your Windows-based content.
+Other Windows stream class configurations exist that offer different price and performance options
+(refer to [Windows stream classes](configuration-options.md#configuration-options-stream-classes-windows "configuration-options.md#configuration-options-stream-classes-windows")),
+you may want to try these out to find the best fit for your application.
+
+The Windows runtime supports games and other 3D applications using DirectX 11 or DirectX 12, and
+game engines including Unity 2022.3, Unreal Engine 4.27, and Unreal Engine
+5 up through 5.6. Streaming is supported over both IPv4 and IPv6.
 
 ### For Linux applications
 
 Use the Ubuntu 22.04 LTS runtime environment for applications built to run natively on Linux. To optimize for performance,
-choose one of the Pro or Ultra stream classes (
-`gen6n_pro`
-,
-`gen6n_ultra`
-,
-
-`gen5n_ultra`
-, or
-`gen4n_ultra`
-). To optimize for cost, choose one of the Small,
-Medium, or High stream classes (
-`gen6n_high`
-,
-`gen6n_medium`
-,
-`gen6n_small`
-,
-
-`gen5n_high`
-, or
-`gen4n_high`
-) that support _multi-tenancy_— a cost-effective
-option where multiple concurrent stream sessions share the same compute resources.
+choose one of the Pro or Ultra stream classes (refer to [Linux and Proton stream classes](configuration-options.md#configuration-options-stream-classes-linuxproton "configuration-options.md#configuration-options-stream-classes-linuxproton")).
+To optimize for cost, choose one of the Small, Medium, or High stream classes. These are cost-effective options where
+multiple concurrent stream sessions share the same compute resources.
 
 ###### Important
 
@@ -126,9 +108,8 @@ To determine the best runtime and stream class configuration, consider the follo
    GPUs, you should consider using stream classes with greater amounts of video memory (VRAM) and system memory (RAM). For example,
    the gen5n and gen6n stream classes deliver up to 3x better performance for graphics-intensive applications compared to the gen4n
    stream classes. If your application requires maximum GPU and CPU resources, you should consider the "pro" stream classes. Conversely,
-   if your application can operate effectively at a lower graphical fidelity, you might save on costs by using stream classes that support
-   multi-tenancy (any of the "small", "medium", or "high" stream classes). This allows multiple users to share the same underlying hardware
-   resources. For a full description of stream class options, see [Stream classes](configuration-options.md#configuration-options-stream-classes "configuration-options.md#configuration-options-stream-classes").
+   if your application can operate effectively at a lower graphical fidelity, you might save on costs by using any of the Small, Medium,
+   or High stream classes that share a GPU. See [Stream classes](configuration-options.md#configuration-options-stream-classes "configuration-options.md#configuration-options-stream-classes").
 4. **How much effort are you willing to invest in the setup?** The simplest way to set up your
    application is to run it natively using the Windows or Linux runtimes, since they are more likely to be compatible with your
    application out-of-the-box. In contrast, the Proton runtime environment will require more hands-on testing to identify the optimal
