@@ -82,7 +82,7 @@ You can use automatic language identification in a streaming transcription using
 
 ![Amazon Transcribe console screenshot: the expanded 'language settings' tab.](images/lang-id-stream2.png) 4. Provide a minimum of two language codes for your transcription. Note that you can
 provide only one dialect per language. For example, you cannot select both
-`en-US` and `fr-CA` as language options for the same
+`en-US` and `en-GB` as language options for the same
 transcription.
 
 ![Amazon Transcribe console screenshot: the language code selection dropdown menu.](images/lang-id-stream3.png) 5. (Optional) From the subset of languages you selected in the previous step, you can
