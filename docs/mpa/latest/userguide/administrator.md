@@ -17,6 +17,7 @@ _Figure 1: Diagram depicting the Multi-party approval console._
 - [Create team](create-team.md "create-team.md")
 - [View team](admin-view-team.md "admin-view-team.md")
 - [Update team](update-team.md "update-team.md")
+- [Baseline team](baseline-team.md "baseline-team.md")
 - [Share team](share-team.md "share-team.md")
 - [Delete team](delete-team.md "delete-team.md")
 - [Cancel session](cancel-session.md "cancel-session.md")
