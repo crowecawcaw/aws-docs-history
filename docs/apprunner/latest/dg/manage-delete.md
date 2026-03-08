@@ -53,7 +53,7 @@ App Runner console
 
 The console displays the service dashboard with a **Service overview**.
 
-![App Runner service dashboard page showing Activity list](/images/apprunner/latest/dg/images/console-dashboard.png) 3. Choose **Actions**, and then choose **Delete**.
+![App Runner service dashboard page showing Activity list](images/console-dashboard.png) 3. Choose **Actions**, and then choose **Delete**.
 
 The console takes you to the **Services** page. The deleted service displays the **Operation in progress**
 status, and then the service disappears from the list. Your service is now deleted.
