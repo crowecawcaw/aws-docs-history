@@ -9,7 +9,7 @@ retrieving data.
 Before creating a custom Code Interpreter with S3 access, you need to:
 
 1. Create an S3 bucket (e.g.,
-   `codeinterpreterartifacts-<awsaccountid>`)
+   `DOC-EXAMPLE-BUCKET`)
 2. Create a folder within the bucket (e.g., `output_artifacts`)
 3. Create an IAM role with the following trust policy:
 
@@ -24,7 +24,12 @@ JSON
  "Principal": {
  "Service": "bedrock-agentcore.amazonaws.com"
  },
- "Action": "sts:AssumeRole"
+ "Action": "sts:AssumeRole",
+ "Condition": {
+ "StringEquals": {
+ "aws:SourceAccount": "`111122223333`"
+ }
+ }
  }
  ]
 }`
@@ -46,7 +51,12 @@ JSON
  "s3:PutObject",
  "s3:GetObject"
  ],
- "Resource": "arn:aws:s3:::codeinterpreterartifacts-`111122223333`/*"
+ "Resource": "arn:aws:s3:::DOC-EXAMPLE-BUCKET/*",
+ "Condition": {
+ "StringEquals": {
+ "s3:ResourceAccount": "${aws:PrincipalAccount}"
+ }
+ }
  }
  ]
 }`
@@ -75,7 +85,7 @@ CP_ENDPOINT_URL = f"https://bedrock-agentcore-control.{REGION}.amazonaws.com"
 DP_ENDPOINT_URL = f"https://bedrock-agentcore.{REGION}.amazonaws.com"
 
 # Update the accountId to reflect the correct S3 path.
-S3_BUCKET_NAME = "codeinterpreterartifacts-<awsaccountid>"
+S3_BUCKET_NAME = "DOC-EXAMPLE-BUCKET"
 
 bedrock_agentcore_control_client = boto3.client(
     'bedrock-agentcore-control',

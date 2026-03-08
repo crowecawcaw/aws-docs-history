@@ -585,6 +585,31 @@ interactions.
 For more information about configuring lifecycle settings, see [Configure Amazon Bedrock AgentCore lifecycle settings](runtime-lifecycle-settings.md "runtime-lifecycle-settings.md"). For more direct control of session
 lifecycle through agent health status, see [Runtime session lifecycle management](runtime-long-run.md#runtime-long-run-session-lifecycle "runtime-long-run.md#runtime-long-run-session-lifecycle").
 
+### Stop runtime session
+
+To stop the running session before the configurable `IdleRuntimeSessionTimeout`
+(defaulted at 15 minutes) and save on any potential runaway costs, use the
+`stop_runtime_session` API.
+
+Create a file named `stop_runtime_session.py` with the following content:
+
+```
+from bedrock_agentcore.runtime import AgentCoreRuntimeClient
+import os
+
+runtime_arn = os.getenv('AGENT_ARN')
+if not runtime_arn:
+    raise ValueError("AGENT_ARN environment variable is required")
+
+client = AgentCoreRuntimeClient(region="us-west-2")
+session_id = "user-123-conversation-456"
+response = client.stop_runtime_session(
+    runtime_arn=runtime_arn,
+    session_id=session_id,
+    qualifier="DEFAULT"
+)
+```
+
 ## Observability
 
 [Amazon Bedrock AgentCore Observability](observability.md "observability.md") helps you trace, debug, and monitor agents

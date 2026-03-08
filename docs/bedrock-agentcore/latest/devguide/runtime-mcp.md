@@ -95,6 +95,11 @@ if __name__ == "__main__":
   Python functions into MCP tools
 - **Tools**: Three simple tools that
   demonstrate different types of operations
+- **stateless_http=True**: Configures the server in stateless mode, which is the default for basic MCP servers
+
+###### Stateful MCP for interactive features
+
+For MCP servers that require multi-turn interactions (elicitation) or LLM-generated content (sampling), use `stateless_http=False` to enable stateful mode. Stateful MCP servers maintain session context across multiple requests within the same tool invocation. For more information, see [Stateful MCP server features](mcp-stateful-features.md "mcp-stateful-features.md").
 
 ## Step 2: Test your MCP server locally
 

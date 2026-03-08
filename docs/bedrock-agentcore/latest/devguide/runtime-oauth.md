@@ -333,7 +333,11 @@ response = client.create_agent_runtime(
         }
     },
     networkConfiguration={"networkMode":"PUBLIC"},
-    roleArn='arn:aws:iam::111122223333:role/AgentRuntimeRole'
+    roleArn='arn:aws:iam::111122223333:role/AgentRuntimeRole',
+    lifecycleConfiguration={
+        'idleRuntimeSessionTimeout': 300,  # 5 min, configurable
+        'maxLifetime': 1800                # 30 minutes, configurable
+    },
 )
 ```
 

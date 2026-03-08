@@ -20,7 +20,7 @@ For information about the HTTP protocol that the agent uses, see [HTTP protocol 
 - [Step 5: Deploy to Amazon Bedrock AgentCore Runtime](#deploy-runtime "#deploy-runtime")
 - [Step 6: Test your deployed agent](#test-deployed-agent "#test-deployed-agent")
 - [Step 7: Invoke your agent programmatically](#invoke-programmatically "#invoke-programmatically")
-- [Step 8: Clean up](#clean-up "#clean-up")
+- [Step 8: Stop session or clean up](#stop-session-or-clean-up "#stop-session-or-clean-up")
 - [Find your resources](#find-resources "#find-resources")
 - [Common issues and solutions](#common-issues "#common-issues")
 - [Advanced options (Optional)](#advanced-options "#advanced-options")
@@ -222,10 +222,16 @@ If you plan on integrating your agent with OAuth, you can't use the AWS SDK to
 call `InvokeAgentRuntime`. Instead, make a HTTPS request to
 `InvokeAgentRuntime`. For more information, see [Authenticate and authorize with Inbound Auth and Outbound Auth](runtime-oauth.md "runtime-oauth.md").
 
-## Step 8: Clean up
+## Step 8: Stop session or clean up
 
-If you no longer want to host the agent in the AgentCore Runtime, use the `destroy` commnand
-to delete the AWS resources that the starter toolit
+To stop the running session before the configurable `IdleRuntimeSessionTimeout` (defaulted at 15 minutes) and save on any potential runaway costs, execute:
+
+```
+agentcore stop-session
+```
+
+If you no longer want to host the agent in the AgentCore Runtime, use the `destroy` command
+to delete the AWS resources that the starter toolkit
 created for you.
 
 ```

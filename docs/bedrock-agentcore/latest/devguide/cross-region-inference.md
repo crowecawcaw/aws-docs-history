@@ -35,11 +35,12 @@ For AgentCore Evaluations, if you don't want cross-region inference, please see 
 For a list of Region codes and endpoints supported in AgentCore, see [Supported AWS Regions](agentcore-regions.md "agentcore-regions.md"). For endpoints, see [Amazon Bedrock AgentCore endpoints and
 quotas](../../../general/latest/gr/bedrock_agentcore.md "../../../general/latest/gr/bedrock_agentcore.md").
 
-| Supported AgentCore Memory geography | Inference regions                                                                                                                                                  |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| United States                        | US East (N. Virginia) (us-east-1)<br>US East (Ohio) (us-east-2)<br>US West (Oregon) (us-west-2)                                                                    |
-| Europe                               | Europe (Frankfurt) (eu-central-1)<br>Europe (Ireland) (eu-west-1)                                                                                                  |
-| Asia Pacific                         | Asia Pacific (Tokyo) (ap-northeast-1)<br>Asia Pacific (Mumbai) (ap-south-1)<br>Asia Pacific (Singapore) (ap-southeast-1)<br>Asia Pacific (Sydney) (ap-southeast-2) |
+| Supported AgentCore Memory geography | Inference regions                                                                                                                                                                                           |
+| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Canada (Effective 3/31)              | Canada (Central) (ca-central-1)<br>US East (N. Virginia) (us-east-1)<br>US East (Ohio) (us-east-2)<br>US West (Oregon) (us-west-2)                                                                          |
+| United States                        | US East (N. Virginia) (us-east-1)<br>US East (Ohio) (us-east-2)<br>US West (Oregon) (us-west-2)                                                                                                             |
+| Europe                               | Europe (Frankfurt) (eu-central-1)<br>Europe (Stockholm) (eu-north-1)<br>Europe (Ireland) (eu-west-1)<br>Europe (London) (eu-west-2)<br>Europe (Paris) (eu-west-3)                                           |
+| Asia Pacific                         | Asia Pacific (Tokyo) (ap-northeast-1)<br>Asia Pacific (Seoul) (ap-northeast-2)<br>Asia Pacific (Mumbai) (ap-south-1)<br>Asia Pacific (Singapore) (ap-southeast-1)<br>Asia Pacific (Sydney) (ap-southeast-2) |
 
 ## Supported Regions for Policy in AgentCore cross-region inference
 

@@ -30,6 +30,7 @@ The following AgentCore resources support tagging:
 - AgentCore Memory
 - Custom Evaluator
 - Online Evaluation Config
+- Policy Engine
 
 ## Tag restrictions
 
@@ -63,6 +64,7 @@ You can add tags when you create the following AgentCore resources:
 - API key credential provider
 - Custom Evaluator
 - Online Evaluation Config
+- Policy Engine
 
 ###### To add tags when creating a resource
 
@@ -99,6 +101,7 @@ You can add tags when you create resources using the following API operations:
 - [CreateAPIKeyCredentialProvider](../../../bedrock-agentcore-control/latest/APIReference/API_CreateAPIKeyCredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateAPIKeyCredentialProvider.md") – Include tags in the `tags` parameter.
 - [CreateEvaluator](../../../bedrock-agentcore-control/latest/APIReference/API_CreateEvaluator.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateEvaluator.md") – Include tags in the `tags` parameter.
 - [CreateOnlineEvaluationConfig](../../../bedrock-agentcore-control/latest/APIReference/API_CreateOnlineEvaluationConfig.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateOnlineEvaluationConfig.md") – Include tags in the `tags` parameter.
+- [CreatePolicyEngine](../../../bedrock-agentcore-control/latest/APIReference/API_CreatePolicyEngine.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreatePolicyEngine.md") – Include tags in the `tags` parameter.
 
 ###### Adding tags to existing resources
 

@@ -25,7 +25,7 @@ file archive.
 - [Step 3: Test locally](#step-3-test-locally "#step-3-test-locally")
 - [Step 4: Enable observability for your agent](#step-4-enable-observability "#step-4-enable-observability")
 - [Step 5: Deploy to AgentCore Runtime and invoke](#step-5-deploy "#step-5-deploy")
-- [Step 6: Update or cleanup](#step-6-update-cleanup "#step-6-update-cleanup")
+- [Step 6: Stop session, update, or cleanup](#step-6-update-cleanup "#step-6-update-cleanup")
 - [Direct code deployment concepts](#runtime-code-deploy-concepts "#runtime-code-deploy-concepts")
 - [Common Issues](#common-issues-direct-code-deploy "#common-issues-direct-code-deploy")
 
@@ -270,7 +270,11 @@ response = agentcore_client.create_agent_runtime(
         } # if not adding otel dependency, remove opentelemetry-instrument from entrypoint array
     },
     networkConfiguration={"networkMode": "PUBLIC"},
-    roleArn=f"arn:aws:iam::{account_id}:role/AmazonBedrockAgentCoreSDKRuntime-us-west-2"
+    roleArn=f"arn:aws:iam::{account_id}:role/AmazonBedrockAgentCoreSDKRuntime-us-west-2",
+    lifecycleConfiguration={
+        'idleRuntimeSessionTimeout': 300,  # 5 min, configurable
+        'maxLifetime': 1800                # 30 minutes, configurable
+    },
 )
 print(f"Agent Runtime created successfully!")
 print(f"Agent Runtime ARN: {response['agentRuntimeArn']}")
@@ -314,18 +318,24 @@ Select an endpoint and click **Test Endpoint** to navigate to the Playground/San
 
 Your agent requires an execution role with appropriate permissions. For detailed information about execution roles and permissions, see [AgentCore Runtime permissions](runtime-permissions.md "runtime-permissions.md"). The execution role must include basic Amazon Bedrock AgentCore runtime permissions, S3 access permissions for your deployment package, and CloudWatch Logs permissions for observability.
 
-## Step 6: Update or cleanup
+## Step 6: Stop session, update, or cleanup
 
-Update or cleanup your agent using one of the following methods:
+Stop your runtime session, update, or cleanup your agent using one of the following methods:
 
 starter toolkit
-To update previously deployed AgentCore Runtime execute:
+To update previously deployed AgentCore Runtime, execute:
 
 ```
 agentcore launch
 ```
 
-To delete all resources related to a AgentCore Runtime execute:
+To stop the running session before the configurable `IdleRuntimeSessionTimeout` (defaulted at 15 minutes) and save on any potential runaway costs, execute:
+
+```
+agentcore stop-session
+```
+
+To delete all resources related to a AgentCore Runtime, execute:
 
 ```
 agentcore destroy
@@ -373,6 +383,19 @@ response = bedrock_agentcore_client.update_agent_runtime(
 print(f"Agent Runtime updated successfully!")
 print(f"Agent Runtime ARN: {response['agentRuntimeArn']}")
 print(f"Status: {response['status']}")
+```
+
+To stop the running session before the configurable `IdleRuntimeSessionTimeout` (defaulted at 15 minutes) and save on any potential runaway costs, use the following boto3 code:
+
+```
+import boto3
+
+agent_core_client = boto3.client('bedrock-agentcore', region_name='us-west-2')
+response = agent_core_client.stop_runtime_session(
+    agentRuntimeArn='arn:aws:bedrock-agentcore:us-west-2:`account-id`:runtime/`agent-name-suffix`',
+    runtimeSessionId='`your-session-id`',
+    qualifier="DEFAULT"
+)
 ```
 
 Following boto3 code will delete Amazon Bedrock AgentCore runtime and .zip

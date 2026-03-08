@@ -287,6 +287,7 @@ Status: Success
 
 After you successfully deploy and test your first AgentCore agent with the AgentCore MCP server, you can explore additional capabilities:
 
+- _Stateful MCP features_ - Build MCP servers with resources, prompts, elicitation, sampling, and progress notifications. See [Stateful MCP server features](mcp-stateful-features.md "mcp-stateful-features.md").
 - _Tool integration_ - Connect your AgentCore agent to Amazon Bedrock AgentCore Gateway for external tool access
 - _Memory integration_ - Add Amazon Bedrock AgentCore Memory for conversation context
 - _Identity management_ - Implement Amazon Bedrock AgentCore Identity for secure access control

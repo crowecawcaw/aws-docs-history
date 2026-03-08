@@ -95,6 +95,7 @@ infrastructure from disparate components.
 - [Use any agent framework](using-any-agent-framework.md "using-any-agent-framework.md")
 - [Use any foundation model](using-any-model.md "using-any-model.md")
 - [Deploy MCP servers in AgentCore Runtime](runtime-mcp.md "runtime-mcp.md")
+- [Stateful MCP server features](mcp-stateful-features.md "mcp-stateful-features.md")
 - [Deploy A2A servers in AgentCore Runtime](runtime-a2a.md "runtime-a2a.md")
 - [Use isolated sessions for agents](runtime-sessions.md "runtime-sessions.md")
 - [Handle asynchronous and long running agents with Amazon Bedrock AgentCore Runtime](runtime-long-run.md "runtime-long-run.md")

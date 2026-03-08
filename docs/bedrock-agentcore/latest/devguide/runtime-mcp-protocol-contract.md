@@ -16,15 +16,17 @@ For example code, see [Deploy MCP servers in AgentCore Runtime](runtime-mcp.md "
 
 Your MCP server must implement these specific protocol requirements:
 
-- **Transport**: Stateless streamable-http only
-
-* Ensures compatibility with AWS's session management and load
-  balancing
-
+- **Transport**: Streamable-http transport is required.
+  By default, use stateless mode (`stateless_http=True`) for compatibility with AWS's session management and load
+  balancing.
 - **Session Management**: Platform
-  automatically adds `Mcp-Session-Id` header for session isolation,
-  servers must support stateless operation so as to not reject platform
-  generated `Mcp-Session-Id` header
+  automatically adds `Mcp-Session-Id` header for session isolation.
+  In stateless mode, servers must support stateless operation so as to not reject platform
+  generated `Mcp-Session-Id` header.
+
+###### Stateful MCP for elicitation and sampling
+
+Amazon Bedrock AgentCore also supports stateful MCP servers (`stateless_http=False`) that enable capabilities such as elicitation (multi-turn user interactions) and sampling (LLM-generated content). Stateful mode is required when your MCP server needs to maintain session context across multiple requests within the same tool invocation. For more information and examples, see [Stateful MCP server features](mcp-stateful-features.md "mcp-stateful-features.md").
 
 ## Container requirements
 

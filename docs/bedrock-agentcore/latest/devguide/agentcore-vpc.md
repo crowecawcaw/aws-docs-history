@@ -173,7 +173,11 @@ response = client.create_runtime(
             'subnets': ['subnet-0123456789abcdef0', 'subnet-0123456789abcdef1'],
             'securityGroups': ['sg-0123456789abcdef0']
         }
-    }
+    },
+    lifecycleConfiguration={
+        'idleRuntimeSessionTimeout': 300,  # 5 min, configurable
+        'maxLifetime': 1800                # 30 minutes, configurable
+    },
 )
 ```
 

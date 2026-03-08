@@ -20,7 +20,7 @@ For information about the HTTP protocol that the agent uses, see [HTTP protocol 
 - [Step 6: Deploy to Amazon Bedrock AgentCore Runtime](#ts-deploy-runtime "#ts-deploy-runtime")
 - [Step 7: Test your deployed agent](#ts-test-deployed-agent "#ts-test-deployed-agent")
 - [Step 8: Invoke your agent programmatically](#ts-invoke-programmatically "#ts-invoke-programmatically")
-- [Step 9: Clean up](#ts-clean-up "#ts-clean-up")
+- [Step 9: Stop session or clean up](#ts-stop-session-or-clean-up "#ts-stop-session-or-clean-up")
 - [Find your resources](#ts-find-resources "#ts-find-resources")
 - [Common issues and solutions](#ts-common-issues "#ts-common-issues")
 - [Advanced: Streaming responses](#ts-streaming-responses "#ts-streaming-responses")
@@ -288,7 +288,40 @@ If you plan on integrating your agent with OAuth, you can't use the AWS SDK to
 call `InvokeAgentRuntime`. Instead, make a HTTPS request to
 `InvokeAgentRuntime`. For more information, see [Authenticate and authorize with Inbound Auth and Outbound Auth](runtime-oauth.md "runtime-oauth.md").
 
-## Step 9: Clean up
+## Step 9: Stop session or clean up
+
+To stop the running session before the configurable `IdleRuntimeSessionTimeout` (defaulted at 15 minutes) and save on any potential runaway costs, execute: `StopRuntimeSession`
+
+Create a file named `stop-runtime-session.ts` with the following
+content:
+
+###### Example
+
+```
+
+import {
+  BedrockAgentCoreClient,
+  StopRuntimeSessionCommand
+} from '@aws-sdk/client-bedrock-agentcore';
+
+const client = new BedrockAgentCoreClient({ region: 'us-west-2' });
+const agentArn = '`Agent ARN`';
+const command = new StopRuntimeSessionCommand({
+  agentRuntimeArn: agentArn,
+  runtimeSessionId: randomUUID(),
+  qualifier: 'DEFAULT',
+});
+
+const response = await client.send(command);
+console.log('Session stopped:', response);
+
+```
+
+Run the code with the following command:
+
+```
+npx tsx stop-runtime-session.ts
+```
 
 If you no longer want to host the agent in the AgentCore Runtime, use the `destroy` command
 to delete the AWS resources that the starter toolkit

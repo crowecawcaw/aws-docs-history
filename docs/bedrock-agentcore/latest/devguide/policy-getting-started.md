@@ -131,6 +131,9 @@ def lambda_handler(event, context):
     )
     print("✓ Lambda function created\n")
 
+    print("⏳   Waiting 10s for Lambda settings propagation")
+    time.sleep(10)
+
     # Step 4: Add Lambda target with refund tool schema
     print("Step 4: Adding Lambda target with refund tool schema...")
     lambda_target = gateway_client.create_mcp_gateway_target(

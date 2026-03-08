@@ -71,7 +71,7 @@ try:
             }
         },
         lifecycleConfiguration={
-            'idleRuntimeSessionTimeout': 1800,  # 30 minutes
+            'idleRuntimeSessionTimeout': 1800,  # 30 minutes, configurable
             'maxLifetime': 14400  # 4 hours
         },
         networkConfiguration={'networkMode': 'PUBLIC'},
@@ -174,11 +174,11 @@ try:
             }
         },
         lifecycleConfiguration={
-            'idleRuntimeSessionTimeout': 3600,  # 1 hour
+            'idleRuntimeSessionTimeout': 3600,  # 1 hour, configurable
             'maxLifetime': 1800                 # 30 minutes - INVALID!
         },
         networkConfiguration={'networkMode': 'PUBLIC'},
-        roleArn='`arn:aws:iam::123456789012:role/AgentRuntimeRole`'
+        roleArn='`arn:aws:iam::123456789012:role/AgentRuntimeRole`',
         )
 except client.exceptions.ValidationException as e:
     print(f"Validation failed: {e}")

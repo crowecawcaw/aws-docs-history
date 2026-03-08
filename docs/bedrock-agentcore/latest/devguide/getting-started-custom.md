@@ -293,7 +293,11 @@ response = client.create_agent_runtime(
         }
     },
     networkConfiguration={"networkMode": "PUBLIC"},
-    roleArn='arn:aws:iam::`account-id`:role/AgentRuntimeRole'
+    roleArn='arn:aws:iam::`account-id`:role/AgentRuntimeRole',
+    lifecycleConfiguration={
+        'idleRuntimeSessionTimeout': 300,  # 5 min, configurable
+        'maxLifetime': 1800                # 30 minutes, configurable
+    },
 )
 
 print(f"Agent Runtime created successfully!")
@@ -378,6 +382,28 @@ When you invoke your agent, you'll receive a response like this:
 }
 ```
 
+## Stop runtime session
+
+To stop the running session before the configurable `IdleRuntimeSessionTimeout` (defaulted at 15 minutes) and save on any potential runaway costs, execute: `stop_runtime_session`
+
+Create a file named `stop_runtime_session.py` with the following
+content:
+
+###### Example stop_runtime_session.py
+
+```
+
+import boto3
+
+agent_core_client = boto3.client('bedrock-agentcore', region_name='us-west-2')
+response = agent_core_client.stop_runtime_session(
+    agentRuntimeArn='arn:aws:bedrock-agentcore:us-west-2:`account-id`:runtime/myStrandsAgent-`suffix`',
+    runtimeSessionId='dfmeoagmreaklgmrkleafremoigrmtesogmtrskhmtkrlshmt',
+    qualifier="DEFAULT"
+)
+
+```
+
 ## Amazon Bedrock AgentCore requirements summary
 
 - **Platform**: Must be
@@ -402,6 +428,7 @@ In this guide, you've learned how to:
 - Deploy your agent to ECR
 - Create an agent runtime in Amazon Bedrock AgentCore
 - Invoke your deployed agent
+- Stop agent runtime session
 
 By following these steps, you can create and deploy custom agents that leverage the
 power of Amazon Bedrock AgentCore while maintaining full control over your agent's
