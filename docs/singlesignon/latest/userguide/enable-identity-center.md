@@ -29,6 +29,10 @@ The organization management account can control whether [organization member
 accounts can create account instances of IAM Identity Center](control-account-instance.md "control-account-instance.md") by using a Service Control
 Policy.
 
+If you use a free tier account, creating an AWS organization automatically upgrades
+your account to a paid plan with pay-as-you-go pricing. Your free tier credits
+expire immediately. For more information, see [AWS Free Tier FAQs](https://aws.amazon.com/free/free-tier-faqs/ "https://aws.amazon.com/free/free-tier-faqs/").
+
 For a comparison of the different capabilities provided by the different instance types, see [Organization and account instances of IAM Identity Center](identity-center-instances.md "identity-center-instances.md").
 
 Before enabling IAM Identity Center, we recommend you review the [IAM Identity Center prerequisites and considerations](identity-center-prerequisites.md "identity-center-prerequisites.md").

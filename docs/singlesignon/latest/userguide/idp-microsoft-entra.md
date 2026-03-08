@@ -330,8 +330,8 @@ step.
    **Next**.
 4. On the **Configure external identity provider** page, under
    **Service provider metadata**, choose **Default IPv4** or
-   **Dual-stack**, then select **Download metadata
-   file** to download the XML file.
+   **Dual-stack**. You can download the service provider metadata
+   file after you complete the identity source change.
 5. In the same section, locate the **AWS access portal sign-in URL**
    value and copy it. You will need to enter this value when prompted in the next
    step.
