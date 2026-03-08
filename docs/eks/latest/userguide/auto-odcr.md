@@ -8,7 +8,7 @@ You can control the deployment of workloads onto [Capacity Reservations](../../.
 
 ###### Tip
 
-By default, EKS Auto Mode automatically launches into open ODCRs and ML Capacity Blocks. When using `capacityReservationSelectorTerms` in the NodeClass definition, EKS Auto Mode will no longer automatically use any open Capacity Reservations.
+By default, EKS Auto Mode can launch into open ODCRs through open-matching, but does not prioritize them. Instances launched through open-matching are labeled `karpenter.sh/capacity-type: on-demand`, not `reserved`. To prioritize ODCR usage and have instances labeled `karpenter.sh/capacity-type: reserved`, configure `capacityReservationSelectorTerms` in the NodeClass definition. Capacity Blocks for ML always require `capacityReservationSelectorTerms` and are not used automatically.
 
 ## EC2 On-Demand Capacity Reservations (ODCRs)
 

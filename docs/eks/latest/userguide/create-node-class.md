@@ -135,10 +135,10 @@ spec:
         kubernetes.io/role/pod: "1"
     # Alternative using direct subnet ID
     # - id: "subnet-0987654321fedcba0"
-# must include Pod security group selector also
- podSecurityGroupSelectorTerms:
-  - tags:
-      Name: "eks-pod-sg"
+  # must include Pod security group selector also
+  podSecurityGroupSelectorTerms:
+    - tags:
+        Name: "eks-pod-sg"
     # Alternative using direct security group ID
     # - id: "sg-0123456789abcdef0"
 
@@ -227,19 +227,31 @@ spec:
 - **Default node class** - Do not name your custom node class `default`. This is because EKS Auto Mode includes a `NodeClass` called `default` that is automatically provisioned when you enable at least one built-in `NodePool`. For information about enabling built-in `NodePools`, see [Enable or Disable Built-in NodePools](set-builtin-node-pools.md "set-builtin-node-pools.md").
 - **`subnetSelectorTerms` behavior with multiple subnets** - If there are multiple subnets that match the `subnetSelectorTerms` conditions or that you provide by ID, EKS Auto Mode creates nodes distributed across the subnets.
   - If the subnets are in different Availability Zones (AZs), you can use Kubernetes features like [Pod topology spread constraints](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#pod-topology-spread-constraints "https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#pod-topology-spread-constraints") and [Topology Aware Routing](https://kubernetes.io/docs/concepts/services-networking/topology-aware-routing/ "https://kubernetes.io/docs/concepts/services-networking/topology-aware-routing/") to spread Pods and traffic across the zones, respectively.
-  - If there are multiple subnets _in the same AZ_ that match the `subnetSelectorTerms`, EKS Auto Mode creates Pods on each node distributed across the subnets in that AZ. EKS Auto Mode creates secondary network interfaces on each node in the other subnets in the same AZ. It chooses based on the number of available IP addresses in each subnet, to use the subnets more efficiently. However, you can’t specify which subnet EKS Auto Mode uses for each Pod; if you need Pods to run in specific subnets, use [Subnet selection for Pods](#pod-subnet-selector "#pod-subnet-selector") instead.
+  - If there are multiple subnets _in the same AZ_ that match the `subnetSelectorTerms`, EKS Auto Mode creates Pods on each node distributed across the subnets in that AZ. EKS Auto Mode creates secondary network interfaces on each node in the other subnets in the same AZ. It chooses based on the number of available IP addresses in each subnet, to use the subnets more efficiently. However, you can’t specify which subnet EKS Auto Mode uses for each Pod; if you need Pods to run in specific subnets, use [Separate subnets and security groups for Pods](#pod-subnet-selector "#pod-subnet-selector") instead.
 
-## Subnet selection for Pods
+## Separate subnets and security groups for Pods
 
-The `podSubnetSelectorTerms` and `podSecurityGroupSelectorTerms` fields enables advanced networking configurations by allowing Pods to run in different subnets than their nodes. This separation provides enhanced control over network traffic routing and security policies. Note that `podSecurityGroupSelectorTerms` are required with the `podSubnetSelectorTerms`.
+The `podSubnetSelectorTerms` and `podSecurityGroupSelectorTerms` fields enable advanced networking configurations by allowing Pods to use different subnets and security groups than their nodes. Both fields must be specified together. This separation provides enhanced control over network traffic routing and security policies.
+
+###### Note
+
+This feature is different from the [Security Groups for Pods](security-groups-for-pods.md "security-groups-for-pods.md") (SGPP) feature used with the AWS VPC CNI for non-EKS Auto Mode compute. SGPP is not supported in EKS Auto Mode. Instead, use `podSecurityGroupSelectorTerms` in the `NodeClass` to apply separate security groups to Pod traffic. The security groups apply at the `NodeClass` level, meaning all Pods on nodes using that `NodeClass` share the same Pod security groups.
+
+### How it works
+
+When you configure `podSubnetSelectorTerms` and `podSecurityGroupSelectorTerms`:
+
+1. The node’s primary ENI uses the subnets and security groups from `subnetSelectorTerms` and `securityGroupSelectorTerms`. Only the node’s own IP address is assigned to this interface.
+2. EKS Auto Mode creates secondary ENIs in the subnets matching `podSubnetSelectorTerms`, with the security groups from `podSecurityGroupSelectorTerms` attached. Pod IP addresses are allocated from these secondary ENIs using /28 prefixes by default, with automatic fallback to secondary IPs (/32) when a contiguous prefix block is not available. If `ipv4PrefixSize` is set to `"32"` in `advancedNetworking`, only secondary IPs are used.
+3. The security groups specified in `podSecurityGroupSelectorTerms` apply to Pod traffic within the VPC. For traffic destined outside the VPC, Pods use the node’s primary ENI (and its security groups) because source network address translation (SNAT) translates the Pod IP to the node IP. You can modify this behavior with the `snatPolicy` field in the `NodeClass`.
 
 ### Use cases
 
-Use `podSubnetSelectorTerms` when you need to:
+Use `podSubnetSelectorTerms` and `podSecurityGroupSelectorTerms` when you need to:
 
-- Separate infrastructure traffic (node-to-node communication) from application traffic (Pod-to-Pod communication)
+- Apply different security groups to control traffic for nodes and Pods separately.
+- Separate infrastructure traffic (node-to-node communication) from application traffic (Pod-to-Pod communication).
 - Apply different network configurations to node subnets than Pod subnets.
-- Implement different security policies or routing rules for nodes and Pods.
 - Configure reverse proxies or network filtering specifically for node traffic without affecting Pod traffic. Use `advancedNetworking` and `certificateBundles` to define your reverse proxy and any self-signed or private certificates for the proxy.
 
 ### Example configuration
@@ -252,7 +264,7 @@ metadata:
 spec:
   role: MyNodeRole
 
-  # Subnets for EC2 instances (nodes)
+  # Subnets and security groups for EC2 instances (nodes)
   subnetSelectorTerms:
     - tags:
         Name: "node-subnet"
@@ -262,7 +274,7 @@ spec:
     - tags:
         Name: "eks-cluster-sg"
 
-  # Separate subnets for Pods
+  # Separate subnets and security groups for Pods
   podSubnetSelectorTerms:
     - tags:
         Name: "pod-subnet"
@@ -273,25 +285,27 @@ spec:
       Name: "eks-pod-sg"
 ```
 
-### Considerations for subnet selectors for Pods
+### Considerations for separate Pod subnets and security groups
 
-- **Reduced Pod density**: Fewer Pods can run on each node when using `podSubnetSelectorTerms`, because the primary network interface of the node is in the node subnet, and can’t be used for Pods in the Pod subnet.
-- **Subnet selector limitations**: The standard `subnetSelectorTerms` and `securityGroupSelectorTerms` configurations don’t apply to Pod subnet selection.
+- **Security group scope**: The security groups from `podSecurityGroupSelectorTerms` are attached to the secondary ENIs and apply to Pod traffic within the VPC. When SNAT is enabled (the default `snatPolicy: Random`), traffic leaving the VPC is translated to the node’s primary ENI IP address, so the node’s security groups from `securityGroupSelectorTerms` apply to that traffic instead. If you set `snatPolicy: Disabled`, Pods use their own IP addresses for all traffic, and you must ensure that routing and security groups are configured accordingly.
+- **NodeClass-level granularity**: The Pod security groups apply to all Pods scheduled on nodes using the `NodeClass`. To apply different security groups to different workloads, create separate `NodeClass` and `NodePool` resources and use taints, tolerations, or node selectors to schedule workloads to the appropriate nodes.
+- **Reduced Pod density**: Fewer Pods can run on each node because the primary network interface of the node is reserved for the node IP and can’t be used for Pods.
+- **Subnet selector limitations**: The standard `subnetSelectorTerms` and `securityGroupSelectorTerms` configurations don’t apply to Pod subnet or security group selection.
 - **Network planning**: Ensure adequate IP address space in both node and Pod subnets to support your workload requirements.
 - **Routing configuration**: Verify that route table and network Access Control List (ACL) of the Pod subnets are properly configured for communication between node and Pod subnets.
-- **Availability Zones**: Verify that you’ve created Pod subnets across multiple AZs. If you are using specific Pod subnet, it must be in the same AZ as the node subnet AZ.
+- **Availability Zones**: Verify that you’ve created Pod subnets across multiple AZs. If you are using a specific Pod subnet, it must be in the same AZ as the node subnet AZ.
 
 ## Secondary IP Mode for Pods
 
-The `ipv4PrefixSize` fields enables advanced networking configurations by allowing only allocating secondary IP addresses to nodes. This feature doesn’t allocate prefix (/28) to nodes and maintain only one secondary IP as MinimalIPTarget.
+The `ipv4PrefixSize` field enables advanced networking configurations by allocating only secondary IP addresses to nodes. This feature doesn’t allocate prefixes (/28) to nodes and maintains only one secondary IP as MinimalIPTarget.
 
 ### Use cases
 
 Use `ipv4PrefixSize` when you need to:
 
-- **Reduced IP utilization**: Only one IP addresses will be warmed up in every node.
-- **Lower pods churning rate**: Pods creation velocity is not a major concern.
-- **No prefix fragmentation**: Prefix caused fragmentation is a major concern or blocker to use Auto mode.
+- **Reduced IP utilization**: Only one IP address will be warmed up in every node.
+- **Lower pod churning rate**: Pod creation velocity is not a major concern.
+- **No prefix fragmentation**: Prefix-caused fragmentation is a major concern or blocker to use Auto Mode.
 
 ### Example configuration
 
@@ -309,18 +323,18 @@ spec:
 
 ### Considerations for secondary IP mode
 
-- **Reduced Pod creation velocity**: Since only one secondary IP is warmed up, the IPAM service need more time to provision IPs on more pods creation.
+- **Reduced Pod creation velocity**: Since only one secondary IP is warmed up, the IPAM service needs more time to provision IPs when more pods are created.
 
 ## Disable IPv4 egress from IPv6 pods in IPv6 clusters.
 
-The `enableV4Egress` fields is true by default. For Auto Mode IPv6 clusters, the feature can be disabled and thus Auto Mode won’t create an egress only IPv4 interface for IPv6 pods. This is important because the IPv4 network interface will not be secured by the Network policy feature. Network policies will only be enforced on the Pod’s primary interface (i.e.,) eth0.
+The `enableV4Egress` field is `true` by default. For Auto Mode IPv6 clusters, the feature can be disabled so that Auto Mode won’t create an egress-only IPv4 interface for IPv6 pods. This is important because the IPv4 egress interface is not subject to Network Policy enforcement. Network policies are only enforced on the Pod’s primary interface (eth0).
 
 ### Use cases
 
 Use `enableV4Egress` when you need to:
 
 - **Use IPv6 Cluster**: IPv4 egress traffic is allowed by default.
-- **Use Network Policy**: Currently EKS network policy isn’t supporting dual stack. Disabling the v4Egress can protect pods' traffic being egressed from pods unexpectedly.
+- **Use Network Policy**: Currently EKS Network Policy doesn’t support dual stack. Disabling `enableV4Egress` can prevent pod traffic from egressing over IPv4 unexpectedly.
 
 ### Example configuration
 

@@ -20,7 +20,7 @@ Identify the node and pod CIDRs you will use for your hybrid nodes and the workl
 
 The on-premises node and pod CIDR blocks must meet the following requirements:
 
-1. Be within one of the following `IPv4` RFC-1918 ranges: `10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16`.
+1. Be within one of the following `IPv4` RFC-1918 ranges: `10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16` , or within the CGNAT range defined by RFC 6598: `100.64.0.0/10` .
 2. Not overlap with each other, the VPC CIDR for your EKS cluster, or your Kubernetes service `IPv4` CIDR.
 
 ### On-premises pod network routing
@@ -115,7 +115,7 @@ The following steps use the AWS CLI. You can also create these resources in the 
 
 ### Step 1: Create VPC
 
-1. Run the following command to create a VPC. Replace `VPC_CIDR` with an `IPv4` RFC-1918 (private) or non-RFC-1918 (public) CIDR range (for example `10.0.0.0/16`).
+1. Run the following command to create a VPC. Replace VPC_CIDR with an IPv4 CIDR range that is either RFC 1918 (private), CGNAT (RFC 6598), or non-RFC 1918/non-CGNAT (public) (for example, 10.0.0.0/16).
    Note: DNS resolution, which is an EKS requirement, is enabled for the VPC by default.
 
 ```

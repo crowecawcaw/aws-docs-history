@@ -249,7 +249,7 @@ Cluster provisioning takes several minutes. 12. Continue with [Step 3: Update ku
 
 
 
-        `aws eks create-cluster --bootstrapSelfManagedAddons false`
+        `aws eks create-cluster --no-bootstrap-self-managed-addons …​`
         * If you want to specify which `IPv4` Classless Inter-domain Routing (CIDR) block Kubernetes assigns service IP addresses from, you must specify it by adding the `--kubernetes-network-config serviceIpv4Cidr=<cidr-block>` to the following command.
 
 

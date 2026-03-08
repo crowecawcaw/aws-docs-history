@@ -279,7 +279,7 @@ aws eks create-cluster \
       \"accessConfig\": {
         \"authenticationMode\": \"API\"
       }
-    }
+    }"
 ```
 
 ### Check Cluster Status

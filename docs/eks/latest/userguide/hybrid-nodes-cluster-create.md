@@ -82,7 +82,7 @@ You need to install the latest version of the `eksctl` command line tool. To ins
    7. Replace `REMOTE_NODE_CIDRS` with the on-premises node CIDR for your hybrid nodes.
    8. Replace `REMOTE_POD_CIDRS` with the on-premises pod CIDR for workloads running on hybrid nodes or remove the line from your configuration if you are not running webhooks on hybrid nodes. You must configure your `REMOTE_POD_CIDRS` if your CNI does not use Network Address Translation (NAT) or masquerading for pod IP addresses when pod traffic leaves your on-premises hosts. You must configure `REMOTE_POD_CIDRS` if you are running webhooks on hybrid nodes, see [Configure webhooks for hybrid nodes](hybrid-nodes-webhooks.md "hybrid-nodes-webhooks.md") for more information.
    9. Your on-premises node and pod CIDR blocks must meet the following requirements:
-      1. Be within one of the IPv4 RFC-1918 ranges: `10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16`.
+      1. Be within one of the IPv4 RFC-1918 ranges: `10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16` , or within the CGNAT range defined by RFC 6598: `100.64.0.0/10`.
       2. Not overlap with each other, the `VPC CIDR` for your cluster, or your Kubernetes service IPv4 CIDR
 
       ```
@@ -138,7 +138,7 @@ curl -OL 'https://raw.githubusercontent.com/aws/eks-hybrid/refs/heads/main/examp
    6. `REMOTE_NODE_CIDRS`: the on-premises node CIDR for your hybrid nodes
    7. `REMOTE_POD_CIDRS`: the on-premises pod CIDR for workloads running on hybrid nodes. You must configure your `REMOTE_POD_CIDRS` if your CNI does not use Network Address Translation (NAT) or masquerading for pod IP addresses when pod traffic leaves your on-premises hosts. You must configure `REMOTE_POD_CIDRS` if you are running webhooks on hybrid nodes, see [Configure webhooks for hybrid nodes](hybrid-nodes-webhooks.md "hybrid-nodes-webhooks.md") for more information.
    8. Your on-premises node and pod CIDR blocks must meet the following requirements:
-      1. Be within one of the IPv4 RFC-1918 ranges: `10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16`.
+      1. Be within one of the IPv4 RFC-1918 ranges: `10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16`, or within the CGNAT range defined by RFC 6598: `100.64.0.0/10`.
       2. Not overlap with each other, the `VPC CIDR` for your cluster, or your Kubernetes service IPv4 CIDR.
 
    9. `CLUSTER_AUTH`: the cluster authentication mode for your cluster. Valid values are `API` and `API_AND_CONFIG_MAP`. The default in the template is `API_AND_CONFIG_MAP`.
@@ -199,7 +199,7 @@ aws cloudformation describe-stacks \
    10. `REMOTE_NODE_CIDRS`: the on-premises node CIDR for your hybrid nodes.
    11. `REMOTE_POD_CIDRS` (optional): the on-premises pod CIDR for workloads running on hybrid nodes.
    12. Your on-premises node and pod CIDR blocks must meet the following requirements:
-       1. Be within one of the IPv4 RFC-1918 ranges: `10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16`.
+       1. Be within one of the IPv4 RFC-1918 ranges: `10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16`, or within the CGNAT range defined by RFC 6598: `100.64.0.0/10`.
        2. Not overlap with each other, the `VPC CIDR` for your Amazon EKS cluster, or your Kubernetes service IPv4 CIDR.
 
        ```
@@ -254,7 +254,7 @@ aws eks describe-cluster \
    6. **Choose Configure remote networks to enable hybrid nodes** and specify your on-premises node and pod CIDRs for hybrid nodes.
    7. You must configure your remote pod CIDR if your CNI does not use Network Address Translation (NAT) or masquerading for pod IP addresses when pod traffic leaves your on-premises hosts. You must configure the remote pod CIDR if you are running webhooks on hybrid nodes.
    8. Your on-premises node and pod CIDR blocks must meet the following requirements:
-      1. Be within one of the IPv4 RFC-1918 ranges: `10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16`.
+      1. Be within one of the IPv4 RFC-1918 ranges: `10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16`, or within the CGNAT range defined by RFC 6598: `100.64.0.0/10`.
       2. Not overlap with each other, the `VPC CIDR` for your cluster, or your Kubernetes service IPv4 CIDR
 
    9. For **Cluster endpoint access**, select an option. After your cluster is created, you can change this option. For hybrid nodes-enabled clusters, you must choose either Public or Private. Before selecting a non-default option, make sure to familiarize yourself with the options and their implications. For more information, see [Cluster API server endpoint](cluster-endpoint.md "cluster-endpoint.md").

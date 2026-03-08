@@ -20,7 +20,7 @@ The default security group includes an outbound rule that allows Elastic Fabric 
 
 ###### Important
 
-If your cluster doesn’t need the outbound rule, you can remove it. If you remove it, you must still have the minimum rules listed in [Restricting cluster traffic](#security-group-restricting-cluster-traffic "#security-group-restricting-cluster-traffic"). If you remove the inbound rule, Amazon EKS recreates it whenever the cluster is updated.
+If your cluster doesn’t need the outbound rule to `0.0.0.0/0` (IPv4), `::/0` (IPv6), you can remove it. If you remove it, you must still have the minimum rules listed in [Restricting cluster traffic](#security-group-restricting-cluster-traffic "#security-group-restricting-cluster-traffic"). If you remove the inbound or outbound rules that allow traffic to/from the cluster security group itself, Amazon EKS recreates it whenever the cluster is updated.
 
 Amazon EKS adds the following tags to the security group. If you remove the tags, Amazon EKS adds them back to the security group whenever your cluster is updated.
 
@@ -45,7 +45,11 @@ aws eks describe-cluster --name my-cluster --query cluster.resourcesVpcConfig.cl
 
 ## Restricting cluster traffic
 
-If you need to limit the open ports between the cluster and nodes, you can remove the [default outbound rule](#security-group-default-rules "#security-group-default-rules") and add the following minimum rules that are required for the cluster. If you remove the [default inbound rule](#security-group-default-rules "#security-group-default-rules"), Amazon EKS recreates it whenever the cluster is updated.
+If you need to limit the open ports between the EKS control plane and nodes, you can remove the [default outbound rule](#security-group-default-rules "#security-group-default-rules") to `0.0.0.0/0` (IPv4)/`::/0` (IPv6) and add the following minimum rules that are required for the cluster.
+
+If you remove the [default inbound rule](#security-group-default-rules "#security-group-default-rules") that allows all traffic for source self (traffic from the cluster security group), Amazon EKS recreates it when the cluster is updated.
+
+If you remove the [default outbound rule](#security-group-default-rules "#security-group-default-rules") that allows all traffic for destination self (traffic to the cluster security group), Amazon EKS recreates it when the cluster is updated.
 
 | Rule type      | Protocol    | Port  | Destination            |
 | -------------- | ----------- | ----- | ---------------------- |

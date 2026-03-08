@@ -42,8 +42,8 @@ EKS Auto Mode supports:
 
 EKS Auto Mode does **not** support:
 
-- Security Groups per Pod (SGPP).
-- Custom Networking in the `ENIConfig`. You can put pods in multiple subnets or exclusively isolate them from the node traffic with [Subnet selection for Pods](create-node-class.md#pod-subnet-selector "create-node-class.md#pod-subnet-selector").
+- Security Groups per Pod (SGPP). To apply separate security groups to Pod traffic in Auto Mode, use `podSecurityGroupSelectorTerms` in the `NodeClass` instead. For more information, see [Separate subnets and security groups for Pods](create-node-class.md#pod-subnet-selector "create-node-class.md#pod-subnet-selector").
+- Custom Networking in the `ENIConfig`. You can put pods in multiple subnets or exclusively isolate them from the node traffic with [Separate subnets and security groups for Pods](create-node-class.md#pod-subnet-selector "create-node-class.md#pod-subnet-selector").
 - Warm IP, warm prefix, and warm ENI configurations.
 - Minimum IP targets configuration.
 - Other configurations supported by the open source AWS VPC CNI.
@@ -66,7 +66,7 @@ The service implements a cooldown pool for prefixes or secondary IPv4 addresses 
 
 **IPv6 Support**
 
-For IPv6 clusters, EKS Auto Mode provisions a `/80` IPv6 prefix per node on the primary network interface.
+For IPv6 clusters, EKS Auto Mode provisions a `/80` IPv6 prefix per node on the primary network interface. When using `podSubnetSelectorTerms`, the prefix is allocated on a secondary network interface in the pod subnet instead.
 
 The service also ensures proper management and garbage collection of all network interfaces.
 

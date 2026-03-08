@@ -26,7 +26,7 @@ https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/auto
 
 ## November 19, 2025
 
-**Feature**: Added support for static-capacity node pools that maintain a fixed number of nodes. For more information, see [Static-Capacity Node Pools in EKS Auto Mode](auto-static-capacity.md "auto-static-capacity.md").
+**Feature**: Added support for static-capacity node pools that maintain a fixed number of nodes. For more information, see [Static Capacity Node Pools in EKS Auto Mode](auto-static-capacity.md "auto-static-capacity.md").
 
 ## October 23, 2025
 
@@ -70,7 +70,7 @@ DRA is not currently supported by EKS Auto Mode.
 
 ## June 13, 2025
 
-**Feature:** Support for separate pod subnets in the `NodeClass`. This adds the optional keys ``podSubnetSelectorTerms` and `podSecurityGroupSelectorTerms` to set the subnets and security groups for the pods. For more information, see [Subnet selection for Pods](create-node-class.md#pod-subnet-selector "create-node-class.md#pod-subnet-selector").
+**Feature:** Support for separate pod subnets in the `NodeClass`. This adds the optional keys ``podSubnetSelectorTerms` and `podSecurityGroupSelectorTerms` to set the subnets and security groups for the pods. For more information, see [Separate subnets and security groups for Pods](create-node-class.md#pod-subnet-selector "create-node-class.md#pod-subnet-selector").
 
 ## April 30, 2025
 
