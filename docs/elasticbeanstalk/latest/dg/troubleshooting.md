@@ -19,6 +19,7 @@ more information and detailed walkthroughs, see [Troubleshooting Elastic Beansta
 
 ###### Topics
 
+- [Using AI-powered environment analysis](#troubleshooting-ai-analysis "#troubleshooting-ai-analysis")
 - [Using AWS Systems Manager Elastic Beanstalk runbooks](#troubleshooting-systems-manager "#troubleshooting-systems-manager")
 - [General guidance for troubleshooting your Elastic Beanstalk environment](#troubleshooting-general "#troubleshooting-general")
 - [Environments that access secrets and parameters with environment variables](#troubleshooting-secrets-env-variables "#troubleshooting-secrets-env-variables")
@@ -31,6 +32,14 @@ more information and detailed walkthroughs, see [Troubleshooting Elastic Beansta
 - [FAQ](#troubleshooting-faq "#troubleshooting-faq")
 - [Common Errors](#common-errors "#common-errors")
 - [Deployment errors](#python-common-troubleshooting "#python-common-troubleshooting")
+
+## Using AI-powered environment analysis
+
+Elastic Beanstalk provides AI-powered analysis to help identify root causes and recommend solutions for environment health issues. You can access this feature
+through the console's **AI Analysis** button or by using the Elastic Beanstalk API through the AWS CLI. The analysis examines your environment's logs,
+events, and instance health to identify critical issues and provide step-by-step troubleshooting recommendations.
+
+For more information, see [AI-powered environment analysis](health-ai-analysis.md "health-ai-analysis.md").
 
 ## Using AWS Systems Manager Elastic Beanstalk runbooks
 
@@ -95,6 +104,7 @@ recommendations to restore your environment to a healthy state.
 Error messages can appear on the Events page in the console, in logs, or on the Health page. You can also take actions to recover from a degraded
 environment that was caused by a recent change. If the health of your environment changes to Red, try the following:
 
+- Request an AI-powered analysis of your environment. For more information, see [AI-powered environment analysis](health-ai-analysis.md "health-ai-analysis.md").
 - If an operation on your environment returns an error that contains the text
   `The stack ``stack_id`` associated with environment ``environment-ID`` is in ``stack-status`` state`, see [Recovering your Elastic Beanstalk environment from an invalid state](environment-management-invalid-stack.md "environment-management-invalid-stack.md") for troubleshooting
   help.

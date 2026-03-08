@@ -67,6 +67,11 @@ JSON
 To customize permissions, you can add policies to the role attached to the default instance profile or create your own instance profile with a
 restricted set of permissions.
 
+To use the [AI-powered environment analysis](health-ai-analysis.md "health-ai-analysis.md") feature, add the `bedrock:InvokeModel`,
+`bedrock:ListFoundationModels`, `elasticbeanstalk:DescribeEvents`, and `elasticbeanstalk:DescribeEnvironmentHealth`
+permissions to your instance profile. These permissions allow Elastic Beanstalk to use Amazon Bedrock and access environment data for analyzing
+logs, events, and instance health.
+
 ###### Sections
 
 - [Creating an instance profile](#iam-instanceprofile-create "#iam-instanceprofile-create")
