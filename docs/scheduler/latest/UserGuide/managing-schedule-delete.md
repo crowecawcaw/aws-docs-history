@@ -1,6 +1,6 @@
 # Deleting a schedule in EventBridge Scheduler
 
-You can delete a schedule by either configuring automatic deletion, or by manually deleting an individual schedule. Use following topics
+You can delete a schedule by either configuring automatic deletion, or by manually deleting an individual schedule. Use the following topics
 to learn how to delete a schedule using both methods, and why you might choose one method over the other.
 
 ###### Topics

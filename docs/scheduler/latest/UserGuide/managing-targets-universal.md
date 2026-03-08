@@ -13,6 +13,14 @@ To configure a universal target for your schedule using the AWS CLI, or one of t
 
 For example, for Amazon SQS, the service name you specify is `arn:aws:scheduler:::aws-sdk:`sqs`:`sendMessage``.
 
+###### Note
+
+The `service` value in the universal target ARN must match the AWS SDK service
+identifier for the target service. This identifier can differ from the service's endpoint prefix. For
+example, for Amazon Cognito Identity Provider, use `cognitoidentityprovider` (not
+`cognito-idp`). To find the correct service identifier, see the AWS SDK documentation for
+the service you want to target.
+
 - Input – A well-formed JSON you specify with the request parameters that EventBridge Scheduler sends to the target API. The parameters and shape of the JSON you set in `Input`
   are determined by the service API your schedule invokes. To find this information, see the API reference for the service you want to target.
 

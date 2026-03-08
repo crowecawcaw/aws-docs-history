@@ -60,3 +60,31 @@ JSON
 }`
 
 ```
+
+If you use wildcard characters in the value of `aws:SourceArn`, you must use
+`ArnLike` instead of `StringEquals` as the condition operator. For
+example, the following trust policy uses `ArnLike` to match any schedule group
+in the account:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "scheduler.amazonaws.com"
+            },
+            "Action": "sts:AssumeRole",
+            "Condition": {
+                "ArnLike": {
+                    "aws:SourceArn": "arn:aws:scheduler:*:`123456789012`:schedule-group/*"
+                },
+                "StringEquals": {
+                    "aws:SourceAccount": "`123456789012`"
+                }
+            }
+        }
+    ]
+}
+```
