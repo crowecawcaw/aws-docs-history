@@ -55,7 +55,16 @@ aws controltower enable-baseline --baseline-identifier `<AWSControlTowerBaseline
 After you make updates to landing zone settings, or update your landing zone version, you must
 **Re-register** OUs to give them the latest changes. Follow these steps
 to re-register an OU programmatically, by resetting the associated
-`EnabledBaseline` resource.
+`EnabledBaseline` resource and any associated
+`EnabledControl` resources.
+
+###### Important
+
+If the OU has optional controls enabled, you must also call the [`ResetEnabledControl`](../APIReference/API_ResetEnabledControl.md "../APIReference/API_ResetEnabledControl.md") API for each enabled optional
+control after resetting the baseline. This step ensures that the optional controls
+remain consistent with the latest landing zone configuration. If you skip this step,
+optional controls on the OU may not reflect the latest landing zone changes. If you
+do not have any optional controls enabled, this step is not required.
 
 1. Get the ARN of the target OU to re-register.
 
@@ -74,3 +83,22 @@ aws controltower list-enabled-baselines --query 'enabledBaselines[?targetIdentif
 ```
 aws controltower reset-enabled-baseline --enabled-baseline-identifier `<EnabledBaselineArn>`
 ```
+
+4. If the OU has optional controls enabled, list the enabled controls
+   for the OU and reset each one so they remain consistent with the latest landing zone
+   configuration.
+
+List the enabled controls on the target OU:
+
+```
+aws controltower list-enabled-controls --target-identifier `<OU ARN>`
+```
+
+For each enabled optional control returned, reset it by calling:
+
+```
+aws controltower reset-enabled-control --enabled-control-identifier `<EnabledControlArn>`
+```
+
+For more information, see [ResetEnabledControl](../APIReference/API_ResetEnabledControl.md "../APIReference/API_ResetEnabledControl.md") in the _AWS Control Tower API
+Reference_.

@@ -12,7 +12,12 @@ resources that AWS Control Tower creates or manages, such as a landing zone, bas
 - AWS CloudTrail automatically records each lifecycle event as a _non-API AWS service event_. For more information, see [the AWS
   CloudTrail User Guide.](../../../awscloudtrail/latest/userguide/non-api-aws-service-events.md "../../../awscloudtrail/latest/userguide/non-api-aws-service-events.md")
 - Each lifecycle event also is delivered to the Amazon EventBridge and Amazon
-  CloudWatch Events services.
+  CloudWatch Events services. **Note:** To receive
+  lifecycle events in EventBridge, you must have an active AWS CloudTrail trail with
+  logging enabled. For more information about AWS service events delivered via
+  AWS CloudTrail, see [AWS
+  service events delivered via AWS CloudTrail](../../../eventbridge/latest/userguide/eb-service-event-cloudtrail.md "../../../eventbridge/latest/userguide/eb-service-event-cloudtrail.md") in the Amazon EventBridge
+  User Guide.
 
 ###### Lifecycle events in AWS Control Tower offer two primary benefits:
 

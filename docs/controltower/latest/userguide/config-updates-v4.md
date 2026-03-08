@@ -31,12 +31,9 @@
       in the organization, including non-Control Tower managed accounts.
   3.  Existing aggregators will be deleted - Organization aggregator in management account (`aws-controltower-ConfigAggregatorForOrganizations`)
       and account aggregator in Audit account (`aws-controltower-GuardRailsComplianceAggregator`) will be deleted.
-  4.  Controls associated with the deleted aggregators will be automatically removed. Additionally, since AWS Config Rules
-      and Configuration Aggregator will be service-linked resources, service control policy protection will no longer
-      be required.
+  4.  Since Configuration Aggregator is service-linked, controls associated with deleted aggregators will be automatically removed.
       1. [Disallow Changes to Tags Created by AWS Control Tower for AWS Config Resources](../controlreference/mandatory-controls.md#cloudwatch-disallow-config-changes "../controlreference/mandatory-controls.md#cloudwatch-disallow-config-changes")
       2. [Disallow Deletion of AWS Config Aggregation Authorizations Created by AWS Control Tower](../controlreference/mandatory-controls.md#config-aggregation-authorization-policy "../controlreference/mandatory-controls.md#config-aggregation-authorization-policy")
-      3. [Disallow Changes to AWS Config Rules Set Up by AWS Control Tower](../controlreference/mandatory-controls.md#config-rule-disallow-changes "../controlreference/mandatory-controls.md#config-rule-disallow-changes")
 
 - **New `ConfigBaseline` baseline:** There is now a separate `ConfigBaseline`
   at the OU level for detective controls support without requiring the comprehensive `AWSControlTowerBaseline`.
