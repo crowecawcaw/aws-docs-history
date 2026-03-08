@@ -14,12 +14,13 @@ Savings Plans.
   the low prices provided by Compute Savings Plans as you make these changes.
 - **Database Savings Plans** provide flexibility to use AWS database services
   while reducing costs by up to 35% on Aurora, RDS, DynamoDB, ElastiCache, DocumentDB,
-  Timestream, Neptune, Keyspaces, and DMS. These plans automatically apply to the latest
-  provisioned instance generations regardless of engine, instance family, size, Availability Zone
-  (AZ), or Region, and also apply to serverless usage. For example, with Database Savings Plans, you can
-  change between Aurora db.r7g and db.r8g instances, shift a workload from EU (Ireland) to EU
-  (London), modernize from RDS for Oracle to Aurora PostgreSQL-Compatible Edition, or move a
-  workload from RDS to DynamoDB while maintaining your discounted rates.
+  Timestream, Neptune, Keyspaces, DMS, and Amazon OpenSearch Service. These plans automatically
+  apply to the latest provisioned instance generations regardless of engine, instance family,
+  size, Availability Zone (AZ), or Region, and also apply to serverless usage. For example,
+  with Database Savings Plans, you can change between Aurora db.r7g and db.r8g instances, shift
+  a workload from EU (Ireland) to EU (London), modernize from RDS for Oracle to Aurora
+  PostgreSQL-Compatible Edition, or move a workload from RDS to DynamoDB while maintaining your
+  discounted rates.
 - **EC2 Instance Savings Plans** provide savings up to 72% off
   On-Demand, in exchange for a commitment to a specific instance family in a chosen AWS Region
   (for example, m5 in Virginia). These plans automatically apply to usage regardless of instance
