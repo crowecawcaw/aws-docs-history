@@ -33,7 +33,6 @@ changes to the mandatory controls.
   [here](../../../prescriptive-guidance/latest/designing-control-tower-landing-zone/config-mgmt.md "../../../prescriptive-guidance/latest/designing-control-tower-landing-zone/config-mgmt.md").
   - [Disallow Changes to Tags Created by AWS Control Tower for AWS Config Resources](#cloudwatch-disallow-config-changes "#cloudwatch-disallow-config-changes")
   - [Disallow Deletion of AWS Config Aggregation Authorizations Created by AWS Control Tower](#config-aggregation-authorization-policy "#config-aggregation-authorization-policy")
-  - [Disallow Changes to AWS Config Rules Set Up by AWS Control Tower](#config-rule-disallow-changes "#config-rule-disallow-changes")
 
 - The AWS CloudTrail integration tied to the manifest `centralizedLogging` configuration has two new controls
   starting landing zone 4.0
