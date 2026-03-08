@@ -49,4 +49,4 @@ This is the template for the ams-access-management role. It is the stack that cl
 [management-role.yaml](https://ams-account-access-templates.s3.amazonaws.com/management-role.yaml "https://ams-account-access-templates.s3.amazonaws.com/management-role.yaml").
 
 This is the template for the different access roles for the different access levels: ams-access-read-only, ams-access-operations, ams-access-admin-operations, ams-access-admin:
-[accelerate-roles.yaml](https://ams-account-access-templates.s3.amazonaws.com/accelerate-roles.yaml "https://ams-account-access-templates.s3.amazonaws.com/accelerate-roles.yaml").
+[accelerate-roles.json](https://ams-account-access-templates.s3.amazonaws.com/ams-access-roles.template.json "https://ams-account-access-templates.s3.amazonaws.com/ams-access-roles.template.json").
