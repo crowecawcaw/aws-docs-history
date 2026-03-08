@@ -102,7 +102,7 @@ In this section, you provide additional details about your 10DLC campaign.
     6. For **Campaign opt-in screenshot - _optional_**, upload a
        file showing how users consent to receiving messages, as described in the
        **Campaign opt-in workflow** field. The supported file
-       type are PNG, JPEG, and PDF and the maximum file size is 500KB. Additional
+       type are PNG, JPEG, and PDF and the maximum file size is 500KB. A screenshot or mockup is required unless you provide a publicly accessible URL to your opt-in location or call-to-action in the **Campaign opt-in workflow** field. If your opt-in process requires a login, is not yet public, is a verbal opt-in, or occurs on printed forms or fliers, you must provide a screenshot or mockup showing the complete opt-in process. Additional
        information and examples of a compliant opt-in workflow can be found at
        [Obtain permission](best-practices.md#best-practices-sms-obtain-permission "best-practices.md#best-practices-sms-obtain-permission").
 

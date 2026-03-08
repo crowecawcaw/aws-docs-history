@@ -129,17 +129,17 @@ support.
 
 The following table describes the types of restricted content.
 
-| Category                     | Examples                                                                                                                                                             |
-| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Gambling                     | + Casinos<br>+ Sweepstakes<br>+ App/Websites the offer gambling<br>+ 50/50 Raffles<br>+ Betting/Sports picks                                                         |
-| High-risk financial services | + Payday loans<br>+ Short-term high-interest loans<br>+ Auto loans<br>+ Mortgage loans<br>+ Student loans<br>+ Debt collection<br>+ Stock alerts<br>+ Cryptocurrency |
-| Debt forgiveness             | + Debt consolidation<br>+ Debt reduction<br>+ Credit repair programs<br>+ Debt relief<br>+ Third-party debt collection                                               |
-| Get-rich-quick schemes       | + Work-from-home programs<br>+ Risk-investment opportunities<br>+ Pyramid or multi-level marketing schemes<br>+ Mystery shopping                                     |
-| Illegal substances           | + Cannabis/CBD<br>+ Kratom<br>+ Paraphernalia products<br>+ Fireworks<br>+ Vape/E-cig                                                                                |
-| Prescription drugs           | + Drugs that require a prescription                                                                                                                                  |
-| Phishing/smishing            | + Attempts to get users to reveal personal<br>information or website login information.                                                                              |
-| S.H.A.F.T.                   | + Sex<br>+ Hate<br>+ Alcohol<br>+ Firearms<br>+ Tobacco/Vape                                                                                                         |
-| Third-Party Lead Generation  | + Companies that buy, sell, or share consumer<br>information<br>+ Affiliate lending<br>+ Affiliate marketing<br>+ deceptive marketing                                |
+| Category                     | Examples                                                                                                                                                                                                                                                                         |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Gambling                     | + Casinos<br>+ Sweepstakes<br>+ App/Websites the offer gambling<br>+ 50/50 Raffles<br>+ Betting/Sports picks                                                                                                                                                                     |
+| High-risk financial services | + Payday loans<br>+ Short-term high-interest loans<br>+ Auto loans<br>+ Mortgage loans<br>+ Student loans<br>+ Debt collection<br>+ Stock alerts<br>+ Cryptocurrency                                                                                                             |
+| Debt forgiveness             | + Debt consolidation<br>+ Debt reduction<br>+ Credit repair programs<br>+ Debt relief<br>+ Third-party debt collection                                                                                                                                                           |
+| Get-rich-quick schemes       | + Work-from-home programs<br>+ Risk-investment opportunities<br>+ Pyramid or multi-level marketing schemes<br>+ Mystery shopping                                                                                                                                                 |
+| Illegal substances           | + Cannabis/CBD<br>+ Kratom<br>+ Paraphernalia products<br>+ Fireworks<br>+ Vape/E-cig                                                                                                                                                                                            |
+| Prescription drugs           | + Drugs that require a prescription                                                                                                                                                                                                                                              |
+| Phishing/smishing            | + Attempts to get users to reveal personal<br>information or website login information.<br>+ Security awareness training that simulates phishing or smishing attacks. Even if the intended use is only for employee training purposes, these messages are not permitted via SMS. |
+| S.H.A.F.T.                   | + Sex<br>+ Hate<br>+ Alcohol<br>+ Firearms<br>+ Tobacco/Vape                                                                                                                                                                                                                     |
+| Third-Party Lead Generation  | + Companies that buy, sell, or share consumer<br>information<br>+ Affiliate lending<br>+ Affiliate marketing<br>+ deceptive marketing                                                                                                                                            |
 
 ### Obtain permission
 
