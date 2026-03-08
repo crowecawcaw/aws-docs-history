@@ -30,7 +30,7 @@ session.
 3. In the fleet's detail page, open the **Game sessions** tab. This
    tab lists all game sessions that were hosted on the fleet, along with summary
    information. You can adjust the table content as needed using the **Preferences**
-   tool (see the ![Gear icon representing settings or configuration options.](/images/gameliftservers/latest/developerguide/images/settings.png)
+   tool (see the ![Gear icon representing settings or configuration options.](images/settings.png)
    icon in the upper right corner of the table). Custom preferences are saved to your AWS
    account user and are automatically applied whenever you view this page.
 4. Choose a game session from the list to view additional information.

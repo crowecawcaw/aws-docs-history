@@ -13,7 +13,7 @@ Each queue details page contains the queue's configuration and metrics data. For
 information about queues, see [Configure game session placement](queues-intro.md "queues-intro.md").
 
 The queues page displays the following summary information for each queue. You can adjust the table content as needed using the **Preferences**
-tool (see the ![Gear icon representing settings or configuration options.](/images/gameliftservers/latest/developerguide/images/settings.png)
+tool (see the ![Gear icon representing settings or configuration options.](images/settings.png)
 icon in the upper right corner of the table). Custom preferences are saved to your AWS
 account user and are automatically applied whenever you view this page.
 

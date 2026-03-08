@@ -94,7 +94,26 @@ The following release notes are in chronological order, with the latest updates 
 first. Amazon GameLift Servers was first released in 2016. For release notes dated earlier than those
 listed here, see the release date links in [SDK versions](#release-notes-history "#release-notes-history").
 
-**Updated plugin versions:**
+Amazon GameLift Servers now offers distributed-denial-of-service (DDoS) protection for
+Linux-based EC2 and Container Fleets on SDKv5. The player gateway proxy relay
+network is co-located with your game server instances, providing traffic validation,
+per-player rate limiting and game server IP address obfuscation all with negligible
+added latency and no additional cost. This feature is initially available in the
+following regions: US East (N. Virginia), US West (Oregon), Europe (Frankfurt),
+Europe (Ireland), Asia Pacific (Sydney), Asia Pacific (Tokyo), Asia Pacific (Seoul).
+For more information about service locations, see [Amazon GameLift Servers service locations](gamelift-regions.md "gamelift-regions.md").
+
+###### **Learn more:**
+
+- [Blog post: Introducing Amazon GameLift Servers DDoS protection](https://aws.amazon.com/blogs/gametech/introducing-amazon-gamelift-servers-ddos-protection/ "https://aws.amazon.com/blogs/gametech/introducing-amazon-gamelift-servers-ddos-protection/")
+- [DDoS protection with Amazon GameLift Servers](ddos-protection-intro.md "ddos-protection-intro.md"), _Amazon GameLift Servers Developer Guide_
+- [How player gateway works](ddos-protection-howitworks.md "ddos-protection-howitworks.md"), _Amazon GameLift Servers Developer Guide_
+- [Integrate player gateway into a game](ddos-protection-integrate.md "ddos-protection-integrate.md"), _Amazon GameLift Servers Developer Guide_
+- [Client SDK for C++](https://github.com/amazon-gamelift/amazon-gamelift-servers-client-sdk-for-cpp "https://github.com/amazon-gamelift/amazon-gamelift-servers-client-sdk-for-cpp")
+- [Client SDK for Unreal](https://github.com/amazon-gamelift-for-unreal/amazon-gamelift-servers-client-sdk-for-unreal "https://github.com/amazon-gamelift-for-unreal/amazon-gamelift-servers-client-sdk-for-unreal"). Access requires membership in the Epic Games
+  organization on GitHub. See [Unreal
+  Engine on GitHub](https://www.unrealengine.com/en-US/ue-on-github "https://www.unrealengine.com/en-US/ue-on-github") for details.
+  **Updated plugin versions:**
 
 - [Plugin for
   Unity](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unity "https://github.com/amazon-gamelift/amazon-gamelift-plugin-unity"), version 3.2.1 (includes the server SDK for Unity,

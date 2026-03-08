@@ -119,6 +119,20 @@ Enhanced dashboards for container fleet monitoring are available through [Amazon
 | `ContainerStorageReadBytes`                  | Bytes read from storage by containers.<br>Units: Bytes<br>Relevant CloudWatch statistics: Sum, Average, Minimum, Maximum<br>Dimensions: Location                                 |
 | `ContainerStorageWriteBytes`                 | Bytes written to storage by containers.<br>Units: Bytes<br>Relevant CloudWatch statistics: Sum, Average, Minimum, Maximum<br>Dimensions: Location                                |
 
+## DDoS protection (player gateway) metrics
+
+Amazon GameLift Servers player gateway metrics track UDP traffic flowing through the DDoS protection layer when `PlayerGatewayMode` is set to `ENABLED` or `REQUIRED`. These metrics help you monitor traffic patterns, identify potential DDoS attacks, and track relay performance.
+
+| Metric                          | Description                                                                                                                                                                                                                     |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `PlayerGatewayPacketsIn`        | Number of UDP packets received from players and forwarded to game servers through the DDoS protection layer.<br>Units: Count<br>Relevant CloudWatch statistics: Sum, Average, Minimum, Maximum<br>Dimensions: FleetId, Location |
+| `PlayerGatewayBytesIn`          | Number of bytes received from players and forwarded to game servers through the DDoS protection layer.<br>Units: Bytes<br>Relevant CloudWatch statistics: Sum, Average, Minimum, Maximum<br>Dimensions: FleetId, Location       |
+| `PlayerGatewayPacketsOut`       | Number of UDP packets received from game servers and forwarded to players through the DDoS protection layer.<br>Units: Count<br>Relevant CloudWatch statistics: Sum, Average, Minimum, Maximum<br>Dimensions: FleetId, Location |
+| `PlayerGatewayBytesOut`         | Number of bytes received from game servers and forwarded to players through the DDoS protection layer.<br>Units: Bytes<br>Relevant CloudWatch statistics: Sum, Average, Minimum, Maximum<br>Dimensions: FleetId, Location       |
+| `PlayerGatewayPacketsThrottled` | Number of inbound packets dropped due to rate limiting by the DDoS protection layer.<br>Units: Count<br>Relevant CloudWatch statistics: Sum, Average, Minimum, Maximum<br>Dimensions: FleetId, Location                         |
+| `PlayerGatewayBytesThrottled`   | Number of inbound bytes dropped due to rate limiting by the DDoS protection layer.<br>Units: Bytes<br>Relevant CloudWatch statistics: Sum, Average, Minimum, Maximum<br>Dimensions: FleetId, Location                           |
+| `PlayerGatewayPlayerSessions`   | Player sessions that are currently protected by the DDoS protection layer.<br>Units: Count<br>Relevant CloudWatch statistics: Average, Minimum, Maximum<br>Dimensions: FleetId, Location                                        |
+
 ## Amazon GameLift Servers metrics for queues
 
 The `Amazon GameLift` namespace includes the following metrics related to activity
