@@ -1,43 +1,174 @@
-# SQL Server import and export wizard
+# PostgreSQL pglogical extension
 
-Microsoft SQL Server Import and Export Wizard is a high-performance option for data migration. It uses the SQL Server Integration Services (SSIS) framework. For more information, see [Import and Export Data with the SQL Server Import and Export Wizard](https://docs.microsoft.com/en-us/sql/integration-services/import-export-data/import-and-export-data-with-the-sql-server-import-and-export-wizard?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/integration-services/import-export-data/import-and-export-data-with-the-sql-server-import-and-export-wizard?view=sql-server-ver15") and [SQL Server Integration Services](https://docs.microsoft.com/en-us/sql/integration-services/sql-server-integration-services?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/integration-services/sql-server-integration-services?view=sql-server-ver15").
+The pglogical extension for PostgreSQL implements logical streaming replication, using a similar publish and subscribe built-in approach.
 
-The Import and Export Wizard is suitable for the following use cases:
+The pglogical extension is suitable for the following use cases if:
 
-- To achieve high migration performance.
-- To transform data during the migration. You can use the wizard to create SSIS packages and modify them in Visual Studio with an SSIS extension to achieve this.
-- To rename the target tables or schemas during the migration.
-- To migrate only the tables and avoid the migration of the secondary database objects such as users, views, stored procedures, triggers, foreign keys or functions.
-  The migration performance is affected by resource constraints of the host where you run the wizard. During the migration, all data is funneled through this host.
+- Your database size is greater than 100 GB.
+- You want to replicate the schema, DDL, sequences, and table data.
+- You want to capture ongoing changes.
+- You want to avoid downtime.
+  The pglogical extension may not be suitable for the following use cases if:
 
-## Migration steps
+- You have `UNLOGGED` and `TEMPORARY` tables.
+- You plan to migrate database metadata.
 
-Use the following steps to migrate all the tables and views from the `dms_sample` database to your target database.
+## Example
 
-Disable all constraints on the target DB instance before to the migration. The Import and Export Wizard copies tables in a random order. This may lead to failures if you enforce referential integrity on the target.
+The following example shows how to migrate the public schema.
 
-```
-EXEC sp_msforeachtable 'ALTER TABLE ? NOCHECK CONSTRAINT all'
-```
+## Configure the Source Database
 
-Make sure that you capture the current log sequence number (LSN) from the source database before your start the full load. To capture the current LSN, use the following command.
+To configure the source database with logical replication, complete the following steps.
 
-```
-SELECT max([Current LSN]) FROM fn_dblog(NULL, NULL)
-```
-
-Then you can use this LSN to set up the change data capture (CDC) task in AWS DMS.
-
-Open the SQL Server Import and Export Wizard from the Windows Start menu. Connect to your source and target databases and select the source tables and views. The following image shows the SQL Server Import and Export Wizard application window.
-
-![SQL Server Import and Export Wizard application window](images/sql-server-rds-sql-server-full-load-import-export.png)
-
-Choose **Next**, then choose **Run immediately**, and then choose **Finish**. The SQL Server Import and Export Wizard starts the migration. You can monitor the progress of your migration using the Performing Operation screen. For more information, see [Performing Operation (SQL Server Import and Export Wizard)](https://docs.microsoft.com/en-us/sql/integration-services/import-export-data/performing-operation-sql-server-import-and-export-wizard?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/integration-services/import-export-data/performing-operation-sql-server-import-and-export-wizard?view=sql-server-ver15").
-
-Make sure that you turn on constraints after you complete the migration.
+1. In the source database, edit the `postgresql.conf` file to add the following parameters.
 
 ```
-EXEC sp_msforeachtable 'ALTER TABLE ? CHECK CONSTRAINT all'
+wal_level = 'logical'
+max_worker_processes = 10
+max_replication_slots = 10
+max_wal_senders = 10
+shared_preload_libraries = 'pglogical'
 ```
 
-For more information, see [Get started with this simple example of the Import and Export Wizard](https://docs.microsoft.com/en-us/sql/integration-services/import-export-data/get-started-with-this-simple-example-of-the-import-and-export-wizard?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/integration-services/import-export-data/get-started-with-this-simple-example-of-the-import-and-export-wizard?view=sql-server-ver15").
+2. Restart the source PostgreSQL instance for these parameters to take effect.
+3. To make sure that you configured parameters on your source database correctly, run the following command.
+
+```
+psql -h <hostname> -p 5432 -U <username> -d <database_name> -c "select name, setting from pg_settings where name in ('rds.logical_replication','shared_preload_libraries');"
+
+-h is the name of source server where you would like to migrate your database.
+-U is the name of the user present on the source server.
+-d is the name of database name present on source already.
+```
+
+## Configure the Target Database
+
+By default, Amazon RDS for PostgreSQL and Aurora PostgreSQL have the `pglogical` extension. To configure the target DB parameter group, complete the following steps.
+
+1. To turn on the logical replication in the target database, set the following parameters in the database parameter group. For more information, see [Working with parameter groups](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.md "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.md").
+
+```
+rds.logical_replication=1
+shared_preload_libraries = 'pglogical'
+```
+
+2. Reboot your Amazon RDS instance for these parameters to take effect.
+3. To make sure that you configured parameters on your target database correctly, run the following command.
+
+```
+psql -h <hostname> -p 5432 -U <username> -d <database_name> -c "select name, setting from pg_settings where name in ('rds.logical_replication','shared_preload_libraries');"
+
+-h is the name of target server where you would like to migrate your database.
+-U is the name of the user present on the target server.
+-d is the name of database name present on target already.
+```
+
+## Set Up the Logical Replication
+
+Now, you can configure the logical replication between your self-managed PostgreSQL databases and Amazon RDS for PostgreSQL or Aurora PostgreSQL.
+
+1. Download the `pglogical rpm` and install it on your source database.
+   - For PostgreSQL 9.6, run the following command.
+
+   ```
+   curl https://access.2ndquadrant.com/api/repository/dl/default/release/9.6/rpm | bash
+   yum install postgresql96-pglogical
+   ```
+
+   - For PostgreSQL 10, run the following command.
+
+   ```
+   curl https://access.2ndquadrant.com/api/repository/dl/default/release/10/rpm | bash
+   yum install postgresql10-pglogical
+   ```
+
+2. Create the `pglogical` extension on your provider and subscriber.
+
+```
+CREATE EXTENSION pglogical;
+```
+
+3. Create the publisher node on your source database.
+
+```
+SELECT pglogical.create_node(
+    node_name := 'publisher_name',
+    dsn := 'host=<publisher_hostname> port=port_number dbname=<database_name>'
+);
+
+-publisher_name: Provide the name of the publication created at source.
+-publisher_hostname: Provide the hostname of the source database.
+-port_number: Provide the port on which the source database is running.
+-database_name: Provide the name of the database where the publication is created.
+```
+
+4. Add tables in public schema to the default replication set.
+
+```
+SELECT pglogical.replication_set_add_all_tables('default', ARRAY['public']);
+```
+
+5. Create the subscriber node on target database.
+
+```
+SELECT pglogical.create_node(
+    node_name := 'subscriber_name',
+    dsn := 'host=<subscriber_hostname> port=port_number dbname=<database_name>'
+);
+
+-subscriber_hostname: Provide the hostname of the target database.
+-port_number: Provide the port on which the target database is running.
+-database_name: Provide the name of the database where the subscription is created.
+-subscriber_name: Provide the name of the subscription created at target.
+```
+
+6. Create the subscription on the subscriber node. This subscription starts synchronization and replication processes in background.
+
+```
+SELECT pglogical.create_subscription(
+    subscription_name := 'subscription_name',
+    provider_dsn := 'host=<publisher_hostname> port=port_number dbname=<database_name>'
+);
+
+SELECT pglogical.wait_for_subscription_sync_complete('subscription_name');
+
+-publisher_hostname: Provide the hostname of the source database.
+-port_number: Provide the port on which the target database is running.
+-database_name: Provide the name of the database where the subscription is created.
+-subscription_name: Provide the name of the subscription created at target.
+```
+
+## Verify that the Data Replication Is Running
+
+Make sure that no active transactions or data changes are happening on your source database. Then, check the status of your replication by running the following statement on your source database. Make sure that the WAL locations are the same for the `sent_location`, `write_location`, and `replay_location`. This indicates that the target database is at the same LSN position as the source database.
+
+```
+SELECT * FROM pg_stat_replication;
+```
+
+## Stop the Replication
+
+When the data is in sync between your source and target databases, stop the subscriber on your target database.
+
+```
+select pglogical.alter_subscription_disable('subscriber_name');
+
+-subscriber_name: Provide the name of the subscription created at target.
+```
+
+Capture the `confirmed_flush_lsn` value from the replication slot created by the `pglogical` setup. You can use this value as the start position for the AWS DMS task.
+
+```
+SELECT slot_name, confirmed_flush_lsn from pg_replication_slots where slot_name like 'replication_slot_name';
+```
+
+## Drop the Subscription
+
+To drop the subscription on your target database, run the following command.
+
+```
+select pglogical.drop_subscription('subscriber_name');
+
+-subscriber_name: Provide the name of the subscription created at target.
+```

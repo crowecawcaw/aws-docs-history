@@ -1,29 +1,64 @@
-# Create a migration task for a MariaDB database
+# Set up Aurora MySQL as a target database
 
-We’ve now verified that the replication instance can connect to both the source and target endpoints. The next step is to create a database migration task.
+To provision Aurora MySQL as a target database, download the [AuroraMysql_CF.yaml template](https://aws-database-blog.s3.amazonaws.com/artifacts/mariadb-to-aurora-mysql-migration/AuroraMysql_CF.yaml "https://aws-database-blog.s3.amazonaws.com/artifacts/mariadb-to-aurora-mysql-migration/AuroraMysql_CF.yaml"). This template creates an Aurora MySQL database with required parameters.
 
-1. On the navigation pane, choose **Database Migration Tasks**.
-2. Choose **Create Task**. Provide the specified values for the following, and then choose **Next**:
-   - **Task identifier** — `maria-mysql`
-   - **Replication instance** — Choose the replication instance, `mariadb-mysql`.
-   - **Source database endpoint** — Choose the source database, `maria-on-prem`.
-   - **Target database endpoint** — Choose the target database, `mysqltrg-rds`.
-   - **Migration Type** — Choose **Migrate existing data and replicate ongoing changes** for CDC, or **Migrate existing data** for full load.
+1. On the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/"), under **Services**, choose **CloudFormation**.
+2. Choose **Create stack**, and then choose **With new resources (standard)**.
+3. For **Specify template**, choose **Upload a template file**.
+4. Select **Choose file**.
+5. Choose the `AuroraMySQL.yaml` file.
+6. Choose **Next**.
+7. On the **Specify stack details** page, edit the predefined values as needed, and then choose **Next**:
+   - **Stack name** — Enter a name for the stack.
+   - **CIDR** — Enter the CIDR IP range to access the instance.
+   - **DBBackupRetentionPeriod** — The number of days for backup retention.
+   - **DBInstanceClass** — Enter the instance type of the database server.
+   - **DBMasterPassword** — Enter the master password for the DB instance.
+   - **DBMasterUsername** — Enter the master user name for the DB instance.
+   - **DBName** — Enter the name of the database.
+   - **DBSubnetGroup** — Enter the DB subnet group.
+   - **Engine** — Enter the Aurora engine version; the default is `5.7.mysql-aurora.2.03.4`.
+   - **PreferredBackupWindow** — Enter the daily time range in UTC during which you want to create automated backups.
+   - **PreferredMaintenanceWindow** — Enter the weekly time range in UTC during which system maintenance can occur.
+   - **VPCID** — Enter the ID for the VPC to launch your DB instance in.
 
-3. For **Task settings**, choose the following settings:
-   - **Target table preparation mode** — Do nothing
-   - **Stop task after full load completes** — Don’t stop
-   - **Include LOB columns in replication** — Limited LOB mode
-   - **Maximum LOB size (KB)** — 32
-   - **Enable validation**
-   - **Enable CloudWatch logs**
+8. On the **Configure stack options** page, for **Tags**, specify any optional tags, and then choose **Next**.
+9. On the **Review** page, choose **Next**.
+10. Choose **Create stack**.
+    After the Aurora MySQL database is created, log in to the Aurora MySQL instance:
 
-4. For **Table mappings**, choose the following settings:
-   - Schema — Choose **migration** (assuming the schema and database to be migrated appear correctly).
-   - Table name — Enter the table name, or `%` to specify all the tables in the database.
-   - Action — Enter **Include** to include specific tables, or **Exclude** to exclude specific tables.
+```
+$ mysql -h mysqltrg-instance-1.xxxxxxxxx.us-east-1.rds.amazonaws.com -u master -p migration -P 3306
+MySQL [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| awsdms_control     |
+| mysql              |
+| performance_schema |
+| source             |
+| tmp                |
+| webdb              |
++--------------------+
+7 rows in set (0.001 sec)
 
-5. Choose **Create Task**.
-   Your new AWS DMS migration task reads the data from the tables in the MariaDB source and migrates your data to the Aurora MySQL target.
+MySQL [(none)]> create database migration;
+Query OK, 1 row affected (0.016 sec)
 
-You can use an AWS DMS full-load-only migration task to migrate views or a combination of tables and views. For more information, see [Specifying table selection and transformations rules](../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.md "../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.md") in the _DMS User Guide_.
+MySQL [(none)]> use migration;
+Database changed
+
+MySQL [migration]> show tables;
+Empty set (0.001 sec)
+```
+
+Use `mysql_tables_indexes.sql` to create table and index structures in Aurora MySQL.
+
+```
+$ mysql -h mysqltrg-instance-1.xxxxxxxxx.us-east-1.rds.amazonaws.com  -u master -p migration -P 3306 < mysql_tables_indexes.sql
+Enter password:
+$
+```
+
+After the tables and indexes are successfully created, the next step is to set up and use AWS DMS.

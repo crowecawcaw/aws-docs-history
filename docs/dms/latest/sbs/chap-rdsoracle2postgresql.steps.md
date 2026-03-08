@@ -1,76 +1,48 @@
-# Step 8: Cut Over to PostgreSQL
+# Step 6: Create AWS DMS Source and Target Endpoints
 
-To move connections from your Oracle database to your PostgreSQL database, do the following:
+While your replication instance is being created, you can specify the source and target database endpoints using the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/"). However, you can only test connectivity after the replication instance has been created, because the replication instance is used in the connection.
 
-1. End all Oracle database dependencies and activities, such as running scripts and client connections.
+1. Sign in to the AWS Management Console, open the [AWS DMS console](https://console.aws.amazon.com/dms/v2 "https://console.aws.amazon.com/dms/v2"), and then choose **Endpoints**.
+2. Specify your connection information for the source Oracle database and the target PostgreSQL database. The following table describes the source settings.
 
-The following query should return no results:
+| Parameter               | Description                                                                        |
+| ----------------------- | ---------------------------------------------------------------------------------- |
+| **Endpoint Identifier** | Enter a name, such as `Orasource`.                                                 |
+| **Source Engine**       | Choose **oracle**.                                                                 |
+| **Server name**         | Provide the Oracle DB instance server name.                                        |
+| **Port**                | The port of the database. The default for Oracle is `1521`.                        |
+| **SSL mode**            | Choose an SSL mode if you want to enable encryption for your connection’s traffic. |
+| **Username**            | The user you want to use to connect to the source database.                        |
+| **Password**            | Provide the password for the user.                                                 |
+| **SID**                 | Provide the Oracle database name.                                                  |
 
-```
-SELECT MACHINE, COUNT(*) FROM V$SESSION GROUP BY MACHINE;
-```
+The following table describes the advanced source settings.
 
-2. List any remaining sessions, and kill them.
+| Parameter                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Extra connection attributes** | Extra parameters that you can set in an endpoint to add functionality or change the behavior of AWS DMS. Some of the most common and convenient parameters to set for an Oracle source database are the following. Separate multiple entries from each other by using a semi-colon (;).<br>• `addSupplementalLogging` - This parameter automatically configures supplemental logging when set to `Y`.<br>• `useLogminerReader` - By default, AWS DMS uses LogMiner on the Oracle database to capture all of the changes on the source database. The other mode is called Binary Reader. When using Binary Reader instead of LogMiner, AWS DMS copies the archived redo log from the source Oracle database to the replication server and reads the entire log in order to capture changes. The Binary Reader option is recommended if you are using ASM since it has performance advantages over LogMiner on ASM. If your source database is 12c, then the Binary Reader option is currently the only way to capture CDC changes in Oracle for LOB objects.<br>To use LogMiner, enter the following:<br>`useLogminerReader=Y`<br>To use Binary Reader, enter the following:<br>`useLogminerReader=N; useBfile=Y`` |
+| **KMS key**                     | Enter the KMS key if you choose to encrypt your replication instance’s storage.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 
-```
-SELECT SID, SERIAL#, STATUS FROM V$SESSION;
+For information about extra connection attributes, see [Using Extra Connection Attributes](../userguide/CHAP_Introduction.md "../userguide/CHAP_Introduction.md").
 
-ALTER SYSTEM KILL 'sid, serial_number' IMMEDIATE;
-```
+The following table describes the target settings.
 
-3. Shut down all listeners on the Oracle database.
-4. (Optional) Turn off automated jobs on the Oracle database. For your production database, check that this operation doesn’t influence the business logic.
+| Parameter               | Description                                                     |
+| ----------------------- | --------------------------------------------------------------- |
+| **Endpoint Identifier** | Enter a name, such as `Postgrestarget`.                         |
+| **Target Engine**       | Choose **postgres**.                                            |
+| **Servername**          | Provide the PostgreSQL DB instance server name.                 |
+| **Port**                | The port of the database. The default for PostgreSQL is `5432`. |
+| **SSL mode**            | Choose **None**.                                                |
+| **Username**            | The user you want to use to connect to the target database.     |
+| **Password**            | Provide the password for the PostgreSQL DB instance.            |
 
-```
-ALTER SYSTEM SET JOB_QUEUE_PROCESSES=0
-```
+The following is an example of the completed page.
 
-5. (Optional) Turn off time monitoring on queue messages on the Oracle database. For your production database, check that this operation doesn’t influence the business logic.
+![Completed replication task connections page](images/sbs-rdsor2postgressql19.5.png) 3. After the endpoints and replication instance have been created, test each endpoint connection by choosing **Run test** for the source and target endpoints. 4. Drop foreign key constraints and triggers on the target database.
 
-```
-ALTER SYSTEM SET AQ_TM_PROCESSES=0
-```
+During the full load process, AWS DMS does not load tables in any particular order, so it may load the child table data before parent table data. As a result, foreign key constraints might be violated if they are enabled. Also, if triggers are present on the target database, then it may change data loaded by AWS DMS in unexpected ways. 5. If you do not have one, then generate a script that enables the foreign key constraints and triggers.
 
-6. Let the AWS DMS task apply the final changes from the Oracle database on the PostgreSQL database.
+Later, when you want to add them to your migrated database, you can just run this script. 6. (Optional) Drop secondary indexes on the target database.
 
-```
-ALTER SYSTEM CHECKPOINT;
-```
-
-7. In the AWS DMS console, stop the AWS DMS task by clicking **Stop** for the task, and confirm that you want to stop the task.
-8. (Optional) Set up a rollback.
-
-You can optionally set up a rollback task, in case you run into a show stopping issue, by creating a task going in the opposite direction. Because all tables should be in sync between both databases, you only need to set up a CDC task. Therefore, you do not have to disable any foreign key constraints. Now that the source and target databases are reversed, you must follow the instructions in the following sections:
-
-    * [Using a PostgreSQL Database as a Source](../userguide/CHAP_Source.md "../userguide/CHAP_Source.md")
-    * [Using an Oracle Database as a Target](../userguide/CHAP_Target.md "../userguide/CHAP_Target.md")
-
-
-
-
-
-    	1. Disable triggers on the source Oracle database.
-
-
-
-    	```
-    	SELECT 'ALTER TRIGGER' || owner || '.' || trigger_name || 'DISABLE;'
-    	   FROM DBA_TRIGGERS WHERE OWNER = 'schema_name';
-    	```
-
-    	You do not have to disable the foreign key constraints. During the CDC process, foreign key constraints are updated in the same order as they are updated by application users.
-    	2. Create a new CDC-only AWS DMS task with the endpoints reversed (source PostgreSQL endpoint and target Oracle endpoint database). See [Step 7: Create and Run Your Migration Task](chap-rdsoracle2postgresql.steps.md "chap-rdsoracle2postgresql.steps.md").
-
-
-    	For the rollback task, set **Migration type** to **Replicate data changes only** and **Target table preparation mode** to **Do nothing**.
-    	3. Start the AWS DMS task to enable you to push changes back to the original source Oracle database from the new PostgreSQL database if rollback is necessary.
-
-9. Connect to the PostgreSQL database, and enable triggers.
-
-```
-ALTER TABLE table_name ENABLE TRIGGER ALL;
-```
-
-10. If you set up a rollback, then complete the rollback setup.
-    1.  Start the application services on new target PostgreSQL database (including scripts , client software, and so on).
-    2.  Add CloudWatch monitoring on your new PostgreSQL database. For more information, see [Monitoring Amazon RDS](../../../AmazonRDS/latest/UserGuide/CHAP_Monitoring.md "../../../AmazonRDS/latest/UserGuide/CHAP_Monitoring.md").
+Secondary indexes (as with all indexes) can slow down the full load of data into tables since they need to be maintained and updated during the loading process. Dropping them can improve the performance of your full load process. If you drop the indexes, then you will need to add them back later after the full load is complete. 7. Choose **Next**.

@@ -1,64 +1,65 @@
-# Step 10: Verify That Your Data Migration Completed Successfully
+# Step 6: Validate the Schema Conversion
 
-When the migration task completes, you can compare your task results with the expected results.
+To validate the schema conversion, you compare the objects found in the Oracle and Amazon Redshift databases using SQL Workbench/J.
 
-1. On the navigation pane, choose **Tasks**.
-2. Choose your migration task (`migrateSHschema`).
-3. Choose the **Table statistics** tab, shown following.
-
-![Table statistics tab](images/sbs-rdsor2redshift26.png) 4. Connect to the Amazon Redshift instance by using SQL Workbench/J, and then check whether the database tables were successfully migrated from Oracle to Amazon Redshift by running the SQL script shown following.
+1. In SQL Workbench/J, choose **File**, then choose **Connect window**. Choose the **RedshiftConnection** you created in an earlier step. Choose **OK**.
+2. Run the following script to verify the number of object types and count in **SH** schema in the target Amazon Redshift database. These values should match the number of objects in the source Oracle database.
 
 ```
-select "table", tbl_rows
-from svv_table_info
-where
-SCHEMA = 'sh'
-order by 1;
-```
-
-Your results should look similar to the following.
-
-```
-table      | tbl_rows
------------+---------
-channels   |        5
-customers  |        8
-products   |       66
-promotions |      503
-sales      |     1106
-```
-
-5. To verify whether the output for tables and number of rows from the preceding query matches what is expected for RDS Oracle, compare your results with those in previous steps.
-6. Run the following query to check the relationship in tables; this query checks the departments with employees greater than 10.
-
-```
-Select b.channel_desc,count(*) from SH.SALES a,SH.CHANNELS b where a.channel_id=b.channel_id
-group by b.channel_desc
-order by 1;
+SELECT 'TABLE' AS OBJECT_TYPE,
+       TABLE_NAME AS OBJECT_NAME,
+       TABLE_SCHEMA AS OBJECT_SCHEMA
+FROM information_schema.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+AND   OBJECT_SCHEMA = 'sh';
 ```
 
 The output from this query should be similar to the following.
 
 ```
-channel_desc | count
--------------+------
-Direct Sales |   355
-Internet     |    26
-Partners     |   172
+object_type | object_name | object_schema
+------------+-------------+--------------
+TABLE       | channels    | sh
+TABLE       | customers   | sh
+TABLE       | products    | sh
+TABLE       | promotions  | sh
+TABLE       | sales       | sh
 ```
 
-7. Verify column compression encoding.
-
-DMS uses an Amazon Redshift COPY operation to load data. By default, the COPY command applies automatic compression whenever loading to an empty target table. The sample data for this walkthrough is not large enough for automatic compression to be applied. When you migrate larger data sets, COPY will apply automatic compression.
-
-For more details about automatic compression on Amazon Redshift tables, see [Loading Tables with Automatic Compression](../../../redshift/latest/dg/c_Loading_tables_auto_compress.md "../../../redshift/latest/dg/c_Loading_tables_auto_compress.md").
-
-To view compression encodings, run the following query.
+3. Verify the sort and distributions keys that are created in the Amazon Redshift cluster by using the following query.
 
 ```
-SELECT *
+set search_path to '$user', 'public', 'sh';
+
+SELECT tablename,
+       "column",
+       TYPE,
+       encoding,
+       distkey,
+       sortkey,
+       "notnull"
 FROM pg_table_def
-WHERE schemaname = 'sh';
+WHERE (distkey = TRUE OR sortkey <> 0);
 ```
 
-Now you have successfully completed a database migration from an Amazon RDS for Oracle DB instance to Amazon Redshift.
+The results of the query reflect the distribution key (`distkey`) and sort key (`sortkey`) choices made by using AWS SCT key management.
+
+```
+tablename  | column              | type                        | encoding | distkey | sortkey | notnull
+-----------+---------------------+-----------------------------+----------+---------+---------+--------
+channels   | channel_id          | numeric(38,18)              | none     | true    |       1 | true
+customers  | cust_id             | numeric(38,18)              | none     | false   |       4 | true
+customers  | cust_gender         | character(2)                | none     | false   |       1 | true
+customers  | cust_year_of_birth  | smallint                    | none     | false   |       3 | true
+customers  | cust_marital_status | character varying(40)       | none     | false   |       2 | false
+products   | prod_id             | integer                     | none     | true    |       4 | true
+products   | prod_subcategory    | character varying(100)      | none     | false   |       3 | true
+products   | prod_category       | character varying(100)      | none     | false   |       2 | true
+products   | prod_status         | character varying(40)       | none     | false   |       1 | true
+promotions | promo_id            | integer                     | none     | true    |       1 | true
+sales      | prod_id             | numeric(38,18)              | none     | false   |       4 | true
+sales      | cust_id             | numeric(38,18)              | none     | false   |       3 | true
+sales      | time_id             | timestamp without time zone | none     | true    |       1 | true
+sales      | channel_id          | numeric(38,18)              | none     | false   |       2 | true
+sales      | promo_id            | numeric(38,18)              | none     | false   |       5 | true
+```

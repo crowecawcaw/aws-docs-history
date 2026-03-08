@@ -1,26 +1,13 @@
-# Amazon RDS for Oracle data migration mechanism
+# Oracle dabatase migration to PostgreSQL post-production support
 
-For testing purposes and for production cutover, data needs to be migrated from the old Amazon RDS for Oracle instance to the new Amazon RDS or Aurora PostgreSQL instance. Such a data migration requires knowledge of data type mapping and possibly incremental loading, depending on the size of the data and migration window.
+After production cutover, there are a few possibilities for what can happen. You will have either decided to fix forward as the old system is being decommissioned, or you have decided to way a certain amount of time, a bake-in time, with production on the new system, during which a decision to abandon the new system can be made. Abandoning the new system has the following flavors:
 
-For this purpose AWS Database Migration Service (AWS DMS) can be used to connect source and target databases to replicate the contents of the data in the most optimal way.
+- Roll back, all new data is lost.
+- Roll back and reapply all new transactions.
+- Roll back and migrate new production data back.
+- Maintain a live replication back to the old system until bake-in period is over.
+  During this time, defects are tracked and triaged for possibly triggering the rollback or being fixed forward. Help desk will have been trained in the new system differences and will be able to detect if an end user inquiry just requires training or it may be a defect.
 
-## Process
+Beyond acceptance migration criteria, the application may have well defined KPIs defined already which can be observed when in production on the new system and compared to historical KPIs.
 
-1. Create a replication server.
-2. Create source and target endpoints that have connection information about your data stores.
-3. Create one or more migration tasks to migrate data between the source and target data stores.
-
-After you configured AWS DMS, you can perform the following operations:
-
-- A full data migration from Oracle to PostgreSQL.
-- An ongoing replication from Oracle to PostgreSQL.
-
-Depending on the type of data in the database, you may need to optimize AWS DMS for handling certain data types like LOBS which you can read more about in the product guidance.
-
-## Reverse Migration
-
-Normally you just fall back to the old system if a migration fails during smoke testing, and in most cases you may decide to fix forward after cutover, in which case you fix any unforeseen bugs in the migrated system. But in some cases you may decide to have the option of migrating production data back from the new system to the original system after having been in production for a time. In those cases, a reverse data migration mechanism must be configured.
-
-![Reverse Migration](images/oracle-postgresql-reverse-migration.png)
-
-For more information, see [What is Database Migration Service?](../userguide/Welcome.md "../userguide/Welcome.md") and [Migrating Oracle databases with near-zero downtime](https://aws.amazon.com/blogs/database/migrating-oracle-databases-with-near-zero-downtime-using-aws-dms/ "https://aws.amazon.com/blogs/database/migrating-oracle-databases-with-near-zero-downtime-using-aws-dms/").
+For more information, see [How to Migrate Your Oracle Database to PostgreSQL](https://aws.amazon.com/blogs/database/how-to-migrate-your-oracle-database-to-postgresql/ "https://aws.amazon.com/blogs/database/how-to-migrate-your-oracle-database-to-postgresql/").
