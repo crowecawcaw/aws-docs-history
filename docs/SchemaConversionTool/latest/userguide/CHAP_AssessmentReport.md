@@ -1,16 +1,17 @@
-# Assessment report action items
+# Assessment report warning message
 
-The assessment report view also includes an **Action Items** tab.
-This tab contains a list of items that can't be converted automatically
-to the database engine of your target Amazon RDS DB instance.
-If you select an action item from the list,
-AWS SCT highlights
-the item from your schema that the action item applies to.
+To assess the complexity of converting to another database engine, AWS SCT requires
+access to objects in your source database. When SCT can’t perform an assessment
+because problems were encountered during scanning, a warning message is issued that
+indicates overall conversion percentage is reduced.
 
-The report also contains recommendations for how to manually convert the schema item.
-For example, after the assessment runs, detailed reports for the database/schema show you
-the effort required to design and implement the recommendations for converting Action items.
-For more information about deciding how to handle manual conversions, see
-[Converting schemas using AWS SCT](CHAP_Converting.md "CHAP_Converting.md").
+![Assessment report warning message](images/assessment-report-warning-message.png)
+Following are reasons why AWS SCT might encounter problems during scanning:
 
-![Action items tab](images/action_items_tab.png)
+- The user account connected to the database doesn’t have access to all
+  of the needed objects.
+- An object cited in the schema no longer exists in the database.
+- SCT is trying to assess an object that is encrypted.
+  For more information about SCT required security permissions and privileges for your
+  database, see [Connecting to source databases with the AWS Schema Conversion Tool](CHAP_Source.md "CHAP_Source.md") for the appropriate source database
+  section in this guide.
