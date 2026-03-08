@@ -28,8 +28,7 @@ AWS Management Console.
 The repository name may container a maximum of `256`
 characters. The name must start with a letter and can only contain lowercase
 letters, numbers, hyphens, underscores, periods and forward slashes. Using a
-double hyphen, double underscore, or double forward slash isn't
-supported. 5. For **Image tag immutability**, choose one of the following
+double forward slash isn't supported. 5. For **Image tag immutability**, choose one of the following
 tag mutability settings for the repository.
 
     * **Mutable** – Choose this option if you want
