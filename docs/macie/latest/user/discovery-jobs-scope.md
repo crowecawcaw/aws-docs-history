@@ -116,7 +116,7 @@ information, see [Data
 refreshes](monitoring-s3-how-it-works.md#monitoring-s3-how-it-works-data-refresh "monitoring-s3-how-it-works.md#monitoring-s3-how-it-works-data-refresh").
 
 If the warning icon (
-![The warning icon, which is a red triangle that has an exclamation point in it.](/images/macie/latest/user/images/icon-warning-red.png)
+![The warning icon, which is a red triangle that has an exclamation point in it.](images/icon-warning-red.png)
 ) appears next to a bucket's name, Macie
 isn't allowed to access the bucket or the bucket's objects. This means that the job
 won't be able to analyze objects in the bucket. To investigate the issue, review the
@@ -361,7 +361,7 @@ at least one of those jobs is not _Cancelled_. Macie updates this data on a dail
 basis.
 
 If the warning icon (
-![The warning icon, which is a red triangle that has an exclamation point in it.](/images/macie/latest/user/images/icon-warning-red.png)
+![The warning icon, which is a red triangle that has an exclamation point in it.](images/icon-warning-red.png)
 ) appears next to a bucket's name, Macie isn't
 allowed to access the bucket or the bucket's objects. This means that the job
 won't be able to analyze objects in the bucket. To investigate the issue, review

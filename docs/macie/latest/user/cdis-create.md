@@ -137,7 +137,12 @@ criteria.
 We strongly recommend that you test and refine the detection criteria with sample
 data. Because custom data identifiers are used by sensitive data
 discovery jobs, you can't change a custom data identifier after
-you create it. This helps ensure that you have an immutable history of sensitive data findings and discovery results. 13. When you finish, choose **Submit**.
+you create it. This helps ensure that you have an immutable history of sensitive data findings and discovery results.
+
+Because Macie applies additional logic when processing structured records, the
+match count returned by the **Evaluate** box may
+differ in certain cases from the results produced by
+jobs. 13. When you finish, choose **Submit**.
 
 Macie tests the settings and verifies that it can compile the regex. If
 there's an issue with a setting or the regex, Macie displays an error that

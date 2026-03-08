@@ -78,7 +78,7 @@ If automated sensitive data discovery is enabled, the default view doesn't displ
 that are currently excluded from automated discovery. To display this data, choose
 **X** in the **Is monitored by automated
 discovery** filter token below the filter box. 3. At the top of the page, optionally choose refresh (
-![The refresh button, which is a button that displays an empty blue circle with an arrow.](images/btn-refresh-data.png)
+![The refresh button, which is a button that displays an empty blue circle with an arrow.](/images/macie/latest/user/images/btn-refresh-data.png)
 ) to retrieve
 the latest bucket metadata from Amazon S3.
 
