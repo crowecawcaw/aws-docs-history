@@ -12,13 +12,13 @@ You can attach `AWSQuickSetupStartSSMAssociationsExecutionPolicy` to your users,
 
 - **Type**: AWS managed policy
 - **Creation time**: August 08, 2025, 12:04 UTC
-- **Edited time:** February 12, 2026, 18:02 UTC
+- **Edited time:** March 05, 2026, 16:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSQuickSetupStartSSMAssociationsExecutionPolicy`
 
 ## Policy version
 
-**Policy version:** v6 (default)
+**Policy version:** v7 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -55,6 +55,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ArnLike" : {
           "iam:AssociatedResourceARN" : [
             "arn:aws:ssm:*:*:document/AWSQuickSetupType-Scheduler-ChangeCalendarState",
+            "arn:aws:ssm:*:*:automation-execution/*",
             "arn:aws:ssm:*:*:automation-definition/AWSQuickSetupType-Scheduler-ChangeCalendarState*"
           ]
         }

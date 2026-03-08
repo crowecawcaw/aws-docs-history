@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: October 10, 2017, 23:04 UTC
-- **Edited time:** November 01, 2017, 06:01 UTC
+- **Edited time:** March 05, 2026, 19:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSOrganizationsServiceTrustPolicy`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -47,6 +47,12 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "iam:CreateServiceLinkedRole"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "ListRolesSLR",
+      "Effect" : "Allow",
+      "Action" : "iam:ListRoles",
+      "Resource" : "arn:aws:iam::*:role/aws-service-role/*"
     }
   ]
 }

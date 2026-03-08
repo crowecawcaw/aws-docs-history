@@ -12,13 +12,13 @@ You can attach `SageMakerStudioProjectProvisioningRolePolicy` to your users, gro
 
 - **Type**: Service role policy
 - **Creation time**: November 20, 2024, 21:58 UTC
-- **Edited time:** February 12, 2026, 18:03 UTC
+- **Edited time:** March 02, 2026, 20:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/SageMakerStudioProjectProvisioningRolePolicy`
 
 ## Policy version
 
-**Policy version:** v76 (default)
+**Policy version:** v77 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -669,7 +669,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "redshift-serverless.amazonaws.com",
             "redshift.amazonaws.com",
             "emr-serverless.amazonaws.com",
-            "airflow.amazonaws.com"
+            "airflow.amazonaws.com",
+            "athena.amazonaws.com"
           ]
         }
       }

@@ -12,13 +12,13 @@ You can attach `AmazonEKS_CNI_Policy` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: May 27, 2018, 21:07 UTC
-- **Edited time:** March 04, 2024, 20:20 UTC
+- **Edited time:** March 04, 2026, 19:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy`
 
 ## Policy version
 
-**Policy version:** v5 (default)
+**Policy version:** v6 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -42,6 +42,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:DescribeNetworkInterfaces",
         "ec2:DescribeInstanceTypes",
         "ec2:DescribeSubnets",
+        "ec2:DescribeSecurityGroups",
         "ec2:DetachNetworkInterface",
         "ec2:ModifyNetworkInterfaceAttribute",
         "ec2:UnassignPrivateIpAddresses"

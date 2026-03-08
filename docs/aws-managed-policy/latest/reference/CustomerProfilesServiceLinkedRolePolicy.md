@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: March 07, 2023, 22:56 UTC
-- **Edited time:** November 26, 2024, 22:21 UTC
+- **Edited time:** March 05, 2026, 21:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/CustomerProfilesServiceLinkedRolePolicy`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -61,7 +61,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
     {
       "Effect" : "Allow",
       "Action" : [
-        "profile:BatchGetProfile"
+        "profile:BatchGetProfile",
+        "profile:GetRecommender",
+        "profile:GetCalculatedAttributeForProfile",
+        "profile:GetProfileRecommendations"
       ],
       "Resource" : "*"
     }

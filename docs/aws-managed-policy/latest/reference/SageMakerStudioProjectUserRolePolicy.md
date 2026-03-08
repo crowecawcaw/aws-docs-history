@@ -12,13 +12,13 @@ You can attach `SageMakerStudioProjectUserRolePolicy` to your users, groups, and
 
 - **Type**: AWS managed policy
 - **Creation time**: November 20, 2024, 21:59 UTC
-- **Edited time:** February 17, 2026, 06:57 UTC
+- **Edited time:** March 02, 2026, 20:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SageMakerStudioProjectUserRolePolicy`
 
 ## Policy version
 
-**Policy version:** v61 (default)
+**Policy version:** v63 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -30,7 +30,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
   "Version" : "2012-10-17",
   "Statement" : [
     {
-      "Sid" : "CommonUserCodeCommitPermissions",
+      "Sid" : "CodeCommit",
       "Effect" : "Allow",
       "Action" : [
         "codecommit:BatchGetCommits",
@@ -103,7 +103,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "CodeCommitKmsPermissions",
+      "Sid" : "CodeCommitKms",
       "Effect" : "Allow",
       "Action" : [
         "kms:ReEncryptFrom",
@@ -129,7 +129,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "AllowCodeWhispererGenerateRecommendations",
+      "Sid" : "CodeWhisperer",
       "Effect" : "Allow",
       "Action" : [
         "codewhisperer:GenerateRecommendations"
@@ -857,10 +857,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:kms:*:*:key/${aws:PrincipalTag/DomainKmsKeyId}",
       "Condition" : {
         "StringEquals" : {
-          "kms:EncryptionContext:aws:datazone:domainId" : "${aws:PrincipalTag/AmazonDataZoneDomain}",
-          "kms:ViaService" : [
-            "datazone.*.amazonaws.com"
-          ]
+          "kms:EncryptionContext:aws:datazone:domainId" : "${aws:PrincipalTag/AmazonDataZoneDomain}"
+        },
+        "StringLike" : {
+          "kms:ViaService" : "datazone.*.amazonaws.com"
         }
       }
     },
@@ -1353,6 +1353,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Condition" : {
         "StringEquals" : {
           "iam:PassedToService" : [
+            "airflow-serverless.amazonaws.com",
             "sagemaker.amazonaws.com",
             "glue.amazonaws.com",
             "airflow.amazonaws.com",
@@ -1427,7 +1428,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "RedshiftDataActionsForResources",
+      "Sid" : "RedshiftDataActions",
       "Effect" : "Allow",
       "Action" : [
         "redshift-data:BatchExecuteStatement",

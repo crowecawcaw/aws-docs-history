@@ -12,13 +12,13 @@ You can attach `SageMakerStudioAdminIAMConsolePolicy` to your users, groups, and
 
 - **Type**: AWS managed policy
 - **Creation time**: August 18, 2025, 22:49 UTC
-- **Edited time:** February 12, 2026, 17:59 UTC
+- **Edited time:** March 05, 2026, 17:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SageMakerStudioAdminIAMConsolePolicy`
 
 ## Policy version
 
-**Policy version:** v6 (default)
+**Policy version:** v7 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -489,6 +489,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "kms:EncryptionContextKeys" : "aws:datazone:domainId"
         }
       }
+    },
+    {
+      "Sid" : "GlueCatalogPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "glue:GetCatalog"
+      ],
+      "Resource" : "*"
     }
   ]
 }
