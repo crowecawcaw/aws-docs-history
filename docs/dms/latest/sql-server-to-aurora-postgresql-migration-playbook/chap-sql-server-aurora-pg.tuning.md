@@ -1,147 +1,154 @@
-# Tuning run plans
+# Managing statistics
 
-This topic provides reference information about query execution plans in both Microsoft SQL Server and PostgreSQL, focusing on their importance for performance optimization. You can understand how these database management systems generate and utilize execution plans to analyze and improve query performance. The topic compares the features and syntax differences between SQL Server and PostgreSQL, highlighting SQL Server’s graphical representation of execution plans and automatic tuning capabilities.
+This topic provides reference information about statistics and query optimization in SQL Server and PostgreSQL databases. You can understand how these database systems use statistics to improve query performance and how they differ in their approach to collecting and managing statistical data. The topic compares the methods for creating, viewing, and updating statistics in SQL Server with similar functionality in PostgreSQL.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                        |
-| ------------------------------ | ---------------------------------- | ------------------------- | -------------------------------------------------------------------------------------- |
-| Two star feature compatibility | N/A                                | N/A                       | Syntax differences. Completely different optimizer with different operators and rules. |
+| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                       |
+| -------------------------------- | ---------------------------------- | ------------------------- | ----------------------------------------------------- |
+| Three star feature compatibility | N/A                                | N/A                       | Syntax and option differences, similar functionality. |
 
 ## SQL Server Usage
 
-Run plans provide users detailed information about the data access and processing methods chosen by the SQL Server Query Optimizer. They also provide estimated or actual costs of each operator and sub-tree. Run plans provide critical data for troubleshooting query performance issues.
+Statistics objects in SQL Server are designed to support SQL Server cost-based query optimizer. It uses statistics to evaluate the various plan options and choose an optimal plan for optimal query performance.
 
-SQL Server creates run plans for most queries and returns them to client applications as plain text or XML documents. SQL Server produces an run plan when a query runs, but it can also generate estimated plans without running a query.
+Statistics are stored as BLOBs in system tables and contain histograms and other statistical information about the distribution of values in one or more columns. A histogram is created for the first column only and samples the occurrence frequency of distinct values. Statistics and histograms are collected by either scanning the entire table or by sampling only a percentage of the rows.
 
-SQL Server Management Studio provides a graphical view of the underlying XML plan document using icons and arrows instead of textual information. This graphical view is extremely helpful when investigating the performance aspects of a query.
+You can view Statistics manually using the `DBCC SHOW_STATISTICS` statement or the more recent `sys.dm_db_stats_properties` and `sys.dm_db_stats_histogram` system views.
 
-To request an estimated run plan, use the `SET SHOWPLAN_XML`, `SHOWPLAN_ALL`, or `SHOWPLAN_TEXT` statements.
+SQL Server provides the capability to create filtered statistics containing a WHERE predicate. Filtered statistics are useful for optimizing histogram granularity by eliminating rows whose values are of less interest, for example NULLs.
 
-SQL Server 2017 introduces automatic tuning, which notifies users whenever a potential performance issue is detected and lets them apply corrective actions, or lets the Database Engine automatically fix performance problems.
+SQL Server can manage the collection and refresh of statistics automatically (the default). Use the `AUTO_CREATE_STATISTICS` and `AUTO_UPDATE_STATISTICS` database options to change the defaults.
 
-Automatic tuning SQL Server enables users to identify and fix performance issues caused by query run plan choice regressions. For more information, see [Automatic tuning](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning?view=sql-server-ver15") in the _SQL Server documentation_.
+When a query is submitted with `AUTO_CREATE_STATISTICS` on and the query optimizer may benefit from a statistics that don’t yet exist, SQL Server creates the statistics automatically. You can use the `AUTO_UPDATE_STATISTICS_ASYNC` database property to set new statistics creation to occur immediately (causing queries to wait) or to run asynchronously. When run asynchronously, the triggering run can’t benefit from optimizations the optimizer may derive from it.
+
+After creation of a new statistics object, either automatically or explicitly using the `CREATE STATISTICS` statement, the refresh of the statistics is controlled by the `AUTO_UPDATE_STATISTICS` database option. When set to `ON`, statistics are recalculated when they are stale, which happens when significant data modifications have occurred since the last refresh.
+
+### Syntax
+
+```
+CREATE STATISTICS <Statistics Name>
+ON <Table Name> (<Column> [,...])
+[WHERE <Filter Predicate>]
+[WITH <Statistics Options>;
+```
 
 ### Examples
 
-Show the estimated run plan for a query.
+The following example creates new statistics on multiple columns. Set to use a full scan and to not refresh.
 
 ```
-SET SHOWPLAN_XML ON;
-SELECT *
-FROM MyTable
-WHERE SomeColumn = 3;
-SET SHOWPLAN_XML OFF;
+CREATE STATISTICS MyStatistics
+ON MyTable (Col1, Col2)
+WITH FULLSCAN, NORECOMPUTE;
 ```
 
-Actual run plans return after run of the query or batch of queries completes. Actual run plans include run-time statistics about resource usage and warnings. To request the actual run plan, use the `SET STATISTICS XML` statement to return the XML document object. Alternatively, use the `STATISTICS PROFILE` statement, which returns an additional result set containing the query run plan.
-
-Show the actual run plan for a query.
+The following example updates statistics with a 50% sampling rate.
 
 ```
-SET STATISTICS XML ON;
-SELECT *
-FROM MyTable
-WHERE SomeColumn = 3;
-SET STATISTICS XML OFF;
+UPDATE STATISTICS MyTable(MyStatistics)
+WITH SAMPLE 50 PERCENT;
 ```
 
-The following example shows a partial graphical run plan from SQL Server Management Studio.
+View the statistics histogram and data.
 
-![A partial graphical run plan](images/pb-sql-server-aurora-pg-run-plans-ssms.png)
+```
+DBCC SHOW_STATISTICS ('MyTable','MyStatistics');
+```
 
-For more information, see [Display and Save Execution Plans](https://docs.microsoft.com/en-us/sql/relational-databases/performance/display-and-save-execution-plans?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/performance/display-and-save-execution-plans?view=sql-server-ver15") in the _SQL Server documentation_.
+Turn off automatic statistics creation for a database.
+
+```
+ALTER DATABASE MyDB SET AUTO_CREATE_STATS OFF;
+```
+
+For more information, see [Statistics](https://docs.microsoft.com/en-us/sql/relational-databases/statistics/statistics?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/statistics/statistics?view=sql-server-ver15"), [CREATE STATISTICS (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-statistics-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-statistics-transact-sql?view=sql-server-ver15"), and [DBCC SHOW_STATISTICS (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## PostgreSQL Usage
 
-When using the `EXPLAIN` command, PostgreSQL will generate the estimated run plan for actions, such as `SELECT`, `INSERT`, `UPDATE`, and `DELETE`. `EXPLAIN` builds a structured tree of plan nodes representing the different actions taken (the sign `→` represents a root line in the PostgreSQL run plan). In addition, the EXPLAIN statement will provide statistical information regarding each action, such as cost, rows, time and loops.
+Use the `ANALYZE` command to collect statistics about a database, a table, or a specific table column. The PostgreSQL `ANALYZE` command collects table statistics that support the generation of efficient query run plans by the query planner.
 
-When using the `EXPLAIN` command as part of a SQL statement, the statement will not run, and the run plan will be an estimation. By using the `EXPLAIN ANALYZE` command, the statement will run in addition to displaying the run plan.
+- **Histograms** — `ANALYZE` collects statistics on table column values and creates a histogram of the approximate data distribution in each column.
+- **Pages and Rows** — `ANALYZE` collects statistics on the number of database pages and rows from which each table is comprised.
+- **Data Sampling** — For large tables, the `ANALYZE` command takes random samples of values rather than examining each row. This allows the `ANALYZE` command to scan very large tables in a relatively small amount of time.
+- **Statistic Collection Granularity** — Running the `ANALYZE` command without parameters instructs PostgreSQL to examine every table in the current schema. Supplying the table name or column name to `ANALYZE` instructs the database to examine a specific table or table column.
 
-### PostgreSQL EXPLAIN Synopsis
+### Automatic Statistics Collection
+
+By default, PostgreSQL is configured with an `AUTOVACUUM` daemon which automates the run of statistics collection by using the ANALYZE commands (in addition to automation of the VACUUM command). The `AUTOVACUUM` daemon scans for tables that show signs of large modifications in data to collect the current statistics. `AUTOVACUUM` is controlled by several parameters.
+
+Individual tables have several storage parameters which can trigger `AUTOVACUUM` process sooner or later. You can set or change such parameters as `autovacuum_enabled`, `autovacuum_vacuum_threshold`, and others, using `CREATE TABLE` or `ALTER TABLE` statements.
 
 ```
-EXPLAIN [ ( option value[, ...] ) ] statement
-EXPLAIN [ ANALYZE ] [ VERBOSE ] statement
-
-where option and values can be one of:
-  ANALYZE [ boolean ]
-  VERBOSE [ boolean ]
-  COSTS [ boolean ]
-  BUFFERS [ boolean ]
-  TIMING [ boolean ]
-  SUMMARY [ boolean ] (since PostgreSQL 10)
-  FORMAT { TEXT | XML | JSON | YAML }
+ALTER TABLE custom_autovaccum SET (autovacuum_enabled = true, autovacuum_vacuum_cost_delay = 10ms, autovacuum_vacuum_scale_factor = 0.01, autovacuum_analyze_scale_factor = 0.005);
 ```
 
-By default, planning and run time are displayed when using EXPLAIN ANALYZE, but not in other cases. A new option `SUMMARY` gives explicit control of this information. Use `SUMMARY` to include planning and run time metrics in your output.
+The preceding command enables `AUTOVACUUM` for the `custom_autovaccum` table and specifies the `AUTOVACUUM` process to sleep for 10 milliseconds each run.
 
-PostgreSQL provides configurations options that will cancel SQL statements running longer than provided time limit. To use this option, you can set the `statement_timeout` instance-level parameter. If the value is specified without units, it is taken as milliseconds. A value of zero (the default) disables the timeout.
+It also specifies a 1% of the table size to be added to `autovacuum_vacuum_threshold` and 0.5% of the table size to be added to `autovacuum_analyze_threshold` when deciding whether to trigger a `VACUUM`.
 
-Third-party connection pooler solutions like `Pgbouncer` and `PgPool` build on that and allow more flexibility in controlling how long connection to DB can run, be in idle state, and so on.
+For more information, see [Automatic Vacuuming](https://www.postgresql.org/docs/13/runtime-config-autovacuum.html "https://www.postgresql.org/docs/13/runtime-config-autovacuum.html") in the _PostgreSQL documentation_.
 
-### Aurora PostgreSQL Query Plan Management
+### Manual Statistics Collection
 
-The Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) Query Plan Management (QPM) feature solves the problem of plan instability by allowing database users to maintain stable, yet optimal, performance for a set of managed SQL statements. QPM primarily serves two main objectives:
+In PostgreSQL, you can collect statistics on-demand using the `ANALYZE` command at the database level, table level, or column level.
 
-- **Plan stability**. QPM prevents plan regression and improves plan stability when any of the preceding changes occur in the system.
-- **Plan adaptability**. QPM automatically detects new minimum-cost plans and controls when new plans may be used and adapts to the changes.
+- `ANALYZE` on indexes isn’t currently supported.
+- `ANALYZE` requires only a read-lock on the target table. It can run in parallel with other activity on the table.
+- For large tables, `ANALYZE` takes a random sample of the table contents. It is configured by the show `default_statistics_target` parameter. The default value is 100 entries. Raising the limit might allow more accurate planner estimates to be made at the price of consuming more space in the `pg_statistic` table.
 
-The quality and consistency of query optimization have a major impact on the performance and stability of any relational database management system (RDBMS). Query optimizers create a query run plan for a SQL statement at a specific point in time. As conditions change, the optimizer might pick a different plan that makes performance better or worse. In some cases, a number of changes can all cause the query optimizer to choose a different plan and lead to performance regression. These changes include changes in statistics, constraints, environment settings, query parameter bindings, and software upgrades. Regression is a major concern for high-performance applications.
+Starting from PostgreSQL 10, there is a new command `CREATE STATISTICS`, which creates a new extended statistics object tracking data about the specified table.
 
-With query plan management, you can control run plans for a set of statements that you want to manage. You can do the following:
-
-- Improve plan stability by forcing the optimizer to choose from a small number of known, good plans.
-- Optimize plans centrally and then distribute the best plans globally.
-- Identify indexes that aren’t used and assess the impact of creating or dropping an index.
-- Automatically detect a new minimum-cost plan discovered by the optimizer.
-- Try new optimizer features with less risk, because you can choose to approve only the plan changes that improve performance.
+The `STATISTICS` object tells the server to collect more detailed statistics.
 
 ### Examples
 
-Display the run plan of a SQL statement using the `EXPLAIN` command.
+The following example gathers statistics for the entire database.
 
 ```
-EXPLAIN
-SELECT EMPLOYEE_ID, LAST_NAME, FIRST_NAME FROM EMPLOYEES
-WHERE LAST_NAME='King' AND FIRST_NAME='Steven';
-
-Index Scan using idx_emp_name on employees (cost=0.14..8.16 rows=1 width=18)
-Index Cond: (((last_name)::text = 'King'::text) AND ((first_name)::text = 'Steven'::text))
-(2 rows)
+ANALYZE;
 ```
 
-Run the same statement with the `ANALYZE` keyword.
+The following example gathers statistics for a specific table. The `VERBOSE` keyword displays progress.
 
 ```
-EXPLAIN ANALYZE
-SELECT EMPLOYEE_ID, LAST_NAME, FIRST_NAME FROM EMPLOYEES
-WHERE LAST_NAME='King' AND FIRST_NAME='Steven';
-
-
-Seq Scan on employees (cost=0.00..3.60 rows=1 width=18) (actual time=0.012..0.024 rows=1 loops=1)
-Filter: (((last_name)::text = 'King'::text) AND ((first_name)::text = 'Steven'::text))
-Rows Removed by Filter: 106
-Planning time: 0.073 ms
-Execution time: 0.037 ms
-(5 rows)
+ANALYZE VERBOSE EMPLOYEES;
 ```
 
-By adding the ANALYZE keyword and running the statement, we get additional information in addition to the run plan.
-
-View a PostgreSQL run plan showing a `FULL TABLE SCAN`.
+The following example gathers statistics for a specific column.
 
 ```
-EXPLAIN ANALYZE
-SELECT EMPLOYEE_ID, LAST_NAME, FIRST_NAME FROM EMPLOYEES
-WHERE SALARY > 10000;
-
-Seq Scan on employees (cost=0.00..3.34 rows=15 width=18) (actual time=0.012..0.036 rows=15 loops=1)
-Filter: (salary > '10000'::numeric)
-Rows Removed by Filter: 92
-Planning time: 0.069 ms
-Execution time: 0.052 ms
-(5 rows)
+ANALYZE EMPLOYEES (HIRE_DATE);
 ```
 
-PostgreSQL can perform several scan types for processing and retrieving data from tables including sequential scans, index scans, and bitmap index scans. The sequential scan is PostgreSQL equivalent for SQL Server full table scan.
+Specify the default_statistics_target parameter for an individual table column and reset it back to default.
 
-For more information, see [EXPLAIN](https://www.postgresql.org/docs/13/sql-explain.html "https://www.postgresql.org/docs/13/sql-explain.html") in the _PostgreSQL documentation_.
+```
+ALTER TABLE EMPLOYEES ALTER COLUMN SALARY SET STATISTICS 150;
+
+ALTER TABLE EMPLOYEES ALTER COLUMN SALARY SET STATISTICS -1;
+```
+
+Larger values increase the time needed to complete an ANALYZE, but improve the quality of the collected planner’s statistics, which can potentially lead to better run plans.
+
+View the current (session or global) `default_statistics_target`, modify it to 150, and analyze the `EMPLOYEES` table:
+
+```
+SHOW default_statistics_target ;
+SET default_statistics_target to 150;
+ANALYZE EMPLOYEES ;
+```
+
+View the last time statistics were collected for a table.
+
+```
+select relname, last_analyze from pg_stat_all_tables;
+```
+
+## Summary
+
+| Feature                                                   | SQL Server                                                                   | PostgreSQL                                                                                                               |
+| --------------------------------------------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| Analyze a specific database table                         | `<br>CREATE STATISTICS MyStatistics<br>ON MyTable (Col1, Col2)<br>`          | `<br>ANALYZE EMPLOYEES;<br>`                                                                                             |
+| Analyze a database table while only sampling certain rows | `<br>UPDATE STATISTICS MyTable(MyStatistics)<br>WITH SAMPLE 50 PERCENT;<br>` | Configure the number of entries for the table:<br>`<br>SET default_statistics_target to 150;<br>ANALYZE EMPLOYEES ;<br>` |
+| View last time statistics were collected                  | `<br>DBCC SHOW_STATISTICS ('MyTable','MyStatistics');<br>`                   | `<br>select relname, last<br>`                                                                                           |
+
+For more information, see [ANALYZE](https://www.postgresql.org/docs/13/sql-analyze.html "https://www.postgresql.org/docs/13/sql-analyze.html") and [The Autovacuum Daemon](https://www.postgresql.org/docs/13/routine-vacuuming.html#AUTOVACUUM "https://www.postgresql.org/docs/13/routine-vacuuming.html#AUTOVACUUM") in the _PostgreSQL documentation_.

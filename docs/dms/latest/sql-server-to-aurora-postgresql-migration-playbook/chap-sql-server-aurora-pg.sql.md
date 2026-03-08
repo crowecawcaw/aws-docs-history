@@ -1,408 +1,219 @@
-# Creating tables for ANSI SQL
+# Views for ANSI SQL
 
-This topic provides reference information comparing the creation of tables in Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL. You can understand the similarities and differences in table creation syntax, features, and capabilities between these two database systems. The topic highlights key aspects such as table and column naming, data types, constraints, and auto-generated values.
+This topic provides reference information about migrating views from Microsoft SQL Server 2019 to Amazon Aurora PostgreSQL. You can understand the similarities and differences in view functionality between these two database systems, which is crucial for planning and executing a successful migration. The topic covers basic view concepts, usage patterns, and specific features like indexed views, partitioned views, and updateable views.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                      | Key differences                                                                                                                 |
-| -------------------------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| Three star feature compatibility | Four star automation level         | [Creating Tables](chap-sql-server-aurora-pg.tools.md#chap-sql-server-aurora-pg.tools.actioncode.tables "chap-sql-server-aurora-pg.tools.md#chap-sql-server-aurora-pg.tools.actioncode.tables") | Auto generated value column is different. Can’t use physical attribute `ON`. Missing table variable and memory-optimized table. |
+| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                           |
+| ------------------------------- | ---------------------------------- | ------------------------- | --------------------------------------------------------- |
+| Four star feature compatibility | Four star automation level         | N/A                       | PostgreSQL doesn’t support indexed and partitioned views. |
 
 ## SQL Server Usage
 
-### ANSI Syntax Conformity
+Views are schema objects that provide stored definitions for virtual tables. Similar to tables, views are data sets with uniquely named columns and rows. With the exception of indexed views, view objects don’t store data. They consist only of a query definition and are reevaluated for each invocation.
 
-You can create tables in SQL Server using the `CREATE TABLE` statement and conform to the ANSI/ISO entry level standard. The basic features of `CREATE TABLE` are similar for most relational database management engines and are well defined in the ANSI/ISO standards.
+Views are used as abstraction layers and security filters for the underlying tables. They can `JOIN` and `UNION` data from multiple source tables and use aggregates, window functions, and other SQL features as long as the result is a semi-proper set with uniquely identifiable columns and no order to the rows. You can use distributed views to query other databases and data sources using linked servers.
 
-In its most basic form, the `CREATE TABLE` statement in SQL Server is used to define:
+As an abstraction layer, a view can decouple application code from the database schema. You can change the underlying tables without the need to modify the application code as long as the expected results of the view don’t change. You can use this approach to provide backward compatible views of data.
 
-- Table names, the containing security schema, and database.
-- Column names.
-- Column data types.
-- Column and table constraints.
-- Column default values.
-- Primary, candidate (UNIQUE), and foreign keys.
+As a security mechanism, a view can screen and filter source table data. You can perform permission management at the view level without explicit permissions to the base objects, provided the ownership chain is maintained. For more information, see [Overview of SQL Server Security](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/overview-of-sql-server-security "https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/overview-of-sql-server-security").
 
-### T-SQL Extensions
+View definitions are evaluated when they are created and aren’t affected by subsequent changes to the underlying tables. For example, a view that uses `SELECT *` doesn’t display columns that were added later to the base table. Similarly, if a column was dropped from the base table, invoking the view results in an error. Use the `SCHEMABINDING` option to prevent changes to base objects.
 
-SQL Server extends the basic syntax and provides many additional options for the `CREATE TABLE` or `ALTER TABLE` statements. The most often used options are:
+### Modifying Data Through Views
 
-- Supporting index types for primary keys and unique constraints, clustered or non-clustered, and index properties such as `FILLFACTOR`.
-- Physical table data storage containers using the `ON <File Group>` clause.
-- Defining `IDENTITY` auto-enumerator columns.
-- Encryption.
-- Compression.
-- Indexes.
+Updatable Views can both select and modify data. Updatable views meet the following conditions:
 
-For more information, see [Data Types](chap-sql-server-aurora-pg.sql.md "chap-sql-server-aurora-pg.sql.md"), [Column Encryption](chap-sql-server-aurora-pg.security.md "chap-sql-server-aurora-pg.security.md"), and [Databases and Schemas](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md").
+- The DML targets only one base table.
+- Columns being modified must be directly referenced from the underlying base tables. Computed columns, set operators, functions, aggregates, or any other expressions aren’t permitted.
+- If a view is created with the CHECK OPTION, rows being updated can’t be filtered out of the view definition as the result of the update.
 
-### Table Scope
+### Special View Types
 
-SQL Server provides five scopes for tables
+SQL Server provides three types of specialized views:
 
-- Standard tables are created on disk, globally visible, and persist through connection resets and server restarts.
-- Temporary tables are designated with the "# " prefix. They are persisted in TempDB and are visible to the run scope and any sub-scopes where they were created. Temporary tables are cleaned up by the server when the run scope terminates and when the server restarts.
-- Global temporary tables are designated by the "## " prefix. They are similar in scope to temporary tables, but are also visible to concurrent scopes.
-- Table variables are defined with the `DECLARE` statement, not with `CREATE TABLE`. They are visible only to the run scope where they were created.
-- Memory-optimized tables are special types of tables used by the In-Memory Online Transaction Processing (OLTP) engine. They use a non-standard `CREATE TABLE` syntax.
-
-### Creating a Table Based on an Existing Table or Query
-
-In SQL Server, you can create new tables based on `SELECT` queries as an alternate to the `CREATE TABLE` statement. You can use a `SELECT` statement that returns a valid set with unique column names to create a new table and populate data.
-
-`SELECT INTO` is a combination of DML and DDL. The simplified syntax for `SELECT INTO` is shown following.
-
-```
-SELECT <Expression List>
-INTO <Table Name>
-[FROM <Table Source>]
-[WHERE <Filter>]
-[GROUP BY <Grouping Expressions>...];
-```
-
-When you create a new table using `SELECT INTO`, the only attributes created for the new table are column names, column order, and the data types of the expressions. Even a straight forward statement such as` SELECT \* INTO <New Table> FROM <Source Table>` doesn’t copy constraints, keys, indexes, identity property, default values, or any other related objects.
-
-### TIMESTAMP Syntax for ROWVERSION Deprecated Syntax
-
-The `TIMESTAMP` syntax synonym for `ROWVERSION` has been deprecated as of SQL Server 2008R2 in accordance with [Deprecated Database Engine Features in SQL Server 2008 R2](<https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)> "https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)").
-
-Previously, you could use either the `TIMESTAMP` or the `ROWVERSION` keywords to denote a special data type that exposes an auto-enumerator. The auto-enumerator generates unique eight-byte binary numbers typically used to version-stamp table rows. Clients read the row, process it, and check the `ROWVERSION` value against the current row in the table before modifying it. If they are different, the row has been modified since the client read it. The client can then apply different processing logic.
-
-Note that when migrating to Aurora PostgreSQL using the AWS Schema Conversion Tool, neither `ROWVERSION` nor `TIMESTAMP` are supported. You must add customer logic, potentially in the form of a trigger, to maintain this functionality.
+- **Indexed views**. These views are also known as materialized views or persisted views. Indexed vires are standard views that have been evaluated and persisted in a unique clustered index, much like a normal clustered primary key table. Each time the source data changes, SQL Server re-evaluates the indexed views automatically and updates them. Indexed views are typically used as a means to optimize performance by pre-processing operators such as aggregations, joins, and others. Queries needing this pre-processing don’t have to wait for it to be reevaluated on every query run.
+- **Partitioned views** rejoin horizontally partitioned data sets from multiple underlying tables, each containing only a subset of the data. The view uses a `UNION ALL` query where the underlying tables can reside locally or in other databases (or even other servers). These types of views are called Distributed Partitioned Views (DPV).
+- **System views** access server and object meta data. SQL Server also supports a set of standard `INFORMATION_SCHEMA` views for accessing object meta data.
 
 ### Syntax
 
-Simplified syntax for `CREATE TABLE` is shown following.
-
 ```
-CREATE TABLE [<Database Name>.<Schema Name>].<Table Name> (<Column Definitions>)
-  [ON{<Partition Scheme Name> (<Partition Column Name>)];
-```
-
-```
-<Column Definition>:
-<Column Name> <Data Type>
-[CONSTRAINT <Column Constraint>
-[DEFAULT <Default Value>]]
-[IDENTITY [(<Seed Value>, <Increment Value>)]
-[NULL | NOT NULL]
-[ENCRYPTED WITH (<Encryption Specifications>)
-[<Column Constraints>]
-[<Column Index Specifications>]
-```
-
-```
-<Column Constraint>:
-[CONSTRAINT <Constraint Name>]
-{{PRIMARY KEY | UNIQUE} [CLUSTERED | NONCLUSTERED]
-[WITH FILLFACTOR = <Fill Factor>]
-| [FOREIGN KEY]
-REFERENCES <Referenced Table> (<Referenced Columns>)]
-```
-
-```
-<Column Index Specifications>:
-INDEX <Index Name> [CLUSTERED | NONCLUSTERED]
-[WITH(<Index Options>]
+CREATE [OR ALTER] VIEW [<Schema Name>.] <View Name> [(<Column Aliases> ])]
+[WITH [ENCRYPTION][SCHEMABINDING][VIEW_METADATA]]
+AS <SELECT Query>
+[WITH CHECK OPTION][;]
 ```
 
 ### Examples
 
-Create a basic table.
+The following example creates a view that aggregates items for each customer.
 
 ```
-CREATE TABLE MyTable
+CREATE TABLE Orders
 (
-Col1 INT NOT NULL PRIMARY KEY,
-Col2 VARCHAR(20) NOT NULL
+  OrderID INT NOT NULL PRIMARY KEY,
+  OrderDate DATETIME NOT NULL
+  DEFAULT GETDATE()
 );
 ```
 
-Create a table with column constraints and an identity.
-
 ```
-CREATE TABLE MyTable
+CREATE TABLE OrderItems
 (
-Col1 INT NOT NULL PRIMARY KEY IDENTITY (1,1),
-Col2 VARCHAR(20) NOT NULL CHECK (Col2 <> ''),
-Col3 VARCHAR(100) NULL
-REFERENCES MyOtherTable (Col3)
+  OrderID INT NOT NULL
+  REFERENCES Orders(OrderID),
+  Item VARCHAR(20) NOT NULL,
+  Quantity SMALLINT NOT NULL,
+  PRIMARY KEY(OrderID, Item)
 );
 ```
 
-Create a table with an additional index.
+```
+CREATE VIEW SalesView
+AS
+SELECT O.Customer,
+  OI.Product,
+  SUM(CAST(OI.Quantity AS BIGINT)) AS TotalItemsBought
+FROM Orders AS O
+  INNER JOIN
+  OrderItems AS OI
+  ON O.OrderID = OI.OrderID;
+```
+
+The following example creates an indexed view that pre-aggregates items for each customer
 
 ```
-CREATE TABLE MyTable
-(
-Col1 INT NOT NULL PRIMARY KEY,
-Col2 VARCHAR(20) NOT NULL
-INDEX IDX_Col2 NONCLUSTERED
-);
+CREATE VIEW SalesViewIndexed
+AS
+SELECT O.Customer,
+  OI.Product,
+  SUM_BIG(OI.Quantity) AS TotalItemsBought
+FROM Orders AS O
+  INNER JOIN
+  OrderItems AS OI
+  ON O.OrderID = OI.OrderID;
 ```
 
-For more information, see [CREATE TABLE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+```
+CREATE UNIQUE CLUSTERED INDEX IDX_SalesView
+ON SalesViewIndexed (Customer, Product);
+```
+
+The following example creates a partitioned view.
+
+```
+CREATE VIEW dbo.PartitioneView
+WITH SCHEMABINDING
+AS
+SELECT *
+FROM Table1
+UNION ALL
+SELECT *
+FROM Table2
+UNION ALL
+SELECT *
+FROM Table3
+```
+
+For more information, see [Views](https://docs.microsoft.com/en-us/sql/relational-databases/views/views?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/views/views?view=sql-server-ver15"), [Modify Data Through a View](https://docs.microsoft.com/en-us/sql/relational-databases/views/modify-data-through-a-view?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/views/modify-data-through-a-view?view=sql-server-ver15"), and [CREATE VIEW (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-view-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-view-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## PostgreSQL Usage
 
-As SQL Server, Aurora PostgreSQL provides ANSI/ISO syntax entry level conformity for `CREATE TABLE` and custom extensions to support Aurora PostgreSQL specific functionality.
+The basic form of views is similar between PostgreSQL and SQL Server. A view defines a stored query based on one or more physical database tables that runs every time the view is accessed.
 
-In its most basic form, and very similar to SQL Server, the `CREATE TABLE` statement in Aurora PostgreSQL is used to define:
+More complex option such as indexed views or partitioned views aren’t supported, and may require a redesign or might application rewrite.
 
-- Table names containing security schema and/or database.
-- Column names.
-- Column data types.
-- Column and table constraints.
-- Column default values.
-- Primary, candidate (UNIQUE), and foreign keys.
+###### Note
 
-Starting with PostgreSQL 12 support for generated columns has been added. Generated columns can be either calculated from other columns values on the fly or calculated and stored.
+For Amazon Relational Database Service (Amazon RDS), starting with PostgreSQL 13, you can rename view columns using `ALTER VIEW` command. This option helps DBAs avoid dropping and recreating the view to change a column name.
 
-```
-CREATE TABLE tst_gen(
-n NUMERIC,
-n_gen GENERATED ALWAYS AS (n*0.01)
-);
-```
+Use the following syntax to rename a column name in a view: `ALTER VIEW [ IF EXISTS ] name RENAME [ COLUMN ] column_name TO new_column_name`.
 
-### Aurora PostgreSQL Extensions
+For PostgreSQL versions lower than 13, you can change the column name in a view using the `ALTER TABLE` command.
 
-Aurora PostgreSQL extends the basic syntax and allows many additional options to be defined as part of the `CREATE TABLE` or `ALTER TABLE` statements. The most often used option is in-line index definition.
+### PostgreSQL View Privileges
 
-### Table Scope
+To create a view, make sure that you grant `SELECT` and `DML` privileges on the base tables or views to your role or user. For more information, see [GRANT](https://www.postgresql.org/docs/13/sql-grant.html "https://www.postgresql.org/docs/13/sql-grant.html") in the _PostgreSQL documentation_.
 
-Aurora PostgreSQL provides two table scopes:
+### PostgreSQL View Parameters
 
-- Standard tables are created on disk, visible globally, and persist through connection resets and server restarts.
-- Temporary tables are created using the `CREATE GLOBAL TEMPORARY TABLE` statement. A `TEMPORARY` table is visible only to the session that creates it and is dropped automatically when the session is closed.
+**CREATE [OR REPLACE] VIEW**
 
-### Creating a Table Based on an Existing Table or Query
-
-Aurora PostgreSQL provides two ways to create standard or temporary tables based on existing tables and queries: `CREATE TABLE <New Table> LIKE <Source Table>` and `CREATE TABLE …​ AS <Query Expression>`.
-
-`CREATE TABLE <New Table> LIKE <Source Table>` creates an empty table based on the definition of another table including any column attributes and indexes defined in the original table.
-
-`CREATE TABLE …​ AS <Query Expression>` is very similar to `SELECT INTO` in SQL Server. You can use this query to create a new table and populate data in a single step.
-
-The following code example creates a new empty table based on the definition of the SourceTable table.
+When you re-create an existing view, make sure that the new view has the same column structure as generated by the original view. The column structure includes column names, column order, and data types. It is sometimes preferable to drop the view and use the `CREATE VIEW` statement instead.
 
 ```
-CREATE TABLE SourceTable(Col1 INT);
+hr=# CREATE [OR REPLACE] VIEW VW_NAME AS
+SELECT COLUMNS
+FROM TABLE(s)
+[WHERE CONDITIONS];
 
-INSERT INTO SourceTable VALUES (1);
-
-CREATE TABLE NewTable AS SELECT Col1 AS Col2 FROM SourceTable;
-
-INSERT INTO NewTable (Col2) VALUES (2);
-
-SELECT * FROM NewTable;
-Col2
-1
-2
+hr=# DROP VIEW [IF EXISTS] VW_NAME;
 ```
 
-### Converting TIMESTAMP and ROWVERSION Columns
+In the example preceding, the `IF EXISTS` parameter is optional.
 
-The following code example shows how you can use SQL server to provide an automatic mechanism for stamping row versions for application concurrency control.
+**WITH [ CASCADED | LOCAL ] CHECK OPTION**
 
-```
-CREATE TABLE WorkItems
-(
-WorkItemID INT IDENTITY(1,1) PRIMARY KEY,
-WorkItemDescription XML NOT NULL,
-Status VARCHAR(10) NOT NULL DEFAULT ('Pending'),
--- other columns...
-VersionNumber ROWVERSION
-);
-```
+DML `INSERT` and `UPDATE` operations are verified against the view-based tables to ensure new rows satisfy the original structure conditions or the view-defining condition. If a conflict is detected, the DML operation fails.
 
-The VersionNumber column automatically updates when a row is modified. The actual value is meaningless. Just the fact that it changed is what indicates a row modification. The client can now read a work item row, process it, and ensure no other clients updated the row before updating the status.
+- `LOCAL`. Verifies the view without a hierarchical check.
+- `CASCADED`. Verifies all underlying base views using a hierarchical check.
 
-```
-SELECT @WorkItemDescription = WorkItemDescription,
-@Status = Status,
-@VersionNumber = VersionNumber
-FROM WorkItems
-WHERE WorkItemID = @WorkItemID;
+**Running DML Commands On Views**
 
-EXECUTE ProcessWorkItem @WorkItemID, @WorkItemDescription, @Status OUTPUT;
-
-IF (
-  SELECT VersionNumber
-  FROM WorkItems
-  WHERE WorkItemID = @WorkItemID
-  ) = @VersionNumber;
-EXECUTE UpdateWorkItems @WorkItemID, 'Completed'; -- Success
-ELSE
-EXECUTE ConcurrencyExceptionWorkItem; -- Row updated while processing
-```
-
-In Aurora PostgreSQL, you can add a trigger to maintain the updated stamp for each row.
-
-```
-CREATE OR REPLACE FUNCTION IncByOne()
-  RETURNS TRIGGER
-  AS $$
-  BEGIN
-    UPDATE WorkItems SET VersionNumber = VersionNumber+1
-    WHERE WorkItemID = OLD.WorkItemID;
-  END; $$
-  LANGUAGE PLPGSQL;
-
-CREATE TRIGGER MaintainWorkItemVersionNumber
-  AFTER UPDATE OF WorkItems
-  FOR EACH ROW
-  EXECUTE PROCEDURE IncByOne();
-```
-
-For more information, see [Triggers](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md").
+PostgreSQL simple views are automatically updatable. No restrictions exist when performing DML operations on views. An updatable view may contain a combination of updatable and non-updatable columns. A column is updatable if it references an updatable column of the underlying base table. If not, the column is read-only and an error is raised if an `INSERT` or `UPDATE` statement is attempted on the column.
 
 ### Syntax
 
 ```
-CREATE [ [ GLOBAL | LOCAL ] { TEMPORARY | TEMP } | UNLOGGED ] TABLE [ IF NOT EXISTS ]
-table_name ( [
-{ column_name data_type [ COLLATE collation ] [ column_constraint [ ... ] ]
-| table_constraint
-| LIKE source_table [ like_option ... ] }
-[, ... ]
-] )
-[ INHERITS ( parent_table [, ... ] ) ]
-[ PARTITION BY { RANGE | LIST } ( { column_name | ( expression ) } [ COLLATE collation
-] [ opclass ] [, ... ] ) ]
-[ WITH ( storage_parameter [= value] [, ... ] ) | WITH OIDS | WITHOUT OIDS ]
-[ ON COMMIT { PRESERVE ROWS | DELETE ROWS | DROP } ]
-[ TABLESPACE tablespace_name ]
-```
-
-```
-CREATE [ [ GLOBAL | LOCAL ] { TEMPORARY | TEMP } | UNLOGGED ] TABLE [ IF NOT EXISTS ]
-table_name
-OF type_name [ (
-{ column_name [ WITH OPTIONS ] [ column_constraint [ ... ] ]
-| table_constraint }
-[, ... ]
-) ]
-[ PARTITION BY { RANGE | LIST } ( { column_name | ( expression ) } [ COLLATE collation
-] [ opclass ] [, ... ] ) ]
-[ WITH ( storage_parameter [= value] [, ... ] ) | WITH OIDS | WITHOUT OIDS ]
-[ ON COMMIT { PRESERVE ROWS | DELETE ROWS | DROP } ]
-[ TABLESPACE tablespace_name ]
-```
-
-```
-CREATE [ [ GLOBAL | LOCAL ] { TEMPORARY | TEMP } | UNLOGGED ] TABLE [ IF NOT EXISTS ]
-table_name
-PARTITION OF parent_table [ (
-{ column_name [ WITH OPTIONS ] [ column_constraint [ ... ] ]
-| table_constraint }
-[, ... ]
-) ] FOR VALUES partition_bound_spec
-[ PARTITION BY { RANGE | LIST } ( { column_name | ( expression ) } [ COLLATE collation
-] [ opclass ] [, ... ] ) ]
-[ WITH ( storage_parameter [= value] [, ... ] ) | WITH OIDS | WITHOUT OIDS ]
-[ ON COMMIT { PRESERVE ROWS | DELETE ROWS | DROP } ]
-[ TABLESPACE tablespace_name ]
-```
-
-The `column_constraint` is:
-
-```
-[ CONSTRAINT constraint_name ]
-{ NOT NULL |
-NULL |
-CHECK ( expression ) [ NO INHERIT ] |
-DEFAULT default_expr |
-GENERATED { ALWAYS | BY DEFAULT } AS IDENTITY [ ( sequence_options ) ] |
-UNIQUE index_parameters |
-PRIMARY KEY index_parameters |
-REFERENCES reftable [ ( refcolumn ) ] [ MATCH FULL | MATCH PARTIAL | MATCH SIMPLE ]
-[ ON DELETE action ] [ ON UPDATE action ] }
-[ DEFERRABLE | NOT DEFERRABLE ] [ INITIALLY DEFERRED | INITIALLY IMMEDIATE ]
-```
-
-The `table_constraint` is:
-
-```
-[ CONSTRAINT constraint_name ]
-{ CHECK ( expression ) [ NO INHERIT ] |
-UNIQUE ( column_name [, ... ] ) index_parameters |
-PRIMARY KEY ( column_name [, ... ] ) index_parameters |
-EXCLUDE [ USING index_method ] ( exclude_element WITH operator [, ... ] ) index_parameters
-[ WHERE ( predicate ) ] |
-FOREIGN KEY ( column_name [, ... ] ) REFERENCES reftable [ ( refcolumn [, ... ] ) ]
-[ MATCH FULL | MATCH PARTIAL | MATCH SIMPLE ] [ ON DELETE action ] [ ON UPDATE
-action ] }
-[ DEFERRABLE | NOT DEFERRABLE ] [ INITIALLY DEFERRED | INITIALLY IMMEDIATE ]
-```
-
-The `like_option` is:
-
-```
-{ INCLUDING | EXCLUDING } { COMMENTSDEFAULTS | CONSTRAINTS | DEFAULTS | IDENTITY |
-INDEXES | STATISTICS | STORAGE |COMMENTS | ALL }
-```
-
-The `partition_bound_spec` is:
-
-```
-IN ( { numeric_literal | string_literal | TRUE | FALSE | NULL } [, ...] ) |
-FROM ( { numeric_literal | string_literal | TRUE | FALSE | MINVALUE | MAXVALUE } [,
-...] )
-TO ( { numeric_literal | string_literal | TRUE | FALSE | MINVALUE | MAXVALUE } [,
-...] )
-```
-
-The `index_parameters` in `UNIQUE`, `PRIMARY KEY`, and `EXCLUDE` constraints are:
-
-```
-[ WITH ( storage_parameter [= value] [, ... ] ) ]
-[ USING INDEX TABLESPACE tablespace_name ]
-```
-
-The `exclude_element` in an `EXCLUDE` constraint is:
-
-```
-{ column_name | ( expression ) } [ opclass ] [ ASC | DESC ] [ NULLS { FIRST | LAST } ]
+CREATE [ OR REPLACE ] [ TEMP | TEMPORARY ] [ RECURSIVE ] VIEW name [ ( column_name [,...] ) ]
+[ WITH ( view_option_name [= view_option_value] [, ... ] ) ]
+AS query
+[ WITH [ CASCADED | LOCAL ] CHECK OPTION ]
 ```
 
 ### Examples
 
-Create a basic table.
+The following example creates and updates a view without the `CHECK OPTION` parameter.
 
 ```
-CREATE TABLE MyTable
-(
-Col1 INT PRIMARY KEY,
-Col2 VARCHAR(20) NOT NULL
-);
+CREATE OR REPLACE VIEW VW_DEP AS
+  SELECT DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, LOCATION_ID
+  FROM DEPARTMENTS
+  WHERE LOCATION_ID=1700;
+
+view VW_DEP created.
+
+UPDATE VW_DEP SET LOCATION_ID=1600;
+
+21 rows updated.
 ```
 
-Create a table with column constraints.
+The following example creates and updates a view with the LOCAL CHECK OPTION parameter.
 
 ```
-CREATE TABLE MyTable
-(
-Col1 INT PRIMARY KEY,
-Col2 VARCHAR(20) NOT NULL
-  CHECK (Col2 <> ''),
-Col3 VARCHAR(100) NULL
-  REFERENCES MyOtherTable (Col3)
-);
+CREATE OR REPLACE VIEW VW_DEP AS
+  SELECT DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, LOCATION_ID
+  FROM DEPARTMENTS
+  WHERE LOCATION_ID=1700
+  WITH LOCAL CHECK OPTION;
+
+view VW_DEP created.
+
+UPDATE VW_DEP SET LOCATION_ID=1600;
+
+SQL Error: ERROR: new row violates check option for view "vw_dep"
 ```
 
 ## Summary
 
-| Feature                     | SQL Server                    | Aurora PostgreSQL                                                           |
-| --------------------------- | ----------------------------- | --------------------------------------------------------------------------- |
-| ANSI compliance             | Entry level                   | Entry level                                                                 |
-| Auto generated enumerator   | `IDENTITY`                    | `SERIAL`                                                                    |
-| Reseed auto generated value | `DBCC CHECKIDENT`             | N/A                                                                         |
-| Index types                 | `CLUSTERED` or `NONCLUSTERED` | See [Indexes](chap-sql-server-aurora-pg.md "chap-sql-server-aurora-pg.md"). |
-| Physical storage location   | `ON <File Group>`             | Not supported                                                               |
-| Temporary tables            | `#TempTable`                  | `CREATE TEMPORARY TABLE`                                                    |
-| Global temporary tables     | `##GlobalTempTable`           | `CREATE GLOBAL TEMPORARY TABLE`                                             |
-| Table variables             | `DECLARE @Table`              | Not supported                                                               |
-| Create table as query       | `SELECT…​ INTO`               | `CREATE TABLE…​ AS`                                                         |
-| Copy table structure        | Not supported                 | `CREATE TABLE…​ LIKE`                                                       |
-| Memory-optimized tables     | Supported                     | N/A                                                                         |
+| Feature                  | SQL Server                      | Aurora PostgreSQL                                   |
+| ------------------------ | ------------------------------- | --------------------------------------------------- |
+| Indexed views            | Supported                       | N/A                                                 |
+| Partitioned views        | Supported                       | N/A                                                 |
+| Updateable views         | Supported                       | Supported                                           |
+| Prevent schema conflicts | `SCHEMABINDING` option          | N/A                                                 |
+| Triggers on views        | `INSTEAD OF`                    | `INSTEAD OF`                                        |
+| Temporary Views          | `CREATE VIEW #View…​`           | `CREATE [ OR REPLACE ] [ TEMP ] [ TEMPORARY ] VIEW` |
+| Refresh view definition  | `sp_refreshview` / `ALTER VIEW` | `ALTER VIEW`                                        |
 
-For more information, see [CREATE TABLE](https://www.postgresql.org/docs/13/sql-createtable.html "https://www.postgresql.org/docs/13/sql-createtable.html") in the _PostgreSQL documentation_.
+For more information, see [Views](https://www.postgresql.org/docs/13/tutorial-views.html "https://www.postgresql.org/docs/13/tutorial-views.html") and [CREATE VIEW](https://www.postgresql.org/docs/13/sql-createview.html "https://www.postgresql.org/docs/13/sql-createview.html") in the _PostgreSQL documentation_.
