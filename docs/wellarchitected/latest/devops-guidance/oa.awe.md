@@ -1,18 +1,10 @@
-# [OA.AWE.1] Equip teams with feature-rich tools for virtual collaboration
+# [OA.AWE.5] Organize team-building activities and social events to foster a sense of community and promote collaboration
 
-**Category:** FOUNDATIONAL
+**Category:** OPTIONAL
 
-In a DevOps environment, collaboration tools are required to
-facilitate effective communication and collaboration among
-distributed teams. These tools allow teams to rapidly make
-decisions and solve problems together. Provide well-integrated
-collaboration tools that support virtual collaboration through
-chats, voice, video, break-outs, and interactive boards for
-virtual meetings.
-
-These tools should be available on different devices,
-including desktops, tablets, and mobile. Invest in training
-for teams on how to use these tools effectively and securely.
-Gather feedback from teams on the suitability of
-the collaboration tools and any new features that could
-enhance their virtual collaboration experience.
+Organize regular team-building activities and social events to help team members
+build relationships, foster a sense of community, and promote collaboration. These events
+can be both in-person and virtual to accommodate remote team members. Encourage employees
+to participate and provide feedback on these activities to collect data on how impactful
+or enjoyable they are. These events are more impactful for distributed teams that
+span multiple time zones, and cities, or work fully remote.

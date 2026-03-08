@@ -1,43 +1,27 @@
-# [OA.LS.1] Appoint a decision-making leader to own DevOps adoption
+# [OA.LS.4] Open dialogue between leadership and teams
 
 **Category:** FOUNDATIONAL
 
-DevOps adoption requires a dedicated leader to help facilitate continued progress, make
-resource decisions, and gain alignment with leaders throughout the organization. This
-leadership role, inspired by Amazon's single-threaded leadership concept, becomes the
-person within the company fully dedicated and accountable for DevOps adoption. They have
-no competing priorities, focusing solely on DevOps adoption and driving the initiative
-forward.
+Communication in a DevOps environment is more than an exchange of information.
+It's about building trust, collaboration, and gaining alignment across the
+organization. Clear communication channels can bridge the gap between strategy and
+implementation.
 
-A single-threaded leader becomes the focal point for
-centralizing decision-making. They have the leeway within the
-organization to assess areas of improvement, and the ability
-to organize teams to solve problems. Appoint a leader with
-decision-making authority. Because DevOps adoption has a broad
-impact that requires change to occur throughout the entire
-organization, the leader must have support from executives,
-such as the CEO, CTO, CIO, or CISO. The ideal single-threaded
-leader for DevOps adoption is usually a role reporting
-directly to senior executives. This connection helps them
-drive organizational decisions, structure teams, and allocate
-responsibilities with the proper level of authority and direct
-escalation channels.
+Establish open communication channels between leaders and team members. Implement a
+system that gathers anonymous feedback directly from team members. Verify that this
+method is equally inclusive and accessible to everyone. Leaders should regularly share
+updates, insights, and learning back to teams to create a culture of collaboration and
+trust. An Amazon example is [Amazon Connections](https://amazon.jobs/en/landing_pages/hrresearch "https://amazon.jobs/en/landing_pages/hrresearch"), a mechanism that captures real-time feedback and data from
+employees about their experiences. This provides a model for organizations to understand
+team perspectives.
 
-The leader should work closely with enthusiastic early
-adopters to build momentum and support for the initiative.
-Open communication channels must remain open throughout the
-organization to foster collaboration and receive support. As
-progress is made, the leader regularly updates other teams and
-leaders of DevOps adoption initiatives and the impact DevOps
-is having on the business.
+The gathered feedback should drive decision-making at all
+levels of leadership to identify areas for improvement,
+address employee concerns, and promote a culture of open communication. Leaders must actively
+engage with this feedback, sharing updates and insights with
+teams. This action not only builds trust, but also aligns everyone with the organization's DevOps adoption
+progress.
 
 **Related information:**
 
-- [AWS Well-Architected Cost Optimization Pillar: COST01-BP02 Establish a partnership
-  between finance and technology](../cost-optimization-pillar/cost_cloud_financial_management_partnership.md "../cost-optimization-pillar/cost_cloud_financial_management_partnership.md")
-- [AWS Cloud Adoption Framework: People Perspective - Transformational
-  leadership](../../../whitepapers/latest/aws-caf-people-perspective/transformational-leadership.md "../../../whitepapers/latest/aws-caf-people-perspective/transformational-leadership.md")
-- [A Conversation with Werner
-  Vogels: Learning from the Amazon technology platform](https://queue.acm.org/detail.cfm?id=1142065 "https://queue.acm.org/detail.cfm?id=1142065")
-- [Two-Pizza Teams Are Just the Start, Part 2: Accountability and Empowerment Are Key to
-  High-Performing Agile Organizations](https://aws.amazon.com/blogs/enterprise-strategy/two-pizza-teams-are-just-the-start-accountability-and-empowerment-are-key-to-high-performing-agile-organizations-part-2/ "https://aws.amazon.com/blogs/enterprise-strategy/two-pizza-teams-are-just-the-start-accountability-and-empowerment-are-key-to-high-performing-agile-organizations-part-2/")
+- [Business Value is IT's Primary Measure of Progress](https://aws.amazon.com/blogs/enterprise-strategy/business-value-is-its-primary-measure-of-progress/ "https://aws.amazon.com/blogs/enterprise-strategy/business-value-is-its-primary-measure-of-progress/")

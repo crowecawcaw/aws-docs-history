@@ -1,54 +1,58 @@
-# [QA.NT.7] Verify service integrations through contract testing
+# [QA.NT.2] Validate system reliability with performance testing
 
-**Category:** RECOMMENDED
+**Category:** RECOMMENDED
 
-Contract testing helps ensure that different system components
-or services can seamlessly communicate and are compatible with
-each other. This involves creating contracts that detail
-interactions between services, capturing everything from
-request structures to expected responses. As changes are made,
-these contracts can be used by producing (teams that expose
-the API) and consuming (teams that use the API) services to
-ensure they remain compatible. Contract testing provides a
-safety net for both producers and consumers by ensuring
-changes in one do not adversely impact the other. This creates
-a culture of collaboration between teams while providing
-faster feedback for identifying integration issues earlier in
-the development lifecycle.
+Performance testing evaluates the responsiveness, throughput, reliability, and
+scalability of a system under a specific load. It helps ensure that the application
+performs adequately when it is subjected to both expected and peak loads without impacting
+user experience. Different performance tests should be run based on the nature of changes
+made to the system:
 
-There are different types of contract testing. In
-consumer-driven contract testing, the consumer of a service
-dictates the expected behaviors of the producer. This is
-contrasted with provider-driven approaches, where the producer
-service determines its behaviors without explicit input from
-its consumers. Consumer-driven contract testing is the type we
-generally recommend, as designing contracts with the consumer
-in mind ensures that APIs are tailored to the customer's
-actual needs, making integrations more intuitive.
+- **Load testing:** Performance tests evaluating the
+  system's behavior under expected load, such as the typical number of concurrent users
+  or transactions. Integrate automated load testing into your deployment pipeline,
+  ensuring every change undergoes validation of system behavior under expected
+  scenarios.
+- **Stress testing:** Performance tests challenging the
+  system by increasing the load beyond its normal operational capacity. Stress tests
+  identify the system's breaking points, ensuring that even under extreme conditions,
+  the system maintains functionality without abrupt crashes. Schedule stress tests after
+  significant application changes, infrastructure modifications, or periodically—such as
+  once a month—to prepare for unpredictable spikes in traffic or potential DDoS attacks.
+- **Endurance testing:** Performance tests that monitor
+  system behavior over extended periods of time under a specific load. Endurance tests
+  help ensure that there are no latent issues, such as slow memory leaks or performance
+  degradation, which might occur after prolonged operations. Monitor key performance
+  indicators over time and compare against established benchmarks to identify latent
+  issues. Schedule endurance tests after significant changes to the system, especially
+  those that might introduce memory leaks or other long-term issues. Consider running
+  them periodically—such as quarterly or biannually—to ensure system health over
+  prolonged operations.
 
-Begin by clearly defining contracts between your services. Use
-purpose-built contract testing tools, such
-as [Pact](http://Pact.io "http://Pact.io")
-or [Spring
-Cloud Contract](https://spring.io/projects/spring-cloud-contract/ "https://spring.io/projects/spring-cloud-contract/"), to simplify managing and validating
-contracts. When any modification is made in a producer
-service, run contract tests to assess the contracts'
-validity. Similarly, before a consumer service integrates with
-a producer, run the relevant contract tests to guarantee
-they'll interact correctly. This process allows producers to
-maintain backwards compatibility, while allowing consumers to
-identify and fix potential integration issues early in the
-development lifecycle. Embed contract testing into your
-deployment pipeline. This ensures continuous validation of
-contracts as changes are made to services, promoting a
-continuous and consistent integration process.
+All performance tests should be run against a test
+environment mirroring the production setup. Use tailored
+performance testing tools for your application's architecture
+and deployment environment. Regularly analyze test results
+against historical benchmarks and take proactive measures to
+counteract performance regressions.
 
 **Related information:**
 
-- [AWS Well-Architected Reliability Pillar: REL03-BP03 Provide
-  service contracts per API](../reliability-pillar/rel_service_architecture_api_contracts.md "../reliability-pillar/rel_service_architecture_api_contracts.md")
-- [Introduction
-  To Contract Testing With Examples](https://www.softwaretestinghelp.com/contract-testing/ "https://www.softwaretestinghelp.com/contract-testing/")
-- [CloudFormation
-  Command Line Interface: Testing resource types using
-  contract tests](../../../cloudformation-cli/latest/userguide/resource-type-test.md "../../../cloudformation-cli/latest/userguide/resource-type-test.md")
+- [AWS Well-Architected Performance Pillar: PERF01-BP07 Load test
+  your workload](../performance-efficiency-pillar/perf_performing_architecture_load_test.md "../performance-efficiency-pillar/perf_performing_architecture_load_test.md")
+- [AWS Well-Architected Sustainability Pillar: SUS03-BP03
+  Optimize areas of code that consume the most time or resources](../sustainability-pillar/sus_sus_software_a4.md "../sustainability-pillar/sus_sus_software_a4.md")
+- [AWS Well-Architected Reliability Pillar: REL07-BP04 Load test
+  your workload](../reliability-pillar/rel_adapt_to_changes_load_tested_adapt.md "../reliability-pillar/rel_adapt_to_changes_load_tested_adapt.md")
+- [AWS Well-Architected Reliability Pillar: REL12-BP04 Test
+  scaling and performance requirements](../reliability-pillar/rel_testing_resiliency_test_non_functional.md "../reliability-pillar/rel_testing_resiliency_test_non_functional.md")
+- [Ensure
+  Optimal Application Performance with Distributed Load
+  Testing on AWS](https://aws.amazon.com/blogs/architecture/ensure-optimal-application-performance-with-distributed-load-testing-on-aws/ "https://aws.amazon.com/blogs/architecture/ensure-optimal-application-performance-with-distributed-load-testing-on-aws/")
+- [Stress
+  Testing Tools - AWS Fault Injection Service](https://aws.amazon.com/fis/ "https://aws.amazon.com/fis/")
+- [Find
+  Expensive Code – Amazon CodeGuru Profiler](https://aws.amazon.com/codeguru/features/ "https://aws.amazon.com/codeguru/features/")
+- [Load
+  test your applications in a CI/CD pipeline using CDK
+  pipelines and AWS Distributed Load Testing Solution](https://aws.amazon.com/blogs/devops/load-test-applications-in-cicd-pipeline/ "https://aws.amazon.com/blogs/devops/load-test-applications-in-cicd-pipeline/")

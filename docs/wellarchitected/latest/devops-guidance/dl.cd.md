@@ -1,36 +1,43 @@
-# [DL.CD.6] Refine delivery pipelines using metrics for continuous improvement
+# [DL.CD.3] Integrate quality assurance into deployments
 
-**Category:** RECOMMENDED
+**Category:** FOUNDATIONAL
 
-Use key metrics—whether sourced from this guidance, established frameworks
-like [DORA](https://dora.dev/ "https://dora.dev/") or [SPACE](https://queue.acm.org/detail.cfm?id=3454124 "https://queue.acm.org/detail.cfm?id=3454124"), or custom to your
-organization—to continually optimize the development lifecycle. Metrics such as deployment
-frequency, change lead time, failure rate, and time to recover serve as outcome-based
-lagging indicators. These indicators span many DevOps capabilities to provide insights
-into the efficiency and reliability of the full delivery process. While individual metrics
-offer granular insights to optimize specific continuous delivery capabilities, these
-aggregated metrics present a holistic overview of the end-to-end development
-lifecycle. Both granular and holistic metrics are important for continuous improvement.
+Integrating quality assurance (QA) processes into continuous delivery pipelines tests
+that the whole system is ready for release. This differs from previous quality checks in the
+development lifecycle as these tests validate that the software changes behave as expected
+when deployed into real-world environments. This provides the ability to test integration
+with other live systems, check for configuration errors, and test in environments that more
+closely mirror production.
 
-Use observability practices to continuously monitor the
-development lifecycle, including incorporating monitoring and
-logging into your delivery pipelines. Use logs to generate
-metrics, and use these metrics to identify areas for
-improvement. Make these metrics visible to all team members
-and use them to drive your continuous improvement efforts.
-
-Putting an emphasis on continually optimizing pipelines using
-metrics is recommended. When getting started with DevOps
-adoption, initial efforts should prioritize the establishment
-of a stable and effective delivery pipeline, with subsequent
-enhancements to the pipeline being driven by metrics.
+Incorporate QA stages into your delivery pipeline to
+automatically conduct required functional, non-functional,
+security, and data tests after deployments occur. Deployments
+to environments is the ideal enforcement point for quality
+assurance, with QA requirements being scoped to the
+environment being deployed to. If a test fails for one
+environment, it is a signal that deployment to subsequent
+environments might carry the same risk. Provide immediate
+feedback to the development team upon any test failures, so
+they can rectify issues quickly and maintain the integrity of
+the deployment pipeline.
 
 **Related information:**
 
-- [Deployment
-  Pipeline Reference Architecture](https://pipelines.devops.aws.dev/application-pipeline/ "https://pipelines.devops.aws.dev/application-pipeline/")
-- [AWS Observability Best Practices: Key Performance
-  Indicators](https://aws-observability.github.io/observability-best-practices/guides/operational/business/key-performance-indicators/ "https://aws-observability.github.io/observability-best-practices/guides/operational/business/key-performance-indicators/")
-- [DevOps Research and
-  Assessment (DORA)](https://dora.dev/ "https://dora.dev/")
-- [SPACE](https://queue.acm.org/detail.cfm?id=3454124 "https://queue.acm.org/detail.cfm?id=3454124")
+- [AWS Well-Architected Reliability Pillar: REL08-BP02 Integrate
+  functional testing as part of your deployment](../reliability-pillar/rel_tracking_change_management_functional_testing.md "../reliability-pillar/rel_tracking_change_management_functional_testing.md")
+- [AWS Well-Architected Reliability Pillar: REL08-BP03 Integrate
+  resiliency testing as part of your deployment](../reliability-pillar/rel_tracking_change_management_resiliency_testing.md "../reliability-pillar/rel_tracking_change_management_resiliency_testing.md")
+- [AWS Well-Architected Security Pillar: SEC11-BP02 Automate
+  testing throughout the development and release lifecycle](../framework/sec_appsec_automate_testing_throughout_lifecycle.md "../framework/sec_appsec_automate_testing_throughout_lifecycle.md")
+- [Testing
+  stages in continuous integration and continuous
+  delivery](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/testing-stages-in-continuous-integration-and-continuous-delivery.md "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/testing-stages-in-continuous-integration-and-continuous-delivery.md")
+- [Amazon's
+  approach to high-availability deployment: Release guidance
+  lifecycle](https://youtu.be/bCgD2bX1LI4?t=855 "https://youtu.be/bCgD2bX1LI4?t=855")
+- [Testing
+  software and systems at Amazon: Continuous integration and
+  deployment](https://youtu.be/o1sc3cK9bMU?t=1206 "https://youtu.be/o1sc3cK9bMU?t=1206")
+- [The
+  Amazon Software Development Process: Automated
+  Testing](https://youtu.be/52SC80SFPOw?t=1340 "https://youtu.be/52SC80SFPOw?t=1340")

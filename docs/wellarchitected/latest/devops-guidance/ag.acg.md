@@ -1,27 +1,44 @@
-# [AG.ACG.7] Use automated tools for scalable cost management
+# [AG.ACG.8] Conduct regular scans to identify and remove unused resources
 
 **Category:** RECOMMENDED
 
-Automated cost management tools enable teams to remain agile
-and innovative while maintaining budgetary control. As
-deployment frequency increases due to DevOps improvements, it
-becomes important to put in place guardrails to control
-costs. 
+Over time, unused resources can often be a byproduct of
+experimentation and more frequent deployments, including
+dormant servers, unused deployment resources, idle containers,
+redundant environments, and unused serverless functions. These
+resources can pile up to create a less than ideal operating
+environment if not managed effectively, leading to
+inefficiencies, inflated costs, system unreliability, and
+heightened security risks.
 
-Use automated cost tracking mechanisms, such as cost budgets
-and alerts, and tag resources for cost allocation. Use cloud
-native cost management tools to monitor and report cloud
-expenditure continuously. Ensure these tools can alert teams
-when costs are approaching or exceeding budgeted amounts, and
-where possible, consider implementing auto-remediation methods
-to optimize resource usage, apply savings plans or reserved
-instances, and decommission unused resources.
+Perform automated scans scoped to all deployed resources in
+your environment and pinpoint unused or outdated resources.
+This can be accomplished by using health check endpoints,
+reviewing logs, using metadata elements such as tags, or
+checking billing dashboards for utilization.
+
+Verify the status and compatibility of software running on these resources,
+especially if they have been disconnected or powered off for extended periods of time.
+These checks are especially useful for preventing _zombie servers_,
+which have the potential to be rebooted after long periods of disconnection and might be
+running outdated or incompatible software.
+
+Based on the verification results and the organization's
+policies, take action to remediate these resources, such as
+updating the software, decommissioning the resources, or
+integrating them back into the environment. Frequently
+performing these scans can prevent potential service
+disruptions, maintain up-to-date software across all
+resources, and ensure the overall integrity of the DevOps
+environment.
 
 **Related information:**
 
-- [AWS Well-Architected Cost Optimization Pillar: COST02-BP05
-  Implement cost controls](../cost-optimization-pillar/cost_govern_usage_controls.md "../cost-optimization-pillar/cost_govern_usage_controls.md")
-- [Cloud
-  Financial Management](../management-and-governance-guide/cloudfinancialmanagement.md "../management-and-governance-guide/cloudfinancialmanagement.md")
-- [AWS Billing and Cost Management Conductor](https://aws.amazon.com/aws-cost-management/aws-billing-conductor/ "https://aws.amazon.com/aws-cost-management/aws-billing-conductor/")
-- [AWS Cost Anomaly Detection](https://aws.amazon.com/aws-cost-management/aws-cost-anomaly-detection/ "https://aws.amazon.com/aws-cost-management/aws-cost-anomaly-detection/")
+- [AWS Well-Architected Cost Optimization Pillar: COST02-BP06
+  Track project lifecycle](../cost-optimization-pillar/cost_govern_usage_track_lifecycle.md "../cost-optimization-pillar/cost_govern_usage_track_lifecycle.md")
+- [Implementing
+  health checks](https://aws.amazon.com/builders-library/implementing-health-checks/ "https://aws.amazon.com/builders-library/implementing-health-checks/")
+- [Decommission
+  resources - Cost Optimization Pillar](../cost-optimization-pillar/decommission-resources.md "../cost-optimization-pillar/decommission-resources.md")
+- [Identifying
+  your unused resources - DynamoDB](../../../amazondynamodb/latest/developerguide/CostOptimization_UnusedResources.md "../../../amazondynamodb/latest/developerguide/CostOptimization_UnusedResources.md")

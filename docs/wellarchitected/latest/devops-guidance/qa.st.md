@@ -1,68 +1,42 @@
-# [QA.ST.7] Conduct proactive exploratory security testing activities
+# [QA.ST.1] Evolve vulnerability management processes to be conducive of DevOps practices
 
-**Category:** RECOMMENDED
+**Category:** FOUNDATIONAL
 
-Conduct frequent exploratory security testing activities,
-encompassing penetration testing, red teaming, and
-participation in vulnerability disclosure or bug bounty
-programs.
+Vulnerability management requires an ongoing, iterative process consistent with agile
+development practices. The goal is to discover potential vulnerabilities across networks,
+infrastructures, and applications, and to prioritize and take action on them.
 
-Penetration tests use ethical hackers to detect vulnerabilities in system or networks
-by mimicking potential threat actor actions. These exploratory security tests reveal
-weaknesses in the system using the ingenuity of human testers. Deployment pipelines can
-trigger the penetration testing process and wait for an approval to help ensure that
-vulnerabilities are identified and fixed before code moves to the next stage. Automation
-can be used to run repetitive, baseline tests, such as dynamic application security
-testing, to enable human testers to focus on more complex scenarios. Review the [AWS Customer Support Policy for
-Penetration Testing](https://aws.amazon.com/security/penetration-testing/ "https://aws.amazon.com/security/penetration-testing/") before running penetration tests against AWS
-infrastructure. Penetration testing is most effective when you need a broad review of the
-application or system against known vulnerabilities.
+Automated vulnerability scanning must be integrated into deployment pipelines to
+provide feedback to developers regarding security vulnerabilities and improvements early on.
+This minimizes extensive security evaluations during deployment and is consistent with the
+DevOps _shift left_ approach—addressing security problems early on in the
+development process. Choose vulnerability scanning tools that are compatible with your
+existing technology and platforms. For instance, if [Amazon CodeCatalyst](https://aws.amazon.com/codecatalyst/ "https://aws.amazon.com/codecatalyst/") is your pipeline tool of choice, verify that the
+chosen vulnerability scanning tool has a CodeCatalyst plugin or API integration capability. If
+vulnerabilities are detected during a build, the pipeline should automatically generate
+alerts, allowing developers to address issues quickly.
 
-Going beyond the scope of penetration tests, red
-teaming emulates real-world adversaries in a full-scale
-simulation, targeting the organization's technology, people,
-and processes. Red teaming is more focused than penetration
-testing, targeting specific vulnerabilities by allocating more
-resources, spending more time, and examining additional attack
-vectors. This includes potential threats from internal
-sources, such as lost devices, external sources like phishing
-campaigns, and those arising from social engineering tactics.
-This approach provides insights into how threat actors might
-exploit weaknesses and bypass defenses in a real-world
-scenario. Red teaming evaluates the broader resilience of an
-application or system, including its resistance to
-sophisticated attacks that span the entire organization's
-security posture.
+If you use issue-tracking systems like Jira or [CodeCatalyst Issues](../../../codecatalyst/latest/userguide/issues.md "../../../codecatalyst/latest/userguide/issues.md"), it can be
+beneficial to automatically generate tickets to assist developers with tracking issues. When
+a vulnerability is detected, an automated ticket should be generated, tagged with severity,
+and assigned to the appropriate developer or team. Use vulnerability management dashboards
+to consistently monitor and analyze threats. Regular reports should detail vulnerability
+trends, ensuring vulnerabilities are not reintroduced and pinpointing recurrent security
+challenges.
 
-Vulnerability disclosure and bug bounty programs invite external researchers to
-examine your software, complementing and often surpassing internal security evaluations.
-Researchers who participate in these programs not only identify potential exploits but
-also verify them, resulting in higher fidelity findings. The person who identified the
-vulnerability does not disclose it publicly for a set amount of time, allowing a patch to
-be rolled out before the information is disclosed publicly, and in some cases will receive
-compensation for their efforts. These programs foster a culture of openness and continuous
-improvement, emphasizing the importance of external feedback in maintaining secure
-systems.
-
-The findings from exploratory security testing should be
-communicated to development teams as soon as findings are
-available, allowing for quick remediation and learning.
+To effectively practice vulnerability management in a DevOps environment, it's
+important to adopt a culture where security is everyone's responsibility. Development and
+security teams need collaboration, with clear delineations for security issue handoff and
+ownership. In a DevOps model, distributed development teams take on security
+responsibilities for their products. Centralized security teams often become enabling teams,
+offering training, insights, and support. They can also take on the responsibilities of a
+security platform team, producing reusable components, improving efficiency, reducing
+duplication of work, and overall providing autonomy to distributed teams so that they can
+efficiently secure their products.
 
 **Related information:**
 
-- [AWS Well-Architected Security Pillar: SEC11-BP03 Perform
-  regular penetration testing](../framework/sec_appsec_perform_regular_penetration_testing.md "../framework/sec_appsec_perform_regular_penetration_testing.md")
-- [Security
-  in every stage of the CI/CD pipeline: Penetration Testing
-  and Red Teaming](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/security-in-every-stage-of-cicd-pipeline.md#penetration-testing "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/security-in-every-stage-of-cicd-pipeline.md#penetration-testing")
-- [AWS Penetration Testing: A DIY Guide for Beginners](https://www.getastra.com/blog/security-audit/aws-penetration-testing/ "https://www.getastra.com/blog/security-audit/aws-penetration-testing/")
-- [AWS Customer Support Policy for Penetration Testing](https://aws.amazon.com/security/penetration-testing/ "https://aws.amazon.com/security/penetration-testing/")
-- [AWS Cloud Security - Vulnerability Reporting](https://aws.amazon.com/security/vulnerability-reporting/ "https://aws.amazon.com/security/vulnerability-reporting/")
-- [AWS BugBust](https://aws.amazon.com/bugbust/ "https://aws.amazon.com/bugbust/")
-- [AWS CloudSaga - Simulate security events in AWS](https://github.com/awslabs/aws-cloudsaga "https://github.com/awslabs/aws-cloudsaga")
-- [RFC
-  9116 - A File Format to Aid in Security Vulnerability
-  Disclosure](https://www.rfc-editor.org/rfc/rfc9116 "https://www.rfc-editor.org/rfc/rfc9116")
-- [Amazon's
-  approach to security during development: Penetration
-  Testing](https://youtu.be/NeR7FhHqDGQ?t=1432 "https://youtu.be/NeR7FhHqDGQ?t=1432")
+- [Enterprise
+  DevOps: Why You Should Run What You Build](https://aws.amazon.com/blogs/enterprise-strategy/enterprise-devops-why-you-should-run-what-you-build/ "https://aws.amazon.com/blogs/enterprise-strategy/enterprise-devops-why-you-should-run-what-you-build/")
+- [Automated
+  Software Vulnerability Management - Amazon Inspector](https://aws.amazon.com/inspector/ "https://aws.amazon.com/inspector/")

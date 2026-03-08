@@ -1,32 +1,38 @@
-# [DL.LD.3] Commit local changes early and often
+# [DL.LD.5] Enforce coding standards before commit
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED
 
-While developing locally, developers should begin to make
-small, frequent commits to save versions of their code changes
-as they develop. Unlike pushing code changes so that they are
-accessible to other team members, local commits deal
-specifically with a developer's individual progress as they
-develop locally. This practice makes local development safer,
-enabling developers to freely innovate without fear of losing
-completed work by capturing snapshots of iterative changes to
-the code base.
+Identify common style, formatting, and other flaws before they
+are published to a repository. Use static code scanning tools,
+such as linters, to improve code quality and consistency
+before pushing committed code. This process can be automated
+using pre-commit hooks. Upon discovery, pushing the commit
+should ideally fail and require immediate correction by the
+developer. Automatically and consistently enforcing coding
+standards during the local development process directly
+improves the code review process by removing common errors
+before manual review.
 
-Use version control tools, like Git, local testing tools for fast feedback,
-and [conventional
-commit](https://www.conventionalcommits.org/en/v1.0.0/ "https://www.conventionalcommits.org/en/v1.0.0/") messages that describe the nature and rationale behind the changes for.
-Strive to make it a habit to locally commit changes as soon as a logical unit of work is
-completed. This can be after fixing a bug, adding a new function, or refining an existing
-piece of code.
-
-Placing emphasis on the significance of making frequent local commits adapts
-developers to the idea of breaking down work into smaller, more manageable batches of work.
-This translates into streamlined integration processes when working in a team and is
-critical for practicing [continuous integration](https://aws.amazon.com/devops/continuous-integration/ "https://aws.amazon.com/devops/continuous-integration/") and [continuous delivery](https://aws.amazon.com/devops/continuous-delivery/ "https://aws.amazon.com/devops/continuous-delivery/") (CI/CD).
+Select scanning tools compatible with your chosen programming
+language and customize them to uphold specific coding
+standards and styles. It is best to integrate these tools into
+pre-commit hooks, integrated development environments (IDEs),
+and continuous integration pipelines so that changes are
+consistently and continuously checked at all stages of the
+development lifecycle.
 
 **Related information:**
 
-- [Git
-  Basics - Recording Changes to the Repository](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository "https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository")
-- [Continuous
-  Integration - Martin Fowler](https://martinfowler.com/articles/continuousIntegration.html "https://martinfowler.com/articles/continuousIntegration.html")
+- [Amazon CodeGuru Reviewer](https://aws.amazon.com/codeguru/ "https://aws.amazon.com/codeguru/")
+- [AWS CloudFormation Linter](https://github.com/aws-cloudformation/cfn-lint "https://github.com/aws-cloudformation/cfn-lint")
+- [Pre-commit](https://pre-commit.com/ "https://pre-commit.com/")
+- [Husky](https://typicode.github.io/husky/ "https://typicode.github.io/husky/")
+- [Validate
+  your AWS SAM applications with AWS CloudFormation
+  Linter](../../../serverless-application-model/latest/developerguide/validate-cfn-lint.md "../../../serverless-application-model/latest/developerguide/validate-cfn-lint.md")
+- [Workshop: AWS CloudFormation Workshop - Linting and-testing](https://catalog.workshops.aws/cfn101/en-US/basics/templates/linting-and-testing "https://catalog.workshops.aws/cfn101/en-US/basics/templates/linting-and-testing")
+- [Blog: Use
+  Git pre-commit hooks to avoid AWS CloudFormation
+  errors](https://aws.amazon.com/blogs/infrastructure-and-automation/use-git-pre-commit-hooks-avoid-aws-cloudformation-errors/ "https://aws.amazon.com/blogs/infrastructure-and-automation/use-git-pre-commit-hooks-avoid-aws-cloudformation-errors/")
+- [Blog: Automate
+  code reviews with Amazon CodeGuru Reviewer](https://aws.amazon.com/blogs/devops/automate-code-reviews-with-amazon-codeguru-reviewer/ "https://aws.amazon.com/blogs/devops/automate-code-reviews-with-amazon-codeguru-reviewer/")

@@ -1,18 +1,31 @@
-# [OA.BCL.6] Provide teams the autonomy to make decision that align with organizational objectives
+# [OA.BCL.10] Make informed decisions using data
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED
 
-Provide teams with the autonomy to make decisions and changes
-at the lowest level possible. Provide the necessary
-information, policies, and tools to make informed decisions
-aligned with the organization's goals and objectives.
-Establish clear guardrails to guide decisions and achieve
-consistency with the overall strategy while avoiding adverse
-impacts on other teams or the organization. Encourage a
-culture of empowerment, where team members feel confident in
-making decisions and taking action.
+Encourage teams to shift from relying solely on intuition or personal experience to
+using data to inform their decisions so that they become more objective than subjective.
+Teams should consider what to measure (and why), how to measure it, and how to effectively
+present the data for informed decision making. Provide training on data analysis and
+visualization, and aim to make data easily accessible and up-to-date. Use tools to
+collect, store, analyze, and visualize data effectively, allowing teams to make
+data-driven decisions.
+
+Incorporate the _build-measure-learn_ feedback loop and
+_validated learning_ concepts from Eric Ries'
+[The
+Lean Startup](https://theleanstartup.com/principles "https://theleanstartup.com/principles") to enhance decision-making capabilities
+and alignment with organizational goals. Use the
+build-measure-learn loop and validated learning to make
+data-driven decisions, test assumptions, and adapt quickly to
+changing conditions to foster a culture of continuous
+learning and improvement. By partnering with customers
+throughout the innovation process, teams can better align
+their efforts with organizational objectives while remaining
+agile and responsive to evolving requirements. Doing so confirms that
+solutions are built with customer empathy, measured for
+impact, and refined through collaborative learning.
 
 **Related information:**
 
-- [Amazon's
-  approach to security during development: Ownership](https://youtu.be/NeR7FhHqDGQ?t=632 "https://youtu.be/NeR7FhHqDGQ?t=632")
+- [The Lean
+  Startup Methodology](https://theleanstartup.com "https://theleanstartup.com")
