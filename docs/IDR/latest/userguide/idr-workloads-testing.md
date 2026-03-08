@@ -16,6 +16,8 @@ Your gameday serves two main purposes:
 
 AWS Incident Detection and Response tests your Amazon CloudWatch alarms by monitoring the state change of your alarm. To do this, manually change the alarm to the **Alarm** state using the AWS Command Line Interface. You can also access the AWS CLI from AWS CloudShell. AWS Incident Detection and Response provides you with a list of AWS CLI commands for you to use during testing.
 
+To prevent unwanted actions, for example Amazon EC2 instance restarts, disable any CloudWatch alarm actions before you change the alarm state. You can re-enable CloudWatch alarm actions after the testing completes. To learn more about disabling or enabling alarm actions, see [DisableAlarmActions](../../../AmazonCloudWatch/latest/APIReference/API_DisableAlarmActions.md "../../../AmazonCloudWatch/latest/APIReference/API_DisableAlarmActions.md") and [EnableAlarmActions](../../../AmazonCloudWatch/latest/APIReference/API_EnableAlarmActions.md "../../../AmazonCloudWatch/latest/APIReference/API_EnableAlarmActions.md") in the _Amazon CloudWatch API Reference_.
+
 Example AWS CLI command to set an alarm state:
 
 ```
