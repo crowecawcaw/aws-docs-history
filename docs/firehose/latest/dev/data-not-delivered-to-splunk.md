@@ -29,7 +29,7 @@ Check the following if data is not delivered to your Splunk endpoint.
 - Increase the value of `DurationInSeconds` under
   `RetryOptions` in the Splunk destination configuration of your
   Firehose stream.
-- Check your HEC health.
+- Check your HEC health. Enabling health check is a pre-requsite for data transfer to Splunk.
 - If you're using data transformation, make sure that your Lambda function never
   returns responses whose payload size exceeds 6 MB. For more information, see
   [Amazon Data Firehose Data Transformation](data-transformation.md#data-transformation.title "data-transformation.md#data-transformation.title").
