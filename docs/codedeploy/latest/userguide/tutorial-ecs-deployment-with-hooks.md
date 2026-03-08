@@ -16,7 +16,7 @@ listener. The following diagram shows how the load balancer, production and test
 target groups, and your Amazon ECS application are related before the deployment starts. This
 tutorial uses an Application Load Balancer. You can also use a Network Load Balancer.
 
-![The connections between the Application Load Balancer or Network Load Balancer, listeners, target groups, task set, and Amazon ECS service.](/images/codedeploy/latest/userguide/images/codedeploy-ecs-deployment-step-1.png)
+![The connections between the Application Load Balancer or Network Load Balancer, listeners, target groups, task set, and Amazon ECS service.](images/codedeploy-ecs-deployment-step-1.png)
 During an Amazon ECS deployment, there are five lifecycle hooks for testing. This tutorial
 implements one test during the third lifecycle deployment hook,
 `AfterAllowTestTraffic`. For more information, see [List of lifecycle event hooks for an Amazon ECS deployment](reference-appspec-file-structure-hooks.md#reference-appspec-file-structure-hooks-list-ecs "reference-appspec-file-structure-hooks.md#reference-appspec-file-structure-hooks-list-ecs"). After a successful
