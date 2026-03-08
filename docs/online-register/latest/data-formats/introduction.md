@@ -119,6 +119,7 @@ You can also search the AWS documentation website for a product's API reference.
 - [Data retrieval APIs for Amazon Connect](amazonconnect.md "amazonconnect.md")
 - [Data retrieval APIs for Amazon Connect Cases](amazonconnectcases.md "amazonconnectcases.md")
 - [Data retrieval APIs for Amazon Connect Customer Profiles](amazonconnectcustomerprofiles.md "amazonconnectcustomerprofiles.md")
+- [Data retrieval APIs for Amazon Connect Health](amazonconnecthealth.md "amazonconnecthealth.md")
 - [Data retrieval APIs for Amazon Connect Outbound Campaigns](amazonconnectoutboundcampaigns.md "amazonconnectoutboundcampaigns.md")
 - [Data retrieval APIs for Amazon Connect Voice ID](amazonconnectvoiceid.md "amazonconnectvoiceid.md")
 - [Data retrieval APIs for AWS Connector Service](awsconnectorservice.md "awsconnectorservice.md")
