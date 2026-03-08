@@ -20,7 +20,7 @@ AWS DevOps Agent provides comprehensive incident response and prevention capabil
 AWS DevOps Agent autonomously investigates issues the moment they occur:
 
 - **Automated incident investigation** – Begins investigating immediately when an alert or support ticket comes in
-- **Interactive investigation chat** – Initiate and guide investigations using natural language in the Dev Op Agent Space web app
+- **AWS DevOps Agent Chat** - Query your infrastructure, analyze system health, and guide investigations using natural language throughout the DevOps Agent Space web app. Chat provides context-aware responses based on the page you're viewing, whether asking about resources in DevOps Center, steering an investigation, or filtering recommendations in Prevention.
 - **Detailed mitigation plans** – Provides specific actions to resolve incidents, validate success, and revert changes if needed
 - **Automated incident coordination** – Routes observations, findings, and mitigation steps through your preferred communication channels like Slack and ServiceNow
 - **AWS Support integration** – Create AWS Support cases directly from an investigation with immediate context provided to AWS Support experts
@@ -39,10 +39,11 @@ AWS DevOps Agent integrates with your existing tools without changing your workf
 - **Application resource mapping** – Builds a topology graph of your application resources and their relationships
 - **Built-in integrations** – Works with popular observability tools (Amazon CloudWatch, Dynatrace, Datadog, New Relic, and Splunk), code repositories, and CI/CD pipelines (GitHub Actions and repositories, GitLab workflows and repositories)
 - **Custom tool integration** – Extend capabilities by connecting to your own Model Context Protocol (MCP) servers for additional tools
+- **Conversational infrastructure queries** – Use natural language to query AWS resources, system metrics and alarm status without navigating multiple consoles. Chat understands context and maintains conversation history for follow-up questions.
 
 ## How AWS DevOps Agent works
 
-AWS DevOps Agent operates through a dual-console architecture. Administrators use the AWS Management Console to create and manage Agent Spaces, configure integrations, and set up access controls. Operations teams use the AWS DevOps Agent web app for day-to-day incident response and investigation activities. The web app is where operators can interact with agent investigations, browse cross-account application topology, and learn about preventative improvements to observability, code, pipelines, and infrastructure architectures. To learn more, see [Preventing future incidents](devops-agent-incident-response-preventing-future-incidents.md "devops-agent-incident-response-preventing-future-incidents.md").
+AWS DevOps Agent operates through a dual-console architecture. Administrators use the AWS Management Console to create and manage Agent Spaces, configure integrations, and set up access controls. Operations teams use the AWS DevOps Agent web app for day-to-day incident response and investigation activities. The web app is where operators can interact with agent investigations, browse cross-account application topology, and learn about preventative improvements to observability, code, pipelines, and infrastructure architectures. To learn more, see [Preventing Future Incidents](https://quip-amazon.com/KVA6AfXeJjT3 "https://quip-amazon.com/KVA6AfXeJjT3").
 
 The service is organized around Agent Spaces, which are logical containers that define what AWS DevOps Agent can access and investigate. Each Agent Space contains your AWS account configurations, third-party tool integrations, and access permissions. To learn more, see [What are DevOps Agent Spaces?](about-aws-devops-agent-what-are-devops-agent-spaces.md "about-aws-devops-agent-what-are-devops-agent-spaces.md").
 

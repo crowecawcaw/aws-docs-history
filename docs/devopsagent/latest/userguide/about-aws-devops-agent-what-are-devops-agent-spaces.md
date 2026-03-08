@@ -13,6 +13,7 @@ Agent Spaces maintain isolation to ensure security and prevent unintended access
 - **AWS account isolation** – Each Agent Space uses dedicated IAM roles that grant access only to specific AWS accounts and resources. The agent cannot access AWS resources outside of those explicitly configured for the Agent Space.
 - **User access isolation** – You control which users or groups can access each Agent Space. This allows you to align access permissions with your organizational structure, ensuring teams only interact with their designated Agent Spaces.
 - **Data isolation** – Investigation data, incident history, and recommendations are maintained separately within each Agent Space. Information from one Agent Space is not visible or accessible from another Agent Space.
+- **Chat data isolation** - Chat conversation history is also isolated within each Agent Space. Conversations and queries in one Agent Space are not visible or accessible from another Agent Space.
 
 ## Agent Space Web App
 

@@ -217,7 +217,9 @@ cat > devops-operator-inline-policy.json << 'EOF'
         "aidevops:InitiateChatForCase",
         "aidevops:EndChatForCase",
         "aidevops:DescribeSupportLevel",
-        "aidevops:SendChatMessage"
+        "aidevops:ListChats",
+        "aidevops:CreateChat",
+        "aidevops:StreamMessage"
       ],
       "Resource": "arn:aws:aidevops:us-east-1:<ACCOUNT_ID>:agentspace/*"
     },

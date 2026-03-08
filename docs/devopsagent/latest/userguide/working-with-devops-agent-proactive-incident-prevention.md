@@ -1,4 +1,4 @@
-# Preventing future incidents
+# Proactive incident prevention
 
 AWS DevOps Agent analyzes patterns across your incident investigations to deliver targeted recommendations that continuously improve your operational posture and prevent future incidents. Access the Prevention feature through the Prevention page in the Operator Web App.
 

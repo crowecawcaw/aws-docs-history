@@ -15,7 +15,7 @@ AWS DevOps Agent builds topology graphs through several automated processes:
 
 Resource mapping provides several capabilities that enhance incident investigation and prevention:
 
-- **Interactive visualization** – Explore your application topology through an interactive graph in the Operator Web App. You can zoom and navigate the topology to understand complex relationships between resources.
+- **Interactive visualization** – Explore your application topology through an interactive graph in the Operator Web App. You can zoom and navigate the topology to understand complex relationships between resources. You can also use Chat to query topology information using natural language, such as 'Show me all Lambda functions connected to this DynamoDB table' or 'What resources are affected by this alarm?'.
 - **Contextual investigation** – During incident investigations, AWS DevOps Agent is assisted by the resource topology to identify affected components, understand blast radius, and trace the impact path through your systems.
 - **Root cause analysis** – The detailed understanding of resource relationships helps pinpoint where issues originate, even in complex distributed systems with many interdependencies.
 - **Impact assessment** – When analyzing incidents, the agent can better determine which downstream services might be affected by identifying dependency chains in the topology.

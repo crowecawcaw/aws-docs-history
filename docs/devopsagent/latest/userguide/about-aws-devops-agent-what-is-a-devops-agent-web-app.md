@@ -16,7 +16,8 @@ The DevOps Agent web app provides the following primary capabilities:
 - **Incident Response –** The page is where you create and track incident investigations as well as generate mitigation plans to resolve incidents.
 - **Incident Prevention –** Found in the Prevention tab, this is where you will find recommendations to improve your observability posture, delivery processes, and infrastructure architecture to prevent future incidents.
 - **DevOps Center –** The DevOps Center tab provides an interactive visual representation of the account resources and their relationships across all of the resources in the connected accounts. You can view the topology with different levels of detail.
-- **Runbooks** – Natural language explanations of your company’s in-house processes, high-level application architectures, and desired agent behaviors
+- **Runbooks** – Natural language explanations of your company’s in-house processes, high-level application architectures, and desired agent behaviors.
+- **Natural language Chat interface** – Available throughout the web app, Chat is an AI-powered conversational assistant that enables you to query your infrastructure, analyze system health, and work with investigations using natural language. Chat provides context-aware responses based on the page you're viewing.
 
 ## Authentication
 
