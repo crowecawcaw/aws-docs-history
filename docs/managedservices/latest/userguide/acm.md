@@ -37,7 +37,7 @@ added the `customer_acm_create_role` IAM role:
 **Q: What are the restrictions to using the AWS Certificate Manager?**
 
 You must submit a Request for Change (RFC) to AMS to delete or modify existing certificates, as those actions require full admin access (use the
-Management | Other | Other | Update change type (ct-0xdawir96cy7k). Note that the IAM policy can't exclude rights based on tag names (mc\*, ams\*, etc).
+Management | Advanced stack components | ACM | Delete certificate change type (ct-1q8q56cmwqj9m)). Note that the IAM policy can't exclude rights based on tag names (mc\*, ams\*, etc).
 Certificates do not incur a cost, so deleting unused certificates is not time sensitive.
 
 **Q: What are the prerequisites or dependencies to using Certificate Manager?**
