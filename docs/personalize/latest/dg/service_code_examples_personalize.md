@@ -8,7 +8,7 @@ For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon Personalize with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.
 
-###### Code examples
+###### Amazon Personalize
 
 - [Basics](service_code_examples_personalize_basics.md "service_code_examples_personalize_basics.md")
   - [Actions](service_code_examples_personalize_actions.md "service_code_examples_personalize_actions.md")
