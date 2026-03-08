@@ -112,7 +112,7 @@ pnputil -f -d `oem9.inf`
    choose to install USB drivers during the client installation.
 9. After you log into your WorkSpace, select the
    **Devices** icon
-   ![Devices icon](images/devices-icon.png)
+   ![Devices icon](/images/workspaces/latest/userguide/images/devices-icon.png)
    , and reinstall the USB driver. Alternatively, you
    can invoke the following PowerShell script (using administrator privileges).
 
