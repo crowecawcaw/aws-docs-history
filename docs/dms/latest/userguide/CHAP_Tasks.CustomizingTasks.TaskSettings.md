@@ -1,93 +1,151 @@
-# Data resync settings
+# Logging task settings
 
-The Data resync feature allows you to resync target database with your source
-database based on data validation report. For more information, see [AWS DMS data
-validation](CHAP_Validating.md "CHAP_Validating.md").
+Logging uses Amazon CloudWatch to log information during the migration process. Using
+logging task settings, you can specify which component activities are logged and
+what amount of information is written to the log. Logging task settings are
+written to a JSON file. For information about how to use a task configuration file to set task settings, see [Task settings example](CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example "CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example").
 
-You can add additional parameters for `ResyncSettings` in the
-`ReplicationTaskSettings` endpoint that configures the resync
-process. For more information, see [Task settings example](CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example "CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example") in the [Specifying task settings for AWS Database Migration Service
-tasks](CHAP_Tasks.CustomizingTasks.md "CHAP_Tasks.CustomizingTasks.md").
+You can turn on CloudWatch logging in several ways. You can select the
+`EnableLogging` option on the AWS Management Console when you create a
+migration task. Or, you can set the `EnableLogging` option to
+`true` when creating a task using the AWS DMS API. You can also
+specify `"EnableLogging": true` in the JSON of the logging section of
+task settings.
 
-###### Note
+When you set `EnableLogging` to `true`, AWS DMS assigns the
+CloudWatch group name and stream name as follows. You can't set these values directly.
 
-`ResyncSchedule` and `MaxResyncTime` parameters are
-required if the resync process is enabled and the task has a CDC component. They
-are not valid for full-load only tasks.
+- **CloudWatchLogGroup**: `dms-tasks-<REPLICATION_INSTANCE_IDENTIFIER>`
+- **CloudWatchLogStream**: `dms-task-<REPLICATION_TASK_EXTERNAL_RESOURCE_ID>`
+  `<REPLICATION_INSTANCE_IDENTIFIER>` is the identifier of the replication instance.
+  `<REPLICATION_TASK_EXTERNAL_RESOURCE_ID>` is the value of the `<resourcename>`
+  section of the Task ARN. For information about how AWS DMS generates resource ARNs, see
+  [Constructing an Amazon Resource Name (ARN) for AWS DMS](CHAP_Introduction.AWS.md "CHAP_Introduction.AWS.md").
 
-The Data resync parameter settings and values are as follows:
+CloudWatch integrates with AWS Identity and Access Management (IAM), and you can specify which CloudWatch
+actions a user in your AWS account can perform. For more information about working
+with IAM in CloudWatch, see [Identity and access management for amazon CloudWatch](../../../AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.md "../../../AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.md") and [Logging Amazon CloudWatch API calls](../../../AmazonCloudWatch/latest/monitoring/logging_cw_api_calls.md "../../../AmazonCloudWatch/latest/monitoring/logging_cw_api_calls.md") in the
+_Amazon CloudWatch User Guide._
 
-`**EnableResync**`
+To delete the task logs, you can set `DeleteTaskLogs` to true in the
+JSON of the logging section of the task settings.
 
-Enables Data resync feature when set to `true`. By default,
-Data resync is disabled.
+You can specify logging for the following types of events:
 
-**Datatype**: Boolean
+- `FILE_FACTORY` – The file factory
+  manages files used for batch apply and batch load, and manages Amazon S3 endpoints.
+- `METADATA_MANAGER` – The metadata manager
+  manages source and target metadata, partitioning, and table state during replication.
+- `SORTER` – The `SORTER` receives incoming events from
+  the `SOURCE_CAPTURE` process. The events are batched
+  in transactions, and passed to the `TARGET_APPLY` service component. If the
+  `SOURCE_CAPTURE` process produces
+  events faster than the `TARGET_APPLY` component can consume them, the `SORTER`
+  component caches the backlogged events to disk or to a swap file. Cached events are a common cause for running
+  out of storage in replication instances.
 
-**Required**: No
+The `SORTER` service component manages cached events, gathers CDC statistics, and reports
+task latency.
 
-**Default**: `false`
+- `SOURCE_CAPTURE` – Ongoing replication (CDC) data is captured from the source
+  database or service, and passed to the SORTER service component.
+- `SOURCE_UNLOAD` – Data is unloaded from the source
+  database or service during Full Load.
+- `TABLES_MANAGER` — The table manager
+  tracks captured tables, manages the order of table migration, and collects table statistics.
+- `TARGET_APPLY` – Data and data definition language (DDL)
+  statements are applied to the target database.
+- `TARGET_LOAD` – Data is loaded into the target database.
+- `TASK_MANAGER` – The task manager
+  manages running tasks, and breaks tasks down into sub-tasks for parallel data processing.
+- `TRANSFORMATION` – Table-mapping transformation events. For more information,
+  see [Using table mapping to specify task settings](CHAP_Tasks.CustomizingTasks.md "CHAP_Tasks.CustomizingTasks.md").
+- `VALIDATOR/ VALIDATOR_EXT` – The `VALIDATOR` service
+  component verifies that data was migrated accurately from the source
+  to the target. For more information, see [Data validation](CHAP_Validating.md "CHAP_Validating.md").
+- `DATA_RESYNC` – Common component of Data resync feature
+  that manages data resync flow. For more information, see [AWS DMS data resync](CHAP_Validating.md "CHAP_Validating.md").
+- `RESYNC_UNLOAD` – Data is unloaded from the source
+  database or service during resync process.
+- `RESYNC_APPLY` – Data manipulation language (DML)
+  statements are applied to the target database during resync.
+  The following logging components generate a large amount of logs when using the
+  `LOGGER_SEVERITY_DETAILED_DEBUG` log severity level:
 
-**Validation**: Should not be null if
-`ResyncSettings` parameter is present in
-`TaskSettings`.
+- `COMMON`
+- `ADDONS`
+- `DATA_STRUCTURE`
+- `COMMUNICATION`
+- `FILE_TRANSFER`
+- `FILE_FACTORY`
+  Logging levels other than `DEFAULT` are rarely needed for these components
+  during troubleshooting. We do not recommend changing the logging level from `DEFAULT`
+  for these components unless specifically requested by AWS Support.
 
-`**ResyncSchedule**`
+After you specify one of the preceding, you can then specify the amount of
+information that is logged, as shown in the following list.
 
-Time window for the Data resync feature to be in effect. Must be
-present in Cron format. For more information, see [Cron expression rules](CHAP_Validating.md#CHAP_DataResync.cron "CHAP_Validating.md#CHAP_DataResync.cron").
+The levels of severity are in order from lowest to highest level of
+information. The higher levels always include information from the lower levels.
 
-**Datatype**: String
-
-**Required**: No
-
-**Validation**:
-
-- Must be present in Cron expression format.
-- Should not be null for tasks with CDC that has
-  `EnableResync` set to `true`.
-- Cannot be set for tasks without CDC component.
-
-`**MaxResyncTime**`
-
-Maximum time limit in minutes for the Data resync feature to be in
-effect.
-
-**Datatype**: Integer
-
-**Required**: No
-
-**Validation**:
-
-- Should not be null for tasks with CDC.
-- Not required for tasks without CDC.
-- Minimum value: `5 minutes`, Maximum value:
-  `14400 minutes` (10 days).
-
-`**Validation onlyTaskID**`
-
-Unique ID of the validation task. The validation only task ID is
-appended at the end of an ARN. For example:
-
-- Validation only task ARN:
-  `arn:aws:dms:us-west-2:123456789012:task:6DG4CLGJ5JSJR67CFD7UDXFY7KV6CYGRICL6KWI`
-- Validation only task ID:
-  `6DG4CLGJ5JSJR67CFD7UDXFY7KV6CYGRICL6KWI`
-
-**Datatype**: String
-
-**Required**: No
-
-**Validation**: Should not be null for
-tasks with Data resync feature enabled and validation disabled.
-
-Example:
+- LOGGER_SEVERITY_ERROR – Error messages are written to the
+  log.
+- LOGGER_SEVERITY_WARNING – Warnings and error messages are
+  written to the log.
+- LOGGER_SEVERITY_INFO – Informational messages, warnings, and
+  error messages are written to the log.
+- LOGGER_SEVERITY_DEFAULT – Informational messages, warnings, and
+  error messages are written to the log.
+- LOGGER_SEVERITY_DEBUG – Debug messages, informational messages,
+  warnings, and error messages are written to the log.
+- LOGGER_SEVERITY_DETAILED_DEBUG – All information is written to
+  the log.
+  The following JSON example shows task settings for logging all actions and
+  levels of severity.
 
 ```
-"ResyncSettings": {
-    "EnableResync": true,
-    "ResyncSchedule": "30 9 ? * MON-FRI",
-    "MaxResyncTime": 400,
-    "ValidationTaskId": "JXPP94804DJOEWIJD9348R3049"
-},
+…
+  "Logging": {
+    "EnableLogging": true,
+    "LogComponents": [
+      {
+        "Id": "FILE_FACTORY",
+        "Severity": "LOGGER_SEVERITY_DEFAULT"
+      },{
+        "Id": "METADATA_MANAGER",
+        "Severity": "LOGGER_SEVERITY_DEFAULT"
+      },{
+        "Id": "SORTER",
+        "Severity": "LOGGER_SEVERITY_DEFAULT"
+      },{
+        "Id": "SOURCE_CAPTURE",
+        "Severity": "LOGGER_SEVERITY_DEFAULT"
+      },{
+        "Id": "SOURCE_UNLOAD",
+        "Severity": "LOGGER_SEVERITY_DEFAULT"
+      },{
+        "Id": "TABLES_MANAGER",
+        "Severity": "LOGGER_SEVERITY_DEFAULT"
+      },{
+        "Id": "TARGET_APPLY",
+        "Severity": "LOGGER_SEVERITY_DEFAULT"
+      },{
+        "Id": "TARGET_LOAD",
+        "Severity": "LOGGER_SEVERITY_INFO"
+      },{
+        "Id": "TASK_MANAGER",
+        "Severity": "LOGGER_SEVERITY_DEBUG"
+      },{
+        "Id": "TRANSFORMATION",
+        "Severity": "LOGGER_SEVERITY_DEBUG"
+      },{
+        "Id": "VALIDATOR",
+        "Severity": "LOGGER_SEVERITY_DEFAULT"
+      }
+    ],
+    "CloudWatchLogGroup": null,
+    "CloudWatchLogStream": null
+  },
+…
+
 ```

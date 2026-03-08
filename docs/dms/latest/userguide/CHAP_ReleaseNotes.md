@@ -24,9 +24,9 @@ The following table shows the following dates for active DMS versions:
 
 | Version   | Release date | No new instance date | EOL date      |
 | --------- | ------------ | -------------------- | ------------- |
-| **3.6.1** | May 15, 2025 | Sept 15, 2026        | Nov 15, 2026  |
+| **3.6.1** | May 15, 2025 | Apr 30, 2027         | June 30, 2027 |
 | **3.6.0** | Dec 27, 2024 | Apr 27, 2026         | June 27, 2026 |
-| **3.5.4** | Nov 15, 2024 | Mar 15, 2026         | May 15, 2026  |
+| **3.5.4** | Nov 15, 2024 | Sep 15, 2026         | Nov 15, 2026  |
 | **3.5.3** | May 17, 2024 | Feb 28, 2026         | Apr 30, 2026  |
 | **3.5.2** | Oct 29, 2023 | Mar 30, 2025         | Apr 29, 2025  |
 | **3.5.1** | Jun 30, 2023 | Nov 30, 2024         | Mar 15, 2025  |

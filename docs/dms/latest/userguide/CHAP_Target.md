@@ -1,28 +1,23 @@
-# Using Amazon Kinesis Data Streams as a target for AWS Database Migration Service
+# Using an Amazon DynamoDB database as a target for AWS Database Migration Service
 
-You can use AWS DMS to migrate data to an Amazon Kinesis data stream. Amazon Kinesis data streams
-are part of the Amazon Kinesis Data Streams service. You can use Kinesis data streams to collect and process
-large streams of data records in real time.
+You can use AWS DMS to migrate data to an Amazon DynamoDB table. Amazon DynamoDB is a fully managed
+NoSQL database service that provides fast and predictable performance with seamless
+scalability. AWS DMS supports using a relational database or MongoDB as a source.
 
-A Kinesis data stream is made up of shards. _Shards_ are
-uniquely identified sequences of data records in a stream. For more information on
-shards in Amazon Kinesis Data Streams, see [Shard](../../../streams/latest/dev/key-concepts.md#shard "../../../streams/latest/dev/key-concepts.md#shard") in the
-_Amazon Kinesis Data Streams Developer Guide._
+In DynamoDB, tables, items, and attributes are the core components that you work with. A
+_table_ is a collection of items, and each
+_item_ is a collection of attributes. DynamoDB uses
+primary keys, called partition keys, to uniquely identify each item in a table. You can
+also use keys and secondary indexes to provide more querying flexibility.
 
-AWS Database Migration Service publishes records to a Kinesis data stream using JSON. During conversion, AWS DMS
-serializes each record from the source database into an attribute-value pair in JSON
-format or a JSON_UNFORMATTED message format. A JSON_UNFORMATTED message format is a single line
-JSON string with new line
-delimiter. It allows Amazon Data Firehose to deliver Kinesis data to an Amazon
-S3 destination, and then query it using various query engines including Amazon Athena.
+You use object mapping to migrate your data from a source database to a target DynamoDB
+table. Object mapping enables you to determine where the source data is located in the
+target.
 
-You use object mapping to migrate your data from any supported data source to a target
-stream. With object mapping, you determine how to structure the data records in the
-stream. You also define a partition key for each table, which Kinesis Data Streams uses to group the
-data into its shards.
-
-AWS DMS also sets several Kinesis Data Streams parameter values. The cost for the table creation
-depends on the amount of data and the number of tables to be migrated.
+When AWS DMS creates tables on an DynamoDB target endpoint, it creates as many tables
+as in the source database endpoint. AWS DMS also sets several DynamoDB parameter values.
+The cost for the table creation depends on the amount of data and the number of tables
+to be migrated.
 
 ###### Note
 
@@ -30,314 +25,85 @@ The **SSL Mode** option on the AWS DMS console or API doesn’t apply
 to some data streaming and NoSQL services like Kinesis and DynamoDB. They are secure
 by default, so AWS DMS shows the SSL mode setting is equal to none
 (**SSL Mode=None**). You don’t need to provide any additional
-configuration for your endpoint to make use of SSL. For example, when using Kinesis
-as a target endpoint, it is secure by default. All API calls to Kinesis use SSL, so
+configuration for your endpoint to make use of SSL. For example, when using DynamoDB
+as a target endpoint, it is secure by default. All API calls to DynamoDB use SSL, so
 there is no need for an additional SSL option in the AWS DMS endpoint. You can securely
 put data and retrieve data through SSL endpoints using the HTTPS protocol, which AWS DMS
-uses by default when connecting to a Kinesis Data Stream.
+uses by default when connecting to a DynamoDB database.
 
-###### Kinesis Data Streams endpoint settings
-
-When you use Kinesis Data Streams target endpoints, you can get transaction and control details
-using the `KinesisSettings` option in the AWS DMS API.
-
-You can set connection settings in the following ways:
-
-- In the AWS DMS console, using endpoint settings.
-- In the CLI, using the `kinesis-settings` option of the [CreateEndpoint](../APIReference/API_CreateEndpoint.md "../APIReference/API_CreateEndpoint.md") command.
-
-In the CLI, use the following
-request parameters of the `kinesis-settings` option:
-
-###### Note
-
-Support for the `IncludeNullAndEmpty` endpoint setting is available in
-AWS DMS version 3.4.1 and higher. But support for the other following endpoint settings
-for Kinesis Data Streams targets is available in AWS DMS.
-
-- `MessageFormat` – The output format for the records
-  created on the endpoint. The message format is `JSON` (default) or
-  `JSON_UNFORMATTED` (a single line with no tab).
-- `IncludeControlDetails` – Shows detailed control information
-  for table definition, column definition, and table and column changes in the
-  Kinesis message output. The default is `false`.
-- `IncludeNullAndEmpty` – Include NULL and empty columns in
-  the target. The default is `false`.
-- `IncludePartitionValue` – Shows the partition value within
-  the Kinesis message output, unless the partition type is
-  `schema-table-type`. The default is `false`.
-- `IncludeTableAlterOperations` – Includes any data definition
-  language (DDL) operations that change the table in the control data, such as
-  `rename-table`, `drop-table`, `add-column`,
-  `drop-column`, and `rename-column`. The default is
-  `false`.
-- `IncludeTransactionDetails` – Provides detailed transaction
-  information from the source database. This information includes a commit
-  timestamp, a log position, and values for `transaction_id`,
-  `previous_transaction_id`, and `transaction_record_id` (the record offset within a transaction). The default is
-  `false`.
-- `PartitionIncludeSchemaTable` – Prefixes schema and table
-  names to partition values, when the partition type is
-  `primary-key-type`. Doing this increases data distribution among
-  Kinesis shards. For example, suppose that a `SysBench` schema has
-  thousands of tables and each table has only limited range for a primary key. In
-  this case, the same primary key is sent from thousands of tables to the same
-  shard, which causes throttling. The default is `false`.
-- `UseLargeIntegerValue` – Use up to 18 digit int instead of
-  casting ints as doubles, available from AWS DMS version 3.5.4. The default is
-  false.
-  The following example shows the `kinesis-settings` option in use with
-  an example `create-endpoint` command issued using the AWS CLI.
-
-```
-aws dms \
-  create-endpoint \
-    --region <aws-region> \
-    --endpoint-identifier <user-endpoint-identifier> \
-    --endpoint-type target \
-    --engine-name kinesis \
-    --kinesis-settings ServiceAccessRoleArn=arn:aws:iam::<account-id>:role/<kinesis-role-name>,StreamArn=arn:aws:kinesis:<aws-region>:<account-id>:stream/<stream-name>,MessageFormat=json-unformatted,
-IncludeControlDetails=true,IncludeTransactionDetails=true,IncludePartitionValue=true,PartitionIncludeSchemaTable=true,
-IncludeTableAlterOperations=true
-```
-
-###### Multithreaded full load task settings
-
-To help increase the speed of the transfer, AWS DMS supports a multithreaded full
-load to a Kinesis Data Streams target instance. DMS supports this multithreading with task settings
-that include the following:
+To help increase the speed of the transfer, AWS DMS supports a multithreaded full load
+to a DynamoDB target instance. DMS supports this multithreading with task settings that
+include the following:
 
 - `MaxFullLoadSubTasks` – Use this option to indicate the
   maximum number of source tables to load in parallel. DMS loads each table into
-  its corresponding Kinesis target table using a dedicated subtask. The default is 8;
-  the maximum value is 49.
+  its corresponding DynamoDB target table using a dedicated subtask. The default
+  value is 8. The maximum value is 49.
 - `ParallelLoadThreads` – Use this option to specify the
-  number of threads that AWS DMS uses to load each table into its Kinesis target table.
-  The maximum value for a Kinesis Data Streams target is 32. You can ask to have this maximum
-  limit increased.
+  number of threads that AWS DMS uses to load each table into its DynamoDB target
+  table. The default value is 0 (single-threaded). The maximum value is 200. You
+  can ask to have this maximum limit increased.
+
+###### Note
+
+DMS assigns each segment of a table to its own thread for loading.
+Therefore, set `ParallelLoadThreads` to the maximum number of
+segments that you specify for a table in the source.
+
 - `ParallelLoadBufferSize` – Use this option to specify the
   maximum number of records to store in the buffer that the parallel load threads
-  use to load data to the Kinesis target. The default value is 50. The maximum value
+  use to load data to the DynamoDB target. The default value is 50. The maximum value
   is 1,000. Use this setting with `ParallelLoadThreads`.
   `ParallelLoadBufferSize` is valid only when there is more than
   one thread.
-- `ParallelLoadQueuesPerThread` – Use this option to specify
-  the number of queues each concurrent thread accesses to take data records out of
-  queues and generate a batch load for the target. The default is 1. However, for
-  Kinesis targets of various payload sizes, the valid range is 5–512 queues
-  per thread.
-
-###### Multithreaded CDC load task settings
-
-You can improve the performance of change data capture (CDC) for real-time data
-streaming target endpoints like Kinesis using task settings to modify the behavior of
-the `PutRecords` API call. To do this, you can specify the number of
-concurrent threads, queues per thread, and the number of records to store in a
-buffer using `ParallelApply*` task settings. For example, suppose you
-want to perform a CDC load and apply 128 threads in parallel. You also want to
-access 64 queues per thread, with 50 records stored per buffer.
-
-To promote CDC performance, AWS DMS supports these task settings:
-
-- `ParallelApplyThreads` – Specifies the number of concurrent
-  threads that AWS DMS uses during a CDC load to push data records to a Kinesis
-  target endpoint. The default value is zero (0) and the maximum value is
-
-32.
-
-- `ParallelApplyBufferSize` – Specifies the maximum number of
-  records to store in each buffer queue for concurrent threads to push to a Kinesis
-  target endpoint during a CDC load. The default value is 100 and the maximum
-  value is 1,000. Use this option when `ParallelApplyThreads` specifies
-  more than one thread.
-- `ParallelApplyQueuesPerThread` – Specifies the number of
-  queues that each thread accesses to take data records out of queues and generate
-  a batch load for a Kinesis endpoint during CDC. The default value is 1 and the maximum
-  value is 512.
-  When using `ParallelApply*` task settings, the
-  `partition-key-type` default is the `primary-key` of the
-  table, not `schema-name.table-name`.
-
-## Using a before image to view original values of CDC rows for a Kinesis data stream as a target
-
-When writing CDC updates to a data-streaming target like Kinesis, you
-can view a source database row's original values before change by an update. To
-make this possible, AWS DMS populates a _before
-image_ of update events based on data supplied by the source database
-engine.
-
-Different source database engines provide different amounts of information for a
-before image:
-
-- Oracle provides updates to columns only if they change.
-- PostgreSQL provides only data for columns that are part of the primary key
-  (changed or not). To provide data for all columns (changed or not), you need to set
-  `REPLICA_IDENTITY` to `FULL` instead of `DEFAULT`. Note that you should choose the
-  `REPLICA_IDENTITY` setting carefully for each table. If you set `REPLICA_IDENTITY`
-  to `FULL`, all of the column values are written to write-ahead logging (WAL) continuously. This
-  may cause performance or resource issues with tables that are updated frequently.
-- MySQL generally provides data for all columns except for BLOB and CLOB data types (changed or not).
-
-To enable before imaging to add original values from the source database to the
-AWS DMS output, use either the `BeforeImageSettings` task setting or the
-`add-before-image-columns` parameter. This parameter applies a column
-transformation rule.
-
-`BeforeImageSettings` adds a new JSON attribute to every update
-operation with values collected from the source database system, as shown
-following.
-
-```
-
-"BeforeImageSettings": {
-    "EnableBeforeImage": boolean,
-    "FieldName": string,
-    "ColumnFilter": pk-only (default) / non-lob / all (but only one)
-}
-
-```
+- Table-mapping settings for individual tables – Use
+  `table-settings` rules to identify individual tables from the
+  source that you want to load in parallel. Also use these rules to specify how to
+  segment the rows of each table for multithreaded loading. For more information,
+  see [Table and collection settings rules and operations](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").
 
 ###### Note
 
-Only apply `BeforeImageSettings` to AWS DMS tasks that contain a CDC
-component, such as full load plus CDC tasks (which migrate existing
-data and replicate ongoing changes), or to CDC only tasks (which replicate data
-changes only). Don't apply `BeforeImageSettings` to tasks that are
-full load only.
+When AWS DMS sets DynamoDB parameter values for a migration task, the default Read
+Capacity Units (RCU) parameter value is set to 200.
 
-For `BeforeImageSettings` options, the following applies:
+The Write Capacity Units (WCU) parameter value is also set, but its value depends on
+several other settings:
 
-- Set the `EnableBeforeImage` option to `true` to enable
-  before imaging. The default is `false`.
-- Use the `FieldName` option to assign a name to the new JSON attribute.
-  When `EnableBeforeImage` is `true`,
-  `FieldName` is required and can't be empty.
-- The `ColumnFilter` option specifies a column to add by using before
-  imaging. To add only columns that are part of the table's primary keys,
-  use the default value, `pk-only`. To add any column that has a
-  before image value, use `all`. Note that the before image does
-  not contain columns with LOB data types, such as CLOB or BLOB.
+- The default value for the WCU parameter is 200.
+- If the `ParallelLoadThreads` task setting is set greater than 1
+  (the default is 0), then the WCU parameter is set to 200 times the
+  `ParallelLoadThreads` value.
+- Standard AWS DMS usage fees apply to resources you use.
 
-```
-"BeforeImageSettings": {
-    "EnableBeforeImage": true,
-    "FieldName": "before-image",
-    "ColumnFilter": "pk-only"
-  }
+## Migrating from a relational database to a DynamoDB table
 
-```
+AWS DMS supports migrating data to DynamoDB scalar data types. When migrating from
+a relational database like Oracle or MySQL to DynamoDB, you might want to
+restructure how you store this data.
 
-###### Note
+Currently AWS DMS supports single table to single table restructuring to DynamoDB
+scalar type attributes. If you are migrating data into DynamoDB from a relational
+database table, you take data from a table and reformat it into DynamoDB scalar data
+type attributes. These attributes can accept data from multiple columns, and you can
+map a column to an attribute directly.
 
-Amazon S3 targets don't support `BeforeImageSettings`. For S3 targets, use only the
-`add-before-image-columns` transformation rule to perform before
-imaging during CDC.
+AWS DMS supports the following DynamoDB scalar data types:
 
-### Using a before image transformation rule
-
-As as an alternative to task settings, you can use the
-`add-before-image-columns` parameter, which applies a column
-transformation rule. With this parameter, you can enable before imaging during
-CDC on data streaming targets like Kinesis.
-
-By using `add-before-image-columns` in a transformation rule, you
-can apply more fine-grained control of the before image results. Transformation
-rules enable you to use an object locator that gives you control over tables
-selected for the rule. Also, you can chain transformation rules together, which
-allows different rules to be applied to different tables. You can then
-manipulate the columns produced by using other rules.
+- String
+- Number
+- Boolean
 
 ###### Note
 
-Don't use the `add-before-image-columns` parameter together with the
-`BeforeImageSettings` task setting within the same task.
-Instead, use either the parameter or the setting, but not both, for a single
-task.
+NULL data from the source are ignored on the target.
 
-A `transformation` rule type with the
-`add-before-image-columns` parameter for a column must provide a
-`before-image-def` section. The following shows an
-example.
+## Prerequisites for using DynamoDB as a target for AWS Database Migration Service
 
-```
-    {
-      "rule-type": "transformation",
-      …
-      "rule-target": "column",
-      "rule-action": "add-before-image-columns",
-      "before-image-def":{
-        "column-filter": one-of  (pk-only / non-lob / all),
-        "column-prefix": string,
-        "column-suffix": string,
-      }
-    }
-```
-
-The value of `column-prefix` is prepended to a column name, and the
-default value of `column-prefix` is `BI_`. The value of
-`column-suffix` is appended to the column name, and the default
-is empty. Don't set both `column-prefix` and
-`column-suffix` to empty strings.
-
-Choose one value for `column-filter`. To add only columns that are
-part of table primary keys, choose `pk-only` . Choose
-`non-lob` to only add columns that are not of LOB type. Or choose
-`all` to add any column that has a before-image value.
-
-### Example for a before image transformation rule
-
-The transformation rule in the following example adds a new column called
-`BI_emp_no` in the target. So a statement like `UPDATE
- employees SET emp_no = 3 WHERE emp_no = 1;` populates the
-`BI_emp_no` field with 1. When you write CDC updates to Amazon S3
-targets, the `BI_emp_no` column makes it possible to tell which
-original row was updated.
-
-```
-{
-  "rules": [
-    {
-      "rule-type": "selection",
-      "rule-id": "1",
-      "rule-name": "1",
-      "object-locator": {
-        "schema-name": "%",
-        "table-name": "%"
-      },
-      "rule-action": "include"
-    },
-    {
-      "rule-type": "transformation",
-      "rule-id": "2",
-      "rule-name": "2",
-      "rule-target": "column",
-      "object-locator": {
-        "schema-name": "%",
-        "table-name": "employees"
-      },
-      "rule-action": "add-before-image-columns",
-      "before-image-def": {
-        "column-prefix": "BI_",
-        "column-suffix": "",
-        "column-filter": "pk-only"
-      }
-    }
-  ]
-}
-
-```
-
-For information on using the `add-before-image-columns` rule
-action, see [Transformation rules and actions](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").
-
-## Prerequisites for using a Kinesis data stream as a target for AWS Database Migration Service
-
-### IAM role for using a Kinesis data stream as a target for AWS Database Migration Service
-
-Before you set up a Kinesis data stream as a target for AWS DMS, make sure that
-you create an IAM role. This role must allow AWS DMS to assume and grant access
-to the Kinesis data streams that are being migrated into. The minimum set of access
-permissions is shown in the following IAM policy.
+Before you begin to work with a DynamoDB database as a target for AWS DMS, make
+sure that you create an IAM role. This IAM role should allow AWS DMS to assume
+and grant access to the DynamoDB tables that are being migrated into. The minimum set
+of access permissions is shown in the following IAM policy.
 
 JSON
 
@@ -346,20 +112,20 @@ JSON
  "Version":"2012-10-17",
  "Statement": [
  {
- "Sid": "1",
+ "Sid": "",
  "Effect": "Allow",
  "Principal": {
  "Service": "dms.amazonaws.com"
  },
  "Action": "sts:AssumeRole"
  }
-]
+ ]
 }`
 
 ```
 
-The role that you use for the migration to a Kinesis data stream must have the
-following permissions.
+The role that you use for the migration to DynamoDB must have the following
+permissions.
 
 JSON
 
@@ -370,9 +136,24 @@ JSON
  {
  "Effect": "Allow",
  "Action": [
- "kinesis:DescribeStream",
- "kinesis:PutRecord",
- "kinesis:PutRecords"
+ "dynamodb:PutItem",
+ "dynamodb:CreateTable",
+ "dynamodb:DescribeTable",
+ "dynamodb:DeleteTable",
+ "dynamodb:DeleteItem",
+ "dynamodb:UpdateItem"
+ ],
+ "Resource": [
+ "arn:aws:dynamodb:us-west-2:`111122223333`:table/name1",
+ "arn:aws:dynamodb:us-west-2:`111122223333`:table/OtherName*",
+ "arn:aws:dynamodb:us-west-2:`111122223333`:table/awsdms_apply_exceptions",
+ "arn:aws:dynamodb:us-west-2:`111122223333`:table/awsdms_full_load_exceptions"
+ ]
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "dynamodb:ListTables"
  ],
  "Resource": "*"
  }
@@ -381,337 +162,113 @@ JSON
 
 ```
 
-### Accessing a Kinesis data stream as a target for AWS Database Migration Service
+## Limitations when using DynamoDB as a target for AWS Database Migration Service
 
-In AWS DMS version 3.4.7 and higher, to connect to an Kinesis endpoint, you must
-do one of the following:
+The following limitations apply when using DynamoDB as a target:
 
-- Configure DMS to use VPC endpoints. For information about configuring DMS
-  to use VPC endpoints, see [Configuring VPC endpoints for AWS DMS](CHAP_VPC_Endpoints.md "CHAP_VPC_Endpoints.md").
-- Configure DMS to use public routes, that is, make
-  your replication instance public. For information about public replication instances, see
-  [Public and private replication instances](CHAP_ReplicationInstance.md "CHAP_ReplicationInstance.md").
+- DynamoDB limits the precision of the Number data type to 38 places. Store all
+  data types with a higher precision as a String. You need to explicitly
+  specify this using the object-mapping feature.
+- Because DynamoDB doesn't have a Date data type, data using the Date data
+  type are converted to strings.
+- DynamoDB doesn't allow updates to the primary key attributes. This
+  restriction is important when using ongoing replication with change data
+  capture (CDC) because it can result in unwanted data in the target.
+  Depending on how you have the object mapping, a CDC operation that updates
+  the primary key can do one of two things. It can either fail or insert a new
+  item with the updated primary key and incomplete data.
+- AWS DMS only supports replication of tables with noncomposite primary keys.
+  The exception is if you specify an object mapping for the target table with
+  a custom partition key or sort key, or both.
+- AWS DMS doesn't support LOB data unless it is a CLOB. AWS DMS converts
+  CLOB data into a DynamoDB string when migrating the data.
+- When you use DynamoDB as target, only the Apply Exceptions control table
+  (`dmslogs.awsdms_apply_exceptions`) is supported. For more
+  information about control tables, see [Control table task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
+- AWS DMS doesn't support the task setting `TargetTablePrepMode=TRUNCATE_BEFORE_LOAD`
+  for DynamoDB as a target.
+- AWS DMS doesn't support the task setting `TaskRecoveryTableEnabled`
+  for DynamoDB as a target.
+- `BatchApply` is not supported for a DynamoDB endpoint.
+- AWS DMS cannot migrate attributes whose names match reserved words in DynamoDB.
+  For more information, see [Reserved words in DynamoDB](../../../amazondynamodb/latest/developerguide/ReservedWords.md "../../../amazondynamodb/latest/developerguide/ReservedWords.md") in the _Amazon DynamoDB Developer Guide_.
 
-## Limitations when using Kinesis Data Streams as a target for AWS Database Migration Service
+## Using object mapping to migrate data to DynamoDB
 
-The following limitations apply when using Kinesis Data Streams as a target:
+AWS DMS uses table-mapping rules to map data from the source to the target DynamoDB
+table. To map data to a DynamoDB target, you use a type of table-mapping rule called
+_object-mapping_. Object mapping lets you define the
+attribute names and the data to be migrated to them. You must have selection rules
+when you use object mapping.
 
-- AWS DMS publishes each update to a single record in the source database as
-  one data record in a given Kinesis data stream regardless of transactions.
-  However, you can include transaction details for each data record by using
-  relevant parameters of the `KinesisSettings` API.
-- Full LOB mode is not supported.
-- The maximum supported LOB size is 1 MB.
-- Kinesis Data Streams don't support deduplication. Applications that consume data from a
-  stream need to handle duplicate records. For more information, see [Handling
-  duplicate records](../../../streams/latest/dev/kinesis-record-processor-duplicates.md "../../../streams/latest/dev/kinesis-record-processor-duplicates.md") in the _Amazon Kinesis Data Streams Developer Guide._
-- AWS DMS supports the following two forms for partition keys:
-  - `SchemaName.TableName`: A combination of the schema and
-    table name.
-  - `${AttributeName}`: The value of one of the fields in
-    the JSON, or the primary key of the table in the source
-    database.
+DynamoDB doesn't have a preset structure other than having a partition key and an
+optional sort key. If you have a noncomposite primary key, AWS DMS uses it. If you
+have a composite primary key or you want to use a sort key, define these keys and
+the other attributes in your target DynamoDB table.
 
-- For information about encrypting your data at rest within Kinesis Data Streams, see [Data protection in Kinesis Data Streams](../../../streams/latest/dev/server-side-encryption.md "../../../streams/latest/dev/server-side-encryption.md") in the
-  _AWS Key Management Service Developer Guide_.
-- `BatchApply` is not supported for a Kinesis endpoint. Using Batch
-  Apply (for example, the `BatchApplyEnabled` target metadata task
-  setting) for a Kinesis target causes task failure and data loss. Do not enable
-  `BatchApply` when using Kinesis as a target endpoint.
-- Kinesis targets are only supported for a Kinesis data stream in the same AWS account and the same AWS Region
-  as the replication instance.
-- When migrating from a MySQL source, the BeforeImage data doesn't include CLOB and BLOB data types. For more information,
-  see [Using a before image to view original values of CDC rows for a Kinesis data stream as a target](#CHAP_Target.Kinesis.BeforeImage "#CHAP_Target.Kinesis.BeforeImage").
-- AWS DMS doesn't support migrating values of `BigInt` data type with more than 16 digits. To work around
-  this limitation, you can use the following transformation rule to convert the `BigInt` column to a string. For
-  more information about transformation rules, see
-  [Transformation rules and actions](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").
+To create an object-mapping rule, you specify the `rule-type` as
+_object-mapping_. This rule specifies what type of object
+mapping you want to use.
+
+The structure for the rule is as follows:
 
 ```
-{
-    "rule-type": "transformation",
-    "rule-id": "id",
-    "rule-name": "name",
-    "rule-target": "column",
-    "object-locator": {
-        "schema-name": "valid object-mapping rule action",
-        "table-name": "",
-        "column-name": ""
-    },
-    "rule-action": "change-data-type",
-    "data-type": {
-        "type": "string",
-        "length": 20
+{ "rules": [
+    {
+      "rule-type": "object-mapping",
+      "rule-id": "<id>",
+      "rule-name": "<name>",
+      "rule-action": "<valid object-mapping rule action>",
+      "object-locator": {
+      "schema-name": "<case-sensitive schema name>",
+      "table-name": ""
+      },
+      "target-table-name": "<table_name>"
     }
-}
-```
-
-- When multiple DML operations within a single transaction modify a Large Object
-  (LOB) column on the source database, the target database retains only the final
-  LOB value from the last operation in that transaction. The intermediate LOB
-  values set by earlier operations in the same transaction are overwritten, which
-  can result in potential data loss or inconsistencies. This behavior occurs due
-  to how LOB data is processed during replication.
-- AWS DMS does not support source data containing embedded `'\0'` characters when using Kinesis as a target endpoint. Data containing embedded `'\0'` characters will be truncated at the first `'\0'` character.
-
-## Using object mapping to migrate data to a Kinesis data stream
-
-AWS DMS uses table-mapping rules to map data from the source to the target Kinesis data
-stream. To map data to a target stream, you use a type of table-mapping rule called
-object mapping. You use object mapping to define how data records in the source map
-to the data records published to the Kinesis data stream.
-
-Kinesis data streams don't have a preset structure other than having a partition key.
-In an object mapping rule, the possible values of a `partition-key-type`
-for data records are `schema-table`, `transaction-id`,
-`primary-key`, `constant`, and `attribute-name`.
-
-To create an object-mapping rule, you specify `rule-type` as
-`object-mapping`. This rule specifies what type of object mapping you
-want to use.
-
-The structure for the rule is as follows.
-
-```
-{
-    "rules": [
-        {
-            "rule-type": "object-mapping",
-            "rule-id": "`id`",
-            "rule-name": "`name`",
-            "rule-action": "`valid object-mapping rule action`",
-            "object-locator": {
-                "schema-name": "`case-sensitive schema name`",
-                "table-name": ""
-            }
-        }
-    ]
+  ]
 }
 ```
 
 AWS DMS currently supports `map-record-to-record` and
 `map-record-to-document` as the only valid values for the
-`rule-action` parameter. These settings affect values that aren't excluded as part of
-the `exclude-columns`
-attribute list. The `map-record-to-record` and
-`map-record-to-document` values specify how AWS DMS handles these records by default.
-These values don't affect the attribute mappings in any way.
+`rule-action` parameter. These values specify what AWS DMS does by
+default to records that aren't excluded as part of the `exclude-columns`
+attribute list. These values don't affect the attribute mappings in any way.
 
-Use `map-record-to-record` when migrating from a relational database to
-a Kinesis data stream. This rule type uses the
-`taskResourceId.schemaName.tableName` value from the relational
-database as the partition key in the Kinesis data stream and creates an attribute for
-each column in the source database.
+- You can use `map-record-to-record` when migrating from a
+  relational database to DynamoDB. It uses the primary key from the relational
+  database as the partition key in DynamoDB and creates an attribute for each
+  column in the source database. When using `map-record-to-record`,
+  for any column in the source table not listed in the
+  `exclude-columns` attribute list, AWS DMS creates a
+  corresponding attribute on the target DynamoDB instance. It does so regardless
+  of whether that source column is used in an attribute mapping.
+- You use `map-record-to-document` to put source columns into a
+  single, flat DynamoDB map on the target using the attribute name "\_doc." When
+  using `map-record-to-document`, AWS DMS places the data into a
+  single, flat, DynamoDB map attribute on the source. This attribute is called
+  "\_doc". This placement applies to any column in the source table not listed
+  in the `exclude-columns` attribute list.
 
-When using `map-record-to-record`, note the following:
+One way to understand the difference between the `rule-action`
+parameters `map-record-to-record` and
+`map-record-to-document` is to see the two parameters in
+action. For this example, assume that you are starting with a relational database
+table row with the following structure and data:
 
-- This setting only affects columns excluded by the `exclude-columns` list.
-- For every such column, AWS DMS creates a corresponding attribute in the target topic.
-- AWS DMS creates this corresponding attribute regardless of whether the source column is used
-  in an attribute mapping.
+![sample database for example](images/datarep-dynamodb1.png)
 
-Use `map-record-to-document` to put source columns
-into a single, flat document in the appropriate target stream using the attribute name "\_doc".
-AWS DMS places the data into a single, flat map on the source called "`_doc`". This
-placement applies to any column in the source table not listed in the `exclude-columns`
-attribute list.
-
-One way to understand `map-record-to-record` is to see it in action.
-For this example, assume that you are starting with a relational database table row
-with the following structure and data.
-
-| FirstName | LastName | StoreId | HomeAddress       | HomePhone  | WorkAddress               | WorkPhone  | DateofBirth |
-| --------- | -------- | ------- | ----------------- | ---------- | ------------------------- | ---------- | ----------- |
-| Randy     | Marsh    | 5       | 221B Baker Street | 1234567890 | 31 Spooner Street, Quahog | 9876543210 | 02/29/1988  |
-
-To migrate this information from a schema named `Test` to a Kinesis data stream, you create rules to map the
-data to the target stream. The following rule illustrates the mapping.
-
-```
-{
-    "rules": [
-        {
-            "rule-type": "selection",
-            "rule-id": "1",
-            "rule-name": "1",
-            "rule-action": "include",
-            "object-locator": {
-                "schema-name": "Test",
-                "table-name": "%"
-            }
-        },
-        {
-            "rule-type": "object-mapping",
-            "rule-id": "2",
-            "rule-name": "DefaultMapToKinesis",
-            "rule-action": "map-record-to-record",
-            "object-locator": {
-                "schema-name": "Test",
-                "table-name": "Customers"
-            }
-        }
-    ]
-}
-```
-
-The following illustrates the resulting record format in the Kinesis data stream:
-
-- StreamName: XXX
-- PartitionKey: Test.Customers //schmaName.tableName
-- Data: //The following JSON message
+To migrate this information to DynamoDB, you create rules to map the data into a
+DynamoDB table item. Note the columns listed for the `exclude-columns`
+parameter. These columns are not directly mapped over to the target. Instead,
+attribute mapping is used to combine the data into new items, such as where
+_FirstName_ and _LastName_ are grouped
+together to become _CustomerName_ on the DynamoDB target.
+_NickName_ and _income_ are not
+excluded.
 
 ```
 
-  {
-     "FirstName": "Randy",
-     "LastName": "Marsh",
-     "StoreId":  "5",
-     "HomeAddress": "221B Baker Street",
-     "HomePhone": "1234567890",
-     "WorkAddress": "31 Spooner Street, Quahog",
-     "WorkPhone": "9876543210",
-     "DateOfBirth": "02/29/1988"
-  }
-
-
-```
-
-However, suppose that you use the same rules but change the `rule-action` parameter to
-`map-record-to-document` and exclude certain columns. The following rule illustrates the mapping.
-
-```
-
-{
-	"rules": [
-	   {
-			"rule-type": "selection",
-			"rule-id": "1",
-			"rule-name": "1",
-			"rule-action": "include",
-			"object-locator": {
-				"schema-name": "Test",
-				"table-name": "%"
-			}
-		},
-		{
-			"rule-type": "object-mapping",
-			"rule-id": "2",
-			"rule-name": "DefaultMapToKinesis",
-			"rule-action": "map-record-to-document",
-			"object-locator": {
-				"schema-name": "Test",
-				"table-name": "Customers"
-			},
-			"mapping-parameters": {
-				"exclude-columns": [
-					"homeaddress",
-					"homephone",
-					"workaddress",
-					"workphone"
-				]
-			}
-		}
-	]
-}
-
-```
-
-In this case, the columns not listed in the `exclude-columns`
-parameter, `FirstName`, `LastName`, `StoreId` and
-`DateOfBirth`, are mapped to `_doc`. The following illustrates
-the resulting record format.
-
-```
-
-       {
-            "data":{
-                "_doc":{
-                    "FirstName": "Randy",
-                    "LastName": "Marsh",
-                    "StoreId":  "5",
-                    "DateOfBirth": "02/29/1988"
-                }
-            }
-        }
-
-```
-
-### Restructuring data with attribute mapping
-
-You can restructure the data while you are migrating it to a Kinesis data stream
-using an attribute map. For example, you might want to combine several fields in
-the source into a single field in the target. The following attribute map
-illustrates how to restructure the data.
-
-```
-{
-    "rules": [
-        {
-            "rule-type": "selection",
-            "rule-id": "1",
-            "rule-name": "1",
-            "rule-action": "include",
-            "object-locator": {
-                "schema-name": "Test",
-                "table-name": "%"
-            }
-        },
-        {
-            "rule-type": "object-mapping",
-            "rule-id": "2",
-            "rule-name": "TransformToKinesis",
-            "rule-action": "map-record-to-record",
-            "target-table-name": "CustomerData",
-            "object-locator": {
-                "schema-name": "Test",
-                "table-name": "Customers"
-            },
-            "mapping-parameters": {
-                "partition-key-type": "attribute-name",
-                "partition-key-name": "CustomerName",
-                "exclude-columns": [
-                    "firstname",
-                    "lastname",
-                    "homeaddress",
-                    "homephone",
-                    "workaddress",
-                    "workphone"
-                ],
-                "attribute-mappings": [
-                    {
-                        "target-attribute-name": "CustomerName",
-                        "attribute-type": "scalar",
-                        "attribute-sub-type": "string",
-                        "value": "${lastname}, ${firstname}"
-                    },
-                    {
-                        "target-attribute-name": "ContactDetails",
-                        "attribute-type": "document",
-                        "attribute-sub-type": "json",
-                        "value": {
-                            "Home": {
-                                "Address": "${homeaddress}",
-                                "Phone": "${homephone}"
-                            },
-                            "Work": {
-                                "Address": "${workaddress}",
-                                "Phone": "${workphone}"
-                            }
-                        }
-                    }
-                ]
-            }
-        }
-    ]
-}
-```
-
-To set a constant value for `partition-key`,
-specify a `partition-key` value. For example, you might do this to
-force all the data to be stored in a single shard. The following mapping
-illustrates this approach.
-
-```
 {
     "rules": [
         {
@@ -719,7 +276,7 @@ illustrates this approach.
             "rule-id": "1",
             "rule-name": "1",
             "object-locator": {
-                "schema-name": "Test",
+                "schema-name": "test",
                 "table-name": "%"
             },
             "rule-action": "include"
@@ -727,16 +284,15 @@ illustrates this approach.
         {
             "rule-type": "object-mapping",
             "rule-id": "2",
-            "rule-name": "TransformToKinesis",
-            "rule-action": "map-record-to-document",
+            "rule-name": "TransformToDDB",
+            "rule-action": "map-record-to-record",
             "object-locator": {
-                "schema-name": "Test",
-                "table-name": "Customer"
+                "schema-name": "test",
+                "table-name": "customer"
             },
+            "target-table-name": "customer_t",
             "mapping-parameters": {
-                "partition-key": {
-                    "value": "ConstantPartitionKey"
-                },
+                "partition-key-name": "CustomerName",
                 "exclude-columns": [
                     "FirstName",
                     "LastName",
@@ -751,81 +307,543 @@ illustrates this approach.
                         "attribute-type": "scalar",
                         "attribute-sub-type": "string",
                         "value": "${FirstName},${LastName}"
-
                     },
                     {
                         "target-attribute-name": "ContactDetails",
-                        "attribute-type": "scalar",
-                        "attribute-sub-type": "string",
+                        "attribute-type": "document",
+                        "attribute-sub-type": "dynamodb-map",
                         "value": {
-                            "Home": {
-                                "Address": "${HomeAddress}",
-                                "Phone": "${HomePhone}"
-                            },
-                            "Work": {
-                                "Address": "${WorkAddress}",
-                                "Phone": "${WorkPhone}"
+                            "M": {
+                                "Home": {
+                                    "M": {
+                                        "Address": {
+                                            "S": "${HomeAddress}"
+                                        },
+                                        "Phone": {
+                                            "S": "${HomePhone}"
+                                        }
+                                    }
+                                },
+                                "Work": {
+                                    "M": {
+                                        "Address": {
+                                            "S": "${WorkAddress}"
+                                        },
+                                        "Phone": {
+                                            "S": "${WorkPhone}"
+                                        }
+                                    }
+                                }
                             }
                         }
-                    },
-                    {
-                        "target-attribute-name": "DateOfBirth",
-                        "attribute-type": "scalar",
-                        "attribute-sub-type": "string",
-                        "value": "${DateOfBirth}"
                     }
                 ]
             }
         }
     ]
 }
+
 ```
 
-###### Note
+By using the `rule-action` parameter
+_map-record-to-record_, the data for
+_NickName_ and _income_ are mapped to
+items of the same name in the DynamoDB target.
 
-The `partition-key` value for a control record that is for a
-specific table is `TaskId.SchemaName.TableName`. The
-`partition-key` value for a control record that is for a
-specific task is that record's `TaskId`. Specifying a
-`partition-key` value in the object mapping has no impact on
-the `partition-key` for a control record.
+![Get started with AWS DMS](images/datarep-dynamodb2.png)
 
-### Message format for Kinesis Data Streams
+However, suppose that you use the same rules but change the
+`rule-action` parameter to
+_map-record-to-document_. In this case, the columns not
+listed in the `exclude-columns` parameter, _NickName_
+and _income_, are mapped to a _\_doc_
+item.
 
-The JSON output is simply a list of key-value pairs. A JSON_UNFORMATTED message
-format is a single line JSON string with new line delimiter.
+![Get started with AWS DMS](images/datarep-dynamodb3.png)
 
-AWS DMS provides the following reserved fields to make it easier to consume the data from the Kinesis Data Streams:
+### Using custom condition expressions with object mapping
 
-**RecordType**
+You can use a feature of DynamoDB called conditional expressions to
+manipulate data that is being written to a DynamoDB table. For more information
+about condition expressions in DynamoDB, see [Condition
+expressions](../../../amazondynamodb/latest/developerguide/Expressions.md "../../../amazondynamodb/latest/developerguide/Expressions.md").
 
-The record type can be either data or control. _Data records_ represent the actual rows
-in the source. _Control records_
-are for important events in the stream, for example a restart of the
-task.
+A condition expression member consists of:
 
-**Operation**
+- an expression (required)
+- expression attribute values (required). Specifies a DynamoDB json
+  structure of the attribute value. This is useful for comparing an attribute with a value in DynamoDB that you might not know until runtime. You can define an expression attribute value as a placeholder for an actual value.
+- expression attribute names (required). This helps avoid potential conflicts with any DynamoDB reserved words, attribute names containing special characters, and similar.
+- options for when to use the condition expression (optional). The
+  default is apply-during-cdc = false and apply-during-full-load =
+  true
 
-For data records, the operation can be
-`load`, `insert`, `update`, or
-`delete`.
+The structure for the rule is as follows:
 
-For control records, the operation can be
-`create-table`, `rename-table`, `drop-table`,
-`change-columns`, `add-column`, `drop-column`,
-`rename-column`, or `column-type-change`.
+```
 
-**SchemaName**
+"target-table-name": "customer_t",
+      "mapping-parameters": {
+        "partition-key-name": "CustomerName",
+        "condition-expression": {
+          "expression":"<conditional expression>",
+          "expression-attribute-values": [
+              {
+                "name":"<attribute name>",
+                "value":<attribute value>
+              }
+          ],
+          "apply-during-cdc":<optional Boolean value>,
+          "apply-during-full-load": <optional Boolean value>
+        }
 
-The source schema for the record. This field can be empty for a
-control record.
+```
 
-**TableName**
+The following sample highlights the sections used for condition
+expression.
 
-The source table for the record. This field can be empty for a
-control record.
+![Get started with AWS DMS](images/datarep-Tasks-conditional1.png)
 
-**Timestamp**
+### Using attribute mapping with object mapping
 
-The timestamp for when the JSON message was constructed. The field
-is formatted with the ISO 8601 format.
+Attribute mapping lets you specify a template string using source column names
+to restructure data on the target. There is no formatting done other than what
+the user specifies in the template.
+
+The following example shows the structure of the source database and the
+desired structure of the DynamoDB target. First is shown the structure of the
+source, in this case an Oracle database, and then the desired structure of the
+data in DynamoDB. The example concludes with the JSON used to create the desired
+target structure.
+
+The structure of the Oracle data is as follows:
+
+| FirstName   | LastName | StoreId | HomeAddress       | HomePhone  | WorkAddress               | WorkPhone  | DateOfBirth |
+| ----------- | -------- | ------- | ----------------- | ---------- | ------------------------- | ---------- | ----------- |
+| Primary Key | N/A      |         |
+| Randy       | Marsh    | 5       | 221B Baker Street | 1234567890 | 31 Spooner Street, Quahog | 9876543210 | 02/29/1988  |
+
+The structure of the DynamoDB data is as follows:
+
+| CustomerName          | StoreId     | ContactDetails                                                                                                                                                                                        | DateOfBirth          |
+| --------------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| Partition Key         | Sort Key    | N/A                                                                                                                                                                                                   |
+| `<br>Randy,Marsh<br>` | `<br>5<br>` | `<br>{<br>"Name": "Randy",<br>"Home": {<br>"Address": "221B Baker Street",<br>"Phone": 1234567890<br>},<br>"Work": {<br>"Address": "31 Spooner Street, Quahog",<br>"Phone": 9876541230<br>}<br>}<br>` | `<br>02/29/1988<br>` |
+
+The following JSON shows the object mapping and column mapping used to achieve
+the DynamoDB structure:
+
+```
+
+{
+    "rules": [
+        {
+            "rule-type": "selection",
+            "rule-id": "1",
+            "rule-name": "1",
+            "object-locator": {
+                "schema-name": "test",
+                "table-name": "%"
+            },
+            "rule-action": "include"
+        },
+        {
+            "rule-type": "object-mapping",
+            "rule-id": "2",
+            "rule-name": "TransformToDDB",
+            "rule-action": "map-record-to-record",
+            "object-locator": {
+                "schema-name": "test",
+                "table-name": "customer"
+            },
+            "target-table-name": "customer_t",
+            "mapping-parameters": {
+                "partition-key-name": "CustomerName",
+                "sort-key-name": "StoreId",
+                "exclude-columns": [
+                    "FirstName",
+                    "LastName",
+                    "HomeAddress",
+                    "HomePhone",
+                    "WorkAddress",
+                    "WorkPhone"
+                ],
+                "attribute-mappings": [
+                    {
+                        "target-attribute-name": "CustomerName",
+                        "attribute-type": "scalar",
+                        "attribute-sub-type": "string",
+                        "value": "${FirstName},${LastName}"
+                    },
+                    {
+                        "target-attribute-name": "StoreId",
+                        "attribute-type": "scalar",
+                        "attribute-sub-type": "string",
+                        "value": "${StoreId}"
+                    },
+                    {
+                        "target-attribute-name": "ContactDetails",
+                        "attribute-type": "scalar",
+                        "attribute-sub-type": "string",
+                        "value": "{\"Name\":\"${FirstName}\",\"Home\":{\"Address\":\"${HomeAddress}\",\"Phone\":\"${HomePhone}\"}, \"Work\":{\"Address\":\"${WorkAddress}\",\"Phone\":\"${WorkPhone}\"}}"
+                    }
+                ]
+            }
+        }
+    ]
+}
+
+```
+
+Another way to use column mapping is to use DynamoDB format as your document
+type. The following code example uses _dynamodb-map_ as the
+`attribute-sub-type` for attribute mapping.
+
+```
+
+{
+    "rules": [
+        {
+            "rule-type": "selection",
+            "rule-id": "1",
+            "rule-name": "1",
+            "object-locator": {
+                "schema-name": "test",
+                "table-name": "%"
+            },
+            "rule-action": "include"
+        },
+        {
+            "rule-type": "object-mapping",
+            "rule-id": "2",
+            "rule-name": "TransformToDDB",
+            "rule-action": "map-record-to-record",
+            "object-locator": {
+                "schema-name": "test",
+                "table-name": "customer"
+            },
+            "target-table-name": "customer_t",
+            "mapping-parameters": {
+                "partition-key-name": "CustomerName",
+                "sort-key-name": "StoreId",
+                "exclude-columns": [
+                    "FirstName",
+                    "LastName",
+                    "HomeAddress",
+                    "HomePhone",
+                    "WorkAddress",
+                    "WorkPhone"
+                ],
+                "attribute-mappings": [
+                    {
+                        "target-attribute-name": "CustomerName",
+                        "attribute-type": "scalar",
+                        "attribute-sub-type": "string",
+                        "value": "${FirstName},${LastName}"
+                    },
+                    {
+                        "target-attribute-name": "StoreId",
+                        "attribute-type": "scalar",
+                        "attribute-sub-type": "string",
+                        "value": "${StoreId}"
+                    },
+                    {
+                        "target-attribute-name": "ContactDetails",
+                        "attribute-type": "document",
+                        "attribute-sub-type": "dynamodb-map",
+                        "value": {
+                          "M": {
+                            "Name": {
+                              "S": "${FirstName}"
+                            },
+                            "Home": {
+                                    "M": {
+                                        "Address": {
+                                            "S": "${HomeAddress}"
+                                        },
+                                        "Phone": {
+                                            "S": "${HomePhone}"
+                                        }
+                                    }
+                                },
+                                "Work": {
+                                    "M": {
+                                        "Address": {
+                                            "S": "${WorkAddress}"
+                                        },
+                                        "Phone": {
+                                            "S": "${WorkPhone}"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
+
+```
+
+As an alternative to `dynamodb-map`, you can use `dynamodb-list`
+as the attribute-sub-type for attribute mapping, as shown in the following example.
+
+```
+
+{
+"target-attribute-name": "ContactDetailsList",
+"attribute-type": "document",
+"attribute-sub-type": "dynamodb-list",
+"value": {
+    "L": [
+            {
+                "N": "${FirstName}"
+            },
+            {
+                "N": "${HomeAddress}"
+            },
+            {
+                "N": "${HomePhone}"
+            },
+            {
+                "N": "${WorkAddress}"
+            },
+            {
+                "N": "${WorkPhone}"
+            }
+        ]
+    }
+}
+
+```
+
+### Example 1: Using attribute mapping with object mapping
+
+The following example migrates data from two MySQL database tables,
+_nfl_data_ and _sport_team_ , to two
+DynamoDB table called _NFLTeams_ and
+_SportTeams_. The structure of the tables and the JSON
+used to map the data from the MySQL database tables to the DynamoDB tables are
+shown following.
+
+The structure of the MySQL database table _nfl_data_ is
+shown below:
+
+```
+
+mysql> desc nfl_data;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| Position      | varchar(5)  | YES  |     | NULL    |       |
+| player_number | smallint(6) | YES  |     | NULL    |       |
+| Name          | varchar(40) | YES  |     | NULL    |       |
+| status        | varchar(10) | YES  |     | NULL    |       |
+| stat1         | varchar(10) | YES  |     | NULL    |       |
+| stat1_val     | varchar(10) | YES  |     | NULL    |       |
+| stat2         | varchar(10) | YES  |     | NULL    |       |
+| stat2_val     | varchar(10) | YES  |     | NULL    |       |
+| stat3         | varchar(10) | YES  |     | NULL    |       |
+| stat3_val     | varchar(10) | YES  |     | NULL    |       |
+| stat4         | varchar(10) | YES  |     | NULL    |       |
+| stat4_val     | varchar(10) | YES  |     | NULL    |       |
+| team          | varchar(10) | YES  |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+
+```
+
+The structure of the MySQL database table _sport_team_ is
+shown below:
+
+```
+
+mysql> desc sport_team;
++---------------------------+--------------+------+-----+---------+----------------+
+| Field                     | Type         | Null | Key | Default | Extra          |
++---------------------------+--------------+------+-----+---------+----------------+
+| id                        | mediumint(9) | NO   | PRI | NULL    | auto_increment |
+| name                      | varchar(30)  | NO   |     | NULL    |                |
+| abbreviated_name          | varchar(10)  | YES  |     | NULL    |                |
+| home_field_id             | smallint(6)  | YES  | MUL | NULL    |                |
+| sport_type_name           | varchar(15)  | NO   | MUL | NULL    |                |
+| sport_league_short_name   | varchar(10)  | NO   |     | NULL    |                |
+| sport_division_short_name | varchar(10)  | YES  |     | NULL    |                |
+
+```
+
+The table-mapping rules used to map the two tables to the two DynamoDB tables
+is shown below:
+
+```
+
+{
+  "rules":[
+    {
+      "rule-type": "selection",
+      "rule-id": "1",
+      "rule-name": "1",
+      "object-locator": {
+        "schema-name": "dms_sample",
+        "table-name": "nfl_data"
+      },
+      "rule-action": "include"
+    },
+    {
+      "rule-type": "selection",
+      "rule-id": "2",
+      "rule-name": "2",
+      "object-locator": {
+        "schema-name": "dms_sample",
+        "table-name": "sport_team"
+      },
+      "rule-action": "include"
+    },
+    {
+      "rule-type":"object-mapping",
+      "rule-id":"3",
+      "rule-name":"MapNFLData",
+      "rule-action":"map-record-to-record",
+      "object-locator":{
+        "schema-name":"dms_sample",
+        "table-name":"nfl_data"
+      },
+      "target-table-name":"NFLTeams",
+      "mapping-parameters":{
+        "partition-key-name":"Team",
+        "sort-key-name":"PlayerName",
+        "exclude-columns": [
+          "player_number", "team", "name"
+        ],
+        "attribute-mappings":[
+          {
+            "target-attribute-name":"Team",
+            "attribute-type":"scalar",
+            "attribute-sub-type":"string",
+            "value":"${team}"
+          },
+          {
+            "target-attribute-name":"PlayerName",
+            "attribute-type":"scalar",
+            "attribute-sub-type":"string",
+            "value":"${name}"
+          },
+          {
+            "target-attribute-name":"PlayerInfo",
+            "attribute-type":"scalar",
+            "attribute-sub-type":"string",
+            "value":"{\"Number\": \"${player_number}\",\"Position\": \"${Position}\",\"Status\": \"${status}\",\"Stats\": {\"Stat1\": \"${stat1}:${stat1_val}\",\"Stat2\": \"${stat2}:${stat2_val}\",\"Stat3\": \"${stat3}:${
+stat3_val}\",\"Stat4\": \"${stat4}:${stat4_val}\"}"
+          }
+        ]
+      }
+    },
+    {
+      "rule-type":"object-mapping",
+      "rule-id":"4",
+      "rule-name":"MapSportTeam",
+      "rule-action":"map-record-to-record",
+      "object-locator":{
+        "schema-name":"dms_sample",
+        "table-name":"sport_team"
+      },
+      "target-table-name":"SportTeams",
+      "mapping-parameters":{
+        "partition-key-name":"TeamName",
+        "exclude-columns": [
+          "name", "id"
+        ],
+        "attribute-mappings":[
+          {
+            "target-attribute-name":"TeamName",
+            "attribute-type":"scalar",
+            "attribute-sub-type":"string",
+            "value":"${name}"
+          },
+          {
+            "target-attribute-name":"TeamInfo",
+            "attribute-type":"scalar",
+            "attribute-sub-type":"string",
+            "value":"{\"League\": \"${sport_league_short_name}\",\"Division\": \"${sport_division_short_name}\"}"
+          }
+        ]
+      }
+    }
+  ]
+}
+
+```
+
+The sample output for the _NFLTeams_ DynamoDB table is
+shown below:
+
+```
+
+  "PlayerInfo": "{\"Number\": \"6\",\"Position\": \"P\",\"Status\": \"ACT\",\"Stats\": {\"Stat1\": \"PUNTS:73\",\"Stat2\": \"AVG:46\",\"Stat3\": \"LNG:67\",\"Stat4\": \"IN 20:31\"}",
+  "PlayerName": "Allen, Ryan",
+  "Position": "P",
+  "stat1": "PUNTS",
+  "stat1_val": "73",
+  "stat2": "AVG",
+  "stat2_val": "46",
+  "stat3": "LNG",
+  "stat3_val": "67",
+  "stat4": "IN 20",
+  "stat4_val": "31",
+  "status": "ACT",
+  "Team": "NE"
+}
+
+```
+
+The sample output for the SportsTeams _DynamoDB_ table is
+shown below:
+
+```
+
+{
+  "abbreviated_name": "IND",
+  "home_field_id": 53,
+  "sport_division_short_name": "AFC South",
+  "sport_league_short_name": "NFL",
+  "sport_type_name": "football",
+  "TeamInfo": "{\"League\": \"NFL\",\"Division\": \"AFC South\"}",
+  "TeamName": "Indianapolis Colts"
+}
+
+```
+
+## Target data types for DynamoDB
+
+The DynamoDB endpoint for AWS DMS supports most DynamoDB data
+types. The following table shows the Amazon AWS DMS target data types that are
+supported when using AWS DMS and the default mapping from AWS DMS data
+types.
+
+For additional information about AWS DMS data types, see [Data types for AWS Database Migration Service](CHAP_Reference.md "CHAP_Reference.md").
+
+When AWS DMS migrates data from heterogeneous databases, we map data types from
+the source database to intermediate data types called AWS DMS data types. We then
+map the intermediate data types to the target data types. The following table shows
+each AWS DMS data type and the data type it maps to in DynamoDB:
+
+| AWS DMS data type | DynamoDB data type |
+| ----------------- | ------------------ |
+| String            | String             |
+| WString           | String             |
+| Boolean           | Boolean            |
+| Date              | String             |
+| DateTime          | String             |
+| INT1              | Number             |
+| INT2              | Number             |
+| INT4              | Number             |
+| INT8              | Number             |
+| Numeric           | Number             |
+| Real4             | Number             |
+| Real8             | Number             |
+| UINT1             | Number             |
+| UINT2             | Number             |
+| UINT4             | Number             |
+| UINT8             | Number             |
+| CLOB              | String             |

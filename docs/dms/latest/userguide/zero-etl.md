@@ -55,6 +55,47 @@ Amazon SNS topic and subscribing to it, see
 [Getting started with Amazon SNS](../../../sns/latest/dg/sns-getting-started.md "../../../sns/latest/dg/sns-getting-started.md")
 in the _Amazon Simple Notification Service Developer Guide_.
 
+## Source database configuration before creating integration
+
+Before configuring zero-ETL integrations, you must properly configure your source database
+according to the requirements for your database engine. Each engine has specific configuration
+requirements and limitations.
+
+SQL Server
+
+- For configuration requirements, see
+  [Using a Microsoft SQL Server database as a source for AWS DMS](CHAP_Source.md "CHAP_Source.md").
+- For change data capture (CDC) requirements, see
+  [Capturing data changes for ongoing replication from SQL Server](CHAP_Source.SQLServer.md "CHAP_Source.SQLServer.md").
+
+###### Note
+
+RDS SQL Server and Azure SQL Server cannot be used as sources for self-managed zero-ETL integrations.
+
+Oracle
+
+- For configuration requirements and limitations, see
+  [Using an Oracle database as a source for AWS DMS](CHAP_Source.md "CHAP_Source.md").
+
+MySQL
+
+- For configuration requirements and limitations, see
+  [Using a MySQL-compatible database as a source for AWS DMS](CHAP_Source.md "CHAP_Source.md").
+
+PostgreSQL
+
+- For configuration requirements and limitations, see
+  [Using a PostgreSQL database as an AWS DMS source](CHAP_Source.md "CHAP_Source.md").
+- When using a self-managed PostgreSQL database as a source, the following limitation applies:
+  - For self-managed PostgreSQL sources, you must set `CaptureDdls` to `false` in the PostgreSQL endpoint settings when creating the source endpoint. To set this parameter, use the following when creating your source endpoint:
+
+  ```
+  --postgre-sql-settings '{"CaptureDdls": false}'
+  ```
+
+  If you do not set CaptureDdls to false, the task may fail to start successfully.
+  - When `CaptureDdls` is set to `false`, DDL operations (such as CREATE TABLE, ALTER TABLE, and DROP TABLE) performed on the source database during replication will not be captured or replicated to the target.
+
 ## Setting up IAM permissions and encryption for zero-ETL integration
 
 To create and manage zero-ETL integrations, you need to configure appropriate IAM permissions,
@@ -66,7 +107,7 @@ the required security components.
 Before creating a zero-ETL integration, ensure you have the following:
 
 - An IAM user or role with appropriate permissions to create and manage integrations
-- Existing AWS DMS source endpoints for your self-managed databases
+- Configure AWS DMS source endpoints for your self-managed databases. For more information, see [Source database configuration before creating integration](#zero-etl.source-database-configuration "#zero-etl.source-database-configuration").
 - An Amazon Redshift provisioned cluster or serverless namespace as the target
 - Network configuration including VPC subnets and security groups
 
