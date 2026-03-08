@@ -4,6 +4,10 @@ Apart from the configurations you set for a batch inference job, you can also mo
 
 You can also track a job's status by comparing the total number of records and number of records that have already been processed. These numbers can be found in the `manifest.json.out` file in the Amazon S3 bucket containing the output files. For more information, see [View the results of a batch inference job](batch-inference-results.md "batch-inference-results.md"). To learn how to download an S3 object, see [Downloading objects](../../../AmazonS3/latest/userguide/download-objects.md "../../../AmazonS3/latest/userguide/download-objects.md").
 
+###### Tip
+
+Instead of polling for job status, you can use Amazon EventBridge to receive automatic notifications when a batch inference job completes or changes state. For more information, see [Monitor Amazon Bedrock job state changes using Amazon EventBridge](monitoring-eventbridge.md "monitoring-eventbridge.md").
+
 To learn how to view details about batch inference jobs, choose the tab for your preferred method, and then follow the steps:
 
 Console
@@ -21,7 +25,7 @@ To get information about a batch inference job, send a [GetModelInvocationJob](.
 
 To list information about multiple batch inference jobs, send [ListModelInvocationJobs](../APIReference/API_ListModelInvocationJobs.md "../APIReference/API_ListModelInvocationJobs.md") request with an [Amazon Bedrock control plane endpoint](../../../general/latest/gr/bedrock.md#br-cp "../../../general/latest/gr/bedrock.md#br-cp"). You can specify the following optional parameters:
 
-The response for both operations includes a `modelInvocationType` field that indicates whether the job uses the `InvokeModel` or `Converse` API format.
+The response for `GetModelInvocationJob` and `ListModelInvocationJobs` includes a `modelInvocationType` field that indicates whether the job uses the `InvokeModel` or `Converse` API format.
 
 | Field      | Short description                                                                                                                                                                                                         |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -29,5 +33,3 @@ The response for both operations includes a `modelInvocationType` field that ind
 | nextToken  | If there are more results than the number you specified<br>in the `maxResults` field, the response returns a `nextToken`<br>value. To see the next batch of results, send the<br>`nextToken` value in another<br>request. |
 
 To list all the tags for a job, send a [ListTagsForResource](../APIReference/API_ListTagsForResource.md "../APIReference/API_ListTagsForResource.md") request with an [Amazon Bedrock control plane endpoint](../../../general/latest/gr/bedrock.md#br-cp "../../../general/latest/gr/bedrock.md#br-cp") and include the Amazon Resource Name (ARN) of the job.
-
-You can also monitor batch inference jobs with Amazon EventBridge. For more information, see [Monitor Amazon Bedrock job state changes using Amazon EventBridge](monitoring-eventbridge.md "monitoring-eventbridge.md").

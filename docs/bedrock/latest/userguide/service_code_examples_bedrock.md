@@ -10,7 +10,7 @@ For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.
 
-###### Code examples
+###### Amazon Bedrock
 
 - [Basics](service_code_examples_bedrock_basics.md "service_code_examples_bedrock_basics.md")
   - [Hello Amazon Bedrock](bedrock_example_bedrock_Hello_section.md "bedrock_example_bedrock_Hello_section.md")

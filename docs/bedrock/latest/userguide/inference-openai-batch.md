@@ -275,7 +275,7 @@ client = OpenAI(
     api_key="$AWS_BEARER_TOKEN_BEDROCK" # Replace with actual API key
 )
 
-job = client.batches.retrieve(batch_id="batch_abc123") # Replace with actual ID
+job = client.batches.list(limit=2)
 
 print(job)
 ```
@@ -298,8 +298,8 @@ Before running the following example, first replace the placeholders in the foll
 The following example calls the OpenAI List batches API in `us-west-2` and specifies a limit of 2 results to return.
 
 ```
-curl -X GET 'https://bedrock-runtime.us-west-2.amazonaws.com/openai/v1/batches/batch_abc123' \
-    -H 'Authorization: Bearer $AWS_BEARER_TOKEN_BEDROCK'
+curl -X GET 'https://bedrock-runtime.us-west-2.amazonaws.com/openai/v1/batches?limit=2' \
+    -H 'Authorization: Bearer $AWS_BEARER_TOKEN_BEDROCK' \
 ```
 
 ## Cancel an OpenAI batch job

@@ -1,6 +1,6 @@
 # Code example for batch inference
 
-The code example in this chapter shows how to create a batch inference job, view information about it, and stop it.
+The code example in this chapter shows how to create a batch inference job, view information about it, and stop it. This example uses the `InvokeModel` API format. For information about using the `Converse` API format, see [Format and upload your batch inference data](batch-inference-data.md "batch-inference-data.md").
 
 Select a language to see a code example for it:
 

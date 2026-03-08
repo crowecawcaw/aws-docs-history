@@ -11,7 +11,7 @@ After a batch inference job is `Completed`, you can extract the results of the b
 The following example shows a possible output file.
 
 ```
-{ "recordId" : "3223593EFGH", "modelInput" : {"inputText": "Roses are red, violets are"}, "modelOutput" : {'inputTextTokenCount': 8, 'results': [{'tokenCount': 3, 'outputText': 'blue\n', 'completionReason': 'FINISH'}]}}
+{ "recordId" : "3223593EFGH", "modelInput" : {"inputText": "Roses are red, violets are"}, "modelOutput" : {"inputTextTokenCount": 8, "results": [{"tokenCount": 3, "outputText": "blue\n", "completionReason": "FINISH"}]}}
 { "recordId" : "1223213ABCD", "modelInput" : {"inputText": "Hello world"}, "error" : {"errorCode" : 400, "errorMessage" : "bad request" }}
 ```
 

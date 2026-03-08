@@ -243,6 +243,7 @@ Copy the following content and save it in a Markdown file in your project folder
 - INGEST_CONTENT Workflow
 - REFINE_POLICY Workflow
 - IMPORT_POLICY Workflow
+- GENERATE_FIDELITY_REPORT Workflow
 
 ### Annotation Type Reference
 - Type Management Annotations
@@ -284,36 +285,37 @@ Copy the following content and save it in a Markdown file in your project folder
 ## Core APIs
 
 ### Policy Management
-- `create-automated-reasoning-policy` - Create initial policy (returns policy ARN)
-- `get-automated-reasoning-policy` - Retrieve policy (DRAFT version by default with unversioned ARN)
-- `update-automated-reasoning-policy` - Update DRAFT policy with new definition
-- `delete-automated-reasoning-policy` - Delete policy
-- `list-automated-reasoning-policies` - List all policies
+- `create-automated-reasoning-policy` - Create initial policy (returns policy ARN). Supports optional `--description`, `--kms-key-id` (for encryption with a customer managed AWS KMS key), `--tags` (up to 200 tags), and `--client-request-token` (idempotency token).
+- `get-automated-reasoning-policy` - Retrieve policy (DRAFT version by default with unversioned ARN). Returns `policyId`, `definitionHash`, and `kmsKeyArn` (if a KMS key was provided at creation).
+- `update-automated-reasoning-policy` - Update DRAFT policy with new definition. Accepts optional `--name` and `--description` updates alongside `--policy-definition` (required).
+- `delete-automated-reasoning-policy` - Delete policy. Supports optional `--force` flag: when true, deletes the policy and all its artifacts (versions, test cases, test results) without validation; when false (default), validates that all artifacts have been deleted first.
+- `list-automated-reasoning-policies` - List all policies. Supports optional `--policy-arn` filter to list only versions of a specific policy.
 
 ### Policy Versions
-- `create-automated-reasoning-policy-version` - Snapshot DRAFT into numbered version
-- `export-automated-reasoning-policy-version` - Export specific policy version
+- `create-automated-reasoning-policy-version` - Snapshot DRAFT into numbered version. Requires `--last-updated-definition-hash` (concurrency token from get/create/update response). Supports optional `--tags` (up to 200 tags) and `--client-request-token`.
+- `export-automated-reasoning-policy-version` - Export specific policy version definition including rules, variables, and types.
 
 ### Build Workflows
-- `start-automated-reasoning-policy-build-workflow` - Start build process
-- `get-automated-reasoning-policy-build-workflow` - Get build workflow status
+- `start-automated-reasoning-policy-build-workflow` - Start build process. Valid `--build-workflow-type` values: `INGEST_CONTENT`, `REFINE_POLICY`, `IMPORT_POLICY`, `GENERATE_FIDELITY_REPORT`. Supports optional `--client-request-token` (idempotency token, passed as header).
+- `get-automated-reasoning-policy-build-workflow` - Get build workflow status. Status values: `SCHEDULED`, `CANCEL_REQUESTED`, `PREPROCESSING`, `BUILDING`, `TESTING`, `COMPLETED`, `FAILED`, `CANCELLED`.
 - `cancel-automated-reasoning-policy-build-workflow` - Cancel running build
-- `delete-automated-reasoning-policy-build-workflow` - Delete build workflow
+- `delete-automated-reasoning-policy-build-workflow` - Delete build workflow. Requires `--last-updated-at` (concurrency token timestamp).
 - `list-automated-reasoning-policy-build-workflows` - List build workflows
-- `get-automated-reasoning-policy-build-workflow-result-assets` - Get compiled policy assets
+- `get-automated-reasoning-policy-build-workflow-result-assets` - Get compiled policy assets. Requires `--asset-type`. Valid asset types: `BUILD_LOG`, `QUALITY_REPORT`, `POLICY_DEFINITION`, `GENERATED_TEST_CASES`, `POLICY_SCENARIOS`, `FIDELITY_REPORT`, `ASSET_MANIFEST`, `SOURCE_DOCUMENT`. Supports optional `--asset-id` (required when retrieving `SOURCE_DOCUMENT` assets if multiple source documents were used; obtain from the `ASSET_MANIFEST`).
 
 ### Test Management
-- `create-automated-reasoning-policy-test-case` - Create test case
-- `get-automated-reasoning-policy-test-case` - Get test case details
-- `update-automated-reasoning-policy-test-case` - Update test case
-- `delete-automated-reasoning-policy-test-case` - Delete test case
+- `create-automated-reasoning-policy-test-case` - Create test case. Requires `--guard-content` and `--expected-aggregated-findings-result`. Supports optional `--query-content`, `--confidence-threshold` (Double, 0 to 1, minimum confidence level for logic validation), and `--client-request-token`.
+- `get-automated-reasoning-policy-test-case` - Get test case details (includes `confidenceThreshold` if set)
+- `update-automated-reasoning-policy-test-case` - Update test case. Requires `--guard-content`, `--expected-aggregated-findings-result`, and `--last-updated-at` (concurrency token). Supports optional `--query-content`, `--confidence-threshold`, and `--client-request-token`.
+- `delete-automated-reasoning-policy-test-case` - Delete test case. Requires `--last-updated-at` (concurrency token).
 - `list-automated-reasoning-policy-test-cases` - List test cases
-- `start-automated-reasoning-policy-test-workflow` - Run tests
-- `get-automated-reasoning-policy-test-result` - Get test results
-- `list-automated-reasoning-policy-test-results` - List test results
+- `start-automated-reasoning-policy-test-workflow` - Run tests against a completed build. Requires `--build-workflow-id` (the build workflow must show COMPLETED status). Supports optional `--test-case-ids` (array of test case IDs to run; if not provided, all tests for the policy are run) and `--client-request-token`.
+- `get-automated-reasoning-policy-test-result` - Get test result for a specific test case. Requires `--build-workflow-id` and `--test-case-id`.
+- `list-automated-reasoning-policy-test-results` - List test results. Requires `--build-workflow-id`.
 
 ### Annotations & Scenarios
-- `get-automated-reasoning-policy-annotations` - Get policy annotations
+- `get-automated-reasoning-policy-annotations` - Get policy annotations for a build workflow. Requires `--build-workflow-id`. Returns `annotations`, `annotationSetHash` (concurrency token), `buildWorkflowId`, `name`, `policyArn`, and `updatedAt`.
+- `update-automated-reasoning-policy-annotations` - Update annotations for a build workflow. Requires `--build-workflow-id`, `--annotations` (array of annotation objects, max 10), and `--last-updated-annotation-set-hash` (concurrency token from get-annotations response). Returns updated `annotationSetHash`.
 - `get-automated-reasoning-policy-next-scenario` - Get next test scenario
 
 **Important**: Do NOT use `get-automated-reasoning-policy-annotations` or
@@ -324,6 +326,7 @@ Copy the following content and save it in a Markdown file in your project folder
 1. **INGEST_CONTENT** - Process documents to create/extract policy rules
 2. **REFINE_POLICY** - Refine and improve existing policies using annotations
 3. **IMPORT_POLICY** - Import policies from external sources
+4. **GENERATE_FIDELITY_REPORT** - Generate a fidelity report for the policy
 
 ### INGEST_CONTENT Workflow
 - **Purpose**: Extract policy rules from documents (PDF/TXT)
@@ -635,9 +638,10 @@ aws bedrock update-automated-reasoning-policy \
   --policy-arn <unversioned-arn> \
   --policy-definition <build-output>
 
-# 3. Create versioned snapshot of DRAFT
+# 3. Create versioned snapshot of DRAFT (definitionHash from step 2 response)
 aws bedrock create-automated-reasoning-policy-version \
-  --policy-arn <unversioned-arn>
+  --policy-arn <unversioned-arn> \
+  --last-updated-definition-hash <definition-hash>
 ```
 
 ## Testing Workflow
@@ -671,7 +675,8 @@ aws bedrock create-automated-reasoning-policy-test-case \
   --policy-arn "arn:aws:bedrock:region:account:automated-reasoning-policy/policy-id" \
   --guard-content "It is 2:30 PM on a clear day" \
   --query-content "What color should the sky be?" \
-  --expected-aggregated-findings-result "VALID"
+  --expected-aggregated-findings-result "VALID" \
+  --confidence-threshold 0.8
 ```
 
 ### Test Result Analysis and Troubleshooting
@@ -698,6 +703,44 @@ aws bedrock create-automated-reasoning-policy-test-case \
 3. **Empty testFindings arrays**
    - Problem: Translation issues, not rule violations
    - Solution: Focus on improving natural language descriptions, not policy logic
+
+**Valid values for `expectedAggregatedFindingsResult`:**
+
+- `VALID` - The claims are true, implied by the premises and the policy
+- `INVALID` - The claims are false, not implied by the premises and policy
+- `SATISFIABLE` - The claims can be true or false depending on assumptions
+- `IMPOSSIBLE` - Automated Reasoning can't make a statement (e.g., conflicting policy rules)
+- `TRANSLATION_AMBIGUOUS` - Ambiguity in translation prevented validity checking
+- `TOO_COMPLEX` - Input too complex for Automated Reasoning to process within latency limits
+- `NO_TRANSLATION` - Some or all of the input wasn't translated into logic
+
+### Running Tests Against a Build
+
+After creating test cases, run them against a completed build workflow:
+
+```bash
+# Run all tests against a completed build
+aws bedrock start-automated-reasoning-policy-test-workflow \
+  --policy-arn "arn:aws:bedrock:region:account:automated-reasoning-policy/policy-id" \
+  --build-workflow-id "workflow-123"
+
+# Run specific tests only
+aws bedrock start-automated-reasoning-policy-test-workflow \
+  --policy-arn "arn:aws:bedrock:region:account:automated-reasoning-policy/policy-id" \
+  --build-workflow-id "workflow-123" \
+  --test-case-ids '["A1B2C3D4E5F6"]'
+
+# Get result for a specific test case
+aws bedrock get-automated-reasoning-policy-test-result \
+  --policy-arn "arn:aws:bedrock:region:account:automated-reasoning-policy/policy-id" \
+  --build-workflow-id "workflow-123" \
+  --test-case-id "A1B2C3D4E5F6"
+
+# List all test results for a build
+aws bedrock list-automated-reasoning-policy-test-results \
+  --policy-arn "arn:aws:bedrock:region:account:automated-reasoning-policy/policy-id" \
+  --build-workflow-id "workflow-123"
+```
 
 ## Build Workflow Monitoring
 
@@ -746,7 +789,21 @@ After a build workflow completes successfully, you can retrieve various assets. 
 
 ### Asset Types
 
-#### 1. POLICY_DEFINITION - The Main Output
+#### 1. ASSET_MANIFEST - Index of All Assets
+
+```bash
+aws bedrock get-automated-reasoning-policy-build-workflow-result-assets \
+  --policy-arn "arn:aws:bedrock:region:account:automated-reasoning-policy/policy-id" \
+  --build-workflow-id "workflow-123" \
+  --asset-type "ASSET_MANIFEST"
+```
+
+**What it contains:**
+
+- A manifest listing all available assets and their IDs for the build workflow
+- Use this to discover asset IDs needed for retrieving assets
+
+#### 2. POLICY_DEFINITION - The Main Output
 
 ```bash
 aws bedrock get-automated-reasoning-policy-build-workflow-result-assets \
@@ -761,7 +818,7 @@ aws bedrock get-automated-reasoning-policy-build-workflow-result-assets \
 - SMT-LIB expressions for all rules
 - Complete policy structure ready for deployment
 
-#### 2. BUILD_LOG - Build Process Details
+#### 3. BUILD_LOG - Build Process Details
 
 ```bash
 aws bedrock get-automated-reasoning-policy-build-workflow-result-assets \
@@ -777,7 +834,7 @@ aws bedrock get-automated-reasoning-policy-build-workflow-result-assets \
 - Processing warnings - Content that couldn't be interpreted
 - Success/failure status for each extraction step
 
-#### 3. QUALITY_REPORT - Policy Quality Analysis
+#### 4. QUALITY_REPORT - Policy Quality Analysis
 
 ```bash
 aws bedrock get-automated-reasoning-policy-build-workflow-result-assets \
@@ -792,6 +849,61 @@ aws bedrock get-automated-reasoning-policy-build-workflow-result-assets \
 - Unused variables - Variables not referenced by any rules
 - Unused type values - Enum values not used in rules
 - Disjoint rule sets - Groups of rules that don't interact
+
+#### 5. GENERATED_TEST_CASES - Auto-Generated Tests
+
+```bash
+aws bedrock get-automated-reasoning-policy-build-workflow-result-assets \
+  --policy-arn "arn:aws:bedrock:region:account:automated-reasoning-policy/policy-id" \
+  --build-workflow-id "workflow-123" \
+  --asset-type "GENERATED_TEST_CASES"
+```
+
+**What it contains:**
+
+- Automatically generated test cases based on the policy rules
+
+#### 6. POLICY_SCENARIOS - Policy Test Scenarios
+
+```bash
+aws bedrock get-automated-reasoning-policy-build-workflow-result-assets \
+  --policy-arn "arn:aws:bedrock:region:account:automated-reasoning-policy/policy-id" \
+  --build-workflow-id "workflow-123" \
+  --asset-type "POLICY_SCENARIOS"
+```
+
+**What it contains:**
+
+- AI-generated scenarios for comprehensive policy validation
+
+#### 7. FIDELITY_REPORT - Policy Fidelity Analysis
+
+```bash
+aws bedrock get-automated-reasoning-policy-build-workflow-result-assets \
+  --policy-arn "arn:aws:bedrock:region:account:automated-reasoning-policy/policy-id" \
+  --build-workflow-id "workflow-123" \
+  --asset-type "FIDELITY_REPORT"
+```
+
+**What it contains:**
+
+- Fidelity analysis results from a GENERATE_FIDELITY_REPORT build workflow
+
+#### 8. SOURCE_DOCUMENT - Original Source Documents
+
+```bash
+# Requires --asset-id obtained from the ASSET_MANIFEST
+aws bedrock get-automated-reasoning-policy-build-workflow-result-assets \
+  --policy-arn "arn:aws:bedrock:region:account:automated-reasoning-policy/policy-id" \
+  --build-workflow-id "workflow-123" \
+  --asset-type "SOURCE_DOCUMENT" \
+  --asset-id "a1b2c3d4-e5f6-4a7b-8c9d-e0f1a2b3c4d5"
+```
+
+**What it contains:**
+
+- The original source document used in the build workflow
+- The `--asset-id` parameter is required because multiple source documents may have been used
 
 ```
 

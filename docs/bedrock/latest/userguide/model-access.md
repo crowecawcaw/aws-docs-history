@@ -15,9 +15,12 @@ Marketplace permissions in all commercial AWS regions. For programtic access to 
 When you invoke a third-party model for the first time in your account, Amazon Bedrock
 automatically initiates the subscription process in the background. During this setup period
 (up to 15 minutes), your API calls may succeed temporarily while the subscription is being
-finalized. If any prerequisites are missing, initial API calls may succeed temporarily but will
-fail with a 403 error after the setup period if the subscription cannot be completed. To avoid
-interruptions, verify all prerequisites before invoking models in production.
+finalized. If any prerequisites are missing, the subscription attempt fails and
+subsequent API calls will return `AccessDeniedException`. After granting the
+necessary permissions, it may take up to 2 minutes for the subscription to complete.
+During this time, API calls may continue to return `AccessDeniedException`.
+Once the subscription is complete, all subsequent invocations will succeed. To avoid this
+entirely, verify all prerequisites before invoking models in production.
 
 **Prerequisites for successful model access:**
 

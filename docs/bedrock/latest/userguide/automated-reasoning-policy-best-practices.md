@@ -24,6 +24,34 @@ This approach has two advantages: it makes issues easier to isolate (you know wh
 section introduced a problem), and it keeps the policy manageable during development. A
 policy with 10 well-tested rules is more useful than one with 100 untested rules.
 
+## Pre-process documents with an LLM
+
+For documents that are lengthy, contain narrative prose, or mix rules with non-rule
+content (such as legal disclaimers or organizational background), run the document through
+an LLM before uploading it to Automated Reasoning checks. Ask the LLM to extract the content as
+explicit if-then rules. This preprocessing step significantly improves the quality of
+the extracted policy because Automated Reasoning checks works best with clear, declarative
+statements rather than unstructured text.
+
+When writing your preprocessing prompt, include the following instructions for the
+LLM:
+
+- Extract rules in if-then format with clear conditions and consequences.
+- Preserve all conditions, logical operators (AND, OR, NOT), quantifiers ("at
+  least", "at most"), and exception clauses ("unless", "except when").
+- Add sanity rules for common-sense constraints — such as "account balance cannot
+  be negative" or "credit score must be between 300 and 850" — which translate into
+  boundary rules in your policy (see [Validate ranges for numerical values](#bp-validate-ranges "#bp-validate-ranges")).
+
+###### Important
+
+Always review the LLM's output against your original document before using it as
+source text. LLMs can hallucinate rules not present in the source, misinterpret
+conditions, or drop important exceptions. The preprocessing step is a starting
+point — not a substitute for human review.
+
+For detailed prompt templates and a step-by-step preprocessing workflow, see [(Optional) Use an LLM to rewrite documents as logical rules](create-automated-reasoning-policy.md#preprocess-with-llm "create-automated-reasoning-policy.md#preprocess-with-llm").
+
 ## Use implications (=>) to structure rules
 
 The if-then format (using the `=>` implication operator) is the single

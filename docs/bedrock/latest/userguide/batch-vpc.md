@@ -135,18 +135,6 @@ We recommend that you provide at least one subnet in each Availability Zone.
 You can use security groups to establish rules for controlling Amazon Bedrock access to
 your VPC resources.
 
-You can configure the VPC to use in either the console or through the API. Choose the tab for your preferred method, and then follow the steps:
-
-Console
-For the Amazon Bedrock console, you specify VPC subnets and security groups in the
-optional **VPC settings** section when you submit the batch inference job.
-
-###### Note
-
-For a job that includes VPC configuration, the console can't automatically create a
-service role for you. Follow the guidance at [Create a custom service role for batch inference](batch-iam-sr.md "batch-iam-sr.md") to create a custom role.
-
-API
 When you submit a [CreateModelInvocationJob](../APIReference/API_CreateModelInvocationJob.md "../APIReference/API_CreateModelInvocationJob.md") request, you can include a `VpcConfig` as a request parameter to specify the VPC subnets and security groups to use, as in the following example.
 
 ```

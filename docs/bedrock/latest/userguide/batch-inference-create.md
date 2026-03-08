@@ -22,7 +22,7 @@ Console
 
 ###### Note
 
-If the input data is in an S3 bucket that belongs to a different account from the one from which you're submitting the job, you must use the API to submit the batch inference job. To learn how to do this, select the API tab above. 7. In the **Output data** section, choose **Browse S3** and select an S3 location to store the outtput files from your batch inference job. By default, the output data will be encrypted by an AWS managed key. To choose a custom KMS key, select **Customize encryption settings (advanced)** and choose a key. For more information about encryption of Amazon Bedrock resources and setting up a custom KMS key see [Data encryption](data-encryption.md "data-encryption.md").
+If the input data is in an S3 bucket that belongs to a different account from the one from which you're submitting the job, you must use the API to submit the batch inference job. To learn how to do this, select the API tab above. 7. In the **Output data** section, choose **Browse S3** and select an S3 location to store the output files from your batch inference job. By default, the output data will be encrypted by an AWS managed key. To choose a custom KMS key, select **Customize encryption settings (advanced)** and choose a key. For more information about encryption of Amazon Bedrock resources and setting up a custom KMS key see [Data encryption](data-encryption.md "data-encryption.md").
 
 ###### Note
 

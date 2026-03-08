@@ -58,6 +58,121 @@ Start with a focused subset of your rules. Create and test the policy thoroughly
 then gradually add more content in subsequent iterations. This approach helps you
 identify and resolve issues early and makes troubleshooting easier.
 
+### (Optional) Use an LLM to rewrite documents as logical rules
+
+For documents that contain narrative prose, legal language, or complex formatting,
+consider using a frontier model with advanced reasoning capabilities to rewrite the content as
+clear, logical rules before uploading it to Automated Reasoning checks. This one-off preprocessing step
+converts text into a format that Automated Reasoning checks can extract from more
+accurately, resulting in higher-quality policies with fewer unused variables and bare
+assertions.
+
+###### Note
+
+Always review the LLM's output against your original document before using it as
+source text.
+
+There are two approaches to LLM preprocessing, depending on the complexity of your
+document and how much control you want over the extraction.
+
+#### Approach 1: Plain text rule extraction
+
+Ask the LLM to rewrite the document as a numbered list of if-then rules. This
+approach is straightforward and works well for short, focused documents where the rules
+are relatively clear in the source.
+
+**Example prompt:**
+
+```
+You are a logical reasoning expert. Your task is to analyze the provided
+source text and rewrite it as a set of clear, logical rules using if-then
+statements.
+
+Instructions:
+1. Extract the key relationships, conditions, and outcomes from the source text.
+2. Convert these into logical implications using "if-then" format.
+3. Use clear, precise language that captures the original meaning.
+4. Number each rule for easy reference.
+5. Ensure rules are mutually consistent and non-contradictory.
+
+Format:
+- Rule [N]: If [condition], then [consequence].
+- Use "and" to combine multiple conditions.
+- Use "or" for alternative conditions.
+- Include negations when relevant: If not [condition], then [consequence].
+
+Example:
+Source: "Students who complete all assignments and attend at least 80% of
+classes will pass the course."
+Rule 1: If a student completes all assignments and attends at least 80% of
+classes, then they will pass the course.
+
+Source Text:
+[Paste your document here]
+```
+
+#### Approach 2: Structured rule extraction
+
+For complex or lengthy documents, ask the LLM to extract rules as structured JSON
+with metadata for each rule. This approach produces richer output that helps you audit
+which parts of the document each rule came from, how confident the extraction is, and
+which rules are inferred rather than directly stated. It also asks the LLM to generate
+sanity rules — common-sense boundary constraints such as "age must be non-negative" —
+which translate directly into the boundary rules that Automated Reasoning policies use.
+For more information on boundary rules, see [Validate ranges for numerical values](automated-reasoning-policy-best-practices.md#bp-validate-ranges "automated-reasoning-policy-best-practices.md#bp-validate-ranges").
+
+**Example prompt:**
+
+```
+You are a logical reasoning expert. Extract formal logical rules from the
+provided text.
+
+Output Format:
+For each rule, provide:
+- Rule ID: [unique identifier]
+- Conditions: [ALL preconditions — preserve compound conditions with AND/OR/NOT]
+- Consequence: [the outcome/action]
+- Confidence: [high/medium/low based on text clarity]
+- Source Reference: [quote or paraphrase from source]
+- Rule Type: [explicit/implicit/sanity]
+
+Critical Guidelines:
+1. PRESERVE ALL CONDITIONS: Do not drop or simplify conditions.
+2. PRESERVE LOGICAL OPERATORS: Maintain AND, OR, NOT relationships exactly.
+3. PRESERVE QUANTIFIERS: Keep "all", "any", "at least", numeric thresholds.
+4. PRESERVE EXCEPTIONS: Include "unless", "except when" clauses.
+5. Make implicit conditions explicit only when clearly implied by context.
+6. Use consistent terminology across rules.
+7. Flag ambiguities such as unclear, incomplete, or contradictory statements.
+8. Add sanity rules for common-sense constraints:
+   - Numeric ranges (e.g., "age must be between 0 and 150")
+   - Temporal constraints (e.g., "start date must be before end date")
+   - Physical limits (e.g., "quantity cannot be negative")
+   - Mutual exclusivity (e.g., "status cannot be both active and inactive")
+
+Output Requirements:
+- Produce final JSON only (no text or markdown).
+- Use the following JSON keys:
+  - "rules" for the rules array
+  - "ambiguities" for the ambiguities array
+
+Source Text:
+[Paste your document here]
+```
+
+After running the structured extraction, review the JSON output. Pay special
+attention to:
+
+- Rules with `confidence: low` — these may need manual verification
+  against the source document.
+- Rules with `ruleType: implicit` — these were inferred rather than
+  directly stated. Verify they accurately reflect the intent of the source.
+- The `ambiguities` array — these highlight areas where the source
+  document is unclear and may need rewriting before extraction.
+
+Convert the reviewed JSON rules into plain text if-then statements for use as your
+source document when creating the Automated Reasoning policy.
+
 ## Write effective instructions
 
 When creating a policy, you can provide optional instructions that guide how Automated

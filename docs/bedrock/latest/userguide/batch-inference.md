@@ -10,6 +10,7 @@ See the following resources for general information about batch inference:
 
 - To see pricing for batch inference, see [Amazon Bedrock pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/").
 - To see quotas for batch inference, see [Amazon Bedrock endpoints and quotas](../../../general/latest/gr/bedrock.md "../../../general/latest/gr/bedrock.md") in the AWS General Reference.
+- To receive notifications when batch inference jobs complete or change state instead of polling, see [Monitor Amazon Bedrock job state changes using Amazon EventBridge](monitoring-eventbridge.md "monitoring-eventbridge.md").
 
 ###### Topics
 

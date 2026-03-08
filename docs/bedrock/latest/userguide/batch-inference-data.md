@@ -103,12 +103,12 @@ A sample record from the `input.jsonl` file would be the following:
 }
 ```
 
-When you create the batch inference job, must specify the folder path `s3://batch-inference-input-bucket` in your `InputDataConfig` parameter. Batch inference will process the `input.jsonl` file at this location, along with any referenced resources (such as the video files in the `videos` subfolder).
+When you create the batch inference job, you must specify the folder path `s3://batch-inference-input-bucket` in your `InputDataConfig` parameter. Batch inference will process the `input.jsonl` file at this location, along with any referenced resources (such as the video files in the `videos` subfolder).
 
 The following resources provide more information about submitting video inputs for batch inference:
 
-- To learn how to proactively validate of Amazon S3 URIs in an input request, see the [Amazon S3 URL Parsing blog](https://aws.amazon.com/blogs/devops/s3-uri-parsing-is-now-available-in-aws-sdk-for-java-2-x/ "https://aws.amazon.com/blogs/devops/s3-uri-parsing-is-now-available-in-aws-sdk-for-java-2-x/").
-- For more information on how to set up invocation records for video understanding with Nova, refer to [Amazon Nova vision prompting guidelines](../../../nova/latest/userguide/prompting-vision-prompting.md "../../../nova/latest/userguide/prompting-vision-prompting.md").
+- To learn how to validate Amazon S3 URIs in an input request, see the [Amazon S3 URL Parsing blog](https://aws.amazon.com/blogs/devops/s3-uri-parsing-is-now-available-in-aws-sdk-for-java-2-x/ "https://aws.amazon.com/blogs/devops/s3-uri-parsing-is-now-available-in-aws-sdk-for-java-2-x/").
+- For more information on how to set up invocation records for video understanding with Nova, see [Amazon Nova vision prompting guidelines](../../../nova/latest/userguide/prompting-vision-prompting.md "../../../nova/latest/userguide/prompting-vision-prompting.md").
 
 ## Example Converse input
 
