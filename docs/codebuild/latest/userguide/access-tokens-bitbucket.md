@@ -15,6 +15,7 @@ For Bitbucket, your app password or access token must have the following scopes.
 - **webhook**: Grants access to webhooks. If
   your project has a webhook operation, then your app password or access token must have this
   scope.
+- **account**: Grants read access to the user's account information.
 
 For more information, see [Scopes for Bitbucket Cloud REST API](https://developer.atlassian.com/cloud/bitbucket/bitbucket-cloud-rest-api-scopes/ "https://developer.atlassian.com/cloud/bitbucket/bitbucket-cloud-rest-api-scopes/") and [OAuth on Bitbucket Cloud](https://confluence.atlassian.com/bitbucket/oauth-on-bitbucket-cloud-238027431.html "https://confluence.atlassian.com/bitbucket/oauth-on-bitbucket-cloud-238027431.html") on the Bitbucket website.
 
