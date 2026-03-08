@@ -152,6 +152,7 @@ Note the following changes:
   - Deletion vectors. Learn more in
     [blog post](https://aws.amazon.com/blogs/big-data/unlock-the-power-of-apache-iceberg-v3-deletion-vectors-on-amazon-emr/ "https://aws.amazon.com/blogs/big-data/unlock-the-power-of-apache-iceberg-v3-deletion-vectors-on-amazon-emr/")
   - Table encryption keys.
+  - Default value support for columns.
 
 - Support Spark-native FGAC writes on registered tables.
 - Athena SQL compatibility - Cannot read Iceberg V3 tables created by EMR Spark due to

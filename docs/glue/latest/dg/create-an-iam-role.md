@@ -8,7 +8,21 @@ jobs, and development endpoints.
 You provide those permissions by using AWS Identity and Access Management (IAM). Add a policy to the IAM role
 that you pass to AWS Glue.
 
-###### **To create an IAM role for** AWS Glue
+###### **To create an IAM role within the job editor**
+
+1. When you create a job in the AWS Glue console, locate the role section.
+2. Choose **Create new role**.
+3. An inline role creation form opens, allowing you to:
+   - Specify **Role name**; for example, `AWSGlueServiceRoleDefault`.
+   - The managed policy `AWSGlueServiceRole` is automatically selected.
+   - Review the trust policy to assume the role.
+   - Add optional tags for metadata.
+
+4. Choose **Create role**.
+5. The newly created role is automatically selected for your job.
+   Alternatively, you can use the IAM console to create the role:
+
+###### **To create an IAM role for AWS Glue using the IAM console**
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the left navigation pane, choose **Roles**.

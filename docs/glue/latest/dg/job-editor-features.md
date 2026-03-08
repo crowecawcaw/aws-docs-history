@@ -57,8 +57,6 @@ job canvas to view a sample of your data. A new data preview session will start 
 already configured on the job or a default IAM role has been set up in the account. If a role has not been
 previously configured, you can start a session by selecting the role.
 
-![The screenshot shows the Data preview tab for a node.](images/data-preview-stop-start.png)
-
 ###### Note
 
 The role you choose for the data preview session will also be used for the job.
@@ -90,8 +88,6 @@ previews. These settings apply to all nodes in the job diagram. You can:
   selected node
 - Choose to automatically import AWS Glue libraries. This is useful as it will prevent
   data preview from restarting new sessions when adding new transforms that require a session restart
-
-![The screenshot shows the preferences you can set for the data preview feature.](images/data-preview-settings.png)
 
 Additional features include the ability to:
 
