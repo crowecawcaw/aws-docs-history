@@ -31,3 +31,31 @@ The value of `aws:SourceArn` must be ResourceDescription.
 The following example shows how you can use the `aws:SourceArn` and
 `aws:SourceAccount` global condition context keys in ServiceNameEntity to prevent
 the confused deputy problem.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": {
+ "Sid": "ConfusedDeputyPreventionExamplePolicy",
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "neptune-graph.amazonaws.com"
+ },
+ "Action": "neptune-graph:CreateGraph",
+ "Resource": [
+ "arn:aws:neptune-graph:`us-east-1`:`123456789012`:graph/*"
+ ],
+ "Condition": {
+ "ArnLike": {
+ "aws:SourceArn": "arn:aws:neptune-graph:*:`123456789012`:*"
+ },
+ "StringEquals": {
+ "aws:SourceAccount": "`123456789012`"
+ }
+ }
+ }
+}`
+
+```

@@ -44,6 +44,60 @@ JSON
    select **Add permissions** and choose **Create inline policy**.
 9. In the **Policy editor**, switch to the **JSON**
    option, and copy in the following policy:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "AllowS3",
+ "Effect": "Allow",
+ "Action": [
+ "s3:GetObject",
+ "s3:ListBucket"
+ ],
+ "Resource": [
+ "arn:aws:s3:::aws-neptune-notebook-`us-east-1`",
+ "arn:aws:s3:::aws-neptune-notebook-`us-east-1`/*",
+ "arn:aws:s3:::aws-neptune-customer-samples-`us-east-1`",
+ "arn:aws:s3:::aws-neptune-customer-samples-`us-east-1`/*"
+ ]
+ },
+ {
+ "Sid": "AllowNeptuneGraph",
+ "Effect": "Allow",
+ "Action": "neptune-graph:*",
+ "Resource": [
+ "arn:aws:neptune-graph:`us-east-1`:`111122223333`:graph/`resource-id`"
+ ]
+ },
+ {
+ "Sid": "AllowLogs",
+ "Effect": "Allow",
+ "Action": [
+ "logs:CreateLogGroup",
+ "logs:CreateLogStream",
+ "logs:PutLogEvents"
+ ],
+ "Resource": [
+ "arn:aws:logs:*:*:log-group:/aws/sagemaker/*"
+ ]
+ },
+ {
+ "Sid": "AllowSagemaker",
+ "Effect": "Allow",
+ "Action": "sagemaker:DescribeNotebookInstance",
+ "Resource": [
+ "arn:aws:sagemaker:`us-east-1`:`111122223333`:notebook-instance/*"
+ ]
+ }
+ ]
+}`
+
+```
+
 10. Choose **Next**.
 11. Give a name to the inline policy.
 12. Select **Create policy**. Make note of the name

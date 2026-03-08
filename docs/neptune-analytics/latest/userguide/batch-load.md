@@ -45,7 +45,7 @@ CALL neptune.load(
 The edge or relationship data should be loaded with `failOnError` set to `true`,
 to avoid duplication of partially committed edges or relationships in subsequent loads.
 
-- _concurrency_ (optional) default: 1 – This value controls the number of threads used to
+- **concurrency** (optional) default: 1 – This value controls the number of threads used to
   run the load process, up to the maximum available.
 
 ###### Note

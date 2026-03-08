@@ -54,6 +54,7 @@ and user-defined column names, annotated with predefined datatypes and cardinali
 - `Gzip` files are not supported.
 - The maximum length of the strings supported is smaller, and limited to 1,048,062 bytes. The limit would be lower for strings
   with unicode characters since some unicode characters are represented using multiple bytes.
+- `allowEmptyStrings` parameter is not supported. Empty string values ("") are not treated as null or missing value, and stored as a property value.
 - Multi-line string values are not supported. Imports behavior is undefined if the dataset contains multi-line string values.
 - Quoted string values must not have a leading space between the delimiter and quotes. For example, if a line is
   `abc, “def”` then that is interpreted as a line with two fields, with string values of `abc`

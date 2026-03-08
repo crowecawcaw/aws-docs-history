@@ -14,14 +14,49 @@ following parameters in the `StartExportTask` API.
 
 1. Go to the AWS IAM service console.
 2. Create an inline policy, it should have at least the following permissions:
-   - `kms:Decrypt`: To list and read the Amazon S3 objects when exporting data. The Neptune Analytics service
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "VisualEditor0",
+ "Effect": "Allow",
+ "Action": [
+ "kms:DescribeKey",
+ "kms:Decrypt",
+ "kms:GenerateDataKey"
+ ],
+ "Resource": "arn:aws:kms:`us-east-1`:`111122223333`:key/`key-id`"
+ },
+ {
+ "Sid": "VisualEditor1",
+ "Effect": "Allow",
+ "Action": [
+ "s3:PutObject",
+ "s3:GetObject",
+ "s3:ListBucket"
+ ],
+ "Resource": [
+ "arn:aws:s3:::`amzn-s3-demo-bucket`/",
+ "arn:aws:s3:::`amzn-s3-demo-bucket`/*"
+ ]
+ }
+ ]
+}`
+
+```
+
+    * `kms:Decrypt`: To list and read the Amazon S3 objects when exporting data. The Neptune Analytics service
      requires this information to avoid duplicates during exports.
-   - `kms:GenerateDataKey`: To encrypt the Amazon S3 objects when writing to the Amazon S3 location.
-   - `kms:DescribeKey`: To validate if the customer-provided IAM role has permissions to
+    * `kms:GenerateDataKey`: To encrypt the Amazon S3 objects when writing to the Amazon S3 location.
+    * `kms:DescribeKey`: To validate if the customer-provided IAM role has permissions to
      access the AWS KMS key.
-   - `s3:PutObject`: To put objects into the Amazon S3 location.
-   - `s3:GetObject`: To get Amazon S3 objects for deduplication checks.
-   - `s3:ListBucket`: To list Amazon S3 objects for deduplication checks.
+    * `s3:PutObject`: To put objects into the Amazon S3 location.
+    * `s3:GetObject`: To get Amazon S3 objects for deduplication checks.
+    * `s3:ListBucket`: To list Amazon S3 objects for deduplication checks.
 
 3. Create an IAM role (choose custom trust policy), configure it's trust policy so that Neptune Analytics is able to assume
    this role:
