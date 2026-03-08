@@ -1,11 +1,5 @@
 # Using Amazon Q CLI in CloudShell
 
-###### Important
-
-AWS CloudShell has temporarily disabled Amazon Q chat functionality due to an internal issue.
-We're actively investigating and will restore this functionality as soon as possible. In the
-meantime, you can continue using Q chat in the AWS Management Console.
-
 The Amazon Q CLI is a command-line interface that allows you to interact with Amazon Q. For
 more information, see [Using Amazon
 Q Developer on the command line](../../../amazonq/latest/qdeveloper-ug/command-line.md "../../../amazonq/latest/qdeveloper-ug/command-line.md") in the _Amazon Q Developer User
@@ -15,11 +9,6 @@ Amazon Q CLI in CloudShell allows you to interact in natural language conversati
 questions, and receive responses from Amazon Q all from your terminal. You can get the related
 shell command that reduces the need to search for, remember syntax, and receive command
 suggestions as you type in the terminal.
-
-###### Note
-
-Currently, Amazon Q CLI features in CloudShell are not available in your CloudShell
-VPC environment.
 
 If you don’t see Amazon Q CLI features in CloudShell, contact your administrator to provide
 you IAM permissions. For more information, see [Identity-based policy examples for Amazon Q Developer](../../../en_us/amazonq/latest/qdeveloper-ug/security_iam_id-based-policy-examples.md "../../../en_us/amazonq/latest/qdeveloper-ug/security_iam_id-based-policy-examples.md") in the _Amazon Q Developer User Guide_.
@@ -74,15 +63,6 @@ Developer User Guide_.
 CLI completion in CloudShell provides suggestions for commands and options as you type
 in the terminal. For more information, see [Generating command line completion](../../../amazonq/latest/qdeveloper-ug/command-line-autocomplete.md "../../../amazonq/latest/qdeveloper-ug/command-line-autocomplete.md") in _Amazon Q Developer
 User Guide_.
-
-## Enable or disable Amazon Q CLI
-
-You can enable or disable Amazon Q CLI by choosing **Preferences**,
-**Enable Amazon Q CLI** and **Disable Amazon Q CLI**. Amazon Q
-CLI allows you to interact with natural language instructions, ask questions, and get answers
-from Amazon Q all from your terminal. It also provide you with command suggestions as you type
-in the terminal. As you start typing in the terminal, Amazon Q suggests relevant options to
-complete your command.
 
 ## Identity-based policy for Amazon Q CLI in CloudShell
 

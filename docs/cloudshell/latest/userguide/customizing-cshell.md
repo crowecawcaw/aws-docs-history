@@ -91,4 +91,4 @@ For more information, see [Session restore](welcome.md#session-restore "welcome.
 You can enable or disable Amazon Q CLI by choosing **Preferences**,
 **Enable Amazon Q CLI** and **Disable Amazon Q CLI**. For
 more information, see [Enable/disable Amazon Q
-CLI](q-cli-features-in-cloudshell.md#enable-disable-q-cli "q-cli-features-in-cloudshell.md#enable-disable-q-cli").
+CLI](../userguide.md#enable-disable-q-cli "../userguide.md#enable-disable-q-cli").
