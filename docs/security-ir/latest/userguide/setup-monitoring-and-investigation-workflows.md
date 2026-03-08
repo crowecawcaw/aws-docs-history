@@ -1,17 +1,14 @@
 # Setup proactive response and alert triaging workflows
 
-Proactive response and alert triaging workflow is an optional feature to enable within your organization for
-monitoring enabled security services. Select the toggle next to the feature to enable.
-
-If you experience onboarding issues, then
-[create an AWS Support case](../../../awssupport/latest/user/case-management.md#creating-a-support-case "../../../awssupport/latest/user/case-management.md#creating-a-support-case") for additional assistance. Make sure to include details including the AWS account ID and
-any errors you may have seen during the setup process.
-
-**Proactive response and alert triaging:** AWS Security Incident Response monitors and investigates threat
+AWS Security Incident Response monitors and investigates threat
 alerts generated from Amazon GuardDuty and Security Hub CSPM integrations. To use this feature, [Amazon GuardDuty must be enabled](../../../guardduty/latest/ug/guardduty_settingup.md "../../../guardduty/latest/ug/guardduty_settingup.md").
 AWS Security Incident Response triages low-priority alerts with service automation
 so your team can focus on the most critical issues. For additional information on how AWS Security Incident Response works with
 Amazon GuardDuty and AWS Security Hub CSPM, please review the [Detect and Analyze](detect-and-analyze.md "detect-and-analyze.md") section of the user guide.
+
+If you experience onboarding issues, then
+[create an AWS Support case](../../../awssupport/latest/user/case-management.md#creating-a-support-case "../../../awssupport/latest/user/case-management.md#creating-a-support-case") for additional assistance. Make sure to include details including the AWS account ID and
+any errors you may have seen during the setup process.
 
 ###### Note
 
