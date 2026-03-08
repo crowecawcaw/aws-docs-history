@@ -102,7 +102,7 @@ pricing](https://aws.amazon.com/quicksuite/pricing/ "https://aws.amazon.com/quic
 
 | Access Level      | Capabilities                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Admin Console     | • Assign owners for the system chat agent and custom chat<br>chat agents using [Manage assets](../../../quicksuite/latest/userguide/manage-qs-assets.md "../../../quicksuite/latest/userguide/manage-qs-assets.md")<br>• Control whether users can create chat agents using [Custom permissions](../../../quicksuite/latest/userguide/create-custom-permisions-profile.md "../../../quicksuite/latest/userguide/create-custom-permisions-profile.md")<br>• Configure instance-wide blocked words and phrases for all<br>chat agents                                                     |
+| Admin Console     | • Assign owners for the system chat agent and custom chat<br>chat agents using [Manage assets](../../../quicksuite/latest/userguide/manage-qs-assets.md "../../../quicksuite/latest/userguide/manage-qs-assets.md")<br>• Control whether users can create chat agents using [Custom permissions](../../../quicksuite/latest/userguide/create-custom-permissions-profile.md "../../../quicksuite/latest/userguide/create-custom-permissions-profile.md")<br>• Configure instance-wide blocked words and phrases for all<br>chat agents                                                   |
 | Amazon Quick user | • Create and maintain custom chat agents (with appropriate<br>permissions)<br>• Configure chat agent personality and response styles and<br>provide reference documents to inform its behavior<br>• Link chat agents with spaces (with dashboards, datasets,<br>topics) as their knowledge source to look for answers<br>• Attach action connectors to use as tools<br>• Share chat agents with specific users and teams<br>• Interact with chat agents through conversations<br>• Analyze data with chat agent assistance<br>• Receive permissions-aware responses from chat<br>agents |
 
 ## Amazon Quick user permissions for chat agents
@@ -124,7 +124,7 @@ resource-level sharing is required.
 
 Quick admins must give users the permission to create chat agents. For
 information on which roles can create chat agents, refer to the [Amazon Quick pricing](https://aws.amazon.com/quicksuite/pricing/ "https://aws.amazon.com/quicksuite/pricing/")
-documentation. For information on how to provide access to these features, see [Custom permissions](../../../quicksuite/latest/userguide/create-custom-permisions-profile.md "../../../quicksuite/latest/userguide/create-custom-permisions-profile.md") in the Quick Admin
+documentation. For information on how to provide access to these features, see [Custom permissions](../../../quicksuite/latest/userguide/create-custom-permissions-profile.md "../../../quicksuite/latest/userguide/create-custom-permissions-profile.md") in the Quick Admin
 Guide.
 
 The following table outlines how user permissions determine what you can do with a
@@ -139,7 +139,7 @@ Amazon Quick chat agent:
 
 By default, Amazon Quick enables all new features available for the Amazon Quick
 account, so that users can access them immediately based on their subscription. You can
-use [custom permissions](../../../quicksuite/latest/userguide/create-custom-permisions-profile.md "../../../quicksuite/latest/userguide/create-custom-permisions-profile.md") to restrict specific features. As an
+use [custom permissions](../../../quicksuite/latest/userguide/create-custom-permissions-profile.md "../../../quicksuite/latest/userguide/create-custom-permissions-profile.md") to restrict specific features. As an
 admin, when you create a custom permissions profile, you can create two types of
 restrictions for chat agents:
 

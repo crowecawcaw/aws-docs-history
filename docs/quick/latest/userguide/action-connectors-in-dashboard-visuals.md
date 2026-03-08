@@ -62,7 +62,7 @@ The connector must meet these requirements:
   actions if your user or role is restricted the permission to use the Actions capability
 
 To learn more about custom permissions, see
-[Creating a custom permissions profile in Amazon Quick](create-custom-permisions-profile.md "create-custom-permisions-profile.md").
+[Creating a custom permissions profile in Amazon Quick](create-custom-permissions-profile.md "create-custom-permissions-profile.md").
 
 **Row Level Security (RLS) / Column Level Security (CLS)**
 

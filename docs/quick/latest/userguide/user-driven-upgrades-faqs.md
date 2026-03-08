@@ -30,4 +30,4 @@ Usage limits increase immediately to match the new tier. However, current usage 
 - [Managing subscriptions](../../../quicksuite/latest/userguide/managing-subscriptions.md "../../../quicksuite/latest/userguide/managing-subscriptions.md")
 - [Managing user access](../../../quicksuite/latest/userguide/managing-users.md "../../../quicksuite/latest/userguide/managing-users.md")
 - [Understanding license tiers](https://aws.amazon.com/quicksuite/pricing/ "https://aws.amazon.com/quicksuite/pricing/")
-- [Custom permissions](../../../quicksuite/latest/userguide/create-custom-permisions-profile.md "../../../quicksuite/latest/userguide/create-custom-permisions-profile.md")
+- [Custom permissions](../../../quicksuite/latest/userguide/create-custom-permissions-profile.md "../../../quicksuite/latest/userguide/create-custom-permissions-profile.md")

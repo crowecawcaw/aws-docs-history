@@ -108,7 +108,7 @@ The contents of the file look similar to the following.
    one that you recently uploaded.
    Next, you create an IAM role to enable the SAML 2.0 federation to act as a trusted
    entity in your AWS account. For this step, you need to choose how you want to
-   provision users in Amazon Amazon Quick. You can do one of the following:
+   provision users in Amazon Quick. You can do one of the following:
 
 - Grant permission to the IAM role so that first-time visitors become
   Amazon Quick users automatically.

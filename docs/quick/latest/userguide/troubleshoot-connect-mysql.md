@@ -94,6 +94,15 @@ GRANT USAGE ON *.* TO 'encrypted_user'@'%' REQUIRE SSL;
 
 ```
 
+###### Note
+
+TLS 1.2 for MySQL connections requires MySQL version 5.7.28 or higher.
+If your MySQL server enforces TLS 1.2 only (for example,
+`tls_version = TLSv1.2`) and the server version is below
+5.7.28, the SSL handshake fails with a
+`Communications link failure` error. To resolve this, upgrade
+your MySQL or Aurora MySQL database to version 5.7.28 or higher.
+
 For more detail on the solution in this example, see the following:
 
 - [SSL Support for MySQL DB Instances](../../../AmazonRDS/latest/UserGuide/CHAP_MySQL.md#MySQL.Concepts.SSLSupport.html "../../../AmazonRDS/latest/UserGuide/CHAP_MySQL.md#MySQL.Concepts.SSLSupport.html") in the _Amazon RDS User Guide_.

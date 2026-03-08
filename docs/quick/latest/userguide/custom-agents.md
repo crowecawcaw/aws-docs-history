@@ -16,7 +16,7 @@ end users to use the agent with all or some of their resources.
 Quick admins must give users the permission to create chat agents. For
 information on which roles can create chat agents, refer to the [Amazon Quick pricing](https://aws.amazon.com/quicksuite/pricing/ "https://aws.amazon.com/quicksuite/pricing/")
 documentation. For information on how to provide or restrict access to these features,
-see [Custom permissions](../../../quicksuite/latest/userguide/create-custom-permisions-profile.md "../../../quicksuite/latest/userguide/create-custom-permisions-profile.md") in the Quick Admin
+see [Custom permissions](../../../quicksuite/latest/userguide/create-custom-permissions-profile.md "../../../quicksuite/latest/userguide/create-custom-permissions-profile.md") in the Quick Admin
 Guide.
 
 ###### Topics

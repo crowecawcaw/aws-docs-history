@@ -44,6 +44,12 @@ connections from Quick Sight to Amazon RDS MySQL 8.3 are SSL-enabled by
 default. This is the only option available for MySQL 8.3.
 connections.
 
+TLS 1.2 for MySQL connections requires MySQL version 5.7.28 or
+higher. For MySQL versions below 5.7.28, Quick Sight falls back
+to TLS 1.1. If your security requirements mandate TLS 1.2, ensure
+your MySQL or Aurora MySQL database is running version 5.7.28 or
+higher.
+
 - Oracle 12c or later
 - PostgreSQL 9.3.1 or later
 

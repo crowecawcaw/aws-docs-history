@@ -30,7 +30,7 @@ Admins can also configure whether URLs in chat responses appear as clickable hyp
 ###### Note
 
 Admins can also control permissions for whether users can create and use chat agents
-and flows. For instructions on how to do that, see [Custom permissions](../../../quicksuite/latest/userguide/create-custom-permisions-profile.md "../../../quicksuite/latest/userguide/create-custom-permisions-profile.md").
+and flows. For instructions on how to do that, see [Custom permissions](../../../quicksuite/latest/userguide/create-custom-permissions-profile.md "../../../quicksuite/latest/userguide/create-custom-permissions-profile.md").
 
 The following sections outline how to edit the system default agent and add blocked words
 for chat to influence all agent responses and flows.

@@ -6,7 +6,7 @@ their data and perform various tasks within the Quick environment. It comes
 equipped with default guardrails.
 
 Ownership of the system chat agent is managed by the Quick admin. Admins
-can disable chatting with chat agents including the system chat agent using [custom permissions](../../../quicksuite/latest/userguide/create-custom-permisions-profile.md "../../../quicksuite/latest/userguide/create-custom-permisions-profile.md"). If enabled, users with non-admin
+can disable chatting with chat agents including the system chat agent using [custom permissions](../../../quicksuite/latest/userguide/create-custom-permissions-profile.md "../../../quicksuite/latest/userguide/create-custom-permissions-profile.md"). If enabled, users with non-admin
 roles (authors and readers) can view, list, invoke, and use the Quick chat
 chat agent. Its responses are filtered based on user permissions to assets.
 
