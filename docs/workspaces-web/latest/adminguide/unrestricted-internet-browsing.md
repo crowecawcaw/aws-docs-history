@@ -19,8 +19,7 @@ to your VPC. If you need to create a new VPC, see [Creating a new VPC for Amazon
    a public subnet in your VPC.
 2. You must specify at least two private subnets from different Availability Zones.
    Assigning your subnets to different Availability Zones helps to ensure better
-   availability and fault tolerance. For information about how to create a second private
-   subnet, see [Adding a second private subnet](vpc-step3.md "vpc-step3.md").
+   availability and fault tolerance. For information about how to create a VPC with private subnets, see [Quick VPC Setup (1 minute)](vpc-step1.md "vpc-step1.md").
 
 ###### Note
 

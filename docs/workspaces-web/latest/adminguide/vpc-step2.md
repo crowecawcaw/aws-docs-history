@@ -1,63 +1,55 @@
-# Creating a new VPC
+# Verifying your subnet route tables (optional)
 
-Complete the following steps to create a new VPC with one public subnet and one
-private subnet.
+The VPC wizard automatically configures the route tables for you. If you created your VPC manually or want to confirm the configuration, you can verify that the following details are correct for your route table:
 
-###### To create a new VPC
+- The route table associated with the subnet that your NAT gateway resides in must
+  include a route that points internet traffic to an internet gateway. This ensures
+  that your NAT gateway can access the internet.
+- The route tables associated with your private subnets must be configured to
+  point internet traffic to the NAT gateway. This enables the streaming instances in
+  your private subnets to communicate with the internet.
 
-1.  Open the Amazon VPC Console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-2.  In the navigation pane, choose **VPC Dashboard**.
-3.  Choose **Launch VPC Wizard**.
-4.  In **Step 1: Select a VPC Configuration**, choose **VPC
-    with Public and Private Subnets**, and then choose
-    **Select**.
-5.  In **Step 2: VPC with Public and Private Subnets**, configure
-    the VPC as follows:
-    - For **IPv4 CIDR block**, specify an IPv4 CIDR block for the
-      VPC.
-    - For **IPv6 CIDR block**, keep the default value,
-      **No IPv6 CIDR Block**.
-    - For **VPC name**, enter a unique name for the VPC.
-    - Configure the public subnet as follows:
-      - For **Public subnet's IPv4 CIDR**, specify the CIDR
-        block for the subnet.
-      - For **Availability Zone**, keep the default value,
-        **No Preference**.
-      - For **Public subnet name**, enter a name for the
-        subnet. For example, `WorkSpaces Secure Browser Public Subnet`.
+###### To verify and name your subnet route tables
 
-    - Configure the first private subnet as follows:
-      - For **Private subnet's IPv4 CIDR**, specify the CIDR
-        block for the subnet. Make a note of the value that you specify.
-      - For **Availability Zone**, select a specific zone and
-        make a note of the zone that you select.
-      - For **Private subnet name**, enter a name for the
-        subnet. For example, `WorkSpaces Secure Browser Private Subnet1`.
+1. In the navigation pane, choose **Subnets**, and then select a
+   public subnet. For example, **WSB-VPC-subnet-public1-us-east-1a**.
+2. On the **Route Table** tab, choose the ID of the route table.
+   For example, **rtb-12345678**.
+3. Select the route table. Under **Name**, choose the edit
+   (pencil) icon, and enter a name for the table. For example, enter the name
+   `workspacesweb-public-routetable`. Then select the check mark
+   to save the name.
+4. With the public route table still selected, on the **Routes**
+   tab, verify that there are two routes: one for local traffic, and one that sends all
+   other traffic through the VPC's internet gateway. The following table describes
+   these two routes:
 
-    - For the remaining fields, keep the default values where applicable.
-    - For **Elastic IP Allocation ID**, enter the value that
-      corresponds to the Elastic IP address that you created. This address is then
-      assigned to the NAT gateway. If you don't have an Elastic IP address, create one
-      by using the Amazon VPC Console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-    - For **Service endpoints**, if an Amazon S3 endpoint is required
-      for your environment, specify one.
+| Destination                                                              | Target            | Description                                                                                                                                               |
+| ------------------------------------------------------------------------ | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Public subnet IPv4 CIDR block (for example,<br>10.0.0/20)                | Local             | All traffic from the resources destined for IPv4 addresses within the<br>public subnet IPv4 CIDR block. This traffic is routed locally within the<br>VPC. |
+| Traffic destined to all other IPv4 addresses (for example,<br>0.0.0.0/0) | Outbound (igw-ID) | Traffic destined for all other IPv4 addresses is routed to the internet<br>gateway (identified by igw-ID) that was created by the VPC wizard.             |
 
-    To specify an Amazon S3 endpoint, do the following:
+5. In the navigation pane, choose **Subnets**. Then, select a
+   private subnet (for example, `WSB-VPC-subnet-private1-us-east-1a`).
+6. On the **Route Table** tab, choose the route table's ID.
+7. Select the route table. Under **Name**, choose the edit
+   (pencil) icon, and enter a name for the table. For example, enter the name
+   `WSB-VPC-private-routetable`. Then choose the check
+   mark to save the name.
+8. On the **Routes** tab, verify that the route table includes the
+   following routes:
 
-        1. Choose **Add Endpoint**.
-        2. For **Service**, select the
-         **com.amazonaws.`Region`.s3**
-         entry, where `Region` is the AWS Region you're
-         creating your VPC in.
-        3. For **Subnet**, choose **Private
-         subnet**.
-        4. For **Policy**, keep the default value, **Full
-         Access**.
+| Destination                                                                                                       | Target            | Description                                                                                                                              |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Public subnet IPv4 CIDR block (for example,<br>10.0.0/20)                                                         | Local             | All traffic from the resources destined for IPv4 addresses within the<br>public subnet IPv4 CIDR block is routed locally within the VPC. |
+| Traffic destined to all other IPv4 addresses (for example,<br>0.0.0.0/0)                                          | Outbound (nat-ID) | Traffic destined for all other IPv4 addresses is routed to the NAT<br>gateway (identified by nat-ID).                                    |
+| Traffic destined for S3 buckets (applicable if you specified an S3<br>endpoint) [pl-ID (com.amazonaws.region.s3)] | Storage (vpce-ID) | Traffic destined for S3 buckets is routed to the S3 endpoint<br>(identified by vpce-ID).                                                 |
 
-    - For **Enable DNS hostnames**, keep the default value,
-      **Yes**.
-    - For **Hardware tenancy**, keep the default value,
-      **Default**.
-    - Choose **Create VPC**.
-    - It takes several minutes to set up your VPC. After the VPC is created,
-      choose **OK**.
+9. In the navigation pane, choose **Subnets**. Then select the
+   second private subnet that you created (for example, `WorkSpaces Secure Browser
+Private Subnet2`).
+10. On the **Route Table** tab, verify that the selected route
+    table is the private route table (for example,
+    `workspacesweb-private-routetable`). If the route table is
+    different, choose **Edit** and select your private route table
+    instead.

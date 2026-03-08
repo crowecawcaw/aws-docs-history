@@ -1,30 +1,30 @@
-# Allocating an Elastic IP address
+# Quick VPC Setup (1 minute)
 
-Before you create your VPC, you must allocate an Elastic IP address in your WorkSpaces Secure Browser
-Region. Once allocated, you can associate the Elastic IP address with your NAT gateway.
-With an Elastic IP address, you can mask a failure of your streaming instance by rapidly
-remapping the address to another streaming instance in your VPC. For more information,
-see [Elastic IP
-addresses](../../../vpc/latest/userguide/vpc-eips.md "../../../vpc/latest/userguide/vpc-eips.md").
+Complete the following steps to quickly create a dedicated VPC for WorkSpaces Secure Browser with public and private subnets for internet access. If you want to use an existing VPC, see [VPC requirements for Amazon WorkSpaces Secure Browser](vpc-reqs.md "vpc-reqs.md") to verify it meets the requirements.
 
 ###### Note
 
-Charges might apply to Elastic IP addresses that you use. For more information,
-see the [Elastic IP
-addresses pricing page](https://aws.amazon.com/ec2/pricing/on-demand/#Elastic_IP_Addresses "https://aws.amazon.com/ec2/pricing/on-demand/#Elastic_IP_Addresses").
+Make sure you're in your desired AWS Region. You can change the region in the console if needed.
 
-If you don't already have an Elastic IP address, complete the following steps. If
-you want to use an existing Elastic IP address, you must first verify that it isn't
-currently associated with another instance or network interface.
+###### To quickly set up a VPC
 
-###### To allocate an Elastic IP address
+1. Open the VPC creation wizard: [Create VPC with resources](https://console.aws.amazon.com/vpcconsole/home#CreateVpc:createMode=vpcWithResources "https://console.aws.amazon.com/vpcconsole/home#CreateVpc:createMode=vpcWithResources"). Keep all settings as default unless specified below:
+   - For **Resource to create**, select **VPC and more**.
+   - For **Name tag**, select **auto-generate** and enter a descriptive name for your VPC (e.g., `WSB-VPC`).
+   - For **IPv4 CIDR block**, by default, the VPC uses `10.0.0.0/16`. You can specify a different IPv4 CIDR block if needed.
+   - For **Tenancy**, select **Default** (VPCs with dedicated tenancy are not supported).
+   - For **Number of Availability Zones (AZs)**, select **2**.
+     - Expand **Customize AZs** and select 2 different Availability Zones that are supported by WorkSpaces Secure Browser. For the list of supported AZs, see [Supported Availability Zones for Amazon WorkSpaces Secure Browser](availability-zones.md "availability-zones.md").
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the navigation pane, under **Network & Security**,
-   choose **Elastic IPs**.
-3. Choose **Allocate New Address**, and then choose
-   **Allocate**.
-4. Note the Elastic IP address shown on the console.
-5. In the upper-right corner of the **Elastic IPs** pane, click
-   the **×** icon to close the pane.
+   - For **Number of public subnets**, select **2**.
+   - For **Number of private subnets**, select **2**.
+   - For **Subnet CIDR blocks**, if you need to customize the CIDR blocks in your subnets, expand **Customize subnets CIDR blocks**. Ensure each subnet has sufficient IP addresses for your expected traffic.
+   - For **NAT gateways**, select **Regional** to enable internet access for private subnets across all Availability Zones.
+   - For **VPC endpoints**, select **None**. If you need direct S3 access without going through the NAT gateway, select **S3 Gateway**.
+   - For **DNS options**, keep **DNS options** enabled (default) to ensure proper name resolution within your VPC.
+
+2. Review the Preview pane, then choose **Create VPC**.
+
+###### Note
+
+Additional charges apply for NAT gateways and VPC endpoints. For more information, see the [VPC pricing page](https://aws.amazon.com/vpc/pricing/ "https://aws.amazon.com/vpc/pricing/").
