@@ -24,6 +24,10 @@ You can also use it to view agent performance metrics such as average handle tim
 
 ## Enable access to the dashboard
 
+Ensure users are assigned the appropriate security profile permissions:
+
+**Manager access**
+
 Managers can access the dashboard within **Analytics and Optimization > Dashboards and Reports**.
 
 Grant managers the appropriate security profile permissions:
@@ -40,7 +44,30 @@ Grant managers the appropriate security profile permissions:
   form structure, scoring weights, and more.
 - **Saved reports - Create, View, Publish [optional]**: Grants managers permissions to create custom saved dashboards and publish them to agents and other managers.
 
-You can limit team manager access to performance evaluation metrics within their own agent hierarchy. See [Apply hierarchy-based access control to dashboards and reports in Amazon Connect](dashboard-access-control.md "dashboard-access-control.md").
+**Agent access**
+
+Agents can be granted access to only their own performance evaluation metrics by saving a custom dashboard that is accessible by agents within the 1) Amazon Connect agent workspace or 2) As a custom report in the Amazon Connect admin console.
+
+- **Saved reports - View**: Grants permission to view a published dashboard.
+- **View my own data in dashboards - View**: Grants access to the Dashboards to view individual agent performance metrics
+  and the metrics of queues in the agent's routing profile.
+- **Evaluation forms - perform evaluations - View**: This permission enables users to view performance evaluation results.
+- **Evaluation forms - manage form definitions - View**: This permission enables users to view evaluation form definitions such as form structure, scoring weights, and more.
+
+Save a custom dashboard by:
+
+- Add one or more performance evaluation widgets to an existing dashboard.
+
+![](images/agent-performance-dashboard-add-widget.png)
+
+![](images/agent-performance-widgets.png)
+
+- **Save** the dashboard.
+- Click **Share**. **Publish** the dashboard to make it available to other users. You may set the share setting to **Read-only** to prevent others from making edits to the dashboard.
+
+![](images/agent-performance-dashboard-share.png)
+
+You can **Share the dashboard link** for agents to access the dashboard within the Amazon Connect admin console. For agents to access the saved dashboard on the Connect agent workspace see: [Integrate a published dashboard into the agent workspace](integrate-published-dashboard.md "integrate-published-dashboard.md").
 
 ## Specify "Time range" and "Compare to" benchmark
 

@@ -184,6 +184,11 @@ While saved reports are replicated, the schedules associated with saved reports 
 Data Table values that contain literal ARN references will automatically adjust the region code to the local region when replicated. ARNs constructed using expressions may not automatically adjust the region code.
 
 - Workspaces
+- Flow Module Versions
+- Flow Module Aliases
+- Custom Metrics
+- Test Cases
+- Notifications
 
 [ReplicateInstance](../APIReference/API_ReplicateInstance.md "../APIReference/API_ReplicateInstance.md") also replicates the following associations across
 AWS Regions:

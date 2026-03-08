@@ -16,6 +16,7 @@ During test execution, please be aware of the following limitations and behavior
 - **Test Duration Limit:** Each test simulation has a maximum duration of 5 minutes. If a simulation exceeds this time limit, the test execution will automatically timeout and terminate.
 - **Automatic Timeout:** Tests that are not manually ended using Action block test commands will automatically timeout after 5 minutes of total execution time.
 - **Agent Queue Interaction:** If you do not end the test before the simulated contact is transferred to a queue, the simulated contact may reach the agent queue and connect with a live agent as a contact.
+- **Test Execution Record Retention:** Test runs and their respective test result records are retained for 30 days from the execution date for any test cases run before February 9th, 2026. Tests run on or after that date will have their records kept indefinitely.
   To prevent simulated contacts from reaching live agents, consider these approaches:
 
 ###### Best practice to handle simulated contact in the agent queue

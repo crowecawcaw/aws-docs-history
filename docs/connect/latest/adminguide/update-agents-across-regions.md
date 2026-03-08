@@ -31,6 +31,7 @@ information, see [Set up Amazon Connect Agent Workspace to support agents shifti
   during regular operations](#change-signin-weights "#change-signin-weights")
 - [How to shift all telephony
   traffic and agents across AWS Regions](#shift-all-traffic "#shift-all-traffic")
+- [Regional switch UI banner](#regional-failover-banner "#regional-failover-banner")
 
 ## Requirements
 
@@ -188,7 +189,7 @@ Region you can use either the traffic distribution group ID or Amazon
 Resource Name (ARN). When you call `UpdateTrafficDistribution` in
 the replica Region, you must use the traffic distribution group ARN.
 
-### Regional switch UI banner
+## Regional switch UI banner
 
 Agent Workspace and CCP will provide a UI banner highlighting region switch.
 

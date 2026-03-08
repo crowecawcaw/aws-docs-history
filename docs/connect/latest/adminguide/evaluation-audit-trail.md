@@ -14,7 +14,7 @@ changes to an existing evaluation, managers can view an audit trail that records
 
 1. Log into Amazon Connect with a user account that has **Analytics and
    optimization** - **[Evaluation forms - perform
-   evaluations](evaluation-forms-permissions.md "evaluation-forms-permissions.md")** permission on their security profile.
+   evaluations](evaluation-and-coaching-permissions.md "evaluation-and-coaching-permissions.md")** permission on their security profile.
 2. Access a contact with an evaluation that was edited after it was
    submitted.
 3. Choose the evaluation you want to investigate. The following image shows the

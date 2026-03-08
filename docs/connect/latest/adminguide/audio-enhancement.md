@@ -48,13 +48,16 @@ specific agents through user management settings.
 4. Make sure to set **Phone type** to **Soft phone**.
 5. In the user edit panel, expand the **Audio Enhancement**
    dropdown and select your preferred mode:
-   - **Isolate Agent's Voice** - Suppresses
+   - **Isolate Agent's Voice** – Suppresses
      background noise and isolates the agent's voice. This mode should
-     only be enabled if the agent uses a wired headset.
-   - **Suppress Background Noise** -
-     Suppresses background noise. We recommend using this mode if the
-     agent is not using a wired headset.
-   - **No enhancement** - Disables Audio
+     only be enabled if the agent uses a wired headset. If you're not
+     sure whether your agents will consistently use a wired headset, we
+     recommend configuring 'Suppress Background Noise' mode instead.
+   - **Suppress Background Noise** –
+     Suppresses background noise. You can use this mode with any headset
+     configuration, including wired headsets, wireless headsets, or no
+     headset.
+   - **No enhancement** – Disables Audio
      Enhancement capability. This is the default setting.
 
 ###### Important

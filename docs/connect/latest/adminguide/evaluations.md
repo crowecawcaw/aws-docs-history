@@ -14,10 +14,11 @@ After the bucket is created, you can store evaluations and export them.
 
 Amazon Connect performance evaluations enables you to define custom performance evaluation criteria
 to assess, monitor and improve how agents and automated systems (bots, AI agents)
-interact with customers and resolve issues. You can evaluate contacts manually or
-automatically using integrated generative AI and contact metrics. You can then review
-aggregated insights and drill-down into individual contacts, where you can see evaluations
-alongside audio and screen recordings, transcripts and insights from conversational analytics.
+interact with customers and resolve issues. You can then monitor performance by reviewing
+aggregated insights in dashboards, and drill-down into individual contacts where you can see
+evaluations alongside recordings, transcript, conversation summaries and analytics in a single
+view. With integrated coaching, you can provide feedback to agents highlighting their strengths
+and opportunities to improve.
 
 You can perform manual evaluations for all contact types (voice, chat, email, and task). You can perform automated interactions for voice and chat contacts analyzed by Amazon Connect conversational analytics. You can perform automated evaluations of both agent interactions and automated interactions (handled by bots or AI agents). For more details on automated evaluations, see [Step 6: Enable automated evaluations](create-evaluation-forms.md#step-automate "create-evaluation-forms.md#step-automate").
 
@@ -26,7 +27,7 @@ To perform manual evaluations, you can search for a contact, choose the appropri
 ###### To evaluate performance
 
 1. Log in to Amazon Connect with a user account that has [permissions to perform
-   evaluations](evaluation-forms-permissions.md "evaluation-forms-permissions.md").
+   evaluations](evaluation-and-coaching-permissions.md "evaluation-and-coaching-permissions.md").
 2. Access the contact that you want to evaluate. There are a few ways you can do
    this. For example, someone may have shared the contact URL with you, or assigned you
    a task that has the URL. Or, you may have the contact ID, which lets you search for

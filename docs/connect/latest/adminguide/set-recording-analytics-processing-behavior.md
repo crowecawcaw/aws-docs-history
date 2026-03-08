@@ -119,12 +119,6 @@ Though not a media channel, you can find this in the media channel dropdown of t
 
 ## Configuration tips
 
-- You can change call recording behavior in a flow, for example, change from "Agent and customer" to "Agent only." Perform the following steps:
-  - Add a second **Set recording, analytics and processing behavior** block to the flow.
-  - Configure the second block to set agent and customer voice recording to **Off**.
-  - Add another **Set recording, analytics and processing behavior** block.
-  - Configure the third block to the new recording behavior you want, such as **Agent only**.
-
 ###### Note
 
 The settings in the **Analytics** section are overwritten by each subsequent **Set recording and analytics behavior** block in the flow.

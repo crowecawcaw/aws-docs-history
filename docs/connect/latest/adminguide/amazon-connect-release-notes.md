@@ -228,7 +228,7 @@ For more information, see [Create AI agents in Amazon Connect](create-ai-agents.
 
 Amazon Connect now enables businesses to restrict access to specific performance evaluation forms, preventing unauthorized access to evaluation form templates and completed evaluations. Businesses can provide managers access to modify or use only the evaluation form templates that are relevant to their business line or function, improving security and making it easier for managers to select the right form while completing evaluations. Additionally, both managers and agents can be restricted from viewing certain completed evaluations. For example, you can restrict agents from viewing test evaluations filled with a form template that is yet to be finalized.
 
-For more information, see [Assign security profile permissions for users to create and access evaluation forms](evaluation-forms-permissions.md "evaluation-forms-permissions.md").
+For more information, see [Assign security profile permissions for performance evaluations and coaching](evaluation-and-coaching-permissions.md "evaluation-and-coaching-permissions.md").
 
 ### Simplified linking of related contacts to cases using flows
 

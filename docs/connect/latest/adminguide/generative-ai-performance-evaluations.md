@@ -37,7 +37,7 @@ The following is the overview of the automation process:
    to each question, while performing evaluations and can use that to get
    answer recommendations. These users can provide feedback on which questions
    are receiving accurate answers using generative AI. For more information,
-   see [Assign security profile permissions for users to create and access evaluation forms](evaluation-forms-permissions.md "evaluation-forms-permissions.md").
+   see [Assign security profile permissions for performance evaluations and coaching](evaluation-and-coaching-permissions.md "evaluation-and-coaching-permissions.md").
 3. To improve accuracy, you can provide additional evaluation criteria within
    [instructions to evaluators](create-evaluation-forms.md#step-sections "create-evaluation-forms.md#step-sections"). For
    more information, see [Guidelines to improve generative AI accuracy](#guidelines-to-improve-generative-ai-accuracy "#guidelines-to-improve-generative-ai-accuracy").
@@ -56,8 +56,8 @@ The following is the overview of the automation process:
 ## Use Ask AI to get generative AI answer recommendations
 
 1. Log into Amazon Connect with a user account that has [permissions to perform
-   evaluations](evaluation-forms-permissions.md "evaluation-forms-permissions.md") and [ask
-   AI assistant](evaluation-forms-permissions.md "evaluation-forms-permissions.md").
+   evaluations](evaluation-and-coaching-permissions.md "evaluation-and-coaching-permissions.md") and [ask
+   AI assistant](evaluation-and-coaching-permissions.md "evaluation-and-coaching-permissions.md").
 2. Choose the **Ask AI** button below a question to receive
    a generative AI-powered recommendation for the answer, along with context
    and justification (reference points from the transcript that were used to

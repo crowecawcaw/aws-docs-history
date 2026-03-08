@@ -1,4 +1,4 @@
-# Assign security profile permissions for users to create and access evaluation forms
+# Assign security profile permissions for performance evaluations and coaching
 
 To allow users to create, automate, and access evaluation forms, assign the following
 **Analytics and optimization** security profile permissions:
@@ -38,10 +38,36 @@ form audit trail.
 - **Evaluation forms - manage calibration sessions**: Allows
   admins to create and manage calibration sessions to drive consistency and
   accuracy in how managers evaluate agent performance.
-- **Sample contacts:**: Allows
-  managers to randomly sample agents’ contacts for evaluation. For example,
+- **Sample contacts**: Allows
+  managers to randomly sample agents' contacts for evaluation. For example,
   a manager can select all agents in his hierarchy, and get 5 random contacts
   per agent from the last week for evaluation.
+  To allow users to manage or access coaching sessions, assign the following
+  **Analytics and optimization** security profile permissions:
+
+- **Coaching - my coaching sessions**: Access coaching
+  sessions where you are assigned as a coach or a participant.
+  - **View**: View coaching sessions where you are the
+    coach or the participant. If you are the participant, you can
+    acknowledge the coaching session with this permission.
+  - **Create**: Create new coaching sessions with
+    yourself as the coach.
+  - **Edit**: Edit coaching sessions where you are the
+    coach.
+  - **Delete**: Delete coaching sessions where you are
+    the coach.
+
+- **Coaching - manage coaching sessions**: Access coaching
+  sessions performed by yourself or others. This permission is for admins or quality
+  managers.
+
+      + **View**: View any coaching session.
+      + **Create**: Create new coaching sessions. You can
+       choose yourself as the coach or assign other users as the
+       coach.
+      + **Edit**: Edit any coaching session.
+      + **Delete**: Delete any coaching session.
+
   The **Admin** security profile has these permissions by default.
 
 For information about how to add more permissions to an existing security profile,

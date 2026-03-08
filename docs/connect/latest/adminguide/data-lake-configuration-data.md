@@ -33,6 +33,7 @@ Composite Primary Key: agent_hierarchy_group_id
 | agent_hierarchy_group_name         | string    | The name of the hierarchy group.                                                                                                                                                                     |
 | last_modified_region               | string    | The AWS Region where this resource was last<br>modified.                                                                                                                                             |
 | last_modified_timestamp            | timestamp | The Timestamp when this resource was last modified.                                                                                                                                                  |
+| is_active                          | Boolean   | Whether the agent hierarchy group exists or has been deleted.                                                                                                                                        |
 | data_lake_last_processed_timestamp | Timestamp | Timestamp, which shows the last time the record was touched<br>by the data lake. This can include transformation and backfill.<br>This field cannot be used to determine reliably data<br>freshness. |
 
 ## Routing profiles
