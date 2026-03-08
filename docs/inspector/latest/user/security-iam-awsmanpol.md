@@ -46,6 +46,50 @@ Amazon Inspector now uses Amazon Q to perform Lambda scans and does not require 
 
 To review the permissions for this policy, see [AmazonInspector2FullAccess_v2](../../../aws-managed-policy/latest/reference/AmazonInspector2FullAccess_v2.md "../../../aws-managed-policy/latest/reference/AmazonInspector2FullAccess_v2.md") in the _AWS Managed Policy Reference Guide_.
 
+## AWS managed policy: AWSInspector2OrganizationsAccess
+
+You can attach the `AWSInspector2OrganizationsAccess` policy to your IAM identities.
+
+This policy grants administrative permissions to enable and manage Amazon Inspector for an organization in AWS Organizations. The permissions for this policy allow the organization management account to designate the delegated administrator account for Amazon Inspector. They also allow the delegated administrator account to enable organization accounts as member accounts.
+
+This policy only provides permissions for AWS Organizations. The organization management account and delegated administrator account also require permissions for associated actions. These permissions can be granted using the `AmazonInspector2FullAccess_v2` managed policy.
+
+**Permissions details**
+
+This policy includes the following permissions.
+
+- `organizations:ListAccounts` – Allows principals to retrieve the list of accounts that are part of an organization.
+- `organizations:DescribeOrganization` – Allows principals to retrieve information about the organization.
+- `organizations:ListRoots` – Allows principals to list the root of an organization.
+- `organizations:ListDelegatedAdministrators` – Allows principals to list the delegated administrator of an organization.
+- `organizations:ListAWSServiceAccessForOrganization` – Allows principals to list the AWS services that an organization uses.
+- `organizations:ListOrganizationalUnitsForParent` – Allows principals to list the child organizational units (OU) of a parent OU.
+- `organizations:ListAccountsForParent` – Allows principals to list the child accounts of a parent OU.
+- `organizations:ListParents` – Lists the root or organizational units (OUs) that serve as the immediate parent of the specified child OU or account.
+- `organizations:DescribeAccount` – Allows principals to retrieve information about an account in the organization.
+- `organizations:DescribeOrganizationalUnit` – Allows principals to retrieve information about an OU in the organization.
+- `organizations:ListPolicies` – Retrieves the list of all policies in an organization of a specified type.
+- `organizations:ListPoliciesForTarget` – Lists the policies that are directly attached to the specified target root, organizational unit (OU), or account.
+- `organizations:ListTargetsForPolicy` – Lists all the roots, organizational units (OUs), and accounts that the specified policy is attached to.
+- `organizations:DescribeResourcePolicy` – Retrieves information about a resource policy.
+- `organizations:EnableAWSServiceAccess` – Allows principals to enable the integration with Organizations.
+- `organizations:RegisterDelegatedAdministrator` – Allows principals to designate the delegated administrator account.
+- `organizations:DeregisterDelegatedAdministrator` – Allows principals to remove the delegated administrator account.
+- `organizations:DescribePolicy` – Retrieves information about a policy.
+- `organizations:DescribeEffectivePolicy` – Returns the contents of the effective policy for specified policy type and account.
+- `organizations:CreatePolicy` – Creates a policy of a specified type that you can attach to a root, an organizational unit (OU), or an individual AWS account.
+- `organizations:UpdatePolicy` – Updates an existing policy with a new name, description, or content.
+- `organizations:DeletePolicy` – Deletes the specified policy from your organization.
+- `organizations:AttachPolicy` – Attaches a policy to a root, an organizational unit (OU), or an individual account.
+- `organizations:DetachPolicy` – Detaches a policy from a target root, organizational unit (OU), or account.
+- `organizations:EnablePolicyType` – Enables a policy type in a root.
+- `organizations:DisablePolicyType` – Disables an organizational policy type in a root.
+- `organizations:TagResource` – Adds one or more tags to a specified resource.
+- `organizations:UntagResource` – Removes any tags with the specified keys from a specified resource.
+- `organizations:ListTagsForResource` – Lists tags that are attached to a specified resource.
+
+To review the permissions for this policy, see [AWSInspector2OrganizationsAccess](../../../aws-managed-policy/latest/reference/AWSInspector2OrganizationsAccess.md "../../../aws-managed-policy/latest/reference/AWSInspector2OrganizationsAccess.md") in the _AWS Managed Policy Reference Guide_.
+
 ## AWS managed policy: AmazonInspector2FullAccess
 
 You can attach the `AmazonInspector2FullAccess` policy to your IAM identities.
@@ -146,6 +190,7 @@ page.
 
 | Change                                                                                                                                                                                                                                                                                                                            | Description                                                                                                                                                                                                                                                                                                                                                                            | Date               |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| [AWSInspector2OrganizationsAccess](#security-iam-awsmanpol-AWSInspector2OrganizationsAccess "#security-iam-awsmanpol-AWSInspector2OrganizationsAccess") – New policy                                                                                                                                                              | Amazon Inspector has added a new managed policy that grants permissions needed to enable and manage Amazon Inspector via AWS Organizations policy.                                                                                                                                                                                                                                     | March 3, 2026      |
 | [AmazonInspector2ManagedTelemetryPolicy](#security-iam-awsmanpol-AmazonInspector2ManagedTelemetryPolicy "#security-iam-awsmanpol-AmazonInspector2ManagedTelemetryPolicy") – New policy                                                                                                                                            | Amazon Inspector has added a new managed policy that grants permissions for Amazon Inspector telemetry operations, allowing the service to collect and transmit package inventory data for vulnerability scanning.                                                                                                                                                                     | February 5, 2026   |
 | [AmazonInspector2ServiceRolePolicy](slr-permissions.md "slr-permissions.md") – Updates to an existing policy                                                                                                                                                                                                                      | Amazon Inspector has added a new permission that allows Amazon Inspector to describe firewall metadata for network reachability analysis.<br>Additionally, Amazon Inspector has added additional resource scoping to allow Amazon Inspector to create, update, and start SSM associations with SSM document `AWS-ConfigureAWSPackage`.                                                 | February 3, 2026   |
 | [AmazonInspector2FullAccess_v2](#security-iam-awsmanpol-AmazonInspector2FullAccessV2 "#security-iam-awsmanpol-AmazonInspector2FullAccessV2") and [AmazonInspector2ReadOnlyAccess](#security-iam-awsmanpol-AmazonInspector2ReadOnlyAccess "#security-iam-awsmanpol-AmazonInspector2ReadOnlyAccess") – Updates to existing policies | Amazon Inspector has added new permissions allowing the policy holders to view Inspector organizational policies and delegation configurations. This supports centralized management and visibility of Inspector enablement through AWS Organizations policies.                                                                                                                        | November 14, 2025  |

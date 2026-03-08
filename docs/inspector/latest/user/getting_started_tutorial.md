@@ -57,12 +57,30 @@ The management account must have the following permissions to attach the delegat
     * Amazon Inspector permissions from the [AmazonInspector2FullAccess\_v2](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2FullAccessV2 "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonInspector2FullAccessV2") managed policy
     * AWS Organizations `organizations:PutResourcePolicy` permission from the [AWSOrganizationsFullAccess](../../../aws-managed-policy/latest/reference/AWSOrganizationsFullAccess.md "../../../aws-managed-policy/latest/reference/AWSOrganizationsFullAccess.md") managed policy
 
-If the `organizations:PutResourcePolicy` permission is missing, the operation fails with the error: `Failed to attach statement to the delegation policy`. 3. Create an Amazon Inspector policy in AWS Organizations that specifies which scan types to enable and in which regions.
-For detailed instructions on creating Amazon Inspector policies, including policy syntax and examples, see the AWS Organizations documentation for Amazon Inspector policies. 4. Attach the Amazon Inspector policy to your organization root, organizational units, or specific accounts based on your governance requirements. 5. (Optional) Verify that the policy has been applied.
-Policy application is asynchronous and may take from a few seconds to several hours depending on your organization size.
-In the delegated administrator's Amazon Inspector console, navigate to **Account management**.
-Under **Organization**, view each member account and their enablement status.
-For accounts enabled through AWS Organizations policies, the **Activated** indicator for each scan type will show whether it is policy-managed.
+If the `organizations:PutResourcePolicy` permission is missing, the operation fails with the error: `Failed to attach statement to the delegation policy`. 3. Next, create an Amazon Inspector AWS Organizations policy. From the navigation pane, choose **Management**, and then choose **Configurations**. 4. Configure vulnerability management policy. Provide **Details** with name and description (optional) for the policy. 5. On the Configure Inspector page, in the **Details** section, enter a name and a description for the policy.
+In the **Capability Selection**, do one of the following:
+
+    * Choose **Configure and enable all capabilities (Recommended)**. This turns on all of the Inspector capabilities including EC2, ECR, Lambda standard, Lambda code scan, and Code Security.
+    * Choose **Select subset of capabilities**. Select any scan type capabilities that should be turned on.
+
+6.  In the **Account selection** section, select one of the following options:
+    - Choose **All organizational units and accounts** if you want to apply the configuration to all organizational units and accounts.
+    - Choose **Specific organizational units and accounts** if you want to apply the configuration to specific organizational units and accounts. If you choose this option, use the search bar or organizational structure tree to specify the organizational units and accounts where the policy will be applied.
+    - Choose **No organizational units or accounts** if you do not want to apply the configuration to any organizational unit or account.
+
+7.  In the **Regions** section, choose **Enable all Regions**, **Disable all Regions**, or **Specify Regions**.
+
+        * If you choose **Enable all Regions**, you can determine whether to automatically enable new Regions.
+        * If you choose **Disable all Regions**, you can determine whether to automatically disable new Regions.
+        * If you choose **Specify Regions**, you must choose which Regions you want to enable and disable.
+
+    (Optional) For **Advanced settings**, refer to the guidance from AWS Organizations.
+
+(Optional) For **Resource tags**, add tags as key-value pairs to help you easily identify the configuration. 8. Choose **Next**, review your changes, and then choose **Apply**. Your target accounts are configured based on the policy.
+The configuration status of your policy displays at the top of the Policies page.
+Each capability provides a status on whether it was configured or where there are deployment failures.
+For any failures, choose the link for the failure message to see more details.
+To view the effective policy at the account level, you can review the Organization tab on the Configurations page where you can choose an account.
 
 When Amazon Inspector is enabled through organization policies, accounts covered by the policy cannot disable the policy-managed scan types through the Amazon Inspector API or console.
 For detailed information about what delegated administrators and member accounts can and cannot do under organization policies, see [Managing multiple accounts in Amazon Inspector with AWS Organizations](managing-multiple-accounts.md "managing-multiple-accounts.md").
