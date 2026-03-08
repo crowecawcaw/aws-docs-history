@@ -16,24 +16,40 @@ Before you begin, ensure you have:
 - (Optional) VPC configuration details if testing private applications
 - (Optional) S3 bucket if providing additional artifacts to AWS Security Agent
 
-## Step 1: Add and verify target domains
+## Step 1: Configure domain
 
-AWS Security Agent requires verified ownership of all target domains before enabling penetration testing. This section is required and displays expanded by default.
+In the first step of the wizard, specify the target domains you want to test and how AWS Security Agent should verify ownership.
 
 1. In the **Target domains** section, enter your domain in the **Domain** field.
 2. Select a **Verification method**:
-   - **DNS txt record** – Add a TXT record to your domain’s DNS configuration
-   - **HTTP record** – Host a verification file at a specific URL on your domain
+   - **DNS_TXT** – Prove domain ownership by adding a TXT record to your domain’s DNS configuration.
+   - **HTTP_ROUTE** – Prove domain ownership by hosting a verification file at a specific URL on your domain.
    - For more information, see [Enable an application domain for penetration testing](enable-test-domain.md "enable-test-domain.md").
 
-3. Click **Add new domain** to add additional domains.
-4. Complete the verification process for each domain according to the method you selected. NOTE: Sub-domains that belong to your verified target domain do not require individual verification. You may perform penetration testing on all sub-domains that are part of your verified target domain.
+3. Choose **Add another domain** to add additional domains (up to 5 total).
+4. Choose **Next** to proceed to domain verification.
+
+## Step 2: Verify domains
+
+In the second step of the wizard, verify ownership of each domain you configured. AWS Security Agent requires verified ownership before it can perform penetration testing.
+
+1. Review the domains listed in the **Target domains** table.
+2. For each domain, select it and trigger verification based on your chosen method:
+   - **Route 53 domains (same AWS account)**: Choose **One-click verification**. AWS Security Agent automatically creates the DNS record and completes verification.
+   - **DNS TXT (other DNS providers)**: Copy the verification token, add the TXT record with your DNS registrar, then select the domain and choose **Verify**.
+   - **HTTP route**: Place the verification token at the required route path on your web server, then select the domain and choose **Verify**. For details, see [Enable an application domain for penetration testing](enable-test-domain.md "enable-test-domain.md").
+
+3. Choose **Next** to proceed to optional configuration.
 
 ###### Note
 
-All target domains must be verified before AWS Security Agent can perform penetration testing on them. Once a domain is verified, you can also add subdomains of that domain to your penetration test scope without requiring further verification. For private domains inside a VPC, you would also be able to create or update pentests if the domain verification status is UNREACHABLE. AWS Security Agent will try to perform domain verification for the private endpoint at the start of a pentest run again.
+Sub-domains of a verified domain do not require individual verification. For private domains inside a VPC, you can proceed even if the domain verification status is UNREACHABLE. AWS Security Agent will attempt domain verification for private endpoints at the start of each pentest run.
 
-## Step 2: (Optional) Configure VPC settings
+## Step 3: (Optional) Configure additional capabilities
+
+The third step of the wizard lets you configure optional AWS resources to expand your penetration testing scope. All sections in this step are optional and collapsed by default.
+
+### (Optional) Configure VPC settings
 
 If you plan to test private target domains hosted within a VPC, configure VPC settings for AWS Security Agent. This section is optional and collapsed by default.
 
@@ -49,7 +65,7 @@ For high availability, select multiple subnets from multiple Availability Zones.
 
 Ensure your security groups allow outbound connections for AWS Security Agent to perform penetration testing.
 
-## Step 3: (Optional) Configure CloudWatch logging
+### (Optional) Configure CloudWatch logging
 
 Configure CloudWatch to store logs from your penetration test runs. This section is optional and collapsed by default.
 
@@ -61,7 +77,7 @@ Configure CloudWatch to store logs from your penetration test runs. This section
 
 Ensure your IAM role has permissions to write to the selected CloudWatch log group.
 
-## Step 4: (Optional) Configure Secrets for test credentials
+### (Optional) Configure Secrets for test credentials
 
 If your application requires authentication credentials for testing, AWS Security Agent can securely retrieve them from AWS Secrets Manager. This section is optional and collapsed by default.
 
@@ -73,7 +89,7 @@ If your application requires authentication credentials for testing, AWS Securit
 
 Credentials are encrypted and stored in AWS Secrets Manager. Ensure your IAM role has permissions to access Secrets Manager for AWS Security Agent to use these credentials during testing.
 
-## Step 5: (Optional) Configure Lambda functions for test credentials
+### (Optional) Configure Lambda functions for test credentials
 
 Configure Lambda functions that can provide credentials for your application during testing. This section is optional and collapsed by default.
 
@@ -85,7 +101,7 @@ Configure Lambda functions that can provide credentials for your application dur
 
 Ensure your IAM role has permissions to invoke the specified Lambda functions. Lambda functions should return credentials in the expected format for AWS Security Agent to use during testing.
 
-## Step 6: (Optional) Configure S3 bucket
+### (Optional) Configure S3 bucket
 
 Provide S3 bucket details if you plan to upload documents or artifacts to provide as input to AWS Security Agent. This section is optional and collapsed by default.
 
@@ -96,7 +112,7 @@ Provide S3 bucket details if you plan to upload documents or artifacts to provid
 
 You can also connect GitHub repositories later or upload files directly in the web application. Information provided can ensure thorough coverage, reduce false positives, and deliver actionable results.
 
-## Step 7: (Optional) Configure service access
+### (Optional) Configure service access
 
 AWS Security Agent requires an IAM role to access your AWS resources (VPC, CloudWatch log groups, Secrets Manager, Lambda functions, etc.) for penetration testing. This section is optional and collapsed by default.
 
@@ -115,7 +131,7 @@ AWS Security Agent requires an IAM role to access your AWS resources (VPC, Cloud
 
 The default IAM role includes permissions for accessing VPC resources, CloudWatch log groups, Secrets Manager, Lambda functions, and other services required for penetration testing. It is recommended to use the default IAM role unless you have specific security requirements.
 
-## Step 8: Enable penetration testing
+## Step 4: Save and enable penetration testing
 
 After configuring all required settings, enable penetration testing for your AWS Security Agent agent.
 

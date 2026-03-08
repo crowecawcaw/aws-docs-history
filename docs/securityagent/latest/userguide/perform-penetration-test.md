@@ -99,7 +99,7 @@ Specify domains that are required for the test but are not targets for vulnerabi
 
 ###### Note
 
-Add domains for third-party services (such as Okta, Auth0, Stripe) that are outside your target domain. This is required so AWS Security Agent can access these URLs for login and navigation during testing. AWS Security Agent does NOT penetration test these domains—they are used solely for access purposes. 3. To add multiple accessible domains:
+Add accessible domains for third-party services (such as Okta, Auth0, Stripe) that are outside your target domain. This is required so AWS Security Agent can access these URLs for login and navigation during testing. AWS Security Agent does NOT penetration test these domains—they are used solely for access purposes. 3. To add multiple accessible domains:
 
     1. Click **Add URL**.
     2. Enter each additional domain.

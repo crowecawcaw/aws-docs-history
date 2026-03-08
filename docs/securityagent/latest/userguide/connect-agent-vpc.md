@@ -2,6 +2,21 @@
 
 If the application you want to run a penetration test on is not available on the public internet, you need to provide AWS Security Agent with a VPC configuration. AWS Security Agent will use this VPC configuration, including a VPC, subnet, and security groups, to access the application.
 
+###### Note
+
+When testing endpoints in a private VPC, only endpoints resolving to IPs in known private IP ranges are allowed (see [VPC CIDR blocks](../../../vpc/latest/userguide/vpc-cidr-blocks.md "../../../vpc/latest/userguide/vpc-cidr-blocks.md") for more information). The following IPv4 and IPv6 ranges are allowed:
+
+```
+10.0.0.0/16
+172.31.0.0/16
+192.168.0.0/20
+fd00::/8
+```
+
+###### Note
+
+When connecting to a subnet, AWS Security Agent will create an ENI ([Elastic Network Interface](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/latest/UserGuide/using-eni.md")) in the subnet configured for the penetration test. This ENI does not have an associated public IP address, meaning that it cannot communicate with [VPC Internet Gateways](../../../vpc/latest/userguide/VPC_Internet_Gateway.md "../../../vpc/latest/userguide/VPC_Internet_Gateway.md") in public subnets. If your penetration test requires open internet access, please use a private subnet with an associated [VPC NAT Gateway](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md") instead
+
 You grant AWS Security Agent general access to a VPC from the AWS Management Console. In the Security Agent web app, users select the specific configuration for a penetration test.
 == To add a VPC in the Agent Space
 

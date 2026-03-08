@@ -55,7 +55,7 @@ For example, if the agent is to submit a username/password login form at https:/
 ```
 
 Then, configure the authentication instructions:
-. Enable **Allow agent to perform browser login using this credential**.
+. Enable **This credential requires interactive login (form submission)**.
 . Set **Access URL** to `https://example.com` (or any other URL selected from the list of target endpoints).
 . Enter the following into **Agent Space login prompt**: "Navigate to https://example.com/login and enter the provided username and password into the form."
 
@@ -66,7 +66,7 @@ As another example, if you instead have an API key to be provided in an HTTP hea
 ```
 
 Then, configure the authentication instructions:
-. Disable **Allow agent to perform browser login using this credential**.
+. Disable **This credential requires interactive login (form submission)**.
 . Enter the following into **Agent Space login prompt**: "Set the X-API-Key header to the provided API key for all requests."
 
 ###### Important
