@@ -8,7 +8,7 @@ you're provided with detailed insights to your nodes. You can generate reports f
 nodes, diagnose and remediate common issues that prevent nodes from reporting as managed
 by Systems Manager, like connectivity issues.
 
-![Node data displayed on Systems Manager Review node insights page](/images/systems-manager/latest/userguide/images/SYS2-Dashboard-Nodes.png)
+![Node data displayed on Systems Manager Review node insights page](images/SYS2-Dashboard-Nodes.png)
 In addition to summaries about your nodes on the **Review node
 insights** page, you can view specific details about a node from the
 **Explore nodes** page.
