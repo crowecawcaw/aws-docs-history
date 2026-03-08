@@ -8,9 +8,9 @@ steps:
    the subnets that you want to protect and for any location that sends traffic
    to the subnets or receives traffic from them.
 2. Determine which traffic you want the firewall to filter and insert your
-   firewall endpoints into the traffic flow. Network Firewall supports up to 100 Gbps of network traffic per firewall endpoint. Update the route tables for both
-   directions of traffic flow, if you want to filter incoming and outgoing
-   traffic.
+   firewall endpoints into the traffic flow. Network Firewall supports up to 100 Gbps of network traffic per Availability Zone.
+   The 100 Gbps bandwidth is shared across all associated VPC endpoints.
+   Update the route tables for both directions of traffic flow, if you want to filter incoming and outgoing traffic.
    For example, suppose you wanted to filter traffic that's currently routed between
    a customer subnet and an internet gateway. You would update your route table
    configuration as follows to insert a firewall endpoint into the traffic flow:
