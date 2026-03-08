@@ -7,6 +7,14 @@ Lambda, Amazon SNS, Amazon SQS, and Amazon CloudWatch Logs resources, EventBridg
 streams, EventBridge uses [identity-based](eb-use-identity-based.md "eb-use-identity-based.md")
 policies.
 
+###### Important
+
+For targets that use resource-based policies (Lambda, Amazon SNS, Amazon SQS, and Amazon CloudWatch Logs),
+do not specify a `RoleArn` in the target configuration. When you specify a
+`RoleArn` for these target types, event delivery may fail, particularly for
+Amazon SQS and Amazon SNS targets with AWS KMS encryption enabled. Use resource-based policies
+only for these targets.
+
 You use the AWS CLI to add permissions to your targets. For information about how to install
 and configure the AWS CLI, see [Getting
 Set Up with the AWS Command Line Interface](../../../cli/latest/userguide/cli-chap-getting-set-up.md "../../../cli/latest/userguide/cli-chap-getting-set-up.md") in the _AWS Command Line Interface User Guide_.

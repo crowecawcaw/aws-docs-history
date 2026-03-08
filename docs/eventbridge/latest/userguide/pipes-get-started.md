@@ -313,20 +313,20 @@ JSON
             "Condition": {
               "StringLike": {
                 "aws:SourceArn": {
-	"Fn::Join": [
-		"",
-                [
-                  "arn:",
-                  { "Ref": "AWS::Partition" },
-                  ":pipes:",
-                  { "Ref": "AWS::Region" },
-                  ":",
-                  { "Ref": "AWS::AccountId" },
-                  ":pipe/",
-                  { "Ref": "PipeName" }
-               ]
-	]
-       },
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      { "Ref": "AWS::Partition" },
+                      ":pipes:",
+                      { "Ref": "AWS::Region" },
+                      ":",
+                      { "Ref": "AWS::AccountId" },
+                      ":pipe/",
+                      { "Ref": "PipeName" }
+                    ]
+                  ]
+                },
                 "aws:SourceAccount": { "Ref" : "AWS::AccountId" }
               }
             }

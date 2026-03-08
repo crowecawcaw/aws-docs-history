@@ -80,7 +80,7 @@ schedule`.
        `s3`.
 
        To determine a service's prefix, see
-       [The condition keys table](service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md#context_keys_table "service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md#context_keys_table")
+       [The condition keys table](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md#context_keys_table "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md#context_keys_table")
        in the _Service Authorization Reference_. For more information about source and detail-type event values, see [AWS service event metadata](../ref/events-structure.md "../ref/events-structure.md") in the _Events Reference_.>.
        - (Optional): For **Detail**, enter an event pattern to further filter the events EventBridge Scheduler sends to EventBridge.
 

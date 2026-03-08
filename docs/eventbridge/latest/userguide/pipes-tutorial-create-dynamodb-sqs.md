@@ -228,7 +228,7 @@ Use the JSON below to create a CloudFormation template for provisioning the sour
 {
   "AWSTemplateFormatVersion": "2010-09-09",
 
- "Description" : "Provisions resources to use with the EventBridge Pipes tutorial. You will be billed for the AWS resources used if you create a stack from this template.",
+  "Description" : "Provisions resources to use with the EventBridge Pipes tutorial. You will be billed for the AWS resources used if you create a stack from this template.",
 
   "Parameters" : {
     "SourceTableName" : {
@@ -236,12 +236,12 @@ Use the JSON below to create a CloudFormation template for provisioning the sour
       "Default" : "pipe-tutorial-source",
       "Description" : "Specify the name of the table to provision as the pipe source, or accept the default."
     },
-  "TargetQueueName" : {
-    "Type" : "String",
-    "Default" : "pipe-tutorial-target",
-    "Description" : "Specify the name of the queue to provision as the pipe target, or accept the default."
-  }
-},
+    "TargetQueueName" : {
+      "Type" : "String",
+      "Default" : "pipe-tutorial-target",
+      "Description" : "Specify the name of the queue to provision as the pipe target, or accept the default."
+    }
+  },
   "Resources": {
     "PipeTutorialSourceDynamoDBTable": {
       "Type": "AWS::DynamoDB::Table",

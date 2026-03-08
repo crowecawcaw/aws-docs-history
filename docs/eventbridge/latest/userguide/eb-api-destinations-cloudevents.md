@@ -45,7 +45,7 @@ To transform events to the CloudEvents format prior to delivery to a target, you
    attribute_ of the CloudEvents format. As such it is not required for adherence to the CloudEvents specification.
 
    CloudEvents allows you to use and create extension attributes not defined in the core specification. For more information,
-   including a list of known extension attributes, see [CloudEvents Extension Attributes](https://github.com/cloudevents/spec/blob/main/cloudevents/documented-extensions.md "https://github.com/cloudevents/spec/blob/main/cloudevents/documented-extensions.md")
+   including a list of known extension attributes, see [CloudEvents Extension Attributes](https://github.com/cloudevents/spec/blob/main/cloudevents/extensions "https://github.com/cloudevents/spec/blob/main/cloudevents/extensions")
    in the [CloudEvents specification documentation](https://github.com/cloudevents/spec/tree/main "https://github.com/cloudevents/spec/tree/main") on GitHub.
 
    ```

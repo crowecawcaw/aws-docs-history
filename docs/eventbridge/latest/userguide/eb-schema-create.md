@@ -17,7 +17,7 @@ consider the following differences:
   focus on run-time operations, such as client tools for schema validation.
   We recommend using JSONSchema format to implement client-side validation so that events
   sent to EventBridge conform to the schema. You can use JSONSchema to define a contract for valid
-  JSON documents, and then use a [JSON schema validator](https://json-schema.org/implementations.html "https://json-schema.org/implementations.html") before sending the associated events.
+  JSON documents, and then use a [JSON schema validator](https://json-schema.org/tools "https://json-schema.org/tools") before sending the associated events.
 
 After you have a new schema, you can download [code bindings](eb-schema-code-bindings.md "eb-schema-code-bindings.md") to help create applications
 for events with that schema.

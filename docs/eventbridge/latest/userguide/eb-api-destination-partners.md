@@ -652,7 +652,7 @@ documentation**
 
 For both authorization types, you need an HEC token ID. For more
 information, see [Set up and use HTTP Event Collector in Splunk
-Web](https://docs.splunk.com/Documentation/Splunk/8.1.2/Data/UsetheHTTPEventCollector "https://docs.splunk.com/Documentation/Splunk/8.1.2/Data/UsetheHTTPEventCollector").
+Web](https://help.splunk.com/en/data-management/collect-http-event-data/use-hec-in-splunk-cloud-platform/set-up-and-use-http-event-collector-in-splunk-web "https://help.splunk.com/en/data-management/collect-http-event-data/use-hec-in-splunk-cloud-platform/set-up-and-use-http-event-collector-in-splunk-web").
 
 **Commonly used API operations**
 

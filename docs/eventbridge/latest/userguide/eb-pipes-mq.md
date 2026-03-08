@@ -49,7 +49,7 @@ The Amazon MQ source has the following configuration restrictions:
 
       + For ActiveMQ integrations, EventBridge uses the OpenWire/Java Message Service (JMS)
        protocol to consume messages. Message consumption isn’t supported on any other protocol.
-       EventBridge only supports the [TextMessage](https://activemq.apache.org/maven/apidocs/org/apache/activemq/command/ActiveMQTextMessage.html "https://activemq.apache.org/maven/apidocs/org/apache/activemq/command/ActiveMQTextMessage.html") and [BytesMessage](https://activemq.apache.org/maven/apidocs/org/apache/activemq/command/ActiveMQBytesMessage.html "https://activemq.apache.org/maven/apidocs/org/apache/activemq/command/ActiveMQBytesMessage.html") operations within the JMS protocol. For more information about
+       EventBridge only supports the `TextMessage` and `BytesMessage` operations within the JMS protocol. For more information about
        the OpenWire protocol, see [OpenWire](https://activemq.apache.org/openwire.html "https://activemq.apache.org/openwire.html") on the Apache ActiveMQ website.
       + For RabbitMQ integrations, EventBridge uses the AMQP 0-9-1 protocol to consume messages. No
        other protocols are supported for consuming messages. For more information about

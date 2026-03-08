@@ -54,7 +54,7 @@ specified resource or account. For more information, see
     ]
   },
   "StringEquals": {
-    "aws:ResourceTag/EventBridgeApiDestinations": "true"
+    "kms:ResourceTag/EventBridgeApiDestinations": "true"
   }
 }
 ```
