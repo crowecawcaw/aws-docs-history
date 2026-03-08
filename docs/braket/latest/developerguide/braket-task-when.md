@@ -50,7 +50,7 @@ the following code snippet to get the queue position of their quantum task
 or hybrid job:
 
 ```
-device = AwsDevice("arn:aws:braket:us-east-1::device/qpu/ionq/Aria-1")
+device = AwsDevice("arn:aws:braket:us-east-1::device/qpu/ionq/Forte-Enterprise-1")
 
 # returns the number of quantum tasks queued on the device
 print(device.queue_depth().quantum_tasks)

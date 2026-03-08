@@ -29,7 +29,7 @@ from braket.circuits import Circuit
 from braket.devices import Devices
 
 bell = Circuit().h(0).cnot(0, 1)
-device = AwsDevice(Devices.IonQ.Aria1)
+device = AwsDevice(Devices.IonQ.ForteEnterprise1)
 
 # run the circuit in a reservation
 with DirectReservation(device, reservation_arn="<my_reservation_arn>"):
@@ -49,11 +49,11 @@ qc = QuantumCircuit(2)
 qc.h(0)
 qc.cx(0, 1)
 
-aria = BraketProvider().get_backend("Aria 1")
+qpu = BraketProvider().get_backend("Forte Enterprise 1")
 
 # run the circuit in a reservation
-with DirectReservation(Devices.IonQ.Aria1, reservation_arn="<my_reservation_arn>"):
-    aria_task = aria.run(qc, shots=10)
+with DirectReservation(Devices.IonQ.ForteEnterprise1, reservation_arn="<my_reservation_arn>"):
+    qpu_task = qpu.run(qc, shots=10)
 ```
 
 Similarly, the following code runs a circuit during a reservation using the Braket-PennyLane plugin.
@@ -64,7 +64,7 @@ from braket.aws import DirectReservation
 import pennylane as qml
 
 
-dev = qml.device("braket.aws.qubit", device_arn=Devices.IonQ.Aria1.value, wires=2, shots=10)
+dev = qml.device("braket.aws.qubit", device_arn=Devices.IonQ.ForteEnterprise1.value, wires=2, shots=10)
 
 @qml.qnode(dev)
 def bell_state():
@@ -73,7 +73,7 @@ def bell_state():
     return qml.probs(wires=[0, 1])
 
 # run the circuit in a reservation
-with DirectReservation(Devices.IonQ.Aria1, reservation_arn="<my_reservation_arn>"):
+with DirectReservation(Devices.IonQ.ForteEnterprise1, reservation_arn="<my_reservation_arn>"):
     probs = bell_state()
 ```
 

@@ -12,7 +12,6 @@ Amazon Braket console. You can retrieve the results of the quantum task with
 the quantum task ID, which is introduced in the next section.
 
 - **AQT IBEX-Q1** : `arn:aws:braket:eu-north-1::device/qpu/aqt/Ibex-Q1`
-- **IonQ Aria-1** : `arn:aws:braket:us-east-1::device/qpu/ionq/Aria-1`
 - **IonQ Forte-1** : `arn:aws:braket:us-east-1::device/qpu/ionq/Forte-1`
 - **IonQ Forte-Enterprise-1** : `arn:aws:braket:us-east-1::device/qpu/ionq/Forte-Enterprise-1`
 - **IQM Garnet** : `arn:aws:braket:eu-north-1::device/qpu/iqm/Garnet`

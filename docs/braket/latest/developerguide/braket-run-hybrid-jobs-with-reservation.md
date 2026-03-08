@@ -20,7 +20,7 @@ from braket.aws import AwsDevice
 from braket.devices import Devices
 from braket.jobs import get_job_device_arn, hybrid_job
 
-@hybrid_job(device=Devices.IonQ.Aria1, reservation_arn="<my_reservation_arn>")
+@hybrid_job(device=Devices.IonQ.ForteEnterprise1, reservation_arn="<my_reservation_arn>")
 def example_hybrid_job():
     # declare AwsDevice within the hybrid job
     device = AwsDevice(get_job_device_arn())
@@ -38,7 +38,7 @@ from braket.aws import AwsQuantumJob
 from braket.devices import Devices
 
 job = AwsQuantumJob.create(
-    Devices.IonQ.Aria1,
+    Devices.IonQ.ForteEnterprise1,
     source_module="algorithm_script.py",
     entry_point="algorithm_script:start_here",
     reservation_arn="<my_reservation_arn>"

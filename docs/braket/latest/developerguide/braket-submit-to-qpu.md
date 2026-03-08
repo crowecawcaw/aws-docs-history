@@ -107,23 +107,23 @@ device.properties.dict()['paradigm']['connectivity']
 The preceding dictionary `connectivityGraph` lists the neighboring
 qubits for each qubit in the Rigetti device.
 
-**Choose the IonQ Aria-1 device**
+**Choose the IonQ Forte-Enterprise-1 device**
 
-For the IonQ Aria-1 device, the `connectivityGraph` is
+For the IonQ Forte-Enterprise-1 device, the `connectivityGraph` is
 empty, as shown in the following example, because the device offers
 _all-to-all_ connectivity. Therefore, a detailed
 `connectivityGraph` is not needed.
 
 ```
-# or choose the IonQ Aria-1 device
-device = AwsDevice("arn:aws:braket:us-east-1::device/qpu/ionq/Aria-1")
+# or choose the IonQ Forte-Enterprise-1 device
+device = AwsDevice("arn:aws:braket:us-east-1::device/qpu/ionq/Forte-Enterprise-1")
 
 # take a look at the device connectivity graph
 device.properties.dict()['paradigm']['connectivity']
 ```
 
 ```
-{'fullyConnected': True, 'connectivityGraph': {}}
+{'fullyConnected': True, 'connectivityGraph': {...}}
 ```
 
 As shown in the following example, you have the option to adjust the

@@ -184,7 +184,7 @@ TwoQubitDepolarizing
 
 TN1 is an on-demand, high-performance, tensor network simulator.
 TN1 can simulate certain circuit types with up to 50
-qubits and a circuit depth of 1,000 or smaller. TN1 is
+qubits and a circuit depth of 100 or smaller. TN1 is
 particularly powerful for sparse circuits, circuits with local gates, and other circuits
 with special structure, such as quantum Fourier transform (QFT) circuits.
 TN1 operates in two phases. First, the _rehearsal
