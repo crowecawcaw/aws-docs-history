@@ -18,7 +18,7 @@ The Arabic exam guide includes:
 - In-scope and out-of-scope AWS services
 - Technologies and concepts covered in the exam
 
-For the English version of the exam guide, see [AWS Certified Cloud Practitioner (English)](../../foundational/cloud-practitioner-02/cloud-practitioner-02.md "../../foundational/cloud-practitioner-02/cloud-practitioner-02.md").
+For the English version of the exam guide, see [AWS Certified Cloud Practitioner (English)](../cloud-practitioner-02/cloud-practitioner-02.md "../cloud-practitioner-02/cloud-practitioner-02.md").
 
 ## AWS Certified AI Practitioner (Arabic)
 
@@ -36,7 +36,7 @@ The Arabic exam guide includes:
 - In-scope and out-of-scope AWS services
 - Technologies and concepts covered in the exam
 
-For the English version of the exam guide, see [AWS Certified AI Practitioner (English)](../../foundational/ai-practitioner-01/ai-practitioner-01.md "../../foundational/ai-practitioner-01/ai-practitioner-01.md").
+For the English version of the exam guide, see [AWS Certified AI Practitioner (English)](../ai-practitioner-01/ai-practitioner-01.md "../ai-practitioner-01/ai-practitioner-01.md").
 
 ## Additional Resources
 
