@@ -116,7 +116,7 @@ for your existing Amazon DocumentDB instances using the AWS Management Console.
    **Cluster identifier** on the far left. Your instances are listed under
    clusters, similar to the screenshot below.
 
-![Image of the Clusters navigation box showing a list of existing cluster links and their corresponding instance links.](/images/documentdb/latest/developerguide/images/choose-clusters.png) 6. Check the box to the left of the instance you are interested in. 7. Choose **Actions** and then choose
+![Image of the Clusters navigation box showing a list of existing cluster links and their corresponding instance links.](images/choose-clusters.png) 6. Check the box to the left of the instance you are interested in. 7. Choose **Actions** and then choose
 **Modify**. 8. Under **Certificate authority**, select the new server
 certificate (`rds-ca-rsa2048-g1`) for this instance. 9. You can see a summary of the changes on the next page. Note that there is
 an extra alert to remind you to ensure that your application is using the
