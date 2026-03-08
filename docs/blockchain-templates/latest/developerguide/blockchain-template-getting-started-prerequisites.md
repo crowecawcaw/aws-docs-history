@@ -172,10 +172,10 @@ such as _ECSRoleForEthereum_. For **Role Description**,
 enter a brief summary. Note the role name for later. 8. Choose **Create role**. 9. Select the role that you just created from the list. If your account has many roles,
 you can search for the role name.
 
-![AWSIAM console showing a role named "ECSRoleForEtherum" with its description.](images/ecs-role-list.png) 10. Copy the **Role ARN** value and save it so that you can copy it again.
+![AWSIAM console showing a role named "ECSRoleForEtherum" with its description.](/images/blockchain-templates/latest/developerguide/images/ecs-role-list.png) 10. Copy the **Role ARN** value and save it so that you can copy it again.
 You need this ARN when you create the Ethereum network.
 
-![AWSIAM role summary page showing role ARN, description, and attached policies.](/images/blockchain-templates/latest/developerguide/images/ecs-role-arn.png)
+![AWSIAM role summary page showing role ARN, description, and attached policies.](images/ecs-role-arn.png)
 
 The EC2 instance profile that you specify in the template is assumed by EC2 instances in the Ethereum network to interact with other AWS services. You create a permissions policy for the role, create the role (which automatically creates an instance profile of the same name), and then attach the permissions policy to the role.
 
