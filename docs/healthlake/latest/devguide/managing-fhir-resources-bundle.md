@@ -638,3 +638,54 @@ x-amzn-healthlake-validation-issues : true
 
 Note that data ingested that is malformed according the R4 specification may not be
 searchable as expected if these errors are present.
+
+## Limited support for Bundle type "message"
+
+HealthLake provides limited support for FHIR Bundle type `message` through an internal conversion process. This support is designed for scenarios where message Bundles cannot be reformatted at the source.
+
+### Key differences from standard message processing
+
+- **Message Bundles** (FHIR specification): First entry must be a `MessageHeader` that references other resources. Resources lack individual `request` objects, and the MessageHeader event determines processing actions.
+- **HealthLake Processing**: Converts message Bundles to batch Bundles by automatically assigning PUT operations to each resource entry. Resources are processed independently without enforcing message semantics or referential integrity.
+
+### Important limitations
+
+- FHIR R4 Message-specific processing rules are not enforced
+- No transactional integrity across resources
+- Inter-resource references are not validated
+- Requires explicit account allowlisting
+
+### Typical use case
+
+Ingesting ADT (Admission, Discharge, Transfer) feeds from hospital systems that send Bundle type `message` containing related Patient, Encounter, Organization, and Provenance resources.
+
+### Example message Bundle structure
+
+```
+{
+  "resourceType": "Bundle",
+  "type": "message",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "MessageHeader",
+        "eventCoding": {
+          "system": "http://hl7.org/fhir/us/davinci-alerts/CodeSystem/notification-event",
+          "code": "notification-admit"
+        },
+        "focus": [{"reference": "Encounter/example-id"}]
+      }
+    },
+    {
+      "resource": {"resourceType": "Patient", "id": "example-id"}
+    },
+    {
+      "resource": {"resourceType": "Encounter", "id": "example-id"}
+    }
+  ]
+}
+```
+
+###### Note
+
+Each resource is stored independently as if submitted via individual PUT operations. If full FHIR messaging semantics or referential integrity validation are required, pre-process message Bundles or implement application-level validation before submission.

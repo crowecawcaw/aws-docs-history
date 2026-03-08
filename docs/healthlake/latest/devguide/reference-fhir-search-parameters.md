@@ -94,6 +94,26 @@ GET https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/
 Condition?code=`49727002`&_include=Condition:subject
 ```
 
+`**\_include:iterate**` Modifier
+
+The `_include:iterate` modifier enables recursive inclusion of referenced resources across two levels. For example,
+
+```
+GET /ServiceRequest?identifier=025C0931195&_include=ServiceRequest:requester&_include:iterate=PractitionerRole:practitioner
+```
+
+will return the ServiceRequest, its associated PractitionerRole (via the requester reference), and then recursively include the Practitioner referenced by that PractitionerRole. This modifier is available for all resource types in HealthLake.
+
+`**\_include=\***` Modifier
+
+The `_include=*` modifier is a wildcard that automatically includes all resources directly referenced by the search results. For example,
+
+```
+GET /ServiceRequest?specimen.accession=12345&_include=*
+```
+
+will return the matching ServiceRequest along with all resources it references (such as Patient, Practitioner, Specimen, etc.) without needing to specify each reference path individually. This modifier is available for all resource types in HealthLake.
+
 `**\_revinclude**`
 
 Using `_revinclude` in a search query allows for additional specified FHIR

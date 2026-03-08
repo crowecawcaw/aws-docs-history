@@ -91,11 +91,12 @@ HealthLake supports the following search modifiers in bulk export requests.
 The following examples include special characters which must be encoded prior to
 submitting your request.
 
-| Name            | Required? | Description                                                                                                                                                                                               | Example                                   |
-| --------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
-| `_outputFormat` | No        | The format for the requested Bulk Data files to be generated. Accepted<br>values are `application/fhir+ndjson`,<br>`application/ndjson`, `ndjson`.                                                        |                                           |
-| `_type`         | No        | A string of comma delimited FHIR resource types that you want included in<br>your export job. We recommend including `_type` because this can have<br>a cost implication when all resources are exported. | `&_type=MedicationStatement, Observation` |
-| `_since`        | No        | Resource types modified on or after the date time stamp. If a resource type<br>does \*not<br>• have a last updated time they will be included in<br>your response.                                        | `&_since=2024-05-09T00%3A00%3A00Z`        |
+| Name            | Required? | Description                                                                                                                                                                                                                                    | Example                                   |
+| --------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
+| `_outputFormat` | No        | The format for the requested Bulk Data files to be generated. Accepted<br>values are `application/fhir+ndjson`,<br>`application/ndjson`, `ndjson`.                                                                                             |                                           |
+| `_type`         | No        | A string of comma delimited FHIR resource types that you want included in<br>your export job. We recommend including `_type` because this can have<br>a cost implication when all resources are exported.                                      | `&_type=MedicationStatement, Observation` |
+| `_since`        | No        | Resource types modified on or after the date time stamp. If a resource type<br>does \*not<br>• have a last updated time they will be included in<br>your response.                                                                             | `&_since=2024-05-09T00%3A00%3A00Z`        |
+| `_until`        | No        | Resources types modified on or before the date time stamp. Used in combination with `_since` to define a specific time range for export. If a resource type does \*not<br>• have a last updated time they will be excluded from your response. | `&_until=2024-12-31T23%3A59%3A59Z`        |
 
 ### Step 2: Specify the required header parameters
 

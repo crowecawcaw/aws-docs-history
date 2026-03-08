@@ -24,6 +24,7 @@ POST [base]/Group/[id]/$davinci-data-export
 | patient    | 0..\*       | Specific members whose data should be exported. When omitted, all members in the Group are exported |
 | \_type     | 0..1        | Comma-delimited list of FHIR resource types to export                                               |
 | \_since    | 0..1        | Only include resources updated after this date/time                                                 |
+| \_until    | 0..1        | Only include resources updated until this date/time                                                 |
 | exportType | 0..1        | Type of export to perform (default: hl7.fhir.us.davinci-atr)                                        |
 
 ### Supported Resource Types

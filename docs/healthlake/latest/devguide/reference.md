@@ -12,4 +12,5 @@ information, see the [_AWS HealthLake API Reference_](../APIReference.md "../API
 
 - [SMART on FHIR](reference-smart-on-fhir.md "reference-smart-on-fhir.md")
 - [FHIR R4](reference-fhir.md "reference-fhir.md")
+- [Compliance](reference-compliance.md "reference-compliance.md")
 - [HealthLake](reference-healthlake.md "reference-healthlake.md")
