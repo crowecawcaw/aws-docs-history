@@ -1069,13 +1069,10 @@ search.
 
 ## Log format migration
 
-Log events that AWS AppSync generates on or after May 8, 2019 are formatted as fully
-structured JSON. To analyze GraphQL requests prior to May 8, 2019, you can migrate older
-logs to fully structured JSON using a script available in the [GitHub Sample](https://github.com/aws-samples/aws-appsync-cwl-migrator "https://github.com/aws-samples/aws-appsync-cwl-migrator"). If
-you need to use the log format prior to May 8, 2019, create a support ticket with the
-following settings: set **Type** to **Account
-Management** and then set **Category** to **General
-Account Question**.
+Log events that AWS AppSync generates are primarily formatted as fully structured JSON.
+However, certain diagnostic and intermediate processing messages may be emitted in an
+unstructured format. If you need to migrate unstructured logs to fully structured JSON,
+you may use a script available in the [GitHub Sample](https://github.com/aws-samples/aws-appsync-cwl-migrator "https://github.com/aws-samples/aws-appsync-cwl-migrator").
 
 You can also use [metric filters](../../../AmazonCloudWatch/latest/logs/CloudWatchLogsConcepts.md "../../../AmazonCloudWatch/latest/logs/CloudWatchLogsConcepts.md") in
 CloudWatch to turn log data into numerical CloudWatch metrics, so that you can graph or set an alarm on

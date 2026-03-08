@@ -4,7 +4,7 @@
 resolvers.
 
 **`extensions.evictFromApiCache(typeName: string,
- fieldName: string, keyValuePair: Record<string, string>) :
+ fieldName: string, keyValuePair: Record<string, any>) :
  Object`**
 
 Evicts an item from the AWS AppSync server-side cache. The first argument
