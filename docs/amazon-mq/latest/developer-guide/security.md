@@ -24,7 +24,7 @@ _of_ the cloud and security _in_ the cloud:
 
 - [Data protection in Amazon MQ](data-protection.md "data-protection.md")
 - [Identity and access Management for Amazon MQ](security-iam.md "security-iam.md")
-- [Compliance validation for Amazon MQ](AMQ-compliance.md "AMQ-compliance.md")
+- [Compliance validation for Amazon MQ](compliance-validation.md "compliance-validation.md")
 - [Resilience in Amazon MQ](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in Amazon MQ](infrastructure-security.md "infrastructure-security.md")
 - [Security best practices for Amazon MQ](using-amazon-mq-securely.md "using-amazon-mq-securely.md")

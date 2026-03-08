@@ -8,7 +8,7 @@ with Amazon MQ brokers, such as issues connecting to your broker, and broker reb
 - [I can't connect to my broker web console or endpoints.](general.md#issues-connecting-to-console-or-endpoint "general.md#issues-connecting-to-console-or-endpoint")
 - [My broker is running, and I can verify connectivity using telnet, but my clients are unable to connect and are returning SSL exceptions.](general.md#issues-ssl-certificate-exception "general.md#issues-ssl-certificate-exception")
 - [I created a broker but broker creation failed.](general.md#issues-creating-a-broker "general.md#issues-creating-a-broker")
-- [My broker restarted and I'm not sure why.](general.md#w2aac39b9c13 "general.md#w2aac39b9c13")
+- [My broker restarted and I'm not sure why.](general.md#w2aac40b9c13 "general.md#w2aac40b9c13")
 
 ## I can't connect to my broker web console or endpoints.
 

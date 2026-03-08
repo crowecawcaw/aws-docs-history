@@ -13,6 +13,7 @@ in the _RabbitMQ Getting Started Guide_.
 - [Step 2: Connect a JVM-based application to your broker](#rabbitmq-connect-jvm-application "#rabbitmq-connect-jvm-application")
 - [Step 3: (Optional) Connect to an AWS Lambda function](#rabbitmq-connect-to-lambda "#rabbitmq-connect-to-lambda")
 - [Using OAuth 2.0 authentication and authorization for Amazon MQ for RabbitMQ](oauth-tutorial.md "oauth-tutorial.md")
+- [Using IAM authentication and authorization for Amazon MQ for RabbitMQ](rabbitmq-iam-tutorial.md "rabbitmq-iam-tutorial.md")
 - [Using LDAP authentication and authorization for Amazon MQ for RabbitMQ](rabbitmq-ldap-tutorial.md "rabbitmq-ldap-tutorial.md")
 - [Using HTTP authentication and authorization for Amazon MQ for RabbitMQ](rabbitmq-http-tutorial.md "rabbitmq-http-tutorial.md")
 - [Using SSL certificate authentication for Amazon MQ for RabbitMQ](rabbitmq-ssl-tutorial.md "rabbitmq-ssl-tutorial.md")

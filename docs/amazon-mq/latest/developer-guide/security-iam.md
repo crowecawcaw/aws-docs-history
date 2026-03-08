@@ -14,7 +14,7 @@ use with no additional charge.
 - [Amazon MQ Identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
 - [API authentication and authorization for Amazon MQ](security-api-authentication-authorization.md "security-api-authentication-authorization.md")
 - [Broker authentication and authorization](security-broker-auth-ref.md "security-broker-auth-ref.md")
-- [AWS managed policies for Amazon MQ](security-iam-aws-managed-policies.md "security-iam-aws-managed-policies.md")
+- [AWS managed policies for Amazon MQ](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 - [Using service-linked roles for Amazon MQ](using-service-linked-roles.md "using-service-linked-roles.md")
 - [Troubleshooting Amazon MQ identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
 

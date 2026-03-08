@@ -10,6 +10,7 @@ with RabbitMQ on Amazon MQ brokers.
 - [I'm unable to change Amazon VPC configuration for the broker.](troubleshooting-rabbitmq.md#issues-changing-vpc-configration-rabbitmq "troubleshooting-rabbitmq.md#issues-changing-vpc-configration-rabbitmq")
 - [Cluster deployments have paused my queue synchronizations.](troubleshooting-rabbitmq.md#addressing-paused-queue-sync "troubleshooting-rabbitmq.md#addressing-paused-queue-sync")
 - [My Amazon MQ for RabbitMQ single-instance broker is in a restart loop.](troubleshooting-rabbitmq.md#single-instance-broker-restart-loop "troubleshooting-rabbitmq.md#single-instance-broker-restart-loop")
+- [I've lost access to all administrator accounts on my broker.](troubleshooting-rabbitmq.md#rabbitmq-broker-recovery "troubleshooting-rabbitmq.md#rabbitmq-broker-recovery")
 
 ## I can't see metrics for my queues or virtual hosts in CloudWatch.
 
@@ -54,3 +55,7 @@ resolve the high memory alarm.
 To recover your broker, we recommend upgrading to a larger instance type with more memory.
 Unlike in cluster deployments, you can upgrade a single-instance broker while it's experiencing a high memory alarm
 because there are no queue synchronizations to perform between nodes during a restart.
+
+## I've lost access to all administrator accounts on my broker.
+
+You can recover access using IAM authentication. Enable outbound web identity federation for your AWS account, create an IAM role with permissions to obtain web identity tokens, configure your broker to accept IAM authentication via OAuth 2.0, then use IAM credentials to obtain a JWT token and create a new administrator user. For detailed instructions, see [Using IAM authentication and authorization for Amazon MQ for RabbitMQ](rabbitmq-iam-tutorial.md "rabbitmq-iam-tutorial.md").

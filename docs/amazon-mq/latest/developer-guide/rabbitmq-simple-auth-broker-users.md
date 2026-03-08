@@ -40,10 +40,7 @@ PUT /api/users/`username` HTTP/1.1
 - Do not add personally identifiable information (PII) or other confidential or sensitive information in broker usernames.
   Broker usernames are accessible to other AWS services, including CloudWatch Logs. Broker usernames are not intended to be used for
   private or sensitive data.
-- If you've forgotten the admin password you set while creating the broker, you cannot reset your credentials.
-  If you've created multiple administrators, you can log in using another admin user and reset or recreate your credentials.
-  If you have only one admin user, you must delete the broker and create a new one with new credentials. We recommend consuming or backing up messages
-  before deleting the broker.
+- If you lose access to all administrator accounts, see [recovering broker access](troubleshooting-rabbitmq.md#rabbitmq-broker-recovery "troubleshooting-rabbitmq.md#rabbitmq-broker-recovery") to use IAM authentication for recovery.
 
 The `tags` key is mandatory, and is a comma-separated list of tags for the user. Amazon MQ supports
 `administrator`, `management`, `monitoring`, and `policymaker` user tags.

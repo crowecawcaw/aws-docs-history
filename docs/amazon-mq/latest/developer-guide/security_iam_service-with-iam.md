@@ -5,8 +5,7 @@ IAM features are available to use with Amazon MQ. To get a high-level view of ho
 Amazon MQ and other AWS services work with IAM, see [AWS Services That
 Work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-Amazon MQ uses IAM for creating, updating, and deleting operations, but native ActiveMQ authentication for brokers.
-For more information, see [Integrating ActiveMQ brokers with LDAP](security-authentication-authorization.md "security-authentication-authorization.md").
+Amazon MQ uses IAM for Amazon MQ API operations to create, update, delete, and list brokers. For broker access to publish and subscribe to messages, Amazon MQ for ActiveMQ supports native ActiveMQ authentication and LDAP, while Amazon MQ for RabbitMQ supports IAM authentication and other methods. For more information, see [Broker authentication and authorization](security-broker-auth-ref.md "security-broker-auth-ref.md").
 
 ###### Topics
 

@@ -1,6 +1,6 @@
 # Broker authentication and authorization
 
-Amazon MQ provides different authentication and authorization methods depending on your broker engine type:
+Amazon MQ provides different authentication and authorization methods depending on your broker engine type.
 
 ## Authentication and authorization for Amazon MQ for ActiveMQ
 
@@ -27,6 +27,10 @@ in RabbitMQ. This is the default method. For more information, see [Simple authe
 ### OAuth 2.0 authentication and authorization
 
 In this method, broker users and their permissions are managed by an external OAuth 2.0 identity provider (IdP). User authentication and resource permissions for vhosts, exchanges, queues, and topics are centralized through the OAuth 2.0 provider's scope system. This simplifies user management and enables integration with existing identity systems. For more information, see [OAuth 2.0 authentication and authorization](oauth-for-amq-for-rabbitmq.md "oauth-for-amq-for-rabbitmq.md").
+
+### IAM authentication and authorization
+
+In this method, broker users authenticate using AWS IAM credentials through [IAM outbound federation](../../../IAM/latest/UserGuide/id_roles_providers_oidc.md "../../../IAM/latest/UserGuide/id_roles_providers_oidc.md"). IAM credentials are used to obtain JWT tokens from AWS Security Token Service (STS), and these JWT tokens serve as OAuth 2.0 tokens for authentication. This method leverages the existing OAuth 2.0 support in Amazon MQ for RabbitMQ, where AWS acts as the OAuth 2.0 identity provider. User authentication is handled by AWS IAM, while resource permissions for vhosts, exchanges, queues, and topics are managed through IAM policies and scope aliases configured in RabbitMQ. For more information, see [IAM authentication and authorization](iam-for-amq-for-rabbitmq.md "iam-for-amq-for-rabbitmq.md").
 
 ### LDAP authentication and authorization
 
