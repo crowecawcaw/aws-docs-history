@@ -20,12 +20,12 @@ need to get information about a Region switch plan during an outage.
 
 For Region switch, the control planes and data planes are divided as follows:
 
-- The control plane for Region switch is located in US East (N. Virginia) Region (us-east-1) and is
+- The control plane for Region switch is located in US East (N. Virginia) Region (us-east-1), AWS GovCloud (US-West) Region (us-gov-west-1) and is
   meant to only be used for service management, that is, creating and updating plans, not for recovery,
   that is, executing plans. _The Region switch configuration control plane API operations are not highly available._
 - Region switch has independent data planes in each AWS Region. You should use the data plane
   for recovery actions, that is, for executing Region switch plans. For a list of the data
-  plan operations, see [Region switch API operations](actions.md "actions.md").
+  plane operations, see [Region switch API operations](actions.md "actions.md").
   _These Region switch data plane operations are highly available._
   Region switch provides an independent console in each AWS Region, which calls data plane API operations for
   recovery tasks, so you can use the console in the Region that you're activating to execute plans for application

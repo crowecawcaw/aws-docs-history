@@ -1,19 +1,25 @@
-# Start an on-demand practice run
+# Examples of using the AWS CLI with zonal autoshift
 
-You can start an on-demand practice run zonal shift with the CLI by using the `start-practice-run` command.
+This section walks through simple application examples of working with zonal autoshift, using the AWS Command Line Interface to work with
+the zonal autoshift capability in Amazon Application Recovery Controller (ARC) using API operations. The examples are intended to help you develop a basic
+understanding of how to work with zonal autoshift using the CLI.
 
-For example, to start a practice run for a resource, use a command like the following:
+Zonal autoshift is a capability in ARC. With zonal autoshift, you authorize AWS to shift away
+supported application resource traffic from an Availability Zone during events, on your behalf, to help reduce your time to recovery.
+For more information about resources that you can use with zonal autoshift, see [Supported resources](arc-zonal-shift.md "arc-zonal-shift.md").
 
-```
-aws arc-zonal-shift start-practice-run
-    --resource-identifier="arn:aws:elasticloadbalancing:`Region`:`111122223333`:`ExampleALB123456890`" \
-    "awayFrom": "usw2-az1",
+Zonal autoshift includes practice runs, which also shift traffic away from Availability Zones, to help verify
+that autoshifts are safe for your application.
 
-```
+For a list of zonal autoshift API actions and links to more information, see [Zonal autoshift API operations](actions.md "actions.md"). For more information about using the AWS CLI, see the
+[AWS CLI Command Reference](../../../cli/latest/reference/arc-zonal-shift/index.md "../../../cli/latest/reference/arc-zonal-shift/index.md").
 
-```
-{
-    "awayFrom": "usw2-az1",
-    "comment": "Practice run started. Shifting traffic away from Availability Zone usw2-az1.",
-}
-```
+###### Contents
+
+- [Create a practice run configuration](getting-started-cli-update-zonal_autoshift.md "getting-started-cli-update-zonal_autoshift.md")
+- [Enable or disable autoshifts](getting-started-cli-zonal-autoshift.md "getting-started-cli-zonal-autoshift.md")
+- [Start an on-demand practice run](getting-started-cli-zonal-autoshift.md "getting-started-cli-zonal-autoshift.md")
+- [Cancel an in-progress practice run](getting-started-cli-zonal-autoshift.md "getting-started-cli-zonal-autoshift.md")
+- [Cancel an in-progress autoshift](getting-started-cli-zonal-autoshift.md "getting-started-cli-zonal-autoshift.md")
+- [Edit a practice run configuration](getting-started-cli-zonal_autoshift.md "getting-started-cli-zonal_autoshift.md")
+- [Delete a practice run configuration](getting-started-cli-zonal-autoshift.md "getting-started-cli-zonal-autoshift.md")

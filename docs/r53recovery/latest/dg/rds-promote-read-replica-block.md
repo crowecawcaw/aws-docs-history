@@ -29,6 +29,8 @@ promotes the read replica in the Region that you're activating to become an inde
 
 ###### Note
 
+This block only supports active/passive plans
+
 During promotion, the DNS endpoint that you use to connect to the database will remain the same.
 However, the promoted instance will no longer replicate from the original primary database. You are
 responsible for ensuring their application is configured to use the correct endpoint after the operation completes.
