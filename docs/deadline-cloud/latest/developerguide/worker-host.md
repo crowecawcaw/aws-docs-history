@@ -297,3 +297,74 @@ requirements:
   `JobRunAsUser` field. For instructions, see step 7 in [Deadline Cloud
   queues](../userguide/queues.md "../userguide/queues.md") in the _AWS Deadline Cloud User Guide_.
 - The agent-user must be able to log on as those users.
+
+## Securing your worker host
+
+When setting up your worker host, follow security best practices to protect
+sensitive information and maintain proper access controls.
+
+### Configuring log folder permissions
+
+The worker agent writes log files that may contain sensitive information from
+host configuration scripts and job execution. The
+`install-deadline-worker` command creates the log directory with
+secure permissions. If you need to create the directory manually before
+installation, use the following procedures to match the permissions used by
+service-managed fleets:
+
+Linux
+
+###### To configure log directory permissions on Linux
+
+1. Create the log directory:
+
+```
+sudo mkdir -p /var/log/amazon/deadline
+```
+
+2. Set the owner and group to the worker agent user:
+
+```
+sudo chown -R deadline-worker:deadline-worker /var/log/amazon/deadline
+```
+
+3. Set permissions to 750:
+
+```
+sudo chmod -R 750 /var/log/amazon/deadline
+```
+
+These permissions ensure that only the worker agent user
+and group can access the log files, preventing job users and
+other unauthorized users from reading potentially sensitive
+information.
+
+Windows
+
+###### To configure log directory permissions on Windows
+
+1. Open an administrator PowerShell terminal.
+2. Create the log directory:
+
+```
+New-Item -ItemType Directory -Force -Path "$env:PROGRAMDATA\Amazon\Deadline\Logs"
+```
+
+3. Configure restricted ACLs to allow only the worker agent
+   user and Administrators:
+
+```
+$acl = Get-Acl "$env:PROGRAMDATA\Amazon\Deadline\Logs"
+$acl.SetAccessRuleProtection($true, $false)
+$acl.Access | ForEach-Object { $acl.RemoveAccessRule($_) }
+$agentRule = New-Object System.Security.AccessControl.FileSystemAccessRule("deadline-worker", "FullControl", "ContainerInherit,ObjectInherit", "None", "Allow")
+$adminRule = New-Object System.Security.AccessControl.FileSystemAccessRule("Administrators", "FullControl", "ContainerInherit,ObjectInherit", "None", "Allow")
+$acl.AddAccessRule($agentRule)
+$acl.AddAccessRule($adminRule)
+Set-Acl "$env:PROGRAMDATA\Amazon\Deadline\Logs" $acl
+```
+
+These commands restrict access to the log directory to
+only the worker agent user and Administrators group,
+preventing job users and other unauthorized users from reading
+potentially sensitive information.

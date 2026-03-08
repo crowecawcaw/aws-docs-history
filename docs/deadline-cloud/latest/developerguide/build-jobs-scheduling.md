@@ -247,6 +247,13 @@ You can set a dependency on multiple steps. For example, if `StepC` depends
 on both `StepA` and `StepB`, `StepC` won't start until the
 other two steps finish.
 
+Step dependencies have the following restrictions:
+
+- **Dependencies per step** – A step can depend on a
+  maximum of 128 other steps.
+- **Consumers per step** – A maximum of 32 other steps
+  can depend on a single step.
+
 ```
 name: Step-Step Dependency Test
 specificationVersion: 'jobtemplate-2023-09'
