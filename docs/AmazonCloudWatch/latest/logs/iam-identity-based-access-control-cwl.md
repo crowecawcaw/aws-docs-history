@@ -209,6 +209,28 @@ information, see [CloudWatch cross-account observability](../monitoring/CloudWat
 To see the full contents of the policy, see [CloudWatchLogsCrossAccountSharingConfiguration](../../../aws-managed-policy/latest/reference/CloudWatchLogsCrossAccountSharingConfiguration.md "../../../aws-managed-policy/latest/reference/CloudWatchLogsCrossAccountSharingConfiguration.md") in the
 _AWS Managed Policy Reference Guide_.
 
+#### CloudWatchLogsAPIKeyAccess
+
+The **CloudWatchLogsAPIKeyAccess** policy enables CloudWatch Logs
+API key authentication and encrypted log ingestion. This policy grants
+permissions to authenticate using bearer tokens and write log events to
+CloudWatch Logs, with additional AWS KMS permissions for decrypting and generating data
+keys when logs are encrypted.
+
+This policy grants the following permissions:
+
+- `logs` – Allows principals to authenticate via
+  API key bearer tokens and write log events to CloudWatch Logs streams.
+- `kms` – Allows principals to read AWS KMS key
+  metadata, generate data keys for encryption, and decrypt data. These
+  permissions support encrypted CloudWatch Logs by allowing the service to
+  encrypt log data using customer-managed AWS KMS keys. Access is
+  restricted to operations called through the CloudWatch Logs service.
+
+To view more details about the policy, including the latest version of the
+JSON policy document, see [CloudWatchLogsAPIKeyAccess](../../../aws-managed-policy/latest/reference/CloudWatchLogsAPIKeyAccess.md "../../../aws-managed-policy/latest/reference/CloudWatchLogsAPIKeyAccess.md") in the _AWS Managed
+Policy Reference Guide_.
+
 ### CloudWatch Logs updates to AWS managed policies
 
 View details about updates to AWS managed policies for CloudWatch Logs since this
@@ -217,6 +239,7 @@ page, subscribe to the RSS feed on the CloudWatch Logs Document history page.
 
 | Change                                                                                                                                                                                                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                               | Date              |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| [CloudWatchLogsAPIKeyAccess](#managed-policies-cwl-CloudWatchLogsAPIKeyAccess "#managed-policies-cwl-CloudWatchLogsAPIKeyAccess") –<br>New policy.                                                            | CloudWatch Logs added a new managed policy **CloudWatchLogsAPIKeyAccess**.<br>This policy enables CloudWatch Logs API key authentication and encrypted log ingestion, granting permissions to authenticate using bearer tokens and write log events to CloudWatch Logs.                                                                                                                                                                   | February 17, 2026 |
 | [CloudWatchLogsFullAccess](#managed-policies-cwl-CloudWatchLogsFullAccess "#managed-policies-cwl-CloudWatchLogsFullAccess") –<br>Update to an existing policy.                                                | CloudWatch Logs added permissions to **CloudWatchLogsFullAccess**.<br>Permissions for observability administration actions were added to allow read-only<br>access to telemetry pipelines and S3 table integrations.                                                                                                                                                                                                                      | December 02, 2025 |
 | [CloudWatchLogsReadOnlyAccess](#managed-policies-cwl-CloudWatchLogsReadOnlyAccess "#managed-policies-cwl-CloudWatchLogsReadOnlyAccess") –<br>Update to an existing policy.                                    | CloudWatch Logs added permissions to **CloudWatchLogsReadOnlyAccess**.<br>Permissions for observability administration actions were added to allow read-only<br>access to telemetry pipelines and S3 table integrations.                                                                                                                                                                                                                  | December 02, 2025 |
 | [CloudWatchLogsFullAccess](#managed-policies-cwl-CloudWatchLogsFullAccess "#managed-policies-cwl-CloudWatchLogsFullAccess") – Update to an<br>existing policy.                                                | CloudWatch Logs added permissions to<br>**CloudWatchLogsFullAccess**.<br>Permissions for<br>`cloudwatch:GenerateQueryResultsSummary` were<br>added to allow for generation of a natural language summary<br>of the query results.                                                                                                                                                                                                         | May 20, 2025      |
@@ -242,9 +265,9 @@ AWS SDKs, or the AWS CLI.
 
 ###### Examples
 
-- [Example 1: Allow full access to CloudWatch Logs](#w2aac55c15c15c23c19b9 "#w2aac55c15c15c23c19b9")
-- [Example 2: Allow read-only access to CloudWatch Logs](#w2aac55c15c15c23c19c11 "#w2aac55c15c15c23c19c11")
-- [Example 3: Allow access to one log group](#w2aac55c15c15c23c19c13 "#w2aac55c15c15c23c19c13")
+- [Example 1: Allow full access to CloudWatch Logs](#w2aac57c15c15c23c19b9 "#w2aac57c15c15c23c19b9")
+- [Example 2: Allow read-only access to CloudWatch Logs](#w2aac57c15c15c23c19c11 "#w2aac57c15c15c23c19c11")
+- [Example 3: Allow access to one log group](#w2aac57c15c15c23c19c13 "#w2aac57c15c15c23c19c13")
 
 #### Example 1: Allow full access to CloudWatch Logs
 
