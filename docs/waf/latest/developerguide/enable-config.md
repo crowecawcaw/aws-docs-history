@@ -43,7 +43,7 @@ following according to the type of Firewall Manager policies that you use:
      for the resource types NetworkFirewall FirewallPolicy, NetworkFirewall
      RuleGroup, EC2 VPC, EC2 InternetGateway, EC2 RouteTable, and EC2 Subnet.
     * **DNS Firewall policy** – Enable
-     Config for the resource type EC2 VPC and Amazon Route 53 ResolverRuleAssociation.
+     Config for the resource type EC2 VPC and Amazon Route 53 FirewallRuleGroupAssociation.
     * **Third-party firewall policy** – Enable Config for the resource types Amazon EC2 VPC, Amazon EC2 InternetGateway, Amazon EC2 RouteTable, Amazon EC2 Subnet, and Amazon EC2 VPCEndpoint.
 
 ###### Note

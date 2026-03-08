@@ -35,5 +35,5 @@ Because the account is no longer part of the consolidated billing family, the
 account will incur a prorated Shield Advanced subscription fee. On the other hand, an account that goes
 out of scope but remains in the organization doesn't incur additional fees.
 
-If a resource goes out of scope, it continues to be protected by Shield Advanced and
+For Shield policy using Classic WebACL, if a resource goes out of scope, it continues to be protected by Shield Advanced and
 continues to incur Shield Advanced data transfer charges.

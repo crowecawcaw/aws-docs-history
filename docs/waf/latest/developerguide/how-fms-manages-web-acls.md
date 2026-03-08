@@ -9,7 +9,9 @@ Firewall Manager creates and manages web ACLs for in-scope resources according t
 
 ###### Note
 
-If a resource that's configured with [advanced automatic application layer DDoS mitigation](ddos-automatic-app-layer-response.md "ddos-automatic-app-layer-response.md") comes into scope of an AWS WAF policy, Firewall Manager will be unable to apply the policy protections to the resource and will mark the resource noncompliant.
+If a resource that's configured with [advanced automatic application layer DDoS mitigation](ddos-automatic-app-layer-response.md "ddos-automatic-app-layer-response.md") by another Firewall Manager Shield policy comes into scope of an AWS WAF policy, where the web ACL on the resource was created by that Firewall Manager Shield policy, Firewall Manager will be unable to apply the AWS WAF policy protections to the resource and will mark the resource noncompliant.
+
+If a customer manually associates a customer-owned web ACL with the resource, the Firewall Manager AWS WAF policy will still override that customer web ACL with the Firewall Manager AWS WAF policy web ACL.
 
 ###### Manage unassociated web ACLs configuration
 

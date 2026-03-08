@@ -62,5 +62,5 @@ pane.
 ###### Refreshing the dashboards
 
 The dashboards don't refresh automatically. To update the display, choose the refresh
-![Icon to refresh the dashboard graph](/images/waf/latest/developerguide/images/cloudwatch-refresh-icon.png)
+![Icon to refresh the dashboard graph](images/cloudwatch-refresh-icon.png)
 icon.
