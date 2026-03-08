@@ -11,4 +11,5 @@ resources.
 - [Supported operations in Amazon OpenSearch Service](supported-operations.md "supported-operations.md")
 - [Amazon OpenSearch Service quotas](limits.md "limits.md")
 - [Reserved Instances in Amazon OpenSearch Service](ri.md "ri.md")
+- [Cost optimization techniques for Amazon OpenSearch Service](cost-optimization.md "cost-optimization.md")
 - [Other supported resources in Amazon OpenSearch Service](supported-resources.md "supported-resources.md")

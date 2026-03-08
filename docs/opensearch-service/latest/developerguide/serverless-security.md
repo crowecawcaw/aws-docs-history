@@ -28,7 +28,8 @@ a matching data access policy that grants permission to its resources.
 - [Network access for Amazon OpenSearch Serverless](serverless-network.md "serverless-network.md")
 - [FIPS compliance in Amazon OpenSearch Serverless](fips-compliance-opensearch-serverless.md "fips-compliance-opensearch-serverless.md")
 - [Data access control for Amazon OpenSearch Serverless](serverless-data-access.md "serverless-data-access.md")
-- [Access Amazon OpenSearch Serverless using an interface endpoint (AWS PrivateLink)](serverless-vpc.md "serverless-vpc.md")
+- [Data plane access through AWS PrivateLink](serverless-vpc.md "serverless-vpc.md")
+- [Control plane access through AWS PrivateLink](serverless-vpc-cp.md "serverless-vpc-cp.md")
 - [SAML authentication for Amazon OpenSearch Serverless](serverless-saml.md "serverless-saml.md")
 - [Compliance validation for Amazon OpenSearch Serverless](serverless-compliance-validation.md "serverless-compliance-validation.md")
 

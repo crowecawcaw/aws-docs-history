@@ -81,7 +81,7 @@ Use the following procedure configure information about your collection.
 
         	+ **VPC endpoints for access** –
         	 Specify one or more VPC endpoints to allow access
-        	 through. To create a VPC endpoint, see [Access Amazon OpenSearch Serverless using an interface endpoint (AWS PrivateLink)](serverless-vpc.md "serverless-vpc.md").
+        	 through. To create a VPC endpoint, see [Data plane access through AWS PrivateLink](serverless-vpc.md "serverless-vpc.md").
         	+ **AWS service private access**
         	 – Select one or more supported services to allow
         	 access to.

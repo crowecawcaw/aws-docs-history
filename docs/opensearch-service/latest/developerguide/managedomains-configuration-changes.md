@@ -16,6 +16,7 @@ new environment is unsuccessful.
 
 - [Changes that usually cause blue/green deployments](#bg "#bg")
 - [Changes that usually don't cause blue/green deployments](#nobg "#nobg")
+- [Blue/Green Deployment options](#bg-deployment-options "#bg-deployment-options")
 - [Determining whether a change will cause a blue/green deployment](#dryrun "#dryrun")
 - [Tracking a configuration change](#initiating-tracking-configuration-changes "#initiating-tracking-configuration-changes")
 - [Stages of a configuration change](#managedomains-config-stages "#managedomains-config-stages")
@@ -85,6 +86,62 @@ sure that a change won't cause a blue/green deployment, [perform a dry
 run](#dryrun "#dryrun") before updating your domain, if this option is available. Some changes don't
 offer a dry run option. We generally recommend that you make changes to your cluster outside
 of peak traffic hours.
+
+## Blue/Green Deployment options
+
+Select a deployment strategy to control how your cluster handles deployments when sufficient capacity is not available at the time of update.
+
+1. **Full Swap Blue/Green** — The default deployment behavior. Requires full instance capacity upfront, ensuring the fastest deployment when capacity is available. Deployment will not proceed if sufficient capacity cannot be allocated.
+2. **Capacity Optimized** — Recommended for clusters with 30+ data nodes. Attempts a full blue/green swap first, and if capacity is insufficient, proceeds with deploying in batches. Ensures deployments can complete even when capacity is limited. Completion time may increase, as deployment will be done in batches.
+
+Console
+**For Edit Domain Flow:**
+
+1. Open the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
+2. In the navigation pane, under **Domains**, choose the domain name to open the Cluster Configuration.
+3. Click on **Edit** button to right side in **Cluster Configuration** tab.
+4. From **Deployment strategy** options choose required configurations for domain update:
+   1. **Full Swap Blue/Green** — The default deployment behavior. Requires full instance capacity upfront, ensuring the fastest deployment when capacity is available. Deployment will not proceed if sufficient capacity cannot be allocated.
+   2. **Capacity Optimized** — Recommended for clusters with 30+ data nodes. Attempts a full blue/green swap first, and if capacity is insufficient, proceeds with deploying in batches. Ensures deployments can complete even when capacity is limited. Completion time may increase, as deployment will be done in batches.
+
+5. Choose **Save changes**.
+
+**For Create Domain Flow:**
+
+1. Open the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
+2. In the left navigation pane, choose **Domains**.
+3. Click on **Create Domain** button.
+4. Select all required configurations for domain.
+5. From **Deployment strategy** options choose required configurations for domain update:
+   1. **Full Swap Blue/Green** — The default deployment behavior. Requires full instance capacity upfront, ensuring the fastest deployment when capacity is available. Deployment will not proceed if sufficient capacity cannot be allocated.
+   2. **Capacity Optimized** — Recommended for clusters with 30+ data nodes. Attempts a full blue/green swap first, and if capacity is insufficient, proceeds with deploying in batches. Ensures deployments can complete even when capacity is limited. Completion time may increase, as deployment will be done in batches.
+
+6. Click on **Create** button on **Domain Summary** panel on right hand side.
+
+API
+You can configure the deployment strategy using the [UpdateDomainConfig](../APIReference/API_UpdateDomainConfig.md "../APIReference/API_UpdateDomainConfig.md") API.
+
+**Capacity Optimized option**
+
+```
+POST https://es.`us-east-1`.amazonaws.com/2021-01-01/opensearch/domain/`my-domain`/config
+{
+   "DeploymentStrategyOptions": {
+    "DeploymentStrategy": "CapacityOptimized"
+   }
+}
+```
+
+**Default option**
+
+```
+POST https://es.`us-east-1`.amazonaws.com/2021-01-01/opensearch/domain/`my-domain`/config
+{
+   "DeploymentStrategyOptions": {
+    "DeploymentStrategy": "Default"
+   }
+}
+```
 
 ## Determining whether a change will cause a blue/green deployment
 

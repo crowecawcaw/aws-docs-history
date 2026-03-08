@@ -253,7 +253,7 @@ access.
 
 ## Creating network policies (console)
 
-Network policies can apply to existing policies as well as future policies. We
+Network policies can apply to existing collections as well as future collections. We
 recommend that you create network policies before you start creating collections.
 
 ###### To create an OpenSearch Serverless network policy

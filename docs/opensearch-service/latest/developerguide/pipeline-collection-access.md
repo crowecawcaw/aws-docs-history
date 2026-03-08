@@ -132,7 +132,7 @@ accessible over the internet from public networks, or whether it must be accesse
 privately. For more information about network policies, see [Network access for Amazon OpenSearch Serverless](serverless-network.md "serverless-network.md").
 
 Within a network access policy, you can only specify OpenSearch Serverless-managed VPC endpoints.
-For more information, see [Access Amazon OpenSearch Serverless using an interface endpoint (AWS PrivateLink)](serverless-vpc.md "serverless-vpc.md"). However, in order for
+For more information, see [Data plane access through AWS PrivateLink](serverless-vpc.md "serverless-vpc.md"). However, in order for
 the pipeline to write to the collection, the policy must also grant access to the
 VPC endpoint that OpenSearch Ingestion automatically creates between the pipeline and the
 collection. Therefore, if you choose an OpenSearch Serverless collection as the destination sink
