@@ -1,16 +1,8 @@
-# Migrating ANSI SQL features
+# Performance tuning for Aurora MySQL
 
-This chapter provides reference information for ANSI SQL operations required to migrate from Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can use this information to understand the key differences and similarities in areas such as object name case sensitivity, constraint compatibility, table creation, Common Table Expressions (CTEs), data type compatibility, GROUP BY operations, table joins, views, window functions, and temporary tables.
+This topic provides reference information about query execution plans and query hints in Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can use this knowledge to understand how these database systems handle query optimization and performance analysis. The content explores the similarities and differences between SQL Server and Aurora MySQL in terms of execution plan features, automatic tuning capabilities, and supported query hints. By understanding these concepts, you can better troubleshoot performance issues, optimize queries, and adapt your database management strategies when migrating between these platforms.
 
 ###### Topics
 
-- [Case sensitivity differences for ANSI SQL](chap-sql-server-aurora-mysql.sql.md "chap-sql-server-aurora-mysql.sql.md")
-- [Constraints for ANSI SQL](chap-sql-server-aurora-mysql.sql.md "chap-sql-server-aurora-mysql.sql.md")
-- [Creating tables for ANSI SQL](chap-sql-server-aurora-mysql.sql.md "chap-sql-server-aurora-mysql.sql.md")
-- [Common table expressions for ANSI SQL](chap-sql-server-aurora-mysql.sql.md "chap-sql-server-aurora-mysql.sql.md")
-- [Data types for ANSI SQL](chap-sql-server-aurora-mysql.sql.md "chap-sql-server-aurora-mysql.sql.md")
-- [GROUP BY for ANSI SQL](chap-sql-server-aurora-mysql.sql.md "chap-sql-server-aurora-mysql.sql.md")
-- [Table JOIN for ANSI SQL](chap-sql-server-aurora-mysql.sql.md "chap-sql-server-aurora-mysql.sql.md")
-- [Views for ANSI SQL](chap-sql-server-aurora-mysql.sql.md "chap-sql-server-aurora-mysql.sql.md")
-- [Window functions for ANSI SQL](chap-sql-server-aurora-mysql.sql.md "chap-sql-server-aurora-mysql.sql.md")
-- [Temporary tables for ANSI SQL](chap-sql-server-aurora-mysql.sql.md "chap-sql-server-aurora-mysql.sql.md")
+- [Tuning run plans](chap-sql-server-aurora-mysql.tuning.md "chap-sql-server-aurora-mysql.tuning.md")
+- [Query hints and plan guides](chap-sql-server-aurora-mysql.tuning.md "chap-sql-server-aurora-mysql.tuning.md")

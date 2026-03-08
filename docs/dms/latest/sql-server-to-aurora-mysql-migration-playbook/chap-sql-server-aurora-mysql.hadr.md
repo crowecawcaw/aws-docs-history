@@ -1,308 +1,357 @@
-# High availability essentials
+# Backup and restore design
 
-This topic provides reference content comparing high availability and disaster recovery features between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can gain insight into how Aurora MySQL offers similar or enhanced capabilities for database replication, failover, and read scaling compared to SQL Server’s solutions like Always On Availability Groups and Failover Cluster Instances.
+This topic provides reference content comparing backup and recovery features between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can gain insight into how these two database systems handle critical data protection tasks.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                        |
-| ------------------------------- | ---------------------------------- | ------------------------- | -------------------------------------------------------------------------------------- |
-| Four star feature compatibility | N/A                                | N/A                       | Multi replica, scale out solution using Amazon Aurora clusters and Availability Zones. |
+| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                         | Key differences                           |
+| ------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
+| Four star feature compatibility | No automation                      | [Backup](chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.backup "chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.backup") | Amazon RDS manages storage-level backups. |
 
 ## SQL Server Usage
 
-SQL Server provides several solutions to support high availability and disaster recovery requirements including Always On Failover Cluster Instances (FCI), Always On Availability Groups, Database Mirroring, and Log Shipping. The following sections describe each solution.
+The term _backup_ refers to both the process of copying data and to the resulting set of data created by the processes that copy data for safekeeping and disaster recovery. Backup processes copy SQL Server data and transaction logs to media such as tapes, network shares, cloud storage, or local files. You can then copy these backups back to the database using a _restore_ process.
 
-SQL Server 2017 also adds new Availability Groups functionality which includes read-scale support without a cluster, Minimum Replica Commit Availability Groups setting, and Windows-Linux cross-OS migrations and testing.
+SQL Server uses files, or filegroups, to create backups for an individual database or subset of a database. Table backups aren’t supported.
 
-SQL Server 2019 introduces support for creating Database Snapshots of databases. A database snapshot is a read-only, static view of a SQL Server database. The database snapshot is transactional consistent with the source database as of the moment of the snapshot’s creation. Among other things, some benefits of the database snapshots with regard to high availability are:
+When a database uses the `FULL` recovery model, transaction logs also need to be backed up. Use transaction logs to back up only database changes since the last full backup and provide a mechanism for point-in-time restore operations.
 
-- Snapshots can be used for reporting purposes.
-- Maintaining historical data for report generation.
-- Using a mirror database that you are maintaining for availability purposes to offload reporting.
+Recovery model is a database-level setting that controls transaction log management. The three available recovery models are `SIMPLE`, `FULL`, and `BULK LOGGED`. For more information, see [Recovery Models (SQL Server)](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15") in the _SQL Server documentation_.
 
-For more information, see [Database Snapshots](https://docs.microsoft.com/en-us/sql/relational-databases/databases/database-snapshots-sql-server?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/databases/database-snapshots-sql-server?view=sql-server-ver15") in the _SQL Server documentation_.
+The SQL Server `RESTORE` process copies data and log pages from a previously created backup back to the database. It then triggers a recovery process that rolls forward all committed transactions not yet flushed to the data pages when the backup took place. It also rolls back all uncommitted transactions written to the data files.
 
-SQL Server 2019 introduces secondary to primary connection redirection for Always On Availability Groups. It allows client application connections to be directed to the primary replica regardless of the target server specified in the connections string. The connection string can target a secondary replica. Using the right configuration of the availability group replica and the settings in the connection string, the connection can be automatically redirected to the primary replica.
+SQL Server supports the following types of backups:
 
-For more information, see [Secondary to primary replica read/write connection redirection](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/secondary-replica-connection-redirection-always-on-availability-groups?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/secondary-replica-connection-redirection-always-on-availability-groups?view=sql-server-ver15") in the _SQL Server documentation_.
+- **Copy-only backups** are independent of the standard chain of SQL Server backups. They are typically used as one-off backups for special use cases and don’t interrupt normal backup operations.
+- **Data backups** copy data files and the transaction log section of the activity during the backup. A data backup may contain the whole database (Database Backup) or part of the database. The parts can be a partial backup or a file or filegroup.
+- **A database backup** is a data backup representing the entire database at the point in time when the backup process finished.
+- **A differential backup** is a data backup containing only the data structures (extents) modified since the last full backup. A differential backup is dependent on the previous full backup and can’t be used alone.
+- **A full backup** is a data backup containing a Database Backup and the transaction log records of the activity during the backup process.
+- **Transaction log backups** don’t contain data pages. They contain the log pages for all transaction activity since the last Full Backup or the previous transaction log backup.
+- **File backups** consist of one or more files or filegroups.
 
-### Always On Failover Cluster Instances
+SQL Server also supports media families and media sets that you can use to mirror and stripe backup devices. For more information, see [Media Sets, Media Families, and Backup Sets](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/media-sets-media-families-and-backup-sets-sql-server?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/media-sets-media-families-and-backup-sets-sql-server?view=sql-server-ver15") in the _SQL Server documentation_.
 
-Always On Failover Cluster Instances use the Windows Server Failover Clustering (WSFC) operating system framework to deliver redundancy at the server instance level.
+SQL Server 2008 Enterprise edition and later versions support backup compression. Backup compression provides the benefit of a smaller backup file footprint, less I/O consumption, and less network traffic at the expense of increased CPU utilization for running the compression algorithm. For more information, see [Backup Compression](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/backup-compression-sql-server?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/backup-compression-sql-server?view=sql-server-ver15") in the _SQL Server documentation_.
 
-An FCI is an instance of SQL Server installed across two or more WSFC nodes. For client applications, the FCI is transparent and appears to be a normal instance of SQL Server running on a single server. The FCI provides failover protection by moving the services from one WSFC node Windows server to another WSFC node windows server in the event the current "active" node becomes unavailable or degraded.
+A database backed up in the `SIMPLE` recovery mode can only be restored from a full or differential backup. For `FULL` and `BULK LOGGED` recovery models, transaction log backups can be restored also to minimize potential data loss.
 
-FCIs target scenarios where a server fails due to a hardware malfunction or a software hang up. Without FCI, a significant hardware or software failure would render the service unavailable until the malfunction is corrected. With FCI, another server can be configured as a "stand by" to replace the original server if it stops servicing requests.
+Restoring a database involves maintaining a correct sequence of individual backup restores. For example, a typical restore operation may include the following steps:
 
-For each service or cluster resource, there is only one node that actively services client requests (known as owning a resource group). A monitoring agent constantly monitors the resource owners and can transfer ownership to another node in the event of a failure or planned maintenance such as installing service packs or security patches. This process is completely transparent to the client application, which may continue to submit requests as normal when the failover or ownership transfer process completes.
+1. Restore the most recent full backup.
+2. Restore the most recent differential backup.
+3. Restore a set of uninterrupted transaction log backups, in order.
+4. Recover the database.
 
-FCI can significantly minimize downtime due to hardware or software general failures. The main benefits of FCI are:
+For large databases, a full restore, or a complete database restore, from a full database backup isn’t always a practical solution. SQL Server supports data file restore that restores and recovers a set of files and a single data page restore, except for databases that use the `SIMPLE` recovery model.
 
-- Full instance level protection.
-- Automatic failover of resources from one node to another.
-- Supports a wide range of storage solutions. WSFC cluster disks can be iSCSI, Fiber Channel, SMB file shares, and others.
-- Supports multi-subnet.
-- No need client application configuration after a failover.
-- Configurable failover policies.
-- Automatic health detection and monitoring.
+### Syntax
 
-For more information, see [Always On Failover Cluster Instances](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-ver15") in the _SQL Server documentation_.
+The following code examples demonstrate the backup syntax.
 
-### Always On Availability Groups
+```
+Backing Up a Whole Database
+BACKUP DATABASE <Database Name> [ <Files / Filegroups> ] [ READ_WRITE_FILEGROUPS ]
+    TO <Backup Devices>
+    [ <MIRROR TO Clause> ]
+    [ WITH [DIFFERENTIAL ]
+    [ <Option List> ][;]
+```
 
-Always On Availability Groups is the most recent high availability and disaster recovery solution for SQL Server. It was introduced in SQL Server 2012 and supports high availability for one or more user databases. Because it can be configured and managed at the database level rather than the entire server, it provides much more control and functionality. As with FCI, Always On Availability Groups relies on the framework services of Windows Server Failover Cluster (WSFC) nodes.
+```
+BACKUP LOG <Database Name>
+    TO <Backup Devices>
+    [ <MIRROR TO clause> ]
+    [ WITH <Option List> ][;]
+```
 
-Always On Availability Groups utilize real-time log record delivery and apply mechanism to maintain near real-time, readable copies of one or more databases.
+```
+<Option List> =
+COPY_ONLY | {COMPRESSION | NO_COMPRESSION } | DESCRIPTION = <Description>
+| NAME = <Backup Set Name> | CREDENTIAL | ENCRYPTION | FILE_SNAPSHOT | { EXPIREDATE =
+<Expiration Date> | RETAINDAYS = <Retention> }
+{ NOINIT | INIT } | { NOSKIP | SKIP } | { NOFORMAT | FORMAT } |
+{ NO_CHECKSUM | CHECKSUM } | { STOP_ON_ERROR | CONTINUE_AFTER_ERROR }
+{ NORECOVERY | STANDBY = <Undo File for Log Shipping> } | NO_TRUNCATE
+ENCRYPTION ( ALGORITHM = <Algorithm> | SERVER CERTIFICATE = <Certificate> | SERVER
+ASYMMETRIC KEY = <Key> );
+```
 
-These copies can also be used as redundant copies for resource usage distribution between servers (a scale-out read solution).
+The following code examples demonstrate the restore syntax.
 
-The main characteristics of Always On Availability Groups are:
+```
+RESTORE DATABASE <Database Name> [ <Files / Filegroups> ] | PAGE = <Page ID>
+FROM <Backup Devices>
+[ WITH [ RECOVERY | NORECOVERY | STANDBY = <Undo File for Log Shipping> } ]
+[, <Option List>]
+[;]
+```
 
-- Supports up to nine availability replicas: One primary replica and up to eight secondary readable replicas.
-- Supports both asynchronous-commit and synchronous-commit availability modes.
-- Supports automatic failover, manual failover, and a forced failover. Only the latter can result in data loss.
-- Secondary replicas allow both read-only access and offloading of backups.
-- Availability Group Listener may be configured for each availability group. It acts as a virtual server address where applications can submit queries. The listener may route requests to a read-only replica or to the primary replica for read-write operations. This configuration also facilitates fast failover as client applications don’t need to be reconfigured post failover.
-- Flexible failover policies.
-- The automatic page repair feature protects against page corruption.
-- Log transport framework uses encrypted and compressed channels.
-- Rich tooling and APIs including Transact-SQL DDL statements, management studio wizards, Always On Dashboard Monitor, and PowerShell scripting.
+```
+RESTORE LOG <Database Name> [ <Files / Filegroups> ] | PAGE = <Page ID>
+[ FROM <Backup Devices>
+[ WITH [ RECOVERY | NORECOVERY | STANDBY = <Undo File for Log Shipping> } ]
+[, <Option List>]
+[;]
+```
 
-For more information, see [Always On availability groups: a high-availability and disaster-recovery solution](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15") in the _SQL Server documentation_.
-
-### Database Mirroring
-
-###### Note
-
-Microsoft recommends avoiding Database Mirroring for new development. This feature is deprecated and will be removed in a future release. It is recommended to use Always On Availability Groups
-instead.
-
-Database mirroring is a legacy solution to increase database availability by supporting near instantaneous failover. It is similar in concept to Always On Availability Groups, but can only be configured for one database at a time and with only one standby replica.
-
-For more information, see [Database Mirroring](https://docs.microsoft.com/en-us/sql/database-engine/database-mirroring/database-mirroring-sql-server?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/database-engine/database-mirroring/database-mirroring-sql-server?view=sql-server-ver15") in the _SQL Server documentation_.
-
-### Log Shipping
-
-Log shipping is one of the oldest and well tested high availability solutions. It is configured at the database level similar to Always On Availability Groups and Database Mirroring. Log shipping can be used to maintain one or more secondary databases for a single primary database.
-
-The log shipping process involves three steps:
-
-1. Backing up the transaction log of the primary database instance.
-2. Copying the transaction log backup file to a secondary server.
-3. Restoring the transaction log backup to apply changes to the secondary database.
-
-Log shipping can be configured to create multiple secondary database replicas by repeating steps 2 and 3 for each secondary server. Unlike FCI and Always On Availability Groups, log shipping solutions don’t provide automatic failover.
-
-In the event the primary database becomes unavailable or unusable for any reason, an administrator must configure the secondary database to serve as the primary and potentially reconfigure all client applications to connect to the new database.
-
-###### Note
-
-Secondary databases can be used for read-only access, but require special handling. For more information, see [Configure Log Shipping](https://docs.microsoft.com/en-us/sql/database-engine/log-shipping/configure-log-shipping-sql-server?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/database-engine/log-shipping/configure-log-shipping-sql-server?view=sql-server-ver15")in the _SQL Server documentation_.
-
-The main characteristics of Log Shipping solutions are:
-
-- Provides redundancy for a single primary database and one or more secondary databases. Log shipping is considered less of a high availability solution due to the lack of automatic failover.
-- Supports limited read-only access to secondary databases.
-- Administrators have control over the timing and delays of the primary server log backup and secondary server restoration.
-- Longer delays can be useful if data is accidentally modified or deleted in the primary database.
-
-For more information, see [About Log Shipping](https://docs.microsoft.com/en-us/sql/database-engine/log-shipping/about-log-shipping-sql-server?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/database-engine/log-shipping/about-log-shipping-sql-server?view=sql-server-ver15") in the _SQL Server documentation_.
+```
+<Option List> =
+MOVE <File to Location>
+| REPLACE | RESTART | RESTRICTED_USER | CREDENTIAL
+| FILE = <File Number> | PASSWORD = <Password>
+| { CHECKSUM | NO_CHECKSUM } | { STOP_ON_ERROR | CONTINUE_AFTER_ERROR }
+| KEEP_REPLICATION | KEEP_CDC
+| { STOPAT = <Stop Time>
+| STOPATMARK = <Log Sequence Number>
+| STOPBEFOREMARK = <Log Sequence Number>
+```
 
 ### Examples
 
-Configure an Always On Availability Group.
+Perform a full compressed database backup.
 
 ```
-CREATE DATABASE DB1;
+BACKUP DATABASE MyDatabase TO DISK='C:\Backups\MyDatabase\FullBackup.bak'
+WITH COMPRESSION;
 ```
 
-```
-ALTER DATABASE DB1 SET RECOVERY FULL;
-```
+Perform a log backup.
 
 ```
-BACKUP DATABASE DB1 TO DISK = N'\\MyBackupShare\DB1\DB1.bak' WITH FORMAT;
+BACKUP DATABASE MyDatabase TO DISK='C:\Backups\MyDatabase\LogBackup.bak'
+WITH COMPRESSION;
 ```
 
-```
-CREATE ENDPOINT DBHA STATE=STARTED
-AS TCP (LISTENER_PORT=7022) FOR DATABASE_MIRRORING (ROLE=ALL);
-```
+Perform a partial differential backup.
 
 ```
-CREATE AVAILABILITY GROUP AG_DB1
-    FOR
-        DATABASE DB1
-    REPLICA ON
-        'SecondarySQL' WITH
-            (
-            ENDPOINT_URL = 'TCP://SecondarySQL.MyDomain.com:7022',
-            AVAILABILITY_MODE = ASYNCHRONOUS_COMMIT,
-            FAILOVER_MODE = MANUAL
-);
+BACKUP DATABASE MyDatabase
+    FILEGROUP = 'FileGroup1',
+    FILEGROUP = 'FileGroup2'
+    TO DISK='C:\Backups\MyDatabase\DB1.bak'
+    WITH DIFFERENTIAL;
 ```
 
-```
--- On SecondarySQL
-ALTER AVAILABILITY GROUP AG_DB1 JOIN;
-```
+Restore a database to a point in time.
 
 ```
-RESTORE DATABASE DB1 FROM DISK = N'\\MyBackupShare\DB1\DB1.bak'
-WITH NORECOVERY;
+RESTORE DATABASE MyDatabase
+    FROM DISK='C:\Backups\MyDatabase\FullBackup.bak'
+    WITH NORECOVERY;
+
+RESTORE LOG AdventureWorks2012
+    FROM DISK='C:\Backups\MyDatabase\LogBackup.bak'
+    WITH NORECOVERY, STOPAT = '20180401 10:35:00';
+
+RESTORE DATABASE AdventureWorks2012 WITH RECOVERY;
 ```
 
-```
--- On Primary
-BACKUP LOG DB1
-TO DISK = N'\\MyBackupShare\DB1\DB1_Tran.bak'
-    WITH NOFORMAT
-```
-
-```
--- On SecondarySQL
-RESTORE LOG DB1
-    FROM DISK = N'\\MyBackupShare\DB1\DB1_Tran.bak'
-    WITH NORECOVERY
-```
-
-```
-ALTER DATABASE MyDb1 SET HADR AVAILABILITY GROUP = MyAG;
-```
-
-For more information, see [Business continuity and database recovery](https://docs.microsoft.com/en-us/sql/database-engine/sql-server-business-continuity-dr?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/database-engine/sql-server-business-continuity-dr?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [Backup Overview](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/backup-overview-sql-server?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/backup-overview-sql-server?view=sql-server-ver15") and [Restore and Recovery Overview](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/restore-and-recovery-overview-sql-server?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/restore-and-recovery-overview-sql-server?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## MySQL Usage
 
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) is a fully managed Platform as a Service (PaaS) providing high availability capabilities. Amazon Relational Database Service (Amazon RDS) provides database and instance administration functionality for provisioning, patching, backup, recovery, failure detection, and repair.
+Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) continuously backs up all cluster volumes and retains restore data for the duration of the backup retention period. The backups are incremental and can be used to restore the cluster to any point in time within the backup retention period. You can specify a backup retention period from one to 35 days when creating or modifying a database cluster. Backups incur no performance impact and don’t cause service interruptions.
 
-New Aurora MySQL database instances are always created as part of a cluster. If you don’t specify replicas at creation time, a single-node cluster is created. You can add database instances to clusters later.
-
-### Regions and Availability Zones
-
-Amazon Relational Database Service (Amazon RDS) is hosted in multiple global locations. Each location is composed of Regions and Availability Zones. Each Region is a separate geographic area having multiple, isolated Availability Zones. Amazon RDS supports placement of resources such as database instances and data storage in multiple locations. By default, resources aren’t replicated across regions.
-
-Each region is completely independent and each Availability Zone is isolated from all others. However, the main benefit of Availability Zones within a Region is that they are connected through low-latency, high bandwidth local network links.
-
-![Availability Zones](images/pb-sql-server-aurora-mysql-availability-zones.png)
-
-Resources may have different scopes. A resource may be global, associated with a specific region (region level), or associated with a specific Availability Zone within a region. For more information, see [Resource locations](../../../AWSEC2/latest/UserGuide/resources.md "../../../AWSEC2/latest/UserGuide/resources.md") in the _User Guide for Linux Instances_.
-
-When you create a database instance, you can specify an availability zone or use the default **No preference** option. In this case, Amazon chooses the availability zone for you.
-
-You can distribute Aurora MySQL instances across multiple availability zones. You can design applications designed to take advantage of failover such that in the event of an instance in one availability zone failing, another instance in different availability zone will take over and handle requests.
-
-You can use elastic IP addresses to abstract the failure of an instance by remapping the virtual IP address to one of the available database instances in another Availability Zone. For more information, see [Elastic IP addresses](../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md "../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md") in the _User Guide for Linux Instances_.
-
-An Availability Zone is represented by a region code followed by a letter identifier. For example, `us-east-1a`.
+Additionally, you can manually trigger data snapshots in a cluster volume that can be saved beyond the retention period. You can use Snapshots to create new database clusters.
 
 ###### Note
 
-To guarantee even resource distribution across Availability Zones for a region, Amazon RDS independently maps Availability Zones to identifiers for each account. For example, the Availability Zone us-east-1a for one account might not be in the same location as us-east-1a for another account. Users can’t coordinate Availability Zones between accounts.
-
-### Aurora MySQL DB Cluster
-
-A DB cluster consists of one or more DB instances and a cluster volume that manages the data for those instances. A cluster volume is a virtual database storage volume that may span multiple Availability Zones with each holding a copy of the database cluster data.
-
-An Amazon Aurora database cluster is made up of one of more of the following types of instances:
-
-- A primary instance that supports both read and write workloads. This instance is used for all DML transactions. Every Amazon Aurora DB cluster has one, and only, one primary instance.
-- An Amazon Aurora replica that supports read-only workloads. Every Aurora MySQL database cluster may contain from zero to 15 Amazon Aurora replicas in addition to the primary instance for a total maximum of 16 instances. Amazon Aurora Replicas enable scale-out of read operations by offloading reporting or other read-only processes to multiple replicas. Place Amazon Aurora replicas in multiple availability Zones to increase availability of the databases.
-
-![Aurora MySQL DB Cluster](images/pb-aurora-architecture-four-cluster-nodes.png)
-
-### Endpoints
-
-Endpoints are used to connect to Aurora MySQL databases. An endpoint is a Universal Resource Locator (URL) comprised of a host address and port number.
-
-- A cluster endpoint is an endpoint for an Amazon Aurora database cluster that connects to the current primary instance for that database cluster regardless of the availability zone in which the primary resides. Every Aurora MySQL DB cluster has one cluster endpoint and one primary instance. The cluster endpoint should be used for transparent failover for either read or write workloads.
+Manual snapshots incur storage charges for Amazon Relational Database Service (Amazon RDS).
 
 ###### Note
 
-Use the cluster endpoint for all write operations including all DML and DDL statements.
+Starting from Amazon RDS 8.0.21, you can turn on and turn off redo logging using the `ALTER INSTANCE {ENABLE|DISABLE} INNODB REDO_LOG` syntax. This functionality is intended for loading data into a new MySQL instance. Disabling redo logging helps speed up data loading by avoiding redo log writes. The new `INNODB_REDO_LOG_ENABLE` privilege permits enabling and disabling redo logging. The new `Innodb_redo_log_enabled` status variable permits monitoring redo logging status. For more information, see [Disabling Redo Logging](https://dev.mysql.com/doc/refman/8.0/en/innodb-redo-log.html#innodb-disable-redo-logging "https://dev.mysql.com/doc/refman/8.0/en/innodb-redo-log.html#innodb-disable-redo-logging") in the _MySQL documentation_.
 
-If the primary instance of a DB cluster fails for any reason, Amazon Aurora automatically fails over server requests to a new primary instance. An example of a typical Aurora MySQL DB Cluster endpoint is: `mydbcluster.cluster-123456789012.us-east-1.rds.amazonaws.com:3306`.
+### Restoring Data
 
-- A reader endpoint is an endpoint that is used to connect to one of the Aurora read-only replicas in the database cluster. Each Aurora MySQL database cluster has one reader endpoint. If there are more than one Aurora Replicas in the cluster, the reader endpoint redirects the connection to one of the available replicas. Use the Reader Endpoint to support load balancing for read-only connections. If the DB cluster contains no replicas, the reader endpoint redirects the connection to the primary instance. If an Aurora Replica is created later, the Reader Endpoint starts directing connections to the new Aurora Replica with minimal interruption in service. An example of a typical Aurora MySQL DB Reader Endpoint is: `mydbcluster.cluster-ro-123456789012.us-east-1.rds.amazonaws.com:3306`.
-- An instance endpoint is a specific endpoint for every database instance in an Aurora DB cluster. Every Aurora MySQL DB instance regardless of its role has its own unique instance endpoint. Use the Instance Endpoints only when the application handles failover and read workload scale-out on its own. For example, you can have certain clients connect to one replica and others to another. An example of a typical Aurora MySQL DB Reader Endpoint is: `mydbinstance.123456789012.us-east-1.rds.amazonaws.com:3306`.
+You can recover databases from Amazon Aurora automatically retained data or from a manually saved snapshot. Using the automatically retained data significantly reduces the need to take frequent snapshots and maintain Recovery Point Objective (RPO) policies.
 
-Some general considerations for using endpoints:
-
-- Consider using the cluster endpoint instead of individual instance endpoints because it supports high-availability scenarios. In the event that the primary instance fails, Aurora MySQL automatically fails over to a new primary instance. You can accomplish this configuration by either promoting an existing Aurora replica to be the new primary or by creating a new primary instance.
-- If you use the cluster endpoint instead of the instance endpoint, the connection is automatically redirected to the new primary.
-- If you choose to use the instance endpoint, you must use the Amazon RDS console or the API to discover which database instances in the database cluster are available and their current roles. Then, connect using that instance endpoint.
-- Be aware that the reader endpoint load balances connections to Aurora Replicas in an Aurora database cluster, but it doesn’t load balance specific queries or workloads. If your application requires custom rules for distributing read workloads, use instance endpoints.
-- The reader endpoint may redirect connection to a primary instance during the promotion of an Aurora Replica to a new primary instance.
-
-### Amazon Aurora Storage
-
-Aurora MySQL data is stored in a cluster volume. The cluster volume is a single, virtual volume that uses fast solid-state disk (SSD) drives. The cluster volume is comprised of multiple copies of the data distributed between availability zones in a region. This configuration minimizes the chances of data loss and allows for the failover scenarios mentioned in the preceding sections.
-
-Amazon Aurora cluster volumes automatically grow to accommodate the growth in size of your databases. An Aurora cluster volume has a maximum size of 64 terabytes (TiB). Since table size is theoretically limited to the size of the cluster volume, the maximum table size in an Aurora DB cluster is 64 TiB.
-
-### Storage Auto-Repair
-
-The chance of data loss due to disk failure is greatly minimize due to the fact that Aurora MySQL maintains multiple copies of the data in three Availability Zones. Aurora MySQL detects failures in the disks that make up the cluster volume. If a disk segment fails, Aurora repairs the segment automatically. Repairs to the disk segments are made using data from the other cluster volumes to ensure correctness. This process allows Aurora to significantly minimize the potential for data loss and the subsequent need to restore a database.
-
-### Survivable Cache Warming
-
-When a database instance starts, Aurora MySQL performs a warming process for the buffer pool. Aurora MySQL pre-loads the buffer pool with pages that have been frequently used in the past. This approach improves performance and shortens the natural cache filling process for the initial period when the database instance starts servicing requests. Aurora MySQL maintains a separate process to manage the cache, which can stay alive even when the database process restarts. The buffer pool entries remain in memory regardless of the database restart providing the database instance with a fully warm buffer pool.
-
-### Crash Recovery
-
-Aurora MySQL can instantaneously recover from a crash and continue to serve requests. Crash recovery is performed asynchronously using parallel threads enabling the database to remain open and available immediately after a crash.
-
-For more information, see [Fault tolerance for an Aurora DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/Concepts.md#Aurora.Managing.FaultTolerance "../../../AmazonRDS/latest/AuroraUserGuide/Concepts.md#Aurora.Managing.FaultTolerance") in the _User Guide for Aurora_.
-
-### Delayed Replication
+The Amazon RDS console displays the available time frame for restoring database instances in the Latest Restorable Time and Earliest Restorable Time fields. The Latest Restorable Time is typically within the last five minutes. The Earliest Restorable Time is the end of the backup retention period.
 
 ###### Note
 
-Amazon RDS for MySQL now supports delayed replication, which enables you to set a configurable time period for which a read replica lags behind the source database. In a standard MySQL replication configuration, there is minimal replication delay between the source and the replica. With delayed replication, you can introduce an intentional delay as a strategy for disaster recovery. A delay can be helpful when you want to recover from a human error. For example, if someone accidentally drops a table from your primary database, you can stop the replication just before the point at which the table was dropped and promote the replica to become a standalone instance. To assist with this process, Amazon RDS for MySQL now includes a stored procedure that will stop replication once a specified point in the binary log is reached. Refer to the blog post for more details.
+The Latest Restorable Time and Earliest Restorable Time fields display when a database cluster restore has been completed. Both display NULL until the restore process completes.
 
-Configuring a read replica for delayed replication is done with stored procedure and can either be performed when the read replica is initially created or be specified for an existing read replica. Delayed replication is available for MySQL version 5.7.22 and later or MySQL 5.6.40 and later in all AWS Regions.
+### Restoring Database Backups from Amazon S3
 
-For more information, see [Working with MySQL read replicas](../../../AmazonRDS/latest/UserGuide/USER_MySQL.Replication.md "../../../AmazonRDS/latest/UserGuide/USER_MySQL.Replication.md") in the _Amazon Relational Database Service User Guide_.
+You can now restore MySQL 5.7 backups stored on Amazon S3 to Amazon Aurora MySQL-Compatible Edition and Amazon RDS for MySQL.
 
-For more information, see [Fault tolerance for an Aurora DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/Concepts.md#Aurora.Managing.FaultTolerance "../../../AmazonRDS/latest/AuroraUserGuide/Concepts.md#Aurora.Managing.FaultTolerance") in the _User Guide for Aurora_.
+If you are migrating a MySQL 5.5, 5.6, or 5.7 database to Amazon Aurora MySQL-Compatible Edition or Amazon RDS for MySQL, you can copy database backups to an Amazon S3 bucket and restore them for a faster migration. Both full and incremental backups of your database can be restored. Restoring backups can be considerably quicker than moving data using the mysqldump utility, which replays SQL statements to recreate the database.
 
-### Examples
+For more information, see [Restoring a backup into a MySQL DB instance](../../../AmazonRDS/latest/UserGuide/MySQL.Procedural.md "../../../AmazonRDS/latest/UserGuide/MySQL.Procedural.md") in the _Amazon Relational Database Service User Guide_.
 
-With Amazon RDS and Amazon Aurora for MySQL there are two options for additional reader instance.
+### Backtracking an Aurora DB Cluster
 
-| Amazon RDS Read Instance Option | Description                                | Usage                                                                                                     |
-| ------------------------------- | ------------------------------------------ | --------------------------------------------------------------------------------------------------------- |
-| Reader                          | Another reader instance in the same region | Better for lower costs and latency between instance                                                       |
-| Cross-region read replica       | Another reader instance in another region  | Better when disaster recovery plan requires minimal distance between the primary and the standby instance |
+With Amazon Aurora with MySQL compatibility, you can backtrack a DB cluster to a specific time, without restoring data from a backup.
 
-The following walkthroughs demonstrate how to create a cross-region read replica and a read replica in the same region.
+Backtracking rewinds the DB cluster to the time you specify. Backtracking isn’t a replacement for backing up your DB cluster so that you can restore it to a point in time. However, backtracking provides the following advantages over traditional backup and restore:
 
-**To create a cross-region read replica**
+- You can easily undo mistakes. If you mistakenly perform a destructive action, such as a DELETE without a WHERE clause, you can backtrack the DB cluster to a time before the destructive action with minimal interruption of service.
+- You can backtrack a DB cluster quickly. Restoring a DB cluster to a point in time launches a new DB cluster and restores it from backup data or a DB cluster snapshot, which can take hours. Backtracking a DB cluster doesn’t require a new DB cluster and rewinds the DB cluster in minutes.
+- You can explore earlier data changes. You can repeatedly backtrack a DB cluster back and forth in time to help determine when a particular data change occurred. For example, you can backtrack a DB cluster three hours and then backtrack forward in time one hour. In this case, the backtrack time is two hours before the original time.
 
-1. Log in to the AWS Console, and choose **RDS**.
-2. Select the instance and choose **Instance actions**, **Create cross-region read replica**.
+For additional information, see [Backtracking an Aurora DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.md") in the _User Guide for Aurora_.
 
-![Create cross-region read replica](images/pb-sql-server-aurora-mysql-cross-region-read-replica.png) 3. On the next page, enter all required details and choose **Create**.
+### Database Cloning
 
-After the replica is created, you can run read and write operations on the primary instance and read-only operations on the replica.
+Database cloning is a fast and cost-effective way to create copies of a database. You can create multiple clones from a single DB cluster and additional clones can be created from existing clones. When first created, a cloned database requires only minimal additional storage space.
 
-**To create a read replica in the same region**
+Database cloning uses a copy-on-write protocol. Data is copied only when it changes either on the source or cloned database.
 
-1. Log in to the AWS Console, and choose **RDS**.
-2. Select the instance and choose **Instance actions**, **Add reader**.
+Data cloning is useful for avoiding impacts on production databases. For example:
 
-![Add reader](images/pb-sql-server-aurora-mysql-add-reader.png) 3. On the next page, enter all required details and choose **Create**.
+- Testing schema or parameter group modifications.
+- Isolating intensive workloads. For example, exporting large amounts of data and running high resource consuming queries.
+- Development and testing with a copy of a production database.
 
-After the replica is created, you can run read and write operations on the primary instance and read-only operations on the replica.
+### Copying and Sharing Snapshots
+
+You can copy and share database snapshots within the same AWS Region, across AWS Regions, and across AWS accounts. Snapshot sharing provides an authorized AWS account with access to snapshots. Authorized users can restore a snapshot from its current location without first copying it.
+
+Copying an automated snapshot to another AWS account requires two steps:
+
+1. Create a manual snapshot from the automated snapshot.
+2. Copy the manual snapshot to another account.
+
+### Backup Storage
+
+In all Amazon RDS regions, backup storage is the collection of both automated and manual snapshots for all database instances and clusters. The size of this storage is the sum of all individual instance snapshots.
+
+When an Aurora MySQL database instance is deleted, all automated backups of that database instance are also deleted. However, Amazon RDS provides the option to create a final snapshot before deleting a database instance. This final snapshot is retained as a manual snapshot. Manual snapshots aren’t automatically deleted.
+
+### The Backup Retention Period
+
+Retention periods for Aurora MySQL DB cluster backups are configured when creating a cluster. If not explicitly set, the default retention is one day when using the Amazon RDS API or the AWS CLI. The retention period is seven days if using the AWS Console. You can modify the backup retention period at any time with a value between one and 35 days.
+
+### Disabling Automated Backups
+
+You can’t turn off automated backups on Aurora MySQL. The backup retention period for Aurora MySQL is managed by the database cluster.
+
+### Saving Data from an Amazon Aurora MySQL Database to Amazon S3
+
+Aurora MySQL supports a proprietary syntax for dumping and loading data directly from and to an Amazon S3 bucket.
+
+You can use the `SELECT …​ INTO OUTFILE S3` statement to export data out of Aurora MySQL. Also, you can use the `LOAD DATA FROM S3` statement for loading data directly from Amazon S3 text files.
+
+###### Note
+
+This integration enables very efficient dumps since there is no need for an intermediate client application to handle the data export, import, and save.
+
+The syntax for the `SELECT …​ INTO OUTFILE S3` statement is shown following:
+
+```
+SELECT
+    [ALL | DISTINCT | DISTINCTROW ]
+        [HIGH_PRIORITY]
+        [STRAIGHT_JOIN]
+        [SQL_SMALL_RESULT] [SQL_BIG_RESULT] [SQL_BUFFER_RESULT]
+        [SQL_CACHE | SQL_NO_CACHE] [SQL_CALC_FOUND_ROWS]
+    select_expr [, select_expr ...]
+    [FROM table_references
+        [PARTITION partition_list]
+    [WHERE where_condition]
+    [GROUP BY {col_name | expr | position}
+        [ASC | DESC], ... [WITH ROLLUP]]
+    [HAVING where_condition]
+    [ORDER BY {col_name | expr | position}
+        [ASC | DESC], ...]
+    [LIMIT {[offset,] row_count | row_count OFFSET offset}]
+    [PROCEDURE procedure_name(argument_list)]
+INTO OUTFILE S3 'S3-URI'
+[CHARACTER SET charset_name]
+    [export_options]
+    [MANIFEST {ON | OFF}]
+    [OVERWRITE {ON | OFF}]
+
+export_options:
+    [{FIELDS | COLUMNS}
+        [TERMINATED BY 'string']
+        [[OPTIONALLY] ENCLOSED BY 'char']
+        [ESCAPED BY 'char']
+    ]
+    [LINES
+        [STARTING BY 'string']
+        [TERMINATED BY 'string']
+    ]
+```
+
+The syntax for the `LOAD DATA FROM S3` statement is shown following:
+
+```
+LOAD DATA FROM S3 [FILE | PREFIX | MANIFEST] 'S3-URI'
+    [REPLACE | IGNORE]
+    INTO TABLE tbl_name
+    [PARTITION (partition_name,...)]
+    [CHARACTER SET charset_name]
+    [{FIELDS | COLUMNS}
+        [TERMINATED BY 'string']
+        [[OPTIONALLY] ENCLOSED BY 'char']
+        [ESCAPED BY 'char']
+    ]
+    [LINES
+        [STARTING BY 'string']
+        [TERMINATED BY 'string']
+    ]
+    [IGNORE number {LINES | ROWS}]
+    [(col_name_or_user_var,...)]
+    [SET col_name = expr,...]
+```
+
+For more information, see [Loading data into an Amazon Aurora MySQL DB cluster from text files in an Amazon S3 bucket](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.md") in the _User Guide for Aurora_.
+
+As you can see from the syntax, Aurora MySQL offers various options for easy control of saving and loading data directly from an SQL statement without needing to configure options or external services.
+
+The `MANIFEST` option of the export allows you to create an accompanying JSON file that lists the text files created by the `SELECT …​ INTO OUTFILE S3` statement. Later, the `LOAD DATA FROM S3` statement can use this manifest to load the data files back into the database tables.
+
+### Migration Considerations
+
+Migrating from a self-managed backup policy to a Platform as a Service (PaaS) environment such as Aurora MySQL is a complete paradigm shift. You no longer need to worry about transaction logs, file groups, disks running out of space, and purging old backups.
+
+Amazon RDS provides guaranteed continuous backup with point-in-time restore up to 35 days.
+
+Managing an SQL Server backup policy with similar RTO and RPO is a challenging task. With Aurora MySQL, all you need to do set is the retention period and take manual snapshots for special use cases.
+
+### Considerations for Exporting Data to Amazon S3
+
+By default, each file created in an Amazon S3 bucket as a result of the export has a maximal size of 6 GB. The system rolls over to a new file once this limit is exceeded. However, Aurora MySQL guarantees that rows will not span multiple files, and therefore slight variations from this max size are possible.
+
+The `SELECT …​ INTO OUTFILE S3` statement is an atomic transaction. Large or complicated `SELECT` statements may take a significant amount of time to complete. In the event of an error, the statement rolls back and should be ran again. However, if some of the data has already been uploaded to the Amazon S3 bucket, it isn’t deleted as part of the rollback and you can use a differential approach to upload only the remaining data.
+
+###### Note
+
+For exports larger than 25 GB, AWS recommends to split the `SELECT …​ INTO OUTFILE S3` statement into multiple, smaller batches.
+
+Metadata, such as table schema or file metadata, isn’t uploaded by Aurora MySQL to Amazon S3.
+
+### Example — Change the Retention Policy to Seven Days
+
+The following walkthrough describes how to change Aurora MySQL DB cluster retention settings from one day to seven days using the Amazon RDS console.
+
+1. Log in to your [Management Console](https://eu-central-1.console.aws.amazon.com/rds/home?#databases: "https://eu-central-1.console.aws.amazon.com/rds/home?#databases:"), choose **Amazon RDS** , and then choose **Databases**.
+2. Choose the relevant DB identifier.
+3. Verify the current automatic backup settings.
+4. Select the database instance with the writer role and choose **Modify**.
+5. Scroll down to the **Backup** section. Select **7 Days** from the list.
+6. Choose **Continue**, review the summary, select if to use scheduled maintenance window or to apply immediate and choose **Modify DB instance**.
+
+For more information, see [Maintenance Plans](chap-sql-server-aurora-mysql.management.md "chap-sql-server-aurora-mysql.management.md").
+
+### Exporting Data to Amazon S3
+
+For a detailed example with all the necessary preliminary steps required to export data from Aurora MySQL to an Amazon S3 bucket, see [Saving data from an Amazon Aurora MySQL DB cluster into text files in an Amazon S3 bucket](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.md") in the _User Guide for Aurora_.
 
 ## Summary
 
-| Feature                           | SQL Server                    | Aurora MySQL           | Comments                                                                    |
-| --------------------------------- | ----------------------------- | ---------------------- | --------------------------------------------------------------------------- |
-| Server level failure protection   | Failover Cluster Instances    | N/A                    | Not applicable. Clustering is handled by Aurora MySQL.                      |
-| Database level failure protection | Always On Availability Groups | Amazon Aurora Replicas |                                                                             |
-| Log replication                   | Log Shipping                  | N/A                    | Not applicable. Aurora MySQL handles data replication at the storage level. |
-| Disk error protection             | `RESTORE…​ PAGE=`             | Automatically          |                                                                             |
-| Maximum read-only replicas        | 8 + Primary                   | 15 + Primary           |                                                                             |
-| Failover address                  | Availability group listener   | Cluster endpoint       |                                                                             |
-| Read-only workloads               | `READ INTENT` connection      | Read endpoint          |                                                                             |
+| Feature                      | SQL Server                                            | Aurora MySQL                                              | Comments                                                                                                                                                                                                                                  |
+| ---------------------------- | ----------------------------------------------------- | --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
+| Recovery model               | `SIMPLE`, `BULK LOGGED`, `FULL`                       | N/A                                                       | The functionality of Aurora MySQL backups is equivalent to the `FULL` recovery model.                                                                                                                                                     |
+| Backup database              | `BACKUP DATABASE`                                     | Automatic and continuous                                  |                                                                                                                                                                                                                                           |
+| Partial backup               | ```<br>BACKUP DATABASE<br>...<br>FILE= ...            | <br>FILEGROUP = ...<br>```                                | N/A                                                                                                                                                                                                                                       |     |
+| Log backup                   | `BACKUP LOG`                                          | N/A                                                       | Backup is at the storage level.                                                                                                                                                                                                           |
+| Differential Backups         | `<br>BACKUP DATABASE<br>...<br>WITH DIFFERENTIAL<br>` | N/A                                                       |                                                                                                                                                                                                                                           |
+| Database snapshots           | `<br>BACKUP DATABASE<br>...<br>WITH COPY_ONLY<br>`    | Amazon RDS console or API                                 | The terminology is inconsistent between SQL Server and Aurora MySQL. A database snapshot in SQL Server is similar to database cloning in Aurora MySQL. Aurora MySQL database snapshots are similar to a `COPY_ONLY` backup in SQL Server. |
+| Database clones              | `<br>CREATE<br>DATABASE...<br>AS SNAPSHOT OF...<br>`  |                                                           | The terminology is inconsistent between SQL Server and Aurora MySQL. A database snapshot in SQL Server is similar to database cloning in Aurora MySQL. Aurora MySQL database snapshots are similar to a `COPY_ONLY` backup in SQL Server. |
+| Point in time restore        | ```<br>RESTORE DATABASE                               | LOG ... WITH<br>STOPAT...<br>```                          | Any point within the retention period using the Amazon RDS console or API                                                                                                                                                                 |     |
+| Partial restore              | ```<br>RESTORE DATABASE...<br>FILE= ...               | <br>FILEGROUP = ...<br>```                                | N/A                                                                                                                                                                                                                                       |     |
+| Export and import table data | DTS, SSIS, BCP, linked servers to files               | `<br>SELECT INTO ... OUTFILE S3<br>LOAD DATA FROM S3<br>` |                                                                                                                                                                                                                                           |
 
-For more information, see [Amazon Aurora DB clusters](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md") in the _User Guide for Aurora_ and [Regions and Zones](../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md "../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md") in the _User Guide for Linux Instances_.
+For more information, see [Overview of backing up and restoring an Aurora DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.md") and [Saving data from an Amazon Aurora MySQL DB cluster into text files in an Amazon S3 bucket](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.md") in the _User Guide for Aurora_.

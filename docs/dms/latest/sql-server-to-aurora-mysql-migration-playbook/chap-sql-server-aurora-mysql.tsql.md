@@ -1,73 +1,241 @@
-# Date and time functions for T-SQL
+# Databases and schemas for T-SQL
 
-This topic provides reference information about date and time functions in Microsoft SQL Server and Amazon Aurora MySQL, which is valuable for database administrators and developers migrating from SQL Server to Aurora MySQL. You can understand the similarities and differences in how these two database systems handle temporal operations, including system date and time values, time zone considerations, and specific function equivalents.
+This topic provides reference content comparing database and schema concepts between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can gain insight into how these two database systems differ in their approach to logical containers, security, and object hierarchies.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                              | Key differences                         |
-| -------------------------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
-| Three star feature compatibility | Four star automation level         | [Date and Time Functions](chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.datetime "chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.datetime") | Time zone handling. Syntax differences. |
+| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                     |
+| ------------------------------ | ---------------------------------- | ------------------------- | ----------------------------------- |
+| Two star feature compatibility | Two star automation level          | N/A                       | Schema and database are synonymous. |
 
 ## SQL Server Usage
 
-Date and time functions are scalar functions that perform operations on temporal or numeric input and return temporal or numeric values.
-
-System date and time values are derived from the operating system of the server where SQL Server is running.
+Databases and schemas are logical containers for security and access control. Administrators can grant permissions collectively at both the databases and the schema levels. SQL Server instances provide security at three levels: individual objects, schemas (collections of objects), and databases (collections of schemas). For more information, see [Data Control Language](chap-sql-server-aurora-mysql.security.md "chap-sql-server-aurora-mysql.security.md").
 
 ###### Note
 
-This section doesn’t address time zone considerations and time zone aware functions. For more information, see [Data Types](chap-sql-server-aurora-mysql.sql.md "chap-sql-server-aurora-mysql.sql.md").
+In previous versions of SQL server, the term _user_ was interchangeable with the term _schema_. For backward compatibility, each database has several built-in security schemas including `guest`, `dbo`,
+`db_datareaded`, `sys`, `INFORMATION_SCHEMA`, and so on. You should migrate these schemas.
 
-### Syntax and Examples
+Each SQL Server instance can host and manage a collection of databases, which consist of SQL Server processes and the Master, Model, TempDB, and MSDB system databases.
 
-The following table lists the most commonly used date and time functions.
+The most common SQL Server administrator tasks at the database level are:
 
-| Function                               | Purpose                                                                                                   | Example                                                                           | Result                  | Comments                                                 |
-| -------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ----------------------- | -------------------------------------------------------- |
-| `GETDATE` and `GETUTCDATE`             | Return a datetime value that contains the current local or UTC date and time.                             | `SELECT GETDATE()`                                                                | 2018-04-05 15:53:01.380 |                                                          |
-| `DATEPART`, `DAY`, `MONTH`, and `YEAR` | Return an integer value representing the specified date part of a specified date.                         | `SELECT MONTH(GETDATE()), YEAR(GETDATE())`                                        | 4, 2018                 |                                                          |
-| `DATEDIFF`                             | Returns an integer value of date part boundaries that are crossed between two dates.                      | `SELECT DATEDIFF(DAY, GETDATE(), EOMONTH(GETDATE()))`                             | 25                      | How many days are left until the end of the month.       |
-| `DATEADD`                              | Returns a datetime value that is calculated with an offset interval to the specified date part of a date. | `SELECT DATEADD(DAY, 25, GETDATE())`                                              | 2018-04-30 15:55:52.147 |                                                          |
-| `CAST` and `CONVERT`                   | Converts datetime values to and from string literals and to and from other datetime formats.              | `SELECT CAST(GETDATE() AS DATE)`<br>`SELECT CONVERT(VARCHAR(20), GETDATE(), 112)` | 2018-04-05 20180405     | Default date format. Style 112 (ISO) with no separators. |
+- **Managing Physical Files** — Add, remove, change file growth settings, and re-size files.
+- **Managing Filegroups** — Partition schemes, object distribution, and read-only protection of tables.
+- **Managing default options**.
+- **Creating database snapshots**.
 
-For more information, see [Date and Time functions](https://docs.microsoft.com/en-us/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql?view=sql-server-ver15#DateandTimeFunctions "https://docs.microsoft.com/en-us/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql?view=sql-server-ver15#DateandTimeFunctions") in the _SQL Server documentation_.
+Unique object identifiers within an instance use three-part identifiers: `<Database name>.<Schema name>.<Object name>`.
+
+The recommended way to view the metadata of database objects, including schemas, is to use the ANSI standard Information Schema views. In most cases, these views are compatible with other ANSI compliant RDBMS.
+
+To view a list of all databases on the server, use the `sys.databases` table.
+
+### Syntax
+
+Simplified syntax for `CREATE DATABASE`:
+
+```
+CREATE DATABASE <database name>
+[ ON [ PRIMARY ] <file specifications>[,<filegroup>]
+[ LOG ON <file specifications>
+[ WITH <options specification> ] ;
+```
+
+Simplified syntax for CREATE SCHEMA:
+
+```
+CREATE SCHEMA <schema name> | AUTHORIZATION <owner name>;
+```
+
+### Examples
+
+Add a file to a database and create a table using the new file.
+
+```
+USE master;
+```
+
+```
+ALTER DATABASE NewDB
+ADD FILEGROUP NewGroup;
+```
+
+```
+ALTER DATABASE NewDB
+ADD FILE (
+    NAME = 'NewFile',
+    FILENAME = 'D:\NewFile.ndf',
+    SIZE = 2 MB
+    )
+TO FILEGROUP NewGroup;
+```
+
+```
+USE NewDB;
+```
+
+```
+CREATE TABLE NewTable
+(
+    Col1 INT PRIMARY KEY
+)
+ON NewGroup;
+```
+
+```
+SELECT Name
+FROM sys.databases
+WHERE database_id > 4;
+```
+
+Create a table within a new schema and database.
+
+```
+USE master
+```
+
+```
+CREATE DATABASE NewDB;
+```
+
+```
+USE NewDB;
+```
+
+```
+CREATE SCHEMA NewSchema;
+```
+
+```
+CREATE TABLE NewSchema.NewTable
+(
+    NewColumn VARCHAR(20) NOT NULL PRIMARY KEY
+);
+```
+
+###### Note
+
+The preceding example uses default settings for the new database and schema.
+
+For more information, see [sys.databases (Transact-SQL)](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=sql-server-ver15"), [CREATE SCHEMA (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-schema-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-schema-transact-sql?view=sql-server-ver15"), and [CREATE DATABASE](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-database-transact-sql?view=sql-server-ver15&tabs=sqlpool "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-database-transact-sql?view=sql-server-ver15&tabs=sqlpool") in the _SQL Server documentation_.
 
 ## MySQL Usage
 
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) provides a very rich set of scalar date and time functions; more than SQL Server.
+Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports both the `CREATE SCHEMA` and `CREATE DATABASE` statements. However, in Aurora MySQL, these statements are synonymous.
+
+Unlike SQL Server, Aurora MySQL doesn’t have the concept of an instance hosting multiple databases, which in turn contain multiple schemas. Objects in Aurora MySQL are referenced as a two part name: `<schema>.<object>`. You can use the term _database_ in place of schema, but it is conceptually the same thing.
 
 ###### Note
 
-While some of the functions such as DATEDIFF seem to be similar to those in SQL Server, the functionality can be significantly different. Take extra care when migrating temporal logic to Aurora MySQL paradigms.
+This terminology conflict can lead to confusion for SQL Server database administrators unfamiliar with the Aurora MySQL concept of a database.
 
-### Syntax and Examples
+###### Note
 
-| Function                                                       | Purpose                                                                                                   | Example                                                                           | Result                 | Comments                                                                                                                                                                          |
-| -------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `NOW`, `LOCALTIME`, `CURRENT_TIMESTAMP`, and `SYSDATE`         | Returns a datetime value that contains the current local date and time.                                   | `SELECT NOW()`                                                                    | 2018-04-06 18:57:54    | `SYSDATE` returns the time at which it runs, compared to `NOW`, which returns a constant time when the statement started running. Also, `SET TIMESTAMP` doesn’t affect `SYSDATE`. |
-| `UTC_TIMESTAMP`                                                | Returns a datetime value that contains the current UTC date and time.                                     | `SELECT UTC_TIMESTAMP()`                                                          | 2018-04-07 04:57:54    |                                                                                                                                                                                   |
-| `SECOND`, `MINUTE`, `HOUR`, `DAY`, `WEEK`, `MONTH`, and `YEAR` | Returns an integer value representing the specified date part of a specified date function.               | `SELECT MONTH(NOW()), YEAR(NOW())`                                                | 4, 2018                |                                                                                                                                                                                   |
-| `DATEDIFF`                                                     | Returns an integer value of the difference in days between two dates.                                     | `SELECT DATEDIFF(NOW(),'2018-05-01')`                                             | -25                    | `DATEDIFF` in Aurora MySQL is only for calculating difference in days. Use `TIMESTAMPDIFF` instead.                                                                               |
-| `TIMESTAMPDIFF`                                                | Returns an integer value of the difference in date part between two dates.                                | `SELECT TIMESTAMPDIFF(DAY, NOW(),'2018-05-01')`                                   | 24                     |                                                                                                                                                                                   |
-| `DATE_ADD`, `DATE_SUB`                                         | Returns a datetime value that is calculated with an offset interval to the specified date part of a date. | `SELECT DATE_ADD(NOW(),INTERVAL 1 DAY);`                                          | 2018-04-07 19:35:32    |                                                                                                                                                                                   |
-| `CAST` and `CONVERT`                                           | Converts datetime values to and from string literals and to and from other datetime formats.              | `SELECT CAST(GETDATE() AS DATE)`<br>`SELECT CONVERT(VARCHAR(20), GETDATE(), 112)` | 2018-04-05<br>20180405 | Default date format. Style 112 (ISO) with no separators.                                                                                                                          |
+Each database and schema in Aurora MySQL is managed as a separate set of physical files similar to an SQL Server database.
+
+Aurora MySQL doesn’t have the concept of a schema owner. Permissions must be granted explicitly. However, Aurora MySQL supports a custom default collation at the schema level, whereas SQL Server supports it at the database level only. For more information, see [Collations](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").
+
+### Syntax
+
+Syntax for CREATE DATABASE:
+
+```
+CREATE {DATABASE | SCHEMA} <database name>
+[DEFAULT] CHARACTER SET [=] <character set>|
+[DEFAULT] COLLATE [=] <collation>
+```
 
 ### Migration Considerations
 
-The date and time handling paradigm in Aurora MySQL differs from SQL Server.
+Similar to SQL Server, Aurora MySQL supports the USE command to specify the default database or schema for missing object qualifiers.
 
-Be aware of the differences in data types, time zone awareness, and locale handling. For more information, see [Data Types](chap-sql-server-aurora-mysql.sql.md "chap-sql-server-aurora-mysql.sql.md").
+The syntax is identical to SQL Server:
+
+```
+USE <database name>;
+```
+
+After you run the `USE` command, the default database for the calling scope is changed to the specified database.
+
+There is a relatively straightforward migration path for a class of common application architectures that use multiple databases but have all objects in a single schema (typically the default `dbo` schema) and require cross database queries. For these types of applications, create an Aurora MySQL Instance and then create multiple databases as you would in SQL Server using the `CREATE DATABASE` command.
+
+Reference all objects using a two-part name instead of a three-part name by omitting the default schema identifier. For application code using the USE command instead of a three-part identifier, no rewrite is needed other than replacing the double dot with a single dot.
+
+```
+SELECT * FROM MyDB..MyTable -> SELECT * FROM MyDB.MyTable
+```
+
+For applications using a single database and multiple schemas, the migration path is the same and requires fewer rewrites because two-part names are already being used.
+
+Applications that use multiple schemas and multiple databases will need to use multiple instances.
+
+Use the `SHOW DATABASES` command to view databases or schemas in Aurora MySQL.
+
+```
+SHOW DATABASES;
+```
+
+For the preceding example, the result looks as shown following.
+
+```
+database
+
+information_schema
+Demo
+mysql
+performance_schema
+sys
+```
+
+Aurora MySQL also supports a `CREATE DATABASE` syntax reminder command.
+
+```
+SHOW CREATE DATABASE Demo;
+```
+
+For the preceding example, the result looks as shown following.
+
+```
+Database  Create Database
+Demo      CREATE DATABASE `Demo` /*!40100 DEFAULT CHARACTER SET latin1 */
+```
+
+### Examples
+
+The following examples create a new table in a new database.
+
+```
+CREATE DATABASE NewDatabase;
+```
+
+```
+USE NewDatabase;
+```
+
+```
+CREATE TABLE NewTable
+(
+    NewColumn VARCHAR(20) NOT NULL PRIMARY KEY
+);
+```
+
+```
+INSERT INTO NewTable VALUES('NewValue');
+```
+
+```
+SELECT * FROM NewTable;
+```
 
 ## Summary
 
-The following table identifies similarities, differences, and key migration considerations.
+The following table summarizes the migration path for each architecture.
 
-| SQL Server function            | Aurora MySQL function                                                                                                                                        | Comments                                                                                                                                                                                                                                   |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `GETDATE`, `CURRENT_TIMESTAMP` | `NOW`, `LOCALTIME`, `CURRENT_TIMESTAMP`, and `SYSDATE`                                                                                                       | `CURRENT_TIMESTAMP` is the ANSI standard and it is compatible. `SYSDATE` returns the time at which it runs, unlike `NOW` which returns a constant time when the statement started running. Also, SET `TIMESTAMP` doesn’t affect `SYSDATE`. |
-| `GETUTCDATE`                   | `UTC_TIMESTAMP`                                                                                                                                              |                                                                                                                                                                                                                                            |
-| `DAY`, `MONTH`, and `YEAR`     | `DAY`, `MONTH`, `YEAR`                                                                                                                                       | Compatible syntax.                                                                                                                                                                                                                         |
-| `DATEPART`                     | `EXTRACT`, or one of: `MICROSECOND`, `SECOND`, `MINUTE`, `HOUR`, `DAY`, `DAYNAME`, `DAYOFWEEK`, `DAYOFYEAR`, `WEEK`, `MONTH`, `MONTHNAME`, `QUARTER`, `YEAR` | Aurora MySQL supports `EXTRACT` as a generic `DATEPART` function. For example, `EXTRACT (YEAR FROM NOW())`. It also supports individual functions for each day part.                                                                       |
-| `DATEDIFF`                     | `TIMESTAMPDIFF`                                                                                                                                              | `DATEDIFF` in Aurora MySQL only calculates differences in days.                                                                                                                                                                            |
-| `DATEADD`                      | `DATE_ADD`, `DATE_SUB`, `TIMESTAMPADD`                                                                                                                       | `DATEADD` in Aurora MySQL only adds full days to a datetime value. Aurora MySQL also supports `DATE_SUB` for subtracting date parts from a date time expression. The argument order and syntax is also different and requires a rewrite.   |
-| `CAST` and `CONVERT`           | `DATE_FORMAT`, `TIME_FORMAT`                                                                                                                                 | Although Aurora MySQL supports both `CAST` and `CONVERT`, they aren’t used for style conversion as in SQL Server. Use `DATE_FORMAT` and `TIME_FORMAT`.                                                                                     |
+| Current object architecture                          | Migrate to Aurora MySQL                         | Rewrites                                                                                                                                                            |
+| ---------------------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Single database, all objects in dbo schema.          | Single instance, single database or schema.     | If the code already uses two-part object notation such as `dbo.<object>`, consider creating a `dbo` schema in Aurora MySQL to minimize code changes.                |
+| Single database, objects in multiple schemas.        | Single instance, multiple databases or schemas. | No identifier hierarchy rewrites needed. Code should be compatible with respect to the object hierarchy.                                                            |
+| Multiple databases, all objects in the `dbo` schema. | Single instance, multiple databases or schemas. | Identifier rewrite is required to remove the SQL Server schema name or the default dot. Change `SELECT<br>• FROM MyDB..MyTable` to `SELECT<br>• FROM MyDB.MyTable`. |
+| Multiple databases, objects in multiple schemas.     | Multiple instances.                             | Connectivity between the instances will need to be implemented at the application level.                                                                            |
 
-For more information, see [Date and Time Functions](https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html "https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html") in the _MySQL documentation_.
+For more information, see [CREATE DATABASE Statement](https://dev.mysql.com/doc/refman/5.7/en/create-database.html "https://dev.mysql.com/doc/refman/5.7/en/create-database.html") in the _MySQL documentation_.
