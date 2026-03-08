@@ -165,7 +165,7 @@ can see the added fields to use them in your Dashboards and Analyses.
 
 ![AWS Console search with results for Quick Sight](images/cust_navqs.png) 2. Select Datasets on the left side of the page.
 
-![Left navigation in Quick Sight with datasets option highlighted](/images/guidance/latest/cloud-intelligence-dashboards/images/cust_qs_ds.png) 3. Locate **summary_view** in the list of datasets and click on the dataset. 4. Click on the **EDIT DATASET** button in the top right of the page.
+![Left navigation in Quick Sight with datasets option highlighted](images/cust_qs_ds.png) 3. Locate **summary_view** in the list of datasets and click on the dataset. 4. Click on the **EDIT DATASET** button in the top right of the page.
 
 ![Quick Sight edit dataset button](images/cust_editds.png) 5. Allow the fields and dataset preview windows to load. 6. Confirm that you can see the fields you’ve added in the list. This can
 be accomplished by entering the **friendly name** of the field in the
