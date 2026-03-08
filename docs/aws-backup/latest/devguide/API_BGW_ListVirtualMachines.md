@@ -113,16 +113,6 @@ A description of which internal error occured.
 
 HTTP Status Code: 500
 
-**ResourceNotFoundException**
-
-A resource that is required for the action wasn't found.
-
-**ErrorCode**
-
-A description of which resource wasn't found.
-
-HTTP Status Code: 400
-
 **ThrottlingException**
 
 TPS has been limited to protect against intentional or unintentional

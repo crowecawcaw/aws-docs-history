@@ -17,8 +17,8 @@ option and create a Windows VSS backup.
 Set to `"WindowsVSS":"disabled"` to create a regular backup. The
 `WindowsVSS` option is not enabled by default.
 
-For S3 backups, set to `"S3BackupACLs":"disabled"` to exclude ACLs from the backup,
-or `"S3BackupObjectTags":"disabled"` to exclude object tags from the backup.
+For S3 backups, set to `"BackupACLs":"disabled"` to exclude ACLs from the backup,
+or `"BackupObjectTags":"disabled"` to exclude object tags from the backup.
 By default, both ACLs and object tags are included in S3 backups.
 
 If you specify an invalid option, you get an `InvalidParameterValueException`

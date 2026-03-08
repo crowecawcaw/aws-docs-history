@@ -4,6 +4,14 @@ The details of gateway.
 
 ## Contents
 
+**DeprecationDate**
+
+Date after which this gateway will not receive software updates for new features and bug fixes.
+
+Type: Timestamp
+
+Required: No
+
 **GatewayArn**
 
 The Amazon Resource Name (ARN) of the
@@ -75,6 +83,18 @@ Details showing the next update availability time of the
 gateway.
 
 Type: Timestamp
+
+Required: No
+
+**SoftwareVersion**
+
+The version number of the software running on the gateway appliance.
+
+Type: String
+
+Length Constraints: Minimum length of 1. Maximum length of 100.
+
+Pattern: `[a-zA-Z0-9-]*`
 
 Required: No
 

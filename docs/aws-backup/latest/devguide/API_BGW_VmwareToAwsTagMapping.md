@@ -13,7 +13,7 @@ Type: String
 
 Length Constraints: Minimum length of 1. Maximum length of 128.
 
-Pattern: `(?!aws:)[\p{L}\p{Z}\p{N}_.:/=+\-@]+`
+Pattern: `([\p{L}\p{Z}\p{N}_.:/=+\-@]*)`
 
 Required: Yes
 

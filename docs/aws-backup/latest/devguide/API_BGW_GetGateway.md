@@ -34,6 +34,7 @@ Required: Yes
 ```
 {
    "Gateway": {
+      "DeprecationDate": ***number***,
       "GatewayArn": "***string***",
       "GatewayDisplayName": "***string***",
       "GatewayType": "***string***",
@@ -46,6 +47,7 @@ Required: Yes
          "MinuteOfHour": ***number***
       },
       "NextUpdateAvailabilityTime": ***number***,
+      "SoftwareVersion": "***string***",
       "VpcEndpoint": "***string***"
    }
 }

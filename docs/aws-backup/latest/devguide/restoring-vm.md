@@ -206,6 +206,12 @@ RequireIMDSv2
 NetworkInterfaces
 ```
 
+AWS Backup supports both partial restores to Amazon EBS and full restores to Amazon EC2. For partial
+restores, use `ItemsToRestore` to specify which disk to restore to the
+specified EBS volume. When restoring to Amazon EC2, the parameter
+`ItemsToRestore` can be left blank because it is ignored and the full list
+of disks is restored.
+
 You can specify the following metadata for a virtual machine restore to VMware, VMware
 Cloud on AWS, and VMware cloud on AWS Outpost:
 
@@ -219,6 +225,14 @@ VMDatastore
 DisksToRestore
 ItemsToRestore
 ```
+
+AWS Backup supports both partial and full restores to an on-premises virtual machine. You
+can choose to restore all disks or only a subset of disks. When performing a partial
+restore, specify your disk selection in `ItemsToRestore`. When performing a
+full restore, you must either omit both `DisksToRestore` and
+`ItemsToRestore`, or specify all the disks in
+`DisksToRestore`. The `DisksToRestore` parameter does not support
+subsets of disks.
 
 This example shows how to conduct a full restore to VMware:
 
