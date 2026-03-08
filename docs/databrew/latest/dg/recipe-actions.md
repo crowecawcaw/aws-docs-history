@@ -1,18 +1,51 @@
-# Column structure recipe steps
+# Data science recipe steps
 
-Use these column structure recipe steps to modify the column structure of your data.
+Use these recipe steps to tabulate and summarize data from different perspectives, or to
+perform advanced transformations.
 
 ###### Topics
 
-- [BOOLEAN_OPERATION](recipe-actions.md "recipe-actions.md")
-- [CASE_OPERATION](recipe-actions.md "recipe-actions.md")
-- [FLAG_COLUMN_FROM_NULL](recipe-actions.md "recipe-actions.md")
-- [FLAG_COLUMN_FROM_PATTERN](recipe-actions.md "recipe-actions.md")
-- [MERGE](recipe-actions.md "recipe-actions.md")
-- [SPLIT_COLUMN_BETWEEN_DELIMITER](recipe-actions.md "recipe-actions.md")
-- [SPLIT_COLUMN_BETWEEN_POSITIONS](recipe-actions.md "recipe-actions.md")
-- [SPLIT_COLUMN_FROM_END](recipe-actions.md "recipe-actions.md")
-- [SPLIT_COLUMN_FROM_START](recipe-actions.md "recipe-actions.md")
-- [SPLIT_COLUMN_MULTIPLE_DELIMITER](recipe-actions.md "recipe-actions.md")
-- [SPLIT_COLUMN_SINGLE_DELIMITER](recipe-actions.md "recipe-actions.md")
-- [SPLIT_COLUMN_WITH_INTERVALS](recipe-actions.md "recipe-actions.md")
+- [BINARIZATION](recipe-actions.md "recipe-actions.md")
+- [BUCKETIZATION](recipe-actions.md "recipe-actions.md")
+- [CATEGORICAL_MAPPING](recipe-actions.md "recipe-actions.md")
+- [ONE_HOT_ENCODING](recipe-actions.md "recipe-actions.md")
+- [SCALE](#recipe-actions.SCALE "#recipe-actions.SCALE")
+- [SKEWNESS](recipe-actions.md "recipe-actions.md")
+- [TOKENIZATION](recipe-actions.md "recipe-actions.md")
+
+## SCALE
+
+Scales or normalizes the range of data in a numeric column.
+
+###### Parameters
+
+- `sourceColumn` – The name of an existing column.
+- `strategy` – The operation to be applied to the column values:
+  - `MIN_MAX` – Rescales the values into a range of
+    [0,1]
+  - `SCALE_BETWEEN` – Rescales the values into a range
+    of 2 specified values.
+  - `MEAN_NORMALIZATION` – Rescales the data to have a
+    mean (μ) of 0 and standard deviation (σ) of 1 within a range of [-1,
+    1]
+  - `Z_SCORE` – Linearly scale data values to have a mean
+    (μ) of 0 and standard deviation (σ) of 1. Best for handling
+    outliers.
+
+- `targetColumn` – The name of a column to contain the
+  results.
+
+###### Example
+
+```
+{
+    "Action": {
+        "Operation": "NORMALIZATION",
+        "Parameters": {
+            "sourceColumn": "all_votes",
+            "strategy": "MIN_MAX",
+            "targetColumn": "all_votes_normalized"
+        }
+    }
+}
+```
