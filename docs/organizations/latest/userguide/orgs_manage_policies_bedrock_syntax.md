@@ -15,6 +15,14 @@ The following Amazon Bedrock policy example shows the basic Amazon Bedrock polic
                     },
                     "input_tags": {
                         "@@assign": "honor"
+                    },
+                    "model_enforcement": { // new
+                        "included_models": {
+                            "@@assign": ["ALL"]
+                        },
+                        "excluded_models": {
+                            "@@assign: ["amazon.titan-embed-text-v2:0", "cohere.embed-english-v3"]
+                        }
                     }
                 }
             }
@@ -56,3 +64,15 @@ Specifies how guardrails handle tagged content:
 
 - `"honor"`: If a request contains guardrails-tagged content (see [Apply tags to user input to filter content](../../../bedrock/latest/userguide/guardrails-tagging.md "../../../bedrock/latest/userguide/guardrails-tagging.md") in the Amazon Bedrock user guide), only guard against content within the input tags.
 - `"ignore"`: Guard against all content in the request, even if there are guardrail input tags.
+
+`"model_enforcement"` (Optional)
+
+Model-specific information for the enforced guardrail configuration. If not present, the configuration is enforced on all models.
+
+`"included_models"` (Required)
+
+List of models to enforce the guardrail on. When empty, applies enforcement to all models. Also accepts the keyword “ALL” to explicitly include all models.
+
+`"excluded_models"` (Required)
+
+Models to exclude from enforcement of the guardrail. When empty, does not exclude any models from enforcement. If a model is present in both the included and excluded models lists, it is excluded.

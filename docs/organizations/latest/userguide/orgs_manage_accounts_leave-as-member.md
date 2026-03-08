@@ -25,6 +25,12 @@ you should determine (with the assistance of your legal, privacy, or compliance
 teams where appropriate) whether it is necessary for you to have new agreement(s) in
 place.
 
+**The account’s quota limits may change and could cause impact**
+
+Leaving an organization as a member account may affect the service quota limits available to that account.
+If you have automated workloads that require higher limits, please revisit your quotas in service quotas console after leaving the organization to ensure uninterrupted experience.
+Please contact [AWS Support](../userguide.md#support-center-console "../userguide.md#support-center-console") after leaving the organization for assistance.
+
 ## Leave an organization from a member account
 
 To leave an organization, complete the following procedure.

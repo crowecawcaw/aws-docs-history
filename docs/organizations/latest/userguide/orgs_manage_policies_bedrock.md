@@ -15,7 +15,7 @@ available in preview.
 ## How it works
 
 Amazon Bedrock policies give you control over automatic enforcement of safeguards within guardrails across
-multiple accounts for all model inference calls to Amazon Bedrock. You need to reference a specific version of
+multiple accounts, allowing you to enforce guardrails on all or a subset of models for inference calls to Amazon Bedrock. You need to reference a specific version of
 the appropriate guardrail within your policy, adhering to your
 organization's responsible AI requirements. This is specific to the AWS region where your guardrail
 exists, and you need to have different guardrails for each AWS region where you want the enforcement of
