@@ -10,7 +10,7 @@ For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.
 
-###### Code examples
+###### Amazon Cognito Identity Provider
 
 - [Basics](service_code_examples_cognito-identity-provider_basics.md "service_code_examples_cognito-identity-provider_basics.md")
   - [Hello Amazon Cognito](cognito-identity-provider_example_cognito-identity-provider_Hello_section.md "cognito-identity-provider_example_cognito-identity-provider_Hello_section.md")
