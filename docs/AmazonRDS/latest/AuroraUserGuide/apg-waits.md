@@ -1,262 +1,154 @@
-# CPU
+# Lock:tuple
 
-This event occurs when a thread is active in CPU or is waiting for CPU.
+The `Lock:tuple` event occurs when a backend process is waiting to
+acquire a lock on a tuple.
 
 ###### Topics
 
-- [Supported engine versions](#apg-waits.cpu.context.supported "#apg-waits.cpu.context.supported")
-- [Context](#apg-waits.cpu.context "#apg-waits.cpu.context")
-- [Likely causes of increased waits](#apg-waits.cpu.causes "#apg-waits.cpu.causes")
-- [Actions](#apg-waits.cpu.actions "#apg-waits.cpu.actions")
+- [Supported engine versions](#apg-waits.locktuple.context.supported "#apg-waits.locktuple.context.supported")
+- [Context](#apg-waits.locktuple.context "#apg-waits.locktuple.context")
+- [Likely causes of increased waits](#apg-waits.locktuple.causes "#apg-waits.locktuple.causes")
+- [Actions](#apg-waits.locktuple.actions "#apg-waits.locktuple.actions")
 
 ## Supported engine versions
 
-This wait event information is relevant for Aurora PostgreSQL version 9.6 and
-higher.
+This wait event information is supported for all versions of Aurora PostgreSQL.
 
 ## Context
 
-The _central processing unit (CPU)_ is the component of a computer
-that runs instructions. For example, CPU instructions perform arithmetic operations and
-exchange data in memory. If a query increases the number of instructions that it
-performs through the database engine, the time spent running the query increases.
-_CPU scheduling_ is giving CPU time to a process. Scheduling is
-orchestrated by the kernel of the operating system.
+The event `Lock:tuple` indicates that a backend is waiting to acquire a lock on a tuple
+while another backend holds a conflicting lock on the same tuple. The following table illustrates a scenario in
+which sessions generate the `Lock:tuple` event.
 
-###### Topics
+| Time | Session 1             | Session 2                                                                                                                                             | Session 3                                                                                     |
+| ---- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| t1   | Starts a transaction. |                                                                                                                                                       |                                                                                               |
+| t2   | Updates row 1.        |                                                                                                                                                       |                                                                                               |
+| t3   |                       | Updates row 1. The session acquires an exclusive lock on the tuple and then waits for<br>session 1 to release the lock by committing or rolling back. |                                                                                               |
+| t4   |                       |                                                                                                                                                       | Updates row 1. The session waits for session 2 to release the exclusive lock on the<br>tuple. |
 
-- [How to tell when this wait occurs](#apg-waits.cpu.when-it-occurs "#apg-waits.cpu.when-it-occurs")
-- [DBLoadCPU metric](#apg-waits.cpu.context.dbloadcpu "#apg-waits.cpu.context.dbloadcpu")
-- [os.cpuUtilization metrics](#apg-waits.cpu.context.osmetrics "#apg-waits.cpu.context.osmetrics")
-- [Likely cause of CPU scheduling](#apg-waits.cpu.context.scheduling "#apg-waits.cpu.context.scheduling")
+Or you can simulate this wait event by using the benchmarking tool
+`pgbench`. Configure a high number of concurrent sessions to update the
+same row in a table with a custom SQL file.
 
-### How to tell when this wait occurs
-
-This `CPU` wait event indicates that a backend process is active in CPU
-or is waiting for CPU. You know that it's occurring when a query shows the following
-information:
-
-- The `pg_stat_activity.state` column has the value `active`.
-- The `wait_event_type` and `wait_event` columns in
-  `pg_stat_activity` are both `null`.
-
-To see the backend processes that are using or waiting on CPU, run the following query.
-
-```
-SELECT *
-FROM   pg_stat_activity
-WHERE  state = 'active'
-AND    wait_event_type IS NULL
-AND    wait_event IS NULL;
-```
-
-### DBLoadCPU metric
-
-The Performance Insights metric for CPU is `DBLoadCPU`. The value for `DBLoadCPU` can
-differ from the value for the Amazon CloudWatch metric `CPUUtilization`. The latter metric is collected from
-the HyperVisor for a database instance.
-
-### os.cpuUtilization metrics
-
-Performance Insights operating-system metrics provide detailed information about
-CPU utilization. For example, you can display the following metrics:
-
-- `os.cpuUtilization.nice.avg`
-- `os.cpuUtilization.total.avg`
-- `os.cpuUtilization.wait.avg`
-- `os.cpuUtilization.idle.avg`
-
-Performance Insights reports the CPU usage by the database engine as
-`os.cpuUtilization.nice.avg`.
-
-### Likely cause of CPU scheduling
-
-From an operating system perspective, the CPU is active when it isn't running the
-idle thread. The CPU is active while it performs a computation, but it's also active
-when it waits on memory I/O. This type of I/O dominates a typical database
-workload.
-
-Processes are likely to wait to get scheduled on a CPU when the following conditions are met:
-
-- The CloudWatch `CPUUtilization` metric is near 100
-  percent.
-- The average load is greater than the number of vCPUs, indicating a heavy load. You can find the
-  `loadAverageMinute` metric in the OS metrics section in Performance Insights.
+To learn more about conflicting lock modes, see [Explicit Locking](https://www.postgresql.org/docs/current/explicit-locking.html "https://www.postgresql.org/docs/current/explicit-locking.html") in the
+PostgreSQL documentation. To learn more about `pgbench`, see [pgbench](https://www.postgresql.org/docs/current/pgbench.html "https://www.postgresql.org/docs/current/pgbench.html") in the PostgreSQL
+documentation.
 
 ## Likely causes of increased waits
 
-When the CPU wait event occurs more than normal, possibly indicating a performance problem, typical
-causes include the following.
+When this event appears more than normal, possibly indicating a performance problem, typical causes
+include the following:
 
-###### Topics
+- A high number of concurrent sessions are trying to acquire a conflicting lock
+  for the same tuple by running `UPDATE` or `DELETE`
+  statements.
+- Highly concurrent sessions are running a `SELECT` statement using
+  the `FOR UPDATE` or `FOR NO KEY UPDATE` lock modes.
+- Various factors drive application or connection pools to open more sessions to execute the same
+  operations. As new sessions are trying to modify the same rows, DB load can spike, and
+  `Lock:tuple` can appear.
 
-- [Likely causes of sudden spikes](#apg-waits.cpu.causes.spikes "#apg-waits.cpu.causes.spikes")
-- [Likely causes of long-term high frequency](#apg-waits.cpu.causes.long-term "#apg-waits.cpu.causes.long-term")
-- [Corner cases](#apg-waits.cpu.causes.corner-cases "#apg-waits.cpu.causes.corner-cases")
-
-### Likely causes of sudden spikes
-
-The most likely causes of sudden spikes are as follows:
-
-- Your application has opened too many simultaneous connections to the database. This scenario is
-  known as a "connection storm."
-- Your application workload changed in any of the following ways:
-  - New queries
-  - An increase in the size of your dataset
-  - Index maintenance or creation
-  - New functions
-  - New operators
-  - An increase in parallel query execution
-
-- Your query execution plans have changed. In some cases, a change can cause
-  an increase in buffers. For example, the query is now using a sequential
-  scan when it previously used an index. In this case, the queries need more
-  CPU to accomplish the same goal.
-
-### Likely causes of long-term high frequency
-
-The most likely causes of events that recur over a long period:
-
-- Too many backend processes are running concurrently on CPU. These
-  processes can be parallel workers.
-- Queries are performing suboptimally because they need a large number of buffers.
-
-### Corner cases
-
-If none of the likely causes turn out to be actual causes, the following situations might be
-occurring:
-
-- The CPU is swapping processes in and out.
-- CPU context switching has increased.
-- Aurora PostgreSQL code is missing wait events.
+For more information, see [Row-Level Locks](https://www.postgresql.org/docs/current/explicit-locking.html#LOCKING-ROWS "https://www.postgresql.org/docs/current/explicit-locking.html#LOCKING-ROWS") in
+the PostgreSQL documentation.
 
 ## Actions
 
-If the `CPU` wait event dominates database activity, it doesn't necessarily indicate a
-performance problem. Respond to this event only when performance degrades.
+We recommend different actions depending on the causes of your wait event.
 
 ###### Topics
 
-- [Investigate whether the database is causing the CPU increase](#apg-waits.cpu.actions.db-CPU "#apg-waits.cpu.actions.db-CPU")
-- [Determine whether the number of connections increased](#apg-waits.cpu.actions.connections "#apg-waits.cpu.actions.connections")
-- [Respond to workload changes](#apg-waits.cpu.actions.workload "#apg-waits.cpu.actions.workload")
+- [Investigate your application logic](#apg-waits.locktuple.actions.problem "#apg-waits.locktuple.actions.problem")
+- [Find the blocker session](#apg-waits.locktuple.actions.find-blocker "#apg-waits.locktuple.actions.find-blocker")
+- [Reduce concurrency when it is high](#apg-waits.locktuple.actions.concurrency "#apg-waits.locktuple.actions.concurrency")
+- [Troubleshoot bottlenecks](#apg-waits.locktuple.actions.bottlenecks "#apg-waits.locktuple.actions.bottlenecks")
 
-### Investigate whether the database is causing the CPU increase
+### Investigate your application logic
 
-Examine the `os.cpuUtilization.nice.avg` metric in Performance
-Insights. If this value is far less than the CPU usage, nondatabase processes are
-the main contributor to CPU.
+Find out whether a blocker session has been in the `idle in
+ transaction` state for long time. If so, consider ending the blocker
+session as a short-term solution. You can use the `pg_terminate_backend`
+function. For more information about this function, see [Server Signaling Functions](https://www.postgresql.org/docs/13/functions-admin.html#FUNCTIONS-ADMIN-SIGNAL "https://www.postgresql.org/docs/13/functions-admin.html#FUNCTIONS-ADMIN-SIGNAL") in the PostgreSQL documentation.
 
-### Determine whether the number of connections increased
+For a long-term solution, do the following:
 
-Examine the `DatabaseConnections` metric in Amazon CloudWatch. Your action depends on whether the number
-increased or decreased during the period of increased CPU wait events.
+- Adjust the application logic.
+- Use the `idle_in_transaction_session_timeout` parameter. This
+  parameter ends any session with an open transaction that has been idle for
+  longer than the specified amount of time. For more information, see [Client Connection Defaults](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-IDLE-IN-TRANSACTION-SESSION-TIMEOUT "https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-IDLE-IN-TRANSACTION-SESSION-TIMEOUT") in the PostgreSQL
+  documentation.
+- Use autocommit as much as possible. For more information, see [SET AUTOCOMMIT](https://www.postgresql.org/docs/current/ecpg-sql-set-autocommit.html "https://www.postgresql.org/docs/current/ecpg-sql-set-autocommit.html") in the PostgreSQL documentation.
 
-#### The connections increased
+### Find the blocker session
 
-If the number of connections went up, compare the number of backend processes consuming CPU to the
-number of vCPUs. The following scenarios are possible:
+While the `Lock:tuple` wait event is occurring, identify the blocker and
+blocked session by finding out which locks depend on one another. For more
+information, see [Lock
+dependency information](https://wiki.postgresql.org/wiki/Lock_dependency_information "https://wiki.postgresql.org/wiki/Lock_dependency_information") in the PostgreSQL wiki. To analyze past
+`Lock:tuple` events, use the Aurora function
+`aurora_stat_backend_waits`.
 
-- The number of backend processes consuming CPU is less than the number of vCPUs.
+The following example queries all sessions, filtering on `tuple` and
+ordering by `wait_time`.
 
-In this case, the number of connections isn't an issue. However, you
-might still try to reduce CPU utilization.
+```
+--AURORA_STAT_BACKEND_WAITS
+      SELECT a.pid,
+             a.usename,
+             a.app_name,
+             a.current_query,
+             a.current_wait_type,
+             a.current_wait_event,
+             a.current_state,
+             wt.type_name AS wait_type,
+             we.event_name AS wait_event,
+             a.waits,
+             a.wait_time
+        FROM (SELECT pid,
+                     usename,
+                     left(application_name,16) AS app_name,
+                     coalesce(wait_event_type,'CPU') AS current_wait_type,
+                     coalesce(wait_event,'CPU') AS current_wait_event,
+                     state AS current_state,
+                     left(query,80) as current_query,
+                     (aurora_stat_backend_waits(pid)).*
+                FROM pg_stat_activity
+               WHERE pid <> pg_backend_pid()
+                 AND usename<>'rdsadmin') a
+NATURAL JOIN aurora_stat_wait_type() wt
+NATURAL JOIN aurora_stat_wait_event() we
+WHERE we.event_name = 'tuple'
+    ORDER BY a.wait_time;
 
-- The number of backend processes consuming CPU is greater than the number of vCPUs.
+  pid  | usename | app_name |                 current_query                  | current_wait_type | current_wait_event | current_state | wait_type | wait_event | waits | wait_time
+-------+---------+----------+------------------------------------------------+-------------------+--------------------+---------------+-----------+------------+-------+-----------
+ 32136 | sys     | psql     | /*session3*/ update tab set col=1 where col=1; | Lock              | tuple              | active        | Lock      | tuple      |     1 |   1000018
+ 11999 | sys     | psql     | /*session4*/ update tab set col=1 where col=1; | Lock              | tuple              | active        | Lock      | tuple      |     1 |   1000024
+```
 
-In this case, consider the following options:
+### Reduce concurrency when it is high
 
-    + Decrease the number of backend processes connected to your database. For example,
-     implement a connection pooling solution such as RDS Proxy. To learn more, see [Amazon RDS Proxyfor Aurora](rds-proxy.md "rds-proxy.md").
-    + Upgrade your instance size to get a higher number of
-     vCPUs.
-    + Redirect some read-only workloads to reader nodes, if applicable.
+The `Lock:tuple` event might occur constantly, especially in a busy
+workload time. In this situation, consider reducing the high concurrency for very
+busy rows. Often, just a few rows control a queue or the Boolean logic, which makes
+these rows very busy.
 
-#### The connections didn't increase
+You can reduce concurrency by using different approaches based in the business requirement, application
+logic, and workload type. For example, you can do the following:
 
-Examine the `blks_hit` metrics in Performance Insights. Look for a correlation between an
-increase in `blks_hit` and CPU usage. The following scenarios are possible:
+- Redesign your table and data logic to reduce high concurrency.
+- Change the application logic to reduce high concurrency at the row level.
+- Leverage and redesign queries with row-level locks.
+- Use the `NOWAIT` clause with retry operations.
+- Consider using optimistic and hybrid-locking logic concurrency control.
+- Consider changing the database isolation level.
 
-- CPU usage and `blks_hit` are correlated.
+### Troubleshoot bottlenecks
 
-In this case, find the top SQL statements that are linked to the CPU usage, and look for plan
-changes. You can use either of the following techniques:
+The `Lock:tuple` can occur with bottlenecks such as CPU starvation or maximum usage of Amazon EBS
+bandwidth. To reduce bottlenecks, consider the following approaches:
 
-    + Explain the plans manually and compare them to the expected execution plan.
-    + Look for an increase in block hits per second and local block
-     hits per second. In the **Top SQL** section of
-     Performance Insights dashboard, choose
-     **Preferences**.
-
-- CPU usage and `blks_hit` aren't correlated.
-
-In this case, determine whether any of the following occurs:
-
-    + The application is rapidly connecting to and disconnecting from the database.
-
-
-    Diagnose this behavior by turning on
-     `log_connections` and
-     `log_disconnections`, then analyzing the
-     PostgreSQL logs. Consider using the `pgbadger` log
-     analyzer. For more information, see [https://github.com/darold/pgbadger](https://github.com/darold/pgbadger "https://github.com/darold/pgbadger").
-    + The OS is overloaded.
-
-
-    In this case, Performance Insights shows that backend
-     processes are consuming CPU for a longer time than usual. Look
-     for evidence in the Performance Insights
-     `os.cpuUtilization` metrics or the CloudWatch
-     `CPUUtilization` metric. If the operating system
-     is overloaded, look at Enhanced Monitoring metrics to diagnose
-     further. Specifically, look at the process list and the
-     percentage of CPU consumed by each process.
-    + Top SQL statements are consuming too much CPU.
-
-
-    Examine statements that are linked to the CPU usage to see whether they can use less
-     CPU. Run an `EXPLAIN` command, and focus on the plan nodes that have the most
-     impact. Consider using a PostgreSQL execution plan visualizer. To try out this tool, see
-     [http://explain.dalibo.com/](http://explain.dalibo.com/ "http://explain.dalibo.com/").
-
-### Respond to workload changes
-
-If your workload has changed, look for the following types of changes:
-
-New queries
-
-Check whether the new queries are expected. If so, ensure that their
-execution plans and the number of executions per second are
-expected.
-
-An increase in the size of the data set
-
-Determine whether partitioning, if it's not already implemented, might
-help. This strategy might reduce the number of pages that a query needs
-to retrieve.
-
-Index maintenance or creation
-
-Check whether the schedule for the maintenance is expected. A best practice is to schedule
-maintenance activities outside of peak activities.
-
-New functions
-
-Check whether these functions perform as expected during testing. Specifically, check whether
-the number of executions per second is expected.
-
-New operators
-
-Check whether they perform as expected during the testing.
-
-An increase in running parallel queries
-
-Determine whether any of the following situations has occurred:
-
-- The relations or indexes involved have suddenly grown in size so that they differ
-  significantly from `min_parallel_table_scan_size` or
-  `min_parallel_index_scan_size`.
-- Recent changes have been made to `parallel_setup_cost` or
-  `parallel_tuple_cost`.
-- Recent changes have been made to `max_parallel_workers` or
-  `max_parallel_workers_per_gather`.
+- Scale up your instance class type.
+- Optimize resource-intensive queries.
+- Change the application logic.
+- Archive data that is rarely accessed.

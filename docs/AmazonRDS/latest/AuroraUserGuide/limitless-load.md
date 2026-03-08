@@ -1,88 +1,76 @@
-# Loading data from an Aurora PostgreSQL DB cluster or RDS for PostgreSQL DB instance
+# Monitoring data loading
 
-After you complete the resource and authentication setup, connect to the cluster endpoint and call the
-`rds_aurora.limitless_data_load_start` stored procedure from a limitless database, such as `postgres_limitless`. The
-limitless database is a database on the DB shard group into which you want to migrate data.
+Aurora PostgreSQL Limitless Database provides several ways to monitor data loading jobs:
 
-This function connects asynchronously in the background to the source database specified in the command, reads the data from the source, and
-loads the data onto the shards. For better performance, the data is loaded using parallel threads. The function retrieves a point-in-time table
-snapshot by running a `SELECT` command to read the data of the table(s) provided in the command.
+- [Listing data loading jobs](#limitless-load.monitor-list "#limitless-load.monitor-list")
+- [Viewing details of data loading jobs using the job ID](#limitless-load.monitor-describe "#limitless-load.monitor-describe")
+- [Monitoring the Amazon CloudWatch log group](#limitless-load.monitor-cwl "#limitless-load.monitor-cwl")
+- [Monitoring RDS events](#limitless-load.monitor-events "#limitless-load.monitor-events")
 
-You can load data into sharded, reference, and standard tables.
+## Listing data loading jobs
 
-You can load data at the database, schema, or table level in `rds_aurora.limitless_data_load_start` calls.
-
-- Database – You can load one database at a time in each call, with no limit on the schema or table count within the
-  database.
-- Schema – You can load a maximum of 15 schemas in each call, with no limit on the table count within each schema.
-- Table – You can load a maximum of 15 tables in each call.
-
-###### Note
-
-This feature doesn't use Amazon RDS snapshots or point-in-time isolation of the database. For consistency across tables, we recommend cloning
-the source database and pointing to that cloned database as the source.
-
-The stored procedure uses the following syntax:
+You can connect to the cluster endpoint and use the `rds_aurora.limitless_data_load_jobs` view to list data loading
+jobs.
 
 ```
-CALL rds_aurora.limitless_data_load_start('`source_type`',
-    '`source_DB_cluster_or_instance_ID`',
-    '`source_database_name`',
-    '`streaming_mode'`,
-    '`data_loading_IAM_role_arn`',
-    '`source_DB_secret_arn`',
-    '`destination_DB_secret_arn`',
-    '`ignore_primary_key_conflict_boolean_flag`',
-    '`is_dry_run`',
-    (optional parameter) schemas/tables => ARRAY['`name1`', '`name2`', ...]);
+postgres_limitless=> SELECT * FROM rds_aurora.limitless_data_load_jobs LIMIT 6;
+
+    job_id     |  status   | message |     source_db_identifier      | source_db_name | full_load_complete_time |                                                                progress_details                                                                 |       start_time       |   last_updated_time    |  streaming_mode   | source_engine_type | ignore_primary_key_conflict | is_dryrun
+---------------+-----------+---------+-------------------------------+----------------+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+------------------------+------------------------+-------------------+--------------------+-----------------------------+-----------
+ 1725697520693 | COMPLETED |         | persistent-kdm-auto-source-01 | postgres       | 2024-09-07 08:48:15+00  | {"FULL_LOAD": {"STATUS": "COMPLETED", "DETAILS": "9 of 9 tables loaded", "COMPLETED_AT": "2024/09/07 08:48:15+00", "RECORDS_MIGRATED": 600003}} | 2024-09-07 08:47:13+00 | 2024-09-07 08:48:15+00 | full_load         | aurora_postgresql  | t                           | f
+ 1725696114225 | COMPLETED |         | persistent-kdm-auto-source-01 | postgres       | 2024-09-07 08:24:20+00  | {"FULL_LOAD": {"STATUS": "COMPLETED", "DETAILS": "3 of 3 tables loaded", "COMPLETED_AT": "2024/09/07 08:24:20+00", "RECORDS_MIGRATED": 200001}} | 2024-09-07 08:23:56+00 | 2024-09-07 08:24:20+00 | full_load         | aurora_postgresql  | t                           | f
+ 1725696067630 | COMPLETED |         | persistent-kdm-auto-source-01 | postgres       | 2024-09-07 08:23:45+00  | {"FULL_LOAD": {"STATUS": "COMPLETED", "DETAILS": "6 of 6 tables loaded", "COMPLETED_AT": "2024/09/07 08:23:45+00", "RECORDS_MIGRATED": 400002}} | 2024-09-07 08:23:10+00 | 2024-09-07 08:23:45+00 | full_load         | aurora_postgresql  | t                           | f
+ 1725694221753 | CANCELED  |         | persistent-kdm-auto-source-01 | postgres       |                         | {}                                                                                                                                              | 2024-09-07 07:31:18+00 | 2024-09-07 07:51:49+00 | full_load_and_cdc | aurora_postgresql  | t                           | f
+ 1725691698210 | COMPLETED |         | persistent-kdm-auto-source-01 | postgres       | 2024-09-07 07:10:51+00  | {"FULL_LOAD": {"STATUS": "COMPLETED", "DETAILS": "1 of 1 tables loaded", "COMPLETED_AT": "2024/09/07 07:10:51+00", "RECORDS_MIGRATED": 100000}} | 2024-09-07 07:10:42+00 | 2024-09-07 07:10:52+00 | full_load         | aurora_postgresql  | t                           | f
+ 1725691695049 | COMPLETED |         | persistent-kdm-auto-source-01 | postgres       | 2024-09-07 07:10:48+00  | {"FULL_LOAD": {"STATUS": "COMPLETED", "DETAILS": "1 of 1 tables loaded", "COMPLETED_AT": "2024/09/07 07:10:48+00", "RECORDS_MIGRATED": 100000}} | 2024-09-07 07:10:41+00 | 2024-09-07 07:10:48+00 | full_load         | aurora_postgresql  | t                           | f
+(6 rows)
 ```
 
-The input parameters are the following:
+Job records are deleted after 90 days.
 
-- `source_type` – The source type: `aurora_postgresql` or `rds_postgresql`
-- `source_DB_cluster_or_instance_ID` – The source Aurora PostgreSQL DB cluster identifier or RDS for PostgreSQL DB instance
-  identifier
-- `source_database_name` – The source database name, such as `postgres`
-- `streaming_mode` – Whether to include change data capture (CDC): `full_load` or
-  `full_load_and_cdc`
-- `data_loading_IAM_role_arn` – The IAM role Amazon Resource Name (ARN) for `aurora-data-loader`
-- `source_DB_secret_arn` – The source DB secret ARN
-- `destination_DB_secret_arn` – The destination DB secret ARN
-- `ignore_primary_key_conflict_boolean_flag` – Whether to continue if a primary key conflict occurs:
-  - If set to `true`, data loading ignores new changes for rows with a primary key conflict.
-  - If set to `false`, data loading overwrites the existing rows on destination tables when it encounters a primary key
-    conflict.
+## Viewing details of data loading jobs using the job ID
 
-- `is_dry_run` – Whether to test that the data loading job can connect to the source and destination databases:
-  - If set to `true`, tests the connections without loading data
-  - If set to `false`, loads the data
-
-- (optional) `schemas` or `tables` – An array of schemas or tables to load. You can specify either of the
-  following:
-
-      + A list of tables in the format `tables => ARRAY['`schema1`.`table1`',
-       '`schema1`.`table2`',
-       '`schema2`.`table1`', ...]`
-      + A list of schemas in the format `schemas => ARRAY[`'schema1`',
-       '`schema2`', ...]`
-
-  If you don't include this parameter, the entire specified source database is migrated.
-  The output parameter is the job ID with a message.
-
-The following example shows how to use the `rds_aurora.limitless_data_load_start` stored procedure to load data from an
-Aurora PostgreSQL DB cluster.
+If you know a job ID, you can connect to the cluster endpoint and use the `rds_aurora.limitless_data_load_job_details` view to
+see the details of that data loading job, including the table name, job status, and number of rows loaded. You can get the job ID in the
+responses to the data loading start functions, or from the `rds_aurora.limitless_data_load_jobs` view.
 
 ```
-CALL rds_aurora.limitless_data_load_start('aurora_postgresql',
-    'my-db-cluster',
-    'postgres',
-    'full_load_and_cdc',
-    'arn:aws:iam::123456789012:role/aurora-data-loader-8f2c66',
-    'arn:aws:secretsmanager:us-east-1:123456789012:secret:secret-source-8f2c66-EWrr0V',
-    'arn:aws:secretsmanager:us-east-1:123456789012:secret:secret-destination-8f2c66-d04fbD',
-    'true',
-    'false',
-    tables => ARRAY['public.customer', 'public.order', 'public.orderdetails']);
+postgres_limitless=> SELECT * FROM rds_aurora.limitless_data_load_job_details WHERE job_id='1725696114225';
 
-INFO: limitless data load job id 1688761223647 is starting.
+job_id        | destination_table_name | destination_schema_name | start_time             | status    | full_load_rows | full_load_total_rows | full_load_complete_time | cdc_insert | cdc_update | cdc_delete
+--------------+------------------------+-------------------------+------------------------+-----------+----------------+----------------------+-------------------------+------------+------------+------------
+1725696114225 | standard_1             | public                  | 2024-09-07 08:23:57+00 | COMPLETED | 100000         | 100000               | 2024-09-07 08:24:08+00  | 0          | 0          | 0
+1725696114225 | standard_2             | public                  | 2024-09-07 08:24:08+00 | COMPLETED | 100000         | 100000               | 2024-09-07 08:24:17+00  | 0          | 0          | 0
+1725696114225 | standard_3             | public                  | 2024-09-07 08:24:18+00 | COMPLETED | 1              | 1                    | 2024-09-07 08:24:20+00  | 0          | 0          | 0
+1725696114225 | standard_4             | public                  | 2024-09-07 08:23:58+00 | PENDING   | 0              | 0                    |                         | 0          | 0          | 0
+(4 rows)
 ```
+
+Job records are deleted after 90 days.
+
+## Monitoring the Amazon CloudWatch log group
+
+After the data loading job status changes to `RUNNING`, you can check the runtime progress using Amazon CloudWatch Logs.
+
+###### To monitor CloudWatch log streams
+
+Sign in to the AWS Management Console and open the CloudWatch console at
+[https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+
+1. Navigate to **Logs**, then **Log groups**.
+2. Choose the **/aws/rds/aurora-limitless-database** log group.
+3. Search for the log stream of your data loading job by **job_id**.
+
+The log stream has the pattern **Data-Load-Job-`job_id`**. 4. Choose the log stream to see the log events.
+
+Each log stream shows events containing the job status and the number of rows loaded to the Aurora PostgreSQL Limitless Database destination tables. If a data loading
+job fails, an error log is also created that shows the failure status and the reason.
+
+Job records are deleted after 90 days.
+
+## Monitoring RDS events
+
+The data loading job also publishes RDS events, for example when a job succeeds, fails, or is canceled. You can view the events from the
+destination database.
+
+For more information, see [DB shard group events](USER_Events.md#USER_Events.Messages.shard-group "USER_Events.md#USER_Events.Messages.shard-group").

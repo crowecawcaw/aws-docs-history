@@ -53,3 +53,14 @@ The following procedures summarize the actions to take for each AWS service.
    with each Aurora cluster in the global database.
 4. Configure each Aurora cluster in the global database to allow outbound connections
    to S3. For instructions, see [Enabling network communication from Amazon Aurora to other AWS services](AuroraMySQL.Integrating.Authorizing.md "AuroraMySQL.Integrating.Authorizing.md").
+
+## Using Amazon Application Recovery Controller (ARC) with Aurora Global Database
+
+When planning your business continuity and disaster recovery strategy, you need to
+orchestrate recovery across application stacks and their dependencies. [Amazon
+Application Recovery Controller (ARC)](../../../r53recovery/latest/dg/region-switch.md "../../../r53recovery/latest/dg/region-switch.md") integrates with Aurora Global Database to
+automate this process through ARC Region Switch, a centralized solution for automated
+multi-Region application recovery. Region Switch orchestrates failover steps across AWS
+accounts and Regions, provides real-time recovery dashboards, and generates compliance
+reports by aggregating data across resources and accounts. Learn more about [using
+Region Switch for Aurora Global Database](../../../r53recovery/latest/dg/aurora-global-database-block.md "../../../r53recovery/latest/dg/aurora-global-database-block.md").

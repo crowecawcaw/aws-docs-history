@@ -147,14 +147,25 @@ that the status has changed to `SWITCHOVER_IN_PROGRESS`.
 - Make sure the
   DB cluster in the green environment is healthy and replicating.
 - Make sure that your network and client configurations don’t increase the DNS cache
-  Time-To-Live (TTL) beyond five seconds, which is the default for Aurora DNS zones. 
-  Otherwise, applications will continue to send write traffic to the blue environment after 
+  Time-To-Live (TTL) beyond five seconds, which is the default for Aurora DNS zones.
+  Otherwise, applications will continue to send write traffic to the blue environment after
   switchover.
 - For Aurora PostgreSQL blue/green deployments, do the following:
   - Review the logical replication limitations and take any required actions prior to
     switchover. For more information, see [Logical replication-specific limitations for blue/green deployments](blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres "blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres").
   - Run the `ANALYZE` operation to refresh the `pg_statistics`
     table. This reduces the risk of performance issues after switchover.
+  - Before initiating a blue/green deployment switchover, verify that your application
+    does not override the `default_transaction_read_only` parameter at the
+    session level. During switchover, this parameter is set to `on` on the
+    green environment writer to prevent writes until promotion completes. If your
+    application or transactions override this configuration to `off`, your
+    application may write data to the green environment during the switchover
+    process. In the event the switchover has to roll back, these writes are not
+    available in the blue environment, requiring you to manually resolve the data
+    inconsistencies. We strongly recommend auditing your application queries to ensure
+    they respect the `default_transaction_read_only` setting before proceeding
+    with switchover.
 
 ###### Note
 
