@@ -1,152 +1,61 @@
-# Oracle external tables and PostgreSQL integration with Amazon S3
+# Oracle SecureFile LOBs and PostgreSQL large objects
 
-With AWS DMS, you can migrate data from on-premises databases to Amazon S3 by creating Oracle external tables or integrating PostgreSQL with Amazon S3. Oracle external tables provide access to data stored in Amazon S3, treating objects as records in a table. PostgreSQL integration with Amazon S3 lets you query data directly from Amazon S3 using the SQL/PostgreSQL interface.
+With AWS DMS, you can efficiently migrate data from Oracle SecureFile LOBs and PostgreSQL large objects to target databases. Oracle SecureFile LOBs and PostgreSQL large objects are data types used to store large binary data or character data, such as documents, images, and multimedia files.
 
-| Feature compatibility    | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                      | Key differences                             |
-| ------------------------ | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------- |
-| No feature compatibility | No automation                      | [Creating Tables](chap-oracle-aurora-pg.tools.md#chap-oracle-aurora-pg.tools.actioncode.tables "chap-oracle-aurora-pg.tools.md#chap-oracle-aurora-pg.tools.actioncode.tables") | PostgreSQL doesn’t support external tables. |
+| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                          |
+| ------------------------------- | ---------------------------------- | ------------------------- | ---------------------------------------------------------------------------------------- |
+| Four star feature compatibility | Four star automation level         | N/A                       | PostgreSQL doesn’t support SecureFiles, automation and compatibility refer only to LOBs. |
 
 ## Oracle usage
 
-The Oracle external tables feature allows you to create a table in your database that reads data from a source located outside your database (externally).
+Large Objects (LOB) is a mechanism for storing binary data in a database. Oracle 11g introduced Secure File LOBS that provide more efficiently storage. They are created using the SECUREFILE keyword as part of the `CREATE TABLE` statement.
 
-Beginning with Oracle 12.2, the external table can be partitioned, providing all the benefits of a regular partitioned table.
+The Primary benefits of using `SECUREFILE` lobs include:
 
-Oracle 18c adds support for inline external tables, which is a way to get data from external source in a SQL query without having to define and create external table first.
-
-```
-SELECT * FROM EXTERNAL ((i NUMBER, d DATE)
-TYPE ORACLE_LOADER
-DEFAULT DIRECTORY data_dir
-ACCESS PARAMETERS (
-RECORDS DELIMITED BY NEWLINE
-FIELDS TERMINATED BY '|') LOCATION ('test.csv') REJECT LIMIT UNLIMITED) tst_external;
-```
+- **Compression** — Uses Oracle advanced compression to analyze SecureFiles LOB data to save disk space.
+- **De-Duplication** — Automatically detects duplicate LOB data within a LOB column or partition and reduces storage space by removing duplicates of repeating binary data.
+- **Encryption** — Combined with Transparent Data Encryption (TDE).
 
 **Examples**
 
-`CREATE TABLE` with `ORGANIZATION EXTERNAL` to identify it as an external table. Specify the TYPE to let the database choose the right driver for the data source, the options are:
-
-- `ORACLE_LOADER` — The data must be sourced from text data files. (default)
-- `ORACLE_DATAPUMP` —The data must be sourced from binary dump files. You can write dump files only as part of creating an external table with the `CREATE TABLE AS SELECT` statement. Once the dump file is created, it can be read any number of times, but it can’t be modified (that is, no DML operations can be performed).
-- `ORACLE_HDFS` — Extracts data stored in a Hadoop Distributed File System (HDFS).
-- `ORACLE_HIVE` — Extracts data stored in Apache HIVE.
-- `DEFAULT DIRECTORY` — In database definition for the directory path.
-- `ACCESS PARAMETER` — Defines the DELIMITER character and the query fields.
-- `LOCATION` — The file name in the first two data source types or URI in the Hadoop data source (not in use with hive data source).
+Create a table using a SecureFiles LOB column.
 
 ```
-CREATE TABLE emp_load
-(id CHAR(5), emp_dob CHAR(20), emp_lname CHAR(30),
-  emp_fname CHAR(30),emp_start_date DATE) ORGANIZATION EXTERNAL
-(TYPE ORACLE_LOADER DEFAULT DIRECTORY data_dir ACCESS PARAMETERS
-(RECORDS DELIMITED BY NEWLINE FIELDS (id CHAR(2), emp_dob CHAR(20),
-emp_lname CHAR(18), emp_fname CHAR(11), emp_start_date CHAR(10)
-date_format DATE mask "mm/dd/yyyy"))
-LOCATION ('info.dat'));
+CREATE TABLE sf_tab (COL1 NUMBER, COL2_CLOB CLOB) LOB(COL2_CLOB)
+  STORE AS SECUREFILE;
 ```
 
-For more information, see [External Tables Concepts](https://docs.oracle.com/en/database/oracle/oracle-database/18/sutil/oracle-external-tables-concepts.html#GUID-44323E01-7D72-45EC-915A-99E596769D9E "https://docs.oracle.com/en/database/oracle/oracle-database/18/sutil/oracle-external-tables-concepts.html#GUID-44323E01-7D72-45EC-915A-99E596769D9E") in the _Oracle documentation_.
+Provide additional options for LOB compression during table creation.
+
+```
+CREATE TABLE sf_tab (COL1 NUMBER,COL2_CLOB CLOB) LOB(COL2_CLOB)
+  STORE AS SECUREFILE COMPRESS_LOB(COMPRESS HIGH);
+```
+
+For more information, see [Introduction to Large Objects and SecureFiles](https://docs.oracle.com/en/database/oracle/oracle-database/19/adlob/introduction-to-large-objects.html#GUID-1A2B0023-9EE8-48AF-AA76-171D1FC5C241 "https://docs.oracle.com/en/database/oracle/oracle-database/19/adlob/introduction-to-large-objects.html#GUID-1A2B0023-9EE8-48AF-AA76-171D1FC5C241") in the _Oracle documentation_.
 
 ## PostgreSQL usage
 
-Amazon S3 is an object storage service that offers industry-leading scalability, data availability, security, and performance. This means customers of all sizes and industries can use it to store and protect any amount of data.
+PostgreSQL doesn’t support the advanced storage, security, and encryption options of Oracle SecureFile LOBs. Regular Large Objects datatypes (LOBs) are supported by PostgreSQL and provides stream-style access.
 
-The following diagram illustrates the solution architecture.
+Although not designed specifically from LOB columns, for compression PostgreSQL uses an internal TOAST mechanism (The Oversized-Attribute Storage Technique).
 
-![Oracle external tables solution architecture](images/pb-oracle-external-tables.png)
+For more information, see [TOAST](https://www.postgresql.org/docs/13/storage-toast.html "https://www.postgresql.org/docs/13/storage-toast.html") in the _PostgreSQL documentation_.
 
-This is the most relevant capability for the Oracle’s External Tables in Aurora for PostgreSQL, but requires a significant amount of syntax modifications. The main difference is that there is no open link to files and the data must be transferred from and to PostgreSQL (if all data is needed).
+### Large object data types supported by PostgreSQL
 
-There are two important operations for Aurora for PostgreSQL and Amazon S3 integration:
+**BYTEA**
 
-- Saving data to an Amazon S3 file.
-- Loading data from an Amazon S3 file.
+- Stores a LOB within the table limited to 1GB.
+- The storage is octal and supports non-printable characters.
+- The input / output format is HEX.
+- Can be used to store a URL references to an Amazon S3 objects used by the database. For example, storing the URL for pictures stored on Amazon S3 on a database table.
 
-RDS Aurora for PostgreSQL must have permissions to the Amazon S3 bucket. For more information, see the links at the end of this section.
+**TEXT**
 
-In Oracle 18c, the inline external table feature was introduced. this, can’t be achieved in Aurora for PostgreSQL and it depends on the use case but other services can be considered.
+- Data type for storing strings with unlimited length.
+- When not specifying the (n) integer for specifying the varchar data type, the TEXT datatype behaves as the text data type.
 
-For ETLs for example, consider using AWS Glue.
+For data encryption purposes (not only for LOB columns), consider using [AWS Key Management Service](https://aws.amazon.com/kms "https://aws.amazon.com/kms").
 
-### Saving data to Amazon S3
-
-You can use the `aws_s3.query_export_to_s3` function to query data from an Amazon Aurora PostgreSQL and save it directly into text files stored in an Amazon S3 bucket. Use this functionality to avoid transferring data to the client first, and then copying the data from the client to Amazon S3.
-
-###### Note
-
-The default file size threshold is six gigabytes (GB). If the data selected by the statement is less than the file size threshold, a single file is created. Otherwise, multiple files are created.
-
-If the run fails, files already uploaded to Amazon S3 remain in the specified Amazon S3 bucket. You can use another statement to upload the remaining data instead of starting over again.
-
-If the amount of data to be selected is more than 25 GB, it is recommended to use multiple runs on different portions of the data to save it to Amazon S3.
-
-Meta-data, such as table schema or file meta-data, is not uploaded by Aurora PostgreSQL to Amazon S3.
-
-**Examples**
-
-Add Amazon S3 extension.
-
-```
-CREATE EXTENSION IF NOT EXISTS aws_s3 CASCADE;
-```
-
-The following statement selects all data in the employees table and saves the data into an Amazon S3 bucket in a different region from the Aurora PostgreSQL instance. The statement returns an error if files that match the `sample_employee_data` file prefix exist in the specified Amazon S3 bucket.
-
-```
-SELECT *
-FROM aws_s3.query_export_to_s3(
-'SELECT * FROM employees',
-aws_commons.create_s3_uri(
-'aurora-select-into-s3-pdx',
-'sample_employee_data','s3-us-west-2'));
-```
-
-The following statement selects all data in the employees table and saves the data into an Amazon S3 bucket in the same region as the Aurora MySQL DB cluster. The statement creates data files in which each field is terminated by a comma (`,`) character and each row is terminated by a newline (`\n`) character. It also creates a manifest file. The statement returns an error if files that match the `sample_employee_data` file prefix exist in the specified Amazon S3 bucket.
-
-```
-SELECT *
-FROM aws_s3.query_export_to_s3(
-'SELECT * FROM employees',
-aws_commons.create_s3_uri(
-'aurora-select-into-s3-pdx',
-'sample_employee_data','us-west-2'), options :='format csv, delimiter $$,$$');
-```
-
-### Query export to Amazon S3 summary
-
-| Field     | Description                                                                                                                                                                                                                                                                                                                                           |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| query     | A required text string containing an SQL query that the PostgreSQL engine runs. The results of this query are copied to an Amazon S3 bucket identified in the s3_info parameter.                                                                                                                                                                      |
-| bucket    | A required text string containing the name of the Amazon S3 bucket that contains the file.                                                                                                                                                                                                                                                            |
-| file_path | A required text string containing the Amazon S3 file name including the path of the file.                                                                                                                                                                                                                                                             |
-| region    | An optional text string containing the AWS Region that the bucket is in options An optional text string containing arguments for the PostgreSQL `COPY` command.<br>For more information, see [COPY](https://www.postgresql.org/docs/current/sql-copy.html "https://www.postgresql.org/docs/current/sql-copy.html") in the _PostgreSQL documentation_. |
-
-For more information, see [Export and import data from Amazon S3 to Amazon Aurora PostgreSQL](https://aws.amazon.com/blogs/database/export-and-import-data-from-amazon-s3-to-amazon-aurora-postgresql/ "https://aws.amazon.com/blogs/database/export-and-import-data-from-amazon-s3-to-amazon-aurora-postgresql/").
-
-### Loading Data from Amazon S3
-
-You can use the `table_import_from_s3` function to load data from files stored in an Amazon S3 bucket.
-
-**Examples**
-
-The following example runs the `table_import_from_s3` function to import gzipped csv from Amazon S3 into the `test_gzip` table.
-
-```
-CREATE TABLE test_gzip(id int, a text, b text, c text, d text);
-
-SELECT aws_s3.table_import_from_s3('test_gzip', '',
-'(format csv)', 'myS3Bucket', 'test-data.gz', 'us-east-2');
-```
-
-### Table import from Amazon S3 summary
-
-| Field       | Description                                                                                                                                                                                                                                                                                                                                                              |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| table_name  | A required text string containing the name of the PostgreSQL database table to import the data into.                                                                                                                                                                                                                                                                     |
-| column_list | A required text string containing an optional list of the PostgreSQL database table columns in which to copy the data. If the string is empty, all columns of the table are used.                                                                                                                                                                                        |
-| options     | A required text string containing arguments for the PostgreSQL `COPY` command.<br>For more information, see [COPY](https://www.postgresql.org/docs/current/sql-copy.html "https://www.postgresql.org/docs/current/sql-copy.html") in the _PostgreSQL documentation_.                                                                                                     |
-| s3_info     | An `aws_commons._s3_uri_1` composite type containing the following information about the Amazon S3 object:<br>• `bucket` — The name of the Amazon S3 bucket containing the file.<br>• `file_path` — The Amazon S3 file name including the path of the file.<br>• `region` — The AWS Region that the file is in. For a listing of AWS Region names and associated values. |
-| credentials | The credentials parameter specifies the credentials to access Amazon S3. When you use this parameter, you don’t use an IAM role.                                                                                                                                                                                                                                         |
-
-For more information, see [Importing data into PostgreSQL on Amazon RDS](../../../AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.md "../../../AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.md") in the _Amazon RDS user guide_.
+For more information, see [Large Objects](https://www.postgresql.org/docs/13/largeobjects.html "https://www.postgresql.org/docs/13/largeobjects.html") in the _PostgreSQL documentation_.
