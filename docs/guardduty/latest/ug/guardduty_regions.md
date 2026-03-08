@@ -29,6 +29,18 @@ Local Zones](https://aws.amazon.com/dedicatedlocalzones "https://aws.amazon.com/
 
 RDS Protection is not supported in Asia Pacific (Taipei) (`ap-east-2`) Region.
 
+**IAM finding type – [CredentialAccess:IAMUser/CompromisedCredentials](guardduty_finding-types-iam.md#credentialaccess-iam-compromisedcredentials "guardduty_finding-types-iam.md#credentialaccess-iam-compromisedcredentials")**
+
+The CredentialAccess:IAMUser/CompromisedCredentials finding type is not supported
+in following regions.
+
+| AWS Region             | Region code    |
+| ---------------------- | -------------- |
+| AWS GovCloud (US-West) | us-gov-west-1  |
+| AWS GovCloud (US-East) | us-gov-east-1  |
+| China (Beijing)        | cn-north-1     |
+| China (Ningxia)        | cn-northwest-1 |
+
 **IAM finding type – [DefenseEvasion:IAMUser/BedrockLoggingDisabled](guardduty_finding-types-iam.md#defenseevasion-iam-bedrockloggingdisabled "guardduty_finding-types-iam.md#defenseevasion-iam-bedrockloggingdisabled")**
 
 The DefenseEvasion:IAMUser/BedrockLoggingDisabled finding type is not supported

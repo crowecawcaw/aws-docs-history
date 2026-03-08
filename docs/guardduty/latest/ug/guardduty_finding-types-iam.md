@@ -15,6 +15,7 @@ findings, see [Remediating potentially compromised AWS credentials](compromised-
 ###### Topics
 
 - [CredentialAccess:IAMUser/AnomalousBehavior](#credentialaccess-iam-anomalousbehavior "#credentialaccess-iam-anomalousbehavior")
+- [CredentialAccess:IAMUser/CompromisedCredentials](#credentialaccess-iam-compromisedcredentials "#credentialaccess-iam-compromisedcredentials")
 - [DefenseEvasion:IAMUser/AnomalousBehavior](#defenseevasion-iam-anomalousbehavior "#defenseevasion-iam-anomalousbehavior")
 - [DefenseEvasion:IAMUser/BedrockLoggingDisabled](#defenseevasion-iam-bedrockloggingdisabled "#defenseevasion-iam-bedrockloggingdisabled")
 - [Discovery:IAMUser/AnomalousBehavior](#discovery-iam-anomalousbehavior "#discovery-iam-anomalousbehavior")
@@ -66,6 +67,24 @@ the user that made the request, the location the request was made from, and the
 specific API that was requested. Details on which factors of the API request are
 unusual for the user identity that invoked the request can be found in the
 [finding details](guardduty_findings-summary.md#finding-anomalous "guardduty_findings-summary.md#finding-anomalous").
+
+**Remediation recommendations:**
+
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
+
+## CredentialAccess:IAMUser/CompromisedCredentials
+
+### An IAM access key was identified as potentially compromised by Amazon threat intelligence.
+
+**Default severity: High**
+
+- **Feature:** Included with Foundational Data Source Protection
+
+**Full description:**
+
+This finding informs you that an IAM access key associated with your AWS account has been identified as potentially compromised by Amazon threat intelligence. The compromised credential was then used to invoke API operations in your AWS environment. The list of API calls made using the compromised credential, along with the count and timestamps of each call, the access key involved, and the source IP address are included in the finding details.
+
+The credential compromise in this finding is identified by Amazon threat intelligence. AWS monitors potentially compromised credentials through usage patterns and generates this finding when such a credential is observed being used.
 
 **Remediation recommendations:**
 
