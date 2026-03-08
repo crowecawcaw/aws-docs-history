@@ -23,6 +23,7 @@ syntax.
   RequestModel: `RequestModel`
   RequestParameters: `List of [ String | RequestParameter ]`
   RestApiId: `String`
+  ResponseTransferMode: `String`
   TimeoutInMillis: `Integer`
 
 ```
@@ -115,6 +116,20 @@ _Required_: No
 
 _CloudFormation compatibility_: This property is unique to AWS SAM and
 doesn't have an CloudFormation equivalent.
+
+`ResponseTransferMode`
+
+The response transfer mode for the Lambda function integration. Set to `RESPONSE_STREAM` to enable Lambda response streaming through API Gateway, allowing the function to stream responses back to clients. When set to `RESPONSE_STREAM`, API Gateway uses the Lambda InvokeWithResponseStreaming API.
+
+_Type_: String
+
+_Required_: No
+
+_Valid values_: `BUFFERED` | `RESPONSE_STREAM`
+
+_CloudFormation compatibility_: This property is passed directly to the
+[`ResponseTransferMode`](../../../AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-method-integration.md#cfn-apigateway-method-integration-responsetransfermode "../../../AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-method-integration.md#cfn-apigateway-method-integration-responsetransfermode")
+property of an `AWS::ApiGateway::Method Integration`.
 
 `TimeoutInMillis`
 

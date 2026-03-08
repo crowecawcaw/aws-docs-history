@@ -260,7 +260,7 @@ Resources:
 
 ### Python parent packages
 
-For Python applications, you can preserve your package structure during the build process to enable absolute imports. To preserve package structure, specify `parent_python_packages` under `BuildProperties` in your Lambda function's `Metadata` resource attribute.
+For Python applications, you can preserve your package structure during the build process to enable absolute imports. To preserve package structure, specify `ParentPackageMode` under `BuildProperties` in your Lambda function's `Metadata` resource attribute.
 
 The following example preserves the `app` package structure when you run `sam build`:
 
@@ -276,7 +276,8 @@ Resources:
         - x86_64
     Metadata:
       BuildProperties:
-        parent_python_packages: app
+        ParentPackageMode: explicit
+        ParentPackages: app
 
 ```
 
