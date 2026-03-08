@@ -177,7 +177,7 @@ commands that can help you diagnose any client issues.
 - If the client state is `Running` and there are still no associated process
   running, then check the `WickrIOSvr.output` file for the background services to see
   if there is any issue starting the client. For more information on logging details, see [Wickr IO clients
-  logging](../wickrioguide/logging.md "../wickrioguide/logging.md").
+  logging](logging.md "logging.md").
 
 ## Wickr IO command line interface
 
