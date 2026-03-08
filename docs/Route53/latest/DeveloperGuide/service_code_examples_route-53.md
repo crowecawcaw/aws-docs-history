@@ -8,7 +8,7 @@ For a complete list of AWS SDK developer guides and code examples, see
 [Using Route 53 with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.
 
-###### Code examples
+###### Route 53
 
 - [Basics](service_code_examples_route-53_basics.md "service_code_examples_route-53_basics.md")
   - [Actions](service_code_examples_route-53_actions.md "service_code_examples_route-53_actions.md")

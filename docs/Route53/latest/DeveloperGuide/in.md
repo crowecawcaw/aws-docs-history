@@ -2,6 +2,12 @@
 
 [Return to index](registrar-tld-list.md#index "registrar-tld-list.md#index")
 
+###### Important
+
+If your domain has a serverHold status, you need to reach out to the [.IN registry](https://nixi.in/nc-contact/ "https://nixi.in/nc-contact/") (NIXI - National Internet Exchange of India) directly to resolve it. NIXI may require verification of your contact information to lift the status, in which case you will need to provide a photo ID and address proof.
+
+Contact NIXI at support@nixi.in.
+
 **Lease period for registration and renewal**
 
 One to ten years.
