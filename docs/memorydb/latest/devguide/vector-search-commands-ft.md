@@ -1,13 +1,14 @@
-# FT.ALIASADD
+# FT.\_ALIASLIST
 
-Add an alias for an index. The new alias name can be used anywhere that an index name is required.
+List the index aliases.
 
 **Syntax**
 
 ```
-FT.ALIASADD <alias> <index-name>
+FT._ALIASLIST
+
 ```
 
 **Return**
 
-Returns a simple string OK message or an error reply.
+Returns an array the size of the number of current aliases. Each element of the array is the alias-index pair.
