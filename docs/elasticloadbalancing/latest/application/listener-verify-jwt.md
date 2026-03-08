@@ -27,6 +27,17 @@ Complete the following tasks:
 4. Include the JWT in a request header, and forward it to the
    Application Load Balancer in every request. Note: Only the RS256 algorithm is supported
 
+## JWT validation limits
+
+When using JWT validation with your Application Load Balancer, the JWKS (JSON Web Key Set) endpoint must meet the following requirements:
+
+- **Maximum response size**: 150 KB
+- **Maximum number of keys**: 10 keys
+
+If the JWKS response from your identity provider exceeds either of these limits, the Application Load Balancer will not forward requests to your backend targets.
+
+If your identity provider's JWKS endpoint exceeds these limits, consider implementing JWT validation in your application code or using an identity provider with a smaller key set.
+
 # To configure JWT verification using console
 
 1. Open the Amazon EC2 console console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
@@ -60,6 +71,10 @@ Use the following [create-rule](../../../cli/latest/reference/elbv2/create-rule.
 
 Create a listener rule with an action to verify JWTs. The listener must
 be an HTTPS listener.
+
+###### Note
+
+When configuring JWT validation, ensure your JWKS endpoint response does not exceed 150 KB in size or contain more than 10 keys. Responses exceeding these limits will prevent request forwarding to your targets.
 
 ```
 aws elbv2 create-rule \

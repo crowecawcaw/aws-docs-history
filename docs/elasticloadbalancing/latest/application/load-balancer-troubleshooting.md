@@ -377,7 +377,15 @@ error code when authenticating the user. Check your access logs for the related
 
 ### HTTP 562: JWKS Request Failed
 
-The load balancer failed to receive a successful response from the JWKS (JSON Web Key Set) endpoint. A successful response should have a status code in the 200-299 range, but a different status code was received instead.
+The load balancer failed to receive a successful and valid response from the JWKS (JSON Web Key Set) endpoint. A successful response should have a status code in the 200-299 range, but a different status code was received instead. A valid response should not have the following issue:
+
+- Non-JSON format
+- Invalid characters
+- Invalid JWKS format
+- Missing/invalid mandatory JWKS attributes
+- Public key has unsupported algorithm
+- the public key could not be converted to a decoding key
+- public key size was not 2K
 
 ## A target generates an HTTP error
 
