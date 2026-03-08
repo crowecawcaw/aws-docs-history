@@ -1,9 +1,3 @@
 # Nova Customization SDK
 
-The Nova Customization SDK is a comprehensive Python SDK that provides a unified,
-programmatic interface for the complete Amazon Nova model customization lifecycle. The SDK
-simplifies model customization by offering a single, consistent API for training, evaluation,
-monitoring, deployment, and inference across Amazon SageMaker and Amazon Bedrock
-platforms.
-
-For more information, see [Nova Customization SDK](nova-customization-sdk.md "nova-customization-sdk.md").
+This topic has moved. For the latest information, see Nova Customization SDK in the [Amazon Nova 1.0 user guide](../../../nova/latest/userguide/nova-hp-customization-sdk.md "../../../nova/latest/userguide/nova-hp-customization-sdk.md") or the [Amazon Nova 2.0 user guide](../../../nova/latest/nova2-userguide/nova-hp-customization-sdk.md "../../../nova/latest/nova2-userguide/nova-hp-customization-sdk.md").

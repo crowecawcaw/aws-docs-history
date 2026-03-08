@@ -9,7 +9,8 @@ AWS CLI.
       [Create an Amazon EKS
       cluster](../../../eks/latest/userguide/create-cluster.md "../../../eks/latest/userguide/create-cluster.md") in the _Amazon EKS User
       Guide_.
-   2. Install the Helm chart as instructed in [Installing packages on the Amazon EKS cluster using Helm](sagemaker-hyperpod-eks-install-packages-using-helm-chart.md "sagemaker-hyperpod-eks-install-packages-using-helm-chart.md"). If you create a [Creating a HyperPod EKS cluster with restricted instance group (RIG)](nova-hp-cluster.md "nova-hp-cluster.md"), you will need
+   2. Install the Helm chart as instructed in [Installing packages on the Amazon EKS cluster using Helm](sagemaker-hyperpod-eks-install-packages-using-helm-chart.md "sagemaker-hyperpod-eks-install-packages-using-helm-chart.md"). If you create a [Amazon Nova
+      SageMaker HyperPod cluster](../../../nova/latest/nova2-userguide/nova-hp-cluster.md "../../../nova/latest/nova2-userguide/nova-hp-cluster.md"), you will need
       a separate Helm chart.
 
 2. Prepare a lifecycle configuration script and upload to an Amazon S3 bucket,

@@ -1,5 +1,3 @@
 # Creating a HyperPod EKS cluster with restricted instance group (RIG)
 
-To customize a model on SageMaker HyperPod, the necessary infrastructure must be set up. For
-details on setting up a SageMaker HyperPod EKS cluster with a restricted instance group (RIG), visit
-the [workshop](https://catalog.us-east-1.prod.workshops.aws/workshops/dcac6f7a-3c61-4978-8344-7535526bf743/en-US "https://catalog.us-east-1.prod.workshops.aws/workshops/dcac6f7a-3c61-4978-8344-7535526bf743/en-US"), which provides a detailed walkthrough of the setup process.
+This topic has moved. For the latest information, see Creating a SageMaker HyperPod EKS cluster with RIG in the [Amazon Nova 1.0 user guide](../../../nova/latest/userguide/nova-hp-cluster.md "../../../nova/latest/userguide/nova-hp-cluster.md") or the [Amazon Nova 2.0 user guide](../../../nova/latest/nova2-userguide/nova-hp-cluster.md "../../../nova/latest/nova2-userguide/nova-hp-cluster.md").

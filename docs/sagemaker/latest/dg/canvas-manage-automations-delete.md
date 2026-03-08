@@ -9,7 +9,7 @@ predictions, do the following:
 2. Choose the **Automations** tab.
 3. Choose the **Configuration** tab.
 4. Find your auto update configuration, and choose the **More options** icon (
-   ![Vertical ellipsis icon representing a menu or more options.](images/studio/canvas/more-options-icon.png)
+   ![Vertical ellipsis icon representing a menu or more options.](/images/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)
    ).
 5. Choose **Delete configuration**.
 6. In the dialog box that pops up, choose **Delete**.

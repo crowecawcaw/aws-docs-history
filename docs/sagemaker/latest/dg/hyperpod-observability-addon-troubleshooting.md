@@ -228,3 +228,127 @@ verify that it is, perform the following steps.
    type.
 
 For urgent issues, contact AWS Support.
+
+## Troubleshooting observability on Restricted Instance Groups
+
+Use the following guidance to resolve issues specific to clusters with
+Restricted Instance Groups.
+
+### Observability pods not starting on restricted nodes
+
+If observability pods are not starting on restricted nodes, check the
+pod status and events:
+
+```
+kubectl get pods -n hyperpod-observability -o wide
+kubectl describe pod `pod-name` -n hyperpod-observability
+```
+
+Common causes include:
+
+- **Image pull failures:** The pod
+  events may show image pull errors if the observability container
+  images are not yet allowlisted on the restricted nodes. Ensure
+  that you are running the latest version of the observability
+  add-on. If the issue persists after upgrading, contact Support.
+- **Taint tolerations:** Verify
+  that the pod spec includes the required toleration for restricted
+  nodes. The add-on starting from version
+  `v1.0.5-eksbuild.1` automatically adds this
+  toleration when RIG support is enabled. If you are using older
+  version, please upgrade to the latest version.
+
+### Viewing logs for pods on restricted nodes
+
+The `kubectl logs` command does not work for pods running on
+restricted nodes. This is an expected limitation because the
+communication path required for log streaming is not available on
+restricted nodes.
+
+To view logs from restricted nodes, use the **Cluster Logs** dashboard in Amazon Managed Grafana, which queries CloudWatch Logs
+directly. You can filter by instance ID, log stream, log level, and
+free-text search to find relevant log entries.
+
+### DNS resolution failures in clusters with both standard and restricted nodes
+
+In hybrid clusters (clusters with both standard and restricted instance
+groups), pods on standard nodes may experience DNS resolution timeouts
+when trying to reach AWS service endpoints such as Amazon Managed Service for Prometheus or
+CloudWatch.
+
+**Cause:** The
+`kube-dns` service has endpoints from both standard
+CoreDNS pods and RIG CoreDNS pods. Standard node pods cannot reach RIG
+CoreDNS endpoints due to network isolation. When
+`kube-proxy` load-balances a DNS request from a standard
+node pod to a RIG CoreDNS endpoint, the request times out.
+
+**Resolution:** Set
+`internalTrafficPolicy: Local` on the
+`kube-dns` service so that pods only reach CoreDNS on
+their local node:
+
+```
+kubectl patch svc kube-dns -n kube-system -p '{"spec":{"internalTrafficPolicy":"Local"}}'
+```
+
+After applying this patch, restart the affected observability
+pods:
+
+```
+kubectl delete pods -n hyperpod-observability -l app.kubernetes.io/name=hyperpod-node-collector
+```
+
+### Metrics from restricted nodes not reaching Amazon Managed Service for Prometheus
+
+If metrics from restricted nodes are not appearing in your Amazon Managed Service for Prometheus
+workspace:
+
+1. **Verify the execution role
+   permissions.** Ensure that the execution role for
+   the Restricted Instance Group has
+   `aps:RemoteWrite` permission for your Prometheus
+   workspace. For more information, see [Additional prerequisites for Restricted Instance Groups](hyperpod-observability-addon-setup.md#hyperpod-observability-addon-rig-prerequisites "hyperpod-observability-addon-setup.md#hyperpod-observability-addon-rig-prerequisites").
+2. **Check the node collector pod
+   status.** Run the following command and verify that
+   node collector pods are running on restricted nodes:
+
+```
+kubectl get pods -n hyperpod-observability | grep node-collector
+```
+
+3. **Check the central collector
+   deployments.** In clusters with restricted nodes,
+   the add-on deploys one central collector per network boundary.
+   Verify that a central collector exists for each boundary:
+
+```
+kubectl get deployments -n hyperpod-observability | grep central-collector
+```
+
+4. **Check pod events for
+   errors.** Use `kubectl describe` on the
+   collector pods to look for error events:
+
+```
+kubectl describe pod `collector-pod-name` -n hyperpod-observability
+```
+
+If the issue persists after verifying the above, contact Support.
+
+### Pod Identity verification does not apply to restricted instance group nodes
+
+The [Verify Pod Identity association](#verify-pod-identity-association "#verify-pod-identity-association") troubleshooting
+steps apply only to standard nodes. On restricted nodes, the add-on uses
+the cluster instance group execution role for AWS authentication
+instead of Amazon EKS Pod Identity. If metrics are missing from restricted
+nodes, verify the execution role permissions instead of the Pod Identity
+association.
+
+### Fluent Bit not running on restricted nodes
+
+This is expected behavior. Fluent Bit is intentionally not deployed on
+restricted nodes. Logs from restricted nodes are published to CloudWatch
+through the SageMaker HyperPod platform independently of the observability
+add-on. Use the **Cluster Logs** dashboard
+in Amazon Managed Grafana to view these logs.

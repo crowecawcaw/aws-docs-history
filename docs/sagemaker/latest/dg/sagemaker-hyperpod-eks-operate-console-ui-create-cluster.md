@@ -59,7 +59,7 @@ instance group. Follow these steps to add an instance group.
    (RIG)** is a specialized environment for
    foundational models customization such as Amazon Nova. For more
    information about setting up RIG for Amazon Nova model customization,
-   see [Amazon Nova customization on Amazon SageMaker HyperPod](nova-hp.md "nova-hp.md").
+   see Amazon Nova customization on SageMaker HyperPod in the [Amazon Nova 1.0 user guide](../../../nova/latest/userguide/nova-hp.md "../../../nova/latest/userguide/nova-hp.md") or the [Amazon Nova 2.0 user guide](../../../nova/latest/nova2-userguide/nova-hp.md "../../../nova/latest/nova2-userguide/nova-hp.md").
 2. For **Name**, specify a name for the instance
    group.
 3. For **Instance capacity**, choose either
@@ -208,7 +208,7 @@ instance group. Follow these steps to add an instance group.
    (RIG)** is a specialized environment for
    foundational models customization such as Amazon Nova. For more
    information about setting up RIG for Amazon Nova model customization,
-   see [Amazon Nova customization on Amazon SageMaker HyperPod](nova-hp.md "nova-hp.md").
+   see Amazon Nova customization on SageMaker HyperPod in the [Amazon Nova 1.0 user guide](../../../nova/latest/userguide/nova-hp.md "../../../nova/latest/userguide/nova-hp.md") or the [Amazon Nova 2.0 user guide](../../../nova/latest/nova2-userguide/nova-hp.md "../../../nova/latest/nova2-userguide/nova-hp.md").
 2. For **Name**, specify a name for the instance
    group.
 3. For **Instance capacity**, choose either

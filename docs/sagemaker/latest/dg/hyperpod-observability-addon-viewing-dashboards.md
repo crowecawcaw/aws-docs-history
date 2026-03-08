@@ -24,7 +24,7 @@ _Amazon Managed Grafana User Guide_.
 
 ## Observability dashboards
 
-The SageMaker HyperPod observability add-on provides five interconnected
+The SageMaker HyperPod observability add-on provides six interconnected
 dashboards in your default Amazon Managed Grafana workspace. Each dashboard provides
 in-depth insights about different resources and tasks in the clusters for
 various users such as data scientists, machine learning engineers, and
@@ -130,3 +130,17 @@ SageMaker HyperPod automatically exposes MIG-specific metrics, including:
 - `nvidia_mig_instance_count`: Number of MIG instances per profile
 - `nvidia_mig_memory_usage`: Memory utilization per MIG instance
 - `nvidia_mig_compute_utilization`: Compute utilization per MIG instance
+
+### Cluster Logs dashboard
+
+The Cluster Logs dashboard provides a centralized view of CloudWatch Logs for
+your SageMaker HyperPod cluster. The dashboard queries the
+`/aws/sagemaker/Clusters/{cluster-name}/{cluster-id}` log
+group and displays log events with filtering capabilities by instance ID,
+log stream name, log level (ERROR, WARN, INFO, DEBUG), and free-text
+search. The dashboard includes an events timeline showing log event
+distribution over time, a total events counter, a searched events
+timeline for filtered results, and a detailed logs panel with full log
+messages, timestamps, and log stream metadata. This dashboard uses CloudWatch
+as its data source and is useful for debugging cluster issues, monitoring
+instance health events, and investigating training job failures.

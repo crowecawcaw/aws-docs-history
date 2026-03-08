@@ -21,6 +21,16 @@ following managed policies and permissions to your console role.
   add-on, go to the Amazon EKS console, and check your cluster's
   **Add-ons** tab. For information about how to
   install the add-on if it's not installed, see [Create add-on (AWS Management Console)](../../../eks/latest/userguide/creating-an-add-on.md#_create_add_on_console "../../../eks/latest/userguide/creating-an-add-on.md#_create_add_on_console") in the _Amazon EKS User Guide_.
+
+###### Note
+
+The Amazon EKS Pod Identity Agent is required for standard instance
+groups. For Restricted Instance Groups (RIG), the Pod Identity Agent
+is not available due to network isolation constraints. The cluster's
+instance group execution IAM role is used to interact with
+Amazon Managed Service for Prometheus. For information about how to configure that role, see
+[Additional prerequisites for Restricted Instance Groups](#hyperpod-observability-addon-rig-prerequisites "#hyperpod-observability-addon-rig-prerequisites").
+
 - Ensure that you have at least one node in your SageMaker HyperPod cluster
   before installing SageMaker HyperPod observability add-on. The smallest Amazon EC2
   instance type that works in this case is `4xlarge`. This
@@ -28,83 +38,102 @@ following managed policies and permissions to your console role.
   the pods that the SageMaker HyperPod observability add-on creates alongside
   any other already running pods on the cluster.
 - Add the following policies and permissions to your role.
+  - [AWS managed policy: AmazonSageMakerHyperPodObservabilityAdminAccess](security-iam-awsmanpol-AmazonSageMakerHyperPodObservabilityAdminAccess.md "security-iam-awsmanpol-AmazonSageMakerHyperPodObservabilityAdminAccess.md")
+  - [AWS managed policy:
+    AWSGrafanaWorkspacePermissionManagementV2](../../../grafana/latest/userguide/security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaWorkspacePermissionManagementV2 "../../../grafana/latest/userguide/security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaWorkspacePermissionManagementV2")
+  - [AWS managed policy:
+    AmazonSageMakerFullAccess](../../../aws-managed-policy/latest/reference/AmazonSageMakerFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonSageMakerFullAccess.md")
+  - Additional permissions to set up required IAM roles for
+    Amazon Managed Grafana and Amazon Elastic Kubernetes Service add-on access:
 
-      + [AWS managed policy: AmazonSageMakerHyperPodObservabilityAdminAccess](security-iam-awsmanpol-AmazonSageMakerHyperPodObservabilityAdminAccess.md "security-iam-awsmanpol-AmazonSageMakerHyperPodObservabilityAdminAccess.md")
-      + [AWS managed policy:
-       AWSGrafanaWorkspacePermissionManagementV2](../../../grafana/latest/userguide/security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaWorkspacePermissionManagementV2 "../../../grafana/latest/userguide/security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaWorkspacePermissionManagementV2")
-      + [AWS managed policy:
-       AmazonSageMakerFullAccess](../../../aws-managed-policy/latest/reference/AmazonSageMakerFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonSageMakerFullAccess.md")
-      + Additional permissions to set up required IAM roles for
-       Amazon Managed Grafana and Amazon Elastic Kubernetes Service add-on access:
+  JSON
 
+  ```
+  `{
+   "Version":"2012-10-17",
+   "Statement": [
+   {
+   "Sid": "CreateRoleAccess",
+   "Effect": "Allow",
+   "Action": [
+   "iam:CreateRole",
+   "iam:CreatePolicy",
+   "iam:AttachRolePolicy",
+   "iam:ListRoles"
+   ],
+   "Resource": [
+   "arn:aws:iam::*:role/service-role/AmazonSageMakerHyperPodObservabilityGrafanaAccess*",
+   "arn:aws:iam::*:role/service-role/AmazonSageMakerHyperPodObservabilityAddonAccess*",
+   "arn:aws:iam::*:policy/service-role/HyperPodObservabilityAddonPolicy*",
+   "arn:aws:iam::*:policy/service-role/HyperPodObservabilityGrafanaPolicy*"
+   ]
+   }
+   ]
+  }`
 
+  ```
 
-      JSON
+  - Additional permissions needed to manage IAM Identity Center users for
+    Amazon Managed Grafana:
 
+  JSON
 
+  ```
+  `{
+   "Version":"2012-10-17",
+   "Statement": [
+   {
+   "Sid": "SSOAccess",
+   "Effect": "Allow",
+   "Action": [
+   "sso:ListProfileAssociations",
+   "sso-directory:SearchUsers",
+   "sso-directory:SearchGroups",
+   "sso:AssociateProfile",
+   "sso:DisassociateProfile"
+   ],
+   "Resource": [
+   "*"
+   ]
+   }
+   ]
+  }`
 
+  ```
 
+## Additional prerequisites for Restricted Instance Groups
 
-      ```
-      `{
-       "Version":"2012-10-17",
-       "Statement": [
-       {
-       "Sid": "CreateRoleAccess",
-       "Effect": "Allow",
-       "Action": [
-       "iam:CreateRole",
-       "iam:CreatePolicy",
-       "iam:AttachRolePolicy",
-       "iam:ListRoles"
-       ],
-       "Resource": [
-       "arn:aws:iam::*:role/service-role/AmazonSageMakerHyperPodObservabilityGrafanaAccess*",
-       "arn:aws:iam::*:role/service-role/AmazonSageMakerHyperPodObservabilityAddonAccess*",
-       "arn:aws:iam::*:policy/service-role/HyperPodObservabilityAddonPolicy*",
-       "arn:aws:iam::*:policy/service-role/HyperPodObservabilityGrafanaPolicy*"
-       ]
-       }
-       ]
-      }`
+If your cluster contains Restricted Instance Groups, the instance group
+execution role must have permissions to write metrics to Amazon Managed Service for Prometheus. When you
+use **Quick setup** to create your cluster with
+observability enabled, these permissions are added to the execution role
+automatically.
 
-      ```
-      + Additional permissions needed to manage IAM Identity Center users for
-       Amazon Managed Grafana:
+If you are using **Custom setup** or adding observability
+to an existing RIG cluster, ensure that the execution role for each
+Restricted Instance Group has the following permissions:
 
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PrometheusAccess",
+            "Effect": "Allow",
+            "Action": "aps:RemoteWrite",
+            "Resource": "arn:aws:aps:`us-east-1`:`account_id`:workspace/`workspace-ID`"
+        }
+    ]
+}
+```
 
+Replace `us-east-1`,
+`account_id`, and
+`workspace-ID` with your AWS Region, account
+ID, and Amazon Managed Service for Prometheus workspace ID.
 
-      JSON
-
-
-
-
-
-      ```
-      `{
-       "Version":"2012-10-17",
-       "Statement": [
-       {
-       "Sid": "SSOAccess",
-       "Effect": "Allow",
-       "Action": [
-       "sso:ListProfileAssociations",
-       "sso-directory:SearchUsers",
-       "sso-directory:SearchGroups",
-       "sso:AssociateProfile",
-       "sso:DisassociateProfile"
-       ],
-       "Resource": [
-       "*"
-       ]
-       }
-       ]
-      }`
-
-      ```
-
-  After you ensure that you have met the above prerequisites, you can install
-  the observability add-on.
+After you ensure that you have met the above prerequisites, you can install
+the observability add-on.
 
 ###### To quickly install the observability add-on
 

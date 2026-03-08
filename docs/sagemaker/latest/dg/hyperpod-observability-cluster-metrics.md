@@ -22,6 +22,31 @@ information, and where they appear in the Amazon Managed Grafana workspace.
 The following tables describe the metrics available for monitoring your
 SageMaker HyperPod cluster, organized by category.
 
+## Metrics availability on Restricted Instance Groups
+
+When your cluster contains Restricted Instance Groups, most metrics
+categories are available on restricted nodes with the following exceptions
+and considerations:
+
+| Metric category             | Available on RIG nodes? | Notes                                                                                                                                                                                    |
+| --------------------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Training metrics            | Yes                     | Kubeflow and Kubernetes pod metrics are collected.<br>Advanced training KPI metrics (from Training Metrics Agent)<br>are not available from the RIG nodes.                               |
+| Inference metrics           | No                      | Inference workloads are not supported on Restricted<br>Instance Groups.                                                                                                                  |
+| Task governance metrics     | No                      | Kueue metrics are collected from the standard nodes only,<br>if any.                                                                                                                     |
+| Scaling metrics             | No                      | KEDA metrics are collected from the standard nodes only,<br>if any.                                                                                                                      |
+| Cluster metrics             | Yes                     | Kube State Metrics and API server metrics are available.<br>Kube State Metrics is preferentially scheduled on standard<br>nodes but can run on restricted nodes in RIG-only<br>clusters. |
+| Instance metrics            | Yes                     | Node Exporter and cAdvisor metrics are collected on all<br>nodes including restricted nodes.                                                                                             |
+| Accelerated compute metrics | Yes                     | DCGM Exporter runs on GPU-enabled restricted nodes.<br>Neuron Monitor runs on Neuron-enabled restricted nodes when<br>advanced mode is enabled.                                          |
+| Network metrics             | Yes                     | EFA Exporter runs on EFA-enabled restricted nodes when<br>advanced mode is enabled.                                                                                                      |
+| File system metrics         | No                      | Not available for Restricted Instance Groups attached FSX<br>volumes.                                                                                                                    |
+
+###### Note
+
+Container log collection with Fluent Bit is not deployed on restricted
+nodes. Cluster logs from restricted nodes are available through the
+SageMaker HyperPod platform independently of the observability add-on. You can
+view these logs in the Cluster Logs dashboard.
+
 ## Training metrics
 
 Use these metrics to track the performance of training tasks executed on

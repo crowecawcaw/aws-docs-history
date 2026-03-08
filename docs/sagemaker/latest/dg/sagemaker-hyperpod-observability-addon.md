@@ -10,6 +10,21 @@ health and performance data from NVIDIA DCGM, instance-level Kubernetes node
 exporters, Elastic Fabric Adapter, integrated file systems, Kubernetes APIs, Kueue,
 and SageMaker HyperPod task operators.
 
+## Restricted Instance Group (RIG) support
+
+The observability add-on also supports clusters that contain Restricted Instance
+Groups. In RIG clusters, the add-on automatically adapts its deployment strategy
+to comply with the network isolation and security constraints of restricted
+nodes. DaemonSet components (node exporter, DCGM exporter, EFA exporter, Neuron
+monitor, and node collector) run on both standard and restricted nodes.
+Deployment components (central collector, Kube State Metrics, and Training
+Metrics Agent) are scheduled with boundary-aware logic to respect network
+isolation between instance groups. Container log collection with Fluent Bit is
+not available on restricted nodes.
+
+For information about setting up the add-on on clusters with Restricted
+Instance Groups, see [Setting up the SageMaker HyperPod observability add-on](hyperpod-observability-addon-setup.md "hyperpod-observability-addon-setup.md").
+
 ###### Topics
 
 - [Setting up the SageMaker HyperPod observability add-on](hyperpod-observability-addon-setup.md "hyperpod-observability-addon-setup.md")
