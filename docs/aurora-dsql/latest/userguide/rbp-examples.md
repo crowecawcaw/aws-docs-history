@@ -84,7 +84,7 @@ This policy restricts access to principals within an AWS Organization:
         "dsql:DbConnect",
         "dsql:DbConnectAdmin"
       ],
-      "Resource": "arn:aws:dsql:us-east-1:123456789012:cluster:mycluster",
+      "Resource": "arn:aws:dsql:us-east-1:123456789012:cluster/mydsqlclusterid0123456789a",
       "Condition": {
         "StringNotEquals": {
           "aws:PrincipalOrgID": "o-exampleorgid"
@@ -111,7 +111,7 @@ This policy restricts access to principals within a specific Organizational Unit
       "Action": [
         "dsql:DbConnect"
       ],
-      "Resource": "arn:aws:dsql:us-east-1:123456789012:cluster:mycluster",
+      "Resource": "arn:aws:dsql:us-east-1:123456789012:cluster/mydsqlclusterid0123456789a",
       "Condition": {
         "StringNotLike": {
           "aws:PrincipalOrgPaths": "o-exampleorgid/r-examplerootid/ou-exampleouid/*"

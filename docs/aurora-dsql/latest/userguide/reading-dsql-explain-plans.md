@@ -2,6 +2,37 @@
 
 Understanding how to read EXPLAIN plans is key to optimizing query performance. In this section, we’ll walk through real examples of Aurora DSQL query plans, show how different scan types behave, explain where filters are applied, and highlight opportunities for optimization.
 
+## Sample tables used in these examples
+
+The examples below reference two tables: `transaction` and
+`account`.
+
+The `transaction` table does not have a primary key, which causes Aurora DSQL
+to perform full table scans when querying it.
+
+The `account` table has an index on `customer_id`. This index
+includes `balance` and `status` as covering columns, which allows
+certain queries to be satisfied directly from the index without reading from the base table.
+However, the index does not include `created_at`, so queries that reference
+this column require additional table access.
+
+```
+CREATE TABLE transaction (
+    account_id uuid,
+    transaction_date timestamp,
+    description text
+);
+
+CREATE TABLE account (
+    customer_id uuid,
+    balance numeric,
+    status varchar,
+    created_at timestamp
+);
+
+CREATE INDEX ASYNC idx1 ON account (customer_id) INCLUDE (balance, status);
+```
+
 ## Full Scan example
 
 Aurora DSQL has both Sequential Scans, which is functionally identical to PostgreSQL, as well as Full Scans. The only difference between these two are that Full Scans can utilize extra filtering on storage. Due to this, it is almost always selected above Sequential Scans. Due to the similarity, we will only cover examples of the more interesting Full Scans.
@@ -110,7 +141,9 @@ performance.
   earlier.
 - **Use INCLUDE columns** to allow Index-Only Scans and avoid
   lookups.
-- **Keep statistics up to date** to ensure cost and row
-  estimates are accurate.
+- **Validate row estimates** when investigating performance
+  issues. Aurora DSQL manages statistics automatically by running `ANALYZE` in the
+  background based on data change rates. If estimates appear inaccurate, you can run
+  `ANALYZE` manually to refresh statistics immediately.
 - **Avoid unindexed queries** on large tables to prevent
   expensive Full Scans.

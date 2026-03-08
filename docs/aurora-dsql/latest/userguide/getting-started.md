@@ -41,7 +41,9 @@ you create a cluster in a single AWS Region.
 5. (Optional) In **Cluster settings**, select any of the following
    options:
    - Select **Customize encryption settings (advanced)** to choose or
-     create an AWS KMS key.
+     create an AWS KMS key. If you use a customer managed key, ensure that the key policy
+     grants Aurora DSQL the required permissions. For more information, see
+     [Key policy for a customer managed key](data-encryption.md#key-policy-customer-managed-key "data-encryption.md#key-policy-customer-managed-key").
    - Select **Enable deletion protection** to prevent a delete operation
      from removing your cluster. By default, deletion protection is selected.
    - Select **Resource-based policy (advanced)** to specify access control
@@ -157,7 +159,9 @@ endpoints.
 7. (Optional) In **Cluster settings**, select any of the following options
    for your initial cluster:
    - Select **Customize encryption settings (advanced)** to choose or
-     create an AWS KMS key.
+     create an AWS KMS key. If you use a customer managed key, ensure that the key policy
+     grants Aurora DSQL the required permissions. For more information, see
+     [Key policy for a customer managed key](data-encryption.md#key-policy-customer-managed-key "data-encryption.md#key-policy-customer-managed-key").
    - Select **Enable deletion protection** to prevent a delete operation
      from removing your cluster. By default, deletion protection is selected.
    - Select **Resource-based policy (advanced)** to specify access control
@@ -181,7 +185,9 @@ endpoints.
     `your-second-region` is the location of your second cluster. The
     console opens in your second Region.
 12. (Optional) Choose cluster settings for your second cluster. For example, you can choose an
-    AWS KMS key.
+    AWS KMS key. If you use a customer managed key, ensure that the key policy
+    grants Aurora DSQL the required permissions. For more information, see
+    [Key policy for a customer managed key](data-encryption.md#key-policy-customer-managed-key "data-encryption.md#key-policy-customer-managed-key").
 13. Choose **Create cluster** to create your second cluster.
 14. Choose **Peer in `initial-cluster-region`**,
     where is `initial-cluster-region` is the Region that hosts the first

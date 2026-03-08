@@ -29,7 +29,7 @@ This policy grants permissions that allows full administrative access to Aurora 
 - Connect to the database as any user, including admin
 - Perform backup and restore operations for Aurora DSQL clusters, including starting, stopping, and monitoring backup and restore jobs
 - Use customer-managed AWS KMS keys for cluster encryption
-- View any metrics from CloudWatch their account account
+- View any metrics from CloudWatch for their account
 - Use AWS Fault Injection Service (AWS FIS) to inject failures into Aurora DSQL clusters for fault tolerance testing
 - Create service-linked roles for the `dsql.amazonaws.com` service, which is required for creating clusters
 

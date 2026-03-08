@@ -227,8 +227,6 @@ The policy has the following effects:
 - The `kms:ViaService` condition key allows the permissions only when the
   request comes from Aurora DSQL on behalf of the principals listed in the policy statement.
   These principals can't call these operations directly.
-- Gives the AWS KMS key administrators (users who can assume the
-  `db-team` role) read-only access to the AWS KMS key
 
 Before using an example key policy, replace the example principals with actual
 principals from your AWS account.

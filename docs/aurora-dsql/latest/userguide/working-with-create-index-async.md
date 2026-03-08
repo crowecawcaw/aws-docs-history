@@ -151,23 +151,25 @@ Query the `sys.jobs` system view to check the creation status of your index,
 as shown in the following example.
 
 ```
-SELECT * FROM sys.jobs
+SELECT * FROM sys.jobs where job_id = 'wqhu6ewifze5xitg3umt24h5ua';
 ```
 
 Aurora DSQL returns a response similar to the following.
 
 ```
-           job_id           |   status   | details
-----------------------------+------------+---------
- vs3kcl3rt5ddpk3a6xcq57cmcy | completed  |
- ihbyw2aoirfnrdfoc4ojnlamoq | processing |
+           job_id           |  status   | details |  job_type   | class_id | object_id |    object_name    |       start_time       |      update_time
+----------------------------+-----------+---------+-------------+----------+-----------+-------------------+------------------------+------------------------
+ wqhu6ewifze5xitg3umt24h5ua | completed |         | INDEX_BUILD |     1259 |     26433 | public.nt2_c1_idx | 2025-09-25 22:07:31+00 | 2025-09-25 22:07:46+00
 ```
 
 The status column can be one of the following values.
 
-| `submitted`                                                              | `processing`                        | `failed`                                                                                                                                                                                                                                       | `completed` |
-| ------------------------------------------------------------------------ | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| The task is submitted, but Aurora DSQL hasn't started to process it yet. | Aurora DSQL is processing the task. | The task failed. See the details column for more information. If Aurora DSQL failed<br>to build the index, Aurora DSQL doesn't automatically remove the index definition. You<br>must manually remove the index with the `DROP INDEX` command. | Aurora DSQL |
+| Status       | Description                                                                                                                                                                                                                                    |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `submitted`  | The task is submitted, but Aurora DSQL hasn't started to process it yet.                                                                                                                                                                       |
+| `processing` | Aurora DSQL is processing the task.                                                                                                                                                                                                            |
+| `failed`     | The task failed. See the details column for more information. If Aurora DSQL failed<br>to build the index, Aurora DSQL doesn't automatically remove the index definition. You<br>must manually remove the index with the `DROP INDEX` command. |
+| `completed`  | Aurora DSQL has completed the task successfully.                                                                                                                                                                                               |
 
 You can also query the state of the index via the catalog tables
 `pg_index`and `pg_class`. Specifically, the attributes

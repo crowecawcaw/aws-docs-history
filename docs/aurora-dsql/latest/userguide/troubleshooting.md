@@ -65,6 +65,20 @@ Aurora DSQL couldn't find your IAM role. For more information, see [IAM roles](.
 See [IAM Identifiers -
 IAM ARNs](../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-arns "../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-arns") for more information.
 
+**Wrong user to action mapping**
+
+This error occurs when the authentication token type does not match the database role.
+Aurora DSQL uses two token types: `DbConnectAdmin` for the `admin` role and
+`DbConnect` for custom database roles.
+
+- If you see `Wrong user to action mapping. user: admin, action: DbConnect`,
+  use `generate-db-connect-admin-auth-token` instead of
+  `generate-db-connect-auth-token`.
+- If you see `Wrong user to action mapping. user:
+`myusername`, action: DbConnectAdmin`, use
+  `generate-db-connect-auth-token` instead of
+  `generate-db-connect-admin-auth-token`.
+
 ## Troubleshooting authorization errors
 
 **Role <role> not supported**

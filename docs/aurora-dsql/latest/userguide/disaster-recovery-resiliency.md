@@ -31,7 +31,9 @@ and write Regions.
 A designated witness Region supports transaction log-only writes and doesn't consume
 storage. Witness Regions don't have an endpoint. This means that witness Regions store
 only encrypted transaction logs, require no administration or configuration, and aren't
-accessible by users.
+accessible by users. If the witness Region becomes impaired, there is no impact to
+cluster availability. Write transactions might experience a small increase in latency until the
+witness Region recovers.
 
 Aurora DSQL transaction logs and user storage are distributed with all data presented to
 Aurora DSQL query processors as a single logical volume. Aurora DSQL automatically splits, merges,

@@ -5,9 +5,8 @@ the password. This token is used only for authenticating the connection. After t
 connection is established, the connection remains valid even if the authentication token
 expires.
 
-If you create an authentication token using the AWS console, the token automatically
-expires in one hour by default. If you use the AWS CLI or SDKs to create the token, the
-default is 15 minutes. The maximum duration is 604,800 seconds, which is one week. To
+If you create an authentication token using the AWS console, the AWS CLI, or SDKs, the token automatically
+expires in 15 minutes by default. The maximum duration is 604,800 seconds, which is one week. To
 connect to Aurora DSQL from your client again, you can use the same authentication token if it
 hasn't expired, or you can generate a new one.
 
@@ -112,6 +111,14 @@ When your cluster is `ACTIVE`, you can generate an authentication token on
 the CLI by using the `aws dsql` command. Use either of the following
 techniques:
 
+###### Note
+
+Token generation is a local operation that signs the request using your current
+IAM credentials. It does not contact AWS to validate the credentials. If your
+credentials are expired or invalid, the token generation still succeeds, but the
+connection attempt fails. Ensure that your IAM credentials are valid before
+generating a token.
+
 - If you are connecting with the `admin` role, use the
   `generate-db-connect-admin-auth-token` option.
 - If you are connecting with a custom database role, use the
@@ -169,12 +176,14 @@ as in the example
 Python SDK
 You can generate the token in the following ways:
 
-- If you're connecting with the `admin` role, use
+- If you are connecting with the `admin` role, use
   `generate_db_connect_admin_auth_token`.
-- If you're connecting with a custom database role, use
+- If you are connecting with a custom database role, use
   `generate_connect_auth_token`.
 
 ```
+import boto3
+
 def generate_token(your_cluster_endpoint, region):
     client = boto3.client("dsql", region_name=region)
     # use `generate_db_connect_auth_token` instead if you are not connecting as admin.
@@ -186,9 +195,9 @@ def generate_token(your_cluster_endpoint, region):
 C++ SDK
 You can generate the token in the following ways:
 
-- If you're connecting with the `admin` role, use
+- If you are connecting with the `admin` role, use
   `GenerateDBConnectAdminAuthToken`.
-- If you're connecting with a custom database role, use
+- If you are connecting with a custom database role, use
   `GenerateDBConnectAuthToken`.
 
 ```
@@ -200,8 +209,6 @@ using namespace Aws;
 using namespace Aws::DSQL;
 
 std::string generateToken(String yourClusterEndpoint, String region) {
-    Aws::SDKOptions options;
-    Aws::InitAPI(options);
     DSQLClientConfiguration clientConfig;
     clientConfig.region = region;
     DSQLClient client{clientConfig};
@@ -216,18 +223,25 @@ std::string generateToken(String yourClusterEndpoint, String region) {
     }
 
     std::cout << token << std::endl;
-
-    Aws::ShutdownAPI(options);
     return token;
+}
+
+int main() {
+    Aws::SDKOptions options;
+    Aws::InitAPI(options);
+    // Replace with your cluster endpoint and region
+    std::string token = generateToken("your_cluster_endpoint.dsql.us-east-1.on.aws", "us-east-1");
+    Aws::ShutdownAPI(options);
+    return 0;
 }
 ```
 
 JavaScript SDK
 You can generate the token in the following ways:
 
-- If you're connecting with the `admin` role, use
+- If you are connecting with the `admin` role, use
   `getDbConnectAdminAuthToken`.
-- If you're connecting with a custom database role, use
+- If you are connecting with a custom database role, use
   `getDbConnectAuthToken`.
 
 ```
@@ -253,9 +267,9 @@ async function generateToken(yourClusterEndpoint, region) {
 Java SDK
 You can generate the token in the following ways:
 
-- If you're connecting with the `admin` role, use
+- If you are connecting with the `admin` role, use
   `generateDbConnectAdminAuthToken`.
-- If you're connecting with a custom database role, use
+- If you are connecting with a custom database role, use
   `generateDbConnectAuthToken`.
 
 ```
@@ -267,7 +281,7 @@ public class GenerateAuthToken {
     public static String generateToken(String yourClusterEndpoint, Region region) {
         DsqlUtilities utilities = DsqlUtilities.builder()
                 .region(region)
-                .credentialsProvider(DefaultCredentialsProvider.create())
+                .credentialsProvider(DefaultCredentialsProvider.builder().build())
                 .build();
 
         // Use `generateDbConnectAuthToken` if you are _not_ logging in as `admin` user
@@ -285,16 +299,16 @@ public class GenerateAuthToken {
 Rust SDK
 You can generate the token in the following ways:
 
-- If you're connecting with the `admin` role, use
+- If you are connecting with the `admin` role, use
   `db_connect_admin_auth_token`.
-- If you're connecting with a custom database role, use
+- If you are connecting with a custom database role, use
   `db_connect_auth_token`.
 
 ```
 use aws_config::{BehaviorVersion, Region};
 use aws_sdk_dsql::auth_token::{AuthTokenGenerator, Config};
 
-async fn generate_token(`your_cluster_endpoint`: String, `region`: String) -> String {
+async fn generate_token(your_cluster_endpoint: String, region: String) -> String {
     let sdk_config = aws_config::load_defaults(BehaviorVersion::latest()).await;
     let signer = AuthTokenGenerator::new(
         Config::builder()
@@ -314,9 +328,9 @@ async fn generate_token(`your_cluster_endpoint`: String, `region`: String) -> St
 Ruby SDK
 You can generate the token in the following ways:
 
-- If you're connecting with the `admin` role, use
+- If you are connecting with the `admin` role, use
   `generate_db_connect_admin_auth_token`.
-- If you're connecting with a custom database role, use
+- If you are connecting with a custom database role, use
   `generate_db_connect_auth_token`.
 
 ```
@@ -341,6 +355,33 @@ def generate_token(your_cluster_endpoint, region)
 end
 ```
 
+PHP SDK
+You can generate the token in the following ways:
+
+- If you are connecting with the `admin` role, use
+  `generateDbConnectAdminAuthToken`.
+- If you are connecting with a custom database role, use
+  `generateDbConnectAuthToken`.
+
+```
+<?php
+require 'vendor/autoload.php';
+
+use Aws\DSQL\AuthTokenGenerator;
+use Aws\Credentials\CredentialProvider;
+
+function generateToken(string $yourClusterEndpoint, string $region): string {
+    $provider = CredentialProvider::defaultProvider();
+    $generator = new AuthTokenGenerator($provider);
+
+    // Use generateDbConnectAuthToken if you are not connecting as admin
+    $token = $generator->generateDbConnectAdminAuthToken($yourClusterEndpoint, $region);
+
+    echo $token . PHP_EOL;
+    return $token;
+}
+```
+
 .NET
 
 ###### Note
@@ -353,9 +394,9 @@ following code sample shows how to generate the authentication token for
 
 You can generate the token in the following ways:
 
-- If you're connecting with the `admin` role, use
+- If you are connecting with the `admin` role, use
   `DbConnectAdmin`.
-- If you're connecting with a custom database role, use
+- If you are connecting with a custom database role, use
   `DbConnect`.
 
 The following example uses the `DSQLAuthTokenGenerator` utility
@@ -367,13 +408,11 @@ cluster endpoint.
 ```
 using Amazon;
 using Amazon.DSQL.Util;
-using Amazon.Runtime;
 
 var yourClusterEndpoint = "`insert-dsql-cluster-endpoint`";
 
-AWSCredentials credentials = FallbackCredentialsFactory.GetCredentials();
-
-var token = DSQLAuthTokenGenerator.GenerateDbConnectAdminAuthToken(credentials, RegionEndpoint.USEast1, yourClusterEndpoint);
+// Use `DSQLAuthTokenGenerator.GenerateDbConnectAuthToken` if you are _not_ logging in as `admin` user
+var token = DSQLAuthTokenGenerator.GenerateDbConnectAdminAuthToken(RegionEndpoint.USEast1, yourClusterEndpoint);
 
 Console.WriteLine(token);
 ```

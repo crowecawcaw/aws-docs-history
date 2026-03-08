@@ -180,11 +180,7 @@ Aurora DSQL.
 | `pg_statio_sys_tables`            | No                        |
 | `pg_statio_user_indexes`          | No                        |
 
-### The sys.jobs and sys.iam_pg_role_mappings views
-
-Aurora DSQL supports the following system views:
-
-**`sys.jobs`**
+### The sys.jobs view
 
 `sys.jobs` provides status information about asynchronous jobs. For
 example, after you [create an
@@ -193,15 +189,41 @@ this `job_uuid` with `sys.jobs` to look up the status of the
 job.
 
 ```
-SELECT * FROM sys.jobs WHERE job_id = 'example_job_uuid';
-
-        job_id        |   status   | details
-------------------+------------+---------
- example_job_uuid | processing |
-(1 row)
+SELECT * FROM sys.jobs;
 ```
 
-**`sys.iam_pg_role_mappings`**
+Aurora DSQL returns a response similar to the following.
+
+```
+           job_id           |  status   | details |  job_type   | class_id | object_id |    object_name    |       start_time       |      update_time
+----------------------------+-----------+---------+-------------+----------+-----------+-------------------+------------------------+------------------------
+ wqhu6ewifze5xitg3umt24h5ua | completed |         | INDEX_BUILD |     1259 |     26433 | public.nt2_c1_idx | 2025-09-25 22:07:31+00 | 2025-09-25 22:07:46+00
+ kkngzf33dndl3daacxehpx5eba | completed |         | ANALYZE     |     1259 |     26419 | public.nt         | 2025-09-25 21:57:05+00 | 2025-09-25 21:57:27+00
+ fyopxjb6ovdn7po6lrkj63cyea | completed |         | DROP        |     1259 |     26422 |                   | 2025-09-25 22:05:57+00 | 2025-09-25 22:06:03+00
+```
+
+The following table describes the columns in the `sys.jobs` view.
+
+| sys.jobs view columns | Column                     | Type                                                                                                                                                                                                                                     | Description |
+| --------------------- | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `job_id`              | `text`                     | A base-32 UUID representing the job.                                                                                                                                                                                                     |
+| `status`              | `text`                     | The current status of the job. Possible values are<br>`submitted`, `processing`, `completed`, and<br>`failed`. For more information, see [sys.jobs status values](#dsql-sys-jobs-status-values "#dsql-sys-jobs-status-values").          |
+| `details`             | `text`                     | Any relevant details about the job. If the job fails, a detailed reason is provided.                                                                                                                                                     |
+| `job_type`            | `text`                     | The type of asynchronous job. Possible values are:<br>`INDEX_BUILD` – an asynchronous index build.<br>`ANALYZE` – a system-submitted auto-analyze job.<br>`DROP` – removes physical data after a `DROP TABLE` or `DROP INDEX` operation. |
+| `class_id`            | `oid`                      | The OID of the catalog table which contains the object.                                                                                                                                                                                  |
+| `object_id`           | `oid`                      | The OID of the object.                                                                                                                                                                                                                   |
+| `object_name`         | `text`                     | The fully qualified name of the object. `DROP` jobs cannot reference<br>already dropped objects. If a referenced object has already been dropped, the<br>`object_name` may be NULL.                                                      |
+| `start_time`          | `timestamp with time zone` | The timestamp at which the job was submitted.                                                                                                                                                                                            |
+| `update_time`         | `timestamp with time zone` | The timestamp at which the job row was last updated.                                                                                                                                                                                     |
+
+| sys.jobs status values | Status                                                                   | Description |
+| ---------------------- | ------------------------------------------------------------------------ | ----------- |
+| `submitted`            | The task is submitted, but Aurora DSQL hasn't started to process it yet. |
+| `processing`           | Aurora DSQL is processing the task.                                      |
+| `failed`               | The task failed. See the `details` column for more information.          |
+| `completed`            | Aurora DSQL has completed the task successfully.                         |
+
+### The sys.iam_pg_role_mappings view
 
 The view `sys.iam_pg_role_mappings` provides information about the
 permissions granted to IAM users. For example, if
