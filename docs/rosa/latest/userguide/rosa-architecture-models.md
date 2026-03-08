@@ -10,12 +10,8 @@ Red Hat OpenShift Service on AWS (ROSA) has the following cluster topologies:
 
 ###### Note
 
-ROSA with hosted control planes (HCP) doesn’t offer FedRAMP High and HIPAA Qualified compliance certifications.
-For more information, see [Compliance](https://docs.openshift.com/rosa/rosa_architecture/rosa_policy_service_definition/rosa-policy-process-security.html#rosa-policy-compliance_rosa-policy-process-security "https://docs.openshift.com/rosa/rosa_architecture/rosa_policy_service_definition/rosa-policy-process-security.html#rosa-policy-compliance_rosa-policy-process-security") in the Red Hat documentation.
-
-###### Note
-
-ROSA with hosted control planes (HCP) doesn’t offer Federal Information Processing Standard (FIPS) endpoints.
+ROSA with hosted control planes (HCP) does offer FedRAMP High and HIPAA Qualified compliance certifications.
+For more information, see [Compliance](https://docs.redhat.com/en/documentation/red_hat_openshift_service_on_aws_classic_architecture/4/html/introduction_to_rosa/policies-and-service-definition#rosa-policy-compliance_rosa-policy-process-security "https://docs.redhat.com/en/documentation/red_hat_openshift_service_on_aws_classic_architecture/4/html/introduction_to_rosa/policies-and-service-definition#rosa-policy-compliance_rosa-policy-process-security") in the Red Hat documentation.
 
 ## Comparing ROSA with HCP and ROSA classic
 

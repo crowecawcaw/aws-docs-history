@@ -255,7 +255,7 @@ This policy includes the following permissions that allow the kube controller to
   Describe Availability Zones, Amazon EC2 instances, route tables, security groups, VPCs, and subnets.
 - `elasticloadbalancing` — Create and manage load balancers and their policies.
   Create and manage load balancer listeners.
-  Register targets with target groups and manage target groups.
+  Register and Deregister targets with target groups and manage target groups.
   Register and de-register Amazon EC2 instances with a load balancer, and add tags to load balancers.
 - `kms` — Retrieve detailed information about an AWS KMS key.
   This is required for the use of encrypted `etcd` data when `etcd` encryption is enabled at cluster creation.
