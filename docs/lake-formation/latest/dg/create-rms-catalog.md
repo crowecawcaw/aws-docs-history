@@ -39,7 +39,7 @@ add additional custom managed key policy to your KMS key. For more information, 
 – Choose **Customize encryption settings** option if you want to use a custom key to encrypt the catalog.
 To use a custom key, you must add additional custom managed key policy to your KMS key. 9. Choose **Next** to grant permissions to other principals. 10. On the **Grant permissions** page, choose **Add permissions**. 11. On the **Add permissions** screen, choose the principals and the types of permissions to grant.
 
-![The catalog permissions page with principal type and grant options.](images/catalog-permissions.png)
+![The catalog permissions page with principal type and grant options.](/images/lake-formation/latest/dg/images/catalog-permissions.png)
 
     * In the **Principals** section, choose a principal type and then specify principals to grant permissions.
 
