@@ -203,7 +203,7 @@ about SQS policies. The following diagram and table describe the changes.
 
 ![IAM and Amazon Resource Names added to the Amazon SQS policy.](images/SQS_PolicyWithNewFeatures.png)
 
-![Number one in the diagram.](/images/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/number-1-red.png)
+![Number one in the diagram.](images/number-1-red.png)
 For information about giving permissions to users in
 different accounts, see [Tutorial:
 Delegate Access Across AWS Accounts Using IAM Roles](../../../IAM/latest/UserGuide/tutorial_cross-account-with-roles.md "../../../IAM/latest/UserGuide/tutorial_cross-account-with-roles.md") in the
@@ -213,7 +213,7 @@ _IAM User Guide_.
 The subset of actions included in `*` has
 expanded. For a list of allowed actions, see [Amazon SQS API permissions: Actions and resource reference](sqs-api-permissions-reference.md "sqs-api-permissions-reference.md").
 
-![Number three in the diagram.](/images/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/number-3-red.png)
+![Number three in the diagram.](images/number-3-red.png)
 You can specify the resource using the Amazon Resource Name
 (ARN), the standard means of specifying resources in IAM policies. For
 information about the ARN format for Amazon SQS queues, see [Amazon Simple Queue Service resource and operations](#sqs-resource-and-operations "#sqs-resource-and-operations").
