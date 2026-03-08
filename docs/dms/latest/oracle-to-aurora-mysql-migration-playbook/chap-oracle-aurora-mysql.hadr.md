@@ -1,123 +1,81 @@
-# Oracle Recovery Manager and Amazon RDS snapshots
+# Oracle Active Data Guard and MySQL replicas
 
-With AWS DMS, you can migrate data from Oracle databases by using Oracle Recovery Manager (RMAN) backup sets or Amazon RDS snapshots. Oracle Recovery Manager is a utility for backing up, restoring, and recovering Oracle databases. Amazon RDS snapshots capture the entire database instance, including transaction logs, at a specific point in time.
+With AWS DMS, you can create and manage Oracle Active Data Guard and MySQL replicas to achieve high availability and data redundancy for your databases. Oracle Active Data Guard provides a physical standby database that remains synchronized with the primary database, while MySQL replicas maintain an identical copy of data from a source database instance.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                             |
-| -------------------------------- | ---------------------------------- | ------------------------- | ------------------------------------------- |
-| Three star feature compatibility | N/A                                | N/A                       | Storage-level backup managed by Amazon RDS. |
+| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                    |
+| -------------------------------- | ---------------------------------- | ------------------------- | ------------------------------------------------------------------ |
+| Three star feature compatibility | N/A                                | N/A                       | Distribute load, applications, or users across multiple instances. |
 
 ## Oracle usage
 
-Oracle Recovery Manager (RMAN) is a primary backup and recovery tool in Oracle. It provides its own scripting syntax and can be used to take full or incremental backups of an Oracle database. The following list identifies the types of backups.
+Oracle Active Data Guard (ADG) is a synced database architecture with primary and standby databases. The difference between Data Guard and ADG is that ADG standby databases allow read access only.
 
-- **Full RMAN backup** — Creates a full backup of an entire database or individual Oracle data files. For example, a level 0 full backup.
-- **Differential incremental RMAN backup** — Performs a backup of all database blocks that have changed from the previous level 0 or 1 backup.
-- **Cumulative incremental RMAN backup** — Perform a backup all of blocks that have changed from the previous level 0 backup.
+The following diagram illustrates the ADG architecture.
 
-RMAN supports online backups of an Oracle database if it has been configured to run in Archived Log Mode.
+![Active Data Guard architecture](images/pb-active-data-guard.png)
 
-RMAN backs up the following files:
+- **Primary DB** — The main database open to read and write operations.
+- **Redo/Archive** — The redo files and archives that store the redo entries for recovery operations.
+- **Data Broker** — The data guard broker service is responsible for all failover and syncing operations.
+- **Standby DB** — The secondary database that allows read operations only. This database remains in recovery mode until it is shut down or becomes the primary (failover or switchover).
+- **Log Apply** — Runs all the redo log entries from the redo and archives files on the standby db.
+- **Redo/Archive** — Contains the redo files and archives that are synced from the primary log and archive files.
+- **Data Broker** — The Data Guard broker service is responsible for all failover and syncing operations.
 
-- Database data files.
-- Database control file.
-- Database parameter file.
-- Database Archived Redo Logs.
+All components use SQL\*NET protocol.
 
-### Examples
+**Special features**
 
-Use the RMAN CLI to connect to an Oracle database.
+- You can select asynchronously for best performance or synchronously for best data protection.
+- You can temporarily convert a standby database to a snapshot database and allow read/write operations. When you are done running QA, testing, loads, or other operations, it can be switched back to standby.
+- A sync gap can be specified between the primary and standby databases to account for human errors (for example, creating 12 hours gap of sync).
 
-```
-export ORACLE_SID=ORCL
-rman target=/
-```
-
-Perform a full backup of the database and the database archived redo logs.
-
-```
-BACKUP DATABASE PLUS ARCHIVELOG;
-```
-
-Perform an incremental level 0 or level 1 backup of the database.
-
-```
-BACKUP INCREMENTAL LEVEL 0 DATABASE;
-BACKUP INCREMENTAL LEVEL 1 DATABASE;
-```
-
-Restore a database.
-
-```
-RUN {
-SHUTDOWN IMMEDIATE;
-STARTUP MOUNT;
-RESTORE DATABASE;
-RECOVER DATABASE;
-ALTER DATABASE OPEN;
-}
-```
-
-Restore a specific pluggable database (Oracle 12c).
-
-```
-RUN {
-ALTER PLUGGABLE DATABASE pdbA, pdbB CLOSE;
-RESTORE PLUGGABLE DATABASE pdbA, pdbB;
-RECOVER PLUGGABLE DATABASE pdbA, pdbB;
-ALTER PLUGGABLE DATABASE pdbA, pdbB OPEN;
-}
-```
-
-Restore a database to a specific point in time.
-
-```
-RUN {
-SHUTDOWN IMMEDIATE;
-STARTUP MOUNT;
-SET UNTIL TIME "TO_DATE('20-SEP-2017 21:30:00','DD-MON-YYYY HH24:MI:SS')";
-RESTORE DATABASE;
-RECOVER DATABASE;
-ALTER DATABASE OPEN RESETLOGS;
-}
-```
-
-List all current database backups created with RMAN.
-
-```
-LIST BACKUP OF DATABASE;
-```
-
-For more information, see [Backup and Recovery User Guide](https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/index.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/index.html") in the _Oracle documentation_.
+For more information, see [Creating a Physical Standby Database](https://docs.oracle.com/en/database/oracle/oracle-database/19/sbydb/creating-oracle-data-guard-physical-standby.html#GUID-B511FB6E-E3E7-436D-94B5-071C37550170 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sbydb/creating-oracle-data-guard-physical-standby.html#GUID-B511FB6E-E3E7-436D-94B5-071C37550170") in the _Oracle documentation_.
 
 ## MySQL usage
 
-Snapshots are the primary backup mechanism for Amazon Aurora databases. They are extremely fast and nonintrusive. You can take snapshots using the Amazon RDS Management Console or the AWS CLI. Unlike RMAN, there is no need for incremental backups. You can choose to restore your database to the exact time when a snapshot was taken or to any other point in time.
+You can use Aurora replicas for scaling read operations and increasing availability such as Oracle Active Data Guard, but with less configuration and administration. You can easily manage many replicas from the Amazon RDS console. Alternatively, you can use the AWS CLI for automation.
 
-Amazon Aurora provides the following types of backups:
+When you create Aurora MySQL instances, use one of the two following replication options:
 
-- **Automated backups** — Always enabled on Amazon Aurora. They do not impact database performance.
-- **Manual backups** — You can create a snapshot at any time. There is no performance impact when taking snapshots of an Aurora database. Restoring data from snapshots requires creation of a new instance. Up to 100 manual snapshots are supported for each database.
+- **Multi-AZ (Availability Zone)** — Create a replicating instance in a different region.
+- **Instance Read Replicas** — Create a replicating instance in the same region.
 
-###### Note
+For instance options, you can use one of the two following options:
 
-In Amazon Relational Database Service (Amazon RDS) for MySQL version 8.0.21, you can turn on or off the redo logging option using the `ALTER INSTANCE {ENABLE|DISABLE} INNODB REDO_LOG` syntax. This functionality is intended for loading data into a new MySQL instance. Turning off the redo logging option helps speed up data loading by avoiding redo log writes. The new `INNODB_REDO_LOG_ENABLE` privilege permits turning on and turning off the redo logging option. The new `Innodb_redo_log_enabled` status variable permits monitoring redo logging status. For more information, see [Disabling Redo Logging](https://dev.mysql.com/doc/refman/8.0/en/innodb-redo-log.html#innodb-disable-redo-logging "https://dev.mysql.com/doc/refman/8.0/en/innodb-redo-log.html#innodb-disable-redo-logging") in the _MySQL documentation_.
+- Create Aurora Replica.
+- Create Cross Region Read Replica.
+
+The main differences between these two options are:
+
+- Cross Region creates a new reader cluster in a different region. Use Cross Region for a higher level of Higher Availability and to keep data closer to the end users.
+- Cross Region has more lag between the two instances.
+- Additional charges apply for transferring data between two regions.
+
+To view the most current lag value between the primary and replicas, query the `mysql.ro_replica_status` table and check the `Replica_lag_in_msec` column. This column value is provided to Amazon CloudWatch as the ReplicaLag metric. The values in the `mysql.ro_replica_status` are also provided in the `INFORMATION_SCHEMA.REPLICA_HOST_STATUS` table in your Aurora MySQL DB cluster.
+
+DDL statements that run on the primary instance may interrupt database connections on the associated Aurora Replicas. If an Aurora Replica connection is actively using a database object such as a table, and that object is modified on the primary instance using a DDL statement, the Aurora Replica connection is interrupted.
+
+Rebooting the primary instance of an Amazon Aurora database cluster also automatically reboots the Aurora Replicas for that database cluster.
+
+Before you create a cross region replica, turn on the `binlog_format` parameter.
+
+When using Multi-AZ, the primary database instance switches over automatically to the standby replica if any of the following conditions occur:
+
+- The primary database instance fails.
+- An Availability Zone outage.
+- The database instance server type is changed.
+- The operating system of the database instance is undergoing software patching.
+- A manual failover of the database instance was initiated using reboot with failover.
 
 ### Examples
 
-For examples, see [MySQL Snapshots](chap-oracle-aurora-mysql.hadr.md#chap-oracle-aurora-mysql.hadr.flashback.mysql "chap-oracle-aurora-mysql.hadr.md#chap-oracle-aurora-mysql.hadr.flashback.mysql").
+The following walkthrough demonstrates how to create a replica reader.
 
-## Summary
+1. Sign in to your AWS console and choose **RDS**.
+2. Choose **Instance actions** and choose **Create cross-Region read replica**.
+3. Enter all required details and choose **Create**.
 
-| Description                                    | Oracle                                                                                                                                                                                                                             | Amazon Aurora                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Scheduled backups                              | Create the `DBMS_SCHEDULER` job that will run your RMAN script on a scheduled basis.                                                                                                                                               | Automatic                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Manual full database backups                   | `<br>BACKUP DATABASE PLUS ARCHIVELOG;<br>`                                                                                                                                                                                         | Use Amazon RDS dashboard or the AWS CLI command to take a snapshot on the cluster.<br>`<br>aws rds create-db-cluster-snapshot<br>--dbcluster-snapshot-identifier Snapshot_name<br>--db-cluster-identifier Cluster_Name<br>`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| Restore database                               | `<br>RUN<br>{<br>SHUTDOWN IMMEDIATE;<br>STARTUP MOUNT;<br>RESTORE DATABASE;<br>RECOVER DATABASE;<br>ALTER DATABASE OPEN;<br>}<br>`                                                                                                 | Create new cluster from a cluster snapshot.<br>`<br>aws rds restore-db-cluster-from-snapshot<br>--db-cluster-identifier NewCluster<br>--snapshotidentifier SnapshotToRestore<br>--engine aurora-mysql<br>`<br>Add a new instance to the new/restored cluster.<br>`<br>aws rds create-db-instance<br>--region useast-1<br>--db-subnet-group default<br>--engine aurora-mysql<br>--db-cluster-identifier clustername-restore<br>--db-instance-identifier newinstance-nodeA<br>--db-instance-class db.r4.large<br>`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| Incremental differential                       | `<br>BACKUP INCREMENTAL LEVEL 0<br>DATABASE;<br>BACKUP INCREMENTAL LEVEL 1<br>DATABASE;<br>`                                                                                                                                       | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Incremental cumulative                         | `<br>BACKUP INCREMENTAL LEVEL 0<br>CUMULATIVE DATABASE;<br>BACKUP INCREMENTAL LEVEL 1<br>CUMULATIVE DATABASE;<br>`                                                                                                                 | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Restore a database to a specific point in time | `<br>RUN {<br>SHUTDOWN IMMEDIATE;<br>STARTUP MOUNT;<br>SET UNTIL TIME "TO_DATE(<br>'19-SEP-2017 23:45:00',<br>'DD-MON-YYYY HH24:MI:SS')";<br>RESTORE DATABASE;<br>RECOVER DATABASE;<br>ALTER DATABASE<br>OPEN RESETLOGS;<br>}<br>` | Create a new cluster from a cluster snapshot by given custom time to restore.<br>`<br>aws rds restore-db-cluster-to-point-in-time<br>--db-cluster-identifier clustername-restore<br>--source-db-cluster-identifier clustername<br>--restore-to-time 2017-09-19T23:45:00.000Z<br>`<br>Add a new instance to the new or restored cluster.<br>`<br>aws rds create-db-instance<br>--region useast-1<br>--db-subnet-group default<br>--engine aurora-mysql<br>--db-cluster-identifier clustername-restore<br>--db-instance-identifier newinstance-nodeA<br>--db-instance-class db.r4.large<br>`                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Backup database archive logs                   | `<br>BACKUP ARCHIVELOG ALL;<br>`                                                                                                                                                                                                   | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Delete old database archive logs               | `<br>CROSSCHECK BACKUP;<br>DELETE EXPIRED BACKUP;<br>`                                                                                                                                                                             | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Restore a single pluggable database (12c)      | `<br>RUN {<br>ALTER PLUGGABLE DATABASE pdb1, pdb2 CLOSE;<br>RESTORE PLUGGABLE DATABASE pdb1, pdb2;<br>RECOVER PLUGGABLE DATABASE pdb1, pdb2;<br>ALTER PLUGGABLE DATABASE pdb1, pdb2<br>OPEN;<br>}<br>`                             | Create new cluster from a cluster snapshot.<br>`<br>aws rds restore-db-cluster-from-snapshot<br>--db-cluster-identifier NewCluster<br>--snapshotidentifier SnapshotToRestore<br>--engine aurora-mysql<br>`<br>Add a new instance to the new or restored cluster.<br>`<br>aws rds create-db-instance<br>--region useast-1<br>--db-subnet-group default<br>--engine aurora-mysql<br>--db-cluster-identifier clustername-restore<br>--db-instance-identifier newinstance-nodeA<br>--db-instance-class db.r4.large<br>`<br>Use mysqldump and mysql to copy the database to the original instance.<br>`<br>mysqldump --column-statistics=0<br>DATABASE_TO_RESTORE<br>-h RESTORED_INSTANCE_ENDPOINT<br>-P 3306 -u USER_NAME<br>-p > /local_path/backup-file.sql<br>`<br>`<br>mysql DB_NAME<br>-h MYSQL_INSTANCE_ENDPOINT<br>-P 3306 -u USER_NAME<br>-p < /local_path/backup-file.sql<br>`<br>NoteIn Amazon RDS for MySQL version 8.0, make sure that the `column_statistics` flag set to 0 if you use binaries when running the mysqldump. |
+After the replica is created, you can run read and write operations on the primary instance and read-only operations on the replica.
 
-For more information, see [mysqldump — A Database Backup Program](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html "https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html") in the _MySQL documentation_, [rds](../../../cli/latest/reference/rds/index.md#cli-aws-rds "../../../cli/latest/reference/rds/index.md#cli-aws-rds") in the _CLI Command Reference_, [Restoring a DB instance to a specified time](../../../AmazonRDS/latest/UserGuide/USER_PIT.md "../../../AmazonRDS/latest/UserGuide/USER_PIT.md") and [Restoring from a DB snapshot](../../../AmazonRDS/latest/UserGuide/USER_RestoreFromSnapshot.md "../../../AmazonRDS/latest/UserGuide/USER_RestoreFromSnapshot.md") in the _Amazon RDS user guide_.
+For more information, see [Single-master replication with Amazon Aurora MySQL](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.md"), [Replicating Amazon Aurora MySQL DB clusters](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Replication.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Replication.md"), and [Creating an Amazon Aurora DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md#Aurora.CreateInstance.Console.ReadOnlyInstance "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md#Aurora.CreateInstance.Console.ReadOnlyInstance") in the _User Guide for Aurora_.

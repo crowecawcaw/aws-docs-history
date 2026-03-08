@@ -1,93 +1,215 @@
-# Oracle materialized views and MySQL summary tables or views
+# Oracle Log Miner and MySQL logs
 
-With AWS DMS, you can create Oracle materialized views and MySQL summary tables or views to improve query performance and data availability. Materialized views and summary tables are database objects that store pre-computed results of queries, reducing the need for complex calculations at runtime.
+With AWS DMS, you can capture data manipulation language (DML) operations for replication or auditing purposes using Oracle Log Miner and MySQL binary logs. Oracle Log Miner provides access to redo log files, enabling the reconstruction and analysis of database activity. MySQL binary logs record all statements that update data or potentially could have updated it.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                   | Key differences                           |
-| ------------------------------ | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
-| One star feature compatibility | No automation                      | [Materialized Views](chap-oracle-aurora-mysql.tools.md#chap-oracle-aurora-mysql.tools.actioncode.mview "chap-oracle-aurora-mysql.tools.md#chap-oracle-aurora-mysql.tools.actioncode.mview") | MySQL doesn’t support materialized views. |
+| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                          |
+| -------------------------------- | ---------------------------------- | ------------------------- | -------------------------------------------------------- |
+| Three star feature compatibility | N/A                                | N/A                       | MySQL doesn’t support LogMiner, workaround is available. |
 
 ## Oracle usage
 
-Oracle materialized views are table segments where the contents are periodically refreshed based on the results of a stored query. Oracle materialized views are defined with specific queries and can be manually or automatically refreshed based on specific configurations. A materialized view runs its associated query and stores the results as a table segment.
-
-Oracle materialized views are especially useful for:
-
-- Replication of data across multiple databases.
-- Data warehouse use cases.
-- Increasing performance by persistently storing the results of complex queries as database tables.
-
-Such as ordinary views, you can create materialized views with a `SELECT` query. The `FROM` clause of a materialized view query can reference tables, views, and other materialized views. The source objects that a materialized view uses as data sources are also called master tables (replication terminology) or detail tables (data warehouse terminology).
-
-### Immediate or deferred refresh
-
-When you create materialized views, use the `BUILD IMMEDIATE` option can to instruct Oracle to immediately update the contents of the materialized view by running the underlying query. This is different from a deferred update where the materialized view is populated only on the first requested refresh.
-
-### Fast and complete refresh
-
-You can use one of the two following options to refresh data in your materialized view.
-
-- `REFRESH FAST` — Incremental data refresh. Only updates rows that have changed since the last refresh of the Materialized View instead of performing a complete refresh. This type of refresh fails if materialized view logs have not been created.
-- `COMPLETE` — The table segment used by the materialized view is truncated (data is cleared) and repopulated by running the associated query.
-
-### Materialized view logs
-
-When you create materialized views, use a materialized view log to instruct Oracle to store any changes performed by DML commands on the master tables that are used to refresh the materialized view, which provides faster materialized view refreshes.
-
-Without materialized view logs, Oracle must re-run the query associated with the materialized view each time. This process is also known as a complete refresh. This process is slower compared to using materialized view logs.
-
-### Materialized view refresh strategy
-
-You can use one of the two following strategies to refresh data in your materialized view.
-
-- `ON COMMIT` — Refreshes the materialized view upon any commit made on the underlying associated tables.
-- `ON DEMAND` — The refresh is initiated by a scheduled task or manually by the user.
+Oracle Log Miner is a tool for querying the database Redo Logs and the Archived Redo Logs using an SQL interface. Using Log Miner, you can analyze the content of database transaction logs (online and archived redo logs) and gain historical insights on past database activity such as data modification by individual DML statements.
 
 ### Examples
 
-The following example creates a simple Materialized View named `mv1` that runs a simple `SELECT` statement on the `employees` table.
+The following examples demonstrate how to use Log Miner to view DML statements that run on the employees table.
+
+Find the current redo log file.
 
 ```
-CREATE MATERIALIZED VIEW mv1 AS SELECT * FROM hr.employees;
+SELECT V$LOG.STATUS, MEMBER
+FROM V$LOG, V$LOGFILE
+WHERE V$LOG.GROUP# = V$LOGFILE.GROUP#
+AND V$LOG.STATUS = 'CURRENT';
+
+STATUS    MEMBER
+CURRENT   /u01/app/oracle/oradata/orcl/redo02.log
 ```
 
-The following example creates a more complex materialized view using a database link (remote) to obtain data from a table located in a remote database. This materialized view also contains a subquery. The `FOR UPDATE` clause allows the materialized view to be updated.
+Use the `DBMS_LOGMNR.ADD_LOGFILE` procedure. Pass the file path as a parameter to the Log Miner API.
 
 ```
-CREATE MATERIALIZED VIEW foreign_customers FOR
-UPDATE AS SELECT * FROM sh.customers@remote cu WHERE EXISTS
-(SELECT * FROM sh.countries@remote co WHERE co.country_id = cu.country_id);
+BEGIN
+DBMS_LOGMNR.ADD_LOGFILE('/u01/app/oracle/oradata/orcl/redo02.log');
+END;
+/
+
+PL/SQL procedure successfully completed.
 ```
 
-The following example creates a materialized view on two source tables: `times` and `products`. This approach enables `FAST` refresh of the materialized view instead of the slower `COMPLETE` refresh. Also, create a new materialized view named `sales_mv` which is refreshed incrementally `REFRESH FAST` each time changes in data are detected (`ON COMMIT`) on one or more of the tables associated with the materialized view query.
+Start Log Miner using the `DBMS_LOGMNR.START_LOGMNR` procedure.
 
 ```
-CREATE MATERIALIZED VIEW LOG ON times
-WITH ROWID, SEQUENCE (time_id, calendar_year)
-INCLUDING NEW VALUES;
+BEGIN
+DBMS_LOGMNR.START_LOGMNR(options=>
+dbms_logmnr.dict_from_online_catalog);
+END;
+/
 
-CREATE MATERIALIZED VIEW LOG ON products
-WITH ROWID, SEQUENCE (prod_id)
-INCLUDING NEW VALUES;
-
-CREATE MATERIALIZED VIEW sales_mv
-BUILD IMMEDIATE
-REFRESH FAST ON COMMIT
-AS SELECT t.calendar_year, p.prod_id,
-SUM(s.amount_sold) AS sum_sales
-FROM times t, products p, sales s
-WHERE t.time_id = s.time_id AND p.prod_id = s.prod_id
-GROUP BY t.calendar_year, p.prod_id;
+PL/SQL procedure successfully completed.
 ```
 
-For more information, see [Basic Materialized Views](https://docs.oracle.com/en/database/oracle/oracle-database/19/dwhsg/basic-materialized-views.html#GUID-A7AE8E5D-68A5-4519-81EB-252EAAF0ADFF "https://docs.oracle.com/en/database/oracle/oracle-database/19/dwhsg/basic-materialized-views.html#GUID-A7AE8E5D-68A5-4519-81EB-252EAAF0ADFF") in the _Oracle documentation_.
+Run a DML statement.
+
+```
+UPDATE HR.EMPLOYEES SET SALARY=SALARY+1000 WHERE EMPLOYEE_ID=116;
+COMMIT;
+```
+
+Query the `V$LOGMNR_CONTENTS` table to view the DML commands captured by the Log Miner.
+
+```
+SELECT TO_CHAR(TIMESTAMP,'mm/dd/yy hh24:mi:ss') TIMESTAMP,
+SEG_NAME, OPERATION, SQL_REDO, SQL_UNDO
+FROM V$LOGMNR_CONTENTS
+WHERE TABLE_NAME = 'EMPLOYEES'
+AND OPERATION = 'UPDATE';
+
+TIMESTAMP  SEG_NAME  OPERATION
+10/09/17   06:43:44  EMPLOYEES UPDATE
+
+SQL_REDO                                         SQL_UNDO
+update "HR"."EMPLOYEES" set                      update "HR"."EMPLOYEES" set
+"SALARY" = '3900' where "SALARY" = '2900'        "SALARY" = '2900' where "SALARY" = '3900'
+and ROWID = 'AAAViUAAEAAABVvAAQ';                and ROWID = 'AAAViUAAEAAABVvAAQ';
+```
+
+For more information, see [Using LogMiner to Analyze Redo Log Files](https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-logminer-utility.html#GUID-3417B738-374C-4EE3-B15C-3A66E01AE2B5 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-logminer-utility.html#GUID-3417B738-374C-4EE3-B15C-3A66E01AE2B5") in the _Oracle documentation_.
 
 ## MySQL usage
 
-Oracle materialized views have no equivalent feature in MySQL, but other features can be used separately or combined to achieve similar functionality.
+The mysqlbinlog utility is the MySQL equivalent to Oracle Log Miner. You can use Log Miner to search for many types of information. This topic covers all of the MySQL logs that are available so you can decide which log is best for your use case.
 
-Make sure that you evaluate each case on its own merits, but options include:
+Aurora MySQL generates four logs that can be viewed by database administrators:
 
-- **Summary tables** — If your materialized view has many calculations and data manipulations, you can keep the results in tables and query the data without running all calculations on-the-fly. The data for these tables can be copied using triggers or events objects.
-- **Views** — Aurora MySQL has a new Parallel Query mechanism that offloads some of the query operations to the storage level. This approach can greatly improve performance. In some cases, regular views can be used and may decrease some administration tasks. To evaluate this option, measure the performance and execution time of your SQL.
+- **Error log** — Contains information about errors and server start and stop events.
+- **General query log** — Contains a general record of MySQL operations such as connect, disconnect, queries, and so on.
+- **Slow query log** — Contains a log of slow SQL statements.
+- **Bin log** — When used, contains row and statement levels of commands records.
 
-For more information, see [CREATE TABLE Statement](https://dev.mysql.com/doc/refman/5.7/en/create-table.html "https://dev.mysql.com/doc/refman/5.7/en/create-table.html"), [Trigger Syntax and Examples](https://dev.mysql.com/doc/refman/5.7/en/trigger-syntax.html "https://dev.mysql.com/doc/refman/5.7/en/trigger-syntax.html"), and [CREATE VIEW Statement](https://dev.mysql.com/doc/refman/5.7/en/create-view.html "https://dev.mysql.com/doc/refman/5.7/en/create-view.html") in the _MySQL documentation_.
+The MySQL error log is generated by default. You can generate the slow query and general logs by setting parameters in the database parameter group. Amazon RDS rotates all MySQL log files.
+
+You can monitor the MySQL logs directly through the Amazon RDS console, Amazon RDS API, AWS CLI, or AWS SDKs. You can also access MySQL logs by directing the logs to a database table in the main database and then querying that table. You can use the mysqlbinlog utility to download a binary log.
+
+### Downloading MySQL binlog files
+
+The binlog in MySQL is used for replication needs. MySQL uses it to replicate commands between master MySQL server to slave server. These logs can be read using the mysqlbinlog utility.
+
+The mysqlbinlog utility is equivalent to Oracle Log Miner and enables users to read the server’s binary log (similar to the Oracle redo log). The server’s binary log consists of files that describe modifications to database contents (events).
+
+While these logs do not contain a lot of information, they can provide needed data for some use cases.
+
+To download and read the binary log, check to see if the binlog is activated by typing this command:
+
+```
+SHOW BINARY LOGS;
+```
+
+###### Note
+
+If the binlog isn’t activated, this command returns an error. If the binlog is activated, the binlog files list is displayed.
+
+After querying the binlog files list you can select a file to download by using this command:
+
+```
+mysqlbinlog
+  --read-from-remote-server
+  --host=mysql-cluster1.cluster-crqdlsqqnpry.useast-1.rds.amazonaws.com
+  --port=3306
+  --user naya
+  --password mysql-bin-changelog.0098
+```
+
+For more information, see [MySQL database log files](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md") in the _Amazon Relational Database Service User Guide_.
+
+The output example for binlog looks as shown following:
+
+```
+use `aws`/*!*/;
+SET TIMESTAMP=1551125550/*!*/;
+SET @@session.pseudo_thread_id=12/*!*/;
+SET @@session.foreign_key_checks=1, @@session.sql_auto_is_null=0, @@session.unique_
+checks=1, @@session.autocommit=1/*!*/;
+SET @@session.sql_mode=2097152/*!*/;
+SET @@session.auto_increment_increment=1, @@session.auto_increment_offset=1/*!*/;
+/*!\C utf8 *//*!*/;
+SET @@session.character_set_client=33,@@session.collation_connection=
+33,@@session.collation_server=8/*!*/;
+SET @@session.lc_time_names=0/*!*/;
+SET @@session.collation_database=DEFAULT/*!*/;
+last_committed=1 sequence_number=2 rbr_only=no original_committed_
+timestamp=0 immediate_commit_timestamp=0 transaction_length=0
+# original_commit_timestamp=0 (1969-12-31 19:00:00.000000 Eastern Standard Time)
+# immediate_commit_timestamp=0 (1969-12-31 19:00:00.000000 Eastern Standard Time)
+/*!80001 SET @@session.original_commit_timestamp=0*//*!*/;
+/*!80014 SET @@session.original_server_version=0*//*!*/;
+/*!80014 SET @@session.immediate_server_version=0*//*!*/;
+SET @@SESSION.GTID_NEXT= 'ANONYMOUS'/*!*/;
+# at 434
+#190225 15:12:50 server id 565151648 end_log_pos 513 CRC32 0x1188c639 Query
+thread_id=12 exec_time=0 error_code=0
+SET TIMESTAMP=1551125570/*!*/;
+BEGIN
+/*!*/;
+# at 513
+#190225 15:12:50 server id 565151648 end_log_pos 669 CRC32 0x051c3800 Query
+thread_id=12 exec_time=0 error_code=0
+SET TIMESTAMP=1551125570/*!*/;
+/* ApplicationName=mysql */ insert into test values (1),(1),(1)
+/*!*/;
+# at 669
+#190225 15:12:50 server id 565151648 end_log_pos 700 CRC32 0x72697ff4 Xid = 5467
+COMMIT/*!*/;
+SET @@SESSION.GTID_NEXT= 'AUTOMATIC' /* added by mysqlbinlog */ /*!*/;
+DELIMITER ;
+# End of log file
+```
+
+For more information, see [mysqlbinlog — Utility for Processing Binary Log Files](https://dev.mysql.com/doc/refman/5.7/en/mysqlbinlog.html "https://dev.mysql.com/doc/refman/5.7/en/mysqlbinlog.html") in the _MySQL documentation_.
+
+### Accessing MySQL error logs
+
+The MySQL error log is written to the `mysql-error.log` file. You can view `mysql-error.log` by using the Amazon RDS console or by retrieving the log using the Amazon RDS API, Amazon RDS CLI, or AWS SDKs. `Mysqlerror.log` is flushed every 5 minutes and its contents are appended to `mysql-error-running.log`. The `mysql-errorrunning.log` file is then rotated every hour. The hourly files generated during the last 24 hours are retained. Each log file has the hour it was generated (in UTC) appended to its name. The log files also have a timestamp that helps you determine when the log entries were written.
+
+MySQL writes to the error log only on startup, shutdown, and when it encounters errors. A database instance can go hours or days without new entries being written to the error log. If you see no recent entries, it’s because the server did not encounter an error that would result in a log entry.
+
+### Accessing the MySQL slow query and general logs
+
+The MySQL slow query log and the general log can be written to a file or a database table by setting parameters in the database parameter group. You must set these parameters before you can view the slow query log or general log in the Amazon RDS console, Amazon RDS API, Amazon RDS CLI, or AWS SDKs.
+
+You can control MySQL logging by using the following parameters:
+
+- `slow_query_log` — To create the slow query log, set to 1. The default is 0.
+- `general_log` — To create the general log, set to 1. The default is 0.
+- `long_query_time` — To prevent fast-running queries from being logged in the slow query log, specify a value for the shortest query run time in seconds to be logged. The default is 10 seconds; the minimum is 0. If `log_output = FILE`, you can specify a floating point value with a resolution of microseconds. If `log_output = TABLE`, make sure that you specify an integer value with a resolution of seconds. Only queries where the execution time exceeds the `long_query_time` value are logged. For example, setting `long_query_time` to 0.1 prevents a query that runs for less than 100 milliseconds from being logged.
+- `log_queries_not_using_indexes` — To log all queries that do not use an index to the slow query log, set to 1. The default is 0. Queries that do not use an index are logged even if their execution time is less than the value of the `long_query_time` parameter.
+- `log_output` — You can specify one of the following options for the log_output parameter.
+  - **TABLE** — Write general queries to the `mysql.general_log` table, and write slow queries to the `mysql.slow_log` table. This is the default option.
+  - **FILE** — Write both general and slow query logs to the file system. Log files are rotated hourly.
+  - **NONE** — Turn off logging.
+
+You can configure a MySQL instance to publish log data to a log group in Amazon CloudWatch Logs. CloudWatch Logs support real-time analysis of the log data, create alarms, and view metrics. You can use CloudWatch Logs to store your log records in highly durable storage. For more information, see [MySQL Database Log Files](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md") in the _Amazon Relational Database Service User Guide_.
+
+Amazon RDS normally purges a binary log as soon as possible, but the binary log must still be available on the instance to be accessed by mysqlbinlog. To specify the number of hours for RDS to retain binary logs, use the `mysql.rds_set_configuration` stored procedure and specify a period with enough time for you to download the logs. After you set the retention period, monitor storage usage for the database instance to ensure the retained binary logs don’t consume too much storage.
+
+### Examples
+
+Determine the output location of the logs and if slow query and general logging are turned on.
+
+```
+select @@GLOBAL.log_output, @@GLOBAL.slow_query_log, @@GLOBAL.general_log
+```
+
+To view the logs using AWS Management Console:
+
+1. Sign in to the AWS Management Console and choose **RDS**.
+2. Choose your DB instance and scroll down to the **Logs** section.
+3. Choose a log to inspect or download.
+
+The following example configures retention of the binary logs (in hours). In this example the binary log will be retained one day.
+
+```
+call mysql.rds_set_configuration('binlog retention hours', 24);
+```
+
+For more information, see [The Binary Log](https://dev.mysql.com/doc/refman/5.7/en/binary-log.html "https://dev.mysql.com/doc/refman/5.7/en/binary-log.html") in the _MySQL documentation_ and [MySQL database log files](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md") in the _Amazon Relational Database Service User Guide_.
