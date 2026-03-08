@@ -10,7 +10,7 @@ For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.
 
-###### Code examples
+###### AWS STS
 
 - [Basics](service_code_examples_sts_basics.md "service_code_examples_sts_basics.md")
   - [Actions](service_code_examples_sts_actions.md "service_code_examples_sts_actions.md")

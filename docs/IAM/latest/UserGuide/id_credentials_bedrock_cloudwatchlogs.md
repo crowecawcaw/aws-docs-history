@@ -1,4 +1,10 @@
-# API keys for Amazon Bedrock
+# API keys for Amazon Bedrock and Amazon CloudWatch Logs
+
+###### Note
+
+Amazon CloudWatch Logs API keys are currently available in Preview and will be generally available
+in the coming weeks. Amazon CloudWatch Logs API keys closely resemble Amazon Bedrock long-term API keys
+described on this page. To learn more about Amazon CloudWatch Logs long-term API keys, see [Sending logs to Amazon CloudWatch Logs using HLC endpoint](../../../AmazonCloudWatch/latest/logs/CWL_HLC_Endpoint.md "../../../AmazonCloudWatch/latest/logs/CWL_HLC_Endpoint.md").
 
 Amazon Bedrock is a fully managed service that offers foundation models from leading AI companies
 and Amazon. You can access Amazon Bedrock through the AWS Management Console and programmatically using the AWS CLI, or

@@ -12,7 +12,7 @@ For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.
 
-###### Code examples
+###### IAM
 
 - [Basics](service_code_examples_iam_basics.md "service_code_examples_iam_basics.md")
   - [Hello IAM](iam_example_iam_Hello_section.md "iam_example_iam_Hello_section.md")

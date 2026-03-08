@@ -1,6 +1,6 @@
-# Policy to grant read-only access to Compute Optimizer Automation for standalone AWS accounts
+# Policy to grant read-only access to Compute Optimizer Automation for a management account of an organization
 
-The following code example shows how to This permission-based policy grants read-only access to Compute Optimizer Automation for standalone AWS accounts
+The following code example shows how to This permission-based policy grants read-only access to Compute Optimizer Automation for a management account of an organization
 
 JSON
 
@@ -14,6 +14,7 @@ JSON
  "aco-automation:GetEnrollmentConfiguration",
  "aco-automation:GetAutomationEvent",
  "aco-automation:GetAutomationRule",
+ "aco-automation:ListAccounts",
  "aco-automation:ListAutomationEvents",
  "aco-automation:ListAutomationEventSteps",
  "aco-automation:ListAutomationEventSummaries",

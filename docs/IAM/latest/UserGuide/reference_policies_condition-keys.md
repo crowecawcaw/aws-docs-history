@@ -53,9 +53,9 @@ use the `ForAllValues` or `ForAnyValue` set operators. Use set
 operators only with multivalued condition keys. Do not use set operators with
 single-valued condition keys. For more information, see [Set operators for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").
 
-| Properties of the principal                                                                                                                                                                                                                                                            | Properties of a role session                                                                                                                                                                                                                                                                                                                                                                                                                          | Properties of the network                                                                                                                                      | Properties of the resource                                                                          | Properties of the request                                                                                                                                                                                                                                                                                                                                                                                                              |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `aws:PrincipalArn`<br>`aws:PrincipalAccount`<br>`aws:PrincipalOrgPaths`<br>`aws:PrincipalOrgID`<br>`aws:PrincipalTag/tag-key`<br>`aws:PrincipalIsAWSService`<br>`aws:PrincipalServiceName`<br>`aws:PrincipalServiceNamesList`<br>`aws:PrincipalType`<br>`aws:userid`<br>`aws:username` | `aws:AssumedRoot`<br>`aws:FederatedProvider`<br>`aws:TokenIssueTime`<br>`aws:MultiFactorAuthAge`<br>`aws:MultiFactorAuthPresent`<br>`aws:ChatbotSourceArn`<br>`aws:Ec2InstanceSourceVpc`<br>`aws:Ec2InstanceSourcePrivateIPv4`<br>`aws:SourceIdentity`<br>`ec2:RoleDelivery`<br>`ec2:SourceInstanceArn`<br>`glue:RoleAssumedBy`<br>`glue:CredentialIssuingService`<br>`lambda:SourceFunctionArn`<br>`ssm:SourceInstanceArn`<br>`identitystore:UserId` | `aws:SourceIp`<br>`aws:SourceVpc`<br>`aws:SourceVpcArn`<br>`aws:SourceVpce`<br>`aws:VpceAccount`<br>`aws:VpceOrgID`<br>`aws:VpceOrgPaths`<br>`aws:VpcSourceIp` | `aws:ResourceAccount`<br>`aws:ResourceOrgID`<br>`aws:ResourceOrgPaths`<br>`aws:ResourceTag/tag-key` | `aws:CalledVia`<br>`aws:CalledViaFirst`<br>`aws:CalledViaLast`<br>`aws:CalledViaAWSMCP`<br>`aws:ViaAWSService`<br>`aws:ViaAWSMCPService`<br>`aws:CurrentTime`<br>`aws:EpochTime`<br>`aws:referer`<br>`aws:RequestedRegion`<br>`aws:RequestTag/tag-key`<br>`aws:TagKeys`<br>`aws:SecureTransport`<br>`aws:SourceAccount`<br>`aws:SourceArn`<br>`aws:SourceOrgID`<br>`aws:SourceOrgPaths`<br>`aws:UserAgent`<br>`aws:IsMcpServiceAction` |
+| Properties of the principal                                                                                                                                                                                                                                                            | Properties of a role session                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Properties of the network                                                                                                                                      | Properties of the resource                                                                          | Properties of the request                                                                                                                                                                                                                                                                                                                                                                                                              |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `aws:PrincipalArn`<br>`aws:PrincipalAccount`<br>`aws:PrincipalOrgPaths`<br>`aws:PrincipalOrgID`<br>`aws:PrincipalTag/tag-key`<br>`aws:PrincipalIsAWSService`<br>`aws:PrincipalServiceName`<br>`aws:PrincipalServiceNamesList`<br>`aws:PrincipalType`<br>`aws:userid`<br>`aws:username` | `aws:AssumedRoot`<br>`aws:FederatedProvider`<br>`aws:TokenIssueTime`<br>`aws:MultiFactorAuthAge`<br>`aws:MultiFactorAuthPresent`<br>`aws:ChatbotSourceArn`<br>`aws:Ec2InstanceSourceVpc`<br>`aws:Ec2InstanceSourcePrivateIPv4`<br>`aws:SourceIdentity`<br>`ec2:RoleDelivery`<br>`ec2:SourceInstanceArn`<br>`glue:RoleAssumedBy`<br>`glue:CredentialIssuingService`<br>`codebuild:BuildArn`<br>`codebuild:ProjectArn`<br>`lambda:SourceFunctionArn`<br>`ssm:SourceInstanceArn`<br>`identitystore:UserId` | `aws:SourceIp`<br>`aws:SourceVpc`<br>`aws:SourceVpcArn`<br>`aws:SourceVpce`<br>`aws:VpceAccount`<br>`aws:VpceOrgID`<br>`aws:VpceOrgPaths`<br>`aws:VpcSourceIp` | `aws:ResourceAccount`<br>`aws:ResourceOrgID`<br>`aws:ResourceOrgPaths`<br>`aws:ResourceTag/tag-key` | `aws:CalledVia`<br>`aws:CalledViaFirst`<br>`aws:CalledViaLast`<br>`aws:CalledViaAWSMCP`<br>`aws:ViaAWSService`<br>`aws:ViaAWSMCPService`<br>`aws:CurrentTime`<br>`aws:EpochTime`<br>`aws:referer`<br>`aws:RequestedRegion`<br>`aws:RequestTag/tag-key`<br>`aws:TagKeys`<br>`aws:SecureTransport`<br>`aws:SourceAccount`<br>`aws:SourceArn`<br>`aws:SourceOrgID`<br>`aws:SourceOrgPaths`<br>`aws:UserAgent`<br>`aws:IsMcpServiceAction` |
 
 ## Sensitive condition keys
 
@@ -1213,6 +1213,69 @@ whether the role session is used for an AWS Glue job runtime environment.
     "Condition": {
         "StringEquals": {
             "glue:CredentialIssuingService": "glue.amazonaws.com"
+        }
+    }
+}
+```
+
+### codebuild:BuildArn
+
+This key identifies the CodeBuild build ARN that IAM role credentials were
+delivered to. Use this key to verify whether a call to
+an AWS resource came from a specific CodeBuild build.
+
+###### Note
+
+The full value of `codebuild:BuildArn` is not known in advance
+because it contains the dynamically generated build ID.
+
+- **Availability** – This key is included
+  in the request context whenever a request is made by a role assumed by CodeBuild.
+- **Data type** – [ARN](reference_policies_elements_condition_operators.md#Conditions_ARN "reference_policies_elements_condition_operators.md#Conditions_ARN")
+- **Value type** – Single-valued
+- **Example value** –
+  arn:aws:codebuild:us-east-1:123456789012:build/MyBuildProject:12345678-1234-1234-1234-123456789012
+
+The following example allows a specific CodeBuild build to have
+`s3:GetObject` access to the specified bucket.
+
+```
+{
+    "Effect": "Allow",
+    "Action": "s3:GetObject",
+    "Resource": "arn:aws:s3:::amzn-s3-demo-bucket/*",
+    "Condition": {
+        "ArnLike": {
+            "codebuild:BuildArn": "arn:aws:codebuild:us-east-1:123456789012:build/MyBuildProject:*"
+        }
+    }
+}
+```
+
+### codebuild:ProjectArn
+
+This key identifies the CodeBuild project ARN that IAM role credentials were
+delivered to an CodeBuild build. Use this key to verify whether a call to
+an AWS resource came from a specific CodeBuild project.
+
+- **Availability** – This key is included
+  in the request context whenever a request is made by a role assumed by CodeBuild.
+- **Data type** – [ARN](reference_policies_elements_condition_operators.md#Conditions_ARN "reference_policies_elements_condition_operators.md#Conditions_ARN")
+- **Value type** – Single-valued
+- **Example value** –
+  arn:aws:codebuild:us-east-1:123456789012:project/MyBuildProject
+
+The following example allows any build from a specific CodeBuild project to have
+`s3:GetObject` access to the specified bucket.
+
+```
+{
+    "Effect": "Allow",
+    "Action": "s3:GetObject",
+    "Resource": "arn:aws:s3:::amzn-s3-demo-bucket/*",
+    "Condition": {
+        "ArnEquals": {
+            "codebuild:ProjectArn": "arn:aws:codebuild:us-east-1:123456789012:project/MyBuildProject"
         }
     }
 }

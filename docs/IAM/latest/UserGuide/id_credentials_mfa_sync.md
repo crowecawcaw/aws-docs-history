@@ -154,7 +154,7 @@ _AWS Sign-In User Guide_. 2. On the right side of the navigation bar, choose on 
 **Security credentials**. If necessary, choose **Continue to
 Security credentials**.
 
-![Security credentials in the navigation menu](/images/IAM/latest/UserGuide/images/security-credentials-root.shared.console.png) 3. Expand the **Multi-factor authentication (MFA)** section on the
+![Security credentials in the navigation menu](images/security-credentials-root.shared.console.png) 3. Expand the **Multi-factor authentication (MFA)** section on the
 page. 4. Choose the radio button next to the device and choose
 **Resync**. 5. In the **Resync MFA device** dialog box, type the next two
 sequentially generated codes from the device into **MFA code 1** and

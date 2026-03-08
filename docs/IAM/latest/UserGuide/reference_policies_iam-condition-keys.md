@@ -1235,21 +1235,21 @@ AWS. You can use these keys to control access to a role. To do that, compare the
 **AWS STS condition keys** to the values in the
 **IdP JWT claim** column.
 
-| AWS STS condition key | IdP JWT claim | Available in session |
-| --------------------- | ------------- | -------------------- |
-| project_id            | project-id    | No                   |
+| AWS STS condition key        | IdP JWT claim                | Available in session |
+| ---------------------------- | ---------------------------- | -------------------- |
+| oidc.circleci.com/project-id | oidc.circleci.com/project-id | No                   |
 
-**project_id**
+**oidc.circleci.com/project-id**
 
 Works with [string
 operators](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String").
 
 **Example** –
-`oidc.circleci.com:project_id`
+`circleci-issuer-url:oidc.circleci.com/project-id`
 
 This key identifies the CircleCI project in which the job is running. Its value is a string containing a UUID that uniquely identifies the CircleCI project. Use this to restrict access to specific CircleCI projects.
 
-The following example trust policy uses the `project_id` claim to limit access to a role.
+The following example trust policy uses the `oidc.circleci.com/project-id` claim to limit access to a role.
 
 ```
 {
@@ -1264,7 +1264,7 @@ The following example trust policy uses the `project_id` claim to limit access t
       "Condition": {
         "StringEquals": {
           "oidc.circleci.com/org/12345:aud": "sts.amazonaws.com",
-          "oidc.circleci.com/org/12345:project_id": "76543210-ba98-fedc-3210-edcba0987654"
+          "oidc.circleci.com/org/12345:oidc.circleci.com/project-id": "76543210-ba98-fedc-3210-edcba0987654"
         }
       }
     }

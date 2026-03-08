@@ -6,7 +6,7 @@ and MFA devices. You can get a credential report from the AWS Management Console
 
 ###### Note
 
-The IAM credential report only includes the following IAM-managed credentials: passwords, the first two access keys per user, MFA devices, and X.509 signing certificates. The report does not include service-specific credentials (such as CodeCommit passwords or Amazon Bedrock long-term API keys) or any other user access keys beyond the first two. For complete credential visibility, use the [ListServiceSpecificCredentials](../APIReference/API_ListServiceSpecificCredentials.md "../APIReference/API_ListServiceSpecificCredentials.md") and [ListAccessKeys](../APIReference/API_ListAccessKeys.md "../APIReference/API_ListAccessKeys.md") APIs.
+The IAM credential report only includes the following IAM-managed credentials: passwords, the first two access keys per user, MFA devices, and X.509 signing certificates. The report does not include service-specific credentials (such as CodeCommit passwords, Amazon Bedrock long-term API keys, or Amazon CloudWatch Logs long-term API keys) or any other user access keys beyond the first two. For complete credential visibility, use the [ListServiceSpecificCredentials](../APIReference/API_ListServiceSpecificCredentials.md "../APIReference/API_ListServiceSpecificCredentials.md") and [ListAccessKeys](../APIReference/API_ListAccessKeys.md "../APIReference/API_ListAccessKeys.md") APIs.
 
 You can use credential reports to assist in your auditing and compliance efforts. You can
 use the report to audit the effects of credential lifecycle requirements, such as password and
