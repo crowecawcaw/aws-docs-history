@@ -15,6 +15,8 @@ The following are prerequisites to deploy Amazon Nova models on SageMaker infere
   - SageMaker Python SDK v3.0.0+ (`sagemaker>=3.0.0`) for resource-based API approach
   - Boto3 version 1.35.0+ (`boto3>=1.35.0`) for direct API calls. The examples in this guide use this approach.
 
+- Service quota increase - Request an Amazon SageMaker service quota increase for the ML instance type you plan to use for your SageMaker Inference endpoint (for example, `ml.p5.48xlarge for endpoint usage`). For a list of supported instance types, see [Supported models and instances](nova-model-sagemaker-inference.md#nova-sagemaker-inference-supported "nova-model-sagemaker-inference.md#nova-sagemaker-inference-supported"). To request an increase, see [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md"). For information about SageMaker instance quotas, see [SageMaker endpoints and quotas](../../../general/latest/gr/sagemaker.md "../../../general/latest/gr/sagemaker.md").
+
 ## Step 1: Configure AWS credentials
 
 Configure your AWS credentials using one of the following methods:
@@ -158,7 +160,7 @@ For more information about SageMaker execution roles, see [SageMaker Roles](../.
 
 ## Step 3: Configure model parameters
 
-Configure the deployment parameters for your Amazon Nova model. These settings control model behavior, resource allocation, and inference characteristics.
+Configure the deployment parameters for your Amazon Nova model. These settings control model behavior, resource allocation, and inference characteristics. For a list of supported instance types and supported CONTEXT_LENGTH and MAX_CONCURRENCY values for each, see [Supported models and instances](nova-model-sagemaker-inference.md#nova-sagemaker-inference-supported "nova-model-sagemaker-inference.md#nova-sagemaker-inference-supported").
 
 **Required parameters**
 
@@ -186,17 +188,9 @@ ECR_ACCOUNT_MAP = {
     "us-west-2": "176779409107"
 }
 
-# Container Image - Replace with the image URI provided by your AWS contact
-# Two image tags are available (both point to the same image):
-IMAGE_LATEST = f"{ECR_ACCOUNT_MAP[REGION]}.dkr.ecr.{REGION}.amazonaws.com/nova-inference-repo:SM-Inference-latest"
-IMAGE_VERSIONED = f"{ECR_ACCOUNT_MAP[REGION]}.dkr.ecr.{REGION}.amazonaws.com/nova-inference-repo:v1.0.0"
-
-# Use the versioned tag for production deployments (recommended)
-IMAGE = IMAGE_VERSIONED
+# Container Image
+IMAGE = f"{ECR_ACCOUNT_MAP[REGION]}.dkr.ecr.{REGION}.amazonaws.com/nova-inference-repo:SM-Inference-latest"
 print(f"IMAGE = {IMAGE}")
-print(f"Available tags:")
-print(f"  Latest: {IMAGE_LATEST}")
-print(f"  Versioned: {IMAGE_VERSIONED}")
 
 # Model Parameters
 CONTEXT_LENGTH = "16000"       # Maximum total context length
@@ -598,6 +592,46 @@ chat_request = {
 response = invoke_nova_endpoint(chat_request)
 ```
 
+**Sample response:**
+
+```
+{
+    "id": "chatcmpl-123456",
+    "object": "chat.completion",
+    "created": 1234567890,
+    "model": "default",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "Hello! I'm doing well, thank you for asking. I'm here and ready to help you with any questions or tasks you might have. How can I assist you today?"
+            },
+            "logprobs": {
+                "content": [
+                    {
+                        "token": "Hello",
+                        "logprob": -0.123,
+                        "top_logprobs": [
+                            {"token": "Hello", "logprob": -0.123},
+                            {"token": "Hi", "logprob": -2.456},
+                            {"token": "Hey", "logprob": -3.789}
+                        ]
+                    }
+                    # Additional tokens...
+                ]
+            },
+            "finish_reason": "stop"
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 12,
+        "completion_tokens": 28,
+        "total_tokens": 40
+    }
+}
+```
+
 **Example 2: Simple text completion**
 
 Use the completion format for simple text generation:
@@ -620,6 +654,37 @@ completion_request = {
 response = invoke_nova_endpoint(completion_request)
 ```
 
+**Sample response:**
+
+```
+{
+    "id": "cmpl-789012",
+    "object": "text_completion",
+    "created": 1234567890,
+    "model": "default",
+    "choices": [
+        {
+            "text": " Paris.",
+            "index": 0,
+            "logprobs": {
+                "tokens": [" Paris", "."],
+                "token_logprobs": [-0.001, -0.002],
+                "top_logprobs": [
+                    {" Paris": -0.001, " London": -5.234, " Rome": -6.789},
+                    {".": -0.002, ",": -4.567, "!": -7.890}
+                ]
+            },
+            "finish_reason": "stop"
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 6,
+        "completion_tokens": 2,
+        "total_tokens": 8
+    }
+}
+```
+
 **Example 3: Streaming chat completion**
 
 ```
@@ -640,6 +705,21 @@ streaming_request = {
 }
 
 invoke_nova_endpoint(streaming_request)
+```
+
+**Sample streaming output:**
+
+```
+Chunk: data: {"id":"chatcmpl-029ca032-fa01-4868-80b7-c4cb1af90fb9","object":"chat.completion.chunk","created":1772060532,"model":"default","choices":[{"index":0,"delta":{"role":"assistant","content":"","reasoning_content":null},"logprobs":null,"finish_reason":null}],"prompt_token_ids":null}
+Chunk: data: {"id":"chatcmpl-029ca032-fa01-4868-80b7-c4cb1af90fb9","object":"chat.completion.chunk","created":1772060532,"model":"default","choices":[{"index":0,"delta":{"content":" Once","reasoning_content":null},"logprobs":{"content":[{"token":"\u2581Once","logprob":-0.6078429222106934,"bytes":[226,150,129,79,110,99,101],"top_logprobs":[{"token":"\u2581Once","logprob":-0.6078429222106934,"bytes":[226,150,129,79,110,99,101]},{"token":"\u2581In","logprob":-0.7864127159118652,"bytes":[226,150,129,73,110]}]}]},"finish_reason":null,"token_ids":null}]}
+Chunk: data: {"id":"chatcmpl-029ca032-fa01-4868-80b7-c4cb1af90fb9","object":"chat.completion.chunk","created":1772060532,"model":"default","choices":[{"index":0,"delta":{"content":" upon","reasoning_content":null},"logprobs":{"content":[{"token":"\u2581upon","logprob":-0.0012345,"bytes":[226,150,129,117,112,111,110],"top_logprobs":[{"token":"\u2581upon","logprob":-0.0012345,"bytes":[226,150,129,117,112,111,110]},{"token":"\u2581a","logprob":-6.789,"bytes":[226,150,129,97]}]}]},"finish_reason":null,"token_ids":null}]}
+Chunk: data: {"id":"chatcmpl-029ca032-fa01-4868-80b7-c4cb1af90fb9","object":"chat.completion.chunk","created":1772060532,"model":"default","choices":[{"index":0,"delta":{"content":" a","reasoning_content":null},"logprobs":{"content":[{"token":"\u2581a","logprob":-0.0001234,"bytes":[226,150,129,97],"top_logprobs":[{"token":"\u2581a","logprob":-0.0001234,"bytes":[226,150,129,97]},{"token":"\u2581time","logprob":-9.123,"bytes":[226,150,129,116,105,109,101]}]}]},"finish_reason":null,"token_ids":null}]}
+Chunk: data: {"id":"chatcmpl-029ca032-fa01-4868-80b7-c4cb1af90fb9","object":"chat.completion.chunk","created":1772060532,"model":"default","choices":[{"index":0,"delta":{"content":" time","reasoning_content":null},"logprobs":{"content":[{"token":"\u2581time","logprob":-0.0023456,"bytes":[226,150,129,116,105,109,101],"top_logprobs":[{"token":"\u2581time","logprob":-0.0023456,"bytes":[226,150,129,116,105,109,101]},{"token":",","logprob":-6.012,"bytes":[44]}]}]},"finish_reason":null,"token_ids":null}]}
+
+# Additional chunks...
+
+Chunk: data: {"id":"chatcmpl-029ca032-fa01-4868-80b7-c4cb1af90fb9","object":"chat.completion.chunk","created":1772060532,"model":"default","choices":[{"index":0,"delta":{},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":15,"completion_tokens":87,"total_tokens":102}}
+Chunk: data: [DONE]
 ```
 
 **Example 4: Multimodal chat completion**
@@ -665,6 +745,32 @@ multimodal_request = {
 }
 
 response = invoke_nova_endpoint(multimodal_request)
+```
+
+**Sample response:**
+
+```
+{
+    "id": "chatcmpl-345678",
+    "object": "chat.completion",
+    "created": 1234567890,
+    "model": "default",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "The image shows..."
+            },
+            "finish_reason": "stop"
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 1250,
+        "completion_tokens": 45,
+        "total_tokens": 1295
+    }
+}
 ```
 
 ## Step 7: Clean up resources (Optional)

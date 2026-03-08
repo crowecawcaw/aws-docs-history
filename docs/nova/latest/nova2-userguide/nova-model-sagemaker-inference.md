@@ -78,10 +78,10 @@ The following table lists the AWS Regions where Amazon Nova models are available
 
 The following table lists the container image URIs for Amazon Nova models on SageMaker inference by region. Two image tags are available for each region: a versioned tag (`v1.0.0`) and a latest tag (`SM-Inference-latest`). For production deployments, we recommend using the versioned tag.
 
-| Region    | Container Image URIs                                                                                                                                                |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| us-east-1 | `708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-inference-repo:v1.0.0`<br>`708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-inference-repo:SM-Inference-latest` |
-| us-west-2 | `176779409107.dkr.ecr.us-west-2.amazonaws.com/nova-inference-repo:v1.0.0`<br>`176779409107.dkr.ecr.us-west-2.amazonaws.com/nova-inference-repo:SM-Inference-latest` |
+| Region    | Container Image URIs                                                                   |
+| --------- | -------------------------------------------------------------------------------------- |
+| us-east-1 | `708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-inference-repo:SM-Inference-latest` |
+| us-west-2 | `176779409107.dkr.ecr.us-west-2.amazonaws.com/nova-inference-repo:SM-Inference-latest` |
 
 ## Best Practices
 
