@@ -1,215 +1,192 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Describe batch load task
+# Update database
 
-You can use the following code snippets to describe batch load tasks.
+You can use the following code snippets to update your databases.
+
+###### Note
+
+These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps").
+For more information about how to get started with the sample applications, see [Sample application](sample-apps.md "sample-apps.md").
 
 Java
 
 ```
-    public void describeBatchLoadTask(String taskId) {
-            final DescribeBatchLoadTaskResponse batchLoadTaskResponse = amazonTimestreamWrite
-                            .describeBatchLoadTask(DescribeBatchLoadTaskRequest.builder()
-                                            .taskId(taskId)
-                                            .build());
+    public void updateDatabase(String kmsId) {
+        System.out.println("Updating kmsId to " + kmsId);
+        UpdateDatabaseRequest request = new UpdateDatabaseRequest();
+        request.setDatabaseName(DATABASE_NAME);
+        request.setKmsKeyId(kmsId);
+        try {
+            UpdateDatabaseResult result = amazonTimestreamWrite.updateDatabase(request);
+            System.out.println("Update Database complete");
+        } catch (final ValidationException e) {
+            System.out.println("Update database failed:");
+            e.printStackTrace();
+        } catch (final ResourceNotFoundException e) {
+            System.out.println("Database " + DATABASE_NAME + " doesn't exist = " + e);
+        } catch (final Exception e) {
+            System.out.println("Could not update Database " + DATABASE_NAME + " = " + e);
+            throw e;
+        }
+    }
+```
 
-            System.out.println("Task id: " + batchLoadTaskResponse.batchLoadTaskDescription().taskId());
-            System.out.println("Status: " + batchLoadTaskResponse.batchLoadTaskDescription().taskStatusAsString());
-            System.out.println("Records processed: "
-                            + batchLoadTaskResponse.batchLoadTaskDescription().progressReport().recordsProcessed());
+Java v2
+
+```
+    public void updateDatabase(String kmsKeyId) {
+
+        if (kmsKeyId == null) {
+            System.out.println("Skipping UpdateDatabase because KmsKeyId was not given");
+            return;
+        }
+
+        System.out.println("Updating database");
+
+        UpdateDatabaseRequest request = UpdateDatabaseRequest.builder()
+                .databaseName(DATABASE_NAME)
+                .kmsKeyId(kmsKeyId)
+                .build();
+        try {
+            timestreamWriteClient.updateDatabase(request);
+            System.out.println("Database [" + DATABASE_NAME + "] updated successfully with kmsKeyId " + kmsKeyId);
+        } catch (ResourceNotFoundException e) {
+            System.out.println("Database [" + DATABASE_NAME + "] does not exist. Skipping UpdateDatabase");
+        } catch (Exception e) {
+            System.out.println("UpdateDatabase failed: " + e);
+        }
     }
 ```
 
 Go
 
 ```
-package main
+// Update Database.
+        updateDatabaseInput := &timestreamwrite.UpdateDatabaseInput {
+            DatabaseName: aws.String(*databaseName),
+            KmsKeyId: aws.String(*kmsKeyId),
+        }
 
-import (
-	"fmt"
-	"context"
-	"log"
-	"github.com/aws/aws-sdk-go-v2/aws"
-	"github.com/aws/aws-sdk-go-v2/config"
-	"github.com/aws/aws-sdk-go-v2/service/timestreamwrite"
-)
+        updateDatabaseOutput, err := writeSvc.UpdateDatabase(updateDatabaseInput)
 
-func main() {
-	customResolver := aws.EndpointResolverWithOptionsFunc(func(service, region string, options ...interface{}) (aws.Endpoint, error) {
-		if service == timestreamwrite.ServiceID && region == "us-west-2" {
-		    return aws.Endpoint{
-		        PartitionID:   "aws",
-		        URL:           <URL>,
-		        SigningRegion: "us-west-2",
-		    }, nil
-		}
-		return aws.Endpoint{}, &aws.EndpointNotFoundError{}
-	})
-
-	cfg, err := config.LoadDefaultConfig(context.TODO(), config.WithEndpointResolverWithOptions(customResolver), config.WithRegion("us-west-2"))
-
-	if err != nil {
-  		log.Fatalf("failed to load configuration, %v", err)
-	}
-
-	client := timestreamwrite.NewFromConfig(cfg)
-
-	response, err := client.DescribeBatchLoadTask(context.TODO(), &timestreamwrite.DescribeBatchLoadTaskInput{
-		TaskId: aws.String("<TaskId>"),
-	})
-
-	fmt.Println(aws.ToString(response.BatchLoadTaskDescription.TaskId))
-}
-
+        if err != nil {
+            fmt.Println("Error:")
+            fmt.Println(err)
+        } else {
+            fmt.Println("Update database is successful, below is the output:")
+            fmt.Println(updateDatabaseOutput)
+        }
 ```
 
 Python
 
 ```
-import boto3
-from botocore.config import Config
-
-INGEST_ENDPOINT="`<url>`"
-REGION="us-west-2"
-HT_TTL_HOURS = 24
-CT_TTL_DAYS = 7
-TASK_ID = "`<task id>`"
-
-def describe_batch_load_task(client, task_id):
-    try:
-        result = client.describe_batch_load_task(TaskId=task_id)
-        print("Successfully described batch load task: ", result)
-    except Exception as err:
-        print("Describe batch load task job failed:", err)
-
-
-if __name__ == '__main__':
-    session = boto3.Session()
-
-    write_client = session.client('timestream-write', \
-        endpoint_url=INGEST_ENDPOINT, region_name=REGION, \
-        config=Config(read_timeout=20, max_pool_connections = 5000, retries={'max_attempts': 10}))
-
-    describe_batch_load_task(write_client, TASK_ID)
-
+    def update_database(self, kms_id):
+        print("Updating database")
+        try:
+            result = self.client.update_database(DatabaseName=Constant.DATABASE_NAME, KmsKeyId=kms_id)
+            print("Database [%s] was updated to use kms [%s] successfully" % (Constant.DATABASE_NAME,
+                                                                              result['Database']['KmsKeyId']))
+        except self.client.exceptions.ResourceNotFoundException:
+            print("Database doesn't exist")
+        except Exception as err:
+            print("Update database failed:", err)
 ```
 
 Node.js
 The following snippet uses AWS SDK for JavaScript v3. For more information about how to install the client and usage, see [Timestream Write Client - AWS SDK for JavaScript v3](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md").
 
-For API details, see [Class DescribeBatchLoadCommand](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/describebatchloadtaskcommand.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/describebatchloadtaskcommand.md") and [DescribeBatchLoadTask](API_DescribeBatchLoadTask.md "API_DescribeBatchLoadTask.md").
+Also see [Class UpdateDatabaseCommand](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/updatedatabasecommand.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/updatedatabasecommand.md") and [UpdateDatabase](API_UpdateDatabase.md "API_UpdateDatabase.md").
 
 ```
-import { TimestreamWriteClient, DescribeBatchLoadTaskCommand } from "@aws-sdk/client-timestream-write";
-const writeClient = new TimestreamWriteClient({ region: "`<region>`", endpoint: "`<endpoint>`" });
+import { TimestreamWriteClient, UpdateDatabaseCommand } from "@aws-sdk/client-timestream-write";
+const writeClient = new TimestreamWriteClient({ region: "us-east-1" });
+let updatedKmsKeyId = "`<updatedKmsKeyId>`";
 
 const params = {
-    TaskId: "`<TaskId>`"
+    DatabaseName: "testDbFromNode",
+    KmsKeyId: updatedKmsKeyId
 };
 
-const command = new DescribeBatchLoadTaskCommand(params);
+const command = new UpdateDatabaseCommand(params);
 
 try {
     const data = await writeClient.send(command);
-    console.log(`Batch load task has id ` + data.BatchLoadTaskDescription.TaskId);
+    console.log(`Database ${data.Database.DatabaseName} updated kmsKeyId to ${updatedKmsKeyId}`);
 } catch (error) {
     if (error.code === 'ResourceNotFoundException') {
-        console.log("Batch load task doesn't exist.");
+        console.log("Database doesn't exist.");
     } else {
-        console.log("Describe batch load task failed.", error);
-        throw error;
+        console.log("Update database failed.", error);
     }
+}
+```
+
+The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js").
+
+```
+async function updateDatabase(updatedKmsKeyId) {
+
+    if (updatedKmsKeyId === undefined) {
+        console.log("Skipping UpdateDatabase; KmsKeyId was not given");
+        return;
+    }
+    console.log("Updating Database");
+    const params = {
+        DatabaseName: constants.DATABASE_NAME,
+        KmsKeyId: updatedKmsKeyId
+    }
+
+    const promise = writeClient.updateDatabase(params).promise();
+
+    await promise.then(
+        (data) => {
+            console.log(`Database ${data.Database.DatabaseName} updated kmsKeyId to ${updatedKmsKeyId}`);
+        },
+        (err) => {
+            if (err.code === 'ResourceNotFoundException') {
+                console.log("Database doesn't exist.");
+            } else {
+                console.log("Update database failed.", err);
+            }
+        }
+    );
 }
 ```
 
 .NET
 
 ```
-using System;
-using System.IO;
-using System.Collections.Generic;
-using Amazon.TimestreamWrite;
-using Amazon.TimestreamWrite.Model;
-using System.Threading.Tasks;
-
-namespace TimestreamDotNetSample
-{
-    public class DescribeBatchLoadTaskExample
-    {
-        private readonly AmazonTimestreamWriteClient writeClient;
-
-        public DescribeBatchLoadTaskExample(AmazonTimestreamWriteClient writeClient)
+        public async Task UpdateDatabase(String updatedKmsKeyId)
         {
-            this.writeClient = writeClient;
-        }
+            Console.WriteLine("Updating Database");
 
-        public async Task DescribeBatchLoadTask(String taskId)
-        {
             try
             {
-                var describeBatchLoadTaskRequest = new DescribeBatchLoadTaskRequest
+                var updateDatabaseRequest = new UpdateDatabaseRequest
                 {
-                    TaskId = taskId
+                    DatabaseName = Constants.DATABASE_NAME,
+                    KmsKeyId = updatedKmsKeyId
                 };
-                DescribeBatchLoadTaskResponse response = await writeClient.DescribeBatchLoadTaskAsync(describeBatchLoadTaskRequest);
-                Console.WriteLine($"Task has id:{response.BatchLoadTaskDescription.TaskId}");
+                UpdateDatabaseResponse response = await writeClient.UpdateDatabaseAsync(updateDatabaseRequest);
+                Console.WriteLine($"Database {Constants.DATABASE_NAME} updated with KmsKeyId {updatedKmsKeyId}");
             }
             catch (ResourceNotFoundException)
             {
-                Console.WriteLine("Batch load task does not exist.");
+                Console.WriteLine("Database does not exist.");
             }
             catch (Exception e)
             {
-                Console.WriteLine("Describe batch load task failed:" + e.ToString());
+                Console.WriteLine("Update database failed: " + e.ToString());
             }
+
         }
-    }
-}
 
-```
-
-```
-using Amazon.TimestreamWrite;
-using Amazon.TimestreamWrite.Model;
-using Amazon;
-using Amazon.TimestreamQuery;
-using System.Threading.Tasks;
-using System;
-using CommandLine;
-static class Constants
-{
-
-}
-namespace TimestreamDotNetSample
-{
-    class MainClass
-    {
-        public class Options
+        private void PrintDatabases(List<Database> databases)
         {
-
+            foreach (Database database in databases)
+                Console.WriteLine($"Database:{database.DatabaseName}");
         }
-        public static void Main(string[] args)
-        {
-            Parser.Default.ParseArguments<Options>(args)
-                .WithParsed<Options>(o => {
-                    MainAsync().GetAwaiter().GetResult();
-                });
-        }
-
-        static async Task MainAsync()
-        {
-            var writeClientConfig = new AmazonTimestreamWriteConfig
-            {
-                ServiceURL =  "<service URL>",
-                Timeout = TimeSpan.FromSeconds(20),
-                MaxErrorRetry = 10
-            };
-
-            var writeClient = new AmazonTimestreamWriteClient(writeClientConfig);
-            var example = new DescribeBatchLoadTaskExample(writeClient);
-            await example.DescribeBatchLoadTask("<batch load task id>");
-        }
-    }
-}
 ```

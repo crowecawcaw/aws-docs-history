@@ -1,6 +1,22 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Queries
+# Metering and cost optimization
 
-Queries are charged based on the duration of [Timestream compute units (TCUs)](tcu.md "tcu.md") used by your application in TCU-hours as specified on the [Amazon Timestream pricing](https://aws.amazon.com/timestream/pricing/ "https://aws.amazon.com/timestream/pricing/") page. Amazon Timestream for LiveAnalytics' query engine prunes irrelevant data while processing a query. Queries with projections and predicates including time ranges, measure names, and/or dimension names enable the query processing engine to prune a significant amount of data and help with lowering query costs.
+With Amazon Timestream for LiveAnalytics, you pay only for what you use.
+Timestream for LiveAnalytics meters separately for writes, data stored, and data scanned by queries.
+The price of each metering dimension is specified on the [pricing page](https://aws.amazon.com/timestream/pricing/ "https://aws.amazon.com/timestream/pricing/").
+You can estimate your monthly bill using the
+[Amazon Timestream for LiveAnalytics Pricing Calculator](samples/Amazon_Timestream_Pricing_Calculator.md "samples/Amazon_Timestream_Pricing_Calculator.md").
+
+This section describes how metering works for writes, storage and queries in Timestream for LiveAnalytics.
+Example scenarios and calculations are also provided. In addition, a list of best practices for cost optimization is included.
+You can select a topic below:
+
+###### Topics
+
+- [Writes](metering-and-pricing.md "metering-and-pricing.md")
+- [Storage](metering-and-pricing.md "metering-and-pricing.md")
+- [Queries](metering-and-pricing.md "metering-and-pricing.md")
+- [Cost optimization](metering-and-pricing.md "metering-and-pricing.md")
+- [Monitoring with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md")

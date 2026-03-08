@@ -7,7 +7,7 @@ The following parameters are available for InfluxDB 3 parameter groups. Most par
 
 ###### Note
 
-**Parameters that must not change after initial setup:** The parameters `gen1-duration`, `compaction-gen2-duration`, and `compaction-multipliers` are persisted in the catalog. Changing them after the cluster's first start causes silent data divergence (deduplication failures, incorrect generation durations). Set these at cluster creation time only. When cloning parameter groups, these values must be copied unchanged.
+**Parameters that must not change after initial setup:** The parameters `gen1-duration`, `compaction-gen2-duration`, `compaction-multipliers`, and `gen1-lookback-duration` are persisted in the catalog. Changing them after the cluster's first start causes silent data divergence (deduplication failures, incorrect generation durations). Set these at cluster creation time only. When cloning parameter groups, these values must be copied unchanged.
 
 | Parameter Summary by Edition                | Parameter               | Category         | Edition |
 | ------------------------------------------- | ----------------------- | ---------------- | ------- |

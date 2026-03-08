@@ -5,6 +5,16 @@ data ingestion and single-digit millisecond query response times for real-time a
 
 Questions about configuring Amazon Timestream for InfluxDB 3 clusters using parameter groups. For the full parameter reference, see [Parameter Groups for DB Clusters in Amazon Timestream](parameter-groups.md "parameter-groups.md").
 
+**How can I check the current running configuration of my cluster?**
+
+You can verify the effective parameter values on a running cluster by querying the `_internal` database's `nodes` table:
+
+```
+SELECT * FROM _internal.nodes
+```
+
+This returns the active configuration for each node in your cluster. Use this to verify parameter values before and after applying a new parameter group.
+
 **What are parameter groups?**
 
 Parameter groups contain engine configuration values that control how your InfluxDB 3 cluster operates. They include settings for query execution, memory management, compaction, caching, and more. Amazon Timestream provides default parameter groups, and you can create custom ones.

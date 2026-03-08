@@ -34,3 +34,11 @@ aws timestream-influxdb create-db-parameter-group \
 ```
 
 **Note:** After creating a parameter group, you can use it when creating a new DB cluster by specifying `--db-parameter-group-identifier`, or when updating an existing cluster using the `update-db-cluster` command. Parameter groups cannot be modified after creation.
+
+**Verifying your current running configuration:** You can check the effective parameter values on a running cluster by querying the `_internal` database's `nodes` table:
+
+```
+SELECT * FROM _internal.nodes
+```
+
+This query returns the active configuration for each node in your cluster, allowing you to verify parameter values before and after applying a new parameter group.
