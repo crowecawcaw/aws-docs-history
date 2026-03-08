@@ -10,7 +10,7 @@ For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon SES with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.
 
-###### Code examples
+###### Amazon SES API v2
 
 - [Basics](service_code_examples_sesv2_basics.md "service_code_examples_sesv2_basics.md")
   - [Actions](service_code_examples_sesv2_actions.md "service_code_examples_sesv2_actions.md")

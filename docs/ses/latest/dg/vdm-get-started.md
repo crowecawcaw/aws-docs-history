@@ -14,8 +14,7 @@ help you make improvements to your deliverability and reputation.
   tracking wrappers._
 - Optimized shared delivery – Automatically chooses the optimal IP
   to use when sending emails, improving end-point delivery of messages to the target
-  email recipients. _This does not apply to dedicated IP
-  addresses._
+  email recipients.
   While both engagement tracking and optimized shared delivery are turned on by default in the onboarding wizard, you have the
   option to turn them off. We highly recommend that you keep both features enabled to get the
   most out of Virtual Deliverability Manager.

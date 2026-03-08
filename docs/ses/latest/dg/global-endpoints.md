@@ -31,7 +31,7 @@ identities, configuration sets, and approved sending limits sufficient for all o
 expected volume.
 
 Once the Global endpoint is ready and its Endpoint ID is specified in the SendEmail API call,
-SES automatically routes your outbound traffic evenly between your primary and
+SES automatically routes your outbound traffic between your primary and
 secondary regions. If either region becomes impaired, traffic will be weighted away from
 that region towards the other one until the impairment is resolved.
 
