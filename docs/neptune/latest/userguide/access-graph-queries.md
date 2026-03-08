@@ -34,6 +34,7 @@ data stored in Neptune, regardless of how it was loaded.
 
 - [Query queuing in Amazon Neptune](access-graph-queuing.md "access-graph-queuing.md")
 - [Query plan cache in Amazon Neptune](access-graph-qpc.md "access-graph-qpc.md")
+- [Inject a Custom ID Into a Neptune Gremlin or SPARQL Query](features-query-id.md "features-query-id.md")
 - [Accessing a Neptune graph with Gremlin](access-graph-gremlin.md "access-graph-gremlin.md")
 - [Accessing the Neptune Graph with openCypher](access-graph-opencypher.md "access-graph-opencypher.md")
 - [Accessing the Neptune graph with SPARQL](access-graph-sparql.md "access-graph-sparql.md")

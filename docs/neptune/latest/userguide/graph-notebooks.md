@@ -93,6 +93,39 @@ Jupyter** or **Open JupyterLab**.
 The console can create an AWS Identity and Access Management (IAM) role for your notebooks, or you
 can create one yourself. The policy for this role should include the following:
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "AllowS3GetObjectS3ListBucket",
+ "Effect": "Allow",
+ "Action": [
+ "s3:GetObject",
+ "s3:ListBucket"
+ ],
+ "Resource": [
+ "arn:aws:s3:::aws-neptune-notebook",
+ "arn:aws:s3:::aws-neptune-notebook/*",
+ "arn:aws:s3:::aws-neptune-notebook-`us-east-1`",
+ "arn:aws:s3:::aws-neptune-notebook-`us-east-1`/*"
+ ]
+ },
+ {
+ "Sid": "AllowAccessNeptuneDB",
+ "Effect": "Allow",
+ "Action": "neptune-db:*",
+ "Resource": [
+ "arn:aws:neptune-db:`us-east-1`:`111122223333`:`cluster-resource-id`/*"
+ ]
+ }
+ ]
+}`
+
+```
+
 Note that the second statement in the policy above lists one or more Neptune
 [cluster resource IDs](iam-data-resources.md "iam-data-resources.md").
 
@@ -189,6 +222,12 @@ Would just be:
 ```
 connection = DriverRemoteConnection(endpoint,'g')
 ```
+
+## Launching graph-notebook as Amazon Neptune Workbench via CloudFormation
+
+You can deploy Amazon Neptune workbench notebooks using CloudFormation. The CloudFormation template deploys Neptune workbench notebooks as resources and includes the base 'Getting Started' notebooks. The workbench lets you work with your Amazon Neptune Database cluster using Jupyter notebooks hosted by Amazon SageMaker. You are billed for workbench resources through Amazon SageMaker, separately from your Neptune billing.
+
+The CloudFormation template and detailed instructions, including IAM role requirements and permissions, are available in the [graph-notebook GitHub repository](https://github.com/aws/graph-notebook/tree/main/additional-databases/sagemaker/neptune-notebook-cloudformation "https://github.com/aws/graph-notebook/tree/main/additional-databases/sagemaker/neptune-notebook-cloudformation").
 
 ## Enabling CloudWatch logs on Neptune Notebooks
 

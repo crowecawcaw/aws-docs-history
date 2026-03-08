@@ -13,21 +13,26 @@ complicated than usual:
   and those parameter groups won't work with release 1.2.0.0 and above.
   See [Amazon Neptune parameter groups](parameter-groups.md "parameter-groups.md") for more
   information.
-- Engine release 1.2.0.0 also introduced a new format for undo logs. As a result,
-  any undo logs created by an earlier engine version must be purged and the [UndoLogsListSize](cw-metrics.md#cw-metrics-UndoLogListSize "cw-metrics.md#cw-metrics-UndoLogListSize") CloudWatch metric
-  must fall to zero before any upgrade from a version earlier than 1.2.0.0 can get
-  started. If there are too many undo log records (200,000 or more) when you try
-  to start an update, the upgrade attempt may time out while waiting for purging
-  of the undo logs to complete.
+- Engine release 1.2.0.0 introduced a new format for undo logs. Consequently,
+  if you are upgrading to version 1.2.0.0 or higher from a version earlier than
+  1.2.0.0, the [UndoLogListSize](cw-metrics.md#cw-metrics-UndoLogListSize "cw-metrics.md#cw-metrics-UndoLogListSize")
+  metric must be below a certain threshold. Otherwise, the patch will roll back and fail.
+  The thresholds are based on instance type: the default limit is 40k for 4xlarge or
+  larger instances, and 10k for instances smaller than 4xlarge. If the
+  `UndoLogListSize` exceeds the limit when you attempt to upgrade, the patch
+  process will roll back, the upgrade will be canceled, and an event with the reason will
+  be visible on the cluster event page. These limits can change for operational reasons
+  without prior warning.
 
 You can speed up the purge rate by upgrading the cluster's writer instance,
-which is where the purging occurs. Doing that before trying to upgrade can bring
-down the number of undo logs before you start. Increasing the size of the writer
-to a 24XL instance type can increase your purge rate to more than a million
-records per hour.
+which is where the purging occurs. Doing that before trying to upgrade can help bring
+down the `UndoLogListSize` below the applicable threshold. Increasing the
+size of the writer to a 24XL instance type can increase your purge rate to more than
+a million records per hour.
 
-If the `UndoLogsListSize` CloudWatch metric is extremely large, opening
-a support case may help you explore additional strategies for bringing it down.
+If the `UndoLogListSize` CloudWatch metric is extremely large, opening
+a support case may help you explore additional strategies for bringing it down below
+the required limit.
 
 - Finally, there was a breaking change in release 1.2.0.0 affecting earlier code
   that used the Bolt protocol with IAM authentication. Starting with release 1.2.0.0,

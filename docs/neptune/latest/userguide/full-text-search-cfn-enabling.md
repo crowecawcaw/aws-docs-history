@@ -34,8 +34,7 @@ Here are the steps required:
 
 ###### Note
 
-[export-neptune-to-elasticsearch](https://github.com/awslabs/amazon-neptune-tools/tree/master/export-neptune-to-elasticsearch "https://github.com/awslabs/amazon-neptune-tools/tree/master/export-neptune-to-elasticsearch") does not currently support Opensearch serverless. Deployments which require
-a one-time synchronization of existing data in Neptune must use Opensearch managed clusters.
+If using [export-neptune-to-elasticsearch](https://github.com/awslabs/amazon-neptune-tools/tree/master/export-neptune-to-elasticsearch "https://github.com/awslabs/amazon-neptune-tools/tree/master/export-neptune-to-elasticsearch") with Opensearch Serverless, the `LambdaExecutionRole` created by the [export-neptune-to-elasticsearch](https://github.com/awslabs/amazon-neptune-tools/tree/master/export-neptune-to-elasticsearch "https://github.com/awslabs/amazon-neptune-tools/tree/master/export-neptune-to-elasticsearch") Cloudformation stack must be added to the [Opensearch Data Access Policy](../../../opensearch-service/latest/developerguide/serverless-data-access.md "../../../opensearch-service/latest/developerguide/serverless-data-access.md") to successfully replicate the data.
 
 ## If you cannot pause your write workloads
 

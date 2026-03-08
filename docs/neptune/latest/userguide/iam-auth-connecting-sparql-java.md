@@ -38,7 +38,6 @@ _IAM User Guide_.
   - Europe (London):   `eu-west-2`
   - Europe (Paris):   `eu-west-3`
   - Europe (Frankfurt):   `eu-central-1`
-  - Europe (Zurich):   `eu-central-2`
   - Middle East (Bahrain):   `me-south-1`
   - Middle East (UAE):   `me-central-1`
   - Israel (Tel Aviv):   `il-central-1`
@@ -96,7 +95,7 @@ Enter the following to run the RDF4J example.
 ```
 mvn compile exec:java \
     -Dexec.mainClass="com.amazonaws.neptune.client.rdf4j.NeptuneRdf4JSigV4Example" \
-    -Dexec.args="https://`your-neptune-endpoint`:`port`"
+    -Dexec.args="https://`your-neptune-endpoint`:`port`sparql `region-name`"
 ```
 
 ###### Apache Jena

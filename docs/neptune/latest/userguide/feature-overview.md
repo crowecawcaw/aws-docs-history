@@ -22,7 +22,6 @@ This section provides an overview of specific Neptune features, including:
 - [An introduction to Neptune clusters and instances](feature-overview-db-clusters.md "feature-overview-db-clusters.md").
 - [Neptune's storage, reliability and availability](feature-overview-storage.md "feature-overview-storage.md").
 - [An explanation of Neptune endpoints](feature-overview-endpoints.md "feature-overview-endpoints.md").
-- [How Neptune's custom query IDs let you check query status](features-query-id.md "features-query-id.md").
 - [Using Neptune's lab mode to enable experimental features](features-lab-mode.md "features-lab-mode.md").
 - [A description of Neptune's DFE engine](neptune-dfe-engine.md "neptune-dfe-engine.md").
 - [Neptune's JDBC connectivity](neptune-jdbc.md "neptune-jdbc.md").

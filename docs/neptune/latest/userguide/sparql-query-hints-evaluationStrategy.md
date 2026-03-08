@@ -49,6 +49,9 @@ For this example, assume that the dataset has the following characteristics:
 
 100.
 
+As a typical example, the `evaluationStrategy` hint can be helpful to
+optimize query patterns containing cycles.
+
 ###### No Query Hint
 
 The following SPARQL query extracts all `component` nodes that are

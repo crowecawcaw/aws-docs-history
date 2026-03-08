@@ -27,7 +27,7 @@ latency in seconds and concurrency is measured as the target number of
 queries per second:
 
 ```
-vCPUs=(latencyxconcurrency)/2
+vCPUs = (latency x concurrency) / 2
 ```
 
 ###### Note
@@ -176,6 +176,18 @@ utilization and a high buffer-pool cache miss rate, try using the `x2g`
 family instead. That way, you'll be getting the additional memory you need without
 paying for more CPU capacity.
 
+## `x2iezn` family of instance types
+
+The `x2iezn` family provides memory-optimized instances powered by Intel Xeon Scalable processors with high-frequency performance. These instances offer a high memory-to-vCPU ratio (32 GiB per vCPU), making them well-suited for memory-intensive graph workloads that benefit from high single-threaded performance.
+
+Key features include up to 4.5 GHz all-core turbo frequency and availability in sizes from 2xlarge to 12xlarge.
+
+## `x2iedn` family of instance types
+
+The `x2iedn` family provides memory-optimized instances with local NVMe SSD storage. These instances combine high memory capacity (32 GiB per vCPU) with fast local storage, making them ideal for graph workloads that benefit from both large in-memory caches and high-performance local disk caching.
+
+Powered by 3rd generation Intel Xeon Scalable processors, these instances are available in sizes from xlarge to 32xlarge and are optimized for large-scale graph databases requiring both memory and storage performance.
+
 ## `r8g` family of instance types
 
 The `r8g` family contains memory-optimized instance types powered by AWS Graviton4 processors.
@@ -183,8 +195,7 @@ These instances offer significant performance improvements over previous generat
 for memory-intensive graph workloads. The r8g instances provide approximately 15-20% better performance for
 graph queries compared to r7g instances.
 
-The `r8g` family has a single-socket architecture, which means that performance scales linearly
-with compute capacity from an `r8g.large` to an `r8g.16xlarge` (the largest type in the family).
+The `r8g` family uses a dual-socket platform. Instance types from `r8g.large` to `r8g.24xlarge` run on a single socket, which means that performance scales linearly with compute capacity across that range. The `r8g.48xlarge` uses both sockets and is the largest instance type in the family; as with other dual-socket families, performance gains when scaling from `r8g.24xlarge` to `r8g.48xlarge` may not be perfectly linear due to cross-socket memory management overhead.
 
 Key features of the `r8g` family include:
 
@@ -239,7 +250,7 @@ Key features of the `r7i` family include:
 For all of these instance families, you can estimate the number of vCPUs needed using the same formula mentioned previously:
 
 ```
-vCPUs=(latencyxconcurrency)/2
+vCPUs = (latency x concurrency) / 2
 ```
 
 Where latency is measured as the average query latency in seconds and concurrency is measured as the target number of queries per second.

@@ -36,6 +36,78 @@ echo "export NEPTUNE_EXPORT_API_URI=`(your export service URI)`" >> ~/.bashrc
    Select the link in this field to go to the IAM role that this notebook instance
    runs with.
 9. Create a new inline policy like this:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Action": [
+ "cloudwatch:PutMetricData"
+ ],
+ "Resource": "arn:aws:cloudwatch:`us-east-1`:`111122223333`:*",
+ "Sid": "AllowPutMetrics",
+ "Effect": "Allow"
+ },
+ {
+ "Action": [
+ "logs:CreateLogGroup",
+ "logs:CreateLogStream",
+ "logs:DescribeLogStreams",
+ "logs:PutLogEvents",
+ "logs:GetLogEvents"
+ ],
+ "Resource": "arn:aws:logs:`us-east-1`:`111122223333`:*",
+ "Sid": "AllowCreateLogs",
+ "Effect": "Allow"
+ },
+ {
+ "Action": [
+ "s3:Put*",
+ "s3:Get*",
+ "s3:List*"
+ ],
+ "Resource": "arn:aws:s3:::*",
+ "Sid": "AllowS3Actions",
+ "Effect": "Allow"
+ },
+ {
+ "Action": "execute-api:Invoke",
+ "Resource": "arn:aws:execute-api:`us-east-1`:`111122223333`:*/*",
+ "Sid": "AllowExecute",
+ "Effect": "Allow"
+ },
+ {
+ "Action": [
+ "sagemaker:CreateModel",
+ "sagemaker:CreateEndpointConfig",
+ "sagemaker:CreateEndpoint",
+ "sagemaker:DescribeModel",
+ "sagemaker:DescribeEndpointConfig",
+ "sagemaker:DescribeEndpoint",
+ "sagemaker:DeleteModel",
+ "sagemaker:DeleteEndpointConfig",
+ "sagemaker:DeleteEndpoint"
+ ],
+ "Resource": "arn:aws:sagemaker:`us-east-1`:`111122223333`:*/*",
+ "Sid": "AllowApiActions",
+ "Effect": "Allow"
+ },
+ {
+ "Action": [
+ "iam:PassRole"
+ ],
+ "Resource": "arn:aws:iam::`111122223333`:role/`role-name`",
+ "Sid": "AllowPassRole",
+ "Effect": "Allow"
+ }
+ ]
+}`
+
+```
+
 10. Save this new policy and attach it to the IAM role in Step 8.
 11. Select **Start** at the top right of of
     the SageMaker AI notebook instance details page to start the notebook instance.

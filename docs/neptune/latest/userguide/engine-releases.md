@@ -16,10 +16,11 @@ shown in the table below. The minor version number is the one that will be evalu
 
 | Version                                                        | Product version | Major version | Minor version | Patch version | Status   | Released   | End of life | Upgrade to: |
 | -------------------------------------------------------------- | --------------- | ------------- | ------------- | ------------- | -------- | ---------- | ----------- | ----------- |
-| [1.4.6.3](engine-releases-1.4.6.md "engine-releases-1.4.6.md") | 1               | 4             | 6             | 3             | _active_ | 2025-12-18 | 2027-03-06  | N/A         |
-| [1.4.6.2](engine-releases-1.4.6.md "engine-releases-1.4.6.md") | 1               | 4             | 6             | 2             | _active_ | 2025-11-18 | 2027-03-06  | 1.4.6.3     |
-| [1.4.6.1](engine-releases-1.4.6.md "engine-releases-1.4.6.md") | 1               | 4             | 6             | 1             | _active_ | 2025-09-18 | 2027-03-06  | 1.4.6.3     |
-| [1.4.6.0](engine-releases-1.4.6.md "engine-releases-1.4.6.md") | 1               | 4             | 6             | 0             | _active_ | 2025-09-02 | 2027-03-06  | 1.4.6.3     |
+| [1.4.7.0](engine-releases-1.4.7.md "engine-releases-1.4.7.md") | 1               | 4             | 7             | 0             | _active_ | 2026-03-03 | 2027-06-03  | N/A         |
+| [1.4.6.3](engine-releases-1.4.6.md "engine-releases-1.4.6.md") | 1               | 4             | 6             | 3             | _active_ | 2025-12-18 | 2027-06-03  | 1.4.7.0     |
+| [1.4.6.2](engine-releases-1.4.6.md "engine-releases-1.4.6.md") | 1               | 4             | 6             | 2             | _active_ | 2025-11-18 | 2027-06-03  | 1.4.7.0     |
+| [1.4.6.1](engine-releases-1.4.6.md "engine-releases-1.4.6.md") | 1               | 4             | 6             | 1             | _active_ | 2025-09-18 | 2027-03-06  | 1.4.6.2     |
+| [1.4.6.0](engine-releases-1.4.6.md "engine-releases-1.4.6.md") | 1               | 4             | 6             | 0             | _active_ | 2025-09-02 | 2027-03-06  | 1.4.6.1     |
 | [1.4.5.1](engine-releases-1.4.5.md "engine-releases-1.4.5.md") | 1               | 4             | 5             | 1             | _active_ | 2025-06-30 | 2027-03-06  | 1.4.6.0     |
 | [1.4.5.0](engine-releases-1.4.5.md "engine-releases-1.4.5.md") | 1               | 4             | 5             | 0             | _active_ | 2025-04-09 | 2027-03-06  | 1.4.5.1     |
 | [1.4.4.0](engine-releases-1.4.4.md "engine-releases-1.4.4.md") | 1               | 4             | 4             | 0             | _active_ | 2025-02-24 | 2027-03-06  | 1.4.5.0     |
@@ -47,7 +48,7 @@ to plan your testing and upgrade cycles.
 | [1.2.0.1](engine-releases-1.2.0.md "engine-releases-1.2.0.md")    | 1.2           | 0.1           | _active_     | 2022-10-26            | 2026-06-30  | 1.3.0.0     |
 | [1.2.0.0](engine-releases-1.2.0.md "engine-releases-1.2.0.md")    | 1.2           | 0.0           | _active_     | 2022-07-21            | 2026-06-30  | 1.3.0.0     |
 | [1.1.1.0](engine-releases-1.1.1.md "engine-releases-1.1.1.md")    | 1.1           | 1.0           | _active_     | 2022-04-19            | 2026-06-30  | 1.2.1.0     |
-| [1.1.0.0](engine-releases-1.1.0.md "engine-releases-1.1.0.md")    | 1.1           | 0.0           | _deprecated_ | 2021-11-19            | 2025-03-15  | 1.1.1.0     |
+| [1.1.0.0](engine-releases-1.1.0.md "engine-releases-1.1.0.md")    | 1.1           | 0.0           | _active_     | 2021-11-19            | 2025-03-15  | 1.1.1.0     |
 | [1.0.5.1](engine-releases-1.0.5.md "engine-releases-1.0.5.md")    | 1.0           | 5.1           | _deprecated_ | 2021-10-01            | 2023-01-30  | 1.1.0.0     |
 | [1.0.5.0](engine-releases-1.0.5.md "engine-releases-1.0.5.md")    | 1.0           | 5.0           | _deprecated_ | 2021-07-27            | 2023-01-30  | 1.1.0.0     |
 | [1.0.4.2](engine-releases-1.0.4.md "engine-releases-1.0.4.md")    | 1.0           | 4.2           | _deprecated_ | 2021-06-01            | 2023-01-30  | 1.1.0.0     |

@@ -4,9 +4,10 @@ Using Neptune, you can share a manual DB cluster snapshot in the following ways:
 
 - Sharing a manual DB cluster snapshot, whether encrypted or unencrypted, enables
   authorized AWS accounts to copy the snapshot.
-- Sharing a manual DB cluster snapshot, whether encrypted or unencrypted, enables
+- Sharing an unencrypted manual DB cluster snapshot enables
   authorized AWS accounts to directly restore a DB cluster from the snapshot instead of taking
-  a copy of it and restoring from that.
+  a copy of it and restoring from that. Encrypted snapshots cannot be restored directly; they must
+  be copied first and then restored from the copy.
 
 ###### Note
 

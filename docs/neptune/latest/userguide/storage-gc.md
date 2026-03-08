@@ -8,19 +8,19 @@ not enabled. The feature is automatically disabled if `neptune_streams` is enabl
 from engine release [1.4.3.0](../../../releases/release-1.4.3.0.md "../../../releases/release-1.4.3.0.md").
 
 When enabled, the unused dictionary entries are cleaned up by a background job. It does not reduce
-`VolumeBytesUsed`, instead it frees up space in index for new inserts. The rate of growth in
+`VolumeBytesUsed`, instead it frees up space in the index for new inserts. The rate of growth in
 `VolumeBytesUsed` is likely to be less when dictionary GC is enabled relative to when it is not.
 
 Dictionary garbage collection runs in the background and scans all graph and dictionary data to find terms that are not
-in use. A new run is triggered on start up once approximately 6% of the data has changed. It contends with query threads
-for head node resources like CPU, buffer cache, undo log generation, and write I/O operations, which could negatively
-impact the query throughput. Since GC scans data that is not actively touched by queries, it can impact the buffer cache
+in use. A new run is triggered on start up once approximately 6% of the data has changed. GC competes with query threads
+for server resources such as CPU, buffer cache, undo log generation, and write I/O operations, potentially reducing
+query throughput. Since GC scans data that is not actively touched by queries, it can impact the buffer cache
 on the writer node. The cluster could see additional write I/O operations and have more undo logs to
 purge as GC performs new deletes, which may also result in higher values for the `UndoLogListSize` metric.
 
-GC can be ran in two modes, `soft_delete` and `enabled`. When ran in the `soft_delete` mode,
+GC can be run in two modes, `soft_delete` and `enabled`. When run in the `soft_delete` mode,
 unused dictionary entries are marked deleted (soft_delete) but are not explicitly deleted. This mode could also be used to
-understand performance characteristics after the background operation is turned on. When the enabled mode is used,
+understand performance characteristics after the background operation is turned on. When the `enabled` mode is used,
 entries are explicitly deleted ('hard' delete). It is recommended to run GC in `soft_delete` mode for a
 period of time before switching to `enabled` mode.
 

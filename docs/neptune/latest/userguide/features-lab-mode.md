@@ -133,6 +133,28 @@ in the value set for the DB Cluster `neptune_lab_mode` parameter.
 Neptune has extended support for the datetime functionality. To enable datetime with extended formats, include
 `DatetimeMillisecond=enabled` in the value set for the DB Cluster `neptune_lab_mode` parameter.
 
+## StrictTimeoutValidation
+
+###### Note
+
+This feature is available starting in [Neptune engine release 1.3.2.0](engine-releases-1.3.2.md "engine-releases-1.3.2.md").
+
+Default value: enabled (disabled by default prior to [Neptune engine release 1.4.0.0](engine-releases-1.4.0.md "engine-releases-1.4.0.md"))
+
+Allowed values: enabled/disabled
+
+When this parameter is `enabled`, a per-query timeout value specified as a
+request option or a query hint cannot exceed the value set globally in the
+[neptune_query_timeout](parameters.md#parameters-db-cluster-parameters-neptune_query_timeout "parameters.md#parameters-db-cluster-parameters-neptune_query_timeout")
+parameter group setting. If the per-query timeout exceeds the global setting, Neptune throws an
+`InvalidParameterException`. In engine versions prior to 1.4.0.0, this parameter
+was `disabled` by default and had to be explicitly enabled.
+
+This setting can be confirmed in a response on the `/status` endpoint when the value
+is `disabled`.
+
+For more information, see [Per-query timeouts](best-practices-gremlin-java-per-query-timeout.md "best-practices-gremlin-java-per-query-timeout.md").
+
 ## AccurateQRCMemoryEstimation
 
 ###### Note

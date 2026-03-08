@@ -37,5 +37,25 @@ should have permissions both for Neptune and the OpenSearch Serverless collectio
 This means that your user or role must have an OpenSearch Serverless policy like
 this attached:
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "AllowOpenSearchServerlessAccess",
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": "arn:aws:iam::`111122223333`:root"
+ },
+ "Action": "aoss:APIAccessAll",
+ "Resource": "arn:aws:aoss:`us-east-1`:`111122223333`:collection/`collection-id`"
+ }
+ ]
+}`
+
+```
+
 See [Creating custom IAM policy statements to access data in Amazon Neptune](iam-data-access-policies.md "iam-data-access-policies.md")
 for more information.

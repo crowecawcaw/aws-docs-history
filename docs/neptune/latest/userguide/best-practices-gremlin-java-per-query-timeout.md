@@ -46,6 +46,11 @@ Starting from Neptune engine version 1.3.2.0, Neptune supports a new neptune_lab
 timeout value specified as a request option or a query hint cannot exceed the value set globally in the parameter
 group. In such a case, Neptune will throw `InvalidParameterException`.
 
-This setting can be confirmed in a response on the '/status' endpoint when the value is `Disabled`, and
-in `1.3.2.0`, the default value of this parameter is `Disabled`. Starting in `1.4.0.0`,
-the `StrictTimeoutValidation` was changed so as to be `Enabled` by default.
+This setting can be confirmed in a response on the '/status' endpoint when the value is `Disabled`.
+In engine version `1.3.2.0`, the default value of this parameter is `Disabled`. Starting
+in engine version `1.4.0.0`, the `StrictTimeoutValidation` parameter is `Enabled`
+by default.
+
+For more information about how timeout precedence is determined when multiple timeout settings are configured,
+see the [neptune_query_timeout](parameters.md#parameters-db-cluster-parameters-neptune_query_timeout "parameters.md#parameters-db-cluster-parameters-neptune_query_timeout")
+parameter documentation.

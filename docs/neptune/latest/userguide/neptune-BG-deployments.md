@@ -65,7 +65,7 @@ Before launching the Neptune Blue/Green stack:
 - All instances must also be in sync with the [DB cluster parameter group](parameter-groups.md "parameter-groups.md").
 - The Neptune Blue/Green solution requires a DynamoDB VPC
   endpoint in the VPC where your blue cluster is located. See [Using
-  Amazon VPC endpoints to access DynamoDB](../../../amazondynamodb/latest/developerguide/vpc-endpoints-dynamodb.md "../../../amazondynamodb/latest/developerguide/vpc-endpoints-dynamodb.md").
+  Amazon VPC endpoints to access DynamoDB](../../../amazondynamodb/latest/developerguide/network-isolation.md#vpc-endpoints-dynamodb "../../../amazondynamodb/latest/developerguide/network-isolation.md#vpc-endpoints-dynamodb").
 - Choose at time to run the solution when the write workload on
   your blue production DB cluster will be as light as possible. Avoid, for example,
   running the solution when a bulk load will be taking place, or when there's

@@ -41,8 +41,7 @@ Verification](https://curl.haxx.se/docs/sslcerts.html "https://curl.haxx.se/docs
 ## Different ways to connect to a Neptune DB cluster
 
 An Amazon Neptune DB cluster can _only_ be created in an Amazon Virtual Private Cloud
-(Amazon VPC). Unless you enable and set up Neptune public endpoints for the DB cluster, its
-endpoints are accessible within that VPC or using a public endpoint.
+(Amazon VPC). Its endpoints are accessible only within that VPC unless you enable and set up [Neptune public endpoints](neptune-public-endpoints.md "neptune-public-endpoints.md") for the DB cluster.
 
 There are several different ways to set up access to your Neptune DB cluster in
 its VPC:

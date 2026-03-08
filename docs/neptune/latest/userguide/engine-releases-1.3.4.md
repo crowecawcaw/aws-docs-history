@@ -54,23 +54,22 @@ ResultCacheNewestItemTimestamp
 
 ###### General improvements
 
-- Fixed a bug where in rare cases, the engine crashes instead of returning a query error.
+- Fixed an issue where in rare cases, the engine crashes instead of returning a query error.
 
 ###### Gremlin fixes
 
 - We have improved request handling and error reporting when a client or a proxy sends a websocket upgrade
   request over an established/used HTTP connection (previous to that 400 responses with error "no gremlin script
   supplied, code MissingParameterException" were returned).
-- Optimized the handling of mergeV steps with single cardinality property value updates. For example, the query
+- Optimized the handling of `mergeV` steps with single cardinality property value updates. For example, the query
   below is now natively supported in Neptune.
 
 ```
 g.mergeV([(T.id): 1234]). option(onMatch, ['age': single(20), 'name': single('alice'), 'city': set('miami')])
 ```
 
-- Fixed a Gremlin DFE query evaluation bug that caused queries to fail with an `InternalFailureException` when
-  the query contained a `ToMap` logical function to generate a map at runtime, and the map output is used as
-  an aggregation key (in `DFEAggregationNode`). Affected example query:
+- Fixed a Gremlin DFE query evaluation issue that caused queries to fail with an `InternalFailureException`.
+  This error occurred with certain patterns of `select` as shown in the following example:
 
 ```
 g.V("1").as("a").as("b").select("a","b").dedup()
@@ -78,15 +77,15 @@ g.V("1").as("a").as("b").select("a","b").dedup()
 
 ###### openCypher fixes
 
-- Fixed a bug where running `collect(distinct())` with null values present caused an error to be returned.
-- Fixed a bug where running a parameterized query containing range filter (</<=/>/>= against the
+- Fixed an issue where running `collect(distinct())` with null values present caused an error to be returned.
+- Fixed an issue where running a parameterized query containing range filter (</<=/>/>= against the
   parameter value) leads to duplicate/missing results.
 - Fixed a bug where DFE engine produced more output than requested in limit queries, which could lead to out of
   memory errors.
 
 ###### SPARQL fixes
 
-- Fixed a bug where running a federated SPARQL update query on IAM authentication-enabled clusters caused an
+- Fixed an issue where running a federated SPARQL update query on IAM authentication-enabled clusters caused an
   error to be returned.
 - Fixed action-based permissions for SPARQL 1.1 update operations.
 

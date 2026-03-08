@@ -62,10 +62,10 @@ Allowed values are:
   to the slow performance.
 - **`debug`**   –  
   Enables slow-query logging and logs all available attributes of the query run.
-- **`disable`**   –  
+- **`disabled`**   –  
   Disables slow-query logging.
 
-The default value is `disable`.
+The default value is `disabled`.
 
 You can publish slow-query logs to Amazon CloudWatch, as described in
 [Using the CLI to publish Neptune slow-query logs to CloudWatch Logs](cloudwatch-logs.md#cloudwatch-slow-query-logs-cli "cloudwatch-logs.md#cloudwatch-slow-query-logs-cli").
@@ -118,6 +118,20 @@ Allowed values range from `10` to `2,147,483,647`
 
 This parameter is static, meaning that changes to it do not take
 effect on any instance until it has been rebooted.
+
+When multiple timeout settings are configured (cluster-level, instance-level, and per-query),
+the following table shows which timeout value takes precedence:
+
+| Cluster PG | Instance PG | Query Hint | Outcome  |
+| ---------- | ----------- | ---------- | -------- |
+| Default    | Default     | none       | Cluster  |
+| Custom     | Default     | none       | Cluster  |
+| Custom     | Custom      | none       | Instance |
+| Default    | Custom      | none       | Instance |
+| Any        | Any         | lowest     | Query    |
+| Default    | Custom      | not lowest | Instance |
+| Custom     | Default     | not lowest | Cluster  |
+| Custom     | Custom      | not lowest | Instance |
 
 ###### Note
 

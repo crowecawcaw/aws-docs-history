@@ -49,8 +49,58 @@ You will need to create an IAM policy granting `GetObject`,
 `PutObject`, `DeleteObject` and `ListObject` permissions
 to the bucket if you do not already have one:
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "ListObjectsInBucket",
+ "Effect": "Allow",
+ "Action": [
+ "s3:ListBucket"
+ ],
+ "Resource": [
+ "arn:aws:s3:::`amzn-s3-demo-bucket`"
+ ]
+ },
+ {
+ "Sid": "AllObjectActions",
+ "Effect": "Allow",
+ "Action": [
+ "s3:GetObject",
+ "s3:PutObject",
+ "s3:DeleteObject"
+ ],
+ "Resource": [
+ "arn:aws:s3:::`amzn-s3-demo-bucket`/*"
+ ]
+ }
+ ]
+}`
+
+```
+
 If your Neptune DB cluster has IAM authentication enabled, you will also need to include
 the following policy:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "VisualEditor0",
+ "Effect": "Allow",
+ "Action": "neptune-db:*",
+ "Resource": "arn:aws:neptune-db:`us-east-1`:`111122223333`:`cluster-resource-id`/*"
+ }
+ ]
+}`
+
+```
 
 Create an IAM role as a trust document to attach the policy to:
 

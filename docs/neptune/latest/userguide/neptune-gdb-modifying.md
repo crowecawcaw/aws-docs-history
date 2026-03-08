@@ -14,5 +14,5 @@ aws neptune modify-global-cluster \
   --region `(region of the DB cluster to modify)` \
   --global-cluster-identifier `(current global database ID)` \
   --new-global-cluster-identifier `(new global database ID to assign)` \
-  --deletion-protection false
+  --no-deletion-protection
 ```

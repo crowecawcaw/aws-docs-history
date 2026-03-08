@@ -23,14 +23,22 @@ DB parameter group. You can't modify the parameter settings of the default DB pa
 Instead, to change the default parameter settings you must create a new DB parameter group.
 Not all DB engine parameters can be changed in a DB parameter group that you create.
 
-Parameter groups are created in families that are compatible with different
-Neptune engine versions. The default parameter group family is `neptune1`,
-which is compatible with all engine versions prior to `1.2.0.0`. Starting
-with [Release: 1.2.0.0 (2022-07-21)](engine-releases-1.2.0.md "engine-releases-1.2.0.md"),
-the `neptune1.2` parameter group family must be used instead. That means that
-when you upgrade to `1.2.0.0` or higher, you must first recreate all your
-custom parameter groups in the `neptune1.2` family so that you can attach them
-when you upgrade.
+Parameter groups are created in families that are compatible with specific
+Neptune engine versions. When you upgrade to a new major or minor engine version,
+you may need to recreate your custom parameter groups using the corresponding
+parameter group family for that version.
+
+The parameter group family naming follows the pattern `neptuneX.Y`, where
+`X.Y` matches the engine version. For example:
+
+- `neptune1` – for engine versions prior to 1.2.0.0
+- `neptune1.2` – for engine versions 1.2.x
+- `neptune1.3` – for engine versions 1.3.x
+- `neptune1.4` – for engine versions 1.4.x
+  When upgrading your Neptune cluster, check the [release
+  notes](engine-releases.md "engine-releases.md") for your target engine version to determine if a new parameter group family is
+  required. If so, you must recreate all custom parameter groups in the new family before
+  upgrading.
 
 Some Neptune parameters are static, and others are dynamic. The differences are
 as follows:
@@ -117,8 +125,9 @@ You can easily use the Neptune console to create a new parameter group:
 2. Choose **Parameter groups** in the left navigation pane.
 3. Choose **Create DB parameter group**.
 
-The **Create DB parameter group** page appears. 4. In the **Parameter group family** list, choose **neptune1**
-or, if you are targeting engine version 1.2.0.0 or higher, choose **neptune1.2**. 5. In the **Type** list, choose **DB Parameter Group**
+The **Create DB parameter group** page appears. 4. In the **Parameter group family** list, choose the family
+that matches your target Neptune engine version (for example, **neptune1.2**,
+**neptune1.3**, or **neptune1.4**). 5. In the **Type** list, choose **DB Parameter Group**
 or **DB Cluster Parameter Group**. 6. In the **Group name** box, type the name of the new DB parameter
 group. 7. In the **Description** box, type a description for the new DB
 parameter group. 8. Choose **Create**.
@@ -128,6 +137,6 @@ You can also create a new parameter group using the AWS CLI:
 ```
 aws neptune create-db-parameter-group \
   --db-parameter-group-name `(a name for the new DB parameter group)` \
-  --db-parameter-group-family `(either neptune1 or neptune1.2, depending on the engine version)` \
+  --db-parameter-group-family `(the family matching your engine version, such as neptune1.2, neptune1.3, or neptune1.4)` \
   --description `(a description for the new DB parameter group)`
 ```

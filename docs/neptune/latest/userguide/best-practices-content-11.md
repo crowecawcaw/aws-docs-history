@@ -1,5 +1,9 @@
 # Avoid COLLECT(DISTINCT())
 
+###### Note
+
+As of engine version [1.4.7.0](engine-releases-1.4.7.md "engine-releases-1.4.7.md"), this recommended rewrite is no longer needed.
+
 COLLECT(DISTINCT()) is used whenever a list is to be formed containing distinct values. COLLECT is an aggregation
 function, and grouping is done based on additional keys being projected in the same statement. When distinct is
 used, the input is split in multiple chunks where each chunk denotes one group for reduction. Performance will be

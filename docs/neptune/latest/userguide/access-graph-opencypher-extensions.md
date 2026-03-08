@@ -5,6 +5,14 @@ Amazon Neptune supports the openCypher specification reference version 9. Please
 in Amazon Neptune for details. Additionally, Amazon Neptune supports the features listed here. Unless specific
 versions are mentioned, the features are available in Neptune Database and Neptune Analytics.
 
+## Query-time S3 data access
+
+Available in Neptune Database 1.4.7.0 and up.
+
+Neptune supports the `neptune.read()` function to read CSV or Parquet data from Amazon S3 directly within openCypher queries. Unlike the bulk loader which imports data before querying, `neptune.read()` accesses Amazon S3 data at query execution time.
+
+For complete documentation, see [neptune.read()](access-graph-opencypher-21-extensions-s3-read.md "access-graph-opencypher-21-extensions-s3-read.md").
+
 ## The Neptune-specific `join()` function
 
 Available in Neptune Database and Neptune Analytics.

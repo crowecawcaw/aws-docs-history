@@ -1,13 +1,14 @@
 # Custom models in Neptune ML
 
+###### Note
+
+Neptune ML custom model support relies on an older version of Python 3. To create and run custom GNN models with up-to-date dependencies use [GraphStorm on SageMaker](https://graphstorm.readthedocs.io/en/v0.3.1/cli/model-training-inference/distributed/sagemaker.html "https://graphstorm.readthedocs.io/en/v0.3.1/cli/model-training-inference/distributed/sagemaker.html").
+
+[Real-time inductive inference](machine-learning-overview-evolving-data.md#inductive-vs-transductive-inference "machine-learning-overview-evolving-data.md#inductive-vs-transductive-inference") is not currently supported for custom models.
+
 Neptune ML lets you define your own custom model implementations using Python. You
 can train and deploy custom models using Neptune ML infrastructure very much as you do
 for the built-in models, and use them to obtain predictions through graph queries.
-
-###### Note
-
-[Real-time inductive
-inference](machine-learning-overview-evolving-data.md#inductive-vs-transductive-inference "machine-learning-overview-evolving-data.md#inductive-vs-transductive-inference") is not currently supported for custom models.
 
 You can start implementing a custom model of your own in Python by following the [Neptune
 ML toolkit examples](https://github.com/awslabs/neptuneml-toolkit/tree/main/examples/custom-models/ "https://github.com/awslabs/neptuneml-toolkit/tree/main/examples/custom-models/"), and by using the model components provided in the

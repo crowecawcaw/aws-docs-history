@@ -7,6 +7,11 @@ with your Neptune engine version. Using an incompatible version can result in co
 failures or unexpected behavior. For detailed version compatibility information, see
 [Accessing a Neptune graph with Gremlin](access-graph-gremlin.md "access-graph-gremlin.md").
 
+###### Note
+
+The gremlingo 3.5.x versions are backwards compatible with TinkerPop 3.4.x versions
+as long as you only use 3.4.x features in the Gremlin queries you write.
+
 The following section walks you through the running of a Go sample that connects to
 an Amazon Neptune DB instance and performs a Gremlin traversal.
 

@@ -143,10 +143,10 @@ effectively and visualize the results.
     ways to query your graph data, in Gremlin and in SPARQL, and how to visualize
     the query results:
 
-        * [Air-Routes-Gremlin](https://github.com/aws/graph-notebook/blob/main/src/graph_notebook/notebooks/02-Visualization/Air-Routes-Gremlin.ipynb "https://github.com/aws/graph-notebook/blob/main/src/graph_notebook/notebooks/02-Visualization/Air-Routes-Gremlin.ipynb")
-        * [Air-Routes-SPARQL](https://github.com/aws/graph-notebook/blob/main/src/graph_notebook/notebooks/02-Visualization/Air-Routes-SPARQL.ipynb "https://github.com/aws/graph-notebook/blob/main/src/graph_notebook/notebooks/02-Visualization/Air-Routes-SPARQL.ipynb")
+        * [Air-Routes-Gremlin](https://github.com/aws/graph-notebook/blob/main/src/graph_notebook/notebooks/01-Neptune-Database/02-Visualization/Air-Routes-Gremlin.ipynb "https://github.com/aws/graph-notebook/blob/main/src/graph_notebook/notebooks/01-Neptune-Database/02-Visualization/Air-Routes-Gremlin.ipynb")
+        * [Air-Routes-SPARQL](https://github.com/aws/graph-notebook/blob/main/src/graph_notebook/notebooks/01-Neptune-Database/02-Visualization/Air-Routes-SPARQL.ipynb "https://github.com/aws/graph-notebook/blob/main/src/graph_notebook/notebooks/01-Neptune-Database/02-Visualization/Air-Routes-SPARQL.ipynb")
         * [Workbench Visualization blog](https://github.com/aws/graph-notebook/blob/main/src/graph_notebook/notebooks/01-Neptune-Database/02-Visualization/Blog%20Workbench%20Visualization.ipynb "https://github.com/aws/graph-notebook/blob/main/src/graph_notebook/notebooks/01-Neptune-Database/02-Visualization/Blog%20Workbench%20Visualization.ipynb")
-        * [EPL-Gremlin](https://github.com/aws/graph-notebook/blob/main/src/graph_notebook/notebooks/02-Visualization/EPL-Gremlin.ipynb "https://github.com/aws/graph-notebook/blob/main/src/graph_notebook/notebooks/02-Visualization/EPL-Gremlin.ipynb")
-        * [EPL-SPARQL](https://github.com/aws/graph-notebook/blob/main/src/graph_notebook/notebooks/02-Visualization/EPL-SPARQL.ipynb "https://github.com/aws/graph-notebook/blob/main/src/graph_notebook/notebooks/02-Visualization/EPL-SPARQL.ipynb")
+        * [EPL-Gremlin](https://github.com/aws/graph-notebook/blob/main/src/graph_notebook/notebooks/01-Neptune-Database/02-Visualization/EPL-Gremlin.ipynb "https://github.com/aws/graph-notebook/blob/main/src/graph_notebook/notebooks/01-Neptune-Database/02-Visualization/EPL-Gremlin.ipynb")
+        * [EPL-SPARQL](https://github.com/aws/graph-notebook/blob/main/src/graph_notebook/notebooks/01-Neptune-Database/02-Visualization/EPL-SPARQL.ipynb "https://github.com/aws/graph-notebook/blob/main/src/graph_notebook/notebooks/01-Neptune-Database/02-Visualization/EPL-SPARQL.ipynb")
 
     Select a notebook to experiment with the queries it contains.
