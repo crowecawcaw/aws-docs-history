@@ -1,68 +1,63 @@
-# Deleting a replication group
+# Replication: Valkey and Redis OSS Cluster Mode Disabled vs. Enabled
 
-If you no longer need one of your clusters with replicas (called _replication groups_ in the API/CLI), you can delete it.
-When you delete a replication group, ElastiCache deletes all of the nodes in that group.
+Beginning with Valkey 7.2 and Redis OSS version 3.2, you have the ability to create one of two distinct types of clusters
+(API/CLI: replication groups).
+A Valkey or Redis OSS (cluster mode disabled) cluster always has a single shard (API/CLI: node group) with up to 5 read replica nodes.
+A Valkey or Redis OSS (cluster mode enabled) cluster has up to 500 shards with 1 to 5 read replica nodes in each.
 
-After you have begun this operation, it cannot be interrupted or canceled.
+![Image: Valkey or Redis OSS (cluster mode disabled), and Valkey or Redis OSS (cluster mode enabled) clusters](images/ElastiCache-NodeGroups.png)
+_Valkey or Redis OSS (cluster mode disabled), and Valkey or Redis OSS (cluster mode enabled) clusters_
 
-###### Warning
+The following table summarizes important differences between Valkey or Redis OSS (cluster mode disabled) and Valkey or Redis OSS (cluster mode enabled) clusters.
 
-- When you delete an ElastiCache for Redis OSS cluster, your manual snapshots are retained.
-  You will also have an option to create a final snapshot before the cluster is deleted.
-  Automatic cache snapshots are not retained.
-- `CreateSnapshot` permission is required to create a final snapshot.
-  Without this permission, the API call will fail with an `Access Denied` exception.
+| Comparing Valkey or Redis OSS (cluster mode disabled) and Valkey or Redis OSS (cluster mode enabled) Clusters | Feature                                                                                                                                                                                                | Valkey or Redis OSS (cluster mode disabled)                                                                                                                                                                                                                               | Valkey or Redis OSS (cluster mode enabled) |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
+| Modifiable                                                                                                    | Yes. Supports adding and deleting replica nodes, and scaling up node type.                                                                                                                             | Limited. For more information, see [Version Management for ElastiCache](VersionManagement.md "VersionManagement.md")<br>and [Scaling Valkey or Redis OSS (Cluster Mode Enabled) clusters](scaling-redis-cluster-mode-enabled.md "scaling-redis-cluster-mode-enabled.md"). |
+| Data Partitioning                                                                                             | No                                                                                                                                                                                                     | Yes                                                                                                                                                                                                                                                                       |
+| Shards                                                                                                        | 1                                                                                                                                                                                                      | 1 to 500                                                                                                                                                                                                                                                                  |
+| Read replicas                                                                                                 | 0 to 5<br>ImportantIf you have no replicas and the node fails, you experience total data loss.                                                                                                         | 0 to 5 per shard.<br>ImportantIf you have no replicas and a node fails, you experience loss of all data in that<br>shard.                                                                                                                                                 |
+| Multi-AZ                                                                                                      | Yes, with at least 1 replica. Optional. On by default.                                                                                                                                                 | YesOptional. On by default.                                                                                                                                                                                                                                               |
+| Snapshots (Backups)                                                                                           | Yes, creating a single .rdb file.                                                                                                                                                                      | Yes, creating a unique .rdb file for each shard.                                                                                                                                                                                                                          |
+| Restore                                                                                                       | Yes, using a single .rdb file from a Valkey or Redis OSS (cluster mode disabled) cluster.                                                                                                              | Yes, using .rdb files from either a Valkey or Redis OSS (cluster mode disabled) or a Valkey or Redis OSS (cluster mode enabled) cluster.                                                                                                                                  |
+| Supported by                                                                                                  | All Valkey and Redis OSS versions                                                                                                                                                                      | All Valkey versions, and Redis OSS 3.2 and following                                                                                                                                                                                                                      |
+| Engine upgradeable                                                                                            | Yes, with some limits. For more information, see [Version Management for ElastiCache](VersionManagement.md "VersionManagement.md").                                                                    | Yes, with some limits. For more information, see [Version Management for ElastiCache](VersionManagement.md "VersionManagement.md").                                                                                                                                       |
+| Encryption                                                                                                    | Versions 3.2.6 (scheduled for EOL, see [Redis OSS versions end of life schedule](engine-versions.md#deprecated-engine-versions "engine-versions.md#deprecated-engine-versions")) and 4.0.10 and later. | Versions 3.2.6 (scheduled for EOL, see [Redis OSS versions end of life schedule](engine-versions.md#deprecated-engine-versions "engine-versions.md#deprecated-engine-versions")) and 4.0.10 and later.                                                                    |
+| HIPAA Eligible                                                                                                | Versions 3.2.6 (scheduled for EOL, see [Redis OSS versions end of life schedule](engine-versions.md#deprecated-engine-versions "engine-versions.md#deprecated-engine-versions")) and 4.0.10 and later. | Versions 3.2.6 (scheduled for EOL, see [Redis OSS versions end of life schedule](engine-versions.md#deprecated-engine-versions "engine-versions.md#deprecated-engine-versions")) and 4.0.10 and later.                                                                    |
+| PCI DSS Compliant                                                                                             | Versions 3.2.6 (scheduled for EOL, see [Redis OSS versions end of life schedule](engine-versions.md#deprecated-engine-versions "engine-versions.md#deprecated-engine-versions")) and 4.0.10 and later. | Versions 3.2.6 (scheduled for EOL, see [Redis OSS versions end of life schedule](engine-versions.md#deprecated-engine-versions "engine-versions.md#deprecated-engine-versions")) and 4.0.10 and later.                                                                    |
+| Online resharding                                                                                             | N/A                                                                                                                                                                                                    | Version 3.2.10 (scheduled for EOL, see [Redis OSS versions end of life schedule](engine-versions.md#deprecated-engine-versions "engine-versions.md#deprecated-engine-versions")) and later.                                                                               |
 
-## Deleting a Replication Group (Console)
+## Which should I choose?
 
-To delete a cluster that has replicas,
-see [Deleting a cluster in ElastiCache](Clusters.md "Clusters.md").
+When choosing between Valkey or Redis OSS (cluster mode disabled) or Valkey or Redis OSS (cluster mode enabled), consider the following
+factors:
 
-## Deleting a Replication Group (AWS CLI)
+- **Scaling v. partitioning** – Business needs change. You
+  need to either provision for peak demand or scale as demand changes.
+  Valkey or Redis OSS (cluster mode disabled) supports scaling. You can scale read capacity by adding or deleting
+  replica nodes, or you can scale capacity by scaling up to a larger node type. Both
+  of these operations take time. For more information, see [Scaling replica nodes for Valkey or Redis OSS (Cluster Mode Disabled)](Scaling.md "Scaling.md").
 
-Use the command delete-replication-group to
-delete a replication group.
+ 
 
-```
-aws elasticache delete-replication-group --replication-group-id `my-repgroup`
-```
+Valkey or Redis OSS (cluster mode enabled) supports partitioning your data across up to 500
+node groups. You can dynamically change the number of shards as your business
+needs change. One advantage of partitioning is that you spread your load over a
+greater number of endpoints, which reduces access bottlenecks during peak demand.
+Additionally, you can accommodate a larger data set since the data can be spread
+across multiple servers. For information on scaling your partitions, see [Scaling Valkey or Redis OSS (Cluster Mode Enabled) clusters](scaling-redis-cluster-mode-enabled.md "scaling-redis-cluster-mode-enabled.md").
 
-A prompt asks you to confirm your decision. Enter
-_y_ (yes) to start the operation immediately.
-After the process starts, it is irreversible.
+- **Node size v. number of nodes** – Because a Valkey or Redis OSS (cluster mode disabled)
+  cluster has only one shard, the node type must be large enough to accommodate all
+  the cluster's data plus necessary overhead. On the other hand, because you can
+  partition your data across several shards when using a Valkey or Redis OSS (cluster mode enabled) cluster, the
+  node types can be smaller, though you need more of them. For more information, see
+  [Choosing your node size](CacheNodes.md "CacheNodes.md").
+- **Reads v. writes** – If the primary load on your cluster
+  is applications reading data, you can scale a Valkey or Redis OSS (cluster mode disabled) cluster by adding and
+  deleting read replicas. However, there is a maximum of
+  5 read replicas. If the load on your cluster is
+  write-heavy, you can benefit from the additional write endpoints of a
+  Valkey or Redis OSS (cluster mode enabled) cluster with multiple shards.
 
-```
-
-   After you begin deleting this replication group, all of its nodes will be deleted as well.
-   Are you sure you want to delete this replication group? [Ny]`y`
-
-REPLICATIONGROUP  my-repgroup  My replication group  deleting
-```
-
-## Deleting a replication group (ElastiCache API)
-
-Call DeleteReplicationGroup with the
-`ReplicationGroup` parameter.
-
-###### Example
-
-```
-https://elasticache.us-west-2.amazonaws.com/
-   ?Action=DeleteReplicationGroup
-   &ReplicationGroupId=my-repgroup
-   &Version=2014-12-01
-   &SignatureVersion=4
-   &SignatureMethod=HmacSHA256
-   &Timestamp=20141201T220302Z
-   &X-Amz-Algorithm=&AWS;4-HMAC-SHA256
-   &X-Amz-Date=20141201T220302Z
-   &X-Amz-SignedHeaders=Host
-   &X-Amz-Expires=20141201T220302Z
-   &X-Amz-Credential=<credential>
-   &X-Amz-Signature=<signature>
-```
-
-###### Note
-
-If you set the `RetainPrimaryCluster` parameter to `true`,
-all of the read replicas will be deleted, but the primary cluster will be retained.
+Whichever type of cluster you choose to implement, be sure to choose a node type
+that is adequate for your current and future needs.
