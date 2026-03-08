@@ -120,6 +120,7 @@ quotas](aws-general.md#aws-service-information "aws-general.md#aws-service-infor
 - [Elastic Transcoder](elastictranscoder.md "elastictranscoder.md")
 - [Elastic Disaster Recovery](drs.md "drs.md")
 - [ElastiCache](elasticache-service.md "elasticache-service.md")
+- [Elemental Inference](elemental-inference.md "elemental-inference.md")
 - [Amazon MemoryDB](memorydb-service.md "memorydb-service.md")
 - [AWS Entity Resolution](entity-resolution.md "entity-resolution.md")
 - [AWS End User Messaging](end-user-messaging.md "end-user-messaging.md")

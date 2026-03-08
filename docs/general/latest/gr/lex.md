@@ -49,10 +49,6 @@ The following are the service endpoints and service quotas for this service.
 
 ### Model building endpoints
 
-| Region Name           | Region    | Endpoint                                                                      | Protocol       |
-| --------------------- | --------- | ----------------------------------------------------------------------------- | -------------- |
-| US East (N. Virginia) | us-east-1 | models.lex.us-east-1.amazonaws.com<br>models-fips.lex.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-
 ### Runtime endpoints
 
 | Region Name              | Region         | Endpoint                                                                                | Protocol       |

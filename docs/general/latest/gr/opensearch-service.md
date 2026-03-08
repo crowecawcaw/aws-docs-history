@@ -163,6 +163,7 @@ limits:
 | OpenSearch Serverless-managed VPC endpoints                    | 50            | No         | This limit only applies to OpenSearch Serverless-managed VPC<br>endpoints. It doesn't include OpenSearch Service-managed VPC endpoints. |
 | Indexes per Amazon OpenSearch Serverless collection            | 1000          | No         | The maximum number of indexes per Amazon OpenSearch Serverless<br>collection is 1000.                                                   |
 | Index templates per Amazon OpenSearch Serverless<br>collection | 500           | No         | The maximum number of index templates per Amazon OpenSearch<br>Serverless collection is 500.                                            |
+| Maximum collection groups                                      | 300           | No         | The maximum number of collection groups per account.                                                                                    |
 
 ### OpenSearch Ingestion quotas
 

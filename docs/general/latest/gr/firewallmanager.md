@@ -11,43 +11,44 @@ The following are the service endpoints and service quotas for this service.
 
 ## Service endpoints
 
-| Region Name               | Region         | Endpoint                                                                  | Protocol       |
-| ------------------------- | -------------- | ------------------------------------------------------------------------- | -------------- |
-| US East (Ohio)            | us-east-2      | fms.us-east-2.amazonaws.com<br>fms-fips.us-east-2.amazonaws.com           | HTTPS<br>HTTPS |
-| US East (N. Virginia)     | us-east-1      | fms.us-east-1.amazonaws.com<br>fms-fips.us-east-1.amazonaws.com           | HTTPS<br>HTTPS |
-| US West (N. California)   | us-west-1      | fms.us-west-1.amazonaws.com<br>fms-fips.us-west-1.amazonaws.com           | HTTPS<br>HTTPS |
-| US West (Oregon)          | us-west-2      | fms.us-west-2.amazonaws.com<br>fms-fips.us-west-2.amazonaws.com           | HTTPS<br>HTTPS |
-| Africa (Cape Town)        | af-south-1     | fms.af-south-1.amazonaws.com<br>fms-fips.af-south-1.amazonaws.com         | HTTPS<br>HTTPS |
-| Asia Pacific (Hong Kong)  | ap-east-1      | fms.ap-east-1.amazonaws.com<br>fms-fips.ap-east-1.amazonaws.com           | HTTPS<br>HTTPS |
-| Asia Pacific (Hyderabad)  | ap-south-2     | fms.ap-south-2.amazonaws.com                                              | HTTPS          |
-| Asia Pacific (Jakarta)    | ap-southeast-3 | fms.ap-southeast-3.amazonaws.com                                          | HTTPS          |
-| Asia Pacific (Malaysia)   | ap-southeast-5 | fms.ap-southeast-5.amazonaws.com                                          | HTTPS          |
-| Asia Pacific (Melbourne)  | ap-southeast-4 | fms.ap-southeast-4.amazonaws.com                                          | HTTPS          |
-| Asia Pacific (Mumbai)     | ap-south-1     | fms.ap-south-1.amazonaws.com<br>fms-fips.ap-south-1.amazonaws.com         | HTTPS<br>HTTPS |
-| Asia Pacific (Osaka)      | ap-northeast-3 | fms.ap-northeast-3.amazonaws.com                                          | HTTPS          |
-| Asia Pacific (Seoul)      | ap-northeast-2 | fms.ap-northeast-2.amazonaws.com<br>fms-fips.ap-northeast-2.amazonaws.com | HTTPS<br>HTTPS |
-| Asia Pacific (Singapore)  | ap-southeast-1 | fms.ap-southeast-1.amazonaws.com<br>fms-fips.ap-southeast-1.amazonaws.com | HTTPS<br>HTTPS |
-| Asia Pacific (Sydney)     | ap-southeast-2 | fms.ap-southeast-2.amazonaws.com<br>fms-fips.ap-southeast-2.amazonaws.com | HTTPS<br>HTTPS |
-| Asia Pacific (Taipei)     | ap-east-2      | fms.ap-east-2.amazonaws.com                                               | HTTPS          |
-| Asia Pacific (Thailand)   | ap-southeast-7 | fms.ap-southeast-7.amazonaws.com                                          | HTTPS          |
-| Asia Pacific (Tokyo)      | ap-northeast-1 | fms.ap-northeast-1.amazonaws.com<br>fms-fips.ap-northeast-1.amazonaws.com | HTTPS<br>HTTPS |
-| Canada (Central)          | ca-central-1   | fms.ca-central-1.amazonaws.com<br>fms-fips.ca-central-1.amazonaws.com     | HTTPS<br>HTTPS |
-| Canada West (Calgary)     | ca-west-1      | fms.ca-west-1.amazonaws.com<br>fms-fips.ca-west-1.amazonaws.com           | HTTPS<br>HTTPS |
-| Europe (Frankfurt)        | eu-central-1   | fms.eu-central-1.amazonaws.com<br>fms-fips.eu-central-1.amazonaws.com     | HTTPS<br>HTTPS |
-| Europe (Ireland)          | eu-west-1      | fms.eu-west-1.amazonaws.com<br>fms-fips.eu-west-1.amazonaws.com           | HTTPS<br>HTTPS |
-| Europe (London)           | eu-west-2      | fms.eu-west-2.amazonaws.com<br>fms-fips.eu-west-2.amazonaws.com           | HTTPS<br>HTTPS |
-| Europe (Milan)            | eu-south-1     | fms.eu-south-1.amazonaws.com<br>fms-fips.eu-south-1.amazonaws.com         | HTTPS<br>HTTPS |
-| Europe (Paris)            | eu-west-3      | fms.eu-west-3.amazonaws.com<br>fms-fips.eu-west-3.amazonaws.com           | HTTPS<br>HTTPS |
-| Europe (Spain)            | eu-south-2     | fms.eu-south-2.amazonaws.com                                              | HTTPS          |
-| Europe (Stockholm)        | eu-north-1     | fms.eu-north-1.amazonaws.com                                              | HTTPS          |
-| Europe (Zurich)           | eu-central-2   | fms.eu-central-2.amazonaws.com                                            | HTTPS          |
-| Israel (Tel Aviv)         | il-central-1   | fms.il-central-1.amazonaws.com                                            | HTTPS          |
-| Mexico (Central)          | mx-central-1   | fms.mx-central-1.amazonaws.com                                            | HTTPS          |
-| Middle East (Bahrain)     | me-south-1     | fms.me-south-1.amazonaws.com<br>fms-fips.me-south-1.amazonaws.com         | HTTPS<br>HTTPS |
-| Middle East (UAE)         | me-central-1   | fms.me-central-1.amazonaws.com                                            | HTTPS          |
-| South America (São Paulo) | sa-east-1      | fms.sa-east-1.amazonaws.com<br>fms-fips.sa-east-1.amazonaws.com           | HTTPS<br>HTTPS |
-| AWS GovCloud (US-East)    | us-gov-east-1  | fms.us-gov-east-1.amazonaws.com<br>fms-fips.us-gov-east-1.amazonaws.com   | HTTPS<br>HTTPS |
-| AWS GovCloud (US-West)    | us-gov-west-1  | fms.us-gov-west-1.amazonaws.com<br>fms-fips.us-gov-west-1.amazonaws.com   | HTTPS<br>HTTPS |
+| Region Name                | Region         | Endpoint                                                                  | Protocol       |
+| -------------------------- | -------------- | ------------------------------------------------------------------------- | -------------- |
+| US East (Ohio)             | us-east-2      | fms.us-east-2.amazonaws.com<br>fms-fips.us-east-2.amazonaws.com           | HTTPS<br>HTTPS |
+| US East (N. Virginia)      | us-east-1      | fms.us-east-1.amazonaws.com<br>fms-fips.us-east-1.amazonaws.com           | HTTPS<br>HTTPS |
+| US West (N. California)    | us-west-1      | fms.us-west-1.amazonaws.com<br>fms-fips.us-west-1.amazonaws.com           | HTTPS<br>HTTPS |
+| US West (Oregon)           | us-west-2      | fms.us-west-2.amazonaws.com<br>fms-fips.us-west-2.amazonaws.com           | HTTPS<br>HTTPS |
+| Africa (Cape Town)         | af-south-1     | fms.af-south-1.amazonaws.com<br>fms-fips.af-south-1.amazonaws.com         | HTTPS<br>HTTPS |
+| Asia Pacific (Hong Kong)   | ap-east-1      | fms.ap-east-1.amazonaws.com<br>fms-fips.ap-east-1.amazonaws.com           | HTTPS<br>HTTPS |
+| Asia Pacific (Hyderabad)   | ap-south-2     | fms.ap-south-2.amazonaws.com                                              | HTTPS          |
+| Asia Pacific (Jakarta)     | ap-southeast-3 | fms.ap-southeast-3.amazonaws.com                                          | HTTPS          |
+| Asia Pacific (Malaysia)    | ap-southeast-5 | fms.ap-southeast-5.amazonaws.com                                          | HTTPS          |
+| Asia Pacific (Melbourne)   | ap-southeast-4 | fms.ap-southeast-4.amazonaws.com                                          | HTTPS          |
+| Asia Pacific (Mumbai)      | ap-south-1     | fms.ap-south-1.amazonaws.com<br>fms-fips.ap-south-1.amazonaws.com         | HTTPS<br>HTTPS |
+| Asia Pacific (New Zealand) | ap-southeast-6 | fms.ap-southeast-6.amazonaws.com                                          | HTTPS          |
+| Asia Pacific (Osaka)       | ap-northeast-3 | fms.ap-northeast-3.amazonaws.com                                          | HTTPS          |
+| Asia Pacific (Seoul)       | ap-northeast-2 | fms.ap-northeast-2.amazonaws.com<br>fms-fips.ap-northeast-2.amazonaws.com | HTTPS<br>HTTPS |
+| Asia Pacific (Singapore)   | ap-southeast-1 | fms.ap-southeast-1.amazonaws.com<br>fms-fips.ap-southeast-1.amazonaws.com | HTTPS<br>HTTPS |
+| Asia Pacific (Sydney)      | ap-southeast-2 | fms.ap-southeast-2.amazonaws.com<br>fms-fips.ap-southeast-2.amazonaws.com | HTTPS<br>HTTPS |
+| Asia Pacific (Taipei)      | ap-east-2      | fms.ap-east-2.amazonaws.com                                               | HTTPS          |
+| Asia Pacific (Thailand)    | ap-southeast-7 | fms.ap-southeast-7.amazonaws.com                                          | HTTPS          |
+| Asia Pacific (Tokyo)       | ap-northeast-1 | fms.ap-northeast-1.amazonaws.com<br>fms-fips.ap-northeast-1.amazonaws.com | HTTPS<br>HTTPS |
+| Canada (Central)           | ca-central-1   | fms.ca-central-1.amazonaws.com<br>fms-fips.ca-central-1.amazonaws.com     | HTTPS<br>HTTPS |
+| Canada West (Calgary)      | ca-west-1      | fms.ca-west-1.amazonaws.com<br>fms-fips.ca-west-1.amazonaws.com           | HTTPS<br>HTTPS |
+| Europe (Frankfurt)         | eu-central-1   | fms.eu-central-1.amazonaws.com<br>fms-fips.eu-central-1.amazonaws.com     | HTTPS<br>HTTPS |
+| Europe (Ireland)           | eu-west-1      | fms.eu-west-1.amazonaws.com<br>fms-fips.eu-west-1.amazonaws.com           | HTTPS<br>HTTPS |
+| Europe (London)            | eu-west-2      | fms.eu-west-2.amazonaws.com<br>fms-fips.eu-west-2.amazonaws.com           | HTTPS<br>HTTPS |
+| Europe (Milan)             | eu-south-1     | fms.eu-south-1.amazonaws.com<br>fms-fips.eu-south-1.amazonaws.com         | HTTPS<br>HTTPS |
+| Europe (Paris)             | eu-west-3      | fms.eu-west-3.amazonaws.com<br>fms-fips.eu-west-3.amazonaws.com           | HTTPS<br>HTTPS |
+| Europe (Spain)             | eu-south-2     | fms.eu-south-2.amazonaws.com                                              | HTTPS          |
+| Europe (Stockholm)         | eu-north-1     | fms.eu-north-1.amazonaws.com                                              | HTTPS          |
+| Europe (Zurich)            | eu-central-2   | fms.eu-central-2.amazonaws.com                                            | HTTPS          |
+| Israel (Tel Aviv)          | il-central-1   | fms.il-central-1.amazonaws.com                                            | HTTPS          |
+| Mexico (Central)           | mx-central-1   | fms.mx-central-1.amazonaws.com                                            | HTTPS          |
+| Middle East (Bahrain)      | me-south-1     | fms.me-south-1.amazonaws.com<br>fms-fips.me-south-1.amazonaws.com         | HTTPS<br>HTTPS |
+| Middle East (UAE)          | me-central-1   | fms.me-central-1.amazonaws.com                                            | HTTPS          |
+| South America (São Paulo)  | sa-east-1      | fms.sa-east-1.amazonaws.com<br>fms-fips.sa-east-1.amazonaws.com           | HTTPS<br>HTTPS |
+| AWS GovCloud (US-East)     | us-gov-east-1  | fms.us-gov-east-1.amazonaws.com<br>fms-fips.us-gov-east-1.amazonaws.com   | HTTPS<br>HTTPS |
+| AWS GovCloud (US-West)     | us-gov-west-1  | fms.us-gov-west-1.amazonaws.com<br>fms-fips.us-gov-west-1.amazonaws.com   | HTTPS<br>HTTPS |
 
 ## Service quotas
 
