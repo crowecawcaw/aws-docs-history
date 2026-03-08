@@ -5,7 +5,7 @@ issues with your file share.
 
 ###### Topics
 
-- [Your file share is stuck in CREATING status](#creating-state "#creating-state")
+- [File share stuck in CREATING, UPDATING, or DELETING state](#troubleshooting-file-share-stuck-states "#troubleshooting-file-share-stuck-states")
 - [You can't create a file share](#create-file-troubleshoot "#create-file-troubleshoot")
 - [SMB file shares don't allow multiple different access methods](#smb-fileshare-troubleshoot "#smb-fileshare-troubleshoot")
 - [Multiple file shares can't write to the mapped S3 bucket](#multiwrite "#multiwrite")
@@ -18,35 +18,151 @@ issues with your file share.
 - [ACL permissions aren't working as expected](#smb-acl-issues "#smb-acl-issues")
 - [Your gateway performance declined after you performed a recursive operation](#recursive-operation-issues "#recursive-operation-issues")
 
-## Your file share is stuck in CREATING status
+## File share stuck in CREATING, UPDATING, or DELETING state
 
-When your file share is being created, the status is CREATING. The status
-transitions to AVAILABLE status after the file share is created. If your file share
-gets stuck in the CREATING status, do the following:
+The file share status summarizes the health of your file share. If your S3 File Gateway file share is stuck in the `CREATING`, `UPDATING`, or `DELETING` state, use the following troubleshooting steps to identify and resolve the issue.
 
-1. Open the Amazon S3 console at
-   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2. Make sure the S3 bucket that you mapped your file share to exists. If the
-   bucket doesn’t exist, create it. After you create the bucket, the file share
-   status transitions to AVAILABLE. For information about how to create an S3
-   bucket, see [Create a bucket](../../../AmazonS3/latest/gsg/CreatingABucket.md "../../../AmazonS3/latest/gsg/CreatingABucket.md")
-   in the _Amazon Simple Storage Service User Guide_.
-3. Make sure your bucket name complies with the rules for bucket naming in
-   Amazon S3. For more information, see [Rules for bucket naming](../../../AmazonS3/latest/dev/BucketRestrictions.md#bucketnamingrules "../../../AmazonS3/latest/dev/BucketRestrictions.md#bucketnamingrules") in the
-   _Amazon Simple Storage Service User Guide_.
+### Confirm IAM role permissions and trust relationship
+
+The AWS Identity and Access Management (IAM) role associated with your file share must have sufficient permissions to access the Amazon S3 bucket. Additionally, the role's trust policy must grant the Storage Gateway service permissions to assume the role.
+
+###### To verify IAM role permissions:
+
+1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. In the navigation pane, choose **Roles**.
+3. Choose the IAM role that's associated with your file share.
+4. Choose the **Trust relationships** tab.
+5. Confirm that Storage Gateway is listed as a trusted entity. If Storage Gateway isn't a trusted entity, choose **Edit trust relationship**, and then add the following policy:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "storagegateway.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+```
+
+6. Verify that the IAM role has the correct permissions and that the Amazon S3 bucket is listed as a resource in the IAM policy. For more information, see [Granting access to an Amazon S3 bucket](grant-access-s3.md "grant-access-s3.md").
 
 ###### Note
 
-S3 File Gateway does not support support Amazon S3 buckets with
-periods (`.`) in the bucket name. 4. Make sure the IAM role you used to access the S3 bucket has the correct
-permissions and verify that the S3 bucket is listed as a resource in the IAM
-policy. For more information, see [Granting access to an Amazon S3 bucket](grant-access-s3.md "grant-access-s3.md").
+To avoid cross-service confused deputy prevention issues, use a trust relationship policy that includes condition context keys. For more information, see [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
+
+### Verify AWS STS is activated in your Region
+
+File shares can become stuck in the `CREATING` or `UPDATING` state if AWS Security Token Service (AWS STS) is deactivated in your AWS Region.
+
+###### To verify AWS STS status:
+
+1. Open the AWS Identity and Access Management console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. In the navigation pane, choose **Account settings**.
+3. In the **Security Token Service (STS)** section, verify that the **Status** is **Active** for the AWS Region where you want to create the file share.
+4. If the status is **Inactive**, choose **Activate** to enable AWS STS in that Region.
+
+### Verify S3 bucket exists and follows naming rules
+
+Your file share requires a valid Amazon S3 bucket that follows Amazon S3 naming conventions.
+
+###### To verify your S3 bucket:
+
+1. Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+2. Confirm that the Amazon S3 bucket mapped to your file share exists. If the bucket doesn't exist, create it. After you create the bucket, the file share status should change to `AVAILABLE`. For more information, see [Create a bucket](../../../AmazonS3/latest/gsg/CreatingABucket.md "../../../AmazonS3/latest/gsg/CreatingABucket.md") in the _Amazon Simple Storage Service User Guide_.
+3. Verify that your bucket name complies with the [rules for bucket naming](../../../AmazonS3/latest/dev/BucketRestrictions.md#bucketnamingrules "../../../AmazonS3/latest/dev/BucketRestrictions.md#bucketnamingrules") in the _Amazon Simple Storage Service User Guide_.
+
+###### Note
+
+S3 File Gateway does not support Amazon S3 buckets with periods (`.`) in the bucket name.
+
+### Force delete a file share stuck in DELETING state
+
+When you delete a file share, the gateway removes the share from the associated Amazon S3 bucket. However, data that's currently uploading continues to upload before the deletion completes. During this process, the file share shows a `DELETING` status.
+
+###### Important
+
+Check the Amazon CloudWatch metric `CachePercentDirty` for your gateway to determine how much data is pending upload. For more information about Storage Gateway metrics, see [Monitoring your S3 File Gateway](monitoring-file-gateway.md "monitoring-file-gateway.md").
+
+If you don't want to wait for all in-progress uploads to finish, you can force delete the file share.
+
+###### To force delete a file share:
+
+1. Open the Storage Gateway console at [https://console.aws.amazon.com/storagegateway/](https://console.aws.amazon.com/storagegateway/ "https://console.aws.amazon.com/storagegateway/").
+2. In the navigation pane, choose **File shares**.
+3. Select the file share that you want to delete.
+4. Choose the **Details** tab, and review the **This file share is being deleted** message.
+5. Verify the ID of the file share in the message, and then select the confirmation box.
+
+###### Note
+
+You can't undo the force delete operation. 6. Choose **Force delete now**.
+
+Alternatively, you can use the AWS CLI [delete-file-share](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/storagegateway/delete-file-share.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/storagegateway/delete-file-share.html") command with the `--force-delete` parameter set to `true`.
+
+###### Important
+
+Before force deleting a file share, confirm that your gateway isn't in an `OFFLINE` state. If the gateway is offline, first resolve the offline issue. For more information, see [Troubleshooting: gateway offline in the Storage Gateway console](troubleshooting-gateway-offline.md "troubleshooting-gateway-offline.md").
+
+If the gateway virtual machine (VM) is already deleted, you must delete the gateway from the Storage Gateway console to remove all associated file shares, including those stuck in the `DELETING` state. For more information, see [Deleting your gateway and removing associated resources](deleting-gateway-common.md "deleting-gateway-common.md").
+
+### Troubleshoot network connectivity issues
+
+Network issues can prevent your file share from transitioning out of the `CREATING`, `UPDATING`, or `DELETING` state. Common network issues include:
+
+- Your gateway is offline or the gateway VM is deleted.
+- Network access between Storage Gateway and the Amazon S3 service endpoint is blocked.
+- The Amazon S3 Amazon VPC endpoint that the gateway uses to communicate with Amazon S3 was deleted.
+- Required network ports aren't open or network routing is improperly configured.
+
+#### Test S3 connectivity from the gateway local console
+
+###### To test S3 connectivity:
+
+1. Log in to your gateway's local console. For more information, see [Logging in to the File Gateway local console](LocalConsole-login-fgw.md "LocalConsole-login-fgw.md").
+2. In the **Storage Gateway - Configuration** main menu, enter the number corresponding to **Test S3 Connectivity**.
+3. Choose the Amazon S3 endpoint type:
+   - For Amazon S3 traffic that flows through an Internet Gateway, NAT Gateway, Transit Gateway, or Amazon S3 Gateway Amazon VPC endpoint, choose **Public**.
+   - For Amazon S3 traffic that flows through an Amazon S3 interface Amazon VPC endpoint, choose **VPC (PrivateLink)**.
+   - For a FIPS endpoint, choose the FIPS option.
+
+4. Enter the Amazon S3 bucket Region.
+5. If using a Amazon VPC endpoint, enter the Amazon S3 Amazon VPC endpoint DNS name (for example, `vpce-0329c2790456f2d01-0at85l34`).
+
+The gateway automatically performs a connectivity test that validates both the network connection and SSL connection. If the test fails:
+
+- **Network Test failure** - Usually caused by firewall rules, security group configurations, or improper network routing. Verify that required ports are open and network routing is configured correctly.
+- **SSL Test failure** - Indicates that SSL inspection or deep packet inspection is occurring between your gateway VM and Amazon S3 service endpoints. Disable SSL and deep packet inspection for Storage Gateway traffic.
+
+#### Verify proxy configuration
+
+If your gateway uses a proxy server, verify that the proxy isn't blocking network communication.
+
+###### To check proxy configuration:
+
+1. In the **Storage Gateway - Configuration** main menu, enter the number corresponding to **HTTP/SOCKS Proxy Configuration**.
+2. Select the option to view the current network proxy configuration.
+3. If a proxy is configured, verify that Amazon S3 traffic can flow from Storage Gateway to the proxy server over port 3128 (or your configured listener port), and then to the Amazon S3 endpoint over port 443.
+4. Confirm that the proxy or firewall allows traffic to and from the network ports and service endpoints required by Storage Gateway. For more information, see the required network ports.
+
+If issues persist, you can temporarily remove the proxy configuration to determine if the proxy is causing the problem.
+
+#### Verify security groups and network routing
+
+- **For gateways on Amazon EC2** - Confirm that the security group has port 443 open to Amazon S3 endpoints. Verify that the Amazon EC2 subnet's route table properly routes Amazon S3 traffic to Amazon S3 endpoints. For more information, see the required network ports.
+- **For on-premises gateways** - Confirm that firewall rules allow the required ports and that local route tables properly route Amazon S3 traffic to Amazon S3 endpoints. For more information, see the required network ports.
+- **VPC endpoints** - Verify that the Amazon S3 Amazon VPC endpoint used by the gateway hasn't been deleted. If the Amazon VPC endpoint is deleted and the gateway has no public IP address, the gateway can't communicate with Amazon S3.
 
 ## You can't create a file share
 
 1. If you can't create a file share because your file share is stuck in
    CREATING status, verify that the S3 bucket you mapped your file share to
-   exists. For information on how to do so, see [Your file share is stuck in CREATING status](#creating-state "#creating-state"), preceding.
+   exists. For information on how to do so, see [File share stuck in CREATING, UPDATING, or DELETING state](#troubleshooting-file-share-stuck-states "#troubleshooting-file-share-stuck-states"), preceding.
 2. If the S3 bucket exists, then verify that AWS Security Token Service is activated in the
    region where you are creating the file share. If a security token is not
    active, you should activate it. For information about how to activate a
