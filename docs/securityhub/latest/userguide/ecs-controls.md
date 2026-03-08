@@ -5,6 +5,17 @@ might not be available in all AWS Regions. For more information, see [Availabili
 
 ## [ECS.1] Amazon ECS task definitions should have secure networking modes and user definitions
 
+###### Important
+
+Security Hub CSPM retired this control in March 2026. For more information, see
+[Change log for Security Hub CSPM controls](controls-change-log.md "controls-change-log.md"). You can refer to the following
+controls for evaluation of privileged configuration, network mode configuration, and user configuration:
+
+- [[ECS.4] ECS containers should run as non-privileged](#ecs-4 "#ecs-4")
+- [[ECS.17] ECS task definitions should not use host network mode](#ecs-17 "#ecs-17")
+- [[ECS.20] ECS Task Definitions should configure non-root users in Linux container definitions](#ecs-20 "#ecs-20")
+- [[ECS.21] ECS Task Definitions should configure non-administrator users in Windows container definitions](#ecs-21 "#ecs-21")
+
 **Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-5, NIST.800-53.r5 AC-6
 
 **Category:** Protect > Secure access management
@@ -36,16 +47,6 @@ If a task definition has elevated privileges, it is because you have
 chosen that configuration. This control checks for unexpected privilege escalation when a
 task definition has host networking enabled, and you don't choose elevated
 privileges.
-
-###### Note
-
-This control will be retired after February 16, 2026 and removed from all applicable Security Hub CSPM standards. You can refer to the following controls
-for evaluation of privileged configuration, network mode configuration, and user configuration:
-
-- [[ECS.4] ECS containers should run as non-privileged](#ecs-4 "#ecs-4")
-- [[ECS.17] ECS task definitions should not use host network mode](#ecs-17 "#ecs-17")
-- [[ECS.20] ECS Task Definitions should configure non-root users in Linux container definitions](#ecs-20 "#ecs-20")
-- [[ECS.21] ECS Task Definitions should configure non-administrator users in Windows container definitions](#ecs-21 "#ecs-21")
 
 ### Remediation
 
