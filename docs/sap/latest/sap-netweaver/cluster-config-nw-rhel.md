@@ -137,7 +137,7 @@ Details:
 
 - **pcmk_host_map** - Maps cluster node hostnames to their EC2 instance IDs. This mapping must be unique within the AWS account and follow the format hostname:instance-id, with multiple entries separated by semicolons.
 - **region** - AWS region where the EC2 instances are deployed
-- **pcmk_delay_max** - Random delay before fencing operations. Works in conjunction with cluster property `priority-fencing-delay` to prevent simultaneous fencing. Historically set to higher values, but with `priority-fencing-delay` now handling primary node protection, a lower value (10s) is sufficient.
+- **pcmk_delay_max** - Random delay before fencing operations. Works in conjunction with cluster property `priority-fencing-delay` to prevent simultaneous fencing in 2-node clusters. Historically set to higher values, but with `priority-fencing-delay` now handling primary node protection, a lower value (10s) is sufficient. Omit in clusters with real quorum (3+ nodes) to avoid unnecessary delay.
 - **pcmk_reboot_timeout** - Maximum time in seconds allowed for a reboot operation
 - **pcmk_reboot_retries** - Number of times to retry a failed reboot operation
 - **skip_os_shutdown** (NEW) - Leverages a new ec2 stop-instance API flag to forcefully stop an EC2 Instance by skipping the shutdown of the Operating System.

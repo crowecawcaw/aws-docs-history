@@ -121,7 +121,7 @@ Details:
 
 - **tag** - EC2 instance tag key name that associates instances with this cluster configuration. This tag key must be unique within the AWS account and have a value which matches the instance hostname. See [Create Amazon EC2 Resource Tags Used by Amazon EC2 STONITH Agent](sap-nw-pacemaker-sles-ec2-configuration.md#create-cluster-tags-nw-sles "sap-nw-pacemaker-sles-ec2-configuration.md#create-cluster-tags-nw-sles") for EC2 instance tagging configuration.
 - **profile** - (optional) AWS CLI profile name for API authentication. Verify profile exists with `aws configure list-profiles`. If a profile is not explicitly configured the default profile will be used.
-- **pcmk_delay_max** - Random delay before fencing operations. Works in conjunction with cluster property `priority-fencing-delay` to prevent simultaneous fencing. For ENSA1 use 30 seconds, for ENSA2 use 10 seconds (lower value sufficient as `priority-fencing-delay` handles primary node protection).
+- **pcmk_delay_max** - Random delay before fencing operations. Works in conjunction with cluster property `priority-fencing-delay` to prevent simultaneous fencing om 2-node clusters. For ENSA1 use 30 seconds, for ENSA2 use 10 seconds (lower value sufficient as `priority-fencing-delay` handles primary node protection). Omit in clusters with real quorum (3+ nodes) to avoid unnecessary delay.
 
 ###### Example
 
