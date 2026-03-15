@@ -76,9 +76,27 @@ This error indicates an issue with the vserver's DNS configuration in ONTAP. Run
 `>` dns check -vserver `svm_name`
 ```
 
+**`NT_STATUS_PENDING`**
+
+This error indicates an issue communicating with the domain controller. The underlying cause may be due to a lack of SMB credits. See [NetApp KB](https://kb.netapp.com/on-prem/ontap/da/NAS/NAS-KBs/How_ONTAP_implements_SMB_crediting "https://kb.netapp.com/on-prem/ontap/da/NAS/NAS-KBs/How_ONTAP_implements_SMB_crediting") for more information.
+
 ## S3 access point creation failed because the volume is not mounted.
 
 S3 access points can only be attached to FSx for ONTAP volumes that are mounted (have junction paths). This also applies to DP (Data Protection) volumes types. See [ONTAP volume mount documentation](https://docs.netapp.com/us-en/ontap/nfs-admin/mount-unmount-existing-volumes-nas-namespace-task.html "https://docs.netapp.com/us-en/ontap/nfs-admin/mount-unmount-existing-volumes-nas-namespace-task.html") for more information.
+
+## S3 access point creation failed because the S3 protocol is disabled on the SVM
+
+S3 access points require the S3 protocol to be enabled on the Storage Virtual Machine (SVM). To enable the S3 protocol, run the following command in the ONTAP CLI using `fsxadmin`:
+
+```
+`>` vserver add-protocols -vserver `svm_name` -protocols s3
+```
+
+To verify the protocol is enabled:
+
+```
+`>` vserver show -vserver `svm_name` -fields allowed-protocols,disallowed-protocols
+```
 
 ## The file system is unable to handle S3 requests
 

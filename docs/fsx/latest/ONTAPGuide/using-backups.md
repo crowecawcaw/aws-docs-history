@@ -61,6 +61,14 @@ There are limits to the number of backups that you can store per AWS account and
 For more information, see [Quotas that you can increase](limits.md#soft-limits "limits.md#soft-limits") and
 [Resource quotas for each file system](limits.md#limits-ontap-resources-file-system "limits.md#limits-ontap-resources-file-system").
 
+###### Note
+
+If you use NDMP for backups, ONTAP does not allow maintenance activities such as patch operations to proceed while an
+NDMP transfer is in progress. To avoid delaying patches, Amazon FSx will abort any active NDMP transfer
+sessions when a patch operation is applied during your file system's maintenance window. Once patching is complete, you will need to
+manually restart your NDMP transfer sessions from the client side, as Amazon FSx cannot automatically resume them. To
+avoid backup interruptions, we recommend using Amazon FSx backups or AWS Backup, which support concurrent backup and patch operations.
+
 ## Storage requirements
 
 Your volume and your file system must each have enough
@@ -78,7 +86,12 @@ You can enable or disable automatic daily backups for existing file systems at a
 during the file system's daily backup window, which is automatically set when you create a file system.
 You can modify the daily backup window at any time. For optimal [backup performance](#backup-performance "#backup-performance"), we recommend that
 you choose a daily backup window that is outside of the normal operating hours
-when clients and applications are accessing the data on your volumes.
+when clients and applications are accessing the data on your volumes. We also recommend choosing
+a backup window that does not overlap with your file system's maintenance window. If the windows overlap,
+maintenance activities take precedence and automated backups occur after maintenance is complete. Backups
+that are already in progress will continue during maintenance, however, new backup creation may not occur
+until maintenance is complete. If maintenance runs for the full duration of the window, automated backups
+may not occur during that window.
 
 Using the console, you can set the retention period for automatic daily backups to a value from 1 to 90 days
 when creating a file system or at any time. The default automatic daily backup

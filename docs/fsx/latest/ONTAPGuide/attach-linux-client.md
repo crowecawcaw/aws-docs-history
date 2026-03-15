@@ -1,7 +1,7 @@
 # Mounting volumes on Linux clients
 
 We recommend that the volumes you want to mount with Linux clients have a
-security style setting of `UNIX` or `mixed`. For more
+security style setting of `UNIX`. For more
 information, see [Managing FSx for ONTAP volumes](managing-volumes.md "managing-volumes.md").
 
 ###### Note
