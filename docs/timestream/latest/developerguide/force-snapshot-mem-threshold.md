@@ -11,4 +11,4 @@ Parameter Details| **Default** | `50%` |
 
 Defines the memory usage threshold at which the system forces a WAL snapshot to disk. When memory usage exceeds this threshold, in-memory WAL data is persisted to Parquet files, freeing memory.
 
-**Recommendation:** 30% for db.influx.medium, 40% for db.influx.large, 50% (default) for db.influx.xlarge and above.
+**Recommendation:** 30% for all instance sizes.

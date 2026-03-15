@@ -25,13 +25,14 @@ workloads with moderate performance requirements.
 
 ## Multi-node deployment
 
-Multi-node deployments (available only for Enterprise version) distribute workloads across
-multiple instances for improved performance, scalability, and availability. This configuration
-offers:
+Multi-node deployments (available only for Enterprise edition) distribute workloads across
+multiple instances for improved performance, scalability, and availability. Enterprise clusters
+support up to 15 nodes with the following configuration:
 
 - Flexible node allocation based on workload requirements:
-  - 2 nodes that can handle both write and read operations.
-  - 1 dedicated compactor node for optimizing storage.
+  - 1-4 writer/reader nodes (ingestQueryInstances) that handle both write and read operations.
+  - 0-13 reader-only nodes (queryOnlyInstances) dedicated to processing read queries.
+  - 1 dedicated compactor node for optimizing storage (required for clusters with 3+ nodes).
 
 - Horizontal scaling capabilities to accommodate growing workloads.
 - Enhanced fault tolerance with workload distribution across multiple nodes in different

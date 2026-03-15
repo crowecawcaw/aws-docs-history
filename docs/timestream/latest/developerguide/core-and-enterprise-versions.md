@@ -55,12 +55,13 @@ Enterprise adds the following features to Core:
 - **Read replicas** for scaling read-heavy workloads.
 - **Compaction capabilities** essential for maintaining performance
   over time.
-- Support for **multi-node deployments** (up to 3 nodes
-  initially, with future expansion capabilities).
-- **Enhanced security** (coming soon).
-- **Row-level delete support** (coming soon).
-- **Integrated admin UI** (coming soon) - Note: Currently, you can
-  use the InfluxDB Explorer downloaded from [https://docs.influxdata.com/influxdb3/explorer/](https://docs.influxdata.com/influxdb3/explorer/ "https://docs.influxdata.com/influxdb3/explorer/").
+- Support for **multi-node deployments** (up to 15 nodes
+  with configurable writer/reader and reader-only node distribution).
+
+###### Tip
+
+If you have outgrown your Core deployment, you can upgrade to Enterprise edition. See
+[Upgrade from Core to Enterprise edition](upgrading-core-to-enterprise.md "upgrading-core-to-enterprise.md").
 
 ## Choosing between Core and Enterprise
 

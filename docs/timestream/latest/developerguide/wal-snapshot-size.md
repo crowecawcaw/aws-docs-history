@@ -11,4 +11,4 @@ Parameter Details| **Default** | 600 |
 
 Controls the size threshold (in number of WAL operations) at which a WAL snapshot is triggered, persisting data to Parquet files.
 
-**Recommendation:** 300–600 for db.influx.medium, 600 (default) for db.influx.large, 600–1000 for db.influx.xlarge, 1000–5000 for db.influx.2xlarge and above.
+**Recommendation:** 300 for all instance sizes.

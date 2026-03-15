@@ -6,6 +6,14 @@ data ingestion and single-digit millisecond query response times for real-time a
 When deploying private clusters, you must configure an S3 VPC endpoint with appropriate
 permissions to ensure cluster resources can access required S3 buckets.
 
+###### Note
+
+The S3 endpoint should preferably be associated with a VPC that hosts only Timestream for InfluxDB private databases.
+
+###### Note
+
+Shared VPCs are not currently supported for Timestream for InfluxDB 3.
+
 ## Prerequisites
 
 - A VPC with private subnets configured for your cluster

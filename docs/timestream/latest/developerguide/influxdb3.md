@@ -99,7 +99,7 @@ The following table shows the hardware details for InfluxDB 3 cluster node class
 | ---------------------------- | -------- | ---------------- | ----------------- | ---------------------------- |
 | db.influxIOIncluded.medium   | 1        | 8                | S3 Object Storage | 12                           |
 | db.influxIOIncluded.large    | 2        | 16               | S3 Object Storage | 12                           |
-| db.influxIOIncluded.xlarge   | 3        | 32               | S3 Object Storage | 15                           |
+| db.influxIOIncluded.xlarge   | 4        | 32               | S3 Object Storage | 15                           |
 | db.influxIOIncluded.2xlarge  | 8        | 64               | S3 Object Storage | 20                           |
 | db.influxIOIncluded.4xlarge  | 16       | 128              | S3 Object Storage | 25                           |
 | db.influxIOIncluded.8xlarge  | 32       | 256              | S3 Object Storage | 30                           |

@@ -11,5 +11,7 @@ updating, and deleting InfluxDB 3 clusters.
 
 - [Create a cluster](creating-a-cluster.md "creating-a-cluster.md")
 - [Update a cluster](updating-a-cluster.md "updating-a-cluster.md")
+- [Upgrade Core to Enterprise](upgrading-core-to-enterprise.md "upgrading-core-to-enterprise.md")
 - [Delete a cluster](deleting-a-cluster.md "deleting-a-cluster.md")
 - [Reboot a cluster](rebooting-a-cluster.md "rebooting-a-cluster.md")
+- [Scaling a cluster](multi-node-scaling.md "multi-node-scaling.md")

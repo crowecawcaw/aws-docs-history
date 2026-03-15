@@ -1,9 +1,18 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Update database
+# Create table
 
-You can use the following code snippets to update your databases.
+###### Topics
+
+- [Memory store writes](#code-samples.create-table-memorystore "#code-samples.create-table-memorystore")
+- [Magnetic store writes](#code-samples.create-table-magneticstore "#code-samples.create-table-magneticstore")
+
+## Memory store writes
+
+You can use the following code snippet to create a table that has magnetic store
+writes disabled, as a result you can only write data into your memory store retention
+window.
 
 ###### Note
 
@@ -13,22 +22,21 @@ For more information about how to get started with the sample applications, see 
 Java
 
 ```
-    public void updateDatabase(String kmsId) {
-        System.out.println("Updating kmsId to " + kmsId);
-        UpdateDatabaseRequest request = new UpdateDatabaseRequest();
-        request.setDatabaseName(DATABASE_NAME);
-        request.setKmsKeyId(kmsId);
+    public void createTable() {
+        System.out.println("Creating table");
+        CreateTableRequest createTableRequest = new CreateTableRequest();
+        createTableRequest.setDatabaseName(DATABASE_NAME);
+        createTableRequest.setTableName(TABLE_NAME);
+        final RetentionProperties retentionProperties = new RetentionProperties()
+                .withMemoryStoreRetentionPeriodInHours(HT_TTL_HOURS)
+                .withMagneticStoreRetentionPeriodInDays(CT_TTL_DAYS);
+        createTableRequest.setRetentionProperties(retentionProperties);
+
         try {
-            UpdateDatabaseResult result = amazonTimestreamWrite.updateDatabase(request);
-            System.out.println("Update Database complete");
-        } catch (final ValidationException e) {
-            System.out.println("Update database failed:");
-            e.printStackTrace();
-        } catch (final ResourceNotFoundException e) {
-            System.out.println("Database " + DATABASE_NAME + " doesn't exist = " + e);
-        } catch (final Exception e) {
-            System.out.println("Could not update Database " + DATABASE_NAME + " = " + e);
-            throw e;
+            amazonTimestreamWrite.createTable(createTableRequest);
+            System.out.println("Table [" + TABLE_NAME + "] successfully created.");
+        } catch (ConflictException e) {
+            System.out.println("Table [" + TABLE_NAME + "] exists on database [" + DATABASE_NAME + "] . Skipping database creation");
         }
     }
 ```
@@ -36,26 +44,20 @@ Java
 Java v2
 
 ```
-    public void updateDatabase(String kmsKeyId) {
+    public void createTable() {
+        System.out.println("Creating table");
 
-        if (kmsKeyId == null) {
-            System.out.println("Skipping UpdateDatabase because KmsKeyId was not given");
-            return;
-        }
+        final RetentionProperties retentionProperties = RetentionProperties.builder()
+                .memoryStoreRetentionPeriodInHours(HT_TTL_HOURS)
+                .magneticStoreRetentionPeriodInDays(CT_TTL_DAYS).build();
+        final CreateTableRequest createTableRequest = CreateTableRequest.builder()
+                .databaseName(DATABASE_NAME).tableName(TABLE_NAME).retentionProperties(retentionProperties).build();
 
-        System.out.println("Updating database");
-
-        UpdateDatabaseRequest request = UpdateDatabaseRequest.builder()
-                .databaseName(DATABASE_NAME)
-                .kmsKeyId(kmsKeyId)
-                .build();
         try {
-            timestreamWriteClient.updateDatabase(request);
-            System.out.println("Database [" + DATABASE_NAME + "] updated successfully with kmsKeyId " + kmsKeyId);
-        } catch (ResourceNotFoundException e) {
-            System.out.println("Database [" + DATABASE_NAME + "] does not exist. Skipping UpdateDatabase");
-        } catch (Exception e) {
-            System.out.println("UpdateDatabase failed: " + e);
+            timestreamWriteClient.createTable(createTableRequest);
+            System.out.println("Table [" + TABLE_NAME + "] successfully created.");
+        } catch (ConflictException e) {
+            System.out.println("Table [" + TABLE_NAME + "] exists on database [" + DATABASE_NAME + "] . Skipping database creation");
         }
     }
 ```
@@ -63,63 +65,70 @@ Java v2
 Go
 
 ```
-// Update Database.
-        updateDatabaseInput := &timestreamwrite.UpdateDatabaseInput {
-            DatabaseName: aws.String(*databaseName),
-            KmsKeyId: aws.String(*kmsKeyId),
-        }
+// Create table.
+    createTableInput := &timestreamwrite.CreateTableInput{
+        DatabaseName: aws.String(*databaseName),
+        TableName:    aws.String(*tableName),
+    }
+    _, err = writeSvc.CreateTable(createTableInput)
 
-        updateDatabaseOutput, err := writeSvc.UpdateDatabase(updateDatabaseInput)
-
-        if err != nil {
-            fmt.Println("Error:")
-            fmt.Println(err)
-        } else {
-            fmt.Println("Update database is successful, below is the output:")
-            fmt.Println(updateDatabaseOutput)
-        }
+    if err != nil {
+        fmt.Println("Error:")
+        fmt.Println(err)
+    } else {
+        fmt.Println("Create table is successful")
+    }
 ```
 
 Python
 
 ```
-    def update_database(self, kms_id):
-        print("Updating database")
+    def create_table(self):
+        print("Creating table")
+        retention_properties = {
+            'MemoryStoreRetentionPeriodInHours': Constant.HT_TTL_HOURS,
+            'MagneticStoreRetentionPeriodInDays': Constant.CT_TTL_DAYS
+        }
         try:
-            result = self.client.update_database(DatabaseName=Constant.DATABASE_NAME, KmsKeyId=kms_id)
-            print("Database [%s] was updated to use kms [%s] successfully" % (Constant.DATABASE_NAME,
-                                                                              result['Database']['KmsKeyId']))
-        except self.client.exceptions.ResourceNotFoundException:
-            print("Database doesn't exist")
+            self.client.create_table(DatabaseName=Constant.DATABASE_NAME, TableName=Constant.TABLE_NAME,
+                                     RetentionProperties=retention_properties)
+            print("Table [%s] successfully created." % Constant.TABLE_NAME)
+        except self.client.exceptions.ConflictException:
+            print("Table [%s] exists on database [%s]. Skipping table creation" % (
+                Constant.TABLE_NAME, Constant.DATABASE_NAME))
         except Exception as err:
-            print("Update database failed:", err)
+            print("Create table failed:", err)
 ```
 
 Node.js
 The following snippet uses AWS SDK for JavaScript v3. For more information about how to install the client and usage, see [Timestream Write Client - AWS SDK for JavaScript v3](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md").
 
-Also see [Class UpdateDatabaseCommand](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/updatedatabasecommand.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/updatedatabasecommand.md") and [UpdateDatabase](API_UpdateDatabase.md "API_UpdateDatabase.md").
+Also see [Class CreateTableCommand](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/createtablecommand.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/createtablecommand.md") and [CreateTable](API_CreateTable.md "API_CreateTable.md").
 
 ```
-import { TimestreamWriteClient, UpdateDatabaseCommand } from "@aws-sdk/client-timestream-write";
+import { TimestreamWriteClient, CreateTableCommand } from "@aws-sdk/client-timestream-write";
 const writeClient = new TimestreamWriteClient({ region: "us-east-1" });
-let updatedKmsKeyId = "`<updatedKmsKeyId>`";
 
 const params = {
     DatabaseName: "testDbFromNode",
-    KmsKeyId: updatedKmsKeyId
+    TableName: "testTableFromNode",
+    RetentionProperties: {
+        MemoryStoreRetentionPeriodInHours: 24,
+        MagneticStoreRetentionPeriodInDays: 365
+    }
 };
 
-const command = new UpdateDatabaseCommand(params);
+const command = new CreateTableCommand(params);
 
 try {
     const data = await writeClient.send(command);
-    console.log(`Database ${data.Database.DatabaseName} updated kmsKeyId to ${updatedKmsKeyId}`);
+    console.log(`Table ${data.Table.TableName} created successfully`);
 } catch (error) {
-    if (error.code === 'ResourceNotFoundException') {
-        console.log("Database doesn't exist.");
+    if (error.code === 'ConflictException') {
+        console.log(`Table ${params.TableName} already exists on db ${params.DatabaseName}. Skipping creation.`);
     } else {
-        console.log("Update database failed.", error);
+        console.log("Error creating table. ", error);
+        throw error;
     }
 }
 ```
@@ -127,29 +136,29 @@ try {
 The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js").
 
 ```
-async function updateDatabase(updatedKmsKeyId) {
-
-    if (updatedKmsKeyId === undefined) {
-        console.log("Skipping UpdateDatabase; KmsKeyId was not given");
-        return;
-    }
-    console.log("Updating Database");
+async function createTable() {
+    console.log("Creating Table");
     const params = {
         DatabaseName: constants.DATABASE_NAME,
-        KmsKeyId: updatedKmsKeyId
-    }
+        TableName: constants.TABLE_NAME,
+        RetentionProperties: {
+            MemoryStoreRetentionPeriodInHours: constants.HT_TTL_HOURS,
+            MagneticStoreRetentionPeriodInDays: constants.CT_TTL_DAYS
+        }
+    };
 
-    const promise = writeClient.updateDatabase(params).promise();
+    const promise = writeClient.createTable(params).promise();
 
     await promise.then(
         (data) => {
-            console.log(`Database ${data.Database.DatabaseName} updated kmsKeyId to ${updatedKmsKeyId}`);
+            console.log(`Table ${data.Table.TableName} created successfully`);
         },
         (err) => {
-            if (err.code === 'ResourceNotFoundException') {
-                console.log("Database doesn't exist.");
+            if (err.code === 'ConflictException') {
+                console.log(`Table ${params.TableName} already exists on db ${params.DatabaseName}. Skipping creation.`);
             } else {
-                console.log("Update database failed.", err);
+                console.log("Error creating table. ", err);
+                throw err;
             }
         }
     );
@@ -159,34 +168,215 @@ async function updateDatabase(updatedKmsKeyId) {
 .NET
 
 ```
-        public async Task UpdateDatabase(String updatedKmsKeyId)
+        public async Task CreateTable()
         {
-            Console.WriteLine("Updating Database");
+            Console.WriteLine("Creating Table");
 
             try
             {
-                var updateDatabaseRequest = new UpdateDatabaseRequest
+                var createTableRequest = new CreateTableRequest
                 {
                     DatabaseName = Constants.DATABASE_NAME,
-                    KmsKeyId = updatedKmsKeyId
+                    TableName = Constants.TABLE_NAME,
+                    RetentionProperties = new RetentionProperties
+                    {
+                        MagneticStoreRetentionPeriodInDays = Constants.CT_TTL_DAYS,
+                        MemoryStoreRetentionPeriodInHours = Constants.HT_TTL_HOURS
+                    }
                 };
-                UpdateDatabaseResponse response = await writeClient.UpdateDatabaseAsync(updateDatabaseRequest);
-                Console.WriteLine($"Database {Constants.DATABASE_NAME} updated with KmsKeyId {updatedKmsKeyId}");
+                CreateTableResponse response = await writeClient.CreateTableAsync(createTableRequest);
+                Console.WriteLine($"Table {Constants.TABLE_NAME} created");
             }
-            catch (ResourceNotFoundException)
+            catch (ConflictException)
             {
-                Console.WriteLine("Database does not exist.");
+                Console.WriteLine("Table already exists.");
             }
             catch (Exception e)
             {
-                Console.WriteLine("Update database failed: " + e.ToString());
+                Console.WriteLine("Create table failed:" + e.ToString());
             }
 
         }
+```
 
-        private void PrintDatabases(List<Database> databases)
+## Magnetic store writes
+
+You can use the following code snippet to create a table with magnetic store writes
+enabled. With magnetic store writes you can write data into both your memory store
+retention window and magnetic store retention window.
+
+###### Note
+
+These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps").
+For more information about how to get started with the sample applications, see [Sample application](sample-apps.md "sample-apps.md").
+
+Java
+
+```
+    public void createTable(String databaseName, String tableName) {
+        System.out.println("Creating table");
+        CreateTableRequest createTableRequest = new CreateTableRequest();
+        createTableRequest.setDatabaseName(databaseName);
+        createTableRequest.setTableName(tableName);
+        final RetentionProperties retentionProperties = new RetentionProperties()
+                .withMemoryStoreRetentionPeriodInHours(HT_TTL_HOURS)
+                .withMagneticStoreRetentionPeriodInDays(CT_TTL_DAYS);
+        createTableRequest.setRetentionProperties(retentionProperties);
+        // Enable MagneticStoreWrite
+        final MagneticStoreWriteProperties magneticStoreWriteProperties = new MagneticStoreWriteProperties()
+                .withEnableMagneticStoreWrites(true);
+        createTableRequest.setMagneticStoreWriteProperties(magneticStoreWriteProperties);
+        try {
+            amazonTimestreamWrite.createTable(createTableRequest);
+            System.out.println("Table [" + tableName + "] successfully created.");
+        } catch (ConflictException e) {
+            System.out.println("Table [" + tableName + "] exists on database [" + databaseName + "] . Skipping table creation");
+            //We do not throw exception here, we use the existing table instead
+        }
+    }
+```
+
+Java v2
+
+```
+    public void createTable(String databaseName, String tableName) {
+        System.out.println("Creating table");
+
+        // Enable MagneticStoreWrite
+        final MagneticStoreWriteProperties magneticStoreWriteProperties =
+                MagneticStoreWriteProperties.builder()
+                        .enableMagneticStoreWrites(true)
+                        .build();
+
+        CreateTableRequest createTableRequest =
+                CreateTableRequest.builder()
+                        .databaseName(databaseName)
+                        .tableName(tableName)
+                        .retentionProperties(RetentionProperties.builder()
+                                .memoryStoreRetentionPeriodInHours(HT_TTL_HOURS)
+                                .magneticStoreRetentionPeriodInDays(CT_TTL_DAYS)
+                                .build())
+                        .magneticStoreWriteProperties(magneticStoreWriteProperties)
+                        .build();
+        try {
+            timestreamWriteClient.createTable(createTableRequest);
+            System.out.println("Table [" + tableName + "] successfully created.");
+        } catch (ConflictException e) {
+            System.out.println("Table [" + tableName + "] exists in database [" + databaseName + "] . Skipping table creation");
+        }
+    }
+```
+
+Go
+
+```
+// Create table.
+    createTableInput := &timestreamwrite.CreateTableInput{
+        DatabaseName: aws.String(*databaseName),
+        TableName:    aws.String(*tableName),
+    // Enable MagneticStoreWrite
+        MagneticStoreWriteProperties: &timestreamwrite.MagneticStoreWriteProperties{
+            EnableMagneticStoreWrites: aws.Bool(true),
+             },
+      }
+    _, err = writeSvc.CreateTable(createTableInput)
+```
+
+Python
+
+```
+    def create_table(self):
+        print("Creating table")
+        retention_properties = {
+            'MemoryStoreRetentionPeriodInHours': Constant.HT_TTL_HOURS,
+            'MagneticStoreRetentionPeriodInDays': Constant.CT_TTL_DAYS
+        }
+        magnetic_store_write_properties = {
+            'EnableMagneticStoreWrites': True
+        }
+        try:
+            self.client.create_table(DatabaseName=Constant.DATABASE_NAME, TableName=Constant.TABLE_NAME,
+                                     RetentionProperties=retention_properties,
+                                     MagneticStoreWriteProperties=magnetic_store_write_properties)
+            print("Table [%s] successfully created." % Constant.TABLE_NAME)
+        except self.client.exceptions.ConflictException:
+            print("Table [%s] exists on database [%s]. Skipping table creation" % (
+                Constant.TABLE_NAME, Constant.DATABASE_NAME))
+        except Exception as err:
+            print("Create table failed:", err)
+```
+
+Node.js
+
+```
+async function createTable() {
+    console.log("Creating Table");
+
+    const params = {
+        DatabaseName: constants.DATABASE_NAME,
+        TableName: constants.TABLE_NAME,
+        RetentionProperties: {
+            MemoryStoreRetentionPeriodInHours: constants.HT_TTL_HOURS,
+            MagneticStoreRetentionPeriodInDays: constants.CT_TTL_DAYS
+        },
+        MagneticStoreWriteProperties: {
+            EnableMagneticStoreWrites: true
+        }
+    };
+
+    const promise = writeClient.createTable(params).promise();
+
+    await promise.then(
+        (data) => {
+            console.log(`Table ${data.Table.TableName} created successfully`);
+        },
+        (err) => {
+            if (err.code === 'ConflictException') {
+                console.log(`Table ${params.TableName} already exists on db ${params.DatabaseName}. Skipping creation.`);
+            } else {
+                console.log("Error creating table. ", err);
+                throw err;
+            }
+        }
+    );
+}
+```
+
+.NET
+
+```
+        public async Task CreateTable()
         {
-            foreach (Database database in databases)
-                Console.WriteLine($"Database:{database.DatabaseName}");
+            Console.WriteLine("Creating Table");
+
+            try
+            {
+                var createTableRequest = new CreateTableRequest
+                {
+                    DatabaseName = Constants.DATABASE_NAME,
+                    TableName = Constants.TABLE_NAME,
+                    RetentionProperties = new RetentionProperties
+                    {
+                        MagneticStoreRetentionPeriodInDays = Constants.CT_TTL_DAYS,
+                        MemoryStoreRetentionPeriodInHours = Constants.HT_TTL_HOURS
+                    },
+                    // Enable MagneticStoreWrite
+                    MagneticStoreWriteProperties = new MagneticStoreWriteProperties
+                    {
+                        EnableMagneticStoreWrites = true,
+                    }
+                };
+                CreateTableResponse response = await writeClient.CreateTableAsync(createTableRequest);
+                Console.WriteLine($"Table {Constants.TABLE_NAME} created");
+            }
+            catch (ConflictException)
+            {
+                Console.WriteLine("Table already exists.");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Create table failed:" + e.ToString());
+            }
+
         }
 ```

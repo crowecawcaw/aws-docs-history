@@ -32,8 +32,11 @@ Using the AWS Management Console:
        create a new one for custom engine configuration.
     3. **Network configuration**: Configure VPC, subnets, and security
        groups (applies to all nodes).
-    4. **Public accessibility**: Choose whether the cluster endpoints
-       should be publicly accessible.
+
+    ###### Note
+
+    Shared VPCs are not currently supported for Timestream for InfluxDB 3. 4. **Public accessibility**: Choose whether the cluster endpoints
+    should be publicly accessible.
 
 8.  **Important:** If creating a private cluster, make sure you add the
     [required S3 policies to create your Timestream for InfluxDB 3 cluster](s3-vpc-endpoint-private-clusters.md "s3-vpc-endpoint-private-clusters.md")

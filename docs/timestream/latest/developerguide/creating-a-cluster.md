@@ -30,11 +30,17 @@ deployment model, and configuration settings to meet your workload requirements.
          compactor roles
        - **3-node cluster**: 2 writer/reader nodes + 1 dedicated
          compactor node
+       - **Multi-node cluster (up to 15 nodes)**: Configure via
+         custom parameter group with:
+         - 1-4 writer/reader nodes (ingestQueryInstances)
+         - 0-13 reader-only nodes (queryOnlyInstances)
+         - 1 dedicated compactor (required for clusters with 3+ nodes)
 
      ###### Note
 
-     Multi-node configurations beyond 3 nodes will be available in future releases via
-     parameter group updates
+     To create a multi-node cluster with more than 3 nodes, you must first create a
+     custom parameter group with your desired node configuration, then create the cluster
+     using that parameter group.
 
 7. Configure cluster settings
    - **DB cluster identifier**: Enter a unique name for your
@@ -47,7 +53,7 @@ deployment model, and configuration settings to meet your workload requirements.
        - InfluxDBv3Enterprise (for Enterprise 3-node)
        - InfluxDBv3Enterprise1Node (for Enterprise single-node)
 
-     - Or create/select a custom parameter group
+     - Or create/select a custom parameter group for multi-node configurations
 
 8. Configure network settings
    - **Virtual Private Cloud (VPC)**: Select your VPC.
@@ -59,8 +65,16 @@ deployment model, and configuration settings to meet your workload requirements.
        security group rules).
      - **No**: Cluster only accessible within VPC.
 
-9. (Optional) Configure additional settings 
-   - **Tags**: Add metadata tags for organization and billing.
+###### Note
+
+Shared VPCs are not currently supported for Timestream for InfluxDB 3.
+
+###### Note
+
+For multi-node clusters, nodes are automatically distributed across multiple
+Availability Zones for high availability. 9. (Optional) Configure additional settings 
+
+    * **Tags**: Add metadata tags for organization and billing.
 
 10. Review and create
     - Review all configuration settings.
@@ -132,16 +146,51 @@ aws timestream-influxdb create-db-parameter-group \
       "queryOnlyInstances": 0,
       "dedicatedCompactor": true,
       "bufferMemLimitMb": 32768,
-      "dataFusionNumThreads": 64
+      "dataFusionNumThreads": 8
     }
   }'
 
-# Then create the cluster using the custom parameter group
+# Then create the cluster using the parameter group identifier
 aws timestream-influxdb create-db-cluster \
   --region us-east-1 \
   --name "my-custom-enterprise-cluster" \
-  --db-parameter-group-identifier "custom-enterprise-pg" \
+  --db-parameter-group-identifier "<parameter-group-identifier>" \
   --db-instance-type db.influx.2xlarge \
+  --vpc-subnet-ids subnet-12345abc subnet-67890def \
+  --vpc-security-group-ids sg-12345abc
+
+```
+
+###### Note
+
+The `--db-parameter-group-identifier` requires the parameter group identifier
+(not the name). Set `dataFusionNumThreads` to match the number of vCPUs for your
+instance type (for example, 8 for `db.influx.2xlarge`). For a complete guide on
+parameter configuration, see [Parameter Groups for DB Clusters in Amazon Timestream](parameter-groups.md "parameter-groups.md").
+
+Create a multi-node cluster (up to 15 nodes) with a custom parameter group:
+
+```
+# First, create a custom parameter group with your desired node configuration
+aws timestream-influxdb create-db-parameter-group \
+  --name "custom-multinode-pg" \
+  --engine-type "InfluxDBv3Enterprise" \
+  --parameters '{
+    "InfluxDBv3Enterprise": {
+      "ingestQueryInstances": 4,
+      "queryOnlyInstances": 10,
+      "dedicatedCompactor": true,
+      "bufferMemLimitMb": 32768,
+      "dataFusionNumThreads": 8
+    }
+  }'
+
+# Then create the cluster using the parameter group identifier
+aws timestream-influxdb create-db-cluster \
+  --region us-east-1 \
+  --name "my-multinode-enterprise-cluster" \
+  --db-parameter-group-identifier "<parameter-group-identifier>" \
+  --db-instance-type db.influxIOIncluded.2xlarge \
   --vpc-subnet-ids subnet-12345abc subnet-67890def \
   --vpc-security-group-ids sg-12345abc
 
@@ -154,10 +203,19 @@ After your cluster is created and available:
 1. **Retrieve endpoints:**
 
 ```
-aws timestream-influxdb get-db-cluster
+aws timestream-influxdb get-db-cluster \
   --identifier "my-influxdb3-cluster-id"
 
 ```
+
+For multi-node clusters, you will receive:
+
+    * **Cluster read/write endpoint**: Distributes traffic to
+     writer/reader nodes
+    * **Cluster read-only endpoint**: Distributes traffic to all
+     nodes capable of read operations (available when reader-only nodes are configured)
+    * **Node endpoints**: Direct access to specific nodes for
+     workload isolation
 
 2. **Obtain your operator token:**
    - Your operator token is stored in a secret in your AWS Secrets Manager account. The secret has the

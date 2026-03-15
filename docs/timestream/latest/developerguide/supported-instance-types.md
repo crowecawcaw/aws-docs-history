@@ -27,10 +27,10 @@ The following table provides recommended parameter values for each instance size
 | **query-file-limit**                              | 100–200   | 200–300 | 300–432   | 432       | 432–600   | 600–800   | 800–1024  | 800–1024  | 1024      |
 | **query-log-size**                                | 500       | 1K      | 1K        | 1K–2K     | 2K–5K     | 2K–5K     | 2K–5K     | 2K–5K     | 2K–5K     |
 | **exec-mem-pool-bytes**                           | 20%       | 20%     | 20%       | 20%       | 20%       | 20%       | 20%       | 20%       | 20%       |
-| **force-snapshot-mem-threshold**                  | 30%       | 40%     | 50%       | 50%       | 50%       | 50%       | 50%       | 50%       | 50%       |
+| **force-snapshot-mem-threshold**                  | 30%       | 30%     | 30%       | 30%       | 30%       | 30%       | 30%       | 30%       | 30%       |
 | **parquet-mem-cache-size**                        | 15%       | 20%     | 20%       | 20%       | 25%       | 25%       | 25%       | 25%       | 25%       |
 | **wal-max-write-buffer-size**                     | 50K–100K  | 100K    | 100K–200K | 200K–300K | 300K–500K | 500K–700K | 500K–800K | 700K–1M   | 800K–1M   |
-| **wal-snapshot-size**                             | 300–600   | 600     | 600–1K    | 1K–2K     | 2K–5K     | 2K–5K     | 2K–5K     | 2K–5K     | 2K–5K     |
+| **wal-snapshot-size**                             | 300       | 300     | 300       | 300       | 300       | 300       | 300       | 300       | 300       |
 | \*_compaction-max-num-files-per-plan_<br>• (Ent.) | 500       | 500     | 500       | 500–1K    | 1K–2K     | 2K–5K     | 5K        | 5K–10K    | 5K–10K    |
 | **table-index-cache-concurrency-limit**           | 8–16      | 16–20   | 20        | 20–24     | 24–32     | 32–48     | 48–64     | 48–64     | 64–100    |
 | **max-http-request-size**                         | 5 MiB     | 10 MiB  | 10 MiB    | 10–16 MiB | 10–16 MiB | 10–16 MiB | 10–16 MiB | 10–16 MiB | 10–16 MiB |
