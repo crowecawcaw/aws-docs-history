@@ -49,9 +49,18 @@ You can specify multiple actions using wildcards (\*). For example, to specify a
 "Action": "nova-act:List*"
 ```
 
+To see the complete list of Amazon Nova Act actions, see [Actions Defined by Amazon Nova Act](../../../service-authorization/latest/reference/list_amazonnovaact.md#amazonnovaact-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonnovaact.md#amazonnovaact-actions-as-permissions") in the _IAM User Guide_.
+
 ## Policy Resources for Nova Act
 
 The `Resource` element specifies the object or objects to which the action applies. Statements must include either a `Resource` or a `NotResource` element. You specify a resource using an ARN or using the wildcard (\*) to indicate that the statement applies to all resources.
+
+The following resource types are defined by this service and can be used in the Resource element of IAM permission policy statements. Each action in the Actions table identifies the resource types that can be specified with that action. A resource type can also define which condition keys you can include in a policy. These keys are displayed in the last column of the Resource types table. For details about the columns in the following table, see [Resource types](http://dev-dsk-sarora-1e-6e78f4a9.us-east-1.amazon.com/userguide.sarora/security-iam-service-with-iam.html "http://dev-dsk-sarora-1e-6e78f4a9.us-east-1.amazon.com/userguide.sarora/security-iam-service-with-iam.html") table.
+
+| Resource types      | ARN                                                                                                                        | Condition keys |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| workflow-definition | arn:${Partition}:nova-act:${Region}:${Account}:workflow-definition/${WorkflowDefinitionName}                               | N/A            |
+| workflow-run        | arn:${Partition}:nova-act:${Region}:${Account}:workflow-definition/${WorkflowDefinitionName}/workflow-run/${WorkflowRunId} | N/A            |
 
 Amazon Nova Act workflow definition resources have the following ARN:
 
@@ -62,7 +71,7 @@ arn:${Partition}:nova-act:${Region}:${Account}:workflow-definition/${WorkflowDef
 Amazon Nova Act workflow run resources have the following ARN:
 
 ```
-arn:${Partition}:nova-act:${Region}:${Account}:workflow-run/${WorkflowRunId}
+arn:${Partition}:nova-act:${Region}:${Account}:workflow-definition/${WorkflowDefinitionId}/workflow-run/${WorkflowRunId}
 ```
 
 For more information about the format of ARNs, see [Amazon Resource Names (ARNs) and AWS service Namespaces](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md").

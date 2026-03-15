@@ -18,13 +18,15 @@ We release models under two support levels:
 
 `nova-act-latest` only tracks GA models and will never automatically update to a preview model.
 
+Preview models are not version-pinnable. Use `nova-act-preview` to access the latest preview release.
+
 ## Available model selection IDs
 
-| Model-Id           | Description                                                                                                                                                                                                                                                                                                             |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `nova-act-latest`  | Alias to the latest GA model. Your workflows automatically track the latest GA model that your Nova Act SDK version supports.                                                                                                                                                                                           |
-| `nova-act-preview` | Alias to the latest preview model. Your workflow automatically tracks the latest preview model that your Nova Act SDK supports.<br>\*_Note:_<br>• If the latest preview model requires a newer SDK version than you’re using, you’ll get the most recent GA model that your SDK supports, along with a warning message. |
-| `nova-act-v1.0`    | The GA model released on December 2, 2025. This is the first example of a pinable model selection ID.                                                                                                                                                                                                                   |
+| Model-Id           | Description                                                                                                                                                                                                                                                                                                                              |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `nova-act-latest`  | Alias to the latest GA model. Your workflows automatically track the latest GA model that your Nova Act SDK version supports.                                                                                                                                                                                                            |
+| `nova-act-preview` | Alias to the latest preview model (currently v1.1). Your workflow automatically tracks the latest preview model that your Nova Act SDK supports.<br>\*_Note:_<br>• If the latest preview model requires a newer SDK version than you’re using, you’ll get the most recent GA model that your SDK supports, along with a warning message. |
+| `nova-act-v1.0`    | The GA model released on December 2, 2025. This is the first example of a pinable model selection ID.                                                                                                                                                                                                                                    |
 
 ###### Note
 
