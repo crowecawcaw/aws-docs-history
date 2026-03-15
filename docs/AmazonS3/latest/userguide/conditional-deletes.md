@@ -37,10 +37,12 @@ The `If-Match` header with the `ETag` value evaluates
 against existing objects in a bucket. If there's an existing object with the same key name and matching `ETag`,
 the `DeleteObject` requests succeeds, and returns a `204 No content` response.
 If the `ETag` doesn't match, the delete operation fails with a `412 Precondition Failed` response.
-If successful, The `DeleteObjects` API responds with a `200 OK` and
-provides the status of each object in the response body of the batch delete request.
-If preconditions aren’t satisfied for a `DeleteObjects` request,
-Amazon S3 deletes the objects and returns a `Pre-condition` failed error response.
+To conditionally delete multiple objects using the `DeleteObjects` operation, you can provide the
+`ETag` value in the `ETag` element of the object in the XML request body. If the request succeeds,
+the `DeleteObjects` operation responds with a `200 OK` and provides the status of each object in the
+response body. If the precondition succeeds, the response for that object will be captured in the `<Deleted>`
+element of the response body. If the precondition fails then the response for that object will be captured in the
+`<Error>` element of the response body.
 
 You can also receive a `409 Conflict` error response in the case of
 concurrent requests if a `DELETE` or `PUT` request to an object succeeds before a

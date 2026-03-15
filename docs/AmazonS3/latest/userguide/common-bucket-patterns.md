@@ -9,10 +9,7 @@ scalability.
 
 We recommend that you create general purpose bucket names that are not predictable. Do not write code
 assuming your chosen bucket name is available unless you have already created the
-bucket. One method for creating bucket names that are not predictable is to append a
-Globally Unique Identifier (GUID) to your bucket name, for example,
-`amzn-s3-demo-bucket-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`.
-For more information about general purpose bucket naming rules, see [General purpose bucket naming rules](bucketnamingrules.md "bucketnamingrules.md").
+bucket. We recommend creating buckets in your account regional namespace for assurance that only your account can ever own these bucket names, see [Namespaces for general purpose buckets](gpbucketnamespaces.md "gpbucketnamespaces.md"). For more information about general purpose bucket naming rules, see [General purpose bucket naming rules](bucketnamingrules.md "bucketnamingrules.md").
 
 ###### Topics
 
@@ -75,3 +72,5 @@ already defines all of your desired settings for your S3 general purpose buckets
 deploy and track any changes to your infrastructure. For more information, see [AWS::S3::Bucket](../../../AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.md") in the _AWS CloudFormation User Guide_.
 
 ![A diagram showing you how you can create a CloudFormation template customized to your application that defines settings for your S3 buckets.](images/create-stack-diagram.png)
+
+When building a workload with a bucket-per-use pattern, we recommend that you create the buckets in your account regional namespace. By creating buckets in your account regional namespace, you avoid competing for bucket names against others and have assurance that only your account can ever create buckets with your selected naming convention. For more information on account regional namespaces, see [Namespaces for general purpose buckets](gpbucketnamespaces.md "gpbucketnamespaces.md").

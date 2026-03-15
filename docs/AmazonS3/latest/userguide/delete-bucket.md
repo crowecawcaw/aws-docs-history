@@ -11,12 +11,13 @@ Before deleting a general purpose bucket, consider the following:
 
 - **If a bucket is deleted, it can't be restored by AWS.** Before
   deleting a bucket, make sure that you have backed up or replicated your data.
-- General purpose bucket names are unique within a global namespace. **If you delete a bucket, be aware that another AWS account can use the same general purpose bucket
+- General purpose buckets names are unique within a global namespace. **If you delete a bucket in the shared global namespace, be aware that another AWS account can use the same general purpose bucket
   name for a new bucket and can therefore potentially receive requests intended for the deleted
   bucket.** If you want to prevent this, or if you want to continue to use the same bucket
   name, don't delete the bucket. We recommend that you empty the bucket and keep it, and instead,
   block any bucket requests as needed. For buckets no longer in active use, we recommend emptying the
   bucket of all objects to minimize costs while retaining the bucket itself.
+- We recommend creating buckets in your account regional namespace for assurance that only your account can ever own these bucket names. For more information, see [Namespaces for general purpose buckets](gpbucketnamespaces.md "gpbucketnamespaces.md").
 - When you delete a general purpose bucket, the bucket might not be instantly removed. Instead, Amazon S3 queues the
   bucket for deletion. Because Amazon S3 is distributed across AWS Regions, the deletion process takes
   time to fully propagate and achieve consistency throughout the system.

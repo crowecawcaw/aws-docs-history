@@ -17,8 +17,8 @@ more information, see [Enforce conditional writes on Amazon S3 buckets](conditio
 
 ###### Note
 
-To use conditional writes, you must make the requests over HTTPS (TLS) or use AWS
-Signature Version 4 to sign the request.
+To use conditional writes, you must use AWS Signature Version 4 to sign the
+request.
 
 ###### Topics
 

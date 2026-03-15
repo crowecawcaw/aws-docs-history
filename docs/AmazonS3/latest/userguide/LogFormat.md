@@ -155,7 +155,7 @@ The key (object name) part of the request.
 
 **Request-URI**
 
-The `Request-URI` part of the HTTP request message.
+The `Request-URI` part of the HTTP request message. This field may include unescaped quotes from the user input.
 
 **Example Entry**
 
@@ -235,7 +235,7 @@ received until the time that the first byte of the response was sent.
 
 The value of the HTTP `Referer` header, if present. HTTP
 user-agents (for example, browsers) typically set this header to the URL of
-the linking or embedding page when making a request.
+the linking or embedding page when making a request. This field may include unescaped quotes from the user input.
 
 **Example entry**
 
@@ -245,7 +245,7 @@ the linking or embedding page when making a request.
 
 **User-Agent**
 
-The value of the HTTP `User-Agent` header.
+The value of the HTTP `User-Agent` header. This field may include unescaped quotes from the user input.
 
 **Example entry**
 
@@ -491,7 +491,7 @@ operation doesn't take a key parameter.
 
 **Request-URI**
 
-The `Request-URI` part of the HTTP request message.
+The `Request-URI` part of the HTTP request message. This field may include unescaped quotes from the user input.
 
 **Example entry**
 
@@ -573,7 +573,7 @@ received until the time that the first byte of the response was sent.
 
 The value of the HTTP `Referer` header, if present. HTTP
 user-agents (for example, browsers) typically set this header to the URL of
-the linking or embedding page when making a request.
+the linking or embedding page when making a request. This field may include unescaped quotes from the user input.
 
 **Example entry**
 
@@ -583,7 +583,7 @@ the linking or embedding page when making a request.
 
 **User-Agent**
 
-The value of the HTTP `User-Agent` header.
+The value of the HTTP `User-Agent` header. This field may include unescaped quotes from the user input.
 
 **Example entry**
 

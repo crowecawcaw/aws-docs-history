@@ -2,7 +2,7 @@
 
 When you create a general purpose bucket, make sure that you consider the length, valid characters,
 formatting, and uniqueness of bucket names. The following sections provide information about
-general purpose bucket naming, including naming rules, best practices, and an example for creating a
+general purpose bucket naming, including naming rules, best practices, and an example for how you can create buckets in your account regional namespace. an example for creating a
 general purpose bucket with a name that includes a globally unique identifier (GUID).
 
 For information about object key names, see [Creating object key
@@ -13,9 +13,11 @@ To create a general purpose bucket, see [Creating a general purpose bucket](crea
 ###### Topics
 
 - [General purpose buckets naming rules](#general-purpose-bucket-names "#general-purpose-bucket-names")
+- [Account regional namespace naming rules](#account-regional-naming-rules "#account-regional-naming-rules")
 - [Example general purpose bucket names](#bucket-names "#bucket-names")
 - [Best practices](#automatically-created-buckets "#automatically-created-buckets")
 - [Creating a bucket that uses a GUID in the bucket name](#create-bucket-name-guid "#create-bucket-name-guid")
+- [Creating a bucket in your account regional namespace](#create-account-regional-naming "#create-account-regional-naming")
 
 ## General purpose buckets naming rules
 
@@ -41,23 +43,25 @@ The following naming rules apply for general purpose buckets.
   reserved for directory buckets. For more information, see [Directory bucket naming rules](directory-bucket-naming-rules.md "directory-bucket-naming-rules.md").
 - Bucket names must not end with the suffix `--table-s3`. This suffix
   is reserved for S3 Tables buckets. For more information, see [Amazon S3 table bucket, table, and namespace naming rules](s3-tables-buckets-naming.md "s3-tables-buckets-naming.md").
+- Bucket names can only end with the suffix `-an` when you are creating buckets in your account regional namespace. For more information, see [Namespaces for general purpose buckets](gpbucketnamespaces.md "gpbucketnamespaces.md").
 - Buckets used with Amazon S3 Transfer Acceleration can't have periods (`.`) in
   their names. For more information about Transfer Acceleration, see [Configuring fast, secure file transfers using Amazon S3 Transfer Acceleration](transfer-acceleration.md "transfer-acceleration.md").
 
 ###### Important
 
-- Bucket names **must** be unique across all AWS accounts in all
-  of the AWS Regions within a partition. A partition is a grouping of Regions. AWS currently has
-  three partitions: `aws` (commercial Regions), `aws-cn` (China Regions), and
-  `aws-us-gov` (AWS GovCloud (US) Regions).
-- A bucket name can't be used by another AWS account in the same partition until the
-  bucket is deleted. **After you delete a bucket, be aware that another
+- General purpose buckets exist in a global namespace, which means that each bucket name must be unique across all
+  AWS accounts in all the AWS Regions within a partition. A partition is a grouping of
+  Regions. AWS currently has four partitions: `aws` (Standard Regions),
+  `aws-cn` (China Regions), `aws-us-gov` (AWS GovCloud (US)), and `aws-eusc` (European Sovereign Cloud). After creating a general purpose bucket in the shared global namespace, that bucket name is unavailable for anyone else to create within partition. When a bucket owner deletes their bucket, the bucket name becomes available again in the global namespace for anyone to re-create.
+- A bucket name in the shared global namespace can't be used by another AWS account in the same partition until the
+  bucket is deleted. **After you delete a bucket in the shared global namespace, be aware that another
   AWS account in the same partition can use the same bucket name for a new bucket and can
   therefore potentially receive requests intended for the deleted bucket.** If you want
   to prevent this, or if you want to continue to use the same bucket name, don't delete the bucket.
   We recommend that you empty the bucket and keep it, and instead, block any bucket requests as
   needed. For buckets no longer in active use, we recommend emptying the bucket of all objects to
   minimize costs while retaining the bucket itself.
+- We recommend creating buckets in your account regional namespace for assurance that only your account can ever own these bucket names.
 - When you create a general purpose bucket, you choose its name and the AWS Region to create it in.
   After you create a general purpose bucket, you can't change its name or Region.
 - Don't include sensitive information in the bucket name. The bucket name is visible in the URLs
@@ -70,6 +74,24 @@ names that were up to 255 characters long and included uppercase letters and
 underscores. Beginning March 1, 2018, new buckets in US East (N. Virginia) must conform
 to the same rules applied in all other Regions.
 
+## Account regional namespace naming rules
+
+Although Amazon S3 general purpose buckets exist in a shared global namespace, you can optionally create buckets in your account regional namespace. The account regional namespace is a reserved subdivision of the global bucket namespace where only your account can create general purpose buckets. New general purpose buckets created in your account regional namespace are unique to your account and can never be re-created by another account. These buckets support all the S3 features and AWS services that general purpose buckets in the shared global namespace already support, your applications require no change to interact with buckets in your account regional namespace.
+
+General purpose buckets in your account regional namespace must follow a specific naming convention. These buckets consist of a bucket name prefix that you create, and a suffix that contains your 12-digit AWS account ID, the AWS Region code, and ends with `-an`.
+
+```
+`bucket-name-prefix`-accountId-region-an
+```
+
+For example, the following general purpose bucket exists in the account regional namespace for AWS account 111122223333 in the us-west-2 Region:
+
+```
+`amzn-s3-demo-bucket`-111122223333-us-west-2-an
+```
+
+To create bucket in your account regional namespace, you make a `CreateBucket` request and specify the `x-amz-bucket-namespace` request header with the value set to `account-regional` along with specifying an account regional namespace formatted bucket name: ``customer-chosen-name`-AWS-Account-ID-AWS-Region-an`. For example, you could specify to create a bucket named: ``amzn-s3-demo-bucket`-111122223333-us-east-1-an` where your account regional suffix is `-111122223333-us-east-1-an`. For more information on account regional namespaces, see [Namespaces for general purpose buckets](gpbucketnamespaces.md "gpbucketnamespaces.md").
+
 ## Example general purpose bucket names
 
 The following bucket names show examples of which characters are allowed in general
@@ -80,6 +102,11 @@ Because it's a reserved prefix, you can't create bucket names that start with
 
 - `amzn-s3-demo-bucket1-a1b2c3d4-5678-90ab-cdef-example11111`
 - `amzn-s3-demo-bucket`
+
+The following examples shows bucket names in your account regional namespace. These buckets must adhere to the specific account regional namespace naming convention: ``customer-chosen-name`-AWS-Account-ID-AWS-Region-an`
+
+- `amzn-s3-demo-bucket-111122223333-us-west-2-an`
+- `amzn-s3-demo-bucket-012345678910-ap-southeast-2-an`
 
 The following example bucket names are valid but not recommended for uses other than
 static website hosting because they contain periods (`.`):
@@ -101,6 +128,10 @@ valid:
 ## Best practices
 
 When naming your general purpose buckets, consider the following bucket naming best practices.
+
+###### Create buckets in your account regional namespace
+
+We recommend creating buckets in your account regional namespace for assurance that only your account can ever own these bucket names. With account regional namespaces, you can create predictable bucket names across multiple AWS Regions with assurance that no other account can create bucket names in your namespace.
 
 ###### Choose a bucket naming scheme that's unlikely to cause naming conflicts
 
@@ -141,12 +172,12 @@ or your business. Avoid using names associated with others. For example, avoid u
 
 If a bucket is empty, you can delete it. After a bucket is deleted, the name becomes
 available for reuse. However, you aren't guaranteed to be able to reuse the name
-right away, or at all. After you delete a bucket, some time might pass before you
+right away, or at all. After you delete a bucket in the shared global namespace, some time might pass before you
 can reuse the name. In addition, another AWS account might create a bucket with
 the same name before you can reuse the name.
 
-**After you delete a general purpose bucket, be aware that another AWS account
-in the same partition can use the same bucket name for a new bucket and can
+**After you delete a general purpose bucket in the shared global namespace, be aware that another AWS account
+in the same partition can use the same general purpose bucket name for a new bucket and can
 therefore potentially receive requests intended for the deleted general purpose bucket.**
 If you want to prevent this, or if you want to continue to use the same general purpose bucket name,
 don't delete the general purpose bucket. We recommend that you empty the bucket and keep it, and
@@ -194,4 +225,19 @@ public class CreateBucketWithUUID {
         s3.createBucket(createRequest);
     }
 }
+```
+
+## Creating a bucket in your account regional namespace
+
+The following examples show you how to create a general purpose bucket in your account regional namespace.
+
+The following AWS CLI example creates a general purpose bucket in the account regional namespace for AWS account 012345678910 in the US West (N. California) Region
+(`us-west-1`) Region. To use this example command, replace the `user input placeholders` with your own information.
+
+```
+aws s3api create-bucket \
+    --bucket `amzn-s3-demo-bucket-012345678910-us-west-1-an` \
+    --bucket-namespace account-regional
+    --region `us-west-1` \
+    --create-bucket-configuration LocationConstraint=`us-west-1`
 ```

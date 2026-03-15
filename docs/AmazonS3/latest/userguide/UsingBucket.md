@@ -43,10 +43,12 @@ uses the Amazon S3 APIs to send requests to Amazon S3.
 This section describes how to work with general purpose buckets. For information about working with
 objects, see [Amazon S3 objects overview](UsingObjects.md "UsingObjects.md").
 
-Amazon S3 supports global general purpose buckets, which means that each bucket name must be unique across all
+By default, general purpose buckets exist in a global namespace, which means that each bucket name must be unique across all
 AWS accounts in all the AWS Regions within a partition. A partition is a grouping of
-Regions. AWS currently has three partitions: `aws` (Standard Regions),
-`aws-cn` (China Regions), and `aws-us-gov` (AWS GovCloud (US)).
+Regions. AWS currently has four partitions: `aws` (Standard Regions),
+`aws-cn` (China Regions), `aws-us-gov` (AWS GovCloud (US)), and `aws-eusc` (European Sovereign Cloud). After creating a general purpose bucket in the shared global namespace, that bucket name is unavailable for anyone else to create within partition. When a bucket owner deletes their bucket, the bucket name becomes available again in the global namespace for anyone to re-create.
+
+Alternatively, you can create buckets in your reserved account regional namespace to easily create predictable bucket names with assurance that the names you want will always be available for you to use. Your account regional namespace is a subdivision of the global namespace that only your account can use. By creating new buckets in your account regional namespace, you have assurance that your desired bucket names will always be available for you to use. For more information on account regional namespaces, see [Namespaces for general purpose buckets](gpbucketnamespaces.md "gpbucketnamespaces.md").
 
 After a general purpose bucket is created, the name of that bucket cannot be used by another AWS account
 in the same partition until the bucket is deleted. You should not depend on specific bucket

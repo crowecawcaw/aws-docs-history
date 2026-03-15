@@ -241,6 +241,8 @@ Amazon S3 supports four types of buckets—general purpose buckets, directory bu
 A general purpose bucket is a container for objects stored in Amazon S3, and you can store any number of objects in a bucket and across all storage classes (except for
 S3 Express One Zone), so you can redundantly store objects across multiple Availability Zones. For more information, see [Creating, configuring, and working with Amazon S3 general purpose buckets](creating-buckets-s3.md "creating-buckets-s3.md").
 
+By default, general purpose buckets exist in a global namespace, which means that each bucket name must be unique across all AWS accounts in all the AWS Regions within a partition. A partition is a grouping of Regions. AWS currently has four partitions: `aws` (Standard Regions), `aws-cn` (China Regions), `aws-us-gov` (AWS GovCloud (US)), and `aws-eusc` (European Sovereign Cloud). When you create a general purpose bucket, you can choose to create a bucket in the shared global namespace or you can choose to create a bucket in your account regional namespace. Your account regional namespace is a subdivision of the global namespace that only your account can create buckets in. New general purpose buckets created in your account regional namespace are unique to your account and can never be re-created by another account. For more information on bucket namespaces, see [Namespaces for general purpose buckets](gpbucketnamespaces.md "gpbucketnamespaces.md").
+
 ###### Note
 
 By default, all general purpose buckets are private. However, you can grant public access to general purpose buckets.

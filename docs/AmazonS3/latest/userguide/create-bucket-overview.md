@@ -20,9 +20,12 @@ to Amazon S3 general purpose buckets, see [General purpose bucket quotas, limita
 
 ## General purpose bucket settings
 
+When you are creating a general purpose bucket, you must decide if you want to create a global general purpose bucket or a general purpose bucket in your account regional namespace. This decision along with the bucket name and region cannot be changed after creation.
+
 When you're creating a general purpose bucket, you can use the following settings to control various aspects of your
 bucket's behavior:
 
+- **S3 Bucket Namespace** – By default, Amazon S3 general purpose buckets exist in a global namespace. When you create a general purpose bucket, you can choose to create a bucket in the shared global namespace or you can choose to create a bucket in your account regional namespace. Your account regional namespace is a subdivision of the global namespace that only your account can create buckets in. New general purpose buckets created in your account regional namespace are unique to your account and can never be re-created by another account. These buckets support all the S3 features and AWS services that general purpose buckets in the shared global namespace already support, your applications require no change to interact with buckets in your account regional namespace. For more information on bucket namespaces, see [Namespaces for general purpose buckets](gpbucketnamespaces.md "gpbucketnamespaces.md").
 - **S3 Object Ownership** – S3 Object Ownership is an Amazon S3
   bucket-level setting that you can use both to control ownership of objects that are uploaded to your
   bucket and to disable or enable access control lists (ACLs). By default, Object Ownership is set to

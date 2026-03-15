@@ -27,6 +27,7 @@ customer, you can get started with Amazon S3 for free. For more information, see
 ###### Topics
 
 - [General purpose buckets overview](UsingBucket.md "UsingBucket.md")
+- [Namespaces for general purpose buckets](gpbucketnamespaces.md "gpbucketnamespaces.md")
 - [Common general purpose bucket patterns for building applications on Amazon S3](common-bucket-patterns.md "common-bucket-patterns.md")
 - [General purpose bucket naming rules](bucketnamingrules.md "bucketnamingrules.md")
 - [General purpose bucket quotas, limitations, and restrictions](BucketRestrictions.md "BucketRestrictions.md")
