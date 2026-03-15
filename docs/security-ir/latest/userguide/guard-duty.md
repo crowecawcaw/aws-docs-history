@@ -1,13 +1,13 @@
 # GuardDuty findings and suppression rules
 
-AWS Security Incident Response proactively ingests, triages, and responds to all GuardDuty findings and Security Hub CSPM findings from CrowdStrike, FortinetCNAPP (Lacework), and Trend Micro. Our auto-triage technology eliminates internal analysis requirements. The service creates suppression and auto-archive rules in GuardDuty and Security Hub CSPM for benign findings. View or modify these rules under "Findings" in the GuardDuty console.
+AWS Security Incident Response proactively ingests, triages, and responds to all Amazon GuardDuty findings and AWS Security Hub CSPM findings from CrowdStrike, FortinetCNAPP (Lacework), and Trend Micro. Our auto-triage technology eliminates internal analysis requirements. The service creates suppression and auto-archive rules in GuardDuty and Security Hub CSPM for benign findings. View or modify these rules under "Findings" in the Amazon GuardDuty console.
 
-**To quickly review enabled GuardDuty Suppression Rules:**
+To review enabled GuardDuty Suppression Rules, complete the following steps:
 
-1. Access the GuardDuty console.
-2. Choose Findings.
-
-![AWS services send events to the EventBridge default event bus. If the event matches a rule's event pattern, EventBridge sends the event to the targets specified for that rule.](images/Findings.png) 3. Select the down arrow and notice the naming convention of the suppression rule.
+1. Open the Amazon GuardDuty console.
+2. Choose **Findings**.
+3. In the navigation pane, choose **Suppression rules**. The **Suppression rules** page displays a list of all the suppression rules for your account.
+4. To review or change the settings for a rule, choose the rule, and then choose **Update suppression rule** from the **Actions** menu.
 
 ###### Note
 
