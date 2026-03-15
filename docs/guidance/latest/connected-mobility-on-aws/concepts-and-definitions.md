@@ -1,21 +1,41 @@
 # Concepts and definitions
 
-**Telemetry Data** - Real-time data streams from vehicle sensors including GPS coordinates, speed, engine diagnostics, fuel consumption, and battery status transmitted via MQTT protocol.
+**Stack** – A collection of AWS resources deployed together as a unit using AWS CDK. the guidance consists of modular stacks including StorageStack, MSKStack, IoTStack, FlinkStack, UIStack, CommandsStack, and optional stacks for FleetWise, simulation, and predictive maintenance.
 
-**Fleet Simulator** - Integrated simulation engine that generates realistic vehicle telemetry data for testing, development, and demonstration without requiring physical vehicles.
+**Phase** – A deployment stage in the guidance’s phase-based deployment approach. Each phase deploys one or more stacks with clear dependencies on previous phases.
 
-**Phase-based Deployment** - Incremental deployment strategy allowing organizations to start with basic fleet management and progressively add real-time telemetry capabilities as their connected vehicle program matures.
+**Telemetry** – Data transmitted from vehicles including GPS coordinates, speed, engine metrics, tire pressure, battery levels, and diagnostic information.
 
-**SCRAM Authentication** - SASL/SCRAM authentication mechanism used for secure communication between AWS IoT Core and Amazon MSK clusters with credentials managed in AWS Secrets Manager.
+**Trip** – A sequence of telemetry messages representing a vehicle journey from ignition on to ignition off. Trips are detected automatically by Flink applications based on vehicle state changes.
 
-**Stream Processing** - Real-time data processing using Apache Flink applications on Amazon Kinesis Data Analytics to decode, transform, and route vehicle telemetry to appropriate data stores.
+**Safety Event** – A driving behavior that violates safety thresholds including speeding, harsh braking, rapid acceleration, or sharp turns. Safety events are detected in real-time and generate alerts.
 
-**Trip Aggregation** - Process of combining individual telemetry messages into complete trip records with route information, statistics, and events.
+**Maintenance Alert** – A notification generated when vehicle sensor data indicates a potential maintenance condition such as low tire pressure, high engine temperature, or diagnostic trouble codes.
 
-**Safety Events** - Detected driving behaviors such as harsh braking, rapid acceleration, or sharp cornering that may indicate safety concerns.
+**Fleet Manager** – The React-based web application that provides fleet management, vehicle tracking, trip analytics, and alert management capabilities.
 
-**Fleet Management Dashboard** - Web-based user interface built with React and CloudScape Design System for managing vehicles, viewing real-time data, and monitoring fleet operations.
+**Vehicle State** – The current status of a vehicle including location, speed, ignition status, and sensor readings. Vehicle state is maintained in ElastiCache for real-time access.
 
-**Vehicle Provisioning** - Process of registering vehicles in AWS IoT Core using X.509 certificates for secure authentication and communication.
+**Last Known State (LKS)** – A design pattern where the most recent value of every signal for every vehicle is maintained in an in-memory store (Redis). This eliminates the need to query the telemetry database for current values, enabling sub-millisecond lookups. The LKS is updated on every telemetry message and expires automatically when a vehicle goes offline.
 
-**Message Queuing Telemetry Transport (MQTT)** - Lightweight publish-subscribe messaging protocol used by AWS IoT Core for vehicle-to-cloud communication.
+**Thing** – An AWS IoT Core representation of a physical device (vehicle). Things have attributes, certificates, and policies that control their connectivity and permissions.
+
+**MQTT** – Message Queuing Telemetry Transport, a lightweight messaging protocol used for vehicle-to-cloud communication over IoT Core.
+
+**FleetWise Edge Agent (FWE)** – An AWS IoT FleetWise software component that runs on the vehicle (or in a Docker container for simulation) and collects CAN bus signals based on collection schemes pushed from the cloud. The agent encodes collected signals as protobuf and uploads them to IoT Core.
+
+**Campaign** – A FleetWise collection campaign that defines which signals the edge agent collects, the collection frequency, and the target vehicles. Campaigns are stored in DynamoDB and pushed to agents as protobuf collection schemes by the CampaignSyncProcessor.
+
+**Decoder Manifest** – A mapping between raw CAN bus signal IDs and human-readable signal names (for example, `Vehicle.Speed`, `Vehicle.TirePressure.FrontLeft`). The decoder manifest is pushed to the FWE agent alongside collection schemes so the agent knows how to interpret CAN frames.
+
+**Collection Scheme** – A protobuf message pushed to the FWE agent that specifies which signals to collect and at what interval. Collection schemes are generated from campaign definitions in DynamoDB.
+
+**Remote Command** – A message sent from the cloud to a vehicle through IoT Core MQTT to trigger an action such as locking doors, activating lights, or starting the engine. Commands follow a request/response pattern with status tracking (SENT, IN_PROGRESS, SUCCEEDED, FAILED, TIMEOUT) and latency measurement.
+
+**Command Catalog** – The set of available commands derived from actuatable signals in the signal catalog. Each actuatable signal defines a command name, value type, valid range, and expected response timeout.
+
+**Geofence** – A virtual geographic boundary defined by a center point (latitude, longitude) and radius. The GeofenceProcessor evaluates vehicle positions against active geofences in real-time and generates safety events when vehicles cross boundaries.
+
+**Signal Catalog** – A standardized definition of all telemetry signals used throughout the guidance. The catalog maps between CAN bus signal names (DBC), JSON field names, and COVESA Vehicle Signal Specification (VSS) paths. The catalog includes 271 signals organized into 15 CAN messages.
+
+**Transform Manifest** – A configuration file that defines how to convert external data formats (OEM APIs, third-party telematics) into the signal catalog format. Manifests support field mapping, unit conversion, conditional mapping, and validation rules.

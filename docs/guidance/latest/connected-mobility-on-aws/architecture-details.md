@@ -1,3 +1,3 @@
 # Architecture details
 
-This section describes the components and AWS services that make up this guidance and the architecture details on how these components work together.
+This section describes the six integrated stacks that comprise the guidance, the AWS services used in each stack, and how these components work together to provide a complete connected mobility platform.
