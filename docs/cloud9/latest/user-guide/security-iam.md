@@ -679,66 +679,7 @@ This policy includes the following permissions.
   opening an environment that communicates with its EC2 instance through Systems Manager. For more
   information, see [Accessing no-ingress EC2 instances with AWS Systems Manager](ec2-ssm.md "ec2-ssm.md")
 
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "cloud9:*",
- "iam:GetUser",
- "iam:ListUsers",
- "ec2:DescribeVpcs",
- "ec2:DescribeSubnets",
- "ec2:DescribeInstanceTypeOfferings",
- "ec2:DescribeRouteTables"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Allow",
- "Action": [
- "iam:CreateServiceLinkedRole"
- ],
- "Resource": "*",
- "Condition": {
- "StringLike": {
- "iam:AWSServiceName": "cloud9.amazonaws.com"
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": [
- "ssm:StartSession",
- "ssm:GetConnectionStatus"
- ],
- "Resource": "arn:aws:ec2:*:*:instance/*",
- "Condition": {
- "StringLike": {
- "ssm:resourceTag/aws:cloud9:environment": "*"
- },
- "StringEquals": {
- "aws:CalledViaFirst": "cloud9.amazonaws.com"
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": [
- "ssm:StartSession"
- ],
- "Resource": [
- "arn:aws:ssm:*:*:document/*"
- ]
- }
- ]
-}`
-
-```
+To view the permissions for this policy, see [AWSCloud9Administrator](../../../aws-managed-policy/latest/reference/AWSCloud9Administrator.md "../../../aws-managed-policy/latest/reference/AWSCloud9Administrator.md") in the _AWS Managed Policy Reference_.
 
 ### AWS managed policy: AWSCloud9User
 
@@ -762,107 +703,7 @@ This policy includes the following permissions.
   environment that communicates with its EC2 instance through Systems Manager. For more information,
   see [Accessing no-ingress EC2 instances with AWS Systems Manager](ec2-ssm.md "ec2-ssm.md")
 
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "cloud9:UpdateUserSettings",
- "cloud9:GetUserSettings",
- "iam:GetUser",
- "iam:ListUsers",
- "ec2:DescribeVpcs",
- "ec2:DescribeSubnets",
- "ec2:DescribeInstanceTypeOfferings",
- "ec2:DescribeRouteTables"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Allow",
- "Action": [
- "cloud9:CreateEnvironmentEC2",
- "cloud9:CreateEnvironmentSSH"
- ],
- "Resource": "*",
- "Condition": {
- "Null": {
- "cloud9:OwnerArn": "true"
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": [
- "cloud9:GetUserPublicKey"
- ],
- "Resource": "*",
- "Condition": {
- "Null": {
- "cloud9:UserArn": "true"
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": [
- "cloud9:DescribeEnvironmentMemberships"
- ],
- "Resource": [
- "*"
- ],
- "Condition": {
- "Null": {
- "cloud9:UserArn": "true",
- "cloud9:EnvironmentId": "true"
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": [
- "iam:CreateServiceLinkedRole"
- ],
- "Resource": "*",
- "Condition": {
- "StringLike": {
- "iam:AWSServiceName": "cloud9.amazonaws.com"
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": [
- "ssm:StartSession",
- "ssm:GetConnectionStatus"
- ],
- "Resource": "arn:aws:ec2:*:*:instance/*",
- "Condition": {
- "StringLike": {
- "ssm:resourceTag/aws:cloud9:environment": "*"
- },
- "StringEquals": {
- "aws:CalledViaFirst": "cloud9.amazonaws.com"
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": [
- "ssm:StartSession"
- ],
- "Resource": [
- "arn:aws:ssm:*:*:document/*"
- ]
- }
- ]
-}`
-
-```
+To view the permissions for this policy, see [AWSCloud9User](../../../aws-managed-policy/latest/reference/AWSCloud9User.md "../../../aws-managed-policy/latest/reference/AWSCloud9User.md") in the _AWS Managed Policy Reference_.
 
 ### AWS managed policy: AWSCloud9EnvironmentMember
 
@@ -885,66 +726,7 @@ This policy includes the following permissions:
   environment that communicates with its EC2 instance through Systems Manager. For more information,
   see [Accessing no-ingress EC2 instances with AWS Systems Manager](ec2-ssm.md "ec2-ssm.md")
 
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "cloud9:GetUserSettings",
- "cloud9:UpdateUserSettings",
- "iam:GetUser",
- "iam:ListUsers"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Allow",
- "Action": [
- "cloud9:DescribeEnvironmentMemberships"
- ],
- "Resource": [
- "*"
- ],
- "Condition": {
- "Null": {
- "cloud9:UserArn": "true",
- "cloud9:EnvironmentId": "true"
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": [
- "ssm:StartSession",
- "ssm:GetConnectionStatus"
- ],
- "Resource": "arn:aws:ec2:*:*:instance/*",
- "Condition": {
- "StringLike": {
- "ssm:resourceTag/aws:cloud9:environment": "*"
- },
- "StringEquals": {
- "aws:CalledViaFirst": "cloud9.amazonaws.com"
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": [
- "ssm:StartSession"
- ],
- "Resource": [
- "arn:aws:ssm:*:*:document/*"
- ]
- }
- ]
-}`
-
-```
+To view the permissions for this policy, see [AWSCloud9EnvironmentMember](../../../aws-managed-policy/latest/reference/AWSCloud9EnvironmentMember.md "../../../aws-managed-policy/latest/reference/AWSCloud9EnvironmentMember.md") in the _AWS Managed Policy Reference_.
 
 ### AWS managed policy: `AWSCloud9ServiceRolePolicy`
 
@@ -963,111 +745,7 @@ any other IAM entity.
 
 For more information on how AWS Cloud9 uses service-linked roles, see [Using service-linked roles for AWS Cloud9](using-service-linked-roles.md "using-service-linked-roles.md").
 
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "ec2:RunInstances",
- "ec2:CreateSecurityGroup",
- "ec2:DescribeVpcs",
- "ec2:DescribeSubnets",
- "ec2:DescribeSecurityGroups",
- "ec2:DescribeInstances",
- "ec2:DescribeInstanceStatus",
- "cloudformation:CreateStack",
- "cloudformation:DescribeStacks",
- "cloudformation:DescribeStackEvents",
- "cloudformation:DescribeStackResources"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Allow",
- "Action": [
- "ec2:TerminateInstances",
- "ec2:DeleteSecurityGroup",
- "ec2:AuthorizeSecurityGroupIngress"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Allow",
- "Action": [
- "cloudformation:DeleteStack"
- ],
- "Resource": "arn:aws:cloudformation:*:*:stack/aws-cloud9-*"
- },
- {
- "Effect": "Allow",
- "Action": [
- "ec2:CreateTags"
- ],
- "Resource": [
- "arn:aws:ec2:*:*:instance/*",
- "arn:aws:ec2:*:*:security-group/*"
- ],
- "Condition": {
- "StringLike": {
- "aws:RequestTag/Name": "aws-cloud9-*"
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": [
- "ec2:StartInstances",
- "ec2:StopInstances"
- ],
- "Resource": "*",
- "Condition": {
- "StringLike": {
- "ec2:ResourceTag/aws:cloudformation:stack-name": "aws-cloud9-*"
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": [
- "ec2:StartInstances",
- "ec2:StopInstances"
- ],
- "Resource": [
- "arn:aws:license-manager:*:*:license-configuration:*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "iam:ListInstanceProfiles",
- "iam:GetInstanceProfile"
- ],
- "Resource": [
- "arn:aws:iam::*:instance-profile/cloud9/*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "iam:PassRole"
- ],
- "Resource": [
- "arn:aws:iam::*:role/service-role/AWSCloud9SSMAccessRole"
- ],
- "Condition": {
- "StringLike": {
- "iam:PassedToService": "ec2.amazonaws.com"
- }
- }
- }
- ]
-}`
-
-```
+To view the permissions for this policy, see [AWSCloud9ServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSCloud9ServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSCloud9ServiceRolePolicy.md") in the _AWS Managed Policy Reference_.
 
 ### AWS Cloud9 updates to AWS managed policies
 
@@ -1075,12 +753,15 @@ View details about updates to AWS managed policies for AWS Cloud9 since this ser
 began tracking these changes. For automatic alerts about changes to this page, subscribe
 to the RSS feed on the AWS Cloud9 Document history page.
 
-| Change                                                                                                                                 | Description                                                                                                                                                                                                                                                                                                                                                                                  | Date             |
-| -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| A new action has been added to **AWSCloud9User**, **AWSCloud9Administrator\*<br>• and<br>**AWSCloud9EnvironmentMember\*<br>• policies. | The `ssm:GetConnectionStatus` action has been added to **AWSCloud9User\*<br>• **AWSCloud9Administrator*<br>• and<br>\*\*AWSCloud9EnvironmentMember*<br>• policies. This action will grant users the permissions to check the SSM connection status. The `cloud9:ValidateEnvironmentName` API has been removed from the<br>\*_AWSCloud9User_<br>• policy as it is deprecated.                 | October 12, 2023 |
-| API's added to **AWSCloud9User\*<br>• and **AWSCloud9Administrator\*<br>• policies.                                                    | Two new API's have been added to the **AWSCloud9User\*<br>• and **AWSCloud9Administrator\*<br>• policies,<br>these API's are `ec2:DescribeInstanceTypeOfferings` and `ec2:DescribeRouteTables`. The purpose of these API's is to enable AWS Cloud9 to validate<br>that the default subnet supports the instance type chosen by the customer when they are creating a AWS Cloud9 environment. | August 02, 2023  |
-| Update to [AWSCloud9ServiceRolePolicy](#security-iam-awsmanpol-AWSCloud9SLR "#security-iam-awsmanpol-AWSCloud9SLR")                    | [AWSCloud9ServiceRolePolicy](#security-iam-awsmanpol-AWSCloud9SLR "#security-iam-awsmanpol-AWSCloud9SLR") was updated to allow AWS Cloud9 to start and stop Amazon EC2 instances that are managed by License Manager license configurations.                                                                                                                                                 | January 12, 2022 |
-| AWS Cloud9 started tracking changes                                                                                                    | AWS Cloud9 started tracking changes for its AWS managed<br>policies.                                                                                                                                                                                                                                                                                                                         | March 15, 2021   |
+| Change                                                                                                                                 | Description                                                                                                                                                                                                                                                                                                                                                                                  | Date               |
+| -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| A new action has been added to \*_AWSCloud9Administrator_<br>• policy.                                                                 | The `ssm:OpenDataChannel` action has been added to \*_AWSCloud9Administrator_<br>• policy. This action will grant users the permissions to open data channel for SSM sessions.                                                                                                                                                                                                               | September 25, 2025 |
+| A new action has been added to \*_AWSCloud9User_<br>• policy.                                                                          | The `ssm:OpenDataChannel` action has been added to \*_AWSCloud9User_<br>• policy. This action will grant users the permissions to open data channel for SSM sessions.                                                                                                                                                                                                                        | September 25, 2025 |
+| A new action has been added to \*_AWSCloud9EnvironmentMember_<br>• policy.                                                             | The `ssm:OpenDataChannel` action has been added to \*_AWSCloud9EnvironmentMember_<br>• policy. This action will grant users the permissions to open data channel for SSM sessions.                                                                                                                                                                                                           | September 25, 2025 |
+| A new action has been added to **AWSCloud9User**, **AWSCloud9Administrator\*<br>• and<br>**AWSCloud9EnvironmentMember\*<br>• policies. | The `ssm:GetConnectionStatus` action has been added to **AWSCloud9User\*<br>• **AWSCloud9Administrator*<br>• and<br>\*\*AWSCloud9EnvironmentMember*<br>• policies. This action will grant users the permissions to check the SSM connection status. The `cloud9:ValidateEnvironmentName` API has been removed from the<br>\*_AWSCloud9User_<br>• policy as it is deprecated.                 | October 12, 2023   |
+| API's added to **AWSCloud9User\*<br>• and **AWSCloud9Administrator\*<br>• policies.                                                    | Two new API's have been added to the **AWSCloud9User\*<br>• and **AWSCloud9Administrator\*<br>• policies,<br>these API's are `ec2:DescribeInstanceTypeOfferings` and `ec2:DescribeRouteTables`. The purpose of these API's is to enable AWS Cloud9 to validate<br>that the default subnet supports the instance type chosen by the customer when they are creating a AWS Cloud9 environment. | August 02, 2023    |
+| Update to [AWSCloud9ServiceRolePolicy](#security-iam-awsmanpol-AWSCloud9SLR "#security-iam-awsmanpol-AWSCloud9SLR")                    | [AWSCloud9ServiceRolePolicy](#security-iam-awsmanpol-AWSCloud9SLR "#security-iam-awsmanpol-AWSCloud9SLR") was updated to allow AWS Cloud9 to start and stop Amazon EC2 instances that are managed by License Manager license configurations.                                                                                                                                                 | January 12, 2022   |
+| AWS Cloud9 started tracking changes                                                                                                    | AWS Cloud9 started tracking changes for its AWS managed<br>policies.                                                                                                                                                                                                                                                                                                                         | March 15, 2021     |
 
 ## Creating customer managed policies for AWS Cloud9
 
