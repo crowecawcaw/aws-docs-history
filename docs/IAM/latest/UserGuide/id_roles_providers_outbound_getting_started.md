@@ -75,7 +75,7 @@ This example policy grants access to token generation with specific restrictions
             "Action": "sts:GetWebIdentityToken",
             "Resource": "*",
             "Condition": {
-                "ForAnyValue:StringEquals": {
+                "ForAllValues:StringEquals": {
                     "sts:IdentityTokenAudience": "https://api.example.com"
                 },
                 "NumericLessThanEquals": {

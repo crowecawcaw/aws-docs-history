@@ -158,6 +158,69 @@ JSON
 
 ```
 
+## Access Troubleshooter
+
+###### Note
+
+Access Troubleshooter is gradually becoming available for all AWS services in all regions for single account and single organization scenarios. The richness of data will evolve.
+
+You can use Access Troubleshooter to debug and resolve access denied errors.
+
+Access Troubleshooter provides the following capabilities:
+
+- [View the request and evaluation details](#access-troubleshooter-request-details "#access-troubleshooter-request-details"): the principal, action, resource, context, and evaluation result.
+- [View individual authorization evaluation](#access-troubleshooter-individual-evaluation "#access-troubleshooter-individual-evaluation"): authorization evaluations for individual action and resource pairs.
+- [Review all policies and their individual statements](#access-troubleshooter-policy-statements "#access-troubleshooter-policy-statements"): all evaluated policies and their individual statements, with evaluation results for each.
+
+### Permissions for Access Troubleshooter
+
+To use Access Troubleshooter, you must have `iam:TroubleshootAccess` permission attached to your principal. Allowing this action means you are allowing the principal to view all authorization context details, including the context keys and statements of all policies that were evaluated.
+
+The following example policy grants the necessary permission:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "iam:TroubleshootAccess",
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+### Using Access Troubleshooter
+
+When you receive an access denied error, the error message includes a link and an AuthorizationID that you can use with Access Troubleshooter. The following example shows an access denied error message:
+
+```
+An error occurred (AccessDenied) when calling the RestoreTableFromBackup operation: User: arn:aws:sts:012345678901:assumedRole/DatabaseDev/RestoreBackupSession is not authorized to perform: dynamodb:RestoreTableFromBackup with an explicit deny in an identity policy. Go to https://console.aws.amazon.com/iam/home#/access-troubleshooter for complete details, or call the iam:GetAuthorizationDetails API with the following authorization id: 67f1576b-af29-4c66-9b2b-10fd67516713
+```
+
+If you have the appropriate permission, on the console you can choose **Troubleshoot in IAM** to open a new Access Troubleshooter tab.
+
+Alternatively, you can call the `iam:GetAuthorizationDetails` API using the AuthorizationID:
+
+```
+aws iam get-authorization-details --authorization-id 67f1576b-af29-4c66-9b2b-10fd67516713
+```
+
+If you are an administrator and a developer provides the AuthorizationID, you can go to the IAM console and enter the AuthorizationID to retrieve the authorization context details.
+
+### View the request and evaluation details
+
+Access Troubleshooter provides your request details that were considered in the evaluation. You can review the operation or API call you attempted, the Authorization ID, the principal making the call, the resource you tried to access, and the evaluation result.
+
+### View individual authorization evaluation
+
+To successfully call an operation, you might need additional permissions to perform dependent actions. For example, to perform `RestoreTableFromBackup` on DynamoDB, you need permissions for `dynamodb:BatchWriteItem`, `dynamodb:DeleteItem`, `dynamodb:GetItem`, `dynamodb:PutItem`, `dynamodb:Query`, `dynamodb:Scan`, and `dynamodb:UpdateItem`. These actions are evaluated against the resources you want to access. For more information, see the [Service Authorization Reference](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md").
+
+### Review all policies and their individual statements
+
+In many cases, multiple policies affect your authorization, and each policy can contain multiple statements. Access Troubleshooter lists all policies that are evaluated when you perform your operation. You can review the individual statements within those policies and the evaluation result for each, giving you a complete view to resolve issues efficiently.
+
 ## Access denied error message examples
 
 Most access denied error messages appear in the format `User

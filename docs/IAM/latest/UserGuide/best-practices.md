@@ -91,7 +91,8 @@ resources so that they use temporary credentials. However, for scenarios in whic
 IAM user or root user in your account, require MFA for additional security. With MFA, users
 have a device that generates a response to an authentication challenge. Each user's
 credentials and device-generated response are required to complete the sign-in process. For
-more information, see [AWS Multi-factor authentication in IAM](id_credentials_mfa.md "id_credentials_mfa.md").
+more information, see [AWS Multi-factor authentication in IAM](id_credentials_mfa.md "id_credentials_mfa.md"). We recommend that you use phishing-resistant MFA such as passkeys and security keys
+wherever possible. For more information, see [Assign a passkey or security key in the AWS Management Console](id_credentials_mfa_enable_fido.md "id_credentials_mfa_enable_fido.md").
 
 If you use IAM Identity Center for centralized access management for human users, you can use the IAM Identity Center
 MFA capabilities when your identity source is configured with the IAM Identity Center identity store, AWS

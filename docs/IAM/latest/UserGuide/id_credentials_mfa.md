@@ -3,7 +3,10 @@
 For increased security, we recommend that you configure multi-factor authentication (MFA) to
 help protect your AWS resources. You can enable MFA for the AWS account root user of all AWS accounts,
 including standalone accounts, management accounts, and member accounts, as well as for your
-IAM users.
+IAM users. We recommend that you use phishing-resistant MFA such as passkeys and security keys
+whenever possible. These FIDO-based authenticators use public key cryptography and are resistant
+to phishing, man-in-the-middle, and replay attacks, providing a stronger level of security than
+TOTP-based options.
 
 MFA is enforced for all account types for their root user. For more information, see [Secure your AWS Organizations account root user credentials](root-user-best-practices.md#ru-bp-organizations "root-user-best-practices.md#ru-bp-organizations").
 
@@ -69,7 +72,9 @@ algorithm](https://datatracker.ietf.org/doc/html/rfc6238 "https://datatracker.ie
 valid code from the device when prompted during sign-in. Each token assigned to a user must
 be unique. A user can't type a code from another user's token to authenticate.
 
-We do recommend that you use a virtual MFA device while waiting for hardware purchase
+We recommend that you use phishing-resistant MFA such as [passkeys or security keys](#passkeys-security-keys-for-iam-users "#passkeys-security-keys-for-iam-users") for the
+strongest protection. If you are not yet able to use passkeys or security keys, we recommend
+that you use a virtual MFA device as an interim measure while waiting for hardware purchase
 approval or while you wait for your hardware to arrive. For a list of a few supported apps
 that you can use as virtual MFA devices, see [Multi-Factor Authentication
 (MFA)](https://aws.amazon.com/iam/features/mfa/?audit=2019q1 "https://aws.amazon.com/iam/features/mfa/?audit=2019q1").
@@ -122,7 +127,7 @@ For instructions on setting up a hardware TOTP token for an IAM user, see [Assig
 
 ###### Note
 
-**SMS text message-based MFA**AWS ended support for
+**SMS text message-based MFA** – AWS ended support for
 enabling SMS multi-factor authentication (MFA). We recommend that customers who have
 IAM users that use SMS text message-based MFA switch to one of the following alternative
 methods: [Passkey or security key](id_credentials_mfa_enable_fido.md "id_credentials_mfa_enable_fido.md"),
@@ -137,6 +142,9 @@ table.
 
 To help secure your AWS identities, follow these recommendations for MFA authentication.
 
+- We recommend that you use phishing-resistant MFA, such as [passkeys and security keys](#passkeys-security-keys-for-iam-users "#passkeys-security-keys-for-iam-users"), as
+  your MFA device. These FIDO-based authenticators provide the strongest protection
+  against attacks such as phishing.
 - We recommend that you enable multiple MFA devices to the AWS account root user and IAM users in
   your AWS accounts. This allows you to raise the security bar in your AWS accounts and
   simplify managing access to highly privileged users, such as the AWS account root user.
@@ -159,8 +167,8 @@ To help secure your AWS identities, follow these recommendations for MFA authent
 
 ###### Notes
 
-- You cannot pass the MFA information for a FIDO security key to AWS STS API operations
-  to request temporary credentials.
+- You cannot pass the MFA information for a security key or passkey to AWS STS API operations
+  to request temporary credentials. You can obtain credentials for use with the AWS CLI and AWS SDKs when using a security key or passkey by running the `aws login` command.
 - You cannot use AWS CLI commands or AWS API operations to enable [FIDO security keys](id_credentials_mfa_enable_fido.md "id_credentials_mfa_enable_fido.md").
 - You cannot use the same name for more than one root user or IAM MFA device.
 

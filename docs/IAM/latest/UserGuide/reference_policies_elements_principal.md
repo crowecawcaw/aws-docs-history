@@ -32,7 +32,6 @@ attached.
 - [AWS account principals](#principal-accounts "#principal-accounts")
 - [IAM role principals](#principal-roles "#principal-roles")
 - [Role session principals](#principal-role-session "#principal-role-session")
-- [Assumed-role session principals](#principal-sessions "#principal-sessions")
 - [OIDC federated principals](#principal-federated-web-identity "#principal-federated-web-identity")
 - [SAML federated principals](#principal-saml "#principal-saml")
 - [IAM user principals](#principal-users "#principal-users")
@@ -198,29 +197,26 @@ _role session principal_.
 The format that you use for a role session principal depends on the AWS STS operation that
 was used to assume the role.
 
-Additionally, administrators can design a process to control how role sessions are issued.
-For example, they can provide a one-click solution for their users that creates a predictable
-session name. If your administrator does this, you can use role session principals in your
-policies or condition keys. Otherwise, you can specify the role ARN as a principal in the
-`aws:PrincipalArn` condition key. How you specify the role as a principal can
-change the effective permissions for the resulting session. For more information, see [IAM role principals](#principal-roles "#principal-roles").
+###### Important
 
-## Assumed-role session principals
+AWS recommends using [IAM role principals](#principal-roles "#principal-roles")
+in your policies instead of role session principals wherever possible. Use
+`Condition` statements and condition keys to further scope down access
+when required.
 
-An _assumed-role session principal_ is a session principal that results
-from using the AWS STS `AssumeRole` operation. For more information about which
-principals can assume a role using this operation, see [Compare AWS STS credentials](id_credentials_sts-comparison.md "id_credentials_sts-comparison.md").
-
-To specify the assumed-role session ARN in the `Principal` element, use the
+To specify the role session principal ARN in the `Principal` element, use the
 following format:
 
 ```
 "Principal": { "AWS": "arn:aws:sts::`AWS-account-ID`:assumed-role/role-name/role-session-name" }
 ```
 
-When you specify an assumed-role session in a `Principal` element, you cannot
-use a wildcard "\*" to mean all sessions. Principals must always name a specific
-session.
+Additionally, administrators can design a process to control how role sessions are issued.
+For example, they can provide a one-click solution for their users that creates a predictable
+session name. If your administrator does this, you can use role session principals in your
+policies or condition keys. Otherwise, you can specify the role ARN as a principal in the
+`aws:PrincipalArn` condition key. How you specify the role as a principal can
+change the effective permissions for the resulting session. For more information, see [IAM role principals](#principal-roles "#principal-roles").
 
 ## OIDC federated principals
 

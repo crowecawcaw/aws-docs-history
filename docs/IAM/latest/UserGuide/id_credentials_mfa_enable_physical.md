@@ -1,5 +1,10 @@
 # Assign a hardware TOTP token in the AWS Management Console
 
+###### Important
+
+AWS recommends that you use a passkey or security key for MFA to AWS, wherever
+possible. For more information, see [Assign a passkey or security key in the AWS Management Console](id_credentials_mfa_enable_fido.md "id_credentials_mfa_enable_fido.md").
+
 A hardware TOTP token generates a six-digit numeric code based upon a time-based one-time
 password (TOTP) algorithm. The user must type a valid code from the device when prompted during
 the sign-in process. Each MFA device assigned to a user must be unique; a user cannot type a

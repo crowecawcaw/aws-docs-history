@@ -1,5 +1,10 @@
 # Multi-factor authentication for AWS account root user
 
+###### Important
+
+AWS recommends that you use a passkey or security key for MFA to AWS, wherever
+possible as they are more resistant to attacks such as phishing. For more information, see [Passkeys and security keys](#passkeys-security-keys-for-root "#passkeys-security-keys-for-root").
+
 Multi-factor authentication (MFA) is a simple and effective mechanism to enhance your
 security. The first factor — your password — is a secret that you memorize, also known as a
 knowledge factor. Other factors can be possession factors (something you have, such as a

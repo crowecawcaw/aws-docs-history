@@ -1,15 +1,22 @@
 # Assign a virtual MFA device in the AWS Management Console
 
+###### Important
+
+AWS recommends that you use a passkey or security key for MFA to AWS, wherever
+possible. For more information, see [Assign a passkey or security key in the AWS Management Console](id_credentials_mfa_enable_fido.md "id_credentials_mfa_enable_fido.md").
+
 You can use a phone or other device as a virtual multi-factor authentication (MFA) device.
 To do this, install a mobile app that is compliant with [RFC
 6238, a standards-based TOTP (time-based one-time password) algorithm](https://datatracker.ietf.org/doc/html/rfc6238 "https://datatracker.ietf.org/doc/html/rfc6238"). These apps
-generate a six-digit authentication code. Because they can run on unsecured mobile devices,
-virtual MFA might not provide the same level of security as phishing resistant options such as
+generate a six-digit authentication code. Because authenticators can run on unsecured mobile
+devices, and the codes could potentially be shared with unauthorized parties, TOTP-based MFA
+does not provide the same level of security as phishing-resistant options such as
 [FIDO2](https://en.wikipedia.org/wiki/FIDO_Alliance#FIDO2 "https://en.wikipedia.org/wiki/FIDO_Alliance#FIDO2") security keys
-and passkeys.
+and passkeys. We recommend that you use passkeys or security keys for MFA for the
+strongest protection against attacks such as phishing.
 
-If you are considering moving to FIDO2 security keys for MFA, we strongly recommend that
-you continue using a virtual MFA device while you wait for any hardware purchase approvals or
+If you are not yet able to use passkeys or security keys, we recommend that you use a
+virtual MFA device as an interim measure while you wait for any hardware purchase approvals or
 for your hardware to arrive.
 
 Most virtual MFA apps support creating multiple virtual devices, allowing you to use the
