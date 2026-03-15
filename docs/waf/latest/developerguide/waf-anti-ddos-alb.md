@@ -26,6 +26,8 @@ This mode:
 - Rate-limits traffic from known malicious sources in real time
 - Applies protection to both direct connections and requests with malicious IPs in XFF headers
 - May have higher impact on legitimate traffic but provides maximum security
+  Requests blocked by resource-level DDoS protection are recorded in CloudWatch logs as either `LowReputationPacketsDropped` or `LowReputationRequestsDenied` metrics.
+  For information, see [AWS WAF core metrics and dimensions](waf-metrics.md#waf-metrics-general "waf-metrics.md#waf-metrics-general").
 
 ## Enable standard DDoS protection on an existing webACL
 

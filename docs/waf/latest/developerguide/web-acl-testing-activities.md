@@ -69,6 +69,11 @@ testing:
     	 group are listed in your protection pack (web ACL) metrics.
 
 
+    	Count action rules in rule groups do NOT emit
+    	 web ACL dimension metrics - only Rule, RuleGroup, and Region dimensions. This applies even when the
+    	 rule group is referenced in a web ACL.
+
+
     	Rule groups in this category are [AWS Managed Rules for AWS WAF](aws-managed-rule-groups.md "aws-managed-rule-groups.md"), [AWS Marketplace rule groups](marketplace-rule-groups.md "marketplace-rule-groups.md"), [Recognizing rule groups provided by other services](waf-service-owned-rule-groups.md "waf-service-owned-rule-groups.md"), and rule
     	 groups that are shared with you by another account. When a protection pack (web ACL) is deployed through Firewall Manager, any rules within the WebACL that have a Count action will not display their metrics in the member account.
     	+ **Labels** - Labels that were added to a web request

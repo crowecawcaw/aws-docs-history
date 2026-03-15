@@ -86,6 +86,14 @@ multiple times. For information about rule action behaviors, see [Using rule act
    Indicates the action for the corresponding rule. For
    information about the possible rule actions, see [Using rule actions in AWS WAF](waf-rule-action.md "waf-rule-action.md").
 
+   ###### Note
+
+   Sampled requests for rules with Count action in
+   rule groups are not available in the Web ACL
+   view. Count metrics and sampled requests for rule
+   group rules are only visible to the rule group
+   owner.
+
    **Time**
 
    The time that AWS WAF received the request from the
