@@ -6,6 +6,11 @@ These controls may not be available in all AWS Regions. For more information, se
 
 ## [AppSync.1] AWS AppSync API caches should be encrypted at rest
 
+###### Important
+
+Security Hub CSPM retired this control on March 9, 2026. For more information, see
+[Change log for Security Hub CSPM controls](controls-change-log.md "controls-change-log.md"). AWS AppSync now provides default encryption on all current and future API caches.
+
 **Category:** Protect > Data Protection > Encryption of data-at-rest
 
 **Severity:** Medium
@@ -24,10 +29,6 @@ This control checks whether an AWS AppSync API cache is encrypted at rest. The c
 encrypted at rest.
 
 Data at rest refers to data that's stored in persistent, non-volatile storage for any duration. Encrypting data at rest helps you protect its confidentiality, which reduces the risk that an unauthorized user can access it.
-
-###### Note
-
-Due to AWS AppSync implementing a service-level change that makes encryption at rest mandatory for all API caches, this control will be retired and removed from all applicable standards on March 9, 2026.
 
 ### Remediation
 
@@ -146,6 +147,11 @@ To set an authorization option for your AWS AppSync GraphQL API, see [Authorizat
 
 ## [AppSync.6] AWS AppSync API caches should be encrypted in transit
 
+###### Important
+
+Security Hub CSPM retired this control on March 9, 2026. For more information, see
+[Change log for Security Hub CSPM controls](controls-change-log.md "controls-change-log.md"). AWS AppSync now provides default encryption on all current and future API caches.
+
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 
 **Severity:** Medium
@@ -164,10 +170,6 @@ This control checks whether an AWS AppSync API cache is encrypted in transit. Th
 encrypted in transit.
 
 Data in transit refers to data that moves from one location to another, such as between nodes in your cluster or between your cluster and your application. Data may move across the internet or within a private network. Encrypting data in transit reduces the risk that an unauthorized user can eavesdrop on network traffic.
-
-###### Note
-
-Due to AWS AppSync implementing a service-level change that makes encryption in transit mandatory for all API caches, this control will be retired and removed from all applicable standards on March 9, 2026.
 
 ### Remediation
 
