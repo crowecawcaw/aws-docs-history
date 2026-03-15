@@ -250,26 +250,35 @@ You must complete the following tasks before you can start this tutorial.
 4.  Set up the Cassandra Query Language shell (cqlsh) connection and confirm that
     you can connect to Amazon Keyspaces by following the steps at [Using cqlsh to connect to Amazon Keyspaces](programmatic.md "programmatic.md").
 5.  Download and install DSBulk.
+
+###### Note
+
+The version shown in this tutorial might not be the latest version available. Before you download DSBulk, check the [DataStax Bulk Loader download page](https://downloads.datastax.com/#bulk-loader "https://downloads.datastax.com/#bulk-loader") for the latest version, and update the version number in the following commands accordingly.
+
     1. To download DSBulk, you can use the following code.
+
+
 
     ```
     curl -OL https://downloads.datastax.com/dsbulk/dsbulk-1.8.0.tar.gz
     ```
-
     2. Then unpack the tar file and add DSBulk to your `PATH` as shown in the following example.
+
+
 
     ```
     tar -zxvf dsbulk-1.8.0.tar.gz
     # add the DSBulk directory to the path
     export PATH=$PATH:./dsbulk-1.8.0/bin
     ```
-
     3. Create an `application.conf` file to store settings to be used by DSBulk.
-       You can save the following example as
-       `./dsbulk_keyspaces.conf`. Replace
-       `localhost` with the contact point of your local
-       Cassandra cluster if you are not on the local node, for example the DNS
-       name or IP address. Take note of the file name and path, as you're going to need to specify this later in the `dsbulk load` command.
+     You can save the following example as
+     `./dsbulk_keyspaces.conf`. Replace
+     `localhost` with the contact point of your local
+     Cassandra cluster if you are not on the local node, for example the DNS
+     name or IP address. Take note of the file name and path, as you're going to need to specify this later in the `dsbulk load` command.
+
+
 
     ```
     datastax-java-driver {
@@ -280,9 +289,10 @@ You must complete the following tasks before you can start this tutorial.
       }
     }
     ```
-
     4. To enable SigV4 support, download the shaded `jar` file from [GitHub](https://github.com/aws/aws-sigv4-auth-cassandra-java-driver-plugin/releases/ "https://github.com/aws/aws-sigv4-auth-cassandra-java-driver-plugin/releases/")
-       and place it in the DSBulk `lib` folder as shown in the following example.
+     and place it in the DSBulk `lib` folder as shown in the following example.
+
+
 
     ```
     curl -O -L https://github.com/aws/aws-sigv4-auth-cassandra-java-driver-plugin/releases/download/4.0.6-shaded-v2/aws-sigv4-auth-cassandra-java-driver-plugin-4.0.6-shaded.jar
