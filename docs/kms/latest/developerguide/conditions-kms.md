@@ -1317,16 +1317,17 @@ operation. It works as a resource condition or a request condition.
 You can use this condition key to control access to the [CreateKey](../APIReference/API_CreateKey.md "../APIReference/API_CreateKey.md") operation based on the value of
 the [Origin](../APIReference/API_CreateKey.md#KMS-CreateKey-request-Origin "../APIReference/API_CreateKey.md#KMS-CreateKey-request-Origin")
 parameter in the request. Valid values for `Origin` are `AWS_KMS`,
-`AWS_CLOUDHSM`, and `EXTERNAL`.
+`AWS_CLOUDHSM`, `EXTERNAL_KEY_STORE`, and `EXTERNAL`.
 
-For example, you can to create a KMS key only when the key material is generated in
+For example, you can create a KMS key only when the key material is generated in
 AWS KMS (`AWS_KMS`), only when the key material is generated in an AWS CloudHSM cluster
-that is associated with a [custom key store](key-store-overview.md#custom-key-store-overview "key-store-overview.md#custom-key-store-overview")
-(`AWS_CLOUDHSM`), or only when the [key material
+that is associated with a [CloudHSM custom key store](key-store-overview.md#custom-key-store-overview "key-store-overview.md#custom-key-store-overview")
+(`AWS_CLOUDHSM`), only when the key material is generated in an [external key store](key-store-overview.md#custom-key-store-overview "key-store-overview.md#custom-key-store-overview")
+(`EXTERNAL_KEY_STORE`), or only when the [key material
 is imported](importing-keys.md "importing-keys.md") from an external source (`EXTERNAL`).
 
 The following example key policy statement uses the `kms:KeyOrigin` condition
-key to to create a KMS key only when AWS KMS creates the key material.
+key to create a KMS key only when AWS KMS creates the key material.
 
 JSON
 

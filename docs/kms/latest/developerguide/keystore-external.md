@@ -300,8 +300,6 @@ verifies that your external key store proxy conforms to the specification.
 To authenticate to AWS KMS, the proxy uses server-side TLS certificates. To authenticate
 to your proxy, AWS KMS signs all requests to your external key store proxy with a SigV4
 [proxy authentication credential](#concept-xks-credential "#concept-xks-credential").
-Optionally, your proxy can enable mutual TLS (mTLS) for additional assurance that it
-only accepts requests from AWS KMS.
 
 Your external key store proxy must support HTTP/1.1 or later and TLS 1.2 or later with
 at least one of the following cipher suites:
@@ -382,10 +380,6 @@ AWS KMS.
 To help you track the age of your proxy authentication credential, AWS KMS defines an
 Amazon CloudWatch metric, [XksProxyCredentialAge](monitoring-cloudwatch.md#metric-xks-proxy-credential-age "monitoring-cloudwatch.md#metric-xks-proxy-credential-age"). You can use this metric to create a CloudWatch alarm that
 notifies you when the age of your credential reaches a threshold you establish.
-
-To provide additional assurance that your external key store proxy responds only to
-AWS KMS, some external key proxies support mutual Transport Layer Security (mTLS). For
-details, see [mTLS authentication (optional)](authorize-xks-key-store.md#xks-mtls "authorize-xks-key-store.md#xks-mtls").
 
 ### Proxy APIs
 

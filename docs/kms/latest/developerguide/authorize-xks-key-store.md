@@ -18,7 +18,7 @@ the tasks that they are likely to perform.
 - [Authorizing users of KMS keys in external key stores](#authorize-xks-users "#authorize-xks-users")
 - [Authorizing AWS KMS to communicate with your external key store proxy](#allowlist-kms-xks "#allowlist-kms-xks")
 - [External key store proxy authorization (optional)](#xks-proxy-authorization "#xks-proxy-authorization")
-- [mTLS authentication (optional)](#xks-mtls "#xks-mtls")
+- [mTLS authentication (deprecated)](#xks-mtls "#xks-mtls")
 
 ## Authorizing external key store managers
 
@@ -212,28 +212,20 @@ principal's behalf by a particular AWS service (`kmsViaService`).
 If proxy authorization fails, the related AWS KMS operation fails with a message that
 explains the error. For details , see [Proxy authorization issues](xks-troubleshooting.md#fix-xks-authorization "xks-troubleshooting.md#fix-xks-authorization").
 
-## mTLS authentication (optional)
+## mTLS authentication (deprecated)
 
-To enable your external key store proxy to authenticate requests from AWS KMS, AWS KMS
-signs all requests to your external key store proxy with the Signature V4 (SigV4) [proxy authentication credential](keystore-external.md#concept-xks-credential "keystore-external.md#concept-xks-credential") for your
-external key store.
+Prior versions of this guide mentioned _mutual
+Transport Layer Security_ (mTLS) as
+an optional, secondary authentication mechanism to authenticate requests from AWS KMS.
+With mTLS, both parties (AWS KMS as client and the XKS proxy as server) communicating
+over a TLS channel use certificates to authenticate to each other.
 
-To provide additional assurance that your external key store proxy responds only to
-AWS KMS requests, some external key proxies support _mutual
-Transport Layer Security_ (mTLS), in which both parties to a transaction
-use certificates to authenticate to each other. mTLS adds client-side authentication
-— where the external key store proxy server authenticates the AWS KMS client
-— to the server-side authentication that standard TLS provides. In the rare case
-that your proxy authentication credential is compromised, mTLS prevents a third party
-from making successful API requests to the external key store proxy.
-
-To implement mTLS, configure your external key store proxy to accept only client-side
-TLS certificates with the following properties:
-
-- The subject common name on the TLS certificate must be
-  `cks.kms.`<Region>`.amazonaws.com`,
-  for example,
-  `cks.kms.`eu-west-3`.amazonaws.com`.
-- The certificate must be chained to a certificate authority associated with
-  [Amazon Trust
-  Services](https://www.amazontrust.com/repository/ "https://www.amazontrust.com/repository/").
+However, changes to the [Chrome Root Program Policy (Section 4.2.2)](https://googlechrome.github.io/chromerootprogram/policy-archive/policy-version-1-7/#422-pki-hierarchies-included-in-the-chrome-root-store "https://googlechrome.github.io/chromerootprogram/policy-archive/policy-version-1-7/#422-pki-hierarchies-included-in-the-chrome-root-store") prohibit publicly trusted root
+CAs included in the Chrome Root Store from issuing certificates with the clientAuth
+Extended Key Usage (EKU) extension after June 15th, 2026. As a result, AWS KMS can no
+longer obtain a client certificate suitable for mTLS from [Amazon Trust Services](https://www.amazontrust.com/repository/ "https://www.amazontrust.com/repository/"). Any
+XKS proxy used to create a new external key store in AWS KMS after March 16th, 2026 must
+not require mTLS. After June 15th, 2026, any XKS proxy configured to require mTLS will
+be unable to communicate with AWS KMS. Customers must rely on SigV4 authentication to
+verify that requests originate from AWS KMS. For more information, see [External key store proxy authentication
+credential](keystore-external.md#concept-xks-credential "keystore-external.md#concept-xks-credential").
