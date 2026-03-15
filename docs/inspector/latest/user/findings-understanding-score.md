@@ -109,12 +109,12 @@ resource, or cause a service to become unavailable.
 ## Vulnerability Intelligence
 
 This section summarizes available intelligence about the CVE from Amazon as well
-as industry standard security intelligence sources such as Recorded Future, and
+as industry standard security intelligence sources such as
 Cybersecurity and Infrastructure Security Agency (CISA).
 
 ###### Note
 
-Intel from CISA, Amazon, or Recorded Future won't be available for all
+Intel from CISA or Amazon won't be available for all
 CVEs.
 
 You can view vulnerability intelligence details in the console or by using the
@@ -141,12 +141,6 @@ to be patched by. This information is sourced from CISA.
 
 This section lists known exploit kits and tools that exploit this
 vulnerability.
-
-**Evidence**
-
-This section summarizes the most critical security events involving
-this vulnerability. If more than 3 events have the same criticality
-level the top three most recent events are displayed.
 
 **Last time reported**
 
