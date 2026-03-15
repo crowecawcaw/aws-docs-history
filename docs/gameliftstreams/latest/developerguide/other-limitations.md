@@ -9,3 +9,4 @@ These limits are fixed within the service for all customers.
 | GPUs in a stream group                    | 2500       | The maximum number of GPUs in a stream group across all Regions and remote<br>locations.                                   |
 | Single file size (GiB)                    | 80 GiB     | The maximum size (in GiB) of a single file in an application. Note that a<br>gibibyte (GiB) equals 1024\*1024\*1024 bytes. |
 | Stream group associations per application | 100        | The maximum number of stream groups that an Amazon GameLift Streams application can be<br>associated to.                   |
+| VPC transit configurations                | 5          | The maximum number of VPC transit configurations per AWS account per<br>Region.                                            |
