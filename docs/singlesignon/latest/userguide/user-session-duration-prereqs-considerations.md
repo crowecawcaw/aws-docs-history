@@ -1,10 +1,33 @@
-# Session duration considerations for using external IdPs, the AWS CLI, and AWS SDKs
+# Session duration considerations for using identity sources, the AWS CLI, and AWS SDKs
 
-Following are considerations for configuring the session duration if you are using an external identity provider (IdP), or the AWS Command Line Interface, AWS Software Development Kits (SDKs), or other AWS development tools to access AWS services programmatically.
+Following are considerations for configuring the session duration if you use Microsoft Active Directory (AD) or an external identity provider (IdP) as the identity source,
+or the AWS Command Line Interface, AWS Software Development Kits (SDKs), or other AWS development tools to access AWS services programmatically.
+
+## Microsoft Active Directory, user interactive sessions, and extended sessions for Kiro
+
+If you use Microsoft Active Directory (AD) as the identity source and you configure the session duration for user interactive sessions or extended sessions for Kiro, keep the following considerations in mind.
+
+###### Note
+
+These considerations do not apply to user background sessions.
+
+Whether you use AWS Managed Microsoft AD or AD Connector configured in AWS Directory Service, the maximum lifetime for user Kerberos tickets defined in Microsoft AD can affect how long user interactive sessions and extended sessions for Kiro are valid. For more information about this setting, see [Maximum lifetime for user ticket](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/security-policy-settings/maximum-lifetime-for-user-ticket "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/security-policy-settings/maximum-lifetime-for-user-ticket") on the Microsoft website.
+
+- **AWS Managed Microsoft AD**: If you use AWS Managed Microsoft AD configured in AWS Directory Service, the maximum lifetime for user
+  Kerberos tickets is fixed at 10 hours. Therefore, the user interactive session duration
+  is set to the shorter of the IAM Identity Center setting and 10 hours. For example, if you set the
+  user interactive session duration to 12 hours, your users must re-authenticate in the
+  AWS access portal after 10 hours. The same 10-hour limit applies to extended sessions for Kiro.
+- **AD Connector**: If you use AD Connector configured in AWS Directory Service, the maximum lifetime for user
+  Kerberos tickets is defined in Microsoft AD behind the AD Connector. The default value is
+  10 hours, and it has the same effect on user interactive sessions and extended sessions as
+  for AWS Managed Microsoft AD. Although this limit might be configurable in Microsoft AD, we recommend
+  that you work with your IT administrator to consider the risks, especially because this
+  setting can affect the session duration for other Microsoft AD client applications.
 
 ## External identity providers, user interactive sessions, and extended sessions for Kiro
 
-If you use an external identity provider (IdP) and you are configuring the session duration for user interactive sessions or extended sessions for Kiro, keep the following considerations in mind.
+If you use an external identity provider (IdP) and you configure the session duration for user interactive sessions or extended sessions for Kiro, keep the following considerations in mind.
 
 ###### Note
 
@@ -12,8 +35,10 @@ These considerations do not apply to user background sessions.
 
 IAM Identity Center uses `SessionNotOnOrAfter` attribute from SAML assertions to help determine how long the session can be valid.
 
-- If `SessionNotOnOrAfter` is not passed in a SAML assertion, the duration of an AWS access portal session is not impacted by the duration of your external IdP session. For example, if your IdP session duration is 24 hours and you set an 18-hour session duration in IAM Identity Center, your users must re-authenticate in the AWS access portal after 18 hours.
-- If `SessionNotOnOrAfter` is passed in a SAML assertion, the session duration value is set to the shorter of the AWS access portal session duration and your SAML IdP session duration. If you set a 72-hour session duration in IAM Identity Center and your IdP has a session duration of 18 hours, your users will have access to AWS resources for the 18 hours defined in your IdP.
+- If `SessionNotOnOrAfter` is not passed in a SAML assertion, the duration of an AWS access portal (user interactive) session and an extended session is not impacted by the duration of your external IdP session. For example, if your IdP session duration is 24 hours and you set an 18-hour session duration in IAM Identity Center, your users must re-authenticate in the AWS access portal after 18 hours.
+  Similarly, if you set a 90-day extended session for Kiro, your Kiro users need to re-authenticate after 90 days.
+- If `SessionNotOnOrAfter` is passed in a SAML assertion, the session duration value is set to the shorter of the AWS access portal (user interactive) session or extended session duration and your SAML IdP session duration. If you set a 72-hour session duration in IAM Identity Center and your IdP has a session duration of 18 hours, your users will have access to AWS resources for the 18 hours defined in your IdP.
+  Similarly, if you set a 90-day extended session for Kiro, your Kiro users need to re-authenticate in Kiro after 18 hours.
 - If the session duration of your IdP is longer than the one set in IAM Identity Center, your users can start a new IAM Identity Center session without re-entering their credentials, based on their still-valid login session with your IdP.
 
 ## AWS CLI and SDK sessions

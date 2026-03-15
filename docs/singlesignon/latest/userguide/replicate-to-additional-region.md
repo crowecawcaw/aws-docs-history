@@ -1,7 +1,7 @@
 # Replicate IAM Identity Center to an additional Region
 
-If your environment meets the [prerequisites](multi-region-iam-identity-center.md#multi-region-prerequisites "multi-region-iam-identity-center.md#multi-region-prerequisites"), follow the steps below to
-replicate your IAM Identity Center instance to an additional Region:
+If your environment meets the [prerequisites](multi-region-iam-identity-center.md#multi-region-prerequisites "multi-region-iam-identity-center.md#multi-region-prerequisites"), such as configuring IAM Identity Center with a multi-Region customer managed KMS key, complete the following steps to
+replicate your IAM Identity Center instance to an additional Region. Your primary Region continues to operate normally during and after these steps.
 
 ## Step 1: Create a replica key in the additional Region
 
@@ -27,8 +27,8 @@ changes in each Region individually.
 
 ## Step 2: Add the Region in IAM Identity Center
 
-Adding a Region in IAM Identity Center triggers automatic and asynchronous replication of IAM Identity Center data to that Region.
-Below are instructions for doing this in the AWS Management Console and AWS CLI
+Adding a Region in IAM Identity Center triggers automatic replication of IAM Identity Center data to that Region.
+The replication is asynchronous with eventual consistency. The following tabs provide instructions for doing this in the AWS Management Console and AWS CLI.
 
 Console
 
@@ -42,8 +42,7 @@ Console
 5. In the **AWS Regions available for replication** section,
    choose your preferred AWS Region. If the Region doesn't appear in the list, it's
    not available for replication because the KMS key hasn't been replicated there.
-   For more information, see _Implementing customer managed KMS keys in
-   IAM Identity Center_.
+   For more information, see [Implementing customer managed KMS keys in AWS IAM Identity Center](identity-center-customer-managed-keys.md "identity-center-customer-managed-keys.md").
 6. Choose **Add Region**.
 7. In the **Regions for IAM Identity Center** section, monitor
    the Region status. Use the **Refresh** button (circular arrow) to
@@ -151,5 +150,3 @@ US West (Oregon) doesn't affect the deployment Region of Amazon Redshift and the
 - **Replication doesn't affect provisioned IAM roles** -
   Existing IAM roles provisioned from permission set assignments are used during account
   sign-in from any enabled Region.
-- **Replication doesn't incur KMS usage charges** -
-  Replication of data to an additional Region doesn't lead to KMS usage charge.

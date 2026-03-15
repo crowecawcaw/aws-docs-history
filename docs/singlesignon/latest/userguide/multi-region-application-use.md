@@ -13,9 +13,13 @@ application performance, and most AWS managed applications don't support this ty
 connection.
 
 A multi-Region IAM Identity Center instance lets you deploy AWS managed applications in any enabled
-Region with a connection to IAM Identity Center in the same Region ("Region-local connection"). This
-requires that the AWS managed application is available in the Region and supports
-deployment in additional Regions. With a Region-local connection to IAM Identity Center, AWS managed
+Region with a connection to IAM Identity Center in the same Region ("Region-local connection").
+Deployment in the primary Region is supported by all integrated AWS managed applications. To
+confirm which AWS managed applications support deployment in additional Regions of IAM Identity Center,
+see the applications table in [AWS managed applications that you can use with IAM Identity Center](awsapps-that-work-with-identity-center.md "awsapps-that-work-with-identity-center.md"). In any case, the AWS managed
+application has to be available in the Region where you want to deploy it.
+
+With a Region-local connection to IAM Identity Center, AWS managed
 applications access workforce identities in the same Region for optimal performance and
 reliability. We recommend choosing a Region-local connection when deploying an AWS managed
 application whenever the [prerequisites](multi-region-iam-identity-center.md#multi-region-prerequisites "multi-region-iam-identity-center.md#multi-region-prerequisites") are
@@ -74,6 +78,6 @@ applications connected to the Region.
 
 ## Deploying and managing customer managed applications across multiple AWS Regions
 
-IAM Identity Center supports SAML and OAuth2 [Customer managed applications](customermanagedapps.md "customermanagedapps.md"). You can choose
+IAM Identity Center supports SAML and OAuth2 [customer managed applications](customermanagedapps.md "customermanagedapps.md"). You can choose
 to create them in any enabled Region of your IAM Identity Center instance. After you create one, you
 manage the application and its assignments to users and groups in the same Region.

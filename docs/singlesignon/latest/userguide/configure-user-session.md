@@ -8,4 +8,4 @@ You can configure the session duration for your workforce users when they use th
 - [User background sessions](user-background-sessions.md "user-background-sessions.md")
 - [Extended sessions for Kiro](90-day-extended-session-duration.md "90-day-extended-session-duration.md")
 - [View and end active sessions for your workforce users](end-active-sessions.md "end-active-sessions.md")
-- [Session duration considerations for using external IdPs, the AWS CLI, and AWS SDKs](user-session-duration-prereqs-considerations.md "user-session-duration-prereqs-considerations.md")
+- [Session duration considerations for using identity sources, the AWS CLI, and AWS SDKs](user-session-duration-prereqs-considerations.md "user-session-duration-prereqs-considerations.md")

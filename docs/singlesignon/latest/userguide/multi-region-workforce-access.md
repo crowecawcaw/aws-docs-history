@@ -65,11 +65,16 @@ these steps:
 4. In the **Actions** dropdown menu, choose **Manage
    authentication**.
 5. The **Service provider metadata** section displays the
-   AWS access portal and ACS URL for each enabled Region. IPv4-only and dual-stack URLs are
-   displayed in the respective tabs. If your IdP supports uploading the SAML metadata file,
-   you can choose **Download metadata file** to download the SAML metadata file with all ACS URLs.
-   If this is not supported, or you prefer to add them individually, you can copy individual ones from the table,
-   or choose **View ACS URLs** and then **Copy all URLs**.
+   AWS access portal and ACS URL for each enabled Region. IPv4-only and dual-stack
+   URLs are displayed on separate tabs. If your IdP supports uploading a SAML
+   metadata file, you can choose **Download metadata file** to
+   download the SAML metadata file with all ACS URLs. If your IdP does not support
+   uploading a metadata file, or you prefer to add ACS URLs individually, you can
+   copy individual URLs from the table in the console, or choose **View ACS
+   URLs** and then **Copy all URLs**. Retain the ACS URL
+   that is already configured for the primary Region to ensure that service
+   provider-initiated SAML single sign-on from the primary Region remains
+   functional.
 
 The following table specifies the SAML Assertion Consumer Service (ACS) endpoints across the
 primary and additional Regions of an IAM Identity Center instance:
@@ -80,8 +85,10 @@ primary and additional Regions of an IAM Identity Center instance:
 | Alternative IPv4 only\* | Yes            | No                | **Pattern:**<br>`https://`[Region]`<br>.signin.aws.amazon.com/platform/saml/acs/`[Tenant ID]``<br>**Example:**<br>`https://us-west-2.signin.aws.amazon.com/platform/saml/acs/1111111111111111-aaee-ffff-dddd-11111111111` |
 | Dual-stack              | Yes            | Yes               | **Pattern:**<br>`https://`[Region]`.sso.signin.aws/platform/saml/acs/`[Tenant ID]``<br>**Example:**<br>`https://us-west-2.sso.signin.aws/platform/saml/acs/1111111111111111-aaee-ffff-dddd-11111111111`                   |
 
-\*IAM Identity Center no longer uses this endpoint for instances created starting in February 2026.
-While this endpoint remains available for earlier instances, we recommend using one of the other two endpoints instead.
+\* For instances that were enabled before February 2026, retain this
+endpoint because service provider-initiated SAML single sign-on to the primary Region requires
+it. IAM Identity Center does not use this endpoint for instances that were enabled in
+February 2026 or later.
 
 ## Using AWS managed applications without multiple ACS URLs
 

@@ -4,10 +4,9 @@ The topic of AWS account access through IAM Identity Center is covered extensive
 maintaining AWS account access across multiple AWS Regions in the event of a service
 disruption in the primary Region.
 
-If your IAM Identity Center instance is experiencing a disruption in the primary Region, your workforce
-can switch to an additional Region to continue accessing AWS accounts and unaffected
-applications. The section [Workforce access through an additional Region](multi-region-workforce-access.md "multi-region-workforce-access.md") explains how to access the
-AWS access portal in an additional Region.
+If your IAM Identity Center instance experiences a disruption in the primary Region (for example, the AWS access portal in the primary Region is unavailable),
+your workforce can switch to an additional Region to continue accessing AWS accounts and unaffected
+applications. For more information, see [Workforce access through an additional Region](multi-region-workforce-access.md "multi-region-workforce-access.md").
 
 We recommend that you communicate the AWS access portal endpoints in additional Regions and
 the external IdP setup (such as bookmark apps for the additional Regions) to your workforce as
@@ -25,7 +24,7 @@ Continuity of access to AWS accounts also depends on the health of your external
 and permissions such as permission set assignments and group memberships being provisioned
 and replicated before a service disruption. We recommend your organization also set up [AWS
 break-glass access](../../../wellarchitected/latest/devops-guidance/ag.sad.md "../../../wellarchitected/latest/devops-guidance/ag.sad.md") to maintain AWS access to a small group of privileged users
-when the external IdP has a service disruption. [Set up emergency access to the AWS Management Console](emergency-access.md "emergency-access.md") is a
+when the external IdP has a service disruption. [Emergency access](emergency-access.md "emergency-access.md") is a
 similar option that avoids using IAM users, but it too depends on the external IdP.
 
 ## AWS account access resiliency without multiple ACS URLs

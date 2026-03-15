@@ -6,6 +6,8 @@ The default session duration for user interactive sessions is 8 hours. You can s
 minimum of 15 minutes to a maximum of 90 days. Custom duration values must be entered in
 minutes and be between 15 minutes and 129,600 minutes (90 days). For more information, see [Understanding authentication sessions in IAM Identity Center](authconcept.md "authconcept.md").
 
+For considerations such as how IAM Identity Center identity sources might affect the user interactive session duration, see [Session duration considerations for using identity sources, the AWS CLI, and AWS SDKs](user-session-duration-prereqs-considerations.md "user-session-duration-prereqs-considerations.md").
+
 ###### To configure the duration of a user interactive session
 
 1. Open the IAM Identity Center console.
