@@ -16,7 +16,7 @@ choose how Grafana calculates the reduction.
 This panel can show one or more bar gauges depending on how many series, rows, or
 columns your query returns.
 
-![An image showing an example of a bar gauge visualization in Grafana.](images/viz/bar_gauge_example.png)
+![An image showing an example of a bar gauge visualization in Grafana.](/images/grafana/latest/userguide/images/viz/bar_gauge_example.png)
 
 ## Value options
 
