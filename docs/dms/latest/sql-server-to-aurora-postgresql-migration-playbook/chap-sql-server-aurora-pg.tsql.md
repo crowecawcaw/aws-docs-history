@@ -1,254 +1,171 @@
-# Top fetch for T-SQL
+# Service Broker functionality for T-SQL
 
-This topic provides reference information about feature compatibility between Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL, specifically focusing on result set limiting and paging. You can understand how SQL Server’s TOP and FETCH clauses compare to PostgreSQL’s LIMIT and OFFSET functionality. The topic explains the differences in syntax and capabilities, helping you navigate the transition from SQL Server to Aurora PostgreSQL.
+This topic provides reference information about migrating from Microsoft SQL Server 2019’s Service Broker functionality to Amazon Aurora PostgreSQL. You can understand the challenges and alternatives available when moving from SQL Server’s native messaging and queuing capabilities to Aurora PostgreSQL, which doesn’t offer a direct equivalent. The topic explores how you can achieve similar functionality using a combination of AWS services, including DB Links, AWS Lambda, and Amazon SQS.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                  | Key differences                 |
-| ------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------- |
-| Four star feature compatibility | Four star automation level         | [TOP and FETCH](chap-sql-server-aurora-pg.tools.md#chap-sql-server-aurora-pg.tools.actioncode.fetch "chap-sql-server-aurora-pg.tools.md#chap-sql-server-aurora-pg.tools.actioncode.fetch") | PostgreSQL doesn’t support TOP. |
+| Feature compatibility | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                   | Key differences                              |
+| --------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
+| No compatibility      | No automation                      | [Service Broker](chap-sql-server-aurora-pg.tools.md#chap-sql-server-aurora-pg.tools.actioncode.servicebroker "chap-sql-server-aurora-pg.tools.md#chap-sql-server-aurora-pg.tools.actioncode.servicebroker") | Use Amazon Lambda for similar functionality. |
 
 ## SQL Server Usage
 
-SQL Server supports two options for limiting and paging result sets returned to the client. `TOP` is a legacy, proprietary T-SQL keyword that is still supported due to its wide usage. The ANSI compliant syntax of `FETCH` and `OFFSET` were introduced in SQL Server 2012 and are recommended for paginating results sets.
+SQL Server Service Broker provides native support for messaging and queuing applications. Developers use Server Broker to create complex applications that use the database engine components to communicate between several SQL Server databases. Developers can use Service Broker to easily build distributed and more reliable applications.
 
-### TOP
+Benefits of using messaging queues:
 
-The `TOP (n)` operator is used in the `SELECT` list and limits the number of rows returned to the client based on the `ORDER BY` clause.
+- Decouple dependencies between applications by communicating through messages.
+- Scale out your architecture by moving queues or message processors to separate servers as needed.
+- Maintain individual parts with a minimal impact to the end users.
+- Control when the messages are processed, for example, off-peak hours.
+- Process queued messages on multiple servers or processes or threads.
 
-###### Note
+The following sections describe the Service Broker commands.
 
-When `TOP` is used with no `ORDER BY` clause, the query is non-deterministic and may return any rows up to the number specified by the `TOP` operator.
+### CREATE MESSAGE TYPE
 
-You can use `TOP (n)` with two modifier options:
-
-- `TOP (n) PERCENT` is used to designate a percentage of the rows to be returned instead of a fixed maximal row number `limit (n)`. When you use `PERCENT`, `n` can be any value from 1-100.
-- `TOP (n) WITH TIES` is used to allow overriding the n maximal number or percentage of rows specified in case there are additional rows with the same ordering values as the last row.
-
-If you use `TOP (n)` without `WITH TIES` and there are additional rows that have the same ordering value as the last row in the group of n rows, the query is also non-deterministic because the last row may be any of the rows that share the same ordering value.
-
-### Syntax
+The following example creates a message with name and structure.
 
 ```
-ORDER BY <Ordering Expression> [ ASC | DESC ] [ ,...n ]
-OFFSET <Offset Expression> { ROW | ROWS }
-[FETCH { FIRST | NEXT } <Page Size Expression> { ROW | ROWS } ONLY ]
+CREATE MESSAGE TYPE message_type_name
+  [ AUTHORIZATION owner_name ]
+  [ VALIDATION = { NONE
+    | EMPTY
+    | WELL_FORMED_XML
+    | VALID_XML WITH SCHEMA COLLECTION schema_collection_name
+  } ]
+[ ; ]
 ```
 
-### Examples
+For more information, see [CREATE MESSAGE TYPE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-message-type-transact-sql?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-message-type-transact-sql?view=sql-server-2017") in the _SQL Server documentation_.
 
-The following example creates the OrderItems table.
+### CREATE QUEUE
 
-```
-CREATE TABLE OrderItems
-(
-  OrderID INT NOT NULL,
-  Item VARCHAR(20) NOT NULL,
-  Quantity SMALLINT NOT NULL,
-  PRIMARY KEY(OrderID, Item)
-);
-```
+The following example creates a queue to store messages.
 
 ```
-INSERT INTO OrderItems (OrderID, Item, Quantity)
-VALUES
-(1, 'M8 Bolt', 100),
-(2, 'M8 Nut', 100),
-(3, 'M8 Washer', 200),
-(3, 'M6 Locking Nut', 300);
+CREATE QUEUE <object>
+  [ WITH
+    [ STATUS = { ON | OFF } [ , ] ]
+    [ RETENTION = { ON | OFF } [ , ] ]
+    [ ACTIVATION (
+      [ STATUS = { ON | OFF } , ]
+        PROCEDURE_NAME = <procedure> ,
+        MAX_QUEUE_READERS = max_readers ,
+        EXECUTE AS { SELF | 'user_name' | OWNER }
+        ) [ , ] ]
+    [ POISON_MESSAGE_HANDLING (
+      [ STATUS = { ON | OFF } ] ) ]
+    ]
+      [ ON { filegroup | [ DEFAULT ] } ]
+[ ; ]
+
+<object> ::=
+{
+  [ database_name. [ schema_name ] . | schema_name. ]
+    queue_name
+}
+
+<procedure> ::=
+{
+  [ database_name. [ schema_name ] . | schema_name. ]
+    stored_procedure_name
+}
 ```
 
-The following example retrieves the 3 most ordered items by quantity.
+For more information, see [CREATE QUEUE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-queue-transact-sql?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-queue-transact-sql?view=sql-server-2017") in the _SQL Server documentation_.
+
+### CREATE CONTRACT
+
+The following example specifies the role and what type of messages a service can handle.
 
 ```
--- Using TOP
-SELECT TOP (3) *
-FROM OrderItems
-ORDER BY Quantity DESC;
-
--- USING FETCH
-SELECT *
-FROM OrderItems
-ORDER BY Quantity DESC
-OFFSET 0 ROWS FETCH NEXT 3 ROWS ONLY;
+CREATE CONTRACT contract_name
+  [ AUTHORIZATION owner_name ]
+    ( { { message_type_name | [ DEFAULT ] }
+      SENT BY { INITIATOR | TARGET | ANY }
+    } [ ,...n] )
+[ ; ]
 ```
 
-For the preceding example, the result looks as shown following.
+For more information, see [CREATE CONTRACT (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-contract-transact-sql?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-contract-transact-sql?view=sql-server-2017") in the _SQL Server documentation_.
+
+### CREATE SERVICE
+
+The following example creates a named Service Broker for a specified task or set of tasks.
 
 ```
-OrderID  Item            Quantity
-3        M6 Locking Nut  300
-3        M8 Washer       200
-2        M8 Nut          100
+CREATE SERVICE service_name
+  [ AUTHORIZATION owner_name ]
+  ON QUEUE [ schema_name. ]queue_name
+  [ ( contract_name | [DEFAULT][ ,...n ] ) ]
+[ ; ]
 ```
 
-The following example includes rows with ties.
+For more information, see [CREATE SERVICE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-service-transact-sql?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-service-transact-sql?view=sql-server-2017") in the _SQL Server documentation_.
+
+### BEGIN DIALOG CONVERSATION
+
+The following example starts the interaction between Service Brokers.
 
 ```
-SELECT TOP (3) WITH TIES *
-FROM OrderItems
-ORDER BY Quantity DESC;
+BEGIN DIALOG [ CONVERSATION ] @dialog_handle
+  FROM SERVICE initiator_service_name
+  TO SERVICE 'target_service_name'
+    [ , { 'service_broker_guid' | 'CURRENT DATABASE' }]
+  [ ON CONTRACT contract_name ]
+  [ WITH
+  [ { RELATED_CONVERSATION = related_conversation_handle
+    | RELATED_CONVERSATION_GROUP = related_conversation_group_id } ]
+  [ [ , ] LIFETIME = dialog_lifetime ]
+  [ [ , ] ENCRYPTION = { ON | OFF } ] ]
+[ ; ]
 ```
 
-For the preceding example, the result looks as shown following.
+For more information, see [BEGIN DIALOG CONVERSATION (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql?view=sql-server-2017") in the _SQL Server documentation_.
+
+### WAITFOR(RECEIVE TOP(1))
+
+The following example specifies that a code block has to wait until one message is received.
 
 ```
-OrderID  Item            Quantity
-3        M6 Locking Nut  300
-3        M8 Washer       200
-2        M8 Nut          100
-1        M8 Bolt         100
+[ WAITFOR ( ]
+  RECEIVE [ TOP ( n ) ]
+  <column_specifier> [ ,...n ]
+  FROM <queue>
+  [ INTO table_variable ]
+  [ WHERE { conversation_handle = conversation_handle
+    | conversation_group_id = conversation_group_id } ]
+  [ ) ] [ , TIMEOUT timeout ]
+[ ; ]
+
+<column_specifier> ::=
+{ *
+  | { column_name | [ ] expression } [ [ AS ] column_alias ]
+  | column_alias = expression
+} [ ,...n ]
+
+<queue> ::=
+{
+  [ database_name . [ schema_name ] . | schema_name . ]
+    queue_name
+}
 ```
 
-The following example retrieves half the rows based on quantity.
+For more information, see [RECEIVE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/receive-transact-sql?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/t-sql/statements/receive-transact-sql?view=sql-server-2017") in the _SQL Server documentation_.
 
-```
-SELECT TOP (50) PERCENT *
-FROM OrderItems
-ORDER BY Quantity DESC;
-```
+You can combine all of the preceding commands to achieve your architecture goals.
 
-For the preceding example, the result looks as shown following.
-
-```
-OrderID  Item            Quantity
-3        M6 Locking Nut  300
-3        M8 Washer       200
-```
-
-For more information, see [SELECT - ORDER BY Clause (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/queries/select-order-by-clause-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/queries/select-order-by-clause-transact-sql?view=sql-server-ver15") and [TOP (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/queries/top-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/queries/top-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [Service Broker](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/sql-server-service-broker?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/sql-server-service-broker?view=sql-server-2017") in the _SQL Server documentation_.
 
 ## PostgreSQL Usage
 
-Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) supports the non-ANSI compliant but popular with other engines `LIMIT…​ OFFSET` operator for paging results sets.
+Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) doesn’t provide a compatible solution to the SQL Server Service Broker. However, you can use DB Links and AWS Lambda to achieve similar functionality.
 
-The `LIMIT` clause limits the number of rows returned and doesn’t require an `ORDER BY` clause, although that would make the query non-deterministic.
+You can combine AWS Lambda with AWS SQS to reduce costs and remove some loads from the database into the AWS Lambda and Amazon Simple Queue Service (Amazon SQS). This will be much more efficient. For more information, see [Using Lambda with Amazon SQS](../../../lambda/latest/dg/with-sqs.md "../../../lambda/latest/dg/with-sqs.md").
 
-The `OFFSET` clause is zero-based, similar to SQL Server and used for pagination. `OFFSET 0` is the same as omitting the `OFFSET` clause, as is `OFFSET` with a NULL argument.
+For example, you can create a table in each database and connect each database with a DB link to read the tables and process the data. For more information, see DB Links.
 
-### Syntax
+You can also use AWS Lambda to query a table from the database, process the data, and insert it to another database (even another database type). This approach is the best option for moving workloads out of the database to a less expensive instance type.
 
-```
-SELECT select_list
-  FROM table_expression
-  [ ORDER BY ... ]
-  [ LIMIT { number | ALL } ] [ OFFSET number ]
-```
+For even more decoupling and reducing workloads from the database, you can use Amazon SQS with Lambda.
 
-### Migration Considerations
-
-You can use the `LIMIT…​ OFFSET` syntax to replace the functionality of `TOP(n)` and `FETCH…​ OFFSET` in SQL Server. It is automatically converted by the AWS Schema Conversion Tool (AWS SCT) except for the `WITH TIES` and `PERCENT` modifiers.
-
-To replace the `PERCENT` option, first calculate how many rows the query returns and then calculate the fixed number of rows to be returned based on that number.
-
-###### Note
-
-Because this technique involves added complexity and accessing the table twice, consider changing the logic to use a fixed number instead of percentage.
-
-To replace the `WITH TIES` option, rewrite the logic to add another query that checks for the existence of additional rows that have the same ordering value as the last row returned from the `LIMIT` clause.
-
-###### Note
-
-Because this technique introduces significant added complexity and three accesses to the source table, consider changing the logic to introduce a tie-breaker into the `ORDER BY` clause.
-
-### Examples
-
-The following example creates the OrderItems table.
-
-```
-CREATE TABLE OrderItems
-(
-  OrderID INT NOT NULL,
-  Item VARCHAR(20) NOT NULL,
-  Quantity SMALLINT NOT NULL,
-  PRIMARY KEY(OrderID, Item)
-);
-```
-
-```
-INSERT INTO OrderItems (OrderID, Item, Quantity)
-VALUES
-(1, 'M8 Bolt', 100),
-(2, 'M8 Nut', 100),
-(3, 'M8 Washer', 200),
-(3, 'M6 Locking Nut', 300);
-```
-
-The following example retrieves the three most ordered items by quantity.
-
-```
-SELECT *
-FROM OrderItems
-ORDER BY Quantity DESC
-LIMIT 3 OFFSET 0;
-```
-
-For the preceding example, the result looks as shown following.
-
-```
-OrderID  Item            Quantity
-3        M6 Locking Nut  300
-3        M8 Washer       200
-1        M8 Bolt         100
-```
-
-The following example includes rows with ties.
-
-```
-SELECT *
-FROM
-(
-  SELECT *
-  FROM OrderItems
-  ORDER BY Quantity DESC
-  LIMIT 3 OFFSET 0
-) AS X
-UNION
-SELECT *
-FROM OrderItems
-WHERE Quantity = (
-  SELECT Quantity
-  FROM OrderItems
-  ORDER BY Quantity DESC
-  LIMIT 1 OFFSET 2
-)
-ORDER BY Quantity DESC
-```
-
-For the preceding example, the result looks as shown following.
-
-```
-OrderID  Item            Quantity
-3        M6 Locking Nut  300
-3        M8 Washer       200
-2        M8 Nut          100
-1        M8 Bolt         100
-```
-
-The following example retrieves half the rows based on quantity.
-
-```
-CREATE or replace FUNCTION getOrdersPct(int) RETURNS SETOF OrderItems AS $$
-SELECT * FROM OrderItems
-ORDER BY Quantity desc LIMIT (SELECT COUNT(*)*$1/100 FROM OrderItems) OFFSET 0;
-$$ LANGUAGE SQL;
-```
-
-```
-SELECT * from getOrdersPct(50);
-or
-SELECT getOrdersPct(50);
-
-OrderID  Item            Quantity
-3        M6 Locking Nut  300
-3        M8 Washer       200
-```
-
-## Summary
-
-| SQL Server          | Aurora PostgreSQL | Comments                    |
-| ------------------- | ----------------- | --------------------------- |
-| `TOP (n)`           | `LIMIT n`         |                             |
-| `TOP (n) WITH TIES` | Not supported     | See examples for workaround |
-| `TOP (n) PERCENT`   | Not supported     | See examples for workaround |
-| `OFFSET…​ FETCH`    | `LIMIT…​ OFFSET`  |                             |
-
-For more information, see [LIMIT and OFFSET](https://www.postgresql.org/docs/13/queries-limit.html "https://www.postgresql.org/docs/13/queries-limit.html") in the _PostgreSQL documentation_.
+For more information, see [Database Mail](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md").
