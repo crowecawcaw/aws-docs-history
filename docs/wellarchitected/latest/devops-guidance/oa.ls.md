@@ -1,27 +1,26 @@
-# [OA.LS.4] Open dialogue between leadership and teams
+# [OA.LS.5] Assemble a cross-functional enabling team that focuses on organizational transformation
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED
 
-Communication in a DevOps environment is more than an exchange of information.
-It's about building trust, collaboration, and gaining alignment across the
-organization. Clear communication channels can bridge the gap between strategy and
-implementation.
+To spread knowledge across the organizations and help individual teams adopt DevOps
+capabilities, create an enabling team with expertise in DevOps culture, practices, and tools. The single-threaded DevOps owner is responsible for creating this team and
+providing it with the autonomy, resources, training, and tools that help them
+effectively support and guide other teams.This centralized team should collaborate closely with other
+teams to identify and address barriers to adoption, share best practices, and promote a
+culture of nearly continuous learning and improvement. 
 
-Establish open communication channels between leaders and team members. Implement a
-system that gathers anonymous feedback directly from team members. Verify that this
-method is equally inclusive and accessible to everyone. Leaders should regularly share
-updates, insights, and learning back to teams to create a culture of collaboration and
-trust. An Amazon example is [Amazon Connections](https://amazon.jobs/en/landing_pages/hrresearch "https://amazon.jobs/en/landing_pages/hrresearch"), a mechanism that captures real-time feedback and data from
-employees about their experiences. This provides a model for organizations to understand
-team perspectives.
-
-The gathered feedback should drive decision-making at all
-levels of leadership to identify areas for improvement,
-address employee concerns, and promote a culture of open communication. Leaders must actively
-engage with this feedback, sharing updates and insights with
-teams. This action not only builds trust, but also aligns everyone with the organization's DevOps adoption
-progress.
+In many organizations, this team takes the form of the _Center of
+Enablement_. While this centralized team is not strictly required for every
+organization to adopt DevOps, we recommend it due to its potential to streamline and
+expedite transformation. If leadership chooses not to create a Center of Enablement, they
+can supplement it by fostering a strong culture of collaboration, sharing,
+automation, and continuous improvement. With the right support and resources being
+provided from leadership, teams can work together to establish their own DevOps processes.
+Use existing tools and resources to support these efforts.
 
 **Related information:**
 
-- [Business Value is IT's Primary Measure of Progress](https://aws.amazon.com/blogs/enterprise-strategy/business-value-is-its-primary-measure-of-progress/ "https://aws.amazon.com/blogs/enterprise-strategy/business-value-is-its-primary-measure-of-progress/")
+- [AWS Well-Architected Operational Excellence Pillar: Separated AEO and IEO with
+  centralized governance and an internal service provider consulting partner](../operational-excellence-pillar/separated-aeo-ieo-with-cent-gov-and-partner.md "../operational-excellence-pillar/separated-aeo-ieo-with-cent-gov-and-partner.md")
+- [What is a cloud center of excellence and why should your organization create
+  one?](https://aws.amazon.com/blogs/publicsector/what-is-cloud-center-excellence-why-should-your-organization-create-one/ "https://aws.amazon.com/blogs/publicsector/what-is-cloud-center-excellence-why-should-your-organization-create-one/")

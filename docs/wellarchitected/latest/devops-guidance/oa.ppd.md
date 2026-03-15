@@ -1,34 +1,14 @@
-# [OA.PPD.5] Recognize and reward continuous learning
+# [OA.PPD.4] Invest in attracting, developing, and retaining skilled employees
 
-**Category:** RECOMMENDED
+**Category:** FOUNDATIONAL
 
-Establish measurable learning targets, including stretch
-goals, and design meaningful reward systems to encourage
-team members to meet their set targets. Regularly provide
-feedback and progress assessments, which keeps employees
-aligned with their learning goals. Emphasize the significance
-of soft skills training and how they correlate with the
-broader business and team goals. Celebrate and broadly
-acknowledge individual and team accomplishments related to
-learning and skill development to reinforce the organization's
-commitment to fostering a culture of continuous learning.
+Invest in attracting, developing, and retaining skilled employees by providing clear role
+definitions, mentorship programs, career advancement opportunities, and actionable
+feedback. Gather feedback regularly from employees to understand their needs and inform
+training and development initiatives.
 
-Encourage individuals to pursue relevant certifications that
-align to their roles and responsibilities to validate their
-expertise and keep up to date with latest technologies and
-best practices. Consider financial incentives or
-reimbursements for successfully obtaining a certification to
-further motive team members to invest in their continued
-learning. Organizations can also host regular internal
-training sessions, workshops, or mentorship programs to
-facilitate individuals learning from one-another and help
-accelerate learning through collaboration. Exemplary
-organizations tend to introduce immersive experiential
-learning platforms that develop skills through simulation,
-hands-on problem solving, and gamification.
-
-**Related information:**
-
-- [AWS Certification Paths](https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf "https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf")
-- [AWS Ramp-Up Guide: DevOps Engineer](https://d1.awsstatic.com/training-and-certification/ramp-up_guides/Ramp-Up_Guide_DevOps.pdf "https://d1.awsstatic.com/training-and-certification/ramp-up_guides/Ramp-Up_Guide_DevOps.pdf")
-- [AWS Jams](https://aws.amazon.com/professional-services/jam/ "https://aws.amazon.com/professional-services/jam/")
+Regularly collect feedback from employees to gauge their needs, directing training
+and development initiatives accordingly. Build transparent reward and recognition
+programs, and communicate promotion criteria unambiguously to every
+employee. This proactive approach crafts an environment where employees can flourish and
+significantly contribute to the organization's triumph.

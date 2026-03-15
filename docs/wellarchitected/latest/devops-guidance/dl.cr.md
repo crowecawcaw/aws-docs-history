@@ -1,27 +1,27 @@
-# [DL.CR.8] Designate code owners for expert review
+# [DL.CR.5] Foster a constructive and inclusive review culture
 
-**Category:** OPTIONAL
+**Category:** FOUNDATIONAL
 
-A code owners process assigns a designated owner, usually the
-person or team with the most knowledge or expertise, to each
-part of the code base. In a DevOps environment, this helps
-ensure that there is an expert reviewer available for specific
-or complex parts of the system at all times.
+Code reviews should be respectful and collaborative
+interactions that cultivate a positive and inclusive culture.
+Good code reviews involve asking open-ended questions,
+suggesting alternatives, and assuming good intentions. Reviews
+should be empathetic and kind, recognizing the effort put into
+the code changes and promoting positivity.
 
-To implement a code owners process, determine who the code owners should be based on
-expertise and distribute the ownership equally amongst the team to avoid bottlenecks. You
-can use features in version control systems that automatically assign code owners to
-review code changes in their area of expertise. One example of this would be to use a
-`CODEOWNERS` file stored along with the code in the repository. This file
-defines individuals or teams that are responsible for code in a repository.
+The tone and approach of code reviews can greatly impact the
+efficiency of the process, team morale, and ultimately the
+quality of the product. A positive and inclusive review
+culture encourages more open discussion, facilitates knowledge
+sharing, and can lead to improved code quality.
 
-While this practice is optional and not beneficial for all organizations, it can be
-particularly useful for larger teams or those with complex, distributed systems as it
-provides an additional layer of control and can prevent potential issues from going
-unnoticed if all reviewers are not equally experienced with a specific or complex part of
-the code base.
-
-**Related information:**
-
-- [About
-  code owners](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners")
+To implement a positive and inclusive review culture, teams
+should establish clear guidelines on the expectations for code
+reviews, including language use and constructive feedback.
+Regularly reinforce these expectations through team meetings
+and training. Encourage team members to focus on the code and
+not the coder, to be respectful and patient, and to frame
+suggestions as questions or alternatives rather than absolute
+critiques. Use the available escalation paths and mutually
+agreed upon team guiding principles to quickly resolve team
+differences and act as tie breakers during disagreement.

@@ -1,43 +1,30 @@
-# [DL.CD.3] Integrate quality assurance into deployments
+# [DL.CD.2] Deploy exclusively from trusted artifact repositories
 
 **Category:** FOUNDATIONAL
 
-Integrating quality assurance (QA) processes into continuous delivery pipelines tests
-that the whole system is ready for release. This differs from previous quality checks in the
-development lifecycle as these tests validate that the software changes behave as expected
-when deployed into real-world environments. This provides the ability to test integration
-with other live systems, check for configuration errors, and test in environments that more
-closely mirror production.
+All artifacts involved in the delivery process should
+originate from a trusted artifact repository. These
+repositories contain validated, tested, and integrated
+artifacts that have been deemed safe for deployment. By using
+trusted artifact repositories, teams can ensure the security
+of deployed workloads, maintain quality and security
+standards, and promote trust in the delivery pipeline.
 
-Incorporate QA stages into your delivery pipeline to
-automatically conduct required functional, non-functional,
-security, and data tests after deployments occur. Deployments
-to environments is the ideal enforcement point for quality
-assurance, with QA requirements being scoped to the
-environment being deployed to. If a test fails for one
-environment, it is a signal that deployment to subsequent
-environments might carry the same risk. Provide immediate
-feedback to the development team upon any test failures, so
-they can rectify issues quickly and maintain the integrity of
-the deployment pipeline.
+The delivery pipeline should be restricted to using only
+trusted artifact repositories, which could be enforced through
+mechanisms such as allow lists, IP restrictions, or
+authentication controls. Additionally, we recommend using
+cryptographic signing to validate artifacts and including a
+validation stage in the pipeline to verify that the artifacts
+meet the necessary standards before deployment. In this way,
+the integrity and security of the deployed workloads are
+maintained consistently.
 
 **Related information:**
 
-- [AWS Well-Architected Reliability Pillar: REL08-BP02 Integrate
-  functional testing as part of your deployment](../reliability-pillar/rel_tracking_change_management_functional_testing.md "../reliability-pillar/rel_tracking_change_management_functional_testing.md")
-- [AWS Well-Architected Reliability Pillar: REL08-BP03 Integrate
-  resiliency testing as part of your deployment](../reliability-pillar/rel_tracking_change_management_resiliency_testing.md "../reliability-pillar/rel_tracking_change_management_resiliency_testing.md")
-- [AWS Well-Architected Security Pillar: SEC11-BP02 Automate
-  testing throughout the development and release lifecycle](../framework/sec_appsec_automate_testing_throughout_lifecycle.md "../framework/sec_appsec_automate_testing_throughout_lifecycle.md")
-- [Testing
-  stages in continuous integration and continuous
-  delivery](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/testing-stages-in-continuous-integration-and-continuous-delivery.md "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/testing-stages-in-continuous-integration-and-continuous-delivery.md")
-- [Amazon's
-  approach to high-availability deployment: Release guidance
-  lifecycle](https://youtu.be/bCgD2bX1LI4?t=855 "https://youtu.be/bCgD2bX1LI4?t=855")
-- [Testing
-  software and systems at Amazon: Continuous integration and
-  deployment](https://youtu.be/o1sc3cK9bMU?t=1206 "https://youtu.be/o1sc3cK9bMU?t=1206")
-- [The
-  Amazon Software Development Process: Automated
-  Testing](https://youtu.be/52SC80SFPOw?t=1340 "https://youtu.be/52SC80SFPOw?t=1340")
+- [Artifact
+  Repository - AWS CodeArtifact](https://aws.amazon.com/codeartifact/ "https://aws.amazon.com/codeartifact/")
+- [Fully
+  Managed Container Registry - Amazon Elastic Container Registry](https://aws.amazon.com/ecr/ "https://aws.amazon.com/ecr/")
+- [Code
+  Repositories and Artifact Management | AWS Marketplace](https://aws.amazon.com/marketplace/solutions/devops/code-repositories-and-artifact-management?aws-marketplace-cards.sort-by=item.additionalFields.headline&aws-marketplace-cards.sort-order=asc&awsf.aws-marketplace-devops-store-use-cases=*all "https://aws.amazon.com/marketplace/solutions/devops/code-repositories-and-artifact-management?aws-marketplace-cards.sort-by=item.additionalFields.headline&aws-marketplace-cards.sort-order=asc&awsf.aws-marketplace-devops-store-use-cases=*all")

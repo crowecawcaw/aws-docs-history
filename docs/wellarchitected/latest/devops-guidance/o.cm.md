@@ -1,40 +1,29 @@
-# [O.CM.10] Proactively detect issues using AI/ML
+# [O.CM.2] Plan for large scale events
 
-**Category:** OPTIONAL
+**Category:** FOUNDATIONAL
 
-Adopt data-driven AI/ML monitoring tools and techniques like Artificial Intelligence
-Operations (AIOps), ML-powered anomaly detection, and predictive analytics solutions, to
-detect issues and performance bottlenecks proactively—even before system performance is
-impacted.
+A large scale event (LSE) is an incident that has a wide
+impact, such as service outages or major security
+incidents. Proper management of LSEs help to ensure business
+continuity, maintain customer trust, and reduce the negative
+impact of such events.
 
-Choose a tool that can leverage data and analytics to
-automatically infer predictions, and begin to feed data to it
-and inject failure to test the validity of the tool. These
-tools should have access to both historical and real-time
-data. Once operational, the tool can automatically detect
-issues, predict impending resource exhaustion, detail likely
-causes, and recommend remediation actions to the team. Ensure
-that there is a feedback loop to continuously train and refine
-these models based on real-world data and incidents.
-
-Start small when setting up alerts from these tools to avoid
-alert fatigue and maintain trust in the system. As the tool
-becomes more familiar with the data patterns, teams can
-gradually increase the alerting scope. Regularly validate the
-tool's predictions by injecting failures and observing the
-responses.
+Prepare a detailed incident management plan, outlining the
+roles, responsibilities, and processes to be followed in the
+event of a large-scale incident. At a minimum, the plan should
+outline how teams expect to maintain availability and
+reliability of systems by having the capability to
+automatically scale resources, re-route traffic, and failover
+to backup systems when required.
 
 **Related information:**
 
-- [Machine-Learning-Powered
-  DevOps - Amazon DevOps Guru](https://aws.amazon.com/devops-guru/ "https://aws.amazon.com/devops-guru/")
-- [Amazon GuardDuty](https://aws.amazon.com/guardduty/ "https://aws.amazon.com/guardduty/")
-- [Continuous
-  Monitoring and Threat Detection](https://aws.amazon.com/security/continuous-monitoring-threat-detection/ "https://aws.amazon.com/security/continuous-monitoring-threat-detection/")
-- [Gaining
-  operational insights with AIOps using Amazon DevOps Guru
-  Workshop](https://catalog.us-east-1.prod.workshops.aws/workshops/f92df379-6add-4101-8b4b-38b788e1222b/en-US "https://catalog.us-east-1.prod.workshops.aws/workshops/f92df379-6add-4101-8b4b-38b788e1222b/en-US")
-- [What
-  Is Anomaly Detection?](https://aws.amazon.com/what-is/anomaly-detection "https://aws.amazon.com/what-is/anomaly-detection")
-- [What
-  Is Predictive Analytics?](https://aws.amazon.com/what-is/predictive-analytics "https://aws.amazon.com/what-is/predictive-analytics")
+- [Disaster
+  Recovery of Workloads on AWS: Recovery in the Cloud](../../../whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-workloads-on-aws.md "../../../whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-workloads-on-aws.md")
+- [Incident
+  management](../../../whitepapers/latest/tagging-best-practices/incident-management.md "../../../whitepapers/latest/tagging-best-practices/incident-management.md")
+- [Disaster
+  recovery plan](https://aws.amazon.com/disaster-recovery/faqs/#Core_concepts "https://aws.amazon.com/disaster-recovery/faqs/#Core_concepts")
+- [Amazon's
+  approach to security during development: Handling a
+  security incident](https://youtu.be/NeR7FhHqDGQ?t=1962 "https://youtu.be/NeR7FhHqDGQ?t=1962")

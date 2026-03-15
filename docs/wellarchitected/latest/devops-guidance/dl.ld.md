@@ -1,38 +1,35 @@
-# [DL.LD.5] Enforce coding standards before commit
+# [DL.LD.8] Generate mock datasets for local development
 
-**Category:** RECOMMENDED
+**Category:** OPTIONAL
 
-Identify common style, formatting, and other flaws before they
-are published to a repository. Use static code scanning tools,
-such as linters, to improve code quality and consistency
-before pushing committed code. This process can be automated
-using pre-commit hooks. Upon discovery, pushing the commit
-should ideally fail and require immediate correction by the
-developer. Automatically and consistently enforcing coding
-standards during the local development process directly
-improves the code review process by removing common errors
-before manual review.
+Mock datasets are synthetic or modified datasets that
+developers can use during the development process, eliminating
+the need to interact with real, sensitive production
+data. Using mock datasets ensures tests are thorough and
+realistic, without compromising security.
 
-Select scanning tools compatible with your chosen programming
-language and customize them to uphold specific coding
-standards and styles. It is best to integrate these tools into
-pre-commit hooks, integrated development environments (IDEs),
-and continuous integration pipelines so that changes are
-consistently and continuously checked at all stages of the
-development lifecycle.
+Use data generating tools to create mock datasets. These tools
+can range from random data generators to more advanced methods
+like generative AI. Generative AI can be used to generate
+synthetic datasets that can be used to test applications and
+is especially useful for generating data that is not often
+included in testing datasets, such as defects or edge cases.
+
+If using real-world data is necessary for local development, ensure it is obfuscated.
+Methods such as masking, encrypting, or tokenizing production datasets can transform real
+datasets into mock datasets that are safe for local development. It might be useful to
+store already prepared mock datasets that can be shared between teams or systems to
+perform testing with. This approach creates a realistic local testing environment without
+risking developers handling actual production data.
 
 **Related information:**
 
-- [Amazon CodeGuru Reviewer](https://aws.amazon.com/codeguru/ "https://aws.amazon.com/codeguru/")
-- [AWS CloudFormation Linter](https://github.com/aws-cloudformation/cfn-lint "https://github.com/aws-cloudformation/cfn-lint")
-- [Pre-commit](https://pre-commit.com/ "https://pre-commit.com/")
-- [Husky](https://typicode.github.io/husky/ "https://typicode.github.io/husky/")
-- [Validate
-  your AWS SAM applications with AWS CloudFormation
-  Linter](../../../serverless-application-model/latest/developerguide/validate-cfn-lint.md "../../../serverless-application-model/latest/developerguide/validate-cfn-lint.md")
-- [Workshop: AWS CloudFormation Workshop - Linting and-testing](https://catalog.workshops.aws/cfn101/en-US/basics/templates/linting-and-testing "https://catalog.workshops.aws/cfn101/en-US/basics/templates/linting-and-testing")
-- [Blog: Use
-  Git pre-commit hooks to avoid AWS CloudFormation
-  errors](https://aws.amazon.com/blogs/infrastructure-and-automation/use-git-pre-commit-hooks-avoid-aws-cloudformation-errors/ "https://aws.amazon.com/blogs/infrastructure-and-automation/use-git-pre-commit-hooks-avoid-aws-cloudformation-errors/")
-- [Blog: Automate
-  code reviews with Amazon CodeGuru Reviewer](https://aws.amazon.com/blogs/devops/automate-code-reviews-with-amazon-codeguru-reviewer/ "https://aws.amazon.com/blogs/devops/automate-code-reviews-with-amazon-codeguru-reviewer/")
+- [Testing
+  software and systems at Amazon: Developer
+  environment](https://youtu.be/o1sc3cK9bMU?t=1017 "https://youtu.be/o1sc3cK9bMU?t=1017")
+- [Generate
+  test data using an AWS Glue job and Python](../../../prescriptive-guidance/latest/patterns/generate-test-data-using-an-aws-glue-job-and-python.md "../../../prescriptive-guidance/latest/patterns/generate-test-data-using-an-aws-glue-job-and-python.md")
+- [Foundation
+  Model API Service - Amazon Bedrock](https://aws.amazon.com/bedrock/ "https://aws.amazon.com/bedrock/")
+- [What
+  is Generative AI?](https://aws.amazon.com/what-is/generative-ai/ "https://aws.amazon.com/what-is/generative-ai/")

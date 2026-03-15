@@ -1,10 +1,21 @@
-# [OA.AWE.5] Organize team-building activities and social events to foster a sense of community and promote collaboration
+# [OA.AWE.3] Balance work schedules for diverse global teams
 
-**Category:** OPTIONAL
+**Category:** RECOMMENDED
 
-Organize regular team-building activities and social events to help team members
-build relationships, foster a sense of community, and promote collaboration. These events
-can be both in-person and virtual to accommodate remote team members. Encourage employees
-to participate and provide feedback on these activities to collect data on how impactful
-or enjoyable they are. These events are more impactful for distributed teams that
-span multiple time zones, and cities, or work fully remote.
+Flexible work policies for appropriate roles are recommended
+because they help organizations attract and retain skilled employees,
+while also promoting a healthy work-life balance, improving
+employee satisfaction, and facilitating global collaboration.
+Establish policies and guidelines that facilitate remote work and
+flexible schedules, while fostering communication and
+collaboration among team members across different time zones
+and locations.
+
+Use techniques such as _follow-the-sun_ support models and
+handovers to promote seamless collaboration across different time zones. Schedule meetings
+that are convenient for all team members or record and share information if such
+scheduling is not feasible. Provide employees with the necessary technology and tools to
+effectively work remotely, while protecting company information through
+appropriate security measures. Seek feedback from employees to refine and
+improve the organization's remote work and flexible schedule policies to better meet the
+needs and preferences of its workforce.

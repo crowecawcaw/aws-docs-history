@@ -1,25 +1,18 @@
-# [OA.TI.9] Facilitate self-service collaboration through APIs and documentation
+# [OA.TI.7] Maintain a unified knowledge source for teams
 
-**Category:** RECOMMENDED
+**Category:** RECOMMENDED
 
-Develop clear and comprehensive service documentation for improved accessibility and navigation, including user guides,
-tutorials, and FAQs. Provide well-defined
-interfaces, such as APIs or web portals, to simplify access and usage. Regularly review
-and update interfaces to meet user needs. Establish ownership for documentation and services,
-and implement mechanisms for teams to ask for clarification, help, or provide feedback.
-Define metrics around the usage, availability, and quality of self-service documentation
-and APIs.
+Adopt collaboration and configuration tools, supported by established processes, to
+store documents, configurations, and other artifacts in a unified source of record. Keep
+documentation up-to-date to help teams work more autonomously and build trust.
+Implement processes for regular review of artifacts in the source of record and remove
+outdated content as needed.
 
-Providing self-service access to services through APIs simplifies integration between
-systems and teams, reduces the need for manual intervention, and promotes better
-documentation. This approach helps teams work more autonomously and accelerates
-the development process. This capability is highly recommended for a more efficient
-and streamlined DevOps environment, but it is not a foundational requirement for
-successful DevOps adoption. Without this capability, expect increased manual coordination
-and required communication between teams, which could impact overall efficiency.
-
-**Related information:**
-
-- [The
-  Amazon Software Development Process: Self-Service
-  Tools](https://youtu.be/52SC80SFPOw?t=579 "https://youtu.be/52SC80SFPOw?t=579")
+DevOps adoption can be achieved without a unified source of record between teams.
+However, it's more challenging for teams to find and manage information as they
+transition how they work and adopt new tools. This approach can lead to inefficient or
+duplicated processes and communication gaps over time. Therefore, it is highly recommended
+to have a centralized knowledge repository in place to improve team collaboration,
+knowledge sharing, onboarding time, and overall development and operational efficiency.
+For example, create internal wiki pages for each team to document
+their team norms and best practices.

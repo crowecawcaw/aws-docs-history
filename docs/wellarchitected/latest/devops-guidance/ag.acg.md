@@ -1,44 +1,38 @@
-# [AG.ACG.8] Conduct regular scans to identify and remove unused resources
+# [AG.ACG.2] Implement controlled procedures for introducing new services and features
 
-**Category:** RECOMMENDED
+**Category:** FOUNDATIONAL
 
-Over time, unused resources can often be a byproduct of
-experimentation and more frequent deployments, including
-dormant servers, unused deployment resources, idle containers,
-redundant environments, and unused serverless functions. These
-resources can pile up to create a less than ideal operating
-environment if not managed effectively, leading to
-inefficiencies, inflated costs, system unreliability, and
-heightened security risks.
+To maintain the balance between encouraging innovation and
+upholding compliance and governance requirements, platform
+teams need a scalable, controlled procedure for introducing
+new cloud vendor or third-party services to be used.
 
-Perform automated scans scoped to all deployed resources in
-your environment and pinpoint unused or outdated resources.
-This can be accomplished by using health check endpoints,
-reviewing logs, using metadata elements such as tags, or
-checking billing dashboards for utilization.
+DevOps culture encourages continuous learning and exploration
+of new technologies, tools, and services. Provide teams with
+the ability to explore and experiment with new features and
+services while maintaining organizational security and
+compliance standards. Structure these exploration
+opportunities in a controlled, secure manner, to promote
+agility without compromising integrity.
 
-Verify the status and compatibility of software running on these resources,
-especially if they have been disconnected or powered off for extended periods of time.
-These checks are especially useful for preventing _zombie servers_,
-which have the potential to be rebooted after long periods of disconnection and might be
-running outdated or incompatible software.
+Establish well-defined guardrails that uphold security and
+compliance when introducing new features and services. This
+includes access restrictions, acceptable use cases, and
+alignment with security policies. Create sandbox environments
+where teams can safely explore and test these features without
+compromising production environments or violating governance
+policies. Develop a systematic, scalable onboarding process
+which allows platform teams to enable guardrails and policies
+for governing usage of the service, which leads to enabling
+the feature or service in other environments, including
+production.
 
-Based on the verification results and the organization's
-policies, take action to remediate these resources, such as
-updating the software, decommissioning the resources, or
-integrating them back into the environment. Frequently
-performing these scans can prevent potential service
-disruptions, maintain up-to-date software across all
-resources, and ensure the overall integrity of the DevOps
-environment.
+Follow the principle of least privilege by granting teams access to use only specific
+actions or API calls for approved services. As services update and add new features, this
+will help ensure that the platform team reserves the ability to perform onboarding
+procedures with these new features as well.
 
 **Related information:**
 
-- [AWS Well-Architected Cost Optimization Pillar: COST02-BP06
-  Track project lifecycle](../cost-optimization-pillar/cost_govern_usage_track_lifecycle.md "../cost-optimization-pillar/cost_govern_usage_track_lifecycle.md")
-- [Implementing
-  health checks](https://aws.amazon.com/builders-library/implementing-health-checks/ "https://aws.amazon.com/builders-library/implementing-health-checks/")
-- [Decommission
-  resources - Cost Optimization Pillar](../cost-optimization-pillar/decommission-resources.md "../cost-optimization-pillar/decommission-resources.md")
-- [Identifying
-  your unused resources - DynamoDB](../../../amazondynamodb/latest/developerguide/CostOptimization_UnusedResources.md "../../../amazondynamodb/latest/developerguide/CostOptimization_UnusedResources.md")
+- [Example
+  service control policies](../../../organizations/latest/userguide/orgs_manage_policies_scps_examples_general.md "../../../organizations/latest/userguide/orgs_manage_policies_scps_examples_general.md")
