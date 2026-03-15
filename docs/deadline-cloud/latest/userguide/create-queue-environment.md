@@ -104,6 +104,8 @@ Windows
   - `aftereffects=24.6`
   - `aftereffects=25.1`
   - `aftereffects=25.2`
+  - `aftereffects=25.6`
+  - `aftereffects=26.0`
 
 - Autodesk Arnold for Cinema 4D
   - `cinema4d-c4dtoa=2025`

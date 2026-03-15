@@ -24,6 +24,7 @@ The following table shows current support levels for Blender versions:
 | 3.6           | Windows, macOS, Linux | Linux         | Cycles, Eevee, Workbench |
 | 4.2           | Windows, macOS, Linux | Linux         | Cycles, Eevee, Workbench |
 | 4.5           | Windows, macOS, Linux | Linux         | Cycles, Eevee, Workbench |
+| 5.0           | Windows, macOS, Linux | Linux         | Cycles, Eevee, Workbench |
 
 ## Deadline Cloud Conda Channel
 
@@ -34,6 +35,7 @@ The following table lists all conda packages applicable to Blender available to 
 | Linux | blender        | 3.6     | Includes all built-in render engines |
 | Linux | blender        | 4.2     | Includes all built-in render engines |
 | Linux | blender        | 4.5     | Includes all built-in render engines |
+| Linux | blender        | 5.0     | Includes all built-in render engines |
 | Linux | blender-openjd |         | Includes the Blender Adaptor         |
 
 ## Getting started

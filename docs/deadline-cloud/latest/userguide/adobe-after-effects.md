@@ -31,6 +31,7 @@ for After Effects versions:
 | ------------- | ----------------- | ------------- |
 | 2024          | Windows, macOS    | Windows       |
 | 2025          | Windows, macOS    | Windows       |
+| 2026          | Windows, macOS    | Windows       |
 
 ## Deadline Cloud Conda Channel
 
@@ -43,6 +44,8 @@ Service-managed fleets in the deadline-cloud conda channel:
 | Windows | aftereffects | 24.6    |
 | Windows | aftereffects | 25.1    |
 | Windows | aftereffects | 25.2    |
+| Windows | aftereffects | 25.6    |
+| Windows | aftereffects | 26.0    |
 
 ## Getting started
 

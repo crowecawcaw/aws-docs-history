@@ -56,7 +56,7 @@ With the installer, you can install the following submitters:
 
 | Software                                                                 | Supported versions | Windows installer | Linux installer | MacOS (arm64) installer |
 | ------------------------------------------------------------------------ | ------------------ | ----------------- | --------------- | ----------------------- |
-| [Adobe After Effects](adobe-after-effects.md "adobe-after-effects.md")   | 2024<br>• 2025     | Included          | Not included    | Included                |
+| [Adobe After Effects](adobe-after-effects.md "adobe-after-effects.md")   | 2024<br>• 2026     | Included          | Not included    | Included                |
 | [Autodesk 3ds Max](autodesk-3ds-max.md "autodesk-3ds-max.md")            | 2024<br>• 2026     | Included          | Not included    | Not included            |
 | [Autodesk Arnold for Cinema 4D](maxon-cinema-4d.md "maxon-cinema-4d.md") | 4.8.4.1            | Included          | Not included    | Included                |
 | [Autodesk Arnold for Maya](autodesk-maya.md "autodesk-maya.md")          | 7.1<br>• 7.4       | Included          | Included        | Included                |
