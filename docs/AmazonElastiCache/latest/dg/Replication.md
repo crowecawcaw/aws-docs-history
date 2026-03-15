@@ -1,63 +1,52 @@
-# Replication: Valkey and Redis OSS Cluster Mode Disabled vs. Enabled
+# High availability using replication groups
 
-Beginning with Valkey 7.2 and Redis OSS version 3.2, you have the ability to create one of two distinct types of clusters
-(API/CLI: replication groups).
-A Valkey or Redis OSS (cluster mode disabled) cluster always has a single shard (API/CLI: node group) with up to 5 read replica nodes.
-A Valkey or Redis OSS (cluster mode enabled) cluster has up to 500 shards with 1 to 5 read replica nodes in each.
+Single-node Amazon ElastiCache Valkey and Redis OSS clusters are in-memory entities with limited data protection
+services (AOF). If your cluster fails for any reason, you lose all the cluster's data.
+However, if you're running a Valkey or Redis OSS engine, you can group 2 to
+6 nodes into a cluster with replicas where 1 to
+5 read-only nodes contain replicate data of the group's single
+read/write primary node. In this scenario, if one node fails for any reason, you do not lose
+all your data since it is replicated in one or more other nodes. Due to replication latency,
+some data may be lost if it is the primary read/write node that fails.
 
-![Image: Valkey or Redis OSS (cluster mode disabled), and Valkey or Redis OSS (cluster mode enabled) clusters](images/ElastiCache-NodeGroups.png)
-_Valkey or Redis OSS (cluster mode disabled), and Valkey or Redis OSS (cluster mode enabled) clusters_
+As seen in the following graphic, the replication structure is contained within a shard
+(called _node group_ in the API/CLI) which is contained within a Valkey or Redis OSS cluster.
+Valkey or Redis OSS (cluster mode disabled) clusters always have one shard. Valkey or Redis OSS (cluster mode enabled) clusters can have up to 500
+shards with the cluster's data partitioned across the shards.
+You can create a cluster with higher number of shards and lower number of replicas totaling up to 90 nodes per cluster.
+This cluster configuration can range from 90 shards and 0 replicas to 15 shards and 5 replicas, which is the maximum number of replicas allowed.
 
-The following table summarizes important differences between Valkey or Redis OSS (cluster mode disabled) and Valkey or Redis OSS (cluster mode enabled) clusters.
+The node or shard limit can be increased to a maximum of 500 per cluster with ElastiCache for Valkey, and with ElastiCache version 5.0.6 or higher for Redis OSS.
+For example, you can choose to configure a 500 node cluster that ranges between
+83 shards (one primary and 5 replicas per shard) and 500 shards (single primary and no replicas). Make sure there are enough available IP addresses to accommodate the increase.
+Common pitfalls include the subnets in the subnet group have too small a CIDR range or the subnets are shared and heavily used by other clusters. For more information, see
+[Creating a subnet group](SubnetGroups.md "SubnetGroups.md").
 
-| Comparing Valkey or Redis OSS (cluster mode disabled) and Valkey or Redis OSS (cluster mode enabled) Clusters | Feature                                                                                                                                                                                                | Valkey or Redis OSS (cluster mode disabled)                                                                                                                                                                                                                               | Valkey or Redis OSS (cluster mode enabled) |
-| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
-| Modifiable                                                                                                    | Yes. Supports adding and deleting replica nodes, and scaling up node type.                                                                                                                             | Limited. For more information, see [Version Management for ElastiCache](VersionManagement.md "VersionManagement.md")<br>and [Scaling Valkey or Redis OSS (Cluster Mode Enabled) clusters](scaling-redis-cluster-mode-enabled.md "scaling-redis-cluster-mode-enabled.md"). |
-| Data Partitioning                                                                                             | No                                                                                                                                                                                                     | Yes                                                                                                                                                                                                                                                                       |
-| Shards                                                                                                        | 1                                                                                                                                                                                                      | 1 to 500                                                                                                                                                                                                                                                                  |
-| Read replicas                                                                                                 | 0 to 5<br>ImportantIf you have no replicas and the node fails, you experience total data loss.                                                                                                         | 0 to 5 per shard.<br>ImportantIf you have no replicas and a node fails, you experience loss of all data in that<br>shard.                                                                                                                                                 |
-| Multi-AZ                                                                                                      | Yes, with at least 1 replica. Optional. On by default.                                                                                                                                                 | YesOptional. On by default.                                                                                                                                                                                                                                               |
-| Snapshots (Backups)                                                                                           | Yes, creating a single .rdb file.                                                                                                                                                                      | Yes, creating a unique .rdb file for each shard.                                                                                                                                                                                                                          |
-| Restore                                                                                                       | Yes, using a single .rdb file from a Valkey or Redis OSS (cluster mode disabled) cluster.                                                                                                              | Yes, using .rdb files from either a Valkey or Redis OSS (cluster mode disabled) or a Valkey or Redis OSS (cluster mode enabled) cluster.                                                                                                                                  |
-| Supported by                                                                                                  | All Valkey and Redis OSS versions                                                                                                                                                                      | All Valkey versions, and Redis OSS 3.2 and following                                                                                                                                                                                                                      |
-| Engine upgradeable                                                                                            | Yes, with some limits. For more information, see [Version Management for ElastiCache](VersionManagement.md "VersionManagement.md").                                                                    | Yes, with some limits. For more information, see [Version Management for ElastiCache](VersionManagement.md "VersionManagement.md").                                                                                                                                       |
-| Encryption                                                                                                    | Versions 3.2.6 (scheduled for EOL, see [Redis OSS versions end of life schedule](engine-versions.md#deprecated-engine-versions "engine-versions.md#deprecated-engine-versions")) and 4.0.10 and later. | Versions 3.2.6 (scheduled for EOL, see [Redis OSS versions end of life schedule](engine-versions.md#deprecated-engine-versions "engine-versions.md#deprecated-engine-versions")) and 4.0.10 and later.                                                                    |
-| HIPAA Eligible                                                                                                | Versions 3.2.6 (scheduled for EOL, see [Redis OSS versions end of life schedule](engine-versions.md#deprecated-engine-versions "engine-versions.md#deprecated-engine-versions")) and 4.0.10 and later. | Versions 3.2.6 (scheduled for EOL, see [Redis OSS versions end of life schedule](engine-versions.md#deprecated-engine-versions "engine-versions.md#deprecated-engine-versions")) and 4.0.10 and later.                                                                    |
-| PCI DSS Compliant                                                                                             | Versions 3.2.6 (scheduled for EOL, see [Redis OSS versions end of life schedule](engine-versions.md#deprecated-engine-versions "engine-versions.md#deprecated-engine-versions")) and 4.0.10 and later. | Versions 3.2.6 (scheduled for EOL, see [Redis OSS versions end of life schedule](engine-versions.md#deprecated-engine-versions "engine-versions.md#deprecated-engine-versions")) and 4.0.10 and later.                                                                    |
-| Online resharding                                                                                             | N/A                                                                                                                                                                                                    | Version 3.2.10 (scheduled for EOL, see [Redis OSS versions end of life schedule](engine-versions.md#deprecated-engine-versions "engine-versions.md#deprecated-engine-versions")) and later.                                                                               |
+For versions below 5.0.6,
+the limit is 250 per cluster.
 
-## Which should I choose?
+To request a limit increase, see
+[AWS Service Limits](../../../general/latest/gr/aws_service_limits.md "../../../general/latest/gr/aws_service_limits.md")
+and choose the limit type **Nodes per cluster per instance type**.
 
-When choosing between Valkey or Redis OSS (cluster mode disabled) or Valkey or Redis OSS (cluster mode enabled), consider the following
-factors:
+![Image: Valkey or Redis OSS (cluster mode disabled) cluster has one shard and 0 to 5 replica nodes](images/ElastiCacheClusters-CSN-Redis-Replicas.png)
+_Valkey or Redis OSS (cluster mode disabled) cluster has one shard and 0 to 5 replica nodes_
 
-- **Scaling v. partitioning** – Business needs change. You
-  need to either provision for peak demand or scale as demand changes.
-  Valkey or Redis OSS (cluster mode disabled) supports scaling. You can scale read capacity by adding or deleting
-  replica nodes, or you can scale capacity by scaling up to a larger node type. Both
-  of these operations take time. For more information, see [Scaling replica nodes for Valkey or Redis OSS (Cluster Mode Disabled)](Scaling.md "Scaling.md").
+If the cluster with replicas has Multi-AZ enabled and the primary
+node fails, the primary fails over to a read replica. Because the data is updated on the
+replica nodes asynchronously, there may be some data loss due to latency in updating the
+replica nodes. For more information, see [Mitigating Failures when Running Valkey or Redis OSS](disaster-recovery-resiliency.md#FaultTolerance.Redis "disaster-recovery-resiliency.md#FaultTolerance.Redis").
 
- 
+###### Topics
 
-Valkey or Redis OSS (cluster mode enabled) supports partitioning your data across up to 500
-node groups. You can dynamically change the number of shards as your business
-needs change. One advantage of partitioning is that you spread your load over a
-greater number of endpoints, which reduces access bottlenecks during peak demand.
-Additionally, you can accommodate a larger data set since the data can be spread
-across multiple servers. For information on scaling your partitions, see [Scaling Valkey or Redis OSS (Cluster Mode Enabled) clusters](scaling-redis-cluster-mode-enabled.md "scaling-redis-cluster-mode-enabled.md").
-
-- **Node size v. number of nodes** – Because a Valkey or Redis OSS (cluster mode disabled)
-  cluster has only one shard, the node type must be large enough to accommodate all
-  the cluster's data plus necessary overhead. On the other hand, because you can
-  partition your data across several shards when using a Valkey or Redis OSS (cluster mode enabled) cluster, the
-  node types can be smaller, though you need more of them. For more information, see
-  [Choosing your node size](CacheNodes.md "CacheNodes.md").
-- **Reads v. writes** – If the primary load on your cluster
-  is applications reading data, you can scale a Valkey or Redis OSS (cluster mode disabled) cluster by adding and
-  deleting read replicas. However, there is a maximum of
-  5 read replicas. If the load on your cluster is
-  write-heavy, you can benefit from the additional write endpoints of a
-  Valkey or Redis OSS (cluster mode enabled) cluster with multiple shards.
-
-Whichever type of cluster you choose to implement, be sure to choose a node type
-that is adequate for your current and future needs.
+- [Understanding Valkey and Redis OSS replication](Replication.Redis.md "Replication.Redis.md")
+- [Replication: Valkey and Redis OSS Cluster Mode Disabled vs. Enabled](Replication.md "Replication.md")
+- [Minimizing downtime in ElastiCache by using Multi-AZ with Valkey and Redis OSS](AutoFailover.md "AutoFailover.md")
+- [How synchronization and backup are implemented](Replication.Redis.md "Replication.Redis.md")
+- [Creating a Valkey or Redis OSS replication group](Replication.md "Replication.md")
+- [Viewing a replication group's details](Replication.md "Replication.md")
+- [Finding replication group endpoints](Replication.md "Replication.md")
+- [Modifying a replication group](Replication.md "Replication.md")
+- [Deleting a replication group](Replication.md "Replication.md")
+- [Changing the number of replicas](increase-decrease-replica-count.md "increase-decrease-replica-count.md")
+- [Promoting a read replica to primary, for Valkey or Redis OSS (cluster mode disabled) replication groups](Replication.md "Replication.md")

@@ -61,7 +61,9 @@ To view the list of available service updates, along with other information, go 
 2. On the navigation pane, choose **Service Updates**.
 3. Under **Service updates** you can view the following:
    - **Service update name**: The unique name of the service update
-   - **Update type**: The type of the service update, which is one of **security-update** or **engine-update**
+   - **Update type**: The type of the service update,
+     which is one of **security-update**, **engine-update** or
+     **engine-major-version-update**
    - **Update severity**: The priority of
      applying the update:
      - **critical:** We recommend

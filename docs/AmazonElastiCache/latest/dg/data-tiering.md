@@ -36,13 +36,7 @@ We recommend the following best practices:
 Data tiering has the following limitations:
 
 - You can only use data tiering on clusters that are part of a replication group.
-- The node type you use must be from the r6gd family, which is available in the following regions:
-
-`us-east-2`, `us-east-1`, `us-west-2`, `us-west-1`, `eu-west-1`,
-`eu-central-1`, `eu-north-1`, `eu-west-3`, `ap-northeast-1`, `ap-southeast-1`, `ap-southeast-2`,
-
-`ap-south-1`, `ca-central-1` and `sa-east-1`.
-
+- The node type you use must be from the r6gd family.
 - You must use an engine that is Valkey 7.2 or later, or a Redis OSS 6.2 or later.
 - You cannot restore a backup of an r6gd cluster into another cluster unless it also uses r6gd.
 - You cannot export a backup to Amazon S3 for data-tiering clusters.

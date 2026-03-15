@@ -1,65 +1,88 @@
-# Large number of connections (Valkey and Redis OSS)
+# Configure a client-side timeout (Valkey and Redis OSS)
 
-Serverless caches and individual ElastiCache for Redis OSS nodes support up to 65,000 concurrent client connections. However, to optimize for performance, we advise that client applications do not constantly operate at that level of connections.
-Valkey and Redis OSS each have a single-threaded process based on an event loop where incoming client requests are handled sequentially. That means the response time of a given client becomes longer as the number of connected clients increases.
+**Configuring the client-side timeout**
 
-You can take the following set of actions to avoid hitting a connection bottleneck on a Valkey or Redis OSS server:
+Configure the client-side timeout appropriately to allow the server sufficient time to process the request and generate the response. This also allows it to fail fast if the connection to the server can't be established.
+Certain Valkey or Redis OSS commands can be more computationally expensive than others. For example, Lua scripts or MULTI/EXEC transactions that contain multiple commands that must be run atomically. In general, a higher client-side timeout is
+recommended to avoid a time out of the client before the response is received from the server, including the following:
 
-- Perform read operations from read replicas. This can be done by using the ElastiCache reader endpoints in cluster mode disabled or by using replicas for reads in cluster mode enabled, including a serverless cache.
-- Distribute write traffic across multiple primary nodes. You can do this in two ways. You can use a multi-sharded Valkey or Redis OSS cluster with a cluster mode capable client. You could also write to multiple primary nodes
-  in cluster mode disabled with client-side sharding. This is done automatically in a serverless cache.
-- Use a connection pool when available in your client library.
-  In general, creating a TCP connection is a computationally expensive operation compared to typical Valkey or Redis OSS commands. For example, handling a SET/GET request is an order of magnitude faster when reusing an existing connection.
-  Using a client connection pool with a finite size reduces the overhead of connection management. It also bounds the number of concurrent incoming connections from the client application.
+- Running commands across multiple keys
+- Running MULTI/EXEC transactions or Lua scripts that consist of multiple individual Valkey or Redis OSS commands
+- Reading large values
+- Performing blocking operations such as BLPOP
+  In case of a blocking operation such as BLPOP, the best practice is to set the command timeout to a number lower than the socket timeout.
 
-The following code example of PHPRedis shows that a new connection is created for each new user request:
+The following are code examples for implementing a client-side timeout in redis-py, PHPRedis, and Lettuce.
+
+**Timeout configuration sample 1: redis-py**
+
+The following is a code example with redis-py:
 
 ```
-$redis = new Redis();
-if ($redis->connect($HOST, $PORT) != TRUE) {
-	//ERROR: connection failed
-	return;
+# connect to Redis server with a 100 millisecond timeout
+# give every Redis command a 2 second timeout
+client = redis.Redis(connection_pool=redis.BlockingConnectionPool(host=HOST, max_connections=10,socket_connect_timeout=0.1,socket_timeout=2))
+
+res = client.set("key", "value") # will timeout after 2 seconds
+print(res)                       # if there is a connection error
+
+res = client.blpop("list", timeout=1) # will timeout after 1 second
+                                      # less than the 2 second socket timeout
+print(res)
+```
+
+**Timeout config sample 2: PHPRedis**
+
+The following is a code example with PHPRedis:
+
+```
+// connect to Redis server with a 100ms timeout
+// give every Redis command a 2s timeout
+$client = new Redis();
+$timeout = 0.1; // 100 millisecond connection timeout
+$retry_interval = 100; // 100 millisecond retry interval
+$client = new Redis();
+if($client->pconnect($HOST, $PORT, 0.1, NULL, 100, $read_timeout=2) != TRUE){
+	return; // ERROR: connection failed
 }
-$redis->set($key, $value);
-unset($redis);
-$redis = NULL;
+$client->set($key, $value);
+
+$res = $client->set("key", "value"); // will timeout after 2 seconds
+print "$res\n";                      // if there is a connection error
+
+$res = $client->blpop("list", 1); // will timeout after 1 second
+print "$res\n";                   // less than the 2 second socket timeout
 ```
 
-We benchmarked this code in a loop on an Amazon Elastic Compute Cloud (Amazon EC2) instance connected to a Graviton2 (m6g.2xlarge) ElastiCache for Redis OSS node. We placed both the client and server at the same Availability Zone.
-The average latency of the entire operation was 2.82 milliseconds.
+**Timeout config sample 3: Lettuce**
 
-When we updated the code and used persistent connections and a connection pool, the average latency of the entire operation was 0.21 milliseconds:
-
-```
-$redis = new Redis();
-if ($redis->pconnect($HOST, $PORT) != TRUE) {
-	// ERROR: connection failed
-	return;
-}
-$redis->set($key, $value);
-unset($redis);
-$redis = NULL;
-```
-
-Required redis.ini configurations:
-
-- `redis.pconnect.pooling_enabled=1`
-- `redis.pconnect.connection_limit=10`
-  The following code is an example of a [Redis-py connection pool](https://redis.readthedocs.io/en/stable/ "https://redis.readthedocs.io/en/stable/"):
+The following is a code example with Lettuce:
 
 ```
-conn = Redis(connection_pool=redis.BlockingConnectionPool(host=HOST, max_connections=10))
-conn.set(key, value)
-```
+// connect to Redis server and give every command a 2 second timeout
+public static void main(String[] args)
+{
+	RedisClient client = null;
+	StatefulRedisConnection<String, String> connection = null;
+	try {
+		client = RedisClient.create(RedisURI.create(HOST, PORT));
+		client.setOptions(ClientOptions.builder()
+	.socketOptions(SocketOptions.builder().connectTimeout(Duration.ofMillis(100)).build()) // 100 millisecond connection timeout
+	.timeoutOptions(TimeoutOptions.builder().fixedTimeout(Duration.ofSeconds(2)).build()) // 2 second command timeout
+	.build());
 
-The following code is an example of a [Lettuce connection pool](https://lettuce.io/core/release/reference/#_connection_pooling "https://lettuce.io/core/release/reference/#_connection_pooling"):
+		// use the connection pool from above example
 
-```
-RedisClient client = RedisClient.create(RedisURI.create(HOST, PORT));
-GenericObjectPool<StatefulRedisConnection> pool = ConnectionPoolSupport.createGenericObjectPool(() -> client.connect(), new GenericObjectPoolConfig());
-pool.setMaxTotal(10); // Configure max connections to 10
-try (StatefulRedisConnection connection = pool.borrowObject()) {
-	RedisCommands syncCommands = connection.sync();
-	syncCommands.set(key, value);
+		commands.set("key", "value"); // will timeout after 2 seconds
+		commands.blpop(1, "list"); // BLPOP with 1 second timeout
+	} finally {
+		if (connection != null) {
+			connection.close();
+		}
+
+		if (client != null){
+			client.shutdown();
+		}
+	}
 }
 ```

@@ -73,7 +73,7 @@ For more information, see [Supported node types](CacheNodes.md "CacheNodes.md").
   `TransitEncryptionEnabled` to `true`.
 - Ensure that your caching client supports TLS connectivity and that you have
   enabled it in client configuration.
-- Starting January 26, 2026, AWS will update the minimum supported TLS version to 1.2 on ElastiCache for Valkey version 7.2 and above, and ElastiCache for Redis OSS version 6 and above. Customers must update their client software before that date. This update helps you meet security, compliance, and regulatory needs.
+- Starting April 28, 2026, AWS will update the minimum supported TLS version to 1.2 on ElastiCache for Valkey version 7.2 and above, and ElastiCache for Redis OSS version 6 and above. Customers must update their client software before that date. This update helps you meet security, compliance, and regulatory needs.
 
 ## In-transit encryption conditions (Memcached)
 

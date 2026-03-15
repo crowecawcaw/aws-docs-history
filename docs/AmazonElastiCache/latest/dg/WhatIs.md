@@ -1,12 +1,48 @@
-# AWS Regions and Availability Zones
+# What is Amazon ElastiCache?
 
-Amazon cloud computing resources are housed in highly available data center facilities in different areas of the world (for example, North America, Europe, or Asia).
-Each data center location is called an AWS Region.
+Welcome to the _Amazon ElastiCache User Guide_. Amazon ElastiCache is a web service that makes
+it easy to set up, manage, and scale a distributed in-memory data store or cache environment
+in the cloud. It provides a high-performance, scalable, and cost-effective caching solution.
+At the same time, it helps remove the complexity associated with deploying and managing a
+distributed cache environment.
 
-Each AWS Region contains multiple distinct locations called Availability Zones, or AZs. Each Availability Zone is engineered to be isolated from
-failures in other Availability Zones. Each is engineered to provide inexpensive, low-latency network connectivity to other Availability Zones in
-the same AWS Region. By launching instances in separate Availability Zones, you can protect your applications from the failure of a single location.
-For more information, see [Choosing regions and availability zones](RegionsAndAZs.md "RegionsAndAZs.md").
+You can operate Amazon ElastiCache in two formats. You can get started with a serverless cache or
+create a node-based cluster.
 
-You can create your cluster in several Availability Zones, an option called a Multi-AZ deployment. When you choose this option, Amazon automatically provisions and maintains a secondary standby node instance in a different Availability Zone. Your primary node instance is asynchronously replicated across Availability Zones to the secondary instance. This approach helps provide data redundancy and failover support, eliminate I/O freezes, and minimize latency spikes during system backups.
-For more information, see [Minimizing downtime in ElastiCache for Valkey and Redis OSS with Multi-AZ](AutoFailover.md "AutoFailover.md").
+###### Note
+
+Amazon ElastiCache works with the Valkey, Memcached, and Redis OSS engines. If you're unsure which engine you want to use, see [Comparing node-based Valkey, Memcached, and Redis OSS clusters](SelectEngine.md "SelectEngine.md") in this guide.
+
+## Serverless caching
+
+ElastiCache offers serverless caching, which simplifies adding and operating a cache
+for your application. ElastiCache Serverless enables you to create a highly available cache in under a
+minute, and eliminates the need to provision instances or configure nodes or clusters. Developers
+can create a Serverless cache by specifying the cache name using the ElastiCache console, SDK or CLI.
+
+ElastiCache Serverless also removes the need to plan and manage caching capacity. ElastiCache constantly monitors
+the cache’s memory, compute, and network bandwidth used by your application, and scales to meet the
+needs of your application. ElastiCache offers a simple endpoint experience for developers, by abstracting the
+underlying cache infrastructure and cluster design. ElastiCache manages hardware provisioning, monitoring,
+node replacements, and software patching automatically and transparently, so that you can focus on
+application development, rather than operating the cache.
+
+ElastiCache Serverless is compatible with Valkey 7.2, Memcached 1.6.22 and above, and Redis OSS 7.1 and above.
+
+## Creating a node-based cluster
+
+If you need fine-grained control over your ElastiCache cluster, you can choose to create a node-based
+Valkey, Memcached, or Redis OSS cluster. ElastiCache enables you to create a node-based cluster by choosing
+the node-type, number of nodes, and node placement across AWS Availability Zones for your cluster.
+Since ElastiCache is a fully-managed service, it automatically manages hardware provisioning, monitoring,
+node replacements, and software patching for your cluster.
+
+Creating a node-based cluster offers greater flexibility and control over your clusters.
+For example, you can choose to operate a cluster with single-AZ availability or multi-AZ availability
+depending on your needs. You can also choose to run Valkey, Memcached, or Redis OSS in cluster mode enabling horizontal scaling,
+or without cluster mode for just scaling vertically. When creating a node-based cluster, you are responsible
+for choosing the type and number of nodes correctly to ensure that your cache has enough capacity
+
+as required by your application. You can also choose when to apply new software patches to your Valkey or Redis OSS cluster.
+
+When creating a node-based cluster you can choose from multiple supported versions of Valkey, Memcached and Redis OSS. For more information about supported engine versions see [Engine versions and upgrading in ElastiCache](engine-versions.md "engine-versions.md").
