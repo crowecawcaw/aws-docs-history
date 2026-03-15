@@ -30,12 +30,15 @@ JSON
  "Version":"2012-10-17",
  "Statement": [
  {
- "Action": ["dsql:CreateCluster"],
- "Resource": [
- "arn:aws:dsql:us-east-1:*:cluster/*",
- "arn:aws:dsql:us-east-2:*:cluster/*"
- ],
- "Effect": "Allow"
+ "Sid": "CreateDsqlServiceLinkedRole",
+ "Effect": "Allow",
+ "Action": "iam:CreateServiceLinkedRole",
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "iam:AWSServiceName": "dsql.amazonaws.com"
+ }
+ }
  }
  ]
 }`

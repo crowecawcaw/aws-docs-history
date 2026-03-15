@@ -70,10 +70,12 @@ Aurora DSQL supports the following PostgreSQL DCL commands.
 
 Aurora DSQL supports the following PostgreSQL TCL commands.
 
-| Command  | Supported clauses |
-| -------- | ----------------- | ------------------------------ | ------------- |
-| `COMMIT` |                   |
-| `BEGIN`  | [`WORK`           | `TRANSACTION`]<br>[`READ ONLY` | `READ WRITE`] |
+| Command             | Supported clauses                                    | Alias                                                                  |
+| ------------------- | ---------------------------------------------------- | ---------------------------------------------------------------------- | ------------ | --- |
+| `COMMIT`            | [`WORK`                                              | `TRANSACTION`]<br>[`AND NO CHAIN`]                                     | `END`        |
+| `BEGIN`             | [`WORK`                                              | `TRANSACTION`]<br>[`ISOLATION LEVEL REPEATABLE READ`]<br>[`READ WRITE` | `READ ONLY`] |     |
+| `START TRANSACTION` | [`ISOLATION LEVEL REPEATABLE READ`]<br>[`READ WRITE` | `READ ONLY`]                                                           |              |
+| `ROLLBACK`          | [`WORK`                                              | `TRANSACTION`]<br>[`AND NO CHAIN`]                                     | `ABORT`      |
 
 ## Utility commands
 

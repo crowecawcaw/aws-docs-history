@@ -15,6 +15,8 @@ For details about actions and resource types defined by Aurora DSQL, including t
 - [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
 - [Using the Aurora DSQL console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
 - [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Allow cluster management and database connection](#security_iam_id-based-policy-examples-cluster-management "#security_iam_id-based-policy-examples-cluster-management")
+- [Aurora DSQL resource access based on tags](#security_iam_id-based-policy-examples-tag-based-access "#security_iam_id-based-policy-examples-tag-based-access")
 
 ## Policy best practices
 
@@ -104,4 +106,128 @@ identity. This policy includes permissions to complete this action on the consol
         }
     ]
 }
+```
+
+## Allow cluster management and database connection
+
+The following policy grants an IAM user permission to manage and connect to a
+specific Aurora DSQL cluster. The policy scopes cluster management and connection actions to a
+single cluster Amazon Resource Name (ARN), while allowing `dsql:ListClusters` on all
+resources because this action does not support resource-level permissions.
+
+This example uses `dsql:DbConnectAdmin` to connect with the
+`admin` role. To connect with a custom database role instead, replace
+`dsql:DbConnectAdmin` with
+`dsql:DbConnect`. For more information, see [Authentication and authorization for Aurora DSQL](authentication-authorization.md "authentication-authorization.md").
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "AllowClusterManagement",
+ "Effect": "Allow",
+ "Action": [
+ "dsql:GetCluster",
+ "dsql:UpdateCluster",
+ "dsql:DeleteCluster",
+ "dsql:DbConnectAdmin",
+ "dsql:TagResource",
+ "dsql:ListTagsForResource",
+ "dsql:UntagResource"
+ ],
+ "Resource": "arn:aws:dsql:*:123456789012:cluster/my-cluster-id"
+ },
+ {
+ "Sid": "AllowListClusters",
+ "Effect": "Allow",
+ "Action": "dsql:ListClusters",
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+## Aurora DSQL resource access based on tags
+
+You can use conditions in your identity-based policy to control access to Aurora DSQL
+resources based on tags. The following example shows how you might create a policy that
+allows viewing a cluster. However, the policy grants permission only if the cluster tag
+`Owner` has the value of that user's user name. This policy also grants the
+permissions necessary to complete this action on the console.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "ListClustersInConsole",
+ "Effect": "Allow",
+ "Action": "dsql:ListClusters",
+ "Resource": "*"
+ },
+ {
+ "Sid": "ViewClusterIfOwner",
+ "Effect": "Allow",
+ "Action": "dsql:GetCluster",
+ "Resource": "arn:aws:dsql:*:*:cluster/*",
+ "Condition": {
+ "StringEquals": {
+ "aws:ResourceTag/Owner": "${aws:username}"
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+You can attach this policy to the IAM users in your account. If a user named
+`richard-roe` attempts to view an Aurora DSQL cluster, the cluster must be
+tagged `Owner=richard-roe` or `owner=richard-roe`. Otherwise
+IAM denies access. The condition tag key `Owner` matches both
+`Owner` and `owner` because condition key names are not
+case-sensitive. For more information, see [IAM JSON policy
+elements: Condition](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") in the _IAM User Guide_.
+
+The following policy allows a user to create clusters only if they tag the cluster
+with their own user name as the `Owner`. It also allows tagging only on
+clusters that the user already owns.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "AllowCreateTaggedCluster",
+ "Effect": "Allow",
+ "Action": "dsql:CreateCluster",
+ "Resource": "arn:aws:dsql:*:123456789012:cluster/*",
+ "Condition": {
+ "StringEquals": {
+ "aws:RequestTag/Owner": "${aws:username}"
+ }
+ }
+ },
+ {
+ "Sid": "AllowTagOwnedClusters",
+ "Effect": "Allow",
+ "Action": "dsql:TagResource",
+ "Resource": "arn:aws:dsql:*:123456789012:cluster/*",
+ "Condition": {
+ "StringEquals": {
+ "aws:ResourceTag/Owner": "${aws:username}"
+ }
+ }
+ }
+ ]
+}`
+
 ```

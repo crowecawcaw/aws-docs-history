@@ -1,7 +1,7 @@
 # System tables and commands in Aurora DSQL
 
 See the following sections to learn about the supported system tables and catalogs in
-Aurora DSQL.
+Aurora DSQL as well as useful queries for fetching information about the system, such as the version.
 
 ## System tables
 
@@ -239,7 +239,7 @@ SELECT * FROM sys.iam_pg_role_mappings;
 
 ## Useful system metadata queries
 
-Use these queries to get table statistics and metadata without performing expensive operations like full table scans.
+Use these queries to get table statistics and system metadata without performing expensive operations like full table scans.
 
 ### Get estimated row count for a table
 
@@ -258,6 +258,42 @@ The command returns output similar to the following:
 ```
 
 This approach is more efficient than `SELECT COUNT(*)` for large tables in Aurora DSQL.
+
+### Get current Aurora DSQL major version
+
+To get the current major version of the Aurora DSQL cluster, use the following query:
+
+```
+SELECT * FROM sys.dsql_major_version();
+```
+
+The command returns output similar to the following:
+
+```
+ dsql_major_version
+--------------------
+                  1
+```
+
+This returns the major version the SQL connection is on in Aurora DSQL.
+
+### Get current PostgreSQL version
+
+To get the current PostgreSQL version of the Aurora DSQL cluster, use the following query:
+
+```
+SHOW server_version;
+```
+
+The command returns output similar to the following:
+
+```
+ server_version
+----------------
+ 16.13
+```
+
+This returns the PostgreSQL version the SQL connection is on in Aurora DSQL.
 
 ## The `ANALYZE` command
 

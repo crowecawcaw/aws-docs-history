@@ -1,0 +1,293 @@
+# Loading data into Aurora DSQL
+
+Whether you are migrating from an existing database, importing files from Amazon Simple Storage Service, or loading data from your local system, Aurora DSQL provides multiple approaches for getting your data in. This section covers the recommended tools and techniques for data loads of all sizes, from gigabytes to hundreds of terabytes.
+
+## Choosing a loading approach
+
+Aurora DSQL supports standard PostgreSQL data loading commands, but loading data efficiently at scale requires handling parallelization, connection management, and error recovery. The following table summarizes your options:
+
+| Approach                                                                                                         | Best for                                                            | Considerations                                                                                                                              |
+| ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| \*_Aurora DSQL Loader_<br>• Open source utility that makes it easy to parallelize inserts when using Aurora DSQL | Most data loading scenarios, especially migrations and bulk imports | Handles parallelization, connection pooling, conflict resolution, and IAM authentication automatically. Available as source code or binary. |
+| \*_PostgreSQL `COPY`_<br>• Standard PostgreSQL feature                                                           | Simple loads when you are already connected via a compatible client | Requires your client to handle IAM authentication; you manage parallelization yourself                                                      |
+| \*_`INSERT` transactions_<br>• Standard `SQL DML`                                                                | Small datasets or application-driven inserts                        | Simplest approach but slowest for bulk data                                                                                                 |
+
+For most data loading tasks, use the Aurora DSQL Loader. It handles the operational complexity of loading data into a distributed database, including parallel execution across multiple connections and automatic retry of failed operations.
+
+## Aurora DSQL Loader
+
+The [Aurora DSQL Loader](https://github.com/aws-samples/aurora-dsql-loader "https://github.com/aws-samples/aurora-dsql-loader") is an open-source command-line utility designed to efficiently load data into Aurora DSQL clusters. It manages connection pooling, parallelizes data transfer across multiple workers, and handles conflicts and retries automatically.
+
+### Key features
+
+The Aurora DSQL Loader provides the following capabilities:
+
+**Parallel loading**
+
+Configurable worker threads enable concurrent data loading across multiple connections for improved performance.
+
+**Connection pooling**
+
+Manages a pool of connections to your Aurora DSQL cluster, handling IAM authentication and connection lifecycle automatically.
+
+**Multiple file format support**
+
+Supports CSV (comma-separated values), TSV (tab-separated values), and Apache Parquet columnar format. The loader automatically detects the file format based on the source URI extension.
+
+**Automatic schema inference**
+
+When used with the `--if-not-exists` flag, the loader can automatically create tables with appropriate column types based on the data.
+
+**Conflict handling**
+
+When your target table has unique constraints, configure how the loader handles conflicts using the `--on-conflict` option: skip duplicates, upsert records, or return an error.
+
+**Fault tolerance**
+
+Automatic retries and job resumption capabilities ensure that interrupted loads can continue from their stopping point rather than restarting entirely.
+
+**Local and S3 sources**
+
+Load data from local file system paths or directly from Amazon S3 buckets using S3 URIs.
+
+### Prerequisites
+
+Before using the Aurora DSQL Loader, ensure you have the following:
+
+- An active Aurora DSQL cluster with a valid endpoint.
+- AWS credentials configured through the AWS CLI (**aws configure**), AWS Single Sign-On (**aws sso login**), or IAM roles.
+- IAM permissions: `dsql:DbConnectAdmin` or `dsql:DbConnect` on your Aurora DSQL cluster.
+- For S3 sources, appropriate permissions to read from the source bucket.
+
+### Installation
+
+Download the latest release from the [GitHub releases page](https://github.com/aws-samples/aurora-dsql-loader/releases/latest "https://github.com/aws-samples/aurora-dsql-loader/releases/latest"). Pre-built binaries are available for common platforms. For instructions on building from source, see the [Aurora DSQL Loader repository](https://github.com/aws-samples/aurora-dsql-loader "https://github.com/aws-samples/aurora-dsql-loader").
+
+### Usage examples
+
+The following examples demonstrate common use cases for the Aurora DSQL Loader.
+
+###### Example Loading a local CSV file
+
+This example loads a CSV file from your local file system into an existing table:
+
+```
+aurora-dsql-loader load \
+  --endpoint `cluster-id`.dsql.`region`.on.aws \
+  --source-uri `data.csv` \
+  --table `my_table`
+```
+
+###### Example Loading data from Amazon S3
+
+This example loads a Parquet file from an Amazon S3 bucket:
+
+```
+aurora-dsql-loader load \
+  --endpoint `cluster-id`.dsql.`region`.on.aws \
+  --source-uri s3://`my-bucket`/`data.parquet` \
+  --table `my_table`
+```
+
+###### Example Automatic table creation
+
+This example creates a new table automatically based on the data schema:
+
+```
+aurora-dsql-loader load \
+  --endpoint `cluster-id`.dsql.`region`.on.aws \
+  --source-uri `data.csv` \
+  --table `my_table` \
+  --if-not-exists
+```
+
+###### Example Validating before loading
+
+This example validates your configuration without actually loading data:
+
+```
+aurora-dsql-loader load \
+  --endpoint `cluster-id`.dsql.`region`.on.aws \
+  --source-uri `data.csv` \
+  --table `my_table` \
+  --dry-run
+```
+
+###### Example Resuming an interrupted load
+
+If a load operation is interrupted, you can resume it using the job ID from the previous run:
+
+```
+aurora-dsql-loader load \
+  --endpoint `cluster-id`.dsql.`region`.on.aws \
+  --source-uri `data.csv` \
+  --table `my_table` \
+  --resume-job-id `job-id` \
+  --manifest-dir `./loader-state`
+```
+
+###### Note
+
+When resuming, the loader skips most already-completed work but may retry some records. If your target table has unique constraints, use the `--on-conflict` option to handle duplicates—for example, `DO NOTHING` to skip them or `DO UPDATE` to upsert.
+
+### Command-line options
+
+The Aurora DSQL Loader supports the following command-line options:
+
+`--endpoint`
+
+(Required) The Aurora DSQL cluster endpoint. Example: ``cluster-id`.dsql.`region`.on.aws`
+
+`--source-uri`
+
+(Required) The path to the data file. Can be a local file path or an S3 URI (for example, `s3://`bucket-name`/`file.parquet``).
+
+`--table`
+
+(Required) The name of the target table in your Aurora DSQL database.
+
+`--if-not-exists`
+
+(Optional) Automatically create the target table if it does not exist. The loader infers the schema from the data.
+
+`--dry-run`
+
+(Optional) Validate the configuration and data without actually loading it into the database.
+
+`--resume-job-id`
+
+(Optional) Resume a previously interrupted load operation using the specified job ID.
+
+`--manifest-dir`
+
+(Optional) Directory for storing job state and manifests, used for job resumption.
+
+`--on-conflict`
+
+(Optional) Specifies how to handle conflicts when inserting rows that violate unique constraints on the target table. Valid values are `error` (return an error), `do-nothing` (skip duplicate rows), or `do-update` (update existing rows with new values).
+
+For a complete list of options and additional configuration parameters, run:
+
+```
+aurora-dsql-loader load --help
+```
+
+### Best practices
+
+- **Use dry-run for validation** – Always test your load configuration with `--dry-run` before loading data into production tables.
+- **Define unique constraints for resumption** – If you need to resume interrupted loads, define unique constraints on your target tables and use the `--on-conflict` option to handle already-loaded records.
+- **Use Parquet for large datasets** – Parquet's columnar format typically provides better compression and faster loading for large datasets compared to CSV or TSV.
+- **Preserve manifest directories** – Keep the manifest directory for load jobs until you confirm the load completed successfully, enabling resumption if needed.
+
+### Troubleshooting
+
+Authentication errors
+
+Verify your AWS credentials are configured correctly and that your IAM identity has the required `dsql:DbConnect` or `dsql:DbConnectAdmin` permissions on the target cluster.
+
+S3 access errors
+
+Ensure your IAM identity has appropriate S3 read permissions for the source bucket and objects.
+
+Schema inference errors
+
+When using `--if-not-exists`, ensure your data file has consistent column types. Mixed types in a column may cause schema inference to fail.
+
+Duplicate key errors on resume
+
+If you encounter duplicate key errors when resuming a load, add unique constraints to your target table so the loader can use `ON CONFLICT DO NOTHING` to skip already-loaded records.
+
+For additional troubleshooting information, see the [Aurora DSQL Loader GitHub repository](https://github.com/aws-samples/aurora-dsql-loader "https://github.com/aws-samples/aurora-dsql-loader").
+
+## Migration pathways
+
+The following sections describe how to migrate data from common source systems into Aurora DSQL.
+
+### Migrating from PostgreSQL
+
+To migrate data from an existing PostgreSQL database to Aurora DSQL:
+
+1. Export your data from PostgreSQL to CSV or Parquet format. You can use the PostgreSQL `COPY` command to export each table:
+
+```
+COPY `my_table` TO '`/path/to/my_table.csv`' WITH (FORMAT csv, HEADER true);
+```
+
+2. Create the target table in Aurora DSQL. You can either create the schema manually or use the loader's `--if-not-exists` flag to infer the schema from your data.
+3. Load the exported data using the Aurora DSQL Loader:
+
+```
+aurora-dsql-loader load \
+  --endpoint `cluster-id`.dsql.`region`.on.aws \
+  --source-uri `/path/to/my_table.csv` \
+  --table `my_table`
+```
+
+###### Tip
+
+For large migrations, consider exporting to Parquet format for better compression and faster loading. Tools like DuckDB can convert CSV files to Parquet efficiently.
+
+### Migrating from MySQL
+
+To migrate data from MySQL to Aurora DSQL:
+
+1. Export your data from MySQL to CSV format using `SELECT INTO OUTFILE` or a tool like **mysqldump** with the `--tab` option:
+
+```
+SELECT * FROM `my_table`
+INTO OUTFILE '`/path/to/my_table.csv`'
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n';
+```
+
+2. Create the target table in Aurora DSQL with appropriate PostgreSQL-compatible data types.
+3. Load the exported data using the Aurora DSQL Loader:
+
+```
+aurora-dsql-loader load \
+  --endpoint `cluster-id`.dsql.`region`.on.aws \
+  --source-uri `/path/to/my_table.csv` \
+  --table `my_table`
+```
+
+###### Note
+
+MySQL and PostgreSQL have different data type systems. Review your schema and adjust data types as needed when creating tables in Aurora DSQL.
+
+### Loading from Amazon S3
+
+If your data is already in Amazon S3, you can load it directly without downloading to your local system. The Aurora DSQL Loader supports S3 URIs natively:
+
+```
+aurora-dsql-loader load \
+  --endpoint `cluster-id`.dsql.`region`.on.aws \
+  --source-uri s3://`my-bucket`/`path/to/data.parquet` \
+  --table `my_table`
+```
+
+Ensure your IAM identity has `s3:GetObject` permission on the source objects.
+
+## Using PostgreSQL COPY
+
+If you are already connected to Aurora DSQL through a client that handles IAM authentication, you can use the standard PostgreSQL `COPY` command to load data. This approach works well for simple, single-threaded loads.
+
+###### Example Loading a CSV file with COPY
+
+```
+COPY `my_table` FROM '`/path/to/data.csv`' WITH (FORMAT csv, HEADER true);
+```
+
+When using `COPY` directly, you are responsible for:
+
+- Managing parallelization if loading multiple files or large datasets
+- Handling connection management and authentication token refresh
+- Implementing retry logic for failed operations
+
+For most use cases, the Aurora DSQL Loader provides a simpler and more robust approach to data loading.
+
+## Additional resources
+
+- [Aurora DSQL Loader on GitHub](https://github.com/aws-samples/aurora-dsql-loader "https://github.com/aws-samples/aurora-dsql-loader") – Source code, documentation, and issue tracking
+- [Generating an authentication token in Amazon Aurora DSQL](SECTION_authentication-token.md "SECTION_authentication-token.md") – Learn about IAM authentication tokens for Aurora DSQL
+- [Accessing Aurora DSQL with PostgreSQL-compatible clients](accessing.md "accessing.md") – Connect to Aurora DSQL using various clients and tools

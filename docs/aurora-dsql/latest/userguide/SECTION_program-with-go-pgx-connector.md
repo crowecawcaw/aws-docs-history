@@ -221,7 +221,7 @@ The connector automatically generates and caches IAM authentication tokens for o
 - **Single connections**: A token is generated at connection time using pre-resolved credentials.
 - **Credentials resolution**: AWS credentials are resolved once when the pool/connection is created and reused for all token generations.
 
-Token duration defaults to 15 minutes (the maximum allowed by Aurora DSQL).
+Token duration defaults to 900 seconds (15 minutes).
 
 ## Examples
 

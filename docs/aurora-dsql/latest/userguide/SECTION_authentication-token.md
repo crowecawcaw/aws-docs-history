@@ -174,6 +174,11 @@ as in the example
   `us-east-1`.
 
 Python SDK
+
+###### Tip
+
+AWS recommends using the [Aurora DSQL Connector for Python](SECTION_program-with-dsql-connector-for-python.md "SECTION_program-with-dsql-connector-for-python.md"), which handles token generation automatically.
+
 You can generate the token in the following ways:
 
 - If you are connecting with the `admin` role, use
@@ -237,6 +242,11 @@ int main() {
 ```
 
 JavaScript SDK
+
+###### Tip
+
+AWS recommends using the [Aurora DSQL Connectors for Node.js](SECTION_Node-js-connectors.md "SECTION_Node-js-connectors.md"), which handle token generation automatically.
+
 You can generate the token in the following ways:
 
 - If you are connecting with the `admin` role, use
@@ -265,6 +275,11 @@ async function generateToken(yourClusterEndpoint, region) {
 ```
 
 Java SDK
+
+###### Tip
+
+AWS recommends using the [Connecting to Aurora DSQL clusters with a JDBC connector](SECTION_program-with-jdbc-connector.md "SECTION_program-with-jdbc-connector.md"), which handles token generation automatically.
+
 You can generate the token in the following ways:
 
 - If you are connecting with the `admin` role, use
@@ -326,6 +341,11 @@ async fn generate_token(your_cluster_endpoint: String, region: String) -> String
 ```
 
 Ruby SDK
+
+###### Tip
+
+AWS recommends using the [Connecting to Aurora DSQL clusters with a Ruby connector](SECTION_program-with-dsql-connector-for-ruby-pg.md "SECTION_program-with-dsql-connector-for-ruby-pg.md"), which handles token generation automatically.
+
 You can generate the token in the following ways:
 
 - If you are connecting with the `admin` role, use
@@ -337,21 +357,17 @@ You can generate the token in the following ways:
 require 'aws-sdk-dsql'
 
 def generate_token(your_cluster_endpoint, region)
-  credentials = Aws::SharedCredentials.new()
+  credentials = Aws::CredentialProviderChain.new.resolve
 
-  begin
-      token_generator = Aws::DSQL::AuthTokenGenerator.new({
-          :credentials => credentials
-      })
+  token_generator = Aws::DSQL::AuthTokenGenerator.new({
+    :credentials => credentials
+  })
 
-      # if you're not using admin role, use generate_db_connect_auth_token instead
-      token = token_generator.generate_db_connect_admin_auth_token({
-          :endpoint => your_cluster_endpoint,
-          :region => region
-      })
-  rescue => error
-    puts error.full_message
-  end
+  # if you're not using admin role, use generate_db_connect_auth_token instead
+  token = token_generator.generate_db_connect_admin_auth_token({
+    :endpoint => your_cluster_endpoint,
+    :region => region
+  })
 end
 ```
 
@@ -418,6 +434,11 @@ Console.WriteLine(token);
 ```
 
 Go
+
+###### Tip
+
+AWS recommends using the [Connecting to Aurora DSQL clusters with a Go connector](SECTION_program-with-go-pgx-connector.md "SECTION_program-with-go-pgx-connector.md"), which handles token generation automatically.
+
 The AWS SDK for Go v2 provides a built-in method for generating
 authentication tokens in the
 [`github.com/aws/aws-sdk-go-v2/feature/dsql/auth`](https://github.com/aws/aws-sdk-go-v2/tree/main/feature/dsql/auth "https://github.com/aws/aws-sdk-go-v2/tree/main/feature/dsql/auth") package.
