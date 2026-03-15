@@ -299,6 +299,7 @@ The response appears as follows:
 - Lineage event has a size limit of 300KB.
   **Common Issues:**
 
+- Verify necessary permissions are given to your job execution role as per [Permissions required for data lineage](datazone-data-lineage-permissions.md "datazone-data-lineage-permissions.md")
 - Your spark job working with S3 files would produce lineage events with s3 datasets,
   even when they are catalog'ed in AWS Glue. To generate events including AWS Glue tables and build proper lineage graph with AWS Glue assets,
   your spark job should instead work with glue tables.
@@ -402,6 +403,7 @@ The response appears as follows:
 - Lineage event has a size limit of 300KB.
   **Common Issues:**
 
+- Verify necessary permissions are given to your job execution role as per [Permissions required for data lineage](datazone-data-lineage-permissions.md "datazone-data-lineage-permissions.md")
 - In case your domain is using a CMK, make sure that the job's
   execution role has the appropriate KMS permissions. CMK can be
   found via [https://docs.aws.amazon.com/datazone/latest/APIReference/API_GetDomain.html](../../../datazone/latest/APIReference/API_GetDomain.md "../../../datazone/latest/APIReference/API_GetDomain.md")

@@ -1,10 +1,15 @@
 # Publishing data lineage programmatically
 
 You can also publish data lineage programmatically using [PostLineageEvent](../../../datazone/latest/APIReference/API_PostLineageEvent.md "../../../datazone/latest/APIReference/API_PostLineageEvent.md") API. The API takes in open lineage run event as the
-payload. Additionally, the following APIs support lineage events and traversing
-lineage graph: [GetLineageEvent](../../../datazone/latest/APIReference/API_GetLineageEvent.md "../../../datazone/latest/APIReference/API_GetLineageEvent.md"), [ListLineageEvents](../../../datazone/latest/APIReference/API_ListLineageEvents.md "../../../datazone/latest/APIReference/API_ListLineageEvents.md"), [GetLineageNode](../../../datazone/latest/APIReference/API_GetLineageNode.md "../../../datazone/latest/APIReference/API_GetLineageNode.md"), and [ListLineageNodeHistory](../../../datazone/latest/APIReference/API_ListLineageNodeHistory.md "../../../datazone/latest/APIReference/API_ListLineageNodeHistory.md").
+payload. Additionally, the following APIs support retrieving lineage events and traversing
+lineage graph:
 
-The following is a sample PostLineageEvent operation payload:
+- [GetLineageEvent](../../../datazone/latest/APIReference/API_GetLineageEvent.md "../../../datazone/latest/APIReference/API_GetLineageEvent.md")
+- [ListLineageEvents](../../../datazone/latest/APIReference/API_ListLineageEvents.md "../../../datazone/latest/APIReference/API_ListLineageEvents.md")
+- [QueryGraph](../../../datazone/latest/APIReference/API_QueryGraph.md "../../../datazone/latest/APIReference/API_QueryGraph.md"): paginated API to return the aggregate view of the lineage graph
+- [GetLineageNode](../../../datazone/latest/APIReference/API_GetLineageNode.md "../../../datazone/latest/APIReference/API_GetLineageNode.md"): Gets the lineage node along with its immediate neighbors
+- [ListLineageNodeHistory](../../../datazone/latest/APIReference/API_ListLineageNodeHistory.md "../../../datazone/latest/APIReference/API_ListLineageNodeHistory.md"): lists the lineage node versions with each version derived from a data/metadata change event
+  The following is a sample PostLineageEvent operation payload:
 
 ```
 

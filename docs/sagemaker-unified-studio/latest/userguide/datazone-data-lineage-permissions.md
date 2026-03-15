@@ -6,8 +6,9 @@ Permissions on following actions are needed to view lineage graph:
 
 - `datazone:GetLineageNode`
 - `datazone:ListLineageNodeHistory`
+- `datazone:QueryGraph`
 
-Both these are included in the `AmazonSageMakerDomainExecution`
+Above permissions are included in the `AmazonSageMakerDomainExecution`
 managed policy and therefore every user in an Amazon SageMaker Unified Studio
 domain can invoke these to view the data lineage graph in Amazon SageMaker
 Unified Studio.
