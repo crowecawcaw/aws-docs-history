@@ -1,6 +1,6 @@
 # Get started with Connector for SCEP
 
-With AWS Private Certificate Authority Connector for SCEP, you can issue certificates from your private CA to SCEP-enabled devices and mobile device management (MDM) systems. When you create a connector, AWS Private Certificate Authority creates a public SCEP URL for you to request certificates, and also provides you with information that you can use to integrate into your MDM systems.
+With AWS Private Certificate Authority Connector for SCEP, you can issue certificates from your private CA to SCEP-enabled devices and mobile device management (MDM) systems. When you create a connector, AWS Private Certificate Authority creates a SCEP URL for you to request certificates, and also provides you with information that you can use to integrate into your MDM systems.
 
 To issue certificates, you must create an AWS Private Certificate Authority private CA, create a connector, and then configure your SCEP-enabled MDM systems and devices to request certificates from the connector.
 
@@ -39,7 +39,11 @@ Sign in to your AWS account and open the Connector for SCEP console at
 3. Under **Connector type**, choose **General-purpose**.
 4. Under **Private CA**, choose the private CA to use with this connector. Or, create a new one by selecting **Create private CA**. Due to the inherent vulnerabilities in the SCEP protocol, we recommend using a private CA that's dedicated to this connector. If you created a new CA, when you finish creating it in AWS Private CA, return to the Connector for SCEP console and refresh the list of private CAs. Your new private CA should be available for selection.
 5. Under **Challenge password** select **Automatically generate challenge password**. We’ll generate a static challenge password for you when we create this connector.
-6. Select **Create connector**.
+6. Under **Connectivity**, choose **Public** to create
+   a connector accessible over the public internet. Or, select **Private**
+   and specify a VPC endpoint to restrict this connector to only be accessible through
+   that specific VPC endpoint.
+7. Select **Create connector**.
 
 Microsoft Intune
 
@@ -55,13 +59,17 @@ Sign in to your AWS account and open the Connector for SCEP console at
    2. For **Directory (tenant) ID or primary domain**, enter either the directory (tenant) ID or primary domain from your Microsoft Entra ID app registration.
 
 4. Under **Private CA**, choose the private CA to use with this connector. Or, create a new one by selecting **Create private CA**. Due to the inherent vulnerabilities in the SCEP protocol, we recommend using a private CA that's dedicated to this connector. If you created a new CA, when you finish creating it in AWS Private CA, return to the Connector for SCEP console and refresh the list of private CAs. Your new private CA should be available for selection.
-5. Select **Create connector**.
+5. Under **Connectivity**, choose **Public** to create
+   a connector accessible over the public internet. Or, select **Private**
+   and specify a VPC endpoint to restrict this connector to only be accessible through
+   that specific VPC endpoint.
+6. Select **Create connector**.
 
 ## Step 2: Copy connector details into your MDM system
 
 After you create your connector, you'll need to copy the following details from the connector into your MDM system. To view a connector's details using the console, select the connector from the list on the [Connectors for SCEP](https://console.aws.amazon.com/pca-connector-scep/home#/connectors "https://console.aws.amazon.com/pca-connector-scep/home#/connectors") console page.
 
-- **Public SCEP URL** - This is the connector's endpoint where your SCEP clients will request certificates from. Take care to only provide this endpoint to trusted entities.
+- **SCEP URL** - This is the connector's endpoint where your SCEP clients will request certificates from. Take care to only provide this endpoint to trusted entities.
 - (General-purpose) **Challenge password** - Under **Challenge
   passwords**, select the password that you automatically generated
   in the preceding procedure and then select **View password** to

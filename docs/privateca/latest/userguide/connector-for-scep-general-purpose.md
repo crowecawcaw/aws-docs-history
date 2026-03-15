@@ -69,7 +69,7 @@ configuration profiles is beyond the scope of this document.
 7. (Optional) Select **Use Jamf Pro as SCEP Proxy for computer and
    mobile device enrollment**. If you experience profile
    installation failures, see [Troubleshoot profile installation failures](#connector-for-scep-jamf-pro-user-initiated-enrollment-troubleshoot "#connector-for-scep-jamf-pro-user-initiated-enrollment-troubleshoot").
-8. Copy and paste the Connector for SCEP **public SCEP URL** from the
+8. Copy and paste the Connector for SCEP **SCEP URL** from the
    connector's details to the **URL** field in Jamf Pro. To
    view a connector's details, choose the connector from the [Connectors for
    SCEP](https://console.aws.amazon.com/pca-connector-scep/home#/connectors "https://console.aws.amazon.com/pca-connector-scep/home#/connectors") list. Alternatively, you can get the URL by calling [GetConnector](../../../pca-connector-scep/latest/APIReference/API_GetConnector.md "../../../pca-connector-scep/latest/APIReference/API_GetConnector.md") and copy the `Endpoint` value from the

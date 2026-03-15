@@ -14,6 +14,7 @@ Connector for Simple Certificate Enrollment Protocol (SCEP) links AWS Private Ce
 - [Set up Connector for SCEP](connector-for-scep-setting-up.md "connector-for-scep-setting-up.md")
 - [Get started with Connector for SCEP](connector-for-scep-getting-started.md "connector-for-scep-getting-started.md")
 - [Configure your MDM system for Connector for SCEP](using-connector-for-scep-with-mdm.md "using-connector-for-scep-with-mdm.md")
+- [Security in Connector for SCEP](c4scep-security.md "c4scep-security.md")
 - [Monitor Connector for SCEP](c4scep-monitoring-overview.md "c4scep-monitoring-overview.md")
 - [Troubleshoot AWS Private Certificate Authority Connector for SCEP issues](troubleshoot-connector-scep.md "troubleshoot-connector-scep.md")
 
