@@ -244,7 +244,7 @@ Your selections should look like the following example.
 ![Website redirection options](images/bncert-enable-disable-redirection.png) 10. The changes that are going to be made are listed. Type `Y` and
 press **Enter** to confirm and continue.
 
-![Confirming the changes](/images/lightsail/latest/userguide/images/bncert-confirm-changes.png) 11. Enter your email address to associate with your Let's Encrypt certificate and
+![Confirming the changes](images/bncert-confirm-changes.png) 11. Enter your email address to associate with your Let's Encrypt certificate and
 press **Enter**.
 
 ![Associating your email address with your Let's Encrypt certificate](images/bncert-email-address.png) 12. Review the Let's Encrypt Subscriber Agreement. Type `Y` and press

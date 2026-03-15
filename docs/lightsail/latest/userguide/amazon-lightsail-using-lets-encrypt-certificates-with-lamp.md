@@ -287,7 +287,7 @@ files to a specific directory on your LAMP instance.
    successful, a response similar to the one shown in the following screenshot
    appears:
 
-![Successful Let's Encrypt certificate request.](/images/lightsail/latest/userguide/images/instances/lets-encrypt/bitnami-certificate-request-success.png)
+![Successful Let's Encrypt certificate request.](images/instances/lets-encrypt/bitnami-certificate-request-success.png)
 
 The message confirms that your certificate, chain, and key files are stored in the
 `/etc/letsencrypt/live/`Domain`/` directory.

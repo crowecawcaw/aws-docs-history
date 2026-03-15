@@ -78,7 +78,7 @@ password to sign in to your Windows Server instance when connecting to it throug
 ![Getting the Windows Server default administrator password in the Amazon EC2 console.](images/amazon-lightsail-ec2-get-windows-password.png) 5. At the prompt, choose **Browse** and open the default private key
 file that you downloaded from Lightsail earlier in this guide. 6. Choose **Decrypt Password**.
 
-![Decrypting the Windows default administrator password in the Amazon EC2 console.](images/amazon-lightsail-ec2-decrypt-password.png)
+![Decrypting the Windows default administrator password in the Amazon EC2 console.](/images/lightsail/latest/userguide/images/amazon-lightsail-ec2-decrypt-password.png)
 
 The password, user name, and private IP address are displayed. Copy the password to
 your clipboard so that you can use it in the following [Configure Remote Desktop
