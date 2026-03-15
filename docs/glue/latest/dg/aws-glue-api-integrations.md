@@ -113,8 +113,7 @@ operations.
 - `ContinuousSync` – Boolean.
 
 Enables continuous synchronization for on-demand data extractions
-from SaaS applications to AWS data services like Amazon Redshift
-and Amazon S3.
+from: 1) SaaS applications to AWS data services like Amazon Redshift and Amazon S3, and 2) DynamoDB to Amazon S3.
 
 ## IntegrationPartition structure
 
