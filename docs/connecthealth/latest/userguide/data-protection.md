@@ -17,7 +17,7 @@ For data protection purposes, we recommend that you protect AWS account credenti
 
 Amazon Connect Health handles a variety of data related to healthcare interactions, including but not limited to the following categories:
 
-- **Patient data** — Patient information retrieved in real time from EHR systems or other external data sources during each interaction. This data is not stored long-term within the service.
+- **Patient data** — Patient information retrieved in real time from EHR systems or other external data sources during each interaction.
 - **Call transcripts** — Retained in the customer’s Amazon Connect instance for the customer-configured retention period.
 - **Contact Trace Records (CTRs)** — Retained in Amazon Connect for up to 24 months.
 - **CloudWatch Logs** — Retained per the customer-configured log group retention policy.
@@ -39,12 +39,6 @@ All data exchanged with Amazon Connect Health is protected in transit using indu
 - Integrations with AWS services such as AWS Lambda, Amazon Bedrock, and Amazon Connect
 
 When Amazon Connect Health integrates with AWS services, data is always encrypted in transit using TLS.
-
-## Data residency and zero-persistence architecture
-
-Amazon Connect Health employs a zero-persistence architecture for patient data. Patient information is retrieved in real time from EHR systems or other external data sources during each interaction and is not stored long-term within the service. Patient data is not retained beyond the duration of the active call session.
-
-Customers with data residency requirements can configure Amazon Connect and Amazon Connect Health to operate within their required AWS Regions.
 
 ## PHI handling
 

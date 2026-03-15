@@ -69,11 +69,11 @@ Ambient documentation currently supports the following specialties:
 
 Amazon Connect Health ambient documentation uses AI to capture and transcribe clinical conversations in real time. Because this feature records spoken communications that may contain protected health information (PHI), customers and their downstream integrators are responsible for complying with all applicable consent, recording, and privacy laws. This includes obtaining all legally required consents before enabling ambient documentation for any patient encounter. AWS does not collect consent from patients on your behalf.
 
-Appropriate consent must be obtained from each patient and anyone present in the room when ambient documentation is used. As part of obtaining consent, patients should be informed that the visit will be recorded and used by an AI tool to create clinical notes, that their information may be shared with service providers, and that they can decline without any impact on their care. Customers and integrators should maintain records of patient consent, in accordance with applicable state law and internal retention policies. Customers should ensure that consent is obtained in accordance with their organization’s privacy practices.
+Appropriate consent must be obtained from each patient and anyone present in the room when ambient documentation is used. As part of obtaining consent, patients should be informed that the visit will be recorded and used by an AI service provider to create clinical notes, that their information may be shared with service providers, and that they can decline without any impact on their care. Customers and integrators should maintain records of patient consent, in accordance with applicable state law and internal retention policies. Customers should ensure that consent is obtained in accordance with their organization’s privacy practices.
 
 Sample language:
 
-"Before we begin, I want to let you know that today’s visit will be recorded and monitored by an AI tool to help with documentation. Do you consent to proceed?"
+"Before we begin, I want to let you know that today’s visit will be recorded and monitored by an AI service provider to help with documentation. Do you consent to proceed?"
 
 ## Subscription management
 

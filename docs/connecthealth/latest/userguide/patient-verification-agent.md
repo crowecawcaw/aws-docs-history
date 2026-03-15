@@ -8,6 +8,7 @@ The Patient verification agent eliminates time-consuming manual EHR lookups by a
 
 - [Capabilities](#pv-capabilities "#pv-capabilities")
 - [Customization options](#pv-customization "#pv-customization")
+- [Consent and patient notification](#pv-consent "#pv-consent")
 
 ## Capabilities
 
@@ -30,3 +31,11 @@ You can configure the following settings:
 | Verification attributes | Choose which factors are required for authentication, such as MRN, date of birth, zip code, or last four digits of SSN. |
 
 After you configure the settings, choose **Publish** to apply the changes.
+
+## Consent and patient notification
+
+Amazon Connect Health patient engagement uses AI to capture and transcribe conversations in real time. Because this feature records spoken communications that may contain protected health information (PHI), customers and their downstream integrators are responsible for complying with all applicable consent, recording, and privacy laws. This includes obtaining all legally required consents before enabling ambient documentation for any patient encounter.
+
+AWS’s patient engagement agent provides the following language at the outset of each interaction:
+
+"Hi, I’m your AI assistant. This call may be monitored and recorded by your health care provider and its service providers to improve their services."

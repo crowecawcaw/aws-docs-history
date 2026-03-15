@@ -85,7 +85,7 @@ Inputs on the domain creation page cannot be changed after domain creation, exce
 User access to the Amazon Connect Health application is managed through AWS IAM Identity Center. You can manage users in two ways:
 
 - Use the IAM Identity Center widget in the domain setup page to directly add users. This approach is ideal for quick testing.
-- Navigate to the IAM Identity Center console to manage users, groups, and application assignments under **Application assignments**, **Applications**, **AWS managed**. This approach supports enterprise identity sources such as Active Directory and external identity providers. For more information, see [Users, groups, and provisioning in IAM Identity Center](../../../singlesignon/latest/userguide/users-groups-provisioning.md "../../../singlesignon/latest/userguide/users-groups-provisioning.md").
+- Use the IAM Identity Center CLI or API to manage users, groups, and application assignments. This approach supports enterprise identity sources such as Active Directory and external identity providers. For more information, see [Users, groups, and provisioning in IAM Identity Center](../../../singlesignon/latest/userguide/users-groups-provisioning.md "../../../singlesignon/latest/userguide/users-groups-provisioning.md").
 
 ###### Important
 
