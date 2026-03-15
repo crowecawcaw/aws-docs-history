@@ -1,93 +1,55 @@
-# Finding and tracking Elastic Beanstalk resources with AWS Config
+# Using Elastic Beanstalk with Amazon RDS
 
-[AWS Config](https://aws.amazon.com/config/ "https://aws.amazon.com/config/") provides a detailed view of the configuration of AWS resources in your AWS account. You can see
-how resources are related, get a history of configuration changes, and see how relationships and configurations change over time. You can use AWS Config to define
-rules that evaluate resource configurations for data compliance.
+This section explains how you can use Elastic Beanstalk with Amazon Relational Database Service (Amazon RDS) to set up, operate, and scale a relational database. We explain some concepts about
+configuration and provide recommendations. Then we'll walk you through the process to create and connect to an Amazon RDS.
 
-Several Elastic Beanstalk resource types are integrated with AWS Config:
+There are two options to get started:
 
-- Applications
-- Application Versions
-- Environments
-  The following section shows how to configure AWS Config to record resources of these types.
+- Create a new database in Amazon RDS.
+- Start with a database that was previously [created by Elastic Beanstalk](using-features.managing.md "using-features.managing.md") and subsequently [decoupled](using-features.managing.md#using-features.decoupling.db "using-features.managing.md#using-features.decoupling.db") from a Beanstalk environment. For more information, see [Adding a database to your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md").
 
-For more information about AWS Config, see the [AWS Config Developer Guide](../../../config/latest/developerguide.md "../../../config/latest/developerguide.md"). For pricing information, see the [AWS Config pricing
-information page](https://aws.amazon.com/config/pricing/ "https://aws.amazon.com/config/pricing/").
+###### Select approach
 
-## Setting up AWS Config
-
-To initially set up AWS Config, see the following topics in the [AWS Config Developer Guide](../../../config/latest/developerguide.md "../../../config/latest/developerguide.md").
-
-- [Setting up AWS Config with the Console](../../../config/latest/developerguide/gs-console.md "../../../config/latest/developerguide/gs-console.md")
-- [Setting up AWS Config with the AWS CLI](../../../config/latest/developerguide/gs-cli.md "../../../config/latest/developerguide/gs-cli.md")
-
-## Configuring AWS Config to record Elastic Beanstalk resources
-
-By default, AWS Config records configuration changes for all supported types of _regional resources_ that it discovers in the region in
-which your environment is running. You can customize AWS Config to record changes only for specific resource types, or changes to _global
-resources_.
-
-For example, you can configure AWS Config to record changes for Elastic Beanstalk resources and a subset of other AWS resources that Elastic Beanstalk starts
-for you. Using the [AWS Config Console](../../../config/latest/developerguide/gs-console.md "../../../config/latest/developerguide/gs-console.md"),
-you can select Elastic Beanstalk as a resource in the AWS Config **Settings** page from the **Specific Types** field.
-From there you can choose to record any of the Elastic Beanstalk resource types:
-**Application**, **ApplicationVersion**, and **Environment**.
-
-The following figure shows the AWS Config **Settings** page, with Elastic Beanstalk resource types that you can choose to record:
-**Application**, **ApplicationVersion**, and **Environment**.
-
-![AWS Config settings page showing a list of resource types to choose to record](images/cc-settings-resource-types.png)
-
-After you select a few resource types, this is how the **Specific types** list appears.
-
-![AWS Config settings page showing selected resource types to record](images/cc-settings-resource-types-selected.png)
-
-To learn about _regional_ vs. _global_ resources, and for the full customization procedure, see [Selecting which Resources AWS Config Records](../../../config/latest/developerguide/select-resources.md "../../../config/latest/developerguide/select-resources.md").
-
-## Viewing Elastic Beanstalk configuration details in the AWS Config console
-
-You can use the AWS Config console to look for Elastic Beanstalk resources, and get current and historical details about their configurations. The following example
-shows how to find information about an Elastic Beanstalk environment.
-
-###### To find an Elastic Beanstalk environment in the AWS Config console
-
-1. Open the [AWS Config console](https://console.aws.amazon.com/config "https://console.aws.amazon.com/config").
-2. Choose **Resources**.
-3. On the **Resource inventory** page, choose **Resources**.
-4. Open the **Resource type** menu, scroll to **ElasticBeanstalk**, and then choose one or more of the Elastic Beanstalk
-   resource types.
+You can use either approach to run a database instance in Amazon RDS and configure your application to connect to it on launch. You can connect multiple
+environments to a database.
 
 ###### Note
 
-To view configuration details for other resources that Elastic Beanstalk created for your application, choose additional resource types. For example, you
-can choose **Instance** under **EC2**. 5. Choose **Look up**.
+If you haven't used a database instance with your application before, we recommend that you add a database to a test environment with the Elastic
+Beanstalk console first. By doing this, you can verify that your application can read the environment properties, construct a connection string, and
+connect to a database instance, without the additional configuration work required for a standalone database. For more information, see [Adding a database to your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md").
 
-See **2** in the following figure.
+###### Configure a security group
 
-![AWS Config resource inventory page showing a list of resource types to look up](images/cc-resources-dropdown.png) 6. Choose a resource ID in the list of resources that AWS Config displays.
+To allow the Amazon EC2 instances in your environment to connect to an outside database, configure an additional security group for the Auto Scaling group that's
+associated with your environment. You can attach the same security group that's attached to your database instance. Or, you can use a separate security
+group. If you attach a different security group, you must configure the security group that's attached to your database to allow inbound access from this
+security group.
 
-![AWS Config resource inventory page showing a list of resources](images/cc-resources-list.png)
+###### Note
 
-AWS Config displays configuration details and other information about the resource you selected.
+You can connect your environment to a database by adding a rule to the security group that's attached to your database. This rule must allow inbound
+access from the autogenerated security group that Elastic Beanstalk attaches to the Auto Scaling group for your environment. However, know that, by creating this rule, you
+also create a dependency between the two security groups. Subsequently, when you attempt to terminate the environment, Elastic Beanstalk will be unable to
+delete the environment's security group, because the database's security group is dependent on it.
 
-![AWS Config resource details page showing configuration details for an Elastic Beanstalk environment](images/cc-resources-resource-details.png)
+###### Configure the database connection
 
-To see the full details of the recorded configuration, choose **View Details**.
+After you launch your database instance and configure security groups, you can pass the connection information, such as the endpoint and password, to
+your application by using environment properties. This is the same mechanism that Elastic Beanstalk uses in the background when you run a database instance in your
+environment.
 
-![AWS Config resource details page showing configuration details for an Elastic Beanstalk environment](images/cc-resources-view-details.png)
+For an additional layer of security, you can store your connection information in Amazon S3, and configure Elastic Beanstalk to retrieve it during deployment. With [configuration files (.ebextensions)](ebextensions.md "ebextensions.md"), you can configure the instances in your environment to securely
+retrieve files from Amazon S3 when you deploy your application.
 
-To learn more ways to find a resource and view information on this page, see [Viewing AWS Resource
-Configurations and History](../../../config/latest/developerguide/view-manage-resource.md "../../../config/latest/developerguide/view-manage-resource.md") in the _AWS Config Developer Guide_.
+###### Topics
 
-## Evaluating Elastic Beanstalk resources using AWS Config rules
+- [Launching and connecting to an external Amazon RDS instance in a default VPC](rds-external-defaultvpc.md "rds-external-defaultvpc.md")
+- [Storing the Amazon RDS credentials in AWS Secrets Manager](rds-external-credentials.md "rds-external-credentials.md")
+- [Cleaning up an external Amazon RDS instance](#rds-external-cleanup "#rds-external-cleanup")
 
-You can create AWS Config rules, which represent the ideal configuration settings for your Elastic Beanstalk resources. You can use predefined _AWS Managed
-Config Rules_, or define custom rules. AWS Config continuously tracks changes to the configuration of your resources to determine whether those
-changes violate any of the conditions in your rules. The AWS Config console shows the compliance status of your rules and resources.
+## Cleaning up an external Amazon RDS instance
 
-If a resource violates a rule and is flagged as _noncompliant_, AWS Config can alert you using an [Amazon Simple Notification Service (Amazon SNS)](https://aws.amazon.com/sns/ "https://aws.amazon.com/sns/") topic. To programmatically consume the data in these AWS Config alerts, use an [Amazon Simple Queue Service
-(Amazon SQS)](https://aws.amazon.com/sqs/ "https://aws.amazon.com/sqs/") queue as the notification endpoint for the Amazon SNS topic. For example, you might want to write code that starts a workflow when someone
-modifies your environment's Auto Scaling group configuration.
-
-To learn more about setting up and using rules, see [Evaluating Resources with AWS Config Rules](../../../config/latest/developerguide/evaluate-config.md "../../../config/latest/developerguide/evaluate-config.md") in the
-_AWS Config Developer Guide_.
+When you connect an external Amazon RDS instance to your Elastic Beanstalk environment, the database instance isn't dependent upon your environment's lifecycle, and,
+therefore, it isn't deleted when you terminate your environment. To ensure that personal information that you might have stored in the database instance
+isn't unnecessarily retained, delete any records that you don't need anymore. Alternatively, delete the database instance.

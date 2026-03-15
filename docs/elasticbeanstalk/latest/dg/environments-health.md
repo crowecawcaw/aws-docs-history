@@ -14,3 +14,4 @@ line to track your environment's status.
 - [Viewing an Elastic Beanstalk environment's event stream](using-features.md "using-features.md")
 - [Listing and connecting to server instances](using-features.md "using-features.md")
 - [Viewing logs from Amazon EC2 instances in your Elastic Beanstalk environment](using-features.md "using-features.md")
+- [Viewing deployment logs for an Elastic Beanstalk environment](environments-deployment-logs.md "environments-deployment-logs.md")

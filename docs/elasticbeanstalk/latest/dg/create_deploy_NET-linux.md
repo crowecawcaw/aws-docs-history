@@ -1,10 +1,31 @@
-# Configuring additional environment options using AWS toolkit for Visual Studio
+# Monitoring application health
 
-Elastic Beanstalk defines a large number of configuration options that you can use to configure your environment's behavior and the resources that it contains.
-Configuration options are organized into namespaces like `aws:autoscaling:asg`. Each namespace defines options for an environment's Auto Scaling group.
-The **Advanced** panel lists the configuration option namespaces in alphabetical order that you can update after environment
-creation.
+This topic explains how to monitor the health of your application's website. It's important to know that your production website is available and
+responding to requests. Elastic Beanstalk provides features to help you monitor your application's responsiveness. It monitors statistics about your application and
+alerts you when thresholds are exceeded.
 
-For a complete list of namespaces and options, including default and supported values for each, see [General options for all environments](command-options-general.md "command-options-general.md") and [.NET Core on Linux platform options](command-options-specific.md#command-options-dotnet-core-linux "command-options-specific.md#command-options-dotnet-core-linux").
+For information about the health monitoring provided by Elastic Beanstalk, see [Basic health reporting](using-features.md "using-features.md").
 
-![Screenshot of advanced configurations options panel in Visual Studio Toolkit for Elastic Beanstalk](images/aeb-vs-linux-advanced-tab.png)
+You can access operational information about your application by using either the AWSToolkit for Visual Studio or the AWS Management Console.
+
+The toolkit displays your environment's status and application health in the **Status** field.
+
+###### To monitor application health
+
+1. In the AWS Toolkit for Visual Studio, in **AWS Explorer**, expand the Elastic Beanstalk node, and then expand your application node.
+2. Open the context (right-click) menu for your application environment and select **View Status**.
+3. On your application environment tab, select **Monitoring**.
+
+The **Monitoring** panel includes a set of graphs showing resource usage for your particular application environment.
+
+###### Note
+
+By default, the time range is set to the last hour. To modify this setting, in the **Time Range** list, select a different time
+range.
+You can use the AWS Toolkit for Visual Studio or the AWS Management Console to view events associated with your application.
+
+###### To view application events
+
+1. In the AWS Toolkit for Visual Studio, in **AWS Explorer**, expand the Elastic Beanstalk node and your application node.
+2. Open the context (right-click) menu for your application environment and select **View Status**.
+3. In your application environment tab, select **Events**.
