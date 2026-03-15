@@ -330,7 +330,7 @@ _There are no hourly or data transfer costs associated with Gateway VPC Endpoint
 
 **Interface VPC Endpoints**
 
-VPC Endpoints have an [hourly charge](https://aws.amazon.com/privatelink/pricing/ "https://aws.amazon.com/privatelink/pricing/") and have an additional charge associated with data processing via the underlying ENI. Note that inter-AZ data transfer is [not charged](https://aws.amazon.com/about-aws/whats-new/2022/04/aws-data-transfer-price-reduction-privatelink-transit-gateway-client-vpn-services/).
+VPC Endpoints have an [hourly charge](https://aws.amazon.com/privatelink/pricing/ "https://aws.amazon.com/privatelink/pricing/") and have an additional charge associated with data processing via the underlying ENI. Note that inter-AZ data transfer is [not charged](https://aws.amazon.com/about-aws/whats-new/2022/04/aws-data-transfer-price-reduction-privatelink-transit-gateway-client-vpn-services/ "https://aws.amazon.com/about-aws/whats-new/2022/04/aws-data-transfer-price-reduction-privatelink-transit-gateway-client-vpn-services/").
 
 The diagram below shows Pods communicating with AWS services via VPC Endpoints.
 
@@ -449,7 +449,7 @@ The screenshots below are captured from a live example of this approach. The fir
 
 ![Before results](images/before-results.png)
 
-With Istio, you can verify and export the statistics of any [upstream clusters](https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/intro/terminology) and endpoints that your proxies are aware of. This can help provide a picture of the network flow as well as the share of distribution among the services of a workload. Continuing with the same example, the `orders` endpoints that the `graphql` proxy is aware of can be obtained using the following command:
+With Istio, you can verify and export the statistics of any [upstream clusters](https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/intro/terminology "https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/intro/terminology") and endpoints that your proxies are aware of. This can help provide a picture of the network flow as well as the share of distribution among the services of a workload. Continuing with the same example, the `orders` endpoints that the `graphql` proxy is aware of can be obtained using the following command:
 
 ```
 kubectl exec -it deploy/graphql -n ecommerce -c istio-proxy -- curl localhost:15000/clusters | grep orders

@@ -45,7 +45,7 @@ The warm ENIs still consume IP addresses from the CIDR of your VPC. IP addresses
   - The minimum number of IP addresses to be allocated at any time. This is commonly used to front-load the assignment of multiple ENIs at instance launch.
   - Example: Consider a newly launched instance. It has 1 ENI and each ENI supports 10 IP addresses. MINIMUM_IP_TARGET is set to 100. The ENI immediately attaches 9 more ENIs for a total of 100 addresses. This happens regardless of any WARM_IP_TARGET or WARM_ENI_TARGET values.
 
-This project includes a [Subnet Calculator Excel Document](https://github.com/aws/aws-eks-best-practices/blob/master/content/networking/subnet-calc/subnet-calc.xlsx "https://github.com/aws/aws-eks-best-practices/blob/master/content/networking/subnet-calc/subnet-calc.xlsx"). This calculator document simulates the IP address consumption of a specified workload under different ENI configuration options, such as `WARM_IP_TARGET` and `WARM_ENI_TARGET`.
+This project includes a [Subnet Calculator Excel Document](https://github.com/aws/aws-eks-best-practices/blob/master/latest/bpg/networking/subnet-calc/subnet-calc.xlsx "https://github.com/aws/aws-eks-best-practices/blob/master/latest/bpg/networking/subnet-calc/subnet-calc.xlsx"). This calculator document simulates the IP address consumption of a specified workload under different ENI configuration options, such as `WARM_IP_TARGET` and `WARM_ENI_TARGET`.
 
 ![illustration of components involved in assigning an IP address to a pod](images/networking/cni_image-2.png)
 
