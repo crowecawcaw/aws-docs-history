@@ -22,6 +22,8 @@ Lambda requires
 you to assign an AWS Identity and Access Management (IAM) role when you create a Lambda function, in the same way Step Functions requires you
 to assign an IAM role when you create a state machine.
 
+### To create a role for use with Lambda
+
 You use the IAM console to create a service-linked role.
 
 ###### To create a role (console)
@@ -65,7 +67,7 @@ Ensure that your Lambda function is under the same AWS account and AWS Region as
       18.x**.
    3. For **Role**, select **Choose an existing
       role**.
-   4. For **Existing role**, select [the Lambda role that you created earlier](../dg.md#create-xray-lambda-state-machine-to-create-a-role-for-use-with-lambda "../dg.md#create-xray-lambda-state-machine-to-create-a-role-for-use-with-lambda").
+   4. For **Existing role**, select [the Lambda role that you created earlier](#create-xray-lambda-state-machine-to-create-a-role-for-use-with-lambda "#create-xray-lambda-state-machine-to-create-a-role-for-use-with-lambda").
 
    ###### Note
 

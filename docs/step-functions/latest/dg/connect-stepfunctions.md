@@ -80,8 +80,8 @@ The following includes a `Task` state that implements the [callback](connect-to-
 To associate a nested workflow execution with the parent execution that started it, pass a
 specially named parameter that includes the execution ID pulled from the [Context object](input-output-contextobject.md "input-output-contextobject.md"). When starting a nested
 execution, use a parameter named `AWS_STEP_FUNCTIONS_STARTED_BY_EXECUTION_ID`.
-Pass the execution ID by appending `.$` to the parameter name, and referencing
-the ID in the Context object with `$$.Execution.Id`. For more information, see
+Pass the execution ID and referencing
+the ID in the Context object with `$states.context.Execution.Id`. For more information, see
 [Accessing the Context object](input-output-contextobject.md#contextobject-access "input-output-contextobject.md#contextobject-access").
 
 ```
@@ -91,7 +91,7 @@ the ID in the Context object with `$$.Execution.Id`. For more information, see
    "Arguments":{
       "Input":{
         "Comment": "Hello world!",
-        ***"AWS\_STEP\_FUNCTIONS\_STARTED\_BY\_EXECUTION\_ID.$": "$$.Execution.Id"***
+        ***"AWS\_STEP\_FUNCTIONS\_STARTED\_BY\_EXECUTION\_ID": "{% $states.context.Execution.Id %}"***
        },
       "StateMachineArn":"arn:aws:states:`region`:`account-id`:stateMachine:HelloWorld",
       "Name":"ExecutionName"
