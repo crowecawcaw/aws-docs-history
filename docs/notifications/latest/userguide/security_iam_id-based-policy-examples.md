@@ -107,6 +107,32 @@ notification configuration tag `Owner` has the value of that user's user
 name. This policy also grants the permissions necessary to complete this action on the
 console.
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "ListNotificationConfigurationsInConsole",
+ "Effect": "Allow",
+ "Action": "notifications:ListNotificationConfigurations",
+ "Resource": "*"
+ },
+ {
+ "Sid": "ViewNotificationConfigurationIfOwner",
+ "Effect": "Allow",
+ "Action": "notifications:GetNotificationConfiguration",
+ "Resource": "arn:aws:notifications:*:*:configuration/*",
+ "Condition": {
+ "StringEquals": {"aws:ResourceTag/Owner": "${aws:username}"}
+ }
+ }
+ ]
+}`
+
+```
+
 You can attach this policy to the IAM users in your account. If a user named
 `richard-roe` attempts to view an User Notifications notification configuration, the
 notification configuration must be tagged `Owner=richard-roe` or
