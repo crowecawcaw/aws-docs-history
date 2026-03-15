@@ -15,7 +15,7 @@ Follow the steps below to charge your AWS DeepRacer drive module battery:
 from the black and red drive train connector and unstrap the Velcro strap. 3. Attach the battery to the battery charger by connecting the battery's white 3-pin connector to the charger
 port.
 
-![Image: The vehicle's drive module battery is connected to the battery charger, which is plugged into a power outlet.](/images/deepracer/latest/developerguide/images/deepracer-charge-battery.jpg)
+![Image: The vehicle's drive module battery is connected to the battery charger, which is plugged into a power outlet.](images/deepracer-charge-battery.jpg)
 
 _Red light + green light = not fully charged_ 4. Plug the power cord of the battery charger into a power outlet. When only the green light is illuminated,
 your battery is fully charged. 5. Disconnect the charged vehicle battery's white 3-pin connector from the charge adapter. If you removed the

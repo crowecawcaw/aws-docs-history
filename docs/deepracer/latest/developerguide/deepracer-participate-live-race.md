@@ -34,7 +34,7 @@ speed. There are three ways to operate the Speed control feature:
     3. You can also select the slider knob to activate the slider and then use your
      `←` and `→` keyboard arrow keys.
 
-![Racers can use the speed control slider to manually set maximum speed, which temporarily overrides their model’s speed parameters, but not the steering angle.](/images/deepracer/latest/developerguide/images/deepracer-speed-control.png) 10. Reset the multiplier to 1 to return to using your model’s speed parameters. 11. As you race, check the video overlay of your LIVE race to help optimize your performance. The
+![Racers can use the speed control slider to manually set maximum speed, which temporarily overrides their model’s speed parameters, but not the steering angle.](images/deepracer-speed-control.png) 10. Reset the multiplier to 1 to return to using your model’s speed parameters. 11. As you race, check the video overlay of your LIVE race to help optimize your performance. The
 track map overlay is divided into three sectors that change color depending on your pace. Green
 indicates the section of the tack where you clocked a personal best, yellow denotes the slowest
 sector driven, and purple signifies a session best. You can also find statistics detailing your
