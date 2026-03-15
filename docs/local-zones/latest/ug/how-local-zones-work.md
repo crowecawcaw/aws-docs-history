@@ -20,6 +20,8 @@ with resources that are supported in Local Zones, see [AWS Local Zones features]
 
 ## Considerations
 
+- Amazon EBS snapshots storage vary depending on the Local Zone selected, see [AWS Local Zones features](https://aws.amazon.com/about-aws/global-infrastructure/localzones/features/ "https://aws.amazon.com/about-aws/global-infrastructure/localzones/features/").
+- Default encryption behavior of Amazon EBS volume varies depending on the Local Zone selected, see [AWS Local Zones features](https://aws.amazon.com/about-aws/global-infrastructure/localzones/features/ "https://aws.amazon.com/about-aws/global-infrastructure/localzones/features/").
 - Local Zone subnets follow the same routing rules as Availability Zone subnets, including the use
   of route tables, security groups, and network ACLs.
 - Outbound internet traffic leaves a Local Zone from the Local Zone.
