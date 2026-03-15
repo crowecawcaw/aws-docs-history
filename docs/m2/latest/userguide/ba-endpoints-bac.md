@@ -191,11 +191,11 @@ name
 - Path: `/api/services/rest/bluesamservice/loadDataSet`
 - Arguments:
 
-name
+listcatFileOrDatasetName
 
 (required, string): the name of the data set.
 
-dataset file
+datasetFile
 
 (required, string): the data set file name.
 
@@ -275,7 +275,8 @@ Clears all records from a data set.
 
 name
 
-(required, string): the name of the data set to clear.
+(required, string): the name of the data set to clear. When using the GET method, the
+parameter name is `datasetName`.
 
 - Returns the status of the request.
 
@@ -331,7 +332,7 @@ Use the following endpoints to create or manage multiple data sets at once.
 ### Export data sets (GET)
 
 - Supported methods: GET
-- Requires authentication and the ROLE_USER role.
+- Requires authentication and the ROLE_ADMIN role.
 - Path: `/api/services/rest/bluesamservice/exportDataSet`
 - Arguments:
 
@@ -425,17 +426,18 @@ dumpParameters
 - Path: `/api/services/rest/bluesamservice/directListDataSetByPage`
 - Arguments:
 
-datasetName
+name
 
-(required, string): the name of the data set.
+(required, string): the name of the data set. Defaults to `%` (all data
+sets) if not specified.
 
-pageNumber
+page
 
-(required, int): the page number.
+(required, int): the page number (minimum 0).
 
 pageSize
 
-(required, int): the page size.
+(required, int): the page size (minimum 1, maximum 500).
 
 - Returns: the status of the request and the list of the data sets.
 
@@ -593,6 +595,10 @@ record
 
 (required, Record): the record to update
 
+mask
+
+(optional, Mask): the mask object to apply during the update.
+
 - Returns the status of the request and the data set with the records.
 
 ### Save a record
@@ -612,6 +618,10 @@ record
 
 (required, Record): the record to save
 
+mask
+
+(optional, Mask): the mask object to apply during the save.
+
 - Returns the status of the request and the data set with the records.
 
 ### Validate a record
@@ -626,6 +636,14 @@ Use this endpoint to validate a record.
 dataset
 
 (required, DataSet): the data set object
+
+record
+
+(optional, Record): the record to validate.
+
+mask
+
+(optional, Mask): the mask object to apply during validation.
 
 - Returns the status of the request and the data set with the records.
 
@@ -645,6 +663,10 @@ dataset
 record
 
 (required, Record): the record to fetch
+
+mask
+
+(optional, Mask): the mask object.
 
 - Returns the status of the request and the hierarchical tree of the requested
   record.
@@ -716,7 +738,11 @@ dataset
 
 mask
 
-(required, Mask): the data set object
+(required, Mask): the mask object
+
+filter
+
+(required, Filter): the filter object to apply.
 
 - Returns the status of the request and the data set with the applied mask and
   filter.
@@ -735,6 +761,7 @@ characteristics
 - [Check persistence](#ba-check-persistence "#ba-check-persistence")
 - [Check supported data set types](#ba-check-supported-data-set-types "#ba-check-supported-data-set-types")
 - [Check server health](#ba-check-server-health "#ba-check-server-health")
+- [Check PostgreSQL multi-schema configuration](#ba-check-postgres-multi-schema "#ba-check-postgres-multi-schema")
 
 ### Check warm up cache
 
@@ -772,6 +799,10 @@ enable
 
 (required, boolean): if set to true, it will enable caching.
 
+dataset
+
+(required, DataSet): the data set object.
+
 - Returns None
 
 ### Check allocated RAM cache
@@ -807,6 +838,17 @@ You can use this endpoint to retrieve the allocated RAM cache memory.
 - Arguments: None
 - Returns: None. HTTP response status code 200 indicates that the server is up and
   running.
+
+### Check PostgreSQL multi-schema configuration
+
+Checks whether the PostgreSQL multi-schema configuration is enabled.
+
+- Supported methods: GET
+- Requires authentication and the ROLE_USER role.
+- Path: `/api/services/rest/bluesamservice/isPostgresMultiSchema`
+- Arguments: None
+- Returns: true if the PostgreSQL multi-schema configuration is enabled and false
+  otherwise.
 
 ## BAC user-management endpoints
 
