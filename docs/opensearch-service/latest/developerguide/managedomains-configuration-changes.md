@@ -75,8 +75,17 @@ blue/green deployments:
   or count (except for Multi-AZ domains with two dedicated master nodes)
 - Enabling or disabling the publication of error logs or slow logs to CloudWatch
 - Disabling the publication of audit logs to CloudWatch
-- Increasing the volume size up to 3 TiB per data node, changing the volume type, IOPS,
-  or throughput
+- Increasing the volume size, IOPS, or throughput for gp3 EBS type.
+
+###### Note
+
+Prior to March 10, 2026, in-place volume increases were supported only for volumes up
+to 3 TiB for gp3. On March 10, 2026, this limitation was removed, allowing in-place volume
+increases beyond 3 TiB. However, if your cluster had a volume size above 3 TiB before
+this limitation was removed, the first volume increase will require a blue/green
+deployment. All subsequent volume increases for that cluster will be performed as
+in-place updates and will not require a blue/green deployment.
+
 - Adding or removing tags
 
 ###### Note

@@ -396,7 +396,7 @@ topic in [Permissions to create an application that uses IAM Identity Center aut
     Currently, OpenSearch UI applications can be created
     only in the same AWS Region as your IAM Identity Center organizational
     instance. For information about accessing data sources in
-    that Region after you create the application, see [Cross-Region and cross-account data access with cross-cluster search](application-cross-cluster-search.md "application-cross-cluster-search.md").
+    that Region after you create the application, see [Cross-cluster search](application-cross-cluster-search.md "application-cross-cluster-search.md").
 
         * [Organization instances of IAM Identity Center](../../../singlesignon/latest/userguide/organization-instances-identity-center.md "../../../singlesignon/latest/userguide/organization-instances-identity-center.md")
         * [Account instances of IAM Identity Center](../../../singlesignon/latest/userguide/account-instances-identity-center.md "../../../singlesignon/latest/userguide/account-instances-identity-center.md")

@@ -12,3 +12,5 @@ the collection, requiring minimal manual input.
 - [Using the AWS SDKs to interact with Amazon OpenSearch Serverless](serverless-sdk.md "serverless-sdk.md")
 - [Using CloudFormation to create Amazon OpenSearch Serverless collections](serverless-cfn.md "serverless-cfn.md")
 - [Backing up collections using snapshots](serverless-snapshots.md "serverless-snapshots.md")
+- [Zstandard Codec Support in Amazon OpenSearch Serverless](serverless-zstd-compression.md "serverless-zstd-compression.md")
+- [Save Storage by Using Derived Source](serverless-derived-source.md "serverless-derived-source.md")

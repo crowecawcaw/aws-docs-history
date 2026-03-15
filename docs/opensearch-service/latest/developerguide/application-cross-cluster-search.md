@@ -1,4 +1,4 @@
-# Cross-Region and cross-account data access with cross-cluster search
+# Cross-cluster search
 
 Using [Cross-cluster search](cross-cluster-search.md "cross-cluster-search.md") in Amazon OpenSearch Serverless,
 you can perform queries and aggregations across multiple connected domains.
@@ -304,17 +304,17 @@ POST https://dst-domain.us-east-1.es.amazonaws.com/books/_doc/1
 ```
 GET https://src-domain.us-east-1.es.amazonaws.com/`connection_alias`:books/_search
 {
-    ...
+...
   "hits": [
-    {
+{
 "_index": "source-destination:books",
-      "_type": "_doc",
-      "_id": "1",
-      "_score": 1,
-      "_source": {
+  "_type": "_doc",
+  "_id": "1",
+  "_score": 1,
+  "_source": {
 "Dracula": "Bram Stoker"
-      }
-    }
+  }
+}
   ]
 }
 ```
@@ -341,9 +341,9 @@ Request
 GET https://src-domain.us-east-1.es.amazonaws.com/local_index,cluster_b:b_index,cluster_c:c_index/_search
 {
   "query": {
-    "match": {
-      "user": "domino"
-    }
+"match": {
+  "user": "domino"
+}
   }
 }
 ```
@@ -356,53 +356,53 @@ Response:
   "timed_out": false,
   "_shards": {
 "total": 3,
-    "successful": 3,
-    "failed": 0,
-    "skipped": 0
+"successful": 3,
+"failed": 0,
+"skipped": 0
   },
   "_clusters": {
 "total": 3,
-    "successful": 3,
-    "skipped": 0
+"successful": 3,
+"skipped": 0
   },
   "hits": {
 "total": 3,
-    "max_score": 1,
-    "hits": [
-      {
+"max_score": 1,
+"hits": [
+  {
 "_index": "local_index",
-        "_type": "_doc",
-        "_id": "0",
-        "_score": 1,
-        "_source": {
+    "_type": "_doc",
+    "_id": "0",
+    "_score": 1,
+    "_source": {
 "user": "domino",
-          "message": "This is message 1",
-          "likes": 0
-        }
-      },
-      {
+      "message": "This is message 1",
+      "likes": 0
+    }
+  },
+  {
 "_index": "cluster_b:b_index",
-        "_type": "_doc",
-        "_id": "0",
-        "_score": 2,
-        "_source": {
+    "_type": "_doc",
+    "_id": "0",
+    "_score": 2,
+    "_source": {
 "user": "domino",
-          "message": "This is message 2",
-          "likes": 0
-        }
-      },
-      {
+      "message": "This is message 2",
+      "likes": 0
+    }
+  },
+  {
 "_index": "cluster_c:c_index",
-        "_type": "_doc",
-        "_id": "0",
-        "_score": 3,
-        "_source": {
+    "_type": "_doc",
+    "_id": "0",
+    "_score": 3,
+    "_source": {
 "user": "domino",
-          "message": "This is message 3",
-          "likes": 0
-        }
-      }
-    ]
+      "message": "This is message 3",
+      "likes": 0
+    }
+  }
+]
   }
 }
 ```

@@ -82,6 +82,16 @@ The following configurations do not support GPU-acceleration:
 - [Non-Metric Space Library](https://docs.opensearch.org/latest/field-types/supported-field-types/knn-methods-engines/#nmslib-engine-deprecated "https://docs.opensearch.org/latest/field-types/supported-field-types/knn-methods-engines/#nmslib-engine-deprecated")
 - [Lucene engine](https://docs.opensearch.org/latest/field-types/supported-field-types/knn-methods-engines/#lucene-engine "https://docs.opensearch.org/latest/field-types/supported-field-types/knn-methods-engines/#lucene-engine")
 
+## Supported AWS Regions
+
+GPU-acceleration is available in the following AWS Regions:
+
+- US East (N. Virginia)
+- US West (Oregon)
+- Asia Pacific (Sydney)
+- Asia Pacific (Tokyo)
+- Europe (Ireland)
+
 ## Best practices
 
 Follow these best practices to maximize the benefits of GPU-acceleration for your vector search workloads:

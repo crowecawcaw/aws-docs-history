@@ -82,6 +82,11 @@ pricing](https://aws.amazon.com/elasticsearch-service/pricing/ "https://aws.amaz
   support EBS storage. If you choose EBS storage for one of these instance types,
   the storage volumes are _not_ additive. You can
   use either an EBS volume or the instance storage, not both.
+- For EBS gp3 volumes, the maximum supported limits are 80,000 IOPS and 2,000
+  MB/s throughput. Note that the effective limits for your domain may be lower
+  depending on your instance type. For instance-specific maximum limits, see
+  [instance
+  type limits](../../../AWSEC2/latest/UserGuide/ebs-optimized.md#current-general-purpose "../../../AWSEC2/latest/UserGuide/ebs-optimized.md#current-general-purpose").
 
 | Instance type         | Minimum EBS size | Maximum EBS size (gp2) | Maximum EBS size (gp3) |
 | --------------------- | ---------------- | ---------------------- | ---------------------- |
