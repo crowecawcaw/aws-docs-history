@@ -20,6 +20,7 @@ The following are the service endpoints and service quotas for this service.
 | US West (Oregon)          | us-west-2      | quicksight.us-west-2.amazonaws.com      | HTTPS    |
 | Africa (Cape Town)        | af-south-1     | quicksight.af-south-1.amazonaws.com     | HTTPS    |
 | Asia Pacific (Jakarta)    | ap-southeast-3 | quicksight.ap-southeast-3.amazonaws.com | HTTPS    |
+| Asia Pacific (Malaysia)   | ap-southeast-5 | quicksight.ap-southeast-5.amazonaws.com | HTTPS    |
 | Asia Pacific (Mumbai)     | ap-south-1     | quicksight.ap-south-1.amazonaws.com     | HTTPS    |
 | Asia Pacific (Seoul)      | ap-northeast-2 | quicksight.ap-northeast-2.amazonaws.com | HTTPS    |
 | Asia Pacific (Singapore)  | ap-southeast-1 | quicksight.ap-southeast-1.amazonaws.com | HTTPS    |

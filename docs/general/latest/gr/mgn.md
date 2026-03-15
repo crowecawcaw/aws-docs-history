@@ -31,7 +31,7 @@ The following are the service endpoints and service quotas for this service.
 | Asia Pacific (Thailand)   | ap-southeast-7 | mgn.ap-southeast-7.amazonaws.com                                        | HTTPS          |
 | Asia Pacific (Tokyo)      | ap-northeast-1 | mgn.ap-northeast-1.amazonaws.com                                        | HTTPS          |
 | Canada (Central)          | ca-central-1   | mgn.ca-central-1.amazonaws.com                                          | HTTPS          |
-| Europe (Frankfurt)        | eu-central-1   | mgn.eu-central-1.amazonaws.com                                          | HTTPS          |
+| Europe (Frankfurt)        | eu-central-1   | mgn.eu-central-1.amazonaws.com<br>mgn.eu-central-1.api.aws              | HTTPS<br>HTTPS |
 | Europe (Ireland)          | eu-west-1      | mgn.eu-west-1.amazonaws.com                                             | HTTPS          |
 | Europe (London)           | eu-west-2      | mgn.eu-west-2.amazonaws.com                                             | HTTPS          |
 | Europe (Milan)            | eu-south-1     | mgn.eu-south-1.amazonaws.com                                            | HTTPS          |
