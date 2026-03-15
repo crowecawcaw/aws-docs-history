@@ -1,46 +1,131 @@
-# Creating a ruleset with data quality rules
+# Validating data quality in AWS Glue DataBrew
 
-In the following procedure, you can find an example of creating a ruleset and
-applying it to a dataset. A _ruleset_ is a set of
-rules that compare different data metrics against expected values. You then can use this ruleset in a profile job to validate the data quality rules that it
-includes.
+To ensure the quality of your datasets, you can define a list of data quality rules in a
+ruleset. A _ruleset_ is a set of rules that compare
+different data metrics against expected values. If any of a rule's criteria isn't met, the
+ruleset as a whole fails validation. You can then inspect individual results for each rule.
+For any rule that causes a validation failure, you can make the necessary corrections and
+revalidate.
 
-###### To create an example ruleset with data quality rules
+Examples of rules include the following:
 
-1. Sign in to the AWS Management Console and open the DataBrew console at
-   [https://console.aws.amazon.com/databrew/](https://console.aws.amazon.com/glue/ "https://console.aws.amazon.com/glue/").
-2. Choose **DQ RULES** from the navigation pane, and
-   then choose **Create data quality ruleset**.
-3. Enter a name for your ruleset. Optionally, enter a description for
-   your ruleset.
-4. Under **Associated dataset**, choose a dataset to associate with the
-   ruleset.
+- Value in column `"APY"` is between 0 and 100
+- Number of missing values in column `group_name` doesn't exceed 5%
+  You can define each rule for an individual column or independently apply it to several
+  selected columns, for example:
 
-After you select a dataset, you can view the **Dataset
-preview** pane at right. 5. Use the preview in the **Dataset preview** pane to
-explore the values and schema for the dataset as you determine the data
-quality rules to create. The preview can give you insight about
-potential issues that you might have with the data.
+- Max value doesn’t exceed 100 for columns `"rate"`,
+  `"pay"`,
+  `"increase"`.
+  A rule can consist of multiple simple checks. You can define whether all of them should be
+  true or any, for example:
 
-Some data sources, such as databases, don't support data preview. In
-that case, you can run a profile job without validating the data quality
-rules first. Then you can get information about the data schema and values
-distribution by using the data profile. 6. Check the **Recommendations** tab, which lists
-some rule suggestions that you can use when creating your ruleset. You can
-select all, some, or none of the recommendations.
+- Value in column `"ProductId"` should start with `"asin-"` AND length of value in column `"ProductId"` is 32.
+  You can verify rules against either aggregate values such as `max`,
+  `min`, or `number of duplicate values` where there is only one
+  value being compared, or nonaggregate values in each row of a column. In the latter case,
+  you can also define a "passing" threshold such as `value in columnA > value in
+ columnB for at least 95% of rows`.
 
-After selecting relevant recommendations, choose
-**Add to ruleset**.
+As
+with profile information, you can define column-level data quality rules only for columns of
+simple types, such as strings and numbers. You can't define data quality rules for columns
+of complex types, such as arrays or structures. For more details about working with profile
+information, see [Creating and working with AWS Glue DataBrew profile jobs](jobs.md "jobs.md").
 
-This will add rules to your ruleset. Inspect and modify parameters if needed. Note that only columns of simple types such as _string_,
-_numbers_ and _boolean_ can be used in data quality rules. 7. Choose **Add another rule** to add a rule not covered by recommendations.
-You can change rule names to make it easier to interpret validation results later. 8. Use **Data quality check scope** to choose whether individual columns will be selected per each check in this rule or
-whether they should be applied to a group of columns you select. For example, if your dataset has several numeric columns that should have values
-between 0 and 100, you can define the rule once and select all these columns to be checked by this rule. 9. If your rule will have more than one check, then in the **Rule success criteria** dropdown, choose whether all checks should be met or which ones meet the criteria. 10. Select a check that will be performed to verify this rule in the **Data quality check** dropdown.
-For more information about available checks, see [Available checks](profile.md "profile.md"). 11. If you chose **Individual check for each column** in the **Data quality check scope**, choose a column. Select or type the column name for this check. 12. Select parameters depending on the check. Some conditions accept only provided custom values and some also support reference to another column. 13. If you choose checks for **Column values** such as _Contains_ condition for string values,
-then you can specify “passing” threshold. For example, if you want at least 95 percent of values to satisfy the condition, you need to choose
-_Greater than equals_ as a threshold’s **Condition**, enter 95 as a **Threshold** and leave
-_"%(percent) rows"_ in the next dropdown in the **Threshold** section.
-Or if you want no more than 10 rows where _value is missing_ condition is true, then you can select _Less than equals_
-as a **Condition**, enter 10 for **Threshold** and choose **rows** in the next dropdown.
-Please note that you might get different results if you're using samples of different size during validation. 14. Add more rules if needed. 15. Choose **Create ruleset**.
+## Validating data quality rules
+
+After a ruleset is defined, you can add it to a profile job for validation. You can
+define more than one ruleset for a dataset.
+
+For example, one ruleset might contain rules with minimally acceptable criteria. A
+validation failure for that ruleset might mean that the data isn't acceptable for
+further use. An example is missing values in key columns of a dataset used for machine
+learning training. You can use a second ruleset with stricter rules to verify whether
+the dataset has such good quality that no cleanup is required.
+
+You can apply one or more rulesets defined for a given dataset in a profile job
+configuration. When the profile job runs, it produces a validation report in addition to
+the data profile. The validation report is available at the same location as your
+profile data. As with profile information, you can explore the results in the DataBrew
+console. In the **Dataset details** view, choose the **Data
+Quality** tab to view the results. For more details about working with
+profile information, see [Creating and working with AWS Glue DataBrew profile jobs](jobs.md "jobs.md").
+
+## Acting on validation results
+
+When a DataBrew profile job completes, DataBrew sends an Amazon CloudWatch event with the details of
+that job run. If you also configured your job to validate data quality rules, DataBrew
+sends an event for each validated ruleset. The event contains its result
+(`SUCCEEDED`, `FAILED`, or `ERROR`) and a link to the
+detailed data quality validation report. You can then automate further action by
+invoking **next action** depending on the status of validation.
+For more information on connecting events to target actions, such as Amazon SNS notification, AWS Lambda function invocations and others,
+see [Getting started with Amazon EventBridge](../../../eventbridge/latest/userguide/eventbridge-getting-set-up.md "../../../eventbridge/latest/userguide/eventbridge-getting-set-up.md").
+
+Following is an example of a DataBrew Validation Result event:
+
+```
+{
+  "version": "0",
+  "id": "fb27348b-112d-e7c2-560d-85e7c2c09964",
+  "detail-type": "DataBrew Ruleset Validation Result",
+  "source": "aws.databrew",
+  "account": "123456789012",
+  "time": "2021-11-18T13:15:46Z",
+  "region": "us-east-1",
+  "resources": [],
+  "detail": {
+    "datasetName": "MyDataset",
+    "jobName": "MyProfileJob",
+    "jobRunId": "db_f07954d20d083de0c1fc1eee11498d8635ee5be4ca416af27d33933e91ff4e6e",
+    "rulesetName": "MyRuleset",
+    "validationState": "FAILED",
+    "validationReportLocation": "s3://MyBucket/MyKey/MyDataset_f07954d20d083de0c1fc1eee11498d8635ee5be4ca416af27d33933e91ff4e6e_dq-validation-report.json"
+  }
+}
+
+```
+
+You can use attributes of events such as `detail-type`, `source` and nested properties of the `detail` attribute
+to [create event patterns](../../../eventbridge/latest/userguide/eb-event-patterns.md#eb-create-pattern "../../../eventbridge/latest/userguide/eb-event-patterns.md#eb-create-pattern")
+in Amazon Eventbridge. For example an event pattern to match all failed validations from any DataBrew job would look like this:
+
+```
+{
+  "source": ["aws.databrew"],
+  "detail-type": ["DataBrew Ruleset Validation Result"],
+  "detail": {
+   "validationState": ["FAILED"]
+  }
+}
+```
+
+For an example of creating a ruleset and validating its rules, see [Creating a ruleset with data quality rules](profile.md "profile.md"). For more information about
+working with CloudWatch events in DataBrew, see [Automating DataBrew with CloudWatch Events](monitoring.md "monitoring.md")
+
+## Inspecting validation results for and updating data quality rules
+
+After your profile job completes, you can view the validation results for
+your data quality rules and as needed update your rules.
+
+###### To view validation data for your data quality rules
+
+1. On the DataBrew console, choose **View data profile**. Doing this displays
+   the **Data profile overview** tab for your
+   dataset.
+2. Choose the **Data quality rules** tab. On this tab, you can view the results
+   for all of your data quality rules.
+3. Select an individual rule for more details about that rule.
+
+For any rule that failed validation, you can make the necessary
+corrections.
+
+###### To update your data quality rules
+
+1. On the navigation pane, choose **DQ RULES**.
+2. Under **Data quality ruleset name**, choose the dataset that contains the
+   rules that you plan to edit.
+3. Choose the rule that you want to change, and then choose **Edit**.
+4. Make the necessary corrections, and then choose **Update ruleset**.
+5. Rerun the job. Repeat this process until all validations pass.

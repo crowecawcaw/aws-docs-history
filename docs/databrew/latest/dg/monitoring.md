@@ -1,96 +1,42 @@
-# Automating DataBrew with CloudWatch Events
+# Monitoring AWS Glue DataBrew
 
-Amazon CloudWatch Events enables you to automate your AWS services and respond automatically to system
-events such as application availability issues or resource changes. Events from AWS services are
-delivered to CloudWatch Events in near-real time. You can write simple rules to indicate which events are of
-interest to you, and what automated actions to take when an event matches a rule. The actions
-that can be automatically triggered include the following:
+Monitoring is an important part of maintaining the reliability, availability, and performance of
+AWS Glue DataBrew and your other AWS solutions. AWS provides the following monitoring tools to
+watch DataBrew, report when something is wrong, and take automatic actions when
+appropriate:
 
-- Invoking the Amazon EC2 run command
-- Relaying the event to Amazon Kinesis Data Streams
-- Activating an AWS Step Functions state machine
-- Notifying an Amazon SNS topic or an Amazon SQS queue
-  DataBrew reports an event to CloudWatch Events whenever the state of a resource in your AWS account
-  changes. Events are emitted on a best effort basis.
+- _Amazon CloudWatch_ monitors your AWS resources and the applications you run on AWS in real
+  time. You can collect and track metrics, create customized dashboards, and set alarms that notify you or take
+  actions when a specified metric reaches a threshold that you specify. For example, you can have CloudWatch track CPU usage
+  or other metrics of your Amazon EC2 instances and automatically launch new instances when needed. For more information,
+  see the [Amazon CloudWatch User Guide](../../../AmazonCloudWatch/latest/monitoring.md "../../../AmazonCloudWatch/latest/monitoring.md").
+- _Amazon CloudWatch Events_ enables you to set up automatic notifications for specific
+  events in DataBrew. Events from DataBrew are delivered to CloudWatch Events in near-real time. You can
+  configure CloudWatch Events to monitor events and invoke targets in response to events that
+  indicate changes to your resource shares. Changes to a resource share trigger events for
+  both the owner of the resource share and the principals that were granted access to the
+  resource share. For more information, see the [Amazon CloudWatch Events User Guide](../../../AmazonCloudWatch/latest/events.md "../../../AmazonCloudWatch/latest/events.md").
+- _Amazon CloudWatch Logs_ enables you to monitor, store, and access your log files from Amazon EC2 instances,
+  CloudTrail, and other sources. CloudWatch Logs can monitor information in the log files and notify you when certain thresholds are
+  met. You can also archive your log data in highly durable storage. For more information, see the
+  [Amazon CloudWatch Logs User Guide](../../../AmazonCloudWatch/latest/logs.md "../../../AmazonCloudWatch/latest/logs.md").
+- _AWS CloudTrail_ captures API calls and related events made by or on behalf of
+  your AWS account. It then delivers the log files to an Amazon S3 bucket that you specify. You
+  can identify which users and accounts called AWS, the source IP address from which the
+  calls were made, and when the calls occurred. For more information, see the
+  [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
 
-Following are examples of several events, showing various states of a DataBrew job:
-`SUCCEEDED`, `FAILED`, `TIMEOUT`, and
-`STOPPED`.
+###### Topics
 
-```
+- [Monitoring DataBrew with Amazon CloudWatch](monitoring.md "monitoring.md")
+- [Automating DataBrew with CloudWatch Events](monitoring.md "monitoring.md")
+- [Monitoring DataBrew with CloudWatch Logs](#monitoring.cloudwatch-logs "#monitoring.cloudwatch-logs")
+- [Logging DataBrew API calls with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
+- [Using AWS User Notifications with AWS Glue Databrew](using-user-notifications.md "using-user-notifications.md")
 
-{
-  "version": "0",
-  "id": "abcdef00-1234-5678-9abc-def012345678",
-  "detail-type": "DataBrew Job State Change",
-  "source": "aws.databrew",
-  "account": "123456789012",
-  "time": "2017-09-07T18:57:21Z",
-  "region": "us-west-2",
-  "resources": [],
-  "detail": {
-    "jobName": "MyJob",
-    "severity": "INFO",
-    "state": "SUCCEEDED",
-    "jobRunId": "db_abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789",
-    "message": "Job run succeeded"
-  }
-}
+## Monitoring DataBrew with CloudWatch Logs
 
-{
-  "version": "0",
-  "id": "abcdef01-1234-5678-9abc-def012345678",
-  "detail-type": "DataBrew Job State Change",
-  "source": "aws.databrew",
-  "account": "123456789012",
-  "time": "2017-09-07T06:02:03Z",
-  "region": "us-west-2",
-  "resources": [],
-  "detail": {
-    "jobName": "MyJob",
-    "severity": "ERROR",
-    "state": "FAILED",
-    "jobRunId": "db_0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
-    "message": "AnalysisException: 'Path does not exist: s3://MyBucket/MyFile;'"
-  }
-}
-
-{
-  "version": "0",
-  "id": "abcdef00-1234-5678-9abc-def012345678",
-  "detail-type": "DataBrew Job State Change",
-  "source": "aws.databrew",
-  "account": "123456789012",
-  "time": "2017-11-20T20:22:06Z",
-  "region": "us-east-2",
-  "resources": [],
-  "detail": {
-    "jobName": "MyJob",
-    "severity": "WARN",
-    "state": "TIMEOUT",
-    "jobRunId": "db_abc0123456789abcdef0123456789abcdef0123456789abcdef0123456789def",
-    "message": "Job run timed out"
-  }
-}
-
-{
-  "version": "0",
-  "id": "abcdef00-1234-5678-9abc-def012345678",
-  "detail-type": "DataBrew Job State Change",
-  "source": "aws.databrew",
-  "account": "123456789012",
-  "time": "2017-11-20T20:22:06Z",
-  "region": "us-east-2",
-  "resources": [],
-  "detail": {
-    "jobName": "MyJob",
-    "severity": "INFO",
-    "state": "STOPPED",
-    "jobRunId": "db_abc0123456789abcdef0123456789abcdef0123456789abcdef0123456789def",
-    "message": "Job run stopped"
-  }
-}
-
-```
-
-For more information, see the [Amazon CloudWatch Events User Guide](../../../AmazonCloudWatch/latest/events.md "../../../AmazonCloudWatch/latest/events.md").
+You can monitor DataBrew jobs using CloudWatch Logs, which collects detailed information from the DataBrew
+job subsystem and makes it available for review. These logs can be helpful if you want to gain
+insight into the resources your profile and recipe jobs are using, or for troubleshooting
+purposes, For more information, see the [Amazon CloudWatch Logs User Guide](../../../AmazonCloudWatch/latest/logs.md "../../../AmazonCloudWatch/latest/logs.md").

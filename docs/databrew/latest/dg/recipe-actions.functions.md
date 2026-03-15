@@ -1,38 +1,29 @@
-# EXACT
+# ROLLING_STANDARD_DEVIATION
 
-Creates a new column populated with one of the following:
-
-- `True` if one string in a column (or value) exactly matches another string in a
-  different column (or value).
-- `False` if there is no match.
+Returns in a new column the rolling standard deviation of values from a specified
+number of rows before to a specified number of rows after the current row in the
+specified column.
 
 ###### Parameters
 
-- `sourceColumn1` – The name of an existing column.
-- `sourceColumn2` – The name of an existing column.
-- `value1` – A character string to evaluate.
-- `value2` – A character string to evaluate.
-- `targetColumn` – The name of the new column to be created.
-
-###### Note
-
-You can specify only one of the following combinations:
-
-- Both of `sourceColumn`N``.
-- One of `sourceColumn`N`` and one of
-`value`N``.
-- Both of `value`N``.
+- `sourceColumn` – The name of an existing column.
+- `numRowsBefore` – A number of rows before the current source row,
+  representing the start of the window.
+- `numRowsAfter` – A number of rows after the current source row,
+  representing the end of the window.
+- `targetColumn` – A name for the newly created column.
 
 ###### Example
 
 ```
 {
-    "RecipeAction": {
-        "Operation": "EXACT",
+    "Action": {
+        "Operation": "ROLLING_STDEV",
         "Parameters": {
-            "sourceColumn1": "nationality",
-            "value2": "Argentina",
-            "targetColumn": "nationality_exact"
+            "numRowsAfter": "10",
+            "numRowsBefore": "10",
+            "sourceColumn": "weight_kg",
+            "targetColumn": "weight_kg_ROLLING_STDEV"
         }
     }
 }

@@ -1,50 +1,24 @@
-# Data science recipe steps
+# FILL_WITH_LAST_VALID
 
-Use these recipe steps to tabulate and summarize data from different perspectives, or to
-perform advanced transformations.
-
-###### Topics
-
-- [BINARIZATION](recipe-actions.md "recipe-actions.md")
-- [BUCKETIZATION](recipe-actions.md "recipe-actions.md")
-- [CATEGORICAL_MAPPING](recipe-actions.md "recipe-actions.md")
-- [ONE_HOT_ENCODING](recipe-actions.md "recipe-actions.md")
-- [SCALE](#recipe-actions.SCALE "#recipe-actions.SCALE")
-- [SKEWNESS](recipe-actions.md "recipe-actions.md")
-- [TOKENIZATION](recipe-actions.md "recipe-actions.md")
-
-## SCALE
-
-Scales or normalizes the range of data in a numeric column.
+Returns a column with missing data replaced by the most recent valid value for that column.
 
 ###### Parameters
 
 - `sourceColumn` – The name of an existing column.
-- `strategy` – The operation to be applied to the column values:
-  - `MIN_MAX` – Rescales the values into a range of
-    [0,1]
-  - `SCALE_BETWEEN` – Rescales the values into a range
-    of 2 specified values.
-  - `MEAN_NORMALIZATION` – Rescales the data to have a
-    mean (μ) of 0 and standard deviation (σ) of 1 within a range of [-1,
-    1]
-  - `Z_SCORE` – Linearly scale data values to have a mean
-    (μ) of 0 and standard deviation (σ) of 1. Best for handling
-    outliers.
-
-- `targetColumn` – The name of a column to contain the
-  results.
+- `columnDataType` – The data type for the column. This type
+  must be `date`, `number`, `boolean`,
+  `unsupported`, `string`, or
+  `timestamp`.
 
 ###### Example
 
 ```
 {
-    "Action": {
-        "Operation": "NORMALIZATION",
+    "RecipeAction": {
+        "Operation": "FILL_WITH_LAST_VALID",
         "Parameters": {
-            "sourceColumn": "all_votes",
-            "strategy": "MIN_MAX",
-            "targetColumn": "all_votes_normalized"
+            "columnDataType": "string",
+            "sourceColumn": "birth_date"
         }
     }
 }
