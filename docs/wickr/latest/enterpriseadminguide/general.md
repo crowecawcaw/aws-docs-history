@@ -14,7 +14,7 @@ The **General** section has the following available options:
   will only display who the message is from or the room/group name.
 - **User Availability**: Allows users to enable “Show my Status” presence
   in the app.
-- **ATAK Functionality**: Allows users to message, collaborate,
-  and transfer files on Wickr within the ATAK application.
+- **ATAK Functionality**: Allows users to message, collaborate, and
+  transfer files on Wickr within the ATAK application.
 - **Allow updates on desktop**: Displays a banner on desktop (Windows &
   macOS) clients when there is an update available.

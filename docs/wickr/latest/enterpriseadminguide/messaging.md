@@ -19,9 +19,10 @@ users:
   in rooms, groups, or DMs.
   The **Messaging** section has the following additional features:
 
-- **Secure Shredder:** The Wickr shredder will write random data over any
-  RAM and Disk Space used by files opened in the app. This does not apply to files exported, only
-  files opened in a preview within the Wickr apps.
+- **Secure Shredder:** The Wickr shredder will write random data over
+  free memory and disk space on client devices. For more information on how to configure your
+  Secure Shredder intensity, see [ShredderSettings](../APIReference/API_ShredderSettings.md "../APIReference/API_ShredderSettings.md") in the
+  _AWS Wickr API Reference_.
 - **Bot Read Receipts:** Allows bots to automatically “read” messages in a
   room instead of requiring users to @ the bot for interaction.
 - **Image/File Download Size:** By default, it will upload and download the

@@ -1,66 +1,68 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr
 Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wickr.md").
 
-# Clients 6.52 release
+# Clients 6.40 release
 
-The following release notes include information for clients release 6.52. For information on
-the release timeline, see [Change log](#clients-release-notes-6.52-change-log "#clients-release-notes-6.52-change-log").
+The following release notes include information for clients release 6.40. For information on
+the release timeline, see [Change log](#clients-release-notes-6.40-change-log "#clients-release-notes-6.40-change-log").
 
 **Platform versions**
 
 |                        |         |
 | ---------------------- | ------- |
-| Android                | 6.52.7  |
-| iOS                    | 6.52.15 |
-| Desktop (Mac, Windows) | 6.52.9  |
-| Linux                  | 6.52.9  |
+| Android                | 6.40.8  |
+| iOS                    | 6.40.7  |
+| Desktop (Mac, Windows) | 6.40.16 |
+| Linux                  | 6.40.12 |
 
 **Android**
 
-Changes, enhancements, and resolved issues:
+New features:
 
-- Wickr Open Access (WOA) performance and stability improvements.
-- General enhancements and bug fixes.
+- A single character search feature has been added to support the Korean language.
+- Message send resiliency is now turned on by default.
   **iOS**
 
-Improvements:
+New features:
 
-- Wickr Open Access (WOA) performance and stability improvements.
-- General enhancements and bug fixes.
+- A single character search feature has been added to support the Korean language.
+- Message send resiliency is now turned on by default.
   **Desktop**
 
-Improvements:
+New features:
 
-- Wickr Open Access (WOA) performance and stability improvements.
-- **New User Experience Preview** is turned ON by default.
-- General enhancements and bug fixes.
+- A single character search feature has been added to support the Korean language.
+- Message send resiliency is now turned on by default.
 
-###### Note
-
-Starting with the next client release (6.54), Wickr will discontinue updates and support
-for the macOS client when running version 11 (Big Sur). It's recommended that you upgrade to
-version 12 (Monterey) or above.
-
-## Clients 6.52 (Hotfix) release
+## Clients 6.40 (Hotfix) release
 
 **Platform versions**
 
-|         |        |
-| ------- | ------ |
-| Android | 6.52.8 |
+|         |         |
+| ------- | ------- |
+| iOS     | 6.40.53 |
+| Desktop | 6.40.18 |
 
-**Android**
+**iOS**
+
+Changes and resolved issues:
+
+Fixed an issue where failed message errors would continue to appear after being
+acknowledged.
+
+**Desktop**
 
 Changes, enhancements, and resolved issues:
 
-- Wickr Open Access (WOA) performance and stability improvements.
-- General enhancements and bug fixes.
+Fixed an issue where failed message errors would continue to appear after being
+acknowledged.
 
 ## Change log
 
-**Change log for 6.52 release and release notes**
+**Change log for 6.40 release and release notes**
 
-| Change                                          | Description                            | Date           |
-| ----------------------------------------------- | -------------------------------------- | -------------- |
-| Android version 6.52.7 > Android version 6.52.8 | Performance and stability improvement  | April 30, 2025 |
-| Initial release                                 | Initial release of April release notes | April 10, 2025 |
+| Change                                                                                            | Description                                                    | Date           |
+| ------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | -------------- |
+| Desktop version 6.40.16 > Desktop version 6.40.18<br>iOS version 6.40.7 > Desktop version 6.40.53 | Bug fix                                                        | August 5, 2024 |
+| Clients update                                                                                    | Updates to address vulnerability scan results and new features | July 29, 2024  |
+| Initial release                                                                                   | Initial release of July release notes                          | July 29, 2024  |
