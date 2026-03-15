@@ -1,313 +1,45 @@
-# Constraints for ANSI SQL
+# Case sensitivity differences for ANSI SQL
 
-This topic provides reference information about constraint compatibility between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can use this guide to understand the similarities and differences in how these two database systems handle various types of constraints, including check constraints, unique constraints, primary key constraints, and foreign key constraints.
+Object name case sensitivity is different for SQL Server and Amazon Aurora MySQL-Compatible Edition (Aurora MySQL). SQL Server object names case sensitivity is being determined by the collection. Aurora MySQL names are case sensitive and can be adjusted based on the parameter mentioned following.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                        | Key differences                                          |
-| ------------------------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
-| Four star feature compatibility | Four star automation level         | [Constraints](chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.constraints "chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.constraints") | Unsupported `CHECK`. Indexing requirements for `UNIQUE`. |
+In Aurora MySQL, the case sensitivity is determined by the `lower_case_table_names` parameter value. In general, you can use one of the three possible values for this parameter. To avoid issues, we recommend that you use only the two following values for `lower_case_table_names`:
 
-## SQL Server Usage
+- 0 — names stored as given and comparisons are case-sensitive. You can choose this value for all Amazon Relational Database Service (Amazon RDS) for MySQL versions.
+- 1 — names stored in lowercase and comparisons aren’t case-sensitive. You can choose this value for Amazon RDS for MySQL version 5.6, version 5.7, and version 8.0.19 and higher 8.0 versions.
+  In Aurora MySQL version 2.10 and higher 2.x versions, make sure to reboot all reader instances after changing the `lower_case_table_names` setting and rebooting the writer instance. For details, see [Rebooting an Aurora MySQL cluster (version 2.10 and higher)](../../../AmazonRDS/latest/AuroraUserGuide/USER_RebootCluster.md#aurora-mysql-survivable-replicas "../../../AmazonRDS/latest/AuroraUserGuide/USER_RebootCluster.md#aurora-mysql-survivable-replicas").
 
-Column and table constraints are defined by the SQL standard and enforce relational data consistency. There are four types of SQL constraints: check constraints, unique constraints, primary key constraints, and foreign key constraints.
+In Aurora MySQL version 3, the value of the `lower_case_table_names` parameter is set permanently at the time when you create the cluster. If you use a nondefault value for this option, set up your Aurora MySQL version 3 custom parameter group before upgrading, and specify the parameter group during the snapshot restore operation that creates the version 3 cluster.
 
-### Check Constraints
+With an Aurora global database based on Aurora MySQL, you can’t perform an in-place upgrade from Aurora MySQL version 2 to version 3 if the `lower_case_table_names` parameter is turned on. For more information on the methods that you can use, see [Major version upgrades](../../../AmazonRDS/latest/AuroraUserGuide/aurora-global-database-upgrade.md#aurora-global-database-upgrade.major "../../../AmazonRDS/latest/AuroraUserGuide/aurora-global-database-upgrade.md#aurora-global-database-upgrade.major").
 
-```
-CHECK (<Logical Expression>)
-```
+We recommend that you don’t changE the `lower_case_table_names` parameter for existing database instances. Doing so can cause inconsistencies with point-in-time recovery backups and read replica DB instances.
 
-Check constraints enforce domain integrity by limiting the data values stored in table columns. They are logical Boolean expressions that evaluate to one of three values: `TRUE`, `FALSE`, and `UNKNOWN`.
+Read replicas should always use the same `lower_case_table_names` parameter value as the source DB instance.
 
-###### Note
+By default, object names are being stored in lowercase for MySQL. In most cases, you’ll want to use AWS Database Migration Service transformations to change schema, table, and column names to lowercase.
 
-Check constraint expressions behave differently than predicates in other query clauses. For example, in a `WHERE` clause, a logical expression that evaluates to `UNKNOWN` is functionally equivalent to `FALSE` and the row is filtered out. For check constraints, an expression that evaluates to `UNKNOWN` is functionally equivalent to `TRUE` because the value is permitted by the constraint.
+## Examples
 
-You can assign multiple check constraints to a single column. A single check constraint may apply to multiple columns. In this case, it is known as a table-level check constraint.
-
-In ANSI SQL, check constraints can’t access other rows as part of the expression. In SQL Server, you can use user-defined functions in constraints to access other rows, tables, or even databases.
-
-### Unique Constraints
+For example, to create a table named EMPLOYEES in uppercase in MySQL, you should use the following:
 
 ```
-UNIQUE [CLUSTERED | NONCLUSTERED] (<Column List>)
+CREATE TABLE EMPLOYEES (
+    EMP_ID NUMERIC PRIMARY KEY,
+    EMP_FULL_NAME VARCHAR(60) NOT NULL,
+    AVG_SALARY NUMERIC NOT NULL);
 ```
 
-Unique constraints should be used for all candidate keys. A candidate key is an attribute or a set of attributes such as columns that uniquely identify each row in the relation or table data.
-
-Unique constraints guarantee that no rows with duplicate column values exist in a table.
-
-A unique constraint can be simple or composite. Simple constraints are composed of a single column. Composite constraints are composed of multiple columns. A column may be a part of more than one constraint.
-
-Although the ANSI SQL standard allows multiple rows having NULL values for unique constraints, in SQL Server, you can use a NULL value for only one row. Use a `NOT NULL` constraint in addition to a unique constraint to disallow all NULL values.
-
-To improve efficiency, SQL Server creates a unique index to support unique constraints. Otherwise, every `INSERT` and `UPDATE` would require a full table scan to verify there are no duplicates. The default index type for unique constraints is non-clustered.
-
-### Primary Key Constraints
+The following command creates a table named employees in lowercase.
 
 ```
-PRIMARY KEY [CLUSTERED | NONCLUSTERED] (<Column List>)
+CREATE TABLE employees (
+    EMP_ID NUMERIC PRIMARY KEY,
+    EMP_FULL_NAME VARCHAR(60) NOT NULL,
+    AVG_SALARY NUMERIC NOT NULL);
 ```
 
-A primary key is a candidate key serving as the unique identifier of a table row. Primary keys may consist of one or more columns. All columns that comprise a primary key must also have a NOT NULL constraint. Tables can have one primary key.
+MySQL will look for objects names in with the exact case sensitivity as written in the query.
 
-The default index type for primary keys is a clustered index.
+You can turn off table name case sensitivity in MySQL by setting the parameter `lower_case_table_names` to 1. Column, index, stored routine, event names, and column aliases aren’t case sensitive on either platform.
 
-### Foreign Key Constraints
-
-```
-FOREIGN KEY (<Referencing Column List>)
-REFERENCES <Referenced Table>(<Referenced Column List>)
-```
-
-Foreign key constraints enforce domain referential integrity. Similar to check constraints, foreign keys limit the values stored in a column or set of columns.
-
-Foreign keys reference columns in other tables, which must be either primary keys or have unique constraints. The set of values allowed for the referencing table is the set of values existing the referenced table.
-
-Although the columns referenced in the parent table are indexed (since they must have either a primary key or unique constraint), no indexes are automatically created for the referencing columns in the child table. A best practice is to create appropriate indexes to support joins and constraint enforcement.
-
-Foreign key constraints impose DML limitations for the referencing child table and for the parent table. The constraint’s purpose is to guarantee that no orphan rows with no corresponding matching values in the parent table exist in the referencing table. The constraint limits `INSERT` and `UPDATE` to the child table and `UPDATE` and `DELETE` to the parent table. For example, you can’t delete an order having associated order items.
-
-Foreign keys support cascading referential integrity (CRI). CRI can be used to enforce constraints and define action paths for DML statements that violate the constraints. There are four CRI options:
-
-- **NO ACTION** — When the constraint is violated due to a DML operation, an error is raised and the operation is rolled back.
-- **CASCADE** — Values in a child table are updated with values from the parent table when they are updated or deleted along with the parent.
-- **SET NULL** — All columns that are part of the foreign key are set to NULL when the parent is deleted or updated.
-- **SET DEFAULT** — All columns that are part of the foreign key are set to their DEFAULT value when the parent is deleted or updated.
-
-These actions can be customized independently of others in the same constraint. For example, a cascading constraint may have `CASCADE` for `UPDATE`, but `NO ACTION` for `UPDATE`.
-
-### Examples
-
-The following example creates a composite non-clustered primary key.
-
-```
-CREATE TABLE MyTable
-(
-    Col1 INT NOT NULL,
-    Col2 INT NOT NULL,
-    Col3 VARCHAR(20) NULL,
-    CONSTRAINT PK_MyTable
-    PRIMARY KEY NONCLUSTERED (Col1, Col2)
-);
-```
-
-The following example creates a table-level check constraint.
-
-```
-CREATE TABLE MyTable
-(
-    Col1 INT NOT NULL,
-    Col2 INT NOT NULL,
-    Col3 VARCHAR(20) NULL,
-    CONSTRAINT PK_MyTable
-    PRIMARY KEY NONCLUSTERED (Col1, Col2),
-    CONSTRAINT CK_MyTableCol1Col2
-    CHECK (Col2 >= Col1)
-);
-```
-
-The following example creates a simple non-null unique constraint.
-
-```
-CREATE TABLE MyTable
-(
-    Col1 INT NOT NULL,
-    Col2 INT NOT NULL,
-    Col3 VARCHAR(20) NULL,
-    CONSTRAINT PK_MyTable
-        PRIMARY KEY NONCLUSTERED (Col1, Col2),
-    CONSTRAINT UQ_Col2Col3
-        UNIQUE (Col2, Col3)
-);
-```
-
-The following example creates a foreign key with multiple cascade actions.
-
-```
-CREATE TABLE MyParentTable
-(
-    Col1 INT NOT NULL,
-    Col2 INT NOT NULL,
-    Col3 VARCHAR(20) NULL,
-    CONSTRAINT PK_MyTable
-    PRIMARY KEY NONCLUSTERED (Col1, Col2)
-);
-```
-
-```
-CREATE TABLE MyChildTable
-(
-    Col1 INT NOT NULL PRIMARY KEY,
-    Col2 INT NOT NULL,
-    Col3 INT NOT NULL,
-    CONSTRAINT FK_MyChildTable_MyParentTable
-        FOREIGN KEY (Col2, Col3)
-        REFERENCES MyParentTable (Col1, Col2)
-        ON DELETE NO ACTION
-        ON UPDATE CASCADE
-);
-```
-
-For more information, see [Unique Constraints and Check Constraints](https://docs.microsoft.com/en-us/sql/relational-databases/tables/unique-constraints-and-check-constraints?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/tables/unique-constraints-and-check-constraints?view=sql-server-ver15") and [Primary and Foreign Key Constraints](https://docs.microsoft.com/en-us/sql/relational-databases/tables/primary-and-foreign-key-constraints?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/tables/primary-and-foreign-key-constraints?view=sql-server-ver15") in the _SQL Server documentation_.
-
-## MySQL Usage
-
-Similar to SQL Server, Aurora MySQL supports all ANSI constraint types, except check.
-
-###### Note
-
-You can work around some of the functionality of `CHECK (<Column>) IN (<Value List>)` using the `SET` and `ENUM` data types. For more information, see [Data Types](chap-sql-server-aurora-mysql.sql.md "chap-sql-server-aurora-mysql.sql.md").
-
-Unlike SQL Server, constraint names, or symbols in Aurora MySQL terminology, are optional. Identifiers are created automatically and are similar to SQL Server column constraints that are defined without an explicit name.
-
-### Unique Constraints
-
-Unlike SQL Server, where unique constraints are objects supported by unique indexes, Aurora MySQL only provides unique indexes. A unique index is the equivalent to a SQL Server unique constraint.
-
-As with SQL Server, unique indexes enforce distinct values for index columns. If a new row is added or an existing row is updated with a value that matches an existing row, an error is raised and the operation is rolled back.
-
-Unlike SQL Server, Aurora MySQL permits multiple rows with NULL values for unique indexes.
-
-###### Note
-
-If a unique index consists of only one `INT` type column, you can use the `_rowid` alias to reference the index in `SELECT` statements.
-
-### Primary Key Constraints
-
-Similar to SQL Server, a primary key constraint in Aurora MySQL is a unique index where all columns are NOT NULL. Each table can have only one primary key. The name of the constraint is always `PRIMARY`.
-
-Primary keys in Aurora MySQL are always clustered. They can’t be configured as `NON CLUSTERED` like SQL Server. For more information, see [Indexes](chap-sql-server-aurora-mysql.md "chap-sql-server-aurora-mysql.md").
-
-Applications can reference a primary key using the `PRIMARY` alias. If a table has no primary key, which isn’t recommended, Aurora MySQL uses the first NOT NULL and unique index.
-
-###### Note
-
-Keep the primary key short to minimize storage overhead for secondary indexes. In Aurora MySQL, the primary key is clustered. Therefore, every secondary or nonclustered index maintains a copy of the clustering key as the row pointer. It is also recommended to create tables and declare the primary key first, followed by the unique indexes. Then create the non-unique indexes.
-
-If a primary key consists of a single `INTEGER` column, it can be referenced using the `_rowid` alias in `SELECT` commands.
-
-### Foreign Key Constraints
-
-###### Note
-
-MySQL doesn’t support foreign key constraints for partitioned tables. For more information, see [Storage](chap-sql-server-aurora-mysql.md "chap-sql-server-aurora-mysql.md").
-
-Aurora MySQL supports foreign key constraints for limiting values in a column, or a set of columns, of a child table based on their existence in a parent table.
-
-Unlike SQL Server and contrary to the ANSI standard, Aurora MySQL allows foreign keys to reference nonunique columns in the parent table. The only requirement is that the columns are indexed as the leading columns of an index, but not necessarily a unique index.
-
-Aurora MySQL supports cascading referential integrity actions using the `ON UPDATE` and `ON DELETE` clauses. The available referential actions are `RESTRICT`, `CASCADE`, `SET NULL`, and `NO ACTION`. The default action is `RESTRICT`. `RESTRICT` and `NO ACTION` are synonymous.
-
-###### Note
-
-SET DEFAULT is supported by some other MySQL Server engines. Aurora MySQL uses the InnoDB engine exclusively, which doesn’t support `SET DEFAULT`.
-
-###### Note
-
-Some database engines support the ANSI standard for deferred checks. `NO ACTION` is a deferred check as opposed to `RESTRICT`, which is immediate. In MySQL, foreign key constraints are always validated immediately. Therefore, `NO ACTION` is the same as the `RESTRICT` action.
-
-Aurora MySQL handles foreign keys differently than most other engines in the following ways:
-
-- If there are multiple rows in the parent table that have the same values for the referenced foreign key, Aurora MySQL foreign key checks behave as if the other parent rows with the same key value don’t exist. For example, if a `RESTRICT` action is defined and a child row has several parent rows, Aurora MySQL doesn’t permit deleting them.
-- If `ON UPDATE CASCADE` or `ON UPDATE SET NULL` causes a recursion and updates the same table that has been updated as part of the same cascade operation, Aurora MySQL treats it as if it was a
-  `RESTRICT` action. This effectively turns off self-referencing `ON UPDATE CASCADE` or `ON UPDATE SET NULL` operations to prevent potential infinite loops resulting from cascaded updates. A self-referencing `ON DELETE SET NULL` or `ON DELETE CASCADE` are allowed because there is no risk of an infinite loop.
-- Cascading operations are limited to 15 levels deep.
-
-### Check Constraints
-
-Standard ANSI check clauses are parsed correctly and don’t raise syntax errors. However, they are ignored and aren’t stored as part of the Aurora MySQL table definition.
-
-**Syntax**
-
-```
-CREATE [TEMPORARY] TABLE [IF NOT EXISTS] <Table Name>
-(
-    <Column Definition>
-    [CONSTRAINT [<Symbol>]]
-        PRIMARY KEY (<Column List>)
-    | [CONSTRAINT [<Symbol>]]
-        UNIQUE [INDEX|KEY] [<Index Name>] [<Index Type>] (<Column List>)
-    | [CONSTRAINT [<Symbol>]]
-        FOREIGN KEY [<Index Name>] (<Column List>)
-            REFERENCES <Table Name> (<Column List>)
-                [ON DELETE RESTRICT | CASCADE | SET NULL | NO ACTION | SET DEFAULT]
-                [ON UPDATE RESTRICT | CASCADE | SET NULL | NO ACTION | SET DEFAULT]
-);
-```
-
-### Migration Considerations
-
-- Aurora MySQL doesn’t support check constraints. The engine parses the syntax for check constraints, but they are ignored.
-- Consider using triggers or stored routines to validate data values for complex expressions.
-- When using check constraints for limiting to a value list such as `CHECK (Col1 IN (1,2,3))`, consider using the `ENUM` or `SET` data types.
-- In Aurora MySQL, the constraint name (symbol) is optional, even for table constraints defined with the `CONSTRAINT` keyword. In SQL Server, it is mandatory.
-- Aurora MySQL requires that both the child table and the parent table in foreign key relationship are indexed. If the appropriate index doesn’t exist, Aurora MySQL automatically creates one.
-
-### Examples
-
-The following example creates a composite primary key.
-
-```
-CREATE TABLE MyTable
-(
-    Col1 INT NOT NULL,
-    Col2 INT NOT NULL,
-    Col3 VARCHAR(20) NULL,
-    CONSTRAINT PRIMARY KEY (Col1, Col2)
-);
-```
-
-The following example creates a simple non-null unique constraint.
-
-```
-CREATE TABLE MyTable
-(
-    Col1 INT NOT NULL,
-    Col2 INT NOT NULL,
-    Col3 VARCHAR(20) NULL,
-    CONSTRAINT PRIMARY KEY (Col1, Col2),
-    CONSTRAINT UNIQUE (Col2, Col3)
-);
-```
-
-The following example creates a named foreign key with multiple cascade actions.
-
-```
-CREATE TABLE MyParentTable
-(
-    Col1 INT NOT NULL,
-    Col2 INT NOT NULL,
-    Col3 VARCHAR(20) NULL,
-    CONSTRAINT PRIMARY KEY (Col1, Col2)
-);
-```
-
-```
-CREATE TABLE MyChildTable
-(
-    Col1 INT NOT NULL PRIMARY KEY,
-    Col2 INT NOT NULL,
-    Col3 INT NOT NULL,
-    FOREIGN KEY (Col2, Col3)
-    REFERENCES MyParentTable (Col1, Col2)
-    ON DELETE NO ACTION
-    ON UPDATE CASCADE
-);
-```
-
-## Summary
-
-The following table identifies similarities, differences, and key migration considerations.
-
-| Feature                         | SQL Server                                        | Aurora MySQL                                   | Comments                                                                  |
-| ------------------------------- | ------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------- |
-| Check constraints               | `CHECK`                                           | Not supported                                  | Aurora MySQL parses `CHECK` syntax, but ignores it.                       |
-| Unique constraints              | `UNIQUE`                                          | `UNIQUE`                                       |                                                                           |
-| Primary key constraints         | `PRIMARY KEY`                                     | `PRIMARY KEY`                                  |                                                                           |
-| Foreign key constraints         | `FOREIGN KEY`                                     | `FOREIGN KEY`                                  |                                                                           |
-| Cascaded referential actions    | `NO ACTION`, `CASCADE`, `SET NULL`, `SET DEFAULT` | `RESTRICT`, `CASCADE`, `SET NULL`, `NO ACTION` | `NO ACTION` and `RESTRICT` are synonymous.                                |
-| Indexing of referencing columns | Not required                                      | Required                                       | If not specified, an index is created silently to support the constraint. |
-| Indexing of referenced columns  | `PRIMARY KEY` or `UNIQUE`                         | Required                                       | Aurora MySQL doesn’t enforce uniqueness of referenced columns.            |
-| Cascade recursion               | Not allowed, discovered at `CREATE` time          | Not allowed, discovered at run time.           |                                                                           |
-
-For more information, see [CREATE TABLE Statement](https://dev.mysql.com/doc/refman/5.7/en/create-table.html "https://dev.mysql.com/doc/refman/5.7/en/create-table.html"), [How MySQL Deals with Constraints](https://dev.mysql.com/doc/refman/5.7/en/constraints.html "https://dev.mysql.com/doc/refman/5.7/en/constraints.html"), and [FOREIGN KEY Constraints](https://dev.mysql.com/doc/refman/5.7/en/create-table-foreign-keys.html "https://dev.mysql.com/doc/refman/5.7/en/create-table-foreign-keys.html") in the _MySQL documentation_.
+For more information, see [Identifier Case Sensitivity](https://dev.mysql.com/doc/refman/5.7/en/identifier-case-sensitivity.html "https://dev.mysql.com/doc/refman/5.7/en/identifier-case-sensitivity.html") in the _MySQL documentation_.

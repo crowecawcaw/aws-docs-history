@@ -1,241 +1,266 @@
-# Databases and schemas for T-SQL
+# User-defined types for T-SQL
 
-This topic provides reference content comparing database and schema concepts between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can gain insight into how these two database systems differ in their approach to logical containers, security, and object hierarchies.
+This topic provides reference information about user-defined types and table-valued parameters in Microsoft SQL Server and their compatibility with Amazon Aurora MySQL. It explains the differences in feature support between SQL Server and Aurora MySQL, highlighting that Aurora MySQL does not currently support user-defined types or table-valued parameters.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                     |
-| ------------------------------ | ---------------------------------- | ------------------------- | ----------------------------------- |
-| Two star feature compatibility | Two star automation level          | N/A                       | Schema and database are synonymous. |
+| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                               | Key differences                                                                                                                                                                                                                                                                                 |
+| -------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Three star feature compatibility | Three star automation level        | [User-Defined Types](chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.udt "chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.udt") | Replace scalar UDT with base types. Rewrite stored procedures that use table-type input parameters to use strings with CSV, XML, or JSON, or to process row-by-row. For more information, see [Stored Procedures](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md"). |
 
 ## SQL Server Usage
 
-Databases and schemas are logical containers for security and access control. Administrators can grant permissions collectively at both the databases and the schema levels. SQL Server instances provide security at three levels: individual objects, schemas (collections of objects), and databases (collections of schemas). For more information, see [Data Control Language](chap-sql-server-aurora-mysql.security.md "chap-sql-server-aurora-mysql.security.md").
+SQL Server user-defined types provide a mechanism for encapsulating custom data types and for adding NULL constraints.
+
+SQL Server also supports table-valued user-defined types, which you can use to pass a set of values to a stored procedure.
+
+User defined types can also be associated to CLR code assemblies. Beginning with SQL Server 2014, memory-optimized types support memory optimized tables and code.
 
 ###### Note
 
-In previous versions of SQL server, the term _user_ was interchangeable with the term _schema_. For backward compatibility, each database has several built-in security schemas including `guest`, `dbo`,
-`db_datareaded`, `sys`, `INFORMATION_SCHEMA`, and so on. You should migrate these schemas.
+If your code uses custom rules bound to data types, Microsoft recommends discontinuing use of this deprecated feature.
 
-Each SQL Server instance can host and manage a collection of databases, which consist of SQL Server processes and the Master, Model, TempDB, and MSDB system databases.
-
-The most common SQL Server administrator tasks at the database level are:
-
-- **Managing Physical Files** — Add, remove, change file growth settings, and re-size files.
-- **Managing Filegroups** — Partition schemes, object distribution, and read-only protection of tables.
-- **Managing default options**.
-- **Creating database snapshots**.
-
-Unique object identifiers within an instance use three-part identifiers: `<Database name>.<Schema name>.<Object name>`.
-
-The recommended way to view the metadata of database objects, including schemas, is to use the ANSI standard Information Schema views. In most cases, these views are compatible with other ANSI compliant RDBMS.
-
-To view a list of all databases on the server, use the `sys.databases` table.
+All user-defined types are based on an existing system data types. They allow developers to reuse the definition, making the code and schema more readable.
 
 ### Syntax
 
-Simplified syntax for `CREATE DATABASE`:
+The simplified syntax for the `CREATE TYPE` statement.
 
 ```
-CREATE DATABASE <database name>
-[ ON [ PRIMARY ] <file specifications>[,<filegroup>]
-[ LOG ON <file specifications>
-[ WITH <options specification> ] ;
-```
-
-Simplified syntax for CREATE SCHEMA:
-
-```
-CREATE SCHEMA <schema name> | AUTHORIZATION <owner name>;
+CREATE TYPE <type name> {
+FROM <base type> [ NULL | NOT NULL ] | AS TABLE (<Table Definition>)}
 ```
 
 ### Examples
 
-Add a file to a database and create a table using the new file.
+**User-defined types**
+
+Create a `ZipCodeScalar` user-defined type.
 
 ```
-USE master;
+CREATE TYPE ZipCode
+FROM CHAR(5)
+NOT NULL
 ```
 
-```
-ALTER DATABASE NewDB
-ADD FILEGROUP NewGroup;
-```
+Use the `ZipCodetype` in a table.
 
 ```
-ALTER DATABASE NewDB
-ADD FILE (
-    NAME = 'NewFile',
-    FILENAME = 'D:\NewFile.ndf',
-    SIZE = 2 MB
-    )
-TO FILEGROUP NewGroup;
+CREATE TABLE UserLocations
+(UserID INT NOT NULL PRIMARY KEY, ZipCode ZipCode);
 ```
 
 ```
-USE NewDB;
+INSERT INTO [UserLocations] ([UserID],[ZipCode]) VALUES (1, '94324');
+INSERT INTO [UserLocations] ([UserID],[ZipCode]) VALUES (2, NULL);
 ```
 
+For the preceding example, the following error message appears. It indicates that NULL values for `ZipCodeare` aren’t allowed.
+
 ```
-CREATE TABLE NewTable
+Msg 515, Level 16, State 2, Line 78
+Cannot insert the value NULL into column 'ZipCode', table 'tempdb.dbo.UserLocations';
+column doesn't allow nulls. INSERT fails.
+The statement has been terminated.
+```
+
+**Table-valued types**
+
+The following example demonstrates how to create and use a table valued types to pass a set of values to a stored procedure.
+
+Create the `OrderItems` table.
+
+```
+CREATE TABLE OrderItems
 (
-    Col1 INT PRIMARY KEY
-)
-ON NewGroup;
-```
-
-```
-SELECT Name
-FROM sys.databases
-WHERE database_id > 4;
-```
-
-Create a table within a new schema and database.
-
-```
-USE master
-```
-
-```
-CREATE DATABASE NewDB;
-```
-
-```
-USE NewDB;
-```
-
-```
-CREATE SCHEMA NewSchema;
-```
-
-```
-CREATE TABLE NewSchema.NewTable
-(
-    NewColumn VARCHAR(20) NOT NULL PRIMARY KEY
+    OrderID INT NOT NULL,
+    Item VARCHAR(20) NOT NULL,
+    Quantity SMALLINT NOT NULL,
+    PRIMARY KEY(OrderID, Item)
 );
 ```
 
-###### Note
+Create a table valued type for the `OrderItems` table.
 
-The preceding example uses default settings for the new database and schema.
+```
+CREATE TYPE OrderItems
+AS TABLE
+(
+    OrderID INT NOT NULL,
+    Item VARCHAR(20) NOT NULL,
+    Quantity SMALLINT NOT NULL,
+    PRIMARY KEY(OrderID, Item)
+);
+```
 
-For more information, see [sys.databases (Transact-SQL)](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=sql-server-ver15"), [CREATE SCHEMA (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-schema-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-schema-transact-sql?view=sql-server-ver15"), and [CREATE DATABASE](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-database-transact-sql?view=sql-server-ver15&tabs=sqlpool "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-database-transact-sql?view=sql-server-ver15&tabs=sqlpool") in the _SQL Server documentation_.
+Create the `InsertOrderItems` procedure. Note that the entire set of rows from the table valued parameter is handled with one statement.
+
+```
+CREATE PROCEDURE InsertOrderItems
+@OrderItems AS OrderItems READONLY
+AS
+BEGIN
+    INSERT INTO OrderItems(OrderID, Item, Quantity)
+    SELECT OrderID,
+        Item,
+        Quantity
+    FROM @OrderItems;
+END
+```
+
+Instantiate the `OrderItems` type, insert the values, and pass it to a stored procedure.
+
+```
+DECLARE @OrderItems AS OrderItems;
+```
+
+```
+INSERT INTO @OrderItems ([OrderID], [Item], [Quantity])
+VALUES
+(1, 'M8 Bolt', 100),
+(1, 'M8 Nut', 100),
+(1, M8 Washer, 200);
+
+EXECUTE [InsertOrderItems] @OrderItems = @OrderItems;
+
+(3 rows affected)
+```
+
+Select all rows from the `OrderItems` table.
+
+```
+SELECT * FROM OrderItems;
+
+OrderID  Item       Quantity
+1        M8 Bolt    100
+1        M8 Nut     100
+1        M8 Washer  200
+```
+
+For more information, see [CREATE TYPE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-type-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-type-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## MySQL Usage
 
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports both the `CREATE SCHEMA` and `CREATE DATABASE` statements. However, in Aurora MySQL, these statements are synonymous.
+Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) 5.7 doesn’t support user defined types and user defined table valued parameters.
 
-Unlike SQL Server, Aurora MySQL doesn’t have the concept of an instance hosting multiple databases, which in turn contain multiple schemas. Objects in Aurora MySQL are referenced as a two part name: `<schema>.<object>`. You can use the term _database_ in place of schema, but it is conceptually the same thing.
-
-###### Note
-
-This terminology conflict can lead to confusion for SQL Server database administrators unfamiliar with the Aurora MySQL concept of a database.
-
-###### Note
-
-Each database and schema in Aurora MySQL is managed as a separate set of physical files similar to an SQL Server database.
-
-Aurora MySQL doesn’t have the concept of a schema owner. Permissions must be granted explicitly. However, Aurora MySQL supports a custom default collation at the schema level, whereas SQL Server supports it at the database level only. For more information, see [Collations](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").
-
-### Syntax
-
-Syntax for CREATE DATABASE:
-
-```
-CREATE {DATABASE | SCHEMA} <database name>
-[DEFAULT] CHARACTER SET [=] <character set>|
-[DEFAULT] COLLATE [=] <collation>
-```
+The current documentation doesn’t indicate these features will be supported in Aurora MySQL version 8.
 
 ### Migration Considerations
 
-Similar to SQL Server, Aurora MySQL supports the USE command to specify the default database or schema for missing object qualifiers.
+For scalar user-defined types, replace the type name with base type and optional NULL constraints.
 
-The syntax is identical to SQL Server:
+For table-valued user-defined types used as stored procedure parameters, the workaround is more complicated.
 
-```
-USE <database name>;
-```
+Common solutions include using either temporary tables to hold the data or passing large string parameters containing the data in CSV, XML, JSON (or any other convenient format) and then writing code to parse these values in a stored procedure. Alternatively, if the logic doesn’t require access to the entire set of changes, and for small data sets, it is easier to call the stored procedure in a loop and pass the columns as standard parameters, row by row.
 
-After you run the `USE` command, the default database for the calling scope is changed to the specified database.
-
-There is a relatively straightforward migration path for a class of common application architectures that use multiple databases but have all objects in a single schema (typically the default `dbo` schema) and require cross database queries. For these types of applications, create an Aurora MySQL Instance and then create multiple databases as you would in SQL Server using the `CREATE DATABASE` command.
-
-Reference all objects using a two-part name instead of a three-part name by omitting the default schema identifier. For application code using the USE command instead of a three-part identifier, no rewrite is needed other than replacing the double dot with a single dot.
-
-```
-SELECT * FROM MyDB..MyTable -> SELECT * FROM MyDB.MyTable
-```
-
-For applications using a single database and multiple schemas, the migration path is the same and requires fewer rewrites because two-part names are already being used.
-
-Applications that use multiple schemas and multiple databases will need to use multiple instances.
-
-Use the `SHOW DATABASES` command to view databases or schemas in Aurora MySQL.
-
-```
-SHOW DATABASES;
-```
-
-For the preceding example, the result looks as shown following.
-
-```
-database
-
-information_schema
-Demo
-mysql
-performance_schema
-sys
-```
-
-Aurora MySQL also supports a `CREATE DATABASE` syntax reminder command.
-
-```
-SHOW CREATE DATABASE Demo;
-```
-
-For the preceding example, the result looks as shown following.
-
-```
-Database  Create Database
-Demo      CREATE DATABASE `Demo` /*!40100 DEFAULT CHARACTER SET latin1 */
-```
+Memory-optimized engines aren’t yet supported in Aurora MySQL. You must convert memory optimized tables to disk based tables.
 
 ### Examples
 
-The following examples create a new table in a new database.
+**Replacing a user-defined type**
+
+Replace the `ZipCode` user-defined type with a base type.
 
 ```
-CREATE DATABASE NewDatabase;
-```
-
-```
-USE NewDatabase;
-```
-
-```
-CREATE TABLE NewTable
+CREATE TABLE UserLocations
 (
-    NewColumn VARCHAR(20) NOT NULL PRIMARY KEY
+    UserID INT NOT NULL
+    PRIMARY KEY,
+    /*ZipCode*/ CHAR(5) NOT NULL
+);
+```
+
+**Replacing a table-valued stored procedure parameter**
+
+The following steps describe how to replace a table-valued parameter with a source table and a `LOOP` cursor.
+
+Create an `OrderItems` table.
+
+```
+CREATE TABLE OrderItems
+(
+    OrderID INT NOT NULL,
+    Item VARCHAR(20) NOT NULL,
+    Quantity SMALLINT NOT NULL,
+    PRIMARY KEY(OrderID, Item)
+);
+```
+
+Create and populate the `SourceTable`.
+
+```
+CREATE TABLE SourceTable
+(
+    OrderID INT,
+    Item VARCHAR(20),
+    Quantity SMALLINT,
+    PRIMARY KEY (OrderID, Item)
 );
 ```
 
 ```
-INSERT INTO NewTable VALUES('NewValue');
+INSERT INTO SourceTable (OrderID, Item, Quantity)
+VALUES
+(1, 'M8 Bolt', 100),
+(2, 'M8 Nut', 100),
+(3, 'M8 Washer', 200);
 ```
 
+Create a procedure to loop through the `SourceTable` and insert rows.
+
+###### Note
+
+There are syntax differences from T-SQL for both the `CREATE PROCEDURE` and the `CURSOR` declaration and use. For more information, see [Stored Procedures](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md") and [Cursors](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").
+
 ```
-SELECT * FROM NewTable;
+CREATE PROCEDURE LoopItems()
+BEGIN
+    DECLARE done INT DEFAULT FALSE;
+    DECLARE var_OrderID INT;
+    DECLARE var_Item VARCHAR(20);
+    DECLARE var_Quantity SMALLINT;
+    DECLARE ItemCursor CURSOR
+        FOR SELECT OrderID,
+            Item,
+            Quantity
+        FROM SourceTable;
+    DECLARE CONTINUE HANDLER
+        FOR NOT FOUND
+        SET done = TRUE;
+    OPEN ItemCursor;
+    CursorStart: LOOP
+    FETCH NEXT FROM ItemCursor
+        INTO var_OrderID, var_Item, var_Quantity;
+    IF Done
+        THEN LEAVE CursorStart;
+    END IF;
+        INSERT INTO OrderItems (OrderID, Item, Quantity)
+        VALUES (var_OrderID, var_Item, var_Quantity);
+    END LOOP;
+    CLOSE ItemCursor;
+END;
+```
+
+Call the stored procedure.
+
+```
+CALL LoopItems();
+```
+
+Select all rows from the `OrderItems` table.
+
+```
+SELECT * FROM OrderItems;
+
+OrderID  Item       Quantity
+1        M8 Bolt    100
+2        M8 Nut     100
+3        M8 Washer  200
 ```
 
 ## Summary
 
-The following table summarizes the migration path for each architecture.
+| SQL Server                                       | Aurora MySQL  | Comments                                                                                                                                                                                              |
+| ------------------------------------------------ | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Table-valued parameters                          | Not supported | Use either temporary tables, or CSV, XML, JSON string parameters and parse the data. Alternatively, rewrite the stored procedure to accept the data one row at a time and process the data in a loop. |
+| Memory-optimized table-valued user-defined types | Not supported | Not supported.                                                                                                                                                                                        |
 
-| Current object architecture                          | Migrate to Aurora MySQL                         | Rewrites                                                                                                                                                            |
-| ---------------------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Single database, all objects in dbo schema.          | Single instance, single database or schema.     | If the code already uses two-part object notation such as `dbo.<object>`, consider creating a `dbo` schema in Aurora MySQL to minimize code changes.                |
-| Single database, objects in multiple schemas.        | Single instance, multiple databases or schemas. | No identifier hierarchy rewrites needed. Code should be compatible with respect to the object hierarchy.                                                            |
-| Multiple databases, all objects in the `dbo` schema. | Single instance, multiple databases or schemas. | Identifier rewrite is required to remove the SQL Server schema name or the default dot. Change `SELECT<br>• FROM MyDB..MyTable` to `SELECT<br>• FROM MyDB.MyTable`. |
-| Multiple databases, objects in multiple schemas.     | Multiple instances.                             | Connectivity between the instances will need to be implemented at the application level.                                                                            |
-
-For more information, see [CREATE DATABASE Statement](https://dev.mysql.com/doc/refman/5.7/en/create-database.html "https://dev.mysql.com/doc/refman/5.7/en/create-database.html") in the _MySQL documentation_.
+For more information, see [Cursors](https://dev.mysql.com/doc/refman/5.7/en/cursors.html "https://dev.mysql.com/doc/refman/5.7/en/cursors.html") in the _MySQL documentation_.

@@ -1,87 +1,158 @@
-# Transparent data encryption Aurora MySQL
+# Data control language for Aurora MySQL
 
-This topic provides reference information about data encryption capabilities in Microsoft SQL Server and Amazon Aurora MySQL. You can understand how Transparent Data Encryption (TDE) works in SQL Server to protect data at rest without requiring application changes.
+This topic provides reference information foruser permissions and access control in Amazon Aurora MySQL compared to Microsoft SQL Server. You can understand the similarities and differences in how these database systems manage user privileges, including the types of permissions available, the granularity of access control, and the commands used to grant or revoke permissions.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                        |
-| ------------------------------- | ---------------------------------- | ------------------------- | ------------------------------------------------------ |
-| Four star feature compatibility | N/A                                | N/A                       | Enable encryption when creating the database instance. |
+| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences |
+| ------------------------------- | ---------------------------------- | ------------------------- | --------------- |
+| Four star feature compatibility | No automation                      | N/A                       | Difference.     |
 
 ## SQL Server Usage
 
-Transparent data encryption (TDE) is an SQL Server feature designed to protect data at-rest in the event an attacker obtains the physical media containing database files.
+The ANSI standard specifies, and most Relational Database Management Systems (RDBMS) use `GRANT` and `REVOKE` commands to control permissions.
 
-TDE doesn’t require application changes and is completely transparent to users. The storage engine encrypts and decrypts data on-the-fly. Data isn’t encrypted while in memory or on the network. TDE can be turned on or off individually for each database.
+However, SQL Server also provides a `DENY` command to explicitly restrict access to a resource. `DENY` takes precedence over `GRANT` and is needed to avoid potentially conflicting permissions for users having multiple logins. For example, if a user has `DENY` for a resource through group membership but `GRANT` access for a personal login, the user is denied access to that resource.
 
-TDE encryption uses a Database Encryption Key (DEK) stored in the database boot record, making it available during database recovery. The DEK is a symmetric key signed with a server certificate from the primary system database.
+SQL Server allows granting permissions at multiple levels from lower-level objects such as columns to higher level objects such as servers. Permissions are categorized for specific services and features such as the service broker.
 
-In many instances, security compliance laws require TDE for data at rest.
+Permissions are used in conjunction with database users and roles.
 
-### Examples
+For more information, see [Users and Roles](chap-sql-server-aurora-mysql.security.md "chap-sql-server-aurora-mysql.security.md").
 
-The following example demonstrates how to enable TDE for a database.
+### Syntax
 
-Create a master key and certificate.
-
-```
-USE master;
-CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'MyPassword';
-CREATE CERTIFICATE TDECert WITH SUBJECT = 'TDE Certificate';
-```
-
-Create a database encryption key.
+The following examples show the simplified syntax for SQL Server DCL commands:
 
 ```
-USE MyDatabase;
-CREATE DATABASE ENCRYPTION KEY
-WITH ALGORITHM = AES_128
-ENCRYPTION BY SERVER CERTIFICATE TDECert;
+GRANT { ALL [ PRIVILEGES ] } | <permission> [ ON <securable> ] TO <principal>
 ```
 
-Enable TDE.
-
 ```
-ALTER DATABASE MyDatabase SET ENCRYPTION ON;
+DENY { ALL [ PRIVILEGES ] } | <permission> [ ON <securable> ] TO <principal>
 ```
 
-For more information, see [Transparent data encryption (TDE)](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-ver15") in the _SQL Server documentation_.
+```
+REVOKE [ GRANT OPTION FOR ] {[ ALL [ PRIVILEGES ] ]|<permission>} [ ON <securable> ] { TO | FROM } <principal>
+```
+
+For more information, see [Permissions Hierarchy (Database Engine)](https://docs.microsoft.com/en-us/sql/relational-databases/security/permissions-hierarchy-database-engine?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/security/permissions-hierarchy-database-engine?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## MySQL Usage
 
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) provides the ability to encrypt data at rest (data stored in persistent storage) for new database instances. When data encryption is enabled, Amazon Relational Database Service (RDS) automatically encrypts the database server storage, automated backups, read replicas, and snapshots using the AES-256 encryption algorithm.
+Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports the ANSI Data Control Language (DCL) commands `GRANT` and `REVOKE`.
 
-You can manage the keys used for Amazon Relational Database Service (Amazon RDS) encrypted instances from the Identity and Access Management (IAM) console using the AWS Key Management Service (AWS KMS). If you require full control of a key, you must manage it yourself. You can’t delete, revoke, or rotate default keys provisioned by AWS KMS.
+Administrators can grant or revoke permissions for individual objects such as a column, a stored function, or a table. Administrators can grant permissions to multiple objects using wildcards.
 
-The following limitations exist for Amazon RDS encrypted instances:
+Only explicitly granted permissions can be revoked. For example, if a user was granted `SELECT` permissions for the entire database using the following command:
 
-- You can only enable encryption for an Amazon RDS database instance when you create it, not afterward. It is possible to encrypt an existing database by creating a snapshot of the database instance and then creating an encrypted copy of the snapshot. You can restore the database from the encrypted snapshot. For more information, see [Copying a snapshot](../../../AmazonRDS/latest/UserGuide/USER_CopySnapshot.md "../../../AmazonRDS/latest/UserGuide/USER_CopySnapshot.md").
-- Encrypted database instances can’t be modified to turn off encryption.
-- Encrypted Read Replicas must be encrypted with the same key as the source database instance.
-- An unencrypted backup or snapshot can’t be restored to an encrypted database instance.
-- KMS encryption keys are specific to the region where they are created. Copying an encrypted snapshot from one region to another requires the KMS key identifier of the destination region.
+```
+GRANT SELECT
+ON database.*
+TO UserX;
+```
+
+It isn’t possible to `REVOKE` the permission for a single table. Instead, revoke the `SELECT` permission for all tables using the following command:
+
+```
+REVOKE SELECT
+ON database.*
+FROM UserX;
+```
+
+Aurora MySQL provides a `GRANT` permission option, which is very similar to the `WITH GRANT OPTION` clause in SQL Server. This permission gives a user permission to further grant the same permission to other users.
+
+```
+GRANT EXECUTE
+ON PROCEDURE demo.Procedure1
+TO UserY
+WITH GRANT OPTION;
+```
 
 ###### Note
 
-Disabling the key for an encrypted database instance prevents reading from, or writing to, that instance. When Amazon RDS encounters a database instance encrypted by a key to which Amazon RDS doesn’t have access, it puts the database instance into a terminal state. In this state, the database instance is no longer available and the current state of the database can’t be recovered. To restore the database instance, you must re-enable access to the encryption key for Amazon RDS and then restore the database instance from a backup.
+Aurora MySQL users can have resource restrictions associated with their accounts similar to the SQL Server resource governor. For more information, see [Resource Governor](chap-sql-server-aurora-mysql.management.md "chap-sql-server-aurora-mysql.management.md").
 
-Table encryption can now be managed globally by defining and enforcing encryption defaults. The `default_table_encryption` variable defines an encryption default for newly created schemas and general tablespace. The encryption default for a schema can also be defined using the `DEFAULT ENCRYPTION` clause when creating a schema. By default a table inherits the encryption of the schema or general tablespace it is created in. Encryption defaults are enforced by enabling the `table_encryption_privilege_check` variable. The privilege check occurs when creating or altering a schema or general tablespace with an encryption setting that differs from the `default_table_encryption` setting or when creating or altering a table with an encryption setting that differs from the default schema encryption. The `TABLE_ENCRYPTION_ADMIN` privilege permits overriding default encryption settings when `table_encryption_privilege_check` is enabled. For more information, see [Defining an Encryption Default for Schemas and General Tablespaces](https://dev.mysql.com/doc/refman/8.0/en/innodb-data-encryption.html#innodb-schema-tablespace-encryption-default "https://dev.mysql.com/doc/refman/8.0/en/innodb-data-encryption.html#innodb-schema-tablespace-encryption-default").
+The following table identifies Aurora MySQL privileges:
 
-### Creating an Encryption Key
+| Permissions               | Use to                                                                                                                |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `ALL [PRIVILEGES]`        | Grant all privileges at the specified access level except `GRANT OPTION` and `PROXY`.                                 |
+| `ALTER`                   | Enable use of `ALTER TABLE`. Levels: Global, database, table.                                                         |
+| `ALTER ROUTINE`           | Enable stored routines to be altered or dropped. Levels: Global, database, procedure.                                 |
+| `CREATE`                  | Enable database and table creation. Levels: Global, database, table.                                                  |
+| `CREATE ROUTINE`          | Enable stored routine creation. Levels: Global, database.                                                             |
+| `CREATE TEMPORARY TABLES` | Enable the use of `CREATE TEMPORARY TABLE`. Levels: Global, database.                                                 |
+| `CREATE USER`             | Enable the use of `CREATE USER`, `DROP USER`, `RENAME USER`, and `REVOKE ALL PRIVILEGES`. Level: Global.              |
+| `CREATE VIEW`             | Enable views to be created or altered. Levels: Global, database, table.                                               |
+| `DELETE`                  | Enable the use of `DELETE`. Level: Global, database, table.                                                           |
+| `DROP`                    | Enable databases, tables, and views to be dropped. Levels: Global, database, table.                                   |
+| `EVENT`                   | Enable the use of events for the Event Scheduler. Levels: Global, database.                                           |
+| `EXECUTE`                 | Enable the user to run stored routines. Levels: Global, database, table.                                              |
+| `GRANT OPTION`            | Enable privileges to be granted to or removed from other accounts. Levels: Global, database, table, procedure, proxy. |
+| `INDEX`                   | Enable indexes to be created or dropped. Levels: Global, database, table.                                             |
+| `INSERT`                  | Enable the use of `INSERT`. Levels: Global, database, table, column.                                                  |
+| `LOCK TABLES`             | Enable the use of `LOCK TABLES` on tables for which you have the `SELECT` privilege. Levels: Global, database.        |
+| `PROXY`                   | Enable user proxying. Level: From user to user.                                                                       |
+| `REFERENCES`              | Enable foreign key creation. Levels: Global, database, table, column.                                                 |
+| `REPLICATION CLIENT`      | Enable the user to determine the location of primary and secondary servers. Level: Global.                            |
+| `REPLICATION SLAVE`       | Enable replication replicas to read binary log events from the primary. Level: Global.                                |
+| `SELECT`                  | Enable the use of `SELECT`. Levels: Global, database, table, column.                                                  |
+| `SHOW DATABASES`          | Enable `SHOW DATABASES` to show all databases. Level: Global.                                                         |
+| `SHOW VIEW`               | Enable the use of `SHOW CREATE VIEW`. Levels: Global, database, table.                                                |
+| `TRIGGER`                 | Enable trigger operations. Levels: Global, database, table.                                                           |
+| `UPDATE`                  | Enable the use of `UPDATE`. Levels: Global, database, table, column.                                                  |
 
-To create your own key, browse to the Key Management Service (KMS) and choose **Customer managed keys** and create a new key.
+### Syntax
 
-1. Choose relevant options and choose **Next**.
-2. Define alias as the name of the key and choose **Next**.
-3. You can skip **Define Key Administrative Permissions** and choose **Next**.
-4. On the next step make sure to assign the key to the relevant users who will need to interact with Amazon Aurora.
-5. On the last step you will be able to see the ARN of the key and its account.
-6. Choose **Finish** and now this key will be listed in under customer managed keys.
+```
+GRANT <privilege type>...
+ON [object type] <privilege level>
+TO <user> ...
+```
 
-Now you will be able to set Master encryption key by using the ARN of the key that you have created or picking it from the list.
+```
+REVOKE <privilege type>...
+ON [object type] <privilege level>
+FROM <user> ...
+```
 
-Proceed to finish and launch the instance.
+###### Note
 
-As part of the database settings, you will be prompted to enable encryption and select a master key.
+Table, Function, and Procedure object types can be explicitly stated but aren’t mandatory.
 
-Encryption for an Amazon RDS DB instance can be enabled only during the instance creation.
+### Examples
 
-You can select the default key provided for the account or define a specific key based on an IAM KMS ARN from your account or a different account.
+Attempt to `REVOKE` a partial permission that was granted as a wild card permission.
+
+```
+CREATE USER TestUser;
+GRANT SELECT
+    ON Demo.*
+    TO TestUser;
+REVOKE SELECT ON Demo.Invoices
+    FROM TestUser
+```
+
+For the preceding example, the result looks as shown following.
+
+```
+SQL ERROR [1147][42000]: There is no such grant defined for user TestUser on host '%'
+on table 'Invoices'
+```
+
+Grant the `SELECT` permission to a user on all tables in the demo database.
+
+```
+GRANT SELECT
+ON Demo.*
+TO 'user'@'localhost';
+```
+
+Revoke `EXECUTE` permissions from a user on the `EmployeeReport` stored procedure.
+
+```
+REVOKE EXECUTE
+ON Demo.EmployeeReport
+FROM 'user'@'localhost';
+```
+
+For more information, see [GRANT Statement](https://dev.mysql.com/doc/refman/5.7/en/grant.html "https://dev.mysql.com/doc/refman/5.7/en/grant.html") in the _MySQL documentation_.
