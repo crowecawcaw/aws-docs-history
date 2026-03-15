@@ -1,146 +1,121 @@
-# synch/mutex/innodb/fil_system_mutex
+# synch/cond/innodb/row_lock_wait_cond
 
-The `synch/mutex/innodb/fil_system_mutex` event occurs when a session
-is waiting to access the tablespace memory cache.
-
-###### Topics
-
-- [Supported engine versions](#ams-waits.innodb-fil-system-mutex.context.supported "#ams-waits.innodb-fil-system-mutex.context.supported")
-- [Context](#ams-waits.innodb-fil-system-mutex.context "#ams-waits.innodb-fil-system-mutex.context")
-- [Likely causes of increased waits](#ams-waits.innodb-fil-system-mutex.causes "#ams-waits.innodb-fil-system-mutex.causes")
-- [Actions](#ams-waits.innodb-fil-system-mutex.actions "#ams-waits.innodb-fil-system-mutex.actions")
+The `synch/cond/innodb/row_lock_wait_cond` event occurs when one session has locked a row for an update, and another session tries to
+update the same row. For more information, see [InnoDB locking](https://dev.mysql.com/doc/refman/5.7/en/innodb-locking.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-locking.html") in the
+MySQL documentation.
 
 ## Supported engine versions
 
 This wait event information is supported for the following engine versions:
 
-- Aurora MySQL versions 2 and 3
-
-## Context
-
-InnoDB
-uses tablespaces to manage the storage area for tables and log files. The _tablespace memory cache_ is a global memory structure that
-maintains information about tablespaces. MySQL uses
-`synch/mutex/innodb/fil_system_mutex` waits to control concurrent access
-to the tablespace memory cache.
-
-The event `synch/mutex/innodb/fil_system_mutex` indicates that
-there is currently more than one operation that needs to retrieve and manipulate
-information in the tablespace memory cache for the same tablespace.
+- Aurora MySQL version 2
 
 ## Likely causes of increased waits
 
-When the `synch/mutex/innodb/fil_system_mutex` event appears more
-than normal, possibly indicating a performance problem, this typically occurs when all of the
-following conditions are present:
-
-- An increase in concurrent data manipulation language (DML) operations that update or delete data in the same table.
-- The tablespace for this table is very large and has a lot of data pages.
-- The fill factor for these data pages is low.
+Multiple data manipulation language (DML) statements are accessing the same row or
+rows simultaneously.
 
 ## Actions
 
-We recommend different actions depending on the causes of your wait event.
+We recommend different actions depending on the other wait events that you see.
 
 ###### Topics
 
-- [Identify the sessions and queries causing the events](#ams-waits.innodb-fil-system-mutex.actions.identify "#ams-waits.innodb-fil-system-mutex.actions.identify")
-- [Reorganize large tables during off-peak hours](#ams-waits.innodb-fil-system-mutex.actions.reorganize "#ams-waits.innodb-fil-system-mutex.actions.reorganize")
+- [Find and respond to the SQL statements responsible for this wait event](#ams-waits.row-lock-wait-cond.actions.id "#ams-waits.row-lock-wait-cond.actions.id")
+- [Find and respond to the blocking session](#ams-waits.row-lock-wait-cond.actions.blocker "#ams-waits.row-lock-wait-cond.actions.blocker")
 
-### Identify the sessions and queries causing the events
+### Find and respond to the SQL statements responsible for this wait event
 
-Typically, databases with moderate to significant load have wait events.
-The wait events might be acceptable if performance is optimal. If performance
-isn't optimal, examine where the database is spending the most time. Look at
-the wait events that contribute to the highest load, and find out whether you can
-optimize the database and application to reduce those events.
+Use Performance Insights to identify the SQL statements responsible for this wait event. Consider
+the following strategies:
 
-###### To find SQL queries that are responsible for high load
-
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Performance Insights**.
-3. Choose a DB instance. The Performance Insights dashboard appears
-   for that DB instance.
-4. In the **Database load** chart, choose **Slice by
-   wait**.
-5. At the bottom of the page, choose **Top SQL**.
-
-The chart lists the SQL queries that are responsible for the load. Those at the top of the
-list are most responsible. To resolve a bottleneck, focus on these statements.
+- If row locks are a persistent problem, consider rewriting the application to use optimistic
+  locking.
+- Use multirow statements.
+- Spread the workload over different database objects. You can do this through partitioning.
+- Check the value of the `innodb_lock_wait_timeout` parameter. It controls how
+  long transactions wait before generating a timeout error.
 
 For a useful overview of troubleshooting using Performance Insights, see the blog post [Analyze Amazon Aurora MySQL Workloads with Performance Insights](https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/ "https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/").
 
-Another way to find out which queries are causing high numbers of `synch/mutex/innodb/fil_system_mutex` waits is to check `performance_schema`, as in the following example.
+### Find and respond to the blocking session
+
+Determine whether the blocking session is idle or active. Also, find out whether the session comes
+from an application or an active user.
+
+To identify the session holding the lock, you can run `SHOW ENGINE INNODB STATUS`. The
+following example shows sample output.
 
 ```
-mysql> select * from performance_schema.events_waits_current where EVENT_NAME='wait/synch/mutex/innodb/fil_system_mutex'\G
+mysql> SHOW ENGINE INNODB STATUS;
+
+---TRANSACTION 2771110, ACTIVE 112 sec starting index read
+mysql tables in use 1, locked 1
+LOCK WAIT 2 lock struct(s), heap size 1136, 1 row lock(s)
+MySQL thread id 24, OS thread handle 70369573642160, query id 13271336 172.31.14.179 reinvent Sending data
+select id1 from test.t1 where id1=1 for update
+------- TRX HAS BEEN WAITING 43 SEC FOR THIS LOCK TO BE GRANTED:
+RECORD LOCKS space id 11 page no 3 n bits 0 index GEN_CLUST_INDEX of table test.t1 trx id 2771110 lock_mode X waiting
+Record lock, heap no 2 PHYSICAL RECORD: n_fields 5; compact format; info bits 0
+```
+
+Or you can use the following query to extract details on current locks.
+
+```
+mysql> SELECT p1.id waiting_thread,
+              p1.user waiting_user,
+              p1.host waiting_host,
+              it1.trx_query waiting_query,
+              ilw.requesting_trx_id waiting_transaction,
+              ilw.blocking_lock_id blocking_lock,
+              il.lock_mode blocking_mode,
+              il.lock_type blocking_type,
+              ilw.blocking_trx_id blocking_transaction,
+              CASE it.trx_state
+                WHEN 'LOCK WAIT'
+                THEN it.trx_state
+                ELSE p.state
+              END blocker_state,
+              il.lock_table locked_table,
+              it.trx_mysql_thread_id blocker_thread,
+              p.user blocker_user,
+              p.host blocker_host
+       FROM information_schema.innodb_lock_waits ilw
+       JOIN information_schema.innodb_locks il
+         ON ilw.blocking_lock_id = il.lock_id
+        AND ilw.blocking_trx_id = il.lock_trx_id
+       JOIN information_schema.innodb_trx it
+         ON ilw.blocking_trx_id = it.trx_id
+       JOIN information_schema.processlist p
+         ON it.trx_mysql_thread_id = p.id
+       JOIN information_schema.innodb_trx it1
+         ON ilw.requesting_trx_id = it1.trx_id
+       JOIN information_schema.processlist p1
+         ON it1.trx_mysql_thread_id = p1.id\G
+
 *************************** 1. row ***************************
-            THREAD_ID: 19
-             EVENT_ID: 195057
-         END_EVENT_ID: 195057
-           EVENT_NAME: wait/synch/mutex/innodb/fil_system_mutex
-               SOURCE: fil0fil.cc:6700
-          TIMER_START: 1010146190118400
-            TIMER_END: 1010146196524000
-           TIMER_WAIT: 6405600
-                SPINS: NULL
-        OBJECT_SCHEMA: NULL
-          OBJECT_NAME: NULL
-           INDEX_NAME: NULL
-          OBJECT_TYPE: NULL
-OBJECT_INSTANCE_BEGIN: 47285552262176
-     NESTING_EVENT_ID: NULL
-   NESTING_EVENT_TYPE: NULL
-            OPERATION: lock
-      NUMBER_OF_BYTES: NULL
-                FLAGS: NULL
-*************************** 2. row ***************************
-            THREAD_ID: 23
-             EVENT_ID: 5480
-         END_EVENT_ID: 5480
-           EVENT_NAME: wait/synch/mutex/innodb/fil_system_mutex
-               SOURCE: fil0fil.cc:5906
-          TIMER_START: 995269979908800
-            TIMER_END: 995269980159200
-           TIMER_WAIT: 250400
-                SPINS: NULL
-        OBJECT_SCHEMA: NULL
-          OBJECT_NAME: NULL
-           INDEX_NAME: NULL
-          OBJECT_TYPE: NULL
-OBJECT_INSTANCE_BEGIN: 47285552262176
-     NESTING_EVENT_ID: NULL
-   NESTING_EVENT_TYPE: NULL
-            OPERATION: lock
-      NUMBER_OF_BYTES: NULL
-                FLAGS: NULL
-*************************** 3. row ***************************
-            THREAD_ID: 55
-             EVENT_ID: 23233794
-         END_EVENT_ID: NULL
-           EVENT_NAME: wait/synch/mutex/innodb/fil_system_mutex
-               SOURCE: fil0fil.cc:449
-          TIMER_START: 1010492125341600
-            TIMER_END: 1010494304900000
-           TIMER_WAIT: 2179558400
-                SPINS: NULL
-        OBJECT_SCHEMA: NULL
-          OBJECT_NAME: NULL
-           INDEX_NAME: NULL
-          OBJECT_TYPE: NULL
-OBJECT_INSTANCE_BEGIN: 47285552262176
-     NESTING_EVENT_ID: 23233786
-   NESTING_EVENT_TYPE: WAIT
-            OPERATION: lock
-      NUMBER_OF_BYTES: NULL
-                FLAGS: NULL
+      waiting_thread: 3561959471
+        waiting_user: reinvent
+        waiting_host: 123.456.789.012:20485
+       waiting_query: select id1 from test.t1 where id1=1 for update
+ waiting_transaction: 312337314
+       blocking_lock: 312337287:261:3:2
+       blocking_mode: X
+       blocking_type: RECORD
+blocking_transaction: 312337287
+       blocker_state: User sleep
+        locked_table: `test`.`t1`
+      blocker_thread: 3561223876
+        blocker_user: reinvent
+        blocker_host: 123.456.789.012:17746
+1 row in set (0.04 sec)
 ```
 
-### Reorganize large tables during off-peak hours
+When you identify the session, your options include the following:
 
-Reorganize large tables that you identify as the source of high numbers of
-`synch/mutex/innodb/fil_system_mutex` wait events during a
-maintenance window outside of production hours. Doing so ensures that the internal tablespaces map cleanup doesn't occur when quick access to the table is critical.
-For information about reorganizing tables, see [OPTIMIZE TABLE Statement](https://dev.mysql.com/doc/refman/5.7/en/optimize-table.html "https://dev.mysql.com/doc/refman/5.7/en/optimize-table.html")
-in the _MySQL Reference_.
+- Contact the application owner or the user.
+- If the blocking session is idle, consider ending the blocking session. This action might trigger a long rollback.
+  To learn how to end a session, see [Ending a session or query](mysql-stored-proc-ending.md "mysql-stored-proc-ending.md").
+
+For more information about identifying blocking transactions, see [Using InnoDB transaction and locking
+information](https://dev.mysql.com/doc/refman/5.7/en/innodb-information-schema-examples.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-information-schema-examples.html") in the MySQL documentation.

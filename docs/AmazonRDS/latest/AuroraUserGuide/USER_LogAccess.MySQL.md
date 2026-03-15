@@ -1,76 +1,83 @@
-# Accessing MySQL binary logs
+# Configuring Aurora MySQL binary logging for Single-AZ databases
 
-You can use the mysqlbinlog utility to download or stream binary logs from RDS for MySQL DB instances. The binary log is downloaded to
-your local computer, where you can perform actions such as replaying the log using the mysql utility. For more information about
-using the mysqlbinlog utility, see [Using mysqlbinlog to
-back up binary log files](https://dev.mysql.com/doc/refman/8.0/en/mysqlbinlog-backup.html "https://dev.mysql.com/doc/refman/8.0/en/mysqlbinlog-backup.html") in the MySQL documentation.
+The _binary log_ is a set of log files that contain information about
+data modifications made to an Aurora MySQL server
+instance. The binary log contains information such as the following:
 
-To run the mysqlbinlog utility against an Amazon RDS instance, use the following options:
+- Events that describe database changes such as table creation or row
+  modifications
+- Information about the duration of each statement that updated data
+- Events for statements that could have updated data but didn't
+  The binary log records statements that are sent during replication. It is also required
+  for some recovery operations. For more information, see [The Binary Log](https://dev.mysql.com/doc/refman/8.0/en/binary-log.html "https://dev.mysql.com/doc/refman/8.0/en/binary-log.html") in
+  the MySQL documentation.
 
-- `--read-from-remote-server` – Required.
-- `--host` – The DNS name from the endpoint of the instance.
-- `--port` – The port used by the instance.
-- `--user` – A MySQL user that has been granted the `REPLICATION SLAVE` permission.
-- `--password` – The password for the MySQL user, or omit a password value so that the utility prompts you for a
-  password.
-- `--raw` – Download the file in binary format.
-- `--result-file` – The local file to receive the raw output.
-- `--stop-never` – Stream the binary log files.
-- `--verbose` – When you use the `ROW` binlog format, include this option to see the row events
-  as pseudo-SQL statements. For more information on the `--verbose` option, see [mysqlbinlog row event display](https://dev.mysql.com/doc/refman/8.0/en/mysqlbinlog-row-events.html "https://dev.mysql.com/doc/refman/8.0/en/mysqlbinlog-row-events.html") in the
-  MySQL documentation.
-- Specify the names of one or more binary log files. To get a list of the available logs, use the SQL command `SHOW BINARY
- LOGS`.
-  For more information about mysqlbinlog options, see [mysqlbinlog
-  — Utility for processing binary log files](https://dev.mysql.com/doc/refman/8.0/en/mysqlbinlog.html "https://dev.mysql.com/doc/refman/8.0/en/mysqlbinlog.html") in the MySQL documentation.
+Binary logs are accessible only from the primary DB instance, not from
+the replicas.
 
-The following examples show how to use the mysqlbinlog utility.
+MySQL on Amazon Aurora supports the _row-based_,
+_statement-based_, and _mixed_ binary logging
+formats. We recommend mixed unless you need a specific binlog format. For details on the
+different Aurora MySQL binary log formats, see [Binary Logging
+Formats](https://dev.mysql.com/doc/refman/8.0/en/binary-log-formats.html "https://dev.mysql.com/doc/refman/8.0/en/binary-log-formats.html") in the MySQL documentation.
 
-For Linux, macOS, or Unix:
+If you plan to use replication, the binary logging format is important because it
+determines the record of data changes that is recorded in the source and sent to the
+replication targets. For information about the advantages and disadvantages of different
+binary logging formats for replication, see [Advantages and
+Disadvantages of Statement-Based and Row-Based Replication](https://dev.mysql.com/doc/refman/8.0/en/replication-sbr-rbr.html "https://dev.mysql.com/doc/refman/8.0/en/replication-sbr-rbr.html") in the MySQL
+documentation.
 
-```
-mysqlbinlog \
-    --read-from-remote-server \
-    --host=MySQLInstance1.cg034hpkmmjt.region.rds.amazonaws.com \
-    --port=3306  \
-    --user ReplUser \
-    --password \
-    --raw \
-    --verbose \
-    --result-file=/tmp/ \
-    binlog.00098
-```
+###### Important
 
-For Windows:
+With MySQL 8.0.34, MySQL deprecated the `binlog_format` parameter. In later MySQL
+versions, MySQL plans to remove the parameter and only support row-based replication. As
+a result, we recommend using row-based logging for new MySQL replication setups. For
+more information, see [binlog_format](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_format "https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_format") in the MySQL documentation.
 
-```
-mysqlbinlog ^
-    --read-from-remote-server ^
-    --host=MySQLInstance1.cg034hpkmmjt.region.rds.amazonaws.com ^
-    --port=3306  ^
-    --user ReplUser ^
-    --password ^
-    --raw ^
-    --verbose ^
-    --result-file=/tmp/ ^
-    binlog.00098
-```
+MySQL versions 8.0 and 8.4 accept the parameter `binlog_format`. When using this parameter, MySQL
+issues a deprecation warning. In a future major release, MySQL will remove the parameter `binlog_format`.
 
-Binary logs must remain available on the DB instance for the mysqlbinlog utility to access
-them. To ensure their availability, use the [mysql.rds_set_configuration](mysql-stored-proc-configuring.md#mysql_rds_set_configuration "mysql-stored-proc-configuring.md#mysql_rds_set_configuration") stored procedure and specify a period with
-enough time for you to download the logs. If this configuration isn't set, Amazon RDS purges the
-binary logs as soon as possible, leading to gaps in the binary logs that the mysqlbinlog
-utility retrieves.
+Statement-based replication can cause inconsistencies between the source DB cluster
+and a read replica. For more information, see [Determination of Safe and Unsafe Statements in Binary Logging](https://dev.mysql.com/doc/refman/8.0/en/replication-rbr-safe-unsafe.html "https://dev.mysql.com/doc/refman/8.0/en/replication-rbr-safe-unsafe.html") in the MySQL
+documentation.
 
-The following example sets the retention period to 1 day.
+Enabling binary logging increases the number of write disk I/O operations to the DB
+cluster. You can monitor IOPS usage with the `VolumeWriteIOPs` CloudWatch metric.
 
-```
-call mysql.rds_set_configuration('binlog retention hours', 24);
-```
+###### To set the MySQL binary logging format
 
-To display the current setting, use the [mysql.rds_show_configuration](mysql-stored-proc-configuring.md#mysql_rds_show_configuration "mysql-stored-proc-configuring.md#mysql_rds_show_configuration")
-stored procedure.
+1. Open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Parameter groups**.
+3. Choose the DB cluster parameter group,
+   associated with the DB cluster, that you want to modify.
 
-```
-call mysql.rds_show_configuration;
-```
+You can't modify a default parameter group. If the DB cluster is using a default parameter group, create a new parameter
+group and associate it with the DB cluster.
+
+For more information on parameter groups, see [Parameter groups for Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 4. From **Actions**, choose **Edit**. 5. Set the `binlog_format` parameter to the binary logging format of your
+choice (`ROW`, `STATEMENT`, or `MIXED`). You can also use the value `OFF` to turn off
+binary logging.
+
+###### Note
+
+Setting `binlog_format` to `OFF` in the DB cluster
+parameter group disables the `log_bin` session variable. This
+disables binary logging on the Aurora MySQL DB cluster, which in turn resets the
+`binlog_format` session variable to the default value of
+`ROW` in the database. 6. Choose **Save changes** to save the updates to the DB cluster parameter group.
+After you perform these steps, you must reboot the writer instance in
+the DB cluster for your changes to apply. In Aurora MySQL version 2.09 and lower, when you
+reboot the writer instance, all of the reader instances in the DB cluster are also rebooted.
+In Aurora MySQL version 2.10 and higher, you must reboot all of the reader instances manually.
+For more information, see [Rebooting an Amazon Aurora DB cluster or Amazon Aurora DB instance](USER_RebootCluster.md "USER_RebootCluster.md").
+
+###### Important
+
+Changing a DB cluster parameter group affects all DB clusters that use that parameter
+group. If you want to specify different binary logging formats for different Aurora MySQL
+DB clusters in an AWS Region, the DB clusters must use different DB cluster parameter
+groups. These parameter groups identify different logging formats. Assign the
+appropriate DB cluster parameter group to each DB clusters. For more information about
+Aurora MySQL parameters, see [Aurora MySQL configuration parameters](AuroraMySQL.Reference.md "AuroraMySQL.Reference.md").

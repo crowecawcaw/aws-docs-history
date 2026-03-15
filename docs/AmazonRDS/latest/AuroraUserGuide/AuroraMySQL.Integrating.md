@@ -1,52 +1,86 @@
-# Invoking a Lambda function with an Aurora MySQL native function
+# Saving data from an Amazon Aurora MySQL DB cluster into text files in an Amazon S3 bucket
+
+You can use the `SELECT INTO OUTFILE S3` statement to query data from an
+Amazon Aurora MySQL DB cluster and save it into text files stored in an Amazon S3 bucket. In
+Aurora MySQL, the files are first stored on the local disk, and then exported to S3. After the
+exports are done, the local files are deleted.
+
+You can encrypt the Amazon S3 bucket using an Amazon S3 managed key (SSE-S3) or AWS KMS key (SSE-KMS: AWS managed key or
+customer managed key).
+
+The `LOAD DATA FROM S3` statement can use files created by the `SELECT INTO
+ OUTFILE S3` statement to load data into an Aurora DB cluster. For more information,
+see [Loading data into an Amazon Aurora MySQL DB cluster from text files in an Amazon S3 bucket](AuroraMySQL.Integrating.md "AuroraMySQL.Integrating.md").
 
 ###### Note
 
-You can call the native functions `lambda_sync` and `lambda_async` when you use Aurora MySQL version
-2, or Aurora MySQL version 3.01 and higher. For more information about Aurora MySQL versions, see [Database engine updates for Amazon Aurora MySQL](AuroraMySQL.md "AuroraMySQL.md").
+This feature isn't supported for Aurora Serverless v1 DB clusters. It is supported
+for Aurora Serverless v2 DB clusters.
 
-You can invoke an AWS Lambda function from an Aurora MySQL DB cluster by calling the
-native functions `lambda_sync` and `lambda_async`. This approach
-can be useful when you want to integrate your database running on Aurora MySQL with other AWS services.
-For example, you might want to send a notification using Amazon Simple Notification Service (Amazon SNS) whenever a row is inserted into a
-specific table in your database.
+You can also save DB cluster data and DB cluster snapshot data to Amazon S3 using the
+AWS Management Console, AWS CLI, or Amazon RDS API. For more information, see [Exporting DB cluster data to Amazon S3](export-cluster-data.md "export-cluster-data.md") and [Exporting DB cluster snapshot data to Amazon S3](aurora-export-snapshot.md "aurora-export-snapshot.md").
 
 ###### Contents
 
-- [Working with native functions to invoke a Lambda function](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions")
-  - [Granting the role in Aurora MySQL version 3](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.v3 "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.v3")
-  - [Granting the privilege in Aurora MySQL version 2](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.v2 "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.v2")
-  - [Syntax for the lambda_sync function](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.Sync.Syntax "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.Sync.Syntax")
-  - [Parameters for the lambda_sync function](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.Sync.Parameters "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.Sync.Parameters")
-  - [Example for the lambda_sync function](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.Sync.Example "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.Sync.Example")
-  - [Syntax for the lambda_async function](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.Async.Syntax "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.Async.Syntax")
-  - [Parameters for the lambda_async function](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.Async.Parameters "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.Async.Parameters")
-  - [Example for the lambda_async function](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.Async.Example "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.Async.Example")
-  - [Invoking a Lambda function within a trigger](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.trigger "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.trigger")
+- [Giving Aurora MySQL access to Amazon S3](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.SaveIntoS3.Authorize "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.SaveIntoS3.Authorize")
+- [Granting privileges to save data in Aurora MySQL](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.SaveIntoS3.Grant "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.SaveIntoS3.Grant")
+- [Specifying a path to an Amazon S3 bucket](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.SaveIntoS3.URI "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.SaveIntoS3.URI")
+- [Creating a manifest to list data files](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.SaveIntoS3.Manifest "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.SaveIntoS3.Manifest")
+- [SELECT INTO OUTFILE S3](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.SaveIntoS3.Statement "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.SaveIntoS3.Statement")
+  - [Syntax](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.SaveIntoS3.Statement.Syntax "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.SaveIntoS3.Statement.Syntax")
+  - [Parameters](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.SaveIntoS3.Statement.Parameters "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.SaveIntoS3.Statement.Parameters")
+  - [Considerations](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.SaveIntoS3.Considerations "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.SaveIntoS3.Considerations")
+  - [Examples](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.SaveIntoS3.Examples "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.SaveIntoS3.Examples")
 
-## Working with native functions to invoke a Lambda function
+## Giving Aurora MySQL access to Amazon S3
 
-The `lambda_sync` and `lambda_async` functions are built-in, native functions that invoke a Lambda
-function synchronously or asynchronously. When you must know the result of the Lambda function before moving on to another
-action, use the synchronous function `lambda_sync`. When you don't need to know the result of the Lambda
-function before moving on to another action, use the asynchronous function `lambda_async`.
+Before you can save data into an Amazon S3 bucket, you must first give your Aurora MySQL DB
+cluster permission to access Amazon S3.
 
-### Granting the role in Aurora MySQL version 3
+###### To give Aurora MySQL access to Amazon S3
 
-In Aurora MySQL version 3, the user invoking a native function must be granted the `AWS_LAMBDA_ACCESS` role.
-To grant this role to a user, connect to the DB instance as the administrative user, and run the following
-statement.
+1. Create an AWS Identity and Access Management (IAM) policy that provides the bucket and object permissions that allow
+   your Aurora MySQL DB cluster to access Amazon S3. For instructions, see
+   [Creating an IAM policy to access Amazon S3 resources](AuroraMySQL.Integrating.Authorizing.IAM.md "AuroraMySQL.Integrating.Authorizing.IAM.md").
+
+###### Note
+
+In Aurora MySQL version 3.05 and higher, you can encrypt objects using AWS KMS customer managed keys. To do so, include the
+`kms:GenerateDataKey` permission in your IAM policy. For more information, see [Creating an IAM policy to access AWS KMS resources](AuroraMySQL.Integrating.Authorizing.IAM.md "AuroraMySQL.Integrating.Authorizing.IAM.md").
+
+You don't need this permission to encrypt objects using AWS managed keys or Amazon S3 managed keys (SSE-S3). 2. Create an IAM role, and attach the IAM policy you created in [Creating an IAM policy to access Amazon S3 resources](AuroraMySQL.Integrating.Authorizing.IAM.md "AuroraMySQL.Integrating.Authorizing.IAM.md") to the new IAM role.
+For instructions, see [Creating an IAM role to allow Amazon Aurora to access AWS services](AuroraMySQL.Integrating.Authorizing.IAM.md "AuroraMySQL.Integrating.Authorizing.IAM.md"). 3. For Aurora MySQL version 2, set either the `aurora_select_into_s3_role` or
+`aws_default_s3_role` DB cluster parameter to the Amazon Resource Name (ARN) of the new IAM role. If an
+IAM role isn't specified for `aurora_select_into_s3_role`, Aurora uses the IAM role specified in
+`aws_default_s3_role`.
+
+For Aurora MySQL version 3, use `aws_default_s3_role`.
+
+If the cluster is part of an Aurora global database,
+set this parameter for each Aurora cluster in the global database.
+
+For more information about DB cluster parameters, see [Amazon Aurora DB cluster and DB instance parameters](USER_WorkingWithDBClusterParamGroups.md#Aurora.Managing.ParameterGroups "USER_WorkingWithDBClusterParamGroups.md#Aurora.Managing.ParameterGroups"). 4. To permit database users in an Aurora MySQL DB cluster to access Amazon S3, associate the role that you
+created in [Creating an IAM role to allow Amazon Aurora to access AWS services](AuroraMySQL.Integrating.Authorizing.IAM.md "AuroraMySQL.Integrating.Authorizing.IAM.md") with the DB cluster.
+
+For an Aurora global database, associate the role with each Aurora cluster in the global database.
+
+For information about associating an IAM role with a DB cluster, see
+[Associating an IAM role with an Amazon Aurora MySQL DB cluster](AuroraMySQL.Integrating.Authorizing.IAM.md "AuroraMySQL.Integrating.Authorizing.IAM.md"). 5. Configure your Aurora MySQL DB cluster to allow outbound connections to Amazon S3. For instructions, see
+[Enabling network communication from Amazon Aurora to other AWS services](AuroraMySQL.Integrating.Authorizing.md "AuroraMySQL.Integrating.Authorizing.md").
+
+For an Aurora global database, enable outbound connections for each Aurora cluster in the global database.
+
+## Granting privileges to save data in Aurora MySQL
+
+The database user that issues the `SELECT INTO OUTFILE S3` statement must have a specific role or privilege. In
+Aurora MySQL version 3, you grant the `AWS_SELECT_S3_ACCESS` role. In Aurora MySQL version 2, you grant the `SELECT
+ INTO S3` privilege. The administrative user for a DB cluster is granted the appropriate role or privilege by default.
+You can grant the privilege to another user by using one of the following statements.
+
+Use the following statement for Aurora MySQL version 3:
 
 ```
-GRANT AWS_LAMBDA_ACCESS TO `user`@`domain-or-ip-address`
-
-```
-
-You can revoke this role by running the following statement.
-
-```
-REVOKE AWS_LAMBDA_ACCESS FROM `user`@`domain-or-ip-address`
-
+GRANT AWS_SELECT_S3_ACCESS TO '`user`'@'`domain-or-ip-address`'
 ```
 
 ###### Tip
@@ -72,145 +106,354 @@ However, you must call `SET ROLE ALL` explicitly at the beginning of a
 stored procedure to activate the role, when the stored procedure is called by a
 different user.
 
-If you get an error such as the following when you try to invoke a Lambda function, then run a `SET ROLE`
-statement.
+Use the following statement for Aurora MySQL version 2:
 
 ```
-SQL Error [1227] [42000]: Access denied; you need (at least one of) the Invoke Lambda privilege(s) for this operation
+GRANT SELECT INTO S3 ON *.* TO '`user`'@'`domain-or-ip-address`'
 ```
 
-Make sure that you're granting the role to the correct user, as shown in the `mysql.users` table entries. There might be
-multiple users with the same name, but on different hosts. Depending on which application or host is invoking the `lambda_sync`
-function, MySQL selects the user with the best match according to the `host` column entries.
+The `AWS_SELECT_S3_ACCESS` role and `SELECT INTO S3` privilege are specific to Amazon Aurora MySQL and
+are not available for MySQL databases or RDS for MySQL DB instances. If you have set up replication between an Aurora MySQL DB
+cluster as the replication source and a MySQL database as the replication client, then the `GRANT` statement for the
+role or privilege causes replication to stop with an error. You can safely skip the error to resume replication. To skip the
+error on an RDS for MySQL DB instance, use the [mysql_rds_skip_repl_error](../UserGuide/mysql_rds_skip_repl_error.md "../UserGuide/mysql_rds_skip_repl_error.md") procedure. To skip the error on an external MySQL database, use the [slave_skip_errors](https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_skip_errors "https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_skip_errors") system variable (Aurora MySQL version 2) or [replica_skip_errors](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_replica_skip_errors "https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_replica_skip_errors") system variable (Aurora MySQL version 3).
 
-### Granting the privilege in Aurora MySQL version 2
+## Specifying a path to an Amazon S3 bucket
 
-In Aurora MySQL version 2, the user invoking a native function must be granted the `INVOKE LAMBDA` privilege.
-To grant this privilege to a user, connect to the DB instance as the administrative user, and run the following
-statement.
-
-```
-GRANT INVOKE LAMBDA ON *.* TO `user`@`domain-or-ip-address`
-
-```
-
-You can revoke this privilege by running the following statement.
+The syntax for specifying a path to store the data and manifest files on an Amazon S3
+bucket is similar to that used in the `LOAD DATA FROM S3 PREFIX`
+statement, as shown following.
 
 ```
-REVOKE INVOKE LAMBDA ON *.* FROM `user`@`domain-or-ip-address`
-
+s3`-region`://`bucket-name`/`file-prefix`
 ```
 
-### Syntax for the lambda_sync function
+The path includes the following values:
 
-You invoke the `lambda_sync` function synchronously with the `RequestResponse` invocation type.
-The function returns the result of the Lambda invocation in a JSON payload. The function has the following syntax.
+- `region` (optional) – The AWS Region that contains the
+  Amazon S3 bucket to save the data into. This value is optional. If you don't
+  specify a `region` value, then Aurora saves your files into Amazon S3
+  in the same region as your DB cluster.
+- `bucket-name` – The name of the Amazon S3 bucket to save the
+  data into. Object prefixes that identify a virtual folder path are
+  supported.
+- `file-prefix` – The Amazon S3 object prefix that identifies
+  the files to be saved in Amazon S3.
 
-```
-lambda_sync (
-  `lambda_function_ARN`,
-  `JSON_payload`
-)
-```
-
-### Parameters for the lambda_sync function
-
-The `lambda_sync` function has the following parameters.
-
-_lambda_function_ARN_
-
-The Amazon Resource Name (ARN) of the Lambda function to invoke.
-
-_JSON_payload_
-
-The payload for the invoked Lambda function, in JSON format.
-
-###### Note
-
-Aurora MySQL version 3 supports the JSON parsing functions from MySQL 8.0. However, Aurora MySQL version 2
-doesn't include those functions. JSON parsing isn't required when a Lambda function returns an atomic
-value, such as a number or a string.
-
-### Example for the lambda_sync function
-
-The following query based on `lambda_sync` invokes the Lambda function `BasicTestLambda`
-synchronously using the function ARN. The payload for the function is `{"operation": "ping"}`.
+The data files created by the `SELECT INTO OUTFILE S3` statement use
+the following path, in which `00000` represents a 5-digit,
+zero-based integer number.
 
 ```
-SELECT lambda_sync(
-    'arn:aws:lambda:us-east-1:123456789012:function:BasicTestLambda',
-    '{"operation": "ping"}');
-
+s3`-region`://`bucket-name`/`file-prefix`.part_`00000`
 ```
 
-### Syntax for the lambda_async function
+For example, suppose that a `SELECT INTO OUTFILE S3` statement
+specifies `s3-us-west-2://bucket/prefix` as the path in which to store
+data files and creates three data files. The specified Amazon S3 bucket contains the
+following data files.
 
-You invoke the `lambda_async` function asynchronously with the `Event` invocation type. The
-function returns the result of the Lambda invocation in a JSON payload. The function has the following syntax.
+- s3-us-west-2://bucket/prefix.part_00000
+- s3-us-west-2://bucket/prefix.part_00001
+- s3-us-west-2://bucket/prefix.part_00002
 
-```
-lambda_async (
-  `lambda_function_ARN`,
-  `JSON_payload`
-)
-```
+## Creating a manifest to list data files
 
-### Parameters for the lambda_async function
+You can use the `SELECT INTO OUTFILE S3` statement with the
+`MANIFEST ON` option to create a manifest file in JSON format that
+lists the text files created by the statement. The `LOAD DATA FROM S3`
+statement can use the manifest file to load the data files back into an Aurora MySQL DB
+cluster. For more information about using a manifest to load data files from Amazon
+S3 into an Aurora MySQL DB cluster, see [Using a manifest to specify data files to load](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.LoadFromS3.Manifest "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.LoadFromS3.Manifest").
 
-The `lambda_async` function has the following parameters.
-
-_lambda_function_ARN_
-
-The Amazon Resource Name (ARN) of the Lambda function to invoke.
-
-_JSON_payload_
-
-The payload for the invoked Lambda function, in JSON format.
-
-###### Note
-
-Aurora MySQL version 3 supports the JSON parsing functions from MySQL 8.0. However, Aurora MySQL version 2
-doesn't include those functions. JSON parsing isn't required when a Lambda function returns an atomic
-value, such as a number or a string.
-
-### Example for the lambda_async function
-
-The following query based on `lambda_async` invokes the Lambda function `BasicTestLambda`
-asynchronously using the function ARN. The payload for the function is `{"operation": "ping"}`.
+The data files included in the manifest created by the `SELECT INTO OUTFILE
+ S3` statement are listed in the order that they're created by the
+statement. For example, suppose that a `SELECT INTO OUTFILE S3` statement
+specified `s3-us-west-2://bucket/prefix` as the path in which to store
+data files and creates three data files and a manifest file. The specified Amazon S3
+bucket contains a manifest file named
+`s3-us-west-2://bucket/prefix.manifest`, that contains the following
+information.
 
 ```
-SELECT lambda_async(
-    'arn:aws:lambda:us-east-1:123456789012:function:BasicTestLambda',
-    '{"operation": "ping"}');
-
+{
+  "entries": [
+    {
+      "url":"s3-us-west-2://bucket/prefix.part_00000"
+    },
+    {
+      "url":"s3-us-west-2://bucket/prefix.part_00001"
+    },
+    {
+      "url":"s3-us-west-2://bucket/prefix.part_00002"
+    }
+  ]
+}
 ```
 
-### Invoking a Lambda function within a trigger
+## SELECT INTO OUTFILE S3
 
-You can use triggers to call Lambda on data-modifying statements. The following example uses the
-`lambda_async` native function and stores the result in a variable.
+You can use the `SELECT INTO OUTFILE S3` statement to query data from a DB cluster and save it directly into
+delimited text files stored in an Amazon S3 bucket.
+
+Compressed files aren't supported. Encrypted files are supported starting in Aurora MySQL version 2.09.0.
+
+### Syntax
 
 ```
-`mysql>`SET @result=0;
-`mysql>`DELIMITER //
-`mysql>`CREATE TRIGGER myFirstTrigger
-      AFTER INSERT
-          ON Test_trigger FOR EACH ROW
-      BEGIN
-      SELECT lambda_async(
-          'arn:aws:lambda:us-east-1:123456789012:function:BasicTestLambda',
-          '{"operation": "ping"}')
-          INTO @result;
-      END; //
-`mysql>`DELIMITER ;
+SELECT
+    [ALL | DISTINCT | DISTINCTROW ]
+        [HIGH_PRIORITY]
+        [STRAIGHT_JOIN]
+        [SQL_SMALL_RESULT] [SQL_BIG_RESULT] [SQL_BUFFER_RESULT]
+        [SQL_CACHE | SQL_NO_CACHE] [SQL_CALC_FOUND_ROWS]
+    `select_expr` [, `select_expr` ...]
+    [FROM `table_references`
+        [PARTITION `partition_list`]
+    [WHERE `where_condition`]
+    [GROUP BY {`col_name` | `expr` | `position`}
+        [ASC | DESC], ... [WITH ROLLUP]]
+    [HAVING `where_condition`]
+    [ORDER BY {`col_name` | `expr` | `position`}
+         [ASC | DESC], ...]
+    [LIMIT {[`offset`,] `row_count` | `row_count` OFFSET `offset`}]
+INTO OUTFILE S3 '`s3_uri`'
+[CHARACTER SET `charset_name`]
+    [`export_options`]
+    [MANIFEST {ON | OFF}]
+    [OVERWRITE {ON | OFF}]
+    [ENCRYPTION {ON | OFF | SSE_S3 | SSE_KMS ['`cmk_id`']}]
+
+`export_options`:
+    [FORMAT {CSV|TEXT} [HEADER]]
+    [{FIELDS | COLUMNS}
+        [TERMINATED BY '`string`']
+        [[OPTIONALLY] ENCLOSED BY '`char`']
+        [ESCAPED BY '`char`']
+    ]
+    [LINES
+        [STARTING BY '`string`']
+        [TERMINATED BY '`string`']
+]
 ```
 
-###### Note
+### Parameters
 
-Triggers aren't run once per SQL statement, but once per row modified, one row at a time. When a trigger runs, the
-process is synchronous. The data-modifying statement only returns when the trigger completes.
+The `SELECT INTO OUTFILE S3` statement uses the following required and optional parameters that are
+specific to Aurora.
 
-Be careful when invoking an AWS Lambda function from triggers on tables that experience high write traffic.
-`INSERT`, `UPDATE`, and `DELETE` triggers are activated per row. A write-heavy
-workload on a table with `INSERT`, `UPDATE`, or `DELETE` triggers results in a
-large number of calls to your AWS Lambda function.
+**s3-uri**
+
+Specifies the URI for an Amazon S3 prefix to use. Use the syntax described in [Specifying a path to an Amazon S3 bucket](#AuroraMySQL.Integrating.SaveIntoS3.URI "#AuroraMySQL.Integrating.SaveIntoS3.URI").
+
+**FORMAT {CSV|TEXT} [HEADER]**
+
+Optionally saves the data in CSV format.
+
+The `TEXT` option is the default and produces the existing MySQL export format.
+
+The `CSV` option produces comma-separated data values. The CSV format follows the specification in
+[RFC-4180](https://tools.ietf.org/html/rfc4180 "https://tools.ietf.org/html/rfc4180"). If you specify the optional keyword
+`HEADER`, the output file contains one header line. The labels in the header line correspond to
+the column names from the `SELECT` statement. You can use the CSV files for training data models for
+use with AWS ML services. For more information about using exported Aurora data with AWS ML services, see
+[Exporting data to Amazon S3 for SageMaker AI model training (Advanced)](mysql-ml.md#exporting-data-to-s3-for-model-training "mysql-ml.md#exporting-data-to-s3-for-model-training").
+
+**MANIFEST {ON | OFF}**
+
+Indicates whether a manifest file is created in Amazon S3. The manifest file is a JavaScript Object Notation (JSON)
+file that can be used to load data into an Aurora DB cluster with the `LOAD DATA FROM S3 MANIFEST`
+statement. For more information about `LOAD DATA FROM S3 MANIFEST`, see [Loading data into an Amazon Aurora MySQL DB cluster from text files in an Amazon S3 bucket](AuroraMySQL.Integrating.md "AuroraMySQL.Integrating.md").
+
+If `MANIFEST ON` is specified in the query, the manifest file is created in Amazon S3 after all data
+files have been created and uploaded. The manifest file is created using the following path:
+
+```
+s3`-region`://`bucket-name`/`file-prefix`.manifest
+```
+
+For more information about the format of the manifest file's contents, see [Creating a manifest to list data files](#AuroraMySQL.Integrating.SaveIntoS3.Manifest "#AuroraMySQL.Integrating.SaveIntoS3.Manifest").
+
+**OVERWRITE {ON | OFF}**
+
+Indicates whether existing files in the specified Amazon S3 bucket are overwritten. If `OVERWRITE ON` is
+specified, existing files that match the file prefix in the URI specified in `s3-uri`are overwritten.
+Otherwise, an error occurs.
+
+**ENCRYPTION {ON | OFF | SSE_S3 | SSE_KMS ['`cmk_id`']}**
+
+Indicates whether to use server-side encryption with Amazon S3 managed keys (SSE-S3) or AWS KMS keys (SSE-KMS,
+including AWS managed keys and customer managed keys). The `SSE_S3` and `SSE_KMS` settings are
+available in Aurora MySQL version 3.05 and higher.
+
+You can also use the `aurora_select_into_s3_encryption_default` session variable instead of the
+`ENCRYPTION` clause, as shown in the following example. Use either the SQL clause or the session
+variable, but not both.
+
+```
+set session set session aurora_select_into_s3_encryption_default={ON | OFF | SSE_S3 | SSE_KMS};
+```
+
+The `SSE_S3` and `SSE_KMS` settings are available in Aurora MySQL version 3.05 and
+higher.
+
+When you set `aurora_select_into_s3_encryption_default` to the following value:
+
+- `OFF` – The default encryption policy of the S3 bucket is followed. The default
+  value of `aurora_select_into_s3_encryption_default` is `OFF`.
+- `ON` or `SSE_S3` – The S3 object is encrypted using Amazon S3 managed keys
+  (SSE-S3).
+- `SSE_KMS` – The S3 object is encrypted using an AWS KMS key.
+
+In this case, you also include the session variable `aurora_s3_default_cmk_id`, for
+example:
+
+```
+set session aurora_select_into_s3_encryption_default={SSE_KMS};
+set session aurora_s3_default_cmk_id={NULL | '`cmk_id`'};
+```
+
+    + When `aurora_s3_default_cmk_id` is `NULL`, the S3 object is encrypted
+     using an AWS managed key.
+    + When `aurora_s3_default_cmk_id` is a nonempty string `cmk_id`, the S3
+     object is encrypted using a customer managed key.
+
+
+    The value of `cmk_id` can't be an empty string.
+
+When you use the `SELECT INTO OUTFILE S3` command, Aurora determines the encryption as
+follows:
+
+- If the `ENCRYPTION` clause is present in the SQL command, Aurora relies only on the value of
+  `ENCRYPTION`, and doesn't use a session variable.
+- If the `ENCRYPTION` clause isn't present, Aurora relies on the value of the session
+  variable.
+
+For more information, see [Using server-side encryption with Amazon S3 managed keys (SSE-S3)](../../../AmazonS3/latest/userguide/UsingServerSideEncryption.md "../../../AmazonS3/latest/userguide/UsingServerSideEncryption.md") and [Using server-side encryption
+withAWS KMS keys (SSE-KMS)](../../../AmazonS3/latest/userguide/UsingKMSEncryption.md "../../../AmazonS3/latest/userguide/UsingKMSEncryption.md") in the _Amazon Simple Storage Service User Guide_.
+
+You can find more details about other parameters in [SELECT statement](https://dev.mysql.com/doc/refman/8.0/en/select.html "https://dev.mysql.com/doc/refman/8.0/en/select.html") and [LOAD DATA
+statement](https://dev.mysql.com/doc/refman/8.0/en/load-data.html "https://dev.mysql.com/doc/refman/8.0/en/load-data.html"), in the MySQL documentation.
+
+### Considerations
+
+The number of files written to the Amazon S3 bucket depends on the amount of data
+selected by the `SELECT INTO OUTFILE S3` statement and the file size
+threshold for Aurora MySQL. The default file size threshold is 6 gigabytes (GB). If the
+data selected by the statement is less than the file size threshold, a single
+file is created; otherwise, multiple files are created. Other considerations for
+files created by this statement include the following:
+
+- Aurora MySQL guarantees that rows in data files are not split across file
+  boundaries. For multiple files, the size of every data file except the
+  last is typically close to the file size threshold. However,
+  occasionally staying under the file size threshold results in a row
+  being split across two data files. In this case, Aurora MySQL creates a data
+  file that keeps the row intact, but might be larger than the file size
+  threshold.
+- Because each `SELECT` statement in Aurora MySQL runs as an atomic transaction,
+  a `SELECT INTO OUTFILE S3` statement that selects a large
+  data set might run for some time. If the statement fails for any reason,
+  you might need to start over and issue the statement again. If the
+  statement fails, however, files already uploaded to Amazon S3 remain in the
+  specified Amazon S3 bucket. You can use another statement to upload the
+  remaining data instead of starting over again.
+- If the amount of data to be selected is large (more than 25 GB), we recommend that you use multiple
+  `SELECT INTO OUTFILE S3` statements to save the data to Amazon S3. Each statement should select a
+  different portion of the data to be saved, and also specify a different `file_prefix` in the
+  `s3-uri` parameter to use when saving the data files. Partitioning the data to be selected with
+  multiple statements makes it easier to recover from an error in one statement. If an error occurs for one statement,
+  only a portion of data needs to be re-selected and uploaded to Amazon S3. Using multiple statements also helps to avoid a
+  single long-running transaction, which can improve performance.
+- If multiple `SELECT INTO OUTFILE S3` statements that use
+  the same `file_prefix` in the `s3-uri` parameter
+  run in parallel to select data into Amazon S3, the behavior is
+  undefined.
+- Metadata, such as table schema or file metadata, is not uploaded by
+  Aurora MySQL to Amazon S3.
+- In some cases, you might re-run a `SELECT INTO OUTFILE S3`
+  query, such as to recover from a failure. In these cases, you must
+  either remove any existing data files in the Amazon S3 bucket with the same
+  file prefix specified in `s3-uri`, or include `OVERWRITE
+ON` in the `SELECT INTO OUTFILE S3` query.
+
+The `SELECT INTO OUTFILE S3` statement returns a typical MySQL
+error number and response on success or failure. If you don't have access to the
+MySQL error number and response, the easiest way to determine when it's done is
+by specifying `MANIFEST ON` in the statement. The manifest file is
+the last file written by the statement. In other words, if you have a manifest
+file, the statement has completed.
+
+Currently, there's no way to directly monitor the progress of the `SELECT
+ INTO OUTFILE S3` statement while it runs. However, suppose that
+you're writing a large amount of data from Aurora MySQL to Amazon S3 using this statement,
+and you know the size of the data selected by the statement. In this case, you
+can estimate progress by monitoring the creation of data files in Amazon S3.
+
+To do so, you can use the fact that a data file is created in the specified
+Amazon S3 bucket for about every 6 GB of data selected by the statement. Divide the
+size of the data selected by 6 GB to get the estimated number of data files to
+create. You can then estimate the progress of the statement by monitoring the
+number of files uploaded to Amazon S3 while the statement runs.
+
+### Examples
+
+The following statement selects all of the data in the `employees`
+table and saves the data into an Amazon S3 bucket that is in a different region from
+the Aurora MySQL DB cluster. The statement creates data files in which each field is
+terminated by a comma (`,`) character and each row is terminated by a
+newline (`\n`) character. The statement returns an error if files
+that match the `sample_employee_data` file prefix exist in the
+specified Amazon S3 bucket.
+
+```
+SELECT * FROM employees INTO OUTFILE S3 's3-us-west-2://aurora-select-into-s3-pdx/sample_employee_data'
+    FIELDS TERMINATED BY ','
+    LINES TERMINATED BY '\n';
+```
+
+The following statement selects all of the data in the `employees`
+table and saves the data into an Amazon S3 bucket that is in the same region as the
+Aurora MySQL DB cluster. The statement creates data files in which each field is
+terminated by a comma (`,`) character and each row is terminated by a
+newline (`\n`) character, and also a manifest file. The statement
+returns an error if files that match the `sample_employee_data` file
+prefix exist in the specified Amazon S3 bucket.
+
+```
+SELECT * FROM employees INTO OUTFILE S3 's3://aurora-select-into-s3-pdx/sample_employee_data'
+    FIELDS TERMINATED BY ','
+    LINES TERMINATED BY '\n'
+    MANIFEST ON;
+```
+
+The following statement selects all of the data in the `employees`
+table and saves the data into an Amazon S3 bucket that is in a different region from
+the Aurora DB cluster. The statement creates data files in which each field is
+terminated by a comma (`,`) character and each row is terminated by a
+newline (`\n`) character. The statement overwrites any existing files
+that match the `sample_employee_data` file prefix in the specified
+Amazon S3 bucket.
+
+```
+SELECT * FROM employees INTO OUTFILE S3 's3-us-west-2://aurora-select-into-s3-pdx/sample_employee_data'
+    FIELDS TERMINATED BY ','
+    LINES TERMINATED BY '\n'
+    OVERWRITE ON;
+```
+
+The following statement selects all of the data in the `employees`
+table and saves the data into an Amazon S3 bucket that is in the same region as the
+Aurora MySQL DB cluster. The statement creates data files in which each field is
+terminated by a comma (`,`) character and each row is terminated by a
+newline (`\n`) character, and also a manifest file. The statement
+overwrites any existing files that match the `sample_employee_data`
+file prefix in the specified Amazon S3 bucket.
+
+```
+SELECT * FROM employees INTO OUTFILE S3 's3://aurora-select-into-s3-pdx/sample_employee_data'
+    FIELDS TERMINATED BY ','
+    LINES TERMINATED BY '\n'
+    MANIFEST ON
+    OVERWRITE ON;
+```

@@ -1,127 +1,153 @@
-# DB instance class types
+# Determining DB instance class support in AWS Regions
 
-Amazon Aurora
-supports DB instance classes for the following use cases:
-
-- [Aurora Serverless v2](#Concepts.DBInstanceClass.Types.serverless-v2 "#Concepts.DBInstanceClass.Types.serverless-v2")
-- [Memory-optimized](#Concepts.DBInstanceClass.Types.memory "#Concepts.DBInstanceClass.Types.memory")
-- [Burstable-performance](#Concepts.DBInstanceClass.Types.burstable "#Concepts.DBInstanceClass.Types.burstable")
-- [Optimized Reads](#Concepts.DBInstanceClass.Types.optimized-reads "#Concepts.DBInstanceClass.Types.optimized-reads")
-  For more information about Amazon EC2 instance types, see [Instance types](../../../AWSEC2/latest/UserGuide/instance-types.md "../../../AWSEC2/latest/UserGuide/instance-types.md") in the Amazon EC2
-  documentation.
-
-## Aurora Serverless v2 instance class type
-
-The following Aurora Serverless v2 type is available:
-
-- db.serverless – A special DB instance class type
-  used by Aurora Serverless v2. Aurora adjusts the compute, memory, and network resources
-  dynamically as the workload changes. For usage details, see [Using Aurora Serverless v2](aurora-serverless-v2.md "aurora-serverless-v2.md").
-
-## Memory-optimized instance class types
-
-The memory-optimized X family supports the following instance classes:
-
-- db.x2g – Instance classes optimized for
-  memory-intensive applications and powered by AWS Graviton2 processors. These
-  instance classes offer low cost per GiB of memory.
-
-You can modify a DB instance to use one of the DB instance classes powered by AWS Graviton2
-processors. To do so, complete the same steps as with any other DB instance
-modification.
-
-The memory-optimized R family supports the following instance class types:
-
-- db.r8g – Instance classes powered by AWS
-  Graviton4 processors. These instance classes are ideal for running memory-intensive
-  workloads. These instances offer larger instance sizes with up to
-  3x more vCPUs and memory than the seventh-generation AWS Graviton3-based db.r7g
-  instances. They are powered by the AWS Nitro System, a combination of dedicated
-  hardware and lightweight hypervisor.
-- You can modify a DB instance to use one of the DB instance classes powered by AWS Graviton4
-  processors. To do so, complete the same steps as with any other DB instance
-  modification.
-- db.r7g – Instance classes powered by AWS Graviton3 processors. These instance
-  classes are ideal for running memory-intensive workloads.
-
-You can modify a DB instance to use one of the DB instance classes powered by AWS Graviton3
-processors. To do so, complete the same steps as with any other DB instance modification.
-They are powered by the AWS Nitro System, a combination of dedicated hardware and
-lightweight hypervisor.
-
-- db.r7i – Instance classes powered by 4th
-  Generation Intel Xeon Scalable processors. These instance classes are SAP-Certified
-  and are ideal for running memory-intensive workloads. You can modify a
-  DB instance to use one of the DB instance classes powered by 4th Generation Intel Xeon Scalable
-  processors. To do so, complete the same steps as with any other DB instance modification.
-  They are powered by the AWS Nitro System, a combination of dedicated hardware and
-  lightweight hypervisor.
-- db.r6g – Instance classes powered by AWS
-  Graviton2 processors. These instance classes are ideal for running memory-intensive
-  workloads. They are powered by the AWS Nitro System, a combination of
-  dedicated hardware and lightweight hypervisor.
-- You can modify a DB instance to use one of the DB instance classes powered by AWS Graviton2
-  processors. To do so, complete the same steps as with any other DB instance
-  modification.
-- db.r6i – Instance classes powered by 3rd
-  Generation Intel Xeon Scalable processors. These instance classes are SAP-Certified
-  and are an ideal fit for memory-intensive workloads.
-- db.r5 – Instance classes optimized for
-  memory-intensive applications. These instance classes offer improved networking
-  and Amazon Elastic Block Store (Amazon EBS) performance. They are
-  powered by the AWS Nitro System, a combination of dedicated hardware and
-  lightweight hypervisor.
-- db.r4 – These instance classes are supported only for Aurora MySQL 2.x and Aurora PostgreSQL 11 and 12
-  versions. For all Aurora DB clusters that use db.r4 DB instance classes, we recommend that you upgrade to a higher generation instance class as soon as
-  possible.
-
-The db.r4 instance classes aren't available for the Aurora I/O-Optimized cluster storage configuration.
-
-## Burstable-performance instance class types
-
-The following burstable-performance DB instance class types are available:
-
-- db.t4g – General-purpose instance classes
-  powered by Arm-based AWS Graviton2 processors. These instance classes deliver
-  better price performance than previous burstable-performance DB instance classes for a
-  broad set of burstable general-purpose workloads. Amazon RDS db.t4g instances are
-  configured for Unlimited mode. This means that they can burst beyond the baseline
-  over a 24-hour window for an additional charge.
-
-You can modify a DB instance to use one of the DB instance classes powered by AWS Graviton2
-processors. To do so, complete the same steps as with any other DB instance
-modification.
-
-- db.t3 – Instance classes that provide a
-  baseline performance level, with the ability to burst to full CPU usage. The db.t3
-  instances are configured for Unlimited mode. These instance classes provide more
-  computing capacity than the previous db.t2 instance classes. They are powered by the
-  AWS Nitro System, a combination of dedicated hardware and lightweight hypervisor.
-  We recommend using these instance classes only for
-  development and test servers, or other non-production servers.
-- db.t2 – Instance classes that provide a
-  baseline performance level, with the ability to burst to full CPU usage. The db.t2
-  instances are configured for Unlimited mode. We recommend using these instance classes
-  only for development and test servers, or other non-production servers.
-
-The db.t2 instance classes aren't available for the Aurora I/O-Optimized cluster storage configuration.
+To determine the DB instance classes supported by each DB engine in a specific
+AWS Region, you can take one of several approaches. You can use the AWS Management Console, the [Amazon RDS Pricing](https://aws.amazon.com/rds/pricing/ "https://aws.amazon.com/rds/pricing/") page, or the [describe-orderable-db-instance-options](../../../cli/latest/reference/rds/describe-orderable-db-instance-options.md "../../../cli/latest/reference/rds/describe-orderable-db-instance-options.md") AWS CLI command.
 
 ###### Note
 
-We recommend using the T DB instance classes only for development, test,
-or other nonproduction servers. For more detailed recommendations for the T instance
-classes, see [Using T instance classes for development and testing](AuroraMySQL.BestPractices.md#AuroraMySQL.BestPractices.T2Medium "AuroraMySQL.BestPractices.md#AuroraMySQL.BestPractices.T2Medium").
+When you perform operations with the AWS Management Console, it automatically shows the supported DB
+instance classes for a specific DB engine, DB engine version, and AWS Region. Examples
+of the operations that you can perform include creating and modifying a DB
+instance.
 
-For DB instance class hardware specifications, see [Hardware specifications for DB instance classesfor Aurora](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
+###### Contents
 
-## Optimized Reads instance class types
+- [Using the Amazon RDS pricing page to determine DB instance class support in AWS Regions](Concepts.DBInstanceClass.md#Concepts.DBInstanceClass.RegionSupportAurora.PricingPage "Concepts.DBInstanceClass.md#Concepts.DBInstanceClass.RegionSupportAurora.PricingPage")
+- [Using the AWS CLI to determine DB instance class support in AWS Regions](Concepts.DBInstanceClass.md#Concepts.DBInstanceClass.RegionSupportAurora.CLI "Concepts.DBInstanceClass.md#Concepts.DBInstanceClass.RegionSupportAurora.CLI")
+  - [Listing the DB instance classes that are supported by a specific DB engine version in an AWS Region](Concepts.DBInstanceClass.md#Concepts.DBInstanceClass.RegionSupportAurora.CLI.Example1 "Concepts.DBInstanceClass.md#Concepts.DBInstanceClass.RegionSupportAurora.CLI.Example1")
+  - [Listing the DB engine versions that support a specific DB instance class in an AWS Region](Concepts.DBInstanceClass.md#Concepts.DBInstanceClass.RegionSupportAurora.CLI.Example2 "Concepts.DBInstanceClass.md#Concepts.DBInstanceClass.RegionSupportAurora.CLI.Example2")
 
-The following Optimized Reads instance class types are available:
+## Using the Amazon RDS pricing page to determine DB instance class support in AWS Regions
 
-- db.r8gd – Instance classes powered by Graviton4 processors. These instance classes are ideal
-  for running memory-intensive workloads and offer local NVMe-based SSD block-level storage for applications that need high-speed,
-  low latency local storage. They offer a maximum memory of 1.5 TiB and up to 11.4 TB of direct-attached NVMe-based SSD storage.
-- db.r6gd – Instance classes powered by AWS Graviton2 processors. These instance
-  classes are ideal for running memory-intensive workloads and offer local NVMe-based SSD block-level storage for applications that need high-speed, low latency local storage.
-- db.r6id – Instance classes powered by 3rd Generation Intel Xeon Scalable processors. These instance classes are SAP-Certified and
-  are an ideal fit for memory-intensive workloads. They offer a maximum memory of 1 TiB and up to 7.6 TB of direct-attached NVMe-based SSD storage.
+You can use the [Amazon Aurora Pricing](https://aws.amazon.com/rds/pricing/ "https://aws.amazon.com/rds/pricing/")
+page to determine the DB instance classes supported by each DB engine in a specific
+AWS Region.
+
+###### To use the pricing page to determine the DB instance classes supported by each engine in a Region
+
+1. Go to [Amazon Aurora Pricing](https://aws.amazon.com/rds/aurora/pricing/ "https://aws.amazon.com/rds/aurora/pricing/").
+2. Choose an Amazon Aurora engine in the **AWS Pricing Calculator** section.
+3. In **Choose a Region**, choose an AWS Region.
+4. In **Cluster Configuration Option**, choose a configuration option.
+5. Use the section for compatible instances to view the supported DB instance classes.
+6. (Optional) Choose other options in the calculator, and then choose **Save and view summary**
+   or **Save and add service**.
+
+## Using the AWS CLI to determine DB instance class support in AWS Regions
+
+You can use the AWS CLI to determine which DB instance classes are supported for
+specific DB engines and DB engine versions in an AWS Region.
+
+To use the AWS CLI examples following, enter valid values for the DB engine, DB engine
+version, DB instance class, and AWS Region. The following table shows the valid DB
+engine values.
+
+| Engine name                                    | Engine value in CLI commands | More information about versions                                                                                                                                                                                                                                                                                                                                                         |
+| ---------------------------------------------- | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| MySQL 5.7-compatible and 8.0-compatible Aurora | `aurora-mysql`               | [Database engine updates for Amazon Aurora MySQL version 2](../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.md "../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.md")<br>and [Database engine updates for Amazon Aurora MySQL version 3](../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.md "../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.md")<br>in the _Release Notes for Aurora MySQL_ |
+| Aurora PostgreSQL                              | `aurora-postgresql`          | [_Release Notes for Aurora PostgreSQL_](../AuroraPostgreSQLReleaseNotes/Welcome.md "../AuroraPostgreSQLReleaseNotes/Welcome.md")                                                                                                                                                                                                                                                        |
+
+For information about AWS Region names, see [AWS Regions](Concepts.md#Concepts.RegionsAndAvailabilityZones.Regions "Concepts.md#Concepts.RegionsAndAvailabilityZones.Regions").
+
+The following examples demonstrate how to determine DB instance class support in an
+AWS Region using the [describe-orderable-db-instance-options](../../../cli/latest/reference/rds/describe-orderable-db-instance-options.md "../../../cli/latest/reference/rds/describe-orderable-db-instance-options.md") AWS CLI command.
+
+###### Topics
+
+- [Listing the DB instance classes that are supported by a specific DB engine version in an AWS Region](#Concepts.DBInstanceClass.RegionSupportAurora.CLI.Example1 "#Concepts.DBInstanceClass.RegionSupportAurora.CLI.Example1")
+- [Listing the DB engine versions that support a specific DB instance class in an AWS Region](#Concepts.DBInstanceClass.RegionSupportAurora.CLI.Example2 "#Concepts.DBInstanceClass.RegionSupportAurora.CLI.Example2")
+
+### Listing the DB instance classes that are supported by a specific DB engine version in an AWS Region
+
+To list the DB instance classes that are supported by a specific DB engine version
+in an AWS Region, run the following command.
+
+For Linux, macOS, or Unix:
+
+```
+aws rds describe-orderable-db-instance-options --engine `engine` --engine-version `version` \
+    --query "OrderableDBInstanceOptions[].{DBInstanceClass:DBInstanceClass,SupportedEngineModes:SupportedEngineModes[0]}" \
+    --output table \
+    --region `region`
+```
+
+For Windows:
+
+```
+aws rds describe-orderable-db-instance-options --engine `engine` --engine-version `version` ^
+    --query "OrderableDBInstanceOptions[].{DBInstanceClass:DBInstanceClass,SupportedEngineModes:SupportedEngineModes[0]}" ^
+    --output table ^
+    --region `region`
+```
+
+The output also shows the engine modes that are supported for each DB instance
+class.
+
+For example, the following command lists the supported DB instance classes for
+version 13.6 of the Aurora PostgreSQL DB engine in US East (N. Virginia).
+
+For Linux, macOS, or Unix:
+
+```
+aws rds describe-orderable-db-instance-options --engine aurora-postgresql --engine-version 15.3 \
+    --query "OrderableDBInstanceOptions[].{DBInstanceClass:DBInstanceClass,SupportedEngineModes:SupportedEngineModes[0]}" \
+    --output table \
+    --region us-east-1
+```
+
+For Windows:
+
+```
+aws rds describe-orderable-db-instance-options --engine aurora-postgresql --engine-version 15.3 ^
+    --query "OrderableDBInstanceOptions[].{DBInstanceClass:DBInstanceClass,SupportedEngineModes:SupportedEngineModes[0]}"  ^
+    --output table ^
+    --region us-east-1
+```
+
+### Listing the DB engine versions that support a specific DB instance class in an AWS Region
+
+To list the DB engine versions that support a specific DB instance class in an
+AWS Region, run the following command.
+
+For Linux, macOS, or Unix:
+
+```
+aws rds describe-orderable-db-instance-options --engine `engine` --db-instance-class `DB_instance_class` \
+    --query "OrderableDBInstanceOptions[].{EngineVersion:EngineVersion,SupportedEngineModes:SupportedEngineModes[0]}" \
+    --output table \
+    --region `region`
+```
+
+For Windows:
+
+```
+aws rds describe-orderable-db-instance-options --engine `engine` --db-instance-class `DB_instance_class` ^
+    --query "OrderableDBInstanceOptions[].{EngineVersion:EngineVersion,SupportedEngineModes:SupportedEngineModes[0]}" ^
+    --output table ^
+    --region `region`
+```
+
+The output also shows the engine modes that are supported for each DB engine
+version.
+
+For example, the following command lists the DB engine versions of the
+Aurora PostgreSQL DB engine that support the db.r5.large DB instance class in
+US East (N. Virginia).
+
+For Linux, macOS, or Unix:
+
+```
+aws rds describe-orderable-db-instance-options --engine aurora-postgresql --db-instance-class db.r7g.large \
+    --query "OrderableDBInstanceOptions[].{EngineVersion:EngineVersion,SupportedEngineModes:SupportedEngineModes[0]}" \
+    --output table \
+    --region us-east-1
+```
+
+For Windows:
+
+```
+aws rds describe-orderable-db-instance-options --engine aurora-postgresql --db-instance-class db.r7g.large ^
+    --query "OrderableDBInstanceOptions[].{EngineVersion:EngineVersion,SupportedEngineModes:SupportedEngineModes[0]}" ^
+    --output table ^
+    --region us-east-1
+```
