@@ -89,10 +89,10 @@ JSON
  "aws:SourceAccount": "123456789012"
  },
  "ForAllValues:ArnLike": {
- "logs:LogGeneratingResourceArns": "arn:aws:bedrock-agentcore:us-east-1:123456789012:memory/MemoryId"
+ "logs:LogGeneratingResourceArns": "arn:aws:bedrock-agentcore:us-east-1:123456789012:memory/*"
  },
  "ArnLike": {
- "aws:SourceArn": "arn:aws:logs:us-east-1:123456789012:delivery-source:xray-test"
+ "aws:SourceArn": "arn:aws:logs:us-east-1:123456789012:delivery-source:*"
  }
  }
  }

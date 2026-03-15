@@ -4,8 +4,8 @@ You can view the queries currently in progress as well as your recent query
 history.
 
 Queries currently running includes queries you have added to a dashboard. You are
-limited to 30 concurrent CloudWatch Logs Insights queries per account, including queries added to
-dashboards. Only 15 of these 30 queries can use either OpenSearch Service PPL or OpenSearch Service SQL.
+limited to 100 concurrent CloudWatch Logs Insights queries per account, including queries added to
+dashboards. Additionally, You can run 15 concurrent queries for either OpenSearch Service PPL or OpenSearch Service SQL.
 
 ###### To view your recent query history
 

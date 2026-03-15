@@ -101,8 +101,8 @@ scheduling and use field discovery features to verify field names.
 
 There are some important points mentioned below to keep in mind when concurrency errors are seen as scheduled queries use the same quota as of Cloudwatch Logs insights queries. It is recommended to spread out your schedules to avoid hitting the concurrency limit.
 
-- **Quota:** You can run up to 30 concurrent CloudWatch Logs Insights queries per AWS account.
+- **Quota:** You can run up to 100 concurrent CloudWatch Logs Insights queries per AWS account.
 - **Dashboards:** Queries added to CloudWatch dashboards also count towards this concurrency limit, as they are executed when the dashboard is loaded or refreshed.
-- **OpenSearch Service PPL/SQL:** Within the 30 concurrent queries, a subset (currently 15) can utilize either OpenSearch PPL or OpenSearch SQL.
+- **OpenSearch Service PPL/SQL:** You can run up to 15 concurrent OpenSearch PPL or OpenSearch SQL queries per AWS account.
 - **Cross-account queries:** The concurrency quota applies to both single and cross-account queries. When using CloudWatch cross-account observability, queries initiated in a monitoring account against a linked source account also count towards the monitoring account's concurrency limit.
 - **Infrequent Access Log Groups:** For log groups in the infrequent access log class, the maximum number of concurrent Logs Insights queries is limited to five.

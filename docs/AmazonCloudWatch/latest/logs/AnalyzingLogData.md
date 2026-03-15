@@ -4,7 +4,9 @@ With CloudWatch Logs Insights, you can interactively search and analyze your log
 perform queries to help you more efficiently and effectively respond to operational issues.
 In addition to querying using log groups, you can query using facets, data source, and data
 type. If an issue occurs, you can use CloudWatch Logs Insights to identify potential causes and validate
-deployed fixes.
+deployed fixes. You are limited to 100 concurrent CloudWatch Logs Insights QL per account,
+including queries added to dashboards. Additionally , You can run 15 concurrent queries for
+either OpenSearch Service PPL or OpenSearch Service SQL.
 
 CloudWatch Logs Insights supports three query languages that you can use for your queries:
 

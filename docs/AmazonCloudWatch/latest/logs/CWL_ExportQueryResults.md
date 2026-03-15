@@ -4,7 +4,7 @@ After you run a query, you can add the query to a CloudWatch dashboard or copy t
 to the clipboard.
 
 Queries added to dashboards run every time you load the dashboard and every time that
-the dashboard refreshes. These queries count toward your limit of 30 concurrent CloudWatch Logs Insights
+the dashboard refreshes. These queries count toward your limit of 100 concurrent CloudWatch Logs Insights
 queries.
 
 ###### To add query results to a dashboard
