@@ -154,12 +154,31 @@ scripts, sample code, and readmes.
   all instances in the fleet. Options let you replace specific build files or an
   entire build, and let you manage how to restart game servers after the updates.
 
-## For game client services
+## For game clients
+
+Integrate your game client with the client SDK for Amazon GameLift Servers. The client SDK provides
+utilities for game clients to use Amazon GameLift Servers features including player gateway and
+UDP ping beacons.
+
+**Get the client SDK**
+
+- [Client SDK for C++](https://github.com/amazon-gamelift/amazon-gamelift-servers-client-sdk-for-cpp "https://github.com/amazon-gamelift/amazon-gamelift-servers-client-sdk-for-cpp") – Includes player gateway and UDP ping beacons
+  utilities with built-in endpoint selection algorithms, plus a sample application
+  demonstrating integration. Requires C++17 and a threading library.
+- [Client SDK for Unreal Engine](https://github.com/amazon-gamelift-for-unreal/amazon-gamelift-servers-client-sdk-for-unreal "https://github.com/amazon-gamelift-for-unreal/amazon-gamelift-servers-client-sdk-for-unreal") – Includes player gateway
+  (with or without engine modifications) and UDP ping beacons utilities with
+  built-in endpoint selection algorithms. Requires source-built Unreal Engine 5.1
+  or later. Access requires membership in the [Epic Games
+  organization on GitHub](https://www.unrealengine.com/en-US/ue-on-github "https://www.unrealengine.com/en-US/ue-on-github").
+
+For integration guides, see the documentation in each GitHub repository.
+
+## For game backend services
 
 Create a 64-bit backend service for your game and integrate it with functionality from
 the AWS SDK, which includes the service API for Amazon GameLift Servers. Use the backend service
-to handle client-side interactions with the Amazon GameLift Servers service, including starting or finding
-game sessions and joining players to games.
+to handle interactions with the Amazon GameLift Servers service, including starting or finding game
+sessions and joining players to games.
 
 [Get the
 AWS SDK](https://aws.amazon.com/developer/tools/#SDKs "https://aws.amazon.com/developer/tools/#SDKs")
@@ -173,7 +192,7 @@ resources:
   - [Client-side service integration for games with Realtime
     servers](../realtimeguide/realtime-client.md "../realtimeguide/realtime-client.md")
 
-- [Design a client backend service](gamelift_quickstart_customservers_designbackend.md "gamelift_quickstart_customservers_designbackend.md")
+- [Design a backend service](gamelift_quickstart_customservers_designbackend.md "gamelift_quickstart_customservers_designbackend.md")
 
 ## For Amazon GameLift Servers resource management
 

@@ -60,6 +60,15 @@ Amazon GameLift Servers.
 | **Using server SDK version<br>5.x**          | Call the server SDK method<br>`GetFleetRoleCredentials()` from your game server<br>code. | Add code to the application to pull credentials from a shared<br>file on the fleet instance. |
 | **Using server SDK version 4 or<br>earlier** | Call AWS Security Token Service (AWS STS) `AssumeRole` with the role ARN.                | Call AWS Security Token Service (AWS STS) `AssumeRole` with the role ARN.                    |
 
+###### Note
+
+For container fleets, `FleetRoleArn` credentials are
+injected into each container. Your applications can use the default
+AWS credentials provider to access these credentials. You can still
+call `GetFleetRoleCredentials()`, which returns the same
+credentials. These fleet role credentials are only accessible inside
+containers.
+
 For games integrated with server SDK 5.x, this diagram illustrates
 how applications in your deployed game build can acquire credentials for the IAM
 role.
@@ -129,7 +138,14 @@ _IAM User Guide_.
 
 After you've created the IAM role and updated the applications in your game server
 build to get and use the access credentials, you can deploy a fleet. When you configure
-the new fleet, set the following parameters:
+the new fleet, set the following parameters.
+
+For container fleets:
+
+- [FleetRoleArn](../apireference/API_CreateContainerFleet.md#gameliftservers-CreateContainerFleet-request-FleetRoleArn "../apireference/API_CreateContainerFleet.md#gameliftservers-CreateContainerFleet-request-FleetRoleArn") – Set this parameter to the ARN of the
+  IAM role.
+
+For other fleet types:
 
 - [InstanceRoleArn](../apireference/API_FleetAttributes.md#gamelift-Type-FleetAttributes-InstanceRoleArn "../apireference/API_FleetAttributes.md#gamelift-Type-FleetAttributes-InstanceRoleArn") – Set this parameter to the ARN of the
   IAM role.
@@ -152,3 +168,7 @@ Amazon GameLift Servers streamlines the process of setting up VPC peering connec
 servers. It handles peering requests, updates route tables, and configures the
 connections as required. For instructions about how to set up VPC peering for your game
 servers, see [Set up VPC peering for Amazon GameLift Servers](vpc-peering.md "vpc-peering.md").
+
+###### Note
+
+VPC peering is not supported for container fleets.
