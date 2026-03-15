@@ -20,7 +20,7 @@ project.
 ![The "Projects" icon in the navigation bar.](images/portal-navigation-projects-console.png) 2. On the **Projects** page, choose the project to which to assign
 viewers.
 
-![The "Projects" page with "Wind Farm 3" highlighted.](images/projects-portal-user-choose-project-console.png) 3. In the **Project viewers** section of the project details page, choose
+![The "Projects" page with "Wind Farm 3" highlighted.](/images/iot-sitewise/latest/appguide/images/projects-portal-user-choose-project-console.png) 3. In the **Project viewers** section of the project details page, choose
 **Add viewers** if the project has no viewers, or **Edit
 viewers**.
 
@@ -44,10 +44,10 @@ can sign in and start exploring the dashboards in the project.
 ![The "Projects" icon in the navigation bar.](images/portal-navigation-projects-console.png) 2. On the **Projects** page, choose the project to which to invite project
 viewers.
 
-![The "Projects" page with "Create project" highlighted.](images/projects-portal-user-choose-project-console.png) 3. In the **Project viewers** section of the project details page, select
+![The "Projects" page with "Create project" highlighted.](/images/iot-sitewise/latest/appguide/images/projects-portal-user-choose-project-console.png) 3. In the **Project viewers** section of the project details page, select
 the check boxes for the project viewers to receive an email, and then choose **Send
 invitations**.
 
-![The "Project viewers" section of the project details page.](/images/iot-sitewise/latest/appguide/images/project-invite-viewers-console.png) 4. Your preferred email client opens, prepopulated with the recipients and the email body
+![The "Project viewers" section of the project details page.](images/project-invite-viewers-console.png) 4. Your preferred email client opens, prepopulated with the recipients and the email body
 with details from your project. You can customize the email before you send it to the
 project viewers.

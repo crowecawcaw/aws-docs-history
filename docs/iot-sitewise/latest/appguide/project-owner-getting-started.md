@@ -34,7 +34,7 @@ The following procedure assumes that you signed in the AWS IoT SiteWise Monitor 
 
 - In the navigation bar, choose the **Assets** icon.
 
-![The "Assets" icon in the navigation bar.](images/portal-navigation-asset-library-console.png)
+![The "Assets" icon in the navigation bar.](/images/iot-sitewise/latest/appguide/images/portal-navigation-asset-library-console.png)
 The **Assets** page
 appears.
 
@@ -64,7 +64,7 @@ create a dashboard.
 ![The "Projects" page as a project owner.](images/projects-portal-user-choose-project-console.png) 3. In the **Dashboards** section, choose **Create
 dashboard**.
 
-![The dashboards list on the project details page with "Create dashboard" highlighted.](images/project-create-dashboard-console.png)
+![The dashboards list on the project details page with "Create dashboard" highlighted.](/images/iot-sitewise/latest/appguide/images/project-create-dashboard-console.png)
 
 Next, you add one or more visualizations of asset properties and alarms to your
 dashboard.
@@ -99,7 +99,7 @@ customize details of the visualization, see [Customize visualizations](customize
 add a property that has an alarm, the visualization displays that alarm's threshold. For
 more information, see [Configure thresholds](configure-thresholds.md "configure-thresholds.md").
 
-![A sample visualization with the visualization configuration icon highlighted.](images/dashboard-edit-visualization-configuration-console.png) 5. To move a visualization, choose the control icon in the upper left and then drag the
+![A sample visualization with the visualization configuration icon highlighted.](/images/iot-sitewise/latest/appguide/images/dashboard-edit-visualization-configuration-console.png) 5. To move a visualization, choose the control icon in the upper left and then drag the
 visualization to a new location.
 
 ![An example visualization with the gripper and resize controls highlighted.](images/dashboard-edit-visualization-bounds-console.png) 6. To change the size of a visualization, use the resize control in the lower right.
@@ -130,7 +130,7 @@ viewers.
 **Add viewers** if the project has no viewers, or **Edit
 viewers**.
 
-![The "Project viewers" section of a project page.](/images/iot-sitewise/latest/appguide/images/project-add-viewers-console.png) 4. In the **Project viewers** dialog box, select the check boxes for the
+![The "Project viewers" section of a project page.](images/project-add-viewers-console.png) 4. In the **Project viewers** dialog box, select the check boxes for the
 users to be viewers for this project.
 
 ![Shows the "Project viewers" dialog.](images/project-choose-viewers-console.png)
