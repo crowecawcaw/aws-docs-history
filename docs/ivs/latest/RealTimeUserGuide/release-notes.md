@@ -3,6 +3,38 @@
 This document contains all Amazon IVS Real-Time Streaming release notes, latest first,
 organized by date of release.
 
+## March 12, 2026
+
+### IVS Broadcast SDK: Web 1.33.0 (Real-Time Streaming)
+
+| Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Web Broadcast SDK<br>1.33.0](broadcast-web.md "broadcast-web.md") | **Reference documentation:**<br>[https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference](https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference "https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference")<br>• Implemented the `exchangeToken` method for real-time token exchange.<br>• Implemented the STAGE_PARTICIPANT_METADATA_CHANGED event, which fires when `attributes` and/or `userId` change(s) after token exchanges.<br>• Added the `encoderImplementation` field on the request local stage stream `requestQualityStats()` method. |
+
+## March 12, 2026
+
+### Amazon IVS Broadcast SDK: Android 1.40.0, iOS 1.40.0 (Real-Time Streaming)
+
+| Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Android Broadcast SDK<br>1.40.0](broadcast-android.md "broadcast-android.md") | **Reference documentation:**<br>[https://aws.github.io/amazon-ivs-broadcast-docs/1.40.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.40.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.40.0/android/")<br>• Improved error messages around TLS certificate validation failures and expanded error enum codes.                                                                                                                                                                                                                                                                                            |
+| [iOS Broadcast SDK<br>1.40.0](broadcast-ios.md "broadcast-ios.md")             | **Download for real-time streaming:**<br>[https://broadcast.live-video.net/1.40.0/AmazonIVSBroadcast-Stages.xcframework.zip](https://broadcast.live-video.net/1.40.0/AmazonIVSBroadcast-Stages.xcframework.zip "https://broadcast.live-video.net/1.40.0/AmazonIVSBroadcast-Stages.xcframework.zip")<br>**Reference documentation:**<br>[https://aws.github.io/amazon-ivs-broadcast-docs/1.40.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.40.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.40.0/ios/")<br>• Improved error messages around TLS certificate validation failures and expanded error enum codes. |
+
+#### Broadcast SDK Size: Android
+
+| Architecture | Compressed Size | Uncompressed Size |
+| ------------ | --------------- | ----------------- |
+| arm64-v8a    | 5.823 MB        | 14.139 MB         |
+| armeabi-v7a  | 5.046 MB        | 9.798 MB          |
+| x86_64       | 5.935 MB        | 14.702 MB         |
+| x86          | 6.190 MB        | 15.265 MB         |
+
+#### Broadcast SDK Size: iOS
+
+| Architecture | Compressed Size | Uncompressed Size |
+| ------------ | --------------- | ----------------- |
+| arm64        | 3.939 MB        | 8.013 MB          |
+
 ## February 13, 2026
 
 ### Amazon IVS Broadcast SDK: Android 1.39.0, iOS 1.39.0 (Real-Time Streaming)
