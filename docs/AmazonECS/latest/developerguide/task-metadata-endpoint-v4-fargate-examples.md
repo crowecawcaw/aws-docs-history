@@ -87,6 +87,7 @@ example output.
   "PullStartedAt": "2023-07-21T15:45:33.532811081Z",
   "PullStoppedAt": "2023-07-21T15:45:38.541068435Z",
   "AvailabilityZone": "us-east-1d",
+  "AvailabilityZoneID": "use1-az3",
   "Containers": [
     {
       "DockerId": "bfa2636268144d039771334145e490c5-1117626119",

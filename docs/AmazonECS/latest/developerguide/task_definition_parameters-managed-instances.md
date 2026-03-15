@@ -416,30 +416,6 @@ system assigns a host path for your data volume. However, the
 data isn't guaranteed to persist after the containers that are
 associated with it stop running.
 
-`sourcePath`
-
-Type: String
-
-Required: No
-
-When the `host` parameter is used, specify a
-`sourcePath` to declare the path on the host
-instance that is presented to the container. If this
-parameter is empty, then the system assigns a host path
-for you. If the `host` parameter contains a
-`sourcePath` file location, then the data
-volume persists at the specified location on the host
-instance until you delete it manually. If the
-`sourcePath` value does not exist on the host
-instance, the system creates it. If the location does
-exist, the contents of the source path folder are
-exported.
-
-On Amazon ECS Managed Instances, portions of the host filesystem
-are read-only. The `sourcePath` must point to
-a writable directory such as `/var` or
-`/tmp`. For more information, see [Use bind mounts with Amazon ECS](bind-mounts.md "bind-mounts.md").
-
 `dockerVolumeConfiguration`
 
 ###### Note

@@ -2633,7 +2633,7 @@ Windows containers can mount whole directories on the same drive as
 
 ###### Note
 
-The `sourcePath` parameter is supported only when using tasks that are hosted on Amazon EC2 instances or Amazon ECS Managed Instances.
+The `sourcePath` parameter is supported only when using tasks that are hosted on Amazon EC2 instances.
 
 `sourcePath`
 

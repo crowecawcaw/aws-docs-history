@@ -75,6 +75,7 @@ output.
     "PullStartedAt": "2020-10-02T00:43:06.202617438Z",
     "PullStoppedAt": "2020-10-02T00:43:06.31288465Z",
     "AvailabilityZone": "us-west-2d",
+    "AvailabilityZoneID": "usw2-az4",
     "VPCID": "vpc-1234567890abcdef0",
     "LaunchType": "EC2",
     "Containers": [

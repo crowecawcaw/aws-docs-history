@@ -51,10 +51,6 @@ have limitations that should be noted:
 - `resourceRequirement` - `InferenceAccelerator` is not
   supported.
 - `operatingSystemFamily` - Amazon ECS Managed Instances use `LINUX`.
-- `volumes` - When using bind mounts with a `sourcePath`,
-  the path must point to a writable directory on the host. Portions of the
-  Amazon ECS Managed Instance filesystem are read-only. Writable directories include
-  `/var` and `/tmp`. For more information, see [Use bind mounts with Amazon ECS](bind-mounts.md "bind-mounts.md").
 
 To ensure that your task definition validates for use with Amazon ECS Managed Instances, you can
 specify the following when you register the task definition:

@@ -2,7 +2,7 @@
 
 ###### Important
 
-We are ending support for PV 1.3.0 in Fargate on June 30, 2026. Starting June 15, 2026, we will make the platform version 1.3.0 as Retired. At that time, you will not be able to launch new tasks or create new services configured with platform version 1.3.0, but your existing tasks will continue running. On June 30, 2026, we will terminate all the remaining running tasks configured with platform version 1.3.0.
+On March 2, 2026, AWS will start force-updating all the Amazon ECS services running Fargate platform version 1.3.0 that are not migrated to the platform version 1.4.0. That may potentially impact your workloads. Starting March 16, 2026, we will make the platform version 1.3.0 as Retired. At that time, you will not be able to launch new tasks or create new services configured with platform version 1.3.0, but your existing tasks will continue running. On March 31, 2026, we will terminate all the remaining running tasks configured with platform version 1.3.0.
 
 For information about how to migrate to platform version 1.4, see [Migrating to Linux platform version 1.4.0 on Amazon ECS](platform-version-migration.md "platform-version-migration.md").
 
@@ -30,7 +30,7 @@ fixes.
 | 1.0.0            | October 26, 2020  | December 14, 2020 |
 | 1.1.0            | October 26, 2020  | December 14, 2020 |
 | 1.2.0            | October 26, 2020  | December 14, 2020 |
-| 1.3.0            |                   | June 15, 2026     |
+| 1.3.0            | March 2, 2026     | March 16, 2026    |
 
 For information about current platform versions, see [Fargate platform versions for Amazon ECS](platform-fargate.md "platform-fargate.md").
 

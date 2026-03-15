@@ -49,6 +49,14 @@ The Availability Zone the task is in.
 
 The Availability Zone metadata is only available for Fargate tasks using platform version 1.4 or later (Linux) or 1.0.0 or later (Windows).
 
+`AvailabilityZoneID`
+
+The Availability Zone ID the task is in.
+
+###### Note
+
+The Availability Zone ID metadata is only available for Fargate tasks using platform version 1.4 or later (Linux) or 1.0.0 or later (Windows).
+
 `Containers`
 
 A list of container metadata for each container associated with the task.
