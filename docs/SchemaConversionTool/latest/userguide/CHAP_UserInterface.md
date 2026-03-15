@@ -1,16 +1,17 @@
-# Using Keyboard Shortcuts in the AWS Schema Conversion Tool
+# Starting and managing Projects in AWS SCT
 
-The following are the keyboard shortcuts
-that you can use with AWS SCT.
+To start the AWS Schema Conversion Tool, double-click the application icon.
 
-| Keyboard shortcut | Description                               |
-| ----------------- | ----------------------------------------- |
-| Ctrl+N            | Create a new project.                     |
-| Ctrl+O            | Open an existing project.                 |
-| Ctrl+S            | Save an open project.                     |
-| Ctrl+W            | Create a new project by using the wizard. |
-| Ctrl+M            | Create a new multiserver assessment.      |
-| Ctrl+L            | Add a new source database.                |
-| Ctrl+R            | Add a new target database.                |
-| Ctrl+F4           | Close an open project.                    |
-| F1                | Open the _AWS SCT User Guide_.            |
+Use the following procedure to create an AWS Schema Conversion Tool project.
+
+###### To create your project
+
+1. Start the AWS Schema Conversion Tool.
+2. On the **File** menu, choose **New
+   project**. The **New project** dialog box appears.
+
+![New Project dialog box](images/file-new-project.png) 3. Enter a name for your project, which is stored locally on your computer. 4. Enter the location for your local project file. 5. Choose **OK** to create your AWS SCT project. 6. Choose **Add source** to add a new source database to your AWS SCT project. You can add multiple source databases to your AWS SCT project. 7. Choose **Add target** to add a new target platform in your AWS SCT project. You can add multiple target platforms to your AWS SCT project. 8. Choose the source database schema in the left panel. 9. In the right panel, specify the target database platform for the selected source schema. 10. Choose **Create mapping**. This button becomes active after you
+choose the source database schema and the target database platform. For more information,
+see [Data type mapping](CHAP_Mapping.md "CHAP_Mapping.md").
+
+Now, your AWS SCT project is set up. You can save your project, create database migration assessment report, and convert your source database schemas.
