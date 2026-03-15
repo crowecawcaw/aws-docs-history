@@ -15,6 +15,12 @@ atx --conversation-id <id>    # Resume specific conversation
 atx -t                        # Start with all tools trusted
 ```
 
+**Interactive session commands**
+
+The following commands can be typed at the input prompt during an interactive session:
+
+- `/usage` - Display the accumulated [agent minutes](https://aws.amazon.com/transform/pricing/ "https://aws.amazon.com/transform/pricing/") for the current session
+
 ## Transformation Definition Commands
 
 **atx custom def exec**

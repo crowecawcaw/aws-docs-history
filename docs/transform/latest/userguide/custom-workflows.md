@@ -122,6 +122,20 @@ atx --conversation-id <conversation-id>
 
 Conversations can only be resumed within 30 days of creation. After 30 days, the conversation can no longer be resumed.
 
+### Tracking Agent Minutes
+
+AWS Transform custom tracks the [agent minutes](https://aws.amazon.com/transform/pricing/ "https://aws.amazon.com/transform/pricing/") consumed during a transformation session. Agent minutes accumulate throughout the conversation lifecycle and are displayed when the conversation ends:
+
+```
+Agent minutes used: 12.50
+```
+
+Agent minutes persist across interruptions. If you interrupt a session with Ctrl+C and resume it later, the previously accumulated minutes carry over and continue accumulating in the resumed session.
+
+**To check agent minutes during an interactive session:**
+
+Type `/usage` at the input prompt to display the current accumulated agent minutes without ending the conversation.
+
 ## Continual Learning
 
 This section describes how to manage knowledge items created by continual learning.

@@ -21,6 +21,8 @@ View details about updates to AWS managed policies for AWS Transform since March
 
 | Change                                                                                                                                                                                                 | Description                                                                                                                                                                                                                | Date               |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| [DBModProvisioningAndMigration](#security-iam-awsmanpol-DBModProvisioningAndMigration "#security-iam-awsmanpol-DBModProvisioningAndMigration") – New policy                                            | This policy grants database provisioning and migration capabilities.                                                                                                                                                       | February 26, 2026  |
+| [DBModDiscoveryAndAssessment](#security-iam-awsmanpol-DBModDiscoveryAndAssessment "#security-iam-awsmanpol-DBModDiscoveryAndAssessment") – New policy                                                  | Added a new AWS managed policy that provides comprehensive database modernization discovery and assessment capabilities.                                                                                                   | February 26, 2026  |
 | [AWSTransformCustomFullAccess](#security-iam-awsmanpol-AWSTransformCustomFullAccess "#security-iam-awsmanpol-AWSTransformCustomFullAccess") – New policy                                               | Added a new AWS managed policy that provides full access to AWS Transform custom.                                                                                                                                          | December 5, 2025   |
 | [AWSTransformCustomExecuteTransformations](#security-iam-awsmanpol-AWSTransformCustomExecuteTransformations "#security-iam-awsmanpol-AWSTransformCustomExecuteTransformations") – New policy           | Added a new AWS managed policy that provides access to execute transformations in AWS Transform custom.                                                                                                                    | December 5, 2025   |
 | [AWSTransformCustomManageTransformations](#security-iam-awsmanpol-AWSTransformCustomManageTransformations "#security-iam-awsmanpol-AWSTransformCustomManageTransformations") – New policy              | Added a new AWS managed policy that provides access to create, update, read, and delete transformation resources in AWS Transform custom, as well as execute transformations.                                              | December 5, 2025   |
@@ -158,4 +160,44 @@ This policy includes the following permissions:
 **Permissions details**
 
 To view the policy permission details see [AWSTransformCustomManageTransformations](../../../aws-managed-policy/latest/reference/AWSTransformCustomManageTransformations.md "../../../aws-managed-policy/latest/reference/AWSTransformCustomManageTransformations.md") in the AWS Managed Policy Reference
+Guide.
+
+## AWS managed policy: DBModDiscoveryAndAssessment
+
+This policy grants you comprehensive database modernization discovery and assessment capabilities to streamline your database migration projects.
+
+**Description**
+
+This policy grants the following permissions:
+
+- **Amazon EC2** – Read-only access to discover infrastructure components including instances, VPCs, subnets, security groups, and connectivity.
+- **Amazon RDS** – Access to discover database instances, clusters, and subnet groups, and to modify subnet groups for migration preparation.
+- **Amazon RDS Data API** – Access to execute SQL statements for schema analysis and assessment.
+- **AWS DMS** – Comprehensive access to manage migration projects, schema conversion, metadata model operations, and replication resources. Write operations are restricted to resources tagged for the database modernization project.
+- – Access to discover and retrieve database credentials. Write access is restricted to resources tagged for the database modernization project.
+- **AWS Identity and Access Management (IAM)** – Read-only access to verify IAM policies and specific DMS service role configurations.
+- **AWS Key Management Service (KMS)** – Access to discover encryption keys and decrypt secrets specifically through integration.
+
+**Permissions details**
+
+To view the policy permission details see [DBModDiscoveryAndAssessment](../../../aws-managed-policy/latest/reference/DBModDiscoveryAndAssessment.md "../../../aws-managed-policy/latest/reference/DBModDiscoveryAndAssessment.md") in the AWS Managed Policy Reference
+Guide.
+
+## AWS managed policy: DBModProvisioningAndMigration
+
+This policy grants you database provisioning and migration capabilities for database modernization projects. It provides permissions to create and manage migration infrastructure, provision target databases, and store migration data.
+
+**Description**
+
+This policy grants the following permissions:
+
+- **AWS DMS** – Access to create and manage replication instances, tasks, endpoints, and migration projects. Includes lifecycle operations such as starting, stopping, and assessing replication tasks. All resources must be tagged for the database modernization project.
+- **Amazon RDS** – Access to provision database instances, clusters, and subnet groups. Includes HTTP endpoint management for serverless databases. All resources must be tagged for the database modernization project.
+- – Access to create and update secrets for database credentials. Restricted to secrets with the database modernization naming prefix and project tags.
+- **Amazon S3** – Access to create and manage S3 buckets and objects for migration data storage. Restricted to buckets with the database modernization naming prefix.
+- **AWS Identity and Access Management (IAM)** – Access to pass specific DMS service roles and create the Amazon RDS service-linked role required for database operations.
+
+**Permissions details**
+
+To view the policy permission details see [DBModProvisioningAndMigration](../../../aws-managed-policy/latest/reference/DBModProvisioningAndMigration.md "../../../aws-managed-policy/latest/reference/DBModProvisioningAndMigration.md") in the AWS Managed Policy Reference
 Guide.
