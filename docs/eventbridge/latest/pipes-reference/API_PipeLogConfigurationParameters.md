@@ -18,7 +18,7 @@ destination, you must also specify the fields in the
 `FirehoseLogDestinationParameters` object in order to retain the Firehose stream log destination.
 
 For more information on generating pipe log records, see [Log EventBridge
-Pipes](eventbridge/latest/userguide/eb-pipes-logs.md "eventbridge/latest/userguide/eb-pipes-logs.md") in the _Amazon EventBridge User Guide_.
+Pipes](../userguide/eb-pipes-logs.md "../userguide/eb-pipes-logs.md") in the _Amazon EventBridge User Guide_.
 
 ## Contents
 
