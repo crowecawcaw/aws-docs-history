@@ -1,13 +1,26 @@
-# Oracle dabatase migration to PostgreSQL post-production support
+# Oracle application conversion or remediation
 
-After production cutover, there are a few possibilities for what can happen. You will have either decided to fix forward as the old system is being decommissioned, or you have decided to way a certain amount of time, a bake-in time, with production on the new system, during which a decision to abandon the new system can be made. Abandoning the new system has the following flavors:
+The Oracle application may be written in a variety of languages like C++, C# and Java, each with their own patterns for calling Oracle. A common case is the use of an object relational model (ORM) between the application code and the database which reduce the amount of PL/SQL that needs to be changed. Examples include Entity Framework and Hibernate which are also supported on PostgreSQL.
 
-- Roll back, all new data is lost.
-- Roll back and reapply all new transactions.
-- Roll back and migrate new production data back.
-- Maintain a live replication back to the old system until bake-in period is over.
-  During this time, defects are tracked and triaged for possibly triggering the rollback or being fixed forward. Help desk will have been trained in the new system differences and will be able to detect if an end user inquiry just requires training or it may be a defect.
+Oracle uses the PL/SQL dialect which is different from the PL/pgSQL dialect of PostgreSQL and while some table definitions and queries may look the same, others will require modification. Doing so manually would be a substantial task, but the freely available AWS Schema Conversion Tool (AWS SCT).
 
-Beyond acceptance migration criteria, the application may have well defined KPIs defined already which can be observed when in production on the new system and compared to historical KPIs.
+AWS SCT is capable of identifying and replacing embedded PL/SQL in the application code with the equivalent PostgreSQL code. For more information, see [Automation](chap-oracle-postgresql.md#chap-oracle-postgresql.automation "chap-oracle-postgresql.md#chap-oracle-postgresql.automation").
 
-For more information, see [How to Migrate Your Oracle Database to PostgreSQL](https://aws.amazon.com/blogs/database/how-to-migrate-your-oracle-database-to-postgresql/ "https://aws.amazon.com/blogs/database/how-to-migrate-your-oracle-database-to-postgresql/").
+In addition to using AWS SCT, you must also examine the source code for possible issues like:
+
+- Specific ORM or other data access framework and versions or in use and confirm its compatibility with the target engine.
+- Modify database connection as appropriate for the new engine.
+- Modify any table/entity mapping configuration or code as appropriate for the converted schema.
+- Identify and refactor any vendor-specific driver functionality in use in the code.
+
+## Process
+
+At a high level, the application conversion process works like this:
+
+1. Perform the database conversion. This is necessary because the PL/SQL conversion needs to know the schema of the database. For more information, see [Database Schema Conversion](chap-oracle-postgresql.migration-process.md "chap-oracle-postgresql.migration-process.md").
+2. Run AWS SCT and automatically convert the application code. For more information, see [Converting application SQL](../../../SchemaConversionTool/latest/userguide/CHAP_Converting.md "../../../SchemaConversionTool/latest/userguide/CHAP_Converting.md").
+3. Fix any warnings and errors in the application code conversion.
+
+## Exceptions
+
+There are exceptions to the automated application code conversion process If the application uses the native Oracle Call Interface (OCI). In this case the developer must refactor the code to use ODBC or JDBC.

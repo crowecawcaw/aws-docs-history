@@ -1,65 +1,41 @@
-# Step 6: Validate the Schema Conversion
+# Step 9: Create and Run Your AWS DMS Migration Task
 
-To validate the schema conversion, you compare the objects found in the Oracle and Amazon Redshift databases using SQL Workbench/J.
+Using an AWS DMS task, you can specify what schema to migrate and the type of migration. You can migrate existing data, migrate existing data and replicate ongoing changes, or replicate data changes only. This walkthrough migrates existing data only.
 
-1. In SQL Workbench/J, choose **File**, then choose **Connect window**. Choose the **RedshiftConnection** you created in an earlier step. Choose **OK**.
-2. Run the following script to verify the number of object types and count in **SH** schema in the target Amazon Redshift database. These values should match the number of objects in the source Oracle database.
+1. On the **Create Task** page, specify the task options. The following table describes the settings.
 
-```
-SELECT 'TABLE' AS OBJECT_TYPE,
-       TABLE_NAME AS OBJECT_NAME,
-       TABLE_SCHEMA AS OBJECT_SCHEMA
-FROM information_schema.TABLES
-WHERE TABLE_TYPE = 'BASE TABLE'
-AND   OBJECT_SCHEMA = 'sh';
-```
+| Parameter                | Action                                                                                   |
+| ------------------------ | ---------------------------------------------------------------------------------------- |
+| **Task name**            | Enter `migrateSHschema`.                                                                 |
+| **Replication instance** | Shows `DMSdemo-repserver` (the AWS DMS replication instance created in an earlier step). |
+| **Source endpoint**      | Shows `orasource` (the Amazon RDS for Oracle endpoint).                                  |
+| **Target endpoint**      | Shows `redshifttarget` (the Amazon Redshift endpoint).                                   |
+| **Migration type**       | Choose **Migrate existing data**.                                                        |
+| **Start task on create** | Choose this option.                                                                      |
 
-The output from this query should be similar to the following.
+The page should look like the following.
 
-```
-object_type | object_name | object_schema
-------------+-------------+--------------
-TABLE       | channels    | sh
-TABLE       | customers   | sh
-TABLE       | products    | sh
-TABLE       | promotions  | sh
-TABLE       | sales       | sh
-```
+![Create task page](images/sbs-rdsor2redshift23.png) 2. On the **Task Settings** section, specify the settings as shown in the following table.
 
-3. Verify the sort and distributions keys that are created in the Amazon Redshift cluster by using the following query.
+| Parameter                              | Action                       |
+| -------------------------------------- | ---------------------------- |
+| **Target table preparation mode**      | Choose **Do nothing**.       |
+| **Include LOB columns in replication** | Choose **Limited LOB mode**. |
+| **Max LOB size (kb)**                  | Accept the default (32).     |
 
-```
-set search_path to '$user', 'public', 'sh';
+The section should look like the following.
 
-SELECT tablename,
-       "column",
-       TYPE,
-       encoding,
-       distkey,
-       sortkey,
-       "notnull"
-FROM pg_table_def
-WHERE (distkey = TRUE OR sortkey <> 0);
-```
+![Create task page](images/sbs-rdsor2redshift23.5.png) 3. In the **Selection rules** section, specify the settings as shown in the following table.
 
-The results of the query reflect the distribution key (`distkey`) and sort key (`sortkey`) choices made by using AWS SCT key management.
+| Parameter               | Action                   |
+| ----------------------- | ------------------------ |
+| **Schema name is**      | Choose `Enter a schema`. |
+| **Schema name is like** | Enter `SH%`.             |
+| **Table name is like**  | Enter **%**.             |
+| **Action**              | Choose `Include`.        |
 
-```
-tablename  | column              | type                        | encoding | distkey | sortkey | notnull
------------+---------------------+-----------------------------+----------+---------+---------+--------
-channels   | channel_id          | numeric(38,18)              | none     | true    |       1 | true
-customers  | cust_id             | numeric(38,18)              | none     | false   |       4 | true
-customers  | cust_gender         | character(2)                | none     | false   |       1 | true
-customers  | cust_year_of_birth  | smallint                    | none     | false   |       3 | true
-customers  | cust_marital_status | character varying(40)       | none     | false   |       2 | false
-products   | prod_id             | integer                     | none     | true    |       4 | true
-products   | prod_subcategory    | character varying(100)      | none     | false   |       3 | true
-products   | prod_category       | character varying(100)      | none     | false   |       2 | true
-products   | prod_status         | character varying(40)       | none     | false   |       1 | true
-promotions | promo_id            | integer                     | none     | true    |       1 | true
-sales      | prod_id             | numeric(38,18)              | none     | false   |       4 | true
-sales      | cust_id             | numeric(38,18)              | none     | false   |       3 | true
-sales      | time_id             | timestamp without time zone | none     | true    |       1 | true
-sales      | channel_id          | numeric(38,18)              | none     | false   |       2 | true
-sales      | promo_id            | numeric(38,18)              | none     | false   |       5 | true
-```
+The section should look like the following:
+
+![Add selection rule page](images/sbs-rdsor2redshift24.png) 4. Choose **Add selection rule**. 5. Choose **Create task**. The task begins immediately. The **Tasks** section shows you the status of the migration task.
+
+![Tasks page](images/sbs-rdsor2redshift25.5.png)

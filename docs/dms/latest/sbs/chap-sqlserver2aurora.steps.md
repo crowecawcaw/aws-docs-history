@@ -1,68 +1,68 @@
-# Step 4: Use AWS SCT to Convert the SQL Server Schema to Aurora MySQL
+# Step 6: Create AWS DMS Source and Target Endpoints
 
-Before you migrate data to Amazon Aurora MySQL, convert the Microsoft SQL Server schema to an Aurora MySQL schema using the AWS Schema Conversion Tool (AWS SCT). [This video covers all the steps of this process](https://youtu.be/1mwrggZe5UM "https://youtu.be/1mwrggZe5UM").
+While your replication instance is being created, you can specify the source and target database endpoints using the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/"). However, you can test connectivity only after the replication instance has been created, because the replication instance is used in the connection.
 
-To convert a SQL Server schema to an Aurora MySQL schema, do the following:
+1. In the AWS DMS console, specify your connection information for the source SQL Server database and the target Aurora MySQL database. The following table describes the source settings.
 
-1. Launch AWS SCT. In AWS SCT, choose **File**, then choose **New Project**. Create a new project named `AWS Schema Conversion Tool SQL Server to Aurora MySQL`, specify the **Location** of the project folder, and then choose **OK**.
-2. Choose **Add source** to add a source Microsoft SQL Server database to your project, then choose **Microsoft SQL Server**, and choose **Next**.
-3. Enter the following information, and then choose **Test connection**.
+| Parameter               | Description                                                                        |
+| ----------------------- | ---------------------------------------------------------------------------------- |
+| **Endpoint Identifier** | Enter a name, such as `SQLServerSource`.                                           |
+| **Source Engine**       | Choose **sqlserver**.                                                              |
+| **Server name**         | Provide the SQL Server DB instance server name.                                    |
+| **Port**                | Enter the port number of the database. The default for SQL Server is `1433`.       |
+| **SSL mode**            | Choose an SSL mode if you want to enable encryption for your connection’s traffic. |
+| **User name**           | Enter the name of the user you want to use to connect to the source database.      |
+| **Password**            | Provide the password for the user.                                                 |
+| **Database name**       | Provide the SQL Server database name.                                              |
 
-| Parameter           | Description                                                                             |
-| ------------------- | --------------------------------------------------------------------------------------- |
-| **Connection name** | Enter `Microsoft SQL Server`. AWS SCT displays this name in the tree in the left panel. |
-| **Server name**     | Enter the server name.                                                                  |
-| **Server port**     | Enter the SQL Server port number. The default is `1433`.                                |
-| **Instance name**   | Enter the SQL Server database instance name.                                            |
-| **User name**       | Enter the SQL Server admin user name.                                                   |
-| **Password**        | Enter the password for the admin user.                                                  |
+The following table describes the advanced source settings.
 
-![Test Connection to SQL Server Database](images/sbs-rdsqlserver2aurora-sctconnectsqlserv.png) 4. Choose **OK** to close the alert box. Then choose **Connect** to close the dialog box and connect to the Microsoft SQL Server database instance. AWS SCT displays the structure of the Microsoft SQL Server database instance in the left panel. 5. Choose **Add target** to add a target Amazon Aurora MySQL database to your project, then choose **Amazon Aurora (MySQL compatible)**, and choose **Next**. 6. Enter the following information and then choose **Test Connection**.
+| Parameter                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Extra connection attributes** | Extra parameters that you can set in an endpoint to add functionality or change the behavior of AWS DMS. A few of the most relevant attributes are listed here. Use a semicolon (;) to separate multiple entries.<br>• `safeguardpolicy` - Changes the behavior of SQL Server by opening transactions to prevent the transaction log from being truncated while AWS DMS is reading the log. Valid values are `EXCLUSIVE_AUTOMATIC_TRUNCATION` or `RELY_ON_SQL_SERVER_REPLICATION_AGENT` (default).<br>• `useBCPFullLoad` - Directs AWS DMS to use BCP (bulk copy) for data loading. Valid values are `Y` or `N`. When the target table contains an identity column that does not exist in the source table, you must disable the use of BCP for loading the table by setting the parameter to `N`.<br>• `BCPPacketSize` - If BCP is enabled for data loads, then enter the maximum packet size used by BCP. Valid values are `1` – `100000` (default `16384`).<br>• `controlTablesFileGroup` - Specifies the file group to use for the control tables that the AWS DMS process creates in the database. |
+| **KMS key**                     | Enter the KMS key if you choose to encrypt your replication instance’s storage.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 
-| Parameter           | Description                                                                      |
-| ------------------- | -------------------------------------------------------------------------------- |
-| **Connection name** | Enter `Aurora MySQL`. AWS SCT displays this name in the tree in the right panel. |
-| **Server name**     | Enter the server name.                                                           |
-| **Server port**     | Enter the SQL Server port number. The default is `3306`.                         |
-| **User name**       | Enter the Aurora MySQL admin user name.                                          |
-| **Password**        | Enter the password for the admin user.                                           |
+The following table describes the target settings.
 
-7. Choose **OK** to close the alert box. Then choose **Connect** to close the dialog box and connect to the Aurora MySQL database instance.
-8. In the tree in the left panel, select the schema to migrate. In the tree in the right panel, select your target Aurora MySQL database. Choose **Create mapping**.
-9. Choose **Main view**. In the tree in the left panel, right-click the HR schema and choose **Create report**.
+| Parameter               | Description                                                                        |
+| ----------------------- | ---------------------------------------------------------------------------------- |
+| **Endpoint Identifier** | Enter a name, such as `Auroratarget`.                                              |
+| **Target Engine**       | Choose **aurora**.                                                                 |
+| **Server name**         | Provide the Aurora MySQL DB server name for the primary instance.                  |
+| **Port**                | Enter the port number of the database. The default for Aurora MySQL is `3306`.     |
+| **SSL mode**            | Choose **None**.                                                                   |
+| **User name**           | Enter the name of the user that you want to use to connect to the target database. |
+| **Password**            | Provide the password for the user.                                                 |
 
-![Creating a mapping rule](images/sbs-rdsqlserver2aurora-sctconvert.png) 10. Open the context (right-click) menu for the schema to migrate, and then choose **Convert schema**. 11. Choose **Yes** for the confirmation message. AWS SCT analyzes the schema, creates a database migration assessment report, and converts your schema to the target database format. 12. Choose **Assessment Report View** from the menu to check the database migration assessment report. The report breaks down by each object type and by how much manual change is needed to convert it successfully.
+The following table describes the advanced target settings.
 
-Generally, packages, procedures, and functions are more likely to have some issues to resolve because they contain the most custom Transact-SQL code. AWS SCT also provides hints about how to fix these objects. 13. Choose the **Action Items** tab.
+| Parameter                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Extra connection attributes** | Extra parameters that you can set in an endpoint to add functionality or change the behavior of AWS DMS. A few of the most relevant attributes are listed here. Use a semicolon to separate multiple entries.<br>• `targetDbType` - By default, AWS DMS creates a different database for each schema that is being migrated. If you want to combine several schemas into a single database, set this option to `targetDbType=SPECIFIC_DATABASE`.<br>• `initstmt` - Use this option to invoke the MySQL `initstmt` connection parameter and accept anything MySQL `initstmt` accepts. For an Aurora MySQL target, it’s often useful to disable foreign key checks by setting this option to `initstmt=SET FOREIGN_KEY_CHECKS=0`. |
+| **KMS key**                     | Enter the KMS key if you choose to encrypt your replication instance’s storage.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
-The **Action Items** tab shows each issue for each object that requires attention.
+The following is an example of the completed page.
 
-For each conversion issue, you can complete one of the following actions:
+![Completed Replication Task Page showing Replication instance created successfully](images/sbs-rdsqlserver2aurora-dmsconnect.png)
 
-    * Modify the objects on the source SQL Server database so that AWS SCT can convert the objects to the target Aurora MySQL database.
+For information about extra connection attributes, see [Using Extra Connection Attributes](../userguide/CHAP_Introduction.md "../userguide/CHAP_Introduction.md"). 2. After the endpoints and replication instance are created, test the endpoint connections by choosing **Run test** for the source and target endpoints. 3. Drop foreign key constraints and triggers on the target database.
 
+During the full load process, AWS DMS does not load tables in any particular order, so it might load the child table data before parent table data. As a result, foreign key constraints might be violated if they are enabled. Also, if triggers are present on the target database, they might change data loaded by AWS DMS in unexpected ways.
 
+```
+ALTER TABLE 'table_name' DROP FOREIGN KEY 'fk_name';
 
+DROP TRIGGER 'trigger_name';
+```
 
-    	1. Modify the objects on the source SQL Server database.
-    	2. Repeat the previous steps to convert the schema and check the assessment report.
-    	3. If necessary, repeat this process until there are no conversion issues.
-    	4. Choose **Main View** from the menu. Open the context (right-click) menu for the target Aurora MySQL schema, and choose **Apply to database** to apply the schema changes to the Aurora MySQL database, and confirm that you want to apply the schema changes.
-    * Instead of modifying the source schema, modify scripts that AWS SCT generates before applying the scripts on the target Aurora MySQL database.
+4. If you dropped foreign key constraints and triggers on the target database, generate a script that enables the foreign key constraints and triggers.
 
+Later, when you want to add them to your migrated database, you can just run this script. 5. (Optional) Drop secondary indexes on the target database.
 
+Secondary indexes (as with all indexes) can slow down the full load of data into tables because they must be maintained and updated during the loading process. Dropping them can improve the performance of your full load process. If you drop the indexes, you must to add them back later, after the full load is complete.
 
+```
+ALTER TABLE 'table_name' DROP INDEX  'index_name';
+```
 
-    	1. Choose **Main View** from the menu. Open the context (right-click) menu for the target Aurora MySQL schema name, and choose **Save as SQL**. Next, choose a name and destination for the script.
-    	2. In the script, modify the objects to correct conversion issues.
-
-
-    	You can also exclude foreign key constraints, triggers, and secondary indexes from the script because they can cause problems during the migration. After the migration is complete, you can create these objects on the Aurora MySQL database.
-    	3. Run the script on the target Aurora MySQL database.
-
-For more information, see [Converting Database Schema to Amazon RDS](../../../SchemaConversionTool/latest/userguide/CHAP_Converting.md "../../../SchemaConversionTool/latest/userguide/CHAP_Converting.md"). 14. (Optional) Use AWS SCT to create migration rules.
-
-    1. Choose **Mapping view** and then choose **New migration rule**.
-    2. Create additional migration transformation rules that are required based on the action items.
-    3. Save the migration rules.
-    4. Choose **Export script for DMS** to export a JSON format of all the transformations that the AWS DMS task will use. Choose **Save**.
+6. Choose **Next**.
