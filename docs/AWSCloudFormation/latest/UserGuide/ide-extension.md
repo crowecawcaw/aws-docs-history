@@ -25,9 +25,10 @@ CloudFormation.
 
 The [AWS Toolkit](../../../toolkit-for-vscode/latest/userguide/welcome.md "../../../toolkit-for-vscode/latest/userguide/welcome.md") extension integrates the CloudFormation language server to
 enhance the authoring experience. This integration is currently supported in VS Code
-based IDEs, including:
+and JetBrains based IDEs, including:
 
-- [Visual Studio](https://code.visualstudio.com/ "https://code.visualstudio.com/") Code
+- [Visual Studio Code](https://code.visualstudio.com/ "https://code.visualstudio.com/")
+- [JetBrains](https://www.jetbrains.com/ides/#choose-your-ide "https://www.jetbrains.com/ides/#choose-your-ide")
 - [Kiro](https://kiro.dev/downloads/ "https://kiro.dev/downloads/")
 - [Cursor](https://cursor.com/ "https://cursor.com/")
 
@@ -46,8 +47,8 @@ based IDEs, including:
 
 Before you begin, make sure that:
 
-- You are using a VS Code-based IDE on a supported operation system
-  (macOS, Windows, or
+- You are using a VS Code or IntelliJ based IDE on a supported
+  operating system (macOS, Windows, or
   Linux).
 - You have installed or upgraded to the latest version of the [AWS Toolkit](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-toolkit-vscode "https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-toolkit-vscode") for your IDE.
 
@@ -184,7 +185,8 @@ dependent on that type. For example, if you select an
 resources such as `AWS::EC2::SecurityGroup` or
 `AWS::EC2::Subnet`. This feature helps you quickly build
 connected infrastructure components without manually searching for
-compatible resource types.
+compatible resource types. Adding related resources is currently not
+supported on JetBrains IDEs.
 
 #### Static validation
 
@@ -334,7 +336,8 @@ successfully.
 Initializing a CloudFormation project in the IDE helps you set up a structured workspace
 with the correct folders, environment configuration, and AWS credentials so you can
 validate and deploy your templates reliably. You can initialize a new CloudFormation project
-directly from the IDE to create this recommended setup.
+directly from the IDE to create this recommended setup. This feature is currently not
+supported on JetBrains IDEs.
 
 **To initialize a CloudFormation project:**
 
