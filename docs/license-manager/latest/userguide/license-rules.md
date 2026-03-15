@@ -17,8 +17,12 @@ termination. You define your usage limits and licensing rules, and License Manag
 also alerting you to rule violations. If you have configured hard limits, License Manager can prevent
 resources from launching.
 
-When a tracked server is stopped or terminated, its license is released and returned to the
-pool of available licenses.
+When a tracked server is terminated, its license is released and returned to the
+pool of available licenses. By default, when a tracked server is stopped, its license is also
+released and returned to the pool. However, if the **Include stopped instances**
+rule (`includedStoppedInstances`) is set to True, stopped instances continue to be
+tracked and counted as license usage. This is useful when your licensing terms require that
+licenses remain allocated to instances regardless of their running state.
 
 Because organizations have differing approaches to operations and compliance, License Manager supports
 multiple launch mechanisms:

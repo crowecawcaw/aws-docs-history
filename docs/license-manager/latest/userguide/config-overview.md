@@ -53,18 +53,23 @@ Available parameters and rules include the following:
       	 which enables you to customize the number of vCPUs on an instance. If this rule is set to
       	 True, License Manager counts vCPUs based on the customized core and thread count. Otherwise, License Manager
       	 counts the default number of vCPUs for the instance type.
+      + **Include stopped instances** – When this rule is set to
+       True, License Manager tracks stopped instances and counts them as license usage. The default
+       value is False. When set to False, stopped instances are not counted toward license
+       usage and their licenses are released back to the pool of available licenses.
 
   The following table describes which license rules are available for each counting
   type.
 
-| Console name                           | API name                | Cores | Instances | Sockets | vCPUs |
-| -------------------------------------- | ----------------------- | ----- | --------- | ------- | ----- |
-| **License affinity to host (in days)** | `licenseAffinityToHost` | ✓     |           | ✓       |       |
-| **Maximum cores**                      | `maximumCores`          | ✓     | ✓         |         |       |
-| **Maximum sockets**                    | `maximumSockets`        |       | ✓         | ✓       |       |
-| **Maximum vCPUs**                      | `maximumVcpus`          |       | ✓         |         | ✓     |
-| **Minimum cores**                      | `minimumCores`          | ✓     | ✓         |         |       |
-| **Minimum sockets**                    | `minimumSockets`        |       | ✓         | ✓       |       |
-| **Minimum vCPUs**                      | `minimumVcpus`          |       | ✓         |         | ✓     |
-| **Tenancy**                            | `allowedTenancy`        | ✓     | ✓         | ✓       | ✓     |
-| **vCPU Optimization**                  | `honorVcpuOptimization` |       |           |         | ✓     |
+| Console name                           | API name                   | Cores | Instances | Sockets | vCPUs |
+| -------------------------------------- | -------------------------- | ----- | --------- | ------- | ----- |
+| **License affinity to host (in days)** | `licenseAffinityToHost`    | ✓     |           | ✓       |       |
+| **Maximum cores**                      | `maximumCores`             | ✓     | ✓         |         |       |
+| **Maximum sockets**                    | `maximumSockets`           |       | ✓         | ✓       |       |
+| **Maximum vCPUs**                      | `maximumVcpus`             |       | ✓         |         | ✓     |
+| **Minimum cores**                      | `minimumCores`             | ✓     | ✓         |         |       |
+| **Minimum sockets**                    | `minimumSockets`           |       | ✓         | ✓       |       |
+| **Minimum vCPUs**                      | `minimumVcpus`             |       | ✓         |         | ✓     |
+| **Tenancy**                            | `allowedTenancy`           | ✓     | ✓         | ✓       | ✓     |
+| **vCPU Optimization**                  | `honorVcpuOptimization`    |       |           |         | ✓     |
+| **Include stopped instances**          | `includedStoppedInstances` | ✓     | ✓         | ✓       | ✓     |

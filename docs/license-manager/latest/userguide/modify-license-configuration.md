@@ -7,6 +7,7 @@ You can edit values for the following fields in a self-managed license:
 - Expiry Date
 - Number of <option>
 - Enforce license type limit
+- Include stopped instances
 
 ###### To edit a self-managed license
 
