@@ -1,41 +1,16 @@
-# Alarms for practice runs
+# Blocked windows and allowed windows (in UTC)
 
-You can specify two types of CloudWatch alarms for
-practice runs in zonal autoshift: outcome alarms and blocking alarms.
+You have the option to _block_ or _allow_
+practice runs for specific calendar dates, or for specific time windows, that is, days and times, specified in UTC.
 
-**Outcome alarms (required)**
+For example, if you have an application update scheduled to launch on May 1, 2024, and
+you don't want practice runs to shift traffic away at that time, you could set a blocked date
+for `2024-05-01`.
 
-For the first type of alarm, the _outcome alarm_,
-at least one alarm is required to be specified. You should configure outcome alarms to monitor
-the health of your application when traffic is shifted away from an Availability Zone during each
-30-minute practice run.
+Or, say you run business report summaries three days a week. For this scenario,
+you could set the following recurring days and times as blocked windows, for example, in UTC:
+`MON-20:30-21:30 WED-20:30-21:30 FRI-20:30-21:30`.
 
-For a practice run to be effective, specify as outcome alarms at least one CloudWatch alarm that meets
-both of the following criteria:
-
-The alarm monitors metrics for the resource, or for your application
-
-AND
-
-The alarm responds with an `ALARM` state
-when your application is adversely affected by the loss of one Availability Zone.
-
-For more information, see the **Alarms that you specify for practice runs** section in
-[Best practices when you configure zonal autoshift](arc-zonal-autoshift.md "arc-zonal-autoshift.md").
-
-Outcome alarms also provide information for the _practice run outcome_ that ARC reports for
-each practice run. If an outcome alarm enters an `ALARM` state, ARC ends the practice run and returns
-a practice run outcome of `FAILED`. If the practice run completes the 30 minute
-test period and none of the outcome alarms that you've specified enters an `ALARM` state, the outcome
-returned is `SUCCEEDED`. A list of all outcome values, with descriptions, is provided in the
-[Outcomes for practice runs](arc-zonal-autoshift.md#ZAConsiderationsPracticeRunOutcomes "arc-zonal-autoshift.md#ZAConsiderationsPracticeRunOutcomes") section.
-
-**Blocking alarms (optional)**
-Optionally, you can specify a second type of alarm, the _blocking alarm_. Blocking alarms
-block practice runs from starting, or continuing, when one or more of the alarms is in an `ALARM` state.
-Blocking alarms block practice run traffic shifts from being started—and stop any practice runs in progress—when
-at least one of the alarms is in an `ALARM` state.
-
-For example, in a large architecture with multiple microservices, when one microservice is experiencing
-a problem, you typically want to stop all other changes in the application environment, which would
-including blocking practice runs. You can add a blocking alarm in ARC to accomplish this.
+Alternatively, you might decide that Wednesdays and Fridays from noon to 5:00 are the best times for ARC to
+start practice runs, to test your setup. For this scenario, you could set the following recurring days
+and times as allowed windows, for example, in UTC: `WED-12:00-17:00 FRI-12:00-17:00`.
