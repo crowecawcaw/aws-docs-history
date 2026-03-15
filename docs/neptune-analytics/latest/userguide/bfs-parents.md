@@ -57,7 +57,7 @@ for the algorithm.
   If you provide a node label to filter on then only vertices matching that label
   will be traversed. This does not, however, filter out any nodes in the source node list.
   - **maxDepth**   _(optional)_   –  
-    _type:_ positive inteeger or 0 or -1;   _default:_ -1.
+    _type:_ positive integer or 0 or -1;   _default:_ -1.
 
   The maximum number of hops to traverse from a source node. If set at `-1` then there's
   no maximum depth limit. If set to `0`, only the vertices in the source node list are returned.
@@ -96,7 +96,7 @@ The parents of those traversed nodes.
 
 ## `.bfs.parents`   query examples
 
-Thus is a standalone examples, where the source node list is explicitly provided in the query:
+This is a standalone example, where the source node list is explicitly provided in the query:
 
 ```
 CALL neptune.algo.bfs.parents(
@@ -152,7 +152,7 @@ LIMIT 5
 
 It is not good practice to use `MATCH(n)` without restriction
 in query integrations. Keep in mind that every node returned by the `MATCH(n)`
-clause invokes the algorithm once, which can result a very long-running query if
+clause invokes the algorithm once, which can result in a very long-running query if
 a large number of nodes is returned. Use `LIMIT` or put conditions on the
 `MATCH` clause to restrict its output appropriately.
 
@@ -168,7 +168,7 @@ aws neptune-graph execute-query \
   --query-string "CALL neptune.algo.bfs.parents(['101'], {maxDepth: 1})
                        YIELD source, node, parent
                        RETURN source, node, parent
-                       LIMIT 2"
+                       LIMIT 2" \
   --language open_cypher \
   /tmp/out.txt
 

@@ -12,10 +12,10 @@ customers extract insights from their graphs, which are listed in the following 
 | Category                                                                                  | Action                                                                                                                                             | Algorithms                                                                                                                           | Common Uses                                                                                                    |
 | ----------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------- |
 | [Pathfinding](path-finding-algorithms.md "path-finding-algorithms.md")                    | Find the existence, quality, or availability of a path between nodes.                                                                              | • Breadth-First Search<br>• Single-Source Shortest Path<br>• Top-K Source Shortest Path<br>• Source-Target Shortest Path<br>• EgoNet | • Logistics optimization<br>• Social network recommendations<br>• Route optimization                           |
-| [Centrality](centrality-algorithms.md "centrality-algorithms.md")                         | Determines the absolute or relative importance of a node in the graph.                                                                             | • Degree<br>• PageRank<br>• Closeness Centrality<br>• Degree Distribution                                                            | • Fraud ring/Collusion detection<br>• Social network influencer identification<br>• Supply chain risk analysis |
+| [Centrality](centrality-algorithms.md "centrality-algorithms.md")                         | Determine the absolute or relative importance of a node in the graph.                                                                              | • Degree<br>• PageRank<br>• Closeness Centrality<br>• Degree Distribution                                                            | • Fraud ring/Collusion detection<br>• Social network influencer identification<br>• Supply chain risk analysis |
 | [Similarity](similarity-algorithms.md "similarity-algorithms.md")                         | Compare the similarities between different graph structures.                                                                                       | • Common Neighbors<br>• Total Neighbors<br>• Jaccard Similarity<br>• Overlap Similarity                                              | • Biological structural analysis<br>• Social network cluster comparison<br>• Link prediction                   |
 | [Clustering and Community Detection](clustering-algorithms.md "clustering-algorithms.md") | Identify meaningful groups or clusters within graph structures.                                                                                    | • Weakly Connected Components (WCC)<br>• Strongly Connected Components (SCC)<br>• Label Propagation<br>• Louvain                     | • Social network clusters<br>• Fraud ring identification<br>• Householding<br>• Biological interaction         |
-| [Vector Similarity Search](vector-similarity.md "vector-similarity.md")                   | Identify approximate nearest neighbor (ANN) nodes by comparing vector embeddings using the<br>Hierarchical Navigable Small World (HNSW) algorithm. | • Distance<br>• Top-K                                                                                                                | • RAG applications<br>• Knowledge graph backed chat bots<br>• Approximate nearest neighbors                    |
+| [Vector Similarity Search](vector-similarity.md "vector-similarity.md")                   | Identify approximate nearest neighbor (ANN) nodes by comparing vector embeddings using the<br>Hierarchical Navigable Small World (HNSW) algorithm. | • Distance<br>• Top-K                                                                                                                | • RAG applications<br>• Knowledge graph backed chatbots<br>• Approximate nearest neighbors                     |
 
 Many of these algorithms require interacting with most or all the nodes and edges
 in a graph, often in an iterative fashion. As a result, they are too computationally
@@ -38,9 +38,9 @@ ORDER BY rank DESC LIMIT 10
 
 You can run algorithms in the SDKs using the `ExecuteOpenCypherQuery`
 operation or in boto3 and the AWS CLI using the `execute-query` command.
-If you don't want to use the SDK or CLI, you can use you can use [`awscurl`](../../../neptune/latest/userguide/iam-auth-connect-command-line.md#iam-auth-connect-awscurl "../../../neptune/latest/userguide/iam-auth-connect-command-line.md#iam-auth-connect-awscurl")
-to sign your Neptune Analytics requests using [signed
-using Signature Version 4 (Sig4)](../../../general/latest/gr/signing-aws-api-requests.md "../../../general/latest/gr/signing-aws-api-requests.md"). For example, you can run a simple breadth-first search like this:
+If you don't want to use the SDK or CLI, you can use [`awscurl`](../../../neptune/latest/userguide/iam-auth-connect-command-line.md#iam-auth-connect-awscurl "../../../neptune/latest/userguide/iam-auth-connect-command-line.md#iam-auth-connect-awscurl")
+to sign your Neptune Analytics requests
+[using Signature Version 4 (Sig4)](../../../general/latest/gr/signing-aws-api-requests.md "../../../general/latest/gr/signing-aws-api-requests.md"). For example, you can run a simple breadth-first search like this:
 
 ```
 awscurl -X POST -H "Content-Type: application/x-www-form-urlencoded" \
@@ -94,8 +94,8 @@ routing and resource allocation.
   Graph similarity algorithms allow you to compare and analyze the similarities and
   dissimilarities between different graph structures, which can provide insight into relationships,
   patterns, and commonalities across diverse datasets. This is invaluable in various fields,
-  such as biology, for comparing molecular structures, such as social networks, for identifying
-  similar communities, and such as recommendation systems, for suggesting similar items based
+  including biology for comparing molecular structures, social networks for identifying
+  similar communities, and recommendation systems for suggesting similar items based
   on user preferences.
 - [Clustering or community-detection algorithms](clustering-algorithms.md "clustering-algorithms.md")   –  
   Community-detection algorithms can identify meaningful groups or clusters of nodes in a network,

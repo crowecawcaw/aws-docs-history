@@ -135,7 +135,7 @@ RETURN source, node, parent, distance
 
 It is not good practice to use `MATCH(n)` without restriction
 in query integrations. Keep in mind that every node returned by the `MATCH(n)`
-clause invokes the algorithm once, which can result a very long-running query if
+clause invokes the algorithm once, which can result in a very long-running query if
 a large number of nodes is returned. Use `LIMIT` or put conditions on the
 `MATCH` clause to restrict its output appropriately.
 

@@ -15,7 +15,7 @@ CALL neptune.algo.egonet(
   [`source/ego-node list (required)`],
   {
     hopCount: `fixed hops of traversal (required)`,
-    perHopMaxNeighbor: [`list of the max number of top neighor vertices at each hop (required)`],
+    perHopMaxNeighbor: [`list of the max number of top neighbor vertices at each hop (required)`],
     perHopEdgeWeightProperty: [`list of edge weight predicates at each hop (required)`],
     edgeWeightType: `numeric type of the specified edgeWeightProperty (required)`,
     edgeLabels: [`list of edge labels for filtering (optional)`],
@@ -96,7 +96,7 @@ The node or nodes to use as the starting location(s) for the algorithm.
     _default: `"max"`_.
 
   This determines whether the edges having the maximum weights or the minimum weight will be included in the
-  EgoNet adhering the `perHopMaxNeigbor` limits. A `min` value indicates that the edge with
+  EgoNet adhering the `perHopMaxNeighbor` limits. A `min` value indicates that the edge with
   minimum weights will be included in the EgoNet, whereas a `max` value indicates that the edge with
   maximum weights will be included in the EgoNet.
   - **concurrency**   _(optional)_   –  
@@ -121,7 +121,7 @@ The .egonet algorithm returns:
 
 ## `.egonet`   query examples
 
-This ia a standalone query, where the source node list is
+This is a standalone query, where the source node list is
 explicitly provided in the query:
 
 ```
@@ -165,7 +165,7 @@ RETURN n, nodeList, edgeList
 
 It is not good practice to use `MATCH(n)` without restriction
 in query integrations. Keep in mind that every node returned by the `MATCH(n)`
-clause invokes the algorithm once, which can result a very long-running query if
+clause invokes the algorithm once, which can result in a very long-running query if
 a large number of nodes is returned. Use `LIMIT` or put conditions on the
 `MATCH` clause to restrict its output appropriately.
 

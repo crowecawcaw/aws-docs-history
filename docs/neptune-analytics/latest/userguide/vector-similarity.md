@@ -2,7 +2,7 @@
 
 You can answer complex questions about your data by transforming data shapes into
 embeddings (that is, vectors). Using a vector search index lets you answer
-questions about the your data's context and its similarity and connection to other data.
+questions about your data's context and its similarity and connection to other data.
 
 For example, a support agent could translate a question that they receive into a
 vector and use it to search the support knowledge base for articles that are similar
@@ -14,7 +14,7 @@ Vector similarity search in Neptune Analytics makes it easy for you to build mac
 (ML) augmented search experiences and generative artificial intelligence (GenAI)
 applications. It also gives you an overall lower total cost of ownership
 and simpler management overhead because you no longer need to manage separate data
-stores, build pipelines, or worry about keep the data stores in sync. You can
+stores, build pipelines, or worry about keeping the data stores in sync. You can
 use vector similarity search in Neptune Analytics to augment your LLMs by integrating graph
 queries for domain-specific context with the results from low-latency, nearest-neighbor
 similarity search on embeddings imported from LLMs hosted in Amazon Bedrock,
@@ -42,7 +42,7 @@ graphs.
 - [Vector indexing in Neptune Analytics](vector-index.md "vector-index.md")
   - [Vector index transaction support](vector-index.md#vector-index-transaction-support "vector-index.md#vector-index-transaction-support")
   - [Loading vectors into a Neptune Analytics graph vector index](vector-index.md#loading-vectors "vector-index.md#loading-vectors")
-    - [Load the vectors from graph data files Amazon S3](vector-index.md#load-vectors-from-s3 "vector-index.md#load-vectors-from-s3")
+    - [Load the vectors from graph data files in Amazon S3](vector-index.md#load-vectors-from-s3 "vector-index.md#load-vectors-from-s3")
     - [Using the vectors.upsert algorithm to load vectors for your graph](vector-index.md#load-vectors-using-upsert "vector-index.md#load-vectors-using-upsert")
 
   - [Common errors you may encounter when loading embeddings](vector-index.md#load-embedding-errors "vector-index.md#load-embedding-errors")

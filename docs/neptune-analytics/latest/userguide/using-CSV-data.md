@@ -22,7 +22,7 @@ and user-defined column names, annotated with predefined datatypes and cardinali
   and no vertex is added. For more information about vertices, see
   [vertices](query-openCypher-data-model.md#query-openCypher-data-model-vertices "query-openCypher-data-model.md#query-openCypher-data-model-vertices").
 - A new column type `Vector` is supported for associating embeddings with vertices. Since Neptune Analytics only supports
-  one index type at this moment, the property name for embeddings is currently fixed to `Embeddings`. If the
+  one index type at this moment, the property name for embeddings is currently fixed to `embedding`. If the
   element type of the embeddings are not floating point (FP32), they will be typecasted to FP32. The embeddings in the
   `csv` files are optional when the vector index is enabled. This means that not every node needs to be
   associated with an embedding. If you want to set up a vector index for the graph, choose use `vector dimension`

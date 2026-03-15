@@ -5,7 +5,7 @@ components in a directed graph. A weakly-connected component is a group of nodes
 which every node is reachable from every other node when edge directions are ignored.
 Weakly connected components are the maximal connected subgraphs of an undirected graph.
 
-Identifying weakly-conected components helps in understanding the overall
+Identifying weakly-connected components helps in understanding the overall
 connectivity and structure of the graph. Weakly-connected components can be
 used in transportation networks to identify disconnected regions that may require
 improved connectivity, and in social networks to find isolated groups of users with
@@ -97,7 +97,7 @@ YIELD node, component
 RETURN node, component
 ```
 
-This is a query integration examples, where `.wcc` follows a
+This is a query integration example, where `.wcc` follows a
 `MATCH` clause and uses the output of the MATCH clause as its
 source node list:
 
@@ -118,7 +118,7 @@ RETURN n, component
 
 It is not good practice to use `MATCH(n)` without restriction
 in query integrations. Keep in mind that every node returned by the `MATCH(n)`
-clause invokes the algorithm once, which can result a very long-running query if
+clause invokes the algorithm once, which can result in a very long-running query if
 a large number of nodes is returned. Use `LIMIT` or put conditions on the
 `MATCH` clause to restrict its output appropriately.
 

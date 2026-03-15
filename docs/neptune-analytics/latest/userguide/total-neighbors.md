@@ -1,6 +1,6 @@
 # Total neighbors algorithm
 
-Total neighbors is an algoithm that counts the total number of unique neighbors of
+Total neighbors is an algorithm that counts the total number of unique neighbors of
 two input vertices, which is the union of the neighborhoods of those vertices.
 
 ## `.neighbors.total`  syntax
@@ -24,12 +24,12 @@ RETURN `firstNodes`, `secondNodes`, total
 - **first node(s)** _(required)_   –  
   _type:_ `Node[]` or `NodeId[]`;   _default: none_.
 
-One or more nodes of which to find the common neighbors with the corresponding second nodes.
+One or more nodes of which to find the total unique neighbors with the corresponding second nodes.
 
 - **second node(s)** _(required)_   –  
   _type:_ `Node[]` or `NodeId[]`;   _default: none_.
 
-One or more nodes of which to find the common neighbors with the corresponding first nodes.
+One or more nodes of which to find the total unique neighbors with the corresponding first nodes.
 
 - ###### a configuration object that contains:
   - **edgeLabels**   _(optional)_   –  
@@ -75,7 +75,7 @@ RETURN usairports, ukairports, total"
 
 It is not good practice to use `MATCH(n)` without restriction
 in query integrations. Keep in mind that every node returned by the `MATCH(n)`
-clause invokes the algorithm once, which can result a very long-running query if
+clause invokes the algorithm once, which can result in a very long-running query if
 a large number of nodes is returned. Use `LIMIT` or put conditions on the
 `MATCH` clause to restrict its output appropriately.
 

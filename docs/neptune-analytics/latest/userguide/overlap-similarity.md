@@ -68,7 +68,7 @@ If either input node list is empty, the output is empty.
 
 ## `.overlapSimilarity`  query examples
 
-This is a query integration examples, where `.overlapSimilarity`
+This is a query integration example, where `.overlapSimilarity`
 takes its input node lists from the output of a `MATCH` clause:
 
 ```
@@ -99,7 +99,7 @@ RETURN n, m, score'
 
 It is not good practice to use `MATCH(n)` without restriction
 in query integrations. Keep in mind that every node returned by the `MATCH(n)`
-clause invokes the algorithm once, which can result a very long-running query if
+clause invokes the algorithm once, which can result in a very long-running query if
 a large number of nodes is returned. Use `LIMIT` or put conditions on the
 `MATCH` clause to restrict its output appropriately.
 

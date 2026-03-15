@@ -33,7 +33,7 @@ The Louvain algorithm is particularly useful in these cases because it:
 ###### Note
 
 - There can only be one Louvain algorithm call running at a time.
-- Louvain is expected to run a long time, hence please set the query timeout to be large number to avoid query timeout.
+- Louvain is expected to run a long time, hence please set the query timeout to be a large number to avoid query timeout.
   See [query-timeout-milliseconds](query-APIs-execute-query.md#query-APIs-execute-query-input "query-APIs-execute-query.md#query-APIs-execute-query-input") for more information on setting upper bounds on query run time.
 
 ## `.louvain`  syntax
@@ -221,7 +221,7 @@ Here is an example of the output returned by .louvain when run against the
 ```
 aws neptune-graph execute-query \
     --graph-identifier ${graphIdentifier} \
-    --query-string 'query=Match (n) \
+    --query-string 'MATCH (n) \
             CALL neptune.algo.louvain(n) \
             YIELD node, community \
             return node, community \

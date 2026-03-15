@@ -10,6 +10,7 @@ Its syntax is documented in the
 
 - [Query APIs](query-APIs.md "query-APIs.md")
 - [Query plan cache](query-plan-cache.md "query-plan-cache.md")
+- [Concurrency and query queuing in Neptune Analytics](query-concurrency-queuing.md "query-concurrency-queuing.md")
 - [Query explain](query-explain.md "query-explain.md")
 - [Statistics](query-statistics.md "query-statistics.md")
 - [Exceptions](query-exceptions.md "query-exceptions.md")

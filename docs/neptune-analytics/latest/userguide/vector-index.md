@@ -10,19 +10,78 @@ the end of the process.
 
 ## Vector index transaction support
 
-When using Neptune Analytics with a vector search index, it is important to understand that any updates performed on the vector
-index are not ACID compliant - specifically, any updates to the vector index are not atomic in nature. Atomicity in
-a database defines that when updates are performed, either all or none of them succeed. There are situations with the
-vector index where updating the embeddings may succeed, even when the remainder of the transaction fails:
+When using Neptune Analytics with a vector search index, it is important to understand that any
+updates performed on the vector index are not ACID compliant — specifically, any
+updates to the vector index are not atomic in nature. Atomicity in a database defines
+that when updates are performed, either all or none of them succeed. The changes to
+vector embeddings (inserts, deletes, and updates), unlike other parts of the graph,
+are non-atomic and not isolated.
 
-- When one or more concurrent queries are executed against different vertices, then atomicity is guaranteed.
-- When one or more concurrent queries are executed against the same vertex, then there is no serializable guarantee
-  of the resulting stored data.
-- If one or more queries, including `neptune.load()` updates, fail to complete then the resulting
-  index may contain partial updates.
+Atomicity ensures that either all or no updates by a query are applied. Isolation
+ensures that concurrent queries do not see effects of a running query. However,
+changes to vector embeddings by a query become durable on write and visible to all
+other queries, even if that query fails later.
 
-To minimize the potential for this issue to occur, it is recommended that you either run a single query on a single
-vertex at a time, or if you are running concurrent queries, that the set of vertices being updated are distinct.
+If a query updates the vector embeddings and makes other changes to the graph, then
+only the latter are atomic and isolated. For instance, if you are running a bulk load
+using a `neptune.load()` request that adds new vertices with vector embeddings
+and it fails midway, then the graph would contain vertex embeddings for a subset of
+new vertices that were written before the request failed.
+
+To minimize inconsistencies to vector updates, we recommend the following:
+
+1. Avoid concurrently updating vector embeddings for any vertex.
+2. Make queries that update vector embeddings idempotent and retry failed queries.
+   For instance, a failed `neptune.load()` request can be retried to apply
+   the remainder of the vector embedding properties and the rest of the properties for
+   all the vertices in the input dataset. The following two example queries illustrate
+   this. The first one finds vertices by given IDs and upserts their embeddings, and is
+   likely to succeed on retry if the query fails. However, the second query creates
+   vertices with given IDs and embeddings, and retries may not help if the query fails
+   because a vertex already exists with one of the IDs. Thus the second query pattern
+   should be avoided.
+
+**Example: idempotent upsert query**
+
+```
+UNWIND [
+  {id: "933", embedding: [1,2,3,4]},
+  {id: "934", embedding: [-1,-2,-3,-4]}
+] as entry
+MATCH (n:person) WHERE id(n)=entry.id WITH n, entry.embedding as embedding
+CALL neptune.algo.vectors.upsert(n, embedding)
+YIELD success
+RETURN n, embedding, success
+```
+
+**Example: non-idempotent upsert query (avoid this pattern)**
+
+In this case, if a vertex with ID '934' already exists then the `CREATE`
+for the second vertex would fail even on retries, but the side effect of embeddings
+added to the vertex with ID "933" would remain because those embeddings were committed
+on insert.
+
+```
+UNWIND [
+  {id: "933", embedding: [1,2,3,4]},
+  {id: "934", embedding: [-1,-2,-3,-4]}
+] as entry
+CREATE (n:person {`~id`: entry.id}) WITH n, entry.embedding as embedding
+CALL neptune.algo.vectors.upsert(n, embedding)
+YIELD success
+RETURN n, embedding, success
+```
+
+3. Use simple queries for updating vectors and avoid chaining vector operations
+   with other vector operations or other vertex/property/edge updates. For instance,
+   the following query updates embeddings for a vertex and creates another vertex.
+   Separating them into two queries should help avoid inconsistencies.
+
+```
+MATCH (n {`~id`: '933'}) CALL neptune.algo.vectors.upsert(n, [1,2,3,4])
+ YIELD success
+CREATE (m {`~id`: '934'})
+```
 
 ## Loading vectors into a Neptune Analytics graph vector index
 
@@ -38,7 +97,7 @@ Neptune Analytics does not currently support loading vectors from Neptune Databa
 
 There are two ways you can load vectors associated with nodes in your graph:
 
-### Load the vectors from graph data files Amazon S3
+### Load the vectors from graph data files in Amazon S3
 
 When you're loading graph data from files in Amazon S3 using the console or the
 [neptune.load{}](batch-load.md "batch-load.md") openCypher integration,

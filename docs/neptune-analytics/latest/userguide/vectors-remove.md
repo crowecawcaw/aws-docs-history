@@ -3,6 +3,12 @@
 The `.vectors.remove` algorithm is used to remove the embedding from
 a node.
 
+###### Important
+
+Updates to vector embeddings are not ACID compliant. For details and best practices
+to minimize inconsistencies, see [Vector
+index transaction support](vector-index.md#vector-index-transaction-support "vector-index.md#vector-index-transaction-support").
+
 ## `.vectors.remove`  syntax
 
 ```

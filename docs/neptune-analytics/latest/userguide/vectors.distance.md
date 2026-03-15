@@ -1,35 +1,38 @@
-# The  `.vectors.distance.byNode`  algorithm
+# The  `.vectors.distance.byEmbedding`  algorithm
 
-The `.vectors.distance.byNode` algorithm computes the distance between two
-nodes based on their embeddings. The default distance is the squared L2 norm.
+The `.vectors.distance.byEmbedding` algorithm computes the distance between an embedding vector and the
+embedding of an input node. The default distance is the squared L2 norm of the input embedding vector and the embedding
+vector of the input node.
 
-## `.vectors.distance.byNode`  syntax
+## `.vectors.distance.byEmbedding`  syntax
 
 ```
-MATCH( n {`~id`: "`the ID of the source node(s)`"} )
-MATCH( m {`~id`: "`the ID of the target node(s)`"} )
-CALL neptune.algo.vectors.distance.byNode(n, m,
-   {
-       metric: The distance computation metric (optional)
-   }
+MATCH( n {`~id`: "the ID of the input node(s)"} )
+CALL neptune.algo.vectors.distance.byEmbedding(n,
+    {
+        metric: The distance computation metric (optional),
+        embedding: [*an embedding*] (required)
+    }
 )
 YIELD distance
-RETURN n, m, distance
+RETURN n, distance
 ```
 
-## `.vectors.distance.byNode`  inputs
+## `.vectors.distance.byEmbedding`  inputs
 
-- **a source node list**   _(required)_   –  
-  _type:_ `Node[]` or `NodeId[]`;   _default: none_.
+- **an input node list**   _(required)_   –  
+  _type:_ `node[]` or `NodeId[]`; _default: none_.
 
-The result of a `MATCH` statement from which you want to get the source for the
-distance computations.
+The result of a `MATCH` statement from which you want get the input nodes of the distance computations.
 
-- **target node list**   _(required)_   –  
-  _type:_ `Node[]` or `NodeId[]`;   _default: none_.
+- **embedding**   _(required)_   –  
+  _type:_ `float[]` or `double[]`;.
 
-The result of a `MATCH` statement from which you want to get the targets of the
-distance computations.
+The input embedding vector from which you want to use for the distance computations. The dimension of the
+embedding must match the declared dimension of the associated vector index.
+
+The embedding may or may not exist in the database. If not, it can be any vector of the same dimension as
+is declared in the associated vector index.
 
 - **metric**   _(optional)_   –  
   _type:_ `string`   _default: L2Squared_.
@@ -107,56 +110,44 @@ The distance metric to use for distance computation.
     	 For more information on Cosine Distance, see
     	 [https://en.wikipedia.org/wiki/Cosine\_similarity#Cosine\_distance](https://en.wikipedia.org/wiki/Cosine_similarity#Cosine_distance "https://en.wikipedia.org/wiki/Cosine_similarity#Cosine_distance").
 
-###### Warning
+## `.vectors.distance.byEmbedding`  outputs
 
-Be careful to limit `MATCH(n)` and `MATCH(m)` so that
-they don't return a large number of nodes. Keep in mind that every pair of `n`
-and `m` in the join result invokes `.vectors.distance.byNode` once. Too
-many inputs can therefore result in very long runtimes. Use `LIMIT` or put
-conditions on the `MATCH` clause to restrict its output appropriately.
+For every target node:
 
-## `.vectors.distance.byNode`  outputs
-
-For every pair of source node and target node:
-
-- **source**   –  
-  The source node.
 - **target**   –  
   The target node.
 - **distance**   –  
-  The distance between source and target nodes.
+  The distance between the source embedding and the embedding of the target node.
 
-## `.vectors.distance.byNode`  query examples
+## `.vectors.distance.byEmbedding`  query examples
 
 ```
-MATCH ( n {`~id`: "106"} )
-MATCH ( m {`~id`: "110" } )
-CALL neptune.algo.vectors.distance.byNode( n, m )
+MATCH (n)
+WHERE id(n)="v1"
+CALL neptune.algo.vectors.distance.byEmbedding(n, {embedding: [1.1, 1.2, 1.3, 1.4], metric: "L2Squared"})
 YIELD distance
-RETURN n, m, distance
+RETURN n, distance
 ```
 
 ```
-MATCH ( n {`~id`: "106"} )
-MATCH ( m {`~id`: "110"} )
-CALL neptune.algo.vectors.distance.byNode( n, m, {metric: "CosineSimilarity"} )
+MATCH (n:person) WHERE id(n)=entry.id WITH n
+CALL neptune.algo.vectors.distance.byEmbedding(n, {embedding: [1,2,3,4], metric: "CosineSimilarity"})
 YIELD distance
-RETURN n, m, distance
+RETURN n, distance
 ```
 
-## Sample  `.vectors.distance.byNode`  output
+## Sample  `.vectors.distance.byEmbedding`  output
 
-Here is an example of the output returned by `.vectors.distance.byNode` when run against
+Here is an example of the output returned by `.vectors.distance.byEmbedding` when run against
 a sample Wikipedia dataset using the following query:
 
 ```
 aws neptune-graph execute-query \
   --graph-identifier ${graphIdentifier} \
-  --query-string "MATCH (n{`~id`: '0'})
-                       MATCH (m{`~id`: '1'})
-                       CALL neptune.algo.vectors.distance.byNode(n, m)
+  --query-string "MATCH (n{`~id`: '1'})
+                       CALL neptune.algo.vectors.distance.byEmbedding(n, {embedding: [*an embedding*]})
                        YIELD distance
-                       RETURN n, m, distance" \
+                       RETURN n, distance" \
   --language open_cypher \
   /tmp/out.txt
 
@@ -164,20 +155,6 @@ aws neptune-graph execute-query \
   "results": [
     {
       "n": {
-        "~id": "0",
-        "~entityType": "node",
-        "~labels": [],
-        "~properties": {
-          "title": "24-hour clock",
-          "views": 2450.62548828125,
-          "wiki_id": 9985,
-          "paragraph_id": 0,
-          "url": "https://simple.wikipedia.org/wiki?curid=9985",
-          "langs": 30,
-          "text": "The 24-hour clock is a way of telling the time in which the day runs from midnight to midnight and is divided into 24 hours\\, numbered from 0 to 23. It does not use a.m. or p.m. This system is also referred to (only in the US and the English speaking parts of Canada) as military time or (only in the United Kingdom and now very rarely) as continental time. In some parts of the world\\, it is called railway time. Also\\, the international standard notation of time (ISO 8601) is based on this format."
-        }
-      },
-      "m": {
         "~id": "1",
         "~entityType": "node",
         "~labels": [],

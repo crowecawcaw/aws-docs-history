@@ -5,9 +5,9 @@ of the shortest paths) between a given vertex and all reachable vertices in the 
 (including itself).
 
 By determining the most efficient routes from a single starting node to all other
-nodes in the graph, single-source-shortest-path can be used calculate the shortest
+nodes in the graph, single-source-shortest-path can be used to calculate the shortest
 distances or lowest cost required to reach each destination. This is applicable in GPS
-systems to find the fastest routes between a starting point and differeent destinations,
+systems to find the fastest routes between a starting point and different destinations,
 and in logistics to optimize delivery routes, and in transportation planning for
 efficient navigation through road networks.
 

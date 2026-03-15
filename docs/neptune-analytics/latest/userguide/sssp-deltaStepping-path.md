@@ -157,7 +157,7 @@ RETURN source, target, distance, vertexPath, allDistances, path
 
 It is not good practice to use `MATCH(n)` without restriction
 in query integrations. Keep in mind that every node returned by the `MATCH(n)`
-clause invokes the algorithm once, which can result a very long-running query if
+clause invokes the algorithm once, which can result in a very long-running query if
 a large number of nodes are returned; and that every source-target node pair produces
 an output, which can result in a very large query output if a large number of nodes are returned.
 Use `LIMIT` or put conditions on the `MATCH` clause to restrict its output

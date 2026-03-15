@@ -143,7 +143,7 @@ YIELD node
 RETURN node
 ```
 
-The `MATCH` clause can also explitly specify a starting node list
+The `MATCH` clause can also explicitly specify a starting node list
 using the `id()` function, like this:
 
 ```
@@ -166,7 +166,7 @@ RETURN COUNT(node)
 
 It is not good practice to use `MATCH(n)` without restriction
 in query integrations. Keep in mind that every node returned by the `MATCH(n)`
-clause invokes the algorithm once, which can result a very long-running query if
+clause invokes the algorithm once, which can result in a very long-running query if
 a large number of nodes is returned. Use `LIMIT` or put conditions on the
 `MATCH` clause to restrict its output appropriately.
 

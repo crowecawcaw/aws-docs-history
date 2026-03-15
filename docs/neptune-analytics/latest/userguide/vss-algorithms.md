@@ -1,6 +1,6 @@
 # Vector-similarity search (VSS) algorithms in Neptune Analytics
 
-Vector simlarity search algorithms identify similar vectors based on the vector
+Vector similarity search algorithms identify similar vectors based on the vector
 distance between them.
 
 Neptune Analytics supports the following vector-similarity search algorithms:

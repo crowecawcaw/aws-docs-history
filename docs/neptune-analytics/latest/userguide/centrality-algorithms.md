@@ -19,10 +19,10 @@ In addition to returning centrality data to the client, Neptune Analytics
 provides mutate variations of the centrality algorithms which store the calculated
 centrality values as vertex properties in the graph.
 
-Neptune Analytics supports three centrality algorithms along with their mutate variants:
+Neptune Analytics supports four centrality algorithms along with their mutate variants:
 
 - [degree](degree.md "degree.md")   –  
-  This measures a nodes's centrality by the number of edges connected to it, and
+  This measures a node's centrality by the number of edges connected to it, and
   can therefore be used to find the most connected nodes in a network.
 - [degree.mutate](degree-mutate.md "degree-mutate.md")   –  
   The degree centrality mutate algorithm measures the number of incident edges
@@ -33,7 +33,7 @@ Neptune Analytics supports three centrality algorithms along with their mutate v
   of a graph. It calculates the frequency distribution of vertex degrees across the entire network and provides
   basic statistics of the distribution.
 - [pageRank](page-rank.md "page-rank.md")   –  
-  This is an iterative algorithm that measures a nodes's centrality by the number
+  This is an iterative algorithm that measures a node's centrality by the number
   and quality of incident edges and adjacent vertices. The centrality of a node
   connected to a few important nodes may therefore be higher than that of a node
   connected to many less important nodes. The output of this algorithm is a value

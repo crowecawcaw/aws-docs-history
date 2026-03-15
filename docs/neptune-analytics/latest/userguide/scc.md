@@ -69,7 +69,8 @@ If the input node list is empty, the output is empty.
 
 ## `.scc`  query examples
 
-This openCypher query has an empty input list, and so will have no output:
+This is a query integration example, where `.scc` follows a
+`MATCH` clause that generates its input node list:
 
 ```
 Match (n)
@@ -78,8 +79,7 @@ YIELD component
 RETURN n, component
 ```
 
-This is a query integration example, where `.scc` follows a
-`MATCH` clause that generates its input node list:
+This is another query integration example:
 
 ```
 Match (n)
@@ -92,7 +92,7 @@ Return n, component
 
 It is not good practice to use `MATCH(n)` without restriction
 in query integrations. Keep in mind that every node returned by the `MATCH(n)`
-clause invokes the algorithm once, which can result a very long-running query if
+clause invokes the algorithm once, which can result in a very long-running query if
 a large number of nodes is returned. Use `LIMIT` or put conditions on the
 `MATCH` clause to restrict its output appropriately.
 
@@ -105,7 +105,7 @@ Here is an example of the output returned by .scc when run against the
 ```
 aws neptune-graph execute-query \
   --graph-identifier ${graphIdentifier} \
-  --query-string "CALL neptune.algo.scc({writeProperty: 'sccid'}) YIELD success RETURN success" \
+  --query-string "MATCH (n) CALL neptune.algo.scc(n) YIELD node, component RETURN node, component LIMIT 2" \
   --language open_cypher \
   /tmp/out.txt
 

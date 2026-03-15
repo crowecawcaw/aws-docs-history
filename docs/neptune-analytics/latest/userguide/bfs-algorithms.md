@@ -4,7 +4,7 @@ Breadth-first search (BFS) path-finding algorithms search for nodes in
 breadth-first order, starting from a single vertex. They can also, in the multi-source
 case, start from more than one vertex.
 
-They can systematically explore and evaluates all neighboring nodes from a
+They can systematically explore and evaluate all neighboring nodes from a
 starting point before moving on to the neighbors of those nodes, which ensures
 that the algorithm searches the shallowest levels of the graph first.
 

@@ -69,7 +69,7 @@ algo integration), the source query list is the result returned by the
   only centrality scores of nodes within the same component can be meaningfully compared. Normalized scores
   can be compared across different connected components.
 
-  The CC is normalizd using the Wasserman-Faust normalization formula for unconnected graphs.
+  The CC is normalized using the Wasserman-Faust normalization formula for unconnected graphs.
   If there are `n` vertices reachable from vertex `u` (including vertex
   `u` itself), the Wasserman-Faust normalized closeness centrality score of vertex
   `u` is calculated as follows:
@@ -154,7 +154,7 @@ YIELD score
 RETURN n, score
 ```
 
-This is a query integration examples that returns the nodes with the 10 highest CC scores:
+This is a query integration example that returns the nodes with the 10 highest CC scores:
 
 ```
 CALL neptune.algo.closenessCentrality(
@@ -174,7 +174,7 @@ LIMIT 10"
 
 It is not good practice to use `MATCH(n)` without restriction
 in query integrations. Keep in mind that every node returned by the `MATCH(n)`
-clause invokes the algorithm once, which can result a very long-running query if
+clause invokes the algorithm once, which can result in a very long-running query if
 a large number of nodes is returned. Use `LIMIT` or put conditions on the
 `MATCH` clause to restrict its output appropriately.
 

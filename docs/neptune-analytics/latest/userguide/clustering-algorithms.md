@@ -18,7 +18,7 @@ Neptune Analytics supports these community detection algorithms:
   node in the group is reachable from every other node in the group if edge direction
   is ignored.
 
-Identifying weakly-conected components helps in understanding the overall
+Identifying weakly-connected components helps in understanding the overall
 connectivity and structure of the graph. Weakly-connected components can be
 used in transportation networks to identify disconnected regions that may require
 improved connectivity, and in social networks to find isolated groups of users with
@@ -32,7 +32,7 @@ accessibility.
   Label Propagation Algorithm (LPA) is an algorithm for community detection that is also
   used in semi-supervised machine learning for data classification.
 - [labelPropagation.mutate](label-propagation-mutate.md "label-propagation-mutate.md")   –  
-  Label Propagation Algorithm (LPA) is an algorithm tha assigns labels to nodes based
+  Label Propagation Algorithm (LPA) is an algorithm that assigns labels to nodes based
   on the consensus of their neighboring nodes, making it useful for identifying groups.
   Label propagation can be applied in social networks to find groups, and in identity
   management to identify households, and in recommendation systems to group similar

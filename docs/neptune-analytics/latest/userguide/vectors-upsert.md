@@ -3,6 +3,12 @@
 The `.vectors.upsert` algorithm is used to add a new embedding or
 update an existing one for a node.
 
+###### Important
+
+Updates to vector embeddings are not ACID compliant. For details and best practices
+to minimize inconsistencies, see [Vector
+index transaction support](vector-index.md#vector-index-transaction-support "vector-index.md#vector-index-transaction-support").
+
 ## `.vectors.upsert`  syntax
 
 ```

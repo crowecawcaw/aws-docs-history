@@ -105,7 +105,7 @@ computation.
 
 ###### Note
 
-Neptune Analytics allows up 8192 vertices in the personalization vector, sourceNodes.
+Neptune Analytics allows up to 8192 vertices in the personalization vector, sourceNodes.
 
 ## `.pageRank`  syntax
 
@@ -199,7 +199,7 @@ integration), the result returned by the `MATCH` clause is taken as the node lis
        of those property values will be sampled at random.
 
   - **sourceNodes** _(optional) - required if
-    running personalized PageReank_   –  
+    running personalized PageRank_   –  
     _type:_ `list`;   _default: none_.
 
   A personalization vertex list ["101", ...]
@@ -247,7 +247,7 @@ CALL neptune.algo.pageRank(
 )
 ```
 
-This is a query integration examples, where `.pageRank` follows a
+This is a query integration example, where `.pageRank` follows a
 `MATCH` clause and uses frontier injection to take the output of the
 `MATCH` clause as its list of input nodes:
 
@@ -343,7 +343,7 @@ Here is an example of the output returned by .pageRank when run against the
 ```
 aws neptune-graph execute-query \
   --graph-identifier ${graphIdentifier} \
-  --query-string "CALL neptune.algo.pageRank(n) YIELD node, rank RETURN node, rank LIMIT" \
+  --query-string "CALL neptune.algo.pageRank(n) YIELD node, rank RETURN node, rank LIMIT 2" \
   --language open_cypher \
   /tmp/out.txt
 
