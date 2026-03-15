@@ -591,11 +591,11 @@ references multiple metrics, you incur a cost for each alarm-metric that’s
 referenced in the metric math expression. For information about how to create a
 metric alarm that contains a metric math expression, see [Creating a CloudWatch alarm based on a metric math expression](Create-alarm-on-metric-math-expression.md "Create-alarm-on-metric-math-expression.md").
 
-If you create an outlier detection alarm, where your alarm analyzes past metric
+If you create an anomaly detection alarm, where your alarm analyzes past metric
 data to create a model of expected values, you incur a cost for each alarm-metric
 that's referenced in your alarm plus two additional metrics, one for the upper and
-lower band metrics that the outlier detection model creates. For information about
-how to create an outlier detection alarm, see [Creating a CloudWatch alarm based on outlier detection](Create_Anomaly_Detection_Alarm.md "Create_Anomaly_Detection_Alarm.md").
+lower band metrics that the anomaly detection model creates. For information about
+how to create an anomaly detection alarm, see [Creating a CloudWatch alarm based on anomaly detection](Create_Anomaly_Detection_Alarm.md "Create_Anomaly_Detection_Alarm.md").
 
 ### Metrics Insights query alarms
 

@@ -11,7 +11,7 @@ Performance Insights on Amazon RDS](../../../AmazonRDS/latest/UserGuide/USER_Per
 For more information about Amazon DocumentDB Performance Insights, see [Monitoring with
 Performance Insights](../../../documentdb/latest/developerguide/performance-insights.md "../../../documentdb/latest/developerguide/performance-insights.md").
 
-Outlier detection is not supported for alarms based on the
+Anomaly detection is not supported for alarms based on the
 **DB_PERF_INSIGHTS** function.
 
 ###### Note

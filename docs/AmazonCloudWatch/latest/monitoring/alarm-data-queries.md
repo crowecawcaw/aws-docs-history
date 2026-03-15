@@ -38,7 +38,7 @@ allowing for more granular and dynamic monitoring.
 
 Here are two primary use cases for CloudWatch Metrics Insights alarms:
 
-- Outlier Detection and Aggregate Monitoring
+- Anomaly Detection and Aggregate Monitoring
 
 Create an alarm on a Metrics Insights query that returns a single aggregated time
 series. This approach works well for dynamic alarms that monitor aggregated metrics across

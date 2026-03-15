@@ -67,7 +67,7 @@ CloudWatch Application Insights for SAP ASE provides the following features:
 
 - Automatic SAP ASE workload detection
 - Automatic SAP ASE alarm creation based on static threshold
-- Automatic SAP ASE alarm creation based on outlier detection
+- Automatic SAP ASE alarm creation based on anomaly detection
 - Automatic SAP ASE log pattern recognition
 - Health dashboard for SAP ASE
 - Problem dashboard for SAP ASE

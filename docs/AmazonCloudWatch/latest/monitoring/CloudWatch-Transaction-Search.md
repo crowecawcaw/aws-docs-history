@@ -67,7 +67,7 @@ AWS Distro fro OpenTelemetry (ADOT), CloudWatch Agent, or use OpenTelemetry dire
 
 When you enable Transaction Search, spans sent to X-Ray are ingested in a log group called `aws/spans`.
 CloudWatch uses these spans to generate a curated application performance monitoring (APM) experience in CloudWatch Application Signals.
-This provides you the ability to search and analyze spans, as well as use CloudWatch Logs capabilities like outlier and pattern detection.
+This provides you the ability to search and analyze spans, as well as use CloudWatch Logs capabilities like anomaly and pattern detection.
 You can even use custom metric extraction .
 CloudWatch Application Signals provides you with a unified, application-centric view of your applications, services, and dependencies.
 It also helps you monitor and triage application health.

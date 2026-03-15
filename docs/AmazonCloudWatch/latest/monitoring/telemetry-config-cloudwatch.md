@@ -12,7 +12,8 @@ Amazon VPC Flow Logs (Auditing and Configuration Available), AWS WAF Logs (Audit
 Amazon Route 53 Resolver Query Logs (Auditing and Configuration Available), Amazon NLB (Configuration Available),
 Amazon EKS Control Plane Logs (Auditing and Configuration Available),
 AWS CloudTrail Data Events and Management Events (Configuration Available),
-and Amazon Bedrock AgentCore Logs (Configuration Available).
+Amazon Bedrock AgentCore Logs (Configuration Available),
+and Amazon EC2 Instance Detailed Metrics (Auditing and Configuration Available).
 
 To begin auditing and configuring your telemetry, you must enable trusted access for CloudWatch for
 your AWS organization and then enable the telemetry configuration experience feature for your

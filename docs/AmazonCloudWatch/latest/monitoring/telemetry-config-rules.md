@@ -224,3 +224,9 @@ When enabling CloudTrail logs using the SLC path:
   rules requires separate configuration in each AWS region and is not yet available in all
   regions. For comprehensive multi-region coverage, consider continuing to use CloudTrail
   trails sending events to CloudWatch until regional availability expands.
+
+**Amazon Amazon EC2 Telemetry**
+
+When enabling detailed monitoring:
+
+- Instance state changes may affect metric collection

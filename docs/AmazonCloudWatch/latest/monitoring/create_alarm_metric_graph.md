@@ -17,8 +17,8 @@ the benefit of populating many of the alarm fields for you.
    tab. For **Actions**, choose the alarm icon.
 
 ![Create an alarm from a graphed metric](images/metric_graph_alarm.png) 6. Under **Conditions**, choose **Static** or
-**Outlier detection** to specify whether to use a static threshold or
-outlier detection model for the alarm.
+**Anomaly detection** to specify whether to use a static threshold or
+anomaly detection model for the alarm.
 
 Depending on your choice, enter the rest of the data for the alarm
 conditions. 7. Choose **Additional configuration**. For **Datapoints to

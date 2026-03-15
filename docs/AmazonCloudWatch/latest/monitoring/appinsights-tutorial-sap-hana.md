@@ -16,7 +16,7 @@ HANA databases.
 - [Manage
   monitoring](#appinsights-tutorial-sap-hana-manage "#appinsights-tutorial-sap-hana-manage")
 - [Troubleshooting problems detected](#appinsights-tutorial-sap-hana-troubleshooting "#appinsights-tutorial-sap-hana-troubleshooting")
-- [Detecting outliers](#appinsights-tutorial-sap-hana-troubleshooting-anomaly-detection "#appinsights-tutorial-sap-hana-troubleshooting-anomaly-detection")
+- [Anomaly detection](#appinsights-tutorial-sap-hana-troubleshooting-anomaly-detection "#appinsights-tutorial-sap-hana-troubleshooting-anomaly-detection")
 - [Troubleshooting Application Insights](#appinsights-tutorial-sap-hana-troubleshooting-health-dashboard "#appinsights-tutorial-sap-hana-troubleshooting-health-dashboard")
 
 ## Supported environments
@@ -70,7 +70,7 @@ CloudWatch Application Insights for SAP HANA provides the following features:
 
 - Automatic SAP HANA workload detection
 - Automatic SAP HANA alarm creation based on static threshold
-- Automatic SAP HANA alarm creation based on outlier detection
+- Automatic SAP HANA alarm creation based on anomaly detection
 - Automatic SAP HANA log pattern recognition
 - Health dashboard for SAP HANA
 - Problem dashboard for SAP HANA
@@ -370,22 +370,22 @@ bucket, the S3 bucket folder, and the S3 bucket Region.
 
 ![Log group showing out of memory.](images/appinsights-backup-stopped-2.png)
 
-## Detecting outliers for SAP HANA
+## Anomaly detection for SAP HANA
 
 For specific SAP HANA metrics, such as the number of thread count, CloudWatch applies
 statistical and machine learning algorithms to define the threshold. These
 algorithms continuously analyze the metrics of the SAP HANA database, determine
 normal baselines, and surface anomalies with minimal user intervention. The
-algorithms generate an outlier detection model, which generates a range of expected
+algorithms generate an anomaly detection model, which generates a range of expected
 values that represent normal metric behavior.
 
-Detecting outliers algorithms account for the seasonality and trend changes of
+Anomaly detection algorithms account for the seasonality and trend changes of
 metrics. The seasonality changes can be hourly, daily, or weekly, as shown in the
 following examples of the SAP HANA CPU usage.
 
 ![Log group showing out of memory.](images/appinsights-anomaly-detection.png)
 
-After you create a model, CloudWatch outlier detection continuously evaluates the model
+After you create a model, CloudWatch anomaly detection continuously evaluates the model
 and makes adjustments to it to ensure that is it as accurate as possible. This
 includes retraining the model to adjust if the metric values evolve over time or
 experience sudden changes. It also includes predictors to improve the models for

@@ -76,7 +76,7 @@ issues with the AWS network for paths that include destinations connected throug
 
 The NHI binary value is based on a statistical measure of the health of the AWS-controlled
 network path from the AWS hosted resource, where the monitor is deployed, to the Direct
-Connect location. Network Synthetic Monitor uses outlier detection to calculate availability drops or lower performance
+Connect location. Network Synthetic Monitor uses anomaly detection to calculate availability drops or lower performance
 along the network paths.
 
 NHI is not accurate for Direct Connect attachments that use intermediary routing with Cloud WAN. When you
@@ -85,7 +85,7 @@ have a hybrid network that includes Cloud WAN, do not use the NHI value as an in
 ###### Note
 
 Each time that you create a new monitor, add a probe, or re-activate a probe, the NHI for the
-monitor is delayed by a few hours while AWS collects data to perform outlier detection.
+monitor is delayed by a few hours while AWS collects data to perform anomaly detection.
 
 To provide the NHI value, Network Synthetic Monitor applies statistical correlation across AWS
 sample datasets, as well as to the packet loss and round-trip latency metrics for traffic

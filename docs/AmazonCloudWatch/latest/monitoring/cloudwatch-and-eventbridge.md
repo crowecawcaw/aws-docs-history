@@ -151,8 +151,8 @@ field.
 }
 ```
 
-Outlier Detection Alarm
-Events generated when an outlier detection alarm changes state. These
+Anomaly Detection Alarm
+Events generated when an anomaly detection alarm changes state. These
 events include upper and lower threshold bounds in the
 `reasonData` field.
 

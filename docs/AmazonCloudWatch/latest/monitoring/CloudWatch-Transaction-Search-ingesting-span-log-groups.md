@@ -9,7 +9,7 @@ The following CloudWatch Logs features are available for transaction spans.
 
 - [Metric filters](../logs/MonitoringLogData.md "../logs/MonitoringLogData.md") – Use metric filters to extract custom metrics from spans.
 - [Subscriptions](../logs/Subscriptions.md "../logs/Subscriptions.md") – Use subscriptions to access a real-time feed of span events from CloudWatch Logs.
-- [Log outlier detection](../logs/LogsAnomalyDetection.md "../logs/LogsAnomalyDetection.md") – Use log outlier detection to establish a baseline for spans sent to the `aws/spans` log group.
+- [Log anomaly detection](../logs/LogsAnomalyDetection.md "../logs/LogsAnomalyDetection.md") – Use log anomaly detection to establish a baseline for spans sent to the `aws/spans` log group.
 - [Contributor Insights](ContributorInsights.md "ContributorInsights.md") – Use Contributor Insights to analyze span data and create a time series displaying contributor data.
 
 ###### Unsupported features

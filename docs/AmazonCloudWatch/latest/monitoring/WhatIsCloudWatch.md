@@ -59,7 +59,7 @@ for several key pieces of AWS infrastructure:
 CloudWatch Logs offers a suite of powerful features for comprehensive log management and analysis. Logs ingested from AWS services and custom applications are stored in
 [log groups and streams](../logs/Working-with-log-groups-and-streams.md "../logs/Working-with-log-groups-and-streams.md") for easy organization.
 Use [CloudWatch Logs Insights](../logs/AnalyzingLogData.md "../logs/AnalyzingLogData.md") to perform interactive, fast queries on your log data, with a choice of three query languages including SQL and PPL.
-Use [log outlier detection](../logs/LogsAnomalyDetection.md "../logs/LogsAnomalyDetection.md") to find unusual patterns in log events in a log group, which can indicate issues.
+Use [log anomaly detection](../logs/LogsAnomalyDetection.md "../logs/LogsAnomalyDetection.md") to find unusual patterns in log events in a log group, which can indicate issues.
 Create [metric filters](../logs/MonitoringLogData.md "../logs/MonitoringLogData.md") to extract numerical values from logs and generate CloudWatch metrics, which you can use for alerting and dashboards.
 Set up [subscription filters](../logs/Subscriptions.md "../logs/Subscriptions.md") to process and analyze logs in real-time or route them to other services like Amazon S3 or Firehose.
 

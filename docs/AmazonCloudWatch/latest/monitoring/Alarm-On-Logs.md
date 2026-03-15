@@ -30,7 +30,7 @@ an alarm based on a log group-metric filter, you must complete the following act
    name**, **Statistic**, and **Period**.
 8. Under **Conditions**, specify the following:
    1. For **Threshold type**, choose **Static** or
-      **Outlier detection**.
+      **Anomaly detection**.
    2. For **Whenever `your-metric-name` is . .
       .**, choose **Greater**,
       **Greater/Equal**, **Lower/Equal** , or

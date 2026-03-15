@@ -23,7 +23,7 @@ querying up to two weeks of historical data, enabling comprehensive analysis of 
 - [Use metric streams](CloudWatch-Metric-Streams.md "CloudWatch-Metric-Streams.md")
 - [View available metrics](viewing_metrics_with_cloudwatch.md "viewing_metrics_with_cloudwatch.md")
 - [Graphing metrics](graph_metrics.md "graph_metrics.md")
-- [Using CloudWatch outlier detection](CloudWatch_Anomaly_Detection.md "CloudWatch_Anomaly_Detection.md")
+- [Using CloudWatch anomaly detection](CloudWatch_Anomaly_Detection.md "CloudWatch_Anomaly_Detection.md")
 - [Using math expressions with CloudWatch metrics](using-metric-math.md "using-metric-math.md")
 - [Use search expressions in graphs](using-search-expressions.md "using-search-expressions.md")
 - [Get statistics for a metric](getting-metric-statistics.md "getting-metric-statistics.md")

@@ -52,6 +52,7 @@ application to make sure that long-term performance goals are met.
 - [Calculate error budget and attainment for request-based SLOs](#CloudWatch-ServiceLevelObjectives-budget-request "#CloudWatch-ServiceLevelObjectives-budget-request")
 - [Calculate burn rates and optionally set burn rate alarms](#CloudWatch-ServiceLevelObjectives-burn "#CloudWatch-ServiceLevelObjectives-burn")
 - [Create an SLO](#CloudWatch-ServiceLevelObjectives-Create "#CloudWatch-ServiceLevelObjectives-Create")
+- [Use SLO recommendations](#CloudWatch-ServiceLevelObjectives-Recommendations "#CloudWatch-ServiceLevelObjectives-Recommendations")
 - [View and triage SLO status](#CloudWatch-ServiceLevelObjectives-Triage "#CloudWatch-ServiceLevelObjectives-Triage")
 - [Edit an existing SLO](#CloudWatch-ServiceLevelObjectives-Edit "#CloudWatch-ServiceLevelObjectives-Edit")
 - [Delete an SLO](#CloudWatch-ServiceLevelObjectives-Delete "#CloudWatch-ServiceLevelObjectives-Delete")
@@ -361,10 +362,10 @@ Use the following procedure to create a period-based SLO.
 5. For **Set Service Level Indicator (SLI)**, do one of the following:
    - To set the SLO on either of the standard application metrics `Latency` or
      `Availability`:
-     1. Choose **Service Operation**.
+     1. Choose **Service or Service Operation**.
      2. Select an account that this SLO will monitor.
      3. Select the service that this SLO will monitor.
-     4. Select the operation that this SLO will monitor.
+     4. Select the operation that this SLO will monitor. To create a service-level SLO that monitors the overall health of your service across all operations, select **All Operations**. Otherwise, select a specific operation to monitor.
      5. For **Select a calculation method**, choose **Periods**.
 
      The **Select service** and **Select operation**
@@ -472,9 +473,9 @@ Use the following procedure to create a request-based SLO.
 5. For **Set Service Level Indicator (SLI)**, do one of the following:
    - To set the SLO on either of the standard application metrics `Latency` or
      `Availability`:
-     1. Choose **Service Operation**.
+     1. Choose **Service or Service Operation**.
      2. Select the service that this SLO will monitor.
-     3. Select the operation that this SLO will monitor.
+     3. Select the operation that this SLO will monitor. To create a service-level SLO that monitors the overall health of your service across all operations, select **All Operations**. Otherwise, select a specific operation to monitor.
      4. For **Select a calculation method**, choose **Requests**.
      5. The **Select service** and **Select operation**
         drop-downs are populated by services and operations that have been active within
@@ -580,6 +581,38 @@ If the application this SLO is related to is registered in AWS Service Catalog A
 you can use the `awsApplication` tag to associate this SLO with that application in AppRegistry. For more information,
 see [What is AppRegistry?](../../../servicecatalog/latest/arguide/intro-app-registry.md "../../../servicecatalog/latest/arguide/intro-app-registry.md") 12. Choose **Create SLO**. If you also chose to create one or more alarms,
 the button name changes to reflect this.
+
+## Use SLO recommendations
+
+Application Signals can provide recommendations for your SLO configuration based on
+historical metric data from the last 30 days. When you provide basic information about your
+service and the type of SLO you want to create, Application Signals analyzes your metric data
+and suggests optimal values for the metric threshold, SLO goal, and burn rate windows.
+
+To receive SLO recommendations, you must provide the following information:
+
+- Choose either **Service Operation** or **Service Dependency**:
+  - For **Service Operation**, specify the service and operation
+  - For **Service Dependency**, specify the service, operation (or all operations), and dependency
+
+- The SLO evaluation type: either _period-based_ or _request-based_
+- The type of standard application metric: either `Latency` or `Availability`
+
+Based on this information and your service's historical performance data, Application
+Signals recommends the following SLO configuration parameters:
+
+- **Metric threshold** - The performance threshold
+  for your SLI, calculated based on your service's actual performance over the last 30
+  days.
+- **SLO goal** - The suggested attainment goal
+  percentage that aligns with your service's historical reliability.
+- **Burn rate windows** - Recommended look-back
+  window durations for monitoring how quickly your service consumes its error
+  budget.
+
+You can accept the recommended values or adjust them based on your specific business
+requirements. The recommendations provide a data-driven starting point for configuring SLOs
+that reflect your service's actual performance characteristics.
 
 ## View and triage SLO status
 
