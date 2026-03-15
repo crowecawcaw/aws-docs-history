@@ -1,4 +1,11 @@
-# Use generative AI-powered self-service with Connect AI agents
+# (legacy) Use generative AI-powered self-service with Connect AI agents
+
+###### Important
+
+Legacy self-service is not receiving new feature updates. For new
+implementations, we recommend using [agentic
+self-service](agentic-self-service.md "agentic-self-service.md"), which provides autonomous multi-step reasoning, MCP tool
+integration, and continuous conversations.
 
 ###### Tip
 
@@ -201,18 +208,18 @@ The following code shows the configuration of the FOLLOW_UP_QUESTION tool.
 ```
 - name: FOLLOW_UP_QUESTION
   description: Ask follow-up questions to understand customer needs, clarify intent,
-    and collect additional information throughout the conversation. Use this to gather
-    required details before selecting appropriate actions.
+and collect additional information throughout the conversation. Use this to gather
+required details before selecting appropriate actions.
   input_schema:
-    type: object
-    properties:
-      message:
-        type: string
-        description: The message you want to send next in the conversation with the
-          customer. This message should be grounded in the conversation, polite, and
-          focused on gathering specific information.
-    required:
-      - message
+type: object
+properties:
+  message:
+    type: string
+    description: The message you want to send next in the conversation with the
+      customer. This message should be grounded in the conversation, polite, and
+      focused on gathering specific information.
+required:
+  - message
 ```
 
 The FOLLOW_UP_QUESTION tool complements your defined tools by enabling Connect AI agents to
@@ -238,26 +245,26 @@ CONFIRM_SUBMISSION to collect specific information from the customer:
 - name: CONFIRM_SUBMISSION
   description: Confirm all collected information and finalize the report submission.
   input_schema:
-    type: object
-    properties:
-      message:
-        type: string
-        description: A message reviewing all of the collected information and asking
-          for final confirmation before submission.
-      report_details:
-        type: string
-        description: The user's report or complaint details
-      reporter_info:
-        type: string
-        description: Reporter's contact information (if provided) or "Anonymous"
-      subject_info:
-        type: string
-        description: Information about the individual or business being reported
-    required:
-      - message
-      - report_details
-      - reporter_info
-      - subject_info
+type: object
+properties:
+  message:
+    type: string
+    description: A message reviewing all of the collected information and asking
+      for final confirmation before submission.
+  report_details:
+    type: string
+    description: The user's report or complaint details
+  reporter_info:
+    type: string
+    description: Reporter's contact information (if provided) or "Anonymous"
+  subject_info:
+    type: string
+    description: Information about the individual or business being reported
+required:
+  - message
+  - report_details
+  - reporter_info
+  - subject_info
 
 ```
 
@@ -267,20 +274,20 @@ information step-by-step, as shown in the following sample:
 ```
 - name: FOLLOW_UP_QUESTION
   description: Ask follow-up questions to understand customer needs and collect additional
-    information throughout the complaint process. Use this for all information gathering
-    steps including confidentiality preferences, contact info, subject details etc.
+information throughout the complaint process. Use this for all information gathering
+steps including confidentiality preferences, contact info, subject details etc.
   input_schema:
-    type: object
-    properties:
-      message:
-        type: string
-        description: The message you want to send next in the conversation with the
-          customer. This message should be grounded in the conversation and polite.
-          Use this for asking clarification questions, collecting contact information,
-          gathering subject details, and all other follow-up steps in the complaint
-          process.
-    required:
-      - message
+type: object
+properties:
+  message:
+    type: string
+    description: The message you want to send next in the conversation with the
+      customer. This message should be grounded in the conversation and polite.
+      Use this for asking clarification questions, collecting contact information,
+      gathering subject details, and all other follow-up steps in the complaint
+      process.
+required:
+  - message
 ```
 
 ### Prompt instructions
@@ -323,51 +330,51 @@ tool in use.
 
 ```
 <examples>
-    <example>
-        <conversation>
-            [CUSTOMER] I want to report someone who I think is committing fraud
-        </conversation>
-        <thinking>
-            The customer wants to report fraud. I need to collect specific information
-            including details about the suspected fraud, reporter information, and
-            subject information. I'll start by asking about the suspected fraudulent activity.
-        </thinking>
-        <tool>
-            [FOLLOW_UP_QUESTION(message="I'd be happy to help you report suspected fraud.
-            Could you please describe the fraudulent activity you've observed?")]
-        </tool>
-    </example>
+<example>
+    <conversation>
+        [CUSTOMER] I want to report someone who I think is committing fraud
+    </conversation>
+    <thinking>
+        The customer wants to report fraud. I need to collect specific information
+        including details about the suspected fraud, reporter information, and
+        subject information. I'll start by asking about the suspected fraudulent activity.
+    </thinking>
+    <tool>
+        [FOLLOW_UP_QUESTION(message="I'd be happy to help you report suspected fraud.
+        Could you please describe the fraudulent activity you've observed?")]
+    </tool>
+</example>
 
-    <example>
-        <conversation>
-            [AGENT] Can you provide me your full address?
-            [CUSTOMER] I don't feel comfortable sharing my address
-        </conversation>
-        <thinking>
-            The caller declined to share their address. I should respect their privacy
-            concerns while still trying to collect alternative contact information.
-        </thinking>
-        <tool>
-            [FOLLOW_UP_QUESTION(message="I understand your privacy concerns. That's
-            completely fine. Would you be comfortable providing a phone number or email
-            address instead? Or you can choose to remain anonymous.")]
-        </tool>
-    </example>
+<example>
+    <conversation>
+        [AGENT] Can you provide me your full address?
+        [CUSTOMER] I don't feel comfortable sharing my address
+    </conversation>
+    <thinking>
+        The caller declined to share their address. I should respect their privacy
+        concerns while still trying to collect alternative contact information.
+    </thinking>
+    <tool>
+        [FOLLOW_UP_QUESTION(message="I understand your privacy concerns. That's
+        completely fine. Would you be comfortable providing a phone number or email
+        address instead? Or you can choose to remain anonymous.")]
+    </tool>
+</example>
 
-    <example>
-        <conversation>
-            [CUSTOMER] I'm not getting my benefit payments anymore
-        </conversation>
-        <thinking>
-            The customer is reporting a payment issue. This sounds like a general service
-            issue rather than fraud. I should clarify if they need assistance with their benefits.
-        </thinking>
-        <tool>
-            [FOLLOW_UP_QUESTION(message="I'm sorry to hear about the issue with your payments.
-            To help me understand better, could you tell me when you last received a payment
-            and if you've received any notification about why they stopped?")]
-        </tool>
-    </example>
+<example>
+    <conversation>
+        [CUSTOMER] I'm not getting my benefit payments anymore
+    </conversation>
+    <thinking>
+        The customer is reporting a payment issue. This sounds like a general service
+        issue rather than fraud. I should clarify if they need assistance with their benefits.
+    </thinking>
+    <tool>
+        [FOLLOW_UP_QUESTION(message="I'm sorry to hear about the issue with your payments.
+        To help me understand better, could you tell me when you last received a payment
+        and if you've received any notification about why they stopped?")]
+    </tool>
+</example>
 </examples>
 
 ```

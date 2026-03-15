@@ -17,7 +17,8 @@ and agent performance for a better overall customer experience.
 
 Conversational analytics helps you protect your customer's privacy by enabling you
 to [automatically redact sensitive
-data](sensitive-data-redaction.md "sensitive-data-redaction.md") from conversation transcripts and audio files.
+data](sensitive-data-redaction.md "sensitive-data-redaction.md") from conversation transcripts, audio files, and email
+messages.
 
 - [Evaluate performance](evaluations.md "evaluations.md"). You can review
   conversations alongside contact details, recordings, transcripts, and summaries,

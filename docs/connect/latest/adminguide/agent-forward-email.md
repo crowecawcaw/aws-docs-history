@@ -1,6 +1,6 @@
 # Forward email contacts to external email addresses
 
-Agents can forward email contacts to external email addresses (e.g., firstname.lastname@anycompany.com) or distribution lists (e.g., sales-team@anycompany.com) when they need to involve other parties outside of Amazon Connect. This feature allows agents to share customer emails with external teams, partners, or systems while maintaining the email thread within Amazon Connect.
+Agents can forward email contacts to external email addresses (for example, `firstname.lastname@anycompany.com`) or distribution lists (for example, `support-team-distro@anycompany.com`) when they need to involve other parties outside of Amazon Connect. This feature allows agents to share customer emails with external teams, partners, or systems while maintaining the email thread within Amazon Connect.
 
 ## Overview of email forwarding
 
@@ -29,7 +29,7 @@ To forward an email contact to an external address:
 
 7. Click **Send** to forward the email.
 
-![The email forward interface showing the To field for entering external email addresses, the message body area for adding context, and the original email content being forwarded.](images/email-forward-interface.png)
+![The email forward interface in the CCP.](images/email-forward-interface.png)
 
 The forwarded email is sent to the external recipients. The email contact remains active in your CCP until you end it either by responding to it or clicking **Done** to close it.
 

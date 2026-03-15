@@ -31,7 +31,7 @@ information, see [Set up Amazon Connect Agent Workspace to support agents shifti
   during regular operations](#change-signin-weights "#change-signin-weights")
 - [How to shift all telephony
   traffic and agents across AWS Regions](#shift-all-traffic "#shift-all-traffic")
-- [Regional switch UI banner](#regional-failover-banner "#regional-failover-banner")
+- [Regional switch UI banner](#regional-switch-ui-banner "#regional-switch-ui-banner")
 
 ## Requirements
 

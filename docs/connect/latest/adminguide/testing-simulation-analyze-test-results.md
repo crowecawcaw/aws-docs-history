@@ -1,4 +1,4 @@
-# Analyze test results
+# Test and simulate dashboard
 
 Amazon Connect supports testing and simulation dashboards and metrics. To view
 these dashboards, you must set the permission in the security profiles page for

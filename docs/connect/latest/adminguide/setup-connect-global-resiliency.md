@@ -45,3 +45,5 @@ For example, you can distribute inbound voice contacts and agents 100% in US Eas
   across Regions](manage-phone-numbers-across-regions.md "manage-phone-numbers-across-regions.md")
 - [Manage chat across
   Regions](manage-chat-across-regions.md "manage-chat-across-regions.md")
+- [Metrics, Reports
+  and Search across ACGR Regions](metrics-reports-and-search-across-acgr-regions.md "metrics-reports-and-search-across-acgr-regions.md")

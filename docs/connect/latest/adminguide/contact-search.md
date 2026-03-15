@@ -117,6 +117,16 @@ list, remove the following permissions from their security profile:
      summarize conversational analytics.
 
 - Filters for recordings. Using the **recording** filter, you can filter for contacts with a screen recording (video) or audio recording (voice).
+- Filter for Active Region. Search for contacts by the AWS region where they
+  were handled. This filter is available for Amazon Connect instances using global
+  resiliency, where contacts may be handled in a different AWS region than the
+  region you are logged into.
+
+###### Important
+
+Some Amazon Connect features may be unavailable when accessing cross-region contact
+data. For complete details, refer to the [Set up Amazon Connect Global Resiliency](setup-connect-global-resiliency.md "setup-connect-global-resiliency.md").
+
 - Filters for [Voice ID](voice-id.md "voice-id.md"). You can search for the
   Voice ID authentication and fraud detection status of contacts, if your
   organization has enabled Voice ID. To access this functionality, on your

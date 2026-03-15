@@ -1,15 +1,16 @@
 # Use sensitive data redaction to protect customer privacy using Contact Lens
 
 To help you protect your customer's privacy, Contact Lens conversational
-analytics lets you automatically redact sensitive data from conversation transcripts
-and audio files. It redacts sensitive data, such as name, address, and credit card
+analytics lets you automatically redact sensitive data from conversation transcripts,
+audio files, and email transcripts. It redacts sensitive data, such as name, address, and credit card
 information using Natural Language Understanding.
 
 When you enable conversational analytics on the **Set recording and
 analytics behavior** block, you then have the option to enable
 redaction. For more information, see [Enable redaction of sensitive data](enable-analytics.md#enable-redaction "enable-analytics.md#enable-redaction").
 
-Sensitive data redaction is applied after a call disconnects.
+For voice contacts, sensitive data redaction is applied after a call disconnects.
+For email contacts, redaction is applied after the email contact ends.
 
 ###### Important
 
@@ -26,7 +27,10 @@ Redacted voice files are stored in your Voice Amazon S3 bucket, for example:
 connect-`instanceARN`/Analysis.
 
 Redacted chat files are stored in your chat Amazon S3 bucket, for example:
-connect-`instanceARN`/Chat
+connect-`instanceARN`/Analysis/Chat
+
+Redacted email files are stored in your email Amazon S3 bucket, for example:
+connect-`instanceARN`/Analysis/Email
 
 You can access all files (redacted, unredacted, raw, etc.) through the AWS
 console, by using the Amazon S3 console.
@@ -36,7 +40,7 @@ Following is a list of what you can access by using the Amazon Connect admin web
 appropriate [security profile
 permissions](permissions-for-contact-lens.md "permissions-for-contact-lens.md"):
 
-- Access redacted voice and chat files.
+- Access redacted voice, chat, and email files.
 - Download redacted voice recordings.
 
 ###### Note

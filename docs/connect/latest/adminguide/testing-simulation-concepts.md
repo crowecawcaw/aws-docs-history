@@ -1,8 +1,8 @@
-# Call simulation concepts
+# Simulation concepts
 
-The traditional contact center testing and simulation approaches rely on technical
+The traditional contact center simulation approaches rely on technical
 step IDs and transitions that are inconsistent with natural human interaction patterns,
-creating a disconnect in validation processes. Connect's call simulation capabilities
+creating a disconnect in validation processes. Connect's simulation capabilities
 use an event-driven trigger response model that mirrors natural cause-and-effect
 reasoning patterns used by QA engineers and business testers. This approach removes the
 need to know every interaction that are programmed in order to test and validate the
@@ -29,14 +29,14 @@ Actors
 
 Actors represent roles to be played in the testing framework. When
 observing events, actors can be the system or agent, such as a play prompt
-coming from the system or an agent accepting the call. When simulating
+coming from the system or an agent accepting the contact. When simulating
 actions, actors can be the customer, system, or agent, such as simulating a
 customer input DTMF or utterance, or simulating a system response from a
 Lambda function.
 
 ## Interaction groups
 
-Use interaction groups to create simulated interactions with the call center. Each interaction group has three defined steps, described as the following blocks:
+Use interaction groups to create simulated interactions with the contact center. Each interaction group has three defined steps, described as the following blocks:
 
 Observe
 
@@ -73,8 +73,8 @@ invoking external resources to speed up test execution and prevent real
 data manipulation, such as preventing replaying a Lambda block that
 charges a credit card in production environment. You can use send
 instructions to simulate input to be sent to the contact center
-experience, such as text/utterance, DTMF tone, or .wav file for
-pre-recorded audio. Additionally, you can use test control action types
-to log data and end the test case execution at any point.
+experience, such as text/utterance or DTMF tone. Additionally, you
+can use test control action types to log data and end the test case
+execution at any point.
 
 ![](images/test-action-block.png)

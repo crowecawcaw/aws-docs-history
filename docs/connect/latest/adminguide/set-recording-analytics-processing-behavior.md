@@ -7,7 +7,7 @@ This topic defines the flow block for setting options to configure recording beh
 There are two actions supported as part of this block:
 
 - **Set message processor**\* - this allows customers to configure their own lambda processor, which will be applied to in-flight messages
-- **Set recording and analytics behavior** - this allows customers to configure recording and analytics behavior for voice and chat contacts, along with screen recording behavior.
+- **Set recording and analytics behavior** - this allows customers to configure recording and analytics behavior for voice, chat, and email contacts, along with screen recording behavior.
 
 \*Unavailable in PDT
 
@@ -20,7 +20,7 @@ Once you select an action, you can select a channel to configure those settings 
 |                                      | Chat supported? | Email supported? | Tasks supported?                         | Voice supported? |
 | ------------------------------------ | --------------- | ---------------- | ---------------------------------------- | ---------------- |
 | Set message processing               | Yes             | No               | No                                       | No               |
-| Set recording and analytics behavior | Yes             | No               | Yes (only for screen recording behavior) | Yes              |
+| Set recording and analytics behavior | Yes             | Yes              | Yes (only for screen recording behavior) | Yes              |
 
 ## Flow types
 
@@ -57,15 +57,15 @@ The following guide will discuss the **Set recording and analytics** action in t
 - You configure what part of the call can be recorded be it either agent, customer or both. No additional charges apply.
 - You can enable automated interaction call recording to hear how a customer is interacting with your IVR or conversational AI bot. No additional charges apply.
 - You can enable screen recording of agents, if agent screen recording has been set up as described in [Enable screen recording](enable-sr.md "enable-sr.md"). For pricing information, see [Amazon Connect Pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").
-- You can configure Contact Lens analytics settings for chat and voice contacts. For pricing information, see [Amazon Connect Pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/"). This includes:
+- You can configure Contact Lens analytics settings for voice, chat, and email contacts. For pricing information, see [Amazon Connect Pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/"). This includes:
   - Language in which customers and agents will interact (to improve the speech to text transcript generation).
   - Redaction of sensitive data.
   - Additional Contact Lens Generative AI capabilities.
 
 This action enables Contact Lens conversational analytics on a contact. For more information, see [Analyze conversations using
-conversational analytics](analyze-conversations.md "analyze-conversations.md"). This action currently supports Chat, Voice and Tasks media channel types. However, for tasks, you are only able to configure screen recording behavior. Therefore, in the channel dropdown for this action, you will see the following three options:
+conversational analytics](analyze-conversations.md "analyze-conversations.md"). This action currently supports Chat, Email, Voice, and Tasks media channel types. However, for tasks, you are only able to configure screen recording behavior. Therefore, in the channel dropdown for this action, you will see the following options:
 
-![The channel dropdown showing Chat, Screen recording, and Voice options.](images/set-recording-analytics-processing-behavior-channel-dropdown.png)
+![The channel dropdown showing Chat, Email, Screen recording, and Voice options.](images/set-recording-analytics-processing-behavior-channel-dropdown.png)
 
 ###### Note
 
@@ -86,6 +86,22 @@ Once conversational analytics is enabled, you can configure settings such as lan
 - **In-flight Redaction**: Choose whether to redact sensitive data from messages in-flight. For more information, see [Enable in-flight sensitive data redaction and message processing](redaction-message-processing.md "redaction-message-processing.md").
 - **Sentiment**: Choose whether to enable sentiment analysis.
 - **Contact Lens Generative AI capabilities**: For more information, see [View generative AI-powered post-contact summaries](view-generative-ai-contact-summaries.md "view-generative-ai-contact-summaries.md")
+
+#### Email
+
+As shown in the following image, when you select the Email channel, you can enable and configure conversational analytics for email contacts. Because email contacts are asynchronous, analysis is initiated when the email contact is received, rather than following the real-time and post-contact model used for voice and chat.
+
+![The Email channel configuration showing conversational analytics settings.](images/set-recording-analytics-processing-behavior-email-config.png)
+
+The email analytics settings include:
+
+- **Language**: Select the language of the email content. You can dynamically set the language using contact attributes. For instructions, see [Dynamically enable redaction based on the customer's language](enable-analytics.md#dynamically-enable-analytics-contact-flow "enable-analytics.md#dynamically-enable-analytics-contact-flow").
+- **Conversational Analytics Redaction**: Choose whether to redact sensitive data such as names, addresses, and credit card information from the email transcript. For more information, see [Enable redaction of sensitive data](enable-analytics.md#enable-redaction "enable-analytics.md#enable-redaction").
+- **Contact Lens Generative AI capabilities**: Enable contact summaries for email contacts. For more information, see [View generative AI-powered post-contact summaries](view-generative-ai-contact-summaries.md "view-generative-ai-contact-summaries.md").
+
+###### Note
+
+Sentiment analysis is not available for email contacts at this time.
 
 #### Voice
 

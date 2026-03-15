@@ -15,11 +15,11 @@ reading through transcripts and monitoring calls.
 You can access generative AI-powered post-contact summaries multiple ways:
 
 - **Agents** can access post-contact summaries
-  for voice contacts on the Contact Control Panel (CCP). They can use the
+  for voice and email contacts on the Contact Control Panel (CCP). They can use the
   summaries to quickly complete their After Contact Work (ACW). To learn about
   the agent's experience, see [View post-contact summaries on the CCP](#summaries-on-agentws "#summaries-on-agentws").
 - **Managers and supervisors** can access
-  summaries for voice and chat contacts on the Amazon Connect admin website, on the **Contact
+  summaries for voice, chat, and email contacts on the Amazon Connect admin website, on the **Contact
   details** and the **Contact search** pages.
   They can use the summaries to quickly understand the issues and outcomes for
   the contacts they are reviewing. To learn about the managers experience, see
@@ -33,6 +33,7 @@ You can access generative AI-powered post-contact summaries multiple ways:
 ###### Contents
 
 - [Enable post-contact summaries](#gen-ai-getstarted "#gen-ai-getstarted")
+- [Enable contact summaries for email](#enable-email-summaries "#enable-email-summaries")
 - [View post-contact summaries
   on the CCP](#summaries-on-agentws "#summaries-on-agentws")
 - [View post-contact summaries
@@ -121,6 +122,21 @@ profile:
       **Access** (least privilege is
       **Access** which is recommended)
 
+## Enable contact summaries for email
+
+###### To enable contact summaries for email contacts
+
+1. Add a [Set recording, analytics and processing behavior](set-recording-analytics-processing-behavior.md "set-recording-analytics-processing-behavior.md")
+   block to your inbound email flow.
+2. Configure the **Properties** page of the block:
+   1. For **Channel**, choose **Email**.
+   2. Set **Analytics** to **On**.
+   3. Choose **Enable email analytics**.
+   4. Under **Contact Lens Generative AI capabilities**,
+      choose **Contact summary**.
+
+3. Choose **Save**.
+
 ## View post-contact summaries on the CCP
 
 To help agents perform their After contact work (ACW), Amazon Connect displays a
@@ -138,7 +154,7 @@ following image shows an example summary.
 
 ###### Note
 
-Generative AI-powered post-contact summaries support only voice contacts
+Generative AI-powered post-contact summaries support voice, chat, and email contacts
 on the CCP.
 
 ## View post-contact summaries on the Amazon Connect admin website

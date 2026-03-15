@@ -11,8 +11,8 @@ You can control how your AI agent queries content at two levels:
 
 ###### Contents
 
-- [How to configure your orchestration agent to query multiple knowledge bases](#w2aac28c52c13 "#w2aac28c52c13")
-- [Content segmentation](#w2aac28c52c15 "#w2aac28c52c15")
+- [How to configure your orchestration agent to query multiple knowledge bases](#w2aac28c50c13 "#w2aac28c50c13")
+- [Content segmentation](#w2aac28c50c15 "#w2aac28c50c15")
 
 ## How to configure your orchestration agent to query multiple knowledge bases
 

@@ -5,8 +5,8 @@ You can enable Contact Lens conversational analytics in a few steps:
 1. Enable Contact Lens on your Amazon Connect instance.
 2. Add a [Set recording and analytics
    behavior](set-recording-behavior.md "set-recording-behavior.md") block to a flow, and
-   configure it to enable conversational analytics for voice, chat, or
-   both.
+   configure it to enable conversational analytics for voice, chat, email, or
+   a combination of channels.
    The following image shows a block that's configured for call recording and speech
    analytics. The **Call recording** option is set
    to **Agent and customer**. In the **Analytics**
@@ -14,7 +14,7 @@ You can enable Contact Lens conversational analytics in a few steps:
 
 ![The properties page for a set recording and analytics behavior block.](images/set-recording-and-analytics-behavior.png)
 The procedures in this topic describe the steps to enable conversational analytics
-for calls or chats.
+for calls, chats, or emails.
 
 ###### Contents
 
@@ -26,6 +26,8 @@ for calls or chats.
   recording and speech analytics](#enable-callrecording-speechanalytics "#enable-callrecording-speechanalytics")
 - [Enable chat
   analytics](#enable-chatanalytics "#enable-chatanalytics")
+- [Enable email
+  analytics](#enable-emailanalytics "#enable-emailanalytics")
 - [Enable redaction](#enable-redaction "#enable-redaction")
 - [Review redaction
   for accuracy](#review-sensitive-data-redaction "#review-sensitive-data-redaction")
@@ -60,7 +62,8 @@ contact.
 
 - When you choose a language that is supported by sentiment analysis,
   AND select **Enable Contact Lens speech
-  analytics** or **Enable chat analytics**
+  analytics**, **Enable chat analytics**,
+  or **Enable email analytics**
   in the [Set recording and analytics
   behavior](set-recording-behavior.md "set-recording-behavior.md") block, sentiment
   analysis is enabled by default. You can choose to [disable
@@ -174,6 +177,35 @@ see the next section, [Enable redaction](#enable-redaction "#enable-redaction").
 repeat these steps to add another [Set recording and analytics
 behavior](set-recording-behavior.md "set-recording-behavior.md") block with
 **Enable Contact Lens for conversational
+analytics** enabled.
+
+## Enable email analytics
+
+You can enable Contact Lens conversational analytics for email contacts
+to automatically categorize emails, redact sensitive data, and generate
+contact summaries.
+
+1. In the flow designer, add a [Set recording, analytics and processing behavior](set-recording-analytics-processing-behavior.md "set-recording-analytics-processing-behavior.md")
+   block to your inbound email flow. Place the block before the email
+   contact is routed to a queue or agent.
+2. Open the block properties. For **Action**, choose
+   **Set recording and analytics behavior**.
+3. For **Channel**, choose
+   **Email**.
+4. Under **Analytics**, choose **Enable
+   Contact Lens conversational analytics**, and
+   **Enable email analytics**.
+
+If you don't see this option, Amazon Connect Contact Lens hasn't been
+enabled for your instance. For instructions to enable it, see [Enable Contact Lens for your
+Amazon Connect instance](#enable-cl "#enable-cl"). 5. Choose from the [list
+of available languages](supported-languages.md#supported-languages-contact-lens "supported-languages.md#supported-languages-contact-lens"). 6. Optionally, enable redaction of sensitive data. For more information,
+see [Enable redaction](#enable-redaction "#enable-redaction"). 7. Optionally, under **Contact Lens Generative AI
+capabilities**, enable **Contact
+summary** to generate summaries for email
+contacts. 8. Choose **Save**. 9. If the email contact is going to be transferred to another agent or
+queue, repeat these steps to add another [Set recording, analytics and processing behavior](set-recording-analytics-processing-behavior.md "set-recording-analytics-processing-behavior.md")
+block with **Enable Contact Lens for conversational
 analytics** enabled.
 
 ## Enable redaction of sensitive data

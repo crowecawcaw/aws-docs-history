@@ -14,7 +14,36 @@ setting up your external application, see [Integrate with external applications]
 ![Event source selection panel showing integration options and attribute condition configuration.](images/how-to-create-campaigns-using-event-triggers-2.png) 3. Select the **Delivery mode** and additional communication
 settings.
 
-![Delivery mode selection and additional communication settings for event-triggered campaigns.](images/how-to-create-campaigns-using-event-triggers-3.png) 4. Verify your configurations and choose **Publish**.
+![Delivery mode selection and additional communication settings for event-triggered campaigns.](images/how-to-create-campaigns-using-event-triggers-3.png) 4. (Optional) Configure the **Recommendations** section to integrate
+Predictive Insights with your event-triggered campaign. This enables you to deliver
+personalized template content through email and SMS channels.
+
+![Recommendations section in Amazon Connect console showing Recommender dropdown with frequently_paired_items selected, Calculated attribute for recommender with _last_interacted_item_id, Number of recommendations set to 3, and Recommendation attributes with Name, Price, Description, ImageLink, and Category selected.](images/how-to-create-campaigns-recommendations.png)
+
+Configure the following settings:
+
+    * **Recommender name** – Select the name of the recommender
+     you want to use to generate recommendations for the profiles associated with the campaign.
+     You can only use recommenders that are active to generate recommendations.
+
+
+    Predictive Insights offers several types of recommendations. For more information, see
+     [Step 3: Creating Predictive Insights](predictive-insights-get-started.md#create-predictive-insights "predictive-insights-get-started.md#create-predictive-insights").
+    * **Calculated Attribute for recommender** – This setting is
+     only required when using a *Similar items* or *Frequently paired items* recommender type. This context helps the
+     recommendation engine understand which product to base suggestions on, enabling more relevant
+     and targeted recommendations for your customers.
+
+
+    For example, you might use a calculated attribute like
+     `_last_interacted_item_id` that captures the purchased item ID.
+    * **Number of recommendations** – The maximum number of
+     recommendations to generate for a profile. This can range between 1 to 3
+     recommendations.
+    * **Recommendation attributes** – Define which attributes of
+     the recommendations response are used in your message template.
+
+For more information about Predictive Insights, see [Get started with Predictive Insights](predictive-insights-get-started.md "predictive-insights-get-started.md"). 5. Verify your configurations and choose **Publish**.
 
 ![Final review screen for event-triggered campaign configuration with Publish button.](images/how-to-create-campaigns-using-event-triggers-4.png)
 

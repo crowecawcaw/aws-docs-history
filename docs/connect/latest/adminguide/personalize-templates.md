@@ -96,6 +96,29 @@ You can choose from the following types of attributes:
     * **Customer profile attributes**. For a complete
      list and descriptions, see [Customer Profiles attributes](connect-attrib-list.md#customer-profiles-attributes "connect-attrib-list.md#customer-profiles-attributes").
 
+
+
+
+    	+ **Recommendation attributes**: When using
+    	 Predictive Insights with outbound campaigns, you can include
+    	 personalized product recommendations in your message
+    	 templates. These attributes are available when you configure
+    	 recommendations in an event-triggered campaign.
+
+
+    	Each recommendation is accessed using an index, such as
+    	 `{{Attributes.Customer.Recommendations.[0].CatalogItem.Name}}`
+    	 for the first recommendation,
+    	 `{{Attributes.Customer.Recommendations.[1].CatalogItem.Name}}`
+    	 for the second, and so on.
+
+
+
+    	![Email template editor showing recommendation attributes in the Attribute finder and personalized product recommendations in the message body.](images/RecommendationAttributesInTemplate.png)
+
+    	For more information about configuring recommendations in
+    	 campaigns, see [Create an outbound campaign using event triggers](how-to-create-campaigns-using-event-triggers.md "how-to-create-campaigns-using-event-triggers.md").
+
 5. When you click an attribute in the Attribute finder, it is automatically
    placed in your message. You can copy and paste the attribute to another
    location.

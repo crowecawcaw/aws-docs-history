@@ -25,3 +25,7 @@ name`/connect/agent-app-v2/** into their
 The following image shows a sample schedule in the agent workspace.
 
 ![A sample schedule in the agent workspace.](images/wfm-scheduling-agent-view.png)
+The Agent Calendar displays times according to the following prioritized timezone logic:
+
+- Agent-specific timezone — If the administrator has explicitly configured a timezone in the agent's staff rules or profile settings, this timezone is used.
+- Fallback: Agent's local device timezone — If no agent-specific timezone has been configured, the calendar uses the timezone detected from the agent's computer or browser settings.

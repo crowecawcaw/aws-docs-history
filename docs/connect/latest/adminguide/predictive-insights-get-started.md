@@ -60,6 +60,16 @@ scenarios. Predictive Insights offers several types of recommendations:
 Enabling AI models with Predictive Insights is available under preview.
 Additional pricing may apply in future.
 
+**Item Limits by Recommendation Type**
+
+The following table describes the maximum number of items considered for recommendation generation, depending on the recommendation type used.
+
+| **Recommendation Type**      | **Description**                                               | **Limit**  |
+| ---------------------------- | ------------------------------------------------------------- | ---------- |
+| Recommended for you          | Maximum number of items considered for predictive<br>insights | 40 million |
+| Similar items                | Maximum number of items considered for predictive<br>insights | 10 million |
+| All other business scenarios | Maximum number of items considered for predictive<br>insights | 750,000    |
+
 ## Step 4: Using Predictive Insights across customer engagement channels
 
 ### Using Customer Profile Recommendations in Connect Flows
@@ -182,6 +192,21 @@ def flatten(recommendation, index):
 Once you have set up your flow with the **Get profile
 recommendations** block, you can start using it to generate
 recommendations for your customers during their contacts.
+
+### Using Customer Profile Recommendations in Outbound Campaigns
+
+You can integrate Predictive Insights with Amazon Connect outbound campaigns to deliver
+personalized recommendations through email and SMS channels. When you create an
+event-triggered campaign, you can configure the Recommendations section to
+automatically generate AI-powered recommendations for customer profiles
+associated with the campaign.
+
+This integration uses Web Analytics object mapping as the event category to
+capture customer interaction data, which enables the recommendation engine to
+provide relevant and targeted suggestions based on customer behavior.
+
+For step-by-step instructions on configuring recommendations in event-triggered
+campaigns, see [Create an outbound campaign using event triggers](how-to-create-campaigns-using-event-triggers.md "how-to-create-campaigns-using-event-triggers.md").
 
 ### Setting Up Connect AI Agents for Sales Recommendations
 

@@ -5,6 +5,12 @@ Inbox. Click the **RSS** link (under the topic title **Release
 notes**), and then copy the URL (it ends with `doc-history.xml.rss`) into
 your RSS reader. For example, you can subscribe to an RSS feed in Outlook.
 
+## March 2026 Updates
+
+### Amazon Connect now provides case data in analytics data lake
+
+Amazon Connect now provides case data in the analytics data lake, making it easier for you to generate reports and insights from this data. With case data available alongside other Amazon Connect analytics, you can use Amazon Athena and Amazon QuickSight to build custom reports and analyze trends such as case volume by type, case handling across agent shifts, or contact sentiment across cases without building and maintaining complex data pipelines.
+
 ## February 2026 Updates
 
 ### Amazon Connect Cases now supports AWS Service Quotas
@@ -204,7 +210,7 @@ For more information, see [Custom metric primitives](metric-primitive-definition
 
 Amazon Connect now allows you to test and simulate contact center experiences in just a few clicks, making it easy to validate workflows, self-service voice interactions, and their outcomes. For each test, you can configure the test parameters including the caller's phone number or customer profile, the reason for the call (such as "I need to check my order status"), the expected responses (such as "Your request has been processed"), and business conditions like after-hours scenarios or full call queues. After executing tests, results show success or failure based on your defined criteria, along with the path taken by the simulated interaction and detailed logs to quickly diagnose potential issuesWith this launch, you can run multiple tests simultaneously to validate scenarios and workflows at scale, reducing testing time. Companies can view test results and identify common failure patterns across all their tests in Connect's analytics dashboards. These capabilities enable you to rapidly validate changes to your workflows and confidently deploy new experiences to adapt to your ever-changing business needs.
 
-For more information, see [Amazon Connect call simulation](testing-simulation.md "testing-simulation.md").
+For more information, see [Amazon Connect Testing and Simulation](testing-simulation.md "testing-simulation.md").
 
 ### New criteria to automatically select relevant contacts for performance evaluation
 
@@ -1644,7 +1650,7 @@ Connect AI agents, a generative-AI powered assistant for customer service, suppo
 self-service interactions across Interactive Voice Response (IVR) and digital channels. With
 this launch, businesses can augment their existing self-service experiences with generative AI
 capabilities to create more personalized and dynamic experiences to improve customer
-satisfaction and first contact resolution. For more information, see [Use generative AI-powered self-service with Connect AI agents](generative-ai-powered-self-service.md "generative-ai-powered-self-service.md").
+satisfaction and first contact resolution. For more information, see [(legacy) Use generative AI-powered self-service with Connect AI agents](generative-ai-powered-self-service.md "generative-ai-powered-self-service.md").
 
 #### AI guardrails for Connect AI agents
 

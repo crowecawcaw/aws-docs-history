@@ -82,7 +82,7 @@ off to either the **EmailResponse** or
   excerpts in a knowledge base.
 
 To learn more about enabling Connect AI agents for self-service uses cases for both
-testing and production purposes, see [Use generative
+testing and production purposes, see [(legacy) Use generative
 AI-powered self-service](generative-ai-powered-self-service.md "generative-ai-powered-self-service.md").
 
 - **SelfServiceOrchestration**: Configures a helpful AI customer

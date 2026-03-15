@@ -59,7 +59,7 @@ highlight. Real-time rules only support any keywords or phrases that
 ![A words and phrases rule.](images/contact-lens-add-alert-rules-1.png) 8. Choose **Add**. Each word or phrase separated by
 a comma gets its own line.
 
-![A words and phrases rule with multiple phrases, each on it's own line.](images/contact-lens-add-alert-rules-2.png)
+![A words and phrases rule with multiple phrases, each on it's own line.](/images/connect/latest/adminguide/images/contact-lens-add-alert-rules-2.png)
 
 The logic that Contact Lens uses to read these words or
 phrases is: (Talk OR to OR your OR manager) OR (this OR is OR not OR
@@ -92,7 +92,7 @@ agent is working the BasicQueue or Billing and Payments queues, the
 customer is for auto insurance, and the agent is located in
 Seattle.
 
-![A words and phrases rule with multiple conditions.](images/contact-lens-add-category-rules-3.png) 11. When done, choose **Next**. 12. In the **Assign contact category** box, add a
+![A words and phrases rule with multiple conditions.](/images/connect/latest/adminguide/images/contact-lens-add-category-rules-3.png) 11. When done, choose **Next**. 12. In the **Assign contact category** box, add a
 name for the category. For example, **Compliant**
 or **Not_Compliant**. 13. Choose **Next**, then choose **Save and
 publish**.

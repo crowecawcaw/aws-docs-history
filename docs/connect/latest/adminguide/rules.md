@@ -57,7 +57,8 @@ In this section:
 5. Under **When**, use the dropdown list to
    choose **post-call analysis**,
    **real-time analysis**, **post-chat
-   analysis** or **real-time chat
+   analysis**, **real-time chat
+   analysis**, or **email
    analysis**.
 
 ![The new rule page, the When dropdown list.](images/contact-lens-rule-define-conditions.png) 6. Choose **Add condition**, and then choose the
