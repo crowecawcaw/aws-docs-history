@@ -12,6 +12,12 @@ Running `DeleteDomain` on a domain that does not exist or running the
 function multiple times using the same domain name will _not_ result in an
 error response.
 
+###### Important
+
+Domain deletion is blocked while any export for that domain is in PENDING or IN_PROGRESS
+status. Ensure all exports have completed (SUCCEEDED or FAILED status) before attempting to
+delete a domain. You can use the `ListExports` operation to check for active exports.
+
 ## Request Parameters
 
 | Name         | Description                                       | Required |

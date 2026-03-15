@@ -6,11 +6,12 @@ _Amazon SimpleDB_.
 ###### Relevant Dates to this History:
 
 - **API version:** 2009-04-15
-- **Lastest document update:** April
-  12, 2012
+- **Lastest document update:** March
+  11, 2026
 
 | Change                                        | Description                                                                                                                                                                                                                                                                                                                          | Date Changed      |
 | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- |
+| Amazon SimpleDB now supports domain export    | You can now export your domain data from Amazon SimpleDB to Amazon S3 for migration and archival. For more information, see [https://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/ExportingDomain.html](ExportingDomain.md "ExportingDomain.md").                                                                        | March 11, 2026    |
 | Removed incorrect note.                       | The Note in the Select operation description was incorrect and has<br>been removed. For more information, see [Select](SDB_API_Select.md "SDB_API_Select.md").                                                                                                                                                                       | April 12, 2012    |
 | Added handling response code 503 information. | Added instructions for handling server response code 503.<br>For more information, see [About Response Code 503](APIError.md#ErrorCode503 "APIError.md#ErrorCode503").                                                                                                                                                               | February 20, 2012 |
 | Added HTTP POST request information           | Added instructions for forming HTTP POST requests. For more information, see [Making REST Requests](MakingRESTRequests.md "MakingRESTRequests.md").                                                                                                                                                                                  | February 20, 2012 |

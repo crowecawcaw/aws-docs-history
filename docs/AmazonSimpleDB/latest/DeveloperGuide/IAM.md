@@ -3,7 +3,7 @@
 is integrated with AWS Identity and Access Management (IAM), which offers a wide range of features:
 
 - Create users and groups in your AWS account.
-- Easily share your resources between the users in your AWS account.
+- Easily share your AWS resources between the users in your AWS account.
 - Assign unique security credentials to each user.
 - Control each user's access to services and resources.
 - Get a single bill for all users in your AWS account.

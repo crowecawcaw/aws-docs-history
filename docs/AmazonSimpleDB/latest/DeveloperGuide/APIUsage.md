@@ -4,6 +4,11 @@ This section provides a high-level overview of the Amazon SimpleDB API. It descr
 conventions, API versioning used to minimize the impact of service changes, and
 API-specific information for making REST requests.
 
+###### Note
+
+The new Export APIs (StartDomainExport, GetExport, and ListExports) don't support sending requests using `query 
+ parameters` as per latest AWS standards. Code snippets have been provided to show usage of the new operations.
+
 ## API Conventions
 
 ### Overview

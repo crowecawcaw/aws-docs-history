@@ -1,10 +1,9 @@
 # Region Endpoints
 
-To improve latency and to store data in a location that meets your requirements, Amazon SimpleDB enables you to select different region endpoints.
+To improve latency and to store data in a location that meets your requirements, Amazon SimpleDB enables you to select different Region endpoints.
 
-For information about this Amazon SimpleDB regions and endpoints, go to
-[Regions and Endpoints](../../../general/latest/gr/rande.md#sdb_region "../../../general/latest/gr/rande.md#sdb_region")
-in the Amazon Web Services General Reference.
+For information about the Amazon SimpleDB Regions and endpoints, go to [Regions and
+Endpoints](../../../general/latest/gr/rande.md#sdb_region "../../../general/latest/gr/rande.md#sdb_region") in the Amazon Web Services General Reference.
 
 For example, to create a SimpleDB domain in Europe, you would generate a REST request
 similar to the following:

@@ -10,8 +10,8 @@ General Process of Authentication| Red circle with number 1 inside, indicating a
 | Red circle with number 3 inside, indicating a step or sequence number. | The recipient uses the credential to verify the sender truly sent the<br>request. |
 | Red circle with number 4 inside, likely representing a notification or count indicator. | If yes, the recipient processes the request. If no, the recipient rejects<br>the request and responds accordingly. |
 
-During authentication, verifies both the identity of the sender and
-whether the sender is registered to use services offered by . If either test fails, the request
+During authentication, AWS verifies both the identity of the sender and
+whether the sender is registered to use services offered by AWS. If either test fails, the request
 is not processed further.
 
 The subsequent sections describe how Amazon SimpleDB implements authentication to protect you and your

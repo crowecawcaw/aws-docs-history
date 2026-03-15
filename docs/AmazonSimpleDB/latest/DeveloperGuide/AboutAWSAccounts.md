@@ -1,10 +1,10 @@
 # Creating an AWS Account
 
-To access any web service offers, you must first create an AWS account at [http://aws.amazon.com](http://aws.amazon.com "http://aws.amazon.com").
-You can use an existing Amazon.com account login and password when creating the account.
+To access any web service AWS offers, you must first create an AWS account at [http://aws.amazon.com](http://aws.amazon.com "http://aws.amazon.com").
+You can use an existing Amazon.com account login and password when creating the AWS account.
 
-From your account you can view your AWS account activity, view usage reports, and manage
-your Security Credentials. See the steps outlined below to setup a new account.
+From your AWS account you can view your AWS account activity, view usage reports, and manage
+your AWS Security Credentials. See the steps outlined below to setup a new AWS account.
 
 ## Sign up for an AWS account
 
@@ -21,7 +21,7 @@ a verification code on the phone keypad.
 When you sign up for an AWS account, an _AWS account root user_ is created. The root user has access to all AWS services
 and resources in the account. As a security best practice, assign administrative access to a user, and use only the root user to perform [tasks that require root user access](../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks "../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks").
 
-sends you a confirmation email after the sign-up process is
+AWS sends you a confirmation email after the sign-up process is
 complete. At any time, you can view your current account activity and manage your account by
 going to [https://aws.amazon.com/](https://aws.amazon.com/ "https://aws.amazon.com/") and choosing **My
 Account**.
@@ -54,7 +54,7 @@ _AWS IAM Identity Center User Guide_.
 
 - To sign in with your IAM Identity Center user, use the sign-in URL that was sent to your email address when you created the IAM Identity Center user.
 
-For help signing in using an IAM Identity Center user, see [Signing in to the access portal](../../../signin/latest/userguide/iam-id-center-sign-in-tutorial.md "../../../signin/latest/userguide/iam-id-center-sign-in-tutorial.md") in the _AWS Sign-In User Guide_.
+For help signing in using an IAM Identity Center user, see [Signing in to the AWS access portal](../../../signin/latest/userguide/iam-id-center-sign-in-tutorial.md "../../../signin/latest/userguide/iam-id-center-sign-in-tutorial.md") in the _AWS Sign-In User Guide_.
 
 ###### Assign access to additional users
 

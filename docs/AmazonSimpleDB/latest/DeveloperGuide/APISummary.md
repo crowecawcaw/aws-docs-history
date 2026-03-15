@@ -24,3 +24,6 @@ functionality you need to build your application. See [Operations](SDB_API_Opera
   SQL SELECT expression
 - DomainMetadata—View information about the domain,
   such as the creation date, number of items and attributes, and the size of attribute names and values
+- StartDomainExport—Initiates the export of a Amazon SimpleDB domain to an Amazon S3 bucket
+- GetExport—Returns information for an existing domain export
+- ListExports—Lists all exports that were created, with paginated results that can be filtered by domain name

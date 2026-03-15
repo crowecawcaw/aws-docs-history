@@ -38,7 +38,7 @@ https://sdb.amazonaws.com/
 
 ###### Note
 
-provides support for temporary security credentials and session tokens in
+AWS provides support for temporary security credentials and session tokens in
 the AWS SDKs so you can implement temporary security credentials or session tokens
 with a specific programming language. Each SDK has its own instructions for
 implementing this feature. For a current list of AWS SDKs that support this feature,

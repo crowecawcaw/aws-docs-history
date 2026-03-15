@@ -84,7 +84,7 @@ product-specific ones. For more information about policy keys, see
 For a list of condition keys supported by each AWS service, see
 [Actions, resources, and condition keys for AWS services](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md")
 in the _IAM User Guide_. For a list of condition keys that can be used in multiple AWS services, see
-[global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md")
+[AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md")
 in the _IAM User Guide_.
 
 ## Example Policies for Amazon SimpleDB
