@@ -147,8 +147,8 @@ AWS Management Console
 AWS CLI
 
 ```
-aws bedrock-agentcore create-runtime \
-  --runtime-name "MyAgentRuntime" \
+aws bedrock-agentcore-control create-agent-runtime \
+  --agent-runtime-name "MyAgentRuntime" \
   --network-configuration '{
       "networkMode": "VPC",
       "networkModeConfig": {

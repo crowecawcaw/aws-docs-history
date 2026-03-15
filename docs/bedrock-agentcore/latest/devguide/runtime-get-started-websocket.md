@@ -384,7 +384,11 @@ you need to configure your agent runtime with JWT authorization as described in 
 
 Once you have completed the OAuth setup and obtained a bearer token following
 [Step 4: Use bearer token to invoke your agent](runtime-oauth.md#invoke-agent "runtime-oauth.md#invoke-agent") in the OAuth guide,
-you can use that token to establish WebSocket connections as shown in the following example:
+you can use that token to establish WebSocket connections.
+
+##### Python client with OAuth
+
+The following example shows how to establish a WebSocket connection from Python using OAuth:
 
 ```
 from bedrock_agentcore.runtime import AgentCoreRuntimeClient
@@ -443,6 +447,62 @@ python websocket_agent_client_oauth.py
 ```
 Received: {"echo":{"inputText":"Hello!"}}
 ```
+
+##### Browser JavaScript client with OAuth
+
+The browser's native WebSocket API does not provide a method to set custom headers during the handshake.
+To support OAuth authentication from browsers, AgentCore Runtime accepts the bearer token embedded in the `Sec-WebSocket-Protocol` header
+during the WebSocket handshake.
+
+The token must be base64url-encoded and prefixed with `base64UrlBearerAuthorization.`, followed by the sentinel
+subprotocol `base64UrlBearerAuthorization`.
+
+The following example shows how to establish a WebSocket connection from browser JavaScript using OAuth:
+
+```
+<!DOCTYPE html>
+<html>
+<body>
+    <button onclick="connect()">Connect</button>
+    <div id="output"></div>
+
+    <script>
+        function connect() {
+            const bearerToken = "your_oauth_token_here";
+            const runtimeArn = "arn:aws:bedrock-agentcore:us-west-2:accountId:runtime/agent-xyz123";
+
+            // Base64url encode token
+            const base64url = btoa(bearerToken)
+                .replace(/\+/g, '-')
+                .replace(/\//g, '_')
+                .replace(/=/g, '');
+
+            const ws = new WebSocket(
+                `wss://bedrock-agentcore.us-west-2.amazonaws.com/runtimes/${runtimeArn}/ws`,
+                [`base64UrlBearerAuthorization.${base64url}`, "base64UrlBearerAuthorization"]
+            );
+
+            ws.onopen = () => ws.send(JSON.stringify({ inputText: "Hello!" }));
+            ws.onmessage = (e) => document.getElementById("output").innerText = e.data;
+        }
+    </script>
+</body>
+</html>
+```
+
+###### Note
+
+This authentication method is for browser-based clients where setting custom headers is not possible.
+For non-browser clients (Python, Node.js servers, etc.), use OAuth header authentication shown in
+[Python client with OAuth](#websocket-oauth-python "#websocket-oauth-python").
+
+###### Note
+
+Subprotocols other than `base64UrlBearerAuthorization` are not yet supported.
+
+###### Important
+
+This is a reference example. It is not recommended to hardcode tokens in production code.
 
 ## Session management
 

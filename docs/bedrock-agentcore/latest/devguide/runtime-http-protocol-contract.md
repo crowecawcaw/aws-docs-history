@@ -322,4 +322,4 @@ WWW-Authenticate: Bearer resource_metadata="https://bedrock-agentcore.{region}.a
 
 ###### Note
 
-SigV4-configured agents return 403 for missing authentication and do NOT include WWW-Authenticate headers.
+SigV4-configured agents return HTTP 403 with an `ACCESS_DENIED` error and do not include `WWW-Authenticate` headers.

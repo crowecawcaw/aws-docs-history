@@ -97,6 +97,7 @@ infrastructure from disparate components.
 - [Deploy MCP servers in AgentCore Runtime](runtime-mcp.md "runtime-mcp.md")
 - [Stateful MCP server features](mcp-stateful-features.md "mcp-stateful-features.md")
 - [Deploy A2A servers in AgentCore Runtime](runtime-a2a.md "runtime-a2a.md")
+- [Deploy AGUI servers in AgentCore Runtime](runtime-agui.md "runtime-agui.md")
 - [Use isolated sessions for agents](runtime-sessions.md "runtime-sessions.md")
 - [Handle asynchronous and long running agents with Amazon Bedrock AgentCore Runtime](runtime-long-run.md "runtime-long-run.md")
 - [Stream agent responses](response-streaming.md "response-streaming.md")

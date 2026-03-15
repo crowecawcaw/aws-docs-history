@@ -18,20 +18,21 @@ _AWS PrivateLink Guide_.
 
 Before you set up an interface endpoint for AgentCore, review [Considerations](../../../vpc/latest/privatelink/create-interface-endpoint.md#considerations-interface-endpoints "../../../vpc/latest/privatelink/create-interface-endpoint.md#considerations-interface-endpoints") in the _AWS PrivateLink Guide_.
 
-AgentCore supports the following primitives through the singular interface endpoint `com.amazonaws.`region`.bedrock-agentcore`:
+AgentCore provides three AWS PrivateLink endpoints:
 
-- **Runtime** - Agent runtime operations
-- **Built-in Tools** - Code Interpreter and Browser Tool operations
-- **Memory** - Memory store operations
-- **Identity** - Identity management operations
+- **Data plane endpoint** - `com.amazonaws.`region`.bedrock-agentcore`
+- **Control plane endpoint** - `com.amazonaws.`region`.bedrock-agentcore-control`
+- **Gateway endpoint** - `com.amazonaws.`region`.bedrock-agentcore.gateway`
 
-The following primitive uses a separate endpoint:
+The following table shows AWS PrivateLink support status for each AgentCore primitive:
 
-- **AgentCore Gateway** - Uses endpoint `com.amazonaws.`region`.bedrock-agentcore.gateway`
-
-###### Note
-
-AWS PrivateLink is currently not supported for AgentCore control plane endpoints.
+| AWS PrivateLink support by primitive            | Primitive | Data plane        | Control plane |
+| ----------------------------------------------- | --------- | ----------------- | ------------- |
+| Runtime                                         | Supported | Supported         |
+| Memory                                          | Supported | Supported         |
+| Built-in Tools (Code Interpreter, Browser Tool) | Supported | Supported         |
+| Identity                                        | Supported | Not yet supported |
+| Gateway                                         | Supported | Not yet supported |
 
 For a list of AWS Regions in which AgentCore interface endpoints are available, see
 [Supported AWS Regions](agentcore-regions.md "agentcore-regions.md").
@@ -59,10 +60,12 @@ _AWS PrivateLink Guide_.
 Create an interface endpoint for AgentCore using the following service name
 format:
 
-- All primitives (Runtime, Built-in Tools, Memory, Identity):
+- All data plane primitives (Runtime, Built-in Tools, Memory, Identity):
   `com.amazonaws.`region`.bedrock-agentcore`
 - For AgentCore Gateway:
   `com.amazonaws.`region`.bedrock-agentcore.gateway`
+- For control plane operations (Runtime and Memory management):
+  `com.amazonaws.`region`.bedrock-agentcore-control`
 
 If you enable private DNS for the interface endpoint, you can make API requests to
 AgentCore using its default Regional DNS name. For example,

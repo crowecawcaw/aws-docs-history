@@ -500,10 +500,11 @@ purposes and are subject to change.
 
 | Supported runtimes | #           | Name          | Identifier        | Operating system | Deprecation date | Block function update |
 | ------------------ | ----------- | ------------- | ----------------- | ---------------- | ---------------- | --------------------- |
-| 1                  | Python 3.13 | `PYTHON_3_13` | Amazon Linux 2023 | 6/30/2029        | 8/31/2029        |
-| 2                  | Python 3.12 | `PYTHON_3_12` | Amazon Linux 2023 | 10/31/2028       | 1/10/2029        |
-| 3                  | Python 3.11 | `PYTHON_3_11` | Amazon Linux 2023 | 6/30/2026        | 8/31/2026        |
-| 4                  | Python 3.10 | `PYTHON_3_10` | Amazon Linux 2023 | 6/30/2026        | 8/31/2026        |
+| 1                  | Python 3.14 | `PYTHON_3_14` | Amazon Linux 2023 | 6/30/2030        | 8/31/2030        |
+| 2                  | Python 3.13 | `PYTHON_3_13` | Amazon Linux 2023 | 6/30/2029        | 8/31/2029        |
+| 3                  | Python 3.12 | `PYTHON_3_12` | Amazon Linux 2023 | 10/31/2028       | 1/10/2029        |
+| 4                  | Python 3.11 | `PYTHON_3_11` | Amazon Linux 2023 | 6/30/2026        | 8/31/2026        |
+| 5                  | Python 3.10 | `PYTHON_3_10` | Amazon Linux 2023 | 6/30/2026        | 8/31/2026        |
 
 #### Language environment deprecation policy
 

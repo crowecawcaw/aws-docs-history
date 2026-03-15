@@ -16,23 +16,26 @@ protocols:
   Protocol for tools and agent servers
 - [A2A](runtime-a2a-protocol-contract.md "runtime-a2a-protocol-contract.md"): Agent-to-Agent
   protocol for multi-agent communication and discovery
+- [AGUI](runtime-agui-protocol-contract.md "runtime-agui-protocol-contract.md"): Agent-to-User Interface
+  protocol for interactive agent experiences with UI rendering
 
 ## Compare supported protocols
 
-Compare the A2A, HTTP, and MCP protocols to understand the differences and use
+Compare the HTTP, MCP, A2A, and AGUI protocols to understand the differences and use
 cases.
 
-| Protocol Comparison | Feature                                                                | HTTP Protocol    | MCP Protocol                 | A2A Protocol |
-| ------------------- | ---------------------------------------------------------------------- | ---------------- | ---------------------------- | ------------ |
-| **Port**            | 8080                                                                   | 8000             | 9000                         |
-| **Mount Path**      | /invocations (HTTP), /ws (WebSocket)                                   | /mcp             | / (root)                     |
-| **Message Format**  | REST JSON/SSE, WebSocket (text/binary)                                 | JSON-RPC         | JSON-RPC 2.0                 |
-| **Discovery**       | N/A                                                                    | Tool listing     | Agent Cards                  |
-| **Authentication**  | SigV4, OAuth 2.0; WebSocket supports SigV4 by headers and query params | SigV4, OAuth 2.0 | SigV4, OAuth 2.0             |
-| **Use Case**        | Direct API calls, real-time streaming                                  | Tool servers     | Agent-to-agent communication |
+| Protocol Comparison | Feature                                                                | HTTP Protocol    | MCP Protocol                 | A2A Protocol                        | AGUI Protocol |
+| ------------------- | ---------------------------------------------------------------------- | ---------------- | ---------------------------- | ----------------------------------- | ------------- |
+| **Port**            | 8080                                                                   | 8000             | 9000                         | 8080                                |
+| **Mount Path**      | /invocations (HTTP), /ws (WebSocket)                                   | /mcp             | / (root)                     | /invocations (SSE), /ws (WebSocket) |
+| **Message Format**  | REST JSON/SSE, WebSocket (text/binary)                                 | JSON-RPC         | JSON-RPC 2.0                 | Event streams (SSE/WebSocket)       |
+| **Discovery**       | N/A                                                                    | Tool listing     | Agent Cards                  | N/A                                 |
+| **Authentication**  | SigV4, OAuth 2.0; WebSocket supports SigV4 by headers and query params | SigV4, OAuth 2.0 | SigV4, OAuth 2.0             | SigV4, OAuth 2.0                    |
+| **Use Case**        | Direct API calls, real-time streaming                                  | Tool servers     | Agent-to-agent communication | Interactive UI experiences          |
 
 ###### Topics
 
 - [HTTP protocol contract](runtime-http-protocol-contract.md "runtime-http-protocol-contract.md")
 - [MCP protocol contract](runtime-mcp-protocol-contract.md "runtime-mcp-protocol-contract.md")
 - [A2A protocol contract](runtime-a2a-protocol-contract.md "runtime-a2a-protocol-contract.md")
+- [AGUI protocol contract](runtime-agui-protocol-contract.md "runtime-agui-protocol-contract.md")
