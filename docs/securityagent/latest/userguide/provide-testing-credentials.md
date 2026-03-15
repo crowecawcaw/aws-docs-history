@@ -22,7 +22,13 @@ If you select **Advanced setting**, you can choose from three credential strateg
 1. Select **Input credentials**.
 2. Enter the **User name** and **Password**.
 3. In the **Access URL** dropdown, select the URL where these credentials will be used. This must be selected from the list of target endpoints.
-4. (Optional) Expand **Agent Space login prompt** to provide specific login instructions if your application has a complex authentication flow.
+4. (Optional) In the **2FA - optional** field, provide a TOTP secret for applications that require two-factor authentication. You can either:
+   - Enter the TOTP secret directly (for example, `JBSWY3DPEHPK3PXP`), or enter the full `otpauth://totp/` URI (for example, `otpauth://totp/Example:user@example.com?secret=JBSWY3DPEHPK3PXP&issuer=Example`).
+   - Click the upload icon to upload a QR code image from your authenticator app setup page. The QR code is scanned locally and the TOTP URI is extracted automatically.
+
+   When a TOTP secret is provided, the agent automatically generates fresh one-time codes and enters them when a 2FA prompt is detected during login.
+
+5. (Optional) Expand **Agent Space login prompt** to provide specific login instructions if your application has a complex authentication flow.
 
 ###### Important
 
@@ -45,17 +51,17 @@ The IAM role must have `secretsmanager:GetSecretValue` and `secretsmanager:Descr
 
 Use the **Agent Space login prompt** to provide detailed instructions on how to interpret and use the credentials stored in the secret. You may use any format to store your secret, as the agent will dynamically interpret the format using these instructions.
 
-For example, if the agent is to submit a username/password login form at https://example.com/login, you may format your secret as JSON with `username` and `password` fields:
+For example, if the agent is to submit a username/password login form at https://example.com/login, you may format your secret as JSON with `username` and `password` fields. If the application requires TOTP-based 2FA, include a `totpSecret` field with either the TOTP secret directly or a full `otpauth://totp/` URI:
 
 ```
 {
   "username": "test-user",
-  "password": "secure-password-here"
+  "password": "secure-password-here",
+  "totpSecret": "JBSWY3DPEHPK3PXP"
 }
 ```
 
 Then, configure the authentication instructions:
-. Enable **This credential requires interactive login (form submission)**.
 . Set **Access URL** to `https://example.com` (or any other URL selected from the list of target endpoints).
 . Enter the following into **Agent Space login prompt**: "Navigate to https://example.com/login and enter the provided username and password into the form."
 
@@ -66,12 +72,11 @@ As another example, if you instead have an API key to be provided in an HTTP hea
 ```
 
 Then, configure the authentication instructions:
-. Disable **This credential requires interactive login (form submission)**.
 . Enter the following into **Agent Space login prompt**: "Set the X-API-Key header to the provided API key for all requests."
 
 ###### Important
 
-We currently do not support 2FA or OAuth-based authentication.
+Only TOTP-based 2FA is supported. SMS, email, push notifications, hardware keys, and OAuth authentication are not supported.
 
 ### Select available Lambda function to retrieve credentials dynamically
 
