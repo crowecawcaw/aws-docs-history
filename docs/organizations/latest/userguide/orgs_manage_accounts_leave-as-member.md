@@ -29,7 +29,7 @@ place.
 
 Leaving an organization as a member account may affect the service quota limits available to that account.
 If you have automated workloads that require higher limits, please revisit your quotas in service quotas console after leaving the organization to ensure uninterrupted experience.
-Please contact [AWS Support](../userguide.md#support-center-console "../userguide.md#support-center-console") after leaving the organization for assistance.
+Please contact [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/") after leaving the organization for assistance.
 
 ## Leave an organization from a member account
 

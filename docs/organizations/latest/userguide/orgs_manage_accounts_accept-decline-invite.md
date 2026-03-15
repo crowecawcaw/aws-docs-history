@@ -25,6 +25,10 @@ until they [remove all member accounts from their
 organization](orgs_manage_accounts_remove.md "orgs_manage_accounts_remove.md") and [delete the
 organization](orgs_manage_org_delete.md "orgs_manage_org_delete.md").
 
+**CloudTrail logging takes place in the account taking the action**
+
+If a member account or standalone account accepts or declines an account invitation, that action will be logged in the CloudTrail log of the acting account. If the acting account is a member account, that action will not be logged in the management account's CloudTrail logs. This is consistent with CloudTrail logging in related scenarios (ex. Member account leaving organization will be logged in member account trail, management account removing member account will be logged in management account trail).
+
 ## Accept or decline to an account invitation
 
 To accept

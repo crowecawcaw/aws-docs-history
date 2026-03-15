@@ -61,6 +61,10 @@ identity information in the log entry helps you determine the following:
 For more information, see the [CloudTrail
 userIdentity Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
+###### Note
+
+CloudTrail will log events in the account that takes a given action (i.e. in member account rather than management account if member account took the action). For example, a member account leaving an organization will be logged in member account trail, and a management account removing a member account will be logged in management account trail.
+
 ## Understanding AWS Organizations log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3
