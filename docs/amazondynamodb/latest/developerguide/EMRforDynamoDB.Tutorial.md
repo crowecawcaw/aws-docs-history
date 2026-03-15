@@ -1,100 +1,30 @@
-# Step 4: Load data into HDFS
+# Step 1: Create an Amazon EC2 key pair
 
-In this step, you will copy a data file into Hadoop Distributed File System
-(HDFS), and then create an external Hive table that maps to the data file.
+In this step, you will create the Amazon EC2 key pair you need to connect to an Amazon EMR
+leader node and run Hive commands.
 
-###### Download the sample data
+1. Sign in to the AWS Management Console and open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. Choose a region (for example, `US West (Oregon)`). This should
+   be the same region in which your DynamoDB table is located.
+3. In the navigation pane, choose **Key Pairs**.
+4. Choose **Create Key Pair**.
+5. In **Key pair name**, type a name for your key pair (for
+   example, `mykeypair`), and then choose
+   **Create**.
+6. Download the private key file. The file name will end with
+   `.pem` (such as `mykeypair.pem`). Keep this
+   private key file in a safe place. You will need it to access any Amazon EMR
+   cluster that you launch with this key pair.
 
-1. Download the sample data archive (`features.zip`):
+###### Important
 
-```
-wget https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/samples/features.zip
-```
+If you lose the key pair, you cannot connect to the leader node
+of your Amazon EMR cluster.
 
-2. Extract the `features.txt` file from the archive:
-
-```
-unzip features.zip
-```
-
-3. View the first few lines of the `features.txt` file:
-
-```
-head features.txt
-```
-
-The result should look similar to this:
-
-```
-1535908|Big Run|Stream|WV|38.6370428|-80.8595469|794
-875609|Constable Hook|Cape|NJ|40.657881|-74.0990309|7
-1217998|Gooseberry Island|Island|RI|41.4534361|-71.3253284|10
-26603|Boone Moore Spring|Spring|AZ|34.0895692|-111.410065|3681
-1506738|Missouri Flat|Flat|WA|46.7634987|-117.0346113|2605
-1181348|Minnow Run|Stream|PA|40.0820178|-79.3800349|1558
-1288759|Hunting Creek|Stream|TN|36.343969|-83.8029682|1024
-533060|Big Charles Bayou|Bay|LA|29.6046517|-91.9828654|0
-829689|Greenwood Creek|Stream|NE|41.596086|-103.0499296|3671
-541692|Button Willow Island|Island|LA|31.9579389|-93.0648847|98
-```
-
-The `features.txt` file contains a subset of data from the
-United States Board on Geographic Names ([http://geonames.usgs.gov/domestic/download_data.htm](http://geonames.usgs.gov/domestic/download_data.htm "http://geonames.usgs.gov/domestic/download_data.htm")). The
-fields in each line represent the following:
-
-    * Feature ID (unique identifier)
-    * Name
-    * Class (lake; forest; stream; and so on)
-    * State
-    * Latitude (degrees)
-    * Longitude (degrees)
-    * Height (in feet)
-
-4. At the command prompt, enter the following command:
-
-```
-hive
-```
-
-The command prompt changes to this: `hive>` 5. Enter the following HiveQL statement to create a native Hive table:
-
-```
-CREATE TABLE hive_features
-    (feature_id             BIGINT,
-    feature_name            STRING ,
-    feature_class           STRING ,
-    state_alpha             STRING,
-    prim_lat_dec            DOUBLE ,
-    prim_long_dec           DOUBLE ,
-    elev_in_ft              BIGINT)
-    ROW FORMAT DELIMITED
-    FIELDS TERMINATED BY '|'
-    LINES TERMINATED BY '\n';
-```
-
-6. Enter the following HiveQL statement to load the table with data:
-
-```
-LOAD DATA
-LOCAL
-INPATH './features.txt'
-OVERWRITE
-INTO TABLE hive_features;
-```
-
-7. You now have a native Hive table populated with data from the
-   `features.txt` file. To verify, enter the following HiveQL
-   statement:
-
-```
-SELECT state_alpha, COUNT(*)
-FROM hive_features
-GROUP BY state_alpha;
-```
-
-The output should show a list of states and the number of geographic
-features in each.
+For more information about key pairs, see [Amazon EC2 Key Pairs](../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md "../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md") in the
+_Amazon EC2 User Guide_.
 
 ###### Next step
 
-[Step 5: Copy data to DynamoDB](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
+[Step 2: Launch an Amazon EMR cluster](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")

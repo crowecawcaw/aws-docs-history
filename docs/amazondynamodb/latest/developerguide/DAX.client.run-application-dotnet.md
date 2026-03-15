@@ -1,14 +1,14 @@
-# 05-Scan-Test.cs
+# 02-Write-Data.cs
 
-The `05-Scan-Test.cs` program performs `Scan` operations
-on `TryDaxTable`.
+The `02-Write-Data.cs` program writes test data to
+`TryDaxTable`.
 
 ```
 
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using Amazon.Runtime;
-using Amazon.DAX;
+using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.Model;
 
 namespace ClientTest
@@ -17,34 +17,33 @@ namespace ClientTest
     {
         public static async Task Main(string[] args)
         {
-            string endpointUri = args[0];
-            Console.WriteLine($"Using DAX client - endpointUri={endpointUri}");
-
-            var clientConfig = new DaxClientConfig(endpointUri)
-            {
-                AwsCredentials = FallbackCredentialsFactory.GetCredentials()
-            };
-            var client = new ClusterDaxClient(clientConfig);
+            AmazonDynamoDBClient client = new AmazonDynamoDBClient();
 
             var tableName = "TryDaxTable";
 
-            var iterations = 5;
+            string someData = new string('X', 1000);
+            var pkmax = 10;
+            var skmax = 10;
 
-            var startTime = DateTime.Now;
-
-            for (var i = 0; i < iterations; i++)
+            for (var ipk = 1; ipk <= pkmax; ipk++)
             {
-                var request = new ScanRequest()
+                Console.WriteLine($"Writing {skmax} items for partition key: {ipk}");
+                for (var isk = 1; isk <= skmax; isk++)
                 {
-                    TableName = tableName
-                };
-                var response = await client.ScanAsync(request);
-                Console.WriteLine($"{i}: Scan succeeded");
-            }
+                    var request = new PutItemRequest()
+                    {
+                        TableName = tableName,
+                        Item = new Dictionary<string, AttributeValue>()
+                       {
+                            { "pk", new AttributeValue{N = ipk.ToString() } },
+                            { "sk", new AttributeValue{N = isk.ToString() } },
+                            { "someData", new AttributeValue{S = someData } }
+                       }
+                    };
 
-            var endTime = DateTime.Now;
-            TimeSpan timeSpan = endTime - startTime;
-            Console.WriteLine($"Total time: {timeSpan.TotalMilliseconds} milliseconds");
+                    var response = await client.PutItemAsync(request);
+                }
+            }
 
             Console.WriteLine("Hit <enter> to continue...");
             Console.ReadLine();

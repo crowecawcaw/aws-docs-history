@@ -1,34 +1,12 @@
-# Adding and validating access patterns
+# Editing an existing data model
 
-You can use NoSQL Workbench for Amazon DynamoDB to create, store, and validate _access patterns_.
+###### To edit an existing model
 
-###### Note
-
-See [Identify your data access patterns](../../../prescriptive-guidance/latest/dynamodb-data-modeling/step3.md "../../../prescriptive-guidance/latest/dynamodb-data-modeling/step3.md") for more details on identifying the right access patterns.
-
-###### To create an access pattern
-
-1. Open NoSQL Workbench, and on the main screen, click the name of the model that you want to add access patterns to.
-2. On the left side, choose the **Access patterns** tab, and click the **+** icon.
-3. On the next screen, provide a **Name**, an optional **Description**, the **Type** of the access pattern, and the **Table** or **Global Secondary Index** to test the access pattern against.
-
-###### Note
-
-NoSQL Workbench currently supports the following operations for access patterns:
-`Scan`, `Query`, `GetItem`, `PutItem`, `UpdateItem`, `DeleteItem`. Amazon DynamoDB supports a broader list of operations. 4. After you create an access pattern, you can switch to the **Validate** tab to verify that your data model is designed to return expected results for the access pattern.
-See [Adding sample data to a data model](workbench.Modeler.md "workbench.Modeler.md") for details on how to auto-generate sample data for your tables. Different types of access patterns will support different input parameters.
-
-###### Note
-
-To validate access patterns, NoSQL Workbench starts a separate DynamoDB local database on port `8001` (by default) with tables and indexes stored in memory.
-
-    * NoSQL Workbench automatically adds the sample data from your model to the temporary tables.
-    * If you edit the sample data or the data model itself, NoSQL Workbench will update the temporary tables.
-    * This temporary database is erased when you close the application.
-
-###### To edit your access patterns
-
-1. Open NoSQL Workbench, and on the main screen, click the name of the model that you want to edit access patterns for.
-2. On the left side, choose the **Access patterns** tab.
-3. To edit an access pattern, select it from the list on the left.
-4. In the top bar, click the **Edit** action button.
+1. To begin making changes to an existing model, open the model in the modeler page.
+2. In the resource selector panel, you will see the list of **Tables** and **Global Secondary Indexes**.
+3. To edit a **Table** or a **Global Secondary Index**, first click its name in the resource selector panel, and then use the action icons at the top.
+   Available actions are **Delete**, **Duplicate**, and **Edit**.
+4. If you want to edit **Model details**, click the three-dot icon next to the model name.
+5. From there, you can click **Edit model details** and edit the information accordingly.
+6. You can also **Duplicate**, **Move**, **Delete**, and **Export** the model from the same menu.
+7. To change to another model, you can either go through the main screen again, or use the model selection dropdown.

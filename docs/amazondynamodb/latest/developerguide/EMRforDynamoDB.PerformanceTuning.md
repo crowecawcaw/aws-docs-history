@@ -1,71 +1,116 @@
-# Adjusting the mappers
+# DynamoDB provisioned throughput
 
-When Hive launches a Hadoop job, the job is processed by one or more mapper tasks.
-Assuming that your DynamoDB table has sufficient throughput capacity, you can modify
-the number of mappers in the cluster, potentially improving performance.
+When you issue HiveQL statements against the external DynamoDB table, the
+`DynamoDBStorageHandler` class makes the appropriate low-level DynamoDB
+API requests, which consume provisioned throughput. If there is not enough read or
+write capacity on the DynamoDB table, the request will be throttled, resulting in slow
+HiveQL performance. For this reason, you should ensure that the table has enough
+throughput capacity.
 
-###### Note
+For example, suppose that you have provisioned 100 read capacity units for your
+DynamoDB table. This will let you read 409,600 bytes per second (100 ×
+4 KB read capacity unit size). Now suppose that the table contains 20 GB of
+data (21,474,836,480 bytes) and you want to use the `SELECT` statement to
+select all of the data using HiveQL. You can estimate how long the query will take
+to run like this:
 
-The number of mapper tasks used in a Hadoop job are influenced by
-_input splits_, where Hadoop subdivides the data into
-logical blocks. If Hadoop does not perform enough input splits, then your write
-operations might not be able to consume all the write throughput available in
-the DynamoDB table.
+_21,474,836,480 / 409,600 = 52,429 seconds = 14.56 hours_
 
-## Increasing the number of mappers
+In this scenario, the DynamoDB table is a bottleneck. It won't help to add more Amazon EMR
+nodes, because the Hive throughput is constrained to only 409,600 bytes per second.
+The only way to decrease the time required for the `SELECT` statement is
+to increase the provisioned read capacity of the DynamoDB table.
 
-Each mapper in an Amazon EMR has a maximum read rate of 1 MiB per second. The
-number of mappers in a cluster depends on the size of the nodes in your cluster.
-(For information about node sizes and the number of mappers per node, see [Task
+You can perform a similar calculation to estimate how long it would take to
+bulk-load data into a Hive external table mapped to a DynamoDB table. Determine the
+total number of write capacity units needed per item (less than 1KB = 1, 1-2KB = 2,
+etc), and multiply that by the number of items to load. This will give you the
+number of write capacity units required. Divide that number by the number of write
+capacity units that are allocated per second. This will yield the number of seconds
+it will take to load the table.
+
+You should regularly monitor the CloudWatch metrics for your table. For a quick overview
+in the DynamoDB console, choose your table and then choose the
+**Metrics** tab. From here, you can view read and write
+capacity units consumed and read and write requests that have been throttled.
+
+## Read capacity
+
+Amazon EMR manages the request load against your DynamoDB table, according to the
+table's provisioned throughput settings. However, if you notice a large number
+of `ProvisionedThroughputExceeded` messages in the job output, you
+can adjust the default read rate. To do this, you can modify the
+`dynamodb.throughput.read.percent` configuration variable. You
+can use the `SET` command to set this variable at the Hive command
+prompt:
+
+```
+SET dynamodb.throughput.read.percent=1.0;
+```
+
+This variable persists for the current Hive session only. If you exit Hive and
+return to it later, `dynamodb.throughput.read.percent` will return to
+its default value.
+
+The value of `dynamodb.throughput.read.percent` can be between
+`0.1` and `1.5`, inclusively. `0.5`
+represents the default read rate, meaning that Hive will attempt to consume half
+of the read capacity of the table. If you increase the value above
+`0.5`, Hive will increase the request rate; decreasing the value
+below `0.5` decreases the read request rate. (The actual read rate
+will vary, depending on factors such as whether there is a uniform key
+distribution in the DynamoDB table.)
+
+If you notice that Hive is frequently depleting the provisioned read capacity
+of the table, or if your read requests are being throttled too much, try
+reducing `dynamodb.throughput.read.percent` below `0.5`.
+If you have sufficient read capacity in the table and want more responsive
+HiveQL operations, you can set the value above `0.5`.
+
+## Write capacity
+
+Amazon EMR manages the request load against your DynamoDB table, according to the
+table's provisioned throughput settings. However, if you notice a large number
+of `ProvisionedThroughputExceeded` messages in the job output, you
+can adjust the default write rate. To do this, you can modify the
+`dynamodb.throughput.write.percent` configuration variable. You
+can use the `SET` command to set this variable at the Hive command
+prompt:
+
+```
+SET dynamodb.throughput.write.percent=1.0;
+```
+
+This variable persists for the current Hive session only. If you exit Hive and
+return to it later, `dynamodb.throughput.write.percent` will return
+to its default value.
+
+The value of `dynamodb.throughput.write.percent` can be between
+`0.1` and `1.5`, inclusively. `0.5`
+represents the default write rate, meaning that Hive will attempt to consume
+half of the write capacity of the table. If you increase the value above
+`0.5`, Hive will increase the request rate; decreasing the value
+below `0.5` decreases the write request rate. (The actual write rate
+will vary, depending on factors such as whether there is a uniform key
+distribution in the DynamoDB table.)
+
+If you notice that Hive is frequently depleting the provisioned write capacity
+of the table, or if your write requests are being throttled too much, try
+reducing `dynamodb.throughput.write.percent` below `0.5`.
+If you have sufficient capacity in the table and want more responsive HiveQL
+operations, you can set the value above `0.5`.
+
+When you write data to DynamoDB using Hive, ensure that the number of write
+capacity units is greater than the number of mappers in the cluster. For
+example, consider an Amazon EMR cluster consisting of 10
+_m1.xlarge_ nodes. The _m1.xlarge_
+node type provides 8 mapper tasks, so the cluster would have a total of 80
+mappers (10 × 8). If your DynamoDB table has fewer than 80 write capacity
+units, then a Hive write operation could consume all of the write throughput for
+that table.
+
+To determine the number of mappers for Amazon EMR node types, see [Task
 Configuration](../../../emr/latest/ReleaseGuide/emr-hadoop-task-config.md "../../../emr/latest/ReleaseGuide/emr-hadoop-task-config.md") in the _Amazon EMR Developer
-Guide_.)
+Guide_.
 
-If your DynamoDB table has ample throughput capacity for reads, you can try
-increasing the number of mappers by doing one of the following:
-
-- Increase the size of the nodes in your cluster. For example, if your
-  cluster is using _m1.large_ nodes (three mappers per
-  node), you can try upgrading to _m1.xlarge_ nodes
-  (eight mappers per node).
-- Increase the number of nodes in your cluster. For example, if you have
-  three-node cluster of _m1.xlarge_ nodes, you have a
-  total of 24 mappers available. If you were to double the size of the
-  cluster, with the same type of node, you would have 48 mappers.
-
-You can use the AWS Management Console to manage the size or the number of nodes in your
-cluster. (You might need to restart the cluster for these changes to take
-effect.)
-
-Another way to increase the number of mappers is to modify the
-`mapred.tasktracker.map.tasks.maximum` Hadoop configuration
-parameter. (This is a Hadoop parameter, not a Hive parameter. You cannot modify
-it interactively from the command prompt.). If you increase the value of
-`mapred.tasktracker.map.tasks.maximum`, you can increase the
-number of mappers without increasing the size or number of nodes. However, it is
-possible for the cluster nodes to run out of memory if you set the value too
-high.
-
-You set the value for `mapred.tasktracker.map.tasks.maximum` as a
-bootstrap action when you first launch your Amazon EMR cluster. For more information,
-see [(Optional) Create Bootstrap Actions to Install Additional Software](../../../ElasticMapReduce/latest/ManagementGuide/emr-plan-bootstrap.md "../../../ElasticMapReduce/latest/ManagementGuide/emr-plan-bootstrap.md")
-in the _Amazon EMR Management Guide_.
-
-## Decreasing the number of mappers
-
-If you use the `SELECT` statement to select data from an external
-Hive table that maps to DynamoDB, the Hadoop job can use as many tasks as
-necessary, up to the maximum number of mappers in the cluster. In this scenario,
-it is possible that a long-running Hive query can consume all of the provisioned
-read capacity of the DynamoDB table, negatively impacting other users.
-
-You can use the `dynamodb.max.map.tasks` parameter to set an upper
-limit for map tasks:
-
-```
-SET dynamodb.max.map.tasks=1
-```
-
-This value must be equal to or greater than 1. When Hive processes your query,
-the resulting Hadoop job will use no more than
-`dynamodb.max.map.tasks` when reading from the DynamoDB
-table.
+For more information on mappers, see [Adjusting the mappers](EMRforDynamoDB.PerformanceTuning.md "EMRforDynamoDB.PerformanceTuning.md").

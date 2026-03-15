@@ -1,28 +1,31 @@
-# Using the SIZE function with PartiQL for amazon DynamoDB
+# Using the ATTRIBUTE_TYPE function with PartiQL for DynamoDB
 
-Returns a number representing an attribute's size in bytes. The following are valid data types
-for use with size. For more information, see the DynamoDB [size](Expressions.md#Expressions.OperatorsAndFunctions.Functions "Expressions.md#Expressions.OperatorsAndFunctions.Functions") function.
+Returns `TRUE` if the attribute at the specified path is of a particular
+data type.
 
 ## Syntax
 
 ```
-size( `path`)
+attribute_type( `attributename`, `type` )
 ```
 
 ## Arguments
 
-`path`
+`attributename`
 
-(Required) The attribute name or document path.
+(Required) The attribute name to use.
 
-For supported types, see DynamoDB [size](Expressions.md#Expressions.OperatorsAndFunctions.Functions "Expressions.md#Expressions.OperatorsAndFunctions.Functions") function.
+`type`
+
+(Required) The attribute type to check for. For a list of valid
+values, see DynamoDB [attribute_type](Expressions.md#Expressions.OperatorsAndFunctions.Functions "Expressions.md#Expressions.OperatorsAndFunctions.Functions").
 
 ## Return type
 
-`int`
+`bool`
 
 ## Examples
 
 ```
- SELECT * FROM "Orders" WHERE "OrderID"=1 AND size("Image") >300
+SELECT * FROM "Music" WHERE attribute_type("Artist", 'S')
 ```

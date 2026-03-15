@@ -1,51 +1,85 @@
-# Modifying an existing application to use DAX
+# Migrating to DAX Node.js SDK V3
 
-If you already have a Java application that uses Amazon DynamoDB, you can modify it so that
-it can access your DynamoDB Accelerator (DAX) cluster. You don't have to rewrite the entire
-application because the DAX Java client is similar to the DynamoDB low-level client
-included in the AWS SDK for Java 2.x. See [Working with
-items in DynamoDB](../../../sdk-for-java/latest/developer-guide/examples-dynamodb-items.md "../../../sdk-for-java/latest/developer-guide/examples-dynamodb-items.md") for details.
+This migration guide will help you transition your existing DAX Node.js
+applications. The new SDK requires Node.js 18 or higher and introduces several
+important changes in how you'll structure your DynamoDB Accelerator code. This
+guide will walk you through the key differences, including syntax changes, new
+import methods, and updated asynchronous programming patterns.
 
-###### Note
-
-This example uses AWS SDK for Java 2.x. For the legacy SDK for Java 1.x version, see [Modifying an existing SDK for Java 1.x application to use DAX](DAX.client.modify-your-app.md "DAX.client.modify-your-app.md").
-
-To modify your program, replace the DynamoDB client with a DAX client.
+## V2 Node.js DAX usage
 
 ```
-Region region = Region.US_EAST_1;
+const AmazonDaxClient = require('amazon-dax-client');
+const AWS = require('aws-sdk');
 
-// Create an asynchronous DynamoDB client
-DynamoDbAsyncClient client = DynamoDbAsyncClient.builder()
-                .region(region)
-                .build();
+var region = "us-west-2";
 
-// Create an asynchronous DAX client
-DynamoDbAsyncClient client = ClusterDaxAsyncClient.builder()
-                .overrideConfiguration(Configuration.builder()
-                    .url(`<cluster url>`) // for example, "dax://my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com"
-                    .region(region)
-                    .addMetricPublisher(cloudWatchMetricsPub) // optionally enable SDK metric collection
-                    .build())
-                .build();
+AWS.config.update({
+  region: region,
+});
+
+var client = new AWS.DynamoDB.DocumentClient();
+
+if (process.argv.length > 2) {
+  var dax = new AmazonDaxClient({
+    endpoints: [process.argv[2]],
+    region: region,
+  });
+  client = new AWS.DynamoDB.DocumentClient({ service: dax });
+}
+
+// Make Get Call using Dax
+var params = {
+    TableName: 'TryDaxTable',
+    pk: 1,
+    sk: 1
+}
+client.get(params, function (err, data) {
+    if (err) {
+        console.error(
+            "Unable to read item. Error JSON:",
+            JSON.stringify(err, null, 2)
+          );
+    } else {
+        console.log(data);
+    }
+});
 ```
 
-You can also use the high-level library that is part of the AWS SDK for Java 2.x, replacing
-the DynamoDB client with a DAX client.
+## V3 Node.js DAX usage
+
+For Using DAX Node.js V3 Node version 18 or above is the preferred
+version. To move to Node 18, use the following:
 
 ```
-Region region = Region.US_EAST_1;
-DynamoDbAsyncClient dax = ClusterDaxAsyncClient.builder()
-        .overrideConfiguration(Configuration.builder()
-            .url(`<cluster url>`) // for example, "dax://my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com"
-            .region(region)
-            .build())
-        .build();
+// Import AWS DAX V3
+import { DaxDocument } from '@amazon-dax-sdk/lib-dax';
 
-DynamoDbEnhancedAsyncClient enhancedClient = DynamoDbEnhancedAsyncClient.builder()
-        .dynamoDbClient(dax)
-        .build();
+// Import AWS SDK V3 DynamoDBDocument ~ DocumentClient in V2
+import { DynamoDBDocument } from '@aws-sdk/lib-dynamodb';
+import { DynamoDBClient } from '@aws-sdk/client-dyanmodb';
+
+// Create DynamoDBDocument
+var client = DynamoDBDocument.from(new DynamoDB({region: 'us-west-2'});
+
+// Override DynamoDBDocument Client with DaxDocument
+if (process.argv.length > 2) {
+  client = new DaxDocument({
+    endpoints: [process.argv[2]],
+    region: 'us-west-2',
+  });
+}
+
+var params = {
+    TableName: 'TryDaxTable',
+    pk: 1,
+    sk: 1
+}
+// Dax Shifted it's API Calls to await/promise
+try {
+  const results = await client.get(params);
+  console.log(results);
+} catch (err) {
+  console.error(err)
+}
 ```
-
-For more information, see [Mapping
-items in DynamoDB tables](../../../sdk-for-java/latest/developer-guide/examples-dynamodb-enhanced.md "../../../sdk-for-java/latest/developer-guide/examples-dynamodb-enhanced.md").

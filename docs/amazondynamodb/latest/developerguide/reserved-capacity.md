@@ -20,6 +20,17 @@ a three-year commitment. You can save up to 54% off standard rates for a one-yea
 term and 77% off standard rates for a three-year term. For more information about
 how and when you should purchase, see [Amazon DynamoDB Reserved Capacity](https://aws.amazon.com/dynamodb/reserved-capacity/ "https://aws.amazon.com/dynamodb/reserved-capacity/").
 
+###### Note
+
+You can purchase up to a combined 1,000,000 reserved capacity units for
+write capacity units (WCUs) and read capacity units (RCUs) using the AWS
+Management Console. If you want to purchase more than 1,000,000 provisioned
+capacity units in a single purchase, or have active reserved capacity and want
+to purchase additional reserved capacity that would result in more than
+1,000,000 active provisioned capacity units, follow the process mentioned in
+"How to purchase reserved capacity" section in [Amazon DynamoDB Reserved
+Capacity](https://aws.amazon.com/dynamodb/reserved-capacity/ "https://aws.amazon.com/dynamodb/reserved-capacity/").
+
 When you purchase DynamoDB reserved capacity, you pay a one-time partial upfront
 payment and receive a discounted hourly rate for the committed provisioned usage.
 You pay for the entire committed provisioned usage, regardless of actual usage, so

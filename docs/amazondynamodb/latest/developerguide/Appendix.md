@@ -1,7 +1,7 @@
-# AWS SDK for Go 1.x examples
+# AWS SDK for Node.js 2.x examples
 
-This section contains example code for DAX applications using Go 1.x.
+This section contains example code for DAX applications using AWS SDK for Node.js 2.x.
 
 ###### Topics
 
-- [DAX SDK for Go](DAX.client.md "DAX.client.md")
+- [Node.js and DAX](DAX.client.md "DAX.client.md")
