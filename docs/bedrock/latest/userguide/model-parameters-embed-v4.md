@@ -29,7 +29,7 @@ Content type: application/json
   "inputs": [
     { "content": [
         { "type": "text",      "text": "..." },
-        { "type": "image_url", "image_url": "data:<mime>;base64,..." }
+        { "type": "image_url", "image_url": {"url": "data:<mime>;base64,..."} }
       ]
     }
   ],                                     // optional; mixed (interleaved) text+image
@@ -47,7 +47,7 @@ Content type: application/json
 - **texts** (optional) – Array of strings to embed. Max 96 per call. If you use `texts`, don't send `images` in the same call.
 - **images** (optional) – Array of data-URI base64 images to embed. Max 96 per call. Don't send `texts` and `images` together. (Use `inputs` for interleaved.)
 - **inputs** (optional; mixed/fused modality) – A list where each item has a content list of parts.
-  Each part is `{ "type": "text", "text": ... }` or `{ "type": "image_url", "image_url": "data:<mime>;base64,..." }`. Send interleaved page-like content here (e.g., PDF page image + caption/metadata). Max 96 items.
+  Each part is `{ "type": "text", "text": ... }` or `{ "type": "image_url", "image_url": {"url": "data:<mime>;base64,..."} }`. Send interleaved page-like content here (e.g., PDF page image + caption/metadata). Max 96 items.
 - **embedding_types** (optional) – One or more of: `float`, `int8`, `uint8`, `binary`, `ubinary`. If omitted, returns float embeddings.
 - **output_dimension** (optional) – Select vector length. Allowed: `256`, `512`, `1024`, `1536` (default `1536` if unspecified).
 - **max_tokens** (optional) – Truncation budget per input object. The model supports up to ~128,000 tokens; chunk smaller for RAG as appropriate.
@@ -112,7 +112,7 @@ If you requested multiple embedding types (e.g., `["float","int8"]`):
     {
       "content": [
         { "type": "text", "text": "Quarterly ARR growth chart; outlier in Q3." },
-        { "type": "image_url", "image_url": "data:image/png;base64,{{BASE64_PAGE_IMG}}" }
+        { "type": "image_url", "image_url": {"url": "data:image/png;base64,{{BASE64_PAGE_IMG}}"} }
       ]
     }
   ],
@@ -133,7 +133,7 @@ If you requested multiple embedding types (e.g., `["float","int8"]`):
   "inputs": [
     { "content": [
       { "type": "text", "text": "Quarterly ARR growth chart; outlier in Q3." },
-      { "type": "image_url", "image_url": "data:image/png;base64,{{...}}" }
+      { "type": "image_url", "image_url": {"url": "data:image/png;base64,{{...}}"} }
     ] }
   ]
 }
@@ -351,7 +351,7 @@ def main():
                 {
                   "content": [
                     { "type": "text", "text": text },
-                    { "type": "image_url", "image_url": "data:image/png;base64,{{image_base64_uri}}" }
+                    { "type": "image_url", "image_url": {"url": "data:image/png;base64,{{image_base64_uri}}"} }
                   ]
                 }
               ],

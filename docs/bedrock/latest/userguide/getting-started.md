@@ -25,14 +25,14 @@ pip install boto3
 Responses/Chat Completions API
 
 ```
-OPENAI_API_KEY="<provide your long term key>"
+OPENAI_API_KEY="<provide your Bedrock API key>"
 OPENAI_BASE_URL="https://bedrock-mantle.<your-region>.api.aws/v1"
 ```
 
 Invoke/Converse API
 
 ```
-AWS_BEARER_TOKEN_BEDROCK="<provide your long term key>"
+AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 ```
 
 **Step 5 - Run your first inference request:** Amazon Bedrock supports [100+ foundation models](models.md "models.md"). Choose a model, and then use the following Python code to run your first inference request. Save the file as `bedrock-first-request.py`

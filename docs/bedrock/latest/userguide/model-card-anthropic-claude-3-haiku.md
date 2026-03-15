@@ -1,0 +1,161 @@
+# Claude 3 Haiku
+
+## Anthropic — Claude 3 Haiku
+
+## Model Details
+
+Claude 3 Haiku is Anthropic's fastest and most compact Claude 3 model, optimized for speed and efficiency in near-instant responses. For more information about model development and performance, see the [model/service card](https://www-cdn.anthropic.com/de8ba9b01c9ab7cbabf5c33b80b7bbc618857627/Model_Card_Claude_3.pdf "https://www-cdn.anthropic.com/de8ba9b01c9ab7cbabf5c33b80b7bbc618857627/Model_Card_Claude_3.pdf").
+
+- **Model launch date:** Mar 13, 2024
+- **Model EOL date:** No sooner than 3/14/2025
+- **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
+- **Model lifecycle:** Active
+- **Context window:** 200K tokens
+- **Max output tokens:** 4K
+- **Knowledge cutoff:** Aug 2023
+
+| **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
+| -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |
+| No Audio             | No Embedding          | No `Responses`                          | Yes `bedrock-runtime`                                  |
+| Yes Image            | No Image              | No `Chat Completions`                   | No `bedrock-mantle`                                    |
+| No Speech            | No Speech             | Yes `Invoke`                            |                                                        |
+| Yes Text             | Yes Text              | Yes `Converse`                          |                                                        |
+| No Video             | No Video              |                                         |                                                        |
+
+## Pricing
+
+For pricing, please refer to the [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/") page.
+
+## Programmatic Access
+
+Use the following model IDs and endpoint URLs to access this model programmatically. For more information about the available APIs and endpoints, see [APIs supported](apis.md "apis.md") and [Endpoints supported](endpoints.md "endpoints.md").
+
+| **Endpoint**      | **Model ID**                             | **In-Region endpoint URL**                       | **Geo inference ID**                                                                   | **Global inference ID** |
+| ----------------- | ---------------------------------------- | ------------------------------------------------ | -------------------------------------------------------------------------------------- | ----------------------- |
+| `bedrock-runtime` | `anthropic.claude-3-haiku-20240307-v1:0` | `https://bedrock-runtime.{region}.amazonaws.com` | `us.anthropic.claude-3-haiku-20240307-v1:0``eu.anthropic.claude-3-haiku-20240307-v1:0` | Not supported           |
+
+_For example, if region is us-east-1 (N. Virginia), then the bedrock-runtime endpoint URL will be "https://bedrock-runtime.us-east-1.amazonaws.com" and for bedrock-mantle will be "https://bedrock-mantle.us-east-1.api.aws/v1"._
+
+## Service Tiers
+
+Amazon Bedrock offers multiple service tiers to match your workload requirements. **Standard** provides pay-per-token access with no commitment. **Priority** offers higher throughput with a time-based commitment. **Flex** provides lower-cost access for flexible, non-time-sensitive workloads. **Reserved** provides dedicated throughput with a term commitment for predictable workloads. For more information, see [service tiers](service-tiers-inference.md "service-tiers-inference.md").
+
+| **Standard** | **Priority** | **Flex** | **Reserved** |
+| ------------ | ------------ | -------- | ------------ |
+| Yes          | No           | No       | No           |
+
+## Regional Availability
+
+**Regional availability at a glance**
+
+Bedrock offers three inference options: **In-Region** keeps requests within a single Region for strict compliance, **Geo Cross-Region** routes across Regions within a geography (US, EU, etc.) for higher throughput while respecting data residency, and **Global Cross-Region** routes anywhere worldwide for maximum throughput when there are no residency constraints. Refer to the [Regional availability](models-region-compatibility.md "models-region-compatibility.md") page for more details.
+
+| **Region**                   | **In-Region** | **Geo** | **Global** |
+| ---------------------------- | ------------- | ------- | ---------- |
+| `us-east-1` (N. Virginia)    | Yes           | Yes     | No         |
+| `us-east-2` (Ohio)           | No            | Yes     | No         |
+| `us-west-2` (Oregon)         | Yes           | Yes     | No         |
+| `us-gov-west-1` (GovCloud)   | Yes           | No      | No         |
+| `ca-central-1` (Canada)      | Yes           | No      | No         |
+| `eu-central-1` (Frankfurt)   | Yes           | Yes     | No         |
+| `eu-central-2` (Zurich)      | Yes           | No      | No         |
+| `eu-west-1` (Ireland)        | Yes           | Yes     | No         |
+| `eu-west-2` (London)         | Yes           | No      | No         |
+| `eu-west-3` (Paris)          | Yes           | Yes     | No         |
+| `ap-northeast-1` (Tokyo)     | Yes           | No      | No         |
+| `ap-northeast-2` (Seoul)     | Yes           | No      | No         |
+| `ap-south-1` (Mumbai)        | Yes           | No      | No         |
+| `ap-southeast-1` (Singapore) | Yes           | No      | No         |
+| `ap-southeast-2` (Sydney)    | Yes           | No      | No         |
+| `sa-east-1` (São Paulo)      | Yes           | No      | No         |
+
+**Geo inference details**
+
+**Geo: US**
+
+Geo Inference ID: `us.anthropic.claude-3-haiku-20240307-v1:0`
+
+| **Source Region**       | **Destination Regions**                                       |
+| ----------------------- | ------------------------------------------------------------- |
+| us-east-1 (N. Virginia) | us-east-1 (N. Virginia), us-west-2 (Oregon)                   |
+| us-east-2 (Ohio)        | us-east-1 (N. Virginia), us-east-2 (Ohio), us-west-2 (Oregon) |
+| us-west-2 (Oregon)      | us-east-1 (N. Virginia), us-west-2 (Oregon)                   |
+
+**Geo: EU**
+
+Geo Inference ID: `eu.anthropic.claude-3-haiku-20240307-v1:0`
+
+| **Source Region**        | **Destination Regions**                                          |
+| ------------------------ | ---------------------------------------------------------------- |
+| eu-central-1 (Frankfurt) | eu-central-1 (Frankfurt), eu-west-1 (Ireland), eu-west-3 (Paris) |
+| eu-west-1 (Ireland)      | eu-central-1 (Frankfurt), eu-west-1 (Ireland), eu-west-3 (Paris) |
+| eu-west-3 (Paris)        | eu-central-1 (Frankfurt), eu-west-1 (Ireland), eu-west-3 (Paris) |
+
+## Quotas and Limits
+
+Your AWS account has default quotas to maintain the performance of the service and to ensure appropriate usage of Amazon Bedrock. The default quotas assigned to an account might be updated depending on regional factors, payment history, fraudulent usage, and/or approval of a quota [increase request](quotas-increase.md "quotas-increase.md"). For more details, please refer to [Quotas](quotas.md "quotas.md") documentation.
+
+| **Quota**                        | **Default value** |
+| -------------------------------- | ----------------- |
+| On-demand requests per minute    | 1,000             |
+| On-demand tokens per minute      | 2,000,000         |
+| Cross-region requests per minute | 2,000             |
+| Cross-region tokens per minute   | 4,000,000         |
+| Max tokens per day               | 2,880,000,000     |
+
+_These are default quotas shown for us-east-1. To see quotas and limits for your account, please log in to your [AWS Console](https://aws.amazon.com/console/ "https://aws.amazon.com/console/")._
+
+## Sample Code
+
+**Step 1 - AWS Account:** If you have an AWS account already, skip this step. If you are new to AWS, sign up for an [AWS account](https://portal.aws.amazon.com/billing/signup "https://portal.aws.amazon.com/billing/signup").
+
+**Step 2 - API key:** Go to the [Amazon Bedrock console](https://console.aws.amazon.com/bedrock/home#/api-keys/long-term/create "https://console.aws.amazon.com/bedrock/home#/api-keys/long-term/create") and generate a long-term API key.
+
+**Step 3 - Get the SDK:** To use this getting started guide, you must have Python already installed. Then install the relevant software depending on the APIs you are using.
+
+```
+pip install boto3
+```
+
+**Step 4 - Set environment variables:** Configure your environment to use the API key for authentication.
+
+```
+AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
+```
+
+**Step 5 - Run your first inference request:** Save the file as `bedrock-first-request.py`
+
+Invoke API
+
+```
+import json
+import boto3
+
+client = boto3.client('bedrock-runtime', region_name='us-east-1')
+response = client.invoke_model(
+    modelId='anthropic.claude-3-haiku-20240307-v1:0',
+    body=json.dumps({
+            'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
+            'max_tokens': 1024
+    })
+ )
+ print(json.loads(response['body'].read()))
+```
+
+Converse API
+
+```
+import boto3
+
+client = boto3.client('bedrock-runtime', region_name='us-east-1')
+response = client.converse(
+    modelId='anthropic.claude-3-haiku-20240307-v1:0',
+    messages=[
+        {
+            'role': 'user',
+            'content': [{'text': 'Can you explain the features of Amazon Bedrock?'}]
+        }
+    ]
+)
+print(response)
+```

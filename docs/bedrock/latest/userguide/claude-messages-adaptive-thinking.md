@@ -4,9 +4,10 @@ Adaptive thinking is the recommended way to use [Extended thinking](claude-messa
 
 The supported models are as follows:
 
-| Model           | Model ID                       |
-| --------------- | ------------------------------ |
-| Claude Opus 4.6 | `anthropic.claude-opus-4-6-v1` |
+| Model             | Model ID                       |
+| ----------------- | ------------------------------ |
+| Claude Opus 4.6   | `anthropic.claude-opus-4-6-v1` |
+| Claude Sonnet 4.6 | `anthropic.claude-sonnet-4-6`  |
 
 ###### Note
 

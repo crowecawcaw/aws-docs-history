@@ -133,8 +133,30 @@ The following code shows the contents of the `input.json` file.
 }
 ```
 
-2. To create a knowledge base, send a [`CreateKnowledgeBase`](../APIReference/API_agent_CreateKnowledgeBase.md "../APIReference/API_agent_CreateKnowledgeBase.md") request with an Agents for [Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt"). The following shows an example
-   CLI command.
+For the `modelArn` used to build the graph from your documents, you
+can use Claude 3 Haiku (as shown in the preceding example), Claude Haiku 4.5, and the
+Amazon Nova family (including Nova 2 and Nova models with text input modality). To see
+the foundation models available in your Region, see [Supported foundation models
+in Amazon Bedrock](models-supported.md "models-supported.md").
+
+###### Note
+
+Some models are supported only through cross-Region inference profiles. When
+you invoke a cross-Region inference profile in Amazon Bedrock, your request and data to
+be ingested originates from a source Region and is automatically routed to one
+of the destination Regions defined in that profile, optimizing for performance.
+The destination Regions for Global cross-Region inference profiles include all
+commercial Regions. For example, you might specify the `modelArn` for a us-based cross-Region call from the us-west-2 Region using the
+format `arn:aws:bedrock:us-west-2:`account-id`:inference-profile/us.anthropic.claude-haiku-4-5-20251001-v1:0`.
+
+To see the policy requirements for your role to use inference profiles, see
+[Prerequisites
+for cross-Region inference profiles](inference-profiles-prereq.md "inference-profiles-prereq.md"). For guidance on how to use
+inference profiles to select source and destination Regions, see [Supported
+Regions and models for inference profiles](inference-profiles-support.md "inference-profiles-support.md"). Your data is stored only
+in your source Region corresponding to the Amazon Bedrock knowledge base and Amazon Neptune
+Analytics instance. The destination Region is used for inference only. 2. To create a knowledge base, send a [`CreateKnowledgeBase`](../APIReference/API_agent_CreateKnowledgeBase.md "../APIReference/API_agent_CreateKnowledgeBase.md") request with an Agents for [Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt"). The following shows an example
+CLI command.
 
 ```
 aws bi create-knowledge-base \

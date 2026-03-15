@@ -1,0 +1,84 @@
+# Nova Sonic
+
+## Amazon — Nova Sonic
+
+## Model Details
+
+Nova Sonic is Amazon's speech-to-speech model that enables natural, real-time voice conversations with low latency and support for multiple languages. For more information about model development and performance, see the [model/service card](../../../ai/responsible-ai/nova-micro-lite-pro/overview.md "../../../ai/responsible-ai/nova-micro-lite-pro/overview.md").
+
+- **Model launch date:** Mar 2025
+- **Model EOL date:** N/A
+- **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
+- **Model lifecycle:** Active
+
+| **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")**  | **[Endpoints supported](endpoints.md "endpoints.md")** |
+| -------------------- | --------------------- | ---------------------------------------- | ------------------------------------------------------ |
+| No Audio             | No Embedding          | No `Responses`                           | Yes `bedrock-runtime`                                  |
+| No Image             | No Image              | No `Chat Completions`                    | No `bedrock-mantle`                                    |
+| Yes Speech           | Yes Speech            | Yes `Invoke`                             |                                                        |
+| No Text              | Yes Text              | No `Converse`                            |                                                        |
+| No Video             | No Video              | Yes `InvokeModelWithBidirectionalStream` |                                                        |
+
+## Pricing
+
+For pricing, please refer to the [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/") page.
+
+## Programmatic Access
+
+Use the following model IDs and endpoint URLs to access this model programmatically. For more information about the available APIs and endpoints, see [APIs supported](apis.md "apis.md") and [Endpoints supported](endpoints.md "endpoints.md").
+
+| **Endpoint**      | **Model ID**             | **In-Region endpoint URL**                       | **Geo inference ID** | **Global inference ID** |
+| ----------------- | ------------------------ | ------------------------------------------------ | -------------------- | ----------------------- |
+| `bedrock-runtime` | `amazon.nova-sonic-v1:0` | `https://bedrock-runtime.{region}.amazonaws.com` | Not supported        | Not supported           |
+
+_For example, if region is us-east-1 (N. Virginia), then the bedrock-runtime endpoint URL will be "https://bedrock-runtime.us-east-1.amazonaws.com" and for bedrock-mantle will be "https://bedrock-mantle.us-east-1.api.aws/v1"._
+
+## Service Tiers
+
+Amazon Bedrock offers multiple service tiers to match your workload requirements. **Standard** provides pay-per-token access with no commitment. **Priority** offers higher throughput with a time-based commitment. **Flex** provides lower-cost access for flexible, non-time-sensitive workloads. **Reserved** provides dedicated throughput with a term commitment for predictable workloads. For more information, see [service tiers](service-tiers-inference.md "service-tiers-inference.md").
+
+| **Standard** | **Priority** | **Flex** | **Reserved** |
+| ------------ | ------------ | -------- | ------------ |
+| Yes          | No           | No       | No           |
+
+## Regional Availability
+
+**Regional availability at a glance**
+
+Bedrock offers three inference options: **In-Region** keeps requests within a single Region for strict compliance, **Geo Cross-Region** routes across Regions within a geography (US, EU, etc.) for higher throughput while respecting data residency, and **Global Cross-Region** routes anywhere worldwide for maximum throughput when there are no residency constraints. Refer to the [Regional availability](models-region-compatibility.md "models-region-compatibility.md") page for more details.
+
+| **Region**                | **In-Region** | **Geo** | **Global** |
+| ------------------------- | ------------- | ------- | ---------- |
+| `us-east-1` (N. Virginia) | Yes           | No      | No         |
+| `eu-north-1` (Stockholm)  | Yes           | No      | No         |
+| `ap-northeast-1` (Tokyo)  | Yes           | No      | No         |
+
+## Quotas and Limits
+
+Your AWS account has default quotas to maintain the performance of the service and to ensure appropriate usage of Amazon Bedrock. The default quotas assigned to an account might be updated depending on regional factors, payment history, fraudulent usage, and/or approval of a quota [increase request](quotas-increase.md "quotas-increase.md"). For more details, please refer to [Quotas](quotas.md "quotas.md") documentation.
+
+| **Quota**           | **Default value** |
+| ------------------- | ----------------- |
+| Concurrent requests | 20                |
+
+_These are default quotas shown for us-east-1. To see quotas and limits for your account, please log in to your [AWS Console](https://aws.amazon.com/console/ "https://aws.amazon.com/console/")._
+
+## Sample Code
+
+**Step 1 - AWS Account:** If you have an AWS account already, skip this step. If you are new to AWS, sign up for an [AWS account](https://portal.aws.amazon.com/billing/signup "https://portal.aws.amazon.com/billing/signup").
+
+**Step 2 - API key:** Go to the [Amazon Bedrock console](https://console.aws.amazon.com/bedrock/home#/api-keys/long-term/create "https://console.aws.amazon.com/bedrock/home#/api-keys/long-term/create") and generate a long-term API key.
+
+**Step 3 - Get the SDK:**
+
+```
+pip install boto3
+```
+
+**Step 4 - Set environment variables:**
+
+```
+AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
+```
+
+**Step 5 - Run your first inference request:** This model uses `InvokeModelWithBidirectionalStream`. See [API reference](../APIReference/API_runtime_InvokeModelWithBidirectionalStream.md "../APIReference/API_runtime_InvokeModelWithBidirectionalStream.md") for details.

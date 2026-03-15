@@ -74,9 +74,9 @@ print(response)
 
 Bedrock supports [100+ foundation models](models.md "models.md") from industry-leading providers, including Amazon, Anthropic, DeepSeek, Moonshot AI, MiniMax, and OpenAI.
 
-|                |                     |                  |               |                  |                 |
-| -------------- | ------------------- | ---------------- | ------------- | ---------------- | --------------- |
-| **Nova 2 Pro** | **Claude Opus 4.6** | **Deepseek 3.2** | **Kimi K2.5** | **MiniMax M2.1** | **GPT-OSS-20B** |
+|            |                     |                  |               |                  |                 |
+| ---------- | ------------------- | ---------------- | ------------- | ---------------- | --------------- |
+| **Nova 2** | **Claude Opus 4.6** | **Deepseek 3.2** | **Kimi K2.5** | **MiniMax M2.1** | **GPT-OSS-20B** |
 
 ## What's new?
 
