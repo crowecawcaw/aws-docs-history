@@ -162,7 +162,7 @@ To link your Jira project to your CodeCatalyst project, you must be the CodeCata
       and **Issues** in the CodeCatalyst navigation pane will be replaced with a
       **Jira issues** item that links to the Jira project.
 
-    ![CodeCatalyst issues replaced with linked Jira issues in navigation pane.](/images/codecatalyst/latest/userguide/images/integrations/jira-issues-nav.png)
+    ![CodeCatalyst issues replaced with linked Jira issues in navigation pane.](images/integrations/jira-issues-nav.png)
 
     If you no longer want to use a Jira project in CodeCatalyst, you can unlink it from your CodeCatalyst
     project. When a Jira project is unlinked, Jira issues will not be available in the CodeCatalyst
