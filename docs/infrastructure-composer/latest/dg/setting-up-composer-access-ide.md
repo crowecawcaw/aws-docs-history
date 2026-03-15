@@ -16,5 +16,5 @@ You can access Infrastructure Composer in any of the following ways:
 3. From the VS Code Command Palette.
    The following is an example of accessing Infrastructure Composer from the Infrastructure Composer button:
 
-![Infrastructure Composer being accessed through the AWS Toolkit for Visual Studio Code.](images/aac_intro_07.gif)
+![Infrastructure Composer being accessed through the AWS Toolkit for Visual Studio Code.](/images/infrastructure-composer/latest/dg/images/aac_intro_07.gif)
 For more information on accessing Infrastructure Composer, see [Accessing AWS Infrastructure Composer from the Toolkit](../../../toolkit-for-vscode/latest/userguide/appcomposer-overview.md#appcomposer-overview-access "../../../toolkit-for-vscode/latest/userguide/appcomposer-overview.md#appcomposer-overview-access").
