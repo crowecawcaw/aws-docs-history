@@ -72,7 +72,7 @@ AWS DevOps Agent will monitor these projects for deployments from GitLab Pipelin
 
 ### Associating AWS resources with project deployments
 
-See [Associating AWS resources with project deployments](configuring-capabilities-for-aws-devops-agent-connecting-to-cicd-pipelines-associating-aws-resources-with-project-deployments.md "configuring-capabilities-for-aws-devops-agent-connecting-to-cicd-pipelines-associating-aws-resources-with-project-deployments.md") to associate deployments with AWS resources. This helps incident investigations correlate recent deployments with possible root causes.
+See [Associating AWS resources with project deployments](connecting-to-cicd-pipelines-associating-aws-resources-with-project-deployments.md "connecting-to-cicd-pipelines-associating-aws-resources-with-project-deployments.md") to associate deployments with AWS resources. This helps incident investigations correlate recent deployments with possible root causes.
 
 ## Managing GitLab connections
 

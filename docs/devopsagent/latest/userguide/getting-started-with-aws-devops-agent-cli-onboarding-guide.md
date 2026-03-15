@@ -538,7 +538,7 @@ aws devopsagent associate-service \
 
 ```
 
-The response will include webhook information for integration, you can trigger an investigation from Dynatrace using this webhook. For details see, [Connecting Dynatrace](configuring-capabilities-for-aws-devops-agent-connecting-telemetry-sources-connecting-dynatrace.md "configuring-capabilities-for-aws-devops-agent-connecting-telemetry-sources-connecting-dynatrace.md")
+The response will include webhook information for integration, you can trigger an investigation from Dynatrace using this webhook. For details see, [Connecting Dynatrace](connecting-telemetry-sources-connecting-dynatrace.md "connecting-telemetry-sources-connecting-dynatrace.md")
 
 ### 7. (Optional) Register and Associate Splunk
 
@@ -583,7 +583,7 @@ aws devopsagent associate-service \
   --region us-east-1
 ```
 
-The response will include webhook information for integration, you can trigger an investigation from Splunk using this webhook. For details see, [Connecting Splunk](configuring-capabilities-for-aws-devops-agent-connecting-telemetry-sources-connecting-splunk.md "configuring-capabilities-for-aws-devops-agent-connecting-telemetry-sources-connecting-splunk.md")
+The response will include webhook information for integration, you can trigger an investigation from Splunk using this webhook. For details see, [Connecting Splunk](connecting-telemetry-sources-connecting-splunk.md "connecting-telemetry-sources-connecting-splunk.md")
 
 ### 8. (Optional) Register and Associate New relic
 
@@ -630,11 +630,11 @@ aws devopsagent associate-service \
   --region us-east-1
 ```
 
-The response will include webhook information for integration, you can trigger an investigation from New relic using this webhook. For details see, [Connecting New Relic](configuring-capabilities-for-aws-devops-agent-connecting-telemetry-sources-connecting-new-relic.md "configuring-capabilities-for-aws-devops-agent-connecting-telemetry-sources-connecting-new-relic.md")
+The response will include webhook information for integration, you can trigger an investigation from New relic using this webhook. For details see, [Connecting New Relic](connecting-telemetry-sources-connecting-new-relic.md "connecting-telemetry-sources-connecting-new-relic.md")
 
 ### 9. (Optional) Register and Associate Datadog
 
-Datadog must first be registered through the AWS DevOps Agent Console UI via OAuth flow before it can be associated via CLI. For details, see [Connecting DataDog](configuring-capabilities-for-aws-devops-agent-connecting-telemetry-sources-connecting-datadog.md "configuring-capabilities-for-aws-devops-agent-connecting-telemetry-sources-connecting-datadog.md")
+Datadog must first be registered through the AWS DevOps Agent Console UI via OAuth flow before it can be associated via CLI. For details, see [Connecting DataDog](connecting-telemetry-sources-connecting-datadog.md "connecting-telemetry-sources-connecting-datadog.md")
 
 List registered services
 
@@ -662,7 +662,7 @@ aws devopsagent associate-service \
   --region us-east-1
 ```
 
-The response will include webhook information for integration, you can trigger an investigation from Datadog using this webhook. For details see, [Connecting DataDog](configuring-capabilities-for-aws-devops-agent-connecting-telemetry-sources-connecting-datadog.md "configuring-capabilities-for-aws-devops-agent-connecting-telemetry-sources-connecting-datadog.md")
+The response will include webhook information for integration, you can trigger an investigation from Datadog using this webhook. For details see, [Connecting DataDog](connecting-telemetry-sources-connecting-datadog.md "connecting-telemetry-sources-connecting-datadog.md")
 
 ### 10. (Optional) Deleting an agent space
 

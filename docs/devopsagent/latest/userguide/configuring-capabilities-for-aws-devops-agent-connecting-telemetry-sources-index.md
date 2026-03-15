@@ -13,7 +13,7 @@ Currently, AWS DevOps Agent supports Dynatrace users with a built-in, 2-way inte
 
 To learn about 2-way integrations, see
 
-- [Connecting Dynatrace](configuring-capabilities-for-aws-devops-agent-connecting-telemetry-sources-connecting-dynatrace.md "configuring-capabilities-for-aws-devops-agent-connecting-telemetry-sources-connecting-dynatrace.md")
+- [Connecting Dynatrace](connecting-telemetry-sources-connecting-dynatrace.md "connecting-telemetry-sources-connecting-dynatrace.md")
 
 ## Built-in, 1-way integration
 
@@ -33,9 +33,9 @@ The Datadog, New Relic, and Splunk built-in, 1 way integrations require setup an
 
 To learn about 1-way integrations, see the following:
 
-- [Connecting DataDog](configuring-capabilities-for-aws-devops-agent-connecting-telemetry-sources-connecting-datadog.md "configuring-capabilities-for-aws-devops-agent-connecting-telemetry-sources-connecting-datadog.md")
-- [Connecting New Relic](configuring-capabilities-for-aws-devops-agent-connecting-telemetry-sources-connecting-new-relic.md "configuring-capabilities-for-aws-devops-agent-connecting-telemetry-sources-connecting-new-relic.md")
-- [Connecting Splunk](configuring-capabilities-for-aws-devops-agent-connecting-telemetry-sources-connecting-splunk.md "configuring-capabilities-for-aws-devops-agent-connecting-telemetry-sources-connecting-splunk.md")
+- [Connecting DataDog](connecting-telemetry-sources-connecting-datadog.md "connecting-telemetry-sources-connecting-datadog.md")
+- [Connecting New Relic](connecting-telemetry-sources-connecting-new-relic.md "connecting-telemetry-sources-connecting-new-relic.md")
+- [Connecting Splunk](connecting-telemetry-sources-connecting-splunk.md "connecting-telemetry-sources-connecting-splunk.md")
 
 ## Bring-your-own telemetry sources
 

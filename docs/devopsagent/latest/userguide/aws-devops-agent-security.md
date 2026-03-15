@@ -81,7 +81,7 @@ All AWS DevOps Agent API calls are automatically captured by AWS CloudTrail with
 
 ## Prompt injection protection
 
-A prompt injection attack occurs when an attacker embeds malicious instructions into external data, such as a webpage or document, that a generative AI system will later process. AWS DevOps Agent natively consumes many data sources as part of its normal operations, including logs, resource tags, and other operational data. AWS DevOps Agent protects against prompt injection attacks through the safeguards below, but it is important to ensure all connected data sources and user access to those data sources are trusted. See [AWS DevOps Agent Security](aws-devops-agent-security.md "aws-devops-agent-security.md") section for more.
+A prompt injection attack occurs when an attacker embeds malicious instructions into external data, such as a webpage or document, that a generative AI system will later process. AWS DevOps Agent natively consumes many data sources as part of its normal operations, including logs, resource tags, and other operational data. AWS DevOps Agent protects against prompt injection attacks through the safeguards below, but it is important to ensure all connected data sources and user access to those data sources are trusted. See [Shared responsibility model](aws-devops-agent-security.md "aws-devops-agent-security.md") section for more.
 
 Prompt injection safeguards:
 
@@ -92,7 +92,7 @@ Prompt injection safeguards:
 
 While AWS DevOps Agent provides multiple layers of protection against prompt injection attacks, certain configurations can increase risk:
 
-- **Custom MCP server tools** – The bring-your-own MCP feature allows you to introduce custom tools to the agent, which can present additional opportunities for prompt injection. Custom tools may not have the same security controls as native AWS DevOps Agent tools, and malicious instructions could potentially leverage these tools in unintended ways. See [AWS DevOps Agent Security](aws-devops-agent-security.md "aws-devops-agent-security.md") section for more.
+- **Custom MCP server tools** – The bring-your-own MCP feature allows you to introduce custom tools to the agent, which can present additional opportunities for prompt injection. Custom tools may not have the same security controls as native AWS DevOps Agent tools, and malicious instructions could potentially leverage these tools in unintended ways. See [Shared responsibility model](aws-devops-agent-security.md "aws-devops-agent-security.md") section for more.
 - **Authorized user attacks** – Users who are authorized to operate within the AWS account boundary or connected tools have a higher chance of attempting an attack against the agent. These users may have the ability to modify data sources that the agent consumes, such as logs or resource tags, making it easier to embed malicious instructions that the agent will process.
 
 To mitigate these risks:

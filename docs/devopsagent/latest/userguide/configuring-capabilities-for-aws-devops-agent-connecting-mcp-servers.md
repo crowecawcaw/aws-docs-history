@@ -14,11 +14,11 @@ Before connecting an MCP server, ensure your server meets these requirements:
 
 When connecting MCP servers to AWS DevOps Agent, consider these security aspects:
 
-- **Tool allowlisting –** You should allowlist only the specific tools your Agent Space needs, rather than exposing all tools from your MCP server. See [Connecting MCP Servers](configuring-capabilities-for-aws-devops-agent-connecting-mcp-servers.md "configuring-capabilities-for-aws-devops-agent-connecting-mcp-servers.md") for how to allow list tools per Agent Space.
+- **Tool allowlisting –** You should allowlist only the specific tools your Agent Space needs, rather than exposing all tools from your MCP server. See [Configuring MCP tools in an Agent Space](configuring-capabilities-for-aws-devops-agent-connecting-mcp-servers.md "configuring-capabilities-for-aws-devops-agent-connecting-mcp-servers.md") for how to allow list tools per Agent Space.
 
 Please note that the maximum tool length of any MCP tool is 64.
 
-- **Prompt injection risks** – Custom MCP servers can introduce additional risk of prompt injection attacks. See [AWS DevOps Agent Security](aws-devops-agent-security.md "aws-devops-agent-security.md") for more information.
+- **Prompt injection risks** – Custom MCP servers can introduce additional risk of prompt injection attacks. See [Prompt injection protection: AWS DevOps Agent Security](aws-devops-agent-security.md "aws-devops-agent-security.md") for more information.
 - **Read-only tools and access –** Only allowlist read-only MCP tools and ensure that authentication credentials are only permitted read-only access.
 
 See [AWS DevOps Agent Security](aws-devops-agent-security.md "aws-devops-agent-security.md") for more information on prompt injection and the shared responsibility model.
