@@ -72,14 +72,16 @@ Cluster versions in this patch:
 - Amazon Redshift federated permissions supports querying external tables through Late Binding Views (LBVs).
 - ALTER EXTERNAL SCHEMA can now be used with the KINESIS external schema type to change the IAM_ROLE and REGION of an existing external schema.
 - Added restore support for NO-BACKUP tables on Redshift RA3 and Serverless data warehouses. Since these instance types do not support the NO-BACKUP feature, tables marked as NO-BACKUP are always included in snapshots and are now properly restored as permanent tables
-- Vacuum operations may now be blocked on rows needed for materialized view (MV) refresh to reduce unnecessary MV recomputations. Added a new configuration option (force_complete_vacuum_delete) to force vacuum, allowing users to bypass vacuum blocking by first marking dependent MVs for recompute and then performing the vacuum, providing a safe escape hatch while ensuring MV data consistency.
 - Amazon Redshift now supports writing to external tables when connected using IAM roles or IAM users. Previously, only read operations on external tables were supported with IAM role-based authentication. With this update, Redshift correctly uses your IAM session credentials when writing data to Amazon S3 for external tables, enabling full read and write access.
 - For auto refreshing Kafka stream MVs, we now use a more efficient heuristic to determine if there are new records to ingest. This will reduce the amount of data transferred from the Kafka brokers for this check, and reduce the latency on starting the subsequent MV refresh.
 - Upgraded backup and restore operations to use FIPS-compliant SHA384 encryption, replacing legacy MD5 hashing
 - Enhanced performance for queries combining Lambda User-Defined Functions and UNNEST statements
 - Enhanced performance for queries using Lambda User-Defined Functions against system tables and views
 - Enhanced query execution performance when using ORDER BY and LIMIT clauses by eliminating unnecessary data scans
-- Auto REFRESH queries for Amazon Redshift materialized views are now treated as user queries instead of background autonomics processes. Auto REFRESH queries now run with the same priority as other user queries.
+- Auto REFRESH queries for Amazon Redshift materialized views (MVs) are now treated as user queries instead of background autonomics processes.
+  Auto REFRESH queries now run with the same priority as other user queries and are no longer deferred by autonomics background processes.
+  The MV Auto REFRESH behavior change feature is only enabled for Amazon Redshift Provisioned clusters on the CURRENT Track of patch release
+  P198 and newer. It is currently disabled on Serverless.
 - Fixed an issue where pg_last_query_id() incorrectly returned the rewritten query ID instead of the user query ID for Multi-AZ clusters
 - Fixes an issue where SHOW GRANTS would fail to process one-part object references.
 - Fixed an issue where DROP TABLE conflicted with the catalog rebuild worker's timestamp auto worker due to simultaneous updates on pg_class_extended, by skipping deletion during DROP TABLE and allowing the timestamp worker to clean up on its next run.
@@ -93,6 +95,8 @@ Cluster versions in this patch:
 
 Cluster versions in this patch:
 
+- 1.0.239402 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup
+  version – Released on March 12, 2026
 - 1.0.227967 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup
   version – Released on February 24, 2026
 - 1.0.224252 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup
@@ -120,12 +124,17 @@ Cluster versions in this patch:
 - Improves performance for queries that invoke Lambda User-Defined Functions (LUDFs) in the THEN clause of CASE expressions.
 - Creation of new Python User-Defined Functions is deprecated. Existing Python UDFs will be supported until June 30, 2026. Migrate to Lambda User-Defined Functions (LUDFs) for continued support.
 - Improves observability for Lambda User-Defined Functions (LUDFs) with a new system table, SYS_LUDF_DETAIL. This table records information and metrics for LUDFs used in queries.
-- Auto REFRESH queries for Amazon Redshift materialized views are now treated as user queries instead of background autonomics processes. Auto REFRESH queries now run with the same priority as other user queries and are no longer deferred by autonomics background processes.
+- Auto REFRESH queries for Amazon Redshift materialized views (MVs) are now treated as user queries instead of background autonomics processes.
+  Auto REFRESH queries now run with the same priority as other user queries and are no longer deferred by autonomics background processes.
+  The MV Auto REFRESH behavior change feature is only enabled for Amazon Redshift Provisioned clusters on the CURRENT Track of patch release
+  P198 and newer. It is currently disabled on Serverless.
 
 ## Amazon Redshift patch 197
 
 Cluster versions in this patch:
 
+- 1.0.237947 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup
+  version – Released on March 10, 2026
 - 1.0.198462 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup
   version – Released on January 21, 2026
 - 1.0.194394 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup
