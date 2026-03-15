@@ -228,7 +228,7 @@ Transport Layer Security (TLS) is enabled by default for any new Amazon Document
    Choose the cluster you created by clicking the **Cluster identifier** for that cluster.
 2. In the **Connectivity and security** tab, locate **Connect to this cluster with the mongo shell** in the **Connect** box:
 
-![Cluster connect settings with highlighted MongoDB connection string for connecting to an Amazon DocumentDB cluster using the mongo shell.](images/connect-mongosh.png)
+![Cluster connect settings with highlighted MongoDB connection string for connecting to an Amazon DocumentDB cluster using the mongo shell.](/images/documentdb/latest/developerguide/images/connect-mongosh.png)
 
 Copy the connection string provided and paste it into your terminal.
 

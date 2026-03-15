@@ -12,6 +12,10 @@ To determine the patch version your cluster is on, see [How to check if my exist
 
 For details about support timelines and release cycles for the LTS versions, see [Amazon DocumentDB engine version support dates](docdb-version-support-dates.md "docdb-version-support-dates.md"). Amazon DocumentDB will announce the next LTS version through standard communication channels.
 
+###### Note
+
+An LTS release for Amazon DocumentDB 8.0 has not yet been designated. If you require LTS, use engine version 5.0.0 with Patch Version 3.0.17983 or later.
+
 ## Who Should Use LTS
 
 Amazon DocumentDB LTS releases are designed for clusters with limited upgrade windows. LTS is ideal for production environments where database availability directly impacts business operations.

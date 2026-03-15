@@ -17,7 +17,7 @@ aws docdb describe-orderable-db-instance-options \
 
 ### Engine version availability
 
-DocumentDB serverless is supported by Amazon DocumentDB 5.0.0 engine version.
+DocumentDB serverless is supported by Amazon DocumentDB 5.0.0 engine version only. It is not available on engine versions 3.6, 4.0, or 8.0.
 
 ###### Note
 
@@ -39,15 +39,10 @@ In that case, your database might not perform as well as usual, or might encount
 The following features require configuration of a higher `MinCapacity` and/or `MaxCapacity` value for best operation:
 
 - Performance Insights
+- Global clusters (applies only to the primary AWS Region)
 - Serverless instance creation on a cluster with a large data volume
 
 This includes serverless instance creation as part of a cluster restore.
 
 For recommendations about setting the appropriate capacity range (if you are using this feature), see [Choosing the scaling capacity range for a DocumentDB serverless cluster](docdb-serverless-scaling-config.md#docdb-serverless-scaling-capacity-choosing "docdb-serverless-scaling-config.md#docdb-serverless-scaling-capacity-choosing").
 For troubleshooting information if your database encounters out-of-memory errors due to a misconfigured capacity range, see [Avoiding out-of-memory errors](docdb-serverless-scaling-config.md#docdb-serverless-scaling-mem-errors "docdb-serverless-scaling-config.md#docdb-serverless-scaling-mem-errors").
-
-## Feature limitations
-
-The following features from Amazon DocumentDB provisioned instances are not available for DocumentDB serverless instances:
-
-- Global clusters

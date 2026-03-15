@@ -3,6 +3,10 @@
 Amazon DocumentDB elastic clusters support workloads with millions of reads/writes per second and petabytes of storage capacity.
 Elastic clusters also simplify how developers interact with Amazon DocumentDB by eliminating the need to choose, manage or upgrade instances.
 
+###### Note
+
+Elastic clusters use a MongoDB 5.0-compatible wire protocol. They are not supported on Amazon DocumentDB engine version 8.0, and are not available in China regions or AWS GovCloud.
+
 Amazon DocumentDB elastic clusters were created to:
 
 - Provide a solution for customers looking for a database that provides virtually limitless scale with rich query capabilities and MongoDB API compatibility.

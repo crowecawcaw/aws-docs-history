@@ -28,7 +28,10 @@ Once your cluster has been upgraded, you cannot downgrade the cluster to previou
 ## MVU prerequisites and limitations
 
 The following are prerequisites and limitations to in-place major version upgrade that you may need to understand and act on before performing the upgrade:
-(Note: MVU is currently not supported for Amazon DocumentDB 8.0.)
+
+###### Important
+
+MVU is currently not supported for Amazon DocumentDB 8.0. To use engine version 8.0, create a new 8.0 cluster and migrate your data. MVU support for 8.0 is planned for a future release.
 
 - **Instance Type** — Amazon DocumentDB 4.0/5.0 does not support r4.\* instances.
   In order to proceed with an in-place major version upgrade, modify r4.\* instances to r5.\* instances.

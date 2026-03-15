@@ -84,6 +84,8 @@ DocumentDB serverless provides the following advantages to help with such use ca
 
 - **Faster and easier scaling during periods of high activity** — DocumentDB serverless scales compute and memory capacity as needed, with no disruption to client transactions or your overall workload.
   The ability to use reader instances with DocumentDB serverless helps you to take advantage of horizontal scaling in addition to vertical scaling.
+  The ability to use DocumentDB global clusters means that you can spread your DocumentDB serverless read workload across multiple AWS Regions.
+  This capability is more convenient than the scaling mechanisms for provisioned clusters.
 
 - **Cost-effective during periods of low activity** — DocumentDB serverless helps you to avoid overprovisioning your instances.
   DocumentDB serverless adds resources in granular increments when instances scale up.
@@ -100,3 +102,4 @@ In particular, with DocumentDB serverless you can take advantage of the followin
      When a cluster contains one or more reader instances, the cluster can fail over immediately in case of problems with the writer instance.
     + **Multi-AZ clusters** — You can distribute the DocumentDB serverless instances of a cluster across multiple Availability Zones (AZs).
      Setting up a Multi-AZ cluster helps to ensure business continuity even in the rare case of issues that affect an entire AZ.
+    + **Global clusters** — You can use DocumentDB serverless in combination with DocumentDB global clusters to create additional read-only copies of your cluster in other AWS Regions for disaster recovery purposes.

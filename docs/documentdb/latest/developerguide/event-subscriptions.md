@@ -1,66 +1,31 @@
-# Amazon DocumentDB event categories and messages
+# Subscribing to Amazon DocumentDB events
 
-Amazon DocumentDB generates a significant number of events in categories that you can subscribe to
-using the console. Each category applies to a source type, which can be an instance,
-cluster, snapshot, or parameter group.
+You can use the Amazon DocumentDB console to subscribe to event subscriptions, as follows:
 
-###### Note
+1. Sign in to the AWS Management Console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
+2. In the navigation pane, choose **Event subscriptions**.
 
-Amazon DocumentDB uses existing Amazon RDS event definitions and IDs.
+![Amazon DocumentDB console navigation pane with Event Subscriptions option highlighted.](images/event-subs/subscribe-event-subs.png) 3. In the **Event subscriptions** pane, choose **Create event subscription**.
 
-## Amazon DocumentDB events originating from instances
+![Event Subscriptions pane highlighting the Create event subscription button in the upper-right corner.](images/event-subs/subscribe-create.png) 4. In the **Create event subscription** dialog box, do the following:
 
-| Category             | Description                                                                                                                                                                                 |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| availability         | The instance restarted.                                                                                                                                                                     |
-| availability         | The instance shutdown.                                                                                                                                                                      |
-| configuration change | Applying modification to an instance class.                                                                                                                                                 |
-| configuration change | Finished applying modification to an instance class.                                                                                                                                        |
-| configuration change | Reset primary credentials.                                                                                                                                                                  |
-| creation             | Instance created.                                                                                                                                                                           |
-| deletion             | Instance deleted                                                                                                                                                                            |
-| failure              | The instance has failed due to an incompatible configuration or an underlying storage issue. Begin a point-in-time-restore for the instance.                                                |
-| notification         | Instance stopped.                                                                                                                                                                           |
-| notification         | Instance started.                                                                                                                                                                           |
-| notification         | Instance is being started due to it exceeding the maximum allowed time being stopped.                                                                                                       |
-| recovery             | Recovery of the instance has started. Recovery time will vary with the amount of data to be recovered.                                                                                      |
-| recovery             | Recovery of the instance is complete.                                                                                                                                                       |
-| security patching    | The operating system update is available for your instance. For information about applying updates, see [Maintaining Amazon DocumentDB](db-instance-maintain.md "db-instance-maintain.md"). |
+    * For **Name**, enter a name for the event notification subscription.
 
-## Amazon DocumentDB events originating from a cluster
 
-| Category     | Description                                                                              |
-| ------------ | ---------------------------------------------------------------------------------------- |
-| creation     | Cluster created                                                                          |
-| deletion     | Cluster deleted.                                                                         |
-| failover     | Promoting previous primary again.                                                        |
-| failover     | Completed failover to instance.                                                          |
-| failover     | Started failover to DB instance: %s                                                      |
-| failover     | Started same AZ failover to DB instance: %s                                              |
-| failover     | Started cross AZ failover to DB instance: %s                                             |
-| maintenance  | Cluster has been patched.                                                                |
-| maintenance  | Database cluster is in a state that cannot be upgraded: %s                               |
-| notification | The cluster stopped.                                                                     |
-| notification | The cluster started.                                                                     |
-| notification | The cluster stop failed.                                                                 |
-| notification | The cluster is being started due to it exceeding the maximum allowed time being stopped. |
-| notification | Renamed cluster from %s to %s.                                                           |
 
-## Amazon DocumentDB events originating from cluster snapshot
+    ![The Create event subscription form showing the Details section and the Name input field.](images/event-subs/subscribe-name.png)
+    * For **Target**, choose where you want to send notifications to. You can choose an existing **ARN** or choose **New Email Topic** to enter the name of a topic and a list of recipients.
 
-The following table shows the event category and a list of events when an Amazon DocumentDB cluster snapshot is the source type.
 
-| Category | Description                          |
-| -------- | ------------------------------------ |
-| backup   | Creating manual cluster snapshot.    |
-| backup   | Manual cluster snapshot created.     |
-| backup   | Creating automated cluster snapshot. |
-| backup   | Automated cluster snapshot created.  |
 
-## Amazon DocumentDB events originating from parameter group
+    ![The Target section with options to specify where to send notifications to.](images/event-subs/subscribe-target.png)
+    * For **Source**, choose a source type. Depending on the source type you selected, choose the event categories and the sources that you want to receive event notifications from.
 
-The following table shows the event category and a list of events when a parameter group is the source type.
 
-| Category             | Description                                     |
-| -------------------- | ----------------------------------------------- |
-| configuration change | Updated parameter %s to %s with apply method %s |
+
+    ![The Source section to select a source type to receive event notifications from.](images/event-subs/subscribe-source.png)
+    * Choose **Create**.
+
+
+
+    ![The Source section with the Create button in the lower-right corner.](images/event-subs/subscribe-create-2.png)

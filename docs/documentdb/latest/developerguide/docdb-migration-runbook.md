@@ -27,7 +27,7 @@ The runbook is organized into the following topics:
 When migrating from MongoDB to Amazon DocumentDB, a thorough initial assessment and feature compatibility check is essential for a successful migration.
 This process begins with a comprehensive inventory of your MongoDB features, including aggregation pipeline operators, query patterns, indexes, and data models.
 
-Since Amazon DocumentDB is compatible with MongoDB 3.6, 4.0, and 5.0 API's, applications using newer MongoDB-specific features may require refactoring.
+Since Amazon DocumentDB is compatible with MongoDB 3.6, 4.0, 5.0, and 8.0 API's, applications using newer MongoDB-specific features may require refactoring.
 Critical areas to evaluate include sharding mechanisms(Amazon DocumentDB uses a different approach), transaction implementations, change streams functionality, and index types (particularly sparse and partial indexes).
 
 Performance characteristics also differ, with Amazon DocumentDB optimized for enterprise workloads with predictable performance.
