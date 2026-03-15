@@ -1,215 +1,179 @@
-# Oracle Log Miner and MySQL logs
+# Oracle multitenant and MySQL databases
 
-With AWS DMS, you can capture data manipulation language (DML) operations for replication or auditing purposes using Oracle Log Miner and MySQL binary logs. Oracle Log Miner provides access to redo log files, enabling the reconstruction and analysis of database activity. MySQL binary logs record all statements that update data or potentially could have updated it.
+With AWS DMS, you can migrate Oracle multitenant databases and MySQL databases to Amazon Aurora.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                          |
-| -------------------------------- | ---------------------------------- | ------------------------- | -------------------------------------------------------- |
-| Three star feature compatibility | N/A                                | N/A                       | MySQL doesn’t support LogMiner, workaround is available. |
+| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                     |
+| -------------------------------- | ---------------------------------- | ------------------------- | ------------------------------------------------------------------- |
+| Three star feature compatibility | N/A                                | N/A                       | Distribute load, applications, and users across multiple instances. |
 
 ## Oracle usage
 
-Oracle Log Miner is a tool for querying the database Redo Logs and the Archived Redo Logs using an SQL interface. Using Log Miner, you can analyze the content of database transaction logs (online and archived redo logs) and gain historical insights on past database activity such as data modification by individual DML statements.
+Oracle 12c introduces a new multitenant architecture that provides the ability to create additional independent pluggable databases under a single Oracle instance. Prior to Oracle 12c, a single Oracle database instance only supported running a single Oracle database as shown in the following diagram.
+
+![A single Oracle database instance runs a single Oracle database](images/pb-oracle-multitenant.png)
+
+Oracle 12c introduces a new multitenant container database (CDB) that supports one or more pluggable databases (PDB). The CDB can be thought of as a single superset database with multiple pluggable databases. The relationship between an Oracle instance and databases is now 1:N.
+
+![Multitenant container Oracle database](images/pb-multitenant-container-database.png)
+
+Oracle 18c adds following multitenant related features:
+
+- **DBCA PDB Clone** — UI interface which allows cloning multiple pluggable databases (PDB).
+- **Refreshable PDB Switchover** — An ability to switch roles between pluggable database clone and its original primary.
+- **CDB Fleet Management** — An ability to group multiple container databases (CDB) into fleets that can be managed as a single logical database.
+
+Oracle 19 introduced support to having more than one pluggable database (PDB) in a container database (CDB) in sharded environments.
+
+### Advantages of the Oracle 12c multitenant architecture
+
+- You can use PDBs to isolate applications from one another.
+- You can use PDBs as portable collection of schemas.
+- You can clone PDBs and transport them to different CDBs/Oracle instances.
+- Management of many databases (individual PDBs) as a whole.
+- Separate security, users, permissions, and resource management for each PDB provides greater application isolation.
+- Enables a consolidated database model of many individual applications sharing a single Oracle server.
+- Provides an easier way to patch and upgrade individual clients and/or applications using PDBs.
+- Backups are supported at both a multitenant container-level as well as at an individual PDB-level (both for physical and logical backups).
+
+### The Oracle multitenant architecture
+
+- A multitenant CDB can support one or more PDBs.
+- Each PDB contains its own copy of `SYSTEM` and application tablespaces.
+- The PDBs share the Oracle Instance memory and background processes. The use of PDBs enables consolidation of many databases and applications into individual containers under the same Oracle instance.
+- A single Root Container (CDB$ROOT) exists in a CDB and contains the Oracle Instance Redo Logs, undo tablespace (unless Oracle 12.2 local undo mode is enabled), and control files.
+- A single Seed PDB exists in a CDB and is used as a template for creating new PDBs.
+
+![Container Oracle database](images/pb-oracle-container-database.png)
+
+### CDB and PDB semantics
+
+Container databases (CDB)
+
+- Created as part of the Oracle 12c software installation.
+- Contains the Oracle control files, its own set of system tablespaces, the instance undo tablespaces (unless Oracle 12.2 local undo mode is enabled), and the instance redo logs.
+- Holds the data dictionary for the root container and for all of the PDBs.
+
+Pluggable databases (PDB)
+
+- An independent database that exists under a CDB. Also known as a container.
+- Used to store application-specific data.
+- You can create a pluggable database from a the `pdb$seed` (template database) or as a clone of an existing PDB.
+- Stores metadata information specific to its own objects (data-dictionary).
+- Has its own set of application data files, system data files, and tablespaces along with temporary files to manage objects.
 
 ### Examples
 
-The following examples demonstrate how to use Log Miner to view DML statements that run on the employees table.
-
-Find the current redo log file.
+List existing PDBs created in an Oracle CDB instance.
 
 ```
-SELECT V$LOG.STATUS, MEMBER
-FROM V$LOG, V$LOGFILE
-WHERE V$LOG.GROUP# = V$LOGFILE.GROUP#
-AND V$LOG.STATUS = 'CURRENT';
+SHOW PDBS;
 
-STATUS    MEMBER
-CURRENT   /u01/app/oracle/oradata/orcl/redo02.log
+CON_ID  CON_NAME  OPEN MODE   RESTRICTED
+2       PDB$SEED  READ ONLY   NO
+3       PDB1      READ WRITE  NO
 ```
 
-Use the `DBMS_LOGMNR.ADD_LOGFILE` procedure. Pass the file path as a parameter to the Log Miner API.
+Provision a new PDB from the template `seed$pdb`.
 
 ```
-BEGIN
-DBMS_LOGMNR.ADD_LOGFILE('/u01/app/oracle/oradata/orcl/redo02.log');
-END;
-/
-
-PL/SQL procedure successfully completed.
+CREATE PLUGGABLE DATABASE PDB2 admin USER ora_admin
+IDENTIFIED BY ora_admin FILE_NAME_CONVERT=('/pdbseed/','/pdb2/');
 ```
 
-Start Log Miner using the `DBMS_LOGMNR.START_LOGMNR` procedure.
+Alter a specific PDB to the `READ/WRITE` mode and verify the change.
 
 ```
-BEGIN
-DBMS_LOGMNR.START_LOGMNR(options=>
-dbms_logmnr.dict_from_online_catalog);
-END;
-/
+ALTER PLUGGABLE DATABASE PDB2 OPEN READ WRITE;
 
-PL/SQL procedure successfully completed.
+SHOW PDBS;
+
+CON_ID  CON_NAME  OPEN MODE   RESTRICTED
+2       PDB$SEED  READ ONLY   NO
+3       PDB1      READ WRITE  NO
+4       PDB2      READ WRITE  NO
 ```
 
-Run a DML statement.
+Clone a PDB from an existing PDB.
 
 ```
-UPDATE HR.EMPLOYEES SET SALARY=SALARY+1000 WHERE EMPLOYEE_ID=116;
-COMMIT;
+CREATE PLUGGABLE DATABASE PDB3
+  FROM PDB2 FILE_NAME_CONVERT= ('/pdb2/','/pdb3/');
+
+SHOW PDBS;
+
+CON_ID  CON_NAME  OPEN MODE   RESTRICTED
+2       PDB$SEED  READ ONLY   NO
+3       PDB1      READ WRITE  NO
+4       PDB2      READ WRITE  NO
+5       PDB3      MOUNTED
 ```
 
-Query the `V$LOGMNR_CONTENTS` table to view the DML commands captured by the Log Miner.
-
-```
-SELECT TO_CHAR(TIMESTAMP,'mm/dd/yy hh24:mi:ss') TIMESTAMP,
-SEG_NAME, OPERATION, SQL_REDO, SQL_UNDO
-FROM V$LOGMNR_CONTENTS
-WHERE TABLE_NAME = 'EMPLOYEES'
-AND OPERATION = 'UPDATE';
-
-TIMESTAMP  SEG_NAME  OPERATION
-10/09/17   06:43:44  EMPLOYEES UPDATE
-
-SQL_REDO                                         SQL_UNDO
-update "HR"."EMPLOYEES" set                      update "HR"."EMPLOYEES" set
-"SALARY" = '3900' where "SALARY" = '2900'        "SALARY" = '2900' where "SALARY" = '3900'
-and ROWID = 'AAAViUAAEAAABVvAAQ';                and ROWID = 'AAAViUAAEAAABVvAAQ';
-```
-
-For more information, see [Using LogMiner to Analyze Redo Log Files](https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-logminer-utility.html#GUID-3417B738-374C-4EE3-B15C-3A66E01AE2B5 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-logminer-utility.html#GUID-3417B738-374C-4EE3-B15C-3A66E01AE2B5") in the _Oracle documentation_.
+For more information, see [Oracle Multitenant](https://docs.oracle.com/en/database/oracle/oracle-database/19/multi/index.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/multi/index.html") in the _Oracle documentation_.
 
 ## MySQL usage
 
-The mysqlbinlog utility is the MySQL equivalent to Oracle Log Miner. You can use Log Miner to search for many types of information. This topic covers all of the MySQL logs that are available so you can decide which log is best for your use case.
+Amazon Aurora MySQL offers a different and simplified architecture to manage and create a multitenant database environment. You can use Aurora MySQL to provide levels of functionality similar but not identical to those offered by Oracle PDBs by creating multiple databases under the same Aurora MySQL cluster and / or using separate Aurora clusters if total isolation of workloads is required.
 
-Aurora MySQL generates four logs that can be viewed by database administrators:
+You can create multiple MySQL databases under a single Amazon Aurora MySQL cluster.
 
-- **Error log** — Contains information about errors and server start and stop events.
-- **General query log** — Contains a general record of MySQL operations such as connect, disconnect, queries, and so on.
-- **Slow query log** — Contains a log of slow SQL statements.
-- **Bin log** — When used, contains row and statement levels of commands records.
+![DB cluster](images/pb-aurora-mysql-cluster.png)
 
-The MySQL error log is generated by default. You can generate the slow query and general logs by setting parameters in the database parameter group. Amazon RDS rotates all MySQL log files.
+Each Amazon Aurora cluster contains a primary instance that can accept both reads and writes for all cluster databases.
 
-You can monitor the MySQL logs directly through the Amazon RDS console, Amazon RDS API, AWS CLI, or AWS SDKs. You can also access MySQL logs by directing the logs to a database table in the main database and then querying that table. You can use the mysqlbinlog utility to download a binary log.
+You can create up to 15 read-only nodes providing scale-out functionality for application reads and high availability.
 
-### Downloading MySQL binlog files
+![DB cluster storage volume](images/pb-aurora-cluster-storage-volume.png)
 
-The binlog in MySQL is used for replication needs. MySQL uses it to replicate commands between master MySQL server to slave server. These logs can be read using the mysqlbinlog utility.
+An Oracle CDB/Instance is a high-level equivalent to an Amazon Aurora cluster, and an Oracle Pluggable Database (PDB) is equivalent to a MySQL database created inside the Amazon Aurora cluster. Not all features are comparable between Oracle 12c PDBs and Amazon Aurora.
 
-The mysqlbinlog utility is equivalent to Oracle Log Miner and enables users to read the server’s binary log (similar to the Oracle redo log). The server’s binary log consists of files that describe modifications to database contents (events).
+Starting with Oracle 18c and 19c, you can use this feature for the following:
 
-While these logs do not contain a lot of information, they can provide needed data for some use cases.
+- PDB Clone
+- Refreshable PDB Switchover
+- CDB Fleet Management
+- More than one pluggable database (PDB) in a container database (CDB) in sharded environments.
 
-To download and read the binary log, check to see if the binlog is activated by typing this command:
+In the AWS Cloud, these features can be achieved in many ways and each can be optimized using different services.
 
-```
-SHOW BINARY LOGS;
-```
+Cloning databases inside the MySQL instance is not so easy. For the same instance, you can use export and import.
 
-###### Note
+To achieve similar functionality to Refreshable PDB Switchover, it depends on the use case but there are multiple options mostly depended on the required granularity:
 
-If the binlog isn’t activated, this command returns an error. If the binlog is activated, the binlog files list is displayed.
+- Databases in the same instance — you can do the failover using `CREATE DATABASE` statement when size and required downtime allow that and use an application failover to point to any of the databases.
+- Database links and replication method — database links or AWS DMS can be used to make sure there are two databases in two different instances that are in sync and have application failover to point to the other database when needed.
 
-After querying the binlog files list you can select a file to download by using this command:
-
-```
-mysqlbinlog
-  --read-from-remote-server
-  --host=mysql-cluster1.cluster-crqdlsqqnpry.useast-1.rds.amazonaws.com
-  --port=3306
-  --user naya
-  --password mysql-bin-changelog.0098
-```
-
-For more information, see [MySQL database log files](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md") in the _Amazon Relational Database Service User Guide_.
-
-The output example for binlog looks as shown following:
-
-```
-use `aws`/*!*/;
-SET TIMESTAMP=1551125550/*!*/;
-SET @@session.pseudo_thread_id=12/*!*/;
-SET @@session.foreign_key_checks=1, @@session.sql_auto_is_null=0, @@session.unique_
-checks=1, @@session.autocommit=1/*!*/;
-SET @@session.sql_mode=2097152/*!*/;
-SET @@session.auto_increment_increment=1, @@session.auto_increment_offset=1/*!*/;
-/*!\C utf8 *//*!*/;
-SET @@session.character_set_client=33,@@session.collation_connection=
-33,@@session.collation_server=8/*!*/;
-SET @@session.lc_time_names=0/*!*/;
-SET @@session.collation_database=DEFAULT/*!*/;
-last_committed=1 sequence_number=2 rbr_only=no original_committed_
-timestamp=0 immediate_commit_timestamp=0 transaction_length=0
-# original_commit_timestamp=0 (1969-12-31 19:00:00.000000 Eastern Standard Time)
-# immediate_commit_timestamp=0 (1969-12-31 19:00:00.000000 Eastern Standard Time)
-/*!80001 SET @@session.original_commit_timestamp=0*//*!*/;
-/*!80014 SET @@session.original_server_version=0*//*!*/;
-/*!80014 SET @@session.immediate_server_version=0*//*!*/;
-SET @@SESSION.GTID_NEXT= 'ANONYMOUS'/*!*/;
-# at 434
-#190225 15:12:50 server id 565151648 end_log_pos 513 CRC32 0x1188c639 Query
-thread_id=12 exec_time=0 error_code=0
-SET TIMESTAMP=1551125570/*!*/;
-BEGIN
-/*!*/;
-# at 513
-#190225 15:12:50 server id 565151648 end_log_pos 669 CRC32 0x051c3800 Query
-thread_id=12 exec_time=0 error_code=0
-SET TIMESTAMP=1551125570/*!*/;
-/* ApplicationName=mysql */ insert into test values (1),(1),(1)
-/*!*/;
-# at 669
-#190225 15:12:50 server id 565151648 end_log_pos 700 CRC32 0x72697ff4 Xid = 5467
-COMMIT/*!*/;
-SET @@SESSION.GTID_NEXT= 'AUTOMATIC' /* added by mysqlbinlog */ /*!*/;
-DELIMITER ;
-# End of log file
-```
-
-For more information, see [mysqlbinlog — Utility for Processing Binary Log Files](https://dev.mysql.com/doc/refman/5.7/en/mysqlbinlog.html "https://dev.mysql.com/doc/refman/5.7/en/mysqlbinlog.html") in the _MySQL documentation_.
-
-### Accessing MySQL error logs
-
-The MySQL error log is written to the `mysql-error.log` file. You can view `mysql-error.log` by using the Amazon RDS console or by retrieving the log using the Amazon RDS API, Amazon RDS CLI, or AWS SDKs. `Mysqlerror.log` is flushed every 5 minutes and its contents are appended to `mysql-error-running.log`. The `mysql-errorrunning.log` file is then rotated every hour. The hourly files generated during the last 24 hours are retained. Each log file has the hour it was generated (in UTC) appended to its name. The log files also have a timestamp that helps you determine when the log entries were written.
-
-MySQL writes to the error log only on startup, shutdown, and when it encounters errors. A database instance can go hours or days without new entries being written to the error log. If you see no recent entries, it’s because the server did not encounter an error that would result in a log entry.
-
-### Accessing the MySQL slow query and general logs
-
-The MySQL slow query log and the general log can be written to a file or a database table by setting parameters in the database parameter group. You must set these parameters before you can view the slow query log or general log in the Amazon RDS console, Amazon RDS API, Amazon RDS CLI, or AWS SDKs.
-
-You can control MySQL logging by using the following parameters:
-
-- `slow_query_log` — To create the slow query log, set to 1. The default is 0.
-- `general_log` — To create the general log, set to 1. The default is 0.
-- `long_query_time` — To prevent fast-running queries from being logged in the slow query log, specify a value for the shortest query run time in seconds to be logged. The default is 10 seconds; the minimum is 0. If `log_output = FILE`, you can specify a floating point value with a resolution of microseconds. If `log_output = TABLE`, make sure that you specify an integer value with a resolution of seconds. Only queries where the execution time exceeds the `long_query_time` value are logged. For example, setting `long_query_time` to 0.1 prevents a query that runs for less than 100 milliseconds from being logged.
-- `log_queries_not_using_indexes` — To log all queries that do not use an index to the slow query log, set to 1. The default is 0. Queries that do not use an index are logged even if their execution time is less than the value of the `long_query_time` parameter.
-- `log_output` — You can specify one of the following options for the log_output parameter.
-  - **TABLE** — Write general queries to the `mysql.general_log` table, and write slow queries to the `mysql.slow_log` table. This is the default option.
-  - **FILE** — Write both general and slow query logs to the file system. Log files are rotated hourly.
-  - **NONE** — Turn off logging.
-
-You can configure a MySQL instance to publish log data to a log group in Amazon CloudWatch Logs. CloudWatch Logs support real-time analysis of the log data, create alarms, and view metrics. You can use CloudWatch Logs to store your log records in highly durable storage. For more information, see [MySQL Database Log Files](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md") in the _Amazon Relational Database Service User Guide_.
-
-Amazon RDS normally purges a binary log as soon as possible, but the binary log must still be available on the instance to be accessed by mysqlbinlog. To specify the number of hours for RDS to retain binary logs, use the `mysql.rds_set_configuration` stored procedure and specify a period with enough time for you to download the logs. After you set the retention period, monitor storage usage for the database instance to ensure the retained binary logs don’t consume too much storage.
+Managing CDB is actually very similar to the AWS orchestration, as you can manage multiple Amazon RDS instances there (CDB) and databases inside (PDB), all monitored centrally and can be managed through the AWS console or AWS CLI.
 
 ### Examples
 
-Determine the output location of the logs and if slow query and general logging are turned on.
+Create a new database in MySQL using the `CREATE DATABASE` statement.
 
 ```
-select @@GLOBAL.log_output, @@GLOBAL.slow_query_log, @@GLOBAL.general_log
+CREATE DATABASE db1;
+CREATE DATABASE db2;
+CREATE DATABASE db3;
 ```
 
-To view the logs using AWS Management Console:
-
-1. Sign in to the AWS Management Console and choose **RDS**.
-2. Choose your DB instance and scroll down to the **Logs** section.
-3. Choose a log to inspect or download.
-
-The following example configures retention of the binary logs (in hours). In this example the binary log will be retained one day.
+List all databases created under an Amazon Aurora MySQL cluster.
 
 ```
-call mysql.rds_set_configuration('binlog retention hours', 24);
+SHOW DATABASES;
+
+Database
+information_schema
+mysql
+performance_schema
+db1
+db2
+db3
+sys
+tmp
 ```
 
-For more information, see [The Binary Log](https://dev.mysql.com/doc/refman/5.7/en/binary-log.html "https://dev.mysql.com/doc/refman/5.7/en/binary-log.html") in the _MySQL documentation_ and [MySQL database log files](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md") in the _Amazon Relational Database Service User Guide_.
+### Independent database backups
+
+Oracle 12c provides the ability to perform both logical backups using DataPump and physical backups using RMAN at both the CDB and PDB levels. Similarly, Aurora MySQL provides the ability to perform logical backups on all or a specific database using mysqldump. However, for physical backups when using snapshots, the entire cluster and all databases are included in the snapshot. Backing up a specific database with in the cluster is not supported.
+
+This is usually not a concern because volume snapshots are extremely fast operations that occur at the storage infrastructure layer, incur minimal overhead, and operate at extremely fast speeds. However, the process of restoring a single MySQL database from an Aurora snapshot requires additional steps such as exporting the specific database after a snapshot restore and importing it back to the original Aurora cluster.
+
+For more information, see [CREATE DATABASE Statement](https://dev.mysql.com/doc/refman/5.7/en/create-database.html "https://dev.mysql.com/doc/refman/5.7/en/create-database.html") in the _MySQL documentation_.

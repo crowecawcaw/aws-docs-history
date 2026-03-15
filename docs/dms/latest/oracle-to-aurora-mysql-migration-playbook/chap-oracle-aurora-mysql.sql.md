@@ -1,188 +1,128 @@
-# Oracle Transaction Model and MySQL Transactions
+# Single-row and aggregate Oracle and MySQL functions
 
-Oracle Transaction Model and MySQL Transactions provide mechanisms for grouping SQL statements into logical units of work, ensuring atomicity, consistency, isolation, and durability (ACID properties) during database operations.
+Single-row and aggregate functions are essential SQL constructs that perform operations on individual rows or groups of rows, respectively. The following sections compare Oracle and MySQL single-row and aggregate functions.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                                    | Key differences                                                                                        |
-| ------------------------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| Four star feature compatibility | Four star automation level         | [Transaction Isolation](chap-oracle-aurora-mysql.tools.md#chap-oracle-aurora-mysql.tools.actioncode.transactionisolation "chap-oracle-aurora-mysql.tools.md#chap-oracle-aurora-mysql.tools.actioncode.transactionisolation") | In MySQL, the default isolation level is `REPEATABLE READ`. MySQL doesn’t support nested transactions. |
+| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                           |
+| ------------------------------- | ---------------------------------- | ------------------------- | ----------------------------------------------------------------------------------------- |
+| Four star feature compatibility | Four star automation level         | N/A                       | MySQL doesn’t support all functions. These unsupported functions require manual creation. |
 
 ## Oracle usage
 
-Database transactions are a logical, atomic units of processing containing one or more SQL statements that may run concurrently alongside other transactions. The primary purpose of a transaction is to ensure the ACID model is enforced.
+Oracle provides two main categories of built-in SQL functions based on the number of rows used as input and generated as output.
 
-- **Atomicity** — All statements in a transaction are processed as one logical unit, or none are processed. If a single part of a transaction fails, the entire transaction is aborted and no changes are persisted (all or nothing).
-- **Consistency** — All data integrity constraints are checked and all triggers are processed before a transaction is processed. If any of the constraints are violated, the entire transaction fails.
-- **Isolation** — One transaction isn’t affected by the behavior of other concurrent transactions. The effect of a transaction isn’t visible to other transactions until the transaction is committed.
-- **Durability** — Once a transaction commits, its results will not be lost regardless of subsequent failures. After a transaction completes, changes made by committed transactions are permanent. The database ensures that committed transactions can’t be lost.
+- **Single-row** or scalar functions return a single result for each row of the queried table or view. You can use them with a `SELECT` statement in the `WHERE` clause, the `START WITH` clause, the `CONNECT BY` clause, and the `HAVING` clause. The single-row functions are divided into groups according to data types such as `NUMERIC` functions, `CHAR` functions, and `DATETIME` functions.
+- **Aggregative** or group functions are used to summarize a group of values into a single result. Examples include `AVG`, `MIN`, `MAX`, `SUM`, `COUNT`, `LISTAGG`, `FIRST`, and `LAST`.
 
-### Database transaction isolation levels
+See the following section for a comparison of Oracle and MySQL single-row functions.
 
-The ANSI/ISO SQL standard (SQL92) defines four levels of isolation. Each level provides a different approach for handling concurrent run of database transactions. Transaction isolation levels manage the visibility of changed data as seen by other running transactions. In addition, when accessing the same data with several concurrent transactions, the selected level of transaction isolation affects the way different transactions interact. For example, if a bank account is shared by two individuals, what will happen if both parties attempt to perform a transaction on the shared account at the same time? One checks the account balance while the other withdraws money. Oracle supports the following isolation levels:
+Oracle 19 adds ability to eliminate duplicate items in `LISTAGG` function results with new `DISTINCT` keyword.
 
-- **Read-uncommitted** — A currently processed transaction can see uncommitted data made by the other transaction. If a rollback is performed, all data is restored to its previous state.
-- **Read-committed** — A transaction only sees data changes that were committed. Uncommitted changes(“dirty reads”) aren’t possible.
-- **Repeatable read** — A transaction can view changes made by the other transaction only after both transactions issue a COMMIT or both are rolled-back.
-- **Serializable** — Any concurrent run of a set of serializable transactions is guaranteed to produce the same effect as running them sequentially in the same order.
+Oracle 19 introduces several new bitmap SQL aggregate functions such as `BITMAP_BUCKET_NUMBER`, `BITMAP_BIT_POSITION` and `BITMAP_CONSTRUCT_AGG`. These functions help speed up `COUNT DISTINCT` operations.
 
-Isolation levels affect the following database behavior.
-
-- **Dirty reads** — A transaction can read data that was written by another transaction, but isn’t yet committed.
-- **Non-repeatable or fuzzy reads** — When reading the same data several times, a transaction can find that the data has been modified by another transaction that has just committed. The same query executed twice can return different values for the same rows.
-- **Phantom reads** — Similar to a non-repeatable read, but it is related to new data created by another transaction. The same query run twice can return a different numbers of records.
-
-| Isolation level  | Dirty reads   | Non-repeatable reads | Phantom reads |
-| ---------------- | ------------- | -------------------- | ------------- |
-| Read-uncommitted | Permitted     | Permitted            | Permitted     |
-| Read-committed   | Not permitted | Permitted            | Permitted     |
-| Repeatable read  | Not permitted | Not permitted        | Permitted     |
-| Serializable     | Not permitted | Not permitted        | Not permitted |
-
-### Oracle isolation levels
-
-Oracle supports the read-committed and serializable isolation levels. It also provides a Read-Only isolation level which isn’t a part of the ANSI/ISO SQL standard (SQL92). Read-committed is the default.
-
-- **Read-committed** — Each query that you run within a transaction only sees data that was committed before the query itself. The Oracle database never allows reading dirty pages and uncommitted data. This is the default option.
-- **Serializable** — Serializable transactions don’t experience non-repeatable reads or phantom reads because they are only able to see changes that were committed at the time the transaction began (in addition to the changes made by the transaction itself performing DML operations).
-- **Read-only** — The read-only isolation level doesn’t allow any DML operations during the transaction and only sees data committed at the time the transaction began.
-
-### Oracle and MySQL Multi-Version Concurrency Control
-
-Oracle uses the Oracle Multiversion Concurrency Controls (MVCC) mechanism to provide automatic read consistency across the entire database and all sessions. Using MVCC, database sessions see data based on a single point in time ensuring only committed changes are viewable. Oracle relies on the System Change Number (SCN) of the current transaction to obtain a consistent view of the database. Therefore, all database queries only return data committed with respect to the SCN at the time of query run.
-
-### Setting isolation levels
-
-Isolation levels can be changed at the transaction and session levels.
-
-### Examples
-
-Change the isolation level at the transaction-level.
-
-```
-SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
-SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
-SET TRANSACTION READ ONLY;
-```
-
-Change the isolation-level at a session-level.
-
-```
-ALTER SESSION SET ISOLATION_LEVEL = SERIALIZABLE;
-ALTER SESSION SET ISOLATION_LEVEL = READ COMMITTED;
-```
-
-For more information, see [Transactions](https://docs.oracle.com/en/database/oracle/oracle-database/19/cncpt/transactions.html#GUID-B97790CB-DF82-442D-B9D5-50CCE6BF9FBD "https://docs.oracle.com/en/database/oracle/oracle-database/19/cncpt/transactions.html#GUID-B97790CB-DF82-442D-B9D5-50CCE6BF9FBD") in the _Oracle documentation_.
+For more information, see [Single-Row Functions](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Single-Row-Functions.html#GUID-B93F789D-B486-49FF-B0CD-0C6181C5D85C "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Single-Row-Functions.html#GUID-B93F789D-B486-49FF-B0CD-0C6181C5D85C") and [Aggregate Functions](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Aggregate-Functions.html#GUID-62BE676BAF18-4E63-BD14-25206FEA0848 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Aggregate-Functions.html#GUID-62BE676BAF18-4E63-BD14-25206FEA0848") in _Oracle documentation_.
 
 ## MySQL usage
 
-Aurora MySQL supports all four transaction isolation levels described by the SQL:1992 standard: `READ UNCOMMITTED`, `READ COMMITTED`, `REPEATABLE READ`, and `SERIALIZABLE`.
+MySQL provides an extensive list of single-row and aggregation functions. Some are similar to their Oracle counterparts by name and functionality, or under a different name but with similar functionality. Other functions can have identical names to their Oracle counterparts, but exhibit different functionality. In the following tables, the Equivalent column indicates functional equivalency.
 
-The default isolation level for Aurora MySQL is `REPEATABLE READ`. The simplified syntax for setting transaction boundaries in Aurora MySQL is:
+### Numeric functions
 
-```
-SET [SESSION] TRANSACTION ISOLATION LEVEL
-[READ WRITE | READ ONLY] |
-REPEATABLE READ | READ COMMITTED |
-READ UNCOMMITTED | SERIALIZABLE]
-```
+| Oracle function and definition                                                                            | MySQL function and definition                                                                             | Equivalent |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | ---------- |
+| `ABS` — Absolute value of n: `abs (-11.3) = 11.3`.                                                        | `ABS` — Absolute value of n: `abs (-11.3) = 11.3`.                                                        | Yes        |
+| `CEIL` — Returns the smallest integer that is greater than or equal to n: `ceil (-24.9) = -24`.           | `CEIL` — Returns the smallest integer that is greater than or equal to n: `ceil (-24.9) = -24`.           | Yes        |
+| `FLOOR` — Returns the largest integer equal to or less than n: `floor (-43.7) = -44`.                     | `FLOOR` — Returns the largest integer equal to or less than n: `floor (-43.7) = -44`.                     | Yes        |
+| `MOD` — Remainder of n2 divided by n1: `mod(10,3) = 1`.                                                   | `MOD` — Remainder of n2 divided by n1: `mod(10,3) = 1`.                                                   | Yes        |
+| `ROUND` — Returns n rounded to integer places to the right of the decimal point: `round (3.49, 1) = 3.5`. | `ROUND` — Returns n rounded to integer places to the right of the decimal point: `round (3.49, 1) = 3.5`. | Yes        |
+| `TRUNC` — Returns n1 truncated to n2 decimal places: `trunc(13.5) = 13`.                                  | `TRUNCATE` — Returns n1 truncated to n2 decimal places: `trunc(13.5) = 13`.                               | Yes        |
 
-###### Note
+### Character functions
 
-Setting the `GLOBAL` isolation level is not supported in Aurora MySQL; only session scope can be changed. This behavior is similar to Oracle. Also, the default behavior of transactions is to use `REPEATABLE READ` and consistent reads. Applications designed to run with `READ COMMITTED` may need to be modified. Alternatively, explicitly change the default to `READ COMMITTED`.
+| Oracle function and definition                                                                                                                                                                                                                            | MySQL function and definition                                                                                                                                                   | Equivalent |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| `CONCAT` — Returns char1 concatenated with char2: `concat('a', 1) → a1`.                                                                                                                                                                                  | `CONCAT` — Returns char1 concatenated with char2: `concat('a', 1) → a1`.                                                                                                        | Yes        |
+| `LOWER` and `UPPER` — Returns char, with all letters lowercase or uppercase: `lower ('MR. Smith') → mr. smith`.                                                                                                                                           | `LOWER` and `UPPER` — Returns char, with all letters lowercase or uppercase: `lower ('MR. Smith') → mr. smith`.                                                                 | Yes        |
+| `LPAD` and `RPAD` — Returns `expr1`, left or right padded to length n characters with the sequence of characters in `expr2`: `LPAD('Log-1',10,'**-**') → -----Log-1`.                                                                                     | `LPAD` and `RPAD` — Returns `expr1`, left or right padded to length n characters with the sequence of characters in `expr2`: `LPAD('Log-1',10,'-') → -----Log-1`.               | Yes        |
+| `REGEXP_REPLACE` — Search a string for a regular expression pattern: `regexp_replace('John', '[hn].', '1') → Jo1`.                                                                                                                                        | You can simulate Oracle `REGEXP_REPLACE` function using MySQL built-in function.                                                                                                | No         |
+| `REGEXP_SUBSTR` — Extends the functionality of the `SUBSTR` function by searching a string for a regular expression pattern:<br>`<br>REGEXP_SUBSTR('http://www.aws.-com/products',<br>'http://([[:alnum:]]+\.?){3,4}/?')<br>`<br>`→ http://www.aws.com/`. | You can simulate Oracle `REGEXP_SUBSTR` function using MySQL built-in function.                                                                                                 | No         |
+| `REPLACE` — Returns char with every occurrence of search string replaced with a replacement string: `replace ('abcdef', 'abc', '123') → 123def`.                                                                                                          | `REPLACE` — Returns char with every occurrence of search string replaced with a replacement string: `replace ('abcdef', 'abc', '123') → 123def`.                                | Yes        |
+| `LTRIM` and `RTRIM` — Removes from the left or right end of char all of the characters that appear in set: `ltrim ('zzzyaws', 'xyz') → aws`.                                                                                                              | `LTRIM` and `RTRIM` — Removes spaces from the left or right end of char: `ltrim(' Amazon') → Amazon`. Combine with the `REPLACE` function to get the results similar to Oracle. | Partly     |
+| `SUBSTR` — Returns a portion of char, beginning at character position, substring length characters long: `substr('John Smith', 6 ,1) → S`.                                                                                                                | `SUBSTR` — Returns a portion of char, beginning at character position, substring length characters long: `substr('John Smith', 6 ,1) → S`.                                      | Yes        |
+| `TRIM` — Trim leading or trailing characters or both from a character string: `trim (both 'x' FROM 'xJohnxx') → John`.                                                                                                                                    | `TRIM` — Trim leading or trailing characters or both from a character string: `trim (both 'x' FROM 'xJohnxx') → John`.                                                          | Yes        |
+| `ASCII` — Returns the decimal representation in the database character set of the first character of char: `ascii('a') → 97`.                                                                                                                             | `ASCII` — Returns the decimal representation in the database character set of the first character of char: `ascii('a') → 97`.                                                   | Yes        |
+| `INSTR` — Search string for substring.                                                                                                                                                                                                                    | `INSTR` — Search string for substring.                                                                                                                                          | Yes        |
+| `LENGTH` — Returns the length of char: `length ('John S.') → 7`.                                                                                                                                                                                          | `LENGTH` — Returns the length of char: `length ('John S.') → 7`.                                                                                                                | Yes        |
+| `REGEXP_COUNT` — Returns the number of times, a pattern occurs in a source string.                                                                                                                                                                        | You can simulate Oracle `REGEXP_COUNT` function using MySQL built-in function.                                                                                                  | No         |
+| `REGEXP_INSTR` — Searches a string position for a regular expression pattern.                                                                                                                                                                             | You can simulate Oracle `REGEXP_INSTR` function using MySQL built-in function.                                                                                                  | No         |
 
-To set the transaction isolation level, configure the `tx_isolation` parameter when using Aurora for MySQL. For more information, see [Oracle Instance Parameters and Aurora MySQL Parameter Groups](chap-oracle-aurora-mysql.configuration.md "chap-oracle-aurora-mysql.configuration.md").
+### Date and time functions
 
-In Aurora MySQL, a transaction intent can be optionally specified. Setting a transaction to `READ ONLY` disables the transaction’s ability to modify or lock both transactional and non-transactional tables visible to other transactions.
+| Oracle function and definition                                                                                                                                                                                            | MySQL function and definition                                                                                                                                                            | Equivalent |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| `ADD_MONTHS` — Returns the date plus integer months: `add_months( sysdate,1)`                                                                                                                                             | `ADDDATE` — MySQL can implement the same functionality using the `ADDDATE` function.                                                                                                     | No         |
+| `CURRENT_DATE` — Returns the current date in the session time zone: `select current_date from dual → 2017-01-01 13:01:01`.                                                                                                | `CURRENT_DATE` — Returns date without time. Use the `now()` or the `current_timestamp` function to achieve the same results: `select now() → 2017-01-01 13:01:01`.                       | Partly     |
+| `CURRENT_TIMESTAMP` — Returns the current date and time in the session time zone: `select current timestamp from dual; → 2017-01-01 13:01:01`.                                                                            | `CURRENT_TIMESTAMP`— Returns the current date and time in the session time zone: `select current timestamp from dual; → 2017-01-01 13:01:01`.                                            | Yes        |
+| `EXTRACT (date part)` — Returns the value of a specified date time field from a date time or interval expression: `EXTRACT (YEAR FROM DATE '2017-03-07') → 2017`.                                                         | `EXTRACT (date part)` — Returns the value of a specified date time field from a date time or interval expression: `EXTRACT (YEAR FROM DATE '2017-03-07') → 2017`.                        | Yes        |
+| `LAST_DAY` — Returns the date of the last day of the month that contains date: `LAST_DAY('05-07-2018') → 05-31-2018`.                                                                                                     | `LAST_DAY` — Returns the date of the last day of the month that contains date: `LAST_DAY('05-07-2018') → 05-31-2018`.                                                                    | Yes        |
+| `BETWEEN` — Returns the number of months between dates date1 and date2: `MONTHS_BETWEEN ( sysdate, sysdate-100) → 3.25`.                                                                                                  | `PERIOD_DIFF` — Returns the number of months between periods P1 and P2. P1 and P2 should be in the format `YYMM` or `YYYYMM`: `SELECT PERIOD_DIFF(201801,201703) → 10`                   | Partly     |
+| `SYSDATE` — Returns the current date and time set for the operating system on which the database server resides: `select sysdate from dual → 2017-01-01 13:01:01`.                                                        | `SYSDATE` — Returns the current date and time set for the operating system on which the database server resides: `select sysdate() → 2017-01-01 13:01:01`.                               | Yes        |
+| `SYSTIMESTAMP` — Returns the system date, including fractional seconds and time zone: `select systimestamp from dual → 2017-01-01 13:01:01.123456 PM+00:00`.                                                              | `CURRENT_TIMESTAMP` — Returns the current date and time in the session time zone: `select current timestamp from dual; → 2017-01-0113:01:01.123456+00`.                                  | Yes        |
+| `LOCALTIMESTAMP` — Returns the current date and time in the session time zone in a value of the `TIMESTAMP` data type: `select localtimestamp from dual → 01-JAN-17 10.01.10.123456 PM`.                                  | `LOCALTIMESTAMP` — Returns the current date and time in the session time zone in a value of the `TIMESTAMP` data type: `select localtimestamp from dual → 01-JAN-17 10.01.10.123456 PM`. | Yes        |
+| `TO_CHAR(datetime)` — Converts a date time or timestamp to data type to a value of `VARCHAR2` data type in the format specified by the date format: `to_char(sys-date, 'DD-MON-YYYY HH24:MI:SS') → 01-JAN-2017 01:01:01`. | `DATE_FORMAT` — Changes the format of the date and time: `DATE_FORMAT (SYSDATE(), '%Y-%m-%d %H:%i:%s')`                                                                                  | Yes        |
+| `TRUNC (date)` — Returns a date with the time portion of the day truncated to the unit specified by the format model: `trunc(systimestamp) → 2017-01-01 00:00:00`.                                                        | You can simulate Oracle `TRUNC` function using MySQL built-in function.                                                                                                                  | No         |
 
-The transaction can still modify or lock temporary tables. This enables internal optimization to improve performance and concurrency. The default is `READ WRITE`.
+### Encoding and decoding functions
 
-###### Note
+| Oracle function and definition                                                                                                 | MySQL function and definition                                    | Equivalent |
+| ------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------- | ---------- |
+| `DECODE` — Compares an expression to each search value one by one using the functionality of an `IF-THEN-ELSE` statement.      | `CASE` — Compares an expression to each search value one by one. | No         |
+| `DUMP` — Returns a `VARCHAR2` value containing the data type code, length in bytes, and internal representation of expression. | N/A                                                              | No         |
+| `ORA_HASH` — Computes a hash value for a given expression.                                                                     | `SHA` — Calculates an SHA-1 160-bit checksum for the string.     | No         |
 
-Amazon Relational Database Service (Amazon RDS) for MySQL version 8, you can use a new `innodb_deadlock_detect` dynamic variable to disable deadlock detection. On high concurrency systems, deadlock detection can cause a slowdown when numerous threads wait for the same lock. At times it may be more efficient to disable deadlock detection and rely on the `innodb_lock_wait_timeout` setting for transaction rollback when a deadlock occurs.
+### Null functions
 
-###### Note
+| Oracle function and definition                                                                                                                                     | MySQL function and definition                                                                                                                                      | Equivalent |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- |
+| `CASE` — Chooses from a sequence of conditions and runs a corresponding statement: `CASE WHEN condition THEN result [WHEN …​] [ELSE result] END`.                  | `CASE` — Chooses from a sequence of conditions and runs a corresponding statement: `CASE WHEN condition THEN result [WHEN …​] [ELSE result] END`.                  | Yes        |
+| `COALESCE` — Returns the first non-null expr in the expression list: `coalesce (null, 'a', 'b') → a`.                                                              | `COALESCE` — Returns the first of its arguments that isn’t null: `coalesce (null, 'a', 'b') → a`.                                                                  | Yes        |
+| `NULLIF` — Compares `expr1` and `expr2`. If they are equal, the function returns null. If they aren’t equal, the function returns `expr1`: `NULLIF('a', 'b') → a`. | `NULLIF` — Compares `expr1` and `expr2`. If they are equal, the function returns null. If they aren’t equal, the function returns `expr1`: `NULLIF('a', 'b') → a`. | Yes        |
+| `NVL` — Replaces null (returned as a blank) with a string in the results of a query: `NVL (null, 'a') → a`.                                                        | `IFNULL` — Replaces null (returned as a blank) with a string in the results of a query: `IFNULL (null, 'a') → a`.                                                  | No         |
+| `NVL2` — Determines the value returned by a query based on whether a specified expression is null or not null.                                                     | `CASE` — Chooses from a sequence of conditions and runs a corresponding statement: `CASE WHEN condition THEN result [WHEN …​] [ELSE result] END`.                  | No         |
 
-Starting from Amazon RDS for MySQL version 8, InnoDB supports `NOWAIT` and `SKIP LOCKED` options with `SELECT …​ FOR SHARE` and `SELECT …​ FOR UPDATE` locking read statements. `NOWAIT` causes the statement to return immediately if a requested row is locked by another transaction. `SKIP LOCKED` removes locked rows from the result set. `SELECT …​ FOR SHARE` replaces `SELECT …​ LOCK IN SHARE MODE` but `LOCK IN SHARE MODE` remains available for backward compatibility. The statements are equivalent. However, `FOR UPDATE` and `FOR SHARE` support `NOWAIT SKIP LOCKED` and `OF tbl_name` options. For more information, see [SELECT Statement](https://dev.mysql.com/doc/refman/8.0/en/select.html "https://dev.mysql.com/doc/refman/8.0/en/select.html") in the _MySQL documentation_.
+### Environment and identifier functions
 
-### Defining the Beginning of a Transaction
+| Oracle function and definition                                                                                                                                      | MySQL function and definition                                                                                                                                          | Equivalent |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| `SYS_GUID` — Generates and returns a globally unique identifier (RAW value) made up of 16 bytes: `select sys_guid() from dual → 5A280ABA8C76201EE0530-100007FF691`. | `UUID` and `REPLACE` — `REPLACE(UUID(), '-', '')`.                                                                                                                     | No         |
+| `UID` — Returns an integer that uniquely identifies the session user (the user who logged on): `select uid from dual → 84`.                                         | N/A                                                                                                                                                                    | No         |
+| `USER` — Returns the name of the session user: `select user from dual`.                                                                                             | `USER` — Returns the name of the session user and source machine: `select USER()`.                                                                                     | No         |
+| `USERENV` — Returns information about the current session using parameters: `SELECT USERENV ('LANGUAGE') "Language" FROM DUAL`.                                     | `SHOW SESSION VARIABLES` — Displays the system variable values that are in effect for the current connection: `myshow SESSION VARIABLES LIKE 'collation_connection';`. | No         |
 
-```
-START TRANSACTION WITH CONSISTENT SNAPSHOT | READ WRITE | READ ONLY
+### Oracle conversion functions
 
-or
+| Oracle function and definition                                                                                                                                     | MySQL function and definition                                                                                                                                | Equivalent |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- |
+| `CAST` — Converts one built-in data type or collection-typed value into another built-in data type or collection-typed value: `cast ('10' as int) + 1 → 11`.       | `CAST` — Converts one built-in data type or collection-typed value into another built-in data type or collection-typed value: `cast ('10' as UNSIGNED) + 1`. | Yes        |
+| `CONVERT` — Converts a character string from a one-character set to another: `select convert ('Ä Ê Í Õ Ø A B C D E ', 'US7ASCII', 'WE8ISO8859P1') from dual`.      | `CONVERT` — Converts a character string from a one-character set to another: `select convert ('Ä Ê Í Õ Ø A B C D E ' USING utf8)`.                           | Yes        |
+| `TO_CHAR (string / numeric)` — Converts `NCHAR`, `NVARCHAR2`, `CLOB`, or `NCLOB` data to the database character set: `select to_char ('01234') from dual → 01234`. | `FORMAT` — Converts string data to the database character set: `FORMAT('01234', 0) -→ 01234`.                                                                | No         |
+| `TO_DATE` — Converts char of `CHAR`, `VARCHAR2`, `NCHAR`, or `NVARCHAR2` data type to a value of `DATE` data type: `to_date('01Jan2017','DDMonYYYY') → 01-JAN-17`. | `STR_TO_DATE` — Convert string data type to a value of `DATE` data type: `SELECT STR_TO_DATE('01Jan2017','%d%M%Y')`.                                         | No         |
+| `TO_NUMBER` — Converts an expression to a value of `NUMBER` data type: `to_number('01234') → 1234 or to_number('01234', '99999') → 1234`.                          | N/A                                                                                                                                                          | No         |
 
-BEGIN [WORK]
-```
+### Aggregate functions
 
-The `WITH CONSISTENT SNAPSHOT` option starts a consistent read Transaction. The effect is the same as issuing a `START TRANSACTION` followed by a `SELECT` from any table. `WITH CONSISTENT SNAPSHOT` doesn’t change the transaction isolation level.
+| Oracle function and definition                                                                                                                                                                                          | MySQL function and definition                                                                                                                                                                                 | Equivalent |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| `AVG` — Returns an average value of an expression: `select avg(salary) from employees`.                                                                                                                                 | `AVG` — Returns an average value of an expression: `select avg(salary) from employees`.                                                                                                                       | Yes        |
+| `COUNT` — Returns the number of rows returned by the query: `select count(*) from employees`.                                                                                                                           | `COUNT` — Returns the number of rows returned by the query: `select count(*) from employees`.                                                                                                                 | Yes        |
+| `LISTAGG` — Orders data within each group specified in the `ORDER BY` clause and then concatenates the values of the measure column: `select listagg(firstname,' ,') within group (order by customerid) from customer`. | `GROUP_CONCAT` — Orders data within each group specified in the `ORDER BY` clause and then concatenates the values of the measure column: `select GROUP_CONCAT(firstname order by customerid) from customer`. | No         |
+| `MAX` — Returns the maximum value of an expression: `select max(salary) from employees`.                                                                                                                                | `MAX` — Returns the maximum value of an expression: `select max(salary) from employees`.                                                                                                                      | Yes        |
+| `MIN` — Returns the minimum value of an expression: `select min(salary) from employees`.                                                                                                                                | `MIN` — Returns the minimum value of an expression: `select min(salary) from employees`.                                                                                                                      | Yes        |
+| `SUM` — Returns the sum of values of an expression: `select sum(salary) from employees`.                                                                                                                                | `SUM` — Returns the sum of values of an expression: `select sum(salary) from employees`.                                                                                                                      | Yes        |
 
-A consistent read uses snapshot information to make query results available based on a point-in-time regardless of modifications performed by concurrent transactions. If queried data has been changed by another transaction, the original data is reconstructed using the undo log. This avoids locking issues that may reduce concurrency. With the `REPEATABLE READ` isolation level, the snapshot is based on the time the first read operation is performed. With the `READ COMMITTED` isolation level, the snapshot is reset to the time of each consistent read operation.
+### Top-N Query Oracle 12c
 
-Commit work at the end of a transaction:
+| Oracle function and definition                                                                                                   | MySQL function and definition                                                                                                     | Equivalent |
+| -------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| `FETCH` — Retrieves rows of data from the result set of a multi-row query: `select<br>• from customer fetch first 10 rows only`. | `LIMIT` — Retrieves just a portion of the rows that are generated by the rest of the query: `select<br>• from customer LIMIT 10`. | Yes        |
 
-```
-COMMIT [WORK] [AND [NO] CHAIN] [[NO] RELEASE]
-```
-
-Roll back work at the end of a transaction:
-
-```
-ROLLBACK [WORK] [AND [NO] CHAIN] [[NO] RELEASE]
-```
-
-One of the `ROLLBACK` options is `ROLLBACK TO SAVEPOINT <logical_name>`. This command will rollback all changes in current transaction up to the save point mentioned.
-
-Create transaction save point during the transaction
-
-```
-SAVEPOINT <logical_name>
-```
-
-###### Note
-
-If the current transaction has a save point with the same name, the old save point is deleted and a new one is set.
-
-The `AND CHAIN` clause causes a new transaction to begin as soon as the current one ends using the same isolation level and access mode as the just-terminated transaction.
-
-The `RELEASE` clause causes the server to disconnect the current session after terminating the current transaction. The `NO` keyword suppresses both CHAIN and RELEASE completion. This can be useful if the `completion_type` system variable is set to cause chaining or release completion.
-
-Always run with the `autocommit` mode turned on. Set the `autocommit` parameter to 1 on the database side. This is the default value. Also, make sure that the `autocommit` parameter is set to 1 on the application side. This might not be the default value.
-
-Always double-check the `autocommit` settings on the application side. For example, Python drivers such as MySQLdb and PyMySQL turn off `autocommit` by default.
-
-Aurora MySQL supports auto commit and explicit commit modes. You can change the mode using the system variable `autocommit`, 1 is the default:
-
-```
-SET autocommit = {0 | 1}
-```
-
-### Examples
-
-Run two DML statements within a serializable transaction.
-
-```
-SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
-START TRANSACTION;
-INSERT INTO Table1 VALUES (1, 'A');
-
-UPDATE Table2 SET Column1 = 'Done' WHERE KeyColumn = 1;
-COMMIT;
-```
-
-## Summary
-
-The following table summarizes the key differences in transaction support and syntax when migrating from Oracle to Aurora MySQL.
-
-| Transaction property          | Oracle                                                                                         | Aurora MySQL                                                              | Comments                                                                                                                      |
-| ----------------------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------- | ---------------- | ------------- | ----------------- |
-| Default isolation level       | `READ COMMITTED`                                                                               | `REPEATABLE READ`                                                         | The Aurora MySQL default isolation level is stricter than the Oracle. Evaluate application needs and set appropriately.       |
-| Initialize transaction syntax | `START TRANSACTION`                                                                            | `START TRANSACTION`                                                       |                                                                                                                               |
-| Commit transaction            | `COMMIT [WORK                                                                                  | FORCE]`                                                                   | `COMMIT [WORK]`                                                                                                               | If you use only `COMMIT` or `COMMIT WORK`, no changes are needed. Otherwise, rewrite `FORCE` to `WORK`. |
-| Rollback transaction          | `ROLLBACK [WORK                                                                                | [ TO                                                                      | FORCE]`                                                                                                                       | `ROLLBACK [WORK]`                                                                                       | If you use only `ROLLBACK` or `ROLLBACK WORK`, no changes are needed. Otherwise, rewrite `TO` and `FORCE` to `WORK`. |
-| Set `autocommit` off or on    | `SET AUTOCOMMIT ON                                                                             | OFF (SQL\*Plus)`                                                          | `SET autocommit = 0                                                                                                           | 1`                                                                                                      |                                                                                                                      |
-| ANSI isolations               | `REPEATABLE READ                                                                               | READ COMMITTED                                                            | READ UNCOMMITTED                                                                                                              | SERIALIZABLE`                                                                                           | `REPEATABLE READ                                                                                                     | READ COMMITTED | READ UNCOMMITTED | SERIALIZABLE` | Compatible syntax |
-| MVCC                          | `START TRANSACTION                                                                             | READ COMMITTED`                                                           | `WITH CONSISTENT SNAPSHOT`                                                                                                    | Aurora MySQL consistent read in `READ COMMITTED` isolation, is similar to `READ COMMITTED` in Oracle.   |
-| Nested transactions           | Supported by starting new transaction or call a procedure or function after transaction start. | Not Supported                                                             | Starting a new transaction in Aurora MySQL while another transaction is active causes a `COMMIT` of the previous transaction. |
-| Transaction chaining          | Not Supported                                                                                  | Causes a new transaction to open immediately upon transaction completion. |                                                                                                                               |
-| Transaction release           | Not supported                                                                                  | Causes the client session to disconnect upon transaction completion       |                                                                                                                               |
-
-For more information, see [Transaction Isolation Levels](https://dev.mysql.com/doc/refman/5.7/en/innodb-transaction-isolation-levels.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-transaction-isolation-levels.html") in the _MySQL documentation_.
+For more information, see [String Functions and Operators](https://dev.mysql.com/doc/refman/5.7/en/string-functions.html "https://dev.mysql.com/doc/refman/5.7/en/string-functions.html") and [Numeric Functions and Operators](https://dev.mysql.com/doc/refman/5.7/en/numeric-functions.html "https://dev.mysql.com/doc/refman/5.7/en/numeric-functions.html") in the _MySQL documentation_.
