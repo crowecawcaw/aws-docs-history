@@ -3,6 +3,38 @@
 This document contains all Amazon IVS Low-Latency Streaming release notes, latest first,
 organized by date of release.
 
+## March 12, 2026
+
+### IVS Broadcast SDK: Web 1.33.0 (Low-Latency Streaming)
+
+| Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                                                    |
+| ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Web Broadcast SDK<br>1.33.0](broadcast-web.md "broadcast-web.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference/](https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference "https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference")<br>• Bug fixes and stability improvements. |
+
+## March 12, 2026
+
+### Amazon IVS Broadcast SDK: Android 1.40.0, iOS 1.40.0 (Low-Latency Streaming)
+
+| Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Android Broadcast SDK<br>1.40.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.40.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.40.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.40.0/android/")<br>• Improved reliability of auto-reconnect<br>behavior.<br>• Improved error messages around TLS certificate<br>validation failures and expanded error enum<br>codes.                                                                                                                                                                                                                                                                            |
+| [iOS Broadcast SDK<br>1.40.0](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.40.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.40.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.40.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.40.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.40.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.40.0/ios/")<br>• Improved reliability of auto-reconnect<br>behavior.<br>• Improved error messages around TLS certificate<br>validation failures and expanded error enum<br>codes. |
+
+#### Broadcast SDK Size: Android
+
+| Architecture | Compressed Size | Uncompressed Size |
+| ------------ | --------------- | ----------------- |
+| arm64-v8a    | 1.998 MB        | 5.421 MB          |
+| armeabi-v7a  | 1.749 MB        | 3.754 MB          |
+| x86_64       | 2.081 MB        | 5.756 MB          |
+| x86          | 2.102 MB        | 5.535 MB          |
+
+#### Broadcast SDK Size: iOS
+
+| Architecture | Compressed Size | Uncompressed Size |
+| ------------ | --------------- | ----------------- |
+| arm64        | 1.027 MB        | 2.248 MB          |
+
 ## February 19, 2026
 
 ### IVS Player SDK: Android 1.49.0, iOS 1.49.0
