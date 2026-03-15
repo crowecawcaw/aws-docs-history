@@ -30,4 +30,4 @@ Then, add the email IDs in the **Additional contacts - optional** section.
 
 The following is an example of the **Reply** page showing where you can enter additional emails.
 
-![The Reply page where you can add additional emails.](images/workload-change-request4.png)
+![The Reply page where you can add additional emails.](/images/IDR/latest/userguide/images/workload-change-request4.png)
