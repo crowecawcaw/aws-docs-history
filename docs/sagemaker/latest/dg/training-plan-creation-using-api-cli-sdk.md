@@ -19,6 +19,10 @@ plans programmatically:
 - **`DescribeTrainingPlan`:** Offers detailed
   insights into a specific training plan, including its lifecycle stages from
   `Pending` to `Active` to `Expired`.
+- **`ExtendTrainingPlan`:** Extends an existing
+  training plan by purchasing an extension offering. For more information, see [Training plans extension](training-plan-extension.md "training-plan-extension.md").
+- **`DescribeTrainingPlanExtensionHistory`:** Retrieves the extension
+  history for a training plan. For more information, see [Training plans extension](training-plan-extension.md "training-plan-extension.md").
 
 ###### Topics
 

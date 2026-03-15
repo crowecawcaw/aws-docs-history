@@ -717,7 +717,9 @@ After the CloudFormation stack is created, continue with [Installing the Inferen
 
 ## Method 3: Helm chart installation
 
-Use this method if you need more control over the installation configuration or if the EKS Add-on is not available in your region.
+###### Note
+
+For the simplest installation experience, we recommend using [Method 1: Install HyperPod Inference Add-on through SageMaker AI console (Recommended)](#sagemaker-hyperpod-model-deployment-setup-ui "#sagemaker-hyperpod-model-deployment-setup-ui") or [Method 2: Installing the Inference Operator using the AWS CLI](#sagemaker-hyperpod-model-deployment-setup-addon "#sagemaker-hyperpod-model-deployment-setup-addon"). Helm chart installation may be deprecated in a future release.
 
 ### Prerequisites
 
@@ -759,8 +761,6 @@ S3_MOUNT_ACCESS_POLICY_NAME="S3MountpointAccessPolicy-$HYPERPOD_CLUSTER_NAME"
 S3_CSI_ROLE_NAME="SM_HP_S3_CSI_ROLE-$HYPERPOD_CLUSTER_NAME"
 KEDA_OPERATOR_POLICY_NAME="KedaOperatorPolicy-$HYPERPOD_CLUSTER_NAME"
 KEDA_OPERATOR_ROLE_NAME="keda-operator-role-$HYPERPOD_CLUSTER_NAME"
-PRESIGNED_URL_ACCESS_POLICY_NAME="PresignedUrlAccessPolicy-$HYPERPOD_CLUSTER_NAME"
-HYPERPOD_INFERENCE_ACCESS_POLICY_NAME="HyperpodInferenceAccessPolicy-$HYPERPOD_CLUSTER_NAME"
 HYPERPOD_INFERENCE_ROLE_NAME="HyperpodInferenceRole-$HYPERPOD_CLUSTER_NAME"
 HYPERPOD_INFERENCE_SA_NAME="hyperpod-inference-operator-controller"
 HYPERPOD_INFERENCE_SA_NAMESPACE="hyperpod-inference-system"
@@ -806,13 +806,14 @@ export EKS_CLUSTER_ROLE=$(aws eks --region $REGION describe-cluster --name $EKS_
 eksctl utils associate-iam-oidc-provider --region=$REGION --cluster=$EKS_CLUSTER_NAME --approve
 ```
 
-3. Create the trust policy and permission policy JSON documents required for
-   the HyperPod inference operator IAM role. These policies enable secure
+3. Create the trust policy required for
+   the HyperPod inference operator IAM role. This policy enables secure
    cross-service communication between Amazon EKS, SageMaker AI, and other AWS
    services.
 
 ```
-bash
+%%bash -x
+
 # Create trust policy JSON
 cat << EOF > trust-policy.json
 {
@@ -843,193 +844,13 @@ cat << EOF > trust-policy.json
 ]
 }
 EOF
-
-# Create permission policy JSON
-cat << EOF > permission-policy.json
-{
-"Version": "2012-10-17",
-"Statement": [
-{
-"Sid": "S3Access",
-"Effect": "Allow",
-"Action": [
-    "s3:Get*",
-    "s3:List*",
-    "s3:Describe*",
-    "s3:PutObject"
-],
-"Resource": [
-    "*"
-]
-},
-{
-"Sid": "ECRAccess",
-"Effect": "Allow",
-"Action": [
-    "ecr:GetAuthorizationToken",
-    "ecr:BatchCheckLayerAvailability",
-    "ecr:GetDownloadUrlForLayer",
-    "ecr:GetRepositoryPolicy",
-    "ecr:DescribeRepositories",
-    "ecr:ListImages",
-    "ecr:DescribeImages",
-    "ecr:BatchGetImage",
-    "ecr:GetLifecyclePolicy",
-    "ecr:GetLifecyclePolicyPreview",
-    "ecr:ListTagsForResource",
-    "ecr:DescribeImageScanFindings"
-],
-"Resource": [
-    "*"
-]
-},
-{
-"Sid": "EC2Access",
-"Effect": "Allow",
-"Action": [
-    "ec2:AssignPrivateIpAddresses",
-    "ec2:AttachNetworkInterface",
-    "ec2:CreateNetworkInterface",
-    "ec2:DeleteNetworkInterface",
-    "ec2:DescribeInstances",
-    "ec2:DescribeTags",
-    "ec2:DescribeNetworkInterfaces",
-    "ec2:DescribeInstanceTypes",
-    "ec2:DescribeSubnets",
-    "ec2:DetachNetworkInterface",
-    "ec2:ModifyNetworkInterfaceAttribute",
-    "ec2:UnassignPrivateIpAddresses",
-    "ec2:CreateTags",
-    "ec2:DescribeInstances",
-    "ec2:DescribeInstanceTypes",
-    "ec2:DescribeRouteTables",
-    "ec2:DescribeSecurityGroups",
-    "ec2:DescribeSubnets",
-    "ec2:DescribeVolumes",
-    "ec2:DescribeVolumesModifications",
-    "ec2:DescribeVpcs",
-    "ec2:CreateVpcEndpointServiceConfiguration",
-    "ec2:DeleteVpcEndpointServiceConfigurations",
-    "ec2:DescribeVpcEndpointServiceConfigurations",
-    "ec2:ModifyVpcEndpointServicePermissions"
-],
-"Resource": [
-    "*"
-]
-},
-{
-"Sid": "EKSAuthAccess",
-"Effect": "Allow",
-"Action": [
-    "eks-auth:AssumeRoleForPodIdentity"
-],
-"Resource": [
-    "*"
-]
-},
-{
-"Sid": "EKSAccess",
-"Effect": "Allow",
-"Action": [
-    "eks:AssociateAccessPolicy",
-    "eks:Describe*",
-    "eks:List*",
-    "eks:AccessKubernetesApi"
-],
-"Resource": [
-    "*"
-]
-},
-{
-"Sid": "ApiGatewayAccess",
-"Effect": "Allow",
-"Action": [
-    "apigateway:POST",
-    "apigateway:GET",
-    "apigateway:PUT",
-    "apigateway:PATCH",
-    "apigateway:DELETE",
-    "apigateway:UpdateRestApiPolicy"
-],
-"Resource": [
-    "arn:aws:apigateway:*::/vpclinks",
-    "arn:aws:apigateway:*::/vpclinks/*",
-    "arn:aws:apigateway:*::/restapis",
-    "arn:aws:apigateway:*::/restapis/*"
-]
-},
-{
-"Sid": "ElasticLoadBalancingAccess",
-"Effect": "Allow",
-"Action": [
-    "elasticloadbalancing:CreateLoadBalancer",
-    "elasticloadbalancing:DescribeLoadBalancers",
-    "elasticloadbalancing:DescribeLoadBalancerAttributes",
-    "elasticloadbalancing:DescribeListeners",
-    "elasticloadbalancing:DescribeListenerCertificates",
-    "elasticloadbalancing:DescribeSSLPolicies",
-    "elasticloadbalancing:DescribeRules",
-    "elasticloadbalancing:DescribeTargetGroups",
-    "elasticloadbalancing:DescribeTargetGroupAttributes",
-    "elasticloadbalancing:DescribeTargetHealth",
-    "elasticloadbalancing:DescribeTags",
-    "elasticloadbalancing:DescribeTrustStores",
-    "elasticloadbalancing:DescribeListenerAttributes"
-],
-"Resource": [
-    "*"
-]
-},
-{
-"Sid": "SageMakerAccess",
-"Effect": "Allow",
-"Action": [
-    "sagemaker:*"
-],
-"Resource": [
-    "*"
-]
-},
-{
-"Sid": "AllowPassRoleToSageMaker",
-"Effect": "Allow",
-"Action": [
-    "iam:PassRole"
-],
-"Resource": "arn:aws:iam::*:role/*",
-"Condition": {
-    "StringEquals": {
-    "iam:PassedToService": "sagemaker.amazonaws.com"
-    }
-}
-},
-{
-"Sid": "AcmAccess",
-"Effect": "Allow",
-"Action": [
-    "acm:ImportCertificate",
-    "acm:DeleteCertificate"
-],
-"Resource": [
-    "*"
-]
-}
-]
-}
-EOF
 ```
 
-4. Create execution Role for the inference operator.
-
-```
-aws iam create-policy --policy-name $HYPERPOD_INFERENCE_ACCESS_POLICY_NAME --policy-document file://permission-policy.json
-export policy_arn="arn:aws:iam::${ACCOUNT_ID}:policy/$HYPERPOD_INFERENCE_ACCESS_POLICY_NAME"
-```
+4. Create execution Role for the inference operator and attach the managed policy.
 
 ```
 aws iam create-role --role-name $HYPERPOD_INFERENCE_ROLE_NAME --assume-role-policy-document file://trust-policy.json
-
-aws iam put-role-policy --role-name $HYPERPOD_INFERENCE_ROLE_NAME --policy-name InferenceOperatorInlinePolicy --policy-document file://permission-policy.json
+aws iam attach-role-policy --role-name $HYPERPOD_INFERENCE_ROLE_NAME --policy-arn arn:aws:iam::aws:policy/AmazonSageMakerHyperPodInferenceAccess
 ```
 
 5. Download and create the IAM policy required for the AWS Load Balancer
@@ -1325,31 +1146,10 @@ aws iam attach-role-policy \
 
 2. If you're using gated models, create an IAM role to access the gated
    models.
-   1. Create an IAM policy.
+   1. Create the trust policy and IAM role for gated model access.
 
    ```
    %%bash -s $REGION
-
-   cat <<EOF> /tmp/presignedurl-policy.json
-   {
-   "Version": "2012-10-17",
-   "Statement": [
-       {
-           "Sid": "CreatePresignedUrlAccess",
-           "Effect": "Allow",
-           "Action": [
-               "sagemaker:CreateHubContentPresignedUrls"
-           ],
-           "Resource": [
-               "arn:aws:sagemaker:$1:aws:hub/SageMakerPublicHub",
-               "arn:aws:sagemaker:$1:aws:hub-content/SageMakerPublicHub/*/*"
-           ]
-       }
-   ]
-   }
-   EOF
-
-   aws iam create-policy --policy-name PresignedUrlAccessPolicy --policy-document file:///tmp/presignedurl-policy.json
 
    JUMPSTART_GATED_ROLE_NAME="JumpstartGatedRole-${REGION}-${HYPERPOD_CLUSTER_NAME}"
 
@@ -1365,7 +1165,7 @@ aws iam attach-role-policy \
            "Action": "sts:AssumeRoleWithWebIdentity",
            "Condition": {
                "StringLike": {
-                   "oidc.eks.$REGION.amazonaws.com/id/$OIDC_ID:sub": "system:serviceaccount:*:hyperpod-inference-controller-manager",
+                   "oidc.eks.$REGION.amazonaws.com/id/$OIDC_ID:sub": "system:serviceaccount:*:hyperpod-inference-service-account*",
                    "oidc.eks.$REGION.amazonaws.com/id/$OIDC_ID:aud": "sts.amazonaws.com"
                }
            }
@@ -1380,32 +1180,21 @@ aws iam attach-role-policy \
    ]
    }
    EOF
-   ```
 
-   2. Create an IAM role.
-
-   ```
-   # Create the role using existing trust policy
+   # Create the role and attach the managed policy
    aws iam create-role \
    --role-name $JUMPSTART_GATED_ROLE_NAME \
    --assume-role-policy-document file:///tmp/trust-policy.json
-   # Attach the existing PresignedUrlAccessPolicy to the role
+
    aws iam attach-role-policy \
    --role-name $JUMPSTART_GATED_ROLE_NAME \
-   --policy-arn arn:aws:iam::${ACCOUNT_ID}:policy/PresignedUrlAccessPolicy
+   --policy-arn arn:aws:iam::aws:policy/AmazonSageMakerHyperPodGatedModelAccess
    ```
 
    ```
    JUMPSTART_GATED_ROLE_ARN_LIST= !aws iam get-role --role-name=$JUMPSTART_GATED_ROLE_NAME --query "Role.Arn" --output text
    JUMPSTART_GATED_ROLE_ARN = JUMPSTART_GATED_ROLE_ARN_LIST[0]
    !echo $JUMPSTART_GATED_ROLE_ARN
-   ```
-
-   3. Add `SageMakerFullAccess` policy to the execution
-      role.
-
-   ```
-   aws iam attach-role-policy --role-name=$HYPERPOD_INFERENCE_ROLE_NAME --policy-arn=arn:aws:iam::aws:policy/AmazonSageMakerFullAccess
    ```
 
 ### Install the inference operator

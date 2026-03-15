@@ -40,6 +40,12 @@ Before downloading or using third-party content: You are responsible for reviewi
 complying with any applicable license terms and making sure that they are acceptable for
 your use case.
 
+On 3/13/2026, we delisted a few models from the JumpStart catalog across regions to
+improve discoverability and focus on high-quality, well-supported options. Existing
+endpoints for delisted models will remain functional. For license information on delisted
+open-weight models, please refer to the Hugging Face listing of the respective
+models.
+
 From the **SageMaker Models** landing page in Studio, you can explore
 JumpStart base models from both proprietary and publicly available model providers. You can
 search directly for models, filter by specific model provider, or filter based on a list of
@@ -116,6 +122,12 @@ JumpStart** page.
 Before downloading or using third-party content: You are responsible for reviewing and
 complying with any applicable license terms and making sure that they are acceptable for
 your use case.
+
+On 3/13/2026, we delisted a few models from the JumpStart catalog across regions to
+improve discoverability and focus on high-quality, well-supported options. Existing
+endpoints for delisted models will remain functional. For license information on delisted
+open-weight models, please refer to the Hugging Face listing of the respective
+models.
 
 ### Use JumpStart in Studio Classic
 
