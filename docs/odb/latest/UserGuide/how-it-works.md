@@ -100,7 +100,7 @@ You can use the AZs with the physical IDs `euc1-az1` and
 
 **Canada (Central)**
 
-You can use the AZ with the physical ID `cac1-az4`.
+You can use the AZs with the physical IDs `cac1-az4` and `cac1-az1`.
 
 **Asia Pacific (Sydney)**
 
@@ -239,7 +239,7 @@ networks. An ODB network supports up to 45 direct peering connections. You can e
 can connect to multiple VPCs. With this transit gateway configuration, you can route traffic
 between multiple VPC subnets and your ODB network through a central hub.
 
-![Shows an ODB network peered with a VPC that is connected to a transit gateway. The gateway is connected to a VPC and an on-premises network.](/images/odb/latest/UserGuide/images/ODB-tgw.png)
+![Shows an ODB network peered with a VPC that is connected to a transit gateway. The gateway is connected to a VPC and an on-premises network.](images/ODB-tgw.png)
 
 For more information, see [Configuring Amazon VPC Transit Gateways for Oracle Database@AWS](configuring.md#configuring-tgw "configuring.md#configuring-tgw").
 

@@ -65,7 +65,7 @@ You can use the AZs with the physical IDs `euc1-az1` and
 
 **Canada (Central)**
 
-You can use the AZ with the physical ID `cac1-az4`.
+You can use the AZs with the physical IDs `cac1-az4` and `cac1-az1`.
 
 **Asia Pacific (Sydney)**
 
