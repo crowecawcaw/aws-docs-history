@@ -149,6 +149,14 @@ frames of the following types for the Ankaa-3 system.
 `flux_tx`, `charge_tx`, `readout_rx`, `readout_tx`
 ```
 
+The Ankaa-3 device has a maximum limit of 20,000 gates per circuit.
+Circuits that exceed this limit are rejected with a validation error. This is a fixed
+limit that cannot be increased. The gate count refers to the compiled circuit, which
+may differ from the gate count of the original uncompiled circuit. To estimate the
+compiled gate count before submitting to the QPU, you can use verbatim compilation
+locally or transpile your circuit to the native gate set (`rx`,
+`rz`, `iswap`).
+
 ## QuEra
 
 QuEra offers neutral-atom based devices that can run Analog Hamiltonian
