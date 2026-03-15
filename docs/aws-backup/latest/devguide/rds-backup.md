@@ -100,3 +100,8 @@ For more information, consult
 
 For more information on
 [Creating a Multi-AZ DB cluster snapshot](../../../AmazonRDS/latest/UserGuide/USER_CreateMultiAZDBClusterSnapshot.md "../../../AmazonRDS/latest/UserGuide/USER_CreateMultiAZDBClusterSnapshot.md"), see the Amazon RDS User Guide.
+
+## Amazon Aurora Global Databases
+
+AWS recommends maintaining backups in every Region where your global database
+is deployed.

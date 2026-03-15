@@ -13,6 +13,8 @@ FAQ](https://aws.amazon.com/backup/faqs/ "https://aws.amazon.com/backup/faqs/").
 - [Troubleshooting deleting resources](#troubleshooting-delete-backup "#troubleshooting-delete-backup")
 - [Troubleshooting restoring resources](#troubleshooting-restore-backup "#troubleshooting-restore-backup")
 - [Troubleshooting formatting errors](#troubleshooting-formatting-errors "#troubleshooting-formatting-errors")
+- [Common troubleshooting questions](#troubleshooting-common-questions "#troubleshooting-common-questions")
+- [Additional important links](#troubleshooting-additional-links "#troubleshooting-additional-links")
 
 ## Troubleshooting general issues
 
@@ -124,3 +126,97 @@ See [Restoring a backup](restoring-a-backup.md "restoring-a-backup.md") for more
 When a wildcard (\*) is included for the value in a parameter, the wildcard is processed
 to include values other than whitespaces. Values in a key-value pair that contain white spaces
 will not included as part of the wildcard.
+
+## Common troubleshooting questions
+
+The following resources can help you troubleshoot common issues with
+AWS Backup.
+
+- [Why
+  does my AWS Backup job fail?](https://repost.aws/knowledge-center/backup-failed-job "https://repost.aws/knowledge-center/backup-failed-job")
+- [How
+  do I troubleshoot common errors for Amazon S3 backups that are failing in
+  AWS Backup?](https://repost.aws/knowledge-center/backup-s3-backups-fail-errors "https://repost.aws/knowledge-center/backup-s3-backups-fail-errors")
+- [How
+  do I troubleshoot common errors for VMware backups that are failing in
+  AWS Backup?](https://repost.aws/knowledge-center/backup-troubleshoot-vmware-backups "https://repost.aws/knowledge-center/backup-troubleshoot-vmware-backups")
+- For additional VMware backup troubleshooting, see [Troubleshoot VM issues](vm-troubleshooting.md "vm-troubleshooting.md").
+- [How
+  do I troubleshoot the "You are not authorized to perform this operation" error when I
+  try to restore my Amazon EC2 instance?](https://repost.aws/knowledge-center/aws-backup-encoded-authorization-failure "https://repost.aws/knowledge-center/aws-backup-encoded-authorization-failure")
+- [How
+  do I troubleshoot a backup policy that doesn't create jobs in my member accounts in
+  an organization?](https://repost.aws/knowledge-center/backup-policy-no-jobs-created "https://repost.aws/knowledge-center/backup-policy-no-jobs-created")
+- [How
+  do I resolve the error "This image is managed by AWS Backup and cannot be deleted via
+  Amazon EC2 APIs" when I try to delete an Amazon EC2 backup?](https://repost.aws/knowledge-center/backup-delete-ami-error "https://repost.aws/knowledge-center/backup-delete-ami-error")
+- [How
+  do I troubleshoot Amazon EC2 VSS failures in AWS Backup?](https://repost.aws/knowledge-center/backup-troubleshoot-vss-failures "https://repost.aws/knowledge-center/backup-troubleshoot-vss-failures")
+- [How
+  can I troubleshoot not receiving notifications from Amazon EventBridge for
+  AWS Backup?](https://repost.aws/knowledge-center/backup-sns-notifications-not-received "https://repost.aws/knowledge-center/backup-sns-notifications-not-received")
+- [How
+  do I resolve "Insufficient privileges to perform this action" errors when performing
+  an Amazon EFS restore using AWS Backup?](https://repost.aws/knowledge-center/backup-insufficient-privileges-efs "https://repost.aws/knowledge-center/backup-insufficient-privileges-efs")
+- [How
+  can I turn off automatic backups in Amazon EFS and remove the stored backup
+  data?](https://repost.aws/knowledge-center/efs-disable-automatic-backups "https://repost.aws/knowledge-center/efs-disable-automatic-backups")
+- [Why
+  is my recovery point in the expired status in AWS Backup?](https://repost.aws/knowledge-center/backup-recovery-point-expired "https://repost.aws/knowledge-center/backup-recovery-point-expired")
+- [How
+  can I stop an Amazon RDS continuous backup in AWS Backup?](https://repost.aws/knowledge-center/backup-stop-rds-continuous-backup "https://repost.aws/knowledge-center/backup-stop-rds-continuous-backup")
+- [How
+  do I remove an AWS Backup Vault Lock?](https://repost.aws/knowledge-center/backup-delete-vault-lock "https://repost.aws/knowledge-center/backup-delete-vault-lock")
+- [Why
+  is my cross-account copy failing in AWS Backup?](https://repost.aws/knowledge-center/backup-troubleshoot-cross-account-copy "https://repost.aws/knowledge-center/backup-troubleshoot-cross-account-copy")
+- [How
+  can I resolve the "Given key ID not accessible" error when performing a cross-account
+  copy in AWS Backup?](https://repost.aws/knowledge-center/backup-cross-account-copy-error "https://repost.aws/knowledge-center/backup-cross-account-copy-error")
+- [How
+  do I resolve the error "Access Denied trying to call AWS Backup service" when I try to
+  create a cross-account copy in AWS Backup?](https://repost.aws/knowledge-center/backup-resolve-access-denied-error "https://repost.aws/knowledge-center/backup-resolve-access-denied-error")
+- [Why
+  do I get an Access Denied error when I try to create an AWS Backup
+  vault?](https://repost.aws/knowledge-center/backup-vault-access-denied "https://repost.aws/knowledge-center/backup-vault-access-denied")
+- [Why
+  is my Aurora cluster endpoint stuck in the Creating status after the AWS Backup restore
+  job completes?](https://repost.aws/knowledge-center/backup-aurora-cluster-endpoints-stuck "https://repost.aws/knowledge-center/backup-aurora-cluster-endpoints-stuck")
+- [Why
+  are my scheduled backup plans in AWS Backup not running?](https://repost.aws/knowledge-center/aws-backup-troubleshoot-scheduled-backup-plans "https://repost.aws/knowledge-center/aws-backup-troubleshoot-scheduled-backup-plans")
+
+## Additional important links
+
+The following resources provide additional guidance for working with
+AWS Backup.
+
+- [Troubleshoot
+  a logically air-gapped vault issue](logicallyairgappedvault.md#lag-troubleshoot "logicallyairgappedvault.md#lag-troubleshoot")
+- [Delegated
+  administrator accounts](manage-cross-account.md#backup-delegatedadmin "manage-cross-account.md#backup-delegatedadmin") — Delegated administrator accounts are member
+  accounts with enhanced features but cannot override service opt-in settings of other
+  member accounts like a management account can.
+- [Managing multiple
+  accounts](manage-cross-account.md "manage-cross-account.md") — For backup plans that are managed by Organizations, the resource
+  opt-in settings in the management account override the settings in a member account,
+  even if one or more delegated administrator accounts are configured.
+- [Backup plan
+  options and configuration](plan-options-and-configuration.md "plan-options-and-configuration.md") — If you have a backup plan with multiple rules
+  and the time frames of the two rules overlap, AWS Backup optimizes the backup and takes a
+  backup for the rule with the longer retention time.
+- [Metering and
+  billing](metering-and-billing.md "metering-and-billing.md") — To avoid additional charges, we recommend that you configure your
+  backup plan retention policy with a warm storage duration of at least one
+  week.
+- [AWS Backup pricing](https://aws.amazon.com/backup/pricing/ "https://aws.amazon.com/backup/pricing/")
+- [AWS Backup SLA](https://aws.amazon.com/backup/sla/ "https://aws.amazon.com/backup/sla/")
+- [AWS Backup
+  quotas](aws-backup-limits.md "aws-backup-limits.md")
+- [Continuous
+  and point-in-time recovery considerations](point-in-time-recovery.md#point-in-time-recovery-supported-services "point-in-time-recovery.md#point-in-time-recovery-supported-services") — A resource can only have one
+  continuous backup.
+- [Prerequisites
+  for Amazon S3 backups and considerations for Amazon S3 backups](s3-backups.md#s3-backup-prerequisites "s3-backups.md#s3-backup-prerequisites")
+- [Best
+  practices and cost considerations for Amazon S3 backups](s3-backups.md#bestpractices-costoptimization "s3-backups.md#bestpractices-costoptimization")
+- [Feature
+  availability, supported resources, and AWS Regions](backup-feature-availability.md "backup-feature-availability.md")
