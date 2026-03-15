@@ -20,7 +20,7 @@ To access via DCV:
    the `.dcv` file. You will need a DCV client installed
    on your system.
 
-![Virtual desktops](images/res-virtualdesktops.png) 2. For installation instructions, choose the **?**
+![Virtual desktops](/images/res/latest/ug/images/res-virtualdesktops.png) 2. For installation instructions, choose the **?**
 icon.
 
 ![Access virtual desktop through DCV](images/res-accessdcvdesktop.jpg)
