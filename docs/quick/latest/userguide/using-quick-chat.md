@@ -26,6 +26,7 @@ Quick chat provides you with the following capabilities.
 - [Conversation management](#conversation-mgmt "#conversation-mgmt")
 - [Response events](#response-events "#response-events")
 - [Contextual awareness](#contextual-awareness "#contextual-awareness")
+- [Managing your preferences in Amazon Quick](#user-preferences "#user-preferences")
 
 ## Welcome message
 
@@ -158,7 +159,7 @@ If your files exceed the file count and character count limits, you can upload
 them to a [space](../../../quicksuite/latest/userguide/working-with-spaces.md "../../../quicksuite/latest/userguide/working-with-spaces.md") instead.
 
 Documents uploaded through the chat interface are deleted with the associated
-conversation after 30 days of inactivity.
+conversation after 90 days of inactivity.
 
 ###### Note
 
@@ -215,7 +216,6 @@ You maintain control over your memory data. You can review chat memory by going 
 Chat memory has the following limitations:
 
 - Chat memory isn't supported for accounts configured with [AWS KMS customer managed keys](../../../quicksuite/latest/userguide/customer-managed-keys.md "../../../quicksuite/latest/userguide/customer-managed-keys.md").
-- Chat memory is currently only available in the US East (N. Virginia) (`us-east-1`) and US West (Oregon) (`us-west-2`) Regions.
 
 ## Source citations
 
@@ -271,7 +271,7 @@ downloads are not supported. Saving artifacts to a Space is not supported.
 
 ## Conversation management
 
-Amazon Quick stores conversations for up to 30 days, and you can access them in the
+Amazon Quick stores conversations for up to 90 days, and you can access them in the
 left navigation pane. You can perform the following tasks to manage your
 conversations:
 
@@ -279,7 +279,7 @@ conversations:
   **+** from the chat controls menu to start a new
   conversation.
 - **View conversation history** – Choose the
-  clock icon to view all conversation history for the last 30 days. You can filter
+  clock icon to view all conversation history for the last 90 days. You can filter
   conversation history to specific agents.
 
 ###### Note
@@ -314,3 +314,66 @@ If you want to continue chatting in the mode you're in, you can choose to
 to focus your chat on the specific resource you're interacting with. If you do so,
 Amazon Quick automatically scopes your chat interactions to the resource in
 context.
+
+## Managing your preferences in Amazon Quick
+
+User Preferences in Amazon Quick gives you control over how Quick looks,
+feels, and works for you. You can customize your chat experience, set a default chat
+agent, personalize how Quick interacts with you, and manage your memories
+— all from a single settings modal.
+
+### Customizing your chat experience
+
+You can set your default chat panel to open in either expanded or collapsed mode.
+By default, Quick automatically remembers your last used setting. For
+example, if you expand the chat panel during a session, Quick updates
+your default so the panel opens expanded the next time you return. You can also
+manually set your preferred default at any time from the Preferences modal.
+
+### Setting your default chat agent
+
+You can choose a preferred chat agent that greets you each time you open
+Quick. In addition to selecting a default agent, you can pre-select a
+default knowledge scope for My Assistant. The available knowledge scope options
+are:
+
+- **All data and apps** –
+  Quick searches across all your connected data sources and
+  applications.
+- **General knowledge** –
+  Quick responds using general knowledge only, without searching
+  your connected data.
+- **Specific data and apps** –
+  Quick searches only the data sources and applications you
+  specify.
+
+Your selected agent and knowledge scope are applied automatically each time you
+start a new conversation.
+
+### Personalizing your experience
+
+You can let Quick know what to call you and share your area of focus
+at work. Quick uses this context to personalize responses and make your
+experience more relevant to your role and responsibilities.
+
+### Managing your memories
+
+You can view and manage your memories directly from Preferences. Memories are
+insights that Quick learns from your conversations to personalize future
+interactions. From the Memories section, you can:
+
+- View all saved memories.
+- Search for specific memories.
+- Delete individual memories.
+- Delete all memories at once.
+
+### Accessing User Preferences
+
+To access and configure your preferences:
+
+1. Go to the top-right corner of the Amazon Quick homepage.
+2. Choose your account name.
+3. Select **Preferences** from the dropdown menu.
+4. Make your changes across any of the available sections.
+5. Choose **Save** to apply your changes, or choose
+   **Cancel** to discard them.

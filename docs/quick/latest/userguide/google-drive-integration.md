@@ -32,7 +32,7 @@ Before you set up Google Drive integration, make sure you have the following:
 
 ## Prepare Google Drive authentication
 
-Google Drive integration uses managled three-legged OAuth (3LO) authentication. Before setting up the
+Google Drive integration uses managed three-legged OAuth (3LO) authentication. Before setting up the
 integration in Amazon Quick, understand the authentication process and required
 permissions:
 

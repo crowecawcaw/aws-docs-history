@@ -1,23 +1,46 @@
 # Using Amazon Quick automations
 
-Amazon Quick helps business users make better decisions, faster and act on them, by unifying AI agents for research, business insights,
-and automation into a single experience. Quick offers comprehensive automation capabilities, from streamlining everyday tasks,
-to automating complex business processes.
+Quick unifies AI agents for research, business insights, and automation
+into a single experience, helping business users make better decisions and act on them
+faster. Quick's automation capabilities handle everything from individual
+daily tasks to mission-critical enterprise processes, so teams can focus on
+higher-value work.
 
 ## Types of automations
 
-Quick automation automation capabilities include:
+Quick offers two automation capabilities designed for different levels
+of scale and complexity:
 
-- **Quick Flows** empowers anyone to create and share multi-step workflows for routine tasks using simple natural language,
-  without requiring any technical skills. Ideal for streamlining everyday work like troubleshooting customer tickets or generating brand-compliant content.
-- **Quick Automate** tackles sophisticated enterprise automation through its multi-agent architecture, handling complex business-critical processes.
+- **Amazon Quick Flows** empowers any business user to
+  automate repetitive, routine tasks without needing technical
+  expertise
+- **Amazon Quick Automate** enables power users to
+  orchestrate end-to-end business processes at enterprise scale
+
+## Choosing between Quick Flows and Quick Automate
+
+The right choice depends on the scope and complexity of what you need to
+automate.
+
+- **User and ownership model.** Choose
+  Quick Flows for personal and team productivity tasks, run by individual
+  users. Choose Quick Automate for centralized, enterprise-wide automations,
+  especially those which need to run independent of an individual
+  user.
+- **Workflow scope and duration.** Use
+  Quick Flows for shorter-running tasks such as generating reports, drafting
+  content, or responding to tickets. Use Quick Automate for long-running and
+  high-volume processes such as managing loan applications, processing
+  invoices, and validating new vendor compliance.
+- **Customization.** Quick Flows offers a
+  simple but powerful set of no-code building blocks for your workflows.
+  Quick Automate gives additional advanced options for power users such as
+  control flow logic, case management, error handling, custom code, and
+  more.
 
 ## Getting started
 
-To begin using Quick Flows or Quick Automate, familiarize yourself with the core concepts
-and choose the appropriate automation type for your needs. Start with simple workflows to
-understand the capabilities, then explore building additional automations as your expertise grows.
-
-Your organization's administrators control access to automation features and configure
-available integrations. Contact your administrators if you need access to specific
-capabilities or encounter permission-related issues.
+- To get started with Quick Flows, see
+  [Using Amazon Quick Flows](using-amazon-quick-flows.md "using-amazon-quick-flows.md").
+- To get started with Quick Automate, see
+  [Using Amazon Quick Automate](using-amazon-quick-automate.md "using-amazon-quick-automate.md").
