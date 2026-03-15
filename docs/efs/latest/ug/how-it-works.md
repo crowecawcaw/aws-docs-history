@@ -39,8 +39,7 @@ availability and failover to other Availability Zones, keep in mind that while t
 DNS for your mount targets in each Availability Zone are static, they are redundant components backed
 by multiple resources. For more information about mount targets, see [Managing mount targets](accessing-fs.md "accessing-fs.md").
 
-After mounting the file system by using its DNS name, you use it like any other
-POSIX-compliant file system. For information about NFS-level permissions and related
+After mounting the file system by using its DNS name, you use it like any other file system. For information about NFS-level permissions and related
 considerations, see [Network File System (NFS) level users, groups, and permissions](accessing-fs-nfs-permissions.md "accessing-fs-nfs-permissions.md").
 
 You can mount your EFS file systems on your on-premises

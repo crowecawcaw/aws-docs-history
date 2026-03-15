@@ -41,10 +41,10 @@ Performance specifications for file systems using General Purpose
 performance mode| Storage and throughput<br>configuration | Latency1 | Maximum<br>IOPS | Maximum throughput |
 | --- | --- | --- | --- |
 | **File system type** | **Throughput mode** | **Read operations** | **Write operations** | **Read operations** | **Write operations** | **Per-file-system<br>read**2 | **Per-file-system<br>write**2 | **Per-client read/write** |
-| **Regional** | Elastic | As low as 250 microseconds (µs) | As low as 2.7 milliseconds (ms) | 900,000–2,500,0003 | 500,000**3** | 20–60 gibibytes per second (GiBps) | 1–5 GiBps | 1,500 mebibytes per second (MiBps)4 |
-| **Regional** | Provisioned | As low as 250 µs | As low as 2.7 ms | 55,000 | 25,000 | 3–10 GiBps | 1–3.33 GiBps | 500 MiBps |
-| **Regional** | Bursting | As low as 250 µs | As low as 2.7 ms | 35,000 | 7,000 | 3–5 GiBps | 1–3 GiBps | 500 MiBps |
-| **One Zone** | Elastic, Provisioned, Bursting | As low as 250 µs | As low as 1.6 ms | 35,000 | 7,000 | 3 GiBps5 | 1 GiBps5 | 500 MiBps |
+| **Regional** | Elastic | ~1 millisecond (ms) | ~2.7 milliseconds (ms) | 900,000–2,500,0003 | 500,000**3** | 20–60 gibibytes per second (GiBps) | 1–5 GiBps | 1,500 mebibytes per second (MiBps)4 |
+| **Regional** | Provisioned | ~1 ms | ~2.7 ms | 55,000 | 25,000 | 3–10 GiBps | 1–3.33 GiBps | 500 MiBps |
+| **Regional** | Bursting | ~1 ms | ~2.7 ms | 35,000 | 7,000 | 3–5 GiBps | 1–3 GiBps | 500 MiBps |
+| **One Zone** | Elastic, Provisioned, Bursting | ~1 ms | ~1.6 ms | 35,000 | 7,000 | 3 GiBps5 | 1 GiBps5 | 500 MiBps |
 
 1. Latency values shown represent best-case performance under optimal conditions. Actual
    results may vary based on network, workload, and system factors.
@@ -75,7 +75,7 @@ cases.
 
 - EFS Standard storage class uses solid state drive (SSD) storage to deliver the
   lowest levels of latency for frequently accessed files. This storage class provides
-  first-byte latencies as low as 250 microseconds for reads and 2.7 milliseconds for
+  first-byte latencies as low as 1 millisecond for reads and 2.7 milliseconds for
   writes.
 - EFS Infrequent Access (IA) and EFS Archive storage classes store less frequently accessed data
   that doesn't require the latency performance that frequently accessed data requires. These

@@ -1,6 +1,6 @@
 # Creating and managing EFS resources
 
-Amazon EFS provides elastic, shared file storage that is POSIX-compliant. The file system that
+Amazon EFS provides elastic, shared file storage. The file system that
 you create supports concurrent read and write access from multiple Amazon EC2 instances. The file
 system is also accessible from all of the Availability Zones in the AWS Region where it is
 created.
