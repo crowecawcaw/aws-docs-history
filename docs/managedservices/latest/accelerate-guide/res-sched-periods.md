@@ -67,7 +67,7 @@ Add or update a Resource Scheduler schedule in AMS Accelerate accounts.
 - **AutomationAssumeRole**: The ARN of the AWS Identity and Access Management (IAM) role that
   allows the runbook to add or update the schedule on your behalf. Specify the role `ams_resource_scheduler_ssm_automation_role`.
 - **Description** (Optional): A meaningful description for the schedule.
-- **Schedules** (Optional): Specify a comma-delimited list of periods that are to be used with this schedule.
+- **Periods** (Optional): Specify a comma-delimited list of periods that are to be used with this schedule.
   Each period must have already been created.
 - **RetainRunning** (Optional): Specify "true" to prevent Resource Scheduler from stopping a running resource at the end of a
   running period if the resource was manually started before the beginning of the running perod. By default, Resource Scheduler stops the resource.
