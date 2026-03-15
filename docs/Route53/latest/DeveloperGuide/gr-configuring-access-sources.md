@@ -11,18 +11,19 @@ your DNS infrastructure.
 
 1. Open the Route 53 Global Resolver console and navigate to your DNS view.
 2. In the **Access source** section, choose **Create access source rule**.
-3. For **Name**, enter a descriptive name that identifies the
+3. For **Rule name**, enter a descriptive name that identifies the
    purpose of this rule, such as `office-network` or `vpn-users`.
-4. For **IP address range**, specify the IP addresses that
-   should have access. You can use CIDR notation for IP ranges: `192.168.1.0/24` or
-   individual IP addresses: `203.0.113.5/32`.
-5. For **Protocol**, select the DNS protocols this rule applies
+4. For **IP address type**, choose **IPV4** or **IPV6**.
+5. For **CIDR block**, specify the IP addresses that
+   should have access. You can use CIDR notation for IP ranges: `203.0.113.0/24` or `2001:db8::/112`, or
+   individual IP addresses: `203.0.113.5/32` or `2001:db8::1/128`.
+6. For **Protocol**, select the DNS protocols this rule applies
    to:
    - **Do53** - Standard DNS over UDP/TCP (port 53)
    - **DoT** - DNS over TLS (port 853)
    - **DoH** - DNS over HTTPS (port 443)
 
-6. Choose **Create access source rule**.
+7. Choose **Create access source rule**.
 
 Client devices from the specified IP ranges can now
 query your DNS infrastructure using the selected protocols.

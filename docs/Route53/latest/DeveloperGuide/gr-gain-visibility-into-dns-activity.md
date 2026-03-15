@@ -100,6 +100,7 @@ identifiers.
             "token_id": "t-a1b2c3d4fexample",
             "token_name": "device-123456",
             "token_expiration": "1789419206",
+            "access_source_cidr": "3.3.3.0/24",
         }
     }],
     "message": "",
@@ -187,6 +188,7 @@ was not processed.
                 "token_id": "t-a1b2c3d4fexample",
                 "token_name": "device-123456",
                 "token_expiration": "1789419206",
+                "access_source_cidr": "3.3.3.0/24",
             }
         }
     ],

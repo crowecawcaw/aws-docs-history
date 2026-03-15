@@ -25,25 +25,18 @@ believe that you encountered a _Resource limit exceeded_ error
 wrongfully, use the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home "https://console.aws.amazon.com/servicequotas/home")
 to request quota increases.
 
-| Resource                                     | Default quota | Adjustable |
-| -------------------------------------------- | ------------- | ---------- |
-| Global resolvers per account                 | 2             | Yes        |
-| DNS views per global resolver                | 5             | Yes        |
-| DNS views per account                        | 50            | Yes        |
-| Domain lists per account                     | 1,000         | Yes        |
-| Domains per domain list                      | 100,000       | Yes        |
-| Domains in a file imported from S3           | 10,000        | Yes        |
-| Number of domains across all Firewall Rules  | 1,000,000     | Yes        |
-| Firewall rules per DNS view                  | 100           | Yes        |
-| Access tokens per global resolver            | 5,000         | Yes        |
-| Access Sources per global resolver           | 1,000         | Yes        |
-| Access Sources CIDR size per global resolver | 65,000        | No         |
-| Private hosted zones per DNS view            | 1,000         | Yes        |
-
-## Hard quotas
-
-The following table describes quotas in Route 53 Global Resolver that can't be increased.
-
-| Resource or operation                                                          | Quota |
-| ------------------------------------------------------------------------------ | ----- |
-| Log delivery configurations per (global resolver, destination type,<br>Region) | 1     |
+| Resource                                               | Default quota | Adjustable |
+| ------------------------------------------------------ | ------------- | ---------- |
+| Global resolvers per account                           | 2             | Yes        |
+| DNS views per global resolver                          | 5             | Yes        |
+| DNS views per account                                  | 50            | Yes        |
+| Domain lists per account                               | 1,000         | Yes        |
+| Domains per domain list                                | 100,000       | Yes        |
+| Domains per account                                    | 100,000       | Yes        |
+| Domains in a file imported from S3                     | 10,000        | Yes        |
+| Number of domains referenced across all Firewall Rules | 1,000,000     | Yes        |
+| Firewall rules per DNS view                            | 100           | Yes        |
+| Access tokens per global resolver                      | 5,000         | Yes        |
+| Access Sources per global resolver                     | 1,000         | Yes        |
+| Access Sources CIDR size per global resolver           | 65,000        | No         |
+| Private hosted zones per DNS view                      | 1,000         | Yes        |

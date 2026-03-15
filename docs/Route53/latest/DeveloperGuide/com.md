@@ -1,35 +1,29 @@
-# .com.sg (Republic of Singapore)
+# .com
 
-###### Important
-
-You can no longer use Route 53 to register new .com.sg domains or transfer
-.com.sg domains to Route 53. We'll continue to support .com.sg domains that are
-already registered with Route 53.
+Used for commercial websites. It is the most popular extension on the
+internet.
 
 [Return to index](registrar-tld-list.md#index "registrar-tld-list.md#index")
 
-**Renewal period**
+**Lease period for registration and renewal**
 
-One or two years.
-
-**Deletion of domain registration**
-
-The registry for .com.sg domains doesn't allow you to delete
-domain registrations. Instead, you must disable automatic renewal
-and wait for the domain to expire. For more information, see [Deleting a domain name registration](domain-delete.md "domain-delete.md").
+One to ten years.
 
 **Privacy protection**
 
-Not supported.
+All information is hidden.
 
 **Domain locking to prevent unauthorized transfers**
 
 Supported.
 
+**Internationalized domain names**
+
+Supported.
+
 **Authorization code required for transfers**
 
-Not supported. You can no longer transfer .com.sg domains to
-Route 53.
+Yes
 
 **DNSSEC**
 
@@ -38,11 +32,10 @@ Supported for domain registration. For more information, see [Configuring DNSSEC
 **Deadlines for renewing and restoring domains**
 
 - Renewal is possible: Until the expiration date
-- Late renewal with Route 53 is possible: Until 29 days after
+- Late renewal with Route 53 is possible: Until 44 days after
   expiration
-- Domain is deleted from Route 53: 30 days after
-  expiration
-- Restoration with the registry is possible: Between 30 days
-  and 60 days after expiration
-- Domain is deleted from the registry: 60 days after
+- Domain is deleted from Route 53: 45 days after expiration
+- Restoration with the registry is possible: Between 45 days and
+  75 days after expiration
+- Domain is deleted from the registry: 75 days after
   expiration

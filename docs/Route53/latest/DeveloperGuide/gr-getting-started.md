@@ -29,8 +29,12 @@ operate.
 5. For **Regions**, select two or more AWS Regions where you
    want to instantiate the global resolver. Choose Regions closest to your clients for optimal
    performance.
-6. Optionally, add tags to help organize and manage your resources.
-7. Choose **Create global resolver**.
+6. For **IP address type**, choose the IP address type for this resolver.
+   - **IPv4** - Includes only IPv4 addresses.
+   - **Dualstack** - Includes IPv4 and IPv6 addresses.
+
+7. Optionally, add tags to help organize and manage your resources.
+8. Choose **Create global resolver**.
 
 You'll receive anycast IPv4 addresses immediately that your clients can use to reach the
 resolver. The global resolver creation process takes a few minutes to complete before the

@@ -13,6 +13,7 @@ Route 53 Global Resolver uses anycast IP addresses that automatically route DNS 
 - [Related services](gr-related-services.md "gr-related-services.md")
 - [Accessing Global Resolver](gr-accessing-cloud-resolver.md "gr-accessing-cloud-resolver.md")
 - [Supported AWS Regions](#regions "#regions")
+- [Opt-in Region considerations](gr-opt-in-regions.md "gr-opt-in-regions.md")
 - [Setting up account access](gr-setting-up.md "gr-setting-up.md")
 - [Tutorial: Create your first Route 53 Global Resolver](gr-getting-started.md "gr-getting-started.md")
 - [Managing DNS views](gr-manage-dns-views.md "gr-manage-dns-views.md")
@@ -51,14 +52,33 @@ To get started, see:
 Route 53 Global Resolver is available in the
 following AWS Regions:
 
-- US East (N. Virginia) Region
-- US East (Ohio) Region
-- US West (N. California) Region
-- US West (Oregon) Region
-- Europe (Frankfurt) Region
-- Europe (Ireland) Region
-- Europe (London) Region
-- Asia Pacific (Mumbai) Region
-- Asia Pacific (Singapore) Region
-- Asia Pacific (Tokyo) Region
-- Asia Pacific (Sydney) Region
+- US East (N. Virginia)
+- US East (Ohio)
+- US West (N. California)
+- US West (Oregon)
+- Europe (Frankfurt)
+- Europe (Ireland)
+- Europe (London)
+- Asia Pacific (Mumbai)
+- Asia Pacific (Singapore)
+- Asia Pacific (Tokyo)
+- Asia Pacific (Seoul)
+- Asia Pacific (Sydney)
+- Africa (Cape Town)
+- Asia Pacific (Hong Kong)
+- Asia Pacific (Taipei)
+- Asia Pacific (Osaka)
+- Asia Pacific (Hyderabad)
+- Asia Pacific (Jakarta)
+- Asia Pacific (Melbourne)
+- Asia Pacific (Malaysia)
+- Asia Pacific (Thailand)
+- Canada (Central)
+- Canada West (Calgary)
+- Europe (Zurich)
+- Europe (Stockholm)
+- Europe (Milan)
+- Europe (Spain)
+- Europe (Paris)
+- Mexico (Central)
+- South America (São Paulo)

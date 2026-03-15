@@ -10,6 +10,10 @@ Currently, DNS Firewall Advanced offers protections from:
 
 DGAs are used by attackers to generate a large number of domains to launch malware attacks.
 
+- Dictionary DGA
+
+Detect DGA attacks that use domain names associated with dictionary words in large numbers to perform malicious command and control DNS communications.
+
 - DNS tunneling
 
 DNS tunneling is used by attackers to exfiltrate data from the client by using the DNS tunnel without making a network connection to the client.
