@@ -36,7 +36,7 @@ Additionally, the following two roles are optional:
 
 For admin permissions, you can choose to onboard the role `customer_lakeformation_admin_role` as part of the same SSPS change type (ct-3qe6io8t6jtny).
 
-If you want to create Blueprints in the AWS Lake Formation Console, you need to submit a Management | Other | Other RFC (ct-1e1xtak34nx76) to deploy the `customer_lakeformation_workflow_role`. In the RFC, you must provide the S3 bucket name if the bucket is a source when Blueprints are created. S3 bucket is applicable if the Blueprint type is AWS CloudTrail, Classic Load Balancer Logs or Application Load Balancer Logs.
+If you want to create Blueprints in the AWS Lake Formation Console, you need to submit a Management | AWS service | Self-provisioned service | Add (managed automation) (ct-3qe6io8t6jtny) change type and explicitly add to deploy the `customer_lakeformation_workflow_role`. In the RFC, you must provide the S3 bucket name if the bucket is a source when Blueprints are created. S3 bucket is applicable if the Blueprint type is AWS CloudTrail, Classic Load Balancer Logs or Application Load Balancer Logs.
 
 **Q: What are the restrictions to using AWS Lake Formation in my AMS account?**
 

@@ -25,7 +25,7 @@ rely on updated AMIs deployed to Auto Scaling groups):
 
 Monitoring data must be sent to this path [`infra/INSTANCE_ID/YOUR_CUSTOM_METRIC`]
 
-To modify or delete a CloudWatch alarm, submit an RFC with the Management | Other | Other | Create change type (ct-1e1xtak34nx76) with the parameters required to complete the action
+To modify or delete a CloudWatch alarm, submit an RFC with the Management | Other | Other | Update change type (ct-0xdawir96cy7k) with the parameters required to complete the action
 as described in the Amazon CloudWatch API reference
 [PutMetricAlarm](../../../AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.md "../../../AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.md").
 
