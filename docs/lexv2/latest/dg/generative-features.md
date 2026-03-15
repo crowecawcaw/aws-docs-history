@@ -49,4 +49,5 @@ Using the API
 - [Using BedrockAgentIntent to use a Amazon Bedrock Agent in Amazon Lex V2](bedrock-agent-intent.md "bedrock-agent-intent.md")
 - [Improve intent classification and slot resolution in Lex V2 with assisted NLU](assisted-nlu.md "assisted-nlu.md")
 - [Resolve ambiguous user inputs with Intent Disambiguation](generative-intent-disambiguation.md "generative-intent-disambiguation.md")
+- [Optimize Bot using AI-powered Bot Analyzer](bot-analyzer.md "bot-analyzer.md")
 - [AMAZON.QnAIntent](generative-qna.md "generative-qna.md")
