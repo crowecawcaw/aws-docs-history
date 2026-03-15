@@ -330,6 +330,27 @@ arn:aws:iam::111122223333:role/aws-service-role/mgn.amazonaws.com/AWSServiceRole
 For this command to succeed, the user making the request must have
 permissions for the CreateGrant action.
 
+## Store snapshots in AWS Local Zone
+
+When you replicate to a Local Zone, you can store Amazon EBS snapshots in the
+Local Zone instead of the parent AWS Region.
+
+By default, snapshots of Amazon EBS volumes in a Local Zone are stored in the
+parent AWS Region. If you replicate to a Local Zone that supports local
+snapshots, you can store the snapshots locally in the Local Zone to meet data
+residency requirements.
+
+This setting is available only when the staging area subnet is in a supported
+Local Zone.
+
+The following table lists the supported Local Zones:
+
+| Region name    | Availability zone names                                  |
+| -------------- | -------------------------------------------------------- |
+| ap-southeast-1 | ap-southeast-1-sggov-sin-2a, ap-southeast-1-sggov-sin-2b |
+
+For more information about local snapshots in Local Zones, see [Local snapshots in Local Zones](../../../ebs/latest/userguide/snapshots-localzones.md "../../../ebs/latest/userguide/snapshots-localzones.md") in the Amazon EBS User Guide.
+
 ## Always use Application Migration Service security group
 
 Choose whether you would like to **Always use the

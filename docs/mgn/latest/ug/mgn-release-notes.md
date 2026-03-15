@@ -2,6 +2,12 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Release notes
 
+## March 2026
+
+- AWS Application Migration Service now supports storing EBS snapshots locally within AWS Local Zones
+  that support this feature. For more information, see
+  [Store snapshots in AWS Local Zone](replication-server-settings.md#local-zone-snapshots "replication-server-settings.md#local-zone-snapshots").
+
 ## December 2025
 
 - You can now use Application Migration Service over Internet Protocol version 6 (IPv6) for both service
