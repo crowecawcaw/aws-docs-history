@@ -11,6 +11,7 @@ You can use the topics in this section to troubleshoot common Amazon EventBridge
 - [Creating schedule patterns and cron expressions](#troubleshooting-patterns "#troubleshooting-patterns")
 - [Is my target being triggered?](#troubleshooting-trigger-target "#troubleshooting-trigger-target")
 - [Templated vs universal targets](#troubleshooting-temp-universal-target "#troubleshooting-temp-universal-target")
+- [Invalid universal target input configurations](#troubleshooting-usi-target-input "#troubleshooting-usi-target-input")
 - [Schedule updates triggering unexpected invocations](#troubleshooting-temp-universal-target-invoke "#troubleshooting-temp-universal-target-invoke")
 - [Disabling or enabling one-time schedules](#troubleshooting-temp-universal-target-enable "#troubleshooting-temp-universal-target-enable")
 
@@ -309,6 +310,100 @@ To resolve this:
 
 1. Check if your desired service is supported as a [templated target](managing-targets-templated.md "managing-targets-templated.md").
 2. If not supported, use a [universal target](managing-targets-universal.md "managing-targets-universal.md") instead and configure it to make the appropriate API call to your service.
+
+## Invalid universal target input configurations
+
+When you create a schedule with a [universal
+target](managing-targets-universal.md "managing-targets-universal.md"), EventBridge Scheduler validates the target ARN format but does not validate the contents
+of the `Input` field against the downstream service's API. This means a
+schedule can be created successfully even if the `Input` contains values that
+the target service will reject at invocation time.
+
+Schedules with invalid target input configurations are triggered on their configured expression
+but fail on every invocation. You may not discover the misconfiguration until the
+schedule is invoked, which could be hours or days after creation.
+
+### Symptoms
+
+- The schedule was created without errors, but the
+  `TargetErrorCount` CloudWatch metric increases on every
+  invocation.
+- DLQ messages contain error codes from the target service (for
+  example, `InvalidParameterValueException` or
+  `ValidationException`), not
+  `AWS.Scheduler.InternalServerError`.
+- The `ERROR_MESSAGE` in the DLQ message references
+  specific input parameter validation failures.
+
+### Examples
+
+The following examples show common invalid input configurations for a AWS Lambda
+universal target
+(`arn:aws:scheduler:::aws-sdk:lambda:invoke`).
+
+**Mismatching qualifiers**
+
+A schedule with the following input specifies version `2` in the
+`FunctionName` and version `1` in the
+`Qualifier` field:
+
+```
+{
+    "FunctionName": "MyFunction:2",
+    "Qualifier": "1"
+}
+```
+
+This schedule is created successfully, but every invocation fails. The DLQ
+message contains:
+
+- `ERROR_CODE`:
+  `InvalidParameterValueException`
+- `ERROR_MESSAGE`: `The derived qualifier from the
+function name does not match the specified
+qualifier.`
+
+**Invalid function name**
+
+A schedule with the following input specifies a whitespace-only value for
+`FunctionName`:
+
+```
+{
+    "FunctionName": "     "
+}
+```
+
+The DLQ message contains:
+
+- `ERROR_CODE`:
+  `ValidationException`
+- `ERROR_MESSAGE`: A validation error indicating the
+  function name does not match the required pattern.
+
+### How to resolve
+
+1. **Configure a DLQ.** Always
+   [configure a dead-letter queue](configuring-schedule-dlq.md "configuring-schedule-dlq.md")
+   for schedules that use universal targets. The DLQ message attributes
+   (`ERROR_CODE` and `ERROR_MESSAGE`) contain the
+   specific error returned by the target service, which identifies the invalid
+   input parameter.
+2. **Validate input parameters against the target
+   service API.** Before creating a schedule, verify that the JSON in
+   your `Input` field contains valid values by calling the target
+   API directly. For example, invoke your AWS Lambda function with the same
+   parameters using the AWS Lambda `Invoke` API to confirm the
+   request succeeds.
+3. **Test with a one-time schedule.**
+   Create a one-time schedule to verify that the target invocation succeeds
+   before configuring a recurring schedule.
+4. **Review the target service API
+   reference.** Check the API reference for the service you are
+   targeting to confirm required parameters, valid value ranges, and
+   constraints. For AWS Lambda `Invoke`, see
+   [Invoke](../../../lambda/latest/dg/API_Invoke.md "../../../lambda/latest/dg/API_Invoke.md") in the
+   _AWS Lambda Developer Guide_.
 
 ## Schedule updates triggering unexpected invocations
 

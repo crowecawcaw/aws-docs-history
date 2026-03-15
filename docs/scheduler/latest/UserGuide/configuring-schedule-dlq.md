@@ -223,3 +223,14 @@ Note the following attributes in the dead-letter event to help you identify and 
   you configured on the schedule and is still failing to deliver.
 
 In the preceding example, we can determine, based on the error code, and the error message, that the target queue we specified for the schedule does not exist.
+
+###### Note
+
+If you use [universal targets](managing-targets-universal.md "managing-targets-universal.md"),
+be aware that EventBridge Scheduler does not validate the contents of the `Input` field
+at schedule creation time. A schedule with invalid input parameters will be created
+successfully but will fail on every invocation. The DLQ message will contain the
+error code and message from the target service, which can help you identify the
+invalid parameter. For more information, see
+[Invalid universal target input
+configurations](troubleshooting.md#troubleshooting-usi-target-input "troubleshooting.md#troubleshooting-usi-target-input").
