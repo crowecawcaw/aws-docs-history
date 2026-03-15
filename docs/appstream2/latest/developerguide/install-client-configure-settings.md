@@ -401,6 +401,7 @@ The WorkSpaces Applications client uses registry keys to configure the following
 - Setting custom folder paths for file system redirection in the WorkSpaces Applications client
 - Opening URL for your identity provider (IdP) in system default
   browser
+- Adding an indicator to provide real-time visual feedback on streaming data loss
 
 The following table summarizes the registry values for additional client settings that you can use to customize the WorkSpaces Applications client experience for your users.
 
@@ -417,6 +418,7 @@ These values are case sensitive.
 | `HardwareRenderingEnabled`            | `HKCU\Software\Amazon\Appstream Client` | String | Set this value to `true` to enable hardware<br>rendering in the WorkSpaces Applications client.                                                                                                                                            | `true`/`false`                                                                       |
 | `FileRedirectionCustomDefaultFolders` | `HKCU\Software\Amazon\Appstream Client` | String | Set this value to include at least one folder path for file<br>system redirection. Separate multiple folder paths by using '                                                                                                               | '.<br>By default, the following folder paths are specified:<br>%USERPROFILE%\Desktop | %USERPROFILE%\Documents | %USERPROFILE%\Downloads | `Valid folder path` |
 | `OpenIdpUrlInSystemBrowser`           | `HKCU\Software\Amazon\Appstream Client` | String | Set this value to `true` to enable the WorkSpaces Applications<br>client to open the IdP URL in a system default browser. This<br>feature is supported on client version 1.1.1360 and<br>later.                                            | `true`/`false`                                                                       |
+| `DataLossIndicator`                   | `HKCU\Software\Amazon\Appstream Client` | String | Set this value to SHOW_ON_LOSSY to include a red warning indicator when there is streaming data loss. Set this value to SHOW_ON_LOSSLESS to include a green healthy indicator when there is no streaming data loss.                        | `DISABLED/SHOW_ON_LOSSY/SHOW_ON_LOSSLESS`                                            |
 
 After the WorkSpaces Applications client is installed, you can run the following PowerShell script to
 create these registry keys. If you don’t want to create all of the registry keys,
