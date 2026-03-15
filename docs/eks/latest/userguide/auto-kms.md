@@ -44,7 +44,7 @@ This policy only includes permissions for EKS Auto Mode. The key policy may need
             "Effect": "Allow",
             "Principal": {
                 "AWS": [
-                    "&region-arn;iam::123456789012:role/ClusterServiceRole"
+                    "arn:aws:iam::123456789012:role/ClusterServiceRole"
                 ]
             },
             "Action": [
@@ -61,7 +61,7 @@ This policy only includes permissions for EKS Auto Mode. The key policy may need
             "Effect": "Allow",
             "Principal": {
                 "AWS": [
-                    "&region-arn;iam::123456789012:role/ClusterServiceRole"
+                    "arn:aws:iam::123456789012:role/ClusterServiceRole"
                 ]
             },
             "Action": [

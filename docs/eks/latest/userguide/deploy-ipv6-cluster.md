@@ -284,7 +284,7 @@ By default, the `config` file is created in `~/.kube` or the new cluster’s con
                     "ec2:CreateTags"
                 ],
                 "Resource": [
-                    "&region-arn;ec2:*:*:network-interface/*"
+                    "arn:aws:ec2:*:*:network-interface/*"
                 ]
             }
         ]

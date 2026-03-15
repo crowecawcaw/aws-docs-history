@@ -120,7 +120,7 @@ To enable trusted access between EKS Dashboard and AWS Organizations, you need t
             "Action": [
                 "iam:CreateServiceLinkedRole"
             ],
-            "Resource": "&region-arn;iam::*:role/aws-service-role/dashboard.eks.amazonaws.com/AWSServiceRoleForAmazonEKSDashboard"
+            "Resource": "arn:aws:iam::*:role/aws-service-role/dashboard.eks.amazonaws.com/AWSServiceRoleForAmazonEKSDashboard"
         }
     ]
 }

@@ -388,7 +388,7 @@ Enable Kubernetes to automatically apply the `ENIConfig` for an Availability Zon
      ```
 
      - **With a launch template with a specified AMI ID**
-       1. Determine the Amazon EKS recommended number of maximum Pods for your nodes. Follow the instructions in [Amazon EKS recommended maximum Pods for each Amazon EC2 instance type](choosing-instance-type.md#determine-max-pods "choosing-instance-type.md#determine-max-pods"), adding `--cni-custom-networking-enabled` to step 3 in that topic. Note the output for use in the next step.
+       1. Determine the Amazon EKS recommended number of maximum Pods for your nodes. Follow the instructions in [Amazon EKS recommended maximum Pods for each Amazon EC2 instance type](../userguide.md#determine-max-pods "../userguide.md#determine-max-pods"), adding `--cni-custom-networking-enabled` to step 3 in that topic. Note the output for use in the next step.
        2. In your launch template, specify an Amazon EKS optimized AMI ID, or a custom AMI built off the Amazon EKS optimized AMI, then [deploy the node group using a launch template](launch-templates.md "launch-templates.md") and provide the following user data in the launch template. This user data passes arguments into the `NodeConfig` specification. For more information about NodeConfig, see the [NodeConfig API reference](https://awslabs.github.io/amazon-eks-ami/nodeadm/doc/api/#nodeconfig "https://awslabs.github.io/amazon-eks-ami/nodeadm/doc/api/#nodeconfig"). You can replace `20` with either the value from the previous step (recommended) or your own value.
 
        ```
@@ -413,12 +413,12 @@ Enable Kubernetes to automatically apply the `ENIConfig` for an Availability Zon
        If you’ve created a custom AMI that is not built off the Amazon EKS optimized AMI, then you need to custom create the configuration yourself.
 
    - **Self-managed**
-     1. Determine the Amazon EKS recommended number of maximum Pods for your nodes. Follow the instructions in [Amazon EKS recommended maximum Pods for each Amazon EC2 instance type](choosing-instance-type.md#determine-max-pods "choosing-instance-type.md#determine-max-pods"), adding `--cni-custom-networking-enabled` to step 3 in that topic. Note the output for use in the next step.
+     1. Determine the Amazon EKS recommended number of maximum Pods for your nodes. Follow the instructions in , adding `--cni-custom-networking-enabled` to step 3 in that topic. Note the output for use in the next step.
      2. Deploy the node group using the instructions in [Create self-managed Amazon Linux nodes](launch-workers.md "launch-workers.md").
 
 ###### Note
 
-If you want nodes in a production cluster to support a significantly higher number of Pods, run the script in [Amazon EKS recommended maximum Pods for each Amazon EC2 instance type](choosing-instance-type.md#determine-max-pods "choosing-instance-type.md#determine-max-pods") again. Also, add the `--cni-prefix-delegation-enabled` option to the command. For example, `110` is returned for an `m5.large` instance type. For instructions on how to enable this capability, see [Assign more IP addresses to Amazon EKS nodes with prefixes](cni-increase-ip-addresses.md "cni-increase-ip-addresses.md"). You can use this capability with custom networking. 3. Node group creation takes several minutes. You can check the status of the creation of a managed node group with the following command.
+If you want nodes in a production cluster to support a significantly higher number of Pods, run the script in again. Also, add the `--cni-prefix-delegation-enabled` option to the command. For example, `110` is returned for an `m5.large` instance type. For instructions on how to enable this capability, see [Assign more IP addresses to Amazon EKS nodes with prefixes](cni-increase-ip-addresses.md "cni-increase-ip-addresses.md"). You can use this capability with custom networking. 3. Node group creation takes several minutes. You can check the status of the creation of a managed node group with the following command.
 
 ```
 aws eks describe-nodegroup --cluster-name my-custom-networking-cluster --nodegroup-name my-nodegroup --query nodegroup.status --output text

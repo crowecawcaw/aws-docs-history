@@ -83,7 +83,7 @@ Create an IAM policy. You can create your own policy, or copy an AWS managed pol
             {
                 "Effect": "Allow",
                 "Action": "s3:GetObject",
-                "Resource": "&region-arn;s3:::my-pod-secrets-bucket"
+                "Resource": "arn:aws:s3:::my-pod-secrets-bucket"
             }
         ]
     }
@@ -265,7 +265,7 @@ An example output is as follows.
         {
             "Effect": "Allow",
             "Action": "s3:GetObject",
-            "Resource": "&region-arn;s3:::my-pod-secrets-bucket"
+            "Resource": "arn:aws:s3:::my-pod-secrets-bucket"
         }
     ]
 }

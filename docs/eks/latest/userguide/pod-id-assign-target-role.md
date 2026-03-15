@@ -51,7 +51,7 @@ In this step, you will establish a secure trust chain by creating and configurin
     {
       "Effect": "Allow",
       "Principal": {
-        "AWS": "&region-arn;iam::111122223333:root"
+        "AWS": "arn:aws:iam::111122223333:root"
       },
       "Action": [
         "sts:AssumeRole",
@@ -59,12 +59,12 @@ In this step, you will establish a secure trust chain by creating and configurin
       ],
       "Condition": {
         "StringEquals": {
-          "aws:RequestTag/eks-cluster-arn": "&region-arn;eks:&region_api_default;:111122223333:cluster/example-cluster",
+          "aws:RequestTag/eks-cluster-arn": "arn:aws:eks:us-east-1:111122223333:cluster/example-cluster",
           "aws:RequestTag/kubernetes-namespace": "ExampleNameSpace",
           "aws:RequestTag/kubernetes-service-account": "ExampleServiceAccountName"
         },
         "ArnEquals": {
-          "aws:PrincipalARN": "&region-arn;iam::111122223333:role/eks-pod-identity-primary-role"
+          "aws:PrincipalARN": "arn:aws:iam::111122223333:role/eks-pod-identity-primary-role"
         }
       }
     }
@@ -83,7 +83,7 @@ If you [Disabled Session Tags](pod-id-abac.md#pod-id-abac-tags "pod-id-abac.md#p
     {
       "Effect": "Allow",
       "Principal": {
-        "AWS": "&region-arn;iam::111122223333:root"
+        "AWS": "arn:aws:iam::111122223333:root"
       },
       "Action": "sts:AssumeRole",
       "Condition": {
@@ -91,14 +91,14 @@ If you [Disabled Session Tags](pod-id-abac.md#pod-id-abac-tags "pod-id-abac.md#p
           "sts:ExternalId": "region/111122223333/cluster-name/namespace/service-account-name"
         },
         "ArnEquals": {
-          "aws:PrincipalARN": "&region-arn;iam::111122223333:role/eks-pod-identity-primary-role"
+          "aws:PrincipalARN": "arn:aws:iam::111122223333:role/eks-pod-identity-primary-role"
         }
       }
     },
     {
       "Effect": "Allow",
       "Principal": {
-        "AWS": "&region-arn;iam::111122223333:root"
+        "AWS": "arn:aws:iam::111122223333:root"
       },
       "Action": "sts:TagSession"
     }
@@ -130,7 +130,7 @@ In this step, you will update the permission policy of the [EKS Pod Identity rol
                 "sts:AssumeRole",
                 "sts:TagSession"
             ],
-            "Resource": "&region-arn;iam::222233334444:role/eks-pod-identity-aws-resources"
+            "Resource": "arn:aws:iam::222233334444:role/eks-pod-identity-aws-resources"
         }
     ]
 }

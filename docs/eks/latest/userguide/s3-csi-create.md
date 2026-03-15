@@ -43,7 +43,7 @@ Replace `amzn-s3-demo-bucket1` with your own Amazon S3 bucket name.
                 "s3:ListBucket"
             ],
             "Resource": [
-                "&region-arn;s3:::amzn-s3-demo-bucket1"
+                "arn:aws:s3:::amzn-s3-demo-bucket1"
             ]
         },
         {
@@ -56,7 +56,7 @@ Replace `amzn-s3-demo-bucket1` with your own Amazon S3 bucket name.
                 "s3:DeleteObject"
             ],
             "Resource": [
-                "&region-arn;s3:::amzn-s3-demo-bucket1/*"
+                "arn:aws:s3:::amzn-s3-demo-bucket1/*"
             ]
         }
    ]
@@ -74,7 +74,7 @@ Below is an example of least-privilege policy that you would use for a directory
         {
             "Effect": "Allow",
             "Action": "s3express:CreateSession",
-            "Resource": "&region-arn;s3express:us-west-2:111122223333:bucket/amzn-s3-demo-bucket1--usw2-az1--x-s3"
+            "Resource": "arn:aws:s3express:us-west-2:111122223333:bucket/amzn-s3-demo-bucket1--usw2-az1--x-s3"
         }
     ]
 }
@@ -182,13 +182,13 @@ https://oidc.eks.region-code.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE
        {
          "Effect": "Allow",
          "Principal": {
-           "Federated": "&region-arn;iam::111122223333:oidc-provider/oidc.eks.&region_api_default;.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE"
+           "Federated": "arn:aws:iam::111122223333:oidc-provider/oidc.eks.us-east-1.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE"
          },
          "Action": "sts:AssumeRoleWithWebIdentity",
          "Condition": {
            "StringEquals": {
-             "oidc.eks.&region_api_default;.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE:sub": "system:serviceaccount:kube-system:s3-csi-driver-sa",
-             "oidc.eks.&region_api_default;.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE:aud": "sts.amazonaws.com"
+             "oidc.eks.us-east-1.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE:sub": "system:serviceaccount:kube-system:s3-csi-driver-sa",
+             "oidc.eks.us-east-1.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE:aud": "sts.amazonaws.com"
            }
          }
        }

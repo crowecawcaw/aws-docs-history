@@ -51,7 +51,7 @@ The following example policy includes the necessary permissions for a principal 
         {
             "Effect": "Allow",
             "Action": "ssm:GetParameter",
-            "Resource": "&region-arn;ssm:*:111122223333:parameter/*"
+            "Resource": "arn:aws:ssm:*:111122223333:parameter/*"
         }
     ]
 }

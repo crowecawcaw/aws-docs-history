@@ -16,7 +16,7 @@ The [Amazon Elastic Block Store (Amazon EBS) Container Storage Interface (CSI) d
 - You can’t mount Amazon EBS volumes to Fargate Pods.
 - You can run the Amazon EBS CSI controller on Fargate nodes, but the Amazon EBS CSI node `DaemonSet` can only run on Amazon EC2 instances.
 - Amazon EBS volumes and the Amazon EBS CSI driver are not compatible with Amazon EKS Hybrid Nodes.
-- Support will be provided for the latest add-on version and one prior version. Bugs or vulnerabilities found in the latest version will be backported to the previous release in a new minor version.
+- Support will be provided for the latest add-on version and one prior version. Fixes for bugs or vulnerabilities found in the latest version will be backported to the previous release as a new minor version.
 - EKS Auto Mode requires storage classes to use `ebs.csi.eks.amazonaws.com` as the provisioner. The standard Amazon EBS CSI Driver (`ebs.csi.aws.com`) manages its own volumes separately. To use existing volumes with EKS Auto Mode, migrate them using volume snapshots to a storage class that uses the Auto Mode provisioner.
 
 ###### Important
@@ -86,7 +86,7 @@ eksctl create iamserviceaccount \
                "kms:ListGrants",
                "kms:RevokeGrant"
              ],
-             "Resource": ["&region-arn;kms:&region_api_default;:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"],
+             "Resource": ["arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"],
              "Condition": {
                "Bool": {
                  "kms:GrantIsForAWSResource": "true"
@@ -102,7 +102,7 @@ eksctl create iamserviceaccount \
                "kms:GenerateDataKey*",
                "kms:DescribeKey"
              ],
-             "Resource": ["&region-arn;kms:&region_api_default;:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"]
+             "Resource": ["arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"]
            }
          ]
        }
@@ -177,7 +177,7 @@ Add a comma to the end of the previous line, and then add the following line aft
                 "kms:ListGrants",
                 "kms:RevokeGrant"
               ],
-              "Resource": ["&region-arn;kms:&region_api_default;:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"],
+              "Resource": ["arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"],
               "Condition": {
                 "Bool": {
                   "kms:GrantIsForAWSResource": "true"
@@ -193,7 +193,7 @@ Add a comma to the end of the previous line, and then add the following line aft
                 "kms:GenerateDataKey*",
                 "kms:DescribeKey"
               ],
-              "Resource": ["&region-arn;kms:&region_api_default;:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"]
+              "Resource": ["arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"]
             }
           ]
         }
@@ -234,13 +234,13 @@ https://oidc.eks.region-code.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE
            {
              "Effect": "Allow",
              "Principal": {
-               "Federated": "&region-arn;iam::111122223333:oidc-provider/oidc.eks.&region_api_default;.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE"
+               "Federated": "arn:aws:iam::111122223333:oidc-provider/oidc.eks.us-east-1.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE"
              },
              "Action": "sts:AssumeRoleWithWebIdentity",
              "Condition": {
                "StringEquals": {
-                 "oidc.eks.&region_api_default;.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE:aud": "sts.amazonaws.com",
-                 "oidc.eks.&region_api_default;.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE:sub": "system:serviceaccount:kube-system:ebs-csi-controller-sa"
+                 "oidc.eks.us-east-1.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE:aud": "sts.amazonaws.com",
+                 "oidc.eks.us-east-1.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE:sub": "system:serviceaccount:kube-system:ebs-csi-controller-sa"
                }
              }
            }
@@ -278,7 +278,7 @@ aws iam attach-role-policy \
                "kms:ListGrants",
                "kms:RevokeGrant"
              ],
-             "Resource": ["&region-arn;kms:&region_api_default;:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"],
+             "Resource": ["arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"],
              "Condition": {
                "Bool": {
                  "kms:GrantIsForAWSResource": "true"
@@ -294,7 +294,7 @@ aws iam attach-role-policy \
                "kms:GenerateDataKey*",
                "kms:DescribeKey"
              ],
-             "Resource": ["&region-arn;kms:&region_api_default;:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"]
+             "Resource": ["arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"]
            }
          ]
        }

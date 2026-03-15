@@ -26,7 +26,7 @@ Do you need x86 or Arm? Before deploying Arm instances, review [Amazon EKS optim
 
 **Maximum number of Pods**
 
-Since each Pod is assigned its own IP address, the number of IP addresses supported by an instance type is a factor in determining the number of Pods that can run on the instance. To manually determine how many Pods an instance type supports, see [Amazon EKS recommended maximum Pods for each Amazon EC2 instance type](#determine-max-pods "#determine-max-pods").
+Since each Pod is assigned its own IP address, the number of IP addresses supported by an instance type is a factor in determining the number of Pods that can run on the instance. To manually determine how many Pods an instance type supports, see .
 
 ###### Note
 
@@ -49,45 +49,6 @@ Not all instance types are available in all AWS Regions.
 **Whether you’re using security groups for Pods**
 
 If you’re using security groups for Pods, only specific instance types are supported. For more information, see [Assign security groups to individual Pods](security-groups-for-pods.md "security-groups-for-pods.md").
-
-## Amazon EKS recommended maximum Pods for each Amazon EC2 instance type
-
-Since each Pod is assigned its own IP address, the number of IP addresses supported by an instance type is a factor in determining the number of Pods that can run on the instance. Amazon EKS provides a script that you can download and run to determine the Amazon EKS recommended maximum number of Pods to run on each instance type. The script uses hardware attributes of each instance, and configuration options, to determine the maximum Pods number. You can use the number returned in these steps to enable capabilities such as [assigning IP addresses to Pods from a different subnet than the instance’s](cni-custom-network.md "cni-custom-network.md") and [significantly increasing the number of IP addresses for your instance](cni-increase-ip-addresses.md "cni-increase-ip-addresses.md"). If you’re using a managed node group with multiple instance types, use a value that would work for all instance types.
-
-1. Download a script that you can use to calculate the maximum number of Pods for each instance type.
-
-```
-curl -O https://raw.githubusercontent.com/awslabs/amazon-eks-ami/master/templates/al2/runtime/max-pods-calculator.sh
-```
-
-2. Mark the script as executable on your computer.
-
-```
-chmod +x max-pods-calculator.sh
-```
-
-3. Run the script, replacing `m5.large` with the instance type that you plan to deploy and `1.9.0-eksbuild.1` with your Amazon VPC CNI add-on version. To determine your add-on version, see the update procedures in [Assign IPs to Pods with the Amazon VPC CNI](managing-vpc-cni.md "managing-vpc-cni.md").
-
-```
-./max-pods-calculator.sh --instance-type m5.large --cni-version 1.9.0-eksbuild.1
-```
-
-An example output is as follows.
-
-```
-29
-```
-
-You can add the following options to the script to see the maximum Pods supported when using optional capabilities.
-
-    * `--cni-custom-networking-enabled` – Use this option when you want to assign IP addresses from a different subnet than your instance’s. For more information, see [Deploy Pods in alternate subnets with custom networking](cni-custom-network.md "cni-custom-network.md"). Adding this option to the previous script with the same example values yields `20`.
-    * `--cni-prefix-delegation-enabled` – Use this option when you want to assign significantly more IP addresses to each elastic network interface. This capability requires an Amazon Linux instance that run on the Nitro System and version `1.9.0` or later of the Amazon VPC CNI add-on. For more information, see [Assign more IP addresses to Amazon EKS nodes with prefixes](cni-increase-ip-addresses.md "cni-increase-ip-addresses.md"). Adding this option to the previous script with the same example values yields `110`.
-
-You can also run the script with the `--help` option to see all available options.
-
-###### Note
-
-The max Pods calculator script limits the return value to `110` based on [Kubernetes scalability thresholds](https://github.com/kubernetes/community/blob/master/sig-scalability/configs-and-limits/thresholds.md "https://github.com/kubernetes/community/blob/master/sig-scalability/configs-and-limits/thresholds.md") and recommended settings. If your instance type has greater than 30 vCPUs, this limit jumps to `250`, a number based on internal Amazon EKS scalability team testing. For more information, see the [Amazon VPC CNI plugin increases pods per node limits](https://aws.amazon.com/blogs/containers/amazon-vpc-cni-increases-pods-per-node-limits "https://aws.amazon.com/blogs/containers/amazon-vpc-cni-increases-pods-per-node-limits") blog post.
 
 ## How maxPods is determined
 

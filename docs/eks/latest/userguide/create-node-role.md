@@ -158,7 +158,7 @@ aws iam attach-role-policy \
                      "ec2:CreateTags"
                  ],
                  "Resource": [
-                     "&region-arn;ec2:*:*:network-interface/*"
+                     "arn:aws:ec2:*:*:network-interface/*"
                  ]
              }
          ]

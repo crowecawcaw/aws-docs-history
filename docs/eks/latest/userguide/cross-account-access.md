@@ -38,7 +38,7 @@ Account B (`444455556666`) creates an IAM role with the permissions that Pods in
     {
       "Effect": "Allow",
       "Principal": {
-        "AWS": "&region-arn;iam::111122223333:root"
+        "AWS": "arn:aws:iam::111122223333:root"
       },
       "Action": "sts:AssumeRole",
       "Condition": {}
@@ -64,12 +64,12 @@ Account A (`111122223333`) creates a role with a trust policy that gets credenti
     {
       "Effect": "Allow",
       "Principal": {
-        "Federated": "&region-arn;iam::111122223333:oidc-provider/oidc.eks.&region_api_default;.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE"
+        "Federated": "arn:aws:iam::111122223333:oidc-provider/oidc.eks.us-east-1.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE"
       },
       "Action": "sts:AssumeRoleWithWebIdentity",
       "Condition": {
         "StringEquals": {
-          "oidc.eks.&region_api_default;.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE:aud": "sts.amazonaws.com"
+          "oidc.eks.us-east-1.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE:aud": "sts.amazonaws.com"
         }
       }
     }
@@ -98,7 +98,7 @@ Account A attaches a permission policy to the role created in Step 2. This polic
         {
             "Effect": "Allow",
             "Action": "sts:AssumeRole",
-            "Resource": "&region-arn;iam::444455556666:role/account-b-role"
+            "Resource": "arn:aws:iam::444455556666:role/account-b-role"
         }
     ]
 }
