@@ -71,7 +71,7 @@ apply:
     	* The `*` should be either before or after @ when
     	 the entry is an email address.
     	* When `*` is in the local part, the local part
-    	 can be zero or 3 to 19 characters excluding the
+    	 can be zero to 19 characters excluding the
     	 `*`.
     	* When `*` is in the domain, the subdomain level
     	 can be 2 to 9 excluding the `*`.
@@ -82,8 +82,7 @@ apply:
 
     	* *\*.domain1.com to
     	 \*.domain8.domain7...domain1.com*
-    	* *\*@domain.com*
-    	* *123\*@domain.com to
+    	* *\*@domain.com to
     	 1234567890123456789\*@domain.com*
     	* *local@\*.domain1.com to
     	 local@\*.domain8.domain7...domain1.com*
