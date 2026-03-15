@@ -326,6 +326,11 @@ A clause that specifies whether string search or comparison on the column is
 case sensitive or case insensitive. The default value is the same as the
 current case sensitivity configuration of the database.
 
+COLLATE is supported only on string-based data types, including CHAR,
+VARCHAR, and string values within SUPER columns. For details on
+case-insensitive querying of SUPER data, see
+[Case-insensitive querying](query-super.md#case-insensitive-super-queries "query-super.md#case-insensitive-super-queries").
+
 To find the database collation information, use the following
 command:
 

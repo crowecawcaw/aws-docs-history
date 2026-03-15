@@ -183,3 +183,12 @@ Consider the following when you refresh materialized views:
   user-initiated or autorefreshed.
 - To run REFRESH on recompute-only materialized views, make sure that you have the CREATE
   permission on schemas. For more information, see [GRANT](r_GRANT.md "r_GRANT.md").
+
+Starting February 27, 2026, Auto REFRESH queries for Amazon Redshift materialized views are executed as user queries
+rather than background autonomic processes. As a result, Auto REFRESH queries now run with the same priority as other user queries.
+
+This change improves the freshness of materialized views with Auto REFRESH enabled, helping them stay more up to date with
+the latest changes to their base tables compared to the previous behavior.
+
+Note: The MV Auto REFRESH behavior change feature is only enabled for Amazon Redshift Provisioned clusters
+on the CURRENT Track of patch release P198 and newer. It is currently disabled on Serverless.

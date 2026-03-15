@@ -338,6 +338,49 @@ AND c.c_nationkey = s.s_nationkey
 ORDER BY c.c_name;
 ```
 
+## Case-insensitive querying
+
+You can perform case-insensitive string comparisons on SUPER data using the COLLATE
+function or by setting the collation at the column or database level. For more information
+about setting collation at table creation, see [CREATE TABLE](r_CREATE_TABLE_NEW.md "r_CREATE_TABLE_NEW.md"). For information about collation behavior with
+SUPER data operators and functions, see [Collation behavior](operators-functions.md#collation-behavior "operators-functions.md#collation-behavior").
+
+The following example uses the COLLATE function on string values extracted from SUPER data.
+
+```
+CREATE TABLE events (data SUPER);
+INSERT INTO events VALUES (JSON_PARSE('{"status": "Active", "name": "Event1"}'));
+INSERT INTO events VALUES (JSON_PARSE('{"status": "ACTIVE", "name": "Event2"}'));
+INSERT INTO events VALUES (JSON_PARSE('{"status": "active", "name": "Event3"}'));
+
+SELECT data.name FROM events
+WHERE COLLATE(data.status::VARCHAR, 'case_insensitive') = 'active';
+
+ `name
+----------
+ "Event1"
+ "Event2"
+ "Event3"
+(3 rows)`
+```
+
+You can also define a SUPER column with case-insensitive collation at table creation.
+In this case, all string comparisons on the column are case-insensitive.
+
+```
+CREATE TABLE events_ci (data SUPER COLLATE CASE_INSENSITIVE);
+INSERT INTO events_ci VALUES (JSON_PARSE('{"status": "Active"}'));
+INSERT INTO events_ci VALUES (JSON_PARSE('{"status": "ACTIVE"}'));
+
+SELECT * FROM events_ci WHERE data.status::VARCHAR = 'active';
+
+ `data
+-----------------------
+ {"status":"Active"}
+ {"status":"ACTIVE"}
+(2 rows)`
+```
+
 ## Lax semantics
 
 By default, navigation operations on SUPER values return null instead of returning an
