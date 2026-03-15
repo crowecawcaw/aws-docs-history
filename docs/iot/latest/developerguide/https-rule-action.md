@@ -7,7 +7,7 @@ The HTTPS (`http`) action sends data from an MQTT message to an HTTPS endpoint, 
 This rule action has the following requirements:
 
 - You must confirm and enable HTTPS endpoints before the rules engine
-  can use them. For more information, see [Working with HTTP topic rule destinations](rule-destination.md "rule-destination.md").
+  can use them. For more information, see [HTTP action destinations](http-action-destination.md "http-action-destination.md").
 
 ## Parameters
 
@@ -24,10 +24,10 @@ Supports [substitution templates](iot-substitution-templates.md "iot-substitutio
 `confirmationUrl`
 
 (Optional) If specified, AWS IoT uses the confirmation URL to create
-a matching topic rule destination. You must enable the topic rule
+a matching topic rule destination. You must enable the HTTP action
 destination before using it in an HTTP action. For more information,
-see [Working with HTTP topic rule destinations](rule-destination.md "rule-destination.md"). If you use substitution
-templates, you must manually create topic rule destinations before
+see [HTTP action destinations](http-action-destination.md "http-action-destination.md"). If you use substitution
+templates, you must manually create an HTTP action destination before
 the `http` action can be used.
 `confirmationUrl` must be a prefix of
 `url`.
@@ -50,7 +50,7 @@ following:
   `url` must begin with
   `confirmationUrl`. If
   `confirmationUrl` contains substitution
-  templates, you must manually create topic rule destinations
+  templates, you must manually create an HTTP action destination
   before the `http` action can be used. If
   `confirmationUrl` does not contain
   substitution templates, AWS IoT creates a topic rule
@@ -226,6 +226,6 @@ costs](https://aws.amazon.com/ec2/pricing/on-demand/ "https://aws.amazon.com/ec2
 ## See also
 
 - [Batching HTTP action messages](http_batching.md "http_batching.md")
-- [Working with HTTP topic rule destinations](rule-destination.md "rule-destination.md")
+- [HTTP action destinations](http-action-destination.md "http-action-destination.md")
 - [Route data directly from AWS IoT Core to your web services](https://aws.amazon.com/blogs/iot/route-data-directly-from-iot-core-to-your-web-services/ "https://aws.amazon.com/blogs/iot/route-data-directly-from-iot-core-to-your-web-services/") in
   the _Internet of Things on AWS_ blog

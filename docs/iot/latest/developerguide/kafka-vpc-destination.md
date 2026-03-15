@@ -1,11 +1,11 @@
-# Virtual private cloud (VPC) destinations
+# Apache Kafka Virtual Private Cloud (VPC) destinations
 
 The Apache Kafka rule action routes data to an Apache Kafka cluster in an
 Amazon Virtual Private Cloud (Amazon VPC). The VPC configuration used by the Apache Kafka rule action
 is automatically enabled when you specify the VPC destination for your rule
 action.
 
-A VPC destination contains a list of subnets inside the VPC. The rules engine
+An Apache Kafka Virtual Private Cloud (VPC) destination contains a list of subnets inside the VPC. The rules engine
 creates an elastic network interface in each subnet that you specify in this
 list. For more information about network interfaces, see [Elastic network interfaces](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/latest/UserGuide/using-eni.md") in the
 Amazon EC2 User Guide.
@@ -19,21 +19,21 @@ Amazon EC2 User Guide.
     internet, which allows the rules engine to forward your
     messages to the public Kafka cluster.
   - Allocate an Elastic IP address with the elastic network
-    interfaces (ENIs) that are created by the VPC destination.
-    The security groups that you use must be configured to block
+    interfaces (ENIs) that are created by the Apache Kafka Virtual Private Cloud (VPC)
+    destination. The security groups that you use must be configured to block
     incoming traffic.
 
   ###### Note
 
-  If the VPC destination is disabled and then
+  If the Apache Kafka Virtual Private Cloud (VPC) destination is disabled and then
   re-enabled, you must re-associate the elastic IPs with
   the new ENIs.
 
-- If a VPC topic rule destination doesn't receive any traffic for 30
+- If an Apache Kafka Virtual Private Cloud (VPC) destination doesn't receive any traffic for 30
   days in a row, it will be disabled.
-- If any resources used by the VPC destination change, the
+- If any resources used by the Apache Kafka Virtual Private Cloud (VPC) destination change, the
   destination will be disabled and unable to be used.
-- Some changes that can disable a VPC destination include:
+- Some changes that can disable a Apache Kafka Virtual Private Cloud (VPC) destination include:
   - Deleting the VPC, subnets, security groups, or the role used.
   - Modifying the
     role to no longer have the necessary permissions.
@@ -48,16 +48,16 @@ action that sends a message to a resource when the resource is in your VPC.
 For pricing information, see [AWS IoT Core
 pricing](https://aws.amazon.com/iot-core/pricing/ "https://aws.amazon.com/iot-core/pricing/").
 
-## Creating virtual private cloud (VPC) topic rule destinations
+## Creating Apache Kafka Virtual Private Cloud (VPC) destinations
 
-You create a virtual private cloud (VPC) destination by using the [CreateTopicRuleDestination](../apireference/API_CreateTopicRuleDestination.md "../apireference/API_CreateTopicRuleDestination.md") API or the AWS IoT Core console.
+You create a Apache Kafka Virtual Private Cloud (VPC) destination by using the [CreateTopicRuleDestination](../apireference/API_CreateTopicRuleDestination.md "../apireference/API_CreateTopicRuleDestination.md") API or the AWS IoT Core console.
 
-When you create a VPC destination, you must specify the following
+When you create a destination, you must specify the following
 information.
 
 vpcId
 
-The unique ID of the VPC destination.
+The unique ID of the Amazon VPC.
 
 subnetIds
 
@@ -123,9 +123,9 @@ the following example.
 
 ```
 
-### Creating a VPC destination by using AWS CLI
+### Creating an Apache Kafka Virtual Private Cloud (VPC) destination by using AWS CLI
 
-The following example shows how to create a VPC destination by using
+The following example shows how to create a destination by using
 AWS CLI.
 
 ```
@@ -134,13 +134,13 @@ aws --region `regions` iot create-topic-rule-destination --destination-configura
 
 ```
 
-After you run this command, the VPC destination status will be
+After you run this command, the destination status will be
 `IN_PROGRESS`. After a few minutes, its status will
 change to either `ERROR` (if the command isn't successful) or
 `ENABLED`. When the destination status is
 `ENABLED`, it's ready to use.
 
-You can use the following command to get the status of your VPC
+You can use the following command to get the status of your Apache Kafka Virtual Private Cloud (VPC)
 destination.
 
 ```
@@ -149,9 +149,9 @@ aws --region `region` iot get-topic-rule-destination --arn "`VPCDestinationARN`"
 
 ```
 
-### Creating a VPC destination by using the AWS IoT Core console
+### Creating a Apache Kafka Virtual Private Cloud (VPC) destination by using the AWS IoT Core console
 
-The following steps describe how to create a VPC destination by using
+The following steps describe how to create a destination by using
 the AWS IoT Core console.
 
 1. Navigate to the AWS IoT Core console. In the left pane, on the
@@ -166,5 +166,5 @@ the AWS IoT Core console.
    network interfaces. The preceding example policy contains these
    permissions.
 
-When the VPC destination status is **ENABLED**, it's
+When the Apache Kafka Virtual Private Cloud (VPC) destination status is **ENABLED**, it's
 ready to use.

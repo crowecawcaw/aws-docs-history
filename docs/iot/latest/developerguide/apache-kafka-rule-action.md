@@ -93,12 +93,11 @@ following example.
 ```
 
 - You can run your Apache Kafka clusters inside Amazon Virtual Private Cloud (Amazon VPC). You
-  must create an Amazon VPC destination and use an NAT gateway in your subnets
+  must create an Apache Kafka Virtual Private Cloud (VPC) destination and use an NAT gateway in your subnets
   to forward messages from AWS IoT to a public Kafka cluster. The AWS IoT
   rules engine creates a network interface in each of the subnets listed
-  in the VPC destination to route traffic directly to the VPC. When you
-  create a VPC destination, the AWS IoT rules engine automatically creates a
-  VPC rule action. For more information about VPC rule actions, see [Virtual private cloud (VPC) destinations](vpc-rule-action.md "vpc-rule-action.md").
+  in the destination to route traffic directly to the VPC. When you destination, the AWS IoT rules engine automatically creates a
+  VPC rule action. For more information about VPC rule actions, see [Apache Kafka Virtual Private Cloud (VPC) destinations](kafka-vpc-destination.md "kafka-vpc-destination.md").
 - If you use a customer managed AWS KMS key (KMS key) to encrypt
   data at rest, the service must have permission to use the KMS key on
   the caller's behalf. For more information, see [Amazon MSK encryption](../../../msk/latest/developerguide/msk-encryption.md "../../../msk/latest/developerguide/msk-encryption.md") in
@@ -110,8 +109,8 @@ When you create an AWS IoT rule with this action, you must specify the following
 
 destinationArn
 
-The Amazon Resource Name (ARN) of the VPC destination. For
-information about creating a VPC destination, see [Virtual private cloud (VPC) destinations](vpc-rule-action.md "vpc-rule-action.md").
+The Amazon Resource Name (ARN) of the Apache Kafka Virtual Private Cloud (VPC) destination. For
+information about creating a destination, see [Apache Kafka Virtual Private Cloud (VPC) destinations](kafka-vpc-destination.md "kafka-vpc-destination.md").
 
 topic
 
