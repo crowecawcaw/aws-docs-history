@@ -1,6 +1,6 @@
 # Manage AWS Health notifications in AWS User Notifications
 
-AWS managed notifications in AWS User Notifications lets you receive and manage notifications about events that affect your AWS accounts and services. When you use AWS managed notifications in AWS User Notifications, you can specify which AWS Health event categories to receive, set up organizational view for emails, and get consolidated notifications instead of multiple similar emails. For information on how to enable this service, see [Enabling or disabling AWS managed notifications for AWS Health in AWS User Notifications](../../../notifications/latest/userguide/managing-notification-features.md "../../../notifications/latest/userguide/managing-notification-features.md").
+AWS managed notifications in AWS User Notifications lets you receive and manage notifications about events that affect your AWS accounts and services. When you use AWS managed notifications in AWS User Notifications, you can specify which AWS Health event categories to receive, set up organizational view for emails, and get consolidated notifications instead of multiple similar emails.
 
 You can choose the following additional channels to receive your AWS Health events through AWS User Notifications:
 

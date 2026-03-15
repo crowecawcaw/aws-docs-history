@@ -25,7 +25,7 @@ Before you get started, you must have the following:
       line of the pattern, and add the following line to remove unnecessary chat messages
       from paginated AWS Health events. See [Viewing paginated lists of AWS Health events on EventBridge](pagnation-of-health-events.md "pagnation-of-health-events.md").
 
-   `"detail.page": ["1"]` 2. When you choose the target in [step 14](creating-event-bridge-events-rule-for-aws-health.md#choose-target "creating-event-bridge-events-rule-for-aws-health.md#choose-target"), choose
+   `"detail.page": ["1"]` 2. When you choose the target in step 16, choose
    an SNS topic. You will use this same SNS topic in the Amazon Q Developer in chat applications console. 3. Complete the rest of the procedure to create the rule.
 
 2. Navigate to the [Amazon Q Developer in chat applications console](https://console.aws.amazon.com/chatbot "https://console.aws.amazon.com/chatbot").

@@ -75,8 +75,9 @@ The following table documents the content of the **detail** parameter in the AWS
         "affectedEntities": [],
         "page": "1",
         "totalPages": "1",
-        "backupEvent": "true",
-        "affectedAccount": "123456789012"
+        "backupEvent": "false",
+        "affectedAccount": "123456789012",
+        "personas": ["OPERATIONS"]
     }
 }
 ```
@@ -110,13 +111,14 @@ The following table documents the content of the **detail** parameter in the AWS
         }],
         "page": "1",
         "totalPages": "1",
-        "backupEvent": "true",
-        "affectedAccount": "123456789012"
+        "backupEvent": "false",
+        "affectedAccount": "123456789012",
+        "personas": ["OPERATIONS"]
     }
 }
 ```
 
-## Account-specific AWS Health Event - Amazon EC2 Instance Store Drive Performance Degraded
+## Account-specific AWS Health Event - backup event for Amazon EC2 Instance Store Drive Performance Degraded
 
 ```
 {
@@ -131,7 +133,7 @@ The following table documents the content of the **detail** parameter in the AWS
         "i-abcd1111"
     ],
     "detail": {
-        "eventArn": "arn:aws:health:us-west-2::event/AWS_EC2_INSTANCE_STORE_DRIVE_PERFORMANCE_DEGRADED_90353408594353980",
+        "eventArn": "arn:aws:health:us-east-1::event/AWS_EC2_INSTANCE_STORE_DRIVE_PERFORMANCE_DEGRADED_90353408594353980",
         "service": "EC2",
         "eventTypeCode": "AWS_EC2_INSTANCE_STORE_DRIVE_PERFORMANCE_DEGRADED",
         "eventTypeCategory": "issue",
@@ -140,7 +142,7 @@ The following table documents the content of the **detail** parameter in the AWS
         "startTime": "Fri, 3 Jun 2022 05:01:10 GMT",
         "endTime": "Fri, 3 Jun 2022 05:30:57 GMT",
         "statusCode": "open",
-        "eventRegion": "us-west-2",
+        "eventRegion": "us-east-1",
         "eventDescription": [{
             "language": "en_US",
             "latestDescription": "A description of the event will be provided here"
@@ -151,7 +153,117 @@ The following table documents the content of the **detail** parameter in the AWS
         "page": "1",
         "totalPages": "1",
         "backupEvent": "true",
-        "affectedAccount": "123456789012"
+        "affectedAccount": "123456789012",
+        "personas": ["OPERATIONS"]
+    }
+}
+```
+
+## Account-specific AWS Health Event - Amazon EC2 Instance Retirement
+
+```
+{
+    "version": "0",
+    "id": "7bf73129-1428-4cd3-a780-95db273d1602",
+    "detail-type": "AWS Health Event",
+    "source": "aws.health",
+    "account": "123456789012",
+    "time": "2026-01-27T01:43:21Z",
+    "region": "us-east-1",
+    "detail": {
+        "eventArn": "arn:aws:health:us-east-1::event/AWS_EC2_INSTANCE_RETIREMENT_SCHEDULED_90353408594353983",
+        "service": "EC2",
+        "eventTypeCode": "AWS_EC2_INSTANCE_RETIREMENT_SCHEDULED",
+        "eventTypeCategory": "scheduledChange",
+        "eventScopeCode": "ACCOUNT_SPECIFIC",
+        "communicationId": "1234abc01232a4012345678-1",
+        "startTime": "Thu, 27 Aug 2026 13:19:03 GMT",
+        "lastUpdatedTime": "Thu, 27 Jan 2026 13:44:13 GMT",
+        "statusCode": "open",
+        "eventRegion": "us-east-1",
+        "eventDescription": [{
+            "language": "en_US",
+            "latestDescription": "A description of the event will be provided here"
+        }],
+        "eventMetadata": {
+            "keystring1": "valuestring1",
+            "keystring2": "valuestring2",
+            "keystring3": "valuestring3",
+            "keystring4": "valuestring4",
+            "truncated": "true"
+        },
+        "affectedEntities": [{
+            "entityValue": "arn:aws:ec2:us-east-1:123456789012:instance/i-1234567890abcdef0",
+            "lastUpdatedTime": "Thu, 26 Jan 2026 19:01:55 GMT",
+            "status": "PENDING"
+        }],
+        "affectedAccount": "123456789012",
+        "page": "1",
+        "totalPages": "1",
+        "backupEvent": "false",
+        "personas": ["OPERATIONS"],
+        "actionability": "ACTION_REQUIRED"
+    }
+}
+```
+
+## Account-specific AWS Health Event - Lambda Planned Lifecycle Event
+
+```
+{
+    "version": "0",
+    "id": "7bf73129-1428-4cd3-a780-95db273d1602",
+    "detail-type": "AWS Health Event",
+    "source": "aws.health",
+    "account": "123456789012",
+    "time": "2023-01-27T01:43:21Z",
+    "region": "us-west-2",
+    "resources": ["arn:lambda-1-101002929", "arn:lambda-1-101002930", "arn:lambda-1-101002931", "arn:lambda-1-101002932"],
+    "detail": {
+        "eventArn": "arn:aws:health:us-west-2::event/AWS_LAMBDA_PLANNED_LIFECYCLE_EVENT_90353408594353980",
+        "service": "LAMBDA",
+        "eventTypeCode": "AWS_LAMBDA_PLANNED_LIFECYCLE_EVENT",
+        "eventTypeCategory": "scheduledChange",
+        "eventScopeCode": "ACCOUNT_SPECIFIC",
+        "communicationId": "1234abc01232a4012345678-1",
+        "startTime": "Thu, 27 Aug 2026 13:19:03 GMT",
+        "lastUpdatedTime": "Thu, 27 Jan 2026 13:44:13 GMT",
+        "statusCode": "open",
+        "eventRegion": "us-west-2",
+        "eventDescription": [{
+            "language": "en_US",
+            "latestDescription": "A description of the event will be provided here"
+        }],
+        "eventMetadata": {
+            "keystring1": "valuestring1",
+            "keystring2": "valuestring2",
+            "keystring3": "valuestring3",
+            "keystring4": "valuestring4",
+            "truncated": "true"
+        },
+        "affectedEntities": [{
+            "entityValue": "arn:lambda-1-101002929",
+            "lastUpdatedTime": "Thu, 26 Jan 2026 19:01:55 GMT",
+            "status": "PENDING"
+        }, {
+            "entityValue": "arn:lambda-1-101002930",
+            "lastUpdatedTime": "Thu, 26 Jan 2026 19:05:12 GMT",
+            "status": "PENDING"
+        }, {
+            "entityValue": "arn:lambda-1-101002931",
+            "lastUpdatedTime": "Thu, 26 Jan 2026 19:07:13 GMT",
+            "status": "PENDING"
+        }, {
+            "entityValue": "arn:lambda-1-101002932",
+            "lastUpdatedTime": "Thu, 26 Jan 2026 19:10:59 GMT",
+            "status": "RESOLVED"
+        }],
+        "affectedAccount": "123456789012",
+        "page": "1",
+        "totalPages": "10",
+        "backupEvent": "false",
+        "personas": ["OPERATIONS"],
+        "actionability": "ACTION_REQUIRED"
     }
 }
 ```
