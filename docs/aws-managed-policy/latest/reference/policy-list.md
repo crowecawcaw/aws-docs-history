@@ -397,6 +397,8 @@
 - [AmazonRoute53DomainsFullAccess](AmazonRoute53DomainsFullAccess.md "AmazonRoute53DomainsFullAccess.md")
 - [AmazonRoute53DomainsReadOnlyAccess](AmazonRoute53DomainsReadOnlyAccess.md "AmazonRoute53DomainsReadOnlyAccess.md")
 - [AmazonRoute53FullAccess](AmazonRoute53FullAccess.md "AmazonRoute53FullAccess.md")
+- [AmazonRoute53GlobalResolverFullAccess](AmazonRoute53GlobalResolverFullAccess.md "AmazonRoute53GlobalResolverFullAccess.md")
+- [AmazonRoute53GlobalResolverReadOnlyAccess](AmazonRoute53GlobalResolverReadOnlyAccess.md "AmazonRoute53GlobalResolverReadOnlyAccess.md")
 - [AmazonRoute53ProfilesFullAccess](AmazonRoute53ProfilesFullAccess.md "AmazonRoute53ProfilesFullAccess.md")
 - [AmazonRoute53ProfilesReadOnlyAccess](AmazonRoute53ProfilesReadOnlyAccess.md "AmazonRoute53ProfilesReadOnlyAccess.md")
 - [AmazonRoute53ReadOnlyAccess](AmazonRoute53ReadOnlyAccess.md "AmazonRoute53ReadOnlyAccess.md")

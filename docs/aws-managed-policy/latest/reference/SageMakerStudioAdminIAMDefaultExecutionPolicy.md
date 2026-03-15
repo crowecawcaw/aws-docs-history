@@ -12,13 +12,13 @@ You can attach `SageMakerStudioAdminIAMDefaultExecutionPolicy` to your users, gr
 
 - **Type**: AWS managed policy
 - **Creation time**: August 18, 2025, 17:19 UTC
-- **Edited time:** February 12, 2026, 18:00 UTC
+- **Edited time:** March 11, 2026, 17:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SageMakerStudioAdminIAMDefaultExecutionPolicy`
 
 ## Policy version
 
-**Policy version:** v18 (default)
+**Policy version:** v19 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -926,7 +926,15 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : [
         "emr-serverless:ListApplications",
-        "emr-serverless:GetApplication"
+        "emr-serverless:GetApplication",
+        "emr-serverless:GetDashboardForJobRun",
+        "emr-serverless:GetJobRun",
+        "emr-serverless:ListJobRunAttempts",
+        "emr-serverless:ListJobRuns",
+        "emr-serverless:ListTagsForResource",
+        "emr-serverless:StartApplication",
+        "emr-serverless:StartJobRun",
+        "emr-serverless:AccessLivyEndpoints"
       ],
       "Resource" : "*"
     }

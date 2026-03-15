@@ -12,13 +12,13 @@ You can attach `AWSElasticBeanstalkWebTier` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: February 08, 2016, 23:08 UTC
-- **Edited time:** September 09, 2020, 19:38 UTC
+- **Edited time:** March 12, 2026, 14:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSElasticBeanstalkWebTier`
 
 ## Policy version
 
-**Policy version:** v7 (default)
+**Policy version:** v8 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -77,6 +77,33 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:elasticbeanstalk:*:*:application/*",
         "arn:aws:elasticbeanstalk:*:*:environment/*"
       ]
+    },
+    {
+      "Sid" : "AIEnvironmentAnalysisInvokeFoundationModel",
+      "Effect" : "Allow",
+      "Action" : "bedrock:InvokeModel",
+      "Resource" : "arn:aws:bedrock:*::foundation-model/anthropic.claude-*"
+    },
+    {
+      "Sid" : "AIEnvironmentAnalysisInvokeInferenceProfile",
+      "Effect" : "Allow",
+      "Action" : "bedrock:InvokeModel",
+      "Resource" : "arn:aws:bedrock:*:*:inference-profile/*anthropic.claude-*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "AIEnvironmentAnalysisReadOnly",
+      "Effect" : "Allow",
+      "Action" : [
+        "bedrock:ListFoundationModels",
+        "elasticbeanstalk:DescribeEvents",
+        "elasticbeanstalk:DescribeEnvironmentHealth"
+      ],
+      "Resource" : "*"
     }
   ]
 }

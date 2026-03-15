@@ -12,13 +12,13 @@ You can attach `AWSElasticBeanstalkMulticontainerDocker` to your users, groups, 
 
 - **Type**: AWS managed policy
 - **Creation time**: February 08, 2016, 23:15 UTC
-- **Edited time:** March 23, 2023, 22:04 UTC
+- **Edited time:** March 12, 2026, 14:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSElasticBeanstalkMulticontainerDocker`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -61,6 +61,33 @@ request to access an AWS resource, AWS checks the default version of the policy 
           ]
         }
       }
+    },
+    {
+      "Sid" : "AIEnvironmentAnalysisInvokeFoundationModel",
+      "Effect" : "Allow",
+      "Action" : "bedrock:InvokeModel",
+      "Resource" : "arn:aws:bedrock:*::foundation-model/anthropic.claude-*"
+    },
+    {
+      "Sid" : "AIEnvironmentAnalysisInvokeInferenceProfile",
+      "Effect" : "Allow",
+      "Action" : "bedrock:InvokeModel",
+      "Resource" : "arn:aws:bedrock:*:*:inference-profile/*anthropic.claude-*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "AIEnvironmentAnalysisReadOnly",
+      "Effect" : "Allow",
+      "Action" : [
+        "bedrock:ListFoundationModels",
+        "elasticbeanstalk:DescribeEvents",
+        "elasticbeanstalk:DescribeEnvironmentHealth"
+      ],
+      "Resource" : "*"
     }
   ]
 }

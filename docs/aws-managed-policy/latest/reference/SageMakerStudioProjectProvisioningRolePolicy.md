@@ -12,13 +12,13 @@ You can attach `SageMakerStudioProjectProvisioningRolePolicy` to your users, gro
 
 - **Type**: Service role policy
 - **Creation time**: November 20, 2024, 21:58 UTC
-- **Edited time:** March 02, 2026, 20:12 UTC
+- **Edited time:** March 11, 2026, 16:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/SageMakerStudioProjectProvisioningRolePolicy`
 
 ## Policy version
 
-**Policy version:** v77 (default)
+**Policy version:** v78 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -1798,7 +1798,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:iam::*:role/aws-service-role/ops.emr-serverless.amazonaws.com/AWSServiceRoleForAmazonEMRServerless",
         "arn:aws:iam::*:role/aws-service-role/airflow.amazonaws.com/AWSServiceRoleForAmazonMWAA",
         "arn:aws:iam::*:role/aws-service-role/elasticmapreduce.amazonaws.com/AWSServiceRoleForEMRCleanup",
-        "arn:aws:iam::*:role/aws-service-role/emr-containers.amazonaws.com/AWSServiceRoleForAmazonEMRContainers"
+        "arn:aws:iam::*:role/aws-service-role/emr-containers.amazonaws.com/AWSServiceRoleForAmazonEMRContainers",
+        "arn:aws:iam::*:role/aws-service-role/ops.athena.amazonaws.com/AWSServiceRoleForAmazonAthena"
       ]
     },
     {
