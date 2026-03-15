@@ -73,10 +73,6 @@ is encrypted using the specified key.
 
 ## Copying Snapshots Across AWS Regions
 
-###### Note
-
-This feature is available starting in [Neptune engine release 1.0.2.1](engine-releases-1.0.2.md "engine-releases-1.0.2.md").
-
 When you copy a snapshot to an AWS Region that is different
 from the source snapshot's AWS Region, the first copy is a full snapshot copy, even
 if you copy an incremental snapshot. A full snapshot copy contains all of the data and

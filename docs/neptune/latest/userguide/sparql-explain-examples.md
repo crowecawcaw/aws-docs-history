@@ -168,10 +168,6 @@ then serialized into the requested serialization format and streamed to the clie
 
 ## Example of details mode output
 
-###### Note
-
-SPARQL explain details mode is available starting in [Neptune engine release 1.0.2.1](engine-releases-1.0.2.md "engine-releases-1.0.2.md").
-
 Suppose that you run the same query as the previous in _details_ mode
 instead of _dynamic_ mode:
 

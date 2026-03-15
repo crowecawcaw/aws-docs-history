@@ -4,10 +4,6 @@ Amazon Neptune fully supports the SPARQL federated query extension that uses the
 `SERVICE` keyword. (For more information, see [SPARQL 1.1 Federated
 Query](https://www.w3.org/TR/sparql11-federated-query/ "https://www.w3.org/TR/sparql11-federated-query/").)
 
-###### Note
-
-This feature is available starting in [Release 1.0.1.0.200463.0 (2019-10-15)](engine-releases-1.0.1.0.200463.md "engine-releases-1.0.1.0.200463.md").
-
 The `SERVICE` keyword instructs the SPARQL query engine to execute a
 portion of the query against a remote SPARQL endpoint and compose the final query result. Only
 `READ` operations are possible. `WRITE` and `DELETE`

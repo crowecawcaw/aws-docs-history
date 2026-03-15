@@ -10,9 +10,8 @@ of the following local endpoints:
 
 ###### Note
 
-As of [engine release 1.1.0.0](engine-releases-1.1.0.md "engine-releases-1.1.0.md"),
-the Gremlin stream endpoint (`https://`Neptune-DNS`:8182/gremlin/stream`)
-is being deprecated, along with its associated output format (`GREMLIN_JSON`).
+The Gremlin stream endpoint (`https://`Neptune-DNS`:8182/gremlin/stream`)
+is deprecated, along with its associated output format (`GREMLIN_JSON`).
 It is still supported for backward compatibility but may be removed in future releases.
 
 Only an HTTP `GET` operation is allowed.

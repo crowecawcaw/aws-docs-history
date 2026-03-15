@@ -3,10 +3,6 @@
 The Neptune Gremlin `profile` API runs a specified Gremlin traversal,
 collects various metrics about the run, and produces a profile report as output.
 
-###### Note
-
-This feature is available starting with [Release 1.0.1.0.200463.0 (2019-10-15)](engine-releases-1.0.1.0.200463.md "engine-releases-1.0.1.0.200463.md").
-
 It differs from the TinkerPop .profile() step so as to be able to report
 information specific to the Neptune engine.
 

@@ -194,6 +194,7 @@ Amazon Neptune is available in the following Regions:
     + Asia Pacific (Melbourne):   `ap-southeast-4`
     + Asia Pacific (Malaysia):   `ap-southeast-5`
     + Asia Pacific (Mumbai):   `ap-south-1`
+    + Asia Pacific (Hyderabad):   `ap-south-2`
     + China (Beijing):   `cn-north-1`
     + China (Ningxia):   `cn-northwest-1`
     + AWS GovCloud (US-West):   `us-gov-west-1`

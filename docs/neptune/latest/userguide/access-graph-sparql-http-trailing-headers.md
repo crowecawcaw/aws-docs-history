@@ -1,9 +1,5 @@
 # Optional HTTP trailing headers for multi-part SPARQL responses
 
-###### Note
-
-This feature is available starting in [Neptune engine release 1.0.3.0](engine-releases-1.0.3.md "engine-releases-1.0.3.md").
-
 The HTTP response to SPARQL queries and updates is often returned in more than
 one part or chunk. It can be hard to diagnose a failure that occurs after a
 query or update begins sending these chunks, especially since the first one arrives

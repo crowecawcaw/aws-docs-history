@@ -5,10 +5,6 @@ the current Neptune engine release, but that aren't yet ready for production use
 enabled by default. This lets you try out these features in your development and test
 environments.
 
-###### Note
-
-This feature is available starting with [Release 1.0.1.0.200463.0 (2019-10-15)](engine-releases-1.0.1.0.200463.md "engine-releases-1.0.1.0.200463.md").
-
 ## Using Neptune Lab Mode
 
 Use the [neptune_lab_mode
@@ -84,10 +80,6 @@ The following features are currently accessed using lab mode:
 
 Neptune can now maintain a fourth index, namely the OSGP index, which is
 useful for data sets having a large number of predicates (see [Enabling an OSGP Index](feature-overview-storage-indexing.md#feature-overview-storage-indexing-osgp "feature-overview-storage-indexing.md#feature-overview-storage-indexing-osgp")).
-
-###### Note
-
-This feature is available starting in [Neptune engine release 1.0.2.1](engine-releases-1.0.2.md "engine-releases-1.0.2.md").
 
 You can enable an OSGP index in a new, empty Neptune DB cluster by setting
 `ObjectIndex=enabled` in the `neptune_lab_mode` DB cluster

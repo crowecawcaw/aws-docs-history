@@ -4,13 +4,6 @@ Neptune Streams logs every change to your graph as it happens, in the order that
 made, in a fully managed way. Once you enable Streams, Neptune takes care of availability,
 backup, security and expiry.
 
-###### Note
-
-This feature was available in [Lab Mode](features-lab-mode.md "features-lab-mode.md")
-starting with [Release 1.0.1.0.200463.0 (2019-10-15)](engine-releases-1.0.1.0.200463.md "engine-releases-1.0.1.0.200463.md"), and is available for
-production use starting with [Neptune engine
-release 1.0.2.2.R2](engine-releases-1.0.2.2.md "engine-releases-1.0.2.2.md").
-
 The following are some of the many use cases where you might want to capture changes to a
 graph as they occur:
 

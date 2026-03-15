@@ -8,7 +8,6 @@ as well as for adding RDF statements to existing content.
 The graph-store protocol (GSP) provides a convenient way to manipulate your
 entire graph without having to write complex SPARQL queries.
 
-As of [Release: 1.0.5.0 (2021-07-27)](engine-releases-1.0.5.md "engine-releases-1.0.5.md"),
 Neptune fully supports this protocol.
 
 The endpoint for the graph-store protocol (GSP) is:

@@ -1,7 +1,13 @@
-# Amazon Neptune Engine Version 1.2.1.0.R7 (2023-10-06)
+# Amazon Neptune Engine Version 1.2.1.0.R3 (2023-06-13)
 
-As of 2023-10-06, engine version 1.2.1.0.R7 is being generally deployed. Please note
+As of 2023-06-13, engine version 1.2.1.0.R3 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
+
+###### Important
+
+Changes introduced in this engine release may in some cases cause you
+to observe degraded bulk load performance. As a result, upgrades to this release have
+been temporarily suspended until the problem has been resolved.
 
 ###### Note
 
@@ -39,14 +45,102 @@ a support case may help you explore additional strategies for bringing it down.
   In other languages, the `/openCypher` can be appended to the endpoint
   URI. See [Using the Bolt protocol](access-graph-opencypher-bolt.md "access-graph-opencypher-bolt.md") for examples.
 
+## New Features in This Engine Release
+
+- Added support for cross-account bulk loading using [IAM role chaining](bulk-load-tutorial-chain-roles.md "bulk-load-tutorial-chain-roles.md").
+
+## Improvements in This Engine Release
+
+- Improved Gremlin's `fail()` step to differentiate the
+  exception it produced from a generic `InternalFailureException` and
+  to ensure that any user-supplied message provided to it was propagated back to
+  the caller.
+- Improved Gremlin query engine optimizations for `store`,
+  `aggregate`, `cap`, `limit`, and
+  `hasLabel`.
+- Added support for openCypher trignometric functions:
+  - `acos()`
+  - `asin()`
+  - `atan()`
+  - `atan2()`
+  - `cos()`
+  - `cot()`
+  - `degrees()`
+  - `pi()`
+  - `radians()`
+  - `sin()`
+  - `tan()`
+
+- Added support for several openCypher aggregating functions:
+  - `percentileDisc()`
+  - `stDev()`
+
+- Added support for openCypher `epochmillis()` function
+  that converts a `datetime` to `epochmillis`.
+  For example:
+
+```
+MATCH (n) RETURN epochMillis(n.someDateTime)
+1698972364782
+```
+
+- Added support for openCypher modulo (`%`) operator.
+- Added support for the openCypher Static Debug Explain tool.
+- Added support for the openCypher `randomUUID()` function.
+- Improved openCypher performance:
+  - Improved the parser and query planner.
+  - Improved CPU utilization in the DFE engine.
+  - Improved the performance of queries containing multiple update
+    clauses that reuse the same variables. Examples are:
+
+  ```
+  MERGE (n {name: 'John'})
+    *or*
+  MERGE (m {name: 'Jim'})
+    *or*
+  MERGE (n)-[:knows {since: 2023}]→(m)
+  ```
+
+  - Optimized query plans for multi-hop query patterns such as:
+
+  ```
+  MATCH (n)-->()-->()-->(m)
+  RETURN n m
+  ```
+
+  - Improved the performance of list and map injection through
+    parameterized queries. For example:
+
+  ```
+  UNWIND $idList as id MATCH (n {`~id`: id})
+  RETURN n.name
+  ```
+
+  - Improved query execution containing `WITH`
+    by making it an appropriate barrier.
+  - Optimized to avoid redundant materialization of values in
+    `Unfold` and aggregation functions.
+
+- Improved the performance of SPARQL queries that contain a
+  large number of static inputs in the `VALUES` clause,
+  such as:
+
+```
+SELECT ?n WHERE { VALUES (?name) { ("John") ("Jim") ... many values ... } ?n a ?n_type . ?n ?name . }
+```
+
+- Improved SPARQL CBD query performance.
+
 ## Defects Fixed in This Engine Release
 
-- Fixed a bug where in some cases a failed transaction was not closed
-  properly.
+- Fixed a Gremlin bug where long queries with deep nesting were causing
+  high CPU usage and query timeouts during the query planning phase.
+- Fixed a Gremlin bug where an invalid `NullPointerException`
+  could be thrown when using `mergeV` or `mergeE`.
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.2.1.0.R7, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.2.1.0.R3, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin earliest version supported:_ `3.6.2`
@@ -54,9 +148,11 @@ with these query-language versions:
 - _openCypher version:_ `Neptune-9.0.20190305-1.0`
 - _SPARQL version:_ `1.1`
 
+## Upgrade Paths to Engine Release 1.2.1.0.R3
+
 ## Upgrading to This Release
 
-Amazon Neptune 1.2.1.0.R7 is now generally available.
+Amazon Neptune 1.2.1.0.R3 is now generally available.
 
 If a DB cluster is running an engine version from which there is an upgrade path
 to this release, it is eligible to be upgraded now. You can upgrade any eligible cluster

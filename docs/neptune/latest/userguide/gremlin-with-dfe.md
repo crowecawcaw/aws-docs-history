@@ -12,12 +12,6 @@ be run natively on the DFE, Neptune falls back on TinkerPop to run the
 step. The `explain` and `profile` reports include warnings
 when this happens.
 
-###### Note
-
-Beginning with [engine release
-1.0.5.0](engine-releases-1.0.5.md "engine-releases-1.0.5.md"), when the DFE encounters a step it doesn't support natively, it falls back
-on the base TinkerPop engine rather than the Neptune Gremlin engine as it did previously.
-
 ## Query planning interleaving
 
 When the translation process encounters a Gremlin step that does not have a

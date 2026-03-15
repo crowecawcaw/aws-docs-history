@@ -1,6 +1,5 @@
 # Encrypting connections to your Amazon Neptune database with SSL/HTTPS
 
-Beginning with [engine version 1.0.4.0](engine-releases-1.0.4.md "engine-releases-1.0.4.md"),
 Amazon Neptune only allows Secure Sockets Layer (SSL) connections through HTTPS to any
 instance or cluster endpoint.
 

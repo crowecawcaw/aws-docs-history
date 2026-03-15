@@ -172,19 +172,16 @@ public class MyHandler implements RequestStreamHandler {
                                      .reconnectInterval(2000);
 
   if (Boolean.parseBoolean(getOptionalEnv("USE_IAM", "true"))) {
-    // For versions of TinkerPop 3.4.11 or higher:
+    // The following example uses requestInterceptor(), which was introduced
+    // in TinkerPop 3.6.6. If you are using a TinkerPop version earlier than
+    // 3.6.6 (but 3.5.5 or higher), use handshakeInterceptor() instead.
     builder.requestInterceptor( r ->
       {
-        NeptuneNettyHttpSigV4Signer sigV4Signer = new NeptuneNettyHttpSigV4Signer(region, new DefaultAWSCredentialsProviderChain());
+        NeptuneNettyHttpSigV4Signer sigV4Signer = new NeptuneNettyHttpSigV4Signer(region, DefaultCredentialsProvider.create());
         sigV4Signer.signRequest(r);
         return r;
       }
     )
-
-    // Versions of TinkerPop prior to 3.4.11 should use the following approach.
-    // Be sure to adjust the  imports to include:
-    //   import org.apache.tinkerpop.gremlin.driver.SigV4WebSocketChannelizer;
-    //   builder = builder.channelizer(SigV4WebSocketChannelizer.class);
 
     return builder.create();
   }

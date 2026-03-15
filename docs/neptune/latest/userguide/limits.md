@@ -31,6 +31,7 @@ Amazon Neptune is available in the following AWS Regions:
 - Asia Pacific (Melbourne):   `ap-southeast-4`
 - Asia Pacific (Malaysia):   `ap-southeast-5`
 - Asia Pacific (Mumbai):   `ap-south-1`
+- Asia Pacific (Hyderabad):   `ap-south-2`
 - China (Beijing):   `cn-north-1`
 - China (Ningxia):   `cn-northwest-1`
 - AWS GovCloud (US-West):   `us-gov-west-1`
@@ -48,11 +49,18 @@ option is slightly different than it is in other regions.
 These and other differences are [explained
 here](https://docs.amazonaws.cn/en_us/aws/latest/userguide/api-gateway.html#feature-diff "https://docs.amazonaws.cn/en_us/aws/latest/userguide/api-gateway.html#feature-diff").
 
+## Differences in the Asia Pacific (Hyderabad) region
+
+The following Neptune features are not supported in the Asia Pacific (Hyderabad)
+(`ap-south-2`) region:
+
+- [Neptune global databases](neptune-global-database.md "neptune-global-database.md")
+- Cross-region snapshot copying (see [Copying a Snapshot](backup-restore-copy-snapshot.md "backup-restore-copy-snapshot.md"))
+
 ## Maximum size of storage cluster volumes
 
 A Neptune cluster volume can grow to a maximum size of 128 tebibytes (TiB) in
-all supported regions. This is
-true for all engine releases starting with [Release: 1.0.2.2 (2020-03-09)](engine-releases-1.0.2.md "engine-releases-1.0.2.md"). See [Amazon Neptune storage, reliability and availability](feature-overview-storage.md "feature-overview-storage.md").
+all supported regions. See [Amazon Neptune storage, reliability and availability](feature-overview-storage.md "feature-overview-storage.md").
 
 ## DB instance sizes supported
 
@@ -225,7 +233,6 @@ are listed in the table below:
 
 ###### Note
 
-Starting with [Neptune engine release 1.1.0.0](engine-releases-1.1.0.md "engine-releases-1.1.0.md")
 Neptune no longer supports `R4` instance types.
 
 When a client properly closes a connection, the closure is immediately reflected in the

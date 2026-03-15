@@ -7,11 +7,6 @@ with your Neptune engine version. Using an incompatible version can result in co
 failures or unexpected behavior. For detailed version compatibility information, see
 [Accessing a Neptune graph with Gremlin](access-graph-gremlin.md "access-graph-gremlin.md").
 
-###### Note
-
-The `gremlinpython` 3.5.x versions are compatible with TinkerPop
-3.4.x versions as long as you only use 3.4.x features in the Gremlin queries you write.
-
 The following section walks you through the running of a Python sample that connects to an
 Amazon Neptune DB instance and performs a Gremlin traversal.
 
@@ -43,8 +38,7 @@ pip install --user gremlinpython
 
 For information about finding the address of your Neptune DB instance, see the [Connecting to Amazon Neptune Endpoints](feature-overview-endpoints.md "feature-overview-endpoints.md") section.
 
-The example below demonstrates how to connect with Gremlin Python. For IAM connectivity, see
-[Connecting to Amazon Neptune databases using IAM authentication with Gremlin Python](gremlin-python-iam-auth.md "gremlin-python-iam-auth.md").
+The example below demonstrates how to connect with Gremlin Python.
 
 ```
 import boto3
@@ -92,3 +86,11 @@ The following methods submit the query to the Neptune DB instance:
 The preceding example returns the first two vertices in the graph by using the
 `g.V().limit(2).toList()` traversal. To query for something else, replace it
 with another Gremlin traversal with one of the appropriate ending methods.
+
+## IAM authentication
+
+Neptune supports [IAM authentication](iam-auth-enable.md "iam-auth-enable.md")
+to control access to your DB cluster. If you have IAM authentication enabled, you
+need to use Signature Version 4 signing to authenticate your requests. For detailed
+instructions and code examples for connecting from a Python client, see
+[Connecting to Amazon Neptune databases using IAM authentication with Gremlin Python](gremlin-python-iam-auth.md "gremlin-python-iam-auth.md").

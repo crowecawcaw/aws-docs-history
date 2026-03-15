@@ -4,10 +4,6 @@ Neptune also provides a custom SPARQL operation, `UNLOAD`, for removing
 data that is specified in a remote source. `UNLOAD` can be regarded as a
 counterpart to the `LOAD` operation. Its syntax is:
 
-###### Note
-
-This feature is available starting in [Neptune engine release 1.0.4.1](engine-releases-1.0.4.md "engine-releases-1.0.4.md").
-
 ```
 UNLOAD SILENT `(URL of the remote data to be unloaded)` FROM GRAPH `(named graph from which to remove the data)`
 ```

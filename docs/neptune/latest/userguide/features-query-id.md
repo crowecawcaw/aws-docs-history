@@ -8,10 +8,6 @@ or SPARQL query, either in the HTTP header, or for a SPARQL query by using the
 `queryId` query hint. Assigning your own `queryID` makes it easy
 to keep track of a query so as to get status or cancel it.
 
-###### Note
-
-This feature is available starting with [Release 1.0.1.0.200463.0 (2019-10-15)](engine-releases-1.0.1.0.200463.md "engine-releases-1.0.1.0.200463.md").
-
 ## Injecting a Custom `queryId` Value Using the HTTP Header
 
 For both Gremlin and SPARQL, the HTTP header can be used to inject your own

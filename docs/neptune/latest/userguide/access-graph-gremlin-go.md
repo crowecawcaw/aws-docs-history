@@ -122,3 +122,11 @@ The following methods submit the query to the Neptune DB instance:
   by using the `g.V().Limit(2).ToList()` traversal. To query
   for something else, replace it with another Gremlin traversal with one
   of the appropriate ending methods.
+
+## IAM authentication
+
+Neptune supports [IAM authentication](iam-auth-enable.md "iam-auth-enable.md")
+to control access to your DB cluster. If you have IAM authentication enabled, you
+need to use Signature Version 4 signing to authenticate your requests. For detailed
+instructions and code examples for connecting from a Go client, see
+[Connecting to Amazon Neptune databases using IAM authentication with Gremlin Go](gremlin-go-iam-auth.md "gremlin-go-iam-auth.md").

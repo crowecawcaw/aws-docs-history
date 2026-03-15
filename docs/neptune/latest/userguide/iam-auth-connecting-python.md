@@ -341,8 +341,10 @@ if __name__ == "__main__":
 export AWS_ACCESS_KEY_ID=`MY_ACCESS_KEY_ID`
 export AWS_SECRET_ACCESS_KEY=`MY_SECRET_ACCESS_KEY`
 export SERVICE_REGION=`us-east-1 or us-east-2 or us-west-1 or us-west-2 or ca-central-1 or
- sa-east-1 or eu-north-1 or eu-west-1 or eu-west-2 or eu-west-3 or eu-central-1 or me-south-1 or
- me-central-1 or il-central-1 or af-south-1 or ap-east-1 or ap-northeast-1 or ap-northeast-2 or ap-southeast-1 or ap-southeast-2 or ap-south-1 or
+ ca-west-1 or sa-east-1 or eu-north-1 or eu-south-2 or eu-west-1 or eu-west-2 or eu-west-3 or
+ eu-central-1 or me-south-1 or me-central-1 or il-central-1 or af-south-1 or ap-east-1 or
+ ap-northeast-1 or ap-northeast-2 or ap-northeast-3 or ap-southeast-1 or ap-southeast-2 or
+ ap-southeast-3 or ap-southeast-4 or ap-southeast-5 or ap-south-1 or ap-south-2 or
  cn-north-1 or cn-northwest-1 or
  us-gov-east-1 or us-gov-west-1`
 ```

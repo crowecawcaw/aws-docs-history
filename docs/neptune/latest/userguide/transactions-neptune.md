@@ -134,6 +134,34 @@ transactions without initiating a lock-wait timeout. Neptune makes a
 best effort to roll back the transaction that has the fewest records
 inserted or deleted.
 
+### Measuring lock-wait time (engine ≥ 1.4.5.0)
+
+Starting with engine version 1.4.5.0, you can observe exactly how long a mutation
+query was blocked by using two slow-query-log counters:
+
+| Counter                        | Description                                                                                       |
+| ------------------------------ | ------------------------------------------------------------------------------------------------- |
+| `sharedLocksWaitTimeMillis`    | Time spent waiting to obtain shared (S) locks, which allow multiple<br>readers but block writers. |
+| `exclusiveLocksWaitTimeMillis` | Time spent waiting to obtain exclusive (X) locks, which block all<br>other access.                |
+
+These two fields appear in the `storageCounters` object only when you
+enable slow-query logging in `debug` mode
+(`neptune_enable_slow_query_log=debug`).
+
+###### Tip
+
+If `sharedLocksWaitTimeMillis + exclusiveLocksWaitTimeMillis` approaches
+the query's `overallRunTimeMs`, the query is bottlenecked by lock contention
+rather than CPU, network, or I/O.
+
+Practical tips for reducing contention:
+
+- **Stagger conflicting jobs** – Run heavy
+  batch mutations during periods of lower user activity.
+- **Break large mutations into smaller chunks**
+  – Smaller transactions hold locks for less time, reducing the chance of
+  timeouts.
+
 ## Range locks and false conflicts
 
 Neptune takes range locks using gap locks. A gap lock is a lock on a gap between

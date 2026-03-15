@@ -85,3 +85,11 @@ The following methods submit the query to the Neptune DB instance:
 This is a standalone Node.js example. If you are planning to run code
 like this in an AWS Lambda function, see [Lambda function examples](lambda-functions-examples.md "lambda-functions-examples.md") for details about using
 JavaScript efficiently in a Neptune Lambda function.
+
+## IAM authentication
+
+Neptune supports [IAM authentication](iam-auth-enable.md "iam-auth-enable.md")
+to control access to your DB cluster. If you have IAM authentication enabled, you
+need to use Signature Version 4 signing to authenticate your requests. For detailed
+instructions and code examples for connecting from a JavaScript client, see
+[Connecting to Amazon Neptune databases using IAM authentication with Gremlin JavaScript](gremlin-javascript-iam-auth.md "gremlin-javascript-iam-auth.md").

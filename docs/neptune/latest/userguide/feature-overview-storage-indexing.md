@@ -74,10 +74,6 @@ reduced performance and higher operational costs that can be dramatically improv
 Lab Mode to enable the [OSGP index](features-lab-mode.md#features-lab-mode-features-osgp-index "features-lab-mode.md#features-lab-mode-features-osgp-index")
 in addition to the three indexes that Neptune maintains by default.
 
-###### Note
-
-This feature is available starting in [Neptune engine release 1.0.2.1](engine-releases-1.0.1.0.200463.md "engine-releases-1.0.1.0.200463.md").
-
 Enabling the OSGP index can have a few down-sides:
 
 - The insert rate may slow by up to 23%.

@@ -27,10 +27,9 @@ contains the following fields:
 
 ###### Note
 
-As of [engine release 1.1.0.0](engine-releases-1.1.0.md "engine-releases-1.1.0.md"),
-the Gremlin stream output format (`GREMLIN_JSON`) output by the Gremlin
+The Gremlin stream output format (`GREMLIN_JSON`) output by the Gremlin
 stream endpoint (`https://`Neptune-DNS`:8182/gremlin/stream`)
-is being deprecated. It is replaced by PG_JSON, which is currently identical to
+is deprecated. It is replaced by PG_JSON, which is currently identical to
 `GREMLIN_JSON`.
 
 A Gremlin or openCypher change record, contained in the `data` field

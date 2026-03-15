@@ -1,16 +1,17 @@
 # Connecting to Amazon Neptune databases using IAM with Gremlin Java
 
-## Using TinkerPop 3.4.11 or higher to connect to Neptune with Sig4 signing
-
 Here is an example of how to connect to Neptune using the Gremlin Java API with
-Sig4 signing when using TinkerPop 3.4.11 or higher (it assumes general knowledge about
-using Maven). This example uses the [Amazon Neptune SigV4 Signer](https://github.com/aws/amazon-neptune-sigv4-signer "https://github.com/aws/amazon-neptune-sigv4-signer") library to assist in request signing. First, define the dependencies as part
-of the `pom.xml` file:
+Sig4 signing (it assumes general knowledge about using Maven). This example uses the
+[Amazon Neptune SigV4
+Signer](https://github.com/aws/amazon-neptune-sigv4-signer "https://github.com/aws/amazon-neptune-sigv4-signer") library to assist in request signing. First, define the dependencies as
+part of the `pom.xml` file:
 
 ###### Note
 
-The following examples have been updated to include the use of requestInterceptor(). This was added in TinkerPop 3.6.6.
-Prior to TinkerPop version 3.6.6, the code examples used handshakeInterceptor(), which was deprecated with that release.
+The following examples use `requestInterceptor()`, which was introduced
+in TinkerPop 3.6.6. If you are using a TinkerPop version earlier than 3.6.6 (but 3.5.5
+or higher), use `handshakeInterceptor()` instead of
+`requestInterceptor()` in the code examples below.
 
 ```
 <dependency>
@@ -20,15 +21,14 @@ Prior to TinkerPop version 3.6.6, the code examples used handshakeInterceptor(),
 </dependency>
 ```
 
-The Amazon Neptune SigV4 Signer supports use of both versions 1.x and 2.x of the AWS Java SDK. The following
-example uses 2.x where the `DefaultCredentialsProvider` is a
-`software.amazon.awssdk.auth.credentials.AwsCredentialsProvider` instance, but you could equally use the
-1.x form with any `com.amazonaws.auth.AWSCredentialsProvider`. If you are upgrading from 1.x to 2.x, you can
-read more about the changes between 1.x and 2.x in the [Credentials provider changes](../../../sdk-for-java/latest/developer-guide/migration-client-credentials.md "../../../sdk-for-java/latest/developer-guide/migration-client-credentials.md") of
+The Amazon Neptune SigV4 Signer supports both versions 1.x and 2.x of the AWS Java SDK. The following
+examples use 2.x, where `DefaultCredentialsProvider` is a
+`software.amazon.awssdk.auth.credentials.AwsCredentialsProvider` instance. If you are
+upgrading from 1.x to 2.x, see the [Credentials provider changes](../../../sdk-for-java/latest/developer-guide/migration-client-credentials.md "../../../sdk-for-java/latest/developer-guide/migration-client-credentials.md") in
 the AWS SDK for Java 2.x documentation.
 
 ```
-import com.amazonaws.auth.DefaultAWSCredentialsProviderChain;
+import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
 import com.amazonaws.neptune.auth.NeptuneNettyHttpSigV4Signer;
 import com.amazonaws.neptune.auth.NeptuneSigV4SignerException;
 
@@ -61,16 +61,7 @@ try {
 }
 ```
 
-###### Note
-
-If you are upgrading from `3.4.11`, remove references to the
-`amazon-neptune-gremlin-java-sigv4` library. It is no longer necessary
-when using `requestInterceptor()` as shown in the example above.
-Do not attempt to use the `requestInterceptor()` in conjunction with
-the channelizer (`SigV4WebSocketChannelizer.class`), because it will
-produce errors.
-
-### Cross account IAM authentication
+## Cross account IAM authentication
 
 Amazon Neptune supports cross account IAM authentication through the use of role assumption, also sometimes referred
 to as [role chaining](bulk-load-tutorial-chain-roles.md#bulk-load-tutorial-chain-cross-account "bulk-load-tutorial-chain-roles.md#bulk-load-tutorial-chain-cross-account"). To provide access to a Neptune cluster from an application hosted in a different AWS account:
@@ -155,7 +146,7 @@ public static void main( String[] args )
                   {
                     try {
                       NeptuneNettyHttpSigV4Signer sigV4Signer =
-                        // new NeptuneNettyHttpSigV4Signer("us-west-2", new DefaultAWSCredentialsProviderChain());
+                        // new NeptuneNettyHttpSigV4Signer("us-west-2", DefaultCredentialsProvider.create());
                         new NeptuneNettyHttpSigV4Signer(
                                 "us-west-2",
                                  new STSAssumeRoleSessionCredentialsProvider
@@ -176,50 +167,4 @@ public static void main( String[] args )
 
     cluster.close();
   }
-```
-
-## Using a version of TinkerPop earlier than 3.4.11 to connect to Neptune with Sig4 signing
-
-TinkerPop versions prior to `3.4.11` did not have support for the
-`requestInterceptor()` configuration shown in the [previous section](#iam-auth-connecting-gremlin-java-current "#iam-auth-connecting-gremlin-java-current") and
-therefore must rely on the `amazon-neptune-gremlin-java-sigv4` package.
-This is a Neptune library that contains the `SigV4WebSocketChannelizer`
-class, which replaces the standard TinkerPop Channelizer with one that can automatically
-inject a SigV4 signature. Where possible, ugrade to TinkerPop 3.4.11 or higher, because
-the `amazon-neptune-gremlin-java-sigv4` library is deprecated.
-
-Here is an example of how to connect to Neptune using the Gremlin Java API with Sig4
-signing when using TinkerPop versions prior to 3.4.11 (it assumes general knowledge about
-how to use Maven).
-
-First, define the dependencies as part of the `pom.xml` file:
-
-```
-<dependency>
-  <groupId>com.amazonaws</groupId>
-  <artifactId>amazon-neptune-gremlin-java-sigv4</artifactId>
-  <version>2.4.0</version>
-</dependency>
-```
-
-The dependency above will include the Gremlin driver version
-`3.4.10`. Although it is possible to use newer Gremlin driver versions
-(up through `3.4.13`), an upgrade of the driver past 3.4.10 should
-include a change to use the `requestInterceptor()` model described
-[above](#iam-auth-connecting-gremlin-java-current "#iam-auth-connecting-gremlin-java-current").
-
-The `gremlin-driver` Cluster object should then be configured as
-follows in the Java code:
-
-```
-import org.apache.tinkerpop.gremlin.driver.SigV4WebSocketChannelizer;
-
- `...`
-
-Cluster cluster = Cluster.build(`your cluster`)
-                       .enableSsl(true)
-                       .channelizer(SigV4WebSocketChannelizer.class)
-                       .create();
-Client client = cluster.connect();
-client.submit("g.V().has('code','IAD')").all().get();
 ```

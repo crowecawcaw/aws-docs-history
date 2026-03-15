@@ -61,10 +61,6 @@ _Default value_: 100.
   parameter that can be used to exclude the load IDs of queued load requests when a list of load IDs
   is requested.
 
-###### Note
-
-This parameter is available starting in [Neptune engine release 1.0.3.0](engine-releases-1.0.3.md "engine-releases-1.0.3.md").
-
 By default, the load IDs of all load jobs with status `LOAD_IN_QUEUE` are
 included in such a list. They appear before the load IDs of other jobs, sorted by the time they
 were added to the queue from most recent to earliest.

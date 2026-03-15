@@ -111,3 +111,11 @@ returned, or `Iterate()` if you don't.
 The preceding example returns a list by using the `g.V().Limit(3).ToList()`
 traversal. To query for something else, replace it with another Gremlin traversal with
 one of the appropriate ending methods.
+
+## IAM authentication
+
+Neptune supports [IAM authentication](iam-auth-enable.md "iam-auth-enable.md")
+to control access to your DB cluster. If you have IAM authentication enabled, you
+need to use Signature Version 4 signing to authenticate your requests. For detailed
+instructions and code examples for connecting from a .NET client, see
+[Connecting to Amazon Neptune databases using IAM authentication with Gremlin .NET](gremlin-dotnet-iam-auth.md "gremlin-dotnet-iam-auth.md").

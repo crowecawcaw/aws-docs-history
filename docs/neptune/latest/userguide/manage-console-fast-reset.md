@@ -6,10 +6,6 @@ removing all of its data.
 You can do this within a Neptune notebook using the
 [%db_reset](#manage-console-fast-reset-db-reset-magic "#manage-console-fast-reset-db-reset-magic") line magic.
 
-###### Note
-
-This feature is available starting in [Neptune engine release 1.0.4.0](engine-releases-1.0.4.md "engine-releases-1.0.4.md").
-
 - In most cases, a fast reset operation completes within couple of
   minutes. The duration can vary somewhat depending on the load on the cluster
   when the operation is initiated.

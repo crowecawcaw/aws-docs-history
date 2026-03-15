@@ -117,8 +117,10 @@ export AWS_SECRET_ACCESS_KEY=`9drTJvcXLB89EXAMPLELB8923FB892xMFI`
 export AWS_SESSION_TOKEN=`AQoXdzELDDY//////////wEaoAK1wvxJY12r2IrDFT2IvAzTCn3zHoZ7YNtpiQLF0MqZye/qwjzP2iEXAMPLEbw/m3hsj8VBTkPORGvr9jM5sgP+w9IZWZnU+LWhmg+a5fDi2oTGUYcdg9uexQ4mtCHIHfi4citgqZTgco40Yqr4lIlo4V2b2Dyauk0eYFNebHtYlFVgAUj+7Indz3LU0aTWk1WKIjHmmMCIoTkyYp/k7kUG7moeEYKSitwQIi6Gjn+nyzM+PtoA3685ixzv0R7i5rjQi0YE0lf1oeie3bDiNHncmzosRM6SFiPzSvp6h/32xQuZsjcypmwsPSDtTPYcs0+YN/8BRi2/IcrxSpnWEXAMPLEXSDFTAQAM6Dl9zR0tXoybnlrZIwMLlMi1Kcgo5OytwU=`
 
 export SERVICE_REGION=`us-east-1 or us-east-2 or us-west-1 or us-west-2 or ca-central-1 or
- sa-east-1 or eu-north-1 or eu-west-1 or eu-west-2 or eu-west-3 or eu-central-1 or me-south-1 or
- me-central-1 or il-central-1 or af-south-1 or ap-east-1 or ap-northeast-1 or ap-northeast-2 or ap-southeast-1 or ap-southeast-2 or ap-south-1 or
+ ca-west-1 or sa-east-1 or eu-north-1 or eu-south-2 or eu-west-1 or eu-west-2 or eu-west-3 or
+ eu-central-1 or me-south-1 or me-central-1 or il-central-1 or af-south-1 or ap-east-1 or
+ ap-northeast-1 or ap-northeast-2 or ap-northeast-3 or ap-southeast-1 or ap-southeast-2 or
+ ap-southeast-3 or ap-southeast-4 or ap-southeast-5 or ap-south-1 or ap-south-2 or
  cn-north-1 or cn-northwest-1 or
  us-gov-east-1 or us-gov-west-1`
 ```
@@ -152,8 +154,10 @@ export AWS_SECRET_ACCESS_KEY=$(echo "$creds_json" | jq .Credentials.SecretAccess
 export AWS_SESSION_TOKEN=$(echo "$creds_json" | jq .Credentials.SessionToken|tr -d '"')
 
 export SERVICE_REGION=`us-east-1 or us-east-2 or us-west-1 or us-west-2 or ca-central-1 or
- sa-east-1 or eu-north-1 or eu-west-1 or eu-west-2 or eu-west-3 or eu-central-1 or me-south-1 or
- me-central-1 or il-central-1 or af-south-1 or ap-east-1 or ap-northeast-1 or ap-northeast-2 or ap-southeast-1 or ap-southeast-2 or ap-south-1 or
+ ca-west-1 or sa-east-1 or eu-north-1 or eu-south-2 or eu-west-1 or eu-west-2 or eu-west-3 or
+ eu-central-1 or me-south-1 or me-central-1 or il-central-1 or af-south-1 or ap-east-1 or
+ ap-northeast-1 or ap-northeast-2 or ap-northeast-3 or ap-southeast-1 or ap-southeast-2 or
+ ap-southeast-3 or ap-southeast-4 or ap-southeast-5 or ap-south-1 or ap-south-2 or
  cn-north-1 or cn-northwest-1 or
  us-gov-east-1 or us-gov-west-1`
 ```
@@ -275,8 +279,10 @@ export AWS_SECRET_ACCESS_KEY=$(echo "$creds_json" | jq .SecretAccessKey| tr -d '
 export AWS_SESSION_TOKEN=$(echo "$creds_json" | jq .Token|tr -d '"')
 
 export SERVICE_REGION=`us-east-1 or us-east-2 or us-west-1 or us-west-2 or ca-central-1 or
- sa-east-1 or eu-north-1 or eu-west-1 or eu-west-2 or eu-west-3 or eu-central-1 or me-south-1 or
- me-central-1 or il-central-1 or af-south-1 or ap-east-1 or ap-northeast-1 or ap-northeast-2 or ap-southeast-1 or ap-southeast-2 or ap-south-1 or
+ ca-west-1 or sa-east-1 or eu-north-1 or eu-south-2 or eu-west-1 or eu-west-2 or eu-west-3 or
+ eu-central-1 or me-south-1 or me-central-1 or il-central-1 or af-south-1 or ap-east-1 or
+ ap-northeast-1 or ap-northeast-2 or ap-northeast-3 or ap-southeast-1 or ap-southeast-2 or
+ ap-southeast-3 or ap-southeast-4 or ap-southeast-5 or ap-south-1 or ap-south-2 or
  cn-north-1 or cn-northwest-1 or
  us-gov-east-1 or us-gov-west-1`
 ```

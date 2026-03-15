@@ -138,6 +138,8 @@ addition to the attributes that are logged as in `info` mode:
 | `deadlockCount`                     | Number of deadlocks in the query.                              |
 | `singleCardinalityInserts`          | Number of single cardinanity inserts performed.                |
 | `singleCardinalityInsertDeletions`  | Number of statements deleted during single cardinality insert. |
+| `sharedLocksWaitTimeMillis`         | Number of milliseconds spent waiting for shared locks.         |
+| `exclusiveLocksWaitTimeMillis`      | Number of milliseconds spent waiting for exclusive locks.      |
 
 ## Example of debug logging for a slow query
 
@@ -199,7 +201,9 @@ attributes would be logged for the query, in a form like this:
     "fullyBoundedAccessPathSearches": 27,
     "dictionaryReadsFromValueToIdTable": 10,
     "dictionaryReadsFromIdToValueTable": 17,
-    "rangeCountsInAllIndexes": 4
+    "rangeCountsInAllIndexes": 4,
+    "sharedLocksWaitTimeMillis": 0,
+    "exclusiveLocksWaitTimeMillis": 0
   }
 }
 ```

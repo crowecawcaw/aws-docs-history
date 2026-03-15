@@ -5,14 +5,6 @@ about Gremlin sessions, see [Considering
 Sessions](http://tinkerpop.apache.org/docs/current/reference/#sessions "http://tinkerpop.apache.org/docs/current/reference/#sessions") in the Apache TinkerPop documentation. The sections below describe how
 to use Gremlin sessions with Java.
 
-###### Note
-
-This feature is available starting in [Neptune
-engine release 1.0.1.0.200463.0](engine-releases-1.0.1.0.200463.md "engine-releases-1.0.1.0.200463.md").
-
-Starting with [Neptune engine release 1.1.1.0](engine-releases-1.1.1.md "engine-releases-1.1.1.md")
-and TinkerPop version 3.5.2, you can also use [Gremlin transactions](access-graph-gremlin-transactions.md "access-graph-gremlin-transactions.md").
-
 ###### Important
 
 Currently, the longest time Neptune can keep a script-based session open is 10 minutes.

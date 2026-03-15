@@ -153,3 +153,11 @@ Each traversal preceding the final traversal must end in `next()` to be
 executed. Only the data from the final traversal is returned.
 
 For more information on the Neptune implementation of Gremlin, see [Gremlin standards compliance in Amazon Neptune](access-graph-gremlin-differences.md "access-graph-gremlin-differences.md").
+
+## IAM authentication
+
+Neptune supports [IAM authentication](iam-auth-enable.md "iam-auth-enable.md")
+to control access to your DB cluster. If you have IAM authentication enabled, you
+need to use Signature Version 4 signing to authenticate your requests. For detailed
+instructions and code examples for connecting from the Gremlin console, see
+[Connecting to Amazon Neptune databases using IAM authentication with Gremlin console](iam-auth-connecting-gremlin-console.md "iam-auth-connecting-gremlin-console.md").

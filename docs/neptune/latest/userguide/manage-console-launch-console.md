@@ -42,7 +42,6 @@ classes).
 
 ###### Note
 
-Starting with [Neptune engine release 1.1.0.0](engine-releases-1.1.0.md "engine-releases-1.1.0.md")
 Neptune no longer supports `R4` instance types. 6. Under **Availability and durability**, you can choose whether or
 not to enable multi-availability-zone (multi-AZ) deployment. The production template
 enables multi-AZ deployment by default, whereas the development and testing template
