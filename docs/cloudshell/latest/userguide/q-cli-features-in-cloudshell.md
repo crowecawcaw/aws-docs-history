@@ -1,27 +1,49 @@
-# Using Amazon Q CLI in CloudShell
+# Using Kiro CLI in CloudShell
 
-The Amazon Q CLI is a command-line interface that allows you to interact with Amazon Q. For
-more information, see [Using Amazon
-Q Developer on the command line](../../../amazonq/latest/qdeveloper-ug/command-line.md "../../../amazonq/latest/qdeveloper-ug/command-line.md") in the _Amazon Q Developer User
+The Kiro CLI is a command-line interface that allows you to interact with Kiro. For
+more information, see [Core Features of Kiro CLI](https://kiro.dev/docs/cli/#core-features "https://kiro.dev/docs/cli/#core-features") in the _Kiro User
 Guide_.
 
-Amazon Q CLI in CloudShell allows you to interact in natural language conversations, ask
-questions, and receive responses from Amazon Q all from your terminal. You can get the related
+Kiro CLI in CloudShell allows you to interact in natural language conversations, ask
+questions, and receive responses from Kiro all from your terminal. You can get the related
 shell command that reduces the need to search for, remember syntax, and receive command
 suggestions as you type in the terminal.
 
-If you don’t see Amazon Q CLI features in CloudShell, contact your administrator to provide
-you IAM permissions. For more information, see [Identity-based policy examples for Amazon Q Developer](../../../en_us/amazonq/latest/qdeveloper-ug/security_iam_id-based-policy-examples.md "../../../en_us/amazonq/latest/qdeveloper-ug/security_iam_id-based-policy-examples.md") in the _Amazon Q Developer User Guide_.
+If you don't see Kiro CLI features in CloudShell, contact your administrator to provide
+you IAM permissions. For more information, see [Identity-based policy examples for Kiro Developer](https://kiro.dev/docs/cli/privacy-and-security/iam-permissions/ "https://kiro.dev/docs/cli/privacy-and-security/iam-permissions/") in the _Kiro User Guide_.
 
-This chapter explains how you can use Amazon Q CLI features in CloudShell.
+This chapter explains how you can use Kiro CLI features in CloudShell.
 
-## Using Amazon Q inline suggestions in CloudShell
+Some Kiro CLI features require authentication. For more information, see [Authentication](https://kiro.dev/docs/cli/authentication/ "https://kiro.dev/docs/cli/authentication/") in the _Kiro User
+Guide_.
 
-The Amazon Q inline suggestions in CloudShell provide you with command suggestions as you
-type in the terminal. For more information, see [Amazon Q inline on the command line](../../../amazonq/latest/qdeveloper-ug/command-line-inline.md "../../../amazonq/latest/qdeveloper-ug/command-line-inline.md") in the _Amazon Q
-Developer User Guide_.
+## Using Kiro chat command in CloudShell
 
-**To use Amazon Q inline suggestions in
+The `kiro-cli` command allows you to ask questions and receive responses from
+Kiro all from your terminal. To initiate a conversation with Kiro, run `kiro-cli`
+command in the CloudShell terminal. For more information, see [Chatting with Kiro in the CLI](https://kiro.dev/docs/cli/chat/ "https://kiro.dev/docs/cli/chat/") in the _Kiro
+User Guide_.
+
+## Using Kiro translate command in CloudShell
+
+The `kiro-cli translate` command allows you to write natural language instruction. To
+translate with Kiro, run `kiro-cli translate` command in the CloudShell terminal.
+For more information, see [Translating from natural language to bash](https://kiro.dev/docs/cli/reference/cli-commands/#kiro-cli-translate "https://kiro.dev/docs/cli/reference/cli-commands/#kiro-cli-translate") in the _Kiro
+User Guide_.
+
+## CLI command completion in CloudShell
+
+CLI completion in CloudShell provides suggestions for commands and options as you type
+in the terminal. For more information, see [Generating command line completion](https://kiro.dev/docs/cli/autocomplete/ "https://kiro.dev/docs/cli/autocomplete/") in _Kiro
+User Guide_.
+
+## Using Kiro inline suggestions in CloudShell
+
+The Kiro inline suggestions in CloudShell provide you with command suggestions as you
+type in the terminal. For more information, see [Kiro inline on the command line](https://kiro.dev/docs/cli/autocomplete/#inline-suggestions "https://kiro.dev/docs/cli/autocomplete/#inline-suggestions") in the _Kiro
+User Guide_.
+
+**To use Kiro inline suggestions in
 CloudShell**
 
 1. From the AWS Management Console, Choose **CloudShell**.
@@ -31,40 +53,20 @@ CloudShell**
 
 ###### Note
 
-Currently, Amazon Q inline is only supported in Z shell.
+Currently, Kiro inline is only supported in Z shell.
 
-When you start typing your command, Amazon Q will make suggestions based on your
+When you start typing your command, Kiro will make suggestions based on your
 current input and previous commands. Inline suggestions are automatically enabled.
 
 To disable the inline suggestions, run the following command:
 
-`q inline disable`
+`kiro-cli inline disable`
 
 To enable the inline suggestions, run the following command:
 
-`q inline enable`
+`kiro-cli inline enable`
 
-## Using Q chat command in CloudShell
+## Identity-based policy for Kiro CLI in CloudShell
 
-The `q chat` command allows you to ask questions and receive responses from
-Amazon Q all from your terminal. To initiate a conversation with Amazon Q, run `q
- chat` command in the CloudShell terminal. For more information, see [Chatting with Amazon Q in the CLI](../../../en_us/amazonq/latest/qdeveloper-ug/command-line-chat.md "../../../en_us/amazonq/latest/qdeveloper-ug/command-line-chat.md") in the _Amazon Q Developer
-User Guide_.
-
-## Using Q translate command in CloudShell
-
-The `q translate` command allows you to write natural language instruction. To
-translate with Amazon Q, run `q translate` command in the CloudShell terminal.
-For more information, see [Translating from natural language to bash](../../../en_us/amazonq/latest/qdeveloper-ug/command-line-conversation.md "../../../en_us/amazonq/latest/qdeveloper-ug/command-line-conversation.md") in the _Amazon Q
-Developer User Guide_.
-
-## CLI command completion in CloudShell
-
-CLI completion in CloudShell provides suggestions for commands and options as you type
-in the terminal. For more information, see [Generating command line completion](../../../amazonq/latest/qdeveloper-ug/command-line-autocomplete.md "../../../amazonq/latest/qdeveloper-ug/command-line-autocomplete.md") in _Amazon Q Developer
-User Guide_.
-
-## Identity-based policy for Amazon Q CLI in CloudShell
-
-To use Amazon Q CLI in CloudShell, make sure you have the required IAM permissions.
-For more information, see [Identity-based policy examples for Amazon Q Developer](../../../en_us/amazonq/latest/qdeveloper-ug/security_iam_id-based-policy-examples.md "../../../en_us/amazonq/latest/qdeveloper-ug/security_iam_id-based-policy-examples.md") in the _Amazon Q Developer User Guide_.
+To use Kiro CLI in CloudShell, make sure you have the required IAM permissions.
+For more information, see [Identity-based policy examples for Kiro Developer](https://kiro.dev/docs/cli/privacy-and-security/iam-permissions/ "https://kiro.dev/docs/cli/privacy-and-security/iam-permissions/") in the _Kiro User Guide_.
