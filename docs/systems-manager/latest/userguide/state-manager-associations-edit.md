@@ -106,6 +106,7 @@ aws ssm update-association \
     --instance-id `instances_to_apply_association_on` \
     --parameters `(if any)` \
     --targets `target_options` \
+    --association-dispatch-assume-role `arn_of_role_to_be_used_when_dispatching_configurations` \
     --schedule-expression "`cron_or_rate_expression`" \
     --schedule-offset "`number_between_1_and_6`" \
     --output-location `s3_bucket_to_store_output_details` \
@@ -126,6 +127,7 @@ aws ssm update-association ^
     --instance-id `instances_to_apply_association_on` ^
     --parameters `(if any)` ^
     --targets `target_options` ^
+    --association-dispatch-assume-role `arn_of_role_to_be_used_when_dispatching_configurations` ^
     --schedule-expression "`cron_or_rate_expression`" ^
     --schedule-offset "`number_between_1_and_6`" ^
     --output-location `s3_bucket_to_store_output_details` ^
@@ -146,6 +148,7 @@ Update-SSMAssociation `
     -InstanceId `instances_to_apply_association_on` `
     -Parameters `(if any)` `
     -Target `target_options` `
+    -AssociationDispatchAssumeRole `arn_of_role_to_be_used_when_dispatching_configurations` `
     -ScheduleExpression "`cron_or_rate_expression`" `
     -ScheduleOffset "`number_between_1_and_6`" `
     -OutputLocation `s3_bucket_to_store_output_details` `
@@ -169,6 +172,7 @@ aws ssm update-association \
   --association-id 8dfe3659-4309-493a-8755-01234EXAMPLE \
   --association-name TestHostnameAssociation2 \
   --parameters commands="echo Association" \
+  --association-dispatch-assume-role arn:aws:iam::123456789012:role/myAssociationDispatchAssumeRole \
   --output-location S3Location='{OutputS3Region=us-east-1,OutputS3BucketName=amzn-s3-demo-bucket,OutputS3KeyPrefix=logs}' \
   --schedule-expression "cron(0 */1 * * ? *)"
 ```
@@ -180,6 +184,7 @@ aws ssm update-association ^
   --association-id 8dfe3659-4309-493a-8755-01234EXAMPLE ^
   --association-name TestHostnameAssociation2 ^
   --parameters commands="echo Association" ^
+  --association-dispatch-assume-role arn:aws:iam::123456789012:role/myAssociationDispatchAssumeRole ^
   --output-location S3Location='{OutputS3Region=us-east-1,OutputS3BucketName=amzn-s3-demo-bucket,OutputS3KeyPrefix=logs}' ^
   --schedule-expression "cron(0 */1 * * ? *)"
 ```
@@ -191,6 +196,7 @@ Update-SSMAssociation `
   -AssociationId b85ccafe-9f02-4812-9b81-01234EXAMPLE `
   -AssociationName TestHostnameAssociation2 `
   -Parameter @{"commands"="echo Association"} `
+  -AssociationDispatchAssumeRole "arn:aws:iam::123456789012:role/myAssociationDispatchAssumeRole" `
   -S3Location_OutputS3BucketName amzn-s3-demo-bucket `
   -S3Location_OutputS3KeyPrefix logs `
   -S3Location_OutputS3Region us-east-1 `

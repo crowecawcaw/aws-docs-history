@@ -62,6 +62,23 @@ association, you specify the following information:
   throttling mechanism. This means you might see inaccuracies in your
   status aggregation count since the aggregation process runs hourly
   and only when the execution status for a node changes.
+- A role used by association to take actions on your behalf.
+  State Manager will assume this role and call required APIs when dispatching
+  configurations to nodes. For information about setting up the custom-provided role,
+  see [Setup roles for AssociationDispatchAssumeRole](#setup-assume-role "#setup-assume-role").
+  If no role is provided, [service-linked role for Systems Manager](systems-manager/latest/userguide/using-service-linked-roles.md "systems-manager/latest/userguide/using-service-linked-roles.md") will be used.
+
+###### Note
+
+It is recommended that you define a custom IAM role so that you have full control of
+the permissions that State Manager has when taking actions on your behalf.
+
+Service-linked role support in State Manager is being phased out. Associations
+relying on service-linked role may require updates in the future to continue
+functioning properly.
+
+For information about managing the usage of custom-provided role, see [Manage usage of AssociationDispatchAssumeRole with ssm:AssociationDispatchAssumeRole](#context-key-assume-role "#context-key-assume-role").
+
 - A schedule for when or how often to apply the state. You can
   specify a cron or rate expression. For more information about
   creating schedules by using cron and rate expressions, see [Cron and rate expressions for associations](reference-cron-and-rate-expressions.md#reference-cron-and-rate-expressions-association "reference-cron-and-rate-expressions.md#reference-cron-and-rate-expressions-association").
@@ -206,3 +223,68 @@ from running each time a target changes by setting the
 For information about using the console to control when associations run,
 including details for avoiding unexpectedly high costs for Automation
 executions, see [Understanding when associations are applied to resources](#state-manager-about-scheduling "#state-manager-about-scheduling").
+
+## Setup roles for `AssociationDispatchAssumeRole`
+
+To setup custom dispatch assume roles that State Manager assumes to
+perform actions on your behalf, the roles should trust `ssm.amazonaws.com`
+and have the required permission to call `ssm:SendCommand` or
+`ssm:StartAutomationExecution` based on association use cases.
+
+Sample trust policy:
+
+```
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": [
+                    "ssm.amazonaws.com"
+                ]
+            },
+            "Action": "sts:AssumeRole"
+        }
+    ]
+}
+
+```
+
+## Manage usage of AssociationDispatchAssumeRole with `ssm:AssociationDispatchAssumeRole`
+
+To manage the usage of custom dispatch assume roles that State Manager assumes to
+perform actions on your behalf, use the `ssm:AssociationDispatchAssumeRole`
+condition key. This condition controls whether associations can be created or updated
+without specifying a custom dispatch assume role.
+
+In the following sample policy, the `"Allow"` statement grants permissions
+to association create and update APIs only when the `AssociationDispatchAssumeRole`
+parameter is specified. Without this parameter in API requests,
+the policy does not grant permission to create or update associations:
+
+```
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:CreateAssociation",
+                "ssm:UpdateAssociation",
+                "ssm:CreateAssociationBatch"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringLike": {
+                    "ssm:AssociationDispatchAssumeRole": "*"
+                }
+            }
+        }
+    ]
+}
+
+```

@@ -144,7 +144,21 @@ console shows that a new version was processed. If you want to run
 an association using a new version of a document shared from another
 account, you must set the document version to
 `default`. 6. For **Parameters**, specify the required input
-parameters. 7. (Optional) Choose a CloudWatch alarm to apply to your association for
+parameters. 7. (Optional) For **Association Dispatch Assume Role**,
+select a role from the drop-down. State Manager will take actions using
+this role on your behalf. For information about setting up the custom-provided role,
+see [Setup roles for AssociationDispatchAssumeRole](state-manager-about.md#setup-assume-role "state-manager-about.md#setup-assume-role")
+
+###### Note
+
+It is recommended that you define a custom IAM role so that you have full control of
+the permissions that State Manager has when taking actions on your behalf.
+
+Service-linked role support in State Manager is being phased out. Associations
+relying on service-linked role may require updates in the future to continue
+functioning properly.
+
+For information about managing the usage of custom-provided role, see [Manage usage of AssociationDispatchAssumeRole with ssm:AssociationDispatchAssumeRole](state-manager-about.md#context-key-assume-role "state-manager-about.md#context-key-assume-role"). 8. (Optional) Choose a CloudWatch alarm to apply to your association for
 monitoring.
 
 ###### Note
@@ -161,14 +175,14 @@ Note the following information about this step.
     * If your alarm activates, any pending command invocations
      or automations do not run.
 
-8. For **Targets**, choose an option. For information
+9. For **Targets**, choose an option. For information
    about using targets, see [Understanding targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md "systems-manager-state-manager-targets-and-rate-controls.md").
 
 ###### Note
 
 In order for associations that are created with Automation
 runbooks to be applied when new target nodes are detected, certain
-conditions must be met. For information, see [About target updates with Automation runbooks](state-manager-about.md#runbook-target-updates "state-manager-about.md#runbook-target-updates"). 9. In the **Specify schedule** section, choose either
+conditions must be met. For information, see [About target updates with Automation runbooks](state-manager-about.md#runbook-target-updates "state-manager-about.md#runbook-target-updates"). 10. In the **Specify schedule** section, choose either
 **On Schedule** or **No
 schedule**. If you choose **On Schedule**, use
 the buttons provided to create a cron or rate schedule for the
@@ -176,8 +190,8 @@ association.
 
 If you don't want the association to run immediately after you create
 it, choose **Apply association only at the next specified Cron
-interval**. 10. (Optional) In the **Schedule offset** field, specify
-a number between 1 and 6. 11. In the **Advanced options** section use
+interval**. 11. (Optional) In the **Schedule offset** field, specify
+a number between 1 and 6. 12. In the **Advanced options** section use
 **Compliance severity** to choose a severity level
 for the association and use **Change Calendars** to
 choose a change calendar for the association.
@@ -188,7 +202,7 @@ here. For more information, see [About State Manager association compliance](com
 
 The change calendar determines when the association runs. If the
 calendar is closed, the association isn't applied. If the calendar is
-open, the association runs accordingly. For more information, see [AWS Systems Manager Change Calendar](systems-manager-change-calendar.md "systems-manager-change-calendar.md"). 12. In the **Rate control** section, choose options to
+open, the association runs accordingly. For more information, see [AWS Systems Manager Change Calendar](systems-manager-change-calendar.md "systems-manager-change-calendar.md"). 13. In the **Rate control** section, choose options to
 control how the association runs on multiple nodes. For more information
 about using rate controls, see [Understanding targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md "systems-manager-state-manager-targets-and-rate-controls.md").
 
@@ -211,7 +225,7 @@ option:
      of errors that are allowed before State Manager stops running
      associations on additional targets.
 
-13. (Optional) For **Output options**, to save the command output to a file,
+14. (Optional) For **Output options**, to save the command output to a file,
     select the **Enable writing output to S3** box. Enter the bucket and prefix
     (folder) names in the boxes.
 
@@ -260,7 +274,7 @@ a bucket](../../../AmazonS3/latest/userguide/create-bucket-overview.md "../../..
 ###### Note
 
 API operations that are initiated by the SSM document during an
-association run are not logged in AWS CloudTrail. 14. Choose **Create Association**.
+association run are not logged in AWS CloudTrail. 15. Choose **Create Association**.
 
 ###### Note
 
@@ -377,6 +391,7 @@ aws ssm create-association \
     --instance-id `instances_to_apply_association_on` \
     --parameters `(if any)` \
     --targets `target_options` \
+    --association-dispatch-assume-role `arn_of_role_to_be_used_when_dispatching_configurations` \
     --schedule-expression "`cron_or_rate_expression`" \
     --apply-only-at-cron-interval `required_parameter_for_schedule_offsets` \
     --schedule-offset `number_between_1_and_6` \
@@ -399,6 +414,7 @@ aws ssm create-association ^
     --instance-id `instances_to_apply_association_on` ^
     --parameters `(if any)` ^
     --targets `target_options` ^
+    --association-dispatch-assume-role `arn_of_role_to_be_used_when_dispatching_configurations` ^
     --schedule-expression "`cron_or_rate_expression`" ^
     --apply-only-at-cron-interval `required_parameter_for_schedule_offsets` ^
     --schedule-offset `number_between_1_and_6` ^
@@ -421,6 +437,7 @@ New-SSMAssociation `
     -InstanceId `instances_to_apply_association_on` `
     -Parameters `(if any)` `
     -Target `target_options` `
+    -AssociationDispatchAssumeRole `arn_of_role_to_be_used_when_dispatching_configurations` `
     -ScheduleExpression "`cron_or_rate_expression`" `
     -ApplyOnlyAtCronInterval `required_parameter_for_schedule_offsets` `
     -ScheduleOffSet `number_between_1_and_6` `
@@ -450,6 +467,7 @@ aws ssm create-association \
   --association-name Update_SSM_Agent_Linux \
   --targets Key=tag:Environment,Values=Linux \
   --name AWS-UpdateSSMAgent  \
+  --association-dispatch-assume-role arn:aws:iam::123456789012:role/myAssociationDispatchAssumeRole \
   --compliance-severity "MEDIUM" \
   --schedule-expression "cron(0 2 ? * SUN *)" \
   --max-errors "5" \
@@ -463,6 +481,7 @@ aws ssm create-association ^
   --association-name Update_SSM_Agent_Linux ^
   --targets Key=tag:Environment,Values=Linux ^
   --name AWS-UpdateSSMAgent  ^
+  --association-dispatch-assume-role arn:aws:iam::123456789012:role/myAssociationDispatchAssumeRole ^
   --compliance-severity "MEDIUM" ^
   --schedule-expression "cron(0 2 ? * SUN *)" ^
   --max-errors "5" ^
@@ -475,6 +494,7 @@ PowerShell
 New-SSMAssociation `
   -AssociationName Update_SSM_Agent_Linux `
   -Name AWS-UpdateSSMAgent `
+  -AssociationDispatchAssumeRole "arn:aws:iam::123456789012:role/myAssociationDispatchAssumeRole" `
   -Target @{
       "Key"="tag:Environment"
       "Values"="Linux"
@@ -504,6 +524,7 @@ Linux & macOS
 aws ssm create-association \
   --association-name Update_SSM_Agent_Linux \
   --name "AWS-UpdateSSMAgent" \
+  --association-dispatch-assume-role arn:aws:iam::123456789012:role/myAssociationDispatchAssumeRole \
   --targets "Key=instanceids,Values=*" \
   --compliance-severity "MEDIUM" \
   --schedule-expression "cron(0 2 ? * SUN#2 *)" \
@@ -520,6 +541,7 @@ Windows
 aws ssm create-association ^
   --association-name Update_SSM_Agent_Linux ^
   --name "AWS-UpdateSSMAgent" ^
+  --association-dispatch-assume-role arn:aws:iam::123456789012:role/myAssociationDispatchAssumeRole ^
   --targets "Key=instanceids,Values=*" ^
   --compliance-severity "MEDIUM" ^
   --schedule-expression "cron(0 2 ? * SUN#2 *)" ^
@@ -536,6 +558,7 @@ PowerShell
 New-SSMAssociation `
   -AssociationName Update_SSM_Agent_All `
   -Name AWS-UpdateSSMAgent `
+  -AssociationDispatchAssumeRole "arn:aws:iam::123456789012:role/myAssociationDispatchAssumeRole" `
   -Target @{
       "Key"="InstanceIds"
       "Values"="*"
@@ -567,6 +590,7 @@ aws ssm create-association \
   --association-name Update_SSM_Agent_Linux \
   --targets Key=resource-groups:Name,Values=HR-Department \
   --name AWS-UpdateSSMAgent  \
+  --association-dispatch-assume-role arn:aws:iam::123456789012:role/myAssociationDispatchAssumeRole \
   --compliance-severity "MEDIUM" \
   --schedule-expression "cron(0 2 ? * SUN *)" \
   --max-errors "5" \
@@ -581,6 +605,7 @@ aws ssm create-association ^
   --association-name Update_SSM_Agent_Linux ^
   --targets Key=resource-groups:Name,Values=HR-Department ^
   --name AWS-UpdateSSMAgent  ^
+  -association-dispatch-assume-role arn:aws:iam::123456789012:role/myAssociationDispatchAssumeRole ^
   --compliance-severity "MEDIUM" ^
   --schedule-expression "cron(0 2 ? * SUN *)" ^
   --max-errors "5" ^
@@ -594,6 +619,7 @@ PowerShell
 New-SSMAssociation `
   -AssociationName Update_SSM_Agent_Linux `
   -Name AWS-UpdateSSMAgent `
+  -AssociationDispatchAssumeRole "arn:aws:iam::123456789012:role/myAssociationDispatchAssumeRole" `
   -Target @{
       "Key"="resource-groups:Name"
       "Values"="HR-Department"
@@ -627,6 +653,7 @@ aws ssm create-association \
   --association-name CalendarAssociation \
   --targets "Key=instanceids,Values=i-0cb2b964d3e14fd9f" \
   --name AWS-UpdateSSMAgent  \
+  --association-dispatch-assume-role arn:aws:iam::123456789012:role/myAssociationDispatchAssumeRole \
   --calendar-names "arn:aws:ssm:us-east-1:123456789012:document/testCalendar1" \
   --schedule-expression "rate(1day)"
 ```
@@ -638,6 +665,7 @@ aws ssm create-association ^
   --association-name CalendarAssociation ^
   --targets "Key=instanceids,Values=i-0cb2b964d3e14fd9f" ^
   --name AWS-UpdateSSMAgent  ^
+  --association-dispatch-assume-role arn:aws:iam::123456789012:role/myAssociationDispatchAssumeRole ^
   --calendar-names "arn:aws:ssm:us-east-1:123456789012:document/testCalendar1" ^
   --schedule-expression "rate(1day)"
 ```
@@ -652,6 +680,7 @@ New-SSMAssociation `
       "Values"="i-0cb2b964d3e14fd9f"
     } `
   -Name AWS-UpdateSSMAgent `
+  -AssociationDispatchAssumeRole "arn:aws:iam::123456789012:role/myAssociationDispatchAssumeRole" `
   -CalendarNames "arn:aws:ssm:us-east-1:123456789012:document/testCalendar1" `
   -ScheduleExpression "rate(1day)"
 ```
@@ -680,6 +709,7 @@ aws ssm create-association \
   --association-name MultiCalendarAssociation \
   --targets "Key=instanceids,Values=i-0cb2b964d3e14fd9f" \
   --name AWS-UpdateSSMAgent  \
+  --association-dispatch-assume-role arn:aws:iam::123456789012:role/myAssociationDispatchAssumeRole \
   --calendar-names "arn:aws:ssm:us-east-1:123456789012:document/testCalendar1" "arn:aws:ssm:us-east-2:123456789012:document/testCalendar2" \
   --schedule-expression "cron(0 2 ? * SUN *)"
 ```
@@ -691,6 +721,7 @@ aws ssm create-association ^
   --association-name MultiCalendarAssociation ^
   --targets "Key=instanceids,Values=i-0cb2b964d3e14fd9f" ^
   --name AWS-UpdateSSMAgent  ^
+  --association-dispatch-assume-role arn:aws:iam::123456789012:role/myAssociationDispatchAssumeRole ^
   --calendar-names "arn:aws:ssm:us-east-1:123456789012:document/testCalendar1" "arn:aws:ssm:us-east-2:123456789012:document/testCalendar2" ^
   --schedule-expression "cron(0 2 ? * SUN *)"
 ```
@@ -701,6 +732,7 @@ PowerShell
 New-SSMAssociation `
   -AssociationName MultiCalendarAssociation `
   -Name AWS-UpdateSSMAgent `
+  -AssociationDispatchAssumeRole "arn:aws:iam::123456789012:role/myAssociationDispatchAssumeRole" `
   -Target @{
       "Key"="tag:instanceids"
       "Values"="i-0cb2b964d3e14fd9f"

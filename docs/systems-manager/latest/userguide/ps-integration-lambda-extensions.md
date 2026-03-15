@@ -314,6 +314,69 @@ used.
 
 ## AWS Parameters and Secrets Lambda Extension ARNs
 
+The latest Amazon Resource Name (ARN) for the Lambda extension is published as a public parameter in Systems Manager Parameter Store for each supported architecture. You can retrieve the latest ARN programmatically using the AWS CLI or CloudFormation to ensure that your application always references the most recent extension version without manual updates. This section explains how to retrieve the ARN programmatically and provides tables listing the current ARN values for each architecture for manual reference.
+
+### Retrieving the latest Lambda extension ARN version
+
+The latest Lambda extension ARN versions are stored as public parameters in the following locations. You can reference these public parameters in your code to retrieve them:
+
+- **x86_64**: /aws/service/aws-parameters-and-secrets-lambda-extension/x86/latest
+- **arm64**: /aws/service/aws-parameters-and-secrets-lambda-extension/arm64/latest
+
+###### AWS CLI
+
+To retrieve the latest ARN versions using the AWS CLI, run the following commands.
+
+**x86_64**
+
+```
+aws ssm get-parameter --name "/aws/service/aws-parameters-and-secrets-lambda-extension/x86/latest" --query "Parameter.Value" --output text
+```
+
+**arm64**
+
+```
+aws ssm get-parameter --name "/aws/service/aws-parameters-and-secrets-lambda-extension/arm64/latest" --query "Parameter.Value" --output text
+```
+
+###### AWS CloudFormation
+
+When deploying Lambda functions using CloudFormation, you can resolve parameters directly during stack creation and updates, as shown in the following example YAML templates. This method ensures your
+function always uses the latest extension version without requiring manual updates.
+
+**x86_64**
+
+```
+Resources:
+  MyFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: my-function
+      Runtime: python3.11
+      Handler: index.handler
+      Code:
+        ZipFile: |
+          def handler(event, context):
+              return {'statusCode': 200}
+      Layers:
+        - !Sub '{{resolve:ssm:/aws/service/aws-parameters-and-secrets-lambda-extension/x86/latest}}'
+      Role: !GetAtt MyFunctionRole.Arn
+```
+
+**arm64**
+
+```
+Layers:
+  - !Sub '{{resolve:ssm:/aws/service/aws-parameters-and-secrets-lambda-extension/arm64/latest}}'
+```
+
+###### Note
+
+The `{{resolve:ssm:parameter-name}}` syntax automatically retrieves the parameter value during stack operations. This ensures you always deploy with the
+current ARN.
+
+### Latest extension ARNs
+
 The following tables provide extension ARNs for supported architectures and
 Regions.
 
@@ -322,7 +385,7 @@ Regions.
 - [Extension ARNs for the x86_64 and x86 architectures](#intel "#intel")
 - [Extension ARNs for ARM64 and Mac with Apple silicon architectures](#arm64 "#arm64")
 
-### Extension ARNs for the x86_64 and x86 architectures
+#### Extension ARNs for the x86_64 and x86 architectures
 
 Last updated: February 17, 2026
 
@@ -368,7 +431,7 @@ Last updated: February 17, 2026
 | AWS GovCloud (US-East)                 | `arn:aws-us-gov:lambda:us-gov-east-1:129776340158:layer:AWS-Parameters-and-Secrets-Lambda-Extension:58` |
 | AWS GovCloud (US-West)                 | `arn:aws-us-gov:lambda:us-gov-west-1:127562683043:layer:AWS-Parameters-and-Secrets-Lambda-Extension:58` |
 
-### Extension ARNs for ARM64 and Mac with Apple silicon architectures
+#### Extension ARNs for ARM64 and Mac with Apple silicon architectures
 
 Last updated: February 17, 2026
 
