@@ -1,0 +1,19 @@
+# ecs-service-propagate-tags-enabled
+
+Checks if AWS ECS Service has property PropagateTags with value of either SERVICE or TASK_DEFINITION. The rule is NON_COMPLIANT if the property does not exist or is NONE.
+
+**Identifier:** ECS_SERVICE_PROPAGATE_TAGS_ENABLED
+
+**Resource Types:** AWS::ECS::Service
+
+**Trigger type:** Configuration changes
+
+**AWS Region:** All supported AWS regions except China (Beijing), AWS GovCloud (US-East), AWS GovCloud (US-West), Asia Pacific (Taipei), China (Ningxia) Region
+
+**Parameters:**
+
+None
+
+## AWS CloudFormation template
+
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").

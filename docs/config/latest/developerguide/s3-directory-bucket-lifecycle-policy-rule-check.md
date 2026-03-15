@@ -1,0 +1,19 @@
+# s3-directory-bucket-lifecycle-policy-rule-check
+
+Checks if directory buckets for Amazon S3 have a lifecycle policy with at least one enabled rule. The rule is NON_COMPLIANT if there are no lifecycle policy rules or if none of the lifecycle policy rules have status Enabled.
+
+**Identifier:** S3_DIRECTORY_BUCKET_LIFECYCLE_POLICY_RULE_CHECK
+
+**Resource Types:** AWS::S3Express::DirectoryBucket
+
+**Trigger type:** Configuration changes
+
+**AWS Region:** Only available in Europe (Stockholm), Asia Pacific (Mumbai), US East (Ohio), Europe (Ireland), US East (N. Virginia), Asia Pacific (Tokyo), US West (Oregon) Region
+
+**Parameters:**
+
+None
+
+## AWS CloudFormation template
+
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").

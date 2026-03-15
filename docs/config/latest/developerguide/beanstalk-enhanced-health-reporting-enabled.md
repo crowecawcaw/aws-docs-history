@@ -10,7 +10,7 @@ The rule is NON_COMPLIANT if the environment is configured for basic health repo
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Middle East (Bahrain), China (Beijing), Asia Pacific (Thailand), Asia Pacific (Hyderabad), Asia Pacific (Melbourne), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Israel (Tel Aviv), Asia Pacific (Taipei), Canada West (Calgary), China (Ningxia), Europe (Zurich) Region
+**AWS Region:** All supported AWS regions except Mexico (Central), Israel (Tel Aviv), Asia Pacific (Taipei) Region
 
 **Parameters:**
 

@@ -19,7 +19,7 @@ If the retention setting is "Never expire" for a log group, the rule is marked a
 LogGroupNames (Optional)
 Type: CSV
 
-A comma-separated list of Log Group names to check the retention period.
+A comma-separated list of Log Group name prefixes to check the retention period.
 
 MinRetentionTime (Optional)
 Type: int

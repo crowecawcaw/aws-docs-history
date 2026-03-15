@@ -1,0 +1,22 @@
+# amplify-app-platform-check
+
+Checks if AWS Amplify apps are configured with the specified platform. The rule is NON_COMPLIANT if configuration.Platform is a value not specified in the required rule parameter.
+
+**Identifier:** AMPLIFY_APP_PLATFORM_CHECK
+
+**Resource Types:** AWS::Amplify::App
+
+**Trigger type:** Configuration changes
+
+**AWS Region:** All supported AWS regions except China (Beijing), Asia Pacific (Thailand), Asia Pacific (Jakarta), Africa (Cape Town), Middle East (UAE), Asia Pacific (Hyderabad), Asia Pacific (Malaysia), Asia Pacific (Melbourne), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Israel (Tel Aviv), Asia Pacific (Taipei), Canada West (Calgary), Europe (Spain), China (Ningxia), Europe (Zurich) Region
+
+**Parameters:**
+
+approvedPlatform
+Type: String
+
+The approved platform for the rule to check. The rule is NON_COMPLIANT if configuration.Platform is a value not specified in this parameter. Valid values include: 'WEB', 'WEB_DYNAMIC', and 'WEB_COMPUTE'.
+
+## AWS CloudFormation template
+
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").

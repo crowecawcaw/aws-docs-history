@@ -15,7 +15,7 @@ Checks if each service specified in the parameter has an Amazon VPC endpoint. Th
 serviceNames
 Type: CSV
 
-Comma-separated list of service names or endpoints. Example: "access-analyzer, appconfig, cloudtrail" or "com.amazonaws.region.access-analyzer". Use DescribeVpcEndpointServices for available names.
+Comma-separated list of service names or endpoints. Example: "ec2, ecr.api" or "com.amazonaws.region.ec2". Use DescribeVpcEndpointServices for available names. The rule considers FIPS version of the endpoint to be compliant as well.
 
 vpcIds (Optional)
 Type: CSV

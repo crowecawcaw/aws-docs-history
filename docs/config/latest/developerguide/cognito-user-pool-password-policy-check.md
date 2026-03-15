@@ -22,13 +22,13 @@ temporaryPasswordValidity (Optional)
 Type: int
 Default: 7
 
-Number of days a temporary password remains valid.
+Number of days a temporary password remains valid. Valid values are 1 to 365.
 
 minLength (Optional)
 Type: int
 Default: 8
 
-Minimum length required for user pool password.
+Minimum length required for user pool password. Valid values are 5 to 128.
 
 requireNumbers (Optional)
 Type: boolean

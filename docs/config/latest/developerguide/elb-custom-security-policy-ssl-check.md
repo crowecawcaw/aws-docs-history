@@ -13,7 +13,7 @@ Checks whether your Classic Load Balancer SSL listeners are using a custom polic
 **Parameters:**
 
 sslProtocolsAndCiphers
-Type: CSV
+Type: String
 
 Comma separated list of ciphers and protocols.
 

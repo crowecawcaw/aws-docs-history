@@ -8,7 +8,7 @@ Checks if Amazon EC2 Spot Fleet request launch parameters set encrypted to True 
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** Only available in Europe (Ireland), US East (N. Virginia), Asia Pacific (Seoul), US West (Oregon), China (Ningxia), Europe (Zurich) Region
+**AWS Region:** All supported AWS regions except Asia Pacific (Thailand), Asia Pacific (Malaysia), Mexico (Central), Asia Pacific (Taipei), Canada West (Calgary) Region
 
 **Parameters:**
 

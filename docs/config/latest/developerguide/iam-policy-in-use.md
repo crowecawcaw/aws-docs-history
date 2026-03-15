@@ -24,7 +24,7 @@ see [List of AWS Config Managed Rules by Region Availability](managing-rules-by-
 
 **Identifier:** IAM_POLICY_IN_USE
 
-**Resource Types:** AWS::IAM::Policy
+**Resource Types:** AWS::::Account
 
 **Trigger type:** Periodic
 

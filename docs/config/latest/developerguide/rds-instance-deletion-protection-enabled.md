@@ -4,7 +4,7 @@ Checks if an Amazon Relational Database Service (Amazon RDS) instance has deleti
 
 ###### Warning
 
-Some RDS DB instances within a Cluster (Aurora/DocumentDB) will show as non-compliant.
+Some RDS DB instances within a Cluster (Aurora/DocumentDB) will show as not applicable because deletion protection is set at the cluster level.
 
 **Identifier:** RDS_INSTANCE_DELETION_PROTECTION_ENABLED
 
