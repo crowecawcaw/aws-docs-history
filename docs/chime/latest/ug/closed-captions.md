@@ -7,7 +7,7 @@ the captions at any time during the meeting. You can also adjust the settings fo
 
 1. On the left control bar, choose **Closed captions** (
 
-![An icon of a box surrounding the letters CC.](/images/chime/latest/ug/images/left-control-4.png)
+![An icon of a box surrounding the letters CC.](images/left-control-4.png)
 
 ). 2. In the **Language Preference** dialog box, open the **Language** list and choose your language. 3. Choose **OK**.
 The captions appear at the bottom of the meeting window.
