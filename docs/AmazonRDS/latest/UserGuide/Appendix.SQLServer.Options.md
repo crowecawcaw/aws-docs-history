@@ -1,89 +1,148 @@
-# Support for SQL Server Reporting Services in Amazon RDS for SQL Server
+# Microsoft SQL Server resource governor with RDS for SQL Server
 
-Microsoft SQL Server Reporting Services (SSRS) is a server-based application used for report
-generation and distribution. It's part of a suite of SQL Server services that also
-includes SQL Server Analysis Services (SSAS) and SQL Server Integration Services (SSIS).
-SSRS is a service built on top of SQL Server. You can use it to collect data from various
-data sources and present it in a way that's easily understandable and ready for
-analysis.
+Resource governor is a SQL Server Enterprise Edition feature that gives you precise control over
+your instance resources. It enables you to set specific limits on how workloads use CPU,
+memory, and physical I/O resources. With resource governor, you can:
 
-Amazon RDS for SQL Server supports running SSRS directly on RDS DB instances. You can use SSRS with existing or new DB instances.
+- Prevent resource monopolization in multi-tenant environments by managing how different workloads share instance resources
+- Deliver predictable performance by setting specific resource limits and priorities for different users and applications
+  You can enable resource governor on either an existing or new RDS for SQL Server DB instance.
 
-RDS supports SSRS for SQL Server Standard and Enterprise Editions on the following versions:
+Resource governor uses three fundamental concepts:
 
-- SQL Server 2022, all versions
-- SQL Server 2019, version 15.00.4043.16.v1 and higher
-- SQL Server 2017, version 14.00.3223.3.v1 and higher
-- SQL Server 2016, version 13.00.5820.21.v1 and higher
+- **Resource pool** - A container that manages your instance physical resources (CPU, memory, and I/O).
+  You get two built-in pools (internal and default) and you can create additional custom pools.
+- **Workload group** - A container for database sessions with similar characteristics.
+  Every workload group belongs to a resource pool. You get two built-in workload groups
+  (internal and default) and you can create additional custom workload groups.
+- **Classification** - The process that determines which workload
+  group handles incoming sessions based on user name, application name, database name or host name.
+  For additional details about resource governor functionality in SQL Server,
+  see [Resource Governor](https://learn.microsoft.com/en-us/sql/relational-databases/resource-governor/resource-governor?view=sql-server-ver16 "https://learn.microsoft.com/en-us/sql/relational-databases/resource-governor/resource-governor?view=sql-server-ver16")
+  in the Microsoft documentation.
 
 ###### Contents
 
-- [Limitations and recommendations](Appendix.SQLServer.Options.md#SSRS.Limitations "Appendix.SQLServer.Options.md#SSRS.Limitations")
-- [Turning on SSRS](SSRS.md "SSRS.md")
-  - [Creating an option group for SSRS](SSRS.md#SSRS.OptionGroup "SSRS.md#SSRS.OptionGroup")
-  - [Adding the SSRS option to your option group](SSRS.md#SSRS.Add "SSRS.md#SSRS.Add")
-  - [Associating your option group with your DB instance](SSRS.md#SSRS.Apply "SSRS.md#SSRS.Apply")
-  - [Allowing inbound access to your VPC security group](SSRS.md#SSRS.Inbound "SSRS.md#SSRS.Inbound")
+- [Supported versions and Regions](Appendix.SQLServer.Options.md#ResourceGovernor.SupportedVersions "Appendix.SQLServer.Options.md#ResourceGovernor.SupportedVersions")
+- [Limitations and recommendations](Appendix.SQLServer.Options.md#ResourceGovernor.Limitations "Appendix.SQLServer.Options.md#ResourceGovernor.Limitations")
+- [Enabling Microsoft SQL Server resource governor for your RDS for SQL Server instance](ResourceGovernor.md "ResourceGovernor.md")
+  - [Creating the option group for RESOURCE_GOVERNOR](ResourceGovernor.md#ResourceGovernor.OptionGroup "ResourceGovernor.md#ResourceGovernor.OptionGroup")
+  - [Adding the RESOURCE_GOVERNOR option to the option group](ResourceGovernor.md#ResourceGovernor.Add "ResourceGovernor.md#ResourceGovernor.Add")
+  - [Associating the option group with your DB instance](ResourceGovernor.md#ResourceGovernor.Apply "ResourceGovernor.md#ResourceGovernor.Apply")
 
-- [Report server databases](Appendix.SQLServer.Options.md#SSRS.DBs "Appendix.SQLServer.Options.md#SSRS.DBs")
-- [SSRS log files](Appendix.SQLServer.Options.md#SSRS.Logs "Appendix.SQLServer.Options.md#SSRS.Logs")
-- [Accessing the SSRS web portal](SSRS.md "SSRS.md")
-  - [Using SSL on RDS](SSRS.md#SSRS.Access.SSL "SSRS.md#SSRS.Access.SSL")
-  - [Granting access to domain users](SSRS.md#SSRS.Access.Grant "SSRS.md#SSRS.Access.Grant")
-  - [Accessing the web portal](SSRS.md#SSRS.Access "SSRS.md#SSRS.Access")
+- [Using Microsoft SQL Server resource governor for your RDS for SQL Server instance](ResourceGovernor.md "ResourceGovernor.md")
+  - [Manage resource pool](ResourceGovernor.md#ResourceGovernor.ManageResourcePool "ResourceGovernor.md#ResourceGovernor.ManageResourcePool")
+    - [Create resource Pool](ResourceGovernor.md#ResourceGovernor.CreateResourcePool "ResourceGovernor.md#ResourceGovernor.CreateResourcePool")
+    - [Alter resource pool](ResourceGovernor.md#ResourceGovernor.AlterResourcePool "ResourceGovernor.md#ResourceGovernor.AlterResourcePool")
+    - [Drop resource pool](ResourceGovernor.md#ResourceGovernor.DropResourcePool "ResourceGovernor.md#ResourceGovernor.DropResourcePool")
 
-- [Deploying reports and configuring report data sources](SSRS.md "SSRS.md")
-  - [Deploying reports to SSRS](SSRS.md#SSRS.Deploy "SSRS.md#SSRS.Deploy")
-  - [Configuring the report data source](SSRS.md#SSRS.ConfigureDataSource "SSRS.md#SSRS.ConfigureDataSource")
+  - [Manage workload groups](ResourceGovernor.md#ResourceGovernor.ManageWorkloadGroups "ResourceGovernor.md#ResourceGovernor.ManageWorkloadGroups")
+    - [Create workload group](ResourceGovernor.md#ResourceGovernor.CreateWorkloadGroup "ResourceGovernor.md#ResourceGovernor.CreateWorkloadGroup")
+    - [Alter workload group](ResourceGovernor.md#ResourceGovernor.AlterWorkloadGroup "ResourceGovernor.md#ResourceGovernor.AlterWorkloadGroup")
+    - [Drop workload group](ResourceGovernor.md#ResourceGovernor.DropWorkloadGroup "ResourceGovernor.md#ResourceGovernor.DropWorkloadGroup")
 
-- [Using SSRS Email to send reports](SSRS.md "SSRS.md")
-- [Revoking system-level permissions](SSRS.Access.md "SSRS.Access.md")
-- [Monitoring the status of a task](SSRS.md "SSRS.md")
-- [Disabling and deleting SSRS databases](SSRS.md "SSRS.md")
-  - [Turning off SSRS](SSRS.md#SSRS.Disable "SSRS.md#SSRS.Disable")
-  - [Deleting the SSRS databases](SSRS.md#SSRS.Drop "SSRS.md#SSRS.Drop")
+  - [Create and register classifier function](ResourceGovernor.md#ResourceGovernor.ClassifierFunction "ResourceGovernor.md#ResourceGovernor.ClassifierFunction")
+  - [Drop classifier function](ResourceGovernor.md#ResourceGovernor.DropClassifier "ResourceGovernor.md#ResourceGovernor.DropClassifier")
+  - [De-register classifier function](ResourceGovernor.md#ResourceGovernor.DeregisterClassifier "ResourceGovernor.md#ResourceGovernor.DeregisterClassifier")
+  - [Reset statistics](ResourceGovernor.md#ResourceGovernor.ResetStats "ResourceGovernor.md#ResourceGovernor.ResetStats")
+  - [Resource governor configuration changes](ResourceGovernor.md#ResourceGovernor.ConfigChanges "ResourceGovernor.md#ResourceGovernor.ConfigChanges")
+  - [Bind TempDB to a resource pool](ResourceGovernor.md#ResourceGovernor.BindTempDB "ResourceGovernor.md#ResourceGovernor.BindTempDB")
+  - [Unbind TempDB from a resource pool](ResourceGovernor.md#ResourceGovernor.UnbindTempDB "ResourceGovernor.md#ResourceGovernor.UnbindTempDB")
+  - [Cleanup resource governor](ResourceGovernor.md#ResourceGovernor.Cleanup "ResourceGovernor.md#ResourceGovernor.Cleanup")
+
+- [Considerations for Multi-AZ deployment](Appendix.SQLServer.Options.md#ResourceGovernor.Considerations "Appendix.SQLServer.Options.md#ResourceGovernor.Considerations")
+- [Considerations for read replicas](Appendix.SQLServer.Options.md#ResourceGovernor.ReadReplica "Appendix.SQLServer.Options.md#ResourceGovernor.ReadReplica")
+- [Monitor Microsoft SQL Server resource governor using system views for your RDS for SQL Server instance](ResourceGovernor.md "ResourceGovernor.md")
+  - [Resource pool runtime statistics](ResourceGovernor.md#ResourceGovernor.ResourcePoolStats "ResourceGovernor.md#ResourceGovernor.ResourcePoolStats")
+
+- [Disabling Microsoft SQL Server resource governor for your RDS for SQL Server instance](ResourceGovernor.md "ResourceGovernor.md")
+- [Best practices for configuring resource governor on RDS for SQL Server](ResourceGovernor.md "ResourceGovernor.md")
+
+## Supported versions and Regions
+
+Amazon RDS supports resource governor for the following SQL Server versions and editions in all AWS Regions where RDS for SQL Server is available:
+
+- SQL Server 2022 Developer and Enterprise Editions
+- SQL Server 2019 Enterprise Edition
+- SQL Server 2017 Enterprise Edition
+- SQL Server 2016 Enterprise Edition
 
 ## Limitations and recommendations
 
-The following limitations and recommendations apply to running SSRS on RDS for SQL Server:
+The following limitations and recommendations apply to resource governor:
 
-- You can't use SSRS on DB instances that have read replicas.
-- Instances must use self-managed Active Directory or AWS Directory Service for Microsoft Active Directory for SSRS web portal and web server authentication. For more information, see [Working with Active Directory with RDS for SQL Server](User.SQLServer.md "User.SQLServer.md").
-- You can't back up the reporting server databases that are created with the SSRS option.
-- Importing and restoring report server databases from other instances of SSRS isn't
-  supported. For more information, see [Report server databases](#SSRS.DBs "#SSRS.DBs").
-- You can't configure SSRS to listen on the default SSL port (443). The allowed values are
-  1150–49511, except 1234, 1434, 3260, 3343, 3389, and 47001.
-- Subscriptions through a Microsoft Windows file share aren't supported.
-- Using Reporting Services Configuration Manager isn't supported.
-- Creating and modifying roles isn't supported.
-- Modifying report server properties isn't supported.
-- System administrator and system user roles aren't granted.
-- You can't edit system-level role assignments through the web portal.
+- Edition and service restrictions:
+  - Available only in SQL Server Enterprise Edition.
+  - Resource management is limited to the SQL Server Database Engine.
+    Resource governor for Analysis Services, Integration Services, and Reporting Services are not supported.
 
-## Report server databases
+- Configuration restrictions:
+  - Must use Amazon RDS stored procedures for all configurations.
+  - Native DDL statements and SQL Server Management Studio GUI configurations aren't supported.
 
-When your DB instance is associated with the SSRS option, two new databases are created on your DB instance:
+- Resource pool parameters:
+  - Pool names starting with `rds_` aren't supported.
+  - Internal and default resource pool modifications aren't permitted.
+  - For the user-defined resource pools the following resource pool parameters aren't supported:
+    - `MIN_MEMORY_PERCENT`
+    - `MIN_CPU_PERCENT`
+    - `MIN_IOPS_PER_VOLUME`
+    - `AFFINITY`
 
-- `rdsadmin_ReportServer`
-- `rdsadmin_ReportServerTempDB`
+- Workload group parameters:
+  - Workload group names starting with `rds_` aren't supported.
+  - Internal workload group modification isn't permitted.
+  - For the default workload group:
+    - Only the `REQUEST_MAX_MEMORY_GRANT_PERCENT` parameter can be modified.
+    - For the default workload group, `REQUEST_MAX_MEMORY_GRANT_PERCENT` must be between 1 and 70.
+    - All other parameters are locked and can't be changed.
 
-These databases act as the ReportServer and ReportServerTempDB databases.
-SSRS stores its data in the ReportServer database and caches its data in the ReportServerTempDB database.
-For more information, see [Report Server Database](https://learn.microsoft.com/en-us/sql/reporting-services/report-server/report-server-database-ssrs-native-mode?view=sql-server-ver15 "https://learn.microsoft.com/en-us/sql/reporting-services/report-server/report-server-database-ssrs-native-mode?view=sql-server-ver15")
-in the Microsoft documentation.
+  - User-defined workload groups allow modification of all parameters.
 
-RDS owns and manages these databases, so database operations on them such as ALTER and DROP aren't permitted.
-Access isn't permitted on the `rdsadmin_ReportServerTempDB` database. However,
-you can perform read operations on the `rdsadmin_ReportServer`database.
+- Classifier function limitations:
+  - Classifier function routes connections to custom workload groups
+    based on specified criteria (user name, database, host, or application name).
+  - Supports up to two user-defined workload groups with their
+    respective routing conditions.
+  - Combines criterion with `AND` conditions within each group.
+  - Requires at least one routing criterion per workload group.
+  - Only the classification methods listed above are supported.
+  - Function name must start with `rg_classifier_`.
+  - Default group assignment if no conditions match.
 
-## SSRS log files
+## Considerations for Multi-AZ deployment
 
-You can list, view, and download SSRS log files. SSRS log files follow a naming convention of ReportServerService\_`timestamp`.log.
-These report server logs are located in the `D:\rdsdbdata\Log\SSRS` directory. (The `D:\rdsdbdata\Log` directory is also the
-parent directory for error logs and SQL Server Agent logs.). For more information, see [Viewing and listing database log files](USER_LogAccess.Procedural.md "USER_LogAccess.Procedural.md").
+RDS for SQL Server replicates resource governor to secondary instance in a Multi-AZ deployment.
+You can verify when modified and new resource governor last synchronized with the secondary instance.
 
-For existing SSRS instances, restarting the SSRS service might be necessary to access report server logs. You can restart the
-service by updating the `SSRS` option.
+Use the following query to check the `last_sync_time` of the replication:
 
-For more information, see [Working with Amazon RDS for Microsoft SQL Server logs](Appendix.SQLServer.CommonDBATasks.md "Appendix.SQLServer.CommonDBATasks.md").
+```
+SELECT * from msdb.dbo.rds_fn_server_object_last_sync_time();
+```
+
+In the query results, if the sync time is past the resource governor updated or creation time, then the resource governor syncs with the secondary.
+
+To perform a manual DB failover to confirm that the resource governor replicate,
+wait for the `last_sync_time` to update first. Then, proceed with the Multi-AZ failover.
+
+## Considerations for read replicas
+
+- For SQL Server replicas in the same Region as the source DB instance,
+  use the same option group as the source. Changes to the option group propagate
+  to replicas immediately, regardless of their maintenance windows.
+- When you create a SQL Server cross-Region replica, RDS creates a dedicated option group for it.
+- You can't remove an SQL Server cross-Region replica from its dedicated option group.
+  No other DB instances can use the dedicated option group for a SQL Server cross-Region replica.
+- Resource governor option is non-replicated options.
+  You can add or remove non-replicated options from a dedicated option group.
+- When you promote a SQL Server cross-Region read replica, the promoted replica
+  behaves the same as other SQL Server DB instances, including the management of its options.
+
+###### Note
+
+When using Resource governor on a read replica, you must manually ensure that resource governor has been configured on your read replica
+using Amazon RDS stored procedures after the option is added to the option group. Resource governor configurations do not automatically replicate to
+the read replica. Also, the workload on read replica is typically different than the primary instance.
+Hence, it's recommended to apply the resource configuration on the replica based on your workload and instance type.
+You can run these Amazon RDS stored procedures on read replica independently to configure resource governor on read replica.

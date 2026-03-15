@@ -1,37 +1,30 @@
-# Upgrading PostgreSQL extensions in RDS for PostgreSQL databases
+# PostgreSQL version numbers
 
-A PostgreSQL engine upgrade doesn't upgrade most PostgreSQL extensions.
-To update an extension after a version upgrade, use the `ALTER
- EXTENSION UPDATE` command.
+The version numbering sequence for the PostgreSQL database engine is as
+follows:
 
-###### Note
+- For PostgreSQL versions 10 and higher, the engine version
+  number is in the form _major.minor_. The
+  major version number is the integer part of the version
+  number. The minor version number is the fractional part of
+  the version number.
 
-For information about updating the PostGIS extension, see [Managing spatial data with the PostGIS extension](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
-([Step 6: Upgrade the PostGIS extension](Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.PostGIS.Update "Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.PostGIS.Update")).
+A major version upgrade increases the integer part of the
+version number, such as upgrading from 10._minor_ to 11._minor_.
 
-To update the `pg_repack` extension, drop the extension and
-then create the new version in the upgraded database. For more
-information, see [pg_repack installation](https://reorg.github.io/pg_repack/ "https://reorg.github.io/pg_repack/") in the
-`pg_repack` documentation.
+- For PostgreSQL versions lower than 10, the engine version
+  number is in the form
+  _major.major.minor_. The major engine
+  version number is both the integer and the first fractional
+  part of the version number. For example, 9.6 is a major
+  version. The minor version number is the third part of the
+  version number. For example, for version 9.6.12, the 12 is
+  the minor version number.
 
-To upgrade an extension, use the following command.
-
-```
-ALTER EXTENSION `extension_name` UPDATE TO '`new_version`';
-```
-
-For the list of supported versions of PostgreSQL extensions, see [Supported PostgreSQL extension versions](PostgreSQL.Concepts.General.FeatureSupport.md "PostgreSQL.Concepts.General.FeatureSupport.md").
-
-To list your currently installed extensions, use the PostgreSQL [pg_extension](https://www.postgresql.org/docs/current/catalog-pg-extension.html "https://www.postgresql.org/docs/current/catalog-pg-extension.html") catalog in the following command.
-
-```
-SELECT * FROM pg_extension;
-```
-
-To view a list of the specific extension versions that are available for your
-installation, use the PostgreSQL [pg_available_extension_versions](https://www.postgresql.org/docs/current/view-pg-available-extension-versions.html "https://www.postgresql.org/docs/current/view-pg-available-extension-versions.html") view in the following
-command.
-
-```
-SELECT * FROM pg_available_extension_versions;
-```
+A major version upgrade increases the major part of the
+version number. For example, an upgrade from
+_9.6_.12 to 11.14 is a major
+version upgrade, where _9.6_ and
+_11_ are the major version
+numbers.
+For information about RDS Extended Support version numbering, see [Amazon RDS Extended Support version naming](extended-support-versions.md#extended-support-naming "extended-support-versions.md#extended-support-naming").

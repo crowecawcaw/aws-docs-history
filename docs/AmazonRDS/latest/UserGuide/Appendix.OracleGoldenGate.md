@@ -1,78 +1,96 @@
-# Oracle GoldenGate architecture
+# Troubleshooting Oracle GoldenGate
 
-The Oracle GoldenGate architecture for use with Amazon RDS consists of the following decoupled modules:
-
-Source database
-
-Your source database can be either an on-premises Oracle database, an Oracle database on an Amazon EC2
-instance, or an Oracle database on an Amazon RDS DB instance.
-
-Oracle GoldenGate hub
-
-An Oracle GoldenGate hub moves transaction information from the source database to the target
-database. Your hub can be either of the following:
-
-- An Amazon EC2 instance with Oracle Database and Oracle GoldenGate installed
-- An on-premises Oracle installation
-
-You can have more than one Amazon EC2 hub. We recommend that you use two hubs if you use Oracle GoldenGate for
-cross-Region replication.
-
-Target database
-
-Your target database can be on either an Amazon RDS DB instance, an Amazon EC2 instance, or an on-premises
-location.
-
-The following sections describe common scenarios for Oracle GoldenGate on Amazon RDS.
+This section explains the most common issues when using Oracle GoldenGate with Amazon RDS for Oracle.
 
 ###### Topics
 
-- [On-premises source database and Oracle GoldenGate hub](#Appendix.OracleGoldenGate.on-prem-source-gg-hub "#Appendix.OracleGoldenGate.on-prem-source-gg-hub")
-- [On-premises source database and Amazon EC2 hub](#Appendix.OracleGoldenGate.on-prem-source-ec2-hub "#Appendix.OracleGoldenGate.on-prem-source-ec2-hub")
-- [Amazon RDS source database and Amazon EC2 hub](#Appendix.OracleGoldenGate.rds-source-ec2-hub "#Appendix.OracleGoldenGate.rds-source-ec2-hub")
-- [Amazon EC2 source database and Amazon EC2 hub](#Appendix.OracleGoldenGate.ec2-source-ec2-hub "#Appendix.OracleGoldenGate.ec2-source-ec2-hub")
-- [Amazon EC2 hubs in different AWS Regions](#Appendix.OracleGoldenGate.cross-region-hubs "#Appendix.OracleGoldenGate.cross-region-hubs")
+- [Error opening an online redo log](#Appendix.OracleGoldenGate.Troubleshooting.Logs "#Appendix.OracleGoldenGate.Troubleshooting.Logs")
+- [Oracle GoldenGate appears to be properly configured but replication is not working](#Appendix.OracleGoldenGate.Troubleshooting.Replication "#Appendix.OracleGoldenGate.Troubleshooting.Replication")
+- [Integrated REPLICAT slow due to query on SYS."\_DBA_APPLY_CDR_INFO"](#Appendix.OracleGoldenGate.IR "#Appendix.OracleGoldenGate.IR")
 
-## On-premises source database and Oracle GoldenGate hub
+## Error opening an online redo log
 
-In this scenario, an on-premises Oracle source database and on-premises Oracle GoldenGate hub provides data
-to a target Amazon RDS DB instance.
+Make sure that you configure your databases to retain archived redo logs. Consider the
+following guidelines:
 
-![Oracle GoldenGate configuration 0 using Amazon RDS](images/oracle-gg0.png)
+- Specify the duration for log retention in hours. The minimum value is one
+  hour.
+- Set the duration to exceed any potential downtime of the source DB instance,
+  any potential period of communication, and any potential period of networking
+  issues for the source DB instance. Such a duration lets Oracle GoldenGate recover logs from the
+  source DB instance as needed.
+- Ensure that you have sufficient storage on your instance for the files.
 
-## On-premises source database and Amazon EC2 hub
+If you don't have log retention enabled, or if the retention value is too small, you
+receive an error message similar to the following.
 
-In this scenario, an on-premises Oracle database acts as the source database. It's connected to an Amazon EC2 instance hub. This hub provides data
-to a target RDS for Oracle DB instance.
+```
+2022-03-06 06:17:27  ERROR   OGG-00446  error 2 (No such file or directory)
+opening redo log /rdsdbdata/db/GGTEST3_A/onlinelog/o1_mf_2_9k4bp1n6_.log for sequence 1306
+Not able to establish initial position for begin time 2022-03-06 06:16:55.
+```
 
-![Oracle GoldenGate configuration 1 using Amazon RDS](images/oracle-gg1.png)
+## Oracle GoldenGate appears to be properly configured but replication is not working
 
-## Amazon RDS source database and Amazon EC2 hub
+For pre-existing tables, you must specify the SCN that Oracle GoldenGate works from.
 
-In this scenario, an RDS for Oracle DB instance acts as the source database. It's connected to an Amazon EC2 instance hub. This hub provides data to a
-target RDS for Oracle DB instance.
+###### To fix this issue
 
-![Oracle GoldenGate configuration 2 using Amazon RDS](images/oracle-gg2.png)
+1. Log in to the source database and launch the Oracle GoldenGate command line interface
+   (`ggsci`). The following example shows the format for logging
+   in.
 
-## Amazon EC2 source database and Amazon EC2 hub
+```
+dblogin userid oggadm1@OGGSOURCE
+```
 
-In this scenario, an Oracle database on an Amazon EC2 instance acts as the source database. It's connected to an Amazon EC2 instance hub. This hub
-provides data to a target RDS for Oracle DB instance.
+2. Using the `ggsci` command line, set up the start SCN for the
+   `EXTRACT` process. The following example sets the SCN to 223274
+   for the `EXTRACT`.
 
-![Oracle GoldenGate configuration 3 using Amazon RDS](images/oracle-gg3.png)
+```
+ALTER EXTRACT EABC SCN 223274
+start EABC
+```
 
-## Amazon EC2 hubs in different AWS Regions
+3. Log in to the target database. The following example shows the format for
+   logging in.
 
-In this scenario, an Oracle database on an Amazon RDS DB instance is connected to an Amazon EC2 instance hub in the same AWS Region. The hub is
-connected to an Amazon EC2 instance hub in a different AWS Region. This second hub provides data to the target RDS for Oracle DB instance in the
-same AWS Region as the second Amazon EC2 instance hub.
+```
+dblogin userid oggadm1@OGGTARGET
+```
 
-![Oracle GoldenGate configuration 4 using Amazon RDS](images/oracle-gg4.png)
+4. Using the `ggsci` command line, set up the start SCN for the
+   `REPLICAT` process. The following example sets the SCN to 223274
+   for the `REPLICAT`.
 
-###### Note
+```
+start RABC atcsn 223274
+```
 
-Any issues that affect running Oracle GoldenGate on an on-premises environment also affect running Oracle GoldenGate
-on AWS. We strongly recommend that you monitor the Oracle GoldenGate hub to ensure that
-`EXTRACT` and `REPLICAT` are resumed if a failover occurs. Because the
-Oracle GoldenGate hub is run on an Amazon EC2 instance, Amazon RDS does not manage the Oracle GoldenGate hub and cannot
-ensure that it is running.
+## Integrated REPLICAT slow due to query on SYS."\_DBA_APPLY_CDR_INFO"
+
+Oracle GoldenGate Conflict Detection and Resolution (CDR) provides basic conflict resolution routines. For
+example, CDR can resolve a unique conflict for an `INSERT` statement.
+
+When CDR resolves a collision, it can insert records into the exception table
+`_DBA_APPLY_CDR_INFO` temporarily. Integrated `REPLICAT` deletes these records
+later. In a rare scenario, the integrated `REPLICAT` can process a large number of collisions, but
+a new integrated `REPLICAT` does not replace it. Instead of being removed, the existing rows in
+`_DBA_APPLY_CDR_INFO` are orphaned. Any new integrated `REPLICAT` processes slow
+down because they are querying orphaned rows in `_DBA_APPLY_CDR_INFO`.
+
+To remove all rows from `_DBA_APPLY_CDR_INFO`, use the Amazon RDS procedure
+`rdsadmin.rdsadmin_util.truncate_apply$_cdr_info`. This procedure is
+released as part of the October 2020 release and patch update. The procedure is
+available in the following database versions:
+
+- [Version 21.0.0.0.ru-2022-01.rur-2022-01.r1](../OracleReleaseNotes/oracle-version-21-0.md#oracle-version-RU-RUR.21.0.0.0.ru-2022-01.rur-2022-01.r1 "../OracleReleaseNotes/oracle-version-21-0.md#oracle-version-RU-RUR.21.0.0.0.ru-2022-01.rur-2022-01.r1") and higher
+- [Version 19.0.0.0.ru-2020-10.rur-2020-10.r1](../OracleReleaseNotes/oracle-version-19-0.md#oracle-version-RU-RUR.19.0.0.0.ru-2020-10.rur-2020-10.r1 "../OracleReleaseNotes/oracle-version-19-0.md#oracle-version-RU-RUR.19.0.0.0.ru-2020-10.rur-2020-10.r1") and higher
+
+The following example truncates the table `_DBA_APPLY_CDR_INFO`.
+
+```
+SET SERVEROUTPUT ON SIZE 2000
+EXEC rdsadmin.rdsadmin_util.truncate_apply$_cdr_info;
+```

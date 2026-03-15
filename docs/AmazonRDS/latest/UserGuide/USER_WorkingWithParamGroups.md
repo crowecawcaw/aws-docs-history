@@ -1,71 +1,87 @@
-# Copying a DB cluster parameter group
+# Viewing parameter values for a DB cluster parameter group
 
-You can copy custom DB cluster parameter groups that you create. Copying a parameter group is a convenient
-solution when you have already created a DB cluster parameter group and you want to include most of the custom
-parameters and values from that group in a new DB cluster parameter group. You can copy a DB cluster parameter group by
-using the AWS CLI [copy-db-cluster-parameter-group](../../../cli/latest/reference/rds/copy-db-cluster-parameter-group.md "../../../cli/latest/reference/rds/copy-db-cluster-parameter-group.md") command or the RDS API
-[CopyDBClusterParameterGroup](../APIReference/API_CopyDBParameterGroup.md "../APIReference/API_CopyDBParameterGroup.md") operation.
+You can get a list of all parameters in a DB cluster parameter group and their values.
 
-After you copy a DB cluster parameter group, wait at least 5 minutes
-before creating a DB cluster that uses that DB cluster parameter group.
-Doing this allows Amazon RDS to fully copy the parameter group before it
-is used by the new DB cluster. You can use the **Parameter groups** page
-in the [Amazon RDS console](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/") or the
-[describe-db-cluster-parameters](../../../cli/latest/reference/rds/describe-db-cluster-parameters.md "../../../cli/latest/reference/rds/describe-db-cluster-parameters.md")
-command to verify that your DB cluster parameter group is created.
-
-###### Note
-
-You can't copy a default parameter group. However, you can create a new parameter group that is based on a default
-parameter group.
-
-You can't copy a DB cluster parameter group to a different AWS account or AWS Region.
-
-###### To copy a DB cluster parameter group
+###### To view the parameter values for a DB cluster parameter group
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Parameter
-   groups**.
-3. In the list, choose the custom parameter group that you want to copy.
-4. For **Parameter group actions**, choose
-   **Copy**.
-5. In **New DB parameter group identifier**, enter a name for the new
-   parameter group.
-6. In **Description**, enter a description for the new parameter
-   group.
-7. Choose **Copy**.
-   To copy a DB cluster parameter group, use the AWS CLI [`copy-db-cluster-parameter-group`](../../../cli/latest/reference/rds/copy-db-cluster-parameter-group.md "../../../cli/latest/reference/rds/copy-db-cluster-parameter-group.md") command with the following required parameters:
+2. In the navigation pane, choose **Parameter groups**.
 
-- `--source-db-cluster-parameter-group-identifier`
-- `--target-db-cluster-parameter-group-identifier`
-- `--target-db-cluster-parameter-group-description`
-  The following example creates a new DB cluster parameter group named `mygroup2`
-  that is a copy of the DB cluster parameter group `mygroup1`.
+The DB cluster parameter groups appear in the list with **DB cluster parameter group** for **Type**. 3. Choose the name of the DB cluster parameter group to see its list of parameters.
+To view the parameter values for a DB cluster parameter group, use the AWS CLI [`describe-db-cluster-parameters`](../../../cli/latest/reference/rds/describe-db-cluster-parameters.md "../../../cli/latest/reference/rds/describe-db-cluster-parameters.md") command with the following required parameter.
+
+- `--db-cluster-parameter-group-name`
 
 ###### Example
 
-For Linux, macOS, or Unix:
+The following example lists the parameters and parameter values for a DB cluster parameter group named
+_mydbclusterparametergroup_, in JSON format.
+
+The command returns a response like the following:
 
 ```
-aws rds copy-db-cluster-parameter-group \
-    --source-db-cluster-parameter-group-identifier `mygroup1` \
-    --target-db-cluster-parameter-group-identifier `mygroup2` \
-    --target-db-cluster-parameter-group-description `"DB parameter group 2"`
+aws rds describe-db-cluster-parameters --db-cluster-parameter-group-name `mydbclusterparametergroup`
 ```
 
-For Windows:
+```
+{
+    "Parameters": [
+        {
+            "ParameterName": "activate_all_roles_on_login",
+            "ParameterValue": "0",
+            "Description": "Automatically set all granted roles as active after the user has authenticated successfully.",
+            "Source": "engine-default",
+            "ApplyType": "dynamic",
+            "DataType": "boolean",
+            "AllowedValues": "0,1",
+            "IsModifiable": true,
+            "ApplyMethod": "pending-reboot",
+            "SupportedEngineModes": [
+                "provisioned"
+            ]
+        },
+        {
+            "ParameterName": "allow-suspicious-udfs",
+            "Description": "Controls whether user-defined functions that have only an xxx symbol for the main function can be loaded",
+            "Source": "engine-default",
+            "ApplyType": "static",
+            "DataType": "boolean",
+            "AllowedValues": "0,1",
+            "IsModifiable": false,
+            "ApplyMethod": "pending-reboot",
+            "SupportedEngineModes": [
+                "provisioned"
+            ]
+        },
+...
+```
+
+To view the parameter values for a DB cluster parameter group, use the RDS API [`DescribeDBClusterParameters`](../APIReference/API_DescribeDBParameters.md "../APIReference/API_DescribeDBParameters.md") command with the following
+required parameter.
+
+- `DBClusterParameterGroupName`
+  In some cases, the allowed values for a parameter aren't shown. These are always parameters where the source is the database
+  engine default.
+
+To view the values of these parameters, you can run the following SQL statements:
+
+- MySQL:
 
 ```
-aws rds copy-db-cluster-parameter-group ^
-    --source-db-cluster-parameter-group-identifier `mygroup1` ^
-    --target-db-cluster-parameter-group-identifier `mygroup2` ^
-    --target-db-cluster-parameter-group-description `"DB parameter group 2"`
+-- Show the value of a particular parameter
+mysql`$` SHOW VARIABLES LIKE '%`parameter_name`%';
+
+-- Show the values of all parameters
+mysql`$` SHOW VARIABLES;
 ```
 
-To copy a DB cluster parameter group, use the RDS API [`CopyDBClusterParameterGroup`](../APIReference/API_CopyDBClusterParameterGroup.md "../APIReference/API_CopyDBClusterParameterGroup.md")
-operation with the following required parameters:
+- PostgreSQL:
 
-- `SourceDBClusterParameterGroupIdentifier`
-- `TargetDBClusterParameterGroupIdentifier`
-- `TargetDBClusterParameterGroupDescription`
+```
+-- Show the value of a particular parameter
+postgresql=> SHOW `parameter_name`;
+
+-- Show the values of all parameters
+postgresql=> SHOW ALL;
+```

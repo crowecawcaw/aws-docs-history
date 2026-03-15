@@ -1,130 +1,222 @@
-# Working with PostgreSQL autovacuum on Amazon RDS for PostgreSQL
+# Reducing bloat in tables and indexes with the pg_repack extension
 
-We strongly recommend that you use the autovacuum feature to maintain the health of your
-PostgreSQL DB instance. Autovacuum automates the start of the VACUUM and the ANALYZE commands.
-It checks for tables with a large number of inserted, updated, or deleted tuples. After this
-check, it reclaims storage by removing obsolete data or tuples from the PostgreSQL
-database.
+You can use the `pg_repack` extension to remove bloat from tables and indexes
+as an alternative to `VACUUM FULL`. This extension is supported on RDS for PostgreSQL
+versions 9.6.3 and higher. For more information on the `pg_repack` extension and
+the full table repack, see the [GitHub project
+documentation](https://reorg.github.io/pg_repack/ "https://reorg.github.io/pg_repack/").
 
-By default, autovacuum is turned on for the RDS for PostgreSQL DB instances that you
-create using any of the default PostgreSQL DB parameter groups. Other configuration parameters
-associated with the autovacuum feature are also set by default. Because these defaults are
-somewhat generic, you can benefit from tuning some of the parameters associated with the
-autovacuum feature for your specific workload.
+Unlike `VACUUM FULL`, the `pg_repack` extension requires an
+exclusive lock (AccessExclusiveLock) only for a short period of time during the table rebuild
+operation in the following cases:
 
-Following, you can find more information about the autovacuum and how to tune some of its
-parameters on your RDS for PostgreSQL DB instance. For
-high-level information, see [Best practices for working with PostgreSQL](CHAP_BestPractices.md#CHAP_BestPractices.PostgreSQL "CHAP_BestPractices.md#CHAP_BestPractices.PostgreSQL").
-
-###### Topics
-
-- [Allocating memory for autovacuum](#Appendix.PostgreSQL.CommonDBATasks.Autovacuum.WorkMemory "#Appendix.PostgreSQL.CommonDBATasks.Autovacuum.WorkMemory")
-- [Reducing the likelihood of transaction ID wraparound](#Appendix.PostgreSQL.CommonDBATasks.Autovacuum.AdaptiveAutoVacuuming "#Appendix.PostgreSQL.CommonDBATasks.Autovacuum.AdaptiveAutoVacuuming")
-- [Determining if the tables in your database need vacuuming](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md")
-- [Determining which tables are currently eligible for autovacuum](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md")
-- [Determining if autovacuum is currently running and for how long](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md")
-- [Performing a manual vacuum freeze](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md")
-- [Reindexing a table when autovacuum is running](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md")
-- [Managing autovacuum with large indexes](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md")
-- [Other parameters that affect autovacuum](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md")
-- [Setting table-level autovacuum parameters](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md")
-- [Logging autovacuum and vacuum activities](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md")
-- [Understanding the behavior of autovacuum with invalid databases](appendix.postgresql.commondbatasks.md "appendix.postgresql.commondbatasks.md")
-- [Identify and resolve aggressive vacuum blockers in RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
-
-## Allocating memory for autovacuum
-
-One of the most important parameters influencing autovacuum performance is the [`autovacuum_work_mem`](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-AUTOVACUUM-WORK-MEM "https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-AUTOVACUUM-WORK-MEM") parameter. In RDS for PostgreSQL versions 14 and
-prior, the `autovacuum_work_mem` parameter is set to -1, indicating that the
-setting of `maintenance_work_mem` is used instead. For all other versions,
-`autovacuum_work_mem` is determined by GREATEST({DBInstanceClassMemory/32768},
-65536).
-
-Manual vacuum operations always use the `maintenance_work_mem` setting, with a
-default setting of GREATEST({DBInstanceClassMemory/63963136\*1024}, 65536), and it can also be
-adjusted at the session level using the `SET` command for more targeted manual
-`VACUUM` operations.
-
-The `autovacuum_work_mem` determines memory for autovacuum to hold identifiers
-of dead tuples (`pg_stat_all_tables.n_dead_tup`) for vacuuming indexes.
-
-When doing calculations to determine the `autovacuum_work_mem` parameter's
-value, be aware of the following:
-
-- If you set the parameter too low, the vacuum process might have to scan the table
-  multiple times to complete its work. Such multiple scans can have a negative impact on
-  performance. For larger instances, setting `maintenance_work_mem` or
-  `autovacuum_work_mem` to at least 1 GB can improve the performance of
-  vacuuming tables with a high number of dead tuples. However, in PostgreSQL versions 16 and
-  prior, vacuum’s memory usage is capped at 1 GB, which is sufficient to process
-  approximately 179 million dead tuples in a single pass. If a table has more dead tuples
-  than this, vacuum will need to make multiple passes through the table's indexes,
-  significantly increasing the time required. Starting with PostgreSQL version 17, there
-  isn't a limit of 1 GB, and autovacuum can process more than 179 million tuples by using
-  radix trees.
-
-A tuple identifier is 6 bytes in size. To estimate the memory needed for vacuuming an
-index of a table, query `pg_stat_all_tables.n_dead_tup` to find the number of
-dead tuples, then multiply this number by 6 to determine the memory required for vacuuming
-the index in a single pass. You may use the following query:
+- Initial creation of log table – A log table is created to record changes that
+  occur during initial copy of the data, as shown in the following example:
 
 ```
-SELECT
-    relname AS table_name,
-    n_dead_tup,
-    pg_size_pretty(n_dead_tup * 6) AS estimated_memory
-FROM
-    pg_stat_all_tables
-WHERE
-    relname = '`name_of_the_table`';
+`postgres=>``\dt+ repack.log_*
+List of relations
+-[ RECORD 1 ]-+----------
+Schema | repack
+Name | log_16490
+Type | table
+Owner | postgres
+Persistence | permanent
+Access method | heap
+Size | 65 MB
+Description |`
 ```
 
-- The `autovacuum_work_mem` parameter works in conjunction with the
-  `autovacuum_max_workers` parameter. Each worker among
-  `autovacuum_max_workers` can use the memory that you allocate. If you have
-  many small tables, allocate more `autovacuum_max_workers` and less
-  `autovacuum_work_mem`. If you have large tables (larger than 100 GB),
-  allocate more memory and fewer worker processes. You need to have enough memory allocated
-  to succeed on your biggest table. Thus, make sure that the combination of worker processes
-  and memory equals the total memory that you want to allocate.
+- Final swap-and-drop phase.
+  For the rest of the rebuild operation, it only needs an `ACCESS SHARE` lock on
+  the original table to copy rows from it to the new table. This helps the INSERT, UPDATE, and
+  DELETE operations to proceed as usual.
 
-## Reducing the likelihood of transaction ID wraparound
+## Recommendations
 
-In some cases, parameter group settings related to autovacuum might not be aggressive
-enough to prevent transaction ID wraparound. To address this, RDS for PostgreSQL provides a
-mechanism that adapts the autovacuum parameter values automatically. _Adaptive
-autovacuum_ is a feature for RDS for PostgreSQL. A detailed
-explanation of [TransactionID wraparound](https://www.postgresql.org/docs/current/static/routine-vacuuming.html#VACUUM-FOR-WRAPAROUND "https://www.postgresql.org/docs/current/static/routine-vacuuming.html#VACUUM-FOR-WRAPAROUND") is found in the PostgreSQL documentation.
+The following recommendations apply when you remove bloat from the tables and indexes
+using the `pg_repack` extension:
 
-Adaptive autovacuum is turned on by default for RDS for PostgreSQL instances with the
-dynamic parameter `rds.adaptive_autovacuum` set to ON. We strongly recommend that
-you keep this turned on. However, to turn off adaptive autovacuum parameter tuning, set the
-`rds.adaptive_autovacuum` parameter to 0 or OFF.
+- Perform repack during non-business hours or over a maintenance window to minimize
+  its impact on performance of other database activities.
+- Closely monitor blocking sessions during the rebuild activity and ensure that there
+  is no activity on the original table that could potentially block
+  `pg_repack`, specifically during the final swap-and-drop phase when it needs
+  an exclusive lock on the original table. For more information, see [Identifying what is blocking a query](https://repost.aws/knowledge-center/rds-aurora-postgresql-query-blocked "https://repost.aws/knowledge-center/rds-aurora-postgresql-query-blocked").
 
-Transaction ID wraparound is still possible even when Amazon RDS Amazon RDS tunes the autovacuum
-parameters. We encourage you to implement an Amazon CloudWatch alarm for transaction ID wraparound. For
-more information, see the post [Implement an early warning system for transaction ID wraparound in RDS for PostgreSQL](https://aws.amazon.com/blogs/database/implement-an-early-warning-system-for-transaction-id-wraparound-in-amazon-rds-for-postgresql/ "https://aws.amazon.com/blogs/database/implement-an-early-warning-system-for-transaction-id-wraparound-in-amazon-rds-for-postgresql/") on
-the AWS Database Blog.
+When you see a blocking session, you can terminate it using the following command
+after careful consideration. This helps in the continuation of `pg_repack` to
+finish the rebuild:
 
-With adaptive autovacuum parameter tuning turned on, Amazon RDS begins adjusting autovacuum
-parameters when the CloudWatch metric `MaximumUsedTransactionIDs` reaches the value of
-the `autovacuum_freeze_max_age` parameter or 500,000,000, whichever is greater.
+```
+`SELECT pg_terminate_backend(`pid`);`
+```
 
-Amazon RDS continues to adjust parameters for autovacuum if a table continues to trend toward
-transaction ID wraparound. Each of these adjustments dedicates more resources to autovacuum to
-avoid wraparound. Amazon RDS updates the following autovacuum-related parameters:
+- While applying the accrued changes from the `pg_repack's` log table on
+  systems with a very high transaction rate, the apply process might not be able to keep
+  up with the rate of changes. In such cases, `pg_repack` would not be able to
+  complete the apply process. For more information, see [Monitoring the new table during the repack](#Appendix.PostgreSQL.CommonDBATasks.pg_repack.Monitoring "#Appendix.PostgreSQL.CommonDBATasks.pg_repack.Monitoring"). If indexes
+  are severely bloated, an alternative solution is to perform an index only repack. This
+  also helps VACUUM's index cleanup cycles to finish faster.
 
-- [autovacuum_vacuum_cost_delay](https://www.postgresql.org/docs/current/static/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-COST-DELAY "https://www.postgresql.org/docs/current/static/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-COST-DELAY")
-- [autovacuum_vacuum_cost_limit](https://www.postgresql.org/docs/current/static/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-COST-LIMIT "https://www.postgresql.org/docs/current/static/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-COST-LIMIT")
-- [`autovacuum_work_mem`](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-AUTOVACUUM-WORK-MEM "https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-AUTOVACUUM-WORK-MEM")
-- [autovacuum_naptime](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-NAPTIME "https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-NAPTIME")
+You can skip the index cleanup phase using manual VACUUM from PostgreSQL version 12,
+and it is skipped automatically during emergency autovacuum from PostgreSQL version 14.
+This helps VACUUM complete faster without removing the index bloat and is only meant for
+emergency situations such as preventing wraparound VACUUM. For more information, see
+[Avoiding bloat in indexes](../AuroraUserGuide/AuroraPostgreSQL.md#AuroraPostgreSQL.diag-table-ind-bloat.AvoidinginIndexes "../AuroraUserGuide/AuroraPostgreSQL.md#AuroraPostgreSQL.diag-table-ind-bloat.AvoidinginIndexes") in the Amazon Aurora User Guide.
 
-RDS modifies these parameters only if the new value makes autovacuum more aggressive. The
-parameters are modified in memory on the DB instance. The values in the parameter group
-aren't changed. To view the current in-memory settings, use the PostgreSQL [SHOW](https://www.postgresql.org/docs/current/sql-show.html "https://www.postgresql.org/docs/current/sql-show.html") SQL command.
+## Pre-requisites
 
-When Amazon RDS modifies any of these autovacuum parameters, it generates an event for the
-affected DB instance. This event is visible on the AWS Management Console and through the Amazon RDS API. After
-the `MaximumUsedTransactionIDs` CloudWatch metric returns below the threshold, Amazon RDS
-resets the autovacuum-related parameters in memory back to the values specified in the
-parameter group. It then generates another event corresponding to this change.
+- The table must have PRIMARY KEY or not-null UNIQUE constraint.
+- The extension version must be the same for both the client and the server.
+- Ensure that the RDS instance has more `FreeStorageSpace` than the total
+  size of the table without the bloat. As an example, consider the total size of the table
+  including TOAST and indexes as 2TB, and total bloat in the table as 1TB. The required
+  `FreeStorageSpace` must be more than value returned by the following
+  calculation:
+
+`2TB (Table size)` - `1TB (Table bloat)` = `1TB`
+
+You can use the following query to check the total size of the table and use
+`pgstattuple` to derive bloat. For more information, see [Diagnosing table and index bloat](../AuroraUserGuide/AuroraPostgreSQL.md "../AuroraUserGuide/AuroraPostgreSQL.md") in the Amazon Aurora User Guide
+
+```
+`SELECT pg_size_pretty(pg_total_relation_size('table_name')) AS total_table_size;`
+```
+
+This space is reclaimed after the completion of the activity.
+
+- Ensure that the RDS instance has enough compute and IO capacity to handle the repack
+  operation. You might consider to scale up the instance class for optimal balance of
+  performance.
+
+###### To use the `pg_repack` extension
+
+1. Install the `pg_repack` extension on your RDS for PostgreSQL DB instance by
+   running the following command.
+
+```
+CREATE EXTENSION pg_repack;
+```
+
+2. Run the following commands to grant write access to temporary log tables created by
+   `pg_repack`.
+
+```
+ALTER DEFAULT PRIVILEGES IN SCHEMA repack GRANT INSERT ON TABLES TO PUBLIC;
+ALTER DEFAULT PRIVILEGES IN SCHEMA repack GRANT USAGE, SELECT ON SEQUENCES TO PUBLIC;
+```
+
+3. Connect to the database using the `pg_repack` client utility. Use an
+   account that has `rds_superuser` privileges. As an example, assume that
+   `rds_test` role has `rds_superuser` privileges. The following
+   syntax performs `pg_repack` for full tables including all the table indexes in
+   the `postgres` database.
+
+```
+pg_repack -h `db-instance-name`.111122223333.`aws-region`.rds.amazonaws.com -U `rds_test` -k `postgres`
+```
+
+###### Note
+
+You must connect using the -k option. The -a option is not supported.
+
+The response from the `pg_repack` client provides information on the tables
+on the DB instance that are repacked.
+
+```
+INFO: repacking table "pgbench_tellers"
+INFO: repacking table "pgbench_accounts"
+INFO: repacking table "pgbench_branches"
+```
+
+4. The following syntax repacks a single table `orders` including indexes in
+   `postgres` database.
+
+```
+pg_repack -h db-instance-name.111122223333.aws-region.rds.amazonaws.com -U `rds_test` --table `orders` -k `postgres`
+```
+
+The following syntax repacks only indexes for `orders` table in
+`postgres` database.
+
+```
+pg_repack -h db-instance-name.111122223333.aws-region.rds.amazonaws.com -U `rds_test` --table `orders` --only-indexes -k `postgres`
+```
+
+## Monitoring the new table during the repack
+
+- The size of the database is increased by the total size of the table minus bloat,
+  until swap-and-drop phase of repack. You can monitor the growth rate of the database
+  size, calculate the speed of the repack, and roughly estimate the time it takes to
+  complete initial data transfer.
+
+As an example, consider the total size of the table as 2TB, the size of the database
+as 4TB, and total bloat in the table as 1TB. The database total size value returned by
+the calculation at the end of the repack operation is the following:
+
+`2TB (Table size)` + `4 TB (Database size)` - `1TB (Table
+ bloat)` = `5TB`
+
+You can roughly estimate the speed of the repack operation by sampling the growth
+rate in bytes between two points in time. If the growth rate is 1GB per minute, it can
+take 1000 minutes or 16.6 hours approximately to complete the initial table build
+operation. In addition to the initial table build, `pg_repack` also needs to
+apply accrued changes. The time it takes depends on the rate of applying ongoing changes
+plus accrued changes.
+
+###### Note
+
+You can use `pgstattuple` extension to calculate the bloat in the
+table. For more information, see [pgstattuple](https://www.postgresql.org/docs/current/pgstattuple.html "https://www.postgresql.org/docs/current/pgstattuple.html") .
+
+- The number of rows in the `pg_repack's` log table, under the repack
+  schema represents the volume of changes pending to be applied to the new table after the
+  initial load.
+
+You can check the `pg_repack's` log table in
+`pg_stat_all_tables` to monitor the changes applied to the new table.
+`pg_stat_all_tables.n_live_tup` indicates the number of records that are
+pending to be applied to the new table. For more information, see [pg_stat_all_tables](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ALL-TABLES-VIEW "https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ALL-TABLES-VIEW").
+
+```
+`postgres=>``SELECT relname,n_live_tup FROM pg_stat_all_tables WHERE schemaname = 'repack' AND relname ILIKE '%log%';`
+        `-[ RECORD 1 ]---------
+relname | log_16490
+n_live_tup | 2000000`
+```
+
+- You can use the `pg_stat_statements` extension to find out the time taken
+  by each step in the repack operation. This is helpful in preparation for applying the
+  same repack operation in a production environment. You may adjust the `LIMIT`
+  clause for extending the output further.
+
+```
+`postgres=>``SELECT
+ SUBSTR(query, 1, 100) query,
+ round((round(total_exec_time::numeric, 6) / 1000 / 60),4) total_exec_time_in_minutes
+ FROM
+ pg_stat_statements
+ WHERE
+ query ILIKE '%repack%'
+ ORDER BY
+ total_exec_time DESC LIMIT 5;`
+        `query | total_exec_time_in_minutes
+-----------------------------------------------------------------------+----------------------------
+ CREATE UNIQUE INDEX index_16493 ON repack.table_16490 USING btree (a) | 6.8627
+ INSERT INTO repack.table_16490 SELECT a FROM ONLY public.t1 | 6.4150
+ SELECT repack.repack_apply($1, $2, $3, $4, $5, $6) | 0.5395
+ SELECT repack.repack_drop($1, $2) | 0.0004
+ SELECT repack.repack_swap($1) | 0.0004
+(5 rows)`
+```
+
+Repacking is completely an out-of-place operation so the original table is not impacted
+and we do not anticipate any unexpected challenges that require recovery of the original
+table. If repack fails unexpectedly, you must inspect the cause of the error and resolve
+it.
+
+After the issue is resolved, drop and recreate the `pg_repack` extension in the
+database where the table exists, and retry the `pg_repack` step. In addition, the
+availability of compute resources and concurrent accessibility of the table plays a crucial
+role in the timely completion of the repack operation.

@@ -1,50 +1,49 @@
-# Deploying SSAS projects on Amazon RDS
+# Turning off SSAS
 
-On RDS, you can't deploy SSAS projects directly by using SQL Server Management Studio
-(SSMS). To deploy projects, use an RDS stored procedure.
+To turn off SSAS, remove the `SSAS` option from its option group.
 
-###### Note
+###### Important
 
-Using .xmla files for deployment isn't supported.
+Before you remove the `SSAS` option, delete your SSAS databases.
 
-Before you deploy projects, make sure of the following:
+We highly recommend that you back up your SSAS databases before deleting them and removing
+the `SSAS` option.
 
-- Amazon S3 integration is turned on. For more information, see [Integrating an Amazon RDS for SQL Server DB instance with Amazon S3](User.SQLServer.Options.md "User.SQLServer.Options.md").
-- The `Processing Option` configuration setting is set to `Do Not
-Process`. This setting means that no processing happens after
-  deployment.
-- You have both the ``myssasproject`.asdatabase` and
-``myssasproject`.deploymentoptions`
-  files. They're automatically generated when you build the SSAS
-  project.
+###### To remove the SSAS option from its option group
 
-###### To deploy an SSAS project on RDS
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Option groups**.
+3. Choose the option group with the `SSAS` option that you want to remove (`ssas-se-2017` in the previous
+   examples).
+4. Choose **Delete option**.
+5. Under **Deletion options**, choose **SSAS** for
+   **Options to delete**.
+6. Under **Apply immediately**, choose **Yes** to delete
+   the option immediately, or **No** to delete it at
+   the next maintenance window.
+7. Choose **Delete**.
 
-1. Download the `.asdatabase` (SSAS model) file from your S3 bucket to your DB
-   instance, as shown in the following example. For more information on the
-   download parameters, see [Downloading files from an Amazon S3 bucket to a SQL Server DB instance](Appendix.SQLServer.Options.S3-integration.md#Appendix.SQLServer.Options.S3-integration.using.download "Appendix.SQLServer.Options.S3-integration.md#Appendix.SQLServer.Options.S3-integration.using.download").
+###### To remove the SSAS option from its option group
 
-```
-exec msdb.dbo.rds_download_from_s3
-@s3_arn_of_file='arn:aws:s3:::`bucket_name`/`myssasproject`.asdatabase',
-[@rds_file_path='D:\S3\`myssasproject`.asdatabase'],
-[@overwrite_file=1];
-```
+- Use one of the following commands.
 
-2. Download the `.deploymentoptions` file from your S3 bucket to your DB
-   instance.
+###### Example
+
+For Linux, macOS, or Unix:
 
 ```
-exec msdb.dbo.rds_download_from_s3
-@s3_arn_of_file='arn:aws:s3:::`bucket_name`/`myssasproject`.deploymentoptions',
-[@rds_file_path='D:\S3\`myssasproject`.deploymentoptions'],
-[@overwrite_file=1];
+aws rds remove-option-from-option-group \
+    --option-group-name `ssas-se-2017` \
+    --options SSAS \
+    --apply-immediately
 ```
 
-3. Deploy the project.
+For Windows:
 
 ```
-exec msdb.dbo.rds_msbi_task
-@task_type='SSAS_DEPLOY_PROJECT',
-@file_path='D:\S3\`myssasproject`.asdatabase';
+aws rds remove-option-from-option-group ^
+    --option-group-name `ssas-se-2017` ^
+    --options SSAS ^
+    --apply-immediately
 ```

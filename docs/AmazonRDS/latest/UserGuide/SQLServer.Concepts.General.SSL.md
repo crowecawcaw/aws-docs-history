@@ -130,17 +130,19 @@ Windows operating system on your client computer.
     **Browse**. In the browse window, change the file type to
     **All files (\*.\*)** because .pem is not a standard
     certificate extension. Locate the .pem file that you downloaded previously.
-11. Choose **Open** to select the certificate file, and then
-    choose **Next**.
-12. On the third page of the Certificate Import Wizard, choose
-    **Next**.
-13. On the fourth page of the Certificate Import Wizard, choose
-    **Finish**. A dialog box appears indicating that the import
-    was successful.
-14. In the MMC console, expand **Certificates**, expand **Trusted
-    Root Certification Authorities**, and then choose
-    **Certificates**. Locate the certificate to confirm it
-    exists, as shown here.
+
+###### Note
+
+When connecting from Windows clients such as SQL Server Management Studio (SSMS), we recommend using the PKCS#7 (.p7b) certificate format instead of the global-bundle.pem file.
+The .p7b format ensures the complete certificate chain — including Root and Intermediate Certificate Authorities (CAs) — is correctly imported into the Windows Certificate Store.
+This prevents connection failures that can occur when mandatory encryption is enabled, as .pem imports may not install the full chain properly. 11. Choose **Open** to select the certificate file, and then
+choose **Next**. 12. On the third page of the Certificate Import Wizard, choose
+**Next**. 13. On the fourth page of the Certificate Import Wizard, choose
+**Finish**. A dialog box appears indicating that the import
+was successful. 14. In the MMC console, expand **Certificates**, expand **Trusted
+Root Certification Authorities**, and then choose
+**Certificates**. Locate the certificate to confirm it
+exists, as shown here.
 
 ![In the MMC console, in the navigation pane, the Certificates folder is selected drilled down from Console Root, Certificates (Local Computer), and Trusted Root Certification Authority. In the main page, select the required CA certificate.](images/rds_sql_ssl_cert.png)
 

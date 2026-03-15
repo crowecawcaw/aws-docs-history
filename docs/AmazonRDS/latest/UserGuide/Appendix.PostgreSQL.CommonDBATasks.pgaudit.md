@@ -1,98 +1,146 @@
-# Auditing database objects
+# Excluding users or databases from audit logging
 
-With pgAudit set up on your
-RDS for PostgreSQL DB instance and configured for your requirements,
-more detailed information is captured in the PostgreSQL log. For example, while the default PostgreSQL logging configuration
-identifies the date and time that a change was made in a database table, with the pgAudit
-extension the log entry can include the schema, user who made the change, and other details
-depending on how the extension parameters are configured. You can set up auditing to
-track changes in the following ways.
+As discussed in [RDS for PostgreSQL database log files](USER_LogAccess.Concepts.md "USER_LogAccess.Concepts.md"), PostgreSQL logs consume
+storage space. Using the pgAudit extension adds to the volume of data
+gathered in your logs to varying degrees, depending on the changes that you track. You might not
+need to audit every user or database in your
+RDS for PostgreSQL DB instance.
 
-- For each session, by user. For the session level, you can capture the
-  fully qualified command text.
-- For each object, by user and by database.
-  The object auditing capability is activated when you create the `rds_pgaudit` role on your system and then
-  add this role to the `pgaudit.role` parameter in your custom parameter parameter group. By default, the
-  `pgaudit.role` parameter is unset and the only allowable value is `rds_pgaudit`.
-  The following steps assume that `pgaudit` has been initialized and that
-  you have created the `pgaudit` extension by following the procedure in [Setting up the pgAudit extension](Appendix.PostgreSQL.CommonDBATasks.pgaudit.md "Appendix.PostgreSQL.CommonDBATasks.pgaudit.md").
+To minimize impacts to your storage and to avoid needlessly capturing audit records, you
+can exclude users and databases from being audited. You can also
+change logging within a given session. The following examples show you how.
 
-![Image of the PostgreSQL log file after setting up pgAudit.](images/pgaudit-log-example.png)
-As shown in this example, the "LOG: AUDIT: SESSION" line provides information about the table and its schema, among other
-details.
+###### Note
 
-###### To set up object auditing
+Parameter settings at the session level take precedence over the settings
+in the custom DB parameter group for the RDS for PostgreSQL
+DB instance. If you don't want database users to bypass your audit logging configuration
+settings, be sure to change their permissions.
 
-1. Use `psql` to connect to the RDS for PostgreSQL DB instance.
-
-```
-psql --host=`your-instance-name`.`aws-region`.rds.amazonaws.com --port=5432 --username=`postgres`postgres --password --dbname=`labdb`
-```
-
-2. Create a database role named `rds_pgaudit` using the following command.
+Suppose that your
+RDS for PostgreSQL DB instance is configured
+to audit the same level of activity for all users and databases.
+You then decide that you don't want to audit the user
+`myuser`. You can turn off auditing for `myuser` with the following
+SQL command.
 
 ```
-`labdb=>` `CREATE ROLE rds_pgaudit;`
-`CREATE ROLE
-`labdb=>``
+ALTER USER myuser SET pgaudit.log TO 'NONE';
 ```
 
-3. Close the `psql` session.
+Then, you can use the following query to check the `user_specific_settings`
+column for `pgaudit.log` to confirm that the parameter is set to `NONE`.
 
 ```
-`labdb=>` `\q`
+SELECT
+    usename AS user_name,
+    useconfig AS user_specific_settings
+FROM
+    pg_user
+WHERE
+    usename = 'myuser';
 ```
 
-In the next few steps, use the AWS CLI to modify the audit log parameters in your
-custom parameter group. 4. Use the following AWS CLI command to set the `pgaudit.role` parameter to `rds_pgaudit`.
-By default, this parameter is empty, and `rds_pgaudit` is the only allowable value.
+You see output such as the following.
 
 ```
-aws rds modify-db-parameter-group \
-   --db-parameter-group-name `custom-param-group-name` \
-   --parameters "ParameterName=pgaudit.role,ParameterValue=rds_pgaudit,ApplyMethod=pending-reboot" \
-   --region `aws-region`
+ user_name | user_specific_settings
+-----------+------------------------
+ myuser    | {pgaudit.log=NONE}
+(1 row)
 ```
 
-5. Use the following AWS CLI command to reboot the RDS for PostgreSQL DB instance so that
-   your changes to the parameters take effect.
+You can turn off logging for a given user in the midst of their session with the database with
+the following command.
 
 ```
-aws rds reboot-db-instance \
-    --db-instance-identifier `your-instance` \
-    --region `aws-region`
+ALTER USER myuser IN DATABASE mydatabase SET pgaudit.log TO 'none';
 ```
 
-6. Run the following command to confirm that the `pgaudit.role` is set to `rds_pgaudit`.
+Use the following query to check the settings column for pgaudit.log for a specific user and database combination.
 
 ```
-`SHOW pgaudit.role;`
-`pgaudit.role
-------------------
-rds_pgaudit`
+SELECT
+    usename AS "user_name",
+    datname AS "database_name",
+    pg_catalog.array_to_string(setconfig, E'\n') AS "settings"
+FROM
+    pg_catalog.pg_db_role_setting s
+    LEFT JOIN pg_catalog.pg_database d ON d.oid = setdatabase
+    LEFT JOIN pg_catalog.pg_user r ON r.usesysid = setrole
+WHERE
+    usename = 'myuser'
+    AND datname = 'mydatabase'
+ORDER BY
+    1,
+    2;
 ```
 
-To test pgAudit logging, you can run several example commands that you want to audit. For example, you might run the
-following commands.
+You see output similar to the following.
 
 ```
-`CREATE TABLE t1 (id int);
-GRANT SELECT ON t1 TO rds_pgaudit;
-SELECT * FROM t1;`
-`id
-----
-(0 rows)`
+  user_name | database_name |     settings
+-----------+---------------+------------------
+ myuser    | mydatabase    | pgaudit.log=none
+(1 row)
 ```
 
-The database logs should contain an entry similar to the following.
+After turning off auditing for `myuser`, you decide that
+you don't want to track changes to `mydatabase`. You turn off auditing
+for that specific database by using the following command.
 
 ```
-...
-2017-06-12 19:09:49 UTC:...:rds_test@postgres:[11701]:LOG: AUDIT:
-OBJECT,1,1,READ,SELECT,TABLE,public.t1,select * from t1;
-...
+ALTER DATABASE mydatabase SET pgaudit.log to 'NONE';
 ```
 
-For information on viewing the logs, see [Monitoring Amazon RDS log files](USER_LogAccess.md "USER_LogAccess.md").
+Then, use the following query to check the database_specific_settings column
+to confirm that pgaudit.log is set to NONE.
 
-To learn more about the pgAudit extension, see [pgAudit](https://github.com/pgaudit/pgaudit/blob/master/README.md "https://github.com/pgaudit/pgaudit/blob/master/README.md") on GitHub.
+```
+SELECT
+a.datname AS database_name,
+b.setconfig AS database_specific_settings
+FROM
+pg_database a
+FULL JOIN pg_db_role_setting b ON a.oid = b.setdatabase
+WHERE
+a.datname = 'mydatabase';
+```
+
+You see output such as the following.
+
+```
+ database_name | database_specific_settings
+---------------+----------------------------
+ mydatabase    | {pgaudit.log=NONE}
+(1 row)
+```
+
+To return settings to the default setting for myuser, use the following command:
+
+```
+ALTER USER myuser RESET pgaudit.log;
+```
+
+To return settings to their default setting for a database, use the following command.
+
+```
+ALTER DATABASE mydatabase RESET pgaudit.log;
+```
+
+To reset user and database to the default setting,
+use the following command.
+
+```
+ALTER USER myuser IN DATABASE mydatabase RESET pgaudit.log;
+```
+
+You can also capture specific events to the log by setting the `pgaudit.log` to one of the other
+allowed values for the `pgaudit.log` parameter. For more information, see
+[List of allowable settings for the pgaudit.log parameter](Appendix.PostgreSQL.CommonDBATasks.pgaudit.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit.reference.pgaudit-log-settings "Appendix.PostgreSQL.CommonDBATasks.pgaudit.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit.reference.pgaudit-log-settings").
+
+```
+ALTER USER myuser SET pgaudit.log TO 'read';
+ALTER DATABASE mydatabase SET pgaudit.log TO 'function';
+ALTER USER myuser IN DATABASE mydatabase SET pgaudit.log TO 'read,function'
+```

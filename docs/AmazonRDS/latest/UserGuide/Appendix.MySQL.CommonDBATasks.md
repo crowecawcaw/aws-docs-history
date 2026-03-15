@@ -1,57 +1,133 @@
-# Managing the Global Status History for RDS for MySQL
+# Role-based privilege model for RDS for MySQL
+
+Starting with RDS for MySQL version 8.0.36, you can't modify the tables in the
+`mysql` database directly. In particular, you can't create database users
+by performing data manipulation language (DML) operations on the `grant`
+tables. Instead, you use MySQL account-management statements such as `CREATE
+ USER`, `GRANT`, and `REVOKE` to grant role-based
+privileges to users. You also can't create other kinds of objects such as stored
+procedures in the `mysql` database. You can still query the
+`mysql` tables. If you use binary log replication, changes made directly
+to the `mysql` tables on the source DB instance aren't replicated to the
+target cluster.
+
+In some cases, your application might use shortcuts to create users or other objects by inserting into the
+`mysql` tables. If so, change your application code to use the corresponding statements such as `CREATE
+ USER`.
+
+To export metadata for database users during the migration from an external MySQL
+database, use one of the following methods:
+
+- Use MySQL Shell's instance dump utility with a filter to exclude users, roles, and grants. The following example shows you the command syntax to use. Make sure that
+  `outputUrl` is empty.
+
+```
+mysqlsh user@host -- util.dumpInstance(outputUrl,{excludeSchemas:['mysql'],users: true})
+```
+
+For more information, see [Instance Dump Utility, Schema Dump Utility, and Table Dump Utility](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-utilities-dump-instance-schema.html "https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-utilities-dump-instance-schema.html") in the MySQL Reference Manual.
+
+- Use the `mysqlpump` client utility. This example includes all tables except for tables in the `mysql` system database.
+  It also includes `CREATE USER` and `GRANT` statements to reproduce all MySQL users in the migrated database.
+
+```
+mysqlpump --exclude-databases=mysql --users
+```
+
+The `mysqlpump` client utility is no longer available with MySQL
+8.4. Instead, use `mysqldump`.
+To simplify managing permissions for many users or applications, you can use the
+`CREATE ROLE` statement to create a role that has a set of
+permissions. Then you can use the `GRANT` and `SET ROLE`
+statements and the `current_role` function to assign roles to users or
+applications, switch the current role, and check which roles are in effect. For more
+information on the role-based permission system in MySQL 8.0, see [Using Roles](https://dev.mysql.com/doc/refman/8.0/en/roles.html "https://dev.mysql.com/doc/refman/8.0/en/roles.html") in
+the MySQL Reference Manual.
+
+###### Important
+
+We strongly recommend that you do not use the master user directly in your applications. Instead, adhere to the best
+practice of using a database user created with the minimal privileges required for your application.
+
+Starting with version 8.0.36, RDS for MySQL includes a special role that has all of the
+following privileges. This role is named `rds_superuser_role`. The primary
+administrative user for each DB instance already has this role granted. The
+`rds_superuser_role` role includes the following privileges for all
+database objects:
+
+- `ALTER`
+- `APPLICATION_PASSWORD_ADMIN`
+- `ALTER ROUTINE`
+- `CREATE`
+- `CREATE ROLE`
+- `CREATE ROUTINE`
+- `CREATE TEMPORARY TABLES`
+- `CREATE USER`
+- `CREATE VIEW`
+- `DELETE`
+- `DROP`
+- `DROP ROLE`
+- `EVENT`
+- `EXECUTE`
+- `INDEX`
+- `INSERT`
+- `LOCK TABLES`
+- `PROCESS`
+- `REFERENCES`
+- `RELOAD`
+- `REPLICATION CLIENT`
+- `REPLICATION SLAVE`
+- `ROLE_ADMIN`
+- `SET_USER_ID`
+- `SELECT`
+- `SHOW DATABASES`
+- `SHOW VIEW`
+- `TRIGGER`
+- `UPDATE`
+- `XA_RECOVER_ADMIN`
+  The role definition also includes `WITH GRANT OPTION` so that an
+  administrative user can grant that role to other users. In particular, the administrator
+  must grant any privileges needed to perform binary log replication with the MySQL
+  cluster as the target.
 
 ###### Tip
 
-To analyze database performance, you can also use Performance Insights on Amazon RDS. For more
-information, see [Monitoring DB load with Performance Insights on Amazon RDS](USER_PerfInsights.md "USER_PerfInsights.md").
-
-MySQL maintains many status variables that provide information about its operation.
-Their value can help you detect locking or memory issues on a DB instance. The values of
-these status variables are cumulative since last time the DB instance was started. You
-can reset most status variables to 0 by using the `FLUSH STATUS` command.
-
-To allow for monitoring of these values over time, Amazon RDS provides a set of procedures
-that will snapshot the values of these status variables over time and write them to a
-table, along with any changes since the last snapshot. This infrastructure, called
-Global Status History (GoSH), is installed on all MySQL DB instances starting with
-versions 5.5.23. GoSH is disabled by default.
-
-To enable GoSH, you first enable the event scheduler from a DB parameter group by
-setting the parameter `event_scheduler` to `ON`. For MySQL DB
-instances running MySQL 5.7, also set the parameter `show_compatibility_56`
-to `1`. For information about creating and modifying a DB parameter group,
-see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). For information about the side
-effects of enabling this parameter, see [show_compatibility_56](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_show_compatibility_56 "https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_show_compatibility_56") in the _MySQL 5.7 Reference
-Manual_.
-
-You can then use the procedures in the following table to enable and configure GoSH.
-First connect to your MySQL DB instance, then issue the appropriate commands as shown
-following. For more information, see [Connecting to your MySQL DB instance](USER_ConnectToInstance.md "USER_ConnectToInstance.md"). For each procedure, run the following
-command and replace _`procedure-name`_:
+To see the full details of the permissions, use the following statement.
 
 ```
-CALL `procedure-name`;
+SHOW GRANTS FOR rds_superuser_role@'%';
 ```
 
-The following table lists all of the procedures that you can use for _`procedure-name`_ in the previous
-command.
-
-| Procedure                                 | Description                                                                                                                                                                         |
-| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `mysql.rds_enable_gsh_collector`          | Enables GoSH to take default snapshots at intervals specified by<br>`rds_set_gsh_collector`.                                                                                        |
-| `mysql.rds_set_gsh_collector`             | Specifies the interval, in minutes, between snapshots. Default<br>value is 5.                                                                                                       |
-| `mysql.rds_disable_gsh_collector`         | Disables snapshots.                                                                                                                                                                 |
-| `mysql.rds_collect_global_status_history` | Takes a snapshot on demand.                                                                                                                                                         |
-| `mysql.rds_enable_gsh_rotation`           | Enables rotation of the contents of the<br>`mysql.rds_global_status_history` table to<br>`mysql.rds_global_status_history_old` at intervals<br>specified by `rds_set_gsh_rotation`. |
-| `mysql.rds_set_gsh_rotation`              | Specifies the interval, in days, between table rotations. Default<br>value is 7.                                                                                                    |
-| `mysql.rds_disable_gsh_rotation`          | Disables table rotation.                                                                                                                                                            |
-| `mysql.rds_rotate_global_status_history`  | Rotates the contents of the<br>`mysql.rds_global_status_history` table to<br>`mysql.rds_global_status_history_old` on demand.                                                       |
-
-When GoSH is running, you can query the tables that it writes to. For example, to
-query the hit ratio of the Innodb buffer pool, you would issue the following query:
+When you grant access by using roles in RDS for MySQL version 8.0.36 and higher, you also activate the role by using the `SET ROLE
+ `role_name``or`SET ROLE ALL`statement. The following example shows how.
+ Substitute the appropriate role name for`CUSTOM_ROLE`.
 
 ```
-select a.collection_end, a.collection_start, (( a.variable_Delta-b.variable_delta)/a.variable_delta)*100 as "HitRatio"
-    from mysql.rds_global_status_history as a join mysql.rds_global_status_history as b on a.collection_end = b.collection_end
-    where a. variable_name = 'Innodb_buffer_pool_read_requests' and b.variable_name = 'Innodb_buffer_pool_reads'
+# Grant role to user
+`mysql>` GRANT CUSTOM_ROLE TO '`user`'@'`domain-or-ip-address`'
+
+# Check the current roles for your user. In this case, the CUSTOM_ROLE role has not been activated.
+# Only the rds_superuser_role is currently in effect.
+`mysql>` SELECT CURRENT_ROLE();
+`+--------------------------+
+| CURRENT_ROLE() |
++--------------------------+
+| `rds_superuser_role`@`%` |
++--------------------------+
+1 row in set (0.00 sec)`
+
+# Activate all roles associated with this user using SET ROLE.
+# You can activate specific roles or all roles.
+# In this case, the user only has 2 roles, so we specify ALL.
+`mysql>` SET ROLE ALL;
+`Query OK, 0 rows affected (0.00 sec)`
+
+# Verify role is now active
+`mysql>` SELECT CURRENT_ROLE();
+`+--------------------------------------------------+
+| CURRENT_ROLE() |
++--------------------------------------------------+
+| `CUSTOM_ROLE`@`%`,`rds_superuser_role`@`%` |
++--------------------------------------------------+`
+
 ```

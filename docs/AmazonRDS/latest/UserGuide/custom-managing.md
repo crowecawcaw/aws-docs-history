@@ -1,166 +1,170 @@
-# Oracle time zone
+# Modifying your RDS Custom for Oracle DB instance
 
-To change the system time zone used by your RDS Custom for Oracle DB instance, use the time zone option.
-For example, you might change the time zone of a DB instance to be compatible with an
-on-premises environment, or a legacy application. The time zone option changes the time
-zone at the host level. Changing the time zone impacts all date columns and values,
-including `SYSDATE` and
-`SYSTIMESTAMP`.
+Modifying an RDS Custom for Oracle DB instance is similar to modifying an Amazon RDS DB instance. You can change
+settings such as the following:
+
+- DB instance class
+- Storage allocation and type
+- Backup retention period
+- Deletion protection
+- Option group
+- CEV (see [Upgrading an RDS Custom for Oracle DB instance](custom-upgrading-modify.md "custom-upgrading-modify.md"))
+- Port
 
 ###### Topics
 
-- [Time zone option settings in RDS Custom for Oracle](#custom-oracle-timezone.Options "#custom-oracle-timezone.Options")
-- [Available time zones in RDS Custom for Oracle](#custom-oracle-timezone.Zones "#custom-oracle-timezone.Zones")
-- [Considerations for setting the time zone in RDS Custom for Oracle](#custom-oracle-timezone.PreReqs "#custom-oracle-timezone.PreReqs")
-- [Limitations for the time zone setting in RDS Custom for Oracle](#custom-oracle-timezone.overview.limitations "#custom-oracle-timezone.overview.limitations")
-- [Adding the time zone option to an option group](#custom-oracle-timezone.Add "#custom-oracle-timezone.Add")
-- [Removing the time zone option](#custom-oracle-timezone.remove "#custom-oracle-timezone.remove")
+- [Requirements and limitations when modifying your DB instance storage](#custom-managing.storage-modify "#custom-managing.storage-modify")
+- [Requirements and limitations when modifying your DB instance class](#custom-managing.instance-class-reqs "#custom-managing.instance-class-reqs")
+- [How RDS Custom creates your DB instance when you modify the instance class](#custom-managing.instance-class-resources "#custom-managing.instance-class-resources")
+- [Modifying your RDS Custom for Oracle DB instance](#custom-managing.modifying.procedure "#custom-managing.modifying.procedure")
 
-## Time zone option settings in RDS Custom for Oracle
+## Requirements and limitations when modifying your DB instance storage
 
-Amazon RDS supports the following settings for the time zone option.
+Consider the following requirements and limitations when you modify the storage for an
+RDS Custom for Oracle DB instance:
 
-| Option setting | Valid values                                                                                                                                                            | Description                             |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
-| `TIME_ZONE`    | One of the available time zones. For the full list, see [Available time zones in RDS Custom for Oracle](#custom-oracle-timezone.Zones "#custom-oracle-timezone.Zones"). | The new time zone for your DB instance. |
+- The minimum allocated storage for RDS Custom for Oracle is 40 GiB, and the maximum is 64
+  TiB.
+- As with Amazon RDS, you can't decrease the allocated storage. This is a limitation
+  of Amazon EBS volumes.
+- Storage autoscaling isn't supported for RDS Custom DB instances.
+- Any storage volumes that you attach manually to your RDS Custom DB instance are outside the
+  support perimeter.
 
-## Available time zones in RDS Custom for Oracle
+For more information, see [RDS Custom support perimeter](custom-concept.md#custom-troubleshooting.support-perimeter "custom-concept.md#custom-troubleshooting.support-perimeter").
 
-You can use the following values for the time zone option.
+- Magnetic (standard) Amazon EBS storage isn't supported for RDS Custom. You can choose
+  only the io1, io2, gp2, or gp3 SSD storage types.
 
-| Zone      | Time zone                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Africa    | Africa/Cairo, Africa/Casablanca, Africa/Harare, Africa/Lagos,<br>Africa/Luanda, Africa/Monrovia, Africa/Nairobi, Africa/Tripoli,<br>Africa/Windhoek                                                                                                                                                                                                                                                                                                                                                                                      |
-| America   | America/Araguaina, America/Argentina/Buenos_Aires,<br>America/Asuncion, America/Bogota, America/Caracas,<br>America/Chicago, America/Chihuahua, America/Cuiaba,<br>America/Denver, America/Detroit, America/Fortaleza,<br>America/Godthab, America/Guatemala, America/Halifax,<br>America/Lima, America/Los_Angeles, America/Manaus,<br>America/Matamoros, America/Mexico_City, America/Monterrey,<br>America/Montevideo, America/New_York, America/Phoenix,<br>America/Santiago, America/Sao_Paulo, America/Tijuana,<br>America/Toronto |
-| Asia      | Asia/Amman, Asia/Ashgabat, Asia/Baghdad, Asia/Baku,<br>Asia/Bangkok, Asia/Beirut, Asia/Calcutta, Asia/Damascus,<br>Asia/Dhaka, Asia/Hong_Kong, Asia/Irkutsk, Asia/Jakarta,<br>Asia/Jerusalem, Asia/Kabul, Asia/Karachi, Asia/Kathmandu,<br>Asia/Kolkata, Asia/Krasnoyarsk, Asia/Magadan, Asia/Manila,<br>Asia/Muscat, Asia/Novosibirsk, Asia/Rangoon, Asia/Riyadh,<br>Asia/Seoul, Asia/Shanghai, Asia/Singapore, Asia/Taipei,<br>Asia/Tehran, Asia/Tokyo, Asia/Ulaanbaatar, Asia/Vladivostok,<br>Asia/Yakutsk, Asia/Yerevan              |
-| Atlantic  | Atlantic/Azores, Atlantic/Cape_Verde                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| Australia | Australia/Adelaide, Australia/Brisbane, Australia/Darwin,<br>Australia/Eucla, Australia/Hobart, Australia/Lord_Howe,<br>Australia/Perth, Australia/Sydney                                                                                                                                                                                                                                                                                                                                                                                |
-| Brazil    | Brazil/DeNoronha, Brazil/East                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Canada    | Canada/Newfoundland, Canada/Saskatchewan                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Etc       | Etc/GMT-3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Europe    | Europe/Amsterdam, Europe/Athens, Europe/Berlin, Europe/Dublin,<br>Europe/Helsinki, Europe/Kaliningrad, Europe/London,<br>Europe/Madrid, Europe/Moscow, Europe/Paris, Europe/Prague,<br>Europe/Rome, Europe/Sarajevo                                                                                                                                                                                                                                                                                                                      |
-| Pacific   | Pacific/Apia, Pacific/Auckland, Pacific/Chatham, Pacific/Fiji,<br>Pacific/Guam, Pacific/Honolulu, Pacific/Kiritimati,<br>Pacific/Marquesas, Pacific/Samoa, Pacific/Tongatapu,<br>Pacific/Wake                                                                                                                                                                                                                                                                                                                                            |
-| US        | US/Alaska, US/Central, US/East-Indiana, US/Eastern, US/Pacific                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| UTC       | UTC                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+For more information about Amazon EBS storage, see [Amazon RDS DB instance storage](CHAP_Storage.md "CHAP_Storage.md"). For general information about storage modification, see
+[Working with storage for Amazon RDS DB instances](USER_PIOPS.md "USER_PIOPS.md").
 
-## Considerations for setting the time zone in RDS Custom for Oracle
+## Requirements and limitations when modifying your DB instance class
 
-If you choose to set the time zone for your DB instance, consider the following:
+Consider the following requirements and limitations when you modify the instance class for
+an RDS Custom for Oracle DB instance:
 
-- When you add the time zone option, a brief outage occurs while your DB instance
-  is automatically restarted.
-- If you accidentally set the time zone incorrectly, you must recover your
-  DB instance to its previous time zone setting. For this reason, we strongly
-  suggest that you to use one of the following strategies before you add the
-  time zone option to your instance:
-  - If your RDS Custom for Oracle DB instance uses the default option group, take a
-    snapshot of your DB instance. For more information, see [Creating an RDS Custom for Oracle snapshot](custom-backup.md "custom-backup.md").
-  - If your DB instance currently uses a nondefault option group, take a
-    snapshot of your DB instance, and then create a new option group with the
-    time zone option.
+- Your DB instance must be in the `available` state.
+- Your DB instance must have a minimum of 100 MiB of free space on the root volume, data
+  volume, and binary volume.
+- You can assign only a single elastic IP (EIP) to your RDS Custom for Oracle DB instance when using the default
+  elastic network interface (ENI). If you attach multiple ENIs to your DB instance,
+  the modify operation fails.
+- All RDS Custom for Oracle tags must be present.
+- If you use RDS Custom for Oracle replication, note the following requirements and limitations:
+  - For primary DB instances and read replicas, you can change the instance class
+    for only one DB instance at a time.
+  - If your RDS Custom for Oracle DB instance has an on-premises primary or replica database,
+    make sure to manually update private IP addresses on the on-premises DB instance after
+    the modification completes. This action is necessary to preserve Oracle DataGuard
+    functionality. RDS Custom for Oracle publishes an event when the modification succeeds.
+  - You can't modify your RDS Custom for Oracle DB instance class when the primary or read
+    replica DB instances have FSFO (Fast-Start Failover) configured.
 
-- We strongly recommend that you back up your DB instance manually after applying
-  the `Timezone` option.
-- We strongly recommend that you to test the time zone option on a test
-  DB instance before you add it to a production DB instance. Adding the time zone option
-  can cause problems with tables that use system date to add dates or times.
-  We recommend that you analyze your data and applications to assess the
-  impact of changing the time zone.
+## How RDS Custom creates your DB instance when you modify the instance class
 
-## Limitations for the time zone setting in RDS Custom for Oracle
+When you modify your instance class, RDS Custom creates your DB instance as follows:
 
-Note the following limitations:
+- Creates the Amazon EC2 instance.
+- Creates the root volume from the latest DB snapshot. RDS Custom for Oracle doesn't retain
+  information added to the root volume after the latest DB snapshot.
+- Creates Amazon CloudWatch alarms.
+- Creates an Amazon EC2 SSH key pair if you have deleted the original key pair.
+  Otherwise, RDS Custom for Oracle retains the original key pair.
+- Creates new resources using the tags that are attached to your DB instance when you
+  initiate the modification. RDS Custom doesn't transfer tags to the new resources when
+  they are attached directly to underlying resources.
+- Transfers the binary and data volumes with the most recent modifications to the
+  new DB instance.
+- Transfers the elastic IP address (EIP). If the DB instance is publicly accessible, then
+  RDS Custom temporarily attaches a public IP address to the new DB instance before transferring
+  the EIP. If the DB instance isn't publicly accessible, RDS Custom doesn't create public IP
+  addresses.
 
-- You can't change your timezone directly on your host without moving it
-  outside the support perimeter. To change your database timezone, you must
-  create an option group.
-- Because the time zone option is a persistent option (but not a permanent
-  option), you can't do the following:
-  - Remove the option from an option group after you add the
-    option.
-  - Modify the time zone setting of the option to a different time
-    zone.
+## Modifying your RDS Custom for Oracle DB instance
 
-- You can't associate multiple option groups with your RDS Custom for Oracle
-  DB instance.
-- You can't set the time zone for individual PDBs within a CDB.
+You can modify the DB instance class or storage using the console, AWS CLI, or RDS API.
 
-## Adding the time zone option to an option group
-
-The default option groups for RDS Custom for Oracle are the following:
-
-- `default:custom-oracle-ee`
-- `default:custom-oracle-se2`
-- `default:custom-oracle-ee-cdb`
-- `default:custom-oracle-se2-cdb`
-
-When you create an option group, the settings are derived from the default option
-group. For general information about option groups in Amazon RDS, see [Working with option groups](USER_WorkingWithOptionGroups.md "USER_WorkingWithOptionGroups.md").
-
-### Console
-
-###### To add the time zone option to an option group
+###### To modify an RDS Custom for Oracle DB instance
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Option
-   groups**.
-3. Choose the option group that you want to modify, and then choose
-   **Add option**.
-4. In the **Add option** window, do the following:
-   1. Choose **Timezone**.
-   2. In **Option settings**, choose a time
-      zone.
-   3. To enable the option on all associated RDS Custom for Oracle DB instances as
-      soon as you add it, for **Apply Immediately**,
-      choose **Yes**. If you choose
-      **No** (the default), the option is enabled
-      for each associated DB instances during its next maintenance
-      window.
-   4. ###### Important
+2. In the navigation pane, choose **Databases**.
+3. Choose the DB instance that you want to modify.
+4. Choose **Modify**.
+5. (Optional) In **Instance configuration**, choose a
+   value for **DB instance class**. For supported classes, see
+   [DB instance class support for RDS Custom for Oracle](custom-oracle-feature-support.md#custom-reqs-limits.instances "custom-oracle-feature-support.md#custom-reqs-limits.instances").
+6. (Optional) In **Storage**, make the following changes
+   as needed:
+   1. Enter a new value for **Allocated storage**.
+      It must be greater than the current value, and from 40
+      GiB–64 TiB.
+   2. Change the value for **Storage type** to
+      **General Purpose SSD (gp2)**,
+      **General Purpose SSD (gp3)**,
+      **Provisioned IOPS (io1)**, or
+      **Provisioned IOPS (io2)**.
+   3. If you specified a storage type other than **General
+      Purpose SSD (gp2)**, you can change the
+      **Provisioned IOPS** value.
 
-   If you add the time zone option to an existing option
-   group that is already attached to one or more DB instances, a
-   brief outage occurs while all the DB instances are automatically
-   restarted.
+7. (Optional) In **Additional configuration**, make the
+   following changes as needed:
+   1. For **Option group**, choose a new option
+      group. For more information, see [Working with option groups in RDS Custom for Oracle](custom-oracle-option-groups.md "custom-oracle-option-groups.md").
 
-5. When the settings are as you want them, choose **Add
-   option**.
-6. Back up the RDS Custom for Oracle DB instances whose time zones were updated. For more
-   information, see [Creating an RDS Custom for Oracle snapshot](custom-backup.md "custom-backup.md").
+8. Choose **Continue**.
+9. Choose **Apply immediately** or **Apply
+   during the next scheduled maintenance window**.
+10. Choose **Modify DB instance**.
+    To modify the storage for an RDS Custom for Oracle DB instance, use the [modify-db-instance](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md")
+    AWS CLI command. Set the following parameters as needed:
 
-### AWS CLI
+- `--db-instance-class` – A new instance class. For
+  supported classes, see [DB instance class support for RDS Custom for Oracle](custom-oracle-feature-support.md#custom-reqs-limits.instances "custom-oracle-feature-support.md#custom-reqs-limits.instances").
+- `--allocated-storage` – Amount of storage to be
+  allocated for the DB instance, in gibibytes. It must be greater than the
+  current value, and from 40–65,536 GiB.
+- `--storage-type` – The storage type: gp2, gp3, io1,
+  or io2.
+- `--iops` – Provisioned IOPS for the DB instance, if using
+  the io1, io2, or gp3 storage types.
+- `--apply-immediately` – Use
+  `--apply-immediately` to apply the storage changes
+  immediately.
 
-The following example uses the AWS CLI [add-option-to-option-group](../../../cli/latest/reference/rds/add-option-to-option-group.md "../../../cli/latest/reference/rds/add-option-to-option-group.md") command to add the `Timezone`
-option and the `TIME_ZONE` option setting to an option group called
-`testoptiongroup`. The time zone is set to
-`America/Los_Angeles`.
+Or use `--no-apply-immediately` (the default) to apply the
+changes during the next maintenance window.
+The following example changes the DB instance class of `my-cfo-instance`
+to `db.m5.16xlarge`. The command also changes the storage size to
+`1024` (1 TiB), storage type to `io2`, Provisioned
+IOPS to `3000`, and option group to `cfo-ee-19-mt`.
+
+###### Example
 
 For Linux, macOS, or Unix:
 
 ```
-aws rds add-option-to-option-group \
-    --option-group-name "`testoptiongroup`" \
-    --options "`OptionName=Timezone,OptionSettings=[{Name=TIME_ZONE,Value=America/Los_Angeles}]`" \
+aws rds modify-db-instance \
+    --db-instance-identifier `my-cfo-instance` \
+    --db-instance-class `db.m5.16xlarge` \
+    --storage-type `io2` \
+    --iops `3000` \
+    --allocated-storage `1024` \
+    --option-group `cfo-ee-19-mt` \
     --apply-immediately
 ```
 
 For Windows:
 
 ```
-aws rds add-option-to-option-group ^
-    --option-group-name "`testoptiongroup`" ^
-    --options "`OptionName=Timezone,OptionSettings=[{Name=TIME_ZONE,Value=America/Los_Angeles}]`" ^
+aws rds modify-db-instance ^
+    --db-instance-identifier `my-cfo-instance` ^
+    --db-instance-class `db.m5.16xlarge` ^
+    --storage-type `io2` ^
+    --iops `3000` ^
+    --allocated-storage `1024` ^
+    --option-group `cfo-ee-19-mt` ^
     --apply-immediately
 ```
-
-## Removing the time zone option
-
-The time zone option is a persistent option, but not a permanent option. You can't
-remove the option from an option group after you add it. To disassociate the old
-option group from your DB instance:
-
-1. Create a new option group with an updated `Timezone`
-   option.
-2. Associate the new option group with your DB instance when you modify the
-   instance.

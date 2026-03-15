@@ -1,34 +1,27 @@
-# Deleting messages
+# Viewing messages, logs, and attachments
 
-You use the `rds_sysmail_delete_mailitems_sp` stored procedure to delete messages.
+You use RDS stored procedures to view messages, event logs, and attachments.
 
-###### Note
+###### To view all email messages
 
-RDS automatically deletes mail table items when DBMail history data reaches 1 GB in size, with a retention period of at
-least 24 hours.
-
-If you want to keep mail items for a longer period, you can archive them. For more
-information, see [Create a SQL Server Agent job to archive Database Mail messages and event
-logs](https://docs.microsoft.com/en-us/sql/relational-databases/database-mail/create-a-sql-server-agent-job-to-archive-database-mail-messages-and-event-logs "https://docs.microsoft.com/en-us/sql/relational-databases/database-mail/create-a-sql-server-agent-job-to-archive-database-mail-messages-and-event-logs") in the Microsoft documentation.
-
-###### To delete all email messages
-
-- Use the following SQL statement.
+- Use the following SQL query.
 
 ```
-DECLARE @GETDATE datetime
-SET @GETDATE = GETDATE();
-EXECUTE msdb.dbo.rds_sysmail_delete_mailitems_sp @sent_before = @GETDATE;
-GO
+SELECT * FROM msdb.dbo.rds_fn_sysmail_allitems(); --WHERE sent_status='sent' or 'failed' or 'unsent'
 ```
 
-###### To delete all email messages with a particular status
+###### To view all email event logs
 
-- Use the following SQL statement to delete all failed messages.
+- Use the following SQL query.
 
 ```
-DECLARE @GETDATE datetime
-SET @GETDATE = GETDATE();
-EXECUTE msdb.dbo.rds_sysmail_delete_mailitems_sp @sent_status = 'failed';
-GO
+SELECT * FROM msdb.dbo.rds_fn_sysmail_event_log();
+```
+
+###### To view all email attachments
+
+- Use the following SQL query.
+
+```
+SELECT * FROM msdb.dbo.rds_fn_sysmail_mailattachments();
 ```

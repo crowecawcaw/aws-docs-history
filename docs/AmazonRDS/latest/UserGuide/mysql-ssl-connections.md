@@ -1,20 +1,25 @@
-# Encrypting client connections with SSL/TLS to MySQL DB instances on Amazon RDS
+# Requiring SSL/TLS for all connections to a MySQL DB instance on Amazon RDS
 
-Secure Sockets Layer (SSL) is an industry-standard protocol for securing network
-connections between client and server. After SSL version 3.0, the name was changed to
-Transport Layer Security (TLS). Amazon RDS supports SSL/TLS encryption for MySQL DB instances.
-Using SSL/TLS, you can encrypt a connection between your application client and your MySQL
-DB instance. SSL/TLS support is available in all AWS Regions for MySQL.
+Use the `require_secure_transport` parameter to require that all user
+connections to your MySQL DB instance use SSL/TLS. By default, the
+`require_secure_transport` parameter is set to `OFF`. You can
+set the `require_secure_transport` parameter to `ON` to require
+SSL/TLS for connections to your DB instance.
 
-With Amazon RDS, you can secure data in transit by encrypting client connections to MySQL DB
-instances with SSL/TLS, requiring SSL/TLS for all connections to a MySQL DB instance, and
-connecting from the MySQL command-line client with SSL/TLS (encrypted). The following
-sections provide guidance on configuring and utilizing SSL/TLS encryption for MySQL DB
-instances on Amazon RDS.
+You can set the `require_secure_transport` parameter value by updating the
+DB parameter group for your DB instance. You don't need to reboot your DB instance for
+the change to take effect.
 
-###### Topics
+When the `require_secure_transport` parameter is set to `ON` for
+a DB instance, a database client can connect to it if it can establish an encrypted
+connection. Otherwise, an error message similar to the following is returned to the
+client:
 
-- [SSL/TLS support for MySQL DB instances on Amazon RDS](MySQL.Concepts.md "MySQL.Concepts.md")
-- [Requiring SSL/TLS for specific user accounts to a MySQL DB instance on Amazon RDS](mysql-ssl-connections.md "mysql-ssl-connections.md")
-- [Requiring SSL/TLS for all connections to a MySQL DB instance on Amazon RDS](mysql-ssl-connections.md "mysql-ssl-connections.md")
-- [Connecting to your MySQL DB instance on Amazon RDS with SSL/TLS from the MySQL command-line client (encrypted)](USER_ConnectToInstanceSSL.md "USER_ConnectToInstanceSSL.md")
+```
+MySQL Error 3159 (HY000): Connections using insecure transport are prohibited while --require_secure_transport=ON.
+```
+
+For information about setting parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+
+For more information about the `require_secure_transport` parameter, see
+the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_require_secure_transport "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_require_secure_transport").

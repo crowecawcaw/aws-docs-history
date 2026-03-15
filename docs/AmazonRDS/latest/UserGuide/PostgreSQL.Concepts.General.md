@@ -1,36 +1,33 @@
-# Available PostgreSQL database versions
+# Working with PostgreSQL features supported by Amazon RDS for PostgreSQL
 
-Amazon RDS supports DB instances running several editions of PostgreSQL. You can specify
-any currently available PostgreSQL version when creating a new DB instance. You can
-specify the major version (such as PostgreSQL 14), and any available minor version for
-the specified major version. If no version is specified, Amazon RDS defaults to an available
-version, typically the most recent version. If a major version is specified but a minor
-version is not, Amazon RDS defaults to a recent release of the major version you have
-specified.
+Amazon RDS for PostgreSQL supports many of the most common PostgreSQL features. For example,
+PostgreSQL has an autovacuum feature that performs routine maintenance on the database.
+The autovacuum feature is active by default. Although you can turn off this feature, we
+highly recommend that you keep it on. Understanding this feature and what you can do to
+make sure it works as it should is a basic task of any DBA. For more information about
+the autovacuum, see [Working with PostgreSQL autovacuum on Amazon RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md"). To learn more about
+other common DBA tasks, [Common DBA tasks for Amazon RDS for PostgreSQL](Appendix.PostgreSQL.md "Appendix.PostgreSQL.md").
 
-To see a list of available versions, as well as defaults for newly created DB
-instances, use the [`describe-db-engine-versions`](../../../cli/latest/reference/rds/describe-db-engine-versions.md "../../../cli/latest/reference/rds/describe-db-engine-versions.md") AWS CLI command. For example, to
-display the default PostgreSQL engine version, use the following command:
+RDS for PostgreSQL also supports extensions that add important functionality to the DB
+instance. For example, you can use the PostGIS extension to work with spatial data, or
+use the pg_cron extension to schedule maintenance from within the instance. For more
+information about PostgreSQL extensions, see [Using PostgreSQL extensions with Amazon RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md").
 
-```
-aws rds describe-db-engine-versions --default-only --engine postgres
-```
+Foreign data wrappers are a specific type of extension designed to let your
+RDS for PostgreSQL DB instance work with other commercial databases or data types. For more
+information about foreign data wrappers supported by RDS for PostgreSQL, see [Working with the supported foreign data wrappers for Amazon RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Extensions.md "Appendix.PostgreSQL.CommonDBATasks.Extensions.md").
 
-For details about the PostgreSQL versions that are supported on Amazon RDS, see the [_Amazon RDS for PostgreSQL Release Notes_](../PostgreSQLReleaseNotes/Welcome.md "../PostgreSQLReleaseNotes/Welcome.md"). You can also view information
-about support dates for major engine versions by running the [describe-db-major-engine-versions](../../../cli/latest/reference/rds/describe-db-major-engine-versions.md "../../../cli/latest/reference/rds/describe-db-major-engine-versions.md") AWS CLI command or by using the [DescribeDBMajorEngineVersions](../APIReference/API_DescribeDBMajorEngineVersions.md "../APIReference/API_DescribeDBMajorEngineVersions.md") RDS API operation.
+Following, you can find information about some other features supported by
+RDS for PostgreSQL.
 
-If you aren't ready to manually upgrade to a new major engine version before the RDS
-end of standard support date, Amazon RDS will automatically enroll your databases in
-Amazon RDS Extended Support after the RDS end of standard support date. Then, you can continue to run
-RDS for PostgreSQL version 11 and higher. For more information, see [Amazon RDS Extended Support with Amazon RDS](extended-support.md "extended-support.md") and [Amazon RDS pricing](https://aws.amazon.com/rds/pricing/ "https://aws.amazon.com/rds/pricing/").
+###### Topics
 
-## Deprecated versions for Amazon RDS for PostgreSQL
-
-Note the following deprecated versions:
-
-- RDS for PostgreSQL 10 was deprecated in February 2023.
-- RDS for PostgreSQL 9.6 was deprecated in March 2022.
-- RDS for PostgreSQL 9.5 was deprecated in March 2021.
-
-To learn more about deprecation policy for RDS for PostgreSQL, see [Amazon RDS FAQs](https://aws.amazon.com/rds/faqs/ "https://aws.amazon.com/rds/faqs/"). For more information about
-PostgreSQL versions, see [Versioning Policy](https://www.postgresql.org/support/versioning/ "https://www.postgresql.org/support/versioning/") in the PostgreSQL documentation.
+- [Custom data types and enumerations with RDS for PostgreSQL](PostgreSQL.Concepts.General.FeatureSupport.md "PostgreSQL.Concepts.General.FeatureSupport.md")
+- [Event triggers for RDS for PostgreSQL](PostgreSQL.Concepts.General.FeatureSupport.md "PostgreSQL.Concepts.General.FeatureSupport.md")
+- [Huge pages for RDS for PostgreSQL](PostgreSQL.Concepts.General.FeatureSupport.md "PostgreSQL.Concepts.General.FeatureSupport.md")
+- [Performing logical replication for Amazon RDS for PostgreSQL](PostgreSQL.Concepts.General.FeatureSupport.md "PostgreSQL.Concepts.General.FeatureSupport.md")
+- [Configuring IAM authentication for logical replication connections](PostgreSQL.Concepts.General.FeatureSupport.md "PostgreSQL.Concepts.General.FeatureSupport.md")
+- [RAM disk for the stats_temp_directory](PostgreSQL.Concepts.General.FeatureSupport.md "PostgreSQL.Concepts.General.FeatureSupport.md")
+- [Tablespaces for RDS for PostgreSQL](PostgreSQL.Concepts.General.FeatureSupport.md "PostgreSQL.Concepts.General.FeatureSupport.md")
+- [RDS for PostgreSQL collations for EBCDIC and other mainframe migrations](PostgreSQL.Collations.mainframe.md "PostgreSQL.Collations.mainframe.md")
+- [Managing logical slot synchronization for RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.pglogical.slot.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.slot.md")

@@ -1,41 +1,99 @@
-# Turning off TDE for RDS for SQL Server
+# Backing up and restoring TDE certificates for on-premises databases
 
-To turn off TDE for an RDS for SQL Server DB instance, first make sure that there are no
-encrypted objects left on the DB instance. To do so, either decrypt the objects or drop
-them. If any encrypted objects exist on the DB instance, you can't turn off TDE for
-the DB instance. When you use the console to remove the TDE option from an option group,
-the console indicates that it's processing. In addition, an error event is created if
-the option group is associated with an encrypted DB instance or DB snapshot.
+You can back up TDE certificates for on-premises databases, then later restore them
+to RDS for SQL Server. You can also restore an RDS for SQL Server TDE certificate to an on-premises DB
+instance.
 
-The following example removes the TDE encryption from a database called `customerDatabase`.
+###### Note
+
+RDS for SQL Server does not support using cross-account keys for TDE.
+
+The following procedure backs up a TDE certificate and private key. The private key is encrypted using a data key
+generated from your symmetric encryption KMS key.
+
+###### To back up an on-premises TDE certificate
+
+1. Generate the data key using the AWS CLI [generate-data-key](../../../cli/latest/reference/kms/generate-data-key.md "../../../cli/latest/reference/kms/generate-data-key.md") command.
 
 ```
-------------- Removing TDE ----------------
-
-USE [customerDatabase]
-GO
-
--- Turn off encryption of the database
-ALTER DATABASE [customerDatabase]
-SET ENCRYPTION OFF
-GO
-
--- Wait until the encryption state of the database becomes 1. The state is 5 (Decryption in progress) for a while
-SELECT db_name(database_id) as DatabaseName, * FROM sys.dm_database_encryption_keys
-GO
-
--- Drop the DEK used for encryption
-DROP DATABASE ENCRYPTION KEY
-GO
-
--- Alter to SIMPLE Recovery mode so that your encrypted log gets truncated
-USE [master]
-GO
-ALTER DATABASE [customerDatabase] SET RECOVERY SIMPLE
-GO
+aws kms generate-data-key \
+    --key-id `my_KMS_key_ID` \
+    --key-spec AES_256
 ```
 
-When all objects are decrypted, you have two options:
+The output resembles the following.
 
-1. You can modify the DB instance to be associated with an option group without the TDE option.
-2. You can remove the TDE option from the option group.
+```
+{
+"CiphertextBlob": "AQIDAHimL2NEoAlOY6Bn7LJfnxi/OZe9kTQo/XQXduug1rmerwGiL7g5ux4av9GfZLxYTDATAAAAfjB8BgkqhkiG9w0B
+BwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMyCxLMi7GRZgKqD65AgEQgDtjvZLJo2cQ31Vetngzm2ybHDc3d2vI74SRUzZ
+2RezQy3sAS6ZHrCjfnfn0c65bFdhsXxjSMnudIY7AKw==",
+"Plaintext": "`U/fpGtmzGCYBi8A2+0/9qcRQRK2zmG/aOn939ZnKi/0=`",
+"KeyId": "arn:aws:kms:us-west-2:`123456789012`:key/`1234abcd-00ee-99ff-88dd-aa11bb22cc33`"
+}
+```
+
+You use the plain text output in the next step as the private key password. 2. Back up your TDE certificate as shown in the following example.
+
+```
+BACKUP CERTIFICATE `myOnPremTDEcertificate` TO FILE = 'D:\`tde-cert-backup`.cer'
+WITH PRIVATE KEY (
+FILE = 'C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER\MSSQL\DATA\`cert-backup-key`.pvk',
+ENCRYPTION BY PASSWORD = 'U/fpGtmzGCYBi8A2+0/9qcRQRK2zmG/aOn939ZnKi/0=');
+```
+
+3.  Save the certificate backup file to your Amazon S3 certificate bucket.
+4.  Save the private key backup file to your S3 certificate bucket, with the following tag in the file's
+    metadata:
+
+        * Key – `x-amz-meta-rds-tde-pwd`
+        * Value – The `CiphertextBlob` value from generating
+         the data key, as in the following example.
+
+
+
+        ```
+        AQIDAHimL2NEoAlOY6Bn7LJfnxi/OZe9kTQo/XQXduug1rmerwGiL7g5ux4av9GfZLxYTDATAAAAfjB8BgkqhkiG9w0B
+        BwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMyCxLMi7GRZgKqD65AgEQgDtjvZLJo2cQ31Vetngzm2ybHDc3d2vI74SRUzZ
+        2RezQy3sAS6ZHrCjfnfn0c65bFdhsXxjSMnudIY7AKw==
+        ```
+
+    The following procedure restores an RDS for SQL Server TDE certificate to an on-premises DB
+    instance. You copy and restore the TDE certificate on your destination DB instance using
+    the certificate backup, corresponding private key file, and data key. The restored
+    certificate is encrypted by the database master key of the new server.
+
+###### To restore a TDE certificate
+
+1. Copy the TDE certificate backup file and private key file from Amazon S3 to the destination instance.
+   For more information on copying files from Amazon S3, see [Transferring files between RDS for SQL Server and Amazon S3](Appendix.SQLServer.Options.S3-integration.md "Appendix.SQLServer.Options.S3-integration.md").
+2. Use your KMS key to decrypt the output cipher text to retrieve the plain text of the data key. The cipher text is
+   located in the S3 metadata of the private key backup file.
+
+```
+aws kms decrypt \
+    --key-id `my_KMS_key_ID` \
+    --ciphertext-blob fileb://`exampleCiphertextFile` | base64 -d \
+    --output text \
+    --query Plaintext
+```
+
+You use the plain text output in the next step as the private key password. 3. Use the following SQL command to restore your TDE certificate.
+
+```
+CREATE CERTIFICATE `myOnPremTDEcertificate` FROM FILE='D:\`tde-cert-backup`.cer'
+WITH PRIVATE KEY (FILE = N'D:\`tde-cert-key`.pvk',
+DECRYPTION BY PASSWORD = '`plain_text_output`');
+```
+
+For more information on KMS decryption, see [decrypt](../../../cli/latest/reference/kms/decrypt.md "../../../cli/latest/reference/kms/decrypt.md") in the KMS section of the _AWS CLI Command Reference_.
+
+After the TDE certificate is restored on the destination DB instance, you can restore
+encrypted databases with that certificate.
+
+###### Note
+
+You can use the same TDE certificate to encrypt multiple SQL Server databases on
+the source DB instance. To migrate multiple databases to a destination instance,
+copy the TDE certificate associated with them to the destination instance only
+once.

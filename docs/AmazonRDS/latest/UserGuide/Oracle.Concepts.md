@@ -1,46 +1,169 @@
-# RDS for Oracle users and privileges
+# RDS for Oracle features
 
-When you create an Amazon RDS for Oracle DB instance, the default master user has most of the maximum
-user permissions on the DB instance. Use the master user account for any administrative tasks,
-such as creating additional user accounts in your database. Because RDS is a managed
-service, you aren't allowed to log in as `SYS` and `SYSTEM`, and thus
-don't have `SYSDBA` privileges.
+Amazon RDS for Oracle supports most of the features and capabilities of Oracle Database. Some features might have limited support or restricted
+privileges. Some features are only available in Enterprise Edition, and some require additional licenses. For more information about Oracle
+Database features for specific Oracle Database versions, see the _Oracle Database Licensing Information User Manual_ for
+the version you're using.
 
 ###### Topics
 
-- [Limitations for Oracle DBA privileges](#Oracle.Concepts.dba-limitations "#Oracle.Concepts.dba-limitations")
-- [How to manage privileges on SYS objects](#Oracle.Concepts.Privileges.SYS-objects "#Oracle.Concepts.Privileges.SYS-objects")
+- [New features in RDS for Oracle](#Oracle.Concepts.FeatureSupport.new "#Oracle.Concepts.FeatureSupport.new")
+- [Supported features in RDS for Oracle](#Oracle.Concepts.FeatureSupport.supported "#Oracle.Concepts.FeatureSupport.supported")
+- [Unsupported features in RDS for Oracle](#Oracle.Concepts.FeatureSupport.unsupported "#Oracle.Concepts.FeatureSupport.unsupported")
 
-## Limitations for Oracle DBA privileges
+## New features in RDS for Oracle
 
-In the database, a _role_ is a collection of privileges that you can
-grant to or revoke from a user. An Oracle database uses roles to provide security. For more
-information, see [Configuring Privilege and Role Authorization](https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/configuring-privilege-and-role-authorization.html#GUID-89CE989D-C97F-4CFD-941F-18203090A1AC "https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/configuring-privilege-and-role-authorization.html#GUID-89CE989D-C97F-4CFD-941F-18203090A1AC") in the Oracle Database
+To see new features in RDS for Oracle, search [Document history](WhatsNew.md "WhatsNew.md") for the keyword
+`Oracle`.
+
+## Supported features in RDS for Oracle
+
+Amazon RDS for Oracle supports the following Oracle Database features:
+
+###### Note
+
+The following list isn't exhaustive.
+
+- Advanced Compression
+- Oracle Application Express (APEX)
+
+For more information, see [Oracle Application Express (APEX)](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md").
+
+- Automatic Memory Management
+- Automatic Undo Management
+- Automatic Workload Repository (AWR)
+
+For more information, see [Generating performance reports with Automatic Workload Repository (AWR)](Appendix.Oracle.CommonDBATasks.md "Appendix.Oracle.CommonDBATasks.md").
+
+- Active Data Guard with Maximum Performance in the same AWS Region or across AWS Regions
+
+For more information, see [Working with read replicas for Amazon RDS for Oracle](oracle-read-replicas.md "oracle-read-replicas.md").
+
+- Blockchain tables (Oracle Database 21c and higher)
+
+For more information, see [Managing Blockchain Tables](https://docs.oracle.com/en/database/oracle/oracle-database/21/admin/managing-tables.html#GUID-43470B0C-DE4A-4640-9278-B066901C3926 "https://docs.oracle.com/en/database/oracle/oracle-database/21/admin/managing-tables.html#GUID-43470B0C-DE4A-4640-9278-B066901C3926") in the Oracle Database documentation.
+
+- Continuous Query Notification
+
+For more information, see [Using Continuous Query Notification (CQN)](https://docs.oracle.com/en/database/oracle/oracle-database/19/adfns/cqn.html#GUID-373BAF72-3E63-42FE-8BEA-8A2AEFBF1C35 "https://docs.oracle.com/en/database/oracle/oracle-database/19/adfns/cqn.html#GUID-373BAF72-3E63-42FE-8BEA-8A2AEFBF1C35") in the Oracle documentation.
+
+- Data Redaction
+- Continuous Query Notification
+
+For more information, see [Database
+Change Notification](https://docs.oracle.com/cd/E11882_01/java.112/e16548/dbchgnf.htm#JJDBC28815 "https://docs.oracle.com/cd/E11882_01/java.112/e16548/dbchgnf.htm#JJDBC28815") in the Oracle documentation.
+
+- Database In-Memory
+- Distributed Queries and Transactions
+- Edition-Based Redefinition
+
+For more information, see [Setting the default edition for a DB instance](Appendix.Oracle.CommonDBATasks.md "Appendix.Oracle.CommonDBATasks.md").
+
+- EM Express (12c and higher)
+
+For more information, see [Oracle Enterprise Manager](Oracle.Options.md "Oracle.Options.md").
+
+- Fine-Grained Auditing
+- Flashback Table, Flashback Query, Flashback Transaction Query
+- Gradual password rollover for applications (Oracle Database 21c and higher)
+
+For more information, see [Managing Gradual Database Password Rollover for Applications](https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/configuring-authentication.html#GUID-ACBA8DAE-C5B4-4811-A31D-53B97C50249B "https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/configuring-authentication.html#GUID-ACBA8DAE-C5B4-4811-A31D-53B97C50249B") in the Oracle Database
 documentation.
 
-The predefined role `DBA` normally allows all administrative privileges on an
-Oracle database. When you create a DB instance, your master user account gets DBA privileges
-(with some limitations). To deliver a managed experience, an RDS for Oracle database doesn't
-provide the following privileges for the `DBA` role:
+- HugePages
 
-- `ALTER DATABASE`
-- `ALTER SYSTEM`
-- `CREATE ANY DIRECTORY`
-- `DROP ANY DIRECTORY`
-- `GRANT ANY PRIVILEGE`
-- `GRANT ANY ROLE`
+For more information, see [Turning on HugePages for an RDS for Oracle instance](Oracle.Concepts.md "Oracle.Concepts.md").
 
-For more RDS for Oracle system privilege and role information, see [Master user account privileges](UsingWithRDS.md "UsingWithRDS.md").
+- Import/export (legacy and Data Pump) and SQL\*Loader
 
-## How to manage privileges on SYS objects
+For more information, see [Importing data into Oracle on Amazon RDS](Oracle.Procedural.md "Oracle.Procedural.md").
 
-You can manage privileges on `SYS` objects by using the
-`rdsadmin.rdsadmin_util` package. For example, if you create the database
-user `myuser`, you could use the
-`rdsadmin.rdsadmin_util.grant_sys_object` procedure to grant
-`SELECT` privileges on `V_$SQLAREA` to `myuser`.
-For more information, see the following topics:
+- Java Virtual Machine (JVM)
 
-- [Granting SELECT or EXECUTE privileges to SYS objects](Appendix.Oracle.CommonDBATasks.md "Appendix.Oracle.CommonDBATasks.md")
-- [Revoking SELECT or EXECUTE privileges on SYS objects](Appendix.Oracle.CommonDBATasks.md "Appendix.Oracle.CommonDBATasks.md")
-- [Granting privileges to non-master users](Appendix.Oracle.CommonDBATasks.md "Appendix.Oracle.CommonDBATasks.md")
+For more information, see [Oracle Java virtual machine](oracle-options-java.md "oracle-options-java.md").
+
+- JavaScript (Oracle Database 21c and higher)
+
+For more information, see [DBMS_MLE](https://docs.oracle.com/en/database/oracle/oracle-database/21/arpls/dbms_mle.html#GUID-3F5B47A5-2C73-4317-ACD7-E93AE8B8E301 "https://docs.oracle.com/en/database/oracle/oracle-database/21/arpls/dbms_mle.html#GUID-3F5B47A5-2C73-4317-ACD7-E93AE8B8E301") in the Oracle Database documentation.
+
+- Label Security
+
+For more information, see [Oracle Label Security](Oracle.Options.md "Oracle.Options.md").
+
+- Locator
+
+For more information, see [Oracle Locator](Oracle.Options.md "Oracle.Options.md").
+
+- Materialized Views
+- Multitenant
+
+The Oracle multitenant architecture is supported for all Oracle Database 19c
+and higher releases. For more information, see [Working with CDBs in RDS for Oracle](oracle-multitenant.md "oracle-multitenant.md").
+
+- Network encryption
+
+For more information, see [Oracle native network encryption](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md") and [Oracle Secure Sockets Layer](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md").
+
+- Partitioning
+- Real Application Testing
+
+To use the full capture and replay capabilities, you must use Amazon Elastic File System
+(Amazon EFS) to access files generated by Oracle Real Application Testing. For more
+information, see [Amazon EFS integration](oracle-efs-integration.md "oracle-efs-integration.md") and the blog post [Use Oracle Real Application Testing features with
+Amazon RDS for Oracle](https://aws.amazon.com/blogs/database/use-oracle-real-application-testing-features-with-amazon-rds-for-oracle/ "https://aws.amazon.com/blogs/database/use-oracle-real-application-testing-features-with-amazon-rds-for-oracle/").
+
+- Sharding at the application level (but not the Oracle Sharding feature)
+- Spatial and Graph
+
+For more information, see [Oracle Spatial](Oracle.Options.md "Oracle.Options.md").
+
+- Star Query Optimization
+- Streams and Advanced Queuing
+- Summary Management – Materialized View Query Rewrite
+- Text (File and URL data store types are not supported)
+- Total Recall
+- Transparent Data Encryption (TDE)
+
+For more information, see [Oracle Transparent Data Encryption](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md").
+
+- Unified Auditing, Mixed Mode
+
+For more information, see [Mixed mode auditing](https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/introduction-to-auditing.html#GUID-4A3AEFC3-5422-4320-A048-8219EC96EAC1 "https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/introduction-to-auditing.html#GUID-4A3AEFC3-5422-4320-A048-8219EC96EAC1") in the Oracle documentation.
+
+- XML DB (without the XML DB Protocol Server)
+
+For more information, see [Oracle XML DB](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md").
+
+- Virtual Private Database
+
+## Unsupported features in RDS for Oracle
+
+Amazon RDS for Oracle doesn't support the following Oracle Database features:
+
+###### Note
+
+The following list isn't exhaustive.
+
+- Automatic Storage Management (ASM)
+- Database Vault
+- Flashback Database
+
+###### Note
+
+For alternative solutions, see the AWS Database Blog entry [Alternatives to the Oracle flashback database feature in
+Amazon RDS for Oracle](https://aws.amazon.com/blogs/database/alternatives-to-the-oracle-flashback-database-feature-in-amazon-rds-for-oracle/ "https://aws.amazon.com/blogs/database/alternatives-to-the-oracle-flashback-database-feature-in-amazon-rds-for-oracle/").
+
+- FTP and SFTP
+- Hybrid partitioned tables
+- Messaging Gateway
+- Oracle Enterprise Manager Cloud Control Management Repository
+- Real Application Clusters (Oracle RAC)
+- Real Application Security (RAS)
+- Unified Auditing, Pure Mode
+- Workspace Manager (WMSYS) schema
+
+###### Warning
+
+In general, Amazon RDS doesn't prevent you from creating schemas for unsupported features. However, if you create schemas for
+Oracle features and components that require SYSDBA privileges, you can damage the data dictionary and affect the availability of your
+DB instance. Use only supported features and schemas that are available in [Adding options to Oracle DB instances](Appendix.Oracle.md "Appendix.Oracle.md").

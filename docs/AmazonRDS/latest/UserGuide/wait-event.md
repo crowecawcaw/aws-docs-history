@@ -1,128 +1,119 @@
-# Lock:Relation
-
-The `Lock:Relation` event occurs when a query is waiting to acquire a lock on a table or view
-(relation) that's currently locked by another transaction.
+# IO:WALWrite
 
 ###### Topics
 
-- [Supported engine versions](#wait-event.lockrelation.context.supported "#wait-event.lockrelation.context.supported")
-- [Context](#wait-event.lockrelation.context "#wait-event.lockrelation.context")
-- [Likely causes of increased waits](#wait-event.lockrelation.causes "#wait-event.lockrelation.causes")
-- [Actions](#wait-event.lockrelation.actions "#wait-event.lockrelation.actions")
+- [Supported engine versions](#wait-event.iowalwrite.context.supported "#wait-event.iowalwrite.context.supported")
+- [Context](#wait-event.iowalwrite.context "#wait-event.iowalwrite.context")
+- [Likely causes of increased waits](#wait-event.iowalwrite.causes "#wait-event.iowalwrite.causes")
+- [Actions](#wait-event.iowalwrite.actions "#wait-event.iowalwrite.actions")
 
 ## Supported engine versions
 
-This wait event information is supported for all versions of
-RDS for PostgreSQL.
+This wait event information is supported for all versions of RDS for PostgreSQL 10 and higher.
 
 ## Context
 
-Most PostgreSQL commands implicitly use locks to control concurrent access to
-data in tables. You can also use these locks explicitly in your application code with
-the `LOCK` command. Many lock modes aren't compatible with each other, and
-they can block transactions when they're trying to access the same object. When this
-happens, RDS for PostgreSQL generates a `Lock:Relation` event. Some common
-examples are the following:
-
-- Exclusive locks such as `ACCESS EXCLUSIVE` can block all concurrent access. Data
-  definition language (DDL) operations such as `DROP TABLE`,
-  `TRUNCATE`, `VACUUM FULL`, and `CLUSTER`
-  acquire `ACCESS EXCLUSIVE` locks implicitly. `ACCESS
-EXCLUSIVE` is also the default lock mode for `LOCK TABLE`
-  statements that don't specify a mode explicitly.
-- Using `CREATE INDEX (without CONCURRENT)` on a table conflicts with data
-  manipulation language (DML) statements `UPDATE`, `DELETE`,
-  and `INSERT`, which acquire `ROW EXCLUSIVE` locks.
-
-For more information about table-level locks and conflicting lock modes, see
-[Explicit
-Locking](https://www.postgresql.org/docs/13/explicit-locking.html "https://www.postgresql.org/docs/13/explicit-locking.html") in the PostgreSQL documentation.
-
-Blocking queries and transactions typically unblock in one of the following
-ways:
-
-- Blocking query – The application can cancel the query or the user can end the process.
-  The engine can also force the query to end because of a session's
-  statement-timeout or a deadlock detection mechanism.
-- Blocking transaction – A transaction stops blocking when it runs a `ROLLBACK`
-  or `COMMIT` statement. Rollbacks also happen automatically when
-  sessions are disconnected by a client or by network issues, or are ended.
-  Sessions can be ended when the database engine is shut down, when the system is
-  out of memory, and so forth.
+Activity in the database that's generating write-ahead log data fills up the
+WAL buffers first and then writes to disk, asynchronously. The wait event `IO:WALWrite` is generated
+when the SQL session is waiting for the WAL data to complete writing to disk so that it can
+release the transaction's COMMIT call.
 
 ## Likely causes of increased waits
 
-When the `Lock:Relation` event occurs more frequently than normal, it can indicate a performance issue. Typical
-causes include the following:
+If this wait event occurs often, you should review your workload and the
+type of updates that your workload performs and their frequency. In particular,
+look for the following types of activity.
 
-**Increased concurrent sessions with conflicting table locks**
+**Heavy DML activity**
 
-There might be an increase in the number of concurrent sessions
-with queries that lock the same table with conflicting locking modes.
+Changing data in database tables doesn't happen instantaneously. An insert to one table
+might need to wait for an insert or an update to the
+same table from another client. The data manipulation language (DML) statements
+for changing data values (INSERT, UPDATE, DELETE, COMMIT, ROLLBACK TRANSACTION)
+can result in contention that causes the write-ahead logfile to be waiting for
+the buffers to be flushed. This situation is captured in the following
+Amazon RDS Performance Insights metrics that indicate heavy DML activity.
 
-**Maintenance operations**
+- `tup_inserted`
+- `tup_updated`
+- `tup_deleted`
+- `xact_rollback`
+- `xact_commit`
 
-Health maintenance operations such as `VACUUM` and
-`ANALYZE` can significantly increase the number of
-conflicting locks. `VACUUM FULL` acquires an `ACCESS
- EXCLUSIVE` lock, and `ANALYSE` acquires a `SHARE
- UPDATE EXCLUSIVE` lock. Both types of locks can cause a
-`Lock:Relation` wait event. Application data maintenance
-operations such as refreshing a materialized view can also increase blocked
-queries and transactions.
+For more information about these metrics,
+see [Performance Insights counters for Amazon RDS for PostgreSQL](USER_PerfInsights_Counters.md#USER_PerfInsights_Counters.PostgreSQL "USER_PerfInsights_Counters.md#USER_PerfInsights_Counters.PostgreSQL").
 
-**Locks on reader instances**
+**Frequent checkpoint activity**
 
-There might be a conflict between the relation locks held by the writer and
-readers. Currently, only `ACCESS EXCLUSIVE`
-relation locks are replicated to reader instances. However, the `ACCESS
- EXCLUSIVE` relation lock will conflict with any `ACCESS SHARE` relation locks held
-by the reader. This can cause an increase in lock relation wait events
-on the reader.
+Frequent checkpoints contribute to a higher number of WAL files. In RDS for PostgreSQL,
+full page writes are always "on." Full page writes help protect
+against data loss. However, when checkpointing occurs too
+frequently, the system can suffer overall performance issues. This
+is especially true on systems with heavy DML activity.
+In some cases, you might find error messages in your `postgresql.log`
+stating that “checkpoints are occurring too frequently."
+
+We recommend that when tuning checkpoints, you carefully balance
+performance against expected time need to recover in the event of an abnormal
+shutdown.
 
 ## Actions
 
-We recommend different actions depending on the causes of your wait event.
+We recommend the following actions to reduce the numbers of this wait event.
 
 ###### Topics
 
-- [Reduce the impact of blocking SQL statements](#wait-event.lockrelation.actions.reduce-blocks "#wait-event.lockrelation.actions.reduce-blocks")
-- [Minimize the effect of maintenance operations](#wait-event.lockrelation.actions.maintenance "#wait-event.lockrelation.actions.maintenance")
+- [Reduce the number of commits](#wait-event.iowalwrite.actions.problem "#wait-event.iowalwrite.actions.problem")
+- [Monitor your checkpoints](#wait-event.iowalwrite.actions.monitor "#wait-event.iowalwrite.actions.monitor")
+- [Scale up IO](#wait-event.iowalwrite.actions.scale-io "#wait-event.iowalwrite.actions.scale-io")
+- [Dedicated log volume (DLV)](#wait-event.iowalwrite.actions.dlv "#wait-event.iowalwrite.actions.dlv")
 
-### Reduce the impact of blocking SQL statements
+### Reduce the number of commits
 
-To reduce the impact of blocking SQL statements, modify your application
-code where possible. Following are two common techniques for reducing blocks:
+To reduce the number of commits, you can combine statements
+into transaction blocks. Use Amazon RDS Performance Insights to examine
+the type of queries being run. You can also move
+large maintenance operations to off-peak hours. For example,
+create indexes or use `pg_repack`
+operations during non-production hours.
 
-- Use the `NOWAIT` option – Some SQL commands, such as `SELECT` and
-  `LOCK` statements, support this option. The
-  `NOWAIT` directive cancels the lock-requesting query if the
-  lock can't be acquired immediately. This technique can help prevent a
-  blocking session from causing a pile-up of blocked sessions behind
-  it.
+### Monitor your checkpoints
 
-For example: Assume that transaction A is waiting on a lock held
-by transaction B. Now, if B requests a lock on a
-table that’s locked by transaction C, transaction A might be blocked until
-transaction C completes. But if transaction B uses a `NOWAIT`
-when it requests the lock on C, it can fail fast and ensure that transaction
-A doesn't have to wait indefinitely.
+There are two parameters that you can monitor to see how frequently your RDS for PostgreSQL DB instance
+is writing to the WAL file for checkpoints.
 
-- Use `SET lock_timeout` – Set a `lock_timeout` value to limit the
-  time a SQL statement waits to acquire a lock on a relation. If the lock
-  isn't acquired within the timeout specified, the transaction requesting
-  the lock is cancelled. Set this value at the session level.
+- `log_checkpoints` – This parameter is set to "on" by default. It causes
+  a message to get sent to the PostgreSQL log for each checkpoint. These log messages include the
+  number of buffers written, the time spent writing them, and the number of WAL files added, removed, or
+  recycled for the given checkpoint.
 
-### Minimize the effect of maintenance operations
+For more information about this parameter, see [Error
+Reporting and Logging](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-CHECKPOINTS "https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-CHECKPOINTS")
+in the PostgreSQL documentation.
 
-Maintenance operations such as `VACUUM` and
-`ANALYZE` are important. We recommend that you don't turn them
-off because you find `Lock:Relation` wait events related to these
-maintenance operations. The following approaches can minimize the effect of these
-operations:
+- `checkpoint_warning` – This parameter sets a threshold value (in seconds)
+  for checkpoint frequency above which a warning is generated. By default, this parameter isn't set in RDS for PostgreSQL.
+  You can set the value of this parameter to get a warning when the database changes in your RDS for PostgreSQL DB instance are written at a rate
+  for which the WAL files are not sized to handle. For example, say you set this
+  parameter to 30. If your RDS for PostgreSQL instance needs to
+  write changes more often than every 30 seconds, the warning that
+  "checkpoints are occurring too frequently" is sent to the PostgreSQL log. This can indicate
+  that your `max_wal_size` value should be increased.
 
-- Run maintenance operations manually during off-peak hours.
-- To reduce `Lock:Relation` waits caused by autovacuum tasks, perform any needed
-  autovacuum tuning. For information about tuning autovacuum, see
-  [Working with PostgreSQL autovacuum on Amazon RDS](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md") in the
-  _Amazon RDS User Guide_.
+For more information, see
+[Write Ahead Log](https://www.postgresql.org/docs/current/runtime-config-wal.html#RUNTIME-CONFIG-WAL-CHECKPOINTS "https://www.postgresql.org/docs/current/runtime-config-wal.html#RUNTIME-CONFIG-WAL-CHECKPOINTS") in the
+PostgreSQL documentation.
+
+### Scale up IO
+
+This type of input/output (IO) wait event can remediated by scaling the input/output operations per second
+(IOPs) to provide faster IO. Scaling IO is preferable to scaling CPU, because scaling CPU
+can result in even more IO contention because the increased CPU can handle more work and thus make
+the IO bottleneck even worse. In general, we recommend that you
+consider tuning your workload before performing scaling operations.
+
+### Dedicated log volume (DLV)
+
+You can use a dedicated log volume (DLV) for a DB instance that uses Provisioned IOPS (PIOPS) storage by using the Amazon RDS console,
+AWS CLI, or Amazon RDS API. A DLV moves PostgreSQL database transaction logs to a storage volume that's separate from the volume containing the
+database tables. For more information, see [Dedicated log volume (DLV)](CHAP_Storage.md#CHAP_Storage.dlv "CHAP_Storage.md#CHAP_Storage.dlv").

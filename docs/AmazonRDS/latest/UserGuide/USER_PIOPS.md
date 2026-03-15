@@ -1,23 +1,89 @@
-# Working with storage for Amazon RDS DB instances
+# Modifying settings for General Purpose SSD (gp3) storage
 
-To specify how you want your data stored in Amazon RDS, choose a storage type and provide a
-storage size when you create or modify a DB instance. Later, you can increase the amount or
-change the type of storage by modifying the DB instance. For more information about which
-storage type to use for your workload, see [Amazon RDS storage types](CHAP_Storage.md#Concepts.Storage "CHAP_Storage.md#Concepts.Storage").
+You can modify the settings for a DB instance that uses General Purpose SSD (gp3)
+storage by using the Amazon RDS console, AWS CLI, or Amazon RDS API. Specify the storage type,
+allocated storage, amount of Provisioned IOPS, and storage throughput that you
+require.
 
-If your instances run RDS for Oracle or RDS for SQL Server, you can add up to three additional volumes to each
-DB instance. You can choose either gp3 or io2 as the volume type, allowing you to optimize costs
-and performance based on your data access patterns. The maximum storage capacity of a DB instance that uses additional volumes is
-256 TiB.
+Although you can reduce the amount of Provisioned IOPS and storage throughput for your
+DB instance, you can't reduce the storage size.
 
-###### Topics
+In most cases, scaling storage doesn't require any outage. After you modify the storage IOPS for a DB instance, the
+status of the DB instance is **storage-optimization**. You can expect elevated latencies, but still within the
+single-digit millisecond range, during storage optimization. The DB instance is fully operational after a storage
+modification.
 
-- [Viewing storage volume details for your DB instance](rds-storage-viewing.md "rds-storage-viewing.md")
-- [Increasing DB instance storage capacity](USER_PIOPS.md "USER_PIOPS.md")
-- [Removing additional storage volumes](USER_PIOPS.md "USER_PIOPS.md")
-- [Managing capacity automatically with Amazon RDS storage autoscaling](USER_PIOPS.md "USER_PIOPS.md")
-- [Upgrading the storage file system for a DB instance](USER_PIOPS.md "USER_PIOPS.md")
-- [Modifying settings for Provisioned IOPS SSD storage](User_PIOPS.md "User_PIOPS.md")
-- [I/O-intensive storage modifications](USER_PIOPS.md "USER_PIOPS.md")
-- [Modifying settings for General Purpose SSD (gp3) storage](USER_PIOPS.md "USER_PIOPS.md")
-- [Using a dedicated log volume (DLV)](USER_PIOPS.md "USER_PIOPS.md")
+###### Note
+
+You can't make further storage modifications until six (6) hours after storage optimization has completed on the
+instance.
+
+For information on the ranges of allocated storage, Provisioned IOPS, and storage throughput available for each database
+engine, see [gp3 storage (recommended)](CHAP_Storage.md#gp3-storage "CHAP_Storage.md#gp3-storage").
+
+###### To change the storage performance settings for a DB instance
+
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Databases**.
+
+To filter the list of DB instances, for **Filter
+databases** enter a text string for Amazon RDS to use to filter
+the results. Only DB instances whose names contain the string
+appear. 3. Choose the DB instance with gp3 storage that you want to modify. 4. Choose **Modify**. 5. On the **Modify DB instance page**, choose **General Purpose SSD (gp3)** for
+**Storage type**, then do the following:
+
+    1. For **Provisioned IOPS**, choose a
+     value.
+
+
+    If the value that you specify for either **Allocated
+     storage** or **Provisioned IOPS**
+     is outside the limits supported by the other parameter, a
+     warning message appears. This message gives the range of values
+     required for the other parameter.
+    2. For **Storage throughput**, choose a
+     value.
+
+
+    If the value that you specify for either **Provisioned
+     IOPS** or **Storage throughput**
+     is outside the limits supported by the other parameter, a
+     warning message appears. This message gives the range of values
+     required for the other parameter.
+
+6. Choose **Continue**.
+7. Choose **Apply immediately** in the
+   **Scheduling of modifications** section to apply
+   the changes to the DB instance immediately. Or choose **Apply
+   during the next scheduled maintenance window** to apply the
+   changes during the next maintenance window.
+8. Review the parameters to be changed, and choose **Modify DB instance** to complete the
+   modification.
+
+The new value for Provisioned IOPS appears in the **Status** column.
+To change the storage performance settings for a DB instance, use the AWS CLI command [`modify-db-instance`](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md"). Set the following
+parameters:
+
+- `--storage-type` – Set to `gp3` for General Purpose SSD (gp3).
+- `--allocated-storage` – Amount of storage to be allocated for the DB instance, in
+  gibibytes.
+- `--iops` – The new amount of Provisioned IOPS for the DB instance, expressed in I/O
+  operations per second.
+- `--storage-throughput` – The new storage throughput for the DB instance, expressed in
+  MiBps.
+- `--apply-immediately` – Use `--apply-immediately` to apply changes immediately.
+  Use `--no-apply-immediately` (the default) to apply changes during the next maintenance
+  window.
+  To change the storage performance settings for a DB instance, use the Amazon RDS API operation [`ModifyDBInstance`](../APIReference/API_ModifyDBInstance.md "../APIReference/API_ModifyDBInstance.md"). Set the following
+  parameters:
+
+- `StorageType` – Set to `gp3` for General Purpose SSD (gp3).
+- `AllocatedStorage` – Amount of storage to be allocated for the DB instance, in
+  gibibytes.
+- `Iops` – The new IOPS rate for the DB instance, expressed in I/O operations per
+  second.
+- `StorageThroughput` – The new storage throughput for the DB instance, expressed in
+  MiBps.
+- `ApplyImmediately` – Set this option to `True` to apply changes immediately. Set
+  this option to `False` (the default) to apply changes during the next maintenance window.
