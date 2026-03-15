@@ -163,7 +163,7 @@ With automatic deployment, each new commit to your repository source directory a
 The Python 3 runtime builds a Docker image using a base Python 3 image and your example Python code. It then launches a service that runs a
 container instance of this image.
 
-![Build settings while creating an App Runner service](/images/apprunner/latest/dg/images/getting-started-create-build.png) 4. Configure your service.
+![Build settings while creating an App Runner service](images/getting-started-create-build.png) 4. Configure your service.
 
     1. On the **Configure service** page, in the **Service settings** section, enter a service name.
     2. Under **Environment variables**, select **Add environment variable**. Provide the following
