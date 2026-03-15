@@ -16,10 +16,9 @@ for your file system, use one of two IOPS modes:
   For more information about these modes, see [Considerations when updating storage and IOPS](#scaling-considerations "#scaling-considerations").
 
 When you increase the SSD storage capacity of your Amazon FSx file system, the new capacity is
-available for use within minutes. You can update the SSD storage capacity or SSD IOPS at
-anytime, as long as storage capacity increases are at least 6 hours apart. These updates
-do not impact the availability of your file system in any way. You will be billed for the
-new SSD storage capacity after it becomes available to you. For more information, see
+available for use within minutes. These updates do not impact the availability of your file
+system in any way. You will be billed for the new SSD storage capacity after it becomes
+available to you. For more information, see
 [Amazon FSx for OpenZFS Pricing](https://aws.amazon.com/fsx/openzfs/pricing/ "https://aws.amazon.com/fsx/openzfs/pricing/").
 
 You can track the progress of an SSD storage capacity increase or SSD IOPS update at any time
@@ -57,9 +56,11 @@ and provisioned IOPS:
 \*The maximum storage capacity of your file system depends on the AWS Region in which it is located. For more information, see
 [Resource quotas for each file system](limits.md#limits-openzfs-resources-file-system "limits.md#limits-openzfs-resources-file-system").
 
-- **Time between increases** – You can't make further
-  SSD storage capacity increases on a file system until 6 hours after the last
-  increase was requested.
+- **Time between increases** – You can't request an SSD
+  storage capacity increase or provisioned SSD IOPS change on a file system until 6 hours after the previous change
+  request. For Multi-AZ and Intelligent-Tiering file systems, you also can't make SSD storage capacity or provisioned SSD
+  IOPS changes within 6 hours of a throughput capacity change, and vice versa. For more information, see
+  [Modifying throughput capacity](managing-throughput-capacity.md "managing-throughput-capacity.md").
 - **Allocating increased storage capacity** – If the file system's
   root volume storage capacity quota is set to the same size as the file system, FSx will automatically update the
   volume's storage capacity quota to match the newly-increased file system capacity. Otherwise, you will need to

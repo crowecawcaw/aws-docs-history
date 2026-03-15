@@ -14,6 +14,13 @@ Single-AZ (non-HA) file systems will be unavailable for a few minutes during thr
 capacity scaling. You are billed for the new amount of throughput capacity once it is available to your file
 system.
 
+For all FSx for OpenZFS file systems, you can't request a throughput capacity update if there is an ongoing SSD
+storage capacity or provisioned SSD IOPS update. You must wait until the SSD storage capacity or provisioned
+SSD IOPS update has completed before requesting a throughput capacity update. For Multi-AZ and Intelligent-Tiering
+file systems, you must wait a minimum of six hours between requests to update the throughput capacity, SSD storage
+capacity, or provisioned SSD IOPS. For more information on SSD storage and provisioned IOPS updates, see
+[Modifying provisioned SSD storage capacity and IOPS](managing-storage-capacity.md "managing-storage-capacity.md").
+
 File systems offer varying levels of throughput capacity, depending on your deployment type.
 The values of throughput capacity (in MBps) for all Single-AZ deployment types and Multi-AZ (HA) are as
 follows:
