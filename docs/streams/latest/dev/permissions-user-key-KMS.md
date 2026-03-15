@@ -18,6 +18,25 @@ delayed processing, or hung applications. You can manage permissions for KMS key
 IAM policies. For more information, see [Using IAM
 Policies with AWS KMS](../../../kms/latest/developerguide/iam-policies.md "../../../kms/latest/developerguide/iam-policies.md").
 
+## Kinesis Data Streams encryption context
+
+When Amazon Kinesis Data Streams calls AWS KMS on your behalf, it passes an encryption context to
+AWS KMS that can be used as a condition for authorization in key policies and grants.
+Kinesis Data Streams uses the stream ARN as the encryption context in all AWS KMS calls.
+
+```
+"encryptionContext": {
+    "aws:kinesis:arn": "arn:aws:kinesis:`region`:`account-id`:stream/`stream-name`"
+}
+```
+
+You can use the encryption context to identify the use of your KMS key in audit
+records and logs. It also appears in plaintext in logs, such as AWS CloudTrail.
+
+To limit the use of your KMS key to requests from Kinesis Data Streams for a specific stream,
+use the `kms:EncryptionContext:aws:kinesis:arn` condition key in the
+KMS key policy or IAM policy.
+
 ## Example producer permissions
 
 Your Kinesis stream producers must have the `kms:GenerateDataKey`
