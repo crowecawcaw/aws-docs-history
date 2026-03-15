@@ -28,6 +28,9 @@ process of joining the AWS PCS cluster. The bootstrap process includes two main 
     - [Instance in a public subnet without public IP](#troubleshooting-compute-node-bootstrap-public-subnet-no-public-ip "#troubleshooting-compute-node-bootstrap-public-subnet-no-public-ip")
     - [Multi-NIC instance in a public subnet](#troubleshooting-compute-node-bootstrap-multi-nic-public-subnet "#troubleshooting-compute-node-bootstrap-multi-nic-public-subnet")
 
+  - Cluster secret
+    - [Cluster secret has been deleted or marked for deletion](#troubleshooting-compute-node-bootstrap-cluster-secret-deleted "#troubleshooting-compute-node-bootstrap-cluster-secret-deleted")
+
 - **Slurm integration** – The instance runs
   `slurmd` and joins the Slurm cluster. Failures can occur due to problems in the
   following:
@@ -134,30 +137,23 @@ calls the AWS PCS API endpoint to register itself with AWS PCS.
 Registration failures usually show error messages similar to the following:
 
 ```
-<13>Nov 13 16:23:50 user-data: [2025-11-13T16:23:50.510+00:00] - /opt/aws/pcs/bin/pcs_bootstrap_init.sh: INFO: Registering node to cluster <clusterId>
-<13>Nov 13 16:24:18 user-data: [2025-11-13T16:24:18.192+00:00] - /opt/aws/pcs/bin/pcs_bootstrap_init.sh: INFO: Retriable exception detected.
-<13>Nov 13 16:24:18 user-data: [2025-11-13T16:24:18.193+00:00] - /opt/aws/pcs/bin/pcs_bootstrap_init.sh: INFO: Response is [specific error message]
-<13>Nov 13 16:24:18 user-data: [2025-11-13T16:24:18.194+00:00] - /opt/aws/pcs/bin/pcs_bootstrap_init.sh: INFO: Retrying in 31 seconds...
-<13>Nov 13 16:24:18 user-data: [2025-11-13T16:24:18.192+00:00] - /opt/aws/pcs/bin/pcs_bootstrap_init.sh: INFO: Retriable exception detected.
-...
-<13>Nov 13 16:25:18 user-data: [2025-11-13T16:25:18.195+00:00] - /opt/aws/pcs/bin/pcs_bootstrap_init.sh: INFO: Registration timeout (600 seconds) reached. Exiting.
-<13>Nov 13 16:25:18 user-data: [2025-11-13T16:25:18.200+00:00] - /opt/aws/pcs/bin/pcs_bootstrap_init.sh: ERROR: Error: (2) occurred on line 1 when running /opt/aws/pcs/bin/pcs_bootstrap_init.sh. Shutting down instance.
+<13>Nov  5 08:10:27 user-data: Recipe: aws-pcs-environment::node_registration
+<13>Nov  5 08:10:27 user-data:   * ruby_block[Register NodeGroup Instance] action run[2024-11-05T08:10:27+00:00] INFO: Processing ruby_block[Register NodeGroup Instance] action run (aws-pcs-environment::node_registration line 19)
+<13>Nov  5 08:15:46 user-data:
+<13>Nov  5 08:15:46 user-data:
+<13>Nov  5 08:15:46 user-data:     ================================================================================
+<13>Nov  5 08:15:46 user-data:     Error executing action `run` on resource 'ruby_block[Register NodeGroup Instance]'
+<13>Nov  5 08:15:46 user-data:     ================================================================================
+<13>Nov  5 08:15:46 user-data:
+<13>Nov  5 08:15:46 user-data:     EOFError
 ```
 
 ### Wrong instance profile
 
-If the node is unable to register due to a wrong instance profile you will see the following error:
+If the instance is unable to register, verify that the instance profile associated with the
+compute node has the `pcs:RegisterComputeNodeGroupInstance` permission.
 
-```
-<13>Nov 13 18:43:08 user-data: [2025-11-13T18:43:08.268+00:00] - /opt/aws/pcs/bin/pcs_bootstrap_init.sh: INFO: Response is {
-<13>Nov 13 18:43:08 user-data:   "__type": "com.amazon.coral.service#AccessDeniedException",
-<13>Nov 13 18:43:08 user-data:   "Message": "User: arn:aws:sts::<accountId>:assumed-role/<roleName>/<instanceId> is not authorized to perform: pcs:RegisterComputeNodeGroupInstance on resource: arn:aws:pcs:<regionCode>:<accountId>:cluster/<clusterId> as either the resource does not exist, some policy explicitly denies access, or no policy grants access",
-<13>Nov 13 18:43:08 user-data:   "nodeID": null
-<13>Nov 13 18:43:08 user-data: }
-```
-
-Verify that the instance profile associated with the
-compute node has the `pcs:RegisterComputeNodeGroupInstance` permission. For more information about how to create a valid instance profile, see [Create an instance profile for AWS PCS](getting-started_create-cng_instance-profile.md "getting-started_create-cng_instance-profile.md").
+For more information about how to create a valid instance profile, see [Create an instance profile for AWS PCS](getting-started_create-cng_instance-profile.md "getting-started_create-cng_instance-profile.md").
 
 ### Can't connect to AWS PCS endpoints
 
@@ -178,7 +174,7 @@ If you see an error message similar to the following, verify the policy associat
 your AWS PCS VPC endpoint:
 
 ```
-com.amazon.coral.security.AccessDeniedException: User: arn:aws:sts::xxx:assumed-role/<roleName>/<instanceId> is not authorized to perform: pcs:RegisterComputeNodeGroupInstance on resource: arn:aws:pcs:<regionCode>:<accountId>:cluster/<clusterId> as either the resource does not exist, some policy explicitly denies access, or no policy grants access
+com.amazon.coral.security.AccessDeniedException: User: arn:aws:sts::xxx:assumed-role/rolename/i-instanceid is not authorized to perform: pcs:RegisterComputeNodeGroupInstance on resource: arn:aws:pcs:us-west-2:xxx:cluster/cluster-id as either the resource does not exist, some policy explicitly denies access, or no policy grants access
 ```
 
 For more information about how to configure VPC interface endpoints for AWS PCS, see [Access AWS Parallel Computing Service using an interface endpoint (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
@@ -214,6 +210,27 @@ Instances_.
 Multi-NIC instance types require a NAT gateway or an internal proxy in the subnet to access
 the AWS PCS endpoint. Alternatively, you can add a VPC endpoint for AWS PCS to your cluster
 VPC.
+
+### Cluster secret has been deleted or marked for deletion
+
+If the Slurm shared secret in AWS Secrets Manager has been deleted or marked for
+deletion, compute nodes will fail to register and your cluster will become impaired.
+
+AWS PCS automatically creates a Slurm shared secret in AWS Secrets Manager (with name
+format: `pcs!slurm-secret-<cluster-id>`) when you create a cluster. This
+secret is required for secure communications in the cluster. For more information, see [Working with cluster secrets in AWS PCS](working-with_clusters_secrets.md "working-with_clusters_secrets.md").
+
+If this secret is deleted or marked for deletion, new nodes will not be able to join the
+cluster and the controller or other cluster daemons (such as `slurmd` and
+`slurmdbd`) might not be able to rejoin the cluster if restarted.
+
+To resolve this issue, you can restore the deleted secret if it's still within the recovery
+window. For detailed instructions, see [Restore an AWS Secrets
+Manager secret](../../../secretsmanager/latest/userguide/manage_restore-secret.md "../../../secretsmanager/latest/userguide/manage_restore-secret.md").
+
+If the recovery window expires, the secret can't be restored and the affected
+AWS PCS cluster can't be restored. You need to create a new cluster with the same
+configuration. AWS PCS automatically creates a new scheduler secret.
 
 ## Slurm cluster join problems
 
