@@ -72,6 +72,8 @@ The following list indicates the differences in the feature availability in AWS 
 - Cross-region data transfer is not supported in AWS GovCloud (US) Regions.
 - Member accounts invitation notifications through AWS Health Dashboard and email are not supported in AWS GovCloud (US) Regions.
 - In AWS GovCloud (US) Regions, AWS doesn’t use or store Customer Content processed by Amazon GuardDuty to develop and improve the service or technologies of AWS or its affiliates. Opt-out policies are currently not applicable to these Regions.
+- The following IAM finding types are not supported in the AWS GovCloud (US) Regions:
+  - {https---docs-aws-amazon-com-guardduty-latest-ug-guardduty_finding-types-html-credentialaccess-iam-compromisedcredentials}[CredentialAccess:IAMUser/CompromisedCredentials]
 
 ## Documentation for Amazon GuardDuty
 

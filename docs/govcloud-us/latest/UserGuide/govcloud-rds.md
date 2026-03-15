@@ -14,7 +14,7 @@ Amazon Relational Database Service (Amazon RDS) is a web service that makes it e
 - Instance types and engine versions might vary in the AWS GovCloud (US) Regions. To determine instance and engine availability, see the [RDS Management Console](https://console.amazonaws-us-gov.com/rds/ "https://console.amazonaws-us-gov.com/rds/") or CLI tools.
 - Since the AWS GovCloud (US) Regions use a unique certificate authority (CA), update your DB instances for the AWS GovCloud (US) Regions to use the Region-specific certificate identified by `rds-ca-rsa4096-g1` in [DescribeCertificates](../../../AmazonRDS/latest/APIReference/API_DescribeCertificates.md "../../../AmazonRDS/latest/APIReference/API_DescribeCertificates.md") calls as soon as possible. The remaining instructions described in the [Rotating your SSL/TLS certificate](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md") topic are the same, except for the certificate identifier.
 - Copying an option group isn’t available.
-- Performance Insights [proactive recommendations](../../../AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.md") and [on-demand analysis](../../../AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.UsingDashboard.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.UsingDashboard.md") aren’t available.
+- Performance Insights [proactive recommendations](../../../AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.md") aren’t available.
 - Zero-ETL integration with SageMaker Lakehouse isn’t available.
 
 ## Documentation for Amazon Relational Database Service

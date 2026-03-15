@@ -61,10 +61,6 @@ Certain controls include functionality that has no effect in AWS GovCloud (US) R
 
 The Marketplace link in the left navigation of the AWS Control Tower console is not available in AWS GovCloud (US) Regions.
 
-- **GDPR compliance**
-
-GDPR compliance is not required for services that reside only in the United States; therefore, it is not implemented in AWS Control Tower in AWS GovCloud (US) Regions.
-
 - **Security Hub CSPM controls**
 
 Some controls in the Security Hub CSPM standard named **Service-Managed Standard: AWS Control Tower** are not supported in AWS GovCloud (US) Regions. For a complete list of these controls by Region, see [Security Hub CSPM](govcloud-ash.md "govcloud-ash.md").
