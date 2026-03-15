@@ -123,7 +123,7 @@ For more information, see [Express private offers](express-private-offers.md "ex
 ## Reporting for private offers
 
 Private offers appear on the existing seller reports and in the reports relevant to the
-offer. The [Monthly billed revenue report](monthly-billed-revenue-report.md "monthly-billed-revenue-report.md") is generated every month and has offer
+offer. The [Billed revenue dashboard](billed-revenue-dashboard.md "billed-revenue-dashboard.md") is generated every month and has offer
 visibility and offer ID information. When an invoice is generated for a buyer, it appears in
 the report covering the appropriate billing period. For more information, see [Seller
 dashboards](dashboards.md "dashboards.md").

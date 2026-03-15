@@ -3,9 +3,6 @@
 As an AWS Marketplace seller, you can use the following tools for collecting and analyzing information about your
 product sales:
 
-- [Reports](Reporting.md "Reporting.md") that AWS Marketplace generates automatically and makes available to all registered AWS Marketplace sellers.
-- An [API](commerce-analytics-service.md "commerce-analytics-service.md") that you can use to access
-  sections of those reports.
 - [Data feeds](data-feeds.md "data-feeds.md") that provide additional customer
   information that you can use to identify customer information for transactions listed in the
   reports.
@@ -28,6 +25,5 @@ For more information about reports, datafeeds, and dashboards in AWS Marketplace
 ###### Topics
 
 - [Seller delivery data feeds in AWS Marketplace](data-feed-service.md "data-feed-service.md")
-- [Seller reports in AWS Marketplace](Reporting.md "Reporting.md")
 - [Supplementary reports](supplementary-reports.md "supplementary-reports.md")
 - [Seller dashboards](dashboards.md "dashboards.md")

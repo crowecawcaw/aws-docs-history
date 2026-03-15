@@ -1,7 +1,7 @@
 # Data feed query examples
 
 This section gives examples of complex queries using the data feeds provided by AWS Marketplace. These
-examples are similar to the [Seller reports in AWS Marketplace](Reporting.md "Reporting.md") that you
+examples are similar to the [Seller dashboards](dashboards.md "dashboards.md") that you
 get from the AWS Marketplace Management Portal. You can customize these queries to create other reports that you
 need.
 
@@ -4007,7 +4007,7 @@ where invoice_date >= date_add('DAY', -90, current_date)
 ## Disbursements by product
 
 To find the amounts disbursed by product, you can run a set of queries like the
-following. This example is comparable to the [Disbursement report](monthly-disbursement-report.md "monthly-disbursement-report.md") seller report.
+following.
 
 These example queries build upon each other to create the final list of product
 details with disbursements. It also shows how to get the product information at a specific
@@ -4308,8 +4308,7 @@ select * from disbursed_amount_by_product;
 
 ## Sales compensation report
 
-To find the billed revenue by customer, you can run a set of queries like the following. This
-example is comparable to the [Sales compensation report](sales-compensation-report.md "sales-compensation-report.md") seller report. These example queries build on each other to create the final list of
+To find the billed revenue by customer, you can run a set of queries like the following. These example queries build on each other to create the final list of
 customer details with the total amount billed to each customer for usage of your software. You can use the queries as shown, or customize them for your data and use cases.
 
 Comments in the queries explain what the queries do, and how to modify them.

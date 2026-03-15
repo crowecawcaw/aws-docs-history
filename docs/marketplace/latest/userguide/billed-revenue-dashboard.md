@@ -35,8 +35,6 @@ contacting your AWS Marketplace business development contact.
 
 1. Confirm that the offer was accepted by the customer using one or more of the following
    tools:
-   - [Daily
-     customer subscriber report](daily-customer-subscriber-report.md "daily-customer-subscriber-report.md")
    - [Notification for AWS Marketplace events](notifications.md "notifications.md")
    - [AWS Marketplace Management Portal agreements tab](private-offers-upgrades-and-renewals.md#private-offers-upgrades-and-renewals-process "private-offers-upgrades-and-renewals.md#private-offers-upgrades-and-renewals-process")
 

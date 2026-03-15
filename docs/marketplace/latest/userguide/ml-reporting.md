@@ -37,6 +37,6 @@ report](monthly-disbursement-report.md "monthly-disbursement-report.md").
 
 For other available reports, see
 [Seller
-reports](Reporting.md "Reporting.md").
+reports](dashboards.md "dashboards.md").
 
 You can also create custom reports using the available [Seller delivery data feeds in AWS Marketplace](data-feed-service.md "data-feed-service.md") from AWS Marketplace.

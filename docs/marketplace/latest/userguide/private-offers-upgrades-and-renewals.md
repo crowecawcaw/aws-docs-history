@@ -107,7 +107,7 @@ when the buyer accepts the amendment.
 ## Reporting for upgrades, renewals, and amendments
 
 Public and private offer upgrades and renewals appear on the existing seller reports and
-in the reports relevant to the offer. The [Daily customer subscriber report](daily-customer-subscriber-report.md "daily-customer-subscriber-report.md") and [Daily business report](daily-business-report.md "daily-business-report.md") are generated daily. The [Monthly billed revenue report](monthly-billed-revenue-report.md "monthly-billed-revenue-report.md") is
+in the reports relevant to the offer. The [Billed revenue dashboard](billed-revenue-dashboard.md "billed-revenue-dashboard.md") is
 generated monthly.
 
 In the Daily customer subscriber report, the **Subscription intent**
