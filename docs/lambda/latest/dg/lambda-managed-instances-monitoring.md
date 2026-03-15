@@ -17,10 +17,6 @@ Capacity provider level metrics provide visibility into overall resource utiliza
 
 - **CPUUtilization** - The percentage of CPU utilization across instances in the capacity provider
 - **MemoryUtilization** - The percentage of memory utilization across instances in the capacity provider
-- **NetworkOut** - Network traffic sent through the customer ENI (in bytes)
-- **NetworkIn** - Network traffic received through the customer ENI (in bytes)
-- **DiskReadBytes** - Read traffic from local storage across instances (in bytes)
-- **DiskWriteBytes** - Write traffic to local storage across instances (in bytes)
 
 **Capacity metrics:**
 
@@ -35,6 +31,11 @@ Execution environment level metrics provide visibility into resource utilization
 
 - **CapacityProviderName** - The name of your capacity provider
 - **FunctionName** - The name of your Lambda function
+- **Resource** - By resource, view metrics for a specific version of a function.
+
+###### Note
+
+For Lambda Managed Instances (LMI), the `Resource` dimension supports function versions only. The format is `<FunctionName>:<FunctionVersion>`.
 
 **Available execution environment metrics:**
 
@@ -56,7 +57,7 @@ Lambda Managed Instances metrics are published at 5-minute intervals and retaine
 3. In the **All metrics** tab, choose **AWS/Lambda**.
 4. Choose the metric dimension you want to view:
    - For capacity provider level metrics, filter by **CapacityProviderName** and **InstanceType**
-   - For execution environment level metrics, filter by **CapacityProviderName** and **FunctionName**
+   - For execution environment level metrics, filter by **CapacityProviderName**, **FunctionName**, and **Resource**
 
 5. Select the metrics you want to monitor.
 

@@ -38,11 +38,7 @@ For a detailed comparison, see [Durable functions or Step Functions](durable-ste
 ## How it works
 
 Under the hood, durable functions are regular Lambda functions using a checkpoint/replay mechanism to track progress and support long-running operations through user-defined suspension points,
-commonly referred to as durable execution. When a durable function resumes from a wait point or interruption like retries, the system performs replay. During replay,
-your code runs from the beginning but skips over completed checkpoints, using stored results instead of re-executing completed operations.
-This replay mechanism ensures consistency while enabling long-running executions.
-
-After your function resumes from a pause or interruption, the system performs replay. During replay, your code runs from the beginning but skips over completed checkpoints, using stored results instead of re-executing completed operations. This replay mechanism ensures consistency while enabling long-running executions.
+commonly referred to as durable execution. After your function resumes from a pause or interruption, the system performs replay. During replay, your code runs from the beginning but skips over completed checkpoints, using stored results instead of re-executing completed operations. This replay mechanism ensures consistency while enabling long-running executions.
 
 To harness this checkpoint-and-replay mechanism in your applications, Lambda provides a durable execution SDK. The SDK abstracts away the complexity of managing checkpoints and replay, exposing simple primitives called durable operations that you use in your code. The SDK is available for JavaScript, TypeScript, Python and Java (Preview), integrating seamlessly with your existing Lambda development workflow.
 

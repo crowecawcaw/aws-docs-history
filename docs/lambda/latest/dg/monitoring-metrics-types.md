@@ -43,6 +43,25 @@ To get a count of the number of function errors that occurred each minute, view 
   available to scale up, Lambda rejects additional requests with a
   `TooManyRequestsException` error. Throttled requests and other invocation
   errors don't count as either `Invocations` or `Errors`.
+
+###### Note
+
+With [Lambda Managed Instances](lambda-managed-instances.md "lambda-managed-instances.md"),
+Lambda provides granular throttle metrics that identify the specific constraint
+causing the throttle. When a throttle occurs on the execution environment,
+exactly one of the following sub-metrics is emitted with a value of 1, while
+the remaining three are emitted with a value of 0. The `Throttles`
+metric is always emitted alongside these sub-metrics.
+
+    + `CPUThrottles` – Invocations throttled due to CPU
+     exhaustion on the execution environment.
+    + `MemoryThrottles` – Invocations throttled due to memory
+     exhaustion on the execution environment.
+    + `DiskThrottles` – Invocations throttled due to disk
+     exhaustion on the execution environment.
+    + `ConcurrencyThrottles` – Invocations throttled when
+     the execution environment concurrency limit is reached.
+
 - `OversizedRecordCount` – For Amazon DocumentDB event sources, the number
   of events your function receives from your change stream that are over 6 MB in size.
   Lambda drops the message and emits this metric.

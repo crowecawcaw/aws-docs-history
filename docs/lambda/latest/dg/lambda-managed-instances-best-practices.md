@@ -69,13 +69,14 @@ Note that execution environments with very low concurrency may experience thrott
 - Low available capacity
 - Approaching concurrency limits
 
-## Runtime-specific considerations
+## Language-specific considerations
 
-**Follow runtime-specific best practices.** Each runtime handles multi-concurrency differently. Review the runtime-specific guides for detailed recommendations:
+**Follow language-specific best practices.** Each programming language handles multi-concurrency differently. Review the language-specific guides for detailed recommendations:
 
-- Java: Use thread-safe collections, `AtomicInteger`, and `ThreadLocal` for request-specific state
-- Node.js: Use InvokeStore for all request-specific state and avoid global variables
-- Python: Use unique file names in `/tmp` with request IDs and consider process-based memory isolation
+- **Java:** Use thread-safe collections, `AtomicInteger`, and `ThreadLocal` for request-specific state
+- **Node.js:** Use InvokeStore for all request-specific state and avoid global variables
+- **Python:** Use unique file names in `/tmp` with request IDs and consider process-based memory isolation
+- **Rust:** Use `run_concurrent` instead of `run`, with the `concurrency-tokio` feature enabled. The handler must be `Clone` + `Send`.
 
 **Test for thread safety and concurrency issues.** Before deploying to production, thoroughly test your functions for thread safety issues, race conditions, and proper state isolation under concurrent load.
 

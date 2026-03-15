@@ -2,18 +2,19 @@
 
 Lambda processes requests differently when using Lambda Managed Instances. Instead of handling requests sequentially in each execution environment, Lambda Managed Instances process multiple requests concurrently within each execution environment. This change in execution model means that functions using Lambda Managed Instances need to consider thread safety, state management, and context isolation, concerns which do not arise in the Lambda (default) single-concurrency model. In addition, the multi-concurrency implementation varies between runtimes.
 
-## Supported runtimes
+## Supported languages
 
-The following runtimes support Lambda Managed Instances:
+Lambda Managed Instances can be used with the following programming languages and runtimes:
 
 - **Java:** Java 21 and later.
 - **Python:** Python 3.13 and later.
 - **Node.js:** Node.js 22 and later.
 - **.NET:** .NET 8 and later.
+- **Rust:** Supported using the OS-only runtime `provided.al2023` and later.
 
-## Runtime-specific considerations
+## Language-specific considerations
 
-Each runtime implements multi-concurrency differently. You need to understand how multi-concurrency is implemented in your chosen programming language to apply the appropriate concurrency best practices.
+Each programming language implements multi-concurrency differently. You need to understand how multi-concurrency is implemented in your chosen programming language to apply the appropriate concurrency best practices.
 
 **Java**
 
@@ -31,6 +32,10 @@ Uses [worker threads](https://nodejs.org/api/worker_threads.html "https://nodejs
 
 Uses .NET Tasks with asynchronous processing of multiple concurrent requests. Requires safe handling of state and shared resources.
 
+**Rust**
+
+Uses a single process with async tasks powered by [Tokio](https://tokio.rs/ "https://tokio.rs/"). The handler must be `Clone` + `Send`.
+
 ## Next steps
 
 For detailed information about each runtime, see the following topics:
@@ -39,3 +44,4 @@ For detailed information about each runtime, see the following topics:
 - [Node.js runtime for Lambda Managed Instances](lambda-managed-instances-nodejs-runtime.md "lambda-managed-instances-nodejs-runtime.md")
 - [Python runtime for Lambda Managed Instances](lambda-managed-instances-python-runtime.md "lambda-managed-instances-python-runtime.md")
 - [.NET runtime for Lambda Managed Instances](lambda-managed-instances-dotnet-runtime.md "lambda-managed-instances-dotnet-runtime.md")
+- [Rust support for Lambda Managed Instances](lambda-managed-instances-rust.md "lambda-managed-instances-rust.md")
