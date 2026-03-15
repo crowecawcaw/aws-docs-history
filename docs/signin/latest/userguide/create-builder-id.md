@@ -45,6 +45,12 @@ Tools and services that use AWS Builder ID direct you to create and use your AWS
    your first and last name will still be editable. If you need to sign in to AWS Builder ID, you should
    use your Hide My Email address. AWS Builder ID will use your Hide My Email address to send email
    communications to you. For more details, see [How to use Hide My Email with Sign in with Apple](https://support.apple.com/en-us/105078 "https://support.apple.com/en-us/105078").
+   - To use your GitHub Account, choose **Continue with GitHub**
+     and follow the prompts to complete the sign-up process. This skips steps 3-8 below.
+     Go to step 9.
+   - To use your Amazon Account, choose **Continue with Amazon**
+     and follow the prompts to complete the sign-up process. This skips steps 3-8 below.
+     Go to step 9.
    - To create an account with email and password, continue with the following
      steps.
 

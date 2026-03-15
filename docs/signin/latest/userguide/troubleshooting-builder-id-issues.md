@@ -9,8 +9,12 @@ AWS Builder ID.
 - [I can't complete email verification](#email-verification-aws_builder_id "#email-verification-aws_builder_id")
 - [I can’t sign in with Google](#sign-in-google-builder_id "#sign-in-google-builder_id")
 - [I can’t sign in with Apple](#sign-in-apple-builder_id "#sign-in-apple-builder_id")
+- [I can’t sign in with GitHub](#sign-in-github-builder_id "#sign-in-github-builder_id")
+- [I can’t sign in with Amazon](#sign-in-amazon-builder_id "#sign-in-amazon-builder_id")
 - [I received a sign in error when I attempted to sign up for an AWS Builder ID using continue with Google](#switch-account-google-builder_id "#switch-account-google-builder_id")
 - [I received a sign in error when I attempted to sign up for an AWS Builder ID using continue with Apple](#switch-account-apple-builder_id "#switch-account-apple-builder_id")
+- [I received a sign in error when I attempted to sign up for an AWS Builder ID using continue with GitHub](#switch-account-github-builder_id "#switch-account-github-builder_id")
+- [I received a sign in error when I attempted to sign up for an AWS Builder ID using continue with Amazon](#switch-account-amazon-builder_id "#switch-account-amazon-builder_id")
 - [I receive an error that states 'It’s not you, it’s us' when I try to sign in with my AWS Builder ID](#error-sign-in-aws_builder_id "#error-sign-in-aws_builder_id")
 - [I forgot my password](#forgot-password-aws_builder_id "#forgot-password-aws_builder_id")
 - [I can't set a new password](#reset-not-working-aws_builder_id "#reset-not-working-aws_builder_id")
@@ -63,6 +67,22 @@ your password, see [I forgot my password](#forgot-password-aws_builder_id "#forg
 
 For help signing in with your Apple password, see [If you can’t sign in to your Apple Account](https://support.apple.com/en-us/111001 "https://support.apple.com/en-us/111001").
 
+## I can’t sign in with GitHub
+
+If you have an existing AWS Builder ID profile with the same email address as your GitHub
+account, use your AWS Builder ID password to sign in to your account. If you don't remember
+your password, see [I forgot my password](#forgot-password-aws_builder_id "#forgot-password-aws_builder_id").
+
+For help signing in with your GitHub password, see [Unable to sign in - GitHub Support](https://support.github.com/contact/cannot_sign_in "https://support.github.com/contact/cannot_sign_in").
+
+## I can’t sign in with Amazon
+
+If you have an existing AWS Builder ID profile with the same email address as your Amazon
+account, use your AWS Builder ID password to sign in to your account. If you don't remember
+your password, see [I forgot my password](#forgot-password-aws_builder_id "#forgot-password-aws_builder_id").
+
+For help signing in with your Amazon password, see [Help with signing in](https://www.amazon.com/gp/help/customer/account-issues "https://www.amazon.com/gp/help/customer/account-issues").
+
 ## I received a sign in error when I attempted to sign up for an AWS Builder ID using continue with Google
 
 This means that you either have an existing AWS Builder ID using the same email address as
@@ -79,6 +99,20 @@ either not verified or managed by your company with
 or by your school with
 [Apple School Manager](https://support.apple.com/guide/apple-school-manager/about-managed-apple-accounts-axm78b477c81 "https://support.apple.com/guide/apple-school-manager/about-managed-apple-accounts-axm78b477c81"). In either case, please try to sign up again entering your email
 address and providing a password.
+
+## I received a sign in error when I attempted to sign up for an AWS Builder ID using continue with GitHub
+
+This means that you either have an existing AWS Builder ID using the same email address as
+your GitHub Account, or that the email address associated with your GitHub Account is
+not verified. In either case, please try to sign up again entering your email address
+and providing a password.
+
+## I received a sign in error when I attempted to sign up for an AWS Builder ID using continue with Amazon
+
+This means that you either have an existing AWS Builder ID using the same email address as
+your Amazon Account, or that the email address associated with your Amazon Account is
+not verified. In either case, please try to sign up again entering your email address
+and providing a password.
 
 ## I receive an error that states 'It’s not you, it’s us' when I try to sign in with my AWS Builder ID
 

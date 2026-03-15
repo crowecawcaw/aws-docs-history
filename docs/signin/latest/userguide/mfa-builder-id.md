@@ -22,10 +22,16 @@ your profile if you lose or break your MFA device.
   devices in a place that is physically secure when not in use.
 - If you created your account using **Continue with
   Google**, you can enable multi-factor authentication through your Google
-  account. For details, see [Turn on 2-Step Verification](https://support.google.com/accounts/answer/185839?hl=en&co=GENIE.Platform%3DDesktop "https://support.google.com/accounts/answer/185839?hl=en&co=GENIE.Platform%3DDesktop").
+  account. For details, see [Turn on 2-Step Verification](https://support.google.com/accounts/answer/185839 "https://support.google.com/accounts/answer/185839").
 - If you created your account using **Continue with
   Apple**, multi-factor authentication is likely already enabled in your Apple
   Account. If not, for details on how to enable it, see [Two-factor authentication for Apple Account](https://support.apple.com/en-us/102660 "https://support.apple.com/en-us/102660").
+- If you created your account using **Continue with
+  GitHub**, you can enable multi-factor authentication through your GitHub
+  Account. For details, see [Configuring (GitHub) two-factor authentication](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication "https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication").
+- If you created your account using **Continue with
+  Amazon**, you can enable multi-factor authentication through your Amazon
+  Account. For details, see [What is Two-Step Verification?](https://www.amazon.com/gp/help/customer/display.html?nodeId=G3PWZPU52FKN7PW4 "https://www.amazon.com/gp/help/customer/display.html?nodeId=G3PWZPU52FKN7PW4").
 
 ## Available MFA types for AWS Builder ID
 

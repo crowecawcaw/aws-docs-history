@@ -18,8 +18,12 @@ Your password must adhere to the following requirements:
 
 Password changes are not available for AWS Builder ID accounts that use social logins such as Google or Apple. If
 you signed in using a social login, you manage your password through your social login account. To
-change your password for your Google Account, see [Change or reset your (Google) password](https://support.google.com/accounts/answer/41078?hl=en&co=GENIE.Platform%3DDesktop "https://support.google.com/accounts/answer/41078?hl=en&co=GENIE.Platform%3DDesktop"). To change your password for your Apple Account, see
-[Change your Apple Account password](https://support.apple.com/en-us/101567 "https://support.apple.com/en-us/101567").
+change your password for a social login:
+
+- For a Google Account, see [Change or reset your (Google) password](https://support.google.com/accounts/answer/41078 "https://support.google.com/accounts/answer/41078").
+- For an Apple Account, see [Change your Apple Account password](https://support.apple.com/en-us/101567 "https://support.apple.com/en-us/101567").
+- For a GitHub Account, see [Updating your GitHub access credentials](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/updating-your-github-access-credentials "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/updating-your-github-access-credentials").
+- For an Amazon Account, see [How to change Amazon password](https://www.amazon.com/gp/help/customer/display.html?nodeId=GSMEQJRPX6P5JZLS "https://www.amazon.com/gp/help/customer/display.html?nodeId=GSMEQJRPX6P5JZLS").
 
 ###### To change your AWS Builder ID password
 

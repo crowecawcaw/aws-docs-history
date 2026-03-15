@@ -48,6 +48,8 @@ Builder](https://skillbuilder.aws/ "https://skillbuilder.aws/").
    - [I have an existing account](#sign-in-builder-id-email "#sign-in-builder-id-email")
    - [I have a Google Account](#sign-in-builder-id-google "#sign-in-builder-id-google")
    - [I have an Apple Account](#sign-in-builder-id-apple "#sign-in-builder-id-apple")
+   - [I have a GitHub Account](#sign-in-builder-id-github "#sign-in-builder-id-github")
+   - [I have an Amazon Account](#sign-in-builder-id-amazon "#sign-in-builder-id-amazon")
 
 ### I have an existing account
 
@@ -89,6 +91,28 @@ email address to sign in to an application. For more information, see [I can’t
    Apple**.
 2. On the **Sign in with Apple** page, enter the information for your
    Apple account to sign in.
+3. Choose **Continue** to load the AWS application homepage.
+
+### I have a GitHub Account
+
+If your GitHub Account is already associated with an AWS Builder ID, you must use a different
+email address to sign in to an application. For more information, see [I can’t sign in with GitHub](troubleshooting-builder-id-issues.md#sign-in-github-builder_id "troubleshooting-builder-id-issues.md#sign-in-github-builder_id").
+
+1. To use your GitHub Account to sign in to AWS Builder ID, choose **Continue with
+   GitHub**.
+2. On the **Sign in with GitHub** page, enter the information for your
+   GitHub Account to sign in.
+3. Choose **Continue** to load the AWS application homepage.
+
+### I have an Amazon Account
+
+If your Amazon Account is already associated with an AWS Builder ID, you must use a different
+email address to sign in to an application. For more information, see [I can’t sign in with Amazon](troubleshooting-builder-id-issues.md#sign-in-amazon-builder_id "troubleshooting-builder-id-issues.md#sign-in-amazon-builder_id").
+
+1. To use your Amazon Account to sign in to AWS Builder ID, choose **Continue with
+   Amazon**.
+2. On the **Sign in with Amazon** page, enter the information for your
+   Amazon Account to sign in.
 3. Choose **Continue** to load the AWS application homepage.
 
 ## Region availability for AWS Builder ID
