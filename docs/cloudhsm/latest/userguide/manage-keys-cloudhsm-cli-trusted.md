@@ -3,7 +3,7 @@
 The content in this section provides instructions on using CloudHSM CLI to mark a key as trusted.
 
 1. Using the [CloudHSM CLI login command](cloudhsm_cli-login.md "cloudhsm_cli-login.md"), log in as a crypto user (CU).
-2. Use the **key list** command to identify the key reference of the key you want to mark as trusted. The following example lists the key with the label `key_to_be_trusted`.
+2. Use the **key list** command to identify the key reference of the key you want to mark as trusted. The following example lists the key with the label `test_aes_trusted`.
 
 ```
 `aws-cloudhsm >` `key list --filter attr.label=test_aes_trusted``{

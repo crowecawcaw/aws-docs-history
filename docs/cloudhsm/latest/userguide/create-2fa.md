@@ -14,7 +14,7 @@ Use AWS CloudHSM Management Utility CMU (CMU) and the key pair to create a new c
    2. Log in as a CO and use the following command to create a new user MFA with 2FA:
 
    ```
-   `aws-cloudhsm >` `createUser CO MFA `<CO USER NAME>` -2fa /home/ec2-user/authdata``*************************CAUTION********************************
+   `aws-cloudhsm >` `createUser CO MFA `<CO USER PASSWORD>` -2fa /home/ec2-user/authdata``*************************CAUTION********************************
    This is a CRITICAL operation, should be done on all nodes in the
    cluster. AWS does NOT synchronize these changes automatically with the
    nodes on which this operation is not executed or failed, please

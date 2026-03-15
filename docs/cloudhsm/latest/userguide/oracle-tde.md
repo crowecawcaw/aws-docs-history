@@ -17,6 +17,7 @@ store the TDE master key in the HSMs in your cluster.
 ###### Topics
 
 - [Step 1. Set up the prerequisites](#oracle-tde-prerequisites "#oracle-tde-prerequisites")
+- [Step 2: Update the Oracle database configuration](#oracle-tde-configure-database-and-generate-master-key "#oracle-tde-configure-database-and-generate-master-key")
 - [Step 3: Generate the Oracle TDE master encryption key](#oracle-tde-generate-master-key "#oracle-tde-generate-master-key")
 
 ## Step 1. Set up the prerequisites
@@ -49,6 +50,53 @@ Complete the following steps to set up all of the prerequisites.
       Client SDK 3 supports Oracle TDE for Oracle Database versions 11g and 12c.
    3. Use the cloudhsm_mgmt_util command line tool to create a cryptographic user (CU) on
       your cluster. For more information about creating a CU, see [How to Manage HSM Users with CMU](create-users-cmu.md "create-users-cmu.md") and [HSM users](manage-hsm-users.md "manage-hsm-users.md").
+
+## Step 2: Update the Oracle database configuration
+
+To update the Oracle Database configuration to use an HSM in your cluster as the
+_external security module_, complete the following steps. For information about
+external security modules, see
+[Introduction to Transparent Data Encryption](https://docs.oracle.com/database/122/ASOAG/introduction-to-transparent-data-encryption.htm "https://docs.oracle.com/database/122/ASOAG/introduction-to-transparent-data-encryption.htm") in the _Oracle Database Advanced Security Guide_.
+
+###### To update the Oracle configuration
+
+1. Connect to your Amazon EC2 client instance. This is the instance where you installed Oracle Database.
+2. Make a backup copy of the file named `sqlnet.ora`. For the location
+   of this file, see the Oracle documentation.
+3. Use a text editor to edit the file named `sqlnet.ora`. Add the
+   following line. If an existing line in the file begins with
+   `encryption_wallet_location`, replace the existing line with the following
+   one.
+
+```
+encryption_wallet_location=(source=(method=hsm))
+```
+
+Save the file. 4. Run the following command to create the directory where Oracle Database expects to
+find the library file for the AWS CloudHSM PKCS #11 software library.
+
+```
+`sudo mkdir -p /opt/oracle/extapi/64/hsm`
+```
+
+5. Run the following command to copy the AWS CloudHSM software library for PKCS #11 file to the
+   directory that you created in the previous step.
+
+```
+`sudo cp /opt/cloudhsm/lib/libcloudhsm_pkcs11.so /opt/oracle/extapi/64/hsm/`
+```
+
+###### Note
+
+The `/opt/oracle/extapi/64/hsm` directory must contain only one library
+file. Remove any other files that exist in that directory. 6. Run the following command to change the ownership of the `/opt/oracle`
+directory and everything inside it.
+
+```
+`sudo chown -R oracle:dba /opt/oracle`
+```
+
+7. Start the Oracle Database.
 
 ## Step 3: Generate the Oracle TDE master encryption key
 

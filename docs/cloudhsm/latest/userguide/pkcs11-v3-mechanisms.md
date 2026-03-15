@@ -203,7 +203,7 @@ cryptographic secrets, so you can safely compute them outside of the HSM.
 
 - [7.1] Vendor-defined mechanism. In order to use the
   CloudHSM vendor defined mechanisms, PKCS#11 applications must include
-  `/opt/cloudhsm/include/pkcs11t.h` during compilation.
+  `/opt/cloudhsm/include/pkcs11/cloudhsm_pkcs11_vendor_defs.h` during compilation.
 
 `**CKM\_CLOUDHSM\_AES\_GCM**`: This proprietary
 mechanism is a programmatically safer alternative to the standard

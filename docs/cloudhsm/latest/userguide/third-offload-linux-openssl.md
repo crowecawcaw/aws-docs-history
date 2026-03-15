@@ -66,23 +66,6 @@ Configure Tool](configure-sdk-5.md "configure-sdk-5.md").
 2. On an EC2 Linux instance that has access to your cluster, install either NGINX or Apache web
    server:
 
-Amazon Linux
-
-    * NGINX
-
-
-
-    ```
-    `$` `sudo yum install nginx`
-    ```
-    * Apache
-
-
-
-    ```
-    `$` `sudo yum install httpd24 mod24_ssl`
-    ```
-
 Amazon Linux 2
 
     * For information on how to download the latest version of NGINX on Amazon Linux 2, see the
@@ -124,71 +107,6 @@ Amazon Linux 2023
     `$` `sudo yum install httpd mod_ssl`
     ```
 
-CentOS 7
-
-    * For information on how to download the latest version of NGINX on CentOS 7, see the
-     [NGINX website](https://nginx.org/en/linux_packages.html "https://nginx.org/en/linux_packages.html").
-
-
-    The latest version of NGINX available for CentOS 7 uses a version of OpenSSL that is newer than the
-     system version of OpenSSL. After installing NGINX, you need to create a symbolic link from the AWS CloudHSM OpenSSL Dynamic Engine library to the location that
-     this version of OpenSSL expects
-
-
-
-
-    ```
-    `$` `sudo ln -sf /opt/cloudhsm/lib/libcloudhsm_openssl_engine.so /usr/lib64/engines-1.1/cloudhsm.so`
-    ```
-    * Apache
-
-
-
-    ```
-    `$` `sudo yum install httpd mod_ssl`
-    ```
-
-Red Hat 7
-
-    * For information on how to download the latest version of NGINX on Red Hat 7, see the
-     [NGINX website](https://nginx.org/en/linux_packages.html "https://nginx.org/en/linux_packages.html").
-
-
-    The latest version of NGINX available for Red Hat 7 uses a version of OpenSSL that is newer than the
-     system version of OpenSSL. After installing NGINX, you need to create a symbolic link from the AWS CloudHSM OpenSSL Dynamic Engine library to the location that
-     this version of OpenSSL expects
-
-
-
-
-    ```
-    `$` `sudo ln -sf /opt/cloudhsm/lib/libcloudhsm_openssl_engine.so /usr/lib64/engines-1.1/cloudhsm.so`
-    ```
-    * Apache
-
-
-
-    ```
-    `$` `sudo yum install httpd mod_ssl`
-    ```
-
-CentOS 8
-
-    * NGINX
-
-
-
-    ```
-    `$` `sudo yum install nginx`
-    ```
-    * Apache
-
-
-
-    ```
-    `$` `sudo yum install httpd mod_ssl`
-    ```
-
 Red Hat 8
 
     * NGINX
@@ -206,38 +124,21 @@ Red Hat 8
     `$` `sudo yum install httpd mod_ssl`
     ```
 
-Ubuntu 18.04
+Red Hat 9
 
     * NGINX
 
 
 
     ```
-    `$` `sudo apt install nginx`
+    `$` `sudo yum install nginx`
     ```
     * Apache
 
 
 
     ```
-    `$` `sudo apt install apache2`
-    ```
-
-Ubuntu 20.04
-
-    * NGINX
-
-
-
-    ```
-    `$` `sudo apt install nginx`
-    ```
-    * Apache
-
-
-
-    ```
-    `$` `sudo apt install apache2`
+    `$` `sudo yum install httpd mod_ssl`
     ```
 
 Ubuntu 22.04
@@ -675,7 +576,7 @@ Use this section to configure NGINX on supported platforms.
    file that contains your fake PEM private key.
 
 ```
-`$` `sudo cp `<web_server_example_pem.key>` /etc/pki/nginx/private/server.key`
+`$` `sudo cp `<web_server_fake_pem.key>` /etc/pki/nginx/private/server.key`
 ```
 
 5. Run the following command to change the file ownership so that the user named
@@ -699,53 +600,6 @@ Use this section to configure NGINX on supported platforms.
 Each cluster can support a maximum of 1000 NGINX worker processes across
 all NGINX web servers.
 
-Amazon Linux
-Use a text editor to edit the `/etc/nginx/nginx.conf` file. This requires Linux root permissions. At the
-top of the file, add the following lines:
-
-```
-ssl_engine cloudhsm;
-env CLOUDHSM_PIN;
-```
-
-Then add the following to the TLS section of the file:
-
-```
-# Settings for a TLS enabled server.
-server {
-    listen       443 ssl http2 default_server;
-    listen       [::]:443 ssl http2 default_server;
-    server_name  _;
-    root         /usr/share/nginx/html;
-
-    ssl_certificate "/etc/pki/nginx/server.crt";
-    ssl_certificate_key "/etc/pki/nginx/private/server.key";
-    # It is *strongly* recommended to generate unique DH parameters
-    # Generate them with: openssl dhparam -out /etc/pki/nginx/dhparams.pem 2048
-    #ssl_dhparam "/etc/pki/nginx/dhparams.pem";
-    ssl_session_cache shared:SSL:1m;
-    ssl_session_timeout  10m;
-    ssl_protocols TLSv1.2;
-    ssl_ciphers "ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA";
-    ssl_prefer_server_ciphers on;
-
-    # Load configuration files for the default server block.
-    include /etc/nginx/default.d/*.conf;
-
-    location / {
-    }
-
-    error_page 404 /404.html;
-    location = /40x.html {
-    }
-
-    error_page 500 502 503 504 /50x.html;
-    location = /50x.html {
-    }
-}
-
-```
-
 Amazon Linux 2
 Use a text editor to edit the `/etc/nginx/nginx.conf` file. This requires Linux root permissions. At the
 top of the file, add the following lines:
@@ -840,147 +694,6 @@ server {
 
 ```
 
-CentOS 7
-Use a text editor to edit the `/etc/nginx/nginx.conf` file. This requires Linux root permissions. At the
-top of the file, add the following lines:
-
-```
-ssl_engine cloudhsm;
-env CLOUDHSM_PIN;
-```
-
-Then add the following to the TLS section of the file:
-
-```
-# Settings for a TLS enabled server.
-server {
-    listen       443 ssl http2 default_server;
-    listen       [::]:443 ssl http2 default_server;
-    server_name  _;
-    root         /usr/share/nginx/html;
-
-    ssl_certificate "/etc/pki/nginx/server.crt";
-    ssl_certificate_key "/etc/pki/nginx/private/server.key";
-    # It is *strongly* recommended to generate unique DH parameters
-    # Generate them with: openssl dhparam -out /etc/pki/nginx/dhparams.pem 2048
-    #ssl_dhparam "/etc/pki/nginx/dhparams.pem";
-    ssl_session_cache shared:SSL:1m;
-    ssl_session_timeout  10m;
-    ssl_protocols TLSv1.2;
-    ssl_ciphers "ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA";
-    ssl_prefer_server_ciphers on;
-
-    # Load configuration files for the default server block.
-    include /etc/nginx/default.d/*.conf;
-
-    location / {
-    }
-
-    error_page 404 /404.html;
-    location = /40x.html {
-    }
-
-    error_page 500 502 503 504 /50x.html;
-    location = /50x.html {
-    }
-}
-
-```
-
-CentOS 8
-Use a text editor to edit the `/etc/nginx/nginx.conf` file. This requires Linux root permissions. At the
-top of the file, add the following lines:
-
-```
-ssl_engine cloudhsm;
-env CLOUDHSM_PIN;
-```
-
-Then add the following to the TLS section of the file:
-
-```
-# Settings for a TLS enabled server.
-server {
-    listen       443 ssl http2 default_server;
-    listen       [::]:443 ssl http2 default_server;
-    server_name  _;
-    root         /usr/share/nginx/html;
-
-    ssl_certificate "/etc/pki/nginx/server.crt";
-    ssl_certificate_key "/etc/pki/nginx/private/server.key";
-    # It is *strongly* recommended to generate unique DH parameters
-    # Generate them with: openssl dhparam -out /etc/pki/nginx/dhparams.pem 2048
-    #ssl_dhparam "/etc/pki/nginx/dhparams.pem";
-    ssl_session_cache shared:SSL:1m;
-    ssl_session_timeout  10m;
-    ssl_protocols TLSv1.2 TLSv1.3;
-    ssl_ciphers "ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA";
-    ssl_prefer_server_ciphers on;
-
-    # Load configuration files for the default server block.
-    include /etc/nginx/default.d/*.conf;
-
-    location / {
-    }
-
-    error_page 404 /404.html;
-    location = /40x.html {
-    }
-
-    error_page 500 502 503 504 /50x.html;
-    location = /50x.html {
-    }
-}
-
-```
-
-Red Hat 7
-Use a text editor to edit the `/etc/nginx/nginx.conf` file. This requires Linux root permissions. At the
-top of the file, add the following lines:
-
-```
-ssl_engine cloudhsm;
-env CLOUDHSM_PIN;
-```
-
-Then add the following to the TLS section of the file:
-
-```
-# Settings for a TLS enabled server.
-server {
-    listen       443 ssl http2 default_server;
-    listen       [::]:443 ssl http2 default_server;
-    server_name  _;
-    root         /usr/share/nginx/html;
-
-    ssl_certificate "/etc/pki/nginx/server.crt";
-    ssl_certificate_key "/etc/pki/nginx/private/server.key";
-    # It is *strongly* recommended to generate unique DH parameters
-    # Generate them with: openssl dhparam -out /etc/pki/nginx/dhparams.pem 2048
-    #ssl_dhparam "/etc/pki/nginx/dhparams.pem";
-    ssl_session_cache shared:SSL:1m;
-    ssl_session_timeout  10m;
-    ssl_protocols TLSv1.2;
-    ssl_ciphers "ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA";
-    ssl_prefer_server_ciphers on;
-
-    # Load configuration files for the default server block.
-    include /etc/nginx/default.d/*.conf;
-
-    location / {
-    }
-
-    error_page 404 /404.html;
-    location = /40x.html {
-    }
-
-    error_page 500 502 503 504 /50x.html;
-    location = /50x.html {
-    }
-}
-
-```
-
 Red Hat 8
 Use a text editor to edit the `/etc/nginx/nginx.conf` file. This requires Linux root permissions. At the
 top of the file, add the following lines:
@@ -1028,144 +741,50 @@ server {
 
 ```
 
-Ubuntu 16.04 LTS
+Red Hat 9
 Use a text editor to edit the `/etc/nginx/nginx.conf` file. This requires Linux root permissions. At the
 top of the file, add the following lines:
 
 ```
 ssl_engine cloudhsm;
-    env n3fips_password;
+env CLOUDHSM_PIN;
 ```
 
 Then add the following to the TLS section of the file:
 
 ```
 # Settings for a TLS enabled server.
-    server {
-        listen       443 ssl http2 default_server;
-        listen       [::]:443 ssl http2 default_server;
-        server_name  _;
-        root         /usr/share/nginx/html;
+server {
+    listen       443 ssl http2 default_server;
+    listen       [::]:443 ssl http2 default_server;
+    server_name  _;
+    root         /usr/share/nginx/html;
 
-        ssl_certificate "/etc/pki/nginx/server.crt";
-        ssl_certificate_key "/etc/pki/nginx/private/server.key";
-        # It is *strongly* recommended to generate unique DH parameters
-        # Generate them with: openssl dhparam -out /etc/pki/nginx/dhparams.pem 2048
-        #ssl_dhparam "/etc/pki/nginx/dhparams.pem";
-        ssl_session_cache shared:SSL:1m;
-        ssl_session_timeout  10m;
-        ssl_protocols TLSv1.2;
-        ssl_ciphers "ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA";
-        ssl_prefer_server_ciphers on;
+    ssl_certificate "/etc/pki/nginx/server.crt";
+    ssl_certificate_key "/etc/pki/nginx/private/server.key";
+    # It is *strongly* recommended to generate unique DH parameters
+    # Generate them with: openssl dhparam -out /etc/pki/nginx/dhparams.pem 2048
+    #ssl_dhparam "/etc/pki/nginx/dhparams.pem";
+    ssl_session_cache shared:SSL:1m;
+    ssl_session_timeout  10m;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers "ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA";
+    ssl_prefer_server_ciphers on;
 
-        # Load configuration files for the default server block.
-        include /etc/nginx/default.d/*.conf;
+    # Load configuration files for the default server block.
+    include /etc/nginx/default.d/*.conf;
 
-        location / {
-        }
-
-        error_page 404 /404.html;
-        location = /40x.html {
-        }
-
-        error_page 500 502 503 504 /50x.html;
-        location = /50x.html {
-        }
+    location / {
     }
 
-```
-
-Ubuntu 18.04 LTS
-Use a text editor to edit the `/etc/nginx/nginx.conf` file. This requires Linux root permissions. At the
-top of the file, add the following lines:
-
-```
-ssl_engine cloudhsm;
-    env CLOUDHSM_PIN;
-```
-
-Then add the following to the TLS section of the file:
-
-```
-# Settings for a TLS enabled server.
-    server {
-        listen       443 ssl http2 default_server;
-        listen       [::]:443 ssl http2 default_server;
-        server_name  _;
-        root         /usr/share/nginx/html;
-
-        ssl_certificate "/etc/pki/nginx/server.crt";
-        ssl_certificate_key "/etc/pki/nginx/private/server.key";
-        # It is *strongly* recommended to generate unique DH parameters
-        # Generate them with: openssl dhparam -out /etc/pki/nginx/dhparams.pem 2048
-        #ssl_dhparam "/etc/pki/nginx/dhparams.pem";
-        ssl_session_cache shared:SSL:1m;
-        ssl_session_timeout  10m;
-        ssl_protocols TLSv1.2 TLSv1.3;
-        ssl_ciphers "ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA";
-        ssl_prefer_server_ciphers on;
-
-        # Load configuration files for the default server block.
-        include /etc/nginx/default.d/*.conf;
-
-        location / {
-        }
-
-        error_page 404 /404.html;
-        location = /40x.html {
-        }
-
-        error_page 500 502 503 504 /50x.html;
-        location = /50x.html {
-        }
+    error_page 404 /404.html;
+    location = /40x.html {
     }
 
-```
-
-Ubuntu 20.04 LTS
-Use a text editor to edit the `/etc/nginx/nginx.conf` file. This requires Linux root permissions. At the
-top of the file, add the following lines:
-
-```
-ssl_engine cloudhsm;
-    env CLOUDHSM_PIN;
-```
-
-Then add the following to the TLS section of the file:
-
-```
-# Settings for a TLS enabled server.
-    server {
-        listen       443 ssl http2 default_server;
-        listen       [::]:443 ssl http2 default_server;
-        server_name  _;
-        root         /usr/share/nginx/html;
-
-        ssl_certificate "/etc/pki/nginx/server.crt";
-        ssl_certificate_key "/etc/pki/nginx/private/server.key";
-        # It is *strongly* recommended to generate unique DH parameters
-        # Generate them with: openssl dhparam -out /etc/pki/nginx/dhparams.pem 2048
-        #ssl_dhparam "/etc/pki/nginx/dhparams.pem";
-        ssl_session_cache shared:SSL:1m;
-        ssl_session_timeout  10m;
-        ssl_protocols TLSv1.2 TLSv1.3;
-        ssl_ciphers "ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA";
-        ssl_prefer_server_ciphers on;
-
-        # Load configuration files for the default server block.
-        include /etc/nginx/default.d/*.conf;
-
-        location / {
-        }
-
-        error_page 404 /404.html;
-        location = /40x.html {
-        }
-
-        error_page 500 502 503 504 /50x.html;
-        location = /50x.html {
-        }
+    error_page 500 502 503 504 /50x.html;
+    location = /50x.html {
     }
+}
 
 ```
 
@@ -1175,44 +794,44 @@ top of the file, add the following lines:
 
 ```
 ssl_engine cloudhsm;
-  env CLOUDHSM_PIN;
+env CLOUDHSM_PIN;
 ```
 
 Then add the following to the TLS section of the file:
 
 ```
 # Settings for a TLS enabled server.
-    server {
-        listen       443 ssl http2 default_server;
-        listen       [::]:443 ssl http2 default_server;
-        server_name  _;
-        root         /usr/share/nginx/html;
+server {
+    listen       443 ssl http2 default_server;
+    listen       [::]:443 ssl http2 default_server;
+    server_name  _;
+    root         /usr/share/nginx/html;
 
-        ssl_certificate "/etc/pki/nginx/server.crt";
-        ssl_certificate_key "/etc/pki/nginx/private/server.key";
-        # It is *strongly* recommended to generate unique DH parameters
-        # Generate them with: openssl dhparam -out /etc/pki/nginx/dhparams.pem 2048
-        #ssl_dhparam "/etc/pki/nginx/dhparams.pem";
-        ssl_session_cache shared:SSL:1m;
-        ssl_session_timeout  10m;
-        ssl_protocols TLSv1.2 TLSv1.3;
-        ssl_ciphers "ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA";
-        ssl_prefer_server_ciphers on;
+    ssl_certificate "/etc/pki/nginx/server.crt";
+    ssl_certificate_key "/etc/pki/nginx/private/server.key";
+    # It is *strongly* recommended to generate unique DH parameters
+    # Generate them with: openssl dhparam -out /etc/pki/nginx/dhparams.pem 2048
+    #ssl_dhparam "/etc/pki/nginx/dhparams.pem";
+    ssl_session_cache shared:SSL:1m;
+    ssl_session_timeout  10m;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers "ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA";
+    ssl_prefer_server_ciphers on;
 
-        # Load configuration files for the default server block.
-        include /etc/nginx/default.d/*.conf;
+    # Load configuration files for the default server block.
+    include /etc/nginx/default.d/*.conf;
 
-        location / {
-        }
-
-        error_page 404 /404.html;
-        location = /40x.html {
-        }
-
-        error_page 500 502 503 504 /50x.html;
-        location = /50x.html {
-        }
+    location / {
     }
+
+    error_page 404 /404.html;
+    location = /40x.html {
+    }
+
+    error_page 500 502 503 504 /50x.html;
+    location = /50x.html {
+    }
+}
 
 ```
 
@@ -1222,52 +841,49 @@ top of the file, add the following lines:
 
 ```
 ssl_engine cloudhsm;
-  env CLOUDHSM_PIN;
+env CLOUDHSM_PIN;
 ```
 
 Then add the following to the TLS section of the file:
 
 ```
 # Settings for a TLS enabled server.
-    server {
-        listen       443 ssl http2 default_server;
-        listen       [::]:443 ssl http2 default_server;
-        server_name  _;
-        root         /usr/share/nginx/html;
+server {
+    listen       443 ssl http2 default_server;
+    listen       [::]:443 ssl http2 default_server;
+    server_name  _;
+    root         /usr/share/nginx/html;
 
-        ssl_certificate "/etc/pki/nginx/server.crt";
-        ssl_certificate_key "/etc/pki/nginx/private/server.key";
-        # It is *strongly* recommended to generate unique DH parameters
-        # Generate them with: openssl dhparam -out /etc/pki/nginx/dhparams.pem 2048
-        #ssl_dhparam "/etc/pki/nginx/dhparams.pem";
-        ssl_session_cache shared:SSL:1m;
-        ssl_session_timeout  10m;
-        ssl_protocols TLSv1.2 TLSv1.3;
-        ssl_ciphers "ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA";
-        ssl_prefer_server_ciphers on;
+    ssl_certificate "/etc/pki/nginx/server.crt";
+    ssl_certificate_key "/etc/pki/nginx/private/server.key";
+    # It is *strongly* recommended to generate unique DH parameters
+    # Generate them with: openssl dhparam -out /etc/pki/nginx/dhparams.pem 2048
+    #ssl_dhparam "/etc/pki/nginx/dhparams.pem";
+    ssl_session_cache shared:SSL:1m;
+    ssl_session_timeout  10m;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers "ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA";
+    ssl_prefer_server_ciphers on;
 
-        # Load configuration files for the default server block.
-        include /etc/nginx/default.d/*.conf;
+    # Load configuration files for the default server block.
+    include /etc/nginx/default.d/*.conf;
 
-        location / {
-        }
-
-        error_page 404 /404.html;
-        location = /40x.html {
-        }
-
-        error_page 500 502 503 504 /50x.html;
-        location = /50x.html {
-        }
+    location / {
     }
+
+    error_page 404 /404.html;
+    location = /40x.html {
+    }
+
+    error_page 500 502 503 504 /50x.html;
+    location = /50x.html {
+    }
+}
 
 ```
 
 Save the file. 8. Back up the `systemd` configuration file, and then set the
 `EnvironmentFile` path.
-
-Amazon Linux
-No action required.
 
 Amazon Linux 2
 
@@ -1296,37 +912,13 @@ Amazon Linux 2023
     ```
     `$` `sudo cp /lib/systemd/system/nginx.service /lib/systemd/system/nginx.service.backup`
     ```
-    2. Open `/lib/systemd/system/nginx.service` in a text editor. Under the [Service] section, add:
+    2. Open the `/lib/systemd/system/nginx.service` file in a text editor. and then under the [Service] section, add the following path:
 
 
 
     ```
     EnvironmentFile=/etc/sysconfig/nginx
     ```
-
-CentOS 7
-No action required.
-
-CentOS 8
-
-    1. Back up the `nginx.service` file.
-
-
-
-    ```
-    `$` `sudo cp /lib/systemd/system/nginx.service /lib/systemd/system/nginx.service.backup`
-    ```
-    2. Open the `/lib/systemd/system/nginx.service` file in a
-     text editor, and then under the [Service] section, add the following path:
-
-
-
-    ```
-    EnvironmentFile=/etc/sysconfig/nginx
-    ```
-
-Red Hat 7
-No action required.
 
 Red Hat 8
 
@@ -1346,43 +938,7 @@ Red Hat 8
     EnvironmentFile=/etc/sysconfig/nginx
     ```
 
-Ubuntu 16.04
-
-    1. Back up the `nginx.service` file.
-
-
-
-    ```
-    `$` `sudo cp /lib/systemd/system/nginx.service /lib/systemd/system/nginx.service.backup`
-    ```
-    2. Open the `/lib/systemd/system/nginx.service` file in a
-     text editor, and then under the [Service] section, add the following path:
-
-
-
-    ```
-    EnvironmentFile=/etc/sysconfig/nginx
-    ```
-
-Ubuntu 18.04
-
-    1. Back up the `nginx.service` file.
-
-
-
-    ```
-    `$` `sudo cp /lib/systemd/system/nginx.service /lib/systemd/system/nginx.service.backup`
-    ```
-    2. Open the `/lib/systemd/system/nginx.service` file in a
-     text editor, and then under the [Service] section, add the following path:
-
-
-
-    ```
-    EnvironmentFile=/etc/sysconfig/nginx
-    ```
-
-Ubuntu 20.04 LTS
+Red Hat 9
 
     1. Back up the `nginx.service` file.
 
@@ -1454,27 +1010,12 @@ Ubuntu 24.04 LTS
 Client SDK 5 introduces the `CLOUDHSM_PIN` environment variable for
 storing the credentials of the CU.
 
-Amazon Linux
-Open the `/etc/sysconfig/nginx` file in a text editor. This requires Linux root permissions. Add
-the Cryptography User (CU) credentials:
-
-```
-ssl_engine cloudhsm;
-env CLOUDHSM_PIN;
-```
-
-Replace `<CU user name>` and
-`<password>` with the CU credentials.
-
-Save the file.
-
 Amazon Linux 2
 Open the `/etc/sysconfig/nginx` file in a text editor. This requires Linux root permissions. Add
 the Cryptography User (CU) credentials:
 
 ```
-ssl_engine cloudhsm;
-env CLOUDHSM_PIN;
+`CLOUDHSM_PIN=`<CU user name>`:`<password>``
 ```
 
 Replace `<CU user name>` and
@@ -1483,58 +1024,11 @@ Replace `<CU user name>` and
 Save the file.
 
 Amazon Linux 2023
-As the Linux root user, open `/etc/sysconfig/nginx` file in a
-text editor. For example,
-
-```
-sudo vi /etc/sysconfig/nginx
-```
-
-Add the Cryptography User (CU) credentials:
-
-```
-`CLOUDHSM_PIN=`<CU user name>`:`<password>``
-```
-
-Replace `<CU user name>` and
-`<password>` with the CU credentials.
-
-Save the file.
-
-CentOS 7
-Open the `/etc/sysconfig/nginx` file in a text editor. This requires Linux root permissions. Add
-the Cryptography User (CU) credentials:
-
-```
-ssl_engine cloudhsm;
-env CLOUDHSM_PIN;
-```
-
-Replace `<CU user name>` and
-`<password>` with the CU credentials.
-
-Save the file.
-
-CentOS 8
 Open the `/etc/sysconfig/nginx` file in a text editor. This requires Linux root permissions. Add
 the Cryptography User (CU) credentials:
 
 ```
 `CLOUDHSM_PIN=`<CU user name>`:`<password>``
-```
-
-Replace `<CU user name>` and
-`<password>` with the CU credentials.
-
-Save the file.
-
-Red Hat 7
-Open the `/etc/sysconfig/nginx` file in a text editor. This requires Linux root permissions. Add
-the Cryptography User (CU) credentials:
-
-```
-ssl_engine cloudhsm;
-env CLOUDHSM_PIN;
 ```
 
 Replace `<CU user name>` and
@@ -1555,33 +1049,7 @@ Replace `<CU user name>` and
 
 Save the file.
 
-Ubuntu 16.04 LTS
-Open the `/etc/sysconfig/nginx` file in a text editor. This requires Linux root permissions. Add
-the Cryptography User (CU) credentials:
-
-```
-`n3fips_password=`<CU user name>`:`<password>``
-```
-
-Replace `<CU user name>` and
-`<password>` with the CU credentials.
-
-Save the file.
-
-Ubuntu 18.04 LTS
-Open the `/etc/sysconfig/nginx` file in a text editor. This requires Linux root permissions. Add
-the Cryptography User (CU) credentials:
-
-```
-`CLOUDHSM_PIN=`<CU user name>`:`<password>``
-```
-
-Replace `<CU user name>` and
-`<password>` with the CU credentials.
-
-Save the file.
-
-Ubuntu 20.04 LTS
+Red Hat 9
 Open the `/etc/sysconfig/nginx` file in a text editor. This requires Linux root permissions. Add
 the Cryptography User (CU) credentials:
 
@@ -1619,14 +1087,6 @@ Replace `<CU user name>` and
 `<password>` with the CU credentials.
 
 Save the file. 11. Start the NGINX web server.
-
-Amazon Linux
-Open the `/etc/sysconfig/nginx` file in a text editor. This requires Linux root permissions. Add
-the Cryptography User (CU) credentials:
-
-```
-`$` `sudo service nginx start`
-```
 
 Amazon Linux 2
 Stop any running NGINX process
@@ -1666,63 +1126,6 @@ Start NGINX
 `$` `sudo systemctl start nginx`
 ```
 
-CentOS 7
-Stop any running NGINX process
-
-```
-`$` `sudo systemctl stop nginx`
-```
-
-Reload the `systemd` configuration to pick up the latest changes
-
-```
-`$` `sudo systemctl daemon-reload`
-```
-
-Start the NGINX process
-
-```
-`$` `sudo systemctl start nginx`
-```
-
-CentOS 8
-Stop any running NGINX process
-
-```
-`$` `sudo systemctl stop nginx`
-```
-
-Reload the `systemd` configuration to pick up the latest changes
-
-```
-`$` `sudo systemctl daemon-reload`
-```
-
-Start the NGINX process
-
-```
-`$` `sudo systemctl start nginx`
-```
-
-Red Hat 7
-Stop any running NGINX process
-
-```
-`$` `sudo systemctl stop nginx`
-```
-
-Reload the `systemd` configuration to pick up the latest changes
-
-```
-`$` `sudo systemctl daemon-reload`
-```
-
-Start the NGINX process
-
-```
-`$` `sudo systemctl start nginx`
-```
-
 Red Hat 8
 Stop any running NGINX process
 
@@ -1742,45 +1145,7 @@ Start the NGINX process
 `$` `sudo systemctl start nginx`
 ```
 
-Ubuntu 16.04 LTS
-Stop any running NGINX process
-
-```
-`$` `sudo systemctl stop nginx`
-```
-
-Reload the `systemd` configuration to pick up the latest changes
-
-```
-`$` `sudo systemctl daemon-reload`
-```
-
-Start the NGINX process
-
-```
-`$` `sudo systemctl start nginx`
-```
-
-Ubuntu 18.04 LTS
-Stop any running NGINX process
-
-```
-`$` `sudo systemctl stop nginx`
-```
-
-Reload the `systemd` configuration to pick up the latest changes
-
-```
-`$` `sudo systemctl daemon-reload`
-```
-
-Start the NGINX process
-
-```
-`$` `sudo systemctl start nginx`
-```
-
-Ubuntu 20.04 LTS
+Red Hat 9
 Stop any running NGINX process
 
 ```
@@ -1839,12 +1204,6 @@ Start the NGINX process
 
 12. (Optional) Configure your platform to start NGINX at start-up.
 
-Amazon Linux
-
-```
-`$` `sudo chkconfig nginx on`
-```
-
 Amazon Linux 2
 
 ```
@@ -1857,37 +1216,13 @@ Amazon Linux 2023
 `$` `sudo systemctl enable nginx`
 ```
 
-CentOS 7
-No action required.
-
-CentOS 8
-
-```
-`$` `sudo systemctl enable nginx`
-```
-
-Red Hat 7
-No action required.
-
 Red Hat 8
 
 ```
 `$` `sudo systemctl enable nginx`
 ```
 
-Ubuntu 16.04 LTS
-
-```
-`$` `sudo systemctl enable nginx`
-```
-
-Ubuntu 18.04 LTS
-
-```
-`$` `sudo systemctl enable nginx`
-```
-
-Ubuntu 20.04 LTS
+Red Hat 9
 
 ```
 `$` `sudo systemctl enable nginx`
@@ -1916,14 +1251,6 @@ Use this section to configure Apache on supported platforms.
 1. Connect to your Amazon EC2 client instance.
 2. Define default locations for certificates and private keys for your platform.
 
-Amazon Linux
-In the `/etc/httpd/conf.d/ssl.conf` file, ensure these values exist:
-
-```
-`SSLCertificateFile `/etc/pki/tls/certs/localhost.crt`
-SSLCertificateKeyFile `/etc/pki/tls/private/localhost.key``
-```
-
 Amazon Linux 2
 In the `/etc/httpd/conf.d/ssl.conf` file, ensure these values exist:
 
@@ -1933,31 +1260,7 @@ SSLCertificateKeyFile `/etc/pki/tls/private/localhost.key``
 ```
 
 Amazon Linux 2023
-Open `/etc/httpd/conf.d/ssl.conf` file. Add these values if they don't already exist:
-
-```
-`SSLCertificateFile `/etc/pki/tls/certs/localhost.crt`
-SSLCertificateKeyFile `/etc/pki/tls/private/localhost.key``
-```
-
-CentOS 7
-In the `/etc/httpd/conf.d/ssl.conf` file, ensure these values exist:
-
-```
-`SSLCertificateFile `/etc/pki/tls/certs/localhost.crt`
-SSLCertificateKeyFile `/etc/pki/tls/private/localhost.key``
-```
-
-CentOS 8
-In the `/etc/httpd/conf.d/ssl.conf` file, ensure these values exist:
-
-```
-`SSLCertificateFile `/etc/pki/tls/certs/localhost.crt`
-SSLCertificateKeyFile `/etc/pki/tls/private/localhost.key``
-```
-
-Red Hat 7
-In the `/etc/httpd/conf.d/ssl.conf` file, ensure these values exist:
+In the `/etc/httpd/conf.d/ssl.conf` file. ensure these values exist:
 
 ```
 `SSLCertificateFile `/etc/pki/tls/certs/localhost.crt`
@@ -1972,28 +1275,12 @@ In the `/etc/httpd/conf.d/ssl.conf` file, ensure these values exist:
 SSLCertificateKeyFile `/etc/pki/tls/private/localhost.key``
 ```
 
-Ubuntu 16.04 LTS
-In the `/etc/apache2/sites-available/default-ssl.conf` file, ensure these values exist:
+Red Hat 9
+In the `/etc/httpd/conf.d/ssl.conf` file, ensure these values exist:
 
 ```
-`SSLCertificateFile `/etc/ssl/certs/localhost.crt`
-SSLCertificateKeyFile `/etc/ssl/private/localhost.key``
-```
-
-Ubuntu 18.04 LTS
-In the `/etc/apache2/sites-available/default-ssl.conf` file, ensure these values exist:
-
-```
-`SSLCertificateFile `/etc/ssl/certs/localhost.crt`
-SSLCertificateKeyFile `/etc/ssl/private/localhost.key``
-```
-
-Ubuntu 20.04 LTS
-In the `/etc/apache2/sites-available/default-ssl.conf` file, ensure these values exist:
-
-```
-`SSLCertificateFile `/etc/ssl/certs/localhost.crt`
-SSLCertificateKeyFile `/etc/ssl/private/localhost.key``
+`SSLCertificateFile `/etc/pki/tls/certs/localhost.crt`
+SSLCertificateKeyFile `/etc/pki/tls/private/localhost.key``
 ```
 
 Ubuntu 22.04 LTS
@@ -2014,14 +1301,6 @@ SSLCertificateKeyFile `/etc/ssl/private/localhost.key``
 
 3. Copy your web server certificate to the required location for your platform.
 
-Amazon Linux
-
-```
-`$` `sudo cp `<web_server.crt>` /etc/pki/tls/certs/localhost.crt`
-```
-
-Replace `<web_server.crt>` with the name of your web server certificate.
-
 Amazon Linux 2
 
 ```
@@ -2038,30 +1317,6 @@ Amazon Linux 2023
 
 Replace `<web_server.crt>` with the name of your web server certificate.
 
-CentOS 7
-
-```
-`$` `sudo cp `<web_server.crt>` /etc/pki/tls/certs/localhost.crt`
-```
-
-Replace `<web_server.crt>` with the name of your web server certificate.
-
-CentOS 8
-
-```
-`$` `sudo cp `<web_server.crt>` /etc/pki/tls/certs/localhost.crt`
-```
-
-Replace `<web_server.crt>` with the name of your web server certificate.
-
-Red Hat 7
-
-```
-`$` `sudo cp `<web_server.crt>` /etc/pki/tls/certs/localhost.crt`
-```
-
-Replace `<web_server.crt>` with the name of your web server certificate.
-
 Red Hat 8
 
 ```
@@ -2070,26 +1325,10 @@ Red Hat 8
 
 Replace `<web_server.crt>` with the name of your web server certificate.
 
-Ubuntu 16.04 LTS
+Red Hat 9
 
 ```
-`$` `sudo cp `<web_server.crt>` /etc/ssl/certs/localhost.crt`
-```
-
-Replace `<web_server.crt>` with the name of your web server certificate.
-
-Ubuntu 18.04 LTS
-
-```
-`$` `sudo cp `<web_server.crt>` /etc/ssl/certs/localhost.crt`
-```
-
-Replace `<web_server.crt>` with the name of your web server certificate.
-
-Ubuntu 20.04 LTS
-
-```
-`$` `sudo cp `<web_server.crt>` /etc/ssl/certs/localhost.crt`
+`$` `sudo cp `<web_server.crt>` /etc/pki/tls/certs/localhost.crt`
 ```
 
 Replace `<web_server.crt>` with the name of your web server certificate.
@@ -2110,109 +1349,53 @@ Ubuntu 24.04 LTS
 
 Replace `<web_server.crt>` with the name of your web server certificate. 4. Copy your fake PEM private key to the required location for your platform.
 
-Amazon Linux
-
-```
-`$` `sudo cp `<web_server_example_pem.key>` /etc/pki/tls/private/localhost.key`
-```
-
-Replace `<web_server_example_pem.key>` with the name of the file that contains your fake PEM private key.
-
 Amazon Linux 2
 
 ```
-`$` `sudo cp `<web_server_example_pem.key>` /etc/pki/tls/private/localhost.key`
+`$` `sudo cp `<web_server_fake_pem.key>` /etc/pki/tls/private/localhost.key`
 ```
 
-Replace `<web_server_example_pem.key>` with the name of the file that contains your fake PEM private key.
+Replace `<web_server_fake_pem.key>` with the name of the file that contains your fake PEM private key.
 
 Amazon Linux 2023
 
 ```
-`$` `sudo cp `<web_server_example_pem.key>` /etc/pki/tls/private/localhost.key`
+`$` `sudo cp `<web_server_fake_pem.key>` /etc/pki/tls/private/localhost.key`
 ```
 
-Replace `<web_server_example_pem.key>` with the name of the file that contains your fake PEM private key.
-
-CentOS 7
-
-```
-`$` `sudo cp `<web_server_example_pem.key>` /etc/pki/tls/private/localhost.key`
-```
-
-Replace `<web_server_example_pem.key>` with the name of the file that contains your fake PEM private key.
-
-CentOS 8
-
-```
-`$` `sudo cp `<web_server_example_pem.key>` /etc/pki/tls/private/localhost.key`
-```
-
-Replace `<web_server_example_pem.key>` with the name of the file that contains your fake PEM private key.
-
-Red Hat 7
-
-```
-`$` `sudo cp `<web_server_example_pem.key>` /etc/pki/tls/private/localhost.key`
-```
-
-Replace `<web_server_example_pem.key>` with the name of the file that contains your fake PEM private key.
+Replace `<web_server_fake_pem.key>` with the name of the file that contains your fake PEM private key.
 
 Red Hat 8
 
 ```
-`$` `sudo cp `<web_server_example_pem.key>` /etc/pki/tls/private/localhost.key`
+`$` `sudo cp `<web_server_fake_pem.key>` /etc/pki/tls/private/localhost.key`
 ```
 
-Replace `<web_server_example_pem.key>` with the name of the file that contains your fake PEM private key.
+Replace `<web_server_fake_pem.key>` with the name of the file that contains your fake PEM private key.
 
-Ubuntu 16.04 LTS
-
-```
-`$` `sudo cp `<web_server_example_pem.key>` /etc/ssl/private/localhost.key`
-```
-
-Replace `<web_server_example_pem.key>` with the name of the file that contains your fake PEM private key.
-
-Ubuntu 18.04 LTS
+Red Hat 9
 
 ```
-`$` `sudo cp `<web_server_example_pem.key>` /etc/ssl/private/localhost.key`
+`$` `sudo cp `<web_server_fake_pem.key>` /etc/pki/tls/private/localhost.key`
 ```
 
-Replace `<web_server_example_pem.key>` with the name of the file that contains your fake PEM private key.
-
-Ubuntu 20.04 LTS
-
-```
-`$` `sudo cp `<web_server_example_pem.key>` /etc/ssl/private/localhost.key`
-```
-
-Replace `<web_server_example_pem.key>` with the name of the file that contains your fake PEM private key.
+Replace `<web_server_fake_pem.key>` with the name of the file that contains your fake PEM private key.
 
 Ubuntu 22.04 LTS
 
 ```
-`$` `sudo cp `<web_server_example_pem.key>` /etc/ssl/private/localhost.key`
+`$` `sudo cp `<web_server_fake_pem.key>` /etc/ssl/private/localhost.key`
 ```
 
-Replace `<web_server_example_pem.key>` with the name of the file that contains your fake PEM private key.
+Replace `<web_server_fake_pem.key>` with the name of the file that contains your fake PEM private key.
 
 Ubuntu 24.04 LTS
 
 ```
-`$` `sudo cp `<web_server_example_pem.key>` /etc/ssl/private/localhost.key`
+`$` `sudo cp `<web_server_fake_pem.key>` /etc/ssl/private/localhost.key`
 ```
 
-Replace `<web_server_example_pem.key>` with the name of the file that contains your fake PEM private key. 5. Change ownership of these files if required by your platform.
-
-Amazon Linux
-
-```
-`$` `sudo chown apache /etc/pki/tls/certs/localhost.crt /etc/pki/tls/private/localhost.key`
-```
-
-Provides read permission to the user named _apache_.
+Replace `<web_server_fake_pem.key>` with the name of the file that contains your fake PEM private key. 5. Change ownership of these files if required by your platform.
 
 Amazon Linux 2
 
@@ -2230,30 +1413,6 @@ Amazon Linux 2023
 
 Provides read permission to the user named _apache_.
 
-CentOS 7
-
-```
-`$` `sudo chown apache /etc/pki/tls/certs/localhost.crt /etc/pki/tls/private/localhost.key`
-```
-
-Provides read permission to the user named _apache_.
-
-CentOS 8
-
-```
-`$` `sudo chown apache /etc/pki/tls/certs/localhost.crt /etc/pki/tls/private/localhost.key`
-```
-
-Provides read permission to the user named _apache_.
-
-Red Hat 7
-
-```
-`$` `sudo chown apache /etc/pki/tls/certs/localhost.crt /etc/pki/tls/private/localhost.key`
-```
-
-Provides read permission to the user named _apache_.
-
 Red Hat 8
 
 ```
@@ -2262,14 +1421,13 @@ Red Hat 8
 
 Provides read permission to the user named _apache_.
 
-Ubuntu 16.04 LTS
-No action required.
+Red Hat 9
 
-Ubuntu 18.04 LTS
-No action required.
+```
+`$` `sudo chown apache /etc/pki/tls/certs/localhost.crt /etc/pki/tls/private/localhost.key`
+```
 
-Ubuntu 20.04 LTS
-No action required.
+Provides read permission to the user named _apache_.
 
 Ubuntu 22.04 LTS
 No action required.
@@ -2277,25 +1435,6 @@ No action required.
 Ubuntu 24.04 LTS
 No action required. 6. Configure Apache directives for your platform.
 
-Amazon Linux
-Locate the SSL file for this platform:
-
-```
-`/etc/httpd/conf.d/ssl.conf`
-```
-
-This file contains Apache directives which define how your server should run.
-Directives appear on the left, followed by a value. Use a text editor to edit this file. This requires Linux root permissions.
-
-Update or enter the following directives with these values:
-
-```
-SSLCryptoDevice `cloudhsm`
-SSLCipherSuite `ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA`
-```
-
-Save the file.
-
 Amazon Linux 2
 Locate the SSL file for this platform:
 
@@ -2316,63 +1455,6 @@ SSLCipherSuite `ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-
 Save the file.
 
 Amazon Linux 2023
-Locate the SSL file for this platform:
-
-```
-`/etc/httpd/conf.d/ssl.conf`
-```
-
-The Apache configuration file defines server behavior. Edit this file with root permissions.
-
-Update or add the following directives:
-
-```
-SSLCryptoDevice `cloudhsm`
-SSLCipherSuite `ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA`
-```
-
-Save the file.
-
-CentOS 7
-Locate the SSL file for this platform:
-
-```
-`/etc/httpd/conf.d/ssl.conf`
-```
-
-This file contains Apache directives which define how your server should run.
-Directives appear on the left, followed by a value. Use a text editor to edit this file. This requires Linux root permissions.
-
-Update or enter the following directives with these values:
-
-```
-SSLCryptoDevice `cloudhsm`
-SSLCipherSuite `ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA`
-```
-
-Save the file.
-
-CentOS 8
-Locate the SSL file for this platform:
-
-```
-`/etc/httpd/conf.d/ssl.conf`
-```
-
-This file contains Apache directives which define how your server should run.
-Directives appear on the left, followed by a value. Use a text editor to edit this file. This requires Linux root permissions.
-
-Update or enter the following directives with these values:
-
-```
-`SSLCryptoDevice `cloudhsm`SSLProtocol `TLSv1.2 TLSv1.3`
-SSLCipherSuite `ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA`
-SSLProxyCipherSuite `HIGH:!aNULL``
-```
-
-Save the file.
-
-Red Hat 7
 Locate the SSL file for this platform:
 
 ```
@@ -2411,11 +1493,11 @@ SSLProxyCipherSuite `HIGH:!aNULL``
 
 Save the file.
 
-Ubuntu 16.04 LTS
+Red Hat 9
 Locate the SSL file for this platform:
 
 ```
-`/etc/apache2/mods-available/ssl.conf`
+`/etc/httpd/conf.d/ssl.conf`
 ```
 
 This file contains Apache directives which define how your server should run.
@@ -2424,72 +1506,12 @@ Directives appear on the left, followed by a value. Use a text editor to edit th
 Update or enter the following directives with these values:
 
 ```
-SSLCryptoDevice `cloudhsm`
+`SSLCryptoDevice `cloudhsm`SSLProtocol `TLSv1.2 TLSv1.3`
 SSLCipherSuite `ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA`
+SSLProxyCipherSuite `HIGH:!aNULL``
 ```
 
 Save the file.
-
-Enable the SSL module and default SSL site configuration:
-
-```
-`$` `sudo a2enmod ssl`
-`$` `sudo a2ensite default-ssl`
-```
-
-Ubuntu 18.04 LTS
-Locate the SSL file for this platform:
-
-```
-`/etc/apache2/mods-available/ssl.conf`
-```
-
-This file contains Apache directives which define how your server should run.
-Directives appear on the left, followed by a value. Use a text editor to edit this file. This requires Linux root permissions.
-
-Update or enter the following directives with these values:
-
-```
-SSLCryptoDevice `cloudhsm`
-SSLCipherSuite `ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA`
-SSLProtocol `TLSv1.2 TLSv1.3`
-```
-
-Save the file.
-
-Enable the SSL module and default SSL site configuration:
-
-```
-`$` `sudo a2enmod ssl`
-`$` `sudo a2ensite default-ssl`
-```
-
-Ubuntu 20.04 LTS
-Locate the SSL file for this platform:
-
-```
-`/etc/apache2/mods-available/ssl.conf`
-```
-
-This file contains Apache directives which define how your server should run.
-Directives appear on the left, followed by a value. Use a text editor to edit this file. This requires Linux root permissions.
-
-Update or enter the following directives with these values:
-
-```
-SSLCryptoDevice `cloudhsm`
-SSLCipherSuite `ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA`
-SSLProtocol `TLSv1.2 TLSv1.3`
-```
-
-Save the file.
-
-Enable the SSL module and default SSL site configuration:
-
-```
-`$` `sudo a2enmod ssl`
-`$` `sudo a2ensite default-ssl`
-```
 
 Ubuntu 22.04 LTS
 Locate the SSL file for this platform:
@@ -2547,9 +1569,6 @@ Enable the SSL module and default SSL site configuration:
 
 7. Configure an environment-values file for your platform.
 
-Amazon Linux
-No action required. Environment values go in `/etc/sysconfig/httpd`
-
 Amazon Linux 2
 
 Open the httpd service file:
@@ -2565,43 +1584,6 @@ Under the `[Service]` section, add the following:
 ```
 
 Amazon Linux 2023
-Open `/lib/systemd/system/httpd.service`
-
-Under the [Service] section, add:
-
-```
-`EnvironmentFile=/etc/sysconfig/httpd`
-```
-
-CentOS 7
-
-Open the httpd service file:
-
-```
-`/lib/systemd/system/httpd.service`
-```
-
-Under the `[Service]` section, add the following:
-
-```
-`EnvironmentFile=/etc/sysconfig/httpd`
-```
-
-CentOS 8
-
-Open the httpd service file:
-
-```
-`/lib/systemd/system/httpd.service`
-```
-
-Under the `[Service]` section, add the following:
-
-```
-`EnvironmentFile=/etc/sysconfig/httpd`
-```
-
-Red Hat 7
 
 Open the httpd service file:
 
@@ -2629,14 +1611,19 @@ Under the `[Service]` section, add the following:
 `EnvironmentFile=/etc/sysconfig/httpd`
 ```
 
-Ubuntu 16.04 LTS
-No action required. Environment values go in `/etc/sysconfig/httpd`
+Red Hat 9
 
-Ubuntu 18.04 LTS
-No action required. Environment values go in `/etc/sysconfig/httpd`
+Open the httpd service file:
 
-Ubuntu 20.04 LTS
-No action required. Environment values go in `/etc/sysconfig/httpd`
+```
+`/lib/systemd/system/httpd.service`
+```
+
+Under the `[Service]` section, add the following:
+
+```
+`EnvironmentFile=/etc/sysconfig/httpd`
+```
 
 Ubuntu 22.04 LTS
 No action required. Environment values go in `/etc/sysconfig/httpd`
@@ -2645,65 +1632,21 @@ Ubuntu 24.04 LTS
 No action required. Environment values go in `/etc/sysconfig/httpd` 8. In the file that stores environment variables for your platform, set an environment
 variable that contains the credentials of the cryptographic user (CU):
 
-Amazon Linux
-Use a text editor to edit the `/etc/sysconfig/httpd`.
-
-```
-ssl_engine cloudhsm;
-env CLOUDHSM_PIN;
-```
-
-Replace `<CU user name>` and
-`<password>` with the CU credentials.
-
 Amazon Linux 2
 Use a text editor to edit the `/etc/sysconfig/httpd`.
 
 ```
-ssl_engine cloudhsm;
-env CLOUDHSM_PIN;
+`CLOUDHSM_PIN=`<CU user name>`:`<password>``
 ```
 
 Replace `<CU user name>` and
 `<password>` with the CU credentials.
 
 Amazon Linux 2023
-Open `/etc/sysconfig/httpd`, add:
-
-```
-`CLOUDHSM_PIN=`<CU user name>`:`<password>``
-```
-
-Replace `<CU user name>` and
-`<password>` with the CU credentials.
-
-CentOS 7
-Use a text editor to edit the `/etc/sysconfig/httpd`.
-
-```
-ssl_engine cloudhsm;
-env CLOUDHSM_PIN;
-```
-
-Replace `<CU user name>` and
-`<password>` with the CU credentials.
-
-CentOS 8
 Use a text editor to edit the `/etc/sysconfig/httpd`.
 
 ```
 `CLOUDHSM_PIN=`<CU user name>`:`<password>``
-```
-
-Replace `<CU user name>` and
-`<password>` with the CU credentials.
-
-Red Hat 7
-Use a text editor to edit the `/etc/sysconfig/httpd`.
-
-```
-ssl_engine cloudhsm;
-env CLOUDHSM_PIN;
 ```
 
 Replace `<CU user name>` and
@@ -2724,21 +1667,11 @@ Replace `<CU user name>` and
 Client SDK 5 introduces the `CLOUDHSM_PIN` environment variable for
 storing the credentials of the CU.
 
-Ubuntu 16.04 LTS
-Use a text editor to edit the `/etc/apache2/envvars`.
+Red Hat 9
+Use a text editor to edit the `/etc/sysconfig/httpd`.
 
 ```
-`export n3fips_password=`<CU user name>`:`<password>``
-```
-
-Replace `<CU user name>` and
-`<password>` with the CU credentials.
-
-Ubuntu 18.04 LTS
-Use a text editor to edit the `/etc/apache2/envvars`.
-
-```
-`export CLOUDHSM_PIN=`<CU user name>`:`<password>``
+`CLOUDHSM_PIN=`<CU user name>`:`<password>``
 ```
 
 Replace `<CU user name>` and
@@ -2747,26 +1680,7 @@ Replace `<CU user name>` and
 ###### Note
 
 Client SDK 5 introduces the `CLOUDHSM_PIN` environment variable for
-storing the credentials of the CU. In Client SDK 3 you stored the CU credentials in the
-`n3fips_password` environment variable. Client SDK 5 supports both
-environment variables, but we recommend using `CLOUDHSM_PIN`.
-
-Ubuntu 20.04 LTS
-Use a text editor to edit the `/etc/apache2/envvars`.
-
-```
-`export CLOUDHSM_PIN=`<CU user name>`:`<password>``
-```
-
-Replace `<CU user name>` and
-`<password>` with the CU credentials.
-
-###### Note
-
-Client SDK 5 introduces the `CLOUDHSM_PIN` environment variable for
-storing the credentials of the CU. In Client SDK 3 you stored the CU credentials in the
-`n3fips_password` environment variable. Client SDK 5 supports both
-environment variables, but we recommend using `CLOUDHSM_PIN`.
+storing the credentials of the CU.
 
 Ubuntu 22.04 LTS
 Use a text editor to edit the `/etc/apache2/envvars`.
@@ -2802,13 +1716,6 @@ storing the credentials of the CU. In Client SDK 3 you stored the CU credentials
 `n3fips_password` environment variable. Client SDK 5 supports both
 environment variables, but we recommend using `CLOUDHSM_PIN`. 9. Start the Apache web server.
 
-Amazon Linux
-
-```
-`$` `sudo systemctl daemon-reload`
-`$` `sudo service httpd start`
-```
-
 Amazon Linux 2
 
 ```
@@ -2823,27 +1730,6 @@ Amazon Linux 2023
 `$` `sudo service httpd start`
 ```
 
-CentOS 7
-
-```
-`$` `sudo systemctl daemon-reload`
-`$` `sudo service httpd start`
-```
-
-CentOS 8
-
-```
-`$` `sudo systemctl daemon-reload`
-`$` `sudo service httpd start`
-```
-
-Red Hat 7
-
-```
-`$` `sudo systemctl daemon-reload`
-`$` `sudo service httpd start`
-```
-
 Red Hat 8
 
 ```
@@ -2851,22 +1737,11 @@ Red Hat 8
 `$` `sudo service httpd start`
 ```
 
-Ubuntu 16.04 LTS
+Red Hat 9
 
 ```
-`$` `sudo service apache2 start`
-```
-
-Ubuntu 18.04 LTS
-
-```
-`$` `sudo service apache2 start`
-```
-
-Ubuntu 20.04 LTS
-
-```
-`$` `sudo service apache2 start`
+`$` `sudo systemctl daemon-reload`
+`$` `sudo service httpd start`
 ```
 
 Ubuntu 22.04 LTS
@@ -2883,12 +1758,6 @@ Ubuntu 24.04 LTS
 
 10. (Optional) Configure your platform to start Apache at start-up.
 
-Amazon Linux
-
-```
-`$` `sudo chkconfig httpd on`
-```
-
 Amazon Linux 2
 
 ```
@@ -2901,46 +1770,16 @@ Amazon Linux 2023
 `$` `sudo chkconfig httpd on`
 ```
 
-CentOS 7
-
-```
-`$` `sudo chkconfig httpd on`
-```
-
-CentOS 8
-
-```
-`$` `systemctl enable httpd`
-```
-
-Red Hat 7
-
-```
-`$` `sudo chkconfig httpd on`
-```
-
 Red Hat 8
 
 ```
 `$` `systemctl enable httpd`
 ```
 
-Ubuntu 16.04 LTS
+Red Hat 9
 
 ```
-`$` `sudo systemctl enable apache2`
-```
-
-Ubuntu 18.04 LTS
-
-```
-`$` `sudo systemctl enable apache2`
-```
-
-Ubuntu 20.04 LTS
-
-```
-`$` `sudo systemctl enable apache2`
+`$` `systemctl enable httpd`
 ```
 
 Ubuntu 22.04 LTS

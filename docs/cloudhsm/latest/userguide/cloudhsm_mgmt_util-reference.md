@@ -5,7 +5,7 @@ security modules (HSMs) in the AWS CloudHSM cluster. It also includes commands t
 (CUs) to share keys, and get and set key attributes. These commands complement the primary key
 management commands in the [key_mgmt_util](key_mgmt_util.md "key_mgmt_util.md") command line tool.
 
-For a quick start, see [Cloned clusters in AWS CloudHSM](cloudhsm_mgmt_util-getting-started.md "cloudhsm_mgmt_util-getting-started.md").
+For a quick start, see [Getting started with AWS CloudHSM Management Utility (CMU)](cloudhsm_mgmt_util-getting-started.md "cloudhsm_mgmt_util-getting-started.md").
 
 Before you run any cloudhsm_mgmt_util command, you must start cloudhsm_mgmt_util and log in to the HSM. Be sure that
 you log in with the user account type that can run the commands you plan to use.

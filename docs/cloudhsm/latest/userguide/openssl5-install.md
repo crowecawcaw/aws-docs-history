@@ -56,27 +56,6 @@ Install the OpenSSL Dynamic Engine for Amazon Linux 2 on ARM64 architecture:
 `$` `sudo yum install ./cloudhsm-dyn-latest.el7.aarch64.rpm`
 ```
 
-RHEL 10 (10.0+)
-Install the OpenSSL Dynamic Engine for RHEL 10 on x86_64 architecture:
-
-```
-`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL10/cloudhsm-dyn-latest.el10.x86_64.rpm`
-```
-
-```
-`$` `sudo yum install ./cloudhsm-dyn-latest.el10.x86_64.rpm`
-```
-
-Install the OpenSSL Dynamic Engine for RHEL 10 on ARM64 architecture:
-
-```
-`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL10/cloudhsm-dyn-latest.el10.aarch64.rpm`
-```
-
-```
-`$` `sudo yum install ./cloudhsm-dyn-latest.el10.aarch64.rpm`
-```
-
 RHEL 9 (9.2+)
 Install the OpenSSL Dynamic Engine for RHEL 9 on x86_64 architecture:
 

@@ -7,7 +7,7 @@ and Client SDK 3.
 - In Client SDK 5, we introduce the concept of _key
   availability quorums_ which requires you to run clusters with a
   minimum of two HSMs. You can use client-side key durability settings to opt out
-  of the two HSM requirement. For more information about quorums, see [Client SDK 5 concepts](#client-sync-8concept "#client-sync-8concept").
+  of the two HSM requirement. For more information about quorums, see [AWS CloudHSM key concepts](concepts-key-sync.md "concepts-key-sync.md").
 - In Client SDK 3, you use client-side key durability settings to specify the
   number of HSMs on which key creation must succeed for the overall operation to
   be deemed a success.
