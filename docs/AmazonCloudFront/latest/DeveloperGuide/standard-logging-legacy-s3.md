@@ -41,20 +41,7 @@ track of which log files are associated with which distributions.
   enforced**. That setting disables ACLs for the bucket and the
   objects in it, which prevents CloudFront from delivering log files to the
   bucket.
-- Don't choose an Amazon S3 bucket in the following
-  AWS Regions. CloudFront doesn't deliver standard logs to buckets in these Regions:
-  - Africa (Cape Town)
-  - Asia Pacific (Hong Kong)
-  - Asia Pacific (Hyderabad)
-  - Asia Pacific (Jakarta)
-  - Asia Pacific (Melbourne)
-  - Canada West (Calgary)
-  - Europe (Milan)
-  - Europe (Spain)
-  - Europe (Zurich)
-  - Israel (Tel Aviv)
-  - Middle East (Bahrain)
-  - Middle East (UAE)
+- Legacy logging does not support Amazon S3 buckets in opt-in regions. Please choose a region that is enabled by default or use [Standard Logging V2](standard-logging.md "standard-logging.md") which does support opt-in regions and additional features. For a list of default and opt-in regions, see [AWS Regions](../../../global-infrastructure/latest/regions/aws-regions.md "../../../global-infrastructure/latest/regions/aws-regions.md").
 
 ## Permissions
 
