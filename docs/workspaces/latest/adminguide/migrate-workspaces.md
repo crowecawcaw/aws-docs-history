@@ -35,6 +35,9 @@ user volume. The following are example scenarios:
   unsubscribed from Microsoft Office.
 - You can migrate BYOL BYOP WorkSpaces from Windows 10 to Windows 11, and
   license-included BYOP WorkSpaces from Windows Server 2019 to Windows Server 2022.
+- You can migrate any Windows Server powered WorkSpace bundle to Windows Server 2025.
+  Once migrated, you will be using DCV streaming protocol to enable high-performance remote desktop streaming, even with graphics-intensive applications, over varying network conditions, even with less powerful client devices.
+- You can migrate any Windows Server license-included BYOP WorkSpace bundle to BYOP Windows Server 2025.
   For more information about Amazon WorkSpaces bundles, see [Bundles and images for WorkSpaces Personal](amazon-workspaces-bundles.md "amazon-workspaces-bundles.md").
 
 The migration process recreates the WorkSpace by using a new root volume from the target
@@ -115,6 +118,14 @@ The following table shows which migration scenarios are available:
 | Windows 11 BYOP BYOL                                 | Windows 10 BYOP BYOL                                 | No         |
 | Windows Server 2019-powered Public BYOP              | Windows Server 2022-powered Public BYOP              | Yes        |
 | Windows Server 2022-powered Public BYOP              | Windows Server 2019-powered Public BYOP              | No         |
+| Windows Server 2019-powered Public BYOP              | Windows Server 2025-powered Public BYOP              | Yes        |
+| Windows Server 2025-powered Public BYOP              | Windows Server 2019-powered Public BYOP              | No         |
+| Windows Server 2022-powered Public BYOP              | Windows Server 2025-powered Public BYOP              | Yes        |
+| Windows Server 2025-powered Public BYOP              | Windows Server 2022-powered Public BYOP              | No         |
+| Windows Server 2019-powered Public Windows 10 bundle | Windows Server 2025-powered Public BYOP              | Yes        |
+| Windows Server 2019-powered Custom Windows 10 bundle | Windows Server 2025-powered Public BYOP              | Yes        |
+| Windows Server 2022-powered Public Windows 10 bundle | Windows Server 2025-powered Public BYOP              | Yes        |
+| Windows Server 2022-powered Custom Windows 10 bundle | Windows Server 2025-powered Public BYOP              | Yes        |
 
 ###### Note
 

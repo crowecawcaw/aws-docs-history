@@ -41,7 +41,7 @@ For more information about how to check your WorkSpace client version and host a
 - If you need your users to authenticate with smart cards or to use smart cards
   in-session.
 - If you need webcam support capabilities in-session.
-- If you need to use Web Access with the Windows Server 2022-powered WorkSpaces bundle.
+- If you need to use Web Access with the Windows Server 2022 or Windows Server 2025-powered WorkSpaces bundle.
 - If you need to use Ubuntu WorkSpaces.
 - If you need to use Windows 11 BYOL WorkSpaces.
 - If you need to use GPU-enabled WorkSpaces bundles with Windows.

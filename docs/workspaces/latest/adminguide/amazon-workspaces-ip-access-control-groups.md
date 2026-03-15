@@ -6,10 +6,10 @@ to access their WorkSpaces when they're connected to a trusted network.
 
 An _IP access control group_ acts as a virtual firewall that controls
 the IP addresses from which users are allowed to access their WorkSpaces. To specify the CIDR address ranges,
-add rules to your IP access control group, and then associate the group with your directory. You can associate
-each IP access control group with one or more directories. You can create up to 100 IP access
-control groups per Region per AWS account. However, you can only associate up to 25 IP access control
-groups with a single directory.
+add rules to your IP access control group, and then associate the group with your directory. You can add up to
+30 rules per IP access control group and can associate each IP access control group with one or more directories.
+You can create up to 140 IP access control groups per Region per AWS account. However, you can only associate
+up to 35 IP access control groups with a single directory.
 
 A default IP access control group is associated with each directory. This default group includes a default
 rule that allows users to access their WorkSpaces from anywhere. You cannot modify the default IP access control
@@ -38,7 +38,7 @@ create rules that allow traffic from the public IP addresses for the NAT gateway
 ## Create an IP access control group
 
 You can create an IP access control group as follows. Each IP access control group can
-contain up to 10 rules.
+contain up to 30 rules.
 
 ###### To create an IP access control group
 

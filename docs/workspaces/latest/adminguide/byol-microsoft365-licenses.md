@@ -9,6 +9,7 @@ for enterprise software on WorkSpaces that are powered by the following operatin
 - Windows Server 2016
 - Windows Server 2019
 - Windows Server 2022
+- Windows Server 2025
   To use Microsoft 365 Apps for enterprise on WorkSpaces, you must have subscription to Microsoft
   365 E3/E5, Microsoft 365 A3/A5, Microsoft 365 G3/G5, or Microsoft 365 Business
   Premium.

@@ -605,8 +605,8 @@ $packages = $allAppxPackages |    Where-Object { `
                                 }
 ```
 
-4. Enter the following command to remove all staged AppX
-   packages, and press Enter.
+4. Execute the following command with elevated SYSTEM privileges to remove all staged AppX
+   package provisioning entries, and press Enter.
 
 ```
 $packages | Remove-AppxPackage -ErrorAction SilentlyContinue
