@@ -40,36 +40,33 @@ AWS CLI
 
 You can use the [describe-instance-types](../../../cli/latest/reference/ec2/describe-instance-types.md "../../../cli/latest/reference/ec2/describe-instance-types.md") command to display information about an
 instance type, such as its supported network interfaces and IP addresses per interface.
-The following example displays this information for all C5 instances.
+The following example displays this information for all C8i instances.
 
 ```
+{ echo -e "InstanceType\tMaximumNetworkInterfaces\tIpv4AddressesPerInterface"; \
 aws ec2 describe-instance-types \
-    --filters "Name=instance-type,Values=c5.*" \
-    --query "InstanceTypes[].{ \
-        Type: InstanceType, \
-        MaxENI: NetworkInfo.MaximumNetworkInterfaces, \
-        IPv4addr: NetworkInfo.Ipv4AddressesPerInterface}" \
-    --output table
+    --filters "Name=instance-type,Values=c8i.*" \
+    --query 'InstanceTypes[*].[InstanceType, NetworkInfo.MaximumNetworkInterfaces, NetworkInfo.Ipv4AddressesPerInterface]' \
+    --output text | sort -k2 -n; } | column -t
 ```
 
 The following is example output.
 
 ```
----------------------------------------
-|        DescribeInstanceTypes        |
-+----------+----------+---------------+
-| IPv4addr | MaxENI   |     Type      |
-+----------+----------+---------------+
-|  30      |  8       |  c5.4xlarge   |
-|  50      |  15      |  c5.24xlarge  |
-|  15      |  4       |  c5.xlarge    |
-|  30      |  8       |  c5.12xlarge  |
-|  10      |  3       |  c5.large     |
-|  15      |  4       |  c5.2xlarge   |
-|  50      |  15      |  c5.metal     |
-|  30      |  8       |  c5.9xlarge   |
-|  50      |  15      |  c5.18xlarge  |
-+----------+----------+---------------+
+InstanceType    MaximumNetworkInterfaces  Ipv4AddressesPerInterface
+c8i.large       3                         20
+c8i.2xlarge     4                         30
+c8i.xlarge      4                         30
+c8i.4xlarge     8                         50
+c8i.8xlarge     10                        50
+c8i.12xlarge    12                        50
+c8i.16xlarge    16                        64
+c8i.24xlarge    16                        64
+c8i.32xlarge    24                        64
+c8i.48xlarge    24                        64
+c8i.96xlarge    24                        64
+c8i.metal-48xl  24                        64
+c8i.metal-96xl  24                        64
 ```
 
 PowerShell
@@ -78,29 +75,34 @@ PowerShell
 
 You can use the [Get-EC2InstanceType](../../../powershell/latest/reference/items/Get-EC2InstanceType.md "../../../powershell/latest/reference/items/Get-EC2InstanceType.md") PowerShell command to display information about an
 instance type, such as its supported network interfaces and IP addresses per interface.
-The following example displays this information for all C5 instances.
+The following example displays this information for all C8i instances.
 
 ```
-Get-EC2InstanceType -Filter @{Name="instance-type"; Values="c5.*"} | `
+Get-EC2InstanceType -Filter @{Name="instance-type"; Values="c8i.*"} |
 Select-Object `
-    @{Name='Ipv4AddressesPerInterface'; Expression={($_.Networkinfo.Ipv4AddressesPerInterface)}},
-    @{Name='MaximumNetworkInterfaces'; Expression={($_.Networkinfo.MaximumNetworkInterfaces)}},
-    InstanceType | `
+    InstanceType,
+    @{Name='MaximumNetworkInterfaces'; Expression={$_.NetworkInfo.MaximumNetworkInterfaces}},
+    @{Name='Ipv4AddressesPerInterface'; Expression={$_.NetworkInfo.Ipv4AddressesPerInterface}} |
+Sort-Object MaximumNetworkInterfaces |
 Format-Table -AutoSize
 ```
 
 The following is example output.
 
 ```
-Ipv4AddressesPerInterface MaximumNetworkInterfaces InstanceType
-------------------------- ------------------------ ------------
-                       30                        8 c5.4xlarge
-                       15                        4 c5.xlarge
-                       30                        8 c5.12xlarge
-                       50                       15 c5.24xlarge
-                       30                        8 c5.9xlarge
-                       50                       15 c5.metal
-                       15                        4 c5.2xlarge
-                       10                        3 c5.large
-                       50                       15 c5.18xlarge
+InstanceType   MaximumNetworkInterfaces Ipv4AddressesPerInterface
+------------   ------------------------ -------------------------
+c8i.large                             3                        20
+c8i.xlarge                            4                        30
+c8i.2xlarge                           4                        30
+c8i.4xlarge                           8                        50
+c8i.8xlarge                          10                        50
+c8i.12xlarge                         12                        50
+c8i.24xlarge                         16                        64
+c8i.16xlarge                         16                        64
+c8i.96xlarge                         24                        64
+c8i.48xlarge                         24                        64
+c8i.metal-96xl                       24                        64
+c8i.32xlarge                         24                        64
+c8i.metal-48xl                       24                        64
 ```

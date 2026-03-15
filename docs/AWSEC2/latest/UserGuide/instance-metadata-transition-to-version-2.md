@@ -315,17 +315,20 @@ Amazon EC2 console
 
     1. Open the Amazon EC2 console at
      [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-    2. On the EC2 Dashboard, under **Account
-     attributes**, choose **Data
-     protection and security**.
-    3. Under **IMDS defaults**, choose
+    2. In the navigation pane, choose
+     **Dashboard**.
+    3. On the **Account attributes**
+     card, under **Settings**,
+     choose **Data protection and
+     security**.
+    4. Under **IMDS defaults**, choose
      **Manage**.
-    4. For **Instance metadata service** , choose
+    5. For **Instance metadata service** , choose
      **Enabled**.
-    5. For **Metadata version**, choose
+    6. For **Metadata version**, choose
      to **V2 only (token
      required)**.
-    6. Choose **Update**.
+    7. Choose **Update**.
 
 AWS CLI
 Use the [modify-instance-metadata-defaults](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/modify-instance-metadata-defaults.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/modify-instance-metadata-defaults.html") CLI command and

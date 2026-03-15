@@ -468,9 +468,6 @@ SqlServerInstall: {sql patch leve, edition type}
 Driver: AWS NVMe Driver {version}
 Driver: Inbox NVMe Driver {version}
 Driver: AWS PV Driver Package {version}
-Microsoft-Hyper-V is installed.
-Unable to get service status for vmms
-Microsoft-Hyper-V is {status}
 SSM: Amazon SSM Agent {version}
 AWS VSS Version: {version}`
 ```

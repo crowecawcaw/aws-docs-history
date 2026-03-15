@@ -297,9 +297,9 @@ Console
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. To change the AWS Region, use the Region selector in the upper-right corner of the page.
-3. On the left navigation pane, choose **EC2
-   Dashboard**.
-4. From **Account attributes**, choose **Default
+3. In the navigation pane, choose **Dashboard**.
+4. On the **Account attributes** card, under
+   **Settings**, choose **Default
    credit specification**.
 5. Choose **Manage**.
 6. For each instance family, choose **Unlimited** or

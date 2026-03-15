@@ -138,16 +138,16 @@ In the following example, Amazon EC2 selects an address from the specified
 pool that you brought to AWS using BYOIP.
 
 ```
-New-EC2Address \
-    --PublicIpv4Pool `ipv4pool-ec2-012345abcdef67890`
+New-EC2Address `
+    -PublicIpv4Pool `ipv4pool-ec2-012345abcdef67890`
 ```
 
 The following example specifies an address from the specified IPv4 IPAM pool.
 
 ```
-New-EC2Address \
-    --IpamPoolId `ipam-pool-1234567890abcdef0` \
-    --Address `192.0.2.0`
+New-EC2Address `
+    -IpamPoolId `ipam-pool-1234567890abcdef0` `
+    -Address `192.0.2.0`
 ```
 
 ## Associate an Elastic IP address

@@ -120,8 +120,9 @@ Console
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. On the left navigation pane, choose **EC2 Dashboard**.
-3. From **Account attributes**, choose **EC2 Serial
+2. In the navigation pane, choose **Dashboard**.
+3. On the **Account attributes** card, under
+   **Settings**, choose **EC2 Serial
    Console**.
 4. On the **EC2 Serial Console** tab, the value of
    **EC2 Serial Console access** is either
@@ -185,8 +186,9 @@ Console
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. On the left navigation pane, choose **EC2 Dashboard**.
-3. From **Account attributes**, choose **EC2 Serial
+2. In the navigation pane, choose **Dashboard**.
+3. On the **Account attributes** card, under
+   **Settings**, choose **EC2 Serial
    Console**.
 4. Choose **Manage**.
 5. To allow access to the EC2 serial console of all instances in the account, select
@@ -236,8 +238,9 @@ Console
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. On the left navigation pane, choose **EC2 Dashboard**.
-3. From **Account attributes**, choose **EC2 Serial
+2. In the navigation pane, choose **Dashboard**.
+3. On the **Account attributes** card, under
+   **Settings**, choose **EC2 Serial
    Console**.
 4. Choose **Manage**.
 5. To prevent access to the EC2 serial console of all instances in the account, clear

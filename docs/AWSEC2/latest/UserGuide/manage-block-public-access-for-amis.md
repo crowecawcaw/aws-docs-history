@@ -24,9 +24,10 @@ Console
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. From the navigation bar (at the top of the screen), select the Region in which to
    view the block public access state for AMIs.
-3. If the dashboard is not displayed, in the navigation pane,
-   choose **EC2 Dashboard**.
-4. Under **Account attributes**, choose
+3. In the navigation pane,
+   choose **Dashboard**.
+4. On the **Account attributes** card,
+   under **Settings**, choose
    **Data protection and
    security**.
 5. Under **Block public access for AMIs**, check the **Public
@@ -162,9 +163,10 @@ Console
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. From the navigation bar (at the top of the screen), select the Region in which to
    enable block public access for AMIs.
-3. If the dashboard is not displayed, in the navigation pane,
-   choose **EC2 Dashboard**.
-4. Under **Account attributes**, choose
+3. In the navigation pane,
+   choose **Dashboard**.
+4. On the **Account attributes** card,
+   under **Settings**, choose
    **Data protection and
    security**.
 5. Under **Block public access for AMIs**,
@@ -301,9 +303,10 @@ Console
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. From the navigation bar (at the top of the screen), select the Region in which to
    disable block public access for AMIs.
-3. If the dashboard is not displayed, in the navigation pane,
-   choose **EC2 Dashboard**.
-4. Under **Account attributes**, choose
+3. In the navigation pane,
+   choose **Dashboard**.
+4. On the **Account attributes** card,
+   under **Settings**, choose
    **Data protection and
    security**.
 5. Under **Block public access for AMIs**,

@@ -198,8 +198,8 @@ Consider the following EC2 instance launch attempts:
 
 When an instance is launched, the value for the instance _metadata
 version_ is either **IMDSv1 or IMDSv2 (token
-optional)** (`httpTopkens=optional`) or **IMDSv2
-only (token required) (`httpTopkens=required`)** .
+optional)** (`httpTokens=optional`) or **IMDSv2
+only (token required) (`httpTokens=required`)** .
 
 At instance launch, you can either manually specify the value for the metadata version, or
 use the default value. If you manually specify the value, it overrides any

@@ -26,7 +26,8 @@ Console
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. In the navigation pane, choose
    **Dashboard**.
-3. Under **Account attributes** (top right),
+3. On the **Account attributes** card,
+   under **Settings**,
    choose **Allowed AMIs**.
 4. On the **Allowed AMIs** tab, choose
    **Manage**.
@@ -88,7 +89,8 @@ Console
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. In the navigation pane, choose
    **Dashboard**.
-3. Under **Account attributes** (top right),
+3. On the **Account attributes** card,
+   under **Settings**,
    choose **Allowed AMIs**.
 4. On the **Allowed AMIs** tab, choose
    **Manage**.
@@ -133,7 +135,8 @@ Console
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. In the navigation pane, choose
    **Dashboard**.
-3. Under **Account attributes** (top right),
+3. On the **Account attributes** card,
+   under **Settings**,
    choose **Allowed AMIs**.
 4. On the **Allowed AMIs** tab, choose
    **Manage**.
@@ -174,7 +177,8 @@ Console
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. In the navigation pane, choose
    **Dashboard**.
-3. Under **Account attributes** (top right),
+3. On the **Account attributes** card,
+   under **Settings**,
    choose **Allowed AMIs**.
 4. On the **Allowed AMIs** tab,
    **Allowed AMIs settings** is set to

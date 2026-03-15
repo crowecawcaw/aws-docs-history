@@ -80,9 +80,9 @@ Console
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. To change the AWS Region, use the Region selector in
    the upper-right corner of the page.
-3. In the navigation pane, choose **EC2
-   Dashboard**.
-4. Under **Account attributes**, choose
+3. In the navigation pane, choose **Dashboard**.
+4. On the **Account attributes** card,
+   under **Settings**, choose
    **Data protection and
    security**.
 5. Next to **IMDS defaults**, choose
@@ -385,8 +385,9 @@ Console
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. To change the AWS Region, use the Region selector in the top right corner of the
    page.
-3. In the navigation pane, choose **EC2 Dashboard**.
-4. Under **Account attributes**, choose **Data protection and security**.
+3. In the navigation pane, choose **Dashboard**.
+4. On the **Account attributes** card,
+   under **Settings**, choose **Data protection and security**.
 5. Next to **IMDS defaults**, choose **Manage**.
 6. On the **Manage IMDS defaults** page, do the following:
    1. For **Metadata version**, choose **V2 only (token
