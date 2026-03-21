@@ -22,6 +22,15 @@ To crawl a specific service:
 python crawler.py --service-url "https://docs.aws.amazon.com/AmazonS3/latest/userguide/"
 ```
 
+<!-- sparkline-start -->
+## Documentation activity
+
+Net lines changed per service per week over the last 6 months. Bar heights use a
+log scale. Green = net lines added, red = net lines removed.
+
+![Documentation activity](docs_activity.svg)
+<!-- sparkline-end -->
+
 ## Licensing and attribution
 
 The content in the `docs/` directory is mirrored from

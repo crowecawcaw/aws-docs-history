@@ -35,7 +35,7 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 1
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -83,3 +83,15 @@ jobs:
 
           echo "Running: python crawler.py process-guides $ARGS"
           eval python crawler.py process-guides $ARGS
+
+      - name: Generate activity chart
+        if: success()
+        run: |
+          python generate_sparklines.py --update-readme
+          if git diff --quiet docs_activity.svg README.md; then
+            echo "No chart changes"
+          else
+            git add docs_activity.svg README.md
+            git commit -m "Update documentation activity chart"
+            git push
+          fi
