@@ -355,7 +355,14 @@ def convert_html_to_markdown(html: str) -> str:
 
 
 def url_to_output_path(url: str, output_root: Optional[Path] = None) -> Path:
-    """Translate a documentation URL into a Markdown output path."""
+    """Translate a documentation URL into a Markdown output path.
+
+    AWS doc filenames often contain multiple dots (e.g.
+    ``Tagging.Operations.view.keyspace.html``).  Using
+    ``Path.with_suffix(".md")`` would replace only the *last* dot-segment,
+    collapsing distinct pages into the same output file.  Instead we strip
+    the ``.html`` extension and unconditionally append ``.md``.
+    """
     parsed = urlparse(url)
     path = parsed.path.lstrip("/").rstrip("/")
 
@@ -368,7 +375,8 @@ def url_to_output_path(url: str, output_root: Optional[Path] = None) -> Path:
     if not parts:
         parts = ["index"]
 
-    relative_path = Path(*parts).with_suffix(".md")
+    # Append .md rather than using with_suffix to preserve internal dots.
+    relative_path = Path(*parts[:-1], parts[-1] + ".md")
     return output_root / relative_path if output_root else relative_path
 
 

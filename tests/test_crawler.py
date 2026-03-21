@@ -120,6 +120,31 @@ class TestUrlToOutputPath(unittest.TestCase):
         expected = Path("ec2/latest/userguide/concepts.md")
         self.assertEqual(result, expected)
 
+    def test_url_to_output_path_preserves_internal_dots(self):
+        """Filenames with multiple dots must not collide.
+
+        AWS docs use dotted filenames like Tagging.Operations.view.keyspace.html
+        and Tagging.Operations.view.table.html.  These must map to distinct
+        output files, not both collapse into Tagging.Operations.view.md.
+        """
+        output_root = Path("/tmp/docs")
+        base = "https://docs.aws.amazon.com/keyspaces/latest/devguide/"
+
+        result_a = url_to_output_path(base + "Tagging.Operations.view.keyspace.html", output_root)
+        result_b = url_to_output_path(base + "Tagging.Operations.view.table.html", output_root)
+        result_c = url_to_output_path(base + "Tagging.Operations.view.stream.html", output_root)
+
+        self.assertNotEqual(result_a, result_b)
+        self.assertNotEqual(result_b, result_c)
+        self.assertEqual(
+            result_a,
+            output_root / "keyspaces/latest/devguide/Tagging.Operations.view.keyspace.md",
+        )
+        self.assertEqual(
+            result_b,
+            output_root / "keyspaces/latest/devguide/Tagging.Operations.view.table.md",
+        )
+
 
 class TestHtmlToMarkdownConversion(unittest.TestCase):
     """Test HTML to Markdown conversion with real AWS documentation patterns."""
