@@ -28,7 +28,7 @@ This architecture shows you how computer vision wafer inspection accelerates def
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/wafer-inspection-with-machine-learning-architecture.md "samples/wafer-inspection-with-machine-learning-architecture.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/wafer-inspection-with-machine-learning-architecture.zip.md "samples/wafer-inspection-with-machine-learning-architecture.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
