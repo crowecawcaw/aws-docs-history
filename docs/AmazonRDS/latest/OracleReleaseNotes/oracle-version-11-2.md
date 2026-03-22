@@ -67,9 +67,9 @@ Version 11.2.0.4.v26 includes the following:
 - Support for setting and unsetting system diagnostic events using procedures in the
   `rdsadmin.rdsadmin_util` package
 
-For more information, see [Setting and unsetting system diagnostic events](../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.SystemEvents "../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.SystemEvents") in the _Amazon RDS User Guide_.
+For more information, see [Setting and unsetting system diagnostic events](../UserGuide/oracle-version-CommonDBATasks.System.md#oracle-version-CommonDBATasks.SystemEvents "../UserGuide/oracle-version-CommonDBATasks.System.md#oracle-version-CommonDBATasks.SystemEvents") in the _Amazon RDS User Guide_.
 
-- Support for the procedure `rdsadmin_util.truncate_apply$_cdr_info` described in [Integrated REPLICAT slow due to query on sys."\_DBA_APPLY_CDR_INFO"](../UserGuide/Appendix.md#Appendix.OracleGoldenGate.IR "../UserGuide/Appendix.md#Appendix.OracleGoldenGate.IR") in the _Amazon RDS User Guide_.
+- Support for the procedure `rdsadmin_util.truncate_apply$_cdr_info` described in [Integrated REPLICAT slow due to query on sys."\_DBA_APPLY_CDR_INFO"](../UserGuide/Appendix.OracleGoldenGate.md#Appendix.OracleGoldenGate.IR "../UserGuide/Appendix.OracleGoldenGate.md#Appendix.OracleGoldenGate.IR") in the _Amazon RDS User Guide_.
 
 ### Combined patches for version 11.2.0.4.v26, released November 2020
 
@@ -404,12 +404,12 @@ Version 11.2.0.4.v24 includes the following:
 - Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
 - Support for purging the recycle bin
 
-For more information, see [Purging the recycle bin](../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.PurgeRecycleBin "../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.PurgeRecycleBin") in the _Amazon RDS User Guide_.
+For more information, see [Purging the recycle bin](../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.PurgeRecycleBin "../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.PurgeRecycleBin") in the _Amazon RDS User Guide_.
 
 - Support for generating performance reports with Automatic Workload Repository (AWR) using the
   `rdsadmin.rdsadmin_diagnostic_util` package
 
-For more information, see [Generating performance reports with Automatic Workload Repository (AWR)](../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.AWR "../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.AWR") in the _Amazon RDS User Guide_.
+For more information, see [Generating performance reports with Automatic Workload Repository (AWR)](../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.AWR "../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.AWR") in the _Amazon RDS User Guide_.
 
 ### Combined patches for version 11.2.0.4, released April 2020
 
@@ -1723,11 +1723,11 @@ Version 11.2.0.4.v13 includes the following:
 - Timezone file DSTv30 (patch 25881255, OJVM patch 25881271)
 - Support for validating DB instance files with the `RMAN` logical validation utility
 
-For more information, see [Validating DB instance files](../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.ValidateDBFiles "../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.ValidateDBFiles") in the _Amazon RDS User Guide_.
+For more information, see [Validating DB instance files](../UserGuide/oracle-version-CommonDBATasks.RMAN.md#oracle-version-CommonDBATasks.ValidateDBFiles "../UserGuide/oracle-version-CommonDBATasks.RMAN.md#oracle-version-CommonDBATasks.ValidateDBFiles") in the _Amazon RDS User Guide_.
 
 - Support for setting the default edition for a DB instance
 
-For more information, see [Setting the default edition for a DB instance](../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.DefaultEdition "../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.DefaultEdition") in the _Amazon RDS User Guide_.
+For more information, see [Setting the default edition for a DB instance](../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.DefaultEdition "../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.DefaultEdition") in the _Amazon RDS User Guide_.
 
 ### Oracle patch 26609445, released July 2017
 
@@ -2081,7 +2081,7 @@ Version 11.2.0.4.v9 includes the following:
 - MES Bundle (patch 22695784 for 11.2.0.4)
 - Added the ability to create custom password verify functions
 
-For more information, see [Creating custom functions to verify passwords](../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.CustomPassword "../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.CustomPassword") in the _Amazon RDS User Guide_.
+For more information, see [Creating custom functions to verify passwords](../UserGuide/oracle-version-CommonDBATasks.System.md#oracle-version-CommonDBATasks.CustomPassword "../UserGuide/oracle-version-CommonDBATasks.System.md#oracle-version-CommonDBATasks.CustomPassword") in the _Amazon RDS User Guide_.
 
 - Fixed a bug that prevented implicit recompilation of views owned by SYS
 
@@ -2578,7 +2578,7 @@ Version 11.2.0.4.v1 includes the following:
 - Oracle PSU 11.2.0.4.1
 - Support for creating and dropping directories in the main data storage space
 
-For more information, see [Creating and dropping directories in the main data storage space](../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.NewDirectories "../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.NewDirectories") in the _Amazon RDS User Guide_.
+For more information, see [Creating and dropping directories in the main data storage space](../UserGuide/oracle-version-CommonDBATasks.Misc.md#oracle-version-CommonDBATasks.NewDirectories "../UserGuide/oracle-version-CommonDBATasks.Misc.md#oracle-version-CommonDBATasks.NewDirectories") in the _Amazon RDS User Guide_.
 
 ### Baseline: Oracle database patch set update 11.2.0.4.1 (released January 2014)
 

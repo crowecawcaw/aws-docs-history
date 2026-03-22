@@ -1968,9 +1968,9 @@ Version 12.1.0.2.v22 includes the following:
 - Support for setting and unsetting system diagnostic events using procedures in the
   `rdsadmin.rdsadmin_util` package
 
-For more information, see [Setting and unsetting system diagnostic events](../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.SystemEvents "../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.SystemEvents") in the _Amazon RDS User Guide_.
+For more information, see [Setting and unsetting system diagnostic events](../UserGuide/oracle-version-CommonDBATasks.System.md#oracle-version-CommonDBATasks.SystemEvents "../UserGuide/oracle-version-CommonDBATasks.System.md#oracle-version-CommonDBATasks.SystemEvents") in the _Amazon RDS User Guide_.
 
-- Support for the procedure `rdsadmin_util.truncate_apply$_cdr_info` described in [Integrated REPLICAT slow due to query on sys."\_DBA_APPLY_CDR_INFO"](../UserGuide/Appendix.md#Appendix.OracleGoldenGate.IR "../UserGuide/Appendix.md#Appendix.OracleGoldenGate.IR") in the _Amazon RDS User Guide_.
+- Support for the procedure `rdsadmin_util.truncate_apply$_cdr_info` described in [Integrated REPLICAT slow due to query on sys."\_DBA_APPLY_CDR_INFO"](../UserGuide/Appendix.OracleGoldenGate.md#Appendix.OracleGoldenGate.IR "../UserGuide/Appendix.OracleGoldenGate.md#Appendix.OracleGoldenGate.IR") in the _Amazon RDS User Guide_.
 
 ### Combined patches for version 12.1.0.2.v22, released October 2020
 
@@ -2462,12 +2462,12 @@ Version 12.1.0.2.v20 includes the following:
 - PreUpgrade Jar: preupgrade_12.1.0.2.0_18_crlf.zipn
 - Support for purging the recycle bin
 
-For more information, see [Purging the recycle bin](../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.PurgeRecycleBin "../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.PurgeRecycleBin") in the _Amazon RDS User Guide_.
+For more information, see [Purging the recycle bin](../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.PurgeRecycleBin "../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.PurgeRecycleBin") in the _Amazon RDS User Guide_.
 
 - Support for generating performance reports with Automatic Workload Repository (AWR) using the
   `rdsadmin.rdsadmin_diagnostic_util` package
 
-For more information, see [Generating performance reports with Automatic Workload Repository (AWR)](../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.AWR "../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.AWR") in the _Amazon RDS User Guide_.
+For more information, see [Generating performance reports with Automatic Workload Repository (AWR)](../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.AWR "../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.AWR") in the _Amazon RDS User Guide_.
 
 ### Combined patches for version 12.1.0.2, released April 2020
 
@@ -2900,7 +2900,7 @@ Version 12.1.0.2.v18 includes the following:
 - PreUpgrade Jar: preupgrade_12.1.0.2.0_18_crlf.zip
 - Support for resizing the temporary tablespace in a read replica
 
-For more information, see [Resizing the temporary tablespace in a read replica](../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.ResizeTempSpaceReadReplica "../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.ResizeTempSpaceReadReplica") in the _Amazon RDS User Guide_.
+For more information, see [Resizing the temporary tablespace in a read replica](../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.ResizeTempSpaceReadReplica "../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.ResizeTempSpaceReadReplica") in the _Amazon RDS User Guide_.
 
 ### Oracle patch 29918340, released October 2019
 
@@ -4236,11 +4236,11 @@ Version 12.1.0.2.v9 includes the following:
 - Timezone file DSTv30 (patch 25881255, OJVM patch 25881271)
 - Support for validating DB instance files with the `RMAN` logical validation utility
 
-For more information, see [Validating DB instance files](../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.ValidateDBFiles "../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.ValidateDBFiles") in the _Amazon RDS User Guide_.
+For more information, see [Validating DB instance files](../UserGuide/oracle-version-CommonDBATasks.RMAN.md#oracle-version-CommonDBATasks.ValidateDBFiles "../UserGuide/oracle-version-CommonDBATasks.RMAN.md#oracle-version-CommonDBATasks.ValidateDBFiles") in the _Amazon RDS User Guide_.
 
 - Support for setting the default edition for a DB instance
 
-For more information, see [Setting the default edition for a DB instance](../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.DefaultEdition "../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.DefaultEdition") in the _Amazon RDS User Guide_.
+For more information, see [Setting the default edition for a DB instance](../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.DefaultEdition "../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.DefaultEdition") in the _Amazon RDS User Guide_.
 
 ### Oracle patch 26609783, released July 2017
 
@@ -4624,7 +4624,7 @@ Version 12.1.0.2.v5 includes the following:
 - Oracle Forms patch 18307021 for 12.1.0.2
 - Ability to create custom password verify functions
 
-For more information, see [Creating custom functions to verify passwords](../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.CustomPassword "../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.CustomPassword") in the _Amazon RDS User Guide_.
+For more information, see [Creating custom functions to verify passwords](../UserGuide/oracle-version-CommonDBATasks.System.md#oracle-version-CommonDBATasks.CustomPassword "../UserGuide/oracle-version-CommonDBATasks.System.md#oracle-version-CommonDBATasks.CustomPassword") in the _Amazon RDS User Guide_.
 
 - Fixed a bug that prevented implicit recompilation of views owned by SYS
 

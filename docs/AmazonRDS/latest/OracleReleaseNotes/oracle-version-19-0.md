@@ -44,8 +44,8 @@ minor version upgrade scenarios are supported:
 - From an RU to an SPB at the same engine version or higher
 - From an SPB to an RU at a higher engine version
   For more information about RUs and SPBs, see [Oracle minor
-  version upgrades](../UserGuide/USER_UpgradeDBInstance.Oracle.md "../UserGuide/USER_UpgradeDBInstance.Oracle.md"). For more information about the Oracle Spatial option, see
-  [Oracle Spatial](../UserGuide/Oracle.Options.md "../UserGuide/Oracle.Options.md").
+  version upgrades](../UserGuide/USER_UpgradeDBInstance.Oracle.Minor.md "../UserGuide/USER_UpgradeDBInstance.Oracle.Minor.md"). For more information about the Oracle Spatial option, see
+  [Oracle Spatial](../UserGuide/Oracle.Options.Spatial.md "../UserGuide/Oracle.Options.Spatial.md").
 
 To determine which RUs and SPBs are applied to Amazon RDS for Oracle Database 19c (19.0.0.0), see the
 following table.
@@ -49161,7 +49161,7 @@ Version 19.0.0.0.ru-2021-01.rur-2021-01.r2 includes the following:
 - PreUpgrade Jar: preupgrade_19_cbuild_9_lf.zip
 - Support for managing advisor tasks using procedures in the `rdsadmin.rdsadmin_util` package
 
-For more information, see [Managing advisor tasks](../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.managing-advisor-tasks "../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.managing-advisor-tasks") in the _Amazon RDS User Guide_.
+For more information, see [Managing advisor tasks](../UserGuide/oracle-version-CommonDBATasks.Misc.md#oracle-version-CommonDBATasks.managing-advisor-tasks "../UserGuide/oracle-version-CommonDBATasks.Misc.md#oracle-version-CommonDBATasks.managing-advisor-tasks") in the _Amazon RDS User Guide_.
 
 ### Combined patches for version 19.0.0.0.ru-2021-01.rur-2021-01.r2, released January 2021
 
@@ -49762,7 +49762,7 @@ Version 19.0.0.0.ru-2021-01.rur-2021-01.r1 includes the following:
 - PreUpgrade Jar: preupgrade_19_cbuild_9_lf.zip
 - Support for managing advisor tasks using procedures in the `rdsadmin.rdsadmin_util` package
 
-For more information, see [Managing advisor tasks](../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.managing-advisor-tasks "../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.managing-advisor-tasks") in the _Amazon RDS User Guide_.
+For more information, see [Managing advisor tasks](../UserGuide/oracle-version-CommonDBATasks.Misc.md#oracle-version-CommonDBATasks.managing-advisor-tasks "../UserGuide/oracle-version-CommonDBATasks.Misc.md#oracle-version-CommonDBATasks.managing-advisor-tasks") in the _Amazon RDS User Guide_.
 
 ### Combined patches for version 19.0.0.0.ru-2021-01.rur-2021-01.r1, released January 2021
 
@@ -50356,9 +50356,9 @@ Version 19.0.0.0.ru-2020-10.rur-2020-10.r1 includes the following:
 - Support for setting and unsetting system diagnostic events using procedures in the
   `rdsadmin.rdsadmin_util` package
 
-For more information, see [Setting and unsetting system diagnostic events](../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.SystemEvents "../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.SystemEvents") in the _Amazon RDS User Guide_.
+For more information, see [Setting and unsetting system diagnostic events](../UserGuide/oracle-version-CommonDBATasks.System.md#oracle-version-CommonDBATasks.SystemEvents "../UserGuide/oracle-version-CommonDBATasks.System.md#oracle-version-CommonDBATasks.SystemEvents") in the _Amazon RDS User Guide_.
 
-- Support for the procedure `rdsadmin_util.truncate_apply$_cdr_info` described in [Setting and unsetting system diagnostic events](../UserGuide/Appendix.md#Appendix.OracleGoldenGate.IR "../UserGuide/Appendix.md#Appendix.OracleGoldenGate.IR") in the _Amazon RDS User Guide_.
+- Support for the procedure `rdsadmin_util.truncate_apply$_cdr_info` described in [Setting and unsetting system diagnostic events](../UserGuide/Appendix.OracleGoldenGate.md#Appendix.OracleGoldenGate.IR "../UserGuide/Appendix.OracleGoldenGate.md#Appendix.OracleGoldenGate.IR") in the _Amazon RDS User Guide_.
 
 ### Combined patches for version 19.0.0.0.ru-2020-10.rur-2020-10.r1, released October 2020
 
@@ -51210,12 +51210,12 @@ Version 19.0.0.0.ru-2020-04.rur-2020-04.r1 includes the following:
 - Patch [30528704](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30528704 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30528704"): 19C RMAN RECOVER DATABASE USE REDO LOG INSTEAD OF ARCHIVELOG AFTER APPLYING OCT DATABASE RU
 - Support for purging the recycle bin
 
-For more information, see [Purging the recycle bin](../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.PurgeRecycleBin "../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.PurgeRecycleBin") in the _Amazon RDS User Guide_.
+For more information, see [Purging the recycle bin](../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.PurgeRecycleBin "../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.PurgeRecycleBin") in the _Amazon RDS User Guide_.
 
 - Support for generating performance reports with Automatic Workload Repository (AWR) using the
   `rdsadmin.rdsadmin_diagnostic_util` package
 
-For more information, see [Generating performance reports with Automatic Workload Repository (AWR)](../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.AWR "../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.AWR") in the _Amazon RDS User Guide_.
+For more information, see [Generating performance reports with Automatic Workload Repository (AWR)](../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.AWR "../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.AWR") in the _Amazon RDS User Guide_.
 
 ### Combined patches for version 19.0.0.0.ru-2020-04.rur-2020-04.r1, released April 2020
 
@@ -51778,7 +51778,7 @@ Version 19.0.0.0.ru-2019-10.rur-2019-10.r1 includes the following:
 - Patch [30528704](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30528704 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30528704"): 19C RMAN RECOVER DATABASE USE REDO LOG INSTEAD OF ARCHIVELOG AFTER APPLYING OCT DATABASE RU
 - Support for resizing the temporary tablespace in a read replica
 
-For more information, see [Resizing the temporary tablespace in a read replica](../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.ResizeTempSpaceReadReplica "../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.ResizeTempSpaceReadReplica") in the _Amazon RDS User Guide_.
+For more information, see [Resizing the temporary tablespace in a read replica](../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.ResizeTempSpaceReadReplica "../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.ResizeTempSpaceReadReplica") in the _Amazon RDS User Guide_.
 
 ### Oracle release update 19.5.0.0.0, released October 2019
 

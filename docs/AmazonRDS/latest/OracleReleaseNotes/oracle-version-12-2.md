@@ -1401,7 +1401,7 @@ Version 12.2.0.1.ru-2021-01.rur-2021-01.r1 includes the following:
 - Support for managing advisor tasks using procedures in the
   `rdsadmin.rdsadmin_util` package
 
-For more information, see [Managing advisor tasks](../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.managing-advisor-tasks "../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.managing-advisor-tasks") in the _Amazon RDS User Guide_.
+For more information, see [Managing advisor tasks](../UserGuide/oracle-version-CommonDBATasks.Misc.md#oracle-version-CommonDBATasks.managing-advisor-tasks "../UserGuide/oracle-version-CommonDBATasks.Misc.md#oracle-version-CommonDBATasks.managing-advisor-tasks") in the _Amazon RDS User Guide_.
 
 ### Combined patches for version 12.2.0.1.ru-2021-01.rur-2021-01.r1, released January 2021
 
@@ -1727,9 +1727,9 @@ Version 12.2.0.1.ru-2020-10.rur-2020-10.r1 includes the following:
 - Support for setting and unsetting system diagnostic events using procedures in the
   `rdsadmin.rdsadmin_util` package
 
-For more information, see [Setting and unsetting system diagnostic events](../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.SystemEvents "../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.SystemEvents") in the _Amazon RDS User Guide_.
+For more information, see [Setting and unsetting system diagnostic events](../UserGuide/oracle-version-CommonDBATasks.System.md#oracle-version-CommonDBATasks.SystemEvents "../UserGuide/oracle-version-CommonDBATasks.System.md#oracle-version-CommonDBATasks.SystemEvents") in the _Amazon RDS User Guide_.
 
-- Support for the procedure `rdsadmin_util.truncate_apply$_cdr_info` described in [Integrated REPLICAT slow due to query on sys."\_DBA_APPLY_CDR_INFO"](../UserGuide/Appendix.md#Appendix.OracleGoldenGate.IR "../UserGuide/Appendix.md#Appendix.OracleGoldenGate.IR") in the _Amazon RDS User Guide_.
+- Support for the procedure `rdsadmin_util.truncate_apply$_cdr_info` described in [Integrated REPLICAT slow due to query on sys."\_DBA_APPLY_CDR_INFO"](../UserGuide/Appendix.OracleGoldenGate.md#Appendix.OracleGoldenGate.IR "../UserGuide/Appendix.OracleGoldenGate.md#Appendix.OracleGoldenGate.IR") in the _Amazon RDS User Guide_.
 
 ### Combined patches for version 12.2.0.1.ru-2020-10.rur-2020-10.r1, released October 2020
 
@@ -2353,12 +2353,12 @@ Version 12.2.0.1.ru-2020-04.rur-2020-04.r1 includes the following:
 - Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR is included in DB PATCH 30138470
 - Support for purging the recycle bin
 
-For more information, see [Purging the recycle bin](../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.PurgeRecycleBin "../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.PurgeRecycleBin") in the _Amazon RDS User Guide_.
+For more information, see [Purging the recycle bin](../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.PurgeRecycleBin "../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.PurgeRecycleBin") in the _Amazon RDS User Guide_.
 
 - Support for generating performance reports with Automatic Workload Repository (AWR) using the
   `rdsadmin.rdsadmin_diagnostic_util` package
 
-For more information, see [Generating performance reports with Automatic Workload Repository (AWR)](../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.AWR "../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.AWR") in the _Amazon RDS User Guide_.
+For more information, see [Generating performance reports with Automatic Workload Repository (AWR)](../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.AWR "../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.AWR") in the _Amazon RDS User Guide_.
 
 ### Combined patches for version 12.2.0.1.ru-2020-04.rur-2020-04.r1, released April 2020
 
@@ -2894,7 +2894,7 @@ Version 12.2.0.1.ru-2019-10.rur-2019-10.r1 includes the following:
 - Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR is included in DB PATCH 30138470
 - Support for resizing the temporary tablespace in a read replica
 
-For more information, see [Resizing the temporary tablespace in a read replica](../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.ResizeTempSpaceReadReplica "../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.ResizeTempSpaceReadReplica") in the _Amazon RDS User Guide_.
+For more information, see [Resizing the temporary tablespace in a read replica](../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.ResizeTempSpaceReadReplica "../UserGuide/oracle-version-CommonDBATasks.Database.md#oracle-version-CommonDBATasks.ResizeTempSpaceReadReplica") in the _Amazon RDS User Guide_.
 
 ### Oracle release update 12.2.0.1.191015, released October 2019
 
@@ -3337,7 +3337,7 @@ Version 12.2.0.1.ru-2019-04.rur-2019-04.r1 includes the following:
   provides `GRANT` privileges needed by a GoldenGate administrator
   account
 
-For more information, see [Grant account privileges on the source DB](../UserGuide/Appendix.md#Appendix.OracleGoldenGate.Source.Privileges "../UserGuide/Appendix.md#Appendix.OracleGoldenGate.Source.Privileges") in the _Amazon RDS User Guide_.
+For more information, see [Grant account privileges on the source DB](../UserGuide/Appendix.OracleGoldenGate.md#Appendix.OracleGoldenGate.Source.Privileges "../UserGuide/Appendix.OracleGoldenGate.md#Appendix.OracleGoldenGate.Source.Privileges") in the _Amazon RDS User Guide_.
 
 ### Oracle release update 12.2.0.1.190416, released April 2019
 
