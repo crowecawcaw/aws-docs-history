@@ -39,7 +39,7 @@ data access with a serverless data mesh architecture.
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/connected-mobility-data-lake.md "samples/connected-mobility-data-lake.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/connected-mobility-data-lake.zip.md "samples/connected-mobility-data-lake.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
