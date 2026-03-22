@@ -38,7 +38,7 @@ container-based deployment, and using API and event-based models for handling di
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/payment-system-interface-modernization.md "samples/payment-system-interface-modernization.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/payment-system-interface-modernization.zip.md "samples/payment-system-interface-modernization.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
