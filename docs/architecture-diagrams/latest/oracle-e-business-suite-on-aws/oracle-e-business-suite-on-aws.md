@@ -29,7 +29,7 @@ This reference architecture can be used to deploy Oracle E-Business Suite on AWS
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/oracle-e-business-suite-on-aws.md "samples/oracle-e-business-suite-on-aws.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/oracle-e-business-suite-on-aws.zip.md "samples/oracle-e-business-suite-on-aws.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
