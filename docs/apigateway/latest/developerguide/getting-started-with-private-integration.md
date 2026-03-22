@@ -35,7 +35,7 @@ information, see [Set up to use API Gateway](setting-up.md "setting-up.md").
 Amazon ECS is a container management service that makes it easy to run, stop, and manage Docker containers on a
 cluster. In this tutorial, you run your cluster on a serverless infrastructure that's managed by Amazon ECS.
 
-Download and unzip [this CloudFormation template](samples/rest-private-integration-tutorial.md "samples/rest-private-integration-tutorial.md"), which creates
+Download and unzip [this CloudFormation template](samples/rest-private-integration-tutorial.zip.md "samples/rest-private-integration-tutorial.zip.md"), which creates
 all of the dependencies for the service, including an Amazon VPC. You use the template to create an Amazon ECS service that
 uses an Application Load Balancer.
 

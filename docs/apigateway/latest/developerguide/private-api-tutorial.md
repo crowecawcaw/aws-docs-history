@@ -13,7 +13,7 @@ To complete this tutorial, you need an AWS account and an AWS Identity and Acces
 information, see [Set up to use API Gateway](setting-up.md "setting-up.md").
 
 In this tutorial, you use the AWS Management Console. For an CloudFormation template that creates this API and all related resources,
-see [template.yaml](samples/private-api-full-template.md "samples/private-api-full-template.md").
+see [template.yaml](samples/private-api-full-template.zip.md "samples/private-api-full-template.zip.md").
 
 ###### Topics
 
@@ -29,7 +29,7 @@ see [template.yaml](samples/private-api-full-template.md "samples/private-api-fu
 
 ## Step 1: Create dependencies
 
-Download and unzip [this CloudFormation template](samples/private-api-starter-template.md "samples/private-api-starter-template.md"). You use
+Download and unzip [this CloudFormation template](samples/private-api-starter-template.zip.md "samples/private-api-starter-template.zip.md"). You use
 the template to create all of the dependencies for your private API, including an Amazon VPC, a VPC endpoint, and a
 Lambda function that serves as the backend of your API. You create the private API later.
 
@@ -227,4 +227,4 @@ steps delete your REST API and your CloudFormation stack.
 ## Next steps: Automate with CloudFormation
 
 You can automate the creation and cleanup of all AWS resources involved in this tutorial. For a full example
-CloudFormation template, see [template.yaml](samples/private-api-full-template.md "samples/private-api-full-template.md").
+CloudFormation template, see [template.yaml](samples/private-api-full-template.zip.md "samples/private-api-full-template.zip.md").

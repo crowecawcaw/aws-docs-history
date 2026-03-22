@@ -16,7 +16,7 @@ To complete this tutorial, you need an AWS account and an AWS Identity and Acces
 information, see [Set up to use API Gateway](setting-up.md "setting-up.md").
 
 In this tutorial, you use the AWS Management Console. For an CloudFormation template that creates this API and all related
-resources, see [template.yaml](samples/private-integration-full-template.md "samples/private-integration-full-template.md").
+resources, see [template.yaml](samples/private-integration-full-template.zip.md "samples/private-integration-full-template.zip.md").
 
 ###### Topics
 
@@ -34,7 +34,7 @@ resources, see [template.yaml](samples/private-integration-full-template.md "sam
 Amazon ECS is a container management service that makes it easy to run, stop, and manage Docker containers on a
 cluster. In this tutorial, you run your cluster on a serverless infrastructure that's managed by Amazon ECS.
 
-Download and unzip [this CloudFormation template](samples/private-integration-cfn.md "samples/private-integration-cfn.md"), which creates
+Download and unzip [this CloudFormation template](samples/private-integration-cfn.zip.md "samples/private-integration-cfn.zip.md"), which creates
 all of the dependencies for the service, including an Amazon VPC. You use the template to create an Amazon ECS service that
 uses an Application Load Balancer.
 
@@ -192,4 +192,4 @@ steps delete your VPC link, CloudFormation stack, and HTTP API.
 ## Next steps: Automate with CloudFormation
 
 You can automate the creation and cleanup of all AWS resources involved in this tutorial. For a full example
-CloudFormation template, see [template.yaml](samples/private-integration-full-template.md "samples/private-integration-full-template.md").
+CloudFormation template, see [template.yaml](samples/private-integration-full-template.zip.md "samples/private-integration-full-template.zip.md").

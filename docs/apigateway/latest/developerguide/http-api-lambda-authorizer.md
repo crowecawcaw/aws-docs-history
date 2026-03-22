@@ -416,12 +416,12 @@ a `401` error.
 The following table describes the supported identity sources for a Lambda
 authorizer.
 
-| **Type**           | **Example**                    | **Notes**                                                                                                   |
-| ------------------ | ------------------------------ | ----------------------------------------------------------------------------------------------------------- |
-| Header value       | $request.header.`name`         | Header names are case-insensitive.                                                                          |
-| Query string value | $request.querystring.`name`    | Query string names are case-sensitive.                                                                      |
-| Context variable   | $context.`variableName`        | The value of a supported [context variable](http-api-logging-variables.md "http-api-logging-variables.md"). |
-| Stage variable     | $stageVariables.`variableName` | The value of a [stage<br>variable](http-api-stages.md "http-api-stages.md").                                |
+| **Type**           | **Example**                    | **Notes**                                                                                                    |
+| ------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| Header value       | $request.header.`name`         | Header names are case-insensitive.                                                                           |
+| Query string value | $request.querystring.`name`    | Query string names are case-sensitive.                                                                       |
+| Context variable   | $context.`variableName`        | The value of a supported [context variable](http-api-logging-variables.md "http-api-logging-variables.md").  |
+| Stage variable     | $stageVariables.`variableName` | The value of a [stage<br>variable](http-api-stages.stage-variables.md "http-api-stages.stage-variables.md"). |
 
 You can also directly return `{"errorMessage" : "Unauthorized"}` from your Lambda
 function to return a `401` error to your clients. If you directly return a `401` error from

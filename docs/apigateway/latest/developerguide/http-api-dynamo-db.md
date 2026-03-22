@@ -15,7 +15,7 @@ To complete this exercise, you need an AWS account and an AWS Identity and Acces
 information, see [Set up to use API Gateway](setting-up.md "setting-up.md").
 
 In this tutorial, you use the AWS Management Console. For an AWS SAM template that creates this API and all related resources,
-see [`template.yaml`](samples/http-dynamo-tutorial.md "samples/http-dynamo-tutorial.md").
+see [`template.yaml`](samples/http-dynamo-tutorial.zip.md "samples/http-dynamo-tutorial.zip.md").
 
 ###### Topics
 
@@ -33,7 +33,7 @@ see [`template.yaml`](samples/http-dynamo-tutorial.md "samples/http-dynamo-tutor
 
 You use a [DynamoDB](../../../amazondynamodb/latest/developerguide/Introduction.md "../../../amazondynamodb/latest/developerguide/Introduction.md") table to store data for your API.
 
-Each item has a unique ID, which we use as the [partition key](../../../amazondynamodb/latest/developerguide/HowItWorks.md#HowItWorks.CoreComponents.PrimaryKey "../../../amazondynamodb/latest/developerguide/HowItWorks.md#HowItWorks.CoreComponents.PrimaryKey") for the table.
+Each item has a unique ID, which we use as the [partition key](../../../amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.md#HowItWorks.CoreComponents.PrimaryKey "../../../amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.md#HowItWorks.CoreComponents.PrimaryKey") for the table.
 
 ###### To create a DynamoDB table
 
@@ -412,7 +412,7 @@ The following steps delete your HTTP API, your Lambda function, and associated r
 ## Next steps: Automate with AWS SAM or CloudFormation
 
 You can automate the creation and cleanup of AWS resources by using CloudFormation or AWS SAM. For an example AWS SAM
-template for this tutorial, see [`template.yaml`](samples/http-dynamo-tutorial.md "samples/http-dynamo-tutorial.md").
+template for this tutorial, see [`template.yaml`](samples/http-dynamo-tutorial.zip.md "samples/http-dynamo-tutorial.zip.md").
 
 For example CloudFormation templates, see [example
 CloudFormation templates](https://github.com/awsdocs/amazon-api-gateway-developer-guide/tree/main/cloudformation-templates "https://github.com/awsdocs/amazon-api-gateway-developer-guide/tree/main/cloudformation-templates").

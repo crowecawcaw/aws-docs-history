@@ -31,7 +31,7 @@ will configure two kinds of request validation:
 
 This will allow only certain API calls to pass through to the API.
 
-Download and unzip [the app creation template for CloudFormation](samples/request-validation-tutorial-console.md "samples/request-validation-tutorial-console.md").
+Download and unzip [the app creation template for CloudFormation](samples/request-validation-tutorial-console.zip.md "samples/request-validation-tutorial-console.zip.md").
 You'll use this template to create an incomplete API. You will finish the
 rest of the steps in the API Gateway console.
 
@@ -225,7 +225,7 @@ calls to pass through to the API.
 
 ###### To create an CloudFormation stack
 
-Download and unzip [the app creation template for CloudFormation](samples/request-validation-tutorial-cli.md "samples/request-validation-tutorial-cli.md").
+Download and unzip [the app creation template for CloudFormation](samples/request-validation-tutorial-cli.zip.md "samples/request-validation-tutorial-cli.zip.md").
 
 To complete the following tutorial, you need the [AWS Command Line Interface (AWS CLI) version 2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
 
@@ -439,7 +439,7 @@ aws cloudformation delete-stack  --stack-name request-validation-tutorial-cli
 
 ## Set up basic request validation using an OpenAPI definition
 
-You can declare a request validator at the API level by specifying a set of the [x-amazon-apigateway-request-validators.requestValidator object](api-gateway-swagger-extensions-request-validators.md "api-gateway-swagger-extensions-request-validators.md") objects in the [x-amazon-apigateway-request-validators object](api-gateway-swagger-extensions-request-validators.md "api-gateway-swagger-extensions-request-validators.md") map to select what part of the request
+You can declare a request validator at the API level by specifying a set of the [x-amazon-apigateway-request-validators.requestValidator object](api-gateway-swagger-extensions-request-validators.requestValidator.md "api-gateway-swagger-extensions-request-validators.requestValidator.md") objects in the [x-amazon-apigateway-request-validators object](api-gateway-swagger-extensions-request-validators.md "api-gateway-swagger-extensions-request-validators.md") map to select what part of the request
 will be validated. In the example OpenAPI definition, there are two validators:
 
 - `all` validator which validates both the

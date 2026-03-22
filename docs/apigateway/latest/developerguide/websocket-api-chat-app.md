@@ -26,7 +26,7 @@ You also need `wscat` to connect to your API. For more information, see [Use wsc
 ## Step 1: Create Lambda functions and a DynamoDB table
 
 Download and unzip [the app creation template
-for CloudFormation](samples/ws-chat-app-starter.md "samples/ws-chat-app-starter.md"). You'll use this template to create a Amazon DynamoDB table to store your app's
+for CloudFormation](samples/ws-chat-app-starter.zip.md "samples/ws-chat-app-starter.zip.md"). You'll use this template to create a Amazon DynamoDB table to store your app's
 client IDs. Each connected client has a unique ID which we will use as the table's partition key. This template
 also creates Lambda functions that update your client connections in DynamoDB and handle sending messages to
 connected clients.
@@ -183,4 +183,4 @@ steps delete your CloudFormation stack and WebSocket API.
 ## Next steps: Automate with CloudFormation
 
 You can automate the creation and cleanup of all of the AWS resources involved in this tutorial. For an CloudFormation template that creates this API and all related resources,
-see [ws-chat-app.yaml](samples/ws-chat-app.md "samples/ws-chat-app.md").
+see [ws-chat-app.yaml](samples/ws-chat-app.zip.md "samples/ws-chat-app.zip.md").

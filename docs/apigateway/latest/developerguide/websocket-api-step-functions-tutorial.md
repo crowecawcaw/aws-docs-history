@@ -41,7 +41,7 @@ tutorial before you start this tutorial. To complete the WebSocket chat app tuto
 
 ## Step 1: Create resources
 
-Download and unzip [the app creation template for CloudFormation](samples/ws-sfn-starter.md "samples/ws-sfn-starter.md"). You'll
+Download and unzip [the app creation template for CloudFormation](samples/ws-sfn-starter.zip.md "samples/ws-sfn-starter.zip.md"). You'll
 use this template to create the following:
 
 - Lambda functions that handle API requests and authorize access to your API.
@@ -355,4 +355,4 @@ steps delete your CloudFormation stack and WebSocket API.
 ## Next steps
 
 You can automate the creation and cleanup of all the AWS resources involved in this tutorial. For an example
-of an CloudFormation template that automates these actions for this tutorial, see [ws-sfn.zip](samples/ws-sfn-complete.md "samples/ws-sfn-complete.md").
+of an CloudFormation template that automates these actions for this tutorial, see [ws-sfn.zip](samples/ws-sfn-complete.zip.md "samples/ws-sfn-complete.zip.md").

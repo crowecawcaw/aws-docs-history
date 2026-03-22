@@ -11,14 +11,14 @@ console and AWS CLI.
 
 ## Set up data transformation using the API Gateway console
 
-In this tutorial, you will create an incomplete API and DynamoDB table using the following .zip file [data-transformation-tutorial-console.zip](samples/data-transformation-tutorial-console.md "samples/data-transformation-tutorial-console.md"). This incomplete API has a `/pets` resource with `GET` and `POST` methods.
+In this tutorial, you will create an incomplete API and DynamoDB table using the following .zip file [data-transformation-tutorial-console.zip](samples/data-transformation-tutorial-console.zip.md "samples/data-transformation-tutorial-console.zip.md"). This incomplete API has a `/pets` resource with `GET` and `POST` methods.
 
 - The `GET` method will get data from the
   `http://petstore-demo-endpoint.execute-api.com/petstore/pets` HTTP endpoint. The output data
   will be transformed according to the mapping template in [Mapping template transformations for REST APIs in API Gateway](models-mappings.md "models-mappings.md").
 - The `POST` method will allow the user to `POST` pet information to a Amazon DynamoDB table using a mapping template.
 
-Download and unzip [the app creation template for CloudFormation](samples/data-transformation-tutorial-console.md "samples/data-transformation-tutorial-console.md").
+Download and unzip [the app creation template for CloudFormation](samples/data-transformation-tutorial-console.zip.md "samples/data-transformation-tutorial-console.zip.md").
 You'll use this template to create a DynamoDB table to post pet information and an incomplete API. You will finish the
 rest of the steps in the API Gateway console.
 
@@ -209,7 +209,7 @@ table.
 
 ## Set up data transformation using the AWS CLI
 
-In this tutorial, you will create an incomplete API and DynamoDB table using the following .zip file [data-transformation-tutorial-cli.zip](samples/data-transformation-tutorial-cli.md "samples/data-transformation-tutorial-cli.md"). This incomplete API has a
+In this tutorial, you will create an incomplete API and DynamoDB table using the following .zip file [data-transformation-tutorial-cli.zip](samples/data-transformation-tutorial-cli.zip.md "samples/data-transformation-tutorial-cli.zip.md"). This incomplete API has a
 `/pets` resource with a `GET` method integrated with the
 `http://petstore-demo-endpoint.execute-api.com/petstore/pets` HTTP endpoint. You will create a
 `POST` method to connect to a DynamoDB table and use mapping templates to input data into a DynamoDB table.
@@ -220,7 +220,7 @@ In this tutorial, you will create an incomplete API and DynamoDB table using the
 
 ###### To create an CloudFormation stack
 
-Download and unzip [the app creation template for CloudFormation](samples/data-transformation-tutorial-cli.md "samples/data-transformation-tutorial-cli.md").
+Download and unzip [the app creation template for CloudFormation](samples/data-transformation-tutorial-cli.zip.md "samples/data-transformation-tutorial-cli.zip.md").
 
 To complete the following tutorial, you need the [AWS Command Line Interface (AWS CLI) version 2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
 

@@ -10,7 +10,7 @@ header to clients. The function establishes a connection to your API only if the
 `myprotocol` subprotocol.
 
 For an CloudFormation template that creates this example API and Lambda proxy integration, see
-[`ws-subprotocol.yaml`](samples/ws-subprotocol.md "samples/ws-subprotocol.md").
+[`ws-subprotocol.yaml`](samples/ws-subprotocol.zip.md "samples/ws-subprotocol.zip.md").
 
 ```
 export const handler = async (event) => {

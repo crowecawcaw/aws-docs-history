@@ -40,7 +40,7 @@ strings in the AWS CLI. For more information, see [Using quotation marks and lit
 ## Examples
 
 The following AWS CLI examples configure data mappings. For an example CloudFormation template,
-see [`websocket-data-mapping.yaml`](samples/websocket-data-mapping.md "samples/websocket-data-mapping.md").
+see [`websocket-data-mapping.yaml`](samples/websocket-data-mapping.zip.md "samples/websocket-data-mapping.zip.md").
 
 ### Map a client's connectionId to a header in an integration request
 
