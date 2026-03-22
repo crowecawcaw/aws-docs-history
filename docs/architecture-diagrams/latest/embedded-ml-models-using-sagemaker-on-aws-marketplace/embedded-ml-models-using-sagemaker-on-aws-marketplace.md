@@ -34,7 +34,7 @@ This architecture creates an environment where a buyer can consume a seller’s 
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/embedded-models-using-sagemaker-on-aws-marketplace.md "samples/embedded-models-using-sagemaker-on-aws-marketplace.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/embedded-models-using-sagemaker-on-aws-marketplace.zip.md "samples/embedded-models-using-sagemaker-on-aws-marketplace.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
