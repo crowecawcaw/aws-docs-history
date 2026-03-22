@@ -35,7 +35,7 @@ application modernization.
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/modernize-applications-with-microservices-using-amazon-eks.md "samples/modernize-applications-with-microservices-using-amazon-eks.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/modernize-applications-with-microservices-using-amazon-eks.zip.md "samples/modernize-applications-with-microservices-using-amazon-eks.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
