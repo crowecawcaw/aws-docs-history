@@ -45,7 +45,7 @@ information about specifying a “typed value”, see [Type system (request mapp
 
 The `update` section lets you specify an update expression
 that describes how to update the item in DynamoDB. For more information
-about how to write update expressions, see the [DynamoDB UpdateExpressions documentation](../../../amazondynamodb/latest/developerguide/Expressions.md "../../../amazondynamodb/latest/developerguide/Expressions.md"). This section is
+about how to write update expressions, see the [DynamoDB UpdateExpressions documentation](../../../amazondynamodb/latest/developerguide/Expressions.UpdateExpressions.md "../../../amazondynamodb/latest/developerguide/Expressions.UpdateExpressions.md"). This section is
 required.
 
 The `update` section has three components:

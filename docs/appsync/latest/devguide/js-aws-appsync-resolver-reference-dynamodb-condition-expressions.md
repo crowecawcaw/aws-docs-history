@@ -63,7 +63,7 @@ handle some common edge cases:
 These are described in greater detail in the [Handling
 a condition check failure](#condition-check "#condition-check") section.
 
-For more information about DynamoDB conditions expressions, see the [DynamoDB ConditionExpressions documentation](../../../amazondynamodb/latest/developerguide/Expressions.md "../../../amazondynamodb/latest/developerguide/Expressions.md") .
+For more information about DynamoDB conditions expressions, see the [DynamoDB ConditionExpressions documentation](../../../amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.md "../../../amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.md") .
 
 ## Specifying a condition
 
@@ -93,7 +93,7 @@ The following fields specify the condition:
 **`expression`**
 
 The update expression itself. For more information about how to write
-condition expressions, see the [DynamoDB ConditionExpressions documentation](../../../amazondynamodb/latest/developerguide/Expressions.md "../../../amazondynamodb/latest/developerguide/Expressions.md") . This field must be
+condition expressions, see the [DynamoDB ConditionExpressions documentation](../../../amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.md "../../../amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.md") . This field must be
 specified.
 
 **`expressionNames`**

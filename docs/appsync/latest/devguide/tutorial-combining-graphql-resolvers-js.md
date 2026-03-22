@@ -185,4 +185,4 @@ def handler(event, context):
 
 You can then use DynamoDB streams to attach this to a DynamoDB table with a primary key of
 `id`, and any changes to the source of DynamoDB would stream into your OpenSearch Service
-domain. For more information about configuring this, see the [DynamoDB Streams documentation](../../../amazondynamodb/latest/developerguide/Streams.md "../../../amazondynamodb/latest/developerguide/Streams.md").
+domain. For more information about configuring this, see the [DynamoDB Streams documentation](../../../amazondynamodb/latest/developerguide/Streams.Lambda.md "../../../amazondynamodb/latest/developerguide/Streams.Lambda.md").

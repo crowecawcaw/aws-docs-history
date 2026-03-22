@@ -22,7 +22,7 @@ The fields are defined as follows:
 
 **`expression`**
 
-The query expression. For more information about how to write filter expressions, see the [DynamoDB QueryFilter](../../../amazondynamodb/latest/developerguide/LegacyConditionalParameters.md "../../../amazondynamodb/latest/developerguide/LegacyConditionalParameters.md") and [DynamoDB ScanFilter](../../../amazondynamodb/latest/developerguide/LegacyConditionalParameters.md "../../../amazondynamodb/latest/developerguide/LegacyConditionalParameters.md") documentation. This field must be specified.
+The query expression. For more information about how to write filter expressions, see the [DynamoDB QueryFilter](../../../amazondynamodb/latest/developerguide/LegacyConditionalParameters.QueryFilter.md "../../../amazondynamodb/latest/developerguide/LegacyConditionalParameters.QueryFilter.md") and [DynamoDB ScanFilter](../../../amazondynamodb/latest/developerguide/LegacyConditionalParameters.ScanFilter.md "../../../amazondynamodb/latest/developerguide/LegacyConditionalParameters.ScanFilter.md") documentation. This field must be specified.
 
 **`expressionNames`**
 

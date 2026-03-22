@@ -52,7 +52,7 @@ required.
 
 The `query` section lets you specify a key condition
 expression that describes which items to retrieve from DynamoDB. For more
-information about how to write key condition expressions, see the [DynamoDB KeyConditions documentation](../../../amazondynamodb/latest/developerguide/LegacyConditionalParameters.md "../../../amazondynamodb/latest/developerguide/LegacyConditionalParameters.md") . This section must be
+information about how to write key condition expressions, see the [DynamoDB KeyConditions documentation](../../../amazondynamodb/latest/developerguide/LegacyConditionalParameters.KeyConditions.md "../../../amazondynamodb/latest/developerguide/LegacyConditionalParameters.KeyConditions.md") . This section must be
 specified.
 
 **`expression`**

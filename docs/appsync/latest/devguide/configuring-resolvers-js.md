@@ -374,7 +374,7 @@ CDK
 ###### Tip
 
 Before you use the CDK, we recommend reviewing the CDK's [official documentation](../../../cdk/v2/guide/home.md "../../../cdk/v2/guide/home.md")
-along with AWS AppSync's [CDK reference](../../../cdk/api/v2/docs/aws-cdk-lib.md "../../../cdk/api/v2/docs/aws-cdk-lib.md").
+along with AWS AppSync's [CDK reference](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync-readme.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync-readme.md").
 
 The steps listed below will only show a general example of the snippet used to add a
 particular resource. This is **not** meant to be a working
@@ -419,9 +419,9 @@ To summarize each of these:
   this import directive, but are wondering why the cdk core library is not being used
   here, see the [Migration](../../../cdk/v2/guide/migrating-v2.md "../../../cdk/v2/guide/migrating-v2.md") page.
 - `import * as appsync from 'aws-cdk-lib/aws-appsync';`: This imports the
-  [AWS AppSync service](../../../cdk/api/v2/docs/aws-cdk-lib.md "../../../cdk/api/v2/docs/aws-cdk-lib.md").
+  [AWS AppSync service](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync-readme.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync-readme.md").
 - `import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';`: This imports
-  the [DynamoDB service](../../../cdk/api/v2/docs/aws-cdk-lib.md "../../../cdk/api/v2/docs/aws-cdk-lib.md").
+  the [DynamoDB service](../../../cdk/api/v2/docs/aws-cdk-lib.aws_dynamodb-readme.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_dynamodb-readme.md").
 - `import { Construct } from 'constructs';`: We need this to define the
   root [construct](../../../cdk/v2/guide/constructs.md "../../../cdk/v2/guide/constructs.md").
 
@@ -522,16 +522,16 @@ contained the actual function details. Inside props, we included:
 - The data source; this is the point where we link the data source to the GraphQL
   API value, then attach it to the function. We take the table we created
   (`add_ddb_table`) and attach it to the GraphQL API
-  (`add_api`) using one of the `GraphqlApi` methods ([`addDynamoDbDataSource`](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.md#addwbrdynamowbrdbwbrdatawbrsourceid-table-options "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.md#addwbrdynamowbrdbwbrdatawbrsourceid-table-options")). The id value
+  (`add_api`) using one of the `GraphqlApi` methods ([`addDynamoDbDataSource`](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.GraphqlApi.md#addwbrdynamowbrdbwbrdatawbrsourceid-table-options "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.GraphqlApi.md#addwbrdynamowbrdbwbrdatawbrsourceid-table-options")). The id value
   (`table-for-posts`) is the name of the data source in the AWS AppSync
   console. For a list of source-specific methods, see the following pages:
-  - [DynamoDbDataSource](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.md")
-  - [EventBridgeDataSource](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.md")
-  - [HttpDataSource](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.md")
-  - [LambdaDataSource](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.md")
-  - [NoneDataSource](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.md")
-  - [OpenSearchDataSource](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.md")
-  - [RdsDataSource](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.md")
+  - [DynamoDbDataSource](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.DynamoDbDataSource.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.DynamoDbDataSource.md")
+  - [EventBridgeDataSource](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.EventBridgeDataSource.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.EventBridgeDataSource.md")
+  - [HttpDataSource](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.HttpDataSource.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.HttpDataSource.md")
+  - [LambdaDataSource](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.LambdaDataSource.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.LambdaDataSource.md")
+  - [NoneDataSource](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.NoneDataSource.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.NoneDataSource.md")
+  - [OpenSearchDataSource](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.OpenSearchDataSource.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.OpenSearchDataSource.md")
+  - [RdsDataSource](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.RdsDataSource.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.RdsDataSource.md")
 
 - The code contains our function's request and response handlers, which is a simple
   scan and return.
@@ -828,7 +828,7 @@ CDK
 ###### Tip
 
 Before you use the CDK, we recommend reviewing the CDK's [official documentation](../../../cdk/v2/guide/home.md "../../../cdk/v2/guide/home.md")
-along with AWS AppSync's [CDK reference](../../../cdk/api/v2/docs/aws-cdk-lib.md "../../../cdk/api/v2/docs/aws-cdk-lib.md").
+along with AWS AppSync's [CDK reference](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync-readme.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync-readme.md").
 
 The steps listed below will only show a general example of the snippet used to add a
 particular resource. This is **not** meant to be a working

@@ -3,7 +3,7 @@
 ###### Tip
 
 Before you use the CDK, we recommend reviewing the CDK's [official documentation](../../../cdk/v2/guide/getting_started.md "../../../cdk/v2/guide/getting_started.md") along
-with AWS AppSync's [CDK reference](../../../cdk/api/v2/docs/aws-cdk-lib.md "../../../cdk/api/v2/docs/aws-cdk-lib.md").
+with AWS AppSync's [CDK reference](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync-readme.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync-readme.md").
 
 We also recommend ensuring that your [AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md")
 and [NPM](https://docs.npmjs.com/ "https://docs.npmjs.com/") installations are working on your system.

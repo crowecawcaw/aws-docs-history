@@ -5,7 +5,7 @@ value to use in that call. This is because DynamoDB supports more type primitive
 sets and binary data). AWS AppSync needs some hints when translating between GraphQL and DynamoDB, otherwise it
 would have to make some assumptions on how data is structured in your table.
 
-For more information about DynamoDB data types, see the DynamoDB [Data type descriptors](../../../amazondynamodb/latest/developerguide/Programming.md#Programming.LowLevelAPI.DataTypeDescriptors "../../../amazondynamodb/latest/developerguide/Programming.md#Programming.LowLevelAPI.DataTypeDescriptors") and [Data types](../../../amazondynamodb/latest/developerguide/HowItWorks.md#HowItWorks.DataTypes "../../../amazondynamodb/latest/developerguide/HowItWorks.md#HowItWorks.DataTypes") documentation.
+For more information about DynamoDB data types, see the DynamoDB [Data type descriptors](../../../amazondynamodb/latest/developerguide/Programming.LowLevelAPI.md#Programming.LowLevelAPI.DataTypeDescriptors "../../../amazondynamodb/latest/developerguide/Programming.LowLevelAPI.md#Programming.LowLevelAPI.DataTypeDescriptors") and [Data types](../../../amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.md#HowItWorks.DataTypes "../../../amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.md#HowItWorks.DataTypes") documentation.
 
 A DynamoDB value is represented by a JSON object containing a single key-value pair. The key specifies the
 DynamoDB type, and the value specifies the value itself. In the following example, the key `S` denotes
@@ -221,4 +221,4 @@ An example usage is:
 ```
 
 For more information about each type, see the [DynamoDB
-documentation](../../../amazondynamodb/latest/developerguide/HowItWorks.md "../../../amazondynamodb/latest/developerguide/HowItWorks.md") .
+documentation](../../../amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.md "../../../amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.md") .

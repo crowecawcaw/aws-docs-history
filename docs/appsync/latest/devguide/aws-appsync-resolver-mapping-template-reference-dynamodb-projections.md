@@ -21,7 +21,7 @@ The fields are defined as follows:
 The projection expression, which is a string. To retrieve a single attribute, specify its name. For
 multiple attributes, the names must be comma-separated values. For more information on writing
 projection expressions, see the [DynamoDB projection
-expressions](../../../amazondynamodb/latest/developerguide/Expressions.md "../../../amazondynamodb/latest/developerguide/Expressions.md") documentation. This field is required.
+expressions](../../../amazondynamodb/latest/developerguide/Expressions.ProjectionExpressions.md "../../../amazondynamodb/latest/developerguide/Expressions.ProjectionExpressions.md") documentation. This field is required.
 
 **`expressionNames`**
 
@@ -31,7 +31,7 @@ the form of key-value pairs. The key corresponds to a name placeholder used in t
 item in DynamoDB. This field is optional and should only be populated with substitutions for expression
 attribute name placeholders used in the `expression`. For more information about
 `expressionNames`, see the [DynamoDB
-documentation](../../../amazondynamodb/latest/developerguide/Expressions.md "../../../amazondynamodb/latest/developerguide/Expressions.md").
+documentation](../../../amazondynamodb/latest/developerguide/Expressions.ExpressionAttributeNames.md "../../../amazondynamodb/latest/developerguide/Expressions.ExpressionAttributeNames.md").
 
 ## Example 1
 

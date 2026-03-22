@@ -218,7 +218,7 @@ CDK
 
 Before you use the CDK, we recommend reviewing the CDK's [official documentation](../../../cdk/v2/guide/home.md "../../../cdk/v2/guide/home.md") along
 with AWS AppSync's [CDK
-reference](../../../cdk/api/v2/docs/aws-cdk-lib.md "../../../cdk/api/v2/docs/aws-cdk-lib.md").
+reference](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync-readme.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync-readme.md").
 
 The steps listed below will only show a general example of the snippet used to add a particular
 resource. This is **not** meant to be a working solution in your
@@ -227,13 +227,13 @@ production code. We also assume you already have a working app.
 To add your particular data source, you'll need to add the construct to your stack file. A list of
 data source types can be found here:
 
-- [DynamoDbDataSource](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.md")
-- [EventBridgeDataSource](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.md")
-- [HttpDataSource](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.md")
-- [LambdaDataSource](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.md")
-- [NoneDataSource](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.md")
-- [OpenSearchDataSource](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.md")
-- [RdsDataSource](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.md")
+- [DynamoDbDataSource](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.DynamoDbDataSource.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.DynamoDbDataSource.md")
+- [EventBridgeDataSource](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.EventBridgeDataSource.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.EventBridgeDataSource.md")
+- [HttpDataSource](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.HttpDataSource.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.HttpDataSource.md")
+- [LambdaDataSource](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.LambdaDataSource.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.LambdaDataSource.md")
+- [NoneDataSource](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.NoneDataSource.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.NoneDataSource.md")
+- [OpenSearchDataSource](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.OpenSearchDataSource.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.OpenSearchDataSource.md")
+- [RdsDataSource](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.RdsDataSource.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.RdsDataSource.md")
 
 1. In general, you may have to add the import directive to the service you're using. For
    example, it may follow the forms:

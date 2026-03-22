@@ -460,7 +460,7 @@ For more info about the `UpdateItem` request, see the [UpdateItem](js-resolver-r
 module](built-in-modules-js.md "built-in-modules-js.md") documentation.
 
 For more information about how to write update expressions, see the [DynamoDB
-UpdateExpressions](../../../amazondynamodb/latest/developerguide/Expressions.md "../../../amazondynamodb/latest/developerguide/Expressions.md") documentation.
+UpdateExpressions](../../../amazondynamodb/latest/developerguide/Expressions.UpdateExpressions.md "../../../amazondynamodb/latest/developerguide/Expressions.UpdateExpressions.md") documentation.
 
 ### Call the API to update a post
 

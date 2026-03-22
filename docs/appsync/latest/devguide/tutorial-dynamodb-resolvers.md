@@ -597,7 +597,7 @@ word, so to update the `url` field you can use name placeholders and define
 them in the `expressionNames` field.
 
 For more info about `UpdateItem` request mapping, see the [UpdateItem](aws-appsync-resolver-mapping-template-reference-dynamodb-updateitem.md "aws-appsync-resolver-mapping-template-reference-dynamodb-updateitem.md") reference documentation. For more information about how to write
-update expressions, see the [DynamoDB UpdateExpressions documentation](../../../amazondynamodb/latest/developerguide/Expressions.md "../../../amazondynamodb/latest/developerguide/Expressions.md").
+update expressions, see the [DynamoDB UpdateExpressions documentation](../../../amazondynamodb/latest/developerguide/Expressions.UpdateExpressions.md "../../../amazondynamodb/latest/developerguide/Expressions.UpdateExpressions.md").
 
 - In **Configure the response mapping template**, paste the
   following:

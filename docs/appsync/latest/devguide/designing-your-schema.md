@@ -352,7 +352,7 @@ CDK
 ###### Tip
 
 Before you use the CDK, we recommend reviewing the CDK's [official documentation](../../../cdk/v2/guide/home.md "../../../cdk/v2/guide/home.md")
-along with AWS AppSync's [CDK reference](../../../cdk/api/v2/docs/aws-cdk-lib.md "../../../cdk/api/v2/docs/aws-cdk-lib.md").
+along with AWS AppSync's [CDK reference](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync-readme.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync-readme.md").
 
 The steps listed below will only show a general example of the snippet used to add a
 particular resource. This is **not** meant to be a working
@@ -521,7 +521,7 @@ CDK
 ###### Tip
 
 Before you use the CDK, we recommend reviewing the CDK's [official documentation](../../../cdk/v2/guide/home.md "../../../cdk/v2/guide/home.md")
-along with AWS AppSync's [CDK reference](../../../cdk/api/v2/docs/aws-cdk-lib.md "../../../cdk/api/v2/docs/aws-cdk-lib.md").
+along with AWS AppSync's [CDK reference](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync-readme.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync-readme.md").
 
 The steps listed below will only show a general example of the snippet used to add a
 particular resource. This is **not** meant to be a working
@@ -778,7 +778,7 @@ CDK
 ###### Tip
 
 Before you use the CDK, we recommend reviewing the CDK's [official documentation](../../../cdk/v2/guide/home.md "../../../cdk/v2/guide/home.md")
-along with AWS AppSync's [CDK reference](../../../cdk/api/v2/docs/aws-cdk-lib.md "../../../cdk/api/v2/docs/aws-cdk-lib.md").
+along with AWS AppSync's [CDK reference](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync-readme.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync-readme.md").
 
 The steps listed below will only show a general example of the snippet used to add a
 particular resource. This is **not** meant to be a working
@@ -986,7 +986,7 @@ CDK
 ###### Tip
 
 Before you use the CDK, we recommend reviewing the CDK's [official documentation](../../../cdk/v2/guide/home.md "../../../cdk/v2/guide/home.md")
-along with AWS AppSync's [CDK reference](../../../cdk/api/v2/docs/aws-cdk-lib.md "../../../cdk/api/v2/docs/aws-cdk-lib.md").
+along with AWS AppSync's [CDK reference](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync-readme.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync-readme.md").
 
 The steps listed below will only show a general example of the snippet used to add a
 particular resource. This is **not** meant to be a working
