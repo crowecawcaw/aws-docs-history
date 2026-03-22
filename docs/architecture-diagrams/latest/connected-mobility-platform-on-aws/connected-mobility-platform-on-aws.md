@@ -28,7 +28,7 @@ This architecture addresses three elements of the connected platform: in-vehicle
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/connected-mobility-platform-on-aws.md "samples/connected-mobility-platform-on-aws.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/connected-mobility-platform-on-aws.zip.md "samples/connected-mobility-platform-on-aws.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
