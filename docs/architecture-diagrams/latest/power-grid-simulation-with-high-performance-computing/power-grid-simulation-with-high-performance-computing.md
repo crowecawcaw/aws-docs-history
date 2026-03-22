@@ -38,7 +38,7 @@ results. Find insights from output using serverless data integration, interactiv
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/power-grid-simulation-with-high-performance-computing.md "samples/power-grid-simulation-with-high-performance-computing.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/power-grid-simulation-with-high-performance-computing.zip.md "samples/power-grid-simulation-with-high-performance-computing.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
