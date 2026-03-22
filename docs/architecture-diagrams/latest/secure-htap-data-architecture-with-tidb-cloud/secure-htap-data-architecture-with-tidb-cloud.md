@@ -30,7 +30,7 @@ This reference architecture outlines a modern hybrid transactional/analytical pr
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/secure-htap-data-architecture-with-tidb-cloud.md "samples/secure-htap-data-architecture-with-tidb-cloud.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/secure-htap-data-architecture-with-tidb-cloud.zip.md "samples/secure-htap-data-architecture-with-tidb-cloud.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
