@@ -36,7 +36,7 @@ requirements. 4. **Amazon Elastic Container Service** (Amazon ECS) runs containe
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/scale-geospatial-data-lakes.md "samples/scale-geospatial-data-lakes.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/scale-geospatial-data-lakes.zip.md "samples/scale-geospatial-data-lakes.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
