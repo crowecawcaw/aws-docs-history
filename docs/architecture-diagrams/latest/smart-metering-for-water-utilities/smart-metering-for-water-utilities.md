@@ -33,7 +33,7 @@ managing the fleet of meters.
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/smart-metering-water-utilites.md "samples/smart-metering-water-utilites.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/smart-metering-water-utilites.zip.md "samples/smart-metering-water-utilites.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
