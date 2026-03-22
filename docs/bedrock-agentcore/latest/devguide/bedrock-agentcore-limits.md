@@ -26,22 +26,26 @@ all users.
 ### Resource allocation limits
 
 The following table describes the resource allocation limits for
-AgentCore Runtime:
+AgentCore Runtime. You can request increases for some quotas using the Service Quotas console.
 
 | Resource allocation limits                                          | Limit                                                                                 | Default Value | Adjustable                                                         | Notes |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------- | ------------------------------------------------------------------ | ----- |
-| Active session workloads per account                                | 1,000 in US East (N. Virginia) and US West (Oregon), and 500 in<br>other AWS Regions. | Yes           | Can be increased via support ticket                                |
-| Total agents per account                                            | 1,000                                                                                 | Yes           | Can be increased via support ticket                                |
-| Versions per agent                                                  | 1,000                                                                                 | Yes           | Inactive versions deleted after 45 days                            |
-| Endpoints (aliases) per agent                                       | 10                                                                                    | Yes           | Can be increased via support ticket                                |
+| Active session workloads per account                                | 1,000 in US East (N. Virginia) and US West (Oregon), and 500 in<br>other AWS Regions. | Yes           | Can be increased via Service Quotas                                |
+| Total agents per account                                            | 1,000                                                                                 | Yes           | Can be increased via Service Quotas                                |
+| Versions per agent                                                  | 1,000                                                                                 | Yes           | Can be increased via Service Quotas                                |
+| Endpoints (aliases) per agent                                       | 10                                                                                    | Yes           | Can be increased via Service Quotas                                |
 | Maximum size for a Docker image in an AgentCore Runtime             | 2 GB                                                                                  | No            |                                                                    |
 | Maximum size for a direct code deployment package<br>(compressed)   | 250 MB                                                                                | No            | ZIP file size limit for direct code deployment                     |
 | Maximum size for a direct code deployment package<br>(uncompressed) | 750 MB                                                                                | No            | Unzipped package size limit for direct code deployment             |
 | Maximum hardware allocation per session                             | 2vCPU/8GB                                                                             | No            | The maximum memory/CPU usage and allocation per Runtime<br>session |
 
+For more information about service quotas and how to request increases, see [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User
+Guide_.
+
 ### Invocation limits
 
-The following table describes the invocation limits for AgentCore Runtime:
+The following table describes the invocation limits for AgentCore Runtime.
+You can request increases for some quotas using the Service Quotas console.
 
 | Invocation limits                 | Limit           | Value | Adjustable                                                                         | Notes |
 | --------------------------------- | --------------- | ----- | ---------------------------------------------------------------------------------- | ----- |
@@ -53,29 +57,36 @@ The following table describes the invocation limits for AgentCore Runtime:
 | Invocations per second            | 25 per endpoint | Yes   | Rate limit for API calls                                                           |
 | WebSocket frame size              | 32 KB           | No    | Maximum size for individual WebSocket frames                                       |
 
+For more information about service quotas and how to request increases, see [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User
+Guide_.
+
 ### Throttling limits
 
 The following table describes the rate limits for AgentCore Runtime after which you
-will be throttled:
+will be throttled. You can request increases for some quotas using the Service Quotas console.
 
-| Throttling limits                                                         | Limit                 | Value | Adjustable              | Notes |
-| ------------------------------------------------------------------------- | --------------------- | ----- | ----------------------- | ----- |
-| InvokeAgentRuntime API rate, per agent, per account                       | 25 TPS                | Yes   | Transactions per second |
-| InvokeAgentRuntimeWithWebSocketStream API rate, per agent, per<br>account | 25 TPS                | Yes   | Transactions per second |
-| New sessions created rate, per endpoint (container<br>deployment)         | 100 TPM               | Yes   | Transactions per minute |
-| Direct code deploy new session rate, per endpoint                         | 25 TPS                | Yes   | Transactions per second |
-| WebSocket frame rate per connection                                       | 250 frames per second | No    |                         |
-| CreateAgentRuntime API rate                                               | 5 TPS                 | Yes   | Transactions per second |
-| CreateAgentRuntimeEndpoint API rate                                       | 5 TPS                 | Yes   | Transactions per second |
-| GetAgentRuntime API rate                                                  | 50 TPS                | Yes   | Transactions per second |
-| GetAgentRuntimeEndpoint API rate                                          | 50 TPS                | Yes   | Transactions per second |
-| UpdateAgentRuntime API rate                                               | 5 TPS                 | Yes   | Transactions per second |
-| UpdateAgentRuntimeEndpoint API rate                                       | 5 TPS                 | Yes   | Transactions per second |
-| DeleteAgentRuntime API rate                                               | 5 TPS                 | Yes   | Transactions per second |
-| DeleteAgentRuntimeEndpoint API rate                                       | 5 TPS                 | Yes   | Transactions per second |
-| ListAgentRuntimes API rate                                                | 5 TPS                 | Yes   | Transactions per second |
-| ListAgentRuntimeEndpoints API rate                                        | 5 TPS                 | Yes   | Transactions per second |
-| ListAgentRuntimeVersions API rate                                         | 5 TPS                 | Yes   | Transactions per second |
+| Throttling limits                                                         | Limit                 | Value | Adjustable                                                                                                                                                                                                                   | Notes |
+| ------------------------------------------------------------------------- | --------------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| InvokeAgentRuntime API rate, per agent, per account                       | 25 TPS                | Yes   | Transactions per second                                                                                                                                                                                                      |
+| InvokeAgentRuntimeCommand API rate, per agent, per account                | 25 TPS                | Yes   | Transactions per second. Additional limits: command size 1 byte–64 KB,<br>response size up to 100 MB, timeout 1–3600 seconds (default 300),<br>streaming chunk size up to 64 KB per event, session ID minimum 33 characters. |
+| InvokeAgentRuntimeWithWebSocketStream API rate, per agent, per<br>account | 25 TPS                | Yes   | Transactions per second                                                                                                                                                                                                      |
+| New sessions created rate, per endpoint (container<br>deployment)         | 100 TPM               | Yes   | Transactions per minute                                                                                                                                                                                                      |
+| Direct code deploy new session rate, per endpoint                         | 25 TPS                | Yes   | Transactions per second                                                                                                                                                                                                      |
+| WebSocket frame rate per connection                                       | 250 frames per second | No    |                                                                                                                                                                                                                              |
+| CreateAgentRuntime API rate                                               | 5 TPS                 | Yes   | Transactions per second                                                                                                                                                                                                      |
+| CreateAgentRuntimeEndpoint API rate                                       | 5 TPS                 | Yes   | Transactions per second                                                                                                                                                                                                      |
+| GetAgentRuntime API rate                                                  | 50 TPS                | Yes   | Transactions per second                                                                                                                                                                                                      |
+| GetAgentRuntimeEndpoint API rate                                          | 50 TPS                | Yes   | Transactions per second                                                                                                                                                                                                      |
+| UpdateAgentRuntime API rate                                               | 5 TPS                 | Yes   | Transactions per second                                                                                                                                                                                                      |
+| UpdateAgentRuntimeEndpoint API rate                                       | 5 TPS                 | Yes   | Transactions per second                                                                                                                                                                                                      |
+| DeleteAgentRuntime API rate                                               | 5 TPS                 | Yes   | Transactions per second                                                                                                                                                                                                      |
+| DeleteAgentRuntimeEndpoint API rate                                       | 5 TPS                 | Yes   | Transactions per second                                                                                                                                                                                                      |
+| ListAgentRuntimes API rate                                                | 5 TPS                 | Yes   | Transactions per second                                                                                                                                                                                                      |
+| ListAgentRuntimeEndpoints API rate                                        | 5 TPS                 | Yes   | Transactions per second                                                                                                                                                                                                      |
+| ListAgentRuntimeVersions API rate                                         | 5 TPS                 | Yes   | Transactions per second                                                                                                                                                                                                      |
+
+For more information about service quotas and how to request increases, see [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User
+Guide_.
 
 ### Lifetime session lifecycle parameters
 

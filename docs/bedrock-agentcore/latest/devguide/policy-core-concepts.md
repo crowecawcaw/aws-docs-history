@@ -7,7 +7,6 @@ work together to provide policy-based governance for your AI agents.
 
 - [Gateway](#concept-gateway "#concept-gateway")
 - [Gateway Target](#concept-gateway-target "#concept-gateway-target")
-- [Amazon Bedrock AgentCore Gateway Authorizer](#concept-gateway-authorizer "#concept-gateway-authorizer")
 - [Cedar](#concept-cedar "#concept-cedar")
 - [Cedar Policy](#concept-cedar-policy "#concept-cedar-policy")
 - [Policy engine](#concept-policy-engine "#concept-policy-engine")
@@ -27,12 +26,6 @@ A Gateway can have multiple targets, each representing a different tool or set o
 A target defines the APIs or Lambda function that a Gateway will provide as tools to an
 agent. Targets can be Lambda functions, OpenAPI specifications, Smithy models, or other tool
 definitions.
-
-## Amazon Bedrock AgentCore Gateway Authorizer
-
-Since MCP only supports OAuth, each Gateway must have an attached OAuth authorizer. If you
-don't have an OAuth authorization server already, you will be able to create one in this guide
-using Cognito.
 
 ## Cedar
 

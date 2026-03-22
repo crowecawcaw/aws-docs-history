@@ -1,10 +1,8 @@
-# Troubleshoot AgentCore built-in tools
+# Troubleshoot AgentCore Browser
 
-This section provides solutions to common issues you might encounter when using Amazon Bedrock AgentCore built-in tools.
+This section provides solutions to common issues you might encounter when using the Amazon Bedrock AgentCore Browser.
 
-## Browser tool issues
-
-### Permission denied errors
+## Permission denied errors
 
 **Symptom:** Errors mentioning access denied or insufficient permissions.
 
@@ -15,7 +13,7 @@ This section provides solutions to common issues you might encounter when using 
 - For recording: Verify the execution role has Amazon S3 write permissions
 - For recording: Confirm the trust policy allows `bedrock-agentcore.amazonaws.com` to assume the role
 
-### Model access denied
+## Model access denied
 
 **Symptom:** Errors about model access or authorization when running agents.
 
@@ -26,7 +24,7 @@ This section provides solutions to common issues you might encounter when using 
 - Enable **Anthropic Claude Sonnet 4**
 - Verify you're in the correct region (match the region in your code)
 
-### Browser session timeout
+## Browser session timeout
 
 **Symptom:** Browser sessions end unexpectedly or timeout errors occur.
 
@@ -37,7 +35,7 @@ This section provides solutions to common issues you might encounter when using 
 - Increase timeout for longer sessions: `sessionTimeoutSeconds=1800`
 - Sessions automatically stop after the timeout period
 
-### Recording not appearing in Amazon S3
+## Recording not appearing in Amazon S3
 
 **Symptom:** No recording files in your Amazon S3 bucket after session completes.
 
@@ -49,7 +47,7 @@ This section provides solutions to common issues you might encounter when using 
 - Review CloudWatch Logs for Amazon S3 upload errors
 - Ensure the session ran for at least a few seconds (very short sessions may not generate recordings)
 
-### Playwright connection errors
+## Playwright connection errors
 
 **Symptom:** Cannot connect to browser with Playwright or WebSocket errors.
 
@@ -60,7 +58,7 @@ This section provides solutions to common issues you might encounter when using 
 - Check that the session is still active (not timed out)
 - Verify your network allows WebSocket connections
 
-### Agent cannot make progress due to CAPTCHA checks
+## Agent cannot make progress due to CAPTCHA checks
 
 **Issue:** Your agent gets blocked by CAPTCHA verification when using the Browser tool to interact with websites.
 
@@ -72,7 +70,7 @@ This section provides solutions to common issues you might encounter when using 
 - Use non-browser MCP tools like Tavily search for general web search operations
 - Consider adding a live view feature to your agent application that allows end users to take control and solve CAPTCHAs when needed
 
-### CORS errors when integrating with browser applications
+## CORS errors when integrating with browser applications
 
 **Issue:** Cross-Origin Resource Sharing (CORS) errors occur when building browser-based web applications that call a custom Amazon Bedrock AgentCore runtime server.
 
@@ -111,7 +109,7 @@ def my_agent(payload):
 
 In production environments, replace `allow_origins=["*"]` with specific domain origins for better security.
 
-### Session Replay and Web Bot Auth don't work in new browser windows or contexts
+## Session Replay and Web Bot Auth don't work in new browser windows or contexts
 
 **Issue:** Session Replay and Web Bot Auth features are not available when your automation code creates new browser windows or contexts.
 
@@ -130,9 +128,9 @@ page = context.pages[0]
 
 ```
 
-### Browser extensions issues
+## Browser extensions issues
 
-#### Extension download fails with access denied
+### Extension download fails with access denied
 
 **Symptom:** Session fails to start with errors related to Amazon S3 access when using extensions.
 
@@ -143,7 +141,7 @@ page = context.pages[0]
 - Check that the bucket name and prefix (object key) are correct
 - If using versioned buckets, ensure you have `s3:GetObjectVersion` permission
 
-#### Extension rejected due to invalid format
+### Extension rejected due to invalid format
 
 **Symptom:** Session fails to start with validation errors about the extension file format.
 
@@ -154,18 +152,9 @@ page = context.pages[0]
 - Check that the extension follows Chrome extension guidelines
 - Ensure the ZIP was created from the extension directory contents, not the parent folder
 
-### Browser profile issues
+## Browser profile issues
 
-#### Failed to save browser session profile due to concurrent operation on the profile
-
-**Symptom:** `SaveBrowserSessionProfile` throws `ConflictException`.
-
-**Solution:**
-
-- Retry `SaveBrowserSessionProfile` at a later time
-- Use exponential backoff with jitter if retrying from agent or code
-
-#### Failed to save browser session profile due to concurrent operation on the session
+### Failed to save browser session profile due to concurrent operation on the profile
 
 **Symptom:** `SaveBrowserSessionProfile` throws `ConflictException`.
 
@@ -174,7 +163,16 @@ page = context.pages[0]
 - Retry `SaveBrowserSessionProfile` at a later time
 - Use exponential backoff with jitter if retrying from agent or code
 
-#### Authentication fails when loading a saved browser profile
+### Failed to save browser session profile due to concurrent operation on the session
+
+**Symptom:** `SaveBrowserSessionProfile` throws `ConflictException`.
+
+**Solution:**
+
+- Retry `SaveBrowserSessionProfile` at a later time
+- Use exponential backoff with jitter if retrying from agent or code
+
+### Authentication fails when loading a saved browser profile
 
 **Symptom:** A browser session loaded from a saved profile requires re-authentication even though the profile was saved with valid authentication cookies.
 
@@ -192,20 +190,36 @@ page = context.pages[0]
 
 Cookie expiration times are set by websites and cannot be modified by browser profiles. Session cookies typically expire when the browser session ends, while persistent cookies expire based on their Max-Age or Expires attributes.
 
-### Browser proxy issues
+## Troubleshooting browser proxies
 
-For troubleshooting browser proxy configuration and connection issues, see
-[Troubleshooting browser proxies](browser-proxies.md#browser-proxies-troubleshooting "browser-proxies.md#browser-proxies-troubleshooting") in the browser proxies
-documentation.
+### Errors when starting a session with proxy
 
-## Code Interpreter issues
+**Symptom:** `StartBrowserSession` returns an HTTP 400 error with a message beginning with `Failed to set up browser proxy:`.
 
-For general Code Interpreter troubleshooting, see the specific documentation for [Execute code and analyze data using Amazon Bedrock AgentCore Code Interpreter](code-interpreter-tool.md "code-interpreter-tool.md").
+**Cause:** The proxy configuration or credentials secret is invalid.
 
-Common issues with Code Interpreter typically relate to:
+**Solution:**
 
-- Code execution timeouts
-- Memory limitations during data processing
-- Package installation restrictions
+- `Proxy credentials secret not found in Secrets Manager` – The secret ARN does not match any secret in the target account and Region. Verify the ARN is correct and that the secret has not been deleted or scheduled for deletion.
+- `Invalid proxy credentials secret configuration (check encryption key for cross-account access)` – The secret exists but cannot be accessed. Ensure the calling identity has `secretsmanager:GetSecretValue` permission. For cross-account secrets, see .
+- `Proxy credentials secret must be a JSON object with username and password fields` – Update the secret value to a valid JSON object: `{"username": "...", "password": "..."}`.
+- `Failed to parse proxy credentials from secret` – The secret value could not be read as proxy credentials. Verify the secret contains a plain JSON string (not binary) with `username` and `password` fields.
+- `Field 'username' is missing or empty in secret` or `Field 'password' is missing or empty in secret` – Ensure both `username` and `password` are present and non-empty in the secret.
+- `Field 'username' contains invalid characters` or `Field 'password' contains invalid characters` – Use only the characters listed in the error message. See for allowed characters.
+- `Field 'username' exceeds maximum length of 256 characters` or `Field 'password' exceeds maximum length of 256 characters` – Shorten the credential to 256 characters or fewer.
 
-For detailed troubleshooting steps, refer to the Code Interpreter tool documentation.
+### Proxy connection errors in browser
+
+**Symptom:** A browser session starts successfully, but page navigation fails for proxied domains with HTTP 502 errors or `net::ERR_INVALID_AUTH_CREDENTIALS`.
+
+**Cause:** The browser cannot connect to the proxy server, or the proxy server rejects the provided credentials. These are Chromium network errors, not AWS API errors.
+
+**Solution:**
+
+- **HTTP 502 on proxied pages** – Verify the proxy hostname, port, and that the server is running and reachable from the public internet (or from your VPC if using VPC configuration).
+- `net::ERR_INVALID_AUTH_CREDENTIALS` – Update the secret in Secrets Manager with valid credentials for the proxy server.
+- Use `GetBrowserSession` to confirm the active proxy settings. Credentials are never returned in the response.
+
+###### Note
+
+These errors are visible in Live View and through the automation API.

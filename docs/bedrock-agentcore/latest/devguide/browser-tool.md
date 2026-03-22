@@ -2,10 +2,7 @@
 
 The Amazon Bedrock AgentCore Browser provides a secure, isolated browser environment for your agents to interact with web applications. It runs in a containerized environment, keeping web activity separate from your system. It includes security features such as session isolation, built-in observability through live viewing, CloudTrail logging, and session replay capabilities.
 
-## How it works
-
 ![Architecture showing the built-in tools offering and Browser and CI tools.](images/browser-tool.png)
-
 The Amazon Bedrock AgentCore Browser provides session-based web browsing with comprehensive observability. The workflow consists of four key steps:
 
 1. ###### Create a Browser Tool
@@ -23,11 +20,11 @@ stream. 4. ###### Monitor and record sessions
 
 All browser sessions provide built-in observability which includes Live View for real-time monitoring, Session recording (available for custom browsers), and CloudWatch metrics for real-time performance insights. Session recording captures DOM changes, user actions, console logs, and
 network events. Recorded sessions are stored in your Amazon S3 bucket and can be replayed
-through the AWS for detailed analysis capabilities including video playback,
+through the AWS Console for detailed analysis capabilities including video playback,
 timeline navigation, user action tracking, and comprehensive logs for troubleshooting
 and optimization.
 
-## Why use remote browsers for agent development?
+###### Why use remote browsers for agent development?
 
 A remote browser runs in a separate environment rather than on the local machine. For
 agent development, remote browsers allow AI agents to interact with the web as humans
@@ -41,7 +38,7 @@ do. Key capabilities include:
 - Complex web application navigation
 - Comprehensive audit capabilities
 
-## Security Features
+###### Security Features
 
 The Browser Tool includes several security features to help protect your environment:
 

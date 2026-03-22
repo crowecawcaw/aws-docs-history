@@ -1,4 +1,4 @@
-# CloudWatch Metrics for AgentCore Browser
+# CloudWatch Metrics
 
 You can view the following metrics in Amazon CloudWatch:
 

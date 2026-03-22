@@ -1,21 +1,9 @@
-# Observability and session replay
+# Observability
 
-The AgentCore Browser provides the following observability features:
-
-Session replay
-
-You can replay browser sessions using the Amazon Bedrock AgentCore SDK to view
-session recordings stored in Amazon S3. This feature enables you to review past browser
-interactions for debugging, auditing, or training purposes. The recordings in S3 include
-DOM change events, browser network activity, and console logs for comprehensive session
-analysis.
-
-Metrics
-
-You can view browser session metrics in Amazon CloudWatch, including session counts,
-durations, and error rates to monitor usage and performance.
+The Amazon Bedrock AgentCore Browser provides built-in observability features including live view, session recording, session replay, and CloudWatch metrics.
 
 ###### Topics
 
-- [CloudWatch Metrics for AgentCore Browser](browser-metrics.md "browser-metrics.md")
-- [Browser session recording and replay](browser-session-replay.md "browser-session-replay.md")
+- [Live View](browser-dcv-integration.md "browser-dcv-integration.md")
+- [Session Recording and Replay](browser-session-recording.md "browser-session-recording.md")
+- [CloudWatch Metrics](browser-metrics.md "browser-metrics.md")

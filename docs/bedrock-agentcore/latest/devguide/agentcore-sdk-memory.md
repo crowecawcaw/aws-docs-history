@@ -59,7 +59,7 @@ memory = client.create_memory_and_wait(
             "name": "SessionSummarizer",
             # Organize facts by session ID for easy retrieval
             # Example: "summaries/session123" contains summary of session123
-            "namespaces": ["/summaries/{actorId}/{sessionId}/"]
+            "namespaceTemplates": ["/summaries/{actorId}/{sessionId}/"]
         }
     }]
 )

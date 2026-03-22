@@ -27,7 +27,7 @@ When using an API Gateway REST API stage as a target, keep in mind the following
 - Your API must be in the same account as your AgentCore Gateway.
 - Your API must be in the same Region as your AgentCore Gateway.
 - Your API must be an API Gateway REST API. We do not support API Gateway [HTTP APIs](../../../apigateway/latest/developerguide/http-api.md "../../../apigateway/latest/developerguide/http-api.md") or [WebSocket APIs.](../../../apigateway/latest/developerguide/apigateway-websocket-api.md "../../../apigateway/latest/developerguide/apigateway-websocket-api.md")
-- Your API must be configured with a public [endpoint type](../../../apigateway/latest/developerguide/api-gateway-api-endpoint-types.md "../../../apigateway/latest/developerguide/api-gateway-api-endpoint-types.md"). Private
+- Your API must be configured with a public [endpoint type](../../../apigateway/latest/developerguide/api-gateway-api-endpoint-types.htm.md "../../../apigateway/latest/developerguide/api-gateway-api-endpoint-types.htm.md"). Private
   endpoints are not supported. To create a Gateway Target that can access resources in your VPC, you should use
   a public endpoint and an [API Gateway private
   integration](../../../apigateway/latest/developerguide/set-up-private-integration.md "../../../apigateway/latest/developerguide/set-up-private-integration.md").

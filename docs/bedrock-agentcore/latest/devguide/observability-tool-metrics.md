@@ -11,7 +11,7 @@
 
 AgentCore provides the following built-in metrics for the code interpreter and
 browser tools. Built-in tool metrics are batched at one minute intervals. To learn more
-about AgentCore tools, see [Use Amazon Bedrock AgentCore built-in tools to interact with your applications](built-in-tools.md "built-in-tools.md").
+about AgentCore tools, see [Execute code and analyze data using Amazon Bedrock AgentCore Code Interpreter](code-interpreter-tool.md "code-interpreter-tool.md") and [Interact with web applications using Amazon Bedrock AgentCore Browser](browser-tool.md "browser-tool.md").
 
 **Invoke tool:**
 

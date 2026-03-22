@@ -1,37 +1,75 @@
-# How to use session replay
+# Session Recording and Replay
 
-Session recording captures all browser interactions and allows you to replay sessions
-for debugging, analysis, and monitoring. This feature requires a custom browser tool with
-recording enabled.
+Browser session recording and replay provides comprehensive observability for debugging,
+auditing, or training purposes. When you create a browser with session recording enabled,
+Amazon Bedrock AgentCore automatically captures browser interactions and stores them in your
+specified Amazon S3 bucket for later analysis.
 
-###### Note
+Session replay captures comprehensive browser interaction data that enables you to view
+replays and understand the actions that occurred during browser sessions. This functionality
+helps you resolve errors and improve future invocations by providing detailed insights into
+browser behavior.
 
-- Session replay captures DOM mutations and reconstructs them during playback. The
-  browser may make cross-origin HTTP requests to fetch external assets during
-  replay.
-- Session replay is not available in the AWS managed Browser
-  (aws.browser.v1).
-  Session replay in AgentCore Browser involves the following steps:
+Information collected during session replay includes:
 
-1. **Create a Browser Tool with Recording** - Create a
-   custom browser with recording enabled and specify your Amazon S3 bucket for storage
-2. **Use the Recording-Enabled Browser** - Start browser
-   sessions and perform browsing activities through automation or live view
-3. **Replay and Inspect Recorded Sessions** - Access
-   recordings through the AWS Console with comprehensive analysis tools
-4. **Access Recordings Programmatically** - Retrieve and
-   analyze recording data directly from Amazon S3 for custom workflows
+- Session DOM changes and mutations
+- User actions including clicks, scrolls, and form interactions
+- Console logs and error messages
+- Chrome DevTools Protocol (CDP) events
+- Network events and HTTP requests
 
-###### Important
+## Prerequisites for session recording
 
-Before you perform these steps, make sure that you've configured the IAM Role for
-recording. You must set up permissions for Amazon Bedrock AgentCore to write recording data to
-Amazon S3 and log activity to CloudWatch. For more information, see [Configure IAM role for recording](browser-session-replay.md#session-replay-permissions "browser-session-replay.md#session-replay-permissions").
+To enable session recording, you need:
+
+- An Amazon S3 bucket to store recording data
+- An IAM execution role with permissions to write to your Amazon S3 bucket
+- A custom browser tool configured with recording enabled
+
+## Configure IAM role for recording
+
+To enable session recording, you need an IAM execution role with permissions to write
+recording data to Amazon S3 and log activity to CloudWatch. For detailed instructions on setting up
+permissions, see [Permissions](browser-resource-session-management.md#browser-permissions "browser-resource-session-management.md#browser-permissions").
+
+The execution role requires additional permissions beyond the standard browser
+permissions:
+
+```
+{
+    "Sid": "S3Permissions",
+    "Effect": "Allow",
+    "Action": [
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:ListBucket",
+        "s3:ListMultipartUploadParts",
+        "s3:AbortMultipartUpload"
+    ],
+    "Resource": [
+        "arn:aws:s3:::your-recording-bucket",
+        "arn:aws:s3:::your-recording-bucket/*"
+    ]
+},
+{
+    "Sid": "CloudWatchLogsPermissions",
+    "Effect": "Allow",
+    "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents",
+        "logs:DescribeLogStreams"
+    ],
+    "Resource": "*"
+}
+```
+
+Replace `your-recording-bucket` with your actual Amazon S3 bucket name.
 
 ## Step 1: Create a browser tool with recording
 
 Create a custom browser tool with recording enabled. For detailed instructions on
-creating browser tools, see [Creating an AgentCore Browser](browser-create.md "browser-create.md").
+creating browser tools, see [Creating an AgentCore Browser](browser-using-tool.md#browser-create "browser-using-tool.md#browser-create").
 
 When creating your browser tool, ensure you:
 
@@ -247,3 +285,68 @@ s3://your-recording-bucket/browser-recordings/
 
 Each session creates a folder with the session ID, and recording data is uploaded
 in chunks as the session progresses.
+
+## Session replay programmatic examples
+
+For advanced use cases, you can build custom session replay viewers and integrate
+recording data into your own analysis workflows.
+
+The following GitHub examples show a standalone session replay viewer and what the
+complete browser experience looks like when using the browser session replay
+feature.
+
+For additional examples, see [AgentCore Browser examples on GitHub](https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/05-AgentCore-tools/02-Agent-Core-browser-tool/interactive_tools/ "https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/05-AgentCore-tools/02-Agent-Core-browser-tool/interactive_tools/").
+
+The standalone session replay viewer is a separate tool for viewing recorded
+browser sessions directly from Amazon S3 without creating a new browser.
+
+- Connect directly to S3 to view recordings
+- View any past recording by specifying its session ID
+- Display error messages when artifacts are missing from S3, with console replay
+  URLs specific to session ID
+- Interactive video playback interface with timeline navigation
+- Action markers on timeline showing form fills, clicks, and navigation
+  events
+- Observability table displaying pages traveled with duration and URL
+  details
+- Console events, CDP logs, and network logs for each page interaction
+- Session duration tracking integrated at page level
+- Real-time action verification with visual correlation between video and action
+  data
+
+```
+# View the latest recording in a bucket
+python view_recordings.py --bucket session-record-test-123456789012 --prefix replay-data
+
+# View a specific recording
+python view_recordings.py --bucket session-record-test-123456789012 --prefix replay-data --session 01JZVDG02M8MXZY2N7P3PKDQ74
+
+# Use a specific AWS profile
+python view_recordings.py --bucket session-record-test-123456789012 --prefix replay-data --profile my-profile
+
+```
+
+For reference, see [Standalone session replay viewer on GitHub](https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/05-AgentCore-tools/02-Agent-Core-browser-tool/interactive_tools/live_view_sessionreplay/view_recordings.py "https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/05-AgentCore-tools/02-Agent-Core-browser-tool/interactive_tools/live_view_sessionreplay/view_recordings.py").
+
+A comprehensive tool for creating browser sessions with recording capabilities and
+advanced replay features.
+
+- Create browser sessions with automatic recording to S3
+- Live view with interactive control (take/release)
+- Adjust display resolution on the fly
+- Automatic session recording to S3
+- Integrated session replay viewer with video player interface
+- Timeline scrubbing with precise action location tracking
+- Page-by-page analysis with navigation timeline and URL copying
+- Form filling action verification with click location details
+- Session duration tracking integrated at page level
+- Real-time action verification with visual correlation between video and action
+  data
+
+```
+# View the latest recording in a bucket
+python -m live_view_sessionreplay.browser_interactive_session
+
+```
+
+For reference, see [Interactive browser session on GitHub](https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/05-AgentCore-tools/02-Agent-Core-browser-tool/interactive_tools/live_view_sessionreplay/browser_interactive_session.py "https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/05-AgentCore-tools/02-Agent-Core-browser-tool/interactive_tools/live_view_sessionreplay/browser_interactive_session.py").

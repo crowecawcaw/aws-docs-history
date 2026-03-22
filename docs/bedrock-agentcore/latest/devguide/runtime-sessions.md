@@ -54,7 +54,9 @@ Unlike traditional serverless functions that terminate after each request,
 AgentCore supports ephemeral, isolated compute sessions lasting up to 8 hours.
 This simplifies building multi-step agentic workflows as you can make multiple calls to
 the same environment, with each invocation building upon the context established by
-previous interactions.
+previous interactions. You can use both `InvokeAgentRuntime` for agent
+reasoning and `InvokeAgentRuntimeCommand` for deterministic shell command
+execution within the same session.
 
 ## AgentCore Runtime session lifecycle
 
@@ -63,16 +65,19 @@ previous interactions.
 A new session is created on the first invoke with a unique runtimeSessionId
 provided by your application. AgentCore Runtime provisions a dedicated
 execution environment (microVM) for each session. Context is preserved between
-invocations to the same session.
+invocations to the same session. Both `InvokeAgentRuntime` and
+`InvokeAgentRuntimeCommand` operate on the same session — a command
+sees the same container, filesystem, and environment as the agent.
 
 ###### Session states
 
 Sessions can be in one of the following states:
 
-- **Active**: Either processing a sync request or
-  doing background tasks. Sync invocation activity is automatically tracked based
-  on invocations to a runtime session. Background tasks are communicated by the
-  agent code by responding with "HealthyBusy" status in pings.
+- **Active**: Either processing a sync request,
+  executing a command, or doing background tasks. Sync invocation and command
+  execution activity is automatically tracked based on invocations to a runtime
+  session. Background tasks are communicated by the agent code by responding with
+  "HealthyBusy" status in pings.
 - **Idle**: When not processing any requests or
   background tasks. The session has completed processing but remains available for
   future invocations.

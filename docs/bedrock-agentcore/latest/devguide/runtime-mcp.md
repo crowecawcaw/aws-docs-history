@@ -32,10 +32,18 @@ When you configure a Amazon Bedrock AgentCore Runtime with the MCP protocol, the
 expects MCP server containers to be available at the path `0.0.0.0:8000/mcp`,
 which is the default path supported by most official MCP server SDKs.
 
-Amazon Bedrock AgentCore requires stateless streamable-HTTP servers because the Runtime
-provides session isolation by default. The platform automatically adds a
-`Mcp-Session-Id` header for any request without it, so MCP clients can
-maintain connection continuity to the same Amazon Bedrock AgentCore Runtime session.
+Amazon Bedrock AgentCore supports both stateless and stateful streamable-HTTP MCP servers.
+By default, stateless mode (`stateless_http=True`) is recommended for basic
+MCP servers. The platform automatically adds an `Mcp-Session-Id` header
+for any request without one, so MCP clients can maintain connection continuity to the
+same Amazon Bedrock AgentCore Runtime session.
+
+For MCP servers that require multi-turn interactions (elicitation), LLM-generated
+content (sampling), or progress notifications, stateful mode
+(`stateless_http=False`) enables these capabilities. In stateful mode,
+the runtime preserves MCP session state across requests within the same invocation.
+For more information, see
+[Stateful MCP server features](mcp-stateful-features.md "mcp-stateful-features.md").
 
 The payload of the [InvokeAgentRuntime](../APIReference/API_InvokeAgentRuntime.md "../APIReference/API_InvokeAgentRuntime.md") API is passed through directly,
 allowing RPC messages of protocols like MCP to be easily proxied.

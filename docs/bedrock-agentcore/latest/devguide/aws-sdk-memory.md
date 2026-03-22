@@ -86,19 +86,19 @@ memory_response = control_client.create_memory(
         {
             'summaryMemoryStrategy': {
                 'name': 'SessionSummarizer',
-                'namespaces': ['/summaries/{actorId}/{sessionId}/']
+                'namespaceTemplates': ['/summaries/{actorId}/{sessionId}/']
             }
         },
         {
             'userPreferenceMemoryStrategy': {
                 'name': 'PreferenceLearner',
-                'namespaces': ['/preferences/{actorId}/']
+                'namespaceTemplates': ['/preferences/{actorId}/']
             }
         },
         {
             'semanticMemoryStrategy': {
                 'name': 'FactExtractor',
-                'namespaces': ['/facts/{actorId}/']
+                'namespaceTemplates': ['/facts/{actorId}/']
             }
         }
     ]

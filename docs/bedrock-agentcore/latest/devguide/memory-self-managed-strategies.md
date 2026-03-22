@@ -5,7 +5,7 @@ control over your memory extraction and consolidation pipelines. With a self-man
 build custom memory processing workflows while leveraging Amazon Bedrock AgentCore for storage
 and retrieval.
 
-A self-managed strategy in combination with the batch operations ([BatchCreateMemoryRecords](../APIReference/API_BatchCreateMemoryRecords.md "../APIReference/API_BatchCreateMemoryRecords.md"), [BatchUpdateMemoryRecords](../APIReference/API_BatchUpdateMemoryRecords.md "../APIReference/API_BatchUpdateMemoryRecords.md"), [BatchUpdateMemoryRecords](../APIReference/API_BatchUpdateMemoryRecords.md "../APIReference/API_BatchUpdateMemoryRecords.md")), let you directly ingest these extracted records into
+A self-managed strategy in combination with the batch operations ([BatchCreateMemoryRecords](../APIReference/API_BatchCreateMemoryRecords.md "../APIReference/API_BatchCreateMemoryRecords.md"), [BatchUpdateMemoryRecords](../APIReference/API_BatchUpdateMemoryRecords.md "../APIReference/API_BatchUpdateMemoryRecords.md"), [BatchDeleteMemoryRecords](../APIReference/API_BatchDeleteMemoryRecords.md "../APIReference/API_BatchDeleteMemoryRecords.md")), let you directly ingest these extracted records into
 Amazon Bedrock AgentCore memory for search capabilities.
 
 With self-managed strategies, you can:

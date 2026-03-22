@@ -16,6 +16,10 @@ real-time as the agent processes your request. This streaming approach allows yo
 partial results immediately rather than waiting for the complete response, making it ideal
 for interactive applications.
 
+To execute shell commands (such as running tests, git operations, or environment setup)
+in the same session, use the [Execute shell commands in AgentCore Runtime sessions](runtime-execute-command.md "runtime-execute-command.md") operation. Both operations work on the same
+agent runtime and session.
+
 If you plan on integrating your agent with OAuth, you can't use the AWS SDK to call
 `InvokeAgentRuntime`. Instead, make a HTTPS request to
 InvokeAgentRuntime. For more information, see [Authenticate and authorize with Inbound Auth and Outbound Auth](runtime-oauth.md "runtime-oauth.md").
@@ -167,3 +171,6 @@ operation:
 - Use appropriate qualifiers to target specific agent versions or
   endpoints.
 - Implement authentication mechanisms when necessary using bearer tokens.
+- Use `InvokeAgentRuntimeCommand` for deterministic operations
+  (tests, git, builds) instead of routing them through the agent's LLM. See
+  [Execute shell commands in AgentCore Runtime sessions](runtime-execute-command.md "runtime-execute-command.md").

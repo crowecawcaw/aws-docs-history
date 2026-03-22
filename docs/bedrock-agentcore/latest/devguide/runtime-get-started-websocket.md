@@ -647,28 +647,8 @@ lifecycle through agent health status, see [Runtime session lifecycle management
 
 ### Stop runtime session
 
-To stop the running session before the configurable `IdleRuntimeSessionTimeout`
-(defaulted at 15 minutes) and save on any potential runaway costs, use the
-`stop_runtime_session` API.
-
-Create a file named `stop_runtime_session.py` with the following content:
-
-```
-from bedrock_agentcore.runtime import AgentCoreRuntimeClient
-import os
-
-runtime_arn = os.getenv('AGENT_ARN')
-if not runtime_arn:
-    raise ValueError("AGENT_ARN environment variable is required")
-
-client = AgentCoreRuntimeClient(region="us-west-2")
-session_id = "user-123-conversation-456"
-response = client.stop_runtime_session(
-    runtime_arn=runtime_arn,
-    session_id=session_id,
-    qualifier="DEFAULT"
-)
-```
+To stop a running session before the configurable `IdleRuntimeSessionTimeout`
+(defaulted at 15 minutes), see [Stop a running session](runtime-stop-session.md "runtime-stop-session.md").
 
 ## Observability
 

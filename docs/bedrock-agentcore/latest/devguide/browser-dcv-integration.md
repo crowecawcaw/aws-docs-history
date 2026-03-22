@@ -1,4 +1,4 @@
-# Rendering live view using AWS DCV Web Client
+# Live View
 
 Amazon Bedrock AgentCore's live view is powered by **AWS DCV**.
 Each browser session launches a dedicated DCV server that streams the browser interface and
@@ -36,11 +36,7 @@ When establishing a WebSocket connection to the DCV server, you can use the
 `httpExtraSearchParamsCallback` in the `connect` method to
 customize the URL used.
 
-Example:
-
-### Example
-
-The following shows a sample code:
+The following example shows how to use these callbacks:
 
 ```
 

@@ -33,7 +33,7 @@ Create memory with summary and user preference strategies:
 agentcore memory create ShoppingSupportAgentMemory \
   --region us-west-2 \
   --description "Memory for a customer support agent." \
-  --strategies '[{"summaryMemoryStrategy": {"name": "SessionSummarizer", "namespaces": ["/summaries/{actorId}/{sessionId}/"]}}, {"userPreferenceMemoryStrategy": {"name": "PreferenceLearner", "namespaces": ["/users/{actorId}/preferences/"]}}]' \
+  --strategies '[{"summaryMemoryStrategy": {"name": "SessionSummarizer", "namespaceTemplates": ["/summaries/{actorId}/{sessionId}/"]}}, {"userPreferenceMemoryStrategy": {"name": "PreferenceLearner", "namespaceTemplates": ["/users/{actorId}/preferences/"]}}]' \
   --wait
 ```
 
@@ -69,11 +69,11 @@ memory = memory_manager.get_or_create_memory(
     strategies=[
         SummaryStrategy(
             name="SessionSummarizer",
-            namespaces=["/summaries/{actorId}/{sessionId}/"]
+            namespace_templates=["/summaries/{actorId}/{sessionId}/"]
         ),
         UserPreferenceStrategy(
             name="PreferenceLearner",
-            namespaces=["/users/{actorId}/preferences/"]
+            namespace_templates=["/users/{actorId}/preferences/"]
         )
     ]
 )
@@ -102,13 +102,13 @@ response = control_client.create_memory(
         {
             'summaryMemoryStrategy': {
                 'name': 'SessionSummarizer',
-                'namespaces': ['/summaries/{actorId}/{sessionId}/']
+                'namespaceTemplates': ['/summaries/{actorId}/{sessionId}/']
             }
         },
         {
             'userPreferenceMemoryStrategy': {
                 'name': 'UserPreferenceExtractor',
-                'namespaces': ['/users/{actorId}/preferences/']
+                'namespaceTemplates': ['/users/{actorId}/preferences/']
             }
         }
     ]

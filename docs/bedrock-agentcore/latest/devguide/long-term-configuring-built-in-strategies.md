@@ -36,7 +36,7 @@ memory = memory_manager.get_or_create_memory(
     strategies=[
         UserPreferenceStrategy(
             name="UserPreferenceExtractor",
-            namespaces=["/users/{actorId}/preferences/"]
+            namespace_templates=["/users/{actorId}/preferences/"]
         )
     ]
 )
@@ -70,7 +70,7 @@ memory = memory_manager.get_or_create_memory(
     strategies=[
         SemanticStrategy(
             name="FactExtractor",
-            namespaces=["/support_cases/{sessionId}/facts/"]
+            namespace_templates=["/support_cases/{sessionId}/facts/"]
         )
     ]
 )
@@ -104,7 +104,7 @@ memory = memory_manager.get_or_create_memory(
     strategies=[
         SummaryStrategy(
             name="SessionSummarizer",
-            namespaces=["/summaries/{actorId}/{sessionId}/"]
+            namespace_templates=["/summaries/{actorId}/{sessionId}/"]
         )
     ]
 )
@@ -133,9 +133,9 @@ memory_manager.get_or_create_memory(
     strategies=[
         EpisodicStrategy(
             name="EpisodicStrategy",
-            namespaces=["/strategy/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}/"],
+            namespace_templates=["/strategy/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}/"],
             reflection={
-                "namespaces": ["strategy/{memoryStrategyId}/actors/{actorId}/"]
+                "namespace_templates": ["strategy/{memoryStrategyId}/actors/{actorId}/"]
             }
         )
     ]

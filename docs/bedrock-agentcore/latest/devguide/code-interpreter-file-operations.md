@@ -15,7 +15,7 @@ pip install bedrock-agentcore
 
 The following Python code shows how to upload files to the Code Interpreter session and
 execute code that processes those files. The files that are required are
-`data.csv` and `stats.py` that are available [in this package](samples/read_write_files.md "samples/read_write_files.md").
+`data.csv` and `stats.py` that are available [in this package](samples/read_write_files.zip.md "samples/read_write_files.zip.md").
 
 ```
 # file_mgmt_ci_agent.py

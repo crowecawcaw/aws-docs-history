@@ -41,7 +41,7 @@ The following basic restrictions apply to tags:
 - Maximum key length – 128 Unicode characters in UTF-8
 - Maximum value length – 256 Unicode characters in UTF-8
 - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . \_ : / @.
-- Tag keys and values are case-sensitive.
+- Tag keys are not case-sensitive, while tag values are case-sensitive.
 - Don't use `aws:`, `AWS:`, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You can't edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
 
 ## Working with tags
