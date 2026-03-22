@@ -36,7 +36,7 @@ for each operation’s growing and changing needs.
 
 ### Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/smart-farm-on-aws.md "samples/smart-farm-on-aws.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/smart-farm-on-aws.zip.md "samples/smart-farm-on-aws.zip.md") which contains an editable PowerPoint.
 
 ### Create a free AWS account
 
