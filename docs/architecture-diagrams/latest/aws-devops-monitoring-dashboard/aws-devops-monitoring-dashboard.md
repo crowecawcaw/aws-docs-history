@@ -33,7 +33,7 @@ practices for security and availability.
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/aws-devops-monitoring-dashboard.md "samples/aws-devops-monitoring-dashboard.md") which
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/aws-devops-monitoring-dashboard.zip.md "samples/aws-devops-monitoring-dashboard.zip.md") which
 contains an editable PowerPoint.
 
 ## Create a free AWS account
