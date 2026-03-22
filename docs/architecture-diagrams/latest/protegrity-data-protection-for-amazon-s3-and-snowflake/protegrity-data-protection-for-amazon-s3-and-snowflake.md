@@ -40,7 +40,7 @@ This architecture shows how Protegrity on AWS can be used to protect sensitive d
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/protegrity-data-protection-for-amazon-s3-and-snowflake.md "samples/protegrity-data-protection-for-amazon-s3-and-snowflake.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/protegrity-data-protection-for-amazon-s3-and-snowflake.zip.md "samples/protegrity-data-protection-for-amazon-s3-and-snowflake.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
