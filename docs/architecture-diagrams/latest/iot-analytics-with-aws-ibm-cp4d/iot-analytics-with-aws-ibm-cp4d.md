@@ -32,7 +32,7 @@ This architecture demonstrates how to build near real-time IOT analytics with ma
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/iot-analytics-with-aws-ibm-cp4d.md "samples/iot-analytics-with-aws-ibm-cp4d.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/iot-analytics-with-aws-ibm-cp4d.zip.md "samples/iot-analytics-with-aws-ibm-cp4d.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
