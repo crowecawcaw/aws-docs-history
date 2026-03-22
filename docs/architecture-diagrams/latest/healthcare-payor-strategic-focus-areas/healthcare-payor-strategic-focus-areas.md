@@ -139,7 +139,7 @@ management systems and clinician contact centers to help agents make informed cu
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/healthcare-payor-strategic-focus-areas.md "samples/healthcare-payor-strategic-focus-areas.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/healthcare-payor-strategic-focus-areas.zip.md "samples/healthcare-payor-strategic-focus-areas.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
