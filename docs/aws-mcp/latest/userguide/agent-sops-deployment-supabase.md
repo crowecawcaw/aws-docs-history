@@ -41,7 +41,7 @@ Your coding agent commits changes after each significant step to a new `deploy-t
 
 Your coding agent analyzes your application to identify Supabase Edge Functions, database configuration, and required secrets. The SOP can create a new Supabase project if needed. The new project is created under your existing subscription, and the SOP pushes database migrations to it.
 
-Each Supabase Edge Function is migrated from Deno/TypeScript to Node.js/TypeScript. The migrated function is deployed as an AWS Lambda function fronted by Amazon API Gateway. The SOP uses [NodejsFunction](../../../cdk/api/v2/docs/aws-cdk-lib.md "../../../cdk/api/v2/docs/aws-cdk-lib.md") with esbuild to bundle each function. If your application uses AI or LLM features, those functions are converted to use Amazon Bedrock. Application secrets, including Supabase credentials, are stored in AWS Secrets Manager. Lambda functions access these secrets at runtime.
+Each Supabase Edge Function is migrated from Deno/TypeScript to Node.js/TypeScript. The migrated function is deployed as an AWS Lambda function fronted by Amazon API Gateway. The SOP uses [NodejsFunction](../../../cdk/api/v2/docs/aws-cdk-lib.aws_lambda_nodejs-readme.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_lambda_nodejs-readme.md") with esbuild to bundle each function. If your application uses AI or LLM features, those functions are converted to use Amazon Bedrock. Application secrets, including Supabase credentials, are stored in AWS Secrets Manager. Lambda functions access these secrets at runtime.
 
 For the frontend, the SOP generates the same Amazon S3 and Amazon CloudFront infrastructure as a [frontend deployment](agent-sops-deployment-frontend.md "agent-sops-deployment-frontend.md"). The SOP adds an additional CloudFront behavior that proxies `/api/*` requests to API Gateway. This routing approach avoids cross-origin issues and presents a single domain to your users. All Supabase Edge Function references in your application code are updated to use the new `/api/*` endpoints.
 
@@ -61,4 +61,4 @@ Amazon CloudFront, Amazon S3, AWS Lambda, Amazon API Gateway, AWS Secrets Manage
 
 Verify that all prerequisites are met. If your application meets the prerequisites but is reported as unsupported, prompt your coding agent to attempt the deployment. Minor adjustments may be sufficient.
 
-For any other troubleshooting issues, you can contact [AWS Support](https://console.aws.amazon.com/support/home/ "https://console.aws.amazon.com/support/home/") or post your question on [re:Post](https://repost.aws/ "https://repost.aws/") and tag it to the AWS MCP Server to ask the community.
+For any other troubleshooting issues, you can contact [AWS Support](https://console.aws.amazon.com/support/home/ "https://console.aws.amazon.com/support/home/") or post your question on [re:Post](https://repost.aws/ "https://repost.aws/") and tag it to the AWS MCP Server (Preview) to ask the community.

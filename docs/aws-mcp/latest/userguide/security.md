@@ -1,4 +1,4 @@
-# Security in AWS MCP Server
+# Security in AWS MCP Server (Preview)
 
 Cloud security at AWS is the highest priority. As an AWS customer, you benefit from data
 centers and network architectures that are built to meet the requirements of the most
@@ -9,20 +9,20 @@ _of_ the cloud and security _in_ the cloud:
 
 - **Security of the cloud** – AWS is responsible for protecting the
   infrastructure that runs AWS services in the AWS Cloud. AWS also provides you with services that you can use
-  securely. Third-party auditors regularly test and verify the effectiveness of our security as part of the [AWS Compliance Programs](https://aws.amazon.com/compliance/programs/ "https://aws.amazon.com/compliance/programs/"). To learn about the compliance programs that apply to AWS MCP Server, see [AWS Services in Scope by Compliance
+  securely. Third-party auditors regularly test and verify the effectiveness of our security as part of the [AWS Compliance Programs](https://aws.amazon.com/compliance/programs/ "https://aws.amazon.com/compliance/programs/"). To learn about the compliance programs that apply to AWS MCP Server (Preview), see [AWS Services in Scope by Compliance
   Program](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/").
 - **Security in the cloud** – Your responsibility is
   determined by the AWS service that you use. You are also responsible for other factors
   including the sensitivity of your data, your company’s requirements, and applicable laws and
   regulations.
   This documentation helps you understand how to apply the shared responsibility model when
-  using AWS MCP Server. The following topics show you how to configure AWS MCP Server to meet your
+  using AWS MCP Server (Preview). The following topics show you how to configure AWS MCP Server (Preview) to meet your
   security and compliance objectives. You also learn how to use other AWS services that help you
-  to monitor and secure your AWS MCP Server resources.
+  to monitor and secure your AWS MCP Server (Preview) resources.
 
 ###### Topics
 
-- [Data protection in AWS MCP Server](data-protection.md "data-protection.md")
-- [Identity and access management for AWS MCP Server](security-iam.md "security-iam.md")
-- [Compliance validation for AWS MCP Server](compliance-validation.md "compliance-validation.md")
-- [Resilience in AWS MCP Server](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
+- [Data protection in AWS MCP Server (Preview)](data-protection.md "data-protection.md")
+- [Identity and access management for AWS MCP Server (Preview)](security-iam.md "security-iam.md")
+- [Compliance validation for AWS MCP Server (Preview)](compliance-validation.md "compliance-validation.md")
+- [Resilience in AWS MCP Server (Preview)](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")

@@ -1,27 +1,31 @@
-# What is the AWS MCP Server?
+# What is the AWS MCP Server (Preview)?
 
-The AWS MCP Server is a managed remote Model Context Protocol (MCP) server that provides AI assistants
+###### Important
+
+The AWS MCP Server (Preview) is currently in preview release and is subject to change.
+
+The AWS MCP Server (Preview) is a managed remote Model Context Protocol (MCP) server that provides AI assistants
 and agents with secure, authenticated access to AWS services through natural language interactions. You can use the
-AWS MCP Server to perform complex, multi-step AWS tasks by combining real-time access to AWS documentation,
+AWS MCP Server (Preview) to perform complex, multi-step AWS tasks by combining real-time access to AWS documentation,
 syntactically correct API calls, and pre-built workflows called Agent SOPs that follow AWS best practices.
 
-With the AWS MCP Server, you can ask AI assistants to provision infrastructure, troubleshoot issues, configure services,
+With the AWS MCP Server (Preview), you can ask AI assistants to provision infrastructure, troubleshoot issues, configure services,
 and manage AWS resources without needing to know specific API syntax or remember complex procedures. The server handles
 authentication through standard AWS Identity and Access Management (IAM) controls and provides comprehensive audit
 logging through AWS CloudTrail.
 
-The AWS MCP Server consolidates capabilities from existing MCP servers (AWS Knowledge MCP and AWS API MCP) into a single, unified interface
+The AWS MCP Server (Preview) consolidates capabilities from existing MCP servers (AWS Knowledge MCP and AWS API MCP) into a single, unified interface
 that reduces configuration complexity while improving AI agent effectiveness across multi-service AWS workflows.
 
 ###### Topics
 
-- [What can I do with the AWS MCP Server?](#what-can-i-do-mcp-server "#what-can-i-do-mcp-server")
-- [How the AWS MCP Server works](#how-aws-mcp-server-works "#how-aws-mcp-server-works")
+- [What can I do with the AWS MCP Server (Preview)?](#what-can-i-do-mcp-server "#what-can-i-do-mcp-server")
+- [How the AWS MCP Server (Preview) works](#how-aws-mcp-server-works "#how-aws-mcp-server-works")
 - [Pricing](#mcp-server-pricing "#mcp-server-pricing")
 
-## What can I do with the AWS MCP Server?
+## What can I do with the AWS MCP Server (Preview)?
 
-You can use the AWS MCP Server to do the following:
+You can use the AWS MCP Server (Preview) to do the following:
 
 - **Execute multi-step AWS workflows** – Use Agent SOPs to perform complex
   tasks like setting up production VPCs, deploying serverless applications, or configuring monitoring across
@@ -40,9 +44,9 @@ You can use the AWS MCP Server to do the following:
 - **Manage costs** – Set up billing alerts, analyze resource usage, and understand resource
   costs and billing using pre-built procedures that follow AWS best practices.
 
-## How the AWS MCP Server works
+## How the AWS MCP Server (Preview) works
 
-The AWS MCP Server operates as a remote service that your MCP-compatible client connects to over HTTPS. When you
+The AWS MCP Server (Preview) operates as a remote service that your MCP-compatible client connects to over HTTPS. When you
 ask your AI assistant to perform an AWS task, the server uses three integrated capabilities to complete your request:
 
 - **Agent SOPs provide structured guidance** – The server searches its library of
@@ -68,7 +72,7 @@ We recommend scoping down IAM roles to the minimum permissions that the agent ne
 
 ## Pricing
 
-With the AWS MCP Server, you pay only for the AWS resources you use and any applicable data transfer costs. The MCP server itself has no additional charges.
+With the AWS MCP Server (Preview), you pay only for the AWS resources you use and any applicable data transfer costs. The MCP server itself has no additional charges.
 For more information about AWS pricing, see [AWS Pricing](https://aws.amazon.com/pricing/ "https://aws.amazon.com/pricing/"). If you are new to
 AWS, you can get started with many services for free. For more information, see [AWS
 Free Tier](https://aws.amazon.com/free/ "https://aws.amazon.com/free/").

@@ -1,6 +1,6 @@
 # Deployment SOPs
 
-The AWS MCP Server includes Standard Operating Procedures (SOPs) that deploy applications to AWS. These SOPs analyze your application, generate Infrastructure as Code (IaC) using the [AWS Cloud Development Kit (CDK)](../../../cdk/v2/guide/home.md "../../../cdk/v2/guide/home.md"), and deploy it through [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md").
+The AWS MCP Server (Preview) includes Standard Operating Procedures (SOPs) that deploy applications to AWS. These SOPs analyze your application, generate Infrastructure as Code (IaC) using the [AWS Cloud Development Kit (CDK)](../../../cdk/v2/guide/home.md "../../../cdk/v2/guide/home.md"), and deploy it through [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md").
 
 Deployment SOPs support single-page applications, static site generators, Supabase-backed applications (such as Lovable.dev and Bolt.new), and static websites. These SOPs can deploy applications with minimal prompting. For complex applications, your coding agent may require additional information or iterations to complete the deployment.
 
@@ -8,7 +8,7 @@ Your coding agent is guided by AWS security best practice recommendations from t
 
 ## Quick start
 
-1. Install the AWS MCP Server. For instructions, see [Setting up your AWS MCP Server](getting-started-aws-mcp-server.md "getting-started-aws-mcp-server.md").
+1. Install the AWS MCP Server (Preview). For instructions, see [Setting up your AWS MCP Server (Preview)](getting-started-aws-mcp-server.md "getting-started-aws-mcp-server.md").
 2. Log in to the AWS CLI. For instructions, see [Configuring the AWS CLI](../../../cli/latest/userguide/cli-chap-configure.md "../../../cli/latest/userguide/cli-chap-configure.md").
 3. Prompt your coding agent: `Deploy my app to AWS`
 
@@ -57,11 +57,11 @@ Testing showed best results with the following models:
 
 ###### Tooling prerequisites
 
-Before you begin, ensure that you have an AWS account with appropriate permissions. For instructions, see [Setting up your AWS MCP Server](getting-started-aws-mcp-server.md "getting-started-aws-mcp-server.md").
+Before you begin, ensure that you have an AWS account with appropriate permissions. For instructions, see [Setting up your AWS MCP Server (Preview)](getting-started-aws-mcp-server.md "getting-started-aws-mcp-server.md").
 
 Additional prerequisites vary depending on your application. The SOP guides your coding agent to verify these automatically:
 
-- AWS MCP Server — configured in your AI coding assistant (such as Kiro or Cursor). For setup instructions see [Setting up your AWS MCP Server](getting-started-aws-mcp-server.md "getting-started-aws-mcp-server.md")
+- AWS MCP Server (Preview) — configured in your AI coding assistant (such as Kiro or Cursor). For setup instructions see [Setting up your AWS MCP Server (Preview)](getting-started-aws-mcp-server.md "getting-started-aws-mcp-server.md")
 - [Git CLI](https://git-scm.com/install/ "https://git-scm.com/install/") — Installed and configured
 - [AWS CLI](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md") — Configured with valid credentials. For setup instructions see [Set up the AWS CLI](../../../streams/latest/dev/setup-awscli.md "../../../streams/latest/dev/setup-awscli.md")
 - AWS CDK CLI — Version 2.x configured. For setup instructions see [Getting started with the AWS CDK](../../../cdk/v2/guide/getting-started.md "../../../cdk/v2/guide/getting-started.md")
@@ -71,7 +71,7 @@ Additional prerequisites vary depending on your application. The SOP guides your
 
 ###### Note
 
-The [AWS shared responsibility model](data-protection.md "data-protection.md") applies to data protection when using Deployment SOPs in AWS MCP Server. Always review generated infrastructure code before deploying. Your coding agent may not apply all recommended security defaults. For more information, see [Data protection](data-protection.md "data-protection.md").
+The [AWS shared responsibility model](data-protection.md "data-protection.md") applies to data protection when using Deployment SOPs in AWS MCP Server (Preview). Always review generated infrastructure code before deploying. Your coding agent may not apply all recommended security defaults. For more information, see [Data protection](data-protection.md "data-protection.md").
 
 Deployment SOPs prompt your coding agent to implement the following security best practices:
 

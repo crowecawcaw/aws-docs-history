@@ -1,8 +1,8 @@
-# Identity and access management for AWS MCP Server
+# Identity and access management for AWS MCP Server (Preview)
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access
 to AWS resources. IAM administrators control who can be _authenticated_ (signed in) and _authorized_
-(have permissions) to use AWS MCP Server resources. IAM is an AWS service that you can
+(have permissions) to use AWS MCP Server (Preview) resources. IAM is an AWS service that you can
 use with no additional charge.
 
 ###### Topics
@@ -10,21 +10,21 @@ use with no additional charge.
 - [Audience](#security_iam_audience "#security_iam_audience")
 - [Authenticating with identities](#security_iam_authentication "#security_iam_authentication")
 - [Managing access using policies](#security_iam_access-manage "#security_iam_access-manage")
-- [How AWS MCP Server works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
-- [Identity-based policy examples for AWS MCP Server](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
-- [AWS managed policies for AWS MCP Server](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
-- [Troubleshooting AWS MCP Server identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
+- [How AWS MCP Server (Preview) works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
+- [Identity-based policy examples for AWS MCP Server (Preview)](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
+- [AWS managed policies for AWS MCP Server (Preview)](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
+- [Troubleshooting AWS MCP Server (Preview) identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
 
 ## Audience
 
 How you use AWS Identity and Access Management (IAM) differs based on your role:
 
 - **Service user** - request permissions from your
-  administrator if you cannot access features (see [Troubleshooting AWS MCP Server identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md"))
+  administrator if you cannot access features (see [Troubleshooting AWS MCP Server (Preview) identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md"))
 - **Service administrator** - determine user access and
-  submit permission requests (see [How AWS MCP Server works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md"))
+  submit permission requests (see [How AWS MCP Server (Preview) works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md"))
 - **IAM administrator** - write policies to manage
-  access (see [Identity-based policy examples for AWS MCP Server](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"))
+  access (see [Identity-based policy examples for AWS MCP Server (Preview)](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"))
 
 ## Authenticating with identities
 

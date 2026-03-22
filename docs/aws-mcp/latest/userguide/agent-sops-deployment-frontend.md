@@ -53,4 +53,4 @@ For production environments with CI/CD, see [Set up CodePipeline](agent-sops-dep
 
 Verify that all prerequisites are met. If your application meets the prerequisites but is reported as unsupported, prompt your coding agent to attempt the deployment. Minor adjustments may be sufficient.
 
-For any other troubleshooting issues, you can contact [AWS Support](https://console.aws.amazon.com/support/home/ "https://console.aws.amazon.com/support/home/") or post your question on [re:Post](https://repost.aws/ "https://repost.aws/") and tag it to the AWS MCP Server to ask the community.
+For any other troubleshooting issues, you can contact [AWS Support](https://console.aws.amazon.com/support/home/ "https://console.aws.amazon.com/support/home/") or post your question on [re:Post](https://repost.aws/ "https://repost.aws/") and tag it to the AWS MCP Server (Preview) to ask the community.

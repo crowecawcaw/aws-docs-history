@@ -1,27 +1,27 @@
-# How AWS MCP Server works with IAM
+# How AWS MCP Server (Preview) works with IAM
 
-Before you use IAM to manage access to AWS MCP Server, learn what IAM features are
-available to use with AWS MCP Server.
+Before you use IAM to manage access to AWS MCP Server (Preview), learn what IAM features are
+available to use with AWS MCP Server (Preview).
 
-| IAM feature                                                                                                                                              | AWS MCP Server support |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
-| [Identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")                           | Yes                    |
-| [Resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")               | No                     |
-| [Policy actions](#security_iam_service-with-iam-id-based-policies-actions "#security_iam_service-with-iam-id-based-policies-actions")                    | Yes                    |
-| [Policy resources](#security_iam_service-with-iam-id-based-policies-resources "#security_iam_service-with-iam-id-based-policies-resources")              | Yes                    |
-| [Policy condition keys](#security_iam_service-with-iam-id-based-policies-conditionkeys "#security_iam_service-with-iam-id-based-policies-conditionkeys") | Yes                    |
-| [ACLs](#security_iam_service-with-iam-acls "#security_iam_service-with-iam-acls")                                                                        | No                     |
-| [ABAC (tags in<br>policies)](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")                                                  | Partial                |
-| [Temporary<br>credentials](#security_iam_service-with-iam-roles-tempcreds "#security_iam_service-with-iam-roles-tempcreds")                              | Yes                    |
-| [Principal permissions](#security_iam_service-with-iam-principal-permissions "#security_iam_service-with-iam-principal-permissions")                     | Yes                    |
-| [Service<br>roles](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service")                                          | Yes                    |
-| [Service-linked roles](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked")                        | No                     |
+| IAM feature                                                                                                                                              | AWS MCP Server (Preview) support |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| [Identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")                           | Yes                              |
+| [Resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")               | No                               |
+| [Policy actions](#security_iam_service-with-iam-id-based-policies-actions "#security_iam_service-with-iam-id-based-policies-actions")                    | Yes                              |
+| [Policy resources](#security_iam_service-with-iam-id-based-policies-resources "#security_iam_service-with-iam-id-based-policies-resources")              | Yes                              |
+| [Policy condition keys](#security_iam_service-with-iam-id-based-policies-conditionkeys "#security_iam_service-with-iam-id-based-policies-conditionkeys") | Yes                              |
+| [ACLs](#security_iam_service-with-iam-acls "#security_iam_service-with-iam-acls")                                                                        | No                               |
+| [ABAC (tags in<br>policies)](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")                                                  | Partial                          |
+| [Temporary<br>credentials](#security_iam_service-with-iam-roles-tempcreds "#security_iam_service-with-iam-roles-tempcreds")                              | Yes                              |
+| [Principal permissions](#security_iam_service-with-iam-principal-permissions "#security_iam_service-with-iam-principal-permissions")                     | Yes                              |
+| [Service<br>roles](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service")                                          | Yes                              |
+| [Service-linked roles](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked")                        | No                               |
 
-To get a high-level view of how AWS MCP Server and other AWS services work with most IAM
+To get a high-level view of how AWS MCP Server (Preview) and other AWS services work with most IAM
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based policies for AWS MCP Server
+## Identity-based policies for AWS MCP Server (Preview)
 
 **Supports identity-based policies:**
 
@@ -38,11 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-### Identity-based policy examples for AWS MCP Server
+### Identity-based policy examples for AWS MCP Server (Preview)
 
-To view examples of AWS MCP Server identity-based policies, see [Identity-based policy examples for AWS MCP Server](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS MCP Server (Preview) identity-based policies, see [Identity-based policy examples for AWS MCP Server (Preview)](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Resource-based policies within AWS MCP Server
+## Resource-based policies within AWS MCP Server (Preview)
 
 **Supports resource-based policies:**
 
@@ -58,7 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions for AWS MCP Server
+## Policy actions for AWS MCP Server (Preview)
 
 **Supports policy actions:**
 
@@ -70,10 +70,10 @@ Administrators can use AWS JSON policies to specify who has access to what. That
 The `Action` element of a JSON policy describes the
 actions that you can use to allow or deny access in a policy. Include actions in a policy to grant permissions to perform the associated operation.
 
-To see a list of AWS MCP Server actions, see [Actions Defined by AWS MCP Server](../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions "../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions") in the
+To see a list of AWS MCP Server (Preview) actions, see [Actions Defined by AWS MCP Server (Preview)](../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions "../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions") in the
 _Service Authorization Reference_.
 
-Policy actions in AWS MCP Server use the following prefix before the action:
+Policy actions in AWS MCP Server (Preview) use the following prefix before the action:
 
 To specify multiple actions in a single statement, separate them with commas.
 
@@ -84,9 +84,9 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-To view examples of AWS MCP Server identity-based policies, see [Identity-based policy examples for AWS MCP Server](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS MCP Server (Preview) identity-based policies, see [Identity-based policy examples for AWS MCP Server (Preview)](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy resources for AWS MCP Server
+## Policy resources for AWS MCP Server (Preview)
 
 **Supports policy resources:**
 
@@ -101,14 +101,14 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 "Resource": "*"
 ```
 
-To see a list of AWS MCP Server resource types and their ARNs, see
-[Resources Defined by AWS MCP Server](../../../IAM/latest/UserGuide/list_your_service.md#your_service-resources-for-iam-policies "../../../IAM/latest/UserGuide/list_your_service.md#your_service-resources-for-iam-policies") in the _Service Authorization Reference_. To learn with
+To see a list of AWS MCP Server (Preview) resource types and their ARNs, see
+[Resources Defined by AWS MCP Server (Preview)](../../../IAM/latest/UserGuide/list_your_service.md#your_service-resources-for-iam-policies "../../../IAM/latest/UserGuide/list_your_service.md#your_service-resources-for-iam-policies") in the _Service Authorization Reference_. To learn with
 which actions you can specify the ARN of each resource, see
-[Actions Defined by AWS MCP Server](../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions "../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions") .
+[Actions Defined by AWS MCP Server (Preview)](../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions "../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions") .
 
-To view examples of AWS MCP Server identity-based policies, see [Identity-based policy examples for AWS MCP Server](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS MCP Server (Preview) identity-based policies, see [Identity-based policy examples for AWS MCP Server (Preview)](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy condition keys for AWS MCP Server
+## Policy condition keys for AWS MCP Server (Preview)
 
 **Supports service-specific policy condition keys:**
 
@@ -123,13 +123,13 @@ policy with values in the request. To see all AWS global
 condition keys, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the
 _IAM User Guide_.
 
-To see a list of AWS MCP Server condition keys, see [Condition Keys for AWS MCP Server](../../../IAM/latest/UserGuide/list_your_service.md#your_service-policy-keys "../../../IAM/latest/UserGuide/list_your_service.md#your_service-policy-keys") in the
+To see a list of AWS MCP Server (Preview) condition keys, see [Condition Keys for AWS MCP Server (Preview)](../../../IAM/latest/UserGuide/list_your_service.md#your_service-policy-keys "../../../IAM/latest/UserGuide/list_your_service.md#your_service-policy-keys") in the
 _Service Authorization Reference_. To learn with which actions and resources you
-can use a condition key, see [Actions Defined by AWS MCP Server](../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions "../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions") .
+can use a condition key, see [Actions Defined by AWS MCP Server (Preview)](../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions "../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions") .
 
-To view examples of AWS MCP Server identity-based policies, see [Identity-based policy examples for AWS MCP Server](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS MCP Server (Preview) identity-based policies, see [Identity-based policy examples for AWS MCP Server (Preview)](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## ACLs in AWS MCP Server
+## ACLs in AWS MCP Server (Preview)
 
 **Supports ACLs:**
 
@@ -138,7 +138,7 @@ No
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
 
-## ABAC with AWS MCP Server
+## ABAC with AWS MCP Server (Preview)
 
 **Supports ABAC (tags in policies):**
 
@@ -155,7 +155,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary credentials with AWS MCP Server
+## Using temporary credentials with AWS MCP Server (Preview)
 
 **Supports temporary credentials:**
 
@@ -167,7 +167,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service principal permissions for AWS MCP Server
+## Cross-service principal permissions for AWS MCP Server (Preview)
 
 **Supports forward access sessions (FAS):**
 
@@ -176,7 +176,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for AWS MCP Server
+## Service roles for AWS MCP Server (Preview)
 
 **Supports service roles:**
 
@@ -188,10 +188,10 @@ more information, see [Create a role to delegate permissions to an AWS service](
 
 ###### Warning
 
-Changing the permissions for a service role might break AWS MCP Server functionality.
-Edit service roles only when AWS MCP Server provides guidance to do so.
+Changing the permissions for a service role might break AWS MCP Server (Preview) functionality.
+Edit service roles only when AWS MCP Server (Preview) provides guidance to do so.
 
-## Service-linked roles for AWS MCP Server
+## Service-linked roles for AWS MCP Server (Preview)
 
 **Supports service-linked roles:**
 

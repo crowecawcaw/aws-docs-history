@@ -1,6 +1,6 @@
-# Identity-based policy examples for AWS MCP Server
+# Identity-based policy examples for AWS MCP Server (Preview)
 
-By default, users and roles don't have permission to create or modify AWS MCP Server
+By default, users and roles don't have permission to create or modify AWS MCP Server (Preview)
 resources. To grant users permission to perform actions on the
 resources that they need, an IAM administrator can create IAM policies.
 
@@ -8,17 +8,17 @@ To learn how to create an IAM identity-based policy by using these example JSON 
 documents, see [Create IAM policies (console)](../../../IAM/latest/UserGuide/access_policies_create-console.md "../../../IAM/latest/UserGuide/access_policies_create-console.md") in the
 _IAM User Guide_.
 
-For details about actions and resource types defined by AWS MCP Server, including the format of the ARNs for each of the resource types, see [Actions, Resources, and Condition Keys for AWS MCP Server](../../../IAM/latest/UserGuide/list_your_service.md "../../../IAM/latest/UserGuide/list_your_service.md") in the _Service Authorization Reference_.
+For details about actions and resource types defined by AWS MCP Server (Preview), including the format of the ARNs for each of the resource types, see [Actions, Resources, and Condition Keys for AWS MCP Server (Preview)](../../../IAM/latest/UserGuide/list_your_service.md "../../../IAM/latest/UserGuide/list_your_service.md") in the _Service Authorization Reference_.
 
 ###### Topics
 
 - [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the AWS MCP Server console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Using the AWS MCP Server (Preview) console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
 - [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
 
 ## Policy best practices
 
-Identity-based policies determine whether someone can create, access, or delete AWS MCP Server resources in your
+Identity-based policies determine whether someone can create, access, or delete AWS MCP Server (Preview) resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
 recommendations:
 
@@ -49,10 +49,10 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the AWS MCP Server console
+## Using the AWS MCP Server (Preview) console
 
-To access the AWS MCP Server console, you must have a minimum set of permissions.
-These permissions must allow you to list and view details about the AWS MCP Server resources
+To access the AWS MCP Server (Preview) console, you must have a minimum set of permissions.
+These permissions must allow you to list and view details about the AWS MCP Server (Preview) resources
 in your AWS account. If you create an identity-based policy that is more restrictive
 than the minimum required permissions, the console won't function as intended for
 entities (users or roles) with that policy.
@@ -61,8 +61,8 @@ You don't need to allow minimum console permissions for users that are making ca
 only to the AWS CLI or the AWS API. Instead, allow access to only the actions that match
 the API operation that they're trying to perform.
 
-To ensure that users and roles can still use the AWS MCP Server console, also attach the
-AWS MCP Server `ConsoleAccess` or `ReadOnly` AWS managed policy to
+To ensure that users and roles can still use the AWS MCP Server (Preview) console, also attach the
+AWS MCP Server (Preview) `ConsoleAccess` or `ReadOnly` AWS managed policy to
 the entities. For more information, see [Adding permissions to a user](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the
 _IAM User Guide_.
 

@@ -1,16 +1,17 @@
 # Understanding the MCP Server tools
 
-AWS MCP Server provides the following tools to help you complete AWS tasks through natural language interactions.
-
-## Agent SOP Tools
-
-- `aws___retrieve_agent_sop` - Search for Agent SOPs or retrieve detailed information about a specific SOP.
-  Lists all available SOPs or gets the complete workflow for a particular SOP.
+AWS MCP Server (Preview) provides the following tools to help you complete AWS tasks through natural language interactions.
 
 ## AWS Knowledge Tools
 
+- `aws___retrieve_agent_sop` - Retrieve the complete workflow for a specific Agent SOP.
+  When called with an SOP name, returns the full step-by-step instructions. When called without
+  arguments, provides guidance on using `aws___search_documentation` to discover
+  available SOPs.
 - `aws___search_documentation` - Search across all AWS documentation, including API references,
-  best practices, and service guides. Find relevant information from multiple AWS knowledge sources.
+  best practices, service guides, and Agent SOPs. Use the topic filter to search Agent SOPs exclusively,
+  or see SOPs alongside general knowledge search results. Find relevant information from multiple AWS
+  knowledge sources.
 - `aws___read_documentation` - Retrieve and convert AWS documentation pages to markdown format
   for easy consumption by AI assistants.
 - `aws___recommend` - Get content recommendations for AWS documentation pages based on related

@@ -15,7 +15,7 @@ that follow AWS best practices and security guidelines.
 
 ## Available Agent SOPs
 
-The AWS MCP Server includes Agent SOPs for common AWS tasks. Here are some examples:
+The AWS MCP Server (Preview) includes Agent SOPs for common AWS tasks. Here are some examples:
 
 - **[Deployment](agent-sops-deployment.md "agent-sops-deployment.md")** — Creates, prepares and deploys production-ready infrastructure as code for existing web applications
 - **Infrastructure setup** — Create production-ready VPCs with multi-AZ subnets and NAT gateways

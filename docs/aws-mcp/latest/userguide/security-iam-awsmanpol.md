@@ -1,4 +1,4 @@
-# AWS managed policies for AWS MCP Server
+# AWS managed policies for AWS MCP Server (Preview)
 
 To add permissions to users, groups, and roles, it is easier to use AWS managed policies
 than to write policies yourself. It takes time and expertise to [create IAM customer
@@ -29,12 +29,12 @@ This policy grants full access to all MCP service actions. This policy does not 
 
 To view the permissions for this policy, see [AWSMcpServiceActionsFullAccess](../../../aws-managed-policy/latest/reference/AWSMcpServiceActionsFullAccess.md "../../../aws-managed-policy/latest/reference/AWSMcpServiceActionsFullAccess.md") in the _AWS Managed Policy Reference_.
 
-## AWS MCP Server updates to AWS managed policies
+## AWS MCP Server (Preview) updates to AWS managed policies
 
-View details about updates to AWS managed policies for AWS MCP Server since this service
+View details about updates to AWS managed policies for AWS MCP Server (Preview) since this service
 began tracking these changes.
 
-| Change                                                                                                                                                            | Description                                                                        | Date              |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ----------------- |
-| [AWSMcpServiceActionsFullAccess](#security-iam-awsmanpol-AWSMcpServiceActionsFullAccess "#security-iam-awsmanpol-AWSMcpServiceActionsFullAccess") –<br>New policy | AWS MCP Server added a new policy to grant full access to all MCP service actions. | November 30, 2025 |
-| AWS MCP Server started tracking changes                                                                                                                           | AWS MCP Server started tracking changes for its AWS managed policies.              | November 30, 2025 |
+| Change                                                                                                                                                            | Description                                                                                  | Date              |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ----------------- |
+| [AWSMcpServiceActionsFullAccess](#security-iam-awsmanpol-AWSMcpServiceActionsFullAccess "#security-iam-awsmanpol-AWSMcpServiceActionsFullAccess") –<br>New policy | AWS MCP Server (Preview) added a new policy to grant full access to all MCP service actions. | November 30, 2025 |
+| AWS MCP Server (Preview) started tracking changes                                                                                                                 | AWS MCP Server (Preview) started tracking changes for its AWS managed policies.              | November 30, 2025 |

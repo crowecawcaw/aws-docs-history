@@ -1,11 +1,11 @@
-# Setting up your AWS MCP Server
+# Setting up your AWS MCP Server (Preview)
 
-This section outlines how you can set up your AWS MCP Server.
+This section outlines how you can set up your AWS MCP Server (Preview).
 
 ###### Topics
 
 - [Prerequisites](#getting-started-prerequisites "#getting-started-prerequisites")
-- [Set up your AWS MCP Server](#mcp-set-up-process "#mcp-set-up-process")
+- [Set up your AWS MCP Server (Preview)](#mcp-set-up-process "#mcp-set-up-process")
 
 ## Prerequisites
 
@@ -69,9 +69,9 @@ For instructions, see [Create a permission set](../../../singlesignon/latest/use
 
 For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md") in the _AWS IAM Identity Center User Guide_.
 
-## Set up your AWS MCP Server
+## Set up your AWS MCP Server (Preview)
 
-To set up AWS MCP Server, use the steps in the following sections.
+To set up AWS MCP Server (Preview), use the steps in the following sections.
 
 ###### Topics
 
@@ -84,7 +84,7 @@ To set up AWS MCP Server, use the steps in the following sections.
 ### Step 1: (If applicable) Remove conflicting MCP servers
 
 If you currently have AWS API MCP Server or AWS Knowledge MCP Server installed, we recommend removing
-them before setting up the AWS MCP Server to avoid tool conflicts that can confuse AI agents and reduce performance.
+them before setting up the AWS MCP Server (Preview) to avoid tool conflicts that can confuse AI agents and reduce performance.
 
 ###### To remove existing AWS MCP servers:
 
@@ -98,10 +98,10 @@ them before setting up the AWS MCP Server to avoid tool conflicts that can confu
 
 ### Step 2: Configure AWS credentials
 
-Before connecting to AWS MCP Server, you need to configure AWS credentials on your local machine.
+Before connecting to AWS MCP Server (Preview), you need to configure AWS credentials on your local machine.
 The server uses these credentials to authenticate your requests.
 
-You can use the SigV4 via Proxy to authenticate the AWS MCP Server. SigV4 via Proxy uses your available
+You can use the SigV4 via Proxy to authenticate the AWS MCP Server (Preview). SigV4 via Proxy uses your available
 AWS credentials and requires the [MCP Proxy for AWS](https://github.com/aws/mcp-proxy-for-aws "https://github.com/aws/mcp-proxy-for-aws").
 
 ###### Note
@@ -230,7 +230,7 @@ Claude Desktop
 
 ### Step 4: Configure IAM permissions
 
-If you're not using an administrator role, you must add specific permissions for AWS MCP Server access.
+If you're not using an administrator role, you must add specific permissions for AWS MCP Server (Preview) access.
 
 ###### Note
 
@@ -240,7 +240,7 @@ Skip this step if you're using an administrator role.
 
 1. Open the IAM console at https://console.aws.amazon.com/iam/
 2. Choose the user or role you configured in Step 2
-3. Add this policy to grant AWS MCP Server access:
+3. Add this policy to grant AWS MCP Server (Preview) access:
 
 ```
 {
