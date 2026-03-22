@@ -28,7 +28,7 @@ The sample data includes nine account records. Download this sample data set.
 
 ###### To get the sample data
 
-1. Download the zip file [tutorial-account-data.zip](samples/tutorial-account-data.md "samples/tutorial-account-data.md").
+1. Download the zip file [tutorial-account-data.zip](samples/tutorial-account-data.zip.md "samples/tutorial-account-data.zip.md").
 2. Extract the zip file. The unzipped file called `tutorial-account-data.csv` contains the sample data set.
 
 ## Create an S3 bucket

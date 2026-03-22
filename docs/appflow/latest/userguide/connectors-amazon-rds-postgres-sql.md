@@ -19,7 +19,7 @@ Yes. You can use Amazon AppFlow to transfer data to Amazon RDS for PostgreSQL.
 
 Before you can use Amazon AppFlow to transfer data to Amazon RDS for PostgreSQL, you must have one or more
 Amazon RDS databases where you've set the engine to PostreSQL. For the steps to create such a
-database, see [Creating a PostgreSQL DB instance](../../../AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.md#CHAP_GettingStarted.Creating.PostgreSQL "../../../AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.md#CHAP_GettingStarted.Creating.PostgreSQL") in the _Amazon RDS User Guide_.
+database, see [Creating a PostgreSQL DB instance](../../../AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.md#CHAP_GettingStarted.Creating.PostgreSQL "../../../AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.md#CHAP_GettingStarted.Creating.PostgreSQL") in the _Amazon RDS User Guide_.
 
 From your database settings, note the endpoint name and port. You provide these values,
 along with your database user name and password, to Amazon AppFlow when you connect to your

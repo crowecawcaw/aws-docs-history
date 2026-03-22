@@ -17,7 +17,7 @@ No. You can't use Amazon AppFlow to transfer data to LinkedIn Ads.
 
 **Supported API version**
 
-Amazon AppFlow retrieves your LinkedIn Ads data by sending requests to version 202212 of
+Amazon AppFlow retrieves your LinkedIn Ads data by sending requests to version 202509 of
 the LinkedIn API.
 
 ## Before you begin

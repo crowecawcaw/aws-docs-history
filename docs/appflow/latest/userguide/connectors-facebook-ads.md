@@ -33,9 +33,13 @@ account.
 
 Amazon AppFlow supports the following versions of the Marketing API:
 
-- v16.0
-- v15.0
-- v14.0
+- v23.0
+- v22.0
+- v21.0
+- v20.0
+- v19.0
+- v18.0
+- v17.0
 
 For more information about Marketing API versions, see [Changelog](https://developers.facebook.com/docs/graph-api/changelog "https://developers.facebook.com/docs/graph-api/changelog") in the Meta
 for Developers documentation.
@@ -95,8 +99,8 @@ Amazon AppFlow integration, see [Before you begin](#facebook-ads-prereqs "#faceb
 
    `https://www.facebook.com/`version`/dialog/oauth`
 
-   For example, if you use v14.0, the URL is
-   `https://www.facebook.com/v14.0/dialog/oauth`.
+   For example, if you use v17.0, the URL is
+   `https://www.facebook.com/v17.0/dialog/oauth`.
 
    For the Marketing API versions that Amazon AppFlow supports, see [Facebook Ads support](#facebook-ads-support "#facebook-ads-support").
    - **Client ID** – The App ID that's assigned to your Meta for

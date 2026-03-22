@@ -26,6 +26,14 @@ Yes. You can use Amazon AppFlow to transfer data from your Google Ads account.
 
 No. You can't use Amazon AppFlow to transfer data to your Google Ads account.
 
+**Supported versions**
+
+Amazon AppFlow supports the following versions of the Google Ads API:
+
+- v22
+- v21
+- v20
+
 ## Before you begin
 
 To use Amazon AppFlow to transfer data from Google Ads to AWS services, you'll need to meet these
@@ -99,8 +107,8 @@ project for Amazon AppFlow integration, see [Before you begin](#google-ads-prere
      Google Ads account.
    - **Google Ads instance URL** – Choose
      **https://googleads.googleapis.com**.
-   - **Google Ads API version** – Choose
-     **v9**.
+   - **Google Ads API version** – Choose the Google Ads API version
+     that you use. For the versions that Amazon AppFlow supports, see [Google Ads support](#google-ads-support "#google-ads-support").
    - **Manager account ID** – Optionally, the account ID of a Google
      Ads manager account that you want to connect with Amazon AppFlow.
 
