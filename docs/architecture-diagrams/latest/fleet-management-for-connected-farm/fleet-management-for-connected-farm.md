@@ -33,7 +33,7 @@ This architecture enables you to to create an intelligent fleet management solut
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/fleet-management-for-connected-farm.md "samples/fleet-management-for-connected-farm.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/fleet-management-for-connected-farm.zip.md "samples/fleet-management-for-connected-farm.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
