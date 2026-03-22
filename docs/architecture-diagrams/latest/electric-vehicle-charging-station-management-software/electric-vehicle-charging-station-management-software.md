@@ -90,7 +90,7 @@ Open Charge Point Protocol (OCPP), using AWS services like AWS IoT Core and AWS 
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/electric-vehicle-charging-station-management-software.md "samples/electric-vehicle-charging-station-management-software.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/electric-vehicle-charging-station-management-software.zip.md "samples/electric-vehicle-charging-station-management-software.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
