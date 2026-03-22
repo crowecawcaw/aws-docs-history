@@ -48,7 +48,7 @@ SSL is always enabled with verify-full mode and direct TLS negotiation.
 - AWS credentials configured
 - An Aurora DSQL cluster
 
-The connector uses the [AWS SDK for Go v2 default credential chain](https://aws.github.io/aws-sdk-go-v2/docs/configuring-sdk/#specifying-credentials "https://aws.github.io/aws-sdk-go-v2/docs/configuring-sdk/#specifying-credentials"), which resolves credentials in the following order:
+The connector uses the [AWS SDK for Go v2 default credential chain](../../../sdk-for-go/v2/developer-guide/configure-gosdk.md#specifying-credentials "../../../sdk-for-go/v2/developer-guide/configure-gosdk.md#specifying-credentials"), which resolves credentials in the following order:
 
 1. Environment variables (AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY)
 2. Shared credentials file (~/.aws/credentials)

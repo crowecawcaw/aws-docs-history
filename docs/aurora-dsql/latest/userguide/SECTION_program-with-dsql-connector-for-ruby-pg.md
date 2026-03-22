@@ -29,7 +29,7 @@ The Aurora DSQL Connector for Ruby understands these requirements and automatica
 
 ## Example application
 
-There is an included sample application in the [Ruby pg connector example application](https://github.com/awslabs/aurora-dsql-connectors/tree/main/ruby/pg/example "https://github.com/awslabs/aurora-dsql-connectors/tree/main/ruby/pg/example") directory. To run the included example, refer to the [example application README](https://github.com/awslabs/aurora-dsql-connectors/blob/main/ruby/pg/example/README.md "https://github.com/awslabs/aurora-dsql-connectors/blob/main/ruby/pg/example/README.md").
+For a complete example, see the [example application](https://github.com/awslabs/aurora-dsql-connectors/tree/main/ruby/pg/example "https://github.com/awslabs/aurora-dsql-connectors/tree/main/ruby/pg/example") on GitHub.
 
 ## Quick start guide
 
