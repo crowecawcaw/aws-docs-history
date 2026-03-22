@@ -28,7 +28,7 @@ Datavant’s data de-identification and tokenization tools enable healthcare and
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/datavant-switchboard-with-aws-clean-rooms.md "samples/datavant-switchboard-with-aws-clean-rooms.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/datavant-switchboard-with-aws-clean-rooms.zip.md "samples/datavant-switchboard-with-aws-clean-rooms.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
