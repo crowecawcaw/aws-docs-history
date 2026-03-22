@@ -40,7 +40,7 @@ overhead by building a highly available Moodle architecture on AWS.
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/moodle-for-high-availability-on-aws.md "samples/moodle-for-high-availability-on-aws.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/moodle-for-high-availability-on-aws.zip.md "samples/moodle-for-high-availability-on-aws.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
