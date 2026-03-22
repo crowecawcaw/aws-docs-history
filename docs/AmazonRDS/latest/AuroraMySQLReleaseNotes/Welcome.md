@@ -12,9 +12,9 @@ Updates are applied to all instances in a DB cluster at the same time. An update
 
 **Topics**
 
-- [Release calendars for Amazon Aurora MySQL](AuroraMySQL.md "AuroraMySQL.md")
-- [Database engine updates for Amazon Aurora MySQL version 3](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md")
-- [Database engine updates for Amazon Aurora MySQL version 2](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md")
-- [Database engine updates for Amazon Aurora MySQL version 1 (Deprecated)](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md")
-- [MySQL bugs fixed by Aurora MySQL database engine updates](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md")
-- [Security vulnerabilities fixed in Aurora MySQL](AuroraMySQL.md "AuroraMySQL.md")
+- [Release calendars for Amazon Aurora MySQL](AuroraMySQL.release-calendars.md "AuroraMySQL.release-calendars.md")
+- [Database engine updates for Amazon Aurora MySQL version 3](AuroraMySQL.Updates.30Updates.md "AuroraMySQL.Updates.30Updates.md")
+- [Database engine updates for Amazon Aurora MySQL version 2](AuroraMySQL.Updates.20Updates.md "AuroraMySQL.Updates.20Updates.md")
+- [Database engine updates for Amazon Aurora MySQL version 1 (Deprecated)](AuroraMySQL.Updates.11Updates.md "AuroraMySQL.Updates.11Updates.md")
+- [MySQL bugs fixed by Aurora MySQL database engine updates](AuroraMySQL.Updates.MySQLBugs.md "AuroraMySQL.Updates.MySQLBugs.md")
+- [Security vulnerabilities fixed in Aurora MySQL](AuroraMySQL.CVE_list.md "AuroraMySQL.CVE_list.md")

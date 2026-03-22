@@ -9,17 +9,17 @@ option, but are not required, to upgrade existing 1.14.x DB clusters to Aurora 1
 With version 1.14.4 of Aurora, we are using a cluster-patching model where all nodes in an Aurora
 DB cluster are patched at the same time. We support zero-downtime patching, which works on a best-effort
 basis to preserve client connections through the patching process. For more information, see
-[Maintaining an Amazon Aurora DB cluster](../AuroraUserGuide/USER_UpgradeDBInstance.md "../AuroraUserGuide/USER_UpgradeDBInstance.md") in the _Amazon Aurora User Guide_.
+[Maintaining an Amazon Aurora DB cluster](../AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.md "../AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.md") in the _Amazon Aurora User Guide_.
 
 If you have any questions or concerns, AWS Support is available on the
 community forums and through [AWS Support](https://aws.amazon.com/support "https://aws.amazon.com/support"). For more
-information, see [Maintaining an Amazon Aurora DB cluster](../AuroraUserGuide/USER_UpgradeDBInstance.md "../AuroraUserGuide/USER_UpgradeDBInstance.md") in the _Amazon Aurora User Guide_.
+information, see [Maintaining an Amazon Aurora DB cluster](../AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.md "../AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.md") in the _Amazon Aurora User Guide_.
 
 ## Zero-downtime patching
 
 The zero-downtime patching (ZDP) feature attempts, on a best-effort basis, to preserve client connections through an engine
 patch. For more information about ZDP, see
-[Using zero-downtime patching](../AuroraUserGuide/AuroraMySQL.Updates.md#AuroraMySQL.Updates.ZDP "../AuroraUserGuide/AuroraMySQL.Updates.md#AuroraMySQL.Updates.ZDP") in the _Amazon Aurora User Guide_.
+[Using zero-downtime patching](../AuroraUserGuide/AuroraMySQL.Updates.Patching.md#AuroraMySQL.Updates.ZDP "../AuroraUserGuide/AuroraMySQL.Updates.Patching.md#AuroraMySQL.Updates.ZDP") in the _Amazon Aurora User Guide_.
 
 ## New features
 

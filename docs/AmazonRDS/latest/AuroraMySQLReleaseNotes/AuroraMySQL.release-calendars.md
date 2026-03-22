@@ -1,7 +1,7 @@
 # Release calendars for Amazon Aurora MySQL
 
 The release calendars on this page can help you plan your major and minor version upgrades. For more information on Amazon Aurora
-upgrades, versioning, and lifecycle, see [Amazon Aurora versions](../AuroraUserGuide/Aurora.md "../AuroraUserGuide/Aurora.md").
+upgrades, versioning, and lifecycle, see [Amazon Aurora versions](../AuroraUserGuide/Aurora.VersionPolicy.md "../AuroraUserGuide/Aurora.VersionPolicy.md").
 
 ###### Topics
 
@@ -58,7 +58,7 @@ Amazon RDS Extended Support charges apply only to certain minor versions after a
 | \*_2.111_<br>• (Compatible with Community MySQL 5.7.12)               | October 25, 2022          | October 31, 2024                          |
 
 LTS – Aurora MySQL long-term support (LTS) versions. For more information, see
-[Long-term support (LTS) and beta releases for Amazon Aurora MySQL](../AuroraUserGuide/AuroraMySQL.Update.md "../AuroraUserGuide/AuroraMySQL.Update.md").
+[Long-term support (LTS) and beta releases for Amazon Aurora MySQL](../AuroraUserGuide/AuroraMySQL.Update.SpecialVersions.md "../AuroraUserGuide/AuroraMySQL.Update.SpecialVersions.md").
 
 1 This minor version will continue to be available when the major version is in Amazon RDS Extended Support.
 
