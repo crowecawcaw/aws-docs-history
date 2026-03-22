@@ -63,7 +63,7 @@ This architecture enables you to process electro-optical imagery on AWS.
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/electro-optical-imagery-architecture.md "samples/electro-optical-imagery-architecture.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/electro-optical-imagery-architecture.zip.md "samples/electro-optical-imagery-architecture.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
