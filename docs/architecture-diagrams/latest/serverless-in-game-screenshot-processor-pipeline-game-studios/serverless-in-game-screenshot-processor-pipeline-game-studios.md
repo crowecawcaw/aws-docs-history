@@ -32,7 +32,7 @@ screenshots.
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/serverless-in-game-screenshot-processor-pipeline-game-studios.md "samples/serverless-in-game-screenshot-processor-pipeline-game-studios.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/serverless-in-game-screenshot-processor-pipeline-game-studios.zip.md "samples/serverless-in-game-screenshot-processor-pipeline-game-studios.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
