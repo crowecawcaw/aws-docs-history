@@ -123,7 +123,7 @@ with dedicated connections.
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/routing-scenarios-with-aws-direct-connect-sitelink.md "samples/routing-scenarios-with-aws-direct-connect-sitelink.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/routing-scenarios-with-aws-direct-connect-sitelink.zip.md "samples/routing-scenarios-with-aws-direct-connect-sitelink.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
