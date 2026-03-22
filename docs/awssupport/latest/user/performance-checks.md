@@ -83,7 +83,7 @@ instance. The reader endpoint also scales the capacity to handle concurrent
 SELECT queries with the number of Aurora Read Replicas in the
 cluster.
 
-For more information, see [Adding Aurora Replicas to a DB Cluster](../../../AmazonRDS/latest/AuroraUserGuide/aurora-replicas-adding.md "../../../AmazonRDS/latest/AuroraUserGuide/aurora-replicas-adding.md") and [Managing performance and scaling for Aurora DB clusters](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.md").
+For more information, see [Adding Aurora Replicas to a DB Cluster](../../../AmazonRDS/latest/AuroraUserGuide/aurora-replicas-adding.md "../../../AmazonRDS/latest/AuroraUserGuide/aurora-replicas-adding.md") and [Managing performance and scaling for Aurora DB clusters](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Performance.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Performance.md").
 
 **Report columns**
 
@@ -130,7 +130,7 @@ Yellow: Auto scaling is not enabled for your DynamoDB tables and/or global secon
 
 Unless you already have a mechanism to automatically scale the provisioned throughput of your DynamoDB table and/or the global secondary indexes based on your workload requirement, consider turning on auto scaling for your Amazon DynamoDB tables.
 
-For more information, see [Using the AWS Management Console with DynamoDB auto scalingp](../../../amazondynamodb/latest/developerguide/AutoScaling.md "../../../amazondynamodb/latest/developerguide/AutoScaling.md").
+For more information, see [Using the AWS Management Console with DynamoDB auto scalingp](../../../amazondynamodb/latest/developerguide/AutoScaling.Console.md "../../../amazondynamodb/latest/developerguide/AutoScaling.Console.md").
 
 **Additional Resources**
 
@@ -666,7 +666,7 @@ Use the same instance class and size for all the DB instances in your DB cluster
 
 When the DB instances in your DB cluster use different DB instance classes or sizes, there can be an imbalance in the workload for the DB instances. During a failover, one of the reader DB instance changes to a writer DB instance. If the DB instances use the same DB instance class and size, the workload can be balanced for the DB instances in your DB cluster.
 
-For more information, see [Aurora Replicas](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md#Aurora.Replication.Replicas "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md#Aurora.Replication.Replicas").
+For more information, see [Aurora Replicas](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Replication.md#Aurora.Replication.Replicas "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Replication.md#Aurora.Replication.Replicas").
 
 **Report columns**
 
@@ -713,7 +713,7 @@ Use the same instance class and size for all the DB instances in your DB cluster
 
 When the DB instances in your DB cluster use different DB instance classes or sizes, there can be an imbalance in the workload for the DB instances. During a failover, one of the reader DB instance changes to a writer DB instance. If the DB instances use the same DB instance class and size, the workload can be balanced for the DB instances in your DB cluster.
 
-For more information, see [Aurora Replicas](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md#Aurora.Replication.Replicas "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md#Aurora.Replication.Replicas").
+For more information, see [Aurora Replicas](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Replication.md#Aurora.Replication.Replicas "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Replication.md#Aurora.Replication.Replicas").
 
 **Report columns**
 
@@ -907,7 +907,7 @@ Check your requirements for general logging usage. If it isn't mandatory, we rec
 
 The general query log is turned on when the **general_logging** parameter value is 1. The general query log contains records of the database server operations. The server writes information to this log when clients connect or disconnect and the logs contain each SQL statement received from the clients. The general query log is useful when you suspect an error in a client and you want to find the information the client to sent to the database server.
 
-For more information, see [Overview of RDS for MySQL database logs](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.MySQL.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.MySQL.md").
+For more information, see [Overview of RDS for MySQL database logs](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.MySQL.LogFileSize.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.MySQL.LogFileSize.md").
 
 **Report columns**
 
@@ -1199,7 +1199,7 @@ Set the **use_large_pages** parameter value to **ONLY** in your DB parameter gro
 
 **Additional Resources**
 
-For more information, see [Turning on HugePages for an RDS for Oracle instance](../../../AmazonRDS/latest/UserGuide/Oracle.Concepts.md "../../../AmazonRDS/latest/UserGuide/Oracle.Concepts.md").
+For more information, see [Turning on HugePages for an RDS for Oracle instance](../../../AmazonRDS/latest/UserGuide/Oracle.Concepts.HugePages.md "../../../AmazonRDS/latest/UserGuide/Oracle.Concepts.HugePages.md").
 
 **Report columns**
 
@@ -1289,7 +1289,7 @@ Upgrade to latest DB instance class.
 
 **Additional Resources**
 
-For more information, see [Supported DB engines for DB instance classes](../../../AmazonRDS/latest/UserGuide/Concepts.md#Concepts.DBInstanceClass.Support "../../../AmazonRDS/latest/UserGuide/Concepts.md#Concepts.DBInstanceClass.Support").
+For more information, see [Supported DB engines for DB instance classes](../../../AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.md#Concepts.DBInstanceClass.Support "../../../AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.md#Concepts.DBInstanceClass.Support").
 
 **Report columns**
 
@@ -1339,8 +1339,8 @@ Amazon RDS releases new versions for the supported database engines to maintain 
 
 For more information, see the following resources:
 
-- [Upgrading a DB instance engine version](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.md "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.md")
-- [Amazon Aurora updates](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md")
+- [Upgrading a DB instance engine version](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.md "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.md")
+- [Amazon Aurora updates](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Updates.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Updates.md")
 - [Using Amazon RDS Blue/Green Deployments for database updates](../../../AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.md "../../../AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.md")
 
 **Report columns**
@@ -1387,7 +1387,7 @@ We recommend that you upgrade your database to the latest supported version in A
 
 **Additional Resources**
 
-For more information, see [Oracle major version upgrades](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.md "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.md").
+For more information, see [Oracle major version upgrades](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.Major.md "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.Major.md").
 
 **Report columns**
 

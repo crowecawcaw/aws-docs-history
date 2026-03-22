@@ -570,7 +570,7 @@ Turn on Enhanced Monitoring.
 
 Enhanced Monitoring for Amazon RDS provides additional visibility on the health of your DB instances. We recommend that you turn on Enhanced Monitoring. When the Enhanced Monitoring option is turned on for your DB instance, it collects vital operating system metrics and process information.
 
-For more information, see [Monitoring OS metrics with Enhanced Monitoring](../../../AmazonRDS/latest/UserGuide/USER_Monitoring.md "../../../AmazonRDS/latest/UserGuide/USER_Monitoring.md").
+For more information, see [Monitoring OS metrics with Enhanced Monitoring](../../../AmazonRDS/latest/UserGuide/USER_Monitoring.OS.md "../../../AmazonRDS/latest/UserGuide/USER_Monitoring.OS.md").
 
 **Report columns**
 
@@ -1289,7 +1289,7 @@ AWS Elastic Beanstalk regularly releases platform updates to provide fixes, soft
 
 You can specify your desired update level in the **UpdateLevel** parameters of your AWS Config rules.
 
-For more information, see [Updating your Elastic Beanstalk environment's platform version](../../../elasticbeanstalk/latest/dg/using-features.platform.md "../../../elasticbeanstalk/latest/dg/using-features.platform.md").
+For more information, see [Updating your Elastic Beanstalk environment's platform version](../../../elasticbeanstalk/latest/dg/using-features.platform.upgrade.md "../../../elasticbeanstalk/latest/dg/using-features.platform.upgrade.md").
 
 ###### Note
 
@@ -1576,7 +1576,7 @@ Checks if Amazon RDS DB instances have automatic minor version upgrades configur
 
 Turn on automatic minor version upgrades for an Amazon RDS instance to make sure that the database is always running the latest secure and stable version. Minor upgrades provide security updates, bug fixes, performance improvements, and maintain compatibility with existing applications.
 
-For more information, see [Upgrading a DB instance engine version](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades. "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades.").
+For more information, see [Upgrading a DB instance engine version](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.md#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades. "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.md#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades.").
 
 ###### Note
 
@@ -1602,7 +1602,7 @@ Yellow: RDS DB instance does not have automatic minor version upgrades turned on
 
 Turn on automatic minor version upgrades when you create a Amazon RDS DB instance.
 
-When you turn on minor version upgrade, the database version automatically upgrades if it is running a minor version of the DB engine that is lower than the [Manually upgrading the engine version](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades").
+When you turn on minor version upgrade, the database version automatically upgrades if it is running a minor version of the DB engine that is lower than the [Manually upgrading the engine version](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.md#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.md#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades").
 
 **Report columns**
 

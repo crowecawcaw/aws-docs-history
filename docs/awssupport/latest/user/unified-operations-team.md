@@ -8,7 +8,7 @@ AWS Unified Operations brings together a designated team of specialized experts 
 - [Domain Specialist Engineer](unified-operations-team.md#uo-key-personas-dse "unified-operations-team.md#uo-key-personas-dse")
 - [Senior Billing and Account Specialist](unified-operations-team.md#uo-personas-sbas "unified-operations-team.md#uo-personas-sbas")
 - [Incident Management Engineer](unified-operations-team.md#uo-personas-ime "unified-operations-team.md#uo-personas-ime")
-- [Migration Specialist](unified-operations-team.md#uo-personas-ms "unified-operations-team.md#uo-personas-ms")
+- [Migrations and Events Engineer](unified-operations-team.md#uo-personas-ms "unified-operations-team.md#uo-personas-ms")
 - [AWS Customer Incident Response Team](unified-operations-team.md#uo-personas-cirt "unified-operations-team.md#uo-personas-cirt")
 - [Specialist Support Engineer](unified-operations-team.md#uo-personas-sse "unified-operations-team.md#uo-personas-sse")
 
@@ -28,7 +28,7 @@ Your Senior Billing and Account Specialist (SBAS) is a designated financial opti
 
 Incident Management Engineers (IME) are rapid response specialists who coordinate critical incident resolution. IMEs provide 5-minute response times, orchestrate technical teams during incidents, manage stakeholder communications. During active incidents, IMEs conduct real-time assessments of incident handling and response effectiveness, upon request they document the sequence of events, decisions made, and immediate outcomes. They observe and evaluate the execution of response protocols, team coordination, and the application of existing playbooks while the incident is still unfolding.
 
-## Migration Specialist
+## Migrations and Events Engineer
 
 On-demand experts who guide critical transitions like launches and migrations. They validate architectures, create detailed execution plans, provide real-time monitoring during events, and conduct post-event analysis to capture learnings and optimize future operations.
 

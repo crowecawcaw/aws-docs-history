@@ -131,7 +131,7 @@ For more information, see [Availability Zones for your Application Load Balancer
 For more information, see the following documentation:
 
 - [How Elastic Load Balancing works](../../../elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.md#AZ-Region "../../../elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.md#AZ-Region")
-- [Regions, Availability Zones, and Local Zones](../../../AmazonRDS/latest/UserGuide/Concepts.md "../../../AmazonRDS/latest/UserGuide/Concepts.md")
+- [Regions, Availability Zones, and Local Zones](../../../AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.md "../../../AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.md")
 
 **Report columns**
 
@@ -153,7 +153,7 @@ Amazon Aurora MySQL cluster backtracking is a feature that allows you to restore
 
 You can adjust the backtracking time window (hours) in the **BacktrackWindowInHours** parameter of the AWS Config rules.
 
-For more information, see [Backtracking an Aurora DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.md").
+For more information, see [Backtracking an Aurora DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.md").
 
 ###### Note
 
@@ -179,11 +179,11 @@ Yellow: Amazon Aurora MySQL clusters backtracking is not enabled.
 
 Turn on backtracking for your Amazon Aurora MySQL cluster.
 
-For more information, see [Backtracking an Aurora DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.md").
+For more information, see [Backtracking an Aurora DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.md").
 
 **Additional Resources**
 
-[Backtracking an Aurora DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.md")
+[Backtracking an Aurora DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.md")
 
 **Report columns**
 
@@ -221,12 +221,12 @@ Yellow: The instances in an Aurora DB cluster have different accessibility
 Modify the `Publicly Accessible` setting of the instances in
 the DB cluster so that they are all either public or private. For details,
 see the instructions for MySQL instances at [Modifying a DB Instance Running the MySQL Database
-Engine](../../../AmazonRDS/latest/UserGuide/USER_ModifyInstance.md "../../../AmazonRDS/latest/UserGuide/USER_ModifyInstance.md").
+Engine](../../../AmazonRDS/latest/UserGuide/USER_ModifyInstance.MySQL.md "../../../AmazonRDS/latest/UserGuide/USER_ModifyInstance.MySQL.md").
 
 **Additional Resources**
 
 [Fault Tolerance for an Aurora DB
-Cluster](../../../AmazonRDS/latest/UserGuide/Aurora.md#Aurora.Managing.FaultTolerance "../../../AmazonRDS/latest/UserGuide/Aurora.md#Aurora.Managing.FaultTolerance")
+Cluster](../../../AmazonRDS/latest/UserGuide/Aurora.Managing.md#Aurora.Managing.FaultTolerance "../../../AmazonRDS/latest/UserGuide/Aurora.Managing.md#Aurora.Managing.FaultTolerance")
 
 **Report columns**
 
@@ -365,7 +365,7 @@ Availability and Replication](../../../documentdb/latest/developerguide/replicat
 
 [Understanding Amazon DocumentDB Cluster Fault Tolerance](../../../documentdb/latest/developerguide/db-cluster-fault-tolerance.md "../../../documentdb/latest/developerguide/db-cluster-fault-tolerance.md")
 
-[Regions and Availability Zones](../../../AmazonRDS/latest/UserGuide/Concepts.md "../../../AmazonRDS/latest/UserGuide/Concepts.md")
+[Regions and Availability Zones](../../../AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.md "../../../AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.md")
 
 **Report columns**
 
@@ -1423,7 +1423,7 @@ Add a reader DB instance to the DB cluster.
 
 In the current configuration, one DB instance is used for both read and write operations. You can add another DB instance to allow read redistribution and a failover option.
 
-For more information, see [High availability for Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/Concepts.md "../../../AmazonRDS/latest/AuroraUserGuide/Concepts.md").
+For more information, see [High availability for Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/Concepts.AuroraHighAvailability.md "../../../AmazonRDS/latest/AuroraUserGuide/Concepts.AuroraHighAvailability.md").
 
 **Report columns**
 
@@ -1470,7 +1470,7 @@ Add the DB instances to multiple Availability Zones in your DB cluster.
 
 We recommend that you add the DB instances to multiple Availability Zones in a DB cluster. Adding DB instances to multiple Availability Zones improvesthe availability of your DB cluster.
 
-For more information, see [High availability for Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/Concepts.md "../../../AmazonRDS/latest/AuroraUserGuide/Concepts.md").
+For more information, see [High availability for Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/Concepts.AuroraHighAvailability.md "../../../AmazonRDS/latest/AuroraUserGuide/Concepts.AuroraHighAvailability.md").
 
 **Report columns**
 
@@ -1518,7 +1518,7 @@ Distribute the reader instances across multiple Availability Zones.
 
 Availability Zones (AZs) are locations that are distinct from each other to provide isolation in case of outages within each AWS Region. We recommend that you distribute the primary instance and reader instances in your DB cluster across multiple AZs to improve the availability of your DB cluster. You can create a Multi-AZ cluster using the AWS Management Console, AWS CLI, or Amazon RDS API when you create the cluster. You can modify the existing Aurora cluster to a Multi-AZ cluster by adding a new reader instance and specifying a different AZ.
 
-For more information, see [High availability for Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/Concepts.md "../../../AmazonRDS/latest/AuroraUserGuide/Concepts.md").
+For more information, see [High availability for Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/Concepts.AuroraHighAvailability.md "../../../AmazonRDS/latest/AuroraUserGuide/Concepts.AuroraHighAvailability.md").
 
 **Report columns**
 
@@ -1538,7 +1538,7 @@ Amazon RDS Enhanced Monitoring provides metrics in real time for the operating s
 
 You can specify your desired monitoring interval using the **monitoringInterval** parameter of your AWS Config rules.
 
-For more information, see [Overview of Enhanced Monitoring](../../../AmazonRDS/latest/UserGuide/USER_Monitoring.OS.md "../../../AmazonRDS/latest/UserGuide/USER_Monitoring.OS.md") and [OS metrics in Enhanced Monitoring](../../../AmazonRDS/latest/UserGuide/USER_Monitoring-Available-OS-Metrics.md "../../../AmazonRDS/latest/UserGuide/USER_Monitoring-Available-OS-Metrics.md").
+For more information, see [Overview of Enhanced Monitoring](../../../AmazonRDS/latest/UserGuide/USER_Monitoring.OS.overview.md "../../../AmazonRDS/latest/UserGuide/USER_Monitoring.OS.overview.md") and [OS metrics in Enhanced Monitoring](../../../AmazonRDS/latest/UserGuide/USER_Monitoring-Available-OS-Metrics.md "../../../AmazonRDS/latest/UserGuide/USER_Monitoring-Available-OS-Metrics.md").
 
 ###### Note
 
@@ -1564,7 +1564,7 @@ Yellow: Your Amazon RDS DB instances don't have Enhanced Monitoring enabled or a
 
 Enable Enhanced Monitoring for your Amazon RDS DB instances to improve the visibility of your Amazon RDS instance operation status.
 
-For more information, see [Monitoring OS metrics with Enhanced Monitoring](../../../AmazonRDS/latest/UserGuide/USER_Monitoring.md "../../../AmazonRDS/latest/UserGuide/USER_Monitoring.md").
+For more information, see [Monitoring OS metrics with Enhanced Monitoring](../../../AmazonRDS/latest/UserGuide/USER_Monitoring.OS.md "../../../AmazonRDS/latest/UserGuide/USER_Monitoring.OS.md").
 
 **Additional Resources**
 
@@ -1615,7 +1615,7 @@ Turn on Amazon RDS storage autoscaling with a specified maximum storage threshol
 
 Amazon RDS storage autoscaling automatically scales storage capacity with zero downtime when the database workload increases. Storage autoscaling monitors the storage usage and automatically scales up the capacity when the usage is close to the provisioned storage capacity. You can specify a maximum limit on the storage that Amazon RDS can allocate to the DB instance. There is no additional cost for storage autoscaling. You pay only for the Amazon RDS resources that are allocated to your DB instance. We recommend that you turn on Amazon RDS storage autoscaling.
 
-For more information, see [Managing capacity automatically with Amazon RDS storage autoscaling](../../../AmazonRDS/latest/UserGuide/USER_PIOPS.md#USER_PIOPS.Autoscaling "../../../AmazonRDS/latest/UserGuide/USER_PIOPS.md#USER_PIOPS.Autoscaling").
+For more information, see [Managing capacity automatically with Amazon RDS storage autoscaling](../../../AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.md#USER_PIOPS.Autoscaling "../../../AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.md#USER_PIOPS.Autoscaling").
 
 **Report columns**
 
@@ -1765,7 +1765,7 @@ Set the **log_output** parameter value to **FILE** in your DB parameter groups.
 
 **Additional Resources**
 
-For more information, see [MySQL database log files](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md").
+For more information, see [MySQL database log files](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.md").
 
 **Report columns**
 
@@ -1967,11 +1967,11 @@ Yellow: A DB instance is deployed in a single Availability Zone.
 **Recommended Action**
 
 If your application requires high availability, modify your DB instance to
-enable Multi-AZ deployment. See [High Availability (Multi-AZ)](../../../AmazonRDS/latest/UserGuide/Concepts.md "../../../AmazonRDS/latest/UserGuide/Concepts.md").
+enable Multi-AZ deployment. See [High Availability (Multi-AZ)](../../../AmazonRDS/latest/UserGuide/Concepts.MultiAZ.md "../../../AmazonRDS/latest/UserGuide/Concepts.MultiAZ.md").
 
 **Additional Resources**
 
-[Regions and Availability Zones](../../../AmazonRDS/latest/UserGuide/Concepts.md "../../../AmazonRDS/latest/UserGuide/Concepts.md")
+[Regions and Availability Zones](../../../AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.md "../../../AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.md")
 
 **Report columns**
 
@@ -2237,7 +2237,7 @@ Checks if your Amazon RDS DB instances have a Multi-AZ standby replica configure
 
 Amazon RDS Multi-AZ provides high availability and durabiliy for database instances by replicating data to a standby replica in a different Availability Zone. This provides automatic failover, improve performance, and enhances data durability. In a Multi-AZ DB instance deployment, Amazon RDS automatically provisions and maintains a synchronous standby replica in a different Availability Zone. The primary DB instance is synchronously replicated across Availability Zones to a standby replica to provide data redundancy and minimize latency spikes during system backups. Running a DB instance with high availability enhances availability during planned system maintenance. It can also help protect your databases against DB instance failure and Availability Zone disruption.
 
-For more information, see [Multi-AZ DB instance deployments](../../../AmazonRDS/latest/UserGuide/Concepts.md "../../../AmazonRDS/latest/UserGuide/Concepts.md").
+For more information, see [Multi-AZ DB instance deployments](../../../AmazonRDS/latest/UserGuide/Concepts.MultiAZSingleStandby.md "../../../AmazonRDS/latest/UserGuide/Concepts.MultiAZSingleStandby.md").
 
 ###### Note
 
@@ -2267,7 +2267,7 @@ This check can't be excluded from view in the Trusted Advisor console.
 
 **Additional Resources**
 
-[Multi-AZ DB instance deployments](../../../AmazonRDS/latest/UserGuide/Concepts.md "../../../AmazonRDS/latest/UserGuide/Concepts.md")
+[Multi-AZ DB instance deployments](../../../AmazonRDS/latest/UserGuide/Concepts.MultiAZSingleStandby.md "../../../AmazonRDS/latest/UserGuide/Concepts.MultiAZSingleStandby.md")
 
 **Report columns**
 
@@ -2302,9 +2302,9 @@ There are several possible causes for ReplicaLag to increase beyond operationall
 
 **Additional Resources**
 
-- [Working with read replicas for Amazon RDS for PostgreSQL](../../../AmazonRDS/latest/UserGuide/USER_PostgreSQL.Replication.md "../../../AmazonRDS/latest/UserGuide/USER_PostgreSQL.Replication.md")
-- [Working with MySQL replication in Amazon RDS](../../../AmazonRDS/latest/UserGuide/USER_MySQL.md "../../../AmazonRDS/latest/UserGuide/USER_MySQL.md")
-- [Working with MySQL read replicas](../../../AmazonRDS/latest/UserGuide/USER_MySQL.Replication.md "../../../AmazonRDS/latest/UserGuide/USER_MySQL.Replication.md")
+- [Working with read replicas for Amazon RDS for PostgreSQL](../../../AmazonRDS/latest/UserGuide/USER_PostgreSQL.Replication.ReadReplicas.md "../../../AmazonRDS/latest/UserGuide/USER_PostgreSQL.Replication.ReadReplicas.md")
+- [Working with MySQL replication in Amazon RDS](../../../AmazonRDS/latest/UserGuide/USER_MySQL.Replication.md "../../../AmazonRDS/latest/UserGuide/USER_MySQL.Replication.md")
+- [Working with MySQL read replicas](../../../AmazonRDS/latest/UserGuide/USER_MySQL.Replication.ReadReplicas.md "../../../AmazonRDS/latest/UserGuide/USER_MySQL.Replication.ReadReplicas.md")
 
 **Report columns**
 
@@ -2351,7 +2351,7 @@ Turn on **synchronous_commit** parameter in your DB parameter groups.
 
 The **synchronous_commit** parameter defines the Write-Ahead Logging (WAL) process completion before the database server sends a successful notification to the client. This commit is called as an asynchronous commit because the client acknowledges the commit before WAL saves the transaction in the disk. If the **synchronous_commit** parameter is turned off, then the transactions can be lost, DB instance durability might be compromised, and data might be lost when a database crashes.
 
-For more information, see [MySQL database log files](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md").
+For more information, see [MySQL database log files](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.md").
 
 **Report columns**
 

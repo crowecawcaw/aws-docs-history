@@ -136,7 +136,7 @@ Use the detailed recommendations in AWS Compute Optimizer to understand the pote
 
 - [Viewing Aurora and RDS database recommendations](../../../compute-optimizer/latest/ug/view-rds-recommendations.md "../../../compute-optimizer/latest/ug/view-rds-recommendations.md")
 - [Recommendations from Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/monitoring-recommendations.md "../../../AmazonRDS/latest/AuroraUserGuide/monitoring-recommendations.md")
-- [Settings for Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md#Aurora.Modifying.Settings "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md#Aurora.Modifying.Settings")
+- [Settings for Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Modifying.md#Aurora.Modifying.Settings "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Modifying.md#Aurora.Modifying.Settings")
 
 **Report columns**
 
@@ -832,7 +832,7 @@ Consider [implementing the recommendation](../../../cost-management/latest/userg
 
 **Additional resources**
 
-- [Reserved nodes](../../../AmazonElastiCache/latest/dg/CacheNodes.md "../../../AmazonElastiCache/latest/dg/CacheNodes.md")
+- [Reserved nodes](../../../AmazonElastiCache/latest/dg/CacheNodes.Reserved.md "../../../AmazonElastiCache/latest/dg/CacheNodes.Reserved.md")
 - [Accessing reservation recommendations](../../../cost-management/latest/userguide/ri-recommendations.md "../../../cost-management/latest/userguide/ri-recommendations.md")
 - [Amazon ElastiCache Reserved Nodes](https://aws.amazon.com/elasticache/reserved-cache-nodes/ "https://aws.amazon.com/elasticache/reserved-cache-nodes/")
 
@@ -938,7 +938,7 @@ Consider [implementing the recommendation](../../../cost-management/latest/userg
 
 **Additional resources**
 
-- [MemoryDB reserved nodes](../../../memorydb/latest/devguide/nodes.md "../../../memorydb/latest/devguide/nodes.md")
+- [MemoryDB reserved nodes](../../../memorydb/latest/devguide/nodes.reservednodes.md "../../../memorydb/latest/devguide/nodes.reservednodes.md")
 - [Accessing reservation recommendations](../../../cost-management/latest/userguide/ri-recommendations.md "../../../cost-management/latest/userguide/ri-recommendations.md")
 - [Working with reserved nodes](../../../memorydb/latest/devguide/reserved-nodes-working-with.md "../../../memorydb/latest/devguide/reserved-nodes-working-with.md")
 
@@ -1040,10 +1040,10 @@ Use the detailed recommendations in AWS Compute Optimizer to understand the pote
 
 **Additional resources**
 
-- [Viewing RDS database recommendations](../../../compute-optimizer/latest/ug/view-rds-recommendations.md "../../../compute-optimizer/latest/ug/view-rds-recommendations.md")
+- [Viewing RDS database recommendations](../../../compute-optimizer/latest/ug/view-rds-recommendations.html.md "../../../compute-optimizer/latest/ug/view-rds-recommendations.html.md")
 - [RDS database metrics](../../../compute-optimizer/latest/ug/rds-metrics-analyzed.md "../../../compute-optimizer/latest/ug/rds-metrics-analyzed.md")
-- [DB instance classes](../../../AmazonRDS/latest/UserGuide/Concepts.md "../../../AmazonRDS/latest/UserGuide/Concepts.md")
-- [Modifying an Amazon RDS DB instance](../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.md "../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.md")
+- [DB instance classes](../../../AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.md "../../../AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.md")
+- [Modifying an Amazon RDS DB instance](../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.md "../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.md")
 
 **Report columns**
 
@@ -1152,7 +1152,7 @@ instance and then retaining only the final snapshot. See [Stopping an Amazon RDS
 
 **Additional resources**
 
-[Back Up and Restore](../../../AmazonRDS/latest/UserGuide/CHAP_CommonTasks.md "../../../AmazonRDS/latest/UserGuide/CHAP_CommonTasks.md")
+[Back Up and Restore](../../../AmazonRDS/latest/UserGuide/CHAP_CommonTasks.BackupRestore.md "../../../AmazonRDS/latest/UserGuide/CHAP_CommonTasks.BackupRestore.md")
 
 **Report columns**
 
@@ -1204,7 +1204,7 @@ Consider [implementing the recommendation](../../../cost-management/latest/userg
 
 - [Reserved DB instance for Amazon RDS](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithReservedDBInstances.md "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithReservedDBInstances.md")
 - [Accessing reservation recommendations](../../../cost-management/latest/userguide/ri-recommendations.md "../../../cost-management/latest/userguide/ri-recommendations.md")
-- [Purchasing reserved DB instances for Amazon RDS](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithReservedDBInstances.md "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithReservedDBInstances.md")
+- [Purchasing reserved DB instances for Amazon RDS](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithReservedDBInstances.WorkingWith.md "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithReservedDBInstances.WorkingWith.md")
 
 **Report columns**
 

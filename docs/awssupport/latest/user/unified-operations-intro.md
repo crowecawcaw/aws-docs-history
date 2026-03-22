@@ -14,7 +14,7 @@ AWS Unified Operations pricing is based on your specific requirements and worklo
   - [Domain Specialist Engineer](unified-operations-team.md#uo-key-personas-dse "unified-operations-team.md#uo-key-personas-dse")
   - [Senior Billing and Account Specialist](unified-operations-team.md#uo-personas-sbas "unified-operations-team.md#uo-personas-sbas")
   - [Incident Management Engineer](unified-operations-team.md#uo-personas-ime "unified-operations-team.md#uo-personas-ime")
-  - [Migration Specialist](unified-operations-team.md#uo-personas-ms "unified-operations-team.md#uo-personas-ms")
+  - [Migrations and Events Engineer](unified-operations-team.md#uo-personas-ms "unified-operations-team.md#uo-personas-ms")
   - [AWS Customer Incident Response Team](unified-operations-team.md#uo-personas-cirt "unified-operations-team.md#uo-personas-cirt")
   - [Specialist Support Engineer](unified-operations-team.md#uo-personas-sse "unified-operations-team.md#uo-personas-sse")
 

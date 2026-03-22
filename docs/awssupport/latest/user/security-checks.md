@@ -513,7 +513,7 @@ modify a decrypted DB cluster to an encrypted DB cluster. However, you can
 restore a decrypted snapshot to an encrypted DB cluster. When you restore
 from the decrypted snapshot, you must specify a AWS KMS key.
 
-For more information, see [Encrypting Amazon Aurora resources](../../../AmazonRDS/latest/AuroraUserGuide/Overview.md "../../../AmazonRDS/latest/AuroraUserGuide/Overview.md").
+For more information, see [Encrypting Amazon Aurora resources](../../../AmazonRDS/latest/AuroraUserGuide/Overview.Encryption.md "../../../AmazonRDS/latest/AuroraUserGuide/Overview.Encryption.md").
 
 **Report columns**
 
@@ -565,7 +565,7 @@ fixes. The DB engine minor version upgrades contain only the changes which
 are backward-compatible with earlier minor versions of the same major
 version of the DB engine.
 
-For more information, see [Upgrading a DB instance engine version](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.md "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.md").
+For more information, see [Upgrading a DB instance engine version](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.md "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.md").
 
 **Report columns**
 
@@ -617,7 +617,7 @@ in the AWS Systems Manager console. For more information, see [`AWSSupport-Modif
 
 **Additional Resources**
 
-[Backing Up and Restoring Amazon RDS DB Instances](../../../AmazonRDS/latest/UserGuide/CHAP_CommonTasks.md "../../../AmazonRDS/latest/UserGuide/CHAP_CommonTasks.md")
+[Backing Up and Restoring Amazon RDS DB Instances](../../../AmazonRDS/latest/UserGuide/CHAP_CommonTasks.BackupRestore.md "../../../AmazonRDS/latest/UserGuide/CHAP_CommonTasks.BackupRestore.md")
 
 **Report columns**
 
@@ -659,7 +659,7 @@ instances running outside on an [Amazon VPC](../../../vpc/latest/userguide/what-
 
 EC2-Classic was retired on August 15, 2022. It's recommend to move your
 Amazon RDS instances to a VPC and use Amazon EC2 security groups. For more information
-of moving your DB instance to a VPC see [Moving a DB instance not in a VPC into a VPC](../../../AmazonRDS/latest/UserGuide/USER_VPC.md "../../../AmazonRDS/latest/UserGuide/USER_VPC.md").
+of moving your DB instance to a VPC see [Moving a DB instance not in a VPC into a VPC](../../../AmazonRDS/latest/UserGuide/USER_VPC.Non-VPC2VPC.md "../../../AmazonRDS/latest/UserGuide/USER_VPC.Non-VPC2VPC.md").
 
 If
 you are unable to migrate your Amazon RDS instances to a VPC, then
@@ -670,7 +670,7 @@ information, see [Working with DB Security Groups](../../../AmazonRDS/latest/Use
 
 **Additional Resources**
 
-- [Amazon RDS Security Groups](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md")
+- [Amazon RDS Security Groups](../../../AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.md "../../../AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.md")
 - [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing "https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing")
 - [List of TCP and UDP port numbers](https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers "https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers")
 
@@ -734,7 +734,7 @@ encrypt an existing active DB instance:
 
 For more information, see the following resources:
 
-- [Encrypting Amazon RDS resources](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md")
+- [Encrypting Amazon RDS resources](../../../AmazonRDS/latest/UserGuide/Overview.Encryption.md "../../../AmazonRDS/latest/UserGuide/Overview.Encryption.md")
 - [Copying
   a DB snapshot](../../../AmazonRDS/latest/UserGuide/USER_CopySnapshot.md "../../../AmazonRDS/latest/UserGuide/USER_CopySnapshot.md")
 

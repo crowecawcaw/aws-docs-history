@@ -59,7 +59,7 @@ IAM, AWS Lambda, and AWS Glue.
 
 ###### To create your resources with CloudFormation
 
-1. Download the [trusted-advisor-reports-template.zip](samples/trusted-advisor-reports-template.md "samples/trusted-advisor-reports-template.md") file.
+1. Download the [trusted-advisor-reports-template.zip](samples/trusted-advisor-reports-template.zip.md "samples/trusted-advisor-reports-template.zip.md") file.
 2. Unzip the file.
 3. Open the template file in a text editor.
 4. For the `BucketName` and `FolderName` parameters,

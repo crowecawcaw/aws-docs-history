@@ -108,7 +108,7 @@ JSON
 
 ```
 
-You can also create your own IAM policy. For more information, see [Creating IAM Policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the
+You can also create your own IAM policy. For more information, see [Creating IAM Policies](../../../IAM/latest/UserGuide/access_policies_create.htmlorgs_integrate_services.md "../../../IAM/latest/UserGuide/access_policies_create.htmlorgs_integrate_services.md") in the
 _IAM User Guide_.
 
 ###### Note
