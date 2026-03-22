@@ -31,7 +31,7 @@ For more information, see the following topics:
   Guide_.
 - [Setting up Amazon Q Developer in chat applications](setting-up.md "setting-up.md") in the _Amazon Q Developer in chat applications Administrator
   Guide._
-- [Understanding Amazon Q Developer in chat applications permissions](understanding-permissions.md "understanding-permissions.md")
+- [Understanding Amazon Q Developer in chat applications permissions](understanding-permissions.htm.md "understanding-permissions.htm.md")
   in the _Amazon Q Developer in chat applications Administrator
   Guide._
 - [Getting Set Up
