@@ -31,7 +31,7 @@ This architecture enables you to build a renewable energy data lake that include
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/data-lake-architecture-for-renewable-energy.md "samples/data-lake-architecture-for-renewable-energy.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/data-lake-architecture-for-renewable-energy.zip.md "samples/data-lake-architecture-for-renewable-energy.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
