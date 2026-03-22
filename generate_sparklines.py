@@ -36,6 +36,7 @@ def get_git_numstat(since_date: str, cache_path: str | None = None) -> str:
     cmd = [
         "git", "-c", "core.commitGraph=false",
         "log", "--numstat",
+        "-w", "--ignore-blank-lines",
         "--format=COMMIT %H %ad",
         "--date=short",
         f"--since={since_date}",
