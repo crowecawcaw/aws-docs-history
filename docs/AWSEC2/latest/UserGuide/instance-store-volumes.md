@@ -1,12 +1,12 @@
 # Instance store volume limits for EC2 instances
 
 The number, size, and type of instance store volumes are determined by the instance type.
-Some instance types, such as M6, C6, and R6, do not support instance
-store volumes, while other instance types, such as M5d, C6gd, and R6gd, do support instance
+Some instance types, such as C8i, M8i, and R8i, do not support instance
+store volumes, while other instance types, such as C8id, M8id, and R8id, do support instance
 store volumes. You can’t attach more instance store volumes to an instance than is supported
 by its instance type. For the instance types that do support instance store volumes, the number and
-size of the instance store volumes vary by instance size. For example, `m5d.large`
-supports 1 x 75 GB instance store volume, while `m5d.24xlarge` supports 4 x 900
+size of the instance store volumes vary by instance size. For example, `r8id.large`
+supports 1 x 118 GB instance store volume, while `r8id.32xlarge` supports 2 x 3800
 GB instance store volumes.
 
 For instance types with **NVMe instance store volumes**, all
@@ -61,42 +61,37 @@ AWS CLI
 
 Use the [describe-instance-types](../../../cli/latest/reference/ec2/describe-instance-types.md "../../../cli/latest/reference/ec2/describe-instance-types.md")
 command. The following example displays the total size of the instance storage for each
-instance type in the R6i instance families with instance store volumes.
+instance type in the R8i instance families with instance store volumes.
 
 ```
 aws ec2 describe-instance-types \
-    --filters "Name=instance-type,Values=r6i*" "Name=instance-storage-supported,Values=true" \
-    --query "InstanceTypes[].[InstanceType, InstanceStorageInfo.TotalSizeInGB]" \
+    --filters "Name=instance-type,Values=r8i*" "Name=instance-storage-supported,Values=true" \
+    --query 'sort_by(InstanceTypes, &InstanceStorageInfo.TotalSizeInGB)[].{InstanceType:InstanceType,TotalSizeInGB:InstanceStorageInfo.TotalSizeInGB}' \
     --output table
 ```
 
 The following is example output.
 
 ```
-----------------------------
-|  DescribeInstanceTypes   |
-+----------------+---------+
-|  r6id.16xlarge  |  3800  |
-|  r6idn.16xlarge |  3800  |
-|  r6idn.8xlarge  |  1900  |
-|  r6id.2xlarge   |  474   |
-|  r6idn.xlarge   |  237   |
-|  r6id.12xlarge  |  2850  |
-|  r6idn.2xlarge  |  474   |
-|  r6id.xlarge    |  237   |
-|  r6idn.24xlarge |  5700  |
-|  r6id.4xlarge   |  950   |
-|  r6id.32xlarge  |  7600  |
-|  r6id.24xlarge  |  5700  |
-|  r6idn.large    |  118   |
-|  r6idn.4xlarge  |  950   |
-|  r6id.large     |  118   |
-|  r6id.8xlarge   |  1900  |
-|  r6idn.32xlarge |  7600  |
-|  r6idn.metal    |  7600  |
-|  r6id.metal     |  7600  |
-|  r6idn.12xlarge |  2850  |
-+----------------+--------+
+--------------------------------------
+|        DescribeInstanceTypes       |
++------------------+-----------------+
+|   InstanceType   |  TotalSizeInGB  |
++------------------+-----------------+
+|  r8id.large      |  118            |
+|  r8id.xlarge     |  237            |
+|  r8id.2xlarge    |  474            |
+|  r8id.4xlarge    |  950            |
+|  r8id.8xlarge    |  1900           |
+|  r8id.12xlarge   |  2850           |
+|  r8id.16xlarge   |  3800           |
+|  r8id.24xlarge   |  5700           |
+|  r8id.32xlarge   |  7600           |
+|  r8id.48xlarge   |  11400          |
+|  r8id.metal-48xl |  11400          |
+|  r8id.96xlarge   |  22800          |
+|  r8id.metal-96xl |  22800          |
++------------------+-----------------+
 ```
 
 ###### To get complete instance storage details for an instance type
@@ -106,28 +101,27 @@ command.
 
 ```
 aws ec2 describe-instance-types \
-    --filters "Name=instance-type,Values=`r6id.16xlarge`" \
-    --query "InstanceTypes[].InstanceStorageInfo"
+    --filters "Name=instance-type,Values=`r8id.32xlarge`" \
+    --query 'InstanceTypes[0].InstanceStorageInfo' \
+    --output json
 ```
 
-The example output shows that this instance type has two 1900 GB NVMe SSD volumes, for a
-total of 3800 GB of instance storage.
+The example output shows that this instance type has two 3800 GB NVMe SSD volumes, for a
+total of 7600 GB of instance storage.
 
 ```
-[
-    {
-        "TotalSizeInGB": 3800,
-        "Disks": [
-            {
-                "SizeInGB": 1900,
-                "Count": 2,
-                "Type": "ssd"
-            }
-        ],
-        "NvmeSupport": "required",
-        "EncryptionSupport": "required"
-    }
-]
+{
+    "TotalSizeInGB": 7600,
+    "Disks": [
+        {
+            "SizeInGB": 3800,
+            "Count": 2,
+            "Type": "ssd"
+        }
+    ],
+    "NvmeSupport": "required",
+    "EncryptionSupport": "required"
+}
 ```
 
 PowerShell
@@ -136,66 +130,62 @@ PowerShell
 
 Use the [Get-EC2InstanceType](../../../powershell/latest/reference/items/Get-EC2InstanceType.md "../../../powershell/latest/reference/items/Get-EC2InstanceType.md")
 cmdlet. The following example displays the total size of the instance storage for each
-instance type in the R6i instance families with instance store volumes.
+instance type in the R8i instance families with instance store volumes.
 
 ```
-(Get-EC2InstanceType -Filter @{Name="instance-type"; Values="r6i*"},@{Name="instance-storage-supported"; Values="true"}) | Format-Table @{Name="InstanceType";Expression={$_.InstanceType}}, @{Name="TotalSize";Expression={$_.InstanceStorageInfo.TotalSizeInGB}}
+(Get-EC2InstanceType -Filter `
+    @{Name="instance-type"; Values="r8i*"},
+    @{Name="instance-storage-supported"; Values="true"}) |
+    Sort-Object {$_.InstanceStorageInfo.TotalSizeInGB} |
+    Format-Table InstanceType,
+        @{Name="Disks.SizeInGB";Expression={$_.InstanceStorageInfo.Disks[0].SizeInGB}},
+        @{Name="Disks.Count";Expression={$_.InstanceStorageInfo.Disks[0].Count}},
+        @{Name="TotalSizeInGB";Expression={$_.InstanceStorageInfo.TotalSizeInGB}}
 ```
 
 The following is example output.
 
 ```
-InstanceType   TotalSize
-------------   ---------
-r6idn.16xlarge      3800
-r6id.16xlarge       3800
-r6id.xlarge          237
-r6idn.8xlarge       1900
-r6idn.2xlarge        474
-r6id.12xlarge       2850
-r6idn.xlarge         237
-r6id.2xlarge         474
-r6id.4xlarge         950
-r6idn.24xlarge      5700
-r6id.32xlarge       7600
-r6id.24xlarge       5700
-r6idn.large          118
-r6id.large           118
-r6idn.4xlarge        950
-r6id.8xlarge        1900
-r6id.metal          7600
-r6idn.32xlarge      7600
-r6idn.metal         7600
-r6idn.12xlarge      2850
+InstanceType    Disks.SizeInGB Disks.Count TotalSizeInGB
+------------    -------------- ----------- -------------
+r8id.large                 118           1           118
+r8id.xlarge                237           1           237
+r8id.2xlarge               474           1           474
+r8id.4xlarge               950           1           950
+r8id.8xlarge              1900           1          1900
+r8id.12xlarge             2850           1          2850
+r8id.16xlarge             3800           1          3800
+r8id.24xlarge             2850           2          5700
+r8id.32xlarge             3800           2          7600
+r8id.48xlarge             3800           3         11400
+r8id.metal-48xl           3800           3         11400
+r8id.96xlarge             3800           6         22800
+r8id.metal-96xl           3800           6         22800
 ```
 
 ###### To get complete instance storage details for an instance type
 
 Use the [Get-EC2InstanceType](../../../powershell/latest/reference/items/Get-EC2InstanceType.md "../../../powershell/latest/reference/items/Get-EC2InstanceType.md")
-cmdlet. The output is converted to JSON format.
+cmdlet.
 
 ```
-(Get-EC2InstanceType -Filter @{Name="instance-type"; Values="`r6id.16xlarge`"}).InstanceStorageInfo | ConvertTo-Json
+(Get-EC2InstanceType `
+    -Filter @{Name="instance-type"; Values="`r8id.32xlarge`"}).InstanceStorageInfo |
+    Format-List *,
+        @{Name="Disks.Count";Expression={$_.Disks[0].Count}},
+        @{Name="Disks.SizeInGB";Expression={$_.Disks[0].SizeInGB}},
+        @{Name="Disks.Type";Expression={$_.Disks[0].Type.Value}}
 ```
 
-The example output shows that this instance type has two 1900 GB NVMe SSD volumes, for a
-total of 3800 GB of instance storage.
+The example output shows that this instance type has two 3800 GB NVMe SSD volumes, for a
+total of 7600 GB of instance storage.
 
 ```
-{
-  "Disks": [
-    {
-      "Count": 2,
-      "SizeInGB": 1900,
-      "Type": "ssd"
-    }
-  ],
-  "EncryptionSupport": {
-    "Value": "required"
-  },
-  "NvmeSupport": {
-    "Value": "required"
-  },
-  "TotalSizeInGB": 3800
-}
+Disks             : {Amazon.EC2.Model.DiskInfo}
+EncryptionSupport : required
+NvmeSupport       : required
+TotalSizeInGB     : 7600
+Disks.Count       : 2
+Disks.SizeInGB    : 3800
+Disks.Type        : ssd
 ```

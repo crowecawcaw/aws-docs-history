@@ -12,9 +12,11 @@ communication that is critical for scaling AI/ML and HPC applications. It is opt
 on the existing AWS network infrastructure and it can scale depending on application
 requirements.
 
-EFA integrates with Libfabric 1.7.0 and later, and it supports Nvidia Collective
-Communications Library (NCCL) for AI and ML applications, and Open MPI 4.1 and later
-and Intel MPI 2019 Update 5 and later for HPC applications.
+EFA integrates with Libfabric, and it supports Nvidia Collective
+Communications Library (NCCL) and NVIDIA Inference Xfer Library (NIXL) for AI and ML applications,
+and Open MPI 4.1 and later and Intel MPI 2019 Update 5 and later for HPC
+applications. NCCL and MPI integrate with Libfabric 1.7.0 and later. NIXL integrates
+with Libfabric 1.21.0 and later.
 
 EFA supports RDMA (Remote Direct Memory Access) write on most supported instance types that have
 Nitro version 4 and later. RDMA read is supported on all instances with Nitro version 4 and later.
@@ -30,6 +32,7 @@ For more information, see [Supported instance types](#efa-instance-types "#efa-i
 - [EFA pricing](#efa-pricing "#efa-pricing")
 - [Get started with EFA and MPI](efa-start.md "efa-start.md")
 - [Get started with EFA and NCCL](efa-start-nccl.md "efa-start-nccl.md")
+- [Get started with EFA and NIXL](efa-start-nixl.md "efa-start-nixl.md")
 - [Maximize network bandwidth](efa-acc-inst-types.md "efa-acc-inst-types.md")
 - [Create and attach an EFA](create-efa.md "create-efa.md")
 - [Detach and delete an EFA](detach-efa.md "detach-efa.md")
@@ -53,15 +56,17 @@ IP networking.
 
 ![Contrasting a traditional HPC software stack with one that uses an EFA.](images/efa_stack.png)
 
-Traditionally, AI/ML applications use NCCL and HPC applications use the Message Passing Interface
-(MPI) to interface with the system's network transport. In the AWS cloud, this has meant that
-applications interface with NCCL or MPI, which then uses the operating system's TCP/IP stack and
-the ENA device driver to enable network communication between instances.
+Traditionally, AI/ML applications use NCCL and NIXL (for disaggregated inference).
+HPC applications use the Message Passing Interface (MPI) to interface with the system's network
+transport. In the AWS cloud, this has meant that applications interface with NCCL, NIXL, or MPI,
+which then uses the operating system's TCP/IP stack and the ENA device driver to enable network
+communication between instances.
 
 With a traditional EFA (EFA with ENA) or EFA-only interface, AI/ML applications use NCCL and
-HPC applications use MPI, to interface directly with the Libfabric API. The Libfabric API
-bypasses the operating system kernel and communicates directly with the EFA device to put packets
-on the network. This reduces overhead and enables AI/ML and HPC applications to run more efficiently.
+NIXL (for disaggregated inference). HPC applications use MPI, to interface directly
+with the Libfabric API. The Libfabric API bypasses the operating system kernel and communicates
+directly with the EFA device to put packets on the network. This reduces overhead and enables AI/ML
+and HPC applications to run more efficiently.
 
 ###### Note
 
@@ -102,6 +107,7 @@ EFAs support the following interfaces and libraries:
 - Open MPI 4.1 and later
 - Intel MPI 2019 Update 5 and later
 - NVIDIA Collective Communications Library (NCCL) 2.4.2 and later
+- NVIDIA Inference Xfer Library (NIXL) 1.0.0 and later
 - AWS Neuron SDK version 2.3 and later
 
 ## Supported instance types

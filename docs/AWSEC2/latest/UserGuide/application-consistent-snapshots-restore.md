@@ -36,7 +36,7 @@ delete the old volumes.
 
 ###### To restore volumes from VSS based EBS snapshots
 
-1. Download the [RestoreVssSnapshotSampleScript.zip](../../../systems-manager/latest/userguide/samples/RestoreVssSnapshotSampleScript.md "../../../systems-manager/latest/userguide/samples/RestoreVssSnapshotSampleScript.md") file and extract the file
+1. Download the [RestoreVssSnapshotSampleScript.zip](../../../systems-manager/latest/userguide/samples/RestoreVssSnapshotSampleScript.zip.md "../../../systems-manager/latest/userguide/samples/RestoreVssSnapshotSampleScript.zip.md") file and extract the file
    contents.
 2. Open `RestoreVssSnapshotSampleScript.ps1` in a text
    editor and edit the sample call at the bottom of the script with a valid

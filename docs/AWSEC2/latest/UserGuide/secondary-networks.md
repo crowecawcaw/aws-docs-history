@@ -64,14 +64,14 @@ Create a Secondary Network in the same region as your VPC. This is a regional re
 
 ```
 aws ec2 create-secondary-network \
-  --type rdma \
+  --network-type rdma \
   --ipv4-cidr-block 172.31.0.0/16 \
   --region us-east-2
 ```
 
 **Parameters:**
 
-- `--type`: Network type (currently only rdma is supported)
+- `--network-type`: Network type (currently only rdma is supported)
 - `--ipv4-cidr-block`: IPv4 CIDR block between /28 and /12
 - `--region`: AWS Region (US-East-2)
 

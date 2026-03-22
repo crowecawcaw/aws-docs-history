@@ -3,9 +3,11 @@
 Workloads such as Microsoft SQL Server often require high levels of memory and IOPS but a low vCPU count.
 AWS provides a broad set of instance types that can cover most of your infrastructure needs. However,
 to reduce vCPU-based licensing costs for Windows and Microsoft SQL Server, you can customize the number
-of vCPUs running on your EC2 instance while maintaining the same memory and IOPS. To configure CPU options
-on your instance and save on vCPU-based licensing costs for both license-included and
-Bring-Your-Own-License (BYOL) workloads, use the Optimize CPUs feature.
+of vCPUs running on your EC2 instance while maintaining the same memory, storage, and network specifications.
+This approach can save on vCPU-based licensing costs for both license-included and
+Bring-Your-Own-License (BYOL) workloads. You can specify CPU
+options when you launch or modify an instance by using the console or the Amazon EC2 API. For instructions,
+see [Specify CPU options for an Amazon EC2 instance](instance-specify-cpu-options.md "instance-specify-cpu-options.md").
 
 For more information, see this [blog post](https://aws.amazon.com/blogs/modernizing-with-aws/optimize-cpus-best-practices-for-sql-server-workloads-continued/ "https://aws.amazon.com/blogs/modernizing-with-aws/optimize-cpus-best-practices-for-sql-server-workloads-continued/")
 about best practices to optimize CPUs for SQL Server workloads.

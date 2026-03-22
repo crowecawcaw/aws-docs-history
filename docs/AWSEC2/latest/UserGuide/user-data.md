@@ -6,7 +6,7 @@ starts.
 
 If you're interested in more complex automation scenarios, you might consider CloudFormation.
 For more information, see [Deploying applications
-on Amazon EC2 with CloudFormation](../../../AWSCloudFormation/latest/UserGuide/deploying.md "../../../AWSCloudFormation/latest/UserGuide/deploying.md") in the _AWS CloudFormation User Guide_.
+on Amazon EC2 with CloudFormation](../../../AWSCloudFormation/latest/UserGuide/deploying.applications.md "../../../AWSCloudFormation/latest/UserGuide/deploying.applications.md") in the _AWS CloudFormation User Guide_.
 
 On Linux instances, you can pass two types of user data to Amazon EC2: shell
 scripts and cloud-init directives. You can also pass this data into the launch instance
