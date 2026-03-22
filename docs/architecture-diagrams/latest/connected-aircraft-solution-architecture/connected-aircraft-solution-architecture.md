@@ -26,7 +26,7 @@ This reference architecture shows how you can onboard flight data collection for
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/connected-aircraft-solution-architecture.md "samples/connected-aircraft-solution-architecture.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/connected-aircraft-solution-architecture.zip.md "samples/connected-aircraft-solution-architecture.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
