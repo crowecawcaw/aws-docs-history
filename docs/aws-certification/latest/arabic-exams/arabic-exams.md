@@ -8,7 +8,7 @@ The [AWS Certified Cloud Practitioner (CLF-C02)](https://aws.amazon.com/ar/certi
 
 The complete exam guide in Arabic (PDF format) is available here:
 
-[AWS Certified Cloud Practitioner Exam Guide (Arabic PDF)](images/AWS-Certified-Cloud-Practitioner_Exam-Guide_Arabic.md "images/AWS-Certified-Cloud-Practitioner_Exam-Guide_Arabic.md")
+[AWS Certified Cloud Practitioner Exam Guide (Arabic PDF)](images/AWS-Certified-Cloud-Practitioner_Exam-Guide_Arabic.pdf.md "images/AWS-Certified-Cloud-Practitioner_Exam-Guide_Arabic.pdf.md")
 
 The Arabic exam guide includes:
 
@@ -26,7 +26,7 @@ The [AWS Certified AI Practitioner (AIF-C01)](https://aws.amazon.com/ar/certific
 
 The complete exam guide in Arabic (PDF format) is available here:
 
-[AWS Certified AI Practitioner Exam Guide (Arabic PDF)](images/AWS-Certified-AI-Practitioner_Exam-Guide_Arabic.md "images/AWS-Certified-AI-Practitioner_Exam-Guide_Arabic.md")
+[AWS Certified AI Practitioner Exam Guide (Arabic PDF)](images/AWS-Certified-AI-Practitioner_Exam-Guide_Arabic.pdf.md "images/AWS-Certified-AI-Practitioner_Exam-Guide_Arabic.pdf.md")
 
 The Arabic exam guide includes:
 
