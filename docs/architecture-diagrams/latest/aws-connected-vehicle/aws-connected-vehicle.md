@@ -231,7 +231,7 @@ Build a connected vehicle companion application to control your vehicle with AWS
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/aws-connected-vehicle.md "samples/aws-connected-vehicle.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/aws-connected-vehicle.zip.md "samples/aws-connected-vehicle.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
