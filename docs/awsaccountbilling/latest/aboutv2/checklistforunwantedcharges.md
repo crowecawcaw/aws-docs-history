@@ -115,7 +115,7 @@ Elastic Beanstalk is designed to ensure that all the resources that you need are
 which means that it automatically relaunches any services that you stop. To avoid
 this, you must terminate your Elastic Beanstalk environment before you terminate resources that
 Elastic Beanstalk has created. For more information, see [Terminating an
-Environment](../../../elasticbeanstalk/latest/dg/using-features.md "../../../elasticbeanstalk/latest/dg/using-features.md") in the _AWS Elastic Beanstalk Developer Guide_.
+Environment](../../../elasticbeanstalk/latest/dg/using-features.terminating.md "../../../elasticbeanstalk/latest/dg/using-features.terminating.md") in the _AWS Elastic Beanstalk Developer Guide_.
 
 ### Charges incurred from Elastic Load Balancing (ELB) load balancers
 
