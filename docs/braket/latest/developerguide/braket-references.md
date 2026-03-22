@@ -16,7 +16,7 @@ Amazon Braket provides APIs, SDKs, and a command line interface that you can use
 - [AWS SDK for GoAPI Reference](../../../sdk-for-go/api/service/braket.md "../../../sdk-for-go/api/service/braket.md")
 - [AWS SDK for Java](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/braket/package-summary.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/braket/package-summary.md")
 - [AWS SDK for JavaScript](../../../AWSJavaScriptSDK/latest/AWS/Braket.md "../../../AWSJavaScriptSDK/latest/AWS/Braket.md")
-- [AWS SDK for PHP](../../../aws-sdk-php/v3/api/class-Aws.Braket.md "../../../aws-sdk-php/v3/api/class-Aws.Braket.md")
+- [AWS SDK for PHP](../../../aws-sdk-php/v3/api/class-Aws.Braket.BraketClient.md "../../../aws-sdk-php/v3/api/class-Aws.Braket.BraketClient.md")
 - [AWS SDK for Python (Boto)](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/braket.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/braket.html")
 - [AWS SDK for Ruby](../../../sdk-for-ruby/v3/api/Aws/Braket.md "../../../sdk-for-ruby/v3/api/Aws/Braket.md")
   You can also get code examples from the Amazon Braket Tutorials GitHub repository.

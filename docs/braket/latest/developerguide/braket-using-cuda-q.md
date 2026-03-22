@@ -15,7 +15,7 @@ notebook instances (NBIs) and Amazon Braket Hybrid Jobs.
 
 CUDA-Q is installed by default in the Braket NBI environment. You can open a CUDA-Q example notebook
 by going to the Jupyter launcher page and selecting the CUDA-Q and Braket tile. This opens the example notebook
-`0_hello_cudaq_jobs.ipynb` in the main window. For more CUDA-Q examples, see the left panel in the
+`0_Getting_started_with_CUDA-Q.ipynb` in the main window. For more CUDA-Q examples, see the left panel in the
 `nvidia_cuda_q/` directory.
 
 You can also verify the version of CUDA-Q or any other third-party package installed in your NBI. For example,
@@ -40,7 +40,7 @@ the distribution of circuit sampling and observable evaluations across multiple 
 of CUDA-Q workloads allows users to focus more on developing their workloads rather than setting up infrastructure
 for large-scale experiments.
 
-To get started, see the [CUDA-Q starter example](https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/nvidia_cuda_q/0_hello_cudaq_jobs.ipynb "https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/nvidia_cuda_q/0_hello_cudaq_jobs.ipynb")
+To get started, see the [CUDA-Q starter example](https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/nvidia_cuda_q/0_Getting_started_with_CUDA-Q.ipynb "https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/nvidia_cuda_q/0_Getting_started_with_CUDA-Q.ipynb")
 on the Amazon Braket examples Github to use a CUDA-Q hybrid jobs container provided by Braket.
 
 The following code snippet is a `hello-world` example for running a CUDA-Q program with Amazon Braket Hybrid Jobs.
@@ -132,7 +132,7 @@ def parallel_observables_gpu_job(sagemaker_mpi_enabled=True):
     ...
 ```
 
-The [parallel simulations notebook](https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/nvidia_cuda_q/2_parallel_simulations.ipynb "https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/nvidia_cuda_q/2_parallel_simulations.ipynb")
+The [parallel simulations notebook](https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/nvidia_cuda_q/5_Multiple_GPU_simulations.ipynb "https://github.com/amazon-braket/amazon-braket-examples/blob/main/examples/nvidia_cuda_q/5_Multiple_GPU_simulations.ipynb")
 in the Amazon Braket examples Github provide end-to-end examples that demonstrate how to run quantum program simulations on GPU backends and perform parallel simulations
 of observables and circuit batches.
 
