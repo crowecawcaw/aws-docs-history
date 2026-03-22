@@ -25,7 +25,7 @@ This architecture enables customers to build data analytics pipelines using a Mo
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/modern-data-analytics-on-aws.md "samples/modern-data-analytics-on-aws.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/modern-data-analytics-on-aws.zip.md "samples/modern-data-analytics-on-aws.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
