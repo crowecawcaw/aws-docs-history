@@ -34,7 +34,7 @@ You can choose either a Regional image from the list below or an image from our 
 - As a best practice, upgrading the Envoy version to the latest version on a regular
   basis is highly recommended. Only the latest Envoy version is validated with the most
   recent security patches, feature releases, and performance improvements.
-- Version `1.17` was a significant update to Envoy. See [Updating/migrating to Envoy 1.17](1.md "1.md") for more details.
+- Version `1.17` was a significant update to Envoy. See [Updating/migrating to Envoy 1.17](1.17-migration.md "1.17-migration.md") for more details.
 - Version `1.20.0.1` or later is `ARM64` compatible.
 - For `IPv6` support, Envoy version `1.20` or later is
   required.
