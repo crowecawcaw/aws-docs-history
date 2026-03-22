@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: November 21, 2019, 22:35 UTC
-- **Edited time:** April 29, 2024, 23:11 UTC
+- **Edited time:** March 13, 2026, 16:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSElasticBeanstalkManagedUpdatesServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v9 (default)
+**Policy version:** v10 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -34,9 +34,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "AllowPassRoleToElasticBeanstalkAndDownstreamServices",
       "Effect" : "Allow",
       "Action" : "iam:PassRole",
-      "Resource" : "*",
+      "Resource" : "arn:aws:iam::*:role/*",
       "Condition" : {
-        "StringLikeIfExists" : {
+        "StringEquals" : {
           "iam:PassedToService" : [
             "elasticbeanstalk.amazonaws.com",
             "ec2.amazonaws.com",
@@ -248,6 +248,21 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "StringEquals" : {
           "ecs:CreateAction" : [
             "RegisterTaskDefinition"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "LaunchTemplateTagPropagationPermissions",
+      "Effect" : "Allow",
+      "Action" : "ec2:createTags",
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "ec2:CreateAction" : [
+            "CreateLaunchTemplate",
+            "RunInstances",
+            "AllocateAddress"
           ]
         }
       }

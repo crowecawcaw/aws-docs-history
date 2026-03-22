@@ -12,13 +12,13 @@ You can attach `AWSPartnerCentralFullAccess` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: November 18, 2024, 23:33 UTC
-- **Edited time:** February 12, 2026, 17:59 UTC
+- **Edited time:** March 12, 2026, 17:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSPartnerCentralFullAccess`
 
 ## Policy version
 
-**Policy version:** v13 (default)
+**Policy version:** v14 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -187,6 +187,25 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "q:PassRequest"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "PartnerCentralAgentsSessionAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "partnercentral:UseSession"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "partnercentral:Catalog" : [
+            "AWS",
+            "Sandbox"
+          ]
+        },
+        "Bool" : {
+          "aws:IsMcpServiceAction" : "true"
+        }
+      }
     }
   ]
 }

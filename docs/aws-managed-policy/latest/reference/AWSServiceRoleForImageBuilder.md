@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: November 29, 2019, 22:02 UTC
-- **Edited time:** February 23, 2026, 22:27 UTC
+- **Edited time:** March 17, 2026, 20:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForImageBuilder`
 
 ## Policy version
 
-**Policy version:** v26 (default)
+**Policy version:** v27 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -473,6 +473,26 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ssm:GetParameter"
       ],
       "Resource" : "arn:aws:ssm:*::parameter/aws/service/*"
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : "imagebuilder:StartImagePipelineExecution",
+      "Resource" : "arn:aws:imagebuilder:*:*:image-pipeline/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : "imagebuilder:TagResource",
+      "Resource" : "arn:aws:imagebuilder:*:*:image-pipeline/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
     }
   ]
 }

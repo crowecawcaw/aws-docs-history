@@ -1,24 +1,24 @@
-# AWSPartnerCentralSandboxFullAccess
+# AWSElementalMediaConnectCreateFlow
 
-**Description**: Provides necessary access for developer testing in the Sandbox catalog.
+**Description**: Provides full access to create MediaConnect Flows and all its associated sub-resources.
 
-`AWSPartnerCentralSandboxFullAccess` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`AWSElementalMediaConnectCreateFlow` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
 
 ## Using this policy
 
-You can attach `AWSPartnerCentralSandboxFullAccess` to your users, groups, and roles.
+You can attach `AWSElementalMediaConnectCreateFlow` to your users, groups, and roles.
 
 ## Policy details
 
 - **Type**: AWS managed policy
-- **Creation time**: November 14, 2024, 19:10 UTC
-- **Edited time:** March 12, 2026, 17:12 UTC
+- **Creation time**: March 19, 2026, 16:57 UTC
+- **Edited time:** March 19, 2026, 16:57 UTC
 - **ARN**:
-  `arn:aws:iam::aws:policy/AWSPartnerCentralSandboxFullAccess`
+  `arn:aws:iam::aws:policy/AWSElementalMediaConnectCreateFlow`
 
 ## Policy version
 
-**Policy version:** v5 (default)
+**Policy version:** v1 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -30,48 +30,34 @@ request to access an AWS resource, AWS checks the default version of the policy 
   "Version" : "2012-10-17",
   "Statement" : [
     {
-      "Sid" : "AWSPartnerCentralSandboxAccess",
       "Effect" : "Allow",
-      "Action" : [
-        "partnercentral:*"
-      ],
-      "Resource" : "*",
+      "Action" : "iam:PassRole",
+      "Resource" : "arn:aws:iam::*:role/*",
       "Condition" : {
         "StringEquals" : {
-          "partnercentral:Catalog" : "Sandbox"
+          "iam:PassedToService" : "mediaconnect.amazonaws.com"
         }
       }
     },
     {
-      "Sid" : "PartnerCentralAgentsSandboxSessionAccess",
       "Effect" : "Allow",
       "Action" : [
-        "partnercentral:UseSession"
-      ],
-      "Resource" : "*",
-      "Condition" : {
-        "StringEquals" : {
-          "partnercentral:Catalog" : "Sandbox"
-        },
-        "Bool" : {
-          "aws:IsMcpServiceAction" : "true"
-        }
-      }
-    },
-    {
-      "Sid" : "PassAWSPartnerCentralSnapshotJobRole",
-      "Effect" : "Allow",
-      "Action" : [
-        "iam:PassRole"
+        "mediaconnect:CreateFlow",
+        "mediaconnect:AddFlowSources",
+        "mediaconnect:AddFlowOutputs",
+        "mediaconnect:GrantFlowEntitlements",
+        "mediaconnect:AddFlowMediaStreams",
+        "mediaconnect:AddFlowVpcInterfaces",
+        "mediaconnect:TagResource"
       ],
       "Resource" : [
-        "arn:aws:iam::*:role/*"
-      ],
-      "Condition" : {
-        "StringEquals" : {
-          "iam:PassedToService" : "resource-snapshot-job.partnercentral-selling.amazonaws.com"
-        }
-      }
+        "arn:aws:mediaconnect:*:*:flow:*:*",
+        "arn:aws:mediaconnect:*:*:source:*:*",
+        "arn:aws:mediaconnect:*:*:output:*:*",
+        "arn:aws:mediaconnect:*:*:entitlement:*:*",
+        "arn:aws:mediaconnect:*:*:flow:*:*/vpcInterface/*",
+        "arn:aws:mediaconnect:*:*:flow:*:*/mediaStream/*"
+      ]
     }
   ]
 }

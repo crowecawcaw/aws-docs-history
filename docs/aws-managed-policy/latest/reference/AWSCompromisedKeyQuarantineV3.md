@@ -12,13 +12,13 @@ You can attach `AWSCompromisedKeyQuarantineV3` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: August 21, 2024, 17:36 UTC
-- **Edited time:** October 02, 2024, 16:52 UTC
+- **Edited time:** March 16, 2026, 16:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSCompromisedKeyQuarantineV3`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -36,6 +36,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:RequestSpotInstances",
         "ec2:RunInstances",
         "ec2:StartInstances",
+        "ec2:PurchaseReservedInstancesOffering",
+        "ec2:AcceptReservedInstancesExchangeQuote",
+        "ec2:CreateReservedInstancesListing",
         "iam:AddUserToGroup",
         "iam:AttachGroupPolicy",
         "iam:AttachRolePolicy",
@@ -59,6 +62,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "iam:UpdateAssumeRolePolicy",
         "iam:UpdateLoginProfile",
         "iam:UpdateUser",
+        "iam:DeleteRole",
+        "iam:DeleteAccessKey",
+        "iam:ListUsers",
         "lambda:AddLayerVersionPermission",
         "lambda:AddPermission",
         "lambda:CreateFunction",
@@ -68,6 +74,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "lambda:TagResource",
         "lambda:UntagResource",
         "lambda:UpdateFunctionCode",
+        "lambda:GetEventSourceMapping",
         "lightsail:Create*",
         "lightsail:Delete*",
         "lightsail:DownloadDefaultKeyPair",
@@ -77,6 +84,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "organizations:CreateAccount",
         "organizations:CreateOrganization",
         "organizations:InviteAccountToOrganization",
+        "organizations:LeaveOrganization",
+        "organizations:AcceptHandshake",
         "s3:DeleteBucket",
         "s3:DeleteObject",
         "s3:DeleteObjectVersion",
@@ -88,9 +97,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "s3:PutAccountPublicAccessBlock",
         "s3:PutBucketPolicy",
         "s3:ListAllMyBuckets",
-        "ec2:PurchaseReservedInstancesOffering",
-        "ec2:AcceptReservedInstancesExchangeQuote",
-        "ec2:CreateReservedInstancesListing",
+        "s3:CreateBucket",
+        "s3:PutBucketCors",
+        "s3:GetObject",
+        "s3:ListBucket",
+        "s3:PutEncryptionConfiguration",
         "savingsplans:CreateSavingsPlan",
         "ecs:CreateService",
         "ecs:CreateCluster",
@@ -101,10 +112,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "bedrock:CreateFoundationModelAgreement",
         "bedrock:PutFoundationModelEntitlement",
         "bedrock:InvokeModel",
-        "s3:CreateBucket",
-        "s3:PutBucketCors",
-        "s3:GetObject",
-        "s3:ListBucket",
         "sagemaker:CreateEndpointConfig",
         "sagemaker:CreateProcessingJob",
         "ses:GetSendQuota",
@@ -115,16 +122,30 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "amplify:CreateBackendEnvironment",
         "codebuild:CreateProject",
         "glue:CreateJob",
-        "iam:DeleteRole",
-        "iam:DeleteAccessKey",
-        "iam:ListUsers",
-        "lambda:GetEventSourceMapping",
         "sns:GetSMSAttributes",
-        "mediapackagev2:CreateChannel"
+        "mediapackagev2:CreateChannel",
+        "logs:PutLogEvents",
+        "kms:PutKeyPolicy",
+        "kms:RetireGrant",
+        "kms:RevokeGrant",
+        "kms:ScheduleKeyDeletion",
+        "kms:DeleteImportedKeyMaterial"
       ],
       "Resource" : [
         "*"
       ]
+    },
+    {
+      "Effect" : "Deny",
+      "Action" : [
+        "kms:CreateGrant"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "Null" : {
+          "kms:ViaService" : "true"
+        }
+      }
     }
   ]
 }

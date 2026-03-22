@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: November 10, 2023, 23:37 UTC
-- **Edited time:** February 14, 2024, 22:42 UTC
+- **Edited time:** March 18, 2026, 22:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSServiceRolePolicyForBackupRestoreTesting`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -91,6 +91,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "elasticfilesystem:DeleteMountTarget",
         "rds:DeleteDBCluster",
         "rds:DeleteDBInstance",
+        "rds:DeleteTenantDatabase",
         "fsx:DeleteFileSystem",
         "fsx:DeleteVolume"
       ],

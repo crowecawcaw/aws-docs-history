@@ -12,13 +12,13 @@ You can attach `AWSSecurityAgentWebAppPolicy` to your users, groups, and roles.
 
 - **Type**: Service role policy
 - **Creation time**: February 05, 2026, 23:19 UTC
-- **Edited time:** February 12, 2026, 17:59 UTC
+- **Edited time:** March 20, 2026, 17:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/AWSSecurityAgentWebAppPolicy`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -34,7 +34,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : [
         "securityagent:ListAgentSpaces",
-        "securityagent:ListSecurityRequirements"
+        "securityagent:ListSecurityRequirements",
+        "securityagent:ListTargetDomains",
+        "securityagent:BatchGetTargetDomains"
       ],
       "Resource" : "*",
       "Condition" : {
@@ -64,7 +66,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "securityagent:GetDesignReview",
         "securityagent:GetDesignReviewArtifact",
         "securityagent:ListArtifacts",
-        "securityagent:ListSecurityRequirements",
         "securityagent:ListDiscoveredEndpoints",
         "securityagent:ListDesignReviewComments",
         "securityagent:ListDesignReviews",
@@ -77,7 +78,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "securityagent:StartPentestJob",
         "securityagent:StopPentestJob",
         "securityagent:UpdateFinding",
-        "securityagent:UpdatePentest"
+        "securityagent:UpdatePentest",
+        "securityagent:GetDesignReviewFeedback",
+        "securityagent:PutDesignReviewFeedback"
       ],
       "Resource" : "arn:aws:securityagent:*:*:agent-space*",
       "Condition" : {
