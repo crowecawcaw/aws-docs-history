@@ -26,7 +26,7 @@ from the decentralized Ethereum Blockchain Mainnet.
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/web3-decentralized-applications-on-aws.md "samples/web3-decentralized-applications-on-aws.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/web3-decentralized-applications-on-aws.zip.md "samples/web3-decentralized-applications-on-aws.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
