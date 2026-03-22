@@ -594,7 +594,7 @@ configurations that you want applied to members of the group.
 **Data type of values:** An array of ARNs.
 
 **Permitted values:** Each must be a valid
-[License Manager configuration ARN](../../../service-authorization/latest/reference/about-service-linked-groups.md#awslicensemanager-resources-for-iam-policies "../../../service-authorization/latest/reference/about-service-linked-groups.md#awslicensemanager-resources-for-iam-policies").
+[License Manager configuration ARN](../../../service-authorization/latest/reference/about-service-linked-groups.xmllist_awslicensemanager.md#awslicensemanager-resources-for-iam-policies "../../../service-authorization/latest/reference/about-service-linked-groups.xmllist_awslicensemanager.md#awslicensemanager-resources-for-iam-policies").
 
 **Required:** Conditional. You must specify
 either this parameter or `any-host-based-license-configuration`,
