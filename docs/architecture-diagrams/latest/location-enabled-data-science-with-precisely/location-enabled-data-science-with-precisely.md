@@ -28,7 +28,7 @@ This reference architecture shows how customers can deploy [Precisely](https://w
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/location-enabled-data-science-with-precisely.md "samples/location-enabled-data-science-with-precisely.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/location-enabled-data-science-with-precisely.zip.md "samples/location-enabled-data-science-with-precisely.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
