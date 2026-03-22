@@ -31,7 +31,7 @@ livestock. Use **Amazon SageMaker AI** and **AWS IoT Greengrass** to build and d
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/livestock-counting-at-the-edge.md "samples/livestock-counting-at-the-edge.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/livestock-counting-at-the-edge.zip.md "samples/livestock-counting-at-the-edge.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
