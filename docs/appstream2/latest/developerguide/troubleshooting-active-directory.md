@@ -162,7 +162,7 @@ one of the following issues:
 
 - WorkSpaces Applications could not communicate with AWS Private CA, or AWS Private CA
   did not issue the certificate. Check CloudTrail to determine if a certificate was
-  issued. For more information, see [What Is AWS CloudTrail?](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") and [Manage Certificate-based Authentication](certificate-based-authentication-manage.md "certificate-based-authentication-manage.md").
+  issued. For more information, see [What Is AWS CloudTrail?](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.html.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.html.md") and [Manage Certificate-based Authentication](certificate-based-authentication-manage.md "certificate-based-authentication-manage.md").
 - The domain controller has no domain controller certificate for smart card
   logon, or it is expired. For more information, see step 7.a in [Prerequisites](certificate-based-authentication-prereq.md "certificate-based-authentication-prereq.md").
 - The certificate is not trusted. For more information, see step 7.c in

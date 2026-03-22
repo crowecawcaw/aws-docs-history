@@ -112,12 +112,26 @@ input sources. In addition, “Control+Space” and “Shift+Control+Space” ar
 specified as shortcut key combinations for switching between input methods. You
 can specify your own key combinations that your users can use to switch input
 methods during streaming sessions. 2. Create the script for launching the application (Firefox) that you will add to
-the image. To do this, run the command s**udo vim
-/usr/local/bin/firefox-jp.sh**, then add following content to the
+the image. To do this, run the command **sudo vim
+/usr/local/bin/firefox-jp.sh**, then add the following content to the
 script:
 
 ```
 #!/bin/bash
+
+# Gather required environment variables from the GNOME shell session
+while IFS= read -r -d $'\0' env_var; do
+    case "$env_var" in
+        DBUS_SESSION_BUS_ADDRESS=*|\
+        GTK_IM_MODULE=*|\
+        QT_IM_MODULE=*|\
+        XMODIFIERS=*|\
+        XAUTHORITY=*)
+            echo "$env_var"
+            export "$env_var"
+            ;;
+    esac
+done < "/proc/$(pgrep -u as2-streaming-user gnome-shell | head -n1)/environ"
 
 /usr/local/bin/update-input-method.sh > /var/tmp/update-input-method.log 2>&1 &
 

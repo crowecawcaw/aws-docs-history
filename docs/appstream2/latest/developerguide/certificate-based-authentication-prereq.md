@@ -24,7 +24,7 @@ after September 10, 2025. For more information, see [KB5014754: Certificate-base
 controllers](https://support.microsoft.com/en-us/topic/kb5014754-certificate-based-authentication-changes-on-windows-domain-controllers-ad2c23b0-15d8-4340-a468-4d4f3b188f16 "https://support.microsoft.com/en-us/topic/kb5014754-certificate-based-authentication-changes-on-windows-domain-controllers-ad2c23b0-15d8-4340-a468-4d4f3b188f16"). 4. Add the `sts:TagSession` permission to the IAM role trust
 policy that you use with your SAML 2.0 configuration. For more information,
 see [Passing session
-tags in AWS STS](../../../IAM/latest/UserGuide/id_session-tags.md "../../../IAM/latest/UserGuide/id_session-tags.md"). This permission is required to use
+tags in AWS STS](../../../IAM/latest/UserGuide/id_session-tags.html.md "../../../IAM/latest/UserGuide/id_session-tags.html.md"). This permission is required to use
 certificate-based authentication. For more information, see [Step 2: Create a SAML 2.0 Federation IAM Role](external-identity-providers-setting-up-saml.md#external-identity-providers-grantperms "external-identity-providers-setting-up-saml.md#external-identity-providers-grantperms"). 5. Create a private certificate authority (CA) using AWS Private CA, if you
 don't have one configured with your Active Directory. AWS Private CA is
 required to use certificate-based authentication. For more information, see

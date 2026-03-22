@@ -88,4 +88,4 @@ On-demand usage charges are rounded up to the next hour for each session.
    "AS2_users_per_app_curr_mo."
 3. To run a query, choose the query name rather than the option next to the name.
 4. The text of the query appears in the query pane. Choose **Run query**.
-   To view these queries in a separate CloudFormation template, see [athena-sample-queries-appstream-usage-data_template.yml](../../../code-samples/latest/catalog/cloudformation-appstream2-athena-sample-queries-appstream-usage-data_template.md "../../../code-samples/latest/catalog/cloudformation-appstream2-athena-sample-queries-appstream-usage-data_template.md") in the _AWS Code Sample Catalog._
+   To view these queries in a separate CloudFormation template, see [athena-sample-queries-appstream-usage-data_template.yml](../../../code-samples/latest/catalog/cloudformation-appstream2-athena-sample-queries-appstream-usage-data_template.yml.md "../../../code-samples/latest/catalog/cloudformation-appstream2-athena-sample-queries-appstream-usage-data_template.yml.md") in the _AWS Code Sample Catalog._

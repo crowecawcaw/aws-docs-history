@@ -1,6 +1,6 @@
 # Update an Image by Using Managed WorkSpaces Applications Image Updates
 
-WorkSpaces Applications provides an automated way to update your image with the latest Windows
+WorkSpaces Applications provides an automated way to update your image with the latest
 operating system updates, license included application updates, driver updates, and
 WorkSpaces Applications agent software. With managed WorkSpaces Applications image updates, you select the image that
 you want to update. WorkSpaces Applications creates an image builder in the same AWS account and
@@ -10,8 +10,13 @@ fleets or sharing the image with other AWS accounts.
 
 ###### Note
 
+Managed WorkSpaces Applications Image Updates is available for Microsoft Windows Server,
+Red Hat Enterprise Linux, and Rocky Linux operating systems.
+
+###### Note
+
 After your new image is created, you're responsible for maintaining updates
-for the Windows operating system. To do so, you can continue using managed
+for the operating system. To do so, you can continue using managed
 WorkSpaces Applications image updates.
 
 You are responsible for maintaining updates for the Amazon EC2 Windows Paravirtual
@@ -38,7 +43,7 @@ image updates.
   default WorkSpaces Applications quotas, see [Amazon WorkSpaces Applications Service Quotas](limits.md "limits.md").
 - You must own the image that you update. You can't update an image that
   is shared with you.
-- When WorkSpaces Applications creates an image builder to install the latest Windows
+- When WorkSpaces Applications creates an image builder to install the latest
   operating system updates, driver updates, and WorkSpaces Applications agent software, and
   creates the new image, you're charged for the image builder instance
   while it's updating.
@@ -108,7 +113,7 @@ automatically.
 
 ###### Note
 
-Depending on the volume of Windows operating system updates, it
+Depending on the volume of operating system updates, it
 might take several hours for an image update to complete. If an
 issue prevents the image from being updated, a red icon with an
 exclamation point appears next to the image name, and the image

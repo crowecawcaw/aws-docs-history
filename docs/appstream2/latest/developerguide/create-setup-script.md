@@ -16,9 +16,9 @@ application installation.
 Use the following links to download the example scripts:
 
 - [Ubuntu Pro 24.04 LTS and Amazon Linux 2 bash
-  script](samples/Linux-mount-vhd-script2.md "samples/Linux-mount-vhd-script2.md")
+  script](samples/Linux-mount-vhd-script2.zip.md "samples/Linux-mount-vhd-script2.zip.md")
 - [Microsoft Windows
-  Powershell script](samples/Windows-mount-vhd-script3.md "samples/Windows-mount-vhd-script3.md")
+  Powershell script](samples/Windows-mount-vhd-script3.zip.md "samples/Windows-mount-vhd-script3.zip.md")
 
 ###### Note
 
