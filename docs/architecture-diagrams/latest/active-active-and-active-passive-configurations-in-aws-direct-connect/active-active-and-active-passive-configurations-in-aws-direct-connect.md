@@ -235,7 +235,7 @@ as well as a complete location failure.
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/active-active-and-active-passive-configurations-in-aws-direct-connect.md "samples/active-active-and-active-passive-configurations-in-aws-direct-connect.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/active-active-and-active-passive-configurations-in-aws-direct-connect.zip.md "samples/active-active-and-active-passive-configurations-in-aws-direct-connect.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
