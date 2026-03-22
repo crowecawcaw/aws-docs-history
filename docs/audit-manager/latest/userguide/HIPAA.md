@@ -83,7 +83,7 @@ that you enabled all standards in Security Hub CSPM.
 
 To ensure that this framework collects the intended evidence from AWS Config, make sure
 that you enable the necessary AWS Config rules. To review the AWS Config rules that are used
-as data source mappings in this standard framework, download the [AuditManager_ConfigDataSourceMappings_HIPAA-Security-Rule-Feb-2003.zip](samples/AuditManager_ConfigDataSourceMappings_HIPAA-Security-Rule-Feb-2003.md "samples/AuditManager_ConfigDataSourceMappings_HIPAA-Security-Rule-Feb-2003.md")
+as data source mappings in this standard framework, download the [AuditManager_ConfigDataSourceMappings_HIPAA-Security-Rule-Feb-2003.zip](samples/AuditManager_ConfigDataSourceMappings_HIPAA-Security-Rule-Feb-2003.zip.md "samples/AuditManager_ConfigDataSourceMappings_HIPAA-Security-Rule-Feb-2003.zip.md")
 file.
 
 The controls in this AWS Audit Manager framework aren't intended to verify if your systems are

@@ -81,7 +81,7 @@ that you enabled all standards in Security Hub CSPM.
 
 To ensure that this framework collects the intended evidence from AWS Config, make sure
 that you enable the necessary AWS Config rules. To review the AWS Config rules that are used
-as data source mappings in this standard framework, download the [AuditManager_ConfigDataSourceMappings_PCI-DSS-v4.0.zip](samples/AuditManager_ConfigDataSourceMappings_PCI-DSS-v4.0.md "samples/AuditManager_ConfigDataSourceMappings_PCI-DSS-v4.0.md") file.
+as data source mappings in this standard framework, download the [AuditManager_ConfigDataSourceMappings_PCI-DSS-v4.0.zip](samples/AuditManager_ConfigDataSourceMappings_PCI-DSS-v4.0.zip.md "samples/AuditManager_ConfigDataSourceMappings_PCI-DSS-v4.0.zip.md") file.
 
 The controls in this AWS Audit Manager framework aren't intended to verify if your systems are
 compliant with the PCI DSS standard. Moreover, they can't guarantee that you'll pass a PCI

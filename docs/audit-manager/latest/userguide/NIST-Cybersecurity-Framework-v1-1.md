@@ -6,7 +6,7 @@ AWS Audit Manager provides a prebuilt framework that supports the NIST Cybersecu
 ###### Note
 
 - For information about the Audit Manager framework that supports NIST SP 800-53, see [NIST SP 800-53 Rev 5](NIST800-53r5.md "NIST800-53r5.md").
-- For information about the Audit Manager framework that supports NIST SP 800-171, see [NIST SP 800-171 Rev 2](NIST-800-171-r2-1.md "NIST-800-171-r2-1.md").
+- For information about the Audit Manager framework that supports NIST SP 800-171, see [NIST SP 800-171 Rev 2](NIST-800-171-r2-1.1.md "NIST-800-171-r2-1.1.md").
 
 ###### Topics
 
@@ -76,7 +76,7 @@ that you enabled all standards in Security Hub CSPM.
 
 To ensure that this framework collects the intended evidence from AWS Config, make sure
 that you enable the necessary AWS Config rules. To review the AWS Config rules that are used
-as data source mappings in this standard framework, download the [AuditManager_ConfigDataSourceMappings_NIST-CSF-v1.1.zip](samples/AuditManager_ConfigDataSourceMappings_NIST-CSF-v1.1.md "samples/AuditManager_ConfigDataSourceMappings_NIST-CSF-v1.1.md") file.
+as data source mappings in this standard framework, download the [AuditManager_ConfigDataSourceMappings_NIST-CSF-v1.1.zip](samples/AuditManager_ConfigDataSourceMappings_NIST-CSF-v1.1.zip.md "samples/AuditManager_ConfigDataSourceMappings_NIST-CSF-v1.1.zip.md") file.
 
 The controls that are offered by Audit Manager aren't intended to verify if your systems are
 compliant with the NIST CSF. Moreover, they can't guarantee that you'll pass a NIST audit.

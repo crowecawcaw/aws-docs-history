@@ -17,7 +17,7 @@ reports the results as compliance check evidence.
 - On November 9, 2022, Security Hub CSPM launched automated security checks aligned to the Center
   for Internet Security’s (CIS) AWS Foundations Benchmark version 1.4.0 requirements,
   Level 1 and 2 (CIS v1.4.0). In Security Hub CSPM, the [CIS v1.4.0
-  standard](../../../securityhub/latest/userguide/securityhub-cis-controls-1.4.md "../../../securityhub/latest/userguide/securityhub-cis-controls-1.4.md") is supported in addition to the [CIS v1.2.0
+  standard](../../../securityhub/latest/userguide/securityhub-cis-controls-1.4.0.md "../../../securityhub/latest/userguide/securityhub-cis-controls-1.4.0.md") is supported in addition to the [CIS v1.2.0
   standard](../../../securityhub/latest/userguide/securityhub-cis-controls.md "../../../securityhub/latest/userguide/securityhub-cis-controls.md").
 - We recommend that you turn on the [consolidated control findings](../../../securityhub/latest/userguide/controls-findings-create-update.md#consolidated-control-findings "../../../securityhub/latest/userguide/controls-findings-create-update.md#consolidated-control-findings") setting in Security Hub CSPM if it's not turned on already.
   If you enable Security Hub CSPM on or after February 23, 2023, this setting is turned _on_ by default.

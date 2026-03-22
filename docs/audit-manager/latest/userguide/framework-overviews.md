@@ -47,7 +47,7 @@ create an assessment and start collecting evidence in Audit Manager.
 - [ISO/IEC 27001:2013 Annex A](iso-27001-2013.md "iso-27001-2013.md")
 - [NIST SP 800-53 Rev 5](NIST800-53r5.md "NIST800-53r5.md")
 - [NIST Cybersecurity Framework v1.1](NIST-Cybersecurity-Framework-v1-1.md "NIST-Cybersecurity-Framework-v1-1.md")
-- [NIST SP 800-171 Rev 2](NIST-800-171-r2-1.md "NIST-800-171-r2-1.md")
+- [NIST SP 800-171 Rev 2](NIST-800-171-r2-1.1.md "NIST-800-171-r2-1.1.md")
 - [PCI DSS V3.2.1](PCI.md "PCI.md")
 - [PCI DSS V4.0](pci-v4.md "pci-v4.md")
 - [SSAE-18 SOC 2](SOC2.md "SOC2.md")

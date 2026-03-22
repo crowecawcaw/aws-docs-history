@@ -58,7 +58,7 @@ The framework details are as follows:
 
 To ensure that this framework collects the intended evidence from AWS Config, make sure
 that you enable the necessary AWS Config rules. To review the AWS Config rules that are used
-as data source mappings in this standard framework, download the [AuditManager_ConfigDataSourceMappings_EudraLex-GMP-Volume-4-Annex-11.zip](samples/AuditManager_ConfigDataSourceMappings_EudraLex-GMP-Volume-4-Annex-11.md "samples/AuditManager_ConfigDataSourceMappings_EudraLex-GMP-Volume-4-Annex-11.md")
+as data source mappings in this standard framework, download the [AuditManager_ConfigDataSourceMappings_EudraLex-GMP-Volume-4-Annex-11.zip](samples/AuditManager_ConfigDataSourceMappings_EudraLex-GMP-Volume-4-Annex-11.zip.md "samples/AuditManager_ConfigDataSourceMappings_EudraLex-GMP-Volume-4-Annex-11.zip.md")
 file.
 
 The controls in this framework aren't intended to verify if your systems are compliant
