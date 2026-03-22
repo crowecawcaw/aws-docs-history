@@ -1,105 +1,82 @@
-# Considerations for SQL Server upgrades
+# Upgrades of the Microsoft SQL Server DB engine
 
-Amazon RDS takes two DB snapshots during the upgrade process. The first DB snapshot is of the DB instance before any upgrade
-changes have been made. The second DB snapshot is taken after the upgrade finishes.
+When Amazon RDS supports a new version of a database engine, you can upgrade your DB instances
+to the new version. There are two kinds of upgrades for SQL Server DB instances: major
+version upgrades and minor version upgrades.
 
-###### Note
+_Major version upgrades_ can contain database changes
+that are not backward-compatible with existing applications. As a result, you must _manually_
+perform major version upgrades of your DB instances. You can initiate a major version
+upgrade by modifying your DB instance. However, before you perform a major version upgrade,
+we recommend that you test the upgrade by following the steps described in [Testing an RDS for SQL Server upgrade](USER_UpgradeDBInstance.SQLServer.UpgradeTesting.md "USER_UpgradeDBInstance.SQLServer.UpgradeTesting.md").
 
-Amazon RDS only takes DB snapshots if you have set the backup retention period for your DB instance to a number greater than 0.
-To change your backup retention period, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+_Minor version upgrades_ contain only changes that are backward-compatible with existing applications.
+You can upgrade the minor version for your DB instance in two ways:
 
-After an upgrade is completed, you can't revert to the previous version of the database engine. If you want to return to the
-previous version, restore from the DB snapshot that was taken before the upgrade to create a new DB instance.
+- _Manually_ – Modify your DB instance to initiate the upgrade
+- _Automatically_ – Enable automatic minor version upgrades for your DB instance
+  When you enable automatic minor version upgrades, RDS for SQL Server automatically upgrades your
+  database instance during scheduled maintenance windows when critical security updates are
+  available in a newer minor version.
 
-During a minor or major version upgrade of SQL Server, the **Free Storage Space** and **Disk Queue
-Depth** metrics will display `-1`. After the upgrade is completed, both metrics will return to
-normal.
+For minor engine versions after `16.00.4120.1`, `15.00.4365.2`, `14.00.3465.1`, `13.00.6435.1`,
+the following security protocols are disabled by default:
 
-Before you upgrade your SQL Server instance, review the following information.
+- `rds.tls10` (TLS 1.0 protocol)
+- `rds.tls11` (TLS 1.1 protocol)
+- `rds.rc4` (RC4 cipher)
+- `rds.curve25519` (Curve25519 encryption)
+- `rds.3des168` (Triple DES encryption)
+  For earlier engine versions, Amazon RDS enables these security protocols by default.
+
+```
+...
+
+"ValidUpgradeTarget": [
+    {
+        "Engine": "sqlserver-se",
+        "EngineVersion": "14.00.3281.6.v1",
+        "Description": "SQL Server 2017 14.00.3281.6.v1",
+        "AutoUpgrade": false,
+        "IsMajorVersionUpgrade": false
+    }
+...
+```
+
+For more information about performing upgrades, see [Upgrading a SQL Server DB instance](#USER_UpgradeDBInstance.SQLServer.Upgrading "#USER_UpgradeDBInstance.SQLServer.Upgrading"). For information about what SQL Server versions are available on
+Amazon RDS, see [Amazon RDS for Microsoft SQL Server](CHAP_SQLServer.md "CHAP_SQLServer.md").
+
+Amazon RDS also supports upgrade rollout policy to manage automatic minor version upgrades across multiple database resources and AWS accounts. For more information,
+see [Using AWS Organizations upgrade rollout policy for automatic minor version upgrades](RDS.Maintenance.AMVU.UpgradeRollout.md "RDS.Maintenance.AMVU.UpgradeRollout.md").
 
 ###### Topics
 
-- [Best practices before initiating an upgrade](#USER_UpgradeDBInstance.SQLServer.BestPractices "#USER_UpgradeDBInstance.SQLServer.BestPractices")
-- [Multi-AZ considerations](#USER_UpgradeDBInstance.SQLServer.MAZ "#USER_UpgradeDBInstance.SQLServer.MAZ")
-- [Read replica considerations](#USER_UpgradeDBInstance.SQLServer.readreplica "#USER_UpgradeDBInstance.SQLServer.readreplica")
-- [Option group considerations](#USER_UpgradeDBInstance.SQLServer.OGPG.OG "#USER_UpgradeDBInstance.SQLServer.OGPG.OG")
-- [Parameter group considerations](#USER_UpgradeDBInstance.SQLServer.OGPG.PG "#USER_UpgradeDBInstance.SQLServer.OGPG.PG")
+- [Major version upgrades for RDS for SQL Server](USER_UpgradeDBInstance.SQLServer.Major.md "USER_UpgradeDBInstance.SQLServer.Major.md")
+- [Considerations for SQL Server upgrades](USER_UpgradeDBInstance.SQLServer.Considerations.md "USER_UpgradeDBInstance.SQLServer.Considerations.md")
+- [Testing an RDS for SQL Server upgrade](USER_UpgradeDBInstance.SQLServer.UpgradeTesting.md "USER_UpgradeDBInstance.SQLServer.UpgradeTesting.md")
+- [Upgrading a SQL Server DB instance](#USER_UpgradeDBInstance.SQLServer.Upgrading "#USER_UpgradeDBInstance.SQLServer.Upgrading")
+- [Upgrading deprecated DB instances before support ends](#USER_UpgradeDBInstance.SQLServer.DeprecatedVersions "#USER_UpgradeDBInstance.SQLServer.DeprecatedVersions")
 
-## Best practices before initiating an upgrade
+## Upgrading a SQL Server DB instance
 
-Before starting the upgrade process, implement the following preparatory stpes to allow optimal
-upgrade performance and minimize potential issues:
+For information about manually or automatically upgrading a SQL Server DB instance, see
+the following:
 
-Timing and workload management
+- [Upgrading a DB instance engine version](USER_UpgradeDBInstance.Upgrading.md "USER_UpgradeDBInstance.Upgrading.md")
+- [Best practices for upgrading SQL Server 2008 R2 to SQL Server 2016 on Amazon RDS for
+  SQL Server](https://aws.amazon.com/blogs/database/best-practices-for-upgrading-sql-server-2008-r2-to-sql-server-2016-on-amazon-rds-for-sql-server/ "https://aws.amazon.com/blogs/database/best-practices-for-upgrading-sql-server-2008-r2-to-sql-server-2016-on-amazon-rds-for-sql-server/")
 
-- Schedule upgrades during low transaction volume periods.
-- Minimize write operations during the upgrade window.
+###### Important
 
-This allows Amazon RDS to complete upgrades faster by reducing the number of transaction log backup files that RDS needs to restore
-during secondary-to-primary pairing.
+If you have any snapshots that are encrypted using AWS KMS, we recommend that you
+initiate an upgrade before support ends.
 
-Transaction management
+## Upgrading deprecated DB instances before support ends
 
-- Identify and monitor long-running transactions.
-- Ensure all critical transactions are commited before starting the upgrade.
-- Prevent long-running transactions during the upgrade window.
+After a major version is deprecated, you can't install it on new DB instances.
+RDS will try to automatically upgrade all existing DB instances.
 
-Log file optimization
-
-Review and optimize transaction log files:
-
-- Shrink oversized log files.
-- Reduce high log consumption patterns.
-- Manage Virtual Log Files (VLFs).
-- Maintain adequate free space for normal operations.
-
-## Multi-AZ considerations
-
-Amazon RDS supports Multi-AZ deployments for DB instances running Microsoft SQL Server by using SQL Server Database Mirroring (DBM)
-or Always On Availability Groups (AGs). For more information, see [Multi-AZ deployments for Amazon RDS for Microsoft SQL Server](USER_SQLServerMultiAZ.md "USER_SQLServerMultiAZ.md").
-
-In a Multi-AZ deployment (Mirroring/AlwaysOn), when an upgrade is requested, RDS follows a rolling upgrade strategy for the primary and secondary instances.
-Rolling upgrades ensure at least one instance is available for transactions while the secondary instance is upgraded.
-The outage is expected to only last the duration of a failover.
-
-During the upgrade, RDS removes the secondary instance from the Multi-AZ configuration, performs an upgrade of the secondary instance,
-and restores any transaction log backups from the primary taken during the time it was disconnected.
-After all the log backups are restored, RDS joins the upgraded secondary to the primary.
-When all the databases are in a synchronized state, RDS performs a failover to the upgraded secondary instance.
-Once the failover is completed, RDS proceeds with upgrading the old primary instance,
-restores any transaction log backups, and pairs it with the new primary.
-
-To minimize this failover duration, we recommend using AlwaysOn AGs availability group listener endpoint
-when using client libraries that support the `MultiSubnetFailover` connection option in the connection string.
-When using the availability group listener endpoint, failover times are typically less than 10 seconds,
-however, this duration does not include any additional crash recovery time.
-
-## Read replica considerations
-
-During a database version upgrade, Amazon RDS upgrades all of your read replicas along with the primary DB instance.
-Amazon RDS does not support database version upgrades on the read replicas separately.
-For more information on read replicas, see [Working with read replicas for Microsoft SQL Server in Amazon RDS](SQLServer.md "SQLServer.md").
-
-When you perform a database version upgrade of the primary DB instance, all its read-replicas are also automatically upgraded.
-Amazon RDS will upgrade all of the read replicas simultaneously before upgrading the primary DB instance.
-Read replicas may not be available until the database version upgrade on the primary DB instance is complete.
-
-## Option group considerations
-
-If your DB instance uses a custom DB option group, in some cases Amazon RDS can't automatically assign your DB instance a new
-option group. For example, when you upgrade to a new major version, you must specify a new option group. We recommend that you
-create a new option group, and add the same options to it as your existing custom option group.
-
-For more information, see [Creating an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create") or [Copying an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Copy "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Copy").
-
-## Parameter group considerations
-
-If your DB instance uses a custom DB parameter group:
-
-- Amazon RDS automatically reboots the DB instance after an upgrade.
-- In some cases, RDS can't automatically assign a new parameter group to your DB instance.
-
-For example, when you upgrade to a new major version, you must specify a new parameter group. We recommend that you
-create a new parameter group, and configure the parameters as in your existing custom parameter group.
-
-For more information, see [Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md") or [Copying a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+If you need to restore a deprecated DB instance, you can do point-in-time recovery (PITR) or
+restore a snapshot. Doing this gives you temporary access a DB instance that uses the
+version that is being deprecated. However, after a major version is fully deprecated,
+these DB instances will also be automatically upgraded to a supported version.

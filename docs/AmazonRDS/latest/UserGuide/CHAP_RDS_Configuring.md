@@ -17,7 +17,7 @@ You can configure a DB instance with an option group and a DB parameter group.
 
 - [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md")
 - [Creating Amazon RDS resources with AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md")
-- [Connecting to an Amazon RDS DB instance](CHAP_CommonTasks.md "CHAP_CommonTasks.md")
+- [Connecting to an Amazon RDS DB instance](CHAP_CommonTasks.Connect.md "CHAP_CommonTasks.Connect.md")
 - [Working with option groups](USER_WorkingWithOptionGroups.md "USER_WorkingWithOptionGroups.md")
 - [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md")
 - [Creating an Amazon ElastiCache cache using Amazon RDS DB instance settings](creating-elasticache-cluster-with-RDS-settings.md "creating-elasticache-cluster-with-RDS-settings.md")

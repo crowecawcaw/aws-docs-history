@@ -33,12 +33,12 @@ topics:
 
 Feature availability and support varies across specific versions of each database
 engine, and across AWS Regions. For more information about version and Region
-availability of RDS for Db2 with Kerberos authentication, see [Supported Regions and DB engines for Kerberos authentication in Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
+availability of RDS for Db2 with Kerberos authentication, see [Supported Regions and DB engines for Kerberos authentication in Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.KerberosAuthentication.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.KerberosAuthentication.md").
 
 ###### Note
 
 Kerberos authentication isn't supported for DB instance classes
-that are deprecated for RDS for Db2 DB instances. For more information, see [Amazon RDS for Db2 instance classes](Db2.Concepts.General.md "Db2.Concepts.General.md").
+that are deprecated for RDS for Db2 DB instances. For more information, see [Amazon RDS for Db2 instance classes](Db2.Concepts.General.InstanceClasses.md "Db2.Concepts.General.InstanceClasses.md").
 
 ## Overview of Kerberos authentication for RDS for Db2 DB instances
 
@@ -62,7 +62,7 @@ or the RDS API with one of the following methods:
     * Create a new RDS for Db2 DB instance using the console, the [create-db-instance](../../../cli/latest/reference/rds/create-db-instance.md "../../../cli/latest/reference/rds/create-db-instance.md") command, or the [CreateDBInstance](../APIReference/API_CreateDBInstance.md "../APIReference/API_CreateDBInstance.md") API operation. For instructions, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
     * Modify an existing RDS for Db2 DB instance using the console, the [modify-db-instance](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md") command, or the
      [ModifyDBInstance](../APIReference/API_ModifyDBInstance.md "../APIReference/API_ModifyDBInstance.md") API operation. For
-     instructions, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+     instructions, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md").
     * Restore an RDS for Db2 DB instance from a DB snapshot using the console,
      the [restore-db-instance-from-db-snapshot](../../../cli/latest/reference/rds/restore-db-instance-from-db-snapshot.md "../../../cli/latest/reference/rds/restore-db-instance-from-db-snapshot.md")
      command, or the [RestoreDBInstanceFromDBSnapshot](../APIReference/API_RestoreDBInstanceFromDBSnapshot.md "../APIReference/API_RestoreDBInstanceFromDBSnapshot.md") API

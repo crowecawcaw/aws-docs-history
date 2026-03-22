@@ -195,7 +195,7 @@ _region_
 
 An optional text string containing the AWS Region that the Lambda
 function is in. For a listing of Region names and associated values, see
-[Regions, Availability Zones, and Local Zones](Concepts.md "Concepts.md").
+[Regions, Availability Zones, and Local Zones](Concepts.RegionsAndAvailabilityZones.md "Concepts.RegionsAndAvailabilityZones.md").
 
 ## aws_lambda parameters
 

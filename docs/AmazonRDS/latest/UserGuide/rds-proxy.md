@@ -33,20 +33,20 @@ code changes.
 - [Region and version availability](#rds-proxy.RegionVersionAvailability "#rds-proxy.RegionVersionAvailability")
 - [Quotas and limitations for RDS Proxy](#rds-proxy.limitations "#rds-proxy.limitations")
 - [Planning where to use RDS Proxy](rds-proxy-planning.md "rds-proxy-planning.md")
-- [RDS Proxy concepts and terminology](rds-proxy.md "rds-proxy.md")
+- [RDS Proxy concepts and terminology](rds-proxy.howitworks.md "rds-proxy.howitworks.md")
 - [Getting started with RDS Proxy](rds-proxy-setup.md "rds-proxy-setup.md")
 - [Managing an RDS Proxy](rds-proxy-managing.md "rds-proxy-managing.md")
 - [Working with Amazon RDS Proxy endpoints](rds-proxy-endpoints.md "rds-proxy-endpoints.md")
-- [Monitoring RDS Proxy metrics with Amazon CloudWatch](rds-proxy.md "rds-proxy.md")
-- [Working with RDS Proxy events](rds-proxy.md "rds-proxy.md")
-- [Troubleshooting for RDS Proxy](rds-proxy.md "rds-proxy.md")
+- [Monitoring RDS Proxy metrics with Amazon CloudWatch](rds-proxy.monitoring.md "rds-proxy.monitoring.md")
+- [Working with RDS Proxy events](rds-proxy.events.md "rds-proxy.events.md")
+- [Troubleshooting for RDS Proxy](rds-proxy.troubleshooting.md "rds-proxy.troubleshooting.md")
 - [Using RDS Proxy with AWS CloudFormation](rds-proxy-cfn.md "rds-proxy-cfn.md")
 
 ## Region and version availability
 
 Feature availability and support varies across specific versions of each database engine, and across AWS Regions.
 For more information on version and Region availability of Amazon RDS with RDS Proxy, see
-[Supported Regions and DB engines for Amazon RDS Proxy](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
+[Supported Regions and DB engines for Amazon RDS Proxy](Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSProxy.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSProxy.md").
 
 ## Quotas and limitations for RDS Proxy
 
@@ -135,7 +135,7 @@ limitations apply to RDS Proxy with RDS for MariaDB databases:
 - Database connections processing a `GET DIAGNOSTIC` command might return
   inaccurate information when RDS Proxy reuses the same database connection to run another
   query. This can happen when RDS Proxy multiplexes database connections. For more information,
-  see [Overview of RDS Proxy concepts](rds-proxy.md#rds-proxy-overview "rds-proxy.md#rds-proxy-overview").
+  see [Overview of RDS Proxy concepts](rds-proxy.howitworks.md#rds-proxy-overview "rds-proxy.howitworks.md#rds-proxy-overview").
 - RDS Proxy currently doesn't support the `caching_sha2_password` option for `ClientPasswordAuthType` for MariaDB.
 
 ###### Important

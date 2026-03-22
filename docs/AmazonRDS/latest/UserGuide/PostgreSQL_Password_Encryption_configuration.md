@@ -127,7 +127,7 @@ If your
 RDS for PostgreSQL DB instance already uses a custom
 parameter group, you don't need to create a new one.
 
-For an overview of parameter groups for Amazon RDS, see [Working with parameters on your RDS for PostgreSQL DB instance](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md").
+For an overview of parameter groups for Amazon RDS, see [Working with parameters on your RDS for PostgreSQL DB instance](Appendix.PostgreSQL.CommonDBATasks.Parameters.md "Appendix.PostgreSQL.CommonDBATasks.Parameters.md").
 
 The password encryption type used for passwords is set in one parameter,
 `password_encryption`. The encryption that the

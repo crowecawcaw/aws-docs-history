@@ -31,4 +31,4 @@ over your primary database to your RDS Custom for Oracle standby database. To le
 technique, see the AWS blog post [Physical migration of Oracle databases to Amazon RDS Custom
 using Data Guard](https://aws.amazon.com/blogs/database/physical-migration-of-oracle-databases-to-amazon-rds-custom-using-data-guard/ "https://aws.amazon.com/blogs/database/physical-migration-of-oracle-databases-to-amazon-rds-custom-using-data-guard/").
 
-For general information about logically importing data into RDS for Oracle, see [Importing data into Oracle on Amazon RDS](Oracle.Procedural.md "Oracle.Procedural.md").
+For general information about logically importing data into RDS for Oracle, see [Importing data into Oracle on Amazon RDS](Oracle.Procedural.Importing.md "Oracle.Procedural.Importing.md").

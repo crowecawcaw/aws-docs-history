@@ -152,7 +152,7 @@ For more information, see [Rebooting a DB instance](USER_RebootInstance.md "USER
     instructions, see [Create a bucket](../../../AmazonS3/latest/userguide/CreatingABucket.md "../../../AmazonS3/latest/userguide/CreatingABucket.md") in the _Amazon Simple Storage Service Getting
     Started Guide_.
   - Prepare the Amazon S3 bucket for Amazon RDS integration by following the
-    instructions in [Configuring IAM permissions for RDS for Oracle integration with Amazon S3](oracle-s3-integration.md "oracle-s3-integration.md").
+    instructions in [Configuring IAM permissions for RDS for Oracle integration with Amazon S3](oracle-s3-integration.preparing.md "oracle-s3-integration.preparing.md").
 
 - If you plan to transfer files using Amazon EFS, make sure that you have
   configured EFS according to the instructions in [Amazon EFS integration](oracle-efs-integration.md "oracle-efs-integration.md").
@@ -301,7 +301,7 @@ AS TASK_ID FROM DUAL;
 ```
 
 The `SELECT` statement returns the ID of the task in a
-`VARCHAR2` data type. For more information, see [Downloading files from an Amazon S3 bucket to an Oracle DB instance](oracle-s3-integration.md#oracle-s3-integration.using.download "oracle-s3-integration.md#oracle-s3-integration.using.download").
+`VARCHAR2` data type. For more information, see [Downloading files from an Amazon S3 bucket to an Oracle DB instance](oracle-s3-integration.using.md#oracle-s3-integration.using.download "oracle-s3-integration.using.md#oracle-s3-integration.using.download").
 
 ### Step 3: Import the tablespaces on your target DB instance
 

@@ -32,7 +32,7 @@ You're also responsible for upgrading your engine to a newer engine version
 _before_ the RDS end of Extended Support date. The RDS end
 of Extended Support date is typically 3 years after the RDS
 standard support date. For the RDS end of Extended Support date for
-your database major engine version, see [Major versions](MySQL.Concepts.md#MySQL.Concepts.VersionMgmt.ReleaseCalendar "MySQL.Concepts.md#MySQL.Concepts.VersionMgmt.ReleaseCalendar") and
+your database major engine version, see [Major versions](MySQL.Concepts.VersionMgmt.md#MySQL.Concepts.VersionMgmt.ReleaseCalendar "MySQL.Concepts.VersionMgmt.md#MySQL.Concepts.VersionMgmt.ReleaseCalendar") and
 [Release calendar for Amazon RDS for PostgreSQL](../PostgreSQLReleaseNotes/postgresql-release-calendar.md "../PostgreSQLReleaseNotes/postgresql-release-calendar.md").
 
 If you don't upgrade your engine, then after the RDS end of Extended Support date, Amazon RDS will attempt to upgrade your engine to a newer engine

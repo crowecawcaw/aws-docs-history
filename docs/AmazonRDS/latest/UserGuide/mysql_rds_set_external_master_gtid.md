@@ -93,7 +93,7 @@ master user. It must be run on the MariaDB DB instance that you are configuring 
 the replica of a MariaDB instance running external to Amazon RDS. Before
 running `mysql.rds_set_external_master_gtid`, you must have configured
 the instance of MariaDB running external to Amazon RDS as a source instance. For more
-information, see [Importing data into an Amazon RDS for MariaDB DB instance](MariaDB.Procedural.md "MariaDB.Procedural.md").
+information, see [Importing data into an Amazon RDS for MariaDB DB instance](MariaDB.Procedural.Importing.md "MariaDB.Procedural.Importing.md").
 
 ###### Warning
 

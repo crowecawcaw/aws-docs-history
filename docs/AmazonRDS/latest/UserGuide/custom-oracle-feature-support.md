@@ -15,7 +15,7 @@ for quick reference.
 
 Feature availability and support vary across specific versions of each database
 engine, and across AWS Regions. For more information on version and Region
-availability of RDS Custom for Oracle, see [Supported Regions and DB engines for RDS Custom](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
+availability of RDS Custom for Oracle, see [Supported Regions and DB engines for RDS Custom](Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.md").
 
 ## Database version support for RDS Custom for Oracle
 

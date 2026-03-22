@@ -10,7 +10,7 @@ Amazon RDS, see [Working with option groups](USER_WorkingWithOptionGroups.md "US
 ###### Topics
 
 - [Overview of option groups in RDS Custom for Oracle](#custom-oracle-option-groups.overview "#custom-oracle-option-groups.overview")
-- [Oracle time zone](custom-managing.md "custom-managing.md")
+- [Oracle time zone](custom-managing.timezone.md "custom-managing.timezone.md")
 
 ## Overview of option groups in RDS Custom for Oracle
 
@@ -87,7 +87,7 @@ One way of creating an option group is by using the AWS Management Console.
 
    4. For **Major engine version**, choose a
       major engine version supported by RDS Custom for Oracle. For more
-      information, see [Supported Regions and DB engines for RDS Custom for Oracle](Concepts.RDS_Fea_Regions_DB-eng.Feature.md#Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.ora "Concepts.RDS_Fea_Regions_DB-eng.Feature.md#Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.ora").
+      information, see [Supported Regions and DB engines for RDS Custom for Oracle](Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.md#Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.ora "Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.md#Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.ora").
 
 5. To continue, choose **Create**. To cancel the
    operation instead, choose **Cancel**.
@@ -135,4 +135,4 @@ You can associate your option group with a new or existing DB instance:
 - For a new DB instance, apply the option group when you create the instance. For
   more information, see [Creating an RDS Custom for Oracle DB instance](custom-creating.md#custom-creating.create "custom-creating.md#custom-creating.create").
 - For an existing DB instance, apply the option group by modifying the instance
-  and attaching the new option group. For more information, see [Modifying your RDS Custom for Oracle DB instance](custom-managing.md "custom-managing.md").
+  and attaching the new option group. For more information, see [Modifying your RDS Custom for Oracle DB instance](custom-managing.modifying.md "custom-managing.modifying.md").

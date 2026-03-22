@@ -7,24 +7,24 @@ for quick reference. Requirements and limitations also appear in the relevant se
 
 - [Region and version availability](#custom-reqs-limits-MS.RegionVersionAvailability "#custom-reqs-limits-MS.RegionVersionAvailability")
 - [General requirements for RDS Custom for SQL Server](#custom-reqs-limits.reqsMS "#custom-reqs-limits.reqsMS")
-- [DB instance class support for RDS Custom for SQL Server](custom-reqs-limits.md "custom-reqs-limits.md")
+- [DB instance class support for RDS Custom for SQL Server](custom-reqs-limits.instancesMS.md "custom-reqs-limits.instancesMS.md")
 - [Limitations for RDS Custom for SQL Server](#custom-reqs-limits.limitsMS "#custom-reqs-limits.limitsMS")
-- [Setting character sets and collations for RDS Custom for SQL Server DB instances](custom-reqs-limits-MS.md "custom-reqs-limits-MS.md")
-- [Local time zone for RDS Custom for SQL Server DB instances](custom-reqs-limits-MS.md "custom-reqs-limits-MS.md")
-- [Using a Service Master Key with RDS Custom for SQL Server](custom-sqlserver-features.md "custom-sqlserver-features.md")
-- [Change data capture (CDC) support with RDS Custom for SQL Server](custom-sqlserver-features.md "custom-sqlserver-features.md")
+- [Setting character sets and collations for RDS Custom for SQL Server DB instances](custom-reqs-limits-MS.collation.md "custom-reqs-limits-MS.collation.md")
+- [Local time zone for RDS Custom for SQL Server DB instances](custom-reqs-limits-MS.TimeZone.md "custom-reqs-limits-MS.TimeZone.md")
+- [Using a Service Master Key with RDS Custom for SQL Server](custom-sqlserver-features.smk.md "custom-sqlserver-features.smk.md")
+- [Change data capture (CDC) support with RDS Custom for SQL Server](custom-sqlserver-features.cdc.md "custom-sqlserver-features.cdc.md")
 
 ## Region and version availability
 
 Feature availability and support varies across specific versions of each database engine, and across AWS Regions.
 For more information on version and Region availability of Amazon RDS with Amazon RDS Custom for SQL Server, see
-[Supported Regions and DB engines for RDS Custom for SQL Server](Concepts.RDS_Fea_Regions_DB-eng.Feature.md#Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.sq "Concepts.RDS_Fea_Regions_DB-eng.Feature.md#Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.sq").
+[Supported Regions and DB engines for RDS Custom for SQL Server](Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.md#Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.sq "Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.md#Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.sq").
 
 ## General requirements for RDS Custom for SQL Server
 
 Make sure to follow these requirements for Amazon RDS Custom for SQL Server:
 
-- Use the instance classes shown in [DB instance class support for RDS Custom for SQL Server](custom-reqs-limits.md "custom-reqs-limits.md"). The only storage types supported are solid state drives (SSD) of types
+- Use the instance classes shown in [DB instance class support for RDS Custom for SQL Server](custom-reqs-limits.instancesMS.md "custom-reqs-limits.instancesMS.md"). The only storage types supported are solid state drives (SSD) of types
   gp2, gp3, io1, and io2 Block Express. The maximum storage limit for io1, gp2, and gp3 is 16 TiB while io2 supports 64 TiB.
 - Make sure that you have a symmetric encryption AWS KMS key to create an RDS Custom DB instance. For more information, see
   [Make sure that you have a symmetric encryption AWS KMS key](custom-setup-sqlserver.md#custom-setup-sqlserver.cmk "custom-setup-sqlserver.md#custom-setup-sqlserver.cmk").

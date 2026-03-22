@@ -57,7 +57,7 @@ Note the following issues:
 - You can't change the master username for your RDS Custom for Oracle DB instance using the
   `ModifyDBInstance` API.
 - RDS Custom for Oracle rotates user account credentials on all DB instances. For more
-  information, see [Rotating RDS Custom for Oracle credentials for compliance programs](custom-security.md "custom-security.md"). If you use an on-premises
+  information, see [Rotating RDS Custom for Oracle credentials for compliance programs](custom-security.cred-rotation.md "custom-security.cred-rotation.md"). If you use an on-premises
   primary/standby configuration, credential rotation might affect the following
   resources:
   - Manually created standby RDS Custom for Oracle instances

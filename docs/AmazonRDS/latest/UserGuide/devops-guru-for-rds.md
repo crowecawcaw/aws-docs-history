@@ -46,7 +46,7 @@ learning techniques to mine this data and detect anomalies. To learn more
 about telemetry data, see
 [Monitoring
 DB load with Performance Insights on Amazon RDS](USER_PerfInsights.md "USER_PerfInsights.md") and [Monitoring
-OS metrics with Enhanced Monitoring](USER_Monitoring.md "USER_Monitoring.md") in the
+OS metrics with Enhanced Monitoring](USER_Monitoring.OS.md "USER_Monitoring.OS.md") in the
 _Amazon RDS User Guide_.
 
 **Fast resolution**
@@ -95,7 +95,7 @@ For example, DevOps Guru might detect that your RDS for PostgreSQL database is 
 many on-disk temporary tables. If not addressed, this trend might lead to
 performance issues. Each proactive insight includes recommendations for
 corrective behavior and links to relevant topics in
-[Tuning RDS for PostgreSQL with Amazon DevOps Guru proactive insights](PostgreSQL.md "PostgreSQL.md").
+[Tuning RDS for PostgreSQL with Amazon DevOps Guru proactive insights](PostgreSQL.Tuning_proactive_insights.md "PostgreSQL.Tuning_proactive_insights.md").
 For more information, see
 [Working with insights
 in DevOps Guru](../../../devops-guru/latest/userguide/working-with-insights.md "../../../devops-guru/latest/userguide/working-with-insights.md") in the _Amazon DevOps Guru User Guide_.
@@ -117,7 +117,7 @@ DevOps Guru for RDS.
 
 An anomaly measures performance impact by assigning a severity level of **High**,
 **Medium**, or **Low**. To learn more, see [Key concepts for DevOps Guru for
-RDS](../../../devops-guru/latest/userguide/working-with-rds.overview.md "../../../devops-guru/latest/userguide/working-with-rds.overview.md") in the _Amazon DevOps Guru User Guide_.
+RDS](../../../devops-guru/latest/userguide/working-with-rds.overview.definitions.md "../../../devops-guru/latest/userguide/working-with-rds.overview.definitions.md") in the _Amazon DevOps Guru User Guide_.
 
 If DevOps Guru detects a current anomaly on your DB instance, you're alerted in the
 **Databases** page of the RDS console. The console also
@@ -141,7 +141,7 @@ contributing to DB load.
 We recommend that you test any changes on a test instance before modifying a production instance. In
 this way, you understand the impact of the change.
 
-To learn more, see [Analyzing anomalies in Amazon RDS](../../../devops-guru/latest/userguide/working-with-rds.md "../../../devops-guru/latest/userguide/working-with-rds.md") in the _Amazon DevOps Guru User Guide_.
+To learn more, see [Analyzing anomalies in Amazon RDS](../../../devops-guru/latest/userguide/working-with-rds.analyzing.md "../../../devops-guru/latest/userguide/working-with-rds.analyzing.md") in the _Amazon DevOps Guru User Guide_.
 
 ## Setting up DevOps Guru for RDS
 
@@ -164,14 +164,14 @@ To view alerts from DevOps Guru in the RDS console, your AWS Identity and Acces
   - A customer managed policy that includes `pi:GetResourceMetrics` and
     `pi:DescribeDimensionKeys`
 
-For more information, see [Configuring access policies for Performance Insights](USER_PerfInsights.md "USER_PerfInsights.md").
+For more information, see [Configuring access policies for Performance Insights](USER_PerfInsights.access-control.md "USER_PerfInsights.access-control.md").
 
 ### Turning on Performance Insights for your RDS for PostgreSQL DB instances
 
 DevOps Guru for RDS relies on Performance Insights for its data. Without Performance Insights, DevOps Guru publishes anomalies, but doesn't include
 the detailed analysis and recommendations.
 
-When you create or modify a RDS for PostgreSQL DB instance, you can turn on Performance Insights. For more information, see [Turning Performance Insights on and off for Amazon RDS](USER_PerfInsights.md "USER_PerfInsights.md").
+When you create or modify a RDS for PostgreSQL DB instance, you can turn on Performance Insights. For more information, see [Turning Performance Insights on and off for Amazon RDS](USER_PerfInsights.Enabling.md "USER_PerfInsights.Enabling.md").
 
 ### Turning on DevOps Guru and specifying resource coverage
 

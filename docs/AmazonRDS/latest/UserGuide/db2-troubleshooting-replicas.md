@@ -2,7 +2,7 @@
 
 This topic describes common RDS for Db2 replication issues and provides troubleshooting
 guidance for both read-only and standby replicas. In addition to reviewing the following
-troubleshooting information, make sure that you followed the [requirements and considerations](db2-read-replicas.md "db2-read-replicas.md"), and completed the [preparation steps](db2-read-replicas.md "db2-read-replicas.md") before creating
+troubleshooting information, make sure that you followed the [requirements and considerations](db2-read-replicas.limitations.md "db2-read-replicas.limitations.md"), and completed the [preparation steps](db2-read-replicas.Configuration.md "db2-read-replicas.Configuration.md") before creating
 Db2 replicas.
 
 ## Replica creation failures
@@ -17,7 +17,7 @@ For information about activating databases, see [Stored procedures for databases
 - **Missing automatic backups** – The source
   DB instance must have automatic backups enabled.
 
-For information about enabling backups, see [Enabling automatic backups for RDS for Db2 replicas](db2-read-replicas.md#db2-read-replicas.backups.turning-on "db2-read-replicas.md#db2-read-replicas.backups.turning-on").
+For information about enabling backups, see [Enabling automatic backups for RDS for Db2 replicas](db2-read-replicas.backups.md#db2-read-replicas.backups.turning-on "db2-read-replicas.backups.md#db2-read-replicas.backups.turning-on").
 
 - **Parameter group issues** – Custom
   parameter groups are required for replicas. For BYOL licensing, the parameter
@@ -28,7 +28,7 @@ For more information, see [IBM IDs for bring your own license (BYOL) for Db2](db
 ## Monitoring Db2 replication lag
 
 To monitor replication lag in Amazon CloudWatch, view the Amazon RDS `ReplicaLag` metric.
-For more information about replication lag time, see [Monitoring read replication](USER_ReadRepl.md "USER_ReadRepl.md") and
+For more information about replication lag time, see [Monitoring read replication](USER_ReadRepl.Monitoring.md "USER_ReadRepl.Monitoring.md") and
 [Amazon CloudWatch metrics for Amazon RDS](rds-metrics.md "rds-metrics.md"). For information about
 setting up CloudWatch alarms for replica lag, see [Monitoring Amazon RDS metrics with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md").
 
@@ -48,7 +48,7 @@ Common causes of high replication lag include the following reasons:
 - Storage performance limitations on the replica
 
 If high replication lag persists, consider scaling your replica resources. For more
-information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md").
 
 ## Db2 replication errors
 
@@ -65,7 +65,7 @@ For more information, see [Working with Amazon RDS event notification](USER_Even
   primary sequence number.
 
 For information about accessing and interpreting Db2 diagnostic logs, see
-[Amazon RDS for Db2 database log files](USER_LogAccess.Concepts.md "USER_LogAccess.Concepts.md"). For information about Db2
+[Amazon RDS for Db2 database log files](USER_LogAccess.Concepts.Db2.md "USER_LogAccess.Concepts.Db2.md"). For information about Db2
 HADR configuration and troubleshooting, see [Working with replicas for Amazon RDS for Db2](db2-replication.md "db2-replication.md").
 
 If replication errors persist, you might need to recreate the replica.
@@ -94,7 +94,7 @@ If replica performance is poor, review the following suggestions:
 - Monitor the `ReplicaLag` metric in Amazon CloudWatch.
 - Consider scaling up the replica DB instance class.
 
-For information about modifying resources or instance classes, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+For information about modifying resources or instance classes, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md").
 
-For information monitoring replication lag, see [Monitoring replication lag](USER_ReadRepl.md#USER_ReadRepl.Monitoring.Lag "USER_ReadRepl.md#USER_ReadRepl.Monitoring.Lag") and [Amazon CloudWatch metrics for Amazon RDS](rds-metrics.md "rds-metrics.md"). For information about
+For information monitoring replication lag, see [Monitoring replication lag](USER_ReadRepl.Monitoring.md#USER_ReadRepl.Monitoring.Lag "USER_ReadRepl.Monitoring.md#USER_ReadRepl.Monitoring.Lag") and [Amazon CloudWatch metrics for Amazon RDS](rds-metrics.md "rds-metrics.md"). For information about
 setting up CloudWatch alarms for replica lag, see [Monitoring Amazon RDS metrics with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md").

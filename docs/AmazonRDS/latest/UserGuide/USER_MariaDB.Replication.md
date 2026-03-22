@@ -1,33 +1,32 @@
-# Working with MariaDB read replicas
+# Working with MariaDB replication in Amazon RDS
 
-Following, you can find specific information about working with read replicas on
-Amazon RDS for MariaDB. For general information about read replicas and instructions for using
-them, see [Working with DB instance read replicas](USER_ReadRepl.md "USER_ReadRepl.md").
+You usually use read replicas to configure replication between Amazon RDS DB instances. For
+general information about read replicas, see [Working with DB instance read replicas](USER_ReadRepl.md "USER_ReadRepl.md"). For specific information about working with read
+replicas on Amazon RDS for MariaDB, see [Working with MariaDB read replicas](USER_MariaDB.Replication.ReadReplicas.md "USER_MariaDB.Replication.ReadReplicas.md").
 
-- [Configuring replication filters with MariaDB](USER_MariaDB.Replication.ReadReplicas.md "USER_MariaDB.Replication.ReadReplicas.md")
-- [Configuring delayed replication with MariaDB](USER_MariaDB.Replication.ReadReplicas.md "USER_MariaDB.Replication.ReadReplicas.md")
-- [Updating read replicas with MariaDB](USER_MariaDB.Replication.ReadReplicas.md "USER_MariaDB.Replication.ReadReplicas.md")
-- [Working with Multi-AZ read replica deployments with MariaDB](USER_MariaDB.Replication.ReadReplicas.md "USER_MariaDB.Replication.ReadReplicas.md")
-- [Using cascading read replicas with RDS for MariaDB](USER_MariaDB.Replication.ReadReplicas.md "USER_MariaDB.Replication.ReadReplicas.md")
-- [Monitoring MariaDB read replicas](USER_MariaDB.Replication.ReadReplicas.md "USER_MariaDB.Replication.ReadReplicas.md")
-- [Starting and stopping replication with MariaDB read replicas](USER_MariaDB.Replication.ReadReplicas.md "USER_MariaDB.Replication.ReadReplicas.md")
-- [Troubleshooting a MariaDB read replica problem](USER_ReadRepl.Troubleshooting.md "USER_ReadRepl.Troubleshooting.md")
+You can also configure replication based on binary log coordinates for a
+MariaDB DB instance. For MariaDB instances, you can also configure replication based on
+global transaction IDs (GTIDs), which provides better crash safety.
+For more information, see
+[Configuring GTID-based replication with an external source instance](MariaDB.Procedural.Replication.GTID.md "MariaDB.Procedural.Replication.GTID.md").
 
-## Configuring read replicas with MariaDB
+The following are other replication options available with RDS for MariaDB:
 
-Before a MariaDB DB instance can serve as a replication source, make sure to turn on
-automatic backups on the source DB instance by setting the backup retention period
-to a value other than 0. This requirement also applies to a read replica that is the
-source DB instance for another read replica.
+- You can set up replication between an RDS for MariaDB DB instance and a MySQL or
+  MariaDB instance that is external to Amazon RDS. For information about configuring
+  replication with an external source, see [Configuring binary log file position replication with an external source instance](MySQL.Procedural.Importing.External.ReplMariaDB.md "MySQL.Procedural.Importing.External.ReplMariaDB.md").
+- You can configure replication to import databases from a MySQL or MariaDB instance that is external to Amazon RDS, or to export
+  databases to such instances. For more information, see [Importing data to an Amazon RDS for MariaDB DB instance with reduced downtime](mariadb-importing-data-reduced-downtime.md "mariadb-importing-data-reduced-downtime.md") and [Exporting data from a MySQL DB instance by using replication](MySQL.Procedural.Exporting.NonRDSRepl.md "MySQL.Procedural.Exporting.NonRDSRepl.md").
+  For any of these replication options, you can use either row-based replication, statement-based, or mixed replication. Row-based replication
+  only replicates the changed rows that result from a SQL statement. Statement-based replication replicates the entire SQL statement. Mixed replication
+  uses statement-based replication when possible, but switches to row-based replication when SQL statements that are unsafe for statement-based replication
+  are run. In most cases, mixed replication is recommended. The binary log format of the DB instance determines whether replication is row-based,
+  statement-based, or mixed. For information about setting the binary log format, see [Configuring MariaDB binary logging](USER_LogAccess.MariaDB.BinaryFormat.md "USER_LogAccess.MariaDB.BinaryFormat.md").
 
-You can create up to 15 read replicas from one DB instance within the same Region. For replication to operate
-effectively, each read replica should have as the same amount of compute and storage
-resources as the source DB instance. If you scale the source DB instance, also scale
-the read replicas.
+For information about replication compatibility between MariaDB versions, see [Replication Compatibility](https://mariadb.com/kb/en/mariadb-vs-mysql-compatibility/#replication-compatibility "https://mariadb.com/kb/en/mariadb-vs-mysql-compatibility/#replication-compatibility") in the MariaDB documentation.
 
-RDS for MariaDB supports cascading read replicas. To learn how to configure cascading read replicas,
-see [Using cascading read replicas with RDS for MariaDB](USER_MariaDB.Replication.ReadReplicas.md "USER_MariaDB.Replication.ReadReplicas.md").
+###### Topics
 
-You can run multiple read replica create and delete actions at the same time that reference
-the same source DB instance. When you perform these actions, stay within the limit of 15 read replicas
-for each source instance.
+- [Working with MariaDB read replicas](USER_MariaDB.Replication.ReadReplicas.md "USER_MariaDB.Replication.ReadReplicas.md")
+- [Configuring GTID-based replication with an external source instance](MariaDB.Procedural.Replication.GTID.md "MariaDB.Procedural.Replication.GTID.md")
+- [Configuring binary log file position replication with an external source instance](MySQL.Procedural.Importing.External.ReplMariaDB.md "MySQL.Procedural.Importing.External.ReplMariaDB.md")

@@ -26,7 +26,7 @@ Keep in mind the following important limitations:
   The following options are supported by the Preview.
 
 - You can create DB instances using M6i, R6i, M6g, M5, T3, R6g, and R5 instance
-  types only. For more information about RDS instance classes, see [DB instance classes](Concepts.md "Concepts.md").
+  types only. For more information about RDS instance classes, see [DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
 - You can use both single-AZ and multi-AZ deployments.
 - You can use standard PostgreSQL dump and load functions to export databases
   from or import databases to the Database Preview Environment.

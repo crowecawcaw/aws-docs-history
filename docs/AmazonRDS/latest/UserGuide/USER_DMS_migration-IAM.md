@@ -21,8 +21,8 @@ You need the following IAM resources for this process:
 
 - [Creating an IAM policy for homogeneous data migrations](#USER_DMS_migration-IAM.iam-policy "#USER_DMS_migration-IAM.iam-policy")
 - [Creating an IAM role for homogeneous data migrations](#USER_DMS_migration-IAM.iam-role "#USER_DMS_migration-IAM.iam-role")
-- [Creating a secret access policy and role](USER_DMS_migration-IAM.md "USER_DMS_migration-IAM.md")
-- [Creating an IAM role for AWS DMS to manage Amazon VPC](USER_DMS_migration-IAM.md "USER_DMS_migration-IAM.md")
+- [Creating a secret access policy and role](USER_DMS_migration-IAM.secret-iam-role-policy.md "USER_DMS_migration-IAM.secret-iam-role-policy.md")
+- [Creating an IAM role for AWS DMS to manage Amazon VPC](USER_DMS_migration-IAM.dms-vpc-role.md "USER_DMS_migration-IAM.dms-vpc-role.md")
 
 ## Creating an IAM policy for homogeneous data migrations
 

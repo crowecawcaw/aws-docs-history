@@ -68,7 +68,7 @@ one second or less. For more information, see [Amazon RDS Proxy](rds-proxy.md "r
 ## Upgrading a Multi-AZ DB cluster
 
 The process for upgrading the engine version of a Multi-AZ DB cluster is the same as the process for
-upgrading a DB instance engine version. For instructions, see [Upgrading a DB instance engine version](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md"). The only difference is that when using
+upgrading a DB instance engine version. For instructions, see [Upgrading a DB instance engine version](USER_UpgradeDBInstance.Upgrading.md "USER_UpgradeDBInstance.Upgrading.md"). The only difference is that when using
 the AWS Command Line Interface (AWS CLI), you use the [modify-db-cluster](../../../cli/latest/reference/rds/modify-db-cluster.md "../../../cli/latest/reference/rds/modify-db-cluster.md") command and specify the
 `--db-cluster-identifier` parameter (along with the
 `--allow-major-version-upgrade` parameter).
@@ -76,8 +76,8 @@ the AWS Command Line Interface (AWS CLI), you use the [modify-db-cluster](../../
 For more information about major and minor version upgrades, see the following
 documentation for your DB engine:
 
-- [Upgrades of the RDS for PostgreSQL DB engine](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md")
-- [Upgrades of the RDS for MySQL DB engine](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md")
+- [Upgrades of the RDS for PostgreSQL DB engine](USER_UpgradeDBInstance.PostgreSQL.md "USER_UpgradeDBInstance.PostgreSQL.md")
+- [Upgrades of the RDS for MySQL DB engine](USER_UpgradeDBInstance.MySQL.md "USER_UpgradeDBInstance.MySQL.md")
 
 ## Upgrading Multi-AZ DB cluster read replicas
 
@@ -87,7 +87,7 @@ read replicas and then upgrade the cluster. Otherwise, the upgrade is blocked. W
 perform a _major_ version upgrade of a cluster, the replication state
 of all read replicas changes to **terminated**. You must
 delete and recreate the read replicas after the upgrade completes. For more information,
-see [Monitoring read replication](USER_ReadRepl.md "USER_ReadRepl.md").
+see [Monitoring read replication](USER_ReadRepl.Monitoring.md "USER_ReadRepl.Monitoring.md").
 
 ## Monitoring Multi-AZ DB cluster upgrades with events
 
@@ -95,4 +95,4 @@ When you upgrade the engine version of a Multi-AZ DB cluster, Amazon RDS emits a
 
 For more information about RDS events, see [Monitoring Amazon RDS events](working-with-events.md "working-with-events.md").
 
-For detailed information about a specific Amazon RDS event that occurs during your engine upgrade, see [Amazon RDS event categories and event messages](USER_Events.md "USER_Events.md").
+For detailed information about a specific Amazon RDS event that occurs during your engine upgrade, see [Amazon RDS event categories and event messages](USER_Events.Messages.md "USER_Events.Messages.md").

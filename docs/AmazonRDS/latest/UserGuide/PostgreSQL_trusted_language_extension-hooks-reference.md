@@ -30,7 +30,7 @@ specified user by hashing the password before transparently using the`ALTER ROLE
 wrapper for the`ALTER ROLE ... PASSWORD`command, thus the hook
 applies to the behavior of the`psql` metacommand.
 
-For an example, see [Password-check hook code listing](PostgreSQL_trusted_language_extension.overview.md#PostgreSQL_trusted_language_extension-example-hook_code_listing "PostgreSQL_trusted_language_extension.overview.md#PostgreSQL_trusted_language_extension-example-hook_code_listing").
+For an example, see [Password-check hook code listing](PostgreSQL_trusted_language_extension.overview.tles-and-hooks.md#PostgreSQL_trusted_language_extension-example-hook_code_listing "PostgreSQL_trusted_language_extension.overview.tles-and-hooks.md#PostgreSQL_trusted_language_extension-example-hook_code_listing").
 
 ###### Contents
 

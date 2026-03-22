@@ -140,7 +140,7 @@ API.
    immediately** to apply the changes immediately. Choosing this
    option doesn't cause downtime, but there is a possible performance
    impact. Alternatively, you can choose to apply the update during the
-   next maintenance window. For more information, see [Using the schedule modifications setting](USER_ModifyInstance.md "USER_ModifyInstance.md").
+   next maintenance window. For more information, see [Using the schedule modifications setting](USER_ModifyInstance.ApplyImmediately.md "USER_ModifyInstance.ApplyImmediately.md").
 6. On the **Confirmation** page, choose
    **Convert to Multi-AZ**.
 
@@ -149,7 +149,7 @@ API.
 To convert to a Multi-AZ DB instance deployment by using the AWS CLI, call the
 [modify-db-instance](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md") command and set the `--multi-az` option.
 Specify the DB instance identifier and the values for other options that you
-want to modify. For information about each option, see [Settings for DB instances](USER_ModifyInstance.md "USER_ModifyInstance.md").
+want to modify. For information about each option, see [Settings for DB instances](USER_ModifyInstance.Settings.md "USER_ModifyInstance.Settings.md").
 
 ###### Example
 
@@ -157,7 +157,7 @@ The following code modifies `mycustomdbinstance` by including
 the `--multi-az` option. The changes are applied during the next
 maintenance window by using `--no-apply-immediately`. Use
 `--apply-immediately` to apply the changes immediately. For more
-information, see [Using the schedule modifications setting](USER_ModifyInstance.md "USER_ModifyInstance.md").
+information, see [Using the schedule modifications setting](USER_ModifyInstance.ApplyImmediately.md "USER_ModifyInstance.ApplyImmediately.md").
 
 For Linux, macOS, or Unix:
 

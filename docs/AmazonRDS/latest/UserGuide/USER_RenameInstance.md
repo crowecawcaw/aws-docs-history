@@ -50,7 +50,7 @@ the DB instance. In these cases, you would do the following:
 If you delete the old primary DB instance, you are responsible for deleting any unwanted DB
 snapshots of the old primary DB instance.
 
-For information about promoting a read replica, see [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.md "USER_ReadRepl.md").
+For information about promoting a read replica, see [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.Promote.md "USER_ReadRepl.Promote.md").
 
 ###### Important
 
@@ -69,7 +69,7 @@ AlwaysOn or Mirroring option enabled, a failover is expected when instance is re
 6. Choose **Continue**.
 7. To apply the changes immediately, choose **Apply immediately**. Choosing
    this option can cause an outage in some cases. For more information, see
-   [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+   [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md").
 8. On the confirmation page, review your changes.
    If they are correct, choose **Modify DB Instance**
    to save your changes.

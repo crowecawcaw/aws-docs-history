@@ -168,7 +168,7 @@ If disabling parallelism yields better or more consistent results, consider
 disabling it for specific queries at the session level using SET commands. For a
 broader impact, you might want to disable parallelism at the instance level by
 adjusting the relevant parameters in your DB parameter group.
-For more information, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+For more information, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 ### Monitor parallel query usage
 

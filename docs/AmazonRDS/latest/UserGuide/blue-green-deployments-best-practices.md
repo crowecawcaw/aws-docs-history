@@ -95,7 +95,7 @@ Consider the following general best practices when you create a blue/green deplo
 from an RDS for PostgreSQL DB instance.
 
 - Update all of your PostgreSQL extensions to the latest version before you create a
-  blue/green deployment. For more information, see [Upgrading PostgreSQL extensions in RDS for PostgreSQL databases](USER_UpgradeDBInstance.PostgreSQL.md "USER_UpgradeDBInstance.PostgreSQL.md").
+  blue/green deployment. For more information, see [Upgrading PostgreSQL extensions in RDS for PostgreSQL databases](USER_UpgradeDBInstance.PostgreSQL.ExtensionUpgrades.md "USER_UpgradeDBInstance.PostgreSQL.ExtensionUpgrades.md").
 - Long-running transactions can cause significant replica lag. To reduce replica
   lag, consider doing the following:
   - Reduce long-running transactions that can be delayed until after the green
@@ -106,7 +106,7 @@ from an RDS for PostgreSQL DB instance.
     blue/green deployment.
   - For PostgreSQL version 12 and higher, disable the `index_cleanup`
     parameter on large or busy tables to increase the rate of normal maintenance on
-    blue databases. For more information, see [Vacuuming a table as quickly as possible](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum.LargeIndexes.Executing "Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum.LargeIndexes.Executing").
+    blue databases. For more information, see [Vacuuming a table as quickly as possible](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.LargeIndexes.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum.LargeIndexes.Executing "Appendix.PostgreSQL.CommonDBATasks.Autovacuum.LargeIndexes.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum.LargeIndexes.Executing").
 
   ###### Note
 
@@ -128,7 +128,7 @@ from an RDS for PostgreSQL DB instance.
 #### RDS for PostgreSQL best practices for blue/green deployments with physical replication
 
 With physical replication, Amazon RDS creates a read replica of the source DB instance. For
-related parameters, monitoring, tuning, and troubleshooting, see [Working with read replicas for Amazon RDS for PostgreSQL](USER_PostgreSQL.Replication.md "USER_PostgreSQL.Replication.md").
+related parameters, monitoring, tuning, and troubleshooting, see [Working with read replicas for Amazon RDS for PostgreSQL](USER_PostgreSQL.Replication.ReadReplicas.md "USER_PostgreSQL.Replication.ReadReplicas.md").
 
 For an explanation of when blue/green deployments use physical replication instead of
 logical replication, see [PostgreSQL replication methods for blue/green deployments](blue-green-deployments-replication-type.md "blue-green-deployments-replication-type.md").
@@ -168,7 +168,7 @@ replication instead of physical replication, see [PostgreSQL replication methods
   `ANALYZE` operation on all databases to refresh the
   `pg_statistic` table. Optimizer statistics aren't transferred during a
   major version upgrade, so you must regenerate all statistics to avoid performance
-  issues. For additional best practices during major version upgrades, see [How to perform a major version upgrade for RDS for PostgreSQL](USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md "USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md").
+  issues. For additional best practices during major version upgrades, see [How to perform a major version upgrade for RDS for PostgreSQL](USER_UpgradeDBInstance.PostgreSQL.MajorVersion.Process.md "USER_UpgradeDBInstance.PostgreSQL.MajorVersion.Process.md").
 - Avoid configuring triggers as `ENABLE REPLICA` or `ENABLE
 ALWAYS` if the trigger is used on the source to manipulate data. Otherwise, the
   replication system propagates changes and executes the trigger, which leads to

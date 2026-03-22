@@ -17,7 +17,7 @@ kinit `username`
 Replace `username` with the user name and, at the prompt, enter the password stored in the
 Microsoft Active Directory for the user. 2. Open SQL\*Plus and connect using the DNS name and port number for the Oracle DB instance.
 
-For more information about connecting to an Oracle DB instance in SQL\*Plus, see [Connecting to your DB instance using SQL\*Plus](USER_ConnectToOracleInstance.md "USER_ConnectToOracleInstance.md").
+For more information about connecting to an Oracle DB instance in SQL\*Plus, see [Connecting to your DB instance using SQL\*Plus](USER_ConnectToOracleInstance.SQLPlus.md "USER_ConnectToOracleInstance.SQLPlus.md").
 
 ###### Tip
 

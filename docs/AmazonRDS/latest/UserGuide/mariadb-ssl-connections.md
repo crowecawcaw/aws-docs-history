@@ -14,7 +14,7 @@ instances on Amazon RDS.
 
 ###### Topics
 
-- [SSL/TLS support for MariaDB DB instances on Amazon RDS](MariaDB.Concepts.md "MariaDB.Concepts.md")
-- [Requiring SSL/TLS for specific user accounts to a MariaDB DB instance on Amazon RDS](MariaDB-ssl-connections.md "MariaDB-ssl-connections.md")
-- [Requiring SSL/TLS for all connections to a MariaDB DB instance on Amazon RDS](mariadb-ssl-connections.md "mariadb-ssl-connections.md")
-- [Connecting to your MariaDB DB instance on Amazon RDS with SSL/TLS from the MySQL command-line client (encrypted)](USER_ConnectToMariaDBInstanceSSL.md "USER_ConnectToMariaDBInstanceSSL.md")
+- [SSL/TLS support for MariaDB DB instances on Amazon RDS](MariaDB.Concepts.SSLSupport.md "MariaDB.Concepts.SSLSupport.md")
+- [Requiring SSL/TLS for specific user accounts to a MariaDB DB instance on Amazon RDS](MariaDB-ssl-connections.require-ssl-users.md "MariaDB-ssl-connections.require-ssl-users.md")
+- [Requiring SSL/TLS for all connections to a MariaDB DB instance on Amazon RDS](mariadb-ssl-connections.require-ssl.md "mariadb-ssl-connections.require-ssl.md")
+- [Connecting to your MariaDB DB instance on Amazon RDS with SSL/TLS from the MySQL command-line client (encrypted)](USER_ConnectToMariaDBInstanceSSL.CLI.md "USER_ConnectToMariaDBInstanceSSL.CLI.md")

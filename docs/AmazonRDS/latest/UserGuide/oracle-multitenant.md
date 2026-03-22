@@ -6,13 +6,13 @@ documentation.
 
 ###### Topics
 
-- [Overview of RDS for Oracle CDBs](Oracle.Concepts.md "Oracle.Concepts.md")
-- [Configuring an RDS for Oracle CDB](oracle-cdb.md "oracle-cdb.md")
-- [Backing up and restoring a CDB](Oracle.Concepts.single-tenant.md "Oracle.Concepts.single-tenant.md")
+- [Overview of RDS for Oracle CDBs](Oracle.Concepts.CDBs.md "Oracle.Concepts.CDBs.md")
+- [Configuring an RDS for Oracle CDB](oracle-cdb.configuring.md "oracle-cdb.configuring.md")
+- [Backing up and restoring a CDB](Oracle.Concepts.single-tenant.snapshots.md "Oracle.Concepts.single-tenant.snapshots.md")
 - [Converting an RDS for Oracle non-CDB to a CDB](oracle-cdb-converting.md "oracle-cdb-converting.md")
 - [Converting the single-tenant configuration to multi-tenant](oracle-single-tenant-converting.md "oracle-single-tenant-converting.md")
-- [Adding an RDS for Oracle tenant database to your CDB instance](oracle-cdb-configuring.adding.md "oracle-cdb-configuring.adding.md")
-- [Modifying an RDS for Oracle tenant database](oracle-cdb-configuring.modifying.md "oracle-cdb-configuring.modifying.md")
-- [Deleting an RDS for Oracle tenant database from your CDB](oracle-cdb-configuring.deleting.md "oracle-cdb-configuring.deleting.md")
-- [Viewing tenant database details](oracle-cdb-configuring.describing.md "oracle-cdb-configuring.describing.md")
-- [Upgrading your CDB](Oracle.Concepts.single-tenant.md "Oracle.Concepts.single-tenant.md")
+- [Adding an RDS for Oracle tenant database to your CDB instance](oracle-cdb-configuring.adding.pdb.md "oracle-cdb-configuring.adding.pdb.md")
+- [Modifying an RDS for Oracle tenant database](oracle-cdb-configuring.modifying.pdb.md "oracle-cdb-configuring.modifying.pdb.md")
+- [Deleting an RDS for Oracle tenant database from your CDB](oracle-cdb-configuring.deleting.pdb.md "oracle-cdb-configuring.deleting.pdb.md")
+- [Viewing tenant database details](oracle-cdb-configuring.describing.pdb.md "oracle-cdb-configuring.describing.pdb.md")
+- [Upgrading your CDB](Oracle.Concepts.single-tenant.upgrades.md "Oracle.Concepts.single-tenant.upgrades.md")

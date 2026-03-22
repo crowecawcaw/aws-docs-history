@@ -21,9 +21,9 @@ versions:
 
 - [Overview of global transaction identifiers (GTIDs)](#mysql-replication-gtid.overview "#mysql-replication-gtid.overview")
 - [Parameters for GTID-based replication](#mysql-replication-gtid.parameters "#mysql-replication-gtid.parameters")
-- [Enabling GTID-based replication for new read replicas for RDS for MySQL](mysql-replication-gtid.md "mysql-replication-gtid.md")
-- [Enabling GTID-based replication for existing read replicas for RDS for MySQL](mysql-replication-gtid.md "mysql-replication-gtid.md")
-- [Disabling GTID-based replication for a MySQL DB instance with read replicas](mysql-replication-gtid.md "mysql-replication-gtid.md")
+- [Enabling GTID-based replication for new read replicas for RDS for MySQL](mysql-replication-gtid.configuring-new-read-replicas.md "mysql-replication-gtid.configuring-new-read-replicas.md")
+- [Enabling GTID-based replication for existing read replicas for RDS for MySQL](mysql-replication-gtid.configuring-existing-read-replicas.md "mysql-replication-gtid.configuring-existing-read-replicas.md")
+- [Disabling GTID-based replication for a MySQL DB instance with read replicas](mysql-replication-gtid.disabling.md "mysql-replication-gtid.disabling.md")
 
 ## Overview of global transaction identifiers (GTIDs)
 
@@ -47,7 +47,7 @@ read replicas. You can configure GTID-based replication when you are creating ne
 convert existing read replicas to use GTID-based replication.
 
 You can also use GTID-based replication in a delayed replication configuration with RDS for MySQL. For more information,
-see [Configuring delayed replication with MySQL](USER_MySQL.Replication.ReadReplicas.md "USER_MySQL.Replication.ReadReplicas.md").
+see [Configuring delayed replication with MySQL](USER_MySQL.Replication.ReadReplicas.DelayReplication.md "USER_MySQL.Replication.ReadReplicas.DelayReplication.md").
 
 ## Parameters for GTID-based replication
 

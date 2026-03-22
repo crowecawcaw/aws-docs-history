@@ -16,7 +16,7 @@ the Amazon RDS database. Configure replication based on binary log coordinates.
 
 If you want to import data into an RDS for MySQL DB instance and your scenario supports
 it, we recommend moving data in and out of Amazon RDS by using backup files and Amazon S3. For
-more information, see [Restoring a backup into an Amazon RDS for MySQL DB instance](MySQL.Procedural.md "MySQL.Procedural.md").
+more information, see [Restoring a backup into an Amazon RDS for MySQL DB instance](MySQL.Procedural.Importing.md "MySQL.Procedural.Importing.md").
 
 The following diagram shows importing an external MySQL database into a MySQL database on
 Amazon RDS.
@@ -410,7 +410,7 @@ database.
    of this process, decide what is sufficient space and processing capacity for
    your data load procedures. Also, decide what is required to handle the
    production workload. You can estimate this based on the size and resources
-   of the source MySQL database. For more information, see [DB instance classes](Concepts.md "Concepts.md").
+   of the source MySQL database. For more information, see [DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
 2. Create a DB instance or Multi-AZ DB cluster in the AWS Region that contains your Amazon EC2
    instance.
 
@@ -695,4 +695,4 @@ CALL mysql.rds_reset_external_master;
 ```
 
 8. Turn on additional Amazon RDS features such as Multi-AZ support and read
-   replicas. For more information, see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.md "Concepts.md") and [Working with DB instance read replicas](USER_ReadRepl.md "USER_ReadRepl.md").
+   replicas. For more information, see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.MultiAZ.md "Concepts.MultiAZ.md") and [Working with DB instance read replicas](USER_ReadRepl.md "USER_ReadRepl.md").

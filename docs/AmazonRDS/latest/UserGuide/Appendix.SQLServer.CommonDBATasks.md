@@ -1,51 +1,34 @@
-# Working with Amazon RDS for Microsoft SQL Server logs
+# Common DBA tasks for Amazon RDS for Microsoft SQL Server
 
-You can use the Amazon RDS console to view, watch, and download SQL Server Agent logs, Microsoft SQL Server error logs, and SQL Server
-Reporting Services (SSRS) logs.
+This section describes the Amazon RDS-specific implementations of some common DBA tasks for DB
+instances that are running the Microsoft SQL Server database engine. In order to deliver a
+managed service experience, Amazon RDS does not provide shell access to DB instances, and it
+restricts access to certain system procedures and tables that require advanced privileges.
 
-## Watching log files
+###### Note
 
-If you view a log in the Amazon RDS console, you can see its contents as they exist at that
-moment. Watching a log in the console opens it in a dynamic state so that you can
-see updates to it in near-real time.
+When working with a SQL Server DB instance, you can run scripts to modify a newly
+created database, but you cannot modify the [model] database, the database used as the
+model for new databases.
 
-Only the latest log is active for watching. For example, suppose you have the following
-logs shown:
+###### Topics
 
-![An image of the Logs section from the Amazon RDS console with an error log selected.](images/logs_sqlserver.png)
-
-Only log/ERROR, as the most recent log, is being actively updated. You can choose to watch
-others, but they are static and will not update.
-
-## Archiving log files
-
-The Amazon RDS console shows logs for the past week through the current day. You can download
-and archive logs to keep them for reference past that time. One way to archive logs
-is to load them into an Amazon S3 bucket. For instructions on how to set up an Amazon S3
-bucket and upload a file, see [Amazon S3
-basics](../../../AmazonS3/latest/userguide/AmazonS3Basics.md "../../../AmazonS3/latest/userguide/AmazonS3Basics.md") in the _Amazon Simple Storage Service Getting Started Guide_ and
-click **Get Started**.
-
-## Viewing error and agent logs
-
-To view Microsoft SQL Server error and agent logs, use the Amazon RDS stored procedure `rds_read_error_log` with the
-following parameters:
-
-- **`@index`** – the version
-  of the log to retrieve. The default value is 0, which retrieves the current
-  error log. Specify 1 to retrieve the previous log, specify 2 to retrieve the
-  one before that, and so on.
-- **`@type`** – the type of
-  log to retrieve. Specify 1 to retrieve an error log. Specify 2 to retrieve
-  an agent log.
-
-###### Example
-
-The following example requests the current error log.
-
-```
-EXEC rdsadmin.dbo.rds_read_error_log @index = `0`, @type = `1`;
-```
-
-For more information on SQL Server errors, see [Database
-engine errors](https://docs.microsoft.com/en-us/sql/relational-databases/errors-events/database-engine-events-and-errors "https://docs.microsoft.com/en-us/sql/relational-databases/errors-events/database-engine-events-and-errors") in the Microsoft documentation.
+- [Accessing the tempdb database on Microsoft SQL Server DB instances on Amazon RDS](SQLServer.TempDB.md "SQLServer.TempDB.md")
+- [Analyzing your database workload on an Amazon RDS for SQL Server DB instance with Database Engine Tuning Advisor](Appendix.SQLServer.CommonDBATasks.Workload.md "Appendix.SQLServer.CommonDBATasks.Workload.md")
+- [Changing the db_owner to the rdsa account for your Amazon RDS for SQL Server database](Appendix.SQLServer.CommonDBATasks.ChangeDBowner.md "Appendix.SQLServer.CommonDBATasks.ChangeDBowner.md")
+- [Managing collations and character sets for Amazon RDS for Microsoft SQL Server](Appendix.SQLServer.CommonDBATasks.Collation.md "Appendix.SQLServer.CommonDBATasks.Collation.md")
+- [Creating a database user for Amazon RDS for SQL Server](Appendix.SQLServer.CommonDBATasks.CreateUser.md "Appendix.SQLServer.CommonDBATasks.CreateUser.md")
+- [Determining a recovery model for your Amazon RDS for SQL Server database](Appendix.SQLServer.CommonDBATasks.DatabaseRecovery.md "Appendix.SQLServer.CommonDBATasks.DatabaseRecovery.md")
+- [Determining the last failover time for Amazon RDS for SQL Server](Appendix.SQLServer.CommonDBATasks.LastFailover.md "Appendix.SQLServer.CommonDBATasks.LastFailover.md")
+- [Troubleshooting point-in-time-recovery failures due to a log sequence number gap](Appendix.SQLServer.CommonDBATasks.PITR-LSN-Gaps.md "Appendix.SQLServer.CommonDBATasks.PITR-LSN-Gaps.md")
+- [Deny or allow viewing database names for Amazon RDS for SQL Server](Appendix.SQLServer.CommonDBATasks.ManageView.md "Appendix.SQLServer.CommonDBATasks.ManageView.md")
+- [Disabling fast inserts during bulk loading for Amazon RDS for SQL Server](Appendix.SQLServer.CommonDBATasks.DisableFastInserts.md "Appendix.SQLServer.CommonDBATasks.DisableFastInserts.md")
+- [Dropping a database in an Amazon RDS for Microsoft SQL Server DB instance](Appendix.SQLServer.CommonDBATasks.DropMirrorDB.md "Appendix.SQLServer.CommonDBATasks.DropMirrorDB.md")
+- [Renaming a Amazon RDS for Microsoft SQL Server database in a Multi-AZ deployment](Appendix.SQLServer.CommonDBATasks.RenamingDB.md "Appendix.SQLServer.CommonDBATasks.RenamingDB.md")
+- [Resetting the db_owner role membership for master user for Amazon RDS for SQL Server](Appendix.SQLServer.CommonDBATasks.ResetPassword.md "Appendix.SQLServer.CommonDBATasks.ResetPassword.md")
+- [Restoring license-terminated DB instances for Amazon RDS for SQL Server](Appendix.SQLServer.CommonDBATasks.RestoreLTI.md "Appendix.SQLServer.CommonDBATasks.RestoreLTI.md")
+- [Transitioning a Amazon RDS for SQL Server database from OFFLINE to ONLINE](Appendix.SQLServer.CommonDBATasks.TransitionOnline.md "Appendix.SQLServer.CommonDBATasks.TransitionOnline.md")
+- [Using change data capture for Amazon RDS for SQL Server](Appendix.SQLServer.CommonDBATasks.CDC.md "Appendix.SQLServer.CommonDBATasks.CDC.md")
+- [Using SQL Server Agent for Amazon RDS](Appendix.SQLServer.CommonDBATasks.Agent.md "Appendix.SQLServer.CommonDBATasks.Agent.md")
+- [Working with Amazon RDS for Microsoft SQL Server logs](Appendix.SQLServer.CommonDBATasks.Logs.md "Appendix.SQLServer.CommonDBATasks.Logs.md")
+- [Working with trace and dump files for Amazon RDS for SQL Server](Appendix.SQLServer.CommonDBATasks.TraceFiles.md "Appendix.SQLServer.CommonDBATasks.TraceFiles.md")

@@ -95,9 +95,9 @@ Regions.
 You can stop and start a DB instance in a Multi-AZ deployment. Note the following limitations:
 
 - You can only create a Multi-AZ deployment if your database engine supports it. For more
-  information about engine support, see [Supported Regions and DB engines for Multi-AZ DB clusters in Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
+  information about engine support, see [Supported Regions and DB engines for Multi-AZ DB clusters in Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.MultiAZDBClusters.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.MultiAZDBClusters.md").
 - RDS for SQL Server doesn't support stopping a DB instance in a Multi-AZ deployment. For more information,
-  see [Microsoft SQL Server Multi-AZ deployment limitations, notes, and recommendations](USER_SQLServerMultiAZ.md "USER_SQLServerMultiAZ.md").
+  see [Microsoft SQL Server Multi-AZ deployment limitations, notes, and recommendations](USER_SQLServerMultiAZ.Recommendations.md "USER_SQLServerMultiAZ.Recommendations.md").
 - A long time might be required to stop a DB instance.
 
 ## How stopping a DB instance works
@@ -169,7 +169,7 @@ The following are some limitations of the stopping operation:
   - The primary and secondary Availability Zones might be switched after
     you start the DB instance.
 
-Additional limitations apply to RDS Custom for SQL Server. For more information, see [Starting and stopping an RDS Custom for SQL Server DB instance](custom-managing-sqlserver.md "custom-managing-sqlserver.md").
+Additional limitations apply to RDS Custom for SQL Server. For more information, see [Starting and stopping an RDS Custom for SQL Server DB instance](custom-managing-sqlserver.startstop.md "custom-managing-sqlserver.startstop.md").
 
 ## Option and parameter group considerations
 

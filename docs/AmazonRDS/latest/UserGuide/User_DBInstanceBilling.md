@@ -6,7 +6,7 @@ Amazon RDS instances are billed based on the following components:
   instance (for example, db.t2.small or db.m4.large). Pricing is listed on a per-hour
   basis, but bills are calculated down to the second and show times in decimal form.
   RDS usage is billed in 1-second increments, with a minimum of 10 minutes. For more
-  information, see [DB instance classes](Concepts.md "Concepts.md").
+  information, see [DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
 - Storage (per GiB per month) – Storage capacity that you have provisioned to your DB instance. If you scale your provisioned
   storage capacity within the month, your bill is prorated. For more information, see [Amazon RDS DB instance storage](CHAP_Storage.md "CHAP_Storage.md").
 - Input/output (I/O) requests (per 1 million requests) – Total number of storage I/O requests that you have made in a billing
@@ -21,7 +21,7 @@ Amazon RDS instances are billed based on the following components:
   by your database. Per second billing doesn't apply to backup storage (metered
   in GB-month).
 
-For more information, see [Backing up, restoring, and exporting data](CHAP_CommonTasks.md "CHAP_CommonTasks.md").
+For more information, see [Backing up, restoring, and exporting data](CHAP_CommonTasks.BackupRestore.md "CHAP_CommonTasks.BackupRestore.md").
 
 - Data transfer (per GB) – Data transfer in and out of your DB instance from
   or to the internet and other AWS Regions. For useful examples, see the AWS blog

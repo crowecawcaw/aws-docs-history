@@ -7,7 +7,7 @@ assign this to a user to manage other extensions. This role can create, update, 
 extensions.
 
 You can specify the extensions that can be installed on your RDS DB instance, by listing them in
-the `rds.allowed_extensions` parameter. For more information, see [Using PostgreSQL extensions with Amazon RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md").
+the `rds.allowed_extensions` parameter. For more information, see [Using PostgreSQL extensions with Amazon RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Extensions.md "Appendix.PostgreSQL.CommonDBATasks.Extensions.md").
 
 You can restrict the list of extensions available that can be managed by the user with the
 `rds_extension` role using `rds.allowed_delegated_extensions`

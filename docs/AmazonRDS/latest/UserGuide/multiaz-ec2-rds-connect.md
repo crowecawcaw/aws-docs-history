@@ -6,7 +6,7 @@ use a SQL client on your EC2 instance to connect to your Multi-AZ DB cluster. Th
 applications that access your private Multi-AZ DB cluster.
 
 ![Automatically connect a Multi-AZ DB cluster with an EC2 instance.](images/multi-az-ec2-connect-overview.png)
-If you want to connect to an EC2 instance that isn't in the same VPC as the Multi-AZ DB cluster, see the scenarios in [Scenarios for accessing a DB instance in a VPC](USER_VPC.md "USER_VPC.md").
+If you want to connect to an EC2 instance that isn't in the same VPC as the Multi-AZ DB cluster, see the scenarios in [Scenarios for accessing a DB instance in a VPC](USER_VPC.Scenarios.md "USER_VPC.Scenarios.md").
 
 ###### Topics
 

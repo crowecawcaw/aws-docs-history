@@ -29,9 +29,9 @@ procedures in a development or staging environment before implementing them in y
 production environments.
 
 For more information about certificate rotation, see
-[Rotating your SSL/TLS certificate](UsingWithRDS.md "UsingWithRDS.md").
-For more information about downloading certificates, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.md "UsingWithRDS.md") . For information about
-using SSL/TLS with MySQL DB instances, see [SSL/TLS support for MySQL DB instances on Amazon RDS](MySQL.Concepts.md "MySQL.Concepts.md").
+[Rotating your SSL/TLS certificate](UsingWithRDS.SSL-certificate-rotation.md "UsingWithRDS.SSL-certificate-rotation.md").
+For more information about downloading certificates, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.SSL.md "UsingWithRDS.SSL.md") . For information about
+using SSL/TLS with MySQL DB instances, see [SSL/TLS support for MySQL DB instances on Amazon RDS](MySQL.Concepts.SSLSupport.md "MySQL.Concepts.SSLSupport.md").
 
 ###### Topics
 
@@ -124,9 +124,9 @@ mysql -h mysql-database.rds.amazonaws.com -uadmin -ppassword --ssl-ca=/tmp/`ssl-
 For information about updating the trust store for MySQL applications, see
 [Installing SSL certificates](https://dev.mysql.com/doc/mysql-monitor/8.0/en/mem-ssl-installation.html "https://dev.mysql.com/doc/mysql-monitor/8.0/en/mem-ssl-installation.html") in the MySQL documentation.
 
-For information about downloading the root certificate, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.md "UsingWithRDS.md") .
+For information about downloading the root certificate, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.SSL.md "UsingWithRDS.SSL.md") .
 
-For sample scripts that import certificates, see [Sample script for importing certificates into your trust store](UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-sample-script "UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-sample-script").
+For sample scripts that import certificates, see [Sample script for importing certificates into your trust store](UsingWithRDS.SSL-certificate-rotation.md#UsingWithRDS.SSL-certificate-rotation-sample-script "UsingWithRDS.SSL-certificate-rotation.md#UsingWithRDS.SSL-certificate-rotation-sample-script").
 
 ###### Note
 
@@ -217,6 +217,6 @@ public class MySQLSSLTest {
 
 After you have determined that your database connections use SSL/TLS and have
 updated your application trust store, you can update your database to use the
-rds-ca-rsa2048-g1 certificates. For instructions, see step 3 in [Updating your CA certificate by modifying your DB instance or cluster](UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-updating "UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-updating").
+rds-ca-rsa2048-g1 certificates. For instructions, see step 3 in [Updating your CA certificate by modifying your DB instance or cluster](UsingWithRDS.SSL-certificate-rotation.md#UsingWithRDS.SSL-certificate-rotation-updating "UsingWithRDS.SSL-certificate-rotation.md#UsingWithRDS.SSL-certificate-rotation-updating").
 
 Specify a password other than the prompt shown here as a security best practice.

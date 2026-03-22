@@ -1,4 +1,4 @@
-# Choosing the new monitoring view from the Performance Insights page
+# Viewing combined metrics with the Performance Insights dashboard
 
 ###### Important
 
@@ -9,7 +9,7 @@ Performance Insights API will appear in your AWS bill with the cost of CloudWatc
 We recommend that you upgrade any DB instances
 using the paid tier of Performance Insights to the Advanced mode of Database Insights before June 30, 2026.
 For information about upgrading to the Advanced mode of Database Insights, see
-[Turning on the Advanced mode of Database Insights for Amazon RDS](USER_DatabaseInsights.md "USER_DatabaseInsights.md").
+[Turning on the Advanced mode of Database Insights for Amazon RDS](USER_DatabaseInsights.TurningOnAdvanced.md "USER_DatabaseInsights.TurningOnAdvanced.md").
 
 If you take no action, DB instances using Performance Insights
 will default to using the Standard mode of Database Insights. With Standard mode of Database Insights, you might lose access to performance data history beyond 7 days and might not be able to use execution plans
@@ -19,14 +19,24 @@ With CloudWatch Database Insights, you can monitor database load for your fleet 
 For more information about Database Insights, see [Monitoring Amazon RDS databases with CloudWatch Database Insights](USER_DatabaseInsights.md "USER_DatabaseInsights.md").
 For pricing information, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
 
-From the Amazon RDS console, you can choose the new monitoring view to view Performance Insights and CloudWatch metrics for your DB instance.
+Amazon RDS provides a consolidated view of Performance Insights and CloudWatch metrics for your DB instance in the
+Performance Insights dashboard. You can use the preconfigured dashboard or create a custom dashboard. The
+preconfigured dashboard provides the most commonly used metrics to help diagnose performance
+issues for a database engine. Alternatively, you can create a custom dashboard with the
+metrics for a database engine that meet your analysis requirements. Then, use this dashboard
+for all the DB instances of that database engine type in your AWS account.
 
-###### To choose the new monitoring view with Performance Insights in the navigation pane
+You can choose the monitoring view in the **Monitoring** tab or
+**Performance Insights** in the navigation pane.
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the left navigation pane, choose **Performance Insights**.
-3. Choose a DB instance to view the Performance Insights dashboard that shows both Performance Insights and CloudWatch metrics for
-   your DB instance.
+Performance Insights must be turned on for your DB instance to view the combined metrics in the Performance Insights dashboard.
+For more information about turning on Performance Insights, see [Turning Performance Insights on and off for Amazon RDS](USER_PerfInsights.Enabling.md "USER_PerfInsights.Enabling.md").
 
-![Consolidated Performance Insights and CloudWatch metrics dashboard.](images/Monitoring_UnifiedDashboard.png)
+In the following sections, you can learn to display Performance Insights and CloudWatch metrics.
+
+###### Topics
+
+- [Choosing the new monitoring view from the Monitoring tab](Viewing_Unifiedmetrics.MonitoringTab.md "Viewing_Unifiedmetrics.MonitoringTab.md")
+- [Choosing the new monitoring view from the Performance Insights page](Viewing_Unifiedmetrics.PInavigationPane.md "Viewing_Unifiedmetrics.PInavigationPane.md")
+- [Creating a custom dashboard with Performance Insights](Viewing_Unifiedmetrics.PIcustomizeMetricslist.md "Viewing_Unifiedmetrics.PIcustomizeMetricslist.md")
+- [Choosing the preconfigured dashboard with Performance Insights](Viewing_Unifiedmetrics.PI-preconfigured-dashboard.md "Viewing_Unifiedmetrics.PI-preconfigured-dashboard.md")

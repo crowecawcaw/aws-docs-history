@@ -8,7 +8,7 @@ during the migration to a Multi-AZ DB cluster.
 Consider the following before you create a Multi-AZ DB cluster read replica:
 
 - The source DB instance must be on a version that supports Multi-AZ DB clusters. For more information, see
-  [Supported Regions and DB engines for Multi-AZ DB clusters in Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
+  [Supported Regions and DB engines for Multi-AZ DB clusters in Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.MultiAZDBClusters.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.MultiAZDBClusters.md").
 - The Multi-AZ DB cluster read replica must be on the same major version as its source,
   and the same or higher minor version.
 - You must turn on automatic backups on the source DB instance by setting the backup
@@ -37,7 +37,7 @@ Inter-Domain Routing (CIDR) ranges can overlap between the replica and the Amazo
 system. CIDR overlap makes the replica unstable, which can negatively impact
 applications connecting to it. If you receive an error when creating the read
 replica, choose a different destination DB subnet group. For more information,
-see [Working with a DB instance in a VPC](USER_VPC.md "USER_VPC.md").
+see [Working with a DB instance in a VPC](USER_VPC.WorkingWithRDSInstanceinaVPC.md "USER_VPC.WorkingWithRDSInstanceinaVPC.md").
 
 To migrate a Single-AZ deployment or Multi-AZ DB instance deployment to a Multi-AZ DB cluster using
 a read replica, complete the following steps using the AWS Management Console.
@@ -65,7 +65,7 @@ a read replica, complete the following steps using the AWS Management Console.
          instance. This replication lag can vary significantly. Use
          the `ReplicaLag` metric to determine when all
          updates have been made to the read replica. For more
-         information about replica lag, see [Monitoring read replication](USER_ReadRepl.md "USER_ReadRepl.md").
+         information about replica lag, see [Monitoring read replication](USER_ReadRepl.Monitoring.md "USER_ReadRepl.Monitoring.md").
         2. Sign in to the AWS Management Console and open the Amazon RDS console at
          [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
         3. In the Amazon RDS console, choose **Databases**.
@@ -129,7 +129,7 @@ Database updates occur on the read replica after they have occurred on the prima
 instance. This replication lag can vary significantly. Use the
 `Replica Lag` metric to determine when all updates
 have been made to the read replica. For more information about
-replica lag, see [Monitoring read replication](USER_ReadRepl.md "USER_ReadRepl.md"). 3. When you are ready, promote the read replica to be a standalone Multi-AZ DB cluster.
+replica lag, see [Monitoring read replication](USER_ReadRepl.Monitoring.md "USER_ReadRepl.Monitoring.md"). 3. When you are ready, promote the read replica to be a standalone Multi-AZ DB cluster.
 
 To promote a Multi-AZ DB cluster read replica, use the AWS CLI
 command [`promote-read-replica-db-cluster`](../../../cli/latest/reference/rds/promote-read-replica-db-cluster.md "../../../cli/latest/reference/rds/promote-read-replica-db-cluster.md"). For `--db-cluster-identifier`,
@@ -160,7 +160,7 @@ Database updates occur on the read replica after they have occurred on the prima
 instance. This replication lag can vary significantly. Use the
 `Replica Lag` metric to determine when all updates
 have been made to the read replica. For more information about
-replica lag, see [Monitoring read replication](USER_ReadRepl.md "USER_ReadRepl.md"). 3. When you are ready, promote read replica to be a standalone Multi-AZ DB cluster.
+replica lag, see [Monitoring read replication](USER_ReadRepl.Monitoring.md "USER_ReadRepl.Monitoring.md"). 3. When you are ready, promote read replica to be a standalone Multi-AZ DB cluster.
 
 To promote a Multi-AZ DB cluster read replica, use the [`PromoteReadReplicaDBCluster`](../APIReference/API_PromoteReadReplicaDBCluster.md "../APIReference/API_PromoteReadReplicaDBCluster.md") operation with the required parameter `DBClusterIdentifier`.
 Specify the identifier of the Multi-AZ DB cluster read replica. 4. Wait for the status of the promoted Multi-AZ DB cluster to be

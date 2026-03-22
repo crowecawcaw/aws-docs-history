@@ -25,11 +25,11 @@ The following cases are good candidates for using multi-source replication on RD
 Before you configure multi-source replication, complete the following prerequisites.
 
 - Make sure that each source RDS for MySQL DB instance has automatic backups enabled. Enabling automatic backups enables binary logging.
-  To learn how to enable automatic backups, see [Enabling automated backups](USER_WorkingWithAutomatedBackups.md "USER_WorkingWithAutomatedBackups.md").
+  To learn how to enable automatic backups, see [Enabling automated backups](USER_WorkingWithAutomatedBackups.Enabling.md "USER_WorkingWithAutomatedBackups.Enabling.md").
 - To avoid replication errors, we recommended that you block write operations to the source DB instances. You can do so by setting the
   `read-only` parameter to `ON` in a custom parameter group attached to the RDS for MySQL source DB instance.
   You can use the AWS Management Console or the AWS CLI to create a new custom parameter group or to modify an existing one. For more information,
-  see [Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md") and [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+  see [Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Creating.md "USER_WorkingWithParamGroups.Creating.md") and [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 - For each source DB instance, add the IP address of the instance to the Amazon virtual private cloud (VPC) security group for the multi-source DB instance.
   To identify the IP address of a source DB instance, you can run the command `dig `RDS Endpoint``. Run the command from an
   Amazon EC2 instance in the same VPC as the destination multi-source DB instance.
@@ -126,7 +126,7 @@ For more information about using these stored procedures and others to set up an
 ## Using filters with multi-source replication
 
 You can use replication filters to specify which databases and tables are replicated with in multi-source replica. Replication filters can include databases and tables
-in replication or exclude them from replication. For more information on replication filters, see [Configuring replication filters with MySQL](USER_MySQL.Replication.ReadReplicas.md "USER_MySQL.Replication.ReadReplicas.md").
+in replication or exclude them from replication. For more information on replication filters, see [Configuring replication filters with MySQL](USER_MySQL.Replication.ReadReplicas.ReplicationFilters.md "USER_MySQL.Replication.ReadReplicas.ReplicationFilters.md").
 
 With multi-source replication, you can configure replication filters globally or at
 the channel level. Channel-level filtering is available only with supported DB instances
@@ -238,7 +238,7 @@ and best practices:
 - To distribute the read workload on a multi-source replica, you can create read
   replicas from a multi-source replica. You can locate these read replicas in
   different AWS Regions based on your application's requirements. For more
-  information about read replicas, see [Working with MySQL read replicas](USER_MySQL.Replication.md "USER_MySQL.Replication.md").
+  information about read replicas, see [Working with MySQL read replicas](USER_MySQL.Replication.ReadReplicas.md "USER_MySQL.Replication.ReadReplicas.md").
 
 ## Limitations for multi-source replication on RDS for MySQL
 

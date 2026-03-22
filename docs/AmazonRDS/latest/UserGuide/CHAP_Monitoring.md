@@ -18,7 +18,7 @@ streams, see [Monitoring events, logs, and streams in an Amazon RDS DB instance]
 - [Monitoring Amazon RDS databases with CloudWatch Database Insights](USER_DatabaseInsights.md "USER_DatabaseInsights.md")
 - [Monitoring DB load with Performance Insights on Amazon RDS](USER_PerfInsights.md "USER_PerfInsights.md")
 - [Analyzing performance anomalies with Amazon DevOps Guru for Amazon RDS](devops-guru-for-rds.md "devops-guru-for-rds.md")
-- [Monitoring OS metrics with Enhanced Monitoring](USER_Monitoring.md "USER_Monitoring.md")
+- [Monitoring OS metrics with Enhanced Monitoring](USER_Monitoring.OS.md "USER_Monitoring.OS.md")
 - [Metrics reference for Amazon RDS](metrics-reference.md "metrics-reference.md")
 
 ## Monitoring plan

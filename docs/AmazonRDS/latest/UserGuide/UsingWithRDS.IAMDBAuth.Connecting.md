@@ -1,128 +1,44 @@
-# Connecting to your DB instance using IAM authentication from the command line: AWS CLI and mysql client
+# Connecting to your DB instance using IAM authentication
 
-You can connect from the command line to an
-Amazon RDS DB instance
-with the AWS CLI and `mysql` command line tool as described
-following.
+With IAM database authentication, you use an authentication token when you connect
+to your DB instance. An _authentication token_ is a
+string of characters that you use instead of a password. After you generate an
+authentication token, it's valid for 15 minutes before it expires. If you try to
+connect using an expired token, the connection request is denied.
+
+Every authentication token must be accompanied by a valid signature, using AWS
+signature version 4. (For more information, see [Signature Version 4 signing
+process](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md") in the _AWS General Reference._) The AWS CLI
+and an AWS SDK, such as the AWS SDK for Java or AWS SDK for Python (Boto3), can automatically sign each token you create.
+
+You can use an authentication token when you connect to
+Amazon RDS from another AWS service,
+such as AWS Lambda. By using a token, you can avoid placing a password in your code.
+Alternatively, you can use an AWS SDK to programmatically create and programmatically sign an
+authentication token.
+
+After you have a signed IAM authentication token, you can connect to an Amazon RDS DB instance. Following, you can find out how to do this using either a command
+line tool or an AWS SDK, such as the AWS SDK for Java or AWS SDK for Python (Boto3).
+
+For more information, see the following blog posts:
+
+- [Use IAM authentication to connect with SQL Workbench/J to Aurora MySQL or Amazon RDS for MySQL](https://aws.amazon.com/blogs/database/use-iam-authentication-to-connect-with-sql-workbenchj-to-amazon-aurora-mysql-or-amazon-rds-for-mysql/ "https://aws.amazon.com/blogs/database/use-iam-authentication-to-connect-with-sql-workbenchj-to-amazon-aurora-mysql-or-amazon-rds-for-mysql/")
+- [Using IAM authentication to connect with pgAdmin Amazon Aurora PostgreSQL or Amazon RDS for PostgreSQL](https://aws.amazon.com/blogs/database/using-iam-authentication-to-connect-with-pgadmin-amazon-aurora-postgresql-or-amazon-rds-for-postgresql/ "https://aws.amazon.com/blogs/database/using-iam-authentication-to-connect-with-pgadmin-amazon-aurora-postgresql-or-amazon-rds-for-postgresql/")
 
 ###### Prerequisites
 
 The following are prerequisites for connecting to your DB instance using IAM authentication:
 
-- [Enabling and disabling IAM database authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
-- [Creating and using an IAM policy for IAM database access](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
-- [Creating a database account using IAM authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
-
-###### Note
-
-For information about connecting to your database using SQL Workbench/J with IAM authentication,
-see the blog post [Use IAM authentication to connect with SQL Workbench/J to Aurora MySQL or Amazon RDS for MySQL](https://aws.amazon.com/blogs/database/use-iam-authentication-to-connect-with-sql-workbenchj-to-amazon-aurora-mysql-or-amazon-rds-for-mysql/ "https://aws.amazon.com/blogs/database/use-iam-authentication-to-connect-with-sql-workbenchj-to-amazon-aurora-mysql-or-amazon-rds-for-mysql/").
+- [Enabling and disabling IAM database authentication](UsingWithRDS.IAMDBAuth.Enabling.md "UsingWithRDS.IAMDBAuth.Enabling.md")
+- [Creating and using an IAM policy for IAM database access](UsingWithRDS.IAMDBAuth.IAMPolicy.md "UsingWithRDS.IAMDBAuth.IAMPolicy.md")
+- [Creating a database account using IAM authentication](UsingWithRDS.IAMDBAuth.DBAccounts.md "UsingWithRDS.IAMDBAuth.DBAccounts.md")
 
 ###### Topics
 
-- [Generating an IAM authentication token](#UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.AuthToken "#UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.AuthToken")
-- [Connecting to a DB instance](#UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.Connect "#UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.Connect")
-
-## Generating an IAM authentication token
-
-The following example shows how to get a signed authentication token using the
-AWS CLI.
-
-```
-aws rds generate-db-auth-token \
-   --hostname `rdsmysql.123456789012.us-west-2.rds.amazonaws.com` \
-   --port `3306` \
-   --region `us-west-2` \
-   --username `jane_doe`
-```
-
-In the example, the parameters are as follows:
-
-- `--hostname` – The host name of the DB
-  instance that you want to access
-- `--port` – The port number used for connecting to your DB
-  instance
-- `--region` – The AWS Region where the DB instance is running
-- `--username` – The database account that you want to access
-
-The first several characters of the token look like the following.
-
-```
-rdsmysql.123456789012.us-west-2.rds.amazonaws.com:3306/?Action=connect&DBUser=jane_doe&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Expires=900...
-```
-
-###### Note
-
-You cannot use a custom Route 53 DNS record instead of the DB instance endpoint to generate the authentication token.
-
-## Connecting to a DB instance
-
-The general format for connecting is shown following.
-
-```
-mysql --host=`hostName` --port=`portNumber` --ssl-ca=`full_path_to_ssl_certificate` --enable-cleartext-plugin --user=`userName` --password=`authToken`
-```
-
-The parameters are as follows:
-
-- `--host` – The host name of the DB instance that you want to access
-- `--port` – The port number used for connecting to your
-  DB instance
-- `--ssl-ca` – The full path to the SSL certificate file that contains the
-  public key
-
-For more information about SSL/TLS support for MariaDB, see [SSL/TLS support for MariaDB DB instances on Amazon RDS](MariaDB.Concepts.md "MariaDB.Concepts.md").
-
-For more information about SSL/TLS support for MySQL, see [SSL/TLS support for MySQL DB instances on Amazon RDS](MySQL.Concepts.md "MySQL.Concepts.md").
-
-To download an SSL certificate, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.md "UsingWithRDS.md") .
-
-- `--enable-cleartext-plugin` – A value that specifies
-  that `AWSAuthenticationPlugin` must be used for this
-  connection
-
-If you are using a MariaDB client, the `--enable-cleartext-plugin` option isn't required.
-
-- `--user` – The database account that you want to
-  access
-- `--password` – A signed IAM authentication
-  token
-
-The authentication token consists of several hundred characters. It can be
-unwieldy on the command line. One way to work around this is to save the token
-to an environment variable, and then use that variable when you connect. The
-following example shows one way to perform this workaround. In the example, `/sample_dir/`
-is the full path to the SSL certificate file that contains the public key.
-
-```
-
-RDSHOST="`mysqldb.123456789012.us-east-1.rds.amazonaws.com`"
-TOKEN="$(aws rds generate-db-auth-token --hostname $RDSHOST --port `3306` --region `us-west-2` --username `jane_doe` )"
-
-mysql --host=$RDSHOST --port=`3306` --ssl-ca=`/sample_dir/`global-bundle.pem --enable-cleartext-plugin --user=`jane_doe` --password=$TOKEN
-```
-
-When you connect using `AWSAuthenticationPlugin`, the connection is
-secured using SSL. To verify this, type the following at the `mysql>`
-command prompt.
-
-```
-show status like 'Ssl%';
-```
-
-The following lines in the output show more details.
-
-```
-+---------------+-------------+
-| Variable_name | Value                                                                                                                                                                                                                                |
-+---------------+-------------+
-| ...           | ...
-| Ssl_cipher    | AES256-SHA                                                                                                                                                                                                                           |
-| ...           | ...
-| Ssl_version   | TLSv1.1                                                                                                                                                                                                                              |
-| ...           | ...
-+-----------------------------+
-```
-
-If you want to connect to a DB instance
-through a proxy, see [Connecting to a database using IAM authentication](rds-proxy-connecting.md#rds-proxy-connecting-iam "rds-proxy-connecting.md#rds-proxy-connecting-iam").
+- [Connecting to your DB instance using IAM authentication with the AWS drivers](IAMDBAuth.Connecting.Drivers.md "IAMDBAuth.Connecting.Drivers.md")
+- [Connecting to your DB instance using IAM authentication from the command line: AWS CLI and mysql client](UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.md "UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.md")
+- [Connecting to your DB instance using IAM authentication from the command line: AWS CLI and psql client](UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.PostgreSQL.md "UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.PostgreSQL.md")
+- [Connecting to your DB instance using IAM authentication and the AWS SDK for .NET](UsingWithRDS.IAMDBAuth.Connecting.NET.md "UsingWithRDS.IAMDBAuth.Connecting.NET.md")
+- [Connecting to your DB instance using IAM authentication and the AWS SDK for Go](UsingWithRDS.IAMDBAuth.Connecting.Go.md "UsingWithRDS.IAMDBAuth.Connecting.Go.md")
+- [Connecting to your DB instance using IAM authentication and the AWS SDK for Java](UsingWithRDS.IAMDBAuth.Connecting.Java.md "UsingWithRDS.IAMDBAuth.Connecting.Java.md")
+- [Connecting to your DB instance using IAM authentication and the AWS SDK for Python (Boto3)](UsingWithRDS.IAMDBAuth.Connecting.Python.md "UsingWithRDS.IAMDBAuth.Connecting.Python.md")

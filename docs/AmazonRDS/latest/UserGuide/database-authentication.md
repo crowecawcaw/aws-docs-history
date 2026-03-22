@@ -73,7 +73,7 @@ need to use a password when you connect to a DB instance
 an authentication token.
 
 For more information about IAM database authentication, including information
-about availability for specific DB engines, see [IAM database authenticationfor MariaDB, MySQL, and PostgreSQL](UsingWithRDS.md "UsingWithRDS.md")
+about availability for specific DB engines, see [IAM database authenticationfor MariaDB, MySQL, and PostgreSQL](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
 .
 
 ## Kerberos authentication

@@ -52,7 +52,7 @@ Make sure that you're aware of the following recommendations and considerations:
 - If you need to migrate users and privileges, consider using a tool that generates
   the data control language (DCL) for recreating them, such as the [pt-show-grants](https://www.percona.com/doc/percona-toolkit/LATEST/pt-show-grants.html "https://www.percona.com/doc/percona-toolkit/LATEST/pt-show-grants.html") utility.
 - To perform the import, make sure the user doing so has access to the DB instance.
-  For more information, see [Controlling access with security groups](Overview.md "Overview.md").
+  For more information, see [Controlling access with security groups](Overview.RDSSecurityGroups.md "Overview.RDSSecurityGroups.md").
   The parameters used are as follows:
 
 - `-u `local_user``– Use to specify a

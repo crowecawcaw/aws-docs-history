@@ -2,7 +2,7 @@
 
 You can upgrade an Amazon RDS Custom for SQL Server DB instance by modifying it to use a new DB engine version.
 For general information about upgrading DB instances, see
-[Upgrading a DB instance engine version](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md").
+[Upgrading a DB instance engine version](USER_UpgradeDBInstance.Upgrading.md "USER_UpgradeDBInstance.Upgrading.md").
 
 ###### Topics
 
@@ -21,7 +21,7 @@ RDS Custom for SQL Server allows you to upgrade an RDS Provided Engine Version (
 
 - RDS-provided engine versions (RPEV) contain up-to-date operating system (OS) patches and SQL Server cumulative updates (CU).
 - For a custom engine version (CEV), you must follow a two-step process. First,
-  create a new CEV with your target SQL Server version, see [Preparing to create a CEV for RDS Custom for SQL Server](custom-cev-sqlserver.md "custom-cev-sqlserver.md"). This target version must
+  create a new CEV with your target SQL Server version, see [Preparing to create a CEV for RDS Custom for SQL Server](custom-cev-sqlserver.preparing.md "custom-cev-sqlserver.preparing.md"). This target version must
   be equal to or newer than your current version. Once the new CEV is created,
   modify your database instance to use this new version. For more information, see
   [Performing a minor version upgrade for Amazon RDS Custom for SQL Server
@@ -94,7 +94,7 @@ The output shows the available target engine versions:
 ```
 
 After identifying your target version, use the AWS Management Console and follow the instructions in
-[Modifying an RDS Custom for SQL Server DB instance](custom-managing.md "custom-managing.md"). Alternatively, use
+[Modifying an RDS Custom for SQL Server DB instance](custom-managing.modify-sqlserver.md "custom-managing.modify-sqlserver.md"). Alternatively, use
 [`modify-db-instance`](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md") CLI command or
 [ModifyDBInstance](../APIReference/API_ModifyDBInstance.md "../APIReference/API_ModifyDBInstance.md") RDS API command.
 

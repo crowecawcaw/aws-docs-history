@@ -23,7 +23,7 @@ creating a DB snapshot.
 
 You can create a DB instance by restoring from this DB snapshot as a disaster recovery solution if the source DB instance fails.
 
-For more information, see [Backing up, restoring, and exporting data](CHAP_CommonTasks.md "CHAP_CommonTasks.md").
+For more information, see [Backing up, restoring, and exporting data](CHAP_CommonTasks.BackupRestore.md "CHAP_CommonTasks.BackupRestore.md").
 
 ## Replication
 
@@ -45,4 +45,4 @@ Amazon RDS provides high availability and failover support for DB instances usin
 Amazon RDS uses several different technologies to provide failover support. Multi-AZ deployments for Oracle, PostgreSQL, MySQL, and MariaDB
 DB instances use Amazon's failover technology. SQL Server DB instances use SQL Server Database Mirroring (DBM).
 
-For more information, see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.md "Concepts.md").
+For more information, see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.MultiAZ.md "Concepts.MultiAZ.md").

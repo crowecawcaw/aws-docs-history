@@ -98,7 +98,7 @@ Users must have the required permissions to perform operations related to Secret
 You can create IAM policies that grant permissions to perform specific
 API operations on the specified resources they need. You can then attach those policies
 to the IAM permission sets or roles that require those permissions. For more
-information, see [Identity and access management for Amazon RDS](UsingWithRDS.md "UsingWithRDS.md").
+information, see [Identity and access management for Amazon RDS](UsingWithRDS.IAM.md "UsingWithRDS.IAM.md").
 
 For create, modify, or restore operations, the user who specifies that
 Amazon RDS
@@ -165,15 +165,15 @@ To prevent this, include `rds:ModifyDBInstance`,
 `rds:ModifyDBCluster` in the action block of the policy. Be aware,
 this prevents the user from applying any further modifications to existing instances that don't have Secrets Manager integration enabled.
 
-For more information about using condition keys in IAM policies, see [Policy condition keys for Amazon RDS](security_iam_service-with-iam.md#UsingWithRDS.IAM.Conditions "security_iam_service-with-iam.md#UsingWithRDS.IAM.Conditions") and [Example policies: Using condition keys](UsingWithRDS.IAM.Conditions.md "UsingWithRDS.IAM.Conditions.md").
+For more information about using condition keys in IAM policies, see [Policy condition keys for Amazon RDS](security_iam_service-with-iam.md#UsingWithRDS.IAM.Conditions "security_iam_service-with-iam.md#UsingWithRDS.IAM.Conditions") and [Example policies: Using condition keys](UsingWithRDS.IAM.Conditions.Examples.md "UsingWithRDS.IAM.Conditions.Examples.md").
 
 ## Managing the master user password for a DB instance with Secrets Manager
 
 You can configure RDS management of the master user password in Secrets Manager when you perform the following actions:
 
 - [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md")
-- [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md")
-- [Restoring a backup into an Amazon RDS for MySQL DB instance](MySQL.Procedural.md "MySQL.Procedural.md")
+- [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md")
+- [Restoring a backup into an Amazon RDS for MySQL DB instance](MySQL.Procedural.Importing.md "MySQL.Procedural.Importing.md")
 - [Restoring to a DB instance](USER_RestoreFromSnapshot.md "USER_RestoreFromSnapshot.md")
   (RDS for Oracle only)
 - [Restoring a DB instance to a specified time for Amazon RDS](USER_PIT.md "USER_PIT.md") (RDS for Oracle only)
@@ -184,8 +184,8 @@ API.
 Follow the instructions for creating or modifying a DB instance with the RDS console:
 
 - [Creating a DB instance](USER_CreateDBInstance.md#USER_CreateDBInstance.Creating "USER_CreateDBInstance.md#USER_CreateDBInstance.Creating")
-- [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md")
-- [Importing data from Amazon S3 to a new MySQL DB instance](MySQL.Procedural.md#MySQL.Procedural.Importing.PerformingImport "MySQL.Procedural.md#MySQL.Procedural.Importing.PerformingImport")
+- [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md")
+- [Importing data from Amazon S3 to a new MySQL DB instance](MySQL.Procedural.Importing.md#MySQL.Procedural.Importing.PerformingImport "MySQL.Procedural.Importing.md#MySQL.Procedural.Importing.PerformingImport")
   When you use the RDS console to perform one of these operations, you can specify that the
   master user password is managed by RDS in Secrets Manager. When you're creating or
   restoring a DB instance, select **Manage master credentials in
@@ -206,8 +206,8 @@ customer managed key that you create. After RDS is managing the database credent
 DB instance, you can't change the KMS key used to encrypt the secret.
 
 You can choose other settings to meet your requirements. For more information about the
-available settings when you're creating a DB instance, see [Settings for DB instances](USER_CreateDBInstance.md "USER_CreateDBInstance.md"). For more information about
-the available settings when you're modifying a DB instance, see [Settings for DB instances](USER_ModifyInstance.md "USER_ModifyInstance.md").
+available settings when you're creating a DB instance, see [Settings for DB instances](USER_CreateDBInstance.Settings.md "USER_CreateDBInstance.Settings.md"). For more information about
+the available settings when you're modifying a DB instance, see [Settings for DB instances](USER_ModifyInstance.Settings.md "USER_ModifyInstance.Settings.md").
 
 To manage the master user password with RDS in Secrets Manager, specify the `--manage-master-user-password`
 option in one of the following AWS CLI commands:
@@ -230,8 +230,8 @@ is managing the database credentials for a DB instance, you can't change the
 KMS key that is used to encrypt the secret.
 
 You can choose other settings to meet your requirements. For more information about the available settings
-when you are creating a DB instance, see [Settings for DB instances](USER_CreateDBInstance.md "USER_CreateDBInstance.md"). For more information about the available settings
-when you are modifying a DB instance, see [Settings for DB instances](USER_ModifyInstance.md "USER_ModifyInstance.md").
+when you are creating a DB instance, see [Settings for DB instances](USER_CreateDBInstance.Settings.md "USER_CreateDBInstance.Settings.md"). For more information about the available settings
+when you are modifying a DB instance, see [Settings for DB instances](USER_ModifyInstance.Settings.md "USER_ModifyInstance.Settings.md").
 
 The following example creates a DB instance and specifies that RDS
 manages the master user password in
@@ -291,8 +291,8 @@ the secret.
 You can configure RDS management of the master user password in Secrets Manager when you perform the
 following actions:
 
-- [Adding an RDS for Oracle tenant database to your CDB instance](oracle-cdb-configuring.adding.md "oracle-cdb-configuring.adding.md")
-- [Modifying an RDS for Oracle tenant database](oracle-cdb-configuring.modifying.md "oracle-cdb-configuring.modifying.md")
+- [Adding an RDS for Oracle tenant database to your CDB instance](oracle-cdb-configuring.adding.pdb.md "oracle-cdb-configuring.adding.pdb.md")
+- [Modifying an RDS for Oracle tenant database](oracle-cdb-configuring.modifying.pdb.md "oracle-cdb-configuring.modifying.pdb.md")
 
 You can use the RDS console, the AWS CLI, or the RDS API to perform the preceding
 actions.
@@ -300,8 +300,8 @@ actions.
 Follow the instructions for creating or modifying an RDS for Oracle tenant database with the RDS
 console:
 
-- [Adding an RDS for Oracle tenant database to your CDB instance](oracle-cdb-configuring.adding.md "oracle-cdb-configuring.adding.md")
-- [Modifying an RDS for Oracle tenant database](oracle-cdb-configuring.modifying.md "oracle-cdb-configuring.modifying.md")
+- [Adding an RDS for Oracle tenant database to your CDB instance](oracle-cdb-configuring.adding.pdb.md "oracle-cdb-configuring.adding.pdb.md")
+- [Modifying an RDS for Oracle tenant database](oracle-cdb-configuring.modifying.pdb.md "oracle-cdb-configuring.modifying.pdb.md")
   When you use the RDS console to perform one of the preceding operations, you can specify
   that RDS manage the master password in Secrets Manager. When you create a tenant database, select
   **Manage master credentials in AWS Secrets Manager** in
@@ -322,8 +322,8 @@ customer managed key that you create. After RDS is managing the database credent
 tenant database, you can't change the KMS key that is used to encrypt the secret.
 
 You can choose other settings to meet your requirements. For more information
-about the available settings when you are creating a tenant database, see [Settings for DB instances](USER_CreateDBInstance.md "USER_CreateDBInstance.md"). For more information about
-the available settings when you are modifying a tenant database, see [Settings for DB instances](USER_ModifyInstance.md "USER_ModifyInstance.md").
+about the available settings when you are creating a tenant database, see [Settings for DB instances](USER_CreateDBInstance.Settings.md "USER_CreateDBInstance.Settings.md"). For more information about
+the available settings when you are modifying a tenant database, see [Settings for DB instances](USER_ModifyInstance.Settings.md "USER_ModifyInstance.Settings.md").
 
 To manage the master user password with RDS in Secrets Manager, specify the
 `--manage-master-user-password` option in one of the following
@@ -527,7 +527,7 @@ the DB instance to match the password for the new secret version.
 
 You can rotate a secret immediately instead of waiting for a scheduled rotation. To rotate a
 master user password secret in Secrets Manager, modify the DB instance. For information about
-modifying a DB instance, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+modifying a DB instance, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md").
 
 You can rotate a master user password secret immediately with the RDS console, the AWS CLI, or
 the RDS API. The new password is always 28 characters long and contains at least one
@@ -538,7 +538,7 @@ select **Rotate secret immediately** in **Settings**.
 
 ![Rotate a master user password secret immediately](images/secrets-manager-integration-rotate.png)
 Follow the instructions for modifying a DB instance with the RDS console in
-[Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+[Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md").
 You must choose **Apply immediately** on the confirmation page.
 
 To rotate a master user password secret using the AWS CLI, use the [modify-db-instance](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md")
@@ -930,4 +930,4 @@ Secrets Manager operation.
 
 Feature availability and support varies across specific versions of each database engine and
 across AWS Regions. For more information about version and Region availability with
-Secrets Manager integration with Amazon RDS, see [Supported Regions and DB engines for the Secrets Manager integration with Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
+Secrets Manager integration with Amazon RDS, see [Supported Regions and DB engines for the Secrets Manager integration with Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.SecretsManager.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.SecretsManager.md").

@@ -10,7 +10,7 @@ It's included with MySQL client software.
 
 If you are importing or exporting large amounts of data with a MySQL DB instance, it's
 more reliable and faster to move data in and out of Amazon RDS by using
-`xtrabackup` backup files and Amazon S3. For more information, see [Restoring a backup into an Amazon RDS for MySQL DB instance](MySQL.Procedural.md "MySQL.Procedural.md").
+`xtrabackup` backup files and Amazon S3. For more information, see [Restoring a backup into an Amazon RDS for MySQL DB instance](MySQL.Procedural.Importing.md "MySQL.Procedural.Importing.md").
 
 A typical `mysqldump` command to move data from an external database to an
 Amazon RDS DB instance looks similar to the following example. Replace values with your own
@@ -52,7 +52,7 @@ Make sure that you're aware of the following recommendations and considerations:
 - If you need to migrate users and privileges, consider using a tool that generates
   the data control language (DCL) for recreating them, such as the [pt-show-grants](https://www.percona.com/doc/percona-toolkit/LATEST/pt-show-grants.html "https://www.percona.com/doc/percona-toolkit/LATEST/pt-show-grants.html") utility.
 - To perform the import, make sure the user doing so has access to the DB instance.
-  For more information, see [Controlling access with security groups](Overview.md "Overview.md").
+  For more information, see [Controlling access with security groups](Overview.RDSSecurityGroups.md "Overview.RDSSecurityGroups.md").
   The parameters used are as follows:
 
 - `-u `local_user``– Use to specify a

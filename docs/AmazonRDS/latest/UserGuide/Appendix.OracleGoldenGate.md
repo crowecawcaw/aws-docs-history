@@ -1,96 +1,72 @@
-# Troubleshooting Oracle GoldenGate
+# Using Oracle GoldenGate with Amazon RDS for Oracle
 
-This section explains the most common issues when using Oracle GoldenGate with Amazon RDS for Oracle.
+Oracle GoldenGate collects, replicates, and manages transactional data between databases. It
+is a log-based change data capture (CDC) and replication software package used with
+databases for online transaction processing (OLTP) systems. Oracle GoldenGate creates trail
+files that contain the most recent changed data from the source database. It then pushes
+these files to the server, where a process converts the trail file into standard SQL to be
+applied to the target database.
+
+Oracle GoldenGate with RDS for Oracle supports the following features:
+
+- Active-Active database replication
+- Disaster recovery
+- Data protection
+- In-Region and cross-Region replication
+- Zero-downtime migration and upgrades
+- Data replication between an RDS for Oracle DB instance and a non-Oracle database
+
+###### Note
+
+For a list of supported databases, see [Oracle Fusion Middleware Supported System Configurations](https://www.oracle.com/middleware/technologies/fusion-certification.html "https://www.oracle.com/middleware/technologies/fusion-certification.html") in the
+Oracle documentation.
+You can use Oracle GoldenGate with RDS for Oracle to upgrade to major versions of Oracle Database. For example,
+you can use Oracle GoldenGate to upgrade from an Oracle Database 11g on-premises database to Oracle Database 19c on an Amazon RDS DB instance.
 
 ###### Topics
 
-- [Error opening an online redo log](#Appendix.OracleGoldenGate.Troubleshooting.Logs "#Appendix.OracleGoldenGate.Troubleshooting.Logs")
-- [Oracle GoldenGate appears to be properly configured but replication is not working](#Appendix.OracleGoldenGate.Troubleshooting.Replication "#Appendix.OracleGoldenGate.Troubleshooting.Replication")
-- [Integrated REPLICAT slow due to query on SYS."\_DBA_APPLY_CDR_INFO"](#Appendix.OracleGoldenGate.IR "#Appendix.OracleGoldenGate.IR")
+- [Supported versions and licensing options for Oracle GoldenGate](#Appendix.OracleGoldenGate.licensing "#Appendix.OracleGoldenGate.licensing")
+- [Requirements and limitations for Oracle GoldenGate](#Appendix.OracleGoldenGate.requirements "#Appendix.OracleGoldenGate.requirements")
+- [Oracle GoldenGate architecture](Appendix.OracleGoldenGate.Overview.md "Appendix.OracleGoldenGate.Overview.md")
+- [Setting up Oracle GoldenGate](Appendix.OracleGoldenGate.setting-up.md "Appendix.OracleGoldenGate.setting-up.md")
+- [Working with the EXTRACT and REPLICAT utilities of Oracle GoldenGate](Appendix.OracleGoldenGate.ExtractReplicat.md "Appendix.OracleGoldenGate.ExtractReplicat.md")
+- [Monitoring Oracle GoldenGate](Appendix.OracleGoldenGate.Monitoring.md "Appendix.OracleGoldenGate.Monitoring.md")
+- [Troubleshooting Oracle GoldenGate](Appendix.OracleGoldenGate.Troubleshooting.md "Appendix.OracleGoldenGate.Troubleshooting.md")
 
-## Error opening an online redo log
+## Supported versions and licensing options for Oracle GoldenGate
 
-Make sure that you configure your databases to retain archived redo logs. Consider the
-following guidelines:
+You can use Standard Edition 2 (SE2) or Enterprise Edition (EE) of RDS for Oracle with Oracle GoldenGate version 12c and higher.
+You can use the following Oracle GoldenGate features:
 
-- Specify the duration for log retention in hours. The minimum value is one
-  hour.
-- Set the duration to exceed any potential downtime of the source DB instance,
-  any potential period of communication, and any potential period of networking
-  issues for the source DB instance. Such a duration lets Oracle GoldenGate recover logs from the
-  source DB instance as needed.
-- Ensure that you have sufficient storage on your instance for the files.
+- Oracle GoldenGate Remote Capture (extract) is supported.
+- Capture (extract) is supported on RDS for Oracle DB instances that use the traditional non-CDB database
+  architecture. Oracle GoldenGate Remote PDB capture is supported on CDBs running Oracle Database 21c or
+  Oracle Database 19c version 19.0.0.0.ru-2024-04.rur-2024-04.r1 or higher.
+- Oracle GoldenGate Remote Delivery (replicat) is supported on RDS for Oracle DB
+  instances that use either the non-CDB or CDB architectures. Remote Delivery
+  supports Integrated Replicat, Parallel Replicat, Coordinated Replicat, and
+  classic Replicat.
+- RDS for Oracle supports the Classic and Microservices architectures of Oracle GoldenGate.
+- Oracle GoldenGate DDL and Sequence value replication is supported when using Integrated capture
+  mode.
 
-If you don't have log retention enabled, or if the retention value is too small, you
-receive an error message similar to the following.
+You are responsible for managing Oracle GoldenGate licensing (BYOL) for use with Amazon RDS in all
+AWS Regions. For more information, see [RDS for Oracle licensing options](Oracle.Concepts.Licensing.md "Oracle.Concepts.Licensing.md").
 
-```
-2022-03-06 06:17:27  ERROR   OGG-00446  error 2 (No such file or directory)
-opening redo log /rdsdbdata/db/GGTEST3_A/onlinelog/o1_mf_2_9k4bp1n6_.log for sequence 1306
-Not able to establish initial position for begin time 2022-03-06 06:16:55.
-```
+## Requirements and limitations for Oracle GoldenGate
 
-## Oracle GoldenGate appears to be properly configured but replication is not working
+When you're working with Oracle GoldenGate and RDS for Oracle, consider the following requirements and
+limitations:
 
-For pre-existing tables, you must specify the SCN that Oracle GoldenGate works from.
-
-###### To fix this issue
-
-1. Log in to the source database and launch the Oracle GoldenGate command line interface
-   (`ggsci`). The following example shows the format for logging
-   in.
-
-```
-dblogin userid oggadm1@OGGSOURCE
-```
-
-2. Using the `ggsci` command line, set up the start SCN for the
-   `EXTRACT` process. The following example sets the SCN to 223274
-   for the `EXTRACT`.
-
-```
-ALTER EXTRACT EABC SCN 223274
-start EABC
-```
-
-3. Log in to the target database. The following example shows the format for
-   logging in.
-
-```
-dblogin userid oggadm1@OGGTARGET
-```
-
-4. Using the `ggsci` command line, set up the start SCN for the
-   `REPLICAT` process. The following example sets the SCN to 223274
-   for the `REPLICAT`.
-
-```
-start RABC atcsn 223274
-```
-
-## Integrated REPLICAT slow due to query on SYS."\_DBA_APPLY_CDR_INFO"
-
-Oracle GoldenGate Conflict Detection and Resolution (CDR) provides basic conflict resolution routines. For
-example, CDR can resolve a unique conflict for an `INSERT` statement.
-
-When CDR resolves a collision, it can insert records into the exception table
-`_DBA_APPLY_CDR_INFO` temporarily. Integrated `REPLICAT` deletes these records
-later. In a rare scenario, the integrated `REPLICAT` can process a large number of collisions, but
-a new integrated `REPLICAT` does not replace it. Instead of being removed, the existing rows in
-`_DBA_APPLY_CDR_INFO` are orphaned. Any new integrated `REPLICAT` processes slow
-down because they are querying orphaned rows in `_DBA_APPLY_CDR_INFO`.
-
-To remove all rows from `_DBA_APPLY_CDR_INFO`, use the Amazon RDS procedure
-`rdsadmin.rdsadmin_util.truncate_apply$_cdr_info`. This procedure is
-released as part of the October 2020 release and patch update. The procedure is
-available in the following database versions:
-
-- [Version 21.0.0.0.ru-2022-01.rur-2022-01.r1](../OracleReleaseNotes/oracle-version-21-0.md#oracle-version-RU-RUR.21.0.0.0.ru-2022-01.rur-2022-01.r1 "../OracleReleaseNotes/oracle-version-21-0.md#oracle-version-RU-RUR.21.0.0.0.ru-2022-01.rur-2022-01.r1") and higher
-- [Version 19.0.0.0.ru-2020-10.rur-2020-10.r1](../OracleReleaseNotes/oracle-version-19-0.md#oracle-version-RU-RUR.19.0.0.0.ru-2020-10.rur-2020-10.r1 "../OracleReleaseNotes/oracle-version-19-0.md#oracle-version-RU-RUR.19.0.0.0.ru-2020-10.rur-2020-10.r1") and higher
-
-The following example truncates the table `_DBA_APPLY_CDR_INFO`.
-
-```
-SET SERVEROUTPUT ON SIZE 2000
-EXEC rdsadmin.rdsadmin_util.truncate_apply$_cdr_info;
-```
+- You're responsible for setting up and managing Oracle GoldenGate for use with RDS for Oracle.
+- You're responsible for setting up an Oracle GoldenGate version that is certified with the
+  source and the target databases. For more information, see [Oracle Fusion Middleware Supported System Configurations](https://www.oracle.com/middleware/technologies/fusion-certification.html "https://www.oracle.com/middleware/technologies/fusion-certification.html") in the Oracle
+  documentation.
+- You can use Oracle GoldenGate on many different AWS environments for many different use
+  cases. If you have a support-related issue relating to Oracle GoldenGate, contact Oracle Support
+  Services.
+- You can use Oracle GoldenGate on RDS for Oracle DB instances that use Oracle Transparent Data Encryption (TDE). To
+  maintain the integrity of replicated data, configure encryption on the Oracle GoldenGate hub
+  using Amazon EBS encrypted volumes or trail file encryption. Also configure encryption
+  for data sent between the Oracle GoldenGate hub and the source and target database instances.
+  RDS for Oracle DB instances support encryption with [Oracle Secure Sockets Layer](Appendix.Oracle.Options.SSL.md "Appendix.Oracle.Options.SSL.md") or [Oracle native network encryption](Appendix.Oracle.Options.NetworkEncryption.md "Appendix.Oracle.Options.NetworkEncryption.md").

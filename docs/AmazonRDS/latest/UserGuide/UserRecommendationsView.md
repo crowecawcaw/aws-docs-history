@@ -101,10 +101,10 @@ The recommendation details page appears. The title provides the total count of
 the resources with the issue detected and the severity.
 
 For information about the components on the details page for an anomaly based reactive
-recommendation, see [Viewing reactive anomalies](../../../devops-guru/latest/userguide/working-with-rds.analyzing.md "../../../devops-guru/latest/userguide/working-with-rds.analyzing.md") in the _Amazon DevOps Guru User
+recommendation, see [Viewing reactive anomalies](../../../devops-guru/latest/userguide/working-with-rds.analyzing.metrics.md "../../../devops-guru/latest/userguide/working-with-rds.analyzing.metrics.md") in the _Amazon DevOps Guru User
 Guide_.
 
-For information about the components on the details page for a threshold based proactive recommendation, see [Viewing Performance Insights proactive recommendations](USER_PerfInsights.md "USER_PerfInsights.md").
+For information about the components on the details page for a threshold based proactive recommendation, see [Viewing Performance Insights proactive recommendations](USER_PerfInsights.InsightsRecommendationViewDetails.md "USER_PerfInsights.InsightsRecommendationViewDetails.md").
 
 The other automated recommendations display the following components on the recommendation details page:
 

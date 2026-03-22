@@ -24,7 +24,7 @@ experience as when they access workloads in your on-premises network.
 
 A database can use password authentication or password
 authentication with either Kerberos or AWS Identity and Access Management (IAM) authentication. For more
-information about IAM authentication, see [IAM database authenticationfor MariaDB, MySQL, and PostgreSQL](UsingWithRDS.md "UsingWithRDS.md").
+information about IAM authentication, see [IAM database authenticationfor MariaDB, MySQL, and PostgreSQL](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
 
 ###### Note
 
@@ -42,7 +42,7 @@ RDS for PostgreSQL doesn't support Kerberos authentication for Active Directory 
 
 Feature availability and support varies across specific versions
 of each database engine, and across AWS Regions. For more information on version and
-Region availability of RDS for PostgreSQL with Kerberos authentication, see [Supported Regions and DB engines for Kerberos authentication in Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
+Region availability of RDS for PostgreSQL with Kerberos authentication, see [Supported Regions and DB engines for Kerberos authentication in Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.KerberosAuthentication.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.KerberosAuthentication.md").
 
 ## Overview of Kerberos authentication for PostgreSQL DB instances
 
@@ -74,7 +74,7 @@ instance either from the console, CLI, or
 RDS API using one of the following methods:
 
     * [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md")
-    * [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md")
+    * [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md")
     * [Restoring to a DB instance](USER_RestoreFromSnapshot.md "USER_RestoreFromSnapshot.md")
     * [Restoring a DB instance to a specified time for Amazon RDS](USER_PIT.md "USER_PIT.md")
 

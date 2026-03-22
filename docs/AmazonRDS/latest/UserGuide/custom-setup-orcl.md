@@ -79,10 +79,10 @@ resources that make up a stack. The template is stored as a JSON file.
 
 ###### To download the CloudFormation template files
 
-1. Open the context (right-click) menu for the link [custom-oracle-iam.zip](samples/custom-oracle-iam.md "samples/custom-oracle-iam.md") and
+1. Open the context (right-click) menu for the link [custom-oracle-iam.zip](samples/custom-oracle-iam.zip.md "samples/custom-oracle-iam.zip.md") and
    choose **Save Link As**.
 2. Save the file to your computer.
-3. Repeat the previous steps for the link [custom-vpc.zip](samples/custom-vpc.md "samples/custom-vpc.md").
+3. Repeat the previous steps for the link [custom-vpc.zip](samples/custom-vpc.zip.md "samples/custom-vpc.zip.md").
 
 If you already configured your VPC for RDS Custom, skip this step.
 
@@ -580,7 +580,7 @@ JSON
 
 ```
 
-For more information about the `kms:CreateGrant` permission, see [AWS KMS key management](Overview.Encryption.md "Overview.Encryption.md").
+For more information about the `kms:CreateGrant` permission, see [AWS KMS key management](Overview.Encryption.Keys.md "Overview.Encryption.Keys.md").
 
 ### IAM permissions required for creating a CEV
 

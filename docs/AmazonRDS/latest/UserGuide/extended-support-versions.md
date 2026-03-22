@@ -4,7 +4,7 @@ RDS Extended Support is only available for major versions. It isn't
 available for minor versions.
 
 RDS Extended Support is available for RDS for MySQL and for RDS for PostgreSQL.
-For more information, see [Major versions](MySQL.Concepts.md#MySQL.Concepts.VersionMgmt.ReleaseCalendar "MySQL.Concepts.md#MySQL.Concepts.VersionMgmt.ReleaseCalendar") and [Release calendar for Amazon RDS for PostgreSQL](../PostgreSQLReleaseNotes/postgresql-release-calendar.md "../PostgreSQLReleaseNotes/postgresql-release-calendar.md") in the _Amazon RDS for PostgreSQL
+For more information, see [Major versions](MySQL.Concepts.VersionMgmt.md#MySQL.Concepts.VersionMgmt.ReleaseCalendar "MySQL.Concepts.VersionMgmt.md#MySQL.Concepts.VersionMgmt.ReleaseCalendar") and [Release calendar for Amazon RDS for PostgreSQL](../PostgreSQLReleaseNotes/postgresql-release-calendar.md "../PostgreSQLReleaseNotes/postgresql-release-calendar.md") in the _Amazon RDS for PostgreSQL
 Release Notes_.
 
 You can also view information about support dates for engine versions by using
@@ -13,7 +13,7 @@ the AWS CLI or the RDS API. For more information, see [Viewing support dates for
 ## Amazon RDS Extended Support version naming
 
 Amazon RDS will release new minor versions with fixes and CVE patches
-for engines on RDS Extended Support. For more information, see [Amazon RDS Extended Support versions for RDS for MySQL](MySQL.Concepts.md#mysql-extended-support-releases "MySQL.Concepts.md#mysql-extended-support-releases") and [Amazon RDS Extended Support updates for RDS for PostgreSQL](../PostgreSQLReleaseNotes/postgresql-extendedsupport.md "../PostgreSQLReleaseNotes/postgresql-extendedsupport.md") in the _Amazon RDS for PostgreSQL
+for engines on RDS Extended Support. For more information, see [Amazon RDS Extended Support versions for RDS for MySQL](MySQL.Concepts.VersionMgmt.md#mysql-extended-support-releases "MySQL.Concepts.VersionMgmt.md#mysql-extended-support-releases") and [Amazon RDS Extended Support updates for RDS for PostgreSQL](../PostgreSQLReleaseNotes/postgresql-extendedsupport.md "../PostgreSQLReleaseNotes/postgresql-extendedsupport.md") in the _Amazon RDS for PostgreSQL
 Release Notes_.
 
 The names of these minor releases will be in the form _major.minor-RDS.YYYYMMDD.patch.YYYYMMDD_, for

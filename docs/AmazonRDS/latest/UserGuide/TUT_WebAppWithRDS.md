@@ -24,9 +24,9 @@ The tutorial then shows you how to install the web server on the EC2 instance. Y
 web server to your DB instance
 in the VPC using the DB instance endpoint.
 
-1. [Launch an EC2 instance to connect with your DB instance](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md")
-2. [Create an Amazon RDS DB instance](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md")
-3. [Install a web server on your EC2 instance](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md")
+1. [Launch an EC2 instance to connect with your DB instance](CHAP_Tutorials.WebServerDB.LaunchEC2.md "CHAP_Tutorials.WebServerDB.LaunchEC2.md")
+2. [Create an Amazon RDS DB instance](CHAP_Tutorials.WebServerDB.CreateDBInstance.md "CHAP_Tutorials.WebServerDB.CreateDBInstance.md")
+3. [Install a web server on your EC2 instance](CHAP_Tutorials.WebServerDB.CreateWebServer.md "CHAP_Tutorials.WebServerDB.CreateWebServer.md")
    The following diagram shows the configuration when the tutorial is complete.
 
 ![Single VPC Scenario](images/con-VPC-sec-grp.png)
@@ -37,4 +37,4 @@ After you complete the tutorial, there is a public and private subnet in each Av
 your VPC. This tutorial uses the default VPC for your AWS account and automatically sets up connectivity between your
 EC2 instance and DB instance.
 If you would rather configure a new VPC for this scenario instead, complete the tasks in
-[Tutorial: Create a VPC for use with a DB instance (IPv4 only)](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md").
+[Tutorial: Create a VPC for use with a DB instance (IPv4 only)](CHAP_Tutorials.WebServerDB.CreateVPC.md "CHAP_Tutorials.WebServerDB.CreateVPC.md").

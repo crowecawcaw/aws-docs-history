@@ -27,13 +27,13 @@ The following are prerequisites for using Oracle Java:
 
 - Your DB instance must be of a large enough class. Oracle Java isn't
   supported for the db.t3.small DB instance classes.
-  For more information, see [DB instance classes](Concepts.md "Concepts.md").
+  For more information, see [DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
 - Your DB instance must have **Auto Minor Version Upgrade** enabled.
   This option enables your DB instance to receive minor DB engine version
   upgrades automatically when they become available. Amazon RDS uses this
   option to update your DB instance to the latest Oracle Patch Set Update
   (PSU) or Release Update (RU). For more information, see
-  [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+  [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md").
 
 ## Best practices for Oracle JVM
 
@@ -42,11 +42,11 @@ The following are best practices for using Oracle Java:
 - For maximum security,
   use the `JVM` option with
   Secure Sockets Layer (SSL).
-  For more information, see [Oracle Secure Sockets Layer](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md").
+  For more information, see [Oracle Secure Sockets Layer](Appendix.Oracle.Options.SSL.md "Appendix.Oracle.Options.SSL.md").
 - Configure your DB instance
   to restrict network access.
-  For more information, see [Scenarios for accessing a DB instance in a VPC](USER_VPC.md "USER_VPC.md")
-  and [Working with a DB instance in a VPC](USER_VPC.md "USER_VPC.md").
+  For more information, see [Scenarios for accessing a DB instance in a VPC](USER_VPC.Scenarios.md "USER_VPC.Scenarios.md")
+  and [Working with a DB instance in a VPC](USER_VPC.WorkingWithRDSInstanceinaVPC.md "USER_VPC.WorkingWithRDSInstanceinaVPC.md").
 - Update the configuration of your HTTPS endpoints to support TLSv1.2 if you meet the following
   conditions:
 
@@ -101,7 +101,7 @@ Oracle DB instance is available.
       instance. For more information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
     - For an existing DB instance, apply the option group by modifying the
       instance and attaching the new option group. For more information, see
-      [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+      [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md").
 
 4.  Grant the required permissions to users.
 
@@ -143,7 +143,7 @@ After you remove the `JVM` option, you don't need to restart your DB instance.
 
 Removing the `JVM` option can result in data loss if the DB instance is using data types that
 were enabled as part of the option. Back up your data before proceeding. For more information, see
-[Backing up, restoring, and exporting data](CHAP_CommonTasks.md "CHAP_CommonTasks.md").
+[Backing up, restoring, and exporting data](CHAP_CommonTasks.BackupRestore.md "CHAP_CommonTasks.BackupRestore.md").
 
 To remove the `JVM` option from a DB instance, do one of the following:
 
@@ -155,4 +155,4 @@ To remove the `JVM` option from a DB instance, do one of the following:
   that doesn't include the `JVM` option. This change affects a single DB
   instance. You can specify the default (empty) option group, or a
   different custom option group. For more information, see
-  [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+  [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md").

@@ -71,7 +71,7 @@ during database creation:
 - You specify a DB engine version and DB instance class that support RDS
   Optimized Writes.
   - RDS Optimized Writes is supported for RDS for MySQL version 8.0.30 and
-    higher. For information about RDS for MySQL versions, see [MySQL on Amazon RDS versions](MySQL.Concepts.md "MySQL.Concepts.md").
+    higher. For information about RDS for MySQL versions, see [MySQL on Amazon RDS versions](MySQL.Concepts.VersionMgmt.md "MySQL.Concepts.VersionMgmt.md").
   - RDS Optimized Writes is supported for RDS for MySQL databases that use
     the following DB instance classes:
 
@@ -93,10 +93,10 @@ during database creation:
         - db.x2idn
         - db.x2iedn
 
-    For information about DB instance classes, see [DB instance classes](Concepts.md "Concepts.md").
+    For information about DB instance classes, see [DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
 
   DB instance class availability differs for AWS Regions. To determine whether a
-  DB instance class is supported in a specific AWS Region, see [Determining DB instance class support in AWS Regions](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
+  DB instance class is supported in a specific AWS Region, see [Determining DB instance class support in AWS Regions](Concepts.DBInstanceClass.RegionSupport.md "Concepts.DBInstanceClass.RegionSupport.md").
 
   To upgrade your database to a DB instance class that supports RDS
   Optimized Writes, you can create a blue/green deployment. For more

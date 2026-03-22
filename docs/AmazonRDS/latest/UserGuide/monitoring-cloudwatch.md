@@ -42,7 +42,7 @@ For a table of these metrics, see [Amazon CloudWatch metrics for Amazon RDS](rds
 
 - Performance Insights metrics
 
-For a table of these metrics, see [Amazon CloudWatch metrics for Amazon RDS Performance Insights](USER_PerfInsights.md "USER_PerfInsights.md") and
+For a table of these metrics, see [Amazon CloudWatch metrics for Amazon RDS Performance Insights](USER_PerfInsights.Cloudwatch.md "USER_PerfInsights.Cloudwatch.md") and
 [Performance Insights counter metrics](USER_PerfInsights_Counters.md "USER_PerfInsights_Counters.md").
 
 - Enhanced Monitoring metrics (published to Amazon CloudWatch Logs)

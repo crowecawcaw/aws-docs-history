@@ -10,7 +10,7 @@ to Amazon RDS Custom for SQL Server using native backup and restore:
    This process explains the migration of a database from on-premises to RDS Custom for SQL Server, using native full backup and restore. To reduce
    the cutover time during the migration process, you might also consider using differential or log backups.
 
-For general information about native backup and restore for RDS for SQL Server, see [Importing and exporting SQL Server databases using native backup and restore](SQLServer.Procedural.md "SQLServer.Procedural.md").
+For general information about native backup and restore for RDS for SQL Server, see [Importing and exporting SQL Server databases using native backup and restore](SQLServer.Procedural.Importing.md "SQLServer.Procedural.Importing.md").
 
 ###### Topics
 
@@ -24,7 +24,7 @@ For general information about native backup and restore for RDS for SQL Server, 
 
 Perform the following tasks before migrating the database:
 
-1. Configure Remote Desktop Connection (RDP) for your RDS Custom for SQL Server DB instance. For more information, see [Connecting to your RDS Custom DB instance using RDP](custom-creating-sqlserver.md "custom-creating-sqlserver.md").
+1. Configure Remote Desktop Connection (RDP) for your RDS Custom for SQL Server DB instance. For more information, see [Connecting to your RDS Custom DB instance using RDP](custom-creating-sqlserver.rdp.md "custom-creating-sqlserver.rdp.md").
 2. Configure access to Amazon S3 so you can upload and download the database backup file.
 
 ## Backing up the on-premises database

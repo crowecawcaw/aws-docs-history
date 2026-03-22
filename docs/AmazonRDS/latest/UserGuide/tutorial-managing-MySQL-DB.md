@@ -49,7 +49,7 @@ Initially, the storage capacity of your DB instance is set to meet the immediate
 However, as data volumes grow, it might be necessary to adjust the storage settings to ensure the
 database’s continued performance and stability. This process involves increasing the allocated storage of your DB instance.
 For more information on modifying the storage capacity of your DB instance, see
-[Working with storage for Amazon RDS DB instances](USER_PIOPS.md "USER_PIOPS.md").
+[Working with storage for Amazon RDS DB instances](USER_PIOPS.StorageTypes.md "USER_PIOPS.StorageTypes.md").
 
 1. In the Amazon RDS console, choose **Databases**.
 2. Select the DB instance you want to modify.
@@ -74,7 +74,7 @@ which can help distribute the load and improve overall database performance. For
 
 Before a MySQL DB instance can serve as a replication source, automatic backups must be enabled on the source DB instance.
 This can be done by setting the backup retention period to a value other than 0. For more information on MySQL read replicas,
-see [Working with MySQL read replicas](USER_MySQL.Replication.md "USER_MySQL.Replication.md").
+see [Working with MySQL read replicas](USER_MySQL.Replication.ReadReplicas.md "USER_MySQL.Replication.ReadReplicas.md").
 
 1. In the Amazon RDS console, choose **Databases**.
 2. Select the DB instance you want to use as the source for the read replica.
@@ -139,7 +139,7 @@ After you create the DB snapshot of your production environment, create a new DB
 environment by restoring a DB snapshot. Restored DB instances are automatically associated with the default
 DB parameter and option groups. However, you can apply a custom parameter group and option group by
 specifying them during a restore. For instructions on restoring a DB snapshot, see
-[Tutorial: Restore an Amazon RDS DB instance from a DB snapshot](CHAP_Tutorials.md "CHAP_Tutorials.md").
+[Tutorial: Restore an Amazon RDS DB instance from a DB snapshot](CHAP_Tutorials.RestoringFromSnapshot.md "CHAP_Tutorials.RestoringFromSnapshot.md").
 
 Finally, designate the new DB instance as your new development environment by updating its Amazon RDS tags.
 For guidance on updating Amazon RDS tags to reflect this change, see the previous section

@@ -211,7 +211,7 @@ For more information about ABAC, see [Define permissions with ABAC authorization
 
 For more information about tagging
 Amazon RDS resources, see
-[Specifying conditions: Using custom tags](UsingWithRDS.IAM.md "UsingWithRDS.IAM.md").
+[Specifying conditions: Using custom tags](UsingWithRDS.IAM.SpecifyingCustomTags.md "UsingWithRDS.IAM.SpecifyingCustomTags.md").
 To view an example identity-based policy for limiting access to a resource based on
 the tags on that resource, see [Grant permission for actions on a resource with a specific tag with two different values](security_iam_id-based-policy-examples-create-and-modify-examples.md#security_iam_id-based-policy-examples-grant-permissions-tags "security_iam_id-based-policy-examples-create-and-modify-examples.md#security_iam_id-based-policy-examples-grant-permissions-tags").
 
@@ -256,4 +256,4 @@ Service-linked roles appear in your AWS account and are owned by the service. An
 but not edit the permissions for service-linked roles.
 
 For details about using Amazon RDS service-linked roles,
-see [Using service-linked roles for Amazon RDS](UsingWithRDS.IAM.md "UsingWithRDS.IAM.md").
+see [Using service-linked roles for Amazon RDS](UsingWithRDS.IAM.ServiceLinkedRoles.md "UsingWithRDS.IAM.ServiceLinkedRoles.md").

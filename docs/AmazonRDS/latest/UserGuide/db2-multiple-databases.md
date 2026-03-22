@@ -17,12 +17,12 @@ needed. For more information, see [Deactivating a database](db2-managing-databas
 The number of activated databases on a DB instance depends on the available memory
 resources on the server. Memory resources differ based on the DB instance class and the
 amount of memory configured for the database. For information about DB instance classes, see
-[DB instance classes](Concepts.md "Concepts.md"). For information about how to update the
+[DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md"). For information about how to update the
 memory for an RDS for Db2 database, see [rdsadmin.update_db_param](db2-sp-managing-databases.md#db2-sp-update-db-param "db2-sp-managing-databases.md#db2-sp-update-db-param").
 
 We recommend that you choose a DB instance class that has 2 GB of memory for common
 database tasks, operating system requirements, and other Amazon RDS automation tasks such as
-backups. For more information about changing the DB instance class, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+backups. For more information about changing the DB instance class, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md").
 
 In addition, IBM recommends a minimum of 1 GB of memory for each active database. For more
 information, see [Disk

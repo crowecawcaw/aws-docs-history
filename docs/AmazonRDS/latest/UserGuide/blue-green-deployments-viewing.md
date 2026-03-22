@@ -3,7 +3,7 @@
 You can view the details about a blue/green deployment using the AWS Management Console, the AWS CLI, or the RDS API.
 
 You can also view and subscribe to events for information about a blue/green deployment. For more information, see
-[Blue/green deployment events](USER_Events.md#USER_Events.Messages.BlueGreenDeployments "USER_Events.md#USER_Events.Messages.BlueGreenDeployments").
+[Blue/green deployment events](USER_Events.Messages.md#USER_Events.Messages.BlueGreenDeployments "USER_Events.Messages.md#USER_Events.Messages.BlueGreenDeployments").
 
 ###### To view the details about a blue/green deployment
 

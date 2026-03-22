@@ -68,7 +68,7 @@ for a MySQL DB instance in the console.
 The `default_password_lifetime` parameter controls the number of days before the client password automatically expires. The `disconnect_on_expired_password`
 parameter controls whether the MySQL DB instance disconnects the client when the password expires.
 For more information on other parameters available for MySQL DB instances, see
-[Parameters for MySQL](Appendix.MySQL.md "Appendix.MySQL.md")
+[Parameters for MySQL](Appendix.MySQL.Parameters.md "Appendix.MySQL.Parameters.md")
 
 .
 
@@ -123,9 +123,9 @@ Next, create a new option group for your DB instance.
 ## Create a new Amazon RDS option group
 
 Create a new option group with the option
-[MariaDB Audit Plugin](Appendix.MySQL.Options.md "Appendix.MySQL.Options.md").
+[MariaDB Audit Plugin](Appendix.MySQL.Options.AuditPlugin.md "Appendix.MySQL.Options.AuditPlugin.md").
 This plugin logs server activity for security and compliance. For more information on other custom options available for MySQL DB instances, see
-[Options for MySQL DB instances](Appendix.MySQL.md "Appendix.MySQL.md").
+[Options for MySQL DB instances](Appendix.MySQL.Options.md "Appendix.MySQL.Options.md").
 
 ###### To create an option group
 

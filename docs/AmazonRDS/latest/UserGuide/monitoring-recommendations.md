@@ -11,8 +11,8 @@ recommendation. This recommendation helps to prevent future database performance
 impact. For example, the "Idle In Transaction" recommendation is generated for RDS for PostgreSQL instances when the sessions
 connected to the database are not performing active work, but can keep database resources blocked.
 To receive proactive recommendations, you must turn on Performance Insights with a paid tier retention period. For information about turning on
-Performance Insights, see [Turning Performance Insights on and off for Amazon RDS](USER_PerfInsights.md "USER_PerfInsights.md"). For information about pricing and data
-retention for Performance Insights see [Pricing and data retention for Performance Insights](USER_PerfInsights.Overview.md "USER_PerfInsights.Overview.md").
+Performance Insights, see [Turning Performance Insights on and off for Amazon RDS](USER_PerfInsights.Enabling.md "USER_PerfInsights.Enabling.md"). For information about pricing and data
+retention for Performance Insights see [Pricing and data retention for Performance Insights](USER_PerfInsights.Overview.cost.md "USER_PerfInsights.Overview.cost.md").
 
 DevOps Guru for RDS monitors certain metrics to detect when the metric's behavior becomes highly
 unusual or anomalous. These anomalies are reported as reactive insights with
@@ -53,7 +53,7 @@ Recommendations are supported in the following AWS Regions:
 ###### Topics
 
 - [Viewing Amazon RDS recommendations](UserRecommendationsView.md "UserRecommendationsView.md")
-- [Applying Amazon RDS recommendations](USERRecommendationsManage.md "USERRecommendationsManage.md")
-- [Dismissing Amazon RDS recommendations](USERRecommendationsManage.md "USERRecommendationsManage.md")
-- [Modifying dismissed Amazon RDS recommendations to active recommendations](USERRecommendationsManage.md "USERRecommendationsManage.md")
-- [Recommendations from Amazon RDS reference](USERRecommendationsManage.md "USERRecommendationsManage.md")
+- [Applying Amazon RDS recommendations](USERRecommendationsManage.ApplyRecommendation.md "USERRecommendationsManage.ApplyRecommendation.md")
+- [Dismissing Amazon RDS recommendations](USERRecommendationsManage.DismissRecommendation.md "USERRecommendationsManage.DismissRecommendation.md")
+- [Modifying dismissed Amazon RDS recommendations to active recommendations](USERRecommendationsManage.DismissToActiveRecommendation.md "USERRecommendationsManage.DismissToActiveRecommendation.md")
+- [Recommendations from Amazon RDS reference](USERRecommendationsManage.RecommendationReference.md "USERRecommendationsManage.RecommendationReference.md")

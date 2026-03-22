@@ -7,12 +7,12 @@ The following are requirements for setting up and using the TLE development kit.
   RDS for PostgreSQL versions 13.12 and higher 13 versions, 14.5 and higher 14 versions, and 15.2 and higher versions only.
   - If you need to upgrade your RDS for PostgreSQL instance,
     see
-    [Upgrades of the RDS for PostgreSQL DB engine](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md").
+    [Upgrades of the RDS for PostgreSQL DB engine](USER_UpgradeDBInstance.PostgreSQL.md "USER_UpgradeDBInstance.PostgreSQL.md").
   - If you don't yet have an
     Amazon RDS DB instance running
     PostgreSQL, you can create one. For more information, see
 
-  RDS for PostgreSQL DB instance, see [Creating and connecting to a PostgreSQL DB instance](CHAP_GettingStarted.CreatingConnecting.md "CHAP_GettingStarted.CreatingConnecting.md").
+  RDS for PostgreSQL DB instance, see [Creating and connecting to a PostgreSQL DB instance](CHAP_GettingStarted.CreatingConnecting.PostgreSQL.md "CHAP_GettingStarted.CreatingConnecting.PostgreSQL.md").
 
 - Requires `rds_superuser` privileges – To set
   up and configure the `pg_tle` extension, your database user role must

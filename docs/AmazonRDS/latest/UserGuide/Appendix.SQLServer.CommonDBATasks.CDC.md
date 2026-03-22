@@ -1,0 +1,134 @@
+# Using change data capture for Amazon RDS for SQL Server
+
+Amazon RDS supports change data capture (CDC) for your DB instances running Microsoft SQL Server.
+CDC captures changes that are made to the data in your tables. It stores metadata about
+each change, which you can access later. For more information about how CDC works, see
+[Change data capture](https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/track-data-changes-sql-server#Capture "https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/track-data-changes-sql-server#Capture") in the Microsoft documentation.
+Before you use CDC with your Amazon RDS DB instances, enable it in the database by running
+`msdb.dbo.rds_cdc_enable_db`. After CDC is enabled,
+any user who is `db_owner` of that database can enable or
+disable CDC on tables in that database.
+
+###### Important
+
+During restores, CDC will be disabled. All of the related metadata is automatically removed
+from the database. This applies to snapshot restores and point-in-time restores.
+After performing one of these types of restores,
+you can re-enable CDC and re-specify tables to track.
+
+To enable CDC for a DB instance, run the `msdb.dbo.rds_cdc_enable_db`
+stored procedure.
+
+```
+exec msdb.dbo.rds_cdc_enable_db '`database_name`'
+```
+
+To disable CDC for a DB instance, run the `msdb.dbo.rds_cdc_disable_db` stored
+procedure.
+
+```
+exec msdb.dbo.rds_cdc_disable_db '`database_name`'
+```
+
+To grant CDC permissions to a user, use the following procedure:
+
+```
+go
+		GRANT EXECUTE ON msdb.dbo.rds_cdc_enable_db TO `User1`
+		GRANT EXECUTE ON msdb.dbo.rds_cdc_disable_db TO `User1`
+```
+
+###### Topics
+
+- [Tracking tables with change data capture](#Appendix.SQLServer.CommonDBATasks.CDC.tables "#Appendix.SQLServer.CommonDBATasks.CDC.tables")
+- [Change data capture jobs](#Appendix.SQLServer.CommonDBATasks.CDC.jobs "#Appendix.SQLServer.CommonDBATasks.CDC.jobs")
+- [Change data capture for Multi-AZ instances](#Appendix.SQLServer.CommonDBATasks.CDC.Multi-AZ "#Appendix.SQLServer.CommonDBATasks.CDC.Multi-AZ")
+
+## Tracking tables with change data capture
+
+After CDC is enabled on the database, you can start tracking specific tables. You can
+choose the tables to track by running [sys.sp_cdc_enable_table](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sys-sp-cdc-enable-table-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sys-sp-cdc-enable-table-transact-sql").
+
+```
+--Begin tracking a table
+exec sys.sp_cdc_enable_table
+   @source_schema           = N'`source_schema`'
+,  @source_name             = N'`source_name`'
+,  @role_name               = N'`role_name`'
+
+--The following parameters are optional:
+
+--, @capture_instance       = '`capture_instance`'
+--, @supports_net_changes   = supports_net_changes
+--, @index_name             = '`index_name`'
+--, @captured_column_list   = '`captured_column_list`'
+--, @filegroup_name         = '`filegroup_name`'
+--, @allow_partition_switch = '`allow_partition_switch`'
+;
+```
+
+To view the CDC configuration for your tables, run [sys.sp_cdc_help_change_data_capture](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sys-sp-cdc-help-change-data-capture-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sys-sp-cdc-help-change-data-capture-transact-sql").
+
+```
+--View CDC configuration
+exec sys.sp_cdc_help_change_data_capture
+
+--The following parameters are optional and must be used together.
+--  '`schema_name`', '`table_name`'
+;
+```
+
+For more information on CDC tables, functions, and stored procedures in SQL Server documentation, see the following:
+
+- [Change data capture stored procedures (Transact-SQL)](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/change-data-capture-stored-procedures-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/change-data-capture-stored-procedures-transact-sql")
+- [Change data capture functions (Transact-SQL)](https://docs.microsoft.com/en-us/sql/relational-databases/system-functions/change-data-capture-functions-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-functions/change-data-capture-functions-transact-sql")
+- [Change data capture tables (Transact-SQL)](https://docs.microsoft.com/en-us/sql/relational-databases/system-tables/change-data-capture-tables-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-tables/change-data-capture-tables-transact-sql")
+
+## Change data capture jobs
+
+When you enable CDC, SQL Server creates the CDC jobs. Database owners (`db_owner`) can view, create, modify, and delete the CDC jobs. However,
+the RDS system account owns them. Therefore, the jobs aren't visible from native views, procedures, or in SQL Server Management Studio.
+
+To control behavior of CDC in a database, use native SQL Server procedures such as [sp_cdc_enable_table](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sys-sp-cdc-enable-table-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sys-sp-cdc-enable-table-transact-sql") and [sp_cdc_start_job](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sys-sp-cdc-start-job-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sys-sp-cdc-start-job-transact-sql"). To change CDC job parameters, like `maxtrans` and `maxscans`, you can use [sp_cdc_change_job.](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sys-sp-cdc-change-job-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sys-sp-cdc-change-job-transact-sql").
+
+To get more information regarding the CDC jobs, you can query the following dynamic management views:
+
+- sys.dm_cdc_errors
+- sys.dm_cdc_log_scan_sessions
+- sysjobs
+- sysjobhistory
+
+## Change data capture for Multi-AZ instances
+
+If you use CDC on a Multi-AZ instance, make sure the mirror's CDC job configuration matches the one on the principal. CDC jobs are mapped to the `database_id`. If
+the database IDs on the secondary are different from the principal, then the jobs won't be associated with the correct database. To try to prevent errors after failover,
+RDS drops and recreates the jobs on the new principal. The recreated jobs use the parameters that the principal recorded before failover.
+
+Although this process runs quickly, it's still possible that the CDC jobs might run before RDS can correct them. Here are three ways to force parameters to be consistent
+between primary and secondary replicas:
+
+- Use the same job parameters for all the databases that have CDC enabled.
+- Before you change the CDC job configuration, convert the Multi-AZ instance to Single-AZ.
+- Manually transfer the parameters whenever you change them on the principal.
+
+To view and define the CDC parameters that are used to recreate the CDC jobs after a
+failover, use `rds_show_configuration` and `rds_set_configuration`.
+
+The following example returns the value set for `cdc_capture_maxtrans`. For any parameter that is set to
+`RDS_DEFAULT`, RDS automatically configures the value.
+
+```
+-- Show configuration for each parameter on either primary and secondary replicas.
+exec rdsadmin.dbo.rds_show_configuration 'cdc_capture_maxtrans';
+```
+
+To set the configuration on the secondary, run `rdsadmin.dbo.rds_set_configuration`. This procedure sets the parameter
+values for all of the databases on the secondary server. These settings are used only after a failover. The following example sets the `maxtrans` for all CDC
+capture jobs to `1000`:
+
+```
+--To set values on secondary. These are used after failover.
+exec rdsadmin.dbo.rds_set_configuration 'cdc_capture_maxtrans', `1000`;
+```
+
+To set the CDC job parameters on the principal, use [sys.sp_cdc_change_job](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sys-sp-cdc-change-job-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sys-sp-cdc-change-job-transact-sql") instead.

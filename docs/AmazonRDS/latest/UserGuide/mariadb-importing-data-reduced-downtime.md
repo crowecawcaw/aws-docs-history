@@ -386,7 +386,7 @@ database.
    of this process, decide what is sufficient space and processing capacity for
    your data load procedures. Also, decide what is required to handle the
    production workload. You can estimate this based on the size and resources
-   of the source MariaDB database. For more information, see [DB instance classes](Concepts.md "Concepts.md").
+   of the source MariaDB database. For more information, see [DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
 2. Create a DB instance in the AWS Region that contains your Amazon EC2
    instance. Follow the instructions in [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md") and use the following
    guidelines:
@@ -683,4 +683,4 @@ CALL mysql.rds_reset_external_master;
 ```
 
 8. Turn on additional Amazon RDS features such as Multi-AZ support and read
-   replicas. For more information, see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.md "Concepts.md") and [Working with DB instance read replicas](USER_ReadRepl.md "USER_ReadRepl.md").
+   replicas. For more information, see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.MultiAZ.md "Concepts.MultiAZ.md") and [Working with DB instance read replicas](USER_ReadRepl.md "USER_ReadRepl.md").

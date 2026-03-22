@@ -20,7 +20,7 @@ Make sure to meet the following requirements for Amazon RDS Custom for Oracle:
   Delivery Cloud](https://edelivery.oracle.com/osdc/faces/Home.jspx "https://edelivery.oracle.com/osdc/faces/Home.jspx") to download the supported list of installation files
   and patches for RDS Custom for Oracle. If you use an unknown patch, custom engine version
   (CEV) creation fails. In this case, contact the RDS Custom support team and ask it
-  to add the missing patch. For more information, see [Step 2: Download your database installation files and patches from Oracle Software Delivery Cloud](custom-cev.md#custom-cev.preparing.download "custom-cev.md#custom-cev.preparing.download").
+  to add the missing patch. For more information, see [Step 2: Download your database installation files and patches from Oracle Software Delivery Cloud](custom-cev.preparing.md#custom-cev.preparing.download "custom-cev.preparing.md#custom-cev.preparing.download").
 - You have access to Amazon S3. You need this service for the following
   reasons:
 
@@ -35,7 +35,7 @@ Make sure to meet the following requirements for Amazon RDS Custom for Oracle:
        For example, you might have a bucket named
        `do-not-delete-rds-custom-123456789012-us-east-1-12a3b4`.
 
-  For more information, see [Step 3: Upload your installation files to Amazon S3](custom-cev.md#custom-cev.preparing.s3 "custom-cev.md#custom-cev.preparing.s3") and [Creating a CEV](custom-cev.md "custom-cev.md").
+  For more information, see [Step 3: Upload your installation files to Amazon S3](custom-cev.preparing.md#custom-cev.preparing.s3 "custom-cev.preparing.md#custom-cev.preparing.s3") and [Creating a CEV](custom-cev.create.md "custom-cev.create.md").
 
 - You use the DB instance classes listed in [DB instance class support for RDS Custom for Oracle](custom-oracle-feature-support.md#custom-reqs-limits.instances "custom-oracle-feature-support.md#custom-reqs-limits.instances") to create your RDS Custom for Oracle DB instances.
 - Your RDS Custom for Oracle DB instances run Oracle Linux 8 (recommended) or Oracle Linux 7. If
@@ -77,8 +77,8 @@ The following limitations apply to RDS Custom for Oracle:
 - You can't use the `describe-reserved-db-instances` API for
   RDS Custom for Oracle DB instances.
 
-For limitations specific to modifying an RDS Custom for Oracle DB instance, see [Modifying your RDS Custom for Oracle DB instance](custom-managing.md "custom-managing.md"). For
-replication limitations, see [General limitations for RDS Custom for Oracle replication](custom-rr.md#custom-rr.limitations "custom-rr.md#custom-rr.limitations").
+For limitations specific to modifying an RDS Custom for Oracle DB instance, see [Modifying your RDS Custom for Oracle DB instance](custom-managing.modifying.md "custom-managing.modifying.md"). For
+replication limitations, see [General limitations for RDS Custom for Oracle replication](custom-rr.reqs-limitations.md#custom-rr.limitations "custom-rr.reqs-limitations.md#custom-rr.limitations").
 
 ## CEV and AMI limitations for RDS Custom for Oracle
 

@@ -52,7 +52,7 @@ The following general limitations apply to blue/green deployments:
   - Multi-AZ DB cluster deployments
 
   Blue/green deployments are supported for Multi-AZ DB instance deployments. For
-  more information about Multi-AZ deployments, see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.md "Concepts.md").
+  more information about Multi-AZ deployments, see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.MultiAZ.md "Concepts.MultiAZ.md").
 
 ### RDS for MySQL limitations for blue/green deployments
 
@@ -64,7 +64,7 @@ The following limitations apply to RDS for MySQL blue/green deployments:
 
 In this case, you can create a blue/green deployment without specifying a major
 version upgrade. Then, you can upgrade the database in the green environment. For more
-information, see [Upgrading a DB instance engine version](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md").
+information, see [Upgrading a DB instance engine version](USER_UpgradeDBInstance.Upgrading.md "USER_UpgradeDBInstance.Upgrading.md").
 
 - Blue/green deployments don't support the AWS JDBC Driver for MySQL. For more information,
   see [Known Limitations](https://github.com/awslabs/aws-mysql-jdbc?tab=readme-ov-file#known-limitations "https://github.com/awslabs/aws-mysql-jdbc?tab=readme-ov-file#known-limitations") on GitHub.
@@ -152,7 +152,7 @@ replication instead of physical replication, see [PostgreSQL replication methods
   - If you're using the `pgAudit` extension, it must remain in the
     shared libraries (`shared_preload_libraries`) on the custom DB
     parameter groups for both the blue and the green DB instances. For more information, see
-    [Setting up the pgAudit extension](Appendix.PostgreSQL.CommonDBATasks.pgaudit.md "Appendix.PostgreSQL.CommonDBATasks.pgaudit.md").
+    [Setting up the pgAudit extension](Appendix.PostgreSQL.CommonDBATasks.pgaudit.basic-setup.md "Appendix.PostgreSQL.CommonDBATasks.pgaudit.basic-setup.md").
 
 #### Logical replication-specific limitations for blue/green deployments
 
@@ -205,17 +205,17 @@ You can monitor a database with the same name after switchover, but it doesn't
 contain the data from before the switchover.
 
 - If you use resource IDs in IAM policies, make sure you add the resource IDs of the
-  newly transitioned resources when necessary. For more information, see [Identity and access management for Amazon RDS](UsingWithRDS.md "UsingWithRDS.md").
+  newly transitioned resources when necessary. For more information, see [Identity and access management for Amazon RDS](UsingWithRDS.IAM.md "UsingWithRDS.IAM.md").
 - If you have IAM roles associated with your DB instance, make sure to reassociate
   them after switchover. Attached roles aren't automatically copied to the green
   environment.
-- If you authenticate to your DB instance using [IAM database authentication](UsingWithRDS.md "UsingWithRDS.md"), make sure that
+- If you authenticate to your DB instance using [IAM database authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md"), make sure that
   the IAM policy used for database access has both the blue and the green databases
   listed under the `Resource` element of the policy. This is required in order
-  to connect to the green database after switchover. For more information, see [Creating and using an IAM policy for IAM database access](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
+  to connect to the green database after switchover. For more information, see [Creating and using an IAM policy for IAM database access](UsingWithRDS.IAMDBAuth.IAMPolicy.md "UsingWithRDS.IAMDBAuth.IAMPolicy.md").
 - If you use AWS Backup to manage automated backups of resources in a blue/green
   deployment, adjust the resource IDs used by AWS Backup after switchover. For more
-  information, see [Using AWS Backup to manage automated backups for Amazon RDS](AutomatedBackups.md "AutomatedBackups.md").
+  information, see [Using AWS Backup to manage automated backups for Amazon RDS](AutomatedBackups.AWSBackup.md "AutomatedBackups.AWSBackup.md").
 - If you want to restore a manual or automated DB snapshot for a DB instance that was part
   of a blue/green deployment, make sure you restore the correct DB snapshot by examining
   the time when the snapshot was taken. For more information, see [Restoring to a DB instance](USER_RestoreFromSnapshot.md "USER_RestoreFromSnapshot.md").

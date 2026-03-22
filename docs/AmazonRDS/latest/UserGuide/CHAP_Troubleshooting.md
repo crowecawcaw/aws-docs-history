@@ -54,7 +54,7 @@ aren't permitted. This is the Automatic Private IP Addressing Range
 
 To make the instance publicly accessible, modify it and choose
 **Yes** under **Public accessibility**.
-For more information, see [Hiding a DB instance in a VPC from the internet](USER_VPC.md#USER_VPC.Hiding "USER_VPC.md#USER_VPC.Hiding").
+For more information, see [Hiding a DB instance in a VPC from the internet](USER_VPC.WorkingWithRDSInstanceinaVPC.md#USER_VPC.Hiding "USER_VPC.WorkingWithRDSInstanceinaVPC.md#USER_VPC.Hiding").
 
 - **Port** – The port that you specified when you
   created the DB instance can't be used to send or receive communications
@@ -115,14 +115,14 @@ For more information, see [Hiding a DB instance in a VPC from the internet](USER
      client IPv6 address range is authorized to connect to the DB
      instance.
 
-For more information, see [Working with a DB instance in a VPC](USER_VPC.md "USER_VPC.md").
+For more information, see [Working with a DB instance in a VPC](USER_VPC.WorkingWithRDSInstanceinaVPC.md "USER_VPC.WorkingWithRDSInstanceinaVPC.md").
 
 For engine-specific connection issues, see the following
 topics:
 
-- [Troubleshooting connections to your SQL Server DB instance](USER_ConnectToMicrosoftSQLServerInstance.md "USER_ConnectToMicrosoftSQLServerInstance.md")
-- [Troubleshooting connections to your Oracle DB instance](USER_ConnectToOracleInstance.md "USER_ConnectToOracleInstance.md")
-- [Troubleshooting connections to your RDS for PostgreSQL instance](USER_ConnectToPostgreSQLInstance.md "USER_ConnectToPostgreSQLInstance.md")
+- [Troubleshooting connections to your SQL Server DB instance](USER_ConnectToMicrosoftSQLServerInstance.Troubleshooting.md "USER_ConnectToMicrosoftSQLServerInstance.Troubleshooting.md")
+- [Troubleshooting connections to your Oracle DB instance](USER_ConnectToOracleInstance.Troubleshooting.md "USER_ConnectToOracleInstance.Troubleshooting.md")
+- [Troubleshooting connections to your RDS for PostgreSQL instance](USER_ConnectToPostgreSQLInstance.Troubleshooting.md "USER_ConnectToPostgreSQLInstance.Troubleshooting.md")
 - [Maximum MySQL and MariaDB connections](#USER_ConnectToInstance.max_connections "#USER_ConnectToInstance.max_connections")
 
 ### Testing a connection to a DB instance
@@ -174,7 +174,7 @@ errors. In these cases, you might want to reset the master user password for the
 instance. You can do this by modifying the RDS instance.
 
 For more information about modifying a DB instance, see
-[Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+[Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md").
 
 ## Amazon RDS security issues
 
@@ -295,11 +295,11 @@ If you get locked out of your DB instance, you can log in as the
 master user. Then you can reset the credentials for other administrative users or roles.
 If you can't log in as the master user, the AWS account owner can reset the master
 user password. For details of which administrative accounts or roles you might need to
-reset, see [Master user account privileges](UsingWithRDS.md "UsingWithRDS.md").
+reset, see [Master user account privileges](UsingWithRDS.MasterAccounts.md "UsingWithRDS.MasterAccounts.md").
 
 You can change the DB instance password by using the Amazon RDS
 console, the AWS CLI command [modify-db-instance](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md"), or by using the [ModifyDBInstance](../APIReference/API_ModifyDBInstance.md "../APIReference/API_ModifyDBInstance.md") API operation.
-For more information about modifying a DB instance, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+For more information about modifying a DB instance, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md").
 
 ## Amazon RDS DB instance outage or reboot
 
@@ -342,7 +342,7 @@ change requires a manual reboot. The DB instance isn't automatically rebooted
 during the maintenance window.
 
 To see a table that shows DB instance actions and the effect
-that setting the **Apply Immediately** value has, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+that setting the **Apply Immediately** value has, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md").
 
 ## Amazon RDS DB parameter changes not taking effect
 
@@ -358,7 +358,7 @@ failover if the DB instance is in a Multi-AZ deployment. The requirement to rebo
 DB instance after a static parameter change helps mitigate the risk of a parameter
 misconfiguration affecting an API call. An example of this is calling
 `ModifyDBInstance` to change the DB instance class. For more information,
-see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 ## Amazon RDS DB instance running out of storage
 
@@ -471,7 +471,7 @@ You can try one of the following to solve the problem:
 For information about troubleshooting instance capacity issues for Amazon EC2, see [Insufficient instance capacity](../../../AWSEC2/latest/UserGuide/troubleshooting-launch.md#troubleshooting-launch-capacity "../../../AWSEC2/latest/UserGuide/troubleshooting-launch.md#troubleshooting-launch-capacity") in the _Amazon EC2 User
 Guide_.
 
-For information about modifying a DB instance, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+For information about modifying a DB instance, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md").
 
 ## Freeable memory issues in Amazon RDS
 
@@ -489,7 +489,7 @@ You use the `FreeableMemory` metric in Amazon CloudWatch to monitor the freeable
 memory. For more information, see [Monitoring tools for Amazon RDS](MonitoringOverview.md "MonitoringOverview.md").
 
 If your DB instance consistently runs low on freeable memory or uses swap space,
-consider scaling up to a larger DB instance class. For more information, see [DB instance classes](Concepts.md "Concepts.md").
+consider scaling up to a larger DB instance class. For more information, see [DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
 
 You can also change the memory settings. For example, on
 RDS for MySQL, you might adjust the size of the
@@ -519,7 +519,7 @@ instances.
 The maximum number of connections allowed to an RDS for MySQL or RDS for MariaDB DB instance is based on the amount
 of memory available for its DB instance class. A DB instance class with more memory
 available results in a larger number of connections available. For more information
-on DB instance classes, see [DB instance classes](Concepts.md "Concepts.md").
+on DB instance classes, see [DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
 
 The connection limit for a DB instance is set by default to the maximum for the DB
 instance class. You can limit the number of concurrent connections to any value up
@@ -568,7 +568,7 @@ calculation is the sum of the following values:
   However, the value won't always match what you input. This mismatch
   occurs for several reasons. First, if the DB instance is a micro DB
   instance, then we override the default value and set it to 256 MB.
-  For more information, see [Overriding innodb_buffer_pool_size](MySQL.md#MySQL.Concepts.KnownIssuesAndLimitations.innodb-bp-size "MySQL.md#MySQL.Concepts.KnownIssuesAndLimitations.innodb-bp-size").
+  For more information, see [Overriding innodb_buffer_pool_size](MySQL.KnownIssuesAndLimitations.md#MySQL.Concepts.KnownIssuesAndLimitations.innodb-bp-size "MySQL.KnownIssuesAndLimitations.md#MySQL.Concepts.KnownIssuesAndLimitations.innodb-bp-size").
 
   Second, we make sure that 500 MB of memory is reserved on the DB
   instance for the host manager, the engine, the operating system, and
@@ -616,7 +616,7 @@ So, the value returned by the calculation is the following:
 When this value exceeds 1.2 times the memory allocated to the DB instance class
 used by the DB instance, the DB instance is placed in
 **incompatible-parameters** status. For information about the
-memory allocated to DB instance classes, see [Hardware specifications for DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
+memory allocated to DB instance classes, see [Hardware specifications for DB instance classes](Concepts.DBInstanceClass.Summary.md "Concepts.DBInstanceClass.Summary.md").
 
 The calculation multiplies the value of the `max_connections` parameter
 by the sum of several parameters. If the `max_connections` parameter is
@@ -630,7 +630,7 @@ To resolve the problem, complete the following steps:
    DB instance. Do so such that the potential memory usage is lower than 1.2
    times the memory allocated to its DB instance class.
 
-For information about setting parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 2. Restart the DB instance.
+For information about setting parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md"). 2. Restart the DB instance.
 
 For information about setting parameters, see [Starting an Amazon RDS DB instance that was previously stopped](USER_StartInstance.md "USER_StartInstance.md").
 
@@ -734,8 +734,8 @@ Amazon RDS monitors the replication status of your read replicas. RDS updates th
 `Error` if replication stops for any reason. You can
 review the details of the associated error thrown by the MySQL or MariaDB engines by viewing the
 **Replication Error** field. Events that indicate the status of
-the read replica are also generated, including [RDS-EVENT-0045](USER_Events.md#RDS-EVENT-0045 "USER_Events.md#RDS-EVENT-0045"),
-[RDS-EVENT-0046](USER_Events.md#RDS-EVENT-0046 "USER_Events.md#RDS-EVENT-0046"), and [RDS-EVENT-0057](USER_Events.md#RDS-EVENT-0057 "USER_Events.md#RDS-EVENT-0057"). For more
+the read replica are also generated, including [RDS-EVENT-0045](USER_Events.Messages.md#RDS-EVENT-0045 "USER_Events.Messages.md#RDS-EVENT-0045"),
+[RDS-EVENT-0046](USER_Events.Messages.md#RDS-EVENT-0046 "USER_Events.Messages.md#RDS-EVENT-0046"), and [RDS-EVENT-0057](USER_Events.Messages.md#RDS-EVENT-0057 "USER_Events.Messages.md#RDS-EVENT-0057"). For more
 information about events and subscribing to events, see [Working with Amazon RDS event notification](USER_Events.md "USER_Events.md"). If a MySQL error message is returned, check the
 error in the [MySQL error message documentation](https://dev.mysql.com/doc/mysql-errors/8.0/en/server-error-reference.html "https://dev.mysql.com/doc/mysql-errors/8.0/en/server-error-reference.html"). If a
 MariaDB error message is returned, check the error in the [MariaDB error
@@ -781,7 +781,7 @@ command:
 The following steps can help resolve your replication error:
 
 - If you encounter a logical error and you can safely skip the error, follow
-  the steps described in [Skipping the current replication error for RDS for MySQL](Appendix.MySQL.CommonDBATasks.md "Appendix.MySQL.CommonDBATasks.md"). Your MySQL or
+  the steps described in [Skipping the current replication error for RDS for MySQL](Appendix.MySQL.CommonDBATasks.SkipError.md "Appendix.MySQL.CommonDBATasks.SkipError.md"). Your MySQL or
   MariaDB DB instance must be running a version that includes the
   `mysql_rds_skip_repl_error` procedure. For more information,
   see [mysql.rds_skip_repl_error](mysql-stored-proc-replicating.md#mysql_rds_skip_repl_error "mysql-stored-proc-replicating.md#mysql_rds_skip_repl_error").
@@ -798,7 +798,7 @@ The following steps can help resolve your replication error:
 
 If a replication error is fixed, the **Replication
 State** changes to **replicating**. For more
-information, see [Troubleshooting a MySQL read replica problem](USER_ReadRepl.md "USER_ReadRepl.md").
+information, see [Troubleshooting a MySQL read replica problem](USER_ReadRepl.Troubleshooting.md "USER_ReadRepl.Troubleshooting.md").
 
 ### Creating triggers with binary logging enabled requires SUPER privilege
 

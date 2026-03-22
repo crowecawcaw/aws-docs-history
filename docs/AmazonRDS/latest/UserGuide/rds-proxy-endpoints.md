@@ -12,10 +12,10 @@ improves scalability, availability, and security. With proxy endpoints, you can:
 - [Limitations for proxy endpoints](#rds-proxy-endpoints-limits "#rds-proxy-endpoints-limits")
 - [Proxy endpoints for Multi-AZ DB clusters](#rds-proxy-endpoints-overview-maz "#rds-proxy-endpoints-overview-maz")
 - [Accessing RDS databases across VPCs](#rds-proxy-cross-vpc "#rds-proxy-cross-vpc")
-- [Creating a proxy endpoint](rds-proxy-endpoints.md "rds-proxy-endpoints.md")
-- [Viewing proxy endpoints](rds-proxy-endpoints.md "rds-proxy-endpoints.md")
-- [Modifying a proxy endpoint](rds-proxy-endpoints.md "rds-proxy-endpoints.md")
-- [Deleting a proxy endpoint](rds-proxy-endpoints.md "rds-proxy-endpoints.md")
+- [Creating a proxy endpoint](rds-proxy-endpoints.CreatingEndpoint.md "rds-proxy-endpoints.CreatingEndpoint.md")
+- [Viewing proxy endpoints](rds-proxy-endpoints.DescribingEndpoint.md "rds-proxy-endpoints.DescribingEndpoint.md")
+- [Modifying a proxy endpoint](rds-proxy-endpoints.ModifyingEndpoint.md "rds-proxy-endpoints.ModifyingEndpoint.md")
+- [Deleting a proxy endpoint](rds-proxy-endpoints.DeletingEndpoint.md "rds-proxy-endpoints.DeletingEndpoint.md")
 
 ## Overview of proxy endpoints
 
@@ -40,7 +40,7 @@ either the name that you specified for a user-defined endpoint, or the special n
 
 Each proxy endpoint has its own set of CloudWatch metrics. Monitor metrics for all proxy
 endpoints, a specific endpoint, or all read/write or read-only endpoints of a proxy. For more
-information, see [Monitoring RDS Proxy metrics with Amazon CloudWatch](rds-proxy.md "rds-proxy.md").
+information, see [Monitoring RDS Proxy metrics with Amazon CloudWatch](rds-proxy.monitoring.md "rds-proxy.monitoring.md").
 
 A proxy endpoint uses the same authentication mechanism as its associated proxy. RDS Proxy automatically sets up
 permissions and authorizations for the user-defined endpoint, consistent with the properties of the associated
@@ -125,7 +125,7 @@ Reader endpoints for a proxy help with Multi-AZ DB cluster query scalability in 
   application gets an error and must reconnect. You can reconnect to the reader endpoint immediately and
   RDS Proxy routes the connection to an available reader DB instance. For more information about
   multiplexing and pinning for proxy sessions, see
-  [Overview of RDS Proxy concepts](rds-proxy.md#rds-proxy-overview "rds-proxy.md#rds-proxy-overview").
+  [Overview of RDS Proxy concepts](rds-proxy.howitworks.md#rds-proxy-overview "rds-proxy.howitworks.md#rds-proxy-overview").
 
 ## Accessing RDS databases across VPCs
 
@@ -159,7 +159,7 @@ The following steps explain how to create and access a cross-VPC endpoint throug
    the procedure in [Creating a proxy for Amazon RDS](rds-proxy-creating.md "rds-proxy-creating.md").
 3. On the **Details** page for your proxy in the RDS console, under the **Proxy
    endpoints** section, choose **Create endpoint**. Follow the procedure in
-   [Creating a proxy endpoint](rds-proxy-endpoints.md "rds-proxy-endpoints.md").
+   [Creating a proxy endpoint](rds-proxy-endpoints.CreatingEndpoint.md "rds-proxy-endpoints.CreatingEndpoint.md").
 4. Choose whether to make the cross-VPC endpoint read/write or read-only.
 5. Instead of accepting the default of the same VPC as the Amazon RDS DB instance, choose a different
    VPC. This VPC must be in the same AWS Region as the VPC where the proxy resides.

@@ -42,7 +42,7 @@ information, see [PostgreSQL replication methods for blue/green deployments](blu
 ## Region and version availability
 
 Feature availability and support varies across specific versions of each database engine,
-and across AWS Regions. For more information, see [Supported Regions and DB engines for Amazon RDS Blue/Green Deployments](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
+and across AWS Regions. For more information, see [Supported Regions and DB engines for Amazon RDS Blue/Green Deployments](Concepts.RDS_Fea_Regions_DB-eng.Feature.BlueGreenDeployments.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.BlueGreenDeployments.md").
 
 ## Benefits of using Amazon RDS Blue/Green Deployments
 
@@ -91,7 +91,7 @@ DB instance in the green environment.
 After you create the blue/green deployment, the DB instance in the green environment is read-only by default. 3. Make additional changes to the staging environment, if required. For example, you
 might change the DB instance class used by one or more DB instances in the green environment.
 
-For information about modifying a DB instance, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md"). 4. Test your staging environment.
+For information about modifying a DB instance, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md"). 4. Test your staging environment.
 
 During testing, we recommend that you keep your databases in the green environment
 read only. Enable write operations on the green environment with caution because they can

@@ -13,7 +13,7 @@ also improve your overall security profile.
 
 Feature availability and support varies across specific versions of each database engine, and across AWS Regions.
 For more information on version and Region availability of Amazon RDS with Kerberos authentication, see
-[Supported Regions and DB engines for Kerberos authentication in Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
+[Supported Regions and DB engines for Kerberos authentication in Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.KerberosAuthentication.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.KerberosAuthentication.md").
 
 ## Overview of Setting up Kerberos authentication for MySQL DB instances
 
@@ -248,7 +248,7 @@ For instructions, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance
 - Modify an existing MySQL DB instance using the console, the [modify-db-instance](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md") CLI command, or the [ModifyDBInstance](../APIReference/API_ModifyDBInstance.md "../APIReference/API_ModifyDBInstance.md")
   RDS API operation.
 
-For instructions, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+For instructions, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md").
 
 - Restore a MySQL DB instance from a DB snapshot using the console, the [restore-db-instance-from-db-snapshot](../../../cli/latest/reference/rds/restore-db-instance-from-db-snapshot.md "../../../cli/latest/reference/rds/restore-db-instance-from-db-snapshot.md") CLI command, or the [RestoreDBInstanceFromDBSnapshot](../APIReference/API_RestoreDBInstanceFromDBSnapshot.md "../APIReference/API_RestoreDBInstanceFromDBSnapshot.md") RDS API operation.
 
@@ -334,7 +334,7 @@ user name:
 ALTER USER '`testuser`'@'%' REQUIRE SSL;
 ```
 
-For more information, see [SSL/TLS support for MySQL DB instances on Amazon RDS](MySQL.Concepts.md "MySQL.Concepts.md").
+For more information, see [SSL/TLS support for MySQL DB instances on Amazon RDS](MySQL.Concepts.SSLSupport.md "MySQL.Concepts.SSLSupport.md").
 
 ## Managing a DB instance in a domain
 
@@ -421,7 +421,7 @@ The following limitations apply to Kerberos authentication for MySQL:
 - If you have auto minor version upgrade turned on for a MySQL DB instance that is using
   Kerberos authentication, you must turn off Kerberos authentication and then turn it back
   on after an automatic upgrade. For more information about auto minor version upgrades, see
-  [Automatic minor version upgrades for RDS for MySQL](USER_UpgradeDBInstance.MySQL.md "USER_UpgradeDBInstance.MySQL.md").
+  [Automatic minor version upgrades for RDS for MySQL](USER_UpgradeDBInstance.MySQL.Minor.md "USER_UpgradeDBInstance.MySQL.Minor.md").
 - To delete a DB instance with this feature enabled, first disable the feature. To do
   so, run the `modify-db-instance` CLI command for the DB instance and specify
   `none` for the `--domain` parameter.

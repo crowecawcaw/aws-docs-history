@@ -5,12 +5,12 @@ This section shows how to manage automated backups for DB instances and Multi-AZ
 ###### Topics
 
 - [Backup window](#USER_WorkingWithAutomatedBackups.BackupWindow "#USER_WorkingWithAutomatedBackups.BackupWindow")
-- [Backup retention period](USER_WorkingWithAutomatedBackups.md "USER_WorkingWithAutomatedBackups.md")
-- [Enabling automated backups](USER_WorkingWithAutomatedBackups.md "USER_WorkingWithAutomatedBackups.md")
-- [Retaining automated backups](USER_WorkingWithAutomatedBackups.md "USER_WorkingWithAutomatedBackups.md")
+- [Backup retention period](USER_WorkingWithAutomatedBackups.BackupRetention.md "USER_WorkingWithAutomatedBackups.BackupRetention.md")
+- [Enabling automated backups](USER_WorkingWithAutomatedBackups.Enabling.md "USER_WorkingWithAutomatedBackups.Enabling.md")
+- [Retaining automated backups](USER_WorkingWithAutomatedBackups.Retaining.md "USER_WorkingWithAutomatedBackups.Retaining.md")
 - [Deleting retained automated backups](USER_WorkingWithAutomatedBackups-Deleting.md "USER_WorkingWithAutomatedBackups-Deleting.md")
-- [Automated backups with unsupported MySQL storage engines](Overview.md "Overview.md")
-- [Automated backups with unsupported MariaDB storage engines](Overview.md "Overview.md")
+- [Automated backups with unsupported MySQL storage engines](Overview.BackupDeviceRestrictions.md "Overview.BackupDeviceRestrictions.md")
+- [Automated backups with unsupported MariaDB storage engines](Overview.BackupDeviceRestrictionsMariaDB.md "Overview.BackupDeviceRestrictionsMariaDB.md")
 - [Replicating automated backups to another AWS Region](USER_ReplicateBackups.md "USER_ReplicateBackups.md")
 
 ## Backup window

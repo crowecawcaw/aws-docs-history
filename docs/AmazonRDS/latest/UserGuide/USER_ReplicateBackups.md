@@ -20,12 +20,12 @@ For information about configuring and managing automated backups for Amazon RDS,
 
 ###### Topics
 
-- [Enabling cross-Region automated backups for Amazon RDS](AutomatedBackups.Replicating.md "AutomatedBackups.Replicating.md")
-- [Finding information about replicated backups for Amazon RDS](AutomatedBackups.Replicating.md "AutomatedBackups.Replicating.md")
-- [Restoring to a specified time from a replicated backup for Amazon RDS](AutomatedBackups.md "AutomatedBackups.md")
-- [Stopping automated backup replication for Amazon RDS](AutomatedBackups.md "AutomatedBackups.md")
-- [Deleting replicated backups for Amazon RDS](AutomatedBackups.md "AutomatedBackups.md")
-- [Troubleshooting stopped cross-Region automated backups](AutomatedXREGBackups.md "AutomatedXREGBackups.md")
+- [Enabling cross-Region automated backups for Amazon RDS](AutomatedBackups.Replicating.Enable.md "AutomatedBackups.Replicating.Enable.md")
+- [Finding information about replicated backups for Amazon RDS](AutomatedBackups.Replicating.Describe.md "AutomatedBackups.Replicating.Describe.md")
+- [Restoring to a specified time from a replicated backup for Amazon RDS](AutomatedBackups.PiTR.md "AutomatedBackups.PiTR.md")
+- [Stopping automated backup replication for Amazon RDS](AutomatedBackups.StopReplicating.md "AutomatedBackups.StopReplicating.md")
+- [Deleting replicated backups for Amazon RDS](AutomatedBackups.Delete.md "AutomatedBackups.Delete.md")
+- [Troubleshooting stopped cross-Region automated backups](AutomatedXREGBackups.Troubleshooting.md "AutomatedXREGBackups.Troubleshooting.md")
 
 ## Multi-AZ deployment support
 
@@ -45,7 +45,7 @@ Cross-Region automated backup replication isn't supported for Multi-AZ DB cluste
 
 Feature availability and support varies across specific versions of each database engine, and across AWS Regions.
 For more information on version and Region availability with cross-Region automated backups, see
-[Supported Regions and DB engines for cross-Region automated backups in Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
+[Supported Regions and DB engines for cross-Region automated backups in Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.CrossRegionAutomatedBackups.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.CrossRegionAutomatedBackups.md").
 
 ## Source and destination AWS Region support
 
@@ -88,7 +88,7 @@ Backup replication is supported between the following AWS Regions.
 | US West (Oregon)          | Asia Pacific (Mumbai), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney),<br>Asia Pacific (Tokyo)<br>Canada (Central)<br>Europe (Frankfurt), Europe (Ireland)<br>US East (N. Virginia), US East (Ohio), US West (N. California)                                                                                 |
 
 You can also use the `describe-source-regions` AWS CLI command to find out which AWS Regions can replicate to each
-other. For more information, see [Finding information about replicated backups for Amazon RDS](AutomatedBackups.Replicating.md "AutomatedBackups.Replicating.md").
+other. For more information, see [Finding information about replicated backups for Amazon RDS](AutomatedBackups.Replicating.Describe.md "AutomatedBackups.Replicating.Describe.md").
 
 ## Limitations
 

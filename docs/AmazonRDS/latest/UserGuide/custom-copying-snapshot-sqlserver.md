@@ -153,7 +153,7 @@ ec2:CreateTags
 
 RDS Custom uses these permissions during snapshot copying across AWS Regions. These
 permissions configure resources in your account that are required for RDS Custom operations.
-For more information about the `kms:CreateGrant` permission, see [AWS KMS key management](Overview.Encryption.md "Overview.Encryption.md").
+For more information about the `kms:CreateGrant` permission, see [AWS KMS key management](Overview.Encryption.Keys.md "Overview.Encryption.Keys.md").
 
 The following sample JSON policy grants the required permissions in addition to
 `AmazonRDSFullAccess` policy.

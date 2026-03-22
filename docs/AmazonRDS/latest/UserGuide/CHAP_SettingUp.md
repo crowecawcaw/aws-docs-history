@@ -101,7 +101,7 @@ network needs. Here are some important things to consider:
 - **Resource requirements** – What are the memory and
   processor requirements for your application or service? You use these settings
   to help you determine what DB instance class to use. For specifications about DB
-  instance classes, see [DB instance classes](Concepts.md "Concepts.md").
+  instance classes, see [DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
 - **VPC, subnet, and security group –** Your DB instance
   will most likely be in a virtual private cloud (VPC). To connect to your DB
   instance, you need to set up security group rules. These rules are set up
@@ -122,7 +122,7 @@ The following list describes the rules for each VPC option:
     	 connections from the application or service to the Amazon RDS DB
     	 instance. Use the **Security Group** option on the VPC
     	 console or the AWS CLI to create VPC security groups. For
-    	 information, see [Step 3: Create a VPC security group](USER_VPC.md#USER_VPC.CreateVPCSecurityGroup "USER_VPC.md#USER_VPC.CreateVPCSecurityGroup").
+    	 information, see [Step 3: Create a VPC security group](USER_VPC.WorkingWithRDSInstanceinaVPC.md#USER_VPC.CreateVPCSecurityGroup "USER_VPC.WorkingWithRDSInstanceinaVPC.md#USER_VPC.CreateVPCSecurityGroup").
     	- Specify the default DB subnet group. If this is the first DB instance you have created
     	 in this AWS Region, Amazon RDS creates the default DB subnet group
     	 when it creates the DB instance.
@@ -137,25 +137,25 @@ The following list describes the rules for each VPC option:
     	 connections from the application or service to the Amazon RDS DB
     	 instance. Use the **Security Group** option on the VPC
     	 console or the AWS CLI to create VPC security groups. For information, see
-    	 [Step 3: Create a VPC security group](USER_VPC.md#USER_VPC.CreateVPCSecurityGroup "USER_VPC.md#USER_VPC.CreateVPCSecurityGroup").
+    	 [Step 3: Create a VPC security group](USER_VPC.WorkingWithRDSInstanceinaVPC.md#USER_VPC.CreateVPCSecurityGroup "USER_VPC.WorkingWithRDSInstanceinaVPC.md#USER_VPC.CreateVPCSecurityGroup").
     	- The VPC must meet certain requirements in order to host DB instances, such
     	 as having at least two subnets, each in a separate Availability
     	 Zone. For information, see [Amazon VPC and Amazon RDS](USER_VPC.md "USER_VPC.md").
     	- Make sure to specify a DB subnet group that defines which subnets in that VPC can be
     	 used by the DB instance. For information, see the DB subnet
-    	 group section in [Working with a DB instance in a VPC](USER_VPC.md#Overview.RDSVPC.Create "USER_VPC.md#Overview.RDSVPC.Create").
+    	 group section in [Working with a DB instance in a VPC](USER_VPC.WorkingWithRDSInstanceinaVPC.md#Overview.RDSVPC.Create "USER_VPC.WorkingWithRDSInstanceinaVPC.md#Overview.RDSVPC.Create").
 
 - **High availability –** Do you need failover
   support? On Amazon RDS, a Multi-AZ deployment creates a primary DB instance and a
   secondary standby DB instance in another Availability Zone for failover support.
   We recommend Multi-AZ deployments for production workloads to maintain high
   availability. For development and test purposes, you can use a deployment that
-  isn't Multi-AZ. For more information, see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.md "Concepts.md").
+  isn't Multi-AZ. For more information, see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.MultiAZ.md "Concepts.MultiAZ.md").
 - **IAM policies** – Does your AWS account have
   policies that grant the permissions needed to perform Amazon RDS operations? If you
   are connecting to AWS using IAM credentials, your IAM account must have
   IAM policies that grant the permissions required to perform Amazon RDS operations.
-  For more information, see [Identity and access management for Amazon RDS](UsingWithRDS.md "UsingWithRDS.md").
+  For more information, see [Identity and access management for Amazon RDS](UsingWithRDS.IAM.md "UsingWithRDS.IAM.md").
 - **Open ports** – What TCP/IP port does your database
   listen on? The firewalls at some companies might block connections to the
   default port for your database engine. If your company firewall blocks the
@@ -164,7 +164,7 @@ The following list describes the rules for each VPC option:
   modifying the DB instance.
 - **AWS Region** – What AWS Region do you want your
   database in? Having your database in close proximity to your application or web
-  service can reduce network latency. For more information, see [Regions, Availability Zones, and Local Zones](Concepts.md "Concepts.md").
+  service can reduce network latency. For more information, see [Regions, Availability Zones, and Local Zones](Concepts.RegionsAndAvailabilityZones.md "Concepts.RegionsAndAvailabilityZones.md").
 - **DB disk subsystem** – What are your storage
   requirements? Amazon RDS provides three storage types:
 
@@ -207,7 +207,7 @@ instance automatically when you create the DB instance. For more information, se
 For information about how to connect resources in Amazon Lightsail to your DB instances, see [Connect Lightsail resources to AWS services using VPC peering](../../../lightsail/latest/userguide/using-lightsail-with-other-aws-services.md "../../../lightsail/latest/userguide/using-lightsail-with-other-aws-services.md").
 
 For information about common scenarios for accessing a DB instance, see
-[Scenarios for accessing a DB instance in a VPC](USER_VPC.md "USER_VPC.md").
+[Scenarios for accessing a DB instance in a VPC](USER_VPC.Scenarios.md "USER_VPC.Scenarios.md").
 
 ###### To create a VPC security group
 
@@ -253,13 +253,13 @@ requirements and security group. To do so, follow the instructions in [Creating 
 information about getting started by creating a DB instance that uses a specific DB
 engine, see the relevant documentation in the following table.
 
-| Database engine      | Documentation                                                                                                                                          |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| MariaDB              | [Creating and connecting to a MariaDB DB instance](CHAP_GettingStarted.CreatingConnecting.md "CHAP_GettingStarted.CreatingConnecting.md")              |
-| Microsoft SQL Server | [Creating and connecting to a Microsoft SQL Server DB instance](CHAP_GettingStarted.CreatingConnecting.md "CHAP_GettingStarted.CreatingConnecting.md") |
-| MySQL                | [Creating and connecting to a MySQL DB instance](CHAP_GettingStarted.CreatingConnecting.md "CHAP_GettingStarted.CreatingConnecting.md")                |
-| Oracle               | [Creating and connecting to an Oracle DB instance](CHAP_GettingStarted.CreatingConnecting.md "CHAP_GettingStarted.CreatingConnecting.md")              |
-| PostgreSQL           | [Creating and connecting to a PostgreSQL DB instance](CHAP_GettingStarted.CreatingConnecting.md "CHAP_GettingStarted.CreatingConnecting.md")           |
+| Database engine      | Documentation                                                                                                                                                              |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| MariaDB              | [Creating and connecting to a MariaDB DB instance](CHAP_GettingStarted.CreatingConnecting.MariaDB.md "CHAP_GettingStarted.CreatingConnecting.MariaDB.md")                  |
+| Microsoft SQL Server | [Creating and connecting to a Microsoft SQL Server DB instance](CHAP_GettingStarted.CreatingConnecting.SQLServer.md "CHAP_GettingStarted.CreatingConnecting.SQLServer.md") |
+| MySQL                | [Creating and connecting to a MySQL DB instance](CHAP_GettingStarted.CreatingConnecting.MySQL.md "CHAP_GettingStarted.CreatingConnecting.MySQL.md")                        |
+| Oracle               | [Creating and connecting to an Oracle DB instance](CHAP_GettingStarted.CreatingConnecting.Oracle.md "CHAP_GettingStarted.CreatingConnecting.Oracle.md")                    |
+| PostgreSQL           | [Creating and connecting to a PostgreSQL DB instance](CHAP_GettingStarted.CreatingConnecting.PostgreSQL.md "CHAP_GettingStarted.CreatingConnecting.PostgreSQL.md")         |
 
 ###### Note
 

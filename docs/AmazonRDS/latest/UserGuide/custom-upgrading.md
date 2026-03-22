@@ -1,7 +1,7 @@
 # Upgrading a DB instance for Amazon RDS Custom for Oracle
 
 You can upgrade an Amazon RDS Custom DB instance by modifying it to use a new custom engine version (CEV). For general information about upgrades,
-see [Upgrading a DB instance engine version](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md").
+see [Upgrading a DB instance engine version](USER_UpgradeDBInstance.Upgrading.md "USER_UpgradeDBInstance.Upgrading.md").
 
 ###### Topics
 
@@ -89,7 +89,7 @@ steps:
         * A different AMI–either the latest available or one that you
          specify–and an existing CEV to use as a source
 
-    Follow the steps in [Creating a CEV](custom-cev.md "custom-cev.md").
+    Follow the steps in [Creating a CEV](custom-cev.create.md "custom-cev.create.md").
 
 2.  (Optional for database patching) Check available engine version upgrades
     by running `describe-db-engine-versions`.

@@ -57,14 +57,14 @@ increase the allocated storage when restoring RDS for SQL Server DB instances.
    enter the name for your restored DB instance.
 6. Specify other settings, such as allocated storage size.
 
-For information about each setting, see [Settings for DB instances](USER_CreateDBInstance.md "USER_CreateDBInstance.md"). 7. Choose **Restore DB instance**.
+For information about each setting, see [Settings for DB instances](USER_CreateDBInstance.Settings.md "USER_CreateDBInstance.Settings.md"). 7. Choose **Restore DB instance**.
 To restore a DB instance from a DB snapshot, use the AWS CLI command
 [restore-db-instance-from-db-snapshot](../../../cli/latest/reference/rds/restore-db-instance-from-db-snapshot.md "../../../cli/latest/reference/rds/restore-db-instance-from-db-snapshot.md").
 
 In this example, you restore from a previously created DB snapshot named `mydbsnapshot`. You restore to a new DB instance
 named `mynewdbinstance`. This example also sets the allocated storage size.
 
-You can specify other settings. For information about each setting, see [Settings for DB instances](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
+You can specify other settings. For information about each setting, see [Settings for DB instances](USER_CreateDBInstance.Settings.md "USER_CreateDBInstance.Settings.md").
 
 ###### Example
 
@@ -164,7 +164,7 @@ choose different ones.
 
 As soon as the restore is complete and your new DB instance is available, you can also change the VPC
 settings by modifying the DB instance. For more information, see
-[Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+[Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md").
 
 ### Option group considerations
 
@@ -219,11 +219,11 @@ If you want to change from one edition to a new edition that isn't supported by
 restoring a snapshot, you can try using the native backup and restore feature. SQL
 Server verifies whether your database is compatible with the new edition based on what
 SQL Server features you have enabled on the database. For more information, see
-[Importing and exporting SQL Server databases using native backup and restore](SQLServer.Procedural.md "SQLServer.Procedural.md").
+[Importing and exporting SQL Server databases using native backup and restore](SQLServer.Procedural.Importing.md "SQLServer.Procedural.Importing.md").
 
 ### MySQL considerations
 
-To restore from a RDS for MySQL DB snapshot with an unsupported engine version, you might have to upgrade your DB snapshot more than once. For more information about upgrade options, see [Upgrade options for DB snapshots with unsupported engine versions for RDS for MySQL](mysql-upgrade-snapshot.md "mysql-upgrade-snapshot.md").
+To restore from a RDS for MySQL DB snapshot with an unsupported engine version, you might have to upgrade your DB snapshot more than once. For more information about upgrade options, see [Upgrade options for DB snapshots with unsupported engine versions for RDS for MySQL](mysql-upgrade-snapshot.upgrade-options.md "mysql-upgrade-snapshot.upgrade-options.md").
 
 For more information about upgrading the engine version of a RDS for MySQL DB snapshot, [Upgrading a MySQL DB snapshot engine version](mysql-upgrade-snapshot.md "mysql-upgrade-snapshot.md").
 
@@ -232,10 +232,10 @@ For more information about upgrading the engine version of a RDS for MySQL DB sn
 When you restore an Oracle database from a DB snapshot, consider the following:
 
 - Before you restore a DB snapshot, you can upgrade it to a later Oracle
-  database release. For more information, see [Upgrading an Oracle DB snapshot](USER_UpgradeDBSnapshot.md "USER_UpgradeDBSnapshot.md").
+  database release. For more information, see [Upgrading an Oracle DB snapshot](USER_UpgradeDBSnapshot.Oracle.md "USER_UpgradeDBSnapshot.Oracle.md").
 - If you restore a snapshot of a CDB instance that uses the single-tenant configuration, you
   can change the PDB name. You can't change the PDB names when your CDB instance
-  uses the multi-tenant configuration. For more information, see [Backing up and restoring a CDB](Oracle.Concepts.single-tenant.md "Oracle.Concepts.single-tenant.md").
+  uses the multi-tenant configuration. For more information, see [Backing up and restoring a CDB](Oracle.Concepts.single-tenant.snapshots.md "Oracle.Concepts.single-tenant.snapshots.md").
 - You can't change the CDB name, which is always `RDSCDB`. This CDB
   name is the same for all CDB instances.
 - You can't directly interact with the tenant databases in a DB snapshot. If you restore a

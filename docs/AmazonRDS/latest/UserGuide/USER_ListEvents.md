@@ -18,7 +18,7 @@ You can retrieve the following event information for your Amazon RDS resources:
 
 If you need to store events for longer periods of time, you can send Amazon RDS events to EventBridge. For more information, see [Creating a rule that triggers on an Amazon RDS event](rds-cloud-watch-events.md "rds-cloud-watch-events.md")
 
-For descriptions of the Amazon RDS events, see [Amazon RDS event categories and event messages](USER_Events.md "USER_Events.md").
+For descriptions of the Amazon RDS events, see [Amazon RDS event categories and event messages](USER_Events.Messages.md "USER_Events.Messages.md").
 
 To access detailed information about events using AWS CloudTrail, including request parameters, see [CloudTrail events](logging-using-cloudtrail.md#service-name-info-in-cloudtrail.events "logging-using-cloudtrail.md#service-name-info-in-cloudtrail.events").
 

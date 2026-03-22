@@ -82,7 +82,7 @@ on your DB instance before rebooting with a failover.
   several minutes.
 - Updates the DNS record for the DB instance to point to the standby DB instance. As a
   result, you need to clean up and re-establish any existing connections to your
-  DB instance. For more information, see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.md "Concepts.md").
+  DB instance. For more information, see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.MultiAZ.md "Concepts.MultiAZ.md").
 - Creates an Amazon RDS event after the reboot.
 
 On RDS for Microsoft SQL Server, the failover reboots only the primary DB instance. After the failover, the

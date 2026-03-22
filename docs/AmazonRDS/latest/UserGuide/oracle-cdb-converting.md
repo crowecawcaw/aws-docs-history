@@ -33,13 +33,13 @@ The non-CDB conversion operation has the following requirements:
   Before converting your non-CDB, consider the following:
 
 - The considerations for option and parameter groups are the same as for upgrading
-  the DB engine. For more information, see [Considerations for Oracle database upgrades](USER_UpgradeDBInstance.Oracle.md "USER_UpgradeDBInstance.Oracle.md").
+  the DB engine. For more information, see [Considerations for Oracle database upgrades](USER_UpgradeDBInstance.Oracle.OGPG.md "USER_UpgradeDBInstance.Oracle.OGPG.md").
 - You can convert existing non-CDB instances that uses managed master passwords to
   single-tenant instances in a single operation. The single-tenant instances inherit
   the managed passwords.
 - If your DB instance has the `OEMAGENT` option installed, a best practice is
   to remove this option before you convert your non-CDB. After your non-CDB is
-  converted to a CDB, reinstall the option. For more information, see [Oracle Management Agent for Enterprise Manager Cloud Control](Oracle.Options.md "Oracle.Options.md").
+  converted to a CDB, reinstall the option. For more information, see [Oracle Management Agent for Enterprise Manager Cloud Control](Oracle.Options.OEMAgent.md "Oracle.Options.OEMAgent.md").
 - During the conversion process, RDS resets the online redo log size to the default
   128M.
 
@@ -58,11 +58,11 @@ The non-CDB conversion operation has the following requirements:
 6. (Optional) For **DB parameter group**, choose a new
    parameter group for your CDB instance. The same parameter group
    considerations apply when converting a DB instance as when upgrading a DB instance. For
-   more information, see [Parameter group considerations](USER_UpgradeDBInstance.Oracle.md#USER_UpgradeDBInstance.Oracle.OGPG.PG "USER_UpgradeDBInstance.Oracle.md#USER_UpgradeDBInstance.Oracle.OGPG.PG").
+   more information, see [Parameter group considerations](USER_UpgradeDBInstance.Oracle.OGPG.md#USER_UpgradeDBInstance.Oracle.OGPG.PG "USER_UpgradeDBInstance.Oracle.OGPG.md#USER_UpgradeDBInstance.Oracle.OGPG.PG").
 7. (Optional) For **Option group**, choose a new option
    group for your CDB instance. The same option group considerations apply when
    converting a DB instance as when upgrading a DB instance. For more information, see
-   [Option group considerations](USER_UpgradeDBInstance.Oracle.md#USER_UpgradeDBInstance.Oracle.OGPG.OG "USER_UpgradeDBInstance.Oracle.md#USER_UpgradeDBInstance.Oracle.OGPG.OG").
+   [Option group considerations](USER_UpgradeDBInstance.Oracle.OGPG.md#USER_UpgradeDBInstance.Oracle.OGPG.OG "USER_UpgradeDBInstance.Oracle.OGPG.md#USER_UpgradeDBInstance.Oracle.OGPG.OG").
 8. (Optional) For **Credentials management**, choose
    **Managed in AWS Secrets Manager** or
    **Self-managed**. For more information, see [Managing the master user password for a DB instance with Secrets Manager](rds-secrets-manager.md#rds-secrets-manager-db-instance "rds-secrets-manager.md#rds-secrets-manager-db-instance").
@@ -70,7 +70,7 @@ The non-CDB conversion operation has the following requirements:
    **Continue** and check the summary of modifications.
 10. (Optional) Choose **Apply immediately** to apply the
     changes immediately. Choosing this option can cause downtime in some cases.
-    For more information, see [Using the schedule modifications setting](USER_ModifyInstance.md "USER_ModifyInstance.md").
+    For more information, see [Using the schedule modifications setting](USER_ModifyInstance.ApplyImmediately.md "USER_ModifyInstance.ApplyImmediately.md").
 11. On the confirmation page, review your changes. If they are correct, choose
     **Modify DB instance**.
 
@@ -79,7 +79,7 @@ Or choose **Back** to edit your changes or
 To convert the non-CDB on your DB instance to a CDB in the single-tenant configuration,
 set `--engine` to `oracle-ee-cdb` or
 `oracle-se2-cdb` in the AWS CLI command [modify-db-instance](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md"). For
-more information, see [Settings for DB instances](USER_ModifyInstance.md "USER_ModifyInstance.md").
+more information, see [Settings for DB instances](USER_ModifyInstance.Settings.md "USER_ModifyInstance.Settings.md").
 
 The following example converts the DB instance named
 `my-non-cdb` and specifies a custom option group and

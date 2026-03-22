@@ -103,4 +103,4 @@ Dedicated log volume – If the
 reduce the bottleneck writing to WAL. In turn, this improves the performance of
 commits.
 
-For more information, see [Dedicated log volume](USER_PIOPS.md "USER_PIOPS.md").
+For more information, see [Dedicated log volume](USER_PIOPS.dlv.md "USER_PIOPS.dlv.md").

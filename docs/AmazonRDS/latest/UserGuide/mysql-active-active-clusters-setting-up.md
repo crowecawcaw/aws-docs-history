@@ -28,7 +28,7 @@ parameter group. The DB instances in an active-active cluster can be associated 
 different DB parameter groups.
 
 You can use the AWS Management Console or the AWS CLI to create a new custom parameter group. For
-more information, see [Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). The following example
+more information, see [Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Creating.md "USER_WorkingWithParamGroups.Creating.md"). The following example
 runs the [create-db-parameter-group](../../../cli/latest/reference/rds/create-db-parameter-group.md "../../../cli/latest/reference/rds/create-db-parameter-group.md") AWS CLI command to create a custom DB parameter
 group named `myactivepg` for RDS for MySQL
 8.0:
@@ -52,7 +52,7 @@ aws rds create-db-parameter-group ^
 ```
 
 You can also use the AWS Management Console or the AWS CLI to set the parameters in the custom
-parameter group. For more information, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+parameter group. For more information, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 The following example runs the [modify-db-parameter-group](../../../cli/latest/reference/rds/modify-db-parameter-group.md "../../../cli/latest/reference/rds/modify-db-parameter-group.md") AWS CLI command to set the parameters for
 RDS for MySQL 8.0. To use this example with RDS for MySQL 8.4, change
@@ -107,7 +107,7 @@ In the DB parameter group associated with each DB instance, set the `group_repli
 to the endpoints of the DB instances you want to include in the cluster.
 
 You can use the AWS Management Console or the AWS CLI to set the parameter. You don't need to reboot the DB instance after setting this
-parameter. For more information about setting parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+parameter. For more information about setting parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 The following example runs the [modify-db-parameter-group](../../../cli/latest/reference/rds/modify-db-parameter-group.md "../../../cli/latest/reference/rds/modify-db-parameter-group.md")
 AWS CLI command to set the parameters:

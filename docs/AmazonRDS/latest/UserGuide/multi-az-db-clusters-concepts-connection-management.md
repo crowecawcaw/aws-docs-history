@@ -19,7 +19,7 @@ DB instance. To perform queries, you can connect to the reader endpoint, with th
 managing connections among the reader DB instances. For diagnosis or tuning, you can connect to a specific DB
 instance endpoint to examine details about a specific DB instance.
 
-For information about connecting to a DB instance, see [Connecting to an Amazon RDS DB instance](CHAP_CommonTasks.md "CHAP_CommonTasks.md").
+For information about connecting to a DB instance, see [Connecting to an Amazon RDS DB instance](CHAP_CommonTasks.Connect.md "CHAP_CommonTasks.Connect.md").
 
 For more information about connecting to Multi-AZ DB clusters, see the following topics.
 

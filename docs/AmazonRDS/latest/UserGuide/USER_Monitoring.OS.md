@@ -1,104 +1,80 @@
-# Viewing OS metrics in the RDS console
+# Monitoring OS metrics with Enhanced Monitoring
 
-You can view OS metrics reported by Enhanced Monitoring in the RDS console by
-choosing **Enhanced monitoring** for
-**Monitoring**.
+With Enhanced Monitoring, you can monitor the operating system of your DB instance in real time. When you want to
+see how different processes or threads use the CPU, Enhanced Monitoring metrics are useful.
 
-The following example shows the Enhanced Monitoring
-page. For descriptions of the Enhanced Monitoring metrics, see [OS metrics in Enhanced Monitoring](USER_Monitoring-Available-OS-Metrics.md "USER_Monitoring-Available-OS-Metrics.md").
+###### Topics
 
-![Dashboard view](images/metrics1.png)
-Some DB instances use more than
-one disk for the DB instance's data storage volume. On those DB instances, the
-**Physical Devices** graphs show metrics for each one of the disks. For
-example, the following graph shows metrics for four
-disks.
+- [Overview of Enhanced Monitoring](#USER_Monitoring.OS.overview "#USER_Monitoring.OS.overview")
+- [Setting up and enabling Enhanced Monitoring](USER_Monitoring.OS.Enabling.md "USER_Monitoring.OS.Enabling.md")
+- [Viewing OS metrics in the RDS console](USER_Monitoring.OS.Viewing.md "USER_Monitoring.OS.Viewing.md")
+- [Viewing OS metrics using CloudWatch Logs](USER_Monitoring.OS.CloudWatchLogs.md "USER_Monitoring.OS.CloudWatchLogs.md")
 
-![Graph with multiple disks](images/enhanced-monitoring-multiple-disks.png)
+## Overview of Enhanced Monitoring
 
-###### Note
+Amazon RDS provides metrics in real time for the operating system (OS) that your DB instance runs on. You can view all the system metrics and
+process information for your RDS DB instances on the console. You can manage which metrics you want to monitor for each instance and customize the
+dashboard according to your requirements. For descriptions of the Enhanced Monitoring metrics, see [OS metrics in Enhanced Monitoring](USER_Monitoring-Available-OS-Metrics.md "USER_Monitoring-Available-OS-Metrics.md").
 
-Currently, **Physical Devices** graphs are not available for Microsoft
-SQL Server DB instances.
+RDS delivers the metrics from Enhanced Monitoring into your Amazon CloudWatch Logs account. You can create metrics filters in
+CloudWatch from CloudWatch Logs and display the graphs on the CloudWatch dashboard. You can consume the Enhanced Monitoring JSON output
+from CloudWatch Logs in a monitoring system of your choice. For more information, see [Enhanced Monitoring](https://aws.amazon.com/rds/faqs/#Enhanced_Monitoring "https://aws.amazon.com/rds/faqs/#Enhanced_Monitoring") in the Amazon RDS FAQs.
 
-When you are viewing aggregated
-**File system** graphs, the **rdsdbdata\*** device relates to
-the `rdsfilesys/rdsdbdata*` file system, where all database files and logs are
-stored. The **rootfilesys** device relates to the `/` file system
-(also known as root), where files related to the operating system are stored. When using
-additional storage volumes, view the `rdsdbdata2`, `rdsdbdata3`, and
-`rdsdbdata4` volume metrics for volume specific information.
+###### Topics
 
-When you are viewing aggregated **Disk I/O** graphs,
-the **rdsdbdata** device relates to the primary `/rdsdbdata` storage volume.
-When using additional storage volumes, view the `rdsdbdata2`, `rdsdbdata3`, and
-`rdsdbdata4` volume metrics for volume specific information.
-The filesystem device relates to the /file system (also known as root),
-where files related to the operating system are stored.
+- [Enhanced Monitoring availability](#USER_Monitoring.OS.Availability "#USER_Monitoring.OS.Availability")
+- [Differences between CloudWatch and Enhanced Monitoring metrics](#USER_Monitoring.OS.CloudWatchComparison "#USER_Monitoring.OS.CloudWatchComparison")
+- [Retention of Enhanced Monitoring metrics](#USER_Monitoring.OS.retention "#USER_Monitoring.OS.retention")
+- [Cost of Enhanced Monitoring](#USER_Monitoring.OS.cost "#USER_Monitoring.OS.cost")
 
-The **rdsdev** device name is deprecated.
-The **rdsdev** device only relates to the primary `/rdsdbdata`
-storage volume and does not include metrics from additional storage volumes.
+### Enhanced Monitoring availability
 
-![Graph showing file system usage](images/enhanced-monitoring-filesystem.png)
-If the DB instance is a Multi-AZ
-deployment, you can view the OS metrics for the primary DB instance and its Multi-AZ standby
-replica. In the **Enhanced monitoring** view, choose
-**primary** to view the OS metrics for the primary DB instance, or choose
-**secondary** to view the OS metrics for the standby
-replica.
+Enhanced Monitoring is available for the following database engines:
 
-![Primary and secondary choice for Enhanced Monitoring](images/enhanced-monitoring-primary-secondary.png)
-For more information about
-Multi-AZ deployments, see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.md "Concepts.md").
+- Db2
+- MariaDB
+- Microsoft SQL Server
+- MySQL
+- Oracle
+- PostgreSQL
 
-###### Note
+### Differences between CloudWatch and Enhanced Monitoring metrics
 
-Currently, viewing OS metrics for a Multi-AZ standby replica is not supported for MariaDB
-DB instances.
+A _hypervisor_ creates and runs virtual machines (VMs). Using a hypervisor, an instance can
+support multiple guest VMs by virtually sharing memory and CPU. CloudWatch gathers metrics about CPU utilization from the
+hypervisor for a DB instance. In contrast, Enhanced Monitoring gathers its metrics from an agent on the DB
+instance.
 
-If you want to see details for the processes running on your DB instance, choose
-**OS process list** for **Monitoring**.
+You might find differences between the CloudWatch and Enhanced Monitoring measurements, because the hypervisor layer
+performs a small amount of work. The differences can be greater if your DB instances use smaller instance classes. In
+this scenario, more virtual machines (VMs) are probably managed by the hypervisor layer on a single physical
+instance.
 
-The
-**Process List** view is shown following.
+For descriptions of the Enhanced Monitoring metrics, see [OS metrics in Enhanced Monitoring](USER_Monitoring-Available-OS-Metrics.md "USER_Monitoring-Available-OS-Metrics.md"). For more information about CloudWatch metrics, see the _[Amazon CloudWatch User Guide](../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md "../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md")_.
 
-![Process list view](images/metrics2.png)
-The Enhanced Monitoring metrics shown in the **Process list**
-view are organized as follows:
+### Retention of Enhanced Monitoring metrics
 
-- **RDS child processes** – Shows a summary of the RDS processes
-  that support the DB instance, for example `mysqld` for MySQL
-  DB instances. Process threads appear nested beneath the parent process. Process
-  threads show CPU utilization only as other metrics are the same for all threads for the
-  process. The console displays a maximum of 100 processes and threads. The results are a
-  combination of the top CPU consuming and memory consuming processes and threads. If there
-  are more than 50 processes and more than 50 threads, the console displays the top 50
-  consumers in each category. This display helps you identify which processes are having the
-  greatest impact on performance.
-- **RDS processes** – Shows a summary of the resources used by the
-  RDS management agent, diagnostics monitoring processes, and other AWS processes that are
-  required to support RDS DB instances.
-- **OS processes** – Shows a summary of the kernel and system
-  processes, which generally have minimal impact on performance.
-  The items listed for each process are:
+By default, Enhanced Monitoring metrics are stored for 30 days in the CloudWatch Logs. This retention period is different
+from typical CloudWatch metrics.
 
-- **VIRT** – Displays the virtual size of the process.
-- **RES** – Displays the actual physical memory being used by the
-  process.
-- **CPU%** – Displays the percentage of the total CPU bandwidth
-  being used by the process.
-- **MEM%** – Displays the percentage of the total memory being
-  used by the process.
-  The monitoring data that is shown in the RDS console is retrieved from
-  Amazon CloudWatch Logs. You can also retrieve the metrics for a DB instance as a log stream from CloudWatch Logs. For
-  more information, see [Viewing OS metrics using CloudWatch Logs](USER_Monitoring.OS.md "USER_Monitoring.OS.md").
+To modify the amount of time the metrics are stored in the CloudWatch Logs, change the retention for the
+`RDSOSMetrics` log group in the CloudWatch console. For more information, see [Change log data retention in CloudWatch
+logs](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#SettingLogRetention "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#SettingLogRetention") in the _Amazon CloudWatch Logs User Guide_.
 
-Enhanced Monitoring metrics
-are not returned during the following:
+### Cost of Enhanced Monitoring
 
-- A failover of the DB instance.
-- Changing the instance class of the DB instance (scale compute).
-  Enhanced Monitoring metrics are returned during a reboot of a DB instance
-  because only the database engine is rebooted. Metrics for the operating system are still
-  reported.
+Enhanced Monitoring metrics are stored in the CloudWatch Logs instead of in CloudWatch metrics. The cost of Enhanced Monitoring
+depends on the following factors:
+
+- You are charged for Enhanced Monitoring only if you exceed the amount of data transfer and storage provided by Amazon CloudWatch Logs. Charges are
+  based on CloudWatch Logs data transfer and storage rates.
+- The amount of information transferred for an RDS instance is directly proportional to the defined granularity
+  for the Enhanced Monitoring feature. A smaller monitoring interval results in more frequent reporting of OS
+  metrics and increases your monitoring cost. To manage costs, set different granularities for different instances
+  in your accounts.
+- Usage costs for Enhanced Monitoring are applied for each DB instance that Enhanced Monitoring is enabled for.
+  Monitoring a large number of DB instances is more expensive than monitoring only a few.
+- DB instances that support a more compute-intensive workload have more OS process activity to report and
+  higher costs for Enhanced Monitoring.
+
+For more information about pricing, see [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").

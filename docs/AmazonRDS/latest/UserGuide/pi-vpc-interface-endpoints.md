@@ -26,7 +26,7 @@ through the interface endpoint, associate a security group with the endpoint net
 
 Performance Insights API currently supports VPC endpoints in AWS Regions that support Performance Insights.
 For information about Performance Insights availability,
-see [Supported Regions and DB engines for Performance Insights in Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md")
+see [Supported Regions and DB engines for Performance Insights in Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.PerformanceInsights.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.PerformanceInsights.md")
 .
 
 ## Create an interface endpoint for Performance Insights
@@ -119,4 +119,4 @@ You can standardize on the IPv6 protocol for Amazon RDS resources to simplify yo
 see [Amazon Relational Database Service endpoints and quotas](../../../general/latest/gr/rds-service.md "../../../general/latest/gr/rds-service.md").
 
 For more information about Amazon RDS IP addressing, see
-[Amazon RDS IP addressing](USER_VPC.md#USER_VPC.IP_addressing "USER_VPC.md#USER_VPC.IP_addressing").
+[Amazon RDS IP addressing](USER_VPC.WorkingWithRDSInstanceinaVPC.md#USER_VPC.IP_addressing "USER_VPC.WorkingWithRDSInstanceinaVPC.md#USER_VPC.IP_addressing").

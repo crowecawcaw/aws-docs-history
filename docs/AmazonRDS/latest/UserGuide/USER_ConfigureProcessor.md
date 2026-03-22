@@ -54,9 +54,9 @@ You can configure the number of CPU cores and threads per core only when the fol
 conditions are met:
 
 - You're configuring an RDS for Oracle DB instance. For information about the DB instance classes supported by
-  different Oracle Database editions, see [RDS for Oracle DB instance classes](Oracle.Concepts.md "Oracle.Concepts.md").
+  different Oracle Database editions, see [RDS for Oracle DB instance classes](Oracle.Concepts.InstanceClasses.md "Oracle.Concepts.InstanceClasses.md").
 - Your DB instance is using the Bring Your Own License (BYOL) licensing option of RDS for Oracle. For more information about
-  Oracle licensing options, see [RDS for Oracle licensing options](Oracle.Concepts.md "Oracle.Concepts.md").
+  Oracle licensing options, see [RDS for Oracle licensing options](Oracle.Concepts.Licensing.md "Oracle.Concepts.Licensing.md").
 - Your DB instance doesn't belong to one of the db.r5 or db.r5b instance classes
   that have predefined processor configurations. These instance classes have names
   in the form
@@ -66,7 +66,7 @@ conditions are met:
   For example, db.r5b.xlarge.tpc2.mem4x is preconfigured with 2 threads per core
   (tpc2) and 4x as much memory as the standard db.r5b.xlarge instance class. You
   can't configure the processor features of these optimized instance classes. For
-  more information, see [Supported RDS for Oracle DB instance classes](Oracle.Concepts.md#Oracle.Concepts.InstanceClasses.Supported "Oracle.Concepts.md#Oracle.Concepts.InstanceClasses.Supported").
+  more information, see [Supported RDS for Oracle DB instance classes](Oracle.Concepts.InstanceClasses.md#Oracle.Concepts.InstanceClasses.Supported "Oracle.Concepts.InstanceClasses.md#Oracle.Concepts.InstanceClasses.Supported").
 
 You can use the following AWS CLI command to show the default vCPUs, cores, threads per
 core, and valid numbers of cores for an instance class. Replace
@@ -220,7 +220,7 @@ CloudTrail, see [Monitoring Amazon RDS API calls in AWS CloudTrail](logging-usin
 You can configure the number of CPU cores and threads per core for the DB instance class when you perform the following operations:
 
 - [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md")
-- [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md")
+- [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md")
 - [Restoring to a DB instance](USER_RestoreFromSnapshot.md "USER_RestoreFromSnapshot.md")
 - [Restoring a DB instance to a specified time for Amazon RDS](USER_PIT.md "USER_PIT.md")
 

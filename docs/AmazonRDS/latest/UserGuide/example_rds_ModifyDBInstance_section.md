@@ -66,7 +66,7 @@ Output:
 }
 ```
 
-For more information, see [Modifying an Amazon RDS DB Instance](Overview.DBInstance.md "Overview.DBInstance.md") in the _Amazon RDS User Guide_.
+For more information, see [Modifying an Amazon RDS DB Instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md") in the _Amazon RDS User Guide_.
 
 **Example 2: To associate VPC security group with a DB instance**
 
@@ -117,7 +117,7 @@ Output:
 }
 ```
 
-For more information, see [Controlling access with security groups](Overview.md "Overview.md") in the _Amazon RDS User Guide_.
+For more information, see [Controlling access with security groups](Overview.RDSSecurityGroups.md "Overview.RDSSecurityGroups.md") in the _Amazon RDS User Guide_.
 
 - For API details, see
   [ModifyDBInstance](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/modify-db-instance.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/modify-db-instance.html")

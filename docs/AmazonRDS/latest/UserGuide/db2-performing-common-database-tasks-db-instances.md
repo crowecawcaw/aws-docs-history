@@ -23,4 +23,4 @@ databases and reduce the likelihood of errors due to human mistakes. For more in
 see [Automatic storage](https://www.ibm.com/docs/en/db2/11.5?topic=overview-automatic-storage "https://www.ibm.com/docs/en/db2/11.5?topic=overview-automatic-storage") in the IBM Db2 documentation.
 
 With RDS for Db2, you can dynamically increase the storage size with automatic expansion
-of the logical volumes and the file system. For more information, see [Working with storage for Amazon RDS DB instances](USER_PIOPS.md "USER_PIOPS.md").
+of the logical volumes and the file system. For more information, see [Working with storage for Amazon RDS DB instances](USER_PIOPS.StorageTypes.md "USER_PIOPS.StorageTypes.md").

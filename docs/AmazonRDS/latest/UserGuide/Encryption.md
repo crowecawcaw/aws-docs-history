@@ -5,7 +5,7 @@ You can also encrypt connections to DB instances.
 
 ###### Topics
 
-- [Encrypting Amazon RDS resources](Overview.md "Overview.md")
-- [AWS KMS key management](Overview.Encryption.md "Overview.Encryption.md")
-- [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.md "UsingWithRDS.md")
-- [Rotating your SSL/TLS certificate](UsingWithRDS.md "UsingWithRDS.md")
+- [Encrypting Amazon RDS resources](Overview.Encryption.md "Overview.Encryption.md")
+- [AWS KMS key management](Overview.Encryption.Keys.md "Overview.Encryption.Keys.md")
+- [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.SSL.md "UsingWithRDS.SSL.md")
+- [Rotating your SSL/TLS certificate](UsingWithRDS.SSL-certificate-rotation.md "UsingWithRDS.SSL-certificate-rotation.md")

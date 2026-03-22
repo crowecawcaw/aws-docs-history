@@ -34,7 +34,7 @@ Multi-AZ deployments for RDS Custom for Oracle aren't supported on Oracle Databa
 
 Multi-AZ deployments for RDS Custom for Oracle are available in all Regions where RDS Custom for Oracle is
 available. For more information on Region availability of Multi-AZ deployments for
-RDS Custom for Oracle, see [Supported Regions and DB engines for RDS Custom for Oracle](Concepts.RDS_Fea_Regions_DB-eng.Feature.md#Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.ora "Concepts.RDS_Fea_Regions_DB-eng.Feature.md#Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.ora").
+RDS Custom for Oracle, see [Supported Regions and DB engines for RDS Custom for Oracle](Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.md#Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.ora "Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.md#Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.ora").
 
 ## Limitations for a Multi-AZ deployment in RDS Custom for Oracle
 

@@ -6,7 +6,7 @@ _key_. Optionally, you can supply a value for the key.
 
 You can use the AWS Management Console, the AWS CLI, or the Amazon RDS API to add, list, and delete tags on
 Amazon RDS resources. When using the CLI or API, make sure to provide the Amazon Resource Name (ARN)
-for the RDS resource to work with. For more information about constructing an ARN, see [Constructing an ARN for Amazon RDS](USER_Tagging.ARN.md "USER_Tagging.ARN.md").
+for the RDS resource to work with. For more information about constructing an ARN, see [Constructing an ARN for Amazon RDS](USER_Tagging.ARN.Constructing.md "USER_Tagging.ARN.Constructing.md").
 
 You can use tags to add metadata to your Amazon RDS resources. You can use the tags to
 add your own notations about database instances, snapshots, Aurora clusters, and so on. Doing so can help
@@ -50,7 +50,7 @@ When you tag a DB instance, Amazon RDS automatically applies those tags to the a
 - [Copying tags to DB snapshots](#USER_Tagging.CopyTags "#USER_Tagging.CopyTags")
 - [Tagging automated backup resources](#USER_Tagging.AutomatedBackups "#USER_Tagging.AutomatedBackups")
 - [Adding and deleting tags in Amazon RDS](#Tagging.HowTo "#Tagging.HowTo")
-- [Tutorial: Specify which DB instances to stop by using tags](Tagging.RDS.md "Tagging.RDS.md")
+- [Tutorial: Specify which DB instances to stop by using tags](Tagging.RDS.Autostop.md "Tagging.RDS.Autostop.md")
 
 ## Why use Amazon RDS resource tags?
 
@@ -69,7 +69,7 @@ You can use tags to do the following:
   global `aws:ResourceTag/`tag-key``condition key. For
 example, a policy might allow only users in the`DBAdmin`group to modify
 DB instances tagged with`environment=prod`. For information about managing access to
-  tagged resources with IAM policies, see [Identity and access management for Amazon RDS](UsingWithRDS.md "UsingWithRDS.md") and [Controlling
+  tagged resources with IAM policies, see [Identity and access management for Amazon RDS](UsingWithRDS.IAM.md "UsingWithRDS.IAM.md") and [Controlling
   access to AWS resources](../../../IAM/latest/UserGuide/access_tags.md#access_tags_control-resources "../../../IAM/latest/UserGuide/access_tags.md#access_tags_control-resources") in the _AWS Identity and Access Management
   User Guide_.
 - Monitor resources based on a tag. For example, you can create an Amazon CloudWatch dashboard
@@ -350,14 +350,14 @@ You can add, list, or remove tags for a DB instance using the AWS CLI.
 - To add one or more tags to an Amazon RDS resource, use the AWS CLI command [`add-tags-to-resource`](../../../cli/latest/reference/rds/add-tags-to-resource.md "../../../cli/latest/reference/rds/add-tags-to-resource.md").
 - To list the tags on an Amazon RDS resource, use the AWS CLI command [`list-tags-for-resource`](../../../cli/latest/reference/rds/list-tags-for-resource.md "../../../cli/latest/reference/rds/list-tags-for-resource.md").
 - To remove one or more tags from an Amazon RDS resource, use the AWS CLI command [`remove-tags-from-resource`](../../../cli/latest/reference/rds/remove-tags-from-resource.md "../../../cli/latest/reference/rds/remove-tags-from-resource.md").
-  To learn more about how to construct the required ARN, see [Constructing an ARN for Amazon RDS](USER_Tagging.ARN.md "USER_Tagging.ARN.md").
+  To learn more about how to construct the required ARN, see [Constructing an ARN for Amazon RDS](USER_Tagging.ARN.Constructing.md "USER_Tagging.ARN.Constructing.md").
 
 You can add, list, or remove tags for a DB instance using the Amazon RDS API.
 
 - To add a tag to an Amazon RDS resource, use the [`AddTagsToResource`](../APIReference/API_AddTagsToResource.md "../APIReference/API_AddTagsToResource.md") operation.
 - To list tags that are assigned to an Amazon RDS resource, use the [`ListTagsForResource`](../APIReference/API_ListTagsForResource.md "../APIReference/API_ListTagsForResource.md").
 - To remove tags from an Amazon RDS resource, use the [`RemoveTagsFromResource`](../APIReference/API_RemoveTagsFromResource.md "../APIReference/API_RemoveTagsFromResource.md") operation.
-  To learn more about how to construct the required ARN, see [Constructing an ARN for Amazon RDS](USER_Tagging.ARN.md "USER_Tagging.ARN.md").
+  To learn more about how to construct the required ARN, see [Constructing an ARN for Amazon RDS](USER_Tagging.ARN.Constructing.md "USER_Tagging.ARN.Constructing.md").
 
 When working with XML using the Amazon RDS API, tags use the following schema:
 

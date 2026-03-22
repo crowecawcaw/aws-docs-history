@@ -1,37 +1,36 @@
-# Importing using Oracle Export/Import
+# Importing data into Oracle on Amazon RDS
 
-You might consider Oracle Export/Import utilities for migrations in the following conditions:
+How you import data into an Amazon RDS for Oracle DB instance depends on the following:
 
-- Your data size is small.
-- Data types such as binary float and double aren't required.
-  The import process creates the necessary schema objects. Thus, you don't need to run a
-  script to create the objects beforehand.
+- The amount of data you have
+- The number of database objects in your database
+- The variety of database objects in your database
+  For example, you can use the following tools, depending on your requirements:
 
-The easiest way to install the Oracle the export and import utilities is to install the
-Oracle Instant Client. To download the software, go to [https://www.oracle.com/database/technologies/instant-client.html](https://www.oracle.com/database/technologies/instant-client.html "https://www.oracle.com/database/technologies/instant-client.html"). For
-documentation, see [Instant Client for SQL\*Loader, Export, and Import](https://docs.oracle.com/en/database/oracle/oracle-database/21/sutil/instant-client-sql-loader-export-import.html#GUID-FF1B6F75-09F5-4911-9317-9776FAD15965 "https://docs.oracle.com/en/database/oracle/oracle-database/21/sutil/instant-client-sql-loader-export-import.html#GUID-FF1B6F75-09F5-4911-9317-9776FAD15965") in the _Oracle
-Database Utilities_ manual.
+- Oracle SQL Developer – Import a simple, 20 MB database.
+- Oracle Data Pump – Import complex databases, or databases that are several hundred
+  megabytes or several terabytes in size. For example, you can transport tablespaces
+  from an on-premises database to your RDS for Oracle DB instance. You can use Amazon S3 or Amazon EFS to
+  transfer the data files and metadata. For more information, see [Migrating using Oracle transportable tablespaces](oracle-migrating-tts.md "oracle-migrating-tts.md"), [Amazon EFS integration](oracle-efs-integration.md "oracle-efs-integration.md"), and
+  [Amazon S3 integration](oracle-s3-integration.md "oracle-s3-integration.md").
+- AWS Database Migration Service (AWS DMS) – Migrate databases without downtime. For more information about AWS DMS, see [What is AWS Database Migration Service](../../../dms/latest/userguide/Welcome.md "../../../dms/latest/userguide/Welcome.md") and the blog post [Migrating
+  Oracle databases with near-zero downtime using AWS DMS](https://aws.amazon.com/blogs/database/migrating-oracle-databases-with-near-zero-downtime-using-aws-dms/ "https://aws.amazon.com/blogs/database/migrating-oracle-databases-with-near-zero-downtime-using-aws-dms/").
 
-###### To export tables and then import them
+###### Important
 
-1. Export the tables from the source database using the `exp` command.
+Before you use the preceding migration techniques, we recommend that you back up your database. After you import the data, you can back up your
+RDS for Oracle DB instances by creating snapshots. Later, you can restore the snapshots. For more information, see [Backing up, restoring, and exporting data](CHAP_CommonTasks.BackupRestore.md "CHAP_CommonTasks.BackupRestore.md").
 
-The following command exports the tables named `tab1`, `tab2`, and `tab3`. The dump file is
-`exp_file.dmp`.
+For many database engines, ongoing replication can continue until you are ready to switch
+over to the target database. You can use AWS DMS to migrate to RDS for Oracle from either the same
+database engine or a different engine. If you migrate from a different database engine, you
+can use the AWS Schema Conversion Tool to migrate schema objects that AWS DMS doesn't migrate.
 
-```
-exp cust_dba@ORCL FILE=exp_file.dmp TABLES=(tab1,tab2,tab3) LOG=exp_file.log
-```
+###### Topics
 
-The export creates a binary dump file that contains both the schema and data for the specified tables. 2. Import the schema and data into a target database using the `imp` command.
-
-The following command imports the tables `tab1`, `tab2`, and `tab3` from dump file
-`exp_file.dmp`.
-
-```
-imp cust_dba@targetdb FROMUSER=cust_schema TOUSER=cust_schema \
-TABLES=(tab1,tab2,tab3) FILE=exp_file.dmp LOG=imp_file.log
-```
-
-Export and Import have other variations that might be better suited to your requirements. See the Oracle Database documentation for full
-details.
+- [Importing using Oracle SQL Developer](Oracle.Procedural.Importing.SQLDeveloper.md "Oracle.Procedural.Importing.SQLDeveloper.md")
+- [Migrating using Oracle transportable tablespaces](oracle-migrating-tts.md "oracle-migrating-tts.md")
+- [Importing using Oracle Data Pump](Oracle.Procedural.Importing.DataPump.md "Oracle.Procedural.Importing.DataPump.md")
+- [Importing using Oracle Export/Import](Oracle.Procedural.Importing.ExportImport.md "Oracle.Procedural.Importing.ExportImport.md")
+- [Importing using Oracle SQL\*Loader](Oracle.Procedural.Importing.SQLLoader.md "Oracle.Procedural.Importing.SQLLoader.md")
+- [Migrating with Oracle materialized views](Oracle.Procedural.Importing.Materialized.md "Oracle.Procedural.Importing.Materialized.md")

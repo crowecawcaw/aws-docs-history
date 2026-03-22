@@ -14,9 +14,9 @@ the primary role.
 ###### Topics
 
 - [Overview of Oracle Data Guard switchover](#oracle-replication-switchover.overview "#oracle-replication-switchover.overview")
-- [Requirements for the Oracle Data Guard switchover](oracle-switchover.md "oracle-switchover.md")
-- [Initiating the Oracle Data Guard switchover](oracle-switchover.md "oracle-switchover.md")
-- [Monitoring the Oracle Data Guard switchover](oracle-switchover.md "oracle-switchover.md")
+- [Requirements for the Oracle Data Guard switchover](oracle-switchover.preparing.md "oracle-switchover.preparing.md")
+- [Initiating the Oracle Data Guard switchover](oracle-switchover.initiating.md "oracle-switchover.initiating.md")
+- [Monitoring the Oracle Data Guard switchover](oracle-switchover.monitoring.md "oracle-switchover.monitoring.md")
 
 ## Overview of Oracle Data Guard switchover
 
@@ -31,7 +31,7 @@ of a single Region. All AWS Regions are supported.
 
 A switchover differs from a read replica promotion. In a switchover, the source and
 replica DB instances change roles. In a promotion, a read replica becomes a source DB instance, but the
-source DB instance doesn't become a replica. For more information, see [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.md "USER_ReadRepl.md").
+source DB instance doesn't become a replica. For more information, see [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.Promote.md "USER_ReadRepl.Promote.md").
 
 ###### Topics
 

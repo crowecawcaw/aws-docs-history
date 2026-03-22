@@ -55,7 +55,7 @@ The policy includes a single statement that specifies the following permissions 
   of the service that the resource belongs to (`rds`), the AWS
   Region (`*` indicates any region in this example), the AWS account number (`123456789012`
   is the account number in this example), and the type of resource. For more information about creating ARNs,
-  see [Amazon Resource Names (ARNs) in Amazon RDS](USER_Tagging.md "USER_Tagging.md").
+  see [Amazon Resource Names (ARNs) in Amazon RDS](USER_Tagging.ARN.md "USER_Tagging.ARN.md").
 
 The `Resource` element in the example specifies the following policy constraints on resources for the user:
 
@@ -71,7 +71,7 @@ The `Resource` element in the example specifies the following policy constraints
   This example specifies the `rds:DatabaseEngine` and `rds:DatabaseClass` conditions. For information about the valid condition values for
   `rds:DatabaseEngine`, see the list under the `Engine` parameter in [CreateDBInstance](../APIReference/API_CreateDBInstance.md "../APIReference/API_CreateDBInstance.md").
   For information about the valid condition values for `rds:DatabaseClass`, see
-  [Supported DB engines for DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md")
+  [Supported DB engines for DB instance classes](Concepts.DBInstanceClass.Support.md "Concepts.DBInstanceClass.Support.md")
   .
 
 The policy doesn't specify the `Principal` element because in an

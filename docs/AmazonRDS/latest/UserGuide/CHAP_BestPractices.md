@@ -113,7 +113,7 @@ single-digit seconds, compared to tens of seconds for open-source drivers.
 As new service features are introduced, the goal of the AWS suite of drivers is to
 have built-in support for these service features.
 
-For more information, see [Connecting to DB instances with the AWS drivers](CHAP_CommonTasks.md#RDS.Connecting.Drivers "CHAP_CommonTasks.md#RDS.Connecting.Drivers").
+For more information, see [Connecting to DB instances with the AWS drivers](CHAP_CommonTasks.Connect.md#RDS.Connecting.Drivers "CHAP_CommonTasks.Connect.md#RDS.Connecting.Drivers").
 
 ## Using Enhanced Monitoring to identify operating system issues
 
@@ -121,7 +121,7 @@ When Enhanced Monitoring is enabled, Amazon RDS provides metrics in real time fo
 operating system (OS) that your DB instance runs on. You can view the metrics for your
 DB instance using the console. You can also consume the Enhanced Monitoring JSON output
 from Amazon CloudWatch Logs in a monitoring system of your choice. For more information about
-Enhanced Monitoring, see [Monitoring OS metrics with Enhanced Monitoring](USER_Monitoring.md "USER_Monitoring.md").
+Enhanced Monitoring, see [Monitoring OS metrics with Enhanced Monitoring](USER_Monitoring.OS.md "USER_Monitoring.OS.md").
 
 ## Using metrics to identify performance issues
 
@@ -153,7 +153,7 @@ DB instance. To use this monitoring view, Performance Insights must be turned on
 instance. For information about this monitoring view, see [Viewing combined metrics with the Performance Insights dashboard](Viewing_Unifiedmetrics.md "Viewing_Unifiedmetrics.md").
 
 You can create a performance analysis report for a specific time period and
-view the insights identified and the recommendations to resolve the issues. For more information see, [Creating a performance analysis report in Performance Insights](USER_PerfInsights.UsingDashboard.md "USER_PerfInsights.UsingDashboard.md").
+view the insights identified and the recommendations to resolve the issues. For more information see, [Creating a performance analysis report in Performance Insights](USER_PerfInsights.UsingDashboard.AnalyzePerformanceTimePeriod.md "USER_PerfInsights.UsingDashboard.AnalyzePerformanceTimePeriod.md").
 
 ###### To view performance metrics
 
@@ -274,7 +274,7 @@ tune the most used and most expensive queries. Tune them to see if doing so lowe
 the pressure on system resources. For more information, see [Tuning queries](#CHAP_BestPractices.TuningQueries "#CHAP_BestPractices.TuningQueries").
 
 If your queries are tuned and an issue persists, consider upgrading your Amazon RDS
-[DB instance classes](Concepts.md "Concepts.md"). You might upgrade it to one with
+[DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md"). You might upgrade it to one with
 more of the resource (CPU, RAM, disk space, network bandwidth, I/O capacity) that is
 related to the issue.
 
@@ -297,7 +297,7 @@ resources:
 
 A common aspect of query tuning is creating effective indexes. For potential index improvements for your DB instance,
 see [Database Engine Tuning Advisor](https://docs.microsoft.com/en-us/sql/relational-databases/performance/database-engine-tuning-advisor "https://docs.microsoft.com/en-us/sql/relational-databases/performance/database-engine-tuning-advisor") in the Microsoft documentation. For information on using Tuning Advisor on
-RDS for SQL Server, see [Analyzing your database workload on an Amazon RDS for SQL Server DB instance with Database Engine Tuning Advisor](Appendix.SQLServer.CommonDBATasks.md "Appendix.SQLServer.CommonDBATasks.md").
+RDS for SQL Server, see [Analyzing your database workload on an Amazon RDS for SQL Server DB instance with Database Engine Tuning Advisor](Appendix.SQLServer.CommonDBATasks.Workload.md "Appendix.SQLServer.CommonDBATasks.Workload.md").
 
 - PostgreSQL – See [Using EXPLAIN](http://www.postgresql.org/docs/current/using-explain.html "http://www.postgresql.org/docs/current/using-explain.html")
   in the PostgreSQL documentation to learn how to analyze a query plan. You can use this information to modify a query or
@@ -322,7 +322,7 @@ On a MySQL DB instance, avoid tables in your database growing too large.
 Although the general storage limit is 64 TiB, provisioned storage limits restrict
 the maximum size of a MySQL table file to 16 TiB. Partition your large tables so that file sizes are well
 under the 16 TiB limit. This approach can also improve performance and recovery time. For more information, see
-[MySQL file size limits in Amazon RDS](MySQL.md#MySQL.Concepts.Limits.FileSize "MySQL.md#MySQL.Concepts.Limits.FileSize").
+[MySQL file size limits in Amazon RDS](MySQL.KnownIssuesAndLimitations.md#MySQL.Concepts.Limits.FileSize "MySQL.KnownIssuesAndLimitations.md#MySQL.Concepts.Limits.FileSize").
 
 Very large tables (greater than 100 GB in size) can negatively affect performance for both reads and writes (including DML statements and
 especially DDL statements). Indexes on larges tables can significantly improve select performance, but they can also degrade the performance
@@ -383,7 +383,7 @@ InnoDB is the recommended and supported storage engine for MySQL DB instances on
 Amazon RDS. InnoDB instances can also be migrated to Aurora, while MyISAM instances can't
 be migrated. However, MyISAM performs better than InnoDB if you require intense,
 full-text search capability. If you still choose to use MyISAM with Amazon RDS, following
-the steps outlined in [Automated backups with unsupported MySQL storage engines](Overview.md "Overview.md") can be helpful in certain
+the steps outlined in [Automated backups with unsupported MySQL storage engines](Overview.BackupDeviceRestrictions.md "Overview.BackupDeviceRestrictions.md") can be helpful in certain
 scenarios for snapshot restore functionality.
 
 If you want to convert existing MyISAM tables to InnoDB tables, you can use the
@@ -462,7 +462,7 @@ for MyISAM, it might still prevent a point-in-time restore or snapshot restore f
 working as intended. This might result in lost or corrupt data when MariaDB is
 restarted after a crash. InnoDB is the recommended and supported storage engine for
 MariaDB DB instances on Amazon RDS. If you still choose to use Aria with Amazon RDS, following
-the steps outlined in [Automated backups with unsupported MariaDB storage engines](Overview.md "Overview.md") can be helpful in
+the steps outlined in [Automated backups with unsupported MariaDB storage engines](Overview.BackupDeviceRestrictionsMariaDB.md "Overview.BackupDeviceRestrictionsMariaDB.md") can be helpful in
 certain scenarios for snapshot restore functionality.
 
 If you want to convert existing MyISAM tables to InnoDB tables, you can use the
@@ -486,7 +486,7 @@ when loading data into a DB instance. Another is when using the PostgreSQL
 autovacuum feature. The following sections cover some of the practices we recommend for
 these areas.
 
-For information on how Amazon RDS implements other common PostgreSQL DBA tasks, see [Common DBA tasks for Amazon RDS for PostgreSQL](Appendix.PostgreSQL.md "Appendix.PostgreSQL.md").
+For information on how Amazon RDS implements other common PostgreSQL DBA tasks, see [Common DBA tasks for Amazon RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md").
 
 ### Loading data into a PostgreSQL DB instance
 
@@ -633,7 +633,7 @@ including degraded performance and system instability. Always exercise caution w
 back up your DB instance before modifying a DB parameter group.
 
 For information about backing up your DB instance, see
-[Backing up, restoring, and exporting data](CHAP_CommonTasks.md "CHAP_CommonTasks.md").
+[Backing up, restoring, and exporting data](CHAP_CommonTasks.BackupRestore.md "CHAP_CommonTasks.BackupRestore.md").
 
 ## Best practices for automating DB instance creation
 

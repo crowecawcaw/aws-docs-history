@@ -7,7 +7,7 @@ Amazon RDS supports DB instances that run the following editions of IBM Db2:
   Amazon RDS supports DB instances that run the following versions of Db2:
 
 - Db2 11.5
-  For more information about minor version support, see [Db2 on Amazon RDS versions](Db2.Concepts.md "Db2.Concepts.md").
+  For more information about minor version support, see [Db2 on Amazon RDS versions](Db2.Concepts.VersionMgmt.md "Db2.Concepts.VersionMgmt.md").
 
 Before creating a DB instance, complete the steps in the [Setting up your Amazon RDS environment](CHAP_SettingUp.md "CHAP_SettingUp.md") section of this user guide. When you create a DB
 instance using your master user, the user gets `DBADM` authority, with some
@@ -39,13 +39,13 @@ can't access the host directly by using Telnet or Secure Shell (SSH).
 - [Prerequisites for creating an Amazon RDS for Db2 DB instance](db2-db-instance-prereqs.md "db2-db-instance-prereqs.md")
 - [Multiple databases on an Amazon RDS for Db2 DB instance](db2-multiple-databases.md "db2-multiple-databases.md")
 - [Connecting to your Db2 DB instance](USER_ConnectToDb2DBInstance.md "USER_ConnectToDb2DBInstance.md")
-- [Securing Amazon RDS for Db2 DB instance connections](Db2.Concepts.md "Db2.Concepts.md")
+- [Securing Amazon RDS for Db2 DB instance connections](Db2.Concepts.RestrictedDBAPrivileges.md "Db2.Concepts.RestrictedDBAPrivileges.md")
 - [Administering your Amazon RDS for Db2 DB instance](db2-administering-db-instance.md "db2-administering-db-instance.md")
 - [Integrating an Amazon RDS for Db2 DB instance with Amazon S3](db2-s3-integration.md "db2-s3-integration.md")
 - [Migrating data to Amazon RDS for Db2](db2-migrating-data-to-rds.md "db2-migrating-data-to-rds.md")
 - [Amazon RDS for Db2 federation](db2-federation.md "db2-federation.md")
 - [Working with replicas for Amazon RDS for Db2](db2-replication.md "db2-replication.md")
-- [Options for Amazon RDS for Db2 DB instances](Db2.md "Db2.md")
+- [Options for Amazon RDS for Db2 DB instances](Db2.Options.md "Db2.Options.md")
 - [External stored procedures for Amazon RDS for Db2](db2-external-stored-procedures.md "db2-external-stored-procedures.md")
 - [Known issues and limitations for Amazon RDS for Db2](db2-known-issues-limitations.md "db2-known-issues-limitations.md")
 - [Amazon RDS for Db2 stored procedure reference](db2-stored-procedures.md "db2-stored-procedures.md")

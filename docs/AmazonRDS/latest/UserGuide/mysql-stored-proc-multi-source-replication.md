@@ -126,7 +126,7 @@ associated configurations from the multi-source replica.
 ###### Important
 
 To run this procedure, `autocommit` must be enabled. To enable it, set the `autocommit`
-parameter to `1`. For information about modifying parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+parameter to `1`. For information about modifying parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 ### Syntax
 
@@ -154,7 +154,7 @@ from another RDS for MySQL DB instance.
 ###### Important
 
 To run this procedure, `autocommit` must be enabled. To enable it, set the `autocommit`
-parameter to `1`. For information about modifying parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+parameter to `1`. For information about modifying parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 ###### Note
 
@@ -314,7 +314,7 @@ Configures a replication channel on an RDS for MySQL DB instance with an optiona
 
 To run this procedure, `autocommit` must be enabled. To enable it, set
 the `autocommit` parameter to `1`. For information about
-modifying parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+modifying parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 ### Syntax
 
@@ -459,7 +459,7 @@ Configures a replication channel on an RDS for MySQL DB instance with a specifie
 
 To run this procedure, `autocommit` must be enabled. To enable it, set
 the `autocommit` parameter to `1`. For information about
-modifying parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+modifying parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 ### Syntax
 
@@ -723,7 +723,7 @@ single source RDS for MySQL DB instance running on a specific host and port.
 The master user must run the `mysql.rds_skip_repl_error_for_channel`
 procedure on a read replica. You can use this procedure in a similar way
 `mysql.rds_skip_repl_error` is used to skip an error on a read
-replica. For more information, see [Calling the mysql.rds_skip_repl_error procedure](Appendix.MySQL.CommonDBATasks.md#Appendix.MySQL.CommonDBATasks.SkipError.procedure "Appendix.MySQL.CommonDBATasks.md#Appendix.MySQL.CommonDBATasks.SkipError.procedure").
+replica. For more information, see [Calling the mysql.rds_skip_repl_error procedure](Appendix.MySQL.CommonDBATasks.SkipError.md#Appendix.MySQL.CommonDBATasks.SkipError.procedure "Appendix.MySQL.CommonDBATasks.SkipError.md#Appendix.MySQL.CommonDBATasks.SkipError.procedure").
 
 ###### Note
 

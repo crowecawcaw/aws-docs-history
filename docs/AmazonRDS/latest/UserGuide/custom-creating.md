@@ -5,9 +5,9 @@ AWS Systems Manager.
 
 For more information about connecting and logging in to a RDS Custom for Oracle DB instance, see the following topics.
 
-- [Connecting to your RDS Custom DB instance using Session Manager](custom-creating.md "custom-creating.md")
+- [Connecting to your RDS Custom DB instance using Session Manager](custom-creating.ssm.md "custom-creating.ssm.md")
 - [Connecting to your RDS Custom DB instance using SSH](#custom-creating.ssh "#custom-creating.ssh")
-- [Logging in to your RDS Custom for Oracle database as SYS](custom-creating.md "custom-creating.md")
+- [Logging in to your RDS Custom for Oracle database as SYS](custom-creating.sysdba.md "custom-creating.sysdba.md")
 
 ## Creating an RDS Custom for Oracle DB instance
 
@@ -19,7 +19,7 @@ Oracle base, Oracle home, and the ID and name of the UNIX/Linux user and group t
 `oratab` file, which is created by Oracle Database during
 installation, points to the real installation location rather than to a symbolic link. When
 RDS Custom for Oracle runs commands, it runs as the configured OS user rather than the default user
-`rdsdb`. For more information, see [Step 5: Prepare the CEV manifest](custom-cev.md#custom-cev.preparing.manifest "custom-cev.md#custom-cev.preparing.manifest").
+`rdsdb`. For more information, see [Step 5: Prepare the CEV manifest](custom-cev.preparing.md#custom-cev.preparing.manifest "custom-cev.preparing.md#custom-cev.preparing.manifest").
 
 Before you attempt to create or connect to an RDS Custom DB instance, complete the tasks in [Setting up your environment for Amazon RDS Custom for Oracle](custom-setup-orcl.md "custom-setup-orcl.md").
 
@@ -132,9 +132,9 @@ For supported classes, see [DB instance class support for RDS Custom for Oracle]
     ###### Note
 
     The only supported option for RDS Custom for Oracle is
-    `Timezone`. For more information, see [Oracle time zone](custom-managing.md "custom-managing.md"). 4. For **Backup retention period** choose a value.
+    `Timezone`. For more information, see [Oracle time zone](custom-managing.timezone.md "custom-managing.timezone.md"). 4. For **Backup retention period** choose a value.
     You can't choose **0 days**. 5. For the remaining sections, specify your preferred RDS Custom DB
-    instance settings. For information about each setting, see [Settings for DB instances](USER_CreateDBInstance.md "USER_CreateDBInstance.md"). The following
+    instance settings. For information about each setting, see [Settings for DB instances](USER_CreateDBInstance.Settings.md "USER_CreateDBInstance.Settings.md"). The following
     settings don't appear in the console and aren't supported:
 
         * **Processor features**
@@ -204,7 +204,7 @@ The following options are required:
 `custom-oracle-se2`, `custom-oracle-ee-cdb`, or
 `custom-oracle-se2-cdb`
 - `--engine-version `cev`(where`cev`` is the name of the
-  custom engine version that you specified in [Creating a CEV](custom-cev.md "custom-cev.md"))
+  custom engine version that you specified in [Creating a CEV](custom-cev.create.md "custom-cev.create.md"))
 - `--kms-key-id `my-kms-key``
 - `--backup-retention-period `days`(where`days``is a value greater than`0`)
 - `--no-auto-minor-version-upgrade`
@@ -318,7 +318,7 @@ If you create an Amazon RDS Custom for Oracle DB instance with the Oracle multit
 your database is a container database (CDB). If you don't specify the Oracle multitenant
 architecture, your database is a traditional non-CDB that uses the
 `custom-oracle-ee` or `custom-oracle-se2` engine type. A non-CDB
-can't contain pluggable databases (PDBs). For more information, see [Database architecture for Amazon RDS Custom for Oracle](custom-oracle.md "custom-oracle.md").
+can't contain pluggable databases (PDBs). For more information, see [Database architecture for Amazon RDS Custom for Oracle](custom-oracle.db-architecture.md "custom-oracle.db-architecture.md").
 
 When you create an RDS Custom for Oracle CDB instance, consider the following:
 
@@ -358,7 +358,7 @@ permissions include the trust policy and the permissions policy, and that permis
 can't be attached to any other IAM entity.
 
 When you create an RDS Custom DB instance, both the Amazon RDS and RDS Custom service-linked roles are
-created (if they don't already exist) and used. For more information, see [Using service-linked roles for Amazon RDS](UsingWithRDS.IAM.md "UsingWithRDS.IAM.md").
+created (if they don't already exist) and used. For more information, see [Using service-linked roles for Amazon RDS](UsingWithRDS.IAM.ServiceLinkedRoles.md "UsingWithRDS.IAM.ServiceLinkedRoles.md").
 
 The first time that you create an RDS Custom for Oracle DB instance, you might receive the following error:
 **`The service-linked role is in the process of being created. Try again
@@ -409,7 +409,7 @@ To make sure that your DB instance can accept SSH connections, do the following:
 - Make sure that your DB instance security group permits inbound connections on port
   22 for TCP.
 
-To learn how to configure the security group for your DB instance, see [Controlling access with security groups](Overview.md "Overview.md").
+To learn how to configure the security group for your DB instance, see [Controlling access with security groups](Overview.RDSSecurityGroups.md "Overview.RDSSecurityGroups.md").
 
 - If you don't plan to use SSH tunneling, make sure your DB instance resides in a
   public subnet and is publicly accessible.
@@ -425,7 +425,7 @@ aws rds describe-db-instances \
 --output table
 ```
 
-To change the accessibility settings for your DB instance, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+To change the accessibility settings for your DB instance, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md").
 
 ### Step 2: Retrieve your SSH secret key and EC2 instance ID
 

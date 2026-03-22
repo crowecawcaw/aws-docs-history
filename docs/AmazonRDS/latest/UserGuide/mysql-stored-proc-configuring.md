@@ -110,7 +110,7 @@ the [mysql.rds_start_replication_until_gtid](mysql-stored-proc-gtid.md#mysql_rds
 stored procedure. To roll forward changes to a delayed read replica to the time just before a disaster, you can run the
 `mysql.rds_set_configuration` procedure with this parameter set. After the
 `mysql.rds_start_replication_until` or `mysql.rds_start_replication_until_gtid` procedure
-stops replication, you can promote the read replica to be the new primary DB instance by using the instructions in [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.md "USER_ReadRepl.md").
+stops replication, you can promote the read replica to be the new primary DB instance by using the instructions in [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.Promote.md "USER_ReadRepl.Promote.md").
 
 To use the `mysql.rds_rds_start_replication_until_gtid` procedure, GTID-based replication must be enabled.
 To skip a specific GTID-based transaction that is known to cause disaster, you can use the [mysql.rds_skip_transaction_with_gtid](mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid "mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid") stored

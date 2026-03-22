@@ -140,7 +140,7 @@ These permissions configure resources in
 your account that are required for RDS Custom operations.
 
 For more information about the `kms:CreateGrant` permission, see
-[AWS KMS key management](Overview.Encryption.md "Overview.Encryption.md").
+[AWS KMS key management](Overview.Encryption.Keys.md "Overview.Encryption.Keys.md").
 
 The following sample JSON policy grants the required permissions.
 
@@ -358,7 +358,7 @@ your AWS account:
 
 ###### To download the template file
 
-1. Open the context (right-click) menu for the link [custom-sqlserver-onboard.zip](samples/custom-sqlserver-onboard.md "samples/custom-sqlserver-onboard.md") and choose **Save Link As**.
+1. Open the context (right-click) menu for the link [custom-sqlserver-onboard.zip](samples/custom-sqlserver-onboard.zip.md "samples/custom-sqlserver-onboard.zip.md") and choose **Save Link As**.
 2. Save and extract the file to your computer.
 
 #### Configuring resources using CloudFormation

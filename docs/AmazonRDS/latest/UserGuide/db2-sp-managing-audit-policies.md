@@ -1,7 +1,7 @@
 # Stored procedures for audit policies for RDS for Db2
 
 The built-in stored procedures described in this topic manage audit policies for
-Amazon RDS for Db2 databases that use audit logging. For more information, see [Db2 audit logging](Db2.Options.md "Db2.Options.md"). To run these procedures, the master user must first
+Amazon RDS for Db2 databases that use audit logging. For more information, see [Db2 audit logging](Db2.Options.Audit.md "Db2.Options.Audit.md"). To run these procedures, the master user must first
 connect to the `rdsadmin` database.
 
 Refer to the following built-in stored procedures for information about their syntax,
@@ -87,11 +87,11 @@ category.
 Before you call `rdsadmin.configure_db_audit`, make sure the RDS for Db2
 DB instance with the database you're configuring the audit policy for is associated
 with an option group that has the `DB2_AUDIT` option. For more
-information, see [Setting up Db2 audit logging](Db2.Options.md#db2-audit-setting-up "Db2.Options.md#db2-audit-setting-up").
+information, see [Setting up Db2 audit logging](Db2.Options.Audit.md#db2-audit-setting-up "Db2.Options.Audit.md#db2-audit-setting-up").
 
 After you configure the audit policy, you can check the status of the audit
 configuration for the database by following the steps in [Check the audit
-configuration](Db2.Options.md#db2-audit-check-config-status "Db2.Options.md#db2-audit-check-config-status").
+configuration](Db2.Options.Audit.md#db2-audit-check-config-status "Db2.Options.Audit.md#db2-audit-check-config-status").
 
 Specifying `ALL` for the `category` parameter doesn't
 include the `CONTEXT`, `EXECUTE`, or `ERROR`
@@ -210,7 +210,7 @@ data type is `varchar`.
 Calling `rdsadmin.disable_db_audit` doesn't disable audit logging for
 the RDS for Db2 DB instance. To disable audit logging at the DB instance level, remove
 the option group from the DB instance. For more information, see [Disabling Db2 audit
-logging](Db2.Options.md#db2-audit-disabling "Db2.Options.md#db2-audit-disabling").
+logging](Db2.Options.Audit.md#db2-audit-disabling "Db2.Options.Audit.md#db2-audit-disabling").
 
 ### Examples
 

@@ -1,6 +1,6 @@
 # Amazon RDS for MySQL
 
-Amazon RDS supports several versions of MySQL for DB instances. For complete information about the supported versions, see [MySQL on Amazon RDS versions](MySQL.Concepts.md "MySQL.Concepts.md").
+Amazon RDS supports several versions of MySQL for DB instances. For complete information about the supported versions, see [MySQL on Amazon RDS versions](MySQL.Concepts.VersionMgmt.md "MySQL.Concepts.VersionMgmt.md").
 
 To create an Amazon RDS for MySQL DB instance, use the Amazon RDS management tools or interfaces. You
 can then do the following:
@@ -50,21 +50,21 @@ Telnet or Secure Shell (SSH).
 
 ###### Topics
 
-- [MySQL feature support on Amazon RDS](MySQL.Concepts.md "MySQL.Concepts.md")
-- [MySQL on Amazon RDS versions](MySQL.Concepts.md "MySQL.Concepts.md")
+- [MySQL feature support on Amazon RDS](MySQL.Concepts.FeatureSupport.md "MySQL.Concepts.FeatureSupport.md")
+- [MySQL on Amazon RDS versions](MySQL.Concepts.VersionMgmt.md "MySQL.Concepts.VersionMgmt.md")
 - [Connecting to your MySQL DB instance](USER_ConnectToInstance.md "USER_ConnectToInstance.md")
 - [Securing MySQL DB instance connections](securing-mysql-connections.md "securing-mysql-connections.md")
 - [Improving query performance for RDS for MySQL with Amazon RDS Optimized Reads](rds-optimized-reads.md "rds-optimized-reads.md")
 - [Improving write performance with RDS Optimized Writes for MySQL](rds-optimized-writes.md "rds-optimized-writes.md")
-- [Upgrades of the RDS for MySQL DB engine](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md")
+- [Upgrades of the RDS for MySQL DB engine](USER_UpgradeDBInstance.MySQL.md "USER_UpgradeDBInstance.MySQL.md")
 - [Upgrading a MySQL DB snapshot engine version](mysql-upgrade-snapshot.md "mysql-upgrade-snapshot.md")
-- [Importing data into an Amazon RDS for MySQL DB instance](MySQL.Procedural.Importing.md "MySQL.Procedural.Importing.md")
-- [Working with MySQL replication in Amazon RDS](USER_MySQL.md "USER_MySQL.md")
+- [Importing data into an Amazon RDS for MySQL DB instance](MySQL.Procedural.Importing.Other.md "MySQL.Procedural.Importing.Other.md")
+- [Working with MySQL replication in Amazon RDS](USER_MySQL.Replication.md "USER_MySQL.Replication.md")
 - [Configuring active-active clusters for RDS for MySQL](mysql-active-active-clusters.md "mysql-active-active-clusters.md")
-- [Exporting data from a MySQL DB instance by using replication](MySQL.Procedural.Exporting.md "MySQL.Procedural.Exporting.md")
-- [Options for MySQL DB instances](Appendix.MySQL.md "Appendix.MySQL.md")
-- [Parameters for MySQL](Appendix.MySQL.md "Appendix.MySQL.md")
-- [Common DBA tasks for MySQL DB instances](Appendix.MySQL.md "Appendix.MySQL.md")
-- [Local time zone for MySQL DB instances](MySQL.Concepts.md "MySQL.Concepts.md")
-- [Known issues and limitations for Amazon RDS for MySQL](MySQL.md "MySQL.md")
-- [RDS for MySQL stored procedure reference](Appendix.MySQL.md "Appendix.MySQL.md")
+- [Exporting data from a MySQL DB instance by using replication](MySQL.Procedural.Exporting.NonRDSRepl.md "MySQL.Procedural.Exporting.NonRDSRepl.md")
+- [Options for MySQL DB instances](Appendix.MySQL.Options.md "Appendix.MySQL.Options.md")
+- [Parameters for MySQL](Appendix.MySQL.Parameters.md "Appendix.MySQL.Parameters.md")
+- [Common DBA tasks for MySQL DB instances](Appendix.MySQL.CommonDBATasks.md "Appendix.MySQL.CommonDBATasks.md")
+- [Local time zone for MySQL DB instances](MySQL.Concepts.LocalTimeZone.md "MySQL.Concepts.LocalTimeZone.md")
+- [Known issues and limitations for Amazon RDS for MySQL](MySQL.KnownIssuesAndLimitations.md "MySQL.KnownIssuesAndLimitations.md")
+- [RDS for MySQL stored procedure reference](Appendix.MySQL.SQLRef.md "Appendix.MySQL.SQLRef.md")

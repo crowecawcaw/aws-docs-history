@@ -103,7 +103,7 @@ Times are shown in your local time zone, which is indicated by an offset from Co
 (UTC). For example, UTC-5 is Eastern Standard Time/Central Daylight Time. 6. For **DB instance identifier**, enter the name of the target restored DB instance. The name must be unique. 7. Choose other options as needed, such as DB instance class, storage, and whether you
 want to use storage autoscaling.
 
-For information about each setting, see [Settings for DB instances](USER_CreateDBInstance.md "USER_CreateDBInstance.md"). 8. Choose **Restore to point in time**.
+For information about each setting, see [Settings for DB instances](USER_CreateDBInstance.Settings.md "USER_CreateDBInstance.Settings.md"). 8. Choose **Restore to point in time**.
 To restore a DB instance to a specified time, use the AWS CLI command
 [restore-db-instance-to-point-in-time](../../../cli/latest/reference/rds/restore-db-instance-to-point-in-time.md "../../../cli/latest/reference/rds/restore-db-instance-to-point-in-time.md")
 to create a new DB instance. This example also sets the allocated storage size and enables storage autoscaling.
@@ -112,7 +112,7 @@ Resource tagging is supported for this operation. When you use the `--tags` opti
 are ignored and the provided ones are used. Otherwise, the latest tags from the source instance are used.
 
 You can specify other settings. For information about each setting, see
-[Settings for DB instances](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
+[Settings for DB instances](USER_CreateDBInstance.Settings.md "USER_CreateDBInstance.Settings.md").
 
 ###### Example
 

@@ -280,7 +280,7 @@ SELECT pgtle.register_feature('pw_hook', 'passcheck');
 The `pgtle.register_feature_if_not_exists` function adds the specified PostgreSQL feature
 to the `pgtle.feature_info` table and identifies the TLE extension or other procedure or function
 that uses the feature. For more information about hooks and Trusted Language Extensions, see
-[Using PostgreSQL hooks with your TLE extensions](PostgreSQL_trusted_language_extension.overview.md "PostgreSQL_trusted_language_extension.overview.md").
+[Using PostgreSQL hooks with your TLE extensions](PostgreSQL_trusted_language_extension.overview.tles-and-hooks.md "PostgreSQL_trusted_language_extension.overview.tles-and-hooks.md").
 
 ### Function prototype
 
@@ -576,7 +576,7 @@ SELECT * FROM pgtle.unregister_feature('pw_hook', 'passcheck');
 
 The `unregister_feature` function provides a way to remove functions that
 were registered to use `pg_tle` features, such as hooks. For more
-information, see [Using PostgreSQL hooks with your TLE extensions](PostgreSQL_trusted_language_extension.overview.md "PostgreSQL_trusted_language_extension.overview.md").
+information, see [Using PostgreSQL hooks with your TLE extensions](PostgreSQL_trusted_language_extension.overview.tles-and-hooks.md "PostgreSQL_trusted_language_extension.overview.tles-and-hooks.md").
 Returns `true` after successfully unregistering the feature. Returns
 `false` if the feature wasn't registered.
 

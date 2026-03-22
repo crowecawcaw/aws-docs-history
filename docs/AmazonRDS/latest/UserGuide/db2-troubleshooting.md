@@ -100,7 +100,7 @@ the VPC associated with the security group used to create your RDS for Db2 DB in
 might lack an Amazon S3 gateway endpoint. This endpoint is essential for enabling RDS for Db2 to
 access Amazon S3. If your RDS for Db2 DB instance is in private subnets, then an Amazon S3 gateway
 endpoint is required. You can specify whether your DB instance uses private or public
-subnets by configuring Amazon RDS subnet groups. For more information, see [Working with DB subnet groups](USER_VPC.md#USER_VPC.Subnets "USER_VPC.md#USER_VPC.Subnets").
+subnets by configuring Amazon RDS subnet groups. For more information, see [Working with DB subnet groups](USER_VPC.WorkingWithRDSInstanceinaVPC.md#USER_VPC.Subnets "USER_VPC.WorkingWithRDSInstanceinaVPC.md#USER_VPC.Subnets").
 
 ###### Topics
 
@@ -353,7 +353,7 @@ database size:
 
 This amount of free disk space accounts for backup session processing, transaction
 log accumulation during backup, temporary working files, and parallel backup streams
-if configured. For more information, see [Increasing DB instance storage capacity](USER_PIOPS.md "USER_PIOPS.md").
+if configured. For more information, see [Increasing DB instance storage capacity](USER_PIOPS.ModifyingExisting.md "USER_PIOPS.ModifyingExisting.md").
 
 Increase your disk space and then call the [rdsadmin.backup_database](db2-sp-managing-databases.md#db2-sp-backup-database "db2-sp-managing-databases.md#db2-sp-backup-database") stored procedure again. To confirm that
 the database was backed up correctly, check the task status by using [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status"). You
@@ -536,7 +536,7 @@ Aborting task. Reason Restoring your database failed because of insufficient dis
 The free space on your DB instance must be more than double the size of your
 backup image. If your backup image is compressed, the free space on your DB instance
 must be more than triple the size of your backup image. For more information, see
-[Increasing DB instance storage capacity](USER_PIOPS.md "USER_PIOPS.md").
+[Increasing DB instance storage capacity](USER_PIOPS.ModifyingExisting.md "USER_PIOPS.ModifyingExisting.md").
 
 Increase your disk space and then call the `rdsadmin.restore_database`
 stored procedure again. To confirm that the database was restored, call the [rdsadmin.list_databases](db2-user-defined-functions.md#db2-udf-list-databases "db2-user-defined-functions.md#db2-udf-list-databases") user-defined function and check that the
@@ -610,4 +610,4 @@ is either not supported or not modifiable to customers". SQLSTATE=99993
 ```
 
 You can see which parameters are modifiable by viewing your parameter groups. For
-more information, see [Viewing parameter values for a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+more information, see [Viewing parameter values for a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Viewing.md "USER_WorkingWithParamGroups.Viewing.md").

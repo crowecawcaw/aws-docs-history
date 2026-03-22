@@ -14,10 +14,10 @@ instructions to help you delete the DB instance.
 
 ###### Topics
 
-- [Creating and connecting to a MariaDB DB instance](CHAP_GettingStarted.CreatingConnecting.md "CHAP_GettingStarted.CreatingConnecting.md")
-- [Creating and connecting to a Microsoft SQL Server DB instance](CHAP_GettingStarted.CreatingConnecting.md "CHAP_GettingStarted.CreatingConnecting.md")
-- [Creating and connecting to a MySQL DB instance](CHAP_GettingStarted.CreatingConnecting.md "CHAP_GettingStarted.CreatingConnecting.md")
-- [Creating and connecting to an Oracle DB instance](CHAP_GettingStarted.CreatingConnecting.md "CHAP_GettingStarted.CreatingConnecting.md")
-- [Creating and connecting to a PostgreSQL DB instance](CHAP_GettingStarted.CreatingConnecting.md "CHAP_GettingStarted.CreatingConnecting.md")
+- [Creating and connecting to a MariaDB DB instance](CHAP_GettingStarted.CreatingConnecting.MariaDB.md "CHAP_GettingStarted.CreatingConnecting.MariaDB.md")
+- [Creating and connecting to a Microsoft SQL Server DB instance](CHAP_GettingStarted.CreatingConnecting.SQLServer.md "CHAP_GettingStarted.CreatingConnecting.SQLServer.md")
+- [Creating and connecting to a MySQL DB instance](CHAP_GettingStarted.CreatingConnecting.MySQL.md "CHAP_GettingStarted.CreatingConnecting.MySQL.md")
+- [Creating and connecting to an Oracle DB instance](CHAP_GettingStarted.CreatingConnecting.Oracle.md "CHAP_GettingStarted.CreatingConnecting.Oracle.md")
+- [Creating and connecting to a PostgreSQL DB instance](CHAP_GettingStarted.CreatingConnecting.PostgreSQL.md "CHAP_GettingStarted.CreatingConnecting.PostgreSQL.md")
 - [Tutorial: Create a web server and an Amazon RDS DB instance](TUT_WebAppWithRDS.md "TUT_WebAppWithRDS.md")
 - [Tutorial: Using a Lambda function to access an Amazon RDS database](rds-lambda-tutorial.md "rds-lambda-tutorial.md")

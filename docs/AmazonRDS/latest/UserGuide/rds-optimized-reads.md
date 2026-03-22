@@ -119,14 +119,14 @@ To turn on RDS Optimized Reads, do one of the following:
 - Create an RDS for MySQL DB instance or Multi-AZ DB cluster using one of these DB instance
   classes. For more information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
 - Modify an existing RDS for MySQL DB instance or Multi-AZ DB cluster to use one of these DB
-  instance classes. For more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+  instance classes. For more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md").
 
 RDS Optimized Reads is available in all AWS Regions RDS where one or more of the DB
 instance classes with local NVMe SSD storage are supported. For information about DB
-instance classes, see [DB instance classes](Concepts.md "Concepts.md").
+instance classes, see [DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
 
 DB instance class availability differs for AWS Regions. To determine whether a DB instance class is supported
-in a specific AWS Region, see [Determining DB instance class support in AWS Regions](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
+in a specific AWS Region, see [Determining DB instance class support in AWS Regions](Concepts.DBInstanceClass.RegionSupport.md "Concepts.DBInstanceClass.RegionSupport.md").
 
 If you don't want to use RDS Optimized Reads, modify your DB instance or Multi-AZ DB cluster so that
 it doesn't use a DB instance class that supports the feature.
@@ -155,7 +155,7 @@ The following limitations apply to RDS Optimized Reads:
       + RDS for MySQL version 8.0.28 and higher major and minor
        versions
 
-  For information about RDS for MySQL versions, see [MySQL on Amazon RDS versions](MySQL.Concepts.md "MySQL.Concepts.md").
+  For information about RDS for MySQL versions, see [MySQL on Amazon RDS versions](MySQL.Concepts.VersionMgmt.md "MySQL.Concepts.VersionMgmt.md").
 
 - You can't change the location of temporary objects to persistent storage (Amazon EBS) on the DB
   instance classes that support RDS Optimized Reads.

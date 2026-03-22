@@ -18,10 +18,10 @@ change the backup retention period for the DB instance to 0. The automated snaps
 the change is applied. You can apply the change immediately if you don't want to wait until the
 next maintenance period. After the change is complete, you can then re-enable automatic backups
 by setting the backup retention period to a number greater than 0. For information about modifying a
-DB instance, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+DB instance, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md").
 
 Retained automated backups and manual snapshots incur billing charges until they're deleted. For more information, see
-[Retention costs](USER_WorkingWithAutomatedBackups.md#USER_WorkingWithAutomatedBackups.RetentionCosts "USER_WorkingWithAutomatedBackups.md#USER_WorkingWithAutomatedBackups.RetentionCosts").
+[Retention costs](USER_WorkingWithAutomatedBackups.Retaining.md#USER_WorkingWithAutomatedBackups.RetentionCosts "USER_WorkingWithAutomatedBackups.Retaining.md#USER_WorkingWithAutomatedBackups.RetentionCosts").
 
 If you deleted a DB instance, you can delete its automated DB snapshots by removing the automated
 backups for the DB instance. For information about automated backups, see

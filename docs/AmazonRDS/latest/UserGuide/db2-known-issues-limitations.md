@@ -15,7 +15,7 @@ The following items are known issues and limitations for working with Amazon RDS
 Amazon RDS sets `db2auth` to `JCC_ENFORCE_SECMEC` by default.
 However, if you don't want to enforce userid and password encryption over the wire, you
 can override this setting by changing the `db2auth` parameter to
-`CLEAR_TEXT` in the parameter group. For more information, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+`CLEAR_TEXT` in the parameter group. For more information, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 ## Non-fenced routines
 
@@ -46,15 +46,15 @@ without a database, and then create a database using the
 ###### To set the `db2_compatibility_vector` parameter
 
 1. [Create a custom parameter
-   group](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). (You can't modify parameters in default parameter
+   group](USER_WorkingWithParamGroups.Creating.md "USER_WorkingWithParamGroups.Creating.md"). (You can't modify parameters in default parameter
    groups.)
 2. [Modify the
-   parameter](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+   parameter](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 3. [Create a DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
 4. [Create a database](db2-managing-databases.md#db2-creating-database "db2-managing-databases.md#db2-creating-database") using the
    `rdsadmin.create_database` stored procedure.
 5. [Associate the
-   parameter group](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md") with the DB instance that contains the database.
+   parameter group](USER_WorkingWithParamGroups.Associating.md "USER_WorkingWithParamGroups.Associating.md") with the DB instance that contains the database.
 
 ## Migrating databases that contain INVALID packages
 

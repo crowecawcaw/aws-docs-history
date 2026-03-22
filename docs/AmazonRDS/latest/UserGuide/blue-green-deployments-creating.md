@@ -36,7 +36,7 @@ on the engine that your DB instance is running.
 ### Preparing an RDS for MySQL or RDS for MariaDB DB instance for a blue/green deployment
 
 Before you create a blue/green deployment for an RDS for MySQL or RDS for MariaDB DB instance, you
-must enable automated backups. For instructions, see [Enabling automated backups](USER_WorkingWithAutomatedBackups.md "USER_WorkingWithAutomatedBackups.md").
+must enable automated backups. For instructions, see [Enabling automated backups](USER_WorkingWithAutomatedBackups.Enabling.md "USER_WorkingWithAutomatedBackups.Enabling.md").
 
 ### Preparing an RDS for PostgreSQL DB instance for a blue/green deployment with physical replication
 
@@ -44,7 +44,7 @@ Before you create an RDS for PostgreSQL blue/green deployment that uses physical
 replication, make sure to do the following. For a list of versions that use physical
 replication versus logical replication, see [PostgreSQL replication methods for blue/green deployments](blue-green-deployments-replication-type.md "blue-green-deployments-replication-type.md").
 
-- Enable automated backups on the DB instance. For instructions, see [Enabling automated backups](USER_WorkingWithAutomatedBackups.md "USER_WorkingWithAutomatedBackups.md").
+- Enable automated backups on the DB instance. For instructions, see [Enabling automated backups](USER_WorkingWithAutomatedBackups.Enabling.md "USER_WorkingWithAutomatedBackups.Enabling.md").
 - Confirm that the DB instance isn't the source or target of external replication. For more
   information, see [General limitations for blue/green deployments](blue-green-deployments-considerations.md#blue-green-deployments-limitations-general "blue-green-deployments-considerations.md#blue-green-deployments-limitations-general").
 
@@ -57,7 +57,7 @@ replication versus physical replication, see [PostgreSQL replication methods for
 - Associate the instance with a custom DB parameter group with logical replication
   (`rds.logical_replication`) turned on. Logical replication is required for
   replication from the blue environment to the green environment. For instructions, see
-  [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+  [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 Because blue/green deployments require at least one background worker per database,
 make sure to tune the following configuration settings according to your workload. For
@@ -105,7 +105,7 @@ in the green environment after it
 is deployed. For example, you might specify a higher engine version or a different parameter
 group.
 
-For information about modifying a DB instance, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+For information about modifying a DB instance, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md").
 
 ###### Topics
 
@@ -180,7 +180,7 @@ environment. After the green environment is successfully created, you must manua
 the DB instance class of the read replicas in the green environment.
 
 Some instance class upgrades aren't supported depending on the engine version and
-instance class of the blue DB instance. For more information about DB instance classes, see [DB instance classes](Concepts.md "Concepts.md").
+instance class of the blue DB instance. For more information about DB instance classes, see [DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
 
 ### Upgrade the storage configuration
 
@@ -343,6 +343,6 @@ see [CreateBlueGreenDeployment](../APIReference/API_CreateBlueGreenDeployment.md
 | **Engine version for green databases**         | Upgrade the databases<br>in the green environment to the<br>specified DB engine version.<br>If not specified, each<br>database in the green<br>environment is created with the same engine version as the corresponding DB instance in<br>the blue environment.<br>If you choose an RDS for PostgreSQL DB instance that uses logical replication,<br>review and acknowledge the logical replication limitations. For more information,<br>see [Logical replication-specific limitations for blue/green deployments](blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres "blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres"). | **CLI option:**<br>`--target-engine-version`<br>**RDS API parameter:**<br>`TargetEngineVersion`                                                                                                  |
 | **Green DB instance class**                    | The compute and memory capacity of each DB instance in the green environment, for<br>example `db.m5d.xlarge`.<br>This option is only visible when you enable RDS Optimized Writes for the green database.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | **CLI option:**<br>`--target-db-instance-class`<br>**RDS API parameter:**<br>`TargetDBInstanceClass`                                                                                             |
 | **Provisioned IOPS**                           | The amount of provisioned input/output operations per second (IOPS) to be<br>initially allocated for the green database.<br>This value applies only to the green primary DB instance, not green replicas.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | **CLI option:**<br>`--target-iops`<br>**RDS API parameter:**<br>`TargetIops`                                                                                                                     |
-| **Storage configuration upgrade**              | Choose whether to upgrade your storage file system configuration. If you enable<br>this setting, RDS migrates the green database from the old storage file system to<br>the preferred configuration.<br>This option is only available if your blue database is _not_<br>on the latest storage configuration, or if you're enabling RDS Optimized Writes within the same<br>request. You can only upgrade the storage configuration when initially creating a<br>blue/green deployment.<br>For more information, see [Upgrading the storage file system for a DB instance](USER_PIOPS.md "USER_PIOPS.md").                                                                                         | **CLI option:**<br>`--upgrade-target-storage-config`<br>**RDS API parameter:**<br>`UpgradeTargetStorageConfig`                                                                                   |
+| **Storage configuration upgrade**              | Choose whether to upgrade your storage file system configuration. If you enable<br>this setting, RDS migrates the green database from the old storage file system to<br>the preferred configuration.<br>This option is only available if your blue database is _not_<br>on the latest storage configuration, or if you're enabling RDS Optimized Writes within the same<br>request. You can only upgrade the storage configuration when initially creating a<br>blue/green deployment.<br>For more information, see [Upgrading the storage file system for a DB instance](USER_PIOPS.UpgradeFileSystem.md "USER_PIOPS.UpgradeFileSystem.md").                                                     | **CLI option:**<br>`--upgrade-target-storage-config`<br>**RDS API parameter:**<br>`UpgradeTargetStorageConfig`                                                                                   |
 | **Storage throughput**                         | The storage throughput value for the green database. This setting is visible<br>only if you choose General Purpose SSD (gp3) for the storage type.<br>This value applies only to the green primary DB instance, not green replicas.<br>For more information, see [gp3 storage (recommended)](CHAP_Storage.md#gp3-storage "CHAP_Storage.md#gp3-storage").                                                                                                                                                                                                                                                                                                                                          | **CLI option:**<br>`--target-storage-throughput`<br>**RDS API parameter:**<br>`TargetStorageThroughput`                                                                                          |
 | **Storage type**                               | The storage type for the green database. The following storage types are<br>supported:<br>• General Purpose SSD (gp2)<br>• General Purpose SSD (gp3)<br>• Provisioned IOPS (io1)<br>• Provisioned IOPS SSD (io2)<br>This value applies only to the green primary DB instance, not green replicas.<br>For more information, see [Amazon RDS storage types](CHAP_Storage.md#Concepts.Storage "CHAP_Storage.md#Concepts.Storage").                                                                                                                                                                                                                                                                   | **CLI option:**<br>`--target-storage-type`<br>**RDS API parameter:**<br>`TargetStorageType`                                                                                                      |

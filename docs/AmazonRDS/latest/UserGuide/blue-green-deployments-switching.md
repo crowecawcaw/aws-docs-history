@@ -120,7 +120,7 @@ only allows read operations until you set the `read_only` parameter (for
 RDS for MySQL) or the `default_transaction_read_only` parameter (for
 RDS for PostgreSQL) to `0` and reboot the DB instance.
 
-You can monitor the status of a switchover using Amazon EventBridge. For more information, see [Blue/green deployment events](USER_Events.md#USER_Events.Messages.BlueGreenDeployments "USER_Events.md#USER_Events.Messages.BlueGreenDeployments").
+You can monitor the status of a switchover using Amazon EventBridge. For more information, see [Blue/green deployment events](USER_Events.Messages.md#USER_Events.Messages.BlueGreenDeployments "USER_Events.Messages.md#USER_Events.Messages.BlueGreenDeployments").
 
 During switchover, tags from the blue environment replace all tags on resources in the
 green environment. Any tags that you added directly to green environment resources are
@@ -210,7 +210,7 @@ environment to identify the current replica lag. For more information, see [Diag
 ### RDS for PostgreSQL
 
 For PostgreSQL blue/green deployments that use physical
-replication, see [Monitoring and tuning the replication process](USER_PostgreSQL.Replication.ReadReplicas.md "USER_PostgreSQL.Replication.ReadReplicas.md") for
+replication, see [Monitoring and tuning the replication process](USER_PostgreSQL.Replication.ReadReplicas.Monitor.md "USER_PostgreSQL.Replication.ReadReplicas.Monitor.md") for
 instructions to identify the current replica lag.
 
 For PostgreSQL blue/green deployments that use logical

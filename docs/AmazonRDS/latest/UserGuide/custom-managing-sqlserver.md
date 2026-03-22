@@ -6,12 +6,12 @@ AWS Management Console and the AWS CLI.
 
 ###### Topics
 
-- [Pausing and resuming RDS Custom automation](custom-managing-sqlserver.md "custom-managing-sqlserver.md")
-- [Modifying an RDS Custom for SQL Server DB instance](custom-managing.md "custom-managing.md")
-- [Modifying the storage for an RDS Custom for SQL Server DB instance](custom-managing-sqlserver.md "custom-managing-sqlserver.md")
-- [Tagging RDS Custom for SQL Server resources](custom-managing-sqlserver.md "custom-managing-sqlserver.md")
+- [Pausing and resuming RDS Custom automation](custom-managing-sqlserver.pausing.md "custom-managing-sqlserver.pausing.md")
+- [Modifying an RDS Custom for SQL Server DB instance](custom-managing.modify-sqlserver.md "custom-managing.modify-sqlserver.md")
+- [Modifying the storage for an RDS Custom for SQL Server DB instance](custom-managing-sqlserver.storage-modify.md "custom-managing-sqlserver.storage-modify.md")
+- [Tagging RDS Custom for SQL Server resources](custom-managing-sqlserver.tagging.md "custom-managing-sqlserver.tagging.md")
 - [Deleting an RDS Custom for SQL Server DB instance](#custom-managing-sqlserver.deleting "#custom-managing-sqlserver.deleting")
-- [Starting and stopping an RDS Custom for SQL Server DB instance](custom-managing-sqlserver.md "custom-managing-sqlserver.md")
+- [Starting and stopping an RDS Custom for SQL Server DB instance](custom-managing-sqlserver.startstop.md "custom-managing-sqlserver.startstop.md")
 
 ## Deleting an RDS Custom for SQL Server DB instance
 

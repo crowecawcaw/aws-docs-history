@@ -23,9 +23,9 @@ After you update your CA certificates in the client application trust stores, yo
 your DB instances. We strongly recommend testing these procedures in a development or staging environment before
 implementing them in your production environments.
 
-For more information about certificate rotation, see [Rotating your SSL/TLS certificate](UsingWithRDS.md "UsingWithRDS.md"). For more information about downloading certificates, see
-[Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.md "UsingWithRDS.md") . For information about using SSL/TLS with
-Oracle DB instances, see [Oracle Secure Sockets Layer](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md").
+For more information about certificate rotation, see [Rotating your SSL/TLS certificate](UsingWithRDS.SSL-certificate-rotation.md "UsingWithRDS.SSL-certificate-rotation.md"). For more information about downloading certificates, see
+[Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.SSL.md "UsingWithRDS.SSL.md") . For information about using SSL/TLS with
+Oracle DB instances, see [Oracle Secure Sockets Layer](Appendix.Oracle.Options.SSL.md "Appendix.Oracle.Options.SSL.md").
 
 ###### Topics
 
@@ -37,7 +37,7 @@ Oracle DB instances, see [Oracle Secure Sockets Layer](Appendix.Oracle.Options.m
 
 If your Oracle DB instance uses an option group with the `SSL` option added, you might be using SSL.
 Check this by following the instructions in [Listing the options and option settings for an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.ListOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.ListOption"). For information about the `SSL` option,
-see [Oracle Secure Sockets Layer](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md").
+see [Oracle Secure Sockets Layer](Appendix.Oracle.Options.SSL.md "Appendix.Oracle.Options.SSL.md").
 
 Check the listener log to determine whether there are SSL connections. The following is sample output in a
 listener log.
@@ -55,7 +55,7 @@ external SSL connections. Therefore, you have applications connecting using SSL 
 where `PROTOCOL` is `tcps` and `HOST` is _not_
 `127.0.0.1`.
 
-To check the listener log, you can publish the log to Amazon CloudWatch Logs. For more information, see [Publishing Oracle logs to Amazon CloudWatch Logs](USER_LogAccess.Concepts.md#USER_LogAccess.Oracle.PublishtoCloudWatchLogs "USER_LogAccess.Concepts.md#USER_LogAccess.Oracle.PublishtoCloudWatchLogs").
+To check the listener log, you can publish the log to Amazon CloudWatch Logs. For more information, see [Publishing Oracle logs to Amazon CloudWatch Logs](USER_LogAccess.Concepts.Oracle.md#USER_LogAccess.Oracle.PublishtoCloudWatchLogs "USER_LogAccess.Concepts.Oracle.md#USER_LogAccess.Oracle.PublishtoCloudWatchLogs").
 
 ## Updating your application trust store
 
@@ -75,7 +75,7 @@ certificates.
 1. Download the new root certificate that works for all AWS Regions and put the file in the
    `ssl_wallet` directory.
 
-For information about downloading the root certificate, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.md "UsingWithRDS.md") . 2. Run the following command to update the Oracle wallet.
+For information about downloading the root certificate, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.SSL.md "UsingWithRDS.SSL.md") . 2. Run the following command to update the Oracle wallet.
 
 ```
 prompt>orapki wallet add -wallet $ORACLE_HOME/ssl_wallet -trusted_cert -cert
@@ -99,9 +99,9 @@ Subject: CN=Amazon RDS Root 2019 CA,OU=Amazon RDS,O=Amazon Web Services\, Inc.,L
 
 You can update the trust store for applications that use JDBC for SSL/TLS connections.
 
-For information about downloading the root certificate, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.md "UsingWithRDS.md") .
+For information about downloading the root certificate, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.SSL.md "UsingWithRDS.SSL.md") .
 
-For sample scripts that import certificates, see [Sample script for importing certificates into your trust store](UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-sample-script "UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-sample-script").
+For sample scripts that import certificates, see [Sample script for importing certificates into your trust store](UsingWithRDS.SSL-certificate-rotation.md#UsingWithRDS.SSL-certificate-rotation-sample-script "UsingWithRDS.SSL-certificate-rotation.md#UsingWithRDS.SSL-certificate-rotation-sample-script").
 
 ## Example Java code for establishing SSL connections
 
@@ -144,4 +144,4 @@ public class OracleSslConnectionTest {
 
 After you have determined that your database connections use SSL/TLS and have updated your application
 trust store, you can update your database to use the rds-ca-rsa2048-g1 certificates. For instructions, see step 3
-in [Updating your CA certificate by modifying your DB instance or cluster](UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-updating "UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-updating").
+in [Updating your CA certificate by modifying your DB instance or cluster](UsingWithRDS.SSL-certificate-rotation.md#UsingWithRDS.SSL-certificate-rotation-updating "UsingWithRDS.SSL-certificate-rotation.md#UsingWithRDS.SSL-certificate-rotation-updating").

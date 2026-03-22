@@ -11,9 +11,9 @@ Db2 replica in read-only mode is called a _read replica_. A Db2 replica
 in standby mode is called a _standby replica_. Db2 doesn't permit writes
 in a replica, but you can promote a replica to make it writable. The promoted replica has
 the replicated data to the point when the request was made to promote it. For more
-information, see [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.md "USER_ReadRepl.md").
+information, see [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.Promote.md "USER_ReadRepl.Promote.md").
 
-For a summary of the features and behaviors of RDS for Db2 replicas, see [Differences between read replicas for DB engines](USER_ReadRepl.Overview.md "USER_ReadRepl.Overview.md").
+For a summary of the features and behaviors of RDS for Db2 replicas, see [Differences between read replicas for DB engines](USER_ReadRepl.Overview.Differences.md "USER_ReadRepl.Overview.Differences.md").
 
 ## Read-only and standby replicas
 
@@ -49,7 +49,7 @@ combination of read-only and standby DB replicas for the same source DB instance
 you create a replica, you can change the replica mode. for more information, see [Modifying the RDS for Db2 replica mode](db2-replicas-changing-replica-mode.md "db2-replicas-changing-replica-mode.md").
 
 Before creating replicas, make sure that you meet all requirements. For more
-information, see [Requirements and considerations for RDS for Db2 replicas](db2-read-replicas.md "db2-read-replicas.md").
+information, see [Requirements and considerations for RDS for Db2 replicas](db2-read-replicas.limitations.md "db2-read-replicas.limitations.md").
 
 ## Database activations
 

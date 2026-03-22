@@ -21,7 +21,7 @@ default, deletion protection is turned on for a DB instance that was created wit
 If your DB instance has deletion protection turned on, you can turn it off by modifying your
 instance settings. Choose **Modify** in the database details page or
 call the [modify-db-instance](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md") command. This operation doesn't cause an outage.
-For more information, see [Settings for DB instances](USER_ModifyInstance.md "USER_ModifyInstance.md").
+For more information, see [Settings for DB instances](USER_ModifyInstance.Settings.md "USER_ModifyInstance.Settings.md").
 
 ## Considerations when deleting a DB instance
 
@@ -47,7 +47,7 @@ replica status. Consider the following issues:
     whether you create a final DB snapshot.
     To delete a retained automated backup, see [Deleting retained automated backups](USER_WorkingWithAutomatedBackups-Deleting.md "USER_WorkingWithAutomatedBackups-Deleting.md").
   - Retained automated backups and manual snapshots incur billing charges until they're deleted. For more information, see
-    [Retention costs](USER_WorkingWithAutomatedBackups.md#USER_WorkingWithAutomatedBackups.RetentionCosts "USER_WorkingWithAutomatedBackups.md#USER_WorkingWithAutomatedBackups.RetentionCosts").
+    [Retention costs](USER_WorkingWithAutomatedBackups.Retaining.md#USER_WorkingWithAutomatedBackups.RetentionCosts "USER_WorkingWithAutomatedBackups.Retaining.md#USER_WorkingWithAutomatedBackups.RetentionCosts").
   - If you don't retain automated backups, RDS deletes the automated backups that
     reside in the same AWS Region as your DB instance. You can't recover these
     backups. If your automated backups have been replicated to another
@@ -70,12 +70,12 @@ replica status. Consider the following issues:
 
 - If you delete a DB instance that has read replicas in the same AWS Region, each
   read replica is automatically promoted to a standalone DB instance. For more
-  information, see [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.md "USER_ReadRepl.md"). If your DB instance has read replicas in
-  different AWS Regions, see [Cross-Region replication considerations](USER_ReadRepl.md#USER_ReadRepl.XRgn.Cnsdr "USER_ReadRepl.md#USER_ReadRepl.XRgn.Cnsdr") for information related to
+  information, see [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.Promote.md "USER_ReadRepl.Promote.md"). If your DB instance has read replicas in
+  different AWS Regions, see [Cross-Region replication considerations](USER_ReadRepl.XRgn.md#USER_ReadRepl.XRgn.Cnsdr "USER_ReadRepl.XRgn.md#USER_ReadRepl.XRgn.Cnsdr") for information related to
   deleting the source DB instance for a cross-Region read replica.
 - When the status for a DB instance is `deleting`, its CA certificate value
   doesn't appear in the RDS console or in output for AWS CLI commands or RDS
-  API operations. For more information about CA certificates, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.md "UsingWithRDS.md") .
+  API operations. For more information about CA certificates, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.SSL.md "UsingWithRDS.SSL.md") .
 - The time required to delete a DB instance varies depending on the backup retention period, how
   much data is deleted, whether a final snapshot is taken, and whether the final
   snapshot is incremental or full. Even if you don't take a final snapshot, the

@@ -1,116 +1,140 @@
-# Enabling and disabling IAM database authentication
+# IAM database authenticationfor MariaDB, MySQL, and PostgreSQL
 
-By default, IAM database authentication is disabled on DB
-instances.
-You can enable or disable IAM database authentication using the AWS Management Console, AWS CLI, or the API.
+You can authenticate to your DB
+instance
+using AWS Identity and Access Management (IAM) database authentication. IAM database authentication works with
+MariaDB, MySQL,
+and PostgreSQL. With this authentication method, you don't
+need to use a password when you connect to a DB instance.
+Instead, you use an authentication token.
 
-You can enable IAM database authentication when you perform one of the following actions:
-
-- To create a new DB instance with IAM database authentication enabled,
-  see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
-- To modify a DB instance to enable IAM database authentication,
-  see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
-- To restore a DB instance from a snapshot with IAM database authentication enabled, see
-  [Restoring to a DB instance](USER_RestoreFromSnapshot.md "USER_RestoreFromSnapshot.md").
-- To restore a DB instance to a point in time with IAM database authentication enabled, see [Restoring a DB instance to a specified time for Amazon RDS](USER_PIT.md "USER_PIT.md").
-  Each creation or modification workflow has a **Database authentication**
-  section, where you can enable or disable IAM database authentication. In that section, choose
-  **Password and IAM database authentication** to enable IAM database authentication.
-
-###### To enable or disable IAM database authentication for an existing DB instance
-
-1. Open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Databases**.
-3. Choose the DB instance
-   that you want to modify.
-
-###### Note
-
-Make sure that the DB instance is compatible with IAM authentication. Check the compatibility
-requirements in
-[Region and version availability](UsingWithRDS.md#UsingWithRDS.IAMDBAuth.Availability "UsingWithRDS.md#UsingWithRDS.IAMDBAuth.Availability"). 4. Choose **Modify**. 5. In the **Database authentication** section, choose
-**Password and IAM database authentication**
-to
-enable IAM database authentication. Choose **Password
-authentication** or **Password and Kerberos
-authentication** to disable IAM authentication. 6. You can also choose to enable publishing IAM DB authentication logs to CloudWatch Logs.
-Under **Log exports**, choose the
-**iam-db-auth-error log** option. Publishing your logs to CloudWatch Logs consumes storage
-and you incur charges for that storage. Be sure to delete any CloudWatch Logs that you no longer need. 7. Choose **Continue**. 8. To apply the changes immediately, choose **Immediately** in the
-**Scheduling of modifications** section. 9. Choose **Modify DB instance**
-.
-To create a new DB instance with IAM authentication by using the AWS CLI, use the [`create-db-instance`](../../../cli/latest/reference/rds/create-db-instance.md "../../../cli/latest/reference/rds/create-db-instance.md") command. Specify the `--enable-iam-database-authentication` option, as shown in
-the following example.
-
-```
-aws rds create-db-instance \
-    --db-instance-identifier `mydbinstance` \
-    --db-instance-class `db.m3.medium` \
-    --engine `MySQL` \
-    --allocated-storage `20` \
-    --master-username `masterawsuser` \
-    --manage-master-user-password \
-    **--enable-iam-database-authentication**
-```
-
-To update an existing DB instance to have or not have IAM
-authentication, use the AWS CLI
-command [`modify-db-instance`](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md"). Specify either the `--enable-iam-database-authentication` or
-`--no-enable-iam-database-authentication` option, as appropriate.
-
-###### Note
-
-Make sure that the DB instance is compatible with IAM authentication. Check the compatibility
-requirements in
-[Region and version availability](UsingWithRDS.md#UsingWithRDS.IAMDBAuth.Availability "UsingWithRDS.md#UsingWithRDS.IAMDBAuth.Availability").
-
-By default,
+An _authentication token_ is a unique string of characters that
 Amazon RDS
-performs the modification during the next maintenance window.
-If you want to override this and enable IAM DB authentication as soon as possible,
-use the `--apply-immediately` parameter.
+generates on request. Authentication tokens are generated using AWS Signature Version 4.
+Each token has a lifetime of 15 minutes. You don't need to store user credentials in
+the database, because authentication is managed externally using IAM. You can also still
+use standard database authentication. The token is only used for authentication and doesn't
+affect the session after it is established.
 
-The following example shows how to immediately enable IAM authentication for an
-existing DB instance.
+IAM database authentication provides the following benefits:
 
-```
-aws rds modify-db-instance \
-    --db-instance-identifier `mydbinstance` \
-    **--apply-immediately** \
-    **--enable-iam-database-authentication**
-```
+- Network traffic to and from the database is encrypted using Secure Socket Layer (SSL)
+  or Transport Layer Security (TLS). For more information about using SSL/TLS with
+  Amazon RDS,
+  see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.SSL.md "UsingWithRDS.SSL.md") .
+- You can use IAM to centrally manage access to your database resources, instead of
+  managing access individually on each DB instance.
+- For applications running on Amazon EC2, you can use profile credentials specific to
+  your EC2 instance to access your database instead of a password, for greater
+  security.
+  In general, consider using IAM database authentication when your applications create fewer than 200 connections
+  per second, and you don't want to manage usernames and passwords directly in your application code.
 
-If you are restoring a DB instance,
-use one of the following AWS CLI commands:
+The Amazon Web Services (AWS) JDBC Driver supports IAM database authentication. For more information, see
+[AWS
+IAM Authentication Plugin](https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheIamAuthenticationPlugin.md "https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheIamAuthenticationPlugin.md") in the [Amazon Web Services (AWS) JDBC Driver GitHub repository](https://github.com/aws/aws-advanced-jdbc-wrapper "https://github.com/aws/aws-advanced-jdbc-wrapper").
 
-- `restore-db-instance-to-point-in-time`
-- `restore-db-instance-from-db-snapshot`
-  The IAM database authentication setting defaults to that of the source snapshot.
-  To change this setting, set the `--enable-iam-database-authentication` or
-  `--no-enable-iam-database-authentication` option, as appropriate.
+The Amazon Web Services (AWS) Python Driver supports IAM database authentication. For more information, see
+[AWS IAM Authentication Plugin](https://github.com/aws/aws-advanced-python-wrapper/blob/main/docs/using-the-python-driver/using-plugins/UsingTheIamAuthenticationPlugin.md "https://github.com/aws/aws-advanced-python-wrapper/blob/main/docs/using-the-python-driver/using-plugins/UsingTheIamAuthenticationPlugin.md") in the [Amazon Web Services (AWS) Python Driver GitHub
+repository](https://github.com/aws/aws-advanced-python-wrapper "https://github.com/aws/aws-advanced-python-wrapper").
 
-To create a new DB instance with IAM authentication by using the API, use the
-API operation [`CreateDBInstance`](../APIReference/API_CreateDBInstance.md "../APIReference/API_CreateDBInstance.md"). Set the `EnableIAMDatabaseAuthentication` parameter to
-`true`.
+Navigate through the following topics to learn the process to set IAM for DB authentication:
 
-To update an existing DB instance to have IAM
-authentication, use the API operation [`ModifyDBInstance`](../APIReference/API_ModifyDBInstance.md "../APIReference/API_ModifyDBInstance.md"). Set the
-`EnableIAMDatabaseAuthentication` parameter to `true`
-to enable IAM authentication, or `false` to disable it.
+- [Enabling and disabling IAM database authentication](UsingWithRDS.IAMDBAuth.Enabling.md "UsingWithRDS.IAMDBAuth.Enabling.md")
+- [Creating and using an IAM policy for IAM database access](UsingWithRDS.IAMDBAuth.IAMPolicy.md "UsingWithRDS.IAMDBAuth.IAMPolicy.md")
+- [Creating a database account using IAM authentication](UsingWithRDS.IAMDBAuth.DBAccounts.md "UsingWithRDS.IAMDBAuth.DBAccounts.md")
+- [Connecting to your DB instance using IAM authentication](UsingWithRDS.IAMDBAuth.Connecting.md "UsingWithRDS.IAMDBAuth.Connecting.md")
 
-###### Note
+## Region and version availability
 
-Make sure that the DB instance is compatible with IAM authentication. Check the compatibility
-requirements in
-[Region and version availability](UsingWithRDS.md#UsingWithRDS.IAMDBAuth.Availability "UsingWithRDS.md#UsingWithRDS.IAMDBAuth.Availability").
+Feature availability and support varies across specific versions of each database engine.
+For more information on engine, version, and Region availability with Amazon RDS and IAM database authentication, see
+[Supported Regions and DB engines for IAM database authentication in Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.IamDatabaseAuthentication.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.IamDatabaseAuthentication.md").
 
-If you are restoring a DB instance,
-use one of the following API operations:
+## CLI and SDK support
 
-- [`RestoreDBInstanceFromDBSnapshot`](../APIReference/API_RestoreDBInstanceFromDBSnapshot.md "../APIReference/API_RestoreDBInstanceFromDBSnapshot.md")
-- [`RestoreDBInstanceToPointInTime`](../APIReference/API_RestoreDBInstanceToPointInTime.md "../APIReference/API_RestoreDBInstanceToPointInTime.md")
-  The IAM database authentication setting defaults to that of the source
-  snapshot. To change this setting, set the
-  `EnableIAMDatabaseAuthentication` parameter to `true`
-  to enable IAM authentication, or `false` to disable it.
+IAM database authentication is available for the [AWS CLI](../../../cli/latest/reference/rds/generate-db-auth-token.md "../../../cli/latest/reference/rds/generate-db-auth-token.md")
+and for the following language-specific AWS SDKs:
+
+- [AWS SDK for .NET](../../../sdkfornet/v3/apidocs/items/RDS/TRDSAuthTokenGenerator.md "../../../sdkfornet/v3/apidocs/items/RDS/TRDSAuthTokenGenerator.md")
+- [AWS SDK for C++](../../../sdk-for-cpp/latest/api/class_aws_1_1_r_d_s_1_1_r_d_s_client.md#ae134ffffed5d7672f6156d324e7bd392 "../../../sdk-for-cpp/latest/api/class_aws_1_1_r_d_s_1_1_r_d_s_client.md#ae134ffffed5d7672f6156d324e7bd392")
+- [AWS SDK for Go](../../../sdk-for-go/api/service/rds.md#pkg-overview "../../../sdk-for-go/api/service/rds.md#pkg-overview")
+- [AWS SDK for Java](../../../sdk-for-java/latest/reference/software/amazon/awssdk/services/rds/RdsUtilities.md "../../../sdk-for-java/latest/reference/software/amazon/awssdk/services/rds/RdsUtilities.md")
+- [AWS SDK for JavaScript](../../../AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_rds_signer.md "../../../AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_rds_signer.md")
+- [AWS SDK for PHP](../../../aws-sdk-php/v3/api/class-Aws.Rds.AuthTokenGenerator.md "../../../aws-sdk-php/v3/api/class-Aws.Rds.AuthTokenGenerator.md")
+- [AWS SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.generate_db_auth_token "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.generate_db_auth_token")
+- [AWS SDK for Ruby](../../../sdk-for-ruby/v3/api/Aws/RDS/AuthTokenGenerator.md "../../../sdk-for-ruby/v3/api/Aws/RDS/AuthTokenGenerator.md")
+
+## Limitations for IAM database authentication
+
+When using IAM database authentication, the following limitations apply:
+
+- Currently, IAM database authentication doesn't support all global condition context keys.
+
+For more information about global condition context keys, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the
+_IAM User Guide_.
+
+- For PostgreSQL, if the IAM role (`rds_iam`) is added to a user (including
+  the RDS master user), IAM authentication takes precedence over password authentication,
+  so the user must log in as an IAM user.
+- For PostgreSQL, Amazon RDS does not support enabling both IAM
+  and Kerberos authentication methods at the same time.
+- For PostgreSQL, you can't use IAM authentication to establish a replication connection.
+- You cannot use a custom Route 53 DNS record instead of the DB instance endpoint to generate the authentication token.
+- CloudWatch and CloudTrail don't log IAM authentication. These services do not track `generate-db-auth-token`
+  API calls that authorize the IAM role to enable database connection.
+- IAM DB authentication requires compute resources on the database instance. You must have between 300 and 1000 MiB
+  extra memory on your database for reliable connectivity.
+  To see the memory needed for your workload, compare the RES column for RDS processes in the Enhanced Monitoring processlist
+  before and after enabling IAM DB authentication.
+  See [Viewing OS metrics in the RDS console](USER_Monitoring.OS.Viewing.md "USER_Monitoring.OS.Viewing.md").
+
+If you are using a burstable class instance, avoid running out of memory by reducing
+the memory used by other parameters like buffers and cache by the same amount.
+
+-
+- IAM DB authentication is not supported for RDS on Outposts for any engine.
+
+## Recommendations for IAM database authentication
+
+We recommend the following when using IAM database authentication:
+
+- Use IAM database authentication when your application requires fewer than
+  200 new IAM database authentication connections per second.
+
+The database engines that work with Amazon RDS
+don't impose any limits on authentication attempts per second. However, when you use IAM database authentication,
+your application must generate an authentication token. Your application then uses that
+token to connect to the DB instance. If you exceed the limit of maximum new
+connections per second, then the extra overhead of IAM database authentication can cause
+connection throttling.
+
+Consider using connection pooling in your applications to mitigate constant
+connection creation. This can reduce the overhead from IAM DB authentication
+and allow your applications to reuse existing connections. Alternatively,
+consider using RDS Proxy for these use cases. RDS Proxy has additional costs. See
+[RDS Proxy
+pricing](https://aws.amazon.com/rds/proxy/pricing/ "https://aws.amazon.com/rds/proxy/pricing/").
+
+- The size of an IAM database authentication token depends on many things including the number of IAM tags,
+  IAM service policies, ARN lengths, as well as other IAM and database properties. The minimum size of this token is
+  generally about 1 KB but can be larger. Since this token is used as the password in the connection string to the database
+  using IAM authentication, you should ensure that your database driver (e.g., ODBC) and/or any tools do not limit or otherwise
+  truncate this token due to its size. A truncated token will cause the authentication validation done by the database and IAM to fail.
+- If you are using temporary credentials when creating an IAM database
+  authentication token, the temporary credentials must still be valid when using
+  the IAM database authentication token to make a connection request.
+
+## Unsupported AWS global condition context keys
+
+IAM database authentication does not support the following subset of AWS global condition context keys.
+
+- `aws:Referer`
+- `aws:SourceIp`
+- `aws:SourceVpc`
+- `aws:SourceVpce`
+- `aws:UserAgent`
+- `aws:VpcSourceIp`
+
+For more information, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the
+_IAM User Guide_.

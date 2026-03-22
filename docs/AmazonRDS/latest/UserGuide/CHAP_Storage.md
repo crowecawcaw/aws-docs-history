@@ -120,7 +120,7 @@ The IOPS and storage size ranges have the following constraints:
   MiB/s can be achieved at 128,000 IOPS with a 16-KiB I/O size.
 - If you're using storage autoscaling, the same ratios between IOPS and
   maximum storage threshold (in GiB) also apply. For more information on
-  storage autoscaling, see [Managing capacity automatically with Amazon RDS storage autoscaling](USER_PIOPS.md "USER_PIOPS.md").
+  storage autoscaling, see [Managing capacity automatically with Amazon RDS storage autoscaling](USER_PIOPS.Autoscaling.md "USER_PIOPS.Autoscaling.md").
 
 Amazon RDS io2 Block Express volumes are available in all commercial AWS Regions and
 AWS GovCloud (US) Regions. These volumes aren't available in the China Regions.
@@ -160,7 +160,7 @@ The IOPS and storage size ranges have the following constraints:
 - If you're using storage autoscaling, the same ratios between IOPS and
   maximum storage threshold (in GiB) also apply.
 
-For more information on storage autoscaling, see [Managing capacity automatically with Amazon RDS storage autoscaling](USER_PIOPS.md "USER_PIOPS.md").
+For more information on storage autoscaling, see [Managing capacity automatically with Amazon RDS storage autoscaling](USER_PIOPS.Autoscaling.md "USER_PIOPS.Autoscaling.md").
 
 ### Combining Provisioned IOPS storage with Multi-AZ deployments or read replicas
 
@@ -274,7 +274,7 @@ constraints:
 - If you're using storage autoscaling, the same ratios between IOPS and
   maximum storage threshold (in GiB) also apply.
 
-For more information on storage autoscaling, see [Managing capacity automatically with Amazon RDS storage autoscaling](USER_PIOPS.md "USER_PIOPS.md").
+For more information on storage autoscaling, see [Managing capacity automatically with Amazon RDS storage autoscaling](USER_PIOPS.Autoscaling.md "USER_PIOPS.Autoscaling.md").
 
 ### gp2 storage (previous generation)
 
@@ -432,9 +432,9 @@ The additional volumes must use the volume names shown in the following table.
 For more information about working with additional storage volumes, see the following
 sections:
 
-- [Working with storage for Amazon RDS DB instances](USER_PIOPS.md "USER_PIOPS.md")
+- [Working with storage for Amazon RDS DB instances](USER_PIOPS.StorageTypes.md "USER_PIOPS.StorageTypes.md")
 - [Working with storage in RDS for Oracle](User_Oracle_AdditionalStorage.md "User_Oracle_AdditionalStorage.md")
-- [Working with storage in RDS for SQL Server](Appendix.SQLServer.CommonDBATasks.md "Appendix.SQLServer.CommonDBATasks.md")
+- [Working with storage in RDS for SQL Server](Appendix.SQLServer.CommonDBATasks.DatabaseStorage.md "Appendix.SQLServer.CommonDBATasks.DatabaseStorage.md")
 
 ## Dedicated log volume (DLV)
 
@@ -473,7 +473,7 @@ enabled also be manually modified to have A DLV.
 After you modify the DLV setting for a DB instance, the DB instance must be
 rebooted.
 
-For information on enabling a DLV, see [Using a dedicated log volume (DLV)](USER_PIOPS.md "USER_PIOPS.md").
+For information on enabling a DLV, see [Using a dedicated log volume (DLV)](USER_PIOPS.dlv.md "USER_PIOPS.dlv.md").
 
 ## Monitoring database performance
 
@@ -481,7 +481,7 @@ Amazon RDS provides several metrics that you can use to determine how your DB in
 performing. You can view the metrics on the summary page for your instance in Amazon RDS
 Management Console. You can also use Amazon CloudWatch to monitor these metrics. For more
 information, see [Viewing metrics in the Amazon RDS console](USER_Monitoring.md "USER_Monitoring.md").
-Enhanced Monitoring provides more detailed I/O metrics; for more information, see [Monitoring OS metrics with Enhanced Monitoring](USER_Monitoring.md "USER_Monitoring.md").
+Enhanced Monitoring provides more detailed I/O metrics; for more information, see [Monitoring OS metrics with Enhanced Monitoring](USER_Monitoring.OS.md "USER_Monitoring.OS.md").
 
 The following metrics are useful for monitoring performance for your DB
 instance:

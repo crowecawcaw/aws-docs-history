@@ -17,7 +17,7 @@ RDS Proxy. To do so, consider these factors:
   connection management. You can also monitor certain CloudWatch metrics to determine whether a DB instance
   is handling many short-lived connections. Opening and closing such connections can impose
   performance overhead on your database. For information about the metrics to monitor, see
-  [Monitoring RDS Proxy metrics with Amazon CloudWatch](rds-proxy.md "rds-proxy.md").
+  [Monitoring RDS Proxy metrics with Amazon CloudWatch](rds-proxy.monitoring.md "rds-proxy.monitoring.md").
 - AWS Lambda functions can also be good candidates for using a proxy. These functions make frequent short
   database connections that benefit from connection pooling offered by RDS Proxy. You can take advantage of
   any IAM authentication you already have for Lambda functions, instead of managing database credentials in

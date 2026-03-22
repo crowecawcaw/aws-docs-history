@@ -1,146 +1,40 @@
-# Excluding users or databases from audit logging
+# Using pgAudit to log database activity
 
-As discussed in [RDS for PostgreSQL database log files](USER_LogAccess.Concepts.md "USER_LogAccess.Concepts.md"), PostgreSQL logs consume
-storage space. Using the pgAudit extension adds to the volume of data
-gathered in your logs to varying degrees, depending on the changes that you track. You might not
-need to audit every user or database in your
-RDS for PostgreSQL DB instance.
+Financial institutions, government agencies, and many industries need to keep
+_audit logs_ to meet regulatory requirements. By using the PostgreSQL Audit
+extension (pgAudit) with your RDS for PostgreSQL DB instance, you can
+capture the detailed records that are typically needed by auditors or to meet regulatory
+requirements. For example, you can set up the pgAudit extension to track changes made to
+specific databases and tables, to record the user who made the change, and many other
+details.
 
-To minimize impacts to your storage and to avoid needlessly capturing audit records, you
-can exclude users and databases from being audited. You can also
-change logging within a given session. The following examples show you how.
+The pgAudit extension builds on the functionality of the native PostgreSQL
+logging infrastructure by extending the log messages with more detail. In other words, you use the same
+approach to view your audit log as you do to view any log messages. For more information about PostgreSQL logging,
+see [RDS for PostgreSQL database log files](USER_LogAccess.Concepts.PostgreSQL.md "USER_LogAccess.Concepts.PostgreSQL.md").
 
-###### Note
+The pgAudit extension redacts sensitive data such as cleartext passwords from the logs.
+If your RDS for PostgreSQL
+DB instance is configured to log data manipulation language (DML) statements as detailed in
+[Turning on query logging for your RDS for PostgreSQL DB instance](USER_LogAccess.Concepts.PostgreSQL.Query_Logging.md "USER_LogAccess.Concepts.PostgreSQL.Query_Logging.md"),
+you can avoid the cleartext password issue by using the PostgreSQL Audit extension.
 
-Parameter settings at the session level take precedence over the settings
-in the custom DB parameter group for the RDS for PostgreSQL
-DB instance. If you don't want database users to bypass your audit logging configuration
-settings, be sure to change their permissions.
+You can configure auditing on your database instances with a great degree of specificity. You can audit
+all databases and all users. Or, you can choose to audit only certain databases, users, and other objects.
+You can also explicitly exclude certain users and databases from being audited. For more information, see
+[Excluding users or databases from audit logging](Appendix.PostgreSQL.CommonDBATasks.pgaudit.exclude-user-db.md "Appendix.PostgreSQL.CommonDBATasks.pgaudit.exclude-user-db.md").
 
-Suppose that your
-RDS for PostgreSQL DB instance is configured
-to audit the same level of activity for all users and databases.
-You then decide that you don't want to audit the user
-`myuser`. You can turn off auditing for `myuser` with the following
-SQL command.
+Given the amount of detail that can be captured, we recommend that if you do use pgAudit, you monitor
+your storage consumption.
 
-```
-ALTER USER myuser SET pgaudit.log TO 'NONE';
-```
+The pgAudit extension is supported on all available
+RDS for PostgreSQL versions. For a list of pgAudit versions supported by available
+RDS for PostgreSQL versions, see [Extension
+versions for Amazon RDS for PostgreSQL](../PostgreSQLReleaseNotes/postgresql-extensions.md "../PostgreSQLReleaseNotes/postgresql-extensions.md") in the _Amazon RDS for PostgreSQL Release Notes._
 
-Then, you can use the following query to check the `user_specific_settings`
-column for `pgaudit.log` to confirm that the parameter is set to `NONE`.
+###### Topics
 
-```
-SELECT
-    usename AS user_name,
-    useconfig AS user_specific_settings
-FROM
-    pg_user
-WHERE
-    usename = 'myuser';
-```
-
-You see output such as the following.
-
-```
- user_name | user_specific_settings
------------+------------------------
- myuser    | {pgaudit.log=NONE}
-(1 row)
-```
-
-You can turn off logging for a given user in the midst of their session with the database with
-the following command.
-
-```
-ALTER USER myuser IN DATABASE mydatabase SET pgaudit.log TO 'none';
-```
-
-Use the following query to check the settings column for pgaudit.log for a specific user and database combination.
-
-```
-SELECT
-    usename AS "user_name",
-    datname AS "database_name",
-    pg_catalog.array_to_string(setconfig, E'\n') AS "settings"
-FROM
-    pg_catalog.pg_db_role_setting s
-    LEFT JOIN pg_catalog.pg_database d ON d.oid = setdatabase
-    LEFT JOIN pg_catalog.pg_user r ON r.usesysid = setrole
-WHERE
-    usename = 'myuser'
-    AND datname = 'mydatabase'
-ORDER BY
-    1,
-    2;
-```
-
-You see output similar to the following.
-
-```
-  user_name | database_name |     settings
------------+---------------+------------------
- myuser    | mydatabase    | pgaudit.log=none
-(1 row)
-```
-
-After turning off auditing for `myuser`, you decide that
-you don't want to track changes to `mydatabase`. You turn off auditing
-for that specific database by using the following command.
-
-```
-ALTER DATABASE mydatabase SET pgaudit.log to 'NONE';
-```
-
-Then, use the following query to check the database_specific_settings column
-to confirm that pgaudit.log is set to NONE.
-
-```
-SELECT
-a.datname AS database_name,
-b.setconfig AS database_specific_settings
-FROM
-pg_database a
-FULL JOIN pg_db_role_setting b ON a.oid = b.setdatabase
-WHERE
-a.datname = 'mydatabase';
-```
-
-You see output such as the following.
-
-```
- database_name | database_specific_settings
----------------+----------------------------
- mydatabase    | {pgaudit.log=NONE}
-(1 row)
-```
-
-To return settings to the default setting for myuser, use the following command:
-
-```
-ALTER USER myuser RESET pgaudit.log;
-```
-
-To return settings to their default setting for a database, use the following command.
-
-```
-ALTER DATABASE mydatabase RESET pgaudit.log;
-```
-
-To reset user and database to the default setting,
-use the following command.
-
-```
-ALTER USER myuser IN DATABASE mydatabase RESET pgaudit.log;
-```
-
-You can also capture specific events to the log by setting the `pgaudit.log` to one of the other
-allowed values for the `pgaudit.log` parameter. For more information, see
-[List of allowable settings for the pgaudit.log parameter](Appendix.PostgreSQL.CommonDBATasks.pgaudit.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit.reference.pgaudit-log-settings "Appendix.PostgreSQL.CommonDBATasks.pgaudit.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit.reference.pgaudit-log-settings").
-
-```
-ALTER USER myuser SET pgaudit.log TO 'read';
-ALTER DATABASE mydatabase SET pgaudit.log TO 'function';
-ALTER USER myuser IN DATABASE mydatabase SET pgaudit.log TO 'read,function'
-```
+- [Setting up the pgAudit extension](Appendix.PostgreSQL.CommonDBATasks.pgaudit.basic-setup.md "Appendix.PostgreSQL.CommonDBATasks.pgaudit.basic-setup.md")
+- [Auditing database objects](Appendix.PostgreSQL.CommonDBATasks.pgaudit.auditing.md "Appendix.PostgreSQL.CommonDBATasks.pgaudit.auditing.md")
+- [Excluding users or databases from audit logging](Appendix.PostgreSQL.CommonDBATasks.pgaudit.exclude-user-db.md "Appendix.PostgreSQL.CommonDBATasks.pgaudit.exclude-user-db.md")
+- [Reference for the pgAudit extension](Appendix.PostgreSQL.CommonDBATasks.pgaudit.reference.md "Appendix.PostgreSQL.CommonDBATasks.pgaudit.reference.md")

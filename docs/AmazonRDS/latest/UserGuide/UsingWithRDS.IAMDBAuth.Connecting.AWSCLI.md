@@ -1,110 +1,127 @@
-# Connecting to your DB instance using IAM authentication from the command line: AWS CLI and psql client
+# Connecting to your DB instance using IAM authentication from the command line: AWS CLI and mysql client
 
-You can connect from the command line to an Amazon RDS for PostgreSQL DB
-instance with the
-AWS CLI and psql command line tool as described following.
+You can connect from the command line to an
+Amazon RDS DB instance
+with the AWS CLI and `mysql` command line tool as described
+following.
 
 ###### Prerequisites
 
 The following are prerequisites for connecting to your DB instance using IAM authentication:
 
-- [Enabling and disabling IAM database authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
-- [Creating and using an IAM policy for IAM database access](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
-- [Creating a database account using IAM authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
+- [Enabling and disabling IAM database authentication](UsingWithRDS.IAMDBAuth.Enabling.md "UsingWithRDS.IAMDBAuth.Enabling.md")
+- [Creating and using an IAM policy for IAM database access](UsingWithRDS.IAMDBAuth.IAMPolicy.md "UsingWithRDS.IAMDBAuth.IAMPolicy.md")
+- [Creating a database account using IAM authentication](UsingWithRDS.IAMDBAuth.DBAccounts.md "UsingWithRDS.IAMDBAuth.DBAccounts.md")
 
 ###### Note
 
-For information about connecting to your database using pgAdmin with IAM authentication,
-see the blog post [Using IAM authentication to connect with pgAdmin Amazon Aurora PostgreSQL or Amazon RDS for PostgreSQL](https://aws.amazon.com/blogs/database/using-iam-authentication-to-connect-with-pgadmin-amazon-aurora-postgresql-or-amazon-rds-for-postgresql/ "https://aws.amazon.com/blogs/database/using-iam-authentication-to-connect-with-pgadmin-amazon-aurora-postgresql-or-amazon-rds-for-postgresql/").
+For information about connecting to your database using SQL Workbench/J with IAM authentication,
+see the blog post [Use IAM authentication to connect with SQL Workbench/J to Aurora MySQL or Amazon RDS for MySQL](https://aws.amazon.com/blogs/database/use-iam-authentication-to-connect-with-sql-workbenchj-to-amazon-aurora-mysql-or-amazon-rds-for-mysql/ "https://aws.amazon.com/blogs/database/use-iam-authentication-to-connect-with-sql-workbenchj-to-amazon-aurora-mysql-or-amazon-rds-for-mysql/").
 
 ###### Topics
 
-- [Generating an IAM authentication token](#UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.AuthToken.PostgreSQL "#UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.AuthToken.PostgreSQL")
-- [Connecting to an Amazon RDS PostgreSQL instance](#UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.Connect.PostgreSQL "#UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.Connect.PostgreSQL")
+- [Generating an IAM authentication token](#UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.AuthToken "#UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.AuthToken")
+- [Connecting to a DB instance](#UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.Connect "#UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.Connect")
 
 ## Generating an IAM authentication token
 
-The authentication token consists of several hundred characters so it can be
-unwieldy on the command line. One way to work around this is to save the token
-to an environment variable, and then use that variable when you connect. The
-following example shows how to use the AWS CLI to get a signed authentication
-token using the `generate-db-auth-token` command, and store it in a
-`PGPASSWORD` environment variable.
+The following example shows how to get a signed authentication token using the
+AWS CLI.
 
 ```
-export RDSHOST="`rdspostgres.123456789012.us-west-2.rds.amazonaws.com`"
-export PGPASSWORD="$(aws rds generate-db-auth-token --hostname $RDSHOST --port `5432` --region `us-west-2` --username `jane_doe` )"
+aws rds generate-db-auth-token \
+   --hostname `rdsmysql.123456789012.us-west-2.rds.amazonaws.com` \
+   --port `3306` \
+   --region `us-west-2` \
+   --username `jane_doe`
 ```
 
-In the example, the parameters to the `generate-db-auth-token`
-command are as follows:
+In the example, the parameters are as follows:
 
-- `--hostname` – The host name of the DB instance that you want to access
-- `--port` – The port number used for connecting to
-  your DB instance
+- `--hostname` – The host name of the DB
+  instance that you want to access
+- `--port` – The port number used for connecting to your DB
+  instance
 - `--region` – The AWS Region where the DB instance is running
-- `--username` – The database account that you want to
-  access
+- `--username` – The database account that you want to access
 
-The first several characters of the generated token look like the
-following.
+The first several characters of the token look like the following.
 
 ```
-rdspostgres.123456789012.us-west-2.rds.amazonaws.com:5432/?Action=connect&DBUser=jane_doe&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Expires=900...
-
+rdsmysql.123456789012.us-west-2.rds.amazonaws.com:3306/?Action=connect&DBUser=jane_doe&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Expires=900...
 ```
 
 ###### Note
 
 You cannot use a custom Route 53 DNS record instead of the DB instance endpoint to generate the authentication token.
 
-## Connecting to an Amazon RDS PostgreSQL instance
+## Connecting to a DB instance
 
-The general format for using psql to connect is shown following.
+The general format for connecting is shown following.
 
 ```
-psql "host=`hostName` port=`portNumber` sslmode=verify-full sslrootcert=`full_path_to_ssl_certificate` dbname=`DBName` user=`userName` password=`authToken`"
+mysql --host=`hostName` --port=`portNumber` --ssl-ca=`full_path_to_ssl_certificate` --enable-cleartext-plugin --user=`userName` --password=`authToken`
 ```
 
 The parameters are as follows:
 
-- `host` – The host name of the DB instance that you want to access
-- `port` – The port number used for connecting to your
+- `--host` – The host name of the DB instance that you want to access
+- `--port` – The port number used for connecting to your
   DB instance
-- `sslmode` – The SSL mode to use
+- `--ssl-ca` – The full path to the SSL certificate file that contains the
+  public key
 
-When you use `sslmode=verify-full`, the SSL connection verifies the DB
-instance endpoint against the endpoint in
-the SSL certificate.
+For more information about SSL/TLS support for MariaDB, see [SSL/TLS support for MariaDB DB instances on Amazon RDS](MariaDB.Concepts.SSLSupport.md "MariaDB.Concepts.SSLSupport.md").
 
-- `sslrootcert` – The full path to the SSL certificate file that
-  contains the public key
+For more information about SSL/TLS support for MySQL, see [SSL/TLS support for MySQL DB instances on Amazon RDS](MySQL.Concepts.SSLSupport.md "MySQL.Concepts.SSLSupport.md").
 
-For more information, see [Using SSL with a PostgreSQL DB instance](PostgreSQL.Concepts.General.md "PostgreSQL.Concepts.General.md").
+To download an SSL certificate, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.SSL.md "UsingWithRDS.SSL.md") .
 
-To download an SSL certificate, see
-[Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.md "UsingWithRDS.md") .
+- `--enable-cleartext-plugin` – A value that specifies
+  that `AWSAuthenticationPlugin` must be used for this
+  connection
 
-- `dbname` – The database that you want to
+If you are using a MariaDB client, the `--enable-cleartext-plugin` option isn't required.
+
+- `--user` – The database account that you want to
   access
-- `user` – The database account that you want to
-  access
-- `password` – A signed IAM authentication token
+- `--password` – A signed IAM authentication
+  token
 
-###### Note
-
-You cannot use a custom Route 53 DNS record instead of the DB instance endpoint to generate the authentication token.
-
-The following example shows using psql to connect. In the example, psql uses
-the environment variable `RDSHOST` for the host and the environment variable `PGPASSWORD`
-for the generated token. Also, `/sample_dir/`
+The authentication token consists of several hundred characters. It can be
+unwieldy on the command line. One way to work around this is to save the token
+to an environment variable, and then use that variable when you connect. The
+following example shows one way to perform this workaround. In the example, `/sample_dir/`
 is the full path to the SSL certificate file that contains the public key.
 
 ```
-export RDSHOST="`rdspostgres.123456789012.us-west-2.rds.amazonaws.com`"
-export PGPASSWORD="$(aws rds generate-db-auth-token --hostname $RDSHOST --port `5432` --region `us-west-2` --username `jane_doe` )"
 
-psql "host=$RDSHOST port=`5432` sslmode=verify-full sslrootcert=`/sample_dir/`global-bundle.pem dbname=`DBName` user=`jane_doe` password=$PGPASSWORD"
+RDSHOST="`mysqldb.123456789012.us-east-1.rds.amazonaws.com`"
+TOKEN="$(aws rds generate-db-auth-token --hostname $RDSHOST --port `3306` --region `us-west-2` --username `jane_doe` )"
+
+mysql --host=$RDSHOST --port=`3306` --ssl-ca=`/sample_dir/`global-bundle.pem --enable-cleartext-plugin --user=`jane_doe` --password=$TOKEN
+```
+
+When you connect using `AWSAuthenticationPlugin`, the connection is
+secured using SSL. To verify this, type the following at the `mysql>`
+command prompt.
+
+```
+show status like 'Ssl%';
+```
+
+The following lines in the output show more details.
+
+```
++---------------+-------------+
+| Variable_name | Value                                                                                                                                                                                                                                |
++---------------+-------------+
+| ...           | ...
+| Ssl_cipher    | AES256-SHA                                                                                                                                                                                                                           |
+| ...           | ...
+| Ssl_version   | TLSv1.1                                                                                                                                                                                                                              |
+| ...           | ...
++-----------------------------+
 ```
 
 If you want to connect to a DB instance

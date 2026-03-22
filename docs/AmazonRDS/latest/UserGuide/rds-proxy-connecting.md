@@ -65,7 +65,7 @@ procedure as for IAM authentication with an
 RDS DB instance.
 For general information about using IAM, see [Security in Amazon RDS](UsingWithRDS.md "UsingWithRDS.md") .
 If you are using end-to-end IAM authentication, provide the IAM authentication plugin to your DB user.
-See [Creating a database account using IAM authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
+See [Creating a database account using IAM authentication](UsingWithRDS.IAMDBAuth.DBAccounts.md "UsingWithRDS.IAMDBAuth.DBAccounts.md").
 
 The major differences in IAM usage for RDS Proxy include the following:
 
@@ -77,7 +77,7 @@ The major differences in IAM usage for RDS Proxy include the following:
 - With end-to-end IAM authentication, you don't need to configure Secrets Manager secrets for database credentials.
   The IAM authentication applies to the connection between the client to the proxy and proxy to the database.
 - Instead of the instance, cluster, or reader endpoint, you specify the proxy endpoint. For details about
-  the proxy endpoint, see [Connecting to your DB instance using IAM authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
+  the proxy endpoint, see [Connecting to your DB instance using IAM authentication](UsingWithRDS.IAMDBAuth.Connecting.md "UsingWithRDS.IAMDBAuth.Connecting.md").
 - Make sure that you use Transport Layer Security (TLS)/Secure Sockets Layer (SSL) when connecting to a proxy using IAM authentication.
 
 You can grant a specific user access to the proxy by modifying the IAM policy. An example follows.

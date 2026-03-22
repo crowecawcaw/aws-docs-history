@@ -20,9 +20,9 @@ in a nonproduction environment before implementing them in your production
 environments.
 
 For more information about certificate rotation, see
-[Rotating your SSL/TLS certificate](UsingWithRDS.md "UsingWithRDS.md").
-For more information about downloading certificates, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.md "UsingWithRDS.md") . For information about
-using SSL/TLS with PostgreSQL DB instances, see [Using SSL with a PostgreSQL DB instance](PostgreSQL.Concepts.General.md "PostgreSQL.Concepts.General.md").
+[Rotating your SSL/TLS certificate](UsingWithRDS.SSL-certificate-rotation.md "UsingWithRDS.SSL-certificate-rotation.md").
+For more information about downloading certificates, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.SSL.md "UsingWithRDS.SSL.md") . For information about
+using SSL/TLS with PostgreSQL DB instances, see [Using SSL with a PostgreSQL DB instance](PostgreSQL.Concepts.General.SSL.md "PostgreSQL.Concepts.General.SSL.md").
 
 ###### Topics
 
@@ -104,9 +104,9 @@ psql: SSL error: certificate verify failed
 For information about updating the trust store for PostgreSQL applications, see
 [Secure TCP/IP connections with SSL](https://www.postgresql.org/docs/current/ssl-tcp.html "https://www.postgresql.org/docs/current/ssl-tcp.html") in the PostgreSQL documentation.
 
-For information about downloading the root certificate, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.md "UsingWithRDS.md") .
+For information about downloading the root certificate, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.SSL.md "UsingWithRDS.SSL.md") .
 
-For sample scripts that import certificates, see [Sample script for importing certificates into your trust store](UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-sample-script "UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-sample-script").
+For sample scripts that import certificates, see [Sample script for importing certificates into your trust store](UsingWithRDS.SSL-certificate-rotation.md#UsingWithRDS.SSL-certificate-rotation-sample-script "UsingWithRDS.SSL-certificate-rotation.md#UsingWithRDS.SSL-certificate-rotation-sample-script").
 
 ###### Note
 
@@ -153,4 +153,4 @@ For information about using `psycopg2`, see the [psycopg2 documentation](https:/
 
 After you have determined that your database connections use SSL/TLS and have
 updated your application trust store, you can update your database to use the
-rds-ca-rsa2048-g1 certificates. For instructions, see step 3 in [Updating your CA certificate by modifying your DB instance or cluster](UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-updating "UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-updating").
+rds-ca-rsa2048-g1 certificates. For instructions, see step 3 in [Updating your CA certificate by modifying your DB instance or cluster](UsingWithRDS.SSL-certificate-rotation.md#UsingWithRDS.SSL-certificate-rotation-updating "UsingWithRDS.SSL-certificate-rotation.md#UsingWithRDS.SSL-certificate-rotation-updating").

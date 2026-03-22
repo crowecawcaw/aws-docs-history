@@ -1,164 +1,30 @@
-# Network Validation
+# Working with Microsoft Active Directory with RDS Custom for SQL Server
 
-Before joining your RDS Custom instance to either self-managed or AWS Managed Microsoft AD, check the
-following from a EC2 instance in the same VPC as where you plan to launch the RDS Custom for SQL Server instance.
+RDS Custom for SQL Server allows to join your instances to a Self-Managed Active Directory (AD) or AWS Managed Microsoft AD.
+This is regardless of where your AD is hosted, like an On-premises data center,
+Amazon EC2 or with any other cloud service providers.
 
-- Check if you are able to resolve the fully qualified domain name (FQDN) to domain controller IPs.
+For authentication of users and services, you can use NTLM or Kerberos
+authentication on your RDS Custom for SQL Server DB instance without using intermediary domains and forest trusts.
+When a user tries to authenticate on your RDS Custom for SQL Server DB instance with a self joined Active Directory,
+requests for authentication are forwarded to a self-managed AD or AWS Managed Microsoft AD that you specify.
 
-```
-nslookup corp.example.com
-```
+In the following sections, you can find information about working with
+Self Managed Active Directory and AWS Managed Active Directory for RDS Custom for SQL Server.
 
-The command must return a similar output:
+###### Topics
 
-```
-Server:  ip-10-0-0-2.us-west-2.compute.internal
-Address:  25.0.0.2
+- [Region and version availability](#custom-sqlserver-WinAuth.Regions "#custom-sqlserver-WinAuth.Regions")
+- [Configure Self-Managed or On-premise AD](custom-sqlserver-WinAuth.config-Self-Managed.md "custom-sqlserver-WinAuth.config-Self-Managed.md")
+- [Configure Microsoft Active Directory using Directory Service](custom-sqlserver-WinAuth.config-ADS.md "custom-sqlserver-WinAuth.config-ADS.md")
+- [Network configuration port rules](custom-sqlserver-WinAuth.NWConfigPorts.md "custom-sqlserver-WinAuth.NWConfigPorts.md")
+- [Network Validation](custom-sqlserver-WinAuth.NWValidation.md "custom-sqlserver-WinAuth.NWValidation.md")
+- [Setting up Windows Authentication for RDS Custom for SQL Server instances](custom-sqlserver-WinAuth.settingUp.md "custom-sqlserver-WinAuth.settingUp.md")
+- [Managing a DB instance in a Domain](custom-sqlserver-WinAuth.ManagingDBI.md "custom-sqlserver-WinAuth.ManagingDBI.md")
+- [Understanding Domain membership](custom-sqlserver-WinAuth.Understanding.md "custom-sqlserver-WinAuth.Understanding.md")
+- [Troubleshooting Active Directory](custom-sqlserver-WinAuth.Troubleshoot.md "custom-sqlserver-WinAuth.Troubleshoot.md")
 
-Non-authoritative answer:
-Name:    corp.example.com
-Addresses:  40.0.9.25 (DC1 IP)
-            40.0.50.123 (DC2 IP)
-```
+## Region and version availability
 
-- Resolve AWS services from an EC2 instance in the VPC where you are launching your RDS Custom instance:
-
-```
-$region='`input-your-aws-region`'
-$domainFQDN='`input-your-domainFQDN`'
-
-function Test-DomainPorts {
-    param (
-        [string]$Domain,
-        [array]$Ports
-    )
-
-    foreach ($portInfo in $Ports) {
-        try {
-            $conn = New-Object System.Net.Sockets.TcpClient
-            $connectionResult = $conn.BeginConnect($Domain, $portInfo.Port, $null, $null)
-            $success = $connectionResult.AsyncWaitHandle.WaitOne(1000) # 1 second timeout
-            if ($success) {
-                $conn.EndConnect($connectionResult)
-                $result = $true
-            } else {
-                $result = $false
-            }
-        }
-        catch {
-            $result = $false
-        }
-        finally {
-            if ($null -ne $conn) {
-                $conn.Close()
-            }
-        }
-        Write-Host "$($portInfo.Description) port open: $result"
-    }
-}
-
-# Check if ports can be reached
-$ports = @(
-    @{Port = 53;   Description = "DNS"},
-    @{Port = 88;   Description = "Kerberos"},
-    @{Port = 389;  Description = "LDAP"},
-    @{Port = 445;  Description = "SMB"},
-    @{Port = 5985; Description = "WinRM"},
-    @{Port = 636;  Description = "LDAPS"},
-    @{Port = 3268; Description = "Global Catalog"},
-    @{Port = 3269; Description = "Global Catalog over SSL"},
-    @{Port = 9389; Description = "AD DS"}
-)
-
-function Test-DomainReachability {
-    param (
-        [string]$DomainName
-    )
-
-    try {
-        $dnsResults = Resolve-DnsName -Name $DomainName -ErrorAction Stop
-        Write-Host "Domain $DomainName is successfully resolving to following IP addresses: $($dnsResults.IpAddress)"
-        Write-Host ""
-        return $true
-    }
-    catch {
-        Write-Host ""
-        Write-Host "Error Message: $($_.Exception.Message)"
-        Write-Host "Domain $DomainName reachability check failed, please Configure DNS resolution"
-        return $false
-    }
-}
-
-$domain = (Get-WmiObject Win32_ComputerSystem).Domain
-if ($domain -eq 'WORKGROUP') {
-    Write-Host ""
-    Write-Host "Host $env:computername is still part of WORKGROUP and not part of any domain"
-    }
-else {
-    Write-Host ""
-    Write-Host "Host $env:computername is joined to $domain domain"
-    Write-Host ""
-    }
-
-
-$isReachable = Test-DomainReachability -DomainName $domainFQDN
-if ($isReachable) {
-    write-Host "Checking if domain $domainFQDN is reachable on required ports  "
-    Test-DomainPorts -Domain $domainFQDN -Ports $ports
-}
-else {
-    Write-Host "Port check skipped. Domain not reachable"
-}
-
-
-
-# Get network adapter configuration
-$networkConfig = Get-WmiObject Win32_NetworkAdapterConfiguration |
-                 Where-Object { $_.IPEnabled -eq $true } |
-                 Select-Object -First 1
-
-# Check DNS server settings
-$dnsServers = $networkConfig.DNSServerSearchOrder
-
-if ($dnsServers) {
-    Write-Host "`nDNS Server settings:"
-    foreach ($server in $dnsServers) {
-        Write-Host "  - $server"
-    }
-} else {
-    Write-Host "`nNo DNS servers configured or unable to retrieve DNS server information."
-}
-
-write-host ""
-
-# Checks reachability to dependent services
-$services = "s3", "ec2", "secretsmanager", "logs", "events", "monitoring", "ssm", "ec2messages", "ssmmessages"
-
-function Get-TcpConnectionAsync {
-    param (
-        $ServicePrefix,
-        $region
-    )
-    $endpoint = "${ServicePrefix}.${region}.amazonaws.com"
-    $tcp = New-Object Net.Sockets.TcpClient
-    $result = $false
-
-    try {
-        $connectTask = $tcp.ConnectAsync($endpoint, 443)
-        $timedOut = $connectTask.Wait(3000)
-        $result = $tcp.Connected
-    }
-    catch {
-        $result = $false
-    }
-    return $result
-}
-
-foreach ($service in $services) {
-    $validationResult = Get-TcpConnectionAsync -ServicePrefix $service -Region $region
-    Write-Host "Reachability to $service is $validationResult"
-}
-```
-
-The `TcpTestSucceeded` value must return `True` for `s3`, `ec2`, `secretsmanager`, `logs`, `events`,
-`monitoring`, `ssm`, `ec2messages`, and `ssmmessages`.
+RDS Custom for SQL Server supports both Self Managed AD and AWS Managed Microsoft AD using NTLM or Kerberos in all Regions where RDS Custom for SQL Server is supported.
+For more information, see [Supported Regions and DB engines for RDS Custom](Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.md").

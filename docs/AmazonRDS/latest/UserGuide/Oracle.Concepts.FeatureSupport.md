@@ -1,93 +1,169 @@
-# RDS for Oracle initialization parameters
+# RDS for Oracle features
 
-In Amazon RDS, you manage parameters using a DB parameter group. Using this group, you can
-customize initialization parameters. For example, you can configure the sort area size with
-`sort_area_size`. All RDS for Oracle DB instances associated with a specific DB parameter
-group use the same parameter settings. For more information, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+Amazon RDS for Oracle supports most of the features and capabilities of Oracle Database. Some features might have limited support or restricted
+privileges. Some features are only available in Enterprise Edition, and some require additional licenses. For more information about Oracle
+Database features for specific Oracle Database versions, see the _Oracle Database Licensing Information User Manual_ for
+the version you're using.
 
-## Supported initialization parameters in RDS for Oracle
+###### Topics
 
-Supported parameters for your DB instance depend on your Oracle Database edition and
-version. To view the supported initialization parameters for a specific Oracle Database
-edition and version, run the AWS CLI command [`describe-engine-default-parameters`](../../../cli/latest/reference/rds/describe-engine-default-parameters.md "../../../cli/latest/reference/rds/describe-engine-default-parameters.md"). For example, to list
-names of the supported initialization parameters for the Enterprise Edition of Oracle
-Database 19c, run the following command (sample output included).
+- [New features in RDS for Oracle](#Oracle.Concepts.FeatureSupport.new "#Oracle.Concepts.FeatureSupport.new")
+- [Supported features in RDS for Oracle](#Oracle.Concepts.FeatureSupport.supported "#Oracle.Concepts.FeatureSupport.supported")
+- [Unsupported features in RDS for Oracle](#Oracle.Concepts.FeatureSupport.unsupported "#Oracle.Concepts.FeatureSupport.unsupported")
 
-```
-aws rds describe-engine-default-parameters \
-    --db-parameter-group-family oracle-ee-19 \
-    --output json | jq -r '.EngineDefaults.Parameters[].ParameterName'
+## New features in RDS for Oracle
 
-_add_col_optim_enabled
-_adg_parselock_timeout
-_allow_insert_with_update_check
-_allow_level_without_connect_by
-_always_semi_join
-_autotask_max_window
-_awr_disabled_flush_tables
-_awr_mmon_cpuusage
-_awr_mmon_deep_purge_all_expired
-_b_tree_bitmap_plans
-_bct_bitmaps_per_file
-_bloom_filter_enabled
-_buffered_publisher_flow_control_threshold
-_bug29394014_allow_triggers_on_vpd_table
-_cleanup_rollback_entries
-_client_enable_auto_unregister
-_clusterwide_global_transactions
-_complex_view_merging
-_connect_by_use_union_all
-_cost_equality_semi_join
-_cursor_features_enabled
-_cursor_obsolete_threshold
-_datafile_write_errors_crash_instance
-_db_block_buffers
-...
-```
+To see new features in RDS for Oracle, search [Document history](WhatsNew.md "WhatsNew.md") for the keyword
+`Oracle`.
 
-To describe a single initialization parameter, use the following command, replacing
-`sga_max_size` with the name of your parameter (sample output
-included).
+## Supported features in RDS for Oracle
 
-```
-aws rds describe-engine-default-parameters \
-    --db-parameter-group-family oracle-ee-19 \
-    --query 'EngineDefaults.Parameters[?ParameterName==``sga_max_size``]' \
-    --output json
+Amazon RDS for Oracle supports the following Oracle Database features:
 
-[
-    {
-        "ParameterName": "sga_max_size",
-        "Description": "max total SGA size",
-        "Source": "engine-default",
-        "ApplyType": "static",
-        "DataType": "integer",
-        "AllowedValues": "0-2199023255552",
-        "IsModifiable": true
-    }
-]
-```
+###### Note
 
-To find general documentation for the Oracle database initialization parameters, see
-[Initialization Parameters](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/initialization-parameters.html#GUID-6F1C3203-0AA0-4AF1-921C-A027DD7CB6A9 "https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/initialization-parameters.html#GUID-6F1C3203-0AA0-4AF1-921C-A027DD7CB6A9") in the Oracle Database documentation. Note that
-the parameter `ARCHIVE_LAG_TARGET` has special considerations in RDS for Oracle.
-This parameter forces an online redo log switch after the specified time elapses. In
-RDS for Oracle, `ARCHIVE_LAG_TARGET` is set to `300` because the
-recovery point objective (RPO) is 5 minutes. To honor this objective, RDS for Oracle switches
-the online redo log every 5 minutes and stores it in an Amazon S3 bucket.
+The following list isn't exhaustive.
 
-If the frequency of the online redo log switch degrades the performance of your
-RDS for Oracle database, you can scale your DB instance and storage to use higher IOPS and
-throughput. Alternatively, if you use RDS Custom for Oracle or deploy an Oracle database on Amazon EC2,
-you can adjust the setting of the `ARCHIVE_LAG_TARGET` initialization
-parameter.
+- Advanced Compression
+- Oracle Application Express (APEX)
 
-## Valid parameter values in RDS for Oracle
+For more information, see [Oracle Application Express (APEX)](Appendix.Oracle.Options.APEX.md "Appendix.Oracle.Options.APEX.md").
 
-In RDS for Oracle, only the following characters are valid for parameter values:
+- Automatic Memory Management
+- Automatic Undo Management
+- Automatic Workload Repository (AWR)
 
-- Letters (`A-Z` and `a-z`)
-- Numbers (`0-9`)
-- Whitespace (spaces, tabs, and line breaks)
-- The following special characters: `_ / . : + = ( ) ' * , % $ -`
-  (hyphen)
+For more information, see [Generating performance reports with Automatic Workload Repository (AWR)](Appendix.Oracle.CommonDBATasks.AWR.md "Appendix.Oracle.CommonDBATasks.AWR.md").
+
+- Active Data Guard with Maximum Performance in the same AWS Region or across AWS Regions
+
+For more information, see [Working with read replicas for Amazon RDS for Oracle](oracle-read-replicas.md "oracle-read-replicas.md").
+
+- Blockchain tables (Oracle Database 21c and higher)
+
+For more information, see [Managing Blockchain Tables](https://docs.oracle.com/en/database/oracle/oracle-database/21/admin/managing-tables.html#GUID-43470B0C-DE4A-4640-9278-B066901C3926 "https://docs.oracle.com/en/database/oracle/oracle-database/21/admin/managing-tables.html#GUID-43470B0C-DE4A-4640-9278-B066901C3926") in the Oracle Database documentation.
+
+- Continuous Query Notification
+
+For more information, see [Using Continuous Query Notification (CQN)](https://docs.oracle.com/en/database/oracle/oracle-database/19/adfns/cqn.html#GUID-373BAF72-3E63-42FE-8BEA-8A2AEFBF1C35 "https://docs.oracle.com/en/database/oracle/oracle-database/19/adfns/cqn.html#GUID-373BAF72-3E63-42FE-8BEA-8A2AEFBF1C35") in the Oracle documentation.
+
+- Data Redaction
+- Continuous Query Notification
+
+For more information, see [Database
+Change Notification](https://docs.oracle.com/cd/E11882_01/java.112/e16548/dbchgnf.htm#JJDBC28815 "https://docs.oracle.com/cd/E11882_01/java.112/e16548/dbchgnf.htm#JJDBC28815") in the Oracle documentation.
+
+- Database In-Memory
+- Distributed Queries and Transactions
+- Edition-Based Redefinition
+
+For more information, see [Setting the default edition for a DB instance](Appendix.Oracle.CommonDBATasks.DefaultEdition.md "Appendix.Oracle.CommonDBATasks.DefaultEdition.md").
+
+- EM Express (12c and higher)
+
+For more information, see [Oracle Enterprise Manager](Oracle.Options.OEM.md "Oracle.Options.OEM.md").
+
+- Fine-Grained Auditing
+- Flashback Table, Flashback Query, Flashback Transaction Query
+- Gradual password rollover for applications (Oracle Database 21c and higher)
+
+For more information, see [Managing Gradual Database Password Rollover for Applications](https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/configuring-authentication.html#GUID-ACBA8DAE-C5B4-4811-A31D-53B97C50249B "https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/configuring-authentication.html#GUID-ACBA8DAE-C5B4-4811-A31D-53B97C50249B") in the Oracle Database
+documentation.
+
+- HugePages
+
+For more information, see [Turning on HugePages for an RDS for Oracle instance](Oracle.Concepts.HugePages.md "Oracle.Concepts.HugePages.md").
+
+- Import/export (legacy and Data Pump) and SQL\*Loader
+
+For more information, see [Importing data into Oracle on Amazon RDS](Oracle.Procedural.Importing.md "Oracle.Procedural.Importing.md").
+
+- Java Virtual Machine (JVM)
+
+For more information, see [Oracle Java virtual machine](oracle-options-java.md "oracle-options-java.md").
+
+- JavaScript (Oracle Database 21c and higher)
+
+For more information, see [DBMS_MLE](https://docs.oracle.com/en/database/oracle/oracle-database/21/arpls/dbms_mle.html#GUID-3F5B47A5-2C73-4317-ACD7-E93AE8B8E301 "https://docs.oracle.com/en/database/oracle/oracle-database/21/arpls/dbms_mle.html#GUID-3F5B47A5-2C73-4317-ACD7-E93AE8B8E301") in the Oracle Database documentation.
+
+- Label Security
+
+For more information, see [Oracle Label Security](Oracle.Options.OLS.md "Oracle.Options.OLS.md").
+
+- Locator
+
+For more information, see [Oracle Locator](Oracle.Options.Locator.md "Oracle.Options.Locator.md").
+
+- Materialized Views
+- Multitenant
+
+The Oracle multitenant architecture is supported for all Oracle Database 19c
+and higher releases. For more information, see [Working with CDBs in RDS for Oracle](oracle-multitenant.md "oracle-multitenant.md").
+
+- Network encryption
+
+For more information, see [Oracle native network encryption](Appendix.Oracle.Options.NetworkEncryption.md "Appendix.Oracle.Options.NetworkEncryption.md") and [Oracle Secure Sockets Layer](Appendix.Oracle.Options.SSL.md "Appendix.Oracle.Options.SSL.md").
+
+- Partitioning
+- Real Application Testing
+
+To use the full capture and replay capabilities, you must use Amazon Elastic File System
+(Amazon EFS) to access files generated by Oracle Real Application Testing. For more
+information, see [Amazon EFS integration](oracle-efs-integration.md "oracle-efs-integration.md") and the blog post [Use Oracle Real Application Testing features with
+Amazon RDS for Oracle](https://aws.amazon.com/blogs/database/use-oracle-real-application-testing-features-with-amazon-rds-for-oracle/ "https://aws.amazon.com/blogs/database/use-oracle-real-application-testing-features-with-amazon-rds-for-oracle/").
+
+- Sharding at the application level (but not the Oracle Sharding feature)
+- Spatial and Graph
+
+For more information, see [Oracle Spatial](Oracle.Options.Spatial.md "Oracle.Options.Spatial.md").
+
+- Star Query Optimization
+- Streams and Advanced Queuing
+- Summary Management – Materialized View Query Rewrite
+- Text (File and URL data store types are not supported)
+- Total Recall
+- Transparent Data Encryption (TDE)
+
+For more information, see [Oracle Transparent Data Encryption](Appendix.Oracle.Options.AdvSecurity.md "Appendix.Oracle.Options.AdvSecurity.md").
+
+- Unified Auditing, Mixed Mode
+
+For more information, see [Mixed mode auditing](https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/introduction-to-auditing.html#GUID-4A3AEFC3-5422-4320-A048-8219EC96EAC1 "https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/introduction-to-auditing.html#GUID-4A3AEFC3-5422-4320-A048-8219EC96EAC1") in the Oracle documentation.
+
+- XML DB (without the XML DB Protocol Server)
+
+For more information, see [Oracle XML DB](Appendix.Oracle.Options.XMLDB.md "Appendix.Oracle.Options.XMLDB.md").
+
+- Virtual Private Database
+
+## Unsupported features in RDS for Oracle
+
+Amazon RDS for Oracle doesn't support the following Oracle Database features:
+
+###### Note
+
+The following list isn't exhaustive.
+
+- Automatic Storage Management (ASM)
+- Database Vault
+- Flashback Database
+
+###### Note
+
+For alternative solutions, see the AWS Database Blog entry [Alternatives to the Oracle flashback database feature in
+Amazon RDS for Oracle](https://aws.amazon.com/blogs/database/alternatives-to-the-oracle-flashback-database-feature-in-amazon-rds-for-oracle/ "https://aws.amazon.com/blogs/database/alternatives-to-the-oracle-flashback-database-feature-in-amazon-rds-for-oracle/").
+
+- FTP and SFTP
+- Hybrid partitioned tables
+- Messaging Gateway
+- Oracle Enterprise Manager Cloud Control Management Repository
+- Real Application Clusters (Oracle RAC)
+- Real Application Security (RAS)
+- Unified Auditing, Pure Mode
+- Workspace Manager (WMSYS) schema
+
+###### Warning
+
+In general, Amazon RDS doesn't prevent you from creating schemas for unsupported features. However, if you create schemas for
+Oracle features and components that require SYSDBA privileges, you can damage the data dictionary and affect the availability of your
+DB instance. Use only supported features and schemas that are available in [Adding options to Oracle DB instances](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md").

@@ -38,10 +38,10 @@ Set up the `pg_cron` extension as follows:
          `pg_cron` extension to the list. Only certain versions of
          RDS for PostgreSQL support the `rds.allowed_extensions` parameter.
          By default, all available extensions are allowed. For more information,
-         see [Restricting installation of PostgreSQL extensions](PostgreSQL.Concepts.General.FeatureSupport.md#PostgreSQL.Concepts.General.FeatureSupport.Extensions.Restriction "PostgreSQL.Concepts.General.FeatureSupport.md#PostgreSQL.Concepts.General.FeatureSupport.Extensions.Restriction").
+         see [Restricting installation of PostgreSQL extensions](PostgreSQL.Concepts.General.FeatureSupport.Extensions.md#PostgreSQL.Concepts.General.FeatureSupport.Extensions.Restriction "PostgreSQL.Concepts.General.FeatureSupport.Extensions.md#PostgreSQL.Concepts.General.FeatureSupport.Extensions.Restriction").
 
     Restart the PostgreSQL DB instance to have changes to the parameter group take
-    effect. To learn more about working with parameter groups, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+    effect. To learn more about working with parameter groups, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 2.  After the PostgreSQL DB instance has restarted, run the following command
     using an account that has `rds_superuser` permissions. For example,
@@ -118,7 +118,7 @@ is `5`. For more information, see [Parameters for managing the pg_cron extension
 Autovacuum handles vacuum maintenance for most cases. However, you might want to
 schedule a vacuum of a specific table at a time of your choosing.
 
-See also, [Working with PostgreSQL autovacuum on Amazon RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md").
+See also, [Working with PostgreSQL autovacuum on Amazon RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md").
 
 Following is an example of using the `cron.schedule` function to set up
 a job to use `VACUUM FREEZE` on a specific table every day at 22:00
@@ -182,7 +182,7 @@ To prevent writing to the `cron.job_run_details` table, modify the
 parameter group associated with the PostgreSQL DB instance and set the
 `cron.log_run` parameter to off. The `pg_cron` extension
 no longer writes to the table and captures errors to the `postgresql.log`
-file only. For more information, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+file only. For more information, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 Use the following command to check the value of the `cron.log_run`
 parameter.

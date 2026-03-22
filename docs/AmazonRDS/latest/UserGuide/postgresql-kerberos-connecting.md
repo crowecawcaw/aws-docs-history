@@ -7,7 +7,7 @@ see
 
 .
 For information about obtaining the endpoint, port number,
-and other details needed for connection, see [Connect to a PostgreSQL DB instance](CHAP_GettingStarted.CreatingConnecting.md#CHAP_GettingStarted.Connecting.PostgreSQL "CHAP_GettingStarted.CreatingConnecting.md#CHAP_GettingStarted.Connecting.PostgreSQL").
+and other details needed for connection, see [Connect to a PostgreSQL DB instance](CHAP_GettingStarted.CreatingConnecting.PostgreSQL.md#CHAP_GettingStarted.Connecting.PostgreSQL "CHAP_GettingStarted.CreatingConnecting.PostgreSQL.md#CHAP_GettingStarted.Connecting.PostgreSQL").
 
 ###### Note
 

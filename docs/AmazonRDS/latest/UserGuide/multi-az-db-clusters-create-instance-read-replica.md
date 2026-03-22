@@ -74,7 +74,7 @@ Classless Inter-Domain Routing (CIDR) ranges can overlap between the replica and
 the RDS system. CIDR overlap makes the replica unstable, which can negatively
 impact applications connecting to it. If you receive an error when creating the
 read replica, choose a different destination DB subnet group. For more
-information, see [Working with a DB instance in a VPC](USER_VPC.md "USER_VPC.md").
+information, see [Working with a DB instance in a VPC](USER_VPC.WorkingWithRDSInstanceinaVPC.md "USER_VPC.WorkingWithRDSInstanceinaVPC.md").
 
 To create a DB instance read replica from a Multi-AZ DB cluster, complete the following steps using the
 AWS Management Console.
@@ -92,7 +92,7 @@ AWS Management Console.
 6. For **DB identifier**, enter a name for the read
    replica.
 7. For the remaining sections, specify your DB instance settings. For
-   information about a setting, see [Settings for DB instances](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
+   information about a setting, see [Settings for DB instances](USER_CreateDBInstance.Settings.md "USER_CreateDBInstance.Settings.md").
 
 ###### Note
 
@@ -124,7 +124,7 @@ To create a DB instance read replica from a Multi-AZ DB cluster, use the [`Creat
 
 If you no longer need the DB instance read replica, you can promote it into a standalone DB
 instance. When you promote a read replica, the DB instance is rebooted before it
-becomes available. For instructions, see [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.md "USER_ReadRepl.md").
+becomes available. For instructions, see [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.Promote.md "USER_ReadRepl.Promote.md").
 
 If you're using the read replica to migrate a Multi-AZ DB cluster deployment to a Single-AZ or Multi-AZ
 DB instance deployment, make sure to stop any transactions that are being written to
@@ -132,12 +132,12 @@ the source DB cluster. Then, wait for all updates to be made to the read replica
 Database updates occur on the read replica after they occur on one of the reader DB
 instances of the Multi-AZ DB cluster. This replication lag can vary significantly. Use the
 `ReplicaLag` metric to determine when all updates have been made to
-the read replica. For more information about replica lag, see [Monitoring read replication](USER_ReadRepl.md "USER_ReadRepl.md").
+the read replica. For more information about replica lag, see [Monitoring read replication](USER_ReadRepl.Monitoring.md "USER_ReadRepl.Monitoring.md").
 
 After you promote the read replica, wait for the status of the promoted DB
 instance to be `Available` before you direct your applications to use the
 promoted DB instance. Optionally, delete the Multi-AZ DB cluster deployment if you
-no longer need it. For instructions, see [Deleting a Multi-AZ DB cluster for Amazon RDS](USER_DeleteMultiAZDBCluster.md "USER_DeleteMultiAZDBCluster.md").
+no longer need it. For instructions, see [Deleting a Multi-AZ DB cluster for Amazon RDS](USER_DeleteMultiAZDBCluster.Deleting.md "USER_DeleteMultiAZDBCluster.Deleting.md").
 
 ## Limitations for creating a DB instance read replica from a Multi-AZ DB cluster
 

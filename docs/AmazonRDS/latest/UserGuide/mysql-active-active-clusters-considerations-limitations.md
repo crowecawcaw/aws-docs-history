@@ -23,7 +23,7 @@ The following limitations apply to active-active clusters for RDS for MySQL:
   connections.
 - For DB instances with read replicas in active-active clusters, a prolonged replication status other than
   `Replicating` can cause log files to exceed storage limits. For information about the status
-  of read replicas, see [Monitoring read replication](USER_ReadRepl.md "USER_ReadRepl.md").
+  of read replicas, see [Monitoring read replication](USER_ReadRepl.Monitoring.md "USER_ReadRepl.Monitoring.md").
 - Blue/green deployments aren't supported for DB instances in an active-active cluster. For more information, see
   [Using Amazon RDS Blue/Green Deployments for database updates](blue-green-deployments.md "blue-green-deployments.md").
 - Kerberos authentication isn't supported for DB instances in an active-active cluster. For more information, see
@@ -31,7 +31,7 @@ The following limitations apply to active-active clusters for RDS for MySQL:
 - The DB instances in a Multi-AZ DB cluster can't be added to an
   active-active cluster. However, the DB instances in a Multi-AZ DB instance
   deployment can be added to an active-active cluster. For more information,
-  see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.md "Concepts.md").
+  see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.MultiAZ.md "Concepts.MultiAZ.md").
 - Tables that don't have a primary key aren't replicated in an active-active cluster because writes
   are rejected by the Group Replication plugin.
 - Non-InnoDB tables aren't replicated in an active-active cluster.
@@ -76,18 +76,18 @@ and best practices:
   a higher engine version. When you upgrade a DB instance, the DB instance automatically joins the
   same active-active cluster when the upgrade completes. To avoid an unintended switch to read-only mode for a DB instance,
   disable automatic minor version upgrades for it. For information about upgrading a MySQL DB instance, see
-  [Upgrades of the RDS for MySQL DB engine](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md").
+  [Upgrades of the RDS for MySQL DB engine](USER_UpgradeDBInstance.MySQL.md "USER_UpgradeDBInstance.MySQL.md").
 - You can add a DB instance in a Multi-AZ DB instance deployment to an existing
   active-active cluster. You can also convert a Single-AZ DB instance in an
   active-active cluster to a Multi-AZ DB instance deployment. If a primary DB
   instance in a Multi-AZ deployment fails, that primary instance fails over to the
   standby instance. The new primary DB instance automatically joins the same
   cluster after failover completes. For more information about Multi-AZ DB
-  instance deployments, see [Multi-AZ DB instance deployments for Amazon RDS](Concepts.md "Concepts.md").
+  instance deployments, see [Multi-AZ DB instance deployments for Amazon RDS](Concepts.MultiAZSingleStandby.md "Concepts.MultiAZSingleStandby.md").
 - We recommend that the DB instances in an active-active cluster have different
   time ranges for their maintenance windows. This practice avoids multiple DB
   instances in the cluster going offline for maintenance at the same time. For
-  more information, see [Amazon RDS maintenance window](USER_UpgradeDBInstance.md#Concepts.DBMaintenance "USER_UpgradeDBInstance.md#Concepts.DBMaintenance").
+  more information, see [Amazon RDS maintenance window](USER_UpgradeDBInstance.Maintenance.md#Concepts.DBMaintenance "USER_UpgradeDBInstance.Maintenance.md#Concepts.DBMaintenance").
 - Active-active clusters can use SSL for connections between DB instances. To
   configure SSL connections, set the [group_replication_recovery_use_ssl](https://dev.mysql.com/doc/refman/8.0/en/group-replication-system-variables.html#sysvar_group_replication_recovery_use_ssl "https://dev.mysql.com/doc/refman/8.0/en/group-replication-system-variables.html#sysvar_group_replication_recovery_use_ssl") and [group_replication_ssl_mode](https://dev.mysql.com/doc/refman/8.0/en/group-replication-system-variables.html#sysvar_group_replication_ssl_mode "https://dev.mysql.com/doc/refman/8.0/en/group-replication-system-variables.html#sysvar_group_replication_ssl_mode") parameters. The values for these
   parameters must match for all DB instances in the active-active cluster.

@@ -11,8 +11,8 @@ Restore DB snapshots using either the AWS Management Console or the AWS CLI.
 
 ###### Topics
 
-- [Creating an RDS Custom for Oracle snapshot](custom-backup.md "custom-backup.md")
-- [Restoring from an RDS Custom for Oracle DB snapshot](custom-backup.md "custom-backup.md")
-- [Restoring an RDS Custom for Oracle instance to a point in time](custom-backup.md "custom-backup.md")
-- [Deleting an RDS Custom for Oracle snapshot](custom-backup.md "custom-backup.md")
-- [Deleting RDS Custom for Oracle automated backups](custom-backup.md "custom-backup.md")
+- [Creating an RDS Custom for Oracle snapshot](custom-backup.creating.md "custom-backup.creating.md")
+- [Restoring from an RDS Custom for Oracle DB snapshot](custom-backup.restoring.md "custom-backup.restoring.md")
+- [Restoring an RDS Custom for Oracle instance to a point in time](custom-backup.pitr.md "custom-backup.pitr.md")
+- [Deleting an RDS Custom for Oracle snapshot](custom-backup.deleting.md "custom-backup.deleting.md")
+- [Deleting RDS Custom for Oracle automated backups](custom-backup.deleting-backups.md "custom-backup.deleting-backups.md")

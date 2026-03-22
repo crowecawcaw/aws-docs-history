@@ -1,54 +1,34 @@
-# Analyzing SQL Server execution plans using the Performance Insights dashboard for Amazon RDS
+# Analyzing metrics with the Performance Insights dashboard
 
-When analyzing DB load on a SQL Server Database, you might want to know which plans are contributing the most to DB load.
-You can determine which plans are contributing the most to DB load by using the plan capture feature of Performance Insights.
+###### Important
 
-###### To analyze SQL Server execution plans using the console
+AWS has announced the end-of-life date for Performance Insights: June 30, 2026. After this date, Amazon RDS will no longer support the Performance Insights console experience,
+flexible retention periods (1-24 months), and their associated pricing. The Performance Insights API will continue to exist with no pricing changes. Costs for the
+Performance Insights API will appear in your AWS bill with the cost of CloudWatch Database Insights.
 
-1. Open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Performance Insights**.
-3. Choose a SQL Server DB instance. The Performance Insights dashboard is displayed for that
-   DB instance.
-4. In the **Database load (DB load)** section, choose **Plans**
-   next to **Slice by**.
+We recommend that you upgrade any DB instances
+using the paid tier of Performance Insights to the Advanced mode of Database Insights before June 30, 2026.
+For information about upgrading to the Advanced mode of Database Insights, see
+[Turning on the Advanced mode of Database Insights for Amazon RDS](USER_DatabaseInsights.TurningOnAdvanced.md "USER_DatabaseInsights.TurningOnAdvanced.md").
 
-The Average active sessions chart shows the plans used by your top SQL statements. The plan hash values appear to
-the right of the color-coded squares. Each hash value uniquely identifies a plan.
+If you take no action, DB instances using Performance Insights
+will default to using the Standard mode of Database Insights. With Standard mode of Database Insights, you might lose access to performance data history beyond 7 days and might not be able to use execution plans
+and on-demand analysis features in the Amazon RDS console. After June 30, 2026 only the Advanced mode of Database Insights will support execution plans and on-demand analysis.
 
-![Slice by plans](images/pi-slice-by-plans-sqlserver.png) 5. Scroll down to the **Top SQL** tab.
+With CloudWatch Database Insights, you can monitor database load for your fleet of databases and analyze and troubleshoot performance at scale.
+For more information about Database Insights, see [Monitoring Amazon RDS databases with CloudWatch Database Insights](USER_DatabaseInsights.md "USER_DatabaseInsights.md").
+For pricing information, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
 
-In the following example, the top SQL digest has three plans.
-The presence of a question mark in the SQL statement indicates that the statement is a digest.
-To view the full SQL statement, choose a value in the **SQL statements** column.
+The Performance Insights dashboard contains database performance information to help you analyze and troubleshoot
+performance issues. On the main dashboard page, you can view information about the database load. You can "slice" DB
+load by dimensions such as wait events or SQL.
 
-![Choose a digest plan](images/top-sql-plans-unselected-sqlserver.png) 6. Choose the digest to expand it into its component statements.
+###### Performance Insights dashboard
 
-In the following example, the `SELECT` statement is a digest query. The component queries in the digest
-use three different execution plans. The colors assigned to the plans correspond to the database load chart.
-
-![Choose a digest plan](images/pi-digest-plan-sqlserver.png) 7. Scroll down and choose two **Plans** to compare from **Plans for digest
-query** list.
-
-You can view either one or two plans for a query at a time. The following screenshot
-compares two plans in the digest. In the following example, 40% of the average
-active sessions running this digest query are using the plan on the left, whereas
-28% are using the plan on the right.
-
-![Compare the plans side by side](images/pi-compare-plan-sqlserver.png)
-
-In the previous example, the plans differ in an important way. Step 2 in the plan on the left uses an table scan, whereas the plan
-on the right uses a clustered index scan. For a table with a large number of rows, a query retrieving a single row is almost
-always faster with a clustered index scan. 8. (Optional) Choose the **Settings** icon on the Plan Details table to customize the visibility and order of columns.
-The following screenshot shows the Plan Details table with the **Output list** column as the second column.
-
-![Customize the visibility and order of columns in the Plan Details table](images/pi-plan-fields-sql-server.png) 9. (Optional) Choose **Copy** to copy the plan to the clipboard, or **Download** to
-save the plan to your hard drive.
-
-###### Note
-
-Performance Insights displays estimated execution plans using a hierarchical tree table.
-The table includes the partial execution information for each statement.
-For more information about the columns in the Plan Details table, see [SET SHOWPLAN_ALL](https://learn.microsoft.com/en-us/sql/t-sql/statements/set-showplan-all-transact-sql "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-showplan-all-transact-sql") in the SQL Server documentation.
-To display the full execution information for an estimated execution plan, choose **Download** to download the plan and then upload the plan to SQL Server Management Studio.
-For more information about displaying an estimated execution plan using SQL Server Management Studio, see [Display an Estimated Execution Plan](https://learn.microsoft.com/en-us/sql/relational-databases/performance/display-the-estimated-execution-plan "https://learn.microsoft.com/en-us/sql/relational-databases/performance/display-the-estimated-execution-plan") in the SQL Server documentation.
+- [Overview of the Performance Insights dashboard](USER_PerfInsights.UsingDashboard.Components.md "USER_PerfInsights.UsingDashboard.Components.md")
+- [Accessing the Performance Insights dashboard](USER_PerfInsights.UsingDashboard.Opening.md "USER_PerfInsights.UsingDashboard.Opening.md")
+- [Analyzing DB load by wait events](USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.md "USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.md")
+- [Analyzing database performance for a period of time](USER_PerfInsights.UsingDashboard.AnalyzePerformanceTimePeriod.md "USER_PerfInsights.UsingDashboard.AnalyzePerformanceTimePeriod.md")
+- [Analyzing queries with the Top SQL tab in Performance Insights](USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.md "USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.md")
+- [Analyzing top Oracle PDB load](USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.TopPDB.md "USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.TopPDB.md")
+- [Analyzing execution plans using the Performance Insights dashboard for Amazon RDS](USER_PerfInsights.UsingDashboard.AnalyzingPlans.md "USER_PerfInsights.UsingDashboard.AnalyzingPlans.md")

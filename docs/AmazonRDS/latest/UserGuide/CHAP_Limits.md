@@ -188,7 +188,7 @@ different DB engines.
 
 `DBInstanceClassMemory` is in bytes. For details about how this value is
 calculated, see [Specifying DB parameters](USER_ParamValuesRef.md "USER_ParamValuesRef.md"). Because of memory reserved for the operating system and RDS management processes,
-this memory size is smaller than the value in gibibytes (GiB) shown in [Hardware specifications for DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
+this memory size is smaller than the value in gibibytes (GiB) shown in [Hardware specifications for DB instance classes](Concepts.DBInstanceClass.Summary.md "Concepts.DBInstanceClass.Summary.md").
 
 For example, some DB instance classes have 8 GiB of memory, which is 8,589,934,592
 bytes. For a MySQL DB instance running on a DB instance class with 8 GiB of memory, such
@@ -218,6 +218,6 @@ SHOW GLOBAL VARIABLES LIKE 'max_connections';
 File size limits apply to certain Amazon RDS DB instances. For more information, see the
 following engine-specific limits:
 
-- [MariaDB file size limits in Amazon RDS](CHAP_MariaDB.md#RDS_Limits.FileSize.MariaDB "CHAP_MariaDB.md#RDS_Limits.FileSize.MariaDB")
-- [MySQL file size limits in Amazon RDS](MySQL.md#MySQL.Concepts.Limits.FileSize "MySQL.md#MySQL.Concepts.Limits.FileSize")
-- [Oracle file size limits in Amazon RDS](Oracle.Concepts.md#Oracle.Concepts.file-size-limits "Oracle.Concepts.md#Oracle.Concepts.file-size-limits")
+- [MariaDB file size limits in Amazon RDS](CHAP_MariaDB.Limitations.md#RDS_Limits.FileSize.MariaDB "CHAP_MariaDB.Limitations.md#RDS_Limits.FileSize.MariaDB")
+- [MySQL file size limits in Amazon RDS](MySQL.KnownIssuesAndLimitations.md#MySQL.Concepts.Limits.FileSize "MySQL.KnownIssuesAndLimitations.md#MySQL.Concepts.Limits.FileSize")
+- [Oracle file size limits in Amazon RDS](Oracle.Concepts.limitations.md#Oracle.Concepts.file-size-limits "Oracle.Concepts.limitations.md#Oracle.Concepts.file-size-limits")

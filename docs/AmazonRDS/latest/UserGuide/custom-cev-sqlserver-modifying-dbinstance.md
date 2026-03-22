@@ -18,7 +18,7 @@ you can make include:
 5. Make the following changes as needed:
    1. For **DB engine version**, choose a different CEV.
    2. Change the value for **DB instance class**.
-      For supported classes, see [DB instance class support for RDS Custom for SQL Server](custom-reqs-limits.md "custom-reqs-limits.md").
+      For supported classes, see [DB instance class support for RDS Custom for SQL Server](custom-reqs-limits.instancesMS.md "custom-reqs-limits.instancesMS.md").
    3. Change the value for **Backup retention
       period**.
    4. For **Backup window**, set values for the

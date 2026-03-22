@@ -1,96 +1,88 @@
-# Modifying an Amazon RDS DB instance
+# Amazon RDS DB instances
 
-You can change the settings of a DB instance to accomplish tasks such as adding additional
-storage or changing the DB instance class. In this topic, you can find out how to modify an
-Amazon RDS DB instance and learn about the settings for DB instances.
+A _DB instance_ is an isolated database environment running in the
+cloud. It is the basic building block of Amazon RDS. A DB instance can contain multiple
+user-created databases, and can be accessed using the same client tools and applications you
+might use to access a standalone database instance. DB instances are simple to create and
+modify with the AWS command line tools, Amazon RDS API operations, or the AWS Management Console.
 
-We recommend that you test any changes on a test instance before modifying a production
-instance. Doing this helps you to fully understand the impact of each change. Testing is
-especially important when upgrading database versions.
+###### Note
 
-Most modifications to a DB instance you can either apply immediately or defer until the
-next maintenance window. Some modifications, such as parameter group changes, require that
-you manually reboot your DB instance for the change to take effect.
+Amazon RDS supports access to databases using any standard SQL client application. Amazon RDS does not allow direct host access
+except with RDS Custom.
 
-###### Important
+You can have up to 40 Amazon RDS DB instances, with the following limitations:
 
-Some modifications result in downtime because Amazon RDS must reboot your DB instance for the change to take effect. Review the
-impact to your database and applications before modifying your DB instance settings.
+- 10 for each SQL Server edition (Enterprise, Standard, Web, and Express) under the "license-included" model
+- 10 for Oracle under the "license-included" model
+- 40 for Db2 under
+  the "bring-your-own-license" (BYOL) licensing model
+- 40 for MySQL, MariaDB, or PostgreSQL
+- 40 for Oracle under the "bring-your-own-license" (BYOL) licensing model
 
-###### To modify a DB instance
+###### Note
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Databases**, and then choose
-   the DB instance that you want to modify.
-3. Choose **Modify**. The **Modify DB instance** page appears.
-4. Change any of the settings that you want.
-   For information about each setting, see
-   [Settings for DB instances](USER_ModifyInstance.md "USER_ModifyInstance.md").
-5. When all the changes are as you want them,
-   choose **Continue** and check the summary of modifications.
-6. (Optional) Choose **Apply immediately** to apply the changes immediately. Choosing this option
-   can cause downtime in some cases. For more information, see [Using the schedule modifications setting](USER_ModifyInstance.md "USER_ModifyInstance.md").
-7. On the confirmation page, review your changes. If they are correct, choose **Modify DB instance**
-   to save your changes.
+If your application requires more DB instances, you can request additional DB instances by
+using [this form](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-rds-instances "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-rds-instances").
 
-Or choose **Back** to edit your changes or
-**Cancel** to cancel your changes.
-To modify a DB instance by using the AWS CLI, call the [modify-db-instance](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md")
-command. Specify the DB instance identifier and the values for the options that you
-want to modify. For information about each option, see [Settings for DB instances](USER_ModifyInstance.md "USER_ModifyInstance.md").
+Each DB instance has a DB instance identifier. This customer-supplied name uniquely
+identifies the DB instance when interacting with the Amazon RDS API and AWS CLI commands. The DB
+instance identifier must be unique for that customer in an AWS Region.
 
-###### Example
+The DB instance identifier forms part of the DNS hostname allocated to your instance by RDS. For
+example, if you specify `db1` as the DB instance identifier, then RDS will
+automatically allocate a DNS endpoint for your instance. An example endpoint is
+``db1`.`abcdefghijkl`.`us-east-1`.rds.amazonaws.com`,
+ where ``db1`` is your instance ID.
 
-The following code modifies `mydbinstance`
-by setting the backup retention period to 1 week (7 days).
-The code enables deletion protection by using `--deletion-protection`.
-To disable deletion protection, use `--no-deletion-protection`.
-The changes are applied during the next maintenance window
-by using `--no-apply-immediately`. Use `--apply-immediately`
-to apply the changes immediately. For more information, see
-[Using the schedule modifications setting](USER_ModifyInstance.md "USER_ModifyInstance.md").
+In the example endpoint
+``db1`.`abcdefghijkl`.`us-east-1`.rds.amazonaws.com`,
+ the string ``abcdefghijkl`is a unique identifier for a
+ specific combination of AWS Region and AWS account. The identifier
+`abcdefghijkl`` in the example is internally
+generated by RDS and doesn't change for the specified combination of Region and account.
+Thus, all your DB instances in this Region share the same fixed identifier. Consider the following
+features of the fixed identifier:
 
-For Linux, macOS, or Unix:
+- If you rename your DB instance, the endpoint is different but the fixed identifier is
+  the same. For example, if you rename `db1` to
+  `renamed-db1`, the new instance
+  endpoint is
+  ``renamed-db1`.`abcdefghijkl`.`us-east-1`.rds.amazonaws.com`.
+- If you delete and re-create a DB instance with the same DB instance identifier, the endpoint
+  is the same.
+- If you use the same account to create a DB instance in a different Region, the
+  internally generated identifier is different because the Region is different, as in
+  ``db2`.`mnopqrstuvwx`.`us-west-1`.rds.amazonaws.com`.
+  Each DB instance supports a database engine. Amazon RDS currently supports Db2, MySQL, MariaDB, PostgreSQL, Oracle, Microsoft
+  SQL Server, and Amazon Aurora database engines.
 
-```
-aws rds modify-db-instance \
-    --db-instance-identifier `mydbinstance` \
-    --backup-retention-period `7` \
-    `--deletion-protection` \
-    `--no-apply-immediately`
-```
+When creating a DB instance, some database engines require that a database name be specified. A
+DB instance can host multiple databases or a single Oracle database with multiple schemas. The
+database name value depends on the database engine:
 
-For Windows:
+- For the Db2 database engine, the database name is the name of the database hosted
+  in your DB instance. This field is optional. You can create a database later by calling
+  the `rdsadmin.create_database` stored procedure. For more information,
+  see [Creating a database](db2-managing-databases.md#db2-creating-database "db2-managing-databases.md#db2-creating-database").
+- For the MySQL and MariaDB database engines, the database name is the name of a database
+  hosted in your DB instance. Databases hosted by the same DB instance must have a
+  unique name within that instance.
+- For the Oracle database engine, database name is used to set the value of ORACLE_SID,
+  which must be supplied when connecting to the Oracle RDS instance.
+- For the Microsoft SQL Server database engine, database name is not a supported
+  parameter.
+- For the PostgreSQL database engine, the database name is the name of a
+  database hosted in your DB instance. A database name is not required when
+  creating a DB instance. Databases hosted by the same DB instance must have a
+  unique name within that instance.
+  Amazon RDS creates a master user account for your DB instance as part of the creation process.
+  This master user has permissions to create databases and to perform create, delete, select,
+  update, and insert operations on tables the master user creates. You must set the master user
+  password when you create a DB instance, but you can change it at any time using the AWS CLI, Amazon RDS
+  API operations, or the AWS Management Console. You can also change the master user password and manage users using standard SQL commands.
 
-```
-aws rds modify-db-instance ^
-    --db-instance-identifier `mydbinstance` ^
-    --backup-retention-period `7` ^
-    `--deletion-protection` ^
-    `--no-apply-immediately`
-```
+###### Note
 
-###### Example
-
-The following example adds a storage volume to an RDS for Oracle DB instance. The
-additional volume uses gp3 storage with 5000 GiB of allocated storage and 12000
-IOPS.
-
-```
-aws rds modify-db-instance \
-     --db-instance-identifier my-oracle-instance \
-     --additional-storage-volumes '[{ \
-             "VolumeName": "rdsdbdata2", \
-             "StorageType": "gp3",
-             "AllocatedStorage": 5000, \
-             "IOPS": 12000 \
-         }]'
-```
-
-To modify a DB instance by using the Amazon RDS API, call the
-[ModifyDBInstance](../APIReference/API_ModifyDBInstance.md "../APIReference/API_ModifyDBInstance.md") operation.
-Specify the DB instance identifier,
-and the parameters for the settings that you want to modify.
-For information about each parameter, see
-[Settings for DB instances](USER_ModifyInstance.md "USER_ModifyInstance.md").
+This guide covers non-Aurora Amazon RDS database engines. For information about using Amazon Aurora,
+see the [_Amazon Aurora User Guide_](../AuroraUserGuide/CHAP_AuroraOverview.md "../AuroraUserGuide/CHAP_AuroraOverview.md").

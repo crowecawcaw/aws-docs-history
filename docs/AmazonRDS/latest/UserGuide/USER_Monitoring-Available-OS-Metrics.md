@@ -14,7 +14,7 @@ metrics available using Amazon CloudWatch Logs.
 ## OS metrics for Db2, MariaDB, MySQL, Oracle, and PostgreSQL
 
 RDS collects disk metrics for `rdsdbdata` as well as
-additional storage volumes present in the OS. To view OS metrics in CloudWatch Logs, see [Viewing OS metrics using CloudWatch Logs](USER_Monitoring.OS.md "USER_Monitoring.OS.md").
+additional storage volumes present in the OS. To view OS metrics in CloudWatch Logs, see [Viewing OS metrics using CloudWatch Logs](USER_Monitoring.OS.CloudWatchLogs.md "USER_Monitoring.OS.CloudWatchLogs.md").
 
 | Group                | Metric                                | Console name                                                                                                                                                             | Description                                                              |
 | -------------------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
@@ -120,7 +120,7 @@ additional storage volumes present in the OS. To view OS metrics in CloudWatch L
 ## OS metrics for Microsoft SQL Server
 
 RDS collects disk metrics for `rdsdbdata` as well as
-additional storage volumes present in the OS. To view OS metrics in CloudWatch Logs, see [Viewing OS metrics using CloudWatch Logs](USER_Monitoring.OS.md "USER_Monitoring.OS.md").
+additional storage volumes present in the OS. To view OS metrics in CloudWatch Logs, see [Viewing OS metrics using CloudWatch Logs](USER_Monitoring.OS.CloudWatchLogs.md "USER_Monitoring.OS.CloudWatchLogs.md").
 
 | Group                   | Metric                      | Console name                                                                                                                                                                                                                     | Description                                                                                                                                                          |
 | ----------------------- | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

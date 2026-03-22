@@ -123,7 +123,7 @@ aws iam put-role-policy \
 With the IAM role and permissions configured for end-to-end IAM authentication, you can now create a proxy with `DefaultAuthScheme` set to `IAM_AUTH`.
 This proxy directly authenticates to the database using IAM without requiring Secrets Manager secrets. For instructions, see [Creating a proxy for Amazon RDS](rds-proxy-creating.md "rds-proxy-creating.md").
 
-When using end-to-end IAM authentication, ensure that your database users are configured for IAM authentication as described in [Creating a database account using IAM authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
+When using end-to-end IAM authentication, ensure that your database users are configured for IAM authentication as described in [Creating a database account using IAM authentication](UsingWithRDS.IAMDBAuth.DBAccounts.md "UsingWithRDS.IAMDBAuth.DBAccounts.md").
 
 ## Creating an IAM policy for Secrets Manager access
 

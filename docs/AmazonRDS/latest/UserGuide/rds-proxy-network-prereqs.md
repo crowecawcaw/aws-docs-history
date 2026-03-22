@@ -87,7 +87,7 @@ free IP addresses in your subnets prevents a proxy from scaling up. This can lea
 higher query latencies or client connection failures.
 
 RDS notifies you through event `RDS-EVENT-0243` when there aren't enough free IP addresses in your subnets.
-For information about this event, see [Working with RDS Proxy events](rds-proxy.md "rds-proxy.md").
+For information about this event, see [Working with RDS Proxy events](rds-proxy.events.md "rds-proxy.events.md").
 
 ###### Note
 

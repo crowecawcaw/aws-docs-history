@@ -1,53 +1,26 @@
-# Oracle Application Express (APEX)
+# Adding options to Oracle DB instances
 
-Amazon RDS supports Oracle Application Express (APEX) through the use of the `APEX`
-and `APEX-DEV` options. You can deploy Oracle APEX as a runtime environment or as
-a full development environment for web-based applications. Using Oracle APEX, you can build
-applications entirely within the web browser. For more information, see [Oracle application Express](https://apex.oracle.com/ "https://apex.oracle.com/") in the Oracle
-documentation.
+In Amazon RDS, an _option_ is an additional feature. Following, you can find a description of
+options that you can add to Amazon RDS instances running the Oracle DB engine.
 
 ###### Topics
 
-- [Oracle APEX components](#Appendix.Oracle.Options.APEX.components "#Appendix.Oracle.Options.APEX.components")
-- [Requirements and limitations](Appendix.Oracle.Options.APEX.md "Appendix.Oracle.Options.APEX.md")
-- [Setting up Oracle APEX and Oracle Rest Data Services (ORDS)](Appendix.Oracle.Options.APEX.md "Appendix.Oracle.Options.APEX.md")
-- [Configuring Oracle Rest Data Services (ORDS)](Appendix.Oracle.Options.APEX.md "Appendix.Oracle.Options.APEX.md")
-- [Upgrading and removing Oracle APEX](Appendix.Oracle.Options.APEX.md "Appendix.Oracle.Options.APEX.md")
-
-## Oracle APEX components
-
-Oracle APEX consists of the following main components:
-
-- A _repository_ that stores the metadata for Oracle APEX
-  applications and components. The repository consists of tables, indexes, and
-  other objects that are installed in your Amazon RDS DB instance.
-- A _listener_ that manages HTTP communications with Oracle
-  APEX clients. The listener resides on a separate host such as an Amazon EC2 instance,
-  an on-premises server at your company, or your desktop computer. The listener
-  accepts incoming connections from web browsers, forwards them to the Amazon RDS DB instance
-  for processing, and then sends results from the repository back to the browsers.
-
-RDS for Oracle supports the following types of listeners:
-
-    + For Oracle APEX version 5.0 and later, use Oracle REST Data Services
-     (ORDS) version 19.1 and higher. We recommend that you use the latest
-     supported version of Oracle APEX and ORDS. This documentation describes
-     older versions for backwards compatibility only.
-    + For Oracle APEX version 4.1.1, you can use Oracle APEX Listener
-     version 1.1.4.
-    + You can use Oracle HTTP Server and `mod_plsql` listeners.
-
-
-    ###### Note
-
-    Amazon RDS doesn't support the Oracle XML DB HTTP server with the
-     embedded PL/SQL gateway as a listener for Oracle APEX. In general,
-     Oracle recommends against using the embedded PL/SQL gateway for
-     applications that run on the internet.
-
-For more information about these listener types, see [About
-choosing a web listener](https://docs.oracle.com/database/apex-5.1/HTMIG/choosing-web-listener.htm#HTMIG29321 "https://docs.oracle.com/database/apex-5.1/HTMIG/choosing-web-listener.htm#HTMIG29321") in the Oracle documentation.
-
-When you add the `APEX` and `APEX-DEV` options to your RDS for Oracle
-DB instance, Amazon RDS installs the Oracle APEX repository only. Install your listener on a
-separate host.
+- [Overview of Oracle DB options](Appendix.Oracle.Options.overview.md "Appendix.Oracle.Options.overview.md")
+- [Amazon S3 integration](oracle-s3-integration.md "oracle-s3-integration.md")
+- [Oracle Application Express (APEX)](Appendix.Oracle.Options.APEX.md "Appendix.Oracle.Options.APEX.md")
+- [Amazon EFS integration](oracle-efs-integration.md "oracle-efs-integration.md")
+- [Oracle Java virtual machine](oracle-options-java.md "oracle-options-java.md")
+- [Oracle Enterprise Manager](Oracle.Options.OEM.md "Oracle.Options.OEM.md")
+- [Oracle Label Security](Oracle.Options.OLS.md "Oracle.Options.OLS.md")
+- [Oracle Locator](Oracle.Options.Locator.md "Oracle.Options.Locator.md")
+- [Oracle native network encryption](Appendix.Oracle.Options.NetworkEncryption.md "Appendix.Oracle.Options.NetworkEncryption.md")
+- [Oracle OLAP](Oracle.Options.OLAP.md "Oracle.Options.OLAP.md")
+- [Oracle Secure Sockets Layer](Appendix.Oracle.Options.SSL.md "Appendix.Oracle.Options.SSL.md")
+- [Oracle Spatial](Oracle.Options.Spatial.md "Oracle.Options.Spatial.md")
+- [Oracle SQLT](Oracle.Options.SQLT.md "Oracle.Options.SQLT.md")
+- [Oracle Statspack](Appendix.Oracle.Options.Statspack.md "Appendix.Oracle.Options.Statspack.md")
+- [Oracle time zone](Appendix.Oracle.Options.Timezone.md "Appendix.Oracle.Options.Timezone.md")
+- [Oracle time zone file autoupgrade](Appendix.Oracle.Options.Timezone-file-autoupgrade.md "Appendix.Oracle.Options.Timezone-file-autoupgrade.md")
+- [Oracle Transparent Data Encryption](Appendix.Oracle.Options.AdvSecurity.md "Appendix.Oracle.Options.AdvSecurity.md")
+- [Oracle UTL_MAIL](Oracle.Options.UTLMAIL.md "Oracle.Options.UTLMAIL.md")
+- [Oracle XML DB](Appendix.Oracle.Options.XMLDB.md "Appendix.Oracle.Options.XMLDB.md")

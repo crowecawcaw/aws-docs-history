@@ -1,85 +1,33 @@
-# Configuring delayed replication with MariaDB
+# Working with MariaDB read replicas
 
-You can use delayed replication as a strategy for disaster recovery. With delayed
-replication, you specify the minimum amount of time, in seconds, to delay
-replication from the source to the read replica. In the event of a disaster, such as
-a table deleted unintentionally, you complete the following steps to recover from
-the disaster quickly:
+Following, you can find specific information about working with read replicas on
+Amazon RDS for MariaDB. For general information about read replicas and instructions for using
+them, see [Working with DB instance read replicas](USER_ReadRepl.md "USER_ReadRepl.md").
 
-- Stop replication to the read replica before the change that caused the disaster
-  is sent to it.
+- [Configuring replication filters with MariaDB](USER_MariaDB.Replication.ReadReplicas.ReplicationFilters.md "USER_MariaDB.Replication.ReadReplicas.ReplicationFilters.md")
+- [Configuring delayed replication with MariaDB](USER_MariaDB.Replication.ReadReplicas.DelayReplication.md "USER_MariaDB.Replication.ReadReplicas.DelayReplication.md")
+- [Updating read replicas with MariaDB](USER_MariaDB.Replication.ReadReplicas.Updates.md "USER_MariaDB.Replication.ReadReplicas.Updates.md")
+- [Working with Multi-AZ read replica deployments with MariaDB](USER_MariaDB.Replication.ReadReplicas.MultiAZ.md "USER_MariaDB.Replication.ReadReplicas.MultiAZ.md")
+- [Using cascading read replicas with RDS for MariaDB](USER_MariaDB.Replication.ReadReplicas.Cascading.md "USER_MariaDB.Replication.ReadReplicas.Cascading.md")
+- [Monitoring MariaDB read replicas](USER_MariaDB.Replication.ReadReplicas.Monitor.md "USER_MariaDB.Replication.ReadReplicas.Monitor.md")
+- [Starting and stopping replication with MariaDB read replicas](USER_MariaDB.Replication.ReadReplicas.StartStop.md "USER_MariaDB.Replication.ReadReplicas.StartStop.md")
+- [Troubleshooting a MariaDB read replica problem](USER_ReadRepl.Troubleshooting.MariaDB.md "USER_ReadRepl.Troubleshooting.MariaDB.md")
 
-To stop replication, use the [mysql.rds_stop_replication](mysql-stored-proc-replicating.md#mysql_rds_stop_replication "mysql-stored-proc-replicating.md#mysql_rds_stop_replication") stored procedure.
+## Configuring read replicas with MariaDB
 
-- Promote the read replica to be the new source DB instance by using the
-  instructions in [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.md "USER_ReadRepl.md").
+Before a MariaDB DB instance can serve as a replication source, make sure to turn on
+automatic backups on the source DB instance by setting the backup retention period
+to a value other than 0. This requirement also applies to a read replica that is the
+source DB instance for another read replica.
 
-###### Note
+You can create up to 15 read replicas from one DB instance within the same Region. For replication to operate
+effectively, each read replica should have as the same amount of compute and storage
+resources as the source DB instance. If you scale the source DB instance, also scale
+the read replicas.
 
-- Delayed replication is supported for MariaDB 10.6 and higher.
-- Use stored procedures to configure delayed replication. You can't configure
-  delayed replication with the AWS Management Console, the AWS CLI, or the Amazon RDS
-  API.
-- You can use replication based on global transaction identifiers (GTIDs) in a delayed replication
-  configuration.
+RDS for MariaDB supports cascading read replicas. To learn how to configure cascading read replicas,
+see [Using cascading read replicas with RDS for MariaDB](USER_MariaDB.Replication.ReadReplicas.Cascading.md "USER_MariaDB.Replication.ReadReplicas.Cascading.md").
 
-###### Topics
-
-- [Configuring delayed replication during read replica creation](#USER_MariaDB.Replication.ReadReplicas.DelayReplication.ReplicaCreation "#USER_MariaDB.Replication.ReadReplicas.DelayReplication.ReplicaCreation")
-- [Modifying delayed replication for an existing read replica](#USER_MariaDB.Replication.ReadReplicas.DelayReplication.ExistingReplica "#USER_MariaDB.Replication.ReadReplicas.DelayReplication.ExistingReplica")
-- [Promoting a read replica](#USER_MariaDB.Replication.ReadReplicas.DelayReplication.Promote "#USER_MariaDB.Replication.ReadReplicas.DelayReplication.Promote")
-
-## Configuring delayed replication during read replica creation
-
-To configure delayed replication for any future read replica created from a DB
-instance, run the [mysql.rds_set_configuration](mysql-stored-proc-configuring.md#mysql_rds_set_configuration "mysql-stored-proc-configuring.md#mysql_rds_set_configuration") stored procedure with the
-`target delay` parameter.
-
-###### To configure delayed replication during read replica creation
-
-1. Using a MariaDB client, connect to the MariaDB DB instance to be the source for
-   read replicas as the master user.
-2. Run the [mysql.rds_set_configuration](mysql-stored-proc-configuring.md#mysql_rds_set_configuration "mysql-stored-proc-configuring.md#mysql_rds_set_configuration") stored procedure with the `target delay` parameter.
-
-For example, run the following stored procedure to specify that replication
-is delayed by at least one hour (3,600 seconds) for any read replica
-created from the current DB instance.
-
-```
-call mysql.rds_set_configuration('target delay', 3600);
-```
-
-###### Note
-
-After running this stored procedure, any read replica you create using
-the AWS CLI or Amazon RDS API is configured with replication delayed by the
-specified number of seconds.
-
-## Modifying delayed replication for an existing read replica
-
-To modify delayed replication for an existing read replica, run the [mysql.rds_set_source_delay](mysql-stored-proc-replicating.md#mysql_rds_set_source_delay "mysql-stored-proc-replicating.md#mysql_rds_set_source_delay") stored procedure.
-
-###### To modify delayed replication for an existing read replica
-
-1. Using a MariaDB client, connect to the read replica as the master
-   user.
-2. Use the [mysql.rds_stop_replication](mysql-stored-proc-replicating.md#mysql_rds_stop_replication "mysql-stored-proc-replicating.md#mysql_rds_stop_replication") stored
-   procedure to stop replication.
-3. Run the [mysql.rds_set_source_delay](mysql-stored-proc-replicating.md#mysql_rds_set_source_delay "mysql-stored-proc-replicating.md#mysql_rds_set_source_delay") stored procedure.
-
-For example, run the following stored procedure to specify that replication
-to the read replica is delayed by at least one hour (3600
-seconds).
-
-```
-call mysql.rds_set_source_delay(3600);
-```
-
-4. Use the [mysql.rds_start_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication") stored
-   procedure to start replication.
-
-## Promoting a read replica
-
-After replication is stopped, in a disaster recovery scenario, you can promote
-a read replica to be the new source DB instance. For information about promoting
-a read replica, see [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.md "USER_ReadRepl.md").
+You can run multiple read replica create and delete actions at the same time that reference
+the same source DB instance. When you perform these actions, stay within the limit of 15 read replicas
+for each source instance.

@@ -77,7 +77,7 @@ won't attempt to upgrade it again.
   `--engine-lifecycle-support` in the AWS CLI, and
   `EngineLifecycleSupport` in the RDS API.
 
-For more information, see [MySQL versions](MySQL.Concepts.md "MySQL.Concepts.md") and [Release calendars for Amazon RDS for PostgreSQL](../PostgreSQLReleaseNotes/postgresql-release-calendar.md "../PostgreSQLReleaseNotes/postgresql-release-calendar.md").
+For more information, see [MySQL versions](MySQL.Concepts.VersionMgmt.md "MySQL.Concepts.VersionMgmt.md") and [Release calendars for Amazon RDS for PostgreSQL](../PostgreSQLReleaseNotes/postgresql-release-calendar.md "../PostgreSQLReleaseNotes/postgresql-release-calendar.md").
 
 ## Restore a DB instance or a Multi-AZ DB cluster with RDS Extended Support
 

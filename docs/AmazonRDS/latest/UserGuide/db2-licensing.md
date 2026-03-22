@@ -96,9 +96,9 @@ AWS CLI, or the Amazon RDS API.
 ###### To add your IBM Customer ID and your IBM Site ID to a parameter group
 
 1. Create a new DB parameter group. For more information about
-   creating a DB parameter group, see [Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+   creating a DB parameter group, see [Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Creating.md "USER_WorkingWithParamGroups.Creating.md").
 2. Modify the parameter group that you created. For more information
-   about modifying a parameter group, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+   about modifying a parameter group, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 ###### To add your IBM Customer ID and your IBM Site ID to a parameter group
 
@@ -115,7 +115,7 @@ Include the following required options:
      parameter group.
 
 For more information about creating a DB parameter group, see
-[Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 2. Modify the parameters in the custom parameter group that you
+[Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Creating.md "USER_WorkingWithParamGroups.Creating.md"). 2. Modify the parameters in the custom parameter group that you
 created by running the [modify-db-parameter-group](../../../cli/latest/reference/rds/modify-db-parameter-group.md "../../../cli/latest/reference/rds/modify-db-parameter-group.md")
 command.
 
@@ -127,7 +127,7 @@ Include the following required options:
      names, values, and the application methods for the parameter
      update.
 
-For more information about modifying a parameter group, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+For more information about modifying a parameter group, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 ###### To add your IBM Customer ID and your IBM Site ID to a parameter group
 
@@ -141,7 +141,7 @@ Include the following required parameters:
     * `Description`
 
 For more information about creating a DB parameter group, see
-[Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 2. Modify the parameters in the custom parameter group that you
+[Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Creating.md "USER_WorkingWithParamGroups.Creating.md"). 2. Modify the parameters in the custom parameter group that you
 created by using the RDS API [ModifyDBParameterGroup](../APIReference/API_ModifyDBParameterGroup.md "../APIReference/API_ModifyDBParameterGroup.md")
 operation.
 
@@ -150,10 +150,10 @@ Include the following required parameters:
     * `DBParameterGroupName`
     * `Parameters`
 
-For more information about modifying a parameter group, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+For more information about modifying a parameter group, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 Now you are ready to create a DB instance and attach the custom parameter group to
-the DB instance. For more information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md") and [Associating a DB parameter group with a DB instance in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+the DB instance. For more information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md") and [Associating a DB parameter group with a DB instance in Amazon RDS](USER_WorkingWithParamGroups.Associating.md "USER_WorkingWithParamGroups.Associating.md").
 
 ### Integrating with AWS License Manager
 
@@ -576,7 +576,7 @@ use. 7. For **DB instance identifier**, enter the name of the
 target restored DB instance. The name must be unique. 8. Choose other options as needed, such as DB instance class, storage, and
 whether you want to use storage autoscaling.
 
-For information about each setting, see [Settings for DB instances](USER_CreateDBInstance.md "USER_CreateDBInstance.md"). 9. Choose **Restore to point in time**.
+For information about each setting, see [Settings for DB instances](USER_CreateDBInstance.Settings.md "USER_CreateDBInstance.Settings.md"). 9. Choose **Restore to point in time**.
 For more information, see [Restoring a DB instance to a specified time for Amazon RDS](USER_PIT.md "USER_PIT.md").
 
 To switch between Db2 licenses, run the [restore-db-instance-to-point-in-time](../../../cli/latest/reference/rds/restore-db-instance-to-point-in-time.md "../../../cli/latest/reference/rds/restore-db-instance-to-point-in-time.md") command. The following example
@@ -584,7 +584,7 @@ restores the latest point-in-time version, sets the DB engine to IBM Db2 Advance
 Edition, and sets the license model to Db2 license through AWS Marketplace.
 
 You can specify other settings. For information about
-each setting, see [Settings for DB instances](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
+each setting, see [Settings for DB instances](USER_CreateDBInstance.Settings.md "USER_CreateDBInstance.Settings.md").
 
 ###### Example
 

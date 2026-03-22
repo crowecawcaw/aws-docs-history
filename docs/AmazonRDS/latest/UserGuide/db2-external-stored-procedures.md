@@ -104,11 +104,11 @@ AWS CLI, or the Amazon RDS API.
    make sure that the new custom parameter group includes the
    IBM IDs. For information about these IDs, see
    [IBM IDs for bring your own license (BYOL) for Db2](db2-licensing.md#db2-prereqs-ibm-info "db2-licensing.md#db2-prereqs-ibm-info"). For more information
-   about creating a DB parameter group, see [Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+   about creating a DB parameter group, see [Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Creating.md "USER_WorkingWithParamGroups.Creating.md").
 2. Set the value for the
    `db2_alternate_authz_behaviour` parameter in your
    custom parameter group. For more information about modifying a
-   parameter group, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+   parameter group, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 ###### To configure the db2_alternate_authz_behaviour parameter in a custom parameter group
 
@@ -131,7 +131,7 @@ Include the following required options:
      parameter group.
 
 For more information about creating a DB parameter group, see
-[Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+[Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Creating.md "USER_WorkingWithParamGroups.Creating.md").
 
 The following example shows you how to create a custom
 parameter group named `MY_EXT_SP_PARAM_GROUP` for the
@@ -169,7 +169,7 @@ Include the following required options:
      names, values, and the application methods for the parameter
      update.
 
-For more information about modifying a parameter group, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+For more information about modifying a parameter group, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 The following example shows you how to modify the parameter
 group `MY_EXT_SP_PARAM_GROUP` by setting the value of
@@ -208,7 +208,7 @@ Include the following required parameters:
     * `Description`
 
 For more information about creating a DB parameter group, see
-[Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 2. Modify the `db2_alternate_authz_behaviour`
+[Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Creating.md "USER_WorkingWithParamGroups.Creating.md"). 2. Modify the `db2_alternate_authz_behaviour`
 parameter in your custom parameter group that you created by
 using the RDS API [ModifyDBParameterGroup](../APIReference/API_ModifyDBParameterGroup.md "../APIReference/API_ModifyDBParameterGroup.md")
 operation.
@@ -218,7 +218,7 @@ Include the following required parameters:
     * `DBParameterGroupName`
     * `Parameters`
 
-For more information about modifying a parameter group, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+For more information about modifying a parameter group, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 #### Step 2: Install the .jar file with your external routine
 

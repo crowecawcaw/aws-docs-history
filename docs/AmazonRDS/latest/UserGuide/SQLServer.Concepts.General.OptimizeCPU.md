@@ -1,30 +1,86 @@
-# DB instance classes that support Optimize CPU
+# Optimize CPUs for RDS for SQL Server license-included instances
 
-RDS for SQL Server supports Optimize CPU beginning with the 7th Generation instance class type.
-Additionally, RDS provides a detailed billing breakdown of RDS DB instance and third-party licensing fees,
-starting from the 7th Generation instance class type, regardless of whether the Optimize CPU feature is enabled.
+With RDS for SQL Server, you can use Optimize CPU by specifying processor features to configure the vCPU
+count on your DB instance while maintaining the same memory and IOPS. You can achieve desired memory-to-CPU
+ratios for specific database workload requirements and reduce licensing costs for Microsoft Windows OS and
+SQL Server, which are based on vCPU count.
 
-RDS for SQL Server provides support for Optimize CPU on specific instance sizes,
-with the smallest instance size supported being `2xlarge`. The minimum configuration supported is 4 vCPUs.
-The table below outlines the DB instance classes that support the Optimize CPU,
-including their default and valid values for CPU cores, CPU threads per core and vCPUs:
+To specify processor feature, use the following parameters:
 
-| General purpose instances | Instance type | Default vCPUs | Default CPU cores                                                                      | Valid CPU cores | Valid threads per core |
-| ------------------------- | ------------- | ------------- | -------------------------------------------------------------------------------------- | --------------- | ---------------------- |
-| `m7i.large`               | 2             | 1             | 1                                                                                      | 2               |
-| `m7i.xlarge`              | 4             | 2             | 2                                                                                      | 2               |
-| `m7i.2xlarge`             | 4             | 4             | 1,2,3,4                                                                                | 1               |
-| `m7i.4xlarge`             | 8             | 8             | 1,2,3,4,5,6,7,8                                                                        | 1               |
-| `m7i.8xlarge`             | 16            | 16            | 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16                                                 | 1               |
-| `m7i.12xlarge`            | 24            | 24            | 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24                         | 1               |
-| `m7i.16xlarge`            | 32            | 32            | 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32 | 1               |
+```
+--processor-features "Name=coreCount,Value=`value`" \
+	"Name=threadsPerCore,Value=`value`"
+```
 
-| Memory optimized instances | Instance type | Default vCPUs | Default CPU cores                                                                      | Valid CPU cores | Valid threads per core |
-| -------------------------- | ------------- | ------------- | -------------------------------------------------------------------------------------- | --------------- | ---------------------- |
-| `r7i.large`                | 2             | 1             | 1                                                                                      | 2               |
-| `r7i.xlarge`               | 4             | 2             | 2                                                                                      | 2               |
-| `r7i.2xlarge`              | 4             | 4             | 1,2,3,4                                                                                | 1               |
-| `r7i.4xlarge`              | 8             | 8             | 1,2,3,4,5,6,7,8                                                                        | 1               |
-| `r7i.8xlarge`              | 16            | 16            | 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16                                                 | 1               |
-| `r7i.12xlarge`             | 24            | 24            | 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24                         | 1               |
-| `r7i.16xlarge`             | 32            | 32            | 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32 | 1               |
+- **coreCount** – Specify the number of CPU cores for the
+  DB instance, to optimize licensing costs for DB instances. See [DB instance classes that support Optimize CPU](SQLServer.Concepts.General.OptimizeCPU.Support.md "SQLServer.Concepts.General.OptimizeCPU.Support.md") to find the allowed values for core count for a selected instance type.
+- **threadsPerCore** –
+  Specify the threads per core to define the number of threads per CPU core.
+  See [DB instance classes that support Optimize CPU](SQLServer.Concepts.General.OptimizeCPU.Support.md "SQLServer.Concepts.General.OptimizeCPU.Support.md")
+  to find the allowed values for threads per core for a selected instance type.
+  Sample command to create an RDS for SQL Server instance with Optimize CPU settings:
+
+```
+aws rds create-db-instance \
+    --engine sqlserver-ee \
+    --engine-version 16.00 \
+    --license-model license-included \
+    --allocated-storage `300` \
+    --master-username `myuser` \
+    --master-user-password `xxxxx` \
+    --no-multi-az \
+    --vpc-security-group-ids myvpcsecuritygroup \
+    --db-subnet-group-name mydbsubnetgroup \
+    --db-instance-identifier my-rds-instance \
+    --db-instance-class db.m7i.8xlarge \
+    --processor-features "Name=coreCount,Value=8" "Name=threadsPerCore,Value=1"
+```
+
+In this example, you create a `db.m7i.8xlarge` instance, which by default
+has a coreCount of 16. By using Optimize CPU, you opt for a coreCount of 8,
+resulting in an effective vCPU count of 8.
+
+If you create the instance without the `--processor-features` parameter,
+core count is set to 16 and threads per core is set to 1 by default,
+resulting in a default vCPU count of 16.
+
+Some considerations to keep in mind while specifying processor features:
+
+- **Create** – Specify both the `coreCount` and
+  `threadsPerCore` for the `processor-features` parameter from the allowed values. See
+  [DB instance classes that support Optimize CPU](SQLServer.Concepts.General.OptimizeCPU.Support.md "SQLServer.Concepts.General.OptimizeCPU.Support.md").
+- **Modify** –
+  When modifying from one instance class configured with Optimize CPU settings to
+  another one that supports Optimize CPU settings, you must specify the
+  default processor settings using the `--use-default-processor-features` parameter
+  or explicitly define the options during the modify request.
+
+###### Note
+
+Changing the vCPU count can have implications for the licensing fee cost associated with the DB instance.
+
+- **Snapshot restore** –
+  When restoring a snapshot to the same instance type as source,
+  the restored DB instance inherits the Optimize CPU settings from the snapshot.
+  If restoring to a different instance type, you need to define the Optimize CPU settings
+  for the target instance or specify the `--use-default-processor-features` parameter.
+- **Point-in-time restore** –
+  Point-in-time restore (PITR) involves restoring a specific snapshot based on the designated time for
+  PITR and subsequently applying all transactional log backups to that snapshot, thereby bringing the
+  instance to the specified point in time. For PITR, the Optimize CPU settings, `coreCount`
+  and `threadsPerCore`, are derived from the source snapshot (not the point in time)
+  unless custom values are specified during the PITR request.
+  If the source snapshot being used is enabled with Optimize CPU settings and you
+  are using a different instance type for PITR, you must define the Optimize CPU settings
+  for the target instance or specify the `—-use-default-processor-features` parameter.
+
+## Limitations
+
+The following limitations apply when using Optimize CPU:
+
+- Optimize CPU is supported with Enterprise, Standard, and Web Editions only.
+- Optimize CPU is available on select instances. See [DB instance classes that support Optimize CPU](SQLServer.Concepts.General.OptimizeCPU.Support.md "SQLServer.Concepts.General.OptimizeCPU.Support.md").
+- Customizing the number of CPU cores is supported on instance sizes of `2xlarge` and above.
+  With these instance types, the minimum number of vCPCU supported for Optimize CPU is 4.
+- Optimize CPU allows only 1 thread per core since Hyper-Threading is disabled for
+  instances starting from 7th generation that support Optimize CPU.

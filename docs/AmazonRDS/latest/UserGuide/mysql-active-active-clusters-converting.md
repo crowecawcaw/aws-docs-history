@@ -5,7 +5,7 @@ cluster must be one of the following versions:
 
 - All MySQL 8.4 versions
 - MySQL 8.0.35 and higher minor versions
-  If you need to upgrade the engine version, see [Upgrades of the RDS for MySQL DB engine](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md").
+  If you need to upgrade the engine version, see [Upgrades of the RDS for MySQL DB engine](USER_UpgradeDBInstance.MySQL.md "USER_UpgradeDBInstance.MySQL.md").
 
 If you are setting up an active-active cluster with DB instances in more than one VPC, make sure you complete the
 prerequisites in [Preparing for a cross-VPC active-active cluster](mysql-active-active-clusters-cross-vpc-prerequisites.md "mysql-active-active-clusters-cross-vpc-prerequisites.md").
@@ -35,7 +35,7 @@ parameter group. The DB instances in an active-active cluster can be associated 
 the same DB parameter group or with different DB parameter groups.
 
 You can use the AWS Management Console or the AWS CLI to create a new custom parameter group. For
-more information, see [Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). The following example
+more information, see [Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Creating.md "USER_WorkingWithParamGroups.Creating.md"). The following example
 runs the [create-db-parameter-group](../../../cli/latest/reference/rds/create-db-parameter-group.md "../../../cli/latest/reference/rds/create-db-parameter-group.md") AWS CLI command to create a custom DB parameter
 group named `myactivepg` for RDS for MySQL
 8.0:
@@ -59,7 +59,7 @@ aws rds create-db-parameter-group ^
 ```
 
 You can also use the AWS Management Console or the AWS CLI to set the parameters in the custom
-parameter group. For more information, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+parameter group. For more information, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 The following example runs the [modify-db-parameter-group](../../../cli/latest/reference/rds/modify-db-parameter-group.md "../../../cli/latest/reference/rds/modify-db-parameter-group.md") AWS CLI command to set the parameters for
 RDS for MySQL 8.0. To use this example with RDS for MySQL 8.4, change
@@ -97,7 +97,7 @@ aws rds modify-db-parameter-group ^
 ## Step 2: Associate the DB instance with a DB parameter group that has the required Group Replication parameters set
 
 Associate the DB instance with a parameter group you created or modified in the previous step.
-For instructions, see [Associating a DB parameter group with a DB instance in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+For instructions, see [Associating a DB parameter group with a DB instance in Amazon RDS](USER_WorkingWithParamGroups.Associating.md "USER_WorkingWithParamGroups.Associating.md").
 
 Reboot the DB instance for the new parameter settings to take effect. For instructions, see
 [Rebooting a DB instance](USER_RebootInstance.md "USER_RebootInstance.md").
@@ -108,7 +108,7 @@ In the DB parameter group associated with the DB instance, set the `group_replic
 to the endpoint of the DB instance you are converting.
 
 You can use the AWS Management Console or the AWS CLI to set the parameter. You don't need to reboot the DB instance after setting this
-parameter. For more information about setting parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+parameter. For more information about setting parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 The following example runs the [modify-db-parameter-group](../../../cli/latest/reference/rds/modify-db-parameter-group.md "../../../cli/latest/reference/rds/modify-db-parameter-group.md")
 AWS CLI command to set the parameters:

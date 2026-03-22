@@ -1,141 +1,188 @@
-# Turning on query logging for your RDS for PostgreSQL DB instance
+# RDS for PostgreSQL database log files
 
-You can collect more detailed information about your database activities, including
-queries, queries waiting for locks, checkpoints, and many other details by setting some
-of the parameters listed in the following table. This topic focuses on logging
-queries.
+You can monitor the following types of
+log files:
 
-| Parameter                  | Default | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| -------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| log_connections            | –       | Logs each successful connection.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| log_disconnections         | –       | Logs the end of each session and its duration.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| log_checkpoints            | 1       | Logs each checkpoint.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| log_lock_waits             | –       | Logs long lock waits. By default, this parameter isn't<br>set.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| log_min_duration_sample    | –       | (ms) Sets the minimum execution time above which a sample of<br>statements is logged. Sample size is set using the<br>`log_statement_sample_rate` parameter.                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| log_min_duration_statement | –       | Any SQL statement that runs atleast for the specified amount of<br>time or longer gets logged. By default, this parameter isn't<br>set. Turning on this parameter can help you find unoptimized<br>queries.                                                                                                                                                                                                                                                                                                                                                                                       |
-| log_statement              | –       | Sets the type of statements logged. By default, this parameter<br>isn't set, but you can change it to `all`,<br>`ddl`, or `mod` to specify the types of<br>SQL statements that you want logged. If you specify anything other<br>than `none` for this parameter, you should also take<br>additional steps to prevent the exposure of passwords in the log<br>files. For more information, see [Mitigating risk of password exposure when using query logging](#USER_LogAccess.Concepts.PostgreSQL.Query_Logging.mitigate-risk "#USER_LogAccess.Concepts.PostgreSQL.Query_Logging.mitigate-risk"). |
-| log_statement_sample_rate  | –       | The percentage of statements exceeding the time specified in<br>`log_min_duration_sample` to be logged, expressed as<br>a floating point value between 0.0 and 1.0.                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| log_statement_stats        | –       | Writes cumulative performance statistics to the server<br>log.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+- PostgreSQL log
+- Upgrade log
+- IAM database authentication error log
 
-## Using logging to find slow performing queries
+###### Note
 
-You can log SQL statements and queries to help find slow performing queries. You
-turn on this capability by modifying the settings in the `log_statement`
-and `log_min_duration` parameters as outlined in this section. Before
-turning on query logging for your
-RDS for PostgreSQL DB instance, you should be
-aware of possible password exposure in the logs and how to mitigate the risks. For
-more information, see [Mitigating risk of password exposure when using query logging](#USER_LogAccess.Concepts.PostgreSQL.Query_Logging.mitigate-risk "#USER_LogAccess.Concepts.PostgreSQL.Query_Logging.mitigate-risk").
+To enable IAM database authentication error logs, you must first enable IAM database authentication for your RDS for PostgreSQL DB instance. For more information about enabling IAM database authentication, see [Enabling and disabling IAM database authentication](UsingWithRDS.IAMDBAuth.Enabling.md "UsingWithRDS.IAMDBAuth.Enabling.md").
+RDS for PostgreSQL logs database activities to the default PostgreSQL log file. For
+an on-premises PostgreSQL DB instance, these messages are stored locally in
+`log/postgresql.log`. For
+an RDS for PostgreSQL DB instance, the log file is
+available on the Amazon RDS instance. These logs are also accessible via
+the AWS Management Console, where you can view or download them. The default logging level captures login
+failures, fatal server errors, deadlocks, and query failures.
 
-Following, you can find reference information about the `log_statement`
-and `log_min_duration` parameters.
+For more information about how you can view, download, and watch file-based database logs,
+see [Monitoring Amazon RDS log files](USER_LogAccess.md "USER_LogAccess.md"). To learn more about
+PostgreSQL logs, see [Working with Amazon RDS
+and Aurora PostgreSQL logs: Part 1](https://aws.amazon.com/blogs/database/working-with-rds-and-aurora-postgresql-logs-part-1/ "https://aws.amazon.com/blogs/database/working-with-rds-and-aurora-postgresql-logs-part-1/") and [Working with Amazon RDS
+and Aurora PostgreSQL logs: Part 2](https://aws.amazon.com/blogs/database/working-with-rds-and-aurora-postgresql-logs-part-2/ "https://aws.amazon.com/blogs/database/working-with-rds-and-aurora-postgresql-logs-part-2/").
 
-###### log_statement
+In addition to the standard PostgreSQL logs discussed in this topic, RDS for PostgreSQL also supports the PostgreSQL Audit extension
+(`pgAudit`). Most regulated industries and government agencies need to
+maintain an audit log or audit trail of changes made to data to comply with legal
+requirements. For information about installing and using pgAudit, see [Using pgAudit to log database activity](Appendix.PostgreSQL.CommonDBATasks.pgaudit.md "Appendix.PostgreSQL.CommonDBATasks.pgaudit.md").
 
-This parameter specifies the type of SQL statements that should get sent to
-the log. The default value is `none`. If you change this parameter to
-`all`, `ddl`, or `mod`, be sure to apply
-recommended actions to mitigate the risk of exposing passwords in the logs. For
-more information, see [Mitigating risk of password exposure when using query logging](#USER_LogAccess.Concepts.PostgreSQL.Query_Logging.mitigate-risk "#USER_LogAccess.Concepts.PostgreSQL.Query_Logging.mitigate-risk").
+###### Topics
 
-**all**
+- [Parameters for logging in RDS for PostgreSQL](USER_LogAccess.Concepts.PostgreSQL.overview.parameter-groups.md "USER_LogAccess.Concepts.PostgreSQL.overview.parameter-groups.md")
+- [Turning on query logging for your RDS for PostgreSQL DB instance](USER_LogAccess.Concepts.PostgreSQL.Query_Logging.md "USER_LogAccess.Concepts.PostgreSQL.Query_Logging.md")
+- [Publishing PostgreSQL logs to Amazon CloudWatch Logs](#USER_LogAccess.Concepts.PostgreSQL.PublishtoCloudWatchLogs "#USER_LogAccess.Concepts.PostgreSQL.PublishtoCloudWatchLogs")
 
-Logs all statements. This setting is recommended for debugging
-purposes.
+## Publishing PostgreSQL logs to Amazon CloudWatch Logs
 
-**ddl**
+To store your PostgreSQL log records in highly durable storage, you can use Amazon CloudWatch Logs.
+With CloudWatch Logs, you can also perform real-time analysis of log data and use CloudWatch to view
+metrics and create alarms. For example, if you set `log_statement` to
+`ddl`, you can set up an alarm to alert you whenever a DDL statement is
+executed. You can choose to have your PostgreSQL logs uploaded to CloudWatch Logs during the
+process of creating your RDS for PostgreSQL DB instance. If you chose not to upload logs at
+that time, you can later modify your instance to start uploading logs from that point
+forward. In other words, existing logs aren't uploaded. Only new logs are uploaded
+as they're created on your modified RDS for PostgreSQL DB instance.
 
-Logs all data definition language (DDL) statements, such as CREATE,
-ALTER, DROP, and so on.
+All currently available RDS for PostgreSQL versions support publishing log files to CloudWatch Logs.
+For more information, see [Amazon
+RDS for PostgreSQL updates](../PostgreSQLReleaseNotes/postgresql-versions.md "../PostgreSQLReleaseNotes/postgresql-versions.md") in the _Amazon RDS for PostgreSQL Release Notes._.
 
-**mod**
+To work with CloudWatch Logs, configure your RDS for PostgreSQL DB instance to publish log data to a
+log group.
 
-Logs all DDL statements and data manipulation language (DML)
-statements, such as INSERT, UPDATE, and DELETE, which modify the
-data.
+You can publish the following log types to CloudWatch Logs for RDS for PostgreSQL:
 
-**none**
+- PostgreSQL log
+- Upgrade log
+- IAM database authentication error log
 
-No SQL statements get logged. We recommend this setting to avoid the
-risk of exposing passwords in the logs.
+After you complete the configuration, Amazon RDS publishes the log events to log streams
+within a CloudWatch log group. For example, the PostgreSQL log data is stored within the log
+group `/aws/rds/instance/`my_instance`/postgresql`.
+To view your logs, open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 
-###### log_min_duration_statement
+###### To publish PostgreSQL logs to CloudWatch Logs using the console
 
-Any SQL statement that runs atleast for the specified amount of time or longer
-gets logged. By default, this parameter isn't set. Turning on this parameter can
-help you find unoptimized queries.
+1. Open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Databases**.
+3. Choose the DB instance that you want to modify, and then choose
+   **Modify**.
+4. In the **Log exports** section, choose the logs that
+   you want to start publishing to CloudWatch Logs.
 
-**–1–2147483647**
+The **Log exports** section is available only for
+PostgreSQL versions that support publishing to CloudWatch Logs. 5. Choose **Continue**, and then choose **Modify
+DB Instance** on the summary page.
+You can publish PostgreSQL logs with the AWS CLI. You can call the [`modify-db-instance`](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md") command with the following
+parameters.
 
-The number of milliseconds (ms) of runtime over which a statement gets
-logged.
+- `--db-instance-identifier`
+- `--cloudwatch-logs-export-configuration`
 
-###### To set up query logging
+###### Note
 
-These steps assume that your
-RDS for PostgreSQL DB instance uses a custom DB
-parameter group.
+A change to the `--cloudwatch-logs-export-configuration` option
+is always applied to the DB instance immediately. Therefore, the
+`--apply-immediately` and `--no-apply-immediately`
+options have no effect.
 
-1. Set the `log_statement` parameter to `all`. The
-   following example shows the information that is written to the
-   `postgresql.log` file with this parameter
-   setting.
+You can also publish PostgreSQL logs by calling the following CLI
+commands:
+
+- [`create-db-instance`](../../../cli/latest/reference/rds/create-db-instance.md "../../../cli/latest/reference/rds/create-db-instance.md")
+- [`restore-db-instance-from-db-snapshot`](../../../cli/latest/reference/rds/restore-db-instance-from-db-snapshot.md "../../../cli/latest/reference/rds/restore-db-instance-from-db-snapshot.md")
+- [`restore-db-instance-to-point-in-time`](../../../cli/latest/reference/rds/restore-db-instance-to-point-in-time.md "../../../cli/latest/reference/rds/restore-db-instance-to-point-in-time.md")
+  Run one of these CLI commands with the following options:
+
+- `--db-instance-identifier`
+- `--enable-cloudwatch-logs-exports`
+- `--db-instance-class`
+- `--engine`
+  Other options might be required depending on the CLI command you run.
+
+###### Example Modify an instance to publish logs to CloudWatch Logs
+
+The following example modifies an existing PostgreSQL DB instance to
+publish log files to CloudWatch Logs. The
+`--cloudwatch-logs-export-configuration` value is a JSON
+object. The key for this object is `EnableLogTypes`, and its
+value is an array of strings with any combination of `postgresql`
+and `upgrade`.
+
+For Linux, macOS, or Unix:
 
 ```
-2022-10-05 22:05:52 UTC:52.95.4.1(11335):postgres@labdb:[3639]:LOG: statement: SELECT feedback, s.sentiment,s.confidence
-FROM support,aws_comprehend.detect_sentiment(feedback, 'en') s
-ORDER BY s.confidence DESC;
-2022-10-05 22:05:52 UTC:52.95.4.1(11335):postgres@labdb:[3639]:LOG: QUERY STATISTICS
-2022-10-05 22:05:52 UTC:52.95.4.1(11335):postgres@labdb:[3639]:DETAIL: ! system usage stats:
-! 0.017355 s user, 0.000000 s system, 0.168593 s elapsed
-! [0.025146 s user, 0.000000 s system total]
-! 36644 kB max resident size
-! 0/8 [0/8] filesystem blocks in/out
-! 0/733 [0/1364] page faults/reclaims, 0 [0] swaps
-! 0 [0] signals rcvd, 0/0 [0/0] messages rcvd/sent
-! 19/0 [27/0] voluntary/involuntary context switches
-2022-10-05 22:05:52 UTC:52.95.4.1(11335):postgres@labdb:[3639]:STATEMENT: SELECT feedback, s.sentiment,s.confidence
-FROM support,aws_comprehend.detect_sentiment(feedback, 'en') s
-ORDER BY s.confidence DESC;
-2022-10-05 22:05:56 UTC:52.95.4.1(11335):postgres@labdb:[3639]:ERROR: syntax error at or near "ORDER" at character 1
-2022-10-05 22:05:56 UTC:52.95.4.1(11335):postgres@labdb:[3639]:STATEMENT: ORDER BY s.confidence DESC;
------------------------ END OF LOG ----------------------
-```
-
-2. Set the `log_min_duration_statement` parameter. The following
-   example shows the information that is written to the
-   `postgresql.log` file when the parameter is set to
-   `1`.
-
-Queries that exceed the duration specified in the
-`log_min_duration_statement` parameter are logged. The
-following shows an example. You can view the log file for your
-RDS for PostgreSQL DB instance in the
-Amazon RDS Console.
+aws rds modify-db-instance \
+    --db-instance-identifier `mydbinstance` \
+    --cloudwatch-logs-export-configuration '{"EnableLogTypes":["postgresql", "upgrade"]}'
 
 ```
-2022-10-05 19:05:19 UTC:52.95.4.1(6461):postgres@labdb:[6144]:LOG: statement: DROP table comments;
-2022-10-05 19:05:19 UTC:52.95.4.1(6461):postgres@labdb:[6144]:LOG: duration: 167.754 ms
-2022-10-05 19:08:07 UTC::@:[355]:LOG: checkpoint starting: time
-2022-10-05 19:08:08 UTC::@:[355]:LOG: checkpoint complete: wrote 11 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.013 s, sync=0.006 s, total=1.033 s; sync files=8, longest=0.004 s, average=0.001 s; distance=131028 kB, estimate=131028 kB
------------------------ END OF LOG ----------------------
+
+For Windows:
+
+```
+aws rds modify-db-instance ^
+    --db-instance-identifier `mydbinstance` ^
+    --cloudwatch-logs-export-configuration '{"EnableLogTypes":["postgresql","upgrade"]}'
+
 ```
 
-### Mitigating risk of password exposure when using query logging
+###### Example Create an instance to publish logs to CloudWatch Logs
 
-We recommend that you keep `log_statement` set to `none`
-to avoid exposing passwords. If you set `log_statement` to
-`all`, `ddl`, or `mod`, we recommend that
-you take one or more of the following steps.
+The following example creates a PostgreSQL DB instance and publishes log
+files to CloudWatch Logs. The `--enable-cloudwatch-logs-exports` value is a
+JSON array of strings. The strings can be any combination of
+`postgresql` and `upgrade`.
 
-- For the client, encrypt sensitive information. For more information,
-  see [Encryption Options](https://www.postgresql.org/docs/current/encryption-options.html "https://www.postgresql.org/docs/current/encryption-options.html") in the PostgreSQL documentation. Use the
-  `ENCRYPTED` (and `UNENCRYPTED`) options of the
-  `CREATE` and `ALTER` statements. For more
-  information, see [CREATE USER](https://www.postgresql.org/docs/current/sql-createuser.html "https://www.postgresql.org/docs/current/sql-createuser.html") in the PostgreSQL documentation.
-- For your RDS for PostgreSQL DB
-  instance, set up and use the PostgreSQL Auditing (pgAudit)
-  extension. This extension redacts sensitive information in CREATE and
-  ALTER statements sent to the log. For more information, see [Using pgAudit to log database activity](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md").
-- Restrict access to the CloudWatch logs.
-- Use stronger authentication mechanisms such as IAM.
+For Linux, macOS, or Unix:
+
+```
+aws rds create-db-instance \
+    --db-instance-identifier `mydbinstance` \
+    --enable-cloudwatch-logs-exports '["postgresql","upgrade"]' \
+    --db-instance-class `db.m4.large` \
+    --engine `postgres`
+
+```
+
+For Windows:
+
+```
+aws rds create-db-instance ^
+    --db-instance-identifier `mydbinstance` ^
+    --enable-cloudwatch-logs-exports '["postgresql","upgrade"]' ^
+    --db-instance-class `db.m4.large` ^
+    --engine `postgres`
+
+```
+
+You can publish PostgreSQL logs with the RDS API. You can call the [`ModifyDBInstance`](../APIReference/API_ModifyDBInstance.md "../APIReference/API_ModifyDBInstance.md") action with the following parameters:
+
+- `DBInstanceIdentifier`
+- `CloudwatchLogsExportConfiguration`
+
+###### Note
+
+A change to the `CloudwatchLogsExportConfiguration` parameter
+is always applied to the DB instance immediately. Therefore, the
+`ApplyImmediately` parameter has no effect.
+
+You can also publish PostgreSQL logs by calling the following RDS API
+operations:
+
+- [`CreateDBInstance`](../APIReference/API_CreateDBInstance.md "../APIReference/API_CreateDBInstance.md")
+- [`RestoreDBInstanceFromDBSnapshot`](../APIReference/API_RestoreDBInstanceFromDBSnapshot.md "../APIReference/API_RestoreDBInstanceFromDBSnapshot.md")
+- [`RestoreDBInstanceToPointInTime`](../APIReference/API_RestoreDBInstanceToPointInTime.md "../APIReference/API_RestoreDBInstanceToPointInTime.md")
+  Run one of these RDS API operations with the following parameters:
+
+- `DBInstanceIdentifier`
+- `EnableCloudwatchLogsExports`
+- `Engine`
+- `DBInstanceClass`
+  Other parameters might be required depending on the operation that you
+  run.

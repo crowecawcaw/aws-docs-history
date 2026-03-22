@@ -58,4 +58,4 @@ then modify the DB instance to join the domain.
 Only Kerberos authentication with RDS for PostgreSQL sends traffic to the
 domain's DNS servers. All other DNS requests are treated as outbound
 network access on your DB instances running PostgreSQL. For more information
-about outbound network access with RDS for PostgreSQL, see [Using a custom DNS server for outbound network access](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md").
+about outbound network access with RDS for PostgreSQL, see [Using a custom DNS server for outbound network access](Appendix.PostgreSQL.CommonDBATasks.CustomDNS.md "Appendix.PostgreSQL.CommonDBATasks.CustomDNS.md").

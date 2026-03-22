@@ -13,7 +13,7 @@ You can purchase reserved DB instances for a Multi-AZ DB cluster. For more infor
 
 Feature availability and support varies across specific versions of each database engine, and
 across AWS Regions. For more information on version and Region
-availability of Amazon RDS with Multi-AZ DB clusters, see [Supported Regions and DB engines for Multi-AZ DB clusters in Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
+availability of Amazon RDS with Multi-AZ DB clusters, see [Supported Regions and DB engines for Multi-AZ DB clusters in Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.MultiAZDBClusters.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.MultiAZDBClusters.md").
 
 ###### Topics
 
@@ -34,8 +34,8 @@ availability of Amazon RDS with Multi-AZ DB clusters, see [Supported Regions and
 - [Setting up PostgreSQL logical replication with Multi-AZ DB clusters for Amazon RDS](USER_MultiAZDBCluster_LogicalRepl.md "USER_MultiAZDBCluster_LogicalRepl.md")
 - [Working with Multi-AZ DB cluster read replicas for Amazon RDS](USER_MultiAZDBCluster_ReadRepl.md "USER_MultiAZDBCluster_ReadRepl.md")
 - [Setting up external replication from Multi-AZ DB clusters for Amazon RDS](multi-az-db-clusters-external-replication.md "multi-az-db-clusters-external-replication.md")
-- [Deleting a Multi-AZ DB cluster for Amazon RDS](USER_DeleteMultiAZDBCluster.md "USER_DeleteMultiAZDBCluster.md")
-- [Limitations of Multi-AZ DB clusters for Amazon RDS](multi-az-db-clusters-concepts.md "multi-az-db-clusters-concepts.md")
+- [Deleting a Multi-AZ DB cluster for Amazon RDS](USER_DeleteMultiAZDBCluster.Deleting.md "USER_DeleteMultiAZDBCluster.Deleting.md")
+- [Limitations of Multi-AZ DB clusters for Amazon RDS](multi-az-db-clusters-concepts.Limitations.md "multi-az-db-clusters-concepts.Limitations.md")
 
 ###### Important
 
@@ -53,7 +53,7 @@ Multi-AZ DB cluster deployments are supported for the following DB instance clas
 The c6gd instance classes are the only ones that support the `medium`
 instance size.
 
-For more information about DB instance classes, see [DB instance classes](Concepts.md "Concepts.md").
+For more information about DB instance classes, see [DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
 
 ## Multi-AZ DB cluster architecture
 
@@ -236,7 +236,7 @@ You can also take manual backups of your Multi-AZ DB cluster. For very long-term
 exporting the snapshot data to Amazon S3. For more information, see [Creating a Multi-AZ DB cluster snapshot for Amazon RDS](USER_CreateMultiAZDBClusterSnapshot.md "USER_CreateMultiAZDBClusterSnapshot.md").
 
 You can restore a Multi-AZ DB cluster to a specific point in time, creating a new Multi-AZ DB cluster. For
-instructions, see [Restoring a Multi-AZ DB cluster to a specified time](USER_PIT.md "USER_PIT.md").
+instructions, see [Restoring a Multi-AZ DB cluster to a specified time](USER_PIT.MultiAZDBCluster.md "USER_PIT.MultiAZDBCluster.md").
 
 Alternately, you can restore a Multi-AZ DB cluster snapshot to a Single-AZ deployment or Multi-AZ DB
 instance deployment. For instructions, see [Restoring from a Multi-AZ DB cluster snapshot to a DB instance](USER_RestoreFromMultiAZDBClusterSnapshot.md "USER_RestoreFromMultiAZDBClusterSnapshot.md").

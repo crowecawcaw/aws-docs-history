@@ -9,7 +9,7 @@ replication user configured with `caching_sha2_password`, you must configure TLS
 by specifying `SOURCE_SSL=1`. `caching_sha2_password` is the default
 authentication plugin for RDS for MySQL 8.4 For more information, see [Encrypting with SSL/TLS](mysql-ssl-connections.md "mysql-ssl-connections.md").
 
-For information about configuring, using, and managing read replicas, see [Working with MySQL read replicas](USER_MySQL.Replication.md "USER_MySQL.Replication.md").
+For information about configuring, using, and managing read replicas, see [Working with MySQL read replicas](USER_MySQL.Replication.ReadReplicas.md "USER_MySQL.Replication.ReadReplicas.md").
 
 ###### Topics
 
@@ -71,7 +71,7 @@ read replica if transactions in the source instance were not written to the
 binary log on disk before the failover event occurred. You can reduce the chance of this happening by setting the
 source instance parameters `sync_binlog` and
 `innodb_support_xa` to `1`, even though this might
-reduce performance. For more information, see [Troubleshooting a MySQL read replica problem](USER_ReadRepl.md "USER_ReadRepl.md").
+reduce performance. For more information, see [Troubleshooting a MySQL read replica problem](USER_ReadRepl.Troubleshooting.md "USER_ReadRepl.Troubleshooting.md").
 
 ### Examples
 
@@ -174,7 +174,7 @@ read replica if transactions in the source instance were not written to the
 binary log on disk before the failover event occurred. You can reduce the chance
 of this happening by setting the source instance parameters
 `sync_binlog` and `innodb_support_xa` to
-`1`, even though this might reduce performance. For more information, see [Troubleshooting a MySQL read replica problem](USER_ReadRepl.md "USER_ReadRepl.md").
+`1`, even though this might reduce performance. For more information, see [Troubleshooting a MySQL read replica problem](USER_ReadRepl.Troubleshooting.md "USER_ReadRepl.Troubleshooting.md").
 
 ### Examples
 
@@ -246,7 +246,7 @@ an instance of MySQL running external to Amazon RDS.
 
 To run this procedure, `autocommit` must be enabled. To enable it, set
 the `autocommit` parameter to `1`. For information about
-modifying parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+modifying parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 ### Syntax
 
@@ -271,7 +271,7 @@ external to Amazon RDS. For information about managing replication between Amazo
 instances, see [Working with DB instance read replicas](USER_ReadRepl.md "USER_ReadRepl.md").
 
 For more information about using replication to import data
-from an instance of MySQL running external to Amazon RDS, see [Configuring binary log file position replication with an external source instance](MySQL.Procedural.Importing.External.md "MySQL.Procedural.Importing.External.md").
+from an instance of MySQL running external to Amazon RDS, see [Configuring binary log file position replication with an external source instance](MySQL.Procedural.Importing.External.Repl.md "MySQL.Procedural.Importing.External.Repl.md").
 
 ## mysql.rds_reset_external_source (RDS for MySQL major versions 8.4 and higher)
 
@@ -282,7 +282,7 @@ an instance of MySQL running external to Amazon RDS.
 
 To run this procedure, `autocommit` must be enabled. To enable it, set
 the `autocommit` parameter to `1`. For information about
-modifying parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+modifying parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 ### Syntax
 
@@ -308,7 +308,7 @@ external to Amazon RDS.
 For information about managing replication between Amazon RDS DB instances, see
 [Working with DB instance read replicas](USER_ReadRepl.md "USER_ReadRepl.md"). For more
 information about using replication to import data from an instance of MySQL
-running external to Amazon RDS, see [Configuring binary log file position replication with an external source instance](MySQL.Procedural.Importing.External.md "MySQL.Procedural.Importing.External.md").
+running external to Amazon RDS, see [Configuring binary log file position replication with an external source instance](MySQL.Procedural.Importing.External.Repl.md "MySQL.Procedural.Importing.External.Repl.md").
 
 ## mysql.rds_set_external_master (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)
 
@@ -319,7 +319,7 @@ instance of MySQL running external to Amazon RDS.
 
 To run this procedure, `autocommit` must be enabled. To enable it, set
 the `autocommit` parameter to `1`. For information about
-modifying parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+modifying parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 ###### Note
 
@@ -492,7 +492,7 @@ instance of MySQL running external to Amazon RDS.
 
 To run this procedure, `autocommit` must be enabled. To enable it, set
 the `autocommit` parameter to `1`. For information about
-modifying parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+modifying parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 ### Syntax
 
@@ -648,7 +648,7 @@ replication based on global transaction identifiers (GTIDs).
 
 To run this procedure, `autocommit` must be enabled. To enable it, set
 the `autocommit` parameter to `1`. For information about
-modifying parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+modifying parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 ### Syntax
 
@@ -747,7 +747,7 @@ GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO 'repl_user'@'mydomain.com'
 IDENTIFIED BY 'SomePassW0rd'
 ```
 
-For more information, see [Configuring binary log file position replication with an external source instance](MySQL.Procedural.Importing.External.md "MySQL.Procedural.Importing.External.md").
+For more information, see [Configuring binary log file position replication with an external source instance](MySQL.Procedural.Importing.External.Repl.md "MySQL.Procedural.Importing.External.Repl.md").
 
 ###### Note
 
@@ -779,7 +779,7 @@ roll forward changes to a delayed read replica to the time just before a disaste
 you can run the `mysql.rds_set_external_master_with_auto_position`
 procedure. After the `mysql.rds_start_replication_until_gtid` procedure
 stops replication, you can promote the read replica to be the new primary DB
-instance by using the instructions in [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.md "USER_ReadRepl.md").
+instance by using the instructions in [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.Promote.md "USER_ReadRepl.Promote.md").
 
 To use the `mysql.rds_rds_start_replication_until_gtid` procedure,
 GTID-based replication must be enabled. To skip a specific GTID-based transaction
@@ -815,7 +815,7 @@ replication based on global transaction identifiers (GTIDs).
 
 To run this procedure, `autocommit` must be enabled. To enable it, set
 the `autocommit` parameter to `1`. For information about
-modifying parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+modifying parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 ### Syntax
 
@@ -911,7 +911,7 @@ GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO 'repl_user'@'mydomain.com'
 IDENTIFIED BY 'SomePassW0rd'
 ```
 
-For more information, see [Configuring binary log file position replication with an external source instance](MySQL.Procedural.Importing.External.md "MySQL.Procedural.Importing.External.md").
+For more information, see [Configuring binary log file position replication with an external source instance](MySQL.Procedural.Importing.External.Repl.md "MySQL.Procedural.Importing.External.Repl.md").
 
 ###### Note
 
@@ -943,7 +943,7 @@ roll forward changes to a delayed read replica to the time just before a disaste
 you can run the `mysql.rds_set_external_source_with_auto_position`
 procedure. After the `mysql.rds_start_replication_until_gtid` procedure
 stops replication, you can promote the read replica to be the new primary DB
-instance by using the instructions in [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.md "USER_ReadRepl.md").
+instance by using the instructions in [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.Promote.md "USER_ReadRepl.Promote.md").
 
 To use the `mysql.rds_rds_start_replication_until_gtid` procedure,
 GTID-based replication must be enabled. To skip a specific GTID-based transaction
@@ -978,7 +978,7 @@ running external to Amazon RDS and configures delayed replication.
 
 To run this procedure, `autocommit` must be enabled. To enable it, set
 the `autocommit` parameter to `1`. For information about
-modifying parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+modifying parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 ### Syntax
 
@@ -1091,7 +1091,7 @@ GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO 'repl_user'@'mydomain.com'
 IDENTIFIED BY 'SomePassW0rd'
 ```
 
-For more information, see [Configuring binary log file position replication with an external source instance](MySQL.Procedural.Importing.External.md "MySQL.Procedural.Importing.External.md").
+For more information, see [Configuring binary log file position replication with an external source instance](MySQL.Procedural.Importing.External.Repl.md "MySQL.Procedural.Importing.External.Repl.md").
 
 ###### Note
 
@@ -1118,7 +1118,7 @@ roll forward changes to a delayed read replica to the time just before a disaste
 you can run the `mysql.rds_set_external_master_with_delay` procedure.
 After the `mysql.rds_start_replication_until` procedure stops
 replication, you can promote the read replica to be the new primary DB instance by
-using the instructions in [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.md "USER_ReadRepl.md").
+using the instructions in [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.Promote.md "USER_ReadRepl.Promote.md").
 
 To use the `mysql.rds_rds_start_replication_until_gtid` procedure,
 GTID-based replication must be enabled. To skip a specific GTID-based transaction
@@ -1161,7 +1161,7 @@ running external to Amazon RDS and configures delayed replication.
 
 To run this procedure, `autocommit` must be enabled. To enable it, set
 the `autocommit` parameter to `1`. For information about
-modifying parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+modifying parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 ### Syntax
 
@@ -1274,7 +1274,7 @@ GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO 'repl_user'@'mydomain.com'
 IDENTIFIED BY 'SomePassW0rd'
 ```
 
-For more information, see [Configuring binary log file position replication with an external source instance](MySQL.Procedural.Importing.External.md "MySQL.Procedural.Importing.External.md").
+For more information, see [Configuring binary log file position replication with an external source instance](MySQL.Procedural.Importing.External.Repl.md "MySQL.Procedural.Importing.External.Repl.md").
 
 ###### Note
 
@@ -1301,7 +1301,7 @@ roll forward changes to a delayed read replica to the time just before a disaste
 you can run the `mysql.rds_set_external_source_with_delay` procedure.
 After the `mysql.rds_start_replication_until` procedure stops
 replication, you can promote the read replica to be the new primary DB instance by
-using the instructions in [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.md "USER_ReadRepl.md").
+using the instructions in [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.Promote.md "USER_ReadRepl.Promote.md").
 
 To use the `mysql.rds_rds_start_replication_until_gtid` procedure,
 GTID-based replication must be enabled. To skip a specific GTID-based transaction
@@ -1339,7 +1339,7 @@ replication to resume the replication using auto positioning.
 
 To run this procedure, `autocommit` must be enabled. To enable it, set
 the `autocommit` parameter to `1`. For information about
-modifying parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+modifying parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 ### Syntax
 
@@ -1545,7 +1545,7 @@ you can run the `mysql.rds_set_source_delay` procedure. After the
 `mysql.rds_start_replication_until` or
 `mysql.rds_start_replication_until_gtid` procedure stops replication,
 you can promote the read replica to be the new primary DB instance by using the
-instructions in [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.md "USER_ReadRepl.md").
+instructions in [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.Promote.md "USER_ReadRepl.Promote.md").
 
 To use the `mysql.rds_rds_start_replication_until_gtid` procedure,
 GTID-based replication must be enabled. To skip a specific GTID-based transaction
@@ -1582,7 +1582,7 @@ CALL mysql.rds_skip_repl_error;
 ### Usage notes
 
 The master user must run the `mysql.rds_skip_repl_error` procedure on a
-read replica. For more information about this procedure, see [Calling the mysql.rds_skip_repl_error procedure](Appendix.MySQL.CommonDBATasks.md#Appendix.MySQL.CommonDBATasks.SkipError.procedure "Appendix.MySQL.CommonDBATasks.md#Appendix.MySQL.CommonDBATasks.SkipError.procedure").
+read replica. For more information about this procedure, see [Calling the mysql.rds_skip_repl_error procedure](Appendix.MySQL.CommonDBATasks.SkipError.md#Appendix.MySQL.CommonDBATasks.SkipError.procedure "Appendix.MySQL.CommonDBATasks.SkipError.md#Appendix.MySQL.CommonDBATasks.SkipError.procedure").
 
 To determine if there are errors, run the MySQL `SHOW REPLICA STATUS\G`
 command. If a replication error isn't critical, you can run
@@ -1594,7 +1594,7 @@ values returned, see [SHOW
 REPLICA STATUS statement](https://dev.mysql.com/doc/refman/8.0/en/show-replica-status.html "https://dev.mysql.com/doc/refman/8.0/en/show-replica-status.html") in the MySQL documentation.
 
 For more information about addressing replication errors
-with Amazon RDS, see [Troubleshooting a MySQL read replica problem](USER_ReadRepl.md "USER_ReadRepl.md").
+with Amazon RDS, see [Troubleshooting a MySQL read replica problem](USER_ReadRepl.Troubleshooting.md "USER_ReadRepl.Troubleshooting.md").
 
 #### Replication stopped error
 
@@ -1654,12 +1654,12 @@ procedure.
 To import data from an instance of MySQL external to Amazon RDS, call
 `mysql.rds_start_replication` on the read replica to start the
 replication process after you call [mysql.rds_set_external_master (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](#mysql_rds_set_external_master "#mysql_rds_set_external_master") or [mysql.rds_set_external_source (RDS for MySQL major versions 8.4 and higher)](#mysql_rds_set_external_source "#mysql_rds_set_external_source") to build the replication
-configuration. For more information, see [Restoring a backup into an Amazon RDS for MySQL DB instance](MySQL.Procedural.md "MySQL.Procedural.md").
+configuration. For more information, see [Restoring a backup into an Amazon RDS for MySQL DB instance](MySQL.Procedural.Importing.md "MySQL.Procedural.Importing.md").
 
 To export data to an instance of MySQL external to Amazon RDS, call
 `mysql.rds_start_replication` and
 `mysql.rds_stop_replication` on the read replica to control some
-replication actions, such as purging binary logs. For more information, see [Exporting data from a MySQL DB instance by using replication](MySQL.Procedural.Exporting.md "MySQL.Procedural.Exporting.md").
+replication actions, such as purging binary logs. For more information, see [Exporting data from a MySQL DB instance by using replication](MySQL.Procedural.Exporting.NonRDSRepl.md "MySQL.Procedural.Exporting.NonRDSRepl.md").
 
 You can also call `mysql.rds_start_replication` on the read replica to
 restart any replication process that you previously stopped by calling
@@ -1708,7 +1708,7 @@ You can use this procedure with delayed replication for
 disaster recovery. If you have delayed replication configured, you can use this
 procedure to roll forward changes to a delayed read replica to the time just before
 a disaster. After this procedure stops replication, you can promote the read replica
-to be the new primary DB instance by using the instructions in [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.md "USER_ReadRepl.md").
+to be the new primary DB instance by using the instructions in [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.Promote.md "USER_ReadRepl.Promote.md").
 
 You can configure delayed replication using the following
 stored procedures:
@@ -1754,12 +1754,12 @@ The master user must run the `mysql.rds_stop_replication` procedure.
 If you are configuring replication to import data from an instance of MySQL
 running external to Amazon RDS, you call `mysql.rds_stop_replication` on the
 read replica to stop the replication process after the import has completed. For
-more information, see [Restoring a backup into an Amazon RDS for MySQL DB instance](MySQL.Procedural.md "MySQL.Procedural.md").
+more information, see [Restoring a backup into an Amazon RDS for MySQL DB instance](MySQL.Procedural.Importing.md "MySQL.Procedural.Importing.md").
 
 If you are configuring replication to export data to an instance of MySQL external
 to Amazon RDS, you call `mysql.rds_start_replication` and
 `mysql.rds_stop_replication` on the read replica to control some
-replication actions, such as purging binary logs. For more information, see [Exporting data from a MySQL DB instance by using replication](MySQL.Procedural.Exporting.md "MySQL.Procedural.Exporting.md").
+replication actions, such as purging binary logs. For more information, see [Exporting data from a MySQL DB instance by using replication](MySQL.Procedural.Exporting.NonRDSRepl.md "MySQL.Procedural.Exporting.NonRDSRepl.md").
 
 You can also use `mysql.rds_stop_replication` to
 stop replication between two Amazon RDS DB instances. You typically stop replication to

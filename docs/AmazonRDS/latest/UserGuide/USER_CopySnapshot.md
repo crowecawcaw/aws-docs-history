@@ -432,7 +432,7 @@ be a Region-specific KMS key, or a multi-Region key. For more information on mul
 AWS KMS](../../../kms/latest/developerguide/multi-region-keys-overview.md "../../../kms/latest/developerguide/multi-region-keys-overview.md").
 
 The source snapshot remains encrypted throughout the copy process. For more information, see
-[Limitations of Amazon RDS encrypted DB instances](Overview.md#Overview.Encryption.Limitations "Overview.md#Overview.Encryption.Limitations").
+[Limitations of Amazon RDS encrypted DB instances](Overview.Encryption.md#Overview.Encryption.Limitations "Overview.Encryption.md#Overview.Encryption.Limitations").
 
 You can also encrypt a copy of an unencrypted snapshot. This way, you can quickly add encryption to a
 previously unencrypted DB instance. To do this, you create a snapshot of your DB instance when you are ready to encrypt it. You
@@ -442,7 +442,7 @@ then create a copy of that snapshot and specify a KMS key to encrypt that snapsh
 
 When you use explicit deny statements for all resources (\*) in AWS KMS key policies with managed services like Amazon RDS, you must specify a condition to allow the resource owning account. The copy operation might fail without this condition, even if the deny rule includes exceptions for your IAM user.
 
-For more information about AWS KMS key management for Amazon RDS, see [AWS KMS key management](Overview.Encryption.md "Overview.Encryption.md").
+For more information about AWS KMS key management for Amazon RDS, see [AWS KMS key management](Overview.Encryption.Keys.md "Overview.Encryption.Keys.md").
 
 #### Required permissions for copying encrypted snapshots
 

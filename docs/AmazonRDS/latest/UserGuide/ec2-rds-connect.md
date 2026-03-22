@@ -9,7 +9,7 @@ your private DB instance. For instructions on setting up a
 connection between an EC2 instance and a Multi-AZ DB cluster, see [Automatically connecting an EC2 instance and a Multi-AZ DB cluster](multiaz-ec2-rds-connect.md "multiaz-ec2-rds-connect.md").
 
 ![Automatically connect a DB instance with an EC2 instance.](images/auto-connect-rds-ec2.png)
-If you want to connect to an EC2 instance that isn't in the same VPC as the DB instance, see the scenarios in [Scenarios for accessing a DB instance in a VPC](USER_VPC.md "USER_VPC.md").
+If you want to connect to an EC2 instance that isn't in the same VPC as the DB instance, see the scenarios in [Scenarios for accessing a DB instance in a VPC](USER_VPC.Scenarios.md "USER_VPC.Scenarios.md").
 
 ###### Topics
 

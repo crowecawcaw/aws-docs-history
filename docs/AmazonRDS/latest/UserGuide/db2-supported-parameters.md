@@ -170,9 +170,9 @@ For more information, see [DB parameter groups for Amazon RDS DB instances](USER
 ###### To modify database manager configuration parameters and registry variables
 
 1. Create a custom parameter group. For more information about creating a
-   DB parameter group, see [Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+   DB parameter group, see [Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Creating.md "USER_WorkingWithParamGroups.Creating.md").
 2. Modify the parameters in that custom parameter group. For more
-   information about modifying a parameter group, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+   information about modifying a parameter group, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 ###### To modify database manager configuration parameters and registry variables
 
@@ -188,7 +188,7 @@ Include the following required options:
     * `--description` – A description for this
      parameter group.
 
-For more information about creating a DB parameter group, see [Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 2. Modify the parameters in the custom parameter group that you created
+For more information about creating a DB parameter group, see [Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Creating.md "USER_WorkingWithParamGroups.Creating.md"). 2. Modify the parameters in the custom parameter group that you created
 by running the [modify-db-parameter-group](../../../cli/latest/reference/rds/modify-db-parameter-group.md "../../../cli/latest/reference/rds/modify-db-parameter-group.md")
 command.
 
@@ -200,7 +200,7 @@ Include the following required options:
      names, values, and the application methods for the parameter
      update.
 
-For more information about modifying a parameter group, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+For more information about modifying a parameter group, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 ###### To modify database manager configuration parameters and registry variables
 
@@ -212,7 +212,7 @@ Include the following required parameters:
     * `DBParameterGroupFamily`
     * `Description`
 
-For more information about creating a DB parameter group, see [Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 2. Modify the parameters in the custom parameter group that you created
+For more information about creating a DB parameter group, see [Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Creating.md "USER_WorkingWithParamGroups.Creating.md"). 2. Modify the parameters in the custom parameter group that you created
 by using the [ModifyDBParameterGroup](../APIReference/API_ModifyDBParameterGroup.md "../APIReference/API_ModifyDBParameterGroup.md") operation.
 
 Include the following required parameters:
@@ -220,7 +220,7 @@ Include the following required parameters:
     * `DBParameterGroupName`
     * `Parameters`
 
-For more information about modifying a parameter group, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+For more information about modifying a parameter group, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 ## Modifying the database configuration parameters with Db2 commands
 

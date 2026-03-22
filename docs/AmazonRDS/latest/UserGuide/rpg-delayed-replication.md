@@ -82,7 +82,7 @@ Users with the `rds_superuser` role have EXECUTE privileges on
 `pg_wal_replay_pause()` and `pg_wal_replay_resume()`. If other
 database users need access to these functions, you must grant them the
 `rds_superuser` role. For more information about the
-`rds_superuser` role, see [Understanding the rds_superuser role](Appendix.PostgreSQL.CommonDBATasks.Roles.md "Appendix.PostgreSQL.CommonDBATasks.Roles.md").
+`rds_superuser` role, see [Understanding the rds_superuser role](Appendix.PostgreSQL.CommonDBATasks.Roles.rds_superuser.md "Appendix.PostgreSQL.CommonDBATasks.Roles.rds_superuser.md").
 
 Access to other functions like `pg_is_wal_replay_paused()` and
 `pg_get_wal_replay_pause_state()` doesn't require the
@@ -139,7 +139,7 @@ Consider the following when planning delayed replication with RDS for PostgreSQL
   add to the delay of any cascaded replicas.
 
 For more information, see the [RDS for PostgreSQL Read Replicas
-documentation](USER_ReadRepl.md "USER_ReadRepl.md") and the [RDS for PostgreSQL Disaster Recovery documentation](USER_PostgreSQL.md "USER_PostgreSQL.md").
+documentation](USER_ReadRepl.md "USER_ReadRepl.md") and the [RDS for PostgreSQL Disaster Recovery documentation](USER_PostgreSQL.Disaster-Recovery.md "USER_PostgreSQL.Disaster-Recovery.md").
 
 ## Understanding limitations
 

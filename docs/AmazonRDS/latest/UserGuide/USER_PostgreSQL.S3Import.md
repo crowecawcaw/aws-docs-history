@@ -1,44 +1,31 @@
-# Installing the aws_s3 extension
+# Importing data from Amazon S3 into an RDS for PostgreSQL DB instance
 
-Before you can use Amazon S3 with your
-RDS for PostgreSQL DB instance, you need to install the
-`aws_s3` extension. This extension provides functions for importing data from an Amazon S3. It also provides
-functions for exporting data from an RDS for PostgreSQL DB instance
-to an Amazon S3 bucket. For more information, see
-[Exporting data from an RDS for PostgreSQL DB instance to Amazon S3](postgresql-s3-export.md "postgresql-s3-export.md").
+You can import data that's been stored using Amazon Simple Storage Service into a table on an RDS for PostgreSQL DB
+instance. To do this, you first install the
+RDS for PostgreSQL `aws_s3` extension. This extension provides
+the functions that you use to import data from an Amazon S3 bucket. A _bucket_ is an Amazon S3 container for objects
+and files.
+The data can be in a comma-separate value (CSV) file, a text file,
+or a compressed (gzip) file. Following, you can learn how to install the extension and how to import data
+from Amazon S3 into a table.
 
-The `aws_s3` extension depends on some of the helper functions in the
-`aws_commons` extension, which is installed automatically when needed.
+Your database must be running PostgreSQL version 10.7 or higher to import from Amazon S3 into
+RDS for PostgreSQL.
 
-###### To install the `aws_s3` extension
+If you don't have data stored on Amazon S3, you need to first create a bucket and store the data.
+For more information, see the following topics in the _Amazon Simple Storage Service User Guide_.
 
-1. Use psql (or pgAdmin) to connect to the RDS for PostgreSQL DB instance
-   as a user that has `rds_superuser` privileges. If you kept the default name during the setup
-   process, you connect as `postgres`.
+- [Create a bucket](../../../AmazonS3/latest/userguide/GetStartedWithS3.md#creating-bucket "../../../AmazonS3/latest/userguide/GetStartedWithS3.md#creating-bucket")
+- [Add an object to a
+  bucket](../../../AmazonS3/latest/userguide/GetStartedWithS3.md#uploading-an-object-bucket "../../../AmazonS3/latest/userguide/GetStartedWithS3.md#uploading-an-object-bucket")
+  Cross-account import from Amazon S3 is supported. For more information, see [Granting cross-account permissions](../../../AmazonS3/latest/userguide/example-walkthroughs-managing-access-example2.md "../../../AmazonS3/latest/userguide/example-walkthroughs-managing-access-example2.md") in the _Amazon Simple Storage Service User Guide_.
 
-```
-psql --host=`111122223333`.`aws-region`.rds.amazonaws.com --port=5432 --username=postgres --password
-```
+You can use the customer managed key for encryption while importing data from S3. For more information, see [KMS keys stored in AWS KMS](../../../AmazonS3/latest/userguide/UsingKMSEncryption.md "../../../AmazonS3/latest/userguide/UsingKMSEncryption.md") in the _Amazon Simple Storage Service User Guide_.
 
-2. To install the extension, run the following command.
+###### Topics
 
-```
-`postgres=>` CREATE EXTENSION aws_s3 CASCADE;
-`NOTICE: installing required extension "aws_commons"
-CREATE EXTENSION`
-```
-
-3. To verify that the extension is installed, you can use the psql `\dx` metacommand.
-
-```
-`postgres=>` \dx
- `List of installed extensions
- Name | Version | Schema | Description
--------------+---------+------------+---------------------------------------------
- aws_commons | 1.2 | public | Common data types across AWS services
- aws_s3 | 1.1 | public | AWS S3 extension for importing data from S3
- plpgsql | 1.0 | pg_catalog | PL/pgSQL procedural language
-(3 rows)`
-```
-
-The functions for importing data from Amazon S3 and exporting data to Amazon S3 are now available to use.
+- [Installing the aws_s3 extension](USER_PostgreSQL.S3Import.InstallExtension.md "USER_PostgreSQL.S3Import.InstallExtension.md")
+- [Overview of importing data from Amazon S3 data](USER_PostgreSQL.S3Import.Overview.md "USER_PostgreSQL.S3Import.Overview.md")
+- [Setting up access to an Amazon S3 bucket](USER_PostgreSQL.S3Import.AccessPermission.md "USER_PostgreSQL.S3Import.AccessPermission.md")
+- [Importing data from Amazon S3 to your RDS for PostgreSQL DB instance](USER_PostgreSQL.S3Import.FileFormats.md "USER_PostgreSQL.S3Import.FileFormats.md")
+- [Function reference](USER_PostgreSQL.S3Import.Reference.md "USER_PostgreSQL.S3Import.Reference.md")

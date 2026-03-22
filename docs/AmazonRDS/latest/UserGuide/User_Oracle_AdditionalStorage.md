@@ -28,9 +28,9 @@ You can remove additional storage volumes, but you can't remove the primary volu
 - [Considerations for using additional storage volumes with RDS for Oracle](#User_Oracle_AdditionalStorage.considerations "#User_Oracle_AdditionalStorage.considerations")
 - [Limitations of using additional storage volumes with RDS for Oracle](#User_Oracle_AdditionalStorage.limitations "#User_Oracle_AdditionalStorage.limitations")
 - [Database management operations with additional storage volumes in RDS for Oracle](#User_Oracle_AdditionalStorage.DBManagement "#User_Oracle_AdditionalStorage.DBManagement")
-- [Add, remove, or modify storage volumes with RDS for Oracle](User_Oracle_AdditionalStorage.md "User_Oracle_AdditionalStorage.md")
-- [Backing up and restoring data with additional storage volumes in RDS for Oracle](User_Oracle_AdditionalStorage.md "User_Oracle_AdditionalStorage.md")
-- [Use cases for additional storage volumes in RDS for Oracle](User_Oracle_AdditionalStorage.md "User_Oracle_AdditionalStorage.md")
+- [Add, remove, or modify storage volumes with RDS for Oracle](User_Oracle_AdditionalStorage.ModifyStorageVolumes.md "User_Oracle_AdditionalStorage.ModifyStorageVolumes.md")
+- [Backing up and restoring data with additional storage volumes in RDS for Oracle](User_Oracle_AdditionalStorage.BackupRestore.md "User_Oracle_AdditionalStorage.BackupRestore.md")
+- [Use cases for additional storage volumes in RDS for Oracle](User_Oracle_AdditionalStorage.UseCases.md "User_Oracle_AdditionalStorage.UseCases.md")
 
 ## Considerations for using additional storage volumes with RDS for Oracle
 
@@ -49,7 +49,7 @@ Consider the following when using additional storage volumes with RDS for Oracle
 - When you create an additional storage volume by modifying the DB instance,
   RDS immediately creates the storage volume regardless of the schedule modifications setting.
   Adding a storage volume is an online operation and does not impact your database performance.
-  See [Using the schedule modifications setting](USER_ModifyInstance.md "USER_ModifyInstance.md").
+  See [Using the schedule modifications setting](USER_ModifyInstance.ApplyImmediately.md "USER_ModifyInstance.ApplyImmediately.md").
 
 For optimal performance, check the following when you are using additional storage
 volumes:
@@ -108,6 +108,6 @@ You can perform database management operations such as creating tablespaces or
 moving data between storage volumes while using additional storage volumes in RDS for Oracle.
 For more information about database management operations with additional storage volumes, see the following sections:
 
-- [Specifying database file locations in RDS for Oracle](Appendix.Oracle.CommonDBATasks.md#Appendix.Oracle.CommonDBATasks.DatabaseFileLocations "Appendix.Oracle.CommonDBATasks.md#Appendix.Oracle.CommonDBATasks.DatabaseFileLocations")
-- [Creating and sizing tablespaces in RDS for Oracle](Appendix.Oracle.CommonDBATasks.md#Appendix.Oracle.CommonDBATasks.CreatingTablespacesAndDatafiles "Appendix.Oracle.CommonDBATasks.md#Appendix.Oracle.CommonDBATasks.CreatingTablespacesAndDatafiles")
-- [Moving data files between volumes in RDS for Oracle](Appendix.Oracle.CommonDBATasks.md#Appendix.Oracle.CommonDBATasks.MovingDatafiles "Appendix.Oracle.CommonDBATasks.md#Appendix.Oracle.CommonDBATasks.MovingDatafiles")
+- [Specifying database file locations in RDS for Oracle](Appendix.Oracle.CommonDBATasks.TablespacesAndDatafiles.md#Appendix.Oracle.CommonDBATasks.DatabaseFileLocations "Appendix.Oracle.CommonDBATasks.TablespacesAndDatafiles.md#Appendix.Oracle.CommonDBATasks.DatabaseFileLocations")
+- [Creating and sizing tablespaces in RDS for Oracle](Appendix.Oracle.CommonDBATasks.TablespacesAndDatafiles.md#Appendix.Oracle.CommonDBATasks.CreatingTablespacesAndDatafiles "Appendix.Oracle.CommonDBATasks.TablespacesAndDatafiles.md#Appendix.Oracle.CommonDBATasks.CreatingTablespacesAndDatafiles")
+- [Moving data files between volumes in RDS for Oracle](Appendix.Oracle.CommonDBATasks.MovingDataBetweenVolumes.md#Appendix.Oracle.CommonDBATasks.MovingDatafiles "Appendix.Oracle.CommonDBATasks.MovingDataBetweenVolumes.md#Appendix.Oracle.CommonDBATasks.MovingDatafiles")
