@@ -33,7 +33,7 @@ voice in a variety of languages and dialects.
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/describe-for-me-web-app.md "samples/describe-for-me-web-app.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/describe-for-me-web-app.zip.md "samples/describe-for-me-web-app.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
