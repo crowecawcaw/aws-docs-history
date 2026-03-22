@@ -23,7 +23,7 @@ and forecasting activities, and build intelligent workflows.
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/ibm-planning-analytics-with-watson.md "samples/ibm-planning-analytics-with-watson.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/ibm-planning-analytics-with-watson.zip.md "samples/ibm-planning-analytics-with-watson.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
