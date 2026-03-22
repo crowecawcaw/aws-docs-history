@@ -49,7 +49,7 @@ Amazon Web Services (AWS).
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/life-sciences-data-collection-storage-processing.md "samples/life-sciences-data-collection-storage-processing.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/life-sciences-data-collection-storage-processing.zip.md "samples/life-sciences-data-collection-storage-processing.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
