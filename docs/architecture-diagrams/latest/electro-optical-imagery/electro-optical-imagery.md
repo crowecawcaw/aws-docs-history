@@ -71,7 +71,7 @@ This diagram demonstrates how to extract, process, and store electro-optical sat
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/electro-optical-imagery.md "samples/electro-optical-imagery.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/electro-optical-imagery.zip.md "samples/electro-optical-imagery.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
