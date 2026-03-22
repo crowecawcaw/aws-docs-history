@@ -9,14 +9,14 @@ For information on setting up see [Setting up ElastiCache](set-up.md "set-up.md"
 For details on managing, updating or deleting nodes or clusters, see
 [Managing nodes in ElastiCache](CacheNodes.md "CacheNodes.md").
 For an overview of the major components of an Amazon ElastiCache deployment when you create a node-based ElastiCache cluster, see these
-[key concepts.](WhatIs.md "WhatIs.md")
+[key concepts.](WhatIs.corecomponents.md "WhatIs.corecomponents.md")
 
 ###### Topics
 
-- [ElastiCache components and features](WhatIs.md "WhatIs.md")
-- [ElastiCache terminology](WhatIs.md "WhatIs.md")
-- [Tutorial: How to create a node-based ElastiCache cluster](SubnetGroups.md "SubnetGroups.md")
-- [Deleting a cluster](Clusters.Delete-gs.md "Clusters.Delete-gs.md")
+- [ElastiCache components and features](WhatIs.Components.md "WhatIs.Components.md")
+- [ElastiCache terminology](WhatIs.Terms.md "WhatIs.Terms.md")
+- [Tutorial: How to create a node-based ElastiCache cluster](SubnetGroups.designing-cluster-pre.md "SubnetGroups.designing-cluster-pre.md")
+- [Deleting a cluster](Clusters.Delete-gs.redis.md "Clusters.Delete-gs.redis.md")
 - [Other ElastiCache tutorials and videos](Tutorials.md "Tutorials.md")
 - [Managing nodes in ElastiCache](CacheNodes.md "CacheNodes.md")
 - [Managing clusters in ElastiCache](Clusters.md "Clusters.md")

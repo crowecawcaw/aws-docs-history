@@ -72,7 +72,7 @@ reduced latency and increased throughput.
 - **[Resources]:**
   - [Monitoring use with CloudWatch Metrics](CacheMetrics.md "CacheMetrics.md")
   - [Using Amazon CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md")
-  - [Valkey and Redis OSS specific parameters](ParameterGroups.md#ParameterGroups.Redis "ParameterGroups.md#ParameterGroups.Redis")
+  - [Valkey and Redis OSS specific parameters](ParameterGroups.Engine.md#ParameterGroups.Redis "ParameterGroups.Engine.md#ParameterGroups.Redis")
   - [SLOWLOG](https://valkey.io/commands/slowlog/ "https://valkey.io/commands/slowlog/")
   - [benchmark](https://valkey.io/topics/benchmark/ "https://valkey.io/topics/benchmark/")
 
@@ -105,7 +105,7 @@ well.
     consistent hashing. Check the documentation for the library you are
     using to see if it supports consistent hashing and how to implement
     it. You can find more information on implementing these features
-    [here](BestPractices.md "BestPractices.md").
+    [here](BestPractices.LoadBalancing.md "BestPractices.LoadBalancing.md").
 
 - **[Better]** Take advantage of ElastiCache for Valkey and Redis OSS cluster mode enabled clusters to improve scalability.
   - ElastiCache for Valkey and Redis OSS (cluster mode enabled) clusters support
@@ -143,7 +143,7 @@ well.
 - **[Resources]:**
   - [Configure ElastiCache for Valkey and Redis OSS for higher availability](https://aws.amazon.com/blogs/database/configuring-amazon-elasticache-for-redis-for-higher-availability/ "https://aws.amazon.com/blogs/database/configuring-amazon-elasticache-for-redis-for-higher-availability/")
   - [Finding connection endpoints in ElastiCache](Endpoints.md "Endpoints.md")
-  - [Load balancing best practices](BestPractices.md "BestPractices.md")
+  - [Load balancing best practices](BestPractices.LoadBalancing.md "BestPractices.LoadBalancing.md")
   - [Online resharding for Valkey or Redis OSS (cluster mode enabled)](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online")
   - [Client-side caching in Valkey and Redis OSS](https://valkey.io/topics/client-side-caching/ "https://valkey.io/topics/client-side-caching/")
 
@@ -170,7 +170,7 @@ workload.
 
 **[Resources]:**
 
-    + [Metrics for Valkey and Redis OSS](CacheMetrics.md "CacheMetrics.md")
+    + [Metrics for Valkey and Redis OSS](CacheMetrics.Redis.md "CacheMetrics.Redis.md")
 
 - **[Required]** Measure and collect your
   application cache performance in conjunction with latency and CPU
@@ -184,7 +184,7 @@ workload.
 
 **[Resources]:**
 
-    + [Metrics for Valkey and Redis OSS](CacheMetrics.md "CacheMetrics.md")
+    + [Metrics for Valkey and Redis OSS](CacheMetrics.Redis.md "CacheMetrics.Redis.md")
     + [Monitoring best practices with ElastiCache using Amazon
      CloudWatch](https://aws.amazon.com/blogs/database/monitoring-best-practices-with-amazon-elasticache-for-redis-using-amazon-cloudwatch/ "https://aws.amazon.com/blogs/database/monitoring-best-practices-with-amazon-elasticache-for-redis-using-amazon-cloudwatch/")
 
@@ -244,10 +244,10 @@ and throughput.
 
 - **[Resources]:**
   - [ElastiCache - Global Datastore](https://aws.amazon.com/elasticache/redis/global-datastore/ "https://aws.amazon.com/elasticache/redis/global-datastore/")
-  - [Memcached specific parameters](ParameterGroups.md#ParameterGroups.Memcached "ParameterGroups.md#ParameterGroups.Memcached")
+  - [Memcached specific parameters](ParameterGroups.Engine.md#ParameterGroups.Memcached "ParameterGroups.Engine.md#ParameterGroups.Memcached")
   - [ElastiCache version 5.0.3 for Redis OSS enhances I/O handling to boost
     performance](https://aws.amazon.com/about-aws/whats-new/2019/03/amazon-elasticache-for-redis-503-enhances-io-handling-to-boost-performance/ "https://aws.amazon.com/about-aws/whats-new/2019/03/amazon-elasticache-for-redis-503-enhances-io-handling-to-boost-performance/")
-  - [Metrics for Valkey and Redis OSS](CacheMetrics.md "CacheMetrics.md")
+  - [Metrics for Valkey and Redis OSS](CacheMetrics.Redis.md "CacheMetrics.Redis.md")
   - [Configure ElastiCache for higher
     availability](https://aws.amazon.com/blogs/database/configuring-amazon-elasticache-for-redis-for-higher-availability/ "https://aws.amazon.com/blogs/database/configuring-amazon-elasticache-for-redis-for-higher-availability/")
 
@@ -416,7 +416,7 @@ detailed performance analysis and can be used to trigger automated events.
   - [How do I turn on Slow log in a cluster?](https://repost.aws/knowledge-center/elasticache-turn-on-slow-log "https://repost.aws/knowledge-center/elasticache-turn-on-slow-log")
   - [Log
     delivery](Log_Delivery.md "Log_Delivery.md")
-  - [Redis OSS-specific parameters](ParameterGroups.md#ParameterGroups.Redis "ParameterGroups.md#ParameterGroups.Redis")
+  - [Redis OSS-specific parameters](ParameterGroups.Engine.md#ParameterGroups.Redis "ParameterGroups.Engine.md#ParameterGroups.Redis")
   - [https://aws.amazon.com/cloudwatch/](https://aws.amazon.com/cloudwatch/ "https://aws.amazon.com/cloudwatch/")Amazon CloudWatch
   - [Amazon
     Kinesis Data Firehose](https://aws.amazon.com/kinesis/data-firehose/ "https://aws.amazon.com/kinesis/data-firehose/")

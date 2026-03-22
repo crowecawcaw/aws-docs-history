@@ -1,7 +1,7 @@
 # Specifying log delivery using the Console
 
-Using the AWS Management Console you can create a Valkey or Redis OSS (cluster mode disabled) cluster by following the steps at [Creating a Valkey (cluster mode disabled) cluster (Console)](SubnetGroups.designing-cluster-pre.md#Clusters.Create.CON.valkey-gs "SubnetGroups.designing-cluster-pre.md#Clusters.Create.CON.valkey-gs") or
-create a Valkey or Redis OSS (cluster mode enabled) cluster using the steps at [Creating a Valkey or Redis OSS (cluster mode enabled) cluster (Console)](Clusters.md#Clusters.Create.CON.RedisCluster "Clusters.md#Clusters.Create.CON.RedisCluster"). In either case,
+Using the AWS Management Console you can create a Valkey or Redis OSS (cluster mode disabled) cluster by following the steps at [Creating a Valkey (cluster mode disabled) cluster (Console)](SubnetGroups.designing-cluster-pre.valkey.md#Clusters.Create.CON.valkey-gs "SubnetGroups.designing-cluster-pre.valkey.md#Clusters.Create.CON.valkey-gs") or
+create a Valkey or Redis OSS (cluster mode enabled) cluster using the steps at [Creating a Valkey or Redis OSS (cluster mode enabled) cluster (Console)](Clusters.Create.md#Clusters.Create.CON.RedisCluster "Clusters.Create.md#Clusters.Create.CON.RedisCluster"). In either case,
 you configure log delivery by doing the following;
 
 1. Under **Advanced settings**, choose **Logs** and then check either **Slow logs**

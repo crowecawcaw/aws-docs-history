@@ -73,7 +73,7 @@ The existing cluster must use an engine that is Valkey 7.2 or later or Redis OSS
        the default setting. This indicates no restrictions.
      - **User Group Access Control List**
        – Choose a user group with a defined set of users and
-       permissions on available operations. For more information, see [Managing User Groups with the Console and CLI](Clusters.md#User-Groups "Clusters.md#User-Groups").
+       permissions on available operations. For more information, see [Managing User Groups with the Console and CLI](Clusters.RBAC.md#User-Groups "Clusters.RBAC.md#User-Groups").
      - **AUTH Default User** –
        An authentication mechanism for a Valkey or Redis OSS server. For more information,
        see [AUTH](auth.md "auth.md").
@@ -153,8 +153,8 @@ procedure.
        reason to use a different port, enter the port number.
     3. For **Parameter group**, choose a parameter group or
        create a new one. Parameter groups control the runtime parameters of your
-       cluster. For more information on parameter groups, see [Valkey and Redis OSS parameters](ParameterGroups.md#ParameterGroups.Redis "ParameterGroups.md#ParameterGroups.Redis")
-       and [Creating an ElastiCache parameter group](ParameterGroups.md "ParameterGroups.md").
+       cluster. For more information on parameter groups, see [Valkey and Redis OSS parameters](ParameterGroups.Engine.md#ParameterGroups.Redis "ParameterGroups.Engine.md#ParameterGroups.Redis")
+       and [Creating an ElastiCache parameter group](ParameterGroups.Creating.md "ParameterGroups.Creating.md").
 
     ###### Note
 
@@ -169,7 +169,7 @@ procedure.
     type that you want. Then choose the node type that you want to use for this
     cluster, and then choose **Save**.
 
-    For more information, see [Choosing your node size](CacheNodes.md "CacheNodes.md").
+    For more information, see [Choosing your node size](CacheNodes.SelectSize.md "CacheNodes.SelectSize.md").
 
     If you choose an r6gd node type, data-tiering is automatically enabled.
     For more information, see [Data tiering in ElastiCache](data-tiering.md "data-tiering.md"). 5. If you are creating a Valkey or Redis OSS (cluster mode disabled) cluster:
@@ -279,7 +279,7 @@ _Specifying Keyspaces and Availability Zones_ 8. Choose **Next** 9. Under **Adva
     			+ **User Group Access Control
     			 List** – Select a user group with a
     			 defined set of users that can access the cluster. For more
-    			 information, see [Managing User Groups with the Console and CLI](Clusters.md#User-Groups "Clusters.md#User-Groups").
+    			 information, see [Managing User Groups with the Console and CLI](Clusters.RBAC.md#User-Groups "Clusters.RBAC.md#User-Groups").
     			+ **AUTH Default User** – An authentication mechanism
     			 for a Valkey or Redis OSS server. For more information, see [AUTH](auth.md "auth.md").
     		* **AUTH** – An
@@ -372,7 +372,7 @@ For more information, see [Managing ElastiCache cluster maintenance](maintenance
         the cluster.
       - **User Group Access Control List**
         – Choose a user group with a defined set of users that can
-        access the cluster. For more information, see [Managing User Groups with the Console and CLI](Clusters.md#User-Groups "Clusters.md#User-Groups").
+        access the cluster. For more information, see [Managing User Groups with the Console and CLI](Clusters.RBAC.md#User-Groups "Clusters.RBAC.md#User-Groups").
       - **AUTH Default User** –
         An authentication mechanism for a Valkey or Redis OSS server. For more information,
         see [AUTH](auth.md "auth.md").
@@ -570,7 +570,7 @@ primary. For more information, see [Promoting the secondary cluster to primary](
         * **Modify node type** – Scale regional clusters
          both vertically (scaling up and down) and horizontally (scaling in and out).
          Options include the R5 and M5 node families. For more information on node
-         types, see [Supported node types](CacheNodes.md "CacheNodes.md").
+         types, see [Supported node types](CacheNodes.SupportedTypes.md "CacheNodes.SupportedTypes.md").
         * **Modify Automatic Failover** – Enable or disable
          Automatic Failover. When you enable failover and primary nodes in regional
          clusters shut down unexpectedly, ElastiCache fails over to one of the regional
@@ -589,7 +589,7 @@ primary. For more information, see [Promoting the secondary cluster to primary](
 To modify a global datastore's parameters, modify the parameter group of any member
 cluster for the global datastore. ElastiCache applies this change to all clusters within that
 global datastore automatically. To modify the parameter group of that cluster, use the
-Valkey or Redis OSS console or the [ModifyCacheCluster](../APIReference/API_ModifyCacheCluster.md "../APIReference/API_ModifyCacheCluster.md") API operation. For more information, see [Modifying an ElastiCache parameter group](ParameterGroups.md "ParameterGroups.md"). When
+Valkey or Redis OSS console or the [ModifyCacheCluster](../APIReference/API_ModifyCacheCluster.md "../APIReference/API_ModifyCacheCluster.md") API operation. For more information, see [Modifying an ElastiCache parameter group](ParameterGroups.Modifying.md "ParameterGroups.Modifying.md"). When
 you modify the parameter group of any cluster contained within a global datastore, it is
 applied to all the clusters within that global datastore.
 

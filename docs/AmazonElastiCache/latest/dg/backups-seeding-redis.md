@@ -18,7 +18,7 @@ following:
 - Specify a different node type for the new node-based cluster—larger or smaller than
   that used in the cluster that made the backup. If you scale to a smaller node
   type, be sure that the new node type has sufficient memory for your data and
-  Valkey or Redis OSS overhead. For more information, see [Ensuring you have enough memory to make a Valkey or Redis OSS snapshot](BestPractices.md "BestPractices.md").
+  Valkey or Redis OSS overhead. For more information, see [Ensuring you have enough memory to make a Valkey or Redis OSS snapshot](BestPractices.BGSAVE.md "BestPractices.BGSAVE.md").
 - Distribute your keys in the slots of the new Valkey or Redis OSS (cluster mode enabled) cluster differently than in the cluster that was
   used to create the backup file.
 
@@ -36,7 +36,7 @@ If the backup is too large, the resulting cluster has a status of
 cluster and start over.
 
 For a complete listing of node types and specifications,
-see [Redis OSS node-type specific parameters](ParameterGroups.md#ParameterGroups.Redis.NodeSpecific "ParameterGroups.md#ParameterGroups.Redis.NodeSpecific")
+see [Redis OSS node-type specific parameters](ParameterGroups.Engine.md#ParameterGroups.Redis.NodeSpecific "ParameterGroups.Engine.md#ParameterGroups.Redis.NodeSpecific")
 and [Amazon ElastiCache product features and details](https://aws.amazon.com/elasticache/details/ "https://aws.amazon.com/elasticache/details/").
 
 - You can encrypt a Valkey or Redis OSS .rdb file with Amazon S3 server-side encryption (SSE-S3) only. For more information, see
@@ -290,8 +290,8 @@ JSON
 ### Seed the ElastiCache cluster with the .rdb file data
 
 Now you are ready to create an ElastiCache cluster and seed it with the data from the .rdb file.
-To create the cluster, follow the directions at [Creating a cluster for Valkey or Redis OSS](Clusters.md "Clusters.md")
-or [Creating a Valkey or Redis OSS replication group from scratch](Replication.CreatingReplGroup.md "Replication.CreatingReplGroup.md").
+To create the cluster, follow the directions at [Creating a cluster for Valkey or Redis OSS](Clusters.Create.md "Clusters.Create.md")
+or [Creating a Valkey or Redis OSS replication group from scratch](Replication.CreatingReplGroup.NoExistingCluster.md "Replication.CreatingReplGroup.NoExistingCluster.md").
 Be sure to choose Valkey or Redis OSS as your cluster engine.
 
 The method you use to tell ElastiCache where to find the backup you uploaded to Amazon S3
@@ -334,4 +334,4 @@ During the process of creating your cluster, the data in your Valkey or Redis OS
 written to the cluster. You can monitor the progress by viewing the ElastiCache event
 messages. To do this, see the ElastiCache console and choose **Cache
 Events**. You can also use the AWS ElastiCache command line interface or
-ElastiCache API to obtain event messages. For more information, see [Viewing ElastiCache events](ECEvents.md "ECEvents.md").
+ElastiCache API to obtain event messages. For more information, see [Viewing ElastiCache events](ECEvents.Viewing.md "ECEvents.Viewing.md").

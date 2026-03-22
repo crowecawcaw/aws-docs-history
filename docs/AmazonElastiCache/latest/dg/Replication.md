@@ -20,7 +20,7 @@ The node or shard limit can be increased to a maximum of 500 per cluster with El
 For example, you can choose to configure a 500 node cluster that ranges between
 83 shards (one primary and 5 replicas per shard) and 500 shards (single primary and no replicas). Make sure there are enough available IP addresses to accommodate the increase.
 Common pitfalls include the subnets in the subnet group have too small a CIDR range or the subnets are shared and heavily used by other clusters. For more information, see
-[Creating a subnet group](SubnetGroups.md "SubnetGroups.md").
+[Creating a subnet group](SubnetGroups.Creating.md "SubnetGroups.Creating.md").
 
 For versions below 5.0.6,
 the limit is 250 per cluster.
@@ -39,14 +39,14 @@ replica nodes. For more information, see [Mitigating Failures when Running Valke
 
 ###### Topics
 
-- [Understanding Valkey and Redis OSS replication](Replication.Redis.md "Replication.Redis.md")
-- [Replication: Valkey and Redis OSS Cluster Mode Disabled vs. Enabled](Replication.md "Replication.md")
+- [Understanding Valkey and Redis OSS replication](Replication.Redis.Groups.md "Replication.Redis.Groups.md")
+- [Replication: Valkey and Redis OSS Cluster Mode Disabled vs. Enabled](Replication.Redis-RedisCluster.md "Replication.Redis-RedisCluster.md")
 - [Minimizing downtime in ElastiCache by using Multi-AZ with Valkey and Redis OSS](AutoFailover.md "AutoFailover.md")
-- [How synchronization and backup are implemented](Replication.Redis.md "Replication.Redis.md")
-- [Creating a Valkey or Redis OSS replication group](Replication.md "Replication.md")
-- [Viewing a replication group's details](Replication.md "Replication.md")
-- [Finding replication group endpoints](Replication.md "Replication.md")
-- [Modifying a replication group](Replication.md "Replication.md")
-- [Deleting a replication group](Replication.md "Replication.md")
+- [How synchronization and backup are implemented](Replication.Redis.Versions.md "Replication.Redis.Versions.md")
+- [Creating a Valkey or Redis OSS replication group](Replication.CreatingRepGroup.md "Replication.CreatingRepGroup.md")
+- [Viewing a replication group's details](Replication.ViewDetails.md "Replication.ViewDetails.md")
+- [Finding replication group endpoints](Replication.Endpoints.md "Replication.Endpoints.md")
+- [Modifying a replication group](Replication.Modify.md "Replication.Modify.md")
+- [Deleting a replication group](Replication.DeletingRepGroup.md "Replication.DeletingRepGroup.md")
 - [Changing the number of replicas](increase-decrease-replica-count.md "increase-decrease-replica-count.md")
-- [Promoting a read replica to primary, for Valkey or Redis OSS (cluster mode disabled) replication groups](Replication.md "Replication.md")
+- [Promoting a read replica to primary, for Valkey or Redis OSS (cluster mode disabled) replication groups](Replication.PromoteReplica.md "Replication.PromoteReplica.md")

@@ -70,7 +70,7 @@ To the use the API, see [modify-replication-group](../../../cli/latest/reference
 For information on your maintenance window and node replacement, see the following:
 
 - [ElastiCache Maintenance](https://aws.amazon.com/elasticache/elasticache-maintenance/ "https://aws.amazon.com/elasticache/elasticache-maintenance/")—FAQ on maintenance and node replacement
-- [Replacing nodes (Memcached)](CacheNodes.md "CacheNodes.md")—Managing node replacement for Memcached
-- [Modifying an ElastiCache cluster](Clusters.md "Clusters.md")—Changing a cluster's maintenance window
-- [Replacing nodes (Valkey and Redis OSS)](CacheNodes.md "CacheNodes.md")—Managing node replacement
-- [Modifying a replication group](Replication.md "Replication.md")—Changing a replication group's maintenance window
+- [Replacing nodes (Memcached)](CacheNodes.NodeReplacement-mc.md "CacheNodes.NodeReplacement-mc.md")—Managing node replacement for Memcached
+- [Modifying an ElastiCache cluster](Clusters.Modify.md "Clusters.Modify.md")—Changing a cluster's maintenance window
+- [Replacing nodes (Valkey and Redis OSS)](CacheNodes.NodeReplacement.md "CacheNodes.NodeReplacement.md")—Managing node replacement
+- [Modifying a replication group](Replication.Modify.md "Replication.Modify.md")—Changing a replication group's maintenance window

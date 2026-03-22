@@ -51,7 +51,7 @@ appropriately.
     - ElastiCache:SnapshotFailed (Valkey or Redis OSS only)
 
   - **[Resources]:**
-    - [Managing ElastiCache Amazon SNS notifications](ECEvents.md "ECEvents.md")
+    - [Managing ElastiCache Amazon SNS notifications](ECEvents.SNS.md "ECEvents.SNS.md")
     - [Event Notifications and Amazon SNS](ElastiCacheSNS.md "ElastiCacheSNS.md")
 
 - **[Best]** To automate responses to events,
@@ -198,7 +198,7 @@ meeting business objectives and not on ElastiCache maintenance.
 
     + [Tagging Best Practices](https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf "https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf")
     + [ElastiCache resource type reference for CloudFormation](../../../AWSCloudFormation/latest/UserGuide/AWS_ElastiCache.md "../../../AWSCloudFormation/latest/UserGuide/AWS_ElastiCache.md")
-    + [Parameter Groups](ParameterGroups.md#ParameterGroups.Redis "ParameterGroups.md#ParameterGroups.Redis")
+    + [Parameter Groups](ParameterGroups.Engine.md#ParameterGroups.Redis "ParameterGroups.Engine.md#ParameterGroups.Redis")
 
 ## OE 4: How do you manage clients’ connections to your ElastiCache clusters?
 

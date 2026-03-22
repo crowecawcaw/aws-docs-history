@@ -6,5 +6,5 @@ This section discusses installing and configuring the ElastiCache PHP and .NET c
 
 ###### Topics
 
-- [Installing & compiling cluster clients](Appendix.md "Appendix.md")
+- [Installing & compiling cluster clients](Appendix.InstallingClients.md "Appendix.InstallingClients.md")
 - [Configuring ElastiCache clients](ClientConfig.md "ClientConfig.md")

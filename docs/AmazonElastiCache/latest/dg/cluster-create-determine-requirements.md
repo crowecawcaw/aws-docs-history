@@ -7,7 +7,7 @@ smoother:
 
 - Which node instance type do you need?
 
-For guidance on choosing an instance node type, see [Choosing your node size](CacheNodes.md "CacheNodes.md").
+For guidance on choosing an instance node type, see [Choosing your node size](CacheNodes.SelectSize.md "CacheNodes.SelectSize.md").
 
 - Will you launch your cluster in a virtual private cloud (VPC) based on Amazon VPC?
 
@@ -23,7 +23,7 @@ access from outside AWS. For more information, see [Accessing ElastiCache resour
 
 - Do you need to customize any parameter values?
 
-If you do, create a custom parameter group. For more information, see [Creating an ElastiCache parameter group](ParameterGroups.md "ParameterGroups.md").
+If you do, create a custom parameter group. For more information, see [Creating an ElastiCache parameter group](ParameterGroups.Creating.md "ParameterGroups.Creating.md").
 
 If you're running Valkey or Redis OSS, consider setting `reserved-memory`
 or `reserved-memory-percent`. For more information, see [Managing reserved memory for Valkey and Redis OSS](redis-memory-management.md "redis-memory-management.md").
@@ -111,7 +111,7 @@ EC2-Classic.
 If you launched your cluster into EC2-VPC you need to grant network ingress to the cluster.
 If you launched your cluster into EC2-Classic you need to grant the Amazon Elastic Compute Cloud
 security group associated with the instance access to your ElastiCache security group. For
-detailed instructions, see [Step 3. Authorize access to the cluster](SubnetGroups.designing-cluster-pre.md#GettingStarted.AuthorizeAccess.valkey "SubnetGroups.designing-cluster-pre.md#GettingStarted.AuthorizeAccess.valkey") in this guide.
+detailed instructions, see [Step 3. Authorize access to the cluster](SubnetGroups.designing-cluster-pre.valkey.md#GettingStarted.AuthorizeAccess.valkey "SubnetGroups.designing-cluster-pre.valkey.md#GettingStarted.AuthorizeAccess.valkey") in this guide.
 
 ## Region, Availability Zone and Local Zone requirements for ElastiCache
 

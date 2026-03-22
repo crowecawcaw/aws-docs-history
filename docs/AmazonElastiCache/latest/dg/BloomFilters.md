@@ -6,7 +6,7 @@ You can set the percentage of potential false positives to a preferred rate for 
 
 After you create a cluster with a supported engine version, the Bloom data type and associated commands are automatically available. The `bloom` data type is API compatible with the Bloom filter command syntax of the official Valkey client libraries including `valkey-py`, `valkey-java`, and `valkey-go`. You can easily migrate existing Bloom-based Valkey and Redis OSS applications into ElastiCache. For a complete list of commands see [Bloom filter commands](#SupportedCommandsBloom "#SupportedCommandsBloom").
 
-The Bloom-related metrics `BloomFilterBasedCmds`, `BloomFilterBasedCmdsLatency`, and `BloomFilterBasedCmdsECPUs` are incorporated into CloudWatch to monitor the usage of this data type. For more information, see [Metrics for Valkey and Redis OSS](CacheMetrics.md "CacheMetrics.md").
+The Bloom-related metrics `BloomFilterBasedCmds`, `BloomFilterBasedCmdsLatency`, and `BloomFilterBasedCmdsECPUs` are incorporated into CloudWatch to monitor the usage of this data type. For more information, see [Metrics for Valkey and Redis OSS](CacheMetrics.Redis.md "CacheMetrics.Redis.md").
 
 ###### Note
 

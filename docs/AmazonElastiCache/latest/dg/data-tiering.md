@@ -44,7 +44,7 @@ Data tiering has the following limitations:
 - Scaling between clusters with data tiering enabled and data tiering disabled is not supported. To migrate data from an ElastiCache cluster with data tiering disabled to a cluster with data tiering enabled, you can restore a backup to a new cluster with data tiering enabled. For more information, see [Scaling ElastiCache](Scaling.md "Scaling.md").
 - Auto scaling is supported on clusters using data tiering for Valkey version 7.2 and later, and Redis OSS version 7.0.7 and later. For more information, see [Auto Scaling Valkey and Redis OSS clusters](AutoScaling.md "AutoScaling.md")
 - Data tiering only supports `volatile-lru`, `allkeys-lru`, `volatile-lfu`, `allkeys-lfu` and `noeviction` maxmemory policies.
-- Forkless save is supported for Valkey version 7.2 and later, and Redis OSS version 7.0.7 and later. For more information, see [How synchronization and backup are implemented](Replication.Redis.md "Replication.Redis.md").
+- Forkless save is supported for Valkey version 7.2 and later, and Redis OSS version 7.0.7 and later. For more information, see [How synchronization and backup are implemented](Replication.Redis.Versions.md "Replication.Redis.Versions.md").
 - Items larger than 128 MiB are not moved to SSD.
 - Starting from Valley 8.1 and later, an item whose key + value size is less than 40 bytes will not be moved to the SSD.
 
@@ -56,7 +56,7 @@ For more information, see [ElastiCache pricing](https://aws.amazon.com/elasticac
 ## Monitoring
 
 ElastiCache offers metrics designed specifically to monitor the performance clusters that use data tiering.
-To monitor the ratio of items in DRAM compared to SSD, you can use the `CurrItems` metric at [Metrics for Valkey and Redis OSS](CacheMetrics.md "CacheMetrics.md").
+To monitor the ratio of items in DRAM compared to SSD, you can use the `CurrItems` metric at [Metrics for Valkey and Redis OSS](CacheMetrics.Redis.md "CacheMetrics.Redis.md").
 You can calculate the percentage as: _(CurrItems with Dimension: Tier = Memory \* 100) / (CurrItems with no dimension filter)_.
 
 If the configured eviction policy allows, then ElastiCache will start evicting items
@@ -67,14 +67,14 @@ It is still recommended that you consider scaling out for
 Cluster Mode Enabled clusters or scaling up for Cluster Mode disabled clusters when the percentage of items in memory decreases below 5 percent.
 For more information on scaling see [Scaling Valkey or Redis OSS (Cluster Mode Enabled) clusters](scaling-redis-cluster-mode-enabled.md "scaling-redis-cluster-mode-enabled.md").
 
-For more information on metrics for Valkey or Redis OSS clusters that use data tiering see [Metrics for Valkey and Redis OSS](CacheMetrics.md "CacheMetrics.md").
+For more information on metrics for Valkey or Redis OSS clusters that use data tiering see [Metrics for Valkey and Redis OSS](CacheMetrics.Redis.md "CacheMetrics.Redis.md").
 
 ## Using data tiering
 
 When creating a cluster as part of a replication group, you use data tiering by selecting a node type from the r6gd family, such as _cache.r6gd.xlarge_. Selecting that
 node type automatically enables data tiering.
 
-For more information on creating a cluster, see [Creating a cluster for Valkey or Redis OSS](Clusters.md "Clusters.md").
+For more information on creating a cluster, see [Creating a cluster for Valkey or Redis OSS](Clusters.Create.md "Clusters.Create.md").
 
 When creating a replication group using the AWS CLI, you use data tiering by selecting a node type from the r6gd family, such as _cache.r6gd.xlarge_ and setting the `--data-tiering-enabled` parameter.
 
@@ -175,7 +175,7 @@ data tiering is enabled.
        node type you selected.
 
 6. When the settings are as you want them, choose **Create**.
-   For more information on creating a cluster, see [Creating a cluster for Valkey or Redis OSS](Clusters.md "Clusters.md").
+   For more information on creating a cluster, see [Creating a cluster for Valkey or Redis OSS](Clusters.Create.md "Clusters.Create.md").
 
 When creating a replication group using the AWS CLI, data tiering is by default used by selecting a node type from the r6gd family, such as _cache.r6gd.xlarge_ and setting the `--data-tiering-enabled` parameter.
 

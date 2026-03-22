@@ -6,4 +6,4 @@ For more information about ElastiCache see:
 - [Scaling ElastiCache](Scaling.md "Scaling.md")
 - [Quotas for ElastiCache](quota-limits.md "quota-limits.md")
 - [ElastiCache best practices and caching strategies](BestPractices.md "BestPractices.md")
-- [Viewing ElastiCache events](ECEvents.md "ECEvents.md")
+- [Viewing ElastiCache events](ECEvents.Viewing.md "ECEvents.Viewing.md")

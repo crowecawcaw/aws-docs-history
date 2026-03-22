@@ -9,8 +9,8 @@ choose **Yes** under **Create backup** and give the backup a name.
 
 ###### Related topics
 
-- [Using the AWS Management Console](Clusters.md#Clusters.Delete.CON "Clusters.md#Clusters.Delete.CON")
-- [Deleting a Replication Group (Console)](Replication.md#Replication.DeletingRepGroup.CON "Replication.md#Replication.DeletingRepGroup.CON")
+- [Using the AWS Management Console](Clusters.Delete.md#Clusters.Delete.CON "Clusters.Delete.md#Clusters.Delete.CON")
+- [Deleting a Replication Group (Console)](Replication.DeletingRepGroup.md#Replication.DeletingRepGroup.CON "Replication.DeletingRepGroup.md#Replication.DeletingRepGroup.CON")
   You can create a final backup when deleting a cache using the AWS CLI.
 
 ###### Topics

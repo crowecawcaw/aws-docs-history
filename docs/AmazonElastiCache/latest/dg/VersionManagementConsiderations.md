@@ -115,7 +115,7 @@ For a full list of changes, see [Redis OSS 5.0 release notes](https://raw.github
 - In Redis OSS 5.0.3 and above, ElastiCache for Redis OSS will offload some IO work to background
   cores on instance types with more than 4 VCPUs. This may change the
   performance characteristics Redis OSS and change the values of some metrics. For
-  more information, see [Which Metrics Should I Monitor?](CacheMetrics.md "CacheMetrics.md") to understand if you
+  more information, see [Which Metrics Should I Monitor?](CacheMetrics.WhichShouldIMonitor.md "CacheMetrics.WhichShouldIMonitor.md") to understand if you
   need to change which metrics you watch.
 
 ## Redis OSS 4.0 behavior and backwards incompatible changes

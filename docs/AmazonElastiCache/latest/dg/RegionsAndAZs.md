@@ -109,10 +109,10 @@ You can specify an AZ for each node when you create a cluster, or by adding node
 when you modify an existing cluster. When specifying an AZ for each node while creating a cluster, the AZ must be available in that subnet group.
 For more information, see the following:
 
-- [Creating a cluster for Memcached](Clusters.md "Clusters.md")
-- [Creating a cluster for Valkey or Redis OSS](Clusters.md "Clusters.md")
-- [Modifying an ElastiCache cluster](Clusters.md "Clusters.md")
-- [Adding nodes to an ElastiCache cluster](Clusters.md "Clusters.md")
+- [Creating a cluster for Memcached](Clusters.Create-mc.md "Clusters.Create-mc.md")
+- [Creating a cluster for Valkey or Redis OSS](Clusters.Create.md "Clusters.Create.md")
+- [Modifying an ElastiCache cluster](Clusters.Modify.md "Clusters.Modify.md")
+- [Adding nodes to an ElastiCache cluster](Clusters.AddNode.md "Clusters.AddNode.md")
 
 ## Supported Regions & endpoints
 
@@ -164,7 +164,7 @@ For more information on Regions and Availability Zones, see
 | For information on using the AWS GovCloud (US) with ElastiCache, see<br>[Services in the AWS GovCloud (US) region: ElastiCache](../../../govcloud-us/latest/UserGuide/govcloud-elc.md "../../../govcloud-us/latest/UserGuide/govcloud-elc.md"). |
 
 Some Regions support a subset of node types. For a table of supported node types by AWS Region,
-see [Supported node types by AWS Region](CacheNodes.md#CacheNodes.SupportedTypesByRegion "CacheNodes.md#CacheNodes.SupportedTypesByRegion").
+see [Supported node types by AWS Region](CacheNodes.SupportedTypes.md#CacheNodes.SupportedTypesByRegion "CacheNodes.SupportedTypes.md#CacheNodes.SupportedTypesByRegion").
 
 Most Regions support establishing a private connection between your VPC and ElastiCache API endpoints, by creating an interface VPC endpoint through AWS PrivateLink. For more information, see [ElastiCache API and interface VPC endpoints (AWS PrivateLink)](elasticache-privatelink.md "elasticache-privatelink.md").
 

@@ -214,7 +214,7 @@ client library helps you minimize potential downtime during failover events.
 
 **[Resources]:**
 
-    + [Metrics for Valkey or Redis OSS](CacheMetrics.md "CacheMetrics.md")
+    + [Metrics for Valkey or Redis OSS](CacheMetrics.Redis.md "CacheMetrics.Redis.md")
     + [Monitoring best practices with ElastiCache using Amazon CloudWatch](https://aws.amazon.com/blogs/database/monitoring-best-practices-with-amazon-elasticache-for-redis-using-amazon-cloudwatch/ "https://aws.amazon.com/blogs/database/monitoring-best-practices-with-amazon-elasticache-for-redis-using-amazon-cloudwatch/")
 
 - **[Best]** Regularly validate the

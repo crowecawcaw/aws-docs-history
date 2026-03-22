@@ -51,7 +51,7 @@ when a replacement node is created and provisioned.
 If the same data were cached in 3 larger nodes,
 the failure of a node would lose approximately 33% of your cached data.
 
-For information on specifying the number of nodes in a Memcached cluster, see [Creating a Memcached cluster (console)](Clusters.md#Clusters.Create.CON.Memcached "Clusters.md#Clusters.Create.CON.Memcached").
+For information on specifying the number of nodes in a Memcached cluster, see [Creating a Memcached cluster (console)](Clusters.Create-mc.md#Clusters.Create.CON.Memcached "Clusters.Create-mc.md#Clusters.Create.CON.Memcached").
 
 #### Mitigating Availability Zone Failures
 
@@ -78,7 +78,7 @@ There is no "magic formula" for determining how many nodes to have in your clust
 You must weight the impact of data loss vs. the likelihood of a failure vs. cost, and come to your own
 conclusion.
 
-For information on specifying the number of nodes in a Memcached cluster, see [Creating a Memcached cluster (console)](Clusters.md#Clusters.Create.CON.Memcached "Clusters.md#Clusters.Create.CON.Memcached").
+For information on specifying the number of nodes in a Memcached cluster, see [Creating a Memcached cluster (console)](Clusters.Create-mc.md#Clusters.Create.CON.Memcached "Clusters.Create-mc.md#Clusters.Create.CON.Memcached").
 
 For more information on regions and Availability Zones, see
 [Choosing regions and availability zones for ElastiCache](RegionsAndAZs.md "RegionsAndAZs.md").
@@ -169,7 +169,7 @@ Any time you lose a node you can experience a performance degradation since read
 operations are now shared by fewer nodes. This performance degradation will
 continue until the nodes are replaced.
 
-For information on specifying the Availability Zones for Valkey or Redis OSS nodes, see [Creating a Valkey (cluster mode disabled) cluster (Console)](SubnetGroups.designing-cluster-pre.md#Clusters.Create.CON.valkey-gs "SubnetGroups.designing-cluster-pre.md#Clusters.Create.CON.valkey-gs").
+For information on specifying the Availability Zones for Valkey or Redis OSS nodes, see [Creating a Valkey (cluster mode disabled) cluster (Console)](SubnetGroups.designing-cluster-pre.valkey.md#Clusters.Create.CON.valkey-gs "SubnetGroups.designing-cluster-pre.valkey.md#Clusters.Create.CON.valkey-gs").
 
 For more information on regions and Availability Zones, see [Choosing regions and availability zones for ElastiCache](RegionsAndAZs.md "RegionsAndAZs.md").
 

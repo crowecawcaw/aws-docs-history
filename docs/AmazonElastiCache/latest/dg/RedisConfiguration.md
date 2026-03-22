@@ -37,6 +37,6 @@ Additionally, the following limits are in place:
 
 ## Node-based clusters
 
-For node-based clusters, see [Valkey and Redis OSS parameters](ParameterGroups.md#ParameterGroups.Redis "ParameterGroups.md#ParameterGroups.Redis") for
+For node-based clusters, see [Valkey and Redis OSS parameters](ParameterGroups.Engine.md#ParameterGroups.Redis "ParameterGroups.Engine.md#ParameterGroups.Redis") for
 the default values of configuration parameters and which are configurable. The default values are generally recommended unless
 you have a specific use case requiring them to be overridden.

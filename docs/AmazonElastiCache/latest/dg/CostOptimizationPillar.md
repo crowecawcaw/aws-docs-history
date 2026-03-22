@@ -171,7 +171,7 @@ long periods of time.
   **[Resources]:**
 
       + [Monitoring use with CloudWatch Metrics](CacheMetrics.md "CacheMetrics.md")
-      + [Which Metrics Should I Monitor?](CacheMetrics.md "CacheMetrics.md")
+      + [Which Metrics Should I Monitor?](CacheMetrics.WhichShouldIMonitor.md "CacheMetrics.WhichShouldIMonitor.md")
       + [Amazon ElastiCache
        pricing](https://aws.amazon.com/elasticache/pricing/ "https://aws.amazon.com/elasticache/pricing/")
 

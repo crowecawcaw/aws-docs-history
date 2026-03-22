@@ -67,7 +67,7 @@ when you plan your node-based cluster implementation:
 - In-transit encryption is supported only for replication groups running in an Amazon VPC.
 - In-transit encryption is not supported for replication groups running the following node types: M1, M2.
 
-For more information, see [Supported node types](CacheNodes.md "CacheNodes.md").
+For more information, see [Supported node types](CacheNodes.SupportedTypes.md "CacheNodes.SupportedTypes.md").
 
 - In-transit encryption is enabled by explicitly setting the parameter
   `TransitEncryptionEnabled` to `true`.
@@ -88,7 +88,7 @@ when you plan your node-based cluster implementation:
   Amazon VPC.
 - In-transit encryption is not supported for replication groups running the following node types: M1, M2, M3, R3, T2.
 
-For more information, see [Supported node types](CacheNodes.md "CacheNodes.md").
+For more information, see [Supported node types](CacheNodes.SupportedTypes.md "CacheNodes.SupportedTypes.md").
 
 - In-transit encryption is enabled by explicitly setting the parameter
   `TransitEncryptionEnabled` to `true`.
@@ -114,7 +114,7 @@ For further information on options available for Valkey and Redis OSS, see the f
 
 - [At-Rest Encryption in ElastiCache](at-rest-encryption.md "at-rest-encryption.md")
 - [Authenticating with the Valkey and Redis OSS AUTH command](auth.md "auth.md")
-- [Role-Based Access Control (RBAC)](Clusters.md "Clusters.md")
+- [Role-Based Access Control (RBAC)](Clusters.RBAC.md "Clusters.RBAC.md")
 - [Amazon VPCs and ElastiCache security](VPCs.md "VPCs.md")
 - [Identity and Access Management for Amazon ElastiCache](IAM.md "IAM.md")
 
@@ -128,7 +128,7 @@ Management Console, make the following selections:
 - Under **Encryption in transit**, choose
   **Enable**.
 
-For the step-by-step process, see [Creating a cluster for Valkey or Redis OSS](Clusters.md "Clusters.md").
+For the step-by-step process, see [Creating a cluster for Valkey or Redis OSS](Clusters.Create.md "Clusters.Create.md").
 
 ## Connecting to nodes enabled with in-transit encryption using Openssl (Memcached)
 
@@ -242,4 +242,4 @@ if ($tls_client->get('key') === 'value') {
 }
 ```
 
-For more information on using the PHP client, see [Installing the ElastiCache cluster client for PHP](Appendix.md "Appendix.md").
+For more information on using the PHP client, see [Installing the ElastiCache cluster client for PHP](Appendix.PHPAutoDiscoverySetup.md "Appendix.PHPAutoDiscoverySetup.md").

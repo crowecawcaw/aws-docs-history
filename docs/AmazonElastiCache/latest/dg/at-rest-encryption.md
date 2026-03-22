@@ -49,7 +49,7 @@ your implementation of ElastiCache encryption at-rest:
       + T4g, T3, T2
       + C7gn
 
-  For more information, see [Supported node types](CacheNodes.md "CacheNodes.md")
+  For more information, see [Supported node types](CacheNodes.SupportedTypes.md "CacheNodes.SupportedTypes.md")
 
 - At-rest encryption is enabled by explicitly setting the parameter `AtRestEncryptionEnabled`
   to `true`.
@@ -149,7 +149,7 @@ do the following.
 2. Create a new replication group by restoring from the backup. On the new replication
    group, enable at-rest encryption. For more information, see [Restoring from a backup into a new cache](backups-restoring.md "backups-restoring.md").
 3. Update the endpoints in your application to point to the new replication group.
-4. Delete the old replication group. For more information, see [Deleting a cluster in ElastiCache](Clusters.md "Clusters.md") or [Deleting a replication group](Replication.md "Replication.md").
+4. Delete the old replication group. For more information, see [Deleting a cluster in ElastiCache](Clusters.Delete.md "Clusters.Delete.md") or [Deleting a replication group](Replication.DeletingRepGroup.md "Replication.DeletingRepGroup.md").
 
 ### Enabling At-Rest Encryption Using the AWS Management Console
 
@@ -169,8 +169,8 @@ following selections:
 - Choose either a **Default key** or **Customer managed CMK**.
   For the step-by-step procedure, see the following:
 
-- [Creating a Valkey (cluster mode disabled) cluster (Console)](SubnetGroups.designing-cluster-pre.md#Clusters.Create.CON.valkey-gs "SubnetGroups.designing-cluster-pre.md#Clusters.Create.CON.valkey-gs")
-- [Creating a Valkey or Redis OSS (cluster mode enabled) cluster (Console)](Clusters.md#Clusters.Create.CON.RedisCluster "Clusters.md#Clusters.Create.CON.RedisCluster")
+- [Creating a Valkey (cluster mode disabled) cluster (Console)](SubnetGroups.designing-cluster-pre.valkey.md#Clusters.Create.CON.valkey-gs "SubnetGroups.designing-cluster-pre.valkey.md#Clusters.Create.CON.valkey-gs")
+- [Creating a Valkey or Redis OSS (cluster mode enabled) cluster (Console)](Clusters.Create.md#Clusters.Create.CON.RedisCluster "Clusters.Create.md#Clusters.Create.CON.RedisCluster")
 
 ### Enabling At-Rest Encryption Using the AWS CLI
 
@@ -219,7 +219,7 @@ aws elasticache create-replication-group ^
 
 For additional information, see the following:
 
-- [Creating a Valkey or Redis OSS (Cluster Mode Disabled) replication group from scratch (AWS CLI)](Replication.CreatingReplGroup.NoExistingCluster.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.CLI "Replication.CreatingReplGroup.NoExistingCluster.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.CLI")
+- [Creating a Valkey or Redis OSS (Cluster Mode Disabled) replication group from scratch (AWS CLI)](Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.CLI "Replication.CreatingReplGroup.NoExistingCluster.Classic.md#Replication.CreatingReplGroup.NoExistingCluster.Classic.CLI")
 - [create-replication-group](../../../cli/latest/reference/elasticache/create-replication-group.md "../../../cli/latest/reference/elasticache/create-replication-group.md")
 
  
@@ -276,7 +276,7 @@ aws elasticache create-replication-group ^
 
 For additional information, see the following:
 
-- [Creating a Valkey or Redis OSS (Cluster Mode Enabled) replication group from scratch (AWS CLI)](Replication.CreatingReplGroup.NoExistingCluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI "Replication.CreatingReplGroup.NoExistingCluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI")
+- [Creating a Valkey or Redis OSS (Cluster Mode Enabled) replication group from scratch (AWS CLI)](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI "Replication.CreatingReplGroup.NoExistingCluster.Cluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI")
 - [create-replication-group](../../../cli/latest/reference/elasticache/create-replication-group.md "../../../cli/latest/reference/elasticache/create-replication-group.md")
 
 ## See Also

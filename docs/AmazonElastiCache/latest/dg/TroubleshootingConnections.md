@@ -212,7 +212,7 @@ A good analysis commonly starts with the following items:
        The alternative to `DEL` is `UNLINK`, which is an asynchronous command available since Redis OSS 4. `UNLINK` must be preferred over `DEL` whenever possible.
 
        Starting on ElastiCache for Redis OSS 6x, the `lazyfree-lazy-user-del` parameter makes the `DEL` command behave like `UNLINK` when enabled. For more information, see
-       [Redis OSS 6.0 Parameter Changes](ParameterGroups.md#ParameterGroups.Redis.6-x "ParameterGroups.md#ParameterGroups.Redis.6-x").
+       [Redis OSS 6.0 Parameter Changes](ParameterGroups.Engine.md#ParameterGroups.Redis.6-x "ParameterGroups.Engine.md#ParameterGroups.Redis.6-x").
       - Commands acting upon multiple keys: `DEL` was mentioned before as a command that accepts multiple arguments and
        its execution time will be directly proportional to that. However, Redis OSS provides many more commands that work similarly.
        As examples, `MSET` and `MGET` allow the insertion or retrieval of multiple String keys at once. Their usage may be
@@ -356,7 +356,7 @@ If the number is too high, your system may become overloaded trying to process t
 
 Whenever possible, configure the connection pool to limit the maximum number of connections to a few hundred. Also, back-off logic to handle time-outs or other connection exceptions would are advisable to avoid connection churn in case of issues.
 
-- Network traffic limits: Check the following [CloudWatch metrics for Redis OSS](CacheMetrics.md "CacheMetrics.md") to identify possible network limits
+- Network traffic limits: Check the following [CloudWatch metrics for Redis OSS](CacheMetrics.Redis.md "CacheMetrics.Redis.md") to identify possible network limits
   being hit on the ElastiCache node:
 
       + `NetworkBandwidthInAllowanceExceeded` / `NetworkBandwidthOutAllowanceExceeded`: Network packets shaped because the

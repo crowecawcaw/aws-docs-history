@@ -26,7 +26,7 @@ The cluster-enabled parameter value is set to `no` for a CMD cluster. As the clu
 For more information, see [Configuring engine parameters using ElastiCache parameter groups](ParameterGroups.md "ParameterGroups.md")
 
 1. **Prepare** – Create a test CME cluster and make sure your stack is ready to work with it. ElastiCache for Redis OSS has no way to verify your readiness.
-   For more information, see [Creating a cluster for Valkey or Redis OSS](Clusters.md "Clusters.md").
+   For more information, see [Creating a cluster for Valkey or Redis OSS](Clusters.Create.md "Clusters.Create.md").
 2. **Modify existing CMD Cluster Configuration to cluster mode compatible** – In this mode, there will be a single shard deployed, and ElastiCache for Redis OSS will work as a single node but also as a single shard cluster.
    Compatible mode means the client application can use either protocol to communicate with the cluster. In this mode, applications must be reconfigured to start using Valkey or Redis OSS Cluster protocol and configuration endpoint.
    To change the Valkey or Redis OSS cluster mode to cluster mode compatible, follow the steps below:
@@ -36,7 +36,7 @@ For more information, see [Configuring engine parameters using ElastiCache param
 In compatible mode, other modification operations such as scaling and engine version are not allowed for the cluster.
 Additionally, parameters (excluding `cacheParameterGroupName`) cannot be modified when defining cluster-mode parameter within the [ModifyReplicationGroup](../APIReference/API_ModifyReplicationGroup.md "../APIReference/API_ModifyReplicationGroup.md") request.
 
-    1. Using the AWS Management Console, see [Modifying a replication group](Replication.md "Replication.md") and set the cluster mode to **Compatible**
+    1. Using the AWS Management Console, see [Modifying a replication group](Replication.Modify.md "Replication.Modify.md") and set the cluster mode to **Compatible**
     2. Using the API, see [ModifyReplicationGroup](../APIReference/API_ModifyReplicationGroup.md "../APIReference/API_ModifyReplicationGroup.md") and
      update the `ClusterMode` parameter to `compatible`.
     3. Using the AWS CLI, see [modify-replication-group](../../../cli/latest/reference/elasticache/modify-replication-group.md "../../../cli/latest/reference/elasticache/modify-replication-group.md") and
@@ -48,7 +48,7 @@ To change the cluster mode to enabled, follow the steps below:
 
 Before you begin, make sure your Valkey or Redis OSS clients have migrated to using cluster protocol and that the cluster's configuration endpoint is not in use.
 
-    1. Using the AWS Management Console, see [Modifying a replication group](Replication.md "Replication.md") and set the cluster mode to **Enabled**.
+    1. Using the AWS Management Console, see [Modifying a replication group](Replication.Modify.md "Replication.Modify.md") and set the cluster mode to **Enabled**.
     2. Using the API, see [ModifyReplicationGroup](../APIReference/API_ModifyReplicationGroup.md "../APIReference/API_ModifyReplicationGroup.md") and
      update the `ClusterMode` parameter to `enabled`.
     3. Using the AWS CLI, see [modify-replication-group](../../../cli/latest/reference/elasticache/modify-replication-group.md "../../../cli/latest/reference/elasticache/modify-replication-group.md") and
@@ -61,7 +61,7 @@ You can also choose to revert back to cluster mode disabled (CMD) from cluster m
 
 ###### Modify Cluster Configuration to cluster mode disabled from cluster mode compatible
 
-1. Using the AWS Management Console, see [Modifying a replication group](Replication.md "Replication.md") and set the cluster mode to **Disabled**
+1. Using the AWS Management Console, see [Modifying a replication group](Replication.Modify.md "Replication.Modify.md") and set the cluster mode to **Disabled**
 2. Using the API, see [ModifyReplicationGroup](../APIReference/API_ModifyReplicationGroup.md "../APIReference/API_ModifyReplicationGroup.md") and
    update the `ClusterMode` parameter to `disabled`.
 3. Using the AWS CLI, see [modify-replication-group](../../../cli/latest/reference/elasticache/modify-replication-group.md "../../../cli/latest/reference/elasticache/modify-replication-group.md") and

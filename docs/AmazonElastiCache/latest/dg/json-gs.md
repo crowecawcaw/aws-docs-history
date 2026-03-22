@@ -20,7 +20,7 @@ For more information on the supported commands, see [Supported Valkey and Redis 
 The JSON-related metrics `JsonBasedCmds` and `JsonBasedCmdsLatency`
 are incorporated into CloudWatch to monitor the usage of this data type.
 For more information, see [Metrics for
-Valkey and Redis OSS](CacheMetrics.md "CacheMetrics.md").
+Valkey and Redis OSS](CacheMetrics.Redis.md "CacheMetrics.Redis.md").
 
 ###### Note
 

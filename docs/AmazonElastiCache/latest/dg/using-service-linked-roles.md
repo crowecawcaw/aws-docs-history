@@ -238,14 +238,14 @@ it.
 ###### To delete Amazon ElastiCache resources that require AWSServiceRoleForElastiCache
 
 - To delete a cluster, see the following:
-  - [Using the AWS Management Console](Clusters.md#Clusters.Delete.CON "Clusters.md#Clusters.Delete.CON")
-  - [Using the AWS CLI to delete an ElastiCache cluster](Clusters.md#Clusters.Delete.CLI "Clusters.md#Clusters.Delete.CLI")
-  - [Using the ElastiCache API](Clusters.md#Clusters.Delete.API "Clusters.md#Clusters.Delete.API")
+  - [Using the AWS Management Console](Clusters.Delete.md#Clusters.Delete.CON "Clusters.Delete.md#Clusters.Delete.CON")
+  - [Using the AWS CLI to delete an ElastiCache cluster](Clusters.Delete.md#Clusters.Delete.CLI "Clusters.Delete.md#Clusters.Delete.CLI")
+  - [Using the ElastiCache API](Clusters.Delete.md#Clusters.Delete.API "Clusters.Delete.md#Clusters.Delete.API")
 
 - To delete a replication group, see the following:
-  - [Deleting a Replication Group (Console)](Replication.md#Replication.DeletingRepGroup.CON "Replication.md#Replication.DeletingRepGroup.CON")
-  - [Deleting a Replication Group (AWS CLI)](Replication.md#Replication.DeletingRepGroup.CLI "Replication.md#Replication.DeletingRepGroup.CLI")
-  - [Deleting a replication group (ElastiCache API)](Replication.md#Replication.DeletingRepGroup.API "Replication.md#Replication.DeletingRepGroup.API")
+  - [Deleting a Replication Group (Console)](Replication.DeletingRepGroup.md#Replication.DeletingRepGroup.CON "Replication.DeletingRepGroup.md#Replication.DeletingRepGroup.CON")
+  - [Deleting a Replication Group (AWS CLI)](Replication.DeletingRepGroup.md#Replication.DeletingRepGroup.CLI "Replication.DeletingRepGroup.md#Replication.DeletingRepGroup.CLI")
+  - [Deleting a replication group (ElastiCache API)](Replication.DeletingRepGroup.md#Replication.DeletingRepGroup.API "Replication.DeletingRepGroup.md#Replication.DeletingRepGroup.API")
 
 ### Deleting a Service-Linked Role (IAM Console)
 

@@ -16,7 +16,7 @@ replica nodes.
 The node or shard limit can be increased to a maximum of 500 per cluster if the engine version is Valkey 7.2 and higher, or Redis OSS 5.0.6 to 7.1. For example, you can choose to configure a 500 node cluster that ranges between
 83 shards (one primary and 5 replicas per shard) and 500 shards (single primary and no replicas). Make sure there are enough available IP addresses to accommodate the increase.
 Common pitfalls include the subnets in the subnet group have too small a CIDR range or the subnets are shared and heavily used by other clusters. For more information, see
-[Creating a subnet group](SubnetGroups.md "SubnetGroups.md").
+[Creating a subnet group](SubnetGroups.Creating.md "SubnetGroups.Creating.md").
 
 For versions below 5.0.6,
 the limit is 250 per cluster.
@@ -27,7 +27,7 @@ and choose the limit type **Nodes per cluster per instance type**.
 
 When you create a Valkey or Redis OSS (cluster mode enabled) cluster using the ElastiCache console,
 you specify the number of shards in the cluster and the number of
-nodes in the shards. For more information, see [Creating a Valkey or Redis OSS (cluster mode enabled) cluster (Console)](Clusters.md#Clusters.Create.CON.RedisCluster "Clusters.md#Clusters.Create.CON.RedisCluster").
+nodes in the shards. For more information, see [Creating a Valkey or Redis OSS (cluster mode enabled) cluster (Console)](Clusters.Create.md#Clusters.Create.CON.RedisCluster "Clusters.Create.md#Clusters.Create.CON.RedisCluster").
 If you use the ElastiCache API or AWS CLI to create a cluster (called _replication group_ in the API/CLI), you
 can configure the number of nodes in a shard (API/CLI: node group)
 independently. For more information, see the following:

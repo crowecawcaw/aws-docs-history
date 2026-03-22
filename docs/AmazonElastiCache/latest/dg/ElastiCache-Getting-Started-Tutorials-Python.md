@@ -99,7 +99,7 @@ For more information, see [Managing clusters in ElastiCache](Clusters.md "Cluste
 
 To ensure security, you can use Transport Layer Security (TLS) and Role-Based Access Control (RBAC) when creating a cluster mode disabled cluster.
 Unlike Valkey or Redis OSS AUTH, where all authenticated clients have full replication group access if their token is authenticated, RBAC enables you to control cluster access through user groups. These user groups are designed as a way to organize access to replication groups.
-For more information, see [Role-Based Access Control (RBAC)](Clusters.md "Clusters.md").
+For more information, see [Role-Based Access Control (RBAC)](Clusters.RBAC.md "Clusters.RBAC.md").
 
 Copy the following program and paste it into a file named _ClusterModeDisabledWithRBAC.py_.
 
@@ -255,7 +255,7 @@ For more information, see [Managing clusters in ElastiCache](Clusters.md "Cluste
 
 To ensure security, you can use Transport Layer Security (TLS) and Role-Based Access Control (RBAC) when creating a cluster mode enabled cluster.
 Unlike Valkey or Redis OSS AUTH, where all authenticated clients have full replication group access if their token is authenticated, RBAC enables you to control cluster access through user groups. These user groups are designed as a way to organize access to replication groups.
-For more information, see [Role-Based Access Control (RBAC)](Clusters.md "Clusters.md").
+For more information, see [Role-Based Access Control (RBAC)](Clusters.RBAC.md "Clusters.RBAC.md").
 
 Copy the following program and paste it into a file named _ClusterModeEnabledWithRBAC.py_.
 
@@ -345,11 +345,11 @@ For more information, see [Managing clusters in ElastiCache](Clusters.md "Cluste
 
 With RBAC, you create users and assign them specific permissions by using an access string. You assign the users to user groups aligned with a specific role
 (administrators, human resources) that are then deployed to one or more ElastiCache for Redis OSS replication groups. By doing this, you can establish security boundaries between clients using the same Valkey or Redis OSS replication group or groups and prevent clients from accessing each other’s data.
-For more information, see [Role-Based Access Control (RBAC)](Clusters.md "Clusters.md").
+For more information, see [Role-Based Access Control (RBAC)](Clusters.RBAC.md "Clusters.RBAC.md").
 
 Copy the following program and paste it into a file named _UserAndUserGroups.py_. Update the mechanism for supplying credentials. Credentials in this example are shown as replaceable and assigned an undeclared item. Avoid hard-coding credentials.
 
-This example uses an access string with the permissions for the user. For more information on access strings see [Specifying Permissions Using an Access String](Clusters.md#Access-string "Clusters.md#Access-string").
+This example uses an access string with the permissions for the user. For more information on access strings see [Specifying Permissions Using an Access String](Clusters.RBAC.md#Access-string "Clusters.RBAC.md#Access-string").
 
 ```
 import boto3

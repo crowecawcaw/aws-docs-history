@@ -51,21 +51,21 @@ When creating a cluster using the AWS Management Console, under **Connectivity**
 a Valkey or Redis OSS (cluster mode enabled) cluster and
 choose dual stack, you then must select a **Discovery IP type**, either IPv6 or IPv4.
 
-For more information, see [Creating a Valkey or Redis OSS (cluster mode enabled) cluster (Console)](Clusters.md#Clusters.Create.CON.RedisCluster "Clusters.md#Clusters.Create.CON.RedisCluster") or
-[Creating a Valkey or Redis OSS (cluster mode disabled) (Console)](Clusters.md#Clusters.Create.CON.Redis "Clusters.md#Clusters.Create.CON.Redis").
+For more information, see [Creating a Valkey or Redis OSS (cluster mode enabled) cluster (Console)](Clusters.Create.md#Clusters.Create.CON.RedisCluster "Clusters.Create.md#Clusters.Create.CON.RedisCluster") or
+[Creating a Valkey or Redis OSS (cluster mode disabled) (Console)](Clusters.Create.md#Clusters.Create.CON.Redis "Clusters.Create.md#Clusters.Create.CON.Redis").
 
 When creating a replication group using the AWS Management Console, choose a network type, either **IPv4**, **IPv6** or **Dual stack**.
 If you choose dual stack, you then must select a **Discovery IP type**, either IPv6 or IPv4.
 
-For more information, see [Creating a Valkey or Redis OSS (Cluster Mode Disabled) replication group from scratch](Replication.CreatingReplGroup.NoExistingCluster.md "Replication.CreatingReplGroup.NoExistingCluster.md") or
-[Creating a replication group in Valkey or Redis OSS (Cluster Mode Enabled) from scratch](Replication.CreatingReplGroup.NoExistingCluster.md "Replication.CreatingReplGroup.NoExistingCluster.md").
+For more information, see [Creating a Valkey or Redis OSS (Cluster Mode Disabled) replication group from scratch](Replication.CreatingReplGroup.NoExistingCluster.Classic.md "Replication.CreatingReplGroup.NoExistingCluster.Classic.md") or
+[Creating a replication group in Valkey or Redis OSS (Cluster Mode Enabled) from scratch](Replication.CreatingReplGroup.NoExistingCluster.Cluster.md "Replication.CreatingReplGroup.NoExistingCluster.Cluster.md").
 
 ## Using the AWS Management Console (Memcached)
 
 When creating a cluster using the AWS Management Console, under **Connectivity**, choose a network type, either **IPv4**, **IPv6** or **Dual stack**. If you
 choose dual stack, you then must select a **Discovery IP type**, either IPv6 or IPv4.
 
-For more information, see [Creating a Memcached cluster (console)](Clusters.md#Clusters.Create.CON.Memcached "Clusters.md#Clusters.Create.CON.Memcached").
+For more information, see [Creating a Memcached cluster (console)](Clusters.Create-mc.md#Clusters.Create.CON.Memcached "Clusters.Create-mc.md#Clusters.Create.CON.Memcached").
 
 ## Using the CLI with Valkey, Memcached, or Redis OSS.
 

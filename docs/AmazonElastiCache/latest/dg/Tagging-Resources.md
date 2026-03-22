@@ -22,7 +22,7 @@ If you delete a resource, any tags for the resource are also deleted. Furthermor
 You can work with tags using the AWS Management Console, the AWS CLI, and the ElastiCache API.
 
 If you're using IAM, you can control which users in your AWS account have permission to create, edit, or delete tags.
-For more information, see [Resource-level permissions](IAM.md "IAM.md").
+For more information, see [Resource-level permissions](IAM.ResourceLevelPermissions.md "IAM.ResourceLevelPermissions.md").
 
 You can tag most ElastiCache resources that already exist in your account. The table below lists the resources that support tagging.
 
@@ -416,4 +416,4 @@ JSON
 
 ```
 
-For related information on condition keys, see [Using condition keys](IAM.md "IAM.md").
+For related information on condition keys, see [Using condition keys](IAM.ConditionKeys.md "IAM.ConditionKeys.md").

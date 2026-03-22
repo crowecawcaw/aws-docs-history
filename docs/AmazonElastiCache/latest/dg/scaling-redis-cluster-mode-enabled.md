@@ -60,7 +60,7 @@ in the old cluster. Offline method only.
 - Vertical Scaling - Change the node type to resize the cluster. The online vertical scaling allows scaling up/down while the cluster continues serving incoming requests.
   If you are reducing the size and memory capacity of the cluster, by either scaling in or scaling down, ensure that the new configuration has sufficient memory for your data and Valkey or Redis OSS overhead.
 
-For more information, see [Choosing your node size](CacheNodes.md "CacheNodes.md").
+For more information, see [Choosing your node size](CacheNodes.SelectSize.md "CacheNodes.SelectSize.md").
 
 ###### Contents
 
@@ -361,7 +361,7 @@ won't fit in the remaining node groups, the process is terminated and the replic
 
 You can use the AWS Management Console to remove one or more shards from your Valkey or Redis OSS (cluster mode enabled) cluster.
 You cannot remove all the shards in a replication group. Instead, you must
-delete the replication group. For more information, see [Deleting a replication group](Replication.md "Replication.md"). The following procedure
+delete the replication group. For more information, see [Deleting a replication group](Replication.DeletingRepGroup.md "Replication.DeletingRepGroup.md"). The following procedure
 describes the process for deleting one or more shards.
 
 ###### To remove shards from your Valkey or Redis OSS (cluster mode enabled) cluster
@@ -394,7 +394,7 @@ groups, the process is terminated and the replication group is left with the sam
 
 You can use the AWS CLI to remove one or more shards from your Valkey or Redis OSS (cluster mode enabled) cluster. You
 cannot remove all the shards in a replication group. Instead, you must
-delete the replication group. For more information, see [Deleting a replication group](Replication.md "Replication.md").
+delete the replication group. For more information, see [Deleting a replication group](Replication.DeletingRepGroup.md "Replication.DeletingRepGroup.md").
 
 Use the following parameters with `modify-replication-group-shard-configuration`.
 
@@ -463,7 +463,7 @@ groups, the process is terminated and the replication group is left with the sam
 
 You can use the ElastiCache API to remove one or more shards from your Valkey or Redis OSS (cluster mode enabled) cluster.
 You cannot remove all the shards in a replication group. Instead, you must
-delete the replication group. For more information, see [Deleting a replication group](Replication.md "Replication.md").
+delete the replication group. For more information, see [Deleting a replication group](Replication.DeletingRepGroup.md "Replication.DeletingRepGroup.md").
 
 Use the following parameters with `ModifyReplicationGroupShardConfiguration`.
 

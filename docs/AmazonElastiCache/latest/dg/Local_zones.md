@@ -59,10 +59,10 @@ For more information, see [Creating a subnet in your VPC](../../../vpc/latest/us
 
 When you create an ElastiCache subnet group, choose the Availability Zone group for the Local Zone.
 
-For more information, see [Creating a subnet group](SubnetGroups.md "SubnetGroups.md"). 4. Create an ElastiCache for Memcached cluster that uses the ElastiCache subnet in the Local Zone.
+For more information, see [Creating a subnet group](SubnetGroups.Creating.md "SubnetGroups.Creating.md"). 4. Create an ElastiCache for Memcached cluster that uses the ElastiCache subnet in the Local Zone.
 
-For more information, see [Creating a Memcached cluster (console)](Clusters.md#Clusters.Create.CON.Memcached "Clusters.md#Clusters.Create.CON.Memcached"). 5. Create an ElastiCache for Redis OSS cluster that uses the ElastiCache subnet in the Local Zone.
+For more information, see [Creating a Memcached cluster (console)](Clusters.Create-mc.md#Clusters.Create.CON.Memcached "Clusters.Create-mc.md#Clusters.Create.CON.Memcached"). 5. Create an ElastiCache for Redis OSS cluster that uses the ElastiCache subnet in the Local Zone.
 For more information, see one of the following topics:
 
-    * [Creating a Valkey (cluster mode disabled) cluster (Console)](SubnetGroups.designing-cluster-pre.md#Clusters.Create.CON.valkey-gs "SubnetGroups.designing-cluster-pre.md#Clusters.Create.CON.valkey-gs")
-    * [Creating a Valkey or Redis OSS (cluster mode enabled) cluster (Console)](Clusters.md#Clusters.Create.CON.RedisCluster "Clusters.md#Clusters.Create.CON.RedisCluster")
+    * [Creating a Valkey (cluster mode disabled) cluster (Console)](SubnetGroups.designing-cluster-pre.valkey.md#Clusters.Create.CON.valkey-gs "SubnetGroups.designing-cluster-pre.valkey.md#Clusters.Create.CON.valkey-gs")
+    * [Creating a Valkey or Redis OSS (cluster mode enabled) cluster (Console)](Clusters.Create.md#Clusters.Create.CON.RedisCluster "Clusters.Create.md#Clusters.Create.CON.RedisCluster")

@@ -50,8 +50,8 @@ API.
 You can enable Multi-AZ only on Valkey or Redis OSS (cluster mode disabled) clusters that
 have at least one available read replica. Clusters without
 read replicas do not provide high availability or fault tolerance. For information about
-creating a cluster with replication, see [Creating a Valkey or Redis OSS replication group](Replication.md "Replication.md"). For information about adding a read
-replica to a cluster with replication, see [Adding a read replica for Valkey or Redis OSS (Cluster Mode Disabled)](Replication.md "Replication.md").
+creating a cluster with replication, see [Creating a Valkey or Redis OSS replication group](Replication.CreatingRepGroup.md "Replication.CreatingRepGroup.md"). For information about adding a read
+replica to a cluster with replication, see [Adding a read replica for Valkey or Redis OSS (Cluster Mode Disabled)](Replication.AddReadReplica.md "Replication.AddReadReplica.md").
 
 ###### Topics
 
@@ -72,12 +72,12 @@ ElastiCache will automatically enable Multi-AZ only if the cluster contains at l
 
 #### Enabling Multi-AZ when creating a cluster using the ElastiCache console
 
-For more information on this process, see [Creating a Valkey (cluster mode disabled) cluster (Console)](SubnetGroups.designing-cluster-pre.md#Clusters.Create.CON.valkey-gs "SubnetGroups.designing-cluster-pre.md#Clusters.Create.CON.valkey-gs"). Be sure to have one or more
+For more information on this process, see [Creating a Valkey (cluster mode disabled) cluster (Console)](SubnetGroups.designing-cluster-pre.valkey.md#Clusters.Create.CON.valkey-gs "SubnetGroups.designing-cluster-pre.valkey.md#Clusters.Create.CON.valkey-gs"). Be sure to have one or more
 replicas and enable Multi-AZ.
 
 #### Enabling Multi-AZ on an existing cluster (Console)
 
-For more information on this process, see Modifying a Cluster [Using the ElastiCache AWS Management Console](Clusters.md#Clusters.Modify.CON "Clusters.md#Clusters.Modify.CON").
+For more information on this process, see Modifying a Cluster [Using the ElastiCache AWS Management Console](Clusters.Modify.md#Clusters.Modify.CON "Clusters.Modify.md#Clusters.Modify.CON").
 
 ### Enabling Multi-AZ (AWS CLI)
 
@@ -350,7 +350,7 @@ When testing, note the following:
 
   For more information, see the following:
 
-      + [Viewing ElastiCache events](ECEvents.md "ECEvents.md")
+      + [Viewing ElastiCache events](ECEvents.Viewing.md "ECEvents.Viewing.md")
        in the *ElastiCache User Guide*
       + [DescribeEvents](../APIReference/API_DescribeEvents.md "../APIReference/API_DescribeEvents.md") in the *ElastiCache API
        Reference*
@@ -379,7 +379,7 @@ Use the following procedure to test automatic failover with the console.
 4. In the **Details** area, confirm that this cluster is
    Multi-AZ enabled. If the cluster isn't Multi-AZ enabled, either choose a
    different cluster or modify this cluster to enable Multi-AZ. For more
-   information, see [Using the ElastiCache AWS Management Console](Clusters.md#Clusters.Modify.CON "Clusters.md#Clusters.Modify.CON").
+   information, see [Using the ElastiCache AWS Management Console](Clusters.Modify.md#Clusters.Modify.CON "Clusters.Modify.md#Clusters.Modify.CON").
 
 ![Image: Details area of a Multi-AZ enabled cluster](images/ElastiCache-AutoFailover-MultiAZ-Enabled.png) 5. For Valkey or Redis OSS (cluster mode disabled), choose the cluster's name.
 

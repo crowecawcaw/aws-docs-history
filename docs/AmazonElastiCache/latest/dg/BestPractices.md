@@ -10,11 +10,11 @@ your cache's performance and reliability.
 - [Supported and restricted Valkey, Memcached, and Redis OSS commands](SupportedCommands.md "SupportedCommands.md")
 - [Valkey and Redis OSS configuration and limits](RedisConfiguration.md "RedisConfiguration.md")
 - [IPv6 client examples for Valkey, Memcached, and Redis OSS](network-type-best-practices.md "network-type-best-practices.md")
-- [Best practices for clients (Valkey and Redis OSS)](BestPractices.Clients.md "BestPractices.Clients.md")
-- [Best practices for clients (Memcached)](BestPractices.Clients.md "BestPractices.Clients.md")
+- [Best practices for clients (Valkey and Redis OSS)](BestPractices.Clients.redis.md "BestPractices.Clients.redis.md")
+- [Best practices for clients (Memcached)](BestPractices.Clients.memcached.md "BestPractices.Clients.memcached.md")
 - [TLS enabled dual stack ElastiCache clusters](#network-type-configuring-tls-enabled-dual-stack "#network-type-configuring-tls-enabled-dual-stack")
 - [Managing reserved memory for Valkey and Redis OSS](redis-memory-management.md "redis-memory-management.md")
-- [Best practices when working with Valkey and Redis OSS node-based clusters](BestPractices.md "BestPractices.md")
+- [Best practices when working with Valkey and Redis OSS node-based clusters](BestPractices.SelfDesigned.md "BestPractices.SelfDesigned.md")
 - [Caching strategies for Memcached](Strategies.md "Strategies.md")
 
 ## TLS enabled dual stack ElastiCache clusters

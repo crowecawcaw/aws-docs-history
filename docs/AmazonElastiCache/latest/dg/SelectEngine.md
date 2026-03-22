@@ -136,4 +136,4 @@ If the following apply for you, 2.8.x or 3.2.4 (non-clustered mode):
 | + Excludes versions which are deprecated, have reached or soon to reach end of life.                                         |
 
 After you choose the engine for your cluster, we recommend that you use the most recent
-version of that engine. For more information, see [Supported node types](CacheNodes.md "CacheNodes.md").
+version of that engine. For more information, see [Supported node types](CacheNodes.SupportedTypes.md "CacheNodes.SupportedTypes.md").

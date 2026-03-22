@@ -17,7 +17,7 @@ To create a serverless cache, follow these steps.
 
 In this step, you create a serverless cache in the default Amazon VPC in the us-east-1 region in your account using the AWS Command Line Interface (CLI).
 For information on creating serverless cache using the ElastiCache console or API,
-see [Create a Redis OSS serverless cache](GettingStarted.serverless-redis.md "GettingStarted.serverless-redis.md").
+see [Create a Redis OSS serverless cache](GettingStarted.serverless-redis.step1.md "GettingStarted.serverless-redis.step1.md").
 
 ```
 aws elasticache create-serverless-cache \

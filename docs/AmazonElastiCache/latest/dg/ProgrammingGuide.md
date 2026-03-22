@@ -5,6 +5,6 @@ see the [Amazon ElastiCache API Reference](../APIReference.md "../APIReference.m
 
 ###### Topics
 
-- [Using the query API](ProgrammingGuide.md "ProgrammingGuide.md")
+- [Using the query API](ProgrammingGuide.QueryAPI.md "ProgrammingGuide.QueryAPI.md")
 - [Available libraries](using-libraries.md "using-libraries.md")
 - [Troubleshooting applications](Troubleshooting.md "Troubleshooting.md")

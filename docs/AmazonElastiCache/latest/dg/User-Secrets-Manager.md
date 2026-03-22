@@ -11,7 +11,7 @@ For more information about AWS Secrets Manager, see [What is AWS Secrets Manager
 
 ## How ElastiCache uses secrets
 
-Valkey 7.2 and above have an equivalent feature set as Redis OSS 7.0. In Redis OSS 6, ElastiCache introduced [Role-Based Access Control (RBAC)](Clusters.md "Clusters.md") to secure the Valkey or Redis OSS cluster.
+Valkey 7.2 and above have an equivalent feature set as Redis OSS 7.0. In Redis OSS 6, ElastiCache introduced [Role-Based Access Control (RBAC)](Clusters.RBAC.md "Clusters.RBAC.md") to secure the Valkey or Redis OSS cluster.
 This feature allows certain connections to be limited in terms of the commands that can be executed and the keys that can be accessed.
 With RBAC, while the customer creates a user with passwords, the password values need to be manually entered in plaintext and is visible to the operator.
 

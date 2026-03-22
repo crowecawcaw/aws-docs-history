@@ -34,8 +34,8 @@ to 50% of the node's available memory.
 
 For more information, see the following:
 
-- [Ensuring you have enough memory to make a Valkey or Redis OSS snapshot](BestPractices.md "BestPractices.md")
-- [How synchronization and backup are implemented](Replication.Redis.md "Replication.Redis.md")
+- [Ensuring you have enough memory to make a Valkey or Redis OSS snapshot](BestPractices.BGSAVE.md "BestPractices.BGSAVE.md")
+- [How synchronization and backup are implemented](Replication.Redis.Versions.md "Replication.Redis.Versions.md")
 - [Data tiering in ElastiCache](data-tiering.md "data-tiering.md")
 
 ## Parameters to Manage Reserved Memory
@@ -71,10 +71,10 @@ parameter group.
 For more information, see the following:
 
 - [Specifying Your Reserved Memory Management Parameter](#redis-reserved-memory-management-change "#redis-reserved-memory-management-change")
-- [Creating an ElastiCache parameter group](ParameterGroups.md "ParameterGroups.md")
-- [Modifying an ElastiCache parameter group](ParameterGroups.md "ParameterGroups.md")
-- [Modifying an ElastiCache cluster](Clusters.md "Clusters.md")
-- [Modifying a replication group](Replication.md "Replication.md")
+- [Creating an ElastiCache parameter group](ParameterGroups.Creating.md "ParameterGroups.Creating.md")
+- [Modifying an ElastiCache parameter group](ParameterGroups.Modifying.md "ParameterGroups.Modifying.md")
+- [Modifying an ElastiCache cluster](Clusters.Modify.md "Clusters.Modify.md")
+- [Modifying a replication group](Replication.Modify.md "Replication.Modify.md")
 
 ### The reserved-memory Parameter
 
@@ -98,7 +98,7 @@ manage the memory on your Valkey or Redis OSS cluster.
 
 1. Create a custom parameter group specifying the parameter group family matching the engine
    version you’re running—for example, specifying the `redis2.8`
-   parameter group family. For more information, see [Creating an ElastiCache parameter group](ParameterGroups.md "ParameterGroups.md").
+   parameter group family. For more information, see [Creating an ElastiCache parameter group](ParameterGroups.Creating.md "ParameterGroups.Creating.md").
 
 ```
 aws elasticache create-cache-parameter-group \
@@ -108,12 +108,12 @@ aws elasticache create-cache-parameter-group \
 ```
 
 2. Calculate how many bytes of memory to reserve for Valkey or Redis OSS overhead. You can find the value
-   of `maxmemory` for your node type at [Redis OSS node-type specific parameters](ParameterGroups.md#ParameterGroups.Redis.NodeSpecific "ParameterGroups.md#ParameterGroups.Redis.NodeSpecific").
+   of `maxmemory` for your node type at [Redis OSS node-type specific parameters](ParameterGroups.Engine.md#ParameterGroups.Redis.NodeSpecific "ParameterGroups.Engine.md#ParameterGroups.Redis.NodeSpecific").
 3. Modify the custom parameter group so that the parameter
    `reserved-memory` is the number of bytes you calculated
    in the previous step. The following AWS CLI example assumes you’re running a version
    of Redis OSS before 2.8.22 and need to reserve half of the node’s `maxmemory`.
-   For more information, see [Modifying an ElastiCache parameter group](ParameterGroups.md "ParameterGroups.md").
+   For more information, see [Modifying an ElastiCache parameter group](ParameterGroups.Modifying.md "ParameterGroups.Modifying.md").
 
 ```
 aws elasticache modify-cache-parameter-group \
@@ -127,7 +127,7 @@ needs a different value for `reserved-memory`. 4. Modify your Redis OSS cluster 
 
 The following CLI example modifies the cluster `my-redis-cluster` to use the
 custom parameter group `redis28-m3xl` beginning immediately. For more information,
-see [Modifying an ElastiCache cluster](Clusters.md "Clusters.md").
+see [Modifying an ElastiCache cluster](Clusters.Modify.md "Clusters.Modify.md").
 
 ```
 aws elasticache modify-cache-cluster \
@@ -138,7 +138,7 @@ aws elasticache modify-cache-cluster \
 
 The following CLI example modifies the replication group `my-redis-repl-grp` to use the
 custom parameter group `redis28-m3xl` beginning immediately. For more information,
-[Modifying a replication group](Replication.md "Replication.md").
+[Modifying a replication group](Replication.Modify.md "Replication.Modify.md").
 
 ```
 aws elasticache modify-replication-group \
@@ -179,7 +179,7 @@ To use `reserved-memory-percent` to manage the memory on your ElastiCache for Re
    engine version you’re running—for example, specifying the
    `redis2.8` parameter group family. A custom parameter group
    is necessary because you can't modify a default parameter group. For
-   more information, see [Creating an ElastiCache parameter group](ParameterGroups.md "ParameterGroups.md").
+   more information, see [Creating an ElastiCache parameter group](ParameterGroups.Creating.md "ParameterGroups.Creating.md").
 
 ```
 aws elasticache create-cache-parameter-group \
@@ -191,7 +191,7 @@ aws elasticache create-cache-parameter-group \
 Because `reserved-memory-percent` reserves memory as a percent of a
 node’s `maxmemory`, you don't need a custom parameter group
 for each node type. 2. Modify the custom parameter group so that `reserved-memory-percent`
-is 50 (50 percent). For more information, see [Modifying an ElastiCache parameter group](ParameterGroups.md "ParameterGroups.md").
+is 50 (50 percent). For more information, see [Modifying an ElastiCache parameter group](ParameterGroups.Modifying.md "ParameterGroups.Modifying.md").
 
 ```
 aws elasticache modify-cache-parameter-group \
@@ -204,7 +204,7 @@ aws elasticache modify-cache-parameter-group \
 
 The following CLI example modifies the Redis OSS cluster `my-redis-cluster` to use the
 custom parameter group `redis28-50` beginning immediately. For more information,
-see [Modifying an ElastiCache cluster](Clusters.md "Clusters.md").
+see [Modifying an ElastiCache cluster](Clusters.Modify.md "Clusters.Modify.md").
 
 ```
 aws elasticache modify-cache-cluster \
@@ -216,7 +216,7 @@ aws elasticache modify-cache-cluster \
 The following CLI example modifies the Redis OSS replication group `my-redis-repl-grp`
 to use the custom parameter group `redis28-50` beginning immediately.
 For more information,
-see [Modifying a replication group](Replication.md "Replication.md").
+see [Modifying a replication group](Replication.Modify.md "Replication.Modify.md").
 
 ```
 aws elasticache modify-replication-group \
@@ -239,7 +239,7 @@ The parameters `reserved-memory` and `reserved-memory-percent` are
 mutually exclusive. A parameter group always has one but never both. You can change
 which parameter a parameter group uses for reserved memory management by modifying the
 parameter group. The parameter group must be a custom parameter group, because you
-can't modify default parameter groups. For more information, see [Creating an ElastiCache parameter group](ParameterGroups.md "ParameterGroups.md").
+can't modify default parameter groups. For more information, see [Creating an ElastiCache parameter group](ParameterGroups.Creating.md "ParameterGroups.Creating.md").
 
 ###### To specify reserved-memory-percent
 
@@ -252,7 +252,7 @@ The following CLI example modifies the custom parameter group
 `redis32-cluster-on` so that it uses `reserved-memory-percent`
 to manage reserved memory. A value must be assigned to `ParameterValue` for
 the parameter group to use the `ParameterName` parameter for reserved memory
-management. For more information, see [Modifying an ElastiCache parameter group](ParameterGroups.md "ParameterGroups.md").
+management. For more information, see [Modifying an ElastiCache parameter group](ParameterGroups.Modifying.md "ParameterGroups.Modifying.md").
 
 ```
 aws elasticache modify-cache-parameter-group \
@@ -273,7 +273,7 @@ assigned to `ParameterValue` for the parameter group to use the
 `ParameterName` parameter for reserved memory management. Because the
 engine version is newer than 2.8.22, we set the value to `3565158400` which
 is 25 percent of a `cache.m3.xlarge`’s `maxmemory`. For more
-information, see [Modifying an ElastiCache parameter group](ParameterGroups.md "ParameterGroups.md").
+information, see [Modifying an ElastiCache parameter group](ParameterGroups.Modifying.md "ParameterGroups.Modifying.md").
 
 ```
 aws elasticache modify-cache-parameter-group \

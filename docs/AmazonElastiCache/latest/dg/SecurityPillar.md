@@ -92,8 +92,8 @@ performing authorized commands.
 
 **[Resources]:**
 
-    + [Applying RBAC to a Replication Group for ElastiCache](Clusters.md#rbac-using "Clusters.md#rbac-using")
-    + [Specifying Permissions Using an Access String](Clusters.md#Access-string "Clusters.md#Access-string")
+    + [Applying RBAC to a Replication Group for ElastiCache](Clusters.RBAC.md#rbac-using "Clusters.RBAC.md#rbac-using")
+    + [Specifying Permissions Using an Access String](Clusters.RBAC.md#Access-string "Clusters.RBAC.md#Access-string")
     + [ACL](https://valkey.io/topics/acl/ "https://valkey.io/topics/acl/")
     + [Supported ElastiCache versions](VersionManagement.md#supported-engine-versions "VersionManagement.md#supported-engine-versions")
 
@@ -128,7 +128,7 @@ prevent them from being inadvertently executed on the cluster.
 
     + [ElastiCache version 5.0.3 for Redis OSS (deprecated, use version
      5.0.6)](engine-versions.md#redis-version-5-0.3 "engine-versions.md#redis-version-5-0.3")
-    + [ElastiCache version 5.0.3 for Redis OSS parameter changes](ParameterGroups.md#ParameterGroups.Redis.5-0-3 "ParameterGroups.md#ParameterGroups.Redis.5-0-3")
+    + [ElastiCache version 5.0.3 for Redis OSS parameter changes](ParameterGroups.Engine.md#ParameterGroups.Redis.5-0-3 "ParameterGroups.Engine.md#ParameterGroups.Redis.5-0-3")
     + [Redis OSS security](https://redis.io/docs/management/security/ "https://redis.io/docs/management/security/")
 
 ## SEC 4: How do you ensure data encryption at rest with ElastiCache
@@ -217,9 +217,9 @@ security and reliability of resources.
 
     + [Overview
      of managing access permissions to your ElastiCache
-     resources](IAM.md "IAM.md")
+     resources](IAM.Overview.md "IAM.Overview.md")
     + [Using identity-based policies (IAM policies) for Amazon
-     ElastiCache](IAM.md "IAM.md")
+     ElastiCache](IAM.IdentityBasedPolicies.md "IAM.IdentityBasedPolicies.md")
 
 ## SEC 7: How do you detect and respond to security events?
 
@@ -250,7 +250,7 @@ your overall security posture.
 
   **[Resources]:**
 
-      + [Metrics for Valkey or Redis OSS](CacheMetrics.md "CacheMetrics.md")
+      + [Metrics for Valkey or Redis OSS](CacheMetrics.Redis.md "CacheMetrics.Redis.md")
 
 - **[Best]** It is recommended to setup alerts
   and notifications on these metrics and respond as necessary.

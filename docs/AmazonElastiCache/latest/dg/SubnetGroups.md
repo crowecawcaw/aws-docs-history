@@ -19,7 +19,7 @@ see [Accessing your ElastiCache cluster or replication group](accessing-elastica
 
 ###### Topics
 
-- [Creating a subnet group](SubnetGroups.md "SubnetGroups.md")
-- [Assigning a subnet group to a cache](SubnetGroups.md "SubnetGroups.md")
-- [Modifying a subnet group](SubnetGroups.md "SubnetGroups.md")
-- [Deleting a subnet group](SubnetGroups.md "SubnetGroups.md")
+- [Creating a subnet group](SubnetGroups.Creating.md "SubnetGroups.Creating.md")
+- [Assigning a subnet group to a cache](SubnetGroups.Assigning.md "SubnetGroups.Assigning.md")
+- [Modifying a subnet group](SubnetGroups.Modifying.md "SubnetGroups.Modifying.md")
+- [Deleting a subnet group](SubnetGroups.Deleting.md "SubnetGroups.Deleting.md")
