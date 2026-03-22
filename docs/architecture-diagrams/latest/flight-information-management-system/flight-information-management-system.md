@@ -33,7 +33,7 @@ systems on AWS.
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/flight-information-management-system.md "samples/flight-information-management-system.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/flight-information-management-system.zip.md "samples/flight-information-management-system.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
