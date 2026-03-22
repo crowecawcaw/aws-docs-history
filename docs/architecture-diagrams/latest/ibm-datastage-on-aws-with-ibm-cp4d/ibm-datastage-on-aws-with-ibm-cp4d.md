@@ -29,7 +29,7 @@ This architecture shows how to build a modern, cloud-native, secure data integra
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/ibm-datastage-on-aws-with-ibm-cp4d.md "samples/ibm-datastage-on-aws-with-ibm-cp4d.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/ibm-datastage-on-aws-with-ibm-cp4d.zip.md "samples/ibm-datastage-on-aws-with-ibm-cp4d.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
