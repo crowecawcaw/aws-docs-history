@@ -226,7 +226,10 @@ def main():
     parser.add_argument("--update-readme", action="store_true", help="Embed SVG in README.md")
     args = parser.parse_args()
 
-    since = (datetime.now() - timedelta(days=args.months * 30)).strftime("%Y-%m-%d")
+    # Use the later of N months ago or 2025-12-01 (before that is bulk initial imports)
+    earliest = "2025-12-01"
+    months_ago = (datetime.now() - timedelta(days=args.months * 30)).strftime("%Y-%m-%d")
+    since = max(earliest, months_ago)
     raw = get_git_numstat(since, args.cache)
 
     print("Parsing...")
