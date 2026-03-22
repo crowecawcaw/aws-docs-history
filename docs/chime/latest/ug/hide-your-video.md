@@ -7,7 +7,7 @@ still see your video. If you don't want others to see your video, turn your came
 
 1. On the left toolbar, open the **Media layout** menu (
 
-![An icon showing a stylized app window with three panels.](/images/chime/latest/ug/images/left-control-5.png)
+![An icon showing a stylized app window with three panels.](images/left-control-5.png)
 
 ). 2. Choose **Hide my own video**.
 To show your video tile, repeat these steps.

@@ -11,7 +11,7 @@ Your company may limit you to phone numbers in the corporate address book.
 1. In the sidebar, next to **Recent Messages**, choose the **Message a
    contact** icon (
 
-![This is my image.](/images/chime/latest/ug/images/icon-message-contact.png)
+![This is my image.](images/icon-message-contact.png)
 
 ). 2. In the **To** line of the message that appears, search for and select a phone number.
 

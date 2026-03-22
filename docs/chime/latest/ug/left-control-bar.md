@@ -27,7 +27,7 @@ the number of people currently in the meeting. For more information, see [Using 
 
 \*\*Chat panel (
 
-![An icon of a rectangular message balloon.](/images/chime/latest/ug/images/left-control-3.png)
+![An icon of a rectangular message balloon.](images/left-control-3.png)
 
 )\*\*
 
