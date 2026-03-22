@@ -30,7 +30,7 @@ performance beyond what’s possible with more traditional approaches.
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/fraud-ring-detection-using-Neo4j-and-graphs.md "samples/fraud-ring-detection-using-Neo4j-and-graphs.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/fraud-ring-detection-using-Neo4j-and-graphs.zip.md "samples/fraud-ring-detection-using-Neo4j-and-graphs.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
