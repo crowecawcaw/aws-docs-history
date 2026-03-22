@@ -30,7 +30,7 @@ This architecture diagram shows you how to build a data lake using AWS IoT senso
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/industrial-data-lake-for-predictive-maintenance.md "samples/industrial-data-lake-for-predictive-maintenance.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/industrial-data-lake-for-predictive-maintenance.zip.md "samples/industrial-data-lake-for-predictive-maintenance.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
