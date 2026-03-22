@@ -57,7 +57,7 @@ This architecture enables you to build an automotive call center solution as par
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/automotive-call-center-architecture.md "samples/automotive-call-center-architecture.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/automotive-call-center-architecture.zip.md "samples/automotive-call-center-architecture.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
