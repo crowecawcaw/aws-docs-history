@@ -48,7 +48,7 @@ This architecture demonstrates the integration of streaming data services on AWS
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/exploring-real-time-streaming-for-retrieval-augmented-generation.md "samples/exploring-real-time-streaming-for-retrieval-augmented-generation.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/exploring-real-time-streaming-for-retrieval-augmented-generation.zip.md "samples/exploring-real-time-streaming-for-retrieval-augmented-generation.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
