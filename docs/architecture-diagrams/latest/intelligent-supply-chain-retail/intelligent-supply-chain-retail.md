@@ -24,7 +24,7 @@ This is a supply chain reference architecture for a generic retailer. Specific i
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/intelligent-supply-chain-retail.md "samples/intelligent-supply-chain-retail.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/intelligent-supply-chain-retail.zip.md "samples/intelligent-supply-chain-retail.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
