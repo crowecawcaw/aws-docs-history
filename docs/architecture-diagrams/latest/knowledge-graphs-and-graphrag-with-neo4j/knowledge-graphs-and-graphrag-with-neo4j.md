@@ -37,7 +37,7 @@ This reference architecture demonstrates how AWS services and Neo4j can be used 
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/knowledge-graphs-and-graphrag-with-neo4j.md "samples/knowledge-graphs-and-graphrag-with-neo4j.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/knowledge-graphs-and-graphrag-with-neo4j.zip.md "samples/knowledge-graphs-and-graphrag-with-neo4j.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
