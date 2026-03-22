@@ -52,7 +52,7 @@ reducing cost and improving efficiency.
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/powering-multiple-contact-centers-with-gen-ai-using-amazon-bedrock.md "samples/powering-multiple-contact-centers-with-gen-ai-using-amazon-bedrock.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/powering-multiple-contact-centers-with-gen-ai-using-amazon-bedrock.zip.md "samples/powering-multiple-contact-centers-with-gen-ai-using-amazon-bedrock.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
