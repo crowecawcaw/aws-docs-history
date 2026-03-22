@@ -5,12 +5,12 @@ engine that have been released for Amazon Aurora.
 
 For more information about Aurora PostgreSQL support dates, including extended and long-term support, see [Release calendars for Aurora PostgreSQL](aurorapostgresql-release-calendar.md "aurorapostgresql-release-calendar.md").
 
-To determine the version number of your Aurora PostgreSQL database, see [Identifying versions of Amazon Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.Updates.md "../AuroraUserGuide/AuroraPostgreSQL.Updates.md") in the _Amazon Aurora User
+To determine the version number of your Aurora PostgreSQL database, see [Identifying versions of Amazon Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.Updates.Versions.md "../AuroraUserGuide/AuroraPostgreSQL.Updates.Versions.md") in the _Amazon Aurora User
 Guide_.
 
-For information about extensions and modules, see [Extension versions for Amazon Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+For information about extensions and modules, see [Extension versions for Amazon Aurora PostgreSQL](AuroraPostgreSQL.Extensions.md "AuroraPostgreSQL.Extensions.md").
 
-For information about Amazon Aurora available releases, policies, and time lines, see [How long Amazon Aurora major versions remain available](../AuroraUserGuide/Aurora.md#Aurora.VersionPolicy.MajorVersionLifetime "../AuroraUserGuide/Aurora.md#Aurora.VersionPolicy.MajorVersionLifetime") in the _Amazon Aurora
+For information about Amazon Aurora available releases, policies, and time lines, see [How long Amazon Aurora major versions remain available](../AuroraUserGuide/Aurora.VersionPolicy.md#Aurora.VersionPolicy.MajorVersionLifetime "../AuroraUserGuide/Aurora.VersionPolicy.md#Aurora.VersionPolicy.MajorVersionLifetime") in the _Amazon Aurora
 User Guide_. For more information about support and other policies for
 Amazon Aurora see [Amazon RDS FAQs](https://aws.amazon.com/rds/faqs/ "https://aws.amazon.com/rds/faqs/").
 
@@ -21,7 +21,7 @@ the [describe-db-engine-versions](../../../cli/latest/reference/rds/describe-db-
 aws rds describe-db-engine-versions --engine aurora-postgresql --query '*[].[EngineVersion]' --output text --region `aws-region`
 ```
 
-For a list of AWS Regions, see [Aurora PostgreSQL Region availability](../AuroraUserGuide/Concepts.md#Aurora.Overview.Availability.PostgreSQL "../AuroraUserGuide/Concepts.md#Aurora.Overview.Availability.PostgreSQL") in the _Amazon Aurora User
+For a list of AWS Regions, see [Aurora PostgreSQL Region availability](../AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.md#Aurora.Overview.Availability.PostgreSQL "../AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.md#Aurora.Overview.Availability.PostgreSQL") in the _Amazon Aurora User
 Guide_.
 
 ###### Topics
@@ -151,8 +151,41 @@ the improvements in PostgreSQL 17.7, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 17.7.2, March 20, 2026](#aurorapostgresql-versions-version177x-1772 "#aurorapostgresql-versions-version177x-1772")
 - [Aurora PostgreSQL 17.7.1, January 16th, 2026](#aurorapostgresql-versions-version1771x-1771 "#aurorapostgresql-versions-version1771x-1771")
 - [Aurora PostgreSQL 17.7, December, 18, 2025](#aurorapostgresql-versions-version177x-177 "#aurorapostgresql-versions-version177x-177")
+
+#### Aurora PostgreSQL 17.7.2, March 20, 2026
+
+**Critical stability enhancements**
+
+- Babelfish cross-database queries now respect dynamic data masking policies, displaying tables with masked data based on policies defined for the current login.
+- Fixed an issue where executing queries from PostgreSQL endpoint on instances with Active Directory Authentication enabled could result in database unavailability.
+- Fixed a bug in the aws_s3 extension which, in rare circumstances, can cause database unavailability.
+- Fixed an issue where read nodes may restart when attempting to connect to the new write node following a failover.
+
+**High priority enhancements**
+
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2026-2003](https://nvd.nist.gov/vuln/detail/CVE-2026-2003 "https://nvd.nist.gov/vuln/detail/CVE-2026-2003").
+  - [CVE-2026-2004](https://nvd.nist.gov/vuln/detail/CVE-2026-2004 "https://nvd.nist.gov/vuln/detail/CVE-2026-2004").
+  - [CVE-2026-2005](https://nvd.nist.gov/vuln/detail/CVE-2026-2005 "https://nvd.nist.gov/vuln/detail/CVE-2026-2005").
+  - [CVE-2026-2006](https://nvd.nist.gov/vuln/detail/CVE-2026-2006 "https://nvd.nist.gov/vuln/detail/CVE-2026-2006").
+  - [CVE-2026-2007](https://nvd.nist.gov/vuln/detail/CVE-2026-2007 "https://nvd.nist.gov/vuln/detail/CVE-2026-2007").
+  - [CVE-2026-3172](https://nvd.nist.gov/vuln/detail/CVE-2026-3172 "https://nvd.nist.gov/vuln/detail/CVE-2026-3172").
+
+- Fixed a bug in Query Plan Management that prevented plan capture.
+- Fixed a bug in the Aurora Storage Daemon that could cause database unavailability in rare cases when enhanced logical replication is enabled.
+- Fixed an issue in nested procedure calls that could lead to temporary table cleanup failures and parser errors.
+- Fixed an issue where file handlers could remain improperly allocated after a major version upgrade.
+- Fixed an issue where databases could run out of memory due to excessive storage metadata in rare circumstances.
+- Fixed a bug in the logging utility that could cause database unavailability due to buffer overflow in rare circumstances.
+- Fixed an issue in cache initialization that could cause database unavailability during startup.
+- Fixed an issue where global databases planned switchover operations could become unresponsive while waiting for storage volume growth to complete.
+
+**Security enhancements**
+
+- Fixed a bug in the babelfish_set_role function that improved permission validation when setting roles.
 
 #### Aurora PostgreSQL 17.7.1, January 16th, 2026
 
@@ -240,7 +273,7 @@ the improvements in PostgreSQL 17.6, see [PostgreSQL release
 
 **New features**
 
-- Introduced Dynamic Data Masking (DDM), a database-level security feature that protects sensitive data by masking column values before they are presented to database clients, without modifying the actual stored data. DDM enables organizations to control access to Personally Identifiable Information (PII) and other sensitive data through role-based masking policies that are applied dynamically at query execution time. For more details visit [Dynamic Data Masking](../AuroraUserGuide/AuroraPostgreSQL.Security.md "../AuroraUserGuide/AuroraPostgreSQL.Security.md").
+- Introduced Dynamic Data Masking (DDM), a database-level security feature that protects sensitive data by masking column values before they are presented to database clients, without modifying the actual stored data. DDM enables organizations to control access to Personally Identifiable Information (PII) and other sensitive data through role-based masking policies that are applied dynamically at query execution time. For more details visit [Dynamic Data Masking](../AuroraUserGuide/AuroraPostgreSQL.Security.DynamicMasking.md "../AuroraUserGuide/AuroraPostgreSQL.Security.DynamicMasking.md").
 - Introduced Shared Plan Cache to reduce memory usage by sharing query plans between backend processes. For more information,
   see [Shared Plan Cache](../AuroraUserGuide/apg-shared-plan-cache.md "../AuroraUserGuide/apg-shared-plan-cache.md").
 - Added support for correlated subquery cache for EXISTS, NOT EXISTS, and row comparison subqueries, see [here](../AuroraUserGuide/apg-correlated-subquery.md "../AuroraUserGuide/apg-correlated-subquery.md").
@@ -604,7 +637,7 @@ the improvements in PostgreSQL 17.4, see [PostgreSQL release
 
 - Aurora Optimized Reads now enables users to resize the allocated space for Optimized
   Reads-enabled temporary objects on Aurora I/O-Optimized clusters using a dynamic parameter
-  `aurora_temp_space_size`. For more information, see [Aurora Optimized Reads](../AuroraUserGuide/AuroraPostgreSQL.optimized.md "../AuroraUserGuide/AuroraPostgreSQL.optimized.md").
+  `aurora_temp_space_size`. For more information, see [Aurora Optimized Reads](../AuroraUserGuide/AuroraPostgreSQL.optimized.reads.md "../AuroraUserGuide/AuroraPostgreSQL.optimized.reads.md").
 - Added support for transforming correlated subquery into derived table to improve
   execution efficiency. For more information, see [Improving Aurora PostgreSQL query performance using subquery transformation](../AuroraUserGuide/apg-correlated-subquery.md#apg-corsubquery-transformation "../AuroraUserGuide/apg-correlated-subquery.md#apg-corsubquery-transformation") .
 - Added support for caching the result of correlated subquery to improve execution
@@ -625,7 +658,7 @@ the improvements in PostgreSQL 17.4, see [PostgreSQL release
 
 - The `rds.force_ssl` parameter is now set to 1 (on) by default in version 17
   and newer versions, enforcing SSL connections for enhanced security. For more information,
-  see [Requiring an SSL/TLS connection to an Aurora PostgreSQL DB cluster](../AuroraUserGuide/AuroraPostgreSQL.md#AuroraPostgreSQL.Security.SSL.Requiring "../AuroraUserGuide/AuroraPostgreSQL.md#AuroraPostgreSQL.Security.SSL.Requiring").
+  see [Requiring an SSL/TLS connection to an Aurora PostgreSQL DB cluster](../AuroraUserGuide/AuroraPostgreSQL.Security.md#AuroraPostgreSQL.Security.SSL.Requiring "../AuroraUserGuide/AuroraPostgreSQL.Security.md#AuroraPostgreSQL.Security.SSL.Requiring").
 - Fixed an issue where Aurora in-Region failovers would result in failures in database
   startup.
 - Fixed a security issue in the `rds_activity_stream` extension.
@@ -728,9 +761,9 @@ For more information on migration, see [Migration
 to Version 16](https://www.postgresql.org/docs/16/release-16.html#RELEASE-16-MIGRATION "https://www.postgresql.org/docs/16/release-16.html#RELEASE-16-MIGRATION") and [Migration to Version 16.1](https://www.postgresql.org/docs/16/release-16-1.html#RELEASE-16-1-MIGRATION "https://www.postgresql.org/docs/16/release-16-1.html#RELEASE-16-1-MIGRATION").
 
 For information about supported extensions versions for each Aurora PostgreSQL version,
-see [Extension versions for Amazon Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+see [Extension versions for Amazon Aurora PostgreSQL](AuroraPostgreSQL.Extensions.md "AuroraPostgreSQL.Extensions.md").
 
-To upgrade your Aurora PostgreSQL DB cluster including upgrading your extensions, see [Upgrading PostgreSQL extensions](../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades").
+To upgrade your Aurora PostgreSQL DB cluster including upgrading your extensions, see [Upgrading PostgreSQL extensions](../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades").
 
 ###### Unsupported Features
 
@@ -778,8 +811,41 @@ the improvements in PostgreSQL 16.11, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 16.11.2, March 20, 2026](#aurorapostgresql-versions-version1611x-16112 "#aurorapostgresql-versions-version1611x-16112")
 - [Aurora PostgreSQL 16.11.1, January 16th, 2026](#aurorapostgresql-versions-version16111x-16111 "#aurorapostgresql-versions-version16111x-16111")
 - [Aurora PostgreSQL 16.11, December, 18, 2025](#aurorapostgresql-versions-version1611x-1611 "#aurorapostgresql-versions-version1611x-1611")
+
+#### Aurora PostgreSQL 16.11.2, March 20, 2026
+
+**Critical stability enhancements**
+
+- Babelfish cross-database queries now respect dynamic data masking policies, displaying tables with masked data based on policies defined for the current login.
+- Fixed an issue where executing queries from PostgreSQL endpoint on instances with Active Directory Authentication enabled could result in database unavailability.
+- Fixed a bug in the aws_s3 extension which, in rare circumstances, can cause database unavailability.
+- Fixed an issue where read nodes may restart when attempting to connect to the new write node following a failover.
+
+**High priority enhancements**
+
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2026-2003](https://nvd.nist.gov/vuln/detail/CVE-2026-2003 "https://nvd.nist.gov/vuln/detail/CVE-2026-2003").
+  - [CVE-2026-2004](https://nvd.nist.gov/vuln/detail/CVE-2026-2004 "https://nvd.nist.gov/vuln/detail/CVE-2026-2004").
+  - [CVE-2026-2005](https://nvd.nist.gov/vuln/detail/CVE-2026-2005 "https://nvd.nist.gov/vuln/detail/CVE-2026-2005").
+  - [CVE-2026-2006](https://nvd.nist.gov/vuln/detail/CVE-2026-2006 "https://nvd.nist.gov/vuln/detail/CVE-2026-2006").
+  - [CVE-2026-2007](https://nvd.nist.gov/vuln/detail/CVE-2026-2007 "https://nvd.nist.gov/vuln/detail/CVE-2026-2007").
+  - [CVE-2026-3172](https://nvd.nist.gov/vuln/detail/CVE-2026-3172 "https://nvd.nist.gov/vuln/detail/CVE-2026-3172").
+
+- Fixed a bug in Query Plan Management that prevented plan capture.
+- Fixed a bug in the Aurora Storage Daemon that could cause database unavailability in rare cases when enhanced logical replication is enabled.
+- Fixed an issue in nested procedure calls that could lead to temporary table cleanup failures and parser errors.
+- Fixed an issue where file handlers could remain improperly allocated after a major version upgrade.
+- Fixed an issue where databases could run out of memory due to excessive storage metadata in rare circumstances.
+- Fixed a bug in the logging utility that could cause database unavailability due to buffer overflow in rare circumstances.
+- Fixed an issue in cache initialization that could cause database unavailability during startup.
+- Fixed an issue where global databases planned switchover operations could become unresponsive while waiting for storage volume growth to complete.
+
+**Security enhancements**
+
+- Fixed a bug in the babelfish_set_role function that improved permission validation when setting roles.
 
 #### Aurora PostgreSQL 16.11.1, January 16th, 2026
 
@@ -867,7 +933,7 @@ the improvements in PostgreSQL 16.10, see [PostgreSQL release
 
 **New features**
 
-- Introduced Dynamic Data Masking (DDM), a database-level security feature that protects sensitive data by masking column values before they are presented to database clients, without modifying the actual stored data. DDM enables organizations to control access to Personally Identifiable Information (PII) and other sensitive data through role-based masking policies that are applied dynamically at query execution time. For more details visit [Dynamic Data Masking](../AuroraUserGuide/AuroraPostgreSQL.Security.md "../AuroraUserGuide/AuroraPostgreSQL.Security.md").
+- Introduced Dynamic Data Masking (DDM), a database-level security feature that protects sensitive data by masking column values before they are presented to database clients, without modifying the actual stored data. DDM enables organizations to control access to Personally Identifiable Information (PII) and other sensitive data through role-based masking policies that are applied dynamically at query execution time. For more details visit [Dynamic Data Masking](../AuroraUserGuide/AuroraPostgreSQL.Security.DynamicMasking.md "../AuroraUserGuide/AuroraPostgreSQL.Security.DynamicMasking.md").
 - Introduced Shared Plan Cache to reduce memory usage by sharing query plans between backend processes.
 - Added support for correlated subquery cache for EXISTS, NOT EXISTS, and row comparison subqueries.
 - Introduced a new feature to significantly reduce database downtime during restarts by initializing Aurora storage metadata in parallel and reducing contention during initialization.
@@ -1228,7 +1294,7 @@ the improvements in PostgreSQL 16.8, see [PostgreSQL release
 - Aurora Optimized Reads now enables users to resize the allocated space for Optimized
   Reads-enabled temporary objects on Aurora I/O-Optimized clusters using a dynamic parameter
   “aurora_temp_space_size”. For more information, see [Aurora
-  Optimized Reads](../AuroraUserGuide/AuroraPostgreSQL.optimized.md "../AuroraUserGuide/AuroraPostgreSQL.optimized.md").
+  Optimized Reads](../AuroraUserGuide/AuroraPostgreSQL.optimized.reads.md "../AuroraUserGuide/AuroraPostgreSQL.optimized.reads.md").
 - Added support for transforming correlated subquery into derived table to improve
   execution efficiency. For more information, see [Improving Aurora PostgreSQL query performance using subquery transformation](../AuroraUserGuide/apg-correlated-subquery.md#apg-corsubquery-transformation "../AuroraUserGuide/apg-correlated-subquery.md#apg-corsubquery-transformation") .
 - Added support for caching the result of correlated subquery to improve execution
@@ -2185,7 +2251,7 @@ about the improvements in PostgreSQL 16.1, see [PostgreSQL release
   `h3-postgis` extension at version 4.1.3.
 - Added support for `aurora_compute_plan_id` parameter which is
   turned on by default in an Aurora PostgreSQL DB Cluster and DB Parameter Group. For
-  more information, see [Monitoring query execution plans for Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.Monitoring.Query.md "../AuroraUserGuide/AuroraPostgreSQL.Monitoring.Query.md").
+  more information, see [Monitoring query execution plans for Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.Monitoring.Query.Plans.md "../AuroraUserGuide/AuroraPostgreSQL.Monitoring.Query.Plans.md").
 - The `rds.rds_superuser_reserved_connections` parameter has been
   deprecated in Aurora PostgreSQL version 16. The `reserved_connections`
   parameter should be utilized to reserve the number of connection slots. The
@@ -2225,7 +2291,7 @@ Updated the following extensions:
 - `pg_partman` to version 4.7.3
 - `pgTAP` to version 1.3.0
 
-For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 16](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.16 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.16").
+For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 16](AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.16 "AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.16").
 
 ## PostgreSQL 15 versions (includes some deprecated versions)
 
@@ -2252,8 +2318,41 @@ the improvements in PostgreSQL 15.15, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 15.15.2, March 20, 2026](#aurorapostgresql-versions-version1515x-15152 "#aurorapostgresql-versions-version1515x-15152")
 - [Aurora PostgreSQL 15.15.1, January 16th, 2026](#aurorapostgresql-versions-version15151x-15151 "#aurorapostgresql-versions-version15151x-15151")
 - [Aurora PostgreSQL 15.15, Decemeber, 18, 2025](#aurorapostgresql-versions-version1515x-1515 "#aurorapostgresql-versions-version1515x-1515")
+
+#### Aurora PostgreSQL 15.15.2, March 20, 2026
+
+**Critical stability enhancements**
+
+- Babelfish cross-database queries now respect dynamic data masking policies, displaying tables with masked data based on policies defined for the current login.
+- Fixed an issue where executing queries from PostgreSQL endpoint on instances with Active Directory Authentication enabled could result in database unavailability.
+- Fixed a bug in the aws_s3 extension which, in rare circumstances, can cause database unavailability.
+- Fixed an issue where read nodes may restart when attempting to connect to the new write node following a failover.
+
+**High priority enhancements**
+
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2026-2003](https://nvd.nist.gov/vuln/detail/CVE-2026-2003 "https://nvd.nist.gov/vuln/detail/CVE-2026-2003").
+  - [CVE-2026-2004](https://nvd.nist.gov/vuln/detail/CVE-2026-2004 "https://nvd.nist.gov/vuln/detail/CVE-2026-2004").
+  - [CVE-2026-2005](https://nvd.nist.gov/vuln/detail/CVE-2026-2005 "https://nvd.nist.gov/vuln/detail/CVE-2026-2005").
+  - [CVE-2026-2006](https://nvd.nist.gov/vuln/detail/CVE-2026-2006 "https://nvd.nist.gov/vuln/detail/CVE-2026-2006").
+  - [CVE-2026-2007](https://nvd.nist.gov/vuln/detail/CVE-2026-2007 "https://nvd.nist.gov/vuln/detail/CVE-2026-2007").
+  - [CVE-2026-3172](https://nvd.nist.gov/vuln/detail/CVE-2026-3172 "https://nvd.nist.gov/vuln/detail/CVE-2026-3172").
+
+- Fixed a bug in Query Plan Management that prevented plan capture.
+- Fixed a bug in the Aurora Storage Daemon that could cause database unavailability in rare cases when enhanced logical replication is enabled.
+- Fixed an issue in nested procedure calls that could lead to temporary table cleanup failures and parser errors.
+- Fixed an issue where file handlers could remain improperly allocated after a major version upgrade.
+- Fixed an issue where databases could run out of memory due to excessive storage metadata in rare circumstances.
+- Fixed a bug in the logging utility that could cause database unavailability due to buffer overflow in rare circumstances.
+- Fixed an issue in cache initialization that could cause database unavailability during startup.
+- Fixed an issue where global databases planned switchover operations could become unresponsive while waiting for storage volume growth to complete.
+
+**Security enhancements**
+
+- Fixed a bug in the babelfish_set_role function that improved permission validation when setting roles.
 
 #### Aurora PostgreSQL 15.15.1, January 16th, 2026
 
@@ -2681,7 +2780,7 @@ about the improvements in PostgreSQL 15.12, see [PostgreSQL release
 
 - Aurora Optimized Reads now enables users to resize the allocated space for Optimized
   Reads-enabled temporary objects on Aurora I/O-Optimized clusters using a dynamic parameter
-  “aurora_temp_space_size”. For more information. see [Aurora Optimized Reads](../AuroraUserGuide/AuroraPostgreSQL.optimized.md "../AuroraUserGuide/AuroraPostgreSQL.optimized.md").
+  “aurora_temp_space_size”. For more information. see [Aurora Optimized Reads](../AuroraUserGuide/AuroraPostgreSQL.optimized.reads.md "../AuroraUserGuide/AuroraPostgreSQL.optimized.reads.md").
 
 **Critical stability enhancements**
 
@@ -3583,7 +3682,7 @@ if you are running any version of Amazon Aurora PostgreSQL version 11, you must 
 - Using Active Directory security groups for Aurora PostgreSQL access control – Add group role authentication support using AWS Directory Service for Microsoft Active Directory with the new `pg_ad_mapping` extension.
 - Delegated Extension Support – This feature allows delegating extension management to lower privileged user with the new rds_extension role.
 - Added support for `aurora_compute_plan_id` parameter which is turned on by default in an Aurora PostgreSQL DB Cluster and DB Parameter Group.
-  For more information, see [Monitoring query execution plans for Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.Monitoring.Query.md "../AuroraUserGuide/AuroraPostgreSQL.Monitoring.Query.md").
+  For more information, see [Monitoring query execution plans for Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.Monitoring.Query.Plans.md "../AuroraUserGuide/AuroraPostgreSQL.Monitoring.Query.Plans.md").
 - Query Plan Management (QPM) enhancements:
   - Plan outlines will be updated to the latest format version as part of the `update_plan_hash`
     action for `apg_plan_mgmt.validate_plans()`.
@@ -3636,7 +3735,7 @@ if you are running any version of Amazon Aurora PostgreSQL version 11, you must 
   - `prefix` to version 1.2.10
   - `RDKit` to version 4.4.0 (Release_2023_09_1)
 
-For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 15](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.15 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.15").
+For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 15](AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.15 "AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.15").
 
 ### PostgreSQL 15.4
 
@@ -3885,7 +3984,7 @@ about the improvements in PostgreSQL 15.4, see [PostgreSQL release
   - `PostGIS` to version 3.3.3
   - `RDKit` to version 4.3
 
-For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 15](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.15 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.15").
+For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 15](AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.15 "AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.15").
 
 ### PostgreSQL 15.3
 
@@ -4055,16 +4154,16 @@ information about the improvements in PostgreSQL 15.3, see [PostgreSQL release 1
 Following the announcement of updates to the PostgreSQL database by the open source community, we have updated Amazon Aurora PostgreSQL-Compatible Edition
 to support PostgreSQL versions 15.3, 14.8, 13.11, 12.15, and 11.20. These releases contains product improvements and bug fixes made by
 the PostgreSQL community, along with Aurora-specific improvements. The releases also contain new features and improvements for
-[Babelfish for Aurora PostgreSQL version 3.2](AuroraBabelfish.md "AuroraBabelfish.md"), and improved support for
-[AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Target.md#CHAP_Target.PostgreSQL.Babelfish "../../../dms/latest/userguide/CHAP_Target.md#CHAP_Target.PostgreSQL.Babelfish").
-Refer to the [Amazon Aurora versions](../AuroraUserGuide/Aurora.md "../AuroraUserGuide/Aurora.md")
+[Babelfish for Aurora PostgreSQL version 3.2](AuroraBabelfish.Updates.md "AuroraBabelfish.Updates.md"), and improved support for
+[AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Target.PostgreSQL.md#CHAP_Target.PostgreSQL.Babelfish "../../../dms/latest/userguide/CHAP_Target.PostgreSQL.md#CHAP_Target.PostgreSQL.Babelfish").
+Refer to the [Amazon Aurora versions](../AuroraUserGuide/Aurora.VersionPolicy.md "../AuroraUserGuide/Aurora.VersionPolicy.md")
 to help you to decide how often to upgrade and how to plan your upgrade process. As a reminder, if you are running any version of Amazon Aurora PostgreSQL 11,
 you must upgrade to a newer major version by February 29, 2024.
 
 ###### New features
 
 - This release contains memory management improvements which increase database stability and availability by proactively
-  preventing issues caused by insufficient memory. For more information, see [Improved memory management in Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.BestPractices.memory.md "../AuroraUserGuide/AuroraPostgreSQL.BestPractices.memory.md").
+  preventing issues caused by insufficient memory. For more information, see [Improved memory management in Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.BestPractices.memory.management.md "../AuroraUserGuide/AuroraPostgreSQL.BestPractices.memory.management.md").
 - Added support for the `pgvector` extension version 0.4.1.
 
 ###### High priority enhancements
@@ -4284,7 +4383,7 @@ information about the improvements in PostgreSQL 15.2, see [PostgreSQL release 1
   - `tds_fdw` to version 2.0.3
   - `wal2json` to version 2.5
 
-For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 15](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.15 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.15").
+For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 15](AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.15 "AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.15").
 
 ###### Differences between PostgreSQL 15 and Aurora PostgreSQL 15
 
@@ -4321,8 +4420,41 @@ the improvements in PostgreSQL 14.20, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 14.20.2, March 20, 2026](#aurorapostgresql-versions-version1420x-14202 "#aurorapostgresql-versions-version1420x-14202")
 - [Aurora PostgreSQL 14.20.1, January 16th, 2026](#aurorapostgresql-versions-version14201x-14201 "#aurorapostgresql-versions-version14201x-14201")
 - [Aurora PostgreSQL 14.20, December, 18, 2025](#aurorapostgresql-versions-version1420x-1420 "#aurorapostgresql-versions-version1420x-1420")
+
+#### Aurora PostgreSQL 14.20.2, March 20, 2026
+
+**Critical stability enhancements**
+
+- Babelfish cross-database queries now respect dynamic data masking policies, displaying tables with masked data based on policies defined for the current login.
+- Fixed an issue where executing queries from PostgreSQL endpoint on instances with Active Directory Authentication enabled could result in database unavailability.
+- Fixed a bug in the aws_s3 extension which, in rare circumstances, can cause database unavailability.
+- Fixed an issue where read nodes may restart when attempting to connect to the new write node following a failover.
+
+**High priority enhancements**
+
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2026-2003](https://nvd.nist.gov/vuln/detail/CVE-2026-2003 "https://nvd.nist.gov/vuln/detail/CVE-2026-2003").
+  - [CVE-2026-2004](https://nvd.nist.gov/vuln/detail/CVE-2026-2004 "https://nvd.nist.gov/vuln/detail/CVE-2026-2004").
+  - [CVE-2026-2005](https://nvd.nist.gov/vuln/detail/CVE-2026-2005 "https://nvd.nist.gov/vuln/detail/CVE-2026-2005").
+  - [CVE-2026-2006](https://nvd.nist.gov/vuln/detail/CVE-2026-2006 "https://nvd.nist.gov/vuln/detail/CVE-2026-2006").
+  - [CVE-2026-2007](https://nvd.nist.gov/vuln/detail/CVE-2026-2007 "https://nvd.nist.gov/vuln/detail/CVE-2026-2007").
+  - [CVE-2026-3172](https://nvd.nist.gov/vuln/detail/CVE-2026-3172 "https://nvd.nist.gov/vuln/detail/CVE-2026-3172").
+
+- Fixed a bug in Query Plan Management that prevented plan capture.
+- Fixed a bug in the Aurora Storage Daemon that could cause database unavailability in rare cases when enhanced logical replication is enabled.
+- Fixed an issue in nested procedure calls that could lead to temporary table cleanup failures and parser errors.
+- Fixed an issue where file handlers could remain improperly allocated after a major version upgrade.
+- Fixed an issue where databases could run out of memory due to excessive storage metadata in rare circumstances.
+- Fixed a bug in the logging utility that could cause database unavailability due to buffer overflow in rare circumstances.
+- Fixed an issue in cache initialization that could cause database unavailability during startup.
+- Fixed an issue where global databases planned switchover operations could become unresponsive while waiting for storage volume growth to complete.
+
+**Security enhancements**
+
+- Fixed a bug in the babelfish_set_role function that improved permission validation when setting roles.
 
 #### Aurora PostgreSQL 14.20.1, January 16th, 2026
 
@@ -4743,7 +4875,7 @@ about the improvements in PostgreSQL 14.17, see [PostgreSQL release
 
 - Aurora Optimized Reads now enables users to resize the allocated space for Optimized
   Reads-enabled temporary objects on Aurora I/O-Optimized clusters using a dynamic parameter
-  `aurora_temp_space_size`. For more information. see [Aurora Optimized Reads](../AuroraUserGuide/AuroraPostgreSQL.optimized.md "../AuroraUserGuide/AuroraPostgreSQL.optimized.md").
+  `aurora_temp_space_size`. For more information. see [Aurora Optimized Reads](../AuroraUserGuide/AuroraPostgreSQL.optimized.reads.md "../AuroraUserGuide/AuroraPostgreSQL.optimized.reads.md").
 
 **Critical stability enhancements**
 
@@ -5639,7 +5771,7 @@ if you are running any version of Amazon Aurora PostgreSQL version 11, you must 
 - Using Active Directory security groups for Aurora PostgreSQL access control – Add group role authentication support using AWS Directory Service for Microsoft Active Directory with the new `pg_ad_mapping` extension.
 - Delegated Extension Support – This feature allows delegating extension management to lower privileged user with the new rds_extension role.
 - Added support for `aurora_compute_plan_id` parameter which is turned on by default in an Aurora PostgreSQL DB Cluster and DB Parameter Group.
-  For more information, see [Monitoring query execution plans for Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.Monitoring.Query.md "../AuroraUserGuide/AuroraPostgreSQL.Monitoring.Query.md").
+  For more information, see [Monitoring query execution plans for Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.Monitoring.Query.Plans.md "../AuroraUserGuide/AuroraPostgreSQL.Monitoring.Query.Plans.md").
 - Query Plan Management (QPM) enhancements:
   - Plan outlines will be updated to the latest format version as part of the `update_plan_hash`
     action for `apg_plan_mgmt.validate_plans()`.
@@ -5691,7 +5823,7 @@ if you are running any version of Amazon Aurora PostgreSQL version 11, you must 
   - `prefix` to version 1.2.10
   - `RDKit` to version 4.4.0 (Release_2023_09_1)
 
-For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 14](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.14 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.14").
+For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 14](AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.14 "AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.14").
 
 ### PostgreSQL 14.9
 
@@ -5936,7 +6068,7 @@ about the improvements in PostgreSQL 14.9, see [PostgreSQL release
   - `PostGIS` to version 3.3.3
   - `RDKit` to version 4.3
 
-For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 14](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.14 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.14").
+For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 14](AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.14 "AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.14").
 
 ### PostgreSQL 14.8
 
@@ -6104,15 +6236,15 @@ information about the improvements in PostgreSQL 14.8, see [PostgreSQL release 1
 Following the announcement of updates to the PostgreSQL database by the open source community, we have updated Amazon Aurora PostgreSQL-Compatible Edition
 to support PostgreSQL versions 15.3, 14.8, 13.11, 12.15, and 11.20. These releases contains product improvements and bug fixes made by
 the PostgreSQL community, along with Aurora-specific improvements. The releases also contain new features and improvements for
-[Babelfish for Aurora PostgreSQL version 3.2](AuroraBabelfish.md "AuroraBabelfish.md"), and improved support for
-[AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Target.md#CHAP_Target.PostgreSQL.Babelfish "../../../dms/latest/userguide/CHAP_Target.md#CHAP_Target.PostgreSQL.Babelfish"). Refer to the [Amazon Aurora versions](../AuroraUserGuide/Aurora.md "../AuroraUserGuide/Aurora.md")
+[Babelfish for Aurora PostgreSQL version 3.2](AuroraBabelfish.Updates.md "AuroraBabelfish.Updates.md"), and improved support for
+[AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Target.PostgreSQL.md#CHAP_Target.PostgreSQL.Babelfish "../../../dms/latest/userguide/CHAP_Target.PostgreSQL.md#CHAP_Target.PostgreSQL.Babelfish"). Refer to the [Amazon Aurora versions](../AuroraUserGuide/Aurora.VersionPolicy.md "../AuroraUserGuide/Aurora.VersionPolicy.md")
 to help you to decide how often to upgrade and how to plan your upgrade process. As a reminder, if you are running any version of Amazon Aurora PostgreSQL 11,
 you must upgrade to a newer major version by February 29, 2024.
 
 ###### New features
 
 - This release contains memory management improvements which increase database stability and availability by proactively
-  preventing issues caused by insufficient memory. For more information, see [Improved memory management in Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.BestPractices.memory.md "../AuroraUserGuide/AuroraPostgreSQL.BestPractices.memory.md").
+  preventing issues caused by insufficient memory. For more information, see [Improved memory management in Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.BestPractices.memory.management.md "../AuroraUserGuide/AuroraPostgreSQL.BestPractices.memory.management.md").
 - Added support for `pgvector` extension version 0.4.1
 
 ###### High priority enhancements
@@ -6329,7 +6461,7 @@ information about the improvements in PostgreSQL 14.7, see [PostgreSQL release 1
   - `TCN` to version 1.0
   - `wal2json` to version 2.5
 
-For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 14](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.14 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.14").
+For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 14](AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.14 "AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.14").
 
 ### PostgreSQL 14.6
 
@@ -6948,20 +7080,20 @@ information about the improvements in PostgreSQL 14.3, see [PostgreSQL release 1
 ###### New features
 
 - Supports SCRAM password encryption method. For more information,
-  see [Using SCRAM for PostgreSQL password encryption](../AuroraUserGuide/Appendix.PostgreSQL.CommonDBATasks.md#PostgreSQL_Password_Encryption_configuration "../AuroraUserGuide/Appendix.PostgreSQL.CommonDBATasks.md#PostgreSQL_Password_Encryption_configuration").
+  see [Using SCRAM for PostgreSQL password encryption](../AuroraUserGuide/Appendix.PostgreSQL.CommonDBATasks.Roles.md#PostgreSQL_Password_Encryption_configuration "../AuroraUserGuide/Appendix.PostgreSQL.CommonDBATasks.Roles.md#PostgreSQL_Password_Encryption_configuration").
 - Users with the `rds_superuser` role can now create roles for users.
 
 ###### Additional improvements and enhancements
 
 - Contains all of the fixes, features, and improvements present in
-  [Aurora PostgreSQL 13.7](AuroraPostgreSQL.md#AuroraPostgreSQL.Updates.20180305.137X "AuroraPostgreSQL.md#AuroraPostgreSQL.Updates.20180305.137X").
+  [Aurora PostgreSQL 13.7](AuroraPostgreSQL.Updates.md#AuroraPostgreSQL.Updates.20180305.137X "AuroraPostgreSQL.Updates.md#AuroraPostgreSQL.Updates.20180305.137X").
 - Backported the following bug fix from the PostgreSQL 14.4 release:
   [Reverted changes to `CONCURRENTLY`
   that "sped up" Xmin advance](https://github.com/postgres/postgres/commit/e28bb885196916b0a3d898ae4f2be0e38108d81b "https://github.com/postgres/postgres/commit/e28bb885196916b0a3d898ae4f2be0e38108d81b") to prevent Index Corruption with the `CREATE INDEX CONCURRENTLY` / `REINDEX CONCURRENTLY` commands.
 - This release supports [`lo`](https://www.postgresql.org/docs/current/lo.html "https://www.postgresql.org/docs/current/lo.html") extension version 1.1.
 - This release supports [`old_snapshot`](https://www.postgresql.org/docs/14/oldsnapshot.html "https://www.postgresql.org/docs/14/oldsnapshot.html") extension version 1.0.
 - This release supports EBCDIC collations for the mainframe modernization efforts. For more information,
-  see [Aurora PostgreSQL collations for EBCDIC and other mainframe migrations](../AuroraUserGuide/AuroraPostgreSQL.md#AuroraPostgreSQL.Reference.Collations.mainframe.migration "../AuroraUserGuide/AuroraPostgreSQL.md#AuroraPostgreSQL.Reference.Collations.mainframe.migration") in the _Amazon Aurora User Guide_.
+  see [Aurora PostgreSQL collations for EBCDIC and other mainframe migrations](../AuroraUserGuide/AuroraPostgreSQL.Reference.md#AuroraPostgreSQL.Reference.Collations.mainframe.migration "../AuroraUserGuide/AuroraPostgreSQL.Reference.md#AuroraPostgreSQL.Reference.Collations.mainframe.migration") in the _Amazon Aurora User Guide_.
 - Updated the following extensions:
   - `amcheck` to version 1.3
   - `btree_gist` to version 1.6
@@ -6986,16 +7118,16 @@ information about the improvements in PostgreSQL 14.3, see [PostgreSQL release 1
 ###### Version updates
 
 - [PostgreSQL 13.23](#aurorapostgresql-versions-version1323x "#aurorapostgresql-versions-version1323x")
-- [PostgreSQL 13.22](#aurorapostgresql-versions-version1322x "#aurorapostgresql-versions-version1322x")
-- [PostgreSQL 13.21](#aurorapostgresql-versions-version1321x "#aurorapostgresql-versions-version1321x")
-- [PostgreSQL 13.20](#aurorapostgresql-versions-version1320x "#aurorapostgresql-versions-version1320x")
-- [PostgreSQL 13.18](#aurorapostgresql-versions-version1318x "#aurorapostgresql-versions-version1318x")
-- [PostgreSQL 13.16](#aurorapostgresql-versions-version1316x "#aurorapostgresql-versions-version1316x")
-- [PostgreSQL 13.15](#aurorapostgresql-versions-version1315x "#aurorapostgresql-versions-version1315x")
-- [PostgreSQL 13.14](#AuroraPostgreSQL.Updates.20180305.1314X "#AuroraPostgreSQL.Updates.20180305.1314X")
-- [PostgreSQL 13.13](#AuroraPostgreSQL.Updates.20180305.1313X "#AuroraPostgreSQL.Updates.20180305.1313X")
-- [PostgreSQL 13.12](#AuroraPostgreSQL.Updates.20180305.1312X "#AuroraPostgreSQL.Updates.20180305.1312X")
-- [PostgreSQL 13.11](#AuroraPostgreSQL.Updates.20180305.1311X "#AuroraPostgreSQL.Updates.20180305.1311X")
+- [PostgreSQL 13.22 (Deprecated)](#aurorapostgresql-versions-version1322x "#aurorapostgresql-versions-version1322x")
+- [PostgreSQL 13.21 (Deprecated)](#aurorapostgresql-versions-version1321x "#aurorapostgresql-versions-version1321x")
+- [PostgreSQL 13.20 (Deprecated)](#aurorapostgresql-versions-version1320x "#aurorapostgresql-versions-version1320x")
+- [PostgreSQL 13.18 (Deprecated)](#aurorapostgresql-versions-version1318x "#aurorapostgresql-versions-version1318x")
+- [PostgreSQL 13.16 (Deprecated)](#aurorapostgresql-versions-version1316x "#aurorapostgresql-versions-version1316x")
+- [PostgreSQL 13.15 (Deprecated)](#aurorapostgresql-versions-version1315x "#aurorapostgresql-versions-version1315x")
+- [PostgreSQL 13.14 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.1314X "#AuroraPostgreSQL.Updates.20180305.1314X")
+- [PostgreSQL 13.13 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.1313X "#AuroraPostgreSQL.Updates.20180305.1313X")
+- [PostgreSQL 13.12 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.1312X "#AuroraPostgreSQL.Updates.20180305.1312X")
+- [PostgreSQL 13.11 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.1311X "#AuroraPostgreSQL.Updates.20180305.1311X")
 - [PostgreSQL 13.10 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.1310X "#AuroraPostgreSQL.Updates.20180305.1310X")
 - [PostgreSQL 13.9](#AuroraPostgreSQL.Updates.20180305.139X "#AuroraPostgreSQL.Updates.20180305.139X")
 - [PostgreSQL 13.8 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.138X "#AuroraPostgreSQL.Updates.20180305.138X")
@@ -7013,8 +7145,41 @@ the improvements in PostgreSQL 13.23, see [PostgreSQL release
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL 13.23.2, March 20, 2026](#aurorapostgresql-versions-version1323x-13232 "#aurorapostgresql-versions-version1323x-13232")
 - [Aurora PostgreSQL 13.23.1, January 16th, 2026](#aurorapostgresql-versions-version13231x-13231 "#aurorapostgresql-versions-version13231x-13231")
 - [Aurora PostgreSQL 13.23, December, 18, 2025](#aurorapostgresql-versions-version1323x-1323 "#aurorapostgresql-versions-version1323x-1323")
+
+#### Aurora PostgreSQL 13.23.2, March 20, 2026
+
+**Critical stability enhancements**
+
+- Babelfish cross-database queries now respect dynamic data masking policies, displaying tables with masked data based on policies defined for the current login.
+- Fixed an issue where executing queries from PostgreSQL endpoint on instances with Active Directory Authentication enabled could result in database unavailability.
+- Fixed a bug in the aws_s3 extension which, in rare circumstances, can cause database unavailability.
+- Fixed an issue where read nodes may restart when attempting to connect to the new write node following a failover.
+
+**High priority enhancements**
+
+- Backported fixes for the following PostgreSQL community security issues:
+  - [CVE-2026-2003](https://nvd.nist.gov/vuln/detail/CVE-2026-2003 "https://nvd.nist.gov/vuln/detail/CVE-2026-2003").
+  - [CVE-2026-2004](https://nvd.nist.gov/vuln/detail/CVE-2026-2004 "https://nvd.nist.gov/vuln/detail/CVE-2026-2004").
+  - [CVE-2026-2005](https://nvd.nist.gov/vuln/detail/CVE-2026-2005 "https://nvd.nist.gov/vuln/detail/CVE-2026-2005").
+  - [CVE-2026-2006](https://nvd.nist.gov/vuln/detail/CVE-2026-2006 "https://nvd.nist.gov/vuln/detail/CVE-2026-2006").
+  - [CVE-2026-2007](https://nvd.nist.gov/vuln/detail/CVE-2026-2007 "https://nvd.nist.gov/vuln/detail/CVE-2026-2007").
+  - [CVE-2026-3172](https://nvd.nist.gov/vuln/detail/CVE-2026-3172 "https://nvd.nist.gov/vuln/detail/CVE-2026-3172").
+
+- Fixed a bug in Query Plan Management that prevented plan capture.
+- Fixed a bug in the Aurora Storage Daemon that could cause database unavailability in rare cases when enhanced logical replication is enabled.
+- Fixed an issue in nested procedure calls that could lead to temporary table cleanup failures and parser errors.
+- Fixed an issue where file handlers could remain improperly allocated after a major version upgrade.
+- Fixed an issue where databases could run out of memory due to excessive storage metadata in rare circumstances.
+- Fixed a bug in the logging utility that could cause database unavailability due to buffer overflow in rare circumstances.
+- Fixed an issue in cache initialization that could cause database unavailability during startup.
+- Fixed an issue where global databases planned switchover operations could become unresponsive while waiting for storage volume growth to complete.
+
+**Security enhancements**
+
+- Fixed a bug in the babelfish_set_role function that improved permission validation when setting roles.
 
 #### Aurora PostgreSQL 13.23.1, January 16th, 2026
 
@@ -7063,7 +7228,7 @@ the improvements in PostgreSQL 13.23, see [PostgreSQL release
 - Fixed region determination failures in aws_s3, aws_ml, and aws_lambda extensions.
 - Fixed crash scenario when using pg_buffercache extension during Serverless v2 scaling.
 
-### PostgreSQL 13.22
+### PostgreSQL 13.22 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 13.22. For more information about
 the improvements in PostgreSQL 13.22, see [PostgreSQL release
@@ -7137,7 +7302,7 @@ the improvements in PostgreSQL 13.22, see [PostgreSQL release
 - Fixed a crash that occurred when using ST_AsGeoJSON after upgrading to a release containing PostGIS 3.5.1 without running postgis_extensions_upgrade.
 - Fixed an issue which prevented online recovery of an Aurora Replica forcing offline recovery.
 
-### PostgreSQL 13.21
+### PostgreSQL 13.21 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 13.21. For more information
 about the improvements in PostgreSQL 13.21, see [PostgreSQL release
@@ -7305,7 +7470,7 @@ about the improvements in PostgreSQL 13.21, see [PostgreSQL release
 - Fixed an issue in the aws_s3 extension that could cause an import operation to restart
   and reinsert previously inserted rows.
 
-### PostgreSQL 13.20
+### PostgreSQL 13.20 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 13.20. For more information
 about the improvements in PostgreSQL 13.20, see [PostgreSQL release
@@ -7465,7 +7630,7 @@ MATERIALIZED VIEW` statement.
   - Update the `rds_tools` extension to 1.9.
   - Update the `rdkit` extension to Release_2024_09_3.
 
-### PostgreSQL 13.18
+### PostgreSQL 13.18 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 13.18. For more information
 about the improvements in PostgreSQL 13.18, see [PostgreSQL release
@@ -7669,7 +7834,7 @@ about the improvements in PostgreSQL 13.18, see [PostgreSQL release
   - `RDKit` extension to 2024_03_6 release (4.6).
   - `pg_hint_plan` extension to version 1.3.10.
 
-### PostgreSQL 13.16
+### PostgreSQL 13.16 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 13.16. For more
 information about the improvements in PostgreSQL 13.16, see [PostgreSQL release 13.16](https://www.postgresql.org/docs/13/release-13-16.html "https://www.postgresql.org/docs/13/release-13-16.html").
@@ -7859,7 +8024,7 @@ information about the improvements in PostgreSQL 13.16, see [PostgreSQL release 
   - `wal2json` extension to version 2.6.
   - `HypoPG` extension to version 1.4.1.
 
-### PostgreSQL 13.15
+### PostgreSQL 13.15 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 13.15. For more information
 about the improvements in PostgreSQL 13.15, see [PostgreSQL release
@@ -8005,7 +8170,7 @@ about the improvements in PostgreSQL 13.15, see [PostgreSQL release
   - `PostGIS` extension to version 3.4.2.
   - `RDKit` extension to version 2024_03_1.
 
-### PostgreSQL 13.14
+### PostgreSQL 13.14 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 13.14. For more
 information about the improvements in PostgreSQL 13.14, see [PostgreSQL release 13.14](https://www.postgresql.org/docs/13/release-13-14.html "https://www.postgresql.org/docs/13/release-13-14.html").
@@ -8153,7 +8318,7 @@ from a previous the `PostGIS` extension v2 installation.
   - `pgtle.enable_clientauth`
   - `pgtle.passcheck_db_name`
 
-### PostgreSQL 13.13
+### PostgreSQL 13.13 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 13.13. For more
 information about the improvements in PostgreSQL 13.13, see [PostgreSQL release 13.13](https://www.postgresql.org/docs/13/release-13-13.html "https://www.postgresql.org/docs/13/release-13-13.html").
@@ -8341,9 +8506,9 @@ if you are running any version of Amazon Aurora PostgreSQL version 11, you must 
   - `prefix` to version 1.2.10
   - `RDKit` to version 4.4.0 (Release_2023_09_1)
 
-For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 13](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.13 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.13").
+For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 13](AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.13 "AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.13").
 
-### PostgreSQL 13.12
+### PostgreSQL 13.12 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 13.12. For more information
 about the improvements in PostgreSQL 13.12, see [PostgreSQL release
@@ -8564,9 +8729,9 @@ about the improvements in PostgreSQL 13.12, see [PostgreSQL release
   - `PostGIS` to version 3.3.3
   - `RDKit` to version 4.3
 
-For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 13](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.13 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.13").
+For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 13](AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.13 "AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.13").
 
-### PostgreSQL 13.11
+### PostgreSQL 13.11 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 13.11. For more
 information about the improvements in PostgreSQL 13.11, see [PostgreSQL release 13.11](https://www.postgresql.org/docs/15/release-13-11.html "https://www.postgresql.org/docs/15/release-13-11.html").
@@ -8727,15 +8892,15 @@ information about the improvements in PostgreSQL 13.11, see [PostgreSQL release 
 Following the announcement of updates to the PostgreSQL database by the open source community, we have updated Amazon Aurora PostgreSQL-Compatible Edition
 to support PostgreSQL versions 15.3, 14.8, 13.11, 12.15, and 11.20. These releases contains product improvements and bug fixes made by
 the PostgreSQL community, along with Aurora-specific improvements. The releases also contain new features and improvements for
-[Babelfish for Aurora PostgreSQL version 3.2](AuroraBabelfish.md "AuroraBabelfish.md"), and improved support for
-[AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Target.md#CHAP_Target.PostgreSQL.Babelfish "../../../dms/latest/userguide/CHAP_Target.md#CHAP_Target.PostgreSQL.Babelfish"). Refer to the [Amazon Aurora versions](../AuroraUserGuide/Aurora.md "../AuroraUserGuide/Aurora.md")
+[Babelfish for Aurora PostgreSQL version 3.2](AuroraBabelfish.Updates.md "AuroraBabelfish.Updates.md"), and improved support for
+[AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Target.PostgreSQL.md#CHAP_Target.PostgreSQL.Babelfish "../../../dms/latest/userguide/CHAP_Target.PostgreSQL.md#CHAP_Target.PostgreSQL.Babelfish"). Refer to the [Amazon Aurora versions](../AuroraUserGuide/Aurora.VersionPolicy.md "../AuroraUserGuide/Aurora.VersionPolicy.md")
 to help you to decide how often to upgrade and how to plan your upgrade process. As a reminder, if you are running any version of Amazon Aurora PostgreSQL 11,
 you must upgrade to a newer major version by February 29, 2024.
 
 ###### New features
 
 - This release contains memory management improvements which increase database stability and availability by proactively
-  preventing issues caused by insufficient memory. For more information, see [Improved memory management in Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.BestPractices.memory.md "../AuroraUserGuide/AuroraPostgreSQL.BestPractices.memory.md").
+  preventing issues caused by insufficient memory. For more information, see [Improved memory management in Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.BestPractices.memory.management.md "../AuroraUserGuide/AuroraPostgreSQL.BestPractices.memory.management.md").
 - Added support for the `pgvector` extension version 0.4.1.
 
 ###### High priority enhancements
@@ -9407,7 +9572,7 @@ information about the improvements in PostgreSQL 13.7, see [PostgreSQL 13.7](htt
   large objects with the lo module](../AuroraUserGuide/PostgreSQL_large_objects_lo_extension.md "../AuroraUserGuide/PostgreSQL_large_objects_lo_extension.md").
 - Added support for zero-downtime patching (ZDP) for minor version upgrades and patches. For more information, see
   [Minor
-  release upgrades and zero-downtime patching](../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.PostgreSQL.Minor "../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.PostgreSQL.Minor")
+  release upgrades and zero-downtime patching](../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.PostgreSQL.Minor "../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.PostgreSQL.Minor")
   in the _Amazon Aurora User Guide_.
 
 ###### Critical updates
@@ -9648,7 +9813,7 @@ This version also includes the following change:
 
 - The [pg_cron](https://github.com/citusdata/pg_cron "https://github.com/citusdata/pg_cron") extension is updated to 1.4.1
 
-For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 13](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.13 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.13").
+For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 13](AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.13 "AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.13").
 
 ### PostgreSQL 13.4 (Deprecated)
 
@@ -10581,7 +10746,7 @@ if you are running any version of Amazon Aurora PostgreSQL version 11, you must 
   - `prefix` to version 1.2.10
   - `RDKit` to version 4.4.0 (Release_2023_09_1)
 
-For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 12](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.12 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.12").
+For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 12](AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.12 "AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.12").
 
 ### PostgreSQL 12.16 (Deprecated)
 
@@ -10734,7 +10899,7 @@ information about the improvements in PostgreSQL 12.16, see [PostgreSQL release 
   - `PostGIS` to version 3.3.3
   - `RDKit` to version 4.3
 
-For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 12](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.12 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.12").
+For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 12](AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.12 "AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.12").
 
 ### PostgreSQL 12.15 (Deprecated)
 
@@ -10869,15 +11034,15 @@ information about the improvements in PostgreSQL 12.15, see [PostgreSQL release 
 Following the announcement of updates to the PostgreSQL database by the open source community, we have updated Amazon Aurora PostgreSQL-Compatible Edition
 to support PostgreSQL versions 15.3, 14.8, 13.11, 12.15, and 11.20. These releases contains product improvements and bug fixes made by
 the PostgreSQL community, along with Aurora-specific improvements. The releases also contain new features and improvements for
-[Babelfish for Aurora PostgreSQL version 3.2](AuroraBabelfish.md "AuroraBabelfish.md"), and improved support for
-[AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Target.md#CHAP_Target.PostgreSQL.Babelfish "../../../dms/latest/userguide/CHAP_Target.md#CHAP_Target.PostgreSQL.Babelfish"). Refer to the [Amazon Aurora versions](../AuroraUserGuide/Aurora.md "../AuroraUserGuide/Aurora.md")
+[Babelfish for Aurora PostgreSQL version 3.2](AuroraBabelfish.Updates.md "AuroraBabelfish.Updates.md"), and improved support for
+[AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Target.PostgreSQL.md#CHAP_Target.PostgreSQL.Babelfish "../../../dms/latest/userguide/CHAP_Target.PostgreSQL.md#CHAP_Target.PostgreSQL.Babelfish"). Refer to the [Amazon Aurora versions](../AuroraUserGuide/Aurora.VersionPolicy.md "../AuroraUserGuide/Aurora.VersionPolicy.md")
 to help you to decide how often to upgrade and how to plan your upgrade process. As a reminder, if you are running any version of Amazon Aurora PostgreSQL 11,
 you must upgrade to a newer major version by February 29, 2024.
 
 ###### New features
 
 - This release contains memory management improvements which increase database stability and availability by proactively
-  preventing issues caused by insufficient memory. For more information, see [Improved memory management in Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.BestPractices.memory.md "../AuroraUserGuide/AuroraPostgreSQL.BestPractices.memory.md").
+  preventing issues caused by insufficient memory. For more information, see [Improved memory management in Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.BestPractices.memory.management.md "../AuroraUserGuide/AuroraPostgreSQL.BestPractices.memory.management.md").
 - Added support for the `pgvector` extension version 0.4.1.
 
 ###### High priority enhancements
@@ -11508,7 +11673,7 @@ information about the improvements in PostgreSQL 12.11, see [PostgreSQL release
   see [Managing large objects with the lo module](../AuroraUserGuide/PostgreSQL_large_objects_lo_extension.md "../AuroraUserGuide/PostgreSQL_large_objects_lo_extension.md").
 - Added support for zero-downtime patching (ZDP) for minor version upgrades and patches. For more information, see
   [Minor
-  release upgrades and zero-downtime patching](../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.PostgreSQL.Minor "../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.PostgreSQL.Minor")
+  release upgrades and zero-downtime patching](../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.PostgreSQL.Minor "../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.PostgreSQL.Minor")
   in the _Amazon Aurora User Guide_.
 
 ###### Critical updates
@@ -11805,7 +11970,7 @@ information about the improvements in PostgreSQL 12.9, see [PostgreSQL release
 - Updated the `pg_cron` extension to v1.4.
 - Updated the `pg_hint_pan` extension to v1.3.7.
 
-- For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 12](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.12 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.12").
+- For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 12](AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.12 "AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.12").
 
 ### PostgreSQL 12.8 (Deprecated)
 
@@ -12201,7 +12366,7 @@ relfrozenxid`**
 ###### New features
 
 - This release adds support for the Graviton2 db.r6g instance classes
-  to the PostgreSQL engine version 12.4. For more information, see [Supported DB engines for DB instance classes](../AuroraUserGuide/Concepts.md#Concepts.DBInstanceClass.SupportAurora "../AuroraUserGuide/Concepts.md#Concepts.DBInstanceClass.SupportAurora")
+  to the PostgreSQL engine version 12.4. For more information, see [Supported DB engines for DB instance classes](../AuroraUserGuide/Concepts.DBInstanceClass.md#Concepts.DBInstanceClass.SupportAurora "../AuroraUserGuide/Concepts.DBInstanceClass.md#Concepts.DBInstanceClass.SupportAurora")
   in the _Amazon Aurora User Guide_.
 
 ###### Critical stability enhancements
@@ -12520,7 +12685,7 @@ information about the improvements in PostgreSQL 11.21, see [PostgreSQL release
   - `PostGIS` to version 3.3.3
   - `RDKit` to version 4.3
 
-For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 11](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.11 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.11").
+For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 11](AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.11 "AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.11").
 
 ### PostgreSQL 11.20 (Deprecated)
 
@@ -12572,8 +12737,8 @@ versions 15.3, 14.8, 13.11, 12.15, and 11.20. These releases contains product
 improvements and bug fixes made by the PostgreSQL community, along with
 Aurora-specific improvements. The releases also contain new features and
 improvements for [Babelfish for Aurora PostgreSQL version
-3.2](AuroraBabelfish.md "AuroraBabelfish.md"), and improved support for [AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Target.md#CHAP_Target.PostgreSQL.Babelfish "../../../dms/latest/userguide/CHAP_Target.md#CHAP_Target.PostgreSQL.Babelfish"). Refer to the [Amazon
-Aurora versions](../AuroraUserGuide/Aurora.md "../AuroraUserGuide/Aurora.md") to help you to decide how often to upgrade and how to
+3.2](AuroraBabelfish.Updates.md "AuroraBabelfish.Updates.md"), and improved support for [AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Target.PostgreSQL.md#CHAP_Target.PostgreSQL.Babelfish "../../../dms/latest/userguide/CHAP_Target.PostgreSQL.md#CHAP_Target.PostgreSQL.Babelfish"). Refer to the [Amazon
+Aurora versions](../AuroraUserGuide/Aurora.VersionPolicy.md "../AuroraUserGuide/Aurora.VersionPolicy.md") to help you to decide how often to upgrade and how to
 plan your upgrade process. As a reminder, if you are running any version of
 Amazon Aurora PostgreSQL 11, you must upgrade to a newer major version by February 29, 2024.
 
@@ -12581,7 +12746,7 @@ Amazon Aurora PostgreSQL 11, you must upgrade to a newer major version by Februa
 
 - This release contains memory management improvements which increase
   database stability and availability by proactively preventing issues
-  caused by insufficient memory. For more information, see [Improved memory management in Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.BestPractices.memory.md "../AuroraUserGuide/AuroraPostgreSQL.BestPractices.memory.md").
+  caused by insufficient memory. For more information, see [Improved memory management in Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.BestPractices.memory.management.md "../AuroraUserGuide/AuroraPostgreSQL.BestPractices.memory.management.md").
 
 ###### High priority enhancements
 
@@ -13029,7 +13194,7 @@ information about the improvements in PostgreSQL 11.16, see [PostgreSQL release
 - Added support for the `large object` module (extension).
   For more information, see [Managing large objects with the lo module](../AuroraUserGuide/PostgreSQL_large_objects_lo_extension.md "../AuroraUserGuide/PostgreSQL_large_objects_lo_extension.md").
 - Added support for zero-downtime patching (ZDP) for minor version
-  upgrades and patches. For more information, see [Minor release upgrades and zero-downtime patching](../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.PostgreSQL.Minor "../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.PostgreSQL.Minor") in the
+  upgrades and patches. For more information, see [Minor release upgrades and zero-downtime patching](../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.PostgreSQL.Minor "../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.PostgreSQL.Minor") in the
   _Amazon Aurora User Guide_.
 
 ###### Critical updates
@@ -13247,7 +13412,7 @@ information about the improvements in PostgreSQL 11.14, see [PostgreSQL release
 - Improved the Aurora storage metadata validation.
 - Updated the `pg_hint_pan` extension to v1.3.7.
 
-- For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 11](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.11 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.11").
+- For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 11](AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.11 "AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.11").
 
 ### PostgreSQL 11.13 (Deprecated)
 
@@ -13838,7 +14003,7 @@ information about the improvements in PostgreSQL 11.9, see [PostgreSQL release
   information, see [Invoking an AWS Lambda function from an Aurora PostgreSQL DB
   cluster](../AuroraUserGuide/PostgreSQL-Lambda.md "../AuroraUserGuide/PostgreSQL-Lambda.md") in the _Amazon Aurora User Guide_.
 - The db.r6g instance classes are now available in preview for Aurora.
-  For more information, see [Aurora DB instance classes](../AuroraUserGuide/Concepts.md "../AuroraUserGuide/Concepts.md") in the _Amazon Aurora User
+  For more information, see [Aurora DB instance classes](../AuroraUserGuide/Concepts.DBInstanceClass.md "../AuroraUserGuide/Concepts.DBInstanceClass.md") in the _Amazon Aurora User
   Guide_.
 
 ###### Critical stability enhancements
@@ -14041,7 +14206,7 @@ RDS.
 - Aurora dynamically resizes your cluster storage space. With dynamic
   resizing, the storage space for your Aurora DB cluster automatically
   decreases when you remove data from the DB cluster. For more
-  information, see [Storage scaling](../AuroraUserGuide/Aurora.Managing.md#Aurora.Managing.Performance.StorageScaling "../AuroraUserGuide/Aurora.Managing.md#Aurora.Managing.Performance.StorageScaling") in the _Amazon Aurora User
+  information, see [Storage scaling](../AuroraUserGuide/Aurora.Managing.Performance.md#Aurora.Managing.Performance.StorageScaling "../AuroraUserGuide/Aurora.Managing.Performance.md#Aurora.Managing.Performance.StorageScaling") in the _Amazon Aurora User
   Guide_.
 
 ###### Note
@@ -14094,7 +14259,7 @@ blockno=bbb nblocks=nnn`**.
   connectivity.
 - Fixed a bug with the `aws_s3.table_import_from_s3` function
   where a `COPY` from S3 failed with the error **`HTTP
-error code: 248`**. For more information, see [aws_s3.table_import_from_s3](../AuroraUserGuide/USER_PostgreSQL.md#aws_s3.table_import_from_s3 "../AuroraUserGuide/USER_PostgreSQL.md#aws_s3.table_import_from_s3") in the _Amazon Aurora
+error code: 248`**. For more information, see [aws_s3.table_import_from_s3](../AuroraUserGuide/USER_PostgreSQL.S3Import.md#aws_s3.table_import_from_s3 "../AuroraUserGuide/USER_PostgreSQL.S3Import.md#aws_s3.table_import_from_s3") in the _Amazon Aurora
   User Guide_.
 
 ### PostgreSQL 11.7, Aurora PostgreSQL 3.2 (Deprecated)
@@ -14482,7 +14647,7 @@ version.
          `ansi_qualified_update_set_target`
          parameters.
 
-    For more information, see [Amazon Aurora PostgreSQL parameters](../AuroraUserGuide/AuroraPostgreSQL.Reference.md "../AuroraUserGuide/AuroraPostgreSQL.Reference.md") in the _Amazon Aurora
+    For more information, see [Amazon Aurora PostgreSQL parameters](../AuroraUserGuide/AuroraPostgreSQL.Reference.ParameterGroups.md "../AuroraUserGuide/AuroraPostgreSQL.Reference.ParameterGroups.md") in the _Amazon Aurora
     User Guide_.
 
 4.  New and updated PostgreSQL extensions include:
@@ -14494,7 +14659,7 @@ version.
       Amazon S3](../AuroraUserGuide/postgresql-s3-export.md "../AuroraUserGuide/postgresql-s3-export.md") in the _Amazon Aurora User
       Guide_.
     - Updates to the `apg_plan_mgmt` extension. For more
-      information, see [Managing query execution plans for Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.md "../AuroraUserGuide/AuroraPostgreSQL.md")
+      information, see [Managing query execution plans for Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.Optimize.md "../AuroraUserGuide/AuroraPostgreSQL.Optimize.md")
       in the _Amazon Aurora User Guide_.
 
 ###### Critical stability enhancements
@@ -14589,7 +14754,7 @@ oldest active xid on standby is at least
 ###### Note
 
 The PostgreSQL engine version 11.4 with the Aurora PostgreSQL 3.0 is no longer
-supported. To upgrade, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades") in the
+supported. To upgrade, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades") in the
 _Amazon Aurora User Guide_.
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 11.4. For more
@@ -14740,7 +14905,7 @@ information about the improvements in PostgreSQL 10.21, see [PostgreSQL release
 - Added support for the `large object` module (extension).
   For more information, see [Managing large objects with the lo module](../AuroraUserGuide/PostgreSQL_large_objects_lo_extension.md "../AuroraUserGuide/PostgreSQL_large_objects_lo_extension.md").
 - Added support for zero-downtime patching (ZDP) for minor version
-  upgrades and patches. For more information, see [Minor release upgrades and zero-downtime patching](../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.PostgreSQL.Minor "../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.PostgreSQL.Minor") in the
+  upgrades and patches. For more information, see [Minor release upgrades and zero-downtime patching](../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.PostgreSQL.Minor "../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.PostgreSQL.Minor") in the
   _Amazon Aurora User Guide_.
 
 ###### Critical updates
@@ -15537,7 +15702,7 @@ Aurora PostgreSQL, and with PostgreSQL databases running outside of
 RDS. 3. Aurora dynamically resizes your cluster storage space. With dynamic
 resizing, the storage space for your Aurora DB cluster automatically
 decreases when you remove data from the DB cluster. For more
-information, see [Storage scaling](../AuroraUserGuide/Aurora.Managing.md#Aurora.Managing.Performance.StorageScaling "../AuroraUserGuide/Aurora.Managing.md#Aurora.Managing.Performance.StorageScaling") in the _Amazon Aurora User
+information, see [Storage scaling](../AuroraUserGuide/Aurora.Managing.Performance.md#Aurora.Managing.Performance.StorageScaling "../AuroraUserGuide/Aurora.Managing.Performance.md#Aurora.Managing.Performance.StorageScaling") in the _Amazon Aurora User
 Guide_.
 
 ###### Note
@@ -15968,7 +16133,7 @@ version.
          `ansi_qualified_update_set_target`
          parameters.
 
-    For more information, see [Amazon Aurora PostgreSQL parameters](../AuroraUserGuide/AuroraPostgreSQL.Reference.md "../AuroraUserGuide/AuroraPostgreSQL.Reference.md") in the _Amazon Aurora
+    For more information, see [Amazon Aurora PostgreSQL parameters](../AuroraUserGuide/AuroraPostgreSQL.Reference.ParameterGroups.md "../AuroraUserGuide/AuroraPostgreSQL.Reference.ParameterGroups.md") in the _Amazon Aurora
     User Guide_.
 
 4.  New and updated PostgreSQL extensions include:
@@ -15980,7 +16145,7 @@ version.
       Amazon S3](../AuroraUserGuide/postgresql-s3-export.md "../AuroraUserGuide/postgresql-s3-export.md") in the _Amazon Aurora User
       Guide_.
     - Updates to the `apg_plan_mgmt` extension. For more
-      information, see [Managing query execution plans for Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.md "../AuroraUserGuide/AuroraPostgreSQL.md")
+      information, see [Managing query execution plans for Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.Optimize.md "../AuroraUserGuide/AuroraPostgreSQL.Optimize.md")
       in the _Amazon Aurora User Guide_.
 
 ###### Critical stability updates
@@ -16085,7 +16250,7 @@ oldest active xid on standby is at least
 ###### Note
 
 The PostgreSQL engine version 10.7 with the Aurora PostgreSQL 2.3 is no longer
-supported. To upgrade, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades") in the
+supported. To upgrade, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades") in the
 _Amazon Aurora User Guide_.
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 10.7. For more
@@ -16191,7 +16356,7 @@ You can find the following improvements in this release.
 ###### Note
 
 The PostgreSQL engine version 10.6 with the Aurora PostgreSQL 2.2 is no longer
-supported. To upgrade, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades") in the
+supported. To upgrade, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades") in the
 _Amazon Aurora User Guide_.
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 10.6. For more
@@ -16240,7 +16405,7 @@ You can find the following improvements in this release.
    management enables you to restrict who can manage user passwords and
    password expiration changes by using the parameter
    `rds.restrict_password_commands` and the role
-   `rds_password`. For more information, see [Restricting password management](../AuroraUserGuide/AuroraPostgreSQL.md#RestrictPasswordMgmt "../AuroraUserGuide/AuroraPostgreSQL.md#RestrictPasswordMgmt") in the _Amazon Aurora
+   `rds_password`. For more information, see [Restricting password management](../AuroraUserGuide/AuroraPostgreSQL.Security.md#RestrictPasswordMgmt "../AuroraUserGuide/AuroraPostgreSQL.Security.md#RestrictPasswordMgmt") in the _Amazon Aurora
    User Guide_.
 
 ### PostgreSQL 10.5, Aurora PostgreSQL 2.1 (Deprecated)
@@ -16248,7 +16413,7 @@ You can find the following improvements in this release.
 ###### Note
 
 The PostgreSQL engine version 10.5 with the Aurora PostgreSQL 2.1 is no longer
-supported. To upgrade, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades") in the
+supported. To upgrade, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades") in the
 _Amazon Aurora User Guide_.
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 10.5. For more
@@ -16294,7 +16459,7 @@ You can find the following improvements in this release.
 1. General availability of Aurora Query Plan Management, which enables
    customers to track and manage any or all query plans used by their
    applications, to control query optimizer plan selection, and to ensure
-   high and stable applicationperformance. For more information, see [Managing query execution plans for Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.md "../AuroraUserGuide/AuroraPostgreSQL.md") in the
+   high and stable applicationperformance. For more information, see [Managing query execution plans for Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.Optimize.md "../AuroraUserGuide/AuroraPostgreSQL.Optimize.md") in the
    _Amazon Aurora User Guide_.
 2. Updated the `libprotobuf` extension to version 1.3.0. This
    is used by the `PostGIS` extension.
@@ -16352,7 +16517,7 @@ You can find the following improvements in this release.
 ###### Note
 
 The PostgreSQL engine version 10.4 with the Aurora PostgreSQL 2.0 is no longer
-supported. To upgrade, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades") in the
+supported. To upgrade, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades") in the
 _Amazon Aurora User Guide_.
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 10.4. For more
@@ -16437,7 +16602,7 @@ You can find the following improvements in this release.
 ###### Note
 
 The PostgreSQL engine version 9.6.22 and Aurora PostgreSQL 1.10 are no longer
-supported. To upgrade, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades") in the
+supported. To upgrade, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades") in the
 _Amazon Aurora User Guide_.
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 9.6.22. For more
@@ -16497,7 +16662,7 @@ directory`.
 ###### Note
 
 The PostgreSQL engine version 9.6.21 and Aurora PostgreSQL 1.10 are no longer
-supported. To upgrade, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades") in the
+supported. To upgrade, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades") in the
 _Amazon Aurora User Guide_.
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 9.6.21. For more
@@ -16544,7 +16709,7 @@ information about the improvements in PostgreSQL 9.6.21, see [PostgreSQL release
 ###### Note
 
 The PostgreSQL engine version 9.6.19 and Aurora PostgreSQL 1.9 are no longer
-supported. To upgrade, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades") in the
+supported. To upgrade, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades") in the
 _Amazon Aurora User Guide_.
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 9.6.19. For more
@@ -16619,7 +16784,7 @@ disk`**
 ###### Note
 
 The PostgreSQL engine version 9.6.18 and Aurora PostgreSQL 1.8 are no longer
-supported. To upgrade, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades") in the
+supported. To upgrade, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades") in the
 _Amazon Aurora User Guide_.
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 9.6.18. For more
@@ -16951,7 +17116,7 @@ version.
 ###### New features
 
 1. Updates to the `apg_plan_mgmt` extension. For more
-   information, see [Managing query execution plans for Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.md "../AuroraUserGuide/AuroraPostgreSQL.md") in the
+   information, see [Managing query execution plans for Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.Optimize.md "../AuroraUserGuide/AuroraPostgreSQL.Optimize.md") in the
    _Amazon Aurora User Guide_.
 
 ###### Critical stability enhancements
@@ -17040,7 +17205,7 @@ oldest active xid on standby is at least
 ###### Note
 
 The PostgreSQL engine version 9.6.12 with the Aurora PostgreSQL 1.5 is no longer
-supported. To upgrade, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades") in the
+supported. To upgrade, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades") in the
 _Amazon Aurora User Guide_.
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 9.6.12. For more
@@ -17129,7 +17294,7 @@ You can find the following improvements in this release.
 ###### Note
 
 The PostgreSQL engine version 9.6.11 with the Aurora PostgreSQL 1.4 is no longer
-supported. To upgrade, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades") in the
+supported. To upgrade, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades") in the
 _Amazon Aurora User Guide_.
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 9.6.11. For more
@@ -17165,11 +17330,11 @@ You can find the following improvements in this release.
    `VALUES` could fail with the message "Attempting to read past
    EOF of relation".
 7. An upgrade of the `apg_plan_mgmt` extension to version 1.0.1.
-   For details, see [Version 1.0.1 of the Aurora PostgreSQL apg_plan_mgmt extension](auroraqpm.md#auroraqpm-version.101 "auroraqpm.md#auroraqpm-version.101").
+   For details, see [Version 1.0.1 of the Aurora PostgreSQL apg_plan_mgmt extension](auroraqpm.updates.md#auroraqpm-version.101 "auroraqpm.updates.md#auroraqpm-version.101").
 
 The `apg_plan_mgmt` extension is used with query plan
 management. For more about how to install, upgrade, and use the
-`apg_plan_mgmt` extension, see [Managing query execution plans for Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.md "../AuroraUserGuide/AuroraPostgreSQL.md") in the
+`apg_plan_mgmt` extension, see [Managing query execution plans for Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.Optimize.md "../AuroraUserGuide/AuroraPostgreSQL.Optimize.md") in the
 _Amazon Aurora User Guide_.
 
 ### PostgreSQL 9.6.9, Aurora PostgreSQL 1.3 (Deprecated)
@@ -17177,7 +17342,7 @@ _Amazon Aurora User Guide_.
 ###### Note
 
 The PostgreSQL engine version 9.6.9 with the Aurora PostgreSQL 1.3 is no longer
-supported. To upgrade, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades") in the
+supported. To upgrade, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades") in the
 _Amazon Aurora User Guide_.
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 9.6.9. For more
@@ -17274,7 +17439,7 @@ of free space change from the write node.
 ###### Note
 
 The PostgreSQL engine version 9.6.8 with the Aurora PostgreSQL 1.2 is no longer
-supported. To upgrade, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades") in the
+supported. To upgrade, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades") in the
 _Amazon Aurora User Guide_.
 
 For more information about PostgreSQL 9.6.8, see [PostgreSQL release
@@ -17381,7 +17546,7 @@ Aurora to crash while scanning the partially extended relation.
 ###### Note
 
 The PostgreSQL engine version 9.6.6 with the Aurora PostgreSQL 1.1 is no longer
-supported. To upgrade, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades") in the
+supported. To upgrade, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades") in the
 _Amazon Aurora User Guide_.
 
 For more information about PostgreSQL 9.6.6 see, [PostgreSQL
@@ -17447,7 +17612,7 @@ PostgreSQL to Aurora PostgreSQL.
 ###### Note
 
 The PostgreSQL engine version 9.6.3 with the Aurora PostgreSQL 1.0 is no longer
-supported. To upgrade, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades") in the
+supported. To upgrade, see [Upgrading the PostgreSQL DB engine for Aurora PostgreSQL](../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades") in the
 _Amazon Aurora User Guide_.
 
 For more information about PostgreSQL 9.6.3 see, [PostgreSQL release
@@ -17479,7 +17644,7 @@ You can find the following improvements in this engine update:
 #### Aurora PostgreSQL 1.0.10
 
 This update includes a new feature. You can now replicate an Amazon RDS PostgreSQL
-DB instance to Aurora PostgreSQL. For more information, see [Replication with Amazon Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.md "../AuroraUserGuide/AuroraPostgreSQL.md") in the _Amazon Aurora User
+DB instance to Aurora PostgreSQL. For more information, see [Replication with Amazon Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.Replication.md "../AuroraUserGuide/AuroraPostgreSQL.Replication.md") in the _Amazon Aurora User
 Guide_.
 
 You can find the following improvements in this engine update:

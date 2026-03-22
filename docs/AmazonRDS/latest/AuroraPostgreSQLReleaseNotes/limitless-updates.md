@@ -23,7 +23,7 @@ Amazon Amazon Aurora PostgreSQL Limitless Database follows the same engine versi
 
 This version of Aurora PostgreSQL Limitless Database is compatible with [PostgreSQL 16.11](https://www.postgresql.org/docs/release/16.11/ "https://www.postgresql.org/docs/release/16.11/").
 For more information about the improvements in PostgreSQL 16.11, see
-[Aurora PostgreSQL 16.11](AuroraPostgreSQL.md#aurorapostgresql-versions-version1611x "AuroraPostgreSQL.md#aurorapostgresql-versions-version1611x").
+[Aurora PostgreSQL 16.11](AuroraPostgreSQL.Updates.md#aurorapostgresql-versions-version1611x "AuroraPostgreSQL.Updates.md#aurorapostgresql-versions-version1611x").
 
 ###### Releases and patches
 
@@ -51,7 +51,7 @@ For more information about the improvements in PostgreSQL 16.11, see
 
 This version of Aurora PostgreSQL Limitless Database is compatible with [PostgreSQL 16.10](https://www.postgresql.org/docs/release/16.10/ "https://www.postgresql.org/docs/release/16.10/").
 For more information about the improvements in PostgreSQL 16.10, see
-[Aurora PostgreSQL 16.10](AuroraPostgreSQL.md#aurorapostgresql-versions-version1610x "AuroraPostgreSQL.md#aurorapostgresql-versions-version1610x").
+[Aurora PostgreSQL 16.10](AuroraPostgreSQL.Updates.md#aurorapostgresql-versions-version1610x "AuroraPostgreSQL.Updates.md#aurorapostgresql-versions-version1610x").
 
 ###### Releases and patches
 
@@ -62,8 +62,8 @@ For more information about the improvements in PostgreSQL 16.10, see
 **Features**
 
 - Added support for ENUM as shard key type.
-- Added support for `CHECK` constraints involving literals as well as expressions. For more information, see [Constraints](../AuroraUserGuide/limitless-reference.md#limitless-reference.DDL-limitations.Constraints "../AuroraUserGuide/limitless-reference.md#limitless-reference.DDL-limitations.Constraints").
-- Added support for `VIEW`s with foreign key constraints. For more information, see [Foreign keys](../AuroraUserGuide/limitless-reference.md#limitless-reference.DDL-limitations.FKs "../AuroraUserGuide/limitless-reference.md#limitless-reference.DDL-limitations.FKs").
+- Added support for `CHECK` constraints involving literals as well as expressions. For more information, see [Constraints](../AuroraUserGuide/limitless-reference.DDL-limitations.md#limitless-reference.DDL-limitations.Constraints "../AuroraUserGuide/limitless-reference.DDL-limitations.md#limitless-reference.DDL-limitations.Constraints").
+- Added support for `VIEW`s with foreign key constraints. For more information, see [Foreign keys](../AuroraUserGuide/limitless-reference.DDL-limitations.md#limitless-reference.DDL-limitations.FKs "../AuroraUserGuide/limitless-reference.DDL-limitations.md#limitless-reference.DDL-limitations.FKs").
 - Added support for Advisory Locks. For more information, see [Advisory Locks](https://www.postgresql.org/docs/current/explicit-locking.html#ADVISORY-LOCKS "https://www.postgresql.org/docs/current/explicit-locking.html#ADVISORY-LOCKS") in the PostgreSQL documentation.
 - Added support for `pg_dump` and `pg_restore` for database migrations. You can dump from Aurora Limitless databases and restore to other Aurora Limitless clusters or regular PostgreSQL databases. This support includes preservation of sharded and reference table configurations when migrating between Aurora Limitless clusters using metadata capture functions. For more information, see [Backing up and restoring Amazon Aurora PostgreSQL Limitless Database](../AuroraUserGuide/limitless-bak.md "../AuroraUserGuide/limitless-bak.md").
 
@@ -93,7 +93,7 @@ For more information about the improvements in PostgreSQL 16.10, see
 
 This version of Aurora PostgreSQL Limitless Database is compatible with [PostgreSQL 16.9](https://www.postgresql.org/docs/release/16.9/ "https://www.postgresql.org/docs/release/16.9/").
 For more information about the improvements in PostgreSQL 16.9, see
-[Aurora PostgreSQL 16.9](AuroraPostgreSQL.md#aurorapostgresql-versions-version169x "AuroraPostgreSQL.md#aurorapostgresql-versions-version169x").
+[Aurora PostgreSQL 16.9](AuroraPostgreSQL.Updates.md#aurorapostgresql-versions-version169x "AuroraPostgreSQL.Updates.md#aurorapostgresql-versions-version169x").
 
 ###### Releases and patches
 
@@ -188,7 +188,7 @@ prepared statement requires 1`** when the `PREPARE` statement used fewer paramet
 
 This version of Aurora PostgreSQL Limitless Database is compatible with [PostgreSQL 16.8](https://www.postgresql.org/docs/release/16.8/ "https://www.postgresql.org/docs/release/16.8/").
 For more information about the improvements in PostgreSQL 16.8, see
-[Aurora PostgreSQL 16.8](AuroraPostgreSQL.md#aurorapostgresql-versions-version168x "AuroraPostgreSQL.md#aurorapostgresql-versions-version168x").
+[Aurora PostgreSQL 16.8](AuroraPostgreSQL.Updates.md#aurorapostgresql-versions-version168x "AuroraPostgreSQL.Updates.md#aurorapostgresql-versions-version168x").
 
 ###### Releases and patches
 
@@ -269,7 +269,7 @@ CREATE TABLE zoo (
 
 This version of Aurora PostgreSQL Limitless Database is compatible with [PostgreSQL 16.6](https://www.postgresql.org/docs/release/16.6/ "https://www.postgresql.org/docs/release/16.6/").
 For more information about the improvements in PostgreSQL 16.6, see
-[Aurora PostgreSQL 16.6](AuroraPostgreSQL.md#aurorapostgresql-versions-version166x "AuroraPostgreSQL.md#aurorapostgresql-versions-version166x").
+[Aurora PostgreSQL 16.6](AuroraPostgreSQL.Updates.md#aurorapostgresql-versions-version166x "AuroraPostgreSQL.Updates.md#aurorapostgresql-versions-version166x").
 
 ###### Releases and patches
 
@@ -310,7 +310,7 @@ For more information about the improvements in PostgreSQL 16.6, see
 ### Aurora PostgreSQL Limitless Database 16.6.101, April 17, 2025
 
 This release includes Aurora PostgreSQL patches till
-[16.6.3](AuroraPostgreSQL.md#aurorapostgresql-versions-version1663x-1663 "AuroraPostgreSQL.md#aurorapostgresql-versions-version1663x-1663").
+[16.6.3](AuroraPostgreSQL.Updates.md#aurorapostgresql-versions-version1663x-1663 "AuroraPostgreSQL.Updates.md#aurorapostgresql-versions-version1663x-1663").
 
 **Bug fixes**
 
@@ -359,7 +359,7 @@ given statement`**.
 
 This version of Aurora PostgreSQL Limitless Database is compatible with [PostgreSQL 16.4](https://www.postgresql.org/docs/release/16.4/ "https://www.postgresql.org/docs/release/16.4/").
 For more information about the improvements in PostgreSQL 16.4, see
-[Aurora PostgreSQL 16.4](AuroraPostgreSQL.md#aurorapostgresql-versions-version164x "AuroraPostgreSQL.md#aurorapostgresql-versions-version164x").
+[Aurora PostgreSQL 16.4](AuroraPostgreSQL.Updates.md#aurorapostgresql-versions-version164x "AuroraPostgreSQL.Updates.md#aurorapostgresql-versions-version164x").
 
 ###### Releases and patches
 

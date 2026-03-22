@@ -34,7 +34,7 @@ releases, see [Babelfish for Aurora PostgreSQL reference](../AuroraUserGuide/USE
 ### Babelfish for Aurora PostgreSQL 5.4
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 17.7. For more
-information about the improvements in Aurora PostgreSQL 17.7, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md"). Babelfish for Aurora PostgreSQL
+information about the improvements in Aurora PostgreSQL 17.7, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md"). Babelfish for Aurora PostgreSQL
 5.4 adds several new features, enhancements, and fixes. For more information about
 Babelfish for Aurora PostgreSQL, see [Working with
 Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
@@ -49,7 +49,7 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 
 **New Features**
 
-- Enabled support of SELECT TOP N PERCENT clause with few [limitations](../AuroraUserGuide/babelfish-compatibility.tsql.md "../AuroraUserGuide/babelfish-compatibility.tsql.md").
+- Enabled support of SELECT TOP N PERCENT clause with few [limitations](../AuroraUserGuide/babelfish-compatibility.tsql.limited-implementation.md "../AuroraUserGuide/babelfish-compatibility.tsql.limited-implementation.md").
 - Enabled support for Linestring instances for [geography/geometry datatypes](../AuroraUserGuide/babelfish-geospatial.md "../AuroraUserGuide/babelfish-geospatial.md").
 - Enabled support for system procedures sp_xml_preparedocument, sp_xml_removedocument and [OPENXML](../AuroraUserGuide/babelfish-xml-datatype-methods.md "../AuroraUserGuide/babelfish-xml-datatype-methods.md").
 - Enabled support for XML method .VALUE() for XML Data Types.
@@ -105,7 +105,7 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 ### Babelfish for Aurora PostgreSQL 5.3
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 17.6. For more
-information about the improvements in Aurora PostgreSQL 17.6, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md"). Babelfish for Aurora PostgreSQL
+information about the improvements in Aurora PostgreSQL 17.6, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md"). Babelfish for Aurora PostgreSQL
 5.3 adds several new features, enhancements, and fixes. For more information about
 Babelfish for Aurora PostgreSQL, see [Working with
 Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
@@ -184,7 +184,7 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 ### Babelfish for Aurora PostgreSQL 5.2
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 17.5. For more
-information about the improvements in Aurora PostgreSQL 17.5, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md"). Babelfish for Aurora PostgreSQL
+information about the improvements in Aurora PostgreSQL 17.5, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md"). Babelfish for Aurora PostgreSQL
 5.2 adds several new features, enhancements, and fixes. For more information about
 Babelfish for Aurora PostgreSQL, see [Working with
 Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
@@ -297,7 +297,7 @@ enhancements**
 ### Babelfish for Aurora PostgreSQL 5.1
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 17.4. For more
-information about the improvements in Aurora PostgreSQL 17.4, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md"). Babelfish for Aurora PostgreSQL
+information about the improvements in Aurora PostgreSQL 17.4, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md"). Babelfish for Aurora PostgreSQL
 5.1 adds several new features, enhancements, and fixes. For more information about
 Babelfish for Aurora PostgreSQL, see [Working with
 Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
@@ -457,7 +457,7 @@ For more information about relevant permission management and access control set
 ### Babelfish for Aurora PostgreSQL 4.8
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.11. For more
-information about the improvements in Aurora PostgreSQL 16.11, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md"). Babelfish for Aurora PostgreSQL
+information about the improvements in Aurora PostgreSQL 16.11, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md"). Babelfish for Aurora PostgreSQL
 4.8 adds several new features, enhancements, and fixes. For more information about
 Babelfish for Aurora PostgreSQL, see [Working with
 Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
@@ -472,7 +472,7 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 
 **New Features**
 
-- Enabled support of SELECT TOP N PERCENT clause with few [limitations](../AuroraUserGuide/babelfish-compatibility.tsql.md "../AuroraUserGuide/babelfish-compatibility.tsql.md").
+- Enabled support of SELECT TOP N PERCENT clause with few [limitations](../AuroraUserGuide/babelfish-compatibility.tsql.limited-implementation.md "../AuroraUserGuide/babelfish-compatibility.tsql.limited-implementation.md").
 - Enabled support of sys.time_zone_info view.
 - Enabled support for Values clause and subquery columns in SELECT list in FOR JSON AUTO functionality.
 
@@ -525,7 +525,7 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 ### Babelfish for Aurora PostgreSQL 4.7
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.10. For more
-information about the improvements in Aurora PostgreSQL 16.10, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md"). Babelfish for Aurora PostgreSQL
+information about the improvements in Aurora PostgreSQL 16.10, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md"). Babelfish for Aurora PostgreSQL
 4.7 adds several new features, enhancements, and fixes. For more information about
 Babelfish for Aurora PostgreSQL, see [Working with
 Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
@@ -606,7 +606,7 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 ### Babelfish for Aurora PostgreSQL 4.6
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.9. For more
-information about the improvements in Aurora PostgreSQL 16.9, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md"). Babelfish for Aurora PostgreSQL
+information about the improvements in Aurora PostgreSQL 16.9, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md"). Babelfish for Aurora PostgreSQL
 4.6 adds several new features, enhancements, and fixes. For more information about
 Babelfish for Aurora PostgreSQL, see [Working with
 Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
@@ -725,7 +725,7 @@ enhancements**
 ### Babelfish for Aurora PostgreSQL 4.5
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.8. For more
-information about the improvements in Aurora PostgreSQL 16.8, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md"). Babelfish for Aurora PostgreSQL
+information about the improvements in Aurora PostgreSQL 16.8, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md"). Babelfish for Aurora PostgreSQL
 4.5 adds several new features, enhancements, and fixes. For more information about
 Babelfish for Aurora PostgreSQL, see [Working with
 Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
@@ -874,7 +874,7 @@ For more information about relevant permission management and access control set
 
 ### Babelfish for Aurora PostgreSQL 4.4
 
-This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.6. For more information about the improvements in Aurora PostgreSQL 16.6, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.6. For more information about the improvements in Aurora PostgreSQL 16.6, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md").
 Babelfish for Aurora PostgreSQL 4.4 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL,
 see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
 
@@ -981,7 +981,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ### Babelfish for Aurora PostgreSQL 4.3
 
-This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.4. For more information about the improvements in Aurora PostgreSQL 16.4, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.4. For more information about the improvements in Aurora PostgreSQL 16.4, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md").
 Babelfish for Aurora PostgreSQL 4.3 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL,
 see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
 
@@ -1080,7 +1080,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ### Babelfish for Aurora PostgreSQL 4.2
 
-This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.3. For more information about the improvements in Aurora PostgreSQL 16.3, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.3. For more information about the improvements in Aurora PostgreSQL 16.3, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md").
 Babelfish for Aurora PostgreSQL 4.2 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL,
 see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
 
@@ -1197,7 +1197,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 ### Babelfish for Aurora PostgreSQL 4.1
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.2. For more
-information about the improvements in Aurora PostgreSQL 16.2, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+information about the improvements in Aurora PostgreSQL 16.2, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md").
 Babelfish for Aurora PostgreSQL 4.1 adds several new features, enhancements, and fixes. For more information
 about Babelfish for Aurora PostgreSQL, see [Working with
 Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
@@ -1324,7 +1324,7 @@ index ON schema.table` syntax.
 
 ### Babelfish for Aurora PostgreSQL 4.0
 
-This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.1. For more information about the improvements in Aurora PostgreSQL 16.1, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.1. For more information about the improvements in Aurora PostgreSQL 16.1, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md").
 Babelfish for Aurora PostgreSQL 4.0 (version 4.0 is build on top of version 3.4) adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL,
 see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
 
@@ -1412,7 +1412,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 ### Babelfish for Aurora PostgreSQL 3.12
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.15. For more
-information about the improvements in Aurora PostgreSQL 15.15, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md"). Babelfish for Aurora PostgreSQL
+information about the improvements in Aurora PostgreSQL 15.15, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md"). Babelfish for Aurora PostgreSQL
 3.12 adds several enhancements and fixes. For more information about
 Babelfish for Aurora PostgreSQL, see [Working with
 Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
@@ -1441,7 +1441,7 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 ### Babelfish for Aurora PostgreSQL 3.11
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.14. For more
-information about the improvements in Aurora PostgreSQL 15.14, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md"). Babelfish for Aurora PostgreSQL
+information about the improvements in Aurora PostgreSQL 15.14, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md"). Babelfish for Aurora PostgreSQL
 3.11 adds several new features, enhancements, and fixes. For more information about
 Babelfish for Aurora PostgreSQL, see [Working with
 Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
@@ -1472,7 +1472,7 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 ### Babelfish for Aurora PostgreSQL 3.10
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.13. For more
-information about the improvements in Aurora PostgreSQL 15.13, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md"). Babelfish for Aurora PostgreSQL
+information about the improvements in Aurora PostgreSQL 15.13, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md"). Babelfish for Aurora PostgreSQL
 3.10 adds several new features, enhancements, and fixes. For more information about
 Babelfish for Aurora PostgreSQL, see [Working with
 Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
@@ -1526,7 +1526,7 @@ enhancements**
 ### Babelfish for Aurora PostgreSQL 3.9
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.12. For more
-information about the improvements in Aurora PostgreSQL 15.12, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md"). Babelfish for Aurora PostgreSQL
+information about the improvements in Aurora PostgreSQL 15.12, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md"). Babelfish for Aurora PostgreSQL
 3.9 adds several new features, enhancements, and fixes. For more information about
 Babelfish for Aurora PostgreSQL, see [Working with
 Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
@@ -1622,7 +1622,7 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 ### Babelfish for Aurora PostgreSQL 3.8
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.10. For more
-information about the improvements in Aurora PostgreSQL 15.10, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md"). Babelfish for Aurora PostgreSQL
+information about the improvements in Aurora PostgreSQL 15.10, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md"). Babelfish for Aurora PostgreSQL
 3.8 adds several new features, enhancements, and fixes. For more information about
 Babelfish for Aurora PostgreSQL, see [Working with
 Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
@@ -1717,7 +1717,7 @@ INTO` syntax.
 
 ### Babelfish for Aurora PostgreSQL 3.7
 
-This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.8. For more information about the improvements in Aurora PostgreSQL 15.8, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.8. For more information about the improvements in Aurora PostgreSQL 15.8, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md").
 Babelfish for Aurora PostgreSQL 3.7 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL,
 see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
 
@@ -1802,7 +1802,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ### Babelfish for Aurora PostgreSQL 3.6
 
-This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.7. For more information about the improvements in Aurora PostgreSQL 15.7, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.7. For more information about the improvements in Aurora PostgreSQL 15.7, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md").
 Babelfish for Aurora PostgreSQL 3.6 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL,
 see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
 
@@ -1914,7 +1914,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ### Babelfish for Aurora PostgreSQL 3.5
 
-This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.6. For more information about the improvements in Aurora PostgreSQL 15.6, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.6. For more information about the improvements in Aurora PostgreSQL 15.6, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md").
 Babelfish for Aurora PostgreSQL 3.5 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL,
 see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
 
@@ -2011,7 +2011,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ### Babelfish for Aurora PostgreSQL 3.4
 
-This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.5. For more information about the improvements in Aurora PostgreSQL 15.5, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.5. For more information about the improvements in Aurora PostgreSQL 15.5, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md").
 Babelfish for Aurora PostgreSQL 3.4 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL,
 see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
 
@@ -2138,7 +2138,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ### Babelfish for Aurora PostgreSQL 3.3
 
-This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.4. For more information about the improvements in Aurora PostgreSQL 15.4, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.4. For more information about the improvements in Aurora PostgreSQL 15.4, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md").
 Babelfish for Aurora PostgreSQL 3.3 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL,
 see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
 
@@ -2164,7 +2164,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 - Added support for `pg_stat_statements` extension with Babelfish. For more information, see
   [pg_stat_statements](../AuroraUserGuide/babelfish-postgres-aws-extensions.md "../AuroraUserGuide/babelfish-postgres-aws-extensions.md").
 - Added support for CREATE or ALTER or DROP EXTENSION statements in `sp_execute_postgresql` procedure. For more information, see
-  [sp_execute_postgresql](../AuroraUserGuide/Appendix.Babelfish.md "../AuroraUserGuide/Appendix.Babelfish.md").
+  [sp_execute_postgresql](../AuroraUserGuide/Appendix.Babelfish.Functions.md "../AuroraUserGuide/Appendix.Babelfish.Functions.md").
 - Added support for extended properties for object types database, schema, table, view, column, sequence, function, procedure:
   `sys.extended_properties` system catalog view, stored procedures `sp_addextendedproperty`, `sp_updateextendedproperty`, `sp_dropextendedproperty`, and system function `fn_listextendedproperty()`.
 
@@ -2207,7 +2207,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ### Babelfish for Aurora PostgreSQL 3.2
 
-This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.3. For more information about the improvements in Aurora PostgreSQL 15.3, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.3. For more information about the improvements in Aurora PostgreSQL 15.3, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md").
 Babelfish for Aurora PostgreSQL 3.2 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL,
 see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
 
@@ -2311,7 +2311,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ### Babelfish for Aurora PostgreSQL 3.1 (Deprecated)
 
-This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.2. For more information about the improvements in Aurora PostgreSQL 15.2, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.2. For more information about the improvements in Aurora PostgreSQL 15.2, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md").
 Babelfish for Aurora PostgreSQL 3.1 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL,
 see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
 
@@ -2455,7 +2455,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 ### Babelfish for Aurora PostgreSQL 2.14
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.19. For more
-information about the improvements in Aurora PostgreSQL 14.19, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md"). Babelfish for Aurora PostgreSQL
+information about the improvements in Aurora PostgreSQL 14.19, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md"). Babelfish for Aurora PostgreSQL
 2.14 adds several new features, enhancements, and fixes. For more information about
 Babelfish for Aurora PostgreSQL, see [Working with
 Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
@@ -2477,7 +2477,7 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 ### Babelfish for Aurora PostgreSQL 2.13
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.18. For more
-information about the improvements in Aurora PostgreSQL 14.18, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md"). Babelfish for Aurora PostgreSQL
+information about the improvements in Aurora PostgreSQL 14.18, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md"). Babelfish for Aurora PostgreSQL
 2.13 adds several new features, enhancements, and fixes. For more information about
 Babelfish for Aurora PostgreSQL, see [Working with
 Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
@@ -2495,7 +2495,7 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 ### Babelfish for Aurora PostgreSQL 2.12
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.17. For more
-information about the improvements in Aurora PostgreSQL 14.17, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md"). Babelfish for Aurora PostgreSQL
+information about the improvements in Aurora PostgreSQL 14.17, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md"). Babelfish for Aurora PostgreSQL
 2.12 adds several new features, enhancements, and fixes. For more information about
 Babelfish for Aurora PostgreSQL, see [Working with
 Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
@@ -2536,7 +2536,7 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 ### Babelfish for Aurora PostgreSQL 2.11
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.15. For more
-information about the improvements in Aurora PostgreSQL 14.15, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md"). Babelfish for Aurora PostgreSQL
+information about the improvements in Aurora PostgreSQL 14.15, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md"). Babelfish for Aurora PostgreSQL
 2.11 adds several new features, enhancements, and fixes. For more information about
 Babelfish for Aurora PostgreSQL, see [Working with
 Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
@@ -2581,7 +2581,7 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 
 ### Babelfish for Aurora PostgreSQL 2.10
 
-This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.13. For more information about the improvements in Aurora PostgreSQL 14.13, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.13. For more information about the improvements in Aurora PostgreSQL 14.13, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md").
 Babelfish for Aurora PostgreSQL 2.10 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL,
 see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
 
@@ -2618,7 +2618,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ### Babelfish for Aurora PostgreSQL 2.9
 
-This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.12. For more information about the improvements in Aurora PostgreSQL 14.12, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.12. For more information about the improvements in Aurora PostgreSQL 14.12, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md").
 Babelfish for Aurora PostgreSQL 2.9 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL,
 see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
 
@@ -2678,7 +2678,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ### Babelfish for Aurora PostgreSQL 2.8
 
-This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.11. For more information about the improvements in Aurora PostgreSQL 14.11, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.11. For more information about the improvements in Aurora PostgreSQL 14.11, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md").
 Babelfish for Aurora PostgreSQL 2.8 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL,
 see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
 
@@ -2730,7 +2730,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ### Babelfish for Aurora PostgreSQL 2.7 (Deprecated)
 
-This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.10. For more information about the improvements in Aurora PostgreSQL 14.10, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.10. For more information about the improvements in Aurora PostgreSQL 14.10, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md").
 Babelfish for Aurora PostgreSQL 2.7 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL,
 see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
 
@@ -2798,7 +2798,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ### Babelfish for Aurora PostgreSQL 2.6
 
-This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.9. For more information about the improvements in Aurora PostgreSQL 14.9, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.9. For more information about the improvements in Aurora PostgreSQL 14.9, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md").
 Babelfish for Aurora PostgreSQL 2.6 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL,
 see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
 
@@ -2848,7 +2848,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ### Babelfish for Aurora PostgreSQL 2.5 (Deprecated)
 
-This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.8. For more information about the improvements in Aurora PostgreSQL 14.8, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.8. For more information about the improvements in Aurora PostgreSQL 14.8, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md").
 Babelfish for Aurora PostgreSQL 2.5 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL,
 see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
 
@@ -2914,7 +2914,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ### Babelfish for Aurora PostgreSQL 2.4 (Deprecated)
 
-This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.7. For more information about the improvements in Aurora PostgreSQL 14.7, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.7. For more information about the improvements in Aurora PostgreSQL 14.7, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md").
 Babelfish for Aurora PostgreSQL 2.4 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL,
 see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
 
@@ -3028,7 +3028,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ### Babelfish for Aurora PostgreSQL 2.3 (Deprecated)
 
-This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.6. For more information about the improvements in Aurora PostgreSQL 14.6, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.6. For more information about the improvements in Aurora PostgreSQL 14.6, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md").
 Babelfish for Aurora PostgreSQL 2.3 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL,
 see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
 
@@ -3069,7 +3069,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
   see [Using T-SQL query hints to improve Babelfish query performance](../AuroraUserGuide/babelfish-tsql-hints.md "../AuroraUserGuide/babelfish-tsql-hints.md").
 - Babelfish now supports Zero-downtime patching (ZDP). For more information, see
   [Minor
-  release upgrades and zero-downtime patching](../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.PostgreSQL.Minor "../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.PostgreSQL.Minor")
+  release upgrades and zero-downtime patching](../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.PostgreSQL.Minor "../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.PostgreSQL.Minor")
   in the _Amazon Aurora User Guide_.
 - Support for FORMAT() T-SQL function with minor limitations.
 - Support the estimated execution plans for THROW, PRINT, USE, and RAISEERROR statements.
@@ -3148,7 +3148,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ### Babelfish for Aurora PostgreSQL 2.2
 
-This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.5. For more information about the improvements in Aurora PostgreSQL 14.5, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.5. For more information about the improvements in Aurora PostgreSQL 14.5, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md").
 Babelfish for Aurora PostgreSQL 2.2 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL,
 see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
 
@@ -3287,7 +3287,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ### Babelfish for Aurora PostgreSQL 2.1
 
-This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.3 and 14.4. For more information about the improvements in Aurora PostgreSQL 14.3 and 14.4, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.3 and 14.4. For more information about the improvements in Aurora PostgreSQL 14.3 and 14.4, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md").
 Babelfish for Aurora PostgreSQL 2.1 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL,
 see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
 
@@ -3361,7 +3361,7 @@ column data)` error. This issue was a regression introduced in
 
 ### Babelfish for Aurora PostgreSQL 1.5
 
-This release of Aurora Babelfish is provided with Aurora PostgreSQL 13.9. For more information about the improvements in Aurora PostgreSQL 13.9, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 13.9. For more information about the improvements in Aurora PostgreSQL 13.9, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md").
 Babelfish for Aurora PostgreSQL 1.5 adds a new feature and an enhancement. For more information about Babelfish for Aurora PostgreSQL,
 see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
 
@@ -3375,7 +3375,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 - Babelfish now supports Zero-downtime patching (ZDP). For more information, see
   [Minor
-  release upgrades and zero-downtime patching](../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.PostgreSQL.Minor "../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.PostgreSQL.Minor")
+  release upgrades and zero-downtime patching](../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.PostgreSQL.Minor "../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.PostgreSQL.Minor")
   in the _Amazon Aurora User Guide_.
 
 ###### High priority stability enhancements
@@ -3384,7 +3384,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ### Babelfish for Aurora PostgreSQL 1.4 (Deprecated)
 
-This release of Aurora Babelfish is provided with Aurora PostgreSQL 13.8. For more information about the improvements in Aurora PostgreSQL 13.8, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 13.8. For more information about the improvements in Aurora PostgreSQL 13.8, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md").
 The following issues are resolved in Babelfish for Aurora PostgreSQL 1.4 release. For more information about Babelfish for Aurora PostgreSQL,
 see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
 
@@ -3415,7 +3415,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ### Babelfish for Aurora PostgreSQL 1.3 (Deprecated)
 
-This release of Aurora Babelfish is provided with Aurora PostgreSQL 13.7. For more information about the improvements in Aurora PostgreSQL 13.7, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 13.7. For more information about the improvements in Aurora PostgreSQL 13.7, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md").
 The following issues are resolved in Babelfish for Aurora PostgreSQL 1.3 release. For more information about Babelfish for Aurora PostgreSQL,
 see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
 
@@ -3460,7 +3460,7 @@ column data)` error. This issue was a regression introduced in
 
 ### Babelfish for Aurora PostgreSQL 1.2 (Deprecated)
 
-This release of Babelfish is provided with Aurora PostgreSQL 13.6. For more information about the improvements in Aurora PostgreSQL 13.6, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+This release of Babelfish is provided with Aurora PostgreSQL 13.6. For more information about the improvements in Aurora PostgreSQL 13.6, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md").
 The following issues are resolved in Babelfish 1.2 release. For more information about Babelfish,
 see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
 
@@ -3578,11 +3578,11 @@ with limited implementation](../AuroraUserGuide/babelfish-compatibility.md#babel
   see [Babelfish architecture](../AuroraUserGuide/babelfish.md#babelfish-architecture "../AuroraUserGuide/babelfish.md#babelfish-architecture").
 - For a list of features supported in each Babelfish release, see
   [Supported
-  functionality in Babelfish by version](../AuroraUserGuide/babelfish-compatibility.md "../AuroraUserGuide/babelfish-compatibility.md").
+  functionality in Babelfish by version](../AuroraUserGuide/babelfish-compatibility.supported-functionality-table.md "../AuroraUserGuide/babelfish-compatibility.supported-functionality-table.md").
 
 ### Babelfish for Aurora PostgreSQL 1.1 (Deprecated)
 
-This release of Babelfish is provided with Aurora PostgreSQL 13.5. For more information about the improvements in Aurora PostgreSQL 13.5, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+This release of Babelfish is provided with Aurora PostgreSQL 13.5. For more information about the improvements in Aurora PostgreSQL 13.5, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md").
 The following issues are resolved in Babelfish 1.1 release. For more information about Babelfish,
 see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
 
@@ -3630,11 +3630,11 @@ For more information, see [Working with Babelfish for Aurora PostgreSQL](../Auro
   sp_unprepare.
 - For a list of features supported in each Babelfish release, see
   [Supported
-  functionality in Babelfish by version](../AuroraUserGuide/babelfish-compatibility.md "../AuroraUserGuide/babelfish-compatibility.md").
+  functionality in Babelfish by version](../AuroraUserGuide/babelfish-compatibility.supported-functionality-table.md "../AuroraUserGuide/babelfish-compatibility.supported-functionality-table.md").
 
 ### Babelfish for Aurora PostgreSQL 1.0 (Deprecated)
 
-This release of Babelfish is provided with Aurora PostgreSQL 13.4. For more information about the improvements in Aurora PostgreSQL 13.5, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+This release of Babelfish is provided with Aurora PostgreSQL 13.4. For more information about the improvements in Aurora PostgreSQL 13.5, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md").
 The following issues are resolved in Babelfish 1.0 release. For more information about Babelfish,
 see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
 
