@@ -6,7 +6,7 @@ facility for a truly consistent hybrid experience. AWS Outposts is ideal for wor
 low-latency access to on-premises systems, local data processing, data residency, and
 migration of applications with local system interdependencies. For more information, see
 [What is
-AWS Outposts?](../../../outposts/latest/userguide/what-is-outposts.md "../../../outposts/latest/userguide/what-is-outposts.md") in the _AWS Outposts User Guide_.
+AWS Outposts?](../../../outposts/latest/userguide/what-is-outposts.htm.md "../../../outposts/latest/userguide/what-is-outposts.htm.md") in the _AWS Outposts User Guide_.
 
 With Amazon S3 on Outposts, you can create S3 buckets on your Outposts and easily store and
 retrieve objects on premises. S3 on Outposts provides a new storage class,
