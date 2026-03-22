@@ -64,11 +64,21 @@ JSON
 **X-Ray resource policy**
 
 The destination account where the traces are being sent must have a resource
-policy that includes certain permissions. When X-Ray does not currently have a
-resource policy, and the user setting up the tracing has
+policy that includes certain permissions. When the user setting up the tracing has
 `xray:PutResourcePolicy` and `xray:ListResourcePolicies`
-permissions in the account, AWS will automatically create the following policy
-when you begin sending traces to X-Ray.
+permissions in the account, AWS automatically creates the resource policy when
+you begin sending traces to X-Ray. The policy that is created depends on the
+source service :
+
+**Amazon Bedrock AgentCore resources**
+
+AWS creates one resource policy per resource type. The policy uses
+wildcard patterns scoped to the account boundary, covering all resources
+of the same Amazon Bedrock AgentCore resource type in the
+account. For example, if a _Amazon Bedrock AgentCore
+Memory_ resource is enabled for trace delivery, the policy
+covers all memory resources in that account — including any memory
+resources created in the future.
 
 JSON
 
@@ -93,6 +103,43 @@ JSON
  },
  "ArnLike": {
  "aws:SourceArn": "arn:aws:logs:us-east-1:123456789012:delivery-source:*"
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+**Other AWS services**
+
+For other services that support trace delivery, AWS
+creates a resource policy scoped to the specific source
+resource.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "AWSLogDeliveryWrite",
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "delivery.logs.amazonaws.com"
+ },
+ "Action": "xray:PutTraceSegments",
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "aws:SourceAccount": "123456789012"
+ },
+ "ForAllValues:ArnLike": {
+ "logs:LogGeneratingResourceArns": "arn:aws:bedrock:us-east-1:123456789012:knowledge-base/KnowledgeBaseId"
+ },
+ "ArnLike": {
+ "aws:SourceArn": "arn:aws:logs:us-east-1:123456789012:delivery-source:xray-test"
  }
  }
  }

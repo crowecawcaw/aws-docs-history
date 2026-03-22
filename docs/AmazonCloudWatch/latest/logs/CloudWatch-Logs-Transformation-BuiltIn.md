@@ -126,7 +126,7 @@ The transformed log event would be the following.
 
 Use this processor to parse Amazon RDS for PostgreSQL vended logs, extract
 fields, and convert them to JSON format. For more information about
-RDS for PostgreSQL log format, see [RDS for PostgreSQL database log files](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md#USER_LogAccess.Concepts.PostgreSQL.Log_Format.log-line-prefix "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md#USER_LogAccess.Concepts.PostgreSQL.Log_Format.log-line-prefix").
+RDS for PostgreSQL log format, see [RDS for PostgreSQL database log files](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.PostgreSQL.md#USER_LogAccess.Concepts.PostgreSQL.Log_Format.log-line-prefix "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.PostgreSQL.md#USER_LogAccess.Concepts.PostgreSQL.Log_Format.log-line-prefix").
 
 This processor accepts only `@message` as the input.
 

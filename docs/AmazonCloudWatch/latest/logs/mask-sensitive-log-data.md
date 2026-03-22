@@ -18,8 +18,7 @@ managed data identifiers that are specified in either policy are audited and mas
 
 ###### Note
 
-Masking sensitive data is supported only for log groups in the Standard log class. If you create a data
-protection policy for all log groups in your account, it applies only to log groups in the Standard log class.
+Masking sensitive data is supported for log groups in both the Standard and Infrequent Access log classes.
 For more information
 about log classes, see [Log classes](CloudWatch_Logs_Log_Classes.md "CloudWatch_Logs_Log_Classes.md").
 

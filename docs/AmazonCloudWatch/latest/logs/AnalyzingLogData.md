@@ -73,8 +73,6 @@ QL.
   interactively explore your logs](CloudWatchLogs-Facets.md "CloudWatchLogs-Facets.md").
   The following CloudWatch Logs Insights features are supported only when you use Logs Insights QL.
 
-- Querying logs in the [Infrequent Access
-  log class](CloudWatch_Logs_Log_Classes.md "CloudWatch_Logs_Log_Classes.md").
 - [Comparison queries](CWL_AnalyzeLogData_Compare.md "CWL_AnalyzeLogData_Compare.md") that compare
   log events in a log group with log events from a previous time period.
 
