@@ -108,7 +108,7 @@ incoming traffic. Choose this option to only allow traffic from an Amazon VPC to
 service. The VPC Ingress Connection resource connects your App Runner service to the VPC interface
 endpoint of the Amazon VPC. You can create a VPC Ingress Connection resource only if you are using
 the API operations to configure the network settings for incoming traffic. For more
-information how to create VPC Ingress Connection resource, see [CreateVpcIngressConnection](../api/API_CreateVpcIngressConnection.md "../api/API_CreateVpcIngressConnection.md") in the _AWS App Runner API Reference_.
+information how to create VPC Ingress Connection resource, see [CreateVpcIngressConnection](../api/API_CreateVpcIngressConnection.html.md "../api/API_CreateVpcIngressConnection.html.md") in the _AWS App Runner API Reference_.
 
 ###### Note
 

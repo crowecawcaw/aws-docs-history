@@ -64,7 +64,7 @@ from the file.
 
 The console displays the service dashboard with a **Service overview**.
 
-![App Runner service dashboard page showing Activity list](/images/apprunner/latest/dg/images/console-dashboard.png) 3. On the service dashboard page, choose the **Configuration** tab.
+![App Runner service dashboard page showing Activity list](images/console-dashboard.png) 3. On the service dashboard page, choose the **Configuration** tab.
 
 Result: The console displays the current configuration settings of your service in several sections: **Source and deployment**,
 **Configure build**, and **Configure service**. 4. To update settings in any category, choose **Edit**. 5. On the configuration edit page, make any desired changes, and then choose **Save changes**.
