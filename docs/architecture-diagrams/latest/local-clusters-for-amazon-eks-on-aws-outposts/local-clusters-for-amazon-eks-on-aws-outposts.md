@@ -21,7 +21,7 @@ Deploying a local cluster for Amazon EKS is currently only available through the
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/local-clusters-for-amazon-eks-on-aws-outposts.md "samples/local-clusters-for-amazon-eks-on-aws-outposts.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/local-clusters-for-amazon-eks-on-aws-outposts.zip.md "samples/local-clusters-for-amazon-eks-on-aws-outposts.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
