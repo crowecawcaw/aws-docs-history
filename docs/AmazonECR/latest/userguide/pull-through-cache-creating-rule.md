@@ -366,6 +366,64 @@ review the pull through cache rule configuration and then choose
 The pull through cache rules are created separately for each
 Region.
 
+1.  Open the Amazon ECR console at
+    [https://console.aws.amazon.com/ecr/](https://console.aws.amazon.com/ecr/ "https://console.aws.amazon.com/ecr/").
+2.  From the navigation bar, choose the Region to configure your
+    private registry settings in.
+3.  In the navigation pane, choose **Private
+    registry**, **Pull through
+    cache**.
+4.  On the **Pull through cache configuration**
+    page, choose **Add rule**.
+5.  On the **Step 1: Specify a source** page, for Registry,
+    choose Chainguard Registry, Next.
+6.  On the **Step 2: Configure authentication**
+    page, for **Upstream credentials**, you must
+    store your authentication credentials for Chainguard Registry in an AWS Secrets Manager
+    secret. You can specify an existing secret or use the Amazon ECR
+    console to create a new secret.
+    1. To use an existing secret, choose **Use an
+       existing AWS secret**. For
+       **Secret name** use the drop down
+       to select your existing secret, and then choose
+       **Next**. For more information on
+       creating a Secrets Manager secret using the Secrets Manager console, see
+       [Storing your upstream repository credentials in an AWS Secrets Manager secret](pull-through-cache-creating-secret.md "pull-through-cache-creating-secret.md").
+
+    ###### Note
+
+    The AWS Management Console only displays Secrets Manager secrets with
+    names using the `ecr-pullthroughcache/`
+    prefix. The secret must also be in the same account
+    and Region that the pull through cache rule is
+    created in. 2. To create a new secret, choose **Create an
+    AWS secret**, do the following, then
+    choose **Next**.
+
+        1. For **Secret name**, specify
+         a descriptive name for the secret. Secret names
+         must contain 1-512 Unicode characters.
+        2. For **Chainguard Registry username**,
+         specify your Chainguard Registry username.
+        3. For **Chainguard Registry pull token**,
+         specify your Chainguard Registry pull token. For more
+         information on creating a Chainguard Registry pull token, see
+         [Authenticating with a Pull Token](https://edu.chainguard.dev/chainguard/chainguard-images/chainguard-registry/authenticating/#authenticating-with-a-pull-token "https://edu.chainguard.dev/chainguard/chainguard-images/chainguard-registry/authenticating/#authenticating-with-a-pull-token")
+         in the Chainguard documentation.
+
+7.  On the **Step 3: Specify a destination**
+    page, for **Amazon ECR repository prefix**, specify
+    the repository namespace to use when caching images pulled from
+    the source registry and then choose
+    **Next**.
+
+By default, a namespace is populated but a custom namespace
+can be specified as well. 8. On the **Step 4: Review and create** page,
+review the pull through cache rule configuration and then choose
+**Create**. 9. Repeat the previous step for each pull through cache you want
+to create. The pull through cache rules are created separately
+for each Region.
+
 ## To create a pull through cache rule (AWS CLI)
 
 Use the [create-pull-through-cache-rule](../../../cli/latest/reference/ecr/create-pull-through-cache-rule.md "../../../cli/latest/reference/ecr/create-pull-through-cache-rule.md") AWS CLI command to create a pull through
@@ -507,6 +565,22 @@ the permissions created in [Creating a pull through cache rule in Amazon ECR](pu
  --ecr-repository-prefix ecr \
  --upstream-registry-url `aws_account_id`.dkr.ecr.`region`.amazonaws.com \
  --custom-role-arn arn:aws:iam::`aws_account_id`:role/`example-role` \
+ --region `us-east-2``
+```
+
+The following example creates a pull through cache rule for the Chainguard Registry.
+It specifies a repository prefix of `chainguard`, which
+results in each repository created using the pull through cache rule to
+have the naming scheme of
+`chainguard/`upstream-repository-name``.
+You must specify the full Amazon Resource Name (ARN) of the secret
+containing your Chainguard Registry credentials.
+
+```
+`aws ecr create-pull-through-cache-rule \
+ --ecr-repository-prefix `chainguard` \
+ --upstream-registry-url cgr.dev \
+ --credential-arn arn:aws:secretsmanager:`us-east-2`:`111122223333`:secret:`ecr-pullthroughcache/example1234` \
  --region `us-east-2``
 ```
 

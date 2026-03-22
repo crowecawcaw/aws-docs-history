@@ -55,3 +55,7 @@ docker pull `aws_account_id`.dkr.ecr.`region`.amazonaws.com/`azure`/`repository_
 ```
 docker pull `aws_account_id`.dkr.ecr.`region`.amazonaws.com/`gitlab`/`repository_name/image_name:tag`
 ```
+
+```
+docker pull `aws_account_id`.dkr.ecr.`region`.amazonaws.com/`chainguard`/`repository_name/image_name:tag`
+```

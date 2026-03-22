@@ -8,7 +8,7 @@ registries:
 
 - Amazon ECR Public, Kubernetes container image registry, and Quay (doesn't require
   authentication)
-- Docker Hub, Microsoft Azure Container Registry, GitHub Container Registry, and GitLab Container Registry (requires authentication with AWS Secrets Manager
+- Docker Hub, Microsoft Azure Container Registry, GitHub Container Registry, GitLab Container Registry and Chainguard Registry (requires authentication with AWS Secrets Manager
   secret)
 - Amazon ECR (requires authentication with AWS IAM role)
   For GitLab Container Registry, Amazon ECR supports pull through cache only with GitLab's Software as a Service
