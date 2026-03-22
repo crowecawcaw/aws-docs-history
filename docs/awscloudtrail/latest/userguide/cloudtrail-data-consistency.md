@@ -16,7 +16,7 @@ or event data store based on the last known configuration until the changes prop
 For more information about how this affects other AWS services, see the following resources:
 
 - **Amazon DynamoDB**: [What is the consistency model of DynamoDB?](https://aws.amazon.com/dynamodb/faqs/ "https://aws.amazon.com/dynamodb/faqs/") in the _DynamoDB FAQ_,
-  and [Read consistency](../../../amazondynamodb/latest/developerguide/HowItWorks.md "../../../amazondynamodb/latest/developerguide/HowItWorks.md") in the _Amazon DynamoDB Developer Guide_.
+  and [Read consistency](../../../amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.md "../../../amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.md") in the _Amazon DynamoDB Developer Guide_.
 - **Amazon EC2**: [Eventual consistency](../../../AWSEC2/latest/APIReference/query-api-troubleshooting.md#eventual-consistency "../../../AWSEC2/latest/APIReference/query-api-troubleshooting.md#eventual-consistency")
   in the _Amazon Elastic Compute Cloud API Reference_.
 - **Amazon EMR**: [Ensuring Consistency When Using Amazon S3 and Amazon Elastic MapReduce for ETL Workflows](https://aws.amazon.com/blogs/big-data/ensuring-consistency-when-using-amazon-s3-and-amazon-elastic-mapreduce-for-etl-workflows/ "https://aws.amazon.com/blogs/big-data/ensuring-consistency-when-using-amazon-s3-and-amazon-elastic-mapreduce-for-etl-workflows/")
