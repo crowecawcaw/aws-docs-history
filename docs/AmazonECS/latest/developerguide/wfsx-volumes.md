@@ -38,8 +38,35 @@ following.
 
 Consider the following when using FSx for Windows File Server volumes:
 
-- FSx for Windows File Server with Amazon ECS only supports Windows Amazon EC2 instances. Linux Amazon EC2
-  instances aren't supported.
+- FSx for Windows File Server volumes are natively supported with Amazon ECS on Windows Amazon EC2
+  instances — Amazon ECS automatically manages the mount through task definition
+  configuration.
+
+On Linux Amazon EC2 instances, Amazon ECS can't automatically mount
+FSx for Windows File Server volumes through task definitions. However, you can
+manually mount an FSx for Windows File Server file share on a Linux EC2 instance
+at the host level and then bind-mount that path into your Amazon ECS
+containers. For more information, see [Mounting
+Amazon FSx file shares from Linux](../../../fsx/latest/WindowsGuide/map-shares-linux.md "../../../fsx/latest/WindowsGuide/map-shares-linux.md").
+
+###### Important
+
+This is a self-managed configuration. For guidance on mounting
+and maintaining FSx for Windows File Server file shares on Linux, refer to the
+[FSx for Windows File Server
+documentation](../../../fsx/latest/WindowsGuide.md "../../../fsx/latest/WindowsGuide.md").
+
+###### Important
+
+When using a manually mounted FSx for Windows File Server share on Linux EC2
+instances, Amazon ECS and FSx for Windows File Server operate independently —
+Amazon ECS does not monitor the Amazon FSx mount, and FSx for Windows File Server does
+not track Amazon ECS task placement or lifecycle events. You are
+responsible for ensuring network reachability between your Amazon ECS
+container instances and the Amazon FSx file system, implementing mount
+health checks, and handling reconnection logic to tolerate
+failover events.
+
 - FSx for Windows File Server with Amazon ECS doesn't support AWS Fargate.
 - FSx for Windows File Server with Amazon ECS isn't supported on Amazon ECS Managed Instances.
 - FSx for Windows File Server with Amazon ECS with `awsvpc` network mode requires version

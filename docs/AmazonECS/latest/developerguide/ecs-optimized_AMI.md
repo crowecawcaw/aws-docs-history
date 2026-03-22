@@ -6,6 +6,12 @@ The Amazon ECS-Optimized Amazon Linux 2 AMI reaches end-of-life on June 30, 2026
 of the upstream Amazon Linux 2 operating system (for more information, see the [Amazon Linux 2 FAQs](https://aws.amazon.com/amazon-linux-2/faqs/ "https://aws.amazon.com/amazon-linux-2/faqs/")). We encourage customers to upgrade
 their applications to use Amazon Linux 2023, which includes long term support through 2028. For information about migrating from Amazon Linux 2 to Amazon Linux 2023, see [Migrating from the Amazon Linux 2 Amazon ECS-optimized AMI to the Amazon Linux 2023 Amazon ECS-optimized AMI](al2-to-al2023-ami-transition.md "al2-to-al2023-ami-transition.md").
 
+By default, the deprecation date of all Amazon ECS-optimized AMIs are set to two years after the AMI creation date.
+You can use the Amazon EC2
+`DescribeImages` API to check the deprecation status and date of an AMI. For
+more information, see [DescribeImages](../../../AWSEC2/latest/APIReference/API_DescribeImages.md "../../../AWSEC2/latest/APIReference/API_DescribeImages.md") in the
+_Amazon Elastic Compute Cloud API Reference_.
+
 Amazon ECS provides the Amazon ECS-optimized AMIs that are preconfigured with the requirements and
 recommendations to run your container workloads. We recommend that you use the Amazon ECS-optimized Amazon Linux 2023 AMI
 for your Amazon EC2 instances. Launching your container instances from the most recent

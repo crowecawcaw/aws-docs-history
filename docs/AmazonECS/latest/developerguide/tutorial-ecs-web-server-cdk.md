@@ -14,7 +14,7 @@ specifically `aws-ecs-patterns`, provides high-level abstractions that you can
 use to define your containerized service and all the necessary supporting resources in a few
 lines of code.
 
-This topic uses the [`ApplicationLoadBalancedFargateService`](../../../cdk/api/v2/docs/aws-cdk-lib.aws_ecs_patterns.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_ecs_patterns.md") construct. This
+This topic uses the [`ApplicationLoadBalancedFargateService`](../../../cdk/api/v2/docs/aws-cdk-lib.aws_ecs_patterns.ApplicationLoadBalancedFargateService.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_ecs_patterns.ApplicationLoadBalancedFargateService.md") construct. This
 construct deploys an Amazon ECS service on Fargate behind an application load balancer. The
 `aws-ecs-patterns` module also includes constructs that use a network
 load balancer and run on Amazon EC2.
@@ -531,5 +531,5 @@ Go
 For more information about the AWS Construct Library modules used in this topic, see
 the following AWS CDK API Reference overviews.
 
-- [aws-ecs](../../../cdk/api/v2/docs/aws-cdk-lib.md "../../../cdk/api/v2/docs/aws-cdk-lib.md")
-- [aws-ecs-patterns](../../../cdk/api/v2/docs/aws-cdk-lib.md "../../../cdk/api/v2/docs/aws-cdk-lib.md")
+- [aws-ecs](../../../cdk/api/v2/docs/aws-cdk-lib.aws_ecs-readme.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_ecs-readme.md")
+- [aws-ecs-patterns](../../../cdk/api/v2/docs/aws-cdk-lib.aws_ecs_patterns-readme.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_ecs_patterns-readme.md")

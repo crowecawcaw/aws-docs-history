@@ -73,7 +73,6 @@ example output.
   "PullStartedAt": "2025-09-24T19:38:58.682942001Z",
   "PullStoppedAt": "2025-09-24T19:39:03.091597524Z",
   "AvailabilityZone": "us-west-2d",
-  "AvailabilityZoneID": "usw2-az4",
   "LaunchType": "MANAGED_INSTANCES",
   "Containers": [
     {

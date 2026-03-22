@@ -76,7 +76,7 @@ Consider the following when you use the Amazon CloudWatch alarms method on a ser
   period, Amazon ECS might miss the alarm and the roll back might not occur. There is
   no other impact on the deployment. For more information on CloudWatch service quotas,
   see [CloudWatch service
-  quotas](../../../AmazonCloudWatch/latest/monitoring/cloudwatch_limits.md "../../../AmazonCloudWatch/latest/monitoring/cloudwatch_limits.md") in the _CloudWatch User
+  quotas](../../../AmazonCloudWatch/latest/monitoring/cloudwatch_limits.htm.md "../../../AmazonCloudWatch/latest/monitoring/cloudwatch_limits.htm.md") in the _CloudWatch User
   Guide_.
 - If an alarm is in the `ALARM` state at the beginning of a
   deployment, Amazon ECS will not monitor alarms for the duration of that deployment

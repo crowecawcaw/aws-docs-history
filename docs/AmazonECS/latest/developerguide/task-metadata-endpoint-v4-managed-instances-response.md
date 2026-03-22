@@ -53,10 +53,6 @@ The timestamp for when the last container image pull finished.
 
 The Availability Zone the task is in.
 
-`AvailabilityZoneID`
-
-The Availability Zone ID the task is in.
-
 `LaunchType`
 
 The launch type the task is using. For tasks running on Amazon ECS Managed Instances, the launch type is `MANAGED_INSTANCES`.

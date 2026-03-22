@@ -2,13 +2,14 @@
 
 You can register [Amazon EC2
 Trn1](https://aws.amazon.com/ec2/instance-types/trn1/ "https://aws.amazon.com/ec2/instance-types/trn1/"), [Amazon EC2
+Trn2](https://aws.amazon.com/ec2/instance-types/trn2/ "https://aws.amazon.com/ec2/instance-types/trn2/"), [Amazon EC2
 Inf1](https://aws.amazon.com/ec2/instance-types/inf1/ "https://aws.amazon.com/ec2/instance-types/inf1/"), and [Amazon EC2
 Inf2](https://aws.amazon.com/ec2/instance-types/inf2/ "https://aws.amazon.com/ec2/instance-types/inf2/") instances to your clusters for machine learning workloads.
 
-Amazon EC2 Trn1 instances are powered by [AWS Trainium](https://aws.amazon.com/ai/machine-learning/trainium/ "https://aws.amazon.com/ai/machine-learning/trainium/") chips. These instances
+Amazon EC2 Trn1 and Trn2 instances are powered by [AWS Trainium](https://aws.amazon.com/ai/machine-learning/trainium/ "https://aws.amazon.com/ai/machine-learning/trainium/") chips. These instances
 provide high performance and low cost training for machine learning in the cloud. You
 can train a machine learning inference model using a machine learning framework with
-AWS Neuron on a Trn1 instance. Then, you can run the model on a Inf1 instance, or an
+AWS Neuron on a Trn1 or Trn2 instance. Then, you can run the model on a Inf1 instance, or an
 Inf2 instance to use the acceleration of the AWS Inferentia chips.
 
 The Amazon EC2 Inf1 instances and Inf2 instances are powered by [AWS Inferentia](https://aws.amazon.com/ai/machine-learning/inferentia/ "https://aws.amazon.com/ai/machine-learning/inferentia/") chips They provide high
@@ -24,7 +25,7 @@ MXNet.
 
 Before you begin deploying Neuron on Amazon ECS, consider the following:
 
-- Your clusters can contain a mix of Trn1, Inf1, Inf2 and other
+- Your clusters can contain a mix of Trn1, Trn2, Inf1, Inf2 and other
   instances.
 - You need a Linux application in a container that uses a machine learning
   framework that supports AWS Neuron.
@@ -32,18 +33,18 @@ Before you begin deploying Neuron on Amazon ECS, consider the following:
 ###### Important
 
 Applications that use other frameworks might not have improved
-performance on Trn1, Inf1, and Inf2 instances.
+performance on Trn1, Trn2, Inf1, and Inf2 instances.
 
 - Only one inference or inference-training task can run on each [AWS Trainium](https://aws.amazon.com/ai/machine-learning/trainium/ "https://aws.amazon.com/ai/machine-learning/trainium/")
   or [AWS
-  Inferentia](https://aws.amazon.com/ai/machine-learning/inferentia/ "https://aws.amazon.com/ai/machine-learning/inferentia/") chip. For Inf1, each chip has 4 NeuronCores. For Trn1
-  and Inf2 each chip has 2 NeuronCores. You can run as many tasks as there are
-  chips for each of your Trn1, Inf1, and Inf2 instances.
+  Inferentia](https://aws.amazon.com/ai/machine-learning/inferentia/ "https://aws.amazon.com/ai/machine-learning/inferentia/") chip. For Inf1, each chip has 4 NeuronCores. For Trn1,
+  Trn2, and Inf2 each chip has 2 NeuronCores. You can run as many tasks as there are
+  chips for each of your Trn1, Trn2, Inf1, and Inf2 instances.
 - When creating a service or running a standalone task, you can use instance
   type attributes when you configure task placement constraints. This ensures
   that the task is launched on the container instance that you specify. Doing
   so can help you optimize overall resource utilization and ensure that tasks
-  for inference workloads are on your Trn1, Inf1, and Inf2 instances. For more
+  for inference workloads are on your Trn1, Trn2, Inf1, and Inf2 instances. For more
   information, see [How Amazon ECS places tasks on container instances](task-placement.md "task-placement.md").
 
 In the following example, a task is run on an `Inf1.xlarge`
@@ -79,63 +80,6 @@ command.
 `aws ssm get-parameters --names /aws/service/ecs/optimized-ami/amazon-linux-2023/neuron/recommended`
 ```
 
-The Amazon ECS-optimized Amazon Linux 2023 (Neuron) AMI is supported in the following Regions:
-
-- US East (N. Virginia)
-- US East (Ohio)
-- US West (N. California)
-- US West (Oregon)
-- Asia Pacific (Mumbai)
-- Asia Pacific (Osaka)
-- Asia Pacific (Seoul)
-- Asia Pacific (Tokyo)
-- Asia Pacific (Singapore)
-- Asia Pacific (Sydney)
-- Canada (Central)
-- Europe (Frankfurt)
-- Europe (Ireland)
-- Europe (London)
-- Europe (Paris)
-- Europe (Stockholm)
-- South America (São Paulo)
-
-## Use the Amazon ECS optimized Amazon Linux 2 (Neuron) AMI
-
-Amazon ECS provides an Amazon ECS optimized AMI that's based on Amazon Linux 2 for AWS Trainium
-and AWS Inferentia workloads. It comes with the AWS Neuron drivers and runtime
-for Docker. This AMI makes running machine learning inference workloads easier on
-Amazon ECS.
-
-We recommend using the Amazon ECS optimized Amazon Linux 2 (Neuron) AMI when launching your Amazon EC2 Trn1, Inf1, and Inf2
-instances.
-
-You can retrieve the current Amazon ECS optimized Amazon Linux 2 (Neuron) AMI using the AWS CLI with the following
-command.
-
-```
-`aws ssm get-parameters --names /aws/service/ecs/optimized-ami/amazon-linux-2/inf/recommended`
-```
-
-The Amazon ECS optimized Amazon Linux 2 (Neuron) AMI is supported in the following Regions:
-
-- US East (N. Virginia)
-- US East (Ohio)
-- US West (N. California)
-- US West (Oregon)
-- Asia Pacific (Mumbai)
-- Asia Pacific (Osaka)
-- Asia Pacific (Seoul)
-- Asia Pacific (Tokyo)
-- Asia Pacific (Singapore)
-- Asia Pacific (Sydney)
-- Canada (Central)
-- Europe (Frankfurt)
-- Europe (Ireland)
-- Europe (London)
-- Europe (Paris)
-- Europe (Stockholm)
-- South America (São Paulo)
-
 ## Task definition requirements
 
 To deploy Neuron on Amazon ECS, your task definition must contain the container
@@ -158,13 +102,15 @@ information, see [Tutorial: Neuron TensorFlow Serving](https://github.com/aws-ne
 The task definition must be specific to a single instance type. You must configure
 a container to use specific AWS Trainium or AWS Inferentia devices that are
 available on the host container instance. You can do so using the
-`linuxParameters` parameter. The following table details the chips
+`linuxParameters` parameter. For a sample task definition, see
+[Specifying AWS Neuron machine learning in an Amazon ECS task definition](ecs-inference-task-def.md "ecs-inference-task-def.md"). The following table details the chips
 that are specific to each instance type.
 
 | Instance Type | vCPUs | RAM (GiB) | AWS ML accelerator chips | Device Paths                                                                                                                                                                                                                                                                              |
 | ------------- | ----- | --------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | trn1.2xlarge  | 8     | 32        | 1                        | `/dev/neuron0`                                                                                                                                                                                                                                                                            |
 | trn1.32xlarge | 128   | 512       | 16                       | `/dev/neuron0`, `/dev/neuron1`,<br>`/dev/neuron2`, `/dev/neuron3`,<br>`/dev/neuron4`, `/dev/neuron5`,<br>`/dev/neuron6`, `/dev/neuron7`,<br>`/dev/neuron8`, `/dev/neuron9`,<br>`/dev/neuron10`, `/dev/neuron11`,<br>`/dev/neuron12`, `/dev/neuron13`,<br>`/dev/neuron14`, `/dev/neuron15` |
+| trn2.48xlarge | 192   | 1536      | 16                       | `/dev/neuron0`, `/dev/neuron1`,<br>`/dev/neuron2`, `/dev/neuron3`,<br>`/dev/neuron4`, `/dev/neuron5`,<br>`/dev/neuron6`, `/dev/neuron7`,<br>`/dev/neuron8`, `/dev/neuron9`,<br>`/dev/neuron10`, `/dev/neuron11`,<br>`/dev/neuron12`, `/dev/neuron13`,<br>`/dev/neuron14`, `/dev/neuron15` |
 | inf1.xlarge   | 4     | 8         | 1                        | `/dev/neuron0`                                                                                                                                                                                                                                                                            |
 | inf1.2xlarge  | 8     | 16        | 1                        | `/dev/neuron0`                                                                                                                                                                                                                                                                            |
 | inf1.6xlarge  | 24    | 48        | 4                        | `/dev/neuron0`, `/dev/neuron1`,<br>`/dev/neuron2`, `/dev/neuron3`                                                                                                                                                                                                                         |

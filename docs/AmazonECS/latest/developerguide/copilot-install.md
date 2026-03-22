@@ -1,5 +1,15 @@
 # Installing the AWS Copilot CLI
 
+###### AWS Copilot CLI End-of-Support Notice
+
+AWS Copilot CLI will reach end-of-support on **June 12, 2026**. After this date, the tool will no longer receive updates, security patches, or technical support.
+
+- No new features or enhancements after June 12, 2026
+- No security updates or bug fixes
+- No technical support
+- Existing deployments will continue to function, but without ongoing maintenance
+  **Need Help?** Contact AWS Support or visit our [blogpost](https://aws.amazon.com/blogs/containers/announcing-the-end-of-support-for-the-aws-copilot-cli/ "https://aws.amazon.com/blogs/containers/announcing-the-end-of-support-for-the-aws-copilot-cli/") for detailed migration guidance.
+
 You can install the AWS Copilot CLI by using Homebrew or by manually downloading the binary
 with the following steps.
 

@@ -40,18 +40,6 @@ container instance stop. If you start the container instance again, the containe
 reconnects with the Amazon ECS service, and you are able to run tasks on the instance
 again.
 
-###### Important
-
-If you stop and start a container instance, or reboot that instance, some older
-versions of the Amazon ECS container agent register the instance again without
-deregistering the original container instance ID. In this case, Amazon ECS lists more
-container instances in your cluster than you actually have. (If you have duplicate
-container instance IDs for the same Amazon EC2 instance ID, you can safely deregister the
-duplicates that are listed as `ACTIVE` with an agent connection status of
-`FALSE`.) This issue is fixed in the current version of the Amazon ECS
-container agent. For more information about updating to the current version, see
-[Updating the Amazon ECS container agent](ecs-agent-update.md "ecs-agent-update.md").
-
 If you change the status of a container instance to `DRAINING`, new tasks
 are not placed on the container instance. Any service tasks running on the container
 instance are removed, if possible, so that you can perform system updates. For more
@@ -62,8 +50,6 @@ changes to `INACTIVE` immediately, and the container instance is no longer
 reported when you list your container instances. However, you can still describe the
 container instance for one hour following termination. After one hour, the instance
 description is no longer available.
-
-###### Important
 
 You can drain the instances manually, or build an Auto Scaling group lifecycle hook to
 set the instance status to `DRAINING`. See [Amazon EC2 Auto Scaling lifecycle
@@ -83,22 +69,13 @@ While Amazon ECS supports multiple Docker versions, we recommend using the Docke
 
 ## Amazon ECS-optimized AMI
 
-The Linux variants of the Amazon ECS-optimized AMI use the Amazon Linux 2 AMI as their base. The
-Amazon Linux 2 source AMI name for each variant can be retrieved by querying the Systems Manager
-Parameter Store API. For more information, see [Retrieving Amazon ECS-optimized Linux AMI metadata](retrieve-ecs-optimized_AMI.md "retrieve-ecs-optimized_AMI.md").
-When you launch our container instances from the most recent Amazon ECS-optimized Amazon Linux 2 AMI you receive the
-current container agent version. To launch a container instance with the latest
-Amazon ECS-optimized Amazon Linux 2 AMI, see [Launching an Amazon ECS Linux container instance](launch_container_instance.md "launch_container_instance.md").
+For more information about the Amazon ECS-optimized AMI, see [Amazon ECS-optimized Linux AMIs](ecs-optimized_AMI.md "ecs-optimized_AMI.md").
 
 ## Additional information
 
 The following pages provide additional information about the changes:
 
 - [Amazon ECS Agent changelog](https://github.com/aws/amazon-ecs-agent/blob/master/CHANGELOG.md "https://github.com/aws/amazon-ecs-agent/blob/master/CHANGELOG.md") on GitHub
-- The source code for the `ecs-init` application and the scripts and
-  configuration for packaging the agent are now part of the agent repository. For
-  older versions of `ecs-init` and packaging, see [Amazon
-  ecs-init changelog](https://github.com/aws/amazon-ecs-init/blob/master/CHANGELOG.md "https://github.com/aws/amazon-ecs-init/blob/master/CHANGELOG.md") on GitHub
 - [Amazon Linux 2 release
   notes](../../../AL2/latest/relnotes/relnotes-al2.md "../../../AL2/latest/relnotes/relnotes-al2.md").
 - [Docker Engine
@@ -147,18 +124,4 @@ The following is an example log file when the JSON format is used.
 
 ```
 {"time": "2019-11-07T22:52:02Z", "level": "info", "msg": "Starting Amazon Elastic Container Service Agent", "module": "engine.go"}
-```
-
-For container agent versions 1.35.0 and earlier, the following is the format of the
-log file.
-
-```
-2016-08-15T15:54:41Z [INFO] Starting Agent: Amazon ECS Agent - v1.12.0 (895f3c1)
-2016-08-15T15:54:41Z [INFO] Loading configuration
-2016-08-15T15:54:41Z [WARN] Invalid value for task cleanup duration, will be overridden to 3h0m0s, parsed value 0, minimum threshold 1m0s
-2016-08-15T15:54:41Z [INFO] Checkpointing is enabled. Attempting to load state
-2016-08-15T15:54:41Z [INFO] Loading state! module="statemanager"
-2016-08-15T15:54:41Z [INFO] Detected Docker versions [1.17 1.18 1.19 1.20 1.21 1.22]
-2016-08-15T15:54:41Z [INFO] Registering Instance with ECS
-2016-08-15T15:54:41Z [INFO] Registered! module="api client"
 ```
