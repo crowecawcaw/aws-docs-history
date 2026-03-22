@@ -3,7 +3,7 @@
 The following table describes the important changes to the
 _Amazon Simple Queue Service Developer Guide_ since Jan 2019. For notifications about updates to this
 documentation, subscribe to the [RSS
-feed](recent-updates.md "recent-updates.md").
+feed](recent-updates.rss.md "recent-updates.rss.md").
 
 Service features are sometimes rolled out incrementally to the AWS Regions where a service
 is available. We update this documentation for the first release only. We don't provide
