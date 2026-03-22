@@ -25,7 +25,7 @@ availability.
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/edit-in-cloud-on-aws.md "samples/edit-in-cloud-on-aws.md") which contains an
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/edit-in-cloud-on-aws.zip.md "samples/edit-in-cloud-on-aws.zip.md") which contains an
 editable PowerPoint.
 
 ## Create a free AWS account
