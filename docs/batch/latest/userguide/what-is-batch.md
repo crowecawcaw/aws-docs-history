@@ -60,7 +60,7 @@ information about each managed compute service, see:
 - [AWS Fargate _Developer Guide_](../../../AmazonECS/latest/developerguide/AWS_Fargate.md "../../../AmazonECS/latest/developerguide/AWS_Fargate.md")
 - [Amazon EKS
   _User Guide_](../../../eks/latest/userguide/what-is-eks.md "../../../eks/latest/userguide/what-is-eks.md")
-- [Amazon SageMaker AI _Developer Guide_](../../../sagemaker/latest/dg/gs.md "../../../sagemaker/latest/dg/gs.md")
+- [Amazon SageMaker AI _Developer Guide_](../../../sagemaker/latest/dg/gs.htm.md "../../../sagemaker/latest/dg/gs.htm.md")
 
 ## Accessing AWS Batch
 

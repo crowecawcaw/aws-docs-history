@@ -18,6 +18,8 @@ specific.
 | Maximum number of [consumable resources](resource-aware-scheduling.md "resource-aware-scheduling.md")                                                                                       | 50k     |
 | Maximum number of service environments. For more information, see [Service environments for AWS Batch](service-environments.md "service-environments.md").                                  | 50      |
 | Maximum number of service environments for each job queue                                                                                                                                   | 1       |
+| Maximum number of job queues associated for each quota management enabled service environment. For more information see [Quota management](quota-management.md "quota-management.md").      | 1       |
+| Maximum number of quota shares for each quota management job queue. For more information see [Quota management](quota-management.md "quota-management.md").                                 | 20      |
 | Maximum size of [`SubmitServiceJob`](../APIReference/API_SubmitServiceJob.md "../APIReference/API_SubmitServiceJob.md") request                                                             | 30 KiB  |
 | Maximum job service request payload size (for [`SubmitServiceJob`](../APIReference/API_SubmitServiceJob.md "../APIReference/API_SubmitServiceJob.md") API operations)                       | 10 KiB  |
 | Maximum number of transactions per second (TPS) for each account for [`SubmitServiceJob`](../APIReference/API_SubmitServiceJob.md "../APIReference/API_SubmitServiceJob.md") operations     | 5       |

@@ -16,7 +16,8 @@ actions.
 
 ###### Note
 
-Currently, the only action you can use with `jobStateLimitActions.action` is to
+Currently, for job queues connected to Amazon ECS, Amazon EKS, or Fargate compute environments,
+the only action you can use with `jobStateLimitActions.action` is to
 cancel a job.
 
 The `jobStateTimeLimitActions` parameter is used to specify a set of actions

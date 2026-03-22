@@ -22,10 +22,19 @@ unexpected costs. These manual modifications can't be deterministically supporte
 AWS Batch service. Always use the supported AWS Batch APIs or the AWS Batch console to manage your
 compute environments.
 
+Unsupported manual modifications include running your own Amazon ECS tasks or services on AWS Batch-managed Amazon ECS
+clusters, or starting additional processes, daemons, or services directly on AWS Batch-managed instances.
+AWS Batch assumes full control of the compute resources in a managed compute environment and can
+terminate instances, stop tasks, or scale the cluster at any time. Any workloads you run outside
+of AWS Batch job submissions on these managed resources can be interrupted without warning. Running non-AWS Batch
+workloads on AWS Batch-managed clusters and instances can also interfere with AWS Batch job scheduling and
+instance scaling.
+
 ###### Topics
 
 - [Compute environment update strategies](#update-strategies "#update-strategies")
 - [Choosing the right update strategy](#choosing-update-strategies "#choosing-update-strategies")
+- [AMI update considerations](#ami-update-considerations "#ami-update-considerations")
 - [Perform scaling updates](scaling-updates.md "scaling-updates.md")
 - [Perform infrastructure updates](infrastructure-updates.md "infrastructure-updates.md")
 - [Perform blue/green updates for compute environments](blue-green-updates.md "blue-green-updates.md")
@@ -108,7 +117,11 @@ make major configuration changes.
 
 For detailed procedures, see [Perform blue/green updates for compute environments](blue-green-updates.md "blue-green-updates.md").
 
-### AMI update considerations
+## AMI update considerations
+
+The approach for updating AMIs depends on your compute environment configuration.
+
+### Updating the AWS Batch provided default AMI to latest
 
 AWS Batch can update to the latest Amazon ECS-optimized AMI during [infrastructure](infrastructure-updates.md#infrastructure-updates.title "infrastructure-updates.md#infrastructure-updates.title") updates when all of these
 conditions are met:
@@ -130,14 +143,17 @@ After the infrastructure update has completed `updateToLatestImageVersion` is se
 
 You must use blue/green deployment to update AMIs in these scenarios:
 
-- When using a specific version of the Amazon ECS-optimized AMI
-- When the AMI ID is specified in any of:
-  - Launch template (must update the template or remove it)
-  - The `imageId` parameter
-  - The `imageIdOverride` parameter in EC2 configuration
-
 - When using the `BEST_FIT` allocation strategy (doesn't support infrastructure
   updates)
 - When not using the _AWSServiceRoleForBatch_
   [service-linked
   role](using-service-linked-roles-batch-general.md "using-service-linked-roles-batch-general.md")
+
+### AMI updates for a custom AMI
+
+If you specify a custom AMI in the compute environment's
+launch template, the `imageId` parameter or the `imageIdOverride` parameter in EC2
+configuration, AWS Batch will not automatically update your custom AMI during infrastructure updates.
+You can update a custom AMI id by specifying the new id in the parameter originally used during Compute
+Environment creation. If you wish to switch to using an AWS Batch-provided AMI, you can do so by removing the
+custom AMI ID in your compute environment update.

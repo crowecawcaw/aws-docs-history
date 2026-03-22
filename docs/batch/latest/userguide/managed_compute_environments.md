@@ -19,11 +19,19 @@ environments.
 AWS Batch creates and manages multiple AWS resources on your behalf and within your
 account, including Amazon EC2 Launch Templates, Amazon EC2 Auto Scaling Groups, Amazon EC2 Spot Fleets, and Amazon ECS
 Clusters. These managed resources are configured specifically to ensure optimal AWS Batch
-operation. Manually modifying these Batch-managed resources, unless explicitly stated in AWS Batch
-documentation, may result in unexpected behavior resulting in `INVALID` Compute Environment,
+operation. Manually modifying these AWS Batch-managed resources, unless explicitly stated in AWS Batch
+documentation, can result in unexpected behavior, including `INVALID` compute environments,
 suboptimal instance scaling behavior, delayed workload processing, or unexpected costs. These
-manual modifications can not be deterministically supported by the AWS Batch service. Always use
-the supported Batch APIs or the Batch console to manage your Compute Environments.
+manual modifications can't be deterministically supported by the AWS Batch service. Always use
+the supported AWS Batch APIs or the AWS Batch console to manage your compute environments.
+
+Unsupported manual modifications include running your own Amazon ECS tasks or services on AWS Batch-managed Amazon ECS
+clusters, or starting additional processes, daemons, or services directly on AWS Batch-managed instances.
+AWS Batch assumes full control of the compute resources in a managed compute environment and can
+terminate instances, stop tasks, or scale the cluster at any time. Any workloads you run outside
+of AWS Batch job submissions on these managed resources can be interrupted without warning. Running non-AWS Batch
+workloads on AWS Batch-managed clusters and instances can also interfere with AWS Batch job scheduling and
+instance scaling.
 
 Managed compute environments launch Amazon EC2 instances into the VPC and subnets that you
 specify and then registers them with an Amazon ECS cluster. The Amazon EC2 instances need external network
