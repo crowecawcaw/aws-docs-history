@@ -51,7 +51,7 @@ This architecture shows you how to bring Disaster-Recovery-as-a-Service (DRaaS) 
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/using-vmware-vcdr-and-netapp-for-cvo-for-dr-architecture.md "samples/using-vmware-vcdr-and-netapp-for-cvo-for-dr-architecture.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/using-vmware-vcdr-and-netapp-for-cvo-for-dr-architecture.zip.md "samples/using-vmware-vcdr-and-netapp-for-cvo-for-dr-architecture.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
