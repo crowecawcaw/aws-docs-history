@@ -34,7 +34,7 @@ the same name for both workflow and activity lists. Internally, Amazon SWF puts 
 task list names in different namespaces, so the two lists will be distinct.
 
 If you don't specify a task list, the AWS Flow Framework specifies a default list when the worker
-registers the type with Amazon SWF. For more information, see [Workflow and Activity Type Registration](features.md "features.md").
+registers the type with Amazon SWF. For more information, see [Workflow and Activity Type Registration](features.registration.md "features.registration.md").
 
 Sometimes it's useful to have a specific worker or group of workers perform certain tasks.
 For example, an image processing workflow might use one activity to download an image and

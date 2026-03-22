@@ -184,7 +184,7 @@ AWS Flow Framework for Java annotation to identify the method's role.
   workflow implementations. To change a workflow interface after you have registered it with Amazon SWF, including
   changing the timeout values, you must use a new version number.
 
-For information about the other methods that can be included in a workflow interface, see [Workflow and Activity Contracts](features.md "features.md").
+For information about the other methods that can be included in a workflow interface, see [Workflow and Activity Contracts](features.workflow.md "features.workflow.md").
 
 HelloWorldWorkflow implements the workflow in `GreeterWorkflowImpl`, as follows:
 

@@ -392,7 +392,7 @@ The workflow works as follows:
 7. If the activity fails, executor calls `run` again, according to the `retryPolicy`
    object configuration.
 
-For more discussion of how to use the `TryCatch` class to handle errors, see [AWS Flow Framework for Java Exceptions](errorhandling.md "errorhandling.md").
+For more discussion of how to use the `TryCatch` class to handle errors, see [AWS Flow Framework for Java Exceptions](errorhandling.exceptions.md "errorhandling.exceptions.md").
 
 ## Custom Retry Strategy
 
@@ -465,7 +465,7 @@ The workflow works as follows:
    object's value manually.
 3. `callActivityWithRetry` implements an anonymous nested `TryCatchFinally` class to
    handle any exceptions that are thrown by `unreliableActivity`. For more discussion of how to
-   handle exceptions thrown by asynchronous code, see [AWS Flow Framework for Java Exceptions](errorhandling.md "errorhandling.md").
+   handle exceptions thrown by asynchronous code, see [AWS Flow Framework for Java Exceptions](errorhandling.exceptions.md "errorhandling.exceptions.md").
 4. `doTry` executes `unreliableActivity`.
 5. If `unreliableActivity` throws an exception, the framework calls `doCatch` and
    passes it the exception object. `doCatch` sets `failure` to the exception object,

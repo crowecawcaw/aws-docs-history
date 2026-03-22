@@ -6,8 +6,8 @@ applications.
 ###### Topics
 
 - [Implementing Workflow Applications with the AWS Flow Framework](awsflow-developing-workflows.md "awsflow-developing-workflows.md")
-- [Workflow and Activity Contracts](features.md "features.md")
-- [Workflow and Activity Type Registration](features.md "features.md")
+- [Workflow and Activity Contracts](features.workflow.md "features.workflow.md")
+- [Workflow and Activity Type Registration](features.registration.md "features.registration.md")
 - [Activity and Workflow Clients](clients.md "clients.md")
 - [Workflow Implementation](workflowimpl.md "workflowimpl.md")
 - [Activity Implementation](activityimpl.md "activityimpl.md")
