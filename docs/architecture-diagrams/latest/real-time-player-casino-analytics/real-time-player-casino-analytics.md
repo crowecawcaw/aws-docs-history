@@ -26,7 +26,7 @@ This architecture enables casino customers or game developers to build a real-ti
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/real-time-casino-player-analytics.md "samples/real-time-casino-player-analytics.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/real-time-casino-player-analytics.zip.md "samples/real-time-casino-player-analytics.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
