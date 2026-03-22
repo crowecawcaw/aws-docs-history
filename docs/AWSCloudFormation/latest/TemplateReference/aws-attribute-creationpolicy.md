@@ -22,7 +22,7 @@ Currently, the only CloudFormation resources that support creation policies are:
   proceeding. In such cases, you can add a `CreationPolicy` attribute to the instance,
   and then send a success signal to the instance after the applications are installed and
   configured. For a detailed example, see [Deploying applications on Amazon EC2 with
-  CloudFormation](../UserGuide/deploying.md "../UserGuide/deploying.md") in the _AWS CloudFormation User Guide_.
+  CloudFormation](../UserGuide/deploying.applications.md "../UserGuide/deploying.applications.md") in the _AWS CloudFormation User Guide_.
 
 ## WorkSpaces Applications creation policy
 

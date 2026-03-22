@@ -19,7 +19,7 @@ The `cfn-init` helper script reads template metadata from the
   launch template's user data.
 
 If you're new to using helper scripts, we recommend you first complete the [Deploying applications
-on Amazon EC2](../UserGuide/deploying.md "../UserGuide/deploying.md") tutorial in the _AWS CloudFormation User Guide_.
+on Amazon EC2](../UserGuide/deploying.applications.md "../UserGuide/deploying.applications.md") tutorial in the _AWS CloudFormation User Guide_.
 
 ###### Topics
 
@@ -145,7 +145,7 @@ UserData: !Base64
 
 ## Related resources
 
-For a tutorial with a sample template, see [Deploying applications on Amazon EC2](../UserGuide/deploying.md "../UserGuide/deploying.md")
+For a tutorial with a sample template, see [Deploying applications on Amazon EC2](../UserGuide/deploying.applications.md "../UserGuide/deploying.applications.md")
 in the _AWS CloudFormation User Guide_.
 
 For a Windows example, see [Bootstrapping

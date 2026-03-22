@@ -9,7 +9,7 @@ and runs user-specified actions when a change is detected. This allows you to ma
 configuration updates on your running Amazon EC2 instances through the `UpdateStack`
 API action.
 
-For more information, see the [Updating a CloudFormation stack](../UserGuide/updating.stacks.md "../UserGuide/updating.stacks.md") tutorial in the
+For more information, see the [Updating a CloudFormation stack](../UserGuide/updating.stacks.walkthrough.md "../UserGuide/updating.stacks.walkthrough.md") tutorial in the
 _AWS CloudFormation User Guide_.
 
 ###### Topics
