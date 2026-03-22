@@ -27,7 +27,7 @@ This architecture is built around Amazon Location Service features such as maps,
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/mobile-apps-location-based-engagement.md "samples/mobile-apps-location-based-engagement.md").
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/mobile-apps-location-based-engagement.zip.md "samples/mobile-apps-location-based-engagement.zip.md").
 
 ## Create a free AWS account
 
