@@ -18,7 +18,7 @@ _IAM User Guide_.
 ## AWSCertificateManagerReadOnly
 
 This policy provides read–only access to ACM certificates; it allows users to
-describe, list, and retrieve ACM certificates.
+describe, list, search, and retrieve ACM certificates.
 
 To view this AWS managed policy in the console, go to [https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSCertificateManagerReadOnly](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSCertificateManagerReadOnly "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSCertificateManagerReadOnly").
 
@@ -39,7 +39,8 @@ began tracking these changes. For automatic alerts about changes to this page, s
 to the RSS feed on the ACM [Document history](dochistory.md "dochistory.md")
 page.
 
-| Change                                                                                                                                                | Description                                                                                                                | Date          |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| Added `GetAccountConfiguration` support to the [AWSCertificateManagerReadOnly](#acm-read-only-managed-policy "#acm-read-only-managed-policy") policy. | The `AWSCertificateManagerReadOnly` policy now includes<br>permission to call the `GetAccountConfiguration` API<br>action. | March 3, 2021 |
-| ACM starts tracking changes                                                                                                                           | ACM starts tracking changes for AWS managed<br>policies.                                                                   | March 3, 2021 |
+| Change                                                                                                                                                | Description                                                                                                                | Date           |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| Added `SearchCertificates` support to the [AWSCertificateManagerReadOnly](#acm-read-only-managed-policy "#acm-read-only-managed-policy") policy.      | The `AWSCertificateManagerReadOnly` policy now includes<br>permission to call the `SearchCertificates` API<br>action.      | March 31, 2026 |
+| Added `GetAccountConfiguration` support to the [AWSCertificateManagerReadOnly](#acm-read-only-managed-policy "#acm-read-only-managed-policy") policy. | The `AWSCertificateManagerReadOnly` policy now includes<br>permission to call the `GetAccountConfiguration` API<br>action. | March 3, 2021  |
+| ACM starts tracking changes                                                                                                                           | ACM starts tracking changes for AWS managed<br>policies.                                                                   | March 3, 2021  |
