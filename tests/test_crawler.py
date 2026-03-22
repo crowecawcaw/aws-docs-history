@@ -145,6 +145,39 @@ class TestUrlToOutputPath(unittest.TestCase):
             output_root / "keyspaces/latest/devguide/Tagging.Operations.view.table.md",
         )
 
+    def test_url_to_output_path_two_dots(self):
+        """A filename with exactly two dots (name.sub.html) must keep both."""
+        url = "https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Endpoints.Creating.html"
+        result = url_to_output_path(url)
+        self.assertEqual(result, Path("dms/latest/userguide/CHAP_Endpoints.Creating.md"))
+
+    def test_url_to_output_path_single_dot_unchanged(self):
+        """A simple filename (one dot for .html) still works normally."""
+        url = "https://docs.aws.amazon.com/s3/latest/userguide/Welcome.html"
+        result = url_to_output_path(url)
+        self.assertEqual(result, Path("s3/latest/userguide/Welcome.md"))
+
+    def test_url_to_output_path_no_extension(self):
+        """A URL with no .html extension gets .md appended."""
+        url = "https://docs.aws.amazon.com/s3/latest/userguide/concepts"
+        result = url_to_output_path(url)
+        self.assertEqual(result, Path("s3/latest/userguide/concepts.md"))
+
+    def test_url_to_output_path_many_dots(self):
+        """Deeply dotted filenames preserve all segments."""
+        url = "https://docs.aws.amazon.com/svc/latest/guide/A.B.C.D.E.html"
+        result = url_to_output_path(url)
+        self.assertEqual(result, Path("svc/latest/guide/A.B.C.D.E.md"))
+
+    def test_url_to_output_path_dotted_siblings_unique(self):
+        """Parent and child pages with shared dotted prefix don't collide."""
+        base = "https://docs.aws.amazon.com/dms/latest/userguide/"
+        parent = url_to_output_path(base + "CHAP_Tasks.html")
+        child = url_to_output_path(base + "CHAP_Tasks.Creating.html")
+        self.assertNotEqual(parent, child)
+        self.assertEqual(parent, Path("dms/latest/userguide/CHAP_Tasks.md"))
+        self.assertEqual(child, Path("dms/latest/userguide/CHAP_Tasks.Creating.md"))
+
 
 class TestHtmlToMarkdownConversion(unittest.TestCase):
     """Test HTML to Markdown conversion with real AWS documentation patterns."""
