@@ -168,7 +168,7 @@ its own service network and choose which services they want to consume.
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/amazon-vpc-lattice-use-cases.md "samples/amazon-vpc-lattice-use-cases.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/amazon-vpc-lattice-use-cases.zip.md "samples/amazon-vpc-lattice-use-cases.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
