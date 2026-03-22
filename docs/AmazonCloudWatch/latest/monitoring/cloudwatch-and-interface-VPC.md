@@ -181,7 +181,7 @@ the AWS Regions where the Network Monitoring feature is supported.
 To see a list of supported Regions for each Network Monitoring feature, see the following topics:
 
 - **Network Flow Monitor:** [Supported AWS Regions for Network Flow Monitor](CloudWatch-NetworkFlowMonitor-Regions.md "CloudWatch-NetworkFlowMonitor-Regions.md")
-- **Internet Monitor:** [Supported AWS Regions for Internet Monitor](CloudWatch-InternetMonitor.md "CloudWatch-InternetMonitor.md")
+- **Internet Monitor:** [Supported AWS Regions for Internet Monitor](CloudWatch-InternetMonitor.Regions.md "CloudWatch-InternetMonitor.Regions.md")
 - **Network Synthetic Monitor:** [Supported AWS Regions for Network Synthetic Monitor](nw-monitor-regions.md "nw-monitor-regions.md")
 
 ### Creating a VPC endpoint for a CloudWatch Network Monitoring feature

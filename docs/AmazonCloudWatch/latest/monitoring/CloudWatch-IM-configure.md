@@ -44,7 +44,7 @@ to use.
 
 You can learn more about how health event thresholds work, and review the potential impact of
 adding local thresholds or changing existing thresholds. For more information, see
-[Change health event thresholds](CloudWatch-IM-get-started.md#IMUpdateThresholdFromOverview "CloudWatch-IM-get-started.md#IMUpdateThresholdFromOverview").
+[Change health event thresholds](CloudWatch-IM-get-started.change-threshold.md#IMUpdateThresholdFromOverview "CloudWatch-IM-get-started.change-threshold.md#IMUpdateThresholdFromOverview").
 
 ## Traffic coverage
 
@@ -74,7 +74,7 @@ about how to update the following configuration options, see the provided links.
 **View health event thresholds**
 In this section, you can see the current thresholds for health events that are configured for this monitor.
 
-To update health thresholds, see [Change health event thresholds](CloudWatch-IM-get-started.md#IMUpdateThresholdFromOverview "CloudWatch-IM-get-started.md#IMUpdateThresholdFromOverview").
+To update health thresholds, see [Change health event thresholds](CloudWatch-IM-get-started.change-threshold.md#IMUpdateThresholdFromOverview "CloudWatch-IM-get-started.change-threshold.md#IMUpdateThresholdFromOverview").
 
 **View and evaluate traffic coverage**
 In this section, you can compare the effect of changing the percentage of traffic that you monitor
@@ -91,4 +91,4 @@ application traffic percentage](IMTrafficPercentage.md#IMExploreTrafficPercentag
 If you have configured Internet Monitor to publish internet measurements for your monitor to an
 Amazon S3 bucket, the information about your configuration is shown here.
 
-To configure this option, see [Publishing internet measurements to S3](CloudWatch-IM-get-started.md#IMPublishToS3 "CloudWatch-IM-get-started.md#IMPublishToS3").
+To configure this option, see [Publishing internet measurements to S3](CloudWatch-IM-get-started.Publish-to-S3.md#IMPublishToS3 "CloudWatch-IM-get-started.Publish-to-S3.md#IMPublishToS3").

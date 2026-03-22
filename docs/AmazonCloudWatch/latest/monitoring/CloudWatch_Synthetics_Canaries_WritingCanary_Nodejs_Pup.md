@@ -11,26 +11,23 @@
 
 ## Creating a CloudWatch Synthetics canary from scratch
 
-Here is an example minimal Synthetics Canary script. This script passes
-as a successful run, and returns a string.
-To see what a failing canary looks like, change `let fail = false;`
-to `let fail = true;`.
+Here is an example minimal Synthetics Canary script. This script passes as a
+successful run, and returns a string. To see what a failing canary looks like, change `let
+ fail = false;` to `let fail = true;`.
 
 You must define an entry point function for the canary script. To see how files are
 uploaded to the Amazon S3 location specified as the canary's `ArtifactS3Location`,
 create these files in the `/tmp` folder. All canary artifacts should
 be stored in `/tmp`, because it's the only writable directory. Be
 sure that the screenshot path is set to `/tmp` for any screenshots or
-other files created by the script. Synthetics automatically uploads files in
-`/tmp` to an S3 bucket.
+other files created by the script. Synthetics automatically uploads files in `/tmp` to an S3 bucket.
 
 ```
 /tmp/<name>
 ```
 
 After the script runs, the pass/fail status and the duration metrics are published
-to CloudWatch and the files under`/tmp` are uploaded to an S3
-bucket.
+to CloudWatch and the files under`/tmp` are uploaded to an S3 bucket.
 
 ```
 const basicCustomEntryPoint = async function () {
@@ -100,7 +97,8 @@ exports.handler = async () => {
 
 **For syn-nodejs-puppeteer-11.0 and above**
 
-The older packaging structure (for syn-nodejs-puppeteer-10.0 and below) is still supported in newer versions.
+The older packaging structure (for syn-nodejs-puppeteer-10.0 and below) is still
+supported in newer versions.
 
 Create a script using one of the following options:
 
@@ -153,7 +151,8 @@ The following structure is required when using Amazon S3:
     └── myCanaryFilename.js
 ```
 
-**To add an optional sub-folder support in syn-nodejs-puppeteer-3.4+:**
+**To add an optional sub-folder support in
+syn-nodejs-puppeteer-3.4+:**
 
 ```
 nodejs/
@@ -168,20 +167,18 @@ Handler path in configuration must match your file location.
 
 **Handler name**
 
-Be sure to set your canary’s script entry point (handler) as
-`myCanaryFilename.functionName` to match the file name of your script’s entry
-point. If you are using a runtime earlier than `syn-nodejs-puppeteer-3.4`, then `functionName`
-must be `handler`. If you are using `syn-nodejs-puppeteer-3.4` or later, you can choose any
-function name as the handler. If you are using `syn-nodejs-puppeteer-3.4` or later,
-you can also optionally store the canary in a separate folder such as
-`nodejs/node_modules/myFolder/my_canary_filename`. If you store it in a separate folder,
-specify that path in your script entry point, such as `myFolder/my_canary_filename.functionName`.
+Be sure to set your canary’s script entry point (handler) as `myCanaryFilename.functionName` to match the file name of your script’s entry
+point. If you are using a runtime earlier than `syn-nodejs-puppeteer-3.4`,
+then `functionName` must be `handler`. If you are using `syn-nodejs-puppeteer-3.4` or later, you can choose any function name as the
+handler. If you are using `syn-nodejs-puppeteer-3.4` or later, you can also
+optionally store the canary in a separate folder such as `nodejs/node_modules/myFolder/my_canary_filename`. If you store it in a separate
+folder, specify that path in your script entry point, such as `myFolder/my_canary_filename.functionName`.
 
 ## Changing an existing Puppeteer script to use as a Synthetics canary
 
-This section explains how to take Puppeteer scripts and modify them to run
-as Synthetics canary scripts. For more information about Puppeteer, see
-[Puppeteer API v1.14.0](https://github.com/puppeteer/puppeteer/blob/v1.14.0/docs/api.md "https://github.com/puppeteer/puppeteer/blob/v1.14.0/docs/api.md").
+This section explains how to take Puppeteer scripts and modify them to run as
+Synthetics canary scripts. For more information about Puppeteer, see [Puppeteer API
+v1.14.0](https://github.com/puppeteer/puppeteer/blob/v1.14.0/docs/api.md "https://github.com/puppeteer/puppeteer/blob/v1.14.0/docs/api.md").
 
 We'll start with this example Puppeteer script:
 
@@ -200,14 +197,12 @@ const puppeteer = require('puppeteer');
 
 The conversion steps are as follows:
 
-- Create and export a `handler` function. The
-  handler is the entry point function for the script. If you are using a runtime
-  earlier than
-  `syn-nodejs-puppeteer-3.4`,
-  the handler function must be named `handler`. If you are using `syn-nodejs-puppeteer-3.4` or
-  later, the function can have any name, but it must be the same name that is
-  used in the script. Also, if you are using `syn-nodejs-puppeteer-3.4`
-  or later, you can store your scripts under any folder and specify that folder as part of the handler name.
+- Create and export a `handler` function. The handler is the entry
+  point function for the script. If you are using a runtime earlier than `syn-nodejs-puppeteer-3.4`, the handler function must be named `handler`.
+  If you are using `syn-nodejs-puppeteer-3.4` or later, the function can
+  have any name, but it must be the same name that is used in the script. Also, if you
+  are using `syn-nodejs-puppeteer-3.4` or later, you can store your scripts
+  under any folder and specify that folder as part of the handler name.
 
 ```
 const basicPuppeteerExample = async function () {};
@@ -230,14 +225,13 @@ var synthetics = require('@aws/synthetics-puppeteer');
 const page = await synthetics.getPage();
 ```
 
-The page object returned by the Synthetics.getPage function has the
-**page.on**
-`request`, `response` and `requestfailed` events
-instrumented for logging. Synthetics also sets up HAR file generation for requests
-and responses on the page, and adds the canary ARN to the user-agent headers of
-outgoing requests on the page.
+The page object returned by the Synthetics.getPage function has the **page.on**
+`request`, `response` and `requestfailed` events instrumented for logging. Synthetics also sets up HAR
+file generation for requests and responses on the page, and adds the canary ARN to
+the user-agent headers of outgoing requests on the page.
 
-The script is now ready to be run as a Synthetics canary. Here is the updated script:
+The script is now ready to be run as a Synthetics canary. Here is the updated
+script:
 
 ```
 var synthetics = require('@aws/synthetics-puppeteer');  // Synthetics dependency
@@ -255,29 +249,29 @@ exports.handler = async () => {  // Exported handler function
 
 ## Environment variables
 
-You can use environment variables when creating canaries. This allows you to write a single
+You can use environment variables when creating canaries. This allows you to write a
+single
 canary script and then use that script with different values to
 quickly create multiple canaries that have a similar task.
 
-For example, suppose your
-organization has endpoints such as `prod`, `dev`, and `pre-release`
-for the different stages of your software development, and you need to create canaries to test
-each of these endpoints. You can write a single canary script that
-tests your software and then
-specify different values for the endpoint environment variable when you create
-each of the three canaries. Then, when you create a canary, you specify the script and
-the values to use for the environment variables.
+For example, suppose your organization has endpoints such as `prod`, `dev`, and `pre-release` for the different stages of your software
+development, and you need to create canaries to test each of these endpoints. You can
+write a single canary script that tests your software and then specify different values
+for the endpoint environment variable when you create each of the three canaries. Then,
+when you create a canary, you specify the script and the values to use for the
+environment variables.
 
 The names of environment variables can contain letters, numbers, and the underscore
-character. They must start with a letter and be at least two characters. The total size of
-your environment variables can't exceed 4 KB. You can't specify any Lambda reserved
+character. They must start with a letter and be at least two characters. The total size
+of your environment variables can't exceed 4 KB. You can't specify any Lambda reserved
 environment variables as the names of your environment variables. For more information
 about reserved environment variables, see [Runtime
 environment variables](../../../lambda/latest/dg/configuration-envvars.md#configuration-envvars-runtime "../../../lambda/latest/dg/configuration-envvars.md#configuration-envvars-runtime").
 
 ###### Important
 
-Environment variable keys and values are encrypted at rest using AWS owned AWS KMS keys. However, the environment variables
+Environment variable keys and values are encrypted at rest using AWS owned AWS KMS
+keys. However, the environment variables
 are not encrypted on the client side. Do not store sensitive information
 in them.
 
@@ -285,23 +279,21 @@ The following example script uses two environment variables. This script is for 
 canary that checks whether a webpage is available. It uses environment variables to
 parameterize both the URL that it checks and the CloudWatch Synthetics log level that it uses.
 
-The following function sets `LogLevel`
-to the value of the `LOG_LEVEL` environment variable.
+The following function sets `LogLevel` to the value of the `LOG_LEVEL` environment variable.
 
 ```
  synthetics.setLogLevel(process.env.LOG_LEVEL);
 ```
 
-This function sets `URL`
-to the value of the `URL` environment variable.
+This function sets `URL` to the value of the `URL` environment
+variable.
 
 ```
 const URL = process.env.URL;
 ```
 
 This is the complete script. When you create a canary using this script, you specify
-values for the `LOG_LEVEL` and `URL`
-environment variables.
+values for the `LOG_LEVEL` and `URL` environment variables.
 
 ```
 var synthetics = require('@aws/synthetics-puppeteer');
@@ -342,15 +334,13 @@ exports.handler = async () => {
 
 ### Passing environment variables to your script
 
-To pass environment variables to your script when you create a canary in the console,
-specify the keys and values of the environment variables in the **Environment variables**
-section on the console. For more information, see
-[Creating a canary](CloudWatch_Synthetics_Canaries_Create.md "CloudWatch_Synthetics_Canaries_Create.md").
+To pass environment variables to your script when you create a canary in the
+console, specify the keys and values of the environment variables in the **Environment
+variables** section on the console. For more information, see [Creating a canary](CloudWatch_Synthetics_Canaries_Create.md "CloudWatch_Synthetics_Canaries_Create.md").
 
-To pass environment variables through the API or AWS CLI, use the
-`EnvironmentVariables` parameter in the `RunConfig` section. The following
-is an example AWS CLI command that creates a canary that uses two environment variables with
-keys of `Environment` and `Region`.
+To pass environment variables through the API or AWS CLI, use the `EnvironmentVariables` parameter in the `RunConfig` section. The
+following is an example AWS CLI command that creates a canary that uses two environment
+variables with keys of `Environment` and `Region`.
 
 ```
 aws synthetics create-canary --cli-input-json '{
@@ -475,16 +465,17 @@ You can set up a canary so that it uses a static IP address.
 ###### To force a canary to use a static IP address
 
 1. Create a new VPC. For more information, see [Using DNS with Your VPC](../../../vpc/latest/userguide/vpc-dns.md "../../../vpc/latest/userguide/vpc-dns.md").
-2. Create a new internet gateway. For more information, see [Adding an internet gateway to your VPC](../../../vpc/latest/userguide/VPC_Internet_Gateway.md#working-with-igw "../../../vpc/latest/userguide/VPC_Internet_Gateway.md#working-with-igw").
+2. Create a new internet gateway. For more information, see [Adding an internet
+   gateway to your VPC](../../../vpc/latest/userguide/VPC_Internet_Gateway.md#working-with-igw "../../../vpc/latest/userguide/VPC_Internet_Gateway.md#working-with-igw").
 3. Create a public subnet inside your new VPC.
 4. Add a new route table to the VPC.
-5. Add a route in the new route table, that goes from `0.0.0.0/0` to
-   the internet gateway.
+5. Add a route in the new route table, that goes from `0.0.0.0/0` to the
+   internet gateway.
 6. Associate the new route table with the public subnet.
-7. Create an elastic IP address. For more information, see
-   [Elastic IP addresses](../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md "../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md") .
-8. Create a new NAT gateway and assign it to the public subnet and the elastic IP address.
+7. Create an elastic IP address. For more information, see [Elastic IP addresses](../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md "../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md") .
+8. Create a new NAT gateway and assign it to the public subnet and the elastic IP
+   address.
 9. Create a private subnet inside the VPC.
-10. Add a route to the VPC default route table, that goes from `0.0.0.0/0` to
-    the NAT gateway
+10. Add a route to the VPC default route table, that goes from `0.0.0.0/0`
+    to the NAT gateway
 11. Create your canary.

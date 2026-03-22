@@ -4,17 +4,17 @@ The Standard mode of Database Insights is enabled by default for your Amazon RDS
 
 For information about enabling the Advanced mode or the Standard mode of Database Insights for an Amazon RDS database, see the following topics.
 
-- [Turning on the Advanced mode of Database Insights for Amazon RDS](../../../AmazonRDS/latest/UserGuide/USER_DatabaseInsights.md "../../../AmazonRDS/latest/UserGuide/USER_DatabaseInsights.md") in the _Amazon RDS User Guide_
-- [Turning on the Standard mode of Database Insights for Amazon RDS](../../../AmazonRDS/latest/UserGuide/USER_DatabaseInsights.md "../../../AmazonRDS/latest/UserGuide/USER_DatabaseInsights.md") in the _Amazon RDS User Guide_
-- [Turning CloudWatch Database Insights on or off when creating a DB instance or Multi-AZ DB cluster for Amazon RDS](../../../AmazonRDS/latest/UserGuide/USER_DatabaseInsights.md "../../../AmazonRDS/latest/UserGuide/USER_DatabaseInsights.md") in the _Amazon RDS User Guide_
+- [Turning on the Advanced mode of Database Insights for Amazon RDS](../../../AmazonRDS/latest/UserGuide/USER_DatabaseInsights.TurningOnAdvanced.md "../../../AmazonRDS/latest/UserGuide/USER_DatabaseInsights.TurningOnAdvanced.md") in the _Amazon RDS User Guide_
+- [Turning on the Standard mode of Database Insights for Amazon RDS](../../../AmazonRDS/latest/UserGuide/USER_DatabaseInsights.TurningOnStandard.md "../../../AmazonRDS/latest/UserGuide/USER_DatabaseInsights.TurningOnStandard.md") in the _Amazon RDS User Guide_
+- [Turning CloudWatch Database Insights on or off when creating a DB instance or Multi-AZ DB cluster for Amazon RDS](../../../AmazonRDS/latest/UserGuide/USER_DatabaseInsights.TurnOnCreateDatabase.md "../../../AmazonRDS/latest/UserGuide/USER_DatabaseInsights.TurnOnCreateDatabase.md") in the _Amazon RDS User Guide_
   For information about enabling the Advanced mode or the Standard mode of Database Insights for an Amazon Aurora database, see the following topics.
 
-- [Turning on the Advanced mode of Database Insights for Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.md") in the _Amazon Aurora User Guide_
-- [Turning on the Standard mode of Database Insights for Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.md") in the _Amazon Aurora User Guide_
+- [Turning on the Advanced mode of Database Insights for Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.TurningOnAdvanced.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.TurningOnAdvanced.md") in the _Amazon Aurora User Guide_
+- [Turning on the Standard mode of Database Insights for Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.TurningOnStandard.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.TurningOnStandard.md") in the _Amazon Aurora User Guide_
   For information about enabling the Advanced mode or the Standard mode of Database Insights for an Aurora PostgreSQL Limitless Database, see the following topics.
 
-- [Turning on the Advanced mode of Database Insights for Aurora PostgreSQL Limitless Database](../../../AmazonRDS/latest/AuroraUserGuide/limitless-monitoring.cwdbi.md "../../../AmazonRDS/latest/AuroraUserGuide/limitless-monitoring.cwdbi.md") in the _Amazon Aurora User Guide_
-- [Turning on the Standard mode of Database Insights for Aurora PostgreSQL Limitless Database](../../../AmazonRDS/latest/AuroraUserGuide/limitless-monitoring.cwdbi.md "../../../AmazonRDS/latest/AuroraUserGuide/limitless-monitoring.cwdbi.md") in the _Amazon Aurora User Guide_
+- [Turning on the Advanced mode of Database Insights for Aurora PostgreSQL Limitless Database](../../../AmazonRDS/latest/AuroraUserGuide/limitless-monitoring.cwdbi.advanced.md "../../../AmazonRDS/latest/AuroraUserGuide/limitless-monitoring.cwdbi.advanced.md") in the _Amazon Aurora User Guide_
+- [Turning on the Standard mode of Database Insights for Aurora PostgreSQL Limitless Database](../../../AmazonRDS/latest/AuroraUserGuide/limitless-monitoring.cwdbi.standard.md "../../../AmazonRDS/latest/AuroraUserGuide/limitless-monitoring.cwdbi.standard.md") in the _Amazon Aurora User Guide_
 
 ## Required permissions for Database Insights
 

@@ -30,7 +30,7 @@ For other language-specific alternatives, see [Supported programming languages f
 
 
     	1. Configure `instrumentation` to instrument the application with the AWS Distro for OpenTelemetry (ADOT) SDK Agent. The following is an example of instrumenting a Java application.
-    	 See [InstrumentationVersion](../../../cdk/api/v2/docs/@aws-cdk_aws-applicationsignals-alpha.md "../../../cdk/api/v2/docs/@aws-cdk_aws-applicationsignals-alpha.md") for all supported language versions.
+    	 See [InstrumentationVersion](../../../cdk/api/v2/docs/@aws-cdk_aws-applicationsignals-alpha.InstrumentationVersion.md "../../../cdk/api/v2/docs/@aws-cdk_aws-applicationsignals-alpha.InstrumentationVersion.md") for all supported language versions.
     	2. Specify `cloudWatchAgentSidecar` to configure the CloudWatch Agent as a sidecar container.
 
 

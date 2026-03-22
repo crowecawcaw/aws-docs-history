@@ -1,7 +1,8 @@
 # Writing a canary script
 
 The following sections explain how to write a canary script and how
-to integrate a canary with other AWS services and with external dependencies and libraries.
+to integrate a canary with other AWS services and with external dependencies and
+libraries.
 
 ###### Topics
 

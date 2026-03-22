@@ -902,7 +902,7 @@ table operation ( indicated by the dimension value of the `Operation` in the ala
 
 **Dimensions:** TableName
 
-**Alarm description:** This alarm detects a sustained high number of system errors for the DynamoDB table requests. If you continue to get 5xx errors, open the [AWS Service Health Dashboard](https://status.aws.amazon.com/ "https://status.aws.amazon.com/") to check for operational issues with the service. You can use this alarm to get notified in case there is a prolonged internal service issue from DynamoDB and it helps you correlate with the issue your client application is facing. Refer [Error handling for DynamoDB](../../../amazondynamodb/latest/developerguide/Programming.md#Programming.Errors.MessagesAndCodes.http5xx "../../../amazondynamodb/latest/developerguide/Programming.md#Programming.Errors.MessagesAndCodes.http5xx") for more information.
+**Alarm description:** This alarm detects a sustained high number of system errors for the DynamoDB table requests. If you continue to get 5xx errors, open the [AWS Service Health Dashboard](https://status.aws.amazon.com/ "https://status.aws.amazon.com/") to check for operational issues with the service. You can use this alarm to get notified in case there is a prolonged internal service issue from DynamoDB and it helps you correlate with the issue your client application is facing. Refer [Error handling for DynamoDB](../../../amazondynamodb/latest/developerguide/Programming.Errors.md#Programming.Errors.MessagesAndCodes.http5xx "../../../amazondynamodb/latest/developerguide/Programming.Errors.md#Programming.Errors.MessagesAndCodes.http5xx") for more information.
 
 **Intent:** This alarm can detect sustained system errors for the DynamoDB table requests. System errors indicate internal service errors from DynamoDB and helps correlate to the issue that the client is having.
 
@@ -946,7 +946,7 @@ table operation ( indicated by the dimension value of the `Operation` in the ala
 
 **Dimensions:** None
 
-**Alarm description:** This alarm detects a sustained high number of user errors for the DynamoDB table requests. You can check client application logs during the issue time frame to see why the requests are invalid. You can check [HTTP status code 400](../../../amazondynamodb/latest/developerguide/Programming.md#Programming.Errors.MessagesAndCodes.http400 "../../../amazondynamodb/latest/developerguide/Programming.md#Programming.Errors.MessagesAndCodes.http400") to see the type of error you are getting and take action accordingly. You might have to fix the application logic to create valid requests.
+**Alarm description:** This alarm detects a sustained high number of user errors for the DynamoDB table requests. You can check client application logs during the issue time frame to see why the requests are invalid. You can check [HTTP status code 400](../../../amazondynamodb/latest/developerguide/Programming.Errors.md#Programming.Errors.MessagesAndCodes.http400 "../../../amazondynamodb/latest/developerguide/Programming.Errors.md#Programming.Errors.MessagesAndCodes.http400") to see the type of error you are getting and take action accordingly. You might have to fix the application logic to create valid requests.
 
 **Intent:** This alarm can detect sustained user errors for the DynamoDB table requests. User errors for requested operations mean that the client is producing invalid requests and it is failing.
 
@@ -1141,7 +1141,7 @@ When the attached EBS status check fails, you can either wait for Amazon to reso
 **Dimensions:** CacheClusterId, CacheNodeId
 
 **Alarm description:** This alarm detects high connection count, which
-might indicate heavy load or performance issues. A constant increase of `CurrConnections` might lead to exhaustion of the 65,000 available connections. It may indicate that connections improperly closed on the application side and were left established on the server side. You should consider using connection pooling or idle connection timeouts to limit the number of connections made to the cluster, or for Redis OSS, consider tuning [tcp-keepalive](../../../AmazonElastiCache/latest/red-ug/ParameterGroups.md "../../../AmazonElastiCache/latest/red-ug/ParameterGroups.md") on your cluster to detect and terminate potential dead peers.
+might indicate heavy load or performance issues. A constant increase of `CurrConnections` might lead to exhaustion of the 65,000 available connections. It may indicate that connections improperly closed on the application side and were left established on the server side. You should consider using connection pooling or idle connection timeouts to limit the number of connections made to the cluster, or for Redis OSS, consider tuning [tcp-keepalive](../../../AmazonElastiCache/latest/red-ug/ParameterGroups.Redis.md "../../../AmazonElastiCache/latest/red-ug/ParameterGroups.Redis.md") on your cluster to detect and terminate potential dead peers.
 
 **Intent:** The alarm helps you identify high connection counts that could impact the performance and stability of your ElastiCache cluster.
 
@@ -2626,7 +2626,7 @@ We recommend setting best-practice alarms for the following Lambda Insights metr
 
 **Alarm description:** This alarm helps to monitor consistent high CPU utilization.
 CPU utilization measures non-idle time. Consider using
-[Enhanced Monitoring](../../../AmazonRDS/latest/UserGuide/USER_Monitoring.OS.md "../../../AmazonRDS/latest/UserGuide/USER_Monitoring.OS.md") or
+[Enhanced Monitoring](../../../AmazonRDS/latest/UserGuide/USER_Monitoring.OS.Enabling.md "../../../AmazonRDS/latest/UserGuide/USER_Monitoring.OS.Enabling.md") or
 [Performance Insights](https://aws.amazon.com/rds/performance-insights/ "https://aws.amazon.com/rds/performance-insights/") to review which
 [wait time](../../../AmazonRDS/latest/UserGuide/USER_Monitoring-Available-OS-Metrics.md "../../../AmazonRDS/latest/UserGuide/USER_Monitoring-Available-OS-Metrics.md") is
 consuming the most of the CPU time (`guest`, `irq`, `wait`, `nice`, and so on) for
@@ -2662,8 +2662,8 @@ Review existing connections and terminate any that are in `sleep` state or that 
 Consider using connection pooling to limit the number of new connections. Alternatively, increase the DB
 instance size to use a class with more memory and hence a higher default value for `max\_connections` or
 increase the `max\_connections` value in [RDS](../../../AmazonRDS/latest/UserGuide/CHAP_Limits.md "../../../AmazonRDS/latest/UserGuide/CHAP_Limits.md") and
-Aurora [MySQL](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.md") and
-[PostgreSQL](../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.md") for the current
+Aurora [MySQL](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Performance.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Performance.md") and
+[PostgreSQL](../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Managing.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Managing.md") for the current
 class if it can support your workload.
 
 **Intent:** This alarm is used to help prevent rejected connections when the maximum
@@ -2865,7 +2865,7 @@ because the workload is exceeding resource limits. You can review I/O utilizatio
 configuration. Refer to [troubleshoot the
 latency of Amazon EBS volumes caused by an IOPS bottleneck](https://repost.aws/knowledge-center/rds-latency-ebs-iops-bottleneck "https://repost.aws/knowledge-center/rds-latency-ebs-iops-bottleneck"). For Aurora, you can switch to an instance class
 that has [I/O-Optimized
-storage configuration](../../../AmazonRDS/latest/AuroraUserGuide/Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "../../../AmazonRDS/latest/AuroraUserGuide/Concepts.Aurora_Fea_Regions_DB-eng.Feature.md"). See
+storage configuration](../../../AmazonRDS/latest/AuroraUserGuide/Concepts.Aurora_Fea_Regions_DB-eng.Feature.storage-type.md "../../../AmazonRDS/latest/AuroraUserGuide/Concepts.Aurora_Fea_Regions_DB-eng.Feature.storage-type.md"). See
 [Planning I/O in Aurora](https://aws.amazon.com/blogs/database/planning-i-o-in-amazon-aurora/ "https://aws.amazon.com/blogs/database/planning-i-o-in-amazon-aurora/") for guidance.
 
 **Intent:** This alarm is used to detect high read latency. Database disks normally have a low
@@ -2928,7 +2928,7 @@ because the workload is exceeding resource limits. You can review I/O utilizatio
 Refer to [troubleshoot the
 latency of Amazon EBS volumes caused by an IOPS bottleneck](https://repost.aws/knowledge-center/rds-latency-ebs-iops-bottleneck "https://repost.aws/knowledge-center/rds-latency-ebs-iops-bottleneck"). For Aurora, you can switch to an instance class that has
 [I/O-Optimized
-storage configuration](../../../AmazonRDS/latest/AuroraUserGuide/Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "../../../AmazonRDS/latest/AuroraUserGuide/Concepts.Aurora_Fea_Regions_DB-eng.Feature.md"). See [Planning I/O in
+storage configuration](../../../AmazonRDS/latest/AuroraUserGuide/Concepts.Aurora_Fea_Regions_DB-eng.Feature.storage-type.md "../../../AmazonRDS/latest/AuroraUserGuide/Concepts.Aurora_Fea_Regions_DB-eng.Feature.storage-type.md"). See [Planning I/O in
 Aurora](https://aws.amazon.com/blogs/database/planning-i-o-in-amazon-aurora/ "https://aws.amazon.com/blogs/database/planning-i-o-in-amazon-aurora/") for guidance.
 
 **Intent:** This alarm is used to detect high write latency. Although database disks typically
@@ -2990,7 +2990,7 @@ left reaches the size limit, the cluster reports an out-of-space error. Aurora s
 the cluster volume and expands up to 128 TiB or 64 TiB depending on the
 [DB engine version](https://repost.aws/knowledge-center/aurora-version-number "https://repost.aws/knowledge-center/aurora-version-number"). Consider
 reducing storage by dropping tables and databases that you no longer need. For more information,
-check [storage scaling](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.md").
+check [storage scaling](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Performance.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Performance.md").
 
 **Intent:** This alarm is used to detect how close the Aurora cluster is to the volume size limit. This
 alarm can prevent an out-of-space error that occurs when your cluster runs out of space. This alarm is recommended only for Aurora MySQL.
@@ -3017,7 +3017,7 @@ the volume reaches its limit.
 
 **Alarm description:** This alarm helps to monitor the error state of Aurora writer instance replication.
 For more information, see [Replicating
-Aurora MySQL DB clusters across AWS Regions](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Replication.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Replication.md"). For troubleshooting, see
+Aurora MySQL DB clusters across AWS Regions](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Replication.CrossRegion.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Replication.CrossRegion.md"). For troubleshooting, see
 [Aurora MySQL replication
 issues](../../../AmazonRDS/latest/AuroraUserGuide/CHAP_Troubleshooting.md#CHAP_Troubleshooting.MySQL "../../../AmazonRDS/latest/AuroraUserGuide/CHAP_Troubleshooting.md#CHAP_Troubleshooting.MySQL").
 
@@ -3046,7 +3046,7 @@ this value if the replica is in an error state.
 **Alarm description:** This alarm helps to monitor a high blocked transaction count in an Aurora DB
 instance. Blocked transactions can end in either a rollback or a commit. High concurrency, idles in transaction, or long
 running transactions can lead to blocked transactions. For troubleshooting, see
-[Aurora MySQL](../../../AmazonRDS/latest/AuroraUserGuide/ams-waits.md "../../../AmazonRDS/latest/AuroraUserGuide/ams-waits.md") documentation.
+[Aurora MySQL](../../../AmazonRDS/latest/AuroraUserGuide/ams-waits.row-lock-wait.md "../../../AmazonRDS/latest/AuroraUserGuide/ams-waits.row-lock-wait.md") documentation.
 
 **Intent:** This alarm is used to detect a high count of blocked transactions in an Aurora DB
 instance in order to prevent transaction rollbacks and performance degradation.
@@ -3075,7 +3075,7 @@ requirements of blocked transactions and analyze the historical behavior of this
 low hit ratio indicates that your queries on this DB instance are frequently going to disk. For troubleshooting, investigate your
 workload to see which queries are causing this behavior, and see the
 [DB
-instance RAM recommendations](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md#Aurora.BestPractices.Performance.Sizing "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md#Aurora.BestPractices.Performance.Sizing") document.
+instance RAM recommendations](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.BestPractices.md#Aurora.BestPractices.Performance.Sizing "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.BestPractices.md#Aurora.BestPractices.Performance.Sizing") document.
 
 **Intent:** This alarm is used to detect consistent low cache hit ratio in order to prevent a
 sustained performance decrease in the Aurora instance.
@@ -3132,7 +3132,7 @@ write operations fail with an exception. However, service is typically restored 
 an Aurora instance. A high InnoDB history list length indicates that a large number of old row versions, queries and database
 shutdowns have become slower. For more information and troubleshooting, see
 [the InnoDB history list
-length increased significantly](../../../AmazonRDS/latest/AuroraUserGuide/proactive-insights.md "../../../AmazonRDS/latest/AuroraUserGuide/proactive-insights.md") documentation.
+length increased significantly](../../../AmazonRDS/latest/AuroraUserGuide/proactive-insights.history-list.md "../../../AmazonRDS/latest/AuroraUserGuide/proactive-insights.history-list.md") documentation.
 
 **Intent:** This alarm is used to detect consistent high rollback segment history length. This
 can help you prevent sustained performance degradation and high CPU usage in the Aurora instance. This alarm is recommended

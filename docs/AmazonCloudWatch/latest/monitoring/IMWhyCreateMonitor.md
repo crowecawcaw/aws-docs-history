@@ -29,7 +29,7 @@ in the following ways:
 
 - **Configure health event thresholds** to change what triggers Internet Monitor to create a health
   event for your application. You can configure overall thresholds and local (city-network) thresholds. To learn more,
-  see [Change health event thresholds](CloudWatch-IM-get-started.md#IMUpdateThresholdFromOverview "CloudWatch-IM-get-started.md#IMUpdateThresholdFromOverview").
+  see [Change health event thresholds](CloudWatch-IM-get-started.change-threshold.md#IMUpdateThresholdFromOverview "CloudWatch-IM-get-started.change-threshold.md#IMUpdateThresholdFromOverview").
 - **Use AWS CLI commands** with Internet Monitor API actions to view traffic
   profile information, view measurements, list health events, and so on. To learn more, see [Examples of using the CLI with Internet Monitor](CloudWatch-IM-get-started-CLI.md "CloudWatch-IM-get-started-CLI.md").
 - **Use standard CloudWatch tools,** such as CloudWatch Contributor Insights, CloudWatch Metrics explorer, and

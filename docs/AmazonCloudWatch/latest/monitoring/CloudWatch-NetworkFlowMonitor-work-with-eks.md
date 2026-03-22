@@ -13,4 +13,4 @@ see [Amazon EKS Network Observability](../../../eks/latest/userguide/network-obs
 ###### Contents
 
 - [Install the EKS AWS Network Flow Monitor Agent add-on](CloudWatch-NetworkFlowMonitor-agents-kubernetes-eks.md "CloudWatch-NetworkFlowMonitor-agents-kubernetes-eks.md")
-- [Additional network path metadata included for Amazon EKS](CloudWatch-NetworkFlowMonitor-work-with-eks.md "CloudWatch-NetworkFlowMonitor-work-with-eks.md")
+- [Additional network path metadata included for Amazon EKS](CloudWatch-NetworkFlowMonitor-work-with-eks.performance-metadata.md "CloudWatch-NetworkFlowMonitor-work-with-eks.performance-metadata.md")

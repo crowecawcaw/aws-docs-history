@@ -101,8 +101,8 @@ export const handler = async (event, context) => {
 Web sites rely on cookies to provide custom functionality or track users. By setting
 cookies in CloudWatch Synthetics scripts, you can mimic this custom behavior and validate it.
 
-For example, a web site might display a **Login** link for a revisiting user
-instead of a **Register** link.
+For example, a web site might display a **Login** link for a
+revisiting user instead of a **Register** link.
 
 ```
 var synthetics = require('@aws/synthetics-puppeteer');
@@ -153,8 +153,8 @@ exports.handler = async () => {
 You can write scripts that emulate various devices so that you can approximate how a
 page looks and behaves on those devices.
 
-The following sample emulates an iPhone 6 device. For more information about emulation,
-see [page.emulate(options)](https://pptr.dev/#?product=Puppeteer&version=v5.3.1&show=api-pageemulateoptions "https://pptr.dev/#?product=Puppeteer&version=v5.3.1&show=api-pageemulateoptions") in the Puppeteer documentation.
+The following sample emulates an iPhone 6 device. For more information about
+emulation, see [page.emulate(options)](https://pptr.dev/#?product=Puppeteer&version=v5.3.1&show=api-pageemulateoptions "https://pptr.dev/#?product=Puppeteer&version=v5.3.1&show=api-pageemulateoptions") in the Puppeteer documentation.
 
 ```
 var synthetics = require('@aws/synthetics-puppeteer');

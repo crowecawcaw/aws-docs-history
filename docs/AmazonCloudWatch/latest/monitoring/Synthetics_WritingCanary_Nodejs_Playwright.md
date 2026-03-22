@@ -8,23 +8,22 @@
 
 ## Packaging your Node.js canary files for the Playwright runtime
 
-Your canary script comprises of a `.js` (CommonJS syntax) or
-`.mjs` (ES syntax) file containing your Synthetics handler code, together
-with any additional packages and modules your code depends on. Scripts created in ES
-(ECMAScript) format should either use .mjs as the extension or include a package.json
-file with the "type": "module" field set. Unlike other runtimes like Node.js Puppeteer,
-you are not required to save your scripts in a specific folder structure. You can
-package your scripts directly. Use your preferred `zip` utility to create a
-`.zip` file with your handler file at the root. If your canary
-script depends on additional packages or modules that aren't included in the Synthetics
-runtime, you can add these dependencies to your `.zip` file. To do
-so, you can install your function's required libraries in the
-`node_modules` directory by running the `npm install`
-command. The following example CLI commands create a `.zip` file
-named `my_deployment_package.zip` containing the
-`index.js` or `index.mjs` file (Synthetics
-handler) and its dependencies. In the example, you install dependencies using the
-`npm` package manager.
+Your canary script comprises of a `.js` (CommonJS syntax) or `.mjs`
+(ES syntax) file containing your Synthetics handler code, together with any additional
+packages and modules your code depends on. Scripts created in ES (ECMAScript) format
+should either use .mjs as the extension or include a package.json file with the "type":
+"module" field set. Unlike other runtimes like Node.js Puppeteer, you are not required
+to save your scripts in a specific folder structure. You can package your scripts
+directly. Use your preferred `zip` utility to create a `.zip`
+file with your handler file at the root. If your canary script depends on additional
+packages or modules that aren't included in the Synthetics runtime, you can add these
+dependencies to your `.zip` file. To do so, you can install your
+function's required libraries in the `node_modules` directory by
+running the `npm install` command. The following example CLI commands create
+a `.zip` file named `my_deployment_package.zip`
+containing the `index.js` or `index.mjs` file
+(Synthetics handler) and its dependencies. In the example, you install dependencies
+using the `npm` package manager.
 
 ```
 ~/my_function
@@ -52,12 +51,9 @@ choice. However, be sure that the folder path is specified in your handler name.
 
 **Handler name**
 
-Be sure to set your canary’s script entry point (handler) as
-`myCanaryFilename.functionName` to match the file name of your
-script’s entry point. You can optionally store the canary in a separate folder such as
-`myFolder/my_canary_filename.mjs`. If you store it in a separate
-folder, specify that path in your script entry point, such as
-`myFolder/my_canary_filename.functionName`.
+Be sure to set your canary’s script entry point (handler) as `myCanaryFilename.functionName` to match the file name of your script’s entry
+point. You can optionally store the canary in a separate folder such as `myFolder/my_canary_filename.mjs`. If you store it in a separate folder,
+specify that path in your script entry point, such as `myFolder/my_canary_filename.functionName`.
 
 ## Changing an existing Playwright script to use as a CloudWatch Synthetics canary
 
@@ -65,8 +61,7 @@ You can edit an existing script for Node.js and Playwright to be used as a canar
 For more information about Playwright, see the [Playwright library](https://playwright.dev/docs/api/class-playwright "https://playwright.dev/docs/api/class-playwright")
 documentation.
 
-You can use the following Playwright script that is saved in file
-`exampleCanary.mjs`.
+You can use the following Playwright script that is saved in file `exampleCanary.mjs`.
 
 ```
 import { chromium } from 'playwright';
@@ -86,12 +81,12 @@ await browser.close();
 Convert the script by performing the following steps:
 
 1. Create and export a `handler` function. The handler is the entry
-   point function for the script. You can choose any name for the handler function, but the
-   function that is used in your script should be the same as in your canary handler.
-   If your script name is `exampleCanary.mjs`, and the handler function
-   name is `myhandler`, your canary handler is named
-   `exampleCanary.myhandler`. In the following example, the handler
-   function name is `handler`.
+   point function for the script. You can choose any name for the handler function, but
+   the function that is used in your script should be the same as in your canary
+   handler. If your script name is `exampleCanary.mjs`, and the
+   handler function name is `myhandler`, your canary handler is
+   named `exampleCanary.myhandler`. In the following example, the
+   handler function name is `handler`.
 
 ```
 exports.handler = async () => {
@@ -244,14 +239,12 @@ The following are supported configuration values, and their defaults.
   capture a screenshot after a step has failed. The default is `true`.
 - `continueOnStepFailure` – Determines if a script should
   continue even after a step has failed. The default is `false`.
-- `stepSuccessMetric` – Determines if a step’s
-  `SuccessPercent` metric is emitted. The `SuccessPercent`
-  metric for a step is `100` for the canary run if the step succeeds, and
-  `0` if the step fails. The default is `true`.
-- `stepDurationMetric` – Determines if a step's
-  `Duration` metric is emitted. The `Duration` metric is
-  emitted as a duration, in milliseconds, of the step's run. The default is
-  `true`.
+- `stepSuccessMetric` – Determines if a step’s `SuccessPercent` metric is emitted. The `SuccessPercent` metric for
+  a step is `100` for the canary run if the step succeeds, and `0`
+  if the step fails. The default is `true`.
+- `stepDurationMetric` – Determines if a step's `Duration`
+  metric is emitted. The `Duration` metric is emitted as a duration, in
+  milliseconds, of the step's run. The default is `true`.
 
 **Report configurations**
 
@@ -265,8 +258,8 @@ and `restrictedUrlParameters` also apply to logs generated by Synthetics.
   in the report. The default is `false`.
 - `includeUrlPassword` – Whether to include a password that
   appears in the URL. By default, passwords that appear in URLs are redacted from logs
-  and reports, to prevent the disclosure of sensitive data. The default is
-  `false`.
+  and reports, to prevent the disclosure of sensitive data. The default is `false`
+  .
 - `includeRequestBody` – Whether to include the request body in
   the report. The default is `false`.
 - `includeResponseBody` – Whether to include the response body
@@ -301,23 +294,19 @@ Applies to logs generated by CloudWatch Synthetics. Controls the verbosity of re
 response logs.
 
 - `logRequest` – Whether to log every request in canary logs.
-  For UI canaries, this logs each request sent by the browser. The default is
-  `false`.
+  For UI canaries, this logs each request sent by the browser. The default is `false`.
 - `logResponse` – Whether to log every response in canary logs.
-  For UI canaries, this logs every response received by the browser. The default is
-  `false`.
+  For UI canaries, this logs every response received by the browser. The default is `false`.
 - `logRequestBody` – Whether to log request bodies along with
-  the requests in canary logs. This configuration applies only if
-  `logRequest` is true. The default is `false`.
+  the requests in canary logs. This configuration applies only if `logRequest`
+  is true. The default is `false`.
 - `logResponseBody` – Whether to log response bodies along with
-  the requests in canary logs. This configuration applies only if
-  `logResponse` is true. The default is `false`.
+  the requests in canary logs. This configuration applies only if `logResponse`
+  is true. The default is `false`.
 - `logRequestHeaders` – Whether to log request headers along
-  with the requests in canary logs. This configuration applies only if
-  `logRequest` is true. The default is `false`.
+  with the requests in canary logs. This configuration applies only if `logRequest` is true. The default is `false`.
 - `logResponseHeaders` – Whether to log response headers along
-  with the responses in canary logs. This configuration applies only if
-  `logResponse` is true. The default is `false`.
+  with the responses in canary logs. This configuration applies only if `logResponse` is true. The default is `false`.
 
 **HTTP metric configurations**
 
@@ -325,20 +314,15 @@ Configurations for metrics related to the count of network requests with differe
 HTTP status codes, emitted by CloudWatch Synthetics for this canary.
 
 - `metric_2xx` – Whether to emit the `2xx` metric
-  (with the `CanaryName` dimension) for this canary. The default is
-  `true`.
+  (with the `CanaryName` dimension) for this canary. The default is `true`.
 - `metric_4xx` – Whether to emit the `4xx` metric
-  (with the `CanaryName` dimension) for this canary. The default is
-  `true`.
+  (with the `CanaryName` dimension) for this canary. The default is `true`.
 - `metric_5xx` – Whether to emit the `5xx` metric
-  (with the `CanaryName` dimension) for this canary. The default is
-  `true`.
-- `failedRequestsMetric` – Whether to emit the
-  `failedRequests` metric (with the `CanaryName` dimension)
-  for this canary. The default is `true`.
-- `aggregatedFailedRequestsMetric` – Whether to emit the
-  `failedRequests` metric (without the `CanaryName` dimension)
-  for this canary. The default is `true`.
+  (with the `CanaryName` dimension) for this canary. The default is `true`.
+- `failedRequestsMetric` – Whether to emit the `failedRequests` metric (with the `CanaryName` dimension) for this
+  canary. The default is `true`.
+- `aggregatedFailedRequestsMetric` – Whether to emit the `failedRequests` metric (without the `CanaryName` dimension) for
+  this canary. The default is `true`.
 - `aggregated2xxMetric` – Whether to emit the `2xx`
   metric (without the `CanaryName` dimension) for this canary. The default
   is `true`.
@@ -354,20 +338,18 @@ HTTP status codes, emitted by CloudWatch Synthetics for this canary.
 Configurations for other metrics emitted by CloudWatch Synthetics.
 
 - `failedCanaryMetric` – Whether to emit the `Failed`
-  metric (with the `CanaryName` dimension) for this canary. The default is
-  `true`.
-- `aggregatedFailedCanaryMetric` – Whether to emit the
-  `Failed` metric (without the `CanaryName` dimension) for
-  this canary. The default is `true`.
+  metric (with the `CanaryName` dimension) for this canary. The default is `true`.
+- `aggregatedFailedCanaryMetric` – Whether to emit the `Failed` metric (without the `CanaryName` dimension) for this
+  canary. The default is `true`.
 
 **Other configurations**
 
 - `userAgent` – A string to append to the user agent. The user
   agent is a string that is included in request header, and identifies your browser to
   websites you visit when you use the headless browser. CloudWatch Synthetics automatically
-  adds `CloudWatchSynthetics/`canary-arn` to the user
-agent`. The specified configuration is appended to the generated user agent.
-  The default user agent value to append is an empty string (`""`).
+  adds `CloudWatchSynthetics/`canary-arn` to the user agent`.
+  The specified configuration is appended to the generated user agent. The default
+  user agent value to append is an empty string (`""`).
 
 ### CloudWatch Synthetics environment variables
 

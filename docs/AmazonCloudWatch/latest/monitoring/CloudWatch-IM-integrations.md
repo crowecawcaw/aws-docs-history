@@ -13,6 +13,6 @@ Resources with an integrated option for adding Internet Monitor include the foll
 
 ###### Contents
 
-- [Add monitor when you create an NLB](CloudWatch-IM-get-started.md "CloudWatch-IM-get-started.md")
-- [Add monitor when you create a VPC](CloudWatch-IM-get-started.md "CloudWatch-IM-get-started.md")
-- [Add monitor from the CloudFront console](CloudWatch-IM-get-started.md "CloudWatch-IM-get-started.md")
+- [Add monitor when you create an NLB](CloudWatch-IM-get-started.nlb-monitor.md "CloudWatch-IM-get-started.nlb-monitor.md")
+- [Add monitor when you create a VPC](CloudWatch-IM-get-started.vpc-monitor.md "CloudWatch-IM-get-started.vpc-monitor.md")
+- [Add monitor from the CloudFront console](CloudWatch-IM-get-started.cf-monitor.md "CloudWatch-IM-get-started.cf-monitor.md")

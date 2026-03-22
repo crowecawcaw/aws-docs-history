@@ -9,7 +9,7 @@ For more information about Amazon RDS Performance Insights, see [Monitoring DB l
 Performance Insights on Amazon RDS](../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.md "../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.md").
 
 For more information about Amazon DocumentDB Performance Insights, see [Monitoring with
-Performance Insights](../../../documentdb/latest/developerguide/performance-insights.md "../../../documentdb/latest/developerguide/performance-insights.md").
+Performance Insights](../../../documentdb/latest/developerguide/performance-insights.html.md "../../../documentdb/latest/developerguide/performance-insights.html.md").
 
 Anomaly detection is not supported for alarms based on the
 **DB_PERF_INSIGHTS** function.
@@ -21,7 +21,7 @@ High-resolution metrics with sub-minute granularity retrieved by
 **DBLoad** metric, or for operating system metrics if you have enabled
 Enhanced Monitoring at a higher resolution. For more information about Amazon RDS enhanced
 monitoring, see [Monitoring OS metrics with
-Enhanced Monitoring.](../../../AmazonRDS/latest/UserGuide/USER_Monitoring.md "../../../AmazonRDS/latest/UserGuide/USER_Monitoring.md").
+Enhanced Monitoring.](../../../AmazonRDS/latest/UserGuide/USER_Monitoring.OS.md "../../../AmazonRDS/latest/UserGuide/USER_Monitoring.OS.md").
 
 You can create a high-resolution alarm using the **DB_PERF_INSIGHTS**
 function. The maximum evaluation range for a high-resolution alarm is three hours. You can

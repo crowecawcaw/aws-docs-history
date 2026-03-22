@@ -1,6 +1,9 @@
 # Writing a JSON configuration for Node.js multi Checks blueprint
 
-The Node.js multi checks blueprint allows you to create canaries that perform multiple validation checks within a single canary run. This blueprint is useful when you want to test multiple endpoints, validate different aspects of your application, or perform a series of related checks in sequence.
+The Node.js multi checks blueprint allows you to create canaries that perform multiple
+validation checks within a single canary run. This blueprint is useful when you want to
+test multiple endpoints, validate different aspects of your application, or perform a
+series of related checks in sequence.
 
 ###### Topics
 
@@ -15,7 +18,8 @@ The Node.js multi checks blueprint allows you to create canaries that perform mu
 
 ## Root configuration structure
 
-The root configuration defines the overall structure of your advanced API blueprint canary.
+The root configuration defines the overall structure of your advanced API blueprint
+canary.
 
 | Schema properties | Property | Type    | Required                                    | Description |
 | ----------------- | -------- | ------- | ------------------------------------------- | ----------- |
@@ -56,7 +60,8 @@ The root configuration defines the overall structure of your advanced API bluepr
 
 ## Global settings
 
-Global settings provide default configurations that apply to all steps unless overridden at the step level.
+Global settings provide default configurations that apply to all steps unless
+overridden at the step level.
 
 **Properties**
 
@@ -79,7 +84,8 @@ Global settings provide default configurations that apply to all steps unless ov
 
 ## Variables and data management
 
-Variables allow you to define reusable values that can be referenced throughout your configuration using `${variableName}` syntax.
+Variables allow you to define reusable values that can be referenced throughout your
+configuration using `${variableName}` syntax.
 
 **Variable properties**
 
@@ -131,7 +137,8 @@ Variables allow you to define reusable values that can be referenced throughout 
 
 ## Step definitions
 
-Steps define individual monitoring operations. Each step is numbered from 1 to 10 and contains a specific type of check.
+Steps define individual monitoring operations. Each step is numbered from 1 to 10
+and contains a specific type of check.
 
 _Common step properties_
 
@@ -583,12 +590,12 @@ Test TCP port connectivity and response validation.
 
 **Certificate subject assertions**
 
-| Property   | Type   | Required | Default | Description                                    |
-| ---------- | ------ | -------- | ------- | ---------------------------------------------- |
-| `type`     | string | **Yes**  | -       | Must be `"CERTIFICATE_SUBJECT"`                |
-| `field`    | string | **Yes**  | -       | Subject field: `CN`, `O`, `OU`, `C`, `ST`, `L` |
-| `operator` | string | **Yes**  | -       | `CONTAINS`, `EQUALS`, `REGEX_MATCH`            |
-| `value`    | string | **Yes**  | -       | Expected field value                           |
+| Property   | Type   | Required | Default | Description                                        |
+| ---------- | ------ | -------- | ------- | -------------------------------------------------- |
+| `type`     | string | **Yes**  | -       | Must be `"CERTIFICATE_SUBJECT"`                    |
+| `field`    | string | **Yes**  | -       | Subject field: `CN`, `O`, `OU`, `C`<br>, `ST`, `L` |
+| `operator` | string | **Yes**  | -       | `CONTAINS`, `EQUALS`, `REGEX_MATCH`                |
+| `value`    | string | **Yes**  | -       | Expected field value                               |
 
 **Certificate issuer assertions**
 
@@ -619,7 +626,8 @@ Test TCP port connectivity and response validation.
 
 ## Data extraction
 
-Extractors allows you to capture data from responses for use in subsequent steps or for reporting purposes.
+Extractors allows you to capture data from responses for use in subsequent steps or
+for reporting purposes.
 
 **Extraction properties**
 
@@ -637,7 +645,8 @@ Extractors allows you to capture data from responses for use in subsequent steps
 - Must start with a letter
 - Can contain letters, numbers, and underscores
 
-**Limitation** – Substitution does not apply for fields in the schema that have specific ENUM values
+**Limitation** – Substitution does not apply for
+fields in the schema that have specific ENUM values
 
 **Extraction types**
 

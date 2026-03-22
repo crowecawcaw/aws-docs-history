@@ -79,6 +79,7 @@ CloudWatch RUM is currently available in the following Regions:
 - Europe (Spain)
 - Europe (Stockholm)
 - Europe (Zurich)
+- AWS European Sovereign Cloud (Germany)
 - Middle East (Bahrain)
 - Middle East (UAE)
 - Mexico (Central)

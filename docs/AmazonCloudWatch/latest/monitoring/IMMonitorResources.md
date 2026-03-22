@@ -25,6 +25,6 @@ When you add resources to a monitor in Internet Monitor, be aware of the followi
   an Internet Gateway configured.
 - Internet Monitor doesn't support adding different types of resources together in one monitor.
 - There are Regional differences for opt-in Regions to keep in mind when you add VPCs or NLBs as resources. For more information,
-  see [Supported AWS Regions for Internet Monitor](CloudWatch-InternetMonitor.md "CloudWatch-InternetMonitor.md").
+  see [Supported AWS Regions for Internet Monitor](CloudWatch-InternetMonitor.Regions.md "CloudWatch-InternetMonitor.Regions.md").
 - In addition, there are differences for resources about measuring last-mile latency. For Internet Monitor latency measurements,
   VPCs, NLBs, and WorkSpaces directories do not include last-mile latency.

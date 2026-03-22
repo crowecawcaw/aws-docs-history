@@ -26,7 +26,7 @@ OpenTelemetry does. For more information, see
 ## .NET compatibility
 
 Application Signals supports the same .NET libraries and frameworks as the AWS Distro for OpenTelemetry does. For more information, see
-[Supported instrumentations](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/metapackages/auto-instrumentations-node#supported-instrumentations "https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/metapackages/auto-instrumentations-node#supported-instrumentations").
+[Supported instrumentations](https://github.com/open-telemetry/opentelemetry-dotnet-instrumentation/blob/main/docs/internal/instrumentation-libraries.md "https://github.com/open-telemetry/opentelemetry-dotnet-instrumentation/blob/main/docs/internal/instrumentation-libraries.md").
 
 Application Signals supports .NET applications that are running on x86-64 or ARM64 CPUs, and supports the Linux x64, Linux ARM64, and Microsoft Windows Server 2022 x64.
 

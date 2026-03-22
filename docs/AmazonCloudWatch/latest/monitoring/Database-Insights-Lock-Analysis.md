@@ -15,8 +15,8 @@ To troubleshoot performance issues caused by locks, you can analyze lock trees f
 
 CloudWatch Database Insights supports lock analysis for all Aurora PostgreSQL versions. To analyze lock trees, you must have
 Database Insights Advance Mode enabled. For information on how to turn on Advanced mode, see
-[Turning on the Advanced mode of Database Insights for Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.md")
-and [Turning on the Advanced mode of Database Insights for Amazon Relational Database Service](../../../AmazonRDS/latest/UserGuide/USER_DatabaseInsights.md "../../../AmazonRDS/latest/UserGuide/USER_DatabaseInsights.md")
+[Turning on the Advanced mode of Database Insights for Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.TurningOnAdvanced.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.TurningOnAdvanced.md")
+and [Turning on the Advanced mode of Database Insights for Amazon Relational Database Service](../../../AmazonRDS/latest/UserGuide/USER_DatabaseInsights.TurningOnAdvanced.md "../../../AmazonRDS/latest/UserGuide/USER_DatabaseInsights.TurningOnAdvanced.md")
 
 The lock analysis tab provides information about lock contention for your database.
 The lock tree visualization shows the relationships and dependencies between lock requests from different sessions.

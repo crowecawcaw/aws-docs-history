@@ -57,7 +57,7 @@ impact and local impact thresholds. To learn more about health events, see [When
 
 The default health event threshold, for both performance scores and availability scores, is 95%. If you like,
 you can specify your own custom thresholds for when Internet Monitor creates health events. For more information about configuring
-thresholds, see [Change health event thresholds](CloudWatch-IM-get-started.md#IMUpdateThresholdFromOverview "CloudWatch-IM-get-started.md#IMUpdateThresholdFromOverview").
+thresholds, see [Change health event thresholds](CloudWatch-IM-get-started.change-threshold.md#IMUpdateThresholdFromOverview "CloudWatch-IM-get-started.change-threshold.md#IMUpdateThresholdFromOverview").
 
 Each health event includes information about the impacted city-networks. You can view health events in the CloudWatch console,
 or by using an AWS SDK or AWS CLI with Internet Monitor API actions. Internet Monitor also sends Amazon EventBridge notifications for health events. For more
@@ -68,12 +68,12 @@ Internet Monitor displays information about recent global health events, called 
 on an internet weather map that is available to all AWS customers. You don't need to create a monitor in Internet Monitor to
 view the internet weather map. Unlike health events, internet events are not specific to individual customers or their application
 traffic. For more information, see
-[Global internet weather map in Internet Monitor](CloudWatch-InternetMonitor.md "CloudWatch-InternetMonitor.md").
+[Global internet weather map in Internet Monitor](CloudWatch-InternetMonitor.outage-map.md "CloudWatch-InternetMonitor.outage-map.md").
 
 **Thresholds**
 Internet Monitor creates health events based on both overall thresholds and local thresholds. You can change the default
 thresholds and configure other options, such as turning off local thresholds. For more information about configuring
-thresholds, see [Change health event thresholds](CloudWatch-IM-get-started.md#IMUpdateThresholdFromOverview "CloudWatch-IM-get-started.md#IMUpdateThresholdFromOverview").
+thresholds, see [Change health event thresholds](CloudWatch-IM-get-started.change-threshold.md#IMUpdateThresholdFromOverview "CloudWatch-IM-get-started.change-threshold.md#IMUpdateThresholdFromOverview").
 
 **Performance and availability scores**
 By analyzing the data that AWS collects, Internet Monitor can detect when the performance and availability for

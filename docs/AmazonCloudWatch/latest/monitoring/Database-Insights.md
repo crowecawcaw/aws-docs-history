@@ -9,8 +9,8 @@ By presenting metrics in a single dashboard for all databases in your fleet, Dat
 For example, you can use Database Insights to find a database that is performing poorly within a fleet of hundreds of database instances. You can then choose that instance and use Database Insights to troubleshoot issues.
 
 For information about engine, AWS Region, and instance class support, see
-[Aurora DB engine, Region, and instance class support for Database Insights](../../../AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.md")
-and [Amazon RDS DB engine, Region, and instance class support for Database Insights](../../../AmazonRDS/latest/UserGuide/USER_DatabaseInsights.md "../../../AmazonRDS/latest/UserGuide/USER_DatabaseInsights.md").
+[Aurora DB engine, Region, and instance class support for Database Insights](../../../AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.Engines.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.Engines.md")
+and [Amazon RDS DB engine, Region, and instance class support for Database Insights](../../../AmazonRDS/latest/UserGuide/USER_DatabaseInsights.Engines.md "../../../AmazonRDS/latest/UserGuide/USER_DatabaseInsights.Engines.md").
 
 Database Insights supports monitoring workloads across multiple accounts and regions.
 To learn more about the cross-account cross-region monitoring feauture of Database Insights see
@@ -62,10 +62,10 @@ For information about counter metrics for Performance Insights, see [Performance
 
 For information about the retention period for CloudWatch metrics collected by Database Insights, see the following topics.
 
-- [Amazon CloudWatch metrics for Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.md") in the _Amazon Aurora User Guide_
+- [Amazon CloudWatch metrics for Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.md") in the _Amazon Aurora User Guide_
 - [Amazon CloudWatch metrics for Amazon Relational Database Service](../../../AmazonRDS/latest/UserGuide/rds-metrics.md "../../../AmazonRDS/latest/UserGuide/rds-metrics.md") in the _Amazon RDS User Guide_
-- [Amazon CloudWatch metrics for Amazon RDS Performance Insights](../../../AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.md") in the _Amazon Aurora User Guide_
-- [Amazon CloudWatch metrics for Amazon RDS Performance Insights](../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.md "../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.md") in the _Amazon Aurora User Guide_
+- [Amazon CloudWatch metrics for Amazon RDS Performance Insights](../../../AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.Cloudwatch.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.Cloudwatch.md") in the _Amazon Aurora User Guide_
+- [Amazon CloudWatch metrics for Amazon RDS Performance Insights](../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.Cloudwatch.md "../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.Cloudwatch.md") in the _Amazon Aurora User Guide_
 
 ## How Database Insights integrates with Performance Insights
 

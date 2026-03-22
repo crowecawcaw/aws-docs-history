@@ -1,7 +1,7 @@
 # Monitoring Aurora Limitless databases with Database Insights
 
 Database Insights supports monitoring [Aurora PostgreSQL
-Limitless Databases](../../../AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.md") at both the fleet and instance levels. Your Aurora PostgreSQL
+Limitless Databases](../../../AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.Engines.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.Engines.md") at both the fleet and instance levels. Your Aurora PostgreSQL
 Limitless Databases are discoverable in both the Database Instance Dashboard and the Fleet
 Health Dashboard.
 
@@ -49,7 +49,7 @@ Insights.
 
 Enhanced Monitoring is automatically enabled for Aurora PostgreSQL Limitless
 Databases. Enhanced Monitoring incurs additional charges. For more information, see
-[Cost of Enhanced Monitoring](../../../AmazonRDS/latest/AuroraUserGuide/USER_Monitoring.md#USER_Monitoring.OS.cost "../../../AmazonRDS/latest/AuroraUserGuide/USER_Monitoring.md#USER_Monitoring.OS.cost").
+[Cost of Enhanced Monitoring](../../../AmazonRDS/latest/AuroraUserGuide/USER_Monitoring.OS.md#USER_Monitoring.OS.cost "../../../AmazonRDS/latest/AuroraUserGuide/USER_Monitoring.OS.md#USER_Monitoring.OS.cost").
 
 For Aurora PostgreSQL Limitless Databases, logs are automatically published to CloudWatch Logs
 and are discoverable in the Database Insights console. This incurs additional charges,

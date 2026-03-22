@@ -51,4 +51,4 @@ if it would be helpful to add or remove workloads from your current monitors, or
 - [Supported AWS Regions](CloudWatch-NetworkFlowMonitor-Regions.md "CloudWatch-NetworkFlowMonitor-Regions.md")
 - [Components](CloudWatch-NetworkFlowMonitor-components.md "CloudWatch-NetworkFlowMonitor-components.md")
 - [How it works](CloudWatch-NetworkFlowMonitor-inside-network-flow-monitor.md "CloudWatch-NetworkFlowMonitor-inside-network-flow-monitor.md")
-- [Pricing](CloudWatch-NetworkFlowMonitor.md "CloudWatch-NetworkFlowMonitor.md")
+- [Pricing](CloudWatch-NetworkFlowMonitor.pricing.md "CloudWatch-NetworkFlowMonitor.pricing.md")

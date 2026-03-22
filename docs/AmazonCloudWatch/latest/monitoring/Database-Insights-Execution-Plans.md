@@ -10,17 +10,17 @@ To analyze execution plans for a digest query, choose the query and then choose 
 ## Prerequisites
 
 To analyze execution plans, you must be using the Advanced mode of Database Insights. For information on how to turn on Advanced mode, see
-[Turning on the Advanced mode of Database Insights for Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.md")
-and [Turning on the Advanced mode of Database Insights for Amazon Relational Database Service](../../../AmazonRDS/latest/UserGuide/USER_DatabaseInsights.md "../../../AmazonRDS/latest/UserGuide/USER_DatabaseInsights.md").
+[Turning on the Advanced mode of Database Insights for Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.TurningOnAdvanced.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.TurningOnAdvanced.md")
+and [Turning on the Advanced mode of Database Insights for Amazon Relational Database Service](../../../AmazonRDS/latest/UserGuide/USER_DatabaseInsights.TurningOnAdvanced.md "../../../AmazonRDS/latest/UserGuide/USER_DatabaseInsights.TurningOnAdvanced.md").
 
 If you are using Aurora PostgreSQL, you also have the following prerequisites:
 
 - Your DB instance must use Aurora PostgreSQL version 14.10, 15.5, or later. For information about
   upgrading your Aurora PostgreSQL DB cluster, see
-  [Upgrading Amazon Aurora PostgreSQL DB clusters](../../../AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.md") in the _Amazon Aurora User Guide_.
+  [Upgrading Amazon Aurora PostgreSQL DB clusters](../../../AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md") in the _Amazon Aurora User Guide_.
 - You must configure your DB cluster to analyze execution plans by setting the parameter `aurora_compute_plan_id` to `on` with one of the following options.
-  - [Creating a DB cluster parameter group in Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.md") in the _Amazon Aurora User Guide_
-  - [Modifying parameters in a DB cluster parameter group in Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.md") in the _Amazon Aurora User Guide_
+  - [Creating a DB cluster parameter group in Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.CreatingCluster.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.CreatingCluster.md") in the _Amazon Aurora User Guide_
+  - [Modifying parameters in a DB cluster parameter group in Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.ModifyingCluster.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.ModifyingCluster.md") in the _Amazon Aurora User Guide_
 
 ## Analyze execution plans
 
@@ -43,7 +43,7 @@ To analyze execution plans, use the following procedure.
 ![Expand a query into its component statements](images/dbi_did-dbload-expand.png) 9. Scroll down and view the SQL text. Then, choose the **Plans** tab.
 
 By default, CloudWatch displays the estimated execution plan. For Aurora PostgreSQL, to view actual execution plans, enable the `aurora_stat_plans.with_analyze`
-parameter for your DB instance. For more information about the parameter `aurora_stat_plans.with_analyze`, see [Monitoring query execution plans and peak memory for Aurora PostgreSQL](../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Monitoring.Query.md#aurora.with_analyze "../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Monitoring.Query.md#aurora.with_analyze") in the _Amazon Aurora User Guide_. 10. To compare plans from the same digest query, choose two **Plans** from the **Plans for digest query** list.
+parameter for your DB instance. For more information about the parameter `aurora_stat_plans.with_analyze`, see [Monitoring query execution plans and peak memory for Aurora PostgreSQL](../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Monitoring.Query.Plans.md#aurora.with_analyze "../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Monitoring.Query.Plans.md#aurora.with_analyze") in the _Amazon Aurora User Guide_. 10. To compare plans from the same digest query, choose two **Plans** from the **Plans for digest query** list.
 
 You can view either one or two plans for a query at a time. In the following example screenshot, both plans are for Aurora PostgreSQL.
 

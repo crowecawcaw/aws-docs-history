@@ -1,17 +1,17 @@
 # Required roles and permissions for CloudWatch canaries
 
-Both the users who create and manage canaries, and the canaries themselves, must have certain
+Both the users who create and manage canaries, and the canaries themselves, must have
+certain
 permissions.
 
 ## AWS managed policies for CloudWatch Synthetics
 
-To add permissions to users, groups, and roles, it is easier to use AWS
-managed policies than to write policies yourself. It takes time and expertise to create IAM
-customer managed policies that provide your team with only the permissions they need.
-To get started quickly, you can use our AWS managed policies. These policies cover
-common use cases and are available in your AWS account. For more information about AWS
-managed policies, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies")
-AWS managed policies in the IAM User Guide.
+To add permissions to users, groups, and roles, it is easier to use AWS managed
+policies than to write policies yourself. It takes time and expertise to create IAM
+customer managed policies that provide your team with only the permissions they need. To get
+started quickly, you can use our AWS managed policies. These policies cover common use
+cases and are available in your AWS account. For more information about AWS managed
+policies, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") AWS managed policies in the IAM User Guide.
 
 AWS services maintain and update AWS managed policies. You can't change the
 permissions in AWS managed policies. Services occasionally change the permissions in an
@@ -21,13 +21,14 @@ AWS managed policy. This type of update affects all identities
 ### CloudWatch Synthetics updates to AWS managed policies
 
 View details about updates to AWS managed policies for CloudWatch Synthetics since this
-service began tracking these changes. For automatic alerts about changes to this page, subscribe to the RSS feed on
+service began tracking these changes. For automatic alerts about changes to this page,
+subscribe to the RSS feed on
 the CloudWatch Document history page.
 
-| Change                                                            | Description                                                                                                                                                                                                                                                                                                                                                                 | Date           |
-| ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| Redundant actions removed from **CloudWatchSyntheticsFullAccess** | CloudWatch Synthetics removed the<br>`s3:PutBucketEncryption` and `lambda:GetLayerVersionByArn`<br>actions from \*_CloudWatchSyntheticsFullAccess_<br>• policy<br>because those actions were redundant with other permissions in the policy.<br>The removed actions did not provide any permissions, and there’s no net change to the<br>permissions granted by the policy. | March 12, 2021 |
-| CloudWatch Synthetics started tracking changes                    | CloudWatch Synthetics started tracking changes for its AWS managed policies.                                                                                                                                                                                                                                                                                                | March 10, 2021 |
+| Change                                                            | Description                                                                                                                                                                                                                                                                                                                                                           | Date           |
+| ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| Redundant actions removed from **CloudWatchSyntheticsFullAccess** | CloudWatch Synthetics removed the `s3:PutBucketEncryption` and `lambda:GetLayerVersionByArn` actions from \*_CloudWatchSyntheticsFullAccess_<br>• policy because those actions were<br>redundant with other permissions in the policy. The removed actions did not<br>provide any permissions, and there’s no net change to the permissions granted by<br>the policy. | March 12, 2021 |
+| CloudWatch Synthetics started tracking changes                    | CloudWatch Synthetics started tracking changes for its AWS managed policies.                                                                                                                                                                                                                                                                                          | March 10, 2021 |
 
 **CloudWatchSyntheticsFullAccess**
 

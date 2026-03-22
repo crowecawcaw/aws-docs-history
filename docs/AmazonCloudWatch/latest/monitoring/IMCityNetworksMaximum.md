@@ -18,7 +18,7 @@ You can also learn how different values for the number of city-networks actually
 To explore options, on the [Pricing calculator for CloudWatch page](https://calculator.aws/#/addService/CloudWatch "https://calculator.aws/#/addService/CloudWatch"),
 scroll down to Internet Monitor.
 
-To update your monitor and change the maximum city-networks limit, see [Edit a monitor in Internet Monitor](CloudWatch-IM-get-started.md "CloudWatch-IM-get-started.md").
+To update your monitor and change the maximum city-networks limit, see [Edit a monitor in Internet Monitor](CloudWatch-IM-get-started.edit-monitor.md "CloudWatch-IM-get-started.edit-monitor.md").
 
 ## How billing works with city-networks maximum limits
 

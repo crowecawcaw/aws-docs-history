@@ -18,7 +18,7 @@ second.
 
 ![Database Instance Dashboard](images/dbi_did.png)
 
-For more information about DB Load, see [Database load](../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.md "../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.md") in the _Amazon RDS User Guide_ or [Database load](../../../AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.Overview.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.Overview.md") in the _Amazon Aurora User Guide_.
+For more information about DB Load, see [Database load](../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.ActiveSessions.md "../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.ActiveSessions.md") in the _Amazon RDS User Guide_ or [Database load](../../../AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.Overview.ActiveSessions.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.Overview.ActiveSessions.md") in the _Amazon Aurora User Guide_.
 
 Use the **Database load** chart to view DB Load sliced (grouped) by
 the following dimensions for all supported database engines.
@@ -38,7 +38,7 @@ the following dimensions for all supported database engines.
 
 ###### Note
 
-For information about analyzing Oracle PDB load in Amazon RDS, see [Analyzing top Oracle PDB load](../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.md "../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.md") in the
+For information about analyzing Oracle PDB load in Amazon RDS, see [Analyzing top Oracle PDB load](../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.TopPDB.md "../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.TopPDB.md") in the
 _Amazon RDS User Guide_.
 
 ![DB Load in the Database Instance Dashboard](images/dbi_did-dbload.png)
@@ -150,9 +150,9 @@ CloudWatch Logs for the selected DB instance.
 
 ![Database telemetry in the Database Instance Dashboard](images/dbi_did-telemetry-logs.png)
 
-For information about publishing logs to CloudWatch Logs for Amazon RDS, see [Publishing database logs to Amazon CloudWatch Logs](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Procedural.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Procedural.md") in the
+For information about publishing logs to CloudWatch Logs for Amazon RDS, see [Publishing database logs to Amazon CloudWatch Logs](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Procedural.UploadtoCloudWatch.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Procedural.UploadtoCloudWatch.md") in the
 _Amazon RDS User Guide_. For information about publishing logs to
-CloudWatch Logs for Amazon Aurora, see [Publishing database logs to Amazon CloudWatch Logs](../../../AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.Procedural.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.Procedural.md") in the
+CloudWatch Logs for Amazon Aurora, see [Publishing database logs to Amazon CloudWatch Logs](../../../AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.Procedural.UploadtoCloudWatch.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.Procedural.UploadtoCloudWatch.md") in the
 _Amazon Aurora User Guide_.
 
 For Aurora PostgreSQL Limitless Databases, logs are automatically published to CloudWatch Logs
@@ -181,7 +181,7 @@ telemetry for the latest timestamp.
 
 OS process information is available only if you have [Amazon RDS
 Enhanced Monitoring](../../../AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights_Counters.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights_Counters.md") enabled. Enhanced Monitoring incurs additional
-charges. For more information, see [Cost of Enhanced Monitoring](../../../AmazonRDS/latest/AuroraUserGuide/USER_Monitoring.md#USER_Monitoring.OS.cost "../../../AmazonRDS/latest/AuroraUserGuide/USER_Monitoring.md#USER_Monitoring.OS.cost"). Enhanced Monitoring is automatically
+charges. For more information, see [Cost of Enhanced Monitoring](../../../AmazonRDS/latest/AuroraUserGuide/USER_Monitoring.OS.md#USER_Monitoring.OS.cost "../../../AmazonRDS/latest/AuroraUserGuide/USER_Monitoring.OS.md#USER_Monitoring.OS.cost"). Enhanced Monitoring is automatically
 enabled for Aurora PostgreSQL Limitless Databases.
 
 ![Events table](images/dbinsights-osprocesses.png)
@@ -207,7 +207,7 @@ that process.
 The monitoring data that is displayed is retrieved from Amazon CloudWatch Logs. You can also
 retrieve these metrics directly from the log stream in CloudWatch Logs. For more information,
 see [Viewing
-OS metrics using CloudWatch Logs](../../../AmazonRDS/latest/UserGuide/USER_Monitoring.OS.md "../../../AmazonRDS/latest/UserGuide/USER_Monitoring.OS.md").
+OS metrics using CloudWatch Logs](../../../AmazonRDS/latest/UserGuide/USER_Monitoring.OS.CloudWatchLogs.md "../../../AmazonRDS/latest/UserGuide/USER_Monitoring.OS.CloudWatchLogs.md").
 
 OS processes metrics are not returned during the following:
 
@@ -224,20 +224,20 @@ reported.
 To view slow SQL queries and query patterns, you must enable log exports to CloudWatch Logs
 and configure DB parameters for your database.
 
-For information about publishing Amazon RDS logs to CloudWatch Logs, see [Publishing database logs to Amazon CloudWatch Logs](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Procedural.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Procedural.md") in the
+For information about publishing Amazon RDS logs to CloudWatch Logs, see [Publishing database logs to Amazon CloudWatch Logs](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Procedural.UploadtoCloudWatch.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Procedural.UploadtoCloudWatch.md") in the
 _Amazon RDS User Guide_.
 
-For information about publishing Aurora logs to CloudWatch Logs, see [Publishing database logs to Amazon CloudWatch Logs](../../../AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.Procedural.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.Procedural.md") in the
+For information about publishing Aurora logs to CloudWatch Logs, see [Publishing database logs to Amazon CloudWatch Logs](../../../AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.Procedural.UploadtoCloudWatch.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.Procedural.UploadtoCloudWatch.md") in the
 _Amazon Aurora User Guide_.
 
 For information about configuring DB parameters for your database in Amazon RDS, see
 [Configuring
-your database to monitor slow SQL queries with Database Insights for Amazon RDS](../../../AmazonRDS/latest/UserGuide/USER_DatabaseInsights.md "../../../AmazonRDS/latest/UserGuide/USER_DatabaseInsights.md") in the
+your database to monitor slow SQL queries with Database Insights for Amazon RDS](../../../AmazonRDS/latest/UserGuide/USER_DatabaseInsights.SlowSQL.md "../../../AmazonRDS/latest/UserGuide/USER_DatabaseInsights.SlowSQL.md") in the
 _Amazon RDS User Guide_.
 
 For information about configuring DB parameters for your database in
 Amazon Aurora, see [Configuring your database to monitor slow SQL queries with Database Insights for
-Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.md") in the _Amazon Aurora User Guide_.
+Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.SlowSQL.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.SlowSQL.md") in the _Amazon Aurora User Guide_.
 
 The **Slow SQL Queries** section provides a list of slow query
 patterns sorted by frequency. By selecting a pattern, you can view a list of slow
@@ -260,10 +260,10 @@ _Amazon CloudWatch Logs User Guide_.
 
 Use the **Events** table to view RDS events for your DB instance. For a
 list of events for Amazon Aurora, see [Amazon RDS event
-categories and event messages for Aurora](../../../AmazonRDS/latest/AuroraUserGuide/USER_Events.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_Events.md") in the
+categories and event messages for Aurora](../../../AmazonRDS/latest/AuroraUserGuide/USER_Events.Messages.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_Events.Messages.md") in the
 _Amazon Aurora User Guide_. For a list of events for Amazon Relational Database Service, see
 [Amazon RDS event
-categories and event messages for Aurora](../../../AmazonRDS/latest/AuroraUserGuide/USER_Events.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_Events.md") in the
+categories and event messages for Aurora](../../../AmazonRDS/latest/AuroraUserGuide/USER_Events.Messages.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_Events.Messages.md") in the
 _Amazon RDS User Guide_.
 
 ![Events table](images/dbi_did-events.png)
@@ -296,7 +296,7 @@ databases in your fleet.
 
 ![Performance Analysis tab](images/dbi_dl-perfanalysis.png)
 
-For information about performance analysis reports for Amazon Aurora, see [Analyzing database performance for a period of time](../../../AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.UsingDashboard.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.UsingDashboard.md") in the
+For information about performance analysis reports for Amazon Aurora, see [Analyzing database performance for a period of time](../../../AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.UsingDashboard.AnalyzePerformanceTimePeriod.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.UsingDashboard.AnalyzePerformanceTimePeriod.md") in the
 _Amazon Aurora User Guide_.
 
 ## Integrating CloudWatch Database Insights with CloudWatch Application Signals

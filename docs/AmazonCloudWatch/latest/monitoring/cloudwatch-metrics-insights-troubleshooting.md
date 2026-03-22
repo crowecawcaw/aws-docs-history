@@ -40,3 +40,82 @@ data point differs from the expected value. This is because the CloudWatch Metri
 within the two-week retention period. In this case, the oldest data point in the query returns only the observations that have
 been measured within the two-week boundary, instead of returning all the observations within the period
 of that data point.
+
+## Inconsistent metric values across different time periods when using tag-based queries
+
+When you use `WHERE` or `GROUP BY` clauses with tags in CloudWatch Metrics Insights
+queries, you might see different metric values depending on the selected time period. For
+example, a 6-hour period might show a peak value of 20, while a 1-hour period shows only 2
+for the same time window.
+
+This occurs because tag timestamps are stored with second-level resolution, while
+metric data points are aligned to period boundaries (for example, the start of each minute
+or hour). To determine which data points match a tag time range, CloudWatch adjusts the start of
+the range by subtracting one period. With larger periods, this adjustment creates a wider
+gap between the tag timestamp and the earliest included data point, which can cause data
+points near the start of the range to be excluded.
+
+The following example shows how this affects query results. A metric has two tag
+values: `env=beta` (from 00:00 to 01:30) and `env=gamma` (from
+01:30 to 03:00). Each tag covers 90 minutes of data with a SUM of 270.
+
+![Two CloudWatch metric graphs comparing tag-based query results with 1-minute and 3-hour periods.](images/metrics-insights-tag-alignment.png)
+
+| **env=beta with 1-minute period** |
+| --------------------------------- | -------- | -------- | ---------- |
+| Statistic                         | Expected | Returned | Difference |
+| SUM                               | 270      | 271      | +1         |
+| AVG                               | 3.0      | 3.0      | 0          |
+| MIN                               | 1        | 1        | 0          |
+| MAX                               | 5        | 5        | 0          |
+| SAMPLE_COUNT                      | 90       | 91       | +1         |
+
+| **env=gamma with 1-minute period** |
+| ---------------------------------- | -------- | -------- | ---------- |
+| Statistic                          | Expected | Returned | Difference |
+| SUM                                | 270      | 275      | +5         |
+| AVG                                | 3.0      | 3.0      | 0          |
+| MIN                                | 1        | 1        | 0          |
+| MAX                                | 5        | 5        | 0          |
+| SAMPLE_COUNT                       | 90       | 91       | +1         |
+
+With a 1-minute period, the alignment adjustment is small (1 minute), so only 1 extra
+data point is included per tag. With a 3-hour period, the adjustment spans the entire query
+range:
+
+| **env=beta with 3-hour period** |
+| ------------------------------- | -------- | -------- | ---------- |
+| Statistic                       | Expected | Returned | Difference |
+| SUM                             | 270      | 540      | +270       |
+| AVG                             | 3.0      | 3.0      | 0          |
+| MIN                             | 1        | 1        | 0          |
+| MAX                             | 5        | 5        | 0          |
+| SAMPLE_COUNT                    | 90       | 180      | +90        |
+
+| **env=gamma with 3-hour period** |
+| -------------------------------- | -------- | -------- | ---------- |
+| Statistic                        | Expected | Returned | Difference |
+| SUM                              | 270      | 540      | +270       |
+| AVG                              | 3.0      | 3.0      | 0          |
+| MIN                              | 1        | 1        | 0          |
+| MAX                              | 5        | 5        | 0          |
+| SAMPLE_COUNT                     | 90       | 180      | +90        |
+
+With the 3-hour period, both tags return the entire dataset (SUM=540, SAMPLE_COUNT=180)
+because the single aggregated data point's timestamp falls within both adjusted ranges. The
+tag boundary is effectively erased.
+
+To reduce the impact of this behaviour, try the following approaches:
+
+- **Use smaller aggregation periods.** Smaller periods
+  (such as 1 minute or 5 minutes) more closely match the second-level resolution of tag
+  timestamps, which minimizes the alignment gap and makes it more likely that all
+  relevant data points are included.
+- **Use dimension-based filtering instead of tags.** If
+  your use case allows it, filter by dimensions rather than tags. Dimension-based queries
+  are not affected by this behaviour. For example, use
+  `WHERE InstanceId = 'i-1234567890abcdef0'` instead of
+  `WHERE tag."my-tag" = 'my-value'`.
+- **Query at a consistent granularity.** When comparing
+  metric data across different time windows, use the same period to avoid unexpected
+  differences caused by the alignment adjustment.

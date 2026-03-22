@@ -66,7 +66,7 @@ you might incur unexpected charges.
 For more information,
 see [Amazon CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing "http://aws.amazon.com/cloudwatch/pricing"). 5. For **Rule type**, choose **Sample rule**. Then choose **Select sample rule** and
 select the rule. 6. For **Log format**, select the format of the logs that the rule will evaluate. 7. For **Transformers**, select **Enable contributor insights on transformers** to have the rule evaluate log events after they are transformed
-by [CloudWatch Logs log transformation](../logs/CloudWatch-Logs-Transformation.md "../logs/CloudWatch-Logs-Transformation.md"). If you select to enable this:
+by [CloudWatch Logs log transformation](../logs/CloudWatch-Logs-Transformation.html.md "../logs/CloudWatch-Logs-Transformation.html.md"). If you select to enable this:
 
     * If the rule evaluates any log groups that have transformers, the rule is applied to the transformed versions of the logs.
     * If the rule evaluates any log groups that don't have transformers, the rule is applied to the original versions of the logs.
@@ -122,7 +122,7 @@ you might incur unexpected charges.
 For more information,
 see [Amazon CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing "http://aws.amazon.com/cloudwatch/pricing"). 5. For **Rule type**, choose **Custom
 rule**. 6. For **Log format**, choose **JSON** or **CLF**. 7. For **Transformers**, select **Enable contributor insights on transformers** to have the rule evaluate log events after they are transformed
-by [CloudWatch Logs log transformation](../logs/CloudWatch-Logs-Transformation.md "../logs/CloudWatch-Logs-Transformation.md"). If you select to enable this:
+by [CloudWatch Logs log transformation](../logs/CloudWatch-Logs-Transformation.html.md "../logs/CloudWatch-Logs-Transformation.html.md"). If you select to enable this:
 
     * If the rule evaluates any log groups that have transformers, the rule is applied to the transformed versions of the logs.
     * If the rule evaluates any log groups that don't have transformers, the rule is applied to the original versions of the logs.

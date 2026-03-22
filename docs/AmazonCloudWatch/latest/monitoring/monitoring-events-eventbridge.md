@@ -35,11 +35,11 @@ Patterns in EventBridge](../../../eventbridge/latest/userguide/eventbridge-and-e
 
 **Canary status change**
 
-In this event type, the values of `current-state` and `previous-state` can be the following:
+In this event type, the values of `current-state` and `previous-state`
+can be the following:
 
-`CREATING` | `READY` | `STARTING`
-| `RUNNING` | `UPDATING` | `STOPPING` | `STOPPED`
-| `ERROR`
+`CREATING` | `READY` | `STARTING` | `RUNNING`
+| `UPDATING` | `STOPPING` | `STOPPED` | `ERROR`
 
 ```
 {
@@ -135,8 +135,8 @@ In this event type, the values of `current-state` and `previous-state` can be th
 }
 ```
 
-It's possible that events might be duplicated or out of order.
-To determine the order of events, use the `time` property.
+It's possible that events might be duplicated or out of order. To determine the order of
+events, use the `time` property.
 
 ## Prerequisites for creating EventBridge rules
 
@@ -150,15 +150,14 @@ Before you create an EventBridge rule for CloudWatch Synthetics, you should do t
   - Kinesis streams
   - Amazon SQS queues
 
-For more information,
-see [What is Amazon EventBridge?](../../../eventbridge/latest/userguide/what-is-amazon-eventbridge.md "../../../eventbridge/latest/userguide/what-is-amazon-eventbridge.md") and
-[Getting started with Amazon EventBridge](../../../eventbridge/latest/userguide/eventbridge-getting-set-up.md "../../../eventbridge/latest/userguide/eventbridge-getting-set-up.md")
-in the _Amazon EventBridge User Guide_.
+For more information, see [What
+is Amazon EventBridge?](../../../eventbridge/latest/userguide/what-is-amazon-eventbridge.md "../../../eventbridge/latest/userguide/what-is-amazon-eventbridge.md") and [Getting
+started with Amazon EventBridge](../../../eventbridge/latest/userguide/eventbridge-getting-set-up.md "../../../eventbridge/latest/userguide/eventbridge-getting-set-up.md") in the _Amazon EventBridge User Guide_.
 
 ## Create an EventBridge rule (CLI)
 
-The steps in the following example create an EventBridge rule that publishes an Amazon SNS topic when
-the canary named `my-canary-name` in `us-east-1` completes a run
+The steps in the following example create an EventBridge rule that publishes an Amazon SNS topic
+when the canary named `my-canary-name` in `us-east-1` completes a run
 or changes state.
 
 1. Create the rule.
@@ -173,8 +172,8 @@ aws events put-rule \
 
 Any properties you omit from the pattern are ignored. 2. Add the topic as a rule target.
 
-    * Replace `topic-arn` with the Amazon Resource Name (ARN) of your Amazon SNS
-     topic.
+    * Replace `topic-arn` with the Amazon Resource Name (ARN)
+     of your Amazon SNS topic.
 
 ```
 aws events put-targets \
@@ -184,11 +183,9 @@ aws events put-targets \
 
 ###### Note
 
-To allow Amazon EventBridge to call your target topic, you must add a
-resource-based policy to your topic. For more information,
-see [Amazon SNS permissions](../../../eventbridge/latest/userguide/resource-based-policies-eventbridge.md#sns-permissions "../../../eventbridge/latest/userguide/resource-based-policies-eventbridge.md#sns-permissions") in the
-_Amazon EventBridge User Guide_.
+To allow Amazon EventBridge to call your target topic, you must add a resource-based policy
+to your topic. For more information, see [Amazon SNS
+permissions](../../../eventbridge/latest/userguide/resource-based-policies-eventbridge.md#sns-permissions "../../../eventbridge/latest/userguide/resource-based-policies-eventbridge.md#sns-permissions") in the _Amazon EventBridge User Guide_.
 
-For more information,
-see [Events and event patterns in EventBridge](../../../eventbridge/latest/userguide/eventbridge-and-event-patterns.md "../../../eventbridge/latest/userguide/eventbridge-and-event-patterns.md")
-in the _Amazon EventBridge User Guide_.
+For more information, see [Events
+and event patterns in EventBridge](../../../eventbridge/latest/userguide/eventbridge-and-event-patterns.md "../../../eventbridge/latest/userguide/eventbridge-and-event-patterns.md") in the _Amazon EventBridge User Guide_.

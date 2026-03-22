@@ -41,7 +41,7 @@ and opts to publish internet measurements to Amazon S3.
 
 Internet Monitor publishes to CloudWatch Logs internet measurements every five minutes for the top 500 city-networks (client locations and ASNs, typically internet
 service providers or ISPs) that send traffic to each monitor. Optionally, you can choose to publish internet measurements for all monitored city-networks
-(up to the 500,000 city-networks service limit) to an Amazon S3 bucket. For more information, see [Publish internet measurements to Amazon S3 in Internet Monitor](CloudWatch-IM-get-started.md "CloudWatch-IM-get-started.md").
+(up to the 500,000 city-networks service limit) to an Amazon S3 bucket. For more information, see [Publish internet measurements to Amazon S3 in Internet Monitor](CloudWatch-IM-get-started.Publish-to-S3.md "CloudWatch-IM-get-started.Publish-to-S3.md").
 
 ```
 aws internetmonitor create-monitor --monitor-name "TestMonitor" \

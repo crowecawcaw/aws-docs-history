@@ -4,7 +4,7 @@ You can use CloudFormation to enable and configure X-Ray Transaction Search.
 
 ###### Note
 
-To create a CloudFormation stack, see [Creating your first stack](../../../AWSCloudFormation/latest/UserGuide/gettingstarted.md "../../../AWSCloudFormation/latest/UserGuide/gettingstarted.md") .
+To create a CloudFormation stack, see [Creating your first stack](../../../AWSCloudFormation/latest/UserGuide/gettingstarted.walkthrough.md "../../../AWSCloudFormation/latest/UserGuide/gettingstarted.walkthrough.md") .
 
 ## Prerequisites
 

@@ -1,11 +1,15 @@
 # Required roles and permissions for canaries
 
-Each canary must be associated with an IAM role that has certain permissions attached. When you create
-a canary using the CloudWatch console, you can choose for CloudWatch Synthetics to create an IAM role for the canary. If you
+Each canary must be associated with an IAM role that has certain permissions attached.
+When you create
+a canary using the CloudWatch console, you can choose for CloudWatch Synthetics to create an IAM role
+for the canary. If you
 do, the role will have the permissions needed.
 
-If you want to create the IAM role yourself, or create an IAM role that you can use when using the
-AWS CLI or APIs to create a canary, the role must contain the permissions listed in this section.
+If you want to create the IAM role yourself, or create an IAM role that you can use
+when using the
+AWS CLI or APIs to create a canary, the role must contain the permissions listed in this
+section.
 
 All IAM roles for canaries must include the following trust policy statement.
 
@@ -92,7 +96,8 @@ JSON
 
 ```
 
-**Canary that uses AWS KMS to encrypt canary artifacts but does not need Amazon VPC access**
+**Canary that uses AWS KMS to encrypt canary artifacts but does not need
+Amazon VPC access**
 
 JSON
 
@@ -244,9 +249,11 @@ JSON
 
 ```
 
-**Canary that uses AWS KMS to encrypt canary artifacts and also needs Amazon VPC access**
+**Canary that uses AWS KMS to encrypt canary artifacts and also needs
+Amazon VPC access**
 
-If you update a non-VPC canary to start using a VPC, you'll need to update the canary's role to include the
+If you update a non-VPC canary to start using a VPC, you'll need to update the canary's
+role to include the
 network interface permissions listed in the following policy.
 
 JSON

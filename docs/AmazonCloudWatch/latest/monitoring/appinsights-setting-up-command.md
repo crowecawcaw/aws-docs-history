@@ -626,12 +626,12 @@ aws application-insights create-application ‐-region `<REGION>` ‐-resource-g
 
 2. The error log is enabled by default. The slow query log can be
    enabled using data parameter groups. For more information, see
-   [Accessing the MySQL Slow Query and General Logs](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md#USER_LogAccess.MySQL.Generallog "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md#USER_LogAccess.MySQL.Generallog").
+   [Accessing the MySQL Slow Query and General Logs](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.md#USER_LogAccess.MySQL.Generallog "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.md#USER_LogAccess.MySQL.Generallog").
    - `set slow_query_log = 1`
    - `set log_output = FILE`
 
 3. Export the logs to be monitored to CloudWatch logs. For more
-   information, see [Publishing MySQL Logs to CloudWatch Logs](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md#USER_LogAccess.MySQLDB.PublishtoCloudWatchLogs "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md#USER_LogAccess.MySQLDB.PublishtoCloudWatchLogs").
+   information, see [Publishing MySQL Logs to CloudWatch Logs](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.md#USER_LogAccess.MySQLDB.PublishtoCloudWatchLogs "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.md#USER_LogAccess.MySQLDB.PublishtoCloudWatchLogs").
 4. Configure the MySQL RDS component.
 
 ```
@@ -649,7 +649,7 @@ aws application-insights create-application ‐-region `<REGION>` ‐-resource-g
 
 2. The error log is enabled by default. The slow query log can be
    enabled using data parameter groups. For more information, see
-   [Accessing the MySQL Slow Query and General Logs](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md#USER_LogAccess.MySQL.Generallog "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md#USER_LogAccess.MySQL.Generallog").
+   [Accessing the MySQL Slow Query and General Logs](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.md#USER_LogAccess.MySQL.Generallog "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.md#USER_LogAccess.MySQL.Generallog").
    - `set slow_query_log = 1`
    - `set log_output = FILE`
 

@@ -2,15 +2,16 @@
 
 CloudWatch Synthetics stores canary artifacts such as screenshots, HAR files, and reports in
 your Amazon S3 bucket. By default, these artifacts are encrypted at rest using an AWS managed
-key. For more information, see [Customer keys and AWS keys](../../../kms/latest/developerguide/concepts.md#key-mgmt.html "../../../kms/latest/developerguide/concepts.md#key-mgmt.html").
+key. For more information, see [Customer keys and AWS keys](../../../kms/latest/developerguide/concepts.md#key-mgmt.html "../../../kms/latest/developerguide/concepts.md#key-mgmt.html")
+.
 
 You can choose to use a different encryption option. CloudWatch Synthetics supports the
 following:
 
 - **SSE-S3**– Server-side encryption (SSE) with an
   Amazon S3-managed key.
-- **SSE-KMS**– Server-side encryption (SSE) with an AWS KMS
-  customer managed key.
+- **SSE-KMS**– Server-side encryption (SSE) with an
+  AWS KMS customer managed key.
   If you want to use the default encryption option with an AWS managed key, you don't need
   any additional permissions.
 
@@ -25,7 +26,8 @@ mode when you create or update your canary, and you also provide the Amazon Reso
 
 To use a customer managed key, you need the following settings:
 
-- The IAM role for your canary must have permission to encrypt your artifacts using your key.
+- The IAM role for your canary must have permission to encrypt your artifacts using
+  your key.
   If you are using visual monitoring, you must also give it permission to decrypt
   artifacts.
 
@@ -49,7 +51,8 @@ JSON
 
 ```
 
-- Instead of adding permissions to your IAM role, you can add your IAM role to your key
+- Instead of adding permissions to your IAM role, you can add your IAM role to your
+  key
   policy. If you use the same role for multiple canaries, you should consider this approach.
 
 ```
@@ -69,8 +72,9 @@ JSON
 
 - If you are using a cross-account KMS key, see [Allowing
   users in other accounts to use a KMS key](../../../kms/latest/developerguide/key-policy-modifying-external-accounts.md "../../../kms/latest/developerguide/key-policy-modifying-external-accounts.md").
-  **Viewing encrypted canary artifacts when using a
-  customer managed key**
+
+**Viewing encrypted canary artifacts when using a
+customer managed key**
 
 To view canary artifacts, update your customer managed key to give AWS KMS the decrypt permission to
 the user viewing the artifacts. Alternatively, add decrypt permissions to the user or
@@ -82,7 +86,8 @@ cross-account users getting Access Denied errors when they try to access Amazon 
 encrypted by a custom AWS KMS key?](https://aws.amazon.com/premiumsupport/knowledge-center/cross-account-access-denied-error-s3/ "https://aws.amazon.com/premiumsupport/knowledge-center/cross-account-access-denied-error-s3/").
 
 For more information about troubleshooting access denied issues because of a KMS key,
-see [Troubleshooting key access](../../../kms/latest/developerguide/policy-evaluation.md "../../../kms/latest/developerguide/policy-evaluation.md").
+see [Troubleshooting
+key access](../../../kms/latest/developerguide/policy-evaluation.md "../../../kms/latest/developerguide/policy-evaluation.md").
 
 ## Updating artifact location and encryption when using visual monitoring
 
@@ -90,7 +95,8 @@ To perform visual monitoring, CloudWatch Synthetics compares your screenshots wi
 screenshots acquired in the run selected as the baseline. If you update your artifact
 location or encryption option, you must do one of the following:
 
-- Ensure that your IAM role has sufficient permission for both the previous Amazon S3 location and
+- Ensure that your IAM role has sufficient permission for both the previous Amazon S3
+  location and
   the new Amazon S3 location for artifacts. Also ensure that it has permission for both the
   previous and new encryption methods and KMS keys.
 - Create a new baseline by selecting the next canary run as a new baseline. If you use

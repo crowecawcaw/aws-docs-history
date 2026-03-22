@@ -35,7 +35,7 @@ Internet Monitor also creates aggregated CloudWatch metrics for traffic to your 
 In addition, Internet Monitor publishes internet measurements to CloudWatch Logs internet every five minutes for the top 500 city-networks
 that send traffic to each monitor, to support using CloudWatch tools and other methods with your data. Optionally,
 you can choose to publish internet measurements for all monitored city-networks
-(up to the 500,000 city-networks service limit) to an Amazon S3 bucket. For more information, see [Publish internet measurements to Amazon S3 in Internet Monitor](CloudWatch-IM-get-started.md "CloudWatch-IM-get-started.md").
+(up to the 500,000 city-networks service limit) to an Amazon S3 bucket. For more information, see [Publish internet measurements to Amazon S3 in Internet Monitor](CloudWatch-IM-get-started.Publish-to-S3.md "CloudWatch-IM-get-started.Publish-to-S3.md").
 
 The benefits of Internet Monitor include the following:
 
@@ -98,7 +98,7 @@ application's city-network pairs across your application reaches or drops below 
 Internet Monitor triggers a health event. By default, the threshold is 95% for both overall performance and availability. Internet Monitor also creates
 health events based on local thresholds—if the option is enabled, as it is by default—based on values that you configure.
 To learn more about configuring health event thresholds, see [Change health event
-thresholds](CloudWatch-IM-get-started.md#IMUpdateThresholdFromOverview "CloudWatch-IM-get-started.md#IMUpdateThresholdFromOverview").
+thresholds](CloudWatch-IM-get-started.change-threshold.md#IMUpdateThresholdFromOverview "CloudWatch-IM-get-started.change-threshold.md#IMUpdateThresholdFromOverview").
 
 When you explore information
 in the monitor and log files to investigate issues and learn more, you can filter by specific cities (locations), networks (ASNs or internet
@@ -183,7 +183,7 @@ You can configure options for local thresholds, or turn off local thresholds alt
 
 The default health event threshold, for both performance scores and availability scores, is 95%. If you like,
 you can specify your own custom thresholds for when Internet Monitor creates health events. For more information about configuring
-thresholds, see [Change health event thresholds](CloudWatch-IM-get-started.md#IMUpdateThresholdFromOverview "CloudWatch-IM-get-started.md#IMUpdateThresholdFromOverview").
+thresholds, see [Change health event thresholds](CloudWatch-IM-get-started.change-threshold.md#IMUpdateThresholdFromOverview "CloudWatch-IM-get-started.change-threshold.md#IMUpdateThresholdFromOverview").
 
 **Health event report timing**
 Internet Monitor uses an aggregator to gather all signals about internet issues, to create health events in monitors within minutes.

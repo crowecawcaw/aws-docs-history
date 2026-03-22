@@ -27,7 +27,8 @@ const browser = await synthetics.launch();
 **Arguments**
 
 `options`
-[options](https://playwright.dev/docs/api/class-browsertype#browser-type-launch "https://playwright.dev/docs/api/class-browsertype#browser-type-launch") (optional) is a configurable set of options for the browser.
+[options](https://playwright.dev/docs/api/class-browsertype#browser-type-launch "https://playwright.dev/docs/api/class-browsertype#browser-type-launch")
+(optional) is a configurable set of options for the browser.
 
 **Returns**
 
@@ -50,10 +51,9 @@ const browser = await synthetics.launch({
 }});
 ```
 
-You can also add or override Chromium flags passed on by default to the
-browser. For example, you can disable web security by adding a
-`--disable-web-security` flag to arguments in the CloudWatch Synthetics launch
-parameters:
+You can also add or override Chromium flags passed on by default to the browser.
+For example, you can disable web security by adding a `--disable-web-security`
+flag to arguments in the CloudWatch Synthetics launch parameters:
 
 ```
 // This function adds the --disable-web-security flag to the launch parameters
@@ -148,20 +148,19 @@ browser.
 The `executeStep` function is used to execute a step in a Synthetics
 script. In CloudWatch Synthetics, a Synthetics step is a way to break down your canary script
 into a series of clearly defined actions, allowing you to monitor different parts of
-your application journey separately. For each step, CloudWatch Synthetics does the
-following:
+your application journey separately. For each step, CloudWatch Synthetics does the following:
 
-- Automatically captures a screenshot before step starts and after a step is complete. You can
-  also capture screenshots inside a step. Screenshots are captured by default, but can
-  be turned off by using Synthetics configurations `(Todo:
+- Automatically captures a screenshot before step starts and after a step is
+  complete. You can also capture screenshots inside a step. Screenshots are captured
+  by default, but can be turned off by using Synthetics configurations `(Todo:
 Link)`.
-- A report, including a summary, of step execution details like the duration of a step,
-  `pass` or `fail` status, source and destination page URLs,
-  associated screenshots, etc. is created for each canary run. When you choose a run
-  in the CloudWatch Synthetics console, you can view execution details of each step on the
-  **Step** tab.
-- `SuccessPercent` and `Duration` CloudWatch metrics are emitted for each step,
-  enabling users to monitor availability and latency of each step.
+- A report, including a summary, of step execution details like the duration of a
+  step, `pass` or `fail` status, source and destination page
+  URLs, associated screenshots, etc. is created for each canary run. When you choose a
+  run in the CloudWatch Synthetics console, you can view execution details of each step on
+  the **Step** tab.
+- `SuccessPercent` and `Duration` CloudWatch metrics are emitted
+  for each step, enabling users to monitor availability and latency of each step.
 
 **Usage**
 
@@ -173,24 +172,25 @@ await synthetics.executeStep("mystepname", async function () {
 
 ###### Note
 
-Steps should run sequentially. Be sure to use `await` on
-promises.
+Steps should run sequentially. Be sure to use `await` on promises.
 
 **Arguments**
 
-- `stepName` string (required) (boolean)— Name of the Synthetics step.
-- `functionToExecute` async function (required)— The function that you want
-  Synthetics to run. This function should contain the logic for the step.
-- `stepConfig` object (optional)— Step configuration overrides the global
-  Synthetics configuration for this step.
-  - `continueOnStepFailure` boolean (optional) —
-    Whether to continue running the canary script after this step fails.
-  - `screenshotOnStepStart` boolean (optional) —
-    Whether to take a screenshot at the start of this step.
-  - `screenshotOnStepSuccess` boolean (optional) —
-    Whether to take a screenshot if this step succeeds.
-  - `screenshotOnStepFailure` boolean (optional) —
-    Whether to take a screenshot if this step fails.
+- `stepName` string (required) (boolean)— Name of the Synthetics
+  step.
+- `functionToExecute` async function (required)— The function
+  that you want Synthetics to run. This function should contain the logic for the
+  step.
+- `stepConfig` object (optional)— Step configuration overrides
+  the global Synthetics configuration for this step.
+  - `continueOnStepFailure` boolean (optional) — Whether to
+    continue running the canary script after this step fails.
+  - `screenshotOnStepStart` boolean (optional) — Whether to
+    take a screenshot at the start of this step.
+  - `screenshotOnStepSuccess` boolean (optional) — Whether to
+    take a screenshot if this step succeeds.
+  - `screenshotOnStepFailure` boolean (optional) — Whether to
+    take a screenshot if this step fails.
 
 - `page` — Playwright page object (optional)
 
@@ -201,5 +201,4 @@ like screenshots and URLs.
 
 **Returns**
 
-Returns a Promise that resolves with the value returned by the
-`functionToExecute` function. For an example script, see [Sample code for canary scripts](CloudWatch_Synthetics_Canaries_Samples.md "CloudWatch_Synthetics_Canaries_Samples.md") in this guide.
+Returns a Promise that resolves with the value returned by the `functionToExecute` function. For an example script, see [Sample code for canary scripts](CloudWatch_Synthetics_Canaries_Samples.md "CloudWatch_Synthetics_Canaries_Samples.md") in this guide.

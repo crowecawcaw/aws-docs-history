@@ -46,7 +46,7 @@ When you switch to the **DB Load** view, you can see the overall health of the f
 
 You can see the thresholds for DB Load by choosing the corresponding state icons.
 
-For information about DB Load for Amazon RDS, see [Database load](../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.md "../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.md") in the _Amazon RDS User Guide_. For information about DB Load for Amazon Aurora, see [Database load](../../../AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.Overview.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.Overview.md") in the _Amazon Aurora User Guide_.
+For information about DB Load for Amazon RDS, see [Database load](../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.ActiveSessions.md "../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.ActiveSessions.md") in the _Amazon RDS User Guide_. For information about DB Load for Amazon Aurora, see [Database load](../../../AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.Overview.ActiveSessions.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.Overview.ActiveSessions.md") in the _Amazon Aurora User Guide_.
 
 By default, CloudWatch displays the average DB Load. Choose **Max** to monitor the maximum DB Load for each instance.
 
@@ -83,8 +83,8 @@ To view the **Events** table, choose **Details**.
 
 For a list of events for Amazon RDS and Amazon Aurora, see the following topics.
 
-- [Amazon RDS event categories and event messages for Aurora](../../../AmazonRDS/latest/AuroraUserGuide/USER_Events.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_Events.md") in the _Amazon Aurora User Guide_
-- [Amazon RDS event categories and event messages](../../../AmazonRDS/latest/UserGuide/USER_Events.md "../../../AmazonRDS/latest/UserGuide/USER_Events.md") in the _Amazon RDS User Guide_
+- [Amazon RDS event categories and event messages for Aurora](../../../AmazonRDS/latest/AuroraUserGuide/USER_Events.Messages.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_Events.Messages.md") in the _Amazon Aurora User Guide_
+- [Amazon RDS event categories and event messages](../../../AmazonRDS/latest/UserGuide/USER_Events.Messages.md "../../../AmazonRDS/latest/UserGuide/USER_Events.Messages.md") in the _Amazon RDS User Guide_
 
 ## Calling services table
 

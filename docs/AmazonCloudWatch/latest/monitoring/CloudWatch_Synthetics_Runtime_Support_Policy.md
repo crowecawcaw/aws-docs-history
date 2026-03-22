@@ -6,17 +6,22 @@ Synthetics runtime version is deprecated.
 
 You can't create canaries using deprecated runtime versions. Canaries that use
 deprecated runtimes continue to run. You can stop, start, and delete these canaries. You
-can update an existing canary that uses a deprecated runtime version by updating the canary
+can update an existing canary that uses a deprecated runtime version by updating the
+canary
 to use a supported runtime version.
 
-CloudWatch Synthetics notifies you by email if you have canaries that use runtimes that are scheduled to
-be deprecated in the next 60 days. We recommend that you migrate your canaries to a supported runtime
-version to benefit from the new functionality, security, and performance enhancements that are included in
+CloudWatch Synthetics notifies you by email if you have canaries that use runtimes that are
+scheduled to
+be deprecated in the next 60 days. We recommend that you migrate your canaries to a
+supported runtime
+version to benefit from the new functionality, security, and performance enhancements that
+are included in
 more recent releases.
 
 ## CloudWatch Synthetics runtime deprecation dates
 
-The following table lists the date of deprecation of each deprecated CloudWatch Synthetics runtime.
+The following table lists the date of deprecation of each deprecated CloudWatch Synthetics
+runtime.
 
 | Runtime Version            | Deprecation date  |
 | -------------------------- | ----------------- |
