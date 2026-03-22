@@ -86,7 +86,7 @@ access** setting.
 ![Public access options for RDS cluster: Yes with public IP, No for VPC-only access.](images/public-access.png)
 
 For more information, see [Settings for DB
-instances](../UserGuide/USER_ModifyInstance.md "../UserGuide/USER_ModifyInstance.md") in the _Amazon RDS User Guide_.
+instances](../UserGuide/USER_ModifyInstance.Settings.md "../UserGuide/USER_ModifyInstance.Settings.md") in the _Amazon RDS User Guide_.
 
 ## Next steps
 

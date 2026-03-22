@@ -40,7 +40,7 @@ Consider the following when you configure a retention period:
 - RDS stores backups in Amazon S3, and AWS calculates the storage cost separately from
   your DB instance usage.
 
-For more information, see [Retaining automated backups](../UserGuide/USER_WorkingWithAutomatedBackups.md "../UserGuide/USER_WorkingWithAutomatedBackups.md") in the _Amazon RDS User Guide_.
+For more information, see [Retaining automated backups](../UserGuide/USER_WorkingWithAutomatedBackups.Retaining.md "../UserGuide/USER_WorkingWithAutomatedBackups.Retaining.md") in the _Amazon RDS User Guide_.
 
 ### Point-in-time recovery
 

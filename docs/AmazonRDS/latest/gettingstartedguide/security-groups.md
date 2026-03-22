@@ -51,7 +51,7 @@ group.
    **Connectivity** section.
 
 For more information, see [Controlling access with
-security groups](../UserGuide/Overview.md "../UserGuide/Overview.md") in the _Amazon RDS User Guide_.
+security groups](../UserGuide/Overview.RDSSecurityGroups.md "../UserGuide/Overview.RDSSecurityGroups.md") in the _Amazon RDS User Guide_.
 
 ## Next steps
 

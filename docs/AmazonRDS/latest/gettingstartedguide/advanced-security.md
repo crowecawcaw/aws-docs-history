@@ -46,7 +46,7 @@ The following are the main ways to connect to a DB instance:
   (SSL/TLS) for encrypted communication.
 
 For detailed networking scenarios and configurations, see [Scenarios for accessing a DB
-instance in a VPC](../UserGuide/USER_VPC.md "../UserGuide/USER_VPC.md") in the _Amazon RDS User Guide_.
+instance in a VPC](../UserGuide/USER_VPC.Scenarios.md "../UserGuide/USER_VPC.Scenarios.md") in the _Amazon RDS User Guide_.
 
 ## Enabling SSL/TLS encryption for data in transit
 
@@ -64,7 +64,7 @@ encrypt these interactions and maintain data integrity and confidentiality.
 ###### To enable encryption in transit
 
 1. Obtain the required certificates by downloading the Amazon RDS SSL/TLS certificates. See
-   [Certificate bundles by AWS Region](../UserGuide/UsingWithRDS.md#UsingWithRDS.SSL.CertificatesAllRegions "../UserGuide/UsingWithRDS.md#UsingWithRDS.SSL.CertificatesAllRegions") in the _Amazon RDS User
+   [Certificate bundles by AWS Region](../UserGuide/UsingWithRDS.SSL.md#UsingWithRDS.SSL.CertificatesAllRegions "../UserGuide/UsingWithRDS.SSL.md#UsingWithRDS.SSL.CertificatesAllRegions") in the _Amazon RDS User
    Guide_.
 2. Adjust your database connection settings to include the certificate and enable
    SSL/TLS. This might involve specifying parameters in the connection string, such as
@@ -82,7 +82,7 @@ encrypt these interactions and maintain data integrity and confidentiality.
   order to avoid service disruptions.
 
 For implementation details, see to the [Using SSL/TLS to encrypt a
-connection to a DB instance or cluster](../UserGuide/UsingWithRDS.md "../UserGuide/UsingWithRDS.md") in the _Amazon RDS User
+connection to a DB instance or cluster](../UserGuide/UsingWithRDS.SSL.md "../UserGuide/UsingWithRDS.SSL.md") in the _Amazon RDS User
 Guide_.
 
 ## Encryption at rest with customer managed keys
@@ -120,4 +120,4 @@ migrate your data.
   disable encryption at rest after you enable it.
 
 For more detailed guidance on setting up encryption at rest with AWS KMS, see [Encrypting
-Amazon RDS resources](../UserGuide/Overview.md "../UserGuide/Overview.md") in the _Amazon RDS User Guide_.
+Amazon RDS resources](../UserGuide/Overview.Encryption.md "../UserGuide/Overview.Encryption.md") in the _Amazon RDS User Guide_.

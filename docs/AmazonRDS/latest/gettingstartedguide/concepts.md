@@ -26,7 +26,7 @@ database. It includes compute (CPU and memory), storage, and IOPS, all managed b
 You're responsible for your database software and configurations, while AWS handles
 hardware provisioning, maintenance, and backups.
 
-For more information, see [Amazon RDS DB instances](../UserGuide/Overview.md "../UserGuide/Overview.md").
+For more information, see [Amazon RDS DB instances](../UserGuide/Overview.DBInstance.md "../UserGuide/Overview.DBInstance.md").
 
 **Multi-Availability Zone deployments**
 
@@ -36,7 +36,7 @@ another AZ. In the event of failure, RDS automatically switches to the standby i
 which ensures minimal downtime.
 
 For more information, see [Configuring and managing a Multi-AZ
-deployment for Amazon RDS](../UserGuide/Concepts.md "../UserGuide/Concepts.md").
+deployment for Amazon RDS](../UserGuide/Concepts.MultiAZ.md "../UserGuide/Concepts.MultiAZ.md").
 
 **Storage**
 
@@ -75,7 +75,7 @@ RDS supports both vertical and horizontal scaling. To scale vertically, modify y
 instance type to handle increased database load. To scale horizontally, create read replicas
 to distribute read traffic across multiple instances and improve performance.
 
-For more information, see [Working with storage for Amazon RDS DB instances](../UserGuide/USER_PIOPS.md "../UserGuide/USER_PIOPS.md").
+For more information, see [Working with storage for Amazon RDS DB instances](../UserGuide/USER_PIOPS.StorageTypes.md "../UserGuide/USER_PIOPS.StorageTypes.md").
 
 **Security**
 
@@ -138,7 +138,7 @@ RDS manages software patching automatically within a specified maintenance windo
 ensures that your DB instances stay up-to-date with the latest security patches and feature
 improvements without requiring manual intervention.
 
-For more information, see [Maintaining a DB instance](../UserGuide/USER_UpgradeDBInstance.md "../UserGuide/USER_UpgradeDBInstance.md").
+For more information, see [Maintaining a DB instance](../UserGuide/USER_UpgradeDBInstance.Maintenance.md "../UserGuide/USER_UpgradeDBInstance.Maintenance.md").
 
 **Cross-Region replication**
 
@@ -147,7 +147,7 @@ AWS Region for disaster recovery, data locality, and compliance purposes. You ca
 feature to create global, low-latency applications.
 
 For more information, see [Creating a read replica in a
-different AWS Region](../UserGuide/USER_ReadRepl.md "../UserGuide/USER_ReadRepl.md").
+different AWS Region](../UserGuide/USER_ReadRepl.XRgn.md "../UserGuide/USER_ReadRepl.XRgn.md").
 
 ## Supported database engines
 

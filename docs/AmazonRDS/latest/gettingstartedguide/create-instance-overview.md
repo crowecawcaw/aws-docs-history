@@ -136,7 +136,7 @@ query volume, and application requirements.
 ![Instance configuration options for DB class selection, including standard and optimized classes.](images/instance-class.png)
 
 For detailed guidance, see [DB instance
-classes](../UserGuide/Concepts.md "../UserGuide/Concepts.md") in the _Amazon RDS User Guide_.
+classes](../UserGuide/Concepts.DBInstanceClass.md "../UserGuide/Concepts.DBInstanceClass.md") in the _Amazon RDS User Guide_.
 
 ### Public access
 
@@ -153,7 +153,7 @@ outside the VPC. This setting is critical for managing connectivity and security
 
 For more information about configuring public or private access and related network
 settings, see [Working with
-a DB instance in a VPC](../UserGuide/USER_VPC.md "../UserGuide/USER_VPC.md") in the _Amazon RDS User Guide_.
+a DB instance in a VPC](../UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.md "../UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.md") in the _Amazon RDS User Guide_.
 
 ## Next steps
 

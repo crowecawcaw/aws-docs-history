@@ -26,7 +26,7 @@ client, connections will fail.
 - Add your client IP address or a CIDR block to the inbound rules.
 
 For more information, see [Controlling access
-with security groups](../UserGuide/Overview.md "../UserGuide/Overview.md").
+with security groups](../UserGuide/Overview.RDSSecurityGroups.md "../UserGuide/Overview.RDSSecurityGroups.md").
 
 ## Incorrect database endpoint and port
 
@@ -39,7 +39,7 @@ Using the wrong endpoint or port results in failed connection attempts.
 - Check for typos in the connection string.
 
 For more information, see [Finding the connection
-information for an RDS for MySQL DB instance](../UserGuide/USER_ConnectToInstance.md "../UserGuide/USER_ConnectToInstance.md").
+information for an RDS for MySQL DB instance](../UserGuide/USER_ConnectToInstance.EndpointAndPort.md "../UserGuide/USER_ConnectToInstance.EndpointAndPort.md").
 
 ## Network ACLs blocking traffic
 
@@ -65,7 +65,7 @@ result in failed logins.
 - Confirm the username and password in your connection string.
 - Check IAM policies if you're using IAM authentication.
 
-For more information, see [IAM database authentication for MariaDB, MySQL, and PostgreSQL](../../../vpc/latest/userguide/UsingWithRDS.md "../../../vpc/latest/userguide/UsingWithRDS.md") .
+For more information, see [IAM database authentication for MariaDB, MySQL, and PostgreSQL](../../../vpc/latest/userguide/UsingWithRDS.IAMDBAuth.md "../../../vpc/latest/userguide/UsingWithRDS.IAMDBAuth.md") .
 
 ## VPC peering or network misconfigurations
 
@@ -87,5 +87,5 @@ If these steps don’t resolve your connection issues, consider enabling enhance
 or contacting Support for further assistance. Additionally, explore the troubleshooting guides
 specific to your database engine:
 
-- [Troubleshooting connections to your MySQL DB instance](../UserGuide/USER_ConnectToInstance.md "../UserGuide/USER_ConnectToInstance.md")
-- [Troubleshooting connections to your PostgreSQL DB instance](../UserGuide/USER_ConnectToPostgreSQLInstance.md "../UserGuide/USER_ConnectToPostgreSQLInstance.md")
+- [Troubleshooting connections to your MySQL DB instance](../UserGuide/USER_ConnectToInstance.Troubleshooting.md "../UserGuide/USER_ConnectToInstance.Troubleshooting.md")
+- [Troubleshooting connections to your PostgreSQL DB instance](../UserGuide/USER_ConnectToPostgreSQLInstance.Troubleshooting.md "../UserGuide/USER_ConnectToPostgreSQLInstance.Troubleshooting.md")

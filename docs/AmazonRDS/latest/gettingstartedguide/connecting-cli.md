@@ -100,7 +100,7 @@ problems.
    ```
 
    Replace `endpoint`, `port`, and `iam-user` with
-   your DB instance endpoint, port, and IAM username. For more information, see [IAM database authentication for MariaDB, MySQL, and PostgreSQL](../UserGuide/UsingWithRDS.md "../UserGuide/UsingWithRDS.md") in the
+   your DB instance endpoint, port, and IAM username. For more information, see [IAM database authentication for MariaDB, MySQL, and PostgreSQL](../UserGuide/UsingWithRDS.IAMDBAuth.md "../UserGuide/UsingWithRDS.IAMDBAuth.md") in the
    _Amazon RDS User Guide_.
 
 By combining these CLI commands, you can verify that your DB instance is accessible and

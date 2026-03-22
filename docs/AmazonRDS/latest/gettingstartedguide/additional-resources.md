@@ -23,14 +23,14 @@ configurations:
 
 - **Multi-AZ deployments**: Learn how to configure and
   maintain Multi-AZ deployments for enhanced availability. [Read
-  the guide](../UserGuide/Concepts.md "../UserGuide/Concepts.md").
+  the guide](../UserGuide/Concepts.MultiAZ.md "../UserGuide/Concepts.MultiAZ.md").
 - **Read replicas for load distribution**: Set up read
   replicas to improve performance and scale read workloads. [Learn
   more](../UserGuide/USER_ReadRepl.md "../UserGuide/USER_ReadRepl.md").
 - **Parameter groups**: Customize your database settings
   using parameter groups. [Learn about parameter groups](../UserGuide/USER_WorkingWithParamGroups.md "../UserGuide/USER_WorkingWithParamGroups.md").
 - **VPC scenarios**: Understand how to configure access
-  and security for your DB instance in a VPC. [Explore scenarios](../UserGuide/USER_VPC.md "../UserGuide/USER_VPC.md").
+  and security for your DB instance in a VPC. [Explore scenarios](../UserGuide/USER_VPC.Scenarios.md "../UserGuide/USER_VPC.Scenarios.md").
 - **Storage**: Review storage options and performance
   considerations. [Read
   the storage guide](../UserGuide/CHAP_Storage.md "../UserGuide/CHAP_Storage.md").
@@ -47,7 +47,7 @@ Apply these best practices to enhance your database management:
 - **Backup and restore best practices**: Ensure data
   durability with effective backup strategies. [Learn about backups](../UserGuide/USER_WorkingWithAutomatedBackups.md "../UserGuide/USER_WorkingWithAutomatedBackups.md").
 - **Security best practices**: Protect your database with
-  recommended security measures. [Review security best practices](../UserGuide/CHAP_BestPractices.md "../UserGuide/CHAP_BestPractices.md").
+  recommended security measures. [Review security best practices](../UserGuide/CHAP_BestPractices.Security.md "../UserGuide/CHAP_BestPractices.Security.md").
 
 ## Tutorials and videos
 

@@ -37,7 +37,7 @@ application’s tolerance for downtime.
 - Larger instance sizes often come with increased costs, so evaluate your budget
   before scaling.
 
-For comprehensive documentation, see [DB instance classes](../UserGuide/Concepts.md "../UserGuide/Concepts.md")
+For comprehensive documentation, see [DB instance classes](../UserGuide/Concepts.DBInstanceClass.md "../UserGuide/Concepts.DBInstanceClass.md")
 in the _Amazon RDS User Guide_.
 
 ## Adding read replicas for load distribution
@@ -81,5 +81,5 @@ handles data replication and failover management transparently.
 - Failover between Availability Zones might result in a brief interruption, so
   configure your applications to handle reconnections.
 
-For comprehensive documentation, see [Multi-AZ DB instance deployments for Amazon RDS](../UserGuide/Concepts.md "../UserGuide/Concepts.md") in the _Amazon RDS User
+For comprehensive documentation, see [Multi-AZ DB instance deployments for Amazon RDS](../UserGuide/Concepts.MultiAZSingleStandby.md "../UserGuide/Concepts.MultiAZSingleStandby.md") in the _Amazon RDS User
 Guide_.

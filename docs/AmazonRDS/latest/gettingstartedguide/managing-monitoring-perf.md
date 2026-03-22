@@ -78,7 +78,7 @@ performance.
 - Monitor the impact of maintenance tasks or application updates.
 
 For setup instructions, see [Monitoring OS metrics with
-Enhanced Monitoring](../UserGuide/USER_Monitoring.md "../UserGuide/USER_Monitoring.md") in the _Amazon RDS User Guide_.
+Enhanced Monitoring](../UserGuide/USER_Monitoring.OS.md "../UserGuide/USER_Monitoring.OS.md") in the _Amazon RDS User Guide_.
 
 ## Monitoring with Performance Insights
 
