@@ -50,7 +50,7 @@ Expand the section that corresponds to your use case:
 
             + **Amazon OpenSearch Serverless** – Amazon Bedrock Knowledge Bases creates an Amazon OpenSearch Serverless vector search collection and index and configures it with the required fields for you.
             + **Amazon Aurora PostgreSQL Serverless** – Amazon Bedrock sets up an Amazon Aurora PostgreSQL Serverless vector store. This process takes unstructured text data from
-             an Amazon S3 bucket, transforms it into text chunks and vectors, and then stores them in a PostgreSQL database. For more information, see [Quick create an Aurora PostgreSQL Knowledge Base for Amazon Bedrock](../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.md").
+             an Amazon S3 bucket, transforms it into text chunks and vectors, and then stores them in a PostgreSQL database. For more information, see [Quick create an Aurora PostgreSQL Knowledge Base for Amazon Bedrock](../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.quickcreatekb.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.quickcreatekb.md").
             + **Amazon Neptune Analytics** – Amazon Bedrock uses Retrieval Augmented Generation (RAG) techniques combined with graphs to enhance generative AI applications so that end users can get more accurate and comprehensive responses.
             + **Amazon S3 Vectors** – Amazon Bedrock Knowledge Bases creates an S3 vector bucket and a vector index that will store the embeddings
              generated from your data sources.

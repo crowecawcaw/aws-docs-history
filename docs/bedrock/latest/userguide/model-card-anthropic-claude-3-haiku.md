@@ -55,6 +55,7 @@ Bedrock offers three inference options: **In-Region** keeps requests within a si
 | `us-east-1` (N. Virginia)    | Yes           | Yes     | No         |
 | `us-east-2` (Ohio)           | No            | Yes     | No         |
 | `us-west-2` (Oregon)         | Yes           | Yes     | No         |
+| `us-gov-east-1` (GovCloud)   | No            | Yes     | No         |
 | `us-gov-west-1` (GovCloud)   | Yes           | No      | No         |
 | `ca-central-1` (Canada)      | Yes           | No      | No         |
 | `eu-central-1` (Frankfurt)   | Yes           | Yes     | No         |
@@ -75,11 +76,12 @@ Bedrock offers three inference options: **In-Region** keeps requests within a si
 
 Geo Inference ID: `us.anthropic.claude-3-haiku-20240307-v1:0`
 
-| **Source Region**       | **Destination Regions**                                       |
-| ----------------------- | ------------------------------------------------------------- |
-| us-east-1 (N. Virginia) | us-east-1 (N. Virginia), us-west-2 (Oregon)                   |
-| us-east-2 (Ohio)        | us-east-1 (N. Virginia), us-east-2 (Ohio), us-west-2 (Oregon) |
-| us-west-2 (Oregon)      | us-east-1 (N. Virginia), us-west-2 (Oregon)                   |
+| **Source Region**                      | **Destination Regions**                                                        |
+| -------------------------------------- | ------------------------------------------------------------------------------ |
+| us-east-1 (N. Virginia)                | us-east-1 (N. Virginia), us-west-2 (Oregon)                                    |
+| us-east-2 (Ohio)                       | us-east-1 (N. Virginia), us-east-2 (Ohio), us-west-2 (Oregon)                  |
+| us-west-2 (Oregon)                     | us-east-1 (N. Virginia), us-west-2 (Oregon)                                    |
+| us-gov-east-1 (AWS GovCloud (US-East)) | us-gov-east-1 (AWS GovCloud (US-East)), us-gov-west-1 (AWS GovCloud (US-West)) |
 
 **Geo: EU**
 
@@ -93,17 +95,7 @@ Geo Inference ID: `eu.anthropic.claude-3-haiku-20240307-v1:0`
 
 ## Quotas and Limits
 
-Your AWS account has default quotas to maintain the performance of the service and to ensure appropriate usage of Amazon Bedrock. The default quotas assigned to an account might be updated depending on regional factors, payment history, fraudulent usage, and/or approval of a quota [increase request](quotas-increase.md "quotas-increase.md"). For more details, please refer to [Quotas](quotas.md "quotas.md") documentation.
-
-| **Quota**                        | **Default value** |
-| -------------------------------- | ----------------- |
-| On-demand requests per minute    | 1,000             |
-| On-demand tokens per minute      | 2,000,000         |
-| Cross-region requests per minute | 2,000             |
-| Cross-region tokens per minute   | 4,000,000         |
-| Max tokens per day               | 2,880,000,000     |
-
-_These are default quotas shown for us-east-1. To see quotas and limits for your account, please log in to your [AWS Console](https://aws.amazon.com/console/ "https://aws.amazon.com/console/")._
+Your AWS account has default quotas to maintain the performance of the service and to ensure appropriate usage of Amazon Bedrock. The default quotas assigned to an account might be updated depending on regional factors, payment history, fraudulent usage, and/or approval of a quota [increase request](quotas-increase.md "quotas-increase.md"). For more details, please refer to [Quotas for Amazon Bedrock](quotas.md "quotas.md") documentation and see the [limits](../../../general/latest/gr/bedrock.md#limits_bedrock "../../../general/latest/gr/bedrock.md#limits_bedrock") for the model.
 
 ## Sample Code
 

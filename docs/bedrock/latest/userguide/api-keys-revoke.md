@@ -2,7 +2,7 @@
 
 If your API key becomes compromised, you should revoke permissions to use it. There are various methods that you can use to revoke permissions for an Amazon Bedrock API key:
 
-- For long-term Amazon Bedrock API keys, you can use the [UpdateServiceSpecificCredential](../../../IAM/latest/APIReference/API_UpdateServiceSpecificCredential.md "../../../IAM/latest/APIReference/API_UpdateServiceSpecificCredential.md"), [ResetServiceSpecificCredential](../../../IAM/latest/APIReference/API_ResetServiceSpecificCredential.md "../../../IAM/latest/APIReference/API_ResetServiceSpecificCredential.md"), or [DeleteServiceSpecificCredential](../../../IAM/latest/APIReference/API_DeleteServiceSpecificCredential.md "../../../IAM/latest/APIReference/API_DeleteServiceSpecificCredential.md") to revoke permissions in the following ways:
+- For long-term Amazon Bedrock API keys, you can use the [UpdateServiceSpecificCredential](../../../IAM/latest/APIReference/API_UpdateServiceSpecificCredential.html.md "../../../IAM/latest/APIReference/API_UpdateServiceSpecificCredential.html.md"), [ResetServiceSpecificCredential](../../../IAM/latest/APIReference/API_ResetServiceSpecificCredential.html.md "../../../IAM/latest/APIReference/API_ResetServiceSpecificCredential.html.md"), or [DeleteServiceSpecificCredential](../../../IAM/latest/APIReference/API_DeleteServiceSpecificCredential.html.md "../../../IAM/latest/APIReference/API_DeleteServiceSpecificCredential.html.md") to revoke permissions in the following ways:
   - Set the status of the key to inactive. You can reactivate the key later.
   - Reset the key. This action generates a new password for the key.
   - Delete the key permanently.
@@ -49,7 +49,7 @@ Console
 6. To confirm, select **Activate API key**. The **Status** of the key becomes **Active**.
 
 Python
-To deactivate a key using the API, send an [UpdateServiceSpecificCredential](../../../IAM/latest/APIReference/API_UpdateServiceSpecificCredential.md "../../../IAM/latest/APIReference/API_UpdateServiceSpecificCredential.md") request with an [IAM endpoint](../../../general/latest/gr/iam-service.md "../../../general/latest/gr/iam-service.md") and specify the `Status` as `Inactive`. You can use the following code snippet to deactivate a key, replacing `${ServiceSpecificCredentialId}` with the value returned when you created the key.
+To deactivate a key using the API, send an [UpdateServiceSpecificCredential](../../../IAM/latest/APIReference/API_UpdateServiceSpecificCredential.html.md "../../../IAM/latest/APIReference/API_UpdateServiceSpecificCredential.html.md") request with an [IAM endpoint](../../../general/latest/gr/iam-service.md "../../../general/latest/gr/iam-service.md") and specify the `Status` as `Inactive`. You can use the following code snippet to deactivate a key, replacing `${ServiceSpecificCredentialId}` with the value returned when you created the key.
 
 ```
 import boto3
@@ -62,7 +62,7 @@ iam_client.update_service_specific_credential(
 )
 ```
 
-To reactivate a key using the API, send an [UpdateServiceSpecificCredential](../../../IAM/latest/APIReference/API_UpdateServiceSpecificCredential.md "../../../IAM/latest/APIReference/API_UpdateServiceSpecificCredential.md") request with an [IAM endpoint](../../../general/latest/gr/iam-service.md "../../../general/latest/gr/iam-service.md") and specify the `Status` as `Active`. You can use the following code snippet to reactivate a key, replacing `${ServiceSpecificCredentialId}` with the value returned when you created the key.
+To reactivate a key using the API, send an [UpdateServiceSpecificCredential](../../../IAM/latest/APIReference/API_UpdateServiceSpecificCredential.html.md "../../../IAM/latest/APIReference/API_UpdateServiceSpecificCredential.html.md") request with an [IAM endpoint](../../../general/latest/gr/iam-service.md "../../../general/latest/gr/iam-service.md") and specify the `Status` as `Active`. You can use the following code snippet to reactivate a key, replacing `${ServiceSpecificCredentialId}` with the value returned when you created the key.
 
 ```
 import boto3
@@ -94,7 +94,7 @@ Console
 6. Select **Next**.
 
 Python
-To reset a key using the API, send a [ResetServiceSpecificCredential](../../../IAM/latest/APIReference/API_ResetServiceSpecificCredential.md "../../../IAM/latest/APIReference/API_ResetServiceSpecificCredential.md") request with an [IAM endpoint](../../../general/latest/gr/iam-service.md "../../../general/latest/gr/iam-service.md"). You can use the following code snippet to reset a key, replacing `${ServiceSpecificCredentialId}` with the value returned when you created the key.
+To reset a key using the API, send a [ResetServiceSpecificCredential](../../../IAM/latest/APIReference/API_ResetServiceSpecificCredential.html.md "../../../IAM/latest/APIReference/API_ResetServiceSpecificCredential.html.md") request with an [IAM endpoint](../../../general/latest/gr/iam-service.md "../../../general/latest/gr/iam-service.md"). You can use the following code snippet to reset a key, replacing `${ServiceSpecificCredentialId}` with the value returned when you created the key.
 
 ```
 import boto3
@@ -124,8 +124,12 @@ Console
 5. Select **Delete**.
 6. Confirm the deletion.
 
+###### An API key is linked with an IAM user
+
+Deleting this API key doesn't delete the IAM user which was created with this key as the owner. You can delete the IAM user from IAM console in the next step.
+
 Python
-To delete a key using the API, send a [DeleteServiceSpecificCredential](../../../IAM/latest/APIReference/API_DeleteServiceSpecificCredential.md "../../../IAM/latest/APIReference/API_DeleteServiceSpecificCredential.md") request with an [IAM endpoint](../../../general/latest/gr/iam-service.md "../../../general/latest/gr/iam-service.md"). You can use the following code snippet to delete a key, replacing `${ServiceSpecificCredentialId}` with the value returned when you created the key.
+To delete a key using the API, send a [DeleteServiceSpecificCredential](../../../IAM/latest/APIReference/API_DeleteServiceSpecificCredential.html.md "../../../IAM/latest/APIReference/API_DeleteServiceSpecificCredential.html.md") request with an [IAM endpoint](../../../general/latest/gr/iam-service.md "../../../general/latest/gr/iam-service.md"). You can use the following code snippet to delete a key, replacing `${ServiceSpecificCredentialId}` with the value returned when you created the key.
 
 ```
 import boto3

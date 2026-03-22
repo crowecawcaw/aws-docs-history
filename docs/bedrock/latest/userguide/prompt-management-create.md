@@ -193,10 +193,10 @@ Fill in the fields as follows:
   `CHAT` is only compatible with models that support the
   [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") API. If you want to use prompt caching, you must use the `CHAT` template type.
 - templateConfiguration – The value depends on the template type that you specified:
-  - If you specified `TEXT` as the template type, the value should be a [TextPromptTemplateConfiguration](../APIReference/API_agent_TextPromptTemplateConfiguration.md "../APIReference/API_agent_TextPromptTemplateConfiguration.md") JSON object.
-  - If you specified `CHAT` as the template type, the value should be a [ChatPromptTemplateConfiguration](../APIReference/API_agent_ChatPromptTemplateConfiguration.md "../APIReference/API_agent_ChatPromptTemplateConfiguration.md") JSON object.
+  - If you specified `TEXT` as the template type, the value should be a [TextPromptTemplateConfiguration](../APIReference/API_agent_TextPromptTemplateConfiguration.html.md "../APIReference/API_agent_TextPromptTemplateConfiguration.html.md") JSON object.
+  - If you specified `CHAT` as the template type, the value should be a [ChatPromptTemplateConfiguration](../APIReference/API_agent_ChatPromptTemplateConfiguration.html.md "../APIReference/API_agent_ChatPromptTemplateConfiguration.html.md") JSON object.
 
-- inferenceConfiguration – The `text` field maps to a [PromptModelInferenceConfiguration](../APIReference/API_agent_PromptModelInferenceConfiguration.md "../APIReference/API_agent_PromptModelInferenceConfiguration.md"). This field contains inference parameters that are common to all models. To learn more about inference parameters, see [Influence response generation with inference parameters](inference-parameters.md "inference-parameters.md").
+- inferenceConfiguration – The `text` field maps to a [PromptModelInferenceConfiguration](../APIReference/API_agent_PromptModelInferenceConfiguration.html.md "../APIReference/API_agent_PromptModelInferenceConfiguration.html.md"). This field contains inference parameters that are common to all models. To learn more about inference parameters, see [Influence response generation with inference parameters](inference-parameters.md "inference-parameters.md").
 - additionalModelRequestFields – Use this field to specify inference parameters that are specific to the model that you're running inference with. To learn more about model-specific inference parameters, see [Inference request parameters and response fields for foundation models](model-parameters.md "model-parameters.md").
 - metadata – Metadata to associate with the prompt variant. You can append key-value pairs to the array to tag the prompt variant with metadata.
 

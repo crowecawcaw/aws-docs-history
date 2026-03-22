@@ -388,7 +388,7 @@ The following table summarizes where you will enter each piece of information:
 Amazon Aurora (RDS)
 
 1. Create an Amazon Aurora database (DB) cluster, schema, and table by
-   following the steps at [Using Aurora PostgreSQL as a knowledge base](../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.md"). When you create
+   following the steps at [Using Aurora PostgreSQL as a knowledge base](../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.VectorDB.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.VectorDB.md"). When you create
    the table, configure it with the following columns and data types. You
    can use column names of your liking instead of the ones listed in the
    following table. Take note of the column names you choose so that you

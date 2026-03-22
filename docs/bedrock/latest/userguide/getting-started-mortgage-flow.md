@@ -30,7 +30,7 @@ You'll be billed for the Amazon resources that you create until you delete them.
 
 Then, complete the following prerequisites:
 
-1. Download the [cloudformation-mortgage-flow-setup.zip](samples/cloudformation-mortgage-flow-setup.md "samples/cloudformation-mortgage-flow-setup.md") file.
+1. Download the [cloudformation-mortgage-flow-setup.zip](samples/cloudformation-mortgage-flow-setup.zip.md "samples/cloudformation-mortgage-flow-setup.zip.md") file.
 2. Unzip the file. You can learn more about the contents at [CloudFormation templates](getting-started-mortgage-flow-template.md "getting-started-mortgage-flow-template.md").
 3. Request access to Amazon Bedrock foundation models by doing the following:
    1. Sign in to the AWS Management Console with an IAM identity that has permissions to use the Amazon Bedrock console. Then, open the Amazon Bedrock console at

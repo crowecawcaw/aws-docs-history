@@ -4,7 +4,7 @@
 
 ## Model Details
 
-Nova 2 Lite is Amazon's cost-efficient multimodal model for simple automation, document processing, and customer support across text, images, and video. For more information about model development and performance, see the [model/service card](../../../pdfs/ai/responsible-ai/nova-2-lite/nova-2-lite.md "../../../pdfs/ai/responsible-ai/nova-2-lite/nova-2-lite.md").
+Nova 2 Lite is Amazon's cost-efficient multimodal model for simple automation, document processing, and customer support across text, images, and video. For more information about model development and performance, see the [model/service card](../../../pdfs/ai/responsible-ai/nova-2-lite/nova-2-lite.pdf.md "../../../pdfs/ai/responsible-ai/nova-2-lite/nova-2-lite.pdf.md").
 
 - **Model launch date:** Dec 02, 2025
 - **Model EOL date:** N/A
@@ -60,33 +60,34 @@ Amazon Bedrock offers multiple service tiers to match your workload requirements
 
 Bedrock offers three inference options: **In-Region** keeps requests within a single Region for strict compliance, **Geo Cross-Region** routes across Regions within a geography (US, EU, etc.) for higher throughput while respecting data residency, and **Global Cross-Region** routes anywhere worldwide for maximum throughput when there are no residency constraints. Refer to the [Regional availability](models-region-compatibility.md "models-region-compatibility.md") page for more details.
 
-| **Region**                      | **In-Region** | **Geo** | **Global** |
-| ------------------------------- | ------------- | ------- | ---------- |
-| `us-east-1` (N. Virginia)       | No            | Yes     | Yes        |
-| `us-east-2` (Ohio)              | No            | Yes     | Yes        |
-| `us-west-1` (N. California)     | No            | Yes     | Yes        |
-| `us-west-2` (Oregon)            | No            | Yes     | Yes        |
-| `ca-central-1` (Canada)         | No            | Yes     | Yes        |
-| `ca-west-1` (Calgary)           | No            | Yes     | Yes        |
-| `eu-central-1` (Frankfurt)      | No            | Yes     | Yes        |
-| `eu-north-1` (Stockholm)        | No            | Yes     | Yes        |
-| `eu-south-1` (Milan)            | No            | Yes     | Yes        |
-| `eu-south-2` (Spain)            | No            | Yes     | Yes        |
-| `eu-west-1` (Ireland)           | No            | Yes     | Yes        |
-| `eu-west-2` (London)            | No            | No      | Yes        |
-| `eu-west-3` (Paris)             | No            | Yes     | Yes        |
-| `ap-east-2` (Malaysia)          | No            | No      | Yes        |
-| `ap-northeast-1` (Tokyo)        | No            | No      | Yes        |
-| `ap-northeast-2` (Seoul)        | No            | No      | Yes        |
-| `ap-south-1` (Mumbai)           | No            | No      | Yes        |
-| `ap-southeast-1` (Singapore)    | No            | No      | Yes        |
-| `ap-southeast-2` (Sydney)       | No            | No      | Yes        |
-| `ap-southeast-3` (Jakarta)      | No            | No      | Yes        |
-| `ap-southeast-4` (Melbourne)    | No            | No      | Yes        |
-| `ap-southeast-5` (Auckland)     | No            | No      | Yes        |
-| `ap-southeast-7` (Kuala Lumpur) | No            | No      | Yes        |
-| `il-central-1` (Tel Aviv)       | No            | No      | Yes        |
-| `me-central-1` (UAE)            | No            | No      | Yes        |
+| **Region**                     | **In-Region** | **Geo** | **Global** |
+| ------------------------------ | ------------- | ------- | ---------- |
+| `us-east-1` (N. Virginia)      | No            | Yes     | Yes        |
+| `us-east-2` (Ohio)             | No            | Yes     | Yes        |
+| `us-west-1` (N. California)    | No            | Yes     | Yes        |
+| `us-west-2` (Oregon)           | No            | Yes     | Yes        |
+| `ca-central-1` (Canada)        | No            | Yes     | Yes        |
+| `ca-west-1` (Calgary)          | No            | Yes     | Yes        |
+| `eu-central-1` (Frankfurt)     | No            | Yes     | Yes        |
+| `eu-north-1` (Stockholm)       | No            | Yes     | Yes        |
+| `eu-south-1` (Milan)           | No            | Yes     | Yes        |
+| `eu-south-2` (Spain)           | No            | Yes     | Yes        |
+| `eu-west-1` (Ireland)          | No            | Yes     | Yes        |
+| `eu-west-2` (London)           | No            | No      | Yes        |
+| `eu-west-3` (Paris)            | No            | Yes     | Yes        |
+| `ap-east-2` (Taipei)           | No            | No      | Yes        |
+| `ap-northeast-1` (Tokyo)       | No            | No      | Yes        |
+| `ap-northeast-2` (Seoul)       | No            | No      | Yes        |
+| `ap-south-1` (Mumbai)          | No            | No      | Yes        |
+| `ap-southeast-1` (Singapore)   | No            | No      | Yes        |
+| `ap-southeast-2` (Sydney)      | No            | No      | Yes        |
+| `ap-southeast-3` (Jakarta)     | No            | No      | Yes        |
+| `ap-southeast-4` (Melbourne)   | No            | No      | Yes        |
+| `ap-southeast-5` (Malaysia)    | No            | No      | Yes        |
+| `ap-southeast-6` (New Zealand) | No            | No      | Yes        |
+| `ap-southeast-7` (Thailand)    | No            | No      | Yes        |
+| `il-central-1` (Tel Aviv)      | No            | No      | Yes        |
+| `me-central-1` (UAE)           | No            | No      | Yes        |
 
 **Geo inference details**
 
@@ -118,21 +119,13 @@ Geo Inference ID: `eu.amazon.nova-2-lite-v1:0`
 
 **Global inference details**
 
-| **Global Inference ID**        | **Americas**                                                                                                                                               | **EMEA**                                                                                                                                                                                                                            | **Asia Pacific**                                                                                                                                                                                                                                                                                     |
-| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| global.amazon.nova-2-lite-v1:0 | • us-east-1 (N. Virginia)<br>• us-east-2 (Ohio)<br>• us-west-1 (N. California)<br>• us-west-2 (Oregon)<br>• ca-central-1 (Canada)<br>• ca-west-1 (Calgary) | • eu-central-1 (Frankfurt)<br>• eu-north-1 (Stockholm)<br>• eu-south-1 (Milan)<br>• eu-south-2 (Spain)<br>• eu-west-1 (Ireland)<br>• eu-west-2 (London)<br>• eu-west-3 (Paris)<br>• il-central-1 (Tel Aviv)<br>• me-central-1 (UAE) | • ap-east-2 (Malaysia)<br>• ap-northeast-1 (Tokyo)<br>• ap-northeast-2 (Seoul)<br>• ap-south-1 (Mumbai)<br>• ap-southeast-1 (Singapore)<br>• ap-southeast-2 (Sydney)<br>• ap-southeast-3 (Jakarta)<br>• ap-southeast-4 (Melbourne)<br>• ap-southeast-5 (Auckland)<br>• ap-southeast-7 (Kuala Lumpur) |
+| **Global Inference ID**        | **Americas**                                                                                                                                               | **EMEA**                                                                                                                                                                                                                            | **Asia Pacific**                                                                                                                                                                                                                                                                                                                 |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| global.amazon.nova-2-lite-v1:0 | • us-east-1 (N. Virginia)<br>• us-east-2 (Ohio)<br>• us-west-1 (N. California)<br>• us-west-2 (Oregon)<br>• ca-central-1 (Canada)<br>• ca-west-1 (Calgary) | • eu-central-1 (Frankfurt)<br>• eu-north-1 (Stockholm)<br>• eu-south-1 (Milan)<br>• eu-south-2 (Spain)<br>• eu-west-1 (Ireland)<br>• eu-west-2 (London)<br>• eu-west-3 (Paris)<br>• il-central-1 (Tel Aviv)<br>• me-central-1 (UAE) | • ap-east-2 (Taipei)<br>• ap-northeast-1 (Tokyo)<br>• ap-northeast-2 (Seoul)<br>• ap-south-1 (Mumbai)<br>• ap-southeast-1 (Singapore)<br>• ap-southeast-2 (Sydney)<br>• ap-southeast-3 (Jakarta)<br>• ap-southeast-4 (Melbourne)<br>• ap-southeast-5 (Malaysia)<br>• ap-southeast-6 (New Zealand)<br>• ap-southeast-7 (Thailand) |
 
 ## Quotas and Limits
 
-Your AWS account has default quotas to maintain the performance of the service and to ensure appropriate usage of Amazon Bedrock. The default quotas assigned to an account might be updated depending on regional factors, payment history, fraudulent usage, and/or approval of a quota [increase request](quotas-increase.md "quotas-increase.md"). For more details, please refer to [Quotas](quotas.md "quotas.md") documentation.
-
-| **Quota**                        | **Default value** |
-| -------------------------------- | ----------------- |
-| Cross-region requests per minute | 2,000             |
-| Cross-region tokens per minute   | 8,000,000         |
-| Max tokens per day               | 5,760,000,000     |
-
-_These are default quotas shown for us-east-1. To see quotas and limits for your account, please log in to your [AWS Console](https://aws.amazon.com/console/ "https://aws.amazon.com/console/")._
+Your AWS account has default quotas to maintain the performance of the service and to ensure appropriate usage of Amazon Bedrock. The default quotas assigned to an account might be updated depending on regional factors, payment history, fraudulent usage, and/or approval of a quota [increase request](quotas-increase.md "quotas-increase.md"). For more details, please refer to [Quotas for Amazon Bedrock](quotas.md "quotas.md") documentation and see the [limits](../../../general/latest/gr/bedrock.md#limits_bedrock "../../../general/latest/gr/bedrock.md#limits_bedrock") for the model.
 
 ## Sample Code
 

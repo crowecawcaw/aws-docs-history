@@ -17,8 +17,8 @@ Pixtral Large is Mistral AI's 124-billion parameter multimodal model that proces
 | -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |
 | No Audio             | No Embedding          | No `Responses`                          | Yes `bedrock-runtime`                                  |
 | Yes Image            | No Image              | No `Chat Completions`                   | No `bedrock-mantle`                                    |
-| No Speech            | No Speech             | No `Invoke`                             |                                                        |
-| Yes Text             | Yes Text              | No `Converse`                           |                                                        |
+| No Speech            | No Speech             | Yes `Invoke`                            |                                                        |
+| Yes Text             | Yes Text              | Yes `Converse`                          |                                                        |
 | No Video             | No Video              |                                         |                                                        |
 
 ## Pricing
@@ -84,15 +84,7 @@ Geo Inference ID: `eu.mistral.pixtral-large-2502-v1:0`
 
 ## Quotas and Limits
 
-Your AWS account has default quotas to maintain the performance of the service and to ensure appropriate usage of Amazon Bedrock. The default quotas assigned to an account might be updated depending on regional factors, payment history, fraudulent usage, and/or approval of a quota [increase request](quotas-increase.md "quotas-increase.md"). For more details, please refer to [Quotas](quotas.md "quotas.md") documentation.
-
-| **Quota**                        | **Default value** |
-| -------------------------------- | ----------------- |
-| Cross-region requests per minute | 10                |
-| Cross-region tokens per minute   | 80,000            |
-| Max tokens per day               | 57,600,000        |
-
-_These are default quotas shown for us-east-1. To see quotas and limits for your account, please log in to your [AWS Console](https://aws.amazon.com/console/ "https://aws.amazon.com/console/")._
+Your AWS account has default quotas to maintain the performance of the service and to ensure appropriate usage of Amazon Bedrock. The default quotas assigned to an account might be updated depending on regional factors, payment history, fraudulent usage, and/or approval of a quota [increase request](quotas-increase.md "quotas-increase.md"). For more details, please refer to [Quotas for Amazon Bedrock](quotas.md "quotas.md") documentation and see the [limits](../../../general/latest/gr/bedrock.md#limits_bedrock "../../../general/latest/gr/bedrock.md#limits_bedrock") for the model.
 
 ## Sample Code
 
@@ -113,3 +105,38 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 ```
 
 **Step 5 - Run your first inference request:** Save the file as `bedrock-first-request.py`
+
+Invoke API
+
+```
+import json
+import boto3
+
+client = boto3.client('bedrock-runtime', region_name='us-east-1')
+response = client.invoke_model(
+    modelId='mistral.pixtral-large-2502-v1:0',
+    body=json.dumps({
+            'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
+            'max_tokens': 1024
+    })
+ )
+ print(json.loads(response['body'].read()))
+```
+
+Converse API
+
+```
+import boto3
+
+client = boto3.client('bedrock-runtime', region_name='us-east-1')
+response = client.converse(
+    modelId='mistral.pixtral-large-2502-v1:0',
+    messages=[
+        {
+            'role': 'user',
+            'content': [{'text': 'Can you explain the features of Amazon Bedrock?'}]
+        }
+    ]
+)
+print(response)
+```

@@ -189,3 +189,15 @@ If you experience frequent 503 errors or if they significantly impact your opera
 - We suggest implementing a periodic synchronization process to update your local resource catalog.
 
 If you continue to experience issues after trying these solutions, contact [AWS Support](https://aws.amazon.com/support "https://aws.amazon.com/support")for further assistance and guidance tailored to your specific use case.
+
+## Connection timeout or reset when calling Amazon Bedrock APIs
+
+**Symptom:** API calls fail with connection resets or timeouts, especially for long-running requests such as streaming or extended inference, when traffic goes through NAT Gateways, VPC endpoints, or Network Load Balancers.
+
+**Cause:** NAT Gateways, interface VPC endpoints, and Network Load Balancers have a fixed idle connection timeout of 350 seconds. If a TCP connection remains idle longer than this period, the connection is dropped. The client receives a TCP RST packet or the request times out.
+
+**Solution:**
+
+Enable TCP keep-alive to send periodic probes that prevent the connection from going idle. For more information, see [Implementing long-running TCP Connections within VPC networking](https://aws.amazon.com/blogs/networking-and-content-delivery/implementing-long-running-tcp-connections-within-vpc-networking/ "https://aws.amazon.com/blogs/networking-and-content-delivery/implementing-long-running-tcp-connections-within-vpc-networking/") in the AWS Networking & Content Delivery Blog.
+
+If you continue to experience connection issues after enabling TCP keep-alive, contact [AWS Support](https://aws.amazon.com/support "https://aws.amazon.com/support") for further assistance.

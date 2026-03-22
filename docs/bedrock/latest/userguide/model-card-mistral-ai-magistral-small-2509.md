@@ -17,9 +17,9 @@ Magistral Small 2509 is Mistral AI's reasoning model that uses chain-of-thought 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.md "apis.md")** | **[Endpoints supported](endpoints.md "endpoints.md")** |
 | -------------------- | --------------------- | --------------------------------------- | ------------------------------------------------------ |
 | No Audio             | No Embedding          | No `Responses`                          | Yes `bedrock-runtime`                                  |
-| Yes Image            | No Image              | No `Chat Completions`                   | Yes `bedrock-mantle`                                   |
-| No Speech            | No Speech             | No `Invoke`                             |                                                        |
-| Yes Text             | Yes Text              | No `Converse`                           |                                                        |
+| Yes Image            | No Image              | Yes `Chat Completions`                  | Yes `bedrock-mantle`                                   |
+| No Speech            | No Speech             | Yes `Invoke`                            |                                                        |
+| Yes Text             | Yes Text              | Yes `Converse`                          |                                                        |
 | No Video             | No Video              |                                         |                                                        |
 
 ###### Note
@@ -86,15 +86,7 @@ Bedrock offers three inference options: **In-Region** keeps requests within a si
 
 ## Quotas and Limits
 
-Your AWS account has default quotas to maintain the performance of the service and to ensure appropriate usage of Amazon Bedrock. The default quotas assigned to an account might be updated depending on regional factors, payment history, fraudulent usage, and/or approval of a quota [increase request](quotas-increase.md "quotas-increase.md"). For more details, please refer to [Quotas](quotas.md "quotas.md") documentation.
-
-| **Quota**                     | **Default value** |
-| ----------------------------- | ----------------- |
-| On-demand requests per minute | 10,000            |
-| On-demand tokens per minute   | 100,000,000       |
-| Max tokens per day            | 144,000,000,000   |
-
-_These are default quotas shown for us-east-1. To see quotas and limits for your account, please log in to your [AWS Console](https://aws.amazon.com/console/ "https://aws.amazon.com/console/")._
+Your AWS account has default quotas to maintain the performance of the service and to ensure appropriate usage of Amazon Bedrock. The default quotas assigned to an account might be updated depending on regional factors, payment history, fraudulent usage, and/or approval of a quota [increase request](quotas-increase.md "quotas-increase.md"). For more details, please refer to [Quotas for Amazon Bedrock](quotas.md "quotas.md") documentation and see the [limits](../../../general/latest/gr/bedrock.md#limits_bedrock "../../../general/latest/gr/bedrock.md#limits_bedrock") for the model.
 
 ## Sample Code
 
