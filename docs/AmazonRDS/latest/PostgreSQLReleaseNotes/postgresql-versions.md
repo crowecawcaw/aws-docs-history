@@ -533,7 +533,7 @@ modify privileges for these predefined roles. Attempting to modify a predefined 
 results in an error.
 
 - Added vacuum blocker detection to improve autovacuum monitoring. For more
-  information, see [Identify and resolve aggressive vacuum blockers in RDS for PostgreSQL](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md")
+  information, see [Identify and resolve aggressive vacuum blockers in RDS for PostgreSQL](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.md")
 - Unblocked `ALTER TEMP TABLE` and `DROP TEMP TABLE` in
   Blue/Green replication.
 - Added the `rds_tools.pg_ls_multixactdir()` function for
@@ -575,7 +575,7 @@ following release documentation, [PostgreSQL 17](https://www.postgresql.org/docs
 - Introduced a new Amazon RDS-specific parameter,
   `rds.logical_slot_sync_dbname`, to specify the dbname for the
   PostgreSQL version 17 logical slots synchronization and failover feature.For more
-  information, see [Managing logical slot synchronization for RDS for PostgreSQL](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.pglogical.slot.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.pglogical.slot.md").
+  information, see [Managing logical slot synchronization for RDS for PostgreSQL](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.pglogical.slot.synchronization.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.pglogical.slot.synchronization.md").
 
 This version also includes the following extension and dependency updates:
 
@@ -2620,14 +2620,14 @@ improvements for PostgreSQL announced in [PostgreSQL 14.2](https://www.postgresq
 This version also includes the following changes:
 
 - The [mysql_fdw](https://github.com/EnterpriseDB/mysql_fdw "https://github.com/EnterpriseDB/mysql_fdw")
-  extension version 2.7.0 is added. For more information, see [Working with MySQL databases by using the mysql_fdw extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#postgresql-mysql-fdw "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#postgresql-mysql-fdw").
+  extension version 2.7.0 is added. For more information, see [Working with MySQL databases by using the mysql_fdw extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-mysql-fdw "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-mysql-fdw").
 - The [tds_fdw](https://github.com/tds-fdw/tds_fdw "https://github.com/tds-fdw/tds_fdw") extension
-  version 2.0.2 is added. For more information, see [Working with SQL Server databases by using the tds_fdw extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#postgresql-tds-fdw "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#postgresql-tds-fdw") in the
+  version 2.0.2 is added. For more information, see [Working with SQL Server databases by using the tds_fdw extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-tds-fdw "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-tds-fdw") in the
   _Amazon RDS User Guide_.
 - The [pgaudit](https://github.com/pgaudit/pgaudit/ "https://github.com/pgaudit/pgaudit/") extension is
   updated to 1.6.1. For information about using this extension with RDS for PostgreSQL, see
   [Logging at the session and object level with the pgaudit
-  extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit").
+  extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit").
 - The [lo](https://www.postgresql.org/docs/current/lo.html "https://www.postgresql.org/docs/current/lo.html") (large
   objects) module is updated to version 1.1.
 
@@ -3236,7 +3236,7 @@ PostgreSQL version 13.8 is now available on Amazon RDS. This release contains se
 
 This version includes the following changes:
 
-- The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md") extension is updated to 3.1.7
+- The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md") extension is updated to 3.1.7
 - The [pgRouting](https://docs.pgrouting.org/latest/en/index.html "https://docs.pgrouting.org/latest/en/index.html") extension is updated to 3.1.4
 
 For information on all extensions, see [Extensions supported for RDS for PostgreSQL 13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
@@ -3261,14 +3261,14 @@ improvements that were announced in [PostgreSQL 13.6](https://www.postgresql.org
 This version also includes the following changes:
 
 - The [mysql_fdw](https://github.com/EnterpriseDB/mysql_fdw "https://github.com/EnterpriseDB/mysql_fdw")
-  extension version 2.7.0 is added. For more information, see [Working with MySQL databases by using the mysql_fdw extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#postgresql-mysql-fdw "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#postgresql-mysql-fdw") in the
+  extension version 2.7.0 is added. For more information, see [Working with MySQL databases by using the mysql_fdw extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-mysql-fdw "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-mysql-fdw") in the
   _Amazon RDS User Guide_.
 - The [tds_fdw](https://github.com/tds-fdw/tds_fdw "https://github.com/tds-fdw/tds_fdw") extension
-  version 2.0.2 is added. For more information, see [Working with SQL Server databases by using the tds_fdw extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#postgresql-tds-fdw "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#postgresql-tds-fdw") in the
+  version 2.0.2 is added. For more information, see [Working with SQL Server databases by using the tds_fdw extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-tds-fdw "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-tds-fdw") in the
   _Amazon RDS User Guide_.
 - The [pgaudit](https://github.com/pgaudit/pgaudit/ "https://github.com/pgaudit/pgaudit/") extension is
   updated to 1.5.1. For information about using this extension with RDS for PostgreSQL, see
-  [Logging at the session and object level with the pgaudit extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit") in
+  [Logging at the session and object level with the pgaudit extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit") in
   the _Amazon RDS User Guide_.
 - The [lo](https://www.postgresql.org/docs/current/lo.html "https://www.postgresql.org/docs/current/lo.html") (large
   objects) module is updated to version 1.1.
@@ -3302,7 +3302,7 @@ This version also includes the following changes:
 - The [pgrouting](https://docs.pgrouting.org/latest/en/index.html "https://docs.pgrouting.org/latest/en/index.html")
   extension is updated to version 3.1.3.
 - The `pglogical` extension is updated to version 2.4.0.
-- The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md") extension is updated to version 3.1.4, along with the following
+- The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md") extension is updated to version 3.1.4, along with the following
   related extensions:
   - [address_standardizer](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
   - [address_standardizer_data_us](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
@@ -3320,7 +3320,7 @@ improvements that were announced in [PostgreSQL 13.3](https://www.postgresql.org
 This version also includes the following changes:
 
 - The [oracle_fdw](https://github.com/laurenz/oracle_fdw "https://github.com/laurenz/oracle_fdw")
-  extension version 2.3.0 is added. For more information, see [Working with Oracle databases by using the oracle_fdw extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#postgresql-oracle-fdw "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#postgresql-oracle-fdw") in the
+  extension version 2.3.0 is added. For more information, see [Working with Oracle databases by using the oracle_fdw extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-oracle-fdw "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-oracle-fdw") in the
   _Amazon RDS User Guide_.
 - The [orafce](https://github.com/orafce/orafce "https://github.com/orafce/orafce") extension is
   updated to version 3.15.
@@ -3328,7 +3328,7 @@ This version also includes the following changes:
   extension is updated to version 1.3.1.
 - The [pg_partman](../UserGuide/PostgreSQL_Partitions.md "../UserGuide/PostgreSQL_Partitions.md")
   extension is updated to version 4.5.1.
-- The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md") extension is updated to version 3.0.3, along with the following
+- The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md") extension is updated to version 3.0.3, along with the following
   related extensions:
   - [address_standardizer](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
   - [address_standardizer_data_us](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
@@ -3791,7 +3791,7 @@ and improvements for PostgreSQL announced in [PostgreSQL 12.12](https://www.post
 
 This version includes the following changes:
 
-- The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md") extension is updated to 3.1.7
+- The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md") extension is updated to 3.1.7
 - The [pgRouting](https://docs.pgrouting.org/latest/en/index.html "https://docs.pgrouting.org/latest/en/index.html")
   extension is updated to 3.0.6
 
@@ -3819,7 +3819,7 @@ This version also includes the following changes:
 - The [pgaudit](https://github.com/pgaudit/pgaudit/ "https://github.com/pgaudit/pgaudit/") extension is
   updated to 1.4.2. For information about using this extension with RDS for PostgreSQL, see
   [Logging at the session and object level with the pgaudit
-  extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit").
+  extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit").
 - The [lo](https://www.postgresql.org/docs/current/lo.html "https://www.postgresql.org/docs/current/lo.html") (large
   objects) module is updated to version 1.1.
 
@@ -3849,7 +3849,7 @@ This version also includes the following changes:
 - The [pgRouting](https://docs.pgrouting.org/latest/en/index.html "https://docs.pgrouting.org/latest/en/index.html")
   extension is updated to version 3.0.5.
 - The `pglogical` extension is updated to version 2.4.0.
-- The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md") extension is updated to version 3.1.4, along with the following
+- The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md") extension is updated to version 3.1.4, along with the following
   related extensions:
   - [address_standardizer](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
   - [address_standardizer_data_us](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
@@ -3867,7 +3867,7 @@ several improvements that were announced for PostgreSQL release [12.7](https://w
 This version also includes the following changes:
 
 - The [oracle_fdw](https://github.com/laurenz/oracle_fdw "https://github.com/laurenz/oracle_fdw")
-  extension version 2.3.0 is added. For more information, see [Working with Oracle databases by using the oracle_fdw extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#postgresql-oracle-fdw "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#postgresql-oracle-fdw") in the
+  extension version 2.3.0 is added. For more information, see [Working with Oracle databases by using the oracle_fdw extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-oracle-fdw "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-oracle-fdw") in the
   _Amazon RDS User Guide_.
 - The [orafce](https://github.com/orafce/orafce "https://github.com/orafce/orafce") extension is
   updated to version 3.15.
@@ -3875,7 +3875,7 @@ This version also includes the following changes:
   extension is updated to version 1.3.1.
 - The [pg_partman](../UserGuide/PostgreSQL_Partitions.md "../UserGuide/PostgreSQL_Partitions.md")
   extension is updated to version 4.5.1.
-- The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md") extension is updated to version 3.0.3, along with the following
+- The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md") extension is updated to version 3.0.3, along with the following
   related extensions:
   - [address_standardizer](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
   - [address_standardizer_data_us](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
@@ -3898,7 +3898,7 @@ This version also includes the following changes:
   _Amazon RDS User Guide_.
 - The [pg_bigm](https://pgbigm.osdn.jp/pg_bigm_en-1-2.html "https://pgbigm.osdn.jp/pg_bigm_en-1-2.html")
   extension version 1.2 is added.
-- The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md") extension is updated to version 3.0.2.
+- The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md") extension is updated to version 3.0.2.
 
 For information on all extensions, see [Extensions supported for RDS for PostgreSQL 12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
 
@@ -4149,7 +4149,7 @@ fixes and improvements for PostgreSQL announced in [PostgreSQL
 
 This version includes the following change:
 
-- The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md") extension is updated to 3.1.7
+- The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md") extension is updated to 3.1.7
 
 For information on all extensions, see [Extensions supported for RDS for PostgreSQL 11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
 
@@ -4162,7 +4162,7 @@ fixes and improvements that were announced in [PostgreSQL
 This version also includes the following changes:
 
 - The [pglogical](https://github.com/2ndQuadrant/pglogical "https://github.com/2ndQuadrant/pglogical") extension is updated to 2.4.1.
-- The [aws_commons](../UserGuide/USER_PostgreSQL.S3Import.md#USER_PostgreSQL.S3Import.create_s3_uri "../UserGuide/USER_PostgreSQL.S3Import.md#USER_PostgreSQL.S3Import.create_s3_uri") extension is updated to 1.2.
+- The [aws_commons](../UserGuide/USER_PostgreSQL.S3Import.Reference.md#USER_PostgreSQL.S3Import.create_s3_uri "../UserGuide/USER_PostgreSQL.S3Import.Reference.md#USER_PostgreSQL.S3Import.create_s3_uri") extension is updated to 1.2.
 
 For information on all extensions, see [Extensions supported for RDS for PostgreSQL 11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
 
@@ -4176,7 +4176,7 @@ This version also includes the following changes:
 - The [pgaudit](https://github.com/pgaudit/pgaudit/ "https://github.com/pgaudit/pgaudit/")
   extension is updated to 1.3.3. For information about using this extension
   with RDS for PostgreSQL, see [Logging at the session and object level with the pgaudit
-  extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit").
+  extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit").
 - The [lo](https://www.postgresql.org/docs/current/lo.html "https://www.postgresql.org/docs/current/lo.html") module is updated to version 1.1.
 
 For information on all extensions, see [Extensions supported for RDS for PostgreSQL 11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
@@ -4201,7 +4201,7 @@ This version also includes the following changes:
 
 - The [pgrouting](https://docs.pgrouting.org/latest/en/index.html "https://docs.pgrouting.org/latest/en/index.html") extension is updated to version 2.6.3.
 - The `pglogical` extension is updated to version 2.4.0.
-- The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md") extension is updated to version 3.1.4, along with the
+- The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md") extension is updated to version 3.1.4, along with the
   following related extensions:
   - [address_standardizer](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
   - [address_standardizer_data_us](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
@@ -4324,14 +4324,14 @@ This version also includes the following changes:
 
 - A new [pgTAP](https://pgtap.org/ "https://pgtap.org/") extension version
   1.0.
-- Support for Amazon S3 import. For more information, see [Importing Amazon S3 data into an RDS for PostgreSQL DB instance](../UserGuide/USER_PostgreSQL.md "../UserGuide/USER_PostgreSQL.md") in the
+- Support for Amazon S3 import. For more information, see [Importing Amazon S3 data into an RDS for PostgreSQL DB instance](../UserGuide/USER_PostgreSQL.S3Import.md "../UserGuide/USER_PostgreSQL.S3Import.md") in the
   _Amazon RDS User Guide_.
 - Multiple major version upgrade is available to PostgreSQL 11.2 from
-  certain previous PostgreSQL versions. For more information, see [Choosing a major version upgrade for PostgreSQL](../UserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.PostgreSQL.MajorVersion "../UserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.PostgreSQL.MajorVersion") in the
+  certain previous PostgreSQL versions. For more information, see [Choosing a major version upgrade for PostgreSQL](../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.PostgreSQL.MajorVersion "../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.PostgreSQL.MajorVersion") in the
   _Amazon RDS User Guide_.
 
 For information on upgrading the engine version for your PostgreSQL DB instance,
-see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.md "../UserGuide/USER_UpgradeDBInstance.md") in the
+see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md "../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md") in the
 _Amazon RDS User Guide_.
 
 For information on all extensions, see [Extensions supported for RDS for PostgreSQL 11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
@@ -4472,7 +4472,7 @@ fixes and improvements for PostgreSQL announced in [PostgreSQL
 
 This version includes the following change:
 
-- The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md") extension is updated to 3.1.7
+- The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md") extension is updated to 3.1.7
 
 For information on all extensions, see [Extensions supported for RDS for PostgreSQL 10](postgresql-extensions.md#postgresql-extensions-101x "postgresql-extensions.md#postgresql-extensions-101x").
 
@@ -4485,7 +4485,7 @@ fixes and improvements that were announced in [PostgreSQL
 This version also includes the following changes:
 
 - The [pglogical](https://github.com/2ndQuadrant/pglogical "https://github.com/2ndQuadrant/pglogical") extension is updated to 2.4.1.
-- The [aws_commons](../UserGuide/USER_PostgreSQL.S3Import.md#USER_PostgreSQL.S3Import.create_s3_uri "../UserGuide/USER_PostgreSQL.S3Import.md#USER_PostgreSQL.S3Import.create_s3_uri") extension is updated to 1.2.
+- The [aws_commons](../UserGuide/USER_PostgreSQL.S3Import.Reference.md#USER_PostgreSQL.S3Import.create_s3_uri "../UserGuide/USER_PostgreSQL.S3Import.Reference.md#USER_PostgreSQL.S3Import.create_s3_uri") extension is updated to 1.2.
 
 For information on all extensions, see [Extensions supported for RDS for PostgreSQL 10](postgresql-extensions.md#postgresql-extensions-101x "postgresql-extensions.md#postgresql-extensions-101x").
 
@@ -4499,7 +4499,7 @@ This version also includes the following changes:
 - The [pgaudit](https://github.com/pgaudit/pgaudit/ "https://github.com/pgaudit/pgaudit/")
   extension is updated to 1.2.3. For information about using this extension
   with RDS for PostgreSQL, see [Logging at the session and object level with the pgaudit
-  extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit") in the _Amazon RDS User Guide_.
+  extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit") in the _Amazon RDS User Guide_.
 - The [lo](https://www.postgresql.org/docs/current/lo.html "https://www.postgresql.org/docs/current/lo.html") module is updated to version 1.1.
 
 For information on all extensions, see [Extensions supported for RDS for PostgreSQL 10](postgresql-extensions.md#postgresql-extensions-101x "postgresql-extensions.md#postgresql-extensions-101x").
@@ -4524,7 +4524,7 @@ This version also includes the following changes:
 
 - The [pgrouting](https://docs.pgrouting.org/latest/en/index.html "https://docs.pgrouting.org/latest/en/index.html") extension is updated to version 2.5.5.
 - The `pglogical` extension is updated to version 2.4.0.
-- The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md") extension is updated to version 3.1.4, along with the
+- The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md") extension is updated to version 3.1.4, along with the
   following related extensions:
   - [address_standardizer](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
   - [address_standardizer_data_us](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
@@ -4636,14 +4636,14 @@ documentation](https://www.postgresql.org/docs/10/release-10-7.html "https://www
 
 This version also includes the following changes:
 
-- Support for Amazon S3 import. For more information, see [Importing Amazon S3 data into an RDS for PostgreSQL DB instance](../UserGuide/USER_PostgreSQL.md "../UserGuide/USER_PostgreSQL.md") in the
+- Support for Amazon S3 import. For more information, see [Importing Amazon S3 data into an RDS for PostgreSQL DB instance](../UserGuide/USER_PostgreSQL.S3Import.md "../UserGuide/USER_PostgreSQL.S3Import.md") in the
   _Amazon RDS User Guide_.
 - Multiple major version upgrade is available to PostgreSQL 10.7 from
-  certain previous PostgreSQL versions. For more information, see [Choosing a major version upgrade for PostgreSQL](../UserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.PostgreSQL.MajorVersion "../UserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.PostgreSQL.MajorVersion") in the
+  certain previous PostgreSQL versions. For more information, see [Choosing a major version upgrade for PostgreSQL](../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.PostgreSQL.MajorVersion "../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.PostgreSQL.MajorVersion") in the
   _Amazon RDS User Guide_.
 
 For information on upgrading the engine version for your PostgreSQL DB instance,
-see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.md "../UserGuide/USER_UpgradeDBInstance.md") in the
+see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md "../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md") in the
 _Amazon RDS User Guide_.
 
 ### PostgreSQL version 10.6 on Amazon RDS (Deprecated)
@@ -4662,13 +4662,13 @@ This version also includes the following changes:
   limited set of roles, you can implement policies such as password complexity
   requirements from the client side. The
   `rds.restrict_password_commands` parameter is static, so it
-  requires a database restart to change it. For more information, see [Restricting password management](../UserGuide/Appendix.PostgreSQL.md#Appendix.PostgreSQL.CommonDBATasks.RestrictPasswordMgmt "../UserGuide/Appendix.PostgreSQL.md#Appendix.PostgreSQL.CommonDBATasks.RestrictPasswordMgmt") in the _Amazon RDS User
+  requires a database restart to change it. For more information, see [Restricting password management](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.RestrictPasswordMgmt "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.RestrictPasswordMgmt") in the _Amazon RDS User
   Guide_.
 - The logical decoding plugin `wal2json` has been updated to
   commit `9e962ba`.
 
 For information on upgrading the engine version for your PostgreSQL DB instance,
-see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.md "../UserGuide/USER_UpgradeDBInstance.md") in the
+see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md "../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md") in the
 _Amazon RDS User Guide_.
 
 For the complete list of extensions supported by Amazon RDS for PostgreSQL, see [Extension versions for Amazon RDS for PostgreSQL](postgresql-extensions.md "postgresql-extensions.md").
@@ -4702,7 +4702,7 @@ This version also includes the following changes:
   01c5c1e.
 
 For information on upgrading the engine version for your PostgreSQL DB instance,
-see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.md "../UserGuide/USER_UpgradeDBInstance.md") in the
+see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md "../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md") in the
 _Amazon RDS User Guide_.
 
 For the complete list of extensions supported by Amazon RDS for PostgreSQL, see [Extension versions for Amazon RDS for PostgreSQL](postgresql-extensions.md "postgresql-extensions.md").
@@ -4728,16 +4728,16 @@ This version also includes the following changes:
   **rds_superuser** role to modify the
   `temp_file_limit` parameter.
 - Update of the `GDAL` library, which is used by the PostGIS
-  extension. See [Managing spatial data with the PostGIS extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md") in the
+  extension. See [Managing spatial data with the PostGIS extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md") in the
   _Amazon RDS User Guide_.
 - Update of the `ip4r` extension to version 2.1.1.
 - Update of the `pg_repack` extension to version 1.4.3. See
-  [Working with the pg_repack extension](../UserGuide/Appendix.PostgreSQL.md#Appendix.PostgreSQL.CommonDBATasks.pg_repack "../UserGuide/Appendix.PostgreSQL.md#Appendix.PostgreSQL.CommonDBATasks.pg_repack") in the
+  [Working with the pg_repack extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.pg_repack "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.pg_repack") in the
   _Amazon RDS User Guide_.
 - Update of the `plv8` extension to version 2.1.2.
 
 For information on upgrading the engine version for your PostgreSQL DB instance,
-see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.md "../UserGuide/USER_UpgradeDBInstance.md") in the
+see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md "../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md") in the
 _Amazon RDS User Guide_.
 
 For the complete list of extensions supported by Amazon RDS for PostgreSQL, see [Extension versions for Amazon RDS for PostgreSQL](postgresql-extensions.md "postgresql-extensions.md").
@@ -4761,7 +4761,7 @@ catalog metadata doesn't reflect this fact. For the steps to synchronize your
 catalog metadata with the new version of plv8, see [Upgrading PLV8](../UserGuide/CHAP_PostgreSQL.md#postgresql-versions-UpgradingPLv8 "../UserGuide/CHAP_PostgreSQL.md#postgresql-versions-UpgradingPLv8") in the _Amazon RDS User Guide_.
 
 For information on upgrading the engine version for your PostgreSQL DB instance,
-see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.md "../UserGuide/USER_UpgradeDBInstance.md") in the
+see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md "../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md") in the
 _Amazon RDS User Guide_.
 
 For the complete list of extensions supported by Amazon RDS for PostgreSQL, see [Extension versions for Amazon RDS for PostgreSQL](postgresql-extensions.md "postgresql-extensions.md").
@@ -4774,7 +4774,7 @@ documentation](http://www.postgresql.org/docs/10/static/release-10-1.html "http:
 announcement](https://www.postgresql.org/about/news/1786/ "https://www.postgresql.org/about/news/1786/").
 
 For information on upgrading the engine version for your PostgreSQL DB instance,
-see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.md "../UserGuide/USER_UpgradeDBInstance.md") in the
+see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md "../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md") in the
 _Amazon RDS User Guide_.
 
 PostgreSQL version 10.1 includes the following changes:
@@ -4860,7 +4860,7 @@ contains several improvements that were announced for PostgreSQL release [9.6.23
 This version also includes the following changes:
 
 - The `pglogical` extension is updated to version 2.4.0.
-- The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md") extension is updated to version 2.5.5, along with the
+- The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md") extension is updated to version 2.5.5, along with the
   following related extensions:
   - [address_standardizer](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
   - [address_standardizer_data_us](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
@@ -4957,7 +4957,7 @@ For more information on the fixes in 9.6.12, see the [PostgreSQL
 documentation](http://www.postgresql.org/docs/9.6/release-9-6-12.html "http://www.postgresql.org/docs/9.6/release-9-6-12.html").
 
 For information on upgrading the engine version for your PostgreSQL DB instance,
-see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.md "../UserGuide/USER_UpgradeDBInstance.md") in the
+see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md "../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md") in the
 _Amazon RDS User Guide_.
 
 ### PostgreSQL version 9.6.11 on Amazon RDS (Deprecated)
@@ -4965,7 +4965,7 @@ _Amazon RDS User Guide_.
 PostgreSQL version 9.6.11 contains several bug fixes for issues in release 9.6.10.
 For more information on the fixes in PostgreSQL 9.6.11, see the [PostgreSQL
 documentation](http://www.postgresql.org/docs/9.6/static/release-9-6-11.html "http://www.postgresql.org/docs/9.6/static/release-9-6-11.html"). For information on upgrading the engine version for your
-PostgreSQL DB instance, see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.md "../UserGuide/USER_UpgradeDBInstance.md") in the
+PostgreSQL DB instance, see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md "../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md") in the
 _Amazon RDS User Guide_.
 
 With this version, the logical decoding plugin `wal2json` has been
@@ -4991,7 +4991,7 @@ This version includes the following changes:
   1.2.3.
 
 For information on upgrading the engine version for your PostgreSQL DB instance,
-see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.md "../UserGuide/USER_UpgradeDBInstance.md") in the
+see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md "../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md") in the
 _Amazon RDS User Guide_.
 
 For the complete list of extensions supported by Amazon RDS for PostgreSQL, see [Extension versions for Amazon RDS for PostgreSQL](postgresql-extensions.md "postgresql-extensions.md").
@@ -5001,7 +5001,7 @@ For the complete list of extensions supported by Amazon RDS for PostgreSQL, see 
 PostgreSQL version 9.6.9 contains several bug fixes for issues in release 9.6.8.
 For more information on the fixes in 9.6.9, see the [PostgreSQL
 documentation](http://www.postgresql.org/docs/9.6/static/release-9-6-9.html "http://www.postgresql.org/docs/9.6/static/release-9-6-9.html"). For information on upgrading the engine version for your
-PostgreSQL DB instance, see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.md "../UserGuide/USER_UpgradeDBInstance.md") in the
+PostgreSQL DB instance, see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md "../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md") in the
 _Amazon RDS User Guide_.
 
 This version includes the following changes:
@@ -5010,14 +5010,14 @@ This version includes the following changes:
   **rds_superuser** role to modify the
   `temp_file_limit` parameter.
 - Update of the `GDAL` library, which is used by the PostGIS
-  extension. See [Working with the PostGIS extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md") in the
+  extension. See [Working with the PostGIS extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md") in the
   _Amazon RDS User Guide_.
 - Update of the `ip4r` extension to version 2.1.1.
 - Update of the `pgaudit` extension to version 1.1.1. See [Logging at the session and object level with the pgaudit
-  extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit") in the _Amazon RDS User Guide_.
+  extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit") in the _Amazon RDS User Guide_.
 
 Update of the `pg_repack` extension to version 1.4.3. See
-[Working with the pg_repack extension](../UserGuide/Appendix.PostgreSQL.md#Appendix.PostgreSQL.CommonDBATasks.pg_repack "../UserGuide/Appendix.PostgreSQL.md#Appendix.PostgreSQL.CommonDBATasks.pg_repack") in the
+[Working with the pg_repack extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.pg_repack "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.pg_repack") in the
 _Amazon RDS User Guide_.
 
 - Update of the `plv8` extension to version 2.1.2.
@@ -5029,7 +5029,7 @@ For the complete list of extensions supported by Amazon RDS for PostgreSQL, see 
 PostgreSQL version 9.6.8 contains several bug fixes for issues in release 9.6.6.
 For more information on the fixes in 9.6.8, see the [PostgreSQL
 documentation](http://www.postgresql.org/docs/9.6/static/release-9-6-8.html "http://www.postgresql.org/docs/9.6/static/release-9-6-8.html"). For information on upgrading the engine version for your
-PostgreSQL DB instance, see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.md "../UserGuide/USER_UpgradeDBInstance.md") in the
+PostgreSQL DB instance, see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md "../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md") in the
 _Amazon RDS User Guide_.
 
 For the complete list of extensions supported by Amazon RDS for PostgreSQL, see [Extension versions for Amazon RDS for PostgreSQL](postgresql-extensions.md "postgresql-extensions.md").
@@ -5039,7 +5039,7 @@ For the complete list of extensions supported by Amazon RDS for PostgreSQL, see 
 PostgreSQL version 9.6.6 contains several bug fixes for issues in release 9.6.5.
 For more information on the fixes in 9.6.6, see the [PostgreSQL
 documentation](http://www.postgresql.org/docs/9.6/static/release-9-6-6.html "http://www.postgresql.org/docs/9.6/static/release-9-6-6.html"). For information on upgrading the engine version for your
-PostgreSQL DB instance, see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.md "../UserGuide/USER_UpgradeDBInstance.md") in the
+PostgreSQL DB instance, see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md "../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md") in the
 _Amazon RDS User Guide_.
 
 This version includes the following features:
@@ -5047,7 +5047,7 @@ This version includes the following features:
 - Supports the `orafce` extension, version 3.6.1. This extension
   contains functions that are native to commercial databases, and can be
   helpful if you are porting a commercial database to PostgreSQL. For more
-  information about using `orafce` with Amazon RDS, see [Using functions from the orafce extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.orafce "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.orafce")in the
+  information about using `orafce` with Amazon RDS, see [Using functions from the orafce extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#Appendix.PostgreSQL.CommonDBATasks.orafce "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#Appendix.PostgreSQL.CommonDBATasks.orafce")in the
   _Amazon RDS User Guide_.
 - Supports the `prefix` extension, version 1.2.6. This extension
   provides an operator for text prefix searches. For more information about
@@ -5063,7 +5063,7 @@ For the complete list of extensions supported by Amazon RDS for PostgreSQL, see 
 PostgreSQL version 9.6.5 contains several bug fixes for issues in release 9.6.4.
 For more information on the fixes in 9.6.5, see the [PostgreSQL
 documentation](http://www.postgresql.org/docs/9.6/static/release-9-6-5.html "http://www.postgresql.org/docs/9.6/static/release-9-6-5.html"). For information on upgrading the engine version for your
-PostgreSQL DB instance, see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.md "../UserGuide/USER_UpgradeDBInstance.md") in the
+PostgreSQL DB instance, see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md "../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md") in the
 _Amazon RDS User Guide_.
 
 This version also includes support for the [pgrouting](http://pgrouting.org/ "http://pgrouting.org/"), [postgresql-hll](https://github.com/citusdata/postgresql-hll/releases/tag/v2.10.2 "https://github.com/citusdata/postgresql-hll/releases/tag/v2.10.2") extensions, and the [decoder_raw](https://github.com/michaelpq/pg_plugins/tree/master/decoder_raw "https://github.com/michaelpq/pg_plugins/tree/master/decoder_raw") optional extension.
@@ -5078,11 +5078,11 @@ includes the following features:
 - Supports the extension `pg_repack` version 1.4.0. You can use
   this extension to remove bloat from tables and indexes. For more information
   on using `pg_repack` with Amazon RDS, see [Reducing bloat in tables and indexes with the pg_repack
-  extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.pg_repack "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.pg_repack") in the _Amazon RDS User Guide_.
+  extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#Appendix.PostgreSQL.CommonDBATasks.pg_repack "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#Appendix.PostgreSQL.CommonDBATasks.pg_repack") in the _Amazon RDS User Guide_.
 - Supports the extension `pgaudit` version 1.1.0. This extension
   provides detailed session and object audit logging. For more information on
   using pgaudit with Amazon RDS, see [Logging at the session and object level with the pgaudit
-  extension](../UserGuide/Appendix.PostgreSQL.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit "../UserGuide/Appendix.PostgreSQL.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit") in the _Amazon RDS User Guide_.
+  extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit") in the _Amazon RDS User Guide_.
 - Supports `wal2json`, an output plugin for logical
   decoding.
 - Supports the `auto_explain` extension. You can use this
@@ -5111,7 +5111,7 @@ version also includes the following extension versions:
   statements.
 - log_fdw version 1.0–Using this extension from Amazon RDS, you can load
   and query your database engine log from within the database. For more
-  information, see [Using the log_fdw extension to access the DB log using SQL](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#CHAP_PostgreSQL.Extensions.log_fdw "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#CHAP_PostgreSQL.Extensions.log_fdw") in
+  information, see [Using the log_fdw extension to access the DB log using SQL](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#CHAP_PostgreSQL.Extensions.log_fdw "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#CHAP_PostgreSQL.Extensions.log_fdw") in
   the _Amazon RDS User Guide_.
 - With this version release, you can now edit the
   `max_worker_processes` parameter in a DB parameter group.
@@ -5122,7 +5122,7 @@ _Amazon RDS User Guide_.
 
 For more information on the fixes in 9.6.2, see the [PostgreSQL
 documentation](http://www.postgresql.org/docs/9.6/static/release-9-6-2.html "http://www.postgresql.org/docs/9.6/static/release-9-6-2.html"). For information on upgrading the engine version for your
-PostgreSQL DB instance, see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.md "../UserGuide/USER_UpgradeDBInstance.md") in the
+PostgreSQL DB instance, see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md "../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md") in the
 _Amazon RDS User Guide_.
 
 ### PostgreSQL version 9.6.1 on Amazon RDS (Deprecated)
@@ -5130,7 +5130,7 @@ _Amazon RDS User Guide_.
 PostgreSQL version 9.6.1 contains several new features and improvements. For more
 information about the fixes and improvements in PostgreSQL 9.6.1, see the [PostgreSQL
 documentation](https://www.postgresql.org/docs/9.6/static/release-9-6-1.html "https://www.postgresql.org/docs/9.6/static/release-9-6-1.html"). For information on upgrading the engine version for your
-PostgreSQL DB instance, see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.md "../UserGuide/USER_UpgradeDBInstance.md") in the
+PostgreSQL DB instance, see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md "../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md") in the
 _Amazon RDS User Guide_. For information about performing parallel
 queries and phrase searching using Amazon RDS for PostgreSQL 9.6.1, see the [AWS Database Blog](https://aws.amazon.com/blogs/database/performing-parallel-queries-and-phrase-searching-with-amazon-rds-for-postgresql-9-6-1/ "https://aws.amazon.com/blogs/database/performing-parallel-queries-and-phrase-searching-with-amazon-rds-for-postgresql-9-6-1/").
 
@@ -5176,7 +5176,7 @@ On April 17, 2023, Amazon RDS deprecated PostgreSQL 10. For more information, se
 _Amazon RDS User Guide_. We strongly recommend that you take action as
 soon as possible and upgrade your PostgreSQL databases running on major version 10 to a
 later major version, such as version 14. For information about how to do so, see [Upgrading
-the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.md "../UserGuide/USER_UpgradeDBInstance.md") in the
+the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md "../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md") in the
 _Amazon RDS User Guide_.
 
 ## Deprecation of PostgreSQL 9.6
@@ -5186,5 +5186,5 @@ announced date of January 18, 2022 to April 26, 2022. For more information, see 
 _Amazon RDS User Guide_. We strongly recommend that you upgrade all
 your PostgreSQL 9.6 DB instances to PostgreSQL 12 or higher as soon as possible. For
 information about how to do so, see [Upgrading
-the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.md "../UserGuide/USER_UpgradeDBInstance.md") in the
+the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md "../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md") in the
 _Amazon RDS User Guide_.
