@@ -111,7 +111,7 @@ following sample result.
 ```
 
 For more information about reading data with PartiQL, see [PartiQL select
-statements](ql-reference.md "ql-reference.md").
+statements](ql-reference.SELECT.md "ql-reference.SELECT.md").
 
 The following code examples show how to read an item from a DynamoDB table using
 an AWS SDK.

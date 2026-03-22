@@ -13,7 +13,7 @@ For information about choosing cluster nodes, see [Sizing your DAX cluster](dax-
 
 ## Configure networks
 
-DAX uses a [subnet group](DAX.concepts.md#DAX.concepts.cluster.security "DAX.concepts.md#DAX.concepts.cluster.security") to determine which Availability Zones it can run nodes in and which IP addresses to use from the subnets. To minimize latency between your application and DAX, the subnets and Availability Zones for your application servers and the DAX cluster should be the same.
+DAX uses a [subnet group](DAX.concepts.cluster.md#DAX.concepts.cluster.security "DAX.concepts.cluster.md#DAX.concepts.cluster.security") to determine which Availability Zones it can run nodes in and which IP addresses to use from the subnets. To minimize latency between your application and DAX, the subnets and Availability Zones for your application servers and the DAX cluster should be the same.
 
 We recommend that you spread the DAX nodes across multiple Availability Zones. The default option of Automatic allocation does this for you.
 
@@ -25,7 +25,7 @@ This section discusses the security measures that you should implement for your 
 
 ###### IAM
 
-DAX and DynamoDB have separate [access control](DAX.md "DAX.md") mechanisms. DAX requires an IAM role to access your DynamoDB tables. This role should follow the principle of least privilege and grant access only to specific tables and DynamoDB operations, such as [GetItem](../APIReference/API_GetItem.md "../APIReference/API_GetItem.md") and [PutItem](../APIReference/API_PutItem.md "../APIReference/API_PutItem.md"). For more information about the access control mechanisms provided by DAX, see [DAX access control](DAX.md "DAX.md").
+DAX and DynamoDB have separate [access control](DAX.access-control.md "DAX.access-control.md") mechanisms. DAX requires an IAM role to access your DynamoDB tables. This role should follow the principle of least privilege and grant access only to specific tables and DynamoDB operations, such as [GetItem](../APIReference/API_GetItem.md "../APIReference/API_GetItem.md") and [PutItem](../APIReference/API_PutItem.md "../APIReference/API_PutItem.md"). For more information about the access control mechanisms provided by DAX, see [DAX access control](DAX.access-control.md "DAX.access-control.md").
 
 ###### Encryption
 
@@ -41,4 +41,4 @@ You can't modify parameter groups when a running DAX instance is using them. You
 
 ## Maintenance window
 
-To allow for occasional software upgrades and patches to your nodes, a weekly [maintenance window](DAX.concepts.md#DAX.concepts.maintenance-window "DAX.concepts.md#DAX.concepts.maintenance-window") is configured for the DAX cluster. During this window, DAX performs rolling updates to the nodes. Clusters with more than one node don't lose availability of the cluster during these updates, but have reduced cluster capacity until the node returns. If your organization has a predictable time of low usage, consider setting the maintenance window manually to this time.
+To allow for occasional software upgrades and patches to your nodes, a weekly [maintenance window](DAX.concepts.cluster.md#DAX.concepts.maintenance-window "DAX.concepts.cluster.md#DAX.concepts.maintenance-window") is configured for the DAX cluster. During this window, DAX performs rolling updates to the nodes. Clusters with more than one node don't lose availability of the cluster during these updates, but have reduced cluster capacity until the node returns. If your organization has a predictable time of low usage, consider setting the maintenance window manually to this time.

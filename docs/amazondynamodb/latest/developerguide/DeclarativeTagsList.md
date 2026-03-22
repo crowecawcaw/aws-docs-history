@@ -152,4 +152,4 @@ the `developerName`.
 ## DynamoDBVersion
 
 Identifies a class property for storing the item version number. For more
-information about versioning, see [Optimistic locking using DynamoDB and the AWS SDK for .NET object persistence model](DynamoDBContext.md "DynamoDBContext.md").
+information about versioning, see [Optimistic locking using DynamoDB and the AWS SDK for .NET object persistence model](DynamoDBContext.VersionSupport.md "DynamoDBContext.VersionSupport.md").

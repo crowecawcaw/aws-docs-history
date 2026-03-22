@@ -54,4 +54,4 @@ A modern approach to DynamoDB schema design uses aggregate-oriented principles, 
 The choice between single-table and multi-table design depends on your specific requirements. Single-table design works well when entities have high access correlation and similar operational characteristics. Multi-table design is preferred when entities have independent operational requirements, different access patterns, or when you need clear operational boundaries. The example in this guide demonstrates a multi-table approach with strategic aggregation and denormalization.
 
 To use NoSQL Workbench for DynamoDB to help visualize your partition key design, see
-[Building data models with NoSQL Workbench](workbench.md "workbench.md").
+[Building data models with NoSQL Workbench](workbench.Modeler.md "workbench.Modeler.md").

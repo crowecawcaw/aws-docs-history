@@ -61,7 +61,7 @@ consider the following best practices:
 - Use eventually consistent reads – If your application doesn't require strongly consistent reads,
   consider using eventually consistent reads. These reads are lower cost and less likely to experience
   transient issues due to internal server errors as it would be served from any of the available Storage Nodes.
-  For more information, see [DynamoDB read consistency](HowItWorks.md "HowItWorks.md").
+  For more information, see [DynamoDB read consistency](HowItWorks.ReadConsistency.md "HowItWorks.ReadConsistency.md").
 
 ## Improving operational awareness
 

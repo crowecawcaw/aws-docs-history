@@ -23,7 +23,7 @@ write capacity settings to ensure proper replication of data.
 
 ## Global tables version
 
-There are two versions of DynamoDB global tables available: [Global Tables version 2019.11.21 (Current)](GlobalTables.md "GlobalTables.md") and [Global tables version 2017.11.29 (Legacy)](globaltables.md "globaltables.md"). Customers should use Global Tables version 2019.11.21
+There are two versions of DynamoDB global tables available: [Global Tables version 2019.11.21 (Current)](GlobalTables.md "GlobalTables.md") and [Global tables version 2017.11.29 (Legacy)](globaltables.V1.md "globaltables.V1.md"). Customers should use Global Tables version 2019.11.21
 (Current) when possible, as it provides greater flexibility, higher efficiency and consumes
 less write capacity than 2017.11.29 (Legacy).
 

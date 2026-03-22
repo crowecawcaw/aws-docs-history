@@ -15,9 +15,9 @@ against these indexes in Amazon DynamoDB.
 - [Table classes with Global Secondary Index](#GSI.tableclasses "#GSI.tableclasses")
 - [Provisioned throughput considerations for Global Secondary Indexes](#GSI.ThroughputConsiderations "#GSI.ThroughputConsiderations")
 - [Storage considerations for Global Secondary Indexes](#GSI.StorageConsiderations "#GSI.StorageConsiderations")
-- [Design patterns](GSI.md "GSI.md")
-- [Managing Global Secondary Indexes in DynamoDB](GSI.md "GSI.md")
-- [Detecting and correcting index key violations in DynamoDB](GSI.OnlineOps.md "GSI.OnlineOps.md")
+- [Design patterns](GSI.DesignPatterns.md "GSI.DesignPatterns.md")
+- [Managing Global Secondary Indexes in DynamoDB](GSI.OnlineOps.md "GSI.OnlineOps.md")
+- [Detecting and correcting index key violations in DynamoDB](GSI.OnlineOps.ViolationDetection.md "GSI.OnlineOps.ViolationDetection.md")
 - [Working with Global Secondary Indexes: Java](GSIJavaDocumentAPI.md "GSIJavaDocumentAPI.md")
 - [Working with Global Secondary Indexes: .NET](GSILowLevelDotNet.md "GSILowLevelDotNet.md")
 - [Working with Global Secondary Indexes in DynamoDB using AWS CLI](GCICli.md "GCICli.md")
@@ -219,7 +219,7 @@ that provide good data distribution. For sort keys, place frequently queried att
 first in the hierarchy to maximize query flexibility. This ordering allows you to query
 at any level of granularity that matches your access patterns.
 
-See the [Multi-attribute keys](GSI.DesignPattern.md "GSI.DesignPattern.md") for implementation examples.
+See the [Multi-attribute keys](GSI.DesignPattern.MultiAttributeKeys.md "GSI.DesignPattern.MultiAttributeKeys.md") for implementation examples.
 
 ## Reading data from a Global Secondary Index
 

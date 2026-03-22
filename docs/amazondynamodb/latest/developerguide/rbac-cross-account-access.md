@@ -79,4 +79,4 @@ so that each of the two accounts can track which account accessed what data.
 ###### Note
 
 The cross-account access of [control plane
-APIs](HowItWorks.md#HowItWorks.API.ControlPlane "HowItWorks.md#HowItWorks.API.ControlPlane") has a lower transactions per second (TPS) limit of 500 requests.
+APIs](HowItWorks.API.md#HowItWorks.API.ControlPlane "HowItWorks.API.md#HowItWorks.API.ControlPlane") has a lower transactions per second (TPS) limit of 500 requests.

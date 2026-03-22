@@ -27,7 +27,7 @@ You can consider adding DAX to your application stack in several scenarios. For 
 
 - **Data consistency requirements**
   - **Eventual consistency** – DAX supports eventually consistent reads. This makes DAX suitable for use cases where immediate consistency isn't critical.
-  - **Write-through caching** – Writes that you make against DAX are [write-through](DAX.md "DAX.md"). Once DAX confirms that it's written an item to DynamoDB, it persists that item version in the item cache. This write-through mechanism helps maintain tighter data consistency between cache and database, but uses additional DAX cluster resources.
+  - **Write-through caching** – Writes that you make against DAX are [write-through](DAX.consistency.md "DAX.consistency.md"). Once DAX confirms that it's written an item to DynamoDB, it persists that item version in the item cache. This write-through mechanism helps maintain tighter data consistency between cache and database, but uses additional DAX cluster resources.
 
 ## When not to use DAX
 

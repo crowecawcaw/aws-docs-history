@@ -36,7 +36,7 @@ of these APIs support cross-account access.
 
 ## Data plane API operations
 
-The following table lists the API-level support provided by [data plane](HowItWorks.md#HowItWorks.API.DataPlane "HowItWorks.md#HowItWorks.API.DataPlane") API operations for resource-based
+The following table lists the API-level support provided by [data plane](HowItWorks.API.md#HowItWorks.API.DataPlane "HowItWorks.API.md#HowItWorks.API.DataPlane") API operations for resource-based
 policies and cross-account access.
 
 | Data Plane<br>• Tables/indexes APIs                                                                         | Resource-based policy support | Cross-account support |
@@ -54,7 +54,7 @@ policies and cross-account access.
 
 ## PartiQL API operations
 
-The following table lists the API-level support provided by [PartiQL](HowItWorks.md#HowItWorks.API.DataPlane.partiql "HowItWorks.md#HowItWorks.API.DataPlane.partiql") API operations for
+The following table lists the API-level support provided by [PartiQL](HowItWorks.API.md#HowItWorks.API.DataPlane.partiql "HowItWorks.API.md#HowItWorks.API.DataPlane.partiql") API operations for
 resource-based policies and cross-account access.
 
 | PartiQL APIs                                                                                                         | Resource-based policy support | Cross-account support |
@@ -65,7 +65,7 @@ resource-based policies and cross-account access.
 
 ## Control plane API operations
 
-The following table lists the API-level support provided by [control plane](HowItWorks.md#HowItWorks.API.ControlPlane "HowItWorks.md#HowItWorks.API.ControlPlane") API operations for
+The following table lists the API-level support provided by [control plane](HowItWorks.API.md#HowItWorks.API.ControlPlane "HowItWorks.API.md#HowItWorks.API.ControlPlane") API operations for
 resource-based policies and cross-account access.
 
 | Control Plane<br>• Tables APIs                                                               | Resource-based policy support | Cross-account support |
@@ -87,7 +87,7 @@ policies and cross-account access.
 
 ## Version 2017.11.29 (Legacy) global tables API operations
 
-The following table lists the API-level support provided by [Version 2017.11.29 (Legacy) global tables](globaltables.md "globaltables.md") API operations
+The following table lists the API-level support provided by [Version 2017.11.29 (Legacy) global tables](globaltables.V1.md "globaltables.V1.md") API operations
 for resource-based policies and cross-account access.
 
 | Version 2017.11.29 (Legacy) global tables APIs                                                                                         | Resource-based policy support | Cross-account support |
@@ -102,7 +102,7 @@ for resource-based policies and cross-account access.
 ## Tags API operations
 
 The following table lists the API-level support provided by API operations related to
-[tags](Tagging.md "Tagging.md") for resource-based policies and
+[tags](Tagging.Operations.md "Tagging.Operations.md") for resource-based policies and
 cross-account access.
 
 | Tags APIs                                                                                                   | Resource-based policy support | Cross-account support |

@@ -56,7 +56,7 @@ The Kinesis data stream records might appear in a different order than when the 
 
 When you enable a Kinesis data stream as a streaming destination of a DynamoDB table, you can configure the precision of `ApproximateCreationDateTime` values in either milliseconds or microseconds. By default, `ApproximateCreationDateTime` indicates the time of the change in milliseconds. Additionally, you can change this value on an active streaming destination. After such an update, stream records written to Kinesis will have `ApproximateCreationDateTime` values of the desired precision.
 
-Binary values written to DynamoDB must be encoded in [base64-encoded format](HowItWorks.md "HowItWorks.md") . However, when
+Binary values written to DynamoDB must be encoded in [base64-encoded format](HowItWorks.NamingRulesDataTypes.md "HowItWorks.NamingRulesDataTypes.md") . However, when
 data records are written to a Kinesis data stream, these encoded binary values are encoded
 with base64-encoding a second time. When reading these records from a Kinesis data stream,
 in order to retrieve the raw binary values, applications must decode these values

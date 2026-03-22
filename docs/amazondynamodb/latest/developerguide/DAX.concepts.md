@@ -1,245 +1,178 @@
-# DAX cluster components
+# DAX: How it works
 
-An Amazon DynamoDB Accelerator (DAX) cluster consists of AWS infrastructure components. This
-section describes these components and how they work together.
+Amazon DynamoDB Accelerator (DAX) is designed to run within an Amazon Virtual Private Cloud (Amazon VPC) environment. The
+Amazon VPC service defines a virtual network that closely resembles a traditional data center.
+With a VPC, you have control over its IP address range, subnets, routing tables, network
+gateways, and security settings. You can launch a DAX cluster in your virtual network and
+control access to the cluster by using Amazon VPC security groups.
+
+###### Note
+
+If you created your AWS account after December 4, 2013, you already have a default
+VPC in each AWS Region. The VPC is ready for you to use immediately—without
+having to perform any additional configuration steps.
+
+For more information, see [Default VPC and
+default subnets](../../../vpc/latest/userguide/default-vpc.md "../../../vpc/latest/userguide/default-vpc.md") in the _Amazon VPC User Guide_.
+
+The following diagram shows a high-level overview of DAX.
+
+![Workflow diagram showing interaction of application, DAX client, and DAX cluster in a VPC.](images/dax_high_level.png)
+To create a DAX cluster, you use the AWS Management Console. Unless you specify otherwise, your DAX
+cluster runs within your default VPC. To run your application, you launch an Amazon EC2 instance
+into your Amazon VPC. You then deploy your application (with the DAX client) on the EC2
+instance.
+
+At runtime, the DAX client directs all of your application's DynamoDB API requests to the
+DAX cluster. If DAX can process one of these API requests directly, it does so.
+Otherwise, it passes the request through to DynamoDB.
+
+Finally, the DAX cluster returns the results to your application.
 
 ###### Topics
 
-- [Nodes](#DAX.concepts.nodes "#DAX.concepts.nodes")
-- [Clusters](#DAX.concepts.clusters "#DAX.concepts.clusters")
-- [Regions and availability zones](#DAX.concepts.regions-and-azs "#DAX.concepts.regions-and-azs")
-- [Parameter groups](#DAX.concepts.parameter-groups "#DAX.concepts.parameter-groups")
-- [Security groups](#DAX.concepts.security-groups "#DAX.concepts.security-groups")
-- [Cluster ARN](#DAX.concepts.cluster-arn "#DAX.concepts.cluster-arn")
-- [Cluster endpoint](#DAX.concepts.cluster-endpoint "#DAX.concepts.cluster-endpoint")
-- [Node endpoints](#DAX.concepts.node-endpoints "#DAX.concepts.node-endpoints")
-- [Subnet groups](#DAX.concepts.cluster.security "#DAX.concepts.cluster.security")
-- [Events](#DAX.concepts.events "#DAX.concepts.events")
-- [Maintenance window](#DAX.concepts.maintenance-window "#DAX.concepts.maintenance-window")
+- [How DAX processes requests](#DAX.concepts.request-processing "#DAX.concepts.request-processing")
+- [Item cache](#DAX.concepts.item-cache "#DAX.concepts.item-cache")
+- [Query cache](#DAX.concepts.query-cache "#DAX.concepts.query-cache")
 
-## Nodes
+## How DAX processes requests
 
-A _node_ is the smallest building block of a DAX cluster. Each
-node runs an instance of the DAX software, and maintains a single replica of the
-cached data.
+A DAX cluster consists of one or more nodes. Each node runs its own instance of the
+DAX caching software. One of the nodes serves as the primary node for the cluster.
+Additional nodes (if present) serve as read replicas. For more information, see [Nodes](DAX.concepts.cluster.md#DAX.concepts.nodes "DAX.concepts.cluster.md#DAX.concepts.nodes").
 
-You can scale your DAX cluster in one of two ways:
+Your application can access DAX by specifying the endpoint for the DAX cluster.
+The DAX client software works with the cluster endpoint to perform intelligent load
+balancing and routing.
 
-- By adding more nodes to the cluster. This increases the overall read
-  throughput of the cluster.
-- By using a larger node type. Larger node types provide more capacity and can
-  increase throughput. (You must create a new cluster with the new node type.)
+### Read operations
 
-Every node within a cluster is of the same node type and runs the same DAX caching
-software. For a list of available node types, see [Amazon DynamoDB pricing](https://aws.amazon.com/dynamodb/pricing "https://aws.amazon.com/dynamodb/pricing").
+DAX can respond to the following API calls:
 
-## Clusters
+- `GetItem`
+- `BatchGetItem`
+- `Query`
+- `Scan`
 
-A _cluster_ is a logical grouping of one or more nodes that DAX
-manages as a unit. One of the nodes in the cluster is designated as the _primary_ node, and the other nodes (if any) are _read replicas_.
+If the request specifies _eventually consistent reads_ (the
+default behavior), it tries to read the item from DAX:
 
-The primary node is responsible for the following:
+- If DAX has the item available (a _cache
+  hit_), DAX returns the item to the application without
+  accessing DynamoDB.
+- If DAX does not have the item available (a _cache
+  miss_), DAX passes the request through to DynamoDB. When it
+  receives the response from DynamoDB, DAX returns the results to the
+  application. But it also writes the results to the cache on the primary
+  node.
 
-- Fulfilling application requests for cached data.
-- Handling write operations to DynamoDB.
-- Evicting data from the cache according to the cluster's eviction
-  policy.
+###### Note
 
-When changes are made to cached data on the primary node, DAX propagates the changes
-to all of the read replica nodes using replication logs. After the confirmation is
-received from all read replicas, DynamoDB deletes the replication logs from the primary
-node.
+If there are any read replicas in the cluster, DAX automatically keeps the
+replicas in sync with the primary node. For more information, see [Clusters](DAX.concepts.cluster.md#DAX.concepts.clusters "DAX.concepts.cluster.md#DAX.concepts.clusters").
 
-A DAX cluster can support up to 11 nodes per cluster (the primary node plus a
-maximum of 10 read replicas).
+If the request specifies _strongly consistent reads_, DAX
+passes the request through to DynamoDB. The results from DynamoDB are not cached in DAX.
+Instead, they are simply returned to the application.
 
-Read replicas are responsible for the following:
+### Write operations
 
-- Fulfilling application requests for cached data.
-- Evicting data from the cache according to the cluster's eviction
-  policy.
+The following DAX API operations are considered "write-through":
 
-However, unlike the primary node, read replicas don't write to DynamoDB.
+- `BatchWriteItem`
+- `UpdateItem`
+- `DeleteItem`
+- `PutItem`
 
-Read replicas serve two additional purposes:
+With these operations, data is first written to the DynamoDB table, and then to the
+DAX cluster. The operation is successful only if the data is successfully written
+to _both_ the table and to DAX.
 
-- **Scalability**. If you have a large number of
-  application clients that need to access DAX concurrently, you can add more
-  replicas for read-scaling. DAX spreads the load evenly across all the nodes in
-  the cluster. (Another way to increase throughput is to use larger cache node
-  types.)
-- **High availability**. In the event of a primary
-  node failure, DAX automatically fails over to a read replica and designates it
-  as the new primary. If a replica node fails, other nodes in the DAX cluster
-  can still serve requests until the failed node can be recovered. For maximum
-  fault tolerance, you should deploy read replicas in separate Availability Zones.
-  This configuration ensures that your DAX cluster can continue to function,
-  even if an entire Availability Zone becomes unavailable.
+### Other operations
 
-###### Important
+DAX does not recognize any DynamoDB operations for managing tables (such as
+`CreateTable`, `UpdateTable`, and so on). If your
+application needs to perform these operations, it must access DynamoDB directly rather
+than using DAX.
 
-For production usage, we strongly recommend using DAX with at least three nodes,
-where each node is placed in different Availability Zones. Three nodes are required
-for a DAX cluster to be fault-tolerant.
+For detailed information about DAX and DynamoDB consistency, see [DAX and DynamoDB consistency models](DAX.consistency.md "DAX.consistency.md").
 
-A DAX cluster can be deployed with one or two nodes for development or test
-workloads. One-node and two-node clusters are not fault-tolerant, and we don't
-recommend using fewer than three nodes for production use. If a one-node or two-node
-cluster encounters software or hardware errors, the cluster can become unavailable
-or lose cached data.
+For information about how transactions work in DAX, see [Using transactional APIs in DynamoDB Accelerator (DAX)](transaction-apis.md#transaction-apis-dax "transaction-apis.md#transaction-apis-dax").
 
-###### Important
+### Request rate limiting
 
-A DAX cluster supports a maximum of 500 DynamoDB tables. If you go beyond 500
-tables, your cluster may experience degradation in availability and
-performance.
+If the number of requests sent to DAX exceeds the capacity of a node, DAX
+limits the rate at which it accepts additional requests by returning a [ThrottlingException](../APIReference/CommonErrors.md#CommonErrors-ThrottlingException "../APIReference/CommonErrors.md#CommonErrors-ThrottlingException"). DAX continuously evaluates your CPU utilization
+to determine the volume of requests it can process while maintaining a healthy
+cluster state.
 
-## Regions and availability zones
+You can monitor the [ThrottledRequestCount metric](dax-metrics-dimensions-dax.md "dax-metrics-dimensions-dax.md") that DAX publishes to Amazon CloudWatch. If you
+see these exceptions regularly, you should consider [scaling up your cluster](DAX.cluster-management.md#DAX.cluster-management.scaling "DAX.cluster-management.md#DAX.cluster-management.scaling").
 
-A DAX cluster in an AWS Region can only interact with DynamoDB tables that are in the
-same Region. For this reason, ensure that you launch your DAX cluster in the correct
-Region. If you have DynamoDB tables in other Regions, you must launch DAX clusters in
-those Regions too.
+## Item cache
 
-Each Region is designed to be completely isolated from the other Regions. Within each
-Region are multiple Availability Zones. By launching your nodes in different
-Availability Zones, you can achieve the greatest possible fault tolerance.
+DAX maintains an _item cache_ to store the results from
+`GetItem` and `BatchGetItem` operations. The items in the
+cache represent eventually consistent data from DynamoDB, and are stored by their primary
+key values.
 
-###### Important
+When an application sends a `GetItem` or `BatchGetItem` request,
+DAX tries to read the items directly from the item cache using the specified key
+values. If the items are found (cache hit), DAX returns them to the application
+immediately. If the items are not found (cache miss), DAX sends the request to DynamoDB.
+DynamoDB processes the requests using eventually consistent reads and returns the items to
+DAX. DAX stores them in the item cache and then returns them to the
+application.
 
-Don't place all of your cluster's nodes in a single Availability Zone. In this
-configuration, your DAX cluster becomes unavailable if there is an Availability
-Zone failure.
+The item cache has a Time to Live (TTL) setting, which is 5 minutes by default. DAX assigns
+a timestamp to every item that it writes to the item cache. An item expires if it has
+remained in the cache for longer than the TTL setting. If you issue a
+`GetItem` request on an expired item, this is considered a cache miss,
+and DAX sends the `GetItem` request to DynamoDB.
 
-For production usage, we strongly recommend using DAX with at least three nodes,
-where each node is placed in different Availability Zones. Three nodes are required
-for a DAX cluster to be fault-tolerant.
+###### Note
 
-A DAX cluster can be deployed with one or two nodes for development or test
-workloads. One- and two-node clusters are not fault-tolerant, and we don't recommend
-using fewer than three nodes for production use. If a one- or two-node cluster
-encounters software or hardware errors, the cluster can become unavailable or lose
-cached data.
+You can specify the TTL setting for the item cache when you create a new DAX
+cluster. For more information, see [Managing DAX clusters](DAX.cluster-management.md "DAX.cluster-management.md").
 
-## Parameter groups
+DAX also maintains a least recently used (LRU) list for the item cache. The LRU list
+tracks when an item was first written to the cache, and when the item was last read from
+the cache. If the item cache becomes full, DAX evicts older items (even if they
+haven't expired yet) to make room for new items. The LRU algorithm is always enabled for
+the item cache and is not user-configurable.
 
-_Parameter groups_ are used to manage runtime settings for DAX
-clusters. DAX has several parameters that you can use to optimize performance (such as
-defining a TTL policy for cached data). A parameter group is a named set of parameters
-that you can apply to a cluster. You can thereby ensure that all the nodes in that
-cluster are configured in exactly the same way.
+If you specify zero as the _item cache_ TTL setting, items in the
+item cache will only be refreshed due to an LRU eviction or a ["write-through"](DAX.concepts.md#DAX.concepts.request-processing-write "DAX.concepts.md#DAX.concepts.request-processing-write") operation.
 
-## Security groups
+For detailed information about the consistency of the item cache in DAX, see [DAX item cache behavior](DAX.consistency.md#DAX.consistency.item-cache "DAX.consistency.md#DAX.consistency.item-cache").
 
-A DAX cluster runs in an Amazon Virtual Private Cloud (Amazon VPC) environment. This environment is a
-virtual network that is dedicated to your AWS account and is isolated from other VPCs.
-A _security group_ acts as a virtual firewall for your VPC, allowing
-you to control inbound and outbound network traffic.
+## Query cache
 
-When you launch a cluster in your VPC, you add an _ingress_ rule to
-your security group to allow incoming network traffic. The ingress rule specifies the
-protocol (TCP) and port number (8111) for your cluster. After you add this rule to your
-security group, the applications that are running within your VPC can access the DAX
-cluster.
+DAX also maintains a _query cache_ to store the results from
+`Query` and `Scan` operations. The items in this cache
+represent result sets from queries and scans on DynamoDB tables. These result sets are
+stored by their parameter values.
 
-## Cluster ARN
+When an application sends a `Query` or `Scan` request, DAX
+tries to read a matching result set from the query cache using the specified parameter
+values. If the result set is found (cache hit), DAX returns it to the application
+immediately. If the result set is not found (cache miss), DAX sends the request to
+DynamoDB. DynamoDB processes the requests using eventually consistent reads and returns the
+result set to DAX. DAX stores it in the query cache and then returns it to the
+application.
 
-Every DAX cluster is assigned an _Amazon Resource Name_ (ARN).
-The ARN format is as follows.
+###### Note
 
-```
-arn:aws:dax:`region`:`accountID`:cache/`clusterName`
-```
+You can specify the TTL setting for the query cache when you create a new DAX
+cluster. For more information, see [Managing DAX clusters](DAX.cluster-management.md "DAX.cluster-management.md").
 
-You use the cluster ARN in an IAM policy to define permissions for DAX API
-operations. For more information, see [DAX access control](DAX.md "DAX.md").
+DAX also maintains an LRU list for the query cache. The list tracks when a result
+set was first written to the cache, and when the result was last read from the cache. If
+the query cache becomes full, DAX evicts older result sets (even if they have not
+expired yet) to make room for new result sets. The LRU algorithm is always enabled for
+the query cache, and is not user-configurable.
 
-## Cluster endpoint
+If you specify zero as the _query cache_ TTL setting, the query
+response will not be cached.
 
-Every DAX cluster provides a _cluster endpoint_ for use by your
-application. By accessing the cluster using its endpoint, your application does not need
-to know the hostnames and port numbers of individual nodes in the cluster. Your
-application automatically "knows" all the nodes in the cluster, even if you add or
-remove read replicas.
-
-The following is an example of a cluster endpoint in the us-east-1 region that is not
-configured to use encryption in transit.
-
-`dax://my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com`
-
-The following is an example of a cluster endpoint in the same region that is
-configured to use encryption in transit.
-
-`daxs://my-encrypted-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com`
-
-## Node endpoints
-
-Each of the individual nodes in a DAX cluster has its own hostname and port number.
-The following is an example of a _node endpoint_.
-
-`myDAXcluster-a.2cmrwl.clustercfg.dax.use1.cache.amazonaws.com:8111`
-
-Your application can access a node directly by using its endpoint. However, we
-recommend that you treat the DAX cluster as a single unit and access it using the
-cluster endpoint instead. The cluster endpoint insulates your application from having to
-maintain a list of nodes and keep that list up to date when you add or remove nodes from
-the cluster.
-
-## Subnet groups
-
-Access to DAX cluster nodes is restricted to applications running on Amazon EC2 instances
-within an Amazon VPC environment. You can use _subnet groups_ to grant
-cluster access from Amazon EC2 instances running on specific subnets. A subnet group is a
-collection of subnets (typically private) that you can designate for your clusters
-running in an Amazon VPC environment.
-
-When you create a DAX cluster, you must specify a subnet group. DAX uses that
-subnet group to select a subnet and IP addresses within that subnet to associate with
-your nodes.
-
-## Events
-
-DAX records significant events within your clusters, such as a failure to add a
-node, success in adding a node, or changes to security groups. By monitoring key events,
-you can know the current state of your clusters and, depending upon the event, be able
-to take corrective action. You can access these events using the AWS Management Console or the
-`DescribeEvents` action in the DAX management API.
-
-You can also request that notifications be sent to a specific Amazon Simple Notification Service (Amazon SNS) topic.
-Then you will know immediately when an event occurs in your DAX cluster.
-
-## Maintenance window
-
-Every cluster has a weekly maintenance window to apply system changes. As changes are
-applied sequentially, an existing node is replaced and a new node with the applied
-changes is added to the cluster. During this period, your application might observe
-transient errors or throttles. Therefore, we recommend that you schedule the maintenance
-window during your lowest usage time and adjust this schedule periodically as needed.
-You can specify a time range of up to 24 hours in duration during which any maintenance
-activities that you request should occur.
-
-If you don't specify a preferred maintenance window when you create or modify a cache
-cluster, DAX assigns a 60-minute maintenance window on a random weekday. This
-60-minute maintenance window is randomly selected from an 8-hour block of time for each
-AWS Region. The following table lists the time blocks for each Region from which the
-default maintenance windows are assigned.
-
-| Region code    | Region name                      | Maintenance window |
-| -------------- | -------------------------------- | ------------------ |
-| ap-northeast-1 | Asia Pacific (Tokyo) Region      | 13:00–21:00 UTC    |
-| ap-southeast-1 | Asia Pacific (Singapore) Region  | 14:00–22:00 UTC    |
-| ap-southeast-2 | Asia Pacific (Sydney) Region     | 12:00–20:00 UTC    |
-| ap-south-1     | Asia Pacific (Mumbai) Region     | 17:30–1:30 UTC     |
-| cn-northwest-1 | China (Ningxia) Region           | 23:00–07:00 UTC    |
-| cn-north-1     | China (Beijing) Region           | 14:00–22:00 UTC    |
-| eu-central-1   | Europe (Frankfurt) Region        | 23:00–07:00 UTC    |
-| eu-north-1     | Europe (Stockholm) Region        | 01:00–09:00 UTC    |
-| eu-south-2     | Europe (Spain) Region            | 21:00–05:00 UTC    |
-| eu-west-1      | Europe (Ireland) Region          | 22:00–06:00 UTC    |
-| eu-west-2      | Europe (London) Region           | 23:00–07:00 UTC    |
-| eu-west-3      | Europe (Paris) Region            | 23:00–07:00 UTC    |
-| sa-east-1      | South America (São Paulo) Region | 01:00–09:00 UTC    |
-| us-east-1      | US East (N. Virginia) Region     | 03:00–11:00 UTC    |
-| us-east-2      | US East (Ohio) Region            | 23:00–07:00 UTC    |
-| us-west-1      | US West (N. California) Region   | 06:00–14:00 UTC    |
-| us-west-2      | US West (Oregon) Region          | 06:00–14:00 UTC    |
+For detailed information about the consistency of the query cache in DAX, see [DAX query cache behavior](DAX.consistency.md#DAX.consistency.query-cache "DAX.consistency.md#DAX.consistency.query-cache").

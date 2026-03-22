@@ -1,6 +1,6 @@
 # Sizing your DAX cluster
 
-A DAX cluster's total capacity and availability depends on node type and count. More nodes in the cluster increase its read capacity, but not the write capacity. Larger node types (up to r5.8xlarge) can handle more writes, but too few nodes can impact availability when a node failure occurs. For more information about sizing your DAX cluster, see the [DAX cluster sizing guide](DAX.md "DAX.md").
+A DAX cluster's total capacity and availability depends on node type and count. More nodes in the cluster increase its read capacity, but not the write capacity. Larger node types (up to r5.8xlarge) can handle more writes, but too few nodes can impact availability when a node failure occurs. For more information about sizing your DAX cluster, see the [DAX cluster sizing guide](DAX.sizing-guide.md "DAX.sizing-guide.md").
 
 The following sections discuss the different sizing aspects that you should consider to balance node type and count for creating a scalable and cost-efficient cluster.
 
@@ -26,7 +26,7 @@ All DAX clusters have a primary node for write-through requests. The size of the
 
 If your application needs to write-through DAX to update the item cache, consider increased use of cluster resources to facilitate the write. Writes against DAX consume about 25 times more resources than cache-hit reads. This might require a larger node type than for read-only clusters.
 
-For additional guidance about determining whether write-through or write-around will work best for your application, see [Strategies for writes](DAX.md#DAX.consistency.strategies-for-writes "DAX.md#DAX.consistency.strategies-for-writes").
+For additional guidance about determining whether write-through or write-around will work best for your application, see [Strategies for writes](DAX.consistency.md#DAX.consistency.strategies-for-writes "DAX.consistency.md#DAX.consistency.strategies-for-writes").
 
 ## Planning read throughput
 
@@ -115,7 +115,7 @@ In this example, because the value of `NodeLossTolerance` is greater than `Targe
 
 ## Approximating cluster throughput capacity by node type
 
-Using the [Target RPS formula](#Target-RPS-formula "#Target-RPS-formula"), you can estimate cluster capacity for different node types. The following table shows approximate capacities for clusters with 1, 3, 5, and 11 node types. These capacities don't replace the need to perform load testing of DAX with your own data and request patterns. Additionally, these capacities don't include [t-type](DAX.md "DAX.md") instances because of their lack of fixed CPU capacity. The unit for all values in the following table is Normalized RPS.
+Using the [Target RPS formula](#Target-RPS-formula "#Target-RPS-formula"), you can estimate cluster capacity for different node types. The following table shows approximate capacities for clusters with 1, 3, 5, and 11 node types. These capacities don't replace the need to perform load testing of DAX with your own data and request patterns. Additionally, these capacities don't include [t-type](DAX.Burstable.md "DAX.Burstable.md") instances because of their lack of fixed CPU capacity. The unit for all values in the following table is Normalized RPS.
 
 | Node type (memory)      | 1 node | 3 nodes | 5 nodes | 11 nodes |
 | ----------------------- | ------ | ------- | ------- | -------- |

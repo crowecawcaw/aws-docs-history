@@ -1,182 +1,73 @@
-# Walkthrough: DynamoDB Streams Kinesis adapter
+# Using the DynamoDB Streams Kinesis adapter to process stream records
 
-This section is a walkthrough of a Java application that uses the Amazon Kinesis Client Library
-and the Amazon DynamoDB Streams Kinesis Adapter. The application shows an example of data replication, in
-which write activity from one table is applied to a second table, with both tables' contents
-staying in sync. For the source code, see [Complete program: DynamoDB Streams Kinesis adapter](Streams.KCLAdapter.Walkthrough.md "Streams.KCLAdapter.Walkthrough.md").
+Using the Amazon Kinesis Adapter is the recommended way to consume streams from Amazon DynamoDB. The
+DynamoDB Streams API is intentionally similar to that of Kinesis Data Streams. In both services, data streams are composed of shards,
+which are containers for stream records. Both services' APIs contain
+`ListStreams`, `DescribeStream`, `GetShards`, and
+`GetShardIterator` operations. (Although these DynamoDB Streams actions are similar to
+their counterparts in Kinesis Data Streams, they are not 100 percent identical.)
 
-The program does the following:
+As a DynamoDB Streams user, you can use the design patterns found within the KCL to process DynamoDB Streams
+shards and stream records. To do this, you use the DynamoDB Streams Kinesis Adapter. The Kinesis Adapter
+implements the Kinesis Data Streams interface so that the KCL can be used for consuming and processing
+records from DynamoDB Streams. For instructions on how to set up and install the DynamoDB Streams Kinesis Adapter, see
+the [GitHub
+repository](https://github.com/awslabs/dynamodb-streams-kinesis-adapter "https://github.com/awslabs/dynamodb-streams-kinesis-adapter").
 
-1. Creates two DynamoDB tables named `KCL-Demo-src` and
-   `KCL-Demo-dst`. Each of these tables has a stream enabled on
-   it.
-2. Generates update activity in the source table by adding, updating, and deleting
-   items. This causes data to be written to the table's stream.
-3. Reads the records from the stream, reconstructs them as DynamoDB requests, and
-   applies the requests to the destination table.
-4. Scans the source and destination tables to ensure that their contents are
-   identical.
-5. Cleans up by deleting the tables.
-   These steps are described in the following sections, and the complete application is shown
-   at the end of the walkthrough.
+You can write applications for Kinesis Data Streams using the Kinesis Client Library (KCL). The KCL
+simplifies coding by providing useful abstractions above the low-level Kinesis Data Streams API. For more
+information about the KCL, see the [Developing consumers using the Kinesis
+client library](../../../kinesis/latest/dev/developing-consumers-with-kcl.md "../../../kinesis/latest/dev/developing-consumers-with-kcl.md") in the _Amazon Kinesis Data Streams Developer Guide_.
 
-###### Topics
+DynamoDB recommends using KCL version 3.x with AWS SDK for Java v2.x. The current DynamoDB Streams
+Kinesis Adapter version 1.x with AWS SDK for AWS SDK for Java v1.x will continue to be fully supported
+throughout its lifecycle as intended during the transitional period in alignment
+with [AWS SDKs and Tools
+maintenance policy](../../../sdkref/latest/guide/maint-policy.md "../../../sdkref/latest/guide/maint-policy.md").
 
-- [Step 1: Create DynamoDB tables](#Streams.KCLAdapter.Walkthrough.Step1 "#Streams.KCLAdapter.Walkthrough.Step1")
-- [Step 2: Generate update activity in source table](#Streams.KCLAdapter.Walkthrough.Step2 "#Streams.KCLAdapter.Walkthrough.Step2")
-- [Step 3: Process the stream](#Streams.KCLAdapter.Walkthrough.Step3 "#Streams.KCLAdapter.Walkthrough.Step3")
-- [Step 4: Ensure that both tables have identical contents](#Streams.KCLAdapter.Walkthrough.Step4 "#Streams.KCLAdapter.Walkthrough.Step4")
-- [Step 5: Clean up](#Streams.KCLAdapter.Walkthrough.Step5 "#Streams.KCLAdapter.Walkthrough.Step5")
-- [Complete program: DynamoDB Streams Kinesis adapter](Streams.KCLAdapter.Walkthrough.md "Streams.KCLAdapter.Walkthrough.md")
+###### Note
 
-## Step 1: Create DynamoDB tables
+Amazon Kinesis Client Library (KCL) versions 1.x and 2.x are outdated. KCL 1.x will reach
+end-of-support on January 30, 2026. We strongly recommend that you migrate your KCL
+applications using version 1.x to the latest KCL version before January 30, 2026. To
+find the latest KCL version, see the [Amazon Kinesis Client
+Library](https://github.com/awslabs/amazon-kinesis-client "https://github.com/awslabs/amazon-kinesis-client") page on GitHub. For information about the latest KCL versions, see
+[Use Kinesis
+Client Library](../../../streams/latest/dev/kcl.md "../../../streams/latest/dev/kcl.md"). For information about migrating from KCL 1.x to KCL 3.x, see
+Migrating from KCL 1.x to KCL 3.x.
 
-The first step is to create two DynamoDB tables—a source table and a destination
-table. The `StreamViewType` on the source table's stream is
-`NEW_IMAGE`. This means that whenever an item is modified in this table,
-the item's "after" image is written to the stream. In this way, the stream keeps track
-of all write activity on the table.
+The following diagram shows how these libraries interact with one another.
 
-The following example shows the code that is used for creating both tables.
+![Interaction between DynamoDB Streams, Kinesis Data Streams, and KCL for processing DynamoDB Streams records.](images/streams-kinesis-adapter.png)
+With the DynamoDB Streams Kinesis Adapter in place, you can begin developing against the KCL interface,
+with the API calls seamlessly directed at the DynamoDB Streams endpoint.
 
-```
+When your application starts, it calls the KCL to instantiate a worker. You must provide
+the worker with configuration information for the application, such as the stream descriptor
+and AWS credentials, and the name of a record processor class that you provide. As it runs
+the code in the record processor, the worker performs the following tasks:
 
-java.util.List<AttributeDefinition> attributeDefinitions = new ArrayList<AttributeDefinition>();
-attributeDefinitions.add(new AttributeDefinition().withAttributeName("Id").withAttributeType("N"));
+- Connects to the stream
+- Enumerates the shards within the stream
+- Checks and enumerates child shards of a closed parent shard within the stream
+- Coordinates shard associations with other workers (if any)
+- Instantiates a record processor for every shard it manages
+- Pulls records from the stream
+- Scales GetRecords API calling rate during high throughput (if catch-up mode is configured)
+- Pushes the records to the corresponding record processor
+- Checkpoints processed records
+- Balances shard-worker associations when the worker instance count changes
+- Balances shard-worker associations when shards are split
+  The KCL adapter supports catch-up mode, an automatic calling rate adjustment feature for handling
+  temporary throughput increases. When stream processing lag exceeds a configurable threshold (default one minute),
+  catch-up mode scales GetRecords API calling frequency by a configurable value (default 3x) to retrieve
+  records faster, then returns to normal once the lag drops. This is valuable during high-throughput periods where
+  DynamoDB write activity can overwhelm consumers using default polling rates. Catch-up mode can be enabled through
+  the `catchupEnabled` configuration parameter (default false).
 
-java.util.List<KeySchemaElement> keySchema = new ArrayList<KeySchemaElement>();
-keySchema.add(new KeySchemaElement().withAttributeName("Id").withKeyType(KeyType.HASH)); // Partition
-                                                                                         // key
+###### Note
 
-ProvisionedThroughput provisionedThroughput = new ProvisionedThroughput().withReadCapacityUnits(2L)
-    .withWriteCapacityUnits(2L);
-
-StreamSpecification streamSpecification = new StreamSpecification();
-streamSpecification.setStreamEnabled(true);
-streamSpecification.setStreamViewType(StreamViewType.NEW_IMAGE);
-CreateTableRequest createTableRequest = new CreateTableRequest().withTableName(tableName)
-    .withAttributeDefinitions(attributeDefinitions).withKeySchema(keySchema)
-    .withProvisionedThroughput(provisionedThroughput).withStreamSpecification(streamSpecification);
-
-```
-
-## Step 2: Generate update activity in source table
-
-The next step is to generate some write activity on the source table. While this
-activity is taking place, the source table's stream is also updated in near-real
-time.
-
-The application defines a helper class with methods that call the
-`PutItem`, `UpdateItem`, and `DeleteItem` API
-operations for writing the data. The following code example shows how these methods are
-used.
-
-```
-
-StreamsAdapterDemoHelper.putItem(dynamoDBClient, tableName, "101", "test1");
-StreamsAdapterDemoHelper.updateItem(dynamoDBClient, tableName, "101", "test2");
-StreamsAdapterDemoHelper.deleteItem(dynamoDBClient, tableName, "101");
-StreamsAdapterDemoHelper.putItem(dynamoDBClient, tableName, "102", "demo3");
-StreamsAdapterDemoHelper.updateItem(dynamoDBClient, tableName, "102", "demo4");
-StreamsAdapterDemoHelper.deleteItem(dynamoDBClient, tableName, "102");
-
-```
-
-## Step 3: Process the stream
-
-Now the program begins processing the stream. The DynamoDB Streams Kinesis Adapter acts as a
-transparent layer between the KCL and the DynamoDB Streams endpoint, so that the code can fully use
-KCL rather than having to make low-level DynamoDB Streams calls. The program performs the following
-tasks:
-
-- It defines a record processor class, `StreamsRecordProcessor`, with
-  methods that comply with the KCL interface definition: `initialize`,
-  `processRecords`, and `shutdown`. The
-  `processRecords` method contains the logic required for reading
-  from the source table's stream and writing to the destination table.
-- It defines a class factory for the record processor class
-  (`StreamsRecordProcessorFactory`). This is required for Java
-  programs that use the KCL.
-- It instantiates a new KCL `Worker`, which is associated with the
-  class factory.
-- It shuts down the `Worker` when record processing is
-  complete.
-
-Optionally, enable catch-up mode in your Streams KCL Adapter configuration to automatically scale GetRecords API calling rate
-by 3x (default) when stream processing lag exceeds one minute (default), helping your stream consumer handle high throughput
-spikes in your table.
-
-To learn more about the KCL interface definition, see [Developing consumers using the
+For a description of the KCL concepts listed here, see [Developing consumers using the
 Kinesis client library](../../../kinesis/latest/dev/developing-consumers-with-kcl.md "../../../kinesis/latest/dev/developing-consumers-with-kcl.md") in the _Amazon Kinesis Data Streams Developer Guide_.
 
-The following code example shows the main loop in `StreamsRecordProcessor`.
-The `case` statement determines what action to perform, based on the
-`OperationType` that appears in the stream record.
-
-```
-
-for (Record record : records) {
-    String data = new String(record.getData().array(), Charset.forName("UTF-8"));
-    System.out.println(data);
-    if (record instanceof RecordAdapter) {
-                software.amazon.dynamodb.model.Record streamRecord = ((RecordAdapter) record)
-                    .getInternalObject();
-
-                switch (streamRecord.getEventName()) {
-                    case "INSERT":
-                    case "MODIFY":
-                        StreamsAdapterDemoHelper.putItem(dynamoDBClient, tableName,
-                            streamRecord.getDynamodb().getNewImage());
-                        break;
-                    case "REMOVE":
-                        StreamsAdapterDemoHelper.deleteItem(dynamoDBClient, tableName,
-                            streamRecord.getDynamodb().getKeys().get("Id").getN());
-                }
-    }
-    checkpointCounter += 1;
-    if (checkpointCounter % 10 == 0) {
-        try {
-            checkpointer.checkpoint();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-}
-
-```
-
-## Step 4: Ensure that both tables have identical contents
-
-At this point, the source and destination tables' contents are in sync. The
-application issues `Scan` requests against both tables to verify that their
-contents are, in fact, identical.
-
-The `DemoHelper` class contains a `ScanTable` method that calls
-the low-level `Scan` API. The following example shows how this is
-used.
-
-```
-
-if (StreamsAdapterDemoHelper.scanTable(dynamoDBClient, srcTable).getItems()
-    .equals(StreamsAdapterDemoHelper.scanTable(dynamoDBClient, destTable).getItems())) {
-    System.out.println("Scan result is equal.");
-}
-else {
-    System.out.println("Tables are different!");
-}
-
-```
-
-## Step 5: Clean up
-
-The demo is complete, so the application deletes the source and destination tables.
-See the following code example. Even after the tables are deleted, their streams remain
-available for up to 24 hours, after which they are automatically deleted.
-
-```
-
-dynamoDBClient.deleteTable(new DeleteTableRequest().withTableName(srcTable));
-dynamoDBClient.deleteTable(new DeleteTableRequest().withTableName(destTable));
-
-```
+For more information on using streams with AWS Lambda see [DynamoDB Streams and AWS Lambda triggers](Streams.Lambda.md "Streams.Lambda.md")

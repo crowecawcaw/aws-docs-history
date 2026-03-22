@@ -8,7 +8,7 @@ in your DynamoDB item.
 
 As a best practice, you should utilize the [`ReturnConsumedCapacity`](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/dynamodbv2/model/ReturnConsumedCapacity.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/dynamodbv2/model/ReturnConsumedCapacity.md") parameter when writing items to monitor and
 alert on items sizes that approach the 400 KB maximum item size. Exceeding the maximum item size
-will result in failed write attempts. DynamoDB will return a [ValidationException error](Programming.md "Programming.md"). Monitoring and alerting on item sizes will enable you to
+will result in failed write attempts. DynamoDB will return a [ValidationException error](Programming.Errors.md "Programming.Errors.md"). Monitoring and alerting on item sizes will enable you to
 mitigate the items size issues before they impact your application.
 
 ## Compressing large attribute values

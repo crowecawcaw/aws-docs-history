@@ -2,7 +2,7 @@
 
 Optimistic locking is a strategy that detects conflicts at write time rather than preventing
 them. Each item includes a version attribute that increments with every update. When updating an
-item, you include a [condition expression](Expressions.md "Expressions.md")
+item, you include a [condition expression](Expressions.ConditionExpressions.md "Expressions.ConditionExpressions.md")
 that checks whether the version number matches the value your application last read. If another
 process modified the item in the meantime, the condition fails and DynamoDB returns a
 `ConditionalCheckFailedException`.
@@ -114,4 +114,4 @@ locking support through the [`@DynamoDbVersionAttribute`](../../../sdk-for-java/
 numbers for you.
 
 For more information about condition expressions, see
-[DynamoDB condition expression CLI example](Expressions.md "Expressions.md").
+[DynamoDB condition expression CLI example](Expressions.ConditionExpressions.md "Expressions.ConditionExpressions.md").

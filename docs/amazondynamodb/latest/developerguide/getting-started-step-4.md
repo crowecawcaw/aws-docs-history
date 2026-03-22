@@ -133,7 +133,7 @@ specified.
 ```
 
 For more information about updating data with PartiQL, see [PartiQL update
-statements](ql-reference.md "ql-reference.md").
+statements](ql-reference.update.md "ql-reference.update.md").
 
 The following code examples show how to update an item in a DynamoDB table using
 an AWS SDK.

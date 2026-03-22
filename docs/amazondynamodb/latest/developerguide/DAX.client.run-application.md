@@ -1,0 +1,12 @@
+# Step 4: Run a sample application
+
+To help you test Amazon DynamoDB Accelerator (DAX) functionality, you can run one of the
+available sample applications on your Amazon EC2 instance.
+
+###### Topics
+
+- [Node.js and DAX](DAX.client.run-application-nodejs-3.md "DAX.client.run-application-nodejs-3.md")
+- [DAX SDK for Go](DAX.client.run-application-go-2.md "DAX.client.run-application-go-2.md")
+- [Java and DAX](DAX.client.run-application-java.md "DAX.client.run-application-java.md")
+- [.NET and DAX](DAX.client.run-application-dotnet.md "DAX.client.run-application-dotnet.md")
+- [Python and DAX](DAX.client.run-application-python.md "DAX.client.run-application-python.md")

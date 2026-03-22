@@ -15,7 +15,7 @@ DynamoDB Integrations in the AWS Management Console.
 
 ## How it works
 
-The plugin uses [DynamoDB export to Amazon S3](S3DataExport.md "S3DataExport.md") to
+The plugin uses [DynamoDB export to Amazon S3](S3DataExport.HowItWorks.md "S3DataExport.HowItWorks.md") to
 create an initial snapshot to load into OpenSearch. After the snapshot has been loaded, the
 plugin uses DynamoDB Streams to replicate any further changes in near real time. Every item is
 processed as an event in OpenSearch Ingestion and can be modified with processor plugins.

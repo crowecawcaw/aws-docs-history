@@ -20,7 +20,7 @@ preceding step.
 - [Create a table with a Global Secondary Index](#GSILowLevelDotNet.CreateTableWithIndex "#GSILowLevelDotNet.CreateTableWithIndex")
 - [Describe a table with a Global Secondary Index](#GSILowLevelDotNet.DescribeTableWithIndex "#GSILowLevelDotNet.DescribeTableWithIndex")
 - [Query a Global Secondary Index](#GSILowLevelDotNet.QueryAnIndex "#GSILowLevelDotNet.QueryAnIndex")
-- [Example: Global Secondary Indexes using the AWS SDK for .NET low-level API](GSILowLevelDotNet.md "GSILowLevelDotNet.md")
+- [Example: Global Secondary Indexes using the AWS SDK for .NET low-level API](GSILowLevelDotNet.Example.md "GSILowLevelDotNet.Example.md")
 
 ## Create a table with a Global Secondary Index
 

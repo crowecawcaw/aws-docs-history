@@ -8,7 +8,7 @@ provisioned throughput to these values, your application will be able to issue r
 up to those values instantly.
 
 DynamoDB will automatically adjust warm throughput values as your usage increases.
-However, you can also increase these values proactively when needed, which is especially
+You can also increase these values proactively when needed, which is especially
 useful for upcoming peak events like product launches or sales. For planned peak events,
 where request rates to your DynamoDB table might increase by 10x, 100x, or more, you can
 now assess whether the current warm throughput is sufficient to handle the expected
@@ -16,7 +16,8 @@ traffic. If it’s not, you can increase the warm throughput value without chang
 throughput settings or [billing mode](capacity-mode.md "capacity-mode.md"). This process
 is referred to as _pre-warming_ a table, allowing you
 to set a baseline that your tables can instantly support. This ensures your applications
-can handle higher request rates from the moment they occur.
+can handle higher request rates from the moment they occur. Once increased, warm throughput
+values can't be decreased.
 
 You can increase the warm throughput value for read operations, write operations, or
 both. You can increase this value for new and existing single-Region tables, global

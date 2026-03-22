@@ -64,7 +64,7 @@ The AWS SDK for Java 1.x has a DynamoDB package named
 `com.amazonaws.dynamodbv2`. The "v2" in the package name doesn't indicate
 that it's for Java 2 (J2SE). Rather, "v2" indicates that the package supports the
 [second version](CurrentAPI.md "CurrentAPI.md") of the DynamoDB low-level API
-instead of the [original version](Appendix.md "Appendix.md") of the
+instead of the [original version](Appendix.APIv20111205.md "Appendix.APIv20111205.md") of the
 low-level API.
 
 ### Support for Java versions
@@ -1607,7 +1607,7 @@ with a condition check failure is different than that to handle throttling. Defi
 exceptional paths you want to deal with and make sure to test the alternative paths.
 This helps you make sure that you can deal with all relevant scenarios.
 
-For lists of common errors that you might encounter, see [Error handling with DynamoDB](Programming.md "Programming.md"). Also see [Common Errors](../APIReference/CommonErrors.md "../APIReference/CommonErrors.md") in the _Amazon DynamoDB API Reference_. The API
+For lists of common errors that you might encounter, see [Error handling with DynamoDB](Programming.Errors.md "Programming.Errors.md"). Also see [Common Errors](../APIReference/CommonErrors.md "../APIReference/CommonErrors.md") in the _Amazon DynamoDB API Reference_. The API
 Reference also provides the exact errors possible for each
 API
 operation, such as for the [`Query`](../APIReference/API_Query.md "../APIReference/API_Query.md")

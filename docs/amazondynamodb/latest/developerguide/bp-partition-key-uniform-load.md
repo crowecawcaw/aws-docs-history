@@ -41,4 +41,4 @@ and write capabilities of a single partition, your application won't encounter a
 throttling as a result of partitioning.
 
 To use NoSQL Workbench for DynamoDB to help visualize your partition key design, see
-[Building data models with NoSQL Workbench](workbench.md "workbench.md").
+[Building data models with NoSQL Workbench](workbench.Modeler.md "workbench.Modeler.md").

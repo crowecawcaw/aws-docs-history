@@ -4,7 +4,7 @@ In DynamoDB, an _item collection_ is a group of items that share the same
 partition key value, which means the items are related. Item collections are the primary mechanism
 to model one-to-many relationships in DynamoDB. Item collections can only exist on tables or indexes
 configured to use a [composite primary
-key](HowItWorks.md#HowItWorks.CoreComponents.PrimaryKey "HowItWorks.md#HowItWorks.CoreComponents.PrimaryKey").
+key](HowItWorks.CoreComponents.md#HowItWorks.CoreComponents.PrimaryKey "HowItWorks.CoreComponents.md#HowItWorks.CoreComponents.PrimaryKey").
 
 ###### Note
 

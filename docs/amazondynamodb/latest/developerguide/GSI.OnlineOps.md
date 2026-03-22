@@ -1,275 +1,269 @@
-# Detecting and correcting index key violations in DynamoDB
+# Managing Global Secondary Indexes in DynamoDB
 
-During the backfill phase of global secondary index creation, Amazon DynamoDB examines each item in the table to
-determine whether it is eligible for inclusion in the index. Some items might not be
-eligible because they would cause index key violations. In these cases, the items remain in
-the table, but the index doesn't have a corresponding entry for that item.
+This section describes how to create, modify, and delete global secondary indexes in
+Amazon DynamoDB.
 
-An _index key violation_ occurs in the following situations:
+###### Topics
 
-- There is a data type mismatch between an attribute value and the index key schema
-  data type. For example, suppose that one of the items in the `GameScores`
-  table had a `TopScore` value of type `String`. If you added a
-  global secondary index with a partition key of `TopScore`, of type `Number`,
-  the item from the table would violate the index key.
-- An attribute value from the table exceeds the maximum length for an index key
-  attribute. The maximum length of a partition key is 2048 bytes, and
-  the maximum length of a sort key is 1024 bytes. If any of the
-  corresponding attribute values in the table exceed these limits, the item from the
-  table would violate the index key.
+- [Creating a table with Global Secondary Indexes](#GSI.Creating "#GSI.Creating")
+- [Describing the Global Secondary Indexes on a table](#GSI.Describing "#GSI.Describing")
+- [Adding a Global Secondary Index to an existing table](#GSI.OnlineOps.Creating "#GSI.OnlineOps.Creating")
+- [Deleting a Global Secondary Index](#GSI.OnlineOps.Deleting "#GSI.OnlineOps.Deleting")
+- [Modifying a Global Secondary Index during creation](#GSI.OnlineOps.Creating.Modify "#GSI.OnlineOps.Creating.Modify")
+
+## Creating a table with Global Secondary Indexes
+
+To create a table with one or more global secondary indexes, use the
+`CreateTable` operation with the `GlobalSecondaryIndexes`
+parameter. For maximum query flexibility, you can create up to 20
+global secondary indexes (default quota) per table.
+
+You must specify one attribute to act as the index partition key. You can optionally
+specify another attribute for the index sort key. It is not necessary for either of
+these key attributes to be the same as a key attribute in the table. For example, in the
+_GameScores_ table (see [Using Global Secondary Indexes in DynamoDB](GSI.md "GSI.md")), neither `TopScore` nor `TopScoreDateTime` are key attributes.
+You could create a global secondary index with a partition key of `TopScore` and a sort key of
+`TopScoreDateTime`. You might use such an index to determine whether
+there is a correlation between high scores and the time of day a game is played.
+
+Each index key attribute must be a scalar of type `String`,
+`Number`, or `Binary`. (It cannot be a document or a set.) You
+can project attributes of any data type into a global secondary index. This includes scalars, documents,
+and sets. For a complete list of data types, see [Data types](HowItWorks.NamingRulesDataTypes.md#HowItWorks.DataTypes "HowItWorks.NamingRulesDataTypes.md#HowItWorks.DataTypes").
+
+If using provisioned mode, you must provide `ProvisionedThroughput`
+settings for the index, consisting of `ReadCapacityUnits` and
+`WriteCapacityUnits`. These provisioned throughput settings are separate
+from those of the table, but behave in similar ways. For more information, see [Provisioned throughput considerations for Global Secondary Indexes](GSI.md#GSI.ThroughputConsiderations "GSI.md#GSI.ThroughputConsiderations").
+
+Global secondary indexes inherit the read/write capacity mode from the base table.
+For more information, see [Considerations when switching capacity modes in DynamoDB](bp-switching-capacity-modes.md "bp-switching-capacity-modes.md").
 
 ###### Note
 
-If a String or Binary attribute value is set for an attribute that is used as an index
-key, then the attribute value must have a length greater than zero;, otherwise, the item
-from the table would violate the index key.
+When creating a new GSI, it can be important to check if
+your choice of partition key is producing uneven or narrowed distribution of data or
+traffic across the new index’s partition key values. If this occurs, you could be
+seeing backfill and write operations occurring at the same time and throttling
+writes to the base table. The service takes measures to minimize the potential for
+this scenario, but has no insight into the shape of customer data with respect to
+the index partition key, the chosen projection, or the sparseness of the index
+primary key.
 
-This tool does not flag this index key violation, at this time.
+If you suspect that your new global secondary index might have narrow or skewed
+data or traffic distribution across partition key values, consider the following
+before adding new indexes to operationally important tables.
 
-If an index key violation occurs, the backfill phase continues without interruption.
-However, any violating items are not included in the index. After the backfill phase
-completes, all writes to items that violate the new index's key schema will be
-rejected.
+- It might be safest to add the index at a time when your application is
+  driving the least amount of traffic.
+- Consider enabling CloudWatch Contributor Insights on your base table and
+  indexes. This will give you valuable insight into your traffic
+  distribution.
+- Watch `WriteThrottleEvents`, `ThrottledRequests`, and
+  `OnlineIndexPercentageProgress` CloudWatch metrics throughout the
+  process. Adjust the provisioned write capacity as required to complete the
+  backfill in a reasonable time without any significant throttling effects on
+  your ongoing operations. `OnlineIndexConsumedWriteCapacity` and
+  `OnlineThrottleEvents` are expected to show 0 during index backfill.
+- Be prepared to cancel the index creation if you experience operational
+  impact due to write throttling.
 
-To identify and fix attribute values in a table that violate an index key, use the
-Violation Detector tool. To run Violation Detector, you create a configuration file that specifies the name
-of a table to be scanned, the names and data types of the global secondary index partition key and sort key,
-and what actions to take if any index key violations are found. Violation Detector can run in one of
-two different modes:
+## Describing the Global Secondary Indexes on a table
 
-- Detection mode — Detect index key violations.
-  Use detection mode to report the items in the table that would cause key violations
-  in a global secondary index. (You can optionally request that these violating table items be deleted
-  immediately when they are found.) The output from detection mode is written to a
-  file, which you can use for further analysis.
-- Correction mode — Correct index key
-  violations. In correction mode, Violation Detector reads an input file with the same format
-  as the output file from detection mode. Correction mode reads the records from the
-  input file and, for each record, it either deletes or updates the corresponding
-  items in the table. (Note that if you choose to update the items, you must edit the
-  input file and set appropriate values for these updates.)
+To view the status of all the global secondary indexes on a table, use the
+`DescribeTable` operation. The `GlobalSecondaryIndexes`
+portion of the response shows all of the indexes on the table, along with the current
+status of each ( `IndexStatus`).
 
-## Downloading and running Violation Detector
+The `IndexStatus` for a global secondary index will be one of the following:
 
-Violation Detector is available as an executable Java Archive (`.jar` file), and
-runs on Windows, macOS, or Linux computers. Violation Detector requires Java 1.7 (or later) and
-Apache Maven.
+- `CREATING` — The index is currently being created, and is not
+  yet available for use.
+- `ACTIVE` — The index is ready for use, and applications can
+  perform `Query` operations on the index.
+- `UPDATING` — The provisioned throughput settings of the index
+  are being changed.
+- `DELETING` — The index is currently being deleted, and can no
+  longer be used.
 
-- [Download violation detector from GitHub](https://github.com/awslabs/dynamodb-online-index-violation-detector "https://github.com/awslabs/dynamodb-online-index-violation-detector")
+When DynamoDB has finished building a global secondary index, the index status changes from
+`CREATING` to `ACTIVE`.
 
-Follow the instructions in the `README.md` file to download and
-install Violation Detector using Maven.
+## Adding a Global Secondary Index to an existing table
 
-To start Violation Detector, go to the directory where you have built
-`ViolationDetector.java` and enter the following command.
+To add a global secondary index to an existing table, use the `UpdateTable` operation with
+the `GlobalSecondaryIndexUpdates` parameter. You must provide the
+following:
 
-```
-java -jar ViolationDetector.jar [options]
-```
-
-The Violation Detector command line accepts the following options:
-
-- `-h | --help` — Prints a usage summary and options for
-  Violation Detector.
-- `-p | --configFilePath`
-  `value` — The fully qualified name of a Violation Detector
-  configuration file. For more information, see [The Violation Detector configuration file](#GSI.OnlineOps.ViolationDetection.ConfigFile "#GSI.OnlineOps.ViolationDetection.ConfigFile").
-- `-t | --detect`
-  `value` — Detect index key violations in the table, and write
-  them to the Violation Detector output file. If the value of this parameter is set to
-  `keep`, items with key violations are not modified. If the value
-  is set to `delete`, items with key violations are deleted from the
+- An index name. The name must be unique among all the indexes on the
   table.
-- `-c | --correct`
-  `value` — Read index key violations from an input file, and
-  take corrective actions on the items in the table. If the value of this
-  parameter is set to `update`, items with key violations are updated
-  with new, non-violating values. If the value is set to `delete`,
-  items with key violations are deleted from the table.
+- The key schema of the index. You must specify one attribute for the index
+  partition key; you can optionally specify another attribute for the index sort
+  key. It is not necessary for either of these key attributes to be the same as a
+  key attribute in the table. The data types for each schema attribute must be
+  scalar: `String`, `Number`, or `Binary`.
+- The attributes to be projected from the table into the index:
+  - `KEYS_ONLY` — Each item in the index consists only of
+    the table partition key and sort key values, plus the index key values.
+  - `INCLUDE` — In addition to the attributes described
+    in `KEYS_ONLY`, the secondary index includes other
+    non-key attributes that you specify.
+  - `ALL` — The index includes all of the attributes from
+    the source table.
 
-## The Violation Detector configuration file
+- The provisioned throughput settings for the index, consisting of
+  `ReadCapacityUnits` and `WriteCapacityUnits`. These
+  provisioned throughput settings are separate from those of the table.
 
-At runtime, the Violation Detector tool requires a configuration file. The parameters in this
-file determine which DynamoDB resources that Violation Detector can access, and how much
-provisioned throughput it can consume. The following table describes these
-parameters.
+You can only create one global secondary index per `UpdateTable`
+operation.
 
-| Parameter name                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Required? |
-| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | -------------------------------------------------------------------------------------------------- | --- |
-| `awsCredentialsFile`              | The fully qualified name of a file containing your AWS<br>credentials. The credentials file must be in the following<br>format:<br>``<br>accessKey = `access_key_id_goes_here`<br>secretKey = `secret_key_goes_here`<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Yes       |
-| `dynamoDBRegion`                  | The AWS Region in which the table resides. For example:<br>`us-west-2`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Yes       |
-| `tableName`                       | The name of the DynamoDB table to be scanned.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Yes       |
-| `gsiHashKeyName`                  | The name of the index partition key.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Yes       |
-| `gsiHashKeyType`                  | The data type of the index partition<br>key—`String`, `Number`, or<br>`Binary`:<br>`S                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | N         | B`                                                                                                 | Yes |
-| `gsiRangeKeyName`                 | The name of the index sort key. Do not specify this parameter if<br>the index only has a simple primary key (partition key).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | No        |
-| `gsiRangeKeyType`                 | The data type of the index sort key—`String`,<br>`Number`, or `Binary`:<br>`S                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | N         | B`<br>Do not specify this parameter if the index only has a simple<br>primary key (partition key). | No  |
-| `recordDetails`                   | Whether to write the full details of index key violations to the<br>output file. If set to `true` (the default), full<br>information about the violating items is reported. If set to<br>`false`, only the number of violations is<br>reported.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | No        |
-| `recordGsiValueInViolationRecord` | Whether to write the values of the violating index keys to the<br>output file. If set to `true` (default), the key values<br>are reported. If set to `false`, the key values are not<br>reported.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | No        |
-| `detectionOutputPath`             | The full path of the Violation Detector output file. This parameter<br>supports writing to a local directory or to Amazon Simple Storage Service (Amazon S3). The<br>following are examples:<br>`detectionOutputPath =` `//`local/path/filename.csv``<br>`detectionOutputPath =` `s3://`bucket`/`filename.csv``<br>Information in the output file appears in comma-separated values<br>(CSV) format. If you don't set `detectionOutputPath`, the<br>output file is named `violation_detection.csv`<br>and is written to your current working directory.                                                                                                                                                                                                                       | No        |
-| `numOfSegments`                   | The number of parallel scan segments to be used when Violation Detector<br>scans the table. The default value is 1, meaning that the table is<br>scanned in a sequential manner. If the value is 2 or higher, then<br>Violation Detector divides the table into that many logical segments and an<br>equal number of scan threads. The maximum setting for<br>`numOfSegments` is 4096.For larger<br>tables, a parallel scan is generally faster than a sequential scan.<br>In addition, if the table is large enough to span multiple<br>partitions, a parallel scan distributes its read activity evenly<br>across multiple partitions.For more information about<br>parallel scans in DynamoDB, see [Parallel scan](Scan.md#Scan.ParallelScan "Scan.md#Scan.ParallelScan"). | No        |
-| `numOfViolations`                 | The upper limit of index key violations to write to the output<br>file. If set to `-1` (the default), the entire table is<br>scanned. If set to a positive integer, then Violation Detector stops after<br>it encounters that number of violations.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | No        |
-| `numOfRecords`                    | The number of items in the table to be scanned. If set to -1 (the<br>default), the entire table is scanned. If set to a positive integer,<br>Violation Detector stops after it scans that many items in the table.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | No        |
-| `readWriteIOPSPercent`            | Regulates the percentage of provisioned read capacity units that<br>are consumed during the table scan. Valid values range from<br>`1` to `100`. The default value<br>(`25`) means that Violation Detector will consume no more<br>than 25% of the table's provisioned read throughput.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | No        |
-| `correctionInputPath`             | The full path of the Violation Detector correction input file. If you run<br>Violation Detector in correction mode, the contents of this file are used to<br>modify or delete data items in the table that violate the<br>global secondary index.<br>The format of the `correctionInputPath` file is the<br>same as that of the `detectionOutputPath` file.<br>This lets you process the output from detection mode as input in<br>correction mode.                                                                                                                                                                                                                                                                                                                           | No        |
-| `correctionOutputPath`            | The full path of the Violation Detector correction output file. This file<br>is created only if there are update errors.<br>This parameter supports writing to a local directory or to Amazon S3.<br>The following are examples:<br>`correctionOutputPath =` `//`local/path/filename.csv``<br>`correctionOutputPath =` `s3://`bucket`/`filename.csv``<br>Information in the output file appears in CSV format. If you don't<br>set `correctionOutputPath`, the output file is named<br>`violation_update_errors.csv` and is written<br>to your current working directory.                                                                                                                                                                                                     | No        |
+### Phases of index creation
 
-## Detection
-
-To detect index key violations, use Violation Detector with the `--detect` command
-line option. To show how this option works, consider the `ProductCatalog`
-table. The following is a list of items in the table. Only the primary key
-(`Id`) and the `Price` attribute are shown.
-
-| Id (primary key) | Price |
-| ---------------- | ----- |
-| `101`            | `5`   |
-| `102`            | `20`  |
-| `103`            | `200` |
-| `201`            | `100` |
-| `202`            | `200` |
-| `203`            | `300` |
-| `204`            | `400` |
-| `205`            | `500` |
-
-All of the values for `Price` are of type `Number`. However,
-because DynamoDB is schemaless, it is possible to add an item with a non-numeric
-`Price`. For example, suppose that you add another item to the
-`ProductCatalog` table.
-
-| Id (primary key) | Price     |
-| ---------------- | --------- |
-| `999`            | `"Hello"` |
-
-The table now has a total of nine items.
-
-Now you add a new global secondary index to the table: `PriceIndex`. The primary key for
-this index is a partition key, `Price`, which is of type `Number`.
-After the index has been built, it will contain eight items—but the
-`ProductCatalog` table has nine items. The reason for this discrepancy is
-that the value `"Hello"` is of type `String`, but
-`PriceIndex` has a primary key of type `Number`. The
-`String` value violates the global secondary index key, so it is not present in the
-index.
-
-To use Violation Detector in this scenario, you first create a configuration file such as the
-following.
-
-```
-`# Properties file for violation detection tool configuration.
-# Parameters that are not specified will use default values.
-
-awsCredentialsFile = /home/alice/credentials.txt
-dynamoDBRegion = us-west-2
-tableName = ProductCatalog
-gsiHashKeyName = Price
-gsiHashKeyType = N
-recordDetails = true
-recordGsiValueInViolationRecord = true
-detectionOutputPath = ./gsi_violation_check.csv
-correctionInputPath = ./gsi_violation_check.csv
-numOfSegments = 1
-readWriteIOPSPercent = 40`
-```
-
-Next, you run Violation Detector as in the following example.
-
-```
-``$`  java -jar ViolationDetector.jar --configFilePath config.txt --detect keep`
-
-`Violation detection started: sequential scan, Table name: ProductCatalog, GSI name: PriceIndex
-Progress: Items scanned in total: 9, Items scanned by this thread: 9, Violations found by this thread: 1, Violations deleted by this thread: 0
-Violation detection finished: Records scanned: 9, Violations found: 1, Violations deleted: 0, see results at: ./gsi_violation_check.csv`
-```
-
-If the `recordDetails` config parameter is set to `true`,
-Violation Detector writes details of each violation to the output file, as in the following
-example.
-
-```
-Table Hash Key,GSI Hash Key Value,GSI Hash Key Violation Type,GSI Hash Key Violation Description,GSI Hash Key Update Value(FOR USER),Delete Blank Attributes When Updating?(Y/N)
-
-999,"{""S"":""Hello""}",Type Violation,Expected: N Found: S,,
-```
-
-The output file is in CSV format. The first line in the file is a header, followed by
-one record per item that violates the index key. The fields of these violation records
-are as follows:
-
-- Table hash key — The partition key value
-  of the item in the table.
-- Table range key — The sort key value of
-  the item in the table.
-- GSI hash key value — The partition key
-  value of the global secondary index.
-- GSI hash key violation type — Either
-  `Type Violation` or `Size Violation`.
-- GSI hash key violation description — The
-  cause of the violation.
-- GSI hash key update Value(FOR USER) — In
-  correction mode, a new user-supplied value for the attribute.
-- GSI range key value — The sort key value
-  of the global secondary index.
-- GSI range key violation type — Either
-  `Type Violation` or `Size Violation`.
-- GSI range key violation description — The
-  cause of the violation.
-- GSI range key update Value(FOR USER) — In
-  correction mode, a new user-supplied value for the attribute.
-- Delete blank attribute when Updating(Y/N)
-  — In correction mode, determines whether to delete (Y) or keep (N) the
-  violating item in the table—but only if either of the following fields are
-  blank:
-
-      + `GSI Hash Key Update Value(FOR USER)`
-      + `GSI Range Key Update Value(FOR USER)`
-
-  If either of these fields are non-blank, then `Delete Blank Attribute
- When Updating(Y/N)` has no effect.
+When you add a new global secondary index to an existing table, the table continues to be available
+while the index is being built. However, the new index is not available for Query
+operations until its status changes from `CREATING` to
+`ACTIVE`.
 
 ###### Note
 
-The output format might vary, depending on the configuration file and command line
-options. For example, if the table has a simple primary key (without a sort key), no
-sort key fields will be present in the output.
+Global secondary index creation does not use Application Auto Scaling. Increasing the `MIN` Application Auto Scaling
+capacity will not decrease the creation time of the global secondary index.
 
-The violation records in the file might not be in sorted order.
+Behind the scenes, DynamoDB builds the index in two phases:
 
-## Correction
+**Resource Allocation**
 
-To correct index key violations, use Violation Detector with the `--correct`
-command line option. In correction mode, Violation Detector reads the input file specified by
-the `correctionInputPath` parameter. This file has the same format as the
-`detectionOutputPath` file, so that you can use the output from detection
-as input for correction.
+DynamoDB allocates the compute and storage resources that are needed for
+building the index.
 
-Violation Detector provides two different ways to correct index key violations:
+During the resource allocation phase, the `IndexStatus`
+attribute is `CREATING` and the `Backfilling`
+attribute is false. Use the `DescribeTable` operation to
+retrieve the status of a table and all of its secondary indexes.
 
-- Delete violations — Delete the table
-  items that have violating attribute values.
-- Update violations — Update the table
-  items, replacing the violating attributes with non-violating values.
+While the index is in the resource allocation phase, you can't delete
+the index or delete its parent table. You also can't modify the
+provisioned throughput of the index or the table. You cannot add or
+delete other indexes on the table. However, you can modify the
+provisioned throughput of these other indexes.
 
-In either case, you can use the output file from detection mode as input for
-correction mode.
+**Backfilling**
 
-Continuing with the `ProductCatalog` example, suppose that you want to
-delete the violating item from the table. To do this, you use the following command
-line.
+For each item in the table, DynamoDB determines which set of attributes
+to write to the index based on its projection (`KEYS_ONLY`,
+`INCLUDE`, or `ALL`). It then writes these
+attributes to the index. During the backfill phase, DynamoDB tracks the
+items that are being added, deleted, or updated in the table. The
+attributes from these items are also added, deleted, or updated in the
+index as appropriate.
 
-```
-``$`  java -jar ViolationDetector.jar --configFilePath config.txt --correct delete`
-```
+During the backfilling phase, the `IndexStatus` attribute
+is set to `CREATING`, and the `Backfilling`
+attribute is true. Use the `DescribeTable` operation to
+retrieve the status of a table and all of its secondary indexes.
 
-At this point, you are asked to confirm whether you want to delete the violating
-items.
+While the index is backfilling, you cannot delete its parent table.
+However, you can still delete the index or modify the provisioned
+throughput of the table and any of its global secondary indexes.
 
-```
-`Are you sure to delete all violations on the table?y/n`
-`y`
-`Confirmed, will delete violations on the table...
-Violation correction from file started: Reading records from file: ./gsi_violation_check.csv, will delete these records from table.
-Violation correction from file finished: Violations delete: 1, Violations Update: 0`
-```
+###### Note
 
-Now both `ProductCatalog` and `PriceIndex` have the same number
-of items.
+During the backfilling phase, some writes of violating items might
+succeed while others are rejected. After backfilling, all writes to
+items that violate the new index's key schema are rejected. We
+recommend that you run the Violation Detector tool after the backfill phase
+finishes to detect and resolve any key violations that might have
+occurred. For more information, see [Detecting and correcting index key violations in DynamoDB](GSI.OnlineOps.ViolationDetection.md "GSI.OnlineOps.ViolationDetection.md").
+
+While the resource allocation and backfilling phases are in progress, the index is
+in the `CREATING` state. During this time, DynamoDB performs read operations
+on the table. You are not charged for read operations from the base table to
+populate the global secondary index.
+
+When the index build is complete, its status changes to `ACTIVE`. You
+can't `Query` or `Scan` the index until it is
+`ACTIVE`.
+
+###### Note
+
+In some cases, DynamoDB can't write data from the table to the index because of
+index key violations. This can occur if:
+
+- The data type of an attribute value does not match the data type of an
+  index key schema data type.
+- The size of an attribute exceeds the maximum length for an index key
+  attribute.
+- An index key attribute has an empty String or empty Binary attribute
+  value.
+  Index key violations do not interfere with global secondary index creation. However, when the
+  index becomes `ACTIVE`, the violating keys are not present in the
+  index.
+
+DynamoDB provides a standalone tool for finding and resolving these issues. For
+more information, see [Detecting and correcting index key violations in DynamoDB](GSI.OnlineOps.ViolationDetection.md "GSI.OnlineOps.ViolationDetection.md").
+
+### Adding a Global Secondary Index to a large table
+
+The time required for building a global secondary index depends on several factors, such as the
+following:
+
+- The size of the table
+- The number of items in the table that qualify for inclusion in the
+  index
+- The number of attributes projected into the index
+- Write activity on the main table during index builds
+
+If you are adding a global secondary index to a very large table, it might take a long time for the
+creation process to complete. To monitor progress and determine whether the index
+has sufficient write capacity, consult the following Amazon CloudWatch metrics:
+
+- `OnlineIndexPercentageProgress`
+
+For more information about CloudWatch metrics related to DynamoDB, see [DynamoDB metrics](metrics-dimensions.md#dynamodb-metrics "metrics-dimensions.md#dynamodb-metrics").
+
+###### Important
+
+You may need to allowlist very large tables before creating or updating a
+Global Secondary Index. Please reach out to AWS Support to allowlist your
+tables.
+
+While an index is being backfilled, DynamoDB uses internal system capacity to read
+from the table. This is to minimize the impact of the index creation and to assure
+that your table does not run out of read capacity.
+
+## Deleting a Global Secondary Index
+
+If you no longer need a global secondary index, you can delete it using the `UpdateTable`
+operation.
+
+You can delete only one global secondary index per `UpdateTable`
+operation.
+
+While the global secondary index is being deleted, there is no effect on any read or write activity in
+the parent table. While the deletion is in progress, you can still modify the
+provisioned throughput on other indexes.
+
+###### Note
+
+- When you delete a table using the `DeleteTable` action, all of
+  the global secondary indexes on that table are also deleted.
+- Your account will not be charged for the delete operation of the
+  global secondary index.
+
+## Modifying a Global Secondary Index during creation
+
+While an index is being built, you can use the `DescribeTable` operation to
+determine what phase it is in. The description for the index includes a Boolean
+attribute, `Backfilling`, to indicate whether DynamoDB is currently loading the
+index with items from the table. If `Backfilling` is true, the resource
+allocation phase is complete and the index is now backfilling.
+
+During the backfilling phase, you can delete the index that is being created. During
+this phase, you can't add or delete other indexes on the table.
+
+###### Note
+
+For indexes that were created as part of a `CreateTable` operation, the
+`Backfilling` attribute does not appear in the
+`DescribeTable` output. For more information, see [Phases of index creation](#GSI.OnlineOps.Creating.Phases "#GSI.OnlineOps.Creating.Phases").

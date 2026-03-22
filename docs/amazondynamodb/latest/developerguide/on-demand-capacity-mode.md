@@ -36,7 +36,7 @@ You can modify the table-specific maximum throughput at any time based on your
 application requirements. For more information, see [DynamoDB maximum throughput for on-demand tables](on-demand-capacity-mode-max-throughput.md "on-demand-capacity-mode-max-throughput.md").
 
 To get started, create or update a table to use on-demand mode. For more information,
-see [Basic operations on DynamoDB tables](WorkingWithTables.md "WorkingWithTables.md").
+see [Basic operations on DynamoDB tables](WorkingWithTables.Basics.md "WorkingWithTables.Basics.md").
 
 You can switch tables from provisioned capacity mode to on-demand mode up to four times in a 24-hour rolling window.
 You can switch tables from on-demand mode to provisioned capacity mode at any time.
@@ -59,7 +59,7 @@ request units_.
 One _read request unit_ represents one strongly consistent read
 operation per second, or two eventually consistent read operations per second, for
 an item up to 4 KB in size. For more information about DynamoDB read consistency
-models, see [DynamoDB read consistency](HowItWorks.md "HowItWorks.md").
+models, see [DynamoDB read consistency](HowItWorks.ReadConsistency.md "HowItWorks.ReadConsistency.md").
 
 One _write request unit_ represents one write operation per
 second, for an item up to 1 KB in size.

@@ -22,7 +22,7 @@ transactional.
 - A _transactional_ read request of an item up to 4 KB
   requires two read units.
 
-To learn more about DynamoDB read consistency models, see [DynamoDB read consistency](HowItWorks.md "HowItWorks.md").
+To learn more about DynamoDB read consistency models, see [DynamoDB read consistency](HowItWorks.ReadConsistency.md "HowItWorks.ReadConsistency.md").
 
 Item sizes for reads are rounded up to the next 4 KB multiple. For example,
 reading a 3,500-byte item consumes the same throughput as reading a 4 KB

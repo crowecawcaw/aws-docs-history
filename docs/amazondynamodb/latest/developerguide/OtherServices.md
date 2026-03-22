@@ -5,7 +5,7 @@ build applications that span multiple services.
 
 ###### Topics
 
-- [Configuring AWS credentials using Amazon Cognito for DynamoDB](Cognito.md "Cognito.md")
+- [Configuring AWS credentials using Amazon Cognito for DynamoDB](Cognito.Credentials.md "Cognito.Credentials.md")
 - [Integrating with Amazon Redshift](RedshiftforDynamoDB.md "RedshiftforDynamoDB.md")
 - [Processing DynamoDB data with Apache Hive on Amazon EMR](EMRforDynamoDB.md "EMRforDynamoDB.md")
 - [Integrating DynamoDB with Amazon S3](S3forDynamoDB.md "S3forDynamoDB.md")

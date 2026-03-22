@@ -292,7 +292,7 @@ Output:
 }
 ```
 
-For more information, see [Deleting a Table](WorkingWithTables.md#WorkingWithTables.Basics.DeleteTable "WorkingWithTables.md#WorkingWithTables.Basics.DeleteTable") in the _Amazon DynamoDB Developer Guide_.
+For more information, see [Deleting a Table](WorkingWithTables.Basics.md#WorkingWithTables.Basics.DeleteTable "WorkingWithTables.Basics.md#WorkingWithTables.Basics.DeleteTable") in the _Amazon DynamoDB Developer Guide_.
 
 - For API details, see
   [DeleteTable](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/delete-table.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/delete-table.html")

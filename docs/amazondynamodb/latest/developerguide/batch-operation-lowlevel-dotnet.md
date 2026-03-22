@@ -28,7 +28,7 @@ items. If it does, it loops back and resends the `BatchWriteItem` request with
 unprocessed items in the request. You can also create these sample tables and upload
 sample data programmatically. For more information, see [Creating example tables and uploading data using the AWS SDK for .NET](AppendixSampleDataCodeDotNET.md "AppendixSampleDataCodeDotNET.md").
 
-For step-by-step instructions for testing the following sample, see [.NET code examples](CodeSamples.md "CodeSamples.md").
+For step-by-step instructions for testing the following sample, see [.NET code examples](CodeSamples.DotNet.md "CodeSamples.DotNet.md").
 
 ###### Example
 
@@ -183,7 +183,7 @@ multiple items from the `Forum` and the `Thread` tables in Amazon DynamoDB.
 The `BatchGetItemRequest` specifies the table names and a list of primary keys
 for each table. The example processes the response by printing the items retrieved.
 
-For step-by-step instructions for testing the following sample, see [.NET code examples](CodeSamples.md "CodeSamples.md").
+For step-by-step instructions for testing the following sample, see [.NET code examples](CodeSamples.DotNet.md "CodeSamples.DotNet.md").
 
 ###### Example
 

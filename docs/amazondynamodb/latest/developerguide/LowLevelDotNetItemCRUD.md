@@ -172,7 +172,7 @@ parameters:
 - `ProjectionExpression` parameter to specify the attributes to
   retrieve.
 - `ConsistentRead` parameter to perform a strongly consistent read. To
-  learn more read consistency, see [DynamoDB read consistency](HowItWorks.md "HowItWorks.md").
+  learn more read consistency, see [DynamoDB read consistency](HowItWorks.ReadConsistency.md "HowItWorks.ReadConsistency.md").
 
 ###### Example
 

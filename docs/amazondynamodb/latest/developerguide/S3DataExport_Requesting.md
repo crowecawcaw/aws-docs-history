@@ -108,7 +108,7 @@ If the table or bucket you're exporting to is encrypted with customer managed ke
 KMS key's policies must give DynamoDB permission to use it. This permission is given
 through the IAM User/Role that triggers the export job. For more information on
 encryption including best practices, see [How DynamoDB uses
-AWS KMS](../../../kms/latest/developerguide/services-dynamodb.md "../../../kms/latest/developerguide/services-dynamodb.md") and [Using a custom KMS key](encryption.md#managed-key-customer-managed "encryption.md#managed-key-customer-managed").
+AWS KMS](../../../kms/latest/developerguide/services-dynamodb.md "../../../kms/latest/developerguide/services-dynamodb.md") and [Using a custom KMS key](encryption.howitworks.md#managed-key-customer-managed "encryption.howitworks.md#managed-key-customer-managed").
 
 ## Requesting an export using the AWS Management Console
 
@@ -206,7 +206,7 @@ Incremental export
      before the specified “start date and time”. The default
      setting is **New and old
      images**. For more information on new images
-     and old images, see [Incremental export output](S3DataExport.md#incremental-export-output "S3DataExport.md#incremental-export-output").
+     and old images, see [Incremental export output](S3DataExport.Output.md#incremental-export-output "S3DataExport.Output.md#incremental-export-output").
 
 6. Choose **Export** to begin.
 

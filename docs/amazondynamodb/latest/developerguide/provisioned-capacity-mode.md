@@ -57,7 +57,7 @@ later, if needed, or enable DynamoDB auto scaling to modify them automatically.
 For an item up to 4 KB, one _read capacity unit_
 (RCU) represents one strongly consistent read operation per second, or two
 eventually consistent read operations per second. For more information about DynamoDB
-read consistency models, see [DynamoDB read consistency](HowItWorks.md "HowItWorks.md").
+read consistency models, see [DynamoDB read consistency](HowItWorks.ReadConsistency.md "HowItWorks.ReadConsistency.md").
 
 A _write capacity unit_ (WCU) represents one
 write per second for an item up to 1 KB. For more information about the different

@@ -9,8 +9,8 @@ For information about using the DynamoDB console, AWS Command Line Interface, or
 see [Accessing
 DynamoDB](AccessingDynamoDB.md "AccessingDynamoDB.md").
 
-To [download](workbench.md "workbench.md") and use the [NoSQL workbench](workbench.md "workbench.md") to build [PartiQL for DynamoDB](ql-reference.md "ql-reference.md") statements
-choose **PartiQL operations** at the top right corner of the NoSQL Workbench for DynamoDB [Operation builder](workbench.querybuilder.md "workbench.querybuilder.md").
+To [download](workbench.settingup.md "workbench.settingup.md") and use the [NoSQL workbench](workbench.md "workbench.md") to build [PartiQL for DynamoDB](ql-reference.md "ql-reference.md") statements
+choose **PartiQL operations** at the top right corner of the NoSQL Workbench for DynamoDB [Operation builder](workbench.querybuilder.operationbuilder.md "workbench.querybuilder.operationbuilder.md").
 
 Console
 
@@ -34,7 +34,7 @@ NoSQL workbench
 ![NoSQL workbench interface. It shows a PartiQL SELECT statement that you can run on the Music table.](images/workbench/partiql.single.png)
 
 1. Choose **PartiQL statement**.
-2. Enter the following PartiQL [SELECT statement](ql-reference.md "ql-reference.md")
+2. Enter the following PartiQL [SELECT statement](ql-reference.select.md "ql-reference.select.md")
 
 ```
 SELECT *

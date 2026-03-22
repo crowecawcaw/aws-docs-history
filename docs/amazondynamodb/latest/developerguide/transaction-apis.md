@@ -205,7 +205,7 @@ transaction has been completed.
 Once the transaction is successfully completed and a response is received, subsequent
 _eventually consistent_ read operations may still return the old
 state for a short period due to DynamoDB's eventual consistency model. To guarantee reading
-the most up-to-date data immediately after a transaction, you should use [strongly consistent](HowItWorks.md#HowItWorks.ReadConsistency.Strongly "HowItWorks.md#HowItWorks.ReadConsistency.Strongly") reads by setting
+the most up-to-date data immediately after a transaction, you should use [strongly consistent](HowItWorks.ReadConsistency.md#HowItWorks.ReadConsistency.Strongly "HowItWorks.ReadConsistency.md#HowItWorks.ReadConsistency.Strongly") reads by setting
 `ConsistentRead` to true.
 
 ### READ-COMMITTED

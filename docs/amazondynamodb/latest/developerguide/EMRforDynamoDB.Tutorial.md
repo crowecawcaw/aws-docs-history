@@ -1,30 +1,38 @@
-# Step 1: Create an Amazon EC2 key pair
+# Tutorial: Working with Amazon DynamoDB and Apache Hive
 
-In this step, you will create the Amazon EC2 key pair you need to connect to an Amazon EMR
-leader node and run Hive commands.
+In this tutorial, you will launch an Amazon EMR cluster, and then use Apache Hive to
+process data stored in a DynamoDB table.
 
-1. Sign in to the AWS Management Console and open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. Choose a region (for example, `US West (Oregon)`). This should
-   be the same region in which your DynamoDB table is located.
-3. In the navigation pane, choose **Key Pairs**.
-4. Choose **Create Key Pair**.
-5. In **Key pair name**, type a name for your key pair (for
-   example, `mykeypair`), and then choose
-   **Create**.
-6. Download the private key file. The file name will end with
-   `.pem` (such as `mykeypair.pem`). Keep this
-   private key file in a safe place. You will need it to access any Amazon EMR
-   cluster that you launch with this key pair.
+_Hive_ is a data warehouse application for Hadoop that allows you
+to process and analyze data from multiple sources. Hive provides a SQL-like language,
+_HiveQL_, that lets you work with data stored locally in the
+Amazon EMR cluster or in an external data source (such as Amazon DynamoDB).
 
-###### Important
+For more information, see to the [Hive
+Tutorial](https://cwiki.apache.org/confluence/display/Hive/Tutorial "https://cwiki.apache.org/confluence/display/Hive/Tutorial").
 
-If you lose the key pair, you cannot connect to the leader node
-of your Amazon EMR cluster.
+###### Topics
 
-For more information about key pairs, see [Amazon EC2 Key Pairs](../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md "../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md") in the
-_Amazon EC2 User Guide_.
+- [Before you begin](#EMRforDynamoDB.Tutorial.BeforeYouBegin "#EMRforDynamoDB.Tutorial.BeforeYouBegin")
+- [Step 1: Create an Amazon EC2 key pair](EMRforDynamoDB.Tutorial.EC2KeyPair.md "EMRforDynamoDB.Tutorial.EC2KeyPair.md")
+- [Step 2: Launch an Amazon EMR cluster](EMRforDynamoDB.Tutorial.LaunchEMRCluster.md "EMRforDynamoDB.Tutorial.LaunchEMRCluster.md")
+- [Step 3: Connect to the Leader node](EMRforDynamoDB.Tutorial.ConnectToLeaderNode.md "EMRforDynamoDB.Tutorial.ConnectToLeaderNode.md")
+- [Step 4: Load data into HDFS](EMRforDynamoDB.Tutorial.LoadDataIntoHDFS.md "EMRforDynamoDB.Tutorial.LoadDataIntoHDFS.md")
+- [Step 5: Copy data to DynamoDB](EMRforDynamoDB.Tutorial.CopyDataToDDB.md "EMRforDynamoDB.Tutorial.CopyDataToDDB.md")
+- [Step 6: Query the data in the DynamoDB table](EMRforDynamoDB.Tutorial.QueryDataInDynamoDB.md "EMRforDynamoDB.Tutorial.QueryDataInDynamoDB.md")
+- [Step 7: (Optional) clean up](EMRforDynamoDB.Tutorial.CleanUp.md "EMRforDynamoDB.Tutorial.CleanUp.md")
+
+## Before you begin
+
+For this tutorial, you will need the following:
+
+- An AWS account. If you do not have one, see [Signing up for AWS](SettingUp.DynamoWebService.md#SettingUp.DynamoWebService.SignUpForAWS "SettingUp.DynamoWebService.md#SettingUp.DynamoWebService.SignUpForAWS").
+- An SSH client (Secure Shell). You use the SSH client to connect to the
+  leader node of the Amazon EMR cluster and run interactive commands. SSH
+  clients are available by default on most Linux, Unix, and Mac OS X
+  installations. Windows users can download and install the [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/ "http://www.chiark.greenend.org.uk/~sgtatham/putty/")
+  client, which has SSH support.
 
 ###### Next step
 
-[Step 2: Launch an Amazon EMR cluster](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
+[Step 1: Create an Amazon EC2 key pair](EMRforDynamoDB.Tutorial.EC2KeyPair.md "EMRforDynamoDB.Tutorial.EC2KeyPair.md")

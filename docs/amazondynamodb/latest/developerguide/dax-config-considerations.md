@@ -14,13 +14,13 @@ The DAX cluster is a managed cluster, but you can adjust its configurations to f
 
 ## DAX pricing
 
-The cost of a cluster depends on the number and size of [nodes](DAX.concepts.md#DAX.concepts.nodes "DAX.concepts.md#DAX.concepts.nodes") it has provisioned. Every node is billed for each hour it runs in the cluster. For more information, see [Amazon DynamoDB pricing](https://aws.amazon.com/dynamodb/pricing/ "https://aws.amazon.com/dynamodb/pricing/").
+The cost of a cluster depends on the number and size of [nodes](DAX.concepts.cluster.md#DAX.concepts.nodes "DAX.concepts.cluster.md#DAX.concepts.nodes") it has provisioned. Every node is billed for each hour it runs in the cluster. For more information, see [Amazon DynamoDB pricing](https://aws.amazon.com/dynamodb/pricing/ "https://aws.amazon.com/dynamodb/pricing/").
 
 Cache hits don't incur DynamoDB cost, but impact DAX cluster resources. Cache misses incur DynamoDB read costs and require DAX resources. Writes incur DynamoDB write costs and impact DAX cluster resources to proxy the write.
 
 ## Item cache and query cache
 
-DAX maintains an [item cache](DAX.md#DAX.concepts.item-cache "DAX.md#DAX.concepts.item-cache") and a [query cache](DAX.md#DAX.concepts.query-cache "DAX.md#DAX.concepts.query-cache"). Understanding the differences between these caches can help you determine the performance and consistency characteristics they offer to your application.
+DAX maintains an [item cache](DAX.concepts.md#DAX.concepts.item-cache "DAX.concepts.md#DAX.concepts.item-cache") and a [query cache](DAX.concepts.md#DAX.concepts.query-cache "DAX.concepts.md#DAX.concepts.query-cache"). Understanding the differences between these caches can help you determine the performance and consistency characteristics they offer to your application.
 
 | Cache characteristic   | Item cache                                                                                                                                                                                                                                                                         | Query cache                                                                                                                                                                                                                                                                                                                                                                           |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -70,7 +70,7 @@ If you set TTL to 0, the item cache and query cache present the following behavi
 
 For workloads with multiple small DynamoDB tables that don't need individual caches, a single DAX cluster caches requests for these tables. This provides more flexible and efficient use of DAX, particularly for applications that access multiple tables and require high-performance reads.
 
-Similar to the DynamoDB [data plane](HowItWorks.md#HowItWorks.API.DataPlane "HowItWorks.md#HowItWorks.API.DataPlane") APIs, DAX requests require a table name. If you use multiple tables in the same DAX cluster, you don't need any specific configuration. However, you must ensure that the cluster's security permissions allow access to all cached tables.
+Similar to the DynamoDB [data plane](HowItWorks.API.md#HowItWorks.API.DataPlane "HowItWorks.API.md#HowItWorks.API.DataPlane") APIs, DAX requests require a table name. If you use multiple tables in the same DAX cluster, you don't need any specific configuration. However, you must ensure that the cluster's security permissions allow access to all cached tables.
 
 ### Considerations for using DAX with multiple tables
 

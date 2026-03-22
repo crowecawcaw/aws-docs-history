@@ -622,7 +622,7 @@ try {
 
 ```
 
-See [Error handling with DynamoDB](Programming.md "Programming.md") for common error strings in the _DynamoDB Developer Guide_. The exact errors possible with
+See [Error handling with DynamoDB](Programming.Errors.md "Programming.Errors.md") for common error strings in the _DynamoDB Developer Guide_. The exact errors possible with
 any particular API call can be found in the documentation for that API call, such as the
 [Query API docs](../APIReference/API_Query.md "../APIReference/API_Query.md").
 

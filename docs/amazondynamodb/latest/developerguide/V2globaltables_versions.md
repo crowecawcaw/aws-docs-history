@@ -179,7 +179,7 @@ Current versions of global tables.
 - version 2017.11.29 (Legacy) does not synchronize [global
   secondary index (GSI)](GSI.md "GSI.md") settings across replicas. version 2019.11.21
   (Current) synchronizes GSI settings across replicas.
-- version 2017.11.29 (Legacy) does not synchronize [encryption at rest](encryption.md "encryption.md") settings across
+- version 2017.11.29 (Legacy) does not synchronize [encryption at rest](encryption.usagenotes.md "encryption.usagenotes.md") settings across
   replicas. version 2019.11.21 (Current) synchronizes encryption at rest settings
   across replicas.
 - version 2017.11.29 (Legacy) publishes the `PendingReplicationCount`

@@ -288,7 +288,7 @@ The following `UsageType` charges appear under the “AmazonDAX” ProductCode r
 | REG-NodeUsage:dax-<INSTANCETYPE> | Node-hour | Hour        | The hourly usage of a particular<br>instance type. Pricing is per node-hour<br>consumed, from the time a node is<br>launched until it is terminated. Each<br>partial node-hour consumed will be<br>billed as a full hour. DAX charges for<br>each node in a DAX cluster. If you<br>have a cluster with multiple nodes, you<br>would see multiple line items in your<br>billing report. |
 
 The instance type will be one of the values from the following list.
-For details about node types, see [Nodes](DAX.concepts.md#DAX.concepts.nodes "DAX.concepts.md#DAX.concepts.nodes").
+For details about node types, see [Nodes](DAX.concepts.cluster.md#DAX.concepts.nodes "DAX.concepts.cluster.md#DAX.concepts.nodes").
 
 - r3.2xlarge, r4.8xlarge, or r5.8xlarge
 - r3.4xlarge, r4.large, or r5.large

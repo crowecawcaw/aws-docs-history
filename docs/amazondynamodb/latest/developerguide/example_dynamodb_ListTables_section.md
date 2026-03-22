@@ -218,7 +218,7 @@ Output:
 }
 ```
 
-For more information, see [Listing Table Names](WorkingWithTables.md#WorkingWithTables.Basics.ListTables "WorkingWithTables.md#WorkingWithTables.Basics.ListTables") in the _Amazon DynamoDB Developer Guide_.
+For more information, see [Listing Table Names](WorkingWithTables.Basics.md#WorkingWithTables.Basics.ListTables "WorkingWithTables.Basics.md#WorkingWithTables.Basics.ListTables") in the _Amazon DynamoDB Developer Guide_.
 
 **Example 2: To limit page size**
 
@@ -243,7 +243,7 @@ Output:
 }
 ```
 
-For more information, see [Listing Table Names](WorkingWithTables.md#WorkingWithTables.Basics.ListTables "WorkingWithTables.md#WorkingWithTables.Basics.ListTables") in the _Amazon DynamoDB Developer Guide_.
+For more information, see [Listing Table Names](WorkingWithTables.Basics.md#WorkingWithTables.Basics.ListTables "WorkingWithTables.Basics.md#WorkingWithTables.Basics.ListTables") in the _Amazon DynamoDB Developer Guide_.
 
 **Example 3: To limit the number of items returned**
 
@@ -267,7 +267,7 @@ Output:
 }
 ```
 
-For more information, see [Listing Table Names](WorkingWithTables.md#WorkingWithTables.Basics.ListTables "WorkingWithTables.md#WorkingWithTables.Basics.ListTables") in the _Amazon DynamoDB Developer Guide_.
+For more information, see [Listing Table Names](WorkingWithTables.Basics.md#WorkingWithTables.Basics.ListTables "WorkingWithTables.Basics.md#WorkingWithTables.Basics.ListTables") in the _Amazon DynamoDB Developer Guide_.
 
 **Example 4: To retrieve the next page of results**
 
@@ -290,7 +290,7 @@ Output:
 }
 ```
 
-For more information, see [Listing Table Names](WorkingWithTables.md#WorkingWithTables.Basics.ListTables "WorkingWithTables.md#WorkingWithTables.Basics.ListTables") in the _Amazon DynamoDB Developer Guide_.
+For more information, see [Listing Table Names](WorkingWithTables.Basics.md#WorkingWithTables.Basics.ListTables "WorkingWithTables.Basics.md#WorkingWithTables.Basics.ListTables") in the _Amazon DynamoDB Developer Guide_.
 
 - For API details, see
   [ListTables](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/list-tables.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/list-tables.html")

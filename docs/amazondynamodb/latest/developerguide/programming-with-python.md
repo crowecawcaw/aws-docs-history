@@ -604,7 +604,7 @@ For further reading on error handling and exceptions:
 - The [boto3 guide on error handling](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/error-handling.html "https://boto3.amazonaws.com/v1/documentation/api/latest/guide/error-handling.html") has more information on error
   handling techniques.
 - The [DynamoDB developer guide section on
-  programming errors](Programming.md "Programming.md") lists what errors you might encounter.
+  programming errors](Programming.Errors.md "Programming.Errors.md") lists what errors you might encounter.
 - The [Common Errors
   section in the API reference](../APIReference/CommonErrors.md "../APIReference/CommonErrors.md") .
 - The documentation on each API operation lists what errors that call might

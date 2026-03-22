@@ -11,5 +11,5 @@ operations that you might perform.
 
 ###### Topics
 
-- [DynamoDB read consistency](HowItWorks.md "HowItWorks.md")
+- [DynamoDB read consistency](HowItWorks.ReadConsistency.md "HowItWorks.ReadConsistency.md")
 - [DynamoDB read and write operations](read-write-operations.md "read-write-operations.md")

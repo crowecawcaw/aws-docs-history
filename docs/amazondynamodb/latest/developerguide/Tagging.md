@@ -19,7 +19,7 @@ carry a specific tag.
 To get started with tagging, do the following:
 
 1. Understand [Tagging restrictions in DynamoDB](#TaggingRestrictions "#TaggingRestrictions").
-2. Create tags by using [Tagging resources in DynamoDB](Tagging.md "Tagging.md").
+2. Create tags by using [Tagging resources in DynamoDB](Tagging.Operations.md "Tagging.Operations.md").
 3. Use [Using DynamoDB tags to create cost allocation reports](#CostAllocationReports "#CostAllocationReports")
    to track your AWS costs per active tag.
    Finally, it is good practice to follow optimal tagging strategies. For information, see

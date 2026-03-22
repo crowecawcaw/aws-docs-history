@@ -16,11 +16,11 @@ information and current status.
 1. Sign in to the AWS Management Console and open the Amazon Redshift console at
    [https://console.aws.amazon.com/redshiftv2](https://console.aws.amazon.com/redshiftv2 "https://console.aws.amazon.com/redshiftv2").
 2. Follow the steps at [Viewing
-   zero-ETL integrations](../../../redshift/latest/mgmt/zero-etl-using.md "../../../redshift/latest/mgmt/zero-etl-using.md").
+   zero-ETL integrations](../../../redshift/latest/mgmt/zero-etl-using.describing.md "../../../redshift/latest/mgmt/zero-etl-using.describing.md").
 
 ###### Note
 
 The possible statuses of a zero-ETL integration with Amazon Redshift are listed in
 [Viewing zero-ETL
-integrations](../../../redshift/latest/mgmt/zero-etl-using.md "../../../redshift/latest/mgmt/zero-etl-using.md") in the _Amazon Redshift Management
+integrations](../../../redshift/latest/mgmt/zero-etl-using.describing.md "../../../redshift/latest/mgmt/zero-etl-using.describing.md") in the _Amazon Redshift Management
 Guide_.

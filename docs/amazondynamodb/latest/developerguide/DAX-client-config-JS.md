@@ -33,4 +33,4 @@ information, see [DynamoDBClient Operations](../../../AWSJavaScriptSDK/v3/latest
 | `pageSize`                               | number      | Determines the number of items per page.                                        |
 | `startingToken`<br>Optional              | any         | LastEvaluatedKey from previous response can be used for<br>subsequent requests. |
 
-For usage of pagination, see [TryDax.js](DAX.client.md "DAX.client.md").
+For usage of pagination, see [TryDax.js](DAX.client.tutorial-TryDax.md "DAX.client.tutorial-TryDax.md").

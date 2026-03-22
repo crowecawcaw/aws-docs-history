@@ -12,5 +12,5 @@ simplify your disaster recovery and business continuity plans.
 
 ###### Topics
 
-- [Import from Amazon S3](S3DataImport.md "S3DataImport.md")
-- [Export to Amazon S3](S3DataExport.md "S3DataExport.md")
+- [Import from Amazon S3](S3DataImport.HowItWorks.md "S3DataImport.HowItWorks.md")
+- [Export to Amazon S3](S3DataExport.HowItWorks.md "S3DataExport.HowItWorks.md")

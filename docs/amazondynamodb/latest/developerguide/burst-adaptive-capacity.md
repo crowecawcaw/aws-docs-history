@@ -25,7 +25,7 @@ Note that these burst capacity details might change in the future.
 
 ## Adaptive capacity
 
-DynamoDB automatically distributes your data across [partitions](HowItWorks.md "HowItWorks.md"), which are stored on multiple
+DynamoDB automatically distributes your data across [partitions](HowItWorks.Partitions.md "HowItWorks.Partitions.md"), which are stored on multiple
 servers in the AWS Cloud. It's not always possible to evenly distribute read and
 write activity all the time. When data access is imbalanced, a "hot" partition can
 receive a higher volume of read and write traffic compared to other partitions.

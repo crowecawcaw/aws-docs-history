@@ -3,7 +3,7 @@
 The following C# code example creates tables and uploads data
 to the tables. For
 step-by-step instructions to run this code in Visual Studio, see
-[.NET code examples](CodeSamples.md "CodeSamples.md").
+[.NET code examples](CodeSamples.DotNet.md "CodeSamples.DotNet.md").
 
 ```
 using System;

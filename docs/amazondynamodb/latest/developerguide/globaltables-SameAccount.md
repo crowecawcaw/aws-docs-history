@@ -17,5 +17,5 @@ Same-account global tables provide the following benefits:
 ###### Topics
 
 - [How DynamoDB global tables work](V2globaltables_HowItWorks.md "V2globaltables_HowItWorks.md")
-- [Tutorials: Creating global tables](V2globaltables.md "V2globaltables.md")
+- [Tutorials: Creating global tables](V2globaltables.tutorial.md "V2globaltables.tutorial.md")
 - [DynamoDB global tables security](globaltables-security.md "globaltables-security.md")

@@ -231,7 +231,7 @@ DynamoDB Import from Amazon S3 can support up to 50 concurrent import jobs with 
 source object size of 15TB at a time in us-east-1, us-west-2, and eu-west-1 regions. In
 all other regions, up to 50 concurrent import tasks with a total size of 1TB is
 supported. Each import job can take up to 50,000 Amazon S3 objects in all regions. For more
-information on import and validation, see [import format quotas and validation](S3DataImport.md#S3DataImport.Validation.limits "S3DataImport.md#S3DataImport.Validation.limits").
+information on import and validation, see [import format quotas and validation](S3DataImport.Validation.md#S3DataImport.Validation.limits "S3DataImport.Validation.md#S3DataImport.Validation.limits").
 
 ## Table export to Amazon S3
 

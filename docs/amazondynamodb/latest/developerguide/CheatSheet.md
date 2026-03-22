@@ -6,16 +6,16 @@ various AWS SDKs.
 ## Initial setup
 
 1. [Sign up
-   for AWS](SettingUp.md#SettingUp.DynamoWebService.SignUpForAWS "SettingUp.md#SettingUp.DynamoWebService.SignUpForAWS").
+   for AWS](SettingUp.DynamoWebService.md#SettingUp.DynamoWebService.SignUpForAWS "SettingUp.DynamoWebService.md#SettingUp.DynamoWebService.SignUpForAWS").
 2. [Get an
-   AWS access key](SettingUp.md#SettingUp.DynamoWebService.GetCredentials "SettingUp.md#SettingUp.DynamoWebService.GetCredentials") to access DynamoDB programmatically.
-3. [Configure your DynamoDB credentials](SettingUp.md#SettingUp.DynamoWebService.ConfigureCredentials "SettingUp.md#SettingUp.DynamoWebService.ConfigureCredentials").
+   AWS access key](SettingUp.DynamoWebService.md#SettingUp.DynamoWebService.GetCredentials "SettingUp.DynamoWebService.md#SettingUp.DynamoWebService.GetCredentials") to access DynamoDB programmatically.
+3. [Configure your DynamoDB credentials](SettingUp.DynamoWebService.md#SettingUp.DynamoWebService.ConfigureCredentials "SettingUp.DynamoWebService.md#SettingUp.DynamoWebService.ConfigureCredentials").
 
 **See also:**
 
-- [Setting up DynamoDB (web service)](SettingUp.md "SettingUp.md")
+- [Setting up DynamoDB (web service)](SettingUp.DynamoWebService.md "SettingUp.DynamoWebService.md")
 - [Getting started with DynamoDB](GettingStartedDynamoDB.md "GettingStartedDynamoDB.md")
-- [Basic overview of core components](HowItWorks.md "HowItWorks.md")
+- [Basic overview of core components](HowItWorks.CoreComponents.md "HowItWorks.CoreComponents.md")
 
 ## SDK or CLI
 
@@ -31,7 +31,7 @@ table" in the next section.
 
 **See also:**
 
-- [AWS CLI with DynamoDB](Tools.md "Tools.md")
+- [AWS CLI with DynamoDB](Tools.CLI.md "Tools.CLI.md")
 - [Getting started with DynamoDB - step 2](getting-started-step-2.md "getting-started-step-2.md")
 
 ## Basic actions
@@ -120,7 +120,7 @@ aws dynamodb list-tables
   size.
 
 For more information, see [Naming
-rules](HowItWorks.md "HowItWorks.md").
+rules](HowItWorks.NamingRulesDataTypes.md "HowItWorks.NamingRulesDataTypes.md").
 
 ## Service quota basics
 
@@ -184,7 +184,7 @@ see [Best practices](best-practices.md "best-practices.md").
   binary attributes must encode the data in base64 encoding before sending it to
   DynamoDB.
 
-For a full list of supported data types, see [Data types](HowItWorks.md#HowItWorks.DataTypes "HowItWorks.md#HowItWorks.DataTypes").
+For a full list of supported data types, see [Data types](HowItWorks.NamingRulesDataTypes.md#HowItWorks.DataTypes "HowItWorks.NamingRulesDataTypes.md#HowItWorks.DataTypes").
 For more information, also see [Service
 quotas](ServiceQuotas.md#limits-items "ServiceQuotas.md#limits-items").
 

@@ -244,7 +244,7 @@ to successfully restore that backup.
 
 The following IAM policy grants AWS Backup the permissions to
 trigger backups with advanced features and restores. Also note that if the tables are encrypted
-the policy will need access to the [AWS KMS key](encryption.md#dynamodb-kms-authz "encryption.md#dynamodb-kms-authz").
+the policy will need access to the [AWS KMS key](encryption.usagenotes.md#dynamodb-kms-authz "encryption.usagenotes.md#dynamodb-kms-authz").
 
 JSON
 

@@ -99,10 +99,10 @@ which attributes are encrypted and signed.
 
 **Primary Key considerations**
 
-Do not use sensitive names or sensitive plaintext data in your [Primary Key](HowItWorks.md "HowItWorks.md") for your table and
+Do not use sensitive names or sensitive plaintext data in your [Primary Key](HowItWorks.Partitions.md "HowItWorks.Partitions.md") for your table and
 Global Secondary Indexes. Key names will show up in your table definition.
 For example, the Primary Key names are accessible to anyone with permissions
-to call [DescribeTable](WorkingWithTables.md#WorkingWithTables.Basics.DescribeTable "WorkingWithTables.md#WorkingWithTables.Basics.DescribeTable"). Key values can show up in your [AWS
+to call [DescribeTable](WorkingWithTables.Basics.md#WorkingWithTables.Basics.DescribeTable "WorkingWithTables.Basics.md#WorkingWithTables.Basics.DescribeTable"). Key values can show up in your [AWS
 CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") and other logs. Additionally, DynamoDB uses the key
 values to distribute data and route requests and AWS administrators may
 observe the values to maintain the health of the service.

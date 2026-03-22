@@ -13,6 +13,6 @@ scaling or manually setting provisioned throughput.
 
 ###### Topics
 
-- [Basic operations on DynamoDB tables](WorkingWithTables.md "WorkingWithTables.md")
-- [Considerations when choosing a table class in DynamoDB](WorkingWithTables.md "WorkingWithTables.md")
+- [Basic operations on DynamoDB tables](WorkingWithTables.Basics.md "WorkingWithTables.Basics.md")
+- [Considerations when choosing a table class in DynamoDB](WorkingWithTables.tableclasses.md "WorkingWithTables.tableclasses.md")
 - [Adding tags and labels to resources in DynamoDB](Tagging.md "Tagging.md")

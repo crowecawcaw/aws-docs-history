@@ -6,7 +6,7 @@
   export to S3. For more information, see [Enable point-in-time recovery in DynamoDB](PointInTimeRecovery_Howitworks.md "PointInTimeRecovery_Howitworks.md").
 - Valid IAM permissions to perform the export. For more information, see [Requesting a table export in DynamoDB](S3DataExport_Requesting.md "S3DataExport_Requesting.md").
 - Valid IAM permissions sufficient to perform the import. For more information, see
-  [Requesting a table import in DynamoDB](S3DataImport.md "S3DataImport.md").
+  [Requesting a table import in DynamoDB](S3DataImport.Requesting.md "S3DataImport.Requesting.md").
   **Pricing information**
 
 AWS charges for PITR (based on the size of the table and how long PITR is enabled for).
@@ -19,7 +19,7 @@ For more information about DynamoDB pricing, see [DynamoDB pricing](https://aws.
 ###### Note
 
 There are limits on the size and number of objects when importing from S3 to DynamoDB. For
-more information, see [Import quotas](S3DataImport.md#S3DataImport.Validation.limits "S3DataImport.md#S3DataImport.Validation.limits").
+more information, see [Import quotas](S3DataImport.Validation.md#S3DataImport.Validation.limits "S3DataImport.Validation.md#S3DataImport.Validation.limits").
 
 ## Requesting a table export to Amazon S3
 

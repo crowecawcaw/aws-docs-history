@@ -181,7 +181,7 @@ indexes on that table are also deleted.
 You must specify one non-key attribute to act as the sort key of the local secondary index. The
 attribute that you choose must be a scalar `String`, `Number`, or
 `Binary`. Other scalar types, document types, and set types are not
-allowed. For a complete list of data types, see [Data types](HowItWorks.md#HowItWorks.DataTypes "HowItWorks.md#HowItWorks.DataTypes").
+allowed. For a complete list of data types, see [Data types](HowItWorks.NamingRulesDataTypes.md#HowItWorks.DataTypes "HowItWorks.NamingRulesDataTypes.md#HowItWorks.DataTypes").
 
 ###### Important
 
@@ -191,7 +191,7 @@ of items, as long as the total size for any one partition key value does not exc
 10 GB. For more information, see [Item collection size limit](#LSI.ItemCollections.SizeLimit "#LSI.ItemCollections.SizeLimit").
 
 You can project attributes of any data type into a local secondary index. This includes scalars,
-documents, and sets. For a complete list of data types, see [Data types](HowItWorks.md#HowItWorks.DataTypes "HowItWorks.md#HowItWorks.DataTypes").
+documents, and sets. For a complete list of data types, see [Data types](HowItWorks.NamingRulesDataTypes.md#HowItWorks.DataTypes "HowItWorks.NamingRulesDataTypes.md#HowItWorks.DataTypes").
 
 ## Reading data from a Local Secondary Index
 
@@ -489,8 +489,8 @@ This does not apply to item collections in tables without local secondary indexe
 item collections in global secondary indexes. Only tables that have one or more
 local secondary indexes are affected.
 
-If an item collection exceeds the 10 GB limit, DynamoDB returns an
-`ItemCollectionSizeLimitExceededException`, and you won't be able to
+If an item collection exceeds the 10 GB limit, DynamoDB may return an
+`ItemCollectionSizeLimitExceededException`, and you may not be able to
 add more items to the item collection or increase the sizes of items that are in the
 item collection. (Read and write operations that shrink the size of the item
 collection are still allowed.) You can still add items to other item

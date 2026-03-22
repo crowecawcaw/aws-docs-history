@@ -76,7 +76,7 @@ up-to-date version of the item.)
 
 `GetItem` returns all of the item's attributes. You can use a
 _projection expression_ to return only some of the attributes.
-For more information, see [Using projection expressions in DynamoDB](Expressions.md "Expressions.md").
+For more information, see [Using projection expressions in DynamoDB](Expressions.ProjectionExpressions.md "Expressions.ProjectionExpressions.md").
 
 To return the number of read capacity units consumed by `GetItem`, set the
 `ReturnConsumedCapacity` parameter to `TOTAL`.
@@ -155,10 +155,10 @@ If an item with the specified key does not exist, `UpdateItem` creates
 a new item. Otherwise, it modifies an existing item's attributes.
 
 You use an _update expression_ to specify the attributes that
-you want to modify and their new values. For more information, see [Using update expressions in DynamoDB](Expressions.md "Expressions.md").
+you want to modify and their new values. For more information, see [Using update expressions in DynamoDB](Expressions.UpdateExpressions.md "Expressions.UpdateExpressions.md").
 
 Within the update expression, you use expression attribute values as placeholders
-for the actual values. For more information, see [Using expression attribute values in DynamoDB](Expressions.md "Expressions.md").
+for the actual values. For more information, see [Using expression attribute values in DynamoDB](Expressions.ExpressionAttributeValues.md "Expressions.ExpressionAttributeValues.md").
 
 ###### Example
 
@@ -406,7 +406,7 @@ An atomic counter would not be appropriate where overcounting or undercounting c
 be tolerated (for example, in a banking application). In this case, it is safer to use a
 conditional update instead of an atomic counter.
 
-For more information, see [Incrementing and decrementing numeric attributes](Expressions.md#Expressions.UpdateExpressions.SET.IncrementAndDecrement "Expressions.md#Expressions.UpdateExpressions.SET.IncrementAndDecrement").
+For more information, see [Incrementing and decrementing numeric attributes](Expressions.UpdateExpressions.md#Expressions.UpdateExpressions.SET.IncrementAndDecrement "Expressions.UpdateExpressions.md#Expressions.UpdateExpressions.SET.IncrementAndDecrement").
 
 ###### Example
 
@@ -531,7 +531,7 @@ parameter looks like the following.
 Because Alice has previously changed the `Price` to 8, the condition
 expression evaluates to false, and Bob's update fails.
 
-For more information, see [DynamoDB condition expression CLI example](Expressions.md "Expressions.md").
+For more information, see [DynamoDB condition expression CLI example](Expressions.ConditionExpressions.md "Expressions.ConditionExpressions.md").
 
 ### Conditional write idempotence
 

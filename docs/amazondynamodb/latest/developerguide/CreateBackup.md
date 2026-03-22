@@ -48,7 +48,7 @@ If you're using the console, any backups created using AWS Backup are listed on 
 You can't delete backups marked with a **Backup type** of AWS
 using the DynamoDB console. To manage these backups, use the AWS Backup console.
 
-To learn how to perform a backup, see [Backing up a DynamoDB table](Backup.md "Backup.md").
+To learn how to perform a backup, see [Backing up a DynamoDB table](Backup.Tutorial.md "Backup.Tutorial.md").
 
 ## Restores
 
@@ -103,7 +103,7 @@ other related variables. A best practice when planning for disaster recovery is 
 regularly document average restore completion times and establish how these times affect
 your overall Recovery Time Objective.
 
-To learn how to perform a restore, see [Restoring a DynamoDB table from a backup](Restore.md "Restore.md").
+To learn how to perform a restore, see [Restoring a DynamoDB table from a backup](Restore.Tutorial.md "Restore.Tutorial.md").
 
 You can use IAM policies for access control. For more information, see [Using IAM with DynamoDB backup and restore](backuprestore_IAM.md "backuprestore_IAM.md").
 

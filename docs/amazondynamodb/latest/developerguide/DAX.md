@@ -1,388 +1,127 @@
-# Managing DAX clusters
+# In-memory acceleration with DynamoDB Accelerator (DAX)
 
-This section addresses some of the common management tasks for Amazon DynamoDB Accelerator
-(DAX) clusters.
+Amazon DynamoDB is designed for scale and performance. In most cases, the DynamoDB response times
+can be measured in single-digit milliseconds. However, there are certain use cases that
+require response times in microseconds. For these use cases, DynamoDB Accelerator (DAX) delivers fast
+response times for accessing eventually consistent data.
+
+DAX is a DynamoDB-compatible caching service that enables you to benefit from fast
+in-memory performance for demanding applications. DAX addresses three core
+scenarios:
+
+1. As an in-memory cache, DAX reduces the response times of eventually consistent
+   read workloads by an order of magnitude from single-digit milliseconds to
+   microseconds.
+2. DAX reduces operational and application complexity by providing a managed
+   service that is API-compatible with DynamoDB. Therefore, it requires only minimal
+   functional changes to use with an existing application.
+3. For read-heavy or bursty workloads, DAX provides increased throughput and
+   potential operational cost savings by reducing the need to overprovision read
+   capacity units. This is especially beneficial for applications that require repeated
+   reads for individual keys.
+   DAX supports server-side encryption. With encryption at rest, the data persisted by
+   DAX on disk will be encrypted. DAX writes data to disk as part of propagating changes
+   from the primary node to read replicas. For more information, see [DAX encryption at rest](DAXEncryptionAtRest.md "DAXEncryptionAtRest.md").
+
+DAX also supports encryption in transit, ensuring that all requests and responses
+between your application and the cluster are encrypted by transport level security (TLS),
+and connections to the cluster can be authenticated by verification of a cluster x509
+certificate. For more information, see [DAX encryption in transit](DAXEncryptionInTransit.md "DAXEncryptionInTransit.md").
 
 ###### Topics
 
-- [IAM permissions for managing a DAX cluster](#DAX.cluster-management.iam-permissions "#DAX.cluster-management.iam-permissions")
-- [Scaling a DAX cluster](#DAX.cluster-management.scaling "#DAX.cluster-management.scaling")
-- [Customizing DAX cluster settings](#DAX.cluster-management.custom-settings "#DAX.cluster-management.custom-settings")
-- [Configuring TTL settings](#DAX.cluster-management.custom-settings.ttl "#DAX.cluster-management.custom-settings.ttl")
-- [Tagging support for DAX](#DAX.management.tagging "#DAX.management.tagging")
-- [AWS CloudTrail integration](#DAX.management.cloudtrail "#DAX.management.cloudtrail")
-- [Deleting a DAX cluster](#DAX.cluster-management.deleting "#DAX.cluster-management.deleting")
+- [Use cases for DAX](#DAX.use-cases "#DAX.use-cases")
+- [DAX usage notes](#DAX.usage-notes "#DAX.usage-notes")
+- [DAX: How it works](DAX.concepts.md "DAX.concepts.md")
+- [DAX cluster components](DAX.concepts.cluster.md "DAX.concepts.cluster.md")
+- [Creating a DAX cluster](DAX.create-cluster.md "DAX.create-cluster.md")
+- [DAX and DynamoDB consistency models](DAX.consistency.md "DAX.consistency.md")
+- [Developing with the DynamoDB Accelerator (DAX) client](DAX.client.md "DAX.client.md")
+- [Managing DAX clusters](DAX.cluster-management.md "DAX.cluster-management.md")
+- [Monitoring DynamoDB Accelerator](DAX.Monitoring.md "DAX.Monitoring.md")
+- [DAX T3/T2 burstable instances](DAX.Burstable.md "DAX.Burstable.md")
+- [DAX access control](DAX.access-control.md "DAX.access-control.md")
+- [DAX encryption at rest](DAXEncryptionAtRest.md "DAXEncryptionAtRest.md")
+- [DAX encryption in transit](DAXEncryptionInTransit.md "DAXEncryptionInTransit.md")
+- [Using service-linked IAM roles for DAX](using-service-linked-roles.md "using-service-linked-roles.md")
+- [Accessing DAX across AWS accounts](DAX.cross-account-access.md "DAX.cross-account-access.md")
+- [DAX cluster sizing guide](DAX.sizing-guide.md "DAX.sizing-guide.md")
 
-## IAM permissions for managing a DAX cluster
+## Use cases for DAX
 
-When you administer a DAX cluster using the AWS Management Console or the AWS Command Line Interface (AWS CLI), we
-strongly recommend that you narrow the scope of actions that users can perform. By doing
-so, you help mitigate risk while following the principle of least privilege.
+DAX provides access to eventually consistent data from DynamoDB tables, with
+microsecond latency. A Multi-AZ DAX cluster can serve millions of requests per
+second.
 
-The following discussion focuses on access control for the DAX management APIs. For
-more information, see [Amazon DynamoDB
-accelerator](<../APIReference/API_Operations_Amazon_DynamoDB_Accelerator_(DAX).md> "../APIReference/API_Operations_Amazon_DynamoDB_Accelerator_(DAX).md") in the _Amazon DynamoDB API Reference_.
+DAX is ideal for the following types of applications:
 
-###### Note
+- Applications that require the fastest possible response time for reads. Some
+  examples include real-time bidding, social gaming, and trading applications.
+  DAX delivers fast, in-memory read performance for these use cases.
+- Applications that read a small number of items more frequently than others.
+  For example, consider an ecommerce system that has a one-day sale on a popular
+  product. During the sale, demand for that product (and its data in DynamoDB) would
+  sharply increase, compared to all of the other products. To mitigate the impacts
+  of a "hot" key and a non-uniform traffic distribution, you could offload the
+  read activity to a DAX cache until the one-day sale is over.
+- Applications that are read-intensive, but are also cost-sensitive. With DynamoDB,
+  you provision the number of reads per second that your application requires. If
+  read activity increases, you can increase your tables' provisioned read
+  throughput (at an additional cost). Or, you can offload the activity from your
+  application to a DAX cluster, and reduce the number of read capacity units
+  that you need to purchase otherwise.
+- Applications that require repeated reads against a large set of data. Such an
+  application could potentially divert database resources from other applications.
+  For example, a long-running analysis of regional weather data could temporarily
+  consume all the read capacity in a DynamoDB table. This situation would negatively
+  impact other applications that need to access the same data. With DAX, the
+  weather analysis could be performed against cached data instead.
 
-For more detailed information about managing AWS Identity and Access Management (IAM) permissions, see
-the following:
+DAX is _not_ ideal for the following types of
+applications:
 
-- IAM and creating DAX clusters: [Creating a DAX cluster](DAX.md "DAX.md").
-- IAM and DAX data plane operations: [DAX access control](DAX.md "DAX.md").
+- Applications that require strongly consistent reads (or that cannot tolerate
+  eventually consistent reads).
+- Applications that do not require microsecond response times for reads, or that
+  do not need to offload repeated read activity from underlying tables.
+- Applications that are write-intensive. High volume of writes lead to increased replication across DAX nodes in a cluster. This causes an increased consumption of resources and risk of availability issues.
+- Applications without many repeated reads. DAX performs best when cache hit rates exceed 90%. Lower cache hit rates increase cache misses, which consumes more resources across the DAX cluster.
 
-For the DAX management APIs, you can't scope API actions to a specific resource. The
-`Resource` element must be set to `"*"`. This is different
-from DAX data plane API operations, such as `GetItem`, `Query`,
-and `Scan`. Data plane operations are exposed through the DAX client, and
-those operations _can_ be scoped to specific
-resources.
+## DAX usage notes
 
-To illustrate, consider the following IAM policy document.
+- For a list of AWS Regions where DAX is available, see [Amazon DynamoDB pricing](https://aws.amazon.com/dynamodb/pricing "https://aws.amazon.com/dynamodb/pricing").
+- DAX supports applications written in Go, Java, Node.js, Python, and .NET,
+  using AWS-provided clients for those programming languages.
+- DAX is only available for the EC2-VPC platform.
+- The DAX cluster service role policy must allow the
+  `dynamodb:DescribeTable` action in order to maintain metadata
+  about the DynamoDB table.
+- DAX clusters maintain metadata about the attribute names of items they
+  store. That metadata is maintained indefinitely (even after the item has expired
+  or been evicted from the cache). Applications that use an unbounded number of
+  attribute names can, over time, cause memory exhaustion in the DAX cluster.
+  This limitation applies only to top-level attribute names, not nested attribute
+  names. Examples of problematic top-level attribute names include timestamps,
+  UUIDs, and session IDs.
 
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Action": [
- "dax:*"
- ],
- "Effect": "Allow",
- "Resource": [
- "arn:aws:dax:us-west-2:123456789012:cache/DAXCluster01"
- ]
- }
- ]
-}`
-
-```
-
-Suppose that the intent of this policy is to allow DAX management API calls for the
-cluster `DAXCluster01`— and only that cluster.
-
-Now suppose that a user issues the following AWS CLI command.
-
-```
-aws dax describe-clusters
-```
-
-This command fails with a **`Not Authorized`** exception because the
-underlying `DescribeClusters` API call can't be scoped to a specific cluster.
-Even though the policy is syntactically valid, the command fails because the
-`Resource` element must be set to `"*"`. However, if the user
-runs a program that sends DAX data plane calls (such as `GetItem` or
-`Query`) to `DAXCluster01`, those calls
-_do_ succeed. This is because DAX data plane APIs can be scoped
-to specific resources (in this case, `DAXCluster01`).
-
-If you want to write a single comprehensive IAM policy to encompass both DAX
-management APIs and DAX data plane APIs, we suggest that you include two distinct
-statements in the policy document. One of these statements should address the DAX data
-plane APIs, while the other statement addresses the DAX management APIs.
-
-The following example policy shows this approach. Note how the
-`DAXDataAPIs` statement is scoped to the `DAXCluster01`
-resource, but the resource for `DAXManagementAPIs` must be `"*"`.
-The actions shown in each statement are for illustration only. You can customize them as
-needed for your application.
-
-JSON
+This limitation applies only to attribute names, not their values. Items like
+the following are not a problem.
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "DAXDataAPIs",
- "Action": [
- "dax:GetItem",
- "dax:BatchGetItem",
- "dax:Query",
- "dax:Scan",
- "dax:PutItem",
- "dax:UpdateItem",
- "dax:DeleteItem",
- "dax:BatchWriteItem"
- ],
- "Effect": "Allow",
- "Resource": [
- "arn:aws:dax:us-west-2:123456789012:cache/DAXCluster01"
- ]},
- {
- "Sid": "DAXManagementAPIs",
- "Action": [
- "dax:CreateParameterGroup",
- "dax:CreateSubnetGroup",
- "dax:DecreaseReplicationFactor",
- "dax:DeleteCluster",
- "dax:DeleteParameterGroup",
- "dax:DeleteSubnetGroup",
- "dax:DescribeClusters",
- "dax:DescribeDefaultParameters",
- "dax:DescribeEvents",
- "dax:DescribeParameterGroups",
- "dax:DescribeParameters",
- "dax:DescribeSubnetGroups",
- "dax:IncreaseReplicationFactor",
- "dax:ListTags",
- "dax:RebootNode",
- "dax:TagResource",
- "dax:UntagResource",
- "dax:UpdateCluster",
- "dax:UpdateParameterGroup",
- "dax:UpdateSubnetGroup"
- ],
- "Effect": "Allow",
- "Resource": [
- "*"
- ]
- }
- ]
-}`
-
+{
+    "Id": 123,
+    "Title": "Bicycle 123",
+    "CreationDate": "2017-10-24T01:02:03+00:00"
+}
 ```
 
-## Scaling a DAX cluster
-
-There are two options available for scaling a DAX cluster. The first option is
-_horizontal scaling_, where you add read replicas to the cluster.
-The second option is _vertical scaling_, where you select different
-node types. For advice on how to approach choosing an appropriate cluster size and node
-type for your application, see [DAX cluster sizing guide](DAX.md "DAX.md").
-
-### Horizontal scaling
-
-With horizontal scaling, you can improve throughput for read operations by adding more read replicas to the cluster. A single DAX cluster supports up to 10 read replicas, and you can add or remove replicas while the cluster is running.
-
-When you add a new node, you must synchronize the cache data from a peer node. Therefore, the addition time varies based on cache size and your application workload. As a best practice, we recommend that you pre-scale your cluster to meet expected traffic peaks. For information about right-sizing guidelines and monitoring recommendations, see [DAX cluster sizing guide](DAX.md "DAX.md").
-
-The following AWS CLI examples show how to increase or decrease the number
-of nodes. The `--new-replication-factor` argument specifies the total
-number of nodes in the cluster. One of the nodes is the primary node, and the
-other nodes are read replicas.
+But items like the following are a problem if there are enough of them and
+they each have a different timestamp.
 
 ```
-aws dax increase-replication-factor \
-    --cluster-name MyNewCluster  \
-    --new-replication-factor 5
-```
-
-```
-aws dax decrease-replication-factor \
-    --cluster-name MyNewCluster  \
-    --new-replication-factor 3
-```
-
-###### Note
-
-The cluster status changes to `modifying` when you modify the
-replication factor. The status changes to `available` when the
-modification is complete.
-
-### Vertical scaling
-
-If you have a large working set of data, your application might benefit from
-using larger node types. Larger nodes can enable the cluster to store more data in
-memory, reducing cache misses and improving overall application performance of the
-application. (All of the nodes in a DAX cluster must be of the same type.)
-
-If your DAX cluster has a high rate of write operations or cache misses, your
-application might also benefit from using larger node types. Write operations and
-cache misses consume resources on the cluster's primary node. Therefore, using
-larger node types might increase the performance of the primary node and thereby
-allow a higher throughput for these types of operations.
-
-You can't modify the node types on a running DAX cluster. Instead, you must
-create a new cluster with the desired node type. For a list of supported node types,
-see [Nodes](DAX.concepts.md#DAX.concepts.nodes "DAX.concepts.md#DAX.concepts.nodes").
-
-You can create a new DAX cluster using the AWS Management Console, [CloudFormation](../../../AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.md"), the AWS CLI, or
-the [AWS SDK](<../APIReference/API_Operations_Amazon_DynamoDB_Accelerator_(DAX).md> "../APIReference/API_Operations_Amazon_DynamoDB_Accelerator_(DAX).md"). (For the AWS CLI, use the `--node-type` parameter to
-specify the node type.)
-
-## Customizing DAX cluster settings
-
-When you create a DAX cluster, the following default settings are used:
-
-- Automatic cache eviction enabled with Time to Live (TTL) of 5 minutes
-- No preference for Availability Zones
-- No preference for maintenance windows
-- Notifications disabled
-
-For new clusters, you can customize the settings at creation time. To do this in the
-AWS Management Console, clear **Use default settings** to modify the following
-settings:
-
-- **Network and Security**—Allows you to run
-  individual DAX cluster nodes in different Availability Zones within the
-  current AWS Region. If you choose **No Preference**, the nodes
-  are distributed among Availability Zones automatically.
-- **Parameter Group**—A named set of parameters
-  that are applied to every node in the cluster. You can use a parameter group to
-  specify cache TTL behavior. You can change the value of any given parameter
-  within a parameter group (except default parameter group
-  `default.dax.1.0`) at any time.
-- **Maintenance Window**—A weekly time period
-  during which software upgrades and patches are applied to the nodes in the
-  cluster. You can choose the start day, start time, and duration of the
-  maintenance window. If you choose **No Preference**, the
-  maintenance window is selected at random from an 8-hour block of time per
-  Region. For more information, see [Maintenance window](DAX.concepts.md#DAX.concepts.maintenance-window "DAX.concepts.md#DAX.concepts.maintenance-window").
-
-###### Note
-
-**Parameter Group** and **Maintenance
-Window** can also be changed at any time on a running cluster.
-
-When a maintenance event occurs, DAX can notify you using Amazon Simple Notification Service
-(Amazon SNS). To configure notifications, choose an option from the **Topic for SNS
-notification** selector. You can create a new Amazon SNS topic, or use an
-existing topic.
-
-For more information about setting up and subscribing to an Amazon SNS topic, see [Getting started with Amazon SNS](../../../sns/latest/dg/GettingStarted.md "../../../sns/latest/dg/GettingStarted.md") in the
-_Amazon Simple Notification Service Developer Guide_.
-
-## Configuring TTL settings
-
-DAX maintains two caches for data that it reads from DynamoDB:
-
-- **Item cache**—For items retrieved
-  using `GetItem` or `BatchGetItem`.
-- **Query cache**—For result sets
-  retrieved using `Query` or `Scan`.
-
-For more information, see [Item cache](DAX.md#DAX.concepts.item-cache "DAX.md#DAX.concepts.item-cache") and [Query cache](DAX.md#DAX.concepts.query-cache "DAX.md#DAX.concepts.query-cache").
-
-The default TTL for each of these caches is 5 minutes. If you want to use
-different TTL settings, you can launch a DAX cluster using a custom parameter group.
-To do this on the console, choose **DAX | Parameter groups** in the
-navigation pane.
-
-You can also perform these tasks using the AWS CLI. The following example shows how
-to launch a new DAX cluster using a custom parameter group. In this example, the item
-cache TTL is set to 10 minutes, and the query cache TTL is set to 3 minutes.
-
-1. Create a new parameter group.
-
-```
-aws dax create-parameter-group \
-    --parameter-group-name custom-ttl
-```
-
-2. Set the item cache TTL to 10 minutes (600000 milliseconds).
-
-```
-aws dax update-parameter-group \
-    --parameter-group-name custom-ttl \
-    --parameter-name-values "ParameterName=record-ttl-millis,ParameterValue=600000"
-```
-
-3. Set the query cache TTL to 3 minutes (180000 milliseconds).
-
-```
-aws dax update-parameter-group \
-    --parameter-group-name custom-ttl \
-    --parameter-name-values "ParameterName=query-ttl-millis,ParameterValue=180000"
-```
-
-4. Verify that the parameters have been set correctly.
-
-```
-aws dax describe-parameters --parameter-group-name custom-ttl \
-    --query "Parameters[*].[ParameterName,Description,ParameterValue]"
-```
-
-You can now launch a new DAX cluster with this parameter group.
-
-```
-aws dax create-cluster \
-    --cluster-name MyNewCluster \
-    --node-type dax.r3.large \
-    --replication-factor 3 \
-    --iam-role-arn arn:aws:iam::123456789012:role/DAXServiceRole \
-    --parameter-group custom-ttl
-```
-
-###### Note
-
-You can modify a parameter group attached to a running DAX cluster. Parameter changes apply only to items written after the modification. Existing cached items retain the TTL and settings from when they were originally written.
-
-## Tagging support for DAX
-
-Many AWS services, including DynamoDB, support _tagging_—the ability to label resources with user-defined names. You
-can assign tags to DAX clusters, allowing you to quickly identify all of your AWS
-resources that have the same tag, or to categorize your AWS bills by the tags you
-assign.
-
-For more information, see [Adding tags and labels to resources in DynamoDB](Tagging.md "Tagging.md").
-
-### Using the AWS Management Console
-
-###### To manage DAX cluster tags
-
-1. Open the DynamoDB console at
-   [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
-2. In the navigation pane, under **DAX**, choose
-   **Clusters**.
-3. Choose the cluster that you want to work with.
-4. Choose the **Tags** tab. You can add, list, edit, or delete your tags here.
-
-When the settings are as you want them, choose **Apply Changes**.
-
-### Using the AWS CLI
-
-When you use the AWS CLI to manage DAX cluster tags, you must first determine the
-Amazon Resource Name (ARN) for the cluster. The following example shows how to
-determine the ARN for a cluster named `MyDAXCluster`.
-
-```
-aws dax describe-clusters \
-    --cluster-name MyDAXCluster \
-    --query "Clusters[*].ClusterArn"
-```
-
-In the output, the ARN will look similar to this: `arn:aws:dax:us-west-2:123456789012:cache/MyDAXCluster`
-
-The following example shows how to tag the cluster.
-
-```
-aws dax tag-resource  \
-    --resource-name arn:aws:dax:us-west-2:123456789012:cache/MyDAXCluster \
-    --tags="Key=ClusterUsage,Value=prod"
-```
-
-List all the tags for a cluster.
-
-```
-aws dax list-tags \
-    --resource-name arn:aws:dax:us-west-2:123456789012:cache/MyDAXCluster
-```
-
-To remove a tag, specify its key.
-
-```
-aws dax untag-resource  \
-    --resource-name arn:aws:dax:us-west-2:123456789012:cache/MyDAXCluster \
-    --tag-keys ClusterUsage
-```
-
-## AWS CloudTrail integration
-
-DAX is integrated with AWS CloudTrail, allowing you to audit DAX cluster activities. You
-can use CloudTrail logs to view all the changes that have been made at the cluster level. You
-can also see changes to cluster components such as nodes, subnet groups, and parameter
-groups. For more information, see [Logging DynamoDB operations by using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
-
-## Deleting a DAX cluster
-
-If you are no longer using a DAX cluster, you should delete it to avoid being charged for unused resources.
-
-You can delete a DAX cluster using the console or the AWS CLI. The following is an
-example.
-
-```
-aws dax delete-cluster --cluster-name mydaxcluster
+{
+    "Id": 123,
+    "Title": "Bicycle 123",
+    "2017-10-24T01:02:03+00:00": "created"
+}
 ```

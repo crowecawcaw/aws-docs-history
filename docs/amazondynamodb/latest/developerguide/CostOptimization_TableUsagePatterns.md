@@ -16,7 +16,7 @@ room for optimization from both a performance and cost perspective.
 ## Perform fewer strongly-consistent read operations
 
 DynamoDB allows you to configure [read
-consistency](HowItWorks.md "HowItWorks.md") on a per-request basis. Read requests are eventually consistent by
+consistency](HowItWorks.ReadConsistency.md "HowItWorks.ReadConsistency.md") on a per-request basis. Read requests are eventually consistent by
 default. Eventually consistent reads are charged at 0.5 RCU for upto 4 KB of data.
 
 Most parts of distributed workloads are flexible and can tolerate eventual consistency.
@@ -52,7 +52,7 @@ analytical queries on the DynamoDB data. Running frequent `Scan` operations on l
 table can be inefficient and expensive.
 
 A better alternative is to use the [Export to
-S3](S3DataExport.md#S3DataExport.HowItWorks.title "S3DataExport.md#S3DataExport.HowItWorks.title") feature and choosing a point in time to export the table state to S3. AWS offers
+S3](S3DataExport.HowItWorks.md#S3DataExport.HowItWorks.title "S3DataExport.HowItWorks.md#S3DataExport.HowItWorks.title") feature and choosing a point in time to export the table state to S3. AWS offers
 services like Athena which can then be used to run analytical queries on the data without
 consuming any capacity from the table.
 

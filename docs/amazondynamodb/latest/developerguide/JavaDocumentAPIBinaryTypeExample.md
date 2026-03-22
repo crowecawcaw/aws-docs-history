@@ -18,7 +18,7 @@ If you followed the [Creating tables and loading data for code examples in Dynam
 should already have created the `Reply` table. You can also create this table
 programmatically. For more information, see [Creating example tables and uploading data using the AWS SDK for Java](AppendixSampleDataCodeJava.md "AppendixSampleDataCodeJava.md").
 
-For step-by-step instructions for testing the following sample, see [Java code examples](CodeSamples.md "CodeSamples.md").
+For step-by-step instructions for testing the following sample, see [Java code examples](CodeSamples.Java.md "CodeSamples.Java.md").
 
 ###### Example
 

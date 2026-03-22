@@ -5,7 +5,7 @@ sections.
 
 Before you begin, you should familiarize yourself with the basic concepts in Amazon DynamoDB.
 You can get a quick overview in [What is Amazon DynamoDB?](Introduction.md "Introduction.md")
-and a more in-depth look in [Core components of Amazon DynamoDB](HowItWorks.md "HowItWorks.md"). Then, continue on to [Prerequisites](#GettingStarted.SettingUp.DynamoWebService "#GettingStarted.SettingUp.DynamoWebService").
+and a more in-depth look in [Core components of Amazon DynamoDB](HowItWorks.CoreComponents.md "HowItWorks.CoreComponents.md"). Then, continue on to [Prerequisites](#GettingStarted.SettingUp.DynamoWebService "#GettingStarted.SettingUp.DynamoWebService").
 
 ###### Note
 
@@ -43,7 +43,7 @@ that, continue on to [Step 1: Create a table in DynamoDB](getting-started-step-1
 ###### Note
 
 - If you plan to interact with DynamoDB only through the AWS Management Console, you don't
-  need an AWS access key. Complete the steps in [Signing up for AWS](SettingUp.md#SettingUp.DynamoWebService.SignUpForAWS "SettingUp.md#SettingUp.DynamoWebService.SignUpForAWS"), and then continue on to [Step 1: Create a table in DynamoDB](getting-started-step-1.md "getting-started-step-1.md").
+  need an AWS access key. Complete the steps in [Signing up for AWS](SettingUp.DynamoWebService.md#SettingUp.DynamoWebService.SignUpForAWS "SettingUp.DynamoWebService.md#SettingUp.DynamoWebService.SignUpForAWS"), and then continue on to [Step 1: Create a table in DynamoDB](getting-started-step-1.md "getting-started-step-1.md").
 - If you don't want to sign up for a free tier account, you can set up
   [DynamoDB local
   (downloadable version)](DynamoDBLocal.md "DynamoDBLocal.md"). Then continue on to [Step 1: Create a table in DynamoDB](getting-started-step-1.md "getting-started-step-1.md").

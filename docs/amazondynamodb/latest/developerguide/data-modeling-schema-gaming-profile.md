@@ -103,7 +103,7 @@ We address access patterns 2 (`getPlayerAllProfile`), 3
 (`getPlayerAllItems`), and 4 (`getPlayerSpecificItem`) using
 this step. What these three access patterns have in common is a range query, which uses
 the [Query](Query.md "Query.md") operation. Depending on the scope of
-the query, [Key Condition](Query.md "Query.md") and [Filter Expressions](Query.md "Query.md") are used, which are
+the query, [Key Condition](Query.KeyConditionExpressions.md "Query.KeyConditionExpressions.md") and [Filter Expressions](Query.FilterExpression.md "Query.FilterExpression.md") are used, which are
 commonly used in practical development.
 
 In the Query operation, we provide a single value for Partition Key and get all items
@@ -146,7 +146,7 @@ We address access patterns 5 (`updateCharacterAttributes`) and 6
 (`updateItemCount`) using this step. When the player needs to modify the
 character, such as reducing the currency, or modifying the quantity of a certain weapon
 in their items, use [`UpdateItem`](../APIReference/API_UpdateItem.md "../APIReference/API_UpdateItem.md") to implement these access patterns. To update a
-player's currency but ensure it never goes below a minimum amount, we can add a [DynamoDB condition expression CLI example](Expressions.md "Expressions.md") to reduce the balance only if it's
+player's currency but ensure it never goes below a minimum amount, we can add a [DynamoDB condition expression CLI example](Expressions.ConditionExpressions.md "Expressions.ConditionExpressions.md") to reduce the balance only if it's
 greater than or equal to the minimum amount. Here is a pseudocode example:
 
 ```
@@ -204,10 +204,10 @@ Workbench](workbench.md "workbench.md"), a visual tool that provides data modeli
 query development features for DynamoDB, to further explore and edit your new project.
 Follow these steps to get started:
 
-1. Download NoSQL Workbench. For more information, see [Download NoSQL Workbench for DynamoDB](workbench.md "workbench.md").
+1. Download NoSQL Workbench. For more information, see [Download NoSQL Workbench for DynamoDB](workbench.settingup.md "workbench.settingup.md").
 2. Download the JSON schema file listed above, which is already in the NoSQL
    Workbench model format.
 3. Import the JSON schema file into NoSQL Workbench. For more information, see
-   [Importing an existing data model](workbench.Modeler.md "workbench.Modeler.md").
+   [Importing an existing data model](workbench.Modeler.ImportExisting.md "workbench.Modeler.ImportExisting.md").
 4. Once you've imported into NOSQL Workbench, you can edit the data model. For
-   more information, see [Editing an existing data model](workbench.Modeler.md "workbench.Modeler.md").
+   more information, see [Editing an existing data model](workbench.Modeler.Edit.md "workbench.Modeler.Edit.md").

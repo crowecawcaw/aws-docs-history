@@ -33,7 +33,7 @@ explicitly turn it off.
 After you enable point-in-time recovery, you can restore to any point in time within
 `EarliestRestorableDateTime` and `LatestRestorableDateTime`.
 `LatestRestorableDateTime` is typically five minutes before the current
-time. For more information, see [Restoring a DynamoDB table to a point in time](PointInTimeRecovery.md "PointInTimeRecovery.md").
+time. For more information, see [Restoring a DynamoDB table to a point in time](PointInTimeRecovery.Tutorial.md "PointInTimeRecovery.Tutorial.md").
 
 ###### Note
 

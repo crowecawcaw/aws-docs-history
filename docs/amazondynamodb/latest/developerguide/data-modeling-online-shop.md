@@ -129,7 +129,7 @@ Access pattern 4 can be addressed with a query on `PK=ProductId` and
 
 For more information about `begins_with()` and other expressions that can
 be applied to sort keys, see [Key Condition
-Expressions](Query.md "Query.md").
+Expressions](Query.KeyConditionExpressions.md "Query.KeyConditionExpressions.md").
 
 **Base table:**
 
@@ -362,10 +362,10 @@ Workbench](workbench.md "workbench.md"), a visual tool that provides data modeli
 query development features for DynamoDB, to further explore and edit your new project.
 Follow these steps to get started:
 
-1. Download NoSQL Workbench. For more information, see [Download NoSQL Workbench for DynamoDB](workbench.md "workbench.md").
+1. Download NoSQL Workbench. For more information, see [Download NoSQL Workbench for DynamoDB](workbench.settingup.md "workbench.settingup.md").
 2. Download the JSON schema file listed above, which is already in the NoSQL
    Workbench model format.
 3. Import the JSON schema file into NoSQL Workbench. For more information, see
-   [Importing an existing data model](workbench.Modeler.md "workbench.Modeler.md").
+   [Importing an existing data model](workbench.Modeler.ImportExisting.md "workbench.Modeler.ImportExisting.md").
 4. Once you've imported into NOSQL Workbench, you can edit the data model. For
-   more information, see [Editing an existing data model](workbench.Modeler.md "workbench.Modeler.md").
+   more information, see [Editing an existing data model](workbench.Modeler.Edit.md "workbench.Modeler.Edit.md").

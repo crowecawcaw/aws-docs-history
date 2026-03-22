@@ -66,7 +66,7 @@ To fetch log entries for a specific device, we can perform a [query](Query.md "Q
 
 Since `State` is a non-key attribute, addressing access pattern 3 with the
 current schema would require a [filter
-expression](Query.md "Query.md"). In DynamoDB, filter expressions are applied after data is read using
+expression](Query.FilterExpression.md "Query.FilterExpression.md"). In DynamoDB, filter expressions are applied after data is read using
 key condition expressions. For example, if we were to fetch warning logs for
 `d#12345`, the query operation with partition key
 `DeviceID="d#12345"` will read four items from the above table and then
@@ -179,10 +179,10 @@ Workbench](workbench.md "workbench.md"), a visual tool that provides data modeli
 query development features for DynamoDB, to further explore and edit your new project.
 Follow these steps to get started:
 
-1. Download NoSQL Workbench. For more information, see [Download NoSQL Workbench for DynamoDB](workbench.md "workbench.md").
+1. Download NoSQL Workbench. For more information, see [Download NoSQL Workbench for DynamoDB](workbench.settingup.md "workbench.settingup.md").
 2. Download the JSON schema file listed above, which is already in the NoSQL
    Workbench model format.
 3. Import the JSON schema file into NoSQL Workbench. For more information, see
-   [Importing an existing data model](workbench.Modeler.md "workbench.Modeler.md").
+   [Importing an existing data model](workbench.Modeler.ImportExisting.md "workbench.Modeler.ImportExisting.md").
 4. Once you've imported into NOSQL Workbench, you can edit the data model. For
-   more information, see [Editing an existing data model](workbench.Modeler.md "workbench.Modeler.md").
+   more information, see [Editing an existing data model](workbench.Modeler.Edit.md "workbench.Modeler.Edit.md").

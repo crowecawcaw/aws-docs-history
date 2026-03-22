@@ -162,7 +162,7 @@ zero.
   to `-1E-130`
 
 DynamoDB uses JSON strings to represent Number data in requests and replies. For more
-information, see [DynamoDB low-level API](Programming.md "Programming.md").
+information, see [DynamoDB low-level API](Programming.LowLevelAPI.md "Programming.LowLevelAPI.md").
 
 If number precision is important, you should pass numbers to DynamoDB using strings
 that you convert from a number type.
@@ -259,7 +259,7 @@ DynamoDB does not prevent you from using names that conflict with reserved words
 (For a complete list, see [Reserved words in DynamoDB](ReservedWords.md "ReservedWords.md").)
 
 However, if you use a reserved word in an expression parameter, you must also
-specify `ExpressionAttributeNames`. For more information, see [Expression attribute names (aliases) in DynamoDB](Expressions.md "Expressions.md").
+specify `ExpressionAttributeNames`. For more information, see [Expression attribute names (aliases) in DynamoDB](Expressions.ExpressionAttributeNames.md "Expressions.ExpressionAttributeNames.md").
 
 ## DynamoDB transactions
 

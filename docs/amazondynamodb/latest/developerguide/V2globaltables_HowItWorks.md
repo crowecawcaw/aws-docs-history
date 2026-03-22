@@ -16,12 +16,12 @@ schema, and item data.
 
 When an application writes data to a replica in one Region, DynamoDB automatically
 replicates the write to all other replicas in the global table. For more information
-about how to get started with global tables, see [Tutorials: Creating global tables](V2globaltables.md "V2globaltables.md").
+about how to get started with global tables, see [Tutorials: Creating global tables](V2globaltables.tutorial.md "V2globaltables.tutorial.md").
 
 ## Versions
 
 There are two versions of DynamoDB global tables available: Version 2019.11.21 (Current)
-and [Version 2017.11.29 (Legacy)](globaltables.md "globaltables.md"). You should use
+and [Version 2017.11.29 (Legacy)](globaltables.V1.md "globaltables.V1.md"). You should use
 Version 2019.11.21 (Current) whenever possible. The information in this documentation
 section is for Version 2019.11.21 (Current). For more information, see [Determining the version of a global table](V2globaltables_versions.md#globaltables.DetermineVersion "V2globaltables_versions.md#globaltables.DetermineVersion").
 

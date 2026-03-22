@@ -1,12 +1,18 @@
-# Editing an existing data model
+# Building data models with NoSQL Workbench
 
-###### To edit an existing model
+You can use the data modeler tool in NoSQL Workbench for Amazon DynamoDB to build new data models,
+or to design models based on existing data models that satisfy your application data access patterns.
+The data modeler includes a few sample data models to help you get started.
 
-1. To begin making changes to an existing model, open the model in the modeler page.
-2. In the resource selector panel, you will see the list of **Tables** and **Global Secondary Indexes**.
-3. To edit a **Table** or a **Global Secondary Index**, first click its name in the resource selector panel, and then use the action icons at the top.
-   Available actions are **Delete**, **Duplicate**, and **Edit**.
-4. If you want to edit **Model details**, click the three-dot icon next to the model name.
-5. From there, you can click **Edit model details** and edit the information accordingly.
-6. You can also **Duplicate**, **Move**, **Delete**, and **Export** the model from the same menu.
-7. To change to another model, you can either go through the main screen again, or use the model selection dropdown.
+###### Topics
+
+- [Creating a new data model](workbench.Modeler.CreateNew.md "workbench.Modeler.CreateNew.md")
+- [Importing an existing data model](workbench.Modeler.ImportExisting.md "workbench.Modeler.ImportExisting.md")
+- [Editing an existing data model](workbench.Modeler.Edit.md "workbench.Modeler.Edit.md")
+- [Adding sample data to a data model](workbench.Modeler.AddData.md "workbench.Modeler.AddData.md")
+- [Adding and validating access patterns](workbench.Modeler.AccessPatterns.md "workbench.Modeler.AccessPatterns.md")
+- [Importing sample data from a CSV file](workbench.Modeler.ImportCSV.md "workbench.Modeler.ImportCSV.md")
+- [Facets](workbench.Modeler.Facets.md "workbench.Modeler.Facets.md")
+- [Viewing all tables in a data model using aggregate view](workbench.Modeler.AggregateView.md "workbench.Modeler.AggregateView.md")
+- [Exporting a data model](workbench.Modeler.ExportModel.md "workbench.Modeler.ExportModel.md")
+- [Committing a data model to DynamoDB](workbench.Modeler.Commit.md "workbench.Modeler.Commit.md")

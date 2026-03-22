@@ -145,7 +145,7 @@ the songs associated with this particular
 ```
 
 For more information about querying data with PartiQL, see [PartiQL select
-statements](ql-reference.md "ql-reference.md").
+statements](ql-reference.select.md "ql-reference.select.md").
 
 The following code examples show how to query a DynamoDB table using an AWS
 SDK.

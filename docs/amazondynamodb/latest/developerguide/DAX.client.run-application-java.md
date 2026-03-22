@@ -1,137 +1,126 @@
-# TryDaxHelper.java
+# Java and DAX
 
-The `TryDaxHelper.java` file contains utility methods.
+DAX SDK for Java 2.x is compatible with [AWS
+SDK for Java 2.x](../../../sdk-for-java/latest/developer-guide.md "../../../sdk-for-java/latest/developer-guide.md"). It's built on top of Java 8+ and includes support for
+non-blocking I/O. For information about using DAX with AWS SDK for Java 1.x, see [Using DAX with AWS SDK for Java 1.x](DAX.client.java-sdk-v1.md "DAX.client.java-sdk-v1.md").
 
-The `getDynamoDBClient` and `getDaxClient` methods provide
-Amazon DynamoDB and DynamoDB Accelerator (DAX) clients. For control plane operations
-(`CreateTable`, `DeleteTable`) and write operations, the
-program uses the DynamoDB client. If you specify a DAX cluster endpoint, the main program
-creates a DAX client for performing read operations (`GetItem`,
-`Query`, `Scan`).
+## Using the client as a Maven dependency
 
-The other `TryDaxHelper` methods (`createTable`,
-`writeData`, `deleteTable`) are for setting up and tearing
-down the DynamoDB table and its data.
+Follow these steps to use the client for the DAX SDK for Java in your application
+as a dependency.
 
-You can modify the program in several ways:
+1. Download and install Apache Maven. For more information, see [Downloading Apache
+   Maven](https://maven.apache.org/download.cgi "https://maven.apache.org/download.cgi") and [Installing Apache Maven](https://maven.apache.org/install.html "https://maven.apache.org/install.html").
+2. Add the client Maven dependency to your application's Project Object
+   Model (POM) file. In this example, replace
+   `x.x.x` with the actual version number of
+   the client.
 
-- Use different provisioned throughput settings for the table.
-- Modify the size of each item written (see the `stringSize` variable
-  in the `writeData` method).
-- Modify the number of `GetItem`, `Query`, and
-  `Scan` tests and their parameters.
-- Comment out the lines containing `helper.CreateTable` and
-  `helper.DeleteTable` (if you don't want to create and delete the
-  table each time you run the program).
+```
+<!--Dependency:-->
+<dependencies>
+    <dependency>
+        <groupId>software.amazon.dax</groupId>
+        <artifactId>amazon-dax-client</artifactId>
+        <version>`x.x.x`</version>
+    </dependency>
+</dependencies>
+```
+
+## TryDax sample code
+
+After you've set up your workspace and added the DAX SDK as a dependency,
+copy [TryDax.java](DAX.client.TryDax.java.md "DAX.client.TryDax.java.md") into your project.
+
+Run the code using this command.
+
+```
+java -cp `classpath` TryDax
+```
+
+You should see output similar to the following.
+
+```
+Creating a DynamoDB client
+
+Attempting to create table; please wait...
+Successfully created table.  Table status: ACTIVE
+Writing data to the table...
+Writing 10 items for partition key: 1
+Writing 10 items for partition key: 2
+Writing 10 items for partition key: 3
+...
+
+Running GetItem and Query tests...
+First iteration of each test will result in cache misses
+Next iterations are cache hits
+
+GetItem test - partition key 1-100 and sort keys 1-10
+  Total time: 4390.240 ms - Avg time: 4.390 ms
+  Total time: 3097.089 ms - Avg time: 3.097 ms
+  Total time: 3273.463 ms - Avg time: 3.273 ms
+  Total time: 3353.739 ms - Avg time: 3.354 ms
+  Total time: 3533.314 ms - Avg time: 3.533 ms
+Query test - partition key 1-100 and sort keys between 2 and 9
+  Total time: 475.868 ms - Avg time: 4.759 ms
+  Total time: 423.333 ms - Avg time: 4.233 ms
+  Total time: 460.271 ms - Avg time: 4.603 ms
+  Total time: 397.859 ms - Avg time: 3.979 ms
+  Total time: 466.644 ms - Avg time: 4.666 ms
+
+Attempting to delete table; please wait...
+Successfully deleted table.
+```
+
+Take note of the timing information—the number of milliseconds required
+for the `GetItem` and `Query` tests. In this case, you ran
+the program against the DynamoDB endpoint. Now you'll run the program again, this
+time against your DAX cluster.
+
+To determine the endpoint of your DAX cluster, choose one of the
+following:
+
+- In the DynamoDB console, select your DAX cluster. The cluster endpoint
+  is shown in the console, as in the following example.
+
+```
+dax://my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com
+```
+
+- Using the AWS CLI, enter the following command:
+
+```
+aws dax describe-clusters --query "Clusters[*].ClusterDiscoveryEndpoint"
+```
+
+The cluster endpoint address, port, and URL are shown in the output,
+as in the following example.
+
+```
+{
+    "Address": "my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com",
+    "Port": 8111,
+    "URL": "dax://my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com"
+}
+```
+
+Now run the program again, but this time, specify the cluster endpoint URL as
+a command line parameter.
+
+```
+java -cp `classpath` TryDax dax://my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com
+```
+
+Look at the output and take note of the timing information. The elapsed times
+for `GetItem`and `Query` should be significantly lower
+with DAX than with DynamoDB.
+
+## SDK metrics
+
+With DAX SDK for Java 2.x, you can collect metrics about the service clients in
+your application and analyze the output in Amazon CloudWatch. See [Enabling SDK metrics](../../../sdk-for-java/latest/developer-guide/metrics.md "../../../sdk-for-java/latest/developer-guide/metrics.md") for more information.
 
 ###### Note
 
-To run this program, you can set up Maven to use the client for the DAX SDK for
-Java and the AWS SDK for Java as dependencies. For more information, see [Using the client as an Apache Maven dependency](DAX.client.md#DAXClient.Maven "DAX.client.md#DAXClient.Maven").
-
-Or, you can download and include both the DAX Java client and the AWS SDK for Java in
-your classpath. See [Java and DAX](DAX.client.md "DAX.client.md") for an example of setting your
-`CLASSPATH` variable.
-
-```
-
-import com.amazon.dax.client.dynamodbv2.AmazonDaxClientBuilder;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
-import com.amazonaws.services.dynamodbv2.document.DynamoDB;
-import com.amazonaws.services.dynamodbv2.document.Item;
-import com.amazonaws.services.dynamodbv2.document.Table;
-import com.amazonaws.services.dynamodbv2.model.AttributeDefinition;
-import com.amazonaws.services.dynamodbv2.model.KeySchemaElement;
-import com.amazonaws.services.dynamodbv2.model.KeyType;
-import com.amazonaws.services.dynamodbv2.model.ProvisionedThroughput;
-import com.amazonaws.services.dynamodbv2.model.ScalarAttributeType;
-import com.amazonaws.util.EC2MetadataUtils;
-
-public class TryDaxHelper {
-
-    private static final String region = EC2MetadataUtils.getEC2InstanceRegion();
-
-    DynamoDB getDynamoDBClient() {
-        System.out.println("Creating a DynamoDB client");
-        AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                .withRegion(region)
-                .build();
-        return new DynamoDB(client);
-    }
-
-    DynamoDB getDaxClient(String daxEndpoint) {
-        System.out.println("Creating a DAX client with cluster endpoint " + daxEndpoint);
-        AmazonDaxClientBuilder daxClientBuilder = AmazonDaxClientBuilder.standard();
-        daxClientBuilder.withRegion(region).withEndpointConfiguration(daxEndpoint);
-        AmazonDynamoDB client = daxClientBuilder.build();
-        return new DynamoDB(client);
-    }
-
-    void createTable(String tableName, DynamoDB client) {
-        Table table = client.getTable(tableName);
-        try {
-            System.out.println("Attempting to create table; please wait...");
-
-            table = client.createTable(tableName,
-                    Arrays.asList(
-                            new KeySchemaElement("pk", KeyType.HASH), // Partition key
-                            new KeySchemaElement("sk", KeyType.RANGE)), // Sort key
-                    Arrays.asList(
-                            new AttributeDefinition("pk", ScalarAttributeType.N),
-                            new AttributeDefinition("sk", ScalarAttributeType.N)),
-                    new ProvisionedThroughput(10L, 10L));
-            table.waitForActive();
-            System.out.println("Successfully created table.  Table status: " +
-                    table.getDescription().getTableStatus());
-
-        } catch (Exception e) {
-            System.err.println("Unable to create table: ");
-            e.printStackTrace();
-        }
-    }
-
-    void writeData(String tableName, DynamoDB client, int pkmax, int skmax) {
-        Table table = client.getTable(tableName);
-        System.out.println("Writing data to the table...");
-
-        int stringSize = 1000;
-        StringBuilder sb = new StringBuilder(stringSize);
-        for (int i = 0; i < stringSize; i++) {
-            sb.append('X');
-        }
-        String someData = sb.toString();
-
-        try {
-            for (Integer ipk = 1; ipk <= pkmax; ipk++) {
-                System.out.println(("Writing " + skmax + " items for partition key: " + ipk));
-                for (Integer isk = 1; isk <= skmax; isk++) {
-                    table.putItem(new Item()
-                            .withPrimaryKey("pk", ipk, "sk", isk)
-                            .withString("someData", someData));
-                }
-            }
-        } catch (Exception e) {
-            System.err.println("Unable to write item:");
-            e.printStackTrace();
-        }
-    }
-
-    void deleteTable(String tableName, DynamoDB client) {
-        Table table = client.getTable(tableName);
-        try {
-            System.out.println("\nAttempting to delete table; please wait...");
-            table.delete();
-            table.waitForDelete();
-            System.out.println("Successfully deleted table.");
-
-        } catch (Exception e) {
-            System.err.println("Unable to delete table: ");
-            e.printStackTrace();
-        }
-    }
-
-}
-
-
-```
+The DAX SDK for Java only collects `ApiCallSuccessful` and
+`ApiCallDuration` metrics.

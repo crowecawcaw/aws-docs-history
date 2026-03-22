@@ -9,7 +9,7 @@ DAX handles the cluster’s maintenance and health for you. However, you need to
 
 ## Scaling a cluster horizontally
 
-Scaling a DAX cluster involves adjusting its capacity to meet throughput demands. This adjustment is done by increasing or decreasing the number of nodes (replicas) in the cluster while it's running. This process, known as [horizontal scaling](DAX.md#DAX.cluster-management.scaling.read-scaling "DAX.md#DAX.cluster-management.scaling.read-scaling"), helps distribute the workload across more nodes or consolidate to fewer nodes when demand is low.
+Scaling a DAX cluster involves adjusting its capacity to meet throughput demands. This adjustment is done by increasing or decreasing the number of nodes (replicas) in the cluster while it's running. This process, known as [horizontal scaling](DAX.cluster-management.md#DAX.cluster-management.scaling.read-scaling "DAX.cluster-management.md#DAX.cluster-management.scaling.read-scaling"), helps distribute the workload across more nodes or consolidate to fewer nodes when demand is low.
 
 You can horizontally scale your DAX cluster in and out using the `decrease-replication-factor` or `increase-replication-factor` commands in the AWS CLI.
 
@@ -58,11 +58,11 @@ To create a new cluster for scaling your node size vertically, consider the foll
 - **Access your current setup** – Review the metrics of your current DAX cluster to determine the new node size and quantity you need. Use this information as input to define your cluster size. For information, see [Sizing your DAX cluster](dax-cluster-sizing.md "dax-cluster-sizing.md").
 - **Set up a new DAX cluster** – Create a new DAX cluster with the node type and quantity you determined. You can use the existing configuration settings from your [parameter group](dax-deploy-cluster.md#dax-cluster-parameter-group "dax-deploy-cluster.md#dax-cluster-parameter-group"), unless you need to make adjustments.
 - **Synchronize data** – Because DAX is a caching layer for DynamoDB, you don't need to migrate data directly. However, the new DAX cluster won't have any of your working dataset in memory until you send traffic to it.
-- **Update application configuration** – Update your application's configuration to point to the new [DAX cluster's endpoint](DAX.concepts.md#DAX.concepts.cluster-endpoint "DAX.concepts.md#DAX.concepts.cluster-endpoint"). You might need to change code or update environment variables, depending on your application's configuration.
+- **Update application configuration** – Update your application's configuration to point to the new [DAX cluster's endpoint](DAX.concepts.cluster.md#DAX.concepts.cluster-endpoint "DAX.concepts.cluster.md#DAX.concepts.cluster-endpoint"). You might need to change code or update environment variables, depending on your application's configuration.
 
 To reduce impact when you switch to a new cluster, send canary traffic to the new cluster from a small portion of your application fleet. You can do this by slowly rolling out application updates or by using a weight-based routing DNS entry in front of your DAX endpoint.
 
-- **Monitor and optimize** – After you switch to the new DAX cluster, closely monitor its performance [metrics and logs](DAX.md "DAX.md") for any issues. Be ready to adjust the number of nodes based on updated workload patterns.
+- **Monitor and optimize** – After you switch to the new DAX cluster, closely monitor its performance [metrics and logs](DAX.Monitoring.md "DAX.Monitoring.md") for any issues. Be ready to adjust the number of nodes based on updated workload patterns.
 
 Until the new cluster caches your working dataset properly, you'll see higher cache miss rates and latencies.
 

@@ -16,7 +16,7 @@ range-based operations.
 For more details and best practices on DynamoDB key schema, you can refer to the
 following:
 
-- [Partitions and data distribution in DynamoDB](HowItWorks.md "HowItWorks.md")
+- [Partitions and data distribution in DynamoDB](HowItWorks.Partitions.md "HowItWorks.Partitions.md")
 - [Best practices for designing and using partition keys effectively in DynamoDB](bp-partition-key-design.md "bp-partition-key-design.md")
 - [Best practices for using sort keys to organize data in DynamoDB](bp-sort-keys.md "bp-sort-keys.md")
 - [Choosing the right DynamoDB partition key](https://aws.amazon.com/blogs/database/choosing-the-right-dynamodb-partition-key/ "https://aws.amazon.com/blogs/database/choosing-the-right-dynamodb-partition-key/")

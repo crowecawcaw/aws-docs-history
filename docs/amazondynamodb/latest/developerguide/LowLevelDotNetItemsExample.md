@@ -5,7 +5,7 @@ example adds an item to the `ProductCatalog` table, retrieves it, performs vario
 updates, and finally deletes the item. If you haven't created this table, you can also create it programmatically. For more information, see
 [Creating example tables and uploading data using the AWS SDK for .NET](AppendixSampleDataCodeDotNET.md "AppendixSampleDataCodeDotNET.md").
 
-For step-by-step instructions for testing the following sample, see [.NET code examples](CodeSamples.md "CodeSamples.md").
+For step-by-step instructions for testing the following sample, see [.NET code examples](CodeSamples.DotNet.md "CodeSamples.DotNet.md").
 
 ###### Example
 

@@ -14,7 +14,7 @@ This guide outlines best practices for DAX client configuration.
 
 1. **Client instances** – Implement singleton client
    instances to ensure instance reuse across requests. For implementation
-   details, see [Step 4: Run a sample application](DAX.client.md "DAX.client.md").
+   details, see [Step 4: Run a sample application](DAX.client.run-application.md "DAX.client.run-application.md").
 2. **Request timeouts** – While applications often
    require low request timeouts to ensure minimal latency for upstream systems, setting timeouts too
    low can cause problems. Low timeouts may trigger frequent reconnection to server instances when

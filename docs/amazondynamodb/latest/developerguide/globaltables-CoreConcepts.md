@@ -12,11 +12,11 @@ AWS Region. All replicas in a global table share the same table name, primary ke
 
 When an application writes data to a replica in one Region, DynamoDB automatically replicates the write to
 all other replicas in the global table. For more information about how to get started with global tables,
-see [Tutorials: Creating global tables](V2globaltables.md "V2globaltables.md") or [Tutorials: Creating multi-account global tables](V2globaltables_MA.md "V2globaltables_MA.md").
+see [Tutorials: Creating global tables](V2globaltables.tutorial.md "V2globaltables.tutorial.md") or [Tutorials: Creating multi-account global tables](V2globaltables_MA.tutorial.md "V2globaltables_MA.tutorial.md").
 
 ## Versions
 
-There are two versions of DynamoDB global tables available: [Global Tables version 2019.11.21 (Current)](GlobalTables.md "GlobalTables.md") and [Global tables version 2017.11.29 (Legacy)](globaltables.md "globaltables.md"). You should use Global Tables version 2019.11.21 (Current)
+There are two versions of DynamoDB global tables available: [Global Tables version 2019.11.21 (Current)](GlobalTables.md "GlobalTables.md") and [Global tables version 2017.11.29 (Legacy)](globaltables.V1.md "globaltables.V1.md"). You should use Global Tables version 2019.11.21 (Current)
 whenever possible. The information in this documentation section is for Version 2019.11.21 (Current). For more information, see Determining the version of a global table [Determining the version of a global table](V2globaltables_versions.md#globaltables.DetermineVersion "V2globaltables_versions.md#globaltables.DetermineVersion").
 
 ## Availability

@@ -8,7 +8,7 @@ against the tag-based conditions. The indexes associated with a table inherit th
 add to the table. You can add up to 50 tags for each DynamoDB table. The maximum size supported
 for all the tags in a table is 10 KB. For more information about tagging DynamoDB resources and
 tagging restrictions, see [Tagging resources in
-DynamoDB](Tagging.md "Tagging.md") and [Tagging restrictions in DynamoDB](Tagging.md#TaggingRestrictions "Tagging.md#TaggingRestrictions").
+DynamoDB](Tagging.Operations.md "Tagging.Operations.md") and [Tagging restrictions in DynamoDB](Tagging.md#TaggingRestrictions "Tagging.md#TaggingRestrictions").
 
 For more information about using tags to control access to AWS resources, see the following topics in the IAM User Guide:
 

@@ -4,6 +4,6 @@ The following topics are legacy features that DynamoDB still supports. No active
 
 ###### Topics
 
-- [Global tables version 2017.11.29 (Legacy)](globaltables.md "globaltables.md")
-- [Previous low-level DynamoDB API version (2011-12-05)](Appendix.md "Appendix.md")
+- [Global tables version 2017.11.29 (Legacy)](globaltables.V1.md "globaltables.V1.md")
+- [Previous low-level DynamoDB API version (2011-12-05)](Appendix.APIv20111205.md "Appendix.APIv20111205.md")
 - [Legacy DynamoDB conditional parameters](LegacyConditionalParameters.md "LegacyConditionalParameters.md")

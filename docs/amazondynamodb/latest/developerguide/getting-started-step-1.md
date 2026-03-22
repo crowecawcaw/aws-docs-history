@@ -634,7 +634,7 @@ Output:
 }
 ```
 
-For more information, see [Basic Operations for Tables](WorkingWithTables.md "WorkingWithTables.md") in the _Amazon DynamoDB Developer Guide_.
+For more information, see [Basic Operations for Tables](WorkingWithTables.Basics.md "WorkingWithTables.Basics.md") in the _Amazon DynamoDB Developer Guide_.
 
 **Example 2: To create a table in On-Demand Mode**
 
@@ -693,7 +693,7 @@ Output:
 }
 ```
 
-For more information, see [Basic Operations for Tables](WorkingWithTables.md "WorkingWithTables.md") in the _Amazon DynamoDB Developer Guide_.
+For more information, see [Basic Operations for Tables](WorkingWithTables.Basics.md "WorkingWithTables.Basics.md") in the _Amazon DynamoDB Developer Guide_.
 
 **Example 3: To create a table and encrypt it with a Customer Managed CMK**
 
@@ -755,7 +755,7 @@ Output:
 }
 ```
 
-For more information, see [Basic Operations for Tables](WorkingWithTables.md "WorkingWithTables.md") in the _Amazon DynamoDB Developer Guide_.
+For more information, see [Basic Operations for Tables](WorkingWithTables.Basics.md "WorkingWithTables.Basics.md") in the _Amazon DynamoDB Developer Guide_.
 
 **Example 4: To create a table with a Local Secondary Index**
 
@@ -854,7 +854,7 @@ Output:
 }
 ```
 
-For more information, see [Basic Operations for Tables](WorkingWithTables.md "WorkingWithTables.md") in the _Amazon DynamoDB Developer Guide_.
+For more information, see [Basic Operations for Tables](WorkingWithTables.Basics.md "WorkingWithTables.Basics.md") in the _Amazon DynamoDB Developer Guide_.
 
 **Example 5: To create a table with a Global Secondary Index**
 
@@ -963,7 +963,7 @@ Output:
 }
 ```
 
-For more information, see [Basic Operations for Tables](WorkingWithTables.md "WorkingWithTables.md") in the _Amazon DynamoDB Developer Guide_.
+For more information, see [Basic Operations for Tables](WorkingWithTables.Basics.md "WorkingWithTables.Basics.md") in the _Amazon DynamoDB Developer Guide_.
 
 **Example 6: To create a table with multiple Global Secondary Indexes at once**
 
@@ -1127,7 +1127,7 @@ Output:
 }
 ```
 
-For more information, see [Basic Operations for Tables](WorkingWithTables.md "WorkingWithTables.md") in the _Amazon DynamoDB Developer Guide_.
+For more information, see [Basic Operations for Tables](WorkingWithTables.Basics.md "WorkingWithTables.Basics.md") in the _Amazon DynamoDB Developer Guide_.
 
 **Example 7: To create a table with Streams enabled**
 
@@ -1190,7 +1190,7 @@ Output:
 }
 ```
 
-For more information, see [Basic Operations for Tables](WorkingWithTables.md "WorkingWithTables.md") in the _Amazon DynamoDB Developer Guide_.
+For more information, see [Basic Operations for Tables](WorkingWithTables.Basics.md "WorkingWithTables.Basics.md") in the _Amazon DynamoDB Developer Guide_.
 
 **Example 8: To create a table with Keys-Only Stream enabled**
 
@@ -1315,7 +1315,7 @@ Output:
 }
 ```
 
-For more information, see [Table classes](HowItWorks.md "HowItWorks.md") in the _Amazon DynamoDB Developer Guide_.
+For more information, see [Table classes](HowItWorks.TableClasses.md "HowItWorks.TableClasses.md") in the _Amazon DynamoDB Developer Guide_.
 
 **Example 10: To Create a table with Delete Protection enabled**
 
@@ -1373,7 +1373,7 @@ Output:
 }
 ```
 
-For more information, see [Using deletion protection](WorkingWithTables.md#WorkingWithTables.Basics.DeletionProtection "WorkingWithTables.md#WorkingWithTables.Basics.DeletionProtection") in the _Amazon DynamoDB Developer Guide_.
+For more information, see [Using deletion protection](WorkingWithTables.Basics.md#WorkingWithTables.Basics.DeletionProtection "WorkingWithTables.Basics.md#WorkingWithTables.Basics.DeletionProtection") in the _Amazon DynamoDB Developer Guide_.
 
 - For API details, see
   [CreateTable](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/create-table.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/create-table.html")

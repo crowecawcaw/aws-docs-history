@@ -70,7 +70,7 @@ Consider one or more of the following strategies to reduce latency:
   application doesn't require strongly consistent reads, consider using the default
   eventually consistent reads. Eventually consistent reads have lower cost and can
   come from multiple availability zones, allowing selection of an availability zone
-  co-located to the requester which decreases latency. For more information, see [DynamoDB read consistency](HowItWorks.md "HowItWorks.md").
+  co-located to the requester which decreases latency. For more information, see [DynamoDB read consistency](HowItWorks.ReadConsistency.md "HowItWorks.ReadConsistency.md").
 - **Implement request hedging:** For very low p99
   latency requirements, consider implementing request hedging. With request hedging,
   if the initial request doesn't receive a response quickly enough, send a second

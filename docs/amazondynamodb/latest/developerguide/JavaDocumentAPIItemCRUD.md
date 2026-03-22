@@ -340,11 +340,11 @@ Item item = table.getItem("Id", 210);
 Along with the required parameters, you can also specify optional parameters for the
 `getItem` method. For example, the following Java code example uses an optional
 method to retrieve only a specific list of attributes and to specify strongly consistent
-reads. (To learn more about read consistency, see [DynamoDB read consistency](HowItWorks.md "HowItWorks.md").)
+reads. (To learn more about read consistency, see [DynamoDB read consistency](HowItWorks.ReadConsistency.md "HowItWorks.ReadConsistency.md").)
 
 You can use a `ProjectionExpression` to retrieve only specific attributes or
 elements, rather than an entire item. A `ProjectionExpression` can specify
-top-level or nested attributes using document paths. For more information, see [Using projection expressions in DynamoDB](Expressions.md "Expressions.md").
+top-level or nested attributes using document paths. For more information, see [Using projection expressions in DynamoDB](Expressions.ProjectionExpressions.md "Expressions.ProjectionExpressions.md").
 
 The parameters of the `getItem` method don't let you specify read
 consistency. However, you can create a `GetItemSpec`, which provides full access

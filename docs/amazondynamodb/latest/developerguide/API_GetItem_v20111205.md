@@ -17,7 +17,7 @@ item that matches the primary key. If there is no matching item, `GetItem` does 
 The `GetItem` operation provides an eventually consistent read by
 default. If eventually consistent reads are not acceptable for your application, use
 `ConsistentRead`. Although this operation might take longer than a
-standard read, it always returns the last updated value. For more information, see [DynamoDB read consistency](HowItWorks.md "HowItWorks.md").
+standard read, it always returns the last updated value. For more information, see [DynamoDB read consistency](HowItWorks.ReadConsistency.md "HowItWorks.ReadConsistency.md").
 
 ## Requests
 
@@ -40,12 +40,12 @@ content-type: application/x-amz-json-1.0
 }
 ```
 
-| Name              | Description                                                                                                                                                                                                                                                                                              | Required |
-| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `TableName`       | The name of the table containing the requested item.<br>Type: String                                                                                                                                                                                                                                     | Yes      |
-| `Key`             | The primary key values that define the item. For more information about primary keys,<br>see [Primary key](HowItWorks.md#HowItWorks.CoreComponents.PrimaryKey "HowItWorks.md#HowItWorks.CoreComponents.PrimaryKey").Type: Map of `HashKeyElement`<br>to its value and `RangeKeyElement` to its<br>value. | Yes      |
-| `AttributesToGet` | Array of Attribute names. If attribute names are not specified then all attributes will<br>be returned. If some attributes are not found, they will not appear in<br>the result.Type: Array                                                                                                              | No       |
-| `ConsistentRead`  | If set to `true`, then a consistent read is issued, otherwise<br>eventually consistent is used.Type: Boolean                                                                                                                                                                                             | No       |
+| Name              | Description                                                                                                                                                                                                                                                                                                                            | Required |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| `TableName`       | The name of the table containing the requested item.<br>Type: String                                                                                                                                                                                                                                                                   | Yes      |
+| `Key`             | The primary key values that define the item. For more information about primary keys,<br>see [Primary key](HowItWorks.CoreComponents.md#HowItWorks.CoreComponents.PrimaryKey "HowItWorks.CoreComponents.md#HowItWorks.CoreComponents.PrimaryKey").Type: Map of `HashKeyElement`<br>to its value and `RangeKeyElement` to its<br>value. | Yes      |
+| `AttributesToGet` | Array of Attribute names. If attribute names are not specified then all attributes will<br>be returned. If some attributes are not found, they will not appear in<br>the result.Type: Array                                                                                                                                            | No       |
+| `ConsistentRead`  | If set to `true`, then a consistent read is issued, otherwise<br>eventually consistent is used.Type: Boolean                                                                                                                                                                                                                           | No       |
 
 ## Responses
 

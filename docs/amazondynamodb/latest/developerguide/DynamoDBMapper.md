@@ -14,13 +14,13 @@ tables.
 
 ###### Topics
 
-- [DynamoDBMapper Class](DynamoDBMapper.md "DynamoDBMapper.md")
-- [Supported data types for DynamoDBMapper for Java](DynamoDBMapper.md "DynamoDBMapper.md")
-- [Java Annotations for DynamoDB](DynamoDBMapper.md "DynamoDBMapper.md")
-- [Optional configuration settings for DynamoDBMapper](DynamoDBMapper.md "DynamoDBMapper.md")
-- [DynamoDB and optimistic locking with version number](DynamoDBMapper.md "DynamoDBMapper.md")
-- [Mapping arbitrary data in DynamoDB](DynamoDBMapper.md "DynamoDBMapper.md")
-- [DynamoDBMapper examples](DynamoDBMapper.md "DynamoDBMapper.md")
+- [DynamoDBMapper Class](DynamoDBMapper.Methods.md "DynamoDBMapper.Methods.md")
+- [Supported data types for DynamoDBMapper for Java](DynamoDBMapper.DataTypes.md "DynamoDBMapper.DataTypes.md")
+- [Java Annotations for DynamoDB](DynamoDBMapper.Annotations.md "DynamoDBMapper.Annotations.md")
+- [Optional configuration settings for DynamoDBMapper](DynamoDBMapper.OptionalConfig.md "DynamoDBMapper.OptionalConfig.md")
+- [DynamoDB and optimistic locking with version number](DynamoDBMapper.OptimisticLocking.md "DynamoDBMapper.OptimisticLocking.md")
+- [Mapping arbitrary data in DynamoDB](DynamoDBMapper.ArbitraryDataMapping.md "DynamoDBMapper.ArbitraryDataMapping.md")
+- [DynamoDBMapper examples](DynamoDBMapper.Examples.md "DynamoDBMapper.Examples.md")
 
 ###### Note
 

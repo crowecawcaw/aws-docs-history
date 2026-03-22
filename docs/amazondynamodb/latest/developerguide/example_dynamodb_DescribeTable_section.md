@@ -304,7 +304,7 @@ Output:
 }
 ```
 
-For more information, see [Describing a Table](WorkingWithTables.md#WorkingWithTables.Basics.DescribeTable "WorkingWithTables.md#WorkingWithTables.Basics.DescribeTable") in the _Amazon DynamoDB Developer Guide_.
+For more information, see [Describing a Table](WorkingWithTables.Basics.md#WorkingWithTables.Basics.DescribeTable "WorkingWithTables.Basics.md#WorkingWithTables.Basics.DescribeTable") in the _Amazon DynamoDB Developer Guide_.
 
 - For API details, see
   [DescribeTable](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/describe-table.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/describe-table.html")

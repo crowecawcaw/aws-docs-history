@@ -12,7 +12,7 @@ sufficient overall capacity. To learn more about:
 - DynamoDB partition limits and effective partition key design addressing hot partition
   prevention, see [Best practices for designing
   and using partition keys effectively in DynamoDB](bp-partition-key-design.md "bp-partition-key-design.md").
-- General partition concepts and data distribution, see [Partitions in DynamoDB](HowItWorks.md "HowItWorks.md").
+- General partition concepts and data distribution, see [Partitions in DynamoDB](HowItWorks.Partitions.md "HowItWorks.Partitions.md").
 - Additional guidance and real-world scenarios for managing partition keys and
   throughput, see [Additional resources](#key-range-additional-resources "#key-range-additional-resources").
   When individual partitions exceed their throughput limits, DynamoDB returns a
@@ -87,7 +87,7 @@ Consider these steps to address your throttling events:
   to eventually consistent reads, which consume half the RCUs and can
   immediately double your effective read capacity. For best practices on
   implementing eventually consistent reads to reduce read capacity
-  consumption, see [DynamoDB read consistency](HowItWorks.md "HowItWorks.md").
+  consumption, see [DynamoDB read consistency](HowItWorks.ReadConsistency.md "HowItWorks.ReadConsistency.md").
 - **Improve partition key design:** As a
   long-term solution, consider [Improving partition key design](#key-range-improve-partition-key-design "#key-range-improve-partition-key-design") to distribute access
   more evenly across partitions. This approach often provides the most
@@ -220,9 +220,9 @@ Consider these steps to address your throttling events:
   partitions. While querying sharded data requires additional application
   logic to aggregate results, this approach prevents throttling by
   distributing access patterns more evenly.
-- **Pre-warm capacity:**Check if your GSI is
+- **Pre-warm capacity:** Check if your GSI is
   limited by its [Understanding DynamoDB warm throughput](warm-throughput.md "warm-throughput.md") capacity. Use warm throughput or
-  increase read provisioned capacity in advance for expected traffic
+  increase write provisioned capacity in advance for expected traffic
   increases. Increasing warm throughput improves your GSI's ability to handle
   sudden traffic spikes before throttling occurs. Over time, if your actual
   throughput consistently approaches the warm throughput levels, DynamoDB may

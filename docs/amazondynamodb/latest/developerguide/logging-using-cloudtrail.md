@@ -146,3 +146,13 @@ DynamoDB Time to Live data plane actions are not logged by CloudTrail
 
 - [GetRecords](../APIReference/API_streams_GetRecords.md "../APIReference/API_streams_GetRecords.md")
 - [GetShardIterator](../APIReference/API_streams_GetShardIterator.md "../APIReference/API_streams_GetShardIterator.md")
+
+###### Important
+
+When you log `GetRecords` data events, you might see `GetRecords` calls from DynamoDB internal operations, such as global tables replication. Although you are not charged by DynamoDB for these `GetRecords` calls, you are charged by CloudTrail for the data event logs. This might result in unexpected CloudTrail charges.
+
+To avoid unexpected CloudTrail charges, do one of the following:
+
+- Use the **Exclude AWS service-initiated events** log selector template.
+- Add an advanced event selector filter with `userIdentity.arn` set to `NotStartsWith` `AWSServiceRoleFor`.
+  For more information, see [Logging data events](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md") in the AWS CloudTrail User Guide.

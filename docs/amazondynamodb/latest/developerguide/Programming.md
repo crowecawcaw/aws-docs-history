@@ -11,9 +11,9 @@ secure certificates issued by Amazon Trust Services (ATS). For more information,
 
 ###### Topics
 
-- [Overview of AWS SDK support for DynamoDB](Programming.md "Programming.md")
+- [Overview of AWS SDK support for DynamoDB](Programming.SDKOverview.md "Programming.SDKOverview.md")
 - [Programming Amazon DynamoDB with Python and Boto3](programming-with-python.md "programming-with-python.md")
 - [Programming Amazon DynamoDB with JavaScript](programming-with-javascript.md "programming-with-javascript.md")
 - [Programming DynamoDB with the AWS SDK for Java 2.x](ProgrammingWithJava.md "ProgrammingWithJava.md")
-- [Error handling with DynamoDB](Programming.md "Programming.md")
+- [Error handling with DynamoDB](Programming.Errors.md "Programming.Errors.md")
 - [Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md")

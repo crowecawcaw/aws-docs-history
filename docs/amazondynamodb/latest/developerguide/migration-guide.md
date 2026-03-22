@@ -207,7 +207,7 @@ upgrades.
 
 Amazon S3 can be used as a staging area during a migration. Data stored in CSV (comma separated
 values) or DynamoDB JSON format can be automatically imported into a new DynamoDB table using the
-[DynamoDB import from S3 feature](S3DataImport.md "S3DataImport.md").
+[DynamoDB import from S3 feature](S3DataImport.HowItWorks.md "S3DataImport.HowItWorks.md").
 
 You may want to combine tables to leverage unique NoSQL access patterns (for example,
 transforming four legacy tables into a single DynamoDB table). A single key-value document request

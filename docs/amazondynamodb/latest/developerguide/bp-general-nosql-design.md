@@ -107,4 +107,4 @@ data modeling, data visualization, sample data generation, and query development
 help you design, create, query, and manage DynamoDB tables. With NoSQL Workbench for DynamoDB, you
 can build new data models from, or design models based on, existing data models that satisfy
 your application's data access patterns. You can also import and export the designed data
-model at the end of the process. For more information, see [Building data models with NoSQL Workbench](workbench.md "workbench.md").
+model at the end of the process. For more information, see [Building data models with NoSQL Workbench](workbench.Modeler.md "workbench.Modeler.md").

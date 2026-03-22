@@ -55,7 +55,7 @@ document data models.
 
 Unlike relational databases, DynamoDB doesn't support a JOIN operator. We recommend
 that you denormalize your data model to reduce database round trips and processing
-power needed to answer queries. As a NoSQL database, DynamoDB provides strong [read consistency](HowItWorks.md "HowItWorks.md") and [ACID
+power needed to answer queries. As a NoSQL database, DynamoDB provides strong [read consistency](HowItWorks.ReadConsistency.md "HowItWorks.ReadConsistency.md") and [ACID
 transactions](https://aws.amazon.com/blogs/aws/new-amazon-dynamodb-transactions/ "https://aws.amazon.com/blogs/aws/new-amazon-dynamodb-transactions/") to build enterprise-grade applications.
 
 ### Fully managed
@@ -176,10 +176,10 @@ can perform using DynamoDB:
 
 To build end-to-end serverless applications, DynamoDB integrates natively with a
 number of serverless AWS services. For example, you can integrate DynamoDB with
-AWS Lambda to [create triggers](Streams.md "Streams.md"), which are pieces
+AWS Lambda to [create triggers](Streams.Lambda.md "Streams.Lambda.md"), which are pieces
 of code that automatically respond to events in DynamoDB Streams. With triggers, you can build
 event-driven applications that react to data modifications in DynamoDB tables. For cost
-optimization, you can [filter events](Streams.Lambda.md "Streams.Lambda.md")
+optimization, you can [filter events](Streams.Lambda.Tutorial2.md "Streams.Lambda.Tutorial2.md")
 that Lambda processes from a DynamoDB stream.
 
 The following list presents some examples of serverless integrations with
@@ -198,7 +198,7 @@ Integrating DynamoDB with Amazon S3 enables you to easily export data to an Amaz
 for analytics and machine learning. DynamoDB supports [full table exports and incremental
 exports](S3DataExport_Requesting.md "S3DataExport_Requesting.md") to export changed, updated, or deleted data between a specified
 time period. You can also [import data from
-Amazon S3](S3DataImport.md "S3DataImport.md") into a new DynamoDB table.
+Amazon S3](S3DataImport.HowItWorks.md "S3DataImport.HowItWorks.md") into a new DynamoDB table.
 
 ### Zero-ETL integration
 
@@ -325,7 +325,7 @@ following topics:
   through the process of setting up DynamoDB, creating sample tables, and uploading
   data. This topic also provides information about performing some basic database
   operations using the AWS Management Console, AWS CLI, NoSQL Workbench, and DynamoDB APIs.
-- [DynamoDB core components](HowItWorks.md "HowItWorks.md")
+- [DynamoDB core components](HowItWorks.CoreComponents.md "HowItWorks.CoreComponents.md")
   – Describes the basic DynamoDB concepts.
 - [Best practices for designing and architecting with DynamoDB](best-practices.md "best-practices.md") –
   Provides recommendations about NoSQL design, DynamoDB Well-Architected Lens, table

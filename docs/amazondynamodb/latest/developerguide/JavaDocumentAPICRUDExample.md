@@ -13,7 +13,7 @@ have to write. For more information, see [Java 1.x: DynamoDBMapper](DynamoDBMapp
 
 This code example assumes that you have already loaded data into DynamoDB for your account by following the instructions in the [Creating tables and loading data for code examples in DynamoDB](SampleData.md "SampleData.md") section.
 
-For step-by-step instructions to run the following example, see [Java code examples](CodeSamples.md "CodeSamples.md").
+For step-by-step instructions to run the following example, see [Java code examples](CodeSamples.Java.md "CodeSamples.Java.md").
 
 ```
 

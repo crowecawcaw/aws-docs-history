@@ -13,8 +13,8 @@ Key differences from same-account global tables include:
 - Each replica must reside in a separate AWS account. For a multi-account global table with
   _N_ replicas, you must have _N_ accounts.
 - Multi-account global tables use unified table settings across all replicas
-  by default. All replicas automatically share the same configuration (such as throughput mode,
-  TTL, and PITR), and unlike same-account global tables, these settings cannot be overridden per replica.
+  by default. All replicas automatically share the same configuration (such as throughput mode and
+  TTL), and unlike same-account global tables, these settings cannot be overridden per replica.
 - Customers must provide replication permissions to the DynamoDB global tables service principal in their resource policies.
   Multi-account global tables use the same underlying replication technology as same-account
   global tables. Table settings are replicated automatically across all regional replicas,
@@ -61,6 +61,7 @@ independently for each replica table in each Region.
 
 - Table Class
 - Server-side Encryption (SSE) type
+- Point-in-time Recovery
 - Server-side Encryption (SSE) KMS Key Id
 - Deletion Protection
 - Kinesis Data Streams (KDSD)

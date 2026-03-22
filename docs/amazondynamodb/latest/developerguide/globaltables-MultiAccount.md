@@ -22,5 +22,5 @@ You can configure multi-account global tables with [Multi-Region eventual consis
 ###### Topics
 
 - [How DynamoDB global tables work](V2globaltables_MA_HowItWorks.md "V2globaltables_MA_HowItWorks.md")
-- [Tutorials: Creating multi-account global tables](V2globaltables_MA.md "V2globaltables_MA.md")
+- [Tutorials: Creating multi-account global tables](V2globaltables_MA.tutorial.md "V2globaltables_MA.tutorial.md")
 - [DynamoDB global tables security](globaltables_MA_security.md "globaltables_MA_security.md")

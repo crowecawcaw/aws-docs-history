@@ -41,7 +41,7 @@ expression—including partition key and sort key attributes.
 
 The syntax for a filter expression is identical to that of a condition expression.
 Filter expressions can use the same comparators, functions, and logical operators as a
-condition expression. See [Condition and filter expressions, operators, and functions in DynamoDB](Expressions.md "Expressions.md") for more information about
+condition expression. See [Condition and filter expressions, operators, and functions in DynamoDB](Expressions.OperatorsAndFunctions.md "Expressions.OperatorsAndFunctions.md") for more information about
 logical operators.
 
 ###### Example
@@ -248,7 +248,7 @@ data exists.
 A `Scan` operation performs eventually consistent reads, by default. This
 means that the `Scan` results might not reflect changes due to recently
 completed `PutItem` or `UpdateItem` operations. For more
-information, see [DynamoDB read consistency](HowItWorks.md "HowItWorks.md").
+information, see [DynamoDB read consistency](HowItWorks.ReadConsistency.md "HowItWorks.ReadConsistency.md").
 
 If you require strongly consistent reads, as of the time that the `Scan`
 begins, set the `ConsistentRead` parameter to `true` in the

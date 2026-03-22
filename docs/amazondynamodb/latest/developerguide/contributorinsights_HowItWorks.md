@@ -366,7 +366,7 @@ The two Contributor Insights modes have different billing characteristics.
 
 - **Accessed and throttled keys mode billing**
 
-* In this mode, each item that is written or read via a [data plane](HowItWorks.md#HowItWorks.API.DataPlane "HowItWorks.md#HowItWorks.API.DataPlane") operation represents one event,
+* In this mode, each item that is written or read via a [data plane](HowItWorks.API.md#HowItWorks.API.DataPlane "HowItWorks.API.md#HowItWorks.API.DataPlane") operation represents one event,
   regardless of whether the request succeeds or is throttled. If a table or
   global secondary index includes sort keys, each item that is read or
   written represents two events. This is because DynamoDB is identifying top

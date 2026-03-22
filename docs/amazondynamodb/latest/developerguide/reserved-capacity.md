@@ -1,6 +1,6 @@
 # DynamoDB reserved capacity
 
-For provisioned capacity tables that use the Standard [table class](HowItWorks.md "HowItWorks.md"), DynamoDB offers the ability
+For provisioned capacity tables that use the Standard [table class](HowItWorks.TableClasses.md "HowItWorks.TableClasses.md"), DynamoDB offers the ability
 to purchase reserved capacity for your read and write capacity. A reserved capacity
 purchase is an agreement to pay for a minimum amount of provisioned throughput
 capacity, for the duration of the term of the agreement, in exchange for discounted

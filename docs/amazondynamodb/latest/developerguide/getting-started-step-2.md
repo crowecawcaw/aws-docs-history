@@ -148,9 +148,9 @@ aws dynamodb execute-statement --statement "INSERT INTO Music VALUE {'Artist':'A
 ```
 
 For more information about writing data with PartiQL, see [PartiQL insert
-statements](ql-reference.md "ql-reference.md").
+statements](ql-reference.insert.md "ql-reference.insert.md").
 
-For more information about supported data types in DynamoDB, see [Data types](HowItWorks.md#HowItWorks.DataTypes "HowItWorks.md#HowItWorks.DataTypes").
+For more information about supported data types in DynamoDB, see [Data types](HowItWorks.NamingRulesDataTypes.md#HowItWorks.DataTypes "HowItWorks.NamingRulesDataTypes.md#HowItWorks.DataTypes").
 
 For more information about how to represent DynamoDB data types in JSON, see
 [Attribute

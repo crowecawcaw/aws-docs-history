@@ -271,7 +271,7 @@ environments, you must configure additional access rules. If your resource polic
 restricts access to the IPv4 address space `0.0.0.0/0` on tables, you must
 allow access for the IAM role associated with your DAX cluster. Add an
 `ArnNotEquals` condition to your policy to ensure DAX maintains access to
-your DynamoDB tables. For more information see, [DAX and IPv6](DAX.create-cluster.md "DAX.create-cluster.md").
+your DynamoDB tables. For more information see, [DAX and IPv6](DAX.create-cluster.DAX_and_IPV6.md "DAX.create-cluster.DAX_and_IPV6.md").
 
 JSON
 

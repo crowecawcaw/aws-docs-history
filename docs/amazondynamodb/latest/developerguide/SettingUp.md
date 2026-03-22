@@ -10,5 +10,5 @@ DynamoDB web service.
 
 ###### Topics
 
-- [Setting up DynamoDB (web service)](SettingUp.md "SettingUp.md")
+- [Setting up DynamoDB (web service)](SettingUp.DynamoWebService.md "SettingUp.DynamoWebService.md")
 - [Setting up DynamoDB local (downloadable version)](DynamoDBLocal.md "DynamoDBLocal.md")

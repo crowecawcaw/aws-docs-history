@@ -35,7 +35,7 @@ unprocessed items in the request. If you followed the examples in this guide, yo
 already have created the `Forum` and `Thread` tables. You can also
 create these tables and upload sample data programmatically. For more information, see [Creating example tables and uploading data using the AWS SDK for Java](AppendixSampleDataCodeJava.md "AppendixSampleDataCodeJava.md").
 
-For step-by-step instructions for testing the following sample, see [Java code examples](CodeSamples.md "CodeSamples.md").
+For step-by-step instructions for testing the following sample, see [Java code examples](CodeSamples.Java.md "CodeSamples.Java.md").
 
 ###### Example
 
@@ -130,7 +130,7 @@ item to get. The example processes the response by printing the items retrieved.
 
 This code example assumes that you have already loaded data into DynamoDB for your account by following the instructions in the [Creating tables and loading data for code examples in DynamoDB](SampleData.md "SampleData.md") section.
 
-For step-by-step instructions to run the following example, see [Java code examples](CodeSamples.md "CodeSamples.md").
+For step-by-step instructions to run the following example, see [Java code examples](CodeSamples.Java.md "CodeSamples.Java.md").
 
 ###### Example
 

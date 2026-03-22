@@ -548,7 +548,7 @@ Valid Statistics:
 
 ### PendingReplicationCount
 
-Metric for [Global tables version 2017.11.29 (Legacy)](globaltables.md "globaltables.md")
+Metric for [Global tables version 2017.11.29 (Legacy)](globaltables.V1.md "globaltables.V1.md")
 (global tables only). The number of item updates that are written to one replica
 table, but that have not yet been written to another replica in the global
 table.

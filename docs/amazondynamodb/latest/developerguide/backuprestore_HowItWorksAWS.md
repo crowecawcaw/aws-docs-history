@@ -54,6 +54,6 @@ These enhanced backup features are available in all AWS Regions. To learn more a
 - [Backing up and restoring DynamoDB tables with AWS Backup: How it works](GettingStartedBackupsAWS.md "GettingStartedBackupsAWS.md")
 - [Creating backups of DynamoDB tables with AWS Backup](CreateBackupAWS.md "CreateBackupAWS.md")
 - [Copying a backup of a DynamoDB table with AWS Backup](CrossRegionAccountCopyAWS.md "CrossRegionAccountCopyAWS.md")
-- [Restoring a backup of a DynamoDB table from AWS Backup](Restore.md "Restore.md")
-- [Deleting a backup of a DynamoDB table with AWS Backup](Delete.md "Delete.md")
+- [Restoring a backup of a DynamoDB table from AWS Backup](Restore.TutorialAWS.md "Restore.TutorialAWS.md")
+- [Deleting a backup of a DynamoDB table with AWS Backup](Delete.TutorialAWS.md "Delete.TutorialAWS.md")
 - [Usage note differences between on-demand backups managed by AWS Backup and DynamoDB](UsageNotesAWS.md "UsageNotesAWS.md")

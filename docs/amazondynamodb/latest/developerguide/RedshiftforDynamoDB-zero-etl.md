@@ -99,7 +99,7 @@ JSON
 
 You may also need to
 configure the resource policy on your Amazon Redshift data warehouse. For more
-information, see [Configure authorization using the Amazon Redshift API](../../../redshift/latest/mgmt/zero-etl-using.md#zero-etl-using.resource-policies "../../../redshift/latest/mgmt/zero-etl-using.md#zero-etl-using.resource-policies"). 4. ###### For Identity-based policies:
+information, see [Configure authorization using the Amazon Redshift API](../../../redshift/latest/mgmt/zero-etl-using.redshift-iam.md#zero-etl-using.resource-policies "../../../redshift/latest/mgmt/zero-etl-using.redshift-iam.md#zero-etl-using.resource-policies"). 4. ###### For Identity-based policies:
 
     1. The user creating the integration requires an identity-based
      policy that authorizes the following actions:
@@ -252,7 +252,7 @@ using your KMS key.
 }
 ```
 
-You can also follow the steps on [Getting started with zero-ETL integrations](../../../redshift/latest/mgmt/zero-etl-using.md#zero-etl-using.redshift-iam "../../../redshift/latest/mgmt/zero-etl-using.md#zero-etl-using.redshift-iam") in the Amazon Redshift management
+You can also follow the steps on [Getting started with zero-ETL integrations](../../../redshift/latest/mgmt/zero-etl-using.setting-up.md#zero-etl-using.redshift-iam "../../../redshift/latest/mgmt/zero-etl-using.setting-up.md#zero-etl-using.redshift-iam") in the Amazon Redshift management
 guide to configure the permissions of the Amazon Redshift namespace.
 
 ## Limitations when using DynamoDB zero-ETL integrations with Amazon Redshift
@@ -264,7 +264,7 @@ integration. These limitations can change in subsequent releases.
 
 In addition to the limitations below, also review the general considerations
 when using zero-ETL integrations see [Considerations when
-using zero-ETL integrations with Amazon Redshift](../../../redshift/latest/mgmt/zero-etl.md "../../../redshift/latest/mgmt/zero-etl.md") in the
+using zero-ETL integrations with Amazon Redshift](../../../redshift/latest/mgmt/zero-etl.reqs-lims.md "../../../redshift/latest/mgmt/zero-etl.reqs-lims.md") in the
 _Amazon Redshift Management Guide_.
 
 - The DynamoDB table and Amazon Redshift cluster need to be in the same Region.

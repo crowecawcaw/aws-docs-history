@@ -25,7 +25,7 @@ _in_ the cloud:
 
 ###### Topics
 
-- [AWS managed policies for Amazon DynamoDB](ddb-security-iam.md "ddb-security-iam.md")
+- [AWS managed policies for Amazon DynamoDB](ddb-security-iam.awsmanpol.md "ddb-security-iam.awsmanpol.md")
 - [Using resource-based policies for DynamoDB](access-control-resource-based.md "access-control-resource-based.md")
 - [Using attribute-based access control with DynamoDB](attribute-based-access-control.md "attribute-based-access-control.md")
 - [Data protection in DynamoDB](data-protection.md "data-protection.md")

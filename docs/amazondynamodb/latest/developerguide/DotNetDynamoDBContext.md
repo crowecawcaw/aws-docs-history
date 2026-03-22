@@ -157,7 +157,7 @@ Retrieves an item from a table. The method requires only the primary key of the
 item you want to retrieve.
 
 By default, DynamoDB returns the item with values that are eventually consistent. For
-information about the eventual consistency model, see [DynamoDB read consistency](HowItWorks.md "HowItWorks.md").
+information about the eventual consistency model, see [DynamoDB read consistency](HowItWorks.ReadConsistency.md "HowItWorks.ReadConsistency.md").
 
 `Load` or `LoadAsync` method calls the [GetItem](../APIReference/API_GetItem.md "../APIReference/API_GetItem.md") operation, which requires you to specify the primary key for
 the table. Because `GetItem` ignores the `IndexName`
@@ -283,7 +283,7 @@ object doesn't exist in the table, the method adds a new item to the table. If t
 primary key exists, the method updates the existing item.
 
 If you have optimistic locking configured, the update succeeds only if the client
-and the server-side versions of the item match. For more information, see [Optimistic locking using DynamoDB and the AWS SDK for .NET object persistence model](DynamoDBContext.md "DynamoDBContext.md").
+and the server-side versions of the item match. For more information, see [Optimistic locking using DynamoDB and the AWS SDK for .NET object persistence model](DynamoDBContext.VersionSupport.md "DynamoDBContext.VersionSupport.md").
 
 ###### Note
 
@@ -361,7 +361,7 @@ parameters for the `DynamoDBContext`.
   delete the specific attribute.
 - `SkipVersionCheck`— This
   parameter informs `DynamoDBContext` not to compare versions when
-  saving or deleting an item. For more information about versioning, see [Optimistic locking using DynamoDB and the AWS SDK for .NET object persistence model](DynamoDBContext.md "DynamoDBContext.md").
+  saving or deleting an item. For more information about versioning, see [Optimistic locking using DynamoDB and the AWS SDK for .NET object persistence model](DynamoDBContext.VersionSupport.md "DynamoDBContext.VersionSupport.md").
 - `TableNamePrefix`—
   Prefixes all table names with a specific string. If this parameter is null
   (or if it is not set), then no prefix is used.

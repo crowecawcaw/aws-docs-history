@@ -80,11 +80,11 @@ property. It also does not return this property when you retrieve the book insta
 
 You can map properties of .NET primitive types such as int and string. You also can map
 any arbitrary data types as long as you provide an appropriate converter to map the
-arbitrary data to one of the DynamoDB types. To learn about mapping arbitrary types, see [Mapping arbitrary data with DynamoDB using the AWS SDK for .NET object persistence model](DynamoDBContext.md "DynamoDBContext.md").
+arbitrary data to one of the DynamoDB types. To learn about mapping arbitrary types, see [Mapping arbitrary data with DynamoDB using the AWS SDK for .NET object persistence model](DynamoDBContext.ArbitraryDataMapping.md "DynamoDBContext.ArbitraryDataMapping.md").
 
 The object persistence model supports optimistic locking. During an update operation, this
 ensures that you have the latest copy of the item you are about to update. For more
-information, see [Optimistic locking using DynamoDB and the AWS SDK for .NET object persistence model](DynamoDBContext.md "DynamoDBContext.md").
+information, see [Optimistic locking using DynamoDB and the AWS SDK for .NET object persistence model](DynamoDBContext.VersionSupport.md "DynamoDBContext.VersionSupport.md").
 
 For more information, see the topics below.
 
@@ -93,8 +93,8 @@ For more information, see the topics below.
 - [Supported data types](#DotNetDynamoDBContext.SupportedTypes "#DotNetDynamoDBContext.SupportedTypes")
 - [DynamoDB attributes from the .NET object persistence model](DeclarativeTagsList.md "DeclarativeTagsList.md")
 - [DynamoDBContext class from the .NET object persistence model](DotNetDynamoDBContext.md "DotNetDynamoDBContext.md")
-- [Optimistic locking using DynamoDB and the AWS SDK for .NET object persistence model](DynamoDBContext.md "DynamoDBContext.md")
-- [Mapping arbitrary data with DynamoDB using the AWS SDK for .NET object persistence model](DynamoDBContext.md "DynamoDBContext.md")
+- [Optimistic locking using DynamoDB and the AWS SDK for .NET object persistence model](DynamoDBContext.VersionSupport.md "DynamoDBContext.VersionSupport.md")
+- [Mapping arbitrary data with DynamoDB using the AWS SDK for .NET object persistence model](DynamoDBContext.ArbitraryDataMapping.md "DynamoDBContext.ArbitraryDataMapping.md")
 
 ## Supported data types
 

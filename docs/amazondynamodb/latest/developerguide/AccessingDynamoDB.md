@@ -39,7 +39,7 @@ such as creating a table. You can also use it to embed Amazon DynamoDB operation
 utility scripts.
 
 Before you can use the AWS CLI with DynamoDB, you must get an access key ID and secret
-access key. For more information, see [Granting programmatic access](SettingUp.md#SettingUp.DynamoWebService.GetCredentials "SettingUp.md#SettingUp.DynamoWebService.GetCredentials").
+access key. For more information, see [Granting programmatic access](SettingUp.DynamoWebService.md#SettingUp.DynamoWebService.GetCredentials "SettingUp.DynamoWebService.md#SettingUp.DynamoWebService.GetCredentials").
 
 For a complete listing of all the commands available for DynamoDB in the AWS CLI, see the
 [AWS CLI command
@@ -159,7 +159,7 @@ The AWS SDKs provide broad support for DynamoDB in [Java](https://aws.amazon.com
 .
 
 Before you can use the AWS SDKs with DynamoDB, you must get an AWS access key ID and
-secret access key. For more information, see [Setting up DynamoDB (web service)](SettingUp.md "SettingUp.md").
+secret access key. For more information, see [Setting up DynamoDB (web service)](SettingUp.DynamoWebService.md "SettingUp.DynamoWebService.md").
 
 For a high-level overview of DynamoDB application programming with the AWS SDKs, see
 [Programming with DynamoDB and the AWS SDKs](Programming.md "Programming.md").
@@ -186,7 +186,7 @@ configured with two-factor authentication (2FA).
 With NoSQL Workbench for DynamoDB, you can build new data models from, or
 design models based on, existing data models that satisfy your application's
 data access patterns. You can also import and export the designed data model
-at the end of the process. For more information, see [Building data models with NoSQL Workbench](workbench.md "workbench.md").
+at the end of the process. For more information, see [Building data models with NoSQL Workbench](workbench.Modeler.md "workbench.Modeler.md").
 
 **Operation building**
 
@@ -195,7 +195,7 @@ develop and test queries. You can use the _operation
 builder_ to view, explore, and query live datasets. You can
 also use the structured operation builder to build and perform data plane
 operations. It supports projection and condition expression, and lets you
-generate sample code in multiple languages. For more information, see [Exploring datasets and building operations with NoSQL Workbench](workbench.md "workbench.md").
+generate sample code in multiple languages. For more information, see [Exploring datasets and building operations with NoSQL Workbench](workbench.querybuilder.md "workbench.querybuilder.md").
 
 ## IP address ranges
 

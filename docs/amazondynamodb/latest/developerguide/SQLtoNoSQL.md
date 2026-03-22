@@ -1,28 +1,39 @@
-# Choosing between relational (SQL) and NoSQL
+# Learn how to go from SQL to NoSQL
 
-Today's applications have more demanding requirements than ever before. For example,
-an online game might start out with just a few users and a very small amount of data.
-However, if the game becomes successful, it can easily outstrip the resources of the
-underlying database management system. It is common for web-based applications to have
-hundreds, thousands, or millions of concurrent users, with terabytes or more of new data
-generated per day. Databases for such applications must handle tens (or hundreds) of
-thousands of reads and writes per second.
+If you are an application developer, you might have some experience using a relational
+database management system (RDBMS) and Structured Query Language (SQL). As you begin working
+with Amazon DynamoDB, you will encounter many similarities, but also many things that are
+different. _NoSQL_ is a term used to describe nonrelational database
+systems that are highly available, scalable, and optimized for high performance. Instead of
+the relational model, NoSQL databases (like DynamoDB) use alternate models for data management,
+such as key-value pairs or document storage. For more information, see [What is NoSQL?](http://aws.amazon.com/nosql "http://aws.amazon.com/nosql").
 
-Amazon DynamoDB is well-suited for these kinds of workloads. As a developer, you can start
-small and gradually increase your utilization as your application becomes more popular.
-DynamoDB scales seamlessly to handle very large amounts of data and very large numbers of
-users.
+Amazon DynamoDB supports [PartiQL](https://partiql.org/ "https://partiql.org/"), an open-source,
+SQL-compatible query language that makes it easy for you to efficiently query data,
+regardless of where or in what format it is stored. With PartiQL, you can easily process
+structured data from relational databases, semi-structured and nested data in open data
+formats, and even schema-less data in NoSQL or document databases that allow different
+attributes for different rows. For more information, see [PartiQL query language](ql-reference.md "ql-reference.md").
 
-For more information on traditional relational database modeling and how to adapt it
-for DynamoDB, see [Best practices for modeling relational data in DynamoDB](bp-relational-modeling.md "bp-relational-modeling.md").
+The following sections describe common database tasks, comparing and contrasting SQL
+statements with their equivalent DynamoDB operations.
 
-The following table shows some high-level differences between a relational database
-management system (RDBMS) and DynamoDB.
+###### Note
 
-| Characteristic        | Relational database management system (RDBMS)                                                                                                                                                                                                                                                                            | Amazon DynamoDB                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Optimal Workloads** | Ad hoc queries; data warehousing; OLAP (online analytical<br>processing).                                                                                                                                                                                                                                                | Web-scale applications, including social networks, gaming, media<br>sharing, and Internet of Things (IoT).                                                                                                                                                                                                                                                                                                                             |
-| **Data Model**        | The relational model requires a well-defined schema, where data is<br>normalized into tables, rows, and columns. In addition, all of the<br>relationships are defined among tables, columns, indexes, and other<br>database elements.                                                                                    | DynamoDB is schemaless. Every table must have a primary key to uniquely<br>identify each data item, but there are no similar constraints on other<br>non-key attributes. DynamoDB can manage structured or semistructured data,<br>including JSON documents.                                                                                                                                                                           |
-| **Data Access**       | SQL is the standard for storing and retrieving data. Relational<br>databases offer a rich set of tools for simplifying the development of<br>database-driven applications, but all of these tools use SQL.                                                                                                               | You can use the AWS Management Console, the AWS CLI, or NoSQL WorkBench to work with<br>DynamoDB and perform ad hoc tasks. [PartiQL](ql-reference.md "ql-reference.md"), a<br>SQL-compatible query language, lets you select, insert, update, and<br>delete data in DynamoDB. Applications can use the AWS software<br>development kits (SDKs) to work with DynamoDB using object-based,<br>document-centric, or low-level interfaces. |
-| **Performance**       | Relational databases are optimized for storage, so performance<br>generally depends on the disk subsystem. Developers and database<br>administrators must optimize queries, indexes, and table structures in<br>order to achieve peak performance.                                                                       | DynamoDB is optimized for compute, so performance is mainly a function<br>of the underlying hardware and network latency. As a managed service,<br>DynamoDB insulates you and your applications from these implementation<br>details, so that you can focus on designing and building robust,<br>high-performance applications.                                                                                                        |
-| **Scaling**           | It is easiest to scale up with faster hardware. It is also possible<br>for database tables to span across multiple hosts in a distributed<br>system, but this requires additional investment. Relational databases<br>have maximum sizes for the number and size of files, which imposes upper<br>limits on scalability. | DynamoDB is designed to scale out using distributed clusters of<br>hardware. This design allows increased throughput without increased<br>latency. Customers specify their throughput requirements, and DynamoDB<br>allocates sufficient resources to meet those requirements. There are no<br>upper limits on the number of items per table, nor the total size of<br>that table.                                                     |
+The SQL examples in this section are compatible with the MySQL RDBMS.
+
+The DynamoDB examples in this section show the name of the DynamoDB operation, along with
+the parameters for that operation in JSON format.
+
+###### Topics
+
+- [Choosing between relational (SQL) and NoSQL](SQLtoNoSQL.WhyDynamoDB.md "SQLtoNoSQL.WhyDynamoDB.md")
+- [Differences in accessing a relational (SQL) database and DynamoDB](SQLtoNoSQL.Accessing.md "SQLtoNoSQL.Accessing.md")
+- [Differences between a relational (SQL) database and DynamoDB when creating a table](SQLtoNoSQL.CreateTable.md "SQLtoNoSQL.CreateTable.md")
+- [Differences between getting table information from a relational (SQL) database and DynamoDB](SQLtoNoSQL.GetTableInfo.md "SQLtoNoSQL.GetTableInfo.md")
+- [Differences between a relational (SQL) database and DynamoDB when writing data to a table](SQLtoNoSQL.WriteData.md "SQLtoNoSQL.WriteData.md")
+- [Differences between a relational (SQL) database and DynamoDB when reading data from a table](SQLtoNoSQL.ReadData.md "SQLtoNoSQL.ReadData.md")
+- [Differences between a relational (SQL) database and DynamoDB when managing indexes](SQLtoNoSQL.Indexes.md "SQLtoNoSQL.Indexes.md")
+- [Differences between a relational (SQL) database and DynamoDB when modifying data in a table](SQLtoNoSQL.UpdateData.md "SQLtoNoSQL.UpdateData.md")
+- [Differences between a relational (SQL) database and DynamoDB when deleting data from a table](SQLtoNoSQL.DeleteData.md "SQLtoNoSQL.DeleteData.md")
+- [Differences between a relational (SQL) database and DynamoDB when removing a table](SQLtoNoSQL.RemoveTable.md "SQLtoNoSQL.RemoveTable.md")

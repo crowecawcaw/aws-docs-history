@@ -8,7 +8,7 @@ retrieves the item and prints all the attribute values. For illustration, the ex
 `ExtendedMessage` attribute, and decompresses it when printing the attribute
 value.
 
-For step-by-step instructions for testing the following example, see [.NET code examples](CodeSamples.md "CodeSamples.md").
+For step-by-step instructions for testing the following example, see [.NET code examples](CodeSamples.DotNet.md "CodeSamples.DotNet.md").
 
 ###### Example
 

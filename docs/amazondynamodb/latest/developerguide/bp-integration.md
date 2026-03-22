@@ -12,7 +12,7 @@ that you should consider.
 ## Creating a snapshot in DynamoDB
 
 - Generally, we recommend using [export to
-  Amazon S3](S3DataExport.md "S3DataExport.md") to create snapshots for initial replication. It is both cost effective, and
+  Amazon S3](S3DataExport.HowItWorks.md "S3DataExport.HowItWorks.md") to create snapshots for initial replication. It is both cost effective, and
   won't compete with your application's traffic for throughput. You can also consider a
   backup and restore to a new table followed by a scan operation. This will avoid competing
   for throughput with your application, but will generally be substantially less cost
@@ -32,7 +32,7 @@ that you should consider.
   generally consider which is easiest to use with the downstream service. If you need to
   provide in-order event processing at a partition-key level, or if you have items that are
   exceptionally large, use DynamoDB Streams.
-- If you don't need near real-time CDC, you can use [export to Amazon S3 with incremental exports](S3DataExport.md "S3DataExport.md") to
+- If you don't need near real-time CDC, you can use [export to Amazon S3 with incremental exports](S3DataExport.HowItWorks.md "S3DataExport.HowItWorks.md") to
   export only the changes that have happened between two points in time.
 
 If you used export to S3 for generating a snapshot, this can be especially helpful

@@ -20,19 +20,19 @@ table. 5. The game ends with a win or a draw, which sets the game status to
 `FINISHED`.
 The end-to-end application building exercise is described in steps:
 
-- [Step 1: Deploy and test locally](TicTacToe.md "TicTacToe.md") – In this section, you
+- [Step 1: Deploy and test locally](TicTacToe.Phase1.md "TicTacToe.Phase1.md") – In this section, you
   download, deploy, and test the application on your local computer. You will create
   the required tables in the downloadable version of DynamoDB.
-- [Step 2: Examine the data model and implementation details](TicTacToe.md "TicTacToe.md") – This section first
+- [Step 2: Examine the data model and implementation details](TicTacToe.Phase2.md "TicTacToe.Phase2.md") – This section first
   describes in detail the data model, including the indexes and the use of the
   concatenated value attribute. Then the section explains how the application works.
-- [Step 3: Deploy in production using the DynamoDB service](TicTacToe.md "TicTacToe.md") – This section focuses on
+- [Step 3: Deploy in production using the DynamoDB service](TicTacToe.Phase3.md "TicTacToe.Phase3.md") – This section focuses on
   deployment considerations in production. In this step, you create a table using the
   Amazon DynamoDB service and deploy the application using AWS Elastic Beanstalk. When you
   have the application in production, you also grant appropriate permissions so the
   application can access the DynamoDB table. The instructions in this section walk you
   through the end-to-end production deployment.
-- [Step 4: Clean up resources](TicTacToe.md "TicTacToe.md") – This section
+- [Step 4: Clean up resources](TicTacToe.AppClosure.md "TicTacToe.AppClosure.md") – This section
   highlights areas that are not covered by this example. The section also provides
   steps for you to remove the AWS resources you created in the preceding steps so that
   you avoid incurring any charges.

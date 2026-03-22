@@ -184,7 +184,7 @@ Output:
 }
 ```
 
-For more information, see [Updating a Table](WorkingWithTables.md#WorkingWithTables.Basics.UpdateTable "WorkingWithTables.md#WorkingWithTables.Basics.UpdateTable") in the _Amazon DynamoDB Developer Guide_.
+For more information, see [Updating a Table](WorkingWithTables.Basics.md#WorkingWithTables.Basics.UpdateTable "WorkingWithTables.Basics.md#WorkingWithTables.Basics.UpdateTable") in the _Amazon DynamoDB Developer Guide_.
 
 **Example 2: To create a global secondary index**
 
@@ -297,7 +297,7 @@ Output:
 }
 ```
 
-For more information, see [Updating a Table](WorkingWithTables.md#WorkingWithTables.Basics.UpdateTable "WorkingWithTables.md#WorkingWithTables.Basics.UpdateTable") in the _Amazon DynamoDB Developer Guide_.
+For more information, see [Updating a Table](WorkingWithTables.Basics.md#WorkingWithTables.Basics.UpdateTable "WorkingWithTables.Basics.md#WorkingWithTables.Basics.UpdateTable") in the _Amazon DynamoDB Developer Guide_.
 
 **Example 3: To enable DynamoDB Streams on a table**
 
@@ -414,7 +414,7 @@ Output:
 }
 ```
 
-For more information, see [Updating a Table](WorkingWithTables.md#WorkingWithTables.Basics.UpdateTable "WorkingWithTables.md#WorkingWithTables.Basics.UpdateTable") in the _Amazon DynamoDB Developer Guide_.
+For more information, see [Updating a Table](WorkingWithTables.Basics.md#WorkingWithTables.Basics.UpdateTable "WorkingWithTables.Basics.md#WorkingWithTables.Basics.UpdateTable") in the _Amazon DynamoDB Developer Guide_.
 
 **Example 4: To enable server-side encryption**
 
@@ -534,7 +534,7 @@ Output:
 }
 ```
 
-For more information, see [Updating a Table](WorkingWithTables.md#WorkingWithTables.Basics.UpdateTable "WorkingWithTables.md#WorkingWithTables.Basics.UpdateTable") in the _Amazon DynamoDB Developer Guide_.
+For more information, see [Updating a Table](WorkingWithTables.Basics.md#WorkingWithTables.Basics.UpdateTable "WorkingWithTables.Basics.md#WorkingWithTables.Basics.UpdateTable") in the _Amazon DynamoDB Developer Guide_.
 
 - For API details, see
   [UpdateTable](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/update-table.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/update-table.html")

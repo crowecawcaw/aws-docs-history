@@ -17,7 +17,7 @@ The following are the common steps for table operations.
 - [Create a table with a Global Secondary Index](#GSIJavaDocumentAPI.CreateTableWithIndex "#GSIJavaDocumentAPI.CreateTableWithIndex")
 - [Describe a table with a Global Secondary Index](#GSIJavaDocumentAPI.DescribeTableWithIndex "#GSIJavaDocumentAPI.DescribeTableWithIndex")
 - [Query a Global Secondary Index](#GSIJavaDocumentAPI.QueryAnIndex "#GSIJavaDocumentAPI.QueryAnIndex")
-- [Example: Global Secondary Indexes using the AWS SDK for Java document API](GSIJavaDocumentAPI.md "GSIJavaDocumentAPI.md")
+- [Example: Global Secondary Indexes using the AWS SDK for Java document API](GSIJavaDocumentAPI.Example.md "GSIJavaDocumentAPI.Example.md")
 
 ## Create a table with a Global Secondary Index
 

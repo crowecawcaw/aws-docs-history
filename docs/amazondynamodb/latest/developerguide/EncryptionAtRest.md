@@ -43,7 +43,7 @@ your table. You can switch between these key types at any time.
 
 You can specify an encryption key when you create a new table or switch the encryption
 keys on an existing table by using the AWS Management Console, AWS Command Line Interface (AWS CLI), or the Amazon DynamoDB API.
-To learn how, see [Managing encrypted tables in DynamoDB](encryption.md "encryption.md").
+To learn how, see [Managing encrypted tables in DynamoDB](encryption.tutorial.md "encryption.tutorial.md").
 
 Encryption at rest using the AWS owned key is offered at no additional charge. However,
 AWS KMS charges apply for an AWS managed key and for a customer managed key. For more information
@@ -51,4 +51,4 @@ about pricing, see [AWS KMS pricing](https://aws.amazon.com/kms/pricing "https:/
 
 DynamoDB encryption at rest is available in all AWS Regions, including the AWS China
 (Beijing) and AWS China (Ningxia) Regions and the AWS GovCloud (US) Regions. For more
-information, see [DynamoDB encryption at rest: How it works](encryption.md "encryption.md") and [DynamoDB encryption at rest usage notes](encryption.md "encryption.md").
+information, see [DynamoDB encryption at rest: How it works](encryption.howitworks.md "encryption.howitworks.md") and [DynamoDB encryption at rest usage notes](encryption.usagenotes.md "encryption.usagenotes.md").

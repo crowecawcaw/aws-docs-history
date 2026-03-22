@@ -3,7 +3,7 @@
 If you want certain actions to be performed based on events in a DynamoDB stream, you
 can write an AWS Lambda function that is triggered by these events. A Lambda function
 such as this needs permissions to read data from a DynamoDB stream. For more
-information about using Lambda with DynamoDB Streams, see [DynamoDB Streams and AWS Lambda triggers](Streams.md "Streams.md").
+information about using Lambda with DynamoDB Streams, see [DynamoDB Streams and AWS Lambda triggers](Streams.Lambda.md "Streams.Lambda.md").
 
 To grant permissions to Lambda, use the permissions policy that is associated with
 the Lambda function's IAM role (also known as an execution role). Specify this policy when you create the Lambda

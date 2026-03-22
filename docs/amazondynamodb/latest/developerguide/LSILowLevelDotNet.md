@@ -5,11 +5,11 @@
 - [Create a table with a Local Secondary Index](#LSILowLevelDotNet.CreateTableWithIndex "#LSILowLevelDotNet.CreateTableWithIndex")
 - [Describe a table with a Local Secondary Index](#LSILowLevelDotNet.DescribeTableWithIndex "#LSILowLevelDotNet.DescribeTableWithIndex")
 - [Query a Local Secondary Index](#LSILowLevelDotNet.QueryAnIndex "#LSILowLevelDotNet.QueryAnIndex")
-- [Example: Local Secondary Indexes using the AWS SDK for .NET low-level API](LSILowLevelDotNet.md "LSILowLevelDotNet.md")
+- [Example: Local Secondary Indexes using the AWS SDK for .NET low-level API](LSILowLevelDotNet.Example.md "LSILowLevelDotNet.Example.md")
   You can use the AWS SDK for .NET low-level API to create an Amazon DynamoDB table with one or more
   local secondary indexes, describe the indexes on the table, and perform queries using the
   indexes. These operations map to the corresponding low-level DynamoDB API actions. For more
-  information, see [.NET code examples](CodeSamples.md "CodeSamples.md").
+  information, see [.NET code examples](CodeSamples.DotNet.md "CodeSamples.DotNet.md").
 
 The following are the common steps for table operations using the .NET low-level API.
 

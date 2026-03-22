@@ -219,7 +219,7 @@ a storage charge.
 
 ###### Table class
 
-DynamoDB also offers [two table classes](HowItWorks.md "HowItWorks.md")
+DynamoDB also offers [two table classes](HowItWorks.TableClasses.md "HowItWorks.TableClasses.md")
 designed to help you optimize for cost. The DynamoDB Standard table class is the default and is
 recommended for most workloads. The DynamoDB Standard-Infrequent Access (DynamoDB Standard-IA)
 table class is optimized for tables where storage is the dominant cost.
@@ -239,7 +239,7 @@ documentation for information on how to use lifecycle to move your backup to col
 storage.
 
 Alternatively, you may choose to export your table’s data to S3. To do so, refer to the
-[Export to Amazon S3](S3DataExport.md "S3DataExport.md") documentation. Once your
+[Export to Amazon S3](S3DataExport.HowItWorks.md "S3DataExport.HowItWorks.md") documentation. Once your
 data is exported, if you wish to leverage S3 Glacier Instant Retrieval, S3 Glacier Flexile
 Retrieval, or S3 Glacier Deep Archive to further reduce costs, see [Managing your storage
 lifecycle](../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md "../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md").

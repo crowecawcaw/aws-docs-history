@@ -1,129 +1,45 @@
-# Differences in reading an item using its primary key
+# Differences between a relational (SQL) database and DynamoDB when reading data from a table
 
-One common access pattern for databases is to read a single item from a table. You
-have to specify the primary key of the item you want.
+With SQL, you use the `SELECT` statement to retrieve one or more rows from
+a table. You use the `WHERE` clause to determine the data that is returned to
+you.
 
-###### Topics
+This is different than using Amazon DynamoDB which provides the following operations for
+reading data:
 
-- [Reading an item using its primary key with SQL](#SQLtoNoSQL.ReadData.SingleItem.SQL "#SQLtoNoSQL.ReadData.SingleItem.SQL")
-- [Reading an item using its primary key in DynamoDB](#SQLtoNoSQL.ReadData.SingleItem.DynamoDB "#SQLtoNoSQL.ReadData.SingleItem.DynamoDB")
-
-## Reading an item using its primary key with SQL
-
-In SQL, you would use the `SELECT` statement to retrieve data from
-a table. You can request one or more columns in the result (or all of them, if
-you use the `*` operator). The `WHERE` clause determines
-which rows to return.
-
-The following is a `SELECT` statement to retrieve a single row from
-the _Music_ table. The `WHERE` clause specifies
-the primary key values.
-
-```
-SELECT *
-FROM Music
-WHERE Artist='No One You Know' AND SongTitle = 'Call Me Today'
-```
-
-You can modify this query to retrieve only a subset of the columns.
-
-```
-SELECT AlbumTitle, Year, Price
-FROM Music
-WHERE Artist='No One You Know' AND SongTitle = 'Call Me Today'
-```
-
-Note that the primary key for this table consists of
-_Artist_ and _SongTitle_.
-
-## Reading an item using its primary key in DynamoDB
-
-In Amazon DynamoDB, you can use either the DynamoDB API or [PartiQL](ql-reference.md "ql-reference.md") (a SQL-compatible query
-language) to read an item from a table.
-
-DynamoDB API
-With the DynamoDB API, you use the `PutItem` operation to
-add an item to a table.
-
-DynamoDB provides the `GetItem` operation for retrieving
-an item by its primary key. `GetItem` is highly efficient
-because it provides direct access to the physical location of the
-item. (For more information, see [Partitions and data distribution in DynamoDB](HowItWorks.md "HowItWorks.md").)
-
-By default, `GetItem` returns the entire item with all
-of its attributes.
-
-```
-{
-    TableName: "Music",
-    Key: {
-        "Artist": "No One You Know",
-        "SongTitle": "Call Me Today"
-    }
-}
-```
-
-You can add a `ProjectionExpression` parameter to
-return only some of the attributes.
-
-```
-{
-    TableName: "Music",
-    Key: {
-        "Artist": "No One You Know",
-        "SongTitle": "Call Me Today"
-    },
-    "ProjectionExpression": "AlbumTitle, Year, Price"
-}
-```
-
-Note that the primary key for this table consists of
-_Artist_ and
-_SongTitle_.
-
-The DynamoDB `GetItem` operation is very efficient. It
-uses the primary key values to determine the exact storage location
-of the item in question, and retrieves it directly from there. The
-SQL `SELECT` statement is similarly efficient, in the
-case of retrieving items by primary key values.
-
-The SQL `SELECT` statement supports many kinds of
-queries and table scans. DynamoDB provides similar functionality with
-its `Query` and `Scan` operations, which are
-described in [Differences in querying a table](SQLtoNoSQL.ReadData.md "SQLtoNoSQL.ReadData.md") and [Differences in scanning a table](SQLtoNoSQL.ReadData.md "SQLtoNoSQL.ReadData.md").
-
-The SQL `SELECT` statement can perform table joins,
-allowing you to retrieve data from multiple tables at the same time.
-Joins are most effective where the database tables are normalized
-and the relationships among the tables are clear. However, if you
-join too many tables in one `SELECT` statement
-application performance can be affected. You can work around such
-issues by using database replication, materialized views, or query
-rewrites.
-
-DynamoDB is a nonrelational database and doesn't support table joins.
-If you are migrating an existing application from a relational
-database to DynamoDB, you need to denormalize your data model to
-eliminate the need for joins.
-
-PartiQL for DynamoDB
-With PartiQL, you use the `ExecuteStatement` operation
-to read an item from a table, using the PartiQL `Select`
-statement.
-
-```
-SELECT AlbumTitle, Year, Price
-FROM Music
-WHERE Artist='No One You Know' AND SongTitle = 'Call Me Today'
-```
-
-Note that the primary key for this table consists of Artist and
-SongTitle.
+- `ExecuteStatement` retrieves a single or multiple items from a
+  table. `BatchExecuteStatement` retrieves multiple items from
+  different tables in a single operation. Both of these operations use [PartiQL](ql-reference.md "ql-reference.md"), a SQL-compatible query
+  language.
+- `GetItem` – Retrieves a single item from a table. This is the
+  most efficient way to read a single item because it provides direct access to
+  the physical location of the item. (DynamoDB also provides the
+  `BatchGetItem` operation, allowing you to perform up to
+  100 `GetItem` calls in a single
+  operation.)
+- `Query` – Retrieves all of the items that have a specific
+  partition key. Within those items, you can apply a condition to the sort key and
+  retrieve only a subset of the data. `Query` provides quick, efficient
+  access to the partitions where the data is stored. (For more information, see
+  [Partitions and data distribution in DynamoDB](HowItWorks.Partitions.md "HowItWorks.Partitions.md").)
+- `Scan` – Retrieves all of the items in the specified table.
+  (This operation should not be used with large tables because it can consume
+  large amounts of system resources.)
 
 ###### Note
 
-The select PartiQL statement can also be used to Query or
-Scan a DynamoDB table
+With a relational database, you can use the `SELECT` statement to join
+data from multiple tables and return the results. Joins are fundamental to the
+relational model. To ensure that joins run efficiently, the database and its
+applications should be performance-tuned on an ongoing basis. DynamoDB is a
+non-relational NoSQL database that does not support table joins. Instead,
+applications read data from one table at a time.
 
-For code examples using `Select` and
-`ExecuteStatement`, see [PartiQL select statements for DynamoDB](ql-reference.md "ql-reference.md").
+The following sections describe different use cases for reading data, and how to
+perform these tasks with a relational database and with DynamoDB.
+
+###### Topics
+
+- [Differences in reading an item using its primary key](SQLtoNoSQL.ReadData.SingleItem.md "SQLtoNoSQL.ReadData.SingleItem.md")
+- [Differences in querying a table](SQLtoNoSQL.ReadData.Query.md "SQLtoNoSQL.ReadData.Query.md")
+- [Differences in scanning a table](SQLtoNoSQL.ReadData.Scan.md "SQLtoNoSQL.ReadData.Scan.md")

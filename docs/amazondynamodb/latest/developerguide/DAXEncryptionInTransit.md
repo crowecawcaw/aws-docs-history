@@ -17,7 +17,7 @@ disk by DAX can also be encrypted if you choose [encryption at rest](DAXEncrypti
 
 Using encryption in transit with DAX is easy. Simply select this option when creating a
 new cluster, and use a recent version of any of the [DAX
-clients](DAX.md "DAX.md") in your application. Clusters that use encryption in transit do not
+clients](DAX.client.md "DAX.client.md") in your application. Clusters that use encryption in transit do not
 support unencrypted traffic, so there is no chance to misconfigure your application and
 bypass encryption. The DAX client will use the cluster's x509 certificate to authenticate
 the identity of the cluster when it establishes connections, ensuring that your DAX

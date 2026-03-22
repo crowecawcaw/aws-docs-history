@@ -57,7 +57,7 @@ as items in the same table, and each item is identified by a unique sort key.
     encryption would be required
   - Tables with a mix of historical data and operational data will not see
     as much of a benefit from enabling the Infrequent Access Storage Class.
-    For more information, see [DynamoDB table classes](HowItWorks.md "HowItWorks.md")
+    For more information, see [DynamoDB table classes](HowItWorks.TableClasses.md "HowItWorks.TableClasses.md")
 
 - All changed data will be propagated to DynamoDB Streams even if only a subset of
   entities need to be processed.
@@ -105,7 +105,7 @@ performance, but queries across multiple tables must be done independently.
     encryption key
   - Infrequent Access Storage Class can be enabled on just the tables with
     historical data to realize the full cost savings benefit. For more
-    information, see [DynamoDB table classes](HowItWorks.md "HowItWorks.md")
+    information, see [DynamoDB table classes](HowItWorks.TableClasses.md "HowItWorks.TableClasses.md")
 
 - Each table will have its own change data stream allowing for a dedicated
   Lambda function to be designed for each type of item rather than a single

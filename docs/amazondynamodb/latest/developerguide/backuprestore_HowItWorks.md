@@ -9,6 +9,6 @@ your table data anytime with a single click on the AWS Management Console or wit
 call. Backup and restore actions run with zero impact on table performance or availability.
 
 You can create table backups using the console, the AWS Command Line Interface (AWS CLI), or
-the DynamoDB API. For more information, see [Backing up a DynamoDB table](Backup.md "Backup.md").
+the DynamoDB API. For more information, see [Backing up a DynamoDB table](Backup.Tutorial.md "Backup.Tutorial.md").
 
-For information about restoring a table from a backup, see [Restoring a DynamoDB table from a backup](Restore.md "Restore.md").
+For information about restoring a table from a backup, see [Restoring a DynamoDB table from a backup](Restore.Tutorial.md "Restore.Tutorial.md").

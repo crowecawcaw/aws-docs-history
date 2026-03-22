@@ -7,7 +7,7 @@ from both a performance and cost perspective.
 You have two native streaming integrations for streaming and event-driven use cases:
 
 - [Amazon DynamoDB Streams](Streams.md "Streams.md")
-- [Amazon Kinesis Data Streams](Streams.md "Streams.md")
+- [Amazon Kinesis Data Streams](Streams.KCLAdapter.md "Streams.KCLAdapter.md")
   This page will just focus on cost optimization strategies for these options. If you'd like
   to instead find out how to choose between the two options, see [Streaming options for change data capture](streamsmain.md#streamsmain.choose "streamsmain.md#streamsmain.choose").
 

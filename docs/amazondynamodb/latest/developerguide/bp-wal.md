@@ -43,7 +43,7 @@ The performance efficiency pillar includes the ability to use computing resource
 efficiently to meet system requirements, and to maintain that efficiency as demand changes and
 technologies evolve.
 
-The primary DynamoDB design principles for this pillar revolve around [modeling the data](bp-relational-modeling.md "bp-relational-modeling.md") , [choosing partition keys](HowItWorks.md#HowItWorks.Partitions.SimpleKey "HowItWorks.md#HowItWorks.Partitions.SimpleKey") and [sort keys](HowItWorks.md#HowItWorks.Partitions.CompositeKey "HowItWorks.md#HowItWorks.Partitions.CompositeKey") , and [defining secondary indexes](bp-indexes.md "bp-indexes.md") based on the application access patterns. Additional considerations include choosing
+The primary DynamoDB design principles for this pillar revolve around [modeling the data](bp-relational-modeling.md "bp-relational-modeling.md") , [choosing partition keys](HowItWorks.Partitions.md#HowItWorks.Partitions.SimpleKey "HowItWorks.Partitions.md#HowItWorks.Partitions.SimpleKey") and [sort keys](HowItWorks.Partitions.md#HowItWorks.Partitions.CompositeKey "HowItWorks.Partitions.md#HowItWorks.Partitions.CompositeKey") , and [defining secondary indexes](bp-indexes.md "bp-indexes.md") based on the application access patterns. Additional considerations include choosing
 the optimal throughput mode for the workload, AWS SDK tuning and, when appropriate, using an
 optimal caching strategy. To learn more about these design principles, watch this [deep dive video](https://youtu.be/PuCIy5Weyi8 "https://youtu.be/PuCIy5Weyi8") about the performance efficiency
 pillar of the DynamoDB Well-Architected Lens.

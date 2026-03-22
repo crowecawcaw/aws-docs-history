@@ -7,7 +7,7 @@ tables.
 
 There are two versions of DynamoDB global tables available: version 2019.11.21 (Current)
 and [version 2017.11.29
-(Legacy)](globaltables.md "globaltables.md"). You should use version 2019.11.21 (Current) whenever possible.
+(Legacy)](globaltables.V1.md "globaltables.V1.md"). You should use version 2019.11.21 (Current) whenever possible.
 
 ## Deletion protection
 

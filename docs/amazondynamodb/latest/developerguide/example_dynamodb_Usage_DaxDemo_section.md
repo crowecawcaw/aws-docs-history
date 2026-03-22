@@ -4,7 +4,7 @@ The following code example shows how to:
 
 - Create and write data to a table with both the DAX and SDK clients.
 - Get, query, and scan the table with both clients and compare their performance.
-  For more information, see [Developing with the DynamoDB Accelerator Client](DAX.md "DAX.md").
+  For more information, see [Developing with the DynamoDB Accelerator Client](DAX.client.md "DAX.client.md").
 
 Python
 

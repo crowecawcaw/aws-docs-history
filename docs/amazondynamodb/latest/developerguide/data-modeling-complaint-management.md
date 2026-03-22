@@ -55,7 +55,7 @@ Secrets Manager](../../../secretsmanager/latest/userguide/intro.md "../../../sec
 
 DynamoDB is suitable for workloads that are primarily focused on online transactional
 processing (OLTP). For the other 10-20% access patterns with analytical requirements,
-data can be exported to S3 with the managed [Export to Amazon S3](S3DataExport.md "S3DataExport.md") feature with no impact to the live traffic on DynamoDB table.
+data can be exported to S3 with the managed [Export to Amazon S3](S3DataExport.HowItWorks.md "S3DataExport.HowItWorks.md") feature with no impact to the live traffic on DynamoDB table.
 Take a look at this workflow below:
 
 ![Workflow to periodically invoke a Lambda function to store DynamoDB data in an Amazon S3 bucket.](images/DataModeling/ComplaintManagement-3-Workflow2.jpg)
@@ -343,10 +343,10 @@ Workbench](workbench.md "workbench.md"), a visual tool that provides data modeli
 query development features for DynamoDB, to further explore and edit your new project.
 Follow these steps to get started:
 
-1. Download NoSQL Workbench. For more information, see [Download NoSQL Workbench for DynamoDB](workbench.md "workbench.md").
+1. Download NoSQL Workbench. For more information, see [Download NoSQL Workbench for DynamoDB](workbench.settingup.md "workbench.settingup.md").
 2. Download the JSON schema file listed above, which is already in the NoSQL
    Workbench model format.
 3. Import the JSON schema file into NoSQL Workbench. For more information, see
-   [Importing an existing data model](workbench.Modeler.md "workbench.Modeler.md").
+   [Importing an existing data model](workbench.Modeler.ImportExisting.md "workbench.Modeler.ImportExisting.md").
 4. Once you've imported into NOSQL Workbench, you can edit the data model. For
-   more information, see [Editing an existing data model](workbench.Modeler.md "workbench.Modeler.md").
+   more information, see [Editing an existing data model](workbench.Modeler.Edit.md "workbench.Modeler.Edit.md").

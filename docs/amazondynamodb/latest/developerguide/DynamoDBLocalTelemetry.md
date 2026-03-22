@@ -17,7 +17,7 @@ the background without requiring any additional customer interaction.
 ## Turn off telemetry using command line options
 
 You can turn off telemetry using command line options when starting DynamoDB local using
-the option `-disableTelemetry`. For more information, see [Command line options](DynamoDBLocal.md#DynamoDBLocal.CommandLineOptions "DynamoDBLocal.md#DynamoDBLocal.CommandLineOptions").
+the option `-disableTelemetry`. For more information, see [Command line options](DynamoDBLocal.UsageNotes.md#DynamoDBLocal.CommandLineOptions "DynamoDBLocal.UsageNotes.md#DynamoDBLocal.CommandLineOptions").
 
 ## Turn off telemetry for a single session
 

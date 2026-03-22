@@ -18,7 +18,7 @@ API.
 - [Create a table with a Local Secondary Index](#LSIJavaDocumentAPI.CreateTableWithIndex "#LSIJavaDocumentAPI.CreateTableWithIndex")
 - [Describe a table with a Local Secondary Index](#LSIJavaDocumentAPI.DescribeTableWithIndex "#LSIJavaDocumentAPI.DescribeTableWithIndex")
 - [Query a Local Secondary Index](#LSIJavaDocumentAPI.QueryAnIndex "#LSIJavaDocumentAPI.QueryAnIndex")
-- [Example: Local Secondary Indexes using the Java document API](LSIJavaDocumentAPI.md "LSIJavaDocumentAPI.md")
+- [Example: Local Secondary Indexes using the Java document API](LSIJavaDocumentAPI.Example.md "LSIJavaDocumentAPI.Example.md")
 
 ## Create a table with a Local Secondary Index
 
