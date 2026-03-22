@@ -47,7 +47,7 @@ To create a Aurora MySQL cluster that supports the Data API, you must use the AW
 ###### Note
 
 To use Aurora MySQL databases with App Studio, they must be in a virtual private cloud (VPC). For more information, see
-[Working with a DB cluster in a VPC](../../../AmazonRDS/latest/AuroraUserGuide/USER_VPC.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_VPC.md")
+[Working with a DB cluster in a VPC](../../../AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.md")
 in the _Amazon Aurora User Guide_.
 
 ###### To set up Aurora MySQL for use with App Studio
@@ -60,7 +60,7 @@ in the _Amazon Aurora User Guide_.
 3. In the left-side navigation, choose **Subnet groups**.
 4. Choose **Create DB subnet group**.
 5. Fill out the information and create the sunbnet group. For more information about subnet groups and using VPCs, see
-   [Working with a DB cluster in a VPC](../../../AmazonRDS/latest/AuroraUserGuide/USER_VPC.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_VPC.md")
+   [Working with a DB cluster in a VPC](../../../AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.md")
    in the _Amazon Aurora User Guide_.
 6. Run the following AWS CLI command:
 

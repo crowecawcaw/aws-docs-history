@@ -13,7 +13,7 @@ that meets your application's requirements and ensures the long-term reliability
   Consider factors like expected data volume, access patterns, and performance requirements when choosing an appropriate data service and
   database instance type and configuration (such as provisioned capacity).
   - For more information about scaling with Aurora serverless, see
-    [Performance and scaling for Aurora Serverless V2](../../../AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.md "../../../AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.md").
+    [Performance and scaling for Aurora Serverless V2](../../../AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.setting-capacity.md "../../../AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.setting-capacity.md").
 
 - **Normalize your data:** Follow the principles of database normalization to minimize
   data redundancy and improve data integrity. This includes creating appropriate tables, defining primary and foreign keys, and establishing
@@ -35,7 +35,7 @@ that meets your application's requirements and ensures the long-term reliability
   guidelines, and documentation for your chosen data service to ensure that your data model and implementation are aligned with AWS recommendations.
   For more detailed guidance from each AWS data service, see the following topics:
 
-- [Best practices with Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md")
-- [Best practices with Amazon Aurora MySQL](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.md")
+- [Best practices with Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.BestPractices.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.BestPractices.md")
+- [Best practices with Amazon Aurora MySQL](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.BestPractices.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.BestPractices.md")
 - [Amazon Redshift query performance tuning](../../../redshift/latest/dg/c-optimizing-query-performance.md "../../../redshift/latest/dg/c-optimizing-query-performance.md")
 - [Best practices for querying and scanning data in Amazon DynamoDB](../../../amazondynamodb/latest/developerguide/bp-query-scan.md "../../../amazondynamodb/latest/developerguide/bp-query-scan.md")

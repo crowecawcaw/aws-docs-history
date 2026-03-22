@@ -55,7 +55,7 @@ Use the following procedure to configure encrypted DynamoDB tables to be used in
    [Step 1: Create and configure DynamoDB resources](connectors-dynamodb.md#connectors-dynamodb-create-resources "connectors-dynamodb.md#connectors-dynamodb-create-resources") with the following changes:
    1. Configure your tables to be encrypted. For more information, see
       [Specifying the
-      encryption key for a new table](../../../amazondynamodb/latest/developerguide/encryption.md#encryption.tutorial-creating "../../../amazondynamodb/latest/developerguide/encryption.md#encryption.tutorial-creating") in the _Amazon DynamoDB Developer Guide_.
+      encryption key for a new table](../../../amazondynamodb/latest/developerguide/encryption.tutorial.md#encryption.tutorial-creating "../../../amazondynamodb/latest/developerguide/encryption.tutorial.md#encryption.tutorial-creating") in the _Amazon DynamoDB Developer Guide_.
 
 2. Follow the instructions in
    [Step 2: Create an IAM policy and role with appropriate DynamoDB permissions](connectors-dynamodb.md#connectors-dynamodb-iam "connectors-dynamodb.md#connectors-dynamodb-iam"), and then update the permission policy on the new role by adding a new
