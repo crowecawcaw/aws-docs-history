@@ -1,7 +1,7 @@
 # Restore an RDS database
 
 Restoring an Amazon RDS database requires specifying multiple restore options. For more
-information about these options, see [Backing Up and Restoring an Amazon RDS DB Instance](../../../AmazonRDS/latest/UserGuide/CHAP_CommonTasks.md "../../../AmazonRDS/latest/UserGuide/CHAP_CommonTasks.md") in the
+information about these options, see [Backing Up and Restoring an Amazon RDS DB Instance](../../../AmazonRDS/latest/UserGuide/CHAP_CommonTasks.BackupRestore.md "../../../AmazonRDS/latest/UserGuide/CHAP_CommonTasks.BackupRestore.md") in the
 _Amazon RDS User Guide_.
 
 ## Use the AWS Backup console to restore Amazon RDS recovery points

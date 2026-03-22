@@ -177,7 +177,7 @@ options:
 To restore using AWS Backup, see [Restore a Amazon DynamoDB table](restoring-dynamodb.md "restoring-dynamodb.md").
 
 To restore using DynamoDB, see [Restoring a DynamoDB table
-from a backup](../../../amazondynamodb/latest/developerguide/Restore.md "../../../amazondynamodb/latest/developerguide/Restore.md") in the _Amazon DynamoDB User Guide_.
+from a backup](../../../amazondynamodb/latest/developerguide/Restore.Tutorial.md "../../../amazondynamodb/latest/developerguide/Restore.Tutorial.md") in the _Amazon DynamoDB User Guide_.
 
 ## Deleting an advanced DynamoDB backup
 

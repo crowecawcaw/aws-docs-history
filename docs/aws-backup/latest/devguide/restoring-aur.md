@@ -7,7 +7,7 @@ your cluster. In the following steps, you will create and attach an Amazon RDS i
 restored Aurora cluster using the CLI.
 
 Restoring an Aurora cluster requires that you specify multiple restore options. For
-information about these options, see [Overview of Backing Up and Restoring an Aurora DB Cluster](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.md") in the
+information about these options, see [Overview of Backing Up and Restoring an Aurora DB Cluster](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.md") in the
 _Amazon Aurora User Guide_. Specifications for the restore options can be
 found in the API guide for [`RestoreDBClusterFromSnapshot`](../../../AmazonRDS/latest/APIReference/API_RestoreDBClusterFromSnapshot.md "../../../AmazonRDS/latest/APIReference/API_RestoreDBClusterFromSnapshot.md").
 

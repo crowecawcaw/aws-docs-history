@@ -130,7 +130,7 @@ Amazon RDS instance, you can't create or modify continuous backup settings in Am
 make modifications through the AWS Backup console or the AWS Backup CLI. When you turn on automated
 backups for the first time, an outage occurs if you change the backup retention period of
 the DB instance from 0 to a nonzero value. Plan this change during a maintenance window to
-minimize impact. For more information about enabling automated backups, see [Enabling automated backups](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.md "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.md") in the _Amazon RDS User
+minimize impact. For more information about enabling automated backups, see [Enabling automated backups](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.BackupRetention.md "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.BackupRetention.md") in the _Amazon RDS User
 Guide_.
 
 **Transition control of continuous backup for an Amazon RDS instance back to

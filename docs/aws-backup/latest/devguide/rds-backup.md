@@ -96,7 +96,7 @@ An RDS Multi-Availability Cluster:
 `arn:aws:rds:`region`:`account`:cluster:`name``
 
 For more information, consult
-[Multi-AZ DB cluster deployments](../../../AmazonRDS/latest/UserGuide/Concepts.md "../../../AmazonRDS/latest/UserGuide/Concepts.md") in the _Amazon RDS User Guide_.
+[Multi-AZ DB cluster deployments](../../../AmazonRDS/latest/UserGuide/Concepts.MultiAZ.md "../../../AmazonRDS/latest/UserGuide/Concepts.MultiAZ.md") in the _Amazon RDS User Guide_.
 
 For more information on
 [Creating a Multi-AZ DB cluster snapshot](../../../AmazonRDS/latest/UserGuide/USER_CreateMultiAZDBClusterSnapshot.md "../../../AmazonRDS/latest/UserGuide/USER_CreateMultiAZDBClusterSnapshot.md"), see the Amazon RDS User Guide.

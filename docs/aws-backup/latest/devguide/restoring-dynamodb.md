@@ -23,7 +23,7 @@
 
     To choose a different key to encrypt your restored table, you can either use
     the AWS Backup [StartRestoreJob
-    operation](API_StartRestoreJob.md "API_StartRestoreJob.md") or perform the restore from the [DynamoDB console](../../../amazondynamodb/latest/developerguide/Restore.md#restoretable_console "../../../amazondynamodb/latest/developerguide/Restore.md#restoretable_console"). 2. If your backup supports full AWS Backup management (its ARN begins with
+    operation](API_StartRestoreJob.md "API_StartRestoreJob.md") or perform the restore from the [DynamoDB console](../../../amazondynamodb/latest/developerguide/Restore.Tutorial.md#restoretable_console "../../../amazondynamodb/latest/developerguide/Restore.Tutorial.md#restoretable_console"). 2. If your backup supports full AWS Backup management (its ARN begins with
     `arn:aws:backup`), you can choose any of the following encryption
     options to protect your restored table:
 
@@ -32,7 +32,7 @@
         * Customer-managed KMS key (KMS charges apply)
 
     "DynamoDB-owned" and "DynamoDB-managed" keys are the same as "AWS-owned" and
-    "AWS-managed" keys, respectively. For clarification, see [Encryption at Rest: How It Works](../../../amazondynamodb/latest/developerguide/encryption.md "../../../amazondynamodb/latest/developerguide/encryption.md") in the _Amazon DynamoDB Developer Guide_.
+    "AWS-managed" keys, respectively. For clarification, see [Encryption at Rest: How It Works](../../../amazondynamodb/latest/developerguide/encryption.howitworks.md "../../../amazondynamodb/latest/developerguide/encryption.howitworks.md") in the _Amazon DynamoDB Developer Guide_.
 
     For more information about full AWS Backup management, see [Advanced DynamoDB backup](advanced-ddb-backup.md "advanced-ddb-backup.md").###### Note
 

@@ -12,7 +12,7 @@ AWS Backup Vault Lock has been assessed by Cohasset Associates for use in enviro
 that are subject to SEC 17a-4, CFTC, and FINRA regulations. For more information about
 how AWS Backup Vault Lock relates to these regulations, see the
 [Cohasset Associates
-Compliance Assessment.](samples/cohassetreport.md "samples/cohassetreport.md")
+Compliance Assessment.](samples/cohassetreport.zip.md "samples/cohassetreport.zip.md")
 
 For more information, see [AWS Backup Vault Lock](vault-lock.md "vault-lock.md").
 
