@@ -40,7 +40,7 @@ You should also enable secure headers in **AWS Amplify**.
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/financial-advisor-chat-assistant.md "samples/financial-advisor-chat-assistant.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/financial-advisor-chat-assistant.zip.md "samples/financial-advisor-chat-assistant.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
