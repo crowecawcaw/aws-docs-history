@@ -50,7 +50,7 @@ like AWS IoT Core and AWS Lambda.
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/electric-vehicle-charging-ocpp-handler.md "samples/electric-vehicle-charging-ocpp-handler.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/electric-vehicle-charging-ocpp-handler.zip.md "samples/electric-vehicle-charging-ocpp-handler.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
