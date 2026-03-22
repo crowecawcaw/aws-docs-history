@@ -13,7 +13,7 @@ see [Data collected by the Agentless Collector database and analytics data colle
 End of support notice: On May 20, 2026, AWS will end support for AWS Database Migration Service Fleet
 Advisor. After May 20, 2026, you will no longer be able to access the AWS DMS Fleet
 Advisor console or AWS DMS Fleet Advisor resources. For more information, see [AWS DMS Fleet Advisor
-end of support](../../../dms/latest/userguide/dms_fleet.md "../../../dms/latest/userguide/dms_fleet.md").
+end of support](../../../dms/latest/userguide/dms_fleet.advisor-end-of-support.md "../../../dms/latest/userguide/dms_fleet.advisor-end-of-support.md").
 
 At a high level, when using the database and analytics data collection module, you take
 the following steps.
