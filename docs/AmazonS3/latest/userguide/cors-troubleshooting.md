@@ -227,5 +227,5 @@ This policy has the following settings:
 - Query strings included in origin requests: None
 
 For more information, see [Control
-origin requests with a policy](../../../AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.md "../../../AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.md") and [Use managed origin request policies](../../../AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.md#managed-origin-request-policy-cors-s3 "../../../AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.md#managed-origin-request-policy-cors-s3") in the _CloudFront Developer
+origin requests with a policy](../../../AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.htm.md "../../../AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.htm.md") and [Use managed origin request policies](../../../AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.md#managed-origin-request-policy-cors-s3 "../../../AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.md#managed-origin-request-policy-cors-s3") in the _CloudFront Developer
 Guide_.

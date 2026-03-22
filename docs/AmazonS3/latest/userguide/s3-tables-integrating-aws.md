@@ -4,10 +4,10 @@ This topic covers the prerequisites and procedures needed to integrate your Amaz
 
 ###### Note
 
-This integration uses the AWS Glue and AWS Lake Formation services and might incur AWS Glue request and storage costs. For more information,
+This integration uses the AWS Glue Data Catalog and might incur AWS Glue request and storage costs. For more information,
 see [AWS Glue Pricing.](https://aws.amazon.com/glue/pricing/ "https://aws.amazon.com/glue/pricing/")
 
-Additional pricing applies for running queries on your S3 tables. For more information, see
+Additional pricing applies for running queries on S3 Tables. For more information, see
 pricing information for the query engine that you're using.
 
 ## Prerequisites for integration
@@ -17,15 +17,11 @@ services:
 
 - [Create a table
   bucket.](s3-tables-buckets-create.md "s3-tables-buckets-create.md")
-- Attach the [AWSLakeFormationDataAdmin](../../../aws-managed-policy/latest/reference/AWSLakeFormationDataAdmin.md "../../../aws-managed-policy/latest/reference/AWSLakeFormationDataAdmin.md") AWS managed policy to your AWS Identity and Access Management (IAM)
-  principal to make that user a data lake administrator. For more information about how to create a
-  data lake administrator, see [Create a data lake
-  administrator](../../../lake-formation/latest/dg/initial-lf-config.md#create-data-lake-admin "../../../lake-formation/latest/dg/initial-lf-config.md#create-data-lake-admin") in the _AWS Lake Formation Developer Guide_.
-- Add permissions for the `glue:PassConnection` operation to
-  your IAM principal.
-- Add permissions for the `lakeformation:RegisterResource` and
-  `lakeformation:RegisterResourceWithPrivilegedAccess` operations to your IAM
-  principal.
+- Add the following AWS Glue permissions to your AWS Identity and Access Management (IAM)
+  principal:
+  - `glue:CreateCatalog` which is required to create `s3tablescatalog` federated catalog in the Data Catalog
+  - `glue:PassConnection` grants the calling principal the right to delegate `aws:s3tables` connection creation to Amazon S3 service.
+
 - [Update to the latest version of the AWS Command Line Interface (AWS CLI)](../../../cli/latest/userguide/getting-started-install.md#getting-started-install-instructions "../../../cli/latest/userguide/getting-started-install.md#getting-started-install-instructions").
 
 ###### Important
@@ -43,30 +39,11 @@ running a `SELECT` query in Athena: **`"GENERIC_INTERNAL_ERROR: Get table reques
 
 ## Integrating table buckets with AWS analytics services
 
-Amazon S3 Tables integrates with AWS Glue Data Catalog (Data Catalog) and registers the catalog as a Lake Formation data location. You can set up
-this registration from the Lake Formation console or by using the service APIs. When you register the location, you must specify an IAM role that grants
-read/write permissions to the Lake Formation registered role to access that location. Lake Formation assumes that role when supplying temporary
-credentials to integrated AWS services.
+You can integrate table buckets with Data Catalog and AWS analytics services using IAM access controls by default, or optionally use Lake Formation access controls.
 
-If you have an IAM or S3 Tables resource-based policy that restricts IAM users and
-IAM roles based on principal tags, you must attach the same principal tags to the IAM role
-that Lake Formation uses to access your Amazon S3 data (for example, LakeFormationDataAccessRole) and
-grant this role the necessary permissions. This is required for your tag-based access control
-policy to work correctly with your S3 Tables analytics integration.
+When you integrate using IAM access controls, you require IAM privileges to access Amazon S3 table buckets and tables, Data Catalog objects, and the query engine you're using. If you choose to integrate using Lake Formation, then both IAM access controls and Lake Formation grants determine the access to Data Catalog resources. Please refer to [_AWS Lake Formation Developer Guide_](../../../lake-formation/latest/dg/create-s3-tables-catalog.md "../../../lake-formation/latest/dg/create-s3-tables-catalog.md") to learn more about Lake Formation integration.
 
-This integration must be configured once per AWS Region.
-
-###### Important
-
-The AWS analytics services integration now uses the `WithPrivilegedAccess` option
-in the `registerResource` Lake Formation API operation to register S3 table buckets. The integration
-also now creates the `s3tablescatalog` catalog in the AWS Glue Data Catalog by using the
-`AllowFullTableExternalDataAccess` option in the `CreateCatalog` AWS Glue API
-operation.
-
-If you set up the integration with the preview release, you can continue to use your current
-integration. However, the updated integration process provides performance improvements, so we
-recommend migrating. To migrate to the updated integration, see [Migrating to the updated integration process](#migrate-integrate-console "#migrate-integrate-console").
+The following sections describe how you could use Amazon S3 management console or AWS CLI to configure the integration with IAM access controls.
 
 1. Open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -76,11 +53,8 @@ recommend migrating. To migrate to the updated integration, see [Migrating to th
 The **Create table bucket** page opens. 4. Enter a **Table bucket name** and make sure that the **Enable
 integration** checkbox is selected. 5. Choose **Create table bucket**. Amazon S3 will attempt to automatically integrate your table buckets in that
 Region.
-The first time that you integrate table buckets in any Region, Amazon S3 creates a new
-IAM service role on your behalf. This role allows Lake Formation to access all table buckets in your account
-and federate access to your tables in AWS Glue Data Catalog.
 
-###### To integrate table buckets using the AWS CLI
+###### To integrate table buckets with IAM access controls using the AWS CLI
 
 The following steps show how to use the AWS CLI to integrate table buckets. To use
 these steps, replace the `user input placeholders` with your
@@ -94,126 +68,7 @@ aws s3tables create-table-bucket \
 --name `amzn-s3-demo-table-bucket`
 ```
 
-2. Create an IAM service role that allows Lake Formation to access your table
-   resources.
-   1. Create a file called `Role-Trust-Policy.json` that
-      contains the following trust policy:
-
-   JSON
-
-   ```
-   `{
-    "Version":"2012-10-17",
-    "Statement": [
-    {
-    "Sid": "LakeFormationDataAccessPolicy",
-    "Effect": "Allow",
-    "Principal": {
-    "Service": "lakeformation.amazonaws.com"
-    },
-    "Action": [
-    "sts:AssumeRole",
-    "sts:SetContext",
-    "sts:SetSourceIdentity"
-    ],
-    "Condition": {
-    "StringEquals": {
-    "aws:SourceAccount": "`111122223333`"
-    }
-    }
-    }
-    ]
-   }`
-
-   ```
-
-   Create the IAM service role by using the following command:
-
-   ```
-   aws iam create-role \
-   --role-name `S3TablesRoleForLakeFormation` \
-   --assume-role-policy-document file://`Role-Trust-Policy.json`
-   ```
-
-   2. Create a file called `LF-GluePolicy.json` that
-      contains the following policy:
-
-   JSON
-
-   ```
-   `{
-    "Version":"2012-10-17",
-    "Statement": [
-    {
-    "Sid": "LakeFormationPermissionsForS3ListTableBucket",
-    "Effect": "Allow",
-    "Action": [
-    "s3tables:ListTableBuckets"
-    ],
-    "Resource": [
-    "*"
-    ]
-    },
-    {
-    "Sid": "LakeFormationDataAccessPermissionsForS3TableBucket",
-    "Effect": "Allow",
-    "Action": [
-    "s3tables:CreateTableBucket",
-    "s3tables:GetTableBucket",
-    "s3tables:CreateNamespace",
-    "s3tables:GetNamespace",
-    "s3tables:ListNamespaces",
-    "s3tables:DeleteNamespace",
-    "s3tables:DeleteTableBucket",
-    "s3tables:CreateTable",
-    "s3tables:DeleteTable",
-    "s3tables:GetTable",
-    "s3tables:ListTables",
-    "s3tables:RenameTable",
-    "s3tables:UpdateTableMetadataLocation",
-    "s3tables:GetTableMetadataLocation",
-    "s3tables:GetTableData",
-    "s3tables:PutTableData"
-    ],
-    "Resource": [
-    "arn:aws:s3tables:`us-east-1`:`111122223333`:bucket/*"
-    ]
-    }
-    ]
-   }`
-
-   ```
-
-   Attach the policy to the role by using the following command:
-
-   ```
-   aws iam put-role-policy \
-   --role-name `S3TablesRoleForLakeFormation`  \
-   --policy-name LakeFormationDataAccessPermissionsForS3TableBucket \
-   --policy-document file://`LF-GluePolicy.json`
-   ```
-
-3. Create a file called `input.json` that contains the following:
-
-```
-{
-    "ResourceArn": "arn:aws:s3tables:`us-east-1`:`111122223333`:bucket/*",
-
-    "WithFederation": true,
-    "RoleArn": "arn:aws:iam::`111122223333`:role/`S3TablesRoleForLakeFormation`"
-}
-```
-
-Register table buckets with Lake Formation by using the following command:
-
-```
-aws lakeformation register-resource \
---region `us-east-1` \
---with-privileged-access \
---cli-input-json file://`input.json`
-```
-
-4. Create a file called `catalog.json` that contains the following
+2. Create a file called `catalog.json` that contains the following
    catalog:
 
 ```
@@ -224,8 +79,22 @@ aws lakeformation register-resource \
           "Identifier": "arn:aws:s3tables:`us-east-1`:`111122223333`:bucket/*",
           "ConnectionName": "aws:s3tables"
        },
-       "CreateDatabaseDefaultPermissions":[],
-       "CreateTableDefaultPermissions":[],
+       "CreateDatabaseDefaultPermissions":[
+       {
+                "Principal": {
+                    "DataLakePrincipalIdentifier": "IAM_ALLOWED_PRINCIPALS"
+                },
+                "Permissions": ["ALL"]
+            }
+       ],
+       "CreateTableDefaultPermissions":[
+       {
+                "Principal": {
+                    "DataLakePrincipalIdentifier": "IAM_ALLOWED_PRINCIPALS"
+                },
+                "Permissions": ["ALL"]
+            }
+       ],
        "AllowFullTableExternalDataAccess": "True"
    }
 }
@@ -241,19 +110,14 @@ aws glue create-catalog \
 --cli-input-json file://`catalog.json`
 ```
 
-5. Verify that the `s3tablescatalog` catalog was added in AWS Glue by using the following
+3. Verify that the `s3tablescatalog` catalog was added in AWS Glue by using the following
    command:
 
 ```
 aws glue get-catalog --catalog-id s3tablescatalog
 ```
 
-The AWS analytics services integration process has been updated. If you've set up the
-integration with the preview release, you can continue to use your current integration. However, the
-updated integration process provides performance improvements, so we recommend migrating by using
-the following steps. For more information about the migration or integration process, see [Creating an Amazon S3
-Tables catalog in the AWS Glue Data Catalog](../../../lake-formation/latest/dg/create-s3-tables-catalog.md "../../../lake-formation/latest/dg/create-s3-tables-catalog.md") in the _AWS Lake Formation Developer
-Guide_.
+The AWS analytics services integration process has been updated to use IAM permissions by default. If you've already set up the integration, you can continue to use your current integration. However, if you want to change your existing integration to use IAM permissions instead, see [_AWS Lake Formation Developer Guide_](../../../lake-formation/latest/dg/create-s3-tables-catalog.md "../../../lake-formation/latest/dg/create-s3-tables-catalog.md"). You can also redo the integration to delete your existing setup in AWS Glue Data Catalog and AWS Lake Formation and re-run the integration. This will remove all existing Lake Formation grants and associated access permissions to the `s3tablescatalog`.
 
 1. Open the AWS Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/"), and sign in as a
    data lake administrator. For more information about how to create a data lake administrator, see
@@ -283,8 +147,6 @@ Guide_.
 ###### Note
 
 If you want to work with SSE-KMS encrypted tables in integrated AWS analytics services, the role you use needs to have permission to use your AWS KMS key for encryption operations. For more information, see [Granting IAM principals permissions to work with encrypted tables in integrated AWS analytics services](s3-tables-kms-permissions.md#tables-kms-integration-permissions "s3-tables-kms-permissions.md#tables-kms-integration-permissions").
-
-After you integrate your IAM principal is granted Lake Formation permissions to access your tables, if you want to allow other IAM principals to access tables, you need to grant Lake Formation permissions on your tables to those principals. For more information, see [Managing access to a table or database with Lake Formation](grant-permissions-tables.md "grant-permissions-tables.md").
 
 ###### Next steps
 

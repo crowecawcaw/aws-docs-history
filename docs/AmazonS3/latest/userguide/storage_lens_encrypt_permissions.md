@@ -34,11 +34,12 @@ placeholders` with your information.
     "Resource": "*",
     "Condition": {
        "StringEquals": {
-           "aws:SourceArn": "arn:aws:s3:`us-east-1`:`source-account-id`:storage-lens/`your-dashboard-name`",
+           "aws:SourceArn": "arn:aws:s3:`us-east-1`:        `source-account-id`:storage-lens/`your-dashboard-name`",
            "aws:SourceAccount": "`source-account-id`"
         }
      }
 }
+
 ```
 
 9. Choose **Save changes**.
@@ -51,62 +52,3 @@ placeholders` with your information.
   policies in AWS KMS](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md")
   You can also use the AWS KMS `PUT` key policy API operation ([PutKeyPolicy](../../../kms/latest/APIReference/API_PutKeyPolicy.md "../../../kms/latest/APIReference/API_PutKeyPolicy.md")) to copy the key policy to the customer managed keys that you want
   to use to encrypt the metrics exports by using the REST API, AWS CLI, and SDKs.
-
-## Additional permissions for S3 table bucket exports
-
-All data in S3 tables including S3 Storage Lens metrics are encrypted with SSE-S3 encryption by
-default. You can choose to encrypt your Storage Lens metrics report with AWS KMS keys
-(SSE-KMS). If you choose to encrypt your S3 Storage Lens metric reports with KMS keys, you must
-have additional permissions.
-
-1. The user or IAM role needs the following permissions. You can grant these
-   permissions by using the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-   - `kms:DescribeKey` on the AWS KMS key used
-
-2. On the key policy for the AWS KMS key, you need the following permissions. You can
-   grant these permissions by using the AWS KMS console at [https://console.aws.amazon.com/kms](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms"). To use this
-   policy, replace the `user input placeholders` with
-   your own information.
-
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "EnableSystemTablesKeyUsage",
-            "Effect": "Allow",
-            "Principal": {
-                "Service": "systemtables.s3.amazonaws.com"
-            },
-            "Action": [
-                "kms:DescribeKey",
-                "kms:GenerateDataKey",
-                "kms:Decrypt"
-            ],
-            "Resource": "arn:aws:kms:`us-east-1`:`111122223333`:key/`key-id`",
-            "Condition": {
-                "StringEquals": {
-                    "aws:SourceAccount": "`111122223333`"
-                }
-            }
-        },
-        {
-            "Sid": "EnableKeyUsage",
-            "Effect": "Allow",
-            "Principal": {
-                "Service": "maintenance.s3tables.amazonaws.com"
-            },
-            "Action": [
-                "kms:GenerateDataKey",
-                "kms:Decrypt"
-            ],
-            "Resource": "arn:aws:kms:`us-east-1`:`111122223333`:key/`key-id`",
-            "Condition": {
-                "StringLike": {
-                    "kms:EncryptionContext:aws:s3:arn": "`<table-bucket-arn>`/*"
-                }
-            }
-        }
-    ]
-}
-```

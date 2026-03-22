@@ -7,7 +7,7 @@ Amazon S3 manages maintenance of your tables through automatic file compaction a
 more information, see [Maintenance for tables](s3-tables-maintenance.md "s3-tables-maintenance.md").
 
 To make tables in your account accessible by AWS analytics services, you integrate your Amazon S3
-table buckets with Amazon SageMaker Lakehouse. This integration allows AWS analytics services such as
+table buckets with AWS Glue Data Catalog. This integration allows AWS analytics services such as
 Amazon Athena and Amazon Redshift to automatically discover and access your table data.
 
 When you create a table, Amazon S3 automatically generates a warehouse location for the table.

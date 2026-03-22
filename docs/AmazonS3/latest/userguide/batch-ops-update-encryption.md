@@ -58,6 +58,12 @@ restrictions and considerations apply:
 - Provide a full KMS key ARN in your `UpdateObjectEncryption` request. You can't
   use an alias name or alias ARN. You can determine the full KMS Key ARN in the AWS KMS Console
   or using the AWS KMS `DescribeKey` API.
+- To improve manifest generation performance when using the
+  `KmsKeyArn` filter, use this filter in conjunction with
+  other object metadata filters. For example, you can combine
+  `KmsKeyArn` with `MatchAnyPrefix`,
+  `CreatedAfter`, or `MatchAnyStorageClass` when
+  you automatically generate a manifest in S3 Batch Operations.
 
 For more information about `UpdateObjectEncryption`, see [Updating server-side encryption for existing data](update-sse-encryption.md "update-sse-encryption.md").
 

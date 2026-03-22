@@ -1,6 +1,6 @@
 # Listing Amazon S3 general purpose buckets
 
-To return a list of general purpose buckets that you own, you can use [ListBuckets](../API/API_ListBuckets.md "../API/API_ListBuckets.md").
+To return a list of general purpose buckets that you own, you can use [ListBuckets](../API/API_ListBuckets.htm.md "../API/API_ListBuckets.htm.md").
 You can list your buckets by using the Amazon S3 console, the AWS Command Line Interface, or the AWS SDKs. For
 `ListBuckets` requests using the AWS CLI, AWS SDKs, and Amazon S3 REST API,
 AWS accounts that use the default service quota for buckets (10,000 buckets), support both

@@ -216,35 +216,6 @@ data stored in an S3 table bucket incurs S3 Tables costs. For more information a
 S3 Tables pricing, see [Amazon S3
 pricing](https://aws.amazon.com/s3/pricing "https://aws.amazon.com/s3/pricing").
 
-###### Permissions for metrics export to S3 Tables
-
-To create and work with S3 Storage Lens tables and table buckets, you must have certain
-`s3tables` permissions. At a minimum, to configure S3 Storage Lens to
-S3 Tables, you must have the following `s3tables` permissions:
-
-- `s3tables:CreateTableBucket` – This permission allows you to
-  create an AWS-managed table bucket. All S3 Storage Lens metrics in your account are
-  stored in a single AWS-managed table bucket named `aws-s3`.
-- `s3tables:PutTableBucketPolicy` – S3 Storage Lens uses this
-  permission to set a table bucket policy that allows
-  `systemtables.s3.amazonaws.com` access to the bucket so that logs can
-  be delivered.
-
-###### Important
-
-If you remove permissions for the service principal
-`systemtables.s3.amazonaws.com`, S3 Storage Lens will not be able to update the
-S3 tables with data based on your configuration. We recommend adding other access
-control policies in addition to the policy already provided, instead of editing the
-canned policy that is added when your table bucket is set up.
-
-###### Note
-
-A separate S3 table for each type of metric export is created for each Storage
-Lens configuration. If you have multiple Storage Lens configurations in the Region,
-separate tables are created for additional configurations. For example, there are
-three types of tables available for your S3 table bucket.
-
 ### Home Region
 
 The home Region is the AWS Region where all S3 Storage Lens metrics for a given dashboard

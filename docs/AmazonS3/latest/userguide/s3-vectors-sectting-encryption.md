@@ -77,7 +77,7 @@ To add non-filterable metadata keys:
     2. Enter a key name (1-63 characters and unique within this vector index).
     3. Repeat to add additional keys (maximum 10 keys).###### Note
 
-You can attach filterable metadata as key-value pairs to each vector when you insert vector data after you create a vector index. By default, all metadata keys that are attached to vectors are filterable and can be used as filters in a similarity query. Only metadata keys that are specified as non-filterable during vector index creation are excluded from filtering. For more information about metadata size limits per vector, including both total and filterable metadata constraints, see . 9. For **Encryption**, choose **Specify encryption type** and then choose one of the following options:
+You can attach filterable metadata as key-value pairs to each vector when you insert vector data after you create a vector index. By default, all metadata keys that are attached to vectors are filterable and can be used as filters in a similarity query. Only metadata keys that are specified as non-filterable during vector index creation are excluded from filtering. For more information about metadata size limits per vector, including both total and filterable metadata constraints, see [Limitations and restrictions](s3-vectors-limitations.md "s3-vectors-limitations.md"). 9. For **Encryption**, choose **Specify encryption type** and then choose one of the following options:
 
     * **Use bucket settings for encryption** – Amazon S3 applies the vector bucket encryption settings to encrypt vector data in the vector index.
     * **Override bucket settings for encryption** – Specify a specific encryption type for the vector index:

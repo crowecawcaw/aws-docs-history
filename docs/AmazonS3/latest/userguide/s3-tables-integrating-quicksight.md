@@ -14,7 +14,7 @@ Athena as a data source for S3 tables.
 
 ## Configure permissions for Quick to access tables
 
-Before working with S3 table data in Quick you must grant permissions to the Quick service role, the Quick admin user, and grant Lake Formation permissions on the tables you want to access.
+Before working with S3 table data in Quick you must grant permissions to the Quick service role and the Quick admin user permissions on the tables you want to access. Additionally, if you use AWS Lake Formation, you also need to grant Lake Formation permissions to your Quick admin user on those tables you want to access.
 
 ###### Grant permissions to the Quick service role
 
@@ -45,7 +45,7 @@ JSON
 
 5. Choose **Next**, enter a **Policy name** and then **Create policy**.
 
-###### To configure permissions for the Quick admin user
+###### To configure Lake Formation permissions for the Quick admin user
 
 1. Run the following AWS CLI command to find the ARN of your Quick admin user.
 

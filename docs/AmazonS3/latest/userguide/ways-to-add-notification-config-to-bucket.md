@@ -276,5 +276,5 @@ For examples of how to configure bucket notifications with the AWS SDK for Java,
 ## Step 4: Test the setup
 
 Now, you can test the setup by uploading an object to your bucket and verifying
-the event notification in the Amazon SQS console. For instructions, see [Receiving a Message](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-getting-started.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-getting-started.md") in the
+the event notification in the Amazon SQS console. For instructions, see [Receiving a Message](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-getting-started.htmlReceiveMessage.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-getting-started.htmlReceiveMessage.md") in the
 _Amazon Simple Queue Service Developer Guide "Getting Started" section_.

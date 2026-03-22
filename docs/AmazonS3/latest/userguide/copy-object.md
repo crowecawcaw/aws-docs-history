@@ -247,7 +247,7 @@ multiple copies of an object by using a batch of calls to
 `CopyObject` with the `getcommand()` method.
 
 Copying objects| 1 | Create an instance of an Amazon S3 client by using the<br>`Aws\S3\S3Client` class constructor. |
-| 2 | To make multiple copies of an object, you run a batch of<br>calls to the Amazon S3 client [getCommand()](../../../aws-sdk-php/v3/api/class-Aws.md#_getCommand "../../../aws-sdk-php/v3/api/class-Aws.md#_getCommand") method, which<br>is inherited from the [Aws\CommandInterface](../../../aws-sdk-php/v3/api/class-Aws.md "../../../aws-sdk-php/v3/api/class-Aws.md") class.<br>You provide the `CopyObject` command as the first<br>argument and an array containing the source bucket, source<br>key name, target bucket, and target key name as the second<br>argument. |
+| 2 | To make multiple copies of an object, you run a batch of<br>calls to the Amazon S3 client [getCommand()](../../../aws-sdk-php/v3/api/class-Aws.AwsClientInterface.md#_getCommand "../../../aws-sdk-php/v3/api/class-Aws.AwsClientInterface.md#_getCommand") method, which<br>is inherited from the [Aws\CommandInterface](../../../aws-sdk-php/v3/api/class-Aws.CommandInterface.md "../../../aws-sdk-php/v3/api/class-Aws.CommandInterface.md") class.<br>You provide the `CopyObject` command as the first<br>argument and an array containing the source bucket, source<br>key name, target bucket, and target key name as the second<br>argument. |
 
 ```
  require 'vendor/autoload.php';

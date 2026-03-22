@@ -246,6 +246,12 @@ further filter your results by specifying a specific KMS key ARN. If you select
 SSE-KMS, you can also optionally further filter your results by Bucket Key enabled
 status.
 
+###### Note
+
+To improve manifest generation performance when using the `KmsKeyArn`
+filter, use the filter with other object metadata filters, such as `MatchAnyPrefix`,
+`CreatedAfter`, or `MatchAnyStorageClass`.
+
 **MatchAnyStorageClass**
 
 If provided, the generated manifest includes only source bucket objects that are

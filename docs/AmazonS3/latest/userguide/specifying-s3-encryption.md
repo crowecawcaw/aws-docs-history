@@ -458,7 +458,7 @@ $s3->copyObject([
 
 For more information, see the following topics:
 
-- [AWS SDK for PHP for Amazon S3 Aws\S3\S3Client Class](../../../aws-sdk-php/v3/api/class-Aws.S3.md "../../../aws-sdk-php/v3/api/class-Aws.S3.md")
+- [AWS SDK for PHP for Amazon S3 Aws\S3\S3Client Class](../../../aws-sdk-php/v3/api/class-Aws.S3.S3Client.md "../../../aws-sdk-php/v3/api/class-Aws.S3.S3Client.md")
 - [AWS SDK for PHP
   Documentation](http://aws.amazon.com/documentation/sdk-for-php/ "http://aws.amazon.com/documentation/sdk-for-php/")
 

@@ -26,7 +26,7 @@ started using AWS Glue with S3 Tables, including:
 
 - **AWS analytics services integration (Recommended)** –
   Recommended when you need centralized metadata management across multiple AWS analytics services,
-  need to leverage existing AWS Glue Data Catalog permissions and fine-grained access control with Lake Formation, or are building production ETL pipelines that integrate with other AWS services like Athena or Amazon EMR.
+  need to leverage existing AWS Glue Data Catalog permissions and optionally Lake Formation, or are building production ETL pipelines that integrate with other AWS services like Athena or Amazon EMR.
 - **Amazon S3 Tables Iceberg REST endpoint** –
   Recommended when you need to connect to S3 tables from third-party query engines that support Apache Iceberg,
   build custom ETL applications that need direct REST API access, or when you require control over catalog operations without dependencies on AWS Glue Data Catalog.

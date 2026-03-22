@@ -1,7 +1,7 @@
 # Amazon S3 Tables integration with AWS analytics services overview
 
 To make tables in your account accessible by AWS analytics services, you integrate your Amazon S3
-table buckets with Amazon SageMaker Lakehouse. This integration allows AWS analytics services to
+table buckets with AWS Glue Data Catalog. This integration allows AWS analytics services to
 automatically discover and access your table data. You can use this integration to work with your tables
 in these services:
 
@@ -13,7 +13,8 @@ in these services:
 
 ###### Note
 
-This integration uses the AWS Glue and AWS Lake Formation services and might incur AWS Glue request and storage costs. For more information,
+This integration uses AWS Glue
+and AWS Lake Formation services and might incur AWS Glue request and storage costs. For more information,
 see [AWS Glue Pricing.](https://aws.amazon.com/glue/pricing/ "https://aws.amazon.com/glue/pricing/")
 
 Additional pricing applies for running queries on your S3 tables. For more information, see
@@ -21,20 +22,14 @@ pricing information for the query engine that you're using.
 
 ## How the integration works
 
-When you create a table bucket in the console, Amazon S3 initiates the following actions to integrate table buckets in the Region that you have selected with AWS analytics services:
-
-1. Creates a new AWS Identity and Access Management (IAM) [service
-   role](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") that gives Lake Formation access to all your table
-   buckets.
-2. Using the service role, Lake Formation registers table buckets in the current Region. This allows Lake Formation to manage access, permissions, and governance for all current and future table buckets in that Region.
-3. Adds the `s3tablescatalog` catalog to the AWS Glue Data Catalog in the current Region.
-   Adding the `s3tablescatalog` catalog allows all your table buckets, namespaces, and
-   tables to be populated in the Data Catalog.
+When you integrate S3 Tables with the AWS analytics services, Amazon S3 adds the catalog named `s3tablescatalog` to the AWS Glue Data Catalog in the current Region.
+Adding the `s3tablescatalog` allows all your table buckets, namespaces, and
+tables to be populated in the Data Catalog.
 
 ###### Note
 
 These actions are automated through the Amazon S3 console. If you perform this integration programmatically,
-you must manually take all of these actions.
+you must manually take these actions.
 
 You integrate your table buckets once per AWS Region. After the integration is completed, all
 current and future table buckets, namespaces, and tables are added to the AWS Glue Data Catalog in that
@@ -48,38 +43,54 @@ databases.
 
 ![The ways that table resources are represented in AWS Glue Data Catalog.](images/S3Tables-glue-catalog.png)
 
+After integrating with Data Catalog, you can create Apache Iceberg tables in table buckets and access them via AWS analytics engines such as Amazon Athena, Amazon EMR, as well as third-party analytics engines.
+
 ###### How permissions work
 
 We recommend integrating your table buckets with AWS analytics services so that you can work
-with your table data across services that use the AWS Glue Data Catalog as a metadata store. The integration
-enables fine-grained access control through AWS Lake Formation. This security approach means that, in addition
-to AWS Identity and Access Management (IAM) permissions, you must grant your IAM principal Lake Formation permissions on your tables
-before you can work with them.
-
-There are two main types of permissions in AWS Lake Formation:
-
-- Metadata access permissions control the ability to create, read, update, and delete metadata
-  databases and tables in the Data Catalog.
-- Underlying data access permissions control the ability to read and write data to the underlying
-  Amazon S3 locations that the Data Catalog resources point to.
-
-Lake Formation uses a combination of its own permissions model and the IAM permissions model to control
-access to Data Catalog resources and underlying data:
-
-- For a request to access Data Catalog resources or underlying data to succeed, the request must pass
-  permission checks by both IAM and Lake Formation.
-- IAM permissions control access to the Lake Formation and AWS Glue APIs and resources, whereas Lake Formation
-  permissions control access to the Data Catalog resources, Amazon S3 locations, and the underlying data.
-
-Lake Formation permissions apply only in the Region in which they were granted, and a principal must be
-authorized by a data lake administrator or another principal with the necessary permissions in order to
-be granted Lake Formation permissions.
-
-For more information, see [Overview of
-Lake Formation permissions](../../../lake-formation/latest/dg/lf-permissions-overview.md "../../../lake-formation/latest/dg/lf-permissions-overview.md") in the _AWS Lake Formation Developer Guide_.
+with your table data across services that use the AWS Glue Data Catalog as a metadata store. Once the integration
+is enabled, you can use AWS Identity and Access Management (IAM) permissions to grant access to S3 Tables resources and their
+associated Data Catalog objects.
 
 Make sure that you follow the steps in [Integrating S3 Tables with AWS analytics services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md") so that you have the appropriate permissions to access the
 AWS Glue Data Catalog and your table resources, and to work with AWS analytics services.
+
+## Regions supported
+
+S3 Tables integration with AWS analytics services uses AWS Glue Data Catalog with IAM-based access controls in the following regions. In all other regions, the integration also requires AWS Lake Formation.
+
+- US East (N. Virginia)
+- US East (Ohio)
+- US West (N. California)
+- US West (Oregon)
+- Africa (Cape Town)
+- Asia Pacific (Hong Kong)
+- Asia Pacific (Taipei)
+- Asia Pacific (Tokyo)
+- Asia Pacific (Seoul)
+- Asia Pacific (Osaka)
+- Asia Pacific (Mumbai)
+- Asia Pacific (Hyderabad)
+- Asia Pacific (Singapore)
+- Asia Pacific (Sydney)
+- Asia Pacific (Jakarta)
+- Asia Pacific (Melbourne)
+- Asia Pacific (Malaysia)
+- Asia Pacific (New Zealand)
+- Asia Pacific (Thailand)
+- Canada (Central)
+- Canada West (Calgary)
+- Europe (Frankfurt)
+- Europe (Zurich)
+- Europe (Stockholm)
+- Europe (Milan)
+- Europe (Spain)
+- Europe (Ireland)
+- Europe (London)
+- Europe (Paris)
+- Israel (Tel Aviv)
+- Mexico (Central)
+- South America (São Paulo)
 
 ## Next steps
 

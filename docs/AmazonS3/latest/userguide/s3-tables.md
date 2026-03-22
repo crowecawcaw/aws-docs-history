@@ -82,8 +82,8 @@ for table buckets and cannot be disabled.
 **Integration with AWS analytics
 services**
 
-You can automatically integrate your Amazon S3 table buckets with Amazon SageMaker Lakehouse through the S3 console. This integration allows AWS analytics services to
-automatically discover and access your table data through the AWS Glue Data Catalog. After the integration,
+You can automatically integrate your Amazon S3 table buckets with AWS Glue Data Catalog through the S3 console. This integration allows AWS analytics services to
+automatically discover and access your table data. After the integration,
 you can work with your tables using analytics services such as Amazon Athena, Amazon Redshift, Quick, and more.
 For more information about how the integration works, see [Integrating Amazon S3 Tables with AWS analytics services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md").
 
@@ -122,7 +122,7 @@ analytics applications.
   quickly get business insights from your data. Quick seamlessly discovers
   AWS data sources and delivers fast and responsive query performance by using
   the Quick Super-fast, Parallel, In-Memory, Calculation Engine (SPICE).
-- [**AWS Lake Formation**](../../../lake-formation/latest/dg/what-is-lake-formation.md "../../../lake-formation/latest/dg/what-is-lake-formation.md") – Lake Formation is a managed
+- [**AWS Lake Formation**](../../../lake-formation/latest/dg/what-is-lake-formation.html.md "../../../lake-formation/latest/dg/what-is-lake-formation.html.md") – Lake Formation is a managed
   service that streamlines the
   process
   to set up, secure, and manage your data lakes. Lake Formation helps you discover your data

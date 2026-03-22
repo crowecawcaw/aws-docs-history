@@ -5,7 +5,7 @@ user of the AWS account that created the resource (the resource owner) and AWS I
 (IAM) users within that account that have the necessary permissions can access a resource
 that they created. The resource owner specifies who else can access the resource and the
 actions that they are allowed to perform on the resource. Amazon S3 has various access management
-tools that you can use to grant others access to your S3 resources. If you've integrated your tables with AWS Amazon SageMaker Lakehouse you can also manage fine-grained access to your tables and namespaces with Lake Formation.
+tools that you can use to grant others access to your S3 resources. If you've integrated your tables with AWS Lake Formation, then you can also manage fine-grained access to your tables and namespaces.
 The following topics
 provide you with an overview of resources, IAM actions, and condition keys for S3 Tables.
 They also provide examples for both resource-based and identity-based policies for

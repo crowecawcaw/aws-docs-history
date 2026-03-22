@@ -23,6 +23,7 @@ The manifest information includes the following properties:
   Manifest destination path example:
 
 ```
+
 `user-defined-prefix`/StorageLens/`111122223333`/`example-dashboard-configuration-id`/V_1/manifests/dt=2025-03-18/manifest.json
 ```
 

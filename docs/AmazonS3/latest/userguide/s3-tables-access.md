@@ -1,22 +1,16 @@
 # Accessing table data
 
-There are multiple ways to access tables in Amazon S3 table buckets, you can integrate tables with AWS analytics services using Amazon SageMaker Lakehouse, or access tables directly using the Amazon S3 Tables Iceberg REST endpoint or the Amazon S3 Tables Catalog for Apache Iceberg. The access method you use will depend on your catalog setup, governance model, and access control needs. The following is an overview of these access methods.
+There are multiple ways to access tables in Amazon S3 table buckets. You can integrate tables with AWS analytics services using AWS Glue Data Catalog, or access tables directly using the Amazon S3 Tables Iceberg REST endpoint or the Amazon S3 Tables Catalog for Apache Iceberg. The access method you use will depend on your catalog setup, governance model, and access control needs. The following is an overview of these access methods.
 
-**Amazon SageMaker Lakehouse integration**
-This is the recommended access method for working with tables in S3 table buckets. The integration gives you unified table management, centralized governance, and fine-grained access control across multiple AWS analytics services. After integration, you can query tables in services such as Athena and Amazon Redshift.
+**AWS Glue Data Catalog integration**
+This is the recommended access method for working with tables in S3 table buckets. This integration gives you a unified view of your data estate across multiple AWS analytics services through the AWS Glue Data Catalog. After integration, you can query tables using services such as Athena and Amazon Redshift. Access to tables is managed using IAM permissions. To access tables using this integration, the IAM identity you use needs access to your S3 Tables resources and actions, AWS Glue Data Catalog objects, and the query engine you're using. For more information, see [Access management for S3 Tables](s3-tables-setting-up.md "s3-tables-setting-up.md").
 
 **Direct access**
-Use this method if you need to work with AWS Partner Network (APN) catalog implementations, custom catalog implementations, or if you only need to perform basic read/write operations on tables within a single table bucket.
+Use this method if you need to work with AWS Partner Network (APN) catalog implementations, custom catalog implementations, or if you only need to perform basic read/write operations on tables within a single table bucket. Access to tables is managed using IAM permissions. To access tables, the IAM identity you use needs access to your table resources and S3 Tables actions. For more information, see [Access management for S3 Tables](s3-tables-setting-up.md "s3-tables-setting-up.md").
 
-###### Note
+## Accessing tables through the AWS Glue Data Catalog integration
 
-To access tables the IAM identity you use needs access to your table resources and S3 Tables actions. For more information, see [Access management for S3 Tables](s3-tables-setting-up.md "s3-tables-setting-up.md").
-
-## Accessing tables through the Amazon SageMaker Lakehouse integration
-
-You can integrate S3 table buckets with Amazon SageMaker Lakehouse to access tables from AWS analytics services, such as Amazon Athena, Amazon Redshift, and Quick. Amazon SageMaker Lakehouse unifies your data across Amazon S3 data lakes and Amazon Redshift data warehouses, so you can build analytics, machine learning (ML), and generative AI applications on a single copy of data. The integration populates the AWS Glue Data Catalog with your table resources, and federates access to these resources with AWS Lake Formation. For more information on integrating, see [Integrating Amazon S3 Tables with AWS analytics services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md").
-
-The integration enables fine-grained access control through AWS Lake Formation to provide additional security. Lake Formation uses a combination of its own permissions model and the IAM permissions model to control access to table resources and underlying data. This means that a request to access your table must pass permission checks by both IAM and Lake Formation. For more information, see [Lake Formation permissions overview](../../../lake-formation/latest/dg/lf-permissions-overview.md "../../../lake-formation/latest/dg/lf-permissions-overview.md") in the _AWS Lake Formation Developer Guide_.
+You can integrate S3 table buckets with AWS Glue Data Catalog to access tables from AWS analytics services, such as Amazon Athena, Amazon Redshift, and Quick. The integration populates the AWS Glue Data Catalog with your table resources, and federates access to those resources. For more information on integrating, see [Integrating Amazon S3 Tables with AWS analytics services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md").
 
 The following AWS analytics services can access tables through this integration:
 
@@ -31,7 +25,7 @@ The following AWS analytics services can access tables through this integration:
 
 ### Accessing tables using the AWS Glue Iceberg REST endpoint
 
-Once your S3 table buckets are integrated with Amazon SageMaker Lakehouse, you can also use the AWS Glue Iceberg REST endpoint to connect to S3 tables from third-party query engines that support Iceberg. For more information, see [Accessing Amazon S3 tables using the AWS Glue Iceberg REST endpoint](s3-tables-integrating-glue-endpoint.md "s3-tables-integrating-glue-endpoint.md").
+Once your S3 table buckets are integrated with AWS Glue Data Catalog, you can also use the AWS Glue Iceberg REST endpoint to connect to S3 tables from third-party query engines that support Iceberg. For more information, see [Accessing Amazon S3 tables using the AWS Glue Iceberg REST endpoint](s3-tables-integrating-glue-endpoint.md "s3-tables-integrating-glue-endpoint.md").
 
 We recommend using the AWS Glue Iceberg REST endpoint when you want to access tables from Spark, PyIceberg, or other Iceberg-compatible clients.
 
@@ -43,9 +37,9 @@ The following clients can access tables directly through the AWS Glue Iceberg R
 
 You can access tables directly from open source query engines through methods that bridge S3 Tables management operations to your Apache Iceberg analytics applications. There are two direct access methods: the Amazon S3 Tables Iceberg REST endpoint or the Amazon S3 Tables Catalog for Apache Iceberg. The REST endpoint is recommended.
 
-We recommend direct access if you access tables in self-managed catalog implementations, or only need to perform basic read/write operations on tables in a single table bucket. For other access scenarios, we recommend the Amazon SageMaker Lakehouse integration.
+We recommend direct access if you access tables in self-managed catalog implementations, or only need to perform basic read/write operations on tables in a single table bucket. For other access scenarios, we recommend the AWS Glue Data Catalog integration.
 
-Direct access to tables is managed through either IAM identity-based policies or resource-based policies attached to tables and table buckets. You do not need to manage Lake Formation permissions for tables when you access them directly.
+Direct access to tables is managed through either IAM identity-based policies or resource-based policies attached to tables and table buckets.
 
 ### Accessing tables through the Amazon S3 Tables Iceberg REST endpoint
 

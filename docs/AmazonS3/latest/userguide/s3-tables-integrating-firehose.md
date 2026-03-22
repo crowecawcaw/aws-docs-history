@@ -13,7 +13,7 @@ Complete these steps to set up Firehose streaming to tables in S3 table buckets:
    analytics services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md").
 2. Configure Firehose to deliver data into your S3 tables. To do so, you [create an AWS Identity and Access Management (IAM)
    service role that allows Firehose to access your tables](#firehose-role-s3tables "#firehose-role-s3tables").
-3. Grant the Firehose service role explicit permissions to your table or table's namespace. For more information, see [Grant Lake Formation permissions on your table resources](grant-permissions-tables.md "grant-permissions-tables.md").
+3. Grant the Firehose service role explicit permissions to your table or table's namespace. For more information, see [Grant necessary permissions](../../../firehose/latest/dev/apache-iceberg-prereq.md#s3-tables-prerequisites "../../../firehose/latest/dev/apache-iceberg-prereq.md#s3-tables-prerequisites").
 4. [Create a Firehose stream that routes data to your table.](#firehose-stream-tables "#firehose-stream-tables")
 
 ## Creating a role for Firehose to use S3 tables as a destination
@@ -185,7 +185,7 @@ S3 tables.
 
 - Create the [Role for Firehose to access
   S3 Tables](#firehose-role-s3tables "#firehose-role-s3tables").
-- [Grant Lake Formation permissions](grant-permissions-tables.md "grant-permissions-tables.md") to the Firehose service role you created to access tables.
+- [Grant necessary permissions](../../../firehose/latest/dev/apache-iceberg-prereq.md#s3-tables-prerequisites "../../../firehose/latest/dev/apache-iceberg-prereq.md#s3-tables-prerequisites") to the Firehose service role you created to access tables.
 
 To provide routing information to Firehose when you configure a stream, you use your
 namespace as the database name and the name of a table in that namespace. You can use these values in the Unique key section of a Firehose

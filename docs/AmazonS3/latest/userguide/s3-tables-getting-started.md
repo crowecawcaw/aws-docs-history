@@ -1,7 +1,7 @@
 # Tutorial: Getting started with S3 Tables
 
 In this tutorial, you create a table bucket and integrate table buckets in your Region
-with AWS analytics services. Next, you will use the AWS CLI to create your first namespace and table in your table bucket. Then, you use AWS Lake Formation to grant permission on your table, so you can begin querying your table with Athena.
+with AWS analytics services. Next, you will use the AWS CLI or console to create your first namespace and table in your table bucket. Then, you can begin querying your table with Athena.
 
 ###### Tip
 
@@ -17,8 +17,7 @@ Solutions Library.
 
 - [Step 1: Create a table bucket and integrate it with AWS analytics services](#s1-tables-tutorial-create-bucket "#s1-tables-tutorial-create-bucket")
 - [Step 2: Create a table namespace and a table](#s2-tables-tutorial-create-namespace-and-table "#s2-tables-tutorial-create-namespace-and-table")
-- [(Optional) Step 3: Grant Lake Formation permissions on your table](#s3-tables-tutorial-create-table "#s3-tables-tutorial-create-table")
-- [Step 4: Query data with SQL in Athena](#s4-query-tables "#s4-query-tables")
+- [Step 3: Query data with SQL in Athena](#s4-query-tables "#s4-query-tables")
 
 ## Step 1: Create a table bucket and integrate it with AWS analytics services
 
@@ -27,7 +26,7 @@ create a table bucket, see [Creating a table bucket](s3-tables-buckets-create.md
 
 ###### Note
 
-By default, the Amazon S3 console automatically integrates your table buckets with Amazon SageMaker Lakehouse, which allows AWS analytics services to automatically discover and access your S3 Tables
+By default, the Amazon S3 console automatically integrates your table buckets with AWS Glue Data Catalog, which allows AWS analytics services to automatically discover and access your S3 Tables
 data. If you create your first table bucket programmatically by using the AWS Command Line Interface (AWS CLI), AWS SDKs,
 or REST API, you must manually complete the AWS analytics services integration. For more
 information, see [Integrating Amazon S3 Tables with AWS analytics services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md").
@@ -158,71 +157,7 @@ definition:
 }
 ```
 
-## (Optional) Step 3: Grant Lake Formation permissions on your table
-
-For this step, you grant Lake Formation permissions on your new table to other IAM principals. These
-permissions allow principals other than you to access table bucket resources by using Athena and other
-AWS analytics services. For more information, see [Granting Lake Formation permission on a table or database](grant-permissions-tables.md#grant-lf-table "grant-permissions-tables.md#grant-lf-table"). If you're the only user who will access your tables, you can skip
-this step.
-
-1. Open the AWS Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/"), and sign in as a
-   data lake administrator. For more information about how to create a data lake administrator, see
-   [Create a data lake
-   administrator](../../../lake-formation/latest/dg/initial-lf-config.md#create-data-lake-admin "../../../lake-formation/latest/dg/initial-lf-config.md#create-data-lake-admin").
-2. In the navigation pane, choose **Data permissions** and then choose
-   **Grant**.
-3. On the **Grant Permissions** page, under **Principals**, choose
-   **IAM users and roles** and choose the IAM user or role that you want to allow
-   to run queries on your table.
-4. Under **LF-Tags or catalog resources**, choose **Named Data Catalog
-   resources**.
-5. Do one of the following, depending on whether you want to grant access to all of the
-   tables in your account or whether you want to grant access to only the resources within the table
-   bucket that you created:
-   - For **Catalogs**, choose the account-level catalog that you created when
-     you integrated your table bucket. For example, ``111122223333`:s3tablescatalog`.
-   - For **Catalogs**, choose the subcatalog for your table bucket. For example,
-     ``111122223333`:s3tablescatalog/`amzn-s3-demo-table-bucket``.
-
-6. (Optional) If you chose the subcatalog for your table bucket, do one or both of the
-   following:
-   - For **Databases**, choose the table bucket namespace that you created.
-   - For **Tables**, choose the table that you created in your table bucket, or choose
-     **All tables**.
-
-7. Depending on whether you chose a catalog or subcatalog and depending on whether you then chose a
-   database or a table, you can set permissions at the catalog, database, or table level. For more
-   information about Lake Formation permissions, see [Managing Lake Formation permissions](../../../lake-formation/latest/dg/managing-permissions.md "../../../lake-formation/latest/dg/managing-permissions.md") in the
-   _AWS Lake Formation Developer Guide_.
-
-Do one of the following:
-
-    * For **Catalog permissions**, choose **Super** to grant the
-     other principal all permissions on your catalog, or choose more fine-grained permissions, such
-     as **Describe**.
-    * For **Database permissions**, you can't choose **Super**
-     to grant the other principal all permissions on your database. Instead, choose more fine-grained
-     permissions, such as **Describe**.
-    * For **Table permissions**, choose **Super** to grant the
-     other principal all permissions on your table, or choose more fine-grained permissions, such as
-     **Select** or **Describe**.
-
-
-    ###### Note
-
-    When you grant Lake Formation permissions on a Data Catalog resource to an external account or directly
-     to an IAM principal in another account, Lake Formation uses the AWS Resource Access Manager (AWS RAM) service to share the
-     resource. If the grantee account is in the same organization as the grantor account, the
-     shared resource is available immediately to the grantee. If the grantee account is not in the
-     same organization, AWS RAM sends an invitation to the grantee account to accept or reject the
-     resource grant. Then, to make the shared resource available, the data lake administrator in
-     the grantee account must use the AWS RAM console or AWS CLI to accept the invitation. For more
-     information about cross-account data sharing, see [Cross-account data sharing in
-     Lake Formation](../../../lake-formation/latest/dg/cross-account-permissions.md "../../../lake-formation/latest/dg/cross-account-permissions.md") in the *AWS Lake Formation Developer Guide*.
-
-8. Choose **Grant**.
-
-## Step 4: Query data with SQL in Athena
+## Step 3: Query data with SQL in Athena
 
 You can query your table with SQL in Athena. Athena supports Data Definition Language (DDL), Data
 Manipulation Language (DML), and Data Query Language (DQL) queries for S3 Tables.
