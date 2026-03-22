@@ -33,7 +33,7 @@ This architecture, which is agnostic of game engine and software, walks through 
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/game-production-in-the-cloud-workstations.md "samples/game-production-in-the-cloud-workstations.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/game-production-in-the-cloud-workstations.zip.md "samples/game-production-in-the-cloud-workstations.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
