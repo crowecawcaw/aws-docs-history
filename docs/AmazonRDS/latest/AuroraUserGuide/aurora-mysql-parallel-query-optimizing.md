@@ -101,7 +101,7 @@ configuration option from earlier versions isn't used.
 
 In Aurora MySQL version 2.09 and higher, parallel query works for provisioned clusters and doesn't require the
 `parallelquery` engine mode parameter. Thus, you don't need to create a new cluster or restore from an
-existing snapshot to use parallel query with these versions. You can use the upgrade procedures described in [Upgrading the minor version or patch level of an Aurora MySQL DB cluster](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md") to upgrade your cluster to such a
+existing snapshot to use parallel query with these versions. You can use the upgrade procedures described in [Upgrading the minor version or patch level of an Aurora MySQL DB cluster](AuroraMySQL.Updates.Patching.md "AuroraMySQL.Updates.Patching.md") to upgrade your cluster to such a
 version. You can upgrade an older cluster regardless of whether it was a parallel query cluster or a provisioned cluster. To
 reduce the number of choices in the **Engine version** menu, you can choose **Show versions that
 support the parallel query feature** to filter the entries in that menu. Then choose Aurora MySQL 2.09 or
@@ -127,7 +127,7 @@ After you upgrade to Aurora MySQL version 2.09 or higher, you can take advantage
 aren't available to parallel query clusters running older Aurora MySQL versions.
 
 - Performance Insights. For more information, see [Monitoring DB load with Performance Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
-- Backtracking. For more information, see [Backtracking an Aurora DB cluster](AuroraMySQL.Managing.md "AuroraMySQL.Managing.md").
+- Backtracking. For more information, see [Backtracking an Aurora DB cluster](AuroraMySQL.Managing.Backtrack.md "AuroraMySQL.Managing.Backtrack.md").
 - Stopping and starting the cluster. For more information, see [Stopping and starting an Amazon Aurora DB cluster](aurora-cluster-stop-start.md "aurora-cluster-stop-start.md").
 
 ## Performance tuning for parallel query

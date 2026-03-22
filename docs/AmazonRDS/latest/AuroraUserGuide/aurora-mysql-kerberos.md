@@ -24,7 +24,7 @@ when they access workloads in your on-premises network.
 
 A database can use Kerberos, AWS Identity and Access Management (IAM), or both Kerberos and IAM authentication. However, because Kerberos and IAM
 authentication provide different authentication methods, a specific user can log in to a database using only one or the other
-authentication method, but not both. For more information about IAM authentication, see [IAM database authentication](UsingWithRDS.md "UsingWithRDS.md").
+authentication method, but not both. For more information about IAM authentication, see [IAM database authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
 
 ###### Contents
 
@@ -91,7 +91,7 @@ The following limitations apply to Kerberos authentication for Aurora MySQL:
 
 - Kerberos authentication is supported for Aurora MySQL version 3.03 and higher.
 
-For information about AWS Region support, see [Kerberos authentication with Aurora MySQL](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.KerberosAuthentication.amy "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.KerberosAuthentication.amy").
+For information about AWS Region support, see [Kerberos authentication with Aurora MySQL](Concepts.Aurora_Fea_Regions_DB-eng.Feature.KerberosAuthentication.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.KerberosAuthentication.amy "Concepts.Aurora_Fea_Regions_DB-eng.Feature.KerberosAuthentication.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.KerberosAuthentication.amy").
 
 - To use Kerberos authentication with Aurora MySQL, your MySQL client or connector must use version 8.0.26 or higher on
   Unix platforms, 8.0.27 or higher on Windows. Otherwise, the client-side `authentication_kerberos_client`

@@ -2,7 +2,7 @@
 
 You will incur charges for all engines enrolled in RDS Extended Support
 beginning the day after the Aurora end of standard support date. For the Aurora end of
-standard support date, see [Amazon Aurora major versions](Aurora.VersionPolicy.md#Aurora.VersionPolicy.MajorVersions "Aurora.VersionPolicy.md#Aurora.VersionPolicy.MajorVersions").
+standard support date, see [Amazon Aurora major versions](Aurora.VersionPolicy.Versioning.md#Aurora.VersionPolicy.MajorVersions "Aurora.VersionPolicy.Versioning.md#Aurora.VersionPolicy.MajorVersions").
 
 The additional charge for RDS Extended Support automatically stops when you take one of the
 following actions:

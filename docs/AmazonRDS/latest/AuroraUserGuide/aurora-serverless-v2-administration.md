@@ -25,7 +25,7 @@ In the following topics, you can learn about management considerations for clust
 
 To modify configuration parameters or other settings for clusters containing Aurora Serverless v2 DB instances, or
 the DB instances themselves, follow the same general procedures as for provisioned clusters. For details, see
-[Modifying an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
+[Modifying an Amazon Aurora DB cluster](Aurora.Modifying.md "Aurora.Modifying.md").
 
 The most important setting that's unique to Aurora Serverless v2 is the capacity range. After you set the
 minimum and maximum Aurora capacity unit (ACU) values for an Aurora cluster, you don't need to actively
@@ -40,7 +40,7 @@ You can set the following specific values:
 
 The available capacity range for Aurora Serverless v2 is a function of both the DB engine version and the platform version. Newer DB engine versions allow a maximum capacity of 256 ACUs, a minimum capacity of 0 ACUs, or both.
 For the capacity ranges for various DB engine versions, see
-[Aurora Serverless v2 capacity](aurora-serverless-v2.md#aurora-serverless-v2.how-it-works.capacity "aurora-serverless-v2.md#aurora-serverless-v2.how-it-works.capacity").
+[Aurora Serverless v2 capacity](aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity "aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity").
 
 For the auto-pause and resume capability that's enabled by setting the minimum capacity to 0 ACUs, see
 [Scaling to Zero ACUs with automatic pause and resume for Aurora Serverless v2](aurora-serverless-v2-auto-pause.md "aurora-serverless-v2-auto-pause.md").
@@ -65,9 +65,9 @@ range. However, you can influence the capacity indirectly in the following ways:
   baseline during periods of high activity.
 
 For details about the effects of the capacity range and how to monitor and fine-tune it, see
-[Important Amazon CloudWatch metrics for Aurora Serverless v2](aurora-serverless-v2.md#aurora-serverless-v2.viewing.monitoring "aurora-serverless-v2.md#aurora-serverless-v2.viewing.monitoring")
+[Important Amazon CloudWatch metrics for Aurora Serverless v2](aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.viewing.monitoring "aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.viewing.monitoring")
 and
-[Performance and scaling for Aurora Serverless v2](aurora-serverless-v2.md "aurora-serverless-v2.md").
+[Performance and scaling for Aurora Serverless v2](aurora-serverless-v2.setting-capacity.md "aurora-serverless-v2.setting-capacity.md").
 Your goal is to make sure that the maximum capacity for the cluster is high enough to handle spikes in workload,
 and the minimum is low enough to minimize costs when the cluster isn't busy.
 
@@ -82,7 +82,7 @@ ACUs when idle, and up to 81 ACUs when fully utilized.
 
 Aurora automatically sets certain parameters for Aurora Serverless v2 DB instances to values that depend on the
 maximum ACU value in the capacity range. For the list of such parameters, see
-[Maximum connections for Aurora Serverless v2](aurora-serverless-v2.md#aurora-serverless-v2.max-connections "aurora-serverless-v2.md#aurora-serverless-v2.max-connections").
+[Maximum connections for Aurora Serverless v2](aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.max-connections "aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.max-connections").
 For static parameters that rely on this type of calculation, the value is evaluated again when you reboot the DB
 instance. Thus, you can update the value of such parameters by rebooting the DB instance after changing the
 capacity range. To check whether you need to reboot your DB instance to pick up such parameter changes, check
@@ -98,7 +98,7 @@ when you choose the **Serverless** DB instance class when you add an Aurora Serv
 reader DB instance to the cluster. Or you might do so when you convert an existing provisioned DB instance
 in the cluster to the **Serverless** DB instance class. For the full versions of those
 procedures, see
-[Creating an Aurora Serverless v2 writer DB instance](aurora-serverless-v2.md#aurora-serverless-v2-adding-writer "aurora-serverless-v2.md#aurora-serverless-v2-adding-writer"),
+[Creating an Aurora Serverless v2 writer DB instance](aurora-serverless-v2.create.md#aurora-serverless-v2-adding-writer "aurora-serverless-v2.create.md#aurora-serverless-v2-adding-writer"),
 [Adding an Aurora Serverless v2 reader](#aurora-serverless-v2-adding-reader "#aurora-serverless-v2-adding-reader"), and
 [Converting a provisioned writer or reader to Aurora Serverless v2](#aurora-serverless-v2-converting-from-provisioned "#aurora-serverless-v2-converting-from-provisioned").
 
@@ -161,7 +161,7 @@ that were already in the cluster. The DB instances scale up or down if necessary
 capacity range.
 
 For additional examples of setting the capacity range using the CLI, see
-[Choosing the Aurora Serverless v2 capacity range for an Aurora cluster](aurora-serverless-v2.md#aurora-serverless-v2-examples-setting-capacity-range-for-cluster "aurora-serverless-v2.md#aurora-serverless-v2-examples-setting-capacity-range-for-cluster").
+[Choosing the Aurora Serverless v2 capacity range for an Aurora cluster](aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2-examples-setting-capacity-range-for-cluster "aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2-examples-setting-capacity-range-for-cluster").
 
 To modify the scaling configuration of an Aurora Serverless DB cluster using the AWS CLI, run the
 [modify-db-cluster](../../../cli/latest/reference/rds/modify-db-cluster.md "../../../cli/latest/reference/rds/modify-db-cluster.md") AWS CLI command. Specify the
@@ -217,7 +217,7 @@ message tells you which instances are incompatible with the new scaling range. T
 
 The inability to scale greater than 128 ACUs can happen for one of two reasons:
 
-- Older DB engine version – Upgrade the DB engine version to one that supports 256 ACUs. For more information, see [Aurora Serverless v2 capacity](aurora-serverless-v2.md#aurora-serverless-v2.how-it-works.capacity "aurora-serverless-v2.md#aurora-serverless-v2.how-it-works.capacity").
+- Older DB engine version – Upgrade the DB engine version to one that supports 256 ACUs. For more information, see [Aurora Serverless v2 capacity](aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity "aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity").
 - Older platform version – Upgrade the platform for your Aurora Serverless v2 DB cluster. You can do this in one of the following ways:
   - Stop and restart the DB cluster. When the cluster restarts, it will be on the latest platform version capable which may be capable of a higher ACU maximum.
 
@@ -316,15 +316,15 @@ For other ways that you can see the current capacity range for a cluster, see
 ## Converting a provisioned writer or reader to Aurora Serverless v2
 
 You can convert a provisioned DB instance to use Aurora Serverless v2. To do so, you follow the procedure in
-[Modifying a DB instance in a DB cluster](Aurora.md#Aurora.Modifying.Instance "Aurora.md#Aurora.Modifying.Instance"). The cluster must meet the
+[Modifying a DB instance in a DB cluster](Aurora.Modifying.md#Aurora.Modifying.Instance "Aurora.Modifying.md#Aurora.Modifying.Instance"). The cluster must meet the
 requirements in
-[Requirements and limitations for Aurora Serverless v2](aurora-serverless-v2.md "aurora-serverless-v2.md"). For
+[Requirements and limitations for Aurora Serverless v2](aurora-serverless-v2.requirements.md "aurora-serverless-v2.requirements.md"). For
 example, Aurora Serverless v2 DB instances require that the cluster be running certain minimum engine versions.
 
 Suppose that you are converting a running provisioned cluster to take advantage of Aurora Serverless v2. In that
 case, you can minimize downtime by converting a DB instance to Aurora Serverless v2 as the first step in the
 switchover process. For the full procedure, see
-[Switching from a provisioned cluster to Aurora Serverless v2](aurora-serverless-v2.md#aurora-serverless-v2.switch-from-provisioned "aurora-serverless-v2.md#aurora-serverless-v2.switch-from-provisioned").
+[Switching from a provisioned cluster to Aurora Serverless v2](aurora-serverless-v2.upgrade.md#aurora-serverless-v2.switch-from-provisioned "aurora-serverless-v2.upgrade.md#aurora-serverless-v2.switch-from-provisioned").
 
 If the DB instance that you convert is the first Aurora Serverless v2 DB instance in the cluster, you choose the
 capacity range for the cluster as part of the **Modify** operation. This capacity range applies
@@ -334,7 +334,7 @@ specify the minimum and maximum Aurora capacity units (ACUs).
 ![Instance configuration user interface](images/serverless_v2_screencaps/serverless_v2_capacity_settings_settable_for_add_reader_modify_instance.png)
 
 For details about the significance of the capacity range, see
-[Aurora Serverless v2 capacity](aurora-serverless-v2.md#aurora-serverless-v2.how-it-works.capacity "aurora-serverless-v2.md#aurora-serverless-v2.how-it-works.capacity").
+[Aurora Serverless v2 capacity](aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity "aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity").
 
 If the cluster already contains one or more Aurora Serverless v2 DB instances, you see the existing capacity range
 during the **Modify** operation. The following image shows an example of that information
@@ -349,7 +349,7 @@ follow the procedure in
 ## Converting an Aurora Serverless v2 writer or reader to provisioned
 
 You can convert an Aurora Serverless v2 DB instance to a provisioned DB instance. To do so, you follow the
-procedure in [Modifying a DB instance in a DB cluster](Aurora.md#Aurora.Modifying.Instance "Aurora.md#Aurora.Modifying.Instance"). Choose a DB
+procedure in [Modifying a DB instance in a DB cluster](Aurora.Modifying.md#Aurora.Modifying.Instance "Aurora.Modifying.md#Aurora.Modifying.Instance"). Choose a DB
 instance class other than **Serverless**.
 
 You might convert an Aurora Serverless v2 DB instance to provisioned if it needs a larger capacity than is
@@ -362,11 +362,11 @@ instance can scale to.
 Some of the older DB instance classes such as db.r3 and db.t2 aren't available for the Aurora versions
 that you use with Aurora Serverless v2. To see which DB instance classes you can use when converting an
 Aurora Serverless v2 DB instance to a provisioned one, see
-[Supported DB engines for DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
+[Supported DB engines for DB instance classes](Concepts.DBInstanceClass.SupportAurora.md "Concepts.DBInstanceClass.SupportAurora.md").
 
 If you are converting the writer DB instance of your cluster from Aurora Serverless v2 to provisioned, you can
 follow the procedure in
-[Switching from a provisioned cluster to Aurora Serverless v2](aurora-serverless-v2.md#aurora-serverless-v2.switch-from-provisioned "aurora-serverless-v2.md#aurora-serverless-v2.switch-from-provisioned")
+[Switching from a provisioned cluster to Aurora Serverless v2](aurora-serverless-v2.upgrade.md#aurora-serverless-v2.switch-from-provisioned "aurora-serverless-v2.upgrade.md#aurora-serverless-v2.switch-from-provisioned")
 but in reverse. Switch one of the reader DB instances in the cluster from Aurora Serverless v2 to provisioned.
 Then perform a failover to make that provisioned DB instance into the writer.
 
@@ -437,14 +437,14 @@ $ aws rds describe-db-instances --db-instance-identifier instance-192 \
 ```
 
 For more guidance about specifying promotion tiers for different use cases, see
-[Aurora Serverless v2 scaling](aurora-serverless-v2.md#aurora-serverless-v2.how-it-works.scaling "aurora-serverless-v2.md#aurora-serverless-v2.how-it-works.scaling").
+[Aurora Serverless v2 scaling](aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.scaling "aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.scaling").
 
 ## Using TLS/SSL with Aurora Serverless v2
 
 Aurora Serverless v2 can use the Transport Layer Security/Secure Sockets Layer (TLS/SSL) protocol to encrypt
 communications between clients and your Aurora Serverless v2 DB instances. It supports TLS/SSL versions 1.0, 1.1,
 and 1.2. For general information about using TLS/SSL with Aurora, see
-[TLS connections to Aurora MySQL DB clusters](AuroraMySQL.md#AuroraMySQL.Security.SSL "AuroraMySQL.md#AuroraMySQL.Security.SSL").
+[TLS connections to Aurora MySQL DB clusters](AuroraMySQL.Security.md#AuroraMySQL.Security.SSL "AuroraMySQL.Security.md#AuroraMySQL.Security.SSL").
 
 To learn more about connecting to Aurora MySQL database with the MySQL client, see
 [Connecting to a DB
@@ -478,7 +478,7 @@ To learn more about working with the Aurora PostgreSQL database using the Postgr
 a DB instance running the PostgreSQL database engine](../UserGuide/USER_ConnectToPostgreSQLInstance.md "../UserGuide/USER_ConnectToPostgreSQLInstance.md").
 
 For more information about connecting to Aurora DB clusters in general, see
-[Connecting to an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
+[Connecting to an Amazon Aurora DB cluster](Aurora.Connecting.md "Aurora.Connecting.md").
 
 ### Supported cipher suites for connections to Aurora Serverless v2 DB clusters
 
@@ -489,11 +489,11 @@ the connection encryption that your database server accepts. Doing this prevents
 ciphers that aren't secure or that are no longer used.
 
 Aurora Serverless v2 DB clusters that are based on Aurora MySQL support the same cipher suites
-as Aurora MySQL provisioned DB clusters. For information about these cipher suites, see [Configuring cipher suites for connections to Aurora MySQL DB clusters](AuroraMySQL.md#AuroraMySQL.Security.SSL.ConfiguringCipherSuites "AuroraMySQL.md#AuroraMySQL.Security.SSL.ConfiguringCipherSuites").
+as Aurora MySQL provisioned DB clusters. For information about these cipher suites, see [Configuring cipher suites for connections to Aurora MySQL DB clusters](AuroraMySQL.Security.md#AuroraMySQL.Security.SSL.ConfiguringCipherSuites "AuroraMySQL.Security.md#AuroraMySQL.Security.SSL.ConfiguringCipherSuites").
 
 Aurora Serverless v2 DB clusters that are based on Aurora PostgreSQL support the same cipher
 suites as Aurora PostgreSQL provisioned DB clusters. For information about these cipher suites,
-see [Configuring cipher suites for connections to Aurora PostgreSQL DB clusters](AuroraPostgreSQL.md#AuroraPostgreSQL.Security.SSL.ConfiguringCipherSuites "AuroraPostgreSQL.md#AuroraPostgreSQL.Security.SSL.ConfiguringCipherSuites").
+see [Configuring cipher suites for connections to Aurora PostgreSQL DB clusters](AuroraPostgreSQL.Security.md#AuroraPostgreSQL.Security.SSL.ConfiguringCipherSuites "AuroraPostgreSQL.Security.md#AuroraPostgreSQL.Security.SSL.ConfiguringCipherSuites").
 
 ## Viewing Aurora Serverless v2 writers and readers
 
@@ -531,7 +531,7 @@ minimum, maximum, and average ACUs consumed by each DB instance. You can also ch
 came to its minimum or maximum capacity. To see such details in the AWS Management Console, examine the graphs of Amazon CloudWatch
 metrics on the **Monitoring** tab for the DB instance. For information about the metrics to
 watch and how to interpret them, see
-[Important Amazon CloudWatch metrics for Aurora Serverless v2](aurora-serverless-v2.md#aurora-serverless-v2.viewing.monitoring "aurora-serverless-v2.md#aurora-serverless-v2.viewing.monitoring").
+[Important Amazon CloudWatch metrics for Aurora Serverless v2](aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.viewing.monitoring "aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.viewing.monitoring").
 
 ## Logging for Aurora Serverless v2
 
@@ -549,7 +549,7 @@ For Aurora MySQL, you can enable the following logs.
 | `server_audit_logging`          | Set to 1 to turn on server audit logging. If you turn this on, you can specify the audit events to<br>send to CloudWatch by listing them in the `server_audit_events` parameter. |
 | `slow_query_log`                | Creates a slow query log. Set to 1 to turn on the slow query log. Default is off (0).                                                                                            |
 
-For more information, see [Using Advanced Auditing with an Amazon Aurora MySQL DB cluster](AuroraMySQL.md "AuroraMySQL.md").
+For more information, see [Using Advanced Auditing with an Amazon Aurora MySQL DB cluster](AuroraMySQL.Auditing.md "AuroraMySQL.Auditing.md").
 
 For Aurora PostgreSQL, you can enable the following logs on your Aurora Serverless v2 DB instances.
 
@@ -584,7 +584,7 @@ Then you choose which of those logs to upload to CloudWatch, by using the **Log 
 in the AWS Management Console or the `--enable-cloudwatch-logs-exports` option in the AWS CLI.
 
 You can choose which of your Aurora Serverless v2 logs to upload to CloudWatch. For more information, see
-[Using Advanced Auditing with an Amazon Aurora MySQL DB cluster](AuroraMySQL.md "AuroraMySQL.md").
+[Using Advanced Auditing with an Amazon Aurora MySQL DB cluster](AuroraMySQL.Auditing.md "AuroraMySQL.Auditing.md").
 
 As with any type of Aurora DB cluster, you can't modify the default DB cluster parameter group. Instead,
 create your own DB cluster parameter group based on a default parameter for your DB cluster and engine type.
@@ -603,8 +603,8 @@ After you use the procedure in
 to choose which database logs to turn on, you can view the contents of the logs.
 
 For more information on using CloudWatch with Aurora MySQL and Aurora PostgreSQL logs, see
-[Monitoring log events in Amazon CloudWatch](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.CloudWatch.Monitor "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.CloudWatch.Monitor")
-and [Publishing Aurora PostgreSQL logs to Amazon CloudWatch Logs](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+[Monitoring log events in Amazon CloudWatch](AuroraMySQL.Integrating.CloudWatch.md#AuroraMySQL.Integrating.CloudWatch.Monitor "AuroraMySQL.Integrating.CloudWatch.md#AuroraMySQL.Integrating.CloudWatch.Monitor")
+and [Publishing Aurora PostgreSQL logs to Amazon CloudWatch Logs](AuroraPostgreSQL.CloudWatch.md "AuroraPostgreSQL.CloudWatch.md").
 
 ###### To view logs for your Aurora Serverless v2 DB cluster
 
@@ -632,7 +632,7 @@ metrics to other metrics to see how changes in workloads affect resource consump
 compare `ServerlessDatabaseCapacity` to `DatabaseUsedMemory`,
 `DatabaseConnections`, and `DMLThroughput` to assess how your DB cluster is responding
 during operations. For details about the capacity-related metrics that apply to Aurora Serverless v2, see
-[Important Amazon CloudWatch metrics for Aurora Serverless v2](aurora-serverless-v2.md#aurora-serverless-v2.viewing.monitoring "aurora-serverless-v2.md#aurora-serverless-v2.viewing.monitoring").
+[Important Amazon CloudWatch metrics for Aurora Serverless v2](aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.viewing.monitoring "aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.viewing.monitoring").
 
 ###### To monitor your Aurora Serverless v2 DB cluster's capacity
 
@@ -651,7 +651,7 @@ capacity-related metrics. To learn how, see
 dashboards with CloudWatch](../../../autoscaling/application/userguide/monitoring-cloudwatch.md "../../../autoscaling/application/userguide/monitoring-cloudwatch.md").
 
 To learn more about using Amazon CloudWatch with Amazon Aurora, see
-[Publishing Amazon Aurora MySQL logs to Amazon CloudWatch Logs](AuroraMySQL.Integrating.md "AuroraMySQL.Integrating.md").
+[Publishing Amazon Aurora MySQL logs to Amazon CloudWatch Logs](AuroraMySQL.Integrating.CloudWatch.md "AuroraMySQL.Integrating.CloudWatch.md").
 
 ### Monitoring Aurora Serverless v2 pause and resume activity
 
@@ -665,7 +665,7 @@ contents of this log in the AWS Management Console or by using the AWS CLI or RD
 log to CloudWatch.
 
 The events listed in
-[DB instance events](USER_Events.md#USER_Events.Messages.instance "USER_Events.md#USER_Events.Messages.instance") provide a
+[DB instance events](USER_Events.Messages.md#USER_Events.Messages.instance "USER_Events.Messages.md#USER_Events.Messages.instance") provide a
 high-level overview of pause and resume activity, such as the following:
 
 - When the instance begins to pause, and when it finishes pausing.

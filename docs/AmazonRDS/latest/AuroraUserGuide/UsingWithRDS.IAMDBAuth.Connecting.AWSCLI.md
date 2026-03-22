@@ -1,111 +1,125 @@
-# Connecting to your DB cluster using IAM authentication from the command line: AWS CLI and psql client
+# Connecting to your DB cluster using IAM authentication from the command line: AWS CLI and mysql client
 
-You can connect from the command line to an Aurora PostgreSQL DB cluster with the
-AWS CLI and psql command line tool as described following.
+You can connect from the command line to an
+Aurora DB cluster
+with the AWS CLI and `mysql` command line tool as described
+following.
 
 ###### Prerequisites
 
 The following are prerequisites for connecting to your DB cluster using IAM authentication:
 
-- [Enabling and disabling IAM database authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
-- [Creating and using an IAM policy for IAM database access](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
-- [Creating a database account using IAM authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
+- [Enabling and disabling IAM database authentication](UsingWithRDS.IAMDBAuth.Enabling.md "UsingWithRDS.IAMDBAuth.Enabling.md")
+- [Creating and using an IAM policy for IAM database access](UsingWithRDS.IAMDBAuth.IAMPolicy.md "UsingWithRDS.IAMDBAuth.IAMPolicy.md")
+- [Creating a database account using IAM authentication](UsingWithRDS.IAMDBAuth.DBAccounts.md "UsingWithRDS.IAMDBAuth.DBAccounts.md")
 
 ###### Note
 
-For information about connecting to your database using pgAdmin with IAM authentication,
-see the blog post [Using IAM authentication to connect with pgAdmin Amazon Aurora PostgreSQL or Amazon RDS for PostgreSQL](https://aws.amazon.com/blogs/database/using-iam-authentication-to-connect-with-pgadmin-amazon-aurora-postgresql-or-amazon-rds-for-postgresql/ "https://aws.amazon.com/blogs/database/using-iam-authentication-to-connect-with-pgadmin-amazon-aurora-postgresql-or-amazon-rds-for-postgresql/").
+For information about connecting to your database using SQL Workbench/J with IAM authentication,
+see the blog post [Use IAM authentication to connect with SQL Workbench/J to Aurora MySQL or Amazon RDS for MySQL](https://aws.amazon.com/blogs/database/use-iam-authentication-to-connect-with-sql-workbenchj-to-amazon-aurora-mysql-or-amazon-rds-for-mysql/ "https://aws.amazon.com/blogs/database/use-iam-authentication-to-connect-with-sql-workbenchj-to-amazon-aurora-mysql-or-amazon-rds-for-mysql/").
 
 ###### Topics
 
-- [Generating an IAM authentication token](#UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.AuthToken.PostgreSQL "#UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.AuthToken.PostgreSQL")
-- [Connecting to an Aurora PostgreSQL cluster](#UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.Connect.PostgreSQL "#UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.Connect.PostgreSQL")
+- [Generating an IAM authentication token](#UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.AuthToken "#UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.AuthToken")
+- [Connecting to a DB cluster](#UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.Connect "#UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.Connect")
 
 ## Generating an IAM authentication token
 
-The authentication token consists of several hundred characters so it can be
-unwieldy on the command line. One way to work around this is to save the token
-to an environment variable, and then use that variable when you connect. The
-following example shows how to use the AWS CLI to get a signed authentication
-token using the `generate-db-auth-token` command, and store it in a
-`PGPASSWORD` environment variable.
+The following example shows how to get a signed authentication token using the
+AWS CLI.
 
 ```
-export RDSHOST="`mypostgres-cluster.cluster-123456789012.us-west-2.rds.amazonaws.com`"
-export PGPASSWORD="$(aws rds generate-db-auth-token --hostname $RDSHOST --port `5432` --region `us-west-2` --username `jane_doe` )"
+aws rds generate-db-auth-token \
+   --hostname `rdsmysql.123456789012.us-west-2.rds.amazonaws.com` \
+   --port `3306` \
+   --region `us-west-2` \
+   --username `jane_doe`
 ```
 
-In the example, the parameters to the `generate-db-auth-token`
-command are as follows:
+In the example, the parameters are as follows:
 
-- `--hostname` – The host name of the DB cluster (cluster endpoint) that you want to access
-- `--port` – The port number used for connecting to
-  your DB cluster
+- `--hostname` – The host name of the DB
+  cluster that you want to access
+- `--port` – The port number used for connecting to your DB
+  cluster
 - `--region` – The AWS Region where the DB cluster is running
-- `--username` – The database account that you want to
-  access
+- `--username` – The database account that you want to access
 
-The first several characters of the generated token look like the
-following.
+The first several characters of the token look like the following.
 
 ```
-mypostgres-cluster.cluster-123456789012.us-west-2.rds.amazonaws.com:5432/?Action=connect&DBUser=jane_doe&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Expires=900...
-
+rdsmysql.123456789012.us-west-2.rds.amazonaws.com:3306/?Action=connect&DBUser=jane_doe&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Expires=900...
 ```
 
 ###### Note
 
-You cannot use a custom Route 53 DNS record or an
-Aurora custom endpoint instead of the DB cluster endpoint to generate the authentication token.
+You cannot use a custom Route 53 DNS record or an Aurora custom endpoint instead of the DB cluster endpoint to generate the authentication token.
 
-## Connecting to an Aurora PostgreSQL cluster
+## Connecting to a DB cluster
 
-The general format for using psql to connect is shown following.
+The general format for connecting is shown following.
 
 ```
-psql "host=`hostName` port=`portNumber` sslmode=verify-full sslrootcert=`full_path_to_ssl_certificate` dbname=`DBName` user=`userName` password=`authToken`"
+mysql --host=`hostName` --port=`portNumber` --ssl-ca=`full_path_to_ssl_certificate` --enable-cleartext-plugin --user=`userName` --password=`authToken`
 ```
 
 The parameters are as follows:
 
-- `host` – The host name of the DB cluster (cluster endpoint) that you want to access
-- `port` – The port number used for connecting to your
+- `--host` – The host name of the DB cluster that you want to access
+- `--port` – The port number used for connecting to your
   DB cluster
-- `sslmode` – The SSL mode to use
+- `--ssl-ca` – The full path to the SSL certificate file that contains the
+  public key
 
-When you use `sslmode=verify-full`, the SSL connection verifies the DB
-cluster endpoint against the endpoint in
-the SSL certificate.
+For more information, see [TLS connections to Aurora MySQL DB clusters](AuroraMySQL.Security.md#AuroraMySQL.Security.SSL "AuroraMySQL.Security.md#AuroraMySQL.Security.SSL").
 
-- `sslrootcert` – The full path to the SSL certificate file that
-  contains the public key
+To download an SSL certificate, see [Using SSL/TLS to encrypt a connection to a DB cluster](UsingWithRDS.SSL.md "UsingWithRDS.SSL.md").
 
-For more information, see [Securing Aurora PostgreSQL data with SSL/TLS](AuroraPostgreSQL.md#AuroraPostgreSQL.Security.SSL "AuroraPostgreSQL.md#AuroraPostgreSQL.Security.SSL").
+- `--enable-cleartext-plugin` – A value that specifies
+  that `AWSAuthenticationPlugin` must be used for this
+  connection
 
-To download an SSL certificate, see
-[Using SSL/TLS to encrypt a connection to a DB cluster](UsingWithRDS.md "UsingWithRDS.md").
+If you are using a MariaDB client, the `--enable-cleartext-plugin` option isn't required.
 
-- `dbname` – The database that you want to
+- `--user` – The database account that you want to
   access
-- `user` – The database account that you want to
-  access
-- `password` – A signed IAM authentication token
+- `--password` – A signed IAM authentication
+  token
 
-###### Note
-
-You cannot use a custom Route 53 DNS record or an
-Aurora custom endpoint instead of the DB cluster endpoint to generate the authentication token.
-
-The following example shows using psql to connect. In the example, psql uses
-the environment variable `RDSHOST` for the host and the environment variable `PGPASSWORD`
-for the generated token. Also, `/sample_dir/`
+The authentication token consists of several hundred characters. It can be
+unwieldy on the command line. One way to work around this is to save the token
+to an environment variable, and then use that variable when you connect. The
+following example shows one way to perform this workaround. In the example, `/sample_dir/`
 is the full path to the SSL certificate file that contains the public key.
 
 ```
-export RDSHOST="`mypostgres-cluster.cluster-123456789012.us-west-2.rds.amazonaws.com`"
-export PGPASSWORD="$(aws rds generate-db-auth-token --hostname $RDSHOST --port `5432` --region `us-west-2` --username `jane_doe` )"
 
-psql "host=$RDSHOST port=`5432` sslmode=verify-full sslrootcert=`/sample_dir/`global-bundle.pem dbname=`DBName` user=`jane_doe` password=$PGPASSWORD"
+RDSHOST="`mysqlcluster.cluster-123456789012.us-east-1.rds.amazonaws.com`"
+TOKEN="$(aws rds generate-db-auth-token --hostname $RDSHOST --port `3306` --region `us-west-2` --username `jane_doe` )"
+
+mysql --host=$RDSHOST --port=`3306` --ssl-ca=`/sample_dir/`global-bundle.pem --enable-cleartext-plugin --user=`jane_doe` --password=$TOKEN
+```
+
+When you connect using `AWSAuthenticationPlugin`, the connection is
+secured using SSL. To verify this, type the following at the `mysql>`
+command prompt.
+
+```
+show status like 'Ssl%';
+```
+
+The following lines in the output show more details.
+
+```
++---------------+-------------+
+| Variable_name | Value                                                                                                                                                                                                                                |
++---------------+-------------+
+| ...           | ...
+| Ssl_cipher    | AES256-SHA                                                                                                                                                                                                                           |
+| ...           | ...
+| Ssl_version   | TLSv1.1                                                                                                                                                                                                                              |
+| ...           | ...
++-----------------------------+
 ```
 
 If you want to connect to a DB cluster

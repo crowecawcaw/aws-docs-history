@@ -176,7 +176,7 @@ in the _AWS Managed Policy Reference Guide_.
 
 You can't attach the `AmazonRDSServiceRolePolicy` policy to your IAM
 entities. This policy is attached to a service-linked role that allows Amazon RDS to perform
-actions on your behalf. For more information, see [Service-linked role permissions for Amazon Aurora](UsingWithRDS.IAM.md#service-linked-role-permissions "UsingWithRDS.IAM.md#service-linked-role-permissions").
+actions on your behalf. For more information, see [Service-linked role permissions for Amazon Aurora](UsingWithRDS.IAM.ServiceLinkedRoles.md#service-linked-role-permissions "UsingWithRDS.IAM.ServiceLinkedRoles.md#service-linked-role-permissions").
 
 ## AWS managed policy: AmazonRDSPreviewServiceRolePolicy
 
@@ -184,7 +184,7 @@ You shouldn't attach
 `AmazonRDSPreviewServiceRolePolicy` to your IAM
 entities. This policy is attached to a service-linked role that allows Amazon RDS to
 call AWS services on behalf of your RDS DB resources. For more information, see
-[Service-linked role for Amazon RDS Preview](UsingWithRDS.IAM.md#slr-permissions-rdspreview "UsingWithRDS.IAM.md#slr-permissions-rdspreview").
+[Service-linked role for Amazon RDS Preview](UsingWithRDS.IAM.ServiceLinkedRoles.md#slr-permissions-rdspreview "UsingWithRDS.IAM.ServiceLinkedRoles.md#slr-permissions-rdspreview").
 
 **Permissions details**
 
@@ -204,7 +204,7 @@ in the _AWS Managed Policy Reference Guide_.
 You shouldn't attach `AmazonRDSBetaServiceRolePolicy` to your IAM
 entities. This policy is attached to a service-linked role that allows Amazon RDS to
 call AWS services on behalf of your RDS DB resources. For more information, see
-[Service-linked role permissions for Amazon RDS Beta](UsingWithRDS.IAM.md#slr-permissions-rdsbeta "UsingWithRDS.IAM.md#slr-permissions-rdsbeta").
+[Service-linked role permissions for Amazon RDS Beta](UsingWithRDS.IAM.ServiceLinkedRoles.md#slr-permissions-rdsbeta "UsingWithRDS.IAM.ServiceLinkedRoles.md#slr-permissions-rdsbeta").
 
 **Permissions details**
 

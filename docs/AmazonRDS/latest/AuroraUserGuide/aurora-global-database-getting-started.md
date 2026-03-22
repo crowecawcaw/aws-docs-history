@@ -3,7 +3,7 @@
 To get started with Aurora Global Database, first decide which Aurora DB engine you want to
 use and in which AWS Regions. Only specific versions of the Aurora MySQL and Aurora PostgreSQL
 database engines in certain AWS Regions support Aurora Global Database. For the complete
-list, see [Supported Regions and DB engines for Aurora global databases](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
+list, see [Supported Regions and DB engines for Aurora global databases](Concepts.Aurora_Fea_Regions_DB-eng.Feature.GlobalDatabase.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.GlobalDatabase.md").
 
 You can create an Aurora Global Database in one of the following ways:
 
@@ -24,8 +24,8 @@ Before creating an Aurora Global Database, we recommend that you understand all 
 
 ###### Topics
 
-- [Configuration requirements of an Amazon Aurora global database](aurora-global-database.configuration.md "aurora-global-database.configuration.md")
+- [Configuration requirements of an Amazon Aurora global database](aurora-global-database.configuration.requirements.md "aurora-global-database.configuration.requirements.md")
 - [Creating an Amazon Aurora global database](aurora-global-database-creating.md "aurora-global-database-creating.md")
 - [Adding an AWS Region to an Amazon Aurora global database](aurora-global-database-attaching.md "aurora-global-database-attaching.md")
-- [Creating a headless Aurora DB cluster in a secondary Region](aurora-global-database-attach.console.md "aurora-global-database-attach.console.md")
-- [Creating an Amazon Aurora global database from an Aurora or Amazon RDS snapshot](aurora-global-database.md "aurora-global-database.md")
+- [Creating a headless Aurora DB cluster in a secondary Region](aurora-global-database-attach.console.headless.md "aurora-global-database-attach.console.headless.md")
+- [Creating an Amazon Aurora global database from an Aurora or Amazon RDS snapshot](aurora-global-database.use-snapshot.md "aurora-global-database.use-snapshot.md")

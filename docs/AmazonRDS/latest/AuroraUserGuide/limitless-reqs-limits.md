@@ -20,12 +20,9 @@ If you create your Aurora PostgreSQL Limitless Database DB cluster in US East (N
 (AZ) in your DB subnet group. Because of resource limitations, Aurora Serverless v2 (and therefore
 Aurora PostgreSQL Limitless Database) isn't supported in the `us-east-1e` AZ.
 
-- Aurora PostgreSQL Limitless Database supports only the Aurora I/O-Optimized DB cluster storage configuration. For more information, see [Storage configurations for Amazon Aurora DB clusters](Aurora.Overview.md#aurora-storage-type "Aurora.Overview.md#aurora-storage-type").
-- Aurora PostgreSQL Limitless Database uses special Aurora PostgreSQL DB engine versions for Aurora PostgreSQL Limitless Database:
-  - `16.6.8-limitless`
-  - `16.6-limitless`
-  - `16.4-limitless`
-
+- Aurora PostgreSQL Limitless Database supports only the Aurora I/O-Optimized DB cluster storage configuration. For more information, see [Storage configurations for Amazon Aurora DB clusters](Aurora.Overview.StorageReliability.md#aurora-storage-type "Aurora.Overview.StorageReliability.md#aurora-storage-type").
+- Aurora PostgreSQL Limitless Database uses special Aurora PostgreSQL DB engine versions for Aurora PostgreSQL Limitless Database: `16.X-limitless`.
+  See also [Available Aurora PostgreSQL Limitless Database Versions](../AuroraPostgreSQLReleaseNotes/limitless-updates.md "../AuroraPostgreSQLReleaseNotes/limitless-updates.md")
 - Your DB cluster can't have any writer or reader DB instances.
 - You must use Enhanced Monitoring and Performance Insights. The Performance Insights retention time must be at least 1 month (31 days).
 - You must export the PostgreSQL log to Amazon CloudWatch Logs.
@@ -66,7 +63,7 @@ To change a shard key, delete and then re-create it.
 - The repeatable read, read committed, and read uncommitted isolation levels are supported. You can't set the isolation level to
   serializable.
 - Some SQL commands aren't supported. For more information, see [Aurora PostgreSQL Limitless Database reference](limitless-reference.md "limitless-reference.md").
-- Not all PostgreSQL extensions are supported. For more information, see [Extensions](limitless-reference.md#limitless-reference.DDL-limitations.Extensions "limitless-reference.md#limitless-reference.DDL-limitations.Extensions").
+- Not all PostgreSQL extensions are supported. For more information, see [Extensions](limitless-reference.DDL-limitations.md#limitless-reference.DDL-limitations.Extensions "limitless-reference.DDL-limitations.md#limitless-reference.DDL-limitations.Extensions").
 - When creating a shard group, or when adding new shard group nodes (shards or routers), those nodes are created in one of the Availability
   Zones (AZs) available to the DB cluster. You can't choose a specific AZ for individual nodes.
 - If you use a compute redundancy of 2 (two compute standbys for the DB shard group), make sure that your DB subnet group has at least three

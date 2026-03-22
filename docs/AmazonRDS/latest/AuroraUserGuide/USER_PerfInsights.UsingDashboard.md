@@ -1,30 +1,32 @@
-# Adding tags to a performance analysis report in Performance Insights
+# Analyzing metrics with the Performance Insights dashboard
 
-You can add a tag when you create or view a report. You can add up to 50 tags for a report.
+###### Important
 
-You need permissions to add the tags. For more information about the access policies for Performance Insights, see
-[Configuring access policies for Performance Insights](USER_PerfInsights.md "USER_PerfInsights.md")
+AWS has announced the end-of-life date for Performance Insights: June 30, 2026. After this date, Amazon RDS will no longer support the Performance Insights console experience,
+flexible retention periods (1-24 months), and their associated pricing. The Performance Insights API will continue to exist with no pricing changes. Costs for the
+Performance Insights API will appear in your AWS bill with the cost of CloudWatch Database Insights.
 
-To add one or more tags while creating a report, see step 6 in the procedure
-[Creating a performance analysis report in Performance Insights](USER_PerfInsights.UsingDashboard.md "USER_PerfInsights.UsingDashboard.md").
+We recommend that you upgrade any DB clusters
+using the paid tier of Performance Insights to the Advanced mode of Database Insights before June 30, 2026.
+For information about upgrading to the Advanced mode of Database Insights, see
+[Turning on the Advanced mode of Database Insights for Amazon Aurora](USER_DatabaseInsights.TurningOnAdvanced.md "USER_DatabaseInsights.TurningOnAdvanced.md").
 
-###### To add one or more tags when viewing a report
+If you take no action, DB clusters using Performance Insights
+will default to using the Standard mode of Database Insights. With Standard mode of Database Insights, you might lose access to performance data history beyond 7 days and might not be able to use execution plans
+and on-demand analysis features in the Amazon RDS console. After June 30, 2026 only the Advanced mode of Database Insights will support execution plans and on-demand analysis.
 
-1. Open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the left navigation pane, choose **Performance Insights**.
-3. Choose a DB instance.
+With CloudWatch Database Insights, you can monitor database load for your fleet of databases and analyze and troubleshoot performance at scale.
+For more information about Database Insights, see [Monitoring Amazon Aurora databases with CloudWatch Database Insights](USER_DatabaseInsights.md "USER_DatabaseInsights.md").
+For pricing information, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
 
-The Performance Insights dashboard appears for the DB instance. 4. Scroll down and choose **Performance analysis reports - new** tab. 5. Choose the report for which you want to add the tags.
+The Performance Insights dashboard contains database performance information to help you analyze and troubleshoot
+performance issues. On the main dashboard page, you can view information about the database load. You can "slice" DB
+load by dimensions such as wait events or SQL.
 
-The dashboard displays the report. 6. Scroll down to **Tags** and choose **Manage tags**. 7. Choose **Add new tag**. 8. Enter the **Key** and **Value - _optional_**,
-and choose **Add new tag**.
+###### Performance Insights dashboard
 
-The following example provides the option to add a new tag for the selected report.
-
-![Manage Tags window to add new tags to the report](images/PI_AddTag_ManageTags.png)
-
-A new tag is created for the report.
-
-The list of tags for the report is displayed in the **Tags** section on the dashboard.
-If you want to remove a tag from the report, choose **Remove** next to the tag.
+- [Overview of the Performance Insights dashboard](USER_PerfInsights.UsingDashboard.Components.md "USER_PerfInsights.UsingDashboard.Components.md")
+- [Accessing the Performance Insights dashboard](USER_PerfInsights.UsingDashboard.Opening.md "USER_PerfInsights.UsingDashboard.Opening.md")
+- [Analyzing DB load by wait events](USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.md "USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.md")
+- [Analyzing database performance for a period of time](USER_PerfInsights.UsingDashboard.AnalyzePerformanceTimePeriod.md "USER_PerfInsights.UsingDashboard.AnalyzePerformanceTimePeriod.md")
+- [Analyzing queries with the Top SQL tab in Performance Insights](USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.md "USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.md")

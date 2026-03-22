@@ -27,7 +27,7 @@ through the interface endpoint, associate a security group with the endpoint net
 Performance Insights API currently supports VPC endpoints in AWS Regions that support Performance Insights.
 For information about Performance Insights availability,
 see
-[Supported Regions and Aurora DB engines for Performance Insights](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
+[Supported Regions and Aurora DB engines for Performance Insights](Concepts.Aurora_Fea_Regions_DB-eng.Feature.PerfInsights.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.PerfInsights.md").
 
 ## Create an interface endpoint for Performance Insights
 
@@ -119,4 +119,4 @@ You can standardize on the IPv6 protocol for Amazon RDS resources to simplify yo
 see [Amazon Relational Database Service endpoints and quotas](../../../general/latest/gr/rds-service.md "../../../general/latest/gr/rds-service.md").
 
 For more information about Aurora IP addressing, see
-[Aurora IP addressing](USER_VPC.md#USER_VPC.IP_addressing "USER_VPC.md#USER_VPC.IP_addressing").
+[Aurora IP addressing](USER_VPC.WorkingWithRDSInstanceinaVPC.md#USER_VPC.IP_addressing "USER_VPC.WorkingWithRDSInstanceinaVPC.md#USER_VPC.IP_addressing").

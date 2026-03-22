@@ -13,14 +13,14 @@ depending on the minor engine version. For more information, see [Patch level co
 When you perform a major version upgrade of an Amazon Aurora global database, you upgrade
 the global database cluster instead the individual clusters that it contains.
 
-To learn how to upgrade an Aurora PostgreSQL global database to a higher major version, see [Major upgrades for global databases](USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.PostgreSQL.GlobalDB "USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.PostgreSQL.GlobalDB").
+To learn how to upgrade an Aurora PostgreSQL global database to a higher major version, see [Major upgrades for global databases](USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md#USER_UpgradeDBInstance.PostgreSQL.GlobalDB "USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md#USER_UpgradeDBInstance.PostgreSQL.GlobalDB").
 
 ###### Note
 
 With an Aurora global database based on Aurora PostgreSQL, you can't perform a major version upgrade of the Aurora DB
 engine if the recovery point objective (RPO) feature is turned on. For information about the RPO feature, see [Managing RPOs for Aurora PostgreSQL–based global databases](aurora-global-database-disaster-recovery.md#aurora-global-database-manage-recovery "aurora-global-database-disaster-recovery.md#aurora-global-database-manage-recovery").
 
-To learn how to upgrade an Aurora MySQL global database to a higher major version, see [In-place major upgrades for global databases](AuroraMySQL.Upgrading.md#AuroraMySQL.Upgrading.GlobalDB "AuroraMySQL.Upgrading.md#AuroraMySQL.Upgrading.GlobalDB").
+To learn how to upgrade an Aurora MySQL global database to a higher major version, see [In-place major upgrades for global databases](AuroraMySQL.Upgrading.Procedure.md#AuroraMySQL.Upgrading.GlobalDB "AuroraMySQL.Upgrading.Procedure.md#AuroraMySQL.Upgrading.GlobalDB").
 
 ###### Note
 
@@ -32,7 +32,7 @@ following process:
 
 1. Remove all secondary Regions from the global cluster. Follow the steps in [Removing a cluster from an Amazon Aurora global database](aurora-global-database-detaching.md "aurora-global-database-detaching.md").
 2. Upgrade the engine version of the primary Region to
-   Aurora MySQL version 3. Follow the steps in [How to perform an in-place upgrade](AuroraMySQL.Upgrading.md "AuroraMySQL.Upgrading.md").
+   Aurora MySQL version 3. Follow the steps in [How to perform an in-place upgrade](AuroraMySQL.Upgrading.Procedure.md "AuroraMySQL.Upgrading.Procedure.md").
 3. Add secondary Regions to the global cluster. Follow the steps in [Adding an AWS Region to an Amazon Aurora global database](aurora-global-database-attaching.md "aurora-global-database-attaching.md").
    You can also use the snapshot restore method instead. For more information, see [Restoring from a DB cluster snapshot](aurora-restore-snapshot.md "aurora-restore-snapshot.md").
 
@@ -74,11 +74,11 @@ When planning a minor version upgrade for your global database, consider the fol
 - The managed capability is supported only for Aurora PostgreSQL global clusters.
 
 You can upgrade each cluster in your global cluster topology individually. If you choose this approach, upgrade all secondary clusters before upgrading the primary cluster. When upgrading, ensure your primary and secondary DB clusters are upgraded to the same minor version and patch level. To update the patch level, apply all pending maintenance actions on the secondary cluster. To learn how to upgrade an Aurora PostgreSQL global database to a higher minor version, see
-[How to perform minor version upgrades and apply patches](USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.PostgreSQL.Minor "USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.PostgreSQL.Minor").
+[How to perform minor version upgrades and apply patches](USER_UpgradeDBInstance.PostgreSQL.MinorUpgrade.md#USER_UpgradeDBInstance.PostgreSQL.Minor "USER_UpgradeDBInstance.PostgreSQL.MinorUpgrade.md#USER_UpgradeDBInstance.PostgreSQL.Minor").
 
 ### Minor version upgrades for Aurora MySQL global database
 
-To learn how to upgrade an Aurora MySQL global database to a higher minor version, see [Upgrading Aurora MySQL by modifying the engine version](AuroraMySQL.Updates.Patching.md "AuroraMySQL.Updates.Patching.md").
+To learn how to upgrade an Aurora MySQL global database to a higher minor version, see [Upgrading Aurora MySQL by modifying the engine version](AuroraMySQL.Updates.Patching.ModifyEngineVersion.md "AuroraMySQL.Updates.Patching.ModifyEngineVersion.md").
 
 Before you perform the upgrade, review the following considerations:
 

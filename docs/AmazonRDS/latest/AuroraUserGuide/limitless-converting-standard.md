@@ -41,7 +41,7 @@ All primary and unique keys must include the shard key. This means that the shar
 
 In sharded tables, the `CHECK` constraint doesn't support expressions.
 
-For more information, see [Constraints](limitless-reference.md#limitless-reference.DDL-limitations.Constraints "limitless-reference.md#limitless-reference.DDL-limitations.Constraints").
+For more information, see [Constraints](limitless-reference.DDL-limitations.md#limitless-reference.DDL-limitations.Constraints "limitless-reference.DDL-limitations.md#limitless-reference.DDL-limitations.Constraints").
 
 ###### To create a sharded table
 

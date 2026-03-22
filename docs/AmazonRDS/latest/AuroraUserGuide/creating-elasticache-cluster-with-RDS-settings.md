@@ -69,7 +69,7 @@ settings for inherited from the DB cluster.
 
 ###### Create an ElastiCache cache with settings from a DB cluster
 
-1. To create a DB cluster, follow the instructions in [Creating an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
+1. To create a DB cluster, follow the instructions in [Creating an Amazon Aurora DB cluster](Aurora.CreateInstance.md "Aurora.CreateInstance.md").
 2. After creating an Aurora DB cluster, the console displays the
    **Suggested add-ons** window. Select **Create an
    ElastiCache cluster from RDS using your DB settings**.
@@ -88,7 +88,7 @@ and Redis OSS](../../../AmazonElastiCache/latest/red-ug/SelectEngine.md "../../.
 ![Choose cluster type and deployement option.](images/EC-RDS-Config.png) 4. After this, choose whether you want to create a **Serverless
 cache** or **Design your own cache**. For more
 information, see [Choosing
-between deployment options](../../../AmazonElastiCache/latest/red-ug/WhatIs.md "../../../AmazonElastiCache/latest/red-ug/WhatIs.md").
+between deployment options](../../../AmazonElastiCache/latest/red-ug/WhatIs.deployment.md "../../../AmazonElastiCache/latest/red-ug/WhatIs.deployment.md").
 
 If you choose **Serverless cache**:
 
@@ -105,7 +105,7 @@ If you choose **Serverless cache**:
    1. If you chose **Redis OSS cluster**, choose whether you
       want to keep the cluster mode **Enabled** or
       **Disabled**. For more information, see [Replication: Redis OSS (Cluster Mode Disabled) vs. Redis OSS (Cluster Mode
-      Enabled)](../../../AmazonElastiCache/latest/red-ug/Replication.md "../../../AmazonElastiCache/latest/red-ug/Replication.md").
+      Enabled)](../../../AmazonElastiCache/latest/red-ug/Replication.Redis-RedisCluster.md "../../../AmazonElastiCache/latest/red-ug/Replication.Redis-RedisCluster.md").
    2. Enter values for **Name**,
       **Description**, and **Engine
       version**.

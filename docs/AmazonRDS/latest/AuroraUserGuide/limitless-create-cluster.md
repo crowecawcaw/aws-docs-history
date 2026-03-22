@@ -60,7 +60,7 @@ The **Create database** page displays. 3. For **Engine type**, choose **Aurora (
      You don't set the capacity range separately for the standbys.
      Therefore, ACU usage and bill correspondingly doubles and triples.
      To know the exact ACU usage incurred from compute redundancy, refer to the `DBShardGroupComputeRedundancyCapacity` metric in
-     [DBShardGroup metrics](limitless-monitoring.md#limitless-monitoring.cw.DBShardGroup "limitless-monitoring.md#limitless-monitoring.cw.DBShardGroup").
+     [DBShardGroup metrics](limitless-monitoring.cw.md#limitless-monitoring.cw.DBShardGroup "limitless-monitoring.cw.md#limitless-monitoring.cw.DBShardGroup").
     4. Choose whether to make the DB shard group publicly accessible.
 
 
@@ -89,7 +89,7 @@ The **Create database** page displays. 3. For **Engine type**, choose **Aurora (
 8. For **Monitoring**, make sure that the **Turn on Performance Insights** and **Enable Enhanced Monitoring**
    check boxes are selected.
 
-For Performance Insights, choose a retention time of at least 1 month. 9. Expand the last **Additional configuration** on the page. 10. For **Log exports**, make sure that the **PostgreSQL log** check box is selected. 11. Specify other settings as needed. For more information, see [Settings for Aurora DB clusters](Aurora.md#Aurora.CreateInstance.Settings "Aurora.md#Aurora.CreateInstance.Settings"). 12. Choose **Create database**.
+For Performance Insights, choose a retention time of at least 1 month. 9. Expand the last **Additional configuration** on the page. 10. For **Log exports**, make sure that the **PostgreSQL log** check box is selected. 11. Specify other settings as needed. For more information, see [Settings for Aurora DB clusters](Aurora.CreateInstance.md#Aurora.CreateInstance.Settings "Aurora.CreateInstance.md#Aurora.CreateInstance.Settings"). 12. Choose **Create database**.
 After the primary DB cluster and DB shard group are created, they're displayed on the **Databases** page.
 
 ![Aurora PostgreSQL Limitless Database primary DB cluster and DB shard group.](images/limitless_cluster_164.png)

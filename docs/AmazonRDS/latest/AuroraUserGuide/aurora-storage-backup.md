@@ -44,7 +44,7 @@ a manual snapshot is outside this period, it incurs charges per GB-month. Automa
 system snapshots remain free unless you copy them. Because automated backups don’t cover
 snapshot copies, AWS always bills for them.
 
-For general information about Aurora backups, see [Backups](Aurora.Managing.md#Aurora.Managing.Backups.Backup "Aurora.Managing.md#Aurora.Managing.Backups.Backup"). For information about pricing for Aurora backup storage, see the [Amazon Aurora pricing](https://aws.amazon.com/rds/aurora/pricing "https://aws.amazon.com/rds/aurora/pricing") page.
+For general information about Aurora backups, see [Backups](Aurora.Managing.Backups.md#Aurora.Managing.Backups.Backup "Aurora.Managing.Backups.md#Aurora.Managing.Backups.Backup"). For information about pricing for Aurora backup storage, see the [Amazon Aurora pricing](https://aws.amazon.com/rds/aurora/pricing "https://aws.amazon.com/rds/aurora/pricing") page.
 
 ## Amazon CloudWatch metrics for Aurora backup storage
 
@@ -97,7 +97,7 @@ backups. These metrics are computed independently for each Aurora DB cluster.
      usage with the billed automated backup usage, to give your total billed
      backup usage.
 
-For more information about how to use CloudWatch metrics, see [Availability of Aurora metrics in the Amazon RDS console](Aurora.Monitoring.Metrics.md "Aurora.Monitoring.Metrics.md").
+For more information about how to use CloudWatch metrics, see [Availability of Aurora metrics in the Amazon RDS console](Aurora.Monitoring.Metrics.RDSAvailability.md "Aurora.Monitoring.Metrics.RDSAvailability.md").
 
 ## Calculating backup storage usage
 

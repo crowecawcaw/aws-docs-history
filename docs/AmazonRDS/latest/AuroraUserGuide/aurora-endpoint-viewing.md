@@ -114,4 +114,4 @@ accommodate new instances as you add them to the cluster.
 
 ```
 
-To view custom endpoints with the RDS API, run the [DescribeDBClusterEndpoints.html](../APIReference/API_DescribeDBClusterEndpoints.md "../APIReference/API_DescribeDBClusterEndpoints.md") operation.
+To view custom endpoints with the RDS API, run the [DescribeDBClusterEndpoints.html](../APIReference/API_DescribeDBClusterEndpoints.html.md "../APIReference/API_DescribeDBClusterEndpoints.html.md") operation.

@@ -46,7 +46,7 @@ DB instance.
 
 Aurora also supports replication options that are specific to Aurora MySQL and Aurora PostgreSQL.
 
-For more information, see [Replication with Amazon Aurora](Aurora.md "Aurora.md").
+For more information, see [Replication with Amazon Aurora](Aurora.Replication.md "Aurora.Replication.md").
 
 ## Failover
 
@@ -60,4 +60,4 @@ latency spikes during system backups. Running a DB cluster with high availabilit
 enhance availability during planned system maintenance, and help protect your databases
 against failure and Availability Zone disruption.
 
-For more information, see [High availability for Amazon Aurora](Concepts.md "Concepts.md").
+For more information, see [High availability for Amazon Aurora](Concepts.AuroraHighAvailability.md "Concepts.AuroraHighAvailability.md").

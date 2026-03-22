@@ -1,29 +1,49 @@
-# Stopping binary log replication for Aurora MySQL
+# Replication between Aurora and MySQL or between Aurora and another Aurora DB cluster (binary log replication)
 
-To stop binary log replication with a MySQL DB instance, external MySQL database, or another Aurora DB cluster, follow
-these steps, discussed in detail following in this topic.
+Because Amazon Aurora MySQL is compatible with MySQL, you can set up replication between a MySQL database and an Amazon Aurora MySQL DB
+cluster. This type of replication uses the MySQL binary log replication, also referred to as _binlog
+replication_. If you use binary log replication with Aurora, we recommend that your MySQL database run MySQL
+version 5.5 or later. You can set up replication where your Aurora MySQL DB cluster is the replication source or the replica. You
+can replicate with an Amazon RDS MySQL DB instance, a MySQL database external to Amazon RDS, or another Aurora MySQL DB cluster.
 
-[1. Stop binary log replication on the replica target](#AuroraMySQL.Replication.MySQL.Stopping.StopReplication "#AuroraMySQL.Replication.MySQL.Stopping.StopReplication")
+###### Note
 
-[2. Turn off binary logging on the replication source](#AuroraMySQL.Replication.MySQL.Stopping.DisableBinaryLogging "#AuroraMySQL.Replication.MySQL.Stopping.DisableBinaryLogging")
+You can't use binlog replication to or from certain types of Aurora DB clusters. In particular, binlog replication
+isn't available for Aurora Serverless v1 clusters. If the `SHOW MASTER STATUS` and `SHOW
+ SLAVE STATUS` (Aurora MySQL version 2) or `SHOW REPLICA STATUS` (Aurora MySQL version 3) statement returns
+no output, check that the cluster you're using supports binlog replication.
 
-## 1. Stop binary log replication on the replica target
+You can also replicate with an RDS for MySQL DB instance or Aurora MySQL DB cluster in
+another AWS Region. When you're performing replication across AWS Regions, make sure
+that your DB clusters and DB instances are publicly accessible. If the Aurora MySQL DB
+clusters are in private subnets in your VPC, use VPC peering between the AWS Regions.
+For more information, see [A DB cluster in a VPC accessed by an EC2 instance in a different VPC](USER_VPC.Scenarios.md#USER_VPC.Scenario3 "USER_VPC.Scenarios.md#USER_VPC.Scenario3").
 
-Use the following instructions to stop binary log replication for your database engine.
+If you want to configure replication between an Aurora MySQL DB cluster and an Aurora MySQL DB cluster in another AWS Region,
+you can create an Aurora MySQL DB cluster as a read replica in a different AWS Region from the source DB cluster. For more
+information, see [Replicating Amazon Aurora MySQL DB clusters across AWS Regions](AuroraMySQL.Replication.CrossRegion.md "AuroraMySQL.Replication.CrossRegion.md").
 
-| Database engine  | Instructions                                                                                                                                                                                                                                                                                                                             |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Aurora MySQL     | **To stop binary log replication on an Aurora MySQL DB cluster replica<br>target**<br>Connect to the Aurora DB cluster that is the replica<br>target, and call the [mysql.rds_stop_replication](mysql-stored-proc-replicating.md#mysql_rds_stop_replication "mysql-stored-proc-replicating.md#mysql_rds_stop_replication")<br>procedure. |
-| RDS for MySQL    | **To stop binary log replication on an Amazon RDS DB instance**<br>Connect to the RDS DB instance that is the replica target and call the [mysql.rds_stop_replication](mysql-stored-proc-replicating.md#mysql_rds_stop_replication "mysql-stored-proc-replicating.md#mysql_rds_stop_replication")<br>procedure.                          |
-| MySQL (external) | **To stop binary log replication on an external MySQL<br>database**<br>Connect to the MySQL database and run the `STOP SLAVE` (version 5.7) or `STOP<br>REPLICA` (version 8.0) command.                                                                                                                                                  |
+With Aurora MySQL version 2 and 3, you can replicate between Aurora MySQL and an external source or target that uses global
+transaction identifiers (GTIDs) for replication. Ensure that the GTID-related parameters in the Aurora MySQL DB cluster have
+settings that are compatible with the GTID status of the external database. To learn how to do this, see [Using GTID-based replication](mysql-replication-gtid.md "mysql-replication-gtid.md"). In Aurora MySQL version 3.01 and higher, you can
+choose how to assign GTIDs to transactions that are replicated from a source that doesn't use GTIDs. For information about
+the stored procedure that controls that setting, see [mysql.rds_assign_gtids_to_anonymous_transactions (Aurora MySQL version 3)](mysql-stored-proc-gtid.md#mysql_assign_gtids_to_anonymous_transactions "mysql-stored-proc-gtid.md#mysql_assign_gtids_to_anonymous_transactions").
 
-## 2. Turn off binary logging on the replication source
+###### Warning
 
-Use the instructions in the following table to turn off binary logging on the replication source for your database
-engine.
+When you replicate between Aurora MySQL and MySQL, make sure that you use only InnoDB tables. If you have MyISAM tables
+that you want to replicate, you can convert them to InnoDB before setting up replication with the following command.
 
-| Database engine  | Instructions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Aurora MySQL     | **To turn off binary logging on an<br>Amazon Aurora DB cluster**<br>1. Connect to the Aurora DB cluster that is the replication source.<br>2. Use the [mysql.rds_set_configuration](mysql-stored-proc-configuring.md#mysql_rds_set_configuration "mysql-stored-proc-configuring.md#mysql_rds_set_configuration") procedure and specify the configuration<br>parameter `binlog retention hours`, with the value `NULL`, as shown in<br>the following example.<br>`<br>CALL mysql.rds_set_configuration('binlog retention hours', NULL);<br>`<br>NoteYou can't use the value `0` for `binlog retention hours`.<br>3. Set the `binlog_format` parameter to `OFF` on the replication<br>source. The `binlog_format` parameter is in the custom DB cluster parameter group<br>associated with your DB cluster.<br>After you've changed the `binlog_format` parameter value, reboot your DB<br>cluster for the change to take effect.<br>For more information, see [Amazon Aurora DB cluster and DB instance parameters](USER_WorkingWithDBClusterParamGroups.md#Aurora.Managing.ParameterGroups "USER_WorkingWithDBClusterParamGroups.md#Aurora.Managing.ParameterGroups") and [Modifying parameters in a DB parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). |
-| RDS for MySQL    | **To turn off binary logging on an Amazon RDS DB instance**<br>You can't turn off binary logging directly for an Amazon RDS DB instance, but you can turn it off by<br>doing the following:<br>1. Turn off automated backups for the DB instance. You can turn off automated backups by<br>modifying an existing DB instance and setting the \*_Backup Retention<br>Period_<br>• to 0. For more information, see [Modifying an Amazon RDS DB<br>instance](../UserGuide/Overview.DBInstance.md "../UserGuide/Overview.DBInstance.md") and [Working with backups](../UserGuide/USER_WorkingWithAutomatedBackups.md "../UserGuide/USER_WorkingWithAutomatedBackups.md") in the _Amazon Relational Database Service User<br>Guide_.<br>2. Delete all read replicas for the DB instance. For more information, see [Working with read replicas of MariaDB, MySQL, and<br>PostgreSQL DB instances](../UserGuide/USER_ReadRepl.md "../UserGuide/USER_ReadRepl.md") in the _Amazon Relational Database Service User<br>Guide_.                                                                                                                                                                                                                                                                                      |
-| MySQL (external) | **To turn off binary logging on an external MySQL database**<br>Connect to the MySQL database and call the `STOP REPLICATION` command.<br>1. From a command shell, stop the `mysqld` service,<br>`<br>sudo service mysqld stop<br>`<br>2. Edit the `my.cnf` file (this file is usually under `/etc`).<br>`<br>sudo vi /etc/my.cnf<br>`<br>Delete the `log_bin` and `server_id` options from the<br>`[mysqld]` section.<br>For more information, see [Setting the replication source configuration](http://dev.mysql.com/doc/refman/8.0/en/replication-howto-masterbaseconfig.html "http://dev.mysql.com/doc/refman/8.0/en/replication-howto-masterbaseconfig.html") in the MySQL<br>documentation.<br>3. Start the mysql service.<br>`<br>sudo service mysqld start<br>`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+```
+alter table <schema>.<table_name> engine=innodb, algorithm=copy;
+```
+
+In the following sections, set up replication, stop replication, scale reads for your database, optimize binlog replication, and set up enhanced binlog.
+
+###### Topics
+
+- [Setting up binary log replication for Aurora MySQL](AuroraMySQL.Replication.MySQL.SettingUp.md "AuroraMySQL.Replication.MySQL.SettingUp.md")
+- [Stopping binary log replication for Aurora MySQL](AuroraMySQL.Replication.MySQL.Stopping.md "AuroraMySQL.Replication.MySQL.Stopping.md")
+- [Scaling reads for your MySQL database with Amazon Aurora](AuroraMySQL.Replication.ReadScaling.md "AuroraMySQL.Replication.ReadScaling.md")
+- [Optimizing binary log replication for Aurora MySQL](binlog-optimization.md "binlog-optimization.md")
+- [Setting up enhanced binlog for Aurora MySQL](AuroraMySQL.Enhanced.binlog.md "AuroraMySQL.Enhanced.binlog.md")

@@ -9,7 +9,7 @@ Babelfish and PostgreSQL databases.
 - [Getting information from the Babelfish system catalog](babelfish-query-database.md "babelfish-query-database.md")
 - [Managing permissions and access control in Babelfish for Aurora PostgreSQL](babelfish-permissions.md "babelfish-permissions.md")
 - [Differences between Babelfish for Aurora PostgreSQL and SQL Server](babelfish-compatibility.md "babelfish-compatibility.md")
-- [Using Babelfish features with limited implementation](babelfish-compatibility.tsql.md "babelfish-compatibility.tsql.md")
+- [Using Babelfish features with limited implementation](babelfish-compatibility.tsql.limited-implementation.md "babelfish-compatibility.tsql.limited-implementation.md")
 - [Improving Babelfish query performance](babelfish-query-performance.md "babelfish-query-performance.md")
 - [Using Aurora PostgreSQL extensions with Babelfish](babelfish-postgres-aws-extensions.md "babelfish-postgres-aws-extensions.md")
 - [Babelfish supports linked servers](babelfish-postgres-linkedservers.md "babelfish-postgres-linkedservers.md")

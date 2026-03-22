@@ -19,7 +19,7 @@ integrates with Secrets Manager to manage master user passwords for your DB clus
 
 Feature availability and support varies across specific versions of each database engine and
 across AWS Regions. For more information about version and Region availability with
-Secrets Manager integration with Amazon Aurora, see [Supported Regions and Aurora DB engines for Secrets Manager integration](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
+Secrets Manager integration with Amazon Aurora, see [Supported Regions and Aurora DB engines for Secrets Manager integration](Concepts.Aurora_Fea_Regions_DB-eng.Feature.SecretsManager.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.SecretsManager.md").
 
 ## Limitations for Secrets Manager integration with Amazon Aurora
 
@@ -93,7 +93,7 @@ Users must have the required permissions to perform operations related to Secret
 You can create IAM policies that grant permissions to perform specific
 API operations on the specified resources they need. You can then attach those policies
 to the IAM permission sets or roles that require those permissions. For more
-information, see [Identity and access management for Amazon Aurora](UsingWithRDS.md "UsingWithRDS.md").
+information, see [Identity and access management for Amazon Aurora](UsingWithRDS.IAM.md "UsingWithRDS.IAM.md").
 
 For create, modify, or restore operations, the user who specifies that
 Aurora
@@ -157,28 +157,28 @@ To prevent this, include `rds:ModifyDBInstance`,
 `rds:ModifyDBCluster` in the action block of the policy. Be aware,
 this prevents the user from applying any further modifications to existing clusters that don't have Secrets Manager integration enabled.
 
-For more information about using condition keys in IAM policies, see [Policy condition keys for Aurora](security_iam_service-with-iam.md#UsingWithRDS.IAM.Conditions "security_iam_service-with-iam.md#UsingWithRDS.IAM.Conditions") and [Example policies: Using condition keys](UsingWithRDS.IAM.Conditions.md "UsingWithRDS.IAM.Conditions.md").
+For more information about using condition keys in IAM policies, see [Policy condition keys for Aurora](security_iam_service-with-iam.md#UsingWithRDS.IAM.Conditions "security_iam_service-with-iam.md#UsingWithRDS.IAM.Conditions") and [Example policies: Using condition keys](UsingWithRDS.IAM.Conditions.Examples.md "UsingWithRDS.IAM.Conditions.Examples.md").
 
 ## Managing the master user password for a DB cluster with Secrets Manager
 
 You can configure Aurora
 management of the master user password in Secrets Manager when you perform the following actions:
 
-- [Creating an Amazon Aurora DB cluster](Aurora.md "Aurora.md")
-- [Modifying an Amazon Aurora DB cluster](Aurora.md "Aurora.md")
-- [Migrating data from an external MySQL database to an Amazon Aurora MySQL DB cluster](AuroraMySQL.Migrating.md "AuroraMySQL.Migrating.md")
+- [Creating an Amazon Aurora DB cluster](Aurora.CreateInstance.md "Aurora.CreateInstance.md")
+- [Modifying an Amazon Aurora DB cluster](Aurora.Modifying.md "Aurora.Modifying.md")
+- [Migrating data from an external MySQL database to an Amazon Aurora MySQL DB cluster](AuroraMySQL.Migrating.ExtMySQL.md "AuroraMySQL.Migrating.ExtMySQL.md")
 
 You can use the RDS console, the AWS CLI, or the RDS API to perform these actions.
 
 Follow the instructions for creating or modifying a DB cluster with the RDS console:
 
-- [Creating a DB cluster](Aurora.md#Aurora.CreateInstance.Creating "Aurora.md#Aurora.CreateInstance.Creating")
-- [Modifying a DB instance in a DB cluster](Aurora.md#Aurora.Modifying.Instance "Aurora.md#Aurora.Modifying.Instance")
+- [Creating a DB cluster](Aurora.CreateInstance.md#Aurora.CreateInstance.Creating "Aurora.CreateInstance.md#Aurora.CreateInstance.Creating")
+- [Modifying a DB instance in a DB cluster](Aurora.Modifying.md#Aurora.Modifying.Instance "Aurora.Modifying.md#Aurora.Modifying.Instance")
 
 In the RDS console, you can modify any DB instance to specify the master user password management settings
 for the entire DB cluster.
 
-- [Restoring an Amazon Aurora MySQL DB cluster from an Amazon S3 bucket](AuroraMySQL.Migrating.ExtMySQL.md#AuroraMySQL.Migrating.ExtMySQL.S3.Restore "AuroraMySQL.Migrating.ExtMySQL.md#AuroraMySQL.Migrating.ExtMySQL.S3.Restore")
+- [Restoring an Amazon Aurora MySQL DB cluster from an Amazon S3 bucket](AuroraMySQL.Migrating.ExtMySQL.S3.md#AuroraMySQL.Migrating.ExtMySQL.S3.Restore "AuroraMySQL.Migrating.ExtMySQL.S3.md#AuroraMySQL.Migrating.ExtMySQL.S3.Restore")
   When you use the RDS console to perform one of these operations, you can specify that the
   master user password is managed by Aurora in Secrets Manager.
   To do so when you are creating or restoring
@@ -203,9 +203,9 @@ used to encrypt the secret.
 You can choose other settings to meet your requirements.
 
 For more information about the available settings when you are creating a DB
-cluster, see [Settings for Aurora DB clusters](Aurora.md#Aurora.CreateInstance.Settings "Aurora.md#Aurora.CreateInstance.Settings").
+cluster, see [Settings for Aurora DB clusters](Aurora.CreateInstance.md#Aurora.CreateInstance.Settings "Aurora.CreateInstance.md#Aurora.CreateInstance.Settings").
 For more information about the available settings when you are modifying a DB cluster, see
-[Settings for Amazon Aurora](Aurora.md#Aurora.Modifying.Settings "Aurora.md#Aurora.Modifying.Settings").
+[Settings for Amazon Aurora](Aurora.Modifying.md#Aurora.Modifying.Settings "Aurora.Modifying.md#Aurora.Modifying.Settings").
 
 To specify that Aurora manages
 the master user password in Secrets Manager, specify the `--manage-master-user-password`
@@ -230,9 +230,9 @@ secret.
 You can choose other settings to meet your requirements.
 
 For more information about the available settings when you are creating a DB
-cluster, see [Settings for Aurora DB clusters](Aurora.md#Aurora.CreateInstance.Settings "Aurora.md#Aurora.CreateInstance.Settings").
+cluster, see [Settings for Aurora DB clusters](Aurora.CreateInstance.md#Aurora.CreateInstance.Settings "Aurora.CreateInstance.md#Aurora.CreateInstance.Settings").
 For more information about the available settings when you are modifying a DB cluster, see
-[Settings for Amazon Aurora](Aurora.md#Aurora.Modifying.Settings "Aurora.md#Aurora.Modifying.Settings").
+[Settings for Amazon Aurora](Aurora.Modifying.md#Aurora.Modifying.Settings "Aurora.Modifying.md#Aurora.Modifying.Settings").
 
 This example creates a DB cluster and
 specifies that Aurora manages the password in Secrets Manager. The secret
@@ -292,7 +292,7 @@ secret version.
 
 You can rotate a secret immediately instead of waiting for a scheduled rotation. To rotate a
 master user password secret in Secrets Manager, modify the DB cluster.
-For information about modifying a DB cluster, see [Modifying an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
+For information about modifying a DB cluster, see [Modifying an Amazon Aurora DB cluster](Aurora.Modifying.md "Aurora.Modifying.md").
 
 You can rotate a master user password secret immediately with the RDS console, the AWS CLI, or
 the RDS API. The new password is always 28 characters long and contains atleast one
@@ -305,7 +305,7 @@ To rotate a master user password secret using the RDS console, modify the DB clu
 ![Rotate a master user password secret immediately](images/secrets-manager-integration-rotate-aurora.png)
 Follow the instructions for modifying a DB
 cluster with the RDS console in
-[Modifying the DB cluster by using the console, CLI, and API](Aurora.md#Aurora.Modifying.Cluster "Aurora.md#Aurora.Modifying.Cluster"). You must choose
+[Modifying the DB cluster by using the console, CLI, and API](Aurora.Modifying.md#Aurora.Modifying.Cluster "Aurora.Modifying.md#Aurora.Modifying.Cluster"). You must choose
 **Apply immediately** on the confirmation page.
 
 To rotate a master user password secret using the AWS CLI, use the [modify-db-cluster](../../../cli/latest/reference/rds/modify-db-cluster.md "../../../cli/latest/reference/rds/modify-db-cluster.md")

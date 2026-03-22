@@ -41,7 +41,7 @@ To use this function, you need to first create the Aurora PostgreSQL
 `CREATE EXTENSION`
 ```
 
-For more information about available Aurora PostgreSQL extension versions, see [Extension versions for Amazon Aurora PostgreSQL](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") in
+For more information about available Aurora PostgreSQL extension versions, see [Extension versions for Amazon Aurora PostgreSQL](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Extensions.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Extensions.md") in
 _Release Notes for Aurora PostgreSQL_.
 
 This function calculates the instance-level wait events by comparing two snapshots

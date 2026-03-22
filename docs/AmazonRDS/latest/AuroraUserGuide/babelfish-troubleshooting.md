@@ -37,7 +37,7 @@ no pg_hba_conf entry for host "`256.256.256.256`", user "`your-user-name`",
 This error indicates a possible SSL configuration issue between your local
 client and the Babelfish DB cluster, and that the cluster requires
 clients to use SSL (its `rds.force_ssl` parameter is set to 1).
-For more information about configuring SSL, see [Using SSL with a PostgreSQL DB instance](../UserGuide/PostgreSQL.Concepts.General.md#PostgreSQL.Concepts.General.SSL.Status "../UserGuide/PostgreSQL.Concepts.General.md#PostgreSQL.Concepts.General.SSL.Status") in the
+For more information about configuring SSL, see [Using SSL with a PostgreSQL DB instance](../UserGuide/PostgreSQL.Concepts.General.SSL.md#PostgreSQL.Concepts.General.SSL.Status "../UserGuide/PostgreSQL.Concepts.General.SSL.md#PostgreSQL.Concepts.General.SSL.Status") in the
 _Amazon RDS User Guide_.
 
 If you are using SQL Server Management Studio (SSMS) to connect to

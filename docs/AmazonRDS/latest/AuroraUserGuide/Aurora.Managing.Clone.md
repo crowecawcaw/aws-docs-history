@@ -1,370 +1,391 @@
-# Cross-account cloning with AWS RAM and Amazon Aurora
+# Cloning a volume for an Amazon Aurora DB cluster
 
-By using AWS Resource Access Manager (AWS RAM) with Amazon Aurora, you can share Aurora DB clusters and clones that
-belong to your AWS account with another AWS account or organization. Such _cross-account cloning_ is much faster than creating and restoring a
-database snapshot. You can create a clone of one of your Aurora DB clusters and share the clone.
-Or you can share your Aurora DB cluster with another AWS account and let the account holder
-create the clone. The approach that you choose depends on your use case.
-
-For example, you might need to regularly share a clone of your financial database with your
-organization's internal auditing team. In this case, your auditing team has its own AWS
-account for the applications that it uses. You can give the auditing team's AWS account
-the permission to access your Aurora DB cluster and clone it as needed.
-
-On the other hand, if an outside vendor audits your financial data you might prefer
-to create the clone yourself. You then give the outside vendor access to the clone only.
-
-You can also use cross-account cloning to support many of the same use cases for cloning within the same AWS account, such as
-development and testing. For example, your organization might use different AWS accounts for production, development, testing, and so
-on. For more information,
-see [Overview of Aurora cloning](Aurora.Managing.md#Aurora.Clone.Overview "Aurora.Managing.md#Aurora.Clone.Overview").
-
-Thus, you might want to share a clone with another AWS account or allow another AWS
-account to create clones of your Aurora DB clusters. In either case, start by using AWS RAM to
-create a share object. For complete information about sharing AWS resources between AWS
-accounts, see the [AWS RAM User Guide](../../../ram/latest/userguide.md "../../../ram/latest/userguide.md").
-
-Creating a cross-account clone requires actions from the AWS account that owns the
-original cluster, and the AWS account that creates the clone. First, the original cluster owner
-modifies the cluster to allow one or more other accounts to clone it. If any of the accounts is
-in a different AWS organization, AWS generates a sharing invitation. The other account must
-accept the invitation before proceeding. Then each authorized account can clone the cluster.
-Throughout this process, the cluster is identified by its unique Amazon Resource Name (ARN).
-
-As with cloning within the same AWS account, additional storage space is used only if changes are made to the data by the source
-or the clone. Charges for storage are then applied at that time. If the source cluster is deleted, storage costs are distributed equally among remaining cloned clusters.
+By using Aurora cloning, you can create a new cluster that initially shares the same data pages as the original, but is a separate
+and independent volume. The process is designed to be fast and cost-effective. The new cluster with its associated data volume is
+known as a _clone_. Creating a clone is faster and more space-efficient than physically copying the data using
+other techniques, such as restoring a snapshot.
 
 ###### Topics
 
-- [Limitations of cross-account cloning](#Aurora.Managing.Clone.CrossAccount.Limitations "#Aurora.Managing.Clone.CrossAccount.Limitations")
-- [Allowing other AWS accounts to clone your cluster](#Aurora.Managing.Clone.CrossAccount.yours "#Aurora.Managing.Clone.CrossAccount.yours")
-- [Cloning a cluster that is owned by another AWS account](#Aurora.Managing.Clone.CrossAccount.theirs "#Aurora.Managing.Clone.CrossAccount.theirs")
+- [Overview of Aurora cloning](#Aurora.Clone.Overview "#Aurora.Clone.Overview")
+- [Limitations of Aurora cloning](#Aurora.Managing.Clone.Limitations "#Aurora.Managing.Clone.Limitations")
+- [How Aurora cloning works](#Aurora.Managing.Clone.Protocol "#Aurora.Managing.Clone.Protocol")
+- [Creating an Amazon Aurora clone](#Aurora.Managing.Clone.create "#Aurora.Managing.Clone.create")
+- [Cross-VPC cloning with Amazon Aurora](Aurora.Managing.Clone.Cross-VPC.md "Aurora.Managing.Clone.Cross-VPC.md")
+- [Cross-account cloning with AWS RAM and Amazon Aurora](Aurora.Managing.Clone.Cross-Account.md "Aurora.Managing.Clone.Cross-Account.md")
 
-## Limitations of cross-account cloning
+## Overview of Aurora cloning
 
-Aurora cross-account cloning has the following limitations:
+Aurora uses a _copy-on-write protocol_ to create a clone. This mechanism uses minimal additional
+space to create an initial clone. When the clone is first created, Aurora keeps a single copy of the data that is used by the
+source Aurora DB cluster and the new (cloned) Aurora DB cluster. Additional storage is allocated only when changes are made to
+data (on the Aurora storage volume) by the source Aurora DB cluster or the Aurora DB cluster clone. To learn more about the
+copy-on-write protocol, see [How Aurora cloning works](#Aurora.Managing.Clone.Protocol "#Aurora.Managing.Clone.Protocol").
 
-- You can't clone an Aurora Serverless v1 cluster across AWS accounts.
-- You can't view or accept invitations to shared resources with the AWS Management Console. Use
-  the AWS CLI, the Amazon RDS API, or the AWS RAM console to view and accept invitations to shared
-  resources.
-- You can create only one new clone from a resource shared with your AWS account. This
-  applies whether the shared resource is an original Aurora DB cluster or a previously
-  created clone.
-- You can create only one new clone from a clone that's been shared with your AWS account.
-- You can't share resources (clones or Aurora DB clusters) that have been shared
-  with your AWS account.
-- You can create a maximum of 15 cross-account clones from any single Aurora DB cluster.
-- Each of the 15 cross-account clones must be owned by a different AWS account. That is, you can only create
-  one cross-account clone of a cluster within any AWS account.
-- After you clone a cluster, the original cluster and its clone are considered to be the same for purposes of enforcing
-  limits on cross-account clones. You can't create cross-account clones of both the original cluster and the
-  cloned cluster within the same AWS account. The total number of cross-account clones for the original cluster
-  and any of its clones can't exceed 15.
-- You can't share an Aurora DB cluster with other AWS accounts unless the cluster is in an `ACTIVE` state.
-- You can't rename an Aurora DB cluster that's been shared with other AWS accounts.
-- You can't create a cross-account clone of a cluster that is encrypted with the default RDS key.
-- You can't create nonencrypted clones in one AWS account from encrypted Aurora DB
-  clusters that have been shared by another AWS account. The cluster owner must grant
-  permission to access the source cluster's AWS KMS key. However, you can use a
-  different key when you create the clone.
+Aurora cloning is especially useful for quickly setting up test environments using your
+production data, without risking data corruption. You can use clones for many types of
+applications, such as the following:
 
-## Allowing other AWS accounts to clone your cluster
+- Experiment with potential changes (schema changes and parameter group changes, for example) to assess all impacts.
+- Run workload-intensive operations, such as exporting data or running analytical queries on the clone.
+- Create a copy of your production DB cluster for development, testing, or other purposes.
 
-To allow other AWS accounts to clone a cluster that you own, use AWS RAM to set the sharing permission. Doing so
-also sends an invitation to each of the other accounts that's in a different AWS organization.
+You can create more than one clone from the same Aurora DB cluster. You can also create multiple clones from another
+clone.
 
-For the procedures to share resources owned by you in the AWS RAM console, see [Sharing resources owned by you](../../../ram/latest/userguide/working-with-sharing.md "../../../ram/latest/userguide/working-with-sharing.md") in the
-_AWS RAM User Guide_.
+After creating an Aurora clone, you can configure the Aurora DB instances differently from the source Aurora DB cluster. For example, you might not
+need a clone for development purposes to meet the same high availability requirements as the source production Aurora DB cluster. In this case, you can configure the clone
+with a single Aurora DB instance rather than the multiple DB instances used by the Aurora DB cluster.
+
+When you create a clone using a different deployment configuration from the source, the clone is created using the latest minor
+version of the source's Aurora DB engine.
+
+When you create clones from your Aurora DB clusters, the clones are created in your AWS account—the same account that
+owns the source Aurora DB cluster. However, you can also share Aurora Serverless v2 and provisioned Aurora DB clusters and clones
+with other AWS accounts. For more information, see [Cross-account cloning with AWS RAM and Amazon Aurora](Aurora.Managing.Clone.Cross-Account.md "Aurora.Managing.Clone.Cross-Account.md").
+
+When you finish using the clone for your testing, development, or other purposes, you can
+delete it.
+
+## Limitations of Aurora cloning
+
+Aurora cloning currently has the following limitations:
+
+- You can create as many clones as you want, up to the maximum number of DB clusters allowed in the AWS Region.
+- You can create up to 15 clones with copy-on-write protocol. After you have 15 clones, the next clone that you create is a full copy. The full-copy protocol acts like a point-in-time recovery.
+- You can't create a clone in a different AWS Region from the source Aurora DB cluster.
+- You can't create a clone from an Aurora DB cluster without the parallel query feature to a cluster that uses parallel query.
+  To bring data into a cluster that uses parallel query, create a snapshot of the original
+  cluster and restore it to the cluster that's using the parallel query feature.
+- You can't create a clone from an Aurora DB cluster that has no DB instances.
+  You can only clone Aurora DB clusters that have at least one DB instance.
+- You can create a clone in a different virtual private cloud (VPC) than that of
+  the Aurora DB cluster. If you do, the subnets of the VPCs must map to the same Availability
+  Zones.
+- You can create an Aurora provisioned clone from a provisioned Aurora DB cluster.
+- Clusters with Aurora Serverless v2 instances follow the same rules as provisioned clusters.
+- For Aurora Serverless v1:
+  - You can create a provisioned clone from an Aurora Serverless v1 DB cluster.
+  - You can create an Aurora Serverless v1 clone from an Aurora Serverless v1 or provisioned DB cluster.
+  - You can't create an Aurora Serverless v1 clone from an unencrypted, provisioned Aurora DB cluster.
+  - Cross-account cloning currently doesn't support cloning Aurora Serverless v1 DB clusters. For more
+    information, see [Limitations of cross-account cloning](Aurora.Managing.Clone.Cross-Account.md#Aurora.Managing.Clone.CrossAccount.Limitations "Aurora.Managing.Clone.Cross-Account.md#Aurora.Managing.Clone.CrossAccount.Limitations").
+  - A cloned Aurora Serverless v1 DB cluster has the same behavior and limitations as any Aurora Serverless v1 DB
+    cluster. For more information, see [Using Amazon Aurora Serverless v1](aurora-serverless.md "aurora-serverless.md").
+  - Aurora Serverless v1 DB clusters are always encrypted. When you clone an Aurora Serverless v1 DB
+    cluster into a provisioned Aurora DB cluster, the provisioned Aurora DB cluster is encrypted. You can choose the
+    encryption key, but you can't disable the encryption. To clone from a provisioned Aurora DB cluster to an
+    Aurora Serverless v1, you must start with an encrypted provisioned Aurora DB cluster.
+
+## How Aurora cloning works
+
+Aurora cloning works at the storage layer of an Aurora DB cluster. It uses a
+_copy-on-write_ protocol that's both fast and space-efficient in
+terms of the underlying durable media supporting the Aurora storage volume. You can learn more
+about Aurora cluster volumes in the [Overview of Amazon Aurora storage](Aurora.Overview.StorageReliability.md#Aurora.Overview.Storage "Aurora.Overview.StorageReliability.md#Aurora.Overview.Storage").
 
 ###### Topics
 
-- [Granting permission to other AWS accounts to clone your cluster](#Aurora.Managing.Clone.CrossAccount.granting "#Aurora.Managing.Clone.CrossAccount.granting")
-- [Checking if a cluster that you own is shared with other AWS accounts](#Aurora.Managing.Clone.CrossAccount.confirming "#Aurora.Managing.Clone.CrossAccount.confirming")
+- [Understanding the copy-on-write protocol](#Aurora.Managing.Clone.Protocol.Before "#Aurora.Managing.Clone.Protocol.Before")
+- [Deleting a source cluster volume](#Aurora.Managing.Clone.Deleting "#Aurora.Managing.Clone.Deleting")
 
-### Granting permission to other AWS accounts to clone your cluster
+### Understanding the copy-on-write protocol
 
-If the cluster that you're sharing is encrypted, you also share the AWS KMS key
-for the cluster. You can allow AWS Identity and Access Management (IAM) users or roles in one AWS
-account to use a KMS key in a different account.
+An Aurora DB cluster stores data in pages in the underlying Aurora storage volume.
 
-To do this, you first add the external account (root user) to the KMS key's key policy
-through AWS KMS. You don't add the individual users or roles to the key policy, only
-the external account that owns them. You can only share a KMS key that you create, not the
-default RDS service key. For information about access control for KMS keys, see [Authentication and access control for
-AWS KMS](../../../kms/latest/developerguide/control-access.md "../../../kms/latest/developerguide/control-access.md").
+For example, in the following diagram you can find an Aurora DB cluster (A) that has four
+data pages, 1, 2, 3, and 4. Imagine that a clone, B, is created from the Aurora DB cluster.
+When the clone is created, no data is copied. Rather, the clone points to the same set of
+pages as the source Aurora DB cluster.
 
-###### To grant permission to clone your cluster
+![Amazon Aurora cluster volume with 4 pages for source cluster, A, and clone, B](images/aurora-cloning-copy-on-write-protocol-1.png)
+
+When the clone is created, no additional storage is usually needed. The copy-on-write protocol uses the same segment on the physical
+storage media as the source segment. Additional storage is required only if the capacity of the source segment isn't sufficient for
+the entire clone segment. If that's the case, the source segment is copied to another physical device.
+
+In the following diagrams, you can find an example of the copy-on-write protocol in
+action using the same cluster A and its clone, B, as shown preceding. Let's say that
+you make a change to your Aurora DB cluster (A) that results in a change to data held on page
+
+1.  Instead of writing to the original page 1, Aurora creates a new page 1[A]. The Aurora DB
+    cluster volume for cluster (A) now points to page 1[A], 2, 3, and 4, while the clone (B)
+    still references the original pages.
+
+![Amazon Aurora source DB cluster volume and its clone, both with changes.](images/aurora-cloning-copy-on-write-protocol-2.png)
+
+On the clone, a change is made to page 4 on the storage volume. Instead of writing to the original page 4, Aurora creates a new page, 4[B].
+The clone now points to pages 1, 2, 3, and to page 4[B], while the cluster (A) continues pointing to 1[A], 2, 3, and 4.
+
+![Amazon Aurora source DB cluster volume and its clone, both with changes.](images/aurora-cloning-copy-on-write-protocol-3.png)
+
+As more changes occur over time in both the source Aurora DB cluster volume and the clone, more storage is needed to
+capture and store the changes.
+
+### Deleting a source cluster volume
+
+Initially, the clone volume shares the same data pages as the original volume
+from which the clone is created. As long as the original volume exists, the clone volume
+is only considered the owner of the pages that the clone created or modified. Thus, the
+`VolumeBytesUsed` metric for the clone volume starts out small and only grows
+as the data diverges between the original cluster and the clone. For pages that are identical
+between the source volume and the clone, the storage charges apply only to the original cluster.
+For more information about the `VolumeBytesUsed` metric, see
+[Cluster-level metrics for Amazon Aurora](Aurora.AuroraMonitoring.Metrics.md#Aurora.AuroraMySQL.Monitoring.Metrics.clusters "Aurora.AuroraMonitoring.Metrics.md#Aurora.AuroraMySQL.Monitoring.Metrics.clusters").
+
+When you delete a source cluster volume that has one or more clones associated with
+it, the data in the cluster volumes of the clones isn't changed. Aurora preserves the
+pages that were previously owned by the source cluster volume. Aurora redistributes
+the storage billing for the pages that were owned by the deleted cluster. For
+example, suppose that an original cluster had two clones and then the original cluster
+was deleted. Half of the data pages owned by the original cluster would now be owned by
+one clone. The other half of the pages would be owned by the other clone.
+
+If you delete the original cluster, then as you create or delete more clones, Aurora continues
+to redistribute ownership of the data pages among all the clones that share the same pages. Thus,
+you might find that the value of the `VolumeBytesUsed` metric changes for the cluster volume of a clone.
+The metric value can decrease as more clones are created and page ownership is spread across more
+clusters. The metric value can also increase as clones are deleted and page ownership is assigned
+to a smaller number of clusters. For information about how write operations affect data pages on clone volumes, see
+[Understanding the copy-on-write protocol](#Aurora.Managing.Clone.Protocol.Before "#Aurora.Managing.Clone.Protocol.Before").
+
+When the original cluster and the clones are owned by the same AWS account, all the storage charges for those
+clusters apply to that same AWS account. If some of the clusters are cross-account clones, deleting the original
+cluster can result in additional storage charges to the AWS accounts that own the cross-account clones.
+
+For example, suppose that a cluster volume has 1000 used data pages before you create any clones. When you clone
+that cluster, initially the clone volume has zero used pages. If the clone makes modifications to
+100 data pages, only those 100 pages are stored on the clone volume and marked as used. The
+other 900 unchanged pages from the parent volume are shared by both clusters. In this case,
+the parent cluster has storage charges for 1000 pages and the clone volume for 100 pages.
+
+If you delete the source volume, the storage charges for the clone include the
+100 pages that it changed, plus the 900 shared pages from the original volume, for a total
+of 1000 pages.
+
+## Creating an Amazon Aurora clone
+
+You can create a clone in the same AWS account as the source Aurora DB cluster. To do so,
+you can use the AWS Management Console or the AWS CLI and the procedures following.
+
+To allow another AWS account to create a clone or to share a clone with another AWS account, use the
+procedures in [Cross-account cloning with AWS RAM and Amazon Aurora](Aurora.Managing.Clone.Cross-Account.md "Aurora.Managing.Clone.Cross-Account.md").
+
+The following procedure describes how to clone an Aurora DB cluster using the
+AWS Management Console.
+
+Creating a clone using the AWS Management Console results in an Aurora DB cluster with one Aurora DB
+instance.
+
+These instructions apply for DB clusters owned by the same AWS account that is creating the clone.
+If the DB cluster is owned by a different AWS account, see
+[Cross-account cloning with AWS RAM and Amazon Aurora](Aurora.Managing.Clone.Cross-Account.md "Aurora.Managing.Clone.Cross-Account.md")
+instead.
+
+###### To create a clone of a DB cluster owned by your AWS account using the AWS Management Console
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 2. In the navigation pane, choose **Databases**.
-3. Choose the DB cluster that you want to share to see its **Details** page, and
-   choose the **Connectivity & security** tab.
-4. In the **Share DB cluster with other AWS accounts** section, enter the numeric
-   account ID for the AWS account that you want to allow to clone this cluster. For account IDs in the
-   same organization, you can begin typing in the box and then choose from the menu.
+3. Choose your Aurora DB cluster from the list, and for **Actions**, choose
+   **Create clone**.
 
-###### Important
+![Creating a clone starts by selecting your Aurora DB cluster.](images/aurora-cloning-create-clone-1.png)
 
-In some cases, you might want an account that is not in the same AWS
-organization as your account to clone a cluster. In these cases, for security
-reasons the console doesn't report who owns that account ID or whether the
-account exists.
+The Create clone page opens, where you can configure **Settings**, **Connectivity**,
+and other options for the Aurora DB cluster clone. 4. For **DB instance identifier**, enter the name that you want to give to your cloned Aurora DB
+cluster. 5. For Aurora Serverless v1 DB clusters, choose **Provisioned** or **Serverless** for **Capacity
+type**.
 
-Be careful entering account numbers that are not in the same AWS organization
-as your AWS account. Immediately verify that you shared with the intended account. 5. On the confirmation page, verify that the account ID that you specified is correct. Enter
-`share` in the confirmation box to confirm.
+You can choose **Serverless** only if the source Aurora DB cluster is an Aurora
+Serverless v1 DB cluster or is a provisioned Aurora DB cluster that is encrypted. 6. For Aurora Serverless v2 or provisioned DB clusters, choose either **Aurora I/O-Optimized** or
+**Aurora Standard** for **Cluster storage configuration**.
 
-On the **Details** page, an entry appears that shows the
-specified AWS account ID under **Accounts that this DB cluster is shared
-with**. The **Status** column initially shows a status
-of **Pending**. 6. Contact the owner of the other AWS account, or sign in to that account if you own both of them.
-Instruct the owner of the other account to accept the sharing invitation and clone the DB cluster,
-as described following.
+For more information, see [Storage configurations for Amazon Aurora DB clusters](Aurora.Overview.StorageReliability.md#aurora-storage-type "Aurora.Overview.StorageReliability.md#aurora-storage-type"). 7. Choose the DB instance size or DB cluster capacity:
 
-###### To grant permission to clone your cluster
+    * For a provisioned clone, choose a **DB instance class**.
 
-1. Gather the information for the required parameters. You need the ARN for your cluster and the
-   numeric ID for the other AWS account.
-2. Run the AWS RAM CLI command [`create-resource-share`](../../../cli/latest/reference/ram/create-resource-share.md "../../../cli/latest/reference/ram/create-resource-share.md").
 
-For Linux, macOS, or Unix:
 
-```
-aws ram create-resource-share --name `descriptive_name` \
-  --region `region` \
-  --resource-arns `cluster_arn` \
-  --principals `other_account_ids`
+    ![To create a provisioned clone, specify the DB instance size.](images/aurora-cloning-create-clone-3-provisioned.png)
 
-```
+    You can accept the provided setting, or you can use a different DB instance class for your
+     clone.
+    * For an Aurora Serverless v1 or Aurora Serverless v2 clone, choose the **Capacity
+     settings**.
 
-For Windows:
 
-```
-aws ram create-resource-share --name `descriptive_name` ^
-  --region `region` ^
-  --resource-arns `cluster_arn` ^
-  --principals `other_account_ids`
 
-```
+    ![To create a Serverless clone from an Aurora DB cluster, specify the capacity.](images/aurora-cloning-create-clone-3-serverless.png)
 
-To include multiple account IDs for the `--principals` parameter, separate IDs from each
-other with spaces. To specify whether the permitted account IDs can be outside your AWS
-organization, include the `--allow-external-principals` or
-`--no-allow-external-principals` parameter for `create-resource-share`.
+    You can accept the provided settings, or you can change them for your clone.
 
-###### To grant permission to clone your cluster
+8. Choose other settings as needed for your clone. To learn more about Aurora DB cluster and instance settings,
+   see [Creating an Amazon Aurora DB cluster](Aurora.CreateInstance.md "Aurora.CreateInstance.md").
+9. Choose **Create clone**.
+   When the clone is created, it's listed with your other Aurora DB clusters in the
+   console **Databases** section and displays its current state. Your clone
+   is ready to use when its state is **Available**.
 
-1. Gather the information for the required parameters. You need the ARN for your cluster and the
-   numeric ID for the other AWS account.
-2. Call the AWS RAM API operation
-   [CreateResourceShare](../../../ram/latest/APIReference/API_CreateResourceShare.md "../../../ram/latest/APIReference/API_CreateResourceShare.md"),
-   and specify the following values:
-   - Specify the account ID for one or more AWS accounts as the
-     `principals` parameter.
-   - Specify the ARN for one or more Aurora DB clusters as the
-     `resourceArns` parameter.
-   - Specify whether the permitted account IDs can be outside your AWS
-     organization by including a Boolean value for the
-     `allowExternalPrincipals` parameter.
+Using the AWS CLI for cloning your Aurora DB cluster involves separate steps for creating the clone cluster and
+adding one or more DB instances to it.
 
-#### Recreating a cluster that uses the default RDS key
+The `restore-db-cluster-to-point-in-time` AWS CLI command that you use results in an Aurora DB cluster
+with the same storage data as the original cluster, but no Aurora DB instances. You create the DB instances
+separately after the clone is available. You can choose the number of DB instances and their instance classes to
+give the clone more or less compute capacity than the original cluster. The steps in the process are as follows:
 
-If the encrypted cluster that you plan to share uses the default RDS key, make sure
-to recreate the cluster. To do this, create a manual snapshot of your DB cluster, use an
-AWS KMS key, and then restore the cluster to a new cluster. Then share the
-new cluster. To perform this process, take the following steps.
-
-###### To recreate an encrypted cluster that uses the default RDS key
-
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. Choose **Snapshots** from the navigation pane.
-3. Choose your snapshot.
-4. For **Actions**, choose **Copy Snapshot**, and then choose
-   **Enable encryption**.
-5. For **AWS KMS key**, choose the new encryption key that you want to use.
-6. Restore the copied snapshot. To do so, follow the procedure in
-   [Restoring from a DB cluster snapshot](aurora-restore-snapshot.md "aurora-restore-snapshot.md"). The new DB
-   instance uses your new encryption key.
-7. (Optional) Delete the old DB cluster if you no longer need it. To do so, follow the procedure in
-   [Deleting a DB cluster snapshot](aurora-delete-snapshot.md#DeleteDBClusterSnapshot "aurora-delete-snapshot.md#DeleteDBClusterSnapshot"). Before
-   you do, confirm that your new cluster has all necessary data and that your application can access it
-   successfully.
-
-### Checking if a cluster that you own is shared with other AWS accounts
-
-You can check if other users have permission to share a cluster. Doing so can help you understand whether
-the cluster is approaching the limit for the maximum number of cross-account clones.
-
-For the procedures to share resources using the AWS RAM console, see [Sharing resources owned by you](../../../ram/latest/userguide/working-with-sharing.md "../../../ram/latest/userguide/working-with-sharing.md") in the
-_AWS RAM User Guide_.
-
-###### To find out if a cluster that you own is shared with other AWS accounts
-
-- Call the AWS RAM CLI command
-  [`list-principals`](../../../cli/latest/reference/ram/list-principals.md "../../../cli/latest/reference/ram/list-principals.md"), using your
-  account ID as the resource owner and the ARN of your cluster as the resource ARN. You can see all
-  shares with the following command. The results indicate which AWS accounts are allowed to clone the
-  cluster.
-
-```
-aws ram list-principals \
-    --resource-arns `your_cluster_arn` \
-    --principals `your_aws_id`
-
-```
-
-###### To find out if a cluster that you own is shared with other AWS accounts
-
-- Call the AWS RAM API operation
-  [ListPrincipals](../../../ram/latest/APIReference/API_ListPrincipals.md "../../../ram/latest/APIReference/API_ListPrincipals.md"). Use your
-  account ID as the resource owner and the ARN of your cluster as the resource ARN.
-
-## Cloning a cluster that is owned by another AWS account
-
-To clone a cluster that's owned by another AWS account, use AWS RAM to get permission
-to make the clone. After you have the required permission, use the standard procedure for
-cloning an Aurora cluster.
-
-You can also check whether a cluster that you own is a clone of a cluster owned by a different AWS account.
-
-For the procedures to work with resources owned by others in the AWS RAM console, see
-[Accessing resources shared with
-you](../../../ram/latest/userguide/working-with-shared.md "../../../ram/latest/userguide/working-with-shared.md") in the _AWS RAM User Guide._
+1. Create the clone by using the
+   [restore-db-cluster-to-point-in-time](../../../cli/latest/reference/rds/restore-db-cluster-to-point-in-time.md "../../../cli/latest/reference/rds/restore-db-cluster-to-point-in-time.md")
+   CLI command.
+2. Create the writer DB instance for the clone by using the
+   [create-db-instance](../../../cli/latest/reference/rds/create-db-instance.md "../../../cli/latest/reference/rds/create-db-instance.md") CLI command.
+3. (Optional) Run additional [create-db-instance](../../../cli/latest/reference/rds/create-db-instance.md "../../../cli/latest/reference/rds/create-db-instance.md")
+   CLI commands to add one or more reader instances to the clone cluster. Using reader instances helps improve
+   the high availability and read scalability aspects of the clone. You might skip this step if you only intend
+   to use the clone for development and testing.
 
 ###### Topics
 
-- [Viewing invitations to clone clusters that are owned by other AWS accounts](#Aurora.Managing.Clone.CrossAccount.viewing "#Aurora.Managing.Clone.CrossAccount.viewing")
-- [Accepting invitations to share clusters owned by other AWS accounts](#Aurora.Managing.Clone.CrossAccount.accepting "#Aurora.Managing.Clone.CrossAccount.accepting")
-- [Cloning an Aurora cluster that is owned by another AWS account](#Aurora.Managing.Clone.CrossAccount.cloning "#Aurora.Managing.Clone.CrossAccount.cloning")
-- [Checking if a DB cluster is a cross-account clone](#Aurora.Managing.Clone.CrossAccount.checking "#Aurora.Managing.Clone.CrossAccount.checking")
+- [Creating the clone](#Aurora.Managing.Clone.CLI.create-empty-clone "#Aurora.Managing.Clone.CLI.create-empty-clone")
+- [Checking the status and getting clone details](#Aurora.Managing.Clone.CLI.check-status-get-details "#Aurora.Managing.Clone.CLI.check-status-get-details")
+- [Creating the Aurora DB instance for your clone](#Aurora.Managing.Clone.CLI.create-db-instance "#Aurora.Managing.Clone.CLI.create-db-instance")
+- [Parameters to use for cloning](#Aurora.Managing.Clone.CLI.parameter-summary "#Aurora.Managing.Clone.CLI.parameter-summary")
 
-### Viewing invitations to clone clusters that are owned by other AWS accounts
+#### Creating the clone
 
-To work with invitations to clone clusters owned by AWS accounts in other AWS organizations, use the AWS CLI,
-the AWS RAM console, or the AWS RAM API. Currently, you can't perform this procedure using the Amazon RDS
-console.
+Use the
+`restore-db-cluster-to-point-in-time`
+CLI command to create the initial clone cluster.
 
-For the procedures to work with invitations in the AWS RAM console, see [Accessing resources shared with you](../../../ram/latest/userguide/working-with-shared.md "../../../ram/latest/userguide/working-with-shared.md") in
-the _AWS RAM User Guide_.
+###### To create a clone from a source Aurora DB cluster
 
-###### To see invitations to clone clusters that are owned by other AWS accounts
+- Use the
+  `restore-db-cluster-to-point-in-time`
+  CLI command. Specify values for the following parameters. In this typical case, the clone uses the same
+  engine mode as the original cluster, either provisioned or Aurora Serverless v1.
+  - `--db-cluster-identifier` – Choose a meaningful name for your clone. You name the
+    clone when you use the
+    [restore-db-cluster-to-point-in-time](../../../cli/latest/reference/rds/restore-db-cluster-to-point-in-time.md "../../../cli/latest/reference/rds/restore-db-cluster-to-point-in-time.md")
+    CLI command. You then pass the name of the clone in the
+    [create-db-instance](../../../cli/latest/reference/rds/create-db-instance.md "../../../cli/latest/reference/rds/create-db-instance.md") CLI command.
+  - `--restore-type` – Use `copy-on-write` to create a clone of the source DB
+    cluster. Without this parameter, the `restore-db-cluster-to-point-in-time` restores the
+    Aurora DB cluster rather than creating a clone.
+  - `--source-db-cluster-identifier` – Use the name of the source Aurora DB cluster that
+    you want to clone.
+  - `--use-latest-restorable-time` – This value points to the latest restorable volume
+    data for the source DB cluster. Use it to create clones.
 
-1. Run the AWS RAM CLI command
-   [`get-resource-share-invitations`](../../../cli/latest/reference/ram/get-resource-share-invitations.md "../../../cli/latest/reference/ram/get-resource-share-invitations.md").
-
-```
-aws ram get-resource-share-invitations --region `region_name`
-
-```
-
-The results from the preceding command show all invitations to clone clusters, including any that
-you already accepted or rejected. 2. (Optional) Filter the list so you see only the invitations that require action from you. To do so,
-add the parameter `--query 'resourceShareInvitations[?status==`PENDING`]'`.
-
-###### To see invitations to clone clusters that are owned by other AWS accounts
-
-1. Call the AWS RAM API operation
-   [`GetResourceShareInvitations`](../../../ram/latest/APIReference/API_GetResourceShareInvitations.md "../../../ram/latest/APIReference/API_GetResourceShareInvitations.md").
-   This operation returns all such invitations, including any that you already accepted or rejected.
-2. (Optional) Find only the invitations that require action from you by checking the
-   `resourceShareAssociations` return field for a `status` value of
-   `PENDING`.
-
-### Accepting invitations to share clusters owned by other AWS accounts
-
-You can accept invitations to share clusters owned by other AWS accounts that are in different AWS
-organizations. To work with these invitations, use the AWS CLI, the AWS RAM and RDS APIs, or the AWS RAM console.
-Currently, you can't perform this procedure using the RDS console.
-
-For the procedures to work with invitations in the AWS RAM console, see [Accessing resources shared with you](../../../ram/latest/userguide/working-with-shared.md "../../../ram/latest/userguide/working-with-shared.md") in
-the _AWS RAM User Guide_.
-
-###### To accept an invitation to share a cluster from another AWS account
-
-1. Find the invitation ARN by running the AWS RAM CLI command
-   [`get-resource-share-invitations`](../../../cli/latest/reference/ram/get-resource-share-invitations.md "../../../cli/latest/reference/ram/get-resource-share-invitations.md"),
-   as shown preceding.
-2. Accept the invitation by calling the AWS RAM CLI command
-   [`accept-resource-share-invitation`](../../../cli/latest/reference/ram/accept-resource-share-invitation.md "../../../cli/latest/reference/ram/accept-resource-share-invitation.md"),
-   as shown following.
-
-For Linux, macOS, or Unix:
-
-```
-aws ram accept-resource-share-invitation \
-  --resource-share-invitation-arn `invitation_arn` \
-  --region `region`
-
-```
-
-For Windows:
-
-```
-aws ram accept-resource-share-invitation ^
-  --resource-share-invitation-arn `invitation_arn` ^
-  --region `region`
-
-```
-
-###### To accept invitations to share somebody's cluster
-
-1. Find the invitation ARN by calling the AWS RAM API operation
-   [`GetResourceShareInvitations`](../../../ram/latest/APIReference/API_GetResourceShareInvitations.md "../../../ram/latest/APIReference/API_GetResourceShareInvitations.md"),
-   as shown preceding.
-2. Pass that ARN as the `resourceShareInvitationArn` parameter to the RDS API operation
-   [AcceptResourceShareInvitation](../../../ram/latest/APIReference/API_AcceptResourceShareInvitation.md "../../../ram/latest/APIReference/API_AcceptResourceShareInvitation.md").
-
-### Cloning an Aurora cluster that is owned by another AWS account
-
-After you accept the invitation from the AWS account that owns the DB cluster, as shown preceding, you can
-clone the cluster.
-
-###### To clone an Aurora cluster that is owned by another AWS account
-
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Databases**.
-
-At the top of the database list, you should see one or more items with a **Role**
-value of `Shared from account #`account_id``. For security
-reasons, you can only see limited information about the original clusters. The properties that you
-can see are the ones such as database engine and version that must be the same in your cloned
-cluster. 3. Choose the cluster that you intend to clone. 4. For **Actions**, choose **Create clone**. 5. Follow the procedure in
-[Console](Aurora.Managing.md#Aurora.Managing.Clone.Console "Aurora.Managing.md#Aurora.Managing.Clone.Console") to
-finish setting up the cloned cluster. 6. As needed, enable encryption for the cloned cluster. If the cluster that you are
-cloning is encrypted, you must enable encryption for the cloned cluster. The AWS
-account that shared the cluster with you must also share the KMS key that was used
-to encrypt the cluster. You can use the same KMS key to encrypt the clone, or your own
-KMS key. You can't create a cross-account clone for a cluster that is encrypted
-with the default KMS key.
-
-The account that owns the encryption key must grant permission to use the key
-to the destination account by using a key policy. This process is similar to how
-encrypted snapshots are shared, by using a key policy that grants permission to the
-destination account to use the key.
-
-###### To clone an Aurora cluster owned by another AWS account
-
-1. Accept the invitation from the AWS account that owns the DB cluster, as shown preceding.
-2. Clone the cluster by specifying the full ARN of the source cluster in the
-   `source-db-cluster-identifier` parameter of the RDS CLI command
-   [`restore-db-cluster-to-point-in-time`](../../../cli/latest/reference/rds/restore-db-cluster-to-point-in-time.md "../../../cli/latest/reference/rds/restore-db-cluster-to-point-in-time.md"),
-   as shown following.
-
-If the ARN passed as the `source-db-cluster-identifier` hasn't been shared, the same
-error is returned as if the specified cluster doesn't exist.
+The following example creates a clone named `my-clone` from a cluster named
+`my-source-cluster`.
 
 For Linux, macOS, or Unix:
 
 ```
 aws rds restore-db-cluster-to-point-in-time \
-  --source-db-cluster-identifier=arn:aws:rds:`arn_details` \
-  --db-cluster-identifier=`new_cluster_id` \
-  --restore-type=copy-on-write \
+    --source-db-cluster-identifier `my-source-cluster` \
+    --db-cluster-identifier `my-clone` \
+    --restore-type copy-on-write \
+    --use-latest-restorable-time
+```
+
+For Windows:
+
+```
+aws rds restore-db-cluster-to-point-in-time ^
+    --source-db-cluster-identifier `my-source-cluster` ^
+    --db-cluster-identifier `my-clone` ^
+    --restore-type copy-on-write ^
+    --use-latest-restorable-time
+```
+
+The command returns the JSON object containing details of the clone. Check to make sure that your cloned DB
+cluster is available before trying to create the DB instance for your clone. For more information, see
+[Checking the status and getting clone details](#Aurora.Managing.Clone.CLI.check-status-get-details "#Aurora.Managing.Clone.CLI.check-status-get-details").
+
+For example, suppose you have a cluster named `tpch100g` that you want to clone. The following
+Linux example creates a cloned cluster named `tpch100g-clone`, an Aurora Serverless v2 writer
+instance named `tpch100g-clone-instance`, and a provisioned reader instance named
+`tpch100g-clone-instance-2` for the new cluster.
+
+You don't need to supply some parameters, such as `--master-username` and
+`--master-user-password`. Aurora automatically determines those from the original cluster. You do
+need to specify the DB engine to use. Thus, the example tests the new cluster to determine the right value to
+use for the `--engine` parameter.
+
+This example also includes the `--serverless-v2-scaling-configuration` option when creating the
+clone cluster. That way, you can add Aurora Serverless v2 instances to the clone even if the original cluster
+didn't use Aurora Serverless v2.
+
+```
+`$` aws rds restore-db-cluster-to-point-in-time \
+  --source-db-cluster-identifier tpch100g \
+  --db-cluster-identifier tpch100g-clone \
+  --serverless-v2-scaling-configuration MinCapacity=`0.5`,MaxCapacity=`16` \
+  --restore-type copy-on-write \
   --use-latest-restorable-time
+
+`$` aws rds describe-db-clusters \
+  --db-cluster-identifier tpch100g-clone \
+    --query '*[].[Engine]' \
+    --output text
+`aurora-mysql`
+
+`$` aws rds create-db-instance \
+  --db-instance-identifier tpch100g-clone-instance \
+  --db-cluster-identifier tpch100g-clone \
+  --db-instance-class db.serverless \
+  --engine aurora-mysql
+
+`$` aws rds create-db-instance \
+  --db-instance-identifier tpch100g-clone-instance-2 \
+  --db-cluster-identifier tpch100g-clone \
+  --db-instance-class db.r6g.2xlarge \
+  --engine aurora-mysql
+
+```
+
+###### To create a clone with a different engine mode from the source Aurora DB cluster
+
+- This procedure only applies to older engine versions that support Aurora Serverless v1. Suppose that you
+  have an Aurora Serverless v1 cluster and you want to create a clone that's a provisioned cluster. In
+  that case, use the
+  `restore-db-cluster-to-point-in-time`
+  CLI command and specify values similar parameter values as in the previous example, plus these additional
+  parameters:
+  - `--engine-mode` – Use this parameter only to create clones that are of a different
+    engine mode from the source Aurora DB cluster. This parameter only applies to the older engine versions
+    that support Aurora Serverless v1. Choose the value to pass with `--engine-mode` as follows:
+    - Use `--engine-mode provisioned` to create a provisioned Aurora DB cluster clone from an
+      Aurora Serverless DB cluster.
+
+    ###### Note
+
+    If you intend to use Aurora Serverless v2 with a cluster that was cloned from Aurora Serverless v1,
+    you still specify the engine mode for the clone as `provisioned`. Then you perform
+    additional upgrade and migration steps afterward.
+    - Use `--engine-mode serverless` to create an Aurora Serverless v1 clone from a provisioned
+      Aurora DB cluster. When you specify the `serverless` engine mode, you can also choose
+      the `--scaling-configuration`.
+
+  - `--scaling-configuration` – (Optional) Use with `--engine-mode
+serverless` to configure the minimum and maximum capacity for an Aurora Serverless v1 clone. If
+    you don't use this parameter, Aurora creates an Aurora Serverless v1 clone using the default
+    Aurora Serverless v1 capacity values for the DB engine.
+
+The following example creates a provisioned clone named `my-clone`, from an Aurora Serverless v1 DB
+cluster named `my-source-cluster`.
+
+For Linux, macOS, or Unix:
+
+```
+aws rds restore-db-cluster-to-point-in-time \
+    --source-db-cluster-identifier `my-source-cluster` \
+    --db-cluster-identifier `my-clone` \
+    --engine-mode provisioned \
+    --restore-type copy-on-write \
+    --use-latest-restorable-time
 
 ```
 
@@ -372,288 +393,148 @@ For Windows:
 
 ```
 aws rds restore-db-cluster-to-point-in-time ^
-  --source-db-cluster-identifier=arn:aws:rds:`arn_details` ^
-  --db-cluster-identifier=`new_cluster_id` ^
-  --restore-type=copy-on-write ^
-  --use-latest-restorable-time
+    --source-db-cluster-identifier `my-source-cluster` ^
+    --db-cluster-identifier `my-clone` ^
+    --engine-mode provisioned ^
+    --restore-type copy-on-write ^
+    --use-latest-restorable-time
 
 ```
 
-3. If the cluster that you are cloning is encrypted, encrypt your cloned cluster
-   by including a `kms-key-id` parameter. This `kms-key-id` value
-   can be the same one used to encrypt the original DB cluster, or your own KMS key. Your
-   account must have permission to use that encryption key.
+These commands return the JSON object containing details of the clone that you need to create the DB instance.
+You can't do that until the status of the clone (the empty Aurora DB cluster) has the status
+**Available**.
+
+###### Note
+
+The
+[restore-db-cluster-to-point-in-time](../../../cli/latest/reference/rds/restore-db-cluster-to-point-in-time.md "../../../cli/latest/reference/rds/restore-db-cluster-to-point-in-time.md")
+AWS CLI command only restores the DB cluster, not the DB instances for that DB cluster. You run the
+[create-db-instance](../../../cli/latest/reference/rds/create-db-instance.md "../../../cli/latest/reference/rds/create-db-instance.md") command to create DB
+instances for the restored DB cluster. With that command, you specify the identifier of the restored DB
+cluster as the `--db-cluster-identifier` parameter. You can create DB instances only after the
+`restore-db-cluster-to-point-in-time` command has completed and the DB cluster is available.
+
+Suppose that you start with an Aurora Serverless v1 cluster and intend to migrate it to an Aurora Serverless v2
+cluster. You create a provisioned clone of the Aurora Serverless v1 cluster as the initial step in the
+migration. For the full procedure, including any required version upgrades, see
+[Upgrading from an Aurora Serverless v1 cluster to Aurora Serverless v2](aurora-serverless-v2.upgrade.md#aurora-serverless-v2.upgrade-from-serverless-v1-procedure "aurora-serverless-v2.upgrade.md#aurora-serverless-v2.upgrade-from-serverless-v1-procedure").
+
+#### Checking the status and getting clone details
+
+You can use the following command to check the status of your newly created clone cluster.
+
+```
+`$` `aws rds describe-db-clusters --db-cluster-identifier `my-clone` --query '*[].[Status]' --output text`
+```
+
+Or you can obtain the status and the other values that you need to
+[create the DB instance for your clone](#Aurora.Managing.Clone.CLI.create-db-instance "#Aurora.Managing.Clone.CLI.create-db-instance") by
+using the following AWS CLI query.
 
 For Linux, macOS, or Unix:
 
 ```
-aws rds restore-db-cluster-to-point-in-time \
-  --source-db-cluster-identifier=arn:aws:rds:`arn_details` \
-  --db-cluster-identifier=`new_cluster_id` \
-  --restore-type=copy-on-write \
-  --use-latest-restorable-time \
-  --kms-key-id=arn:aws:kms:`arn_details`
+aws rds describe-db-clusters --db-cluster-identifier `my-clone` \
+  --query '*[].{Status:Status,Engine:Engine,EngineVersion:EngineVersion,EngineMode:EngineMode}'
+```
+
+For Windows:
+
+```
+aws rds describe-db-clusters --db-cluster-identifier `my-clone` ^
+  --query "*[].{Status:Status,Engine:Engine,EngineVersion:EngineVersion,EngineMode:EngineMode}"
+```
+
+This query returns output similar to the following.
+
+```
+[
+  {
+        "Status": "available",
+        "Engine": "aurora-mysql",
+        "EngineVersion": "8.0.mysql_aurora.3.04.1",
+        "EngineMode": "provisioned"
+    }
+]
+```
+
+#### Creating the Aurora DB instance for your clone
+
+Use the [create-db-instance](../../../cli/latest/reference/rds/create-db-instance.md "../../../cli/latest/reference/rds/create-db-instance.md") CLI command to create
+the DB instance for your Aurora Serverless v2 or provisioned clone. You don't create a DB instance for an
+Aurora Serverless v1 clone.
+
+The DB instance inherits the `--master-username` and `--master-user-password` properties
+from the source DB cluster.
+
+The following example creates a DB instance for a provisioned clone.
+
+For Linux, macOS, or Unix:
+
+```
+aws rds create-db-instance \
+    --db-instance-identifier `my-new-db` \
+    --db-cluster-identifier `my-clone` \
+    --db-instance-class `db.r6g.2xlarge` \
+    --engine aurora-mysql
 
 ```
 
 For Windows:
 
 ```
-aws rds restore-db-cluster-to-point-in-time ^
-  --source-db-cluster-identifier=arn:aws:rds:`arn_details` ^
-  --db-cluster-identifier=`new_cluster_id` ^
-  --restore-type=copy-on-write ^
-  --use-latest-restorable-time ^
-  --kms-key-id=arn:aws:kms:`arn_details`
+aws rds create-db-instance ^
+    --db-instance-identifier `my-new-db` ^
+    --db-cluster-identifier `my-clone` ^
+    --db-instance-class `db.r6g.2xlarge` ^
+    --engine aurora-mysql
 
 ```
 
-The account that owns the encryption key must grant permission to use the key
-to the destination account by using a key policy. This process is similar to how
-encrypted snapshots are shared, by using a key policy that grants permission to the
-destination account to use the key. An example of a key policy follows.
+The following example creates an Aurora Serverless v2 DB instance, for a clone that uses an engine version that
+supports Aurora Serverless v2.
 
-JSON
+For Linux, macOS, or Unix:
 
 ```
-`{
- "Id": "key-policy-1",
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "Allow use of the key",
- "Effect": "Allow",
- "Principal": {
- "AWS": [
- "arn:aws:iam::`111122223333`:user/KeyUser",
- "arn:aws:iam::`111122223333`:root"
- ]
- },
- "Action": [
- "kms:CreateGrant",
- "kms:Encrypt",
- "kms:Decrypt",
- "kms:ReEncrypt*",
- "kms:GenerateDataKey*",
- "kms:DescribeKey"
- ],
- "Resource": "*"
- },
- {
- "Sid": "Allow attachment of persistent resources",
- "Effect": "Allow",
- "Principal": {
- "AWS": [
- "arn:aws:iam::`111122223333`:user/KeyUser",
- "arn:aws:iam::`111122223333`:root"
- ]
- },
- "Action": [
- "kms:CreateGrant",
- "kms:ListGrants",
- "kms:RevokeGrant"
- ],
- "Resource": "*",
- "Condition": {
- "Bool": {
- "kms:GrantIsForAWSResource": true
- }
- }
- }
- ]
-}`
+aws rds create-db-instance \
+    --db-instance-identifier `my-new-db` \
+    --db-cluster-identifier `my-clone` \
+    --db-instance-class db.serverless \
+  --engine aurora-postgresql
 
 ```
 
-###### Note
-
-The [restore-db-cluster-to-point-in-time](../../../cli/latest/reference/rds/restore-db-cluster-to-point-in-time.md "../../../cli/latest/reference/rds/restore-db-cluster-to-point-in-time.md")
-AWS CLI command restores only the DB cluster, not the DB instances for that DB cluster. To create DB instances for the
-restored DB cluster, invoke the [create-db-instance](../../../cli/latest/reference/rds/create-db-instance.md "../../../cli/latest/reference/rds/create-db-instance.md") command.
-Specify the identifier of the restored DB
-cluster in `--db-cluster-identifier`.
-
-You can create DB instances only after the
-`restore-db-cluster-to-point-in-time` command has completed and the DB
-cluster is available.
-
-###### To clone an Aurora cluster owned by another AWS account
-
-1. Accept the invitation from the AWS account that owns the DB cluster, as shown preceding.
-2. Clone the cluster by specifying the full ARN of the source cluster in the
-   `SourceDBClusterIdentifier` parameter of the RDS API operation
-   [`RestoreDBClusterToPointInTime`](../APIReference/API_RestoreDBClusterToPointInTime.md "../APIReference/API_RestoreDBClusterToPointInTime.md").
-
-If the ARN passed as the `SourceDBClusterIdentifier` hasn't been shared, then the
-same error is returned as if the specified cluster doesn't exist. 3. If the cluster that you are cloning is encrypted, include a
-`KmsKeyId` parameter to encrypt your cloned cluster. This
-`kms-key-id` value can be the same one used to encrypt the original DB
-cluster, or your own KMS key. Your account must have permission to use that encryption
-key.
-
-When you clone a volume, the destination account must have permission to use
-the encryption key used to encrypt the source cluster. Aurora encrypts the new cloned
-cluster with the encryption key specified in `KmsKeyId`.
-
-The account that owns the encryption key must grant permission to use the key
-to the destination account by using a key policy. This process is similar to how
-encrypted snapshots are shared, by using a key policy that grants permission to the
-destination account to use the key. An example of a key policy follows.
-
-JSON
+For Windows:
 
 ```
-`{
- "Id": "key-policy-1",
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "Allow use of the key",
- "Effect": "Allow",
- "Principal": {
- "AWS": [
- "arn:aws:iam::`111122223333`:user/KeyUser",
- "arn:aws:iam::`111122223333`:root"
- ]
- },
- "Action": [
- "kms:CreateGrant",
- "kms:Encrypt",
- "kms:Decrypt",
- "kms:ReEncrypt*",
- "kms:GenerateDataKey*",
- "kms:DescribeKey"
- ],
- "Resource": "*"
- },
- {
- "Sid": "Allow attachment of persistent resources",
- "Effect": "Allow",
- "Principal": {
- "AWS": [
- "arn:aws:iam::`111122223333`:user/KeyUser",
- "arn:aws:iam::`111122223333`:root"
- ]
- },
- "Action": [
- "kms:CreateGrant",
- "kms:ListGrants",
- "kms:RevokeGrant"
- ],
- "Resource": "*",
- "Condition": {
- "Bool": {
- "kms:GrantIsForAWSResource": true
- }
- }
- }
- ]
-}`
+aws rds create-db-instance ^
+    --db-instance-identifier `my-new-db` ^
+    --db-cluster-identifier `my-clone` ^
+    --db-instance-class db.serverless ^
+    --engine aurora-mysql
 
 ```
 
-###### Note
+#### Parameters to use for cloning
 
-The [RestoreDBClusterToPointInTime](../APIReference/API_RestoreDBClusterToPointInTime.md "../APIReference/API_RestoreDBClusterToPointInTime.md") RDS API operation restores only the DB
-cluster, not the DB instances for that DB cluster. To create DB instances for the
-restored DB cluster, invoke the [CreateDBInstance](../APIReference/API_CreateDBInstance.md "../APIReference/API_CreateDBInstance.md") RDS API operation. Specify the identifier of the restored
-DB cluster in `DBClusterIdentifier`. You can create DB instances only after
-the `RestoreDBClusterToPointInTime` operation has completed and the DB
-cluster is available.
+The following table summarizes the various parameters used with
+`restore-db-cluster-to-point-in-time` to clone Aurora DB clusters.
 
-### Checking if a DB cluster is a cross-account clone
+| Parameter                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--source-db-cluster-identifier`        | Use the name of the source Aurora DB cluster that you want to clone.                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `--db-cluster-identifier`               | Choose a meaningful name for your clone when you create it with the<br>`restore-db-cluster-to-point-in-time` command. Then you pass this name to the<br>`create-db-instance` command.                                                                                                                                                                                                                                                                                                                                             |
+| `--restore-type`                        | Specify `copy-on-write` as the `--restore-type` to create a clone of the<br>source DB cluster rather than restoring the source Aurora DB cluster.                                                                                                                                                                                                                                                                                                                                                                                 |
+| `--use-latest-restorable-time`          | This value points to the latest restorable volume data for the source DB cluster. Use it to create<br>clones.                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `--serverless-v2-scaling-configuration` | (Newer versions that support Aurora Serverless v2) Use this parameter to configure the minimum and<br>maximum capacity for an Aurora Serverless v2 clone. If you don't specify this parameter, you<br>can't create any Aurora Serverless v2 instances in the clone cluster until you modify the cluster<br>to add this attribute.                                                                                                                                                                                                 |
+| `--engine-mode`                         | (Older versions that support Aurora Serverless v1 only) Use this parameter to create clones that are<br>of a different type from the source Aurora DB cluster, with one of the following values:<br>• Use `provisioned` to create a provisioned clone from an Aurora Serverless v1 DB<br>cluster.<br>• Use `serverless` to create an Aurora Serverless v1 clone from a provisioned or<br>Aurora Serverless v2 DB cluster.<br>When you specify the `serverless` engine mode, you can also choose the<br>`--scaling-configuration`. |
+| `--scaling-configuration`               | (Older versions that support Aurora Serverless v1 only) Use this parameter to configure the minimum<br>and maximum capacity for an Aurora Serverless v1 clone. If you don't specify this parameter,<br>Aurora creates the clone using the default capacity values for the DB engine.                                                                                                                                                                                                                                              |
 
-The `DBClusters` object identifies whether each cluster is a cross-account clone. You can see the
-clusters that you have permission to clone by using the `include-shared` option when you run the
-RDS CLI command
-[`describe-db-clusters`](../../../cli/latest/reference/rds/describe-db-clusters.md "../../../cli/latest/reference/rds/describe-db-clusters.md"). However,
-you can't see most of the configuration details for such clusters.
+For information about cross-VPC and cross-account cloning, see the following sections.
 
-###### To check if a DB cluster is a cross-account clone
+###### Topics
 
-- Call the RDS CLI command
-  [`describe-db-clusters`](../../../cli/latest/reference/rds/describe-db-clusters.md "../../../cli/latest/reference/rds/describe-db-clusters.md").
-
-The following example shows how actual or potential cross-account clone DB clusters appear in
-`describe-db-clusters` output. For existing clusters owned by your AWS account, the
-`CrossAccountClone` field indicates whether the cluster is a clone of a DB cluster that
-is owned by another AWS account.
-
-In some cases, an entry might have a different AWS account number than yours in the
-`DBClusterArn` field. In this case, that entry represents a cluster that is owned by a
-different AWS account and that you can clone. Such entries have few fields other than
-`DBClusterArn`. When creating the cloned cluster, specify the same
-`StorageEncrypted`, `Engine`, and `EngineVersion` values as in the
-original cluster.
-
-```
-$aws rds describe-db-clusters --include-shared --region us-east-1
-{
-  "DBClusters": [
-      {
-          "EarliestRestorableTime": "2023-02-01T21:17:54.106Z",
-          "Engine": "aurora-mysql",
-          "EngineVersion": "8.0.mysql_aurora.3.02.0",
-          "CrossAccountClone": false,
-...
-      },
-      {
-          "EarliestRestorableTime": "2023-02-09T16:01:07.398Z",
-          "Engine": "aurora-mysql",
-          "EngineVersion": "8.0.mysql_aurora.3.02.0",
-          "CrossAccountClone": true,
-...
-      },
-      {
-          "StorageEncrypted": false,
-          "DBClusterArn": "arn:aws:rds:us-east-1:12345678:cluster:cluster-abcdefgh",
-          "Engine": "aurora-mysql",
-          "EngineVersion": "8.0.mysql_aurora.3.02.0
-  ]
-}
-
-```
-
-###### To check if a DB cluster is a cross-account clone
-
-- Call the RDS API operation
-  [DescribeDBClusters](../APIReference/API_DescribeDBClusters.md "../APIReference/API_DescribeDBClusters.md").
-
-For existing clusters owned by your AWS account, the `CrossAccountClone` field indicates
-whether the cluster is a clone of a DB cluster owned by another AWS account. Entries with a
-different AWS account number in the `DBClusterArn` field represent clusters that you can
-clone and that are owned by other AWS accounts. These entries have few fields other than
-`DBClusterArn`. When creating the cloned cluster, specify the same
-`StorageEncrypted`, `Engine`, and `EngineVersion` values as in the
-original cluster.
-
-The following example shows a return value that demonstrates both actual and potential cloned
-clusters.
-
-```
-{
-  "DBClusters": [
-      {
-          "EarliestRestorableTime": "2023-02-01T21:17:54.106Z",
-          "Engine": "aurora-mysql",
-          "EngineVersion": "8.0.mysql_aurora.3.02.0",
-          "CrossAccountClone": false,
-...
-      },
-      {
-          "EarliestRestorableTime": "2023-02-09T16:01:07.398Z",
-          "Engine": "aurora-mysql",
-          "EngineVersion": "8.0.mysql_aurora.3.02.0",
-          "CrossAccountClone": true,
-...
-      },
-      {
-          "StorageEncrypted": false,
-          "DBClusterArn": "arn:aws:rds:us-east-1:12345678:cluster:cluster-abcdefgh",
-          "Engine": "aurora-mysql",
-          "EngineVersion": "8.0.mysql_aurora.3.02.0"
-      }
-  ]
-}
-
-```
+- [Cross-VPC cloning with Amazon Aurora](Aurora.Managing.Clone.Cross-VPC.md "Aurora.Managing.Clone.Cross-VPC.md")
+- [Cross-account cloning with AWS RAM and Amazon Aurora](Aurora.Managing.Clone.Cross-Account.md "Aurora.Managing.Clone.Cross-Account.md")

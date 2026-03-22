@@ -11,7 +11,7 @@ maintained for a specified number of time periods.
 For Aurora, use `WRITER` or `READER` role metrics to set up alarms instead of relying on metrics for specific DB instances. Aurora DB instance roles can change roles
 over time. You can find these role-based metrics in the CloudWatch console.
 
-Aurora Auto Scaling automatically sets alarms based on `READER` role metrics. For more information about Aurora Auto Scaling, see [Amazon Aurora Auto Scaling with Aurora Replicas](Aurora.Integrating.md "Aurora.Integrating.md").
+Aurora Auto Scaling automatically sets alarms based on `READER` role metrics. For more information about Aurora Auto Scaling, see [Amazon Aurora Auto Scaling with Aurora Replicas](Aurora.Integrating.AutoScaling.md "Aurora.Integrating.AutoScaling.md").
 
 You can use the **DB_PERF_INSIGHTS**
 metric math function in the CloudWatch console to query Amazon RDS for Performance Insights counter metrics. The

@@ -37,7 +37,7 @@ your major engine version. We recommend that you upgrade to a supported major en
 as soon as possible.
 
 For more information about the Aurora end of standard support dates and
-the RDS end of Extended Support dates, see [Release calendar for Aurora MySQL major versions](../AuroraMySQLReleaseNotes/AuroraMySQL.md#AuroraMySQL.release-calendars.major "../AuroraMySQLReleaseNotes/AuroraMySQL.md#AuroraMySQL.release-calendars.major") and [Release calendar for Aurora PostgreSQL major versions](../AuroraPostgreSQLReleaseNotes/aurorapostgresql-release-calendar.md#aurorapostgresql.major.versions.supported "../AuroraPostgreSQLReleaseNotes/aurorapostgresql-release-calendar.md#aurorapostgresql.major.versions.supported").
+the RDS end of Extended Support dates, see [Release calendar for Aurora MySQL major versions](../AuroraMySQLReleaseNotes/AuroraMySQL.release-calendars.md#AuroraMySQL.release-calendars.major "../AuroraMySQLReleaseNotes/AuroraMySQL.release-calendars.md#AuroraMySQL.release-calendars.major") and [Release calendar for Aurora PostgreSQL major versions](../AuroraPostgreSQLReleaseNotes/aurorapostgresql-release-calendar.md#aurorapostgresql.major.versions.supported "../AuroraPostgreSQLReleaseNotes/aurorapostgresql-release-calendar.md#aurorapostgresql.major.versions.supported").
 
 ###### Topics
 

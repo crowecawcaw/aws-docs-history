@@ -12,9 +12,9 @@ direct upgrade from 13.x to 15.x. You must first upgrade your 13.x DB cluster to
 higher version and then upgrade to 15.x version.
 
 For a list of supported functionality across different Babelfish releases, see
-[Supported functionalities in Babelfish by version](babelfish-compatibility.md "babelfish-compatibility.md").
+[Supported functionalities in Babelfish by version](babelfish-compatibility.supported-functionality-table.md "babelfish-compatibility.supported-functionality-table.md").
 
-For a list of currently unsupported functionality, see [Unsupported functionalities in Babelfish](babelfish-compatibility.tsql.md "babelfish-compatibility.tsql.md").
+For a list of currently unsupported functionality, see [Unsupported functionalities in Babelfish](babelfish-compatibility.tsql.limitations-unsupported.md "babelfish-compatibility.tsql.limitations-unsupported.md").
 
 You can get a list of Aurora PostgreSQL versions that support Babelfish by querying
 your AWS Region using the [describe-db-engine-versions](../../../cli/latest/reference/rds/describe-db-engine-versions.md "../../../cli/latest/reference/rds/describe-db-engine-versions.md") AWS CLI command, as follows.

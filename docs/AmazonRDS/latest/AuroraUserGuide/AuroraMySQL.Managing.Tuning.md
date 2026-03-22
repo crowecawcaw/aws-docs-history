@@ -1,22 +1,28 @@
-# Tuning Aurora MySQL with wait events
+# Tuning Aurora MySQL
 
-The following table summarizes the Aurora MySQL wait events that most commonly indicate performance problems. The
-following wait events are a subset of the list in [Aurora MySQL wait events](AuroraMySQL.Reference.md "AuroraMySQL.Reference.md").
+Wait events and thread states are important tuning tools for Aurora MySQL. If you can
+find out why sessions are waiting for resources and what they are doing, you are better able
+to reduce bottlenecks. You can use the information in this section to find possible causes
+and corrective actions.
 
-| Wait event                                                                      | Description                                                                                                             |
-| ------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| [cpu](ams-waits.md "ams-waits.md")                                              | This event occurs when a thread is active in CPU or is waiting for CPU.                                                 |
-| [io/aurora_redo_log_flush](ams-waits.md "ams-waits.md")                         | This event occurs when a session is writing persistent data to Aurora storage.                                          |
-| [io/aurora_respond_to_client](ams-waits.md "ams-waits.md")                      | This event occurs when a thread is waiting to return a result set to a client.                                          |
-| [io/redo_log_flush](ams-waits.md "ams-waits.md")                                | This event occurs when a session is writing persistent data to Aurora storage.                                          |
-| [io/socket/sql/client_connection](ams-waits.md "ams-waits.md")                  | This event occurs when a thread is in the process of handling a new connection.                                         |
-| [io/table/sql/handler](ams-waits.md "ams-waits.md")                             | This event occurs when work has been delegated to a storage engine.                                                     |
-| [synch/cond/innodb/row_lock_wait](ams-waits.md "ams-waits.md")                  | This event occurs when one session has locked a row for an update, and another session tries to update the<br>same row. |
-| [synch/cond/innodb/row_lock_wait_cond](ams-waits.md "ams-waits.md")             | This event occurs when one session has locked a row for an update, and another session tries to update the<br>same row. |
-| [synch/cond/sql/MDL_context::COND_wait_status](ams-waits.md "ams-waits.md")     | This event occurs when there are threads waiting on a table metadata lock.                                              |
-| [synch/mutex/innodb/aurora_lock_thread_slot_futex](ams-waits.md "ams-waits.md") | This event occurs when one session has locked a row for an update, and another session tries to update the<br>same row. |
-| [synch/mutex/innodb/buf_pool_mutex](ams-waits.md "ams-waits.md")                | This event occurs when a thread has acquired a lock on the InnoDB buffer pool to access a page in<br>memory.            |
-| [synch/mutex/innodb/fil_system_mutex](ams-waits.md "ams-waits.md")              | This event occurs when a session is waiting to access the tablespace memory cache.                                      |
-| [synch/mutex/innodb/trx_sys_mutex](ams-waits.md "ams-waits.md")                 | This event occurs when there is high database activity with a large number of transactions.                             |
-| [synch/sxlock/innodb/hash_table_locks](ams-waits.md "ams-waits.md")             | This event occurs when pages not found in the buffer pool must be read from a file.                                     |
-| [synch/mutex/innodb/temp_pool_manager_mutex](ams-waits.md "ams-waits.md")       | This event occurs when a session is waiting to acquire a mutex for managing the pool of session temporary tablespaces.  |
+Amazon DevOps Guru for RDS can proactively determine whether your Aurora MySQL databases are
+experiencing problematic conditions that might cause bigger problems later. Amazon DevOps Guru for
+RDS publishes an explanation and recommendations for corrective actions in a proactive
+insight. This section contains insights for common problems.
+
+###### Important
+
+The wait events and thread states in this section are specific to Aurora MySQL. Use
+the information in this section to tune only Amazon Aurora, not Amazon RDS for MySQL.
+
+Some wait events in this section have no analogs in the open source versions of these database engines.
+Other wait events have the same names as events in open source engines, but behave differently. For example,
+Amazon Aurora storage works different from open source storage, so storage-related wait events indicate different
+resource conditions.
+
+###### Topics
+
+- [Essential concepts for Aurora MySQL tuning](AuroraMySQL.Managing.Tuning.concepts.md "AuroraMySQL.Managing.Tuning.concepts.md")
+- [Tuning Aurora MySQL with wait events](AuroraMySQL.Managing.Tuning.wait-events.md "AuroraMySQL.Managing.Tuning.wait-events.md")
+- [Tuning Aurora MySQL with thread states](AuroraMySQL.Managing.Tuning.thread-states.md "AuroraMySQL.Managing.Tuning.thread-states.md")
+- [Tuning Aurora MySQL with Amazon DevOps Guru proactive insights](MySQL.Tuning.proactive-insights.md "MySQL.Tuning.proactive-insights.md")

@@ -13,13 +13,13 @@ test systems, and other environments with highly variable and unpredictable work
 
 - [Aurora Serverless v2 use cases](#aurora-serverless-v2.use-cases "#aurora-serverless-v2.use-cases")
 - [Advantages of Aurora Serverless v2](#aurora-serverless-v2.advantages "#aurora-serverless-v2.advantages")
-- [How Aurora Serverless v2 works](aurora-serverless-v2.md "aurora-serverless-v2.md")
-- [Requirements and limitations for Aurora Serverless v2](aurora-serverless-v2.md "aurora-serverless-v2.md")
-- [Creating a DB cluster that uses Aurora Serverless v2](aurora-serverless-v2.md "aurora-serverless-v2.md")
+- [How Aurora Serverless v2 works](aurora-serverless-v2.how-it-works.md "aurora-serverless-v2.how-it-works.md")
+- [Requirements and limitations for Aurora Serverless v2](aurora-serverless-v2.requirements.md "aurora-serverless-v2.requirements.md")
+- [Creating a DB cluster that uses Aurora Serverless v2](aurora-serverless-v2.create.md "aurora-serverless-v2.create.md")
 - [Managing Aurora Serverless v2 DB clusters](aurora-serverless-v2-administration.md "aurora-serverless-v2-administration.md")
-- [Performance and scaling for Aurora Serverless v2](aurora-serverless-v2.md "aurora-serverless-v2.md")
+- [Performance and scaling for Aurora Serverless v2](aurora-serverless-v2.setting-capacity.md "aurora-serverless-v2.setting-capacity.md")
 - [Scaling to Zero ACUs with automatic pause and resume for Aurora Serverless v2](aurora-serverless-v2-auto-pause.md "aurora-serverless-v2-auto-pause.md")
-- [Migrating to Aurora Serverless v2](aurora-serverless-v2.md "aurora-serverless-v2.md")
+- [Migrating to Aurora Serverless v2](aurora-serverless-v2.upgrade.md "aurora-serverless-v2.upgrade.md")
 
 ## Aurora Serverless v2 use cases
 
@@ -105,7 +105,7 @@ You can use the Aurora failover mechanism to promote an Aurora Serverless v2 DB 
 check how it handles the read/write workload. That way, you can switch over with minimal downtime and without
 changing the endpoint that your client applications use. For details on the procedure to convert existing
 clusters to Aurora Serverless v2, see
-[Migrating to Aurora Serverless v2](aurora-serverless-v2.md "aurora-serverless-v2.md").
+[Migrating to Aurora Serverless v2](aurora-serverless-v2.upgrade.md "aurora-serverless-v2.upgrade.md").
 
 ## Advantages of Aurora Serverless v2
 

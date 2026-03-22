@@ -20,7 +20,7 @@ available to the other instances.
 - [Monitoring Amazon Aurora databases with CloudWatch Database Insights](USER_DatabaseInsights.md "USER_DatabaseInsights.md")
 - [Monitoring DB load with Performance Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md")
 - [Analyzing Aurora performance anomalies with Amazon DevOps Guru for Amazon RDS](devops-guru-for-rds.md "devops-guru-for-rds.md")
-- [Monitoring OS metrics with Enhanced Monitoring](USER_Monitoring.md "USER_Monitoring.md")
+- [Monitoring OS metrics with Enhanced Monitoring](USER_Monitoring.OS.md "USER_Monitoring.OS.md")
 - [Metrics reference for Amazon Aurora](metrics-reference.md "metrics-reference.md")
 
 ## Monitoring plan

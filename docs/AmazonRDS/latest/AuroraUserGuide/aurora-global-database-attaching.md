@@ -10,7 +10,7 @@ secondary DB cluster. For each secondary DB cluster that you add to your Aurora 
 number of Aurora Replicas allowed to the primary DB cluster by one.
 
 For example, if your Aurora global database has 10 secondary Regions, your primary DB cluster can have only 5 (rather than 15) Aurora Replicas.
-For more information, see [Configuration requirements of an Amazon Aurora global database](aurora-global-database.configuration.md "aurora-global-database.configuration.md").
+For more information, see [Configuration requirements of an Amazon Aurora global database](aurora-global-database.configuration.requirements.md "aurora-global-database.configuration.requirements.md").
 
 The number of Aurora Replicas (reader instances) in the primary DB cluster determines the number of secondary DB clusters you can add. The total number of
 reader instances in the primary DB cluster plus the number of secondary clusters can't exceed 15. For example, if you have 14 reader instances in the primary

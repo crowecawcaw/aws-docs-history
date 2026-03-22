@@ -32,7 +32,7 @@ You're also responsible for upgrading your engine to a newer engine version
 _before_ the RDS end of Extended Support date. The RDS end
 of Extended Support date is typically 3 years after the community end of
 life. . For the RDS end of Extended Support date for your database major engine
-version, see [Amazon Aurora major versions](Aurora.VersionPolicy.md#Aurora.VersionPolicy.MajorVersions "Aurora.VersionPolicy.md#Aurora.VersionPolicy.MajorVersions").
+version, see [Amazon Aurora major versions](Aurora.VersionPolicy.Versioning.md#Aurora.VersionPolicy.MajorVersions "Aurora.VersionPolicy.Versioning.md#Aurora.VersionPolicy.MajorVersions").
 
 If you don't upgrade your engine, then after the RDS end of Extended Support date, Amazon Aurora will attempt to upgrade your engine to a newer engine
 version that's supported under Aurora standard support. If the upgrade fails, then

@@ -94,7 +94,7 @@ example using Oracle 21c, see [About the Values for Negotiating Encryption and I
 oracle_fdw on Amazon RDS is configured with `ACCEPTED`, meaning that the encryption depends on the Oracle database
 server configuration and it uses Oracle Security Library (libnnz) for encryption.
 
-If your database is on RDS for Oracle, see [Oracle native network encryption](../UserGuide/Appendix.Oracle.Options.md "../UserGuide/Appendix.Oracle.Options.md")
+If your database is on RDS for Oracle, see [Oracle native network encryption](../UserGuide/Appendix.Oracle.Options.NetworkEncryption.md "../UserGuide/Appendix.Oracle.Options.NetworkEncryption.md")
 to configure the encryption.
 
 ## Understanding the pg_user_mappings view and permissions

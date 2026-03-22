@@ -6,14 +6,14 @@ Amazon RDS provisioned instances in an Amazon Aurora cluster are billed based on
   instance (for example, db.t2.small or db.m4.large). Pricing is listed on a per-hour
   basis, but bills are calculated down to the second and show times in decimal form.
   RDS usage is billed in 1-second increments, with a minimum of 10 minutes. For more
-  information, see [Amazon AuroraDB instance classes](Concepts.md "Concepts.md").
+  information, see [Amazon AuroraDB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
 - Storage (per GiB per month) – Storage capacity that you have provisioned to your DB instance. If you scale your provisioned
-  storage capacity within the month, your bill is prorated. For more information, see [Amazon Aurora storage](Aurora.Overview.md "Aurora.Overview.md").
+  storage capacity within the month, your bill is prorated. For more information, see [Amazon Aurora storage](Aurora.Overview.StorageReliability.md "Aurora.Overview.StorageReliability.md").
 - Input/output (I/O) requests (per 1 million requests) – Total number of storage I/O requests that you have made in a billing
   cycle, for the Aurora Standard DB cluster
   configuration only.
 
-For more information on Amazon Aurora I/O billing, see [Storage configurations for Amazon Aurora DB clusters](Aurora.Overview.md#aurora-storage-type "Aurora.Overview.md#aurora-storage-type").
+For more information on Amazon Aurora I/O billing, see [Storage configurations for Amazon Aurora DB clusters](Aurora.Overview.StorageReliability.md#aurora-storage-type "Aurora.Overview.StorageReliability.md#aurora-storage-type").
 
 - Backup storage (per GiB per month) – _Backup storage_ is the storage that is associated with automated database backups and any
   active database snapshots that you have taken. Increasing your backup retention
@@ -43,7 +43,7 @@ For more information, see [Backing up and restoring an Amazon Aurora DB cluster]
   range that you specify, depending on the load on your database. You can configure a
   cluster where all the capacity is Aurora Serverless v2. Or you can configure a
   combination of Aurora Serverless v2 and on-demand or reserved provisioned instances.
-  For information about how Aurora Serverless v2 ACUs work, see [How Aurora Serverless v2 works](aurora-serverless-v2.md "aurora-serverless-v2.md").
+  For information about how Aurora Serverless v2 ACUs work, see [How Aurora Serverless v2 works](aurora-serverless-v2.how-it-works.md "aurora-serverless-v2.how-it-works.md").
 - **Aurora PostgreSQL Limitless Database** – Aurora PostgreSQL Limitless Database is an automated, horizontal scaling capability that scales beyond the write throughput and
   storage limits of a single DB instance. Limitless Database distributes the workload over multiple Aurora writer instances, while maintaining the ease of
   operating as a single database. Limitless Database provides on-demand capacity where the billing unit is Aurora capacity unit (ACU) hours in a DB

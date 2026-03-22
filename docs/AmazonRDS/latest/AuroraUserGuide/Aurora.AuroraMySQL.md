@@ -1,111 +1,31 @@
-# Overview of Amazon Aurora MySQL
+# Working with Amazon Aurora MySQL
 
-The following sections provide an overview of Amazon Aurora MySQL.
+Amazon Aurora MySQL is a fully managed, MySQL-compatible, relational database engine that
+combines the speed and reliability of high-end commercial databases with the simplicity and
+cost-effectiveness of open-source databases. Aurora MySQL is a drop-in replacement for
+MySQL and makes it simple and cost-effective to set up, operate, and scale your new and
+existing MySQL deployments, thus freeing you to focus on your business and applications.
+Amazon RDS provides administration for Aurora by handling routine database tasks such
+as provisioning, patching, backup, recovery, failure detection, and repair. Amazon RDS also
+provides push-button migration tools to convert your existing Amazon RDS for MySQL
+applications to Aurora MySQL.
 
 ###### Topics
 
-- [Amazon Aurora MySQL performance enhancements](#Aurora.AuroraMySQL.Performance "#Aurora.AuroraMySQL.Performance")
-- [Amazon Aurora MySQL and spatial data](#Aurora.AuroraMySQL.Spatial "#Aurora.AuroraMySQL.Spatial")
-- [Aurora MySQL version 3 compatible with MySQL 8.0](AuroraMySQL.md "AuroraMySQL.md")
-- [Aurora MySQL version 2 compatible with MySQL 5.7](AuroraMySQL.md "AuroraMySQL.md")
-
-## Amazon Aurora MySQL performance enhancements
-
-Amazon Aurora includes performance enhancements to support the diverse needs of
-high-end commercial databases.
-
-### Fast insert
-
-Fast insert accelerates parallel inserts sorted by primary key and applies
-specifically to `LOAD DATA` and `INSERT INTO ... SELECT
- ...` statements. Fast insert caches the position of a cursor in an
-index traversal while executing the statement. This avoids unnecessarily
-traversing the index again.
-
-Fast insert is enabled only for regular InnoDB tables in Aurora MySQL version 3.03.2 and higher. This optimization
-doesn’t work for InnoDB temporary tables. It's disabled in Aurora MySQL version 2 for all 2.11 and 2.12 versions. Fast
-insert optimization works only if Adaptive Hash Index optimization is disabled.
-
-You can monitor the following metrics to determine the effectiveness of fast
-insert for your DB cluster:
-
-- `aurora_fast_insert_cache_hits`: A counter that is
-  incremented when the cached cursor is successfully retrieved and
-  verified.
-- `aurora_fast_insert_cache_misses`: A counter that is
-  incremented when the cached cursor is no longer valid and Aurora
-  performs a normal index traversal.
-
-You can retrieve the current value of the fast insert metrics using the
-following command:
-
-```
-
-`mysql>` show global status like 'Aurora_fast_insert%';
-```
-
-You will get output similar to the following:
-
-```
-
-+---------------------------------+-----------+
-| Variable_name                   | Value     |
-+---------------------------------+-----------+
-| Aurora_fast_insert_cache_hits   | 3598300   |
-| Aurora_fast_insert_cache_misses | 436401336 |
-+---------------------------------+-----------+
-
-```
-
-## Amazon Aurora MySQL and spatial data
-
-The following list summarizes the main Aurora MySQL spatial features and explains how they correspond to spatial features in
-MySQL:
-
-- Aurora MySQL version 2 supports the same spatial data types and spatial relation functions as MySQL 5.7. For more
-  information about these data types and functions, see [Spatial Data Types](https://dev.mysql.com/doc/refman/5.7/en/spatial-types.html "https://dev.mysql.com/doc/refman/5.7/en/spatial-types.html") and [Spatial Relation
-  Functions](https://dev.mysql.com/doc/refman/5.7/en/spatial-relation-functions-object-shapes.html "https://dev.mysql.com/doc/refman/5.7/en/spatial-relation-functions-object-shapes.html") in the MySQL 5.7 documentation.
-- Aurora MySQL version 3 supports the same spatial data types and spatial relation functions as MySQL 8.0. For more
-  information about these data types and functions, see [Spatial Data Types](https://dev.mysql.com/doc/refman/8.0/en/spatial-types.html "https://dev.mysql.com/doc/refman/8.0/en/spatial-types.html") and [Spatial Relation
-  Functions](https://dev.mysql.com/doc/refman/8.0/en/spatial-relation-functions-object-shapes.html "https://dev.mysql.com/doc/refman/8.0/en/spatial-relation-functions-object-shapes.html") in the MySQL 8.0 documentation.
-- Aurora MySQL supports spatial indexing on InnoDB tables. Spatial indexing improves query performance on large datasets for
-  queries on spatial data. In MySQL, spatial indexing for InnoDB tables is available in MySQL 5.7 and 8.0.
-
-Aurora MySQL uses a different spatial indexing strategy from MySQL for high performance with spatial queries. The
-Aurora spatial index implementation uses a space-filling curve on a B-tree, which is intended to provide higher
-performance for spatial range scans than an R-tree.
-
-###### Note
-
-In Aurora MySQL, a transaction on a table with a spatial index defined on a column with a spatial reference
-identifier (SRID) can't insert into an area selected for update by another transaction.
-
-The following data definition language (DDL) statements are supported for creating
-indexes on columns that use spatial data types.
-
-### CREATE TABLE
-
-You can use the `SPATIAL INDEX` keywords in a `CREATE TABLE` statement to add a spatial index to a
-column in a new table. Following is an example.
-
-```
-CREATE TABLE test (shape POLYGON NOT NULL, SPATIAL INDEX(shape));
-```
-
-### ALTER TABLE
-
-You can use the `SPATIAL INDEX` keywords in an `ALTER TABLE` statement to add a
-spatial index to a column in an existing table. Following is an example.
-
-```
-ALTER TABLE test ADD SPATIAL INDEX(shape);
-```
-
-### CREATE INDEX
-
-You can use the `SPATIAL` keyword in a `CREATE INDEX` statement to add a spatial index
-to a column in an existing table. Following is an example.
-
-```
-CREATE SPATIAL INDEX shape_index ON test (shape);
-```
+- [Overview of Amazon Aurora MySQL](Aurora.AuroraMySQL.Overview.md "Aurora.AuroraMySQL.Overview.md")
+- [Security with Amazon Aurora MySQL](AuroraMySQL.Security.md "AuroraMySQL.Security.md")
+- [Updating applications to connect to Aurora MySQL DB clusters using new TLS certificates](ssl-certificate-rotation-aurora-mysql.md "ssl-certificate-rotation-aurora-mysql.md")
+- [Using Kerberos authentication for Aurora MySQL](aurora-mysql-kerberos.md "aurora-mysql-kerberos.md")
+- [Migrating data to an Amazon Aurora MySQL DB cluster](AuroraMySQL.Migrating.md "AuroraMySQL.Migrating.md")
+- [Managing Amazon Aurora MySQL](AuroraMySQL.Managing.md "AuroraMySQL.Managing.md")
+- [Tuning Aurora MySQL](AuroraMySQL.Managing.Tuning.md "AuroraMySQL.Managing.Tuning.md")
+- [Parallel query for Amazon Aurora MySQL](aurora-mysql-parallel-query.md "aurora-mysql-parallel-query.md")
+- [Using Advanced Auditing with an Amazon Aurora MySQL DB cluster](AuroraMySQL.Auditing.md "AuroraMySQL.Auditing.md")
+- [Replication with Amazon Aurora MySQL](AuroraMySQL.Replication.md "AuroraMySQL.Replication.md")
+- [Using local write forwarding in an Amazon Aurora MySQL DB cluster](aurora-mysql-write-forwarding.md "aurora-mysql-write-forwarding.md")
+- [Integrating Amazon Aurora MySQL with other AWS services](AuroraMySQL.Integrating.md "AuroraMySQL.Integrating.md")
+- [Amazon Aurora MySQL lab mode](AuroraMySQL.Updates.LabMode.md "AuroraMySQL.Updates.LabMode.md")
+- [Best practices with Amazon Aurora MySQL](AuroraMySQL.BestPractices.md "AuroraMySQL.BestPractices.md")
+- [Troubleshooting Amazon Aurora MySQL database performance](aurora-mysql-troubleshooting.md "aurora-mysql-troubleshooting.md")
+- [Amazon Aurora MySQL reference](AuroraMySQL.Reference.md "AuroraMySQL.Reference.md")
+- [Database engine updates for Amazon Aurora MySQL](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md")

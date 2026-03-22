@@ -169,7 +169,7 @@ If disabling parallelism yields better or more consistent results, consider
 disabling it for specific queries at the session level using SET commands. For a
 broader impact, you might want to disable parallelism at the instance level by
 adjusting the relevant parameters in your cluster or instance parameter group.
-For more information, see [Amazon Aurora PostgreSQL parameters](AuroraPostgreSQL.Reference.md "AuroraPostgreSQL.Reference.md").
+For more information, see [Amazon Aurora PostgreSQL parameters](AuroraPostgreSQL.Reference.ParameterGroups.md "AuroraPostgreSQL.Reference.ParameterGroups.md").
 
 ### Monitor parallel query usage
 
@@ -271,11 +271,11 @@ performance for regular queries.
 
 In Aurora PostgreSQL, the Query Plan Management (QPM) feature is designed to ensure
 plan adaptability and stability, regardless of database environment changes that
-might cause query plan regression. For more information, see [Overview of Aurora PostgreSQL query plan management](AuroraPostgreSQL.Optimize.md "AuroraPostgreSQL.Optimize.md").QPM provides some control over
+might cause query plan regression. For more information, see [Overview of Aurora PostgreSQL query plan management](AuroraPostgreSQL.Optimize.overview.md "AuroraPostgreSQL.Optimize.overview.md").QPM provides some control over
 the optimizer. Review approved plans in QPM to ensure they align with current
 parallelism settings. Update or remove outdated plans that may be forcing suboptimal
 parallel execution.
 
-You can also fix the plans using pg_hint_plan. For more information, see [Fixing plans using pg_hint_plan](AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Maintenance.pg_hint_plan "AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Maintenance.pg_hint_plan"). You can use the
+You can also fix the plans using pg_hint_plan. For more information, see [Fixing plans using pg_hint_plan](AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.pg_hint_plan "AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.pg_hint_plan"). You can use the
 hint named `Parallel` to enforce parallel execution. For more
 information, see the [Hints for parallel plans](https://github.com/ossc-db/pg_hint_plan/blob/master/docs/hint_table.md#hints-for-parallel-plans "https://github.com/ossc-db/pg_hint_plan/blob/master/docs/hint_table.md#hints-for-parallel-plans").

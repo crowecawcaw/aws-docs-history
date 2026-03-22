@@ -38,7 +38,7 @@ you can do the following:
 3. Modify your DB instance or DB cluster to associate the new parameter group.
 
 For information about modifying a DB cluster or DB instance, see
-[Modifying an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
+[Modifying an Amazon Aurora DB cluster](Aurora.Modifying.md "Aurora.Modifying.md").
 
 ###### Note
 
@@ -50,7 +50,7 @@ AlwaysOn or Mirroring option enabled, a failover is expected when instance is re
 RDS applies the modified static and dynamic parameters in a newly associated parameter
 group only after the DB instance is rebooted. However, if you modify dynamic parameters in the
 DB parameter group after you associate it with the DB instance, these changes are applied immediately
-without a reboot. For more information about changing the DB parameter group, see [Modifying an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
+without a reboot. For more information about changing the DB parameter group, see [Modifying an Amazon Aurora DB cluster](Aurora.Modifying.md "Aurora.Modifying.md").
 
 If you update parameters within a DB parameter group, the changes apply to all DB instances
 that are associated with that parameter group. Likewise, if you update parameters within
@@ -147,7 +147,7 @@ database, check the documentation for your DB engine.
 
 To determine the supported parameters for your DB engine, view the parameters in the
 DB parameter group and DB cluster parameter group used by the DB instance or DB cluster. For more
-information, see [Viewing parameter values for a DB parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md") and [Viewing parameter values for a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+information, see [Viewing parameter values for a DB parameter group in Amazon Aurora](USER_WorkingWithParamGroups.Viewing.md "USER_WorkingWithParamGroups.Viewing.md") and [Viewing parameter values for a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.ViewingCluster.md "USER_WorkingWithParamGroups.ViewingCluster.md").
 
 In many cases, you can specify integer and Boolean parameter values using expressions,
 formulas, and functions. Functions can include a mathematical log expression. However,

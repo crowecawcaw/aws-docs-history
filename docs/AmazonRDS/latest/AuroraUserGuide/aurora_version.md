@@ -21,20 +21,20 @@ CHAR or VARCHAR string
 This function displays the version of the Amazon Aurora PostgreSQL-Compatible Edition database engine.
 The version number is returned as a string formatted as
 `major`.`minor`.`patch`.
-For more information about Aurora PostgreSQL version numbers, see [Aurora version number](AuroraPostgreSQL.md#AuroraPostgreSQL.Updates.Versions.AuroraNumber "AuroraPostgreSQL.md#AuroraPostgreSQL.Updates.Versions.AuroraNumber").
+For more information about Aurora PostgreSQL version numbers, see [Aurora version number](AuroraPostgreSQL.Updates.md#AuroraPostgreSQL.Updates.Versions.AuroraNumber "AuroraPostgreSQL.Updates.md#AuroraPostgreSQL.Updates.Versions.AuroraNumber").
 
 You can choose when to apply minor version upgrades by setting the maintenance
-window for your Aurora PostgreSQL DB cluster. To learn how, see [Maintaining an Amazon Aurora DB cluster](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md").
+window for your Aurora PostgreSQL DB cluster. To learn how, see [Maintaining an Amazon Aurora DB cluster](USER_UpgradeDBInstance.Maintenance.md "USER_UpgradeDBInstance.Maintenance.md").
 
 Starting with the release of Aurora PostgreSQL versions 13.3, 12.8, 11.13, 10.18, and
 for all other later versions, Aurora version numbers follow PostgreSQL version
-numbers. For more information about all Aurora PostgreSQL releases, see [Amazon Aurora PostgreSQL updates](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") in the _Release Notes for Aurora PostgreSQL_.
+numbers. For more information about all Aurora PostgreSQL releases, see [Amazon Aurora PostgreSQL updates](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Updates.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Updates.md") in the _Release Notes for Aurora PostgreSQL_.
 
 ## Examples
 
 The following example shows the results of calling the `aurora_version`
-function on an Aurora PostgreSQL DB cluster running [PostgreSQL 12.7, Aurora PostgreSQL release 4.2](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md#AuroraPostgreSQL.Updates.20180305.42 "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md#AuroraPostgreSQL.Updates.20180305.42") and then running the same
-function on a cluster running [Aurora PostgreSQL version 13.3](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md#AuroraPostgreSQL.Updates.20180305.133X "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md#AuroraPostgreSQL.Updates.20180305.133X").
+function on an Aurora PostgreSQL DB cluster running [PostgreSQL 12.7, Aurora PostgreSQL release 4.2](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Updates.md#AuroraPostgreSQL.Updates.20180305.42 "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Updates.md#AuroraPostgreSQL.Updates.20180305.42") and then running the same
+function on a cluster running [Aurora PostgreSQL version 13.3](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Updates.md#AuroraPostgreSQL.Updates.20180305.133X "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Updates.md#AuroraPostgreSQL.Updates.20180305.133X").
 
 ```
 `=>` `SELECT * FROM aurora_version();`

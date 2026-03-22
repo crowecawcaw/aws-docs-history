@@ -15,7 +15,7 @@ For Aurora PostgreSQL this feature is available by default in the following vers
 - 14.7 and higher 14 versions
 - 13.10 and higher 13 versions
 - 12.14 and higher 12 versions
-  For more information on the read availability feature in Aurora PostgreSQL, see [Improving the read availability of Aurora Replicas](AuroraPostgreSQL.md#AuroraPostgreSQL.Replication.Replicas.SRO "AuroraPostgreSQL.md#AuroraPostgreSQL.Replication.Replicas.SRO").
+  For more information on the read availability feature in Aurora PostgreSQL, see [Improving the read availability of Aurora Replicas](AuroraPostgreSQL.Replication.md#AuroraPostgreSQL.Replication.Replicas.SRO "AuroraPostgreSQL.Replication.md#AuroraPostgreSQL.Replication.Replicas.SRO").
 
 Before this feature, rebooting the primary instance caused a reboot for each reader instance at the same time. If your Aurora
 cluster is running an older version, use the reboot procedure in [Rebooting an Aurora cluster without read availability](aurora-reboot-cluster.md "aurora-reboot-cluster.md") instead.
@@ -43,9 +43,9 @@ need to take care to reboot the reader instances immediately. You do this to avo
 queries. For example, suppose that you change the `lower_case_table_names` parameter and reboot the writer instance.
 In this case, the reader instances might not be able to access a newly created table until they are all rebooted.
 
-For a list of all the Aurora MySQL cluster parameters, see [Cluster-level parameters](AuroraMySQL.Reference.md#AuroraMySQL.Reference.Parameters.Cluster "AuroraMySQL.Reference.md#AuroraMySQL.Reference.Parameters.Cluster").
+For a list of all the Aurora MySQL cluster parameters, see [Cluster-level parameters](AuroraMySQL.Reference.ParameterGroups.md#AuroraMySQL.Reference.Parameters.Cluster "AuroraMySQL.Reference.ParameterGroups.md#AuroraMySQL.Reference.Parameters.Cluster").
 
-For a list of all the Aurora PostgreSQL cluster parameters, see [Aurora PostgreSQL cluster-level parameters](AuroraPostgreSQL.Reference.md#AuroraPostgreSQL.Reference.Parameters.Cluster "AuroraPostgreSQL.Reference.md#AuroraPostgreSQL.Reference.Parameters.Cluster").
+For a list of all the Aurora PostgreSQL cluster parameters, see [Aurora PostgreSQL cluster-level parameters](AuroraPostgreSQL.Reference.ParameterGroups.md#AuroraPostgreSQL.Reference.Parameters.Cluster "AuroraPostgreSQL.Reference.ParameterGroups.md#AuroraPostgreSQL.Reference.Parameters.Cluster").
 
 ###### Tip
 

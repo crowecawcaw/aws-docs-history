@@ -27,7 +27,7 @@ replication to continuously stream the newer data recorded after the LSN and
 synchronize the changes from publisher to subscriber.
 
 For more information on using logical replication for a major version upgrade, see
-[Using logical replication to perform a major version upgrade for Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+[Using logical replication to perform a major version upgrade for Aurora PostgreSQL](AuroraPostgreSQL.MajorVersionUpgrade.md "AuroraPostgreSQL.MajorVersionUpgrade.md").
 
 This function is available on the following versions of Aurora PostgreSQL:
 

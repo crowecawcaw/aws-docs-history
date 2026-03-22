@@ -9,7 +9,7 @@ AWS CLI commands and RDS API operations return start and end dates for
 Aurora
 standard support and RDS Extended Support. These dates can also be found in the major engine version
 tables. For more information,
-see [Amazon Aurora major versions](Aurora.VersionPolicy.md#Aurora.VersionPolicy.MajorVersions "Aurora.VersionPolicy.md#Aurora.VersionPolicy.MajorVersions").
+see [Amazon Aurora major versions](Aurora.VersionPolicy.Versioning.md#Aurora.VersionPolicy.MajorVersions "Aurora.VersionPolicy.Versioning.md#Aurora.VersionPolicy.MajorVersions").
 
 To view the start and end dates for Aurora standard support and
 RDS Extended Support for your major engine versions by using the AWS CLI, run the [describe-db-major-engine-versions](../../../cli/latest/reference/rds/describe-db-major-engine-versions.md "../../../cli/latest/reference/rds/describe-db-major-engine-versions.md") command.

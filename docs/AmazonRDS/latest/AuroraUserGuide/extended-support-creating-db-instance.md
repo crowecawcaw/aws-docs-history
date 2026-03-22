@@ -57,7 +57,7 @@ items:
   `--engine-lifecycle-support` in the AWS CLI, and
   `EngineLifecycleSupport` in the RDS API.
 
-For more information, see [Amazon Aurora versions](Aurora.md "Aurora.md").
+For more information, see [Amazon Aurora versions](Aurora.VersionPolicy.md "Aurora.VersionPolicy.md").
 
 ## Create an Aurora DB cluster or a global cluster with RDS Extended Support
 
@@ -98,6 +98,6 @@ any associated RDS Extended Support charges.
 
 For more information, see the following topics:
 
-- To create an Aurora DB cluster, follow the instructions for your DB engine in [Creating an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
+- To create an Aurora DB cluster, follow the instructions for your DB engine in [Creating an Amazon Aurora DB cluster](Aurora.CreateInstance.md "Aurora.CreateInstance.md").
 - To create a global cluster, follow the instructions for your DB engine in
   [Creating an Amazon Aurora global database](aurora-global-database-creating.md "aurora-global-database-creating.md").

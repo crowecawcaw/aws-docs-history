@@ -1,44 +1,16 @@
-# Creating a custom IAM policy for Performance Insights
+# Configuring access policies for Performance Insights
 
-For users who don't have either the `AmazonRDSPerformanceInsightsReadOnly` or
-`AmazonRDSPerformanceInsightsFullAccess` policy, you can grant access to Performance Insights
-by creating or modifying a user-managed IAM policy. When you attach the policy to an IAM
-permission set or role, the recipient can use Performance Insights.
+To access Performance Insights, a principal must have the appropriate permissions from AWS Identity and Access Management (IAM).
 
-###### To create a custom policy
+###### Note
 
-1. Open the IAM console at
-   [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2. In the navigation pane, choose **Policies**.
-3. Choose **Create policy**.
-4. On the **Create Policy** page, choose the
-   **JSON** option.
-5. Copy and paste the text provided in the _JSON policy
-   document_ section in the _AWS Managed Policy Reference
-   Guide_ for [AmazonRDSPerformanceInsightsReadOnly](../../../aws-managed-policy/latest/reference/AmazonRDSPerformanceInsightsReadOnly.md "../../../aws-managed-policy/latest/reference/AmazonRDSPerformanceInsightsReadOnly.md")
-   or [AmazonRDSPerformanceInsightsFullAccess](../../../aws-managed-policy/latest/reference/AmazonRDSPerformanceInsightsFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonRDSPerformanceInsightsFullAccess.md")
-   policy.
-6. Choose **Review policy**.
-7. Provide a name for the policy and optionally a description, and then choose
-   **Create policy**.
-   You can now attach the policy to a permission set or role. The following procedure
-   assumes that you already have a user available for this purpose.
+To use Performance Insights with a customer-managed key, grant users the `kms:Decrypt` and `kms:GenerateDataKey` permissions for your AWS AWS KMS key.
 
-###### To attach the policy to a user
+Access Performance Insights using these methods:
 
-1. Open the IAM console at
-   [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2. In the navigation pane, choose **Users**.
-3. Choose an existing user from the list.
-
-###### Important
-
-To use Performance Insights, make sure that you have access to Amazon RDS in addition to the custom policy.
-For example, the `AmazonRDSPerformanceInsightsReadOnly`
-predefined policy provides read-only access to Amazon RDS. For more information,
-see [Managing access using policies](UsingWithRDS.md#security_iam_access-manage "UsingWithRDS.md#security_iam_access-manage"). 4. On the **Summary** page, choose **Add
-permissions**. 5. Choose **Attach existing policies directly**. For
-**Search**, type the first few characters of your policy
-name, as shown in the following image.
-
-![Choose a Policy](images/perf_insights_attach_iam_policy.png) 6. Choose your policy, and then choose **Next: Review**. 7. Choose **Add permissions**.
+- [Attach the AmazonRDSPerformanceInsightsReadOnly managed policy for read-only access](USER_PerfInsights.access-control.managed-policy.md "USER_PerfInsights.access-control.managed-policy.md")
+- [Attach the AmazonRDSPerformanceInsightsFullAccess managed policy for access to all operations of the Performance Insights API](USER_PerfInsights.access-control.FullAccess-managed-policy.md "USER_PerfInsights.access-control.FullAccess-managed-policy.md")
+- [Create a custom IAM policy with specific permissions](USER_PerfInsights.access-control.custom-policy.md "USER_PerfInsights.access-control.custom-policy.md")
+- [Configure AWS KMS permissions for encrypted Performance Insights data](USER_PerfInsights.access-control.cmk-policy.md "USER_PerfInsights.access-control.cmk-policy.md")
+- [Set up fine-grained access using resource-level permissions](USER_PerfInsights.access-control.dimensionAccess-policy.md "USER_PerfInsights.access-control.dimensionAccess-policy.md")
+- [Use tag-based access control to manage permissions through resource tags](USER_PerfInsights.access-control.tag-based-policy.md "USER_PerfInsights.access-control.tag-based-policy.md")

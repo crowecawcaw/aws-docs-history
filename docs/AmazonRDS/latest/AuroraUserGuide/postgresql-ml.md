@@ -4,7 +4,7 @@ By using Amazon Aurora machine learning with your Aurora PostgreSQL DB cluster, 
 
 Aurora machine learning is supported in certain AWS Regions and for specific versions of Aurora PostgreSQL only. Before
 trying to set up Aurora machine learning, check availability for your Aurora PostgreSQL version and your Region. For
-details, see [Aurora machine learning with Aurora PostgreSQL](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.Aurora_ML.apg "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.Aurora_ML.apg").
+details, see [Aurora machine learning with Aurora PostgreSQL](Concepts.Aurora_Fea_Regions_DB-eng.Feature.Aurora_ML.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.Aurora_ML.apg "Concepts.Aurora_Fea_Regions_DB-eng.Feature.Aurora_ML.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.Aurora_ML.apg").
 
 ###### Topics
 
@@ -29,7 +29,7 @@ following requirements and prerequisites.
   in a different Region.
 - If your Aurora PostgreSQL DB cluster is in a different virtual public cloud (VPC) based on the Amazon VPC service than your Amazon Comprehend and SageMaker AI
   services, the VPC's Security group needs to allow outbound connections to the target Aurora machine learning service. For more
-  information, see [Enabling network communication from Amazon Aurora to other AWS services](AuroraMySQL.Integrating.Authorizing.md "AuroraMySQL.Integrating.Authorizing.md").
+  information, see [Enabling network communication from Amazon Aurora to other AWS services](AuroraMySQL.Integrating.Authorizing.Network.md "AuroraMySQL.Integrating.Authorizing.Network.md").
 - For SageMaker AI, the machine learning components that you want to use for inferences must be set up and ready to use. During the
   configuration process for your Aurora PostgreSQL DB cluster, you need to have the Amazon Resource Name (ARN) of the SageMaker AI
   endpoint available. The data scientists on your team are likely best able to handle working with SageMaker AI to prepare the
@@ -737,7 +737,7 @@ migration in a session, use query plan management to save the resulting plan as 
 `approved` plan. At runtime, query plan management enforces the
 `approved` plan with its `apg_enable_function_migration` setting.
 This enforcement occurs regardless of the `apg_enable_function_migration` GUC
-parameter setting. For more information, see [Managing query execution plans for Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+parameter setting. For more information, see [Managing query execution plans for Aurora PostgreSQL](AuroraPostgreSQL.Optimize.md "AuroraPostgreSQL.Optimize.md").
 
 #### Using the max_rows_per_batch parameter
 

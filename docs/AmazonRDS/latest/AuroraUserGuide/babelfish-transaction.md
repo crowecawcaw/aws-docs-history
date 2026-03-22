@@ -12,7 +12,7 @@ differences in how concurrent access may work out for different workloads. For m
 - [Overview of the transaction isolation levels](#babelfish-transaction.overview "#babelfish-transaction.overview")
 - [Setting up the transaction isolation levels](#babelfish-transaction.setting "#babelfish-transaction.setting")
 - [Enabling or disabling transaction isolation levels](#babelfish-transaction.enabling "#babelfish-transaction.enabling")
-- [Comparing Babelfish and SQL Server isolation levels](babelfish-transaction.md "babelfish-transaction.md")
+- [Comparing Babelfish and SQL Server isolation levels](babelfish-transaction.examples.md "babelfish-transaction.examples.md")
 
 ## Overview of the transaction isolation levels
 

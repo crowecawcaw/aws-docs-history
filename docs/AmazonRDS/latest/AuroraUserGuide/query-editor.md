@@ -10,13 +10,13 @@ separate client system such as an EC2 instance or a laptop computer.
 The query editor requires an Aurora DB cluster with RDS Data API (Data API) enabled.
 For information about DB clusters that support Data API and how to enable it, see
 [Using the Amazon RDS Data API](data-api.md "data-api.md").
-The SQL that you can run is subject to the Data API limitations. For more information, see [Limitations for the Amazon RDS Data API](data-api.md "data-api.md").
+The SQL that you can run is subject to the Data API limitations. For more information, see [Limitations for the Amazon RDS Data API](data-api.limitations.md "data-api.limitations.md").
 
 ## Availability of the query editor
 
 The query editor is available for Aurora DB clusters using Aurora MySQL and
 Aurora PostgreSQL engine versions that support Data API, and in the AWS Regions where
-Data API is available. For more information, see [Supported Regions and Aurora DB engines for RDS Data API](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
+Data API is available. For more information, see [Supported Regions and Aurora DB engines for RDS Data API](Concepts.Aurora_Fea_Regions_DB-eng.Feature.Data_API.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.Data_API.md").
 
 ## Authorizing access to the query editor
 
@@ -96,7 +96,7 @@ in the _AWS Identity and Access Management User Guide_.
 
 You can run SQL statements on an Aurora DB cluster in the query editor. The SQL
 that you can run is subject to the Data API limitations. For more information, see
-[Limitations for the Amazon RDS Data API](data-api.md "data-api.md").
+[Limitations for the Amazon RDS Data API](data-api.limitations.md "data-api.limitations.md").
 
 ###### To run a query in the query editor
 

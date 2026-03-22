@@ -15,7 +15,7 @@ start focusing on that specific area.
 For more information, see [What is new in
 MySQL 8.0](https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html "https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html") and [Server and
 status variables and options added, deprecated, or removed in MySQL 8.0](https://dev.mysql.com/doc/refman/8.0/en/added-deprecated-removed.html "https://dev.mysql.com/doc/refman/8.0/en/added-deprecated-removed.html") in the MySQL documentation, and
-[Comparing Aurora MySQL version 2 and Aurora MySQL version 3](AuroraMySQL.md "AuroraMySQL.md").
+[Comparing Aurora MySQL version 2 and Aurora MySQL version 3](AuroraMySQL.Compare-v2-v3.md "AuroraMySQL.Compare-v2-v3.md").
 
 - Has there been an increase in data being processed (row counts)?
 - Are there more queries running concurrently?
@@ -58,7 +58,7 @@ You can use the following tools to identify CPU usage and saturation:
 - CloudWatch provides the `CPUUtilization` metric. If this reaches 100%, then the instance is saturated.
   However, CloudWatch metrics are averaged over 1 minute, and lack granularity.
 
-For more information on CloudWatch metrics, see [Instance-level metrics for Amazon Aurora](Aurora.AuroraMonitoring.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances "Aurora.AuroraMonitoring.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances").
+For more information on CloudWatch metrics, see [Instance-level metrics for Amazon Aurora](Aurora.AuroraMonitoring.Metrics.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances "Aurora.AuroraMonitoring.Metrics.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances").
 
 - Enhanced Monitoring provides metrics returned by the operating system `top` command. It shows load averages and
   the following CPU states, with 1-second granularity:
@@ -86,7 +86,7 @@ CloudWatch provides the `FreeableMemory` metric, that shows how much
 memory can be reclaimed by flushing some of the OS caches and the current free
 memory.
 
-For more information on CloudWatch metrics, see [Instance-level metrics for Amazon Aurora](Aurora.AuroraMonitoring.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances "Aurora.AuroraMonitoring.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances").
+For more information on CloudWatch metrics, see [Instance-level metrics for Amazon Aurora](Aurora.AuroraMonitoring.Metrics.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances "Aurora.AuroraMonitoring.Metrics.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances").
 
 Enhanced Monitoring provides the following metrics that can help you identify memory usage
 issues:
@@ -128,7 +128,7 @@ CloudWatch provides the following metrics for total network throughput, all aver
 - `StorageNetworkThroughput` – The amount of network throughput received from and sent to the
   Aurora storage subsystem by each instance in the Aurora DB cluster.
 
-For more information on CloudWatch metrics, see [Instance-level metrics for Amazon Aurora](Aurora.AuroraMonitoring.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances "Aurora.AuroraMonitoring.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances").
+For more information on CloudWatch metrics, see [Instance-level metrics for Amazon Aurora](Aurora.AuroraMonitoring.Metrics.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances "Aurora.AuroraMonitoring.Metrics.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances").
 
 Enhanced Monitoring provides the `network` received (**RX**) and transmitted (**TX**)
 graphs, with up to 1-second granularity.
@@ -154,7 +154,7 @@ Examine the following CloudWatch metrics for workload changes:
 - `RowLockTime` – The total time spent acquiring row locks for InnoDB tables.
 - `SelectThroughput` – The average number of select queries per second.
 
-For more information on CloudWatch metrics, see [Instance-level metrics for Amazon Aurora](Aurora.AuroraMonitoring.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances "Aurora.AuroraMonitoring.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances").
+For more information on CloudWatch metrics, see [Instance-level metrics for Amazon Aurora](Aurora.AuroraMonitoring.Metrics.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances "Aurora.AuroraMonitoring.Metrics.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances").
 
 Consider the following questions when examining the workload:
 
@@ -172,7 +172,7 @@ Consider the following questions when examining the workload:
 9. Are there any long-running transactions holding large numbers of row locks? Examine the InnoDB history list length
    (HLL) for indications of long-running transactions.
 
-For more information, see [The InnoDB history list length increased significantly](proactive-insights.md "proactive-insights.md") and the blog post [Why is my SELECT query running slowly
+For more information, see [The InnoDB history list length increased significantly](proactive-insights.history-list.md "proactive-insights.history-list.md") and the blog post [Why is my SELECT query running slowly
 on my Amazon Aurora MySQL DB cluster?](https://repost.aws/knowledge-center/aurora-mysql-slow-select-query "https://repost.aws/knowledge-center/aurora-mysql-slow-select-query").
 
     1. If a large HLL is caused by a write transaction, it means that `UNDO` logs are accumulating
@@ -191,4 +191,4 @@ on my Amazon Aurora MySQL DB cluster?](https://repost.aws/knowledge-center/auror
     in status variables in the `Locks` section, such as `innodb_row_lock_time`, `innodb_row_lock_waits`, and `innodb_dead_locks`. Use 1-minute or 5-minute intervals.
 12. Are there increased wait events? Examine Performance Insights wait events and wait types using 1-minute or 5-minute intervals.
     Analyze the top wait events and see whether they are correlated to workload changes or database contention. For
-    example, `buf_pool mutex` indicates buffer pool contention. For more information, see [Tuning Aurora MySQL with wait events](AuroraMySQL.Managing.Tuning.md "AuroraMySQL.Managing.Tuning.md").
+    example, `buf_pool mutex` indicates buffer pool contention. For more information, see [Tuning Aurora MySQL with wait events](AuroraMySQL.Managing.Tuning.wait-events.md "AuroraMySQL.Managing.Tuning.wait-events.md").

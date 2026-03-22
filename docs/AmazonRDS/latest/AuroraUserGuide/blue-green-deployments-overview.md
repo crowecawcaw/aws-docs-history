@@ -36,7 +36,7 @@ Blue/Green Deployments](../UserGuide/blue-green-deployments-overview.md "../User
 ## Region and version availability
 
 Feature availability and support varies across specific versions of each database engine,
-and across AWS Regions. For more information, see [Supported Regions and Aurora DB engines for Blue/Green Deployments](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
+and across AWS Regions. For more information, see [Supported Regions and Aurora DB engines for Blue/Green Deployments](Concepts.Aurora_Fea_Regions_DB-eng.Feature.BlueGreenDeployments.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.BlueGreenDeployments.md").
 
 ## Benefits of using Amazon RDS Blue/Green Deployments
 
@@ -92,12 +92,12 @@ For Aurora MySQL version 3, after you create the blue/green deployment, the DB c
 the green environment does not allow write operations by default. However, this doesn't
 apply for users who have the `CONNECTION_ADMIN` privilege, including the
 Aurora master user. Users with this privilege can override the `read_only`
-behaviour. For more information, see [Role-based privilege model](AuroraMySQL.md#AuroraMySQL.privilege-model "AuroraMySQL.md#AuroraMySQL.privilege-model"). 3. Make changes to the staging environment.
+behaviour. For more information, see [Role-based privilege model](AuroraMySQL.Compare-80-v3.md#AuroraMySQL.privilege-model "AuroraMySQL.Compare-80-v3.md#AuroraMySQL.privilege-model"). 3. Make changes to the staging environment.
 
 For example, you might change the DB instance class used by one or more DB instances in the green
 environment.
 
-For information about modifying a DB cluster, see [Modifying an Amazon Aurora DB cluster](Aurora.md "Aurora.md"). 4. Test your staging environment.
+For information about modifying a DB cluster, see [Modifying an Amazon Aurora DB cluster](Aurora.Modifying.md "Aurora.Modifying.md"). 4. Test your staging environment.
 
 During testing, we recommend that you keep your databases in the green environment
 read only. Enable write operations on the green environment with caution because they can

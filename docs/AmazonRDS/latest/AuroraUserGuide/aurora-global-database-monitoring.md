@@ -6,7 +6,7 @@ DB cluster's performance. These options include the following:
 - Amazon RDS Performance Insights – Enables performance schema in the underlying Aurora database engine. To learn more about Performance Insights and Aurora global databases,
   see [Monitoring an Amazon Aurora global database with Amazon RDS Performance Insights](#aurora-global-database-pi "#aurora-global-database-pi").
 - Enhanced monitoring – Generates metrics for process or thread utilization on the CPU. To learn about enhanced monitoring, see
-  [Monitoring OS metrics with Enhanced Monitoring](USER_Monitoring.md "USER_Monitoring.md").
+  [Monitoring OS metrics with Enhanced Monitoring](USER_Monitoring.OS.md "USER_Monitoring.OS.md").
 - Amazon CloudWatch Logs – Publishes specified log types to CloudWatch Logs. Error logs are published by default, but you can choose
   other logs specific to your Aurora database engine.
   - For Aurora MySQL–based Aurora DB clusters, you can export the audit log, general log,
@@ -57,8 +57,8 @@ For more information, see [Monitoring Amazon Aurora with Database Activity Strea
 
 ## Monitoring Aurora MySQL-based global databases
 
-To view the status of an Aurora MySQL-based global database, query the [information_schema.aurora_global_db_status](AuroraMySQL.Reference.md#AuroraMySQL.Reference.ISTables.aurora_global_db_status "AuroraMySQL.Reference.md#AuroraMySQL.Reference.ISTables.aurora_global_db_status") and
-[information_schema.aurora_global_db_instance_status](AuroraMySQL.Reference.md#AuroraMySQL.Reference.ISTables.aurora_global_db_instance_status "AuroraMySQL.Reference.md#AuroraMySQL.Reference.ISTables.aurora_global_db_instance_status") tables.
+To view the status of an Aurora MySQL-based global database, query the [information_schema.aurora_global_db_status](AuroraMySQL.Reference.ISTables.md#AuroraMySQL.Reference.ISTables.aurora_global_db_status "AuroraMySQL.Reference.ISTables.md#AuroraMySQL.Reference.ISTables.aurora_global_db_status") and
+[information_schema.aurora_global_db_instance_status](AuroraMySQL.Reference.ISTables.md#AuroraMySQL.Reference.ISTables.aurora_global_db_instance_status "AuroraMySQL.Reference.ISTables.md#AuroraMySQL.Reference.ISTables.aurora_global_db_instance_status") tables.
 
 ###### Note
 
@@ -90,7 +90,7 @@ following columns:
 
     * **AWS\_REGION** – The AWS Region that this DB
      cluster is in. For tables listing AWS Regions by engine, see
-     [Region availability](Concepts.md#Aurora.Overview.Availability "Concepts.md#Aurora.Overview.Availability").
+     [Region availability](Concepts.RegionsAndAvailabilityZones.md#Aurora.Overview.Availability "Concepts.RegionsAndAvailabilityZones.md#Aurora.Overview.Availability").
     * **HIGHEST\_LSN\_WRITTEN** – The highest log
      sequence number (LSN) currently written on this DB cluster.
 
@@ -139,7 +139,7 @@ following columns:
     * **SESSION\_ID** – A unique identifier for the current session. A value of `MASTER_SESSION_ID` identifies the Writer (primary) DB instance.
     * **AWS\_REGION** – The AWS Region that this DB
      instance is in. For tables listing AWS Regions by engine, see
-     [Region availability](Concepts.md#Aurora.Overview.Availability "Concepts.md#Aurora.Overview.Availability").
+     [Region availability](Concepts.RegionsAndAvailabilityZones.md#Aurora.Overview.Availability "Concepts.RegionsAndAvailabilityZones.md#Aurora.Overview.Availability").
     * **DURABLE\_LSN** – The LSN made durable in
      storage.
     * **HIGHEST\_LSN\_RECEIVED** – The highest LSN
@@ -206,7 +206,7 @@ following columns:
 
     * **aws\_region** – The AWS Region that this DB
      cluster is in. For tables listing AWS Regions by engine, see
-     [Region availability](Concepts.md#Aurora.Overview.Availability "Concepts.md#Aurora.Overview.Availability").
+     [Region availability](Concepts.RegionsAndAvailabilityZones.md#Aurora.Overview.Availability "Concepts.RegionsAndAvailabilityZones.md#Aurora.Overview.Availability").
     * **highest\_lsn\_written** – The highest log
      sequence number (LSN) currently written on this DB cluster.
 
@@ -259,7 +259,7 @@ The output includes a row for each DB instance of the global database containing
     * **session\_id** – A unique identifier for the current session.
     * **aws\_region** – The AWS Region that this DB
      instance is in. For tables listing AWS Regions by engine, see
-     [Region availability](Concepts.md#Aurora.Overview.Availability "Concepts.md#Aurora.Overview.Availability").
+     [Region availability](Concepts.RegionsAndAvailabilityZones.md#Aurora.Overview.Availability "Concepts.RegionsAndAvailabilityZones.md#Aurora.Overview.Availability").
     * **durable\_lsn** – The LSN made durable in storage.
     * **highest\_lsn\_rcvd** – The highest LSN
      received by the DB instance from the writer DB instance.

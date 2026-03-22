@@ -62,7 +62,7 @@ You can turn on hash join for parallel query clusters, turn parallel query on an
 
 Parallel query is typically used for the kinds of resource-intensive queries that benefit from the hash join optimization.
 Thus, it's helpful to make sure that hash joins are turned on for clusters where you plan to use parallel query. For
-information about how to use hash joins effectively, see [Optimizing large Aurora MySQL join queries with hash joins](AuroraMySQL.BestPractices.md#Aurora.BestPractices.HashJoin "AuroraMySQL.BestPractices.md#Aurora.BestPractices.HashJoin").
+information about how to use hash joins effectively, see [Optimizing large Aurora MySQL join queries with hash joins](AuroraMySQL.BestPractices.Performance.md#Aurora.BestPractices.HashJoin "AuroraMySQL.BestPractices.Performance.md#Aurora.BestPractices.HashJoin").
 
 ## Turning on and turning off parallel query using the console
 

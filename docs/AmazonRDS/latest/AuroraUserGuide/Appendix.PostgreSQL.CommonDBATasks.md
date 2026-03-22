@@ -1,61 +1,45 @@
-# Delegating and controlling user password management
+# Working with extensions and foreign data wrappers
 
-As a DBA, you might want to delegate the management of user passwords. Or, you might want
-to prevent database users from changing their passwords or reconfiguring password constraints,
-such as password lifetime. To ensure that only the database users that you choose can change
-password settings, you can turn on the restricted password management feature. When you
-activate this feature, only those database users that have been granted the
-`rds_password` role can manage passwords.
+To extend the functionality to your Aurora PostgreSQL-Compatible Edition DB cluster, you can install
+and use various PostgreSQL _extensions_. For example, if your use case calls for intensive
+data entry across very large tables, you can install the `pg_partman`
+extension to partition your data and thus spread the workload.
 
 ###### Note
 
-To use restricted password management, your
-Aurora PostgreSQL DB cluster must be running Amazon Aurora
-PostgreSQL 10.6 or higher.
+As of Aurora PostgreSQL 14.5, Aurora PostgreSQL supports Trusted Language Extensions for PostgreSQL. This feature is implemented as
+the extension `pg_tle`, which you can add to your Aurora PostgreSQL. By using
+this extension, developers can create their own PostgreSQL extensions in a safe
+environment that simplifies the setup and configuration requirements, as well as much of
+the preliminary testing for new extensions. For more information, see [Working with Trusted Language Extensions for PostgreSQL](PostgreSQL_trusted_language_extension.md "PostgreSQL_trusted_language_extension.md").
 
-By default, this feature is `off`, as shown in the following:
+In some cases, rather than installing an extension, you might add a specific _module_ to the list
+of `shared_preload_libraries` in your Aurora PostgreSQL DB cluster's custom DB cluster parameter group.
+Typically, the default DB cluster parameter group loads only the `pg_stat_statements`, but several
+other modules are available to add to the list. For example, you can add scheduling capability by adding the
+`pg_cron` module, as detailed in [Scheduling maintenance with the PostgreSQL pg_cron extension](PostgreSQL_pg_cron.md "PostgreSQL_pg_cron.md"). As another example, you can log query execution plans by
+loading the `auto_explain` module. To learn more, see
+[Logging execution plans
+of queries](https://aws.amazon.com/premiumsupport/knowledge-center/rds-postgresql-tune-query-performance/# "https://aws.amazon.com/premiumsupport/knowledge-center/rds-postgresql-tune-query-performance/#") in the AWS knowledge center.
 
-```
-`postgres=>` `SHOW rds.restrict_password_commands;`
- `rds.restrict_password_commands
---------------------------------
- off
-(1 row)`
-```
+An extension that provides access to external data is
+more specifically known as a _foreign data wrapper_
+(FDW). As one example, the `oracle_fdw` extension allows your Aurora PostgreSQL DB
+cluster to work with Oracle databases.
 
-To turn on this feature, you use a custom parameter group and change the setting for
-`rds.restrict_password_commands` to 1. Be sure to reboot your Aurora PostgreSQL's primary DB instance
-so that the setting takes
-effect.
+You can also specify precisely which extensions can be installed on your Aurora PostgreSQL DB instance, by
+listing them in the `rds.allowed_extensions` parameter. For more information, see [Restricting installation of PostgreSQL extensions](../UserGuide/CHAP_PostgreSQL.md#PostgreSQL.Concepts.General.FeatureSupport.Extensions.Restriction.html "../UserGuide/CHAP_PostgreSQL.md#PostgreSQL.Concepts.General.FeatureSupport.Extensions.Restriction.html").
 
-With this feature active, `rds_password` privileges are needed for the
-following SQL commands:
+Following, you can find information about setting up and using some of the extensions, modules, and
+FDWs available for Aurora PostgreSQL. For simplicity's sake, these are all referred to as "extensions." You can find
+listings of extensions that you can use with the currently available Aurora PostgreSQL versions, see [Extension
+versions for Amazon Aurora PostgreSQL](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Extensions.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Extensions.md") in the _Release Notes for Aurora PostgreSQL_.
 
-```
-CREATE ROLE myrole WITH PASSWORD 'mypassword';
-CREATE ROLE myrole WITH PASSWORD 'mypassword' VALID UNTIL '2023-01-01';
-ALTER ROLE myrole WITH PASSWORD 'mypassword' VALID UNTIL '2023-01-01';
-ALTER ROLE myrole WITH PASSWORD 'mypassword';
-ALTER ROLE myrole VALID UNTIL '2023-01-01';
-ALTER ROLE myrole RENAME TO myrole2;
-```
-
-Renaming a role (`ALTER ROLE myrole RENAME TO newname`) is also restricted if
-the password uses the MD5 hashing algorithm.
-
-With this feature active, attempting any of these SQL commands without the
-`rds_password` role permissions generates the following error:
-
-```
-ERROR: must be a member of rds_password to alter passwords
-```
-
-We recommend that you grant the `rds_password` to only a few roles that you use
-solely for password management. If you grant `rds_password` privileges to database
-users that don't have `rds_superuser` privileges, you need to also grant them
-the `CREATEROLE` attribute.
-
-Make sure that you verify password requirements such as expiration and needed complexity
-on the client side. If you use your own client-side utility for password related changes, the
-utility needs to be a member of `rds_password` and have `CREATE ROLE`
-privileges.
+- [Managing large objects with the lo module](PostgreSQL_large_objects_lo_extension.md "PostgreSQL_large_objects_lo_extension.md")
+- [Managing spatial data with the PostGIS extension](Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "Appendix.PostgreSQL.CommonDBATasks.PostGIS.md")
+- [Managing PostgreSQL partitions with the pg_partman extension](PostgreSQL_Partitions.md "PostgreSQL_Partitions.md")
+- [Scheduling maintenance with the PostgreSQL pg_cron extension](PostgreSQL_pg_cron.md "PostgreSQL_pg_cron.md")
+- [Using pgAudit to log database activity](Appendix.PostgreSQL.CommonDBATasks.pgaudit.md "Appendix.PostgreSQL.CommonDBATasks.pgaudit.md")
+- [Using pglogical to synchronize data across instances](Appendix.PostgreSQL.CommonDBATasks.pglogical.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.md")
+- [Working with Oracle databases by using the oracle_fdw extension](postgresql-oracle-fdw.md "postgresql-oracle-fdw.md")
+- [Working with SQL Server databases by using the tds_fdw extension](postgresql-tds-fdw.md "postgresql-tds-fdw.md")

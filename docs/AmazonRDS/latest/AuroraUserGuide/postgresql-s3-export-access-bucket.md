@@ -26,7 +26,7 @@ As part of creating this policy, take the following steps:
     	* `s3:PutObject`
     	* `s3:AbortMultipartUpload`
     2. Include the Amazon Resource Name (ARN) that identifies the Amazon S3 bucket and objects in the bucket. The ARN
-     format for accessing Amazon S3 is: `arn:aws:s3:::`amzn-s3-demo-bucket`/*`For more information on creating an IAM policy for Aurora PostgreSQL, see [Creating and using an IAM policy for IAM database access](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md"). See also [Tutorial: Create and
+     format for accessing Amazon S3 is: `arn:aws:s3:::`amzn-s3-demo-bucket`/*`For more information on creating an IAM policy for Aurora PostgreSQL, see [Creating and using an IAM policy for IAM database access](UsingWithRDS.IAMDBAuth.IAMPolicy.md "UsingWithRDS.IAMDBAuth.IAMPolicy.md"). See also [Tutorial: Create and
 
 attach your first customer managed policy](../../../IAM/latest/UserGuide/tutorial_managed-policies.md "../../../IAM/latest/UserGuide/tutorial_managed-policies.md") in the
 _IAM User Guide_.

@@ -2,7 +2,7 @@
 
 To begin migrating data from your EC2 source database, you must create an equivalent
 Aurora database.
-For instructions on creating your database, see [Creating an Amazon Aurora DB cluster](Aurora.md "Aurora.md")
+For instructions on creating your database, see [Creating an Amazon Aurora DB cluster](Aurora.CreateInstance.md "Aurora.CreateInstance.md")
 .
 
 After creating your target database, use the following steps to set up the data migration:

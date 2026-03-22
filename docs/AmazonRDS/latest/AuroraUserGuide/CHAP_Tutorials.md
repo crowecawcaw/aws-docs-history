@@ -26,14 +26,14 @@ For information about training, see [AWS Training and Certification](https://www
 The following tutorials in this guide show you how to perform common tasks with
 Amazon Aurora:
 
-- [Tutorial: Create a VPC for use with a DB cluster (IPv4 only)](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md")
+- [Tutorial: Create a VPC for use with a DB cluster (IPv4 only)](CHAP_Tutorials.WebServerDB.CreateVPC.md "CHAP_Tutorials.WebServerDB.CreateVPC.md")
 
 Learn how to include a DB cluster in a virtual
 private cloud (VPC) based on the Amazon VPC service. In this case, the VPC
 shares data with a web server that is running on an Amazon EC2 instance in the same
 VPC.
 
-- [Tutorial: Create a VPC for use with a DB cluster (dual-stack mode)](CHAP_Tutorials.md "CHAP_Tutorials.md")
+- [Tutorial: Create a VPC for use with a DB cluster (dual-stack mode)](CHAP_Tutorials.CreateVPCDualStack.md "CHAP_Tutorials.CreateVPCDualStack.md")
 
 Learn how to include a DB cluster in a virtual
 private cloud (VPC) based on the Amazon VPC service. In this case, the VPC shares
@@ -52,7 +52,7 @@ run in an Amazon VPC.
 
 Learn how to restore a DB cluster from a DB cluster snapshot.
 
-- [Tutorial: Use tags to specify which Aurora DB clusters to stop](Tagging.Aurora.md "Tagging.Aurora.md")
+- [Tutorial: Use tags to specify which Aurora DB clusters to stop](Tagging.Aurora.Autostop.md "Tagging.Aurora.Autostop.md")
 
 Learn how to use tags to specify which Aurora DB clusters to stop.
 

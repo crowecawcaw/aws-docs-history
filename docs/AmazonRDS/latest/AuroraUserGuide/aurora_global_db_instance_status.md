@@ -22,7 +22,7 @@ SETOF record with the following columns:
   session. A value of `MASTER_SESSION_ID` identifies the Writer
   (primary) DB instance.
 - `aws_region` – The AWS Region in which this global DB
-  instance runs. For a list of Regions, see [Region availability](Concepts.md#Aurora.Overview.Availability "Concepts.md#Aurora.Overview.Availability").
+  instance runs. For a list of Regions, see [Region availability](Concepts.RegionsAndAvailabilityZones.md#Aurora.Overview.Availability "Concepts.RegionsAndAvailabilityZones.md#Aurora.Overview.Availability").
 - `durable_lsn` – The log sequence number (LSN) made
   durable in storage. A log sequence number (LSN) is a unique sequential
   number that identifies a record in the database transaction log. LSNs are

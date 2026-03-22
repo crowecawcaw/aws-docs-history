@@ -21,7 +21,7 @@ and version 14.9 and higher minor versions. Write forwarding is available in eve
 where Aurora PostgreSQL-based global databases are available.
 
 For more information on version and Region availability of Aurora PostgreSQL global databases, see
-[Aurora global databases with Aurora PostgreSQL](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.GlobalDatabase.apg "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.GlobalDatabase.apg").
+[Aurora global databases with Aurora PostgreSQL](Concepts.Aurora_Fea_Regions_DB-eng.Feature.GlobalDatabase.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.GlobalDatabase.apg "Concepts.Aurora_Fea_Regions_DB-eng.Feature.GlobalDatabase.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.GlobalDatabase.apg").
 
 ## Enabling write forwarding in Aurora PostgreSQL
 
@@ -41,7 +41,7 @@ secondary DB cluster.
 When you create a new secondary DB cluster, you enable write forwarding by selecting the
 **Turn on global write forwarding** check box under **Read replica write forwarding**.
 Or clear the check box to disable it. To create a secondary DB cluster, follow the
-instructions for your DB engine in [Creating an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
+instructions for your DB engine in [Creating an Amazon Aurora DB cluster](Aurora.CreateInstance.md "Aurora.CreateInstance.md").
 
 The following screenshot shows the **Read replica write
 forwarding** section with the **Turn on global write
@@ -365,7 +365,7 @@ For more information about the `apg_write_forward.consistency_mode` parameter se
 
 Common causes for longer wait times include the following:
 
-- Increased replica lag, as measured by the Amazon CloudWatch `ReplicaLag` metric. For more information about this metric, see [Monitoring Aurora PostgreSQL replication](AuroraPostgreSQL.md#AuroraPostgreSQL.Replication.Monitoring "AuroraPostgreSQL.md#AuroraPostgreSQL.Replication.Monitoring").
+- Increased replica lag, as measured by the Amazon CloudWatch `ReplicaLag` metric. For more information about this metric, see [Monitoring Aurora PostgreSQL replication](AuroraPostgreSQL.Replication.md#AuroraPostgreSQL.Replication.Monitoring "AuroraPostgreSQL.Replication.md#AuroraPostgreSQL.Replication.Monitoring").
 - Increased load on the primary Region's writer node or on the secondary node.
 
 **Actions**

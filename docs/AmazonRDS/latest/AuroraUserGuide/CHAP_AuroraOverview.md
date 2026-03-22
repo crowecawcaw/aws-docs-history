@@ -26,17 +26,17 @@ database for your organization on AWS](https://aws.amazon.com/getting-started/de
 
 - [Amazon RDS shared responsibility model](#aur-shared-resp "#aur-shared-resp")
 - [How Amazon Aurora works with Amazon RDS](#aurora-rds-comparison "#aurora-rds-comparison")
-- [Amazon Aurora DB clusters](Aurora.md "Aurora.md")
-- [Amazon Aurora versions](Aurora.md "Aurora.md")
-- [Regions and Availability Zones](Concepts.md "Concepts.md")
-- [Supported features in Amazon Aurora by AWS Region and Aurora DB engine](Concepts.AuroraFeaturesRegionsDBEngines.md "Concepts.AuroraFeaturesRegionsDBEngines.md")
-- [Amazon Aurora endpoint connections](Aurora.Overview.md "Aurora.Overview.md")
-- [Amazon AuroraDB instance classes](Concepts.md "Concepts.md")
-- [Amazon Aurora storage](Aurora.Overview.md "Aurora.Overview.md")
-- [Amazon Aurora reliability](Aurora.Overview.md "Aurora.Overview.md")
-- [Amazon Aurora security](Aurora.Overview.md "Aurora.Overview.md")
-- [High availability for Amazon Aurora](Concepts.md "Concepts.md")
-- [Replication with Amazon Aurora](Aurora.md "Aurora.md")
+- [Amazon Aurora DB clusters](Aurora.Overview.md "Aurora.Overview.md")
+- [Amazon Aurora versions](Aurora.VersionPolicy.md "Aurora.VersionPolicy.md")
+- [Regions and Availability Zones](Concepts.RegionsAndAvailabilityZones.md "Concepts.RegionsAndAvailabilityZones.md")
+- [Supported features in Amazon Aurora by AWS Region and Aurora DB engine](Concepts.AuroraFeaturesRegionsDBEngines.grids.md "Concepts.AuroraFeaturesRegionsDBEngines.grids.md")
+- [Amazon Aurora endpoint connections](Aurora.Overview.Endpoints.md "Aurora.Overview.Endpoints.md")
+- [Amazon AuroraDB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md")
+- [Amazon Aurora storage](Aurora.Overview.StorageReliability.md "Aurora.Overview.StorageReliability.md")
+- [Amazon Aurora reliability](Aurora.Overview.Reliability.md "Aurora.Overview.Reliability.md")
+- [Amazon Aurora security](Aurora.Overview.Security.md "Aurora.Overview.Security.md")
+- [High availability for Amazon Aurora](Concepts.AuroraHighAvailability.md "Concepts.AuroraHighAvailability.md")
+- [Replication with Amazon Aurora](Aurora.Replication.md "Aurora.Replication.md")
 - [DB instance billing for Aurora](User_DBInstanceBilling.md "User_DBInstanceBilling.md")
 
 ## Amazon RDS shared responsibility model
@@ -71,4 +71,4 @@ engines available in Amazon RDS:
   Aurora.
 
 Before using Amazon Aurora, complete the steps in [Setting up your environment for Amazon Aurora](CHAP_SettingUp_Aurora.md "CHAP_SettingUp_Aurora.md"), and then review the concepts and features of Aurora
-in [Amazon Aurora DB clusters](Aurora.md "Aurora.md").
+in [Amazon Aurora DB clusters](Aurora.Overview.md "Aurora.Overview.md").

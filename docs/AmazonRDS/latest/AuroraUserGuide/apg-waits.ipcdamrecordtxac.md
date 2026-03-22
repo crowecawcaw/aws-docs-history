@@ -1,0 +1,40 @@
+# IPC:DamRecordTxAck
+
+The `IPC:DamRecordTxAck` event occurs when Aurora PostgreSQL in a session using
+database activity streams generates an activity stream event, then waits for that event to
+become durable.
+
+###### Topics
+
+- [Relevant engine versions](#apg-waits.ipcdamrecordtxac.context.supported "#apg-waits.ipcdamrecordtxac.context.supported")
+- [Context](#apg-waits.ipcdamrecordtxac.context "#apg-waits.ipcdamrecordtxac.context")
+- [Causes](#apg-waits.ipcdamrecordtxac.causes "#apg-waits.ipcdamrecordtxac.causes")
+- [Actions](#apg-waits.ipcdamrecordtxac.actions "#apg-waits.ipcdamrecordtxac.actions")
+
+## Relevant engine versions
+
+This wait event information is relevant for all Aurora PostgreSQL 10.7 and higher 10 versions, 11.4 and higher 11
+versions, and all 12 and 13 versions.
+
+## Context
+
+In synchronous mode, durability of activity stream events is favored over database performance. While waiting for a durable
+write of the event, the session blocks other database activity, causing the `IPC:DamRecordTxAck` wait event.
+
+## Causes
+
+The most common cause for the `IPC:DamRecordTxAck` event to appear
+in top waits is that the Database Activity Streams (DAS) feature is a holistic audit.
+Higher SQL activity generates activity stream events that need to be recorded.
+
+## Actions
+
+We recommend different actions depending on the causes of your wait event:
+
+- Reduce the number of SQL statements or turn off database activity streams.
+  Doing this reduces the number of events that require durable writes.
+- Change to asynchronous mode. Doing this helps to reduce contention on the
+  `IPC:DamRecordTxAck` wait event.
+
+However, the DAS feature can't guarantee the durability of every event in
+asynchronous mode.

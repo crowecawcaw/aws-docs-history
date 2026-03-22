@@ -8,7 +8,7 @@ shards.
 - Routers manage the distributed nature of the database and present a single database image to database clients. Routers maintain metadata
   about where data is stored, parse incoming SQL commands and send those commands to shards. Then they aggregate data from shards to return a
   single result to the client, and manage distributed transactions to maintain consistency across the entire distributed database.
-  Aurora PostgreSQL Limitless Database differs from standard [Aurora DB clusters](Aurora.md "Aurora.md") by having a DB shard group instead of a
+  Aurora PostgreSQL Limitless Database differs from standard [Aurora DB clusters](Aurora.Overview.md "Aurora.Overview.md") by having a DB shard group instead of a
   writer DB instance and reader DB instances. All of the nodes that make up your Limitless Database architecture are contained in the DB shard group. The
   individual shards and routers in the DB shard group aren't visible in your AWS account. You use the DB cluster endpoint to access Limitless Database.
 
@@ -18,7 +18,7 @@ The following figure shows the high-level architecture of Aurora PostgreSQL Limi
 For more information on the architecture of Aurora PostgreSQL Limitless Database and how you can use it, see this video on the AWS
 Events channel on YouTube:
 
-For more information on the architecture of a standard Aurora DB cluster, see [Amazon Aurora DB clusters](Aurora.md "Aurora.md").
+For more information on the architecture of a standard Aurora DB cluster, see [Amazon Aurora DB clusters](Aurora.Overview.md "Aurora.Overview.md").
 
 ## Key terms for Aurora PostgreSQL Limitless Database
 

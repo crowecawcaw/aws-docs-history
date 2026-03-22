@@ -25,7 +25,7 @@ You can specify rules in a security group that allow access from an IP address r
 the same rules apply to all DB clusters
 that are associated with that security group.
 
-For more information, see [Controlling access with security groups](Overview.md "Overview.md").
+For more information, see [Controlling access with security groups](Overview.RDSSecurityGroups.md "Overview.RDSSecurityGroups.md").
 
 ## Public accessibility
 
@@ -37,7 +37,7 @@ parameter, you can designate whether there is public access to the DB instance. 
 modify a DB instance to turn on or off public accessibility by modifying the
 _Public accessibility_ parameter.
 
-For more information, see [Hiding a DB cluster in a VPC from the internet](USER_VPC.md#USER_VPC.Hiding "USER_VPC.md#USER_VPC.Hiding").
+For more information, see [Hiding a DB cluster in a VPC from the internet](USER_VPC.WorkingWithRDSInstanceinaVPC.md#USER_VPC.Hiding "USER_VPC.WorkingWithRDSInstanceinaVPC.md#USER_VPC.Hiding").
 
 ###### Note
 

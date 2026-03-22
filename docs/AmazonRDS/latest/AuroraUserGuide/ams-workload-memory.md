@@ -7,7 +7,7 @@ To troubleshoot this, you can use the Performance Schema and `sys` schema. In Au
 enabled by default when the Performance Schema is enabled. In Aurora MySQL version 2, only memory instrumentation for Performance Schema memory
 usage is enabled by default. For information on tables available in the Performance Schema to track memory usage and enabling Performance Schema
 memory instrumentation, see [Memory summary
-tables](https://dev.mysql.com/doc/refman/8.3/en/performance-schema-memory-summary-tables.html "https://dev.mysql.com/doc/refman/8.3/en/performance-schema-memory-summary-tables.html") in the MySQL documentation. For more information on using the Performance Schema with Performance Insights, see [Overview of the Performance Schema for Performance Insights on Aurora MySQL](USER_PerfInsights.md "USER_PerfInsights.md").
+tables](https://dev.mysql.com/doc/refman/8.3/en/performance-schema-memory-summary-tables.html "https://dev.mysql.com/doc/refman/8.3/en/performance-schema-memory-summary-tables.html") in the MySQL documentation. For more information on using the Performance Schema with Performance Insights, see [Overview of the Performance Schema for Performance Insights on Aurora MySQL](USER_PerfInsights.EnableMySQL.md "USER_PerfInsights.EnableMySQL.md").
 
 While detailed information is available in the Performance Schema to track current memory usage, the MySQL [sys schema](https://dev.mysql.com/doc/refman/8.0/en/sys-schema.html "https://dev.mysql.com/doc/refman/8.0/en/sys-schema.html") has views on top of Performance Schema tables that you can
 use to quickly pinpoint where memory is being used.
@@ -464,7 +464,7 @@ But who ran it? We can see in the Performance Schema that the `destructive_opera
 
 The Performance Schema is stored in memory, so should not be relied upon as the sole source for auditing. If you need to maintain a
 history of statements run, and from which users, we recommend that you enable [Aurora Advanced
-Auditing](AuroraMySQL.md "AuroraMySQL.md"). If you also need to maintain information on memory usage, we recommend that you configure monitoring to export and
+Auditing](AuroraMySQL.Auditing.md "AuroraMySQL.Auditing.md"). If you also need to maintain information on memory usage, we recommend that you configure monitoring to export and
 store these values.
 
 ```

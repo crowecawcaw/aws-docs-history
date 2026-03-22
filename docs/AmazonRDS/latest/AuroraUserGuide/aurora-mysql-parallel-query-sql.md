@@ -203,7 +203,7 @@ operations are pending. In Aurora MySQL version 3, you can use parallel query on
 operation.
 
 Instant DDL in Aurora MySQL version 3 replaces the fast DDL feature in Aurora MySQL version 2. For information about instant
-DDL, see [Instant DDL (Aurora MySQL version 3)](AuroraMySQL.Managing.md#AuroraMySQL.mysql80-instant-ddl "AuroraMySQL.Managing.md#AuroraMySQL.mysql80-instant-ddl").
+DDL, see [Instant DDL (Aurora MySQL version 3)](AuroraMySQL.Managing.FastDDL.md#AuroraMySQL.mysql80-instant-ddl "AuroraMySQL.Managing.FastDDL.md#AuroraMySQL.mysql80-instant-ddl").
 
 ## Column data types
 
@@ -415,7 +415,7 @@ Parallel query is typically used for the kinds of resource-intensive queries tha
 The method for turning on the hash join optimization depends on the Aurora MySQL version. For details for each version, see
 [Turning on hash join for parallel query clusters](aurora-mysql-parallel-query-enabling.md#aurora-mysql-parallel-query-enabling-hash-join "aurora-mysql-parallel-query-enabling.md#aurora-mysql-parallel-query-enabling-hash-join").
 For information about how to use hash joins effectively, see
-[Optimizing large Aurora MySQL join queries with hash joins](AuroraMySQL.BestPractices.md#Aurora.BestPractices.HashJoin "AuroraMySQL.BestPractices.md#Aurora.BestPractices.HashJoin").
+[Optimizing large Aurora MySQL join queries with hash joins](AuroraMySQL.BestPractices.Performance.md#Aurora.BestPractices.HashJoin "AuroraMySQL.BestPractices.Performance.md#Aurora.BestPractices.HashJoin").
 
 ```
 `mysql>` explain select count(*) from orders join customer where o_custkey = c_custkey;
@@ -569,7 +569,7 @@ instance.
 
 For more information about Aurora isolation levels, especially the differences in `READ COMMITTED`
 between writer and reader instances, see
-[Aurora MySQL isolation levels](AuroraMySQL.Reference.md "AuroraMySQL.Reference.md").
+[Aurora MySQL isolation levels](AuroraMySQL.Reference.IsolationLevels.md "AuroraMySQL.Reference.IsolationLevels.md").
 
 After a big transaction is finished, the table statistics might be stale. Such stale statistics
 might require an `ANALYZE TABLE` statement before Aurora can accurately estimate
@@ -748,7 +748,7 @@ You can use SQL hints with Aurora MySQL queries to fine-tune performance. You ca
 for important queries from changing because of unpredictable conditions.
 
 We have extended the SQL hints feature to help you control optimizer choices for your query plans. These hints apply to
-queries that use parallel query optimization. For more information, see [Aurora MySQL hints](AuroraMySQL.Reference.md "AuroraMySQL.Reference.md").
+queries that use parallel query optimization. For more information, see [Aurora MySQL hints](AuroraMySQL.Reference.Hints.md "AuroraMySQL.Reference.Hints.md").
 
 ## MyISAM temporary tables
 

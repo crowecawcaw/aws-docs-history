@@ -56,7 +56,7 @@ Master username must always use lowercase characters failing which
 the DB cluster can't connect to Babelfish via the TDS port. 9. For **Master password**, create a strong password and
 confirm the password. 10. For the options that follow, until the **Babelfish
 settings** section, specify your DB cluster settings. For
-information about each setting, see [Settings for Aurora DB clusters](Aurora.md#Aurora.CreateInstance.Settings "Aurora.md#Aurora.CreateInstance.Settings"). 11. To make Babelfish functionality available, select the
+information about each setting, see [Settings for Aurora DB clusters](Aurora.CreateInstance.md#Aurora.CreateInstance.Settings "Aurora.CreateInstance.md#Aurora.CreateInstance.Settings"). 11. To make Babelfish functionality available, select the
 **Turn on Babelfish** box.
 
 ![Turn on Babelfish in your Aurora PostgreSQL cluster.](images/bbf_create_cluster_5.png) 12. For **DB cluster parameter group**, do one of the
@@ -111,7 +111,7 @@ or have Aurora create a new group for you with default settings. 18. For **Failo
 for the instance. If you don't choose a value, the default is
 `tier-1`. This priority determines the order in which
 replicas are promoted when recovering from a primary instance failure.
-For more information, see [Fault tolerance for an Aurora DB cluster](Concepts.md#Aurora.Managing.FaultTolerance "Concepts.md#Aurora.Managing.FaultTolerance"). 19. For **Backup retention period**, choose the length of
+For more information, see [Fault tolerance for an Aurora DB cluster](Concepts.AuroraHighAvailability.md#Aurora.Managing.FaultTolerance "Concepts.AuroraHighAvailability.md#Aurora.Managing.FaultTolerance"). 19. For **Backup retention period**, choose the length of
 time (1–35 days) that Aurora retains backup copies of the
 database. You can use backup copies for point-in-time restores (PITR) of
 your database down to the second. The default retention period is seven
@@ -156,7 +156,7 @@ complete.
 ![An Aurora PostgreSQL cluster with Babelfish running.](images/bbf_create_cluster_10.png)
 When you create an Babelfish for Aurora PostgreSQL; using the AWS CLI, you need to pass the
 command the name of the DB cluster parameter group to use for the cluster. For
-more information, see [DB cluster prerequisites](Aurora.md#Aurora.CreateInstance.Prerequisites "Aurora.md#Aurora.CreateInstance.Prerequisites").
+more information, see [DB cluster prerequisites](Aurora.CreateInstance.md#Aurora.CreateInstance.Prerequisites "Aurora.CreateInstance.md#Aurora.CreateInstance.Prerequisites").
 
 Before you can use the AWS CLI to create an Aurora PostgreSQL cluster with
 Babelfish, do the following:

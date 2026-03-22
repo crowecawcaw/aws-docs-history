@@ -15,8 +15,8 @@ To learn how to create an IAM identity-based policy using these example JSON pol
 - [Permissions required to use the console](#UsingWithRDS.IAM.RequiredPermissions.Console "#UsingWithRDS.IAM.RequiredPermissions.Console")
 - [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
 - [Permission policies to create, modify and, delete resources in Aurora](security_iam_id-based-policy-examples-create-and-modify-examples.md "security_iam_id-based-policy-examples-create-and-modify-examples.md")
-- [Example policies: Using condition keys](UsingWithRDS.IAM.Conditions.md "UsingWithRDS.IAM.Conditions.md")
-- [Specifying conditions: Using custom tags](UsingWithRDS.IAM.md "UsingWithRDS.IAM.md")
+- [Example policies: Using condition keys](UsingWithRDS.IAM.Conditions.Examples.md "UsingWithRDS.IAM.Conditions.Examples.md")
+- [Specifying conditions: Using custom tags](UsingWithRDS.IAM.SpecifyingCustomTags.md "UsingWithRDS.IAM.SpecifyingCustomTags.md")
 - [Grant permission to tag Aurora resources during creation](security_iam_id-based-policy-examples-grant-permissions-tags-on-create.md "security_iam_id-based-policy-examples-grant-permissions-tags-on-create.md")
 
 ## Policy best practices
@@ -85,7 +85,7 @@ If you create an IAM policy that is more restrictive than the minimum required
 permissions, the console doesn't function as intended for users with that IAM
 policy. To ensure that those users can still use the console, also attach the
 `AmazonRDSReadOnlyAccess` managed policy to the user, as described in
-[Managing access using policies](UsingWithRDS.md#security_iam_access-manage "UsingWithRDS.md#security_iam_access-manage").
+[Managing access using policies](UsingWithRDS.IAM.md#security_iam_access-manage "UsingWithRDS.IAM.md#security_iam_access-manage").
 
 You don't need to allow minimum console permissions for users that are making calls only to the
 AWS CLI or the Amazon RDS API.

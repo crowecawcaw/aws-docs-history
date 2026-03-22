@@ -25,7 +25,7 @@ SELECT netbios_domain_name, fq_domain_name FROM babelfish_domain_mapping;
 
 ## Setting up the pg_ad_mapping extension
 
-You must follow all the steps mentioned at [Setting up the pg_ad_mapping extension](AD.Security.md#AD.Security.Groups.Setup "AD.Security.md#AD.Security.Groups.Setup") . To verify that the extension is
+You must follow all the steps mentioned at [Setting up the pg_ad_mapping extension](AD.Security.Groups.md#AD.Security.Groups.Setup "AD.Security.Groups.md#AD.Security.Groups.Setup") . To verify that the extension is
 installed, run the following query from TDS endpoint:
 
 ```

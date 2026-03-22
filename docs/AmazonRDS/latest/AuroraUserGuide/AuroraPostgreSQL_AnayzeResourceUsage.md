@@ -25,7 +25,7 @@ query syntax for CloudWatch **Logs Insights**, see [CloudWatch Logs Insights que
 
 To use CloudWatch, you need to export your Aurora PostgreSQL log files to CloudWatch. You can also
 modify your existing cluster to export logs to CloudWatch. For information about exporting
-logs to CloudWatch, see [Turning on the option to publish logs to Amazon CloudWatch](AuroraPostgreSQL.CloudWatch.md "AuroraPostgreSQL.CloudWatch.md").
+logs to CloudWatch, see [Turning on the option to publish logs to Amazon CloudWatch](AuroraPostgreSQL.CloudWatch.Publishing.md "AuroraPostgreSQL.CloudWatch.Publishing.md").
 
 You need the **Resource ID** of your DB instance to query the CloudWatch
 **Logs Insights**. The **Resource ID** is
@@ -63,7 +63,7 @@ the graph display.
 
 You can use CloudWatch metrics to watch your instance throughput and discover if your
 instance class provides sufficient resources for your applications. For information
-about your DB instance class limits, go to [Hardware specifications for DB instance classesfor Aurora](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md") and locate the specifications for
+about your DB instance class limits, go to [Hardware specifications for DB instance classesfor Aurora](Concepts.DBInstanceClass.Summary.md "Concepts.DBInstanceClass.Summary.md") and locate the specifications for
 your DB instance class to find your network performance.
 
 If your DB instance usage is near the instance class limit, then performance may

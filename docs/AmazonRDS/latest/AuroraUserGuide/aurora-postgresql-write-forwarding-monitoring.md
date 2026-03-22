@@ -71,7 +71,7 @@ For more information about the `apg_write_forward.consistency_mode` parameter se
 
 Common causes for longer wait times include the following:
 
-- Increased replica lag, as measured by the Amazon CloudWatch `ReplicaLag` metric. For more information about this metric, see [Monitoring Aurora PostgreSQL replication](AuroraPostgreSQL.md#AuroraPostgreSQL.Replication.Monitoring "AuroraPostgreSQL.md#AuroraPostgreSQL.Replication.Monitoring").
+- Increased replica lag, as measured by the Amazon CloudWatch `ReplicaLag` metric. For more information about this metric, see [Monitoring Aurora PostgreSQL replication](AuroraPostgreSQL.Replication.md#AuroraPostgreSQL.Replication.Monitoring "AuroraPostgreSQL.Replication.md#AuroraPostgreSQL.Replication.Monitoring").
 - Increased load on the writer DB instance or read replica.
 
 **Actions**

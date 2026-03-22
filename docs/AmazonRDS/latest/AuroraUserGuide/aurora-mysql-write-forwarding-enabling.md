@@ -37,7 +37,7 @@ aws rds create-db-cluster \
   --backup-retention 1
 ```
 
-You then create writer and reader DB instances so that you can use write forwarding. For more information, see [Creating an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
+You then create writer and reader DB instances so that you can use write forwarding. For more information, see [Creating an Amazon Aurora DB cluster](Aurora.CreateInstance.md "Aurora.CreateInstance.md").
 
 To enable write forwarding using the Amazon RDS API, set the `EnableLocalWriteForwarding` parameter to
 `true`. This parameter works when you create a new DB cluster using the `CreateDBCluster`

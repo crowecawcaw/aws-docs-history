@@ -1,7 +1,7 @@
 # Sharing encrypted snapshots
 
 You can share DB cluster snapshots that have been encrypted "at rest" using the AES-256 encryption algorithm, as described in
-[Encrypting Amazon Aurora resources](Overview.md "Overview.md").
+[Encrypting Amazon Aurora resources](Overview.Encryption.md "Overview.Encryption.md").
 
 The following restrictions apply to sharing encrypted snapshots:
 
@@ -9,7 +9,7 @@ The following restrictions apply to sharing encrypted snapshots:
 - You can't share a snapshot that has been encrypted using the default KMS key of the AWS account that shared the
   snapshot.
 
-For more information about AWS KMS key management for Amazon RDS, see [AWS KMS key management](Overview.Encryption.md "Overview.Encryption.md").
+For more information about AWS KMS key management for Amazon RDS, see [AWS KMS key management](Overview.Encryption.Keys.md "Overview.Encryption.Keys.md").
 To work around the default KMS key issue, perform the following tasks:
 
 1. [Create a customer managed key and give access to it](#share-encrypted-snapshot.cmk "#share-encrypted-snapshot.cmk").

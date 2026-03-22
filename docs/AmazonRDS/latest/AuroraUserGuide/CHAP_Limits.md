@@ -147,11 +147,11 @@ Aurora cluster volume maximum size varies by engine version:
   version 2, versions 2.09 and higher
 
 For more information on automatic storage
-scaling, see [How Aurora storage automatically resizes](Aurora.Overview.md#aurora-storage-growth "Aurora.Overview.md#aurora-storage-growth").
+scaling, see [How Aurora storage automatically resizes](Aurora.Overview.StorageReliability.md#aurora-storage-growth "Aurora.Overview.StorageReliability.md#aurora-storage-growth").
 
 To monitor the remaining storage space, you can use the
 `AuroraVolumeBytesLeftTotal` metric. For more information,
-see [Cluster-level metrics for Amazon Aurora](Aurora.AuroraMonitoring.md#Aurora.AuroraMySQL.Monitoring.Metrics.clusters "Aurora.AuroraMonitoring.md#Aurora.AuroraMySQL.Monitoring.Metrics.clusters").
+see [Cluster-level metrics for Amazon Aurora](Aurora.AuroraMonitoring.Metrics.md#Aurora.AuroraMySQL.Monitoring.Metrics.clusters "Aurora.AuroraMonitoring.Metrics.md#Aurora.AuroraMySQL.Monitoring.Metrics.clusters").
 
 **SQL table size limits**
 
@@ -164,4 +164,4 @@ such as partitioning of large tables.
 
 The maximum table space ID for Aurora MySQL is 2147483647. If you frequently
 create and drop tables, make sure to be aware of your table space IDs and
-plan to use logical dumps. For more information, see [Logical migration from MySQL to Amazon Aurora MySQL by using mysqldump](AuroraMySQL.Migrating.ExtMySQL.md "AuroraMySQL.Migrating.ExtMySQL.md").
+plan to use logical dumps. For more information, see [Logical migration from MySQL to Amazon Aurora MySQL by using mysqldump](AuroraMySQL.Migrating.ExtMySQL.mysqldump.md "AuroraMySQL.Migrating.ExtMySQL.mysqldump.md").

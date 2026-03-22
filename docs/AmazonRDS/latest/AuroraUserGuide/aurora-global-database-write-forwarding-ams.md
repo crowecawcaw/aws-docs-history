@@ -18,7 +18,7 @@
 Write forwarding is supported with Aurora MySQL 2.08.1 and higher versions, in every Region where Aurora MySQL-based global databases are available.
 
 For information on version and Region availability of Aurora MySQL global databases, see
-[Aurora global databases with Aurora MySQL](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.GlobalDatabase.amy "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.GlobalDatabase.amy").
+[Aurora global databases with Aurora MySQL](Concepts.Aurora_Fea_Regions_DB-eng.Feature.GlobalDatabase.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.GlobalDatabase.amy "Concepts.Aurora_Fea_Regions_DB-eng.Feature.GlobalDatabase.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.GlobalDatabase.amy").
 
 ## Enabling write forwarding in Aurora MySQL
 
@@ -294,7 +294,7 @@ In sessions that use write forwarding, you can only use the `REPEATABLE READ` is
 Although you can also use the `READ COMMITTED` isolation level with read-only clusters in secondary
 AWS Regions, that isolation level doesn't work with write forwarding. For information about the
 `REPEATABLE READ` and `READ COMMITTED` isolation levels, see
-[Aurora MySQL isolation levels](AuroraMySQL.Reference.md "AuroraMySQL.Reference.md").
+[Aurora MySQL isolation levels](AuroraMySQL.Reference.IsolationLevels.md "AuroraMySQL.Reference.IsolationLevels.md").
 
 You can control the degree of read consistency on a secondary cluster. The read
 consistency level determines how much waiting the secondary cluster does before each read

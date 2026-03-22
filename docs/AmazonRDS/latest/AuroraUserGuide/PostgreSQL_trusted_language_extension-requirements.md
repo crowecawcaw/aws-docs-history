@@ -8,11 +8,11 @@ The following are requirements for setting up and using the TLE development kit.
   and higher versions only.
   - If you need to upgrade your Aurora PostgreSQL DB
     cluster,
-    see [Upgrading Amazon Aurora PostgreSQL DB clusters](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md").
+    see [Upgrading Amazon Aurora PostgreSQL DB clusters](USER_UpgradeDBInstance.PostgreSQL.md "USER_UpgradeDBInstance.PostgreSQL.md").
   - If you don't yet have an Aurora DB cluster
     running
     PostgreSQL, you can create one. For more information, see
-    [Creating and connecting to an Aurora PostgreSQL DB cluster](CHAP_GettingStartedAurora.CreatingConnecting.md "CHAP_GettingStartedAurora.CreatingConnecting.md").
+    [Creating and connecting to an Aurora PostgreSQL DB cluster](CHAP_GettingStartedAurora.CreatingConnecting.AuroraPostgreSQL.md "CHAP_GettingStartedAurora.CreatingConnecting.AuroraPostgreSQL.md").
 
 - Requires `rds_superuser` privileges – To set
   up and configure the `pg_tle` extension, your database user role must

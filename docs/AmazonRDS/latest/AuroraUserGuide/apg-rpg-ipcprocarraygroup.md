@@ -89,7 +89,7 @@ number of backends and therefore the workload on the ProcArray. While it will
 require some testing, reducing the total number of concurrent connections can reduce
 contention and maintain throughput.
 
-For more information, see [Connection pooling for Aurora PostgreSQL](AuroraPostgreSQL.BestPractices.md "AuroraPostgreSQL.BestPractices.md").
+For more information, see [Connection pooling for Aurora PostgreSQL](AuroraPostgreSQL.BestPractices.connection_pooling.md "AuroraPostgreSQL.BestPractices.connection_pooling.md").
 
 Reduce connection storms – Similarly, a
 pattern of frequently creating and terminating connections causes additional

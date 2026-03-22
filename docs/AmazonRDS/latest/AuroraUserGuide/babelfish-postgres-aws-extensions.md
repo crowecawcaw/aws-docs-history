@@ -109,15 +109,15 @@ following one-time steps.
 
 1. Create an Amazon S3 bucket for your Babelfish instance, if needed. To do so, follow the
    instructions in [Create a
-   bucket](../../../AmazonS3/latest/userguide/CreatingABucket.md#creating-bucket "../../../AmazonS3/latest/userguide/CreatingABucket.md#creating-bucket") in the _Amazon Simple Storage Service User Guideguide-s3-user;_.
+   bucket](../../../AmazonS3/latest/userguide/CreatingABucket.htmlurl-s3-user.md#creating-bucket "../../../AmazonS3/latest/userguide/CreatingABucket.htmlurl-s3-user.md#creating-bucket") in the _Amazon Simple Storage Service User Guideguide-s3-user;_.
 2. Upload files to your Amazon S3
    bucket. To do so, follow the steps in [Add an object to a
-   bucket](../../../AmazonS3/latest/userguide/PuttingAnObjectInABucket.md#uploading-an-object-bucket "../../../AmazonS3/latest/userguide/PuttingAnObjectInABucket.md#uploading-an-object-bucket") in the _Amazon Simple Storage Service User Guideguide-s3-user;._
+   bucket](../../../AmazonS3/latest/userguide/PuttingAnObjectInABucket.htmlurl-s3-user.md#uploading-an-object-bucket "../../../AmazonS3/latest/userguide/PuttingAnObjectInABucket.htmlurl-s3-user.md#uploading-an-object-bucket") in the _Amazon Simple Storage Service User Guideguide-s3-user;._
 3. Set up permissions as needed:
    - To import data from Amazon S3, the Babelfish DB cluster needs permission to access the
      bucket. We recommend using an AWS Identity and Access Management (IAM) role and attaching
      an IAM policy to that role for your cluster. To do so, follow the
-     steps in [Using an IAM role to access an Amazon S3 bucket](USER_PostgreSQL.S3Import.md#USER_PostgreSQL.S3Import.ARNRole "USER_PostgreSQL.S3Import.md#USER_PostgreSQL.S3Import.ARNRole").
+     steps in [Using an IAM role to access an Amazon S3 bucket](USER_PostgreSQL.S3Import.AccessPermission.md#USER_PostgreSQL.S3Import.ARNRole "USER_PostgreSQL.S3Import.AccessPermission.md#USER_PostgreSQL.S3Import.ARNRole").
    - To export data from your Babelfish DB cluster, your cluster must be granted
      access to the Amazon S3 bucket. As with importing, we recommend using an
      IAM role and policy. To do so, follow the steps in [Setting up access to an Amazon S3 bucket](postgresql-s3-export-access-bucket.md "postgresql-s3-export-access-bucket.md").
@@ -136,7 +136,7 @@ refer to that table as `database_schema_tableA` in the
 `aws_s3` function:
 
     * For an example of using an `aws_s3` function to import data,
-     see [Importing data from Amazon S3 to your Aurora PostgreSQL DB cluster](USER_PostgreSQL.S3Import.md "USER_PostgreSQL.S3Import.md") .
+     see [Importing data from Amazon S3 to your Aurora PostgreSQL DB cluster](USER_PostgreSQL.S3Import.FileFormats.md "USER_PostgreSQL.S3Import.FileFormats.md") .
     * For examples of using `aws_s3` functions to export data, see
      [Exporting query data using the aws\_s3.query\_export\_to\_s3 function](postgresql-s3-export-examples.md "postgresql-s3-export-examples.md").
 
@@ -147,7 +147,7 @@ refer to that table as `database_schema_tableA` in the
 | ----------------------------- | ----------------------------- |
 | ``database`.`schema`.`table`` | ``database`_`schema`_`table`` |
 
-To learn more about using Amazon S3 with Aurora PostgreSQL, see [Importing data from Amazon S3 into an Aurora PostgreSQL DB cluster](USER_PostgreSQL.md "USER_PostgreSQL.md") and
+To learn more about using Amazon S3 with Aurora PostgreSQL, see [Importing data from Amazon S3 into an Aurora PostgreSQL DB cluster](USER_PostgreSQL.S3Import.md "USER_PostgreSQL.S3Import.md") and
 [Exporting data from an Aurora PostgreSQL DB cluster to Amazon S3](postgresql-s3-export.md "postgresql-s3-export.md").
 
 ## Using Babelfish with AWS Lambda
@@ -308,7 +308,7 @@ in the _AWS Lambda Developer Guide._
 
 Babelfish for Aurora PostgreSQL supports `pg_stat_statements` extension from 3.3.0. To learn more, see [pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html "https://www.postgresql.org/docs/current/pgstatstatements.html").
 
-For details about the version of this extension supported by Aurora PostgreSQL, see [Extension versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md").
+For details about the version of this extension supported by Aurora PostgreSQL, see [Extension versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Extensions.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Extensions.md").
 
 ### Creating pg_stat_statements extension
 

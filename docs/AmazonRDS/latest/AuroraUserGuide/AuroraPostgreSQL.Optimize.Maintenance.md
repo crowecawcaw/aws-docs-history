@@ -1,71 +1,198 @@
-# Exporting and importing managed plans for Aurora PostgreSQL
+# Improving Aurora PostgreSQL query plans
 
-You can export your managed plans and import them into another DB instance.
+Improve query plan management by evaluating plan performance and fixing plans. For
+more information about improving your query plans, see the following topics.
 
-###### To export managed plans
+###### Topics
 
-An authorized user can copy any subset of the `apg_plan_mgmt.plans`
-table to another table, and then save it using the `pg_dump` command. The
-following is an example.
+- [Evaluating plan performance](#AuroraPostgreSQL.Optimize.Maintenance.EvaluatingPerformance "#AuroraPostgreSQL.Optimize.Maintenance.EvaluatingPerformance")
+- [Fixing plans using pg_hint_plan](#AuroraPostgreSQL.Optimize.Maintenance.pg_hint_plan "#AuroraPostgreSQL.Optimize.Maintenance.pg_hint_plan")
 
-```
-CREATE TABLE plans_copy AS SELECT *
-FROM apg_plan_mgmt.plans [ WHERE predicates ] ;
-```
+## Evaluating plan performance
 
-```
-`%` pg_dump --table apg_plan_mgmt.plans_copy -Ft mysourcedatabase > plans_copy.tar
-```
+After the optimizer captures plans as unapproved, use the
+`apg_plan_mgmt.evolve_plan_baselines` function to compare plans based
+on their actual performance. Depending on the outcome of your performance
+experiments, you can change a plan's status from unapproved to either approved
+or rejected. You can instead decide to use the
+`apg_plan_mgmt.evolve_plan_baselines` function to temporarily disable
+a plan if it does not meet your requirements.
 
-```
-DROP TABLE apg_plan_mgmt.plans_copy;
-```
+### Approving better plans
 
-###### To import managed plans
-
-1. Copy the .tar file of the exported managed plans to the system where the plans
-   are to be restored.
-2. Use the `pg_restore` command to copy the tar file into a new table.
+The following example demonstrates how to change the status of managed plans
+to approved using the `apg_plan_mgmt.evolve_plan_baselines` function.
 
 ```
-`%` pg_restore --dbname mytargetdatabase -Ft plans_copy.tar
+SELECT apg_plan_mgmt.evolve_plan_baselines (
+   sql_hash,
+   plan_hash,
+   min_speedup_factor := 1.0,
+   action := 'approve'
+)
+FROM apg_plan_mgmt.dba_plans WHERE status = 'Unapproved';
 ```
 
-3. Merge the `plans_copy` table with the
-   `apg_plan_mgmt.plans` table, as shown in the following
-   example.
-
-###### Note
-
-In some cases, you might dump from one version of the
-`apg_plan_mgmt` extension and restore into a different
-version. In these cases, the columns in the plans table might be different.
-If so, name the columns explicitly instead of using SELECT \*.
-
 ```
-`INSERT INTO apg_plan_mgmt.plans SELECT * FROM plans_copy
- ON CONFLICT ON CONSTRAINT plans_pkey
- DO UPDATE SET
- status = EXCLUDED.status,
- enabled = EXCLUDED.enabled,`
- `-- Save the most recent last_used date
- --`
- `last_used = CASE WHEN EXCLUDED.last_used > plans.last_used
- THEN EXCLUDED.last_used ELSE plans.last_used END,`
- `-- Save statistics gathered by evolve_plan_baselines, if it ran:
- --`
- `estimated_startup_cost = EXCLUDED.estimated_startup_cost,
- estimated_total_cost = EXCLUDED.estimated_total_cost,
- planning_time_ms = EXCLUDED.planning_time_ms,
- execution_time_ms = EXCLUDED.execution_time_ms,
- total_time_benefit_ms = EXCLUDED.total_time_benefit_ms,
- execution_time_benefit_ms = EXCLUDED.execution_time_benefit_ms;`
+NOTICE:     rangequery (1,10000)
+NOTICE:     Baseline   [ Planning time 0.761 ms, Execution time 13.261 ms]
+NOTICE:     Baseline+1 [ Planning time 0.204 ms, Execution time 8.956 ms]
+NOTICE:     Total time benefit: 4.862 ms, Execution time benefit: 4.305 ms
+NOTICE:     Unapproved -> Approved
+evolve_plan_baselines
+-----------------------
+0
+(1 row)
 ```
 
-4. Reload the managed plans into shared memory and remove the temporary plans
-   table.
+The output shows a performance report for the `rangequery`
+statement with parameter bindings of 1 and 10,000. The new unapproved plan
+(`Baseline+1`) is better than the best previously approved plan
+(`Baseline`). To confirm that the new plan is now
+`Approved`, check the `apg_plan_mgmt.dba_plans` view.
 
 ```
-`SELECT apg_plan_mgmt.reload();` `-- refresh shared memory`
-`DROP TABLE plans_copy;`
+SELECT sql_hash, plan_hash, status, enabled, stmt_name
+FROM apg_plan_mgmt.dba_plans;
 ```
+
+```
+sql_hash  | plan_hash |  status  | enabled | stmt_name
+------------+-----------+----------+---------+------------
+1984047223 | 512153379 | Approved | t       | rangequery
+1984047223 | 512284451 | Approved | t       | rangequery
+(2 rows)
+```
+
+The managed plan now includes two approved plans that are the statement's
+plan baseline. You can also call the `apg_plan_mgmt.set_plan_status`
+function to directly set a plan's status field to `'Approved'`,
+`'Rejected'`, `'Unapproved'`, or
+`'Preferred'`.
+
+### Rejecting or disabling slower plans
+
+To reject or disable plans, pass `'reject'` or `'disable'` as the action parameter to the
+`apg_plan_mgmt.evolve_plan_baselines` function. This example
+disables any captured `Unapproved` plan that is slower by at least 10
+percent than the best `Approved` plan for the statement.
+
+```
+`SELECT apg_plan_mgmt.evolve_plan_baselines(`
+`sql_hash,`  `-- The managed statement ID`
+`plan_hash,` `-- The plan ID`
+`1.1,`       `-- number of times faster the plan must be`
+`'disable'`  `-- The action to take. This sets the enabled field to false.`
+`)
+FROM apg_plan_mgmt.dba_plans
+WHERE status = 'Unapproved' AND`   `-- plan is Unapproved`
+`origin = 'Automatic';`       `-- plan was auto-captured`
+```
+
+You can also directly set a plan to rejected or disabled. To directly set a
+plan's enabled field to `true` or `false`, call the
+`apg_plan_mgmt.set_plan_enabled` function. To directly set a
+plan's status field to `'Approved'`, `'Rejected'`,
+`'Unapproved'`, or `'Preferred'`, call the
+`apg_plan_mgmt.set_plan_status` function.
+
+To delete plans that aren't valid and that you expect to remain invalid,
+use the `apg_plan_mgmt.validate_plans` function. This function lets
+you delete or disable invalid plans. For more information, see [Validating plans](AuroraPostgreSQL.Optimize.Deleting.md#AuroraPostgreSQL.Optimize.Maintenance.ValidatingPlans "AuroraPostgreSQL.Optimize.Deleting.md#AuroraPostgreSQL.Optimize.Maintenance.ValidatingPlans").
+
+## Fixing plans using pg_hint_plan
+
+The query optimizer is well-designed to find an optimal plan for all statements,
+and in most cases the optimizer finds a good plan. However, occasionally you might
+know that a much better plan exists than that generated by the optimizer. Two
+recommended ways to get the optimizer to generate a desired plan include using the
+`pg_hint_plan` extension or setting Grand Unified Configuration (GUC)
+variables in PostgreSQL:
+
+- `pg_hint_plan` extension – Specify a "hint" to modify
+  how the planner works by using PostgreSQL's `pg_hint_plan`
+  extension. To install and learn more about how to use the
+  `pg_hint_plan` extension, see the [pg_hint_plan
+  documentation](https://github.com/ossc-db/pg_hint_plan "https://github.com/ossc-db/pg_hint_plan").
+- GUC variables – Override one or more cost model parameters or other
+  optimizer parameters, such as the `from_collapse_limit` or
+  `GEQO_threshold`.
+
+When you use one of these techniques to force the query optimizer to use a plan,
+you can also use query plan management to capture and enforce use of the new
+plan.
+
+You can use the `pg_hint_plan` extension to change the join order, the
+join methods, or the access paths for a SQL statement. You use a SQL comment with
+special `pg_hint_plan` syntax to modify how the optimizer creates a plan.
+For example, assume the problem SQL statement has a two-way join.
+
+```
+SELECT *
+FROM t1, t2
+WHERE t1.id = t2.id;
+```
+
+Then suppose that the optimizer chooses the join order (t1, t2), but you know that
+the join order (t2, t1) is faster. The following hint forces the optimizer to use
+the faster join order, (t2, t1). Include EXPLAIN so that the optimizer generates a
+plan for the SQL statement but without running the statement. (Output not
+shown.)
+
+```
+/*+ Leading ((t2 t1)) */ EXPLAIN SELECT *
+FROM t1, t2
+WHERE t1.id = t2.id;
+```
+
+The following steps show how to use `pg_hint_plan`.
+
+###### To modify the optimizer's generated plan and capture the plan using pg_hint_plan
+
+1. Turn on the manual capture mode.
+
+```
+SET apg_plan_mgmt.capture_plan_baselines = manual;
+```
+
+2. Specify a hint for the SQL statement of interest.
+
+```
+/*+ Leading ((t2 t1)) */ EXPLAIN SELECT *
+FROM t1, t2
+WHERE t1.id = t2.id;
+```
+
+After this runs, the optimizer captures the plan in the
+`apg_plan_mgmt.dba_plans` view. The captured plan
+doesn't include the special `pg_hint_plan` comment syntax
+because query plan management normalizes the statement by removing leading
+comments. 3. View the managed plans by using the `apg_plan_mgmt.dba_plans`
+view.
+
+```
+SELECT sql_hash, plan_hash, status, sql_text, plan_outline
+FROM apg_plan_mgmt.dba_plans;
+```
+
+4. Set the status of the plan to `Preferred`. Doing so makes sure
+   that the optimizer chooses to run it, instead of selecting from the set of
+   approved plans, when the minimum-cost plan isn't already
+   `Approved` or `Preferred`.
+
+```
+SELECT apg_plan_mgmt.set_plan_status(`sql-hash`, `plan-hash`, 'preferred' );
+```
+
+5. Turn off manual plan capture and enforce the use of managed plans.
+
+```
+SET apg_plan_mgmt.capture_plan_baselines = false;
+SET apg_plan_mgmt.use_plan_baselines = true;
+```
+
+Now, when the original SQL statement runs, the optimizer chooses either an
+`Approved` or `Preferred` plan. If the
+minimum-cost plan isn't `Approved` or
+`Preferred`, then the optimizer chooses the
+`Preferred` plan.

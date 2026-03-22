@@ -1,37 +1,63 @@
-# Upgrading Aurora MySQL by modifying the engine version
+# Upgrading the minor version or patch level of an Aurora MySQL DB cluster
 
-Upgrading the minor version of an Aurora MySQL DB cluster applies additional fixes and new features to an existing cluster.
+You can use the following methods to upgrade the minor version of a DB cluster or to patch a DB cluster:
 
-This kind of upgrade applies to Aurora MySQL clusters where the original version and the upgraded version both have the same
-Aurora MySQL major version, either 2 or 3. The process is fast and straightforward because it doesn't involve any conversion for
-the Aurora MySQL metadata or reorganization of your table data.
+- [Upgrading Aurora MySQL by modifying the engine version](AuroraMySQL.Updates.Patching.ModifyEngineVersion.md "AuroraMySQL.Updates.Patching.ModifyEngineVersion.md")
+  (for Aurora MySQL version 2 and 3)
+- [Enabling automatic upgrades between minor Aurora MySQL versions](AuroraMySQL.Updates.AMVU.md "AuroraMySQL.Updates.AMVU.md")
 
-You perform this kind of upgrade by modifying the engine version of the DB cluster using the AWS Management Console, AWS CLI, or the RDS API. For
-example, if your cluster is running Aurora MySQL 3.x, choose a higher 3.x version.
+For information about how zero-downtime patching can reduce interruptions during the upgrade process, see
+[Using zero-downtime patching](AuroraMySQL.Updates.ZDP.md "AuroraMySQL.Updates.ZDP.md").
 
-If you're performing a minor upgrade on an Aurora Global Database, upgrade all of the secondary clusters before you upgrade the primary cluster.
+For information about performing a minor version upgrade for your Aurora MySQL DB cluster, see the following topics.
 
-###### Note
+###### Topics
 
-To perform a minor version upgrade to Aurora MySQL version 3.04.\* or higher, or version 2.12.\*, use the following process:
+- [Before performing a minor version upgrade](#USER_UpgradeDBInstance.PostgreSQL.BeforeMinor "#USER_UpgradeDBInstance.PostgreSQL.BeforeMinor")
+- [Minor version upgrade prechecks for Aurora MySQL](#AuroraMySQL.minor-upgrade-prechecks "#AuroraMySQL.minor-upgrade-prechecks")
+- [Upgrading Aurora MySQL by modifying the engine version](AuroraMySQL.Updates.Patching.ModifyEngineVersion.md "AuroraMySQL.Updates.Patching.ModifyEngineVersion.md")
+- [Enabling automatic upgrades between minor Aurora MySQL versions](AuroraMySQL.Updates.AMVU.md "AuroraMySQL.Updates.AMVU.md")
+- [Using zero-downtime patching](AuroraMySQL.Updates.ZDP.md "AuroraMySQL.Updates.ZDP.md")
+- [Alternative blue/green upgrade technique](#AuroraMySQL.UpgradingMinor.BlueGreen "#AuroraMySQL.UpgradingMinor.BlueGreen")
 
-1. Remove all secondary Regions from the global cluster. Follow the steps in
-   [Removing a cluster from an Amazon Aurora global database](aurora-global-database-detaching.md "aurora-global-database-detaching.md").
-2. Upgrade the engine version of the primary Region to version 3.04.\* or higher, or version 2.12.\*, as applicable. Follow the steps in [To modify the engine version of a DB cluster](#modify-db-cluster-engine-version "#modify-db-cluster-engine-version").
-3. Add secondary Regions to the global cluster. Follow the
-   steps in [Adding an AWS Region to an Amazon Aurora global database](aurora-global-database-attaching.md "aurora-global-database-attaching.md").
+## Before performing a minor version upgrade
 
-**To modify the engine version of a DB cluster**
+We recommend that you perform the following actions to reduce the downtime during a minor version upgrade:
 
-- **By using the console** – Modify the properties of your cluster. In the **Modify DB
-  cluster** window, change the Aurora MySQL engine version in the **DB engine version** box. If
-  you aren't familiar with the general procedure for modifying a cluster, follow the instructions at [Modifying the DB cluster by using the console, CLI, and API](Aurora.md#Aurora.Modifying.Cluster "Aurora.md#Aurora.Modifying.Cluster").
-- **By using the AWS CLI** – Call the [modify-db-cluster](../../../cli/latest/reference/rds/modify-db-cluster.md "../../../cli/latest/reference/rds/modify-db-cluster.md") AWS CLI command, and specify the name of your DB cluster for the
-  `--db-cluster-identifier` option and the engine version for the `--engine-version` option.
+- The Aurora DB cluster maintenance should be performed during a period of low traffic. Use Performance Insights to identify these time periods in order to configure the maintenance windows correctly.
+  For more information on Performance Insights, see [Monitoring DB load with Performance Insights on Amazon RDS](../UserGuide/USER_PerfInsights.md "../UserGuide/USER_PerfInsights.md").
+  For more information on DB cluster maintenance window, [Adjusting the preferred DB cluster maintenance window](USER_UpgradeDBInstance.Maintenance.md#AdjustingTheMaintenanceWindow.Aurora "USER_UpgradeDBInstance.Maintenance.md#AdjustingTheMaintenanceWindow.Aurora").
+- Use AWS SDKs that support exponential backoff and jitter as a best practice.
+  For more information, see [Exponential Backoff And Jitter](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/ "https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/").
 
-For example, to upgrade to Aurora MySQL version 3.04.1, set the `--engine-version` option to `8.0.mysql_aurora.3.04.1`. Specify
-the `--apply-immediately` option to immediately update the engine version for your DB cluster.
+## Minor version upgrade prechecks for Aurora MySQL
 
-- **By using the RDS API** – Call the [ModifyDBCluster](../APIReference/API_ModifyDBCluster.md "../APIReference/API_ModifyDBCluster.md") API operation, and specify the name of your DB cluster for the `DBClusterIdentifier`
-  parameter and the engine version for the `EngineVersion` parameter. Set the `ApplyImmediately`
-  parameter to `true` to immediately update the engine version for your DB cluster.
+When you start a minor version upgrade, Amazon Aurora runs prechecks automatically.
+
+These prechecks are mandatory. You can't choose to skip them. The prechecks provide the following benefits:
+
+- They enable you to avoid unplanned downtime during the upgrade.
+- If there are incompatibilities, Amazon Aurora prevents the upgrade and provides a log for you to learn about them. You
+  can then use the log to prepare your database for the upgrade by reducing the incompatibilities. For detailed
+  information about removing incompatibilities, see [Preparing
+  your installation for upgrade](https://dev.mysql.com/doc/refman/8.0/en/upgrade-prerequisites.html "https://dev.mysql.com/doc/refman/8.0/en/upgrade-prerequisites.html") in the MySQL documentation.
+
+The prechecks run before the DB instance is stopped for the upgrade, meaning that they don't cause any downtime when
+they run. If the prechecks find an incompatibility, Aurora automatically cancels the upgrade before the DB instance is
+stopped. Aurora also generates an event for the incompatibility. For more information about Amazon Aurora events, see
+[Working with Amazon RDS event notification](USER_Events.md "USER_Events.md").
+
+Aurora records detailed information about each incompatibility in the log file `PrePatchCompatibility.log`. In
+most cases, the log entry includes a link to the MySQL documentation for correcting the incompatibility. For more
+information about viewing log files, see [Viewing and listing database log files](USER_LogAccess.Procedural.Viewing.md "USER_LogAccess.Procedural.Viewing.md").
+
+Due to the nature of the prechecks, they analyze the objects in your database. This analysis results in resource
+consumption and increases the time for the upgrade to complete.
+
+## Alternative blue/green upgrade technique
+
+In some situations, your top priority is to perform an immediate switchover from the old
+cluster to an upgraded one. In such situations, you can use a multistep process that runs the
+old and new clusters side-by-side. Here, you replicate data from the old cluster to the new
+one until you are ready for the new cluster to take over. For details, see
+[Using Amazon Aurora Blue/Green Deployments for database updates](blue-green-deployments.md "blue-green-deployments.md").

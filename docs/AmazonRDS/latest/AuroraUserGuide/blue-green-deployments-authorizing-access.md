@@ -4,7 +4,7 @@ Users must have the required permissions to perform operations related to blue/g
 deployments. You can create IAM policies that grant users and roles permission to perform
 specific API operations on the specified resources they need. You can then attach those
 policies to the IAM permission sets or roles that require those permissions. For more information,
-see [Identity and access management for Amazon Aurora](UsingWithRDS.md "UsingWithRDS.md").
+see [Identity and access management for Amazon Aurora](UsingWithRDS.IAM.md "UsingWithRDS.IAM.md").
 
 The user who creates a blue/green deployment must have permissions to perform the following RDS operations:
 

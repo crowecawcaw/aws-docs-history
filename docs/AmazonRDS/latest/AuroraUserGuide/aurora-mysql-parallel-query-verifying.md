@@ -71,7 +71,7 @@ to `0` (off). Turning off `aurora_disable_hash_join` sets the value of `optimize
 `hash_join=on`.
 
 After you turn on hash join, try running the `EXPLAIN` statement again. For information about how to use hash joins
-effectively, see [Optimizing large Aurora MySQL join queries with hash joins](AuroraMySQL.BestPractices.md#Aurora.BestPractices.HashJoin "AuroraMySQL.BestPractices.md#Aurora.BestPractices.HashJoin").
+effectively, see [Optimizing large Aurora MySQL join queries with hash joins](AuroraMySQL.BestPractices.Performance.md#Aurora.BestPractices.HashJoin "AuroraMySQL.BestPractices.Performance.md#Aurora.BestPractices.HashJoin").
 
 With hash join turned on but parallel query turned off, the query might have a plan
 like the following, which uses hash join but not parallel query.

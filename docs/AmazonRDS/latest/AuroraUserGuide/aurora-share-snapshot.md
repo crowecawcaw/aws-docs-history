@@ -20,7 +20,7 @@ information on restoring a DB instance from a DB cluster snapshot, see
 [Restoring from a DB cluster snapshot](aurora-restore-snapshot.md "aurora-restore-snapshot.md").
 
 For more information on restoring a DB
-cluster from a DB cluster snapshot, see [Overview of backing up and restoring an Aurora DB cluster](Aurora.Managing.md "Aurora.Managing.md").
+cluster from a DB cluster snapshot, see [Overview of backing up and restoring an Aurora DB cluster](Aurora.Managing.Backups.md "Aurora.Managing.Backups.md").
 
 You can share a manual snapshot with up to 20 other AWS accounts.
 
@@ -33,7 +33,7 @@ The following limitation applies when sharing manual snapshots with other AWS ac
 ###### Topics
 
 - [Sharing a snapshot](#aurora-share-snapshot.Sharing "#aurora-share-snapshot.Sharing")
-- [Sharing public snapshots](aurora-share-snapshot.md "aurora-share-snapshot.md")
+- [Sharing public snapshots](aurora-share-snapshot.public.md "aurora-share-snapshot.public.md")
 - [Sharing encrypted snapshots](share-encrypted-snapshot.md "share-encrypted-snapshot.md")
 - [Stopping snapshot sharing](share-snapshot-stop.md "share-snapshot-stop.md")
 
@@ -65,7 +65,7 @@ one or more accounts.
    access to your data. Do not share any manual DB cluster snapshots that contain private
    information as **Public**.
 
-   For more information, see [Sharing public snapshots](aurora-share-snapshot.md "aurora-share-snapshot.md").
+   For more information, see [Sharing public snapshots](aurora-share-snapshot.public.md "aurora-share-snapshot.public.md").
    - If the source is encrypted, **DB snapshot visibility** is set as
      **Private** because encrypted snapshots can't be
      shared as public.

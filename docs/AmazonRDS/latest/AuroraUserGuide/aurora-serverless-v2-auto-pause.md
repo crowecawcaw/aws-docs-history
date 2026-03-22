@@ -12,7 +12,7 @@ database fleet.
 The auto-pause feature is available for Aurora Serverless v2 with both Aurora PostgreSQL and Aurora MySQL. You might
 need to upgrade your Aurora database engine version to take advantage of this feature. For the engine versions
 where a minimum capacity of 0 ACUs is available, see
-[Aurora Serverless v2 capacity](aurora-serverless-v2.md#aurora-serverless-v2.how-it-works.capacity "aurora-serverless-v2.md#aurora-serverless-v2.how-it-works.capacity").
+[Aurora Serverless v2 capacity](aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity "aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity").
 
 ###### Topics
 
@@ -82,7 +82,7 @@ features or settings, the Aurora Serverless v2 instances won't automatically pau
   14.12, or 13.15.
 - If you're using Aurora MySQL, the database engine must be running version 3.08.0 or higher.
 - For the full list of engine versions and AWS Regions where this feature is available, see
-  [Supported Regions and Aurora DB engines for Aurora Serverless v2](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
+  [Supported Regions and Aurora DB engines for Aurora Serverless v2](Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.md").
 - When an Aurora Serverless v2 instance resumes, its capacity might be lower than it was when the instance was
   paused. For details, see [Differences in auto-pause behavior between Aurora Serverless v2 and Aurora Serverless v1](#auto-pause-differences "#auto-pause-differences").
 
@@ -269,7 +269,7 @@ When an Aurora Serverless v2 DB instance pauses after a period with no connectio
   `ServerlessDatabaseCapacity`.
 - Aurora emits events when an Aurora Serverless v2 DB instance begins pausing, finishes pausing, and if the
   pause mechanism is interrupted or is unsuccessful. For details about these events, see
-  [DB instance events](USER_Events.md#USER_Events.Messages.instance "USER_Events.md#USER_Events.Messages.instance").
+  [DB instance events](USER_Events.Messages.md#USER_Events.Messages.instance "USER_Events.Messages.md#USER_Events.Messages.instance").
 
 ### What happens when auto-paused Aurora Serverless v2 instances resume
 
@@ -280,7 +280,7 @@ apply:
   resumes.
 - Aurora emits instance-level events when each Aurora Serverless v2 DB instance begins resuming, finishes
   resuming, and if the instance can't resume for some reason. For details about these events, see
-  [DB instance events](USER_Events.md#USER_Events.Messages.instance "USER_Events.md#USER_Events.Messages.instance").
+  [DB instance events](USER_Events.Messages.md#USER_Events.Messages.instance "USER_Events.Messages.md#USER_Events.Messages.instance").
 - Any requested connections are established after the DB instance finishes resuming. Because the typical
   time to resume might be approximately 15 seconds, we recommend that you adjust any client timeout
   settings to be longer than 15 seconds. For example, in your JDBC driver settings you might adjust the
@@ -538,7 +538,7 @@ as time that the instance was available.
 Aurora emits events for Aurora Serverless v2 instances when auto-pause and auto-resume operations start,
 finish, or are cancelled. The events related to the auto-pause feature are `RDS-EVENT-0370`
 through `RDS-EVENT-0374`. For details about these events, see
-[DB instance events](USER_Events.md#USER_Events.Messages.instance "USER_Events.md#USER_Events.Messages.instance").
+[DB instance events](USER_Events.Messages.md#USER_Events.Messages.instance "USER_Events.Messages.md#USER_Events.Messages.instance").
 
 ### How auto-pause works with Performance Insights and Enhanced Monitoring
 
@@ -643,7 +643,7 @@ following possible causes:
 
 - Confirm that the Aurora version you're running does support a minimum capacity of zero ACUs. For the
   capacity ranges of different Aurora versions, see
-  [Aurora Serverless v2 capacity](aurora-serverless-v2.md#aurora-serverless-v2.how-it-works.capacity "aurora-serverless-v2.md#aurora-serverless-v2.how-it-works.capacity").
+  [Aurora Serverless v2 capacity](aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity "aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity").
 - Confirm that the minimum capacity value for the cluster is set to zero ACUs.
 - Confirm that the instance in question is actually using the Aurora Serverless v2 instance class
   `db.serverless`, not one of the provisioned instance classes.
@@ -656,7 +656,7 @@ following possible causes:
   check if any applications that use RDS Data API or Lambda functions are sending frequent requests so that
   the instance is never idle long enough to pause. You can examine the CloudWatch metrics such as
   `ConnectionAttempts` and `DatabaseConnections`. For more information, see
-  [Instance-level metrics for Amazon Aurora](Aurora.AuroraMonitoring.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances "Aurora.AuroraMonitoring.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances").
+  [Instance-level metrics for Amazon Aurora](Aurora.AuroraMonitoring.Metrics.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances "Aurora.AuroraMonitoring.Metrics.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances").
 - If a reader instance rarely if ever pauses, check its failover priority. If the reader is used for read
   scaling and not as a standby in case of failover, set it to a priority in the range 2-15.
 - If the writer instance rarely if ever pauses, check your usage of the reader instances. The writer can
@@ -732,4 +732,4 @@ the cluster might also be prevented from pausing. For more information, see
 
 Aurora emits events when an Aurora Serverless v2 DB instance begins resuming, finishes resuming, and if the
 instance can't resume for some reason. For details about these events, see
-[DB instance events](USER_Events.md#USER_Events.Messages.instance "USER_Events.md#USER_Events.Messages.instance").
+[DB instance events](USER_Events.Messages.md#USER_Events.Messages.instance "USER_Events.Messages.md#USER_Events.Messages.instance").

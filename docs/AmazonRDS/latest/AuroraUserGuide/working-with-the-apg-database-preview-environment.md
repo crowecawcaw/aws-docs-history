@@ -16,7 +16,7 @@ Keep in mind the following important limitations:
   The following options are supported by the Preview.
 
 - You can create DB instances using r5, r6g, r6i, r7g, r7i, r8g, x2g, t3 and t4g instance types only. For more
-  information about instance classes, see [Amazon AuroraDB instance classes](Concepts.md "Concepts.md").
+  information about instance classes, see [Amazon AuroraDB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
 - You can use both single-AZ and multi-AZ deployments.
 - You can use standard PostgreSQL dump and load functions to export databases
   from or import databases to the Database Preview Environment.
@@ -37,7 +37,7 @@ Amazon Aurora PostgreSQL supports the following DB instance classes in the previ
 
 ###### Note
 
-For more information on the list of instance classes, see [DB instance class types](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
+For more information on the list of instance classes, see [DB instance class types](Concepts.DBInstanceClass.Types.md "Concepts.DBInstanceClass.Types.md").
 
 ###### Burstable classes
 
@@ -88,7 +88,7 @@ You can navigate directly to the [Database preview environment](https://us-east-
 accept the limitations.
 
 ![Preview environment limitations dialog](images/preview-environment-console.png) 4. To create the Aurora PostgreSQL DB cluster, follow the same process as that for creating any
-Aurora DB cluster. For more information, see [Creating an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
+Aurora DB cluster. For more information, see [Creating an Amazon Aurora DB cluster](Aurora.CreateInstance.md "Aurora.CreateInstance.md").
 
 To create an instance in the Database Preview Environment using the Aurora API or the AWS CLI,
 use the following endpoint.

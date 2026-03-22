@@ -12,10 +12,10 @@ default VPC unless you specify otherwise.
 
 ###### Topics
 
-- [Working with a DB cluster in a VPC](USER_VPC.md "USER_VPC.md")
-- [Scenarios for accessing a DB cluster in a VPC](USER_VPC.md "USER_VPC.md")
-- [Tutorial: Create a VPC for use with a DB cluster (IPv4 only)](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md")
-- [Tutorial: Create a VPC for use with a DB cluster (dual-stack mode)](CHAP_Tutorials.md "CHAP_Tutorials.md")
+- [Working with a DB cluster in a VPC](USER_VPC.WorkingWithRDSInstanceinaVPC.md "USER_VPC.WorkingWithRDSInstanceinaVPC.md")
+- [Scenarios for accessing a DB cluster in a VPC](USER_VPC.Scenarios.md "USER_VPC.Scenarios.md")
+- [Tutorial: Create a VPC for use with a DB cluster (IPv4 only)](CHAP_Tutorials.WebServerDB.CreateVPC.md "CHAP_Tutorials.WebServerDB.CreateVPC.md")
+- [Tutorial: Create a VPC for use with a DB cluster (dual-stack mode)](CHAP_Tutorials.CreateVPCDualStack.md "CHAP_Tutorials.CreateVPCDualStack.md")
   Following, you can find a discussion about VPC functionality relevant to Amazon Aurora DB
   clusters. For more information about Amazon VPC, see [Amazon VPC Getting Started Guide](../../../AmazonVPC/latest/GettingStartedGuide.md "../../../AmazonVPC/latest/GettingStartedGuide.md") and
   [Amazon VPC User Guide](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md").

@@ -62,7 +62,7 @@ for a MySQL DB cluster in the console.
 The `default_password_lifetime` parameter controls the number of days before the client password automatically expires.
 For more information on other parameters available for MySQL DB clusters, see
 
-[Aurora MySQL configuration parameters](AuroraMySQL.Reference.md "AuroraMySQL.Reference.md")
+[Aurora MySQL configuration parameters](AuroraMySQL.Reference.ParameterGroups.md "AuroraMySQL.Reference.ParameterGroups.md")
 .
 
 ###### To create a parameter group

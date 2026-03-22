@@ -45,7 +45,7 @@ Amazon CloudWatch for additional monitoring capabilities.
     automatically sends metrics to CloudWatch every minute for each active database. You don't get
     additional charges for Amazon RDS metrics in CloudWatch.
 
-  For more information, see [Amazon CloudWatch metrics for Amazon Aurora](Aurora.AuroraMonitoring.md "Aurora.AuroraMonitoring.md")
+  For more information, see [Amazon CloudWatch metrics for Amazon Aurora](Aurora.AuroraMonitoring.Metrics.md "Aurora.AuroraMonitoring.Metrics.md")
   - **Amazon CloudWatch alarms** – You can watch a single
     Amazon Aurora metric over a specific time period. You can then perform one or
     more actions based on the value of the metric relative to a threshold that you set.
@@ -57,7 +57,7 @@ You can use the following automated tools to monitor Amazon Aurora performance:
 - **Amazon RDS Performance Insights** – Assess the load on your
   database, and determine when and where to take action. For more information, see [Monitoring DB load with Performance Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
 - **Amazon RDS Enhanced Monitoring** – Look at metrics in real time
-  for the operating system. For more information, see [Monitoring OS metrics with Enhanced Monitoring](USER_Monitoring.md "USER_Monitoring.md").
+  for the operating system. For more information, see [Monitoring OS metrics with Enhanced Monitoring](USER_Monitoring.OS.md "USER_Monitoring.OS.md").
 
 ### Integrated services
 

@@ -45,7 +45,7 @@ the following requirements and prerequisites.
   [Control traffic to your AWS
   resources using security groups](../../../vpc/latest/userguide/vpc-security-groups.md "../../../vpc/latest/userguide/vpc-security-groups.md") in the _Amazon VPC User Guide_.
 - You can upgrade an Aurora cluster that's running a lower version of Aurora MySQL to a supported higher version if
-  you want to use Aurora machine learning with that cluster. For more information, see [Database engine updates for Amazon Aurora MySQL](AuroraMySQL.md "AuroraMySQL.md").
+  you want to use Aurora machine learning with that cluster. For more information, see [Database engine updates for Amazon Aurora MySQL](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md").
 - Your Aurora MySQL DB cluster must use a custom DB cluster parameter group. At the end of the setup process for each
   Aurora machine learning service that you want to use, you add the Amazon Resource Name (ARN) of the associated IAM role that was
   created for the service. We recommend that you create a custom DB cluster parameter group for your Aurora MySQL in advance
@@ -80,7 +80,7 @@ the following requirements and prerequisites.
 Feature availability and support varies across specific versions of each Aurora database engine, and across
 AWS Regions.
 
-- For information on version and Region availability for Amazon Comprehend and Amazon SageMaker AI with Aurora MySQL, see [Aurora machine learning with Aurora MySQL](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.Aurora_ML.amy "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.Aurora_ML.amy").
+- For information on version and Region availability for Amazon Comprehend and Amazon SageMaker AI with Aurora MySQL, see [Aurora machine learning with Aurora MySQL](Concepts.Aurora_Fea_Regions_DB-eng.Feature.Aurora_ML.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.Aurora_ML.amy "Concepts.Aurora_Fea_Regions_DB-eng.Feature.Aurora_ML.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.Aurora_ML.amy").
 - Amazon Bedrock is supported only on Aurora MySQL version 3.06 and higher.
 
 For information on Region availability for Amazon Bedrock, see [Model

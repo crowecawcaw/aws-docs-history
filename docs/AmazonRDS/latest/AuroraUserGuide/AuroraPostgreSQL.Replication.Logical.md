@@ -1,111 +1,55 @@
-# Configuring IAM authentication for logical replication connections
+# Overview of PostgreSQL logical replication with Aurora
 
-Starting with Aurora PostgreSQL versions 11 and higher, you can use AWS Identity and
-Access Management (IAM) authentication for replication connections. This feature enhances
-security by allowing you to manage database access using IAM roles instead of passwords.
-It works at the cluster level and follows the same security model as standard IAM
-authentication.
+By using PostgreSQL's logical replication feature with your Aurora PostgreSQL DB
+cluster, you can replicate and synchronize individual tables rather than the entire
+database instance. Logical replication uses a publish and subscribe model to replicate
+changes from a source to one or more recipients. It works by using change records from
+the PostgreSQL write-ahead log (WAL). The source, or _publisher_,
+sends WAL data for the specified tables to one or more recipients
+(_subscriber_), thus replicating the changes and keeping a
+subscriber's table synchronized with the publisher's table. The set of changes
+from the publisher are identified using a _publication_. Subscribers
+get the changes by creating a _subscription_ that defines the
+connection to the publisher's database and its publications. A
+_replication slot_ is the mechanism used in this scheme to track
+progress of a subscription.
 
-IAM authentication for replication connections is an opt-in feature. To enable it, set the `rds.iam_auth_for_replication` parameter to `1` in your DB cluster parameter group.
-As this is a dynamic parameter, your DB cluster doesn't need to restart, enabling you to leverage IAM authentication with existing workloads without downtime. Before
-enabling this feature, you must meet the [Prerequisites](#AuroraPostgreSQL.Replication.Logical.IAM-auth-prerequisites "#AuroraPostgreSQL.Replication.Logical.IAM-auth-prerequisites") listed below.
+For Aurora PostgreSQL DB clusters, the WAL records are saved on Aurora storage. The
+Aurora PostgreSQL DB cluster that's acting as the publisher in a logical replication
+scenario reads the WAL data from Aurora storage, decodes it, and sends it to the
+subscriber so that the changes can be applied to the table on that instance. The
+publisher uses a _logical decoder_ to decode the data for use by
+subscribers. By default, Aurora PostgreSQL DB clusters use the native PostgreSQL
+`pgoutput` plugin when sending data. Other logical decoders are
+available. For example, Aurora PostgreSQL also supports the `wal2json` plugin that
+converts WAL data to JSON.
 
-## Prerequisites
+As of Aurora PostgreSQL version 14.5, 13.8, 12.12, and 11.17, Aurora PostgreSQL augments the
+PostgreSQL logical replication process with a _write-through cache_
+to improve performance. The WAL transaction logs are cached locally, in a buffer, to
+reduce the amount of disk I/O, that is, reading from Aurora storage during logical
+decoding. The write-through cache is used by default whenever you use logical
+replication for your Aurora PostgreSQL DB cluster. Aurora provides several functions that you
+can use to manage the cache. For more information, see [Monitoring the Aurora PostgreSQL logical replication write-through cache](AuroraPostgreSQL.Replication.Logical-monitoring.md#AuroraPostgreSQL.Replication.Logical-write-through-cache "AuroraPostgreSQL.Replication.Logical-monitoring.md#AuroraPostgreSQL.Replication.Logical-write-through-cache").
 
-To use IAM authentication for replication connections, you need to meet all of the
-following requirements:
+Logical replication is supported by all currently available Aurora PostgreSQL versions.
+For more information, [Amazon Aurora PostgreSQL updates](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Updates.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Updates.md") in the _Release Notes for Aurora PostgreSQL_.
 
-- Your Aurora PostgreSQL DB cluster must be version 11 or later.
-- On your publisher Aurora PostgreSQL DB cluster:
+Logical replication is supported by Babelfish for Aurora PostgreSQL from the following
+versions:
 
-      + Enable IAM database authentication.
-
-
-      For more information, see [Enabling and disabling IAM database authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
-      + Enable logical replication by setting the
-       `rds.logical_replication` parameter to
-       `1`.
-
-
-      For more information, see [Setting up logical replication for your Aurora PostgreSQL DB cluster](AuroraPostgreSQL.Replication.Logical.md "AuroraPostgreSQL.Replication.Logical.md").
-
-  In logical replication, the publisher is the source Aurora PostgreSQL DB
-  cluster that sends data to subscriber clusters. For more information, see
-  [Overview of PostgreSQL logical replication with Aurora](AuroraPostgreSQL.Replication.md "AuroraPostgreSQL.Replication.md").
-
-###### Note
-
-Both IAM authentication and logical replication must be enabled on your
-publisher Aurora PostgreSQL DB cluster. If either one isn't enabled, you can't use
-IAM authentication for replication connections.
-
-## Enabling IAM authentication for replication connections
-
-Complete the following steps to enable IAM authentication for replication
-connection.
-
-1. Verify that your Aurora PostgreSQL DB cluster meets all prerequisites for
-   IAM authentication with replication connections. For details, see [Prerequisites](#AuroraPostgreSQL.Replication.Logical.IAM-auth-prerequisites "#AuroraPostgreSQL.Replication.Logical.IAM-auth-prerequisites").
-2. Configure the `rds.iam_auth_for_replication` parameter by
-   modifying your DB cluster parameter group:
-   - Set the `rds.iam_auth_for_replication` parameter to
-     `1`. This dynamic parameter doesn't require a
-     reboot.
-
-3. Connect to your database and grant the necessary roles to your replication
-   user:
-
-The following SQL commands grant the necessary roles to enable IAM
-authentication for replication connections:
-
-```
--- Grant IAM authentication role
-GRANT rds_iam TO replication_user_name;
--- Grant replication privileges
-ALTER USER replication_user_name WITH REPLICATION;
-```
-
-After you complete these steps, the specified user must use IAM authentication for
-replication connections.
-
-###### Important
-
-When you enable the feature, users with both `rds_iam` and
-`rds_replication` roles must use IAM authentication for
-replication connections. This applies whether the roles are assigned directly to
-the user or inherited through other roles.
-
-## Disabling IAM authentication for replication connections
-
-You can disable IAM authentication for replication connections by using any of the
-following methods:
-
-- Set the `rds.iam_auth_for_replication` parameter to
-  `0` in your DB cluster parameter group
-- Alternatively, you can disable either of these features on your
-  Aurora PostgreSQL DB cluster:
-  - Disable logical replication by setting the
-    `rds.logical_replication` parameter to
-    `0`
-  - Disable IAM authentication
-
-When you disable the feature, replication connections can use database passwords for
-authentication if configured.
+- 15.7 and higher versions
+- 16.3 and higher versions
 
 ###### Note
 
-Replication connections for users without the `rds_iam` role can use password
-authentication even when the feature is enabled.
+In addition to the native PostgreSQL logical replication feature introduced in
+PostgreSQL 10, Aurora PostgreSQL also supports the `pglogical` extension. For
+more information, see [Using pglogical to synchronize data across instances](Appendix.PostgreSQL.CommonDBATasks.pglogical.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.md").
 
-## Limitations and considerations
+For more information about PostgreSQL logical replication, see [Logical
+replication](https://www.postgresql.org/docs/current/logical-replication.html "https://www.postgresql.org/docs/current/logical-replication.html") and [Logical decoding concepts](https://www.postgresql.org/docs/current/logicaldecoding-explanation.html "https://www.postgresql.org/docs/current/logicaldecoding-explanation.html") in the PostgreSQL documentation.
 
-The following limitations and considerations apply when using IAM authentication
-for replication connections.
+###### Note
 
-- IAM authentication for replication connections is only available for
-  Aurora PostgreSQL versions 11 and higher.
-- The publisher must support IAM authentication for replication
-  connections.
-- The IAM authentication token expires after 15 minutes by default. You
-  might need to refresh long-running replication connections before the token
-  expires.
+PostgreSQL 16 added support for logical decoding from read replicas. This feature isn't supported on Aurora PostgreSQL.

@@ -1,20 +1,17 @@
-# Logical migration from MySQL to Amazon Aurora MySQL by using mysqldump
+# Migrating data from an external MySQL database to an Amazon Aurora MySQL DB cluster
 
-Because Amazon Aurora MySQL is a MySQL-compatible database, you can use the `mysqldump` utility to copy data from
-your MySQL database or the `mariadb-dump` utility to copy your data from your
-MariaDB database to an existing Aurora MySQL DB cluster.
+If your database supports the InnoDB or MyISAM tablespaces, you have these options for
+migrating your data to an Amazon Aurora MySQL DB cluster:
 
-For a discussion of how to do so with MySQL or MariaDB databases that are very large, see the following topics in the _Amazon Relational Database Service User
-Guide_:
+- You can create a dump of your data using the `mysqldump` utility, and then import that data into an
+  existing Amazon Aurora MySQL DB cluster. For more information, see
+  [Logical migration from MySQL to Amazon Aurora MySQL by using mysqldump](AuroraMySQL.Migrating.ExtMySQL.mysqldump.md "AuroraMySQL.Migrating.ExtMySQL.mysqldump.md").
+- You can copy the full and incremental backup files from your database to an Amazon S3 bucket, and then restore to an
+  Amazon Aurora MySQL DB cluster from those files. This option can be considerably faster than migrating data using
+  `mysqldump`. For more information, see
+  [Physical migration from MySQL by using Percona XtraBackup and Amazon S3](AuroraMySQL.Migrating.ExtMySQL.S3.md "AuroraMySQL.Migrating.ExtMySQL.S3.md").
 
-- MySQL – [Importing data to an Amazon RDS for MySQL database with
-  reduced downtime](../UserGuide/mysql-importing-data-reduced-downtime.md "../UserGuide/mysql-importing-data-reduced-downtime.md")
-- MariaDB – [Importing data to an Amazon RDS for MariaDB database with
-  reduced downtime](../UserGuide/mariadb-importing-data-reduced-downtime.md "../UserGuide/mariadb-importing-data-reduced-downtime.md")
-  For MySQL or MariaDB databases that have smaller amounts of data, see the following topics in the _Amazon Relational Database Service User
-  Guide_:
+###### Topics
 
-- MySQL – [Importing data from an external MySQL database to
-  an Amazon RDS for MySQL DB instance](../UserGuide/mysql-importing-data-external-database.md "../UserGuide/mysql-importing-data-external-database.md")
-- MariaDB – [Importing data from an external MariaDB database to
-  an Amazon RDS for MariaDB DB instance](../UserGuide/mariadb-importing-data-external-database.md "../UserGuide/mariadb-importing-data-external-database.md")
+- [Physical migration from MySQL by using Percona XtraBackup and Amazon S3](AuroraMySQL.Migrating.ExtMySQL.S3.md "AuroraMySQL.Migrating.ExtMySQL.S3.md")
+- [Logical migration from MySQL to Amazon Aurora MySQL by using mysqldump](AuroraMySQL.Migrating.ExtMySQL.mysqldump.md "AuroraMySQL.Migrating.ExtMySQL.mysqldump.md")

@@ -1,156 +1,55 @@
-# Setting up logical replication for Aurora PostgreSQL DB cluster
+# Using pglogical to synchronize data across instances
 
-The following procedure shows you how to start logical replication between two Aurora PostgreSQL DB clusters. The steps assume that both the source (publisher) and
-the target (subscriber) have the `pglogical` extension set up as detailed in [Setting up the pglogical extension](Appendix.PostgreSQL.CommonDBATasks.pglogical.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.md").
+All currently available Aurora PostgreSQL versions support the `pglogical`
+extension. The pglogical extension predates the functionally similar logical replication feature
+that was introduced by PostgreSQL in version 10. For more
+information, see [Overview of PostgreSQL logical replication with Aurora](AuroraPostgreSQL.Replication.Logical.md "AuroraPostgreSQL.Replication.Logical.md").
 
-###### Note
+The `pglogical` extension supports logical replication between two or more
+Aurora PostgreSQL DB clusters.
+It also supports replication
+between different PostgreSQL versions, and between databases running on RDS for PostgreSQL DB
+instances and Aurora PostgreSQL DB clusters. The `pglogical` extension uses a
+publish-subscribe model to replicate changes to tables and other objects, such as sequences,
+from a publisher to a subscriber. It relies on a replication slot to ensure that changes are
+synchronized from a publisher node to a subscriber node, defined as follows.
 
-The `node_name` of a subscriber node can't start with `rds`.
+- The _publisher node_ is the Aurora PostgreSQL
+  DB cluster
+  that's the source of data to be replicated to other nodes. The publisher node defines
+  the tables to be replicated in a publication set.
+- The _subscriber node_ is the Aurora PostgreSQL
+  DB cluster that
+  receives WAL updates from the publisher. The subscriber creates a subscription to connect to
+  the publisher and get the decoded WAL data. When the subscriber creates the subscription,
+  the replication slot is created on the publisher node.
+  Following, you can find information about setting up the `pglogical` extension.
 
-###### To create the publisher node and define the tables to replicate
+###### Topics
 
-These steps assume that your Aurora PostgreSQL DB cluster has a
-writer instance with a database that has one or more tables that you want to replicate to
-another node. You need to recreate the table structure from the publisher on the subscriber,
-so first, get the table structure if necessary. You can do that by using the
-`psql` metacommand `\d `tablename`` and
-then creating the same table on the subscriber instance. The following procedure creates an
-example table on the publisher (source) for demonstration purposes.
+- [Requirements and limitations for the pglogical extension](#Appendix.PostgreSQL.CommonDBATasks.pglogical.requirements-limitations "#Appendix.PostgreSQL.CommonDBATasks.pglogical.requirements-limitations")
+- [Setting up the pglogical extension](Appendix.PostgreSQL.CommonDBATasks.pglogical.basic-setup.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.basic-setup.md")
+- [Setting up logical replication for Aurora PostgreSQL DB cluster](Appendix.PostgreSQL.CommonDBATasks.pglogical.setup-replication.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.setup-replication.md")
+- [Reestablishing logical replication after a major upgrade](Appendix.PostgreSQL.CommonDBATasks.pglogical.recover-replication-after-upgrade.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.recover-replication-after-upgrade.md")
+- [Managing logical replication slots for Aurora PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.pglogical.handle-slots.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.handle-slots.md")
+- [Parameter reference for the pglogical extension](Appendix.PostgreSQL.CommonDBATasks.pglogical.reference.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.reference.md")
 
-1. Use `psql` to connect to the instance that has the table you want to use as
-   a source for subscribers.
+## Requirements and limitations for the pglogical extension
 
-```
-psql --host=`source-instance`.`aws-region`.rds.amazonaws.com --port=5432 --username=`postgres` --password --dbname=`labdb`
+All currently available releases of Aurora PostgreSQL support the
+`pglogical` extension.
 
-```
+Both the publisher node and the subscriber node must be set up for logical
+replication.
 
-If you don't have an existing table that you want to replicate, you can create a
-sample table as follows.
+The tables that you want to replicate from a publisher to a subscriber must have the same
+names and the same schema. These tables must also contain the same columns, and the columns
+must use the same data types. Both publisher and subscriber tables must have the same primary
+keys. We recommend that you use only the PRIMARY KEY as the unique constraint.
 
-    1. Create an example table using the following SQL statement.
+The tables on the subscriber node can have more permissive constraints than those on the
+publisher node for CHECK constraints and NOT NULL constraints.
 
-
-
-    ```
-    CREATE TABLE docs_lab_table (a int PRIMARY KEY);
-    ```
-    2. Populate the table with generated data by using the following SQL
-     statement.
-
-
-
-    ```
-    INSERT INTO docs_lab_table VALUES (generate_series(1,5000));
-    `INSERT 0 5000`
-    ```
-    3. Verify that data exists in the table by using the following SQL statement.
-
-
-
-    ```
-    SELECT count(*) FROM docs_lab_table;
-    ```
-
-2. Identify this Aurora PostgreSQL DB cluster as the publisher node, as
-   follows.
-
-```
-SELECT pglogical.create_node(
-    node_name := '`docs_lab_provider`',
-    dsn := 'host=`source-instance`.`aws-region`.rds.amazonaws.com port=5432 dbname=`labdb`');
- `create_node
--------------
- 3410995529
-(1 row)`
-```
-
-3. Add the table that you want to replicate to the default replication set. For more
-   information about replication sets, see [Replication sets](https://github.com/2ndQuadrant/pglogical/tree/REL2_x_STABLE/docs#replication-sets "https://github.com/2ndQuadrant/pglogical/tree/REL2_x_STABLE/docs#replication-sets") in the pglogical documentation.
-
-```
-SELECT pglogical.replication_set_add_table('default', '`docs_lab_table`', 'true', NULL, NULL);
- `replication_set_add_table
- ---------------------------
- t
- (1 row)`
-```
-
-The publisher node setup is complete. You can now set up the subscriber node to receive
-the updates from the publisher.
-
-###### To set up the subscriber node and create a subscription to receive updates
-
-These steps assume that the Aurora PostgreSQL DB cluster
-has been set up with the
-`pglogical` extension. For more information, see [Setting up the pglogical extension](Appendix.PostgreSQL.CommonDBATasks.pglogical.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.md").
-
-1. Use `psql` to connect to the instance that you want to receive updates from
-   the publisher.
-
-```
-psql --host=`target-instance`.`aws-region`.rds.amazonaws.com --port=5432 --username=`postgres` --password --dbname=`labdb`
-
-```
-
-2. On the subscriber Aurora PostgreSQL DB cluster,
-   ,create the same table
-   that exists on the publisher. For this example, the table is `docs_lab_table`.
-   You can create the table as follows.
-
-```
-CREATE TABLE docs_lab_table (a int PRIMARY KEY);
-```
-
-3. Verify that this table is empty.
-
-```
-SELECT count(*) FROM docs_lab_table;
- `count
--------
- 0
-(1 row)`
-```
-
-4. Identify this Aurora PostgreSQL DB cluster as the subscriber node, as
-   follows.
-
-```
-SELECT pglogical.create_node(
-    node_name := '`docs_lab_target`',
-    dsn := 'host=`target-instance`.`aws-region`.rds.amazonaws.com port=5432 sslmode=require dbname=`labdb` user=`postgres` password=`********`');
- `create_node
--------------
- 2182738256
-(1 row)`
-```
-
-5. Create the subscription.
-
-```
-SELECT pglogical.create_subscription(
-   subscription_name := 'docs_lab_subscription',
-   provider_dsn := 'host=`source-instance`.`aws-region`.rds.amazonaws.com port=5432 sslmode=require dbname=`labdb` user=`postgres` password=`*******`',
-   replication_sets := ARRAY['default'],
-   synchronize_data := true,
-   forward_origins := '{}' );
- `create_subscription
----------------------
-1038357190
-(1 row)`
-```
-
-When you complete this step, the data from the table on the publisher is created in
-the table on the subscriber. You can verify that this has occurred by using the following
-SQL query.
-
-```
-SELECT count(*) FROM docs_lab_table;
- `count
--------
- 5000
-(1 row)`
-```
-
-From this point forward, changes made to the table on the publisher are replicated to the
-table on the subscriber.
+The `pglogical` extension provides features such as two-way replication that
+aren't supported by the logical replication feature built into PostgreSQL (version 10 and
+higher). For more information, see [PostgreSQL bi-directional replication using pglogical](https://aws.amazon.com/blogs/database/postgresql-bi-directional-replication-using-pglogical/ "https://aws.amazon.com/blogs/database/postgresql-bi-directional-replication-using-pglogical/").

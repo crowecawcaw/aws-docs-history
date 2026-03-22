@@ -122,7 +122,7 @@ with the following parameter:
 
 While an Aurora cluster is stopped, you can do a point-in-time restore to any point within
 your specified automated backup retention window. For details about doing a
-point-in-time restore, see [Restoring data](Aurora.Managing.md#Aurora.Managing.Backups.Restore "Aurora.Managing.md#Aurora.Managing.Backups.Restore").
+point-in-time restore, see [Restoring data](Aurora.Managing.Backups.md#Aurora.Managing.Backups.Restore "Aurora.Managing.Backups.md#Aurora.Managing.Backups.Restore").
 
 You can't modify the configuration of an Aurora DB cluster, or any of its DB instances,
 while the cluster is stopped. You also can't add or remove DB instances from the

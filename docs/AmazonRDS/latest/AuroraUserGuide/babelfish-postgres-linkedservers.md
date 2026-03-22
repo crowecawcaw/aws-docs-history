@@ -3,7 +3,7 @@
 Babelfish for Aurora PostgreSQL supports linked servers by using the PostgreSQL `tds_fdw`
 extension in version 3.1.0. To work with linked servers, you must install the
 `tds_fdw` extension. For more information about the `tds_fdw`
-extension, see [Working with the supported foreign data wrappers for Amazon Aurora PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Extensions.md "Appendix.PostgreSQL.CommonDBATasks.Extensions.md").
+extension, see [Working with the supported foreign data wrappers for Amazon Aurora PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md "Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md").
 
 ## Installing the `tds_fdw` extension
 
@@ -29,7 +29,7 @@ CREATE EXTENSION
 ###### Calling `sp_execute_postgresql` stored procedure from TDS endpoint
 
 Babelfish supports installing `tds_fdw` extension by calling `sp_execute_postgresql` procedure from version 3.3.0. You can execute PostgreSQL statements from T-SQL endpoint without exiting the T-SQL port.
-For more information, see [Working with Babelfish for Aurora PostgreSQL procedures](Appendix.Babelfish.md "Appendix.Babelfish.md")
+For more information, see [Working with Babelfish for Aurora PostgreSQL procedures](Appendix.Babelfish.Functions.md "Appendix.Babelfish.Functions.md")
 
 1. Connect to your PostgreSQL DB instance on the Babelfish database in the T-SQL port.
 
@@ -92,7 +92,7 @@ To enforce connection encryption
 
 - If the target linked server is an RDS for SQL Server instance, set `rds.force_ssl = on` for the target SQL Server instance.
   For more information about SSL/TLS configuration for RDS for SQL Server, see [Using
-  SSL with a Microsoft SQL Server DB instance](../UserGuide/SQLServer.Concepts.General.SSL.md "../UserGuide/SQLServer.Concepts.General.SSL.md")
+  SSL with a Microsoft SQL Server DB instance](../UserGuide/SQLServer.Concepts.General.SSL.Using.md "../UserGuide/SQLServer.Concepts.General.SSL.Using.md")
 - If the target linked server is a Babelfish for Aurora PostgreSQL cluster, set `babelfishpg_tds.tds_ssl_encrypt = on` and `ssl = on` for the target server.
   For more information about SSL/TLS, see [Babelfish SSL settings and client connections](babelfish-configuration.md#babelfish-ssl "babelfish-configuration.md#babelfish-ssl").
 

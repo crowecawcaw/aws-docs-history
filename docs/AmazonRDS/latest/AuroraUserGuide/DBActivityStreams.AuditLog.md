@@ -1,83 +1,547 @@
-# databaseActivityEventList JSON array for database activity streams
+# Audit log contents and examples for database activity streams
 
-The audit log payload is an encrypted `databaseActivityEventList` JSON array. The following tables lists alphabetically the
-fields for each activity event in the decrypted `DatabaseActivityEventList` array of an audit log.
-The fields differ depending on whether you use Aurora PostgreSQL or Aurora MySQL. Consult
-the table that applies to your database engine.
+Monitored events are represented in the database activity stream as JSON strings. The structure consists of a
+JSON object containing a `DatabaseActivityMonitoringRecord`, which in turn contains a
+`databaseActivityEventList` array of activity events.
 
-###### Important
+###### Note
 
-The event structure is subject to change. Aurora might add new fields to activity events in the future. In applications
-that parse the JSON data, make sure that your code can ignore or take appropriate actions for unknown field
-names.
+For database activity streams, the `paramList` JSON array doesn't include null values from Hibernate applications.
 
-## databaseActivityEventList fields for Aurora PostgreSQL
+###### Topics
 
-The following are `databaseActivityEventList` fields for Aurora PostgreSQL.
+- [Examples of an audit log for an activity stream](#DBActivityStreams.AuditLog.Examples "#DBActivityStreams.AuditLog.Examples")
+- [DatabaseActivityMonitoringRecords JSON object](#DBActivityStreams.AuditLog.DatabaseActivityMonitoringRecords "#DBActivityStreams.AuditLog.DatabaseActivityMonitoringRecords")
+- [databaseActivityEvents JSON Object](#DBActivityStreams.AuditLog.databaseActivityEvents "#DBActivityStreams.AuditLog.databaseActivityEvents")
 
-| Field                                                         | Data Type | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ------------------------------------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `class`                                                       | string    | The class of activity event. Valid values for Aurora PostgreSQL are the following:<br>• `ALL`<br>• `CONNECT` – A connect or disconnect event.<br>• `DDL` – A DDL statement that is not included in the list of statements for the<br>`ROLE` class.<br>• `FUNCTION` – A function call or a `DO` block.<br>• `MISC` – A miscellaneous command such as `DISCARD`,<br>`FETCH`, `CHECKPOINT`, or `VACUUM`.<br>• `NONE`<br>• `READ` – A `SELECT` or `COPY` statement when the source<br>is a relation or a query.<br>• `ROLE` – A statement related to roles and privileges including<br>`GRANT`, `REVOKE`, and<br>`CREATE`/`ALTER`/`DROP`<br>`ROLE`.<br>• `WRITE` – An `INSERT`, `UPDATE`, `DELETE`,<br>`TRUNCATE`, or `COPY` statement when the destination is a relation.                                                                                                                                                                                                                                                                                                                       |
-| `clientApplication`                                           | string    | The application the client used to connect as reported by the client. The client doesn't have to<br>provide this information, so the value can be null.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `command`                                                     | string    | The name of the SQL command without any command details.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `commandText`                                                 | string    | The actual SQL statement passed in by the user. For Aurora PostgreSQL, the value is identical to the<br>original SQL statement. This field is used for all types of records except for connect or disconnect<br>records, in which case the value is null.<br>ImportantThe full SQL text of each statement is visible in the activity stream audit log, including any<br>sensitive data. However, database user passwords are redacted if Aurora can determine them from the<br>context, such as in the following SQL statement.<br>`<br>ALTER ROLE role-name WITH password<br>`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `databaseName`                                                | string    | The database to which the user connected.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `dbProtocol`                                                  | string    | The database protocol, for example `Postgres 3.0`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `dbUserName`                                                  | string    | The database user with which the client authenticated.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `errorMessage`(version 1.1 database activity records<br>only) | string    | If there was any error, this field is populated with the error message that<br>would've been generated by the DB server. The `errorMessage`<br>value is null for normal statements that didn't result in an error.<br>An error is defined as any activity that would produce a client-visible<br>PostgreSQL error log event at a severity level of `ERROR` or greater.<br>For more information, see [PostgreSQL Message Severity Levels](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-SEVERITY-LEVELS "https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-SEVERITY-LEVELS"). For example, syntax errors and<br>query cancellations generate an error message.<br>Internal PostgreSQL server errors such as background checkpointer process<br>errors do not generate an error message. However, records for such events are<br>still emitted regardless of the setting of the log severity level. This prevents<br>attackers from turning off logging to attempt avoiding detection.<br>See also the `exitCode` field. |
-| `exitCode`                                                    | int       | A value used for a session exit record. On a clean exit, this contains the<br>exit code. An exit code can't always be obtained in some failure scenarios.<br>Examples are if PostgreSQL does an `exit()` or if an operator performs<br>a command such as `kill -9`.If there was any error, the<br>`exitCode` field shows the SQL error code, `SQLSTATE`,<br>as listed in [PostgreSQL Error Codes](https://www.postgresql.org/docs/current/errcodes-appendix.html "https://www.postgresql.org/docs/current/errcodes-appendix.html"). See also the<br>`errorMessage` field.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `logTime`                                                     | string    | A timestamp as recorded in the auditing code path. This represents the SQL statement execution end<br>time. See also the `startTime` field.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| `netProtocol`                                                 | string    | The network communication protocol.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `objectName`                                                  | string    | The name of the database object if the SQL statement is operating on one. This field is used only<br>where the SQL statement operates on a database object. If the SQL statement is not operating on an object,<br>this value is null.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `objectType`                                                  | string    | The database object type such as table, index, view, and so on. This field is used only where the SQL<br>statement operates on a database object. If the SQL statement is not operating on an object, this value is<br>null. Valid values include the following:<br>• `COMPOSITE TYPE`<br>• `FOREIGN TABLE`<br>• `FUNCTION`<br>• `INDEX`<br>• `MATERIALIZED VIEW`<br>• `SEQUENCE`<br>• `TABLE`<br>• `TOAST TABLE`<br>• `VIEW`<br>• `UNKNOWN`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `paramList`                                                   | string    | An array of comma-separated parameters passed to the SQL statement. If the SQL statement has no<br>parameters, this value is an empty array.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `pid`                                                         | int       | The process ID of the backend process that is allocated for serving the client connection.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| `remoteHost`                                                  | string    | Either the client IP address or hostname. For Aurora PostgreSQL, which one is used depends on the<br>database's `log_hostname` parameter setting. The `remoteHost` value also includes `[local]` and `localhost`<br>which indicate activity from the `rdsadmin` user.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `remotePort`                                                  | string    | The client port number.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `rowCount`                                                    | int       | The number of table rows affected or retrieved by the SQL statement. This field is used only for SQL<br>statements that are data manipulation language (DML) statements. If the SQL statement is not a DML<br>statement, this value is null.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `serverHost`                                                  | string    | The database server host IP address. The `serverHost` value also includes `[local]` and `localhost`<br>which indicate activity from the `rdsadmin` user.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `serverType`                                                  | string    | The database server type, for example `PostgreSQL`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `serverVersion`                                               | string    | The database server version, for example `2.3.1` for Aurora PostgreSQL.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `serviceName`                                                 | string    | The name of the service, for example `Amazon Aurora PostgreSQL-Compatible edition`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `sessionId`                                                   | int       | A pseudo-unique session identifier.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `sessionId`                                                   | int       | A pseudo-unique session identifier.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `startTime`(version 1.1 database activity records<br>only)    | string    | The time when execution began for the SQL statement.<br>To calculate the approximate execution time of the SQL statement, use<br>`logTime<br>• startTime`. See also the `logTime`<br>field.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| `statementId`                                                 | int       | An identifier for the client's SQL statement. The counter is at the session level and increments with<br>each SQL statement entered by the client.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `substatementId`                                              | int       | An identifier for a SQL substatement. This value counts the contained substatements for each SQL<br>statement identified by the `statementId` field.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `type`                                                        | string    | The event type. Valid values are `record` or `heartbeat`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+## Examples of an audit log for an activity stream
 
-## databaseActivityEventList fields for Aurora MySQL
+Following are sample decrypted JSON audit logs of activity event records.
 
-The following are `databaseActivityEventList` fields for Aurora MySQL.
+###### Example Activity event record of an Aurora PostgreSQL CONNECT SQL statement
 
-| Field                                                         | Data Type | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| ------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `class`                                                       | string    | The class of activity event.<br>Valid values for Aurora MySQL are the following:<br>• `MAIN` – The primary event representing a SQL statement.<br>• `AUX` – A supplemental event containing additional details. For example, a<br>statement that renames an object might have an event with class `AUX` that reflects the<br>new name.<br>To find `MAIN` and `AUX` events corresponding to the same statement, check<br>for different events that have the same values for the `pid` field and for the<br>`statementId` field.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `clientApplication`                                           | string    | The application the client used to connect as reported by the client. The client doesn't have to<br>provide this information, so the value can be null.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `command`                                                     | string    | The general category of the SQL statement. The values for this field depend on the value of<br>`class`.<br>The values when `class` is `MAIN` include the following:<br>• `CONNECT` – When a client session is connected.<br>• `QUERY` – A SQL statement. Accompanied by one or more events with a<br>`class` value of `AUX`.<br>• `DISCONNECT` – When a client session is disconnected.<br>• `FAILED_CONNECT` – When a client attempts to connect but isn't able to.<br>• `CHANGEUSER` – A state change that's part of the MySQL network protocol, not<br>from a statement that you issue.<br>The values when `class` is `AUX` include the following:<br>• `READ` – A `SELECT` or `COPY` statement when the source<br>is a relation or a query.<br>• `WRITE` – An `INSERT`, `UPDATE`, `DELETE`,<br>`TRUNCATE`, or `COPY` statement when the destination is a relation.<br>• `DROP` – Deleting an object.<br>• `CREATE` – Creating an object.<br>• `RENAME` – Renaming an object.<br>• `ALTER` – Changing the properties of an object. |
-| `commandText`                                                 | string    | For events with a `class` value of `MAIN`, this field represents the actual SQL<br>statement passed in by the user. This field is used for all types of records except for connect or<br>disconnect records, in which case the value is null.<br>For events with a `class` value of `AUX`, this field contains supplemental<br>information about the objects involved in the event.<br>For Aurora MySQL, characters such as quotation marks are preceded by a backslash, representing an<br>escape character.<br>ImportantThe full SQL text of each statement is visible in the audit log, including any sensitive data.<br>However, database user passwords are redacted if Aurora can determine them from the context, such as in<br>the following SQL statement.<br>``<br>mysql> SET PASSWORD = '`my-password`';<br>``<br>NoteSpecify a password other than the prompt shown here as a security best practice.                                                                                                                     |
-| `databaseName`                                                | string    | The database to which the user connected.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `dbProtocol`                                                  | string    | The database protocol. Currently, this value is always `MySQL` for Aurora MySQL.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `dbUserName`                                                  | string    | The database user with which the client authenticated.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| `endTime`(version 1.2 database activity records<br>only)      | string    | The time when execution ended for the SQL statement. It is represented in Coordinated Universal Time (UTC) format.<br>To calculate the execution time of the SQL statement, use<br>`endTime<br>• startTime`. See also the `startTime`<br>field.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `errorMessage`(version 1.1 database activity records<br>only) | string    | If there was any error, this field is populated with the error message that<br>would've been generated by the DB server. The `errorMessage`<br>value is null for normal statements that didn't result in an error.<br>An error is defined as any activity that would produce a client-visible<br>MySQL error log event at a severity level of `ERROR` or greater.<br>For more information, see [The Error Log](https://dev.mysql.com/doc/refman/5.7/en/error-log.html "https://dev.mysql.com/doc/refman/5.7/en/error-log.html")<br>in the _MySQL Reference Manual_.<br>For example, syntax errors and query cancellations generate an error message.<br>Internal MySQL server errors such as background checkpointer process<br>errors do not generate an error message. However, records for such events are<br>still emitted regardless of the setting of the log severity level. This prevents<br>attackers from turning off logging to attempt avoiding detection.<br>See also the `exitCode` field.                              |
-| `exitCode`                                                    | int       | A value used for a session exit record. On a clean exit, this contains the exit code. An exit code<br>can't always be obtained in some failure scenarios. In such cases, this value might be zero or might<br>be blank.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `logTime`                                                     | string    | A timestamp as recorded in the auditing code path. It is represented in Coordinated Universal Time<br>(UTC) format. For the most accurate way to calculate statement duration, see the `startTime` and<br>`endTime` fields.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `netProtocol`                                                 | string    | The network communication protocol. Currently, this value is always `TCP` for<br>Aurora MySQL.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `objectName`                                                  | string    | The name of the database object if the SQL statement is operating on one. This field is used only<br>where the SQL statement operates on a database object. If the SQL statement isn't operating on an<br>object, this value is blank. To construct the fully qualified name of the object, combine<br>`databaseName` and `objectName`. If the query involves multiple objects, this field<br>can be a comma-separated list of names.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `objectType`                                                  | string    | The database object type such as table, index, and so on. This field is used only where the SQL<br>statement operates on a database object. If the SQL statement is not operating on an object, this value<br>is null.<br>Valid values for Aurora MySQL include the following:<br>• `INDEX`<br>• `TABLE`<br>• `UNKNOWN`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `paramList`                                                   | string    | This field isn't used for Aurora MySQL and is always null.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `pid`                                                         | int       | The process ID of the backend process that is allocated for serving the client connection. When the<br>database server is restarted, the `pid` changes and the counter for the `statementId`<br>field starts over.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `remoteHost`                                                  | string    | Either the IP address or hostname of the client that issued the SQL statement. For Aurora MySQL, which<br>one is used depends on the database's `skip_name_resolve` parameter setting. The value<br>`localhost` indicates activity from the `rdsadmin` special user.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| `remotePort`                                                  | string    | The client port number.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `rowCount`                                                    | int       | The number of rows returned by the SQL statement. For example, if a SELECT statement returns 10 rows,<br>rowCount is 10. For INSERT or UPDATE statements, rowCount is 0.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `serverHost`                                                  | string    | The database server instance identifier.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `serverType`                                                  | string    | The database server type, for example `MySQL`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `serverVersion`                                               | string    | The database server version. Currently, this value is always `MySQL 5.7.12` for<br>Aurora MySQL.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `serviceName`                                                 | string    | The name of the service. Currently, this value is always `Amazon Aurora MySQL` for<br>Aurora MySQL.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| `sessionId`                                                   | int       | A pseudo-unique session identifier.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| `startTime`(version 1.1 database activity records<br>only)    | string    | The time when execution began for the SQL statement. It is represented in Coordinated Universal Time (UTC) format.<br>To calculate the execution time of the SQL statement, use<br>`endTime<br>• startTime`. See also the `endTime` field.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `statementId`                                                 | int       | An identifier for the client's SQL statement. The counter increments with each SQL statement<br>entered by the client. The counter is reset when the DB instance is restarted.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `substatementId`                                              | int       | An identifier for a SQL substatement. This value is 1 for events with class `MAIN` and 2<br>for events with class `AUX`. Use the `statementId` field to identify all the events<br>generated by the same statement.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| `transactionId`(version 1.2 database activity records only)   | int       | An identifier for a transaction.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `type`                                                        | string    | The event type. Valid values are `record` or `heartbeat`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+The following activity event record shows a login with the use of a
+`CONNECT` SQL statement (`command`) by a psql client (`clientApplication`).
+
+```
+{
+  "type":"DatabaseActivityMonitoringRecords",
+  "version":"1.1",
+  "databaseActivityEvents":
+    {
+      "type":"DatabaseActivityMonitoringRecord",
+      "clusterId":"cluster-4HNY5V4RRNPKKYB7ICFKE5JBQQ",
+      "instanceId":"db-FZJTMYKCXQBUUZ6VLU7NW3ITCM",
+      "databaseActivityEventList":[
+        {
+          "startTime": "2019-10-30 00:39:49.940668+00",
+          "logTime": "2019-10-30 00:39:49.990579+00",
+          "statementId": 1,
+          "substatementId": 1,
+          "objectType": null,
+          "command": "CONNECT",
+          "objectName": null,
+          "databaseName": "postgres",
+          "dbUserName": "rdsadmin",
+          "remoteHost": "172.31.3.195",
+          "remotePort": "49804",
+          "sessionId": "5ce5f7f0.474b",
+          "rowCount": null,
+          "commandText": null,
+          "paramList": [],
+          "pid": 18251,
+          "clientApplication": "psql",
+          "exitCode": null,
+          "class": "MISC",
+          "serverVersion": "2.3.1",
+          "serverType": "PostgreSQL",
+          "serviceName": "Amazon Aurora PostgreSQL-Compatible edition",
+          "serverHost": "172.31.3.192",
+          "netProtocol": "TCP",
+          "dbProtocol": "Postgres 3.0",
+          "type": "record",
+          "errorMessage": null
+        }
+      ]
+    },
+   "key":"decryption-key"
+}
+```
+
+###### Example Activity event record of an Aurora MySQL CONNECT SQL statement
+
+The following activity event record shows a logon with the use of a
+`CONNECT` SQL statement (`command`) by a mysql client
+(`clientApplication`).
+
+```
+{
+  "type":"DatabaseActivityMonitoringRecord",
+  "clusterId":"cluster-`some_id`",
+  "instanceId":"db-`some_id`",
+  "databaseActivityEventList":[
+    {
+      "logTime":"2020-05-22 18:07:13.267214+00",
+      "type":"record",
+      "clientApplication":null,
+      "pid":2830,
+      "dbUserName":"rdsadmin",
+      "databaseName":"",
+      "remoteHost":"localhost",
+      "remotePort":"11053",
+      "command":"CONNECT",
+      "commandText":"",
+      "paramList":null,
+      "objectType":"TABLE",
+      "objectName":"",
+      "statementId":0,
+      "substatementId":1,
+      "exitCode":"0",
+      "sessionId":"725121",
+      "rowCount":0,
+      "serverHost":"master",
+      "serverType":"MySQL",
+      "serviceName":"Amazon Aurora MySQL",
+      "serverVersion":"MySQL 5.7.12",
+      "startTime":"2020-05-22 18:07:13.267207+00",
+      "endTime":"2020-05-22 18:07:13.267213+00",
+      "transactionId":"0",
+      "dbProtocol":"MySQL",
+      "netProtocol":"TCP",
+      "errorMessage":"",
+      "class":"MAIN"
+    }
+  ]
+}
+```
+
+###### Example Activity event record of an Aurora PostgreSQL CREATE TABLE statement
+
+The following example shows a `CREATE TABLE` event for Aurora PostgreSQL.
+
+```
+{
+  "type":"DatabaseActivityMonitoringRecords",
+  "version":"1.1",
+  "databaseActivityEvents":
+    {
+      "type":"DatabaseActivityMonitoringRecord",
+      "clusterId":"cluster-4HNY5V4RRNPKKYB7ICFKE5JBQQ",
+      "instanceId":"db-FZJTMYKCXQBUUZ6VLU7NW3ITCM",
+      "databaseActivityEventList":[
+        {
+          "startTime": "2019-05-24 00:36:54.403455+00",
+          "logTime": "2019-05-24 00:36:54.494235+00",
+          "statementId": 2,
+          "substatementId": 1,
+          "objectType": null,
+          "command": "CREATE TABLE",
+          "objectName": null,
+          "databaseName": "postgres",
+          "dbUserName": "rdsadmin",
+          "remoteHost": "172.31.3.195",
+          "remotePort": "34534",
+          "sessionId": "5ce73c6f.7e64",
+          "rowCount": null,
+          "commandText": "create table my_table (id serial primary key, name varchar(32));",
+          "paramList": [],
+          "pid": 32356,
+          "clientApplication": "psql",
+          "exitCode": null,
+          "class": "DDL",
+          "serverVersion": "2.3.1",
+          "serverType": "PostgreSQL",
+          "serviceName": "Amazon Aurora PostgreSQL-Compatible edition",
+          "serverHost": "172.31.3.192",
+          "netProtocol": "TCP",
+          "dbProtocol": "Postgres 3.0",
+          "type": "record",
+          "errorMessage": null
+        }
+      ]
+    },
+   "key":"decryption-key"
+}
+```
+
+###### Example Activity event record of an Aurora MySQL CREATE TABLE statement
+
+The following example shows a `CREATE TABLE` statement for Aurora MySQL.
+The operation is represented as two separate event records. One event has
+`"class":"MAIN"`. The other event has `"class":"AUX"`. The
+messages might arrive in any order. The `logTime` field of the
+`MAIN` event is always earlier than the `logTime` fields of any
+corresponding `AUX` events.
+
+The following example shows the event with a `class` value of
+`MAIN`.
+
+```
+{
+  "type":"DatabaseActivityMonitoringRecord",
+  "clusterId":"cluster-`some_id`",
+  "instanceId":"db-`some_id`",
+  "databaseActivityEventList":[
+    {
+      "logTime":"2020-05-22 18:07:12.250221+00",
+      "type":"record",
+      "clientApplication":null,
+      "pid":2830,
+      "dbUserName":"master",
+      "databaseName":"test",
+      "remoteHost":"localhost",
+      "remotePort":"11054",
+      "command":"QUERY",
+      "commandText":"CREATE TABLE test1 (id INT)",
+      "paramList":null,
+      "objectType":"TABLE",
+      "objectName":"test1",
+      "statementId":65459278,
+      "substatementId":1,
+      "exitCode":"0",
+      "sessionId":"725118",
+      "rowCount":0,
+      "serverHost":"master",
+      "serverType":"MySQL",
+      "serviceName":"Amazon Aurora MySQL",
+      "serverVersion":"MySQL 5.7.12",
+      "startTime":"2020-05-22 18:07:12.226384+00",
+      "endTime":"2020-05-22 18:07:12.250222+00",
+      "transactionId":"0",
+      "dbProtocol":"MySQL",
+      "netProtocol":"TCP",
+      "errorMessage":"",
+      "class":"MAIN"
+    }
+  ]
+}
+```
+
+The following example shows the corresponding event with a `class` value of
+`AUX`.
+
+```
+{
+  "type":"DatabaseActivityMonitoringRecord",
+  "clusterId":"cluster-`some_id`",
+  "instanceId":"db-`some_id`",
+  "databaseActivityEventList":[
+    {
+      "logTime":"2020-05-22 18:07:12.247182+00",
+      "type":"record",
+      "clientApplication":null,
+      "pid":2830,
+      "dbUserName":"master",
+      "databaseName":"test",
+      "remoteHost":"localhost",
+      "remotePort":"11054",
+      "command":"CREATE",
+      "commandText":"test1",
+      "paramList":null,
+      "objectType":"TABLE",
+      "objectName":"test1",
+      "statementId":65459278,
+      "substatementId":2,
+      "exitCode":"",
+      "sessionId":"725118",
+      "rowCount":0,
+      "serverHost":"master",
+      "serverType":"MySQL",
+      "serviceName":"Amazon Aurora MySQL",
+      "serverVersion":"MySQL 5.7.12",
+      "startTime":"2020-05-22 18:07:12.226384+00",
+      "endTime":"2020-05-22 18:07:12.247182+00",
+      "transactionId":"0",
+      "dbProtocol":"MySQL",
+      "netProtocol":"TCP",
+      "errorMessage":"",
+      "class":"AUX"
+    }
+  ]
+}
+```
+
+###### Example Activity event record of an Aurora PostgreSQL SELECT statement
+
+The following example shows a `SELECT` event .
+
+```
+{
+  "type":"DatabaseActivityMonitoringRecords",
+  "version":"1.1",
+  "databaseActivityEvents":
+    {
+      "type":"DatabaseActivityMonitoringRecord",
+      "clusterId":"cluster-4HNY5V4RRNPKKYB7ICFKE5JBQQ",
+      "instanceId":"db-FZJTMYKCXQBUUZ6VLU7NW3ITCM",
+      "databaseActivityEventList":[
+        {
+          "startTime": "2019-05-24 00:39:49.920564+00",
+          "logTime": "2019-05-24 00:39:49.940668+00",
+          "statementId": 6,
+          "substatementId": 1,
+          "objectType": "TABLE",
+          "command": "SELECT",
+          "objectName": "public.my_table",
+          "databaseName": "postgres",
+          "dbUserName": "rdsadmin",
+          "remoteHost": "172.31.3.195",
+          "remotePort": "34534",
+          "sessionId": "5ce73c6f.7e64",
+          "rowCount": 10,
+          "commandText": "select * from my_table;",
+          "paramList": [],
+          "pid": 32356,
+          "clientApplication": "psql",
+          "exitCode": null,
+          "class": "READ",
+          "serverVersion": "2.3.1",
+          "serverType": "PostgreSQL",
+          "serviceName": "Amazon Aurora PostgreSQL-Compatible edition",
+          "serverHost": "172.31.3.192",
+          "netProtocol": "TCP",
+          "dbProtocol": "Postgres 3.0",
+          "type": "record",
+          "errorMessage": null
+        }
+      ]
+    },
+   "key":"decryption-key"
+}
+```
+
+```
+{
+    "type": "DatabaseActivityMonitoringRecord",
+    "clusterId": "",
+    "instanceId": "db-4JCWQLUZVFYP7DIWP6JVQ77O3Q",
+    "databaseActivityEventList": [
+        {
+            "class": "TABLE",
+            "clientApplication": "Microsoft SQL Server Management Studio - Query",
+            "command": "SELECT",
+            "commandText": "select * from [testDB].[dbo].[TestTable]",
+            "databaseName": "testDB",
+            "dbProtocol": "SQLSERVER",
+            "dbUserName": "test",
+            "endTime": null,
+            "errorMessage": null,
+            "exitCode": 1,
+            "logTime": "2022-10-06 21:24:59.9422268+00",
+            "netProtocol": null,
+            "objectName": "TestTable",
+            "objectType": "TABLE",
+            "paramList": null,
+            "pid": null,
+            "remoteHost": "local machine",
+            "remotePort": null,
+            "rowCount": 0,
+            "serverHost": "172.31.30.159",
+            "serverType": "SQLSERVER",
+            "serverVersion": "15.00.4073.23.v1.R1",
+            "serviceName": "sqlserver-ee",
+            "sessionId": 62,
+            "startTime": null,
+            "statementId": "0x03baed90412f564fad640ebe51f89b99",
+            "substatementId": 1,
+            "transactionId": "4532935",
+            "type": "record",
+            "engineNativeAuditFields": {
+                "target_database_principal_id": 0,
+                "target_server_principal_id": 0,
+                "target_database_principal_name": "",
+                "server_principal_id": 2,
+                "user_defined_information": "",
+                "response_rows": 0,
+                "database_principal_name": "dbo",
+                "target_server_principal_name": "",
+                "schema_name": "dbo",
+                "is_column_permission": true,
+                "object_id": 581577110,
+                "server_instance_name": "EC2AMAZ-NFUJJNO",
+                "target_server_principal_sid": null,
+                "additional_information": "",
+                "duration_milliseconds": 0,
+                "permission_bitmask": "0x00000000000000000000000000000001",
+                "data_sensitivity_information": "",
+                "session_server_principal_name": "test",
+                "connection_id": "AD3A5084-FB83-45C1-8334-E923459A8109",
+                "audit_schema_version": 1,
+                "database_principal_id": 1,
+                "server_principal_sid": "0x010500000000000515000000bdc2795e2d0717901ba6998cf4010000",
+                "user_defined_event_id": 0,
+                "host_name": "EC2AMAZ-NFUJJNO"
+            }
+        }
+    ]
+}
+```
+
+###### Example Activity event record of an Aurora MySQL SELECT statement
+
+The following example shows a `SELECT` event.
+
+The following example shows the event with a `class` value of `MAIN`.
+
+```
+{
+  "type":"DatabaseActivityMonitoringRecord",
+  "clusterId":"cluster-`some_id`",
+  "instanceId":"db-`some_id`",
+  "databaseActivityEventList":[
+    {
+      "logTime":"2020-05-22 18:29:57.986467+00",
+      "type":"record",
+      "clientApplication":null,
+      "pid":2830,
+      "dbUserName":"master",
+      "databaseName":"test",
+      "remoteHost":"localhost",
+      "remotePort":"11054",
+      "command":"QUERY",
+      "commandText":"SELECT * FROM test1 WHERE id < 28",
+      "paramList":null,
+      "objectType":"TABLE",
+      "objectName":"test1",
+      "statementId":65469218,
+      "substatementId":1,
+      "exitCode":"0",
+      "sessionId":"726571",
+      "rowCount":2,
+      "serverHost":"master",
+      "serverType":"MySQL",
+      "serviceName":"Amazon Aurora MySQL",
+      "serverVersion":"MySQL 5.7.12",
+      "startTime":"2020-05-22 18:29:57.986364+00",
+      "endTime":"2020-05-22 18:29:57.986467+00",
+      "transactionId":"0",
+      "dbProtocol":"MySQL",
+      "netProtocol":"TCP",
+      "errorMessage":"",
+      "class":"MAIN"
+    }
+  ]
+}
+```
+
+The following example shows the corresponding event with a `class` value of `AUX`.
+
+```
+{
+  "type":"DatabaseActivityMonitoringRecord",
+  "instanceId":"db-`some_id`",
+  "databaseActivityEventList":[
+    {
+      "logTime":"2020-05-22 18:29:57.986399+00",
+      "type":"record",
+      "clientApplication":null,
+      "pid":2830,
+      "dbUserName":"master",
+      "databaseName":"test",
+      "remoteHost":"localhost",
+      "remotePort":"11054",
+      "command":"READ",
+      "commandText":"test1",
+      "paramList":null,
+      "objectType":"TABLE",
+      "objectName":"test1",
+      "statementId":65469218,
+      "substatementId":2,
+      "exitCode":"",
+      "sessionId":"726571",
+      "rowCount":0,
+      "serverHost":"master",
+      "serverType":"MySQL",
+      "serviceName":"Amazon Aurora MySQL",
+      "serverVersion":"MySQL 5.7.12",
+      "startTime":"2020-05-22 18:29:57.986364+00",
+      "endTime":"2020-05-22 18:29:57.986399+00",
+      "transactionId":"0",
+      "dbProtocol":"MySQL",
+      "netProtocol":"TCP",
+      "errorMessage":"",
+      "class":"AUX"
+    }
+  ]
+}
+```
+
+## DatabaseActivityMonitoringRecords JSON object
+
+The database activity event records are in a JSON object that contains the following information.
+
+| JSON Field                                                                                                                        | Data Type | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --------------------------------------------------------------------------------------------------------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`                                                                                                                            | string    | The type of JSON record. The value is `DatabaseActivityMonitoringRecords`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `version`                                                                                                                         | string    | The version of the database activity monitoring<br>records. The version of the generated<br>database activity records depends on the engine version of the DB cluster:<br>• Version 1.1 database activity records are generated for Aurora PostgreSQL DB<br>clusters running the engine versions 10.10 and later minor versions and engine<br>versions 11.5 and later.<br>• Version 1.0 database activity records are generated for Aurora PostgreSQL DB<br>clusters running the engine versions 10.7 and 11.4.<br>All of the following fields are in both<br>version 1.0 and version 1.1 except where specifically noted. |
+| [databaseActivityEvents](#DBActivityStreams.AuditLog.databaseActivityEvents "#DBActivityStreams.AuditLog.databaseActivityEvents") | string    | A JSON object that contains the activity events.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| key                                                                                                                               | string    | An encryption key that you use to decrypt the [databaseActivityEventList JSON array](DBActivityStreams.AuditLog.databaseActivityEventList.md "DBActivityStreams.AuditLog.databaseActivityEventList.md")                                                                                                                                                                                                                                                                                                                                                                                                                    |
+
+## databaseActivityEvents JSON Object
+
+The `databaseActivityEvents` JSON object contains the following information.
+
+### Top-level fields in JSON record
+
+Each event in the audit log is wrapped inside a record in JSON format.
+This record contains the following fields.
+
+**type**
+
+This field always has the value `DatabaseActivityMonitoringRecords`.
+
+**version**
+
+This field represents the version of the database activity stream data
+protocol or contract. It defines which fields are available.
+
+Version 1.0 represents the original data activity streams support for
+Aurora PostgreSQL versions 10.7 and 11.4. Version 1.1 represents the data activity streams support for
+Aurora PostgreSQL versions 10.10 and higher and Aurora PostgreSQL 11.5 and higher. Version 1.1 includes the
+additional fields `errorMessage` and `startTime`. Version 1.2 represents the data
+activity streams support for Aurora MySQL 2.08 and higher. Version 1.2 includes the additional fields
+`endTime` and `transactionId`.
+
+**databaseActivityEvents**
+
+An encrypted string representing one or more activity events. It's represented as a base64 byte
+array. When you decrypt the string, the result is a record in JSON format with fields as shown in the
+examples in this section.
+
+**key**
+
+The encrypted data key used to encrypt the `databaseActivityEvents` string. This is the
+same AWS KMS key that you provided when you started the database activity
+stream.
+
+The following example shows the format of this record.
+
+```
+{
+  "type":"DatabaseActivityMonitoringRecords",
+  "version":"1.1",
+  "databaseActivityEvents":"`encrypted audit records`",
+  "key":"`encrypted key`"
+}
+```
+
+Take the following steps to decrypt the contents of the `databaseActivityEvents` field:
+
+1. Decrypt the value in the `key` JSON field using the KMS key you provided when starting
+   database activity stream. Doing so returns the data encryption key in clear text.
+2. Base64-decode the value in the `databaseActivityEvents` JSON field to obtain the ciphertext,
+   in binary format, of the audit payload.
+3. Decrypt the binary ciphertext with the data encryption key that you decoded in the first step.
+4. Decompress the decrypted payload.
+   - The encrypted payload is in the `databaseActivityEvents` field.
+   - The `databaseActivityEventList` field contains an array of audit records. The
+     `type` fields in the array can be `record` or `heartbeat`.
+
+The audit log activity event record is a JSON object that contains the following information.
+
+| JSON Field                                                                                                                                                | Data Type | Description                                                                                              |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | -------------------------------------------------------------------------------------------------------- |
+| `type`                                                                                                                                                    | string    | The type of JSON record. The value is `DatabaseActivityMonitoringRecord`.                                |
+| `clusterId`                                                                                                                                               | string    | The DB cluster resource identifier. It corresponds to the DB cluster<br>attribute `DbClusterResourceId`. |
+| `instanceId`                                                                                                                                              | string    | The DB instance resource identifier. It corresponds to the DB instance attribute<br>`DbiResourceId`.     |
+| [databaseActivityEventList JSON array](DBActivityStreams.AuditLog.databaseActivityEventList.md "DBActivityStreams.AuditLog.databaseActivityEventList.md") | string    | An array of activity audit records or heartbeat messages.                                                |

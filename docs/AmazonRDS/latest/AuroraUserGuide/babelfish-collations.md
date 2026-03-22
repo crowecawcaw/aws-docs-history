@@ -35,8 +35,8 @@ the PostgreSQL documentation.
 - [Collations supported at database level in Babelfish](#babelfish-collations.database-level "#babelfish-collations.database-level")
 - [Server and object Collations in Babelfish](#babelfish-collations.reference-tables-supported-collations "#babelfish-collations.reference-tables-supported-collations")
 - [Default Collation behavior in Babelfish](#babelfish-collations-default "#babelfish-collations-default")
-- [Managing collations](collation.md "collation.md")
-- [Collation limitations and behavior differences](collation.md "collation.md")
+- [Managing collations](collation.managing.md "collation.managing.md")
+- [Collation limitations and behavior differences](collation.limitations.md "collation.limitations.md")
 
 ## DB cluster parameters that control collation and locale
 
@@ -90,7 +90,7 @@ when using nondeterministic collations.
 | Supports the LIKE clause only on the following AI collations from Babelfish version 4.2.0:<br>• bbf_unicode_cp1250_ci_ai<br>• bbf_unicode_cp1250_cs_ai<br>• bbf_unicode_cp1257_ci_ai<br>• bbf_unicode_cp1257_cs_ai<br>• bbf_unicode_cp1_ci_ai<br>• bbf_unicode_cp1_cs_ai<br>• estonian_ci_ai<br>• finnish_swedish_ci_ai<br>• french_ci_ai<br>• latin1_general_ci_ai<br>• latin1_general_cs_ai<br>• modern_spanish_ci_ai<br>• polish_ci_ai<br>• sql_latin1_general_cp1_ci_ai<br>• sql_latin1_general_cp1_cs_ai<br>• traditional_spanish_ci_ai | Doesn't support the LIKE clause on nondeterministic collations. |
 
 For a list of other limitations and behavior differences for Babelfish compared to SQL Server and PostgreSQL,
-see [Collation limitations and behavior differences](collation.md "collation.md").
+see [Collation limitations and behavior differences](collation.limitations.md "collation.limitations.md").
 
 Babelfish and SQL Server follow a naming convention for collations that describe the
 collation attributes, as shown in the table following.

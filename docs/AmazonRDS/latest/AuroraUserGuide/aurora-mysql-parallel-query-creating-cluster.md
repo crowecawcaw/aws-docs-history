@@ -6,7 +6,7 @@ you do with other Aurora MySQL clusters. You can create a new cluster to work wi
 query. You can also create a DB cluster to work with parallel query by restoring from a
 snapshot of a MySQL-compatible Aurora DB cluster. If you aren't familiar with the process for
 creating a new Aurora MySQL cluster, you can find background information and prerequisites in
-[Creating an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
+[Creating an Amazon Aurora DB cluster](Aurora.CreateInstance.md "Aurora.CreateInstance.md").
 
 When you choose an Aurora MySQL engine version, we recommend that you choose the latest one available. Currently, all available Aurora MySQL versions
 support parallel query. You have more flexibility to turn parallel query on and off, or use parallel query with existing clusters, if you use the latest
@@ -28,7 +28,7 @@ You can create a new parallel query cluster with the console as described follow
 
 ###### To create a parallel query cluster with the AWS Management Console
 
-1. Follow the general AWS Management Console procedure in [Creating an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
+1. Follow the general AWS Management Console procedure in [Creating an Amazon Aurora DB cluster](Aurora.CreateInstance.md "Aurora.CreateInstance.md").
 2. For **Engine type**, choose Aurora MySQL.
 3. For **Additional configuration**, choose a parameter group that you created for **DB cluster
    parameter group**. Using such a custom parameter group is required for Aurora MySQL 2.09 and higher. In
@@ -91,7 +91,7 @@ aws rds modify-db-cluster-parameter-group --db-cluster-parameter-group-name pq-e
 If you perform this step, specify the option
 `--db-cluster-parameter-group-name `my_cluster_parameter_group`` in the subsequent`create-db-cluster` statement. Substitute the name of your own parameter group.
 If you omit this step, you create the parameter group and associate it with the cluster later, as described in
-[Turning parallel query on and off in Aurora MySQL](aurora-mysql-parallel-query-enabling.md "aurora-mysql-parallel-query-enabling.md"). 3. Follow the general AWS CLI procedure in [Creating an Amazon Aurora DB cluster](Aurora.md "Aurora.md"). 4. Specify the following set of options:
+[Turning parallel query on and off in Aurora MySQL](aurora-mysql-parallel-query-enabling.md "aurora-mysql-parallel-query-enabling.md"). 3. Follow the general AWS CLI procedure in [Creating an Amazon Aurora DB cluster](Aurora.CreateInstance.md "Aurora.CreateInstance.md"). 4. Specify the following set of options:
 
     * For the `--engine` option, use `aurora-mysql`. These values produce parallel query clusters that
      are compatible with MySQL 5.7 or 8.0.

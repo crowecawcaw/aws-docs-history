@@ -14,7 +14,7 @@ also add Kerberos authentication for the same DB cluster.
 
 Babelfish for Aurora PostgreSQL supports password authentication. Passwords are stored in
 encrypted form on disk. For more information about authentication on an
-Aurora PostgreSQL cluster, see [Security with Amazon Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+Aurora PostgreSQL cluster, see [Security with Amazon Aurora PostgreSQL](AuroraPostgreSQL.Security.md "AuroraPostgreSQL.Security.md").
 
 You might be prompted for credentials each time you connect to Babelfish.
 Any user migrated to or created on Aurora PostgreSQL can use the same credentials on

@@ -65,7 +65,7 @@ you manually upgrade your database.
   `--engine-lifecycle-support` in the AWS CLI, and
   `EngineLifecycleSupport` in the RDS API.
 
-For more information, see [Amazon Aurora versions](Aurora.md "Aurora.md").
+For more information, see [Amazon Aurora versions](Aurora.VersionPolicy.md "Aurora.VersionPolicy.md").
 
 ## Restore an Aurora DB cluster DB cluster or a global cluster with RDS Extended Support
 

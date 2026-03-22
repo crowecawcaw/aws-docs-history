@@ -25,9 +25,9 @@ The following advice about best practices can help you avoid common mistakes tha
 benchmarking. However, this topic doesn't cover the step-by-step process of performing benchmarks and
 doing performance tuning. Those procedures vary depending on your workload and the Aurora features that you
 use. For detailed information, consult performance-related documentation such as
-[Managing performance and scaling for Aurora DB clusters](Aurora.Managing.md "Aurora.Managing.md"),
-[Amazon Aurora MySQL performance enhancements](Aurora.AuroraMySQL.md#Aurora.AuroraMySQL.Performance "Aurora.AuroraMySQL.md#Aurora.AuroraMySQL.Performance"),
-[Performance and scaling for Amazon Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraPostgreSQL.md"),
+[Managing performance and scaling for Aurora DB clusters](Aurora.Managing.Performance.md "Aurora.Managing.Performance.md"),
+[Amazon Aurora MySQL performance enhancements](Aurora.AuroraMySQL.Overview.md#Aurora.AuroraMySQL.Performance "Aurora.AuroraMySQL.Overview.md#Aurora.AuroraMySQL.Performance"),
+[Performance and scaling for Amazon Aurora PostgreSQL](AuroraPostgreSQL.Managing.md "AuroraPostgreSQL.Managing.md"),
 and [Monitoring DB load with Performance Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
 
 The information in this topic applies mainly to applications where your organization writes the code and
@@ -69,7 +69,7 @@ these might be workload consolidation, described in the AWS Database Blog post
 [How
 to plan and optimize Amazon Aurora with MySQL compatibility for consolidated workloads](https://aws.amazon.com/blogs/database/planning-and-optimizing-amazon-aurora-with-mysql-compatibility-for-consolidated-workloads/ "https://aws.amazon.com/blogs/database/planning-and-optimizing-amazon-aurora-with-mysql-compatibility-for-consolidated-workloads/"). Another might
 be demand-based scaling, described in
-[Amazon Aurora Auto Scaling with Aurora Replicas](Aurora.Integrating.md "Aurora.Integrating.md") in the
+[Amazon Aurora Auto Scaling with Aurora Replicas](Aurora.Integrating.AutoScaling.md "Aurora.Integrating.AutoScaling.md") in the
 _Amazon Aurora User Guide._ Others might be performance gains or simplified database operations.
 
 ## 2. Understand your workload characteristics
@@ -98,7 +98,7 @@ depending on workload, such a cluster can process 200,000 `INSERT`, `UPDATE`, an
 high-volume, high-throughput, and highly parallelized OLTP workloads.
 
 Aurora can also run reporting queries on the same cluster that handles the OLTP workload. Aurora supports up to
-15 [replicas](Aurora.md#Aurora.Replication.Replicas "Aurora.md#Aurora.Replication.Replicas"), each of which is on average within
+15 [replicas](Aurora.Replication.md#Aurora.Replication.Replicas "Aurora.Replication.md#Aurora.Replication.Replicas"), each of which is on average within
 10–20 milliseconds of the primary instance. Analysts can query OLTP data in real time without copying
 the data to a separate data warehouse cluster. With Aurora clusters using the parallel query feature, you can
 offload much of the processing, filtering, and aggregation work to the massively distributed Aurora storage
@@ -134,7 +134,7 @@ of concept, you connect query-intensive sessions using the reader endpoint, whic
 workload among multiple DB instances in the cluster.
 
 Scale the cluster out by adding more Aurora Replicas. For those procedures, see
-[Replication with Amazon Aurora](Aurora.md "Aurora.md"). Scale the DB instances up
+[Replication with Amazon Aurora](Aurora.Replication.md "Aurora.Replication.md"). Scale the DB instances up
 or down by changing the AWS instance class. Understand how Aurora simplifies these kinds of operations, so
 that if your initial estimates for system capacity are inaccurate, you can adjust later without starting
 over.
@@ -177,7 +177,7 @@ With Aurora, you can explore what-if scenarios by adding DB instances to the clu
 powerful instance classes. You can also create clusters with different configuration settings to run the same workload side by
 side. With Aurora, you have a lot of flexibility to set up, tear down, and reconfigure DB clusters. Given this, it's helpful
 to practice these techniques in the early stages of the proof-of-concept process. For the general procedures to create Aurora
-clusters, see [Creating an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
+clusters, see [Creating an Amazon Aurora DB cluster](Aurora.CreateInstance.md "Aurora.CreateInstance.md").
 
 Where practical, start with a cluster using the following settings. Skip this step only if you have certain specific use cases in
 mind. For example, you might skip this step if your use case requires a specialized kind of Aurora cluster. Or you might skip it
@@ -224,7 +224,7 @@ parameter to your client application. You can find the cluster endpoint on the
 labeled **Writer**. The other endpoint, labeled **Reader**, represents a
 read-only connection that you can supply to end users who run reports or other read-only queries. For help
 with any issues around connecting to your cluster, see
-[Connecting to an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
+[Connecting to an Amazon Aurora DB cluster](Aurora.Connecting.md "Aurora.Connecting.md").
 
 If you're porting your schema and data from a different database system, expect to make some schema
 changes at this point. These schema changes are to match the SQL syntax and capabilities available in Aurora.
@@ -253,8 +253,8 @@ of data. By the time you finish the proof of concept, you should test your ETL t
 workload with a dataset that's big enough to draw accurate conclusions.
 
 You can use several techniques to import either physical or logical backup data to Aurora. For details, see
-[Migrating data to an Amazon Aurora MySQL DB cluster](AuroraMySQL.md "AuroraMySQL.md") or
-[Migrating data to Amazon Aurora with PostgreSQL compatibility](AuroraPostgreSQL.md "AuroraPostgreSQL.md") depending on the
+[Migrating data to an Amazon Aurora MySQL DB cluster](AuroraMySQL.Migrating.md "AuroraMySQL.Migrating.md") or
+[Migrating data to Amazon Aurora with PostgreSQL compatibility](AuroraPostgreSQL.Migrating.md "AuroraPostgreSQL.Migrating.md") depending on the
 database engine you're using in the proof of concept.
 
 Experiment with the ETL tools and technologies that you're considering. See which one best meets your
@@ -323,9 +323,9 @@ You start with one of the default parameter sets, and apply changes to only the 
 fine-tune. For details about working with parameter groups, see
 [Amazon Aurora DB cluster and DB instance parameters](USER_WorkingWithDBClusterParamGroups.md#Aurora.Managing.ParameterGroups "USER_WorkingWithDBClusterParamGroups.md#Aurora.Managing.ParameterGroups"). For
 the configuration settings that are or aren't applicable to Aurora clusters, see
-[Aurora MySQL configuration parameters](AuroraMySQL.Reference.md "AuroraMySQL.Reference.md")
+[Aurora MySQL configuration parameters](AuroraMySQL.Reference.ParameterGroups.md "AuroraMySQL.Reference.ParameterGroups.md")
 or
-[Amazon Aurora PostgreSQL parameters](AuroraPostgreSQL.Reference.md "AuroraPostgreSQL.Reference.md")
+[Amazon Aurora PostgreSQL parameters](AuroraPostgreSQL.Reference.ParameterGroups.md "AuroraPostgreSQL.Reference.ParameterGroups.md")
 depending on your database engine.
 
 ## 9. Connect to Aurora
@@ -377,7 +377,7 @@ guidelines:
   instances in the cluster.
 
 For general information about connection management and endpoints for Aurora, see
-[Connecting to an Amazon Aurora DB cluster](Aurora.md "Aurora.md"). For a deep dive on this
+[Connecting to an Amazon Aurora DB cluster](Aurora.Connecting.md "Aurora.Connecting.md"). For a deep dive on this
 subject, see
 [Aurora
 MySQL database administrator's handbook – Connection management](https://d1.awsstatic.com/whitepapers/RDS/amazon-aurora-mysql-database-administrator-handbook.pdf "https://d1.awsstatic.com/whitepapers/RDS/amazon-aurora-mysql-database-administrator-handbook.pdf").
@@ -396,7 +396,7 @@ cloud (VPC) as the Aurora cluster. If your production application runs on multip
 multiple Availability Zones, set up your proof-of-concept environment in the same way. For more information on
 AWS Regions, see
 [Regions and
-Availability Zones](../UserGuide/Concepts.md "../UserGuide/Concepts.md") in the _Amazon RDS User Guide._ To learn more about the
+Availability Zones](../UserGuide/Concepts.RegionsAndAvailabilityZones.md "../UserGuide/Concepts.RegionsAndAvailabilityZones.md") in the _Amazon RDS User Guide._ To learn more about the
 Amazon VPC service, see [What is Amazon
 VPC?](../../../vpc/latest/userguide/what-is-amazon-vpc.md "../../../vpc/latest/userguide/what-is-amazon-vpc.md") in the _Amazon VPC User Guide._
 
@@ -530,7 +530,7 @@ cluster. Doing so avoids unpredictable changes in performance, latency, and so o
 takes over for another.
 
 To learn how to simulate failure conditions to test high availability features, see
-[Testing Amazon Aurora MySQL using fault injection queries](AuroraMySQL.Managing.md "AuroraMySQL.Managing.md").
+[Testing Amazon Aurora MySQL using fault injection queries](AuroraMySQL.Managing.FaultInjectionQueries.md "AuroraMySQL.Managing.FaultInjectionQueries.md").
 
 As part of your proof-of-concept exercise, one objective is to find the ideal number of DB instances and the
 optimal instance class for those DB instances. Doing so requires balancing the requirements of high
@@ -587,9 +587,9 @@ and AWS Identity and Access Management (IAM) authentication.
 
 At this point, you should understand the procedures and best practices for running benchmark tests with Aurora.
 You might find you need to do additional performance tuning. For details, see
-[Managing performance and scaling for Aurora DB clusters](Aurora.Managing.md "Aurora.Managing.md"),
-[Amazon Aurora MySQL performance enhancements](Aurora.AuroraMySQL.md#Aurora.AuroraMySQL.Performance "Aurora.AuroraMySQL.md#Aurora.AuroraMySQL.Performance"),
-[Performance and scaling for Amazon Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraPostgreSQL.md"),
+[Managing performance and scaling for Aurora DB clusters](Aurora.Managing.Performance.md "Aurora.Managing.Performance.md"),
+[Amazon Aurora MySQL performance enhancements](Aurora.AuroraMySQL.Overview.md#Aurora.AuroraMySQL.Performance "Aurora.AuroraMySQL.Overview.md#Aurora.AuroraMySQL.Performance"),
+[Performance and scaling for Amazon Aurora PostgreSQL](AuroraPostgreSQL.Managing.md "AuroraPostgreSQL.Managing.md"),
 and [Monitoring DB load with Performance Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md"). If you do additional
 tuning, make sure that you're familiar with the metrics that you gathered during the proof of concept.
 For a next step, you might create new clusters with different choices for configuration settings, database
@@ -620,7 +620,7 @@ AWS services:
   - [AWS Glue](../../../glue.md "../../../glue.md")
   - [AWS DMS](../../../dms.md "../../../dms.md")
   - [Importing
-    from Amazon S3](AuroraMySQL.Integrating.md "AuroraMySQL.Integrating.md"), as described in the _Amazon Aurora User Guide_
+    from Amazon S3](AuroraMySQL.Integrating.LoadFromS3.md "AuroraMySQL.Integrating.LoadFromS3.md"), as described in the _Amazon Aurora User Guide_
   - [Exporting
-    to Amazon S3](AuroraMySQL.Integrating.md "AuroraMySQL.Integrating.md"), as described in the _Amazon Aurora User Guide_
+    to Amazon S3](AuroraMySQL.Integrating.SaveIntoS3.md "AuroraMySQL.Integrating.SaveIntoS3.md"), as described in the _Amazon Aurora User Guide_
   - Many other popular ETL tools

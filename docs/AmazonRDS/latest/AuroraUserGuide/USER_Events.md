@@ -1,29 +1,18 @@
-# Listing Amazon RDS event notification subscriptions
+# Working with Amazon RDS event notification
 
-You can list your current Amazon RDS event notification subscriptions.
+Amazon RDS uses the Amazon Simple Notification Service (Amazon SNS) to provide notification when an Amazon RDS event occurs.
+These notifications can be in any notification form supported by Amazon SNS for an AWS Region, such as an email, a text message, or a call to an HTTP
+endpoint.
 
-###### To list your current Amazon RDS event notification subscriptions
+###### Topics
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Event subscriptions**. The **Event
-   subscriptions** pane shows all your event notification subscriptions.
-
-![List DB event notification subscriptions](images/EventNotification-ListSubs.png)
-To list your current Amazon RDS event notification subscriptions, use the AWS CLI [`describe-event-subscriptions`](../../../cli/latest/reference/rds/describe-event-subscriptions.md "../../../cli/latest/reference/rds/describe-event-subscriptions.md") command.
-
-###### Example
-
-The following example describes all event subscriptions.
-
-```
-aws rds describe-event-subscriptions
-```
-
-The following example describes the `myfirsteventsubscription`.
-
-```
-aws rds describe-event-subscriptions --subscription-name `myfirsteventsubscription`
-```
-
-To list your current Amazon RDS event notification subscriptions, call the Amazon RDS API [`DescribeEventSubscriptions`](../APIReference/API_DescribeEventSubscriptions.md "../APIReference/API_DescribeEventSubscriptions.md") action.
+- [Overview of Amazon RDS event notification](USER_Events.overview.md "USER_Events.overview.md")
+- [Granting permissions to publish notifications to an Amazon SNS topic](USER_Events.GrantingPermissions.md "USER_Events.GrantingPermissions.md")
+- [Subscribing to Amazon RDS event notification](USER_Events.Subscribing.md "USER_Events.Subscribing.md")
+- [Amazon RDS event notification tags and attributes](USER_Events.TagsAttributesForFiltering.md "USER_Events.TagsAttributesForFiltering.md")
+- [Listing Amazon RDS event notification subscriptions](USER_Events.ListSubscription.md "USER_Events.ListSubscription.md")
+- [Modifying an Amazon RDS event notification subscription](USER_Events.Modifying.md "USER_Events.Modifying.md")
+- [Adding a source identifier to an Amazon RDS event notification subscription](USER_Events.AddingSource.md "USER_Events.AddingSource.md")
+- [Removing a source identifier from an Amazon RDS event notification subscription](USER_Events.RemovingSource.md "USER_Events.RemovingSource.md")
+- [Listing the Amazon RDS event notification categories](USER_Events.ListingCategories.md "USER_Events.ListingCategories.md")
+- [Deleting an Amazon RDS event notification subscription](USER_Events.Deleting.md "USER_Events.Deleting.md")

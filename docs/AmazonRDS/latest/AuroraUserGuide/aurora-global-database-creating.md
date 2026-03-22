@@ -13,15 +13,15 @@ to create your Aurora global database. To do so, see
 
 The steps for creating an Aurora global database begin by signing in to an AWS Region that supports the Aurora
 global database feature. For a complete list, see
-[Supported Regions and DB engines for Aurora global databases](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
+[Supported Regions and DB engines for Aurora global databases](Concepts.Aurora_Fea_Regions_DB-eng.Feature.GlobalDatabase.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.GlobalDatabase.md").
 
 One of the following steps is choosing a virtual private cloud (VPC) based on Amazon VPC for
 your Aurora DB cluster. To use your own VPC, we recommend that you create it in advance
 so it's available for you to choose. At the same time, create any related subnets,
 and as needed a subnet group and security group. To learn how, see
-[Tutorial: Create a VPC for use with a DB cluster (IPv4 only)](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md").
+[Tutorial: Create a VPC for use with a DB cluster (IPv4 only)](CHAP_Tutorials.WebServerDB.CreateVPC.md "CHAP_Tutorials.WebServerDB.CreateVPC.md").
 
-For general information about creating an Aurora DB cluster, see [Creating an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
+For general information about creating an Aurora DB cluster, see [Creating an Amazon Aurora DB cluster](Aurora.CreateInstance.md "Aurora.CreateInstance.md").
 
 ###### To create an Aurora global database
 
@@ -241,7 +241,7 @@ those from the Aurora DB cluster.
 For the `--db-instance-class`, you can use only those from the memory optimized
 classes, such as `db.r5.large`. We recommend that you use a db.r5 or
 higher instance class. For information about these classes, see
-[DB instance class types](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
+[DB instance class types](Concepts.DBInstanceClass.Types.md "Concepts.DBInstanceClass.Types.md").
 
 For Linux, macOS, or Unix:
 
@@ -399,7 +399,7 @@ gets those from the Aurora DB cluster.
 For the `--db-instance-class`, you can use only those from the memory
 optimized classes, such as `db.r5.large`. We recommend that you use
 a db.r5 or higher instance class. For information about these classes, see
-[DB instance class types](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
+[DB instance class types](Concepts.DBInstanceClass.Types.md "Concepts.DBInstanceClass.Types.md").
 
 For Linux, macOS, or Unix:
 

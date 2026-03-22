@@ -22,7 +22,7 @@ Syntax
 
 You must use the cluster parameter group to set the
 babelfishpg_tds.product_version parameter in the console. For more information on
-how to modify the DB cluster parameter, see [Modifying parameters in a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+how to modify the DB cluster parameter, see [Modifying parameters in a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.ModifyingCluster.md "USER_WorkingWithParamGroups.ModifyingCluster.md").
 
 When you set the product version parameter to an invalid value, the change will
 not take effect. Although the console might show you the new value, the parameter

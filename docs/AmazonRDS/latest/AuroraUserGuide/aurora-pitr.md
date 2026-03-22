@@ -25,10 +25,10 @@ Information in this topic applies to Amazon Aurora. For information on restoring
 DB instance, see [Restoring a DB instance to a
 specified time](../UserGuide/USER_PIT.md "../UserGuide/USER_PIT.md").
 
-For more information about backing up and restoring an Aurora DB cluster, see [Overview of backing up and restoring an Aurora DB cluster](Aurora.Managing.md "Aurora.Managing.md").
+For more information about backing up and restoring an Aurora DB cluster, see [Overview of backing up and restoring an Aurora DB cluster](Aurora.Managing.Backups.md "Aurora.Managing.Backups.md").
 
 For Aurora MySQL, you can restore a provisioned DB cluster to an Aurora Serverless DB cluster. For more
-information, see [Restoring an Aurora Serverless v1 DB cluster](aurora-serverless.md "aurora-serverless.md").
+information, see [Restoring an Aurora Serverless v1 DB cluster](aurora-serverless.restorefromsnapshot.md "aurora-serverless.restorefromsnapshot.md").
 
 You can also use AWS Backup to manage backups of Amazon Aurora DB clusters. If your DB cluster is associated with a backup plan in
 AWS Backup, that backup plan is used for point-in-time recovery. For information, see [Restoring a DB cluster to a specified time using AWS Backup](aurora-pitr-bkp.md "aurora-pitr-bkp.md").
@@ -70,11 +70,11 @@ Times are shown in your local time zone, which is indicated by an offset from Co
 (UTC). For example, UTC-5 is Eastern Standard Time/Central Daylight Time. 6. For **DB cluster identifier**, enter the name of the target restored DB cluster. The name must be
 unique. 7. Choose other options as needed, such as the DB instance class and DB cluster storage configuration.
 
-For information about each setting, see [Settings for Aurora DB clusters](Aurora.md#Aurora.CreateInstance.Settings "Aurora.md#Aurora.CreateInstance.Settings"). 8. Choose **Restore to point in time**.
+For information about each setting, see [Settings for Aurora DB clusters](Aurora.CreateInstance.md#Aurora.CreateInstance.Settings "Aurora.CreateInstance.md#Aurora.CreateInstance.Settings"). 8. Choose **Restore to point in time**.
 To restore a DB cluster to a specified time, use the AWS CLI command [restore-db-cluster-to-point-in-time](../../../cli/latest/reference/rds/restore-db-cluster-to-point-in-time.md "../../../cli/latest/reference/rds/restore-db-cluster-to-point-in-time.md") to create a
 new DB cluster.
 
-You can specify other settings. For information about each setting, see [Settings for Aurora DB clusters](Aurora.md#Aurora.CreateInstance.Settings "Aurora.md#Aurora.CreateInstance.Settings").
+You can specify other settings. For information about each setting, see [Settings for Aurora DB clusters](Aurora.CreateInstance.md#Aurora.CreateInstance.Settings "Aurora.CreateInstance.md#Aurora.CreateInstance.Settings").
 
 If tags are provided in the request then the provided tags are applied to the restored DB cluster.
 If tags are not provided in the request and if the source DB cluster is in-region active and has tags, Aurora

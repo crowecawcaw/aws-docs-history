@@ -20,7 +20,7 @@ drivers compliant with TDS version 7.1 through 7.4:
 
 - PostgreSQL tools, applications, and syntax on the PostgreSQL port, by default
   port 5432.
-  To learn more about connecting to Aurora PostgreSQL in general, see [Connecting to an Amazon Aurora PostgreSQL DB cluster](Aurora.md#Aurora.Connecting.AuroraPostgreSQL "Aurora.md#Aurora.Connecting.AuroraPostgreSQL").
+  To learn more about connecting to Aurora PostgreSQL in general, see [Connecting to an Amazon Aurora PostgreSQL DB cluster](Aurora.Connecting.md#Aurora.Connecting.AuroraPostgreSQL "Aurora.Connecting.md#Aurora.Connecting.AuroraPostgreSQL").
 
 ###### Note
 
@@ -32,9 +32,9 @@ Starting with Babelfish version 5.1.0, end-to-end connection encryption is
 enforced by default. To ensure continued connectivity:
 
 - Configure SSL/TLS encryption for your connections. For more information, see
-  [Using SSL/TLS to encrypt a connection to a DB cluster](UsingWithRDS.md "UsingWithRDS.md").
+  [Using SSL/TLS to encrypt a connection to a DB cluster](UsingWithRDS.SSL.md "UsingWithRDS.SSL.md").
 - Import the required certificates on your client computers. For more
-  information, see [Using SSL with a Microsoft SQL Server DB instance](../UserGuide/SQLServer.Concepts.General.SSL.md "../UserGuide/SQLServer.Concepts.General.SSL.md").
+  information, see [Using SSL with a Microsoft SQL Server DB instance](../UserGuide/SQLServer.Concepts.General.SSL.Using.md "../UserGuide/SQLServer.Concepts.General.SSL.Using.md").
   If you want to continue using the encryption settings from a previous version of
   Babelfish (prior to version 5.1.0), you can set the `rds.force_ssl`
   parameter to `0` in your DB cluster parameter group.
@@ -66,7 +66,7 @@ instances to be available after creating the Babelfish for Aurora PostgreSQL DB 
 
 ![Finding a Babelfish endpoint and port.](images/Babelfish-database-endpoint.png)
 
-For more information about Aurora DB cluster details, see [Creating an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
+For more information about Aurora DB cluster details, see [Creating an Amazon Aurora DB cluster](Aurora.CreateInstance.md "Aurora.CreateInstance.md").
 
 ###### Important
 

@@ -56,7 +56,7 @@ You can connect to an Aurora PostgreSQL DB cluster running Babelfish by
 using Microsoft SQL Server Management Studio (SSMS). SSMS includes a variety of
 tools, including the SQL Server Import amd Export Wizard discussed in [Migrating a SQL Server database to Babelfish for Aurora PostgreSQL](babelfish-migration.md "babelfish-migration.md"). For
 more information about SSMS, see [Download SQL Server Management Studio (SSMS)](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16 "https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16") in the Microsoft
-documentation. To configure SSL/TLS, see [Using SSL with a Microsoft SQL Server DB instance](../UserGuide/SQLServer.Concepts.General.SSL.md "../UserGuide/SQLServer.Concepts.General.SSL.md").
+documentation. To configure SSL/TLS, see [Using SSL with a Microsoft SQL Server DB instance](../UserGuide/SQLServer.Concepts.General.SSL.Using.md "../UserGuide/SQLServer.Concepts.General.SSL.Using.md").
 
 ###### To connect to your Babelfish database with SSMS
 

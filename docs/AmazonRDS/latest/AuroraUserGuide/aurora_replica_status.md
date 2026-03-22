@@ -79,7 +79,7 @@ later in the sequence.
 - `iops` – Not used.
 - `cpu` – CPU usage of the Aurora Storage Daemon for each
   node in the cluster. For information about CPU usage by the instance, see
-  [Instance-level metrics for Amazon Aurora](Aurora.AuroraMonitoring.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances "Aurora.AuroraMonitoring.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances").
+  [Instance-level metrics for Amazon Aurora](Aurora.AuroraMonitoring.Metrics.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances "Aurora.AuroraMonitoring.Metrics.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances").
 
 ## Usage notes
 
@@ -109,7 +109,7 @@ can do the following:
   lag – Replica lag is the time in milliseconds that the
   page cache of a reader instance is behind that of the writer instance. This
   lag occurs because Aurora clusters use asynchronous replication, as described
-  in [Replication with Amazon Aurora](Aurora.md "Aurora.md").
+  in [Replication with Amazon Aurora](Aurora.Replication.md "Aurora.Replication.md").
   It's shown in the `replica_lag_in_msec` column in the
   results returned by this function. Lag can also occur when a query is
   cancelled due to conflicts with recovery on a standby server. You can check

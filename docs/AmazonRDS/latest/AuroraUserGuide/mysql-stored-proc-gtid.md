@@ -224,8 +224,8 @@ The `mysql.rds_start_replication_until_gtid` stored
 procedure isn't supported for managed replication, which includes the
 following:
 
-- [Replicating Amazon Aurora MySQL DB clusters across AWS Regions](AuroraMySQL.Replication.md "AuroraMySQL.Replication.md")
-- [Migrating data from an RDS for MySQL DB instance to an Amazon Aurora MySQL DB cluster by using an Aurora read replica](AuroraMySQL.Migrating.RDSMySQL.md "AuroraMySQL.Migrating.RDSMySQL.md")
+- [Replicating Amazon Aurora MySQL DB clusters across AWS Regions](AuroraMySQL.Replication.CrossRegion.md "AuroraMySQL.Replication.CrossRegion.md")
+- [Migrating data from an RDS for MySQL DB instance to an Amazon Aurora MySQL DB cluster by using an Aurora read replica](AuroraMySQL.Migrating.RDSMySQL.Replica.md "AuroraMySQL.Migrating.RDSMySQL.Replica.md")
 
 When the `gtid` parameter specifies a transaction that has already been
 run by the replica, replication is stopped immediately.

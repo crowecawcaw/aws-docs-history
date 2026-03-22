@@ -1,7 +1,7 @@
 # Using switchover or failover in Amazon Aurora Global Database
 
 The Aurora Global Database feature provides more business continuity and disaster recovery (BCDR) protection than
-the standard [high availability](Concepts.md "Concepts.md") provided by an Aurora DB
+the standard [high availability](Concepts.AuroraHighAvailability.md "Concepts.AuroraHighAvailability.md") provided by an Aurora DB
 cluster in a single AWS Region. By using Aurora Global Database, you can plan for faster recovery from rare,
 unplanned Regional disasters or complete service-level outages quickly.
 
@@ -59,7 +59,7 @@ failover or switchover approach depends on the specific outage scenario:
 
 Before you can perform a switchover or failover to a headless secondary Aurora DB cluster, you must add a DB
 instance to it. For more information about headless DB clusters, see
-[Creating a headless Aurora DB cluster in a secondary Region](aurora-global-database-attach.console.md "aurora-global-database-attach.console.md").
+[Creating a headless Aurora DB cluster in a secondary Region](aurora-global-database-attach.console.headless.md "aurora-global-database-attach.console.headless.md").
 
 ## Performing switchovers for Amazon Aurora global databases
 
@@ -111,7 +111,7 @@ clusters are assuming their new roles.
 ###### Note
 
 To manage replication slots for Aurora PostgreSQL after performing a switchover, see
-[Managing logical slots for Aurora PostgreSQL](AuroraPostgreSQL.Replication.md#AuroraPostgreSQL.Replication.Logical.Configure.managing-logical-slots "AuroraPostgreSQL.Replication.md#AuroraPostgreSQL.Replication.Logical.Configure.managing-logical-slots").
+[Managing logical slots for Aurora PostgreSQL](AuroraPostgreSQL.Replication.Logical-monitoring.md#AuroraPostgreSQL.Replication.Logical.Configure.managing-logical-slots "AuroraPostgreSQL.Replication.Logical-monitoring.md#AuroraPostgreSQL.Replication.Logical.Configure.managing-logical-slots").
 
 To optimize application availability, we recommend that you do the following before using this feature:
 
@@ -127,7 +127,7 @@ To optimize application availability, we recommend that you do the following bef
   the longer the switchover will take. When you examine these metrics, do so from the current primary cluster.
 
 For more information about CloudWatch metrics for Aurora, see
-[Cluster-level metrics for Amazon Aurora](Aurora.AuroraMonitoring.md#Aurora.AuroraMySQL.Monitoring.Metrics.clusters "Aurora.AuroraMonitoring.md#Aurora.AuroraMySQL.Monitoring.Metrics.clusters").
+[Cluster-level metrics for Amazon Aurora](Aurora.AuroraMonitoring.Metrics.md#Aurora.AuroraMySQL.Monitoring.Metrics.clusters "Aurora.AuroraMonitoring.Metrics.md#Aurora.AuroraMySQL.Monitoring.Metrics.clusters").
 
 - The secondary DB cluster that's promoted during a switchover might have different configuration
   settings than the old primary DB cluster. We recommend that you keep the following types of configuration
@@ -138,7 +138,7 @@ For more information about CloudWatch metrics for Aurora, see
     parameter group from the secondary might be configured differently than for the primary. If so, modify
     the promoted secondary DB cluster's parameter group to conform to your primary cluster's
     settings. To learn how, see
-    [Modifying parameters for an Aurora global database](aurora-global-database-modifying.md "aurora-global-database-modifying.md").
+    [Modifying parameters for an Aurora global database](aurora-global-database-modifying.parameters.md "aurora-global-database-modifying.parameters.md").
   - **Configure monitoring tools and options, such as Amazon CloudWatch Events and alarms**
     – Configure the promoted DB cluster with the same logging ability, alarms, and so on as needed
     for the global database. As with parameter groups, configuration for these features isn't inherited
@@ -270,7 +270,7 @@ database's existing replication topology is maintained.
 ###### Note
 
 To manage replication slots for Aurora PostgreSQL after performing a failover, see
-[Managing logical slots for Aurora PostgreSQL](AuroraPostgreSQL.Replication.md#AuroraPostgreSQL.Replication.Logical.Configure.managing-logical-slots "AuroraPostgreSQL.Replication.md#AuroraPostgreSQL.Replication.Logical.Configure.managing-logical-slots").
+[Managing logical slots for Aurora PostgreSQL](AuroraPostgreSQL.Replication.Logical-monitoring.md#AuroraPostgreSQL.Replication.Logical.Configure.managing-logical-slots "AuroraPostgreSQL.Replication.Logical-monitoring.md#AuroraPostgreSQL.Replication.Logical.Configure.managing-logical-slots").
 
 ###### Note
 
@@ -304,7 +304,7 @@ a Region, it's possible that the write fencing process doesn't succeed in a time
 case, Aurora emits an RDS event informing you that the process to stop writes timed out. If the old primary
 cluster is reachable on the network, Aurora records these events there. If not, Aurora records the events on the
 new primary cluster. To learn more about these events, see
-[DB cluster events](USER_Events.md#USER_Events.Messages.cluster "USER_Events.md#USER_Events.Messages.cluster"). Because fencing
+[DB cluster events](USER_Events.Messages.md#USER_Events.Messages.cluster "USER_Events.Messages.md#USER_Events.Messages.cluster"). Because fencing
 writes is a best-effort attempt, it's possible that writes might be momentarily accepted in the old
 primary Region, causing split-brain issues.
 
@@ -340,7 +340,7 @@ These metrics show you how far behind (in milliseconds) replication to a seconda
 primary DB cluster.
 
 For more information about CloudWatch metrics for Aurora, see
-[Cluster-level metrics for Amazon Aurora](Aurora.AuroraMonitoring.md#Aurora.AuroraMySQL.Monitoring.Metrics.clusters "Aurora.AuroraMonitoring.md#Aurora.AuroraMySQL.Monitoring.Metrics.clusters").
+[Cluster-level metrics for Amazon Aurora](Aurora.AuroraMonitoring.Metrics.md#Aurora.AuroraMySQL.Monitoring.Metrics.clusters "Aurora.AuroraMonitoring.Metrics.md#Aurora.AuroraMySQL.Monitoring.Metrics.clusters").
 
 During a managed failover, the chosen secondary DB cluster is promoted to its new role as primary. However, it
 doesn't inherit the various configuration options of the primary DB cluster. A mismatch in configuration
@@ -354,7 +354,7 @@ following:
   take over the primary role, the parameter group from the secondary might be configured differently than
   for the primary. If so, modify the promoted secondary DB cluster's parameter group to conform to your
   primary cluster's settings. To learn how, see
-  [Modifying parameters for an Aurora global database](aurora-global-database-modifying.md "aurora-global-database-modifying.md").
+  [Modifying parameters for an Aurora global database](aurora-global-database-modifying.parameters.md "aurora-global-database-modifying.parameters.md").
 - **Configure monitoring tools and options, such as Amazon CloudWatch Events and alarms**
   – Configure the promoted DB cluster with the same logging ability, alarms, and so on as needed for
   the global database. As with parameter groups, configuration for these features isn't inherited from
@@ -628,7 +628,7 @@ Parameter groups can't be edited directly. Instead, you do the following:
     * Apply the modified DB cluster parameter group to your Aurora DB cluster.
 
 For more information, see
-[Modifying parameters in a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+[Modifying parameters in a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.ModifyingCluster.md "USER_WorkingWithParamGroups.ModifyingCluster.md").
 
 To set the `rds.global_db_rpo` parameter, use the
 [modify-db-cluster-parameter-group](../../../cli/latest/reference/rds/modify-db-cluster-parameter-group.md "../../../cli/latest/reference/rds/modify-db-cluster-parameter-group.md")
@@ -735,7 +735,7 @@ The command returns output similar to the following for all `user` parameters. t
 ```
 
 To learn more about viewing parameters of the cluster parameter group, see
-[Viewing parameter values for a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+[Viewing parameter values for a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.ViewingCluster.md "USER_WorkingWithParamGroups.ViewingCluster.md").
 
 ### Disabling the recovery point objective
 
@@ -755,7 +755,7 @@ AWS Management Console, the AWS CLI, or the RDS API.
    **Reset parameters**.
 
 For more information on how to reset a parameter with the console, see
-[Modifying parameters in a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+[Modifying parameters in a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.ModifyingCluster.md "USER_WorkingWithParamGroups.ModifyingCluster.md").
 
 To reset the `rds.global_db_rpo` parameter, use the
 [reset-db-cluster-parameter-group](../../../cli/latest/reference/rds/reset-db-cluster-parameter-group.md "../../../cli/latest/reference/rds/reset-db-cluster-parameter-group.md")

@@ -1,83 +1,154 @@
-# Retaining automated backups
+# Overview of backing up and restoring an Aurora DB cluster
 
-When you delete a provisioned or Aurora Serverless v2 DB cluster, you can retain automated backups. This allows you to restore a
-DB cluster to a specific point in time within the backup retention period, even after the cluster is deleted.
+The following topics describe Aurora backups and how to restore your Aurora DB cluster.
 
-_Retained automated backups_ contain system snapshots and
-transaction logs from a DB cluster. They also include DB cluster properties, such as DB
-instance class, which are required to restore it to an active cluster.
+###### Contents
 
-You can restore or remove retained automated backups using the AWS Management Console, RDS API, and AWS CLI.
+- [Backups](Aurora.Managing.Backups.md#Aurora.Managing.Backups.Backup "Aurora.Managing.Backups.md#Aurora.Managing.Backups.Backup")
+  - [Using AWS Backup](Aurora.Managing.Backups.md#AuroraBackups.BKP "Aurora.Managing.Backups.md#AuroraBackups.BKP")
+
+- [Backup window](Aurora.Managing.Backups.md#Aurora.Managing.Backups.BackupWindow "Aurora.Managing.Backups.md#Aurora.Managing.Backups.BackupWindow")
+- [Restoring data](Aurora.Managing.Backups.md#Aurora.Managing.Backups.Restore "Aurora.Managing.Backups.md#Aurora.Managing.Backups.Restore")
+- [Database cloning for Aurora](Aurora.Managing.Backups.md#Aurora.Managing.Backups.Restore.Cloning "Aurora.Managing.Backups.md#Aurora.Managing.Backups.Restore.Cloning")
+- [Backtrack](Aurora.Managing.Backups.md#Aurora.Managing.Backups.Backtrack "Aurora.Managing.Backups.md#Aurora.Managing.Backups.Backtrack")
+
+## Backups
+
+Aurora backs up your cluster volume automatically and retains restore data for the length of the _backup retention
+period_. Aurora automated backups are continuous and incremental, so you can quickly restore to any point within
+the backup retention period. No performance impact or interruption of database service occurs as backup data is being written.
+You can specify a backup retention period from 1–35 days when you create or modify or restore a DB cluster. Aurora automated backups
+are stored in Amazon S3. For more information about retaining automated backups, see [Retaining automated backups](Aurora.Managing.Backups.Retaining.md "Aurora.Managing.Backups.Retaining.md").
+
+If you want to retain data beyond the backup retention period, you can take a snapshot of the data in your cluster volume.
+Aurora DB cluster snapshots don't expire. You can create a new DB cluster from the snapshot. For more information, see [Creating a DB cluster snapshot](USER_CreateSnapshotCluster.md "USER_CreateSnapshotCluster.md").
+
+During restore operations, you have the option to specify a backup retention period for your Amazon Aurora DB cluster.
+When you don't explicitly set this value, the restored cluster inherits the backup retention period from the
+source snapshot or cluster. Note that this inheritance behavior is unique to restore operations—when
+creating a new cluster, the system applies default retention periods instead.
 
 ###### Note
 
-You can't retain automated backups for Aurora Serverless v1 DB clusters.
+- For Amazon Aurora DB clusters, the default backup retention period is one day regardless of how the DB cluster is created.
+- You can't disable automated backups on Aurora. The backup retention period for Aurora is managed by the DB cluster.
 
-###### Topics
+Your costs for backup storage depend upon the amount of Aurora backup and snapshot data you keep and how long you keep it.
+For information about the storage associated with Aurora backups and snapshots, see
+[Understanding Amazon Aurora backup storage usage](aurora-storage-backup.md "aurora-storage-backup.md").
+For pricing information about Aurora backup storage, see [Amazon RDS for Aurora pricing](https://aws.amazon.com/rds/aurora/pricing "https://aws.amazon.com/rds/aurora/pricing").
+After the Aurora cluster associated with a snapshot is deleted, storing that snapshot incurs the standard backup storage charges for Aurora.
 
-- [Retention period](#Aurora.Managing.Backups.Retaining.Period "#Aurora.Managing.Backups.Retaining.Period")
-- [Retention costs](#Aurora.Managing.Backups.Retaining.Costs "#Aurora.Managing.Backups.Retaining.Costs")
-- [Prevent automated backup deletion](#aurora-copy-snapshot.Retention "#aurora-copy-snapshot.Retention")
-- [Limitations](#Aurora.Managing.Backups.Retaining.Limits "#Aurora.Managing.Backups.Retaining.Limits")
-- [Viewing retained automated backups for Amazon Aurora](Aurora.Managing.Backups.Retaining.md "Aurora.Managing.Backups.Retaining.md")
-- [Deleting retained automated backups for Amazon Aurora](Aurora.Managing.Backups.Retaining.md "Aurora.Managing.Backups.Retaining.md")
+### Using AWS Backup
 
-## Retention period
+You can use AWS Backup to manage backups of Amazon Aurora DB clusters.
 
-The system snapshots and transaction logs in a retained automated backup expire the same way that they expire for the
-source DB cluster. The settings for the retention period of the source cluster also apply to the automated backups. Because
-no new snapshots or logs are created for this cluster, the retained automated backups eventually expire completely. After
-the retention period is over, you continue to retain manual DB cluster snapshots, but all of the automated backups
-expire.
+Snapshots managed by AWS Backup are considered manual DB cluster snapshots, but don't count toward the DB cluster snapshot
+quota for Aurora. Snapshots that were created with AWS Backup have names with
+`awsbackup:job-`AWS-Backup-job-number``. For more information about AWS Backup, see the
+[_AWS Backup Developer
+Guide_](../../../aws-backup/latest/devguide.md "../../../aws-backup/latest/devguide.md").
 
-You can remove retained automated backups using the console, AWS CLI or RDS API. For more information, see [Deleting retained automated backups for Amazon Aurora](Aurora.Managing.Backups.Retaining.md "Aurora.Managing.Backups.Retaining.md").
+You can also use AWS Backup to manage automated backups of Amazon Aurora DB clusters. If your DB cluster is associated with a backup
+plan in AWS Backup, you can use that backup plan for point-in-time recovery. Automated (continuous) backups that are managed by
+AWS Backup have names with `continuous:cluster-`AWS-Backup-job-number``. For more
+information, see [Restoring a DB cluster to a specified time using AWS Backup](aurora-pitr-bkp.md "aurora-pitr-bkp.md").
 
-Unlike a retained automated backup, a final snapshot doesn't expire. We strongly
-suggest that you take a final snapshot even if you retain automated backups, because
-the retained automated backups eventually expire.
+## Backup window
 
-## Retention costs
+Automated backups occur daily during the preferred backup window. If the backup requires more time than allotted to the
+backup window, the backup continues after the window ends, until it finishes. The backup window can't overlap with the
+weekly maintenance window for the DB cluster.
 
-There is no additional charge for backup storage of up to 100% of your total Aurora database storage for each Aurora DB
-cluster. There is also no additional charge up to one day when you retain automated backups after deleting a DB cluster.
-Backups that you retain for more than one day are charged.
+Aurora automated backups are continuous and incremental, but the backup window is used to create a daily system backup that
+is preserved within the backup retention period. You can copy the backup to preserve it outside of the retention period.
 
-There is no additional charge for transaction logs or instance metadata. All other pricing rules for backups apply to
-restorable clusters. For more information, see the [Amazon Aurora pricing](https://aws.amazon.com/rds/aurora/pricing "https://aws.amazon.com/rds/aurora/pricing")
-page.
+###### Note
 
-## Prevent automated backup deletion
+When you create a DB cluster using the AWS Management Console, you can't specify a backup window.
+However, you can specify a backup window when you create a DB cluster using the AWS CLI
+or RDS API.
 
-Amazon RDS deletes automated backups in several situations:
+If you don't specify a preferred backup window when you create the DB cluster, Aurora assigns a default 30-minute backup
+window. This window is selected at random from an 8-hour block of time for each AWS Region. The following table lists the time
+blocks for each AWS Region from which the default backup windows are assigned.
 
-- At the end of their retention period.
-- When you delete a DB cluster.
+| Region Name                | Region         | Time Block      |
+| -------------------------- | -------------- | --------------- |
+| US East (N. Virginia)      | us-east-1      | 03:00–11:00 UTC |
+| US East (Ohio)             | us-east-2      | 03:00–11:00 UTC |
+| US West (N. California)    | us-west-1      | 06:00–14:00 UTC |
+| US West (Oregon)           | us-west-2      | 06:00–14:00 UTC |
+| Africa (Cape Town)         | af-south-1     | 03:00–11:00 UTC |
+| Asia Pacific (Hong Kong)   | ap-east-1      | 06:00–14:00 UTC |
+| Asia Pacific (Hyderabad)   | ap-south-2     | 06:30–14:30 UTC |
+| Asia Pacific (Jakarta)     | ap-southeast-3 | 08:00–16:00 UTC |
+| Asia Pacific (Malaysia)    | ap-southeast-5 | 09:00–17:00 UTC |
+| Asia Pacific (Melbourne)   | ap-southeast-4 | 11:00–19:00 UTC |
+| Asia Pacific (Mumbai)      | ap-south-1     | 16:30–00:30 UTC |
+| Asia Pacific (New Zealand) | ap-southeast-6 | 13:00–21:00 UTC |
+| Asia Pacific (Osaka)       | ap-northeast-3 | 00:00–08:00 UTC |
+| Asia Pacific (Seoul)       | ap-northeast-2 | 13:00–21:00 UTC |
+| Asia Pacific (Singapore)   | ap-southeast-1 | 14:00–22:00 UTC |
+| Asia Pacific (Sydney)      | ap-southeast-2 | 12:00–20:00 UTC |
+| Asia Pacific (Taipei)      | ap-east-2      | 9:00–17:00 UTC  |
+| Asia Pacific (Thailand)    | ap-southeast-7 | 8:00–16:00 UTC  |
+| Asia Pacific (Tokyo)       | ap-northeast-1 | 13:00–21:00 UTC |
+| Canada (Central)           | ca-central-1   | 03:00–11:00 UTC |
+| Canada West (Calgary)      | ca-west-1      | 18:00–02:00 UTC |
+| China (Beijing)            | cn-north-1     | 06:00–14:00 UTC |
+| China (Ningxia)            | cn-northwest-1 | 06:00–14:00 UTC |
+| Europe (Frankfurt)         | eu-central-1   | 20:00–04:00 UTC |
+| Europe (Ireland)           | eu-west-1      | 22:00–06:00 UTC |
+| Europe (London)            | eu-west-2      | 22:00–06:00 UTC |
+| Europe (Milan)             | eu-south-1     | 02:00–10:00 UTC |
+| Europe (Paris)             | eu-west-3      | 07:29–14:29 UTC |
+| Europe (Spain)             | eu-south-2     | 02:00–10:00 UTC |
+| Europe (Stockholm)         | eu-north-1     | 23:00–07:00 UTC |
+| Europe (Zurich)            | eu-central-2   | 02:00–10:00 UTC |
+| Israel (Tel Aviv)          | il-central-1   | 03:00–11:00 UTC |
+| Mexico (Central)           | mx-central-1   | 19:00–03:00 UTC |
+| Middle East (Bahrain)      | me-south-1     | 06:00–14:00 UTC |
+| Middle East (UAE)          | me-central-1   | 05:00–13:00 UTC |
+| South America (São Paulo)  | sa-east-1      | 23:00–07:00 UTC |
+| AWS GovCloud (US-East)     | us-gov-east-1  | 17:00–01:00 UTC |
+| AWS GovCloud (US-West)     | us-gov-west-1  | 06:00–14:00 UTC |
 
-If you want to keep an automated backup for a longer period, copy it to create a manual snapshot, which is retained until you delete it.
-Amazon RDS storage costs might apply to manual snapshots if they exceed your default storage space.
+## Restoring data
 
-For more information about copying a DB cluster snapshot, see [DB cluster snapshot copying](aurora-copy-snapshot.md "aurora-copy-snapshot.md").
+You can recover your data by creating a new Aurora DB cluster from the backup data that Aurora retains, from a DB cluster
+snapshot that you have saved, or from a retained automated backup. You can quickly restore a new copy of a DB cluster
+created from backup data to any point in time during your backup retention period. Because Aurora backups are continuous
+and incremental during the backup retention period, you don't need to take frequent snapshots of your data to improve
+restore times.
 
-For more information about backup storage costs, see [Amazon RDS pricing](https://aws.amazon.com/rds/pricing/ "https://aws.amazon.com/rds/pricing/").
+The _latest restorable time_ for a DB cluster is the most recent point to which you can restore your DB
+cluster. This is typically within 5 minutes of the current time for an active DB cluster, or 5 minutes of the cluster deletion
+time for a retained automated backup.
 
-## Limitations
+The _earliest restorable time_ specifies how far back within the backup retention period that you can
+restore your cluster volume.
 
-The following limitations apply to retained automated backups:
+To determine the latest or earliest restorable time for a DB cluster, look for the `Latest restorable time` or
+`Earliest restorable time` values on the RDS console. For information about viewing these values, see [Viewing retained automated backups for Amazon Aurora](Aurora.Managing.Backups.Retaining.Viewing.md "Aurora.Managing.Backups.Retaining.Viewing.md").
 
-- The maximum number of retained automated backups in one AWS Region is 40.
-  It's not included in the quota for DB clusters. You can have up to 40
-  running DB clusters, 40 running DB instances, and 40 retained automated backups
-  for DB clusters at the same time.
+You can determine when the restore of a DB cluster is complete by checking the `Latest restorable time` and
+`Earliest restorable time` values. These values return NULL until the restore operation is complete. You
+can't request a backup or restore operation if either `Latest restorable time` or `Earliest restorable
+ time` returns NULL.
 
-For more information, see [Quotas in Amazon Aurora](CHAP_Limits.md#RDS_Limits.Limits "CHAP_Limits.md#RDS_Limits.Limits").
+For information about restoring a DB cluster to a specified time, see
+[Restoring a DB cluster to a specified time](aurora-pitr.md "aurora-pitr.md").
 
-- Retained automated backups don't contain information about parameters or option groups.
-- You can restore a deleted cluster to a point in time that is within the
-  retention period at the time of deletion.
-- You can't modify a retained automated backup because it consists of system
-  backups, transaction logs, and the DB cluster properties that existed at the
-  time that you deleted the source cluster.
-- Cross-Region automated backup replication isn't supported for Aurora DB clusters. Aurora
-  doesn't support automatically replicating snapshots and transaction logs to
-  another AWS Region. For disaster recovery across Regions, you must manually
-  copy Aurora snapshots to your desired destination Region.
+## Database cloning for Aurora
+
+You can also use database cloning to clone the databases of your Aurora DB cluster to a new DB cluster, instead of restoring
+a DB cluster snapshot. The clone databases use only minimal additional space when first created. Data is copied only as data
+changes, either on the source databases or on the clone databases. You can make multiple clones from the same DB cluster, or
+create additional clones even from other clones. For more information, see
+[Cloning a volume for an Amazon Aurora DB cluster](Aurora.Managing.Clone.md "Aurora.Managing.Clone.md").
+
+## Backtrack
+
+Aurora MySQL now supports "rewinding" a DB cluster to a specific time, without restoring
+data from a backup. For more information, see [Backtracking an Aurora DB cluster](AuroraMySQL.Managing.Backtrack.md "AuroraMySQL.Managing.Backtrack.md").

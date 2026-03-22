@@ -65,7 +65,7 @@ The following limitations apply to Aurora MySQL blue/green deployments:
 - If the source DB cluster that has backtrack enabled, the green DB cluster is created without
   backtracking support. This is because backtracking doesn't work with binary log (binlog)
   replication, which is required for blue/green deployments. For more information, see
-  [Backtracking an Aurora DB cluster](AuroraMySQL.Managing.md "AuroraMySQL.Managing.md").
+  [Backtracking an Aurora DB cluster](AuroraMySQL.Managing.Backtrack.md "AuroraMySQL.Managing.Backtrack.md").
 - Blue/green deployments don't support the AWS JDBC Driver for MySQL. For more information,
   see [Known Limitations](https://github.com/awslabs/aws-mysql-jdbc?tab=readme-ov-file#known-limitations "https://github.com/awslabs/aws-mysql-jdbc?tab=readme-ov-file#known-limitations") on GitHub.
 
@@ -94,14 +94,14 @@ deployments.
 - If you want to capture execution plans in Aurora Replicas, you must provide the
   blue DB cluster endpoint when calling the
   `apg_plan_mgmt.create_replica_plan_capture` function. This ensures that
-  plan captures continue to work after switchover. For more information, see [Capturing Aurora PostgreSQL execution plans in Replicas](AuroraPostgreSQL.QPM.md "AuroraPostgreSQL.QPM.md").
+  plan captures continue to work after switchover. For more information, see [Capturing Aurora PostgreSQL execution plans in Replicas](AuroraPostgreSQL.QPM.Plancapturereplicas.md "AuroraPostgreSQL.QPM.Plancapturereplicas.md").
 - The logical replication [apply process](https://www.postgresql.org/docs/current/logical-replication-architecture.html "https://www.postgresql.org/docs/current/logical-replication-architecture.html") in the green environment is single-threaded. If the blue
   environment generates a high volume of write traffic, the green environment might not
   be able to keep up. This can lead to replication lag or failure, especially for
   workloads that produce continuous high write throughput. Make sure to test your
   workloads thoroughly. For scenarios that require major version upgrades and handling
   high-volume write workloads, consider alternative approaches such as using [AWS Database Migration Service
-  (AWS DMS)](../../../dms/latest/userguide/data-migrations.md "../../../dms/latest/userguide/data-migrations.md") or [self-managed logical replication](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+  (AWS DMS)](../../../dms/latest/userguide/data-migrations.md "../../../dms/latest/userguide/data-migrations.md") or [self-managed logical replication](AuroraPostgreSQL.MajorVersionUpgrade.md "AuroraPostgreSQL.MajorVersionUpgrade.md").
 - Creating new partitions on partitioned tables isn't supported during blue/green
   deployments for Aurora. Creating new partitions involves data definition language
   (DDL) operations such as `CREATE TABLE`, which aren't replicated from the
@@ -120,7 +120,7 @@ deployments.
     `apg_plan_mgmt.capture_plan_baselines` parameter set to
     `off` on all green databases to avoid primary key conflicts if an
     identical plan is captured in the blue environment. For more information, see
-    [Overview of Aurora PostgreSQL query plan management](AuroraPostgreSQL.Optimize.md "AuroraPostgreSQL.Optimize.md").
+    [Overview of Aurora PostgreSQL query plan management](AuroraPostgreSQL.Optimize.overview.md "AuroraPostgreSQL.Optimize.overview.md").
   - The `pglogical` and `pgactive` extensions must be
     disabled on the blue environment when you create a blue/green deployment. After
     you switch over the green environment to be the new production environment, you
@@ -129,7 +129,7 @@ deployments.
   - If you're using the `pgAudit` extension, it must remain in the
     shared libraries (`shared_preload_libraries`) on the custom DB
     parameter groups for both the blue and the green DB instances. For more information, see
-    [Setting up the pgAudit extension](Appendix.PostgreSQL.CommonDBATasks.pgaudit.md "Appendix.PostgreSQL.CommonDBATasks.pgaudit.md").
+    [Setting up the pgAudit extension](Appendix.PostgreSQL.CommonDBATasks.pgaudit.basic-setup.md "Appendix.PostgreSQL.CommonDBATasks.pgaudit.basic-setup.md").
 
 #### Logical replication-specific limitations for blue/green deployments
 
@@ -189,7 +189,7 @@ updates:
   the new resource IDs after switchover. For more information, see [Monitoring Amazon Aurora API calls in AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 - If you use Database Activity Streams for resources in the blue environment, adjust your application to
   monitor database events for the new stream after switchover. For more information, see
-  [Supported Regions and Aurora DB engines for database activity streams](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
+  [Supported Regions and Aurora DB engines for database activity streams](Concepts.Aurora_Fea_Regions_DB-eng.Feature.DBActivityStreams.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.DBActivityStreams.md").
 - If you use the Performance Insights API, adjust the resource IDs in calls to the API
   after switchover. For more information, see [Monitoring DB load with Performance Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
 
@@ -197,14 +197,14 @@ You can monitor a database with the same name after switchover, but it doesn't
 contain the data from before the switchover.
 
 - If you use resource IDs in IAM policies, make sure you add the resource IDs of the
-  newly transitioned resources when necessary. For more information, see [Identity and access management for Amazon Aurora](UsingWithRDS.md "UsingWithRDS.md").
+  newly transitioned resources when necessary. For more information, see [Identity and access management for Amazon Aurora](UsingWithRDS.IAM.md "UsingWithRDS.IAM.md").
 - If you have IAM roles associated with your DB cluster, make sure to reassociate
   them after switchover. Attached roles aren't automatically copied to the green
   environment.
-- If you authenticate to your DB cluster using [IAM database authentication](UsingWithRDS.md "UsingWithRDS.md"), make sure that
+- If you authenticate to your DB cluster using [IAM database authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md"), make sure that
   the IAM policy used for database access has both the blue and the green databases
   listed under the `Resource` element of the policy. This is required in order
-  to connect to the green database after switchover. For more information, see [Creating and using an IAM policy for IAM database access](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
+  to connect to the green database after switchover. For more information, see [Creating and using an IAM policy for IAM database access](UsingWithRDS.IAMDBAuth.IAMPolicy.md "UsingWithRDS.IAMDBAuth.IAMPolicy.md").
 - If you want to restore a manual DB cluster snapshot for a DB cluster that was part of a
   blue/green deployment, make sure you restore the correct DB cluster snapshot by examining the
   time when the snapshot was taken. For more information, see [Restoring from a DB cluster snapshot](aurora-restore-snapshot.md "aurora-restore-snapshot.md").
@@ -214,7 +214,7 @@ contain the data from before the switchover.
 - Amazon Aurora creates the green environment by _cloning_ the underlying Aurora storage volume in the blue environment. The
   green cluster volume only stores incremental changes made to the green environment. If
   you delete the DB cluster in the blue environment, the size of the underlying Aurora storage
-  volume in the green environment grows to the full size. For more information, see [Cloning a volume for an Amazon Aurora DB cluster](Aurora.Managing.md "Aurora.Managing.md").
+  volume in the green environment grows to the full size. For more information, see [Cloning a volume for an Amazon Aurora DB cluster](Aurora.Managing.Clone.md "Aurora.Managing.Clone.md").
 - When you add a DB instance to the DB cluster in the green environment of a blue/green
   deployment, the new DB instance won't replace a DB instance in the blue environment when you switch
   over. However, the new DB instance is retained in the DB cluster and becomes a DB instance in the new

@@ -31,13 +31,13 @@ For more information, see [Using SQL Server Management Studio (SSMS) to migrate 
 need to make so that Babelfish can effectively support the
 application running on SQL Server. For more information, see [Evaluating and handling differences between SQL Server and Babelfish](#babelfish-migration.assessing-the-source "#babelfish-migration.assessing-the-source"). 4. Review the AWS DMS target endpoint limitations and update the DDL script as
 necessary. For more information, see Limitations to using a PostgreSQL
-target endpoint with Babelfish tables in [Using Babelfish for Aurora PostgreSQL as a target](../../../dms/latest/userguide/CHAP_Target.md#CHAP_Target.PostgreSQL.Babelfish "../../../dms/latest/userguide/CHAP_Target.md#CHAP_Target.PostgreSQL.Babelfish"). 5. On your new Babelfish DB cluster, run the DDL within your specified
+target endpoint with Babelfish tables in [Using Babelfish for Aurora PostgreSQL as a target](../../../dms/latest/userguide/CHAP_Target.PostgreSQL.md#CHAP_Target.PostgreSQL.Babelfish "../../../dms/latest/userguide/CHAP_Target.PostgreSQL.md#CHAP_Target.PostgreSQL.Babelfish"). 5. On your new Babelfish DB cluster, run the DDL within your specified
 T-SQL database to create only the schemas, user-defined data types, and
 tables with their primary key constraints. 6. Use AWS DMS to migrate your data from SQL Server to Babelfish tables.
 For continuous replication using SQL Server Change Data Capture or SQL
 Replication, use Aurora PostgreSQL instead of Babelfish as the endpoint.
 To do so, see the [Using Babelfish for Aurora PostgreSQL as a target for
-AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Target.md#CHAP_Target.PostgreSQL.Babelfish "../../../dms/latest/userguide/CHAP_Target.md#CHAP_Target.PostgreSQL.Babelfish"). 7. When the data load completes, create all the remaining T-SQL objects that
+AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Target.PostgreSQL.md#CHAP_Target.PostgreSQL.Babelfish "../../../dms/latest/userguide/CHAP_Target.PostgreSQL.md#CHAP_Target.PostgreSQL.Babelfish"). 7. When the data load completes, create all the remaining T-SQL objects that
 support the application on your Babelfish cluster. 8. Reconfigure your client application to connect to the Babelfish
 endpoint instead of your SQL Server database. For more information, see
 [Connecting to a Babelfish DB cluster](babelfish-connect.md "babelfish-connect.md"). 9. Modify your application as needed and retest. For more information, see

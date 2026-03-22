@@ -5,7 +5,7 @@ With this delegated extension support, a new role called `rds_extension` is crea
 This role can create, update, and drop extensions.
 
 You can specify the extensions that can be installed on your Aurora PostgreSQL DB instance, by listing them in the `rds.allowed_extensions` parameter. For more information,
-see [Using PostgreSQL extensions with Amazon RDS for PostgreSQL](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md").
+see [Using PostgreSQL extensions with Amazon RDS for PostgreSQL](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md").
 
 You can restrict the list of extensions available that can be managed by the user with the `rds_extension` role using `rds.allowed_delegated_extensions` parameter.
 

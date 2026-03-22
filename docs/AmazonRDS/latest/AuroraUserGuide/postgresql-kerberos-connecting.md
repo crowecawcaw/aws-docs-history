@@ -4,9 +4,9 @@ You can connect to PostgreSQL with Kerberos authentication with the pgAdmin inte
 or with a command-line interface such as psql. For more information about connecting,
 see
 
-[Connecting to an Amazon Aurora PostgreSQL DB cluster](Aurora.md#Aurora.Connecting.AuroraPostgreSQL "Aurora.md#Aurora.Connecting.AuroraPostgreSQL"). For
+[Connecting to an Amazon Aurora PostgreSQL DB cluster](Aurora.Connecting.md#Aurora.Connecting.AuroraPostgreSQL "Aurora.Connecting.md#Aurora.Connecting.AuroraPostgreSQL"). For
 information about obtaining the endpoint, port number, and other details needed for
-connection, see [Viewing the endpoints for an Aurora cluster](Aurora.Overview.md#Aurora.Endpoints.Viewing "Aurora.Overview.md#Aurora.Endpoints.Viewing").
+connection, see [Viewing the endpoints for an Aurora cluster](Aurora.Overview.Endpoints.md#Aurora.Endpoints.Viewing "Aurora.Overview.Endpoints.md#Aurora.Endpoints.Viewing").
 
 ###### Note
 

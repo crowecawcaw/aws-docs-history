@@ -18,7 +18,7 @@ We recommend that you use the following AWS monitoring options to help with trou
 You can view all of the system metrics and process information for your DB instances on the AWS Management Console. You can
 configure your Aurora MySQL DB cluster to publish general, slow, audit, and error log data to a log group in Amazon CloudWatch Logs.
 This allows you to view trends, maintain logs if a host is impacted, and create a baseline for "normal" performance to
-easily identify anomalies or changes. For more information, see [Publishing Amazon Aurora MySQL logs to Amazon CloudWatch Logs](AuroraMySQL.Integrating.md "AuroraMySQL.Integrating.md").
+easily identify anomalies or changes. For more information, see [Publishing Amazon Aurora MySQL logs to Amazon CloudWatch Logs](AuroraMySQL.Integrating.CloudWatch.md "AuroraMySQL.Integrating.CloudWatch.md").
 
 - Enhanced Monitoring – To enable additional Amazon CloudWatch metrics for an Aurora MySQL database, turn on Enhanced Monitoring. When you create or
   modify an Aurora DB cluster, select **Enable Enhanced Monitoring**. This allows Aurora to publish performance metrics to
@@ -28,7 +28,7 @@ easily identify anomalies or changes. For more information, see [Publishing Amaz
 The amount of information transferred for a DB instance is directly proportional to the defined granularity for Enhanced Monitoring. A
 smaller monitoring interval results in more frequent reporting of OS metrics and increases your monitoring cost. To
 manage costs, set different granularities for different instances in your AWS accounts. The default granularity at
-creation of an instance is 60 seconds. For more information, see [Cost of Enhanced Monitoring](USER_Monitoring.md#USER_Monitoring.OS.cost "USER_Monitoring.md#USER_Monitoring.OS.cost").
+creation of an instance is 60 seconds. For more information, see [Cost of Enhanced Monitoring](USER_Monitoring.OS.md#USER_Monitoring.OS.cost "USER_Monitoring.OS.md#USER_Monitoring.OS.cost").
 
 - Performance Insights – You can view all of the database call metrics. This includes DB locks, waits, and the number of rows
   processed, all of which you can use for troubleshooting. When you create or modify an Aurora DB cluster, select

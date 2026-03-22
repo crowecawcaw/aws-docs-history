@@ -37,11 +37,11 @@ Amazon RDS publishes the following types of metrics to Amazon CloudWatch:
 
 - Aurora metrics at both the cluster and instance level
 
-For a table of these metrics, see [Amazon CloudWatch metrics for Amazon Aurora](Aurora.AuroraMonitoring.md "Aurora.AuroraMonitoring.md").
+For a table of these metrics, see [Amazon CloudWatch metrics for Amazon Aurora](Aurora.AuroraMonitoring.Metrics.md "Aurora.AuroraMonitoring.Metrics.md").
 
 - Performance Insights metrics
 
-For a table of these metrics, see [Amazon CloudWatch metrics for Amazon RDS Performance Insights](USER_PerfInsights.md "USER_PerfInsights.md") and
+For a table of these metrics, see [Amazon CloudWatch metrics for Amazon RDS Performance Insights](USER_PerfInsights.Cloudwatch.md "USER_PerfInsights.Cloudwatch.md") and
 [Performance Insights counter metrics](USER_PerfInsights_Counters.md "USER_PerfInsights_Counters.md").
 
 - Enhanced Monitoring metrics (published to Amazon CloudWatch Logs)
@@ -50,7 +50,7 @@ For a table of these metrics, see [OS metrics in Enhanced Monitoring](USER_Monit
 
 - Usage metrics for the Amazon RDS service quotas in your AWS account
 
-For a table of these metrics, see [Amazon CloudWatch usage metrics for Amazon Aurora](Aurora.AuroraMonitoring.md#rds-metrics-usage "Aurora.AuroraMonitoring.md#rds-metrics-usage"). For more information about
+For a table of these metrics, see [Amazon CloudWatch usage metrics for Amazon Aurora](Aurora.AuroraMonitoring.Metrics.md#rds-metrics-usage "Aurora.AuroraMonitoring.Metrics.md#rds-metrics-usage"). For more information about
 Amazon RDS quotas, see [Quotas and constraints for Amazon Aurora](CHAP_Limits.md "CHAP_Limits.md").
 
 For more information about CloudWatch, see [What is Amazon CloudWatch?](../../../AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.md "../../../AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.md") in the

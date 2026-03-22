@@ -171,7 +171,7 @@ RELEASE SAVEPOINT t1_save;
 
 In sessions that use write forwarding, you can only use the `REPEATABLE READ` isolation level. Although you can
 also use the `READ COMMITTED` isolation level with Aurora Replicas, that isolation level doesn't work with write
-forwarding. For information about the `REPEATABLE READ` and `READ COMMITTED` isolation levels, see [Aurora MySQL isolation levels](AuroraMySQL.Reference.md "AuroraMySQL.Reference.md").
+forwarding. For information about the `REPEATABLE READ` and `READ COMMITTED` isolation levels, see [Aurora MySQL isolation levels](AuroraMySQL.Reference.IsolationLevels.md "AuroraMySQL.Reference.IsolationLevels.md").
 
 ## Running multipart statements with write forwarding
 
@@ -237,7 +237,7 @@ For more information on DB parameter groups, see [Parameter groups for Amazon Au
 ## Identifying forwarded transactions and queries
 
 You can use the `information_schema.aurora_forwarding_processlist` table to identify forwarded transactions and
-queries. For more information on this table, see [information_schema.aurora_forwarding_processlist](AuroraMySQL.Reference.md#AuroraMySQL.Reference.ISTables.aurora_forwarding_processlist "AuroraMySQL.Reference.md#AuroraMySQL.Reference.ISTables.aurora_forwarding_processlist").
+queries. For more information on this table, see [information_schema.aurora_forwarding_processlist](AuroraMySQL.Reference.ISTables.md#AuroraMySQL.Reference.ISTables.aurora_forwarding_processlist "AuroraMySQL.Reference.ISTables.md#AuroraMySQL.Reference.ISTables.aurora_forwarding_processlist").
 
 The following example shows all forwarded connections on a writer DB instance.
 

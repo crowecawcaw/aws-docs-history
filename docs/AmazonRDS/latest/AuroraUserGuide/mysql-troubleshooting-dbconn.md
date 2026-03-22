@@ -436,7 +436,7 @@ mysql> show global status like 'aborted_connects';
 If the number of `Aborted_connects` increases over time, then the application could be having intermittent connectivity
 issues.
 
-You can use [Aurora Advanced Auditing](AuroraMySQL.md "AuroraMySQL.md") to log the connects and disconnects from the client
+You can use [Aurora Advanced Auditing](AuroraMySQL.Auditing.md "AuroraMySQL.Auditing.md") to log the connects and disconnects from the client
 connections. You can do this by setting the following parameters in the DB cluster parameter group:
 
 - `server_audit_logging` = `1`
@@ -581,4 +581,4 @@ and
 2025-09-22T12:02:51,954 [ERROR] Failed to authenticate the connection request for user 'user_2' because the provided token is malformed or otherwise invalid. (Status Code: 400, Error Code: InvalidToken)
 ```
 
-For troubleshooting guidance, refer to the [Aurora](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md") troubleshooting guide for IAM DB authentication.
+For troubleshooting guidance, refer to the [Aurora](UsingWithRDS.IAMDBAuth.Troubleshooting.md "UsingWithRDS.IAMDBAuth.Troubleshooting.md") troubleshooting guide for IAM DB authentication.

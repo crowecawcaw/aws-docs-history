@@ -50,7 +50,7 @@ DB cluster.
     `0` in the green DB parameter group. After replication
     catches up, revert to the default value of `1` before switchover. If an
     unexpected shutdown or crash occurs with the temporary parameter value, rebuild the
-    green environment to avoid undetected data corruption. For more information, see [Configuring how frequently the log buffer is flushed](AuroraMySQL.BestPractices.md#AuroraMySQL.BestPractices.Flush "AuroraMySQL.BestPractices.md#AuroraMySQL.BestPractices.Flush").
+    green environment to avoid undetected data corruption. For more information, see [Configuring how frequently the log buffer is flushed](AuroraMySQL.BestPractices.FeatureRecommendations.md#AuroraMySQL.BestPractices.Flush "AuroraMySQL.BestPractices.FeatureRecommendations.md#AuroraMySQL.BestPractices.Flush").
 
 ## Aurora PostgreSQL best practices for blue/green deployments
 
@@ -58,20 +58,20 @@ Consider the following best practices when you create a blue/green deployment fr
 Aurora PostgreSQL DB cluster.
 
 - Monitor the Aurora PostgreSQL logical replication write-through cache
-  and make adjustments to the cache buffer if necessary. For more information, see [Monitoring the Aurora PostgreSQL logical replication write-through cache](AuroraPostgreSQL.Replication.md#AuroraPostgreSQL.Replication.Logical-write-through-cache "AuroraPostgreSQL.Replication.md#AuroraPostgreSQL.Replication.Logical-write-through-cache").
+  and make adjustments to the cache buffer if necessary. For more information, see [Monitoring the Aurora PostgreSQL logical replication write-through cache](AuroraPostgreSQL.Replication.Logical-monitoring.md#AuroraPostgreSQL.Replication.Logical-write-through-cache "AuroraPostgreSQL.Replication.Logical-monitoring.md#AuroraPostgreSQL.Replication.Logical-write-through-cache").
 - Increase the value of the `logical_decoding_work_mem` DB parameter in the
   blue environment. Doing so allows for less decoding on disk and instead uses memory. For
-  more information, see [Adjusting working memory for logical decoding](AuroraPostgreSQL.BestPractices.md#AuroraPostgreSQL.BestPractices.Tuning-memory-parameters.logical-decoding-work-mem "AuroraPostgreSQL.BestPractices.md#AuroraPostgreSQL.BestPractices.Tuning-memory-parameters.logical-decoding-work-mem").
+  more information, see [Adjusting working memory for logical decoding](AuroraPostgreSQL.BestPractices.Tuning-memory-parameters.md#AuroraPostgreSQL.BestPractices.Tuning-memory-parameters.logical-decoding-work-mem "AuroraPostgreSQL.BestPractices.Tuning-memory-parameters.md#AuroraPostgreSQL.BestPractices.Tuning-memory-parameters.logical-decoding-work-mem").
   - You can monitor transaction overflow being written to disk using the
     `ReplicationSlotDiskUsage` CloudWatch metric. This metric offers insights
     into the disk usage of replication slots, helping identify when transaction data
     exceeds memory capacity and is stored on disk. You can monitor freeable memory with
-    the `FreeableMemory` CloudWatch metric. For more information, see [Instance-level metrics for Amazon Aurora](Aurora.AuroraMonitoring.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances "Aurora.AuroraMonitoring.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances").
+    the `FreeableMemory` CloudWatch metric. For more information, see [Instance-level metrics for Amazon Aurora](Aurora.AuroraMonitoring.Metrics.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances "Aurora.AuroraMonitoring.Metrics.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances").
   - In Aurora PostgreSQL version 14 and higher, you can monitor the size of logical
     overflow files using the `pg_stat_replication_slots` system view.
 
 - Update all of your PostgreSQL extensions to the latest version before you create a
-  blue/green deployment. For more information, see [Upgrading PostgreSQL extensions](USER_UpgradeDBInstance.Upgrading.md "USER_UpgradeDBInstance.Upgrading.md").
+  blue/green deployment. For more information, see [Upgrading PostgreSQL extensions](USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades.md "USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades.md").
 - If you’re using the `aws_s3` extension, give the green DB cluster access to
   Amazon S3 through an IAM role after the green environment is created. This allows the
   import and export commands to continue functioning after switchover. For instructions,
@@ -80,7 +80,7 @@ Aurora PostgreSQL DB cluster.
   `ANALYZE` operation on all databases to refresh the
   `pg_statistic` table. Optimizer statistics aren't transferred during a
   major version upgrade, so you must regenerate all statistics to avoid performance
-  issues. For additional best practices during major version upgrades, see [Performing a major version upgrade](USER_UpgradeDBInstance.PostgreSQL.md "USER_UpgradeDBInstance.PostgreSQL.md").
+  issues. For additional best practices during major version upgrades, see [Performing a major version upgrade](USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md "USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md").
 - Avoid configuring triggers as `ENABLE REPLICA` or `ENABLE
 ALWAYS` if the trigger is used on the source to manipulate data. Otherwise, the
   replication system propagates changes and executes the trigger, which leads to
@@ -92,10 +92,10 @@ ALWAYS` if the trigger is used on the source to manipulate data. Otherwise, the
   - Reduce bulk operations on the blue environment until after the green environment
     catches up to the blue environment.
   - Initiate a manual vacuum freeze operation on busy tables prior to creating the
-    blue/green deployment. For instructions, see [Performing a manual vacuum freeze](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md").
+    blue/green deployment. For instructions, see [Performing a manual vacuum freeze](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Autovacuum.VacuumFreeze.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Autovacuum.VacuumFreeze.md").
   - In PostgreSQL version 12 and higher, disable the `index_cleanup`
     parameter on large or busy tables to improve the efficiency of regular maintenance
-    on blue databases. For more information, see [Vacuuming a table as quickly as possible](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum.LargeIndexes.Executing "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum.LargeIndexes.Executing").
+    on blue databases. For more information, see [Vacuuming a table as quickly as possible](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Autovacuum.LargeIndexes.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum.LargeIndexes.Executing "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Autovacuum.LargeIndexes.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum.LargeIndexes.Executing").
 
   ###### Note
 
@@ -115,7 +115,7 @@ ALWAYS` if the trigger is used on the source to manipulate data. Otherwise, the
 - Review the performance of your UPDATE and DELETE statements and evaluate whether
   creating an index on the column used in the WHERE clause can optimize these queries.
   This can enhance performance when the operations are replayed in the green environment.
-  For more information, see [Check predicate filters for queries that generate waits](apg-waits.md#apg-waits.iodatafileread.actions.filters "apg-waits.md#apg-waits.iodatafileread.actions.filters").
+  For more information, see [Check predicate filters for queries that generate waits](apg-waits.iodatafileread.md#apg-waits.iodatafileread.actions.filters "apg-waits.iodatafileread.md#apg-waits.iodatafileread.actions.filters").
 - If you're using triggers, make sure they don't interfere with the creating,
   updating, and dropping of `pg_catalog.pg_publication`,
   `pg_catalog.pg_subscription`, and

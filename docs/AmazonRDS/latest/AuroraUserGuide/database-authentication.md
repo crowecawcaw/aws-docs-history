@@ -76,7 +76,7 @@ cluster. Instead, you use
 an authentication token.
 
 For more information about IAM database authentication, including information
-about availability for specific DB engines, see [IAM database authentication](UsingWithRDS.md "UsingWithRDS.md")
+about availability for specific DB engines, see [IAM database authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
 .
 
 ## Kerberos authentication

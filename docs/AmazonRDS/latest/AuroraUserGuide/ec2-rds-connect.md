@@ -8,7 +8,7 @@ within a VPC. You can use a SQL client on your EC2 instance to connect to your D
 your private DB cluster.
 
 ![Automatically connect an Aurora DB cluster with an EC2 instance.](images/auto-connect-aurora-ec2.png)
-If you want to connect to an EC2 instance that isn't in the same VPC as the Aurora DB cluster, see the scenarios in [Scenarios for accessing a DB cluster in a VPC](USER_VPC.md "USER_VPC.md").
+If you want to connect to an EC2 instance that isn't in the same VPC as the Aurora DB cluster, see the scenarios in [Scenarios for accessing a DB cluster in a VPC](USER_VPC.Scenarios.md "USER_VPC.Scenarios.md").
 
 ###### Topics
 
@@ -125,7 +125,7 @@ following ways:
 
 - You can select the compute resource when you create the database.
 
-For more information, see [Creating an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
+For more information, see [Creating an Amazon Aurora DB cluster](Aurora.CreateInstance.md "Aurora.CreateInstance.md").
 
 - You can set up connectivity between an existing database and a compute resource.
 
@@ -168,5 +168,5 @@ For a compute resource to be listed, the following conditions must apply:
 For information about connecting to a DB instance that is running a specific DB
 engine, follow the instructions for your DB engine:
 
-- [Connecting to an Amazon Aurora MySQL DB cluster](Aurora.md#Aurora.Connecting.AuroraMySQL "Aurora.md#Aurora.Connecting.AuroraMySQL")
-- [Connecting to an Amazon Aurora PostgreSQL DB cluster](Aurora.md#Aurora.Connecting.AuroraPostgreSQL "Aurora.md#Aurora.Connecting.AuroraPostgreSQL")
+- [Connecting to an Amazon Aurora MySQL DB cluster](Aurora.Connecting.md#Aurora.Connecting.AuroraMySQL "Aurora.Connecting.md#Aurora.Connecting.AuroraMySQL")
+- [Connecting to an Amazon Aurora PostgreSQL DB cluster](Aurora.Connecting.md#Aurora.Connecting.AuroraPostgreSQL "Aurora.Connecting.md#Aurora.Connecting.AuroraPostgreSQL")

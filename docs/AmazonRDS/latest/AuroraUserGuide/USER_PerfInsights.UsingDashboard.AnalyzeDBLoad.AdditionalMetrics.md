@@ -1,101 +1,131 @@
-# SQL statistics for Aurora MySQL
+# Analyzing queries with the Top SQL tab in Performance Insights
 
-Aurora MySQL collect SQL statistics only at
-the digest level. No statistics are shown at the statement level.
+In the Amazon RDS Performance Insights dashboard, you can find information about running and recent queries in the **Top SQL** tab
+in the **Top dimensions** table. You can use this information to tune your queries.
 
 ###### Topics
 
-- [Digest statistics for Aurora MySQL](#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.MySQL.truncation "#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.MySQL.truncation")
-- [Per-second statistics for Aurora MySQL](#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.MySQL.per-second "#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.MySQL.per-second")
-- [Per-call statistics for Aurora MySQL](#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.MySQL.truncation.per-call "#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.MySQL.truncation.per-call")
-- [Primary statistics for Aurora MySQL](#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.MySQL.primary "#USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.MySQL.primary")
+- [Overview of the Top SQL tab](#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions.TopLoadItemsTable.TopSQL "#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions.TopLoadItemsTable.TopSQL")
+- [Accessing more SQL text in the Performance Insights dashboard](USER_PerfInsights.UsingDashboard.SQLTextSize.md "USER_PerfInsights.UsingDashboard.SQLTextSize.md")
+- [Viewing SQL statistics in the Performance Insights dashboard](USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.AnalyzingSQLLevel.md "USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.AnalyzingSQLLevel.md")
 
-## Digest statistics for Aurora MySQL
+## Overview of the Top SQL tab
 
-Performance Insights collects SQL digest statistics from the `events_statements_summary_by_digest` table. The
-`events_statements_summary_by_digest` table is managed by your database.
+By default, the **Top SQL** tab shows the 25 queries that are contributing the most to DB load. To help tune your queries,
+you can analyze information such as the query text and SQL statistics. You can also choose the statistics that you want to appear in the
+**Top SQL** tab.
 
-The digest table doesn't have an eviction policy. When the table is full, the AWS Management Console shows the following message:
+###### Topics
+
+- [SQL text](#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions.TopLoadItemsTable.TopSQL.text "#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions.TopLoadItemsTable.TopSQL.text")
+- [SQL statistics](#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions.TopLoadItemsTable.TopSQL.statistics "#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions.TopLoadItemsTable.TopSQL.statistics")
+- [Load by waits (AAS)](#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions.TopLoadItemsTable.TopSQL.Load-by-waits "#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions.TopLoadItemsTable.TopSQL.Load-by-waits")
+- [View SQL information](#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions.TopLoadItemsTable.TopSQL.SQL-information "#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions.TopLoadItemsTable.TopSQL.SQL-information")
+- [Choose statistics preferences](#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions.TopLoadItemsTable.TopSQL.Preferences "#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions.TopLoadItemsTable.TopSQL.Preferences")
+
+### SQL text
+
+By default, each row in the **Top SQL** table shows 500 bytes of text for each statement.
+
+![SQL text](images/sql-text-apg.png)
+
+To learn how to see more than the default 500 bytes of SQL text, see [Accessing more SQL text in the Performance Insights dashboard](USER_PerfInsights.UsingDashboard.SQLTextSize.md "USER_PerfInsights.UsingDashboard.SQLTextSize.md").
+
+A _SQL digest_ is a composite of multiple actual queries that are structurally similar but might have different
+literal values. The digest replaces hardcoded values with a question mark. For example, a digest might be `SELECT * FROM emp WHERE
+ lname= ?`. This digest might include the following child queries:
 
 ```
-Performance Insights is unable to collect SQL Digest statistics on new queries because the table events_statements_summary_by_digest is full.
-Please truncate events_statements_summary_by_digest table to clear the issue. Check the User Guide for more details.
+SELECT * FROM emp WHERE lname = 'Sanchez'
+SELECT * FROM emp WHERE lname = 'Olagappan'
+SELECT * FROM emp WHERE lname = 'Wu'
 ```
 
-In this situation, Aurora MySQL
-doesn't track SQL queries. To address this issue, Performance Insights automatically truncates the digest table when both
-of the following conditions are met:
+To see the literal SQL statements in a digest, select the query, and then choose the plus symbol (+). In the following example, the
+selected query is a digest.
 
-- The table is full.
-- Performance Insights manages the Performance Schema automatically.
+![Selected SQL digest](images/perf_insights_4b.png)
 
-For automatic management, the `performance_schema` parameter must be set to `0` and the
-**Source** must not be set to `user`. If Performance Insights isn't managing the Performance
-Schema automatically, see [Overview of the Performance Schema for Performance Insights on Aurora MySQL](USER_PerfInsights.md "USER_PerfInsights.md").
+###### Note
 
-In the AWS CLI, check the source of a parameter value by running the [describe-db-parameters](../../../cli/latest/reference/rds/describe-db-parameters.md "../../../cli/latest/reference/rds/describe-db-parameters.md") command.
+A SQL digest groups similar SQL statements, but doesn't redact sensitive information.
 
-## Per-second statistics for Aurora MySQL
+### SQL statistics
 
-The following SQL statistics are available for Aurora MySQL DB clusters.
+_SQL statistics_ are performance-related metrics about SQL queries. For example,
+Performance Insights might show executions per second or rows processed per second. Performance Insights
+collects statistics for only the most common queries. Typically, these match the top queries by load
+shown in the Performance Insights dashboard.
 
-| Metric                                                     | Unit                                     |
-| ---------------------------------------------------------- | ---------------------------------------- |
-| db.sql_tokenized.stats.count_star_per_sec                  | Calls per second                         |
-| db.sql_tokenized.stats.sum_timer_wait_per_sec              | Average latency per second (in ms)       |
-| db.sql_tokenized.stats.sum_select_full_join_per_sec        | Select full join per second              |
-| db.sql_tokenized.stats.sum_select_range_check_per_sec      | Select range check per second            |
-| db.sql_tokenized.stats.sum_select_scan_per_sec             | Select scan per second                   |
-| db.sql_tokenized.stats.sum_sort_merge_passes_per_sec       | Sort merge passes per second             |
-| db.sql_tokenized.stats.sum_sort_scan_per_sec               | Sort scans per second                    |
-| db.sql_tokenized.stats.sum_sort_range_per_sec              | Sort ranges per second                   |
-| db.sql_tokenized.stats.sum_sort_rows_per_sec               | Sort rows per second                     |
-| db.sql_tokenized.stats.sum_rows_affected_per_sec           | Rows affected per second                 |
-| db.sql_tokenized.stats.sum_rows_examined_per_sec           | Rows examined per second                 |
-| db.sql_tokenized.stats.sum_rows_sent_per_sec               | Rows sent per second                     |
-| db.sql_tokenized.stats.sum_created_tmp_disk_tables_per_sec | Created temporary disk tables per second |
-| db.sql_tokenized.stats.sum_created_tmp_tables_per_sec      | Created temporary tables per second      |
-| db.sql_tokenized.stats.sum_lock_time_per_sec               | Lock time per second (in ms)             |
+Every line in the **Top SQL** table shows relevant statistics for the SQL statement or
+digest, as shown in the following example.
 
-## Per-call statistics for Aurora MySQL
+![Top SQL](images/perf_insights_4.png)
 
-The following metrics provide per call statistics for a SQL statement.
+Performance Insights can report `0.00` and `-` (unknown) for SQL statistics. This situation occurs under the
+following conditions:
 
-| Metric                                                      | Unit                                   |
-| ----------------------------------------------------------- | -------------------------------------- |
-| db.sql_tokenized.stats.sum_timer_wait_per_call              | Average latency per call (in ms)       |
-| db.sql_tokenized.stats.sum_select_full_join_per_call        | Select full joins per call             |
-| db.sql_tokenized.stats.sum_select_range_check_per_call      | Select range check per call            |
-| db.sql_tokenized.stats.sum_select_scan_per_call             | Select scans per call                  |
-| db.sql_tokenized.stats.sum_sort_merge_passes_per_call       | Sort merge passes per call             |
-| db.sql_tokenized.stats.sum_sort_scan_per_call               | Sort scans per call                    |
-| db.sql_tokenized.stats.sum_sort_range_per_call              | Sort ranges per call                   |
-| db.sql_tokenized.stats.sum_sort_rows_per_call               | Sort rows per call                     |
-| db.sql_tokenized.stats.sum_rows_affected_per_call           | Rows affected per call                 |
-| db.sql_tokenized.stats.sum_rows_examined_per_call           | Rows examined per call                 |
-| db.sql_tokenized.stats.sum_rows_sent_per_call               | Rows sent per call                     |
-| db.sql_tokenized.stats.sum_created_tmp_disk_tables_per_call | Created temporary disk tables per call |
-| db.sql_tokenized.stats.sum_created_tmp_tables_per_call      | Created temporary tables per call      |
-| db.sql_tokenized.stats.sum_lock_time_per_call               | Lock time per call (in ms)             |
+- Only one sample exists. For example, Performance Insights calculates rates of change for Aurora PostgreSQL queries based on multiple samples from the
+  `pg_stat_statements` view. When a workload runs for a short time, Performance Insights might collect only one
+  sample, which means that it can't calculate a rate of change. The unknown value is represented with a dash
+  (`-`).
+- Two samples have the same values. Performance Insights can't calculate a rate of change because no change has occurred, so it
+  reports the rate as `0.00`.
+- An Aurora PostgreSQL statement lacks a valid
+  identifier. PostgreSQL creates a identifier for a statement only after parsing and analysis. Thus, a statement can exist in the
+  PostgreSQL internal in-memory structures with no identifier. Because Performance Insights samples internal in-memory structures
+  once per second, low-latency queries might appear for only a single sample. If the query identifier isn't available for this
+  sample, Performance Insights can't associate this statement with its statistics. The unknown value is represented with a dash
+  (`-`).
 
-## Primary statistics for Aurora MySQL
+For a description of the SQL statistics for the Aurora
+engines, see [SQL statistics for Performance Insights](sql-statistics.md "sql-statistics.md").
 
-The following SQL statistics are available for Aurora MySQL DB clusters.
+### Load by waits (AAS)
 
-| Metric                                             | Unit                          |
-| -------------------------------------------------- | ----------------------------- |
-| db.sql_tokenized.stats.count_star                  | Calls                         |
-| db.sql_tokenized.stats.sum_timer_wait              | Wait time (in ms)             |
-| db.sql_tokenized.stats.sum_select_full_join        | Select full join              |
-| db.sql_tokenized.stats.sum_select_range_check      | Select range checks           |
-| db.sql_tokenized.stats.sum_select_scan             | Select scans                  |
-| db.sql_tokenized.stats.sum_sort_merge_passes       | Sort merge passes             |
-| db.sql_tokenized.stats.sum_sort_scan               | Sort scans                    |
-| db.sql_tokenized.stats.sum_sort_range              | Sort ranges                   |
-| db.sql_tokenized.stats.sum_sort_rows               | Sort rows                     |
-| db.sql_tokenized.stats.sum_rows_affected           | Rows affected                 |
-| db.sql_tokenized.stats.sum_rows_examined           | Rows examined                 |
-| db.sql_tokenized.stats.sum_rows_sent               | Rows sent                     |
-| db.sql_tokenized.stats.sum_created_tmp_disk_tables | Created temporary disk tables |
-| db.sql_tokenized.stats.sum_created_tmp_tables      | Created temporary tables      |
-| db.sql_tokenized.stats.sum_lock_time               | Lock time (in ms)             |
+In **Top SQL**, the **Load by waits (AAS)** column illustrates the
+percentage of the database load associated with each top load item. This column reflects the load for
+that item by whatever grouping is currently selected in the **DB Load Chart**. For more
+information about Average active sessions (AAS), see
+[Average active sessions](USER_PerfInsights.Overview.ActiveSessions.md#USER_PerfInsights.Overview.ActiveSessions.AAS "USER_PerfInsights.Overview.ActiveSessions.md#USER_PerfInsights.Overview.ActiveSessions.AAS").
+
+For example, you might group the **DB load** chart by wait states. You examine SQL
+queries in the top load items table. In this case, the **DB Load by Waits** bar is
+sized, segmented, and color-coded to show how much of a given wait state that query is contributing to.
+It also shows which wait states are affecting the selected query.
+
+![DB load by waits](images/perf_insights_6.png)
+
+### View SQL information
+
+In the **Top SQL** table, you can open a statement to view its information. The
+information appears in the bottom pane.
+
+![Top SQL table with literal query selected](images/perf-insights-sql-ids-open.png)
+
+The following types of identifiers (IDs) that are associated with SQL statements:
+
+- **Support SQL ID** – A hash value of the SQL ID. This value
+  is only for referencing a SQL ID when you are working with AWS Support. AWS Support
+  doesn't have access to your actual SQL IDs and SQL text.
+- **Support Digest ID** – A hash value of the digest ID. This
+  value is only for referencing a digest ID when you are working with AWS Support. AWS Support
+  doesn't have access to your actual digest IDs and SQL text.
+
+### Choose statistics preferences
+
+You can control the statistics displayed in the **Top SQL** tab by choosing the
+**Preferences** icon.
+
+![Statistics preferences](images/perf-insights-sql-ids-preferences-icon.png)
+
+When you choose the **Preferences** icon, the **Preferences** window
+opens. The following screenshot is an example of the **Preferences** window.
+
+![Preferences window](images/perf-insights-sql-ids-preferences.png)
+
+To enable the statistics that you want to appear in the **Top SQL** tab, use your
+mouse to scroll to the bottom of the window, and then choose **Continue**.
+
+For more information about per-second or per-call statistics for the Aurora engines,
+see the engine specific SQL statistics section in [SQL statistics for Performance Insights](sql-statistics.md "sql-statistics.md")

@@ -20,7 +20,7 @@ Guide_. For more information about RDS API operations, see [Amazon RDS API Refer
 
 You don't need an interface VPC endpoint to connect to a DB
 cluster. For more information,
-see [Scenarios for accessing a DB cluster in a VPC](USER_VPC.md "USER_VPC.md").
+see [Scenarios for accessing a DB cluster in a VPC](USER_VPC.Scenarios.md "USER_VPC.Scenarios.md").
 
 ## Considerations for VPC endpoints
 

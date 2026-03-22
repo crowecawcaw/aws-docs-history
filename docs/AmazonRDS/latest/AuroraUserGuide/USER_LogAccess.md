@@ -13,10 +13,10 @@ the log file might be empty when you download it.
 
 ###### Topics
 
-- [Viewing and listing database log files](USER_LogAccess.Procedural.md "USER_LogAccess.Procedural.md")
-- [Downloading a database log file](USER_LogAccess.Procedural.md "USER_LogAccess.Procedural.md")
-- [Watching a database log file](USER_LogAccess.Procedural.md "USER_LogAccess.Procedural.md")
-- [Publishing database logs to Amazon CloudWatch Logs](USER_LogAccess.Procedural.md "USER_LogAccess.Procedural.md")
+- [Viewing and listing database log files](USER_LogAccess.Procedural.Viewing.md "USER_LogAccess.Procedural.Viewing.md")
+- [Downloading a database log file](USER_LogAccess.Procedural.Downloading.md "USER_LogAccess.Procedural.Downloading.md")
+- [Watching a database log file](USER_LogAccess.Procedural.Watching.md "USER_LogAccess.Procedural.Watching.md")
+- [Publishing database logs to Amazon CloudWatch Logs](USER_LogAccess.Procedural.UploadtoCloudWatch.md "USER_LogAccess.Procedural.UploadtoCloudWatch.md")
 - [Reading log file contents using REST](DownloadCompleteDBLogFile.md "DownloadCompleteDBLogFile.md")
-- [AuroraMySQL database log files](USER_LogAccess.Concepts.md "USER_LogAccess.Concepts.md")
-- [Aurora PostgreSQL database log files](USER_LogAccess.Concepts.md "USER_LogAccess.Concepts.md")
+- [AuroraMySQL database log files](USER_LogAccess.Concepts.MySQL.md "USER_LogAccess.Concepts.MySQL.md")
+- [Aurora PostgreSQL database log files](USER_LogAccess.Concepts.PostgreSQL.md "USER_LogAccess.Concepts.PostgreSQL.md")

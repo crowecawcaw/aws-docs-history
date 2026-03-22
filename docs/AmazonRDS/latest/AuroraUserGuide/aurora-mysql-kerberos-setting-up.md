@@ -125,7 +125,7 @@ _AWS Directory Service Administration Guide_.
 
 If you use an on-premises Microsoft Active Directory:
 
-- Windows clients can't connect using Aurora custom endpoints. To learn more, see [Amazon Aurora endpoint connections](Aurora.Overview.md "Aurora.Overview.md").
+- Windows clients can't connect using Aurora custom endpoints. To learn more, see [Amazon Aurora endpoint connections](Aurora.Overview.Endpoints.md "Aurora.Overview.Endpoints.md").
 - For [global databases](aurora-global-database.md "aurora-global-database.md"):
   - Windows clients can connect using instance endpoints or cluster endpoints in the primary AWS Region
     of the global database only.
@@ -219,13 +219,13 @@ a DB cluster with a directory. You can do this task in one of the following ways
 - Create a new Aurora MySQL DB cluster using the console, the [create-db-cluster](../../../cli/latest/reference/rds/create-db-cluster.md "../../../cli/latest/reference/rds/create-db-cluster.md") CLI command, or the [CreateDBCluster](../APIReference/API_CreateDBCluster.md "../APIReference/API_CreateDBCluster.md")
   RDS API operation.
 
-For instructions, see [Creating an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
+For instructions, see [Creating an Amazon Aurora DB cluster](Aurora.CreateInstance.md "Aurora.CreateInstance.md").
 
 - Modify an existing Aurora MySQL DB cluster using the console, the
   [modify-db-cluster](../../../cli/latest/reference/rds/modify-db-cluster.md "../../../cli/latest/reference/rds/modify-db-cluster.md") CLI command, or the
   [ModifyDBCluster](../APIReference/API_ModifyDBCluster.md "../APIReference/API_ModifyDBCluster.md") RDS API operation.
 
-For instructions, see [Modifying an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
+For instructions, see [Modifying an Amazon Aurora DB cluster](Aurora.Modifying.md "Aurora.Modifying.md").
 
 - Restore an Aurora MySQL DB cluster from a DB snapshot using the console, the
   [restore-db-cluster-from-snapshot](../../../cli/latest/reference/rds/restore-db-cluster-from-snapshot.md "../../../cli/latest/reference/rds/restore-db-cluster-from-snapshot.md") CLI
@@ -386,8 +386,8 @@ can now use case-insensitive username comparison with the `authentication_kerber
 
 ###### To use case-insensitive username comparison
 
-1. Create a custom DB cluster parameter group. Follow the procedures in [Creating a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+1. Create a custom DB cluster parameter group. Follow the procedures in [Creating a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.CreatingCluster.md "USER_WorkingWithParamGroups.CreatingCluster.md").
 2. Edit the new parameter group to set the value of `authentication_kerberos_caseins_cmp` to
-   `true`. Follow the procedures in [Modifying parameters in a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
-3. Associate the DB cluster parameter group with your Aurora MySQL DB cluster. Follow the procedures in [Associating a DB cluster parameter group with a DB cluster in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+   `true`. Follow the procedures in [Modifying parameters in a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.ModifyingCluster.md "USER_WorkingWithParamGroups.ModifyingCluster.md").
+3. Associate the DB cluster parameter group with your Aurora MySQL DB cluster. Follow the procedures in [Associating a DB cluster parameter group with a DB cluster in Amazon Aurora](USER_WorkingWithParamGroups.AssociatingCluster.md "USER_WorkingWithParamGroups.AssociatingCluster.md").
 4. Reboot the DB cluster.

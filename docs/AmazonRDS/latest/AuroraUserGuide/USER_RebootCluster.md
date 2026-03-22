@@ -32,5 +32,5 @@ instance. For more information about parameter groups, see
 - [Rebooting a DB instance within an Aurora cluster](aurora-reboot-db-instance.md "aurora-reboot-db-instance.md")
 - [Rebooting an Aurora cluster with read availability](aurora-mysql-survivable-replicas.md "aurora-mysql-survivable-replicas.md")
 - [Rebooting an Aurora cluster without read availability](aurora-reboot-cluster.md "aurora-reboot-cluster.md")
-- [Checking uptime for Aurora clusters and instances](USER_Reboot.md "USER_Reboot.md")
-- [Examples of Aurora reboot operations](USER_Reboot.md "USER_Reboot.md")
+- [Checking uptime for Aurora clusters and instances](USER_Reboot.Uptime.md "USER_Reboot.Uptime.md")
+- [Examples of Aurora reboot operations](USER_Reboot.Examples.md "USER_Reboot.Examples.md")

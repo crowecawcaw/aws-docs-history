@@ -1,41 +1,40 @@
-# Monitoring log events in Amazon CloudWatch
+# Publishing Aurora PostgreSQL logs to Amazon CloudWatch Logs
 
-With Aurora PostgreSQL log events published and available as Amazon CloudWatch Logs, you
-can view and monitor events using Amazon CloudWatch. For more information about monitoring, see
-[View log data sent to CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#ViewingLogData "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#ViewingLogData").
+You can configure your Aurora PostgreSQL DB cluster to export log data to Amazon CloudWatch Logs on a
+regular basis. When you do so, events from your Aurora PostgreSQL DB cluster's PostgreSQL
+log are automatically _published_ to Amazon CloudWatch, as Amazon CloudWatch Logs. In CloudWatch, you
+can find the exported log data in a _Log group_ for your Aurora PostgreSQL DB
+cluster. The log group contains one or more _log streams_ that contain
+the events from the PostgreSQL log from each instance in the cluster.
 
-When you turn on Log exports, a new log group is automatically created using the prefix `/aws/rds/cluster/` with the
-name of your Aurora PostgreSQL and the log type, as in the following pattern.
+Publishing the logs to CloudWatch Logs allows you to keep your cluster's PostgreSQL log records
+in highly durable storage. With the log data available in CloudWatch Logs, you can evaluate and
+improve your cluster's operations. You can also use CloudWatch to create alarms and view
+metrics. To learn more, see [Monitoring log events in Amazon CloudWatch](AuroraPostgreSQL.CloudWatch.Monitor.md "AuroraPostgreSQL.CloudWatch.Monitor.md").
 
-```
-/aws/rds/cluster/`your-cluster-name`/postgresql
-```
+###### Note
 
-As an example, suppose that an Aurora PostgreSQL DB cluster
-named `docs-lab-apg-small` exports its log to Amazon CloudWatch Logs. Its
-log group name in Amazon CloudWatch is shown following.
+Publishing your PostgreSQL logs to CloudWatch Logs consumes storage, and
+you incur charges for that storage. Be sure to delete any CloudWatch Logs
+that you no longer need.
 
-```
-/aws/rds/cluster/docs-lab-apg-small/postgresql
-```
+Turning the export log option off for an existing Aurora PostgreSQL DB cluster doesn't
+affect any data that's already held in CloudWatch Logs. Existing logs remain available in
+CloudWatch Logs based on your log retention settings. To learn more about CloudWatch Logs, see [What
+is Amazon CloudWatch Logs?](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md")
 
-If a log group with the specified name exists, Aurora uses that log group to export log
-data for the Aurora DB cluster. Each DB instance in the Aurora PostgreSQL DB cluster uploads
-its PostgreSQL log to the log group as a distinct log stream. You can examine the log group and
-its log streams using the various graphical and analytical tools available in Amazon CloudWatch.
+Aurora PostgreSQL supports publishing logs to CloudWatch Logs for the following versions.
 
-For example, you can search for information within the log events from your Aurora PostgreSQL
-DB cluster, and filter events by using the CloudWatch Logs console, the AWS CLI, or the CloudWatch Logs API.
-For more information, [Searching and
-filtering log data](../../../AmazonCloudWatch/latest/logs/MonitoringLogData.md "../../../AmazonCloudWatch/latest/logs/MonitoringLogData.md") in the _Amazon CloudWatch Logs User Guide_.
+- 16.1 and all higher versions
+- 15.2 and higher 15 versions
+- 14.3 and higher 14 versions
+- 13.3 and higher 13 versions
+- 12.8 and higher 12 versions
+- 11.9 and higher 11 versions
+  For information about turning on the option to publish logs to CloudWatch Logs, monitoring log events in CloudWatch Logs, and analyzing logs using CloudWatch Logs Insights, see the following topics.
 
-By default, new log groups are created using **Never expire** for their retention period.
-You can use the CloudWatch Logs console, the AWS CLI, or the CloudWatch Logs API to change the log retention period. To learn
-more, see [Change log data retention in
-CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/SettingLogRetention.md "../../../AmazonCloudWatch/latest/logs/SettingLogRetention.md") in the _Amazon CloudWatch Logs User Guide_.
+###### Topics
 
-###### Tip
-
-You can use automated configuration, such as AWS CloudFormation,
-to create log groups with predefined log retention periods, metric filters, and
-access permissions.
+- [Turning on the option to publish logs to Amazon CloudWatch](AuroraPostgreSQL.CloudWatch.Publishing.md "AuroraPostgreSQL.CloudWatch.Publishing.md")
+- [Monitoring log events in Amazon CloudWatch](AuroraPostgreSQL.CloudWatch.Monitor.md "AuroraPostgreSQL.CloudWatch.Monitor.md")
+- [Analyzing PostgreSQL logs using CloudWatch Logs Insights](AuroraPostgreSQL.CloudWatch.Analyzing.md "AuroraPostgreSQL.CloudWatch.Analyzing.md")

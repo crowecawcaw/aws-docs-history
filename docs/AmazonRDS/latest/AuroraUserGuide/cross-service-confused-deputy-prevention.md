@@ -26,7 +26,7 @@ statement. If you want only one resource to be associated with the cross-service
 to be associated with the cross-service use, use `aws:SourceAccount`.
 
 Make sure that the value of `aws:SourceArn` is an ARN for an Amazon RDS resource type.
-For more information, see [Amazon Resource Names (ARNs) in Amazon RDS](USER_Tagging.md "USER_Tagging.md").
+For more information, see [Amazon Resource Names (ARNs) in Amazon RDS](USER_Tagging.ARN.md "USER_Tagging.ARN.md").
 
 The most effective way to protect against the confused deputy problem is to use the
 `aws:SourceArn` global condition context key with the full ARN of the resource. In
@@ -67,6 +67,6 @@ JSON
 For more examples of policies that use the `aws:SourceArn` and `aws:SourceAccount` global condition context keys, see
 the following sections:
 
-- [Granting permissions to publish notifications to an Amazon SNS topic](USER_Events.md "USER_Events.md")
-- [Setting up access to an Amazon S3 bucket](USER_PostgreSQL.S3Import.md "USER_PostgreSQL.S3Import.md") (PostgreSQL import)
+- [Granting permissions to publish notifications to an Amazon SNS topic](USER_Events.GrantingPermissions.md "USER_Events.GrantingPermissions.md")
+- [Setting up access to an Amazon S3 bucket](USER_PostgreSQL.S3Import.AccessPermission.md "USER_PostgreSQL.S3Import.AccessPermission.md") (PostgreSQL import)
 - [Setting up access to an Amazon S3 bucket](postgresql-s3-export-access-bucket.md "postgresql-s3-export-access-bucket.md") (PostgreSQL export)

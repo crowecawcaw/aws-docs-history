@@ -15,12 +15,12 @@ To clean up data, the `VACUUM` utility performs four key functions in PostgreSQL
   frozen.
 - `VACUUM ANALYZE` – Removes dead row versions and updates the database's query planning statistics.
   It's a combination of the `VACUUM` and `ANALYZE` functions. For more information on how
-  `ANALYZE` works in Aurora PostgreSQL Limitless Database, see [ANALYZE](limitless-reference.md#limitless-reference.DML-limitations.ANALYZE "limitless-reference.md#limitless-reference.DML-limitations.ANALYZE").
+  `ANALYZE` works in Aurora PostgreSQL Limitless Database, see [ANALYZE](limitless-reference.DML-limitations.md#limitless-reference.DML-limitations.ANALYZE "limitless-reference.DML-limitations.md#limitless-reference.DML-limitations.ANALYZE").
   As with MVCC, vacuuming in Aurora PostgreSQL is transaction ID–based. If there's an ongoing transaction when vacuuming starts, rows that are
   still visible to that transaction aren't removed.
 
 For more information on the `VACUUM` utility, see [VACUUM](https://www.postgresql.org/docs/current/sql-vacuum.html "https://www.postgresql.org/docs/current/sql-vacuum.html")
-in the PostgreSQL documentation. For more information about `VACUUM` support in Aurora PostgreSQL Limitless Database, see [VACUUM](limitless-reference.md#limitless-reference.DML-limitations.VACUUM "limitless-reference.md#limitless-reference.DML-limitations.VACUUM").
+in the PostgreSQL documentation. For more information about `VACUUM` support in Aurora PostgreSQL Limitless Database, see [VACUUM](limitless-reference.DML-limitations.md#limitless-reference.DML-limitations.VACUUM "limitless-reference.DML-limitations.md#limitless-reference.DML-limitations.VACUUM").
 
 ###### Topics
 
@@ -122,5 +122,5 @@ Some other differences between Aurora PostgreSQL and Aurora PostgreSQL Limitless
   the operation on any transactions that were run within the last 10 seconds.
 
 For information on support for `VACUUM` in Aurora PostgreSQL Limitless Database, see
-[VACUUM](limitless-reference.md#limitless-reference.DML-limitations.VACUUM "limitless-reference.md#limitless-reference.DML-limitations.VACUUM") in the
+[VACUUM](limitless-reference.DML-limitations.md#limitless-reference.DML-limitations.VACUUM "limitless-reference.DML-limitations.md#limitless-reference.DML-limitations.VACUUM") in the
 [Aurora PostgreSQL Limitless Database reference](limitless-reference.md "limitless-reference.md").

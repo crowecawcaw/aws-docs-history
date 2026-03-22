@@ -316,7 +316,7 @@ the DB instance. Then determine an appropriate value for
 of free memory left on the instance. For more information, see [Freeable memory issues in Amazon Aurora](CHAP_Troubleshooting.md#Troubleshooting.FreeableMemory "CHAP_Troubleshooting.md#Troubleshooting.FreeableMemory").
 
 It is also important to monitor the size of the local storage and the temporary table space consumption. You can monitor the temporary storage
-available for a specific DB instance with the `FreeLocalStorage` Amazon CloudWatch metric, described in [Amazon CloudWatch metrics for Amazon Aurora](Aurora.AuroraMonitoring.md "Aurora.AuroraMonitoring.md").
+available for a specific DB instance with the `FreeLocalStorage` Amazon CloudWatch metric, described in [Amazon CloudWatch metrics for Amazon Aurora](Aurora.AuroraMonitoring.Metrics.md "Aurora.AuroraMonitoring.Metrics.md").
 
 ###### Note
 
@@ -348,7 +348,7 @@ TiB on a 16xlarge Aurora DB instance.
 On a smaller instance size, adjust the value of `temptable_max_mmap` so that it doesn't fill up the
 available local storage. For example, a 2xlarge instance has only 160 GiB of local storage available. Hence, we
 recommend setting the value to less than 160 GiB. For more information on the available local storage for DB instance
-sizes, see [Temporary storage limits for Aurora MySQL](AuroraMySQL.Managing.md#AuroraMySQL.Managing.TempStorage "AuroraMySQL.Managing.md#AuroraMySQL.Managing.TempStorage").
+sizes, see [Temporary storage limits for Aurora MySQL](AuroraMySQL.Managing.Performance.md#AuroraMySQL.Managing.TempStorage "AuroraMySQL.Managing.Performance.md#AuroraMySQL.Managing.TempStorage").
 
 ## Optimizing the temptable_max_mmap parameter on Aurora MySQL DB instances
 
@@ -382,7 +382,7 @@ When setting the initial value for `temptable_max_mmap`, we recommend that you s
 for the DB instance class that you're using. This ensures that the temporary tables have enough disk space to operate efficiently, while
 leaving room for other disk usage on the instance.
 
-To find the local storage size for your DB instance class, see [Temporary storage limits for Aurora MySQL](AuroraMySQL.Managing.md#AuroraMySQL.Managing.TempStorage "AuroraMySQL.Managing.md#AuroraMySQL.Managing.TempStorage").
+To find the local storage size for your DB instance class, see [Temporary storage limits for Aurora MySQL](AuroraMySQL.Managing.Performance.md#AuroraMySQL.Managing.TempStorage "AuroraMySQL.Managing.Performance.md#AuroraMySQL.Managing.TempStorage").
 
 For example, if you're using the db.r5.large DB instance class, the local storage size is 32 GiB. In this case, you would initially set
 the `temptable_max_mmap` parameter to 80% of 32 GiB, which is 25.6 GiB.

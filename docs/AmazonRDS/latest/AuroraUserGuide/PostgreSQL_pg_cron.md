@@ -34,7 +34,7 @@ Set up the `pg_cron` extension as follows:
 
 Restart the PostgreSQL DB instance to have changes to the parameter group take
 effect. To learn more about working with parameter groups, see
-[Amazon Aurora PostgreSQL parameters](AuroraPostgreSQL.Reference.md "AuroraPostgreSQL.Reference.md"). 2. After the PostgreSQL DB instance has restarted, run the following command
+[Amazon Aurora PostgreSQL parameters](AuroraPostgreSQL.Reference.ParameterGroups.md "AuroraPostgreSQL.Reference.ParameterGroups.md"). 2. After the PostgreSQL DB instance has restarted, run the following command
 using an account that has `rds_superuser` permissions. For example,
 if you used the default settings when you created your Aurora PostgreSQL DB cluster, connect as user
 `postgres` and create the extension.
@@ -171,7 +171,7 @@ To prevent writing to the `cron.job_run_details` table, modify the
 parameter group associated with the PostgreSQL DB instance and set the
 `cron.log_run` parameter to off. The `pg_cron` extension
 no longer writes to the table and captures errors to the `postgresql.log`
-file only. For more information, see [Modifying parameters in a DB parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+file only. For more information, see [Modifying parameters in a DB parameter group in Amazon Aurora](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 Use the following command to check the value of the `cron.log_run`
 parameter.

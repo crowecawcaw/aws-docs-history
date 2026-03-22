@@ -112,7 +112,7 @@ After switchover, the previous production
 DB cluster only allows read operations. Even if you enable writes on the DB cluster, it remains read-only until
 you delete the blue/green deployment.
 
-You can monitor the status of a switchover using Amazon EventBridge. For more information, see [Blue/green deployment events](USER_Events.md#USER_Events.Messages.BlueGreenDeployments "USER_Events.md#USER_Events.Messages.BlueGreenDeployments").
+You can monitor the status of a switchover using Amazon EventBridge. For more information, see [Blue/green deployment events](USER_Events.Messages.md#USER_Events.Messages.BlueGreenDeployments "USER_Events.Messages.md#USER_Events.Messages.BlueGreenDeployments").
 
 During switchover, tags from the blue environment replace all tags on resources in the
 green environment. Any tags that you added directly to green environment resources are
@@ -187,7 +187,7 @@ Amazon CloudWatch.
   metric to see if there's a high number of active transactions that might block
   switchover.
 
-For more information, see [Amazon CloudWatch metrics for Amazon Aurora](Aurora.AuroraMonitoring.md "Aurora.AuroraMonitoring.md").
+For more information, see [Amazon CloudWatch metrics for Amazon Aurora](Aurora.AuroraMonitoring.Metrics.md "Aurora.AuroraMonitoring.Metrics.md").
 
 ## Monitoring replica lag prior to switchover
 
@@ -203,7 +203,7 @@ environment to identify the current replica lag. For more information, see [Diag
 ### Aurora PostgreSQL
 
 For PostgreSQL blue/green deployments, check the `OldestReplicationSlotLag` CloudWatch metric in the
-blue environment to identify the current replica lag. For more information, see [Instance-level metrics for Amazon Aurora](Aurora.AuroraMonitoring.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances "Aurora.AuroraMonitoring.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances").
+blue environment to identify the current replica lag. For more information, see [Instance-level metrics for Amazon Aurora](Aurora.AuroraMonitoring.Metrics.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances "Aurora.AuroraMonitoring.Metrics.md#Aurora.AuroraMySQL.Monitoring.Metrics.instances").
 
 In addition, you can run the following SQL query in the blue
 environment:

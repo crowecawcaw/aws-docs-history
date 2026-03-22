@@ -63,14 +63,14 @@ choose different ones.
   `RestoreDBClusterFromSnapshot` action.
 
 As soon as the restore is complete and your new DB cluster is available, you can also
-change the VPC settings by modifying the DB cluster. For more information, see [Modifying an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
+change the VPC settings by modifying the DB cluster. For more information, see [Modifying an Amazon Aurora DB cluster](Aurora.Modifying.md "Aurora.Modifying.md").
 
 ## Amazon Aurora considerations
 
 With Aurora, you restore a DB cluster snapshot to a DB cluster.
 
 With both Aurora MySQL and Aurora PostgreSQL, you can also restore a DB cluster snapshot to
-an Aurora Serverless DB cluster. For more information, see [Restoring an Aurora Serverless v1 DB cluster](aurora-serverless.md "aurora-serverless.md").
+an Aurora Serverless DB cluster. For more information, see [Restoring an Aurora Serverless v1 DB cluster](aurora-serverless.restorefromsnapshot.md "aurora-serverless.restorefromsnapshot.md").
 
 With Aurora MySQL, you can restore a DB cluster snapshot from a cluster without parallel
 query to a cluster with parallel query. Because parallel query is typically used with
@@ -100,7 +100,7 @@ your restored DB instance. Note that Amazon RDS derives the DB cluster identifie
 from the DB instance identifier you specify. 7. Specify other settings, such as the DB cluster storage
 configuration.
 
-For information about each setting, see [Settings for Aurora DB clusters](Aurora.md#Aurora.CreateInstance.Settings "Aurora.md#Aurora.CreateInstance.Settings"). 8. Choose **Restore DB cluster**.
+For information about each setting, see [Settings for Aurora DB clusters](Aurora.CreateInstance.md#Aurora.CreateInstance.Settings "Aurora.CreateInstance.md#Aurora.CreateInstance.Settings"). 8. Choose **Restore DB cluster**.
 To restore a DB cluster from a DB cluster snapshot, use the AWS CLI command
 [restore-db-cluster-from-snapshot](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/restore-db-cluster-from-snapshot.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/restore-db-cluster-from-snapshot.html").
 
@@ -112,7 +112,7 @@ You can specify other settings, such as the DB engine version. If you don't
 specify an engine version, the DB cluster is restored to the default engine
 version.
 
-For information about each setting, see [Settings for Aurora DB clusters](Aurora.md#Aurora.CreateInstance.Settings "Aurora.md#Aurora.CreateInstance.Settings").
+For information about each setting, see [Settings for Aurora DB clusters](Aurora.CreateInstance.md#Aurora.CreateInstance.Settings "Aurora.CreateInstance.md#Aurora.CreateInstance.Settings").
 
 ###### Example
 

@@ -1,0 +1,51 @@
+# Supported Regions and Aurora DB engines for exporting cluster data to Amazon S3
+
+You can export Aurora DB cluster data to an Amazon S3 bucket. After the data is exported,
+you can analyze the exported data directly through tools like Amazon Athena or Amazon Redshift Spectrum.
+For more information, see [Exporting DB cluster data to Amazon S3](export-cluster-data.md "export-cluster-data.md").
+
+Exporting cluster data to S3 is available in the following AWS Regions:
+
+- US East (N. Virginia)
+- US East (Ohio)
+- US West (N. California)
+- US West (Oregon)
+- Asia Pacific (Hong Kong)
+- Asia Pacific (Hyderabad)
+- Asia Pacific (Jakarta)
+- Asia Pacific (Melbourne)
+- Asia Pacific (Mumbai)
+- Asia Pacific (New Zealand)
+- Asia Pacific (Osaka)
+- Asia Pacific (Seoul)
+- Asia Pacific (Singapore)
+- Asia Pacific (Sydney)
+- Asia Pacific (Tokyo)
+- Canada (Central)
+- Canada West (Calgary)
+- China (Ningxia)
+- Europe (Frankfurt)
+- Europe (Ireland)
+- Europe (London)
+- Europe (Paris)
+- Europe (Spain)
+- Europe (Stockholm)
+- Europe (Zurich)
+- Israel (Tel Aviv)
+- Middle East (UAE)
+- South America (São Paulo)
+
+###### Topics
+
+- [Exporting cluster data to S3 with Aurora MySQL](#Concepts.Aurora_Fea_Regions_DB-eng.Feature.ExportClusterToS3.ams "#Concepts.Aurora_Fea_Regions_DB-eng.Feature.ExportClusterToS3.ams")
+- [Exporting cluster data to S3 with Aurora PostgreSQL](#Concepts.Aurora_Fea_Regions_DB-eng.Feature.ExportClusterToS3.apg "#Concepts.Aurora_Fea_Regions_DB-eng.Feature.ExportClusterToS3.apg")
+
+## Exporting cluster data to S3 with Aurora MySQL
+
+All currently available Aurora MySQL engine versions support
+exporting DB cluster data to Amazon S3. For more information about versions, see [_Release Notes for Aurora MySQL_](../AuroraMySQLReleaseNotes/Welcome.md "../AuroraMySQLReleaseNotes/Welcome.md").
+
+## Exporting cluster data to S3 with Aurora PostgreSQL
+
+All currently available Aurora PostgreSQL engine versions support exporting DB cluster
+data to Amazon S3. For more information about versions, see the [_Release Notes for Aurora PostgreSQL_](../AuroraPostgreSQLReleaseNotes/Welcome.md "../AuroraPostgreSQLReleaseNotes/Welcome.md").

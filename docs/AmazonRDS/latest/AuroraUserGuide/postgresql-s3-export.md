@@ -12,7 +12,7 @@ You can export from a provisioned or an Aurora Serverless v2 DB instance. These 
 Cross-account export to Amazon S3 isn't supported.
 
 All currently available versions of Aurora PostgreSQL support exporting data to Amazon Simple Storage Service. For detailed version information,
-see [Amazon Aurora PostgreSQL updates](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md")
+see [Amazon Aurora PostgreSQL updates](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Updates.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Updates.md")
 in the _Release Notes for Aurora PostgreSQL_.
 
 If you don't have a bucket set up for your export, see the following topics
@@ -47,7 +47,7 @@ you need to install the
 the writer instance of an
 Aurora PostgreSQL DB cluster
 to an Amazon S3 bucket. It also provides functions for importing data from an Amazon S3. For more information,
-see [Importing data from Amazon S3 into an Aurora PostgreSQL DB cluster](USER_PostgreSQL.md "USER_PostgreSQL.md").
+see [Importing data from Amazon S3 into an Aurora PostgreSQL DB cluster](USER_PostgreSQL.S3Import.md "USER_PostgreSQL.S3Import.md").
 The `aws_s3` extension depends on some of the helper functions in the
 `aws_commons` extension, which is installed automatically when needed.
 
@@ -162,7 +162,7 @@ _Amazon Simple Storage Service User Guide_.
 Currently, the AWS Region must be the same as the region of the exporting
 DB cluster.
 
-For a listing of AWS Region names and associated values, see [Regions and Availability Zones](Concepts.md "Concepts.md").
+For a listing of AWS Region names and associated values, see [Regions and Availability Zones](Concepts.RegionsAndAvailabilityZones.md "Concepts.RegionsAndAvailabilityZones.md").
 
 To hold the Amazon S3 file information about where the export is to be stored, you can use
 the [aws_commons.create_s3_uri](postgresql-s3-export-functions.md#aws_commons.create_s3_uri "postgresql-s3-export-functions.md#aws_commons.create_s3_uri") function to create an

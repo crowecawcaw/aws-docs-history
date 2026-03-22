@@ -24,7 +24,7 @@ operations to a single shard, which results in better performance.
 
 All primary and unique keys must include the shard key. This means that the shard key is a subset of the primary or unique key.
 
-Limitless tables have some limitations. For more information, see [DDL limitations and other information for Aurora PostgreSQL Limitless Database](limitless-reference.md "limitless-reference.md").
+Limitless tables have some limitations. For more information, see [DDL limitations and other information for Aurora PostgreSQL Limitless Database](limitless-reference.DDL-limitations.md "limitless-reference.DDL-limitations.md").
 
 ###### Topics
 

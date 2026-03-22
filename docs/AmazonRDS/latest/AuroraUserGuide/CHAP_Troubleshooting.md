@@ -50,7 +50,7 @@ aren't permitted. This is the Automatic Private IP Addressing Range
 
 To make the instance publicly accessible, modify it and choose
 **Yes** under **Public accessibility**.
-For more information, see [Hiding a DB cluster in a VPC from the internet](USER_VPC.md#USER_VPC.Hiding "USER_VPC.md#USER_VPC.Hiding").
+For more information, see [Hiding a DB cluster in a VPC from the internet](USER_VPC.WorkingWithRDSInstanceinaVPC.md#USER_VPC.Hiding "USER_VPC.WorkingWithRDSInstanceinaVPC.md#USER_VPC.Hiding").
 
 - **Port** – The port that you specified when you
   created the DB instance can't be used to send or receive communications
@@ -111,7 +111,7 @@ For more information, see [Hiding a DB cluster in a VPC from the internet](USER_
      client IPv6 address range is authorized to connect to the DB
      instance.
 
-For more information, see [Working with a DB cluster in a VPC](USER_VPC.md "USER_VPC.md").
+For more information, see [Working with a DB cluster in a VPC](USER_VPC.WorkingWithRDSInstanceinaVPC.md "USER_VPC.WorkingWithRDSInstanceinaVPC.md").
 
 ### Testing a connection to a DB instance
 
@@ -189,11 +189,11 @@ If you get locked out of your DB cluster, you can log in as the
 master user. Then you can reset the credentials for other administrative users or roles.
 If you can't log in as the master user, the AWS account owner can reset the master
 user password. For details of which administrative accounts or roles you might need to
-reset, see [Master user account privileges](UsingWithRDS.md "UsingWithRDS.md").
+reset, see [Master user account privileges](UsingWithRDS.MasterAccounts.md "UsingWithRDS.MasterAccounts.md").
 
 You can change the DB instance password by using the Amazon RDS console,
 the AWS CLI command [modify-db-instance](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md"), or by using the [ModifyDBInstance](../APIReference/API_ModifyDBInstance.md "../APIReference/API_ModifyDBInstance.md") API operation.
-For more information about modifying a DB instance in a DB cluster, see [Modifying a DB instance in a DB cluster](Aurora.md#Aurora.Modifying.Instance "Aurora.md#Aurora.Modifying.Instance").
+For more information about modifying a DB instance in a DB cluster, see [Modifying a DB instance in a DB cluster](Aurora.Modifying.md#Aurora.Modifying.Instance "Aurora.Modifying.md#Aurora.Modifying.Instance").
 
 ## Amazon RDS DB instance outage or reboot
 
@@ -244,7 +244,7 @@ failover if the DB instance is in a Multi-AZ deployment. The requirement to rebo
 DB instance after a static parameter change helps mitigate the risk of a parameter
 misconfiguration affecting an API call. An example of this is calling
 `ModifyDBInstance` to change the DB instance class. For more information,
-see [Modifying parameters in a DB parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+see [Modifying parameters in a DB parameter group in Amazon Aurora](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 
 ## Freeable memory issues in Amazon Aurora
 
@@ -262,7 +262,7 @@ You use the `FreeableMemory` metric in Amazon CloudWatch to monitor the freeable
 memory. For more information, see [Monitoring tools for Amazon Aurora](MonitoringOverview.md "MonitoringOverview.md").
 
 If your DB instance consistently runs low on freeable memory or uses swap space,
-consider scaling up to a larger DB instance class. For more information, see [Amazon AuroraDB instance classes](Concepts.md "Concepts.md").
+consider scaling up to a larger DB instance class. For more information, see [Amazon AuroraDB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
 
 You can also change the memory settings. For example, on Aurora MySQL
 , you might adjust the size of the
@@ -288,10 +288,10 @@ memory. Consider increasing the maximum ACU setting for the cluster. If this met
 approaches a value of `0` on a reader DB instance, consider adding additional
 reader DB instances to the cluster. That way, the read-only part of the workload can be
 spread across more DB instances, reducing the memory usage on each reader DB instance.
-For more information, see [Important Amazon CloudWatch metrics for Aurora Serverless v2](aurora-serverless-v2.md#aurora-serverless-v2.viewing.monitoring "aurora-serverless-v2.md#aurora-serverless-v2.viewing.monitoring").
+For more information, see [Important Amazon CloudWatch metrics for Aurora Serverless v2](aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.viewing.monitoring "aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.viewing.monitoring").
 
 For Aurora Serverless v1, you can change the capacity range to use
-more ACUs. For more information, see [Modifying an Aurora Serverless v1 DB cluster](aurora-serverless.md "aurora-serverless.md").
+more ACUs. For more information, see [Modifying an Aurora Serverless v1 DB cluster](aurora-serverless.modifying.md "aurora-serverless.modifying.md").
 
 ## Amazon Aurora MySQL replication issues
 
@@ -406,8 +406,8 @@ Amazon RDS monitors the replication status of your read replicas. RDS updates th
 `Error` if replication stops for any reason. You can
 review the details of the associated error thrown by the MySQL engines by viewing the
 **Replication Error** field. Events that indicate the status of
-the read replica are also generated, including [RDS-EVENT-0045](USER_Events.md#RDS-EVENT-0045 "USER_Events.md#RDS-EVENT-0045"),
-[RDS-EVENT-0046](USER_Events.md#RDS-EVENT-0046 "USER_Events.md#RDS-EVENT-0046"), and [RDS-EVENT-0057](USER_Events.md#RDS-EVENT-0057 "USER_Events.md#RDS-EVENT-0057"). For more
+the read replica are also generated, including [RDS-EVENT-0045](USER_Events.Messages.md#RDS-EVENT-0045 "USER_Events.Messages.md#RDS-EVENT-0045"),
+[RDS-EVENT-0046](USER_Events.Messages.md#RDS-EVENT-0046 "USER_Events.Messages.md#RDS-EVENT-0046"), and [RDS-EVENT-0057](USER_Events.Messages.md#RDS-EVENT-0057 "USER_Events.Messages.md#RDS-EVENT-0057"). For more
 information about events and subscribing to events, see [Working with Amazon RDS event notification](USER_Events.md "USER_Events.md"). If a MySQL error message is returned, check the
 error in the [MySQL error message documentation](https://dev.mysql.com/doc/mysql-errors/8.0/en/server-error-reference.html "https://dev.mysql.com/doc/mysql-errors/8.0/en/server-error-reference.html").
 
@@ -451,7 +451,7 @@ command:
 The following steps can help resolve your replication error:
 
 - If you encounter a logical error and you can safely skip the error, follow
-  the steps described in [Skipping the current replication error](../UserGuide/Appendix.MySQL.CommonDBATasks.md "../UserGuide/Appendix.MySQL.CommonDBATasks.md"). Your Aurora MySQL DB
+  the steps described in [Skipping the current replication error](../UserGuide/Appendix.MySQL.CommonDBATasks.SkipError.md "../UserGuide/Appendix.MySQL.CommonDBATasks.SkipError.md"). Your Aurora MySQL DB
   instance must be running a version that includes the
   `mysql_rds_skip_repl_error` procedure. For more information,
   see [mysql_rds_skip_repl_error](../UserGuide/mysql_rds_skip_repl_error.md "../UserGuide/mysql_rds_skip_repl_error.md").
@@ -473,7 +473,7 @@ The following steps can help resolve your replication error:
 
 If a replication error is fixed, the **Replication
 State** changes to **replicating**. For more
-information, see [Troubleshooting a MySQL read replica problem](../UserGuide/USER_ReadRepl.md "../UserGuide/USER_ReadRepl.md").
+information, see [Troubleshooting a MySQL read replica problem](../UserGuide/USER_ReadRepl.Troubleshooting.md "../UserGuide/USER_ReadRepl.Troubleshooting.md").
 
 ### Replication stopped error
 
@@ -495,7 +495,7 @@ files are retained on your replication source. After you have increased the binl
 retention time, you can restart replication and call the
 `mysql.rds_skip_repl_error` command as needed.
 
-To set the binlog retention time, use the [mysql_rds_set_configuration](../UserGuide/USER_ReadRepl.md "../UserGuide/USER_ReadRepl.md") procedure. Specify a configuration
+To set the binlog retention time, use the [mysql_rds_set_configuration](../UserGuide/USER_ReadRepl.Troubleshooting.md "../UserGuide/USER_ReadRepl.Troubleshooting.md") procedure. Specify a configuration
 parameter of 'binlog retention hours' along with the number of hours to retain
 binlog files on the DB cluster, up to 2160 (90 days). The default for Aurora MySQL is
 24 (1 day). The following example sets the retention period for binlog files to 48

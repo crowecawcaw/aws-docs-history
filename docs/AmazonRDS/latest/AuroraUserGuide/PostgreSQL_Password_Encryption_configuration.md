@@ -132,7 +132,7 @@ If your Aurora PostgreSQL DB cluster
 already uses a custom
 parameter group, you don't need to create a new one.
 
-For an overview of parameter groups for Aurora, see [Creating a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+For an overview of parameter groups for Aurora, see [Creating a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.CreatingCluster.md "USER_WorkingWithParamGroups.CreatingCluster.md").
 
 The password encryption type used for passwords is set in one parameter,
 `password_encryption`. The encryption that the Aurora PostgreSQL DB cluster
@@ -143,7 +143,7 @@ group
 and apply it to your cluster.
 
 You can also use the AWS Management Console or the RDS API to create a custom DB cluster parameter group
-. For more information, see [Creating a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+. For more information, see [Creating a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.CreatingCluster.md "USER_WorkingWithParamGroups.CreatingCluster.md").
 
 You can now associate the custom parameter group with your DB instance.
 

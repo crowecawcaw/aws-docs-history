@@ -22,9 +22,9 @@ rotate the certificates on your DB clusters. We strongly recommend testing these
 procedures in a development or staging environment before implementing them in your
 production environments.
 
-For more information about certificate rotation, see [Rotating your SSL/TLS certificate](UsingWithRDS.md "UsingWithRDS.md"). For more information about
-downloading certificates, see [Using SSL/TLS to encrypt a connection to a DB cluster](UsingWithRDS.md "UsingWithRDS.md"). For information about using TLS with Aurora MySQL DB
-clusters, see [TLS connections to Aurora MySQL DB clusters](AuroraMySQL.md#AuroraMySQL.Security.SSL "AuroraMySQL.md#AuroraMySQL.Security.SSL").
+For more information about certificate rotation, see [Rotating your SSL/TLS certificate](UsingWithRDS.SSL-certificate-rotation.md "UsingWithRDS.SSL-certificate-rotation.md"). For more information about
+downloading certificates, see [Using SSL/TLS to encrypt a connection to a DB cluster](UsingWithRDS.SSL.md "UsingWithRDS.SSL.md"). For information about using TLS with Aurora MySQL DB
+clusters, see [TLS connections to Aurora MySQL DB clusters](AuroraMySQL.Security.md#AuroraMySQL.Security.SSL "AuroraMySQL.Security.md#AuroraMySQL.Security.SSL").
 
 ###### Topics
 
@@ -133,9 +133,9 @@ When you update the trust store, you can retain older certificates in addition t
 You can update the trust store for applications that use JDBC for TLS
 connections.
 
-For information about downloading the root certificate, see [Using SSL/TLS to encrypt a connection to a DB cluster](UsingWithRDS.md "UsingWithRDS.md").
+For information about downloading the root certificate, see [Using SSL/TLS to encrypt a connection to a DB cluster](UsingWithRDS.SSL.md "UsingWithRDS.SSL.md").
 
-For sample scripts that import certificates, see [Sample script for importing certificates into your trust store](UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-sample-script "UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-sample-script").
+For sample scripts that import certificates, see [Sample script for importing certificates into your trust store](UsingWithRDS.SSL-certificate-rotation.md#UsingWithRDS.SSL-certificate-rotation-sample-script "UsingWithRDS.SSL-certificate-rotation.md#UsingWithRDS.SSL-certificate-rotation-sample-script").
 
 If you are using the mysql JDBC driver in an application, set the following properties in the application.
 
@@ -193,4 +193,4 @@ public class MySQLSSLTest {
 
 After you have determined that your database connections use TLS and have
 updated your application trust store, you can update your database to use the
-rds-ca-rsa2048-g1 certificates. For instructions, see step 3 in [Updating your CA certificate by modifying your DB instance](UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-updating "UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-updating") .
+rds-ca-rsa2048-g1 certificates. For instructions, see step 3 in [Updating your CA certificate by modifying your DB instance](UsingWithRDS.SSL-certificate-rotation.md#UsingWithRDS.SSL-certificate-rotation-updating "UsingWithRDS.SSL-certificate-rotation.md#UsingWithRDS.SSL-certificate-rotation-updating") .

@@ -111,7 +111,7 @@ setup](../../../cli/latest/userguide/getting-started-quickstart.md "../../../cli
 ## Performing major version upgrade
 
 1. Upgrade Aurora PostgreSQL DB cluster to a new major version. For more
-   information, see [Upgrading the Aurora PostgreSQL engine to a new major version](USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.Manual "USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.Manual").
+   information, see [Upgrading the Aurora PostgreSQL engine to a new major version](USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md#USER_UpgradeDBInstance.Upgrading.Manual "USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md#USER_UpgradeDBInstance.Upgrading.Manual").
 2. Reboot the writer instance of the cluster, so that the parameter
    settings can take effect.
 
@@ -216,7 +216,7 @@ in the AWS Region. You see output similar to the following.
 }
 ```
 
-For more information, see [Creating a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+For more information, see [Creating a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.CreatingCluster.md "USER_WorkingWithParamGroups.CreatingCluster.md").
 
 Use the [modify-db-cluster-parameter-group](../../../cli/latest/reference/rds/modify-db-cluster-parameter-group.md "../../../cli/latest/reference/rds/modify-db-cluster-parameter-group.md") CLI command to modify the
 settings so that they match the source cluster.

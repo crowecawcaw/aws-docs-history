@@ -63,7 +63,7 @@ To learn more about using write forwarding across AWS Regions, see
 [Using write forwarding in an Amazon Aurora global database](aurora-global-database-write-forwarding.md "aurora-global-database-write-forwarding.md").
 
 For details about the different kinds of Aurora endpoints, see
-[Connecting to an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
+[Connecting to an Amazon Aurora DB cluster](Aurora.Connecting.md "Aurora.Connecting.md").
 
 ## Viewing the endpoints of an Amazon Aurora global database
 
@@ -192,10 +192,10 @@ best practices:
   connectivity options](../../../whitepapers/latest/aws-vpc-connectivity-options/amazon-vpc-to-amazon-vpc-connectivity-options.md "../../../whitepapers/latest/aws-vpc-connectivity-options/amazon-vpc-to-amazon-vpc-connectivity-options.md") to evaluate different options for setting up this connectivity.
 - The global writer endpoint update after a global database failover or switchover can take a long time
   depending upon your Domain Name Service (DNS) caching duration. See
-  [Amazon Aurora MySQL Database Administrator's Handbook](../../../pdfs/whitepapers/latest/amazon-aurora-mysql-db-admin-handbook/amazon-aurora-mysql-db-admin-handbook.md "../../../pdfs/whitepapers/latest/amazon-aurora-mysql-db-admin-handbook/amazon-aurora-mysql-db-admin-handbook.md") to learn more. Aurora Global Database emits an RDS Event when it sees the DNS change on the
+  [Amazon Aurora MySQL Database Administrator's Handbook](../../../pdfs/whitepapers/latest/amazon-aurora-mysql-db-admin-handbook/amazon-aurora-mysql-db-admin-handbook.pdf.md "../../../pdfs/whitepapers/latest/amazon-aurora-mysql-db-admin-handbook/amazon-aurora-mysql-db-admin-handbook.pdf.md") to learn more. Aurora Global Database emits an RDS Event when it sees the DNS change on the
   global writer endpoint. You can use the event to devise strategies to ensure the DNS cache doesn't
   extend beyond the time after the event is generated. For more information, see
-  [DB cluster events](USER_Events.md#USER_Events.Messages.cluster "USER_Events.md#USER_Events.Messages.cluster").
+  [DB cluster events](USER_Events.Messages.md#USER_Events.Messages.cluster "USER_Events.Messages.md#USER_Events.Messages.cluster").
 - Aurora Global Database replicates data asynchronously. The cross-Region failover methods can result in some
   write transaction data that wasn't replicated to the chosen secondary before the failover initiated.
   Although Aurora attempts on best-effort basis to block writes in the original primary AWS Region,

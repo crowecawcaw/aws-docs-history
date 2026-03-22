@@ -82,8 +82,8 @@ If the DB cluster is part of a global database with write forwarding turned on, 
 value by the quota that's allotted for write forwarding. The write forwarding quota is set in the DB cluster parameter `aurora_fwd_writer_max_connections_pct`.
 For information about write forwarding, see [Using write forwarding in an Amazon Aurora global database](aurora-global-database-write-forwarding.md "aurora-global-database-write-forwarding.md").
 
-For information on database connection limits, see [Maximum connections to an Aurora MySQL DB instance](AuroraMySQL.Managing.md#AuroraMySQL.Managing.MaxConnections "AuroraMySQL.Managing.md#AuroraMySQL.Managing.MaxConnections")
-and [Maximum connections to an Aurora PostgreSQL DB instance](AuroraPostgreSQL.md#AuroraPostgreSQL.Managing.MaxConnections "AuroraPostgreSQL.md#AuroraPostgreSQL.Managing.MaxConnections").
+For information on database connection limits, see [Maximum connections to an Aurora MySQL DB instance](AuroraMySQL.Managing.Performance.md#AuroraMySQL.Managing.MaxConnections "AuroraMySQL.Managing.Performance.md#AuroraMySQL.Managing.MaxConnections")
+and [Maximum connections to an Aurora PostgreSQL DB instance](AuroraPostgreSQL.Managing.md#AuroraPostgreSQL.Managing.MaxConnections "AuroraPostgreSQL.Managing.md#AuroraPostgreSQL.Managing.MaxConnections").
 
 ### MaxIdleConnectionsPercent
 
@@ -111,8 +111,8 @@ To
 learn how to change the value of the `MaxIdleConnectionsPercent` setting, see
 the CLI command [modify-db-proxy-target-group](../../../cli/latest/reference/rds/modify-db-proxy-target-group.md "../../../cli/latest/reference/rds/modify-db-proxy-target-group.md") or the API operation [ModifyDBProxyTargetGroup](../APIReference/API_ModifyDBProxyTargetGroup.md "../APIReference/API_ModifyDBProxyTargetGroup.md").
 
-For information on database connection limits, see [Maximum connections to an Aurora MySQL DB instance](AuroraMySQL.Managing.md#AuroraMySQL.Managing.MaxConnections "AuroraMySQL.Managing.md#AuroraMySQL.Managing.MaxConnections")
-and [Maximum connections to an Aurora PostgreSQL DB instance](AuroraPostgreSQL.md#AuroraPostgreSQL.Managing.MaxConnections "AuroraPostgreSQL.md#AuroraPostgreSQL.Managing.MaxConnections").
+For information on database connection limits, see [Maximum connections to an Aurora MySQL DB instance](AuroraMySQL.Managing.Performance.md#AuroraMySQL.Managing.MaxConnections "AuroraMySQL.Managing.Performance.md#AuroraMySQL.Managing.MaxConnections")
+and [Maximum connections to an Aurora PostgreSQL DB instance](AuroraPostgreSQL.Managing.md#AuroraPostgreSQL.Managing.MaxConnections "AuroraPostgreSQL.Managing.md#AuroraPostgreSQL.Managing.MaxConnections").
 
 ### ConnectionBorrowTimeout
 

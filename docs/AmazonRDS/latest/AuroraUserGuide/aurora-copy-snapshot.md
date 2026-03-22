@@ -17,10 +17,10 @@ pricing](https://aws.amazon.com/rds/aurora/pricing "https://aws.amazon.com/rds/a
 
 Review the limitations and considerations for DB cluster snapshot copying. To copy DB cluster snapshots, see one of the following topics.
 
-- [Copying a DB cluster snapshot with the AWS Management Console](USER_CopyDBClusterSnapshot.md "USER_CopyDBClusterSnapshot.md")
-- [Copying an unencrypted DB cluster snapshot by using the AWS CLI or Amazon RDS API](USER_CopyDBClusterSnapshot.Unencrypted.md "USER_CopyDBClusterSnapshot.Unencrypted.md")
-- [Copying an encrypted DB cluster snapshot by using the AWS CLI or Amazon RDS API](USER_CopyDBClusterSnapshot.Encrypted.md "USER_CopyDBClusterSnapshot.Encrypted.md")
-- [Copying a DB cluster snapshot across accounts](USER_CopyDBClusterSnapshot.md "USER_CopyDBClusterSnapshot.md")
+- [Copying a DB cluster snapshot with the AWS Management Console](USER_CopyDBClusterSnapshot.CrossRegion.md "USER_CopyDBClusterSnapshot.CrossRegion.md")
+- [Copying an unencrypted DB cluster snapshot by using the AWS CLI or Amazon RDS API](USER_CopyDBClusterSnapshot.Unencrypted.CrossRegion.md "USER_CopyDBClusterSnapshot.Unencrypted.CrossRegion.md")
+- [Copying an encrypted DB cluster snapshot by using the AWS CLI or Amazon RDS API](USER_CopyDBClusterSnapshot.Encrypted.CrossRegion.md "USER_CopyDBClusterSnapshot.Encrypted.CrossRegion.md")
+- [Copying a DB cluster snapshot across accounts](USER_CopyDBClusterSnapshot.CrossAccount.md "USER_CopyDBClusterSnapshot.CrossAccount.md")
 
 ## Limitations
 
@@ -87,10 +87,10 @@ If you copy an encrypted snapshot across Regions, you must specify a KMS key val
 be a Region-specific KMS key, or a multi-Region key. For more information on multi-Region KMS keys, see [Using multi-Region keys in
 AWS KMS](../../../kms/latest/developerguide/multi-region-keys-overview.md "../../../kms/latest/developerguide/multi-region-keys-overview.md").
 
-For more information about AWS KMS key management for Amazon RDS, see [AWS KMS key management](Overview.Encryption.md "Overview.Encryption.md").
+For more information about AWS KMS key management for Amazon RDS, see [AWS KMS key management](Overview.Encryption.Keys.md "Overview.Encryption.Keys.md").
 
 The source snapshot remains encrypted throughout the copy process. For more information, see
-[Limitations of Amazon Aurora encrypted DB clusters](Overview.md#Overview.Encryption.Limitations "Overview.md#Overview.Encryption.Limitations").
+[Limitations of Amazon Aurora encrypted DB clusters](Overview.Encryption.md#Overview.Encryption.Limitations "Overview.Encryption.md#Overview.Encryption.Limitations").
 
 ###### Note
 
@@ -99,8 +99,8 @@ you copy the snapshot.
 
 To copy encrypted DB cluster snapshots, see the following topics.
 
-- [Copying an encrypted DB cluster snapshot by using the AWS CLI or Amazon RDS API](USER_CopyDBClusterSnapshot.Encrypted.md "USER_CopyDBClusterSnapshot.Encrypted.md")
-- [Copying a DB cluster snapshot across accounts](USER_CopyDBClusterSnapshot.md "USER_CopyDBClusterSnapshot.md")
+- [Copying an encrypted DB cluster snapshot by using the AWS CLI or Amazon RDS API](USER_CopyDBClusterSnapshot.Encrypted.CrossRegion.md "USER_CopyDBClusterSnapshot.Encrypted.CrossRegion.md")
+- [Copying a DB cluster snapshot across accounts](USER_CopyDBClusterSnapshot.CrossAccount.md "USER_CopyDBClusterSnapshot.CrossAccount.md")
 
 ### Considerations for Cross-Region snapshot copying
 

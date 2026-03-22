@@ -228,7 +228,7 @@ Following, you can find a step-by-step explanation of the preceding example:
 1. Modify the parameter group associated with your DB instance and add
    `pg_cron` to the `shared_preload_libraries` parameter
    value. This change requires a DB instance restart for it to take effect. For
-   more information, see [Modifying parameters in a DB parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+   more information, see [Modifying parameters in a DB parameter group in Amazon Aurora](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
 2. Run the command `CREATE EXTENSION pg_cron;` using an account that
    has the `rds_superuser` permissions. Doing this enables the
    `pg_cron` extension. For more information, see [Scheduling maintenance with the PostgreSQL pg_cron extension](PostgreSQL_pg_cron.md "PostgreSQL_pg_cron.md").

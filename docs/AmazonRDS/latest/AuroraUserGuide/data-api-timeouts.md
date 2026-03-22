@@ -14,7 +14,7 @@ takes longer than 45 seconds, you can specify the `continueAfterTimeout` paramet
 `ExecuteStatement` operation.
 Your application still receives the timeout error. However, the operation continues running and
 isn't canceled. For an example, see
-[Running a SQL transaction](data-api.calling.md#data-api.calling.java.run-transaction "data-api.calling.md#data-api.calling.java.run-transaction").
+[Running a SQL transaction](data-api.calling.java.md#data-api.calling.java.run-transaction "data-api.calling.java.md#data-api.calling.java.run-transaction").
 
 If the AWS SDK for your programming language has its own timeout period for API calls or HTTP socket connections,
 make sure that all such timeout periods are more than 45 seconds.

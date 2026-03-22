@@ -46,7 +46,7 @@ following information about the S3 object:
   path.
 - `region` – The AWS Region that the bucket is
   in. For a listing of AWS Region names and associated values, see
-  [Regions and Availability Zones](Concepts.md "Concepts.md").
+  [Regions and Availability Zones](Concepts.RegionsAndAvailabilityZones.md "Concepts.RegionsAndAvailabilityZones.md").
 
 Currently, this value must be the same AWS Region as that of
 the exporting DB cluster
@@ -109,7 +109,7 @@ _region_
 
 An optional text string containing the AWS Region that the bucket
 is in. For a listing of AWS Region names and associated values, see
-[Regions and Availability Zones](Concepts.md "Concepts.md").
+[Regions and Availability Zones](Concepts.RegionsAndAvailabilityZones.md "Concepts.RegionsAndAvailabilityZones.md").
 
 Currently, this value must be the same AWS Region as that of the
 exporting DB cluster
@@ -195,4 +195,4 @@ path of the file.
 _region_
 
 A required text string containing the AWS Region that the file is in.
-For a listing of AWS Region names and associated values, see [Regions and Availability Zones](Concepts.md "Concepts.md").
+For a listing of AWS Region names and associated values, see [Regions and Availability Zones](Concepts.RegionsAndAvailabilityZones.md "Concepts.RegionsAndAvailabilityZones.md").

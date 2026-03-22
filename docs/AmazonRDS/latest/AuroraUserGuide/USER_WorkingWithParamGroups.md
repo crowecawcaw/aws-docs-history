@@ -12,5 +12,5 @@ can also define your own parameter groups with customized settings.
 - [Overview of parameter groups](parameter-groups-overview.md "parameter-groups-overview.md")
 - [DB cluster parameter groups for Amazon Aurora DB clusters](USER_WorkingWithDBClusterParamGroups.md "USER_WorkingWithDBClusterParamGroups.md")
 - [DB parameter groups for Amazon Aurora DB instances](USER_WorkingWithDBInstanceParamGroups.md "USER_WorkingWithDBInstanceParamGroups.md")
-- [Comparing DB parameter groups](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md")
+- [Comparing DB parameter groups](USER_WorkingWithParamGroups.Comparing.md "USER_WorkingWithParamGroups.Comparing.md")
 - [Specifying DB parameters](USER_ParamValuesRef.md "USER_ParamValuesRef.md")

@@ -33,7 +33,7 @@ You can upgrade Aurora PostgreSQL 14.6 and higher versions to Aurora PostgreSQL
 15.2 and higher versions.
 
 Upgrading an Aurora PostgreSQL DB cluster to a new major version involves
-several preliminary tasks. For more information, see [Performing a major version upgrade](USER_UpgradeDBInstance.PostgreSQL.md "USER_UpgradeDBInstance.PostgreSQL.md"). To
+several preliminary tasks. For more information, see [Performing a major version upgrade](USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md "USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md"). To
 successfully upgrade your Babelfish for Aurora PostgreSQL DB cluster, you need to create a
 custom DB cluster parameter group for the new Aurora PostgreSQL version. This
 new parameter group must contain the same Babelfish parameter

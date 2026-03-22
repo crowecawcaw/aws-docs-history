@@ -15,7 +15,7 @@ The Global Database read availability for Aurora MySQL and earlier versions of A
 during such unplanned events.
 
 For more information about new features in Aurora PostgreSQL 16.6, 15.10, 14.15, 13.18, and 12.22, see
-[PostgreSQL 16.6](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md#aurorapostgresql-versions-version166x "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md#aurorapostgresql-versions-version166x") in the _Aurora PostgreSQL Release Notes_.
+[PostgreSQL 16.6](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Updates.md#aurorapostgresql-versions-version166x "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Updates.md#aurorapostgresql-versions-version166x") in the _Aurora PostgreSQL Release Notes_.
 
 For more information about new features in Aurora MySQL versions 3.09 and higher, see
-[Database engine updates for Amazon Aurora MySQL version 3](../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.md "../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.md") in the _Aurora MySQL Release Notes_.
+[Database engine updates for Amazon Aurora MySQL version 3](../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.30Updates.md "../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.30Updates.md") in the _Aurora MySQL Release Notes_.

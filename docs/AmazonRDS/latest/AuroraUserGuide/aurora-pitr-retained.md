@@ -28,11 +28,11 @@ Times are shown in your local time zone, which is indicated by an offset from Co
 (UTC). For example, UTC-5 is Eastern Standard Time/Central Daylight Time. 7. For **DB cluster identifier**, enter the name of the target restored DB cluster. The name
 must be unique. 8. Choose other options as needed, such as DB instance class.
 
-For information about each setting, see [Settings for Aurora DB clusters](Aurora.md#Aurora.CreateInstance.Settings "Aurora.md#Aurora.CreateInstance.Settings"). 9. Choose **Restore to point in time**.
+For information about each setting, see [Settings for Aurora DB clusters](Aurora.CreateInstance.md#Aurora.CreateInstance.Settings "Aurora.CreateInstance.md#Aurora.CreateInstance.Settings"). 9. Choose **Restore to point in time**.
 To restore a DB cluster to a specified time, use the AWS CLI command [restore-db-cluster-to-point-in-time](../../../cli/latest/reference/rds/restore-db-cluster-to-point-in-time.md "../../../cli/latest/reference/rds/restore-db-cluster-to-point-in-time.md") to
 create a new DB cluster.
 
-You can specify other settings. For information about each setting, see [Settings for Aurora DB clusters](Aurora.md#Aurora.CreateInstance.Settings "Aurora.md#Aurora.CreateInstance.Settings").
+You can specify other settings. For information about each setting, see [Settings for Aurora DB clusters](Aurora.CreateInstance.md#Aurora.CreateInstance.Settings "Aurora.CreateInstance.md#Aurora.CreateInstance.Settings").
 
 Resource tagging is supported for this operation. When you use the `--tags` option, the source DB cluster tags
 are ignored and the provided ones are used. Otherwise, the latest tags from the source cluster are used.

@@ -9,7 +9,7 @@ Performance Insights API will appear in your AWS bill with the cost of CloudWatc
 We recommend that you upgrade any DB clusters
 using the paid tier of Performance Insights to the Advanced mode of Database Insights before June 30, 2026.
 For information about upgrading to the Advanced mode of Database Insights, see
-[Turning on the Advanced mode of Database Insights for Amazon Aurora](USER_DatabaseInsights.md "USER_DatabaseInsights.md").
+[Turning on the Advanced mode of Database Insights for Amazon Aurora](USER_DatabaseInsights.TurningOnAdvanced.md "USER_DatabaseInsights.TurningOnAdvanced.md").
 
 If you take no action, DB clusters using Performance Insights
 will default to using the Standard mode of Database Insights. With Standard mode of Database Insights, you might lose access to performance data history beyond 7 days and might not be able to use execution plans
@@ -30,13 +30,13 @@ You can choose the monitoring view in the **Monitoring** tab or
 **Performance Insights** in the navigation pane.
 
 Performance Insights must be turned on for your DB cluster to view the combined metrics in the Performance Insights dashboard.
-For more information about turning on Performance Insights, see [Turning Performance Insights on and off for Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
+For more information about turning on Performance Insights, see [Turning Performance Insights on and off for Aurora](USER_PerfInsights.Enabling.md "USER_PerfInsights.Enabling.md").
 
 In the following sections, you can learn to display Performance Insights and CloudWatch metrics.
 
 ###### Topics
 
-- [Choosing the new monitoring view from the Monitoring tab](Viewing_Unifiedmetrics.md "Viewing_Unifiedmetrics.md")
-- [Choosing the new monitoring view from the Performance Insights page](Viewing_Unifiedmetrics.md "Viewing_Unifiedmetrics.md")
-- [Creating a custom dashboard with Performance Insights](Viewing_Unifiedmetrics.md "Viewing_Unifiedmetrics.md")
-- [Choosing the preconfigured dashboard with Performance Insights](Viewing_Unifiedmetrics.md "Viewing_Unifiedmetrics.md")
+- [Choosing the new monitoring view from the Monitoring tab](Viewing_Unifiedmetrics.MonitoringTab.md "Viewing_Unifiedmetrics.MonitoringTab.md")
+- [Choosing the new monitoring view from the Performance Insights page](Viewing_Unifiedmetrics.PInavigationPane.md "Viewing_Unifiedmetrics.PInavigationPane.md")
+- [Creating a custom dashboard with Performance Insights](Viewing_Unifiedmetrics.PIcustomizeMetricslist.md "Viewing_Unifiedmetrics.PIcustomizeMetricslist.md")
+- [Choosing the preconfigured dashboard with Performance Insights](Viewing_Unifiedmetrics.PI-preconfigured-dashboard.md "Viewing_Unifiedmetrics.PI-preconfigured-dashboard.md")

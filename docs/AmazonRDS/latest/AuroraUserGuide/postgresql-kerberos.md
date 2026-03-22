@@ -26,7 +26,7 @@ A database can use Kerberos, AWS Identity and Access Management (IAM), or both K
 IAM authentication. However, because Kerberos and IAM authentication provide different
 authentication methods, a specific database user can log in to a database using only one or
 the other authentication method but not both. For more information about IAM
-authentication, see [IAM database authentication](UsingWithRDS.md "UsingWithRDS.md").
+authentication, see [IAM database authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
 
 ###### Note
 
@@ -39,13 +39,13 @@ RDS for PostgreSQL doesn't support Kerberos authentication for Active Directory 
 - [Setting up Kerberos authentication for PostgreSQL DB clusters](postgresql-kerberos-setting-up.md "postgresql-kerberos-setting-up.md")
 - [Managing an Aurora PostgreSQL DB cluster in an Active Directory domain](postgresql-kerberos-managing.md "postgresql-kerberos-managing.md")
 - [Connecting to PostgreSQL with Kerberos authentication](postgresql-kerberos-connecting.md "postgresql-kerberos-connecting.md")
-- [Using AD security groups for Aurora PostgreSQL access control](AD.Security.md "AD.Security.md")
+- [Using AD security groups for Aurora PostgreSQL access control](AD.Security.Groups.md "AD.Security.Groups.md")
 
 ## Region and version availability
 
 Feature availability and support varies across specific versions of
 each database engine, and across AWS Regions. For more information on version and
-Region availability of Aurora PostgreSQL with Kerberos authentication, see [Kerberos authentication with Aurora PostgreSQL](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.KerberosAuthentication.apg "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.KerberosAuthentication.apg").
+Region availability of Aurora PostgreSQL with Kerberos authentication, see [Kerberos authentication with Aurora PostgreSQL](Concepts.Aurora_Fea_Regions_DB-eng.Feature.KerberosAuthentication.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.KerberosAuthentication.apg "Concepts.Aurora_Fea_Regions_DB-eng.Feature.KerberosAuthentication.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.KerberosAuthentication.apg").
 
 ## Overview of Kerberos authentication for PostgreSQL DB clusters
 
@@ -76,8 +76,8 @@ peering?](../../../vpc/latest/peering/Welcome.md "../../../vpc/latest/peering/We
 either from the console, CLI, or
 RDS API using one of the following methods:
 
-    * [Creating and connecting to an Aurora PostgreSQL DB cluster](CHAP_GettingStartedAurora.CreatingConnecting.md "CHAP_GettingStartedAurora.CreatingConnecting.md")
-    * [Modifying an Amazon Aurora DB cluster](Aurora.md "Aurora.md")
+    * [Creating and connecting to an Aurora PostgreSQL DB cluster](CHAP_GettingStartedAurora.CreatingConnecting.AuroraPostgreSQL.md "CHAP_GettingStartedAurora.CreatingConnecting.AuroraPostgreSQL.md")
+    * [Modifying an Amazon Aurora DB cluster](Aurora.Modifying.md "Aurora.Modifying.md")
     * [Restoring from a DB cluster snapshot](aurora-restore-snapshot.md "aurora-restore-snapshot.md")
     * [Restoring a DB cluster to a specified time](aurora-pitr.md "aurora-pitr.md")
 

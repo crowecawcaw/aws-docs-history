@@ -32,7 +32,7 @@ on the engine that your Aurora DB cluster is running.
 ### Preparing an Aurora MySQL DB cluster for a blue/green deployment
 
 Before you create a blue/green deployment for an Aurora MySQL DB cluster, the cluster must be
-associated with a custom DB cluster parameter group with [binary logging](USER_LogAccess.MySQL.md "USER_LogAccess.MySQL.md")
+associated with a custom DB cluster parameter group with [binary logging](USER_LogAccess.MySQL.BinaryFormat.md "USER_LogAccess.MySQL.BinaryFormat.md")
 (`binlog_format`) turned on. Binary logging is required for replication from
 the blue environment to the green environment. While any binlog format works, we recommend
 `ROW` to reduce the risk of replication inconsistencies. For information about
@@ -64,7 +64,7 @@ following.
 When you enable logical replication, you also need to tune certain cluster
 parameters, such as `max_replication_slots`,
 `max_logical_replication_workers`, and `max_worker_processes`.
-For instructions to enable logical replication and tune these parameters, see [Setting up logical replication for your Aurora PostgreSQL DB cluster](AuroraPostgreSQL.Replication.Logical.md "AuroraPostgreSQL.Replication.Logical.md").
+For instructions to enable logical replication and tune these parameters, see [Setting up logical replication for your Aurora PostgreSQL DB cluster](AuroraPostgreSQL.Replication.Logical.Configure.md "AuroraPostgreSQL.Replication.Logical.Configure.md").
 
 In addition, make sure that the `synchronous_commit` parameter is set to
 `on`.
@@ -75,7 +75,7 @@ instance be in sync with the DB cluster parameter group, otherwise creation fail
 information, see [Rebooting a DB instance within an Aurora cluster](aurora-reboot-db-instance.md "aurora-reboot-db-instance.md").
 
 - Confirm that your DB cluster is running a version of Aurora PostgreSQL that's compatible with
-  Blue/Green Deployments. For a list of compatible versions, see [Blue/Green Deployments with Aurora PostgreSQL](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.BlueGreenDeployments.apg "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.BlueGreenDeployments.apg").
+  Blue/Green Deployments. For a list of compatible versions, see [Blue/Green Deployments with Aurora PostgreSQL](Concepts.Aurora_Fea_Regions_DB-eng.Feature.BlueGreenDeployments.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.BlueGreenDeployments.apg "Concepts.Aurora_Fea_Regions_DB-eng.Feature.BlueGreenDeployments.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.BlueGreenDeployments.apg").
 - Make sure that all tables in the DB cluster have a primary key. PostgreSQL logical
   replication doesn't allow UPDATE or DELETE operations on tables that don't have a
   primary key.
@@ -101,7 +101,7 @@ cluster and its DB instances in the green environment after it
 is deployed. For example, you might specify a higher engine version or a different parameter
 group.
 
-For information about modifying a DB cluster, see [Modifying an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
+For information about modifying a DB cluster, see [Modifying an Amazon Aurora DB cluster](Aurora.Modifying.md "Aurora.Modifying.md").
 
 ###### Topics
 

@@ -18,6 +18,6 @@ In the following sections, export Performance Insights metrics to CloudWatch as 
 
 ###### Topics
 
-- [Exporting Performance Insights metrics as a new dashboard to CloudWatch](PI_metrics_export_CW.md "PI_metrics_export_CW.md")
-- [Adding Performance Insights metrics to an existing CloudWatch dashboard](PI_metrics_export_CW.md "PI_metrics_export_CW.md")
-- [Viewing a Performance Insights metric widget in CloudWatch](PI_metrics_export_CW.md "PI_metrics_export_CW.md")
+- [Exporting Performance Insights metrics as a new dashboard to CloudWatch](PI_metrics_export_CW.new_dashboard.md "PI_metrics_export_CW.new_dashboard.md")
+- [Adding Performance Insights metrics to an existing CloudWatch dashboard](PI_metrics_export_CW.existing_dashboard.md "PI_metrics_export_CW.existing_dashboard.md")
+- [Viewing a Performance Insights metric widget in CloudWatch](PI_metrics_export_CW.individual_widget.md "PI_metrics_export_CW.individual_widget.md")

@@ -113,6 +113,6 @@ making the request to the SQL Server database falls back to unencrypted.
 You can enforce encryption for the connection to RDS for SQL Server DB instances by
 setting the `rds.force_ssl` parameter. To learn how,
 see [Forcing
-connections to your DB instance to use SSL](../UserGuide/SQLServer.Concepts.General.SSL.md#SQLServer.Concepts.General.SSL.Forcing "../UserGuide/SQLServer.Concepts.General.SSL.md#SQLServer.Concepts.General.SSL.Forcing"). For more information about SSL/TLS
+connections to your DB instance to use SSL](../UserGuide/SQLServer.Concepts.General.SSL.Using.md#SQLServer.Concepts.General.SSL.Forcing "../UserGuide/SQLServer.Concepts.General.SSL.Using.md#SQLServer.Concepts.General.SSL.Forcing"). For more information about SSL/TLS
 configuration for RDS for SQL Server, see [Using
-SSL with a Microsoft SQL Server DB instance](../UserGuide/SQLServer.Concepts.General.SSL.md "../UserGuide/SQLServer.Concepts.General.SSL.md").
+SSL with a Microsoft SQL Server DB instance](../UserGuide/SQLServer.Concepts.General.SSL.Using.md "../UserGuide/SQLServer.Concepts.General.SSL.Using.md").

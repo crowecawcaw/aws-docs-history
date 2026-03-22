@@ -167,7 +167,7 @@ If you use an on-premises Microsoft Active Directory:
 - Windows clients must connect using the domain name of the Directory Service in the
   endpoint rather than rds.amazonaws.com. For more information, see [Connecting to PostgreSQL with Kerberos authentication](postgresql-kerberos-connecting.md "postgresql-kerberos-connecting.md").
 - Windows clients can't connect using Aurora custom endpoints. To
-  learn more, see [Amazon Aurora endpoint connections](Aurora.Overview.md "Aurora.Overview.md").
+  learn more, see [Amazon Aurora endpoint connections](Aurora.Overview.Endpoints.md "Aurora.Overview.Endpoints.md").
 - For [global
   databases](aurora-global-database.md "aurora-global-database.md"):
   - Windows clients can connect using instance endpoints or
@@ -187,7 +187,7 @@ following screenshot shows an example.
 For Amazon Aurora to call Directory Service for you, your AWS account needs an IAM role
 that uses the managed IAM policy `AmazonRDSDirectoryServiceAccess`.
 This role allows Amazon Aurora to make calls to Directory Service. (Note that this IAM role to access the Directory Service is different
-than the IAM role used for [IAM database authentication](UsingWithRDS.md "UsingWithRDS.md").)
+than the IAM role used for [IAM database authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").)
 
 When you create a DB instance using the AWS Management Console and your console user account
 has the `iam:CreateRole` permission, the console creates the needed IAM
@@ -360,10 +360,10 @@ directory. You can do this in one of the following ways:
 
 - Create a new PostgreSQL DB cluster using the console, the
   [create-db-cluster](../../../cli/latest/reference/rds/create-db-cluster.md "../../../cli/latest/reference/rds/create-db-cluster.md") CLI command, or the [CreateDBCluster](../APIReference/API_CreateDBCluster.md "../APIReference/API_CreateDBCluster.md") RDS
-  API operation. For instructions, see [Creating and connecting to an Aurora PostgreSQL DB cluster](CHAP_GettingStartedAurora.CreatingConnecting.md "CHAP_GettingStartedAurora.CreatingConnecting.md").
+  API operation. For instructions, see [Creating and connecting to an Aurora PostgreSQL DB cluster](CHAP_GettingStartedAurora.CreatingConnecting.AuroraPostgreSQL.md "CHAP_GettingStartedAurora.CreatingConnecting.AuroraPostgreSQL.md").
 - Modify an existing PostgreSQL DB cluster using the console,
   the [modify-db-cluster](../../../cli/latest/reference/rds/modify-db-cluster.md "../../../cli/latest/reference/rds/modify-db-cluster.md") CLI command, or the [ModifyDBCluster](../APIReference/API_ModifyDBCluster.md "../APIReference/API_ModifyDBCluster.md") RDS
-  API operation. For instructions, see [Modifying an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
+  API operation. For instructions, see [Modifying an Amazon Aurora DB cluster](Aurora.Modifying.md "Aurora.Modifying.md").
 - Restore a PostgreSQL DB cluster from a DB snapshot using the
   console, the [restore-db-cluster-from-db-snapshot](../../../cli/latest/reference/rds/restore-db-cluster-from-snapshot.md "../../../cli/latest/reference/rds/restore-db-cluster-from-snapshot.md") CLI command, or the [RestoreDBClusterFromDBSnapshot](../APIReference/API_RestoreDBClusterFromSnapshot.md "../APIReference/API_RestoreDBClusterFromSnapshot.md") RDS API operation. For
   instructions, see [Restoring from a DB cluster snapshot](aurora-restore-snapshot.md "aurora-restore-snapshot.md").
@@ -466,7 +466,7 @@ domain.
 
 Database users that have been granted the `rds_ad` role can't also
 have the `rds_iam` role. This also applies to nested memberships. For
-more information, see [IAM database authentication](UsingWithRDS.md "UsingWithRDS.md").
+more information, see [IAM database authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
 
 ### Configuring your Aurora PostgreSQL DB cluster for case-insensitive user names
 
@@ -486,7 +486,7 @@ cluster must be using a custom DB cluster parameter group. For information about
 working with a custom DB cluster parameter group, see [Parameter groups for Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
 You can use the AWS CLI or the AWS Management Console to change the setting. For more
-information, see [Modifying parameters in a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+information, see [Modifying parameters in a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.ModifyingCluster.md "USER_WorkingWithParamGroups.ModifyingCluster.md").
 
 ## Step 8: Configure a PostgreSQL client
 
