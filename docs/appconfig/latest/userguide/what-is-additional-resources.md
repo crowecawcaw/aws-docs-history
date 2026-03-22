@@ -27,7 +27,7 @@ For information about AWS AppConfig language-specific SDKs, see the following re
 - [AWS SDK for Java V2](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/appconfig/package-summary.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/appconfig/package-summary.html")
 - [AWS
   SDK for JavaScript](../../../AWSJavaScriptSDK/latest/AWS/AppConfig.md "../../../AWSJavaScriptSDK/latest/AWS/AppConfig.md")
-- [AWS SDK for PHP V3](../../../aws-sdk-php/v3/api/namespace-Aws.md "../../../aws-sdk-php/v3/api/namespace-Aws.md")
+- [AWS SDK for PHP V3](../../../aws-sdk-php/v3/api/namespace-Aws.AppConfig.md "../../../aws-sdk-php/v3/api/namespace-Aws.AppConfig.md")
 - [AWS SDK for Python](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig.html")
 - [AWS SDK
   for Ruby V3](../../../sdk-for-ruby/v3/api/Aws/AppConfig.md "../../../sdk-for-ruby/v3/api/Aws/AppConfig.md")
