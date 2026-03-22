@@ -12,7 +12,7 @@ install, configure, and update applications on Amazon EC2 instances that are in 
 For more information, see the [CloudFormation helper scripts reference](../TemplateReference/cfn-helper-scripts-reference.md "../TemplateReference/cfn-helper-scripts-reference.md") in the
 _CloudFormation Template Reference Guide_.
 
-In the [getting started tutorial](gettingstarted.md "gettingstarted.md"), you
+In the [getting started tutorial](gettingstarted.walkthrough.md "gettingstarted.walkthrough.md"), you
 created a simple web server using `UserData` with a basic bash script. While this
 worked for a simple "Hello World" page, real applications often need more sophisticated
 configuration, including:
@@ -52,14 +52,14 @@ Tier](https://aws.amazon.com/free/ "https://aws.amazon.com/free/") to minimize o
 
 ## Prerequisites
 
-- You must have completed the [Creating your first stack](gettingstarted.md "gettingstarted.md") tutorial or have equivalent experience with
+- You must have completed the [Creating your first stack](gettingstarted.walkthrough.md "gettingstarted.walkthrough.md") tutorial or have equivalent experience with
   CloudFormation basics.
 - You must have access to an AWS account with an IAM user or role that has
   permissions to use Amazon EC2 and CloudFormation, or administrative user access.
 - You must have a Virtual Private Cloud (VPC) that has access to the internet. This
   tutorial template requires a default VPC, which comes automatically with newer
   AWS accounts. If you don't have a default VPC, or if it was deleted, see the
-  troubleshooting section in the [Creating your first stack](gettingstarted.md "gettingstarted.md") tutorial for alternative solutions.
+  troubleshooting section in the [Creating your first stack](gettingstarted.walkthrough.md "gettingstarted.walkthrough.md") tutorial for alternative solutions.
 
 ## Understanding bootstrap concepts
 
@@ -399,7 +399,7 @@ CloudFormation. You now understand:
 To continue learning:
 
 - Learn how to update a running stack and use the `cfn-hup` helper script.
-  For more information, see [Update a CloudFormation stack](updating.stacks.md "updating.stacks.md").
+  For more information, see [Update a CloudFormation stack](updating.stacks.walkthrough.md "updating.stacks.walkthrough.md").
 - Learn how to bootstrap a Windows stack. For more information, see [Bootstrapping Windows-based CloudFormation stacks](cfn-windows-stacks-bootstrapping.md "cfn-windows-stacks-bootstrapping.md").
 - Explore more complex bootstrap scenarios with multiple configuration sets. For more
   information, see [cfn-init](../TemplateReference/cfn-init.md "../TemplateReference/cfn-init.md") and

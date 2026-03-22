@@ -284,7 +284,7 @@ you can use to investigate issues.
 
 In your template, specify installation and configuration states in the
 `AWS::CloudFormation::Init` resource. For a walkthrough that shows how to use
-`cfn-init` and `AWS::CloudFormation::Init`, see [Deploy applications on Amazon EC2](deploying.md "deploying.md").
+`cfn-init` and `AWS::CloudFormation::Init`, see [Deploy applications on Amazon EC2](deploying.applications.md "deploying.applications.md").
 
 ## Use the latest helper scripts
 
@@ -391,7 +391,7 @@ the configuration in the template.
 
 For more information on drift, see [What is drift?](using-cfn-stack-drift.md#what-is-drift "using-cfn-stack-drift.md#what-is-drift").
 
-For more information on updating stacks, see [Update a CloudFormation stack](updating.stacks.md "updating.stacks.md").
+For more information on updating stacks, see [Update a CloudFormation stack](updating.stacks.walkthrough.md "updating.stacks.walkthrough.md").
 
 ## Create change sets before updating your stacks
 

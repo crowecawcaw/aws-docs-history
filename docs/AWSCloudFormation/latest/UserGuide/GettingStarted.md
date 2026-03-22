@@ -20,4 +20,4 @@ the AWS Management Console.
 
 - [How CloudFormation works](cloudformation-overview.md "cloudformation-overview.md")
 - [Signing up for an AWS account](cfn-sign-up-for-aws.md "cfn-sign-up-for-aws.md")
-- [Creating your first stack](gettingstarted.md "gettingstarted.md")
+- [Creating your first stack](gettingstarted.walkthrough.md "gettingstarted.walkthrough.md")

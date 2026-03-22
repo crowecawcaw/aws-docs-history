@@ -63,7 +63,7 @@ CloudFormation is available through the CloudFormation [console](https://console
 
 For an introduction to CloudFormation, see [How CloudFormation works](cloudformation-overview.md "cloudformation-overview.md").
 
-To start using CloudFormation, see [Creating your first stack](gettingstarted.md "gettingstarted.md").
+To start using CloudFormation, see [Creating your first stack](gettingstarted.walkthrough.md "gettingstarted.walkthrough.md").
 
 ## Related information
 

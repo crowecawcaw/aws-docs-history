@@ -272,7 +272,7 @@ restore the stack to the last known working state.
 
 ## Ways to get started with CloudFormation
 
-To create a hello world CloudFormation stack with the console, see [Creating your first stack](gettingstarted.md "gettingstarted.md").
+To create a hello world CloudFormation stack with the console, see [Creating your first stack](gettingstarted.walkthrough.md "gettingstarted.walkthrough.md").
 
 For guided learning, try the [Getting Started with CloudFormation](https://catalog.us-east-1.prod.workshops.aws/workshops/df7f72cf-4f10-4664-acb6-b30dc8d4bcf0/en-US "https://catalog.us-east-1.prod.workshops.aws/workshops/df7f72cf-4f10-4664-acb6-b30dc8d4bcf0/en-US") workshop, which offers hands-on experience with
 template development.

@@ -2,7 +2,7 @@
 
 ###### Note
 
-This tutorial builds on concepts from the [Deploy applications on Amazon EC2](deploying.md "deploying.md") tutorial. If you haven't completed that tutorial,
+This tutorial builds on concepts from the [Deploy applications on Amazon EC2](deploying.applications.md "deploying.applications.md") tutorial. If you haven't completed that tutorial,
 we recommend doing so first to understand EC2 bootstrapping with CloudFormation.
 
 This topic demonstrates a simple progression of updates to a running stack. We will walk

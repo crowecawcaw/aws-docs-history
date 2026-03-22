@@ -7,12 +7,12 @@ practice with stack deployments.
   how to reference outputs from one CloudFormation stack within another stack. Instead of
   including all resources in a single stack, you can create related AWS resources in
   separate stacks to create more modular and reusable templates.
-- [Deploy applications on Amazon EC2](deploying.md "deploying.md")
+- [Deploy applications on Amazon EC2](deploying.applications.md "deploying.applications.md")
   – Learn how to use CloudFormation to automatically install, configure, and start
   up your application on Amazon EC2 instances. This way, you can easily duplicate
   deployments and update existing installations without connecting directly to the
   instances.
-- [Update a CloudFormation stack](updating.stacks.md "updating.stacks.md") – Walk through a simple
+- [Update a CloudFormation stack](updating.stacks.walkthrough.md "updating.stacks.walkthrough.md") – Walk through a simple
   progression of updates to a running stack with CloudFormation.
 - [Create a scaled and load-balanced application](walkthrough-autoscaling.md "walkthrough-autoscaling.md")
   – Discover how to use CloudFormation to create a scalable and load-balanced
