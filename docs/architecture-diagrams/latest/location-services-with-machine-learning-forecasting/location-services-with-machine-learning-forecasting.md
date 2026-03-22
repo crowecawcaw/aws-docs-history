@@ -114,7 +114,7 @@ endpoints, and repositories.
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/location-services-with-machine-learning-forecasting.md "samples/location-services-with-machine-learning-forecasting.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/location-services-with-machine-learning-forecasting.zip.md "samples/location-services-with-machine-learning-forecasting.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
