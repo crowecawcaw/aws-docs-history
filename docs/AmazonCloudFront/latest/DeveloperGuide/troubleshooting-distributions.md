@@ -29,7 +29,7 @@ Verify that the requested object in your bucket exists. Object names are case
 sensitive. Entering an invalid object name can return an access denied error
 code.
 
-For example, if you follow the [CloudFront tutorial](GettingStarted.md "GettingStarted.md") to
+For example, if you follow the [CloudFront tutorial](GettingStarted.SimpleDistribution.md "GettingStarted.SimpleDistribution.md") to
 create a basic distribution, you create an Amazon S3 bucket as the origin and upload
 an example `index.html` file.
 

@@ -51,7 +51,7 @@ Before you create and set up origin access control (OAC), you must have a CloudF
 distribution with an Amazon S3 bucket origin. This origin must be a regular S3
 bucket, not a bucket configured as a [website
 endpoint](../../../AmazonS3/latest/userguide/WebsiteEndpoints.md "../../../AmazonS3/latest/userguide/WebsiteEndpoints.md"). For more information about setting up a CloudFront distribution
-with an S3 bucket origin, see [Get started with a CloudFront standard distribution](GettingStarted.md "GettingStarted.md").
+with an S3 bucket origin, see [Get started with a CloudFront standard distribution](GettingStarted.SimpleDistribution.md "GettingStarted.SimpleDistribution.md").
 
 ###### Important
 

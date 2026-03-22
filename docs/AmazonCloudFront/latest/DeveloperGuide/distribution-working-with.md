@@ -58,6 +58,6 @@ You can use distributions to serve the following content over HTTP or HTTPS:
 - [Enable IPv6 for CloudFront distributions](cloudfront-enable-ipv6.md "cloudfront-enable-ipv6.md")
 - [Use CloudFront continuous deployment to safely test CDN configuration changes](continuous-deployment.md "continuous-deployment.md")
 - [Use custom URLs by adding alternate domain names (CNAMEs)](CNAMEs.md "CNAMEs.md")
-- [Use WebSockets with CloudFront distributions](distribution-working-with.md "distribution-working-with.md")
+- [Use WebSockets with CloudFront distributions](distribution-working-with.websockets.md "distribution-working-with.websockets.md")
 - [Request Anycast static IPs to use for allowlisting](request-static-ips.md "request-static-ips.md")
 - [Using gRPC with CloudFront distributions](distribution-using-grpc.md "distribution-using-grpc.md")

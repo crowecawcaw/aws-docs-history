@@ -557,6 +557,17 @@ The following prototype methods are supported:
 - `TextEncoder.prototype.encode()`
 - `TextEncoder.prototype.encodeInto()`
 
+**Console**
+
+This is a helper object for debugging. It only supports the
+`log()` method, to record log messages.
+
+###### Note
+
+CloudFront Functions doesn't support comma syntax, such as
+`console.log('a', 'b')`. Instead, use the
+`console.log('a' + ' ' + 'b')` format.
+
 ## Error types
 
 The following error objects are supported:

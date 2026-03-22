@@ -206,7 +206,7 @@ Availability Zone (AZ) exceptions are noted.
 | Asia Pacific (Singapore)  | `ap-southeast-1`                          |
 | Asia Pacific (Sydney)     | `ap-southeast-2`                          |
 | Asia Pacific (Tokyo)      | `ap-northeast-1 (except AZ<br>apne1-az3)` |
-| Asia Pacific (Seoul)      | `ap-northeast-2 (except AZ<br>apne2-az1)` |
+| Asia Pacific (Seoul)      | `ap-northeast-2`                          |
 | Asia Pacific (Thailand)   | `ap-southeast-7`                          |
 | Asia Pacific (Malaysia)   | `ap-southeast-5`                          |
 | Asia Pacific (Taipei)     | `ap-east-2`                               |

@@ -28,7 +28,7 @@ and recommendations:
 To configure custom error responses in the CloudFront console, you must have a CloudFront
 distribution. In the console, the configuration settings for custom error responses
 are only available for existing distributions. To learn how to create a
-distribution, see [Get started with a CloudFront standard distribution](GettingStarted.md "GettingStarted.md").
+distribution, see [Get started with a CloudFront standard distribution](GettingStarted.SimpleDistribution.md "GettingStarted.SimpleDistribution.md").
 
 Console
 

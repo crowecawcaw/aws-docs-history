@@ -12,7 +12,7 @@ response header.
 
 ## Prerequisites
 
-To use CloudFront Functions, you need a CloudFront distribution. If you don’t have one, see [Get started with a CloudFront standard distribution](GettingStarted.md "GettingStarted.md").
+To use CloudFront Functions, you need a CloudFront distribution. If you don’t have one, see [Get started with a CloudFront standard distribution](GettingStarted.SimpleDistribution.md "GettingStarted.SimpleDistribution.md").
 
 ## Create the function
 

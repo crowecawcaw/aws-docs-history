@@ -101,7 +101,7 @@ For more information, see [Set signed cookies using a custom policy](private-con
 
 The following example code provides a complete demonstration of creating
 CloudFront signed cookies with PHP. You can download the full example from the
-[demo-php.zip](samples/demo-php.md "samples/demo-php.md") file.
+[demo-php.zip](samples/demo-php.zip.md "samples/demo-php.zip.md") file.
 
 In the following example, you can modify the `$policy Condition`
 element to allow both IPv4 and IPv6 address ranges. For an example, see [Using IPv6 addresses in IAM policies](../../../AmazonS3/latest/userguide/ipv6-access.md#ipv6-access-iam "../../../AmazonS3/latest/userguide/ipv6-access.md#ipv6-access-iam") in the

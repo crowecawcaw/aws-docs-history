@@ -299,7 +299,7 @@ future.
 
 For more information about creating a distribution, see the following links.
 
-- To learn how to create a distribution that uses an Amazon Simple Storage Service (Amazon S3) bucket origin with origin access control (OAC), see [Get started with a CloudFront standard distribution](GettingStarted.md "GettingStarted.md").
+- To learn how to create a distribution that uses an Amazon Simple Storage Service (Amazon S3) bucket origin with origin access control (OAC), see [Get started with a CloudFront standard distribution](GettingStarted.SimpleDistribution.md "GettingStarted.SimpleDistribution.md").
 - For information about using the CloudFront APIs to create a distribution, see [CreateDistribution](../../../cloudfront/latest/APIReference/API_CreateDistribution.md "../../../cloudfront/latest/APIReference/API_CreateDistribution.md") in the _Amazon CloudFront API Reference_.
 - For information about updating a distribution (for example, to add cache behaviors to standard distributions, or to customize distribution tenants), see [Update a distribution](HowToUpdateDistribution.md "HowToUpdateDistribution.md").
 - To see the current maximum number of distributions that you can create for each AWS

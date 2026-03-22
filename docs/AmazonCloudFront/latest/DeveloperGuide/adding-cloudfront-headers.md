@@ -7,7 +7,7 @@ viewer or the viewer request. The headers provide information about the viewer's
 type, IP address, geographic location, request protocol (HTTP or HTTPS), HTTP version, TLS
 connection details, [JA3 fingerprint](https://github.com/salesforce/ja3 "https://github.com/salesforce/ja3"),
 and JA4 fingerprint. You can also configure your distribution's cache behavior to forward
-WebSocket headers. For more information, see [Use WebSockets with CloudFront distributions](distribution-working-with.md "distribution-working-with.md").
+WebSocket headers. For more information, see [Use WebSockets with CloudFront distributions](distribution-working-with.websockets.md "distribution-working-with.websockets.md").
 
 With these headers, your origin or your edge function can receive information about the
 viewer without the need for you to write your own code to determine this information. If

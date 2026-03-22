@@ -9,7 +9,7 @@ You can also create signed URLs and signed cookies by using the SDK for .NET. In
 
 - **Signed URLs** – [AmazonCloudFrontUrlSigner](../../../sdkfornet/v3/apidocs/items/CloudFront/TCloudFrontUrlSigner.md "../../../sdkfornet/v3/apidocs/items/CloudFront/TCloudFrontUrlSigner.md")
 - **Signed cookies** – [AmazonCloudFrontCookieSigner](../../../sdkfornet/v3/apidocs/items/CloudFront/TCloudFrontCookieSigner.md "../../../sdkfornet/v3/apidocs/items/CloudFront/TCloudFrontCookieSigner.md")
-  To download the code, go to [Signature Code in C#](samples/AWS_PrivateCF_Distributions.md "samples/AWS_PrivateCF_Distributions.md").
+  To download the code, go to [Signature Code in C#](samples/AWS_PrivateCF_Distributions.zip.md "samples/AWS_PrivateCF_Distributions.zip.md").
 
 ###### Notes
 
@@ -80,7 +80,7 @@ the following:
 - Concatenates the values.
 
 For the complete implementation, see the example at [Signature Code in
-C#](samples/AWS_PrivateCF_Distributions.md "samples/AWS_PrivateCF_Distributions.md").
+C#](samples/AWS_PrivateCF_Distributions.zip.md "samples/AWS_PrivateCF_Distributions.zip.md").
 
 ###### Note
 
@@ -182,7 +182,7 @@ the following:
 5. Concatenates the values.
 
 For the complete implementation, see the example at [Signature Code in
-C#](samples/AWS_PrivateCF_Distributions.md "samples/AWS_PrivateCF_Distributions.md").
+C#](samples/AWS_PrivateCF_Distributions.zip.md "samples/AWS_PrivateCF_Distributions.zip.md").
 
 ###### Note
 

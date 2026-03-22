@@ -3,7 +3,7 @@
 Any web server that runs PHP can use this PHP example code to create policy
 statements and signatures for private CloudFront distributions. The full example creates a
 functioning webpage with signed URL links that play a video stream using CloudFront
-streaming. You can download the full example from the [demo-php.zip](samples/demo-php.md "samples/demo-php.md") file.
+streaming. You can download the full example from the [demo-php.zip](samples/demo-php.zip.md "samples/demo-php.zip.md") file.
 
 ###### Notes
 
@@ -11,7 +11,7 @@ streaming. You can download the full example from the [demo-php.zip](samples/dem
   private content using a signed URL. For more information about the
   entire process, see [Use signed URLs](private-content-signed-urls.md "private-content-signed-urls.md").
 - You can also create signed URLs by using the `UrlSigner`
-  class in the AWS SDK for PHP. For more information, see [Class UrlSigner](../../../aws-sdk-php/v3/api/class-Aws.CloudFront.md "../../../aws-sdk-php/v3/api/class-Aws.CloudFront.md") in the
+  class in the AWS SDK for PHP. For more information, see [Class UrlSigner](../../../aws-sdk-php/v3/api/class-Aws.CloudFront.UrlSigner.md "../../../aws-sdk-php/v3/api/class-Aws.CloudFront.UrlSigner.md") in the
   _AWS SDK for PHP API Reference_.
 
 ###### Topics
@@ -130,7 +130,7 @@ For more information about custom policies, see [Create a signed URL using a cus
 ## Full code example
 
 The following example code provides a complete demonstration of creating CloudFront
-signed URLs with PHP. You can download the full example from the [demo-php.zip](samples/demo-php.md "samples/demo-php.md") file.
+signed URLs with PHP. You can download the full example from the [demo-php.zip](samples/demo-php.zip.md "samples/demo-php.zip.md") file.
 
 In the following example, you can modify the `$policy`
 `Condition` element to allow both IPv4 and IPv6 address ranges. For
