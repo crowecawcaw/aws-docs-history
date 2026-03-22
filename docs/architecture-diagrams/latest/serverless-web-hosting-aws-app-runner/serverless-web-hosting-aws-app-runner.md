@@ -47,7 +47,7 @@ b. The outbound traffic is forwarded to the customer/private-owned VPC where the
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/serverless-web-hosting-aws-app-runner.md "samples/serverless-web-hosting-aws-app-runner.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/serverless-web-hosting-aws-app-runner.zip.md "samples/serverless-web-hosting-aws-app-runner.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
