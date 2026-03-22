@@ -7,7 +7,7 @@ permissions:
   role](../../../lambda/latest/dg/lambda-intro-execution-role.md "../../../lambda/latest/dg/lambda-intro-execution-role.md") permission to manage elastic network interfaces that connect your
   function to a VPC. Ensure that you have a sufficient number of network interfaces
   and IP addresses available.
-- `AmazonAthenaFullAccess` – The [AmazonAthenaFullAccess](managed-policies.md#amazonathenafullaccess-managed-policy "managed-policies.md#amazonathenafullaccess-managed-policy") managed policy grants full access to
+- `AmazonAthenaFullAccess` – The [AmazonAthenaFullAccess](security-iam-awsmanpol.md#amazonathenafullaccess-managed-policy "security-iam-awsmanpol.md#amazonathenafullaccess-managed-policy") managed policy grants full access to
   Athena.
 - An Amazon S3 policy to allow the Lambda function to write to S3 and to allow Athena to
   read from S3.
@@ -38,7 +38,7 @@ allow Athena federated queries](federated-query-iam-access.md "federated-query-i
 ## Configure permissions for catalog registration and metadata API operations
 
 For API access to catalog registration and metadata operations, you can use the [AmazonAthenaFullAccess managed
-policy](managed-policies.md#amazonathenafullaccess-managed-policy "managed-policies.md#amazonathenafullaccess-managed-policy"). If you do not use the `AmazonAthenaFullAccess` policy, add
+policy](security-iam-awsmanpol.md#amazonathenafullaccess-managed-policy "security-iam-awsmanpol.md#amazonathenafullaccess-managed-policy"). If you do not use the `AmazonAthenaFullAccess` policy, add
 the following API operations to your Athena policies:
 
 JSON

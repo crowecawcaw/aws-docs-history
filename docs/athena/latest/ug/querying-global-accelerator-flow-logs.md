@@ -6,7 +6,7 @@ endpoints over the AWS global network. For more information about Global Acceler
 Global Accelerator flow logs enable you to capture information about the IP address traffic going to
 and from network interfaces in your accelerators. Flow log data is published to Amazon S3, where
 you can retrieve and view your data. For more information, see [Flow logs in
-AWS Global Accelerator](../../../global-accelerator/latest/dg/monitoring-global-accelerator.md "../../../global-accelerator/latest/dg/monitoring-global-accelerator.md").
+AWS Global Accelerator](../../../global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.md "../../../global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.md").
 
 You can use Athena to query your Global Accelerator flow logs by creating a table that specifies their
 location in Amazon S3.

@@ -1,6 +1,6 @@
-# Compliance validation for Athena
+# Compliance validation for
 
-Third-party auditors assess the security and compliance of Amazon Athena as part of
+Third-party auditors assess the security and compliance of as part of
 multiple AWS compliance programs. These include SOC, PCI, FedRAMP, and others.
 
 For a list of AWS services in scope of specific compliance programs, see [AWS services in scope by
@@ -9,7 +9,7 @@ compliance program](https://aws.amazon.com/compliance/services-in-scope/ "https:
 You can download third-party audit reports using AWS Artifact. For more information, see [Downloading
 reports in AWS Artifact](../../../artifact/latest/ug/downloading-documents.md "../../../artifact/latest/ug/downloading-documents.md").
 
-Your compliance responsibility when using Athena is determined by the sensitivity
+Your compliance responsibility when using is determined by the sensitivity
 of your data, your company's compliance objectives, and applicable laws and regulations.
 AWS provides the following resources to help with compliance:
 

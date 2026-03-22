@@ -25,7 +25,7 @@ _AWS Lake Formation Developer Guide_.
 
 Anyone using Athena to query data registered with Lake Formation must have an IAM
 permissions policy that allows the `lakeformation:GetDataAccess` action.
-The [AWS managed policy: AmazonAthenaFullAccess](managed-policies.md#amazonathenafullaccess-managed-policy "managed-policies.md#amazonathenafullaccess-managed-policy") allows this action. If
+The [AWS managed policy: AmazonAthenaFullAccess](security-iam-awsmanpol.md#amazonathenafullaccess-managed-policy "security-iam-awsmanpol.md#amazonathenafullaccess-managed-policy") allows this action. If
 you use inline policies, be sure to update permissions policies to allow this
 action.
 

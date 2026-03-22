@@ -17,7 +17,7 @@ When you use the ODBC 1.x driver, be sure to note the following requirements:
   Add the `athena:GetQueryResultsStream` policy action to the IAM
   principals that use the ODBC driver. This policy action is not exposed directly
   with the API. It is used only with the ODBC and JDBC drivers as part of
-  streaming results support. For an example policy, see [AWS managed policy: AWSQuicksightAthenaAccess](managed-policies.md#awsquicksightathenaaccess-managed-policy "managed-policies.md#awsquicksightathenaaccess-managed-policy").
+  streaming results support. For an example policy, see [AWS managed policy: AWSQuicksightAthenaAccess](security-iam-awsmanpol.md#awsquicksightathenaaccess-managed-policy "security-iam-awsmanpol.md#awsquicksightathenaaccess-managed-policy").
 
 ## Windows
 

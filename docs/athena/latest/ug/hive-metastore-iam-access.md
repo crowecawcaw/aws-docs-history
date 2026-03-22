@@ -10,7 +10,7 @@ identities.
 
 ###### Example – Allow an IAM principal to query data using Athena Data Connector for External Hive Metastore
 
-The following policy is attached to IAM principals in addition to the [AWS managed policy: AmazonAthenaFullAccess](managed-policies.md#amazonathenafullaccess-managed-policy "managed-policies.md#amazonathenafullaccess-managed-policy"), which grants full access to
+The following policy is attached to IAM principals in addition to the [AWS managed policy: AmazonAthenaFullAccess](security-iam-awsmanpol.md#amazonathenafullaccess-managed-policy "security-iam-awsmanpol.md#amazonathenafullaccess-managed-policy"), which grants full access to
 Athena actions.
 
 JSON
@@ -58,7 +58,7 @@ JSON
 
 ###### Example – Allow an IAM principal to create an Athena Data Connector for External Hive Metastore
 
-The following policy is attached to IAM principals in addition to the [AWS managed policy: AmazonAthenaFullAccess](managed-policies.md#amazonathenafullaccess-managed-policy "managed-policies.md#amazonathenafullaccess-managed-policy"), which grants full access to
+The following policy is attached to IAM principals in addition to the [AWS managed policy: AmazonAthenaFullAccess](security-iam-awsmanpol.md#amazonathenafullaccess-managed-policy "security-iam-awsmanpol.md#amazonathenafullaccess-managed-policy"), which grants full access to
 Athena actions.
 
 JSON

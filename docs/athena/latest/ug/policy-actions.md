@@ -3,7 +3,7 @@
 To gain access to AWS services and resources, such as Athena and the Amazon S3 buckets,
 provide the JDBC or ODBC driver credentials to your application. If you are using the
 JDBC or ODBC driver, ensure that the IAM permissions policy includes all of the
-actions listed in [AWS managed policy: AWSQuicksightAthenaAccess](managed-policies.md#awsquicksightathenaaccess-managed-policy "managed-policies.md#awsquicksightathenaaccess-managed-policy").
+actions listed in [AWS managed policy: AWSQuicksightAthenaAccess](security-iam-awsmanpol.md#awsquicksightathenaaccess-managed-policy "security-iam-awsmanpol.md#awsquicksightathenaaccess-managed-policy").
 
 Whenever you use IAM policies, make sure that you follow IAM best practices. For more information, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 

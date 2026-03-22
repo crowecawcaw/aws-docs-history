@@ -290,7 +290,7 @@ The DynamoDB connector supports [passthrough queries](federated-query-passthroug
 PartiQL syntax. The DynamoDB [GetItem](../../../amazondynamodb/latest/APIReference/API_GetItem.md "../../../amazondynamodb/latest/APIReference/API_GetItem.md") API
 operation is not supported. For information about querying DynamoDB using PartiQL, see
 [PartiQL select
-statements for DynamoDB](../../../amazondynamodb/latest/developerguide/ql-reference.md "../../../amazondynamodb/latest/developerguide/ql-reference.md") in the _Amazon DynamoDB Developer Guide_.
+statements for DynamoDB](../../../amazondynamodb/latest/developerguide/ql-reference.select.md "../../../amazondynamodb/latest/developerguide/ql-reference.select.md") in the _Amazon DynamoDB Developer Guide_.
 
 To use passthrough queries with DynamoDB, use the following syntax:
 

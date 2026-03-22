@@ -14,7 +14,7 @@ when you run the [`aws athena
 1. If the console navigation pane is not visible, choose the expansion menu
    on the left.
 
-![Choose the expansion menu.](images/nav-pane-expansion.png) 2. In the navigation pane, choose **Workgroups**. 3. In the list of workgroups, choose the link of the workgroup that you want
+![Choose the expansion menu.](/images/athena/latest/ug/images/nav-pane-expansion.png) 2. In the navigation pane, choose **Workgroups**. 3. In the list of workgroups, choose the link of the workgroup that you want
 to edit. 4. Choose **Edit**. 5. For **Query result location and encryption**, do one of
 the following:
 

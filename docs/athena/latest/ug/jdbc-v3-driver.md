@@ -40,7 +40,7 @@ requirements:
   the IAM principals that use the JDBC driver. This policy action is not
   exposed directly with the API. It is used only with the ODBC and JDBC
   drivers as part of streaming results support. For an example policy, see
-  [AWS managed policy: AWSQuicksightAthenaAccess](managed-policies.md#awsquicksightathenaaccess-managed-policy "managed-policies.md#awsquicksightathenaaccess-managed-policy").
+  [AWS managed policy: AWSQuicksightAthenaAccess](security-iam-awsmanpol.md#awsquicksightathenaaccess-managed-policy "security-iam-awsmanpol.md#awsquicksightathenaaccess-managed-policy").
 
 To download the Amazon Athena 3.x JDBC driver, visit the following links.
 

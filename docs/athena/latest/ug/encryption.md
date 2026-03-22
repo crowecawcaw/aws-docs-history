@@ -116,7 +116,7 @@ permissions, also known as "Allow" actions, to your policies used in Athena:
   encryption, Athena users require no additional permissions in their policies.
   It is sufficient to have the appropriate Amazon S3 permissions for the
   appropriate Amazon S3 location and for Athena actions. For more information about
-  policies that allow appropriate Athena and Amazon S3 permissions, see [AWS managed policies for Amazon Athena](managed-policies.md "managed-policies.md") and [Control access to Amazon S3 from Athena](s3-permissions.md "s3-permissions.md").
+  policies that allow appropriate Athena and Amazon S3 permissions, see [AWS managed policies for Amazon Athena](security-iam-awsmanpol.md "security-iam-awsmanpol.md") and [Control access to Amazon S3 from Athena](s3-permissions.md "s3-permissions.md").
 - AWS KMS – If you use AWS KMS for
   encryption, Athena users must be allowed to perform particular AWS KMS actions
   in addition to Athena and Amazon S3 permissions. You allow these actions by

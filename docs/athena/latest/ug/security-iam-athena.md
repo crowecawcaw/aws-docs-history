@@ -21,7 +21,7 @@ The permissions required to run Athena queries include the following:
 
 ###### Topics
 
-- [AWS managed policies](managed-policies.md "managed-policies.md")
+- [AWS managed policies](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 - [Data perimeters](data-perimeters.md "data-perimeters.md")
 - [Access through JDBC and ODBC connections](policy-actions.md "policy-actions.md")
 - [Control access to Amazon S3 from Athena](s3-permissions.md "s3-permissions.md")

@@ -13,7 +13,7 @@ the following resources:
 - AWS SDK for C++ (`Aws::Athena::AthenaClient`)
 - AWS SDK for Go ([`athena`](../../../sdk-for-go/api/service/athena.md "../../../sdk-for-go/api/service/athena.md"))
 - AWS SDK for JavaScript v3 ([`AthenaClient`](../../../AWSJavaScriptSDK/v3/latest/client/athena.md "../../../AWSJavaScriptSDK/v3/latest/client/athena.md"))
-- AWS SDK for PHP 3.x ([`Aws\Athena`](../../../aws-sdk-php/v3/api/namespace-Aws.md "../../../aws-sdk-php/v3/api/namespace-Aws.md"))
+- AWS SDK for PHP 3.x ([`Aws\Athena`](../../../aws-sdk-php/v3/api/namespace-Aws.Athena.md "../../../aws-sdk-php/v3/api/namespace-Aws.Athena.md"))
 - AWS SDK for Python (Boto3) ([`Athena.Client`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/athena.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/athena.html"))
 - AWS SDK for Ruby v3 ([`Aws::Athena::Client`](../../../sdk-for-ruby/v3/api/Aws/Athena/Client.md "../../../sdk-for-ruby/v3/api/Aws/Athena/Client.md"))
   For more information about running the Java code examples in this section, see the [Amazon Athena Java readme](https://github.com/awsdocs/aws-doc-sdk-examples/tree/master/javav2/example_code/athena "https://github.com/awsdocs/aws-doc-sdk-examples/tree/master/javav2/example_code/athena") on the [AWS code examples

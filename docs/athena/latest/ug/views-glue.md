@@ -111,4 +111,4 @@ The `Definer` role's trust relationships must allow the
 more information, see [Prerequisites
 for creating views](../../../lake-formation/latest/dg/working-with-views.md#views-prereqs "../../../lake-formation/latest/dg/working-with-views.md#views-prereqs") in the _AWS Lake Formation Developer Guide_.
 
-IAM permissions for Athena access are also required. For more information, see [AWS managed policies for Amazon Athena](managed-policies.md "managed-policies.md").
+IAM permissions for Athena access are also required. For more information, see [AWS managed policies for Amazon Athena](security-iam-awsmanpol.md "security-iam-awsmanpol.md").

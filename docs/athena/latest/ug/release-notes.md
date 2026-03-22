@@ -512,7 +512,7 @@ Use the new Amazon Athena federated query passthrough feature to run entire quer
 directly on the underlying data source. Federated passthrough queries help you take
 advantage of the unique functions, query language, and performance capabilities of the
 original data source. For example, you can run Athena queries on DynamoDB using the [PartiQL
-language](../../../amazondynamodb/latest/developerguide/ql-reference.md "../../../amazondynamodb/latest/developerguide/ql-reference.md"). Federated passthrough queries are also useful when you want to run
+language](../../../amazondynamodb/latest/developerguide/ql-reference.select.md "../../../amazondynamodb/latest/developerguide/ql-reference.select.md"). Federated passthrough queries are also useful when you want to run
 `SELECT` queries that aggregate, join, or invoke functions of your data
 source that are not available in Athena. Using passthrough queries can reduce the amount
 of data processed by Athena and result in faster query times.
@@ -3320,7 +3320,7 @@ Workgroups are an IAM resource. For a full list of workgroup-related
 actions, resources, and conditions in IAM, see [Actions, Resources, and Condition
 Keys for Amazon Athena](../../../service-authorization/latest/reference/list_amazonathena.md "../../../service-authorization/latest/reference/list_amazonathena.md") in the _Service Authorization Reference_.
 Before you create new workgroups, make sure that you use [workgroup IAM policies](workgroups-iam-policy.md "workgroups-iam-policy.md"), and the
-[AWS managed policy: AmazonAthenaFullAccess](managed-policies.md#amazonathenafullaccess-managed-policy "managed-policies.md#amazonathenafullaccess-managed-policy").
+[AWS managed policy: AmazonAthenaFullAccess](security-iam-awsmanpol.md#amazonathenafullaccess-managed-policy "security-iam-awsmanpol.md#amazonathenafullaccess-managed-policy").
 
 You can use workgroups in the console, with [workgroup API operations](workgroups-api-list.md "workgroups-api-list.md"), or with the
 JDBC driver. For information about creating workgroups, see [Create a workgroup](creating-workgroups.md "creating-workgroups.md"). To
@@ -3474,7 +3474,7 @@ To use the ODBC driver version 1.0.3, follow these requirements:
 - Add the `athena:GetQueryResultsStream` policy action to the
   list of policies for Athena. This policy action is not exposed directly with
   the API and is only used with the ODBC and JDBC drivers, as part of
-  streaming results support. For an example policy, see [AWS managed policy: AWSQuicksightAthenaAccess](managed-policies.md#awsquicksightathenaaccess-managed-policy "managed-policies.md#awsquicksightathenaaccess-managed-policy").
+  streaming results support. For an example policy, see [AWS managed policy: AWSQuicksightAthenaAccess](security-iam-awsmanpol.md#awsquicksightathenaaccess-managed-policy "security-iam-awsmanpol.md#awsquicksightathenaaccess-managed-policy").
 
 ### August 23, 2018
 
@@ -3526,7 +3526,7 @@ The JDBC driver version 2.0.5 is a drop-in replacement for the previous version 
 driver (2.0.2). To ensure that you can use the JDBC driver version 2.0.5, add the
 `athena:GetQueryResultsStream` policy action to the list of policies for
 Athena. This policy action is not exposed directly with the API and is only used with the
-JDBC driver, as part of streaming results support. For an example policy, see [AWS managed policy: AWSQuicksightAthenaAccess](managed-policies.md#awsquicksightathenaaccess-managed-policy "managed-policies.md#awsquicksightathenaaccess-managed-policy"). For more information about migrating from version 2.0.2 to
+JDBC driver, as part of streaming results support. For an example policy, see [AWS managed policy: AWSQuicksightAthenaAccess](security-iam-awsmanpol.md#awsquicksightathenaaccess-managed-policy "security-iam-awsmanpol.md#awsquicksightathenaaccess-managed-policy"). For more information about migrating from version 2.0.2 to
 version 2.0.5 of the driver, see the [JDBC Driver Migration Guide](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/SimbaAthenaJDBC_2.0.5/docs/Simba+Athena+JDBC+Driver+Migration+Guide.pdf "https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/SimbaAthenaJDBC_2.0.5/docs/Simba+Athena+JDBC+Driver+Migration+Guide.pdf").
 
 If you are migrating from a 1.x driver to a 2.x driver, you will need to migrate your

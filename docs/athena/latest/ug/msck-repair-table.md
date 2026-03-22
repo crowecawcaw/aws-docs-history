@@ -127,7 +127,7 @@ Review the IAM policies attached to the role that you're using to run `MSCK
  REPAIR TABLE`. When you [use the AWS Glue Data Catalog with Athena](data-sources-glue.md "data-sources-glue.md"), the IAM
 policy must allow the `glue:BatchCreatePartition` action. For an example
 of an IAM policy that allows the `glue:BatchCreatePartition` action,
-see [AWS managed policy: AmazonAthenaFullAccess](managed-policies.md#amazonathenafullaccess-managed-policy "managed-policies.md#amazonathenafullaccess-managed-policy").
+see [AWS managed policy: AmazonAthenaFullAccess](security-iam-awsmanpol.md#amazonathenafullaccess-managed-policy "security-iam-awsmanpol.md#amazonathenafullaccess-managed-policy").
 
 ### Change or redefine the Amazon S3 path
 

@@ -1,12 +1,12 @@
 # Infrastructure security in Athena
 
-As a managed service, Amazon Athena is protected by AWS global network security. For
+As a managed service, is protected by AWS global network security. For
 information about AWS security services and how AWS protects infrastructure, see [AWS Cloud Security](https://aws.amazon.com/security/ "https://aws.amazon.com/security/"). To design your AWS
 environment using the best practices for infrastructure security, see [Infrastructure
 Protection](../../../wellarchitected/latest/security-pillar/infrastructure-protection.md "../../../wellarchitected/latest/security-pillar/infrastructure-protection.md") in _Security Pillar AWS Well‐Architected
 Framework_.
 
-You use AWS published API calls to access Athena through the network. Clients must
+You use AWS published API calls to access through the network. Clients must
 support the following:
 
 - Transport Layer Security (TLS). We require TLS 1.2 and recommend TLS 1.3.
@@ -15,7 +15,7 @@ support the following:
   such as Java 7 and later support these modes.
   Use IAM policies to restrict access to Athena operations. Whenever you use IAM policies, make sure that you follow IAM best practices. For more information, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-Athena [managed policies](managed-policies.md "managed-policies.md") are easy to use, and are
+Athena [managed policies](security-iam-awsmanpol.md "security-iam-awsmanpol.md") are easy to use, and are
 automatically updated with the required actions as the service evolves. Customer-managed and
 inline policies allow you to fine tune policies by specifying more granular Athena actions
 within the policy. Grant appropriate access to the Amazon S3 location of the data. For detailed

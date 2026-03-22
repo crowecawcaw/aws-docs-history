@@ -33,15 +33,43 @@ more information, see [Table buckets](../../../AmazonS3/latest/userguide/s3-tabl
 
 1. Create an S3 table bucket. For more information, see [Creating a
    table bucket](../../../AmazonS3/latest/userguide/s3-tables-buckets-create.md "../../../AmazonS3/latest/userguide/s3-tables-buckets-create.md") in Amazon Simple Storage Service User Guide.
-2. Make sure that the integration of your table buckets with AWS Glue Data Catalog and
-   AWS Lake Formation is successful by following [Prerequisites for integration](../../../AmazonS3/latest/userguide/s3-tables-integrating-aws.md#table-integration-prerequisites "../../../AmazonS3/latest/userguide/s3-tables-integrating-aws.md#table-integration-prerequisites") and [Integrating table buckets with AWS analytics services](../../../AmazonS3/latest/userguide/s3-tables-integrating-aws.md#table-integration-procedures "../../../AmazonS3/latest/userguide/s3-tables-integrating-aws.md#table-integration-procedures") in
-   Amazon Simple Storage Service User Guide.
+2. Make sure that the integration of your table buckets with AWS Glue Data Catalog is
+   successful. For required permissions and setup steps, see
+   [Prerequisites for S3 Tables integration](../../../glue/latest/dg/s3tables-catalog-prerequisites.md "../../../glue/latest/dg/s3tables-catalog-prerequisites.md") and
+   [Enabling S3 Tables integration with Glue Data Catalog](../../../glue/latest/dg/enable-s3-tables-catalog-integration.md "../../../glue/latest/dg/enable-s3-tables-catalog-integration.md") in
+   the AWS Glue Developer Guide.
+3. For the principal you use to run queries with Athena, grant permissions on the S3 Table
+   catalog using one of the following approaches:
 
-###### Note
+**Option 1: Use IAM permissions**
 
-If you enabled the integration while creating an S3 table bucket from
-the S3 console in Step 1, then you can skip this step. 3. For the principal you use to run queries with Athena, grant Lake Formation permissions on the S3 Table
-catalog, either through the Lake Formation console or AWS CLI.
+When using IAM access control, your principal needs permissions on both
+AWS Glue Data Catalog resources and Amazon S3 Tables resources.
+
+The following list contains all `s3tables` permissions required to perform any supported DDL or DML operation against your S3 Tables in Athena:
+
+    * `s3tables:GetTableBucket`
+    * `s3tables:GetNamespace`
+    * `s3tables:GetTable`
+    * `s3tables:GetTableData`
+    * `s3tables:PutTableData`
+    * `s3tables:ListNamespaces`
+    * `s3tables:ListTables`
+    * `s3tables:DeleteNamespace`
+    * `s3tables:DeleteTable`
+    * `s3tables:CreateNamespace`
+    * `s3tables:CreateTable`
+    * `s3tables:UpdateTableMetadataLocation`
+
+Apply these permissions to specific S3 table bucket and S3 Table resources or use `*` as the resource to grant access to all table buckets and tables in your account. These permissions can be combined with the [`AmazonAthenaFullAccess`](../../../aws-managed-policy/latest/reference/AmazonAthenaFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonAthenaFullAccess.md") managed policy to enable complete functionality.
+
+**Option 2: Use Lake Formation permissions**
+
+Alternatively, to enable fine-grained access control you can grant Lake Formation
+permissions on the S3 Table catalog, either through the Lake Formation console or
+AWS CLI. This requires registering your S3 table buckets as a Lake Formation data
+location. For more information, see [Creating an Amazon S3 Tables catalog in the AWS Glue Data Catalog](../../../lake-formation/latest/dg/create-s3-tables-catalog.md "../../../lake-formation/latest/dg/create-s3-tables-catalog.md") in
+the Lake Formation Developer Guide.
 
 AWS Management Console
 
@@ -321,7 +349,7 @@ to standard Athena tables:
 - All other properties follow the same syntax as regular Iceberg tables.
 
 Before you create S3 Tables using CTAS, ensure that you have the necessary
-permissions configured in AWS Lake Formation. Specifically, you need permissions to create
+permissions configured in IAM or AWS Lake Formation. Specifically, you need permissions to create
 tables in the S3 Tables catalog. Without these permissions, your CTAS operations
 will fail.
 

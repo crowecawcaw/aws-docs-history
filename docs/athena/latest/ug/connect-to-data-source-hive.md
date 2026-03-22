@@ -166,7 +166,7 @@ Athena, see [Allow access to the Athena Data Connector for External Hive Metasto
   connector uses AWS Glue for supplemental or primary metadata.
 - **AWS Key Management Service**
 - **Policies** – Hive metastore, Athena Query
-  Federation, and UDFs require policies in addition to the [AWS managed policy: AmazonAthenaFullAccess](managed-policies.md#amazonathenafullaccess-managed-policy "managed-policies.md#amazonathenafullaccess-managed-policy"). For more
+  Federation, and UDFs require policies in addition to the [AWS managed policy: AmazonAthenaFullAccess](security-iam-awsmanpol.md#amazonathenafullaccess-managed-policy "security-iam-awsmanpol.md#amazonathenafullaccess-managed-policy"). For more
   information, see [Identity and access management in Athena](security-iam-athena.md "security-iam-athena.md").
 
 ### Spill location in Amazon S3

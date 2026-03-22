@@ -72,3 +72,5 @@ Failed queries return a message similar to the following:
  (org.apache.hadoop.io.ArrayWritable and
  org.apache.hadoop.hive.serde2.io.TimestampWritableV2 are in unnamed module
  of loader io.trino.server.PluginClassLoader @75c67992)`**
+
+- Lake Formation Permissions on 0.15.0 Hudi Connector – This limitation applies only when you opt in to using the native Hudi connector (version 0.15.0) by setting the table property `athena_enable_native_hudi_connector_implementation` to `true`. By default, Athena uses Hudi connector version 0.14.0, which does not require this additional permission. To query a Lake Formation protected table, you must grant Lake Formation permissions to both the table's data location and the `.hoodie` metadata directory. For example, if your Hudi table is located at `s3://bucket/hudi-table/`, you must register and grant permissions to both `s3://bucket/hudi-table/` and `s3://bucket/hudi-table/.hoodie/` in Lake Formation. The `.hoodie` directory contains metadata files (such as `hoodie.properties`) that Athena needs to read during query planning. Without permissions to the `.hoodie` directory, queries will fail with permission denied errors.
