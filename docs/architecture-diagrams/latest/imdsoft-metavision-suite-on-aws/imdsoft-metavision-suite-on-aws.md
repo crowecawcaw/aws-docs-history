@@ -34,7 +34,7 @@ This architecture is provided for reference only, and is to be used accordingly.
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/imdsoft-metavision-suite-on-aws.md "samples/imdsoft-metavision-suite-on-aws.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/imdsoft-metavision-suite-on-aws.zip.md "samples/imdsoft-metavision-suite-on-aws.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
