@@ -24,7 +24,7 @@ This architecture provides a scalable Andon system to help optimize processes, s
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/amazon-virtual-andon.md "samples/amazon-virtual-andon.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/amazon-virtual-andon.zip.md "samples/amazon-virtual-andon.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
