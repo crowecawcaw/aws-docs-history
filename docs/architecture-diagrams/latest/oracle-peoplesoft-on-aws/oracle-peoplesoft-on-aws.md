@@ -21,7 +21,7 @@ This architecture shows how to deploy a highly available and resilient Oracle Pe
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/oracle-peoplesoft-on-aws.md "samples/oracle-peoplesoft-on-aws.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/oracle-peoplesoft-on-aws.zip.md "samples/oracle-peoplesoft-on-aws.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
