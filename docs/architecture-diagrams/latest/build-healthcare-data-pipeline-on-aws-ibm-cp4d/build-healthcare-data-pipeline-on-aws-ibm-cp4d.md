@@ -32,7 +32,7 @@ This architecture helps you build data pipelines and use machine learning (ML) m
 
 ## Download editable diagram
 
-To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/build-healthcare-data-pipeline-on-aws-ibm-cp4d.md "samples/build-healthcare-data-pipeline-on-aws-ibm-cp4d.md") which contains an editable PowerPoint.
+To customize this reference architecture diagram based on your business needs, [download the ZIP file](samples/build-healthcare-data-pipeline-on-aws-ibm-cp4d.zip.md "samples/build-healthcare-data-pipeline-on-aws-ibm-cp4d.zip.md") which contains an editable PowerPoint.
 
 ## Create a free AWS account
 
