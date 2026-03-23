@@ -108,7 +108,7 @@ If the information icon (
 ) appears next to any bucket names, we
 recommend that you retrieve the latest bucket metadata from Amazon S3. To do this, choose
 refresh (
-![The refresh button, which is a button that displays an empty blue circle with an arrow.](/images/macie/latest/user/images/btn-refresh-data.png)
+![The refresh button, which is a button that displays an empty blue circle with an arrow.](images/btn-refresh-data.png)
 ) above the table. The information icon indicates that a
 bucket was created during the past 24 hours, possibly after Macie last retrieved
 bucket and object metadata from Amazon S3 as part of the daily refresh cycle. For more
@@ -146,7 +146,7 @@ the details panel. In the panel, you can also:
 
 - Pivot and drill down on certain fields by choosing a magnifying glass for the field.
   Choose
-  ![The zoom in icon, which is a magnifying glass that has a plus sign in it.](/images/macie/latest/user/images/icon-magnifying-glass-plus-sign.png)
+  ![The zoom in icon, which is a magnifying glass that has a plus sign in it.](images/icon-magnifying-glass-plus-sign.png)
   to show buckets with the same value. Choose
 
 ![The zoom out icon, which is a magnifying glass that has a minus sign in it.](images/icon-magnifying-glass-minus-sign.png)

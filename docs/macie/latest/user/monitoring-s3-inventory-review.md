@@ -78,12 +78,12 @@ If automated sensitive data discovery is enabled, the default view doesn't displ
 that are currently excluded from automated discovery. To display this data, choose
 **X** in the **Is monitored by automated
 discovery** filter token below the filter box. 3. At the top of the page, optionally choose refresh (
-![The refresh button, which is a button that displays an empty blue circle with an arrow.](/images/macie/latest/user/images/btn-refresh-data.png)
+![The refresh button, which is a button that displays an empty blue circle with an arrow.](images/btn-refresh-data.png)
 ) to retrieve
 the latest bucket metadata from Amazon S3.
 
 If the information icon (
-![The information icon, which is a blue circle that has a lowercase letter i in it.](/images/macie/latest/user/images/icon-info-blue.png)
+![The information icon, which is a blue circle that has a lowercase letter i in it.](images/icon-info-blue.png)
 ) appears next to any bucket names,
 we recommend that you do this. This icon indicates that a bucket was created
 during the past 24 hours, possibly after Macie last retrieved bucket and object
@@ -188,7 +188,7 @@ If automated sensitive data discovery is enabled, the default view doesn't displ
 that are currently excluded from automated discovery. To display this data, choose
 **X** in the **Is monitored by automated
 discovery** filter token below the filter box. 3. At the top of the page, optionally choose refresh (
-![The refresh button, which is a button that displays an empty blue circle with an arrow.](/images/macie/latest/user/images/btn-refresh-data.png)
+![The refresh button, which is a button that displays an empty blue circle with an arrow.](images/btn-refresh-data.png)
 ) to retrieve
 the latest bucket metadata from Amazon S3. 4. Choose the bucket whose details you want to review. The details panel displays
 statistics and other information about the bucket.
@@ -288,7 +288,7 @@ data in the bucket.
 If you recently created the bucket or made significant changes to the bucket's
 objects during the past 24 hours, optionally choose refresh
 (
-![The refresh button, which is a button that displays an empty, dark gray circle with an arrow.](/images/macie/latest/user/images/btn-refresh-object-data.png)
+![The refresh button, which is a button that displays an empty, dark gray circle with an arrow.](images/btn-refresh-object-data.png)
 ) to retrieve the latest metadata for the bucket's objects.
 Macie displays the information icon (
 ![The information icon, which is a blue circle that has a lowercase letter i in it.](images/icon-info-blue.png)
@@ -521,7 +521,7 @@ can occur if the destination bucket was created in a different AWS Region
 during the preceding 24 hours, after Macie retrieved bucket and object metadata
 from Amazon S3 as part of the [daily refresh cycle](monitoring-s3-how-it-works.md#monitoring-s3-how-it-works-data-refresh "monitoring-s3-how-it-works.md#monitoring-s3-how-it-works-data-refresh"). To investigate the issue by using Macie, choose
 refresh (
-![The refresh button, which is a button that displays an empty blue circle with an arrow.](/images/macie/latest/user/images/btn-refresh-data.png)
+![The refresh button, which is a button that displays an empty blue circle with an arrow.](images/btn-refresh-data.png)
 ) to retrieve the latest bucket metadata from Amazon S3. Then
 review the list of account IDs in this section. For deeper investigation, use
 Amazon S3 to review the replication rules for the bucket.

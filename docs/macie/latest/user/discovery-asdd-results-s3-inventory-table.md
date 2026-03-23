@@ -26,7 +26,7 @@ automated sensitive data discovery. If you're the Macie administrator for an org
 accounts that automated sensitive data discovery is currently disabled for. To display this data, choose
 **X** in the **Is monitored by automated discovery** filter
 token below the filter box. 3. Choose table (
-![The table view button, which is a button that displays three black horizontal lines.](images/btn-s3-table-view.png)
+![The table view button, which is a button that displays three black horizontal lines.](/images/macie/latest/user/images/btn-s3-table-view.png)
 ) at the top of the page. Macie displays the number of
 buckets in your inventory and a table of the buckets. 4. To retrieve the latest bucket metadata from Amazon S3, choose refresh (
 ![The refresh button, which is a button that displays an empty blue circle with an arrow.](images/btn-refresh-data.png)
