@@ -112,10 +112,11 @@ Stores remote command history with status tracking and latency measurement.
 | value       | String      | Command value                                 |
 | status      | String      | SENT, IN_PROGRESS, SUCCEEDED, FAILED, TIMEOUT |
 | issuedAt    | String      | ISO 8601 timestamp                            |
+| timestamp   | Number      | Issued time in epoch milliseconds             |
 | respondedAt | String      | Response timestamp                            |
 | latencyMs   | Number      | Round-trip latency in milliseconds            |
 | reason      | String      | Failure reason                                |
-| resultValue | String      | Value returned by vehicle                     |
+| topic       | String      | MQTT topic the command was published to       |
 | ttl         | Number      | DynamoDB TTL (7 days)                         |
 
 **Indexes:**

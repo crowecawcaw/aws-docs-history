@@ -44,7 +44,3 @@ The FWTelemetryProcessor performs the following steps for each message on the `f
 8. Output the JSON string to the `cms-telemetry-preprocessed` Kafka topic.
 
 Failed decodes are dropped (not passed through as poison messages) and counted in a `RECORDS_FAILED` metric.
-
-## GPS injection
-
-GPS coordinates are not available on the CAN bus — they come from a separate interface. In simulation mode, the simulator injects GPS coordinates into the FWE agent through a Unix domain socket. The agent includes these coordinates in its protobuf upload alongside the CAN signals. In production, the FWE agent can be configured to read GPS from a serial device, a network source, or an external GPS module.

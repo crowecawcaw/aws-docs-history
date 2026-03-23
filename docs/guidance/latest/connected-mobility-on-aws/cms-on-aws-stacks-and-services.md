@@ -75,9 +75,3 @@ The UIStack provides the Fleet Manager web application and backend APIs.
 **Amazon Cognito** – Manages user authentication and authorization for the Fleet Manager application. Supports user pools for direct sign-up/sign-in and identity pools for AWS resource access. For more details, see [Amazon Cognito](https://aws.amazon.com/cognito/ "https://aws.amazon.com/cognito/").
 
 **Amazon Location Service** – Provides mapping, geocoding, and routing capabilities for real-time vehicle tracking. The Fleet Manager displays vehicle positions on interactive maps, calculates routes, and supports geofencing. For more details, see [Amazon Location Service](https://aws.amazon.com/location/ "https://aws.amazon.com/location/").
-
-## Vehicle Simulator
-
-The solution includes an integrated vehicle simulator for testing and development.
-
-**Simulation Service** – A Python-based service generates realistic vehicle telemetry data including GPS coordinates, speed, engine metrics, tire pressure, and battery levels. The simulator supports multiple vehicles, configurable routes, and various driving scenarios including normal operation, safety events, and maintenance conditions. The simulator operates in two modes: MQTT Direct mode publishes JSON telemetry directly to IoT Core, while FleetWise Edge mode generates CAN bus signals and runs per-vehicle FWE agent Docker containers that collect signals based on active campaigns and upload protobuf telemetry to the cloud. In FWE mode, the simulator resolves vehicle VINs from DynamoDB, creates campaigns with configurable signal sets, and injects GPS coordinates into the FWE agent through a Unix domain socket. For more details, see the [Vehicle Simulator documentation](https://github.com/aws-solutions-library-samples/guidance-for-connected-mobility-on-aws/tree/main/services/simulation "https://github.com/aws-solutions-library-samples/guidance-for-connected-mobility-on-aws/tree/main/services/simulation").

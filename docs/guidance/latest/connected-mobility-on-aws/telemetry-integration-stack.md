@@ -34,6 +34,23 @@ FROM 'cms/fleetwise/vehicles/+/checkins'
 
 The FleetWise IoT rules use `topic(4)` to extract the vehicle VIN from the MQTT topic path and `encode(*, 'base64')` to preserve the binary protobuf payload for downstream Flink processing.
 
+**Command response rule (JSON):**
+
+```
+SELECT * FROM 'cms/commands/+/response'
+```
+
+**Action:** Invoke Command Response Handler Lambda. Processes JSON command responses from MQTT Direct simulators.
+
+**Command response rule (FWE protobuf):**
+
+```
+SELECT encode(*, 'base64') AS b64_payload, topic(3) AS vehicleId
+FROM 'cms/commands/things/+/executions/+/response/protobuf'
+```
+
+**Action:** Invoke Command Response Handler Lambda. The rule base64-encodes the binary protobuf payload and extracts the VIN from `topic(3)`. The Lambda decodes the `CommandResponse` protobuf and maps the FWE status enum to a string status (SUCCEEDED, FAILED, TIMEOUT).
+
 **VPC destination:**
 
 - VPC: InfrastructureStack VPC

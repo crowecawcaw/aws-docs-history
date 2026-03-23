@@ -52,29 +52,3 @@ The solution uses a phase-based deployment approach to manage dependencies betwe
 **Phase 9: Remote Commands** – Deploys the Commands Lambda, Command Response Handler, and IoT Rules for bidirectional vehicle communication. Duration: 2-3 minutes.
 
 Total deployment time: 45-65 minutes.
-
-### Data flow
-
-The solution implements an integrated telemetry pipeline:
-
-1. **Vehicle Connectivity** – Vehicles connect securely to AWS IoT Core using X.509 certificates and MQTT protocol. In FleetWise Edge mode, the FWE agent handles connectivity, authentication, and campaign-driven signal collection from the vehicle CAN bus.
-2. **Data Ingestion** – Telemetry data flows through IoT Rules to Amazon MSK for high-throughput processing. MQTT Direct telemetry lands on the `cms-telemetry` topic. FleetWise Edge protobuf telemetry lands on the `fw-telemetry-raw` topic and is decoded by the FWTelemetryProcessor before joining the standard pipeline.
-3. **Campaign Management** – In FleetWise Edge mode, the CampaignSyncProcessor monitors agent checkins on the `fw-checkin` topic, resolves active campaigns from DynamoDB, and pushes decoder manifests and collection schemes to the edge agent through IoT Core MQTT.
-4. **Real-time Processing** – Apache Flink applications on Amazon Kinesis Data Analytics process streams to generate trips, detect safety events, create maintenance alerts, and evaluate geofence boundaries.
-5. **Remote Commands** – The CommandsStack enables bidirectional vehicle communication. Commands are sent from the Fleet Manager UI through API Gateway and Lambda, published to IoT Core MQTT, and tracked in DynamoDB with status updates and latency measurement. The command catalog is derived from actuatable signals in the signal catalog.
-6. **Geofence Evaluation** – The GeofenceProcessor Flink application evaluates vehicle positions against active geofences in real-time, generating safety events when vehicles cross geofence boundaries.
-7. **Data Storage** – Processed data is stored in DynamoDB with automatic scaling and backup.
-8. **Real-time State** – Amazon ElastiCache for Redis maintains the last known vehicle state for sub-second lookups.
-9. **Location Services** – Amazon Location Service provides maps, geocoding, and route calculation for vehicle tracking.
-10. **Fleet Management** – The web application provides comprehensive fleet management, driver tracking, remote commands, geofence management, and analytics dashboards with real-time map visualization.
-
-### Networking architecture
-
-The solution uses a single Amazon VPC with the following configuration:
-
-- **Public Subnets** – Host NAT Gateway for outbound internet access
-- **Private Subnets** – Host MSK cluster and ElastiCache for security
-- **Security Groups** – Restrict traffic between components following least-privilege principles
-- **VPC Endpoints** – Enable private connectivity to AWS services where applicable
-
-The networking architecture supports both public internet access and private network configurations through VPC peering or AWS Transit Gateway.
