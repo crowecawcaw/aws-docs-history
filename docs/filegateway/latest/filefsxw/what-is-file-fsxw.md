@@ -65,5 +65,3 @@ the following in the diagram:
 - **Amazon Virtual Private Cloud (Amazon VPC)** is needed to connect to the
   FSx for Windows File Server service VPC and the Storage Gateway service VPC using private endpoints.
   The FSx File Gateway can also connect to the public endpoints.
-
-You can use Amazon FSx File Gateway in all AWS Regions where FSx for Windows File Server is available.
