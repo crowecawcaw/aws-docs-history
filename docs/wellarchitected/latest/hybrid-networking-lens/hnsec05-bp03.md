@@ -39,4 +39,4 @@ practice:**
   in transit over external networks: AWS guidance for NYDFS and
   beyond](https://aws.amazon.com/blogs/security/encryption-in-transit-over-external-networks-aws-guidance-for-nydfs-and-beyond/ "https://aws.amazon.com/blogs/security/encryption-in-transit-over-external-networks-aws-guidance-for-nydfs-and-beyond/")
 - [Hybrid
-  Connectivity AWS Whitepaper](../../../whitepapers/latest/hybrid-connectivity/hybrid-connectivity.md "../../../whitepapers/latest/hybrid-connectivity/hybrid-connectivity.md").
+  Connectivity AWS Whitepaper](../../../whitepapers/latest/hybrid-connectivity/hybrid-connectivity.pdf.md "../../../whitepapers/latest/hybrid-connectivity/hybrid-connectivity.pdf.md").

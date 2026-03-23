@@ -42,6 +42,6 @@ practice:**
 ## Resources
 
 - [Example
-  Corp. Automotive use case](../../../whitepapers/latest/hybrid-connectivity/example-corp.md "../../../whitepapers/latest/hybrid-connectivity/example-corp.md")
+  Corp. Automotive use case](../../../whitepapers/latest/hybrid-connectivity/example-corp.-automotive-use-case.md "../../../whitepapers/latest/hybrid-connectivity/example-corp.-automotive-use-case.md")
 - [Network
   to Amazon VPC Connectivity options](../../../whitepapers/latest/aws-vpc-connectivity-options/network-to-amazon-vpc-connectivity-options.md "../../../whitepapers/latest/aws-vpc-connectivity-options/network-to-amazon-vpc-connectivity-options.md")
