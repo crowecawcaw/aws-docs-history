@@ -24,4 +24,4 @@ both data filter configuration and target queries. Note the following:
   `mytable`.
   Be mindful of the case differences when you create the Amazon Redshift filter and query the
   data. The filtering considerations for Oracle Database@AWS are the same as for Amazon RDS for Oracle. For examples
-  of how case can affect data filters in an Oracle database, see [RDS for Oracle examples](../../../AmazonRDS/latest/UserGuide/zero-etl.md#zero-etl.filtering-examples-oracle "../../../AmazonRDS/latest/UserGuide/zero-etl.md#zero-etl.filtering-examples-oracle") in the _Amazon Relational Database Service User Guide_.
+  of how case can affect data filters in an Oracle database, see [RDS for Oracle examples](../../../AmazonRDS/latest/UserGuide/zero-etl.filtering.md#zero-etl.filtering-examples-oracle "../../../AmazonRDS/latest/UserGuide/zero-etl.filtering.md#zero-etl.filtering-examples-oracle") in the _Amazon Relational Database Service User Guide_.

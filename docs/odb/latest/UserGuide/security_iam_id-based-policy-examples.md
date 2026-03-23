@@ -96,7 +96,10 @@ JSON
  "ec2:DescribeVpcEndpointAssociations",
  "ec2:CreateVpcEndpoint",
  "ec2:DeleteVpcEndpoints",
- "ec2:DescribeVpcEndpoints"
+ "ec2:DescribeVpcEndpoints",
+ "ec2:CreateRoute",
+ "ec2:DeleteRoute",
+ "ec2:DescribeRouteTables"
  ],
  "Resource": "*"
  },

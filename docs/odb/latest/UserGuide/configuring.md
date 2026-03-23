@@ -3,7 +3,8 @@
 _ODB peering_ is a user-created network connection that enables
 traffic to be routed privately between an Amazon VPC and an ODB networkAfter you create a peering connection using the console, CLI, or API,
 make sure to update your VPC route tables and configure DNS resolution. For a conceptual overview
-of ODB peering, see [ODB peering](how-it-works.md#how-it-works.peering "how-it-works.md#how-it-works.peering").
+of ODB peering, see [ODB peering](how-it-works.md#how-it-works.peering "how-it-works.md#how-it-works.peering"). When creating the ODB peering connection, you can opt for implicit network route management to skip [Configuring VPC route tables for ODB peering](#configure-routes "#configure-routes").
+To enact this feature as part of the Peering Connection workflow, specify the VPC (or underlying subnet) Route Table to which a managed route should be added.
 
 ###### Note
 
@@ -41,14 +42,15 @@ You can create up to 45 peerings for a single ODB network.
    connection.
 5. For **ODB network**, choose the ODB network to peer.
 6. For **Peer network**, choose the Amazon VPC to peer with your ODB network.
-7. (Optional) For **Peer network CIDRs**, specify additional CIDR blocks
+7. (Optional) For **Peer network route table**, specify the VPC Table for which the route should be added by ODB as part of the Peering Connection workflow. You can also follow [Configuring VPC route tables for ODB peering](#configure-routes "#configure-routes") instead.
+8. (Optional) For **Peer network CIDRs**, specify additional CIDR blocks
    from the peer VPC that can access the ODB network. If you don't specify CIDRs, all CIDRs from the
    peer VPC are allowed access.
-8. (Optional) In **Tags**, add a key and value pair.
-9. Choose **Create ODB peering connection**.
-   After creating an ODB peering connection, configure your Amazon VPC route tables to route traffic to
-   the peered ODB network. For more information, see [Configuring VPC route tables for ODB peering](#configure-routes "#configure-routes"). Note that Oracle Database@AWS automatically configures the ODB network
-   route tables.
+9. (Optional) In **Tags**, add a key and value pair.
+10. Choose **Create ODB peering connection**.
+    After creating an ODB peering connection, ensure that all your Amazon VPC route tables are configured to route traffic to
+    the peered ODB network. For more information, see [Configuring VPC route tables for ODB peering](#configure-routes "#configure-routes"). Note that Oracle Database@AWS automatically configures the ODB network
+    route tables.
 
 To create an ODB peering connection, use the `create-odb-peering-connection`
 command.
@@ -63,10 +65,13 @@ To limit access to the ODB network to specific CIDR ranges, use the
 `--peer-network-cidrs-to-be-added` parameter. If you don't specify CIDR ranges, all
 ranges have access.
 
+To adopt implicit network route management, use the `--peer-network-route-table-ids` parameter.
+
 ```
 aws odb create-odb-peering-connection \
     --odb-network-id `odbnet-1234567890abcdef` \
     --peer-network-id `vpc-abcdef1234567890` \
+    --peer-network-route-table-ids `rtb-1234567890abcdefg` \
     --peer-network-cidrs-to-be-added `"10.0.1.0/24,10.0.2.0/24"`
 ```
 
@@ -120,6 +125,8 @@ aws odb update-odb-peering-connection \
 ```
 
 ## Configuring VPC route tables for ODB peering
+
+This step is optional if networking route management is used at creation time.
 
 A _route table_ contains a set of rules, called
 _routes_, that determine where network traffic from your subnet or gateway
@@ -325,7 +332,7 @@ The following diagrams show example architectures for multiple application VPC c
 
 **Single AZ with multiple Application VPC peers:**
 
-![](images/Single-AZ-mapp.png)
+![](images/Single-AZ-map.png)
 
 **Multi-AZ with a single application VPC peer:**
 

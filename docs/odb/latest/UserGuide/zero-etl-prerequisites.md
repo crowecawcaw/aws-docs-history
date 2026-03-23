@@ -150,7 +150,7 @@ Store your Oracle database credentials in AWS Secrets Manager as follows:
 3. Configure resource policies to allow Oracle Database@AWS access.
 
 To get your TDE key ID and password, use the technique described in [Supported
-encryption methods for using Oracle as a source for AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Source.md#CHAP_Source.Oracle.Encryption "../../../dms/latest/userguide/CHAP_Source.md#CHAP_Source.Oracle.Encryption"). The following command
+encryption methods for using Oracle as a source for AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Source.Oracle.md#CHAP_Source.Oracle.Encryption "../../../dms/latest/userguide/CHAP_Source.Oracle.md#CHAP_Source.Oracle.Encryption"). The following command
 generates the base64 wallet.
 
 ```

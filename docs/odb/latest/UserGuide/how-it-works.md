@@ -184,9 +184,8 @@ automatically:
    the Oracle VCN CIDR
 2. Sets up the underlying network peering infrastructure
 3. Configures the ODB network (not the VPC) route tables with the VPC CIDR addresses
-
-After you create your ODB peering connection, update your VPC route tables manually using the
-Amazon EC2 `create-route` command. For more information, see [Configuring VPC route tables for ODB peering](configuring.md#configure-routes "configuring.md#configure-routes").
+4. (Optional) Configures the specified VPC route table with the ODB network CIDR address
+5. You can opt out of providing a VPC route table ID for Create ODB peering connection by updating VPC route tables manually using the Amazon EC2 `create-route` command. For more information, see [Configuring VPC route tables for ODB peering](configuring.md#configure-routes "configuring.md#configure-routes").
 
 ## AWS service integrations
 

@@ -20,4 +20,4 @@ Data Definition Language (DDL) changes in the source Oracle database might requi
 to intervene manually to re-create the integration. Plan schema changes carefully.
 
 For general considerations, see [Considerations when using zero-ETL
-integrations with Amazon Redshift](../../../redshift/latest/mgmt/zero-etl.md "../../../redshift/latest/mgmt/zero-etl.md").
+integrations with Amazon Redshift](../../../redshift/latest/mgmt/zero-etl.reqs-lims.md "../../../redshift/latest/mgmt/zero-etl.reqs-lims.md").
