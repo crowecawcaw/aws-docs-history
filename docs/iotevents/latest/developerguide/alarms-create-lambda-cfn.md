@@ -18,7 +18,7 @@ CloudFormation stack.
 2. Run `aws configure list` to check if you configured the AWS CLI in the AWS Region
    that has all your AWS resources for this tutorial. For more information, see [Set and view configuration settings using commands](../../../cli/latest/userguide/cli-configure-files.md#cli-configure-files-methods "../../../cli/latest/userguide/cli-configure-files.md#cli-configure-files-methods")
    in the _AWS Command Line Interface User Guide_
-3. Download the CloudFormation template, [notificationLambda.template.yaml.zip](samples/notificationLambda.template.yaml.md "samples/notificationLambda.template.yaml.md").
+3. Download the CloudFormation template, [notificationLambda.template.yaml.zip](samples/notificationLambda.template.yaml.zip.md "samples/notificationLambda.template.yaml.zip.md").
 
 ###### Note
 
