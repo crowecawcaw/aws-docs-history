@@ -6,7 +6,7 @@ as a single unit (a _stack_). For more information, see the
 [CloudFormation User Guide](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md").
 
 The following is an CloudFormation YAML template for configuring a VPC to use AWS CodeBuild. This file
-is also available in [samples.zip](samples/samples.md "samples/samples.md").
+is also available in [samples.zip](samples/samples.zip.md "samples/samples.zip.md").
 
 ```
 Description:  This template deploys a VPC, with a pair of public and private subnets spread

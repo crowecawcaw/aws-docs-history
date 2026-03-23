@@ -32,7 +32,7 @@ build-job:
 
 - Example: `image:arm-3.0`
 - Overrides the image and environment type used when starting the self-managed runner build. To learn about supported values, see
-  [Compute images supported with the CodeBuild-hosted GitLab runner](sample-gitlab-runners-gitlab-ci.md "sample-gitlab-runners-gitlab-ci.md").
+  [Compute images supported with the CodeBuild-hosted GitLab runner](sample-gitlab-runners-gitlab-ci.images.md "sample-gitlab-runners-gitlab-ci.images.md").
 
       + To override the image and environment type used with a custom image, use
        `image:custom-`<environment-type>`-`<custom-image-identifier>``
@@ -48,7 +48,7 @@ build-job:
 
 - Example: `instance-size:small`
 - Overrides the instance type used when starting the self-managed runner build. To learn about supported values, see
-  [Compute images supported with the CodeBuild-hosted GitLab runner](sample-gitlab-runners-gitlab-ci.md "sample-gitlab-runners-gitlab-ci.md").
+  [Compute images supported with the CodeBuild-hosted GitLab runner](sample-gitlab-runners-gitlab-ci.images.md "sample-gitlab-runners-gitlab-ci.images.md").
   `fleet:`<fleet-name>``
 
 - Example: `fleet:myFleet`

@@ -144,7 +144,7 @@ build-job:       # This job runs in the build stage, which runs first.
     - codebuild-myProject-$CI_PROJECT_ID-$CI_PIPELINE_IID-$CI_JOB_NAME
 ```
 
-- You can also override your image and compute type in the tag. See [Compute images supported with the CodeBuild-hosted GitLab runner](sample-gitlab-runners-gitlab-ci.md "sample-gitlab-runners-gitlab-ci.md")
+- You can also override your image and compute type in the tag. See [Compute images supported with the CodeBuild-hosted GitLab runner](sample-gitlab-runners-gitlab-ci.images.md "sample-gitlab-runners-gitlab-ci.images.md")
   for a list of curated images. For using custom images, see [Label overrides supported with the CodeBuild-hosted GitLab runner](gitlab-runners-update-labels.md "gitlab-runners-update-labels.md").
   The compute type and image in the tag will override
   the environment settings on your project. To override your

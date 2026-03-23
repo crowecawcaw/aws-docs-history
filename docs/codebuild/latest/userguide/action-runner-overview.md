@@ -27,4 +27,4 @@ instances.
 - [Tutorial: Configure a CodeBuild-hosted GitHub Actions runner](action-runner.md "action-runner.md")
 - [Troubleshoot the webhook](action-runner-troubleshoot-webhook.md "action-runner-troubleshoot-webhook.md")
 - [Label overrides supported with the CodeBuild-hosted GitHub Actions runner](sample-github-action-runners-update-labels.md "sample-github-action-runners-update-labels.md")
-- [Compute images supported with the CodeBuild-hosted GitHub Actions runner](sample-github-action-runners-update-yaml.md "sample-github-action-runners-update-yaml.md")
+- [Compute images supported with the CodeBuild-hosted GitHub Actions runner](sample-github-action-runners-update-yaml.images.md "sample-github-action-runners-update-yaml.images.md")

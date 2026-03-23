@@ -25,4 +25,4 @@ instances.
 - [About the CodeBuild-hosted GitLab runner](gitlab-runner-questions.md "gitlab-runner-questions.md")
 - [Tutorial: Configure a CodeBuild-hosted GitLab runner](sample-gitlab-runners.md "sample-gitlab-runners.md")
 - [Label overrides supported with the CodeBuild-hosted GitLab runner](gitlab-runners-update-labels.md "gitlab-runners-update-labels.md")
-- [Compute images supported with the CodeBuild-hosted GitLab runner](sample-gitlab-runners-gitlab-ci.md "sample-gitlab-runners-gitlab-ci.md")
+- [Compute images supported with the CodeBuild-hosted GitLab runner](sample-gitlab-runners-gitlab-ci.images.md "sample-gitlab-runners-gitlab-ci.images.md")

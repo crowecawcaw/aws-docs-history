@@ -42,7 +42,7 @@ If your workflow job is hanging on GitHub, see
 
 - Example: `image:arm-3.0`
 - Overrides the image and environment type used when starting the self-hosted runner build with a curated image. To learn about supported values, see
-  [Compute images supported with the CodeBuild-hosted GitHub Actions runner](sample-github-action-runners-update-yaml.md "sample-github-action-runners-update-yaml.md").
+  [Compute images supported with the CodeBuild-hosted GitHub Actions runner](sample-github-action-runners-update-yaml.images.md "sample-github-action-runners-update-yaml.images.md").
 
       + To override the image and environment type used with a custom image, use
        `image:custom-`<environment-type>`-`<custom-image-identifier>``
@@ -58,7 +58,7 @@ If your workflow job is hanging on GitHub, see
 
 - Example: `instance-size:medium`
 - Overrides the instance type used when starting the self-hosted runner build. To learn about supported values, see
-  [Compute images supported with the CodeBuild-hosted GitHub Actions runner](sample-github-action-runners-update-yaml.md "sample-github-action-runners-update-yaml.md").
+  [Compute images supported with the CodeBuild-hosted GitHub Actions runner](sample-github-action-runners-update-yaml.images.md "sample-github-action-runners-update-yaml.images.md").
   `fleet:`<fleet-name>``
 
 - Example: `fleet:myFleet`

@@ -36,7 +36,7 @@ more information, see [https://aws.amazon.com/codebuild/pricing/](https://aws.am
 - [How do I configure a reserved capacity macOS fleet?](#fleets.configure-macos "#fleets.configure-macos")
 - [How do I configure a custom Amazon Machine Image (AMI) for a reserved capacity fleet?](#fleets.custom-ami "#fleets.custom-ami")
 - [Limitations of reserved capacity fleets](#fleets.limitations "#fleets.limitations")
-- [Reserved capacity fleet properties](fleets.md "fleets.md")
+- [Reserved capacity fleet properties](fleets.reserved-capacity-fleets.md "fleets.reserved-capacity-fleets.md")
 - [Reserved capacity samples with AWS CodeBuild](reserved-capacity-samples.md "reserved-capacity-samples.md")
 
 ## Create a reserved capacity fleet
@@ -166,7 +166,7 @@ if the `computeConfiguration` is not available for on-demand.
 
 Yes, you can directly input your desired Amazon EC2 instance in the console by selecting **Custom instance**
 or by configuring the API parameter, `InstanceType`. This field is used in the following APIs: CreateFleet,
-UpdateFleet, CreateProject, UpdateProject and StartBuild. For more information, see [Compute instance type](fleets.md#compute "fleets.md#compute").
+UpdateFleet, CreateProject, UpdateProject and StartBuild. For more information, see [Compute instance type](fleets.reserved-capacity-fleets.md#compute "fleets.reserved-capacity-fleets.md#compute").
 
 ## Which regions support reserved capacity fleets?
 
@@ -226,9 +226,9 @@ and Europe (Frankfurt). Reserved capacity macOS Large fleets are supported in th
    - If your environment type is `ARM_EC2`, make sure that your AMI **Architecture** is 64-bit `Arm`.
    - If your environment type is `WINDOWS_EC2`, make sure that your AMI **Architecture** is 64-bit `x86`.
    - The AMI allows the CodeBuild service **Organization ARN**. For a list of Organization ARNs, see
-     [Amazon Machine Images (AMI)](fleets.md#ami "fleets.md#ami").
+     [Amazon Machine Images (AMI)](fleets.reserved-capacity-fleets.md#ami "fleets.reserved-capacity-fleets.md#ami").
    - If the AMI is encrypted with a AWS KMS key, the AWS KMS key must also allow the CodeBuild service **Organization ID**.
-     For a list of Organization IDs, see [Amazon Machine Images (AMI)](fleets.md#ami "fleets.md#ami").
+     For a list of Organization IDs, see [Amazon Machine Images (AMI)](fleets.reserved-capacity-fleets.md#ami "fleets.reserved-capacity-fleets.md#ami").
      For more information on AWS KMS keys, see
      [Allow organizations and OUs to use a KMS key](../../../AWSEC2/latest/UserGuide/share-amis-with-organizations-and-OUs.md#allow-org-ou-to-use-key "../../../AWSEC2/latest/UserGuide/share-amis-with-organizations-and-OUs.md#allow-org-ou-to-use-key") in the _Amazon EC2 User Guide_. To give CodeBuild organization permission
      to use a KMS key, add the following statement to the key policy:

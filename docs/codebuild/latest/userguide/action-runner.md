@@ -108,7 +108,7 @@ jobs:
       - run: echo "Hello World!"
 ```
 
-- You can also override your image and compute type in the label. See [Compute images supported with the CodeBuild-hosted GitHub Actions runner](sample-github-action-runners-update-yaml.md "sample-github-action-runners-update-yaml.md")
+- You can also override your image and compute type in the label. See [Compute images supported with the CodeBuild-hosted GitHub Actions runner](sample-github-action-runners-update-yaml.images.md "sample-github-action-runners-update-yaml.images.md")
   for a list of curated images. For using custom images, see [Label overrides supported with the CodeBuild-hosted GitHub Actions runner](sample-github-action-runners-update-labels.md "sample-github-action-runners-update-labels.md").
   The compute type and image in the label will override
   the environment settings on your project. To override your

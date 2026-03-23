@@ -25,7 +25,7 @@ The following AWS SDKs and tools support CodeBuild:
   more information, see the [Amazon.CodeBuild](../../../sdkfornet/v3/apidocs/items/CodeBuild/NCodeBuild.md "../../../sdkfornet/v3/apidocs/items/CodeBuild/NCodeBuild.md") and [Amazon.CodeBuild.Model](../../../sdkfornet/v3/apidocs/items/CodeBuild/NCodeBuildModel.md "../../../sdkfornet/v3/apidocs/items/CodeBuild/NCodeBuildModel.md") namespace sections of the
   _AWS SDK for .NET API Reference_.
 - The [AWS SDK for PHP](https://aws.amazon.com/sdk-for-php/ "https://aws.amazon.com/sdk-for-php/"). For
-  more information, see the [Namespace Aws\CodeBuild](../../../aws-sdk-php/v3/api/namespace-Aws.md "../../../aws-sdk-php/v3/api/namespace-Aws.md")
+  more information, see the [Namespace Aws\CodeBuild](../../../aws-sdk-php/v3/api/namespace-Aws.CodeBuild.md "../../../aws-sdk-php/v3/api/namespace-Aws.CodeBuild.md")
   section of the _AWS SDK for PHP API Reference_.
 - The [AWS SDK for Python
   (Boto3)](https://aws.amazon.com/sdk-for-python/ "https://aws.amazon.com/sdk-for-python/"). For more information, see the [CodeBuild](https://boto3.readthedocs.io/en/latest/reference/services/codebuild.html "https://boto3.readthedocs.io/en/latest/reference/services/codebuild.html") section of the _Boto 3 Documentation_.

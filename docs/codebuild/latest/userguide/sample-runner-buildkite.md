@@ -156,7 +156,7 @@ steps:
   - command: "echo \"Hello World\""
 ```
 
-You can also override your image and compute type in the label. See [Compute images supported with the CodeBuild-hosted Buildkite runner](buildkite-runner-update-yaml.md "buildkite-runner-update-yaml.md") for a list of
+You can also override your image and compute type in the label. See [Compute images supported with the CodeBuild-hosted Buildkite runner](buildkite-runner-update-yaml.images.md "buildkite-runner-update-yaml.images.md") for a list of
 available images. The compute type and image in the label will override the
 environment settings on your project. To override your environment settings for
 a CodeBuild EC2 or Lambda compute build, use the following syntax:

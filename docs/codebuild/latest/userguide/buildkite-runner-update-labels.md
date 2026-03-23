@@ -45,7 +45,7 @@ steps:
 
 - Example: `image: "arm-3.0"`
 - Overrides the image and environment type used when starting the self-hosted
-  runner build with a curated image. To learn about supported values, see [Compute images supported with the CodeBuild-hosted Buildkite runner](buildkite-runner-update-yaml.md "buildkite-runner-update-yaml.md").
+  runner build with a curated image. To learn about supported values, see [Compute images supported with the CodeBuild-hosted Buildkite runner](buildkite-runner-update-yaml.images.md "buildkite-runner-update-yaml.images.md").
   1.  To override the image and environment type used with a custom image,
       use `image:
 "custom-`<environment-type>`-`<custom-image-identifier>`"`
@@ -64,7 +64,7 @@ appropriate registry credentials in your CodeBuild project.
 
 - Example: `instance-size: "medium"`
 - Overrides the instance type used when starting the self-hosted runner build.
-  To learn about supported values, see [Compute images supported with the CodeBuild-hosted Buildkite runner](buildkite-runner-update-yaml.md "buildkite-runner-update-yaml.md").
+  To learn about supported values, see [Compute images supported with the CodeBuild-hosted Buildkite runner](buildkite-runner-update-yaml.images.md "buildkite-runner-update-yaml.images.md").
   `fleet: "`<fleet-name>`"`
 
 - Example: `fleet: "myFleet"`

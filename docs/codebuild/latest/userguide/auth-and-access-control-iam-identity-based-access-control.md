@@ -189,7 +189,7 @@ who can view and run builds, view projects, and view report groups, but cannot
 make any changes to them.
 
 For the full managed policy, see
-[AWSCodeBuildReadOnlyAccess](../../../aws-managed-policy/latest/reference/AWSCodeBuildReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AWSCodeBuildReadOnlyAccess.md")
+[AWSCodeBuildReadOnlyAccess](../../../aws-managed-policy/latest/reference/AWSCodeBuildReadOnlyAccess.xml.md "../../../aws-managed-policy/latest/reference/AWSCodeBuildReadOnlyAccess.xml.md")
 in the IAM managed policy reference.
 
 ## CodeBuild managed policies and notifications
