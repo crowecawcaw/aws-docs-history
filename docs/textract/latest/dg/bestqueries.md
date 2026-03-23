@@ -2,7 +2,7 @@
 
 ## Example Queries
 
-Download the [Example Queries document](samples/Example%20Queries.md "samples/Example%20Queries.md") to see examples of queries for common document
+Download the [Example Queries document](samples/Example%20Queries.zip.md "samples/Example%20Queries.zip.md") to see examples of queries for common document
 types across mortgage, insurance, healthcare and tax industries.
 
 ## General Best Practices for Queries

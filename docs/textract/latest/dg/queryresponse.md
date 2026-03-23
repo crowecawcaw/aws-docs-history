@@ -46,4 +46,4 @@ document analysis.
 
 ```
 
-We have compiled a list of example queries for common documents in the [Example Queries document](samples/Example%20Queries.md "samples/Example%20Queries.md").
+We have compiled a list of example queries for common documents in the [Example Queries document](samples/Example%20Queries.zip.md "samples/Example%20Queries.zip.md").

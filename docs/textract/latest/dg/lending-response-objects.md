@@ -238,7 +238,7 @@ attributes:
   geometry.
 - LendingFields – An array of LendingField objects.
 - Type – The normalized value associated with a detection. For a list of all
-  possible document types, click [here](samples/textract_AnalyzeLending_keys.md "samples/textract_AnalyzeLending_keys.md").
+  possible document types, click [here](samples/textract_AnalyzeLending_keys.zip.md "samples/textract_AnalyzeLending_keys.zip.md").
 - ValueDetections – An array of LendingDetection objects.
 - LendingDetection – The results extracted for a lending document.
 - SelectionStatus – The selection status of a selection element, such as an
