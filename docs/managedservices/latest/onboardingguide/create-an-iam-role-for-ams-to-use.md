@@ -2,7 +2,7 @@
 
 1. Obtain a JSON or YAML file that defines an IAM role for AMS to use to create your infrastructure. Either:
    - Your AMS cloud architect (CA) provides you with a JSON or YAML file.
-   - You can download [onboarding_iam_roles.zip](samples/onboarding_iam_roles.md "samples/onboarding_iam_roles.md") and
+   - You can download [onboarding_iam_roles.zip](samples/onboarding_iam_roles.zip.md "samples/onboarding_iam_roles.zip.md") and
      choose one of the following:
      - **onboarding_role_admin.json** (shorter, grants full admin access)
      - **onboarding_role_minimal.json** (longer, grants

@@ -11,4 +11,4 @@ security and management point of view, you setup default backup plans, patch win
 To help improve the agility, consistency, and responsiveness for application account setup, the following sample
 "How To" is provided for your reference.
 
-[Automated Account Setup](samples/automate-account-setup-Bash-Script.md "samples/automate-account-setup-Bash-Script.md").
+[Automated Account Setup](samples/automate-account-setup-Bash-Script.zip.md "samples/automate-account-setup-Bash-Script.zip.md").
