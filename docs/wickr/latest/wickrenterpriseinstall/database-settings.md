@@ -96,7 +96,7 @@ wickr         ingress-nginx-controller   3/3     3            3           43h
    backups](../../../AmazonRDS/latest/UserGuide/USER_ManagingManualBackups.md "../../../AmazonRDS/latest/UserGuide/USER_ManagingManualBackups.md") in the _Amazon Relational Database Service User Guide_.
 4. Upgrade the engine version to MySQL 8.0.x (MySQL 8.4 is not supported). For more
    information, see [Upgrading a DB
-   instance engine version](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.md "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.md") in the _Amazon Relational Database Service User Guide_.
+   instance engine version](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.md "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.md") in the _Amazon Relational Database Service User Guide_.
 
 To bring Wickr Backend online, scale back ingress `kubectl scale
  deployment/ingress-nginx-controller --replicas=3 -n wickr`
