@@ -63,6 +63,7 @@ Content-type: application/json
          "Regions": [ "***string***" ],
          "Scope": "***string***",
          "SourceLogsConfiguration": {
+            "DataSourceSelectionCriteria": "***string***",
             "EncryptedLogGroupStrategy": "***string***",
             "LogGroupSelectionCriteria": "***string***"
          }

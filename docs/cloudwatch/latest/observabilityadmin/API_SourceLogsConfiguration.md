@@ -17,6 +17,20 @@ Valid Values: `ALLOW | SKIP`
 
 Required: Yes
 
+**DataSourceSelectionCriteria**
+
+The selection criteria that specifies which data sources to centralize. The selection criteria uses the same filter expression format
+as `LogGroupSelectionCriteria`, but operates on `DataSourceName` and
+`DataSourceType` operands. When both `LogGroupSelectionCriteria` and
+`DataSourceSelectionCriteria` are specified, a log event must match both criteria
+to be centralized.
+
+Type: String
+
+Length Constraints: Minimum length of 1. Maximum length of 2000.
+
+Required: No
+
 **LogGroupSelectionCriteria**
 
 The selection criteria that specifies which source log groups to centralize. The selection
@@ -26,7 +40,7 @@ Type: String
 
 Length Constraints: Minimum length of 1. Maximum length of 2000.
 
-Required: Yes
+Required: No
 
 ## See Also
 
