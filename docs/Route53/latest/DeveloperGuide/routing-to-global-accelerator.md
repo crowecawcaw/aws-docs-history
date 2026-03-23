@@ -23,7 +23,7 @@ resources.
 To get started, you need the following:
 
 - An accelerator. You can create either a standard accelerator, or a custom routing
-  accelerator. For more information, see [Create a standard accelerator](../../../global-accelerator/latest/dg/about-accelerators.md "../../../global-accelerator/latest/dg/about-accelerators.md") and [Create a custom routing accelerator](../../../global-accelerator/latest/dg/about-custom-routing-accelerators.md "../../../global-accelerator/latest/dg/about-custom-routing-accelerators.md").
+  accelerator. For more information, see [Create a standard accelerator](../../../global-accelerator/latest/dg/about-accelerators.creating-editing.md "../../../global-accelerator/latest/dg/about-accelerators.creating-editing.md") and [Create a custom routing accelerator](../../../global-accelerator/latest/dg/about-custom-routing-accelerators.creating-editing.md "../../../global-accelerator/latest/dg/about-custom-routing-accelerators.creating-editing.md").
 - A registered domain name. You can use Amazon Route 53 as your domain registrar,
   or you can use a different registrar.
 - Route 53 as the DNS service for the domain. If you register your domain name

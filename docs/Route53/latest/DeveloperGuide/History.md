@@ -176,7 +176,7 @@ For more information, see [Considerations when working with a private hosted zon
 **January 25, 2022**
 The process for changing ownership for .com.au and .net.au TLDs has been simplified to include
 responding to two emails (by both old and new registrants) and doesn't
-include filling in forms. For more information, see [.com.au (Australia)](com.md "com.md") and [.net.au (Australia)](net.md "net.md").
+include filling in forms. For more information, see [.com.au (Australia)](com.au.md "com.au.md") and [.net.au (Australia)](net.au.md "net.au.md").
 
 ## 2021 releases
 

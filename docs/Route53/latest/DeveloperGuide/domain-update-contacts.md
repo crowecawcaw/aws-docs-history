@@ -263,7 +263,7 @@ topics:
    this procedure.
 
 If no Change of Domain Ownership form is required, perform the procedure
-in the applicable topic instead. 2. Download the [Change of Domain Ownership Form](samples/ChangeOfOwnerForm.md "samples/ChangeOfOwnerForm.md"). The file is compressed into a
+in the applicable topic instead. 2. Download the [Change of Domain Ownership Form](samples/ChangeOfOwnerForm.zip.md "samples/ChangeOfOwnerForm.zip.md"). The file is compressed into a
 .zip file. 3. Fill out the form. 4. For the registrant contact for the former owner of the domain
 _and_ for the new owner, get a copy of a signed proof
 of identity (identity card, driver's license, passport, or other legal proof
