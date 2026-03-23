@@ -49,7 +49,7 @@ The following procedure shows how to create a subnet group (console).
       choose the Availability Zone or [Local Zone](Local_zones.md "Local_zones.md") and ID of your private subnet,
       and then choose **Add**.
 
-   ![Image: Create Subnet VPC screen](images/vpc-03.png)
+   ![Image: Create Subnet VPC screen](/images/AmazonElastiCache/latest/dg/images/vpc-03.png)
 
 5. In the confirmation message that appears, choose **Close**.
    Your new subnet group appears in the **Subnet Groups** list of
@@ -405,7 +405,7 @@ If you are planning to use [Using local zones with ElastiCache](Local_zones.md "
 
 5. Choose **Save** when you finish.
 
-![Image: Screen for editing an inbound VPC rule](images/VPC-Rules.png)
+![Image: Screen for editing an inbound VPC rule](/images/AmazonElastiCache/latest/dg/images/VPC-Rules.png)
 
 Once you have enabled access, you are now ready to connect to the node, as discussed in the next section.
 
@@ -478,7 +478,7 @@ name and then choosing the **Nodes** tab.
 The nodes screen appears with each node in the cluster, primary and replicas,
 listed with its endpoint.
 
-![Image: Node endpoints for a Redis OSS (cluster mode disabled) cluster](images/ElastiCache-Endpoints-Redis-Node.png)
+![Image: Node endpoints for a Redis OSS (cluster mode disabled) cluster](/images/AmazonElastiCache/latest/dg/images/ElastiCache-Endpoints-Redis-Node.png)
 
 _Node endpoints for a Redis OSS (cluster mode disabled) cluster_ 5. To copy an endpoint to your clipboard:
 
