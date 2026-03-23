@@ -2,7 +2,7 @@
 
 ## Read the essential notes
 
-Refer to the essential notes in the [AWS Elemental Conductor File Release Notes](../../../elemental-onprem/latest/pdf/elemental_server_conductor_file_release_notes_2.18.0.md "../../../elemental-onprem/latest/pdf/elemental_server_conductor_file_release_notes_2.18.0.md") to identify key changes to
+Refer to the essential notes in the [AWS Elemental Conductor File Release Notes](../../../elemental-onprem/latest/pdf/elemental_server_conductor_file_release_notes_2.18.0.pdf.md "../../../elemental-onprem/latest/pdf/elemental_server_conductor_file_release_notes_2.18.0.pdf.md") to identify key changes to
 the behavior of the Conductor File and worker nodes.
 
 ###### Important
