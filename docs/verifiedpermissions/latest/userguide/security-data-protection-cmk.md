@@ -526,7 +526,7 @@ API Reference Guide_.
 If the AWS KMS customer managed key in use by your Amazon Verified Permissions resources is deleted, disabled, or inaccessible due to an incorrect AWS KMS key policy, decryption of resources will fail, and thus resulting
 in stale authorization decisions. The loss of access can be temporary (a key policy can be corrected) or permanent (a deleted key cannot be restored) depending on the circumstances. We recommend you
 [restrict access](../../../kms/latest/developerguide/deleting-keys-adding-permission.md "../../../kms/latest/developerguide/deleting-keys-adding-permission.md") to critical operations, such as deleting or disabling the AWS KMS key. Also, we recommend that your
-organization set up [AWS break-glass access procedures](../../../wellarchitected/latest/devops-guidance/ag.sad.md "../../../wellarchitected/latest/devops-guidance/ag.sad.md") to ensure your privileged users can
+organization set up [AWS break-glass access procedures](../../../wellarchitected/latest/devops-guidance/ag.sad.5-implement-break-glass-procedures.md "../../../wellarchitected/latest/devops-guidance/ag.sad.5-implement-break-glass-procedures.md") to ensure your privileged users can
 access AWS in the unlikely event that Amazon Verified Permissions is inaccessible.
 
 ## Monitoring Amazon Verified Permissions Interaction with AWS KMS
