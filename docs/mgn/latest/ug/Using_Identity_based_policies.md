@@ -16,3 +16,4 @@ create an IAM identity-based policy using example JSON policy documents, see
 
 - [Customer-managed policies in AWS MGN](customer_managed_policies_mgn.md "customer_managed_policies_mgn.md")
 - [Restrict permission to act on a source server associated with given AWS vCenter client](restrict-to-vcenter-client.md "restrict-to-vcenter-client.md")
+- [Network Migration API permissions](network-migration-api-permissions.md "network-migration-api-permissions.md")
