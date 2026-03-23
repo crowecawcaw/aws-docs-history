@@ -19,7 +19,7 @@ table.
 All of these scenarios get you through phase 1 of the installation process: the
 preconfigured operating system is installed, the software is installed, eth0 is configured,
 and licenses are installed. Phase 2 is configuration of the software and is addressed in
-[Configuring a Stand-alone Node Quick Guide](../../../elemental-onprem/latest/pdf/DOC-1094.md "../../../elemental-onprem/latest/pdf/DOC-1094.md").
+[Configuring a Stand-alone Node Quick Guide](../../../elemental-onprem/latest/pdf/DOC-1094.pdf.md "../../../elemental-onprem/latest/pdf/DOC-1094.pdf.md").
 
 ###### Note
 
