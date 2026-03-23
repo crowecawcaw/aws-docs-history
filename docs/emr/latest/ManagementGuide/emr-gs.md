@@ -137,7 +137,7 @@ if __name__ == "__main__":
 
 ###### To prepare the sample input data for EMR
 
-1. Download the zip file, [food_establishment_data.zip](samples/food_establishment_data.md "samples/food_establishment_data.md").
+1. Download the zip file, [food_establishment_data.zip](samples/food_establishment_data.zip.md "samples/food_establishment_data.zip.md").
 2. Unzip and save `food_establishment_data.zip` as
    `food_establishment_data.csv` on your machine.
 3. Upload the CSV file to the S3 bucket that you created for this tutorial.

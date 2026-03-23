@@ -138,7 +138,7 @@ Workspace](#emr-studio-runtime-use "#emr-studio-runtime-use").
 
 ###### Note
 
-The [ExecutionRoleArn](../APIReference/API_ExecutionEngineConfig.md#EMR-Type-ExecutionEngineConfig-ExecutionRoleArn "../APIReference/API_ExecutionEngineConfig.md#EMR-Type-ExecutionEngineConfig-ExecutionRoleArn")
+The [ExecutionRoleArn](../APIReference/API_ExecutionEngineConfig.html .md#EMR-Type-ExecutionEngineConfig-ExecutionRoleArn "../APIReference/API_ExecutionEngineConfig.html .md#EMR-Type-ExecutionEngineConfig-ExecutionRoleArn")
 value is currently not supported with the [StartNotebookExecution](../APIReference/API_StartNotebookExecution.md "../APIReference/API_StartNotebookExecution.md") API operation when the
 `ExecutionEngineConfig.Type` value is `EMR`.
 

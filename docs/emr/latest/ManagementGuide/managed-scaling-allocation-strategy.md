@@ -57,8 +57,33 @@ nodes.
 For more information on shuffle operations, see the [Spark Programming Guide](https://spark.apache.org/docs/latest/rdd-programming-guide.html#shuffle-operations "https://spark.apache.org/docs/latest/rdd-programming-guide.html#shuffle-operations"). Managed Scaling makes best effort to prevent scaling-down nodes with shuffle data from the current and previous stage of any active Spark
 application, up to a maximum of 30 minutes. This helps minimize unintended shuffle data
 loss, avoiding the need for job re-attempts and recomputation of
-intermediate data. However, prevention of shuffle data loss is not guaranteed. For guaranteed protection, we recommend shuffle awareness on clusters with release
-label 7.4 or higher. See below for how to set up guaranteed shuffle protection.
+intermediate data. However, prevention of shuffle data loss is not guaranteed. For improved Spark shuffle protection, we recommend shuffle awareness on clusters with release
+label 7.4 or higher. Add the following flags to the cluster configuration to enable improved Spark shuffle protection.
+
+    + If either the `yarn.nodemanager.shuffledata-monitor.interval-ms` flag (default 30000 ms) or the
+     `spark.dynamicAllocation.executorIdleTimeout` (default 60 sec) has been changed from the default values,
+     ensure the condition `spark.dynamicAllocation.executorIdleTimeout > yarn.nodemanager.shuffledata-monitor.interval-ms`
+     remains `true` by updating the necessary flag.
+
+
+
+    ```
+    [
+    	{
+    		"Classification": "yarn-site",
+    		"Properties": {
+    		"yarn.resourcemanager.decommissioning-nodes-watcher.wait-for-shuffle-data": "true"
+    		}
+    	},
+    	{
+    		"Classification": "spark-defaults",
+    		"Properties": {
+    		"spark.dynamicAllocation.enabled": "true",
+    		"spark.shuffle.service.removeShuffle": "true"
+    		}
+    	}
+    ]
+    ```
 
 - Managed scaling first removes task nodes and then
   removes core nodes until it achieves the desired scale-down target capacity.
@@ -90,9 +115,29 @@ label 7.4 or higher. See below for how to set up guaranteed shuffle protection.
       shuffle files at time of application termination. This may have an impact on the speed of node decommissioning and compute utilization. For long running
       applications, consider setting `spark.shuffle.service.removeShuffle` to `true` to remove shuffle files no longer in use to enable faster
       decommissioning of nodes with no active shuffle data.
-    - If either the `yarn.nodemanager.shuffledata-monitor.interval-ms` flag or the `spark.dynamicAllocation.executorIdleTimeout` has been
+
+  - To minimize Spark shuffle data loss in Amazon EMR version 7.4.0 and higher, consider setting the following flags.
+    - If either the `yarn.nodemanager.shuffledata-monitor.interval-ms` flag (default 30000 ms) or the `spark.dynamicAllocation.executorIdleTimeout` (default 60 sec) has been
       changed from the default values, ensure that the condition `spark.dynamicAllocation.executorIdleTimeout > yarn.nodemanager.shuffledata-monitor.interval-ms` remains `true` by
       updating the necessary flag.
+
+    ```
+    [
+    	{
+    		"Classification": "yarn-site",
+    		"Properties": {
+    		"yarn.resourcemanager.decommissioning-nodes-watcher.wait-for-shuffle-data": "true"
+    		}
+    	},
+    	{
+    		"Classification": "spark-defaults",
+    		"Properties": {
+    		"spark.dynamicAllocation.enabled": "true",
+    		"spark.shuffle.service.removeShuffle": "true"
+    		}
+    	}
+    ]
+    ```
 
 If the cluster does not have any load, then Amazon EMR cancels the addition of new
 instances from a previous evaluation and performs scale-down operations. If the
