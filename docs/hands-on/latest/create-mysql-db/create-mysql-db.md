@@ -71,7 +71,7 @@ You now have options to select your engine. For this tutorial, choose the **MySQ
 version, and select the **Free Tier** template. **Multi-AZ deployment:** You will have to pay for Multi-AZ
 deployment. Using a Multi-AZ deployment will automatically provision and maintain a
 synchronous standby replica in a different Availability Zone. For more information,
-see [High Availability Deployment.](../../../AmazonRDS/latest/UserGuide/Concepts.md "../../../AmazonRDS/latest/UserGuide/Concepts.md")
+see [High Availability Deployment.](../../../AmazonRDS/latest/UserGuide/Concepts.MultiAZ.md "../../../AmazonRDS/latest/UserGuide/Concepts.MultiAZ.md")
 
 ![The AWS RDS "Create database" page with "Standard create" and "MySQL" options selected, engine version set to MySQL 8.0.28, and "Free tier" template highlighted.](images/database-page-standard-options-selected.png) 5. Configure DB instance
 
@@ -203,7 +203,7 @@ section**:**
 **Encryption**: This option is not
 available in the Free Tier. For more information, see
 [Encrypting
-Amazon RDS Resources](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md"). 
+Amazon RDS Resources](../../../AmazonRDS/latest/UserGuide/Overview.Encryption.md "../../../AmazonRDS/latest/UserGuide/Overview.Encryption.md"). 
 
 **Backup**
 
