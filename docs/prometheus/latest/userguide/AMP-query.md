@@ -25,7 +25,7 @@ Prometheus](https://prometheus.io/docs/prometheus/latest/querying/basics/ "https
 - [Secure your metric queries](AMP-secure-querying.md "AMP-secure-querying.md")
 - [Set up Amazon Managed Grafana for use with Amazon Managed Service for Prometheus](AMP-amg.md "AMP-amg.md")
 - [Set up Grafana open source or Grafana Enterprise for use with Amazon Managed Service for Prometheus](AMP-onboard-query-standalone-grafana.md "AMP-onboard-query-standalone-grafana.md")
-- [Query using Grafana running in an Amazon EKS cluster](AMP-onboard-query-grafana-7.md "AMP-onboard-query-grafana-7.md")
+- [Query using Grafana running in an Amazon EKS cluster](AMP-onboard-query-grafana-7.3.md "AMP-onboard-query-grafana-7.3.md")
 - [Query using Prometheus-compatible APIs](AMP-onboard-query-APIs.md "AMP-onboard-query-APIs.md")
 - [Get statistics about your query usage for each query](AMP-stats.md "AMP-stats.md")
 
