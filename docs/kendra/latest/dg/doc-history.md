@@ -4,7 +4,7 @@
   2024
   The following table describes important changes in each release of Amazon Kendra. For
   notification about updates to this documentation, you can subscribe to the [RSS
-  feed](amazon-kendra-release-notes.md "amazon-kendra-release-notes.md").
+  feed](amazon-kendra-release-notes.rss.md "amazon-kendra-release-notes.rss.md").
 
 | Change                                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                 | Date               |
 | ------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |

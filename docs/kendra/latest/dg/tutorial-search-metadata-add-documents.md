@@ -15,7 +15,7 @@ to host the data, metadata, and the Amazon Comprehend entities analysis output.
 Before Amazon Comprehend can run an entities analysis job on your data, you must download and
 extract the dataset and upload it to an S3 bucket.
 
-1. Download the [tutorial-dataset.zip](samples/tutorial-dataset.md "samples/tutorial-dataset.md") folder on your device.
+1. Download the [tutorial-dataset.zip](samples/tutorial-dataset.zip.md "samples/tutorial-dataset.zip.md") folder on your device.
 2. Extract the `tutorial-dataset` folder to access the
    `data` folder.
 3. To download the `tutorial-dataset`, run the following command

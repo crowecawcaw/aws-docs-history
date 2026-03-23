@@ -262,7 +262,7 @@ Where:
 To convert the Amazon Comprehend output to Amazon Kendra metadata, you run a Python 3 script. If you are
 using the Console, you use AWS CloudShell for this step.
 
-1. Download the [converter.py.zip](samples/converter.py.md "samples/converter.py.md") zipped file on your device.
+1. Download the [converter.py.zip](samples/converter.py.zip.md "samples/converter.py.zip.md") zipped file on your device.
 2. Extract the Python 3 file `converter.py`.
 3. Sign into the [AWS Management
    Console](https://aws.amazon.com/console/ "https://aws.amazon.com/console/") and make sure your AWS region is set to the same region as your
