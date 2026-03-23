@@ -113,7 +113,7 @@ For more examples, see [AWS::CodeCommit::Repository](../../../AWSCloudFormation/
 
 Repositories created using the AWS CDK use CloudFormation functionality in their creation.
 Understanding how CloudFormation templates work with CodeCommit resources can help you create and manage your
-AWS CDK code. For more information about the AWS CDK, see the [AWS Cloud Development Kit (AWS CDK) Developer Guide](../../../cdk/latest/guide/home.md "../../../cdk/latest/guide/home.md") and the [AWS CDK API Reference.](../../../cdk/api/v2/docs/aws-cdk-lib.md "../../../cdk/api/v2/docs/aws-cdk-lib.md")
+AWS CDK code. For more information about the AWS CDK, see the [AWS Cloud Development Kit (AWS CDK) Developer Guide](../../../cdk/latest/guide/home.md "../../../cdk/latest/guide/home.md") and the [AWS CDK API Reference.](../../../cdk/api/v2/docs/aws-cdk-lib.aws_codecommit-readme.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_codecommit-readme.md")
 
 The following AWS CDK Typescript example creates a CodeCommit repository named
 `MyDemoRepo`. The newly created repository is populated with code
