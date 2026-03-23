@@ -6,6 +6,7 @@ containers. You can choose to use any or all of these features.
 ###### Topics
 
 - [Set resource limits](#containers-design-fleet-limits "#containers-design-fleet-limits")
+- [Understand container fleet memory allocation](#containers-design-fleet-memory-allocation "#containers-design-fleet-memory-allocation")
 - [Configuring NVMe Drive Access](#containers-design-fleet-nvme "#containers-design-fleet-nvme")
 - [Designate essential containers](#containers-design-fleet-essential "#containers-design-fleet-essential")
 - [Configure network connections](#containers-custom-network "#containers-custom-network")
@@ -95,6 +96,123 @@ group:
   MiB).
 - Total CPU limit: 13312 CPU. This value exceeds the sum of the CPU limit (1024+512
   CPU).
+
+## Understand container fleet memory allocation
+
+When Amazon GameLift Servers deploys container groups on a fleet instance, not all of the instance's memory
+is available for your containers. Amazon GameLift Servers reserves a portion of the instance memory for the
+operating system, the Amazon ECS agent, and other supporting services. The amount of reserved
+memory varies based on the instance type's total memory. Understanding this overhead helps you
+configure your container group definitions to fully utilize the available resources.
+
+### Memory overhead formula
+
+Amazon GameLift Servers calculates the memory available for your container groups using the following
+steps:
+
+1. **Determine the memory buffer percentage.** Amazon GameLift Servers
+   reserves a percentage of the instance's total memory based on the following
+   tiers:
+
+| Instance memory (MiB) | Reserved percentage |
+| --------------------- | ------------------- |
+| Less than 5,000       | 8%                  |
+| 5,000 to 9,999        | 6%                  |
+| 10,000 to 89,999      | 5%                  |
+| 90,000 to 199,999     | 4%                  |
+| 200,000 or more       | 3%                  |
+
+2. **Calculate available memory.** Subtract the reserved
+   memory from the total instance memory:
+
+`AvailableMemory = InstanceMemory - round(InstanceMemory × BufferPercentage)` 3. **Subtract per-instance container group memory.** If
+your fleet uses a per-instance container group, subtract its
+`TotalMemoryLimitMebibytes` from the available memory. One per-instance
+container group runs on each fleet instance.
+
+`AvailableMemory = AvailableMemory - PerInstanceCGD.TotalMemoryLimitMebibytes` 4. **Account for log router overhead.** If logging is
+enabled for the fleet, Amazon GameLift Servers reserves an additional 50 MiB per game server container
+group for the log router. 5. **Calculate maximum game server container groups.** The
+maximum number of game server container groups that fit on the instance by memory
+is:
+
+`MaxGroupsByMemory = floor(AvailableMemory / (GameServerCGD.TotalMemoryLimitMebibytes + LogRouterMemory))`
+
+Where `LogRouterMemory` is 50 MiB if logging is enabled, or 0 if logging
+is disabled.
+
+###### Note
+
+Memory is only one factor that determines how many game server container groups fit on
+an instance. Amazon GameLift Servers also considers vCPU capacity and available connection ports, and uses
+the minimum of all three calculations.
+
+### Example memory calculation
+
+Consider a fleet using a `c5.xlarge` instance (8,192 MiB total memory) with
+logging enabled:
+
+1. Instance memory is 8,192 MiB, which falls in the 5,000–9,999 tier (6% buffer)
+2. Reserved memory = round(8,192 × 0.06) = 492 MiB
+3. Available memory = 8,192 - 492 = 7,700 MiB
+4. If using a per-instance container group with `TotalMemoryLimitMebibytes`
+   of 512: Available memory = 7,700 - 512 = 7,188 MiB
+5. If each game server container group has `TotalMemoryLimitMebibytes` of
+   1,024: MaxGroupsByMemory = floor(7,188 / (1,024 + 50)) = floor(7,188 / 1,074) =
+   6
+
+### Available memory by instance type
+
+The following table shows the total memory and available memory (after the Amazon GameLift Servers buffer)
+for commonly used instance types. Use these values as a starting point when configuring your
+container group definitions. The _Available memory_ column
+shows the memory available for all container groups on the instance, before subtracting any
+per-instance container group or log router overhead.
+
+| Instance type  | Total memory (MiB) | Buffer percentage | Available memory (MiB) |
+| -------------- | ------------------ | ----------------- | ---------------------- |
+| `c5.large`     | 4,096              | 8%                | 3,768                  |
+| `c5.xlarge`    | 8,192              | 6%                | 7,700                  |
+| `c5.2xlarge`   | 16,384             | 5%                | 15,565                 |
+| `c5.4xlarge`   | 32,768             | 5%                | 31,130                 |
+| `c5.9xlarge`   | 73,728             | 5%                | 70,042                 |
+| `c5.12xlarge`  | 98,304             | 4%                | 94,372                 |
+| `c5.18xlarge`  | 147,456            | 4%                | 141,558                |
+| `c5.24xlarge`  | 196,608            | 4%                | 188,744                |
+| `m5.large`     | 8,192              | 6%                | 7,700                  |
+| `m5.xlarge`    | 16,384             | 5%                | 15,565                 |
+| `m5.2xlarge`   | 32,768             | 5%                | 31,130                 |
+| `m5.4xlarge`   | 65,536             | 5%                | 62,259                 |
+| `m5.8xlarge`   | 131,072            | 4%                | 125,829                |
+| `m5.12xlarge`  | 196,608            | 4%                | 188,744                |
+| `r5.large`     | 16,384             | 5%                | 15,565                 |
+| `r5.xlarge`    | 32,768             | 5%                | 31,130                 |
+| `r5.2xlarge`   | 65,536             | 5%                | 62,259                 |
+| `r5.4xlarge`   | 131,072            | 4%                | 125,829                |
+| `c6i.large`    | 4,096              | 8%                | 3,768                  |
+| `c6i.xlarge`   | 8,192              | 6%                | 7,700                  |
+| `c6i.2xlarge`  | 16,384             | 5%                | 15,565                 |
+| `c6i.4xlarge`  | 32,768             | 5%                | 31,130                 |
+| `c6i.8xlarge`  | 65,536             | 5%                | 62,259                 |
+| `c7i.large`    | 4,096              | 8%                | 3,768                  |
+| `c7i.xlarge`   | 8,192              | 6%                | 7,700                  |
+| `c7i.2xlarge`  | 16,384             | 5%                | 15,565                 |
+| `c7i.4xlarge`  | 32,768             | 5%                | 31,130                 |
+| `c7i.8xlarge`  | 65,536             | 5%                | 62,259                 |
+| `m7i.large`    | 8,192              | 6%                | 7,700                  |
+| `m7i.xlarge`   | 16,384             | 5%                | 15,565                 |
+| `m7i.2xlarge`  | 32,768             | 5%                | 31,130                 |
+| `m7i.4xlarge`  | 65,536             | 5%                | 62,259                 |
+| `m7i.8xlarge`  | 131,072            | 4%                | 125,829                |
+| `m7i.12xlarge` | 196,608            | 4%                | 188,744                |
+| `r7i.large`    | 16,384             | 5%                | 15,565                 |
+| `r7i.xlarge`   | 32,768             | 5%                | 31,130                 |
+| `r7i.2xlarge`  | 65,536             | 5%                | 62,259                 |
+| `r7i.4xlarge`  | 131,072            | 4%                | 125,829                |
+
+For instance types not listed here, you can calculate the available memory using the
+formula described above. Check the [Amazon EC2 instance types documentation](../../../ec2/latest/instancetypes/ec2-instance-type-specifications.md "../../../ec2/latest/instancetypes/ec2-instance-type-specifications.md") for the total memory of your chosen
+instance type.
 
 ## Configuring NVMe Drive Access
 

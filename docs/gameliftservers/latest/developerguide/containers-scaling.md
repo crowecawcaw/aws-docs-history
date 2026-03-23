@@ -34,6 +34,11 @@ based on player demand:
 
       - For game server container groups per instance, call [DescribeContainerFleet](../apireference/API_DescribeContainerFleet.md "../apireference/API_DescribeContainerFleet.md") to get the
        `GameServerContainerGroupsPerInstance` or `MaximumGameServerContainerGroupsPerInstance` value.
+      - The number of game server container groups that fit on an instance depends on
+       how much memory is available after Amazon GameLift Servers reserves a portion for the operating system
+       and supporting services. For details on how available memory is calculated and a
+       reference table of common instance types, see
+       [Understand container fleet memory allocation](containers-design-fleet.md#containers-design-fleet-memory-allocation "containers-design-fleet.md#containers-design-fleet-memory-allocation").
 
 - Players per instance
 

@@ -100,6 +100,15 @@ gameSessionRegion
 AWS Region of the fleet that is hosting the game session.
 This corresponds to the region token in the `GameSessionArn`.
 
+playerGatewayStatus
+
+The state of the player gateway at the fleet location running this game session.
+
+Possible values include:
+
+- `ENABLED` – Player gateway is available for routing player connections for this game session.
+- `DISABLED` – Player gateway is not available for this game session.
+
 placedPlayerSessions
 
 The collection of player sessions that have been created for each player in the game
@@ -129,6 +138,7 @@ session placement request.
     "startTime": "2021-03-01T15:50:49.741Z",
     "endTime": "2021-03-01T15:50:52.084Z",
     "gameSessionRegion": "us-west-2",
+    "playerGatewayStatus": "ENABLED",
     "placedPlayerSessions": [
       {
         "playerId": "player-1"
