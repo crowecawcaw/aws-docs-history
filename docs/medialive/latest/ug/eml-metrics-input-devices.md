@@ -385,7 +385,7 @@ stream.
     running** metric. If the
     encoder is running, verify that port 2088 is
     not blocked on your network. For a list of
-    ports that must be open, consult the [HD](../../../elemental-onprem/latest/pdf/AWS_Elemental_Data_Sheet_Link.md "../../../elemental-onprem/latest/pdf/AWS_Elemental_Data_Sheet_Link.md") datasheet or [UHD](../../../elemental-onprem/latest/pdf/AWS_Elemental_Link_UHD_Specification_Sheet.md "../../../elemental-onprem/latest/pdf/AWS_Elemental_Link_UHD_Specification_Sheet.md") datasheet.
+    ports that must be open, consult the [HD](../../../elemental-onprem/latest/pdf/AWS_Elemental_Data_Sheet_Link.pdf.md "../../../elemental-onprem/latest/pdf/AWS_Elemental_Data_Sheet_Link.pdf.md") datasheet or [UHD](../../../elemental-onprem/latest/pdf/AWS_Elemental_Link_UHD_Specification_Sheet.pdf.md "../../../elemental-onprem/latest/pdf/AWS_Elemental_Link_UHD_Specification_Sheet.pdf.md") datasheet.
 
 - **Streaming**
   - If this is 0, verify that the channel has

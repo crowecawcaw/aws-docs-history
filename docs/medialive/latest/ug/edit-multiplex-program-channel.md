@@ -49,5 +49,5 @@ In MediaLive, you can edit a channel that is idle.
 
 1. Stop the channel. You can stop the channel in the usual way, from the
    **Channels** pane. Or you can stop it from the
-   **Multiplex** page. For more information, see [Stopping a channel in a multiplex](stop-multiplex.md#multiplex-channel-stopping "stop-multiplex.md#multiplex-channel-stopping").
+   **Multiplex** page. For more information, see [Stopping a channel in a multiplex](stop-multiplex.title.md#multiplex-channel-stopping "stop-multiplex.title.md#multiplex-channel-stopping").
 2. Edit the channel. For more information, see [Editing a channel](editing-deleting-channel.md#editing-a-channel "editing-deleting-channel.md#editing-a-channel").

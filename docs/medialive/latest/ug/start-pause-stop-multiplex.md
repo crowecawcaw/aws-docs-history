@@ -8,5 +8,5 @@ the multiplex and the channels independently of each other. You don't start or s
 
 - [Summary of these actions](multiplex-start-stop-pause-summary.md "multiplex-start-stop-pause-summary.md")
 - [Starting the multiplex](start-multiplex.md "start-multiplex.md")
-- [Pausing activity in the multiplex](pause-multiplex.md "pause-multiplex.md")
-- [Stopping activity in the multiplex](stop-multiplex.md "stop-multiplex.md")
+- [Pausing activity in the multiplex](pause-multiplex.title.md "pause-multiplex.title.md")
+- [Stopping activity in the multiplex](stop-multiplex.title.md "stop-multiplex.title.md")
