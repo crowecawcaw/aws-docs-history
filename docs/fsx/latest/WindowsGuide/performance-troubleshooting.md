@@ -27,7 +27,7 @@ to enhance performance for the most frequently accessed data. The file servers a
 to the storage volumes that host your file system data. This is the disk I/O. The following diagram
 illustrates network and disk I/O for an Amazon FSx file system.
 
-![FSx for Windows File Server architecture, showing the relationship of file server and storage volumes performance metrics and their impact on file system performance.](/images/fsx/latest/WindowsGuide/images/metrics-overview-FSxW.png)
+![FSx for Windows File Server architecture, showing the relationship of file server and storage volumes performance metrics and their impact on file system performance.](images/metrics-overview-FSxW.png)
 
 For more information, see [Monitoring with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md").
 
