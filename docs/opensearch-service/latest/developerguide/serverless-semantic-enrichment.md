@@ -317,6 +317,9 @@ to implement automatic semantic enrichment for your specific use case.
   which might be unnecessary for log analysis where exact matching typically suffices.
   The additional semantic context rarely improves log search effectiveness enough to justify the increased storage requirements.
 - Automatic semantic enrichment is not compatible with the Derived Source feature.
+- Throttling – Indexing inference requests are currently capped at 100 TPS for
+  OpenSearch Serverless. This is a soft limit; reach out to AWS Support for
+  higher limits.
 
 ## Pricing
 

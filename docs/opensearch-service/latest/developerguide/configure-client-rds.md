@@ -23,7 +23,7 @@ snapshot from some other mechanism, or if you just want to capture all changes t
 in an Amazon RDS instance.
 
 When you choose this option you need to [configure Amazon RDS
-for MySQL binary logging](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.MySQL.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.MySQL.md") or [set up logical replication for Amazon RDS for PostgresSQL DB instance](../../../AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.pglogical.md "../../../AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.pglogical.md").
+for MySQL binary logging](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.MySQL.BinaryFormat.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.MySQL.BinaryFormat.md") or [set up logical replication for Amazon RDS for PostgresSQL DB instance](../../../AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.pglogical.setup-replication.md "../../../AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.pglogical.setup-replication.md").
 
 ###### Topics
 

@@ -81,8 +81,24 @@ You can set up a collection-level query data source with the AWS Management Cons
 
 When using your own role, you must ensure it has all necessary
 permissions by attaching required policies from the IAM
-console. For more information, see [Required permissions for manually created IAM roles](#direct-query-cloudwatch-logs-additional-resources-required-permissions "#direct-query-cloudwatch-logs-additional-resources-required-permissions"). 8. (Optional) Under **Tags**, add tags to your data
-source. 9. Choose **Next**. 10. Under **Set up OpenSearch**, choose how to set up
+console. For more information, see [Required permissions for manually created IAM roles](#direct-query-cloudwatch-logs-additional-resources-required-permissions "#direct-query-cloudwatch-logs-additional-resources-required-permissions"). 8. (Optional) Under **Access policy**, configure
+an access policy for the data source. Access policies control
+whether a request to the OpenSearch Service direct query data source is accepted
+or rejected. If you don't configure an access policy, only the data
+source owner has access. You can configure the access policy
+to enable cross-account access, allowing principals in other
+AWS accounts to access the data source.
+
+You can create an access policy using the visual editor or by
+providing a JSON policy document. With the visual editor, you can
+allow or deny access by specifying a principal AWS account ID,
+account ARN, IAM user ARN, IAM role ARN, source IP address, or
+CIDR block. The visual editor supports up to 10 elements. To define
+a policy with more than 10 elements, use the JSON editor.
+
+You can also choose **Import policy** to import
+an existing access policy from another data source. 9. (Optional) Under **Tags**, add tags to your data
+source. 10. Choose **Next**. 11. Under **Set up OpenSearch**, choose how to set up
 OpenSearch.
 
     1. Use the default settings:
@@ -111,10 +127,10 @@ OpenSearch.
     	3. Select the OpenSearch application and workspace
     	 that you want to use.
 
-11. Choose **Next**.
-12. Review your choices and choose **Edit** if you
+12. Choose **Next**.
+13. Review your choices and choose **Edit** if you
     need to make any changes.
-13. Choose **Connect** to set up the data source.
+14. Choose **Connect** to set up the data source.
     Stay on this page while your data source is created. When it’s
     ready, you’ll be taken to the data source details page.
 
@@ -215,3 +231,37 @@ Although you can configure the role to limit or grant access to your data
 source, it is recommended you not adjust the access of this role. **If you delete the data source, this role will be
 deleted**. This will remove access for any other users if they
 are mapped to the role.
+
+### Sample access policy for a direct query data source
+
+Access policies for direct query data sources follow IAM policy syntax.
+The policy document must be in valid JSON format. The following example
+policy grants a specific AWS account access to the direct query data
+source.
+
+In the following sample policy, replace the `placeholder
+ text` with your own information.
+
+```
+{
+ "Version": "2012-10-17",
+ "Statement": [
+   {
+     "Effect": "Allow",
+     "Principal": {
+     "AWS": "arn:aws:iam::`account-id`:root"
+     },
+     "Action": [
+       "opensearch:StartDirectQuery",
+       "opensearch:GetDirectQuery",
+       "opensearch:CancelDirectQuery",
+       "opensearch:GetDirectQueryResult"
+     ],
+     "Resource": "arn:aws:opensearch:`region`:`account-id`:datasource/`data-source-name`"
+   }
+ ]
+}
+```
+
+If you don't configure an access policy, only the data source owner has
+access to the data source.

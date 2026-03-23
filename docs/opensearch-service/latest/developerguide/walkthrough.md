@@ -267,7 +267,7 @@ that you can use for testing.
 ## (Optional) Step 3: Index sample data
 
 If you don't have a bunch of call recordings handy—and who does?—you can
-[index](indexing.md "indexing.md") the sample documents in [sample-calls.zip](samples/sample-calls.md "samples/sample-calls.md"), which are comparable to
+[index](indexing.md "indexing.md") the sample documents in [sample-calls.zip](samples/sample-calls.zip.md "samples/sample-calls.zip.md"), which are comparable to
 what `call-center.py` produces.
 
 1. Create a file named `bulk-helper.py`:
@@ -307,7 +307,7 @@ print(json.dumps(response, indent=2, sort_keys=True))
 pip install opensearch-py
 ```
 
-4. Download and unzip [sample-calls.zip](samples/sample-calls.md "samples/sample-calls.md").
+4. Download and unzip [sample-calls.zip](samples/sample-calls.zip.md "samples/sample-calls.zip.md").
 5. Place `sample-calls.bulk` in the same directory as
    `bulk-helper.py` and run the helper. A sample output
    follows:

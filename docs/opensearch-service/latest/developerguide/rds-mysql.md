@@ -30,10 +30,10 @@ binlog_row_metadata=FULL
 Additionally, make sure the `binlog_row_value_options`
 parameter is not set to `PARTIAL_JSON`.
 
-For more information, see [Configuring RDS for MySQL binary logging](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.MySQL.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.MySQL.md"). 2. [Select or
+For more information, see [Configuring RDS for MySQL binary logging](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.MySQL.BinaryFormat.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.MySQL.BinaryFormat.md"). 2. [Select or
 create an RDS for MySQL DB instance](../../../AmazonRDS/latest/UserGuide/USER_CreateDBInstance.md "../../../AmazonRDS/latest/UserGuide/USER_CreateDBInstance.md") and associate the parameter
 group created in the previous step with the DB instance. 3. Verify that automated backups are enabled on the database. For more
-information, see [Enabling automated backups](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.md "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.md"). 4. Configure binary log retention with enough time for replication to occur,
+information, see [Enabling automated backups](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.Enabling.md "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.Enabling.md"). 4. Configure binary log retention with enough time for replication to occur,
 for example 24 hours. For more information, see [Setting and showing binary log configuration](../../../AmazonRDS/latest/UserGuide/mysql-stored-proc-configuring.md "../../../AmazonRDS/latest/UserGuide/mysql-stored-proc-configuring.md") in the
 _Amazon RDS User Guide_. 5. Set up username and password authentication on your Amazon RDS instance using
 [password
@@ -309,7 +309,7 @@ one or more subnets and one or more VPC security groups. Note that the pipeline
 needs network access to a Aurora MySQL database, so you should also verify that your
 Aurora cluster is configured with a VPC security group that allows inbound traffic
 from the pipeline's VPC security group to the database port. For more information,
-see [Controlling access with security groups](../../../AmazonRDS/latest/AuroraUserGuide/Overview.md "../../../AmazonRDS/latest/AuroraUserGuide/Overview.md").
+see [Controlling access with security groups](../../../AmazonRDS/latest/AuroraUserGuide/Overview.RDSSecurityGroups.md "../../../AmazonRDS/latest/AuroraUserGuide/Overview.RDSSecurityGroups.md").
 
 If you're using the AWS Management Console to create your pipeline, you must also attach your
 pipeline to your VPC in order to use Amazon Aurora as a source. To do this, find the

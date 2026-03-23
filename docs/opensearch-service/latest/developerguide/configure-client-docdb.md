@@ -29,7 +29,7 @@ steps:
 3. Set up a VPC CIDR of a private address space for use with
    OpenSearch Ingestion.
 4. Set up authentication on your Amazon DocumentDB cluster with AWS Secrets Manager. Enable secrets
-   rotation by following the steps in [Automatically rotating passwords for Amazon DocumentDB](../../../documentdb/latest/developerguide/security.md#security.managing-users-rotating-passwords "../../../documentdb/latest/developerguide/security.md#security.managing-users-rotating-passwords"). For more information,
+   rotation by following the steps in [Automatically rotating passwords for Amazon DocumentDB](../../../documentdb/latest/developerguide/security.managing-users.md#security.managing-users-rotating-passwords "../../../documentdb/latest/developerguide/security.managing-users.md#security.managing-users-rotating-passwords"). For more information,
    see [Database access using Role-Based Access Control](../../../documentdb/latest/developerguide/role_based_access_control.md "../../../documentdb/latest/developerguide/role_based_access_control.md") and [Security in Amazon DocumentDB](../../../documentdb/latest/developerguide/security.md "../../../documentdb/latest/developerguide/security.md").
 5. If you use a change stream to subscribe to data changes on your Amazon DocumentDB
    collection, avoid data loss by extending the retention period to up to 7 days

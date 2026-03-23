@@ -26,7 +26,7 @@ create one.
 
 ## Step 1: Index sample data
 
-Download [sample-movies.zip](samples/sample-movies.md "samples/sample-movies.md"), unzip it,
+Download [sample-movies.zip](samples/sample-movies.zip.md "samples/sample-movies.zip.md"), unzip it,
 and then use the [\_bulk](https://opensearch.org/docs/latest/api-reference/document-apis/bulk/ "https://opensearch.org/docs/latest/api-reference/document-apis/bulk/") API operation to add the 5,000 documents to the `movies`
 index:
 
@@ -409,7 +409,7 @@ to map the Lambda role to a user, otherwise you'll see permissions errors.
 
 ###### To test the web application
 
-1. Download [sample-site.zip](samples/sample-site.md "samples/sample-site.md"), unzip
+1. Download [sample-site.zip](samples/sample-site.zip.md "samples/sample-site.zip.md"), unzip
    it, and open `scripts/search.js` in your favorite text editor.
 2. Update the `apigatewayendpoint` variable to point to your API Gateway
    endpoint and add a backslash to the end of the given path. You can quickly find

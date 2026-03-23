@@ -24,7 +24,7 @@ a full snapshot from some other mechanism, or if you just want to capture all ch
 data in Amazon Aurora cluster.
 
 When you choose this option you need to [configure
-binary logging for Aurora MySQL](../../../AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.MySQL.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.MySQL.md") or [set up logical replication for Aurora PostgreSQL on the cluster](../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Replication.Logical.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Replication.Logical.md").
+binary logging for Aurora MySQL](../../../AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.MySQL.BinaryFormat.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.MySQL.BinaryFormat.md") or [set up logical replication for Aurora PostgreSQL on the cluster](../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Replication.Logical.Configure.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Replication.Logical.Configure.md").
 
 ###### Topics
 

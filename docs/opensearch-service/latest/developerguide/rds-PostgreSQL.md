@@ -18,14 +18,14 @@ RDS for PostgreSQL.
 Before you create your OpenSearch Ingestion pipeline, perform the following
 steps:
 
-1. [Create a custom DB parameter group](../../../AmazonRDS/latest/UserGuide/zero-etl.md#zero-etl.parameters "../../../AmazonRDS/latest/UserGuide/zero-etl.md#zero-etl.parameters") in Amazon RDS to configure
+1. [Create a custom DB parameter group](../../../AmazonRDS/latest/UserGuide/zero-etl.setting-up.md#zero-etl.parameters "../../../AmazonRDS/latest/UserGuide/zero-etl.setting-up.md#zero-etl.parameters") in Amazon RDS to configure
    logical replication.
 
 ```
 rds.logical_replication=1
 ```
 
-For more information, see [Performing logical replication for Amazon RDS for PostgreSQL](../../../AmazonRDS/latest/UserGuide/PostgreSQL.Concepts.General.FeatureSupport.md "../../../AmazonRDS/latest/UserGuide/PostgreSQL.Concepts.General.FeatureSupport.md"). 2. [Select or create an RDS for PostgreSQL DB instance](../../../AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.md "../../../AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.md") and associate the
+For more information, see [Performing logical replication for Amazon RDS for PostgreSQL](../../../AmazonRDS/latest/UserGuide/PostgreSQL.Concepts.General.FeatureSupport.LogicalReplication.md "../../../AmazonRDS/latest/UserGuide/PostgreSQL.Concepts.General.FeatureSupport.LogicalReplication.md"). 2. [Select or create an RDS for PostgreSQL DB instance](../../../AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.md "../../../AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.md") and associate the
 parameter group created in step 1 with the DB instance. 3. Set up username and password authentication on your Amazon RDS instance using
 [password
 management with Aurora and AWS Secrets Manager](../../../AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.md "../../../AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.md"). You can also create a
@@ -302,7 +302,7 @@ one or more subnets and one or more VPC security groups. Note that the pipeline
 needs network access to a Aurora MySQL database, so you should also verify that your
 Aurora cluster is configured with a VPC security group that allows inbound traffic
 from the pipeline's VPC security group to the database port. For more information,
-see [Controlling access with security groups](../../../AmazonRDS/latest/AuroraUserGuide/Overview.md "../../../AmazonRDS/latest/AuroraUserGuide/Overview.md").
+see [Controlling access with security groups](../../../AmazonRDS/latest/AuroraUserGuide/Overview.RDSSecurityGroups.md "../../../AmazonRDS/latest/AuroraUserGuide/Overview.RDSSecurityGroups.md").
 
 If you're using the AWS Management Console to create your pipeline, you must also attach your
 pipeline to your VPC in order to use Amazon Aurora as a source. To do this, find the

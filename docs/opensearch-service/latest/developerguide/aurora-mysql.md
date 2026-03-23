@@ -19,7 +19,7 @@ Before you create your OpenSearch Ingestion pipeline, perform the following
 steps:
 
 1. [Create a custom Aurora DB cluster parameter group in Amazon Aurora to
-   configure binary logging](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md#zero-etl.parameters "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md#zero-etl.parameters").
+   configure binary logging](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.setting-up.md#zero-etl.parameters "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.setting-up.md#zero-etl.parameters").
 
 ```
 aurora_enhanced_binlog=1
@@ -33,7 +33,7 @@ binlog_row_metadata=full
 Additionally, make sure the `binlog_transaction_compression`
 parameter is not set to `ON`, and that the
 `binlog_row_value_options` parameter is not set to
-`PARTIAL_JSON`. 2. [Select or create an Aurora MySQL DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/CHAP_GettingStartedAurora.CreatingConnecting.md "../../../AmazonRDS/latest/AuroraUserGuide/CHAP_GettingStartedAurora.CreatingConnecting.md") and associate the
+`PARTIAL_JSON`. 2. [Select or create an Aurora MySQL DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/CHAP_GettingStartedAurora.CreatingConnecting.Aurora.md "../../../AmazonRDS/latest/AuroraUserGuide/CHAP_GettingStartedAurora.CreatingConnecting.Aurora.md") and associate the
 parameter group created in the previous step with the DB cluster. 3. [Configure binary log retention to 24 hours or longer](../../../AmazonRDS/latest/AuroraUserGuide/mysql-stored-proc-configuring.md "../../../AmazonRDS/latest/AuroraUserGuide/mysql-stored-proc-configuring.md"). 4. Set up username and password authentication on your Amazon Aurora cluster
 using [password
 management with Aurora and AWS Secrets Manager](../../../AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.md "../../../AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.md"). You can also create a
@@ -319,7 +319,7 @@ one or more subnets and one or more VPC security groups. Note that the pipeline
 needs network access to a Aurora MySQL database, so you should also verify that your
 Aurora cluster is configured with a VPC security group that allows inbound traffic
 from the pipeline's VPC security group to the database port. For more information,
-see [Controlling access with security groups](../../../AmazonRDS/latest/AuroraUserGuide/Overview.md "../../../AmazonRDS/latest/AuroraUserGuide/Overview.md").
+see [Controlling access with security groups](../../../AmazonRDS/latest/AuroraUserGuide/Overview.RDSSecurityGroups.md "../../../AmazonRDS/latest/AuroraUserGuide/Overview.RDSSecurityGroups.md").
 
 If you're using the AWS Management Console to create your pipeline, you must also attach your
 pipeline to your VPC in order to use Amazon Aurora as a source. To do so, find the

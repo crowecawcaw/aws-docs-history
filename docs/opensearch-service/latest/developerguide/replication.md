@@ -66,6 +66,21 @@ following requirements:
 - Elasticsearch 7.10 or OpenSearch 1.1 or later
 - [Fine-grained access control](fgac.md "fgac.md") enabled
 - [Node-to-node encryption](ntn.md "ntn.md") enabled
+- Leader indices must have `index.soft_deletes.enabled` set to
+  `true`. Indices created in Elasticsearch 7.0 or OpenSearch 1.0
+  and later have this setting enabled by default. However, indices created in
+  Elasticsearch 6.x and then upgraded retain
+  `soft_deletes=false`. To replicate such indices, you must reindex
+  them first.
+
+To check if an index has soft deletes enabled:
+
+```
+GET <index-name>/_settings?include_defaults=true&flat_settings=true&filter_path=*.settings.index.soft_deletes.enabled
+```
+
+If `soft_deletes` is `false`, reindex the data to a new
+index before starting replication.
 
 ## Permissions requirements
 
