@@ -28,7 +28,7 @@ _of_ the cloud and security _in_ the cloud:
 - [Identity and Access Management for AWS Data Pipeline](dp-control-access.md "dp-control-access.md")
 - [Logging and Monitoring in AWS Data Pipeline](dp-cloudtrail-logging.md "dp-cloudtrail-logging.md")
 - [Incident Response in AWS Data Pipeline](incident-response.md "incident-response.md")
-- [Compliance Validation for AWS Data Pipeline](compliance-validation.md "compliance-validation.md")
+- [Compliance Validation for AWS Data Pipeline](compliance-validation.title.md "compliance-validation.title.md")
 - [Resilience in AWS Data Pipeline](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure Security in AWS Data Pipeline](infrastructure-security.md "infrastructure-security.md")
 - [Configuration and Vulnerability Analysis in AWS Data Pipeline](configuration-and-vulnerability-analysis.md "configuration-and-vulnerability-analysis.md")
