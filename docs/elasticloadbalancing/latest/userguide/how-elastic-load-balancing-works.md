@@ -102,7 +102,7 @@ When you start a zonal shift, your load balancer stops sending traffic for the
 resource to the affected Availability Zone. ARC creates the zonal shift
 immediately. However, it can take a short time, typically up to a few
 minutes, to complete existing, in-progress connections in the affected Availability
-Zone. For more information, see [How a zonal shift works: health checks and zonal IP addresses](../../../r53recovery/latest/dg/arc-zonal-shift.md "../../../r53recovery/latest/dg/arc-zonal-shift.md") in the
+Zone. For more information, see [How a zonal shift works: health checks and zonal IP addresses](../../../r53recovery/latest/dg/arc-zonal-shift.how-it-works.md "../../../r53recovery/latest/dg/arc-zonal-shift.how-it-works.md") in the
 _Amazon Application Recovery Controller (ARC) Developer Guide_.
 
 Before you use a zonal shift, review the following:
@@ -118,7 +118,7 @@ Before you use a zonal shift, review the following:
   cross-zone load balancing turned off and you use a zonal shift to remove a zonal load balancer IP
   address, the Availability Zone affected by the zonal shift also loses target capacity.
 
-For more guidance and information, see [Best practices for zonal shifts in ARC](../../../r53recovery/latest/dg/route53-arc-best-practices.md "../../../r53recovery/latest/dg/route53-arc-best-practices.md") in the _Amazon Application Recovery Controller (ARC)
+For more guidance and information, see [Best practices for zonal shifts in ARC](../../../r53recovery/latest/dg/route53-arc-best-practices.zonal-shifts.md "../../../r53recovery/latest/dg/route53-arc-best-practices.zonal-shifts.md") in the _Amazon Application Recovery Controller (ARC)
 Developer Guide_.
 
 ## Request routing
