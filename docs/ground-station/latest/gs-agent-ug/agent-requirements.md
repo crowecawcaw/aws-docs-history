@@ -28,7 +28,7 @@ Compatible configurations:
 - UDP traffic from AWS Ground Station on the ports specified in your dataflow endpoint group.
 
 For example CloudFormation EC2 Data Delivery templates with these resources preconfigured, see
-[Public broadcast satellite utilizing AWS Ground Station Agent (wideband)](../ug/examples.md "../ug/examples.md") .
+[Public broadcast satellite utilizing AWS Ground Station Agent (wideband)](../ug/examples.pbs-agent.md "../ug/examples.pbs-agent.md") .
 
 ## VPC diagrams
 

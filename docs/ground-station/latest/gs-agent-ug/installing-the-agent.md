@@ -13,7 +13,7 @@ The created EC2 instance’s boot script then populates the agent configuration 
 ### Step 1: Create AWS resources
 
 Create your AWS resources stack using template
-[Public broadcast satellite utilizing AWS Ground Station Agent (wideband)](../ug/examples.md "../ug/examples.md") .
+[Public broadcast satellite utilizing AWS Ground Station Agent (wideband)](../ug/examples.pbs-agent.md "../ug/examples.pbs-agent.md") .
 
 ### Step 2: Check agent status
 
