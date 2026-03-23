@@ -19,7 +19,7 @@ and receive dead-letter events from the DLQ.
 ## Create an Amazon SQS queue
 
 Before you configure a DLQ for your schedule, you must create a standard Amazon SQS queue. For instructions on creating a queue using the Amazon SQS console, see
-[Creating an Amazon SQS queue](../../../SQSDeveloperGuide/sqs-configure-create-queue.md "../../../SQSDeveloperGuide/sqs-configure-create-queue.md") in the _Amazon Simple Queue Service Developer Guide_.
+[Creating an Amazon SQS queue](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/step-create-queue.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/step-create-queue.md") in the _Amazon Simple Queue Service Developer Guide_.
 
 ###### Note
 

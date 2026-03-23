@@ -97,7 +97,7 @@ To view the permissions for this policy, see [AmazonEventBridgeSchedulerFullAcce
 
 Grants read-only permissions to view details about your schedules and schedule groups.
 
-To view the permissions for this policy, see [AmazonEventBridgeSchedulerReadOnlyAccess](../../../aws-managed-policy/latest/reference/AmazonEventBridgeSchedulerReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AmazonEventBridgeSchedulerReadOnlyAccess.md") in the _AWS Managed Policy Reference_.
+To view the permissions for this policy, see [AmazonEventBridgeSchedulerReadOnlyAccess](../../../aws-managed-policy/latest/reference/AmazonEventBridgeSchedulerReadOnlyAccess.html.md "../../../aws-managed-policy/latest/reference/AmazonEventBridgeSchedulerReadOnlyAccess.html.md") in the _AWS Managed Policy Reference_.
 
 ## Customer managed policies for EventBridge Scheduler
 
