@@ -122,7 +122,7 @@ Amazon RDS uses configuration policies that can enforce
 encrypted connections to a hosted database. The Amazon RDS
 documentation contains information on
 [using
-SSL/TLS to encrypt a connection to the database](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md"),
+SSL/TLS to encrypt a connection to the database](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md"),
 including options for enforcing the connection through either
 parameter groups (Amazon RDS for Postgres, Aurora for Postgres, Amazon RDS
 for MariaDB, or Amazon RDS for Microsoft SQL Server) or option groups
