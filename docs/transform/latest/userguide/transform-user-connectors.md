@@ -26,6 +26,52 @@ account.
   connector, it enables AWS Transform jobs to securely access and manage resources in the
   target account.
 
+## User traceability for agentic operations
+
+By default, AWS CloudTrail records agent actions on your AWS resources under the AWS Transform
+service identity. User traceability attributes those actions to the specific AWS IAM
+Identity Center user who initiated or interacted with the job, enabling security
+auditing and incident investigation at the individual-user level.
+
+###### Note
+
+User traceability is supported for IAM Identity Center (IDC) users only.
+
+To enable user traceability, enable **Background session** in your
+AWS Transform profile settings. When enabled, AWS Transform automatically creates an IAM Identity
+Center [background session](../../../singlesignon/latest/userguide/user-background-sessions.md "../../../singlesignon/latest/userguide/user-background-sessions.md") when you interact with a job and uses it to produce
+identity-enhanced IAM role sessions for connector operations. These sessions embed your
+user identity in downstream AWS service calls and AWS CloudTrail events. When background
+sessions are disabled, AWS Transform falls back to standard assumed-role sessions without user
+identity context.
+
+New connectors are automatically configured to support user traceability. For
+existing connectors, you must manually add `sts:SetContext` to the
+connector role's trust policy:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": { "Service": ["transform.amazonaws.com"] },
+      "Action": ["sts:AssumeRole", "sts:SetContext"],
+      "Condition": {
+        "StringEquals": { "aws:SourceAccount": "`your-account-id`" }
+      }
+    }
+  ]
+}
+```
+
+You can view and revoke your active background sessions from the
+**Background sessions** tab on the job page. Revoking a session
+immediately invalidates it and any connector sessions derived from it.
+
+For more information, see [Trusted identity propagation overview](../../../singlesignon/latest/userguide/trustedidentitypropagation-overview.md "../../../singlesignon/latest/userguide/trustedidentitypropagation-overview.md") in the _AWS IAM Identity
+Center User Guide_.
+
 ## Managing connectors
 
 On the Connectors page you can see the:

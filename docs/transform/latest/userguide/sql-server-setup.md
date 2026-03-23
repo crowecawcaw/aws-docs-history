@@ -280,3 +280,17 @@ Ensure your VPC can communicate with:
 - AWS CodeConnections endpoints
 
 **VPC Endpoints:** For private networks, configure VPC endpoints for required AWS services to avoid internet gateway dependencies.
+
+## Requirements for externally hosted databases
+
+If your SQL Server database is hosted outside of AWS, ensure the following prerequisites are met and then complete the setup steps before you begin the modernization.
+
+**Prerequisites**
+
+- An AWS account with a VPC
+- Network connectivity between the VPC and the external database. For information about configuring network connectivity, see [Configuring network connectivity](../../../dms/latest/userguide/instance-profiles-network.md "../../../dms/latest/userguide/instance-profiles-network.md") in the AWS DMS User Guide.
+
+**Setup steps**
+
+1. Create a secret in AWS Secrets Manager with the connection details for the external database. For more information, see [Step 2: Store credentials in AWS Secrets Manager](#store-credentials-secrets-manager "#store-credentials-secrets-manager").
+2. When prompted, provide the VPC ID and security group ID for connecting to the external database. AWS Transform prompts you for this information because the database hostname in the secret cannot be resolved within the AWS account.

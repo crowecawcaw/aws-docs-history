@@ -63,7 +63,7 @@ AWS Transform supports the following SQL Server versions:
 
 ###### Note
 
-All SQL Server editions are supported (Express, Standard, Enterprise). SQL Server must be hosted on AWS (RDS SQL Server or SQL Server on EC2) in the same region as AWS Transform.
+All SQL Server editions are supported (Express, Standard, Enterprise). SQL Server can be hosted on AWS (Amazon RDS for SQL Server or SQL Server on Amazon EC2) or hosted outside of AWS.
 
 ### .NET versions
 
@@ -105,9 +105,9 @@ AWS Transform targets Amazon Aurora PostgreSQL (PostgreSQL 15+ compatible) with 
 #### Database requirements
 
 - Microsoft SQL Server version 2008 R2 through 2022
-- SQL Server hosted on AWS (RDS SQL Server or SQL Server on EC2)
-- Database and AWS Transform in the same AWS region
-- Network connectivity between AWS Transform and SQL Server
+- SQL Server hosted on AWS (Amazon RDS for SQL Server or SQL Server on Amazon EC2) or hosted outside of AWS
+- For AWS-hosted databases, the database and AWS Transform must be in the same AWS Region.
+- For databases hosted outside of AWS, network connectivity to the AWS Transform service is required.
 - Database user with VIEW DEFINITION and VIEW DATABASE STATE permissions
 - Database passwords using printable ASCII characters only (excluding '/', '@', '"', and spaces)
 - VPC containing the source SQL Server must have subnets in at least 2 different Availability Zones (required for DMS replication subnet groups)

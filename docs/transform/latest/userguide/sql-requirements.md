@@ -2,11 +2,9 @@
 
 ## Database requirements
 
-### Source databases
+### Externally hosted databases
 
-- **Limitation:** Direct connection to on-premises SQL Server is not supported.
-- **Limitation:** Databases should be running on a VPC in AWS.
-- **Workaround:** Create a clone of your database on EC2 in a supported AWS region for testing and transformation. Apply learnings to your production migration using AWS DMS.
+Databases hosted outside of AWS are supported. To use an externally hosted database, you must ensure network connectivity between the database and the AWS Transform service.
 
 ### SSIS workloads
 

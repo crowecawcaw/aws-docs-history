@@ -82,6 +82,7 @@ The supported file types for zOS include:
 - Db2 databases
 - VSAM (Virtual Storage Access Method)
 - IMS TM (Transaction Manager)
+- PL/I support for business logic extraction and technical documentation generation
 
 The supported file types for Fujitsu GS21 include:
 

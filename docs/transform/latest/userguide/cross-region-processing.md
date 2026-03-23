@@ -36,9 +36,9 @@ The following table describes what Regions your requests may be routed to depend
 | US East (N. Virginia) (us-east-1)      | US East (N. Virginia) (us-east-1)US East (Ohio) (us-east-2)US West (Oregon) (us-west-2)                                                                                                                                                                                                                        |
 | Europe (Frankfurt) (eu-central-1)      | Europe (Frankfurt) (eu-central-1)Europe (Stockholm) (eu-north-1)Europe (Milan) (eu-south-1)Europe (Spain) (eu-south-2)Europe (Ireland) (eu-west-1)Europe (Paris) (eu-west-3)                                                                                                                                   |
 | Asia Pacific (Mumbai) (ap-south-1)     | Asia Pacific (Tokyo) (ap-northeast-1)Asia Pacific (Seoul) (ap-northeast-2)Asia Pacific (Osaka) (ap-northeast-3)Asia Pacific (Mumbai) (ap-south-1)Asia Pacific (Hyderabad) (ap-south-2)Asia Pacific (Singapore) (ap-southeast-1)Asia Pacific (Sydney) (ap-southeast-2)Asia Pacific (Melbourne) (ap-southeast-4) |
-| Asia Pacific (Tokyo) (ap-northeast-1)  | Asia Pacific (Tokyo) (ap-northeast-1)Asia Pacific (Seoul) (ap-northeast-2)Asia Pacific (Osaka) (ap-northeast-3)Asia Pacific (Mumbai) (ap-south-1)Asia Pacific (Hyderabad) (ap-south-2)Asia Pacific (Singapore) (ap-southeast-1)Asia Pacific (Sydney) (ap-southeast-2)Asia Pacific (Melbourne) (ap-southeast-4) |
+| Asia Pacific (Tokyo) (ap-northeast-1)  | Asia Pacific (Tokyo) (ap-northeast-1)Asia Pacific (Osaka) (ap-northeast-3)                                                                                                                                                                                                                                     |
 | Asia Pacific (Seoul) (ap-northeast-2)  | Asia Pacific (Tokyo) (ap-northeast-1)Asia Pacific (Seoul) (ap-northeast-2)Asia Pacific (Osaka) (ap-northeast-3)Asia Pacific (Mumbai) (ap-south-1)Asia Pacific (Hyderabad) (ap-south-2)Asia Pacific (Singapore) (ap-southeast-1)Asia Pacific (Sydney) (ap-southeast-2)Asia Pacific (Melbourne) (ap-southeast-4) |
-| Asia Pacific (Sydney) (ap-southeast-2) | Asia Pacific (Tokyo) (ap-northeast-1)Asia Pacific (Seoul) (ap-northeast-2)Asia Pacific (Osaka) (ap-northeast-3)Asia Pacific (Mumbai) (ap-south-1)Asia Pacific (Hyderabad) (ap-south-2)Asia Pacific (Singapore) (ap-southeast-1)Asia Pacific (Sydney) (ap-southeast-2)Asia Pacific (Melbourne) (ap-southeast-4) |
+| Asia Pacific (Sydney) (ap-southeast-2) | Asia Pacific (Sydney) (ap-southeast-2)Asia Pacific (Melbourne) (ap-southeast-4)                                                                                                                                                                                                                                |
 | Europe (London) (eu-west-2)            | Europe (Frankfurt) (eu-central-1)Europe (Stockholm) (eu-north-1)Europe (Milan) (eu-south-1)Europe (Spain) (eu-south-2)Europe (Ireland) (eu-west-1)Europe (London) (eu-west-2)Europe (Paris) (eu-west-3)                                                                                                        |
 | Canada (Central) (ca-central-1)        | Commercial AWS Regions + Canada (Central) (ca-central-1)                                                                                                                                                                                                                                                       |
 
@@ -86,8 +86,8 @@ The following table shows the source Regions from which you can call the inferen
 | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | US East (N. Virginia) (us-east-1)      | US East (N. Virginia) (us-east-1)US East (Ohio) (us-east-2)US West (Oregon) (us-west-2)                                                                                      |
 | Europe (Frankfurt) (eu-central-1)      | Europe (Frankfurt) (eu-central-1)Europe (Stockholm) (eu-north-1)Europe (Milan) (eu-south-1)Europe (Spain) (eu-south-2)Europe (Ireland) (eu-west-1)Europe (Paris) (eu-west-3) |
-| Asia Pacific (Tokyo) (ap-northeast-1)  | All commercial regions                                                                                                                                                       |
-| Asia Pacific (Sydney) (ap-southeast-2) | All commercial regions                                                                                                                                                       |
+| Asia Pacific (Tokyo) (ap-northeast-1)  | Asia Pacific (Tokyo) (ap-northeast-1)Asia Pacific (Osaka) (ap-northeast-3)                                                                                                   |
+| Asia Pacific (Sydney) (ap-southeast-2) | Asia Pacific (Sydney) (ap-southeast-2)Asia Pacific (Melbourne) (ap-southeast-4)                                                                                              |
 | Asia Pacific (Seoul) (ap-northeast-2)  | All commercial regions                                                                                                                                                       |
 | Asia Pacific (Mumbai) (ap-south-1)     | All commercial regions                                                                                                                                                       |
 | Canada (Central) (ca-central-1)        | All commercial regions                                                                                                                                                       |
@@ -96,16 +96,16 @@ The following table shows the source Regions from which you can call the inferen
 
 The following table shows the source Regions from which you can call the inference profile and the destination Regions to which the requests can be routed:
 
-| Source Region                          | Inference Destination Regions |
-| -------------------------------------- | ----------------------------- |
-| US East (N. Virginia) (us-east-1)      | All commercial regions        |
-| Europe (Frankfurt) (eu-central-1)      | All commercial regions        |
-| Europe (London) (eu-west-2)            | All commercial regions        |
-| Asia Pacific (Tokyo) (ap-northeast-1)  | All commercial regions        |
-| Asia Pacific (Sydney) (ap-southeast-2) | All commercial regions        |
-| Asia Pacific (Seoul) (ap-northeast-2)  | All commercial regions        |
-| Asia Pacific (Mumbai) (ap-south-1)     | All commercial regions        |
-| Canada (Central) (ca-central-1)        | All commercial regions        |
+| Source Region                          | Inference Destination Regions                                                   |
+| -------------------------------------- | ------------------------------------------------------------------------------- |
+| US East (N. Virginia) (us-east-1)      | All commercial regions                                                          |
+| Europe (Frankfurt) (eu-central-1)      | All commercial regions                                                          |
+| Europe (London) (eu-west-2)            | All commercial regions                                                          |
+| Asia Pacific (Tokyo) (ap-northeast-1)  | Asia Pacific (Tokyo) (ap-northeast-1)Asia Pacific (Osaka) (ap-northeast-3)      |
+| Asia Pacific (Sydney) (ap-southeast-2) | Asia Pacific (Sydney) (ap-southeast-2)Asia Pacific (Melbourne) (ap-southeast-4) |
+| Asia Pacific (Seoul) (ap-northeast-2)  | All commercial regions                                                          |
+| Asia Pacific (Mumbai) (ap-south-1)     | All commercial regions                                                          |
+| Canada (Central) (ca-central-1)        | All commercial regions                                                          |
 
 ## AWS Transform Custom
 

@@ -226,7 +226,7 @@ AWS Transform automatically apply these tags during network deployment.
 
 To use existing AWS network resources not created by AWS Transform, you must tag the resources (including VPCs and subnets). AWS Transform can tag resources during migration wave execution — it will tag all network resources in the target AWS account and AWS Region. Alternatively, you can manually tag network resources you've created with the following tags:
 
-- **Key:** CreatedFor **Value:** AWS Transform
+- **Key:** CreatedFor **Value:** AWSTransform
 - **Key:** ATWorkspace **Value:** workspace ID
 
 Find your workspace ID in the AWS Transform web app URL, https:// ... /workspace/`workspace-id`/job/job-id

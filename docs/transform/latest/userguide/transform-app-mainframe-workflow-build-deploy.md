@@ -36,7 +36,7 @@ Before you begin, make sure you have:
   information on installing Amazon Corretto, see [Amazon Corretto 24](../../../corretto/latest/corretto-24-ug/what-is-corretto-24.md "../../../corretto/latest/corretto-24-ug/what-is-corretto-24.md").
 - Access to create and configure Amazon Aurora PostgreSQL databases for Runtime
   components, if necessary. For more information on Creating the Aurora PostgreSQL
-  database, see [Working with Amazon Aurora PostgreSQL](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md").
+  database, see [Working with Amazon Aurora PostgreSQL](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraPostgreSQL.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraPostgreSQL.md").
 - Administrative access to deploy applications to your runtime
   environment.
 - Reviewed the [AWS Blu Age Runtime
