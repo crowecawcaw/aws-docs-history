@@ -28,32 +28,34 @@ over a long time period – for example, a season of podcasts.
 
 ## Available generative voices
 
-Amazon Polly currently offers 33 voices in a generative
-variant. These generative voices are also available in a conversational NTTS
+Amazon Polly currently offers 43 voices in a generative
 variant.
 
-|     | Language                    | Language code | Name/ID                                                   | Gender                                               |
-| --- | --------------------------- | ------------- | --------------------------------------------------------- | ---------------------------------------------------- |
-| 1   | **English (Australian)**    | en-AU         | Olivia                                                    | Female                                               |
-| 2   | **English (Indian)**        | en-IN         | Kajal                                                     | Female                                               |
-| 3   | **English (Ireland)**       | en-IE         | Niamh                                                     | Female                                               |
-| 4   | **English (South African)** | en-ZA         | Ayanda                                                    | Female                                               |
-| 5   | **English (UK)**            | en-GB         | Amy                                                       | Female                                               |
-| 6   | **English (US)**            | en-US         | Danielle<br>Joanna<br>Matthew<br>Ruth<br>Salli<br>Stephen | Female<br>Female<br>Male<br>Female<br>Female<br>Male |
-| 7   | **Dutch (Belgium)**         | nl-BE         | Lisa                                                      | Female                                               |
-| 8   | **Dutch (Netherlands)**     | nl-NL         | Laura                                                     | Female                                               |
-| 9   | **French (Belgian)**        | fr-BE         | Isabelle                                                  | Female                                               |
-| 10  | **French (Canadian)**       | fr-CA         | Gabrielle<br>Liam                                         | Female<br>Male                                       |
-| 11  | **French (France)**         | fr-FR         | Céline<br>Léa<br>Rémi                                     | Female<br>Female<br>Male                             |
-| 12  | **German (Austria)**        | de-AT         | Hannah                                                    | Female                                               |
-| 13  | **German (Germany)**        | de-DE         | Daniel<br>Vicki                                           | Male<br>Female                                       |
-| 14  | **Italian (Italy)**         | it-IT         | Bianca                                                    | Female                                               |
-| 15  | **Korean (Korea)**          | ko-KR         | Seoyeon                                                   | Female                                               |
-| 16  | **Polish (Poland)**         | pl-PL         | Ewa<br>Ola                                                | Female<br>Female                                     |
-| 17  | **Portuguese (Brazilian)**  | pt-BR         | Camila                                                    | Female                                               |
-| 18  | **Spanish (Mexican)**       | es-MX         | Andrés<br>Mía                                             | Male<br>Female                                       |
-| 19  | **Spanish (Spain)**         | es-ES         | Lucia<br>Sergio                                           | Female<br>Male                                       |
-| 20  | **Spanish (US)**            | es-US         | Lupe<br>Pedro                                             | Female<br>Male                                       |
+|     | Language                    | Language code | Name/ID                                                              | Gender                                                         |
+| --- | --------------------------- | ------------- | -------------------------------------------------------------------- | -------------------------------------------------------------- |
+| 1   | **English (Australian)**    | en-AU         | Olivia                                                               | Female                                                         |
+| 2   | **English (British)**       | en-GB         | Amy<br>Brian                                                         | Female<br>Male                                                 |
+| 3   | **English (Indian)**        | en-IN         | Kajal                                                                | Female                                                         |
+| 4   | **English (Ireland)**       | en-IE         | Niamh                                                                | Female                                                         |
+| 5   | **English (New Zealand)**   | en-NZ         | Aria                                                                 | Female                                                         |
+| 6   | **English (Singaporean)**   | en-SG         | Jasmine                                                              | Female                                                         |
+| 7   | **English (South African)** | en-ZA         | Ayanda                                                               | Female                                                         |
+| 8   | **English (US)**            | en-US         | Danielle<br>Joanna<br>Matthew<br>Ruth<br>Salli<br>Stephen<br>Tiffany | Female<br>Female<br>Male<br>Female<br>Female<br>Male<br>Female |
+| 9   | **Dutch (Belgium)**         | nl-BE         | Lisa                                                                 | Female                                                         |
+| 10  | **Dutch (Netherlands)**     | nl-NL         | Laura                                                                | Female                                                         |
+| 11  | **French (Belgian)**        | fr-BE         | Isabelle                                                             | Female                                                         |
+| 12  | **French (Canadian)**       | fr-CA         | Gabrielle<br>Liam                                                    | Female<br>Male                                                 |
+| 13  | **French (France)**         | fr-FR         | Ambre<br>Céline<br>Florian<br>Léa<br>Rémi                            | Female<br>Female<br>Male<br>Female<br>Male                     |
+| 14  | **German (Austria)**        | de-AT         | Hannah                                                               | Female                                                         |
+| 15  | **German (Germany)**        | de-DE         | Daniel<br>Lennart<br>Vicki                                           | Male<br>Male<br>Female                                         |
+| 16  | **German (Swiss)**          | de-CH         | Sabrina                                                              | Female                                                         |
+| 17  | **Italian (Italy)**         | it-IT         | Beatrice<br>Bianca<br>Lorenzo                                        | Female<br>Female<br>Male                                       |
+| 18  | **Korean (Korea)**          | ko-KR         | Seoyeon                                                              | Female                                                         |
+| 19  | **Polish (Poland)**         | pl-PL         | Ewa<br>Ola                                                           | Female<br>Female                                               |
+| 20  | **Portuguese (Brazilian)**  | pt-BR         | Camila                                                               | Female                                                         |
+| 21  | **Spanish (Mexican)**       | es-MX         | Andrés<br>Mía                                                        | Male<br>Female                                                 |
+| 22  | **Spanish (Spain)**         | es-ES         | Lucia<br>Sergio                                                      | Female<br>Male                                                 |
+| 23  | **Spanish (US)**            | es-US         | Lupe<br>Pedro                                                        | Female<br>Male                                                 |
 
 ###### Note
 
@@ -69,11 +71,18 @@ Amazon Polly generative voices are available in the following regions:
 - Asia Pacific (Tokyo): ap-northeast-1
 - Asia Pacific (Seoul): ap-northeast-2
 - Asia Pacific (Singapore): ap-southeast-1
+- Europe (London): eu-west-2
+- Canada (Central): ca-central-1
 - Other Regions are not available
 
 **The following features are supported for generative
 voices:**
 
+- Bidirectional Streaming API is now offered in Generative engine and allows for streaming input
+  and output at the same time. This API is available in the following AWS regions: US East (N. Virginia),
+  Europe (Frankfurt), US West (Oregon), and Asia Pacific (Singapore). Visit the
+  [documentation](API_StartSpeechSynthesisStream.md "API_StartSpeechSynthesisStream.md")
+  to learn more about how to use it.
 - Real-time and asynchronous speech synthesis operations.
 - Newscaster speaking style is not supported in the **Generative** engine.
 - Many (but not all) SSML tags are supported by Amazon Polly. For more
@@ -86,6 +95,13 @@ voices:**
   audio stream formats.
 
 _Support for generating speech marks is currently not available._
+
+###### Note
+
+Currently Europe (London) and Canada (Central) regions only support the following Generative voices:
+Tiffany (en-US), Amy (en-GB), Brian (en-GB), Florian (fr-FR), Ambre (fr-FR), Lorenzo (it-IT), Beatrice (it-IT),
+Jasmine (en-SG), Aria (en-NZ), Sabrina (de-CH), Hannah (de-AT), Niamh (en-IE),
+Camila (pt-BR), Lisa (nl-BE), and Seoyeon (ko-KR)
 
 ###### Note
 

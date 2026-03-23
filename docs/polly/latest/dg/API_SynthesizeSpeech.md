@@ -63,7 +63,7 @@ Indian English rather than Hindi.
 
 Type: String
 
-Valid Values: `arb | cmn-CN | cy-GB | da-DK | de-DE | en-AU | en-GB | en-GB-WLS | en-IN | en-US | es-ES | es-MX | es-US | fr-CA | fr-FR | is-IS | it-IT | ja-JP | hi-IN | ko-KR | nb-NO | nl-NL | pl-PL | pt-BR | pt-PT | ro-RO | ru-RU | sv-SE | tr-TR | en-NZ | en-ZA | ca-ES | de-AT | yue-CN | ar-AE | fi-FI | en-IE | nl-BE | fr-BE | cs-CZ | de-CH`
+Valid Values: `arb | cmn-CN | cy-GB | da-DK | de-DE | en-AU | en-GB | en-GB-WLS | en-IN | en-US | es-ES | es-MX | es-US | fr-CA | fr-FR | is-IS | it-IT | ja-JP | hi-IN | ko-KR | nb-NO | nl-NL | pl-PL | pt-BR | pt-PT | ro-RO | ru-RU | sv-SE | tr-TR | en-NZ | en-ZA | ca-ES | de-AT | yue-CN | ar-AE | fi-FI | en-IE | nl-BE | fr-BE | cs-CZ | de-CH | en-SG`
 
 Required: No
 
@@ -85,7 +85,7 @@ Required: No
 **[OutputFormat](#API_SynthesizeSpeech_RequestSyntax "#API_SynthesizeSpeech_RequestSyntax")**
 
 The format in which the returned output will be encoded. For audio
-stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will
+stream, this will be mp3, ogg_vorbis, ogg_opus, mu-law, a-law or pcm. For speech marks, this will
 be json.
 
 When pcm is used, the content returned is audio/pcm in a signed
@@ -93,7 +93,7 @@ When pcm is used, the content returned is audio/pcm in a signed
 
 Type: String
 
-Valid Values: `json | mp3 | ogg_vorbis | pcm`
+Valid Values: `json | mp3 | ogg_opus | ogg_vorbis | pcm`
 
 Required: Yes
 
@@ -107,6 +107,10 @@ is "24000". The default value for generative voices is "24000".
 
 Valid values for pcm are "8000" and "16000" The default value is
 "16000".
+
+Valid value for ogg_opus is "48000".
+
+Valid value for mu-law and a-law is "8000".
 
 Type: String
 
@@ -152,7 +156,7 @@ voice IDs by calling the [DescribeVoices](API_DescribeVoices.md "API_DescribeVoi
 
 Type: String
 
-Valid Values: `Aditi | Amy | Astrid | Bianca | Brian | Camila | Carla | Carmen | Celine | Chantal | Conchita | Cristiano | Dora | Emma | Enrique | Ewa | Filiz | Gabrielle | Geraint | Giorgio | Gwyneth | Hans | Ines | Ivy | Jacek | Jan | Joanna | Joey | Justin | Karl | Kendra | Kevin | Kimberly | Lea | Liv | Lotte | Lucia | Lupe | Mads | Maja | Marlene | Mathieu | Matthew | Maxim | Mia | Miguel | Mizuki | Naja | Nicole | Olivia | Penelope | Raveena | Ricardo | Ruben | Russell | Salli | Seoyeon | Takumi | Tatyana | Vicki | Vitoria | Zeina | Zhiyu | Aria | Ayanda | Arlet | Hannah | Arthur | Daniel | Liam | Pedro | Kajal | Hiujin | Laura | Elin | Ida | Suvi | Ola | Hala | Andres | Sergio | Remi | Adriano | Thiago | Ruth | Stephen | Kazuha | Tomoko | Niamh | Sofie | Lisa | Isabelle | Zayd | Danielle | Gregory | Burcu | Jitka | Sabrina`
+Valid Values: `Aditi | Amy | Astrid | Bianca | Brian | Camila | Carla | Carmen | Celine | Chantal | Conchita | Cristiano | Dora | Emma | Enrique | Ewa | Filiz | Gabrielle | Geraint | Giorgio | Gwyneth | Hans | Ines | Ivy | Jacek | Jan | Joanna | Joey | Justin | Karl | Kendra | Kevin | Kimberly | Lea | Liv | Lotte | Lucia | Lupe | Mads | Maja | Marlene | Mathieu | Matthew | Maxim | Mia | Miguel | Mizuki | Naja | Nicole | Olivia | Penelope | Raveena | Ricardo | Ruben | Russell | Salli | Seoyeon | Takumi | Tatyana | Vicki | Vitoria | Zeina | Zhiyu | Aria | Ayanda | Arlet | Hannah | Arthur | Daniel | Liam | Pedro | Kajal | Hiujin | Laura | Elin | Ida | Suvi | Ola | Hala | Andres | Sergio | Remi | Adriano | Thiago | Ruth | Stephen | Kazuha | Tomoko | Niamh | Sofie | Lisa | Isabelle | Zayd | Danielle | Gregory | Burcu | Jitka | Sabrina | Jasmine | Jihye | Ambre | Beatrice | Florian | Lennart | Lorenzo | Tiffany`
 
 Required: Yes
 
@@ -183,9 +187,18 @@ Specifies the type audio stream. This should reflect the
 - If you request `ogg_vorbis` as the
   `OutputFormat`, the `ContentType` returned is
   audio/ogg.
+- If you request `ogg_opus` as the
+  `OutputFormat`, the `ContentType` returned is
+  audio/ogg.
 - If you request `pcm` as the
   `OutputFormat`, the `ContentType` returned is
   audio/pcm in a signed 16-bit, 1 channel (mono), little-endian format.
+- If you request `mu-law` as the
+  `OutputFormat`, the `ContentType` returned is
+  audio/mulaw.
+- If you request `a-law` as the
+  `OutputFormat`, the `ContentType` returned is
+  audio/alaw.
 - If you request `json` as the
   `OutputFormat`, the `ContentType` returned is
   application/x-json-stream.

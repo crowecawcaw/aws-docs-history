@@ -9,5 +9,6 @@ The following actions are supported:
 - [ListLexicons](API_ListLexicons.md "API_ListLexicons.md")
 - [ListSpeechSynthesisTasks](API_ListSpeechSynthesisTasks.md "API_ListSpeechSynthesisTasks.md")
 - [PutLexicon](API_PutLexicon.md "API_PutLexicon.md")
+- [StartSpeechSynthesisStream](API_StartSpeechSynthesisStream.md "API_StartSpeechSynthesisStream.md")
 - [StartSpeechSynthesisTask](API_StartSpeechSynthesisTask.md "API_StartSpeechSynthesisTask.md")
 - [SynthesizeSpeech](API_SynthesizeSpeech.md "API_SynthesizeSpeech.md")

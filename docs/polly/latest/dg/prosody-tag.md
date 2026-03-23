@@ -144,3 +144,8 @@ It can also be combined with nested tags, as follows:
      change the impression your audience has of a voice</prosody> as well.</prosody>
 </speak>
 ```
+
+###### Note
+
+Currently `<prosody>` is partially available for the Generative
+voices.
