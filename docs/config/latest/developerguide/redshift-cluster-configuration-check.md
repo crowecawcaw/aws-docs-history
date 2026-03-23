@@ -8,7 +8,7 @@ Checks if Amazon Redshift clusters have the specified settings. The rule is NON_
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except China (Beijing), Asia Pacific (Thailand), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Asia Pacific (Taipei), China (Ningxia) Region
+**AWS Region:** All supported AWS regions except Mexico (Central) Region
 
 **Parameters:**
 

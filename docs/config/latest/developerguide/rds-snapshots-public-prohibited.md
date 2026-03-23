@@ -12,7 +12,7 @@ It can take up to 12 hours for compliance results to be captured.
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except China (Beijing), Africa (Cape Town), Asia Pacific (Melbourne), Europe (Milan), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Israel (Tel Aviv), Asia Pacific (Taipei), Europe (Spain), China (Ningxia), Europe (Zurich) Region
+**AWS Region:** All supported AWS regions except Africa (Cape Town), Asia Pacific (Melbourne), Europe (Milan), Israel (Tel Aviv), Europe (Spain), Europe (Zurich) Region
 
 **Parameters:**
 

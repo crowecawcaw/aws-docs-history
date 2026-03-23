@@ -13,7 +13,7 @@ The DB instance status should be one of 'available', 'backing-up', 'storage-opti
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except China (Beijing), Asia Pacific (Thailand), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Asia Pacific (Taipei), China (Ningxia) Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

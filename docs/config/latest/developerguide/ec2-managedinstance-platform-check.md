@@ -30,7 +30,7 @@ Agent version (for example, '2.0.433.0').
 platformName (Optional)
 Type: String
 
-The version of the platform (for example, '2016.09')
+The name of the platform (for example, 'Amazon Linux')
 
 ## AWS CloudFormation template
 

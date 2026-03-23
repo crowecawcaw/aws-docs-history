@@ -8,7 +8,7 @@ Using server certificate provides an extra layer of security by validating that 
 It does so by checking the server certificate that is automatically installed on all DB instances that you provision.
 By enabling SSL connection on AWS DMS, you protect the confidentiality of the data during the migration.
 
-To configure SSL connection for AWS DMS, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md") in the
+To configure SSL connection for AWS DMS, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md") in the
 _Amazon Relational Database Service User Guide_.
 
 **Identifier:** DMS_ENDPOINT_SSL_CONFIGURED
@@ -17,7 +17,7 @@ _Amazon Relational Database Service User Guide_.
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Thailand), Asia Pacific (Jakarta), Middle East (UAE), Asia Pacific (Hyderabad), Asia Pacific (Malaysia), Asia Pacific (Melbourne), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Israel (Tel Aviv), Asia Pacific (Taipei), Canada West (Calgary), Europe (Spain), Europe (Zurich) Region
+**AWS Region:** All supported AWS regions except Asia Pacific (New Zealand), Asia Pacific (Thailand), Asia Pacific (Jakarta), Middle East (UAE), Asia Pacific (Hyderabad), Asia Pacific (Malaysia), Asia Pacific (Melbourne), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Israel (Tel Aviv), Asia Pacific (Taipei), Canada West (Calgary), Europe (Spain), Europe (Zurich) Region
 
 **Parameters:**
 

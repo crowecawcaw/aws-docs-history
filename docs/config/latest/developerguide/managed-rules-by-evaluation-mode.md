@@ -748,6 +748,7 @@ Currently, all AWS Config rules support detective evaluation.
 - [sagemaker-model-explainability-job-encrypt-in-transit](sagemaker-model-explainability-job-encrypt-in-transit.md "sagemaker-model-explainability-job-encrypt-in-transit.md")
 - [sagemaker-model-in-vpc](sagemaker-model-in-vpc.md "sagemaker-model-in-vpc.md")
 - [sagemaker-model-isolation-enabled](sagemaker-model-isolation-enabled.md "sagemaker-model-isolation-enabled.md")
+- [sagemaker-model-quality-job-encrypt-in-transit](sagemaker-model-quality-job-encrypt-in-transit.md "sagemaker-model-quality-job-encrypt-in-transit.md")
 - [sagemaker-monitoring-schedule-isolation](sagemaker-monitoring-schedule-isolation.md "sagemaker-monitoring-schedule-isolation.md")
 - [sagemaker-notebook-instance-inside-vpc](sagemaker-notebook-instance-inside-vpc.md "sagemaker-notebook-instance-inside-vpc.md")
 - [sagemaker-notebook-instance-kms-key-configured](sagemaker-notebook-instance-kms-key-configured.md "sagemaker-notebook-instance-kms-key-configured.md")

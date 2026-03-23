@@ -8,7 +8,7 @@ Checks if a Lambda function is allowed access to a virtual private cloud (VPC). 
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except China (Beijing), Asia Pacific (Thailand), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Asia Pacific (Taipei), China (Ningxia) Region
+**AWS Region:** All supported AWS regions except China (Ningxia) Region
 
 **Parameters:**
 

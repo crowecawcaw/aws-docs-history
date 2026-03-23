@@ -3,7 +3,7 @@
 Checks whether high availability is enabled for your RDS DB instances.
 
 In a Multi-AZ deployment, Amazon RDS automatically provisions and maintains a synchronous standby replica in a different Availability Zone.
-For more information, see [High Availability (Multi-AZ)](../../../AmazonRDS/latest/UserGuide/Concepts.md "../../../AmazonRDS/latest/UserGuide/Concepts.md") in the
+For more information, see [High Availability (Multi-AZ)](../../../AmazonRDS/latest/UserGuide/Concepts.MultiAZ.md "../../../AmazonRDS/latest/UserGuide/Concepts.MultiAZ.md") in the
 _Amazon RDS User Guide_.
 
 ###### Note
@@ -16,7 +16,7 @@ This rule does not evaluate Amazon Aurora DB, Amazon DocumentDB, and Amazon Nept
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except China (Beijing), Asia Pacific (Thailand), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Asia Pacific (Taipei), China (Ningxia) Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

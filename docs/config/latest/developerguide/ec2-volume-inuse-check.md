@@ -12,7 +12,7 @@ The rule is NON_COMPLIANT if an EBS volume is not attached to any EC2 instance o
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except China (Beijing), AWS GovCloud (US-East), AWS GovCloud (US-West), China (Ningxia) Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

@@ -8,7 +8,7 @@ Checks whether CloudWatch alarms with the given metric name have the specified s
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except China (Beijing), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Asia Pacific (Taipei), China (Ningxia) Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

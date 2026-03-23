@@ -18,4 +18,4 @@ process.
 ###### Topics
 
 - [1-click setup](1-click-setup.md "1-click-setup.md")
-- [Manual setup](manual-setup.md "manual-setup.md")
+- [Manual setup](manual-setup.title.md "manual-setup.title.md")

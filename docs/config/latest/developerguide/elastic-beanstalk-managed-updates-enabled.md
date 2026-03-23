@@ -10,7 +10,7 @@ The rule is NON_COMPLIANT if the value for `ManagedActionsEnabled` is set to fal
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except China (Beijing), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Israel (Tel Aviv), Asia Pacific (Taipei), China (Ningxia) Region
+**AWS Region:** All supported AWS regions except Mexico (Central), Israel (Tel Aviv), Asia Pacific (Taipei) Region
 
 **Parameters:**
 

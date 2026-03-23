@@ -8,14 +8,14 @@ Checks if EC2 instances are using specified Amazon Machine Images (AMIs). Specif
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except China (Beijing), Asia Pacific (Thailand), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Asia Pacific (Taipei), China (Ningxia) Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 
 amiIds
 Type: CSV
 
-Comma-separated list of up to 21 AMI IDs. There is a 1024 characters limit.
+Comma-separated list of AMI IDs. There is a 1024 characters limit.
 
 ## AWS CloudFormation template
 

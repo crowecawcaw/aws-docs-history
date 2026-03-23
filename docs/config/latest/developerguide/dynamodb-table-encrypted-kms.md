@@ -9,7 +9,7 @@ The rule is also NON_COMPLIANT if the encrypted AWS KMS key is not present in `k
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except China (Beijing), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Asia Pacific (Taipei), China (Ningxia) Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

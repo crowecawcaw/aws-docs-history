@@ -8,7 +8,7 @@ Checks if block public access is enabled for Amazon EBS snapshots in an AWS Regi
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Thailand), Mexico (Central), Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions except Asia Pacific (New Zealand), Asia Pacific (Thailand), Mexico (Central), Asia Pacific (Taipei) Region
 
 **Parameters:**
 

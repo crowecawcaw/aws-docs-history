@@ -12,7 +12,7 @@ Checks if Amazon Elastic Kubernetes Service clusters are configured to have Kube
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions
+**AWS Region:** All supported AWS regions except Asia Pacific (New Zealand) Region
 
 **Parameters:**
 

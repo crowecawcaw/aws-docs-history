@@ -8,7 +8,7 @@ Checks if an AWS WAF global rule contains any conditions. The rule is NON_COMPLI
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** Only available in US East (N. Virginia) Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

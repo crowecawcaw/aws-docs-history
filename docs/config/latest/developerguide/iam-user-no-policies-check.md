@@ -8,7 +8,7 @@ Checks if none of your AWS Identity and Access Management (IAM) users have polic
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** Only available in US East (N. Virginia) Region
+**AWS Region:** All supported AWS regions except Asia Pacific (New Zealand), Asia Pacific (Thailand), Middle East (UAE), Asia Pacific (Hyderabad), Asia Pacific (Malaysia), Asia Pacific (Melbourne), Mexico (Central), Israel (Tel Aviv), Asia Pacific (Taipei), Canada West (Calgary), Europe (Spain), Europe (Zurich) Region
 
 **Parameters:**
 

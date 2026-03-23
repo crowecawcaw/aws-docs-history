@@ -18,7 +18,7 @@ see [s3-account-level-public-access-blocks](s3-account-level-public-access-block
 
 ###### Note
 
-To be considered non-public, an S3 bucket policy must grant access only to fixed values. This means values that don't contain a wildcard or the following IAM policy element: [Variables](../../../IAM/latest/UserGuide/reference_policies_variables.md#policy-vars-using-variables "../../../IAM/latest/UserGuide/reference_policies_variables.md#policy-vars-using-variables").
+To be considered non-public, an S3 bucket policy must grant access only to fixed values. This means a policy is NON_COMPLIANT if it grants access to a wildcard or the following IAM policy element: [Variables](../../../IAM/latest/UserGuide/reference_policies_variables.md#policy-vars-using-variables "../../../IAM/latest/UserGuide/reference_policies_variables.md#policy-vars-using-variables"). A fixed value containing a wildcard can still be COMPLIANT.
 
 **Identifier:** S3_BUCKET_PUBLIC_WRITE_PROHIBITED
 

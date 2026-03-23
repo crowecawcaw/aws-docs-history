@@ -8,7 +8,7 @@ Checks if AWS Key Management Service (AWS KMS) keys are not scheduled for deleti
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except Europe (Milan), Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions except Asia Pacific (New Zealand), Europe (Milan), Asia Pacific (Taipei) Region
 
 **Parameters:**
 

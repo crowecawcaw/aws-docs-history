@@ -21,7 +21,7 @@ The rule is COMPLIANT in any of following scenarios:
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except China (Beijing), Europe (London), AWS GovCloud (US-East), AWS GovCloud (US-West), China (Ningxia) Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

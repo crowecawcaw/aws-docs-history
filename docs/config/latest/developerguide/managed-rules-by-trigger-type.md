@@ -573,6 +573,7 @@ _Change-triggered rules_ are rules that AWS Config evaluates in response to conf
 - [sagemaker-model-explainability-job-encrypt-in-transit](sagemaker-model-explainability-job-encrypt-in-transit.md "sagemaker-model-explainability-job-encrypt-in-transit.md")
 - [sagemaker-model-in-vpc](sagemaker-model-in-vpc.md "sagemaker-model-in-vpc.md")
 - [sagemaker-model-isolation-enabled](sagemaker-model-isolation-enabled.md "sagemaker-model-isolation-enabled.md")
+- [sagemaker-model-quality-job-encrypt-in-transit](sagemaker-model-quality-job-encrypt-in-transit.md "sagemaker-model-quality-job-encrypt-in-transit.md")
 - [sagemaker-monitoring-schedule-isolation](sagemaker-monitoring-schedule-isolation.md "sagemaker-monitoring-schedule-isolation.md")
 - [sagemaker-notebook-instance-inside-vpc](sagemaker-notebook-instance-inside-vpc.md "sagemaker-notebook-instance-inside-vpc.md")
 - [sagemaker-notebook-instance-root-access-check](sagemaker-notebook-instance-root-access-check.md "sagemaker-notebook-instance-root-access-check.md")

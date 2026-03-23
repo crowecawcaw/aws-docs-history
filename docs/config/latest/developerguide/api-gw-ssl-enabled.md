@@ -13,7 +13,7 @@ This rule evaluates the SSL certificate configuration in API Gateway stage setti
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions except Asia Pacific (New Zealand), Asia Pacific (Taipei) Region
 
 **Parameters:**
 
