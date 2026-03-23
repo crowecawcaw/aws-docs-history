@@ -47,7 +47,7 @@ efficiency.
 - [Choosing between HTTP APIs and REST APIs](../../../apigateway/latest/developerguide/http-api-vs-rest.md "../../../apigateway/latest/developerguide/http-api-vs-rest.md")
 - [Enabling API caching to
   enhance responsiveness](../../../apigateway/latest/developerguide/api-gateway-caching.md "../../../apigateway/latest/developerguide/api-gateway-caching.md")
-- [Read/Write Capacity Mode](../../../amazondynamodb/latest/developerguide/HowItWorks.md "../../../amazondynamodb/latest/developerguide/HowItWorks.md")
+- [Read/Write Capacity Mode](../../../amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.md "../../../amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.md")
 - [Using
   Global Secondary Indexes in DynamoDB](../../../amazondynamodb/latest/developerguide/GSI.md "../../../amazondynamodb/latest/developerguide/GSI.md")
 - [In-Memory
