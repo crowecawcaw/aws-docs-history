@@ -47,5 +47,5 @@ _Tagging AWS Resources and Tag Editor User Guide_.
 
 ### Remediation
 
-To add tags to an Amazon Keyspaces keyspace, see [Add tags to a keyspace](../../../keyspaces/latest/devguide/Tagging.Operations.existing.md "../../../keyspaces/latest/devguide/Tagging.Operations.existing.md")
+To add tags to an Amazon Keyspaces keyspace, see [Add tags to a keyspace](../../../keyspaces/latest/devguide/Tagging.Operations.existing.keyspace.md "../../../keyspaces/latest/devguide/Tagging.Operations.existing.keyspace.md")
 in the _Amazon Keyspaces Developer Guide_.

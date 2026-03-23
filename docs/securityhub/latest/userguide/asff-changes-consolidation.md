@@ -602,7 +602,7 @@ correspond to the security control. The following table shows the mapping of sec
 IDs and titles to standard-specific control IDs and titles. IDs and titles for controls that
 belong to the AWS Foundational Security Best Practices (FSBP) standard are already standard-agnostic. For a mapping of
 controls to the requirements of Center for Internet Security (CIS) v3.0.0, see [Mapping of controls to CIS requirements in each version](cis-aws-foundations-benchmark.md#cis-version-comparison "cis-aws-foundations-benchmark.md#cis-version-comparison"). To run your own
-scripts on this table, you can [download it as a .csv file](samples/Consolidation_ID_Title_Changes.csv.md "samples/Consolidation_ID_Title_Changes.csv.md").
+scripts on this table, you can [download it as a .csv file](samples/Consolidation_ID_Title_Changes.csv.zip.md "samples/Consolidation_ID_Title_Changes.csv.zip.md").
 
 | Standard       | Standard control ID and title                                                                                                       | Security control ID and title                                                                                                                                                                                               |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

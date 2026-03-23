@@ -81,7 +81,7 @@ traffic to your database instance.
 
 ### Remediation
 
-To remove public access from RDS DB instances, see [Modifying an Amazon RDS DB instance](../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.md "../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.md") in the _Amazon RDS User Guide_. For **Public access**,
+To remove public access from RDS DB instances, see [Modifying an Amazon RDS DB instance](../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.md "../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.md") in the _Amazon RDS User Guide_. For **Public access**,
 choose **No**.
 
 ## [RDS.3] RDS DB instances should have encryption at-rest enabled
@@ -122,13 +122,13 @@ on performance. You do not need to modify your database client applications to u
 
 Amazon RDS encryption is currently available for all database engines and storage types. Amazon RDS
 encryption is available for most DB instance classes. To learn about DB instance classes that do
-not support Amazon RDS encryption, see [Encrypting Amazon RDS resources](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md") in
+not support Amazon RDS encryption, see [Encrypting Amazon RDS resources](../../../AmazonRDS/latest/UserGuide/Overview.Encryption.md "../../../AmazonRDS/latest/UserGuide/Overview.Encryption.md") in
 the _Amazon RDS User Guide_.
 
 ### Remediation
 
 For information about encrypting DB instances in Amazon RDS, see [Encrypting Amazon RDS
-resources](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md") in the _Amazon RDS User Guide_.
+resources](../../../AmazonRDS/latest/UserGuide/Overview.Encryption.md "../../../AmazonRDS/latest/UserGuide/Overview.Encryption.md") in the _Amazon RDS User Guide_.
 
 ## [RDS.4] RDS cluster snapshots and database snapshots should be encrypted at rest
 
@@ -160,7 +160,7 @@ security.
 
 ### Remediation
 
-To encrypt an RDS snapshot, see [Encrypting Amazon RDS resources](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md")
+To encrypt an RDS snapshot, see [Encrypting Amazon RDS resources](../../../AmazonRDS/latest/UserGuide/Overview.Encryption.md "../../../AmazonRDS/latest/UserGuide/Overview.Encryption.md")
 in the _Amazon RDS User Guide_. When you encrypt an RDS DB instance, the encrypted
 data includes the underlying storage for the instance, its automated backups, read replicas, and snapshots.
 
@@ -199,7 +199,7 @@ is an issue with AZ availability and during regular RDS maintenance.
 
 ### Remediation
 
-To deploy your DB instances in multiple AZs, [Modifying a DB instance to be a Multi-AZ DB instance deployment](../../../AmazonRDS/latest/UserGuide/Concepts.md#Concepts.MultiAZ.Migrating "../../../AmazonRDS/latest/UserGuide/Concepts.md#Concepts.MultiAZ.Migrating") in the
+To deploy your DB instances in multiple AZs, [Modifying a DB instance to be a Multi-AZ DB instance deployment](../../../AmazonRDS/latest/UserGuide/Concepts.MultiAZSingleStandby.md#Concepts.MultiAZ.Migrating "../../../AmazonRDS/latest/UserGuide/Concepts.MultiAZSingleStandby.md#Concepts.MultiAZ.Migrating") in the
 _Amazon RDS User Guide_.
 
 ## [RDS.6] Enhanced monitoring should be configured for RDS DB instances
@@ -236,14 +236,14 @@ DB instance runs on. An agent is installed on the instance. The agent can obtain
 accurately than is possible from the hypervisor layer.
 
 Enhanced Monitoring metrics are useful when you want to see how different processes or
-threads on a DB instance use the CPU. For more information, see [Enhanced Monitoring](../../../AmazonRDS/latest/UserGuide/USER_Monitoring.md "../../../AmazonRDS/latest/UserGuide/USER_Monitoring.md") in the
+threads on a DB instance use the CPU. For more information, see [Enhanced Monitoring](../../../AmazonRDS/latest/UserGuide/USER_Monitoring.OS.md "../../../AmazonRDS/latest/UserGuide/USER_Monitoring.OS.md") in the
 _Amazon RDS User Guide_.
 
 ### Remediation
 
 For detailed instructions on enabling Enhanced Monitoring for your DB instance, see
 [Setting
-up for and enabling Enhanced Monitoring](../../../AmazonRDS/latest/UserGuide/USER_Monitoring.OS.md "../../../AmazonRDS/latest/UserGuide/USER_Monitoring.OS.md") in the _Amazon RDS User Guide_.
+up for and enabling Enhanced Monitoring](../../../AmazonRDS/latest/UserGuide/USER_Monitoring.OS.Enabling.md "../../../AmazonRDS/latest/UserGuide/USER_Monitoring.OS.Enabling.md") in the _Amazon RDS User Guide_.
 
 ## [RDS.7] RDS clusters should have deletion protection enabled
 
@@ -279,7 +279,7 @@ request can succeed, deletion protection must be disabled.
 ### Remediation
 
 To enable deletion protection for an RDS DB cluster, see [Modifying
-the DB cluster by using the console, CLI, and API](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md#Aurora.Modifying.Cluster "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md#Aurora.Modifying.Cluster") in the _Amazon RDS User Guide_. For
+the DB cluster by using the console, CLI, and API](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Modifying.md#Aurora.Modifying.Cluster "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Modifying.md#Aurora.Modifying.Cluster") in the _Amazon RDS User Guide_. For
 **Deletion protection**, choose **Enable deletion protection**.
 
 ## [RDS.8] RDS DB instances should have deletion protection enabled
@@ -316,7 +316,7 @@ deletion request can succeed, deletion protection must be disabled.
 ### Remediation
 
 To enable deletion protection for an RDS DB instance, see [Modifying
-an Amazon RDS DB instance](../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.md "../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.md") in the _Amazon RDS User Guide_. For
+an Amazon RDS DB instance](../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.md "../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.md") in the _Amazon RDS User Guide_. For
 **Deletion protection**, choose **Enable deletion protection**.
 
 ## [RDS.9] RDS DB instances should publish logs to CloudWatch Logs
@@ -355,7 +355,7 @@ to diagnose availability issues.
 
 ### Remediation
 
-For information about publishing RDS database logs to CloudWatch Logs, see [Specifying the logs to publish to CloudWatch Logs](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Procedural.md#integrating_cloudwatchlogs.configure "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Procedural.md#integrating_cloudwatchlogs.configure") in the
+For information about publishing RDS database logs to CloudWatch Logs, see [Specifying the logs to publish to CloudWatch Logs](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Procedural.UploadtoCloudWatch.md#integrating_cloudwatchlogs.configure "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Procedural.UploadtoCloudWatch.md#integrating_cloudwatchlogs.configure") in the
 _Amazon RDS User Guide_.
 
 ## [RDS.10] IAM authentication should be configured for RDS instances
@@ -387,11 +387,11 @@ An RDS instance must also be in one of the following states for a finding to be 
 IAM database authentication allows authentication to database instances with an
 authentication token instead of a password. Network traffic to and from the database is
 encrypted using SSL. For more information, see [IAM database
-authentication](../../../AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.md "../../../AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.md") in the _Amazon Aurora User Guide_.
+authentication](../../../AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.md "../../../AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.md") in the _Amazon Aurora User Guide_.
 
 ### Remediation
 
-To activate IAM database authentication on an RDS DB instance, see [Enabling and disabling IAM database authentication](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.md") in the _Amazon RDS User Guide_.
+To activate IAM database authentication on an RDS DB instance, see [Enabling and disabling IAM database authentication](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.Enabling.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.Enabling.md") in the _Amazon RDS User Guide_.
 
 ## [RDS.11] RDS instances should have automatic backups enabled
 
@@ -455,11 +455,11 @@ enabled.
 IAM database authentication allows for password-free authentication to database
 instances. The authentication uses an authentication token. Network traffic to and from the
 database is encrypted using SSL. For more information, see [IAM database
-authentication](../../../AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.md "../../../AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.md") in the _Amazon Aurora User Guide_.
+authentication](../../../AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.md "../../../AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.md") in the _Amazon Aurora User Guide_.
 
 ### Remediation
 
-To enable IAM authentication for a DB cluster, see [Enabling and disabling IAM database authentication](../../../AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.md "../../../AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.md") in the _Amazon Aurora User Guide_.
+To enable IAM authentication for a DB cluster, see [Enabling and disabling IAM database authentication](../../../AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.Enabling.md "../../../AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.Enabling.md") in the _Amazon Aurora User Guide_.
 
 ## [RDS.13] RDS automatic minor version upgrades should be enabled
 
@@ -492,17 +492,17 @@ enabled the **Auto minor version upgrade** option. For more
 information, see the Amazon RDS upgrade documentation for your specific database
 engine:
 
-- [Automatic minor version upgrades for RDS for MariaDB](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.MariaDB.md "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.MariaDB.md")
-- [Automatic minor version upgrades for RDS for MySQL](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.MySQL.md "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.MySQL.md")
-- [Automatic minor version upgrades for RDS for PostgreSQL](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.PostgreSQL.md "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.PostgreSQL.md")
+- [Automatic minor version upgrades for RDS for MariaDB](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.MariaDB.Minor.md "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.MariaDB.Minor.md")
+- [Automatic minor version upgrades for RDS for MySQL](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.MySQL.Minor.md "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.MySQL.Minor.md")
+- [Automatic minor version upgrades for RDS for PostgreSQL](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.PostgreSQL.Minor.md "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.PostgreSQL.Minor.md")
 - [Db2 on
-  Amazon RDS versions](../../../AmazonRDS/latest/UserGuide/Db2.Concepts.md "../../../AmazonRDS/latest/UserGuide/Db2.Concepts.md")
-- [Oracle minor version upgrades](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.md "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.md")
-- [Upgrades of the Microsoft SQL Server DB engine](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.md "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.md")
+  Amazon RDS versions](../../../AmazonRDS/latest/UserGuide/Db2.Concepts.VersionMgmt.md "../../../AmazonRDS/latest/UserGuide/Db2.Concepts.VersionMgmt.md")
+- [Oracle minor version upgrades](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.Minor.md "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.Minor.md")
+- [Upgrades of the Microsoft SQL Server DB engine](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.SQLServer.md "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.SQLServer.md")
 
 ### Remediation
 
-To enable automatic minor version upgrades for an existing DB instance, see [Modifying an Amazon RDS DB instance](../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.md "../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.md") in the _Amazon RDS User Guide_.
+To enable automatic minor version upgrades for an existing DB instance, see [Modifying an Amazon RDS DB instance](../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.md "../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.md") in the _Amazon RDS User Guide_.
 For **Auto minor version upgrade**, select **Yes**.
 
 ## [RDS.14] Amazon Aurora clusters should have backtracking enabled
@@ -537,12 +537,12 @@ point in time. It does not require a database restore to do so.
 
 ### Remediation
 
-To enable Aurora backtracking, see [Configuring backtracking](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.md#AuroraMySQL.Managing.Backtrack.Configuring "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.md#AuroraMySQL.Managing.Backtrack.Configuring") in the _Amazon Aurora User Guide_.
+To enable Aurora backtracking, see [Configuring backtracking](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.md#AuroraMySQL.Managing.Backtrack.Configuring "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.md#AuroraMySQL.Managing.Backtrack.Configuring") in the _Amazon Aurora User Guide_.
 
 Note that you cannot enable backtracking on an existing cluster. Instead, you can create a
 clone that has backtracking enabled. For more information about the limitations of Aurora
 backtracking, see the list of limitations in [Overview of
-backtracking](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.md").
+backtracking](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.md").
 
 ## [RDS.15] RDS DB clusters should be configured for multiple Availability Zones
 
@@ -572,7 +572,7 @@ maintenance events.
 
 ### Remediation
 
-To deploy your DB clusters in multiple AZs, [Modifying a DB instance to be a Multi-AZ DB instance deployment](../../../AmazonRDS/latest/UserGuide/Concepts.md#Concepts.MultiAZ.Migrating "../../../AmazonRDS/latest/UserGuide/Concepts.md#Concepts.MultiAZ.Migrating") in the
+To deploy your DB clusters in multiple AZs, [Modifying a DB instance to be a Multi-AZ DB instance deployment](../../../AmazonRDS/latest/UserGuide/Concepts.MultiAZSingleStandby.md#Concepts.MultiAZ.Migrating "../../../AmazonRDS/latest/UserGuide/Concepts.MultiAZSingleStandby.md#Concepts.MultiAZ.Migrating") in the
 _Amazon RDS User Guide_.
 
 Remediation steps differ for Aurora global databases. To configure multiple Availability Zones for an Aurora global database,
@@ -614,7 +614,7 @@ their parent DB clusters.
 
 For information about configuring an Amazon Aurora DB cluster to automatically copy tags to
 DB snapshots, see [Modifying an
-Amazon Aurora DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md") in the _Amazon Aurora User
+Amazon Aurora DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Modifying.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Modifying.md") in the _Amazon Aurora User
 Guide_.
 
 ## [RDS.17] RDS DB instances should be configured to copy tags to snapshots
@@ -646,7 +646,7 @@ snapshots inherit the tags of their parent database instances.
 
 ### Remediation
 
-To automatically copy tags to snapshots for an RDS DB instance, see [Modifying an Amazon RDS DB instance](../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.md "../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.md") in the _Amazon RDS User Guide_. Select **Copy tags to snapshots**.
+To automatically copy tags to snapshots for an RDS DB instance, see [Modifying an Amazon RDS DB instance](../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.md "../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.md") in the _Amazon RDS User Guide_. Select **Copy tags to snapshots**.
 
 ## [RDS.18] RDS instances should be deployed in a VPC
 
@@ -674,7 +674,7 @@ we recommend that you create your RDS instances on an EC2-VPC.
 ### Remediation
 
 For instructions on moving RDS instances to a VPC, see [Updating
-the VPC for a DB instance](../../../AmazonRDS/latest/UserGuide/USER_VPC.md "../../../AmazonRDS/latest/UserGuide/USER_VPC.md") in the _Amazon RDS User Guide_.
+the VPC for a DB instance](../../../AmazonRDS/latest/UserGuide/USER_VPC.VPC2VPC.md "../../../AmazonRDS/latest/UserGuide/USER_VPC.VPC2VPC.md") in the _Amazon RDS User Guide_.
 
 ## [RDS.19] Existing RDS event notification subscriptions should be configured for critical cluster events
 
@@ -711,7 +711,7 @@ _Amazon RDS User Guide_.
 
 ### Remediation
 
-To subscribe to RDS cluster event notifications, see [Subscribing to Amazon RDS event notification](../../../AmazonRDS/latest/UserGuide/USER_Events.md "../../../AmazonRDS/latest/UserGuide/USER_Events.md") in the _Amazon RDS User Guide_. Use the following values:
+To subscribe to RDS cluster event notifications, see [Subscribing to Amazon RDS event notification](../../../AmazonRDS/latest/UserGuide/USER_Events.Subscribing.md "../../../AmazonRDS/latest/UserGuide/USER_Events.Subscribing.md") in the _Amazon RDS User Guide_. Use the following values:
 
 | Field                       | Value                                                    |
 | --------------------------- | -------------------------------------------------------- |
@@ -754,7 +754,7 @@ _Amazon RDS User Guide_.
 
 ### Remediation
 
-To subscribe to RDS instance event notifications, see [Subscribing to Amazon RDS event notification](../../../AmazonRDS/latest/UserGuide/USER_Events.md "../../../AmazonRDS/latest/UserGuide/USER_Events.md") in the _Amazon RDS User Guide_. Use the following values:
+To subscribe to RDS instance event notifications, see [Subscribing to Amazon RDS event notification](../../../AmazonRDS/latest/UserGuide/USER_Events.Subscribing.md "../../../AmazonRDS/latest/UserGuide/USER_Events.Subscribing.md") in the _Amazon RDS User Guide_. Use the following values:
 
 | Field                       | Value                                                    |
 | --------------------------- | -------------------------------------------------------- |
@@ -795,7 +795,7 @@ _Amazon RDS User Guide_.
 
 ### Remediation
 
-To subscribe to RDS database parameter group event notifications, see [Subscribing to Amazon RDS event notification](../../../AmazonRDS/latest/UserGuide/USER_Events.md "../../../AmazonRDS/latest/UserGuide/USER_Events.md") in the _Amazon RDS User Guide_. Use the following values:
+To subscribe to RDS database parameter group event notifications, see [Subscribing to Amazon RDS event notification](../../../AmazonRDS/latest/UserGuide/USER_Events.Subscribing.md "../../../AmazonRDS/latest/UserGuide/USER_Events.Subscribing.md") in the _Amazon RDS User Guide_. Use the following values:
 
 | Field                       | Value                                                    |
 | --------------------------- | -------------------------------------------------------- |
@@ -836,7 +836,7 @@ _Amazon RDS User Guide_.
 
 ### Remediation
 
-To subscribe to RDS instance event notifications, see [Subscribing to Amazon RDS event notification](../../../AmazonRDS/latest/UserGuide/USER_Events.md "../../../AmazonRDS/latest/UserGuide/USER_Events.md") in the _Amazon RDS User Guide_. Use the following values:
+To subscribe to RDS instance event notifications, see [Subscribing to Amazon RDS event notification](../../../AmazonRDS/latest/UserGuide/USER_Events.Subscribing.md "../../../AmazonRDS/latest/UserGuide/USER_Events.Subscribing.md") in the _Amazon RDS User Guide_. Use the following values:
 
 | Field                       | Value                                                    |
 | --------------------------- | -------------------------------------------------------- |
@@ -877,8 +877,8 @@ ensure that it includes an ingress rule that allows connectivity on the new port
 
 ### Remediation
 
-To modify the default port of an existing RDS DB instance, see [Modifying an Amazon RDS DB instance](../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.md "../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.md") in the _Amazon RDS User Guide_. To modify the default port of an existing RDS DB cluster, see
-[Modifying the DB cluster by using the console, CLI, and API](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md#Aurora.Modifying.Cluster "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md#Aurora.Modifying.Cluster") in the _Amazon Aurora User Guide_.
+To modify the default port of an existing RDS DB instance, see [Modifying an Amazon RDS DB instance](../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.md "../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.md") in the _Amazon RDS User Guide_. To modify the default port of an existing RDS DB cluster, see
+[Modifying the DB cluster by using the console, CLI, and API](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Modifying.md#Aurora.Modifying.Cluster "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Modifying.md#Aurora.Modifying.Cluster") in the _Amazon Aurora User Guide_.
 For **Database port**, change the port
 value to a non-default value.
 
@@ -908,7 +908,7 @@ When creating an Amazon RDS database, you should change the default admin userna
 
 ### Remediation
 
-For changing the admin username associated with the Amazon RDS database cluster, [create a new RDS database cluster](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md") and change the default admin username while creating the database.
+For changing the admin username associated with the Amazon RDS database cluster, [create a new RDS database cluster](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.CreateInstance.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.CreateInstance.md") and change the default admin username while creating the database.
 
 ## [RDS.25] RDS database instances should use a custom administrator username
 
@@ -1023,7 +1023,7 @@ requirements for data-at-rest encryption of production file systems.
 
 ### Remediation
 
-You can enable encryption at rest when you create an RDS DB cluster. You can't change encryption settings after creating a cluster. For more information, see [Encrypting an Amazon Aurora DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/Overview.md#Overview.Encryption.Enabling "../../../AmazonRDS/latest/AuroraUserGuide/Overview.md#Overview.Encryption.Enabling") in the
+You can enable encryption at rest when you create an RDS DB cluster. You can't change encryption settings after creating a cluster. For more information, see [Encrypting an Amazon Aurora DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/Overview.Encryption.md#Overview.Encryption.Enabling "../../../AmazonRDS/latest/AuroraUserGuide/Overview.Encryption.md#Overview.Encryption.Enabling") in the
 _Amazon Aurora User Guide_.
 
 ## [RDS.28] RDS DB clusters should be tagged
@@ -1338,7 +1338,7 @@ is `0`. However, we recommend you use the following remediation instructions ins
 
 ### Remediation
 
-To publish Aurora MySQL DB cluster audit logs to CloudWatch Logs, see [Publishing Amazon Aurora MySQL logs to Amazon CloudWatch Logs](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.md") in the
+To publish Aurora MySQL DB cluster audit logs to CloudWatch Logs, see [Publishing Amazon Aurora MySQL logs to Amazon CloudWatch Logs](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.CloudWatch.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.CloudWatch.md") in the
 _Amazon Aurora User Guide_.
 
 ## [RDS.35] RDS DB clusters should have automatic minor version upgrade enabled
@@ -1408,7 +1408,7 @@ CloudWatch.
 
 ### Remediation
 
-To publish PostgreSQL DB instance logs to CloudWatch Logs, see [Publishing PostgreSQL logs to Amazon CloudWatch Logs](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md#USER_LogAccess.Concepts.PostgreSQL.PublishtoCloudWatchLogs "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md#USER_LogAccess.Concepts.PostgreSQL.PublishtoCloudWatchLogs") in the
+To publish PostgreSQL DB instance logs to CloudWatch Logs, see [Publishing PostgreSQL logs to Amazon CloudWatch Logs](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.PostgreSQL.md#USER_LogAccess.Concepts.PostgreSQL.PublishtoCloudWatchLogs "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.PostgreSQL.md#USER_LogAccess.Concepts.PostgreSQL.PublishtoCloudWatchLogs") in the
 _Amazon RDS User Guide_.
 
 ## [RDS.37] Aurora PostgreSQL DB clusters should publish logs to CloudWatch Logs
@@ -1439,7 +1439,7 @@ alarms and view metrics in CloudWatch.
 
 ### Remediation
 
-To publish Aurora PostgreSQL DB cluster logs to CloudWatch Logs, see [Publishing Aurora PostgreSQL logs to Amazon CloudWatch Logs](../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.md") in the
+To publish Aurora PostgreSQL DB cluster logs to CloudWatch Logs, see [Publishing Aurora PostgreSQL logs to Amazon CloudWatch Logs](../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.CloudWatch.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.CloudWatch.md") in the
 _Amazon RDS User Guide_.
 
 ## [RDS.38] RDS for PostgreSQL DB instances should be encrypted in transit
@@ -1465,7 +1465,7 @@ Data in transit refers to data that moves from one location to another, such as 
 
 ### Remediation
 
-To require all connections to your RDS for PostgreSQL DB instance to use SSL, see [Using SSL with a PostgreSQL DB instance](../../../AmazonRDS/latest/UserGuide/PostgreSQL.Concepts.General.md "../../../AmazonRDS/latest/UserGuide/PostgreSQL.Concepts.General.md")
+To require all connections to your RDS for PostgreSQL DB instance to use SSL, see [Using SSL with a PostgreSQL DB instance](../../../AmazonRDS/latest/UserGuide/PostgreSQL.Concepts.General.SSL.md "../../../AmazonRDS/latest/UserGuide/PostgreSQL.Concepts.General.SSL.md")
 in the _Amazon RDS User Guide_.
 
 ## [RDS.39] RDS for MySQL DB instances should be encrypted in transit
@@ -1491,7 +1491,7 @@ Data in transit refers to data that moves from one location to another, such as 
 
 ### Remediation
 
-To require all connections to your RDS for MySQL DB instance to use SSL, see [SSL/TLS support for MySQL DB instances on Amazon RDS](../../../AmazonRDS/latest/UserGuide/MySQL.Concepts.md "../../../AmazonRDS/latest/UserGuide/MySQL.Concepts.md")
+To require all connections to your RDS for MySQL DB instance to use SSL, see [SSL/TLS support for MySQL DB instances on Amazon RDS](../../../AmazonRDS/latest/UserGuide/MySQL.Concepts.SSLSupport.md "../../../AmazonRDS/latest/UserGuide/MySQL.Concepts.SSLSupport.md")
 in the _Amazon RDS User Guide_.
 
 ## [RDS.40] RDS for SQL Server DB instances should publish logs to CloudWatch Logs
@@ -1535,7 +1535,7 @@ warnings that are recorded in SQL Server agent logs related to SQL agent jobs.
 ### Remediation
 
 For information about publishing logs to CloudWatch Logs for an RDS for SQL Server DB instance, see
-[Amazon RDS for Microsoft SQL Server database log files](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md") in the _Amazon Relational Database Service User Guide_.
+[Amazon RDS for Microsoft SQL Server database log files](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.SQLServer.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.SQLServer.md") in the _Amazon Relational Database Service User Guide_.
 
 ## [RDS.41] RDS for SQL Server DB instances should be encrypted in transit
 
@@ -1567,7 +1567,7 @@ the risk of unauthorized users eavesdropping on network traffic.
 
 For information about enabling SSL/TLS for connections to Amazon RDS DB instances
 running Microsoft SQL Server, see [Using
-SSL with a Microsoft SQL Server DB Instance](../../../AmazonRDS/latest/UserGuide/SQLServer.Concepts.General.SSL.md "../../../AmazonRDS/latest/UserGuide/SQLServer.Concepts.General.SSL.md") in the _Amazon Relational Database Service User Guide_.
+SSL with a Microsoft SQL Server DB Instance](../../../AmazonRDS/latest/UserGuide/SQLServer.Concepts.General.SSL.Using.md "../../../AmazonRDS/latest/UserGuide/SQLServer.Concepts.General.SSL.Using.md") in the _Amazon Relational Database Service User Guide_.
 
 ## [RDS.42] RDS for MariaDB DB instances should publish logs to CloudWatch Logs
 
@@ -1609,7 +1609,7 @@ CloudWatch Logs, you can also create alarms and review metrics.
 ### Remediation
 
 For information about configuring an Amazon RDS for MariaDB DB instance to publish logs to
-Amazon CloudWatch Logs, see [Publishing MariaDB logs to Amazon CloudWatch Logs](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.MariaDB.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.MariaDB.md") in the _Amazon Relational Database Service User Guide_.
+Amazon CloudWatch Logs, see [Publishing MariaDB logs to Amazon CloudWatch Logs](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.MariaDB.PublishtoCloudWatchLogs.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.MariaDB.PublishtoCloudWatchLogs.md") in the _Amazon Relational Database Service User Guide_.
 
 ## [RDS.43] RDS DB proxies should require TLS encryption for connections
 
@@ -1678,7 +1678,7 @@ the risk of unauthorized users eavesdropping on network traffic.
 ### Remediation
 
 For information about enabling SSL/TLS for connections to an Amazon RDS for MariaDB DB
-instance, see [Requiring SSL/TLS for all connections to a MariaDB DB instance](../../../AmazonRDS/latest/UserGuide/mariadb-ssl-connections.md "../../../AmazonRDS/latest/UserGuide/mariadb-ssl-connections.md") in the
+instance, see [Requiring SSL/TLS for all connections to a MariaDB DB instance](../../../AmazonRDS/latest/UserGuide/mariadb-ssl-connections.require-ssl.md "../../../AmazonRDS/latest/UserGuide/mariadb-ssl-connections.require-ssl.md") in the
 _Amazon Relational Database Service User Guide_.
 
 ## [RDS.45] Aurora MySQL DB clusters should have audit logging enabled
@@ -1716,7 +1716,7 @@ security and compliance purposes.
 ### Remediation
 
 For information about enabling logging for an Amazon Aurora MySQL DB cluster, see
-[Publishing Amazon Aurora MySQL logs to Amazon CloudWatch Logs](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.md") in the _Amazon Aurora User Guide_.
+[Publishing Amazon Aurora MySQL logs to Amazon CloudWatch Logs](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.CloudWatch.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.CloudWatch.md") in the _Amazon Aurora User Guide_.
 
 ## [RDS.46] RDS DB instances should not be deployed in public subnets with routes to internet gateways
 
@@ -1748,7 +1748,7 @@ exfiltration.
 ### Remediation
 
 For information about provisioning a private subnet for an Amazon RDS DB instance, see
-[Working with a DB instance in a VPC](../../../AmazonRDS/latest/UserGuide/USER_VPC.md "../../../AmazonRDS/latest/UserGuide/USER_VPC.md") in the _Amazon Relational Database Service User Guide_.
+[Working with a DB instance in a VPC](../../../AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.md "../../../AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.md") in the _Amazon Relational Database Service User Guide_.
 
 ## [RDS.47] RDS for PostgreSQL DB clusters should be configured to copy tags to DB snapshots
 
@@ -1852,9 +1852,9 @@ of RDS DB clusters including Aurora DB cluster, DocumentDB clusters, NeptuneDB c
 To configure the backup retention period for an RDS DB cluster, modify the cluster settings
 and set the backup retention period to at least 7 days (or the value specified in the control parameter).
 For detailed instructions, see [Backup
-retention period](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.md "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.md") in the _Amazon Relational Database Service User Guide_.
+retention period](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.BackupRetention.md "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.BackupRetention.md") in the _Amazon Relational Database Service User Guide_.
 For Aurora DB clusters, see [Overview of backing up and
-restoring an Aurora DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.md") in the _Amazon Aurora User Guide for
+restoring an Aurora DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.md") in the _Amazon Aurora User Guide for
 Aurora_.
 For other type of DB clusters (e.g. DocumentDB clusters), see the corresponding service user guide for
 how to update the backup retention period for the cluster.

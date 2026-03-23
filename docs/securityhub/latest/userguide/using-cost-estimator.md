@@ -4,7 +4,7 @@
 
 ###### To access the Cost Estimator from the Security Hub landing page
 
-1. Sign in to your AWS account with your AWS organization management account credentials.
+1. Sign in to your AWS account with your AWS organization management or delegated administrator account credentials.
    Open the Security Hub console in the us-east-1 region at [https://console.aws.amazon.com/securityhub/v2/home](https://us-east-1.console.aws.amazon.com/securityhub/v2/home " https://us-east-1.console.aws.amazon.com/securityhub/v2/home").
 2. On the landing page, locate the **Pricing** card.
 3. Choose **Estimate cost**.
@@ -68,7 +68,7 @@ The estimator displays data from multiple sources, indicated by labels:
 
 The following describes how the cost estimator functions across different types accounts and configurations.
 
-### Delegated administorator and member accounts
+### Delegated administrator and member accounts
 
 **With cross-account access configured:**
 

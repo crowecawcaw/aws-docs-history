@@ -109,4 +109,4 @@ environment nginx or Apache proxy server, and logs that are specific to an envir
 
 ### Remediation
 
-To integrate Elastic Beanstalk with CloudWatch Logs, see [Streaming instance logs to CloudWatch Logs](../../../elasticbeanstalk/latest/dg/AWSHowTo.md#AWSHowTo.cloudwatchlogs.streaming "../../../elasticbeanstalk/latest/dg/AWSHowTo.md#AWSHowTo.cloudwatchlogs.streaming") in the _AWS Elastic Beanstalk Developer Guide_.
+To integrate Elastic Beanstalk with CloudWatch Logs, see [Streaming instance logs to CloudWatch Logs](../../../elasticbeanstalk/latest/dg/AWSHowTo.cloudwatchlogs.md#AWSHowTo.cloudwatchlogs.streaming "../../../elasticbeanstalk/latest/dg/AWSHowTo.cloudwatchlogs.md#AWSHowTo.cloudwatchlogs.streaming") in the _AWS Elastic Beanstalk Developer Guide_.

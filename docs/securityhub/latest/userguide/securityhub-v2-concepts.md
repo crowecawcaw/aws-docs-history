@@ -134,7 +134,7 @@ In a linked Region, the dashboard and inventory pages only contain findings for 
 
 The [Open Cybersecurity Schema Framework (OCSF)](https://schema.ocsf.io/ "https://schema.ocsf.io/") is a collaborative, open-source effort by AWS and leading partners in the cybersecurity industry.
 OCSF provides a standard schema for common security events, defines versioning criteria to facilitate schema evolution, and includes a self-governance process for security log producers and consumers.
-For more information, see [OCSF findings in Security Hub](ocsf-findings.md "ocsf-findings.md").
+For more information, see [OCSF findings in Security Hub](securityhub-ocsf.md "securityhub-ocsf.md").
 
 **Member account**
 

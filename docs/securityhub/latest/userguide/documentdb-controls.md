@@ -230,5 +230,5 @@ following TLS parameters: `tls1.2+`, `tls1.3+`, and
 ### Remediation
 
 For information about changing the TLS settings for an Amazon DocumentDB cluster, see
-[Encrypting data in transit](../../../documentdb/latest/developerguide/security.encryption.md "../../../documentdb/latest/developerguide/security.encryption.md") in the _Amazon DocumentDB
+[Encrypting data in transit](../../../documentdb/latest/developerguide/security.encryption.ssl.md "../../../documentdb/latest/developerguide/security.encryption.ssl.md") in the _Amazon DocumentDB
 Developer Guide_.

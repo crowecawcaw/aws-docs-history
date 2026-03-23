@@ -37,8 +37,8 @@ resources.
 ### Remediation
 
 You can't change the public access setting for a DMS replication instance after creating it. To change the public
-access setting, [delete your current instance](../../../dms/latest/userguide/CHAP_ReplicationInstance.md "../../../dms/latest/userguide/CHAP_ReplicationInstance.md"),
-and then [recreate it](../../../dms/latest/userguide/CHAP_ReplicationInstance.md "../../../dms/latest/userguide/CHAP_ReplicationInstance.md").
+access setting, [delete your current instance](../../../dms/latest/userguide/CHAP_ReplicationInstance.Deleting.md "../../../dms/latest/userguide/CHAP_ReplicationInstance.Deleting.md"),
+and then [recreate it](../../../dms/latest/userguide/CHAP_ReplicationInstance.Creating.md "../../../dms/latest/userguide/CHAP_ReplicationInstance.Creating.md").
 Don't select the **Publicly accessible** option.
 
 ## [DMS.2] DMS certificates should be tagged
@@ -246,7 +246,7 @@ during the maintenance window or immediately if the **Apply changes immediately 
 ### Remediation
 
 To enable automatic minor version upgrade on DMS replication instances, see
-[Modifying a replication instance](../../../dms/latest/userguide/CHAP_ReplicationInstance.md "../../../dms/latest/userguide/CHAP_ReplicationInstance.md") in
+[Modifying a replication instance](../../../dms/latest/userguide/CHAP_ReplicationInstance.Modifying.md "../../../dms/latest/userguide/CHAP_ReplicationInstance.Modifying.md") in
 the _AWS Database Migration Service User Guide_.
 
 ## [DMS.7] DMS replication tasks for the target database should have logging enabled
@@ -397,7 +397,7 @@ By enabling SSL connection on your DMS endpoints, you protect the confidentialit
 ### Remediation
 
 To add an SSL connection to a new or existing DMS endpoint, see
-[Using SSL with AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Security.md#CHAP_Security.SSL.Procedure "../../../dms/latest/userguide/CHAP_Security.md#CHAP_Security.SSL.Procedure")
+[Using SSL with AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Security.SSL.md#CHAP_Security.SSL.Procedure "../../../dms/latest/userguide/CHAP_Security.SSL.md#CHAP_Security.SSL.Procedure")
 in the _AWS Database Migration Service User Guide_.
 
 ## [DMS.10] DMS endpoints for Neptune databases should have IAM authorization enabled
@@ -434,7 +434,7 @@ authorization privileges to IAM users by using a service role specified by the `
 ### Remediation
 
 To enable IAM authorization on DMS endpoints for Neptune databases, see
-[Using Amazon Neptune as a target for AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Target.md "../../../dms/latest/userguide/CHAP_Target.md")
+[Using Amazon Neptune as a target for AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Target.Neptune.md "../../../dms/latest/userguide/CHAP_Target.Neptune.md")
 in the _AWS Database Migration Service User Guide_.
 
 ## [DMS.11] DMS endpoints for MongoDB should have an authentication mechanism enabled
@@ -468,7 +468,7 @@ process. This can result in data breaches, data loss, or other security incident
 ### Remediation
 
 To enable an authentication mechanism on DMS endpoints for MongoDB, see
-[Using MongoDB as a source for AWS DMS](../../../dms/latest/userguide/CHAP_Source.md "../../../dms/latest/userguide/CHAP_Source.md")
+[Using MongoDB as a source for AWS DMS](../../../dms/latest/userguide/CHAP_Source.MongoDB.md "../../../dms/latest/userguide/CHAP_Source.MongoDB.md")
 in the _AWS Database Migration Service User Guide_.
 
 ## [DMS.12] DMS endpoints for Redis OSS should have TLS enabled
@@ -500,7 +500,7 @@ encryption, sensitive data may be accessed, resulting in data breaches, data los
 ### Remediation
 
 To enable a TLS connection on DMS endpoints for Redis, see
-[Using Redis as a target for AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Target.md "../../../dms/latest/userguide/CHAP_Target.md")
+[Using Redis as a target for AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Target.Redis.md "../../../dms/latest/userguide/CHAP_Target.Redis.md")
 in the _AWS Database Migration Service User Guide_.
 
 ## [DMS.13] DMS replication instances should be configured to use multiple Availability Zones
@@ -536,5 +536,5 @@ Guide_.
 After you create an AWS DMS replication instance, you can change the Multi-AZ
 deployment setting for it. For information about changing this and other settings
 for an existing replication instance, see [Modifying a
-replication instance](../../../dms/latest/userguide/CHAP_ReplicationInstance.md "../../../dms/latest/userguide/CHAP_ReplicationInstance.md") in the _AWS Database Migration Service User
+replication instance](../../../dms/latest/userguide/CHAP_ReplicationInstance.Modifying.md "../../../dms/latest/userguide/CHAP_ReplicationInstance.Modifying.md") in the _AWS Database Migration Service User
 Guide_.

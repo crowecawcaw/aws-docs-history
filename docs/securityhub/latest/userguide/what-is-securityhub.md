@@ -143,24 +143,24 @@ charged for AWS Config rules that are activated only by Security Hub CSPM securi
 
 You are not charged for using Security Hub CSPM until your free trial ends.
 
-### Viewing usage details and estimated cost
+### Viewing usage details
 
-Security Hub CSPM provides usage information, including an estimated 30-day cost for using Security Hub CSPM. The usage details include the time remaining in the
-free trial. The usage information can help you to understand what your Security Hub CSPM costs may be after the free trial
-ends. The usage information is also available after the free trial ends.
+Security Hub CSPM provides usage information, including the number of security checks and findings
+processed by your account. The usage details also include the time remaining in the
+free trial. This information can help you understand your Security Hub CSPM usage after the free
+trial ends. The usage information is also available after the free trial ends.
 
 ###### To display usage information (console)
 
 1. Open the AWS Security Hub CSPM console at [https://console.aws.amazon.com/securityhub/](https://console.aws.amazon.com/securityhub/ "https://console.aws.amazon.com/securityhub/").
 2. In the navigation pane, choose **Usage** under **Settings**.
 
-The estimated monthly cost is based on your account's Security Hub CSPM usage for findings and
-security checks projected over a 30-day period.
+The usage information is only for the current account and current Region. In an
+aggregation Region, the usage information doesn't include linked Regions. For more
+information about linked Regions, see [Types of data that are aggregated](finding-aggregation.md#finding-aggregation-overview "finding-aggregation.md#finding-aggregation-overview").
 
-The usage information and estimated cost are only for the current account and current Region.
-In an aggregation Region, the usage
-information and estimated cost don't include linked Regions. For more information
-about linked Regions, see [Types of data that are aggregated](finding-aggregation.md#finding-aggregation-overview "finding-aggregation.md#finding-aggregation-overview").
+To view cost details for your account, use the [AWS Billing
+console](https://console.aws.amazon.com/billing/ "https://console.aws.amazon.com/billing/").
 
 ### Pricing details
 

@@ -43,7 +43,7 @@ request throttling, see [Request throttling and burst capacity](../../../amazond
 ### Remediation
 
 To enable DynamoDB automatic scaling on existing tables in
-capacity mode, see [Enabling DynamoDB auto scaling on existing tables](../../../amazondynamodb/latest/developerguide/AutoScaling.md#AutoScaling.Console.ExistingTable "../../../amazondynamodb/latest/developerguide/AutoScaling.md#AutoScaling.Console.ExistingTable") in the _Amazon DynamoDB Developer Guide_.
+capacity mode, see [Enabling DynamoDB auto scaling on existing tables](../../../amazondynamodb/latest/developerguide/AutoScaling.Console.md#AutoScaling.Console.ExistingTable "../../../amazondynamodb/latest/developerguide/AutoScaling.Console.md#AutoScaling.Console.ExistingTable") in the _Amazon DynamoDB Developer Guide_.
 
 ## [DynamoDB.2] DynamoDB tables should have point-in-time recovery enabled
 
@@ -73,7 +73,7 @@ PITR enabled can be restored to any point in time in the last 35 days.
 
 ### Remediation
 
-To restore a DynamoDB table to a point in time, see [Restoring a DynamoDB table to a point in time](../../../amazondynamodb/latest/developerguide/PointInTimeRecovery.md "../../../amazondynamodb/latest/developerguide/PointInTimeRecovery.md") in the _Amazon DynamoDB Developer Guide_.
+To restore a DynamoDB table to a point in time, see [Restoring a DynamoDB table to a point in time](../../../amazondynamodb/latest/developerguide/PointInTimeRecovery.Tutorial.md "../../../amazondynamodb/latest/developerguide/PointInTimeRecovery.Tutorial.md") in the _Amazon DynamoDB Developer Guide_.
 
 ## [DynamoDB.3] DynamoDB Accelerator (DAX) clusters should be encrypted at rest
 
@@ -191,7 +191,7 @@ _AWS General Reference_.
 
 ### Remediation
 
-To add tags to a DynamoDB table, see [Tagging resources in DynamoDB](../../../amazondynamodb/latest/developerguide/Tagging.md "../../../amazondynamodb/latest/developerguide/Tagging.md") in the
+To add tags to a DynamoDB table, see [Tagging resources in DynamoDB](../../../amazondynamodb/latest/developerguide/Tagging.Operations.md "../../../amazondynamodb/latest/developerguide/Tagging.Operations.md") in the
 _Amazon DynamoDB Developer Guide_.
 
 ## [DynamoDB.6] DynamoDB tables should have deletion protection enabled
@@ -225,7 +225,7 @@ administrators. This helps prevent disruption to your normal business operations
 
 ### Remediation
 
-To enable deletion protection for a DynamoDB table, see [Using deletion protection](../../../amazondynamodb/latest/developerguide/WorkingWithTables.md#WorkingWithTables.Basics.DeletionProtection "../../../amazondynamodb/latest/developerguide/WorkingWithTables.md#WorkingWithTables.Basics.DeletionProtection") in the
+To enable deletion protection for a DynamoDB table, see [Using deletion protection](../../../amazondynamodb/latest/developerguide/WorkingWithTables.Basics.md#WorkingWithTables.Basics.DeletionProtection "../../../amazondynamodb/latest/developerguide/WorkingWithTables.Basics.md#WorkingWithTables.Basics.DeletionProtection") in the
 _Amazon DynamoDB Developer Guide_.
 
 ## [DynamoDB.7] DynamoDB Accelerator clusters should be encrypted in transit
@@ -259,5 +259,5 @@ performance profile and the impact of TLS.
 
 ### Remediation
 
-You can't change the TLS encryption setting after creating a DAX cluster. To encrypt an existing DAX cluster, create a new cluster with encryption in transit enabled, shift your application's traffic to it, and then delete the old cluster. For more information, see [Using deletion protection](../../../amazondynamodb/latest/developerguide/WorkingWithTables.md#WorkingWithTables.Basics.DeletionProtection "../../../amazondynamodb/latest/developerguide/WorkingWithTables.md#WorkingWithTables.Basics.DeletionProtection") in the
+You can't change the TLS encryption setting after creating a DAX cluster. To encrypt an existing DAX cluster, create a new cluster with encryption in transit enabled, shift your application's traffic to it, and then delete the old cluster. For more information, see [Using deletion protection](../../../amazondynamodb/latest/developerguide/WorkingWithTables.Basics.md#WorkingWithTables.Basics.DeletionProtection "../../../amazondynamodb/latest/developerguide/WorkingWithTables.Basics.md#WorkingWithTables.Basics.DeletionProtection") in the
 _Amazon DynamoDB Developer Guide_.

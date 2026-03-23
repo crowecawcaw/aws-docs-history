@@ -127,7 +127,7 @@ Following security best practices, we recommend enabling IAM database authentica
 In the exposure finding, open the resource with the hyperlink.
 This will open the affected DB instance.
 You can enable IAM database authentication in the Database options.
-For more information, see [Enabling and disabling IAM database authentication](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.md") in the _Amazon RDS User Guide_.
+For more information, see [Enabling and disabling IAM database authentication](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.Enabling.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.Enabling.md") in the _Amazon RDS User Guide_.
 After enabling IAM authentication, update your DB instances to use IAM authentication instead of password based authentication.
 
 ### The Amazon RDS DB instance uses the default admin username
@@ -169,7 +169,7 @@ Following security best practices, we recommend enabling automatic minor version
 In the exposure finding, open the resource with the hyperlink.
 This will open the affected DB instance.
 You can view automatic minor upgrade settings in the **Maintenance & backups** tab.
-For more information, see [Automatic minor version upgrades for Amazon RDS for MySQL](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.MySQL.md "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.MySQL.md").
+For more information, see [Automatic minor version upgrades for Amazon RDS for MySQL](../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.MySQL.Minor.md "../../../AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.MySQL.Minor.md").
 You can also configure your maintenance window to occur during periods of low database activity.
 
 ### The Amazon RDS DB instance has automated backups disabled
@@ -177,7 +177,7 @@ You can also configure your maintenance window to occur during periods of low da
 Automated backups provide point-in-time recovery for your Amazon RDS instances, allowing you to restore your database to any point within your retention period.
 When automated backups are disabled, you risk losing data in case of malicious deletion, data corruption, or other data loss scenarios.
 In the event of malicious activity like ransomware attacks, database table deletion, or corruption, the ability to restore to a point in time before the incident reduces the time required to recover from an incident.
-Following security best practices, we recommend enabling automated backups with an appropriate retention period for all [production databases](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.md "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.md").
+Following security best practices, we recommend enabling automated backups with an appropriate retention period for all [production databases](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.Enabling.md "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.Enabling.md").
 
 ### The Amazon RDS DB instance has deletion protection disabled
 

@@ -107,7 +107,7 @@ promotion is complete, which reduces overall downtime in case of failure.
 
 ### Remediation
 
-To enable automatic failover for an existing ElastiCache replication group,, see [Modifying an ElastiCache cluster](../../../AmazonElastiCache/latest/red-ug/Clusters.md#Clusters.Modify.CON "../../../AmazonElastiCache/latest/red-ug/Clusters.md#Clusters.Modify.CON") in the _Amazon ElastiCache User Guide_.
+To enable automatic failover for an existing ElastiCache replication group,, see [Modifying an ElastiCache cluster](../../../AmazonElastiCache/latest/red-ug/Clusters.Modify.md#Clusters.Modify.CON "../../../AmazonElastiCache/latest/red-ug/Clusters.Modify.md#Clusters.Modify.CON") in the _Amazon ElastiCache User Guide_.
 If you use the ElastiCache console, set **Auto failover** to enabled.
 
 ## [ElastiCache.4] ElastiCache replication groups should be encrypted at rest
@@ -224,4 +224,4 @@ more restrictive of the subnets that the cluster resides in, and the networking 
 
 ### Remediation
 
-To create a new subnet group for an ElastiCache cluster, see [Creating a subnet group](../../../AmazonElastiCache/latest/red-ug/SubnetGroups.md "../../../AmazonElastiCache/latest/red-ug/SubnetGroups.md") in the _Amazon ElastiCache User Guide_.
+To create a new subnet group for an ElastiCache cluster, see [Creating a subnet group](../../../AmazonElastiCache/latest/red-ug/SubnetGroups.Creating.md "../../../AmazonElastiCache/latest/red-ug/SubnetGroups.Creating.md") in the _Amazon ElastiCache User Guide_.

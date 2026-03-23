@@ -34,7 +34,7 @@ The following describes the misconfiguration traits and remediation steps for Dy
 ###### Enable DynamoDB point-in-time recovery
 
 DynamoDB point-in-time recovery provides continuous automated backups for your DynamoDB table data.
-For information about how to restore a DynamoDB table to a point in time, see [Restoring a DynamoDB table to a point in time](../../../amazondynamodb/latest/developerguide/PointInTimeRecovery.md "../../../amazondynamodb/latest/developerguide/PointInTimeRecovery.md") in the _Amazon DynamoDB User Guide_.
+For information about how to restore a DynamoDB table to a point in time, see [Restoring a DynamoDB table to a point in time](../../../amazondynamodb/latest/developerguide/PointInTimeRecovery.Tutorial.md "../../../amazondynamodb/latest/developerguide/PointInTimeRecovery.Tutorial.md") in the _Amazon DynamoDB User Guide_.
 
 ### The DynamoDB table is not covered by a backup plan
 

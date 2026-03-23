@@ -145,7 +145,7 @@ protection before a delete request can succeed.
 
 ### Remediation
 
-To enable deletion protection for an existing Neptune DB cluster, see [Modifying the DB cluster by using the console, CLI, and API](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md#Aurora.Modifying.Settings "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md#Aurora.Modifying.Settings") in the
+To enable deletion protection for an existing Neptune DB cluster, see [Modifying the DB cluster by using the console, CLI, and API](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Modifying.md#Aurora.Modifying.Settings "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Modifying.md#Aurora.Modifying.Settings") in the
 _Amazon Aurora User Guide_.
 
 ## [Neptune.5] Neptune DB clusters should have automated backups enabled
