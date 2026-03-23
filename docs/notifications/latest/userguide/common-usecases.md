@@ -94,7 +94,7 @@ For more information, see [State change events for Amazon EC2 instances](../../.
 ## Specific Amazon CloudWatch alarm in alarm state
 
 The following event pattern allows you to specify CloudWatch alarms in the `ALARM` state by using resource ARNs.
-For more information, see [Alarm events and EventBridge](../../../AmazonCloudWatch/latest/monitoring/cloudwatch-and-eventbridge.md "../../../AmazonCloudWatch/latest/monitoring/cloudwatch-and-eventbridge.md") in the _Amazon CloudWatch User Guide_.
+For more information, see [Alarm events and EventBridge](../../../AmazonCloudWatch/latest/monitoring/cloudwatch-and-eventbridge.html.md "../../../AmazonCloudWatch/latest/monitoring/cloudwatch-and-eventbridge.html.md") in the _Amazon CloudWatch User Guide_.
 
 ###### To use the following JSON code:
 
