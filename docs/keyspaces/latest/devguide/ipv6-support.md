@@ -4,7 +4,7 @@ IPv6 support in Amazon Keyspaces allows applications to establish connections us
 version 6, the next-generation internet protocol that provides a vastly expanded address
 space compared to IPv4. The implementation uses dual-stack endpoints that support both IPv4
 and IPv6 simultaneously, ensuring backward compatibility while enabling future-ready
-connectivity. For a list of endpoints, see [Global endpoints](programmatic.md#global_endpoints "programmatic.md#global_endpoints").
+connectivity. For a list of endpoints, see [Global endpoints](programmatic.endpoints.md#global_endpoints "programmatic.endpoints.md#global_endpoints").
 
 Amazon Keyspaces implements IPv6 support through a dual-stack architecture that maintains complete backward
 compatibility while enabling IPv6 connectivity.

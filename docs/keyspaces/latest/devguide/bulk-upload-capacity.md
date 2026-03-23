@@ -63,4 +63,4 @@ CQL statement.
 ALTER TABLE `mykeyspace.mytable` WITH custom_properties={'capacity_mode':{'throughput_mode': 'PROVISIONED', 'read_capacity_units': `100`, 'write_capacity_units': `278`}} ;
 ```
 
-For the complete language reference, see [ALTER TABLE](cql.ddl.md#cql.ddl.table.alter "cql.ddl.md#cql.ddl.table.alter").
+For the complete language reference, see [ALTER TABLE](cql.ddl.table.md#cql.ddl.table.alter "cql.ddl.table.md#cql.ddl.table.alter").

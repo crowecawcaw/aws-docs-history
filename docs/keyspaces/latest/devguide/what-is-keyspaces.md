@@ -35,7 +35,7 @@ operational costs of Amazon Keyspaces compared to your existing Cassandra deploy
 total cost of ownership (TCO) factors like infrastructure maintenance, operational overhead,
 or support costs for Cassandra.
 
-For a list of available AWS Regions and endpoints, see [Service endpoints for Amazon Keyspaces](programmatic.md "programmatic.md").
+For a list of available AWS Regions and endpoints, see [Service endpoints for Amazon Keyspaces](programmatic.endpoints.md "programmatic.endpoints.md").
 
 We recommend that you start by reading the following sections:
 

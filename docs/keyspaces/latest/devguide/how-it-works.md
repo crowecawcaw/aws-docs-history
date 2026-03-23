@@ -66,7 +66,7 @@ The following diagram shows the architecture of Amazon Keyspaces.
 ![Diagram of Amazon Keyspaces interacting with client application.](images/keyspaces-hi-level.png)
 
 A client program accesses Amazon Keyspaces by connecting to a predetermined endpoint (hostname
-and port number) and issuing CQL statements. For a list of available endpoints, see [Service endpoints for Amazon Keyspaces](programmatic.md "programmatic.md").
+and port number) and issuing CQL statements. For a list of available endpoints, see [Service endpoints for Amazon Keyspaces](programmatic.endpoints.md "programmatic.endpoints.md").
 
 ## Cassandra data model
 
@@ -128,7 +128,7 @@ For more information about NoSQL design and Amazon Keyspaces, see [Key differenc
 Amazon Keyspaces (for Apache Cassandra) implements the Apache Cassandra Query Language (CQL) API, so you can use
 CQL and Cassandra drivers that you already use. Updating your application is as easy as
 updating your Cassandra driver or `cqlsh` configuration to point to the Amazon Keyspaces
-service endpoint. For more information about the required credentials, see [Create and configure AWS credentials for Amazon Keyspaces](access.md "access.md").
+service endpoint. For more information about the required credentials, see [Create and configure AWS credentials for Amazon Keyspaces](access.credentials.md "access.credentials.md").
 
 ###### Note
 

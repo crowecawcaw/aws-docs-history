@@ -205,7 +205,7 @@ Amazon Keyspaces supports using temporary credentials with the AWS Signature Ver
 - Go: [https://github.com/aws/aws-sigv4-auth-cassandra-gocql-driver-plugin](https://github.com/aws/aws-sigv4-auth-cassandra-gocql-driver-plugin "https://github.com/aws/aws-sigv4-auth-cassandra-gocql-driver-plugin").
 
 For examples and tutorials that implement the authentication plugin to access
-Amazon Keyspaces programmatically, see [Using a Cassandra client driver to access Amazon Keyspaces programmatically](programmatic.md "programmatic.md").
+Amazon Keyspaces programmatically, see [Using a Cassandra client driver to access Amazon Keyspaces programmatically](programmatic.drivers.md "programmatic.drivers.md").
 
 ### Service-linked roles
 

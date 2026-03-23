@@ -104,7 +104,7 @@ operation again.
 You can also delete multi-Region keyspaces programmatically using any of the following
 methods.
 
-- The Cassandra Query Language (CQL) [DROP KEYSPACE](cql.ddl.md#cql.ddl.keyspace.drop "cql.ddl.md#cql.ddl.keyspace.drop") statement.
+- The Cassandra Query Language (CQL) [DROP KEYSPACE](cql.ddl.keyspace.md#cql.ddl.keyspace.drop "cql.ddl.keyspace.md#cql.ddl.keyspace.drop") statement.
 - The [delete-keyspace](../../../cli/latest/reference/keyspaces/delete-keyspace.md "../../../cli/latest/reference/keyspaces/delete-keyspace.md") operation of the AWS CLI.
 - The [DeleteKeyspace](../APIReference/API_DeleteKeyspace.md "../APIReference/API_DeleteKeyspace.md") operation of the Amazon Keyspaces API.
 

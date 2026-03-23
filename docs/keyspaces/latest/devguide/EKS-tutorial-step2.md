@@ -22,7 +22,7 @@ git clone https://github.com/aws-samples/amazon-keyspaces-examples.git
    haven't already done so, you need to generate your IAM access keys (an access key
    ID and a secret access key) and save them in your AWS config file or as
    environment variables. For detailed instructions, see [Credentials required by the AWS CLI, the AWS SDK, or the Amazon Keyspaces SigV4 plugin for Cassandra client drivers](SigV4_credentials.md "SigV4_credentials.md"). Update the AWS Region and
-   the service endpoint for Amazon Keyspaces as needed. For more service endpoints, see [Service endpoints for Amazon Keyspaces](programmatic.md "programmatic.md"). Replace the truststore location, truststore name, and the truststore password with your own.
+   the service endpoint for Amazon Keyspaces as needed. For more service endpoints, see [Service endpoints for Amazon Keyspaces](programmatic.endpoints.md "programmatic.endpoints.md"). Replace the truststore location, truststore name, and the truststore password with your own.
 
    ```
    datastax-java-driver {

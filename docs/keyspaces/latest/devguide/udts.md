@@ -21,7 +21,7 @@ and other default values and quotas related to UDTs, see [Quotas and default val
 
 For information about how to calculate the encoded size of UDTs, see [Estimate the encoded size of data values based on data type](calculating-row-size.md#calculating-row-size-data-types "calculating-row-size.md#calculating-row-size-data-types").
 
-For more information about CQL syntax, see [User-defined types (UDTs)](cql.ddl.md "cql.ddl.md").
+For more information about CQL syntax, see [User-defined types (UDTs)](cql.ddl.type.md "cql.ddl.type.md").
 
 To learn more about UDTs and point-in time restore, see [PITR restore of tables with user-defined types (UDTs)](PointInTimeRecovery_HowItWorks.md#howitworks_backup_udt "PointInTimeRecovery_HowItWorks.md#howitworks_backup_udt").
 

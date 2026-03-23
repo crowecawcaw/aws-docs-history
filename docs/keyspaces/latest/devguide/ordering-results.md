@@ -44,4 +44,4 @@ columns at table creation or the inverse of the defined sort order. Other possib
 
 For example, if the table's `CLUSTERING ORDER` is (col1 ASC, col2 DESC, col3 ASC), then the valid
 parameters for `ORDER BY` are either (col1 ASC, col2 DESC, col3 ASC) or (col1 DESC,
-col2 ASC, col3 DESC). For more information on `CLUSTERING ORDER`, see `table_options` under [CREATE TABLE](cql.ddl.md#cql.ddl.table.create "cql.ddl.md#cql.ddl.table.create").
+col2 ASC, col3 DESC). For more information on `CLUSTERING ORDER`, see `table_options` under [CREATE TABLE](cql.ddl.table.md#cql.ddl.table.create "cql.ddl.table.md#cql.ddl.table.create").

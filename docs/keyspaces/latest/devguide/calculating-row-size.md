@@ -25,7 +25,7 @@ This section shows how to estimate the encoded size of columns in Amazon Keyspac
 
 - **Regular columns** – For regular columns, which are
   columns that aren't primary keys, clustering columns, or `STATIC`
-  columns, use the raw size of the cell data based on the [data type](cql.md#cql.data-types "cql.md#cql.data-types") and add the required metadata. The data
+  columns, use the raw size of the cell data based on the [data type](cql.elements.md#cql.data-types "cql.elements.md#cql.data-types") and add the required metadata. The data
   types and some key differences in how Amazon Keyspaces stores data type values and metadata
   are listed in the next section.
 - **Partition key columns** – Partition keys can contain up to 2048 bytes of data. Each key column in the partition key

@@ -5,7 +5,7 @@
 1. Before you start this tutorial, follow the AWS setup instructions in [Accessing Amazon Keyspaces (for Apache Cassandra)](accessing.md "accessing.md"). These steps include signing up for
    AWS and creating an AWS Identity and Access Management (IAM) principal with access to Amazon Keyspaces.
 2. The scripts in this tutorial use your credentials and default AWS Region stored in a known
-   location. For more information, see [Store access keys for programmatic access](aws.credentials.md "aws.credentials.md").
+   location. For more information, see [Store access keys for programmatic access](aws.credentials.manage.md "aws.credentials.manage.md").
 
 The following example shows how to store the required values as environment variables for the default user.
 
@@ -27,7 +27,7 @@ The following example shows how to store the required values as environment vari
 4.  You need an Amazon Keyspaces table with sample data to export later in this tutorial. You can use your
     own Amazon Keyspaces table or create a sample table following the steps in the [Getting started with Amazon Keyspaces (for Apache Cassandra)](getting-started.md "getting-started.md") tutorial.
 
-        1. To install the `cqlsh-expansion`, follow the steps at [Using the cqlsh-expansion to connect to Amazon Keyspaces](programmatic.md#using_cqlsh "programmatic.md#using_cqlsh").
+        1. To install the `cqlsh-expansion`, follow the steps at [Using the cqlsh-expansion to connect to Amazon Keyspaces](programmatic.cqlsh.md#using_cqlsh "programmatic.cqlsh.md#using_cqlsh").
         2. Confirm that the `Murmur3Partitioner` partitioner is the default partitioner for your account. This partitioner
          is compatible with the Apache Spark Cassandra Connector and with AWS Glue. For more information on partitioners,
          see [Working with partitioners in Amazon Keyspaces](working-with-partitioners.md "working-with-partitioners.md").
@@ -43,8 +43,8 @@ The following example shows how to store the required values as environment vari
         UPDATE system.local set partitioner='org.apache.cassandra.dht.Murmur3Partitioner' where key='local';
         ```
         3. To create an Amazon Keyspaces keyspace, follow the steps at
-         [Create a keyspace in Amazon Keyspaces](getting-started.md "getting-started.md").
-        4. To create the Amazon Keyspaces table, follow the steps at [Create a table in Amazon Keyspaces](getting-started.md "getting-started.md").
-        5. To load sample data into the table to export to Amazon S3, follow the steps at [Inserting and loading data into an Amazon Keyspaces table](getting-started.dml.md "getting-started.dml.md").
+         [Create a keyspace in Amazon Keyspaces](getting-started.keyspaces.md "getting-started.keyspaces.md").
+        4. To create the Amazon Keyspaces table, follow the steps at [Create a table in Amazon Keyspaces](getting-started.tables.md "getting-started.tables.md").
+        5. To load sample data into the table to export to Amazon S3, follow the steps at [Inserting and loading data into an Amazon Keyspaces table](getting-started.dml.create.md "getting-started.dml.create.md").
 
     After completing the prerequisite steps, proceed to [Step 1: Create the Amazon S3 bucket, download the required tools, and configure the environment](S3-tutorial-step1.md "S3-tutorial-step1.md").

@@ -8,7 +8,7 @@ This topic provides a step-by-step guide to implementing a KCL consumer applicat
      create and access DynamoDB tables for KCL stream processing, and permissions to publish metrics to CloudWatch. For more
      information and a policy example, see [Permissions to process Amazon Keyspaces CDC streams with the Kinesis Client Library (KCL)](configure-cdc-permissions.md#cdc-permissions-kcl "configure-cdc-permissions.md#cdc-permissions-kcl").
    - Ensure that valid AWS credentials are set up in your local configuration. For more
-     information, see [Store access keys for programmatic access](aws.credentials.md "aws.credentials.md").
+     information, see [Store access keys for programmatic access](aws.credentials.manage.md "aws.credentials.manage.md").
    - Java Development Kit (JDK) 8 or later
    - Requirements listed in the [Readme](https://github.com/aws/keyspaces-streams-kinesis-adapter "https://github.com/aws/keyspaces-streams-kinesis-adapter") on Github.
 

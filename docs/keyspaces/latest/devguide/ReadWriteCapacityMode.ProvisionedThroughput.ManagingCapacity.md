@@ -8,7 +8,7 @@ table.
 
 You can also use the AWS CLI to view the capacity mode of a table.
 
-To change the provisioned throughput of a table, see [Change the capacity mode of a table in Amazon Keyspaces](ReadWriteCapacityMode.md "ReadWriteCapacityMode.md").
+To change the provisioned throughput of a table, see [Change the capacity mode of a table in Amazon Keyspaces](ReadWriteCapacityMode.SwitchReadWriteCapacityMode.md "ReadWriteCapacityMode.SwitchReadWriteCapacityMode.md").
 
 Cassandra Query Language (CQL)
 Example

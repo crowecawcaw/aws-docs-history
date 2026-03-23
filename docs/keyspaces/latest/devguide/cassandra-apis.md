@@ -76,7 +76,7 @@ are not applicable.
 
 ## Cassandra function support
 
-For more information about the supported functions, see [Built-in functions in Amazon Keyspaces](cql.md "cql.md").
+For more information about the supported functions, see [Built-in functions in Amazon Keyspaces](cql.functions.md "cql.functions.md").
 
 | Function                         | Supported |
 | -------------------------------- | --------- |
@@ -93,7 +93,7 @@ For more information about the supported functions, see [Built-in functions in A
 ## Cassandra data type support
 
 The following table lists the Apache Cassandra data types supported in Amazon Keyspaces. For more
-information about data types in Amazon Keyspaces, see [Data types](cql.md#cql.data-types "cql.md#cql.data-types").
+information about data types in Amazon Keyspaces, see [Data types](cql.elements.md#cql.data-types "cql.elements.md#cql.data-types").
 
 | Data type                     | Supported |
 | ----------------------------- | --------- |

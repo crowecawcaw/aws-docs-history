@@ -3,7 +3,7 @@
 Consider the following when you're using multi-Region replication with Amazon Keyspaces.
 
 - You can select any of the [available
-  public](programmatic.md#global_endpoints "programmatic.md#global_endpoints") AWS Regions. For more information about AWS Regions [that are disabled by
+  public](programmatic.endpoints.md#global_endpoints "programmatic.endpoints.md#global_endpoints") AWS Regions. For more information about AWS Regions [that are disabled by
   default](../../../general/latest/gr/rande-manage.md#rande-manage-enable "../../../general/latest/gr/rande-manage.md#rande-manage-enable"), see [Multi-Region replication in AWS Regions disabled by default](multiRegion-replication_how-it-works.md#howitworks_mrr_opt_in "multiRegion-replication_how-it-works.md#howitworks_mrr_opt_in").
 - AWS GovCloud (US) Regions and China Regions are not supported.
 - Consider the following workarounds until the features become available:
@@ -16,7 +16,7 @@ more information, see [Expire data with Time to Live (TTL) for Amazon Keyspaces 
      not supported for multi-Region tables. For more information, see
 
 
-    [Encryption at rest: How it works in Amazon Keyspaces](encryption.md "encryption.md").
+    [Encryption at rest: How it works in Amazon Keyspaces](encryption.howitworks.md "encryption.howitworks.md").
 
 - You can use `ALTER KEYSPACE` to add a Region to a single-Region or a multi-Region keyspace. For more
   information, see [Add an AWS Region to a keyspace in Amazon Keyspaces](keyspaces-multi-region-add-replica.md "keyspaces-multi-region-add-replica.md").
@@ -66,7 +66,7 @@ and worst-case replication lag. There is no SLA on this latency.
   application traffic it receives, Amazon Keyspaces automatically adapts the capacity of a multi-Region on-demand table
   replica to the traffic that it receives. The increase in replication latency is transient because Amazon Keyspaces automatically
   allocates more capacity as your traffic volume increases. Once all replicas have adapted to your traffic volume,
-  replication latency should return back to normal. For more information, see [Peak traffic and scaling properties](ReadWriteCapacityMode.md#ReadWriteCapacityMode.PeakTraffic "ReadWriteCapacityMode.md#ReadWriteCapacityMode.PeakTraffic").
+  replication latency should return back to normal. For more information, see [Peak traffic and scaling properties](ReadWriteCapacityMode.OnDemand.md#ReadWriteCapacityMode.PeakTraffic "ReadWriteCapacityMode.OnDemand.md#ReadWriteCapacityMode.PeakTraffic").
 - When using a multi-Region table in provisioned mode, if your application exceeds your
   provisioned throughput capacity, you may observe insufficient capacity errors and an
   increase in replication latency. To ensure that there's always enough read and write

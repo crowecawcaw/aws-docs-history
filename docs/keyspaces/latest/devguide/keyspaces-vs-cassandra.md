@@ -7,7 +7,7 @@ or a private endpoint using
 Amazon Keyspaces can appear to the client in one of the following ways.
 
 **AWS service endpoint connection**
-This is a connection established over any [public endpoint](programmatic.md#global_endpoints "programmatic.md#global_endpoints").
+This is a connection established over any [public endpoint](programmatic.endpoints.md#global_endpoints "programmatic.endpoints.md#global_endpoints").
 In this case, Amazon Keyspaces appears as a **nine-node** Apache Cassandra 3.11.2
 cluster to the client.
 

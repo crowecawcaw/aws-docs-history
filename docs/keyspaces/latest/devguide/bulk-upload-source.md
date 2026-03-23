@@ -6,7 +6,7 @@ data migration. The provided sample file contains a few rows of data for a table
 
 1.  Create the source file. You can choose one of the following options:
     - Download the sample CSV file (`keyspaces_sample_table.csv`) contained in the
-      following archive file [samplemigration.zip](samples/samplemigration.md "samples/samplemigration.md").
+      following archive file [samplemigration.zip](samples/samplemigration.zip.md "samples/samplemigration.zip.md").
       Unzip the archive and take note of the path to `keyspaces_sample_table.csv`.
     - To populate a CSV file with your own data stored in an Apache Cassandra
       database, you can populate the source CSV file by using the `cqlsh`
@@ -22,7 +22,7 @@ data migration. The provided sample file contains a few rows of data for a table
         + The first row contains the column names.
         + The column names in the source CSV file match the column names in the target table.
         + The data is delimited with a comma.
-        + All data values are valid Amazon Keyspaces data types. See [Data types](cql.md#cql.data-types "cql.md#cql.data-types").
+        + All data values are valid Amazon Keyspaces data types. See [Data types](cql.elements.md#cql.data-types "cql.elements.md#cql.data-types").
 
 2.  Create the target keyspace and table in Amazon Keyspaces.
     1. Connect to Amazon Keyspaces using `cqlsh`, replacing the service endpoint, user name, and

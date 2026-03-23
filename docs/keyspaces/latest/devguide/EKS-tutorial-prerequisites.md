@@ -55,7 +55,7 @@ SELECT * FROM system_schema.tables WHERE keyspace_name = "`aws`";
 ```
 
 Your table should be listed in the output of this
-statement. Note that there can be a delay until the table is created. For more information, see [CREATE TABLE](cql.ddl.md#cql.ddl.table.create "cql.ddl.md#cql.ddl.table.create"). 3. Create an Amazon EKS cluster with a **Fargate - Linux** node type. Fargate
+statement. Note that there can be a delay until the table is created. For more information, see [CREATE TABLE](cql.ddl.table.md#cql.ddl.table.create "cql.ddl.table.md#cql.ddl.table.create"). 3. Create an Amazon EKS cluster with a **Fargate - Linux** node type. Fargate
 is a serverless compute engine that lets you deploy Kubernetes Pods without managing Amazon Amazon EC2 instances.
 To follow this tutorial without having to update the cluster name in all the example commands, create a cluster with the name `my-eks-cluster`
 following the instructions at [Getting started with Amazon EKS –

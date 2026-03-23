@@ -12,7 +12,7 @@ future from the current wall clock time.
 
 Amazon Keyspaces keeps timestamp metadata for the life of
 the data. You can use the `WRITETIME` function to look up timestamps that
-occurred years in the past. For more information about CQL syntax, see [DML statements (data manipulation language) in Amazon Keyspaces](cql.md "cql.md").
+occurred years in the past. For more information about CQL syntax, see [DML statements (data manipulation language) in Amazon Keyspaces](cql.dml.md "cql.dml.md").
 
 The following CQL statement is an example of how to use a timestamp as an
 `update_parameter`.

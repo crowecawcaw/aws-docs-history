@@ -7,13 +7,13 @@ configuration file directly from the command line.
    Specify the following settings in the DSBulk configuration file.
    1. _`PlainTextAuthProvider`_ – Create the authentication provider with the `PlainTextAuthProvider` class. `ServiceUserName` and
       `ServicePassword` should match the user name and password you obtained when you generated the service-specific credentials by
-      following the steps at [Create credentials for programmatic access to Amazon Keyspaces](programmatic.md "programmatic.md").
+      following the steps at [Create credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.md "programmatic.credentials.md").
    2. _`local-datacenter`_ – Set the
       value for `local-datacenter` to the AWS Region that you're
       connecting to. For example, if the application is connecting to
       `cassandra.`us-east-1`.amazonaws.com`, then set the local
       data center to `us-east-1`. For all available AWS Regions,
-      see [Service endpoints for Amazon Keyspaces](programmatic.md "programmatic.md"). To avoid replicas,
+      see [Service endpoints for Amazon Keyspaces](programmatic.endpoints.md "programmatic.endpoints.md"). To avoid replicas,
       set `slow-replica-avoidance` to `false`.
    3. _`SSLEngineFactory`_ – To
       configure SSL/TLS, initialize the `SSLEngineFactory` by

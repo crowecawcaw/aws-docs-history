@@ -57,7 +57,7 @@ this path.
 This section shows you an example `application.conf` file that
 you can use when connecting with service-specific credentials. If you haven't
 already done so, you need to generate service-specific credentials for Amazon Keyspaces. For
-detailed instructions, see [Create service-specific credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.md "programmatic.credentials.md").
+detailed instructions, see [Create service-specific credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.ssc.md "programmatic.credentials.ssc.md").
 
 In the following example, replace `username` and `password`
 with your own credentials. Also, replace the file path to your trustStore file, and

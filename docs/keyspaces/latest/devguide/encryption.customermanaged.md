@@ -14,7 +14,7 @@ implement customer managed keys for new and existing tables.
 
 ## Prerequisites: Create a customer managed key using AWS KMS and grant permissions to Amazon Keyspaces
 
-Before you can protect an Amazon Keyspaces table with a [customer managed key](encryption.md#customer-managed "encryption.md#customer-managed"), you must first create the key in AWS Key Management Service (AWS KMS) and then authorize
+Before you can protect an Amazon Keyspaces table with a [customer managed key](encryption.howitworks.md#customer-managed "encryption.howitworks.md#customer-managed"), you must first create the key in AWS Key Management Service (AWS KMS) and then authorize
 Amazon Keyspaces to use that key.
 
 ### Step 1: Create a customer managed key using AWS KMS
@@ -24,12 +24,12 @@ using the console or the AWS API.
 
 ### Step 2: Authorize the use of your customer managed key
 
-Before you can choose a [customer managed key](encryption.md#customer-managed "encryption.md#customer-managed") to protect an Amazon Keyspaces table, the policies on that
+Before you can choose a [customer managed key](encryption.howitworks.md#customer-managed "encryption.howitworks.md#customer-managed") to protect an Amazon Keyspaces table, the policies on that
 customer managed key must give Amazon Keyspaces permission to use it on your behalf. You have full control over the
 policies and grants on the customer managed key. You can provide these permissions in a [key policy](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md"), an [IAM
 policy](../../../kms/latest/developerguide/iam-policies.md "../../../kms/latest/developerguide/iam-policies.md"), or a [grant](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md").
 
-Amazon Keyspaces doesn't need additional authorization to use the default [AWS owned key](encryption.md#keyspaces-owned "encryption.md#keyspaces-owned") to protect the Amazon Keyspaces tables in your AWS
+Amazon Keyspaces doesn't need additional authorization to use the default [AWS owned key](encryption.howitworks.md#keyspaces-owned "encryption.howitworks.md#keyspaces-owned") to protect the Amazon Keyspaces tables in your AWS
 account.
 
 The following topics show how to configure the required permissions using IAM
@@ -43,7 +43,7 @@ policies and grants that allow Amazon Keyspaces tables to use a customer managed
 
 #### Key policy for customer managed keys
 
-When you select a [customer managed key](encryption.md#customer-managed "encryption.md#customer-managed") to
+When you select a [customer managed key](encryption.howitworks.md#customer-managed "encryption.howitworks.md#customer-managed") to
 protect an Amazon Keyspaces table, Amazon Keyspaces gets permission to use the customer managed key on behalf of the
 principal who makes the selection. That principal, a user or role, must have the permissions
 on the customer managed key that Amazon Keyspaces requires.
@@ -126,7 +126,7 @@ from your AWS account.
 
 In addition to key policies, Amazon Keyspaces uses grants to set permissions on a customer managed key.
 To view the grants on a customer managed key in your account, use the [ListGrants](../../../kms/latest/APIReference/API_ListGrants.md "../../../kms/latest/APIReference/API_ListGrants.md") operation. Amazon Keyspaces doesn't need
-grants, or any additional permissions, to use the [AWS owned key](encryption.md#keyspaces-owned "encryption.md#keyspaces-owned") to protect your table.
+grants, or any additional permissions, to use the [AWS owned key](encryption.howitworks.md#keyspaces-owned "encryption.howitworks.md#keyspaces-owned") to protect your table.
 
 Amazon Keyspaces uses the grant permissions when it performs background system maintenance and
 continuous data protection tasks. It also uses grants to generate table keys.
@@ -255,7 +255,7 @@ encrypt data, AWS KMS cryptographically binds the encryption context to the encr
 decrypt the data, you must pass in the same encryption context.
 
 Amazon Keyspaces uses the same encryption context in all AWS KMS cryptographic operations. If you use a
-[customer managed key](encryption.md#customer-managed "encryption.md#customer-managed") to protect your Amazon Keyspaces table, you can use
+[customer managed key](encryption.howitworks.md#customer-managed "encryption.howitworks.md#customer-managed") to protect your Amazon Keyspaces table, you can use
 the encryption context to identify the use of the customer managed key in audit records and logs. It
 also appears in plaintext in logs, such as in logs for [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") and [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md").
 
@@ -314,7 +314,7 @@ For example:
 
 ## Step 6: Configure monitoring with AWS CloudTrail
 
-If you use a [customer managed key](encryption.md#customer-managed "encryption.md#customer-managed") to protect your Amazon Keyspaces
+If you use a [customer managed key](encryption.howitworks.md#customer-managed "encryption.howitworks.md#customer-managed") to protect your Amazon Keyspaces
 tables, you can use AWS CloudTrail logs to track the requests that Amazon Keyspaces sends to AWS KMS on your
 behalf.
 
@@ -495,10 +495,10 @@ the ciphertext.
 
 **CreateGrant**
 
-When you use a [customer managed key](encryption.md#customer-managed "encryption.md#customer-managed") to protect your
+When you use a [customer managed key](encryption.howitworks.md#customer-managed "encryption.howitworks.md#customer-managed") to protect your
 Amazon Keyspaces table, Amazon Keyspaces uses [grants](#encryption-grants "#encryption-grants") to allow the
 service to perform continuous data protection and maintenance and durability tasks.
-These grants aren't required on [AWS owned keys](encryption.md#keyspaces-owned "encryption.md#keyspaces-owned").
+These grants aren't required on [AWS owned keys](encryption.howitworks.md#keyspaces-owned "encryption.howitworks.md#keyspaces-owned").
 
 The grants that Amazon Keyspaces creates are specific to a table. The principal in the [CreateGrant](../../../kms/latest/APIReference/API_CreateGrant.md "../../../kms/latest/APIReference/API_CreateGrant.md") request is the user who
 created the table.

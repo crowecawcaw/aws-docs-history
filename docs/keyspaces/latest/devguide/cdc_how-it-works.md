@@ -120,4 +120,4 @@ For more information about the CDC events captured by CloudTrail, see [Logging A
 Amazon Keyspaces CDC streams are a taggable resource. You can tag a stream when you create a
 table programmatically using CQL, the AWS SDK, or the AWS CLI. You can also tag
 existing streams, delete tags, or view tags of a stream. For more information, see
-[Tag keyspaces, tables, and streams in Amazon Keyspaces](Tagging.md "Tagging.md").
+[Tag keyspaces, tables, and streams in Amazon Keyspaces](Tagging.Operations.md "Tagging.Operations.md").

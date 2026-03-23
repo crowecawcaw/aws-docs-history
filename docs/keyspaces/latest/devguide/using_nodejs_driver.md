@@ -10,7 +10,7 @@ Amazon Keyspaces resources, you can do either of the following:
   users or roles that are used across all AWS services. The Amazon Keyspaces SigV4
   authentication plugin for Cassandra client drivers enables you to authenticate
   calls to Amazon Keyspaces using IAM access keys instead of user name and password. For
-  more information, see [Create and configure AWS credentials for Amazon Keyspaces](access.md "access.md").
+  more information, see [Create and configure AWS credentials for Amazon Keyspaces](access.credentials.md "access.credentials.md").
 
 ###### Topics
 
@@ -101,15 +101,15 @@ Usage notes:
 2. Ensure that the `ServiceUserName` and
    `ServicePassword` match the user
    name and password you obtained when you generated the
-   service-specific credentials by following the steps to [Create service-specific credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.md "programmatic.credentials.md").
-3. For a list of available endpoints, see [Service endpoints for Amazon Keyspaces](programmatic.md "programmatic.md").
+   service-specific credentials by following the steps to [Create service-specific credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.ssc.md "programmatic.credentials.ssc.md").
+3. For a list of available endpoints, see [Service endpoints for Amazon Keyspaces](programmatic.endpoints.md "programmatic.endpoints.md").
 
 ## Connect to Amazon Keyspaces using the DataStax Node.js driver for Apache Cassandra and the SigV4 authentication plugin
 
 The following section shows how to use the SigV4 authentication plugin for the
 open-source DataStax Node.js driver for Apache Cassandra to access Amazon Keyspaces (for Apache Cassandra).
 
-If you haven't already done so, create credentials for your IAM user or role following the steps at [Create and configure AWS credentials for Amazon Keyspaces](access.md "access.md").
+If you haven't already done so, create credentials for your IAM user or role following the steps at [Create and configure AWS credentials for Amazon Keyspaces](access.credentials.md "access.credentials.md").
 
 Add the Node.js SigV4 authentication plugin to your application from the [GitHub repository](https://github.com/aws/aws-sigv4-auth-cassandra-nodejs-driver-plugin "https://github.com/aws/aws-sigv4-auth-cassandra-nodejs-driver-plugin"). The plugin supports version 4.x of the DataStax
 Node.js driver for Cassandra and depends on the AWS SDK for Node.js. It uses
@@ -165,5 +165,5 @@ Usage notes:
    `secretAccessKey` match the Access Key and
    Secret Access Key you obtained using `AWSCredentialsProvider`. For more
    information, see [Setting Credentials in Node.js](../../../sdk-for-javascript/v2/developer-guide/setting-credentials-node.md "../../../sdk-for-javascript/v2/developer-guide/setting-credentials-node.md") in the _AWS SDK for JavaScript in Node.js_.
-3. To store access keys outside of code, see best practices at [Store access keys for programmatic access](aws.credentials.md "aws.credentials.md").
-4. For a list of available endpoints, see [Service endpoints for Amazon Keyspaces](programmatic.md "programmatic.md").
+3. To store access keys outside of code, see best practices at [Store access keys for programmatic access](aws.credentials.manage.md "aws.credentials.manage.md").
+4. For a list of available endpoints, see [Service endpoints for Amazon Keyspaces](programmatic.endpoints.md "programmatic.endpoints.md").

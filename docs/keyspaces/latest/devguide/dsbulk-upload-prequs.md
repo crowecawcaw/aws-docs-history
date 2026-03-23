@@ -4,7 +4,7 @@ You must complete the following tasks before you can start this tutorial.
 
 1.  If you have not already done so, sign up for an AWS account by following the
     steps at [Setting up AWS Identity and Access Management](accessing.md#SettingUp.IAM "accessing.md#SettingUp.IAM").
-2.  Create credentials by following the steps at [Create and configure AWS credentials for Amazon Keyspaces](access.md "access.md").
+2.  Create credentials by following the steps at [Create and configure AWS credentials for Amazon Keyspaces](access.credentials.md "access.credentials.md").
 3.  Create a JKS trust store file.
     1.  Download the following digital certificates and save
         the files locally or in your home directory.
@@ -248,7 +248,7 @@ You must complete the following tasks before you can start this tutorial.
     ```
 
 4.  Set up the Cassandra Query Language shell (cqlsh) connection and confirm that
-    you can connect to Amazon Keyspaces by following the steps at [Using cqlsh to connect to Amazon Keyspaces](programmatic.md "programmatic.md").
+    you can connect to Amazon Keyspaces by following the steps at [Using cqlsh to connect to Amazon Keyspaces](programmatic.cqlsh.md "programmatic.cqlsh.md").
 5.  Download and install DSBulk.
 
 ###### Note

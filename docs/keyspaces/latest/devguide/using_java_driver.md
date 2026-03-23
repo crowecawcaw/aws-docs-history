@@ -16,7 +16,7 @@ Amazon Keyspaces resources, you can do either of the following:
   for IAM identities that are used across all AWS services. The Amazon Keyspaces
   SigV4 authentication plugin for Cassandra client drivers enables you to
   authenticate calls to Amazon Keyspaces using IAM access keys instead of user name and
-  password. For more information, see [Create and configure AWS credentials for Amazon Keyspaces](access.md "access.md").
+  password. For more information, see [Create and configure AWS credentials for Amazon Keyspaces](access.credentials.md "access.credentials.md").
 
 ###### Note
 
@@ -302,7 +302,7 @@ credentials and add the DataStax Java driver for Apache Cassandra to your
 Java project.
 
 - Generate service-specific credentials for your Amazon Keyspaces IAM user by completing the steps in
-  [Create service-specific credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.md "programmatic.credentials.md"). If you prefer to use
+  [Create service-specific credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.ssc.md "programmatic.credentials.ssc.md"). If you prefer to use
   IAM access keys for authentication, see [Step-by-step tutorial to connect to Amazon Keyspaces using the 4.x DataStax Java driver for Apache Cassandra and the SigV4 authentication plugin](#java_tutorial.SigV4 "#java_tutorial.SigV4").
 - Add the DataStax Java driver for Apache Cassandra to your Java project. Ensure that you're
   using a version of the driver that supports Apache Cassandra
@@ -313,7 +313,7 @@ Java project.
 
 You can specify settings for the DataStax Java Cassandra
 driver by creating a configuration file for your application. This configuration file overrides the default settings and tells the driver
-to connect to the Amazon Keyspaces service endpoint using port 9142. For a list of available service endpoints, see [Service endpoints for Amazon Keyspaces](programmatic.md "programmatic.md").
+to connect to the Amazon Keyspaces service endpoint using port 9142. For a list of available service endpoints, see [Service endpoints for Amazon Keyspaces](programmatic.endpoints.md "programmatic.endpoints.md").
 
 Create a configuration file and save the file in the application's
 resources folder—for example,
@@ -326,7 +326,7 @@ configuration settings.
    `ServiceUserName` and
    `ServicePassword` should match the
    user name and password you obtained when you generated the
-   service-specific credentials by following the steps in [Create service-specific credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.md "programmatic.credentials.md").
+   service-specific credentials by following the steps in [Create service-specific credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.ssc.md "programmatic.credentials.ssc.md").
 
 ###### Note
 
@@ -338,7 +338,7 @@ instructions for the [Step-by-step tutorial to connect to Amazon Keyspaces using
 connecting to. For example, if the application is connecting to
 `cassandra.us-east-2.amazonaws.com`, then set the
 local data center to `us-east-2`. For all available
-AWS Regions, see [Service endpoints for Amazon Keyspaces](programmatic.md "programmatic.md"). Set `slow-replica-avoidance = false` to load balance against fewer nodes. 3. SSL/TLS – Initialize the SSLEngineFactory by adding a
+AWS Regions, see [Service endpoints for Amazon Keyspaces](programmatic.endpoints.md "programmatic.endpoints.md"). Set `slow-replica-avoidance = false` to load balance against fewer nodes. 3. SSL/TLS – Initialize the SSLEngineFactory by adding a
 section in the configuration file with a single line that specifies the
 class with `class = DefaultSslEngineFactory`. Provide the
 path to the trustStore file and the password that you created
@@ -422,16 +422,16 @@ repository](https://github.com/aws/aws-sigv4-auth-cassandra-java-driver-plugin "
 
 The SigV4 authentication plugin allows you to use IAM credentials for users or
 roles when connecting to Amazon Keyspaces. Instead of requiring a user name and password, this
-plugin signs API requests using access keys. For more information, see [Create and configure AWS credentials for Amazon Keyspaces](access.md "access.md").
+plugin signs API requests using access keys. For more information, see [Create and configure AWS credentials for Amazon Keyspaces](access.credentials.md "access.credentials.md").
 
 ### Step 1: Prerequisites
 
 To follow this tutorial, you need to complete the following tasks.
 
 - If you haven't already done so, create credentials for your IAM user or role following the
-  steps at [Create and configure AWS credentials for Amazon Keyspaces](access.md "access.md"). This tutorial assumes
+  steps at [Create and configure AWS credentials for Amazon Keyspaces](access.credentials.md "access.credentials.md"). This tutorial assumes
   that the access keys are stored as environment variables. For more information,
-  see [Store access keys for programmatic access](aws.credentials.md "aws.credentials.md").
+  see [Store access keys for programmatic access](aws.credentials.manage.md "aws.credentials.manage.md").
 - Add the DataStax Java driver for Apache Cassandra to your Java project. Ensure that you're
   using a version of the driver that supports Apache Cassandra
   3.11.2. For more information, see the [DataStax Java Driver
@@ -458,7 +458,7 @@ Replace the version of the plugin with the latest version as shown at
 
 You can specify settings for the DataStax Java Cassandra
 driver by creating a configuration file for your application. This configuration file overrides the default settings and tells the driver
-to connect to the Amazon Keyspaces service endpoint using port 9142. For a list of available service endpoints, see [Service endpoints for Amazon Keyspaces](programmatic.md "programmatic.md").
+to connect to the Amazon Keyspaces service endpoint using port 9142. For a list of available service endpoints, see [Service endpoints for Amazon Keyspaces](programmatic.endpoints.md "programmatic.endpoints.md").
 
 Create a configuration file and save the file in the application's
 resources folder—for example,
@@ -474,7 +474,7 @@ configuration settings.
    For example, if the application is connecting to
    `cassandra.us-east-2.amazonaws.com`, then set the local
    data center to `us-east-2`. For all available AWS Regions,
-   see [Service endpoints for Amazon Keyspaces](programmatic.md "programmatic.md"). Set
+   see [Service endpoints for Amazon Keyspaces](programmatic.endpoints.md "programmatic.endpoints.md"). Set
    `slow-replica-avoidance = false` to load balance against
    all available nodes.
 3. Idempotence – Set the default `idempotence`
@@ -608,16 +608,16 @@ plugin is available from the [GitHub repository](https://github.com/aws/aws-sigv
 The SigV4 authentication plugin allows you to use IAM credentials for users
 and roles when connecting to Amazon Keyspaces. Instead of requiring a user name and password,
 this plugin signs API requests using access keys. For more information,
-see [Create and configure AWS credentials for Amazon Keyspaces](access.md "access.md").
+see [Create and configure AWS credentials for Amazon Keyspaces](access.credentials.md "access.credentials.md").
 
 ### Step 1: Prerequisites
 
 To run this code sample, you first need to complete the following
 tasks.
 
-- Create credentials for your IAM user or role following the steps at [Create and configure AWS credentials for Amazon Keyspaces](access.md "access.md"). This tutorial assumes that the
+- Create credentials for your IAM user or role following the steps at [Create and configure AWS credentials for Amazon Keyspaces](access.credentials.md "access.credentials.md"). This tutorial assumes that the
   access keys are stored as environment variables. For more information,
-  see [Store access keys for programmatic access](aws.credentials.md "aws.credentials.md").
+  see [Store access keys for programmatic access](aws.credentials.manage.md "aws.credentials.manage.md").
 - Follow the steps at [Before you begin](#using_java_driver.BeforeYouBegin "#using_java_driver.BeforeYouBegin") to download the
   digital certificates, convert them to trustStore files, and attach the keystore in the JVM arguments to your application.
 - Add the DataStax Java driver for Apache Cassandra to your Java project. Ensure that you're
@@ -679,7 +679,7 @@ public class App
 
 Usage notes:
 
-For a list of available endpoints, see [Service endpoints for Amazon Keyspaces](programmatic.md "programmatic.md").
+For a list of available endpoints, see [Service endpoints for Amazon Keyspaces](programmatic.endpoints.md "programmatic.endpoints.md").
 
 See the following repository for helpful Java driver policies, examples, and best practices
 when using the Java Driver with Amazon Keyspaces:

@@ -34,7 +34,7 @@ see [Supported Cassandra APIs, operations, functions, and data types](cassandra-
 Amazon Keyspaces performs data definition language (DDL) operations, such as creating and deleting
 keyspaces , tables, and types asynchronously. To learn how to monitor the creation status
 of resources, see [Check keyspace creation status in Amazon Keyspaces](keyspaces-create.md "keyspaces-create.md") and [Check table creation status in Amazon Keyspaces](tables-create.md "tables-create.md").
-For a list of DDL statements in the CQL language reference, see [DDL statements (data definition language) in Amazon Keyspaces](cql.md "cql.md").
+For a list of DDL statements in the CQL language reference, see [DDL statements (data definition language) in Amazon Keyspaces](cql.ddl.md "cql.ddl.md").
 
 ## Authentication and authorization
 
@@ -121,7 +121,7 @@ supported and results are ordered within a page. Slice queries are not supported
 `IN` keyword. `TOKENS` are not supported with the `IN`
 keyword. Amazon Keyspaces processes queries with the `IN` keyword by creating subqueries.
 Each subquery counts as a connection towards the 3,000 CQL queries per TCP connection per
-second limit. For more information, see [Use the IN operator with the SELECT statement in a query in Amazon Keyspaces](in.md "in.md").
+second limit. For more information, see [Use the IN operator with the SELECT statement in a query in Amazon Keyspaces](in.select.md "in.select.md").
 
 ## `FROZEN` collections
 
@@ -139,7 +139,7 @@ write operation is the same as the timestamp of an existing column that isn't ex
 tombstoned, Amazon Keyspaces doesn't perform comparisons. Instead, it lets the server determine the
 latest writer, and the latest writer wins.
 
-For more information about frozen collections, see [Collection types](cql.md#cql.data-types.collection "cql.md#cql.data-types.collection").
+For more information about frozen collections, see [Collection types](cql.elements.md#cql.data-types.collection "cql.elements.md#cql.data-types.collection").
 
 ## Lightweight transactions
 
@@ -192,6 +192,14 @@ prepared statements for data definition language (DDL) operations, such as creat
 and keyspaces. DDL operations must be run outside of prepared statements.
 
 ## Range delete
+
+###### Important
+
+Starting July 1, 2026, range delete operations will transition from synchronous
+to asynchronous processing. After this change, a successful response confirms that
+your delete request has been accepted, but the deletion may still be in progress.
+To verify that deletion is complete, query for items in the specified range. When
+the query returns no results, deletion is complete.
 
 Amazon Keyspaces supports deleting rows in range. A range is a contiguous set of rows within a
 partition. You specify a range in a DELETE operation by using a WHERE clause. You can

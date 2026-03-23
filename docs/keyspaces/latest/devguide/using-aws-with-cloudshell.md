@@ -80,13 +80,13 @@ resources in Amazon Keyspaces, see [How Amazon Keyspaces works with IAM](securit
 
 ## Installing the cqlsh client
 
-AWS CloudShell does not come with `cqlsh` pre-installed. You need to install it to interact with Amazon Keyspaces. You can install the Amazon Keyspaces-specific version of `cqlsh`. For `cqlsh-expansion` installation instructions, see [Using the cqlsh-expansion to connect to Amazon Keyspaces](programmatic.md#using_cqlsh "programmatic.md#using_cqlsh").
+AWS CloudShell does not come with `cqlsh` pre-installed. You need to install it to interact with Amazon Keyspaces. You can install the Amazon Keyspaces-specific version of `cqlsh`. For `cqlsh-expansion` installation instructions, see [Using the cqlsh-expansion to connect to Amazon Keyspaces](programmatic.cqlsh.md#using_cqlsh "programmatic.cqlsh.md#using_cqlsh").
 
 ## Configuring TLS certificates
 
 To connect to Amazon Keyspaces using a TLS connection, you need to download the required Amazon
 digital certificates. For detailed instructions on downloading and configuring the SSL
-certificate, see [How to manually configure cqlsh connections for TLS](programmatic.md#encrypt_using_tls "programmatic.md#encrypt_using_tls").
+certificate, see [How to manually configure cqlsh connections for TLS](programmatic.cqlsh.md#encrypt_using_tls "programmatic.cqlsh.md#encrypt_using_tls").
 
 ## Connecting to Amazon Keyspaces
 
@@ -95,16 +95,16 @@ credentials.
 
 ### Connecting with IAM credentials (recommended)
 
-AWS CloudShell is already authenticated with your IAM credentials. To connect using these credentials, you can use the SigV4 authentication plugin. For detailed instructions on using IAM credentials with `cqlsh`, see [Using the cqlsh-expansion to connect to Amazon Keyspaces](programmatic.md#using_cqlsh "programmatic.md#using_cqlsh").
+AWS CloudShell is already authenticated with your IAM credentials. To connect using these credentials, you can use the SigV4 authentication plugin. For detailed instructions on using IAM credentials with `cqlsh`, see [Using the cqlsh-expansion to connect to Amazon Keyspaces](programmatic.cqlsh.md#using_cqlsh "programmatic.cqlsh.md#using_cqlsh").
 
 ### Connecting with service-specific credentials
 
-If you have created service-specific credentials for Amazon Keyspaces, you can use them to connect. For information about creating and using service-specific credentials, see [Create service-specific credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.md "programmatic.credentials.md").
+If you have created service-specific credentials for Amazon Keyspaces, you can use them to connect. For information about creating and using service-specific credentials, see [Create service-specific credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.ssc.md "programmatic.credentials.ssc.md").
 
 ## Using CQLSH with Amazon Keyspaces
 
 When connected, you can use standard CQL commands to interact with your keyspaces and
-tables. For detailed information about supported CQL commands and operations, see [Using the cqlsh-expansion to connect to Amazon Keyspaces](programmatic.md#using_cqlsh "programmatic.md#using_cqlsh").
+tables. For detailed information about supported CQL commands and operations, see [Using the cqlsh-expansion to connect to Amazon Keyspaces](programmatic.cqlsh.md#using_cqlsh "programmatic.cqlsh.md#using_cqlsh").
 
 ## Persisting data in AWS CloudShell
 
@@ -114,7 +114,7 @@ create a configuration file for `cqlsh` to simplify connections.
 
 With a configuration file, you can run `cqlsh` without specifying additional
 parameters. For more information about creating and using `cqlsh` configuration
-files, see [Using the cqlsh-expansion to connect to Amazon Keyspaces](programmatic.md#using_cqlsh "programmatic.md#using_cqlsh").
+files, see [Using the cqlsh-expansion to connect to Amazon Keyspaces](programmatic.cqlsh.md#using_cqlsh "programmatic.cqlsh.md#using_cqlsh").
 
 ## Best practices
 
@@ -140,7 +140,7 @@ If you encounter issues when connecting to Amazon Keyspaces from AWS CloudShell:
 
 After you launch AWS CloudShell from the AWS Management Console, you can immediately start to interact with
 Amazon Keyspaces using `cqlsh` or the command line interface. If you haven't already
-installed the `cqlsh-expansion`, see [Using the cqlsh-expansion to connect to Amazon Keyspaces](programmatic.md#using_cqlsh "programmatic.md#using_cqlsh") for detailed
+installed the `cqlsh-expansion`, see [Using the cqlsh-expansion to connect to Amazon Keyspaces](programmatic.cqlsh.md#using_cqlsh "programmatic.cqlsh.md#using_cqlsh") for detailed
 steps.
 
 ###### Note

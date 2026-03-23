@@ -68,7 +68,7 @@ If you no longer need to use a feature or service that requires a service-linked
 we recommend that you delete that role. That way you don’t have an unused entity that isn't
 actively monitored or maintained. However, you must first disable automatic scaling on all
 tables in the account across all AWS Regions before you can delete the service-linked role
-manually. To disable automatic scaling on Amazon Keyspaces tables, see [Turn off Amazon Keyspaces auto scaling for a table](autoscaling.md "autoscaling.md").
+manually. To disable automatic scaling on Amazon Keyspaces tables, see [Turn off Amazon Keyspaces auto scaling for a table](autoscaling.turnoff.md "autoscaling.turnoff.md").
 
 ###### Note
 
@@ -90,4 +90,4 @@ automatic scaling on all tables in the account.
 ## Supported Regions for Amazon Keyspaces service-linked roles
 
 Amazon Keyspaces supports using service-linked roles in all of the Regions where the
-service is available. For more information, see [Service endpoints for Amazon Keyspaces](programmatic.md "programmatic.md").
+service is available. For more information, see [Service endpoints for Amazon Keyspaces](programmatic.endpoints.md "programmatic.endpoints.md").

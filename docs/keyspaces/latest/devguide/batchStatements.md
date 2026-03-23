@@ -72,7 +72,7 @@ For information about pricing, see [Amazon Keyspaces (for Apache Cassandra) pric
 
 Consider the following recommended practices when using Amazon Keyspaces batch operations.
 
-- Enable automatic scaling to ensure that you have sufficient throughput capacity for your tables to handle batch
+- Enable automatic scaling so that you have sufficient throughput capacity for your tables to handle batch
   operations and the additional throughput requirements of logged batches.
 - Use individual operations or unlogged batches when operations can run independently without affecting application correctness.
 - Design your application to minimize concurrent updates to the same rows, as simultaneous batch operations can conflict and fail.
@@ -123,7 +123,7 @@ In multi-Region deployments:
 
 - Source Region operations are synchronous and atomic.
 - Destination Region operations are asynchronous.
-- All batch operations are guaranteed to replicate, but may not maintain isolation during application.
+- All batch operations replicate to destination Regions, but may not maintain isolation during application.
 
 ### Monitor batch operations
 

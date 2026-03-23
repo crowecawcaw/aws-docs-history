@@ -42,7 +42,7 @@ Cassandra Query Language (CQL)
 ###### Create a user-defined type (UDT) with CQL
 
 In this example we create a new version of the book awards table used in
-[Create a table in Amazon Keyspaces](getting-started.md "getting-started.md"). In this table, we store
+[Create a table in Amazon Keyspaces](getting-started.tables.md "getting-started.tables.md"). In this table, we store
 all awards an author receives for a given book. We create two UDTs that
 are nested and contain information about the book that received an
 award.
@@ -135,7 +135,7 @@ The output of the command should look like this.
 (1 rows)`
 ```
 
-For more information about CQL syntax, see [CREATE TYPE](cql.ddl.md#cql.ddl.type.create "cql.ddl.md#cql.ddl.type.create").
+For more information about CQL syntax, see [CREATE TYPE](cql.ddl.type.md#cql.ddl.type.create "cql.ddl.type.md#cql.ddl.type.create").
 
 CLI
 

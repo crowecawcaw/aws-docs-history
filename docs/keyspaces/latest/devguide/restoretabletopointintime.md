@@ -97,7 +97,7 @@ Point-in-time recovery is enabled as shown in the following sample output.
    WITH restore_timestamp = '2020-06-30T19:19:21.175Z';
    ```
 
-   For a full syntax description, see [RESTORE TABLE](cql.ddl.md#cql.ddl.table.restore "cql.ddl.md#cql.ddl.table.restore") in
+   For a full syntax description, see [RESTORE TABLE](cql.ddl.table.md#cql.ddl.table.restore "cql.ddl.table.md#cql.ddl.table.restore") in
    the language reference.
 
 3. To verify that the restore of the table was successful, query the

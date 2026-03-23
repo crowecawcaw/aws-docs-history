@@ -10,7 +10,7 @@ For each changed row in the table, Amazon Keyspaces can capture the following ch
 - `NEW_IMAGE` – the version of the row after the change.
 - `OLD_IMAGE` – the version of the row before the change.
 - `KEYS_ONLY` – the partition and clustering keys of the row that was changed.
-  For information about how to tag a stream, see [Add new tags to a stream](Tagging.Operations.existing.md "Tagging.Operations.existing.md").
+  For information about how to tag a stream, see [Add new tags to a stream](Tagging.Operations.existing.stream.md "Tagging.Operations.existing.stream.md").
 
 ###### Note
 
@@ -31,7 +31,7 @@ You can use `ALTER TABLE` to enable a stream for an existing table.
 ```
 ALTER TABLE mykeyspace.mytable
 WITH cdc = TRUE
-WITH CUSTOM_PROPERTIES={'cdc_specification': {'view_type': 'KEYS_ONLY'}};
+AND CUSTOM_PROPERTIES={'cdc_specification': {'view_type': 'KEYS_ONLY'}};
 ```
 
 2. To verify the stream settings, you can use the following statement.

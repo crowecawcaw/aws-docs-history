@@ -10,7 +10,7 @@ In this step, you create a source file with sample data and an Amazon Keyspaces 
      `book_awards`.
      1. Download the sample CSV file
         (`keyspaces_sample_table.csv`) that is
-        contained in the following archive file [samplemigration.zip](samples/samplemigration.md "samples/samplemigration.md"). Unzip the archive and take
+        contained in the following archive file [samplemigration.zip](samples/samplemigration.zip.md "samples/samplemigration.zip.md"). Unzip the archive and take
         note of the path to
         `keyspaces_sample_table.csv`.
 
@@ -36,7 +36,7 @@ In this step, you create a source file with sample data and an Amazon Keyspaces 
 
 2. Create the target keyspace and table in Amazon Keyspaces.
    1. Connect to Amazon Keyspaces using the `cqlsh-expansion`. For `cqlsh-expansion` installation
-      instructions, see [Using the cqlsh-expansion to connect to Amazon Keyspaces](programmatic.md#using_cqlsh "programmatic.md#using_cqlsh").
+      instructions, see [Using the cqlsh-expansion to connect to Amazon Keyspaces](programmatic.cqlsh.md#using_cqlsh "programmatic.cqlsh.md#using_cqlsh").
 
    Replace the service
    endpoint in the following example with your own

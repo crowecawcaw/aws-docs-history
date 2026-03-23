@@ -40,7 +40,7 @@ your backup history.
 Data definition language (DDL) operations on tables, such as schema changes, are
 performed asynchronously. You can only see completed operations in your restored
 table data, but you might see additional actions on your source table if they were
-in progress at the time of the restore. For a list of DDL statements, see [DDL statements (data definition language) in Amazon Keyspaces](cql.md "cql.md").
+in progress at the time of the restore. For a list of DDL statements, see [DDL statements (data definition language) in Amazon Keyspaces](cql.ddl.md "cql.ddl.md").
 
 A table doesn't have to be active to be restored. You can also restore deleted tables
 if PITR was enabled on the deleted table and the deletion occurred within the backup
@@ -114,7 +114,7 @@ customer managed key at the time of restore.
 If you want to change from a customer managed key to an AWS owned key, confirm that Amazon Keyspaces has
 access to the customer managed key of the source table to restore the table with an
 AWS owned key. For more information about encryption at rest settings for tables, see
-[Encryption at rest: How it works in Amazon Keyspaces](encryption.md "encryption.md").
+[Encryption at rest: How it works in Amazon Keyspaces](encryption.howitworks.md "encryption.howitworks.md").
 
 ###### Note
 

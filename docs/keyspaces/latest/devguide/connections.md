@@ -152,7 +152,7 @@ available endpoint.
 ```
 
 To learn more about cross-account access to Amazon Keyspaces using a shared VPC, see
-[Configure cross-account access to Amazon Keyspaces using VPC endpoints in a shared VPC](access.cross-account.md "access.cross-account.md").
+[Configure cross-account access to Amazon Keyspaces using VPC endpoints in a shared VPC](access.cross-account.sharedVPC.md "access.cross-account.sharedVPC.md").
 
 ## How to monitor connections in Amazon Keyspaces
 

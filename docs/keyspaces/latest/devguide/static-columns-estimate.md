@@ -12,7 +12,7 @@ columns in Amazon Keyspaces, you can use the following guidelines.
   When calculating the size of your static data, you should assume that each
   partition key column uses the full 3 bytes of metadata.
 - Use the raw size of the static column data values based on the data type.
-  For more information about data types, see [Data types](cql.md#cql.data-types "cql.md#cql.data-types").
+  For more information about data types, see [Data types](cql.elements.md#cql.data-types "cql.elements.md#cql.data-types").
 - Add 104 bytes to the size of the static data for metadata.
 - Clustering columns and regular, nonprimary key columns do not count
   towards the size of static data. To learn how to estimate the size of

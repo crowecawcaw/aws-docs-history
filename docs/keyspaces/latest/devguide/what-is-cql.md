@@ -20,7 +20,7 @@ concepts in CQL.
 To run CQL queries, you can do one of the following:
 
 - Use the CQL editor in the AWS Management Console.
-- Use AWS CloudShell and the [cqlsh-expansion](programmatic.md#using_cqlsh "programmatic.md#using_cqlsh").
+- Use AWS CloudShell and the [cqlsh-expansion](programmatic.cqlsh.md#using_cqlsh "programmatic.cqlsh.md#using_cqlsh").
 - Use a `cqlsh` client.
 - Use an Apache 2.0 licensed Cassandra client driver.
   In addition to CQL, you can perform Data Definition Language (DDL) operations in Amazon Keyspaces using the AWS SDKs and the AWS Command Line Interface.

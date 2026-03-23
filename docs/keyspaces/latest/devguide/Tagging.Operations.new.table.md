@@ -1,73 +1,45 @@
-# Add tags to a new stream when creating a table
+# Add tags when creating a new table
 
-You can add tags to streams when you create a new table with a stream using CQL or the AWS CLI to tag a stream.
+You can use the Amazon Keyspaces console, CQL or the AWS CLI to add tags to new tables when you create
+them.
 
-###### Note
+Console
 
-Amazon Keyspaces CDC requires the presence of a service-linked role
-(`AWSServiceRoleForAmazonKeyspacesCDC`) that publishes metric data
-from Amazon Keyspaces CDC streams into the `"cloudwatch:namespace": "AWS/Cassandra"`
-in your CloudWatch account on your behalf. This role is created automatically for you. For
-more information, see [Using roles for Amazon Keyspaces CDC streams](using-service-linked-roles-CDC-streams.md "using-service-linked-roles-CDC-streams.md").
+###### Add a tag when creating a new table using the (console)
+
+1. Sign in to the AWS Management Console, and open the Amazon Keyspaces console at [https://console.aws.amazon.com/keyspaces/home](https://console.aws.amazon.com/keyspaces/home "https://console.aws.amazon.com/keyspaces/home").
+2. In the navigation pane, choose **Tables**, and then choose
+   **Create table**.
+3. On the **Create table** page in the **Table details** section, select a keyspace and provide a name for the
+   table.
+4. In the **Schema** section, create the schema for your table.
+5. In the **Table settings** section, choose **Customize
+   settings**.
+6. Continue to the **Table tags – _optional_** section, and choose **Add new
+   tag** to create new tags.
+7. Choose **Create table**.
 
 Cassandra Query Language (CQL)
 
-###### Add tags to a stream when creating a new table using CQL
+###### Add tags when creating a new table using CQL
 
-1. To create a new table with a stream and apply the table tags
-   automatically to the stream, you can use the `'propagate_tags': 'TABLE'` flag. The following
-   statement is an example of this.
+- The following example creates a new table with tags.
 
 ```
-CREATE TABLE `mytable (pk int, ck text, PRIMARY KEY(pk))`
-WITH TAGS=`{'key1':'val1', 'key2':'val2'}`
-AND cdc = TRUE
-AND CUSTOM_PROPERTIES={
-    'cdc_specification': {
-        'view_type': 'NEW_IMAGE',
-        'propagate_tags': 'TABLE'
-    }
-};
-```
-
-2. To apply new tags to the stream, you can use the following example.
-
-```
-CREATE TABLE `mytable (pk int, ck text, PRIMARY KEY(pk))`
-WITH TAGS=`{'key1':'val1', 'key2':'val2'}`
-AND cdc = TRUE
-AND CUSTOM_PROPERTIES={
-    'cdc_specification': {
-        'view_type': 'NEW_IMAGE',
-        'tags': { 'key': 'string', 'value': 'string' },
-    }
-};
+CREATE TABLE `mytable(...)` WITH TAGS = `{'key1':'val1', 'key2':'val2'}`;
 ```
 
 CLI
 
-###### Add tags to a stream when creating a new table using the AWS CLI
+###### Add tags when creating a new table using the AWS CLI
 
-1. To create a table with a stream and apply the table tags
-   automatically to the stream, you can use the `propagateTags=Table` flag. The following code is an
-   example of this.
-
-```
-aws keyspaces create-table \
---keyspace-name 'my_keyspace' \
---table-name 'my_table' \
---schema-definition 'allColumns=[{name=pk,type=int},{name=ck,type=text}],clusteringKeys=[{name=ck,orderBy=ASC}],partitionKeys=[{name=pk}]' \
---tags key=tag_key,value=tag_value
---cdc-specification propagateTags=TABLE,status=ENABLED,viewType=NEW_IMAGE
-```
-
-2. To apply different tags to the stream, you can use the following example.
+- The following example shows how to create a new table with tags. The command creates a table
+  _myTable_ in an already existing keyspace _myKeyspace_.
+  Note that the command has been broken
+  up into different lines to help with readability.
 
 ```
-aws keyspaces create-table \
---keyspace-name 'my_keyspace' \
---table-name 'my_table' \
---schema-definition 'allColumns=[{name=pk,type=int},{name=ck,type=text}],clusteringKeys=[{name=ck,orderBy=ASC}],partitionKeys=[{name=pk}]' \
---tags key=tag_key,value=tag_value
---cdc-specification 'status=ENABLED,viewType=NEW_IMAGE,tags=[{key=tag_key, value=tag_value}]'
+aws keyspaces create-table --keyspace-name 'myKeyspace' --table-name 'myTable'
+            --schema-definition 'allColumns=[{name=id,type=int},{name=name,type=text},{name=date,type=timestamp}],partitionKeys=[{name=id}]'
+            --tags 'key=key1,value=val1' 'key=key2,value=val2'
 ```

@@ -9,7 +9,7 @@ configuration issues.
   access to the system tables in Amazon Keyspaces. For more information, see [Step 1: Configure Amazon Keyspaces for integration with the Apache Cassandra Spark Connector](spark-tutorial-step1.md "spark-tutorial-step1.md").
 - The Java driver configuration doesn't disable hostname verification when creating the SSL/TLS
   connection. For examples, see [Step 2: Configure the driver](using_java_driver.md#java_tutorial.driverconfiguration "using_java_driver.md#java_tutorial.driverconfiguration").
-  For detailed connection troubleshooting steps, see [My VPC endpoint connection doesn't work properly](troubleshooting.md#troubleshooting.connection.vpce "troubleshooting.md#troubleshooting.connection.vpce").
+  For detailed connection troubleshooting steps, see [My VPC endpoint connection doesn't work properly](troubleshooting.connecting.md#troubleshooting.connection.vpce "troubleshooting.connecting.md#troubleshooting.connection.vpce").
 
 In addition, you can use Amazon CloudWatch metrics to help you troubleshoot issues with your Spark
 Cassandra Connector configuration in Amazon Keyspaces. To learn more about using Amazon Keyspaces with

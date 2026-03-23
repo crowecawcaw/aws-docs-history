@@ -50,11 +50,11 @@ $db->disconnect;
 Ensure that the `ServiceUserName` and
 `ServicePassword` match the user
 name and password you obtained when you generated the
-service-specific credentials by following the steps to [Create service-specific credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.md "programmatic.credentials.md").
+service-specific credentials by following the steps to [Create service-specific credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.ssc.md "programmatic.credentials.ssc.md").
 
 ###### Note
 
-For a list of available endpoints, see [Service endpoints for Amazon Keyspaces](programmatic.md "programmatic.md"). 4. Run the application.
+For a list of available endpoints, see [Service endpoints for Amazon Keyspaces](programmatic.endpoints.md "programmatic.endpoints.md"). 4. Run the application.
 
 ```
 perl cqlapp.pl

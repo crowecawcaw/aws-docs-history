@@ -45,5 +45,5 @@ this step, you can update the following properties and settings.
      more about tags for Amazon Keyspaces resources, see [Working with tags and labels for Amazon Keyspaces resources](tagging-keyspaces.md "tagging-keyspaces.md").
 
 4. Choose **Save edits** to update the table.
-5. Continue to [Visualizing data models with NoSQL Workbench](workbench.md#workbench.datamodel.visualize "workbench.md#workbench.datamodel.visualize") to visualize the
+5. Continue to [Visualizing data models with NoSQL Workbench](workbench.vizualizer.md#workbench.datamodel.visualize "workbench.vizualizer.md#workbench.datamodel.visualize") to visualize the
    data model that you updated.

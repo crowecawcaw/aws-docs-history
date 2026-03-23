@@ -10,7 +10,7 @@ Amazon Keyspaces resources, you can do either of the following:
   for IAM principals that are used across all AWS services. The Amazon Keyspaces
   SigV4 authentication plugin for Cassandra client drivers enables you to
   authenticate calls to Amazon Keyspaces using IAM access keys instead of user name and
-  password. For more information, see [Create and configure AWS credentials for Amazon Keyspaces](access.md "access.md").
+  password. For more information, see [Create and configure AWS credentials for Amazon Keyspaces](access.credentials.md "access.credentials.md").
 
 ###### Topics
 
@@ -148,8 +148,8 @@ Usage notes:
     2. Ensure that the `ServiceUserName` and
      `ServicePassword` match the user
      name and password you obtained when you generated the
-     service-specific credentials by following the steps to [Create service-specific credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.md "programmatic.credentials.md").
-    3. For a list of available endpoints, see [Service endpoints for Amazon Keyspaces](programmatic.md "programmatic.md").
+     service-specific credentials by following the steps to [Create service-specific credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.ssc.md "programmatic.credentials.ssc.md").
+    3. For a list of available endpoints, see [Service endpoints for Amazon Keyspaces](programmatic.endpoints.md "programmatic.endpoints.md").
 
 6. Build the program.
 
@@ -168,7 +168,7 @@ go build cqlapp.go
 The following code sample shows how to use the SigV4 authentication plugin for the open-source Go driver to
 access Amazon Keyspaces (for Apache Cassandra).
 
-If you haven't already done so, create credentials for your IAM principal following the steps at [Create and configure AWS credentials for Amazon Keyspaces](access.md "access.md"). If an application is running on Lambda or an Amazon EC2 instance, your application
+If you haven't already done so, create credentials for your IAM principal following the steps at [Create and configure AWS credentials for Amazon Keyspaces](access.credentials.md "access.credentials.md"). If an application is running on Lambda or an Amazon EC2 instance, your application
 is automatically using the credentials of the instance. To run this tutorial locally, you can store the credentials
 as local environment variables.
 
@@ -240,5 +240,5 @@ Usage notes:
    - `AWS_SECRET_ACCESS_KEY`
    - `AWS_DEFAULT_REGION`
 
-3. To store access keys outside of code, see best practices at [Store access keys for programmatic access](aws.credentials.md "aws.credentials.md").
-4. For a list of available endpoints, see [Service endpoints for Amazon Keyspaces](programmatic.md "programmatic.md").
+3. To store access keys outside of code, see best practices at [Store access keys for programmatic access](aws.credentials.manage.md "aws.credentials.manage.md").
+4. For a list of available endpoints, see [Service endpoints for Amazon Keyspaces](programmatic.endpoints.md "programmatic.endpoints.md").

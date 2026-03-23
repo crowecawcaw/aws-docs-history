@@ -267,7 +267,7 @@ In this scenario, the application uses a very low utilization target, because yo
 know the application patterns yet, and you want to ensure your workload is not
 experiencing low capacity throughput errors.
 
-Consider using [on-demand capacity mode](ReadWriteCapacityMode.md "ReadWriteCapacityMode.md") instead.
+Consider using [on-demand capacity mode](ReadWriteCapacityMode.OnDemand.md "ReadWriteCapacityMode.OnDemand.md") instead.
 On-demand tables are perfect for spiky
 workloads where you don’t know the traffic patterns. With on-demand capacity mode, you pay per
 request for the data reads and writes your application performs on your tables. You do not

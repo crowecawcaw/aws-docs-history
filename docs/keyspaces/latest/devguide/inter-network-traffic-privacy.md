@@ -36,7 +36,7 @@ For more information, see [Using IAM with Amazon Keyspaces](../../../IAM/latest/
 The second method uses an authentication plugin for the open-source DataStax Java
 Driver for Cassandra. This plugin enables [IAM users, roles, and federated identities](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") to add authentication
 information to Amazon Keyspaces (for Apache Cassandra) API requests using the [AWS Signature Version 4 process
-(SigV4)](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md"). For more information, see [Create and configure AWS credentials for Amazon Keyspaces](access.md "access.md").
+(SigV4)](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md"). For more information, see [Create and configure AWS credentials for Amazon Keyspaces](access.credentials.md "access.credentials.md").
 
 ## Traffic between AWS resources in the same Region
 

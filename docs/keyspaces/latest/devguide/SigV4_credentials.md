@@ -20,6 +20,6 @@ The `aws_secret_access_key` is required to connect to Amazon Keyspaces programma
 
 Specifies the session token value that is required if you are using
 temporary security credentials that you retrieved directly from AWS Security Token Service
-operations. For more information, see [Create temporary credentials to connect to Amazon Keyspaces using an IAM role and the SigV4 plugin](temporary.credentials.md "temporary.credentials.md").
+operations. For more information, see [Create temporary credentials to connect to Amazon Keyspaces using an IAM role and the SigV4 plugin](temporary.credentials.IAM.md "temporary.credentials.IAM.md").
 
 If you are connecting with an IAM user, the `aws_session_token` is not required.

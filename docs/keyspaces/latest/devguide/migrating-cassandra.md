@@ -178,12 +178,12 @@ requests.
 
 There are two capacity modes in Amazon Keyspaces:
 
-    * [On-demand](ReadWriteCapacityMode.md "ReadWriteCapacityMode.md") – This
+    * [On-demand](ReadWriteCapacityMode.OnDemand.md "ReadWriteCapacityMode.OnDemand.md") – This
      is a flexible billing option capable of serving
      thousands of requests per second without the need for capacity planning. It offers
      pay-per-request pricing for read and write requests so that you
      pay only for what you use.
-    * [Provisioned](ReadWriteCapacityMode.md "ReadWriteCapacityMode.md") – If
+    * [Provisioned](ReadWriteCapacityMode.Provisioned.md "ReadWriteCapacityMode.Provisioned.md") – If
      you choose provisioned throughput capacity mode,
      you specify the number of reads and writes per second that are required for your
      application. This helps you manage your Amazon Keyspaces usage to stay at or below a

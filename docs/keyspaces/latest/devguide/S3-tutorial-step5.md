@@ -66,7 +66,7 @@ SELECT * FROM system_schema.keyspaces ;
 
 Your keyspace should not be listed in the output of this
 statement. Note that there can be a delay until the keyspaces is
-deleted. For more information, see [DROP KEYSPACE](cql.ddl.md#cql.ddl.keyspace.drop "cql.ddl.md#cql.ddl.keyspace.drop").
+deleted. For more information, see [DROP KEYSPACE](cql.ddl.keyspace.md#cql.ddl.keyspace.drop "cql.ddl.keyspace.md#cql.ddl.keyspace.drop").
 
 To delete the table first, you can use the following command.
 
@@ -82,4 +82,4 @@ SELECT * FROM system_schema.tables WHERE keyspace_name = "`aws`";
 
 Your table should not be listed in the output of this
 statement. Note that there can be a delay until the table is
-deleted. For more information, see [DROP TABLE](cql.ddl.md#cql.ddl.table.drop "cql.ddl.md#cql.ddl.table.drop").
+deleted. For more information, see [DROP TABLE](cql.ddl.table.md#cql.ddl.table.drop "cql.ddl.table.md#cql.ddl.table.drop").

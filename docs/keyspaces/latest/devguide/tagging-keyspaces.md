@@ -15,7 +15,7 @@ criteria. Tags can help you do the following:
 To get started with tagging, do the following:
 
 1. Understand [Restrictions for using tags to label resources in Amazon Keyspaces](TaggingRestrictions.md "TaggingRestrictions.md").
-2. Create tags by using [Tag keyspaces, tables, and streams in Amazon Keyspaces](Tagging.md "Tagging.md").
+2. Create tags by using [Tag keyspaces, tables, and streams in Amazon Keyspaces](Tagging.Operations.md "Tagging.Operations.md").
 3. Use [Create cost allocation reports using tags for Amazon Keyspaces](CostAllocationReports.md "CostAllocationReports.md") to track your AWS costs per
    active tag.
    Finally, it is good practice to follow optimal tagging strategies. For information, see

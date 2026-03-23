@@ -106,7 +106,7 @@ Cassandra Query Language (CQL)
   for the table using `AUTOSCALING_SETTINGS`.
 
 For detailed information about auto scaling settings, the target
-tracking policy, target value, and optional settings, see [Create a new table with automatic scaling](autoscaling.md "autoscaling.md").
+tracking policy, target value, and optional settings, see [Create a new table with automatic scaling](autoscaling.createTable.md "autoscaling.createTable.md").
 
 To define the read capacity for a table replica in a specific Region, you can
 configure the following parameters as part of the table's
@@ -179,7 +179,7 @@ CLI
   Regions.
 
 For more information about auto scaling settings, the target tracking policy, target
-value, and optional settings, see [Create a new table with automatic scaling](autoscaling.md "autoscaling.md").
+value, and optional settings, see [Create a new table with automatic scaling](autoscaling.createTable.md "autoscaling.createTable.md").
 
 To define the read capacity for a table replica in a specific Region, you can
 configure the following parameters as part of the table's
@@ -193,7 +193,7 @@ When you're creating provisioned multi-Region tables with complex auto scaling
 settings and different configurations for table replicas, it's helpful to load the
 table's auto scaling settings and replica configurations from JSON files.
 
-To use the following code example, you can download the example JSON files from [auto-scaling.zip](samples/auto-scaling.md "samples/auto-scaling.md"), and extract
+To use the following code example, you can download the example JSON files from [auto-scaling.zip](samples/auto-scaling.zip.md "samples/auto-scaling.zip.md"), and extract
 `auto-scaling.json` and `replication.json`.
 Take note of the path to the files.
 

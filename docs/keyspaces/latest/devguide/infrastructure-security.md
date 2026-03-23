@@ -22,7 +22,7 @@ The second method uses an authentication plugin for the open-source DataStax Jav
 enables [IAM users,
 roles, and federated identities](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") to add authentication
 information to Amazon Keyspaces (for Apache Cassandra) API requests using the [AWS Signature Version 4
-process (SigV4)](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md"). For more information, see [Create and configure AWS credentials for Amazon Keyspaces](access.md "access.md").
+process (SigV4)](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md"). For more information, see [Create and configure AWS credentials for Amazon Keyspaces](access.credentials.md "access.credentials.md").
 
 You can call these API operations from any network location, but Amazon Keyspaces does support resource-based access policies,
 which can include restrictions

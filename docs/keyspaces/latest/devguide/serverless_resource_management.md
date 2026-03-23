@@ -32,7 +32,7 @@ This chapter covers key aspects of resource management in Amazon Keyspaces.
   Amazon Keyspaces uses target tracking to increase or decrease provisioned capacity, keeping utilization at your specified target.
 - **Use burst capacity effectively** – Amazon Keyspaces provides burst capacity by reserving a portion of unused
   throughput for handling spikes in traffic. This flexibility allows occasional bursts of activity beyond your provisioned throughput.
-  To troubleshoot capacity errors, see [Serverless capacity errors](troubleshooting.md#troubleshooting-serverless "troubleshooting.md#troubleshooting-serverless").
+  To troubleshoot capacity errors, see [Serverless capacity errors](troubleshooting.serverless.md#troubleshooting-serverless "troubleshooting.serverless.md#troubleshooting-serverless").
 
 ###### Topics
 

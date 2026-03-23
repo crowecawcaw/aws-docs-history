@@ -132,7 +132,7 @@ in the IAM User Guide. 2. In `Account B:222222222222` and `Account C:33333333333
 applications that utilize the SIGV4 authentication plugin, which allows an
 application to assume the shared role to connect to the Amazon Keyspaces table located in
 `Account A:111111111111`. For more information about the SIGV4
-authentication plugin, see [Create credentials for programmatic access to Amazon Keyspaces](programmatic.md "programmatic.md"). For more
+authentication plugin, see [Create credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.md "programmatic.credentials.md"). For more
 information on how to configure an application to assume a role in another AWS account,
 see [Authentication and
 access](../../../sdkref/latest/guide/access.md "../../../sdkref/latest/guide/access.md") in the _AWS SDKs and Tools Reference Guide_.

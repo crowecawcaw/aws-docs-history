@@ -25,7 +25,7 @@ Cassandra Query Language (CQL)
 DROP TYPE my_keyspace.my_udt;
 ```
 
-For more information about CQL syntax, see [DROP TYPE](cql.ddl.md#cql.ddl.type.drop "cql.ddl.md#cql.ddl.type.drop").
+For more information about CQL syntax, see [DROP TYPE](cql.ddl.type.md#cql.ddl.type.drop "cql.ddl.type.md#cql.ddl.type.drop").
 
 CLI
 

@@ -31,7 +31,7 @@ updating rules](../../../vpc/latest/userguide/VPC_SecurityGroups.md#AddRemoveRul
 
 For a step-by-step tutorial to configure a connection to Amazon Keyspaces through a VPC endpoint,
 see [Tutorial: Connect to Amazon Keyspaces using an interface VPC endpoint](vpc-endpoints-tutorial.md "vpc-endpoints-tutorial.md"). To learn how to configure cross-account
-access for Amazon Keyspaces resources separated from applications in different AWS accounts in a VPC, see [Configure cross-account access to Amazon Keyspaces with VPC endpoints](access.md "access.md").
+access for Amazon Keyspaces resources separated from applications in different AWS accounts in a VPC, see [Configure cross-account access to Amazon Keyspaces with VPC endpoints](access.cross-account.md "access.cross-account.md").
 
 ## Populating `system.peers` table entries with interface VPC endpoint information
 
@@ -95,7 +95,7 @@ sizes and refill rates](../../../AWSEC2/latest/APIReference/throttling.md#thrott
 
 If you do see an empty table, try again a few minutes later to rule out request rate
 quota issues. To verify that you have configured the VPC endpoints correctly, see
-[My VPC endpoint connection doesn't work properly](troubleshooting.md#troubleshooting.connection.vpce "troubleshooting.md#troubleshooting.connection.vpce"). If your query returns
+[My VPC endpoint connection doesn't work properly](troubleshooting.connecting.md#troubleshooting.connection.vpce "troubleshooting.connecting.md#troubleshooting.connection.vpce"). If your query returns
 results from the table, your policy has been configured correctly.
 
 ## Controlling access to interface VPC endpoints for Amazon Keyspaces
@@ -198,7 +198,7 @@ the system tables. System tables are read-only.
 ## Availability
 
 Amazon Keyspaces supports using interface VPC endpoints in all of the AWS Regions where
-the service is available. For more information, see [Service endpoints for Amazon Keyspaces](programmatic.md "programmatic.md").
+the service is available. For more information, see [Service endpoints for Amazon Keyspaces](programmatic.endpoints.md "programmatic.endpoints.md").
 
 ## VPC endpoint policies and Amazon Keyspaces point-in-time recovery (PITR)
 
@@ -260,4 +260,4 @@ all of the Amazon VPC endpoints that Amazon Keyspaces has permissions to view, i
 endpoint that you're connected through. You can safely ignore this warning.
 
 For other errors, see
-[My VPC endpoint connection doesn't work properly](troubleshooting.md#troubleshooting.connection.vpce "troubleshooting.md#troubleshooting.connection.vpce").
+[My VPC endpoint connection doesn't work properly](troubleshooting.connecting.md#troubleshooting.connection.vpce "troubleshooting.connecting.md#troubleshooting.connection.vpce").

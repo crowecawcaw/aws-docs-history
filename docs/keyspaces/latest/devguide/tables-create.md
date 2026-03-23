@@ -8,7 +8,7 @@ the creation status of a new table programmatically by using the system schema t
 A table shows as active in the system schema when it's ready for use. The recommended
 design pattern to check when a new table is ready for use is to poll the Amazon Keyspaces system
 schema tables (`system_schema_mcs.*`). For a list of DDL statements for tables, see the
-[Tables](cql.ddl.md "cql.ddl.md") section in the CQL language reference.
+[Tables](cql.ddl.table.md "cql.ddl.table.md") section in the CQL language reference.
 
 The following query shows the status of a table.
 

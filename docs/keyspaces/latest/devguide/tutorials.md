@@ -6,7 +6,7 @@ popular cross-service access scenarios and demonstrate how to integrate Amazon K
 AWS Glue, or with open source technologies like Apache Spark.
 
 For step-by-step tutorials that show how
-to connect to Amazon Keyspaces using Apache Cassandra drivers, see [Using a Cassandra client driver to access Amazon Keyspaces programmatically](programmatic.md "programmatic.md").
+to connect to Amazon Keyspaces using Apache Cassandra drivers, see [Using a Cassandra client driver to access Amazon Keyspaces programmatically](programmatic.drivers.md "programmatic.drivers.md").
 
 ###### Topics
 

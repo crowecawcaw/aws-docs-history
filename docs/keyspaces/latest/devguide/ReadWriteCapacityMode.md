@@ -10,8 +10,8 @@ tables:
 
 ###### Topics
 
-- [Configure on-demand capacity mode](ReadWriteCapacityMode.md "ReadWriteCapacityMode.md")
-- [Configure provisioned capacity mode](ReadWriteCapacityMode.md "ReadWriteCapacityMode.md")
-- [View the capacity mode of a table in Amazon Keyspaces](ReadWriteCapacityMode.ProvisionedThroughput.md "ReadWriteCapacityMode.ProvisionedThroughput.md")
-- [Change the capacity mode of a table in Amazon Keyspaces](ReadWriteCapacityMode.md "ReadWriteCapacityMode.md")
+- [Configure on-demand capacity mode](ReadWriteCapacityMode.OnDemand.md "ReadWriteCapacityMode.OnDemand.md")
+- [Configure provisioned capacity mode](ReadWriteCapacityMode.Provisioned.md "ReadWriteCapacityMode.Provisioned.md")
+- [View the capacity mode of a table in Amazon Keyspaces](ReadWriteCapacityMode.ProvisionedThroughput.ManagingCapacity.md "ReadWriteCapacityMode.ProvisionedThroughput.ManagingCapacity.md")
+- [Change the capacity mode of a table in Amazon Keyspaces](ReadWriteCapacityMode.SwitchReadWriteCapacityMode.md "ReadWriteCapacityMode.SwitchReadWriteCapacityMode.md")
 - [Configure pre-warming for tables in Amazon Keyspaces](warm-throughput.md "warm-throughput.md")

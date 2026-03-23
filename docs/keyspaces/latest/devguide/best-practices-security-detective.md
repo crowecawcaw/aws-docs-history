@@ -36,7 +36,7 @@ service. This information helps you to track changes made to your AWS
 resources and to troubleshoot operational issues. CloudTrail makes it easier to
 ensure compliance with internal policies and regulatory standards.
 
-All Amazon Keyspaces [DDL operations](cql.md "cql.md") are logged in CloudTrail automatically. DDL
+All Amazon Keyspaces [DDL operations](cql.ddl.md "cql.ddl.md") are logged in CloudTrail automatically. DDL
 operations let you create and manage Amazon Keyspaces keyspaces and tables.
 
 When activity occurs in Amazon Keyspaces, that activity is recorded in a CloudTrail event
