@@ -1,4 +1,4 @@
-# AWS managed policies for Amazon EC2 High Availability for SQL Server
+# AWS managed policies for Microsoft SQL Server on Amazon EC2
 
 To add permissions to users, groups, and roles, it is easier to use AWS managed policies
 than to write policies yourself. It takes time and expertise to [create IAM customer
@@ -34,7 +34,7 @@ To view the permissions for this policy, see [AWSEC2SqlHaInstancePolicy](../../.
 
 ## AWS managed policy: AWSEC2SqlHaServiceRolePolicy
 
-This policy is attached to the service-linked role named **AWSServiceRoleForEC2SqlHa**
+This policy is attached to the service-linked role named [AWSServiceRoleForEC2SqlHa](slr-sql-ha.md "slr-sql-ha.md")
 to allow Amazon EC2 High Availability for SQL Server on EC2 to detect whether an EC2 instance that's tagged with the EC2 SQL High Availability identifier
 (`SqlHaMonitored` set to `true`) is running in active or standby mode.
 

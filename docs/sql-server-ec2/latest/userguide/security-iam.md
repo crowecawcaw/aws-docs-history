@@ -2,7 +2,7 @@
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access
 to AWS resources. IAM administrators control who can be _authenticated_ (signed in) and _authorized_
-(have permissions) to use SQL Server on EC2> resources. IAM is an AWS service that you can
+(have permissions) to use SQL Server on EC2 resources. IAM is an AWS service that you can
 use with no additional charge.
 
 Your security credentials identify you to services in AWS and grant you access to
@@ -23,5 +23,5 @@ practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/
 
 ###### Contents
 
-- [AWS managed policies for Amazon EC2 High Availability for SQL Server](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
-- [Service-linked role for Amazon EC2 High Availability for SQL Server](slr-sql-ha.md "slr-sql-ha.md")
+- [AWS managed policies for Microsoft SQL Server on Amazon EC2](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
+- [Service-linked role for Microsoft SQL Server on Amazon EC2](slr-sql-ha.md "slr-sql-ha.md")
