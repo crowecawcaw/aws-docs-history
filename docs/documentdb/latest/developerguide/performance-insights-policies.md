@@ -110,7 +110,7 @@ assumes that you already have a user available for this purpose.
 
 To use Performance Insights, make sure that you have access to Amazon DocumentDB
 in addition to the custom policy. For example, the **AmazonDocDBReadOnlyAccess** predefined policy provides
-read-only access to Amazon DocDB.For more information, see [Managing access using policies](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md#security_iam_access-manage "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md#security_iam_access-manage"). 4. On the **Summary** page, choose **Add
+read-only access to Amazon DocDB.For more information, see [Managing access using policies](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.IAM.md#security_iam_access-manage "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.IAM.md#security_iam_access-manage"). 4. On the **Summary** page, choose **Add
 permissions**. 5. Choose **Attach existing policies directly**. For
 **Search**, type the first few characters of your
 policy name, as shown following.

@@ -149,7 +149,7 @@ All instances in an Amazon DocumentDB cluster listen on the same TCP port for co
 
 ## TLS support
 
-For more details on connecting to Amazon DocumentDB using Transport Layer Security (TLS), see [Encrypting data in transit](security.encryption.md "security.encryption.md").
+For more details on connecting to Amazon DocumentDB using Transport Layer Security (TLS), see [Encrypting data in transit](security.encryption.ssl.md "security.encryption.ssl.md").
 
 ## Amazon DocumentDB storage
 

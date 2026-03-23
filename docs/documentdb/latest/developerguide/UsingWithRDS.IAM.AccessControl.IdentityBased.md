@@ -4,7 +4,7 @@
 
 For certain management features, Amazon DocumentDB uses operational technology that is shared with Amazon RDS. Amazon DocumentDB console, AWS CLI, and API calls are logged as calls made to the Amazon RDS API.
 
-We recommend that you first review the introductory topics that explain the basic concepts and options available for you to manage access to your Amazon DocumentDB resources. For more information, see [Managing access permissions to your Amazon DocumentDB resources](UsingWithRDS.IAM.AccessControl.md "UsingWithRDS.IAM.AccessControl.md").
+We recommend that you first review the introductory topics that explain the basic concepts and options available for you to manage access to your Amazon DocumentDB resources. For more information, see [Managing access permissions to your Amazon DocumentDB resources](UsingWithRDS.IAM.AccessControl.Overview.md "UsingWithRDS.IAM.AccessControl.Overview.md").
 
 This topic provides examples of identity-based policies in which an account administrator can attach permissions policies to IAM identities (that is, users, groups, and roles).
 
@@ -48,7 +48,7 @@ The `Resource` element in the example specifies the following policy constraints
 
 The policy doesn't specify the `Principal` element because in an identity-based policy you don't specify the principal who gets the permission. When you attach policy to a user, the user is the implicit principal. When you attach a permissions policy to an IAM role, the principal identified in the role's trust policy gets the permissions.
 
-For a table showing all of the Amazon DocumentDB API operations and the resources that they apply to, see [Amazon DocumentDB API permissions: actions, resources, and conditions reference](UsingWithRDS.IAM.md "UsingWithRDS.IAM.md").
+For a table showing all of the Amazon DocumentDB API operations and the resources that they apply to, see [Amazon DocumentDB API permissions: actions, resources, and conditions reference](UsingWithRDS.IAM.ResourcePermissions.md "UsingWithRDS.IAM.ResourcePermissions.md").
 
 ## Permissions required to use the Amazon DocumentDB console
 

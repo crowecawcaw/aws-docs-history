@@ -51,7 +51,7 @@ For more information on pricing, see [Amazon DocumentDB (with MongoDB compatibil
 ### Upgrade or migrate to Amazon DocumentDB 5.0 or 8.0
 
 You can migrate from MongoDB 3.6 or MongoDB 4.0 to Amazon DocumentDB 5.0 or Amazon DocumentDB 8.0 using the [AWS DMS](https://aws.amazon.com/dms/ "https://aws.amazon.com/dms/") or utilities like [`mongodump`, `mongorestore`, `mongoimport`, and `mongoexport`](backup_restore-dump_restore_import_export_data.md "backup_restore-dump_restore_import_export_data.md").
-For instructions on how to migrate, see [Upgrading your Amazon DocumentDB cluster using AWS Database Migration Service](docdb-migration.md "docdb-migration.md").
+For instructions on how to migrate, see [Upgrading your Amazon DocumentDB cluster using AWS Database Migration Service](docdb-migration.versions.md "docdb-migration.versions.md").
 
 ### Functional differences
 
@@ -112,7 +112,7 @@ For more information on pricing, see [Amazon DocumentDB (with MongoDB compatibil
 ### Upgrade or migrate to Amazon DocumentDB 5.0
 
 You can migrate from MongoDB 3.6 or MongoDB 4.0 to Amazon DocumentDB 5.0 using the [AWS DMS](https://aws.amazon.com/dms/ "https://aws.amazon.com/dms/") or utilities like [`mongodump`, `mongorestore`, `mongoimport`, and `mongoexport`](backup_restore-dump_restore_import_export_data.md "backup_restore-dump_restore_import_export_data.md").
-For instructions on how to migrate, see [Upgrading your Amazon DocumentDB cluster using AWS Database Migration Service](docdb-migration.md "docdb-migration.md").
+For instructions on how to migrate, see [Upgrading your Amazon DocumentDB cluster using AWS Database Migration Service](docdb-migration.versions.md "docdb-migration.versions.md").
 
 ### Functional differences
 
@@ -206,7 +206,7 @@ There is no additional cost for using Amazon DocumentDB 4.0. For more informatio
 
 ### Upgrade or migrate to Amazon DocumentDB 4.0
 
-You can migrate from MongoDB 3.6 or MongoDB 4.0 to Amazon DocumentDB 4.0 utilizing the [AWS DMS](https://aws.amazon.com/dms/ "https://aws.amazon.com/dms/") or utilities like [`mongodump`, `mongorestore`, `mongoimport`, and `mongoexport`](backup_restore-dump_restore_import_export_data.md "backup_restore-dump_restore_import_export_data.md"). Similarly, you can use the same tools to upgrade from Amazon DocumentDB 3.6 to Amazon DocumentDB 4.0. For instructions on how to migrate, see [Upgrading your Amazon DocumentDB cluster using AWS Database Migration Service](docdb-migration.md "docdb-migration.md").
+You can migrate from MongoDB 3.6 or MongoDB 4.0 to Amazon DocumentDB 4.0 utilizing the [AWS DMS](https://aws.amazon.com/dms/ "https://aws.amazon.com/dms/") or utilities like [`mongodump`, `mongorestore`, `mongoimport`, and `mongoexport`](backup_restore-dump_restore_import_export_data.md "backup_restore-dump_restore_import_export_data.md"). Similarly, you can use the same tools to upgrade from Amazon DocumentDB 3.6 to Amazon DocumentDB 4.0. For instructions on how to migrate, see [Upgrading your Amazon DocumentDB cluster using AWS Database Migration Service](docdb-migration.versions.md "docdb-migration.versions.md").
 
 ### Functional differences
 

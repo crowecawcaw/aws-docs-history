@@ -58,7 +58,7 @@ To verify that your application is
 using the latest CA certificate bundle, see [How can I be sure that I'm using the newest CA bundle?](#ca_cert_rotation-faq_question13 "#ca_cert_rotation-faq_question13") If you're already using the latest
 CA certificate bundle in your application, you can skip to Step 2.
 
-For examples of using a CA bundle with your application, see [Encrypting data in transit](security.encryption.md "security.encryption.md") and [Connecting with TLS enabled](connect_programmatically.md#connect_programmatically-tls_enabled "connect_programmatically.md#connect_programmatically-tls_enabled").
+For examples of using a CA bundle with your application, see [Encrypting data in transit](security.encryption.ssl.md "security.encryption.ssl.md") and [Connecting with TLS enabled](connect_programmatically.md#connect_programmatically-tls_enabled "connect_programmatically.md#connect_programmatically-tls_enabled").
 
 ###### Note
 

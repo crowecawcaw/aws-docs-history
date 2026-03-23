@@ -35,7 +35,7 @@ users and modify the roles as necessary to enforce least privileges for your clu
 ## RBAC concepts
 
 The following are important terms and concepts related to role-based access control.
-For more information on Amazon DocumentDB users, see [Managing Amazon DocumentDB users](security.md "security.md").
+For more information on Amazon DocumentDB users, see [Managing Amazon DocumentDB users](security.managing-users.md "security.managing-users.md").
 
 - **User** — An individual entity that can
   authenticate to the database and perform operations.
@@ -137,7 +137,7 @@ are issuing commands against the `admin` database.
 First, to understand what the current users and roles are in the cluster, you can run
 the `show users` command, as in the following example. You will see two
 users, `serviceadmin` and the primary user for the cluster. These two users
-always exist and cannot be deleted. For more information, see [Managing Amazon DocumentDB users](security.md "security.md").
+always exist and cannot be deleted. For more information, see [Managing Amazon DocumentDB users](security.managing-users.md "security.managing-users.md").
 
 ```
 show users

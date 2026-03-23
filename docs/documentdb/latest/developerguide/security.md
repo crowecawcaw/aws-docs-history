@@ -1,40 +1,42 @@
-# Compliance validation in Amazon DocumentDB
+# Security in Amazon DocumentDB
 
-The security and compliance of Amazon DocumentDB is assessed by third-party auditors as part of multiple
-AWS compliance programs, including the following:
+Cloud security at AWS is the highest priority. As an AWS customer, you benefit from a data center and network architecture that are built to meet the requirements of the most security-sensitive organizations.
 
-- System and Organization Controls (SOC) 1, 2, and 3. For more information, see
-  [SOC](https://aws.amazon.com/compliance/soc-faqs/ "https://aws.amazon.com/compliance/soc-faqs/").
-- Federal Risk and Authorization Management Program (FedRAMP).
-  For more information, see [AWS Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/FedRAMP/ "https://aws.amazon.com/compliance/services-in-scope/FedRAMP/").
-- Payment Card Industry Data Security Standard (PCI DSS). For more information, see
-  [PCI DSS](https://aws.amazon.com/compliance/pci-dss-level-1-faqs/ "https://aws.amazon.com/compliance/pci-dss-level-1-faqs/").
-- ISO 9001, 27001, 27017, and 27018. For more information, see [ISO Certified](https://aws.amazon.com/compliance/iso-certified/ "https://aws.amazon.com/compliance/iso-certified/").
-- Health Insurance Portability and Accountability Act Business Associate Agreement
-  (HIPAA BAA). For more information, see [HIPAA Compliance](../../../whitepapers/latest/architecting-hipaa-security-and-compliance-on-aws/architecting-hipaa-security-and-compliance-on-aws.md "../../../whitepapers/latest/architecting-hipaa-security-and-compliance-on-aws/architecting-hipaa-security-and-compliance-on-aws.md")
-  AWS provides a frequently updated list of AWS services in scope of specific compliance programs at [AWS Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/").
+Security is a shared responsibility between AWS and you. This documentation helps you understand how to apply the shared responsibility model when using Amazon DocumentDB.
+The [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/") describes this as security _of_ the cloud and security _in_ the cloud:
 
-Third-party audit reports are available for you to download using AWS Artifact. For more
-information, see [Downloading
-Reports in AWS Artifact](../../../artifact/latest/ug/downloading-documents.md "../../../artifact/latest/ug/downloading-documents.md").
+- **Security of the cloud** — AWS is responsible for protecting the infrastructure that runs AWS services in the AWS Cloud.
+  AWS also provides you with services that you can use securely.
+  Third-party auditors regularly test and verify the effectiveness of our security as part of the [AWS compliance programs](https://aws.amazon.com/compliance/programs/ "https://aws.amazon.com/compliance/programs/").
+  To learn about the compliance programs that apply to Amazon DocumentDB (with MongoDB compatibility), see [AWS Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/").
+- **Security in the cloud** — Your responsibility is determined by the AWS service that you use.
+  You are also responsible for other factors including the sensitivity of your data, your organization’s requirements, and applicable laws and regulations.
+  Amazon DocumentDB is authorized under Federal Risk and Authorization Management Program (FedRAMP). It has FedRAMP High authorization for AWS GovCloud (US) regions and FedRAMP Moderate authorization for AWS US East/West Regions.
+  For details about AWS and compliance efforts, see [AWS Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/FedRAMP/ "https://aws.amazon.com/compliance/services-in-scope/FedRAMP/").
 
-For more information about AWS compliance programs, see [AWS
-Compliance Programs](https://aws.amazon.com/compliance/programs/ "https://aws.amazon.com/compliance/programs/").
+###### Note
 
-Your compliance responsibility when using Amazon DocumentDB is determined by the sensitivity of your data, your organization’s
-compliance objectives, and applicable laws and regulations. If your use of Amazon DocumentDB is subject to compliance with
-standards like HIPAA or PCI, AWS provides resources to help:
+This chapter applies to both instance-based clusters and Elastic Clusters.
+For more information, see the topics below.
 
-- [AWS Compliance Resources](https://aws.amazon.com/compliance/resources/ "https://aws.amazon.com/compliance/resources/") – A collection of
-  workbooks and guides that might apply to your industry and location.
-- [Security and Compliance Quick Start Guides](https://aws.amazon.com/quickstart/?awsf.quickstart-homepage-filter=categories%23security-identity-compliance "https://aws.amazon.com/quickstart/?awsf.quickstart-homepage-filter=categories%23security-identity-compliance") – Deployment guides that discuss architectural considerations and
-  provide steps for deploying security- and compliance-focused baseline environments on AWS.
-- [AWS Config](../../../config/latest/developerguide/evaluate-config.md "../../../config/latest/developerguide/evaluate-config.md")
-  – A service that assesses how well your resource configurations comply with internal practices, industry guidelines,
-  and regulations.
-- [AWS Security
-  Hub](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md") – A comprehensive view of your security state within AWS that helps you check your compliance with
-  security industry standards and best practices.
-- [Architecting
-  for HIPAA Security and Compliance Whitepaper](../../../whitepapers/latest/architecting-hipaa-security-and-compliance-on-aws/architecting-hipaa-security-and-compliance-on-aws.md "../../../whitepapers/latest/architecting-hipaa-security-and-compliance-on-aws/architecting-hipaa-security-and-compliance-on-aws.md") – A whitepaper that describes how companies can use AWS to
-  create HIPAA-compliant applications.
+You also learn how to use other AWS services that help you monitor and secure your Amazon DocumentDB resources.
+The following topics show you how to configure Amazon DocumentDB to meet your security and compliance objectives.
+
+###### Topics
+
+- [Password management with Amazon DocumentDB and AWS Secrets Manager](docdb-secrets-manager.md "docdb-secrets-manager.md")
+- [Data protection in Amazon DocumentDB](security.data-protection.md "security.data-protection.md")
+- [Identity and Access Management for Amazon DocumentDB](security-iam.md "security-iam.md")
+- [Authentication using IAM identity](iam-identity-auth.md "iam-identity-auth.md")
+- [Managing Amazon DocumentDB users](security.managing-users.md "security.managing-users.md")
+- [Database access using Role-Based Access Control](role_based_access_control.md "role_based_access_control.md")
+- [Logging and monitoring in Amazon DocumentDB](logging-and-monitoring.md "logging-and-monitoring.md")
+- [Updating your Amazon DocumentDB TLS certificates](ca_cert_rotation.md "ca_cert_rotation.md")
+- [Updating your Amazon DocumentDB TLS certificates — GovCloud](ca_cert_rotation_pdt.md "ca_cert_rotation_pdt.md")
+- [Compliance validation in Amazon DocumentDB](security.compliance-validation.md "security.compliance-validation.md")
+- [Resilience in Amazon DocumentDB](security.disaster-recovery-resiliency.md "security.disaster-recovery-resiliency.md")
+- [Infrastructure security in Amazon DocumentDB](security.infrastructure.md "security.infrastructure.md")
+- [Amazon DocumentDB API and interface VPC endpoints (AWS PrivateLink)](docdb-private-link.md "docdb-private-link.md")
+- [Security best practices for Amazon DocumentDB](security_best_practices.md "security_best_practices.md")
+- [Auditing Amazon DocumentDB events](event-auditing.md "event-auditing.md")
+- [Amazon VPC and Amazon DocumentDB](vpc-docdb.md "vpc-docdb.md")

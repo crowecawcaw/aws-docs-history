@@ -13,10 +13,10 @@ use with no additional charge.
 - [How Amazon DocumentDB works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
 - [Identity-based policy examples for Amazon DocumentDB](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
 - [Troubleshooting Amazon DocumentDB identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
-- [Managing access permissions to your Amazon DocumentDB resources](UsingWithRDS.IAM.AccessControl.md "UsingWithRDS.IAM.AccessControl.md")
-- [Using identity-based policies (IAM policies) for Amazon DocumentDB](UsingWithRDS.IAM.AccessControl.md "UsingWithRDS.IAM.AccessControl.md")
+- [Managing access permissions to your Amazon DocumentDB resources](UsingWithRDS.IAM.AccessControl.Overview.md "UsingWithRDS.IAM.AccessControl.Overview.md")
+- [Using identity-based policies (IAM policies) for Amazon DocumentDB](UsingWithRDS.IAM.AccessControl.IdentityBased.md "UsingWithRDS.IAM.AccessControl.IdentityBased.md")
 - [AWS managed policies for Amazon DocumentDB](docdb-managed-policies.md "docdb-managed-policies.md")
-- [Amazon DocumentDB API permissions: actions, resources, and conditions reference](UsingWithRDS.IAM.md "UsingWithRDS.IAM.md")
+- [Amazon DocumentDB API permissions: actions, resources, and conditions reference](UsingWithRDS.IAM.ResourcePermissions.md "UsingWithRDS.IAM.ResourcePermissions.md")
 
 ## Audience
 

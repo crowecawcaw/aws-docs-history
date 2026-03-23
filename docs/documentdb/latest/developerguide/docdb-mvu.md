@@ -55,7 +55,7 @@ See [Performing a patch update to a cluster's engine version](db-cluster-version
 
 To upgrade your global clusters, delete your secondary clusters from the global cluster, convert the primary cluster to a regional cluster, perform an in-place major version upgrade on the regional (primary) cluster, then recreate the global cluster by adding secondary clusters using the same name in order to retain the same endpoints as earlier.
 Note that you will incur IO charges while your upgraded primary cluster replicates data to your newly added secondary clusters.
-For detailed steps on how to remove secondary clusters from global cluster before deleting, see [Removing a cluster from an Amazon DocumentDB global cluster](global-clusters.md#global-clusters.remove "global-clusters.md#global-clusters.remove").
+For detailed steps on how to remove secondary clusters from global cluster before deleting, see [Removing a cluster from an Amazon DocumentDB global cluster](global-clusters.manage.md#global-clusters.remove "global-clusters.manage.md#global-clusters.remove").
 
 - If you have a large amount of indexes (>3,000) operating in burstable performance instances (e.g. t3.medium or t4g.medium), you must scale up your primary instance to a larger instance (for example, at least r5.large) to perform the in-place major version upgrade.
   You can choose to scale down the instance size once your in-place major version upgrade is complete.
@@ -138,7 +138,7 @@ The cluster status then changes from ‘upgrading’ to ‘available’.
 
 From CLI, you can run `aws docdb create-event-subscription` to create events and `aws docdb describe-events` to monitor progress.
 You can also setup event notifications for the above events to Amazon SNS as the target to be notified via email, push messages, and other methods.
-For more information, see [Subscribing to Amazon DocumentDB events](event-subscriptions.md "event-subscriptions.md").
+For more information, see [Subscribing to Amazon DocumentDB events](event-subscriptions.subscribe.md "event-subscriptions.subscribe.md").
 
 In-place major version upgrade generates the following events during the upgrade:
 

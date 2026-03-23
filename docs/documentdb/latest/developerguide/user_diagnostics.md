@@ -394,7 +394,7 @@ The results across the shards are then merged together at the ”SHARD_MERGE“ 
 
 As a user or primary user, you often want to list all the current
 operations running on an instance for diagnostics and
-troubleshooting purposes. (For information about managing users, see [Managing Amazon DocumentDB users](security.md "security.md").)
+troubleshooting purposes. (For information about managing users, see [Managing Amazon DocumentDB users](security.managing-users.md "security.managing-users.md").)
 
 With the `mongo` shell, you can use the following query
 to list all the running operations on an Amazon DocumentDB instance.

@@ -73,7 +73,7 @@ A list of the supported CA certificate identifiers.
 
 For more information, see [Updating Your Amazon DocumentDB TLS
 Certificates](ca_cert_rotation.md "ca_cert_rotation.md") and
-[Encrypting Data in Transit](security.encryption.md "security.encryption.md") in the _Amazon DocumentDB Developer
+[Encrypting Data in Transit](security.encryption.ssl.md "security.encryption.ssl.md") in the _Amazon DocumentDB Developer
 Guide_.
 
 Type: Array of strings

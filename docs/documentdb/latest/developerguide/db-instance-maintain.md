@@ -365,7 +365,7 @@ This is to help maintain the security posture of your database.
 To avoid any unexpected downtime, we recommend that you apply operating system updates to your Amazon DocumentDB instances as soon as they become available and set your instance maintenance window at a time of your convenience as per your business needs.
 
 To be notified when a new optional update becomes available, you can subscribe to RDS-EVENT-0230 in the security patching event category.
-For information about subscribing to Amazon DocumentDB events, see [Subscribing to Amazon DocumentDB Event Subscriptions](event-subscriptions.md "event-subscriptions.md").
+For information about subscribing to Amazon DocumentDB events, see [Subscribing to Amazon DocumentDB Event Subscriptions](event-subscriptions.subscribe.md "event-subscriptions.subscribe.md").
 
 You should expect that when maintenance is performed on your cluster or instance, if the instance is a primary instance, it will fail over.
 To improve your availability, we recommend that you use more than one instance for your Amazon DocumentDB clusters.

@@ -30,7 +30,7 @@ This guide presents the key points to consider when migrating from Couchbase Ser
 
 ## Discovery
 
-Migrating to Amazon DocumentDB requires a thorough understanding of the existing database workload. Workload discovery is the process of analyzing your Couchbase cluster configuration and operational characteristics – data set, indexes, and workload – to ensure a seamless transition with minimal disruption.
+Migrating to Amazon DocumentDB requires a thorough understanding of the existing database workload. Workload discovery is the process of analyzing your Couchbase cluster configuration and operational characteristics – data set, indexes, and workload – to help ensure a seamless transition with minimal disruption.
 
 ### Cluster configuration
 
@@ -597,7 +597,7 @@ ConnectorConfiguration:
 
 ## Validation
 
-This section provides a detailed validation process to ensure data consistency and integrity after migrating to Amazon DocumentDB. The validation steps apply regardless of the migration method.
+This section provides a detailed validation process to verify data consistency and integrity after migrating to Amazon DocumentDB. The validation steps apply regardless of the migration method.
 
 ###### Topics
 

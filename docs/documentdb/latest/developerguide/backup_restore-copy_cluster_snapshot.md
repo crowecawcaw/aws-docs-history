@@ -68,7 +68,7 @@ Region-specific. Instead, you must specify an AWS KMS key valid in the
 destination AWS Regionn.
 
 The source snapshot remains encrypted throughout the copy process.
-For more information, see [Data protection in Amazon DocumentDB](security.md "security.md").
+For more information, see [Data protection in Amazon DocumentDB](security.data-protection.md "security.data-protection.md").
 
 ###### Note
 

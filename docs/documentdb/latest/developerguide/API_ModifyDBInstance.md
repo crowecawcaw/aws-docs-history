@@ -64,7 +64,7 @@ Set this parameter only if you are _not_ using SSL/TLS to connect to the DB inst
 
 If you are using SSL/TLS to connect to the DB instance, see [Updating Your Amazon DocumentDB TLS
 Certificates](ca_cert_rotation.md "ca_cert_rotation.md") and
-[Encrypting Data in Transit](security.encryption.md "security.encryption.md") in the _Amazon DocumentDB Developer
+[Encrypting Data in Transit](security.encryption.ssl.md "security.encryption.ssl.md") in the _Amazon DocumentDB Developer
 Guide_.
 
 Type: Boolean

@@ -180,7 +180,7 @@ resources. Since you are recreating the global cluster, to avoid split-brain and
 other issues, remove the other secondary clusters before creating the new global
 cluster in the steps that follow.
 
-For detailed steps for detaching, see [Removing a cluster from an Amazon DocumentDB global cluster](global-clusters.md#global-clusters.remove "global-clusters.md#global-clusters.remove"). 4. This cluster becomes the primary cluster of a new global cluster when you start
+For detailed steps for detaching, see [Removing a cluster from an Amazon DocumentDB global cluster](global-clusters.manage.md#global-clusters.remove "global-clusters.manage.md#global-clusters.remove"). 4. This cluster becomes the primary cluster of a new global cluster when you start
 adding Regions to it, in the next step. 5. Add an AWS Region to the cluster. When you do this, the replication process
 from primary to secondary begins. 6. Add more AWS Regions as needed to re-create the topology needed to support
 your application. Make sure that application writes are sent to the correct

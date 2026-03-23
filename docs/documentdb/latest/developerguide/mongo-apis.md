@@ -24,7 +24,7 @@ features, and use case to the [Amazon DocumentDB service team](mailto:documentdb
 - [Cursor methods](#mongo-apis-cursor "#mongo-apis-cursor")
 - [Aggregation pipeline operators](#mongo-apis-aggregation-pipeline "#mongo-apis-aggregation-pipeline")
 - [Data types](#mongo-apis-data-types "#mongo-apis-data-types")
-- [Indexes and index properties](#mongo-apis-index "#mongo-apis-index")
+- [Indexes](#mongo-apis-indexes "#mongo-apis-indexes")
 
 ## Database commands
 
@@ -212,79 +212,79 @@ features, and use case to the [Amazon DocumentDB service team](mailto:documentdb
 - [Element operators](#mongo-apis-query-element-operators "#mongo-apis-query-element-operators")
 - [Evaluation query operators](#mongo-apis-query-evaluation-operators "#mongo-apis-query-evaluation-operators")
 - [Logical operators](#mongo-apis-query-logical-operators "#mongo-apis-query-logical-operators")
-- [Projection operators](#mongo-apis-query-projection-operators "#mongo-apis-query-projection-operators")
+- [Projection operators](#mongo-apis-projection-operators "#mongo-apis-projection-operators")
 
 ### Array Operators
 
-| Command    | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| ---------- | --- | --- | --- | --- | --------------- |
-| $all       | Yes | Yes | Yes | Yes | Yes             |
-| $elemMatch | Yes | Yes | Yes | Yes | Yes             |
-| $size      | Yes | Yes | Yes | Yes | Yes             |
+| Command                                   | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
+| ----------------------------------------- | --- | --- | --- | --- | --------------- |
+| [$all](all.md "all.md")                   | Yes | Yes | Yes | Yes | Yes             |
+| [$elemMatch](elemMatch.md "elemMatch.md") | Yes | Yes | Yes | Yes | Yes             |
+| [$size](size-query.md "size-query.md")    | Yes | Yes | Yes | Yes | Yes             |
 
 ### Bitwise operators
 
-| Command       | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| ------------- | --- | --- | --- | --- | --------------- |
-| $bitsAllSet   | Yes | Yes | Yes | Yes | Yes             |
-| $bitsAnySet   | Yes | Yes | Yes | Yes | Yes             |
-| $bitsAllClear | Yes | Yes | Yes | Yes | Yes             |
-| $bitsAnyClear | Yes | Yes | Yes | Yes | Yes             |
+| Command                                            | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
+| -------------------------------------------------- | --- | --- | --- | --- | --------------- |
+| [$bitsAllSet](bitsAllSet.md "bitsAllSet.md")       | Yes | Yes | Yes | Yes | Yes             |
+| [$bitsAnySet](bitsAnySet.md "bitsAnySet.md")       | Yes | Yes | Yes | Yes | Yes             |
+| [$bitsAllClear](bitsAllClear.md "bitsAllClear.md") | Yes | Yes | Yes | Yes | Yes             |
+| [$bitsAnyClear](bitsAnyClear.md "bitsAnyClear.md") | Yes | Yes | Yes | Yes | Yes             |
 
 ### Comment operator
 
-| Command  | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| -------- | --- | --- | --- | --- | --------------- |
-| $comment | Yes | Yes | Yes | Yes | Yes             |
+| Command                             | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
+| ----------------------------------- | --- | --- | --- | --- | --------------- |
+| [$comment](comment.md "comment.md") | Yes | Yes | Yes | Yes | Yes             |
 
 ### Comparison operators
 
-| Command | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| ------- | --- | --- | --- | --- | --------------- |
-| $eq     | Yes | Yes | Yes | Yes | Yes             |
-| $gt     | Yes | Yes | Yes | Yes | Yes             |
-| $gte    | Yes | Yes | Yes | Yes | Yes             |
-| $in     | Yes | Yes | Yes | Yes | Yes             |
-| $lt     | Yes | Yes | Yes | Yes | Yes             |
-| $lte    | Yes | Yes | Yes | Yes | Yes             |
-| $ne     | Yes | Yes | Yes | Yes | Yes             |
-| $nin    | Yes | Yes | Yes | Yes | Yes             |
+| Command                 | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
+| ----------------------- | --- | --- | --- | --- | --------------- |
+| [$eq](eq.md "eq.md")    | Yes | Yes | Yes | Yes | Yes             |
+| [$gt](gt.md "gt.md")    | Yes | Yes | Yes | Yes | Yes             |
+| [$gte](gte.md "gte.md") | Yes | Yes | Yes | Yes | Yes             |
+| [$in](in.md "in.md")    | Yes | Yes | Yes | Yes | Yes             |
+| [$lt](lt.md "lt.md")    | Yes | Yes | Yes | Yes | Yes             |
+| [$lte](lte.md "lte.md") | Yes | Yes | Yes | Yes | Yes             |
+| [$ne](ne.md "ne.md")    | Yes | Yes | Yes | Yes | Yes             |
+| [$nin](nin.md "nin.md") | Yes | Yes | Yes | Yes | Yes             |
 
 ### Element operators
 
-| Command | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| ------- | --- | --- | --- | --- | --------------- |
-| $exists | Yes | Yes | Yes | Yes | Yes             |
-| $type   | Yes | Yes | Yes | Yes | Yes             |
+| Command                          | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
+| -------------------------------- | --- | --- | --- | --- | --------------- |
+| [$exists](exists.md "exists.md") | Yes | Yes | Yes | Yes | Yes             |
+| [$type](type.md "type.md")       | Yes | Yes | Yes | Yes | Yes             |
 
 ### Evaluation query operators
 
-| Command                                                              | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| -------------------------------------------------------------------- | --- | --- | --- | --- | --------------- |
-| $expr                                                                | No  | Yes | Yes | Yes | No              |
-| [$jsonSchema](json-schema-validation.md "json-schema-validation.md") | No  | Yes | Yes | Yes | No              |
-| $mod                                                                 | Yes | Yes | Yes | Yes | Yes             |
-| $regex                                                               | Yes | Yes | Yes | Yes | Yes             |
-| $text                                                                | No  | No  | Yes | Yes | No              |
-| $where                                                               | No  | No  | No  | No  | No              |
+| Command                                      | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
+| -------------------------------------------- | --- | --- | --- | --- | --------------- |
+| [$expr](expr.md "expr.md")                   | No  | Yes | Yes | Yes | No              |
+| [$jsonSchema](jsonSchema.md "jsonSchema.md") | No  | Yes | Yes | Yes | No              |
+| [$mod](mod-query.md "mod-query.md")          | Yes | Yes | Yes | Yes | Yes             |
+| [$regex](regex.md "regex.md")                | Yes | Yes | Yes | Yes | Yes             |
+| [$text](text.md "text.md")                   | No  | No  | Yes | Yes | No              |
+| $where                                       | No  | No  | No  | No  | No              |
 
 ### Logical operators
 
-| Command | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| ------- | --- | --- | --- | --- | --------------- |
-| $and    | Yes | Yes | Yes | Yes | Yes             |
-| $nor    | Yes | Yes | Yes | Yes | Yes             |
-| $not    | Yes | Yes | Yes | Yes | Yes             |
-| $or     | Yes | Yes | Yes | Yes | Yes             |
+| Command                 | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
+| ----------------------- | --- | --- | --- | --- | --------------- |
+| [$and](and.md "and.md") | Yes | Yes | Yes | Yes | Yes             |
+| [$nor](nor.md "nor.md") | Yes | Yes | Yes | Yes | Yes             |
+| [$not](not.md "not.md") | Yes | Yes | Yes | Yes | Yes             |
+| [$or](or.md "or.md")    | Yes | Yes | Yes | Yes | Yes             |
 
 ### Projection operators
 
-| Command    | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| ---------- | --- | --- | --- | --- | --------------- |
-| $          | Yes | Yes | Yes | Yes | Yes             |
-| $elemMatch | Yes | Yes | Yes | Yes | Yes             |
-| $meta      | No  | No  | Yes | Yes | No              |
-| $slice     | Yes | Yes | Yes | Yes | Yes             |
+| Command                                             | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
+| --------------------------------------------------- | --- | --- | --- | --- | --------------- |
+| [$](dollar-projection.md "dollar-projection.md")    | Yes | Yes | Yes | Yes | Yes             |
+| [$elemMatch](elemMatch.md "elemMatch.md")           | Yes | Yes | Yes | Yes | Yes             |
+| [$meta](meta.md "meta.md")                          | No  | No  | Yes | Yes | No              |
+| [$slice](slice-projection.md "slice-projection.md") | Yes | Yes | Yes | Yes | Yes             |
 
 ## Update operators
 
@@ -297,72 +297,72 @@ features, and use case to the [Amazon DocumentDB service team](mailto:documentdb
 
 ### Array operators
 
-| Command         | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| --------------- | --- | --- | --- | --- | --------------- |
-| $               | Yes | Yes | Yes | Yes | Yes             |
-| $[]             | Yes | Yes | Yes | Yes | Yes             |
-| $[<identifier>] | Yes | Yes | Yes | Yes | Yes             |
-| $addToSet       | Yes | Yes | Yes | Yes | Yes             |
-| $pop            | Yes | Yes | Yes | Yes | Yes             |
-| $pullAll        | Yes | Yes | Yes | Yes | Yes             |
-| $pull           | Yes | Yes | Yes | Yes | Yes             |
-| $push           | Yes | Yes | Yes | Yes | Yes             |
+| Command                                                                    | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
+| -------------------------------------------------------------------------- | --- | --- | --- | --- | --------------- |
+| [$](dollar-update.md "dollar-update.md")                                   | Yes | Yes | Yes | Yes | Yes             |
+| [$[]](dollarBrackets-update.md "dollarBrackets-update.md")                 | Yes | Yes | Yes | Yes | Yes             |
+| [$[<identifier>]](dollarIdentifier-update.md "dollarIdentifier-update.md") | Yes | Yes | Yes | Yes | Yes             |
+| [$addToSet](addToSet.md "addToSet.md")                                     | Yes | Yes | Yes | Yes | Yes             |
+| [$pop](pop.md "pop.md")                                                    | Yes | Yes | Yes | Yes | Yes             |
+| [$pullAll](pullAll.md "pullAll.md")                                        | Yes | Yes | Yes | Yes | Yes             |
+| [$pull](pull.md "pull.md")                                                 | Yes | Yes | Yes | Yes | Yes             |
+| [$push](push.md "push.md")                                                 | Yes | Yes | Yes | Yes | Yes             |
 
 ### Bitwise operators
 
-| Command | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| ------- | --- | --- | --- | --- | --------------- |
-| $bit    | Yes | Yes | Yes | Yes | Yes             |
+| Command                 | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
+| ----------------------- | --- | --- | --- | --- | --------------- |
+| [$bit](bit.md "bit.md") | Yes | Yes | Yes | Yes | Yes             |
 
 ### Field operators
 
-| Operator     | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| ------------ | --- | --- | --- | --- | --------------- |
-| $currentDate | Yes | Yes | Yes | Yes | Yes             |
-| $inc         | Yes | Yes | Yes | Yes | Yes             |
-| $max         | Yes | Yes | Yes | Yes | Yes             |
-| $min         | Yes | Yes | Yes | Yes | Yes             |
-| $mul         | Yes | Yes | Yes | Yes | Yes             |
-| $rename      | Yes | Yes | Yes | Yes | Yes             |
-| $set         | Yes | Yes | Yes | Yes | Yes             |
-| $setOnInsert | Yes | Yes | Yes | Yes | Yes             |
-| $unset       | Yes | Yes | Yes | Yes | Yes             |
+| Operator                                        | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
+| ----------------------------------------------- | --- | --- | --- | --- | --------------- |
+| [$currentDate](currentDate.md "currentDate.md") | Yes | Yes | Yes | Yes | Yes             |
+| [$inc](inc.md "inc.md")                         | Yes | Yes | Yes | Yes | Yes             |
+| [$max](max-update.md "max-update.md")           | Yes | Yes | Yes | Yes | Yes             |
+| [$min](min-update.md "min-update.md")           | Yes | Yes | Yes | Yes | Yes             |
+| [$mul](mul.md "mul.md")                         | Yes | Yes | Yes | Yes | Yes             |
+| [$rename](rename.md "rename.md")                | Yes | Yes | Yes | Yes | Yes             |
+| [$set](set-update.md "set-update.md")           | Yes | Yes | Yes | Yes | Yes             |
+| [$setOnInsert](setOnInsert.md "setOnInsert.md") | Yes | Yes | Yes | Yes | Yes             |
+| [$unset](unset-update.md "unset-update.md")     | Yes | Yes | Yes | Yes | Yes             |
 
 ### Update modifiers
 
-| Operator  | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| --------- | --- | --- | --- | --- | --------------- |
-| $each     | Yes | Yes | Yes | Yes | Yes             |
-| $position | Yes | Yes | Yes | Yes | Yes             |
-| $slice    | Yes | Yes | Yes | Yes | Yes             |
-| $sort     | Yes | Yes | Yes | Yes | Yes             |
+| Operator                                    | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
+| ------------------------------------------- | --- | --- | --- | --- | --------------- |
+| [$each](each.md "each.md")                  | Yes | Yes | Yes | Yes | Yes             |
+| [$position](position.md "position.md")      | Yes | Yes | Yes | Yes | Yes             |
+| [$slice](slice-update.md "slice-update.md") | Yes | Yes | Yes | Yes | Yes             |
+| [$sort](sort-update.md "sort-update.md")    | Yes | Yes | Yes | Yes | Yes             |
 
 ## Geospatial
 
 ### Geometry specifiers
 
-| Query Selectors | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| --------------- | --- | --- | --- | --- | --------------- |
-| $box            | No  | No  | No  | No  | No              |
-| $center         | No  | No  | No  | No  | No              |
-| $centerSphere   | No  | No  | No  | No  | No              |
-| $geometry       | Yes | Yes | Yes | Yes | Yes             |
-| $maxDistance    | Yes | Yes | Yes | Yes | Yes             |
-| $minDistance    | Yes | Yes | Yes | Yes | Yes             |
-| $nearSphere     | Yes | Yes | Yes | Yes | Yes             |
-| $polygon        | No  | No  | No  | No  | No              |
-| $uniqueDocs     | No  | No  | No  | No  | No              |
+| Query Selectors                                 | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
+| ----------------------------------------------- | --- | --- | --- | --- | --------------- |
+| $box                                            | No  | No  | No  | No  | No              |
+| $center                                         | No  | No  | No  | No  | No              |
+| $centerSphere                                   | No  | No  | No  | No  | No              |
+| [$geometry](geometry.md "geometry.md")          | Yes | Yes | Yes | Yes | Yes             |
+| [$maxDistance](maxDistance.md "maxDistance.md") | Yes | Yes | Yes | Yes | Yes             |
+| [$minDistance](minDistance.md "minDistance.md") | Yes | Yes | Yes | Yes | Yes             |
+| [$nearSphere](nearSphere.md "nearSphere.md")    | Yes | Yes | Yes | Yes | Yes             |
+| $polygon                                        | No  | No  | No  | No  | No              |
+| $uniqueDocs                                     | No  | No  | No  | No  | No              |
 
 ### Query selectors
 
-| Command        | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| -------------- | --- | --- | --- | --- | --------------- |
-| $geoIntersects | Yes | Yes | Yes | Yes | Yes             |
-| $geoWithin     | Yes | Yes | Yes | Yes | Yes             |
-| $near          | Yes | Yes | Yes | Yes | Yes             |
-| $nearSphere    | Yes | Yes | Yes | Yes | Yes             |
-| $polygon       | No  | No  | No  | No  | No              |
-| $uniqueDocs    | No  | No  | No  | No  | No              |
+| Command                                               | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
+| ----------------------------------------------------- | --- | --- | --- | --- | --------------- |
+| [$geoIntersects](geoIntersects.md "geoIntersects.md") | Yes | Yes | Yes | Yes | Yes             |
+| [$geoWithin](geoWithin.md "geoWithin.md")             | Yes | Yes | Yes | Yes | Yes             |
+| [$near](near.md "near.md")                            | Yes | Yes | Yes | Yes | Yes             |
+| [$nearSphere](nearSphere.md "nearSphere.md")          | Yes | Yes | Yes | Yes | Yes             |
+| $polygon                                              | No  | No  | No  | No  | No              |
+| $uniqueDocs                                           | No  | No  | No  | No  | No              |
 
 ## Cursor methods
 
@@ -429,105 +429,105 @@ features, and use case to the [Amazon DocumentDB service team](mailto:documentdb
 
 ### Accumulator expressions
 
-| Expression      | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| --------------- | --- | --- | --- | --- | --------------- |
-| $accumulator    | -   | -   | No  | No  | No              |
-| $addToSet       | Yes | Yes | Yes | Yes | Yes             |
-| $avg            | Yes | Yes | Yes | Yes | Yes             |
-| $count          | -   | -   | No  | No  | No              |
-| $covariancePop  | No  | No  | No  | No  | No              |
-| $covarianceSamp | No  | No  | No  | No  | No              |
-| $denseRank      | No  | No  | No  | No  | No              |
-| $derivative     | No  | No  | No  | No  | No              |
-| $documentNumber | No  | No  | No  | No  | No              |
-| $expMovingAvg   | No  | No  | No  | No  | No              |
-| $first          | Yes | Yes | Yes | Yes | Yes             |
-| $integral       | No  | No  | No  | No  | No              |
-| $last           | Yes | Yes | Yes | Yes | Yes             |
-| $max            | Yes | Yes | Yes | Yes | Yes             |
-| $min            | Yes | Yes | Yes | Yes | Yes             |
-| $push           | Yes | Yes | Yes | Yes | Yes             |
-| $rank           | No  | No  | No  | No  | No              |
-| $shift          | No  | No  | No  | No  | No              |
-| $stdDevPop      | No  | No  | No  | No  | No              |
-| $stdDevSamp     | No  | No  | No  | No  | No              |
-| $sum            | Yes | Yes | Yes | Yes | Yes             |
+| Expression                                                     | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
+| -------------------------------------------------------------- | --- | --- | --- | --- | --------------- |
+| $accumulator                                                   | -   | -   | No  | No  | No              |
+| [$addToSet](addToSet-aggregation.md "addToSet-aggregation.md") | Yes | Yes | Yes | Yes | Yes             |
+| [$avg](avg.md "avg.md")                                        | Yes | Yes | Yes | Yes | Yes             |
+| [$count](count.md "count.md")                                  | -   | -   | No  | No  | No              |
+| $covariancePop                                                 | No  | No  | No  | No  | No              |
+| $covarianceSamp                                                | No  | No  | No  | No  | No              |
+| $denseRank                                                     | No  | No  | No  | No  | No              |
+| $derivative                                                    | No  | No  | No  | No  | No              |
+| $documentNumber                                                | No  | No  | No  | No  | No              |
+| $expMovingAvg                                                  | No  | No  | No  | No  | No              |
+| [$first](first.md "first.md")                                  | Yes | Yes | Yes | Yes | Yes             |
+| $integral                                                      | No  | No  | No  | No  | No              |
+| [$last](last.md "last.md")                                     | Yes | Yes | Yes | Yes | Yes             |
+| [$max](max.md "max.md")                                        | Yes | Yes | Yes | Yes | Yes             |
+| [$min](min.md "min.md")                                        | Yes | Yes | Yes | Yes | Yes             |
+| [$push](push-aggregation.md "push-aggregation.md")             | Yes | Yes | Yes | Yes | Yes             |
+| $rank                                                          | No  | No  | No  | No  | No              |
+| $shift                                                         | No  | No  | No  | No  | No              |
+| $stdDevPop                                                     | No  | No  | No  | No  | No              |
+| $stdDevSamp                                                    | No  | No  | No  | No  | No              |
+| [$sum](sum.md "sum.md")                                        | Yes | Yes | Yes | Yes | Yes             |
 
 ### Arithmetic operators
 
-| Command   | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| --------- | --- | --- | --- | --- | --------------- |
-| $abs      | Yes | Yes | Yes | Yes | Yes             |
-| $add      | Yes | Yes | Yes | Yes | Yes             |
-| $ceil     | No  | Yes | Yes | Yes | Yes             |
-| $divide   | Yes | Yes | Yes | Yes | Yes             |
-| $exp      | No  | Yes | Yes | Yes | Yes             |
-| $floor    | No  | Yes | Yes | Yes | Yes             |
-| $ln       | No  | Yes | Yes | Yes | Yes             |
-| $log      | No  | Yes | Yes | Yes | Yes             |
-| $log10    | No  | Yes | Yes | Yes | Yes             |
-| $mod      | Yes | Yes | Yes | Yes | Yes             |
-| $multiply | Yes | Yes | Yes | Yes | Yes             |
-| $pow      | No  | No  | No  | Yes | No              |
-| $round    | -   | -   | No  | No  | No              |
-| $sqrt     | No  | Yes | Yes | Yes | Yes             |
-| $subtract | Yes | Yes | Yes | Yes | Yes             |
-| $trunc    | No  | No  | No  | No  | No              |
+| Command                                | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
+| -------------------------------------- | --- | --- | --- | --- | --------------- |
+| [$abs](abs.md "abs.md")                | Yes | Yes | Yes | Yes | Yes             |
+| [$add](add.md "add.md")                | Yes | Yes | Yes | Yes | Yes             |
+| [$ceil](ceil.md "ceil.md")             | No  | Yes | Yes | Yes | Yes             |
+| [$divide](divide.md "divide.md")       | Yes | Yes | Yes | Yes | Yes             |
+| [$exp](exp.md "exp.md")                | No  | Yes | Yes | Yes | Yes             |
+| [$floor](floor.md "floor.md")          | No  | Yes | Yes | Yes | Yes             |
+| [$ln](ln.md "ln.md")                   | No  | Yes | Yes | Yes | Yes             |
+| [$log](log.md "log.md")                | No  | Yes | Yes | Yes | Yes             |
+| [$log10](log10.md "log10.md")          | No  | Yes | Yes | Yes | Yes             |
+| [$mod](mod.md "mod.md")                | Yes | Yes | Yes | Yes | Yes             |
+| [$multiply](multiply.md "multiply.md") | Yes | Yes | Yes | Yes | Yes             |
+| [$pow](pow.md "pow.md")                | No  | No  | No  | Yes | No              |
+| $round                                 | -   | -   | No  | No  | No              |
+| [$sqrt](sqrt.md "sqrt.md")             | No  | Yes | Yes | Yes | Yes             |
+| [$subtract](subtract.md "subtract.md") | Yes | Yes | Yes | Yes | Yes             |
+| $trunc                                 | No  | No  | No  | No  | No              |
 
 ### Array operators
 
-| Command        | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| -------------- | --- | --- | --- | --- | --------------- |
-| $arrayElemAt   | Yes | Yes | Yes | Yes | Yes             |
-| $arrayToObject | Yes | Yes | Yes | Yes | Yes             |
-| $concatArrays  | Yes | Yes | Yes | Yes | Yes             |
-| $filter        | Yes | Yes | Yes | Yes | Yes             |
-| $first         | -   | -   | Yes | Yes | No              |
-| $in            | Yes | Yes | Yes | Yes | Yes             |
-| $indexOfArray  | Yes | Yes | Yes | Yes | Yes             |
-| $isArray       | Yes | Yes | Yes | Yes | Yes             |
-| $last          | -   | -   | Yes | Yes | No              |
-| $objectToArray | Yes | Yes | Yes | Yes | Yes             |
-| $range         | Yes | Yes | Yes | Yes | Yes             |
-| $reverseArray  | Yes | Yes | Yes | Yes | Yes             |
-| $reduce        | Yes | Yes | Yes | Yes | Yes             |
-| $size          | Yes | Yes | Yes | Yes | Yes             |
-| $slice         | Yes | Yes | Yes | Yes | Yes             |
-| $zip           | Yes | Yes | Yes | Yes | Yes             |
+| Command                                               | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
+| ----------------------------------------------------- | --- | --- | --- | --- | --------------- |
+| [$arrayElemAt](arrayElemAt.md "arrayElemAt.md")       | Yes | Yes | Yes | Yes | Yes             |
+| [$arrayToObject](arrayToObject.md "arrayToObject.md") | Yes | Yes | Yes | Yes | Yes             |
+| [$concatArrays](concatArrays.md "concatArrays.md")    | Yes | Yes | Yes | Yes | Yes             |
+| [$filter](filter.md "filter.md")                      | Yes | Yes | Yes | Yes | Yes             |
+| [$first](first.md "first.md")                         | -   | -   | Yes | Yes | No              |
+| [$in](in-aggregation.md "in-aggregation.md")          | Yes | Yes | Yes | Yes | Yes             |
+| [$indexOfArray](indexOfArray.md "indexOfArray.md")    | Yes | Yes | Yes | Yes | Yes             |
+| [$isArray](isArray.md "isArray.md")                   | Yes | Yes | Yes | Yes | Yes             |
+| [$last](last.md "last.md")                            | -   | -   | Yes | Yes | No              |
+| [$objectToArray](objectToArray.md "objectToArray.md") | Yes | Yes | Yes | Yes | Yes             |
+| [$range](range.md "range.md")                         | Yes | Yes | Yes | Yes | Yes             |
+| [$reverseArray](reverseArray.md "reverseArray.md")    | Yes | Yes | Yes | Yes | Yes             |
+| [$reduce](reduce.md "reduce.md")                      | Yes | Yes | Yes | Yes | Yes             |
+| [$size](size.md "size.md")                            | Yes | Yes | Yes | Yes | Yes             |
+| [$slice](slice.md "slice.md")                         | Yes | Yes | Yes | Yes | Yes             |
+| [$zip](zip.md "zip.md")                               | Yes | Yes | Yes | Yes | Yes             |
 
 ### Boolean operators
 
-| Command | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| ------- | --- | --- | --- | --- | --------------- |
-| $and    | Yes | Yes | Yes | Yes | Yes             |
-| $not    | Yes | Yes | Yes | Yes | Yes             |
-| $or     | Yes | Yes | Yes | Yes | Yes             |
+| Command                                         | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
+| ----------------------------------------------- | --- | --- | --- | --- | --------------- |
+| [$and](and-aggregation.md "and-aggregation.md") | Yes | Yes | Yes | Yes | Yes             |
+| [$not](not-aggregation.md "not-aggregation.md") | Yes | Yes | Yes | Yes | Yes             |
+| [$or](or-aggregation.md "or-aggregation.md")    | Yes | Yes | Yes | Yes | Yes             |
 
 ### Comparison operators
 
-| Command | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| ------- | --- | --- | --- | --- | --------------- |
-| $cmp    | Yes | Yes | Yes | Yes | Yes             |
-| $eq     | Yes | Yes | Yes | Yes | Yes             |
-| $gt     | Yes | Yes | Yes | Yes | Yes             |
-| $gte    | Yes | Yes | Yes | Yes | Yes             |
-| $lt     | Yes | Yes | Yes | Yes | Yes             |
-| $lte    | Yes | Yes | Yes | Yes | Yes             |
-| $ne     | Yes | Yes | Yes | Yes | Yes             |
+| Command                                         | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
+| ----------------------------------------------- | --- | --- | --- | --- | --------------- |
+| [$cmp](cmp.md "cmp.md")                         | Yes | Yes | Yes | Yes | Yes             |
+| [$eq](eq-aggregation.md "eq-aggregation.md")    | Yes | Yes | Yes | Yes | Yes             |
+| [$gt](gt-aggregation.md "gt-aggregation.md")    | Yes | Yes | Yes | Yes | Yes             |
+| [$gte](gte-aggregation.md "gte-aggregation.md") | Yes | Yes | Yes | Yes | Yes             |
+| [$lt](lt-aggregation.md "lt-aggregation.md")    | Yes | Yes | Yes | Yes | Yes             |
+| [$lte](lte-aggregation.md "lte-aggregation.md") | Yes | Yes | Yes | Yes | Yes             |
+| [$ne](ne-aggregation.md "ne-aggregation.md")    | Yes | Yes | Yes | Yes | Yes             |
 
 ### Conditional expression operators
 
-| Command | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| ------- | --- | --- | --- | --- | --------------- |
-| $cond   | Yes | Yes | Yes | Yes | Yes             |
-| $ifNull | Yes | Yes | Yes | Yes | Yes             |
-| $switch | No  | Yes | Yes | Yes | No              |
+| Command                          | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
+| -------------------------------- | --- | --- | --- | --- | --------------- |
+| [$cond](cond.md "cond.md")       | Yes | Yes | Yes | Yes | Yes             |
+| [$ifNull](ifNull.md "ifNull.md") | Yes | Yes | Yes | Yes | Yes             |
+| [$switch](switch.md "switch.md") | No  | Yes | Yes | Yes | No              |
 
 ### Data type operator
 
-| Command | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| ------- | --- | --- | --- | --- | --------------- |
-| $type   | Yes | Yes | Yes | Yes | Yes             |
+| Command                                            | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
+| -------------------------------------------------- | --- | --- | --- | --- | --------------- |
+| [$type](type-aggregation.md "type-aggregation.md") | Yes | Yes | Yes | Yes | Yes             |
 
 ### Data size operator
 
@@ -538,172 +538,172 @@ features, and use case to the [Amazon DocumentDB service team](mailto:documentdb
 
 ### Date operators
 
-| Command         | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| --------------- | --- | --- | --- | --- | --------------- |
-| $dateAdd        | No  | No  | Yes | Yes | Yes             |
-| $dateDiff       | -   | -   | Yes | Yes | No              |
-| $dateFromParts  | No  | No  | No  | No  | No              |
-| $dateFromString | Yes | Yes | Yes | Yes | Yes             |
-| $dateSubtract   | No  | No  | Yes | Yes | Yes             |
-| $dateToParts    | No  | No  | No  | No  | No              |
-| $dateToString   | Yes | Yes | Yes | Yes | Yes             |
-| $dateTrunc      | -   | -   | No  | Yes | No              |
-| $dayOfMonth     | Yes | Yes | Yes | Yes | Yes             |
-| $dayOfWeek      | Yes | Yes | Yes | Yes | Yes             |
-| $dayOfYear      | Yes | Yes | Yes | Yes | Yes             |
-| $hour           | Yes | Yes | Yes | Yes | Yes             |
-| $isoDayOfWeek   | Yes | Yes | Yes | Yes | Yes             |
-| $isoWeek        | Yes | Yes | Yes | Yes | Yes             |
-| $isoWeekYear    | Yes | Yes | Yes | Yes | Yes             |
-| $millisecond    | Yes | Yes | Yes | Yes | Yes             |
-| $minute         | Yes | Yes | Yes | Yes | Yes             |
-| $month          | Yes | Yes | Yes | Yes | Yes             |
-| $second         | Yes | Yes | Yes | Yes | Yes             |
-| $week           | Yes | Yes | Yes | Yes | Yes             |
-| $year           | Yes | Yes | Yes | Yes | Yes             |
+| Command                                                  | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
+| -------------------------------------------------------- | --- | --- | --- | --- | --------------- |
+| [$dateAdd](dateAdd.md "dateAdd.md")                      | No  | No  | Yes | Yes | Yes             |
+| [$dateDiff](dateDiff.md "dateDiff.md")                   | -   | -   | Yes | Yes | No              |
+| $dateFromParts                                           | No  | No  | No  | No  | No              |
+| [$dateFromString](dateFromString.md "dateFromString.md") | Yes | Yes | Yes | Yes | Yes             |
+| [$dateSubtract](dateSubtract.md "dateSubtract.md")       | No  | No  | Yes | Yes | Yes             |
+| $dateToParts                                             | No  | No  | No  | No  | No              |
+| [$dateToString](dateToString.md "dateToString.md")       | Yes | Yes | Yes | Yes | Yes             |
+| [$dateTrunc](dateTrunc.md "dateTrunc.md")                | -   | -   | No  | Yes | No              |
+| [$dayOfMonth](dayOfMonth.md "dayOfMonth.md")             | Yes | Yes | Yes | Yes | Yes             |
+| [$dayOfWeek](dayOfWeek.md "dayOfWeek.md")                | Yes | Yes | Yes | Yes | Yes             |
+| [$dayOfYear](dayOfYear.md "dayOfYear.md")                | Yes | Yes | Yes | Yes | Yes             |
+| [$hour](hour.md "hour.md")                               | Yes | Yes | Yes | Yes | Yes             |
+| [$isoDayOfWeek](isoDayOfWeek.md "isoDayOfWeek.md")       | Yes | Yes | Yes | Yes | Yes             |
+| [$isoWeek](isoWeek.md "isoWeek.md")                      | Yes | Yes | Yes | Yes | Yes             |
+| [$isoWeekYear](isoWeekYear.md "isoWeekYear.md")          | Yes | Yes | Yes | Yes | Yes             |
+| [$millisecond](millisecond.md "millisecond.md")          | Yes | Yes | Yes | Yes | Yes             |
+| [$minute](minute.md "minute.md")                         | Yes | Yes | Yes | Yes | Yes             |
+| [$month](month.md "month.md")                            | Yes | Yes | Yes | Yes | Yes             |
+| [$second](second.md "second.md")                         | Yes | Yes | Yes | Yes | Yes             |
+| [$week](week.md "week.md")                               | Yes | Yes | Yes | Yes | Yes             |
+| [$year](year.md "year.md")                               | Yes | Yes | Yes | Yes | Yes             |
 
 ### Literal operator
 
-| Command  | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| -------- | --- | --- | --- | --- | --------------- |
-| $literal | Yes | Yes | Yes | Yes | Yes             |
+| Command                             | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
+| ----------------------------------- | --- | --- | --- | --- | --------------- |
+| [$literal](literal.md "literal.md") | Yes | Yes | Yes | Yes | Yes             |
 
 ### Merge operator
 
-| Command       | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| ------------- | --- | --- | --- | --- | --------------- |
-| $mergeObjects | Yes | Yes | Yes | Yes | Yes             |
+| Command                                            | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
+| -------------------------------------------------- | --- | --- | --- | --- | --------------- |
+| [$mergeObjects](mergeObjects.md "mergeObjects.md") | Yes | Yes | Yes | Yes | Yes             |
 
 ### Natural operator
 
-| Command  | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| -------- | --- | --- | --- | --- | --------------- |
-| $natural | Yes | Yes | Yes | Yes | Yes             |
+| Command                             | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
+| ----------------------------------- | --- | --- | --- | --- | --------------- |
+| [$natural](natural.md "natural.md") | Yes | Yes | Yes | Yes | Yes             |
 
 ### Set operators
 
-| Command          | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| ---------------- | --- | --- | --- | --- | --------------- |
-| $allElementsTrue | No  | Yes | Yes | Yes | Yes             |
-| $anyElementTrue  | No  | Yes | Yes | Yes | Yes             |
-| $setDifference   | No  | Yes | Yes | Yes | Yes             |
-| $setEquals       | Yes | Yes | Yes | Yes | Yes             |
-| $setIntersection | Yes | Yes | Yes | Yes | Yes             |
-| $setIsSubset     | Yes | Yes | Yes | Yes | Yes             |
-| $setUnion        | Yes | Yes | Yes | Yes | Yes             |
-| $setWindowFields | No  | No  | No  | No  | No              |
+| Command                                                     | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
+| ----------------------------------------------------------- | --- | --- | --- | --- | --------------- |
+| [$allElementsTrue](allElementsTrue.md "allElementsTrue.md") | No  | Yes | Yes | Yes | Yes             |
+| [$anyElementTrue](anyElementTrue.md "anyElementTrue.md")    | No  | Yes | Yes | Yes | Yes             |
+| [$setDifference](setDifference.md "setDifference.md")       | No  | Yes | Yes | Yes | Yes             |
+| [$setEquals](setEquals.md "setEquals.md")                   | Yes | Yes | Yes | Yes | Yes             |
+| [$setIntersection](setIntersection.md "setIntersection.md") | Yes | Yes | Yes | Yes | Yes             |
+| [$setIsSubset](setIsSubset.md "setIsSubset.md")             | Yes | Yes | Yes | Yes | Yes             |
+| [$setUnion](setUnion.md "setUnion.md")                      | Yes | Yes | Yes | Yes | Yes             |
+| $setWindowFields                                            | No  | No  | No  | No  | No              |
 
 ### Stage operators
 
-| Command            | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| ------------------ | --- | --- | --- | --- | --------------- |
-| $addFields         | Yes | Yes | Yes | Yes | Yes             |
-| $bucket            | No  | No  | No  | Yes | No              |
-| $bucketAuto        | No  | No  | No  | No  |
-| $changeStream      | Yes | Yes | Yes | Yes | No              |
-| $collStats         | No  | Yes | Yes | Yes | No              |
-| $count             | Yes | Yes | Yes | Yes | Yes             |
-| $currentOp         | Yes | Yes | Yes | Yes | Yes             |
-| $facet             | No  | No  | No  | No  | No              |
-| $geoNear           | Yes | Yes | Yes | Yes | Yes             |
-| $graphLookup       | No  | No  | No  | No  | No              |
-| $group             | Yes | Yes | Yes | Yes | Yes             |
-| $indexStats        | Yes | Yes | Yes | Yes | Yes             |
-| $limit             | Yes | Yes | Yes | Yes | Yes             |
-| $listLocalSessions | No  | No  | No  | No  | No              |
-| $listSessions      | No  | No  | No  | No  | No              |
-| $lookup            | Yes | Yes | Yes | Yes | Yes             |
-| $match             | Yes | Yes | Yes | Yes | Yes             |
-| $merge             | -   | -   | No  | Yes | No              |
-| $out               | Yes | Yes | Yes | Yes | No              |
-| $planCacheStats    | -   | -   | No  | No  | No              |
-| $project           | Yes | Yes | Yes | Yes | Yes             |
-| $redact            | Yes | Yes | Yes | Yes | Yes             |
-| $replaceRoot       | Yes | Yes | Yes | Yes | Yes             |
-| $sample            | Yes | Yes | Yes | Yes | Yes             |
-| $set               | -   | -   | No  | Yes | No              |
-| $setWindowFields   | -   | -   | No  | No  | No              |
-| $skip              | Yes | Yes | Yes | Yes | Yes             |
-| $sort              | Yes | Yes | Yes | Yes | Yes             |
-| $sortByCount       | No  | No  | No  | No  | No              |
-| $unionWith         | -   | -   | No  | No  | No              |
-| $unset             | -   | -   | No  | Yes | No              |
-| $unwind            | Yes | Yes | Yes | Yes | Yes             |
-| $replaceWith       | No  | No  | No  | Yes | No              |
-| $vectorSearch      | No  | No  | No  | Yes | No              |
+| Command                                            | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
+| -------------------------------------------------- | --- | --- | --- | --- | --------------- |
+| [$addFields](addFields.md "addFields.md")          | Yes | Yes | Yes | Yes | Yes             |
+| [$bucket](bucket.md "bucket.md")                   | No  | No  | No  | Yes | No              |
+| $bucketAuto                                        | No  | No  | No  | No  |
+| [$changeStream](changeStream.md "changeStream.md") | Yes | Yes | Yes | Yes | No              |
+| [$collStats](collStats.md "collStats.md")          | No  | Yes | Yes | Yes | No              |
+| [$count](count.md "count.md")                      | Yes | Yes | Yes | Yes | Yes             |
+| [$currentOp](currentOp.md "currentOp.md")          | Yes | Yes | Yes | Yes | Yes             |
+| $facet                                             | No  | No  | No  | No  | No              |
+| [$geoNear](geoNear.md "geoNear.md")                | Yes | Yes | Yes | Yes | Yes             |
+| $graphLookup                                       | No  | No  | No  | No  | No              |
+| [$group](group.md "group.md")                      | Yes | Yes | Yes | Yes | Yes             |
+| [$indexStats](indexStats.md "indexStats.md")       | Yes | Yes | Yes | Yes | Yes             |
+| [$limit](limit.md "limit.md")                      | Yes | Yes | Yes | Yes | Yes             |
+| $listLocalSessions                                 | No  | No  | No  | No  | No              |
+| $listSessions                                      | No  | No  | No  | No  | No              |
+| [$lookup](lookup.md "lookup.md")                   | Yes | Yes | Yes | Yes | Yes             |
+| [$match](match.md "match.md")                      | Yes | Yes | Yes | Yes | Yes             |
+| [$merge](merge.md "merge.md")                      | -   | -   | No  | Yes | No              |
+| [$out](out.md "out.md")                            | Yes | Yes | Yes | Yes | No              |
+| $planCacheStats                                    | -   | -   | No  | No  | No              |
+| [$project](project.md "project.md")                | Yes | Yes | Yes | Yes | Yes             |
+| [$redact](redact.md "redact.md")                   | Yes | Yes | Yes | Yes | Yes             |
+| [$replaceRoot](replaceRoot.md "replaceRoot.md")    | Yes | Yes | Yes | Yes | Yes             |
+| [$sample](sample.md "sample.md")                   | Yes | Yes | Yes | Yes | Yes             |
+| [$set](set-stage.md "set-stage.md")                | -   | -   | No  | Yes | No              |
+| $setWindowFields                                   | -   | -   | No  | No  | No              |
+| [$skip](skip.md "skip.md")                         | Yes | Yes | Yes | Yes | Yes             |
+| [$sort](sort.md "sort.md")                         | Yes | Yes | Yes | Yes | Yes             |
+| $sortByCount                                       | No  | No  | No  | No  | No              |
+| $unionWith                                         | -   | -   | No  | No  | No              |
+| [$unset](unset-stage.md "unset-stage.md")          | -   | -   | No  | Yes | No              |
+| [$unwind](unwind.md "unwind.md")                   | Yes | Yes | Yes | Yes | Yes             |
+| [$replaceWith](replaceWith.md "replaceWith.md")    | No  | No  | No  | Yes | No              |
+| [$vectorSearch](vectorSearch.md "vectorSearch.md") | No  | No  | No  | Yes | No              |
 
 ### String operators
 
-| Command       | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| ------------- | --- | --- | --- | --- | --------------- |
-| $concat       | Yes | Yes | Yes | Yes | Yes             |
-| $indexOfBytes | Yes | Yes | Yes | Yes | Yes             |
-| $indexOfCP    | Yes | Yes | Yes | Yes | Yes             |
-| $ltrim        | No  | Yes | Yes | Yes | No              |
-| $regexFind    | -   | -   | Yes | Yes | No              |
-| $regexFindAll | -   | -   | Yes | Yes | No              |
-| $regexMatch   | -   | -   | Yes | Yes | No              |
-| $replaceAll   | -   | -   | Yes | Yes | No              |
-| $replaceOne   | -   | -   | Yes | Yes | No              |
-| $rtrim        | No  | Yes | Yes | Yes | No              |
-| $split        | Yes | Yes | Yes | Yes | Yes             |
-| $strcasecmp   | Yes | Yes | Yes | Yes | Yes             |
-| $strLenBytes  | Yes | Yes | Yes | Yes | Yes             |
-| $strLenCP     | Yes | Yes | Yes | Yes | Yes             |
-| $substr       | Yes | Yes | Yes | Yes | Yes             |
-| $substrBytes  | Yes | Yes | Yes | Yes | Yes             |
-| $substrCP     | Yes | Yes | Yes | Yes | Yes             |
-| $toLower      | Yes | Yes | Yes | Yes | Yes             |
-| $toUpper      | Yes | Yes | Yes | Yes | Yes             |
-| $trim         | No  | Yes | Yes | Yes | No              |
+| Command                                            | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
+| -------------------------------------------------- | --- | --- | --- | --- | --------------- |
+| [$concat](concat.md "concat.md")                   | Yes | Yes | Yes | Yes | Yes             |
+| [$indexOfBytes](indexOfBytes.md "indexOfBytes.md") | Yes | Yes | Yes | Yes | Yes             |
+| [$indexOfCP](indexOfCP.md "indexOfCP.md")          | Yes | Yes | Yes | Yes | Yes             |
+| [$ltrim](ltrim.md "ltrim.md")                      | No  | Yes | Yes | Yes | No              |
+| [$regexFind](regexFind.md "regexFind.md")          | -   | -   | Yes | Yes | No              |
+| [$regexFindAll](regexFindAll.md "regexFindAll.md") | -   | -   | Yes | Yes | No              |
+| [$regexMatch](regexMatch.md "regexMatch.md")       | -   | -   | Yes | Yes | No              |
+| [$replaceAll](replaceAll.md "replaceAll.md")       | -   | -   | Yes | Yes | No              |
+| [$replaceOne](replaceOne.md "replaceOne.md")       | -   | -   | Yes | Yes | No              |
+| [$rtrim](rtrim.md "rtrim.md")                      | No  | Yes | Yes | Yes | No              |
+| [$split](split.md "split.md")                      | Yes | Yes | Yes | Yes | Yes             |
+| [$strcasecmp](strcasecmp.md "strcasecmp.md")       | Yes | Yes | Yes | Yes | Yes             |
+| [$strLenBytes](strLenBytes.md "strLenBytes.md")    | Yes | Yes | Yes | Yes | Yes             |
+| [$strLenCP](strLenCP.md "strLenCP.md")             | Yes | Yes | Yes | Yes | Yes             |
+| [$substr](substr.md "substr.md")                   | Yes | Yes | Yes | Yes | Yes             |
+| [$substrBytes](substrBytes.md "substrBytes.md")    | Yes | Yes | Yes | Yes | Yes             |
+| [$substrCP](substrCP.md "substrCP.md")             | Yes | Yes | Yes | Yes | Yes             |
+| [$toLower](toLower.md "toLower.md")                | Yes | Yes | Yes | Yes | Yes             |
+| [$toUpper](toUpper.md "toUpper.md")                | Yes | Yes | Yes | Yes | Yes             |
+| [$trim](trim.md "trim.md")                         | No  | Yes | Yes | Yes | No              |
 
 ### System variables
 
-| Command   | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| --------- | --- | --- | --- | --- | --------------- |
-| $$CURRENT | No  | No  | No  | No  | No              |
-| $$DESCEND | Yes | Yes | Yes | Yes | Yes             |
-| $$KEEP    | Yes | Yes | Yes | Yes | Yes             |
-| $$PRUNE   | Yes | Yes | Yes | Yes | Yes             |
-| $$REMOVE  | No  | No  | No  | No  | No              |
-| $$ROOT    | Yes | Yes | Yes | Yes | Yes             |
+| Command                              | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
+| ------------------------------------ | --- | --- | --- | --- | --------------- |
+| $$CURRENT                            | No  | No  | No  | No  | No              |
+| [$$DESCEND](DESCEND.md "DESCEND.md") | Yes | Yes | Yes | Yes | Yes             |
+| [$$KEEP](KEEP.md "KEEP.md")          | Yes | Yes | Yes | Yes | Yes             |
+| [$$PRUNE](PRUNE.md "PRUNE.md")       | Yes | Yes | Yes | Yes | Yes             |
+| $$REMOVE                             | No  | No  | No  | No  | No              |
+| [$ROOT](ROOT.md "ROOT.md")           | Yes | Yes | Yes | Yes | Yes             |
 
 ### Text search operator
 
-| Command | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| ------- | --- | --- | --- | --- | --------------- |
-| $meta   | No  | No  | Yes | Yes | No              |
-| $search | No  | No  | Yes | Yes | No              |
+| Command                                            | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
+| -------------------------------------------------- | --- | --- | --- | --- | --------------- |
+| [$meta](meta-aggregation.md "meta-aggregation.md") | No  | No  | Yes | Yes | No              |
+| [$search](search.md "search.md")                   | No  | No  | Yes | Yes | No              |
 
 ### Type conversion operators
 
-| Command     | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| ----------- | --- | --- | --- | --- | --------------- |
-| $convert    | No  | Yes | Yes | Yes | Yes             |
-| $isNumber   | -   | -   | No  | No  | No              |
-| $toBool     | No  | Yes | Yes | Yes | Yes             |
-| $toDate     | No  | Yes | Yes | Yes | Yes             |
-| $toDecimal  | No  | Yes | Yes | Yes | Yes             |
-| $toDouble   | No  | Yes | Yes | Yes | Yes             |
-| $toInt      | No  | Yes | Yes | Yes | Yes             |
-| $toLong     | No  | Yes | Yes | Yes | Yes             |
-| $toObjectId | No  | Yes | Yes | Yes | Yes             |
-| $toString   | No  | Yes | Yes | Yes | Yes             |
+| Command                                      | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
+| -------------------------------------------- | --- | --- | --- | --- | --------------- |
+| [$convert](convert.md "convert.md")          | No  | Yes | Yes | Yes | Yes             |
+| $isNumber                                    | -   | -   | No  | No  | No              |
+| [$toBool](toBool.md "toBool.md")             | No  | Yes | Yes | Yes | Yes             |
+| [$toDate](toDate.md "toDate.md")             | No  | Yes | Yes | Yes | Yes             |
+| [$toDecimal](toDecimal.md "toDecimal.md")    | No  | Yes | Yes | Yes | Yes             |
+| [$toDouble](toDouble.md "toDouble.md")       | No  | Yes | Yes | Yes | Yes             |
+| [$toInt](toInt.md "toInt.md")                | No  | Yes | Yes | Yes | Yes             |
+| [$toLong](toLong.md "toLong.md")             | No  | Yes | Yes | Yes | Yes             |
+| [$toObjectId](toObjectId.md "toObjectId.md") | No  | Yes | Yes | Yes | Yes             |
+| [$toString](toString.md "toString.md")       | No  | Yes | Yes | Yes | Yes             |
 
 ### Variable operators
 
-| Command | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| ------- | --- | --- | --- | --- | --------------- |
-| $let    | Yes | Yes | Yes | Yes | Yes             |
-| $map    | Yes | Yes | Yes | Yes | Yes             |
+| Command                 | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
+| ----------------------- | --- | --- | --- | --- | --------------- |
+| [$let](let.md "let.md") | Yes | Yes | Yes | Yes | Yes             |
+| [$map](map.md "map.md") | Yes | Yes | Yes | Yes | Yes             |
 
 ### Miscellaneous operators
 
-| Command     | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| ----------- | --- | --- | --- | --- | --------------- |
-| $getField   | -   | -   | No  | No  | No              |
-| $rand       | -   | -   | No  | Yes | No              |
-| $sampleRate | -   | -   | No  | No  | No              |
+| Command                    | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
+| -------------------------- | --- | --- | --- | --- | --------------- |
+| $getField                  | -   | -   | No  | No  | No              |
+| [$rand](rand.md "rand.md") | -   | -   | No  | Yes | No              |
+| $sampleRate                | -   | -   | No  | No  | No              |
 
 ## Data types
 
@@ -765,3 +765,10 @@ features, and use case to the [Amazon DocumentDB service team](mailto:documentdb
 | TTL              | Yes | Yes | Yes | Yes | Yes             |
 | Unique           | Yes | Yes | Yes | Yes | Yes             |
 | Vector           | No  | No  | Yes | Yes | No              |
+
+For detailed information about specific MongoDB operators, see the following topics:
+
+- [Aggregation pipeline operators](mongo-apis-aggregation-pipeline-operators.md "mongo-apis-aggregation-pipeline-operators.md")
+- [Geospatial](mongo-apis-geospatial-operators.md "mongo-apis-geospatial-operators.md")
+- [Projection operators](#mongo-apis-projection-operators "#mongo-apis-projection-operators")
+- [Update operators](mongo-apis-update-operators.md "mongo-apis-update-operators.md")

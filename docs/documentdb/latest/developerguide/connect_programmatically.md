@@ -5,7 +5,7 @@ Amazon DocumentDB (with MongoDB compatibility) using several different languages
 separated into two sections based on whether you are connecting to a
 cluster that has Transport Layer Security (TLS) enabled or disabled. By
 default, TLS is enabled on Amazon DocumentDB clusters. However, you can turn off
-TLS if you want. For more information, see [Encrypting data in transit](security.encryption.md "security.encryption.md").
+TLS if you want. For more information, see [Encrypting data in transit](security.encryption.ssl.md "security.encryption.ssl.md").
 
 If you are attempting to connect to your Amazon DocumentDB from
 outside the VPC in which your cluster resides, please see [Connecting to an Amazon DocumentDB cluster from outside an Amazon VPC](connect-from-outside-a-vpc.md "connect-from-outside-a-vpc.md").

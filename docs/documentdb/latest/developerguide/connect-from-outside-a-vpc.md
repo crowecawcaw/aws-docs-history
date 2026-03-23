@@ -57,7 +57,7 @@ The following operation downloads this file:
 ###### Note
 
 TLS is enabled by default for new Amazon DocumentDB clusters. However, you can
-disable it. For more information, see [Managing Amazon DocumentDB cluster TLS settings](security.encryption.md#security.encryption.ssl.managing "security.encryption.md#security.encryption.ssl.managing").
+disable it. For more information, see [Managing Amazon DocumentDB cluster TLS settings](security.encryption.ssl.md#security.encryption.ssl.managing "security.encryption.ssl.md#security.encryption.ssl.managing").
 
 To connect to your Amazon DocumentDB cluster from outside the Amazon VPC, use the
 following command.

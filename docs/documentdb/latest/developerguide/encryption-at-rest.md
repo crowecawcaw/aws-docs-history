@@ -77,7 +77,7 @@ changed after the cluster is created.
 
 ###### To specify the encryption at rest option when creating your cluster
 
-1. Create an Amazon DocumentDB cluster as described in the [Getting Started](connect-ec2.md "connect-ec2.md") section. However, in step 6, do not choose
+1. Create an Amazon DocumentDB cluster as described in the [Getting Started](connect-ec2.launch-cluster.md "connect-ec2.launch-cluster.md") section. However, in step 6, do not choose
    **Create cluster**.
 2. Under the **Authentication** section, choose **Show
    advanced settings**.
