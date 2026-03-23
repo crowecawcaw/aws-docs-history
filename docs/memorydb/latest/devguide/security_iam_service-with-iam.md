@@ -177,7 +177,7 @@ JSON
 
 For more information on tagging, see [Tagging your MemoryDB resources](tagging-resources.md "tagging-resources.md").
 
-For more information on using policy condition operators, see [MemoryDB API permissions: Actions, resources, and conditions reference](iam.md "iam.md").
+For more information on using policy condition operators, see [MemoryDB API permissions: Actions, resources, and conditions reference](iam.APIReference.md "iam.APIReference.md").
 
 #### Example Policies: Using Conditions for Fine-Grained Parameter Control
 

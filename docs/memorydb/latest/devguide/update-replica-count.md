@@ -18,7 +18,7 @@ or the MemoryDB API.
 
 ### Using the AWS Management Console
 
-To increase the number of replicas in a MemoryDB cluster (console), see [Adding / Removing nodes from a cluster](clusters.md "clusters.md").
+To increase the number of replicas in a MemoryDB cluster (console), see [Adding / Removing nodes from a cluster](clusters.deletenode.md "clusters.deletenode.md").
 
 ### Using the AWS CLI
 
@@ -229,7 +229,7 @@ in a cluster.
 
 ### Using the AWS Management Console
 
-To decrease the number of replicas in a MemoryDB cluster (console), see [Adding / Removing nodes from a cluster](clusters.md "clusters.md").
+To decrease the number of replicas in a MemoryDB cluster (console), see [Adding / Removing nodes from a cluster](clusters.deletenode.md "clusters.deletenode.md").
 
 ### Using the AWS CLI
 

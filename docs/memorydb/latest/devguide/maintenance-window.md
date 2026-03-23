@@ -43,5 +43,5 @@ you requested occur during this time.
 
 For information on your maintenance window and node replacement, see the following:
 
-- [Replacing nodes](nodes.md "nodes.md")—Managing node replacement
-- [Modifying a MemoryDB cluster](clusters.md "clusters.md")—Changing a cluster's maintenance window
+- [Replacing nodes](nodes.nodereplacement.md "nodes.nodereplacement.md")—Managing node replacement
+- [Modifying a MemoryDB cluster](clusters.modify.md "clusters.modify.md")—Changing a cluster's maintenance window

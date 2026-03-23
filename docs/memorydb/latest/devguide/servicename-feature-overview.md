@@ -10,11 +10,11 @@ Amazon MemoryDB is a durable, in-memory database service that delivers ultra-fas
 - Easily scale horizontally by adding and removing nodes or vertically by moving to larger or smaller node types. You can scale write throughput by adding shards and scale read throughput by adding replicas.
 - Read-after-write consistency for primary nodes and guaranteed eventual consistency for replica nodes.
 - MemoryDB supports encryption in transit, encryption at
-  rest and authentication of users via [Authenticating users with Access Control Lists (ACLs)](clusters.md "clusters.md").
+  rest and authentication of users via [Authenticating users with Access Control Lists (ACLs)](clusters.acls.md "clusters.acls.md").
 - Automatic snapshots in Amazon S3 with retention for up to 35 days.
 - Support for up to 500 nodes and more than 100 TB of storage per cluster (with 1 replica per shard).
 - Encryption in-transit with TLS and encryption at-rest with AWS KMS keys.
-- User authentication and authorization with Valkey and Redis OSS [Authenticating users with Access Control Lists (ACLs)](clusters.md "clusters.md").
+- User authentication and authorization with Valkey and Redis OSS [Authenticating users with Access Control Lists (ACLs)](clusters.acls.md "clusters.acls.md").
 - Support for AWS Graviton2 instance types.
 - Integration with other AWS services such as CloudWatch, Amazon VPC, CloudTrail, and Amazon SNS for monitoring, security, and notifications.
 - Fully-managed software patching and upgrades.

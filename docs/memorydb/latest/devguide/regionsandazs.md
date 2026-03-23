@@ -28,7 +28,7 @@ By locating the nodes in different AZs, MemoryDB eliminates the chance that a fa
 such as a power outage, in one AZ will cause loss of availability.
 
 - [Creating a MemoryDB cluster](getting-started.md#clusters.create "getting-started.md#clusters.create")
-- [Modifying a MemoryDB cluster](clusters.md "clusters.md")
+- [Modifying a MemoryDB cluster](clusters.modify.md "clusters.modify.md")
 
 ## Supported Regions & endpoints
 

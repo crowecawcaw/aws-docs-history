@@ -231,7 +231,7 @@ returned:
 ## MemoryDB API
 
 The following examples demonstrate how to use the [MemoryDB Query
-API](programmingguide.md "programmingguide.md") for reserved nodes:
+API](programmingguide.queryapi.md "programmingguide.queryapi.md") for reserved nodes:
 
 **DescribeReservedNodesOfferings**
 

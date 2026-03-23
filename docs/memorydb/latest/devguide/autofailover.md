@@ -161,7 +161,7 @@ Use the following procedure to test automatic failover with the console.
 3. In the **Details** area, confirm that this cluster is
    Multi-AZ enabled. If the cluster isn't Multi-AZ enabled, either choose a
    different cluster or modify this cluster to enable Multi-AZ. For more
-   information, see [Modifying a MemoryDB cluster](clusters.md "clusters.md").
+   information, see [Modifying a MemoryDB cluster](clusters.modify.md "clusters.modify.md").
 4. Choose the cluster's name.
 5. On the **Shards and nodes** page, for the shard on which you want to test failover,
    choose the shard's name.

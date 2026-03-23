@@ -33,5 +33,5 @@ credentials and set up individual users with AWS IAM Identity Center or AWS Iden
 
 - [At-Rest Encryption in MemoryDB](at-rest-encryption.md "at-rest-encryption.md")
 - [In-transit encryption (TLS) in MemoryDB](in-transit-encryption.md "in-transit-encryption.md")
-- [Authenticating users with Access Control Lists (ACLs)](clusters.md "clusters.md")
+- [Authenticating users with Access Control Lists (ACLs)](clusters.acls.md "clusters.acls.md")
 - [Authenticating with IAM](auth-iam.md "auth-iam.md")

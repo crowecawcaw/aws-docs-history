@@ -25,7 +25,7 @@ If the snapshot is too large, the resulting cluster has a status of
 cluster and start over.
 
 For a complete listing of node types and specifications,
-see [MemoryDB node-type specific parameters](parametergroups.md#parametergroups.redis.nodespecific "parametergroups.md#parametergroups.redis.nodespecific").
+see [MemoryDB node-type specific parameters](parametergroups.redis.md#parametergroups.redis.nodespecific "parametergroups.redis.md#parametergroups.redis.nodespecific").
 
 - You can encrypt a .rdb file with Amazon S3 server-side encryption (SSE-S3) only. For more information, see
   [Protecting data using server-side encryption](../../../AmazonS3/latest/dev/serv-side-encryption.md "../../../AmazonS3/latest/dev/serv-side-encryption.md").

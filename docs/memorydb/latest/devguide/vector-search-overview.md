@@ -36,7 +36,7 @@ the declared fields for each index and updating the index with the new value. Th
 meaning that the indexes are only eventually consistent with their keyspace contents.
 Thus an insert or update of a key will not be visible in search results for a short period of time. During periods of heavy system load and/or heavy mutation of data, the visibility delay can become longer.
 
-The creation of an index is multi-step process. The first step is to execute the [FT.CREATE](vector-search-commands-ft.md "vector-search-commands-ft.md") command which defines the index.
+The creation of an index is multi-step process. The first step is to execute the [FT.CREATE](vector-search-commands-ft.create.md "vector-search-commands-ft.create.md") command which defines the index.
 Successful execution of a create automatically initiates the second step – backfilling. The backfill process runs in a background thread and scans the
 key space for keys that are within the new index’s prefix list.
 Each key that is found is added to the index. Eventually the entire keyspace is scanned, completing the index creation process.
@@ -78,8 +78,8 @@ Reindexing is one method for restoring optimal memory usage and/or recall.
 
 ## Vector search query expression
 
-The [FT.SEARCH](vector-search-commands-ft.md "vector-search-commands-ft.md") and
-[FT.AGGREGATE](vector-search-commands-ft.md "vector-search-commands-ft.md")
+The [FT.SEARCH](vector-search-commands-ft.search.md "vector-search-commands-ft.search.md") and
+[FT.AGGREGATE](vector-search-commands-ft.aggregate.md "vector-search-commands-ft.aggregate.md")
 commands require a query expression. This expression is a single string parameter which is composed of one or more operators.
 Each operator uses one field in the index to identify a subset of the keys in the index. Multiple operators may be combined using boolean
 combiners as well as parentheses to further enhance or restrict the collected set of keys (or resultset).
@@ -248,4 +248,4 @@ In other words, the actual contents of an index don’t control the access. Rath
 It can be easy to create a situation where a user has read and/or write access to a key but is unable to access an index containing that key.
 Note that only read access to the keyspace is required to create or use an index – the presence or absence of write access is not considered.
 
-For more information on using ACLs with MemoryDB see [Authenticating users with Access Control Lists (ACLs)](clusters.md "clusters.md").
+For more information on using ACLs with MemoryDB see [Authenticating users with Access Control Lists (ACLs)](clusters.acls.md "clusters.acls.md").

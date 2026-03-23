@@ -144,7 +144,7 @@ The AWS CLI is available at [http://aws.amazon.com/cli](http://aws.amazon.com/cl
 ## Step 2: Create a cluster
 
 Before creating a cluster for production use, you obviously need to consider how you will configure the cluster to meet your business needs. Those issues
-are addressed in the [Preparing a cluster](clusters.md "clusters.md") section. For the purposes of this Getting Started exercise, you can accept the default configuration values where they apply.
+are addressed in the [Preparing a cluster](clusters.prepare.md "clusters.prepare.md") section. For the purposes of this Getting Started exercise, you can accept the default configuration values where they apply.
 
 The cluster you create will be live, and not running in a sandbox. You will
 incur the standard MemoryDB usage fees for the instance until you delete it. The total
@@ -256,7 +256,7 @@ Create new cluster1. Complete the **Cluster info** section.
 
     Parameter groups control the runtime parameters of your cluster.
     For more information on parameter groups,
-    see [Engine specific parameters](parametergroups.md "parametergroups.md"). 5. For **Node type**, choose a value for the node type (along with its associated memory size) that you want.
+    see [Engine specific parameters](parametergroups.redis.md "parametergroups.redis.md"). 5. For **Node type**, choose a value for the node type (along with its associated memory size) that you want.
 
     If you choose a node type from the r6gd family, you will automatically enable data-tiering, which splits data storage
     between memory and SSD. For more information, see [Data tiering](data-tiering.md "data-tiering.md"). 6. For **Number of shards**, choose the number of shards that you want for this cluster.
@@ -294,7 +294,7 @@ Create new cluster1. Complete the **Cluster info** section.
              Managed AWS-owned KMS key** and choosing
              the key.
             * **Encryption in-transit** – Enables encryption of data on the wire. If you select no encryption, then an open Access control list called “open access” will be created with a default user. For more
-             information, see [Authenticating users with Access Control Lists (ACLs)](clusters.md "clusters.md").
+             information, see [Authenticating users with Access Control Lists (ACLs)](clusters.acls.md "clusters.acls.md").
 
         3. For **Snapshot**, optionally specify a snapshot retention period and a snapshot window. By default, **Enable automatic snapshots** is pre-selected.
         4. For **Maintenance window** optionally specify a maintenance window. The _maintenance window_ is
@@ -373,7 +373,7 @@ The target cluster defaults to the settings of the source cluster. Optionally, y
 
     Parameter groups control the runtime parameters of your cluster.
     For more information on parameter groups,
-    see [Engine specific parameters](parametergroups.md "parametergroups.md"). 5. For **Node type**, choose a value for the node type (along with its associated memory size) that you want.
+    see [Engine specific parameters](parametergroups.redis.md "parametergroups.redis.md"). 5. For **Node type**, choose a value for the node type (along with its associated memory size) that you want.
 
     If you choose a node type from the r6gd family, you will automatically enable data-tiering, which splits data storage
     between memory and SSD. For more information, see [Data tiering](data-tiering.md "data-tiering.md"). 6. For **Number of shards**, choose the number of shards that you want for this cluster.
@@ -411,7 +411,7 @@ The target cluster defaults to the settings of the source cluster. Optionally, y
              Managed AWS-owned KMS key** and choosing
              the key.
             * **Encryption in-transit** – Enables encryption of data on the wire. If you select no encryption, then an open Access control list called “open access” will be created with a default user. For more
-             information, see [Authenticating users with Access Control Lists (ACLs)](clusters.md "clusters.md").
+             information, see [Authenticating users with Access Control Lists (ACLs)](clusters.acls.md "clusters.acls.md").
 
         3. For **Snapshot**, optionally specify a snapshot retention period and a snapshot window. By default, **Enable automatic snapshots** is pre-selected.
         4. For **Maintenance window** optionally specify a maintenance window. The _maintenance window_ is
@@ -523,7 +523,7 @@ To stop incurring charges for this cluster, you must delete it. See [Step 5: Del
 
 ### Setting up authentication
 
-For information about setting up authentication for your cluster, see [Authenticating with IAM](auth-iam.md "auth-iam.md") and [Authenticating users with Access Control Lists (ACLs)](clusters.md "clusters.md").
+For information about setting up authentication for your cluster, see [Authenticating with IAM](auth-iam.md "auth-iam.md") and [Authenticating users with Access Control Lists (ACLs)](clusters.acls.md "clusters.acls.md").
 
 ## Step 3: Authorize access to the cluster
 
@@ -626,7 +626,7 @@ Then type the following command, substituting the endpoint of your cluster and p
 redis-cli -h `Primary or Configuration Endpoint` --tls -p 6379
 ```
 
-For more information on finding the endpoint, see [Find your Node Endpoints](../../../AmazonElastiCache/latest/dg/GettingStarted.md#GettingStarted.FindEndpoints "../../../AmazonElastiCache/latest/dg/GettingStarted.md#GettingStarted.FindEndpoints").
+For more information on finding the endpoint, see [Find your Node Endpoints](../../../AmazonElastiCache/latest/dg/GettingStarted.ConnectToCacheNode.md#GettingStarted.FindEndpoints "../../../AmazonElastiCache/latest/dg/GettingStarted.ConnectToCacheNode.md#GettingStarted.FindEndpoints").
 
 **Amazon Linux 2**
 

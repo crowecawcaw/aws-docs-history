@@ -18,7 +18,7 @@ action before performance issues occur.
 
 ## CPUUtilization
 
-This is a host-level metric reported as a percentage. For more information, see [Host-Level Metrics](metrics.md "metrics.md").
+This is a host-level metric reported as a percentage. For more information, see [Host-Level Metrics](metrics.HostLevel.md "metrics.HostLevel.md").
 
 For smaller node types with 2vCPUs or less, use the `CPUUtilization` metric to monitor your workload.
 
@@ -33,17 +33,17 @@ main workload is from write requests, we recommend that you add more shards to d
 
 Instead of using the Host-Level metric `CPUUtilization`, you might be able to
 use the metric `EngineCPUUtilization`, which reports the percentage of usage on the Valkey or Redis OSS engine core. To see if this metric is available on your nodes and for more information, see
-[Metrics for MemoryDB](metrics.md "metrics.md").
+[Metrics for MemoryDB](metrics.memorydb.md "metrics.memorydb.md").
 
-For larger node types with 4vCPUs or more, you may want to use the `EngineCPUUtilization` metric, which reports the percentage of usage on the Valkey or Redis OSS engine core. To see if this metric is available on your nodes and for more information, see [Metrics for MemoryDB](metrics.md "metrics.md").
+For larger node types with 4vCPUs or more, you may want to use the `EngineCPUUtilization` metric, which reports the percentage of usage on the Valkey or Redis OSS engine core. To see if this metric is available on your nodes and for more information, see [Metrics for MemoryDB](metrics.memorydb.md "metrics.memorydb.md").
 
 ## EngineCPUUtilization
 
-For larger node types with 4vCPUs or more, you may want to use the `EngineCPUUtilization` metric, which reports the percentage of usage on the Valkey or Redis OSS engine core. To see if this metric is available on your nodes and for more information, see [Metrics for MemoryDB](metrics.md "metrics.md").
+For larger node types with 4vCPUs or more, you may want to use the `EngineCPUUtilization` metric, which reports the percentage of usage on the Valkey or Redis OSS engine core. To see if this metric is available on your nodes and for more information, see [Metrics for MemoryDB](metrics.memorydb.md "metrics.memorydb.md").
 
 ## SwapUsage
 
-This is a host-level metric reported in bytes. For more information, see [Host-Level Metrics](metrics.md "metrics.md").
+This is a host-level metric reported in bytes. For more information, see [Host-Level Metrics](metrics.HostLevel.md "metrics.HostLevel.md").
 
 If either the `FreeableMemory` CloudWatch metric is close to 0 (i.e., below 100MB), or the `SwapUsage` metric is greater than the `FreeableMemory` metric, then a node could be under memory pressure.
 

@@ -50,4 +50,4 @@ instance.
 
         Choose **Apply Rule Changes**.
 
-Now you are ready to create a [subnet group](subnetgroups.md "subnetgroups.md") and [create a cluster](getting-started.md "getting-started.md") in your VPC.
+Now you are ready to create a [subnet group](subnetgroups.md "subnetgroups.md") and [create a cluster](getting-started.createcluster.md "getting-started.createcluster.md") in your VPC.

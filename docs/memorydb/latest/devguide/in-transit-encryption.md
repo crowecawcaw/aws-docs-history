@@ -34,6 +34,6 @@ For more information on connecting to MemoryDB clusters, see [Connecting to Memo
 ## See also
 
 - [At-Rest Encryption in MemoryDB](at-rest-encryption.md "at-rest-encryption.md")
-- [Authenticating Users with Access Control Lists (ACLs)](clusters.md "clusters.md")
+- [Authenticating Users with Access Control Lists (ACLs)](clusters.acls.md "clusters.acls.md")
 - [MemoryDB and Amazon VPC](vpcs.md "vpcs.md")
 - [Identity and access management in MemoryDB](iam.md "iam.md")

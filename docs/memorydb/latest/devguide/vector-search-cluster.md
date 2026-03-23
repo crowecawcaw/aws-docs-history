@@ -28,7 +28,7 @@ aws memorydb create-cluster \
 
 ```
 
-Optionally, you can also create a new parameter group to enable vector search as shown in the following example. You can learn more about parameter groups [here](parametergroups.md "parametergroups.md").
+Optionally, you can also create a new parameter group to enable vector search as shown in the following example. You can learn more about parameter groups [here](parametergroups.management.md "parametergroups.management.md").
 
 ```
 aws memorydb create-parameter-group \

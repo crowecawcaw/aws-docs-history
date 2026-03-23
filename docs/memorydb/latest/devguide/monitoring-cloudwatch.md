@@ -10,8 +10,8 @@ The following sections list the metrics and dimensions for MemoryDB.
 
 ###### Topics
 
-- [Host-Level Metrics](metrics.md "metrics.md")
-- [Metrics for MemoryDB](metrics.md "metrics.md")
-- [Which Metrics Should I Monitor?](metrics.md "metrics.md")
-- [Choosing Metric Statistics and Periods](metrics.md "metrics.md")
+- [Host-Level Metrics](metrics.HostLevel.md "metrics.HostLevel.md")
+- [Metrics for MemoryDB](metrics.memorydb.md "metrics.memorydb.md")
+- [Which Metrics Should I Monitor?](metrics.whichshouldimonitor.md "metrics.whichshouldimonitor.md")
+- [Choosing Metric Statistics and Periods](metrics.ChoosingStatisticsAndPeriods.md "metrics.ChoosingStatisticsAndPeriods.md")
 - [Monitoring CloudWatch metrics](cloudwatchmetrics.md "cloudwatchmetrics.md")

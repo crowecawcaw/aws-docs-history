@@ -10,7 +10,7 @@ After creating a cluster with a supported engine version, the JSON data type and
 existing JSON-based Valkey or Redis OSS applications into MemoryDB. For more information on the supported commands, see [Supported commands](json-list-commands.md "json-list-commands.md").
 
 JSON-related metric `JsonBasedCmds` is incorporated into CloudWatch to monitor the usage of this datatype. For more information,
-see [Metrics for MemoryDB](metrics.md "metrics.md").
+see [Metrics for MemoryDB](metrics.memorydb.md "metrics.memorydb.md").
 
 ###### Note
 

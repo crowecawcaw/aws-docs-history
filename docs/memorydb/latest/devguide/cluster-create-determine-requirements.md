@@ -15,7 +15,7 @@ access from outside AWS. For more information, see [Accessing MemoryDB resources
 
 - Do you need to customize any parameter values?
 
-If you do, create a custom parameter group. For more information, see [Creating a parameter group](parametergroups.md "parametergroups.md").
+If you do, create a custom parameter group. For more information, see [Creating a parameter group](parametergroups.creating.md "parametergroups.creating.md").
 
 - Do you need to create a VPC
   security group?
@@ -57,7 +57,7 @@ to up to MemoryDB.
 If you are running Valkey or Redis OSS version 7.0 or higher, you will get additional acceleration with enhanced I/O multiplexing, where each
 dedicated network IO thread pipelines commands from multiple clients into the engine, taking advantage of the ability to
 efficiently process commands in batches. For more information, see [Ultra-fast performance](https://aws.amazon.com/memorydb/features/#Ultra-fast_performance "https://aws.amazon.com/memorydb/features/#Ultra-fast_performance") and
-[Supported node types](nodes.md "nodes.md").
+[Supported node types](nodes.supportedtypes.md "nodes.supportedtypes.md").
 
 ## Scaling requirements
 

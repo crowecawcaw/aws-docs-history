@@ -77,7 +77,7 @@ MemoryDB console, the AWS CLI, or the MemoryDB API.
 
     Parameter groups control the runtime parameters of your cluster.
     For more information on parameter groups,
-    see [Engine specific parameters](parametergroups.md "parametergroups.md"). 4. For **Node type**, choose a value for the node type (along with its associated memory size) that you want.
+    see [Engine specific parameters](parametergroups.redis.md "parametergroups.redis.md"). 4. For **Node type**, choose a value for the node type (along with its associated memory size) that you want.
 
     If you choose a member of the r6gd node type family, you will automatically enable data-tiering in your cluster.
     For more information, see [Data tiering](data-tiering.md "data-tiering.md"). 5. For **Number of shards**, choose the number of shards that you want for this cluster.
@@ -115,7 +115,7 @@ MemoryDB console, the AWS CLI, or the MemoryDB API.
              the key.
             * **Encryption in-transit** – Enables encryption of data on the wire. This is enabled by default. For more information, see [encryption in transit](in-transit-encryption.md "in-transit-encryption.md").
 
-        If you select no encryption, then an open Access control list called “open access” will be created with a default user. For more information, see [Authenticating users with Access Control Lists (ACLs)](clusters.md "clusters.md"). 3. For **Snapshot** optionally specify a snapshot retention period and a snapshot window. By default, the **Enable automatic snapshots** is selected. 4. For **Maintenance window** optionally specify a maintenance window. The _maintenance window_ is
+        If you select no encryption, then an open Access control list called “open access” will be created with a default user. For more information, see [Authenticating users with Access Control Lists (ACLs)](clusters.acls.md "clusters.acls.md"). 3. For **Snapshot** optionally specify a snapshot retention period and a snapshot window. By default, the **Enable automatic snapshots** is selected. 4. For **Maintenance window** optionally specify a maintenance window. The _maintenance window_ is
         the time, generally an hour in length, each week when MemoryDB
         schedules system maintenance for your cluster. You can allow MemoryDB
         to choose the day and time for your maintenance window (_No

@@ -8,4 +8,4 @@ MemoryDB also provides encryption features for data on clusters:
 - In-transit encryption encrypts your data whenever it is moving from one place to another,
   such as between nodes in your cluster or between your cluster and your application.
 - At-rest encryption encrypts the transaction log and your on-disk data during snapshot operations.
-  You can also use [Authenticating users with Access Control Lists (ACLs)](clusters.md "clusters.md") to control user access to your clusters.
+  You can also use [Authenticating users with Access Control Lists (ACLs)](clusters.acls.md "clusters.acls.md") to control user access to your clusters.

@@ -28,5 +28,5 @@ model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://a
 - [Logging and monitoring](monitoring-overview.md "monitoring-overview.md")
 - [Compliance validation](memorydb-compliance.md "memorydb-compliance.md")
 - [Infrastructure security](infrastructure-security.md "infrastructure-security.md")
-- [Internetwork traffic privacy](Security.md "Security.md")
+- [Internetwork traffic privacy](Security.traffic.md "Security.traffic.md")
 - [Service updates](service-updates.md "service-updates.md")

@@ -8,6 +8,6 @@ action.
 
 ###### Topics
 
-- [Managing MemoryDB Amazon SNS notifications](mdbevents.md "mdbevents.md")
-- [Viewing MemoryDB events](mdbevents.md "mdbevents.md")
+- [Managing MemoryDB Amazon SNS notifications](mdbevents.sns.md "mdbevents.sns.md")
+- [Viewing MemoryDB events](mdbevents.viewing.md "mdbevents.viewing.md")
 - [Event Notifications and Amazon SNS](memorydbsns.md "memorydbsns.md")

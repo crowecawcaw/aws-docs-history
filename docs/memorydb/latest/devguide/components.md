@@ -20,7 +20,7 @@ promoting that replica to the new primary node for that shard. MemoryDB runs Val
 Each MemoryDB cluster runs a Valkey or Redis OSS engine version. Each engine version has its own supported features. Additionally, each engine version has a set of parameters in a parameter group that control the behavior of the clusters that it manages.
 
 The computation and memory capacity of a cluster is determined by its node type. You can select the node type that best meets your needs. If your needs change over time, you can change node types.
-For information, see [Supported node types](nodes.md "nodes.md").
+For information, see [Supported node types](nodes.supportedtypes.md "nodes.supportedtypes.md").
 
 ###### Note
 
@@ -64,7 +64,7 @@ type. For more information, see [Scaling](scaling.md "scaling.md").
 Every node within a cluster is the same node type.
 
 Multiple types of nodes are supported, each with varying amounts of memory.
-For a list of supported node types, see [Supported node types](nodes.md "nodes.md").
+For a list of supported node types, see [Supported node types](nodes.supportedtypes.md "nodes.supportedtypes.md").
 
 For more information on nodes, see [Managing nodes](nodes.md "nodes.md").
 
@@ -108,10 +108,10 @@ An Access control list is a collection of one or more users. Access strings foll
 
 user access to Valkey or Redis OSS commands and data.
 
-For more detailed information on MemoryDB Access Control Lists, see [Authenticating users with Access Control Lists (ACLs)](clusters.md "clusters.md").
+For more detailed information on MemoryDB Access Control Lists, see [Authenticating users with Access Control Lists (ACLs)](clusters.acls.md "clusters.acls.md").
 
 ## Users
 
 A user has a user name and password, and is used to access data and issue commands on your MemoryDB cluster.
 A user is a member of an Access Control List (ACL), which you can use to determine permissions for that user on MemoryDB clusters.
-For more information, see [Authenticating users with Access Control Lists (ACLs)](clusters.md "clusters.md")
+For more information, see [Authenticating users with Access Control Lists (ACLs)](clusters.acls.md "clusters.acls.md")

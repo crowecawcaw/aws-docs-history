@@ -22,7 +22,7 @@ If you delete a resource, any tags for the resource are also deleted.
 You can work with tags using the AWS Management Console, the AWS CLI, and the MemoryDB API.
 
 If you're using IAM, you can control which users in your AWS account have permission to create, edit, or delete tags.
-For more information, see [Resource-level permissions](iam.md "iam.md").
+For more information, see [Resource-level permissions](iam.resourcelevelpermissions.md "iam.resourcelevelpermissions.md").
 
 You can tag most MemoryDB resources that already exist in your account. The table below lists the resources that support tagging.
 
@@ -89,7 +89,7 @@ the source snapshot tags will be added to the copied snapshot.
 - **TagResource** and **UntagResource** :
 
 Tags will be added/removed from the resource.
-MemoryDB multi megion clusters are a global resource. As such, tags can be specified, modified or listed on multi region clusters by invoking the relevant APIs in any given region where MemoryDB Multi-Region is supported. For more information on region support, see [Prerequisites and limitations](multi-region.md "multi-region.md").
+MemoryDB multi megion clusters are a global resource. As such, tags can be specified, modified or listed on multi region clusters by invoking the relevant APIs in any given region where MemoryDB Multi-Region is supported. For more information on region support, see [Prerequisites and limitations](multi-region.prereq.md "multi-region.prereq.md").
 
 Tags on multi region clusters are independent from tags on regional clusters. You can specify different sets of tags on a multi region cluster and it’s contained regional clusters. There is no hierarchical connection between these tags and they are not copied through the hierarchy between these resource types.
 

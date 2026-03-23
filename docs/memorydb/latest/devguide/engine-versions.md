@@ -100,13 +100,13 @@ For more information on the Valkey 7.2 release, see [Redis OSS 7.2.4 Release Not
 ## MemoryDB with Redis OSS version 6.2 (enhanced)
 
 MemoryDB introduces the next version of the Redis OSS engine, which includes
-[Authenticating users with Access Control Lists (ACLs)](clusters.md "clusters.md"), automatic version upgrade support, client-side caching and significant operational improvements.
+[Authenticating users with Access Control Lists (ACLs)](clusters.acls.md "clusters.acls.md"), automatic version upgrade support, client-side caching and significant operational improvements.
 
 Redis engine version 6.2.6 also introduces support for native JavaScript Object Notation (JSON) format, a simple, schemaless way to encode complex datasets
 inside Redis OSS clusters. With JSON support, you can leverage the performance and Redis OSS APIs for applications that operate over JSON.
 For more information, see [Getting started with JSON](json-gs.md "json-gs.md").
 Also included is JSON-related metric `JsonBasedCmds` that is incorporated into CloudWatch to monitor the usage of this datatype. For more information,
-see [Metrics for MemoryDB](metrics.md "metrics.md").
+see [Metrics for MemoryDB](metrics.memorydb.md "metrics.memorydb.md").
 
 With Redis OSS 6, MemoryDB will offer a single version for each Redis OSS minor release, rather than offering multiple patch versions.
 This is designed to minimize confusion and ambiguity on having to choose from multiple minor versions.
@@ -143,7 +143,7 @@ You can also upgrade from an existing MemoryDB with Redis OSS engine to a Valkey
 You can initiate engine version upgrades to your cluster in the following ways:
 
 - By updating it
-  and specifying a new engine version. For more information, see [Modifying a MemoryDB cluster](clusters.md "clusters.md").
+  and specifying a new engine version. For more information, see [Modifying a MemoryDB cluster](clusters.modify.md "clusters.modify.md").
 - Applying the service update for the corresponding engine version. For more information, see [Service updates in MemoryDB](service-updates.md "service-updates.md").
 
 Note the following:
@@ -192,9 +192,9 @@ You initiate version upgrades to your cluster by modifying it
 using the MemoryDB console, the AWS CLI, or the MemoryDB API and specifying a newer
 engine version. For more information, see the following topics.
 
-- [Using the AWS Management Console](clusters.md#clusters.modifyclusters.viewdetails "clusters.md#clusters.modifyclusters.viewdetails")
-- [Using the AWS CLI](clusters.md#clusters.modify.cli "clusters.md#clusters.modify.cli")
-- [Using the MemoryDB API](clusters.md#clusters.modify.api "clusters.md#clusters.modify.api")
+- [Using the AWS Management Console](clusters.modify.md#clusters.modifyclusters.viewdetails "clusters.modify.md#clusters.modifyclusters.viewdetails")
+- [Using the AWS CLI](clusters.modify.md#clusters.modify.cli "clusters.modify.md#clusters.modify.cli")
+- [Using the MemoryDB API](clusters.modify.md#clusters.modify.api "clusters.modify.md#clusters.modify.api")
 
 ### Resolving blocked Redis OSS engine upgrades
 
