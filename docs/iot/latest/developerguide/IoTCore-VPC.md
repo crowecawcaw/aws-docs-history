@@ -372,7 +372,7 @@ endpoint.
 ## Limitations
 
 VPC endpoints are currently supported for [AWS IoT Core control plane endpoints](connect-to-iot.md#iot-service-endpoint-intro "connect-to-iot.md#iot-service-endpoint-intro"), [AWS IoT Core data endpoints](iot-connect-devices.md#iot-connect-device-endpoints "iot-connect-devices.md#iot-connect-device-endpoints"), and [AWS IoT Core credential
-provider](authorizing-direct-aws.md "authorizing-direct-aws.md") endpoints. VPC endpoints are only supported for [Federal
+provider](authorizing-direct-aws.htm.md "authorizing-direct-aws.htm.md") endpoints. VPC endpoints are only supported for [Federal
 Information Processing Standard (FIPS) endpoints](iot-connect-fips.md "iot-connect-fips.md") when using the AWS IoT Core
 control plane.
 

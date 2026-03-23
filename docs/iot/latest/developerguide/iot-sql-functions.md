@@ -721,24 +721,24 @@ The name of the DynamoDB table to query.
 
 partitionKeyName
 
-The name of the partition key. For more information, see [DynamoDB Keys](../../../amazondynamodb/latest/developerguide/HowItWorks.md#HowItWorks.CoreComponents.PrimaryKey "../../../amazondynamodb/latest/developerguide/HowItWorks.md#HowItWorks.CoreComponents.PrimaryKey").
+The name of the partition key. For more information, see [DynamoDB Keys](../../../amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.md#HowItWorks.CoreComponents.PrimaryKey "../../../amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.md#HowItWorks.CoreComponents.PrimaryKey").
 
 partitionKeyValue
 
 The value of the partition key used to identify a record. For more
-information, see [DynamoDB Keys](../../../amazondynamodb/latest/developerguide/HowItWorks.md#HowItWorks.CoreComponents.PrimaryKey "../../../amazondynamodb/latest/developerguide/HowItWorks.md#HowItWorks.CoreComponents.PrimaryKey").
+information, see [DynamoDB Keys](../../../amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.md#HowItWorks.CoreComponents.PrimaryKey "../../../amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.md#HowItWorks.CoreComponents.PrimaryKey").
 
 sortKeyName
 
 (Optional) The name of the sort key. This parameter is required only
 if the DynamoDB table queried uses a composite key. For more information,
-see [DynamoDB Keys](../../../amazondynamodb/latest/developerguide/HowItWorks.md#HowItWorks.CoreComponents.PrimaryKey "../../../amazondynamodb/latest/developerguide/HowItWorks.md#HowItWorks.CoreComponents.PrimaryKey").
+see [DynamoDB Keys](../../../amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.md#HowItWorks.CoreComponents.PrimaryKey "../../../amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.md#HowItWorks.CoreComponents.PrimaryKey").
 
 sortKeyValue
 
 (Optional) The value of the sort key. This parameter is required only
 if the DynamoDB table queried uses a composite key. For more information,
-see [DynamoDB Keys](../../../amazondynamodb/latest/developerguide/HowItWorks.md#HowItWorks.CoreComponents.PrimaryKey "../../../amazondynamodb/latest/developerguide/HowItWorks.md#HowItWorks.CoreComponents.PrimaryKey").
+see [DynamoDB Keys](../../../amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.md#HowItWorks.CoreComponents.PrimaryKey "../../../amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.md#HowItWorks.CoreComponents.PrimaryKey").
 
 roleArn
 

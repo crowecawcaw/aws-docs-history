@@ -223,12 +223,12 @@ These instructions describe how to:
 
 ###### Documentation for the AWS IoT Core services that the AWS SDK for PHP supports
 
-- [IoTClient reference documentation](../../../aws-sdk-php/v3/api/class-Aws.Iot.md "../../../aws-sdk-php/v3/api/class-Aws.Iot.md")
-- [IoTDataPlaneClient reference documentation](../../../aws-sdk-php/v3/api/class-Aws.IotDataPlane.md "../../../aws-sdk-php/v3/api/class-Aws.IotDataPlane.md")
+- [IoTClient reference documentation](../../../aws-sdk-php/v3/api/class-Aws.Iot.IotClient.md "../../../aws-sdk-php/v3/api/class-Aws.Iot.IotClient.md")
+- [IoTDataPlaneClient reference documentation](../../../aws-sdk-php/v3/api/class-Aws.IotDataPlane.IotDataPlaneClient.md "../../../aws-sdk-php/v3/api/class-Aws.IotDataPlane.IotDataPlaneClient.md")
 - [IoTJobsDataPlaneClient reference
-  documentation](../../../aws-sdk-php/v3/api/class-Aws.IoTJobsDataPlane.md "../../../aws-sdk-php/v3/api/class-Aws.IoTJobsDataPlane.md")
+  documentation](../../../aws-sdk-php/v3/api/class-Aws.IoTJobsDataPlane.IoTJobsDataPlaneClient.md "../../../aws-sdk-php/v3/api/class-Aws.IoTJobsDataPlane.IoTJobsDataPlaneClient.md")
 - [IoTSecureTunnelingClient reference
-  documentation](../../../aws-sdk-php/v3/api/class-Aws.IoTSecureTunneling.md "../../../aws-sdk-php/v3/api/class-Aws.IoTSecureTunneling.md")
+  documentation](../../../aws-sdk-php/v3/api/class-Aws.IoTSecureTunneling.IoTSecureTunnelingClient.md "../../../aws-sdk-php/v3/api/class-Aws.IoTSecureTunneling.IoTSecureTunnelingClient.md")
 
 Python
 

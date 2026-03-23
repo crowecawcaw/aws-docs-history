@@ -18,7 +18,7 @@ In the AWS IoT console, you can choose or create a role to allow AWS IoT to perf
   table's primary sort key, if one is defined.
 - If you use a customer managed AWS KMS key (KMS key) to encrypt
   data at rest in DynamoDB, the service must have permission to use the
-  KMS key on the caller's behalf. For more information, see [Customer Managed KMS key](../../../amazondynamodb/latest/developerguide/encryption.md#managed-cmk-customer-managed "../../../amazondynamodb/latest/developerguide/encryption.md#managed-cmk-customer-managed") in the _Amazon DynamoDB
+  KMS key on the caller's behalf. For more information, see [Customer Managed KMS key](../../../amazondynamodb/latest/developerguide/encryption.howitworks.md#managed-cmk-customer-managed "../../../amazondynamodb/latest/developerguide/encryption.howitworks.md#managed-cmk-customer-managed") in the _Amazon DynamoDB
   Getting Started Guide_.
 
 ## Parameters
