@@ -158,7 +158,7 @@ For more information, see [Federating into external data sources in the AWS Glue
 - **Integrating Amazon S3 Table Buckets with Data Catalog** –
   You can publish and catalog Amazon S3 Tables as Data Catalog objects and register the catalog as a Lake Formation data location from Lake Formation console or using AWS Glue APIs.
 
-For more information, see [Creating an Amazon S3 Tables catalog in the AWS Glue Data Catalog](create-s3-tables-catalog.md "create-s3-tables-catalog.md").
+For more information, see [Amazon S3 Tables integration with AWS Glue Data Catalog and AWS Lake Formation](create-s3-tables-catalog.md "create-s3-tables-catalog.md").
 
 - **Create catalogs to manage Amazon Redshift tables in the Data Catalog** –
   You may not have an Amazon Redshift producer cluster or an Amazon Redshift datashare available today, but want to

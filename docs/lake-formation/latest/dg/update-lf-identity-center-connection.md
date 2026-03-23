@@ -20,6 +20,10 @@ AWS Management Console
    unit IDs to allow external accounts to access the Data Catalog resources.
 5. On the **Add applications** screen, enter the application IDs of the third-party applications that you want to integrate with Lake Formation.
 6. Select **Add**.
+7. (Optioanlly) On the **IAM Identity Center integration** page you can either enabled trusted
+   identity propagation for Amazon Redshift connect or disable it. Lake Formation propagates identity to
+   downstream based on the effective permissions, so that
+   authorized applications can access data on behalf of users.
 
 AWS CLI
 You can add or remove third-party applications for the IAM Identity Center integration
@@ -35,4 +39,18 @@ aws lakeformation update-lake-formation-identity-center-configuration \
  --share-recipients '[{"DataLakePrincipalIdentifier": "`<444455556666>`"}
                      {"DataLakePrincipalIdentifier": "`<777788889999>`"}]' \
  --application-status ENABLED
+```
+
+If you have an existing LF IDC application, but wish to add the `Redshift:Connect` authorization,
+you can use the following to update your Lake Formation IDC Application. Authorization can be ENABLED or DISABLED.
+
+```
+aws lakeformation update-lake-formation-identity-center-configuration \
+--service-integrations '[{
+  "Redshift": [{
+    "RedshiftConnect": {
+      "Authorization": "ENABLED"
+    }
+  }]
+}]'
 ```

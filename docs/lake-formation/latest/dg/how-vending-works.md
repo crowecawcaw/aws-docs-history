@@ -15,7 +15,7 @@ third-party application (query engine) with Lake Formation.
 
    For example, if you want to publish a user sessions data set that includes some
    columns containing personally identifiable information (PII), to restrict access,
-   you assign these columns an [LF-TBAC](tag-based-access-control.md "tag-based-access-control.md") tag named “classification” with a value of “sensitive”. Next, you
+   you assign these columns an [LF-TBAC](tag-based-access-control.html.md "tag-based-access-control.html.md") tag named “classification” with a value of “sensitive”. Next, you
    define a permission that allows a business analyst to access the user sessions data,
    but exclude those columns tagged with _classification =
    sensitive_.

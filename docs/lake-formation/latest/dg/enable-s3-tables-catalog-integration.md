@@ -23,32 +23,150 @@ data location of the S3 table bucket with Lake Formation. 7. Choose the catalog 
 ![The S3 Table Catalog](images/s3-table-catalog.png)
 
 To create multi-level catalogs, see the [Creating a table bucket](../../../AmazonS3/latest/userguide/s3-tables-buckets-create.md "../../../AmazonS3/latest/userguide/s3-tables-buckets-create.md") section in the Amazon Simple Storage Service User Guide.
+Following the prerequisites section, create an IAM service role that allows Lake
+Formation to access your table resources.
 
-1. Register the S3 Tables catalog as a Lake Formation data location.
+1. Create a file called `Role-Trust-Policy.json` that contains the
+   following trust policy:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "LakeFormationDataAccessPolicy",
+        "Effect": "Allow",
+        "Principal": {
+          "Service": "lakeformation.amazonaws.com"
+        },
+        "Action": [
+            "sts:AssumeRole",
+            "sts:SetContext",
+            "sts:SetSourceIdentity"
+        ],
+        "Condition": {
+          "StringEquals": {
+            "aws:SourceAccount": "`111122223333`"
+          }
+        }
+      }
+    ]
+}
+```
+
+2. Create the IAM service role by using the following command:
+
+```
+aws iam create-role \
+  --role-name `S3TablesRoleForLakeFormation` \
+  --assume-role-policy-document file://Role-Trust-Policy.json
+```
+
+3. Create a file called `LF-GluePolicy.json` that contains the following
+   policy:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "LakeFormationPermissionsForS3ListTableBucket",
+            "Effect": "Allow",
+            "Action": [
+                "s3tables:ListTableBuckets"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "LakeFormationDataAccessPermissionsForS3TableBucket",
+            "Effect": "Allow",
+            "Action": [
+                "s3tables:CreateTableBucket",
+                "s3tables:GetTableBucket",
+                "s3tables:CreateNamespace",
+                "s3tables:GetNamespace",
+                "s3tables:ListNamespaces",
+                "s3tables:DeleteNamespace",
+                "s3tables:DeleteTableBucket",
+                "s3tables:CreateTable",
+                "s3tables:DeleteTable",
+                "s3tables:GetTable",
+                "s3tables:ListTables",
+                "s3tables:RenameTable",
+                "s3tables:UpdateTableMetadataLocation",
+                "s3tables:GetTableMetadataLocation",
+                "s3tables:GetTableData",
+                "s3tables:PutTableData"
+            ],
+            "Resource": [
+                "arn:aws:s3tables:us-east-1:`111122223333`:bucket/*"
+            ]
+        }
+    ]
+}
+```
+
+4. Attach the policy to the role by using the following command:
+
+```
+aws iam put-role-policy \
+  --role-name `S3TablesRoleForLakeFormation` \
+  --policy-name `LakeFormationDataAccessPermissionsForS3TableBucket` \
+  --policy-document file://LF-GluePolicy.json
+```
+
+5. Create a file called `input.json` that contains the following:
+
+```
+{
+    "ResourceArn": "arn:aws:s3tables:us-east-1:`111122223333`:bucket/*",
+    "WithFederation": true,
+    "RoleArn": "arn:aws:iam::`111122223333`:role/`S3TablesRoleForLakeFormation`"
+}
+```
+
+6. Register table buckets with Lake Formation by using the following command:
 
 ```
 aws lakeformation register-resource \
-  --resource-arn 'arn:aws:s3tables:us-east-1:123456789012:bucket/*' \
-  --role-arn 'arn:aws:iam::123456789012:role/LakeFormationDataAccessRole' \
-  --with-federation
-  --with-privileged-access
+  --region us-east-1 \
+  --with-privileged-access \
+  --cli-input-json file://input.json
 ```
 
-2. Create a catalog.
+7. Create a file called `catalog.json` that contains the following
+   catalog:
 
 ```
-aws glue create-catalog --cli-input-json file://input.json
-
-'{
-   "Name": `"s3tablescatalog"`,
-   "CatalogInput" : {
+{
+   "Name": "s3tablescatalog",
+   "CatalogInput": {
       "FederatedCatalog": {
-         "Identifier": "arn:aws:s3tables:us-east-1:123456789012:bucket/*",
-         "ConnectionName": "aws:s3tables"
-      },
-      "CreateDatabaseDefaultPermissions": [],
-      "CreateTableDefaultPermissions": []
+          "Identifier": "arn:aws:s3tables:us-east-1:`111122223333`:bucket/*",
+          "ConnectionName": "aws:s3tables"
+       },
+       "CreateDatabaseDefaultPermissions": [],
+       "CreateTableDefaultPermissions": [],
+       "AllowFullTableExternalDataAccess": "True"
    }
-}'
+}
+```
 
+8. Create the `s3tablescatalog` catalog by using the following command.
+   Creating this catalog populates the AWS Glue Data Catalog with objects corresponding to table
+   buckets, namespaces, and tables.
+
+```
+aws glue create-catalog \
+  --region us-east-1 \
+  --cli-input-json file://catalog.json
+```
+
+9. Verify that the `s3tablescatalog` catalog was added in AWS Glue by using
+   the following command:
+
+```
+aws glue get-catalog --catalog-id s3tablescatalog
 ```

@@ -32,7 +32,10 @@ permissions to IAM Identity Center users and groups on Data Catalog resources in
 following error - "Cross-account grants are not supported for
 the principal." 4. (Optional) On the **Create Lake Formation integration** screen, specify the
 ARNs of third-party applications that can access data in Amazon S3 locations
-registered with Lake Formation. Lake Formation vends scoped-down temporary credentials in the form of AWS STS tokens to registered Amazon S3 locations based on the effective permissions, so that authorized applications can access data on behalf of users. 5. Select **Submit**.
+registered with Lake Formation. Lake Formation vends scoped-down temporary credentials in the form of AWS STS tokens to registered Amazon S3 locations based on the effective permissions, so that authorized applications can access data on behalf of users. 5. (Optional) On the **Create Lake Formation integration** screen, check mark the Amazon Redshift
+Connect checkbox in Trusted Identity Propagation to enable Amazon Redshift Federated Permissions
+discovery via IDC. Lake Formation propagates identity to downstream based on the effective
+permissions, so that authorized applications can access data on behalf of users. 6. Select **Submit**.
 
 After the Lake Formation administrator finishes the steps and creates the
 integration, the IAM Identity Center properties appear in the Lake Formation console.
@@ -66,3 +69,58 @@ aws lakeformation describe-lake-formation-identity-center-configuration
  --catalog-id `<123456789012>`
 
 ```
+
+- The following example shows how to enable `Redshift:Connect` Authorization. Authorization can be ENABLED or DISABLED.
+
+```
+aws lakeformation  create-lake-formation-identity-center-configuration \
+--instance-arn <arn:aws:sso:::instance/ssoins-112111f12ca1122p> \
+--service-integrations '[{
+  "Redshift": [{
+    "RedshiftConnect": {
+      "Authorization": "ENABLED"
+    }
+  }]
+}]'
+```
+
+- Use the `describe-lake-formation-identity-center-configuration` command to
+  describe the lake formation identity center application.
+  `Redshift:Connect` service integration is essential for cross-service and
+  cross-cluster IdC identity propagation:
+
+```
+aws lakeformation describe-lake-formation-identity-center-configuration --catalog-id <123456789012>
+```
+
+Response:
+
+```
+{
+    "CatalogId": "CATALOG ID",
+    "InstanceArn": "INSTANCE ARN",
+    "ApplicationArn": "APPLICATION ARN",
+    "ShareRecipients": [],
+    "ServiceIntegrations": [
+        {
+            "Redshift": [
+                {
+                    "RedshiftConnect": {
+                        "Authorization": "ENABLED"
+                    }
+                }
+            ]
+        }
+    ]
+}
+```
+
+## Using IAM Identity Center across multiple AWS Regions
+
+Lake Formation supports IAM Identity Center in multiple AWS Regions. You can extend IAM Identity Center from your
+primary AWS Region to additional Regions for improved performance through proximity
+to users and reliability. When a new Region is added in IAM Identity Center, you can create Lake Formation
+Identity Center applications in the new Region without replicating identities from
+the primary Region. For more details to get started with IAM Identity Center in multiple Regions,
+see [Multi-Region
+IAM Identity Center](../../../singlesignon/latest/userguide/multi-region-iam-identity-center.md "../../../singlesignon/latest/userguide/multi-region-iam-identity-center.md") in the _IAM Identity Center User Guide_.

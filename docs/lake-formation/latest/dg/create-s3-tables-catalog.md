@@ -1,4 +1,4 @@
-# Creating an Amazon S3 Tables catalog in the AWS Glue Data Catalog
+# Amazon S3 Tables integration with AWS Glue Data Catalog and AWS Lake Formation
 
 [Amazon S3
 Tables](../../../AmazonS3/latest/userguide/s3-tables.md "../../../AmazonS3/latest/userguide/s3-tables.md") provide S3 storage that's specifically optimized for analytics workloads,
@@ -8,22 +8,39 @@ subresources. S3 tables have built-in support for Apache Iceberg standard, which
 easily query tabular data in Amazon S3 table buckets using popular query engines like Apache
 Spark.
 
-You can integrate Amazon S3 table buckets and tables with AWS Glue Data Catalog (Data Catalog), and register
-the catalog as a Lake Formation data location from the Lake Formation console or using service APIs. When your
-organization manages data in the Data Catalog, and register the data location with Lake Formation, you can
-use Lake Formation to control access to your datasets.
+You can integrate Amazon S3 Tables with AWS Glue Data Catalog using either IAM access controls or with IAM
+and Lake Formation grants:
 
-You can apply Lake Formation permissions using tag-based access control and the named
-resource method on the federated databases, and share them across multiple AWS accounts, AWS
-Organizations, and organizational units (OUs). You can also share the federated databases
-directly with IAM principals from another account.
+- **IAM access control**: Uses IAM policies to control
+  access to S3 Tables and Data Catalog. In this access control approach, you need IAM permissions
+  on both S3 Tables resources and Data Catalog objects to access resources.
+- **Lake Formation access control**: Uses AWS Lake Formation grants
+  in addition to AWS Glue IAM permissions to control access to S3 Tables through the Data Catalog.
+  In this mode, principals require IAM permissions to interact with the Data Catalog, and Lake
+  Formation grants determine which catalog resources (databases, tables, columns, rows) the
+  principal can access. This mode supports both coarse-grained access control (database-level
+  and table-level grants) and fine-grained access control (column-level and row-level
+  security). When a registered role is configured and credential vending is enabled, S3 Tables
+  IAM permissions are not required for the principal, as Lake Formation vends credentials on
+  behalf of the principal using the registered role. Lake Formation access control also
+  supports credential vending for third-party analytics engines.
+  This section provides guidance to configure the integration with AWS Lake Formation for the following
+  scenarios:
 
-For more information, see [Using Amazon S3 Tables with AWS
-analytics services](../../../AmazonS3/latest/userguide/s3-tables-integrating-aws.md "../../../AmazonS3/latest/userguide/s3-tables-integrating-aws.md") in the Amazon Simple Storage Service User Guide.
+- **Scenario A**: You integrated S3 Tables and Data Catalog
+  using IAM access controls and now plan to use AWS Lake Formation. See [Changing access controls for S3 Tables integration](manage-s3tables-catalog-integration.md "manage-s3tables-catalog-integration.md") to learn more.
+- **Scenario B**: You plan to integrate S3 Tables and
+  Data Catalog using AWS Lake Formation and do not have them integrated in your account and Region today.
+  Start with the [Prerequisites for integrating Amazon S3 tables catalog with the Data Catalog and Lake Formation](s3tables-catalog-prerequisites.md "s3tables-catalog-prerequisites.md") section and follow [Enabling Amazon S3 Tables integration](enable-s3-tables-catalog-integration.md "enable-s3-tables-catalog-integration.md").
+- **Scenario C**: You integrated S3 Tables and Data Catalog
+  using AWS Lake Formation and now plan to use IAM. See [Changing access controls for S3 Tables integration](manage-s3tables-catalog-integration.md "manage-s3tables-catalog-integration.md") to learn more.
+  Make sure that you follow the steps in [Integrating S3 Tables with
+  AWS analytics services](../../../AmazonS3/latest/userguide/s3-tables-integrating-aws.md "../../../AmazonS3/latest/userguide/s3-tables-integrating-aws.md") so that you have the appropriate permissions to access the
+  AWS Glue Data Catalog and your table resources, and to work with AWS analytics services.
 
 ###### Topics
 
-- [How Data Catalog and Lake Formation integration works](#w2aac13c27c15 "#w2aac13c27c15")
+- [How Data Catalog and Lake Formation integration works](#w2aac13c27c19 "#w2aac13c27c19")
 - [Prerequisites for integrating Amazon S3 tables catalog with the Data Catalog and Lake Formation](s3tables-catalog-prerequisites.md "s3tables-catalog-prerequisites.md")
 - [Enabling Amazon S3 Tables integration](enable-s3-tables-catalog-integration.md "enable-s3-tables-catalog-integration.md")
 - [Creating databases and tables in the S3 tables catalog](create-databases-tables-s3-catalog.md "create-databases-tables-s3-catalog.md")
@@ -46,3 +63,28 @@ manner:
 
 After integrating with Lake Formation, you can create Apache Iceberg tables in the table buckets catalog, and access them
 via integrated AWS analytics engines such as Amazon Athena, Amazon EMR as well as third-party analytics engines.
+
+When you also enable Lake Formation with integration, it enables fine-grained access
+control through AWS Lake Formation. This security approach means that, in addition to AWS Identity and Access Management
+(IAM) permissions, you must grant your IAM principal with Lake Formation permissions on
+your tables before you can work with them.
+
+There are two main types of permissions in AWS Lake Formation:
+
+- Metadata access permissions control the ability to create, read, update, and delete
+  metadata databases and tables in the Data Catalog.
+- Underlying data access permissions control the ability to read and write data to the
+  underlying Amazon S3 locations that the Data Catalog resources point to.
+
+Lake Formation uses a combination of its own permissions model and the IAM permissions
+model to control access to Data Catalog resources and underlying data:
+
+- For a request to access Data Catalog resources or underlying data to succeed, the request
+  must pass permission checks by both IAM and Lake Formation.
+- IAM permissions control access to the Lake Formation and AWS Glue APIs and resources,
+  whereas Lake Formation permissions control access to the Data Catalog resources, Amazon S3
+  locations, and the underlying data.
+
+Lake Formation permissions apply only in the Region in which they were granted, and a
+principal must be authorized by a data lake administrator or another principal with the
+necessary permissions in order to be granted Lake Formation permissions.
