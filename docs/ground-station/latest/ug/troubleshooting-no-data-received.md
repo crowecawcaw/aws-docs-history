@@ -8,8 +8,8 @@ causes, and how to address them.
 ## Incorrect downlink config
 
 Each contact that receives data from a satellite will have an associated
-[Antenna Downlink Config](how-it-works.md#how-it-works.config-antenna-downlink "how-it-works.md#how-it-works.config-antenna-downlink")
-or [Antenna Downlink Demod Decode Config](how-it-works.md#how-it-works.config-antenna-downlink-demod-decode "how-it-works.md#how-it-works.config-antenna-downlink-demod-decode"). If the configuration
+[Antenna Downlink Config](how-it-works.config.md#how-it-works.config-antenna-downlink "how-it-works.config.md#how-it-works.config-antenna-downlink")
+or [Antenna Downlink Demod Decode Config](how-it-works.config.md#how-it-works.config-antenna-downlink-demod-decode "how-it-works.config.md#how-it-works.config-antenna-downlink-demod-decode"). If the configuration
 specified does not agree with the signal being transmitted by a satellite, AWS Ground Station will not be
 able to receive the transmitted signal. This will result in no data being received by AWS Ground Station.
 
@@ -41,7 +41,7 @@ updated custom ephemeris data. For more information on providing custom ephemeri
 If AWS Ground Station causes a contact to fail, or cancels it, AWS Ground Station will set the contact status
 to _AWS_FAILED_, or _AWS_CANCELLED_. For more
 information on contact lifecycle, see
-[Understand contact lifecycle](contacts.md "contacts.md"). In some cases, AWS Ground Station
+[Understand contact lifecycle](contacts.lifecycle.md "contacts.lifecycle.md"). In some cases, AWS Ground Station
 may have a failure that prevents data from being delivered to your account, but doesn't result
 in the contact being in an _AWS_FAILED_ or
 _AWS_CANCELLED_ status. When this happens, AWS Ground Station should post an

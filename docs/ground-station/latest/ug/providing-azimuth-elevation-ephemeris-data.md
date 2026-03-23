@@ -323,7 +323,7 @@ When using azimuth elevation ephemeris, the [ListContacts](../APIReference/API_L
 
 - The `satelliteArn` parameter may be omitted from the request
 - You must provide an `ephemeris` parameter with the azimuth elevation ephemeris ID to specify which ephemeris to use
-- Available contact windows show when the provided azimuth and elevation angles are above the [site mask](locations.md "locations.md") of the requested ground station
+- Available contact windows show when the provided azimuth and elevation angles are above the [site mask](locations.site-masks.md "locations.site-masks.md") of the requested ground station
 - You must still provide `groundStation` and `missionProfileArn`
 
 Example of creating an azimuth elevation ephemeris and listing available contacts with it:

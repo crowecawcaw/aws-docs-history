@@ -197,7 +197,7 @@ satellite has been assigned in the [Space-Track](https://www.space-track.org/ "h
 
 It is also possible to upload a TLE ephemeris file directly from an S3 bucket by pointing to the bucket and object
 key. AWS Ground Station will retrieve the object on your behalf. Information about the encryption of data at rest
-in AWS Ground Station is detailed in: [Data encryption at rest for AWS Ground Station](security.md "security.md").
+in AWS Ground Station is detailed in: [Data encryption at rest for AWS Ground Station](security.encryption-at-rest.md "security.encryption-at-rest.md").
 
 Below is an example of uploading a TLE ephemeris file from an S3 bucket
 

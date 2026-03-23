@@ -14,12 +14,12 @@ contacts are provided below, along with steps to help troubleshoot.
 
 This guide is specifically for the **FAILED_TO_SCHEDULE** contact status - and is not intended for other failure statuses, such as
 **AWS_FAILED**, **AWS_CANCELLED**, or **FAILED**.
-For more information on contact statuses, see [AWS Ground Station contact statuses](contacts.md#contact-statuses "contacts.md#contact-statuses")
+For more information on contact statuses, see [AWS Ground Station contact statuses](contacts.lifecycle.md#contact-statuses "contacts.lifecycle.md#contact-statuses")
 
 ## The settings specified in your Antenna Downlink Demod Decode Config are not supported
 
 The [mission profile](how-it-works-mission-profile.md "how-it-works-mission-profile.md") that was used to schedule this contact had an
-[antenna-downlink-demod-decode config](how-it-works.md#how-it-works.config-antenna-downlink-demod-decode "how-it-works.md#how-it-works.config-antenna-downlink-demod-decode") that was not valid.
+[antenna-downlink-demod-decode config](how-it-works.config.md#how-it-works.config-antenna-downlink-demod-decode "how-it-works.config.md#how-it-works.config-antenna-downlink-demod-decode") that was not valid.
 
 **Previously existing AntennaDownlinkDemodDecode config**
 

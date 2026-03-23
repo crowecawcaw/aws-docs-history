@@ -34,7 +34,7 @@ the downlink mask. Available contact times are based on this downlink mask visib
 This ensures that you do not reserve time when your satellite is below the downlink mask.
 
 Uplink site masks are _not_ applied to the available contact times, even if the Mission Profile includes an
-[Antenna Uplink Config](how-it-works.md#how-it-works.config-antenna-uplink "how-it-works.md#how-it-works.config-antenna-uplink") in a dataflow edge. This allows you to use all available contact time
+[Antenna Uplink Config](how-it-works.config.md#how-it-works.config-antenna-uplink "how-it-works.config.md#how-it-works.config-antenna-uplink") in a dataflow edge. This allows you to use all available contact time
 for downlink, even if uplink may not be available for portions of that time due to the uplink site mask.
 However, the uplink signal may not be transmitted for some or all of the time reserved for a satellite contact.
 You are responsible for accounting for the provided uplink mask when scheduling uplink transmissions.

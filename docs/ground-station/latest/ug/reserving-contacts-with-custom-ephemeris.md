@@ -385,7 +385,7 @@ Contact states follow this lifecycle:
 - `FAILED_TO_SCHEDULE` - The contact could not be scheduled (terminal state)
 
 For more information on contact states and lifecycle, see
-[Understand contact lifecycle](contacts.md "contacts.md").
+[Understand contact lifecycle](contacts.lifecycle.md "contacts.lifecycle.md").
 
 ### Implementing contact state monitoring with EventBridge
 
@@ -405,7 +405,7 @@ For a complete example of a Lambda function that processes contact state change 
 `GroundStationCloudWatchEventHandlerLambda` resource in the
 `AquaSnppJpssTerraDigIF.yml` CloudFormation template. This template is available in the
 AWS Ground Station customer onboarding Amazon S3 bucket. For instructions on accessing this template, see the
-[Putting it together](examples.md#examples.pbs-dataflow-endpoint.putting-it-together "examples.md#examples.pbs-dataflow-endpoint.putting-it-together") section of the dataflow endpoint example.
+[Putting it together](examples.pbs-data-dataflow-endpoint.md#examples.pbs-dataflow-endpoint.putting-it-together "examples.pbs-data-dataflow-endpoint.md#examples.pbs-dataflow-endpoint.putting-it-together") section of the dataflow endpoint example.
 
 #### EventBridge rule configuration
 
@@ -448,7 +448,7 @@ You can create EventBridge rules to automatically respond to contact state chang
 - Log contact completions for auditing purposes
 
 For detailed information on setting up EventBridge rules for AWS Ground Station events, see
-[Automate AWS Ground Station with Events](monitoring.md "monitoring.md").
+[Automate AWS Ground Station with Events](monitoring.automating-events.md "monitoring.automating-events.md").
 
 ## Best practices and considerations
 
@@ -474,7 +474,7 @@ on the ephemeris type and size. Always verify the ephemeris status before attemp
 When using custom ephemeris:
 
 - Ensure your ephemeris covers the entire contact duration
-- For azimuth elevation ephemeris, verify that the angles keep the antenna above the [site mask](locations.md "locations.md") throughout the contact
+- For azimuth elevation ephemeris, verify that the angles keep the antenna above the [site mask](locations.site-masks.md "locations.site-masks.md") throughout the contact
 - Consider ephemeris expiration times when scheduling future contacts
 
 ### API differences by ephemeris type

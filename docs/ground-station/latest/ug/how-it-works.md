@@ -27,7 +27,7 @@ contact, AWS Ground Station requires additional data to ensure its success.
 Onboarding a satellite into AWS Ground Station is a multistep process involving data collection, technical
 validation, spectrum licensing, with integration and testing.
 
-The [Satellite onboarding](getting-started.md "getting-started.md") section of the guide will
+The [Satellite onboarding](getting-started.step1.md "getting-started.step1.md") section of the guide will
 walk you through this process.
 
 ## Mission profile composition
@@ -50,7 +50,7 @@ data processing aspects.
 
 - For more information on configuring your Amazon VPC, Amazon S3, and Amazon EC2 resources that will be used
   during a contact, see [Work with dataflows](dataflows.md "dataflows.md").
-- For details on how each config behaves, see [Use AWS Ground Station Configs](how-it-works.md "how-it-works.md").
+- For details on how each config behaves, see [Use AWS Ground Station Configs](how-it-works.config.md "how-it-works.config.md").
 - For specific details on all parameters expected, see [Use AWS Ground Station Mission Profiles](how-it-works-mission-profile.md "how-it-works-mission-profile.md").
 - For examples on how various mission profiles can be created to support your use case, see [Example mission profile configurations](examples.md "examples.md").
 
@@ -82,7 +82,7 @@ availability. While this evaluation is occurring, the contact status will be in 
 
 This asynchronous scheduling process will finish within five minutes of the request, but
 typically finishes within one minute. Please review
-[Automate AWS Ground Station with Events](monitoring.md "monitoring.md")
+[Automate AWS Ground Station with Events](monitoring.automating-events.md "monitoring.automating-events.md")
 for event-based monitoring during scheduling time.
 
 ![The contact reservation request is asynchronous to allow time for the global antenna service to achieve a consistent schedule across all AWS Regions involved.](images/scheduling.png)
@@ -102,7 +102,7 @@ reservation. If applicable, you are responsible for orchestrating EC2 resources 
 your mission profile as dataflow endpoints. AWS Ground Station provides
 [AWS EventBridge Events](../../../eventbridge/latest/userguide/eb-events.md "../../../eventbridge/latest/userguide/eb-events.md")
 for automating orchestration of your resources to reduce costs.
-See [Automate AWS Ground Station with Events](monitoring.md "monitoring.md")
+See [Automate AWS Ground Station with Events](monitoring.automating-events.md "monitoring.automating-events.md")
 for more details.
 
 During the contact, telemetry about your contact performance is delivered to AWS CloudWatch.
@@ -118,7 +118,7 @@ Not all the antenna capabilities were used in this example. For instance, there 
 than a dozen antenna downlink capabilities available at each antenna that support multiple
 frequencies and polarizations. For more details about the number of each capability type
 available from AWS Ground Station antennas, and their supported frequencies and polarizations, see
-[AWS Ground Station Site Capabilities](locations.md "locations.md").
+[AWS Ground Station Site Capabilities](locations.capabilities.md "locations.capabilities.md").
 
 ![Resources from the previous example orchestrated during the contact.](images/contact-orchestration-simplified.png)
 
@@ -130,7 +130,7 @@ status. Contacts where client or user errors have caused data delivery issues du
 contact will result in a _FAILED_ status. Errors outside a contact time,
 that is during pre-pass or post-pass, are not taken into account during the adjudication.
 
-See [Understand contact lifecycle](contacts.md "contacts.md") for more information.
+See [Understand contact lifecycle](contacts.lifecycle.md "contacts.lifecycle.md") for more information.
 
 ## Digital twin
 

@@ -7,7 +7,7 @@ antenna capacity. Testing your AWS Ground Station integration with the digital t
 your system's ability to manage your satellite operations smoothly. It also allows you to test AWS Ground Station APIs
 without using production capacity or requiring spectrum licensing.
 
-To get started, follow [Onboard satellite](getting-started.md "getting-started.md"),
+To get started, follow [Onboard satellite](getting-started.step1.md "getting-started.step1.md"),
 requesting to be onboarded to the digital twin feature. Once your satellite is onboarded to the digital twin feature, you can schedule
 contacts against digital twin ground stations. The list of ground stations that you have access to can be retrieved
 via the AWS SDK [ListGroundStations](../APIReference/API_ListGroundStations.md "../APIReference/API_ListGroundStations.md") response. Digital twin ground stations are exact copies of the ground stations listed in
@@ -17,5 +17,5 @@ including, but not limited to, site mask and actual GPS coordinates. At this tim
 delivery as described in [Work with dataflows](dataflows.md "dataflows.md").
 
 Once onboarded, the digital twin feature emits the same Amazon EventBridge events and API responses as the production service as
-described in [Automate AWS Ground Station with Events](monitoring.md "monitoring.md").
+described in [Automate AWS Ground Station with Events](monitoring.automating-events.md "monitoring.automating-events.md").
 These events will allow you to fine tune your configurations and dataflow endpoint groups.

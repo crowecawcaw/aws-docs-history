@@ -26,7 +26,7 @@ kinesis:PutRecord permissions for the given stream
 **Solutions**
 
 1. Verify the IAM role exists and has the correct permissions. Review
-   [Step 2: Create a TelemetrySinkConfig](telemetry.md#telemetry.setup.step2 "telemetry.md#telemetry.setup.step2") and ensure all steps were followed.
+   [Step 2: Create a TelemetrySinkConfig](telemetry.setup.md#telemetry.setup.step2 "telemetry.setup.md#telemetry.setup.step2") and ensure all steps were followed.
 2. Check that AWS Ground Station can assume your IAM role:
 
 ```
@@ -205,7 +205,7 @@ Your application encounters errors when parsing telemetry records as JSON.
 - **Verify Base64 decoding** - Data in Kinesis Data Streams stream is
   Base64-encoded. Ensure you decode the data before parsing it as JSON. For more
   information, see
-  [Reading data from Kinesis Data Streams stream](telemetry.md#telemetry.understanding-data.reading "telemetry.md#telemetry.understanding-data.reading").
+  [Reading data from Kinesis Data Streams stream](telemetry.understanding-data.md#telemetry.understanding-data.reading "telemetry.understanding-data.md#telemetry.understanding-data.reading").
 - **Check for empty records** - AWS Ground Station may send empty
   validation records when creating a _TelemetrySinkConfig_.
   Your application should handle empty or malformed records gracefully.
@@ -229,7 +229,7 @@ over time. Your application should:
 - Implement graceful handling for unknown schemas.
 
 For more information about schema versioning, see
-[Schema versioning and evolution](telemetry.md#telemetry.understanding-data.schema-evolution "telemetry.md#telemetry.understanding-data.schema-evolution").
+[Schema versioning and evolution](telemetry.understanding-data.md#telemetry.understanding-data.schema-evolution "telemetry.understanding-data.md#telemetry.understanding-data.schema-evolution").
 
 ## Getting help
 

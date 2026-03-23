@@ -6,7 +6,7 @@ A contact will have a terminal contact status of **FAILED** when AWS Ground Stat
 
 This guide is specifically for the **FAILED** contact status - and is not intended for other failure statuses, such as **AWS_FAILED**,
 **AWS_CANCELLED**, or **FAILED_TO_SCHEDULE**. For more information on contact statuses, see
-[AWS Ground Station contact statuses](contacts.md#contact-statuses "contacts.md#contact-statuses")
+[AWS Ground Station contact statuses](contacts.lifecycle.md#contact-statuses "contacts.lifecycle.md#contact-statuses")
 
 ## Dataflow endpoint FAILED use cases
 
@@ -23,7 +23,7 @@ For any dataflow endpoint failure cases, it is recommended to look into the foll
 - Confirm the dataflow endpoint software was up and running during the contact.
 - Ensure you have at least one available IP address per dataflow endpoint per receiver instance subnet.
 - Ensure subnets associated to your Dataflow Endpoint Group, through dataflows configured in
-  [Set up and configure Amazon VPC](dataflows.md "dataflows.md"),
+  [Set up and configure Amazon VPC](dataflows.vpc-configuration.md "dataflows.vpc-configuration.md"),
   remain active and available to AWS Ground Station.
 
 See the section on [Troubleshoot contacts that deliver data to Amazon EC2](troubleshooting-contact.md "troubleshooting-contact.md") for more specific troubleshooting steps.

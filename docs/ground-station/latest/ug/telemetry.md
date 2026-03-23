@@ -39,14 +39,14 @@ Pointing telemetry
 Provides information about antenna pointing direction during satellite contacts.
 This telemetry type is always sent during a contact and includes actual and
 commanded azimuth and elevation angles. For more information, see
-[Pointing telemetry](telemetry.md#telemetry.understanding-data.pointing "telemetry.md#telemetry.understanding-data.pointing").
+[Pointing telemetry](telemetry.understanding-data.md#telemetry.understanding-data.pointing "telemetry.understanding-data.md#telemetry.understanding-data.pointing").
 
 Tracking telemetry
 
 Provides information about antenna tracking status and tracking errors. This
 telemetry type is sent when autotracking is enabled in your tracking config.
 For more information, see
-[Tracking telemetry](telemetry.md#telemetry.understanding-data.tracking "telemetry.md#telemetry.understanding-data.tracking").
+[Tracking telemetry](telemetry.understanding-data.md#telemetry.understanding-data.tracking "telemetry.understanding-data.md#telemetry.understanding-data.tracking").
 
 ## Regional availability
 
@@ -59,5 +59,5 @@ For a complete list of AWS Ground Station Regions and ground station locations, 
 
 ###### Topics
 
-- [Set up telemetry](telemetry.md "telemetry.md")
-- [Understand telemetry data](telemetry.md "telemetry.md")
+- [Set up telemetry](telemetry.setup.md "telemetry.setup.md")
+- [Understand telemetry data](telemetry.understanding-data.md "telemetry.understanding-data.md")

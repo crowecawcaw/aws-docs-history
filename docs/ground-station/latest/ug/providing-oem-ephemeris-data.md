@@ -136,7 +136,7 @@ To troubleshoot an invalid ephemeris see: [Troubleshoot invalid ephemerides](tro
 
 It is also possible to upload an OEM ephemeris file directly from an S3 bucket by
 pointing to the bucket and object key. AWS Ground Station will retrieve the object on your behalf.
-Information about the encryption of data at rest in AWS Ground Station is detailed in: [Data encryption at rest for AWS Ground Station](security.md "security.md").
+Information about the encryption of data at rest in AWS Ground Station is detailed in: [Data encryption at rest for AWS Ground Station](security.encryption-at-rest.md "security.encryption-at-rest.md").
 
 Below is an example of uploading an OEM ephemeris file from an S3 bucket
 
