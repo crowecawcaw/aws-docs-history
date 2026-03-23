@@ -1,4 +1,4 @@
-# Moving your data to a new gateway
+# Moving your data to a new gateway instance
 
 You can move data between gateways as your data and performance needs grow, or if you
 receive an AWS notification to migrate your gateway. The following are some reasons for
@@ -6,8 +6,6 @@ doing this:
 
 - Move your data to better host platforms or newer Amazon EC2 instances.
 - Refresh the underlying hardware for your server.
-  The steps that you follow to move your data to a new gateway depend on the gateway type
-  that you have.
 
 ###### Important
 

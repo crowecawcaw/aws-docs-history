@@ -42,6 +42,6 @@ resources.
   whether a tape is functioning normally, or if there is a problem that might require
   action on your part.
 
-- [Moving your data to a new gateway](migrate-data.md "migrate-data.md") - Learn how to move
+- [Moving your data to a new gateway instance](migrate-data.md "migrate-data.md") - Learn how to move
   data between gateways as your data and performance needs grow, or if you receive an
   AWS notification to migrate your gateway.
