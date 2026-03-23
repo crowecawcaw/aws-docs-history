@@ -23,7 +23,7 @@ The Amazon Pinpoint API is currently available in AWS GovCloud (US-West).
 ## Documentation for Amazon Pinpoint
 
 Amazon Pinpoint
-[documentation](../../../pinpoint/latest/userguide/pinpoint-ug.md "../../../pinpoint/latest/userguide/pinpoint-ug.md") and Amazon Pinpoint API [documentaiton](../../../pinpoint/latest/apireference/welcome.md "../../../pinpoint/latest/apireference/welcome.md").
+[documentation](../../../pinpoint/latest/userguide/pinpoint-ug.pdf.md "../../../pinpoint/latest/userguide/pinpoint-ug.pdf.md") and Amazon Pinpoint API [documentaiton](../../../pinpoint/latest/apireference/welcome.md "../../../pinpoint/latest/apireference/welcome.md").
 
 ## Export-controlled content
 

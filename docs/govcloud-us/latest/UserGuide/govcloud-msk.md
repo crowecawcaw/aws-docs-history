@@ -9,7 +9,7 @@ Amazon Managed Streaming for Apache Kafka (Amazon MSK) is a fully managed servic
 
 ## Documentation for Managed Streaming for Apache Kafka
 
-[Amazon Managed Streaming for Apache Kafka (MSK) documentation](../../../msk/latest/developerguide/what-is-msk.md "../../../msk/latest/developerguide/what-is-msk.md").
+[Amazon Managed Streaming for Apache Kafka (MSK) documentation](../../../msk/latest/developerguide/what-is-msk.html.md "../../../msk/latest/developerguide/what-is-msk.html.md").
 
 ## Export-controlled content
 

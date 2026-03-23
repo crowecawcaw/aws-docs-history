@@ -6,7 +6,7 @@ If you require FIPS 140-3 compliance you should use the FIPS Endpoints linked in
 
 If you require the use of FIPS 140-3 validated modules for TLS termination performed on the data plane of the Application Load Balancer HTTPS Listeners, have your account team reach out to the Elastic Load Balancing team.
 
-FIPS-140-3 validated modules in the data plane of Amazon Relational Database Service (Amazon RDS) SSL can be configured for certain database engines. For more information about RDS SSL, see the [Amazon RDS User Guide](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md").
+FIPS-140-3 validated modules in the data plane of Amazon Relational Database Service (Amazon RDS) SSL can be configured for certain database engines. For more information about RDS SSL, see the [Amazon RDS User Guide](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md").
 
 **FIPS Endpoints for the AWS GovCloud (US) Regions**
 

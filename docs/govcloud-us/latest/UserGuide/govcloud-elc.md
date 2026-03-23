@@ -5,7 +5,7 @@ Amazon ElastiCache makes it easy to set up, manage, and scale distributed in-mem
 ## How Amazon ElastiCache differs for AWS GovCloud (US)
 
 - All ElastiCache instances must be launched in an Amazon VPC.
-- ElastiCache clusters have a preferred weekly maintenance window. For information about the time blocks, see [Cache Engine Version Management](../../../AmazonElastiCache/latest/UserGuide/VersionManagement.md "../../../AmazonElastiCache/latest/UserGuide/VersionManagement.md").
+- ElastiCache clusters have a preferred weekly maintenance window. For information about the time blocks, see [Cache Engine Version Management](../../../AmazonElastiCache/latest/UserGuide/VersionManagement.MaintenanceWindow.md "../../../AmazonElastiCache/latest/UserGuide/VersionManagement.MaintenanceWindow.md").
 - The r6gd node type and data-tiering are not available in AWS GovCloud (US).
 
 ## Documentation for Amazon ElastiCache

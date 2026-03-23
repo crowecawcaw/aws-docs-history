@@ -17,6 +17,7 @@ The AWS Management Console is a graphical interface for accessing a wide range o
 - Unified Search only supports service and feature searches.
 - myApplications is unavailable.
 - Multi-session support is unavailable.
+- User Experience Customization is unavailable.
 
 ## Export-controlled content
 
