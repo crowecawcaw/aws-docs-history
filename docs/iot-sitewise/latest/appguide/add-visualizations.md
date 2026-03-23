@@ -30,7 +30,7 @@ to change how it appears.
 ![The "Projects" icon in the navigation bar.](images/portal-navigation-projects-console.png) 2. On the **Projects** page, choose the project whose dashboards you
 want to edit.
 
-![The "Projects" page with "Wind Farm 3" highlighted.](images/projects-portal-admin-choose-project-console.png) 3. In the **Dashboards** section, choose a dashboard to edit.
+![The "Projects" page with "Wind Farm 3" highlighted.](/images/iot-sitewise/latest/appguide/images/projects-portal-admin-choose-project-console.png) 3. In the **Dashboards** section, choose a dashboard to edit.
 
 ![The dashboards list on the project details page with a dashboard highlighted.](images/project-project-owner-view-dashboard-console.png) 4. In the dashboard, choose **Edit** in the upper right.
 
