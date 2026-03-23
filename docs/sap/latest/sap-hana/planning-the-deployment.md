@@ -30,7 +30,7 @@ If you plan to use Bring Your Own Subscription (BYOS) images provided by SUSE, e
 
 RHEL for SAP with high availability and Update services provides access to Red Hat Pacemaker cluster software for High Availability, extended update support, and the libraries that are required to run SAP HANA. For details, see the [RHEL for SAP Offerings on AWS FAQ](https://access.redhat.com/articles/3671571 "https://access.redhat.com/articles/3671571") in the Red Hat Knowledgebase.
 
-If you plan to use the BYOS model with RHEL, either through the [Red Hat Cloud Access](https://access.redhat.com/articles/3490141 "https://access.redhat.com/articles/3490141") program or another means, ensure that you have access to a RHEL for SAP Solutions subscription. For details, see [Overview of Red Hat Enterprise Linux for SAP Solutions subscription](https://access.redhat.com/solutions/3082481 "https://access.redhat.com/solutions/3082481") in the Red Hat Knowledgebase.
+If you plan to use the BYOS model with RHEL, either through the [Red Hat Cloud Access](https://access.redhat.com/articles/3490141 "https://access.redhat.com/articles/3490141") program or another means, ensure that you have access to a RHEL for SAP Solutions subscription. For details, see [Introduction to Red Hat Enterprise Linux for SAP Solutions](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions "https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions") in the Red Hat documentation.
 
 ## Amazon Machine Image (AMI)
 

@@ -4,8 +4,8 @@ This section includes instructions for configuring your operating system for SAP
 
 ###### Topics
 
-- [SLES 12/15](configure-operating-system-sles-for-sap-12.md "configure-operating-system-sles-for-sap-12.md")
-- [RHEL 7/8/9](configure-operating-system-rhel-for-sap-7.md "configure-operating-system-rhel-for-sap-7.md")
+- [SLES 12/15](configure-operating-system-sles-for-sap-12.x.md "configure-operating-system-sles-for-sap-12.x.md")
+- [RHEL 7/8/9](configure-operating-system-rhel-for-sap-7.x.md "configure-operating-system-rhel-for-sap-7.x.md")
 
 ###### Note
 

@@ -18,7 +18,7 @@ SAP HANA system migration requires a moderate to high-level knowledge of the sou
 
 AWS Cloud architecture and migration:
 
-- [AWS Well-Architected Framework](https://d1.awsstatic.com/whitepapers/architecture/AWS_Well-Architected_Framework.pdf "https://d1.awsstatic.com/whitepapers/architecture/AWS_Well-Architected_Framework.pdf")
+- [AWS Well-Architected Framework](../../../wellarchitected/latest/framework/welcome.md "../../../wellarchitected/latest/framework/welcome.md")
 - [An Overview of the AWS Cloud Adoption Framework](https://d1.awsstatic.com/whitepapers/aws_cloud_adoption_framework.pdf "https://d1.awsstatic.com/whitepapers/aws_cloud_adoption_framework.pdf")
 - [Architecting for the Cloud: Best Practices](https://d1.awsstatic.com/whitepapers/AWS_Cloud_Best_Practices.pdf "https://d1.awsstatic.com/whitepapers/AWS_Cloud_Best_Practices.pdf")
 - [Migrating Your Existing Applications to the AWS Cloud](https://d1.awsstatic.com/whitepapers/cloud-migration-main.pdf "https://d1.awsstatic.com/whitepapers/cloud-migration-main.pdf")
@@ -32,7 +32,5 @@ AWS services:
 
 SAP on AWS:
 
-- [SAP on AWS Implementation and Operations Guide](https://d0.awsstatic.com/enterprise-marketing/SAP/SAP_on_AWS_Implementation_Guide.pdf "https://d0.awsstatic.com/enterprise-marketing/SAP/SAP_on_AWS_Implementation_Guide.pdf")
 - [AWS Launch Wizard for SAP](../../../launchwizard/latest/userguide/launch-wizard-sap.md "../../../launchwizard/latest/userguide/launch-wizard-sap.md")
 - [SAP HANA Environment Setup on AWS](std-sap-hana-environment-setup.md "std-sap-hana-environment-setup.md")
-- [SAP on Amazon Web Services High Availability Guide](https://d0.awsstatic.com/enterprise-marketing/SAP/sap-on-aws-high-availability-guide.pdf "https://d0.awsstatic.com/enterprise-marketing/SAP/sap-on-aws-high-availability-guide.pdf")

@@ -2,9 +2,9 @@
 
 This scenario is more straightforward than migrating from _anyDB_, because you’re already using SAP HANA. For this migration, you need to map your existing SAP HANA systems and sizing that are on a different platform to SAP HANA solutions on AWS.
 
-EC2 instance memory capabilities give you the option to consolidate multiple SAP HANA databases on a single EC2 instance (scale-up) or multiple EC2 instances (scale-out). SAP calls these options HANA and ABAP One Server, Multiple Components in One Database (MCOD), Multiple Components in One System (MCOS), and Multitenant Database Containers (MDC). It is beyond the scope of this guide to recommend specific consolidation combinations; for possible combinations, see [SAP Note 1661202 – Support for multiple applications on SAP HANA](https://launchpad.support.sap.com/#/notes/1661202 "https://launchpad.support.sap.com/#/notes/1661202").
+EC2 instance memory capabilities give you the option to consolidate multiple SAP HANA databases on a single EC2 instance (scale-up) or multiple EC2 instances (scale-out). SAP calls these options HANA and ABAP One Server, Multiple Components in One Database (MCOD), Multiple Components in One System (MCOS), and Multitenant Database Containers (MDC). It is beyond the scope of this guide to recommend specific consolidation combinations; for possible combinations, see [SAP Note 1661202 – Support for multiple applications on SAP HANA](https://me.sap.com/notes/1661202 "https://me.sap.com/notes/1661202").
 
-This migration scenario involves provisioning your SAP HANA system on AWS, backing up your source database, transferring your data to AWS, and installing your SAP application servers. If you are resizing your HANA environment from scale-up to scale-out, please follow the process highlighted in [SAP Note 2130603](https://launchpad.support.sap.com/#/notes/0002130603 "https://launchpad.support.sap.com/#/notes/0002130603"). If you are resizing your HANA environment from scale-out to scale-up, refer to [SAP Note 2093572](https://launchpad.support.sap.com/#/notes/2093572 "https://launchpad.support.sap.com/#/notes/2093572"). Depending on your specific scenario, you can use standard backup and restore, SAP HANA classical migration, SAP HANA HSR, AWS Server Migration Service (AWS SMS), or third-party continuous data protection (CDP) tools; see the following sections for details on each option.
+This migration scenario involves provisioning your SAP HANA system on AWS, backing up your source database, transferring your data to AWS, and installing your SAP application servers. If you are resizing your HANA environment from scale-up to scale-out, please follow the process highlighted in [SAP Note 2130603](https://me.sap.com/notes/0002130603 "https://me.sap.com/notes/0002130603"). If you are resizing your HANA environment from scale-out to scale-up, refer to [SAP Note 2093572](https://me.sap.com/notes/2093572 "https://me.sap.com/notes/2093572"). Depending on your specific scenario, you can use standard backup and restore, SAP HANA classical migration, SAP HANA HSR, AWS Server Migration Service (AWS SMS), or third-party continuous data protection (CDP) tools; see the following sections for details on each option.
 
 ###### Topics
 
@@ -36,7 +36,7 @@ For details on how to migrate SAP HANA systems to AWS using AWS Migration Hub Or
 ![Diagram of Option 3: SAP HANA Classical Migration](images/migrating-hana-classical.png)
 
 1. Provision your SAP HANA system and landscape on AWS. (The [AWS Launch Wizard for SAP](../../../launchwizard/latest/userguide/launch-wizard-sap.md "../../../launchwizard/latest/userguide/launch-wizard-sap.md") can help expedite and automate this process for you.)
-2. Perform an SAP homogeneous system copy to export your source SAP HANA database. You may also choose to use a database backup as the export; see [SAP Note 1844468 – Homogeneous system copy on SAP HANA](https://service.sap.com/sap/support/notes/1844468 "https://service.sap.com/sap/support/notes/1844468"). When export is complete, transfer your data into AWS.
+2. Perform an SAP homogeneous system copy to export your source SAP HANA database. You may also choose to use a database backup as the export; see [SAP Note 1844468 – Homogeneous system copy on SAP HANA](https://me.sap.com/notes/1844468 "https://me.sap.com/notes/1844468"). When export is complete, transfer your data into AWS.
 3. Continue the SAP system copy process on your SAP HANA system on AWS to import the data you exported in step 2.
 4. Install your SAP application servers. (Skip this step if you used the [AWS Launch Wizard for SAP](../../../launchwizard/latest/userguide/launch-wizard-sap.md "../../../launchwizard/latest/userguide/launch-wizard-sap.md") in step 1.)
 5. Depending on your application architecture, you might need to reconnect your applications to the newly migrated SAP HANA system.
@@ -70,7 +70,7 @@ SAP added a new feature to the DMO option with SUM 2.0 SP-17 – DMO with system
 
 DMOVE2S4 enables homogeneous migration (SAP HANA to SAP HANA). For this scenario, downtime optimized techniques, such as downtime optimized DMO (doDMO) or downtime optimized conversion (DOC) are currently not supported.
 
-For more information, see SAP Blog - [Two Major News with SUM 2.0 SP 17](https://blogs.sap.com/2023/05/31/two-major-news-with-sum-2.0-sp-17/ "https://blogs.sap.com/2023/05/31/two-major-news-with-sum-2.0-sp-17/").
+For more information, see SAP Blog - [Two Major News with SUM 2.0 SP 17](https://community.sap.com/t5/-/-/m-p/13548361 "https://community.sap.com/t5/-/-/m-p/13548361").
 
 The following image displays this option.
 

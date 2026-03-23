@@ -53,7 +53,7 @@ Amazon S3 Transfer Acceleration provides a faster way to copy data from your on-
 
 ## SAP HANA HSR with Initialization via Backup and Restore
 
-SAP supports the option of initializing the HSR target system with a backup and restore process. Using backup and restore can be useful if the network connection between your source SAP HANA system and the target system does not have enough bandwidth to replicate the data in a timely manner. Additionally, you may not want the data replication to consume part of your network traffic bandwidth. For details, see [SAP Note 1999880 – FAQ: SAP HANA System Replication](https://launchpad.support.sap.com/#/notes/1999880 "https://launchpad.support.sap.com/#/notes/1999880").
+SAP supports the option of initializing the HSR target system with a backup and restore process. Using backup and restore can be useful if the network connection between your source SAP HANA system and the target system does not have enough bandwidth to replicate the data in a timely manner. Additionally, you may not want the data replication to consume part of your network traffic bandwidth. For details, see [SAP Note 1999880 – FAQ: SAP HANA System Replication](https://me.sap.com/notes/1999880 "https://me.sap.com/notes/1999880").
 
 ## Migration Using DMO with System Move
 
@@ -67,11 +67,11 @@ The SUM DMO tool can convert data from _anyDB_ to SAP HANA or SAP ASE, with OS m
 
 ## SAP HANA Classical Migration
 
-SAP offers the SAP HANA classical migration option for migrating from other database systems to SAP HANA. This option uses the SAP heterogeneous system copy process and tools. To copy the exported files, you can use the options described in the [Backup/Restore Tools](#migrating-hana-backup-restore "#migrating-hana-backup-restore") section later in this guide. For details on the classical migration approach, see the [classical migration overview](https://scn.sap.com/docs/DOC-49744 "https://scn.sap.com/docs/DOC-49744") on the SAP website.
+SAP offers the SAP HANA classical migration option for migrating from other database systems to SAP HANA. This option uses the SAP heterogeneous system copy process and tools. To copy the exported files, you can use the options described in the [Backup/Restore Tools](#migrating-hana-backup-restore "#migrating-hana-backup-restore") section later in this guide. For details on the classical migration approach, see the [classical migration overview](https://community.sap.com/t5/-/-/m-p/13264529 "https://community.sap.com/t5/-/-/m-p/13264529") on the SAP website.
 
 ## SAP Software SUM DMO
 
-SAP offers the standard SUM DMO approach as a one-step migration option from other database systems to HANA. This option uses the SAP DMO process and tool to automate multiple required migration steps. This is a preferred option if you are already running SAP on _anyDB_ on AWS, as it will improve your migration times to SAP HANA, since there is no need for data export/import at a file system level. For details, see the [DMO of SUM overview](https://scn.sap.com/docs/DOC-49580 "https://scn.sap.com/docs/DOC-49580") on the SAP website.
+SAP offers the standard SUM DMO approach as a one-step migration option from other database systems to HANA. This option uses the SAP DMO process and tool to automate multiple required migration steps. This is a preferred option if you are already running SAP on _anyDB_ on AWS, as it will improve your migration times to SAP HANA, since there is no need for data export/import at a file system level. For details, see the [DMO of SUM overview](https://community.sap.com/t5/technology-blog-posts-by-sap/database-migration-option-dmo-of-sum-introduction/ba-p/13262160 "https://community.sap.com/t5/technology-blog-posts-by-sap/database-migration-option-dmo-of-sum-introduction/ba-p/13262160") on the SAP website.
 
 ## DMO Move to SAP S/4HANA on AWS (single step) – DMOVE2S4
 

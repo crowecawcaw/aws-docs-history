@@ -25,9 +25,9 @@ Open a new session to verify the hostname change. 4. Add an entry to the `/etc/h
 
 Ensure that the packages listed in the following SAP Notes (SAP portal access required) are installed:
 
-    * [SAP Note 2002167 - Red Hat Enterprise Linux 7.x: Installation and Upgrade](https://launchpad.support.sap.com/#/notes/2002167 "https://launchpad.support.sap.com/#/notes/2002167")
-    * [SAP Note 2772999 - Red Hat Enterprise Linux 8.x: Installation and Configuration](https://launchpad.support.sap.com/#/notes/2772999 "https://launchpad.support.sap.com/#/notes/2772999")
-    * [SAP Note 3108316 - Red Hat Enterprise Linux 9.x: Installation and Configuration](https://launchpad.support.sap.com/#/notes/3108316 "https://launchpad.support.sap.com/#/notes/3108316")
+    * [SAP Note 2002167 - Red Hat Enterprise Linux 7.x: Installation and Upgrade](https://me.sap.com/notes/2002167 "https://me.sap.com/notes/2002167")
+    * [SAP Note 2772999 - Red Hat Enterprise Linux 8.x: Installation and Configuration](https://me.sap.com/notes/2772999 "https://me.sap.com/notes/2772999")
+    * [SAP Note 3108316 - Red Hat Enterprise Linux 9.x: Installation and Configuration](https://me.sap.com/notes/3108316 "https://me.sap.com/notes/3108316")
 
 
 
@@ -52,9 +52,9 @@ Ensure that the packages listed in the following SAP Notes (SAP portal access re
 
     ###### Note
 
-    Depending on your base RHEL image, additional packages might be required to ensure that your instance is optimally setup. (You can skip this step if you are using the RHEL for SAP with HA & US image.) For the latest information, refer to the RHEL configuration guide that is attached to SAP OSS Note [2009879](https://launchpad.support.sap.com/#/notes/2009879 "https://launchpad.support.sap.com/#/notes/2009879"). Review the packages in the Install Additional Required Packages section and the Appendix–Required Packages for SAP HANA on RHEL 7 section.
+    Depending on your base RHEL image, additional packages might be required to ensure that your instance is optimally setup. (You can skip this step if you are using the RHEL for SAP with HA & US image.) For the latest information, refer to the RHEL configuration guide that is attached to SAP OSS Note [2009879](https://me.sap.com/notes/2009879 "https://me.sap.com/notes/2009879"). Review the packages in the Install Additional Required Packages section and the Appendix–Required Packages for SAP HANA on RHEL 7 section.
 
-5. Ensure that your instance is running on a kernel version that is recommended in SAP OSS Note [2292690](https://launchpad.support.sap.com/#/notes/2292690 "https://launchpad.support.sap.com/#/notes/2292690"), [2777782](https://launchpad.support.sap.com/#/notes/2777782 "https://launchpad.support.sap.com/#/notes/2777782"), and [3108302](https://launchpad.support.sap.com/#/notes/3108302 "https://launchpad.support.sap.com/#/notes/3108302"). If needed, update your system to meet the minimum kernel version. You can check the version of the kernel and other packages using the following command.
+5. Ensure that your instance is running on a kernel version that is recommended in SAP OSS Note [2292690](https://me.sap.com/notes/2292690 "https://me.sap.com/notes/2292690"), [2777782](https://me.sap.com/notes/2777782 "https://me.sap.com/notes/2777782"), and [3108302](https://me.sap.com/notes/3108302 "https://me.sap.com/notes/3108302"). If needed, update your system to meet the minimum kernel version. You can check the version of the kernel and other packages using the following command.
 
 ```
 rpm -qi kernel*

@@ -106,18 +106,14 @@ For more information, see [Automated patching](automated-patching.md "automated-
 
 This section provides an overview of the AWS services used in the backup and recovery of SAP HANA systems and provides an example backup and recovery scenario. This guide does not include detailed instructions on how to execute database backups using native HANA backup and recovery features or third- party backup tools. Please refer to the standard OS, SAP, and SAP HANA documentation or the documentation provided by backup software vendors. In addition, backup schedules, frequency, and retention periods might vary with your system type and business requirements. See the following standard SAP documentation for guidance on these topics.
 
-###### Note
-
-For a discussion of both general and advanced backup and recovery concepts for SAP systems on AWS, see the [SAP on AWS Backup and Recovery Guide](https://d0.awsstatic.com/enterprise-marketing/SAP/sap-on-aws-backup-and-recovery-guide-v2-2.pdf "https://d0.awsstatic.com/enterprise-marketing/SAP/sap-on-aws-backup-and-recovery-guide-v2-2.pdf").
-
-| SAP Note                                                                                                         | Description                                              |
-| ---------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
-| [1642148](https://service.sap.com/sap/support/notes/1642148 "https://service.sap.com/sap/support/notes/1642148") | FAQ: SAP HANA Database Backup & Recovery                 |
-| [1821207](https://service.sap.com/sap/support/notes/1821207 "https://service.sap.com/sap/support/notes/1821207") | Determining required recovery files                      |
-| [1869119](https://service.sap.com/sap/support/notes/1869119 "https://service.sap.com/sap/support/notes/1869119") | Checking backups using hdbbackupcheck                    |
-| [1873247](https://service.sap.com/sap/support/notes/1873247 "https://service.sap.com/sap/support/notes/1873247") | Checking recoverability with hdbbackupdiag --check       |
-| [1651055](https://service.sap.com/sap/support/notes/1651055 "https://service.sap.com/sap/support/notes/1651055") | Scheduling SAP HANA Database Backups in Linux            |
-| [2484177](https://service.sap.com/sap/support/notes/2484177 "https://service.sap.com/sap/support/notes/2484177") | Scheduling backups for multi-tenant SAP HANA Cockpit 2.0 |
+| SAP Note                                                                       | Description                                              |
+| ------------------------------------------------------------------------------ | -------------------------------------------------------- |
+| [1642148](https://me.sap.com/notes/1642148 "https://me.sap.com/notes/1642148") | FAQ: SAP HANA Database Backup & Recovery                 |
+| [1821207](https://me.sap.com/notes/1821207 "https://me.sap.com/notes/1821207") | Determining required recovery files                      |
+| [1869119](https://me.sap.com/notes/1869119 "https://me.sap.com/notes/1869119") | Checking backups using hdbbackupcheck                    |
+| [1873247](https://me.sap.com/notes/1873247 "https://me.sap.com/notes/1873247") | Checking recoverability with hdbbackupdiag --check       |
+| [1651055](https://me.sap.com/notes/1651055 "https://me.sap.com/notes/1651055") | Scheduling SAP HANA Database Backups in Linux            |
+| [2484177](https://me.sap.com/notes/2484177 "https://me.sap.com/notes/2484177") | Scheduling backups for multi-tenant SAP HANA Cockpit 2.0 |
 
 ### Creating an Image of an SAP HANA System
 
@@ -133,7 +129,7 @@ See [Restoring SAP HANA Backups and Snapshots](#hana-ops-restoring-backups-snaps
 
 ###### Tip
 
-The SAP HANA system should be in a consistent state before you create an AMI. To do this, stop the SAP HANA instance before creating the AMI or by following the instructions in [SAP Note 1703435](https://service.sap.com/notes/1703435 "https://service.sap.com/notes/1703435").
+The SAP HANA system should be in a consistent state before you create an AMI. To do this, stop the SAP HANA instance before creating the AMI or by following the instructions in [SAP Note 1703435](https://me.sap.com/notes/1703435 "https://me.sap.com/notes/1703435").
 
 ### AWS Services and Components for Backup Solutions
 
@@ -238,7 +234,7 @@ Here are the steps you can take for a typical backup task:
 
 ###### Tip
 
-The `aws s3 sync` command will only upload new files that don’t exist in Amazon S3. Use a periodically scheduled `cron` job to sync, and then delete files that have been uploaded. See [SAP Note 1651055](https://service.sap.com/sap/support/notes/1651055 "https://service.sap.com/sap/support/notes/1651055") for scheduling periodic backup jobs in Linux, and extend the supplied scripts with `aws s3 sync` commands.
+The `aws s3 sync` command will only upload new files that don’t exist in Amazon S3. Use a periodically scheduled `cron` job to sync, and then delete files that have been uploaded. See [SAP Note 1651055](https://me.sap.com/notes/1651055 "https://me.sap.com/notes/1651055") for scheduling periodic backup jobs in Linux, and extend the supplied scripts with `aws s3 sync` commands.
 
 ### Scheduling and Executing Backups Remotely
 

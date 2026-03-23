@@ -21,9 +21,9 @@ It is recommended that you familiarize yourself with the following SAP documents
 
 You must have SAP portal access to view the SAP Notes.
 
-- SAP Note : [2115815 - FAQ: SAP HANA Database Patches and Upgrades](https://launchpad.support.sap.com/#/notes/2115815 "https://launchpad.support.sap.com/#/notes/2115815")
-- SAP Note : [1948334 - SAP HANA Database Update Paths for SAP HANA Maintenance Revisions](https://launchpad.support.sap.com/#/notes/1948334 "https://launchpad.support.sap.com/#/notes/1948334")
-- SAP Note : [2378962 - SAP HANA 2.0 Revision and Maintenance Strategy](https://launchpad.support.sap.com/#/notes/2378962 "https://launchpad.support.sap.com/#/notes/2378962")
+- SAP Note : [2115815 - FAQ: SAP HANA Database Patches and Upgrades](https://me.sap.com/notes/2115815 "https://me.sap.com/notes/2115815")
+- SAP Note : [1948334 - SAP HANA Database Update Paths for SAP HANA Maintenance Revisions](https://me.sap.com/notes/1948334 "https://me.sap.com/notes/1948334")
+- SAP Note : [2378962 - SAP HANA 2.0 Revision and Maintenance Strategy](https://me.sap.com/notes/2378962 "https://me.sap.com/notes/2378962")
 - SAP HANA Master Guide : [Updating an SAP HANA System Landscape](https://help.sap.com/docs/SAP_HANA_PLATFORM/eb3777d5495d46c5b2fa773206bbfb46/e396b93cbb571014a319bfdf7fb84638.html "https://help.sap.com/docs/SAP_HANA_PLATFORM/eb3777d5495d46c5b2fa773206bbfb46/e396b93cbb571014a319bfdf7fb84638.html")
 
 ## Architecture

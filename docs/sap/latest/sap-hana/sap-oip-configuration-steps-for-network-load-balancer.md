@@ -12,12 +12,12 @@ Use the following instructions to set up the Network Load Balancer to access the
 
 **Table 2: Listener Port Values**
 
-| Listener Ports           | Value                                                                                                                                                                         |
-| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ASCS Message server port | 36<instance number> (3600)                                                                                                                                                    |
-| SAP HANA                 | SAP HANA Studio service connection (login required) [SAP Note 1592925](https://launchpad.support.sap.com/#/notes/1592925 "https://launchpad.support.sap.com/#/notes/1592925") |
-| SAPStartSrv/HTTP Port    | 5<instance number>13 (50013)                                                                                                                                                  |
-| JDBC/SQL Port            | 3<instance number>15 (30015)                                                                                                                                                  |
+| Listener Ports           | Value                                                                                                                                       |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| ASCS Message server port | 36<instance number> (3600)                                                                                                                  |
+| SAP HANA                 | SAP HANA Studio service connection (login required) [SAP Note 1592925](https://me.sap.com/notes/1592925 "https://me.sap.com/notes/1592925") |
+| SAPStartSrv/HTTP Port    | 5<instance number>13 (50013)                                                                                                                |
+| JDBC/SQL Port            | 3<instance number>15 (30015)                                                                                                                |
 
 ## Step 1. Create the target group
 

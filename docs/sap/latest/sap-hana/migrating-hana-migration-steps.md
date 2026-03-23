@@ -10,4 +10,4 @@ The following table lists the migration scenarios that we will cover in detail i
 
 \*\*\*\*\* Other platforms include on-premises infrastructures and other cloud infrastructures outside of AWS.
 
-\*\*\*\*\*\* See [SAP Note 1844468 – Homogeneous system copy on SAP HANA](https://service.sap.com/sap/support/notes/1844468 "https://service.sap.com/sap/support/notes/1844468").
+\*\*\*\*\*\* See [SAP Note 1844468 – Homogeneous system copy on SAP HANA](https://me.sap.com/notes/1844468 "https://me.sap.com/notes/1844468").

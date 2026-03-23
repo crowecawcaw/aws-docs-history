@@ -124,7 +124,7 @@ Add the following lines to `/etc/fstab` to preserve mounted file systems during 
 
 ## Data volume partitions
 
-With SAP HANA 2.0 SPS4, additional data volume partitions allow configuring two or more file system volumes for the DATA volume of an SAP HANA tenant database in a single-host or multi-host system. Data volume partitions enable SAP HANA to scale beyond the size and performance limits of a single volume. You can add additional data volume partitions at any time. For more information, see [Host configuration](https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_adding_additional_data_volume_partitions.html#host-configuration "https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_adding_additional_data_volume_partitions.html#host-configuration").
+With SAP HANA 2.0 SPS4, additional data volume partitions allow configuring two or more file system volumes for the DATA volume of an SAP HANA tenant database in a single-host or multi-host system. Data volume partitions enable SAP HANA to scale beyond the size and performance limits of a single volume. You can add additional data volume partitions at any time. For more information, see [Adding additional data volume partitions](https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-aff-nfs-add-data-volume-partitions.html "https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-aff-nfs-add-data-volume-partitions.html").
 
 ### Host preparation
 

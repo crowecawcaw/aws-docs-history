@@ -60,7 +60,7 @@ You can then use the zypper install command to install the missing packages.
 
 ###### Note
 
-If you are importing your own SLES image, additional packages might be required to ensure that your instance is optimally setup. For the latest information, refer to the Package List section in the SLES for SAP Application Configuration Guide for SAP HANA, which is attached to SAP OSS Note [1944799](https://launchpad.support.sap.com/#/notes/1944799 "https://launchpad.support.sap.com/#/notes/1944799") 9. Ensure that your instance is running on a kernel version that is recommended in SAP OSS Note [2205917](https://launchpad.support.sap.com/#/notes/2205917 "https://launchpad.support.sap.com/#/notes/2205917") or [2684254](https://launchpad.support.sap.com/#/notes/2684254 "https://launchpad.support.sap.com/#/notes/2684254") depending on your version. If needed, update your system to meet the minimum kernel version. You can check the version of the kernel and other packages by using the following command:
+If you are importing your own SLES image, additional packages might be required to ensure that your instance is optimally setup. For the latest information, refer to the Package List section in the SLES for SAP Application Configuration Guide for SAP HANA, which is attached to SAP OSS Note [1944799](https://me.sap.com/notes/1944799 "https://me.sap.com/notes/1944799") 9. Ensure that your instance is running on a kernel version that is recommended in SAP OSS Note [2205917](https://me.sap.com/notes/2205917 "https://me.sap.com/notes/2205917") or [2684254](https://me.sap.com/notes/2684254 "https://me.sap.com/notes/2684254") depending on your version. If needed, update your system to meet the minimum kernel version. You can check the version of the kernel and other packages by using the following command:
 
 ```
    rpm -qi kernel*
@@ -78,7 +78,7 @@ If you are importing your own SLES image, additional packages might be required 
    grep force_latency /usr/lib/tuned/saptune/tuned.conf
 ```
 
-If the parameter is set, skip the next step and proceed with activating the HANA profile with `saptune`. 12. Update the `saptune HANA` profile according to SAP OSS Note [2205917](https://launchpad.support.sap.com/#/notes/2205917 "https://launchpad.support.sap.com/#/notes/2205917"), and then run the following commands to create a custom profile for SAP HANA. This step is not required if the `force_latency` parameter is already set.
+If the parameter is set, skip the next step and proceed with activating the HANA profile with `saptune`. 12. Update the `saptune HANA` profile according to SAP OSS Note [2205917](https://me.sap.com/notes/2205917 "https://me.sap.com/notes/2205917"), and then run the following commands to create a custom profile for SAP HANA. This step is not required if the `force_latency` parameter is already set.
 
 ```
    mkdir /etc/tuned/saptune

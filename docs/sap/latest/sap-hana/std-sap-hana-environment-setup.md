@@ -8,12 +8,12 @@ This document provides guidance on how to set up AWS resources and configure SUS
 
 This document follows AWS best practices to ensure that your system meets all key performance indicators (KPIs) that are required for Tailored Data Center Integration (TDI)–based SAP HANA implementations on AWS. In addition, this document also follows recommendations provided by SAP, SUSE, and Red Hat for SAP HANA in the following SAP OSS Notes (requires SAP portal access).
 
-- [1944799 - SAP HANA Guidelines for SLES Operating System Installation](https://launchpad.support.sap.com/#/notes/1944799 "https://launchpad.support.sap.com/#/notes/1944799")
-- [2205917 - SAP HANA DB: Recommended OS settings for SLES 12 / SLES for SAP Applications 12](https://launchpad.support.sap.com/#/notes/2205917 "https://launchpad.support.sap.com/#/notes/2205917")
-- [2684254 - SAP HANA DB: Recommended OS settings for SLES 15 / SLES for SAP Applications 15](https://launchpad.support.sap.com/#/notes/2684254 "https://launchpad.support.sap.com/#/notes/2684254")
-- [2009879 - SAP HANA Guidelines for Red Hat Enterprise Linux (RHEL) Operating System](https://launchpad.support.sap.com/#/notes/2009879 "https://launchpad.support.sap.com/#/notes/2009879")
-- [2292690 - SAP HANA DB: Recommended OS settings for RHEL 7](https://launchpad.support.sap.com/#/notes/2292690 "https://launchpad.support.sap.com/#/notes/2292690")
-- [2777782 - SAP HANA DB: Recommended OS Settings for RHEL 8](https://launchpad.support.sap.com/#/notes/2777782 "https://launchpad.support.sap.com/#/notes/2777782")
+- [1944799 - SAP HANA Guidelines for SLES Operating System Installation](https://me.sap.com/notes/1944799 "https://me.sap.com/notes/1944799")
+- [2205917 - SAP HANA DB: Recommended OS settings for SLES 12 / SLES for SAP Applications 12](https://me.sap.com/notes/2205917 "https://me.sap.com/notes/2205917")
+- [2684254 - SAP HANA DB: Recommended OS settings for SLES 15 / SLES for SAP Applications 15](https://me.sap.com/notes/2684254 "https://me.sap.com/notes/2684254")
+- [2009879 - SAP HANA Guidelines for Red Hat Enterprise Linux (RHEL) Operating System](https://me.sap.com/notes/2009879 "https://me.sap.com/notes/2009879")
+- [2292690 - SAP HANA DB: Recommended OS settings for RHEL 7](https://me.sap.com/notes/2292690 "https://me.sap.com/notes/2292690")
+- [2777782 - SAP HANA DB: Recommended OS Settings for RHEL 8](https://me.sap.com/notes/2777782 "https://me.sap.com/notes/2777782")
 
 ###### Note
 

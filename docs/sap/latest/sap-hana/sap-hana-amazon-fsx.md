@@ -11,4 +11,4 @@ This guide covers the following topics.
 - [Supported configurations](instances-sizing-sap-hana-amazon-fsx.md "instances-sizing-sap-hana-amazon-fsx.md")
 - [Set up FSx for ONTAP file system SVMs and volumes](amazon-fsx-sap-hana.md "amazon-fsx-sap-hana.md")
 - [Set up host](host-setup-fsx-sap-hana.md "host-setup-fsx-sap-hana.md")
-  For SAP specifications, refer to [SAP Note 2039883 - FAQ: SAP HANA database and data snapshots](https://launchpad.support.sap.com/#/notes/2039883 "https://launchpad.support.sap.com/#/notes/2039883") and [SAP Note 3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346 "https://launchpad.support.sap.com/#/notes/3024346").
+  For SAP specifications, refer to [SAP Note 2039883 - FAQ: SAP HANA database and data snapshots](https://me.sap.com/notes/2039883 "https://me.sap.com/notes/2039883") and [SAP Note 3024346 - Linux Kernel Settings for NetApp NFS](https://me.sap.com/notes/3024346 "https://me.sap.com/notes/3024346").

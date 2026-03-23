@@ -3,9 +3,9 @@
 Here are additional AWS security resources to help you achieve the level of security you require for your SAP HANA environment on AWS.
 
 - [AWS Cloud Security Center](https://aws.amazon.com/security/ "https://aws.amazon.com/security/")
-- [CIS AWS Foundation whitepaper](https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf "https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf")
+- [CIS AWS Foundations Benchmark](../../../securityhub/latest/userguide/cis-aws-foundations-benchmark.md "../../../securityhub/latest/userguide/cis-aws-foundations-benchmark.md")
 - [Introduction to AWS Security](../../../whitepapers/latest/introduction-aws-security/welcome.md "../../../whitepapers/latest/introduction-aws-security/welcome.md")
-- [AWS Cloud Security Best Practices whitepaper](https://d0.awsstatic.com/whitepapers/aws-security-best-practices.pdf "https://d0.awsstatic.com/whitepapers/aws-security-best-practices.pdf")
+- [AWS Well-Architected Framework – Security Pillar](../../../wellarchitected/latest/security-pillar/welcome.md "../../../wellarchitected/latest/security-pillar/welcome.md")
 
 ## OS Hardening
 
@@ -13,12 +13,12 @@ You may want to lock down the OS configuration further, for example, to avoid pr
 
 You can also refer to the following SAP notes:
 
-- [1730999](https://service.sap.com/sap/support/notes/1730999 "https://service.sap.com/sap/support/notes/1730999"): _Configuration changes in HANA appliance_
-- [1731000](https://service.sap.com/sap/support/notes/1731000 "https://service.sap.com/sap/support/notes/1731000"): _Unrecommended configuration changes_
+- [1730999](https://me.sap.com/notes/1730999 "https://me.sap.com/notes/1730999"): _Configuration changes in HANA appliance_
+- [1731000](https://me.sap.com/notes/1731000 "https://me.sap.com/notes/1731000"): _Unrecommended configuration changes_
 
 ## Disabling HANA Services
 
-HANA services such as HANA XS are optional and should be deactivated if they are not needed. For instructions, see [SAP Note 1697613](https://service.sap.com/sap/support/notes/1697613 "https://service.sap.com/sap/support/notes/1697613"): _Remove XS Engine out of SAP HANA database_. In case of service deactivation, you should also remove the TCP ports from the SAP HANA AWS security groups for complete security.
+HANA services such as HANA XS are optional and should be deactivated if they are not needed. For instructions, see [SAP Note 1697613](https://me.sap.com/notes/1697613 "https://me.sap.com/notes/1697613"): _Remove XS Engine out of SAP HANA database_. In case of service deactivation, you should also remove the TCP ports from the SAP HANA AWS security groups for complete security.
 
 ## API Call Logging
 

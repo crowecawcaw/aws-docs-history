@@ -21,7 +21,7 @@ The following table summarizes the data tiers and their characteristics.
 | Warm                      | Medium | Medium                | Medium                  | Required         |
 | Cold                      | Low    | Low                   | Low                     | N/A              |
 
-After you have assigned the data to your preferred tiers, you can map your SAP product to the data tiering solution that is supported by SAP on AWS. For more information, see [SAP HANA on AWS: Dynamic Tiering](https://launchpad.support.sap.com/#/notes/2555629 "https://launchpad.support.sap.com/#/notes/2555629").
+After you have assigned the data to your preferred tiers, you can map your SAP product to the data tiering solution that is supported by SAP on AWS. For more information, see [SAP HANA on AWS: Dynamic Tiering](https://me.sap.com/notes/2555629 "https://me.sap.com/notes/2555629").
 
 For the hot tier, all relevant data stays in memory. You must have an Amazon EC2 instance with adequate memory to meet your sizing requirement. For more information, see [SAP HANA certified instances](../general/sap-hana-aws-ec2.md "../general/sap-hana-aws-ec2.md"). You can choose a tier based on the type of your SAP product. See the following table to learn more.
 
