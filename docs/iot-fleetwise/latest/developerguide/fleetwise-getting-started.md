@@ -140,7 +140,7 @@ from a fleet of vehicles is consistent.
 
 ###### Note
 
-For this tutorial, you can download a [sample .dbc file](samples/EngineSignals.md "samples/EngineSignals.md")
+For this tutorial, you can download a [sample .dbc file](samples/EngineSignals.zip.md "samples/EngineSignals.zip.md")
 to upload for this step. 7. Add attributes to your vehicle model and then choose
 **Next**.
 

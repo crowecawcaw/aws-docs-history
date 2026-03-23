@@ -92,7 +92,7 @@ signals and signal decoders. To get an example .dbc file, do the following.
 
 ###### To get a .dbc file
 
-1. Download the [EngineSignals.zip](samples/EngineSignals.md "samples/EngineSignals.md").
+1. Download the [EngineSignals.zip](samples/EngineSignals.zip.md "samples/EngineSignals.zip.md").
 2. Navigate to the directory where you downloaded the
    `EngineSignals.zip` file.
 3. Unzip the file and save it locally as
