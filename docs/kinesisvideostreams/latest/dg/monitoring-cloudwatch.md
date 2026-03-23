@@ -124,7 +124,7 @@ CloudWatch metrics can help find answers to the following questions:
   establishing the connection.
 - If there's a drop in `PutMedia.Success` or increase in
   `PutMedia.ErrorAckCount`, look at the ack error code in the ack responses sent by the service
-  to see why ingestion of data is failing. For more information, see [AckErrorCode.Values](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesisvideo/model/AckErrorCode.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesisvideo/model/AckErrorCode.md").
+  to see why ingestion of data is failing. For more information, see [AckErrorCode.Values](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesisvideo/model/AckErrorCode.Values.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesisvideo/model/AckErrorCode.Values.md").
 
 ### Why can't the data be read from the Amazon Kinesis Video Streams service at the same rate as it's being sent from the producer?
 
@@ -154,7 +154,7 @@ CloudWatch metrics can help find answers to the following questions:
   `PutMedia.IncomingFragments`, check the network bandwidth and whether the data is still being
   sent.
 - If there's a drop in `PutMedia.Success`, check the ack error codes. For more
-  information, see [AckErrorCode.Values](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesisvideo/model/AckErrorCode.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesisvideo/model/AckErrorCode.md").
+  information, see [AckErrorCode.Values](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesisvideo/model/AckErrorCode.Values.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesisvideo/model/AckErrorCode.Values.md").
 - If there's an increase in `PutMedia.FragmentPersistLatency` or
   `ListFragments.Latency`, you're most likely experiencing a service issue. If the condition
   persists for an extended period of time, check with your customer service contact to see if there's an
@@ -207,7 +207,7 @@ CloudWatch metrics can help find answers to the following questions:
 **Action items:**
 
 - If there's an increase in `GetMedia.ConnectionErrors`, look at the HTTP
-  response and error codes returned by the `GetMedia` request. For more information, see [AckErrorCode.Values](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesisvideo/model/AckErrorCode.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesisvideo/model/AckErrorCode.md").
+  response and error codes returned by the `GetMedia` request. For more information, see [AckErrorCode.Values](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesisvideo/model/AckErrorCode.Values.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesisvideo/model/AckErrorCode.Values.md").
 - If you're trying to read the latest or live data, check
   `PutMedia.IncomingBytes` to see if there's data coming into the stream for the service to
   send to the consumers.
