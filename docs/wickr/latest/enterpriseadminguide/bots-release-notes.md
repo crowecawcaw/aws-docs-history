@@ -8,6 +8,6 @@ Wickr Enterprise.
 
 ###### Topics
 
-- [Bots 6.24 release](bots-release-notes-6.md "bots-release-notes-6.md")
-- [Bots 6.32 release](bots-release-notes-6.md "bots-release-notes-6.md")
-- [Bots 6.34 release](bots-release-notes-6.md "bots-release-notes-6.md")
+- [Bots 6.24 release](bots-release-notes-6.24.md "bots-release-notes-6.24.md")
+- [Bots 6.32 release](bots-release-notes-6.32.md "bots-release-notes-6.32.md")
+- [Bots 6.34 release](bots-release-notes-6.34.md "bots-release-notes-6.34.md")
