@@ -130,7 +130,7 @@ attributes.
 
 This example will show you how to create using a sample account_map csv file
 
-1. Create an account_map csv file locally, you can use the sample here and requirements below as a starting point: [account_map.csv](samples/account_map.csv.md "samples/account_map.csv.md")
+1. Create an account_map csv file locally, you can use the sample here and requirements below as a starting point: [account_map.csv](samples/account_map.csv.zip.md "samples/account_map.csv.zip.md")
 2. Update your account_map csv with your account mapping data
 
 **Upload your account_map csv file to Amazon S3**

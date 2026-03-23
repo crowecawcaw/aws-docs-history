@@ -23,7 +23,7 @@ the specific required dashboard
 ### What columns are in the Cost and Usage Report (CUR), what do they mean?
 
 CUR documentation can be found
-[here](../../../pdfs/cur/latest/userguide/cur-user-guide.md "../../../pdfs/cur/latest/userguide/cur-user-guide.md")
+[here](../../../pdfs/cur/latest/userguide/cur-user-guide.pdf.md "../../../pdfs/cur/latest/userguide/cur-user-guide.pdf.md")
 
 ### Where can I find more info about CUR delivery timelines and any FAQs for CUR?
 
@@ -748,7 +748,7 @@ To fix please follow the steps below:
    **payer_id=your_payer_id** folder in your data.
 2. Delete your new tables with names that have long hashs attached to
    them and start with payer or year
-3. Run the following [python script](samples/s3_files_migration.py.md "samples/s3_files_migration.py.md")
+3. Run the following [python script](samples/s3_files_migration.py.zip.md "samples/s3_files_migration.py.zip.md")
 
 `python3 s3_files_migration.py ODC_your_bucket_name`
 

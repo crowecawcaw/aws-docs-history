@@ -2,7 +2,7 @@
 
 ## Last Updated
 
-August 2023
+March 2026
 
 If you wish to provide feedback on this lab, or you have spotted an
 error, or have any improvement suggestion, please email:
@@ -31,3 +31,4 @@ us at the e-mail address above.
 - [Tailoring Data Collector schedules](tailor-data-collector.md "tailor-data-collector.md")
 - [Data Collection without AWS Organizations](data-collection-without-org.md "data-collection-without-org.md")
 - [AWS Spend in Local Currency](spend-in-local-currency.md "spend-in-local-currency.md")
+- [Granular Data Collection Control](granular-data-collection-control.md "granular-data-collection-control.md")

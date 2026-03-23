@@ -28,10 +28,11 @@ AWS Data Exports does not support in-place table version updates within an exist
 
 ### Step 2: Enable FOCUS 1.2 Export in Source Account
 
-1. In the **Management (Payer)** Account, open the **CID-DataExports-Source** stack again.
-2. Select **Update stack** → **Make a direct update** → **Replace existing template** providing the URL `https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml`.
-3. Set the **FOCUS** parameter to **Yes** to enable the FOCUS 1.2 version of the report.
-4. Complete the stack update.
+1. Download the latest CloudFormation template from `https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml`.
+2. In the **Management (Payer)** Account, open the **CID-DataExports-Source** stack again.
+3. Select **Update stack** → **Make a direct update** → **Replace existing template** and choose **Upload a template file**, then upload the template you downloaded.
+4. Set the **FOCUS** parameter to **Yes** to enable the FOCUS 1.2 version of the report.
+5. Complete the stack update.
 
 ![Enable FOCUS 1.2 in Source Account](/images/guidance/latest/cloud-intelligence-dashboards/images/focus-migration-enable-1-2-source.png)
 
@@ -39,7 +40,7 @@ AWS Data Exports does not support in-place table version updates within an exist
 
 1. Log in to your **Data Collection (Destination)** Account.
 2. Open the [CloudFormation Console](https://console.aws.amazon.com/cloudformation/home "https://console.aws.amazon.com/cloudformation/home") and locate the **CID-DataExports-Destination** stack.
-3. Select **Update stack** → **Make a direct update** → **Replace existing template** providing the URL `https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml`.
+3. Select **Update stack** → **Make a direct update** → **Replace existing template** and choose **Upload a template file**, then upload the same template downloaded in Step 2.
 4. Make sure the **FOCUS** parameter is set to **Yes**.
 5. Complete the stack update.
 

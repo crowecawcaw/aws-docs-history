@@ -23,7 +23,7 @@ rate data that you can obtain from public sources.
 
 - [CUDOS v5](cudos-cid-kpi.md "cudos-cid-kpi.md") Dashboard deployed
 - Access to upload CSV to S3, create external table in Athena and amend Quick Sight Dataset and Dashboards.
-- Currency conversion rate file in CSV format [example.csv](samples/currency-conversion-rate.csv.md "samples/currency-conversion-rate.csv.md"), averaging currency conversion on monthly basis. For this example we use USD to GBP change rate, assuming that the CUR is in USD and we want to show it in GBP.
+- Currency conversion rate file in CSV format [example.csv](samples/currency-conversion-rate.csv.zip.md "samples/currency-conversion-rate.csv.zip.md"), averaging currency conversion on monthly basis. For this example we use USD to GBP change rate, assuming that the CUR is in USD and we want to show it in GBP.
 
 ```
 Month,CurrencyConversionRate

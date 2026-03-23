@@ -111,3 +111,9 @@ Collection Stack](https://github.com/awslabs/cid-framework/tree/main/data-collec
    minutes until completion.
 
 After deployment you can [check the execution state](data-collection-utilize-data.md#data-collection-utilize-data-check-execution "data-collection-utilize-data.md#data-collection-utilize-data-check-execution") and then install [Advanced Dashboards](dashboard-advanced.md "dashboard-advanced.md") for collected data.
+
+## Step 3. (Optional) [In Data Collection Account] Apply granular control over accounts, regions, and modules
+
+In most cases, the Data Collection framework can be run as deployed, collecting data from all accounts in your Organization for all enabled modules and the regions defined during installation. However, in some scenarios you may need to limit certain modules to a subset of accounts, OUs, and/or regions — for example, excluding sandbox accounts from specific modules or restricting regional data collection for compliance reasons.
+
+For detailed instructions on configuring inclusion lists, exclusion lists, and per-module allow/deny rules, see [Granular Account and Region Control over Data Collection](granular-data-collection-control.md "granular-data-collection-control.md").

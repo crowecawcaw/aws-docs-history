@@ -33,7 +33,7 @@ This solution covers the following use cases:
 ## Supported AWS Data Export types
 
 1. Cost And Usage Report (CUR) 2.0
-2. FOCUS 1.0 with additional AWS specific columns (Preview)
+2. FOCUS 1.2
 3. Cost Optimization Recommendations from AWS Cost Optimization Hub
 4. Carbon emissions
 

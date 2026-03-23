@@ -28,7 +28,7 @@ AWS Config is a fully managed service that provides you with resource inventory,
 
 The Amazon Web Services (AWS) Config Resource Compliance Dashboard (CRCD) shows the inventory of your AWS resources, along with their compliance status, across multiple AWS accounts and Regions by leveraging your AWS Config data.
 
-![CRCD Dashboard](/images/guidance/latest/cloud-intelligence-dashboards/images/images/dashboards/crcd-compliance-1.png)
+![CRCD Dashboard](images/images/dashboards/crcd-compliance-1.png)
 
 ## Advantages
 
