@@ -52,4 +52,4 @@ module is detailed in the table below.
 **API Allowlist**
 
 For a downloadable and easier to search list, a file with the modules and classes
-is available at [Python functions allowed in Native FGAC](samples/Python functions allowed in Native FGAC.md "samples/Python functions allowed in Native FGAC.md").
+is available at [Python functions allowed in Native FGAC](samples/Python functions allowed in Native FGAC.zip.md "samples/Python functions allowed in Native FGAC.zip.md").

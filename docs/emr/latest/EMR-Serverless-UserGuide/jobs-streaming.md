@@ -53,6 +53,6 @@ When you use streaming jobs, keep in mind the following considerations and limit
 - EMR Serverless indefinitely retries streaming jobs, and you can't customize the number of maximum attempts. Thrash prevention is automatically included
   to stop the job retry if the amount of failed attempts has surpassed a threshold set over an hourly window. The default threshold
   is five failed attempts over one hour. You can configure this threshold to be between 1 and 10 attempts. For more information,
-  refer to [Job resiliency](SECTION-jobs-resiliency.md "SECTION-jobs-resiliency.md").
+  refer to [Job resiliency](SECTION-jobs-resiliency.xml.md "SECTION-jobs-resiliency.xml.md").
 - Streaming jobs have checkpoints to save runtime state and progress, so EMR Serverless can resume the streaming job
   from the latest checkpoint. For more information, refer to [Recovering from failures with Checkpointing](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html#recovering-from-failures-with-checkpointing "https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html#recovering-from-failures-with-checkpointing") in the Apache Spark documentation.

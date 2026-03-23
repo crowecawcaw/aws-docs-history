@@ -31,7 +31,7 @@ provides the following benefits:
 
 ## How it works
 
-![EMR Serverless flowchart.](images/PEZ-SMAI.png)
+![EMR Serverless flowchart.](/images/emr/latest/EMR-Serverless-UserGuide/images/PEZ-SMAI.png)
 
 ### Use case example
 

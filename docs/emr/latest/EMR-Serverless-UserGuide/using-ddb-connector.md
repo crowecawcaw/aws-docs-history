@@ -118,7 +118,7 @@ Use Spark or Hive to copy data to a new DynamoDB table.
 
 Spark
 To copy data from the Hive table that you created in the previous step
-to DynamoDB, follow **Steps 1-3** in [Copy data to DynamoDB](../../../amazondynamodb/latest/developerguide/EMRforDynamoDB.Tutorial.md "../../../amazondynamodb/latest/developerguide/EMRforDynamoDB.Tutorial.md"). This creates a new DynamoDB table called
+to DynamoDB, follow **Steps 1-3** in [Copy data to DynamoDB](../../../amazondynamodb/latest/developerguide/EMRforDynamoDB.Tutorial.CopyDataToDDB.md "../../../amazondynamodb/latest/developerguide/EMRforDynamoDB.Tutorial.CopyDataToDDB.md"). This creates a new DynamoDB table called
 `Features`. You can then read data directly from the text
 file and copy it to your DynamoDB table, as the following example
 shows.
@@ -173,7 +173,7 @@ object EmrServerlessDynamoDbTest {
 
 Hive
 To copy data from the Hive table that you created in the previous step
-to DynamoDB, follow the instructions in [Copy data to DynamoDB](../../../amazondynamodb/latest/developerguide/EMRforDynamoDB.Tutorial.md "../../../amazondynamodb/latest/developerguide/EMRforDynamoDB.Tutorial.md").
+to DynamoDB, follow the instructions in [Copy data to DynamoDB](../../../amazondynamodb/latest/developerguide/EMRforDynamoDB.Tutorial.CopyDataToDDB.md "../../../amazondynamodb/latest/developerguide/EMRforDynamoDB.Tutorial.CopyDataToDDB.md").
 
 ## Step 4: Query data from DynamoDB
 
@@ -261,4 +261,4 @@ val df = sc.hadoopRDD(jobConf, classOf[DynamoDBInputFormat], classOf[Text], clas
 
 Hive
 To query data from the DynamoDB table that you created in the previous
-step, follow the instructions in [Query the data in the DynamoDB table](../../../amazondynamodb/latest/developerguide/EMRforDynamoDB.Tutorial.md "../../../amazondynamodb/latest/developerguide/EMRforDynamoDB.Tutorial.md").
+step, follow the instructions in [Query the data in the DynamoDB table](../../../amazondynamodb/latest/developerguide/EMRforDynamoDB.Tutorial.QueryDataInDynamoDB.md "../../../amazondynamodb/latest/developerguide/EMRforDynamoDB.Tutorial.QueryDataInDynamoDB.md").

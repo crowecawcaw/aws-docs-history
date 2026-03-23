@@ -19,7 +19,7 @@ external metastore.
    instance](../../../AmazonRDS/latest/UserGuide/USER_CreateDBInstance.md "../../../AmazonRDS/latest/UserGuide/USER_CreateDBInstance.md").
 4. Modify the security group of your MySQL or Aurora database to allow JDBC
    connections from your EMR Serverless security group by following the steps in [Modifying an
-   Amazon RDS DB instance](../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.md "../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.md"). Add a rule for inbound traffic to the RDS security group
+   Amazon RDS DB instance](../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.md "../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.md"). Add a rule for inbound traffic to the RDS security group
    from one of your EMR Serverless security groups.
 
 | Type    | Protocol | Port range | Source                          |
