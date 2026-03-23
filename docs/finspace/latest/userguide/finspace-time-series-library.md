@@ -32,8 +32,8 @@ See the following sections to learn more about supported functions in the time s
 
 Topics
 
-- [Collect time bars operations in Amazon FinSpace](time-series-collect.md "time-series-collect.md")
-- [Summarize bars operations in Amazon FinSpace](time-series-summarize-bars.md "time-series-summarize-bars.md")
-- [Fill and filter operations in Amazon FinSpace](time-series-fill-filter.md "time-series-fill-filter.md")
-- [Analyze operations in Amazon FinSpace](time-series-analyze.md "time-series-analyze.md")
-- [Using the Amazon FinSpace library](finspace-using-the-library.md "finspace-using-the-library.md")
+- [Collect time bars operations in Amazon FinSpace](time-series-collect.title.md "time-series-collect.title.md")
+- [Summarize bars operations in Amazon FinSpace](time-series-summarize-bars.title.md "time-series-summarize-bars.title.md")
+- [Fill and filter operations in Amazon FinSpace](time-series-fill-filter.title.md "time-series-fill-filter.title.md")
+- [Analyze operations in Amazon FinSpace](time-series-analyze.title.md "time-series-analyze.title.md")
+- [Using the Amazon FinSpace library](finspace-using-the-library.title.md "finspace-using-the-library.title.md")
