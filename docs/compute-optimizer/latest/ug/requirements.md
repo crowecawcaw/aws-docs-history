@@ -119,7 +119,7 @@ To generate recommendations for your Aurora and RDS DB instances, Compute Optimi
   over the past 93 days. For more information, see [Enhanced infrastructure metrics](enhanced-infrastructure-metrics.md "enhanced-infrastructure-metrics.md").
 - To receive recommendations for RDS DB instances that are over-provisioned, you need to enable
   Amazon RDS Performance Insights. To enable Performance Insights for your DB instances, see
-  [Turning Performance Insights on and off for Amazon RDS](../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.md "../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.md")
+  [Turning Performance Insights on and off for Amazon RDS](../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.Enabling.md "../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.Enabling.md")
   in the _Amazon Relational Database Service User Guide_.
 
 ### Aurora DB clusters
@@ -128,7 +128,7 @@ To generate recommendations for your Aurora DB clusters, Compute Optimizer requi
 
 - No application Auto Scaling policy is attached to the Aurora DB cluster. For more information about Aurora
   Auto Scaling, see [Amazon Aurora Auto Scaling
-  with Aurora Replicas](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Integrations.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Integrations.md") in the _Amazon Aurora User Guide_.
+  with Aurora Replicas](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Integrations.AutoScaling.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Integrations.AutoScaling.md") in the _Amazon Aurora User Guide_.
 - The Aurora DB cluster has at least 14 days of cost usage data.
 - The Aurora DB cluster has not used Aurora Parallel Query over the lookback period.
 - The Aurora DB cluster has not changed storage configuration in the last 30 days.

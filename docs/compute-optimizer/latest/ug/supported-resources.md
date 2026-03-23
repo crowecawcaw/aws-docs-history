@@ -150,8 +150,8 @@ Compute Optimizer Compute Optimizer generates recommendations for Amazon Aurora 
 ### RDS DB instances
 
 Compute Optimizer generates recommendations for several DB instance types. For more information about Aurora and RDS DB instance types,
-see [DB instance classes](../../../AmazonRDS/latest/UserGuide/Concepts.md "../../../AmazonRDS/latest/UserGuide/Concepts.md")
-in the _Amazon Relational Database Service User Guide_ and [DB instance class types](../../../AmazonRDS/latest/AuroraUserGuide/Concepts.DBInstanceClass.md "../../../AmazonRDS/latest/AuroraUserGuide/Concepts.DBInstanceClass.md") in the _Amazon Aurora User Guide for Aurora_.
+see [DB instance classes](../../../AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.md "../../../AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.md")
+in the _Amazon Relational Database Service User Guide_ and [DB instance class types](../../../AmazonRDS/latest/AuroraUserGuide/Concepts.DBInstanceClass.Types.md "../../../AmazonRDS/latest/AuroraUserGuide/Concepts.DBInstanceClass.Types.md") in the _Amazon Aurora User Guide for Aurora_.
 
 The following tables list the DB instance types for the databases that are supported by Compute Optimizer.
 
@@ -195,7 +195,7 @@ Compute Optimizer generates recommendations for Aurora DB cluster storage Aurora
 Compute Optimizer only provides recommendations to switch from Aurora Standard to Aurora I/O-Optimized storage configurations.
 
 For more information about both configurations, see [Amazon Aurora
-storage](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.md") in the _Amazon Aurora User Guide for Aurora_.
+storage](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.StorageReliability.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.StorageReliability.md") in the _Amazon Aurora User Guide for Aurora_.
 
 ## Additional resources
 
