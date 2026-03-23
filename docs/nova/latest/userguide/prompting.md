@@ -50,4 +50,5 @@ place, so you can iteratively develop the most optimal prompt for your use case:
 
 - [Text understanding prompting best practices](prompting-text-understanding.md "prompting-text-understanding.md")
 - [Vision understanding prompting best practices](prompting-video-understanding.md "prompting-video-understanding.md")
+- [Content moderation](prompting-content-moderation.md "prompting-content-moderation.md")
 - [General prompting tips](prompting-general-tips.md "prompting-general-tips.md")

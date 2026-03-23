@@ -16,7 +16,7 @@ The following AWS Workshops are available for Amazon Nova:
 ###### Amazon Bedrock links
 
 - Getting Started in the [Amazon Bedrock console](http://(https//docs.aws.amazon.com/bedrock/latest/userguide/getting-started-console.html "http://(https//docs.aws.amazon.com/bedrock/latest/userguide/getting-started-console.html")
-- Getting Started with the [API](../../../bedrock/latest/userguide/getting-started-api.md "../../../bedrock/latest/userguide/getting-started-api.md")
+- Getting Started with the [API](../../../bedrock/latest/userguide/getting-started-api.htm.md "../../../bedrock/latest/userguide/getting-started-api.htm.md")
   - [InvokeModel API](../../../bedrock/latest/userguide/inference-invoke.md "../../../bedrock/latest/userguide/inference-invoke.md")
   - [Converse API](../../../bedrock/latest/userguide/conversation-inference.md "../../../bedrock/latest/userguide/conversation-inference.md")
   - [Batch inference](../../../bedrock/latest/userguide/batch-inference.md "../../../bedrock/latest/userguide/batch-inference.md")

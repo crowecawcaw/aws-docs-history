@@ -17,7 +17,7 @@ For best practices, see [Best Practices](nova-forge-sft.md#best-practices "nova-
 
 ###### Topics
 
-- [Nova Customization SDK](nova-customization-sdk.md "nova-customization-sdk.md")
+- [Nova Forge SDK](nova-forge-sdk.md "nova-forge-sdk.md")
 - [Fine-tune Nova 1.0](nova-fine-tune-1.md "nova-fine-tune-1.md")
 - [Amazon Nova distillation](nova-distillation.md "nova-distillation.md")
 - [Direct Preference Optimization (DPO)](nova-dpo-smtj.md "nova-dpo-smtj.md")

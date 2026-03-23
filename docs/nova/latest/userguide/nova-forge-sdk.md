@@ -1,6 +1,6 @@
-# Nova Customization SDK
+# Nova Forge SDK
 
-The Nova Customization SDK is a comprehensive Python SDK for customizing Amazon Nova
+The Nova Forge SDK is a comprehensive Python SDK for customizing Amazon Nova
 models. The SDK provides a unified interface for training, evaluation, monitoring,
 deployment, and inference of Amazon Nova models across different platforms including SageMaker AI
 and Amazon Bedrock. Whether you're adapting models to domain-specific tasks or optimizing performance
@@ -13,7 +13,7 @@ for your use case, this SDK provides everything you need in one unified interfac
 - Support for multiple training methods including continued pre-training (CPT), supervised fine-tuning (SFT), direct preference optimization (DPO),
   and reinforcement fine-tuning (RFT), both single-turn and multi-turn, with both LoRA and full-rank
   approaches.
-- Built-in support for SageMaker Training Jobs and , with automatic
+- Built-in support for SageMaker Training Jobs, SageMaker HyperPod, and Amazon Bedrock, with automatic
   resource management.
 - No more finding the right recipes or container URI for your training
   techniques.
@@ -34,7 +34,7 @@ The SDK requires at least Python 3.12.
 To install this SDK, please follow below command.
 
 ```
-pip install amzn-nova-customization-sdk
+pip install amzn-nova-forge
 ```
 
 ## Supported Models and Techniques
@@ -42,28 +42,28 @@ pip install amzn-nova-customization-sdk
 The SDK supports the following models and techniques within the Amazon Nova
 family:
 
-| Method                                         | Supported Models                                                                                                                                                                                 |
-| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Continued Pre-training                         | [All Nova Models](../../../sagemaker/latest/dg/nova-model-recipes.md#nova-model-recipes-reference "../../../sagemaker/latest/dg/nova-model-recipes.md#nova-model-recipes-reference") (SMHP only) |
-| Supervised Fine-tuning LoRA                    | [All Nova Models](../../../sagemaker/latest/dg/nova-model-recipes.md#nova-model-recipes-reference "../../../sagemaker/latest/dg/nova-model-recipes.md#nova-model-recipes-reference")             |
-| Supervised Fine-tuning Full-Rank               | [All Nova Models](../../../sagemaker/latest/dg/nova-model-recipes.md#nova-model-recipes-reference "../../../sagemaker/latest/dg/nova-model-recipes.md#nova-model-recipes-reference")             |
-| Direct Preference Optimization LoRA            | Nova 1.0 models                                                                                                                                                                                  |
-| Direct Preference Optimization Full-Rank       | Nova 1.0 models                                                                                                                                                                                  |
-| Reinforcement Fine-tuning LoRA                 | Nova Lite 2.0                                                                                                                                                                                    |
-| Reinforcement Fine-tuning Full-Rank            | Nova Lite 2.0                                                                                                                                                                                    |
-| Multi-turn Reinforcement Fine-tuning LoRA      | Nova Lite 2.0 (SMHP Only)                                                                                                                                                                        |
-| Multi-turn Reinforcement Fine-tuning Full-Rank | Nova Lite 2.0 (SMHP Only)                                                                                                                                                                        |
+| Method                                         | Supported Models                                                                                                                                                                                          |
+| ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Continued Pre-training                         | [All Nova Models](../../../sagemaker/latest/dg/nova-model-recipes.md#nova-model-recipes-reference "../../../sagemaker/latest/dg/nova-model-recipes.md#nova-model-recipes-reference") (SMHP only)          |
+| Supervised Fine-tuning LoRA                    | [All Nova Models](../../../sagemaker/latest/dg/nova-model-recipes.md#nova-model-recipes-reference "../../../sagemaker/latest/dg/nova-model-recipes.md#nova-model-recipes-reference")                      |
+| Supervised Fine-tuning Full-Rank               | [All Nova Models](../../../sagemaker/latest/dg/nova-model-recipes.md#nova-model-recipes-reference "../../../sagemaker/latest/dg/nova-model-recipes.md#nova-model-recipes-reference") (SMHP and SMTJ only) |
+| Direct Preference Optimization LoRA            | Nova 1.0 models (SMHP and SMTJ only)                                                                                                                                                                      |
+| Direct Preference Optimization Full-Rank       | Nova 1.0 models (SMHP and SMTJ only)                                                                                                                                                                      |
+| Reinforcement Fine-tuning LoRA                 | Nova Lite 2.0                                                                                                                                                                                             |
+| Reinforcement Fine-tuning Full-Rank            | Nova Lite 2.0 (SMHP and SMTJ only)                                                                                                                                                                        |
+| Multi-turn Reinforcement Fine-tuning LoRA      | Nova Lite 2.0 (SMHP Only)                                                                                                                                                                                 |
+| Multi-turn Reinforcement Fine-tuning Full-Rank | Nova Lite 2.0 (SMHP Only)                                                                                                                                                                                 |
 
 ## Getting Started
 
 ###### Topics
 
-- [1. Prepare Your Data](#nova-customization-sdk-prepare-data "#nova-customization-sdk-prepare-data")
-- [2. Configure Your Infrastructure](#nova-customization-sdk-configure-infrastructure "#nova-customization-sdk-configure-infrastructure")
-- [3. Train](#nova-customization-sdk-train "#nova-customization-sdk-train")
-- [4. Monitor](#nova-customization-sdk-monitor "#nova-customization-sdk-monitor")
-- [5. Evaluate](#nova-customization-sdk-evaluate "#nova-customization-sdk-evaluate")
-- [6. Deploy](#nova-customization-sdk-deploy "#nova-customization-sdk-deploy")
+- [1. Prepare Your Data](#nova-forge-sdk-prepare-data "#nova-forge-sdk-prepare-data")
+- [2. Configure Your Infrastructure](#nova-forge-sdk-configure-infrastructure "#nova-forge-sdk-configure-infrastructure")
+- [3. Train](#nova-forge-sdk-train "#nova-forge-sdk-train")
+- [4. Monitor](#nova-forge-sdk-monitor "#nova-forge-sdk-monitor")
+- [5. Evaluate](#nova-forge-sdk-evaluate "#nova-forge-sdk-evaluate")
+- [6. Deploy](#nova-forge-sdk-deploy "#nova-forge-sdk-deploy")
 
 ### 1. Prepare Your Data
 
@@ -72,8 +72,8 @@ transformation to the correct format for your chosen training method. Or, provid
 formatted data and get started immediately.
 
 ```
-from amzn_nova_customization_sdk.dataset.dataset_loader import JSONLDatasetLoader
-from amzn_nova_customization_sdk.model.model_enums import Model, TrainingMethod
+from amzn_nova_forge.dataset.dataset_loader import JSONLDatasetLoader
+from amzn_nova_forge.model.model_enums import Model, TrainingMethod
 
 loader = JSONLDatasetLoader(question="input", answer="output")
 loader.load("s3://your-bucket/training-data.jsonl")
@@ -86,8 +86,12 @@ Choose your compute resources—the SDK validates configurations and ensures opt
 setup.
 
 ```
-from amzn_nova_customization_sdk.manager.runtime_manager import SMTJRuntimeManager, SMHPRuntimeManager
+from amzn_nova_forge.manager.runtime_manager import BedrockRuntimeManager, SMTJRuntimeManager, SMHPRuntimeManager
 
+# Bedrock
+runtime = BedrockRuntimeManager(
+     execution_role="arn:aws:iam::123456789012:role/ExampleRole"
+)
 
 # SageMaker Training Jobs
 runtime = SMTJRuntimeManager(
@@ -109,8 +113,8 @@ runtime = SMHPRuntimeManager(
 Start training with just a few lines of code.
 
 ```
-from amzn_nova_customization_sdk.model import NovaModelCustomizer
-from amzn_nova_customization_sdk.model.model_enums import Model, TrainingMethod
+from amzn_nova_forge.model import NovaModelCustomizer
+from amzn_nova_forge.model.model_enums import Model, TrainingMethod
 
 customizer = NovaModelCustomizer(
     model=Model.NOVA_LITE_2,
@@ -127,7 +131,7 @@ result = customizer.train(job_name="my-training-job")
 Track your training progress directly from the SDK.
 
 ```
-from amzn_nova_customization_sdk.monitor.log_monitor import CloudWatchLogMonitor
+from amzn_nova_forge.monitor.log_monitor import CloudWatchLogMonitor
 
 # Monitor training logs
 customizer.get_logs()
@@ -146,7 +150,7 @@ Evaluate model performance with a variety of [built-in benchmarks](../../../sage
 own evaluations.
 
 ```
-from amzn_nova_customization_sdk.recipe_config.eval_config import EvaluationTask
+from amzn_nova_forge.recipe_config.eval_config import EvaluationTask
 
 # Evaluate on benchmark tasks
 eval_result = customizer.evaluate(
@@ -162,7 +166,7 @@ Deploy your customized model to production with built-in support for Amazon
 Bedrock or SageMaker.
 
 ```
-from amzn_nova_customization_sdk.model.model_enums import DeployPlatform
+from amzn_nova_forge.model.model_enums import DeployPlatform
 
 # Bedrock provisioned throughput
 deployment = customizer.deploy(
@@ -214,6 +218,8 @@ automatically managing:
 - Dataset validation
 - Job orchestration and monitoring
 
+The SDK also supports SageMaker Training Jobs serverless and Bedrock customization.
+
 ### Comprehensive evaluation
 
 Evaluate your customized models against [standard benchmarks](../../../sagemaker/latest/dg/nova-hp-evaluate.md "../../../sagemaker/latest/dg/nova-hp-evaluate.md") including:
@@ -250,5 +256,5 @@ For Nova Forge subscribers, the SDK supports data mixing recipes.
 
 ## Learn More
 
-Ready to start customizing Nova models with the Nova Customization SDK? Check out our
-GitHub repository for detailed guides, API references, and additional examples: [https://github.com/aws/nova-customization-sdk](https://github.com/aws/nova-customization-sdk "https://github.com/aws/nova-customization-sdk")
+Ready to start customizing Nova models with the Nova Forge SDK? Check out our
+GitHub repository for detailed guides, API references, and additional examples: [https://github.com/aws/nova-forge-sdk](https://github.com/aws/nova-forge-sdk "https://github.com/aws/nova-forge-sdk")
