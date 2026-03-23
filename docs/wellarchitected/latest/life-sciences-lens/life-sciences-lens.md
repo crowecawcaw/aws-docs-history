@@ -1,6 +1,6 @@
 # Life Sciences Lens - AWS Well-Architected Framework
 
-Publication date: **December 30, 2025** ([Document revisions](document-revisions.md "document-revisions.md"))
+Publication date: **December 30, 2025** ([Document revisions](document-revisions.xml.md "document-revisions.xml.md"))
 
 This paper describes the Life Sciences Lens for the AWS Well-Architected Framework, which
 enables you to review and improve your cloud-based architectures and better understand the

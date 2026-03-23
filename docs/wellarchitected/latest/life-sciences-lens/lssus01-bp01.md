@@ -124,10 +124,10 @@ or underutilized compute instances.
 
 - [LSSUS02-BP01
   Implement sustainability proxy metrics pipeline for research
-  workloads](sustainability/sustainability-metric-tracking-and-reporting/lssus02-bp01.md "sustainability/sustainability-metric-tracking-and-reporting/lssus02-bp01.md")
+  workloads](sustainability/sustainability-metric-tracking-and-reporting/lssus02-bp01.md.md "sustainability/sustainability-metric-tracking-and-reporting/lssus02-bp01.md.md")
 - [LSSUS03-BP01
   Optimize Data Management for Sustainability in Life
-  Sciences](sustainability/data-management-efficiency-in-data-analytics-and-data-lifecycle/lssus03-bp01.md "sustainability/data-management-efficiency-in-data-analytics-and-data-lifecycle/lssus03-bp01.md")
+  Sciences](sustainability/data-management-efficiency-in-data-analytics-and-data-lifecycle/lssus03-bp01.md.md "sustainability/data-management-efficiency-in-data-analytics-and-data-lifecycle/lssus03-bp01.md.md")
 
 **Related documents:**
 
