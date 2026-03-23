@@ -30,5 +30,5 @@ efficiency in the cloud environment.
 
 ###### Best practices
 
-- [MSFTCOST08-BP01 Refactor to cross-platform .NET and move to Linux](msftcost08-bp01.md "msftcost08-bp01.md")
-- [MSFTCOST08-BP02 Consider serverless architecture for your Microsoft .NET applications](msftcost08-bp02.md "msftcost08-bp02.md")
+- [MSFTCOST08-BP01 Refactor to cross-platform .NET and move to Linux](msftcost08-bp01.net-and-move-to-linux.md "msftcost08-bp01.net-and-move-to-linux.md")
+- [MSFTCOST08-BP02 Consider serverless architecture for your Microsoft .NET applications](msftcost08-bp02.net-applications.md "msftcost08-bp02.net-applications.md")

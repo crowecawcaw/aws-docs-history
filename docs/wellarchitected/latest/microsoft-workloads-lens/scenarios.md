@@ -16,7 +16,7 @@ navigate your cloud journey successfully.
 ###### Scenarios
 
 - [Scenario 1: Microsoft SQL Server Migration to AWS](scenario-1-microsoft-sql-server-migration-to-aws.md "scenario-1-microsoft-sql-server-migration-to-aws.md")
-- [Scenario 2: .NET Application Modernization on AWS](scenario-2-.md "scenario-2-.md")
+- [Scenario 2: .NET Application Modernization on AWS](scenario-2-.net-application-modernization-on-aws.md "scenario-2-.net-application-modernization-on-aws.md")
 - [Scenario 3: Active Directory integration with AWS](scenario-3-active-directory-integration-with-aws.md "scenario-3-active-directory-integration-with-aws.md")
 - [Scenario 4: Windows server and file services migration](scenario-4-windows-server-and-file-services-migration.md "scenario-4-windows-server-and-file-services-migration.md")
 - [Scenario 5: Windows-based infrastructure modernization](scenario-5-windows-based-infrastructure-modernization.md "scenario-5-windows-based-infrastructure-modernization.md")
