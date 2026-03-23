@@ -4,7 +4,7 @@ If you are an experienced SAP Basis or SAP NetWeaver administrator, there are a 
 
 ## SAP Notes
 
-Before migrating or implementing an SAP environment on AWS, you should read and follow the relevant SAP notes. Start from [SAP Note 1656099](https://launchpad.support.sap.com/#/notes/1656099 "https://launchpad.support.sap.com/#/notes/1656099") for general information and follow the links to other relevant SAP notes (SAP One Support Launchpad access required).
+Before migrating or implementing an SAP environment on AWS, you should read and follow the relevant SAP notes. Start from [SAP Note 1656099](https://me.sap.com/notes/1656099 "https://me.sap.com/notes/1656099") for general information and follow the links to other relevant SAP notes (SAP One Support Launchpad access required).
 
 ## SAP on AWS Architectures
 
@@ -121,7 +121,7 @@ SAP systems deployed on AWS that will require support from SAP must be run on an
 
 SAP solutions based on the SAP NetWeaver platform and that use [SAP Application Performance Standard (SAPS)](https://www.sap.com/about/benchmark.html "https://www.sap.com/about/benchmark.html") for sizing must be run on a specific subset of EC2 instance types in order to receive support from SAP Support. For details, see:
 
-- [SAP Note 1656099](https://launchpad.support.sap.com/#/notes/1656099 "https://launchpad.support.sap.com/#/notes/1656099")
+- [SAP Note 1656099](https://me.sap.com/notes/1656099 "https://me.sap.com/notes/1656099")
 - [Amazon EC2 Types for SAP](https://aws.amazon.com/sap/instance-types "https://aws.amazon.com/sap/instance-types")
 
 ### SAP HANA
@@ -132,7 +132,7 @@ The SAP HANA platform and SAP solutions that run on top of an SAP HANA databaseâ
 
 For information about the EC2 instance types that are certified for SAP Business One, version for SAP HANA, see:
 
-- [SAP Note 2058870](https://launchpad.support.sap.com/#/notes/2058870 "https://launchpad.support.sap.com/#/notes/2058870")
+- [SAP Note 2058870](https://me.sap.com/notes/2058870 "https://me.sap.com/notes/2058870")
 - [SAP Business One on AWS](https://aws.amazon.com/sap/solutions/business-one "https://aws.amazon.com/sap/solutions/business-one")
 
 ## Operating Systems
@@ -148,7 +148,7 @@ EC2 instances run on 64-bit virtual processors based on the Intel x86 instructio
 - [Microsoft Windows Server](https://aws.amazon.com/windows "https://aws.amazon.com/windows")
 - [Oracle Enterprise Linux](https://aws.amazon.com/oracle "https://aws.amazon.com/oracle")
 
-For additional information regarding SAP-supported operating systems on AWS, see [SAP Note 1656250](https://launchpad.support.sap.com/#/notes/1656250 "https://launchpad.support.sap.com/#/notes/1656250").
+For additional information regarding SAP-supported operating systems on AWS, see [SAP Note 1656250](https://me.sap.com/notes/1656250 "https://me.sap.com/notes/1656250").
 
 #### SLES for SAP and RHEL for SAP
 
@@ -172,8 +172,7 @@ SLES for SAP
 
 RHEL for SAP
 
-- [General information](https://www.redhat.com/en/resources/red-hat-enterprise-linux-for-sap-solutions-datasheet "https://www.redhat.com/en/resources/red-hat-enterprise-linux-for-sap-solutions-datasheet")
-- [Red Hat in the Public Cloud](https://access.redhat.com/public-cloud "https://access.redhat.com/public-cloud")
+- [Red Hat Enterprise Linux for SAP Solutions](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/sap "https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/sap")
 - [Red Hat Cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access "https://www.redhat.com/en/technologies/cloud-computing/cloud-access")
 - [How to Locate Red Hat Cloud Access Gold Images on Amazon EC2](https://access.redhat.com/articles/2962171 "https://access.redhat.com/articles/2962171")
 - [What is the Difference between Red Hat Cloud Access and Red Hat Enterprise Linux On-Demand Subscriptions in the public cloud?](https://access.redhat.com/articles/2041283 "https://access.redhat.com/articles/2041283")
@@ -201,7 +200,7 @@ The following table lists the licensing options available for each operating sys
 
 ### Supported Databases
 
-All the database platforms and versions supported by SAP for an on-premises infrastructure are also supported by SAP on AWS. For details about the databases supported with specific SAP solutions on AWS, see [SAP Note 1656099](https://launchpad.support.sap.com/#/notes/1656099 "https://launchpad.support.sap.com/#/notes/1656099").
+All the database platforms and versions supported by SAP for an on-premises infrastructure are also supported by SAP on AWS. For details about the databases supported with specific SAP solutions on AWS, see [SAP Note 1656099](https://me.sap.com/notes/1656099 "https://me.sap.com/notes/1656099").
 
 ### Database Installation and Administration
 

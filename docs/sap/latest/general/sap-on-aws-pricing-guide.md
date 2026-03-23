@@ -289,7 +289,7 @@ You can bring your own licenses for the operating system of your choice or purch
 
 ### Red Hat
 
-Red Hat offers two Linux distributions to run SAP workloads. For more details, you can check Red Hat documentation – [Overview of the Red Hat Enterprise Linux (RHEL) for SAP Solutions subscription](https://access.redhat.com/solutions/3082481 "https://access.redhat.com/solutions/3082481").
+Red Hat offers two Linux distributions to run SAP workloads. For more details, see [Introduction to Red Hat Enterprise Linux for SAP Solutions](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions "https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions") in the Red Hat documentation.
 
 You can avail these options from [AWS Marketplace](https://aws.amazon.com/marketplace/search "https://aws.amazon.com/marketplace/search") or [Red Hat Cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access "https://www.redhat.com/en/technologies/cloud-computing/cloud-access"). When you purchase Red Hat operating systems from AWS, your Support plan includes operating system support.
 
@@ -326,7 +326,7 @@ Windows server on Amazon EC2 can be availed at a flat, hourly rate with no commi
 SAP requires you to have Oracle Linux Premier Support subscription to use Oracle Enterprise Linux operating system. For additional information, review the following resources from Oracle and SAP.
 
 - [Oracle Store](https://shop.oracle.com/apex/f?p=700:1:::::: "https://shop.oracle.com/apex/f?p=700:1::::::")
-- [SAP Note 2069760 - Oracle Linux 7.x SAP Installation and Upgrade](https://launchpad.support.sap.com/#/notes/2069760 "https://launchpad.support.sap.com/#/notes/2069760") (requires SAP portal access)
+- [SAP Note 2069760 - Oracle Linux 7.x SAP Installation and Upgrade](https://me.sap.com/notes/2069760 "https://me.sap.com/notes/2069760") (requires SAP portal access)
 
 ## AWS Marketplace
 
@@ -338,4 +338,4 @@ In AWS Marketplace, products can be free to use or can have associated charges. 
 
 [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/") offers different levels of support. For more information, see [AWS Support Plan Pricing](https://aws.amazon.com/premiumsupport/pricing/ "https://aws.amazon.com/premiumsupport/pricing/").
 
-SAP requires you to have at least a Business level of support when running SAP workloads on AWS. To learn more about the SAP prerequisite, see [SAP Note 1656250 - SAP on AWS: Support Prerequisites](https://launchpad.support.sap.com/#/notes/1656250 "https://launchpad.support.sap.com/#/notes/1656250") (requires SAP portal access).
+SAP requires you to have at least a Business level of support when running SAP workloads on AWS. To learn more about the SAP prerequisite, see [SAP Note 1656250 - SAP on AWS: Support Prerequisites](https://me.sap.com/notes/1656250 "https://me.sap.com/notes/1656250") (requires SAP portal access).

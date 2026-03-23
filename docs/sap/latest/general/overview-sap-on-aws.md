@@ -22,13 +22,13 @@ The [SAP Cloud Appliance Library](https://www.sap.com/products/technology-platfo
 
 SAP hardware key generation on EC2 instances uses a specific process that is dependent on the SAP kernel patch level. If a hardware key is generated before patching the SAP kernel to the proper level, and the kernel is updated at a later time, the hardware key may change, making the installed license invalid. For details on how the SAP hardware ID is generated on EC2 instances and the required SAP kernel patch levels see the following SAP notes (SAP One Support Launchpad access required):
 
-- [SAP Note 2327159](https://launchpad.support.sap.com/#/notes/2327159 "https://launchpad.support.sap.com/#/notes/2327159") – SAP NetWeaver License Behavior in Virtual and CLoud Environments
-- [SAP Note 1178686](https://launchpad.support.sap.com/#/notes/1178686 "https://launchpad.support.sap.com/#/notes/1178686") – Linux: Alternative method to generate a SAP hardware key
-- [SAP Note 2327159](https://launchpad.support.sap.com/#/notes/2327159 "https://launchpad.support.sap.com/#/notes/2327159") – SAP NW License Behavior in Virtual and Cloud Environments
-- [SAP Note 1697114](https://launchpad.support.sap.com/#/notes/1697114 "https://launchpad.support.sap.com/#/notes/1697114") – Determination of hardware ID in Amazon clouds
-- [SAP Note 2113263](https://launchpad.support.sap.com/#/notes/2113263 "https://launchpad.support.sap.com/#/notes/2113263") – Additional public key for AWS Hardware ID
-- [SAP Note 2823805](https://launchpad.support.sap.com/#/notes/2823805 "https://launchpad.support.sap.com/#/notes/2823805") – Additional public keys for AWS Hardware ID
-- [SAP Note 2319387](https://launchpad.support.sap.com/#/notes/2319387 "https://launchpad.support.sap.com/#/notes/2319387") – Adjustment of the license check for AWS China
+- [SAP Note 2327159](https://me.sap.com/notes/2327159 "https://me.sap.com/notes/2327159") – SAP NetWeaver License Behavior in Virtual and CLoud Environments
+- [SAP Note 1178686](https://me.sap.com/notes/1178686 "https://me.sap.com/notes/1178686") – Linux: Alternative method to generate a SAP hardware key
+- [SAP Note 2327159](https://me.sap.com/notes/2327159 "https://me.sap.com/notes/2327159") – SAP NW License Behavior in Virtual and Cloud Environments
+- [SAP Note 1697114](https://me.sap.com/notes/1697114 "https://me.sap.com/notes/1697114") – Determination of hardware ID in Amazon clouds
+- [SAP Note 2113263](https://me.sap.com/notes/2113263 "https://me.sap.com/notes/2113263") – Additional public key for AWS Hardware ID
+- [SAP Note 2823805](https://me.sap.com/notes/2823805 "https://me.sap.com/notes/2823805") – Additional public keys for AWS Hardware ID
+- [SAP Note 2319387](https://me.sap.com/notes/2319387 "https://me.sap.com/notes/2319387") – Adjustment of the license check for AWS China
 
 ## SAP Support on AWS
 
@@ -36,13 +36,13 @@ AWS and SAP have worked together closely to ensure that you receive the same lev
 
 ### SAP Solutions Supported on AWS
 
-The majority of SAP solutions that run on traditional on-premises infrastructure are fully supported by SAP on AWS. For the complete list of SAP solutions supported on AWS, see [SAP Note 1656099](https://launchpad.support.sap.com/#/notes/1656099 "https://launchpad.support.sap.com/#/notes/1656099") and the other notes referenced within that note.
+The majority of SAP solutions that run on traditional on-premises infrastructure are fully supported by SAP on AWS. For the complete list of SAP solutions supported on AWS, see [SAP Note 1656099](https://me.sap.com/notes/1656099 "https://me.sap.com/notes/1656099") and the other notes referenced within that note.
 
 ### SAP Support on AWS
 
-To ensure full support of your SAP on AWS environment from SAP and AWS, you must follow the guidelines and requirements in [SAP Note 1656250](https://launchpad.support.sap.com/#/notes/1656250 "https://launchpad.support.sap.com/#/notes/1656250"). Here are the primary requirements you must follow to ensure support of your SAP on AWS environment:
+To ensure full support of your SAP on AWS environment from SAP and AWS, you must follow the guidelines and requirements in [SAP Note 1656250](https://me.sap.com/notes/1656250 "https://me.sap.com/notes/1656250"). Here are the primary requirements you must follow to ensure support of your SAP on AWS environment:
 
-- Enable detailed monitoring for **Amazon CloudWatch** on each EC2 instance to ensure that the required AWS metrics are provided in one-minute intervals. For additional information on Amazon CloudWatch, see https://aws.amazon.com/cloudwatch.
+- Enable detailed monitoring for **Amazon CloudWatch** on each EC2 instance to ensure that the required AWS metrics are provided in one-minute intervals. For additional information on Amazon CloudWatch, see [Amazon CloudWatch](https://aws.amazon.com/cloudwatch "https://aws.amazon.com/cloudwatch").
 - Install, configure, and run the [AWS Data Provider for SAP](data-provider-intro.md "data-provider-intro.md") on each EC2 instance. The AWS Data Provider collects the required performance and configuration data from a variety of sources, including the Amazon EC2 API, Amazon EC2 instance metadata, and Amazon CloudWatch, and shares it with SAP applications, to help monitor and improve the performance of business transations.
 - Any AWS account that you use for running SAP systems must have an [AWS support plan](https://aws.amazon.com/premiumsupport/plans "https://aws.amazon.com/premiumsupport/plans") for either Business Support or Enterprise Support.
 

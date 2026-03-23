@@ -94,13 +94,14 @@ This solution secures SAP landscapes through Zero Trust security, managing both 
 Users can access RISE with SAP systems faster (before the VPN connectivity is setup). It allows you to grant secure access to remote users and external consultants, which do not have a VPN access to your corporate network
 
 1. Identity-Centric Security
-   Verified access integrates with existing identity providers (IdP), such as Microsoft Azure AD (Entra), Okta, Ping, and others. It provides real-time user authentication and authorization that support for SAML 2.0 and AWS IAM Identity Center
-2. Contextual Access Control
-   Verified Access is able to implement device security posture assessment, location-based access policies, role-based access management and dynamic policy evaluation.
-3. Enhanced Performance
-   Verified Access provides a direct and optimized connection paths to SAP systems, thus reducing network latency, improve performance and provide more consistent user experience to SAP systems.
-4. Simplified Administration
-   Verified Access provides centralized policy management through [AWS Cedar Policy Language](../../../prescriptive-guidance/latest/saas-multitenant-api-access-authorization/cedar.md "../../../prescriptive-guidance/latest/saas-multitenant-api-access-authorization/cedar.md") and authorization engine. It provides automated compliance reporting, real-time access monitoring and reduced infrastructure maintenance
+
+Verified access integrates with existing identity providers (IdP), such as Microsoft Azure AD (Entra), Okta, Ping, and others. It provides real-time user authentication and authorization that support for SAML 2.0 and AWS IAM Identity Center 2. Contextual Access Control
+
+Verified Access is able to implement device security posture assessment, location-based access policies, role-based access management and dynamic policy evaluation. 3. Enhanced Performance
+
+Verified Access provides a direct and optimized connection paths to SAP systems, thus reducing network latency, improve performance and provide more consistent user experience to SAP systems. 4. Simplified Administration
+
+Verified Access provides centralized policy management through [AWS Cedar Policy Language](../../../prescriptive-guidance/latest/saas-multitenant-api-access-authorization/cedar.md "../../../prescriptive-guidance/latest/saas-multitenant-api-access-authorization/cedar.md") and authorization engine. It provides automated compliance reporting, real-time access monitoring and reduced infrastructure maintenance
 
 **Implementation Guide**
 
@@ -120,8 +121,7 @@ Users can access RISE with SAP systems faster (before the VPN connectivity is se
 2. Create a Verified Access instance. You use a Verified Access instance to organize your trust providers and Verified Access groups. Use the following [procedures](../../../verified-access/latest/ug/create-verified-access-instance.md "../../../verified-access/latest/ug/create-verified-access-instance.md") to create a Verified Access instance, and then attach or detach a trust provider from Verified Access.
 3. Create a Verified Access group. You use Verified Access groups to organize endpoints by their security requirements. When you create a Verified Access endpoint, you associate the endpoint with a group. Use the following [procedure](../../../verified-access/latest/ug/create-verified-access-group.md "../../../verified-access/latest/ug/create-verified-access-group.md") to create a Verified Access group
 4. Create a load balancer endpoint for Verified Access. Verified Access endpoint represents an application. Each endpoint is associated witha Verified Access group and inherits the access policy for the group. Use the following [procedure](../../../verified-access/latest/ug/create-load-balancer-endpoint.md "../../../verified-access/latest/ug/create-load-balancer-endpoint.md") to create a load balancer endpoint for Verified Access for SAP application.
-5. Configure DNS for the Verified Access endpoint. For this step, you map your SAP application’s domain name (for example,
-   www.myapp.example.com) to the domain name of your Verified Access endpoint. To complete the DNS mapping, create a Canonical Name Record (CNAME) with your DNS provider.
+5. Configure DNS for the Verified Access endpoint. For this step, you map your SAP application’s domain name (for example, www.myapp.example.com) to the domain name of your Verified Access endpoint. To complete the DNS mapping, create a Canonical Name Record (CNAME) with your DNS provider.
 6. Add a Verified Access group-level access policy. AWS Verified Access policies allow you to define rules for accessing your SAP applications hosted in AWS. Refer to the following sample [statements](../../../verified-access/latest/ug/auth-policies-policy-statement-struct.md "../../../verified-access/latest/ug/auth-policies-policy-statement-struct.md") to derive one for your application as per your requirements.
 7. Test the connectivity to your application. You can now test connectivity to your application by entering your SAP application’s domain name into your web browser, for HTTP(S) based access such as SAP Fiori.
 

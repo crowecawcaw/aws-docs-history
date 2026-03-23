@@ -41,7 +41,7 @@ _Consideration_
 
 Elastic Disaster Recovery does not guarantee consistency across multiple source instances. If you have zero RCO requirement, you can use database native replication technology with point-in-time recovery or backtrack with secondary time travel.
 
-For more information, see [SAP Note 434647 - Point-in-time recovery in an SAP system group](https://launchpad.support.sap.com/#/notes/434647 "https://launchpad.support.sap.com/#/notes/434647") (requires SAP portal access).
+For more information, see [SAP Note 434647 - Point-in-time recovery in an SAP system group](https://me.sap.com/notes/434647 "https://me.sap.com/notes/434647") (requires SAP portal access).
 
 ## SAP licenses
 

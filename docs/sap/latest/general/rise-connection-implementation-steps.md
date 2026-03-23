@@ -40,7 +40,8 @@ In the questionnaire, provide the following details about your Direct Connect co
 - The VLAN ID
 - The Autonomous System Number (ASN) of your on-premises router
 - The IP address ranges of your on-premises network (to allow for proper firewall configuration)
-  Additionally, include information about your on-premises router, such as the make, model, and interface details.
+
+Additionally, include information about your on-premises router, such as the make, model, and interface details.
 
 Submit the completed questionnaire to your SAP ECS representative. SAP will then use this information to provision the necessary Direct Connect resources in your RISE with SAP environment on AWS.
 
@@ -85,13 +86,18 @@ The Site-to-Site VPN connection consists of three key components:
 1. Virtual Private Gateway (VGW) - The router on the AWS side
 2. Customer Gateway (CGW) - The router on the customer side
 3. The S2S VPN connection that binds the VGW and CGW together over two secure IPSec tunnels in an active/passive configuration
-   For in-depth documentation on establishing the AWS Site-to-Site VPN connection, you can refer to the AWS documentation at https://docs.aws.amazon.com/vpn/latest/s2svpn/SetUpVPNConnections.html.
+
+For in-depth documentation on establishing the AWS Site-to-Site VPN connection, refer to [Getting started with AWS Site-to-Site VPN](../../../vpn/latest/s2svpn/SetUpVPNConnections.md "../../../vpn/latest/s2svpn/SetUpVPNConnections.md") in the AWS documentation.
 
 **Prerequisites**
 
 This approach builds on the steps outlined in the previous Option 1 for setting up a Resilient AWS Direct Connect solution. After completing those Direct Connect implementation steps, you can add an Site-to-Site VPN connection as a failover option.
 
-While your Direct Connect connections are being provisioned, you can begin preparing your on-premises infrastructure for the VPN setup: \* Review the AWS documentation on Site-to-Site VPN to understand the requirements and best practices. \* Ensure your firewalls allow the necessary traffic for the VPN tunnels. \* Confirm you have two customer gateway devices or a single device capable of managing multiple VPN tunnels.
+While your Direct Connect connections are being provisioned, you can begin preparing your on-premises infrastructure for the VPN setup:
+
+- Review the AWS documentation on Site-to-Site VPN to understand the requirements and best practices.
+- Ensure your firewalls allow the necessary traffic for the VPN tunnels.
+- Confirm you have two customer gateway devices or a single device capable of managing multiple VPN tunnels.
 
 The addition of an Site-to-Site VPN connection provides a faster and more agile backup to your primary Direct Connect links. It’s a similar process to setting up the Direct Connect, but with a few key differences.
 
@@ -113,11 +119,17 @@ In the AWS Connectivity Questionnaire, you’ll need to provide the following in
 - Customer Side BGP Peer IP-address (if different from VPN peer IP provided)
 - Second Public IP Address (OPTIONAL: only if active-active mode is used)
 - Customer On-Premises Network IP ranges
-  Submit the completed questionnaire to SAP. They will then create the VPN connection and provide you with the configuration details.
+
+Submit the completed questionnaire to SAP. They will then create the VPN connection and provide you with the configuration details.
 
 **SAP’s Responsibilities**
 
-After you submit the completed questionnaire, SAP will handle the following tasks (the list below is illustrative only for this context): \* Create the customer gateway (with your provided information like BGP ASN, IP address, and optional private certificate) \* Create the AWS Site-to-Site VPN and attach it to the RISE with SAP Transit Gateway and your customer gateway \* Provide the VPN configuration file for you to set up on your on-premises router \* If you need SAP to provision Transit Gateway in RISE VPC, SAP will add the necessary route to the Transit Gateway route table and update the security groups
+After you submit the completed questionnaire, SAP will handle the following tasks (the list below is illustrative only for this context):
+
+- Create the customer gateway (with your provided information like BGP ASN, IP address, and optional private certificate)
+- Create the AWS Site-to-Site VPN and attach it to the RISE with SAP Transit Gateway and your customer gateway
+- Provide the VPN configuration file for you to set up on your on-premises router
+- If you need SAP to provision Transit Gateway in RISE VPC, SAP will add the necessary route to the Transit Gateway route table and update the security groups
 
 Using the information received from SAP, configure the VPN tunnels on your on-premises router. Implement routing policies to prefer the Direct Connect connection over the VPN as the primary path.
 
