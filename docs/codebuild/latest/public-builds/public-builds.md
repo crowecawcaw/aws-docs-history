@@ -10,5 +10,5 @@ a project.
 
 ###### Topics
 
-- [Project build results](project.md "project.md")
-- [Build results](build.md "build.md")
+- [Project build results](project.build-results.md "project.build-results.md")
+- [Build results](build.build-results.md "build.build-results.md")
