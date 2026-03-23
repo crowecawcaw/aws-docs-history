@@ -17,8 +17,7 @@ engine types. For more information, see [AWS Network Firewall metrics in Amazon 
 
 You can record the following types of logs from your Network Firewall stateful engine.
 
-- Flow logs are standard network traffic flow logs. Each flow log record
-  captures the network flow for a specific standard stateful rule group.
+- Flow logs are standard network traffic flow logs.
 - Alert logs report traffic that matches your stateful rules that have an action
   that sends an alert. A stateful rule sends alerts for the rule actions
   `DROP`, `ALERT`, and `REJECT`. For more information,

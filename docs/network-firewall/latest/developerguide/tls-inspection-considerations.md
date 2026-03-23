@@ -105,7 +105,7 @@ The expected idle timeout for the TLS engine for established connections is abou
 
 The following limitations apply to TLS inspection configurations:
 
-- Cross-signed root certificates aren't supported. For more information,
+- Cross-signed root certificates aren't supported. AWS Certificate Manager public certificates are cross-signed but can be used for TLS inspection. For more information,
   see [Using SSL/TLS certificates with TLS inspection configurations in AWS Network Firewall](tls-inspection-certificate-requirements.md "tls-inspection-certificate-requirements.md").
 - Decryption of TLS protocols that rely upon StartTLS aren't supported.
 - Network Firewall publishes separate CloudWatch metrics for traffic that's associated with

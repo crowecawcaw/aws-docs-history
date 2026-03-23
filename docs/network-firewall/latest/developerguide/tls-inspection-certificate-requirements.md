@@ -64,7 +64,7 @@ For server certificates for inbound inspection, Network Firewall supports the sa
 
 ###### Note
 
-Network Firewall can't validate cross-signed root certificates, such as those issued by Let's Encrypt. Usage of cross-signed certificates can cause asynchronous failures in your firewall.
+Network Firewall can't validate cross-signed root certificates, such as those issued by Let's Encrypt. AWS Certificate Manager public certificates are cross-signed but can be used for TLS inspection. Usage of cross-signed certificates can cause asynchronous failures in your firewall.
 
 ###### Deleted or expired certificates
 
