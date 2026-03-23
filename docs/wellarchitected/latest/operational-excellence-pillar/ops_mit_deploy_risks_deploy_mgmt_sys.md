@@ -62,7 +62,7 @@ AnyCompany Retail is on a mission to achieve minimal to zero downtime deployment
 - [Set up an API Gateway canary release deployment](../../../apigateway/latest/developerguide/canary-release.md "../../../apigateway/latest/developerguide/canary-release.md")
 - [Amazon ECS Deployment Types](../../../index.md "../../../index.md")
 - [Fully Managed Blue/Green Deployments in Amazon Aurora and Amazon RDS](https://aws.amazon.com/blogs/aws/new-fully-managed-blue-green-deployments-in-amazon-aurora-and-amazon-rds/ "https://aws.amazon.com/blogs/aws/new-fully-managed-blue-green-deployments-in-amazon-aurora-and-amazon-rds/")
-- [Blue/Green deployments with AWS Elastic Beanstalk](../../../elasticbeanstalk/latest/dg/using-features.md "../../../elasticbeanstalk/latest/dg/using-features.md")
+- [Blue/Green deployments with AWS Elastic Beanstalk](../../../elasticbeanstalk/latest/dg/using-features.CNAMESwap.md "../../../elasticbeanstalk/latest/dg/using-features.CNAMESwap.md")
 
 **Related videos:**
 

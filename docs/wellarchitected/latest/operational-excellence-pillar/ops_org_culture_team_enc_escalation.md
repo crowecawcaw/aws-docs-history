@@ -137,7 +137,7 @@ Plan:** Medium
 - [The
   Andon Cord (IT Revolution)](https://itrevolution.com/articles/kata/ "https://itrevolution.com/articles/kata/")
 - [AWS DevOps Guidance | Establish clear escalation paths and
-  encourage constructive disagreement](../devops-guidance/oa.bcl.md "../devops-guidance/oa.bcl.md")
+  encourage constructive disagreement](../devops-guidance/oa.bcl.5-establish-clear-escalation-paths-and-encourage-constructive-disagreement.md "../devops-guidance/oa.bcl.5-establish-clear-escalation-paths-and-encourage-constructive-disagreement.md")
 
 **Related videos:**
 
