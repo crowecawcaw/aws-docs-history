@@ -234,7 +234,7 @@ later date.
 
 1. On the **Reserved instances** page in the Amazon RDS console, choose
    **Purchase Reserved DB Instance**.
-2. Purchase your reservations by following the instructions at [Purchasing reserved DB instances for Amazon RDS](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithReservedDBInstances.md "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithReservedDBInstances.md") in the
+2. Purchase your reservations by following the instructions at [Purchasing reserved DB instances for Amazon RDS](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithReservedDBInstances.WorkingWith.md "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithReservedDBInstances.WorkingWith.md") in the
    _Amazon RDS User Guide_.
 
 ###### To use Amazon Redshift recommendations
@@ -255,14 +255,14 @@ later date.
 
 1. On the **Reserved Nodes** page in the ElastiCache console, choose
    **Purchase reserved nodes**.
-2. Purchase your reservations by following the instructions at [Purchasing a reserved node](../../../AmazonElastiCache/latest/UserGuide/CacheNodes.md#reserved-nodes-purchasing "../../../AmazonElastiCache/latest/UserGuide/CacheNodes.md#reserved-nodes-purchasing") in the
+2. Purchase your reservations by following the instructions at [Purchasing a reserved node](../../../AmazonElastiCache/latest/UserGuide/CacheNodes.Reserved.md#reserved-nodes-purchasing "../../../AmazonElastiCache/latest/UserGuide/CacheNodes.Reserved.md#reserved-nodes-purchasing") in the
    _Amazon ElastiCache User Guide_.
 
 ###### To use Amazon MemoryDB recommendations
 
 1. On the **Reserved nodes** page in the MemoryDB console, choose
    **Purchase reserved nodes**.
-2. Purchase your reservations by following the instructions at [Working with reserved nodes](../../../memorydb/latest/devguide/nodes.md "../../../memorydb/latest/devguide/nodes.md") in the _Amazon MemoryDB Developer
+2. Purchase your reservations by following the instructions at [Working with reserved nodes](../../../memorydb/latest/devguide/nodes.reservednodes.md "../../../memorydb/latest/devguide/nodes.reservednodes.md") in the _Amazon MemoryDB Developer
    Guide_.
 
 ###### To use Amazon DynamoDB recommendations
