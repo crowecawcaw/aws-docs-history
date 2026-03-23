@@ -22,7 +22,7 @@ column reference, then ColumnSelectors in the rule should be null. If ColumnSele
 has been defined, then there should be no column reference in the left side of a
 condition, for example, `is_between :val1 and :val2`.
 
-For more information, see [Available checks](profile.md "profile.md")
+For more information, see [Available checks](profile.data-quality-available-checks.md "profile.data-quality-available-checks.md")
 
 Type: String
 

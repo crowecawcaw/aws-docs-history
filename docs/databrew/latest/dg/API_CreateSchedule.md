@@ -31,7 +31,7 @@ The request accepts the following data in JSON format.
 
 The date or dates and time or times when the jobs are to be run. For more information,
 see [Cron
-expressions](jobs.md "jobs.md") in the _AWS Glue DataBrew Developer
+expressions](jobs.cron.md "jobs.cron.md") in the _AWS Glue DataBrew Developer
 Guide_.
 
 Type: String

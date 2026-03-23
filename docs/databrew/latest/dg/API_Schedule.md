@@ -47,7 +47,7 @@ Required: No
 **CronExpression**
 
 The dates and times when the job is to run. For more information, see [Working with cron
-expressions for recipe jobs](jobs.md#jobs.cron "jobs.md#jobs.cron") in the _AWS Glue DataBrew Developer
+expressions for recipe jobs](jobs.recipe.md#jobs.cron "jobs.recipe.md#jobs.cron") in the _AWS Glue DataBrew Developer
 Guide_.
 
 Type: String

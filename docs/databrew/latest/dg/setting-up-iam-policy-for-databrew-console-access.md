@@ -18,7 +18,7 @@ following:
 
 ###### To define the AwsGlueDataBrewCustomUserPolicy IAM policy for DataBrew (console)
 
-1. Download the JSON for the [`AwsGlueDataBrewCustomUserPolicy`](samples/AwsGlueDataBrewCustomUserPolicy.json.md "samples/AwsGlueDataBrewCustomUserPolicy.json.md") IAM policy.
+1. Download the JSON for the [`AwsGlueDataBrewCustomUserPolicy`](samples/AwsGlueDataBrewCustomUserPolicy.json.zip.md "samples/AwsGlueDataBrewCustomUserPolicy.json.zip.md") IAM policy.
 2. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 3. In the navigation pane, choose **Policies**.
 4. For each policy, choose **Create Policy**.
@@ -33,7 +33,7 @@ following:
 
 ###### To define the AwsGlueDataBrewCustomUserPolicy IAM policy for DataBrew (AWS CLI)
 
-1. Download the JSON for the [`AwsGlueDataBrewCustomUserPolicy`](samples/AwsGlueDataBrewCustomUserPolicy.json.md "samples/AwsGlueDataBrewCustomUserPolicy.json.md") IAM policy.
+1. Download the JSON for the [`AwsGlueDataBrewCustomUserPolicy`](samples/AwsGlueDataBrewCustomUserPolicy.json.zip.md "samples/AwsGlueDataBrewCustomUserPolicy.json.zip.md") IAM policy.
 2. Customize the policy as described in the first step of the previous
    procedure.
 3. Run the following command to create the policy.

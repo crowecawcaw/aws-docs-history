@@ -28,8 +28,8 @@ appropriate:
 
 ###### Topics
 
-- [Monitoring DataBrew with Amazon CloudWatch](monitoring.md "monitoring.md")
-- [Automating DataBrew with CloudWatch Events](monitoring.md "monitoring.md")
+- [Monitoring DataBrew with Amazon CloudWatch](monitoring.cloudwatch.md "monitoring.cloudwatch.md")
+- [Automating DataBrew with CloudWatch Events](monitoring.cloudwatch-events.md "monitoring.cloudwatch-events.md")
 - [Monitoring DataBrew with CloudWatch Logs](#monitoring.cloudwatch-logs "#monitoring.cloudwatch-logs")
 - [Logging DataBrew API calls with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
 - [Using AWS User Notifications with AWS Glue Databrew](using-user-notifications.md "using-user-notifications.md")

@@ -31,7 +31,7 @@ As
 with profile information, you can define column-level data quality rules only for columns of
 simple types, such as strings and numbers. You can't define data quality rules for columns
 of complex types, such as arrays or structures. For more details about working with profile
-information, see [Creating and working with AWS Glue DataBrew profile jobs](jobs.md "jobs.md").
+information, see [Creating and working with AWS Glue DataBrew profile jobs](jobs.profile.md "jobs.profile.md").
 
 ## Validating data quality rules
 
@@ -50,7 +50,7 @@ the data profile. The validation report is available at the same location as you
 profile data. As with profile information, you can explore the results in the DataBrew
 console. In the **Dataset details** view, choose the **Data
 Quality** tab to view the results. For more details about working with
-profile information, see [Creating and working with AWS Glue DataBrew profile jobs](jobs.md "jobs.md").
+profile information, see [Creating and working with AWS Glue DataBrew profile jobs](jobs.profile.md "jobs.profile.md").
 
 ## Acting on validation results
 
@@ -101,8 +101,8 @@ in Amazon Eventbridge. For example an event pattern to match all failed validati
 }
 ```
 
-For an example of creating a ruleset and validating its rules, see [Creating a ruleset with data quality rules](profile.md "profile.md"). For more information about
-working with CloudWatch events in DataBrew, see [Automating DataBrew with CloudWatch Events](monitoring.md "monitoring.md")
+For an example of creating a ruleset and validating its rules, see [Creating a ruleset with data quality rules](profile.data-quality-rules-create.md "profile.data-quality-rules-create.md"). For more information about
+working with CloudWatch events in DataBrew, see [Automating DataBrew with CloudWatch Events](monitoring.cloudwatch-events.md "monitoring.cloudwatch-events.md")
 
 ## Inspecting validation results for and updating data quality rules
 

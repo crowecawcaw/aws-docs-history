@@ -75,7 +75,7 @@ Type: String
 **[CronExpression](#API_DescribeSchedule_ResponseSyntax "#API_DescribeSchedule_ResponseSyntax")**
 
 The date or dates and time or times when the jobs are to be run for the schedule. For
-more information, see [Cron expressions](jobs.md "jobs.md") in the
+more information, see [Cron expressions](jobs.cron.md "jobs.cron.md") in the
 _AWS Glue DataBrew Developer Guide_.
 
 Type: String

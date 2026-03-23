@@ -2,7 +2,7 @@
 
 Represents a structure for defining parameter conditions. Supported conditions are described
 here: [Supported
-conditions for dynamic datasets](datasets.md#conditions.for.dynamic.datasets "datasets.md#conditions.for.dynamic.datasets") in the
+conditions for dynamic datasets](datasets.multiple-files.md#conditions.for.dynamic.datasets "datasets.multiple-files.md#conditions.for.dynamic.datasets") in the
 _AWS Glue DataBrew Developer Guide_.
 
 ## Contents

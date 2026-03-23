@@ -1,140 +1,113 @@
-# Overview of a DataBrew project session
+# Creating and using AWS Glue DataBrew projects
 
-In a DataBrew project session, you work within an interactive workspace.
+In AWS Glue DataBrew, a _project_ is the centerpiece of your data analysis and
+transformation efforts.
 
-![DataBrew project interface showing dataset details, sample data, and options to build a recipe.](images/project-overview-grid.png)
-The left pane shows the current view of your data. The right pane shows the project's
-transformation recipe, which is currently empty.
+When you create a project, you bring together two fundamental components:
 
-In the upper-right corner of the data grid, there are three tabs: `GRID`,
-`SCHEMA`, and `PROFILE`. Choosing one of these tabs displays a
-corresponding view in the workspace; thees views are described next.
+- A dataset, to provide read-only access to your source data. For more information,
+  see [Connecting to data with AWS Glue DataBrew](datasets.md "datasets.md").
+- A recipe, to apply DataBrew data transformations to the dataset. For more
+  information, see [Creating and using AWS Glue DataBrew recipes](recipes.md "recipes.md").
+  The DataBrew console presents your project in a highly interactive, intuitive user interface.
+  It encourages you to experiment with hundreds of data transformations, so you can learn how
+  they work and what effect they have on your data.
 
-## Grid view
+The data that you see in project view is a sample of
+your dataset. Because datasets can be very large, with thousands or even millions of rows,
+using a sample helps ensure that the DataBrew console remains responsive while you transform
+the sample data in various ways. By default, the sample consists of the first 500 rows of
+data from the dataset. You can choose different settings for the sample size, and which rows
+are chosen.
 
-Grid view is the default view, where the sample is shown in tabular format. Use
-the following procedure for a short walkthrough of grid view.
+As you transform the sample data, DataBrew helps you build and refine the project recipe—a
+step-by-step series of the transformations that you applied thus far. Your work-in-progress
+recipe is saved automatically, so you can leave the project view at any time, return later,
+and pick up where you left off.
 
-###### To take a walkthrough of grid view
+When your recipe is ready for use you can publish it. Publishing a recipe makes it
+available to the DataBrew job subsystem, where you can apply the recipe to your entire dataset,
+or create an extensive data profile that lets you understand the structure, content, and
+statistical characteristics of your data.
 
-1. Start by viewing the entire space:
-   1. Scroll left and right to see all of the columns.
-   2. Scroll up and down to see all of the data values.
-   3. Use the zoom control at the bottom of the workspace to adjust the
-      magnification level of the grid.
+###### Topics
 
-2. At upper-right, view how many of the sample's columns are shown and
-   the current number of rows in the sample.
+- [Creating a project](#projects.creating "#projects.creating")
+- [Overview of a DataBrew project session](projects.overview.md "projects.overview.md")
+- [Deleting a project](projects.deleting.md "projects.deleting.md")
 
-To change which columns are shown, choose the **N columns** link
-(where **N** is the number of columns currently displayed). Choose
-the columns that you want, and choose **Show selected columns**. 3. Now you can start experimenting with DataBrew transformations. Try the
-following:
+## Creating a project
 
-    1. From the transformation toolbar, choose **Choose
-     Format**, **Change to uppercase**.
-    2. For **Source column**, choose a column that
-     contains character data.
-    3. Leave the other settings at their defaults.
-    4. To see what the transformed data will look like, choose
-     **Preview changes**. Then, to add this
-     transformation to your recipe, choose
-     **Apply**.Whenever you apply a data transformation, DataBrew adds it to the working
+Use the following procedure to create a project.
 
-copy of your recipe. This appears at the right side of your workspace. 4. Try the following:
+###### To create a project
 
-    1. From the transformation toolbar, choose **Create**,
-     **Based on a function**.
-    2. For **Select a function**, choose
-     `SQUARE ROOT`.
-    3. For **Source column**, choose a column that
-     contains numeric data.
-    4. Leave the other settings at their defaults,.
-    5. Choose **Preview changes** to see what the transformed
-     data looks like. Then, to add this transformation to your recipe,
-     choose **Apply**.
+1. Sign in to the AWS Management Console and open the DataBrew console
+   .
+2. On the navigation pane, choose **PROJECTS**. Then choose **Create project**.
+3. Enter a name for your project. Then choose a recipe to attach to your project:
+   - Choose **Create new recipe** if you are starting from the
+     beginning. Doing this creates a new, empty recipe and attaches it to
+     your project.
+   - Choose **Edit existing recipe** if you have a previously published recipe that you
+     want to use for this project. If the recipe is currently attached to
+     another project, or has any jobs defined for it, then you can't
+     use it in your new project. Choose **Browse recipes** to see what
+     recipes are available.
+   - Choose **Import steps from recipe** if you have an existing
+     recipe that's been published previously and want to import its steps,
+     and then do the following:
+     1. Choose **Browse recipes** to see what recipes are
+        available.
+     2. Choose the published version of the recipe that you
+        want to use. A recipe can have multiple versions, depending on how
+        often you published it while working in project view.
+     3. Choose **View recipe steps** to examine the data
+        transformations in the recipe.
 
-5. Collapse the recipe pane at upper right by choosing **RECIPE**.
-   To expand the recipe pane, choose **RECIPE** again.
+4. After you have a recipe, choose the dataset that you want to work with
+   on the **Select a dataset** pane:
+   - **My datasets** – Choose a dataset that you created
+     previously. For more information, see Creating a project.)
+   - **Sample files** – Create a new dataset based on
+     sample data maintained by AWS. This sample data is a great way to
+     explore what DataBrew can do, without having to provide your own data. Make
+     sure to enter a name for your dataset.
+   - **New dataset** – Create a new dataset. For more
+     information, see Creating a project.
 
-### Publishing a new version of your recipe
+5. For **Access permissions**, choose an AWS Identity and Access Management (IAM) role that
+   allows DataBrew to read from your Amazon S3 input location. For an S3 location owned by
+   your AWS account, you can choose the `AwsGlueDataBrewDataAccessRole`
+   service-managed role. Doing this allows DataBrew to access S3 resources that you
+   own.
+6. On the **Sampling** pane, you can find options for
+   DataBrew to build a sample of data from your dataset.
 
-As you continue applying transformations, the number of steps in the recipe
-increases. At any time, you can publish a new version of your recipe. _Publishing_ a recipe makes it available elsewhere in
-DataBrew. By doing this, you can run a recipe job to transform your entire dataset,
-as opposed to transforming only the project data sample.
+For **Type**, choose how DataBrew should get rows from your
+dataset:
 
-Publishing recipes also encourages an incremental, iterative approach to
-recipe development: You can publish new versions of your recipe as you go, so
-you can fall back to a "last known good" recipe version if needed.
+    * Use **First n rows** to create a sample based on the
+     first rows in the dataset.
+    * Use **Random rows** to create a
+     sample based on a random selection of rows in the dataset.
+    * Choose the number of rows to appear in the sample: 500, 1,000, 2,500,
+     or a custom sample size, up to a maximum of 5,000 rows. A smaller sample
+     size allows DataBrew to perform transformations faster, saving you time as
+     you develop your recipe. A larger sample size more accurately reflects
+     the makeup of the underlying source data. However, project session
+     initialization and interactive transformations are slower.
 
-###### To publish a new version of a recipe
+7. (Optional) Choose **Tags** to attach tags to your
+   dataset.
 
-- In the recipe pane, choose
-  **Publish**. Enter a description for this version of the
-  recipe, and choose **Publish**.
+_Tags_ are simple labels consisting of a
+user-defined key and an optional value that can make it easier to manage, search
+for, and filter DataBrew projects by purpose, owner, environment, or other
+criteria. 8. When the settings are as you want them, choose **Create
+job**.
 
-## Schema view
-
-If you choose the **SCHEMA** tab, the view changes, as shown in
-the screenshot following.
-
-![Schema view showing 5 columns with data types, quality, and value distribution for baby names dataset.](images/project-schema-view.png)
-
-In schema view, you can see statistics about the data values in each
-column.
-
-In the far left column, next to **Show/Hide**, choose any of the
-data columns. The **Column details** pane appears at right. This
-pane shows a summary of statistics for the column values.
-
-You can rename a column by entering a new name for **Column
-name**.
-
-You can rearrange the column order by dragging and dropping the columns.
-
-## Profile view
-
-If you choose the **PROFILE** tab, you can see detailed
-volumetric information about your project.
-Before doing so, you run a DataBrew job to create the profile.
-
-###### To take a walkthrough of profile view
-
-1. Choose **Create job**, and enter a name for your job.
-2. For **Job output**, choose **CSV** for
-   the file type.
-3. Find or create an Amazon S3 bucket and folder in your AWS account where you
-   want the job output from DataBrew to be written:
-   - If you already have this Amazon S3 bucket and
-     folder, choose **Browse** and locate them. Make
-     sure that you have write permissions for both.
-   - If you don't have this Amazon S3 bucket and folder, create them:
-     1. Open the Amazon S3 console at
-        [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-     2. If you don't have an Amazon S3 bucket, choose **Create
-        bucket**. For **Bucket name**,
-        enter a unique name for your new bucket. Choose **Create bucket**.
-     3. From the list of buckets, choose the one that you want to use.
-     4. Choose **Create folder**. For **Folder
-        name**, enter `databrew-output`, and choose
-        **Create folder**.
-
-4. For **Access permissions**, choose an IAM
-   role that allows DataBrew to write to your Amazon S3 output location.
-
-For an S3 location owned by your AWS account, you can choose the
-`AwsGlueDataBrewDataAccessRole` service-managed role. Doing this
-allows DataBrew to access S3 resources that you own. 5. Leave the other settings at their defaults, and choose **Create and run job**. 6. After the job runs to completion, the workspace displays a
-graphical summary of the data profile.
-
-The **Data profile** overview tab shows a high-level
-summary of your data's characteristics, as shown in the screenshot
-following.
-
-![Data profile overview showing dataset summary, including row count, columns, and data types.](images/project-profile-view-01.png)
-
-The **Column statistics** tab shows a
-column-by-column breakdown of the data values:
-
-![Column statistics tab showing data profile overview, column types, and data quality metrics.](images/project-profile-view-02.png)
+DataBrew creates a new dataset if needed, creates a new recipe if needed, builds the data
+sample, and creates an interactive project session. This process can take a couple of
+minutes to complete. When the project is ready for use, you can begin working with the
+data sample.

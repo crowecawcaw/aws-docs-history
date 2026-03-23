@@ -26,4 +26,4 @@ The data for each column of your dataset are converted to one of the following d
 _Advanced data types_ are data types that
 DataBrew detects within a string column in a project, and therefore are not part
 of a dataset. For information about advanced data types, see
-[Advanced data types](projects.md#projects.adv-data-types.title "projects.md#projects.adv-data-types.title").
+[Advanced data types](projects.adv-data-types.md#projects.adv-data-types.title "projects.adv-data-types.md#projects.adv-data-types.title").

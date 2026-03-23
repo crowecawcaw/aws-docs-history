@@ -31,6 +31,6 @@ You can use the following data-masking techniques:
   the columns.
 - _Hashing_ – Apply hash functions to the column values.
   For more information on using transforms, see [Personally
-  identifiable information (PII) recipe steps](recipe-actions.md "recipe-actions.md"). For more information on using profile jobs to detect PII, including a list of
+  identifiable information (PII) recipe steps](recipe-actions.pii.md "recipe-actions.pii.md"). For more information on using profile jobs to detect PII, including a list of
   the entity types that can be detected, see [EntityDetectorConfiguration section for configuring
-  PII](profile.md#entity-detector-configuration "profile.md#entity-detector-configuration") in _Building a profile job configuration programmatically_.
+  PII](profile.configuration.md#entity-detector-configuration "profile.configuration.md#entity-detector-configuration") in _Building a profile job configuration programmatically_.

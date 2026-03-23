@@ -11,7 +11,7 @@ to access the resource on your behalf.
 
 ###### To define the AwsGlueDataBrewDataResourcePolicy IAM policy for DataBrew (console)
 
-1. Download the JSON for [`AwsGlueDataBrewDataResourcePolicy`](samples/AwsGlueDataBrewDataResourcePolicy.json.md "samples/AwsGlueDataBrewDataResourcePolicy.json.md").
+1. Download the JSON for [`AwsGlueDataBrewDataResourcePolicy`](samples/AwsGlueDataBrewDataResourcePolicy.json.zip.md "samples/AwsGlueDataBrewDataResourcePolicy.json.zip.md").
 2. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 3. In the navigation pane, choose **Policies**.
 4. For each policy, choose **Create Policy**.
@@ -26,7 +26,7 @@ to access the resource on your behalf.
 
 ###### To define the AwsGlueDataBrewDataResourcePolicy IAM policy for DataBrew (AWS CLI)
 
-1. Download the JSON for [`AwsGlueDataBrewDataResourcePolicy`](samples/AwsGlueDataBrewDataResourcePolicy.json.md "samples/AwsGlueDataBrewDataResourcePolicy.json.md").
+1. Download the JSON for [`AwsGlueDataBrewDataResourcePolicy`](samples/AwsGlueDataBrewDataResourcePolicy.json.zip.md "samples/AwsGlueDataBrewDataResourcePolicy.json.zip.md").
 2. Customize the policy as described in the first step of the previous
    procedure.
 3. Run the following command to create the policy.
