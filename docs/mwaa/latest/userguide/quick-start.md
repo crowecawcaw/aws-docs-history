@@ -46,7 +46,7 @@ The AWS Command Line Interface (AWS CLI) is an open source tool that you can use
 
 ## Step one: Save the CloudFormation template locally
 
-- Copy the contents of the following template and save locally as `mwaa-public-network.yml`. You can also [download the template](samples/mwaa-public-network.md "samples/mwaa-public-network.md").
+- Copy the contents of the following template and save locally as `mwaa-public-network.yml`. You can also [download the template](samples/mwaa-public-network.zip.md "samples/mwaa-public-network.zip.md").
 
 ```
 AWSTemplateFormatVersion: "2010-09-09"

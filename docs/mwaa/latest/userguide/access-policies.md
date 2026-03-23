@@ -662,7 +662,7 @@ Let's say you're using a group in IAM named `AirflowDevelopmentGroup` to apply p
 
 ###### To create the AmazonMWAAFullConsoleAccess policy
 
-1. Download the [AmazonMWAAFullConsoleAccess access policy](samples/AmazonMWAAFullConsoleAccess.md "samples/AmazonMWAAFullConsoleAccess.md").
+1. Download the [AmazonMWAAFullConsoleAccess access policy](samples/AmazonMWAAFullConsoleAccess.zip.md "samples/AmazonMWAAFullConsoleAccess.zip.md").
 2. Open the [Policies page](https://console.aws.amazon.com/iam/home#/policies "https://console.aws.amazon.com/iam/home#/policies") on the IAM console.
 3. Choose **Create policy**.
 4. Choose the **JSON** tab.
@@ -677,7 +677,7 @@ Let's say you're using a group in IAM named `AirflowDevelopmentGroup` to apply p
 
 ###### To create the AmazonMWAAWebServerAccess policy
 
-1. Download the [AmazonMWAAWebServerAccess access policy](samples/AmazonMWAAWebServerAccess.md "samples/AmazonMWAAWebServerAccess.md").
+1. Download the [AmazonMWAAWebServerAccess access policy](samples/AmazonMWAAWebServerAccess.zip.md "samples/AmazonMWAAWebServerAccess.zip.md").
 2. Open the [Policies page](https://console.aws.amazon.com/iam/home#/policies "https://console.aws.amazon.com/iam/home#/policies") on the IAM console.
 3. Choose **Create policy**.
 4. Choose the **JSON** tab.
@@ -694,7 +694,7 @@ Let's say you're using a group in IAM named `AirflowDevelopmentGroup` to apply p
 
 ###### To create the AmazonMWAAAirflowCliAccess policy
 
-1. Download the [AmazonMWAAAirflowCliAccess access policy](samples/AmazonMWAAAirflowCliAccess.md "samples/AmazonMWAAAirflowCliAccess.md").
+1. Download the [AmazonMWAAAirflowCliAccess access policy](samples/AmazonMWAAAirflowCliAccess.zip.md "samples/AmazonMWAAAirflowCliAccess.zip.md").
 2. Open the [Policies page](https://console.aws.amazon.com/iam/home#/policies "https://console.aws.amazon.com/iam/home#/policies") on the IAM console.
 3. Choose **Create policy**.
 4. Choose the **JSON** tab.

@@ -36,7 +36,7 @@ To complete the steps in this tutorial, you will need the following:
 Use the following CloudFormation template and AWS CLI command to create a new Amazon VPC. The template sets up the Amazon VPC resources and
 modifies the endpoint policy to restrict access to a specific queue.
 
-1. Download the CloudFormation [template](samples/cfn-vpc-private-network.md "samples/cfn-vpc-private-network.md"), then unzip the `.yml` file.
+1. Download the CloudFormation [template](samples/cfn-vpc-private-network.zip.md "samples/cfn-vpc-private-network.zip.md"), then unzip the `.yml` file.
 2. In a new command prompt window, navigate to the folder where you saved the template, then use
    [`create-stack`](../../../cli/latest/reference/cloudformation/create-stack.md "../../../cli/latest/reference/cloudformation/create-stack.md")
    to create the stack. The `--template-body` flag specifies the path to the template.
@@ -52,8 +52,8 @@ In the next section, you'll create the Lambda function.
 Use the following Python code and IAM JSON policy to create a new Lambda function and execution role. This function creates Amazon VPC endpoints for a private Apache Airflow webserver
 and an Amazon SQS queue. Amazon MWAA uses Amazon SQS to queue tasks with Celery among multiple workers when scaling your environment.
 
-1. Download the Python [function code](samples/mwaa-lambda-shared-vpc.md "samples/mwaa-lambda-shared-vpc.md").
-2. Download the IAM [permission policy](samples/lambda-mwaa-shared-vpce-policy.md "samples/lambda-mwaa-shared-vpce-policy.md"), then unzip the file.
+1. Download the Python [function code](samples/mwaa-lambda-shared-vpc.zip.md "samples/mwaa-lambda-shared-vpc.zip.md").
+2. Download the IAM [permission policy](samples/lambda-mwaa-shared-vpce-policy.zip.md "samples/lambda-mwaa-shared-vpce-policy.zip.md"), then unzip the file.
 3. Open a command prompt, then navigate to the folder where you saved the JSON permission policy. Use
    the IAM [`create-role`](../../../index.md "../../../index.md") command
    to create the new role.

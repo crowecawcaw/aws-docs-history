@@ -33,7 +33,7 @@ using wheel, refer to [Managing dependencies using Python wheel](best-practices-
 
 The following image depicts where to find the **Private network** option on the Amazon MWAA console.
 
-![This image depicts where to find the Private network option on the Amazon MWAA console.](images/mwaa-console-private-network.png)
+![This image depicts where to find the Private network option on the Amazon MWAA console.](/images/mwaa/latest/userguide/images/mwaa-console-private-network.png)
 
 ## Use cases
 
@@ -132,7 +132,7 @@ A Client VPN endpoint supports 1024-bit and 2048-bit RSA key sizes only. The fol
 
 The following section contains the CloudFormation template to create the Client VPN. You must specify the same Amazon VPC, VPC security groups, and private subnets as your Amazon MWAA environment.
 
-- Copy the contents of the following template and save locally as `mwaa_vpn_client.yaml`. You can also [download the template](samples/mwaa_vpn_client.md "samples/mwaa_vpn_client.md").
+- Copy the contents of the following template and save locally as `mwaa_vpn_client.yaml`. You can also [download the template](samples/mwaa_vpn_client.zip.md "samples/mwaa_vpn_client.zip.md").
 
 Substitute the following values:
 

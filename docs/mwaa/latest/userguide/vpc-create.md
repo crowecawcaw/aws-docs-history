@@ -61,7 +61,7 @@ The following image depicts where you can find the **Create MWAA VPC** button on
 
 The following CloudFormation template creates an Amazon VPC network with internet access in your default AWS Region. This option uses [Public routing over the internet](networking-about.md#networking-about-overview-public "networking-about.md#networking-about-overview-public"). This template can be used for an Apache Airflow webserver with the **Private network** or **Public network** access modes.
 
-1. Copy the contents of the following template and save locally as `cfn-vpc-public-private.yaml`. You can also [download the template](samples/cfn-vpc-public-private.md "samples/cfn-vpc-public-private.md").
+1. Copy the contents of the following template and save locally as `cfn-vpc-public-private.yaml`. You can also [download the template](samples/cfn-vpc-public-private.zip.md "samples/cfn-vpc-public-private.zip.md").
 
 ```
 Description:  This template deploys a VPC, with a pair of public and private subnets spread
@@ -335,7 +335,7 @@ This option uses [Private routing without internet access](networking-about.md#n
 This template can be used for an Apache Airflow webserver with the **Private network** access mode only. It creates the required
 [VPC endpoints for the AWS services used by an environment](vpc-vpe-create-access.md#vpc-vpe-create-view-endpoints-attach-services "vpc-vpe-create-access.md#vpc-vpe-create-view-endpoints-attach-services").
 
-1. Copy the contents of the following template and save locally as `cfn-vpc-private.yaml`. You can also [download the template](samples/cfn-vpc-private-no-ops.md "samples/cfn-vpc-private-no-ops.md").
+1. Copy the contents of the following template and save locally as `cfn-vpc-private.yaml`. You can also [download the template](samples/cfn-vpc-private-no-ops.zip.md "samples/cfn-vpc-private-no-ops.zip.md").
 
 ```
 AWSTemplateFormatVersion: "2010-09-09"
