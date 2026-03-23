@@ -1,14 +1,14 @@
-# The  `.vectors.distance`  algorithm (deprecated)
+# The  `.vectors.distance.byNode`  algorithm
 
-The `.vectors.distance` algorithm computes the distance between two
+The `.vectors.distance.byNode` algorithm computes the distance between two
 nodes based on their embeddings. The default distance is the squared L2 norm.
 
-## `.vectors.distance`  syntax
+## `.vectors.distance.byNode`  syntax
 
 ```
 MATCH( n {`~id`: "`the ID of the source node(s)`"} )
 MATCH( m {`~id`: "`the ID of the target node(s)`"} )
-CALL neptune.algo.vectors.distance(n, m,
+CALL neptune.algo.vectors.distance.byNode(n, m,
    {
        metric: The distance computation metric (optional)
    }
@@ -17,7 +17,7 @@ YIELD distance
 RETURN n, m, distance
 ```
 
-## `.vectors.distance`  inputs
+## `.vectors.distance.byNode`  inputs
 
 - **a source node list**   _(required)_   –  
   _type:_ `Node[]` or `NodeId[]`;   _default: none_.
@@ -111,11 +111,11 @@ The distance metric to use for distance computation.
 
 Be careful to limit `MATCH(n)` and `MATCH(m)` so that
 they don't return a large number of nodes. Keep in mind that every pair of `n`
-and `m` in the join result invokes `.vectors.distance` once. Too
+and `m` in the join result invokes `.vectors.distance.byNode` once. Too
 many inputs can therefore result in very long runtimes. Use `LIMIT` or put
 conditions on the `MATCH` clause to restrict its output appropriately.
 
-## `.vectors.distance`  outputs
+## `.vectors.distance.byNode`  outputs
 
 For every pair of source node and target node:
 
@@ -126,12 +126,12 @@ For every pair of source node and target node:
 - **distance**   –  
   The distance between source and target nodes.
 
-## `.vectors.distance`  query examples
+## `.vectors.distance.byNode`  query examples
 
 ```
 MATCH ( n {`~id`: "106"} )
 MATCH ( m {`~id`: "110" } )
-CALL neptune.algo.vectors.distance( n, m )
+CALL neptune.algo.vectors.distance.byNode( n, m )
 YIELD distance
 RETURN n, m, distance
 ```
@@ -139,14 +139,14 @@ RETURN n, m, distance
 ```
 MATCH ( n {`~id`: "106"} )
 MATCH ( m {`~id`: "110"} )
-CALL neptune.algo.vectors.distance( n, m, {metric: "CosineSimilarity"} )
+CALL neptune.algo.vectors.distance.byNode( n, m, {metric: "CosineSimilarity"} )
 YIELD distance
 RETURN n, m, distance
 ```
 
-## Sample  `.vectors.distance`  output
+## Sample  `.vectors.distance.byNode`  output
 
-Here is an example of the output returned by `.vectors.distance` when run against
+Here is an example of the output returned by `.vectors.distance.byNode` when run against
 a sample Wikipedia dataset using the following query:
 
 ```
@@ -154,7 +154,7 @@ aws neptune-graph execute-query \
   --graph-identifier ${graphIdentifier} \
   --query-string "MATCH (n{`~id`: '0'})
                        MATCH (m{`~id`: '1'})
-                       CALL neptune.algo.vectors.distance(n, m)
+                       CALL neptune.algo.vectors.distance.byNode(n, m)
                        YIELD distance
                        RETURN n, m, distance" \
   --language open_cypher \

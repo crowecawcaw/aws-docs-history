@@ -1,4 +1,4 @@
-# .degreeDistribution centrality algorithm
+# .degreeDistribution algorithm
 
 The `.degreeDistribution` algorithm is a tool for analyzing and
 visualizing the structural characteristics of a graph. It calculates the
@@ -12,7 +12,7 @@ tree vs. scale-free), which can help making informed decisions on selecting
 appropriate algorithms for analysis.
 
 The `%degreeDistribution` magic command in the notebook provides an interactive
-visualization of the output, please see the [notebook magics](../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-degree-distribution "../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-degree-distribution")
+visualization of the output, please see the [notebook magics](../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-degreeDistribution "../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-degreeDistribution")
 documentation for details.
 
 ## `.degreeDistribution`   syntax
@@ -20,10 +20,10 @@ documentation for details.
 ```
 CALL neptune.algo.degreeDistribution(
   {
+    vertexLabels: [`a list of vertex labels for filtering (optional)`],
     edgeLabels: [`a list of edge labels for filtering (optional)`],
-    vertexLabels: "`a list of vertex labels for filtering (optional)`",
     binWidth: `a positive integer that specifies the size of each bin in the degree distribution (optional, default: 1)`,
-    traversalDirection: `the direction of edge used for degree computation (optional, default: "both"`,
+    traversalDirection: `the direction of edge used for degree computation (optional, default: "both")`,
     concurrency: `number of threads to use (optional)`
   }
 )
@@ -31,20 +31,21 @@ YIELD output
 RETURN output
 ```
 
-## Inputs for the `.degreeDistribution` algorithm
+## `.degreeDistribution`   inputs
 
 - ###### a configuration object that contains:
+  - **vertexLabels**   _(optional)_   –  
+    _type:_ a list of vertex label strings;   _example:_
+    `["airport", `...`]`;   _default:_ no vertex filtering.
+
+  To filter on one more vertex labels, provide a list of the ones to filter on. If no `vertexLabels` field is
+  provided then all vertex labels are processed during traversal.
   - **edgeLabels**   _(optional)_   –  
     _type:_ a list of edge label strings;   _example:_
     `["route", `...`]`;   _default:_ no edge filtering.
 
   To filter on one more edge labels, provide a list of the ones to filter on. If no `edgeLabels` field is
   provided then all edge labels are processed during traversal.
-  - **vertexLabels** _(optional)_   –  
-    _type:_ `a list of vertex label strings`;   _default: no vertex filtering_.
-
-  To filter on one or more vertex labels, provide a list of the ones to filter on. If no vertexLabels field is
-  provided then all vertex labels are considered for degree computation.
   - **binWidth** _(optional)_   –  
     _type:_ `integer`;   _default: 1_.
 
@@ -62,6 +63,44 @@ RETURN output
   If set to `0`, uses all available threads to complete execution of the individual algorithm
   invocation. If set to `1`, uses a single thread. This can be useful when requiring the invocation
   of many algorithms concurrently.
+
+## `.degreeDistribution`   outputs
+
+There is a single column in the output containing a map with the following key components:
+
+- **distribution**   –  
+  A list of lists where each list item is as follows:
+  - [`degree`, `count`]   –  
+    Degree and corresponding count. The list is sorted in the increasing order of `degree`.
+
+- **statistics**   –  
+  A map with the following components:
+  - `maxDeg`   –   the maximum degree in the graph.
+  - `mean`   –   the average degree in the graph.
+  - `minDeg`   –   the minimum degree in the graph.
+  - `p50`   –   the 50th percentile degree in the graph, i.e., median.
+  - `p75`   –   the 75th percentile degree in the graph.
+  - `p90`   –   the 90th percentile degree in the graph.
+  - `p95`   –   the 95th percentile degree in the graph.
+  - `p99`   –   the 99th percentile degree in the graph.
+  - `p999`   –   the 99.9th percentile degree in the graph.
+
+## `.degreeDistribution`   query examples
+
+This is a standalone example, where the in-degree distribution is computed for the
+graph with specified vertex labels and edge label, and the mean degree is returned.
+
+```
+CALL neptune.algo.degreeDistribution({
+   vertexLabels: ['airport', 'country'],
+   edgeLabels: ['route'],
+   traversalDirection: 'inbound',
+})
+YIELD output
+WITH output.statistics.mean as meanDegree
+RETURN meanDegree
+
+```
 
 ## Sample   `.degreeDistribution`   output
 
@@ -97,22 +136,5 @@ cat /tmp/out.txt
       }
     }]
 }
-
-```
-
-## Query examples for `.degreeDistribution`
-
-This is a standalone example, where the in-degree distribution is computed for the
-graph with specified vertex labels and edge label, and the mean degree is returned.
-
-```
-CALL neptune.algo.degreeDistribution({
-   vertexLabels: ['airport', 'country'],
-   edgeLabels: ['route'],
-   traversalDirection: 'inbound',
-})
-YIELD output
-WITH output.statistics.mean as meanDegree
-RETURN meanDegree
 
 ```

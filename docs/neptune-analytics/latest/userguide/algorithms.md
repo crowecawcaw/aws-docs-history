@@ -6,16 +6,18 @@ algorithms that are exposed as openCypher procedures. These algorithms analyze
 inherent aspects of the underlying graph structure, such as connectedness (path finding),
 relative importance (centrality), and community membership (community detection).
 
-Neptune Analytics natively supports over 25 optimized graph algorithms and variants in the 5 most popular categories that help
+Neptune Analytics natively supports over 25 optimized graph algorithms and variants in the 5 most popular categories, as well as 3
+miscellaneous graph procedures, that help
 customers extract insights from their graphs, which are listed in the following table.
 
 | Category                                                                                  | Action                                                                                                                                             | Algorithms                                                                                                                           | Common Uses                                                                                                    |
 | ----------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------- |
 | [Pathfinding](path-finding-algorithms.md "path-finding-algorithms.md")                    | Find the existence, quality, or availability of a path between nodes.                                                                              | • Breadth-First Search<br>• Single-Source Shortest Path<br>• Top-K Source Shortest Path<br>• Source-Target Shortest Path<br>• EgoNet | • Logistics optimization<br>• Social network recommendations<br>• Route optimization                           |
-| [Centrality](centrality-algorithms.md "centrality-algorithms.md")                         | Determine the absolute or relative importance of a node in the graph.                                                                              | • Degree<br>• PageRank<br>• Closeness Centrality<br>• Degree Distribution                                                            | • Fraud ring/Collusion detection<br>• Social network influencer identification<br>• Supply chain risk analysis |
+| [Centrality](centrality-algorithms.md "centrality-algorithms.md")                         | Determine the absolute or relative importance of a node in the graph.                                                                              | • Degree<br>• PageRank<br>• Closeness Centrality                                                                                     | • Fraud ring/Collusion detection<br>• Social network influencer identification<br>• Supply chain risk analysis |
 | [Similarity](similarity-algorithms.md "similarity-algorithms.md")                         | Compare the similarities between different graph structures.                                                                                       | • Common Neighbors<br>• Total Neighbors<br>• Jaccard Similarity<br>• Overlap Similarity                                              | • Biological structural analysis<br>• Social network cluster comparison<br>• Link prediction                   |
 | [Clustering and Community Detection](clustering-algorithms.md "clustering-algorithms.md") | Identify meaningful groups or clusters within graph structures.                                                                                    | • Weakly Connected Components (WCC)<br>• Strongly Connected Components (SCC)<br>• Label Propagation<br>• Louvain                     | • Social network clusters<br>• Fraud ring identification<br>• Householding<br>• Biological interaction         |
 | [Vector Similarity Search](vector-similarity.md "vector-similarity.md")                   | Identify approximate nearest neighbor (ANN) nodes by comparing vector embeddings using the<br>Hierarchical Navigable Small World (HNSW) algorithm. | • Distance<br>• Top-K                                                                                                                | • RAG applications<br>• Knowledge graph backed chatbots<br>• Approximate nearest neighbors                     |
+| [Miscellaneous Graph Procedures](custom-algorithms.md "custom-algorithms.md")             | Provide summaries and statistics about the graph.                                                                                                  | • Property graph information<br>• Property graph schema<br>• Degree distribution                                                     | • Exploratory graph analysis<br>• Graph summarization                                                          |
 
 Many of these algorithms require interacting with most or all the nodes and edges
 in a graph, often in an iterative fashion. As a result, they are too computationally
@@ -66,7 +68,7 @@ in Neptune Analytics are exposed as separate algorithms. Unless otherwise
 indicated, the examples here are using the [Air Routes
 dataset](https://aws.amazon.com/blogs/database/let-me-graph-that-for-you-part-1-air-routes/ "https://aws.amazon.com/blogs/database/let-me-graph-that-for-you-part-1-air-routes/").
 
-Neptune Analytics currently supports five main categories of algorithm:
+Neptune Analytics currently supports five main categories of algorithm and a set of miscellenaous graph procedures:
 
 - [Path finding algorithms](path-finding-algorithms.md "path-finding-algorithms.md")   –  
   These find the existence, quality, or availability of a path or paths between two
@@ -108,3 +110,6 @@ routing and resource allocation.
   Vector similarity algorithms work by using vector based representations of data, a.k.a. embeddings, to answer questions
   about the data's context and its similarity and connection to other data. This is valuable in applications such as
   Retrieval Augmented Generation (RAG) applications, knowledge graph backed chatbots, and recommendation engines.
+- [Miscellenaous graph procedures](custom-algorithms.md "custom-algorithms.md")   –  
+  The miscellaneous graph procedures can be ran on your graphs to give you insight into your graphs
+  and their metrics.

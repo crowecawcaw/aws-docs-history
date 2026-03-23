@@ -67,12 +67,11 @@ a MATCH clause (query algo integration), the node query list is the result retur
 
 - ###### a configuration object that contains:
   - **vertexLabels**   _(optional)_   –  
-    _type:_ `a list of vertex label strings; example ["airport", ...]`;  
-    _default: no vertex filtering_.
+    _type:_ a list of vertex label strings;   _example:_
+    `["airport", `...`]`;   _default:_ no vertex filtering.
 
-  Node labels for node filtering. To filter on one or more vertex labels, provide a list of node labels. Vertices
-  matching any label in the vertexLabels list are the only vertices that are passed to the algorithm computation.
-  If no vertexLabels field is provided then all vertices are passed to the Louvain algorithm.
+  To filter on one more vertex labels, provide a list of the ones to filter on. If no `vertexLabels` field is
+  provided then all vertex labels are processed during traversal.
   - **edgeLabels**   _(optional)_   –  
     _type:_ a list of edge label strings;   _example:_
     `["route", `...`]`;   _default:_ no edge filtering.

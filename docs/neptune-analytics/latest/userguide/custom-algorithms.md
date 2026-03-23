@@ -11,7 +11,11 @@ extracts and summarizes the current schema of a Neptune Analytics graph, i.e., c
 vertices and edges of particular labels within the graph. The procedure is designed for use cases such as: schema visualization,
 integration with third-party applications, and inclusion in open-source tools.
 
+The `neptune.algo.degreeDistribution()` analyzes the structural characteristics of a graph. It calculates the frequency
+distribution of vertex degrees across the entire network and provides basic statistics of the distribution.
+
 ###### Topics
 
 - [Property graph information](custom-algorithms-property-graph.md "custom-algorithms-property-graph.md")
 - [Property graph schema](custom-algorithms-property-graph-schema.md "custom-algorithms-property-graph-schema.md")
+- [.degreeDistribution algorithm](degreeDistribution.md "degreeDistribution.md")

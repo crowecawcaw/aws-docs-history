@@ -16,7 +16,7 @@ CALL neptune.algo.degree.mutate(
   {
     writeProperty: `A name for the new node property where the degree values will be written`,
     edgeLabels: [`a list of edge labels for filtering (optional)`],
-    vertexLabels: " `[a list of vertex labels for filtering (optional)]`",
+    vertexLabels: [`a list of vertex labels for filtering (optional)`],
     vertexLabel: "`a node label for filtering (optional) [deprecated]`",
     traversalDirection: `traversal direction (optional)`,
     concurrency: `number of threads to use (optional)`
@@ -42,10 +42,12 @@ A name for the new node property that will contain the computed degree values.
 To filter on one more edge labels, provide a list of the ones to filter on. If no `edgeLabels` field is
 provided then all edge labels are processed during traversal.
 
-- **vertexLabels** _(optional)_   –  
-  _type:_ `a list of vertex label strings`;   _default: none_.
+- **vertexLabels**   _(optional)_   –  
+  _type:_ a list of vertex label strings;   _example:_
+  `["airport", `...`]`;   _default:_ no vertex filtering.
 
-Node labels for node filtering. To filter on one or more vertex labels, provide a list of node labels. Vertices matching any label in the vertexLabels list are the only vertices that are processed for degree computation. If no vertexLabels field is provided then all vertices are processed for degree computation.
+To filter on one more vertex labels, provide a list of the ones to filter on. If no `vertexLabels` field is
+provided then all vertex labels are processed during traversal.
 
 - **vertexLabel** _(optional)_   –  
   _type:_ `string`;   _default: none_.
