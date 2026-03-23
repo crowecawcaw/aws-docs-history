@@ -5,6 +5,13 @@ When you create an Amazon SageMaker unified domain, a default git connection to 
 provided for you to manage your code. You can also create and enable new 3P Git connections to
 GitHub, GitHub Enterprise Server, GitLab, and GitLab Self-Managed.
 
+###### Important
+
+When you enable a Git connection, all users who can sign in to any domain in the account
+have read and write access to all repositories on that connection. This access applies
+regardless of the user's project membership or permission level. To enforce isolation between
+repositories, use separate AWS accounts.
+
 ###### Note
 
 You can't create new projects with AWS CodeCommit. Existing projects that were
@@ -222,10 +229,18 @@ access for a 3P Git connection:
    appears as **Enabled**. This means that project members have access to
    the connection and can use it in projects within that domain.
 
-###### Note
+###### Important
 
-All tagged connections will be accessible from all domains in the account and all
-projects in the associated accounts.
+When you enable a Git connection, all users who can sign in to any domain in the account
+have read and write access to all repositories on that connection. This access applies
+regardless of the user's project membership or permission level. There is no
+repository-level isolation within a single account. To enforce isolation between
+repositories, use separate AWS accounts. Do not store sensitive information in connected
+repositories unless all users in the account are authorized to access that
+information.
+
+The following note describes the behavior when a connection is later disabled or
+deleted.
 
 ###### Note
 

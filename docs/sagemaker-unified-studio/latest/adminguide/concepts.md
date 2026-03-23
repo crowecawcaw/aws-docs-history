@@ -177,6 +177,11 @@ CodeCommit is provided for you to manage your code. You can also create and enab
 connections to GitHub, GitHub Enterprise Server, GitLab, and GitLab Self-Managed. For more
 information, see [Github connections](git-connections.md#git-connections-github "git-connections.md#git-connections-github").
 
+When you enable a Git connection, all users who can sign in to any domain in the account
+have read and write access to all repositories on that connection. This access applies
+regardless of the user's project membership or permission level. To enforce isolation between
+repositories, use separate AWS accounts.
+
 **Data source**
 
 An entity which brings in metadata from a source and adds metadata forms (e.g. ingestion

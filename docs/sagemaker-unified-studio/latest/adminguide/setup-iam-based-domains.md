@@ -279,9 +279,11 @@ details:
     Amazon SageMaker Unified Studio**.
 1.  Choose and select the Execution IAM Role for the Admin
 1.  **Setup S3 table integration with AWS analytics services**. This
-    option is enabled by default, and will allow Amazon SageMaker Unified Studio to access table buckets,
-    integrate the table buckets with AWS Analytics services using AWS Glue and AWS
-    Lake Formation. [Learn more](../../../AmazonS3/latest/userguide/s3-tables-integrating-aws.md "../../../AmazonS3/latest/userguide/s3-tables-integrating-aws.md").
+    option is enabled by default, and will allow Amazon SageMaker Unified Studio to access table buckets and
+    integrate the table buckets with AWS analytics services using AWS Glue. If S3 Tables
+    analytics integration has already been configured in your account and Region (that is,
+    the `s3tablescatalog` already exists in the AWS Glue Data Catalog), this
+    option will not be shown. [Learn more](../../../AmazonS3/latest/userguide/s3-tables-integrating-aws.md "../../../AmazonS3/latest/userguide/s3-tables-integrating-aws.md").
 1.  In the **Data encryption** section, configure your encryption
     preferences:
 

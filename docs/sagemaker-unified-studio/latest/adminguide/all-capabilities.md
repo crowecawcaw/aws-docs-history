@@ -149,7 +149,7 @@ blueprints, including the Tooling blueprint.
    1. On the **Create project profile** page, in the
       **Project files storage** section, choose a storage configuration
       type from Amazon S3 - new and Git repository. For more information on storage types,
-      see [.\_unified-storage.xml](._unified-storage.md "._unified-storage.md")###### Important
+      see [.\_unified-storage.xml](._unified-storage.xml.md "._unified-storage.xml.md")###### Important
 
 Note that by creating this project profile from a template, you can either enable
 the Tooling blueprint in the same AWS account and region as your domain
