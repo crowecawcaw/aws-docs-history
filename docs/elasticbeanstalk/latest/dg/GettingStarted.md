@@ -344,7 +344,7 @@ Application**.
 
 1. Download the following PHP sample application:
 
-**PHP** – [php-v2.zip](samples/php-v2.md "samples/php-v2.md") 2. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
+**PHP** – [php-v2.zip](samples/php-v2.zip.md "samples/php-v2.zip.md") 2. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
 and in the **Regions** list, select your AWS Region. 3. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list. 4. On the environment overview page, choose **Upload and
 deploy**. 5. Select **Choose file**, and then upload the sample application source
 bundle that you downloaded.

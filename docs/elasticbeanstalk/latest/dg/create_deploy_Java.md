@@ -46,4 +46,4 @@ Git to let you associate each of your environments with a different Git branch.
 - [Using the Elastic Beanstalk Tomcat platform](java-tomcat-platform.md "java-tomcat-platform.md")
 - [Using the Elastic Beanstalk Java SE platform](java-se-platform.md "java-se-platform.md")
 - [Adding an Amazon RDS DB instance to your Java Elastic Beanstalk environment](java-rds.md "java-rds.md")
-- [Java tools and resources](create_deploy_Java.md "create_deploy_Java.md")
+- [Java tools and resources](create_deploy_Java.resources.md "create_deploy_Java.resources.md")

@@ -1,16 +1,13 @@
-# Instance deployment workflow for ECS running on Amazon Linux 2 and later
+# Instance deployment workflow
 
-The previous section describes the supported extensibility features throughout the phases of the application deployment workflow. There are some
-differences for the Docker platform branches [ECS running on Amazon Linux 2 and later](create_deploy_docker_ecs.md "create_deploy_docker_ecs.md"). This section
-explains how those concepts apply to this specific platform branch.
+###### Note
+
+The information in this section doesn't apply to the _ECS running on Amazon Linux 2 and Amazon Linux 2023_ platform branches. For more
+information, see the next section [Instance deployment workflow for ECS running on Amazon Linux 2 and later](platforms-linux-extend.workflow.ecs-al2.md "platforms-linux-extend.workflow.ecs-al2.md").
 
 With many ways to extend your environment's platform, it's useful to know what happens whenever Elastic Beanstalk provisions an instance or runs a deployment to
-an instance. The following diagram shows this entire deployment workflow for an environment based on the _ECS running on Amazon Linux 2_ and
-_ECS running on Amazon Linux 2023_ platform branches. It depicts the different phases in a deployment and the steps that Elastic Beanstalk takes in
-each phase.
-
-Unlike the workflow described in the prior section, the deployment Configuration phase doesn't support the following extensibility features:
-`Buildfile` commands, `Procfile` commands, reverse proxy configuration.
+an instance. The following diagram shows this entire deployment workflow. It depicts the different phases in a deployment and the steps that Elastic Beanstalk takes
+in each phase.
 
 ###### Notes
 
@@ -20,20 +17,33 @@ Unlike the workflow described in the prior section, the deployment Configuration
   the `.platform/confighooks/*` hook subdirectories (for configuration deployments). Hooks in the latter subdirectories run during
   exactly the same steps as hooks in corresponding subdirectories shown in the diagram.
 
-![Workflow for extensions execution order on an environment instance on the ECS-based Docker platform.](images/platform-ecs-al2-extended-order.png)
-The following list details the deployment workflow steps.
+![Workflow for extensions execution order on an environment instance running on a Amazon Linux-based platform.](images/platforms-linux-extend-order.png)
+The following list details the deployment phases and steps.
 
-1. Runs any executable files found in the `appdeploy/pre` directory under `EBhooksDir`.
-2. Runs any executable files found in the `.platform/hooks/prebuild` directory of your source bundle
-   (`.platform/confighooks/prebuild` for a configuration deployment).
-3. Runs any executable files found in the `.platform/hooks/predeploy` directory of your source bundle
-   (`.platform/confighooks/predeploy` for a configuration deployment).
-4. Runs any executable files found in the `appdeploy/enact` directory under `EBhooksDir`.
-5. Runs any executable files found in the `appdeploy/post` directory under `EBhooksDir`.
-6. Runs any executable files found in the `.platform/hooks/postdeploy` directory of your source bundle
-   (`.platform/confighooks/postdeploy` for a configuration deployment).
-   The reference to `EBhooksDir` represents the path of the platform hooks directory. To retrieve directory path name use the [get-config](custom-platforms-scripts.md#custom-platforms-scripts.get-config "custom-platforms-scripts.md#custom-platforms-scripts.get-config") script tool on the command line of your environment instance as shown:
+1. **Initial steps**
 
-```
-$ `/opt/elasticbeanstalk/bin/get-config platformconfig -k EBhooksDir`
-```
+Elastic Beanstalk downloads and extracts your application. After each one of these steps, Elastic Beanstalk runs one of the extensibility steps.
+
+    1. Runs commands found in the [commands:](customize-containers-ec2.md#linux-commands "customize-containers-ec2.md#linux-commands") section of any configuration file.
+    2. Runs any executable files found in the `.platform/hooks/prebuild` directory of your source bundle
+     (`.platform/confighooks/prebuild` for a configuration deployment).
+
+2. **Configure**
+
+Elastic Beanstalk configures your application and the proxy server.
+
+    1. Runs the commands found in the `Buildfile` in your source bundle.
+    2. Copies your custom proxy configuration files, if you have any in the `.platform/nginx` directory of your source bundle, to
+     their runtime location.
+    3. Runs commands found in the [container\_commands:](customize-containers-ec2.md#linux-container-commands "customize-containers-ec2.md#linux-container-commands") section of any configuration file.
+    4. Runs any executable files found in the `.platform/hooks/predeploy` directory of your source bundle
+     (`.platform/confighooks/predeploy` for a configuration deployment).
+
+3. **Deploy**
+
+Elastic Beanstalk deploys and runs your application and the proxy server.
+
+    1. Runs the command found in the `Procfile` file in your source bundle.
+    2. Runs or reruns the proxy server with your custom proxy configuration files, if you have any.
+    3. Runs any executable files found in the `.platform/hooks/postdeploy` directory of your source bundle
+     (`.platform/confighooks/postdeploy` for a configuration deployment).

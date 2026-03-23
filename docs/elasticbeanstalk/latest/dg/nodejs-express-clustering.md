@@ -120,7 +120,7 @@ application to use the Express framework.
 
 Update the sample application in the Elastic Beanstalk environment to use the Express framework.
 
-You can download the final source code from [nodejs-example-express-elasticache.zip](samples/nodejs-example-express-elasticache.md "samples/nodejs-example-express-elasticache.md").
+You can download the final source code from [nodejs-example-express-elasticache.zip](samples/nodejs-example-express-elasticache.zip.md "samples/nodejs-example-express-elasticache.zip.md").
 
 ###### To update your application to use Express
 
@@ -385,7 +385,7 @@ function normalizePort(val) {
 9. Your environment will be updated after a few minutes. Once the environment is green and ready, refresh the URL to verify it worked. You should see
    a web page that says "Welcome to Express".
 
-You can access the logs for your EC2 instances running your application. For instructions on accessing your logs, see [Viewing logs from Amazon EC2 instances in your Elastic Beanstalk environment](using-features.md "using-features.md").
+You can access the logs for your EC2 instances running your application. For instructions on accessing your logs, see [Viewing logs from Amazon EC2 instances in your Elastic Beanstalk environment](using-features.logging.md "using-features.logging.md").
 
 Next, let's update the Express application to use Amazon ElastiCache.
 
@@ -394,8 +394,8 @@ Next, let's update the Express application to use Amazon ElastiCache.
 1. On your local computer, create an `.ebextensions` directory in the top-level directory of your source bundle. In this example,
    we use `nodejs-example-express-elasticache/.ebextensions`.
 2. Create a configuration file `nodejs-example-express-elasticache/.ebextensions/elasticache-iam-with-script.config` with the following snippet. For
-   more information about the configuration file, see [Node.js configuration namespace](create_deploy_nodejs.md#nodejs-namespaces "create_deploy_nodejs.md#nodejs-namespaces"). This creates an IAM user
-   with the permissions required to discover the elasticache nodes and writes to a file anytime the cache changes. You can also copy the file from [nodejs-example-express-elasticache.zip](samples/nodejs-example-express-elasticache.md "samples/nodejs-example-express-elasticache.md"). For more information on the ElastiCache
+   more information about the configuration file, see [Node.js configuration namespace](create_deploy_nodejs.container.md#nodejs-namespaces "create_deploy_nodejs.container.md#nodejs-namespaces"). This creates an IAM user
+   with the permissions required to discover the elasticache nodes and writes to a file anytime the cache changes. You can also copy the file from [nodejs-example-express-elasticache.zip](samples/nodejs-example-express-elasticache.zip.md "samples/nodejs-example-express-elasticache.zip.md"). For more information on the ElastiCache
    properties, see [Example: ElastiCache](customize-environment-resources-elasticache.md "customize-environment-resources-elasticache.md").
 
 ###### Note
@@ -665,7 +665,7 @@ fs.readFile(filename, 'UTF8', function(err, data) {
    Make sure you are looking at the same region that you deployed your application to.
 
    If you copy and paste your application URL into another web browser and refresh the page, you should see your CurrItem count go up after 5
-   minutes. 2. Take a snapshot of your logs. For more information about retrieving logs, see [Viewing logs from Amazon EC2 instances in your Elastic Beanstalk environment](using-features.md "using-features.md"). 3. Check the file `/var/log/nodejs/nodejs.log` in the log bundle. You should see something similar to the following:
+   minutes. 2. Take a snapshot of your logs. For more information about retrieving logs, see [Viewing logs from Amazon EC2 instances in your Elastic Beanstalk environment](using-features.logging.md "using-features.logging.md"). 3. Check the file `/var/log/nodejs/nodejs.log` in the log bundle. You should see something similar to the following:
 
    ```
    Using memcached store nodes:

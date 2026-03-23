@@ -66,7 +66,7 @@ Platform:
   PlatformArn: `arn:aws:elasticbeanstalk:us-east-2::platform/Java 8 running on 64bit Amazon Linux/2.5.0`
 ```
 
-- **SolutionStack** – The full name of the [solution stack](concepts.md "concepts.md") used to create
+- **SolutionStack** – The full name of the [solution stack](concepts.platforms.md "concepts.platforms.md") used to create
   the environment.
 
 ```

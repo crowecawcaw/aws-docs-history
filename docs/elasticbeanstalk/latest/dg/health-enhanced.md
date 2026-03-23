@@ -64,8 +64,8 @@ The Elastic Beanstalk health agent is a daemon process (or service, on Windows e
 operating system and application-level health metrics and reporting issues to Elastic Beanstalk. The health agent is included in all platform versions starting with
 version 2.0 of each platform.
 
-The health agent reports similar metrics to those [published to CloudWatch](using-features.md#monitoring-basic-cloudwatch "using-features.md#monitoring-basic-cloudwatch") by Amazon EC2 Auto Scaling and Elastic Load Balancing as part
-of [basic health reporting](using-features.md "using-features.md"), including CPU load, HTTP codes, and latency. The health agent, however,
+The health agent reports similar metrics to those [published to CloudWatch](using-features.healthstatus.md#monitoring-basic-cloudwatch "using-features.healthstatus.md#monitoring-basic-cloudwatch") by Amazon EC2 Auto Scaling and Elastic Load Balancing as part
+of [basic health reporting](using-features.healthstatus.md "using-features.healthstatus.md"), including CPU load, HTTP codes, and latency. The health agent, however,
 reports directly to Elastic Beanstalk, with greater granularity and frequency than basic health reporting.
 
 For basic health, these metrics are published every five minutes and can be monitored with graphs in the environment management console. With enhanced
@@ -88,7 +88,7 @@ details on publishing enhanced health metrics to CloudWatch, see [Publishing Ama
 
 ## Factors in determining instance and environment health
 
-In addition to the basic health reporting system checks, including [Elastic Load Balancing health checks](using-features.md#using-features.healthstatus.understanding "using-features.md#using-features.healthstatus.understanding") and [resource monitoring](using-features.md#monitoring-basic-additionalchecks "using-features.md#monitoring-basic-additionalchecks"), Elastic Beanstalk
+In addition to the basic health reporting system checks, including [Elastic Load Balancing health checks](using-features.healthstatus.md#using-features.healthstatus.understanding "using-features.healthstatus.md#using-features.healthstatus.understanding") and [resource monitoring](using-features.healthstatus.md#monitoring-basic-additionalchecks "using-features.healthstatus.md#monitoring-basic-additionalchecks"), Elastic Beanstalk
 enhanced health reporting gathers additional data about the state of the instances in your environment. This includes operating system metrics, server
 logs, and the state of ongoing environment operations such as deployments and updates. The Elastic Beanstalk health reporting service combines information from all
 available sources and analyzes it to determine the overall health of the environment.
@@ -127,7 +127,7 @@ i-f6a2d525     Ok         *Application deployment completed 23 seconds ago and t
 Instance health information also includes details about the most recent deployment to each instance in your environment. Each instance reports a
 deployment ID and status. The deployment ID is an integer that increases by one each time you deploy a new version of your application or change
 settings for on-instance configuration options, such as environment variables. You can use the deployment information to identify instances that are
-running the wrong version of your application after a failed [rolling deployment](using-features.md "using-features.md").
+running the wrong version of your application after a failed [rolling deployment](using-features.rolling-version-deploy.md "using-features.rolling-version-deploy.md").
 
 In the cause column, Elastic Beanstalk includes informational messages about successful operations and other healthy states across multiple health checks, but
 they don't persist indefinitely. Causes for unhealthy environment statuses persist until the environment returns to a healthy status.
@@ -258,9 +258,9 @@ instances in your environment.
 
 Enabling enhanced health reporting can affect how your environment behaves during configuration updates and deployments. Elastic Beanstalk won't complete a batch
 of updates until all of the instances pass health checks consistently. Also, because enhanced health reporting applies a higher standard for health and
-monitors more factors, instances that pass basic health reporting's [ELB health check](using-features.md#using-features.healthstatus.understanding "using-features.md#using-features.healthstatus.understanding")
+monitors more factors, instances that pass basic health reporting's [ELB health check](using-features.healthstatus.md#using-features.healthstatus.understanding "using-features.healthstatus.md#using-features.healthstatus.understanding")
 won't necessarily pass with enhanced health reporting. See the topics on [rolling configuration
-updates](using-features.md "using-features.md") and [rolling deployments](using-features.md "using-features.md") for details on how health checks affect the update
+updates](using-features.rollingupdates.md "using-features.rollingupdates.md") and [rolling deployments](using-features.rolling-version-deploy.md "using-features.rolling-version-deploy.md") for details on how health checks affect the update
 process.
 
 Enhanced health reporting can also highlight the need to set a proper [health check URL](environments-cfg-clb.md#using-features.managing.elb.healthchecks "environments-cfg-clb.md#using-features.managing.elb.healthchecks")

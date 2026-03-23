@@ -16,8 +16,8 @@ environment.
 - [Create a new application project](#dotnet-toolkit-linux-core-tutorial-create-project "#dotnet-toolkit-linux-core-tutorial-create-project")
 - [Create an Elastic Beanstalk environment and deploy your application](#dotnet-toolkit-linux-core-tutorial-create-env-and-deploy "#dotnet-toolkit-linux-core-tutorial-create-env-and-deploy")
 - [Terminating an environment](#dotnet-toolkit-linux-core-tutorial-terminate-env "#dotnet-toolkit-linux-core-tutorial-terminate-env")
-- [Managing your Elastic Beanstalk application environments](create_deploy_NET-linux.md "create_deploy_NET-linux.md")
-- [Monitoring application health](create_deploy_NET-linux.md "create_deploy_NET-linux.md")
+- [Managing your Elastic Beanstalk application environments](create_deploy_NET-linux.managing.md "create_deploy_NET-linux.managing.md")
+- [Monitoring application health](create_deploy_NET-linux.healthstatus.md "create_deploy_NET-linux.healthstatus.md")
 
 ## Prerequisites
 
@@ -90,14 +90,14 @@ This section describes how to create an Elastic Beanstalk environment for your a
    **OK**. (In this example, we use `myuseastkeypair`.) A key pair enables remote-desktop access to your
    Amazon EC2 instances. For more information about Amazon EC2 key pairs, see [Using
    Credentials](../../../AWSEC2/latest/UserGuide/using-credentials.md "../../../AWSEC2/latest/UserGuide/using-credentials.md") in the _Amazon Elastic Compute Cloud User Guide_. 4. For a simple, low traffic application, select **Single instance environment**. For more information, see [Environment types](using-features-managing-env-types.md "using-features-managing-env-types.md") 5. Select **Next**. For more information about the AWS options that are not used in this example consider the following pages:
-   - For **Use custom AMI**, see [Using a custom Amazon machine image (AMI) in your Elastic Beanstalk environment](using-features.md "using-features.md").
-   - If you don't select **Single instance environment**, you need to choose a **Load balance type**. See [Load balancer for your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md") for more information.
+   - For **Use custom AMI**, see [Using a custom Amazon machine image (AMI) in your Elastic Beanstalk environment](using-features.customenv.md "using-features.customenv.md").
+   - If you don't select **Single instance environment**, you need to choose a **Load balance type**. See [Load balancer for your Elastic Beanstalk environment](using-features.managing.elb.md "using-features.managing.elb.md") for more information.
    - Elastic Beanstalk uses the default [Amazon VPC](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md") (Amazon Virtual Private Cloud) configuration if you didn't choose **Use
      non-default VPC**. For more information see [Using Elastic Beanstalk with Amazon VPC](vpc.md "vpc.md").
    - Choosing the **Enable Rolling Deployments** option splits a deployment into batches to avoid potential downtime during
-     deployments. For more information, see [Deploying applications to Elastic Beanstalk environments](using-features.md "using-features.md").
+     deployments. For more information, see [Deploying applications to Elastic Beanstalk environments](using-features.deploy-existing-version.md "using-features.deploy-existing-version.md").
    - Choosing the **Relational Database Access** option connects your Elastic Beanstalk environment to a previously created Amazon RDS
-     database with _Amazon RDS DB Security Groups_. For more information, see [Controlling Access with Security Groups](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md") in the
+     database with _Amazon RDS DB Security Groups_. For more information, see [Controlling Access with Security Groups](../../../AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.md "../../../AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.md") in the
      _Amazon RDS User Guide_.
 
 6. Select **Next** on the **Permissions** dialog box.

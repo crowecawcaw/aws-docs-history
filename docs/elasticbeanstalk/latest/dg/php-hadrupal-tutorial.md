@@ -1,6 +1,6 @@
 # Deploying a high-availability Drupal website with an external Amazon RDS database to Elastic Beanstalk
 
-This tutorial walks you through the process of [launching an RDS DB instance](AWSHowTo.md "AWSHowTo.md") external to AWS Elastic Beanstalk. Then it describes
+This tutorial walks you through the process of [launching an RDS DB instance](AWSHowTo.RDS.md "AWSHowTo.RDS.md") external to AWS Elastic Beanstalk. Then it describes
 configuring a high-availability environment running a Drupal website to connect to it. The website uses Amazon Elastic File System (Amazon EFS) as shared storage for uploaded
 files. Running a DB instance external to Elastic Beanstalk decouples the database from the lifecycle of your environment, and lets you connect to the same database from
 multiple environments, swap out one database for another, or perform a blue/green deployment without affecting your database.
@@ -34,7 +34,7 @@ this is output
 On Linux and macOS, you can use your preferred shell and package manager. On Windows you can [install the Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10 "https://docs.microsoft.com/en-us/windows/wsl/install-win10") to get a Windows-integrated version of
 Ubuntu and Bash.
 
-The procedures in this tutorial for Amazon Relational Database Service (Amazon RDS) tasks assume that you are launching resources in a default [Amazon Virtual Private Cloud](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md") (Amazon VPC). All new accounts include a default VPC in each region. If you don't have a default VPC, the procedures will vary. See [Using Elastic Beanstalk with Amazon RDS](AWSHowTo.md "AWSHowTo.md") for instructions for EC2-Classic and custom VPC platforms.
+The procedures in this tutorial for Amazon Relational Database Service (Amazon RDS) tasks assume that you are launching resources in a default [Amazon Virtual Private Cloud](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md") (Amazon VPC). All new accounts include a default VPC in each region. If you don't have a default VPC, the procedures will vary. See [Using Elastic Beanstalk with Amazon RDS](AWSHowTo.RDS.md "AWSHowTo.RDS.md") for instructions for EC2-Classic and custom VPC platforms.
 
 The sample application uses Amazon EFS. It only works in AWS Regions that support Amazon EFS. To learn about supporting AWS Regions, see [Amazon Elastic File System Endpoints and Quotas](../../../general/latest/gr/elasticfilesystem.md "../../../general/latest/gr/elasticfilesystem.md") in the _AWS General Reference_.
 
@@ -154,7 +154,7 @@ instance that you launched is outside of your environment, so you are responsibl
 
 ###### Note
 
-The Amazon S3 bucket that Elastic Beanstalk creates is shared between environments and is not deleted during environment termination. For more information, see [Using Elastic Beanstalk with Amazon S3](AWSHowTo.md "AWSHowTo.md").
+The Amazon S3 bucket that Elastic Beanstalk creates is shared between environments and is not deleted during environment termination. For more information, see [Using Elastic Beanstalk with Amazon S3](AWSHowTo.S3.md "AWSHowTo.S3.md").
 
 ## Configure security settings and environment properties
 
@@ -416,7 +416,7 @@ configure the site during deployment, in addition to the database connection pro
 ###### Note
 
 The **Secrets Manager** and **SSM Parameter Store** values in the drop-down are for configuring environment
-variables as secrets to store sensitive data, such as credentials and API keys. For more information, see [Using Elastic Beanstalk with AWS Secrets Manager and AWS Systems Manager Parameter Store](AWSHowTo.md "AWSHowTo.md"). 8. Enter the **Environment variable name** and **Environment variable value** pairs. 9. If you need to add more variables repeat **Step 6** through **Step 8**. 10. To save the changes choose **Apply** at the bottom of the page.
+variables as secrets to store sensitive data, such as credentials and API keys. For more information, see [Using Elastic Beanstalk with AWS Secrets Manager and AWS Systems Manager Parameter Store](AWSHowTo.secrets.md "AWSHowTo.secrets.md"). 8. Enter the **Environment variable name** and **Environment variable value** pairs. 9. If you need to add more variables repeat **Step 6** through **Step 8**. 10. To save the changes choose **Apply** at the bottom of the page.
 
 Finally, the sample project includes a configuration file (`loadbalancer-sg.config`) that creates a security group and assigns it
 to the environment's load balancer, using the IP address that you configured in `dev.config` to restrict HTTP access on port 80 to
@@ -478,11 +478,11 @@ file system is working.
 
 After you finish working with the demo code, you can terminate your environment.
 Elastic Beanstalk deletes all related AWS resources, such as
-[Amazon EC2 instances](using-features.managing.md "using-features.managing.md"),
-[database instances](using-features.managing.md "using-features.managing.md"),
-[load balancers](using-features.managing.md "using-features.managing.md"),
+[Amazon EC2 instances](using-features.managing.ec2.md "using-features.managing.ec2.md"),
+[database instances](using-features.managing.db.md "using-features.managing.db.md"),
+[load balancers](using-features.managing.elb.md "using-features.managing.elb.md"),
 security groups,
-and [alarms](using-features.md#using-features.alarms.title "using-features.md#using-features.alarms.title").
+and [alarms](using-features.alarms.md#using-features.alarms.title "using-features.alarms.md#using-features.alarms.title").
 
 Removing resources does not delete the Elastic Beanstalk application, so you can create new environments for your application at any time.
 
@@ -519,7 +519,7 @@ use a configuration file to configure your instances' security group settings du
 See [Advanced environment customization with configuration files (.ebextensions)](ebextensions.md "ebextensions.md") for more information.
 
 For development and testing, you might want to use the Elastic Beanstalk functionality for adding a managed DB instance directly to your environment. For
-instructions on setting up a database inside your environment, see [Adding a database to your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md").
+instructions on setting up a database inside your environment, see [Adding a database to your Elastic Beanstalk environment](using-features.managing.db.md "using-features.managing.db.md").
 
 If you need a high-performance database, consider using [Amazon Aurora](https://aws.amazon.com/rds/aurora/ "https://aws.amazon.com/rds/aurora/").
 Amazon Aurora is a

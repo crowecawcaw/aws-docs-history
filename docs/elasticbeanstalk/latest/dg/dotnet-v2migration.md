@@ -20,7 +20,7 @@ The Windows Server platform now supports the following:
   you) when creating and managing environments.
 - _Enhanced health_ – For details, see [Enhanced health reporting and monitoring in Elastic Beanstalk](health-enhanced.md "health-enhanced.md").
 - _Immutable_ and _Rolling with an Additional Batch_ deployments – For details about deployment
-  policies, see [Deploying applications to Elastic Beanstalk environments](using-features.md "using-features.md").
+  policies, see [Deploying applications to Elastic Beanstalk environments](using-features.deploy-existing-version.md "using-features.deploy-existing-version.md").
 - _Immutable updates_ – For details about update types, see [Configuration changes](environments-updating.md "environments-updating.md").
 - _Managed platform updates_ – For details, see [Managed platform updates](environment-platform-update-managed.md "environment-platform-update-managed.md").
 
@@ -63,7 +63,7 @@ to modify the contents of your application source bundle with commands or a scri
 
 ## Migrating from earlier major versions of the Windows server platform
 
-Read this section for migration considerations before you update your environment. To update your environment's platform to a newer version, see [Updating your Elastic Beanstalk environment's platform version](using-features.platform.md "using-features.platform.md").
+Read this section for migration considerations before you update your environment. To update your environment's platform to a newer version, see [Updating your Elastic Beanstalk environment's platform version](using-features.platform.upgrade.md "using-features.platform.upgrade.md").
 
 ### From V1 to V2
 
@@ -73,7 +73,7 @@ application uses one of these .NET Core versions, update your application to a .
 _AWS Elastic Beanstalk Platforms_.
 
 If your application uses a custom Amazon Machine Image (AMI), create a new custom AMI based on a Windows Server platform v2 AMI. To learn more, see
-[Using a custom Amazon machine image (AMI) in your Elastic Beanstalk environment](using-features.md "using-features.md").
+[Using a custom Amazon machine image (AMI) in your Elastic Beanstalk environment](using-features.customenv.md "using-features.customenv.md").
 
 ###### Note
 

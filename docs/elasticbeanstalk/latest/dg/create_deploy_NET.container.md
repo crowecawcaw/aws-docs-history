@@ -1,6 +1,30 @@
-# Configuring notifications using AWS toolkit for Visual Studio
+# Configuring .NET containers using the AWS toolkit for Visual Studio
 
-Elastic Beanstalk uses the Amazon Simple Notification Service (Amazon SNS) to notify you of important events affecting your application. To enable Amazon SNS notifications, simply enter
-your email address in the **Email Address** box. To disable these notifications, remove your email address from the box.
+The **Container/.NET Options** panel lets you fine-tune the behavior of your Amazon EC2 instances and enable or disable Amazon S3
+log rotation. You can use the AWS Toolkit for Visual Studio to configure your container information.
 
-![Elastic Beanstalk notifications window](images/aeb-vs-notifications.png)
+###### Note
+
+You can modify your configuration settings with zero downtime by swapping the CNAME for your environments. For more information, see [Blue/Green deployments with Elastic Beanstalk](using-features.CNAMESwap.md "using-features.CNAMESwap.md").
+
+If you want to, you can extend the number of parameters. For information about extending parameters, see [Option settings](ebextensions-optionsettings.md "ebextensions-optionsettings.md").
+
+###### To access the Container/.NET options panel for your Elastic Beanstalk application
+
+1. In AWS Toolkit for Visual Studio, expand the Elastic Beanstalk node and your application node.
+2. In **AWS Explorer**, double-click your Elastic Beanstalk environment.
+3. At the bottom of the **Overview** pane, click the **Configuration** tab.
+4. Under **Container**, you can configure container options.
+
+![Elastic Beanstalk container panel](images/aeb-vs-container.png)
+
+## .NET container options
+
+You can choose the version of .NET Framework for your application. Choose either 2.0 or 4.0 for **Target runtime**. Select
+**Enable 32-bit Applications** if you want to enable 32-bit applications.
+
+## Application settings
+
+The **Application Settings** section lets you specify environment variables that you can read from your application code.
+
+![Elastic Beanstalk container panel](images/aeb-vs-container-envproperties.png)

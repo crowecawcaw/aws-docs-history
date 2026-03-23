@@ -4,14 +4,14 @@
 
 On [July 18, 2022](../relnotes/release-2022-07-18-linux-al1-retire.md "../relnotes/release-2022-07-18-linux-al1-retire.md"),
 Elastic Beanstalk set the status of all platform branches based on Amazon Linux AMI (AL1) to **retired**. This includes custom platforms. Elastic Beanstalk doesn't support custom platforms. For more information about
-Elastic Beanstalk's retirement of Amazon Linux AMI, see [Platform retirement FAQ](using-features.migration-al.md "using-features.migration-al.md").
+Elastic Beanstalk's retirement of Amazon Linux AMI, see [Platform retirement FAQ](using-features.migration-al.FAQ.md "using-features.migration-al.FAQ.md").
 
 This topic remains in this document as a reference for any customers that used the Elastic Beanstalk custom platform feature prior to its retirement. In the past,
 Elastic Beanstalk custom platforms supported building an AMI from Amazon Linux AMI, RHEL 7, RHEL 6, or Ubuntu 16.04 base AMIs. These operating systems are no longer supported
 by Elastic Beanstalk. To read more about the custom platforms feature, which is no longer supported, expand the following topic.
 
 A custom platform is a more advanced customization than a [custom
-image](using-features.md "using-features.md") in several ways. A custom platform lets you develop an entire new platform from scratch, customizing the operating system, additional
+image](using-features.customenv.md "using-features.customenv.md") in several ways. A custom platform lets you develop an entire new platform from scratch, customizing the operating system, additional
 software, and scripts that Elastic Beanstalk runs on platform instances. This flexibility enables you to build a platform for an application that uses a language or
 other infrastructure software, for which Elastic Beanstalk doesn't provide a managed platform. Compare that to custom images, where you modify an Amazon Machine Image
 (AMI) for use with an existing Elastic Beanstalk platform, and Elastic Beanstalk still provides the platform scripts and controls the platform's software stack. In addition, with
@@ -39,7 +39,7 @@ Custom platforms are AWS Region specific. If you use Elastic Beanstalk in multip
 In certain circumstances, instances launched by Packer are not cleaned up and have to be manually terminated. To learn how to manually clean up these
 instances, see [Packer instance cleanup](#custom-platforms-packercleanup "#custom-platforms-packercleanup").
 
-Users in your account can use your custom platforms by specifying a [platform ARN](AWSHowTo.iam.policies.md "AWSHowTo.iam.policies.md") during environment
+Users in your account can use your custom platforms by specifying a [platform ARN](AWSHowTo.iam.policies.arn.md "AWSHowTo.iam.policies.arn.md") during environment
 creation. These ARNs are returned by the **eb platform create** command that you used to create the custom platform.
 
 Each time you build your custom platform, Elastic Beanstalk creates a new platform version. Users can specify a platform by name to get only the latest version of
@@ -194,7 +194,7 @@ sample platform includes the following scripts:
   input, which breaks the automated package update. This might be an Ubuntu issue. However, running `apt -y update` is still recommended as a
   best practice. For this reason, we left the command in the sample script for reference.
 - `01-install-nginx.sh` – Installs nginx.
-- `02-setup-platform.sh` – Installs `wget`, `tree`, and `git`. Copies hooks and [logging configurations](using-features.md "using-features.md") to the instance, and creates the following directories:
+- `02-setup-platform.sh` – Installs `wget`, `tree`, and `git`. Copies hooks and [logging configurations](using-features.logging.md "using-features.logging.md") to the instance, and creates the following directories:
   - `/etc/SampleNodePlatform` – Where the container configuration file is uploaded during deployment.
   - `/opt/elasticbeanstalk/deploy/appsource/` – Where the `00-unzip.sh` script uploads application source code during
     deployment (see the [Platform script tools for your Elastic Beanstalk environments](custom-platforms-scripts.md "custom-platforms-scripts.md") section for information about this
@@ -301,7 +301,7 @@ You can use the custom platform when creating an environment from the console. S
 ...
 ```
 
-3. Download the sample application [NodeSampleApp.zip](samples/NodeSampleApp.md "samples/NodeSampleApp.md").
+3. Download the sample application [NodeSampleApp.zip](samples/NodeSampleApp.zip.md "samples/NodeSampleApp.zip.md").
 4. Extract the sample application.
 
 ```
@@ -377,7 +377,7 @@ hooks are run only when the user initiates an application server restart.
 When your scripts encounter errors, they can exit with a non-zero status and write to `stderr` to fail the operation. The message
 that you write to `stderr` will appear in the event that is output when the operation fails. Elastic Beanstalk also captures this information in
 the log file `/var/log/eb-activity.log` If you don't want to fail the operation, return 0 (zero). Messages that you write to
-`stderr` or `stdout` appear in the [deployment logs](using-features.md "using-features.md"), but won't appear in the event
+`stderr` or `stdout` appear in the [deployment logs](using-features.logging.md "using-features.logging.md"), but won't appear in the event
 stream unless the operation fails.
 
 ### Packer instance cleanup

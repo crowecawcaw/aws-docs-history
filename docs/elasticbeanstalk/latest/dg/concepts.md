@@ -1,36 +1,49 @@
-# Elastic Beanstalk supported platforms
+# Understanding concepts in Elastic Beanstalk
 
-AWS Elastic Beanstalk provides a variety of platforms on which you can build your applications. You design your web application to one of these platforms,
-and Elastic Beanstalk deploys your code to the platform version you selected to create an active application environment.
+Becoming familiar with the concepts and terms will help you gain an understanding needed for deploying your applications with Elastic Beanstalk.
 
-Elastic Beanstalk provisions the resources needed to run your application, including one or more Amazon EC2 instances. The software stack running on the Amazon EC2 instances
-depends on the specific platform version you've selected for your environment.
+![Illustrative diagram showing the relationship between an Elastic Beanstalk application and web/worker environments.](images/aeb-overview.png)
 
-###### The solution stack name for a platform branch
+## Application
 
-You can use the _solution stack name_ for a given platform branch version to launch an environment with the [EB CLI](eb-cli3.md "eb-cli3.md"), [Elastic Beanstalk API](../api.md "../api.md"), or the [AWS CLI](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/"). The
-_AWS Elastic Beanstalk Platforms_ guide lists the _solution stack name_ under the platform branch version in
-both the [Elastic Beanstalk Supported Platforms](../platforms/platforms-supported.md "../platforms/platforms-supported.md") and [Platform history](../platforms/platform-history.md "../platforms/platform-history.md") sections.
+An Elastic Beanstalk _application_ is a container for Elastic Beanstalk components, including _environments_, _versions_, and _environment configurations_. Within an Elastic Beanstalk application, you manage all the resources relevant to running your code.
 
-To retrieve all of the solution stack names that you can use to create an environment, use the [ListAvailableSolutionStacks](../api/API_ListAvailableSolutionStacks.md "../api/API_ListAvailableSolutionStacks.md") API or the [`aws elasticbeanstalk list-available-solution-stacks`](../../../cli/latest/reference/elasticbeanstalk/list-available-solution-stacks.md "../../../cli/latest/reference/elasticbeanstalk/list-available-solution-stacks.md") in the
-AWS CLI.
+## Application version
 
-You can customize and configure the software that your application depends on in your platform. Learn more at [Customizing software on Linux servers](customize-containers-ec2.md "customize-containers-ec2.md") and [Customizing software on Windows servers](customize-containers-windows-ec2.md "customize-containers-windows-ec2.md").
-Detailed release notes are available for recent releases at [AWS Elastic Beanstalk Release Notes](../relnotes.md "../relnotes.md").
+In Elastic Beanstalk, an _application version_ refers to a specific, labeled iteration of deployable code for a web application. An application
+version points to an Amazon Simple Storage Service (Amazon S3) object that contains the deployable code, such as a Java WAR file.
 
-## Supported platforms and component history
+An application version
+is part of an application. Applications can have many versions and each application version is unique. In a running environment, you can deploy any
+application version you already uploaded to the application, or you can upload and immediately deploy a new application version. For example, you could upload multiple
+application versions to test differences between them.
 
-The _AWS Elastic Beanstalk Platforms_ guide lists all of the current platform branch versions in the [Elastic Beanstalk Supported Platforms](../platforms/platforms-supported.md "../platforms/platforms-supported.md") section. The _Platforms_ guide also
-lists a _platform history_ for each platform, which includes a list of previous branch platform versions. To view the
-_platform history_ for each platform, select one of the following links.
+## Environment
 
-- [Docker](../platforms/platform-history-docker.md "../platforms/platform-history-docker.md")
-- [Go](../platforms/platform-history-go.md "../platforms/platform-history-go.md")
-- [Java SE](../platforms/platform-history-javase.md "../platforms/platform-history-javase.md")
-- [Tomcat (running Java SE)](../platforms/platform-history-java.md "../platforms/platform-history-java.md")
-- [.NET Core on Linux](../platforms/platform-history-dotnetlinux.md "../platforms/platform-history-dotnetlinux.md")
-- [.NET on Windows Server](../platforms/platform-history-dotnet.md "../platforms/platform-history-dotnet.md")
-- [Node.js](../platforms/platform-history-nodejs.md "../platforms/platform-history-nodejs.md")
-- [PHP](../platforms/platform-history-php.md "../platforms/platform-history-php.md")
-- [Python](../platforms/platform-history-python.md "../platforms/platform-history-python.md")
-- [Ruby](../platforms/platform-history-ruby.md "../platforms/platform-history-ruby.md")
+An _environment_ is a collection of AWS resources running an application version. Each environment runs only one application version at a time, however, you can run the same application version or different application versions in many environments simultaneously. When you
+create an environment, Elastic Beanstalk provisions the resources needed in your AWS account to run the application version you specified.
+
+## Environment tier
+
+When you launch an Elastic Beanstalk environment, you first choose an environment tier. The environment tier designates the type of application that the
+environment runs and determines what resources Elastic Beanstalk provisions to support it. An application that serves HTTP requests runs in a [web server environment tier](concepts-webserver.md "concepts-webserver.md"). A backend environment that pulls tasks from an Amazon Simple Queue Service (Amazon SQS) queue runs in a [worker environment tier](concepts-worker.md "concepts-worker.md").
+
+## Environment configuration
+
+An _environment configuration_ identifies a collection of parameters and settings that define how an environment and its
+associated resources behave. When you update an environment’s configuration settings, Elastic Beanstalk automatically applies the changes to existing resources or
+deletes and deploys new resources (depending on the type of change).
+
+## Saved configuration
+
+A _saved configuration_ is a template that you can use as a starting point for creating unique environment configurations. You can
+create and modify saved configurations, and apply them to environments, using the Elastic Beanstalk console, EB CLI, AWS CLI, or API. The API and the AWS CLI refer to
+saved configurations as _configuration templates_.
+
+## Platform
+
+A _platform_ is a combination of an operating system, programming language runtime, web server, application server, and Elastic Beanstalk
+components. You design and target your web application to a platform. Elastic Beanstalk provides a variety of platforms on which you can build your
+applications.
+
+For details, see [Elastic Beanstalk platforms](concepts-all-platforms.md "concepts-all-platforms.md").

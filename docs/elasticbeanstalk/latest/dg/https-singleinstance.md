@@ -37,4 +37,4 @@ In a load-balanced environment in a default [Amazon Virtual Private Cloud](../..
 - [Terminating HTTPS on EC2 instances running Ruby](https-singleinstance-ruby.md "https-singleinstance-ruby.md")
 - [Terminating HTTPS on EC2 instances running Tomcat](https-singleinstance-tomcat.md "https-singleinstance-tomcat.md")
 - [Terminating HTTPS on Amazon EC2 instances running .NET Core on Linux](https-singleinstance-dotnet-linux.md "https-singleinstance-dotnet-linux.md")
-- [Terminating HTTPS on Amazon EC2 instances running .NET](SSLNET.md "SSLNET.md")
+- [Terminating HTTPS on Amazon EC2 instances running .NET](SSLNET.SingleInstance.md "SSLNET.SingleInstance.md")

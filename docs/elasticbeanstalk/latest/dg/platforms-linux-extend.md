@@ -5,8 +5,8 @@ platform to change the default proxy server and configuration. Or you may need t
 
 ###### Topics
 
-- [Buildfile and Procfile](platforms-linux-extend.md "platforms-linux-extend.md")
-- [Platform hooks](platforms-linux-extend.md "platforms-linux-extend.md")
-- [Configuration files](platforms-linux-extend.md "platforms-linux-extend.md")
-- [Reverse proxy configuration](platforms-linux-extend.md "platforms-linux-extend.md")
-- [Application example with extensions](platforms-linux-extend.md "platforms-linux-extend.md")
+- [Buildfile and Procfile](platforms-linux-extend.build-proc.md "platforms-linux-extend.build-proc.md")
+- [Platform hooks](platforms-linux-extend.hooks.md "platforms-linux-extend.hooks.md")
+- [Configuration files](platforms-linux-extend.config-files.md "platforms-linux-extend.config-files.md")
+- [Reverse proxy configuration](platforms-linux-extend.proxy.md "platforms-linux-extend.proxy.md")
+- [Application example with extensions](platforms-linux-extend.example.md "platforms-linux-extend.example.md")

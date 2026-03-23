@@ -16,9 +16,9 @@ We recommend migrating to **launch templates** for the following benefits:
 To migrate your environment from launch configurations to launch templates, set one of
 the following configuration options:
 
-- `RootVolumeType` option set to **gp3**. You can set this option with the [console](using-features.managing.ec2.md "using-features.managing.ec2.md") or the [namespace](using-features.managing.ec2.md "using-features.managing.ec2.md") .
-- `BlockDeviceMappings` option contains **gp3**. You can set this option with the [console](using-features.managing.ec2.md "using-features.managing.ec2.md") or the [namespace](using-features.managing.ec2.md "using-features.managing.ec2.md").
-- `DisableIMDSv1` option set to **true**. We recommend that you set this option using the [namespace](using-features.managing.ec2.md "using-features.managing.ec2.md").
+- `RootVolumeType` option set to **gp3**. You can set this option with the [console](using-features.managing.ec2.console.md "using-features.managing.ec2.console.md") or the [namespace](using-features.managing.ec2.namespace.md "using-features.managing.ec2.namespace.md") .
+- `BlockDeviceMappings` option contains **gp3**. You can set this option with the [console](using-features.managing.ec2.console.md "using-features.managing.ec2.console.md") or the [namespace](using-features.managing.ec2.namespace.md "using-features.managing.ec2.namespace.md").
+- `DisableIMDSv1` option set to **true**. We recommend that you set this option using the [namespace](using-features.managing.ec2.namespace.md "using-features.managing.ec2.namespace.md").
 - `EnableSpot` option set to **true**.
   For more information, see [Enabling Spot
   Instances](environments-cfg-autoscaling-enable-spot.md "environments-cfg-autoscaling-enable-spot.md").
@@ -97,7 +97,7 @@ The following example IAM policy includes these permissions.
 }
 ```
 
-For more information, see [Managing Elastic Beanstalk service roles](iam-servicerole.md "iam-servicerole.md") and [Managing Elastic Beanstalk user policies](AWSHowTo.iam.md "AWSHowTo.iam.md").
+For more information, see [Managing Elastic Beanstalk service roles](iam-servicerole.md "iam-servicerole.md") and [Managing Elastic Beanstalk user policies](AWSHowTo.iam.managed-policies.md "AWSHowTo.iam.managed-policies.md").
 
 ## More about launch templates
 

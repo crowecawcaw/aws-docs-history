@@ -10,7 +10,7 @@ environment. Resources defined in configuration files are added to the CloudForm
 ###### Note
 
 Whenever you add a resource that isn't managed by Elastic Beanstalk, be sure to add a user policy with the appropriate permissions to your AWS Identity and Access Management (IAM)
-users. The [managed user policies](AWSHowTo.iam.md "AWSHowTo.iam.md") that Elastic Beanstalk provides only cover permissions to Elastic Beanstalk-managed
+users. The [managed user policies](AWSHowTo.iam.managed-policies.md "AWSHowTo.iam.managed-policies.md") that Elastic Beanstalk provides only cover permissions to Elastic Beanstalk-managed
 resources.
 
 For example, the following configuration file adds an Auto Scaling lifecycle hook to the default Auto Scaling group created by Elastic Beanstalk:

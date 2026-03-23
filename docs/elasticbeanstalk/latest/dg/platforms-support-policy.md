@@ -20,14 +20,14 @@ Once a platform branch is marked as retired the following policies apply:
 
 A retired platform branch will not be available in the Elastic Beanstalk console. However, it will be available through the AWS CLI, EB CLI and EB API for customers
 that have existing environments based on the retired platform branch. Existing customers can also use the [Clone
-environment](using-features.managing.md "using-features.managing.md") and [Rebuild environment](environment-management-rebuild.md "environment-management-rebuild.md") consoles.
+environment](using-features.managing.clone.md "using-features.managing.clone.md") and [Rebuild environment](environment-management-rebuild.md "environment-management-rebuild.md") consoles.
 
 For a list of platform branches that are scheduled for retirement see the
 [Retiring platform branch schedule](platforms-schedule.md#platforms-support-policy.depracation "platforms-schedule.md#platforms-support-policy.depracation")
 in the _Elastic Beanstalk platform
 schedule_ topic that follows.
 
-For more information about what to expect when your environment’s platform branch retires, see [Platform retirement FAQ](using-features.migration-al.md "using-features.migration-al.md").
+For more information about what to expect when your environment’s platform branch retires, see [Platform retirement FAQ](using-features.migration-al.FAQ.md "using-features.migration-al.FAQ.md").
 
 ## Beyond the 90 day grace period
 

@@ -175,7 +175,7 @@ option_settings:
 ```
 
 This setting configures the proxy server to serve files in the `public` folder at the `/public` path of the
-application. Serving files statically from the proxy server reduces the load on your application. For more information, see [Static files](create_deploy_nodejs.md#nodejs-platform-console-staticfiles "create_deploy_nodejs.md#nodejs-platform-console-staticfiles") earlier in this chapter. 2. (Optional) To confirm that static mappings are configured correctly, comment out the static mapping configuration in
+application. Serving files statically from the proxy server reduces the load on your application. For more information, see [Static files](create_deploy_nodejs.container.md#nodejs-platform-console-staticfiles "create_deploy_nodejs.container.md#nodejs-platform-console-staticfiles") earlier in this chapter. 2. (Optional) To confirm that static mappings are configured correctly, comment out the static mapping configuration in
 `nodejs-example-express-rds/app.js`. This removes the mapping from the node application.
 
 ```
@@ -258,7 +258,7 @@ In this next step we update the application to use Amazon RDS for MySQL.
 ###### To update your application to use RDS for MySQL
 
 1. To create an RDS for MySQL database coupled to your Elastic Beanstalk environment, follow the instructions in the [Adding
-   a database](create-deploy-nodejs.md "create-deploy-nodejs.md") topic included later in this chapter. Adding a database instance takes about 10 minutes.
+   a database](create-deploy-nodejs.rds.md "create-deploy-nodejs.rds.md") topic included later in this chapter. Adding a database instance takes about 10 minutes.
 2. Update the dependencies section in the `package.json` with the following contents:
 
 ```

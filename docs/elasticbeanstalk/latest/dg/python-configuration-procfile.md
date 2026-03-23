@@ -1,6 +1,6 @@
 # Configuring the WSGI server with a Procfile on Elastic Beanstalk
 
-You can add a [Procfile](platforms-linux-extend.md#platforms-linux-extend.proc "platforms-linux-extend.md#platforms-linux-extend.proc") to your source bundle to specify and configure the WSGI
+You can add a [Procfile](platforms-linux-extend.build-proc.md#platforms-linux-extend.proc "platforms-linux-extend.build-proc.md#platforms-linux-extend.proc") to your source bundle to specify and configure the WSGI
 server for your application. You can specify custom start and run commands in the `Procfile`.
 
 When you use a `Procfile`, it overrides `aws:elasticbeanstalk:container:python` namespace options that you set using

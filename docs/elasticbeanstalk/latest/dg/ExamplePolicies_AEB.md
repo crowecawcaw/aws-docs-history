@@ -3,7 +3,7 @@
 This section demonstrates how to control user access to AWS Elastic Beanstalk and includes
 example policies that provide the required access for common scenarios. These policies are
 derived from the Elastic Beanstalk managed policies. For information about attaching managed policies to
-users and groups, see [Managing Elastic Beanstalk user policies](AWSHowTo.iam.md "AWSHowTo.iam.md").
+users and groups, see [Managing Elastic Beanstalk user policies](AWSHowTo.iam.managed-policies.md "AWSHowTo.iam.managed-policies.md").
 
 In this scenario, Example Corp. is a software company with three teams responsible for the
 company website: administrators who manage the infrastructure, developers who build the software

@@ -3,7 +3,7 @@
 To specify custom commands to start a Go application, include a file called `Procfile` at the root of your source bundle.
 
 For details about writing and using a `Procfile`,
-see [Buildfile and Procfile](platforms-linux-extend.md "platforms-linux-extend.md").
+see [Buildfile and Procfile](platforms-linux-extend.build-proc.md "platforms-linux-extend.build-proc.md").
 
 ###### Example Procfile
 
@@ -30,7 +30,7 @@ If your Elastic Beanstalk Go environment uses an Amazon Linux AMI platform versi
   (AL1) platform versions and _require different configuration settings_.
 - On [July 18, 2022](../relnotes/release-2022-07-18-linux-al1-retire.md "../relnotes/release-2022-07-18-linux-al1-retire.md"),
   Elastic Beanstalk set the status of all platform branches based on Amazon Linux AMI (AL1) to **retired**.
-  For more information about migrating to a current and fully supported Amazon Linux 2023 platform branch, see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.md "using-features.md").
+  For more information about migrating to a current and fully supported Amazon Linux 2023 platform branch, see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.migration-al.md "using-features.migration-al.md").
 
 ###### Note
 

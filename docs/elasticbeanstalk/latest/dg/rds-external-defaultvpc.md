@@ -7,7 +7,7 @@ same subnet, or in subnets that are allowed to communicate with each other. For 
 
 ###### Note
 
-- An alternative to launching a new DB instance, is to start with a database that was previously created by Elastic Beanstalk and subsequently [decoupled](using-features.managing.md#using-features.decoupling.db "using-features.managing.md#using-features.decoupling.db") from a Beanstalk environment. For more information, see [Adding a database to your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md"). With this option, you don't need to complete the procedure for launching a new database. However, you do
+- An alternative to launching a new DB instance, is to start with a database that was previously created by Elastic Beanstalk and subsequently [decoupled](using-features.managing.db.md#using-features.decoupling.db "using-features.managing.db.md#using-features.decoupling.db") from a Beanstalk environment. For more information, see [Adding a database to your Elastic Beanstalk environment](using-features.managing.db.md "using-features.managing.db.md"). With this option, you don't need to complete the procedure for launching a new database. However, you do
   need to complete the subsequent procedures that are described in this topic.
 - If you’re starting with a database that was created by Elastic Beanstalk and subsequently decoupled from a Beanstalk environment, you can skip the first
   group of steps and continue with the steps grouped under _To modify the inbound rules on your RDS instance's security
@@ -16,7 +16,7 @@ same subnet, or in subnets that are allowed to communicate with each other. For 
   verify the storage type that the database uses is suitable for your workload.
   For more information, see
   [DB Instance Storage](../../../AmazonRDS/latest/UserGuide/CHAP_Storage.md "../../../AmazonRDS/latest/UserGuide/CHAP_Storage.md") and
-  [Modifying a DB instance](../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.md "../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.md")
+  [Modifying a DB instance](../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.md "../../../AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.md")
   in the _Amazon RDS User Guide_.
 
 ###### To launch an RDS DB instance in a default VPC
@@ -82,7 +82,7 @@ with the additional security group attached.
       + To add a security group using a [configuration file](ebextensions.md "ebextensions.md"), use the [`securitygroup-addexisting.config`](https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/configuration-files/aws-provided/security-configuration/securitygroup-addexisting.config "https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/configuration-files/aws-provided/security-configuration/securitygroup-addexisting.config") example file.
 
   Next, pass the connection information to your environment by using environment properties. When you [add a
-  DB instance to your environment](using-features.managing.md "using-features.managing.md") with the Elastic Beanstalk console, Elastic Beanstalk uses environment properties, such as **RDS_HOSTNAME**, to pass
+  DB instance to your environment](using-features.managing.db.md "using-features.managing.db.md") with the Elastic Beanstalk console, Elastic Beanstalk uses environment properties, such as **RDS_HOSTNAME**, to pass
   connection information to your application. You can use the same properties. By doing this, you use the same application code with both integrated DB
   instances and external DB instances. Or, alternatively, you can choose your own property names.
 
@@ -111,11 +111,11 @@ topics for instructions:
 
 - Java SE – [Connecting to a database (Java SE platforms)](java-rds.md#java-rds-javase "java-rds.md#java-rds-javase")
 - Java with Tomcat – [Connecting to a database (Tomcat platforms)](java-rds.md#java-rds-tomcat "java-rds.md#java-rds-tomcat")
-- Node.js – [Connecting to a database](create-deploy-nodejs.md#nodejs-rds-connect "create-deploy-nodejs.md#nodejs-rds-connect")
-- .NET – [Connecting to a database](create_deploy_NET.md#dotnet-rds-connect "create_deploy_NET.md#dotnet-rds-connect")
-- PHP – [Connecting to a database with a PDO or MySQLi](create_deploy_PHP.md#php-rds-connect "create_deploy_PHP.md#php-rds-connect")
+- Node.js – [Connecting to a database](create-deploy-nodejs.rds.md#nodejs-rds-connect "create-deploy-nodejs.rds.md#nodejs-rds-connect")
+- .NET – [Connecting to a database](create_deploy_NET.rds.md#dotnet-rds-connect "create_deploy_NET.rds.md#dotnet-rds-connect")
+- PHP – [Connecting to a database with a PDO or MySQLi](create_deploy_PHP.rds.md#php-rds-connect "create_deploy_PHP.rds.md#php-rds-connect")
 - Python – [Connecting to a database](create-deploy-python-rds.md#python-rds-connect "create-deploy-python-rds.md#python-rds-connect")
-- Ruby – [Connecting to a database](create_deploy_Ruby.md#ruby-rds-connect "create_deploy_Ruby.md#ruby-rds-connect")
+- Ruby – [Connecting to a database](create_deploy_Ruby.rds.md#ruby-rds-connect "create_deploy_Ruby.rds.md#ruby-rds-connect")
   Finally, depending on when your application reads environment variables, you might need to restart the application server on the instances in your
   environment.
 

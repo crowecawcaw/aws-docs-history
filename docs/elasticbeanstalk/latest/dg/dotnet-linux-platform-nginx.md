@@ -17,7 +17,7 @@ balancer.
 All AL2023/AL2 platforms support a uniform proxy configuration feature.
 For more information about configuring the proxy server on your platform versions
 running AL2023/AL2,
-see [Reverse proxy configuration](platforms-linux-extend.md "platforms-linux-extend.md").
+see [Reverse proxy configuration](platforms-linux-extend.proxy.md "platforms-linux-extend.proxy.md").
 
 The following example configuration file extends your environment's NGINX configuration. The configuration directs requests to `/api` to a second
 web application that listens on port 5200 on the web server. By default, Elastic Beanstalk forwards requests to a single application that listens on port 5000.

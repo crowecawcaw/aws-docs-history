@@ -251,7 +251,7 @@ COPY nginx.conf /etc/nginx/nginx.conf
 EXPOSE 80
 ```
 
-Finally, create a platform hook script to set up the necessary log directories and permissions for health monitoring. Platform hooks allow you to run custom scripts during the deployment process. For more information about platform hooks, see [Platform hooks](platforms-linux-extend.md "platforms-linux-extend.md").
+Finally, create a platform hook script to set up the necessary log directories and permissions for health monitoring. Platform hooks allow you to run custom scripts during the deployment process. For more information about platform hooks, see [Platform hooks](platforms-linux-extend.hooks.md "platforms-linux-extend.hooks.md").
 
 ###### Example`~/eb-docker-compose-flask/.platform/hooks/postdeploy/01_setup_healthd_permissions.sh`
 

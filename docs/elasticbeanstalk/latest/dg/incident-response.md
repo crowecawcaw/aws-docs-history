@@ -19,25 +19,25 @@ can cause your application to become unavailable. For more information, see [Enh
 The Amazon EC2 instances in your Elastic Beanstalk environment generate logs that you can view to troubleshoot issues with your application or configuration files. Logs
 created by the web server, application server, Elastic Beanstalk platform scripts, and CloudFormation are stored locally on individual instances. You can easily retrieve them by
 using the [environment management console](environments-console.md "environments-console.md") or the EB CLI. You can also configure your environment to stream logs
-to Amazon CloudWatch Logs in real time. For more information, see [Viewing logs from Amazon EC2 instances in your Elastic Beanstalk environment](using-features.md "using-features.md").
+to Amazon CloudWatch Logs in real time. For more information, see [Viewing logs from Amazon EC2 instances in your Elastic Beanstalk environment](using-features.logging.md "using-features.logging.md").
 
 ## Environment notifications
 
 You can configure your Elastic Beanstalk environment to use Amazon Simple Notification Service (Amazon SNS) to notify you of important events that affect your application. Specify an
 email address during or after environment creation to receive emails from AWS when an error occurs, or when your environment's health changes. For
-more information, see [Elastic Beanstalk environment notifications with Amazon SNS](using-features.managing.md "using-features.managing.md").
+more information, see [Elastic Beanstalk environment notifications with Amazon SNS](using-features.managing.sns.md "using-features.managing.sns.md").
 
 ## Amazon CloudWatch alarms
 
 Using CloudWatch alarms, you watch a single metric over a time period that you specify. If the metric exceeds a given threshold, a notification is sent to
 an Amazon SNS topic or AWS Auto Scaling policy. CloudWatch alarms don't invoke actions because they are in a particular state. Instead, alarms invoke actions when the state
-changed and was maintained for a specified number of periods. For more information, see [Using Elastic Beanstalk with Amazon CloudWatch](AWSHowTo.md "AWSHowTo.md").
+changed and was maintained for a specified number of periods. For more information, see [Using Elastic Beanstalk with Amazon CloudWatch](AWSHowTo.cloudwatch.md "AWSHowTo.cloudwatch.md").
 
 ## AWS CloudTrail logs
 
 CloudTrail provides a record of actions taken by a user, role, or an AWS service in Elastic Beanstalk. Using the information collected by CloudTrail, you can determine
 the request that was made to Elastic Beanstalk, the IP address from which the request was made, who made the request, when it was made, and additional details. For
-more information, see [Logging Elastic Beanstalk API calls with AWS CloudTrail](AWSHowTo.md "AWSHowTo.md").
+more information, see [Logging Elastic Beanstalk API calls with AWS CloudTrail](AWSHowTo.cloudtrail.md "AWSHowTo.cloudtrail.md").
 
 ## AWS X-Ray debugging
 

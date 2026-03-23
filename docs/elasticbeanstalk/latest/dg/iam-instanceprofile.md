@@ -35,11 +35,11 @@ policies must be attached to the role for the EC2 instance profile.
 ###### Important
 
 Elastic Beanstalk managed policies don't provide granular permissions—they grant all permissions that are potentially needed for working with Elastic Beanstalk
-applications. In some cases you may wish to restrict the permissions of our managed policies further. For an example of one use case, see [Preventing cross-environment Amazon S3 bucket access](AWSHowTo.iam.md "AWSHowTo.iam.md").
+applications. In some cases you may wish to restrict the permissions of our managed policies further. For an example of one use case, see [Preventing cross-environment Amazon S3 bucket access](AWSHowTo.iam.cross-env-s3-access.md "AWSHowTo.iam.cross-env-s3-access.md").
 
 Our managed policies also don't cover permissions to custom resources that you might add to your solution, and that aren't managed by Elastic Beanstalk. To
 implement more granular permissions, minimum required permissions, or custom resource permissions, use [custom
-policies](AWSHowTo.iam.md#AWSHowTo.iam.policies "AWSHowTo.iam.md#AWSHowTo.iam.policies").
+policies](AWSHowTo.iam.managed-policies.md#AWSHowTo.iam.policies "AWSHowTo.iam.managed-policies.md#AWSHowTo.iam.policies").
 
 ###### Trust relationship policy for EC2
 

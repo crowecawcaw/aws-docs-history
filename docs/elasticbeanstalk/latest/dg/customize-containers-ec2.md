@@ -30,7 +30,7 @@ configuration file to override specific settings that are defaulted by Elastic B
 - [Example: Using custom Amazon CloudWatch metrics](customize-containers-cw.md "customize-containers-cw.md")
   Keys are processed in the order that they are listed here.
 
-Watch your environment's [events](using-features.md "using-features.md") while developing and testing configuration files. Elastic Beanstalk ignores a
+Watch your environment's [events](using-features.events.md "using-features.events.md") while developing and testing configuration files. Elastic Beanstalk ignores a
 configuration file that contains validation errors, like an invalid key, and doesn't process any of the other keys in the same file. When this happens,
 Elastic Beanstalk adds a warning event to the event log.
 
@@ -331,7 +331,7 @@ and the application version file is extracted.
 The specified commands run as the root user, and are processed in alphabetical order by name. By default, commands run in the root directory. To run
 commands from another directory, use the `cwd` option.
 
-To troubleshoot issues with your commands, you can find their output in [instance logs](using-features.md "using-features.md").
+To troubleshoot issues with your commands, you can find their output in [instance logs](using-features.logging.md "using-features.logging.md").
 
 ### Syntax
 
@@ -504,7 +504,7 @@ with a container command will be included when the source is deployed to its fin
 ###### Note
 
 The output of your container commands are logged in the `cfn-init-cmd.log` instance log. For more information about retrieving
-and viewing instance logs, see [Viewing logs from Amazon EC2 instances](using-features.md "using-features.md").
+and viewing instance logs, see [Viewing logs from Amazon EC2 instances](using-features.logging.md "using-features.logging.md").
 
 You can use `leader_only` to only run the command on a single instance, or configure a `test` to only run the command when a
 test command evaluates to `true`. Leader-only container commands are only executed during environment creation and deployments, while other

@@ -28,6 +28,6 @@ For more information about the `HealthCheckType` and `HealthCheckGracePeriod` pr
 
 By default, the Elastic Load Balancing health check is configured to attempt a TCP connection to your instance over port 80. This confirms that the web server running on
 the instance is accepting connections. However, you might want to [customize the load balancer health
-check](using-features.managing.md "using-features.managing.md") to ensure that your application, and not just the web server, is in a good state. The grace period setting sets the number of seconds that an
+check](using-features.managing.elb.md "using-features.managing.elb.md") to ensure that your application, and not just the web server, is in a good state. The grace period setting sets the number of seconds that an
 instance can fail the health check without being terminated and replaced. Instances can recover after being kicked out of the load balancer, so give the
 instance an amount of time that is appropriate for your application.

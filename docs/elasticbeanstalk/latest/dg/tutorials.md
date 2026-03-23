@@ -22,18 +22,18 @@ running.
 - **Docker, PHP and nginx** - [Creating an ECS managed Docker environment with the Elastic Beanstalk console](create_deploy_docker_ecstutorial.md "create_deploy_docker_ecstutorial.md")
   You can download the sample applications used by Elastic Beanstalk when you create an environment without providing a source bundle with the following links:
 
-- **Docker** – [docker.zip](samples/docker.md "samples/docker.md")
-- **Multicontainer Docker** – [docker-multicontainer-v2.zip](samples/docker-multicontainer-v2.md "samples/docker-multicontainer-v2.md")
-- **Preconfigured Docker (Glassfish)** – [docker-glassfish-v1.zip](samples/docker-glassfish-v1.md "samples/docker-glassfish-v1.md")
-- **Go** – [go.zip](samples/go.md "samples/go.md")
-- **Corretto** – [corretto.zip](samples/corretto.md "samples/corretto.md")
-- **Tomcat** – [tomcat.zip](samples/tomcat.md "samples/tomcat.md")
-- **.NET Core on Linux** – [dotnet-core-linux.zip](samples/dotnet-core-linux.md "samples/dotnet-core-linux.md")
-- **.NET Core** – [dotnet-asp-windows.zip](samples/dotnet-asp-windows.md "samples/dotnet-asp-windows.md")
-- **Node.js** – [nodejs.zip](samples/nodejs.md "samples/nodejs.md")
-- **PHP** – [php.zip](samples/php.md "samples/php.md")
-- **Python** – [python.zip](samples/python.md "samples/python.md")
-- **Ruby** – [ruby.zip](samples/ruby.md "samples/ruby.md")
+- **Docker** – [docker.zip](samples/docker.zip.md "samples/docker.zip.md")
+- **Multicontainer Docker** – [docker-multicontainer-v2.zip](samples/docker-multicontainer-v2.zip.md "samples/docker-multicontainer-v2.zip.md")
+- **Preconfigured Docker (Glassfish)** – [docker-glassfish-v1.zip](samples/docker-glassfish-v1.zip.md "samples/docker-glassfish-v1.zip.md")
+- **Go** – [go.zip](samples/go.zip.md "samples/go.zip.md")
+- **Corretto** – [corretto.zip](samples/corretto.zip.md "samples/corretto.zip.md")
+- **Tomcat** – [tomcat.zip](samples/tomcat.zip.md "samples/tomcat.zip.md")
+- **.NET Core on Linux** – [dotnet-core-linux.zip](samples/dotnet-core-linux.zip.md "samples/dotnet-core-linux.zip.md")
+- **.NET Core** – [dotnet-asp-windows.zip](samples/dotnet-asp-windows.zip.md "samples/dotnet-asp-windows.zip.md")
+- **Node.js** – [nodejs.zip](samples/nodejs.zip.md "samples/nodejs.zip.md")
+- **PHP** – [php.zip](samples/php.zip.md "samples/php.zip.md")
+- **Python** – [python.zip](samples/python.zip.md "samples/python.zip.md")
+- **Ruby** – [ruby.zip](samples/ruby.zip.md "samples/ruby.zip.md")
   More involved sample applications that show the use of additional web frameworks, libraries and tools are available as open source projects on
   GitHub:
 

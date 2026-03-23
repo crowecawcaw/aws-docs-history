@@ -42,7 +42,7 @@ page in the [Elastic Beanstalk console](environments-console.md "environments-co
 
     If you use rolling updates, be sure that the maximum instance count is
     higher than the [Minimum
-    instances in service setting](using-features.md#rollingupdates-configure "using-features.md#rollingupdates-configure") for rolling updates.
+    instances in service setting](using-features.rollingupdates.md#rollingupdates-configure "using-features.rollingupdates.md#rollingupdates-configure") for rolling updates.
     - **Fleet composition** – The default is
       **On-Demand Instances**. To enable _Spot
       Instance_ requests, select **Combined purchase options and
@@ -96,9 +96,9 @@ page in the [Elastic Beanstalk console](environments-console.md "environments-co
       EC2 instances. The processor architecture determines the EC2 Instance types that
       become available in the next field.
     - **Instance types** – The types of Amazon EC2 instance
-      launched to run your application. For details, see [Instance types](using-features.managing.ec2.md#using-features.managing.ec2.instancetypes "using-features.managing.ec2.md#using-features.managing.ec2.instancetypes").
+      launched to run your application. For details, see [Instance types](using-features.managing.ec2.console.md#using-features.managing.ec2.instancetypes "using-features.managing.ec2.console.md#using-features.managing.ec2.instancetypes").
     - **AMI ID** – The machine image that Elastic Beanstalk uses to
-      launch Amazon EC2 instances in your environment. For details, see [AMI ID](using-features.managing.ec2.md#using-features.managing.ec2.customami "using-features.managing.ec2.md#using-features.managing.ec2.customami").
+      launch Amazon EC2 instances in your environment. For details, see [AMI ID](using-features.managing.ec2.console.md#using-features.managing.ec2.customami "using-features.managing.ec2.console.md#using-features.managing.ec2.customami").
     - **Availability Zones** – Choose the number of
       Availability Zones to spread your environment's instances across. By default, the
       Auto Scaling group launches instances evenly across all usable zones. To concentrate your

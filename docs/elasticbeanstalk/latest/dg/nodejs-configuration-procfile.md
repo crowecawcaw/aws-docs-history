@@ -9,7 +9,7 @@ application.
 web: node index.js
 ```
 
-For information about `Procfile` usage see [Buildfile and Procfile](platforms-linux-extend.md "platforms-linux-extend.md").
+For information about `Procfile` usage see [Buildfile and Procfile](platforms-linux-extend.build-proc.md "platforms-linux-extend.build-proc.md").
 
 ###### Note
 

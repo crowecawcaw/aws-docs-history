@@ -1,13 +1,13 @@
 # Deploying a high-availability PHP application with an external Amazon RDS database to Elastic Beanstalk
 
-This tutorial walks you through the process of [launching an RDS DB instance](AWSHowTo.md "AWSHowTo.md") external to AWS Elastic Beanstalk, and configuring a
+This tutorial walks you through the process of [launching an RDS DB instance](AWSHowTo.RDS.md "AWSHowTo.RDS.md") external to AWS Elastic Beanstalk, and configuring a
 high-availability environment running a PHP application to connect to it. Running a DB instance external to Elastic Beanstalk decouples the database from the lifecycle
 of your environment. This lets you connect to the same database from multiple environments, swap out one database for another, or perform a blue/green
 deployment without affecting your database.
 
 The tutorial uses a [sample PHP application](https://github.com/awslabs/eb-demo-php-simple-app "https://github.com/awslabs/eb-demo-php-simple-app") that uses a MySQL database to store
 user-provided text data. The sample application uses [configuration files](ebextensions.md "ebextensions.md") to configure [PHP
-settings](create_deploy_PHP.md#php-namespaces "create_deploy_PHP.md#php-namespaces") and to create a table in the database for the application to use. It also shows how to use a [Composer file](create_deploy_PHP.md#php-configuration-composer "create_deploy_PHP.md#php-configuration-composer") to install packages during deployment.
+settings](create_deploy_PHP.container.md#php-namespaces "create_deploy_PHP.container.md#php-namespaces") and to create a table in the database for the application to use. It also shows how to use a [Composer file](create_deploy_PHP.container.md#php-configuration-composer "create_deploy_PHP.container.md#php-configuration-composer") to install packages during deployment.
 
 ###### Sections
 
@@ -23,7 +23,7 @@ settings](create_deploy_PHP.md#php-namespaces "create_deploy_PHP.md#php-namespac
 
 Before you start, download the sample application source bundle from GitHub: [eb-demo-php-simple-app-1.3.zip](https://github.com/aws-samples/eb-demo-php-simple-app/releases/download/v1.3/eb-demo-php-simple-app-v1.3.zip "https://github.com/aws-samples/eb-demo-php-simple-app/releases/download/v1.3/eb-demo-php-simple-app-v1.3.zip")
 
-The procedures in this tutorial for Amazon Relational Database Service (Amazon RDS) tasks assume that you are launching resources in a default [Amazon Virtual Private Cloud](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md") (Amazon VPC). All new accounts include a default VPC in each region. If you don't have a default VPC, the procedures will vary. See [Using Elastic Beanstalk with Amazon RDS](AWSHowTo.md "AWSHowTo.md") for instructions for EC2-Classic and custom VPC platforms.
+The procedures in this tutorial for Amazon Relational Database Service (Amazon RDS) tasks assume that you are launching resources in a default [Amazon Virtual Private Cloud](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md") (Amazon VPC). All new accounts include a default VPC in each region. If you don't have a default VPC, the procedures will vary. See [Using Elastic Beanstalk with Amazon RDS](AWSHowTo.RDS.md "AWSHowTo.RDS.md") for instructions for EC2-Classic and custom VPC platforms.
 
 ## Launch a DB instance in Amazon RDS
 
@@ -136,7 +136,7 @@ instance that you launched is outside of your environment, so you are responsibl
 
 ###### Note
 
-The Amazon S3 bucket that Elastic Beanstalk creates is shared between environments and is not deleted during environment termination. For more information, see [Using Elastic Beanstalk with Amazon S3](AWSHowTo.md "AWSHowTo.md").
+The Amazon S3 bucket that Elastic Beanstalk creates is shared between environments and is not deleted during environment termination. For more information, see [Using Elastic Beanstalk with Amazon S3](AWSHowTo.S3.md "AWSHowTo.S3.md").
 
 ## Configure security groups, environment properties, and scaling
 
@@ -224,11 +224,11 @@ can read it, and it won't be lost if instances go out of service.
 
 After you finish working with the demo code, you can terminate your environment.
 Elastic Beanstalk deletes all related AWS resources, such as
-[Amazon EC2 instances](using-features.managing.md "using-features.managing.md"),
-[database instances](using-features.managing.md "using-features.managing.md"),
-[load balancers](using-features.managing.md "using-features.managing.md"),
+[Amazon EC2 instances](using-features.managing.ec2.md "using-features.managing.ec2.md"),
+[database instances](using-features.managing.db.md "using-features.managing.db.md"),
+[load balancers](using-features.managing.elb.md "using-features.managing.elb.md"),
 security groups,
-and [alarms](using-features.md#using-features.alarms.title "using-features.md#using-features.alarms.title").
+and [alarms](using-features.alarms.md#using-features.alarms.title "using-features.alarms.md#using-features.alarms.title").
 
 Removing resources does not delete the Elastic Beanstalk application, so you can create new environments for your application at any time.
 
@@ -265,7 +265,7 @@ use a configuration file to configure the security group settings of your instan
 updates. See [Advanced environment customization with configuration files (.ebextensions)](ebextensions.md "ebextensions.md") for more information.
 
 For development and testing, you might want to use the Elastic Beanstalk functionality for adding a managed DB instance directly to your environment. For
-instructions on setting up a database inside your environment, see [Adding a database to your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md").
+instructions on setting up a database inside your environment, see [Adding a database to your Elastic Beanstalk environment](using-features.managing.db.md "using-features.managing.db.md").
 
 If you need a high-performance database, consider using [Amazon Aurora](https://aws.amazon.com/rds/aurora/ "https://aws.amazon.com/rds/aurora/").
 Amazon Aurora is a

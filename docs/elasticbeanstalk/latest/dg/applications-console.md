@@ -16,7 +16,7 @@ The application overview page shows a list with an overview of all environments 
 
 
     To launch an environment in this
-     application, you can directly choose **Create environment**. For details, see [Creating an Elastic Beanstalk environment](using-features.md "using-features.md").
+     application, you can directly choose **Create environment**. For details, see [Creating an Elastic Beanstalk environment](using-features.environments.md "using-features.environments.md").
     2. The page lists the environment name next to applications that are deployed to an environment. Choose an environment name to go to the [environment management console](environments-console.md "environments-console.md") for that environment, where you can configure, monitor, or manage the
      environment.
     3. When you select an application from the list, the left navigation pane lists the application.

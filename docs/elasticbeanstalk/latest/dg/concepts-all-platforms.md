@@ -13,6 +13,6 @@ Some platforms have multiple concurrently-supported versions.
 - [Shared responsibility model for Elastic Beanstalk platform maintenance](platforms-shared-responsibility.md "platforms-shared-responsibility.md")
 - [Elastic Beanstalk platform support policy](platforms-support-policy.md "platforms-support-policy.md")
 - [Elastic Beanstalk platform release schedule](platforms-schedule.md "platforms-schedule.md")
-- [Elastic Beanstalk supported platforms](concepts.md "concepts.md")
+- [Elastic Beanstalk supported platforms](concepts.platforms.md "concepts.platforms.md")
 - [Elastic Beanstalk Linux platforms](platforms-linux.md "platforms-linux.md")
 - [Extending Elastic Beanstalk Linux platforms](platforms-linux-extend.md "platforms-linux-extend.md")

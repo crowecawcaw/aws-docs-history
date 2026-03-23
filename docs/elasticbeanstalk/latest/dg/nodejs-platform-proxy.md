@@ -6,7 +6,7 @@ provides a default proxy configuration that you can either extend or completely 
 
 By default, Elastic Beanstalk configures the proxy to forward requests to your application on port 5000. You can override the default port by setting the
 `PORT`
-[environment property](create_deploy_nodejs.md#nodejs-platform-console "create_deploy_nodejs.md#nodejs-platform-console") to the port that your main application listens on.
+[environment property](create_deploy_nodejs.container.md#nodejs-platform-console "create_deploy_nodejs.container.md#nodejs-platform-console") to the port that your main application listens on.
 
 ###### Note
 
@@ -18,7 +18,7 @@ balancer.
 All AL2023/AL2 platforms support a uniform proxy configuration feature.
 For more information about configuring the proxy server on your platform versions
 running AL2023/AL2,
-see [Reverse proxy configuration](platforms-linux-extend.md "platforms-linux-extend.md").
+see [Reverse proxy configuration](platforms-linux-extend.proxy.md "platforms-linux-extend.proxy.md").
 
 If your Elastic Beanstalk Node.js environment uses an Amazon Linux AMI platform version (preceding Amazon Linux 2), read the information in this section.
 
@@ -28,7 +28,7 @@ If your Elastic Beanstalk Node.js environment uses an Amazon Linux AMI platform 
   (AL1) platform versions and _require different configuration settings_.
 - On [July 18, 2022](../relnotes/release-2022-07-18-linux-al1-retire.md "../relnotes/release-2022-07-18-linux-al1-retire.md"),
   Elastic Beanstalk set the status of all platform branches based on Amazon Linux AMI (AL1) to **retired**.
-  For more information about migrating to a current and fully supported Amazon Linux 2023 platform branch, see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.md "using-features.md").
+  For more information about migrating to a current and fully supported Amazon Linux 2023 platform branch, see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.migration-al.md "using-features.migration-al.md").
   The Node.js platform uses a reverse proxy to relay requests from port 80 on the instance to your application that's listening
   on port 8081. Elastic Beanstalk provides a default proxy configuration that you can either extend or completely override with your own configuration.
 
@@ -126,4 +126,4 @@ The default configuration might change in future versions of the Node.js platfor
 configuration as a base for your customizations to ensure compatibility.
 
 If you override the default configuration, you must define any static file mappings and GZIP compression. This is because the
-platform can't apply the [standard settings](create_deploy_nodejs.md#nodejs-namespaces "create_deploy_nodejs.md#nodejs-namespaces").
+platform can't apply the [standard settings](create_deploy_nodejs.container.md#nodejs-namespaces "create_deploy_nodejs.container.md#nodejs-namespaces").

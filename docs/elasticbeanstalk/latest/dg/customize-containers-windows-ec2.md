@@ -25,7 +25,7 @@ Configuration files support the following keys that affect the Windows server on
 
 Older (non-versioned) .NET platform versions do not process configuration files in the correct order. Learn more at [Migrating across major versions of the Elastic Beanstalk Windows server platform](dotnet-v2migration.md "dotnet-v2migration.md").
 
-Watch your environment's [events](using-features.md "using-features.md") while developing and testing configuration files. Elastic Beanstalk ignores a
+Watch your environment's [events](using-features.events.md "using-features.events.md") while developing and testing configuration files. Elastic Beanstalk ignores a
 configuration file that contains validation errors, like an invalid key, and doesn't process any of the other keys in the same file. When this happens,
 Elastic Beanstalk adds a warning event to the event log.
 
@@ -186,7 +186,7 @@ before the application and web server are set up and the application version fil
 
 The specified commands run as the Administrator user.
 
-To troubleshoot issues with your commands, you can find their output in [instance logs](using-features.md "using-features.md").
+To troubleshoot issues with your commands, you can find their output in [instance logs](using-features.logging.md "using-features.logging.md").
 
 ### Syntax
 
@@ -323,7 +323,7 @@ Container commands are run from the staging directory, where your source code is
 changes you make to your source code in the staging directory with a container command will be included when the source is deployed to its final
 location.
 
-To troubleshoot issues with your container commands, you can find their output in [instance logs](using-features.md "using-features.md").
+To troubleshoot issues with your container commands, you can find their output in [instance logs](using-features.logging.md "using-features.logging.md").
 
 Use the `leader_only` option to only run the command on a single instance, or configure a `test` to only run the command when a
 test command evaluates to `true`. Leader-only container commands are only executed during environment creation and deployments, while other

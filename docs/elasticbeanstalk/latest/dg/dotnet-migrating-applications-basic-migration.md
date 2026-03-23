@@ -224,7 +224,7 @@ Use the **eb logs** command to access logs to troubleshoot any issues:
 ```
 
 The **eb logs** command downloads logs to the `.elasticbeanstalk/logs` directory.
-For more information, see [Using Elastic Beanstalk with Amazon CloudWatch Logs](AWSHowTo.md "AWSHowTo.md").
+For more information, see [Using Elastic Beanstalk with Amazon CloudWatch Logs](AWSHowTo.cloudwatchlogs.md "AWSHowTo.cloudwatchlogs.md").
 
 Connect to instances
 

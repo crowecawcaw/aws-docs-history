@@ -60,7 +60,7 @@ instance served, and load and CPU utilization information. The **Overall** row d
 entire environment.
 
 The page displays many details in a very wide table. To hide some of the columns, choose
-![the cog icon.](images/cog.png)
+![the cog icon.](/images/elasticbeanstalk/latest/dg/images/cog.png)
 (**Preferences**). Select or clear column names, and then choose **Confirm**.
 
 ![Selecting columns to display on the environment health page](images/enhanced-health-console-preferences.png)
@@ -70,13 +70,13 @@ type.
 
 ![Server metrics on the environment health page with instance information](images/enhanced-health-console-instance.png)
 
-Choose the **Deployment ID** of any instance to view information about the last [deployment](using-features.md "using-features.md") to the instance.
+Choose the **Deployment ID** of any instance to view information about the last [deployment](using-features.deploy-existing-version.md "using-features.deploy-existing-version.md") to the instance.
 
 ![Server metrics on the environment health page with deployment information](images/enhanced-health-console-deployment.png)
 
 Deployment information includes the following:
 
-- **Deployment ID**—The unique identifier for the [deployment](using-features.md "using-features.md"). Deployment IDs starts at 1 and increase by one each time you deploy a new application version or change configuration settings
+- **Deployment ID**—The unique identifier for the [deployment](using-features.deploy-existing-version.md "using-features.deploy-existing-version.md"). Deployment IDs starts at 1 and increase by one each time you deploy a new application version or change configuration settings
   that affect the software or operating system running on the instances in your environment.
 - **Version**—The version label of the application source code used in the deployment.
 - **Status**—The status of the deployment, which can be `In Progress`, `Deployed`, or

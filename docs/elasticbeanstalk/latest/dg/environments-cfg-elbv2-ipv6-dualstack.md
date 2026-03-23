@@ -181,7 +181,7 @@ IPv6 protocol.
    set the required fields **Service role** and **EC2 instance
    profile** in the **Configure service access** page, continue
    with the steps in this procedure to set your load balancer to dual-stack configuration.
-   For more information to get started, see [Creating an Elastic Beanstalk environment](using-features.md "using-features.md").
+   For more information to get started, see [Creating an Elastic Beanstalk environment](using-features.environments.md "using-features.environments.md").
 2. From **Configure service access** select
    **Next**.
 3. The **Set up networking, database, and tags** page displays.
@@ -213,7 +213,7 @@ IPv6).** 7. Select the **Load balancer type**. Both **Application load
 balancer** or **Network load balancer** support _dualstack_. 8. You can continue to configure other load balancer options on the current console
 page. For more information about load balancer options and configuration, see the other
 topics in this chapter. 9. Continue with the steps to complete the configuration and creation of your
-environment. For more information, see [Creating an Elastic Beanstalk environment](using-features.md "using-features.md").
+environment. For more information, see [Creating an Elastic Beanstalk environment](using-features.environments.md "using-features.environments.md").
 
 ###### Existing environment: To configure your load balancer for dual-stack support
 

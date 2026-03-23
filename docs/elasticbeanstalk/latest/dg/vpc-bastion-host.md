@@ -22,7 +22,7 @@ To deploy an Elastic Beanstalk application inside a VPC using a bastion host, co
 
 Complete all of the procedures in [Public/private VPC](vpc.md#services-vpc-privatepublic "vpc.md#services-vpc-privatepublic"). When deploying the
 application, you must specify an Amazon EC2 key pair for the instances so you can connect to them remotely. For more information about how to specify the
-instance key pair, see [The Amazon EC2 instances for your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md").
+instance key pair, see [The Amazon EC2 instances for your Elastic Beanstalk environment](using-features.managing.ec2.md "using-features.managing.ec2.md").
 
 ## Create and configure the bastion host security group
 

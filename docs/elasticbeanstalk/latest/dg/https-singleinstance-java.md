@@ -6,7 +6,7 @@ configures the nginx server to use HTTPS.
 All AL2023/AL2 platforms support a uniform proxy configuration feature.
 For more information about configuring the proxy server on your platform versions
 running AL2023/AL2,
-see [Reverse proxy configuration](platforms-linux-extend.md "platforms-linux-extend.md").
+see [Reverse proxy configuration](platforms-linux-extend.proxy.md "platforms-linux-extend.proxy.md").
 
 Add the following snippet to your configuration file, replacing the certificate and private
 key placeholders as instructed, and save it in the `.ebextensions` directory.

@@ -12,7 +12,7 @@ Preventive security controls attempt to prevent incidents before they occur.
 
 ### Implement least privilege access
 
-Elastic Beanstalk provides AWS Identity and Access Management (IAM) managed policies for [instance profiles](iam-instanceprofile.md "iam-instanceprofile.md"), [service roles](iam-servicerole.md "iam-servicerole.md"), and [IAM users](AWSHowTo.iam.md "AWSHowTo.iam.md"). These managed policies specify all permissions that might
+Elastic Beanstalk provides AWS Identity and Access Management (IAM) managed policies for [instance profiles](iam-instanceprofile.md "iam-instanceprofile.md"), [service roles](iam-servicerole.md "iam-servicerole.md"), and [IAM users](AWSHowTo.iam.managed-policies.md "AWSHowTo.iam.managed-policies.md"). These managed policies specify all permissions that might
 be necessary for the correct operation of your environment and application.
 
 Your application might not require all the permissions in our managed policies. You can customize them and grant only the permissions that are
@@ -27,7 +27,7 @@ security:
 
 - Retrieve sensitive data directly from AWS Secrets Manager or AWS Systems Manager Parameter Store using their respective SDKs or APIs in your application code. This
   provides the most secure and flexible way to access sensitive information.
-- If you pass sensitive data from AWS Secrets Manager or AWS Systems Manager Parameter Store as environment variables (see [Fetch secrets to environment variables](AWSHowTo.secrets.md "AWSHowTo.secrets.md")), carefully restrict access to EC2 key pairs and configure appropriate IAM roles with
+- If you pass sensitive data from AWS Secrets Manager or AWS Systems Manager Parameter Store as environment variables (see [Fetch secrets to environment variables](AWSHowTo.secrets.env-vars.md "AWSHowTo.secrets.env-vars.md")), carefully restrict access to EC2 key pairs and configure appropriate IAM roles with
   least-privilege permissions for your instances.
 - Never print, log, or expose sensitive data in your application code, as these values could end up in log files or error messages that might be
   visible to unauthorized users.
@@ -36,7 +36,7 @@ security:
 
 Elastic Beanstalk regularly releases new platform versions to update all of its platforms. New platform versions provide operating system, runtime, application
 server, and web server updates, and updates to Elastic Beanstalk components. Many of these platform updates include important security fixes. Ensure that your Elastic Beanstalk
-environments are running on a supported platform version (typically the latest version for your platform). For details, see [Updating your Elastic Beanstalk environment's platform version](using-features.platform.md "using-features.platform.md").
+environments are running on a supported platform version (typically the latest version for your platform). For details, see [Updating your Elastic Beanstalk environment's platform version](using-features.platform.upgrade.md "using-features.platform.upgrade.md").
 
 The easiest way to keep your environment's platform up to date is to configure the environment to use [managed platform updates](environment-platform-update-managed.md "environment-platform-update-managed.md").
 
@@ -63,9 +63,9 @@ several tools and services to help you monitor your AWS services.
 The following are some examples of items to monitor:
 
 - _Amazon CloudWatch metrics for Elastic Beanstalk_ – Set alarms for key Elastic Beanstalk metrics and for your application's custom metrics. For details,
-  see [Using Elastic Beanstalk with Amazon CloudWatch](AWSHowTo.md "AWSHowTo.md").
+  see [Using Elastic Beanstalk with Amazon CloudWatch](AWSHowTo.cloudwatch.md "AWSHowTo.cloudwatch.md").
 - _AWS CloudTrail entries_ – Track actions that might impact availability, like `UpdateEnvironment` or
-  `TerminateEnvironment`. For details, see [Logging Elastic Beanstalk API calls with AWS CloudTrail](AWSHowTo.md "AWSHowTo.md").
+  `TerminateEnvironment`. For details, see [Logging Elastic Beanstalk API calls with AWS CloudTrail](AWSHowTo.cloudtrail.md "AWSHowTo.cloudtrail.md").
 
 ### Enable AWS Config
 
@@ -74,4 +74,4 @@ configuration changes, and see how relationships and configurations change over 
 
 You can use AWS Config to define rules that evaluate resource configurations for data compliance. AWS Config rules represent the ideal configuration settings
 for your Elastic Beanstalk resources. If a resource violates a rule and is flagged as _noncompliant_, AWS Config can alert you using an Amazon Simple Notification Service
-(Amazon SNS) topic. For details, see [Finding and tracking Elastic Beanstalk resources with AWS Config](AWSHowTo.md "AWSHowTo.md").
+(Amazon SNS) topic. For details, see [Finding and tracking Elastic Beanstalk resources with AWS Config](AWSHowTo.config.md "AWSHowTo.config.md").

@@ -13,7 +13,7 @@ web app's source code, saved configurations, logs, and other artifacts that you 
 4. (Optional) Provide a description, and add tag keys and values.
 5. Choose **Create**.
    After creating the application, the console prompts you to create an environment for it. For detailed information about all of the options available,
-   see [Creating an Elastic Beanstalk environment](using-features.md "using-features.md").
+   see [Creating an Elastic Beanstalk environment](using-features.environments.md "using-features.environments.md").
 
 If you no longer need an application, you can delete it.
 

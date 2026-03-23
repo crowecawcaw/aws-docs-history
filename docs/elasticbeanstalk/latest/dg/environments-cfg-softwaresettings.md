@@ -40,16 +40,16 @@ monitoring, and logging** page, and can take the following forms.
 For information about platform-specific options, and about getting environment property values in your code, see the platform topic for your language or
 framework:
 
-- Docker – [Configuring Elastic Beanstalk Docker environments](create_deploy_docker.container.md "create_deploy_docker.container.md")
+- Docker – [Configuring Elastic Beanstalk Docker environments](create_deploy_docker.container.console.md "create_deploy_docker.container.console.md")
 - Go – [Using the Elastic Beanstalk Go platform](go-environment.md "go-environment.md")
 - Java SE – [Using the Elastic Beanstalk Java SE platform](java-se-platform.md "java-se-platform.md")
 - Tomcat – [Using the Elastic Beanstalk Tomcat platform](java-tomcat-platform.md "java-tomcat-platform.md")
 - .NET Core on Linux – [Using the Elastic Beanstalk .NET core on Linux platform](dotnet-linux-platform.md "dotnet-linux-platform.md")
-- .NET – [Using the Elastic Beanstalk .NET Windows platform](create_deploy_NET.container.md "create_deploy_NET.container.md")
-- Node.js – [Using the Elastic Beanstalk Node.js platform](create_deploy_nodejs.md "create_deploy_nodejs.md")
-- PHP – [Using the Elastic Beanstalk PHP platform](create_deploy_PHP.md "create_deploy_PHP.md")
+- .NET – [Using the Elastic Beanstalk .NET Windows platform](create_deploy_NET.container.console.md "create_deploy_NET.container.console.md")
+- Node.js – [Using the Elastic Beanstalk Node.js platform](create_deploy_nodejs.container.md "create_deploy_nodejs.container.md")
+- PHP – [Using the Elastic Beanstalk PHP platform](create_deploy_PHP.container.md "create_deploy_PHP.container.md")
 - Python – [Using the Elastic Beanstalk Python platform](create-deploy-python-container.md "create-deploy-python-container.md")
-- Ruby – [Using the Elastic Beanstalk Ruby platform](create_deploy_Ruby.md "create_deploy_Ruby.md")
+- Ruby – [Using the Elastic Beanstalk Ruby platform](create_deploy_Ruby.container.md "create_deploy_Ruby.container.md")
 
 ## Configuring environment properties (environment variables)
 
@@ -57,7 +57,7 @@ You can use **environment properties**, (also known as **environment variables**
 debug settings, and other information to your application. Environment variables help you run your application in multiple environments for different
 purposes, such as development, testing, staging, and production.
 
-In addition, when you [add a database to your environment](using-features.managing.md "using-features.managing.md"), Elastic Beanstalk sets environment variables, such as
+In addition, when you [add a database to your environment](using-features.managing.db.md "using-features.managing.db.md"), Elastic Beanstalk sets environment variables, such as
 `RDS_HOSTNAME`, that you can read in your application code to construct a connection object or string.
 
 ###### To configure environment variables in the Elastic Beanstalk console
@@ -74,7 +74,7 @@ In addition, when you [add a database to your environment](using-features.managi
 ###### Note
 
 The **Secrets Manager** and **SSM Parameter Store** values in the drop-down are for configuring environment
-variables as secrets to store sensitive data, such as credentials and API keys. For more information, see [Using Elastic Beanstalk with AWS Secrets Manager and AWS Systems Manager Parameter Store](AWSHowTo.md "AWSHowTo.md"). 8. Enter the **Environment variable name** and **Environment variable value** pairs. 9. If you need to add more variables repeat **Step 6** through **Step 8**. 10. To save the changes choose **Apply** at the bottom of the page.
+variables as secrets to store sensitive data, such as credentials and API keys. For more information, see [Using Elastic Beanstalk with AWS Secrets Manager and AWS Systems Manager Parameter Store](AWSHowTo.secrets.md "AWSHowTo.secrets.md"). 8. Enter the **Environment variable name** and **Environment variable value** pairs. 9. If you need to add more variables repeat **Step 6** through **Step 8**. 10. To save the changes choose **Apply** at the bottom of the page.
 
 ###### Environment property limits
 
@@ -161,11 +161,11 @@ relays requests to your application. For more information about the namespaces a
 - Java SE – [Java SE configuration namespace](java-se-platform.md#java-se-namespaces "java-se-platform.md#java-se-namespaces")
 - Tomcat – [Tomcat configuration namespaces](java-tomcat-platform.md#java-tomcat-namespaces "java-tomcat-platform.md#java-tomcat-namespaces")
 - .NET Core on Linux – [.NET Core on Linux configuration namespace](dotnet-linux-platform.md#dotnet-linux-namespace "dotnet-linux-platform.md#dotnet-linux-namespace")
-- .NET – [The aws:elasticbeanstalk:container:dotnet:apppool namespace](create_deploy_NET.container.md#dotnet-namespaces "create_deploy_NET.container.md#dotnet-namespaces")
-- Node.js – [Node.js configuration namespace](create_deploy_nodejs.md#nodejs-namespaces "create_deploy_nodejs.md#nodejs-namespaces")
-- PHP – [Namespaces for configuration](create_deploy_PHP.md#php-namespaces "create_deploy_PHP.md#php-namespaces")
+- .NET – [The aws:elasticbeanstalk:container:dotnet:apppool namespace](create_deploy_NET.container.console.md#dotnet-namespaces "create_deploy_NET.container.console.md#dotnet-namespaces")
+- Node.js – [Node.js configuration namespace](create_deploy_nodejs.container.md#nodejs-namespaces "create_deploy_nodejs.container.md#nodejs-namespaces")
+- PHP – [Namespaces for configuration](create_deploy_PHP.container.md#php-namespaces "create_deploy_PHP.container.md#php-namespaces")
 - Python – [Python configuration namespaces](create-deploy-python-container.md#python-namespaces "create-deploy-python-container.md#python-namespaces")
-- Ruby – [Ruby configuration namespaces](create_deploy_Ruby.md#ruby-namespaces "create_deploy_Ruby.md#ruby-namespaces")
+- Ruby – [Ruby configuration namespaces](create_deploy_Ruby.container.md#ruby-namespaces "create_deploy_Ruby.container.md#ruby-namespaces")
 
 Elastic Beanstalk provides many configuration options for customizing your environment. In
 addition to configuration files, you can also set configuration options using the console, saved configurations, the EB CLI, or the AWS CLI.
@@ -192,7 +192,7 @@ String endpoint = System.getenv("API_ENDPOINT");
 
 Tomcat platform versions released on or after [March 26, 2025](../relnotes/release-2025-03-26-windows.md "../relnotes/release-2025-03-26-windows.md"), can also use `System.getenv`
 to access plaintext environment variables. You can continue to use `System.getProperty` to access plaintext environment variables.
-However, [environment variables stored as secrets](AWSHowTo.secrets.md "AWSHowTo.secrets.md") are only available using `System.getenv`.
+However, [environment variables stored as secrets](AWSHowTo.secrets.env-vars.md "AWSHowTo.secrets.env-vars.md") are only available using `System.getenv`.
 
 ```
 String endpoint = System.getProperty("API_ENDPOINT");
@@ -215,20 +215,20 @@ see [Using the Elastic Beanstalk Tomcat platform](java-tomcat-platform.md "java-
 string endpoint = Environment.GetEnvironmentVariable("API_ENDPOINT");
 ```
 
-- [.NET](create_deploy_NET.container.md#dotnet-console-properties "create_deploy_NET.container.md#dotnet-console-properties") – `appConfig`
+- [.NET](create_deploy_NET.container.console.md#dotnet-console-properties "create_deploy_NET.container.console.md#dotnet-console-properties") – `appConfig`
 
 ```
 NameValueCollection appConfig = ConfigurationManager.AppSettings;
 string endpoint = appConfig["API_ENDPOINT"];
 ```
 
-- [Node.js](create_deploy_nodejs.md#nodejs-platform-console-envprops "create_deploy_nodejs.md#nodejs-platform-console-envprops") – `process.env`
+- [Node.js](create_deploy_nodejs.container.md#nodejs-platform-console-envprops "create_deploy_nodejs.container.md#nodejs-platform-console-envprops") – `process.env`
 
 ```
 var endpoint = process.env.API_ENDPOINT
 ```
 
-- [PHP](create_deploy_PHP.md#php-console-properties "create_deploy_PHP.md#php-console-properties") – `$_SERVER`
+- [PHP](create_deploy_PHP.container.md#php-console-properties "create_deploy_PHP.container.md#php-console-properties") – `$_SERVER`
 
 ```
 $endpoint = $_SERVER['API_ENDPOINT'];
@@ -241,7 +241,7 @@ import os
 endpoint = os.environ['API_ENDPOINT']
 ```
 
-- [Ruby](create_deploy_Ruby.md#create_deploy_Ruby.env.console.ruby.envprops "create_deploy_Ruby.md#create_deploy_Ruby.env.console.ruby.envprops") – `ENV`
+- [Ruby](create_deploy_Ruby.container.md#create_deploy_Ruby.env.console.ruby.envprops "create_deploy_Ruby.container.md#create_deploy_Ruby.env.console.ruby.envprops") – `ENV`
 
 ```
 endpoint = ENV['API_ENDPOINT']

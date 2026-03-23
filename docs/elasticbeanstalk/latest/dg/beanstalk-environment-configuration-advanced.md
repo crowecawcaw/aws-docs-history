@@ -22,6 +22,6 @@ for httpd.conf to override specific settings that are defaulted by AWS Elastic B
 - [Advanced environment customization with configuration files (.ebextensions)](ebextensions.md "ebextensions.md")
 - [Using Elastic Beanstalk saved configurations](environment-configuration-savedconfig.md "environment-configuration-savedconfig.md")
 - [Environment manifest (env.yaml)](environment-cfg-manifest.md "environment-cfg-manifest.md")
-- [Using a custom Amazon machine image (AMI) in your Elastic Beanstalk environment](using-features.md "using-features.md")
+- [Using a custom Amazon machine image (AMI) in your Elastic Beanstalk environment](using-features.customenv.md "using-features.customenv.md")
 - [Serving static files](environment-cfg-staticfiles.md "environment-cfg-staticfiles.md")
 - [Configuring HTTPS for your Elastic Beanstalk environment](configuring-https.md "configuring-https.md")

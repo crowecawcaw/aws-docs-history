@@ -1,11 +1,11 @@
 # Deploying a high-availability WordPress website with an external Amazon RDS database to Elastic Beanstalk
 
-This tutorial describes how to [launch an Amazon RDS DB instance](AWSHowTo.md "AWSHowTo.md") that is external to AWS Elastic Beanstalk, then how to configure a
+This tutorial describes how to [launch an Amazon RDS DB instance](AWSHowTo.RDS.md "AWSHowTo.RDS.md") that is external to AWS Elastic Beanstalk, then how to configure a
 high-availability environment running a WordPress website to connect to it. The website uses Amazon Elastic File System (Amazon EFS) as the shared storage for uploaded
 files.
 
 Running a DB instance external to Elastic Beanstalk decouples the database from the lifecycle of your environment. This lets you connect to the same database from
-multiple environments, swap out one database for another, or perform a [blue/green deployment](using-features.md "using-features.md") without
+multiple environments, swap out one database for another, or perform a [blue/green deployment](using-features.CNAMESwap.md "using-features.CNAMESwap.md") without
 affecting your database.
 
 ###### Note
@@ -48,7 +48,7 @@ Ubuntu and Bash.
 ###### Default VPC
 
 The Amazon Relational Database Service (Amazon RDS) procedures in this tutorial assume that you are launching resources in a default [Amazon Virtual Private Cloud](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md")
-(Amazon VPC). All new accounts include a default VPC in each AWS Region. If you don't have a default VPC, the procedures will vary. See [Using Elastic Beanstalk with Amazon RDS](AWSHowTo.md "AWSHowTo.md") for instructions for EC2-Classic and custom VPC platforms.
+(Amazon VPC). All new accounts include a default VPC in each AWS Region. If you don't have a default VPC, the procedures will vary. See [Using Elastic Beanstalk with Amazon RDS](AWSHowTo.RDS.md "AWSHowTo.RDS.md") for instructions for EC2-Classic and custom VPC platforms.
 
 ###### AWS Regions
 
@@ -218,7 +218,7 @@ Because the Amazon RDS instance that you launched is outside of your environment
 
 ###### Note
 
-The Amazon S3 bucket that Elastic Beanstalk creates is shared between environments and is not deleted during environment termination. For more information, see [Using Elastic Beanstalk with Amazon S3](AWSHowTo.md "AWSHowTo.md").
+The Amazon S3 bucket that Elastic Beanstalk creates is shared between environments and is not deleted during environment termination. For more information, see [Using Elastic Beanstalk with Amazon S3](AWSHowTo.S3.md "AWSHowTo.S3.md").
 
 ## Configure security groups and environment properties
 
@@ -454,18 +454,18 @@ URLs returning 404 errors even though they are still in the database and file sy
    can create an environment with the new version.
 3. On the new version, install the WordPress Importer tool in the admin console and use it to import the XML file containing your posts. If the posts
    were created by the admin user on the old version, assign them to the admin user on the new site instead of trying to import the admin user.
-4. If you deployed the new version to a separate environment, do a [CNAME swap](using-features.md "using-features.md") to redirect users from
+4. If you deployed the new version to a separate environment, do a [CNAME swap](using-features.CNAMESwap.md "using-features.CNAMESwap.md") to redirect users from
    the old site to the new site.
 
 ## Clean up
 
 After you finish working with the demo code, you can terminate your environment.
 Elastic Beanstalk deletes all related AWS resources, such as
-[Amazon EC2 instances](using-features.managing.md "using-features.managing.md"),
-[database instances](using-features.managing.md "using-features.managing.md"),
-[load balancers](using-features.managing.md "using-features.managing.md"),
+[Amazon EC2 instances](using-features.managing.ec2.md "using-features.managing.ec2.md"),
+[database instances](using-features.managing.db.md "using-features.managing.db.md"),
+[load balancers](using-features.managing.elb.md "using-features.managing.elb.md"),
 security groups,
-and [alarms](using-features.md#using-features.alarms.title "using-features.md#using-features.alarms.title").
+and [alarms](using-features.alarms.md#using-features.alarms.title "using-features.alarms.md#using-features.alarms.title").
 
 Removing resources does not delete the Elastic Beanstalk application, so you can create new environments for your application at any time.
 
@@ -502,7 +502,7 @@ also use a configuration file to configure the security group settings of your i
 updates. See [Advanced environment customization with configuration files (.ebextensions)](ebextensions.md "ebextensions.md") for more information.
 
 For development and testing, you might want to use the Elastic Beanstalk functionality for adding a managed DB instance directly to your environment. For
-instructions on setting up a database inside your environment, see [Adding a database to your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md").
+instructions on setting up a database inside your environment, see [Adding a database to your Elastic Beanstalk environment](using-features.managing.db.md "using-features.managing.db.md").
 
 If you need a high-performance database, consider using [Amazon Aurora](https://aws.amazon.com/rds/aurora/ "https://aws.amazon.com/rds/aurora/").
 Amazon Aurora is a

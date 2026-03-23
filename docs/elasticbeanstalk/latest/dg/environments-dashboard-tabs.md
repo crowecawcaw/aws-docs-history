@@ -31,7 +31,7 @@ For more information, see [Configuring Elastic Beanstalk environments](customize
 The **Events** page shows the event stream for your environment. Elastic Beanstalk outputs event messages whenever you interact with the
 environment, and when any of your environment's resources are created or modified as a result.
 
-For more information, see [Viewing an Elastic Beanstalk environment's event stream](using-features.md "using-features.md").
+For more information, see [Viewing an Elastic Beanstalk environment's event stream](using-features.events.md "using-features.events.md").
 
 ## Health
 
@@ -57,7 +57,7 @@ Amazon S3 after 15 minutes.
 
 You can also configure your environment's instances to upload logs to Amazon S3 for permanent storage after they have been rotated locally.
 
-For more information, see [Viewing logs from Amazon EC2 instances in your Elastic Beanstalk environment](using-features.md "using-features.md").
+For more information, see [Viewing logs from Amazon EC2 instances in your Elastic Beanstalk environment](using-features.logging.md "using-features.logging.md").
 
 ## Monitoring
 
@@ -71,7 +71,7 @@ For more information, see [Monitoring environment health in the AWS management c
 The **Existing alarms** page shows information about any alarms that you have configured for your environment. You can use the
 options on this page to create or delete alarms.
 
-For more information, see [Manage alarms](using-features.md "using-features.md").
+For more information, see [Manage alarms](using-features.alarms.md "using-features.alarms.md").
 
 ## Managed updates
 
@@ -91,4 +91,4 @@ add, edit, and delete custom tags. You can't edit or delete the tags that Elasti
 
 Environment tags are applied to every resource that Elastic Beanstalk creates to support your application.
 
-For more information, see [Tagging resources in your Elastic Beanstalk environments](using-features.md "using-features.md").
+For more information, see [Tagging resources in your Elastic Beanstalk environments](using-features.tagging.md "using-features.tagging.md").

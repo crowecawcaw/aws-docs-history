@@ -56,20 +56,20 @@ The following are download links to the sample applications that are deployed as
 
 Some samples use features that may have been released since the release of the platform you
 are using. If the sample fails to run, try updating your platform to a current version, as
-described in [Elastic Beanstalk supported platforms](concepts.md "concepts.md").
+described in [Elastic Beanstalk supported platforms](concepts.platforms.md "concepts.platforms.md").
 
-- **Docker** – [docker.zip](samples/docker.md "samples/docker.md")
-- **Multicontainer Docker** – [docker-multicontainer-v2.zip](samples/docker-multicontainer-v2.md "samples/docker-multicontainer-v2.md")
-- **Preconfigured Docker (Glassfish)** – [docker-glassfish-v1.zip](samples/docker-glassfish-v1.md "samples/docker-glassfish-v1.md")
-- **Go** – [go.zip](samples/go.md "samples/go.md")
-- **Corretto** – [corretto.zip](samples/corretto.md "samples/corretto.md")
-- **Tomcat** – [tomcat.zip](samples/tomcat.md "samples/tomcat.md")
-- **.NET Core on Linux** – [dotnet-core-linux.zip](samples/dotnet-core-linux.md "samples/dotnet-core-linux.md")
-- **.NET Core** – [dotnet-asp-windows.zip](samples/dotnet-asp-windows.md "samples/dotnet-asp-windows.md")
-- **Node.js** – [nodejs.zip](samples/nodejs.md "samples/nodejs.md")
-- **PHP** – [php.zip](samples/php.md "samples/php.md")
-- **Python** – [python.zip](samples/python.md "samples/python.md")
-- **Ruby** – [ruby.zip](samples/ruby.md "samples/ruby.md")
+- **Docker** – [docker.zip](samples/docker.zip.md "samples/docker.zip.md")
+- **Multicontainer Docker** – [docker-multicontainer-v2.zip](samples/docker-multicontainer-v2.zip.md "samples/docker-multicontainer-v2.zip.md")
+- **Preconfigured Docker (Glassfish)** – [docker-glassfish-v1.zip](samples/docker-glassfish-v1.zip.md "samples/docker-glassfish-v1.zip.md")
+- **Go** – [go.zip](samples/go.zip.md "samples/go.zip.md")
+- **Corretto** – [corretto.zip](samples/corretto.zip.md "samples/corretto.zip.md")
+- **Tomcat** – [tomcat.zip](samples/tomcat.zip.md "samples/tomcat.zip.md")
+- **.NET Core on Linux** – [dotnet-core-linux.zip](samples/dotnet-core-linux.zip.md "samples/dotnet-core-linux.zip.md")
+- **.NET Core** – [dotnet-asp-windows.zip](samples/dotnet-asp-windows.zip.md "samples/dotnet-asp-windows.zip.md")
+- **Node.js** – [nodejs.zip](samples/nodejs.zip.md "samples/nodejs.zip.md")
+- **PHP** – [php.zip](samples/php.zip.md "samples/php.zip.md")
+- **Python** – [python.zip](samples/python.zip.md "samples/python.zip.md")
+- **Ruby** – [ruby.zip](samples/ruby.zip.md "samples/ruby.zip.md")
 
 ## AWS SDK for Java
 

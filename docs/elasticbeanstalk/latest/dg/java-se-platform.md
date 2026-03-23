@@ -113,7 +113,7 @@ If your Elastic Beanstalk Java SE environment uses an Amazon Linux AMI platform 
   (AL1) platform versions and _require different configuration settings_.
 - On [July 18, 2022](../relnotes/release-2022-07-18-linux-al1-retire.md "../relnotes/release-2022-07-18-linux-al1-retire.md"),
   Elastic Beanstalk set the status of all platform branches based on Amazon Linux AMI (AL1) to **retired**.
-  For more information about migrating to a current and fully supported Amazon Linux 2023 platform branch, see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.md "using-features.md").
+  For more information about migrating to a current and fully supported Amazon Linux 2023 platform branch, see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.migration-al.md "using-features.migration-al.md").
   You can use a [configuration file](ebextensions.md "ebextensions.md") to set configuration
   options and perform other instance configuration tasks during deployments. Configuration options can be [platform specific](command-options-specific.md "command-options-specific.md")
   or apply to [all platforms](command-options-general.md "command-options-general.md") in the Elastic Beanstalk service as a whole. Configuration options are organized into

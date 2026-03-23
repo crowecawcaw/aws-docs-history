@@ -88,7 +88,7 @@ tab. In the **Items to deploy** section, select **All Files in the Project Folde
    If you do not have an instance profile, select **Create a default instance profile**. For information about using instance
    profiles with Elastic Beanstalk, see [Managing Elastic Beanstalk instance profiles](iam-instanceprofile.md "iam-instanceprofile.md"). 5. If you have a custom VPC that you would like to use with your environment, click **Launch into VPC**. You can configure the
    VPC information on the next page. For more information about Amazon VPC, go to [Amazon Virtual Private
-   Cloud (Amazon VPC)](https://aws.amazon.com/vpc/ "https://aws.amazon.com/vpc/"). For a list of supported nonlegacy container types, see [Why are some platform versions marked legacy?](using-features.md#using-features.migration.why "using-features.md#using-features.migration.why")
+   Cloud (Amazon VPC)](https://aws.amazon.com/vpc/ "https://aws.amazon.com/vpc/"). For a list of supported nonlegacy container types, see [Why are some platform versions marked legacy?](using-features.migration.md#using-features.migration.why "using-features.migration.md#using-features.migration.why")
 
    ![Publish to beanstalk wizard 4](images/aeb-vs-publish-beanstalk3b_iam.png) 6. Click **Next**.
 

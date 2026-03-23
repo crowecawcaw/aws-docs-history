@@ -14,7 +14,7 @@ Guide](../../../efs/latest/ug.md "../../../efs/latest/ug.md").
 
 Elastic Beanstalk creates a
 _webapp_ user that you can set up as the owner for application
-directories on Amazon EC2 instances. For more information, see [Persistent Storage](concepts.concepts.md#concepts.concepts.design.storage "concepts.concepts.md#concepts.concepts.design.storage") in the _Design
+directories on Amazon EC2 instances. For more information, see [Persistent Storage](concepts.concepts.design.md#concepts.concepts.design.storage "concepts.concepts.design.md#concepts.concepts.design.storage") in the _Design
 considerations_ topic of this guide.
 
 ###### Sections

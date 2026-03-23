@@ -79,7 +79,7 @@ You must configure permissions to allow an IAM entity (such as a user, group, or
 information, see [Service-Linked Role Permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in
 the _IAM User Guide_.
 
-Alternatively, you can use an AWS managed policy to [provide full access](AWSHowTo.iam.md "AWSHowTo.iam.md") to
+Alternatively, you can use an AWS managed policy to [provide full access](AWSHowTo.iam.managed-policies.md "AWSHowTo.iam.managed-policies.md") to
 Elastic Beanstalk.
 
 ## Creating a service-linked role for Elastic Beanstalk

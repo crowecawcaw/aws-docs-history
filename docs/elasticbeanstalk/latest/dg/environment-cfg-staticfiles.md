@@ -11,7 +11,7 @@ on Amazon Linux 2. The one exception is Docker.
 ###### Note
 
 On the Python and Ruby platforms, Elastic Beanstalk configures some static file folders by default.
-For details, see the static file configuration sections for [Python](create-deploy-python-container.md#python-platform-staticfiles "create-deploy-python-container.md#python-platform-staticfiles") and [Ruby](create_deploy_Ruby.md#create_deploy_Ruby.container.console.staticfiles "create_deploy_Ruby.md#create_deploy_Ruby.container.console.staticfiles"). You can configure
+For details, see the static file configuration sections for [Python](create-deploy-python-container.md#python-platform-staticfiles "create-deploy-python-container.md#python-platform-staticfiles") and [Ruby](create_deploy_Ruby.container.md#create_deploy_Ruby.container.console.staticfiles "create_deploy_Ruby.container.md#create_deploy_Ruby.container.console.staticfiles"). You can configure
 additional folders as explained on this page.
 
 ## Configure static files using the console
@@ -72,5 +72,5 @@ For details, see one of the following pages:
 - [Go configuration namespace](go-environment.md#go-namespaces "go-environment.md#go-namespaces")
 - [Java SE configuration namespace](java-se-platform.md#java-se-namespaces "java-se-platform.md#java-se-namespaces")
 - [Tomcat configuration namespaces](java-tomcat-platform.md#java-tomcat-namespaces "java-tomcat-platform.md#java-tomcat-namespaces")
-- [Node.js configuration namespace](create_deploy_nodejs.md#nodejs-namespaces "create_deploy_nodejs.md#nodejs-namespaces")
+- [Node.js configuration namespace](create_deploy_nodejs.container.md#nodejs-namespaces "create_deploy_nodejs.container.md#nodejs-namespaces")
 - [Python configuration namespaces](create-deploy-python-container.md#python-namespaces "create-deploy-python-container.md#python-namespaces")

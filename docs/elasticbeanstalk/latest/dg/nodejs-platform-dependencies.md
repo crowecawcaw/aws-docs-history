@@ -144,6 +144,6 @@ Node.js version. You can use the version range options supported by npm to allow
 
 ###### Note
 
-When support for the version of Node.js that you are using is removed from the platform, you must change or remove the Node.js version setting prior to doing a [platform update](using-features.platform.md "using-features.platform.md"). This might occur when a security vulnerability is identified for one or more versions of Node.js.
+When support for the version of Node.js that you are using is removed from the platform, you must change or remove the Node.js version setting prior to doing a [platform update](using-features.platform.upgrade.md "using-features.platform.upgrade.md"). This might occur when a security vulnerability is identified for one or more versions of Node.js.
 
 When this happens, attempting to update to a new version of the platform that doesn't support the configured Node.js version fails. To avoid needing to create a new environment, change the Node.js version setting in `package.json` to a Node.js version that is supported by both the old platform version and the new one. You have the option to specify a Node.js version range that includes a supported version, as described earlier in this topic. You also have the option to remove the setting, and then deploy the new source bundle.

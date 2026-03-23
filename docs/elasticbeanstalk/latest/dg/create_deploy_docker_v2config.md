@@ -33,7 +33,7 @@ Specifies the version number as the value `2` for ECS managed Docker environment
 **executionRoleArn**
 
 Specifies the task execution IAM roles for different purposes and services associated with your account. For your application to use Elastic Beanstalk
-[environment variables stored as secrets](AWSHowTo.secrets.md "AWSHowTo.secrets.md"), you’ll need to specify the ARN of a task execution
+[environment variables stored as secrets](AWSHowTo.secrets.env-vars.md "AWSHowTo.secrets.env-vars.md"), you’ll need to specify the ARN of a task execution
 role that grants the required permissions. Other common use cases may also require this parameter. For more information, see [Execution Role ARN format](#create_deploy_docker_v2config_executionRoleArn_format "#create_deploy_docker_v2config_executionRoleArn_format").
 
 **volumes**
@@ -82,7 +82,7 @@ follows.
 
 ## Execution Role ARN format
 
-In order for your application to use Elastic Beanstalk [environment variables stored as secrets](AWSHowTo.secrets.md "AWSHowTo.secrets.md"), you'll need to
+In order for your application to use Elastic Beanstalk [environment variables stored as secrets](AWSHowTo.secrets.env-vars.md "AWSHowTo.secrets.env-vars.md"), you'll need to
 specify a task execution IAM role. The role must grant the Amazon ECS container permission to make AWS API calls on your behalf using AWS Secrets Manager secrets
 or AWS Systems Manager Parameter Store parameters to reference sensitive data. For instructions to create a task execution IAM role with the required
 permissions for your account, see [Amazon ECS task execution
@@ -144,9 +144,9 @@ _Amazon Elastic Container Service Developer Guide_
 ###### Granting secrets and parameters access to the Elastic Beanstalk EC2 instances
 
 To support secrets configured as environment variables, you'll also need to add permissions to your EC2 instance profile. For more information,
-see [Fetching secrets and parameters to Elastic Beanstalk environment variables](AWSHowTo.secrets.md "AWSHowTo.secrets.md") and [Required IAM permissions for Secrets Manager](AWSHowTo.secrets.md#AWSHowTo.secrets.IAM-permissions.secrets-manager "AWSHowTo.secrets.md#AWSHowTo.secrets.IAM-permissions.secrets-manager").
+see [Fetching secrets and parameters to Elastic Beanstalk environment variables](AWSHowTo.secrets.env-vars.md "AWSHowTo.secrets.env-vars.md") and [Required IAM permissions for Secrets Manager](AWSHowTo.secrets.IAM-permissions.md#AWSHowTo.secrets.IAM-permissions.secrets-manager "AWSHowTo.secrets.IAM-permissions.md#AWSHowTo.secrets.IAM-permissions.secrets-manager").
 
-The following examples combine the previous `iam:PassRole` example with the examples provided in the referenced [Required IAM permissions for Secrets Manager](AWSHowTo.secrets.md#AWSHowTo.secrets.IAM-permissions.secrets-manager "AWSHowTo.secrets.md#AWSHowTo.secrets.IAM-permissions.secrets-manager"). They add the
+The following examples combine the previous `iam:PassRole` example with the examples provided in the referenced [Required IAM permissions for Secrets Manager](AWSHowTo.secrets.IAM-permissions.md#AWSHowTo.secrets.IAM-permissions.secrets-manager "AWSHowTo.secrets.IAM-permissions.md#AWSHowTo.secrets.IAM-permissions.secrets-manager"). They add the
 permissions that the EC2 instances require to access the AWS Secrets Manager and AWS Systems Manager stores to retrieve the secrets and parameter data to initialize the
 Elastic Beanstalk environment variables that have been configured for secrets.
 
@@ -339,7 +339,7 @@ Uses the following format:
   },
 ```
 
-For information about generating and uploading the authentication file, see [Authenticating with image repositories](docker-configuration.md "docker-configuration.md").
+For information about generating and uploading the authentication file, see [Authenticating with image repositories](docker-configuration.remote-repo.md "docker-configuration.remote-repo.md").
 
 ## Example Dockerrun.aws.json v2
 

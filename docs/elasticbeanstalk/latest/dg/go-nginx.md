@@ -16,7 +16,7 @@ The port that your application listens on doesn't affect the port that the nginx
 All AL2023/AL2 platforms support a uniform proxy configuration feature.
 For more information about configuring the proxy server on your platform versions
 running AL2023/AL2,
-see [Reverse proxy configuration](platforms-linux-extend.md "platforms-linux-extend.md").
+see [Reverse proxy configuration](platforms-linux-extend.proxy.md "platforms-linux-extend.proxy.md").
 
 ###### Notes
 
@@ -24,7 +24,7 @@ see [Reverse proxy configuration](platforms-linux-extend.md "platforms-linux-ext
   (AL1) platform versions and _require different configuration settings_.
 - On [July 18, 2022](../relnotes/release-2022-07-18-linux-al1-retire.md "../relnotes/release-2022-07-18-linux-al1-retire.md"),
   Elastic Beanstalk set the status of all platform branches based on Amazon Linux AMI (AL1) to **retired**.
-  For more information about migrating to a current and fully supported Amazon Linux 2023 platform branch, see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.md "using-features.md").
+  For more information about migrating to a current and fully supported Amazon Linux 2023 platform branch, see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.migration-al.md "using-features.migration-al.md").
   If your Elastic Beanstalk Go environment uses an Amazon Linux AMI platform version (preceding Amazon Linux 2), read the information in this section.
 
 Elastic Beanstalk uses nginx as the reverse proxy to map your application to your load balancer on port 80. If you want to provide your own nginx

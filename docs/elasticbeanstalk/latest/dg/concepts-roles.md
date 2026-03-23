@@ -28,8 +28,8 @@ these roles with the required permissions.
 
 You can optionally create [user policies](concepts-roles-user.md "concepts-roles-user.md") and
 apply them to IAM users and groups in your account. Doing so allows the users to create and
-manage Elastic Beanstalk applications and environments. You can also assign Elastic Beanstalk [managed policies](AWSHowTo.iam.md "AWSHowTo.iam.md") for full access and
-read-only access to users or groups. For more information about these policies, see [Managing Elastic Beanstalk user policies](AWSHowTo.iam.md "AWSHowTo.iam.md").
+manage Elastic Beanstalk applications and environments. You can also assign Elastic Beanstalk [managed policies](AWSHowTo.iam.managed-policies.md "AWSHowTo.iam.managed-policies.md") for full access and
+read-only access to users or groups. For more information about these policies, see [Managing Elastic Beanstalk user policies](AWSHowTo.iam.managed-policies.md "AWSHowTo.iam.managed-policies.md").
 
 You can create your own instance profiles and user policies for advanced scenarios. If
 your instances need to access services that aren't included in the default policies, you can

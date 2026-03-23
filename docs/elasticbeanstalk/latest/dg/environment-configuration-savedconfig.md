@@ -1,7 +1,7 @@
 # Using Elastic Beanstalk saved configurations
 
 You can save your environment's configuration as an object in Amazon Simple Storage Service (Amazon S3) that can be applied to other environments during environment creation, or
-applied to a running environment. _Saved configurations_ are YAML formatted templates that define an environment's [platform version](concepts.md "concepts.md"), [tier](concepts.md#concepts-tier "concepts.md#concepts-tier"), [configuration
+applied to a running environment. _Saved configurations_ are YAML formatted templates that define an environment's [platform version](concepts.platforms.md "concepts.platforms.md"), [tier](concepts.md#concepts-tier "concepts.md#concepts-tier"), [configuration
 option](command-options.md "command-options.md") settings, and tags.
 
 You can apply tags to a saved configuration when you create it, and edit tags of existing saved configurations. The tags applied to a saved configuration aren't related to the tags specified in a saved configuration using the `Tags:` key. The latter
@@ -117,7 +117,7 @@ Platform:
   PlatformArn: `arn:aws:elasticbeanstalk:us-east-2::platform/Java 8 running on 64bit Amazon Linux/2.5.0`
 ```
 
-- **SolutionStack** – The full name of the [solution stack](concepts.md "concepts.md") used to create
+- **SolutionStack** – The full name of the [solution stack](concepts.platforms.md "concepts.platforms.md") used to create
   the environment.
 
 ```

@@ -31,7 +31,7 @@ range for increased security, the EB CLI will respect that setting and forgo any
 the security group. To override this behavior and force the EB CLI to open port 22 to all
 incoming traffic, use the `--force` option.
 
-See [EC2 security groups](using-features.managing.ec2.md#using-features.managing.ec2.securitygroups "using-features.managing.ec2.md#using-features.managing.ec2.securitygroups") for information on
+See [EC2 security groups](using-features.managing.ec2.console.md#using-features.managing.ec2.securitygroups "using-features.managing.ec2.console.md#using-features.managing.ec2.securitygroups") for information on
 configuring your environment's security group.
 
 ## Syntax

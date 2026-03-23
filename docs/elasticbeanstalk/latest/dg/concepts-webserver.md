@@ -20,7 +20,7 @@ instance running.
 
 The software stack running on the Amazon EC2 instances is dependent on the _container type_. A container type defines the infrastructure
 topology and software stack to be used for that environment. For example, an Elastic Beanstalk environment with an Apache Tomcat container uses the Amazon Linux
-operating system, Apache web server, and Apache Tomcat software. For a list of supported container types, see [Elastic Beanstalk supported platforms](concepts.md "concepts.md"). Each Amazon EC2 instance that runs your application uses one of these container types. In addition, a software component
+operating system, Apache web server, and Apache Tomcat software. For a list of supported container types, see [Elastic Beanstalk supported platforms](concepts.platforms.md "concepts.platforms.md"). Each Amazon EC2 instance that runs your application uses one of these container types. In addition, a software component
 called the _host manager (HM)_ runs on each Amazon EC2 instance. The host
 manager is responsible for the following:
 
@@ -36,4 +36,4 @@ manager is responsible for the following:
 The Amazon EC2 instances shown in the diagram are part of one _security group_. A security group defines the firewall rules for your
 instances. By default, Elastic Beanstalk defines a security group, which allows everyone to connect using port 80 (HTTP). You can define more than one security group.
 For example, you can define a security group for your database server. For more information about Amazon EC2 security groups and how to configure them for your
-Elastic Beanstalk application, see [EC2 security groups](using-features.managing.ec2.md#using-features.managing.ec2.securitygroups "using-features.managing.ec2.md#using-features.managing.ec2.securitygroups").
+Elastic Beanstalk application, see [EC2 security groups](using-features.managing.ec2.console.md#using-features.managing.ec2.securitygroups "using-features.managing.ec2.console.md#using-features.managing.ec2.securitygroups").

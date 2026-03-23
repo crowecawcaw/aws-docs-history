@@ -4,7 +4,7 @@
 
 On [July 18, 2022](../relnotes/release-2022-07-18-linux-al1-retire.md "../relnotes/release-2022-07-18-linux-al1-retire.md"),
 Elastic Beanstalk set the status of all platform branches based on Amazon Linux AMI (AL1) to **retired**.
-For more information about migrating to a current and fully supported Amazon Linux 2023 platform branch, see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.md "using-features.md").
+For more information about migrating to a current and fully supported Amazon Linux 2023 platform branch, see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.migration-al.md "using-features.migration-al.md").
 
 The Preconfigured Docker GlassFish platform branch that runs on the Amazon Linux AMI (AL1) is no longer supported.
 To migrate your GlassFish application to a supported Amazon Linux 2023 platform, deploy GlassFish and your application code to an Amazon Linux 2023 Docker image. For more
@@ -181,7 +181,7 @@ The following files are key to building and running a Docker container in your e
     * `Dockerfile` – Provides instructions that Docker uses to build an image with your application and required
      dependencies.
     * `glassfish-start.sh` – A shell script that the Docker image runs to start your application.
-    * `Dockerrun.aws.json` – Provides a logging key, to include the GlassFish application server log in [log file requests](using-features.md "using-features.md"). If you aren't interested in GlassFish logs, you can omit this file.
+    * `Dockerrun.aws.json` – Provides a logging key, to include the GlassFish application server log in [log file requests](using-features.logging.md "using-features.logging.md"). If you aren't interested in GlassFish logs, you can omit this file.
 
 2. Configure your local directory for deployment to Elastic Beanstalk.
 

@@ -3,7 +3,7 @@
 This topic explains how enhanced health reporting is enabled. It provides procedures for you to enable the enhanced health feature for your environment
 with the Elastic Beanstalk console, the EB CLI, and with an .ebextensions configuration.
 
-New environments created with the latest [platform versions](concepts.md "concepts.md") include the AWS Elastic Beanstalk [health agent](health-enhanced.md#health-enhanced-agent "health-enhanced.md#health-enhanced-agent"), which supports enhanced health reporting. If you create your environment in the Elastic Beanstalk console or with the
+New environments created with the latest [platform versions](concepts.platforms.md "concepts.platforms.md") include the AWS Elastic Beanstalk [health agent](health-enhanced.md#health-enhanced-agent "health-enhanced.md#health-enhanced-agent"), which supports enhanced health reporting. If you create your environment in the Elastic Beanstalk console or with the
 EB CLI, enhanced health is enabled by default. You can also set your health reporting preference in your application's source code using [configuration files](ebextensions.md "ebextensions.md").
 
 Enhanced health reporting requires an [instance profile](concepts-roles-instance.md "concepts-roles-instance.md") and [service
@@ -42,7 +42,7 @@ enhanced health reporting by changing the health reporting option during environ
    and in the **Regions** list, select your AWS Region.
 2. [Create an application](applications.md "applications.md") or
    select an existing one.
-3. [Create an environment](using-features.md "using-features.md"). On the **Create a new environment** page, before
+3. [Create an environment](using-features.environments.md "using-features.environments.md"). On the **Create a new environment** page, before
    choosing **Create environment**, choose
    **Configure more options**.
 4. In the **Monitoring** configuration category, choose **Edit**.

@@ -27,7 +27,7 @@ The URL must contain the following parameters, which are case sensitive:
       + Specify the platform name. Elastic Beanstalk selects the latest version of the platform's latest language runtime (for example,
        `Python`).
 
-  For a description of all available platforms and their versions, see [Elastic Beanstalk supported platforms](concepts.md "concepts.md").
+  For a description of all available platforms and their versions, see [Elastic Beanstalk supported platforms](concepts.platforms.md "concepts.platforms.md").
 
 You can use the [AWS Command Line Interface](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md") (AWS CLI) to get a list of all the available platform versions with their respective
 ARNs. The `list-platform-versions` command lists detailed information about all the available platform versions. Use the
@@ -86,7 +86,7 @@ characters as needed by applying HTML URL encoding.
   in the _Amazon EC2 User Guide_.
 - **withVpc** – Specify whether to create the environment in an Amazon VPC. You can specify either `true` or
   `false`. For more information about using Elastic Beanstalk with Amazon VPC, see [Using Elastic Beanstalk with Amazon VPC](vpc.md "vpc.md").
-- **withRds** – Specify whether to create an Amazon RDS database instance with this environment. For more information, see [Using Elastic Beanstalk with Amazon RDS](AWSHowTo.md "AWSHowTo.md"). You can specify either `true` or `false`.
+- **withRds** – Specify whether to create an Amazon RDS database instance with this environment. For more information, see [Using Elastic Beanstalk with Amazon RDS](AWSHowTo.RDS.md "AWSHowTo.RDS.md"). You can specify either `true` or `false`.
 - **rdsDBEngine** – Specify the database engine that you want to use for your Amazon EC2 instances in this environment. You can
   specify `mysql`, `oracle-sel`, `sqlserver-ex`, `sqlserver-web`, or `sqlserver-se`. The default
   value is `mysql`.
@@ -100,11 +100,11 @@ characters as needed by applying HTML URL encoding.
 
 - **rdsDBInstanceClass** – Specify the database instance type. The default value is `db.t2.micro`
   (`db.m1.large` is for an environment that's not running in an Amazon VPC). For a list of database instance classes that are supported by
-  Amazon RDS, see [DB Instance Class](../../../AmazonRDS/latest/UserGuide/Concepts.md "../../../AmazonRDS/latest/UserGuide/Concepts.md") in the _Amazon Relational Database Service
+  Amazon RDS, see [DB Instance Class](../../../AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.md "../../../AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.md") in the _Amazon Relational Database Service
   User Guide_.
 - **rdsMultiAZDatabase** – Specify whether Elastic Beanstalk needs to create the database instance across multiple Availability Zones.
   You can specify either `true` or `false`. For more information about multiple Availability Zone deployments with Amazon RDS, see
-  [Regions and Availability Zones](../../../AmazonRDS/latest/UserGuide/Concepts.md "../../../AmazonRDS/latest/UserGuide/Concepts.md") in the
+  [Regions and Availability Zones](../../../AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.md "../../../AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.md") in the
   _Amazon Relational Database Service User Guide_.
 - **rdsDBDeletionPolicy** – Specify whether to delete or snapshot the database instance on environment termination. You can
   specify either `Delete` or `Snapshot`.

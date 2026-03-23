@@ -5,7 +5,7 @@ You can use an Amazon Relational Database Service (Amazon RDS) DB instance to st
 application. The database can be coupled to your environment and managed by Elastic Beanstalk, or it can be created as decoupled
 and managed externally by another service.
 In these instructions the database is coupled to your environment and managed by Elastic Beanstalk. For more information about integrating an Amazon RDS with
-Elastic Beanstalk, see [Adding a database to your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md").
+Elastic Beanstalk, see [Adding a database to your Elastic Beanstalk environment](using-features.managing.db.md "using-features.managing.db.md").
 
 ###### Sections
 
@@ -37,7 +37,7 @@ available to your application through the following environment properties:
 | `RDS_PASSWORD` | The password that you configured for your database.                                            | Not available for reference in the Amazon RDS console.                                 |
 
 For more information about configuring a database instance coupled with an Elastic Beanstalk environment,
-see [Adding a database to your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md").
+see [Adding a database to your Elastic Beanstalk environment](using-features.managing.db.md "using-features.managing.db.md").
 
 ## Downloading a driver
 

@@ -36,7 +36,8 @@ more information and detailed walkthroughs, see [Troubleshooting Elastic Beansta
 ## Using AI-powered environment analysis
 
 Elastic Beanstalk provides AI-powered analysis to help identify root causes and recommend solutions for environment health issues. You can access this feature
-through the console's **AI Analysis** button or by using the Elastic Beanstalk API through the AWS CLI. The analysis examines your environment's logs,
+through the console's **AI Analysis** button, by using the Elastic Beanstalk API through the AWS CLI, or by running **eb logs --analyze**
+with the EB CLI. The analysis examines your environment's logs,
 events, and instance health to identify critical issues and provide step-by-step troubleshooting recommendations.
 
 For more information, see [AI-powered environment analysis](health-ai-analysis.md "health-ai-analysis.md").
@@ -110,16 +111,16 @@ environment that was caused by a recent change. If the health of your environmen
   help.
 - If an operation on your environment returns an error that contains the text `Environment `environment-name`
 associated CloudFormation stack`stack_arn` does not exist`, terminate your environment and create another one.
-- Review recent environment [events](using-features.md "using-features.md"). Messages from Elastic Beanstalk about deployment, load, and configuration issues
+- Review recent environment [events](using-features.events.md "using-features.events.md"). Messages from Elastic Beanstalk about deployment, load, and configuration issues
   often appear here.
-- Review recent environment [change history](using-features.md "using-features.md"). Change history lists all of the configuration changes
+- Review recent environment [change history](using-features.changehistory.md "using-features.changehistory.md"). Change history lists all of the configuration changes
   made to your environments and includes other information, such as which IAM user made changes and which configuration parameters were set.
-- [Pull logs](using-features.md "using-features.md") to view recent log file entries. Web server logs contain information about incoming requests
+- [Pull logs](using-features.logging.md "using-features.logging.md") to view recent log file entries. Web server logs contain information about incoming requests
   and errors.
-- [Connect to an instance](using-features.md "using-features.md") and check system resources.
-- [Roll back](using-features.md "using-features.md") to a previous working version of the application.
+- [Connect to an instance](using-features.ec2connect.md "using-features.ec2connect.md") and check system resources.
+- [Roll back](using-features.deploy-existing-version.md "using-features.deploy-existing-version.md") to a previous working version of the application.
 - Undo recent configuration changes or restore a [saved configuration](environment-configuration-methods-before.md#configuration-options-before-savedconfig "environment-configuration-methods-before.md#configuration-options-before-savedconfig").
-- Deploy a new environment. If the environment appears healthy, perform a [CNAME swap](using-features.md "using-features.md") to route traffic
+- Deploy a new environment. If the environment appears healthy, perform a [CNAME swap](using-features.CNAMESwap.md "using-features.CNAMESwap.md") to route traffic
   to the new environment and continue to debug the previous one.
 
 ## Environments that access secrets and parameters with environment variables
@@ -131,7 +132,7 @@ This message indicates that Elastic Beanstalk was not able to fetch one or more 
 
 - Check that the resources specified by the ARN values in your environment variable configuration exist.
 - Confirm that your Elastic Beanstalk EC2 instance profile role has the [required IAM
-  permissions](AWSHowTo.secrets.md#AWSHowTo.secrets.IAM-permissions.secrets-manager "AWSHowTo.secrets.md#AWSHowTo.secrets.IAM-permissions.secrets-manager") to access the resources.
+  permissions](AWSHowTo.secrets.IAM-permissions.md#AWSHowTo.secrets.IAM-permissions.secrets-manager "AWSHowTo.secrets.IAM-permissions.md#AWSHowTo.secrets.IAM-permissions.secrets-manager") to access the resources.
 - If this event was triggered through the `RestartAppServer` operation, once the issue is fixed, retry the `RestartAppServer`
   call to resolve the issue.
 - If the event was triggered through an `UpdateEnvironment` call, retry the `UpdateEnvironment` operation.
@@ -144,7 +145,7 @@ _[AWS Elastic Beanstalk API Reference](../api.md "../api.md")_.
 _Instance deployment detected one or more multiline environment values, which are not supported for this platform_
 
 Multiline variables are not supported for Amazon Linux 2 platforms, excluding Docker and ECS managed Docker platforms. For available options to proceed, see
-[Multiline values](AWSHowTo.secrets.md#AWSHowTo.secrets.multiline "AWSHowTo.secrets.md#AWSHowTo.secrets.multiline").
+[Multiline values](AWSHowTo.secrets.env-vars.md#AWSHowTo.secrets.multiline "AWSHowTo.secrets.env-vars.md#AWSHowTo.secrets.multiline").
 
 **Event:**
 _CreateEnvironment fails when a secret is specified_
@@ -167,7 +168,7 @@ _Create environment operation is complete, but with command timeouts. Try increa
 the timeout period._
 
 Your application may take a long time to deploy if you use configuration files that run
-commands on the instance, download large files, or install packages. Increase the [command timeout](using-features.md#environments-cfg-rollingdeployments-console "using-features.md#environments-cfg-rollingdeployments-console") to give your
+commands on the instance, download large files, or install packages. Increase the [command timeout](using-features.rolling-version-deploy.md#environments-cfg-rollingdeployments-console "using-features.rolling-version-deploy.md#environments-cfg-rollingdeployments-console") to give your
 application more time to start running during deployments.
 
 **Event:**
@@ -189,7 +190,7 @@ Elastic Beanstalk uses a service role to monitor the resources in your environme
 _Application becomes unavailable during deployments_
 
 Because Elastic Beanstalk uses a drop-in upgrade process, there might be a few seconds of downtime. Use
-[rolling deployments](using-features.md "using-features.md") to minimize
+[rolling deployments](using-features.rolling-version-deploy.md "using-features.rolling-version-deploy.md") to minimize
 the effect of deployments on your production environments.
 
 **Event:**
@@ -202,7 +203,7 @@ _Update environment operation is complete, but with command timeouts. Try increa
 the timeout period._
 
 Your application may take a long time to deploy if you use configuration files that run
-commands on the instance, download large files, or install packages. Increase the [command timeout](using-features.md#environments-cfg-rollingdeployments-console "using-features.md#environments-cfg-rollingdeployments-console") to give your
+commands on the instance, download large files, or install packages. Increase the [command timeout](using-features.rolling-version-deploy.md#environments-cfg-rollingdeployments-console "using-features.rolling-version-deploy.md#environments-cfg-rollingdeployments-console") to give your
 application more time to start running during deployments.
 
 ## Health
@@ -210,7 +211,7 @@ application more time to start running during deployments.
 **Event:**
 _CPU Utilization Exceeds 95.00%_
 
-Try [running more instances](using-features.managing.md "using-features.managing.md"), or [choose a different instance type](using-features.managing.md "using-features.managing.md").
+Try [running more instances](using-features.managing.as.md "using-features.managing.as.md"), or [choose a different instance type](using-features.managing.ec2.md "using-features.managing.ec2.md").
 
 **Event:**
 _Elastic Load Balancer awseb-`myapp` Has Zero Healthy
@@ -237,8 +238,8 @@ check URL is configured correctly. If not, try the following:
   (`CPUUtilization`, `EnvironmentHealth`). Resource exhaustion can cause
   health check timeouts.
 
-For more details, [retrieve full bundle logs](using-features.md "using-features.md")
-or [enable CloudWatch log streaming](AWSHowTo.md "AWSHowTo.md"). You can also
+For more details, [retrieve full bundle logs](using-features.logging.md "using-features.logging.md")
+or [enable CloudWatch log streaming](AWSHowTo.cloudwatchlogs.md "AWSHowTo.cloudwatchlogs.md"). You can also
 run the [`AWSSupport-TroubleshootElasticBeanstalk`](../../../systems-manager-automation-runbooks/latest/userguide/automation-awssupport-troubleshoot-elastic-beanstalk.md "../../../systems-manager-automation-runbooks/latest/userguide/automation-awssupport-troubleshoot-elastic-beanstalk.md")
 automation runbook to help diagnose the issue.
 
@@ -276,8 +277,8 @@ by network connectivity issues, health agent problems, or system-level failures.
   space), NTP/system clock synchronization, and instance metadata service
   connectivity.
 
-For more details, [retrieve full bundle logs](using-features.md "using-features.md")
-or [enable CloudWatch log streaming](AWSHowTo.md "AWSHowTo.md"). You can also
+For more details, [retrieve full bundle logs](using-features.logging.md "using-features.logging.md")
+or [enable CloudWatch log streaming](AWSHowTo.cloudwatchlogs.md "AWSHowTo.cloudwatchlogs.md"). You can also
 run the [`AWSSupport-TroubleshootElasticBeanstalk`](../../../systems-manager-automation-runbooks/latest/userguide/automation-awssupport-troubleshoot-elastic-beanstalk.md "../../../systems-manager-automation-runbooks/latest/userguide/automation-awssupport-troubleshoot-elastic-beanstalk.md")
 automation runbook to help diagnose the issue.
 
@@ -331,7 +332,7 @@ _ELB cannot be attached to multiple subnets in the same AZ_
 
 This message can be seen if you try to move a load balancer between subnets in the same Availability Zone. Changing subnets on the load balancer
 requires moving it out of the original availability zone(s) and then back into the original with the desired subnets. During the process, all of your
-instances will be migrated between AZs, causing significant downtime. Instead, consider creating a new environment and [perform a CNAME swap](using-features.md "using-features.md").
+instances will be migrated between AZs, causing significant downtime. Instead, consider creating a new environment and [perform a CNAME swap](using-features.CNAMESwap.md "using-features.CNAMESwap.md").
 
 ## Troubleshooting Docker containers
 
@@ -365,7 +366,7 @@ _Activity execution failed, because: WARNING: Invalid auth configuration
 file_
 
 Your authentication file (`config.json`) is not formatted correctly. See
-[Authenticating with image repositories](docker-configuration.md "docker-configuration.md")
+[Authenticating with image repositories](docker-configuration.remote-repo.md "docker-configuration.remote-repo.md")
 
 ## FAQ
 
@@ -381,7 +382,7 @@ _How do I specify a specific Availability Zone for my Elastic Beanstalk
 application?_
 
 You can pick a specific Availability Zone by using the APIs, CLI, Eclipse plugin, or Visual Studio plugin. For instructions about using the Elastic Beanstalk
-console to specify an Availability Zone, see [Auto Scaling your Elastic Beanstalk environment instances](using-features.managing.md "using-features.managing.md").
+console to specify an Availability Zone, see [Auto Scaling your Elastic Beanstalk environment instances](using-features.managing.as.md "using-features.managing.as.md").
 
 **Question:**
 _How do I change my environment's instance type?_
@@ -396,7 +397,7 @@ environment?_
 
 To see this information, in the navigation pane of the Elastic Beanstalk console choose **Change history** to display a list of configuration
 changes for all environments. This list includes the date and time of the change, the configuration parameter and value it was changed to, and the IAM user
-that made the change. For more information, see [Change history](using-features.md "using-features.md").
+that made the change. For more information, see [Change history](using-features.changehistory.md "using-features.changehistory.md").
 
 **Question:**
 _Can I prevent Amazon EBS volumes from being deleted when instances are

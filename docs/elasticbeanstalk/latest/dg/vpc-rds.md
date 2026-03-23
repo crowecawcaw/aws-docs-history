@@ -9,7 +9,7 @@ Your infrastructure will look similar to the following diagram.
 ###### Note
 
 If you haven't used a DB instance with your application before, try [adding one to a test
-environment](using-features.managing.md "using-features.managing.md"), and [connecting to an external DB instance](AWSHowTo.md "AWSHowTo.md") before adding a VPC configuration to the mix.
+environment](using-features.managing.db.md "using-features.managing.db.md"), and [connecting to an external DB instance](AWSHowTo.RDS.md "AWSHowTo.RDS.md") before adding a VPC configuration to the mix.
 
 ## Create a VPC with a public and private subnet
 

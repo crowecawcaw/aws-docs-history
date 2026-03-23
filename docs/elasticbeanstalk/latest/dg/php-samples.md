@@ -7,7 +7,7 @@ We recommend the [QuickStart for PHP](php-quickstart.md "php-quickstart.md") to 
 
 ###### Advanced PHP examples
 
-- [Adding a database](create_deploy_PHP.md "create_deploy_PHP.md")
+- [Adding a database](create_deploy_PHP.rds.md "create_deploy_PHP.rds.md")
 - [Tutorial - Laravel](php-laravel-tutorial.md "php-laravel-tutorial.md")
 - [Tutorial - CakePHP](php-cakephp-tutorial.md "php-cakephp-tutorial.md")
 - [Tutorial - Symfony](php-symfony-tutorial.md "php-symfony-tutorial.md")

@@ -7,7 +7,7 @@ runs your application.
 We recommend that you always provide a `Procfile` in the source bundle alongside your application. This way you precisely control
 which processes Elastic Beanstalk runs for your application and which arguments these processes receive.
 
-For details about writing and using a `Procfile` see [Buildfile and Procfile](platforms-linux-extend.md "platforms-linux-extend.md").
+For details about writing and using a `Procfile` see [Buildfile and Procfile](platforms-linux-extend.build-proc.md "platforms-linux-extend.build-proc.md").
 
 ###### Example Procfile
 
@@ -32,7 +32,7 @@ If your Elastic Beanstalk Java SE environment uses an Amazon Linux AMI platform 
   (AL1) platform versions and _require different configuration settings_.
 - On [July 18, 2022](../relnotes/release-2022-07-18-linux-al1-retire.md "../relnotes/release-2022-07-18-linux-al1-retire.md"),
   Elastic Beanstalk set the status of all platform branches based on Amazon Linux AMI (AL1) to **retired**.
-  For more information about migrating to a current and fully supported Amazon Linux 2023 platform branch, see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.md "using-features.md").
+  For more information about migrating to a current and fully supported Amazon Linux 2023 platform branch, see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.migration-al.md "using-features.migration-al.md").
   By default, Elastic Beanstalk configures the nginx proxy to forward requests to your application on port 5000. You can override the default port by
   setting the `PORT`
   [environment property](java-se-platform.md#java-se-options "java-se-platform.md#java-se-options") to the port on which your main application listens.

@@ -127,7 +127,7 @@ _AWS Elastic Beanstalk Platforms_ guide.
 
 On [July 18, 2022](../relnotes/release-2022-07-18-linux-al1-retire.md "../relnotes/release-2022-07-18-linux-al1-retire.md"),
 Elastic Beanstalk set the status of all platform branches based on Amazon Linux AMI (AL1) to **retired**.
-For more information, see [Platform retirement FAQ](using-features.migration-al.md "using-features.migration-al.md").
+For more information, see [Platform retirement FAQ](using-features.migration-al.FAQ.md "using-features.migration-al.FAQ.md").
 
 | Windows Server                                                         | Runtime version / platform branch | Retirement date |
 | ---------------------------------------------------------------------- | --------------------------------- | --------------- |

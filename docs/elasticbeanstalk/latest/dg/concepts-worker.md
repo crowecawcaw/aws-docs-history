@@ -9,6 +9,6 @@ instances in your worker environment, each instance has its own daemon, but they
 The following diagram shows the different components and their interactions across environments and AWS services.
 
 ![AWS Elastic Beanstalk worker tier architecture diagram.](images/aeb-architecture_worker.png)
-Amazon CloudWatch is used for alarms and health monitoring. For more information, go to [Basic health reporting](using-features.md "using-features.md").
+Amazon CloudWatch is used for alarms and health monitoring. For more information, go to [Basic health reporting](using-features.healthstatus.md "using-features.healthstatus.md").
 
 For details about how the worker environment tier works, see [Elastic Beanstalk worker environments](using-features-managing-env-tiers.md "using-features-managing-env-tiers.md").

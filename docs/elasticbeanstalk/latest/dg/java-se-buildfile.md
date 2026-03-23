@@ -7,7 +7,7 @@ Commands in a `Buildfile` are only run once and must terminate upon completion, 
 your application, use a `Procfile`.
 
 For details about the placement and syntax of a `Buildfile`,
-see [Buildfile and Procfile](platforms-linux-extend.md "platforms-linux-extend.md").
+see [Buildfile and Procfile](platforms-linux-extend.build-proc.md "platforms-linux-extend.build-proc.md").
 
 The following `Buildfile` example runs Apache Maven to build a web application from source code. For a sample application that uses
 this feature, see [Java web application samples](java-getstarted.md#java-getstarted-samples "java-getstarted.md#java-getstarted-samples").

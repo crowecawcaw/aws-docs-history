@@ -26,7 +26,7 @@ connect to it.
 | `RDS_USERNAME` | The username that you configured for your database.                                            | On the **Configuration\*<br>• tab on the Amazon RDS console: **Master username\*\*.    |
 | `RDS_PASSWORD` | The password that you configured for your database.                                            | Not available for reference in the Amazon RDS console.                                 |
 
-For more information about configuring an internal DB instance, see [Adding a database to your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md"). For instructions on configuring an external database for use with Elastic Beanstalk, see [Using Elastic Beanstalk with Amazon RDS](AWSHowTo.md "AWSHowTo.md").
+For more information about configuring an internal DB instance, see [Adding a database to your Elastic Beanstalk environment](using-features.managing.db.md "using-features.managing.db.md"). For instructions on configuring an external database for use with Elastic Beanstalk, see [Using Elastic Beanstalk with Amazon RDS](AWSHowTo.RDS.md "AWSHowTo.RDS.md").
 
 To connect to the database, add the appropriate driver JAR file to your application, load the driver class in your code, and create a connection object
 with the environment properties provided by Elastic Beanstalk.

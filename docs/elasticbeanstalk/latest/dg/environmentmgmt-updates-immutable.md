@@ -1,6 +1,6 @@
 # Immutable environment updates
 
-Immutable environment updates are an alternative to [rolling updates](using-features.md "using-features.md"). Immutable environment updates
+Immutable environment updates are an alternative to [rolling updates](using-features.rollingupdates.md "using-features.rollingupdates.md"). Immutable environment updates
 ensure that configuration changes that require replacing instances are applied efficiently and safely. If an immutable environment update fails, the
 rollback process requires only terminating an Auto Scaling group. A failed rolling update, on the other hand, requires performing an additional rolling update to
 roll back the changes.
@@ -23,7 +23,7 @@ Immutable updates require [enhanced health reporting](health-enhanced.md "health
 Enhanced health reporting combines standard load balancer health checks with instance monitoring to ensure that the instances running the new configuration
 are [serving requests successfully](health-enhanced.md#health-enhanced-factors "health-enhanced.md#health-enhanced-factors").
 
-You can also use immutable updates to deploy new versions of your application, as an alternative to rolling deployments. When you [configure Elastic Beanstalk to use immutable updates for application deployments](using-features.md "using-features.md"), it replaces all instances in
+You can also use immutable updates to deploy new versions of your application, as an alternative to rolling deployments. When you [configure Elastic Beanstalk to use immutable updates for application deployments](using-features.rolling-version-deploy.md "using-features.rolling-version-deploy.md"), it replaces all instances in
 your environment every time you deploy a new version of your application. If an immutable application deployment fails, Elastic Beanstalk reverts the changes
 immediately by terminating the new Auto Scaling group. This can prevent partial fleet deployments, which can occur when a rolling deployment fails after some
 batches have already completed.
@@ -35,7 +35,7 @@ Some policies replace all instances during the deployment or update. This causes
 - Managed platform updates with instance replacement enabled
 - Immutable updates
 - Deployments with immutable updates or traffic splitting enabled
-  If an immutable update fails, the new instances upload [bundle logs](using-features.md "using-features.md") to Amazon S3 before Elastic Beanstalk terminates them.
+  If an immutable update fails, the new instances upload [bundle logs](using-features.logging.md "using-features.logging.md") to Amazon S3 before Elastic Beanstalk terminates them.
   Elastic Beanstalk leaves logs from a failed immutable update in Amazon S3 for one hour before deleting them, instead of the standard 15 minutes for bundle and tail
   logs.
 
@@ -51,7 +51,7 @@ with configuration files that change configuration settings or additional resour
 example, load balancer settings) and concurrently perform an immutable update, Elastic Beanstalk returns an error.
 
 If your resource configuration changes aren't dependent on your source code change or on instance configuration, perform them in two updates. If they
-are dependent, perform a [blue/green deployment](using-features.md "using-features.md") instead.
+are dependent, perform a [blue/green deployment](using-features.CNAMESwap.md "using-features.CNAMESwap.md") instead.
 
 ## Configuring immutable updates
 

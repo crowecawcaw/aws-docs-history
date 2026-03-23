@@ -46,7 +46,7 @@ The [.NET on Windows Server platform](create_deploy_NET.md "create_deploy_NET.md
 
 Worker environments run a daemon process provided by Elastic Beanstalk. This daemon is updated
 regularly to add features and fix bugs. To get the latest version of the daemon, update to the
-latest [platform version](concepts.md "concepts.md").
+latest [platform version](concepts.platforms.md "concepts.platforms.md").
 
 When the application in the worker environment returns a `200 OK` response to acknowledge that it has received and successfully processed
 the request, the daemon sends a `DeleteMessage` call to the Amazon SQS queue to delete the message from the queue. If the application
@@ -166,7 +166,7 @@ Messages that have not been processed at the time an instance is terminated are 
 to the queue where they can be processed by another daemon on an instance that is still
 running.
 
-You can also set other CloudWatch alarms, as needed, by using the Elastic Beanstalk console, CLI, or the options file. For more information, see [Using Elastic Beanstalk with Amazon CloudWatch](AWSHowTo.md "AWSHowTo.md") and [Create an Auto Scaling group with Step Scaling Policies](../../../autoscaling/ec2/userguide/as-scaling-simple-step.md#policy-creating-asg-console "../../../autoscaling/ec2/userguide/as-scaling-simple-step.md#policy-creating-asg-console").
+You can also set other CloudWatch alarms, as needed, by using the Elastic Beanstalk console, CLI, or the options file. For more information, see [Using Elastic Beanstalk with Amazon CloudWatch](AWSHowTo.cloudwatch.md "AWSHowTo.cloudwatch.md") and [Create an Auto Scaling group with Step Scaling Policies](../../../autoscaling/ec2/userguide/as-scaling-simple-step.md#policy-creating-asg-console "../../../autoscaling/ec2/userguide/as-scaling-simple-step.md#policy-creating-asg-console").
 
 ## Configuring worker environments
 

@@ -47,7 +47,7 @@ Elastic Beanstalk doesn't support proxy settings like `HTTPS_PROXY` for configur
 - [Example: Launching an Elastic Beanstalk application in a VPC with bastion hosts](vpc-bastion-host.md "vpc-bastion-host.md")
 - [Example: Launching an Elastic Beanstalk in a VPC with Amazon RDS](vpc-rds.md "vpc-rds.md")
 - [Using Elastic Beanstalk with VPC endpoints](vpc-vpce.md "vpc-vpce.md")
-- [Using endpoint policies to control access with VPC endpoints](vpc-vpce.md "vpc-vpce.md")
+- [Using endpoint policies to control access with VPC endpoints](vpc-vpce.policy.md "vpc-vpce.policy.md")
 
 ## Public VPC
 

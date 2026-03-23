@@ -33,7 +33,7 @@ The following example file structure defines a single application that uses a .N
 
 You can include multiple applications in your source bundle. The following example defines two applications to run on the same web server. To run
 multiple applications, you must include a [Procfile](dotnet-linux-procfile.md "dotnet-linux-procfile.md") in your source bundle. For a full example application,
-see [dotnet-core-linux-multiple-apps.zip](samples/dotnet-core-linux-multiple-apps.md "samples/dotnet-core-linux-multiple-apps.md").
+see [dotnet-core-linux-multiple-apps.zip](samples/dotnet-core-linux-multiple-apps.zip.md "samples/dotnet-core-linux-multiple-apps.zip.md").
 
 ```
 ├── DotnetMultipleApp1

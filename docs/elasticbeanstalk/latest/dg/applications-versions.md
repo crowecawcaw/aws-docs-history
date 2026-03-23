@@ -64,7 +64,7 @@ upload a new version. For details, see [Configuring application version lifecycl
 7. Choose **Delete**.
 
 If you don't choose to delete the source bundle from Amazon S3, Elastic Beanstalk still deletes the version from its records. However, the source bundle is left in
-your [Elastic Beanstalk storage bucket](AWSHowTo.md "AWSHowTo.md"). The application version quota applies only to versions Elastic Beanstalk tracks. Therefore, you can
+your [Elastic Beanstalk storage bucket](AWSHowTo.S3.md "AWSHowTo.S3.md"). The application version quota applies only to versions Elastic Beanstalk tracks. Therefore, you can
 delete versions to stay within the quota, but retain all source bundles in Amazon S3.
 
 ###### Note

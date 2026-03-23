@@ -12,7 +12,7 @@ you change the instance type or SSH key setting for your environment, the EC2 in
 that determine how this replacement is done.
 
 - Rolling updates – Elastic Beanstalk applies your configuration changes in batches, keeping a minimum number of instances
-  running and serving traffic at all times. This approach prevents downtime during the update process. For details, see [Rolling updates](using-features.md "using-features.md").
+  running and serving traffic at all times. This approach prevents downtime during the update process. For details, see [Rolling updates](using-features.rollingupdates.md "using-features.rollingupdates.md").
 - Immutable updates – Elastic Beanstalk launches a temporary Auto Scaling group outside of your environment with a separate set of
   instances running with the new configuration. Then Elastic Beanstalk places these instances behind your environment's load balancer. Old and new instances both
   serve traffic until the new instances pass health checks. At that time, Elastic Beanstalk moves the new instances into your environment's Auto Scaling group and terminates
@@ -41,5 +41,5 @@ that use an IIS version earlier than IIS 8.5.
 
 ###### Topics
 
-- [Elastic Beanstalk rolling environment configuration updates](using-features.md "using-features.md")
+- [Elastic Beanstalk rolling environment configuration updates](using-features.rollingupdates.md "using-features.rollingupdates.md")
 - [Immutable environment updates](environmentmgmt-updates-immutable.md "environmentmgmt-updates-immutable.md")

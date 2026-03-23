@@ -33,7 +33,7 @@ platform branches.
 
 On [July 18, 2022](../relnotes/release-2022-07-18-linux-al1-retire.md "../relnotes/release-2022-07-18-linux-al1-retire.md"),
 Elastic Beanstalk set the status of all platform branches based on Amazon Linux AMI (AL1) to **retired**.
-For more information about migrating to a current and fully supported Amazon Linux 2023 platform branch, see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.md "using-features.md").
+For more information about migrating to a current and fully supported Amazon Linux 2023 platform branch, see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.migration-al.md "using-features.migration-al.md").
 
 You must package Java applications in a web application archive (WAR) file with a specific
 structure. For information on the required structure and how it relates to the structure of your
@@ -175,7 +175,7 @@ String endpoint = System.getProperty("API_ENDPOINT");
 
 Tomcat platform versions released on or after [March 26, 2025](../relnotes/release-2025-03-26-windows.md "../relnotes/release-2025-03-26-windows.md"), can also use `System.getenv`
 to access plaintext environment variables. You can continue to use `System.getProperty` to access plaintext environment variables.
-However, [environment variables stored as secrets](AWSHowTo.secrets.md "AWSHowTo.secrets.md") are only available using `System.getenv`. For example, you could read an environment variable named `API_KEY` with the following code.
+However, [environment variables stored as secrets](AWSHowTo.secrets.env-vars.md "AWSHowTo.secrets.env-vars.md") are only available using `System.getenv`. For example, you could read an environment variable named `API_KEY` with the following code.
 
 ```
 String apiKey = System.getenv("API_KEY");
@@ -248,7 +248,7 @@ read the additional information in this section.
   (AL1) platform versions and _require different configuration settings_.
 - On [July 18, 2022](../relnotes/release-2022-07-18-linux-al1-retire.md "../relnotes/release-2022-07-18-linux-al1-retire.md"),
   Elastic Beanstalk set the status of all platform branches based on Amazon Linux AMI (AL1) to **retired**.
-  For more information about migrating to a current and fully supported Amazon Linux 2023 platform branch, see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.md "using-features.md").
+  For more information about migrating to a current and fully supported Amazon Linux 2023 platform branch, see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.migration-al.md "using-features.migration-al.md").
   The Tomcat Amazon Linux AMI platform supports additional options in the following
   namespaces:
 

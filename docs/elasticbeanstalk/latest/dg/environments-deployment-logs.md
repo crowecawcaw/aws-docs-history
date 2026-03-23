@@ -56,11 +56,11 @@ A deployment log captures the following information during a deployment:
 
 Application output is captured starting 2 seconds after the application starts. Only the initial startup messages are included – if your
 application takes longer to produce output, it won't appear in the deployment log. To see full application logs, request bundle logs or connect to
-the instance directly. For more information, see [View instance logs](using-features.md "using-features.md").
+the instance directly. For more information, see [View instance logs](using-features.logging.md "using-features.logging.md").
 
 When a deployment step fails, the log marks it with `[ERROR]` and includes up to 50 lines of output from the failed step. If the
 deployment log does not contain enough detail, you can retrieve the full instance logs (including `eb-engine.log`,
-`eb-hooks.log`, and application logs) from the **Logs** tab. For more information, see [Viewing logs from Amazon EC2 instances in your Elastic Beanstalk environment](using-features.md "using-features.md").
+`eb-hooks.log`, and application logs) from the **Logs** tab. For more information, see [Viewing logs from Amazon EC2 instances in your Elastic Beanstalk environment](using-features.logging.md "using-features.logging.md").
 
 ## Viewing deployment logs in the console
 

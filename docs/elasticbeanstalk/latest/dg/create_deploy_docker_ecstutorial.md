@@ -196,7 +196,7 @@ events output by the Elastic Beanstalk service. When the status is Green, click 
 Next you will connect to an Amazon EC2 instance in your Elastic Beanstalk environment to see some of the moving parts in action.
 
 The easiest way to connect to an instance in your environment is by using the EB CLI. To use it, [install the EB
-CLI](eb-cli3.md#eb-cli3-install "eb-cli3.md#eb-cli3-install"), if you haven't done so already. You'll also need to configure your environment with an Amazon EC2 SSH key pair. Use either the console's [security configuration page](using-features.managing.md "using-features.managing.md") or the EB CLI [eb init](eb3-init.md "eb3-init.md") command to do that.
+CLI](eb-cli3.md#eb-cli3-install "eb-cli3.md#eb-cli3-install"), if you haven't done so already. You'll also need to configure your environment with an Amazon EC2 SSH key pair. Use either the console's [security configuration page](using-features.managing.security.md "using-features.managing.security.md") or the EB CLI [eb init](eb3-init.md "eb3-init.md") command to do that.
 To connect to an environment instance, use the EB CLI [eb ssh](eb3-ssh.md "eb3-ssh.md") command.
 
 Now that your connected to an Amazon EC2 instance hosting your docker containers, you can see how things are set up. Run `ls` on

@@ -29,9 +29,9 @@ Web server environments have the following resources.
 If your environment uses functionality that requires Amazon EC2 launch templates, and your
 user policy lacks the required permissions, creating or updating the environment might
 fail. Use the **AdministratorAccess-AWSElasticBeanstalk**
-[managed user policy](AWSHowTo.iam.md "AWSHowTo.iam.md"), or add the
+[managed user policy](AWSHowTo.iam.managed-policies.md "AWSHowTo.iam.managed-policies.md"), or add the
 required permissions to your [custom
-policy](AWSHowTo.iam.md#AWSHowTo.iam.policies "AWSHowTo.iam.md#AWSHowTo.iam.policies").
+policy](AWSHowTo.iam.managed-policies.md#AWSHowTo.iam.policies "AWSHowTo.iam.managed-policies.md#AWSHowTo.iam.policies").
 
 - `AWSEBEnvironmentName` ([AWS::ElasticBeanstalk::Environment](../../../AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.md")) – Your environment.
 - `AWSEBSecurityGroup` ([AWS::EC2::SecurityGroup](../../../AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.md")) – The security group attached to your Auto Scaling

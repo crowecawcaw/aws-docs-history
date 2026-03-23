@@ -75,7 +75,7 @@ A platform branch can be in one of the following states:
   To see past retired platform branches, see [Retired platform branch history](platforms-schedule.md#platforms-support-policy.retired "platforms-schedule.md#platforms-support-policy.retired").
 
 If your environment uses a deprecated or retired platform branch, we recommend that you update it to a platform version in a supported platform
-branch. For details, see [Updating your Elastic Beanstalk environment's platform version](using-features.platform.md "using-features.platform.md").
+branch. For details, see [Updating your Elastic Beanstalk environment's platform version](using-features.platform.upgrade.md "using-features.platform.upgrade.md").
 
 You can verify the state of a platform branch using the AWS CLI command
 **[describe-platform-version](../../../cli/latest/reference/elasticbeanstalk/describe-platform-version.md "../../../cli/latest/reference/elasticbeanstalk/describe-platform-version.md")**

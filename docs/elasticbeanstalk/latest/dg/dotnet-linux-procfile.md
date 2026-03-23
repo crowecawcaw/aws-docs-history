@@ -15,4 +15,4 @@ web: dotnet ./dotnet-core-app1/dotnetcoreapp1.dll
 web2: dotnet ./dotnet-core-app2/dotnetcoreapp2.dll
 ```
 
-For details about writing and using a `Procfile`, see [Buildfile and Procfile](platforms-linux-extend.md "platforms-linux-extend.md").
+For details about writing and using a `Procfile`, see [Buildfile and Procfile](platforms-linux-extend.build-proc.md "platforms-linux-extend.build-proc.md").

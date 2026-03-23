@@ -8,7 +8,7 @@ more information and detailed walkthroughs, see [Troubleshooting Elastic Beansta
 
 This page lists messages for common issues and links to more information.
 Messages appear in the [Environment overview pane](environments-dashboard-envoverview.md "environments-dashboard-envoverview.md")
-of the Elastic Beanstalk console and are recorded in [events](using-features.md "using-features.md") when
+of the Elastic Beanstalk console and are recorded in [events](using-features.events.md "using-features.events.md") when
 health issues persist across several checks.
 
 ## Deployments
@@ -35,8 +35,8 @@ most recent successful deployment. In the above example, the first deployment (v
 succeeded, but the second deployment (version "v2") failed. Any instances running "v2" are
 considered unhealthy.
 
-To solve this issue, start another deployment. You can [redeploy a previous version](using-features.md "using-features.md") that you
-know works, or configure your environment to [ignore health checks](using-features.md#environments-cfg-rollingdeployments-console "using-features.md#environments-cfg-rollingdeployments-console") during
+To solve this issue, start another deployment. You can [redeploy a previous version](using-features.deploy-existing-version.md "using-features.deploy-existing-version.md") that you
+know works, or configure your environment to [ignore health checks](using-features.rolling-version-deploy.md#environments-cfg-rollingdeployments-console "using-features.rolling-version-deploy.md#environments-cfg-rollingdeployments-console") during
 deployment and redeploy the new version to force the deployment to complete.
 
 You can also identify and terminate the instances that are running the wrong application

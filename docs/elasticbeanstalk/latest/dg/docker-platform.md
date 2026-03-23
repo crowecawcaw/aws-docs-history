@@ -42,7 +42,7 @@ We recommend that you create your environments with the newer and supported plat
 branch _Docker running on 64bit AL2023_. You can then migrate your
 application to the newly created environment. For more information about creating these
 environments, see [Using the Elastic Beanstalk Docker platform branch](docker.md "docker.md"). For more information about migration, see
-[Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.md "using-features.md").
+[Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.migration-al.md "using-features.migration-al.md").
 
 This platform branch uses Amazon ECS to coordinate a deployment of multiple Docker
 containers to an Amazon ECS cluster in an Elastic Beanstalk environment. If you're currently using this

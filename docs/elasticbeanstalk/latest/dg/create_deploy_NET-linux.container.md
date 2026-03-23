@@ -1,7 +1,5 @@
-# Configuring notifications using AWS toolkit for Visual Studio
+# Configuring .NET Core containers using the AWS toolkit for Visual Studio
 
-Elastic Beanstalk uses the Amazon Simple Notification Service (Amazon SNS) to notify you of important events affecting your application. To enable Amazon SNS notifications,
-enter
-your email address in the **Email Address** box. To disable these notifications, remove your email address from the box.
+The **Container** panel lets you specify environment variables that you can read from your application code.
 
-![Screenshot of notifications configuration panel in Visual Studio Toolkit for Elastic Beanstalk](images/aeb-vs-linux-notifications.png)
+![Screenshot of container panel in Visual Studio Toolkit for Elastic Beanstalk](images/aeb-vs-container-envproperties.png)

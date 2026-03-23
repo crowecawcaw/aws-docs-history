@@ -19,7 +19,7 @@ Elastic Beanstalk.
 To protect your application's data at rest, learn about data protection in the storage service that your application uses. For example, see [Data Protection in Amazon RDS](../../../AmazonRDS/latest/UserGuide/DataDurability.md "../../../AmazonRDS/latest/UserGuide/DataDurability.md") in the _Amazon RDS User Guide_, [Data Protection in Amazon S3](../../../AmazonS3/latest/userguide/DataDurability.md "../../../AmazonS3/latest/userguide/DataDurability.md") in the _Amazon Simple Storage Service User Guide_, or [Encrypting Data and Metadata in EFS](../../../efs/latest/ug/encryption.md "../../../efs/latest/ug/encryption.md") in the _Amazon Elastic File System User Guide_.
 
 Elastic Beanstalk stores various objects in an encrypted Amazon Simple Storage Service (Amazon S3) bucket that it creates for each AWS Region in which you create environments. Because
-Elastic Beanstalk retains the default encryption provided by Amazon S3, it creates encrypted Amazon S3 buckets. For details, see [Using Elastic Beanstalk with Amazon S3](AWSHowTo.md "AWSHowTo.md"). You provide
+Elastic Beanstalk retains the default encryption provided by Amazon S3, it creates encrypted Amazon S3 buckets. For details, see [Using Elastic Beanstalk with Amazon S3](AWSHowTo.S3.md "AWSHowTo.S3.md"). You provide
 some of the stored objects and send them to Elastic Beanstalk, for example, application versions and source bundles. Elastic Beanstalk generates other objects, for example, log
 files. In addition to the data that Elastic Beanstalk stores, your application can transfer and/or store data as part of its operation.
 

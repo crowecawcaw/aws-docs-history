@@ -41,7 +41,7 @@ For details about configuration files, see [.Ebextensions](ebextensions.md "ebex
 `-- styles.css
 ```
 
-Upload the source bundle to Elastic Beanstalk normally, during [environment creation](using-features.md "using-features.md").
+Upload the source bundle to Elastic Beanstalk normally, during [environment creation](using-features.environments.md "using-features.environments.md").
 
 The Elastic Beanstalk console applies [recommended values](command-options.md#configuration-options-recommendedvalues "command-options.md#configuration-options-recommendedvalues") for some configuration options and has
 form fields for others. Options configured by the Elastic Beanstalk console are applied directly to the environment and override settings in configuration
@@ -49,7 +49,7 @@ files.
 
 ### Using a saved configuration
 
-When you create a new environment using the Elastic Beanstalk console, one of the first steps is to choose a configuration. The configuration can be a [predefined configuration](concepts.md "concepts.md"), typically the latest version of a platform such as
+When you create a new environment using the Elastic Beanstalk console, one of the first steps is to choose a configuration. The configuration can be a [predefined configuration](concepts.platforms.md "concepts.platforms.md"), typically the latest version of a platform such as
 **PHP** or **Tomcat**, or it can be a **saved configuration**.
 
 ###### To apply a saved configuration during environment creation (Elastic Beanstalk console)

@@ -67,7 +67,7 @@ files:
 W, [DATE-TIME #1922] WARN -- : log file "/var/log/nginx/healthd/application.log.DATE-TIME" does not exist
 ```
 
-You can start with the .ebextension in the [Multicontainer Docker sample](samples/docker-multicontainer-v2.md "samples/docker-multicontainer-v2.md").
+You can start with the .ebextension in the [Multicontainer Docker sample](samples/docker-multicontainer-v2.zip.md "samples/docker-multicontainer-v2.zip.md").
 
 ###### /etc/nginx/conf.d/webapp_healthd.conf
 

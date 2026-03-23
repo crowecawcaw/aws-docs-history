@@ -1,6 +1,6 @@
 # Your Elastic Beanstalk environment's Domain name
 
-By default, your environment is available to users at a subdomain of `elasticbeanstalk.com`. When you [create an environment](using-features.md "using-features.md"), you can choose a hostname for your application. The subdomain and domain are
+By default, your environment is available to users at a subdomain of `elasticbeanstalk.com`. When you [create an environment](using-features.environments.md "using-features.environments.md"), you can choose a hostname for your application. The subdomain and domain are
 autopopulated to ``region`.elasticbeanstalk.com`.
 
 To route users to your environment, Elastic Beanstalk registers a CNAME record that points to your environment's load balancer. You can see URL of your
@@ -11,7 +11,7 @@ console.
 Choose the URL on the overview page, or choose **Go to environment** on the navigation pane, to navigate to your application's web
 page.
 
-You can change the CNAME on your environment by swapping it with the CNAME of another environment. For instructions, see [Blue/Green deployments with Elastic Beanstalk](using-features.md "using-features.md").
+You can change the CNAME on your environment by swapping it with the CNAME of another environment. For instructions, see [Blue/Green deployments with Elastic Beanstalk](using-features.CNAMESwap.md "using-features.CNAMESwap.md").
 
 If you own a domain name, you can use Amazon Route 53 to resolve it to your environment. You can purchase a domain name with Amazon Route 53, or use one that you
 purchase from another provider.

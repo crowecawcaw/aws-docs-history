@@ -12,4 +12,4 @@ assign instance profiles, and publish metrics to CloudWatch. Elastic Beanstalk r
 orchestrate resource deployments and updates. It also requires Amazon RDS permissions to create
 databases when needed, and Amazon SQS permissions to create queues for worker environments.
 
-For more information about user policies, see [Managing Elastic Beanstalk user policies](AWSHowTo.iam.md "AWSHowTo.iam.md").
+For more information about user policies, see [Managing Elastic Beanstalk user policies](AWSHowTo.iam.managed-policies.md "AWSHowTo.iam.managed-policies.md").

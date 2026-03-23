@@ -60,11 +60,11 @@ page](https://console.aws.amazon.com/iam/home#policies "https://console.aws.amaz
 ###### Important
 
 Elastic Beanstalk managed policies don't provide granular permissions—they grant all permissions that are potentially needed for working with Elastic Beanstalk
-applications. In some cases you may wish to restrict the permissions of our managed policies further. For an example of one use case, see [Preventing cross-environment Amazon S3 bucket access](AWSHowTo.iam.md "AWSHowTo.iam.md").
+applications. In some cases you may wish to restrict the permissions of our managed policies further. For an example of one use case, see [Preventing cross-environment Amazon S3 bucket access](AWSHowTo.iam.cross-env-s3-access.md "AWSHowTo.iam.cross-env-s3-access.md").
 
 Our managed policies also don't cover permissions to custom resources that you might add to your solution, and that aren't managed by Elastic Beanstalk. To
 implement more granular permissions, minimum required permissions, or custom resource permissions, use [custom
-policies](AWSHowTo.iam.md#AWSHowTo.iam.policies "AWSHowTo.iam.md#AWSHowTo.iam.policies").
+policies](AWSHowTo.iam.managed-policies.md#AWSHowTo.iam.policies "AWSHowTo.iam.managed-policies.md#AWSHowTo.iam.policies").
 
 ###### Deprecated managed policies
 
@@ -190,7 +190,7 @@ client you used. In the IAM console, you can verify the permissions granted by t
 ## Updating an out-of-date default service role
 
 If the default service role lacks the required permissions, you can update it by [creating a new
-environment](using-features.md "using-features.md") in the Elastic Beanstalk environment management console.
+environment](using-features.environments.md "using-features.environments.md") in the Elastic Beanstalk environment management console.
 
 Alternatively, you can manually add the managed policies to the default service role.
 

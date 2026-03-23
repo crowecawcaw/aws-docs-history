@@ -78,9 +78,9 @@ testvalue
 ###### Note
 
 The `get-config` tool cannot retrieve [environment variables that store
-secrets](AWSHowTo.secrets.md "AWSHowTo.secrets.md"). For more information about how to programmatically retrieve values from secret or parameter stores, see
-[Using Secrets Manager](AWSHowTo.secrets.md#AWSHowTo.secrets.Secrets-Manager "AWSHowTo.secrets.md#AWSHowTo.secrets.Secrets-Manager") or
-[Using Systems Manager Parameter Store](AWSHowTo.secrets.md#AWSHowTo.secrets.SSM-parmameter-store "AWSHowTo.secrets.md#AWSHowTo.secrets.SSM-parmameter-store").
+secrets](AWSHowTo.secrets.env-vars.md "AWSHowTo.secrets.env-vars.md"). For more information about how to programmatically retrieve values from secret or parameter stores, see
+[Using Secrets Manager](AWSHowTo.secrets.Secrets-Manager-and-Parameter-Store.md#AWSHowTo.secrets.Secrets-Manager "AWSHowTo.secrets.Secrets-Manager-and-Parameter-Store.md#AWSHowTo.secrets.Secrets-Manager") or
+[Using Systems Manager Parameter Store](AWSHowTo.secrets.Secrets-Manager-and-Parameter-Store.md#AWSHowTo.secrets.SSM-parmameter-store "AWSHowTo.secrets.Secrets-Manager-and-Parameter-Store.md#AWSHowTo.secrets.SSM-parmameter-store").
 
 The `get-config container` command returns an object that lists platform and environment configuration values for environment
 instances.
@@ -206,7 +206,7 @@ circumstances that can accept the following risks:
   We strongly recommend applying best practices that include testing and backout plans. To help facilitate best
   practices, you can use the Elastic Beanstalk console and EB CLI to clone an
   environment and swap environment URLs. For more information about using these
-  operations, see [Blue/Green deployments](using-features.md "using-features.md") in the _Managing environments_ chapter of this guide.
+  operations, see [Blue/Green deployments](using-features.CNAMESwap.md "using-features.CNAMESwap.md") in the _Managing environments_ chapter of this guide.
 
 If you plan to manually edit yum repository configuration files, run the `pkg-repo` tool first. The `pkg-repo`
 tool might not work as intended in an Amazon Linux 2 environment with manually edited yum repository configuration files. This is because the tool might not
@@ -288,7 +288,7 @@ The previous section provides command line examples for testing on an individual
 for testing. However, it updates only one instance at a time, so it isn’t practical for applying changes to all of the instances in an
 environment.
 
-A more pragmatic approach is to use [platform hook](platforms-linux-extend.md "platforms-linux-extend.md") scripts or an [.ebextensions](ebextensions.md "ebextensions.md") configuration file to apply the changes across all instances in a consistent manner.
+A more pragmatic approach is to use [platform hook](platforms-linux-extend.hooks.md "platforms-linux-extend.hooks.md") scripts or an [.ebextensions](ebextensions.md "ebextensions.md") configuration file to apply the changes across all instances in a consistent manner.
 
 The following example calls `pkg-repo` from a configuration file in the [.ebextensions](ebextensions.md "ebextensions.md") folder. Elastic Beanstalk runs the commands in the `update_package.config` file when you deploy
 your application source bundle.
@@ -330,7 +330,7 @@ commands:
       rm -rf /var/cache/yum
 ```
 
-The following example calls `pkg-repo` from a bash script as a [platform hook](platforms-linux-extend.md "platforms-linux-extend.md").
+The following example calls `pkg-repo` from a bash script as a [platform hook](platforms-linux-extend.hooks.md "platforms-linux-extend.hooks.md").
 Elastic Beanstalk runs the `update_package.sh` script file that's located in the `prebuild` subdirectory.
 
 ```

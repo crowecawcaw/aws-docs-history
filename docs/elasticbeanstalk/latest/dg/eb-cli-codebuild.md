@@ -57,7 +57,7 @@ user policy.
   "codebuild:StartBuild"
 ```
 
-For details, see [Managing Elastic Beanstalk user policies](AWSHowTo.iam.md "AWSHowTo.iam.md").
+For details, see [Managing Elastic Beanstalk user policies](AWSHowTo.iam.managed-policies.md "AWSHowTo.iam.managed-policies.md").
 
 `ComputeType`
 

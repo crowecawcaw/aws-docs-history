@@ -5,7 +5,7 @@ balancer to distribute traffic among the instances in your environment. Elastic 
 [Elastic Load Balancing User Guide](../../../elasticloadbalancing/latest/userguide.md "../../../elasticloadbalancing/latest/userguide.md"). Elastic Beanstalk can create a load balancer for you, or let you specify a shared load balancer that you've created.
 
 This topic describes the configuration of an [Application Load Balancer](../../../elasticloadbalancing/latest/application.md "../../../elasticloadbalancing/latest/application.md") that Elastic Beanstalk creates and dedicates to your environment. See also
-[Configuring a shared Application Load Balancer](environments-cfg-alb-shared.md "environments-cfg-alb-shared.md"). For information about configuring all the load balancer types that Elastic Beanstalk supports, see [Load balancer for your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md").
+[Configuring a shared Application Load Balancer](environments-cfg-alb-shared.md "environments-cfg-alb-shared.md"). For information about configuring all the load balancer types that Elastic Beanstalk supports, see [Load balancer for your Elastic Beanstalk environment](using-features.managing.elb.md "using-features.managing.elb.md").
 
 ###### Note
 
@@ -179,7 +179,7 @@ Use the following settings to configure process health checks:
 The Elastic Load Balancing health check doesn't affect the health check behavior of an environment's Auto Scaling group. Instances that fail an Elastic Load Balancing health check are
 not automatically replaced by Amazon EC2 Auto Scaling unless you manually configure Amazon EC2 Auto Scaling to do so. See [Auto Scaling health check setting for your Elastic Beanstalk environment](environmentconfig-autoscaling-healthchecktype.md "environmentconfig-autoscaling-healthchecktype.md") for details.
 
-For more information about health checks and how they influence your environment's overall health, see [Basic health reporting](using-features.md "using-features.md").
+For more information about health checks and how they influence your environment's overall health, see [Basic health reporting](using-features.healthstatus.md "using-features.healthstatus.md").
 
 #### Sessions
 
@@ -227,7 +227,7 @@ default. When **Store logs** is enabled, Elastic Load Balancing stores the logs 
 ###### Note
 
 If the Amazon S3 bucket that you configure for access log capture isn't the bucket that Elastic Beanstalk created for your account, be sure to add a user policy
-with the appropriate permissions to your AWS Identity and Access Management (IAM) users. The [managed user policies](AWSHowTo.iam.md "AWSHowTo.iam.md") that
+with the appropriate permissions to your AWS Identity and Access Management (IAM) users. The [managed user policies](AWSHowTo.iam.managed-policies.md "AWSHowTo.iam.managed-policies.md") that
 Elastic Beanstalk provides only cover permissions to Elastic Beanstalk-managed resources.
 
 For details about access logs, including permissions and other requirements, see [Access logs

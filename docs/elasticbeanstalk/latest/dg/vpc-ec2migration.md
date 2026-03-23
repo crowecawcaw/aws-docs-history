@@ -53,7 +53,7 @@ environment in the AWS account that you're migrating from. You can do this by us
 
 If your new environment must use the same CNAME after you migrate, terminate the original environment on the EC2-Classic platform. This releases
 the CNAME for use. However, doing so can result in downtime for that environment and can also risk that another customer might select your CNAME
-between you terminating your EC2-Classic environment and creating the new one. For more information, see [Terminate an Elastic Beanstalk environment](using-features.md "using-features.md").
+between you terminating your EC2-Classic environment and creating the new one. For more information, see [Terminate an Elastic Beanstalk environment](using-features.terminating.md "using-features.terminating.md").
 
 For environments that have their own proprietary domain name, the CNAME doesn't have this issue. You can just update your Domain Name System
 (DNS) to forward requests to your new CNAME.

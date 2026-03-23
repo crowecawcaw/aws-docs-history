@@ -11,15 +11,15 @@ about advanced configuration methods, see [Configuring Elastic Beanstalk environ
 
 - [Provisioned resources](#customize-containers-resources "#customize-containers-resources")
 - [Environment configuration using the Elastic Beanstalk console](environments-cfg-console.md "environments-cfg-console.md")
-- [The Amazon EC2 instances for your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md")
-- [Auto Scaling your Elastic Beanstalk environment instances](using-features.managing.md "using-features.managing.md")
-- [Load balancer for your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md")
-- [Adding a database to your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md")
-- [Your AWS Elastic Beanstalk environment security](using-features.managing.md "using-features.managing.md")
-- [Tagging resources in your Elastic Beanstalk environments](using-features.md "using-features.md")
+- [The Amazon EC2 instances for your Elastic Beanstalk environment](using-features.managing.ec2.md "using-features.managing.ec2.md")
+- [Auto Scaling your Elastic Beanstalk environment instances](using-features.managing.as.md "using-features.managing.as.md")
+- [Load balancer for your Elastic Beanstalk environment](using-features.managing.elb.md "using-features.managing.elb.md")
+- [Adding a database to your Elastic Beanstalk environment](using-features.managing.db.md "using-features.managing.db.md")
+- [Your AWS Elastic Beanstalk environment security](using-features.managing.security.md "using-features.managing.security.md")
+- [Tagging resources in your Elastic Beanstalk environments](using-features.tagging.md "using-features.tagging.md")
 - [Environment variables and other software settings](environments-cfg-softwaresettings.md "environments-cfg-softwaresettings.md")
-- [Elastic Beanstalk environment notifications with Amazon SNS](using-features.managing.md "using-features.managing.md")
-- [Configuring Amazon Virtual Private Cloud (Amazon VPC) with Elastic Beanstalk](using-features.managing.md "using-features.managing.md")
+- [Elastic Beanstalk environment notifications with Amazon SNS](using-features.managing.sns.md "using-features.managing.sns.md")
+- [Configuring Amazon Virtual Private Cloud (Amazon VPC) with Elastic Beanstalk](using-features.managing.vpc.md "using-features.managing.vpc.md")
 - [Your Elastic Beanstalk environment's Domain name](customdomains.md "customdomains.md")
 
 ## Provisioned resources

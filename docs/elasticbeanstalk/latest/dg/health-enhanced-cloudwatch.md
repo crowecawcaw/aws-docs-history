@@ -4,7 +4,7 @@ You can publish the data gathered by AWS Elastic Beanstalk enhanced health repor
 changes in application performance over time and identify potential issues by tracking how resource usage and request latency scale with load.
 
 By publishing metrics to CloudWatch, you also make them available for use with [monitoring graphs](environment-health-console.md#environment-health-console-graphs "environment-health-console.md#environment-health-console-graphs") and
-[alarms](using-features.md "using-features.md"). One free metric, _EnvironmentHealth_, is enabled automatically when you use
+[alarms](using-features.alarms.md "using-features.alarms.md"). One free metric, _EnvironmentHealth_, is enabled automatically when you use
 enhanced health reporting. Custom metrics other than _EnvironmentHealth_ incur standard [CloudWatch charges](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
 
 To publish CloudWatch custom metrics for an environment, you must first enable enhanced health reporting on the environment. See [Enabling Elastic Beanstalk enhanced health reporting](health-enhanced-enable.md "health-enhanced-enable.md") for instructions.

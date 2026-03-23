@@ -181,7 +181,7 @@ For high availability, distribute load balancer subnets across Availability Zone
 
 ###### Note
 
-While Elastic Beanstalk supports environment creation with Application Load Balancers, Network Load Balancers, and Classic Load Balancers, the **eb migrate** command only supports Application Load Balancers. For more information about load balancer types, see [Load balancer for your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md").
+While Elastic Beanstalk supports environment creation with Application Load Balancers, Network Load Balancers, and Classic Load Balancers, the **eb migrate** command only supports Application Load Balancers. For more information about load balancer types, see [Load balancer for your Elastic Beanstalk environment](using-features.managing.elb.md "using-features.managing.elb.md").
 
 ## Multi-site deployments with port configurations
 

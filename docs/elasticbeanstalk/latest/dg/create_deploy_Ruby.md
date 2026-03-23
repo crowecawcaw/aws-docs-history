@@ -17,7 +17,7 @@ tutorial](GettingStarted.md "GettingStarted.md") to learn the basics.
 ###### Topics
 
 - [Setting up your Ruby development environment for Elastic Beanstalk](ruby-development-environment.md "ruby-development-environment.md")
-- [Using the Elastic Beanstalk Ruby platform](create_deploy_Ruby.md "create_deploy_Ruby.md")
+- [Using the Elastic Beanstalk Ruby platform](create_deploy_Ruby.container.md "create_deploy_Ruby.container.md")
 - [Deploying a rails application to Elastic Beanstalk](ruby-rails-tutorial.md "ruby-rails-tutorial.md")
 - [Deploying a sinatra application to Elastic Beanstalk](ruby-sinatra-tutorial.md "ruby-sinatra-tutorial.md")
-- [Adding an Amazon RDS DB instance to your Ruby Elastic Beanstalk environment](create_deploy_Ruby.md "create_deploy_Ruby.md")
+- [Adding an Amazon RDS DB instance to your Ruby Elastic Beanstalk environment](create_deploy_Ruby.rds.md "create_deploy_Ruby.rds.md")

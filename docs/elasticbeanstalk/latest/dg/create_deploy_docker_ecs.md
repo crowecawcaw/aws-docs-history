@@ -92,4 +92,4 @@ a failed Amazon ECS task. If a container fails to start in your environment, red
 
 Elastic Beanstalk offers extensibility features that enable you to apply your own commands, scripts, software, and configurations to your application deployments.
 The deployment workflow for the _ECS AL2 and AL2023_ platform branches varies slightly from the other Linux based platforms.
-For more information, see [Instance deployment workflow for ECS running on Amazon Linux 2 and later](platforms-linux-extend.workflow.md "platforms-linux-extend.workflow.md").
+For more information, see [Instance deployment workflow for ECS running on Amazon Linux 2 and later](platforms-linux-extend.workflow.ecs-al2.md "platforms-linux-extend.workflow.ecs-al2.md").

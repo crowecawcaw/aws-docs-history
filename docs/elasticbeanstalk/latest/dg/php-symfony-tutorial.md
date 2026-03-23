@@ -91,7 +91,7 @@ All of these resources are managed by Elastic Beanstalk. When you terminate your
 
 ###### Note
 
-The Amazon S3 bucket that Elastic Beanstalk creates is shared between environments and is not deleted during environment termination. For more information, see [Using Elastic Beanstalk with Amazon S3](AWSHowTo.md "AWSHowTo.md").
+The Amazon S3 bucket that Elastic Beanstalk creates is shared between environments and is not deleted during environment termination. For more information, see [Using Elastic Beanstalk with Amazon S3](AWSHowTo.S3.md "AWSHowTo.S3.md").
 
 ## Install Symfony and generate a website
 
@@ -166,11 +166,11 @@ To serve the Symfony application at the root path, use the Elastic Beanstalk con
 
 After you finish working with the demo code, you can terminate your environment.
 Elastic Beanstalk deletes all related AWS resources, such as
-[Amazon EC2 instances](using-features.managing.md "using-features.managing.md"),
-[database instances](using-features.managing.md "using-features.managing.md"),
-[load balancers](using-features.managing.md "using-features.managing.md"),
+[Amazon EC2 instances](using-features.managing.ec2.md "using-features.managing.ec2.md"),
+[database instances](using-features.managing.db.md "using-features.managing.db.md"),
+[load balancers](using-features.managing.elb.md "using-features.managing.elb.md"),
 security groups,
-and [alarms](using-features.md#using-features.alarms.title "using-features.md#using-features.alarms.title").
+and [alarms](using-features.alarms.md#using-features.alarms.title "using-features.alarms.md#using-features.alarms.title").
 
 Removing resources does not delete the Elastic Beanstalk application, so you can create new environments for your application at any time.
 
@@ -204,7 +204,7 @@ option_settings:
 
 For more information, see [Advanced environment customization with configuration files (.ebextensions)](ebextensions.md "ebextensions.md").
 
-Symfony uses its own configuration files to configure database connections. For instructions on connecting to a database with Symfony, see [Connecting to a database with Symfony](create_deploy_PHP.md#php-rds-symfony "create_deploy_PHP.md#php-rds-symfony").
+Symfony uses its own configuration files to configure database connections. For instructions on connecting to a database with Symfony, see [Connecting to a database with Symfony](create_deploy_PHP.rds.md#php-rds-symfony "create_deploy_PHP.rds.md#php-rds-symfony").
 
 Finally, if you plan on using your application in a production environment, you will want to [configure a custom domain
 name](customdomains.md "customdomains.md") for your environment and [enable HTTPS](configuring-https.md "configuring-https.md") for secure connections.

@@ -21,7 +21,7 @@ If your environment has a coupled database, **it will be deleted as
 part of the rebuild**, and the new database in the rebuilt environment will not
 contain the previous data. If you would like to retain the database or take a snapshot, make
 sure you have the database deletion policy configured properly for the desired results after
-it's rebuilt. For more information, see [Database lifecycle](using-features.managing.md#environments-cfg-rds-lifecycle "using-features.managing.md#environments-cfg-rds-lifecycle").
+it's rebuilt. For more information, see [Database lifecycle](using-features.managing.db.md#environments-cfg-rds-lifecycle "using-features.managing.db.md#environments-cfg-rds-lifecycle").
 
 ###### To rebuild a running environment (console)
 

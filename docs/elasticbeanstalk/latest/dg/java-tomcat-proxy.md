@@ -9,7 +9,7 @@ default proxy configuration that you can extend or override completely with your
 All AL2023/AL2 platforms support a uniform proxy configuration feature.
 For more information about configuring the proxy server on your platform versions
 running AL2023/AL2,
-see [Reverse proxy configuration](platforms-linux-extend.md "platforms-linux-extend.md").
+see [Reverse proxy configuration](platforms-linux-extend.proxy.md "platforms-linux-extend.proxy.md").
 
 If your Elastic Beanstalk Tomcat environment uses an Amazon Linux AMI platform version (preceding Amazon Linux 2), read the additional information in this section.
 
@@ -19,7 +19,7 @@ If your Elastic Beanstalk Tomcat environment uses an Amazon Linux AMI platform v
   (AL1) platform versions and _require different configuration settings_.
 - On [July 18, 2022](../relnotes/release-2022-07-18-linux-al1-retire.md "../relnotes/release-2022-07-18-linux-al1-retire.md"),
   Elastic Beanstalk set the status of all platform branches based on Amazon Linux AMI (AL1) to **retired**.
-  For more information about migrating to a current and fully supported Amazon Linux 2023 platform branch, see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.md "using-features.md").
+  For more information about migrating to a current and fully supported Amazon Linux 2023 platform branch, see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.migration-al.md "using-features.migration-al.md").
   Tomcat platform versions based on Amazon Linux AMI (preceding Amazon Linux 2) use [Apache 2.4](https://httpd.apache.org/docs/2.4/ "https://httpd.apache.org/docs/2.4/") for the proxy
   by default. You can choose to use [Apache 2.2](https://httpd.apache.org/docs/2.2/ "https://httpd.apache.org/docs/2.2/") or [nginx](https://www.nginx.com/ "https://www.nginx.com/") by including a [configuration file](ebextensions.md "ebextensions.md") in your source code. The following example configures Elastic Beanstalk to
   use nginx.
@@ -72,8 +72,8 @@ Apache configuration completely.
 ###### Note
 
 - All Amazon Linux 2 platforms support a uniform proxy configuration feature. For details about configuring the proxy server on Tomcat platform
-  versions running Amazon Linux 2, see [Reverse proxy configuration](platforms-linux-extend.md "platforms-linux-extend.md").
-- If you're migrating your Elastic Beanstalk application to an Amazon Linux 2 platform, be sure to also read the information in [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.md "using-features.md").
+  versions running Amazon Linux 2, see [Reverse proxy configuration](platforms-linux-extend.proxy.md "platforms-linux-extend.proxy.md").
+- If you're migrating your Elastic Beanstalk application to an Amazon Linux 2 platform, be sure to also read the information in [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.migration-al.md "using-features.migration-al.md").
   To extend the Elastic Beanstalk default Apache configuration, add `.conf` configuration files to a folder named
   `.ebextensions/httpd/conf.d` in your application source bundle. The Elastic Beanstalk Apache configuration includes `.conf`
   files in this folder automatically.

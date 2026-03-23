@@ -13,6 +13,6 @@ it to an Elastic Beanstalk environment using the EB CLI.
 - [Elastic Beanstalk Docker platform branches](docker-platform.md "docker-platform.md")
 - [Using the Elastic Beanstalk Docker platform branch](docker.md "docker.md")
 - [Using the ECS managed Docker platform branch in Elastic Beanstalk](create_deploy_docker_ecs.md "create_deploy_docker_ecs.md")
-- [Authenticating with image repositories](docker-configuration.md "docker-configuration.md")
-- [Configuring Elastic Beanstalk Docker environments](create_deploy_docker.container.md "create_deploy_docker.container.md")
+- [Authenticating with image repositories](docker-configuration.remote-repo.md "docker-configuration.remote-repo.md")
+- [Configuring Elastic Beanstalk Docker environments](create_deploy_docker.container.console.md "create_deploy_docker.container.console.md")
 - [Legacy platforms](create_deploy_dockerpreconfig-legacy.md "create_deploy_dockerpreconfig-legacy.md")

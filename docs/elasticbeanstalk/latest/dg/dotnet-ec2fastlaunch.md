@@ -26,7 +26,7 @@ Follow these steps to enable EC2 Fast Launch on a Windows base AMI used by your 
 
 1. Identify your environment's base AMI:
 
-Follow the steps in [Creating a Custom AMI](using-features.md "using-features.md") to identify your environment's base AMI ID. Note that
+Follow the steps in [Creating a Custom AMI](using-features.customenv.md "using-features.customenv.md") to identify your environment's base AMI ID. Note that
 you don't need to create a custom AMI - you only need to follow the steps to locate your current base AMI ID. 2. Enable EC2 Fast Launch on the AMI:
 
 Use the instructions in [Enable EC2 Fast Launch](../../../AWSEC2/latest/UserGuide/win-fast-launch-configure.md "../../../AWSEC2/latest/UserGuide/win-fast-launch-configure.md") in the

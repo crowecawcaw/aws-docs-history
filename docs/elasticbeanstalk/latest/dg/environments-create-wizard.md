@@ -5,7 +5,7 @@ create.
 
 ###### Note
 
-In [Creating an Elastic Beanstalk environment](using-features.md "using-features.md") we show how to launch the **Create
+In [Creating an Elastic Beanstalk environment](using-features.environments.md "using-features.environments.md") we show how to launch the **Create
 environment** wizard and quickly create an environment with default values and recommended settings. This current topic will walk you through
 all of the options.
 
@@ -116,7 +116,7 @@ recommended values for several [configuration options](command-options.md "comma
 
 The **High availability** presets include a load balancer, and are recommended for production environments. Choose them if you want
 an environment that can run multiple instances for high availability and scale in response to load. The **Single instance** presets are
-primarily recommended for development. Two of the presets enable Spot Instance requests. For details about Elastic Beanstalk capacity configuration, see [Auto Scaling group](using-features.managing.md "using-features.managing.md").
+primarily recommended for development. Two of the presets enable Spot Instance requests. For details about Elastic Beanstalk capacity configuration, see [Auto Scaling group](using-features.managing.as.md "using-features.managing.as.md").
 
 The last preset, **Custom configuration**, removes all recommended values except role settings and uses the API defaults. Choose
 this option if you are deploying a source bundle with [configuration files](ebextensions.md "ebextensions.md") that set configuration options.
@@ -156,7 +156,7 @@ details, see [Environment variables and other software settings](environments-cf
 #### Instances
 
 Use the **Modify instances** configuration page to configure the Amazon EC2 instances that run your application. For details, see
-[The Amazon EC2 instances for your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md").
+[The Amazon EC2 instances for your Elastic Beanstalk environment](using-features.managing.ec2.md "using-features.managing.ec2.md").
 
 ![Modify instances configuration page](images/wizard-instances.png)
 
@@ -176,7 +176,7 @@ A single-instance environment isn't production ready. If the instance becomes un
 instance during a configuration update, your application can be unavailable for a period of time. Use single-instance environments for development,
 testing, or staging. Use load-balanced environments for production.
 
-For more information about environment capacity settings, see [Auto Scaling your Elastic Beanstalk environment instances](using-features.managing.md "using-features.managing.md") and [The Amazon EC2 instances for your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md").
+For more information about environment capacity settings, see [Auto Scaling your Elastic Beanstalk environment instances](using-features.managing.as.md "using-features.managing.as.md") and [The Amazon EC2 instances for your Elastic Beanstalk environment](using-features.managing.ec2.md "using-features.managing.ec2.md").
 
 ![Modify capacity configuration page](images/wizard-capacity.png)
 
@@ -190,15 +190,15 @@ types of load balancer. By default, the Elastic Beanstalk console creates an App
 
 You can only select your environment's load balancer type during environment creation.
 
-For more information about load balancer types and settings, see [Load balancer for your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md") and [Configuring HTTPS for your Elastic Beanstalk environment](configuring-https.md "configuring-https.md").
+For more information about load balancer types and settings, see [Load balancer for your Elastic Beanstalk environment](using-features.managing.elb.md "using-features.managing.elb.md") and [Configuring HTTPS for your Elastic Beanstalk environment](configuring-https.md "configuring-https.md").
 
 ![Load balancer configuration during environment creation](images/wizard-elb.png)
 
 ###### Note
 
 The Classic Load Balancer (CLB) option is disabled on the **Create Environment** console wizard. If you have an existing environment configured with a
-Classic Load Balancer you can create a new one by [cloning the existing environment](using-features.managing.md "using-features.managing.md") using either the Elastic Beanstalk console or
-the [EB CLI](using-features.managing.md#using-features.managing.clone.CLI "using-features.managing.md#using-features.managing.clone.CLI"). You also have the option to use the EB
+Classic Load Balancer you can create a new one by [cloning the existing environment](using-features.managing.clone.md "using-features.managing.clone.md") using either the Elastic Beanstalk console or
+the [EB CLI](using-features.managing.clone.md#using-features.managing.clone.CLI "using-features.managing.clone.md#using-features.managing.clone.CLI"). You also have the option to use the EB
 CLI or the [AWS CLI](environments-create-awscli.md "environments-create-awscli.md") to create a new environment configured with a Classic Load Balancer. These command line tools
 will create a new environment with a CLB even if one doesn’t already exist in your account.
 
@@ -208,7 +208,7 @@ Use the **Modify rolling updates and deployments** configuration page to configu
 and configuration updates for your environment.
 
 Application deployments happen when you upload an updated application source bundle and deploy it to your environment. For more information about
-configuring deployments, see [Deployment policies and settings](using-features.md "using-features.md").
+configuring deployments, see [Deployment policies and settings](using-features.rolling-version-deploy.md "using-features.rolling-version-deploy.md").
 
 ![Application deployments section in the modify rolling updates and deployments configuration page](images/environment-cfg-rollingdeployments.png)
 
@@ -256,7 +256,7 @@ to create a Role that you can subsequently select for the **EC2 instance profile
 #### Monitoring
 
 Use the **Modify monitoring** configuration page to configure health reporting, monitoring rules, and health event streaming. For
-details, see [Enabling Elastic Beanstalk enhanced health reporting](health-enhanced-enable.md "health-enhanced-enable.md"), [Configuring enhanced health rules for an environment](health-enhanced-rules.md "health-enhanced-rules.md"), and [Streaming Elastic Beanstalk environment health information to Amazon CloudWatch Logs](AWSHowTo.cloudwatchlogs.md "AWSHowTo.cloudwatchlogs.md").
+details, see [Enabling Elastic Beanstalk enhanced health reporting](health-enhanced-enable.md "health-enhanced-enable.md"), [Configuring enhanced health rules for an environment](health-enhanced-rules.md "health-enhanced-rules.md"), and [Streaming Elastic Beanstalk environment health information to Amazon CloudWatch Logs](AWSHowTo.cloudwatchlogs.envhealth.md "AWSHowTo.cloudwatchlogs.envhealth.md").
 
 ![Modify monitoring configuration page](images/wizard-monitoring.png)
 
@@ -269,13 +269,13 @@ enabled, set the schedule, and configure other properties. For details, see [Man
 
 #### Notifications
 
-Use the **Modify notifications** configuration page to specify an email address to receive [email notifications](using-features.managing.md "using-features.managing.md") for important events from your environment.
+Use the **Modify notifications** configuration page to specify an email address to receive [email notifications](using-features.managing.sns.md "using-features.managing.sns.md") for important events from your environment.
 
 ![Modify notifications configuration page](images/wizard-notifications.png)
 
 #### Network
 
-If you have created a [custom VPC](using-features.managing.md "using-features.managing.md"), the **Modify network** configuration page to
+If you have created a [custom VPC](using-features.managing.vpc.md "using-features.managing.vpc.md"), the **Modify network** configuration page to
 configure your environment to use it. If you don't choose a VPC, Elastic Beanstalk uses the default VPC and subnets.
 
 ![Modify network configuration page](images/wizard-network.png)
@@ -286,14 +286,14 @@ Use the **Modify database** configuration page to add an Amazon Relational Datab
 testing. Elastic Beanstalk provides connection information to your instances by setting environment properties for the database hostname, user name, password,
 table name, and port.
 
-For details, see [Adding a database to your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md").
+For details, see [Adding a database to your Elastic Beanstalk environment](using-features.managing.db.md "using-features.managing.db.md").
 
 ![Modify database configuration page](images/wizard-database.png)
 
 #### Tags
 
 Use the **Modify tags** configuration page to add [tags](../../../AWSEC2/latest/UserGuide/Using_Tags.md "../../../AWSEC2/latest/UserGuide/Using_Tags.md") to the resources in
-your environment. For more information about environment tagging, see [Tagging resources in your Elastic Beanstalk environments](using-features.md "using-features.md").
+your environment. For more information about environment tagging, see [Tagging resources in your Elastic Beanstalk environments](using-features.tagging.md "using-features.tagging.md").
 
 ![Modify tags configuration page](images/environment-create-tags.png)
 

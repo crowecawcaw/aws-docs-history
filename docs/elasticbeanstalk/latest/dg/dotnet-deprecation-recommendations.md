@@ -22,7 +22,7 @@ For more information about platform deprecation, see [Elastic Beanstalk platform
 ###### Note
 
 If you cannot migrate to these fully supported platforms, we recommend using custom AMIs created with Windows Server 2012 R2 or Windows Server 2012
-R2 Core AMIs as the base image, if you have not done so already. For detailed instructions, see [Preserving access to an Amazon Machine Image (AMI) for a retired platform](using-features.md "using-features.md"). Reach out to the [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/") if you need temporary
+R2 Core AMIs as the base image, if you have not done so already. For detailed instructions, see [Preserving access to an Amazon Machine Image (AMI) for a retired platform](using-features.customenv-env-copy.md "using-features.customenv-env-copy.md"). Reach out to the [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/") if you need temporary
 access to an AMI while you perform one of these migration steps.
 
 ## TLS 1.2 Compatibility
@@ -59,4 +59,4 @@ on [Dec 28,
 
 For a list of the most recent and supported Windows Server platform versions, see [Supported Platforms](../platforms/platforms-supported.md#platforms-supported.net "../platforms/platforms-supported.md#platforms-supported.net") in the _AWS Elastic Beanstalk Platforms_ guide.
 
-For details and best practices about updating your environment, see [Updating your Elastic Beanstalk environment's platform version](using-features.platform.md "using-features.platform.md").
+For details and best practices about updating your environment, see [Updating your Elastic Beanstalk environment's platform version](using-features.platform.upgrade.md "using-features.platform.upgrade.md").

@@ -6,7 +6,7 @@ updating configuration options.
 
 When you set or change a configuration option, you can trigger a full environment update, depending on the severity of the change. For example, changes
 to options in the [aws:autoscaling:launchconfiguration](command-options-general.md#command-options-general-autoscalinglaunchconfiguration "command-options-general.md#command-options-general-autoscalinglaunchconfiguration"), such as
-`InstanceType`, require that the Amazon EC2 instances in your environment are reprovisioned. This triggers a [rolling update](using-features.md "using-features.md"). Other configuration changes can be applied without any interruption or
+`InstanceType`, require that the Amazon EC2 instances in your environment are reprovisioned. This triggers a [rolling update](using-features.rollingupdates.md "using-features.rollingupdates.md"). Other configuration changes can be applied without any interruption or
 reprovisioning.
 
 You can remove option settings from an environment with EB CLI or AWS CLI commands. Removing

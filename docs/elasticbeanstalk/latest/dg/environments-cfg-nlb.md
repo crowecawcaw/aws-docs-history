@@ -5,7 +5,7 @@ balancer to distribute traffic among the instances in your environment. Elastic 
 [Elastic Load Balancing User Guide](../../../elasticloadbalancing/latest/userguide.md "../../../elasticloadbalancing/latest/userguide.md"). Elastic Beanstalk can create a load balancer for you, or let you specify a shared load balancer that you've created.
 
 This topic describes the configuration of a [Network Load Balancer](../../../elasticloadbalancing/latest/network.md "../../../elasticloadbalancing/latest/network.md") that Elastic Beanstalk creates and dedicates to your environment. For
-information about configuring all the load balancer types that Elastic Beanstalk supports, see [Load balancer for your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md").
+information about configuring all the load balancer types that Elastic Beanstalk supports, see [Load balancer for your Elastic Beanstalk environment](using-features.managing.elb.md "using-features.managing.elb.md").
 
 ###### Note
 
@@ -130,7 +130,7 @@ Use the following settings to configure process health checks:
 The Elastic Load Balancing health check doesn't affect the health check behavior of an environment's Auto Scaling group. Instances that fail an Elastic Load Balancing health check will
 not automatically be replaced by Amazon EC2 Auto Scaling unless you manually configure Amazon EC2 Auto Scaling to do so. See [Auto Scaling health check setting for your Elastic Beanstalk environment](environmentconfig-autoscaling-healthchecktype.md "environmentconfig-autoscaling-healthchecktype.md") for details.
 
-For more information about health checks and how they influence your environment's overall health, see [Basic health reporting](using-features.md "using-features.md").
+For more information about health checks and how they influence your environment's overall health, see [Basic health reporting](using-features.healthstatus.md "using-features.healthstatus.md").
 
 ## Example: Network Load Balancer for an environment with end-to-end encryption
 

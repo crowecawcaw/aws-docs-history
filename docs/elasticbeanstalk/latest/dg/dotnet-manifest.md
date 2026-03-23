@@ -163,8 +163,8 @@ requests at the root path.
 
 A sample application with multiple applications is available here:
 
-- **Deployable source bundle** - [dotnet-multiapp-sample-bundle-v2.zip](samples/dotnet-multiapp-sample-bundle-v2.md "samples/dotnet-multiapp-sample-bundle-v2.md")
-- **Source code** - [dotnet-multiapp-sample-source-v2.zip](samples/dotnet-multiapp-sample-source-v2.md "samples/dotnet-multiapp-sample-source-v2.md")
+- **Deployable source bundle** - [dotnet-multiapp-sample-bundle-v2.zip](samples/dotnet-multiapp-sample-bundle-v2.zip.md "samples/dotnet-multiapp-sample-bundle-v2.zip.md")
+- **Source code** - [dotnet-multiapp-sample-source-v2.zip](samples/dotnet-multiapp-sample-source-v2.zip.md "samples/dotnet-multiapp-sample-source-v2.zip.md")
 
 ## Configure IIS websites
 

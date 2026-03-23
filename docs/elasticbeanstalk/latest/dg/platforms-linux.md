@@ -10,8 +10,8 @@ provided by AWS. Elastic Beanstalk Linux platforms use Amazon Elastic Compute Cl
 
 - [Supported Amazon Linux versions](#platforms-linux.versions "#platforms-linux.versions")
 - [List of Elastic Beanstalk Linux platforms](#platforms-linux.list "#platforms-linux.list")
-- [Instance deployment workflow](platforms-linux-extend.md "platforms-linux-extend.md")
-- [Instance deployment workflow for ECS running on Amazon Linux 2 and later](platforms-linux-extend.workflow.md "platforms-linux-extend.workflow.md")
+- [Instance deployment workflow](platforms-linux-extend.workflow.md "platforms-linux-extend.workflow.md")
+- [Instance deployment workflow for ECS running on Amazon Linux 2 and later](platforms-linux-extend.workflow.ecs-al2.md "platforms-linux-extend.workflow.ecs-al2.md")
 - [Platform script tools for your Elastic Beanstalk environments](custom-platforms-scripts.md "custom-platforms-scripts.md")
 
 ## Supported Amazon Linux versions
@@ -25,12 +25,12 @@ For more information about Amazon Linux 2 and Amazon Linux 2023, see the followi
 - Amazon Linux 2023 – [What is Amazon
   Linux 2023?](../../../linux/al2023/ug/what-is-amazon-linux.md "../../../linux/al2023/ug/what-is-amazon-linux.md") in the _Amazon Linux 2023 User Guide_
 
-For details about supported platform versions, see [Elastic Beanstalk supported platforms](concepts.md "concepts.md").
+For details about supported platform versions, see [Elastic Beanstalk supported platforms](concepts.platforms.md "concepts.platforms.md").
 
 ###### Note
 
 You can migrate your application from an Elastic Beanstalk AL1 or AL2 platform branch to the equivalent AL2023 platform branch.
-For more information, see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.md "using-features.md").
+For more information, see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.migration-al.md "using-features.migration-al.md").
 
 ### Amazon Linux 2023
 
@@ -68,19 +68,19 @@ Although there are some differences to note:
        `.htpasswd` files.
 
   You can change any of the above configuration settings for your environment. For more
-  information, see [Configuring Apache HTTPD](platforms-linux-extend.md#platforms-linux-extend.proxy.httpd "platforms-linux-extend.md#platforms-linux-extend.proxy.httpd").
+  information, see [Configuring Apache HTTPD](platforms-linux-extend.proxy.md#platforms-linux-extend.proxy.httpd "platforms-linux-extend.proxy.md#platforms-linux-extend.proxy.httpd").
 
 - Multiline environment variable support – AL2023 platforms
   support multiline values for environment variables and secrets in systemd service
   configurations. Amazon Linux 2 platforms do not support multiline environment variable values. This
   enhancement allows you to use multiline secrets and configuration values on AL2023
-  platforms. For more information about using environment variables and secrets, see [Multiline values in Amazon Linux 2 environment variables](AWSHowTo.secrets.md#AWSHowTo.secrets.multiline "AWSHowTo.secrets.md#AWSHowTo.secrets.multiline").
+  platforms. For more information about using environment variables and secrets, see [Multiline values in Amazon Linux 2 environment variables](AWSHowTo.secrets.env-vars.md#AWSHowTo.secrets.multiline "AWSHowTo.secrets.env-vars.md#AWSHowTo.secrets.multiline").
 - CloudWatch custom log forwarding – The deprecated
   CloudWatch Logs agent (`awslogs` package) is not available on AL2023
   platforms. If you have custom log forwarding configurations that install and use the
   deprecated `awslogs` agent, you must update your configuration files to
   use the unified CloudWatch agent when migrating from Amazon Linux 2 to AL2023. For more
-  information, see [Custom log file streaming](AWSHowTo.md#AWSHowTo.cloudwatchlogs.streaming.custom "AWSHowTo.md#AWSHowTo.cloudwatchlogs.streaming.custom").
+  information, see [Custom log file streaming](AWSHowTo.cloudwatchlogs.md#AWSHowTo.cloudwatchlogs.streaming.custom "AWSHowTo.cloudwatchlogs.md#AWSHowTo.cloudwatchlogs.streaming.custom").
 
 Platform-specific differences
 

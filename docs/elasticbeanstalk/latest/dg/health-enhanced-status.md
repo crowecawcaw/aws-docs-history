@@ -1,6 +1,6 @@
 # Health colors and statuses
 
-Enhanced health reporting represents instance and overall environment health by using four colors, similar to [basic health reporting](using-features.md "using-features.md"). Enhanced health reporting also provides seven health statuses, which are single-word
+Enhanced health reporting represents instance and overall environment health by using four colors, similar to [basic health reporting](using-features.healthstatus.md "using-features.healthstatus.md"). Enhanced health reporting also provides seven health statuses, which are single-word
 descriptors that provide a better indication of the state of your environment.
 
 ## Instance status and environment status
@@ -102,7 +102,7 @@ cause Elastic Beanstalk to transition the environment to the **Suspended** statu
 
 _Example:_ Elastic Beanstalk can't access the environment's [service role](iam-servicerole.md "iam-servicerole.md").
 
-_Example:_ The [Auto Scaling group](using-features.managing.md "using-features.managing.md") that Elastic Beanstalk created for the environment has been deleted.
+_Example:_ The [Auto Scaling group](using-features.managing.as.md "using-features.managing.as.md") that Elastic Beanstalk created for the environment has been deleted.
 
 _Message:_ Environment health has transitioned from **OK** to **Severe**. There are no instances. Auto Scaling group desired capacity
 is set to 1.

@@ -17,7 +17,7 @@ You can always launch a new environment using the same version later.
 If you have data from an environment that you want to preserve, set the database deletion policy to `Retain` before terminating the
 environment. This keeps the database operational outside of Elastic Beanstalk. After this, any Elastic Beanstalk environments must connect to it as an external database. If you
 want to back up the data without keeping the database operational, set the deletion policy to take a snapshot of the database before terminating the
-environment. For more information, see [Database lifecycle](using-features.managing.md#environments-cfg-rds-lifecycle "using-features.managing.md#environments-cfg-rds-lifecycle") in the
+environment. For more information, see [Database lifecycle](using-features.managing.db.md#environments-cfg-rds-lifecycle "using-features.managing.db.md#environments-cfg-rds-lifecycle") in the
 _Configuring environments_ chapter of this guide.
 
 ###### Important

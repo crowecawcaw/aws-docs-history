@@ -86,6 +86,24 @@ aws elasticbeanstalk retrieve-environment-info \
 The response includes an AI-generated analysis of the current state of the environment. If any issues are identified, recommended solutions
 are presented.
 
+## Using AI analysis with the EB CLI
+
+If you use the EB CLI, you can request AI analysis with the `--analyze` (`-ai`) option of the
+**eb logs** command. The command requests the analysis, waits for it to complete, and displays the results.
+
+###### Example EB CLI - Request AI analysis
+
+```
+$ `eb logs --analyze`
+```
+
+The `--analyze` option is not compatible with `--instance`, `--all`, `--zip`, or
+`--log-group`. For the full command reference, see [eb logs](eb3-logs.md "eb3-logs.md").
+
+###### Note
+
+The `--analyze` option requires EB CLI version 3.27 or later.
+
 ## Important considerations
 
 - **Pricing** – AI analysis uses Amazon Bedrock to process your environment data, and standard Amazon Bedrock
@@ -93,7 +111,7 @@ are presented.
   Pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/").
 - **Platform requirement** – AI analysis is available only on Amazon Linux 2 and AL2023 based platform versions
   released on or after February 16, 2026. To use this feature, update your environment to a supported platform version. For more information, see
-  [Updating your Elastic Beanstalk environment's platform version](using-features.platform.md "using-features.platform.md").
+  [Updating your Elastic Beanstalk environment's platform version](using-features.platform.upgrade.md "using-features.platform.upgrade.md").
 - **Permissions** – Before using AI analysis, ensure that your instance profile has the required Amazon Bedrock
   permissions (`bedrock:InvokeModel` and `bedrock:ListFoundationModels`) and Elastic Beanstalk permissions
   (`elasticbeanstalk:DescribeEvents` and `elasticbeanstalk:DescribeEnvironmentHealth`).

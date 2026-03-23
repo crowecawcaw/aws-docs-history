@@ -28,7 +28,7 @@ current configuration so that you can roll back later, if needed. You can also a
 Swap the CNAME of the current environment with a new environment. After a CNAME swap, all traffic to the application using the environment URL goes
 to the new environment. When you are ready to deploy a new version of your application, you can launch a separate environment under the new version.
 When the new environment is ready to start taking requests, perform a CNAME swap to start routing traffic to the new environment. Doing this doesn't
-interrupt your services. For more information, see [Blue/Green deployments with Elastic Beanstalk](using-features.md "using-features.md").
+interrupt your services. For more information, see [Blue/Green deployments with Elastic Beanstalk](using-features.CNAMESwap.md "using-features.CNAMESwap.md").
 
 ## Clone environment
 
@@ -61,5 +61,5 @@ automatically before deleting the instance. This is the default setting when you
 
 Terminate all resources in the running environment and remove the environment from the application. If you have an RDS instance that is running in a
 data tier and you need to retain its data, make sure the _database deletion policy_ is set to either `Snapshot` or
-`Retain`. For more information, see [Database lifecycle](using-features.managing.md#environments-cfg-rds-lifecycle "using-features.managing.md#environments-cfg-rds-lifecycle") in the
+`Retain`. For more information, see [Database lifecycle](using-features.managing.db.md#environments-cfg-rds-lifecycle "using-features.managing.db.md#environments-cfg-rds-lifecycle") in the
 _Configuring environments_ chapter of this guide.

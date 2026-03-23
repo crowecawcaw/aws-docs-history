@@ -1,105 +1,243 @@
-# Streaming Elastic Beanstalk environment health information to Amazon CloudWatch Logs
+# Using Elastic Beanstalk with Amazon CloudWatch Logs
 
-If you enable [enhanced health](health-enhanced.md "health-enhanced.md") reporting for your environment, you can configure the environment to stream health
-information to CloudWatch Logs. This streaming is independent from Amazon EC2 instance log streaming. This topic describes environment health information streaming. For
-information about instance log streaming, see [Using Elastic Beanstalk with Amazon CloudWatch Logs](AWSHowTo.md "AWSHowTo.md").
+This topic explains the monitoring features that the Amazon CloudWatch Logs service can provide to Elastic Beanstalk. It also walks you through the configuration setup and lists
+the locations of the logs for each Elastic Beanstalk platform.
 
-When you configure environment health streaming, Elastic Beanstalk creates a CloudWatch Logs log group for environment health. The log group's name is
-`/aws/elasticbeanstalk/`environment-name`/environment-health.log`. Within this log group, Elastic Beanstalk creates log streams
-named ``YYYY-MM-DD`#`<hash-suffix>`` (there might be more than one log stream per date).
+Implementing CloudWatch Logs can enable you to do the following monitoring activities:
 
-When the environment's health status changes, Elastic Beanstalk adds a record to the health log stream. The record represents the health status transition—the
-new status and a description of the cause of change. For example, an environment's status might change to Severe because the load balancer is
-failing. For a description of enhanced health statuses, see [Health colors and statuses](health-enhanced-status.md "health-enhanced-status.md").
+- Monitor and archive your Elastic Beanstalk application, system, and custom log files from the Amazon EC2 instances of your environments.
+- Configure alarms that make it easier for you to react to specific log stream events that your metric filters extract.
+  The CloudWatch Logs agent installed on each Amazon EC2 instance in your environment publishes metric data points to the CloudWatch service for each log group you configure.
+  Each log group applies its own filter patterns to determine what log stream events to send to CloudWatch as data points. Log streams that belong to the same log
+  group share the same retention, monitoring, and access control settings. You can configure Elastic Beanstalk to automatically stream logs to the CloudWatch service, as
+  described in [Streaming instance logs to CloudWatch Logs](#AWSHowTo.cloudwatchlogs.streaming "#AWSHowTo.cloudwatchlogs.streaming"). For more information about CloudWatch Logs,
+  including terminology and concepts, see the [Amazon CloudWatch Logs User
+  Guide](../../../AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatchLogs.md").
 
-## Prerequisites to environment health streaming to CloudWatch Logs
+In addition to instance logs, if you enable [enhanced health](health-enhanced.md "health-enhanced.md") for your environment, you can configure the
+environment to stream health information to CloudWatch Logs. See [Streaming Elastic Beanstalk environment health information to Amazon CloudWatch Logs](AWSHowTo.cloudwatchlogs.envhealth.md "AWSHowTo.cloudwatchlogs.envhealth.md").
 
-To enable environment health streaming to CloudWatch Logs, you must meet the following conditions:
+###### Topics
 
-- _Platform_ – You must be using a platform version that supports enhanced health reporting.
-- _Permissions_ – You must grant certain logging-related permissions to Elastic Beanstalk so that it can act on your behalf to stream
-  health information for your environment. If your environment isn't using a service role that Elastic Beanstalk created for it,
-  `aws-elasticbeanstalk-service-role`, or your account's service-linked role, `AWSServiceRoleForElasticBeanstalk`, be sure to
-  add the following permissions to your custom service role.
+- [Prerequisites to instance log streaming to CloudWatch Logs](#AWSHowTo.cloudwatchlogs.prereqs "#AWSHowTo.cloudwatchlogs.prereqs")
+- [How Elastic Beanstalk sets up CloudWatch Logs](#AWSHowTo.cloudwatchlogs.loggroups "#AWSHowTo.cloudwatchlogs.loggroups")
+- [Streaming instance logs to CloudWatch Logs](#AWSHowTo.cloudwatchlogs.streaming "#AWSHowTo.cloudwatchlogs.streaming")
+- [Troubleshooting CloudWatch Logs integration](#AWSHowTo.cloudwatchlogs.troubleshoot "#AWSHowTo.cloudwatchlogs.troubleshoot")
+- [Streaming Elastic Beanstalk environment health information to Amazon CloudWatch Logs](AWSHowTo.cloudwatchlogs.envhealth.md "AWSHowTo.cloudwatchlogs.envhealth.md")
+
+## Prerequisites to instance log streaming to CloudWatch Logs
+
+To enable streaming of logs from your environment's Amazon EC2 instances to CloudWatch Logs, you must meet the following conditions.
+
+- _Platform_ – Because this feature is only available in platform versions released on or after [this release](https://aws.amazon.com/releasenotes/6677534638371416 "https://aws.amazon.com/releasenotes/6677534638371416"), if you are using an earlier platform version, update your environment to a
+  current one.
+- If you don't have the _AWSElasticBeanstalkWebTier_ or _AWSElasticBeanstalkWorkerTier_ Elastic Beanstalk managed policy
+  in your [Elastic Beanstalk instance profile](concepts-roles-instance.md "concepts-roles-instance.md"), you must add the following to your profile to enable this
+  feature.
+
+JSON
 
 ```
-{
-      "Effect": "Allow",
-      "Action": [
-        "logs:DescribeLogStreams",
-        "logs:CreateLogStream",
-        "logs:PutLogEvents"
-      ],
-      "Resource": "arn:aws:logs:*:*:log-group:/aws/elasticbeanstalk/*:log-stream:*"
-}
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "logs:PutLogEvents",
+ "logs:CreateLogStream"
+ ],
+ "Resource": [
+ "*"
+ ]
+ }
+ ]
+}`
+
 ```
 
-## Streaming environment health logs to CloudWatch Logs
+## How Elastic Beanstalk sets up CloudWatch Logs
 
-You can enable environment health streaming to CloudWatch Logs using the Elastic Beanstalk console, the EB CLI, or configuration options.
+Elastic Beanstalk installs a CloudWatch log agent with the default configuration settings on each instance it creates. Learn more in the [CloudWatch Logs Agent Reference](../../../AmazonCloudWatch/latest/logs/AgentReference.md "../../../AmazonCloudWatch/latest/logs/AgentReference.md").
 
-### Environment health log streaming using the Elastic Beanstalk console
+When you enable instance log streaming to CloudWatch Logs, Elastic Beanstalk sends log files from your environment's instances to CloudWatch Logs. Different platforms stream
+different logs. The following table lists the logs, by platform.
 
-###### To stream environment health logs to CloudWatch Logs
+| Platform / Platform Branch                                                                   | Logs                                                                                                                                                                                                                                  |
+| -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Docker /<br>Platform Branch: Docker Running on 64bit Amazon Linux 2                          | • /var/log/eb-engine.log<br>• /var/log/eb-hooks.log<br>• /var/log/docker<br>• /var/log/docker-events.log<br>• /var/log/eb-docker/containers/eb-current-app/stdouterr.log<br>• /var/log/nginx/access.log<br>• /var/log/nginx/error.log |
+| Docker /<br>Platform Branch: ECS Running on 64bit Amazon Linux 2                             | • /var/log/docker-events.log<br>• /var/log/eb-ecs-mgr.log<br>• /var/log/eb-engine.log<br>• /var/log/eb-hooks.log<br>• /var/log/ecs/ecs-agent.log<br>• /var/log/ecs/ecs-init.log                                                       |
+| Go<br>.NET Core on Linux<br>Java / Platform Branch: Corretto running on 64bit Amazon Linux 2 | • /var/log/eb-engine.log<br>• /var/log/eb-hooks.log<br>• /var/log/web.stdout.log<br>• /var/log/nginx/access.log<br>• /var/log/nginx/error.log                                                                                         |
+| Node.js<br>Python                                                                            | • /var/log/eb-engine.log<br>• /var/log/eb-hooks.log<br>• /var/log/web.stdout.log<br>• /var/log/httpd/access_log<br>• /var/log/httpd/error_log<br>• /var/log/nginx/access.log<br>• /var/log/nginx/error.log                            |
+| Tomcat<br>PHP                                                                                | • /var/log/eb-engine.log<br>• /var/log/eb-hooks.log<br>• /var/log/httpd/access_log<br>• /var/log/httpd/error_log<br>• /var/log/nginx/access.log<br>• /var/log/nginx/error.log                                                         |
+| .NET on Windows Server                                                                       | • C:\inetpub\logs\LogFiles\W3SVC1\u_ex\*.log<br>• C:\Program Files\Amazon\ElasticBeanstalk\logs\AWSDeployment.log<br>• C:\Program Files\Amazon\ElasticBeanstalk\logs\Hooks.log                                                        |
+| Ruby                                                                                         | • /var/log/eb-engine.log<br>• /var/log/eb-hooks.log<br>• /var/log/puma/puma.log<br>• /var/log/web.stdout.log<br>• /var/log/nginx/access.log<br>• /var/log/nginx/error.log                                                             |
+
+###### Note
+
+On [July 18, 2022](../relnotes/release-2022-07-18-linux-al1-retire.md "../relnotes/release-2022-07-18-linux-al1-retire.md"),
+Elastic Beanstalk set the status of all platform branches based on Amazon Linux AMI (AL1) to **retired**.
+For more information about migrating to a current and fully supported Amazon Linux 2023 platform branch, see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.migration-al.md "using-features.migration-al.md").
+
+The following table lists the log files streamed from instances on platform branches based on Amazon Linux AMI (preceding Amazon Linux 2), by platform.
+
+| Platform / Platform Branch                                                                                               | Logs                                                                                                                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Docker /<br>Platform Branch: Docker Running on 64bit Amazon Linux                                                        | • /var/log/eb-activity.log<br>• /var/log/nginx/error.log<br>• /var/log/docker-events.log<br>• /var/log/docker<br>• /var/log/nginx/access.log<br>• /var/log/eb-docker/containers/eb-current-app/stdouterr.log |
+| Docker /<br>Platform Branch: Multicontainer Docker Running on 64bit Amazon Linux                                         | • /var/log/eb-activity.log<br>• /var/log/ecs/ecs-init.log<br>• /var/log/eb-ecs-mgr.log<br>• /var/log/ecs/ecs-agent.log<br>• /var/log/docker-events.log                                                       |
+| Glassfish (Preconfigured Docker)                                                                                         | • /var/log/eb-activity.log<br>• /var/log/nginx/error.log<br>• /var/log/docker-events.log<br>• /var/log/docker<br>• /var/log/nginx/access.log                                                                 |
+| Go                                                                                                                       | • /var/log/eb-activity.log<br>• /var/log/nginx/error.log<br>• /var/log/nginx/access.log                                                                                                                      |
+| Java /<br>Platform Branch: Java 8 running on 64bit Amazon Linux<br>Platform Branch: Java 7 running on 64bit Amazon Linux | • /var/log/eb-activity.log<br>• /var/log/nginx/access.log<br>• /var/log/nginx/error.log<br>• /var/log/web-1.error.log<br>• /var/log/web-1.log                                                                |
+| Tomcat                                                                                                                   | • /var/log/eb-activity.log<br>• /var/log/httpd/error_log<br>• /var/log/httpd/access_log<br>• /var/log/nginx/error_log<br>• /var/log/nginx/access_log                                                         |
+| Node.js                                                                                                                  | • /var/log/eb-activity.log<br>• /var/log/nodejs/nodejs.log<br>• /var/log/nginx/error.log<br>• /var/log/nginx/access.log<br>• /var/log/httpd/error.log<br>• /var/log/httpd/access.log                         |
+| PHP                                                                                                                      | • /var/log/eb-activity.log<br>• /var/log/httpd/error_log<br>• /var/log/httpd/access_log                                                                                                                      |
+| Python                                                                                                                   | • /var/log/eb-activity.log<br>• /var/log/httpd/error_log<br>• /var/log/httpd/access_log<br>• /opt/python/log/supervisord.log                                                                                 |
+| Ruby /<br>Platform Branch: Puma with Ruby running on 64bit Amazon Linux                                                  | • /var/log/eb-activity.log<br>• /var/log/nginx/error.log<br>• /var/log/puma/puma.log<br>• /var/log/nginx/access.log                                                                                          |
+| Ruby / Platform Branch: Passenger with Ruby running on 64bit Amazon Linux                                                | • /var/log/eb-activity.log<br>• /var/app/support/logs/passenger.log<br>• /var/app/support/logs/access.log<br>• /var/app/support/logs/error.log                                                               |
+
+Elastic Beanstalk configures log groups in CloudWatch Logs for the various log files that it streams. To retrieve specific log files from CloudWatch Logs, you have to know the name
+of the corresponding log group. The log group naming scheme depends on the platform's operating system.
+
+For Linux platforms, prefix the on-instance log file location with `/aws/elasticbeanstalk/`environment_name``to
+ get the log group name. For example, to retrieve the file`/var/log/nginx/error.log`, specify the log group
+ `/aws/elasticbeanstalk/`environment_name`/var/log/nginx/error.log`.
+
+For Windows platforms, see the following table for the log group corresponding to each log file.
+
+| On-instance log file                                              | Log group                                               |
+| ----------------------------------------------------------------- | ------------------------------------------------------- |
+| `C:\Program Files\Amazon\ElasticBeanstalk\logs\AWSDeployment.log` | `/aws/elasticbeanstalk/<environment-name>/EBDeploy-Log` |
+| `C:\Program Files\Amazon\ElasticBeanstalk\logs\Hooks.log`         | `/aws/elasticbeanstalk/<environment-name>/EBHooks-Log`  |
+| `C:\inetpub\logs\LogFiles` (the entire directory)                 | `/aws/elasticbeanstalk/<environment-name>/IIS-Log`      |
+
+## Streaming instance logs to CloudWatch Logs
+
+You can enable instance log streaming to CloudWatch Logs using the Elastic Beanstalk console, the EB CLI, or configuration options.
+
+Before you enable it, set up IAM permissions to use with the CloudWatch Logs agent. You can attach the following custom policy to the [instance profile](concepts-roles-instance.md "concepts-roles-instance.md") that you assign to your environment.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "logs:CreateLogStream",
+ "logs:PutLogEvents",
+ "logs:DescribeLogGroups",
+ "logs:DescribeLogStreams"
+ ],
+ "Resource": [
+ "*"
+ ]
+ }
+ ]
+}`
+
+```
+
+### Instance log streaming using the Elastic Beanstalk console
+
+###### To stream instance logs to CloudWatch Logs
 
 1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
    and in the **Regions** list, select your AWS Region.
 2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
 3. In the navigation pane, choose **Configuration**.
-4. In the **Monitoring** configuration category, choose **Edit**.
-5. Under **Health reporting**, make sure that the reporting **System** is set to **Enhanced**.
-6. Under **Health event streaming to CloudWatch Logs**
+4. In the **Updates, monitoring, and logging** configuration category, choose **Edit**.
+5. Under **Instance log streaming to CloudWatch Logs**:
    - Enable **Log streaming**.
    - Set **Retention** to the number of days to save the logs.
    - Select the **Lifecycle** setting that determines whether the logs are saved after the environment is terminated.
 
-7. To save the changes choose **Apply** at the bottom of the page.
+6. To save the changes choose **Apply** at the bottom of the page.
 
-After you enable log streaming, you can return to the **Monitoring** configuration category or page and find the **Log
-Group** link. Click this link to see your environment health logs in the CloudWatch console.
+After you enable log streaming, you can return to the **Software** configuration category or page and find the **Log
+Groups** link. Click this link to see your logs in the CloudWatch console.
 
-### Environment health log streaming using the EB CLI
+### Instance log streaming using the EB CLI
 
-To enable environment health log streaming to CloudWatch Logs using the EB CLI, use the [eb logs](eb3-logs.md "eb3-logs.md") command.
+To enable instance log streaming to CloudWatch Logs using the EB CLI, use the [eb logs](eb3-logs.md "eb3-logs.md") command.
 
 ```
-$ `eb logs --cloudwatch-logs enable --cloudwatch-log-source environment-health`
+$ `eb logs --cloudwatch-logs enable`
 ```
 
-You can also use **eb logs** to retrieve logs from CloudWatch Logs. For example, the following command retrieves all the health logs for your
+You can also use **eb logs** to retrieve logs from CloudWatch Logs. You can retrieve all the environment's instance logs, or use the command's
+many options to specify subsets of logs to retrieve. For example, the following command retrieves the complete set of instance logs for your
 environment, and saves them to a directory under `.elasticbeanstalk/logs`.
 
 ```
-$ `eb logs --all --cloudwatch-log-source environment-health`
+$ `eb logs --all`
 ```
 
-### Environment health log streaming using configuration files
+In particular, the `--log-group` option enables you to retrieve instance logs of a specific log group, corresponding to a specific
+on-instance log file. To do that, you need to know the name of the log group that corresponds to the log file you want to retrieve. You can find this
+information in [How Elastic Beanstalk sets up CloudWatch Logs](#AWSHowTo.cloudwatchlogs.loggroups "#AWSHowTo.cloudwatchlogs.loggroups").
 
-When you create or update an environment, you can use a configuration file to set up and configure environment health log streaming to CloudWatch Logs. To use
-the example below, copy the text into a file with the `.config` extension in the `.ebextensions` directory at the
-top level of your application source bundle. The example configures Elastic Beanstalk to enable environment health log streaming, keep the logs after terminating
-the environment, and save them for 30 days.
+### Instance log streaming using configuration files
 
-###### Example [Health streaming configuration file](samples/aws_eb_cloudwatchlogs-envhealth.md "samples/aws_eb_cloudwatchlogs-envhealth.md")
+When you create or update an environment, you can use a configuration file to set up and configure instance log streaming to CloudWatch Logs. The following
+example configuration file enables default instance log streaming. Elastic Beanstalk streams the default set of log files for your environment's platform. To use
+the example, copy the text into a file with the `.config` extension in the `.ebextensions` directory at the top
+level of your application source bundle.
 
 ```
-############################################################################
-##  Sets up Elastic Beanstalk to stream environment health information
-##  to Amazon CloudWatch Logs.
-##  Works only for environments that have enhanced health reporting enabled.
-############################################################################
-
 option_settings:
-  aws:elasticbeanstalk:cloudwatch:logs:health:
-    HealthStreamingEnabled: true
-    ### Settings below this line are optional.
-    # DeleteOnTerminate: Delete the log group when the environment is
-    # terminated. Default is false. If false, the health data is kept
-    # RetentionInDays days.
-    DeleteOnTerminate: false
-    # RetentionInDays: The number of days to keep the archived health data
-    # before it expires, if DeleteOnTerminate isn't set. Default is 7 days.
-    RetentionInDays: 30
+  - namespace: aws:elasticbeanstalk:cloudwatch:logs
+    option_name: StreamLogs
+    value: true
+
 ```
 
-For option defaults and valid values, see [aws:elasticbeanstalk:cloudwatch:logs:health](command-options-general.md#command-options-general-cloudwatchlogs-health "command-options-general.md#command-options-general-cloudwatchlogs-health").
+### Custom log file streaming
+
+The Elastic Beanstalk integration with CloudWatch Logs doesn't directly support the streaming of custom log files that your application generates. To stream custom logs,
+use a configuration file to directly install the CloudWatch agent and to configure the files to be pushed. For an example configuration file, see [`logs-streamtocloudwatch-linux.config`](https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/configuration-files/aws-provided/instance-configuration/logs-streamtocloudwatch-linux.config "https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/configuration-files/aws-provided/instance-configuration/logs-streamtocloudwatch-linux.config").
+
+###### Note
+
+The example doesn't work on the Windows platform.
+
+For more information about configuring CloudWatch Logs, see the [CloudWatch agent configuration file reference](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-Configuration-File-Details.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-Configuration-File-Details.md") in the
+_Amazon CloudWatch User Guide_.
+
+## Troubleshooting CloudWatch Logs integration
+
+###### Try Amazon Q Developer CLI for AI-assisted troubleshooting
+
+Amazon Q Developer CLI can help you troubleshoot environment issues quickly. The Q CLI provides
+solutions by checking environment status, reviewing events, analyzing logs, and asking clarifying questions. For
+more information and detailed walkthroughs, see [Troubleshooting Elastic Beanstalk Environments with Amazon Q Developer CLI](https://aws.amazon.com/blogs/devops/troubleshooting-elastic-beanstalk-environments-with-amazon-q-developer-cli/ "https://aws.amazon.com/blogs/devops/troubleshooting-elastic-beanstalk-environments-with-amazon-q-developer-cli/") in the AWS blogs.
+
+###### Unable to locate environment instance logs
+
+If you can't find some of the environment's instance logs that you expect in CloudWatch Logs, investigate the following common issues:
+
+- Your IAM role lacks the required IAM permissions.
+- You launched your environment in an AWS Region that doesn't support CloudWatch Logs.
+- One of your custom log files doesn't exist in the path you specified.
+
+###### Application logs missing or intermittent
+
+If your Elastic Beanstalk application logs, (`/var/log/web.stdout.log`), appear to be missing or intermittent, this may be due to default
+rate-limiting settings in rsyslog and journald. While disabling rate-limiting entirely can resolve this issue, it's not recommended as it could lead to
+excessive disk usage, potential denial of service, or system performance degradation during unexpected log bursts. Instead, you can adjust the rate
+limits using the following [`.ebextensions
+ configuration`](https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/configuration-files/aws-provided/instance-configuration/logs-ratelimitcloudwatchlogs-linux.config "https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/configuration-files/aws-provided/instance-configuration/logs-ratelimitcloudwatchlogs-linux.config"). This configuration increases the rate limit interval to 600 seconds with higher burst limits, providing a balance
+between proper logging and system protection.
+
+###### Throttling issues
+
+If an Elastic Beanstalk operation that concurrently launches a large number of instances returns a message like `Error: fail to create log stream:
+ ThrottlingException: Rate exceeded`, it's throttling from too many calls to the CloudWatch API.
+
+To resolve the throttling issue take one of the following actions:
+
+- Use a smaller batch size with rolling deployments to reduce concurrent updates.
+- Request an increase for your AWS account's Transaction Per Second (TPS) limit service quota for _CreateLogStream_. For more
+  information, see [CloudWatch Logs quotas](../../../AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.md "../../../AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.md") and [Managing your CloudWatch Logs service
+  quotas](../../../AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.md#service-quotas-manage "../../../AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.md#service-quotas-manage") in the _Amazon CloudWatch Logs User Guide_.

@@ -194,11 +194,11 @@ You've created, deployed, and updated a PHP application with Elastic Beanstalk!
 
 After you finish working with the demo code, you can terminate your environment.
 Elastic Beanstalk deletes all related AWS resources, such as
-[Amazon EC2 instances](using-features.managing.md "using-features.managing.md"),
-[database instances](using-features.managing.md "using-features.managing.md"),
-[load balancers](using-features.managing.md "using-features.managing.md"),
+[Amazon EC2 instances](using-features.managing.ec2.md "using-features.managing.ec2.md"),
+[database instances](using-features.managing.db.md "using-features.managing.db.md"),
+[load balancers](using-features.managing.elb.md "using-features.managing.elb.md"),
 security groups,
-and [alarms](using-features.md#using-features.alarms.title "using-features.md#using-features.alarms.title").
+and [alarms](using-features.alarms.md#using-features.alarms.title "using-features.alarms.md#using-features.alarms.title").
 
 Removing resources does not delete the Elastic Beanstalk application, so you can create new environments for your application at any time.
 

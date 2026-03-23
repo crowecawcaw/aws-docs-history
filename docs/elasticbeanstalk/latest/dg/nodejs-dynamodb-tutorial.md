@@ -1,10 +1,10 @@
 # Deploying a Node.js application with DynamoDB to Elastic Beanstalk
 
-This tutorial and its example application [nodejs-example-dynamo.zip](samples/nodejs-example-dynamo.md "samples/nodejs-example-dynamo.md") walks you through the process
+This tutorial and its example application [nodejs-example-dynamo.zip](samples/nodejs-example-dynamo.zip.md "samples/nodejs-example-dynamo.zip.md") walks you through the process
 of deploying a Node.js application that uses the AWS SDK for JavaScript in Node.js to interact with the Amazon DynamoDB service. You'll create a DynamoDB table that's in a database that's
 decoupled, or external, from the AWS Elastic Beanstalk environment. You'll also configure the application to use a decoupled database. In a production environment, it's
 best practice to use a database that's decoupled from the Elastic Beanstalk environment so that it's independent from the environment's life cycle. This practice also
-enables you to perform [blue/green deployments](using-features.md "using-features.md").
+enables you to perform [blue/green deployments](using-features.CNAMESwap.md "using-features.CNAMESwap.md").
 
 The example application illustrates the following:
 
@@ -155,7 +155,7 @@ See [Managing Elastic Beanstalk instance profiles](iam-instanceprofile.md "iam-i
 
 ## Deploy the example application
 
-Now your environment is ready for you to deploy and run the example application for this tutorial: [nodejs-example-dynamo.zip](samples/nodejs-example-dynamo.md "samples/nodejs-example-dynamo.md") .
+Now your environment is ready for you to deploy and run the example application for this tutorial: [nodejs-example-dynamo.zip](samples/nodejs-example-dynamo.zip.md "samples/nodejs-example-dynamo.zip.md") .
 
 ###### To deploy and run the tutorial example application
 
@@ -165,7 +165,7 @@ Now your environment is ready for you to deploy and run the example application 
 ~$ `cd nodejs-example-dynamo`
 ```
 
-2. Download and extract the contents of the example application source bundle [nodejs-example-dynamo.zip](samples/nodejs-example-dynamo.md "samples/nodejs-example-dynamo.md") to the application directory `nodejs-example-dynamo`.
+2. Download and extract the contents of the example application source bundle [nodejs-example-dynamo.zip](samples/nodejs-example-dynamo.zip.md "samples/nodejs-example-dynamo.zip.md") to the application directory `nodejs-example-dynamo`.
 3. Deploy the example application to your Elastic Beanstalk environment with the [eb deploy](eb3-deploy.md "eb3-deploy.md") command.
 
 ```
@@ -344,11 +344,11 @@ servers in your environment from being a single point of failure, and to allow y
 
 After you finish working with the demo code, you can terminate your environment.
 Elastic Beanstalk deletes all related AWS resources, such as
-[Amazon EC2 instances](using-features.managing.md "using-features.managing.md"),
-[database instances](using-features.managing.md "using-features.managing.md"),
-[load balancers](using-features.managing.md "using-features.managing.md"),
+[Amazon EC2 instances](using-features.managing.ec2.md "using-features.managing.ec2.md"),
+[database instances](using-features.managing.db.md "using-features.managing.db.md"),
+[load balancers](using-features.managing.elb.md "using-features.managing.elb.md"),
 security groups,
-and [alarms](using-features.md#using-features.alarms.title "using-features.md#using-features.alarms.title").
+and [alarms](using-features.alarms.md#using-features.alarms.title "using-features.alarms.md#using-features.alarms.title").
 
 Removing resources does not delete the Elastic Beanstalk application, so you can create new environments for your application at any time.
 

@@ -21,7 +21,7 @@ You may choose to use Docker Compose to manage various services in one YAML file
 
 - Create a `docker-compose.yml`. This file is required if you're using Docker Compose to manage your application with Elastic Beanstalk.
   If all your deployments are sourced from images in public repositories, then no other configuration files are required.
-  If your deployment's source images are in a private repository, you'll need to do some additional configuration. For more information, see [Using images from a private repository](docker-configuration.md "docker-configuration.md"). For more information about the `docker-compose.yml` file, see [Compose file reference](https://docs.docker.com/compose/compose-file/ "https://docs.docker.com/compose/compose-file/") on the Docker website.
+  If your deployment's source images are in a private repository, you'll need to do some additional configuration. For more information, see [Using images from a private repository](docker-configuration.remote-repo.md "docker-configuration.remote-repo.md"). For more information about the `docker-compose.yml` file, see [Compose file reference](https://docs.docker.com/compose/compose-file/ "https://docs.docker.com/compose/compose-file/") on the Docker website.
 - The `Dockerfile` is optional. Create one if you need Elastic Beanstalk to build and run a local custom image. For more information about the `Dockerfile` see [Dockerfile
   reference](https://docs.docker.com/engine/reference/builder/ "https://docs.docker.com/engine/reference/builder/") on the Docker website.
 - You may need to create a `.zip` file. If you use only a `Dockerfile` file to deploy your application, you don't need to create one. If you use additional configuration files the .zip file must include the `Dockerfile`, the `docker-compose.yml` file, your application files, and any application file dependencies.
@@ -72,7 +72,7 @@ Valid keys and values for the `Dockerrun.aws.json v1` file include the following
 
 (Required only for private repositories) Specifies the Amazon S3 object storing the `.dockercfg` file.
 
-See [Authenticating with image repositories](docker-configuration.md#docker-configuration.remote-repo.dockerrun-aws "docker-configuration.md#docker-configuration.remote-repo.dockerrun-aws")
+See [Authenticating with image repositories](docker-configuration.remote-repo.md#docker-configuration.remote-repo.dockerrun-aws "docker-configuration.remote-repo.md#docker-configuration.remote-repo.dockerrun-aws")
 in _Using images from a private repository_ later in this chapter.
 
 **Image**
@@ -133,7 +133,7 @@ Map volumes from an EC2 instance to your Docker container. Specify one or more a
 
 Specify the directory inside the container to which your application writes logs. Elastic Beanstalk uploads any logs in this directory to Amazon S3 when you
 request tail or bundle logs. If you rotate logs to a folder named `rotated` within this directory, you can also configure
-Elastic Beanstalk to upload rotated logs to Amazon S3 for permanent storage. For more information, see [Viewing logs from Amazon EC2 instances in your Elastic Beanstalk environment](using-features.md "using-features.md").
+Elastic Beanstalk to upload rotated logs to Amazon S3 for permanent storage. For more information, see [Viewing logs from Amazon EC2 instances in your Elastic Beanstalk environment](using-features.logging.md "using-features.logging.md").
 
 **Command**
 

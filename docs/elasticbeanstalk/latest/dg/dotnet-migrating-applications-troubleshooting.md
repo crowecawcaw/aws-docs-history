@@ -28,7 +28,7 @@ For more information about connecting to Windows Amazon EC2 instances, see [Conn
 
 The EB CLI provides an **eb logs** facility which you can use to retrieve logs from an Elastic Beanstalk environment without logging into its EC2 instances. After an execution of **eb migrate**, you can issue the **eb logs --zip** command which will download and save logs into the `.elasticbeanstalk\logs` directory.
 
-Alternatively, you can view logs through the AWS Elastic Beanstalk console. For more information, see [Viewing logs from Amazon EC2 instances in your Elastic Beanstalk environment](using-features.md "using-features.md").
+Alternatively, you can view logs through the AWS Elastic Beanstalk console. For more information, see [Viewing logs from Amazon EC2 instances in your Elastic Beanstalk environment](using-features.logging.md "using-features.logging.md").
 
 ## Accessing client-side artifacts
 

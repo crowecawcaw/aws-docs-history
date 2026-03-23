@@ -10,7 +10,7 @@ Puma_ or _with Passenger_, regardless of their Ruby versions, precede Amazon Lin
 `Procfile` feature.
 
 For details about writing and using a `Procfile`,
-see [Buildfile and Procfile](platforms-linux-extend.md "platforms-linux-extend.md").
+see [Buildfile and Procfile](platforms-linux-extend.build-proc.md "platforms-linux-extend.build-proc.md").
 
 When you don't provide a `Procfile`, Elastic Beanstalk generates a default `Procfile`. If your `Gemfile`
 includes Puma, Elastic Beanstalk assumes you want to use your provided version of Puma and generates the following default `Procfile`.
@@ -31,7 +31,7 @@ web: puma -C /opt/elasticbeanstalk/config/private/pumaconf.rb
 
 On [October 10, 2024](../relnotes/release-2024-10-10-al2-10-2024-retire.md "../relnotes/release-2024-10-10-al2-10-2024-retire.md"),
 the last Ruby Amazon Linux 2 platform branches were retired. All currently [supported Ruby platform branches](../platforms/platforms-supported.md#platforms-supported.ruby "../platforms/platforms-supported.md#platforms-supported.ruby") are based on Amazon Linux 2023.
-For information about migration, see [Migration from Amazon Linux 2 to Amazon Linux 2023](using-features.migration-al.generic.md "using-features.migration-al.generic.md").
+For information about migration, see [Migration from Amazon Linux 2 to Amazon Linux 2023](using-features.migration-al.generic.from-al2.md "using-features.migration-al.generic.from-al2.md").
 
 If you want to use the Passenger application server, use the following example files to configure your Ruby environment to install and use
 Passenger.
