@@ -11,7 +11,7 @@ AWS Elemental Live provides status information through alerts and messages. You 
 
 The following sections describe how to setup
 notifications. For information about viewing alerts and messages on the web
-interface or through the API, see [AWS Elemental Live API Reference](../../../elemental-onprem/latest/pdf/live-api.md "../../../elemental-onprem/latest/pdf/live-api.md").
+interface or through the API, see [AWS Elemental Live API Reference](../../../elemental-onprem/latest/pdf/live-api.pdf.md "../../../elemental-onprem/latest/pdf/live-api.pdf.md").
 
 ###### Topics
 
