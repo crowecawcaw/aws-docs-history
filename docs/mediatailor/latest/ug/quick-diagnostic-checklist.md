@@ -26,7 +26,7 @@ experiencing:
     * Ads fail to play → Check ad transcoding and segment
      availability
 
-441. **Is playback smooth and uninterrupted?**
+446. **Is playback smooth and uninterrupted?**
 
 
     * Buffering issues → Check CDN cache performance and origin response
@@ -36,7 +36,7 @@ experiencing:
     * Ad transition issues → Check ad break timing and segment
      alignment
 
-442. **Are there specific error codes or
+447. **Are there specific error codes or
      messages?**
 
 

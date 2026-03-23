@@ -11,6 +11,13 @@ These features are available for new customers starting September 30, 2025. Exis
 customers will have access throughout 2025 as part of ongoing service improvements. If
 you want immediate access to these features, contact [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
+###### Note
+
+These features apply to both stitched (SSAI) and server-guided (SGAI) ad insertion
+methods. The beacon types and timing are the same in both modes. They differ in how
+MediaTailor triggers beacons — see [Server-side tracking with server-guided ad insertion (SGAI)](ad-reporting-server-side-sgai.md "ad-reporting-server-side-sgai.md") for details on SGAI server-side
+beaconing.
+
 ## Beacon deduplication
 
 MediaTailor prevents duplicate beacon firing for identical ad events. The server-side
@@ -29,7 +36,7 @@ counts:
 - **Player buffering strategies** - When players
   pre-fetch or re-fetch segments for buffering purposes
 
-The system ensures impression beacons fire only once, even when players switch between different quality levels.
+The system is designed to fire impression beacons only once, even when players switch between different quality levels.
 
 ## Adaptive throttling and beacon retries
 
@@ -56,7 +63,7 @@ delays between attempts. This retry behavior cannot be configured.
 
 You can set TPS limits to control beacon delivery rates. This is the only configurable setting for server-side tracking features. Account-level limits cap the total number
 of ad tracking requests sent across all measurement partners. MediaTailor enforces a minimum
-TPS limit of 10,000 to ensure sufficient capacity for enterprise-scale
+TPS limit of 10,000 to provide sufficient capacity for enterprise-scale
 operations.
 
 Submit an AWS support ticket to establish TPS limits with the following

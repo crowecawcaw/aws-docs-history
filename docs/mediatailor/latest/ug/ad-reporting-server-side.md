@@ -51,6 +51,8 @@ from MediaTailor.
 
 ###### Topics
 
+- [SGAI server-side
+  tracking](ad-reporting-server-side-sgai.md "ad-reporting-server-side-sgai.md")
 - [Beacon
   glossary](ad-reporting-server-side-beacon-glossary.md "ad-reporting-server-side-beacon-glossary.md")
 - [Timing and

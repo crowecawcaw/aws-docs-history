@@ -63,6 +63,38 @@ https://your-config.mediatailor.region.amazonaws.com/v1/master/config-name/manif
 
 ```
 
+## Manifest-based prefetch for live SGAI
+
+For live SGAI workflows, you can enable manifest-based prefetch heartbeating to
+reduce ad fill latency. Add `aws.guidedPrefetchMode=MANIFEST` to the
+manifest request:
+
+```
+https://your-config.mediatailor.region.amazonaws.com/v1/master/config-name/manifest.m3u8?aws.insertionMode=GUIDED&aws.guidedPrefetchMode=MANIFEST
+```
+
+When enabled, MediaTailor appends a session identifier
+(`?aws.sessionId=<id>`) as a query parameter to each interstitial
+media manifest (`/v1/i-media`) URL in the multivariant playlist. Each
+time the player refreshes an i-media manifest, the request reaches MediaTailor
+with the session ID, which MediaTailor uses to identify the session and enqueue
+prefetch requests for upcoming ad breaks.
+
+###### Important
+
+**Do not cache i-media manifests in your CDN when using
+guided prefetch.** The prefetch heartbeating mechanism depends on the
+player's manifest refresh requests reaching MediaTailor directly. If your CDN
+caches and serves `/v1/i-media` responses, MediaTailor does not
+receive the heartbeat requests and cannot trigger prefetching. Configure your CDN
+to pass through `/v1/i-media/*` requests to MediaTailor when
+`aws.guidedPrefetchMode=MANIFEST` is in use.
+
+Guided prefetch is independent of the reporting mode. Whether you use server-side
+(default) or client-side (`aws.reportingMode=CLIENT`) tracking, beacons
+fire at playback time, not when ads are prefetched. For general information about how
+ad prefetching works in MediaTailor, see [Prefetching ads](prefetching-ads.md "prefetching-ads.md").
+
 ## Testing SGAI live configuration
 
 Verify your SGAI live setup with these validation steps:

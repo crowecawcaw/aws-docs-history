@@ -9,5 +9,5 @@ linear stream.
 
 ###### Topics
 
-- [Setting up ad insertion with MediaTailor](ca-setting-up-emt-ssai.md "ca-setting-up-emt-ssai.md")
+- [Setting up ad insertion with MediaTailor](ca-setting-up-emt-ssai.topic.md "ca-setting-up-emt-ssai.topic.md")
 - [SCTE-35 messages for ad breaks](ca-scte-35-messages.md "ca-scte-35-messages.md")

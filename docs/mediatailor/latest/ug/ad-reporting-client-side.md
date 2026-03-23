@@ -258,8 +258,25 @@ manifest containing media, you only need to call the tracking endpoint once.
 ### Server-guided ad insertion
 
 Server-guided ad insertion (SGAI) sessions do not use the `GetTracking`
-API. Instead, tracking information is provided in the `TRACKING` section
-of each asset list response when players request ad content.
+API. Instead, when you use `aws.reportingMode=CLIENT`, MediaTailor
+provides tracking information in the `TRACKING` section of each asset
+list response when players request ad content. The session initialization response
+does not include a `trackingUrl`.
+
+The asset list response for client-side tracked SGAI sessions has the following
+structure:
+
+```
+{
+  "ASSETS": [
+    { "DURATION": 20.0, "URI": "https://cdn.example.com/ad1/master.m3u8" },
+    { "DURATION": 10.0, "URI": "https://cdn.example.com/ad2/master.m3u8" }
+  ],
+  "TRACKING": {
+    ...VAST tracking events and beacon URLs for each ad...
+  }
+}
+```
 
 When implementing client-side tracking for SGAI methods:
 
@@ -271,6 +288,14 @@ When implementing client-side tracking for SGAI methods:
   player
 - Handle tracking for each ad break independently as asset lists are
   fetched
+
+###### Important
+
+The `TRACKING` section is only included in the asset list when
+`aws.reportingMode=CLIENT` is set. When server-side reporting is
+used (the default for SGAI), MediaTailor omits the `TRACKING`
+section and embeds beacon data in the ad URIs instead. For details, see
+[Server-side tracking with server-guided ad insertion (SGAI)](ad-reporting-server-side-sgai.md "ad-reporting-server-side-sgai.md").
 
 ## Paging through ad beacons with GetTracking
 
