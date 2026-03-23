@@ -1,6 +1,6 @@
 # Shared AWS Cloud WAN core network
 
-You can use AWS Resource Access Manager to share a core network across accounts or across your organization.
+You can use AWS Resource Access Manager to share a core network across accounts or across organizations.
 By default, AWS Identity and Access Management (IAM) users do not have permission to create or modify AWS RAM
 resources. To allow users to create or modify resources and perform tasks, you must
 create IAM policies that grant permission to use specific resources and API actions. You
